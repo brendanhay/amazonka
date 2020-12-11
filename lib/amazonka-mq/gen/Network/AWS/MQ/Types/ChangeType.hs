@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.ChangeType where
+module Network.AWS.MQ.Types.ChangeType
+  ( ChangeType
+      ( ChangeType',
+        Create,
+        Delete,
+        Update
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of change pending for the ActiveMQ user.
-data ChangeType
-  = Create
-  | Delete
-  | Update
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeType = ChangeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeType where
-  parser =
-    takeLowerText >>= \case
-      "create" -> pure Create
-      "delete" -> pure Delete
-      "update" -> pure Update
-      e ->
-        fromTextError $
-          "Failure parsing ChangeType from value: '" <> e
-            <> "'. Accepted values: create, delete, update"
+pattern Create :: ChangeType
+pattern Create = ChangeType' "CREATE"
 
-instance ToText ChangeType where
-  toText = \case
-    Create -> "CREATE"
-    Delete -> "DELETE"
-    Update -> "UPDATE"
+pattern Delete :: ChangeType
+pattern Delete = ChangeType' "DELETE"
 
-instance Hashable ChangeType
+pattern Update :: ChangeType
+pattern Update = ChangeType' "UPDATE"
 
-instance NFData ChangeType
-
-instance ToByteString ChangeType
-
-instance ToQuery ChangeType
-
-instance ToHeader ChangeType
-
-instance FromJSON ChangeType where
-  parseJSON = parseJSONText "ChangeType"
+{-# COMPLETE
+  Create,
+  Delete,
+  Update,
+  ChangeType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.SsmActionDefinition where
+module Network.AWS.Budgets.Types.SsmActionDefinition
+  ( SsmActionDefinition (..),
+
+    -- * Smart constructor
+    mkSsmActionDefinition,
+
+    -- * Lenses
+    sadActionSubType,
+    sadRegion,
+    sadInstanceIds,
+  )
+where
 
 import Network.AWS.Budgets.Types.ActionSubType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The AWS Systems Manager (SSM) action definition details.
 --
---
---
--- /See:/ 'ssmActionDefinition' smart constructor.
+-- /See:/ 'mkSsmActionDefinition' smart constructor.
 data SsmActionDefinition = SsmActionDefinition'
-  { _sadActionSubType ::
-      !ActionSubType,
-    _sadRegion :: !Text,
-    _sadInstanceIds :: !(List1 Text)
+  { actionSubType ::
+      ActionSubType,
+    region :: Lude.Text,
+    instanceIds :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SsmActionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sadActionSubType' - The action subType.
---
--- * 'sadRegion' - The Region to run the SSM document.
---
--- * 'sadInstanceIds' - The EC2 and RDS instance IDs.
-ssmActionDefinition ::
-  -- | 'sadActionSubType'
+-- * 'actionSubType' - The action subType.
+-- * 'instanceIds' - The EC2 and RDS instance IDs.
+-- * 'region' - The Region to run the SSM document.
+mkSsmActionDefinition ::
+  -- | 'actionSubType'
   ActionSubType ->
-  -- | 'sadRegion'
-  Text ->
-  -- | 'sadInstanceIds'
-  NonEmpty Text ->
+  -- | 'region'
+  Lude.Text ->
+  -- | 'instanceIds'
+  Lude.NonEmpty Lude.Text ->
   SsmActionDefinition
-ssmActionDefinition pActionSubType_ pRegion_ pInstanceIds_ =
+mkSsmActionDefinition pActionSubType_ pRegion_ pInstanceIds_ =
   SsmActionDefinition'
-    { _sadActionSubType = pActionSubType_,
-      _sadRegion = pRegion_,
-      _sadInstanceIds = _List1 # pInstanceIds_
+    { actionSubType = pActionSubType_,
+      region = pRegion_,
+      instanceIds = pInstanceIds_
     }
 
 -- | The action subType.
-sadActionSubType :: Lens' SsmActionDefinition ActionSubType
-sadActionSubType = lens _sadActionSubType (\s a -> s {_sadActionSubType = a})
+--
+-- /Note:/ Consider using 'actionSubType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadActionSubType :: Lens.Lens' SsmActionDefinition ActionSubType
+sadActionSubType = Lens.lens (actionSubType :: SsmActionDefinition -> ActionSubType) (\s a -> s {actionSubType = a} :: SsmActionDefinition)
+{-# DEPRECATED sadActionSubType "Use generic-lens or generic-optics with 'actionSubType' instead." #-}
 
 -- | The Region to run the SSM document.
-sadRegion :: Lens' SsmActionDefinition Text
-sadRegion = lens _sadRegion (\s a -> s {_sadRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadRegion :: Lens.Lens' SsmActionDefinition Lude.Text
+sadRegion = Lens.lens (region :: SsmActionDefinition -> Lude.Text) (\s a -> s {region = a} :: SsmActionDefinition)
+{-# DEPRECATED sadRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The EC2 and RDS instance IDs.
-sadInstanceIds :: Lens' SsmActionDefinition (NonEmpty Text)
-sadInstanceIds = lens _sadInstanceIds (\s a -> s {_sadInstanceIds = a}) . _List1
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadInstanceIds :: Lens.Lens' SsmActionDefinition (Lude.NonEmpty Lude.Text)
+sadInstanceIds = Lens.lens (instanceIds :: SsmActionDefinition -> Lude.NonEmpty Lude.Text) (\s a -> s {instanceIds = a} :: SsmActionDefinition)
+{-# DEPRECATED sadInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance FromJSON SsmActionDefinition where
+instance Lude.FromJSON SsmActionDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "SsmActionDefinition"
       ( \x ->
           SsmActionDefinition'
-            <$> (x .: "ActionSubType")
-            <*> (x .: "Region")
-            <*> (x .: "InstanceIds")
+            Lude.<$> (x Lude..: "ActionSubType")
+            Lude.<*> (x Lude..: "Region")
+            Lude.<*> (x Lude..: "InstanceIds")
       )
 
-instance Hashable SsmActionDefinition
-
-instance NFData SsmActionDefinition
-
-instance ToJSON SsmActionDefinition where
+instance Lude.ToJSON SsmActionDefinition where
   toJSON SsmActionDefinition' {..} =
-    object
-      ( catMaybes
-          [ Just ("ActionSubType" .= _sadActionSubType),
-            Just ("Region" .= _sadRegion),
-            Just ("InstanceIds" .= _sadInstanceIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ActionSubType" Lude..= actionSubType),
+            Lude.Just ("Region" Lude..= region),
+            Lude.Just ("InstanceIds" Lude..= instanceIds)
           ]
       )

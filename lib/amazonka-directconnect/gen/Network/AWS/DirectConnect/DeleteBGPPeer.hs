@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,173 @@
 --
 -- Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.
 --
---
 -- You cannot delete the last BGP peer from a virtual interface.
 module Network.AWS.DirectConnect.DeleteBGPPeer
-  ( -- * Creating a Request
-    deleteBGPPeer,
-    DeleteBGPPeer,
+  ( -- * Creating a request
+    DeleteBGPPeer (..),
+    mkDeleteBGPPeer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbpCustomerAddress,
     dbpAsn,
     dbpBgpPeerId,
     dbpVirtualInterfaceId,
 
-    -- * Destructuring the Response
-    deleteBGPPeerResponse,
-    DeleteBGPPeerResponse,
+    -- * Destructuring the response
+    DeleteBGPPeerResponse (..),
+    mkDeleteBGPPeerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbprsVirtualInterface,
     dbprsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBGPPeer' smart constructor.
+-- | /See:/ 'mkDeleteBGPPeer' smart constructor.
 data DeleteBGPPeer = DeleteBGPPeer'
-  { _dbpCustomerAddress ::
-      !(Maybe Text),
-    _dbpAsn :: !(Maybe Int),
-    _dbpBgpPeerId :: !(Maybe Text),
-    _dbpVirtualInterfaceId :: !(Maybe Text)
+  { customerAddress ::
+      Lude.Maybe Lude.Text,
+    asn :: Lude.Maybe Lude.Int,
+    bgpPeerId :: Lude.Maybe Lude.Text,
+    virtualInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBGPPeer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbpCustomerAddress' - The IP address assigned to the customer interface.
---
--- * 'dbpAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
---
--- * 'dbpBgpPeerId' - The ID of the BGP peer.
---
--- * 'dbpVirtualInterfaceId' - The ID of the virtual interface.
-deleteBGPPeer ::
+-- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+-- * 'bgpPeerId' - The ID of the BGP peer.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'virtualInterfaceId' - The ID of the virtual interface.
+mkDeleteBGPPeer ::
   DeleteBGPPeer
-deleteBGPPeer =
+mkDeleteBGPPeer =
   DeleteBGPPeer'
-    { _dbpCustomerAddress = Nothing,
-      _dbpAsn = Nothing,
-      _dbpBgpPeerId = Nothing,
-      _dbpVirtualInterfaceId = Nothing
+    { customerAddress = Lude.Nothing,
+      asn = Lude.Nothing,
+      bgpPeerId = Lude.Nothing,
+      virtualInterfaceId = Lude.Nothing
     }
 
 -- | The IP address assigned to the customer interface.
-dbpCustomerAddress :: Lens' DeleteBGPPeer (Maybe Text)
-dbpCustomerAddress = lens _dbpCustomerAddress (\s a -> s {_dbpCustomerAddress = a})
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpCustomerAddress :: Lens.Lens' DeleteBGPPeer (Lude.Maybe Lude.Text)
+dbpCustomerAddress = Lens.lens (customerAddress :: DeleteBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: DeleteBGPPeer)
+{-# DEPRECATED dbpCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-dbpAsn :: Lens' DeleteBGPPeer (Maybe Int)
-dbpAsn = lens _dbpAsn (\s a -> s {_dbpAsn = a})
+--
+-- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpAsn :: Lens.Lens' DeleteBGPPeer (Lude.Maybe Lude.Int)
+dbpAsn = Lens.lens (asn :: DeleteBGPPeer -> Lude.Maybe Lude.Int) (\s a -> s {asn = a} :: DeleteBGPPeer)
+{-# DEPRECATED dbpAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
 -- | The ID of the BGP peer.
-dbpBgpPeerId :: Lens' DeleteBGPPeer (Maybe Text)
-dbpBgpPeerId = lens _dbpBgpPeerId (\s a -> s {_dbpBgpPeerId = a})
+--
+-- /Note:/ Consider using 'bgpPeerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpBgpPeerId :: Lens.Lens' DeleteBGPPeer (Lude.Maybe Lude.Text)
+dbpBgpPeerId = Lens.lens (bgpPeerId :: DeleteBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {bgpPeerId = a} :: DeleteBGPPeer)
+{-# DEPRECATED dbpBgpPeerId "Use generic-lens or generic-optics with 'bgpPeerId' instead." #-}
 
 -- | The ID of the virtual interface.
-dbpVirtualInterfaceId :: Lens' DeleteBGPPeer (Maybe Text)
-dbpVirtualInterfaceId = lens _dbpVirtualInterfaceId (\s a -> s {_dbpVirtualInterfaceId = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpVirtualInterfaceId :: Lens.Lens' DeleteBGPPeer (Lude.Maybe Lude.Text)
+dbpVirtualInterfaceId = Lens.lens (virtualInterfaceId :: DeleteBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: DeleteBGPPeer)
+{-# DEPRECATED dbpVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance AWSRequest DeleteBGPPeer where
+instance Lude.AWSRequest DeleteBGPPeer where
   type Rs DeleteBGPPeer = DeleteBGPPeerResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteBGPPeerResponse'
-            <$> (x .?> "virtualInterface") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "virtualInterface")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteBGPPeer
-
-instance NFData DeleteBGPPeer
-
-instance ToHeaders DeleteBGPPeer where
+instance Lude.ToHeaders DeleteBGPPeer where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OvertureService.DeleteBGPPeer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OvertureService.DeleteBGPPeer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteBGPPeer where
+instance Lude.ToJSON DeleteBGPPeer where
   toJSON DeleteBGPPeer' {..} =
-    object
-      ( catMaybes
-          [ ("customerAddress" .=) <$> _dbpCustomerAddress,
-            ("asn" .=) <$> _dbpAsn,
-            ("bgpPeerId" .=) <$> _dbpBgpPeerId,
-            ("virtualInterfaceId" .=) <$> _dbpVirtualInterfaceId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("customerAddress" Lude..=) Lude.<$> customerAddress,
+            ("asn" Lude..=) Lude.<$> asn,
+            ("bgpPeerId" Lude..=) Lude.<$> bgpPeerId,
+            ("virtualInterfaceId" Lude..=) Lude.<$> virtualInterfaceId
           ]
       )
 
-instance ToPath DeleteBGPPeer where
-  toPath = const "/"
+instance Lude.ToPath DeleteBGPPeer where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteBGPPeer where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBGPPeer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBGPPeerResponse' smart constructor.
+-- | /See:/ 'mkDeleteBGPPeerResponse' smart constructor.
 data DeleteBGPPeerResponse = DeleteBGPPeerResponse'
-  { _dbprsVirtualInterface ::
-      !(Maybe VirtualInterface),
-    _dbprsResponseStatus :: !Int
+  { virtualInterface ::
+      Lude.Maybe VirtualInterface,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBGPPeerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbprsVirtualInterface' - The virtual interface.
---
--- * 'dbprsResponseStatus' - -- | The response status code.
-deleteBGPPeerResponse ::
-  -- | 'dbprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'virtualInterface' - The virtual interface.
+mkDeleteBGPPeerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBGPPeerResponse
-deleteBGPPeerResponse pResponseStatus_ =
+mkDeleteBGPPeerResponse pResponseStatus_ =
   DeleteBGPPeerResponse'
-    { _dbprsVirtualInterface = Nothing,
-      _dbprsResponseStatus = pResponseStatus_
+    { virtualInterface = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The virtual interface.
-dbprsVirtualInterface :: Lens' DeleteBGPPeerResponse (Maybe VirtualInterface)
-dbprsVirtualInterface = lens _dbprsVirtualInterface (\s a -> s {_dbprsVirtualInterface = a})
+--
+-- /Note:/ Consider using 'virtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbprsVirtualInterface :: Lens.Lens' DeleteBGPPeerResponse (Lude.Maybe VirtualInterface)
+dbprsVirtualInterface = Lens.lens (virtualInterface :: DeleteBGPPeerResponse -> Lude.Maybe VirtualInterface) (\s a -> s {virtualInterface = a} :: DeleteBGPPeerResponse)
+{-# DEPRECATED dbprsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
 
--- | -- | The response status code.
-dbprsResponseStatus :: Lens' DeleteBGPPeerResponse Int
-dbprsResponseStatus = lens _dbprsResponseStatus (\s a -> s {_dbprsResponseStatus = a})
-
-instance NFData DeleteBGPPeerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbprsResponseStatus :: Lens.Lens' DeleteBGPPeerResponse Lude.Int
+dbprsResponseStatus = Lens.lens (responseStatus :: DeleteBGPPeerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBGPPeerResponse)
+{-# DEPRECATED dbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

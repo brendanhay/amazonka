@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,135 @@
 --
 -- Returns information about a repository.
 module Network.AWS.CodeCommit.GetRepository
-  ( -- * Creating a Request
-    getRepository,
-    GetRepository,
+  ( -- * Creating a request
+    GetRepository (..),
+    mkGetRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grRepositoryName,
 
-    -- * Destructuring the Response
-    getRepositoryResponse,
-    GetRepositoryResponse,
+    -- * Destructuring the response
+    GetRepositoryResponse (..),
+    mkGetRepositoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsRepositoryMetadata,
     grrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a get repository operation.
 --
---
---
--- /See:/ 'getRepository' smart constructor.
-newtype GetRepository = GetRepository' {_grRepositoryName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetRepository' smart constructor.
+newtype GetRepository = GetRepository' {repositoryName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grRepositoryName' - The name of the repository to get information about.
-getRepository ::
-  -- | 'grRepositoryName'
-  Text ->
+-- * 'repositoryName' - The name of the repository to get information about.
+mkGetRepository ::
+  -- | 'repositoryName'
+  Lude.Text ->
   GetRepository
-getRepository pRepositoryName_ =
-  GetRepository' {_grRepositoryName = pRepositoryName_}
+mkGetRepository pRepositoryName_ =
+  GetRepository' {repositoryName = pRepositoryName_}
 
 -- | The name of the repository to get information about.
-grRepositoryName :: Lens' GetRepository Text
-grRepositoryName = lens _grRepositoryName (\s a -> s {_grRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grRepositoryName :: Lens.Lens' GetRepository Lude.Text
+grRepositoryName = Lens.lens (repositoryName :: GetRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: GetRepository)
+{-# DEPRECATED grRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest GetRepository where
+instance Lude.AWSRequest GetRepository where
   type Rs GetRepository = GetRepositoryResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRepositoryResponse'
-            <$> (x .?> "repositoryMetadata") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "repositoryMetadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRepository
-
-instance NFData GetRepository
-
-instance ToHeaders GetRepository where
+instance Lude.ToHeaders GetRepository where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.GetRepository" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.GetRepository" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRepository where
+instance Lude.ToJSON GetRepository where
   toJSON GetRepository' {..} =
-    object (catMaybes [Just ("repositoryName" .= _grRepositoryName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("repositoryName" Lude..= repositoryName)]
+      )
 
-instance ToPath GetRepository where
-  toPath = const "/"
+instance Lude.ToPath GetRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRepository where
-  toQuery = const mempty
+instance Lude.ToQuery GetRepository where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a get repository operation.
 --
---
---
--- /See:/ 'getRepositoryResponse' smart constructor.
+-- /See:/ 'mkGetRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
-  { _grrsRepositoryMetadata ::
-      !(Maybe RepositoryMetadata),
-    _grrsResponseStatus :: !Int
+  { repositoryMetadata ::
+      Lude.Maybe RepositoryMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsRepositoryMetadata' - Information about the repository.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-getRepositoryResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'repositoryMetadata' - Information about the repository.
+-- * 'responseStatus' - The response status code.
+mkGetRepositoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRepositoryResponse
-getRepositoryResponse pResponseStatus_ =
+mkGetRepositoryResponse pResponseStatus_ =
   GetRepositoryResponse'
-    { _grrsRepositoryMetadata = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { repositoryMetadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the repository.
-grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
-grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\s a -> s {_grrsRepositoryMetadata = a})
+--
+-- /Note:/ Consider using 'repositoryMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsRepositoryMetadata :: Lens.Lens' GetRepositoryResponse (Lude.Maybe RepositoryMetadata)
+grrsRepositoryMetadata = Lens.lens (repositoryMetadata :: GetRepositoryResponse -> Lude.Maybe RepositoryMetadata) (\s a -> s {repositoryMetadata = a} :: GetRepositoryResponse)
+{-# DEPRECATED grrsRepositoryMetadata "Use generic-lens or generic-optics with 'repositoryMetadata' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRepositoryResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GetRepositoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GetRepositoryResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GetRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRepositoryResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

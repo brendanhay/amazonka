@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.Destination where
+module Network.AWS.SES.Types.Destination
+  ( Destination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDestination,
+
+    -- * Lenses
+    dBCCAddresses,
+    dCCAddresses,
+    dToAddresses,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the destination of the message, consisting of To:, CC:, and BCC: fields.
 --
---
---
--- /See:/ 'destination' smart constructor.
+-- /See:/ 'mkDestination' smart constructor.
 data Destination = Destination'
-  { _dBCCAddresses :: !(Maybe [Text]),
-    _dCCAddresses :: !(Maybe [Text]),
-    _dToAddresses :: !(Maybe [Text])
+  { bCCAddresses ::
+      Lude.Maybe [Lude.Text],
+    cCAddresses :: Lude.Maybe [Lude.Text],
+    toAddresses :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dBCCAddresses' - The recipients to place on the BCC: line of the message.
---
--- * 'dCCAddresses' - The recipients to place on the CC: line of the message.
---
--- * 'dToAddresses' - The recipients to place on the To: line of the message.
-destination ::
+-- * 'bCCAddresses' - The recipients to place on the BCC: line of the message.
+-- * 'cCAddresses' - The recipients to place on the CC: line of the message.
+-- * 'toAddresses' - The recipients to place on the To: line of the message.
+mkDestination ::
   Destination
-destination =
+mkDestination =
   Destination'
-    { _dBCCAddresses = Nothing,
-      _dCCAddresses = Nothing,
-      _dToAddresses = Nothing
+    { bCCAddresses = Lude.Nothing,
+      cCAddresses = Lude.Nothing,
+      toAddresses = Lude.Nothing
     }
 
 -- | The recipients to place on the BCC: line of the message.
-dBCCAddresses :: Lens' Destination [Text]
-dBCCAddresses = lens _dBCCAddresses (\s a -> s {_dBCCAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bCCAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dBCCAddresses :: Lens.Lens' Destination (Lude.Maybe [Lude.Text])
+dBCCAddresses = Lens.lens (bCCAddresses :: Destination -> Lude.Maybe [Lude.Text]) (\s a -> s {bCCAddresses = a} :: Destination)
+{-# DEPRECATED dBCCAddresses "Use generic-lens or generic-optics with 'bCCAddresses' instead." #-}
 
 -- | The recipients to place on the CC: line of the message.
-dCCAddresses :: Lens' Destination [Text]
-dCCAddresses = lens _dCCAddresses (\s a -> s {_dCCAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cCAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCCAddresses :: Lens.Lens' Destination (Lude.Maybe [Lude.Text])
+dCCAddresses = Lens.lens (cCAddresses :: Destination -> Lude.Maybe [Lude.Text]) (\s a -> s {cCAddresses = a} :: Destination)
+{-# DEPRECATED dCCAddresses "Use generic-lens or generic-optics with 'cCAddresses' instead." #-}
 
 -- | The recipients to place on the To: line of the message.
-dToAddresses :: Lens' Destination [Text]
-dToAddresses = lens _dToAddresses (\s a -> s {_dToAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'toAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dToAddresses :: Lens.Lens' Destination (Lude.Maybe [Lude.Text])
+dToAddresses = Lens.lens (toAddresses :: Destination -> Lude.Maybe [Lude.Text]) (\s a -> s {toAddresses = a} :: Destination)
+{-# DEPRECATED dToAddresses "Use generic-lens or generic-optics with 'toAddresses' instead." #-}
 
-instance Hashable Destination
-
-instance NFData Destination
-
-instance ToQuery Destination where
+instance Lude.ToQuery Destination where
   toQuery Destination' {..} =
-    mconcat
+    Lude.mconcat
       [ "BccAddresses"
-          =: toQuery (toQueryList "member" <$> _dBCCAddresses),
-        "CcAddresses" =: toQuery (toQueryList "member" <$> _dCCAddresses),
-        "ToAddresses" =: toQuery (toQueryList "member" <$> _dToAddresses)
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> bCCAddresses),
+        "CcAddresses"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> cCAddresses),
+        "ToAddresses"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> toAddresses)
       ]

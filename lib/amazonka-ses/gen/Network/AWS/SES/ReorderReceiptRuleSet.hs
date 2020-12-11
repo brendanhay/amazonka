@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,132 @@
 --
 -- Reorders the receipt rules within a receipt rule set.
 --
---
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.ReorderReceiptRuleSet
-  ( -- * Creating a Request
-    reorderReceiptRuleSet,
-    ReorderReceiptRuleSet,
+  ( -- * Creating a request
+    ReorderReceiptRuleSet (..),
+    mkReorderReceiptRuleSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rrrsRuleSetName,
     rrrsRuleNames,
 
-    -- * Destructuring the Response
-    reorderReceiptRuleSetResponse,
-    ReorderReceiptRuleSetResponse,
+    -- * Destructuring the response
+    ReorderReceiptRuleSetResponse (..),
+    mkReorderReceiptRuleSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rrrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'reorderReceiptRuleSet' smart constructor.
+-- /See:/ 'mkReorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
-  { _rrrsRuleSetName ::
-      !Text,
-    _rrrsRuleNames :: ![Text]
+  { ruleSetName ::
+      Lude.Text,
+    ruleNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReorderReceiptRuleSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrrsRuleSetName' - The name of the receipt rule set to reorder.
---
--- * 'rrrsRuleNames' - A list of the specified receipt rule set's receipt rules in the order that you want to put them.
-reorderReceiptRuleSet ::
-  -- | 'rrrsRuleSetName'
-  Text ->
+-- * 'ruleNames' - A list of the specified receipt rule set's receipt rules in the order that you want to put them.
+-- * 'ruleSetName' - The name of the receipt rule set to reorder.
+mkReorderReceiptRuleSet ::
+  -- | 'ruleSetName'
+  Lude.Text ->
   ReorderReceiptRuleSet
-reorderReceiptRuleSet pRuleSetName_ =
+mkReorderReceiptRuleSet pRuleSetName_ =
   ReorderReceiptRuleSet'
-    { _rrrsRuleSetName = pRuleSetName_,
-      _rrrsRuleNames = mempty
+    { ruleSetName = pRuleSetName_,
+      ruleNames = Lude.mempty
     }
 
 -- | The name of the receipt rule set to reorder.
-rrrsRuleSetName :: Lens' ReorderReceiptRuleSet Text
-rrrsRuleSetName = lens _rrrsRuleSetName (\s a -> s {_rrrsRuleSetName = a})
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrrsRuleSetName :: Lens.Lens' ReorderReceiptRuleSet Lude.Text
+rrrsRuleSetName = Lens.lens (ruleSetName :: ReorderReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: ReorderReceiptRuleSet)
+{-# DEPRECATED rrrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
-rrrsRuleNames :: Lens' ReorderReceiptRuleSet [Text]
-rrrsRuleNames = lens _rrrsRuleNames (\s a -> s {_rrrsRuleNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrrsRuleNames :: Lens.Lens' ReorderReceiptRuleSet [Lude.Text]
+rrrsRuleNames = Lens.lens (ruleNames :: ReorderReceiptRuleSet -> [Lude.Text]) (\s a -> s {ruleNames = a} :: ReorderReceiptRuleSet)
+{-# DEPRECATED rrrsRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
-instance AWSRequest ReorderReceiptRuleSet where
+instance Lude.AWSRequest ReorderReceiptRuleSet where
   type Rs ReorderReceiptRuleSet = ReorderReceiptRuleSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ReorderReceiptRuleSetResult"
-      (\s h x -> ReorderReceiptRuleSetResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          ReorderReceiptRuleSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ReorderReceiptRuleSet
+instance Lude.ToHeaders ReorderReceiptRuleSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReorderReceiptRuleSet
+instance Lude.ToPath ReorderReceiptRuleSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders ReorderReceiptRuleSet where
-  toHeaders = const mempty
-
-instance ToPath ReorderReceiptRuleSet where
-  toPath = const "/"
-
-instance ToQuery ReorderReceiptRuleSet where
+instance Lude.ToQuery ReorderReceiptRuleSet where
   toQuery ReorderReceiptRuleSet' {..} =
-    mconcat
-      [ "Action" =: ("ReorderReceiptRuleSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "RuleSetName" =: _rrrsRuleSetName,
-        "RuleNames" =: toQueryList "member" _rrrsRuleNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("ReorderReceiptRuleSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "RuleSetName" Lude.=: ruleSetName,
+        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'reorderReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'mkReorderReceiptRuleSetResponse' smart constructor.
 newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
-  { _rrrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReorderReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrrsrsResponseStatus' - -- | The response status code.
-reorderReceiptRuleSetResponse ::
-  -- | 'rrrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkReorderReceiptRuleSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ReorderReceiptRuleSetResponse
-reorderReceiptRuleSetResponse pResponseStatus_ =
-  ReorderReceiptRuleSetResponse'
-    { _rrrsrsResponseStatus =
-        pResponseStatus_
-    }
+mkReorderReceiptRuleSetResponse pResponseStatus_ =
+  ReorderReceiptRuleSetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rrrsrsResponseStatus :: Lens' ReorderReceiptRuleSetResponse Int
-rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\s a -> s {_rrrsrsResponseStatus = a})
-
-instance NFData ReorderReceiptRuleSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrrsrsResponseStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Lude.Int
+rrrsrsResponseStatus = Lens.lens (responseStatus :: ReorderReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReorderReceiptRuleSetResponse)
+{-# DEPRECATED rrrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.GPSPointDimension where
+module Network.AWS.Pinpoint.Types.GPSPointDimension
+  ( GPSPointDimension (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkGPSPointDimension,
+
+    -- * Lenses
+    gpspdRangeInKilometers,
+    gpspdCoordinates,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.GPSCoordinates
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies GPS-based criteria for including or excluding endpoints from a segment.
 --
---
---
--- /See:/ 'gPSPointDimension' smart constructor.
+-- /See:/ 'mkGPSPointDimension' smart constructor.
 data GPSPointDimension = GPSPointDimension'
-  { _gpspdRangeInKilometers ::
-      !(Maybe Double),
-    _gpspdCoordinates :: !GPSCoordinates
+  { rangeInKilometers ::
+      Lude.Maybe Lude.Double,
+    coordinates :: GPSCoordinates
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GPSPointDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpspdRangeInKilometers' - The range, in kilometers, from the GPS coordinates.
---
--- * 'gpspdCoordinates' - The GPS coordinates to measure distance from.
-gPSPointDimension ::
-  -- | 'gpspdCoordinates'
+-- * 'coordinates' - The GPS coordinates to measure distance from.
+-- * 'rangeInKilometers' - The range, in kilometers, from the GPS coordinates.
+mkGPSPointDimension ::
+  -- | 'coordinates'
   GPSCoordinates ->
   GPSPointDimension
-gPSPointDimension pCoordinates_ =
+mkGPSPointDimension pCoordinates_ =
   GPSPointDimension'
-    { _gpspdRangeInKilometers = Nothing,
-      _gpspdCoordinates = pCoordinates_
+    { rangeInKilometers = Lude.Nothing,
+      coordinates = pCoordinates_
     }
 
 -- | The range, in kilometers, from the GPS coordinates.
-gpspdRangeInKilometers :: Lens' GPSPointDimension (Maybe Double)
-gpspdRangeInKilometers = lens _gpspdRangeInKilometers (\s a -> s {_gpspdRangeInKilometers = a})
+--
+-- /Note:/ Consider using 'rangeInKilometers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpspdRangeInKilometers :: Lens.Lens' GPSPointDimension (Lude.Maybe Lude.Double)
+gpspdRangeInKilometers = Lens.lens (rangeInKilometers :: GPSPointDimension -> Lude.Maybe Lude.Double) (\s a -> s {rangeInKilometers = a} :: GPSPointDimension)
+{-# DEPRECATED gpspdRangeInKilometers "Use generic-lens or generic-optics with 'rangeInKilometers' instead." #-}
 
 -- | The GPS coordinates to measure distance from.
-gpspdCoordinates :: Lens' GPSPointDimension GPSCoordinates
-gpspdCoordinates = lens _gpspdCoordinates (\s a -> s {_gpspdCoordinates = a})
+--
+-- /Note:/ Consider using 'coordinates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpspdCoordinates :: Lens.Lens' GPSPointDimension GPSCoordinates
+gpspdCoordinates = Lens.lens (coordinates :: GPSPointDimension -> GPSCoordinates) (\s a -> s {coordinates = a} :: GPSPointDimension)
+{-# DEPRECATED gpspdCoordinates "Use generic-lens or generic-optics with 'coordinates' instead." #-}
 
-instance FromJSON GPSPointDimension where
+instance Lude.FromJSON GPSPointDimension where
   parseJSON =
-    withObject
+    Lude.withObject
       "GPSPointDimension"
       ( \x ->
           GPSPointDimension'
-            <$> (x .:? "RangeInKilometers") <*> (x .: "Coordinates")
+            Lude.<$> (x Lude..:? "RangeInKilometers")
+            Lude.<*> (x Lude..: "Coordinates")
       )
 
-instance Hashable GPSPointDimension
-
-instance NFData GPSPointDimension
-
-instance ToJSON GPSPointDimension where
+instance Lude.ToJSON GPSPointDimension where
   toJSON GPSPointDimension' {..} =
-    object
-      ( catMaybes
-          [ ("RangeInKilometers" .=) <$> _gpspdRangeInKilometers,
-            Just ("Coordinates" .= _gpspdCoordinates)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RangeInKilometers" Lude..=) Lude.<$> rangeInKilometers,
+            Lude.Just ("Coordinates" Lude..= coordinates)
           ]
       )

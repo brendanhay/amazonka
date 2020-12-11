@@ -13,8 +13,8 @@
 --
 -- AWS Elemental MediaPackage
 module Network.AWS.MediaPackage
-  ( -- * Service Configuration
-    mediaPackage,
+  ( -- * Service configuration
+    mediaPackageService,
 
     -- * Errors
     -- $errors
@@ -121,14 +121,14 @@ module Network.AWS.MediaPackage
     UtcTiming (..),
 
     -- ** Authorization
-    Authorization,
-    authorization,
+    Authorization (..),
+    mkAuthorization,
     aSecretsRoleARN,
     aCdnIdentifierSecret,
 
     -- ** Channel
-    Channel,
-    channel,
+    Channel (..),
+    mkChannel,
     cIngressAccessLogs,
     cHlsIngest,
     cARN,
@@ -138,14 +138,14 @@ module Network.AWS.MediaPackage
     cTags,
 
     -- ** CmafEncryption
-    CmafEncryption,
-    cmafEncryption,
+    CmafEncryption (..),
+    mkCmafEncryption,
     ceKeyRotationIntervalSeconds,
     ceSpekeKeyProvider,
 
     -- ** CmafPackage
-    CmafPackage,
-    cmafPackage,
+    CmafPackage (..),
+    mkCmafPackage,
     cpHlsManifests,
     cpSegmentDurationSeconds,
     cpStreamSelection,
@@ -153,8 +153,8 @@ module Network.AWS.MediaPackage
     cpSegmentPrefix,
 
     -- ** CmafPackageCreateOrUpdateParameters
-    CmafPackageCreateOrUpdateParameters,
-    cmafPackageCreateOrUpdateParameters,
+    CmafPackageCreateOrUpdateParameters (..),
+    mkCmafPackageCreateOrUpdateParameters,
     cpcoupHlsManifests,
     cpcoupSegmentDurationSeconds,
     cpcoupStreamSelection,
@@ -162,14 +162,14 @@ module Network.AWS.MediaPackage
     cpcoupSegmentPrefix,
 
     -- ** DashEncryption
-    DashEncryption,
-    dashEncryption,
+    DashEncryption (..),
+    mkDashEncryption,
     deKeyRotationIntervalSeconds,
     deSpekeKeyProvider,
 
     -- ** DashPackage
-    DashPackage,
-    dashPackage,
+    DashPackage (..),
+    mkDashPackage,
     dpAdsOnDeliveryRestrictions,
     dpMinBufferTimeSeconds,
     dpUtcTiming,
@@ -187,13 +187,13 @@ module Network.AWS.MediaPackage
     dpPeriodTriggers,
 
     -- ** EgressAccessLogs
-    EgressAccessLogs,
-    egressAccessLogs,
+    EgressAccessLogs (..),
+    mkEgressAccessLogs,
     ealLogGroupName,
 
     -- ** HarvestJob
-    HarvestJob,
-    harvestJob,
+    HarvestJob (..),
+    mkHarvestJob,
     hjStatus,
     hjOriginEndpointId,
     hjStartTime,
@@ -205,8 +205,8 @@ module Network.AWS.MediaPackage
     hjId,
 
     -- ** HlsEncryption
-    HlsEncryption,
-    hlsEncryption,
+    HlsEncryption (..),
+    mkHlsEncryption,
     heEncryptionMethod,
     heKeyRotationIntervalSeconds,
     heConstantInitializationVector,
@@ -214,13 +214,13 @@ module Network.AWS.MediaPackage
     heSpekeKeyProvider,
 
     -- ** HlsIngest
-    HlsIngest,
-    hlsIngest,
+    HlsIngest (..),
+    mkHlsIngest,
     hiIngestEndpoints,
 
     -- ** HlsManifest
-    HlsManifest,
-    hlsManifest,
+    HlsManifest (..),
+    mkHlsManifest,
     hmManifestName,
     hmURL,
     hmPlaylistType,
@@ -231,8 +231,8 @@ module Network.AWS.MediaPackage
     hmId,
 
     -- ** HlsManifestCreateOrUpdateParameters
-    HlsManifestCreateOrUpdateParameters,
-    hlsManifestCreateOrUpdateParameters,
+    HlsManifestCreateOrUpdateParameters (..),
+    mkHlsManifestCreateOrUpdateParameters,
     hmcoupAdsOnDeliveryRestrictions,
     hmcoupManifestName,
     hmcoupPlaylistType,
@@ -244,8 +244,8 @@ module Network.AWS.MediaPackage
     hmcoupId,
 
     -- ** HlsPackage
-    HlsPackage,
-    hlsPackage,
+    HlsPackage (..),
+    mkHlsPackage,
     hpAdsOnDeliveryRestrictions,
     hpUseAudioRenditionGroup,
     hpPlaylistType,
@@ -259,34 +259,34 @@ module Network.AWS.MediaPackage
     hpPlaylistWindowSeconds,
 
     -- ** IngestEndpoint
-    IngestEndpoint,
-    ingestEndpoint,
+    IngestEndpoint (..),
+    mkIngestEndpoint,
     ieURL,
     ieUsername,
     iePassword,
     ieId,
 
     -- ** IngressAccessLogs
-    IngressAccessLogs,
-    ingressAccessLogs,
+    IngressAccessLogs (..),
+    mkIngressAccessLogs,
     ialLogGroupName,
 
     -- ** MssEncryption
-    MssEncryption,
-    mssEncryption,
+    MssEncryption (..),
+    mkMssEncryption,
     meSpekeKeyProvider,
 
     -- ** MssPackage
-    MssPackage,
-    mssPackage,
+    MssPackage (..),
+    mkMssPackage,
     mpSegmentDurationSeconds,
     mpStreamSelection,
     mpEncryption,
     mpManifestWindowSeconds,
 
     -- ** OriginEndpoint
-    OriginEndpoint,
-    originEndpoint,
+    OriginEndpoint (..),
+    mkOriginEndpoint,
     oeWhitelist,
     oeHlsPackage,
     oeARN,
@@ -305,15 +305,15 @@ module Network.AWS.MediaPackage
     oeOrigination,
 
     -- ** S3Destination
-    S3Destination,
-    s3Destination,
+    S3Destination (..),
+    mkS3Destination,
     sdManifestKey,
     sdBucketName,
     sdRoleARN,
 
     -- ** SpekeKeyProvider
-    SpekeKeyProvider,
-    spekeKeyProvider,
+    SpekeKeyProvider (..),
+    mkSpekeKeyProvider,
     skpCertificateARN,
     skpResourceId,
     skpSystemIds,
@@ -321,11 +321,22 @@ module Network.AWS.MediaPackage
     skpRoleARN,
 
     -- ** StreamSelection
-    StreamSelection,
-    streamSelection,
+    StreamSelection (..),
+    mkStreamSelection,
     ssStreamOrder,
     ssMinVideoBitsPerSecond,
     ssMaxVideoBitsPerSecond,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -349,6 +360,7 @@ import Network.AWS.MediaPackage.UntagResource
 import Network.AWS.MediaPackage.UpdateChannel
 import Network.AWS.MediaPackage.UpdateOriginEndpoint
 import Network.AWS.MediaPackage.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

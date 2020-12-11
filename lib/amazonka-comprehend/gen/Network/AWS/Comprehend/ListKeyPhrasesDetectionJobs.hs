@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Get a list of key phrase detection jobs that you have submitted.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
-  ( -- * Creating a Request
-    listKeyPhrasesDetectionJobs,
-    ListKeyPhrasesDetectionJobs,
+  ( -- * Creating a request
+    ListKeyPhrasesDetectionJobs (..),
+    mkListKeyPhrasesDetectionJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lkpdjNextToken,
     lkpdjFilter,
     lkpdjMaxResults,
 
-    -- * Destructuring the Response
-    listKeyPhrasesDetectionJobsResponse,
-    ListKeyPhrasesDetectionJobsResponse,
+    -- * Destructuring the response
+    ListKeyPhrasesDetectionJobsResponse (..),
+    mkListKeyPhrasesDetectionJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lkpdjrsKeyPhrasesDetectionJobPropertiesList,
     lkpdjrsNextToken,
     lkpdjrsResponseStatus,
@@ -44,149 +37,176 @@ module Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listKeyPhrasesDetectionJobs' smart constructor.
+-- | /See:/ 'mkListKeyPhrasesDetectionJobs' smart constructor.
 data ListKeyPhrasesDetectionJobs = ListKeyPhrasesDetectionJobs'
-  { _lkpdjNextToken ::
-      !(Maybe Text),
-    _lkpdjFilter ::
-      !( Maybe
-           KeyPhrasesDetectionJobFilter
-       ),
-    _lkpdjMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe
+        KeyPhrasesDetectionJobFilter,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListKeyPhrasesDetectionJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lkpdjNextToken' - Identifies the next page of results to return.
---
--- * 'lkpdjFilter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
---
--- * 'lkpdjMaxResults' - The maximum number of results to return in each page. The default is 100.
-listKeyPhrasesDetectionJobs ::
+-- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListKeyPhrasesDetectionJobs ::
   ListKeyPhrasesDetectionJobs
-listKeyPhrasesDetectionJobs =
+mkListKeyPhrasesDetectionJobs =
   ListKeyPhrasesDetectionJobs'
-    { _lkpdjNextToken = Nothing,
-      _lkpdjFilter = Nothing,
-      _lkpdjMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-lkpdjNextToken :: Lens' ListKeyPhrasesDetectionJobs (Maybe Text)
-lkpdjNextToken = lens _lkpdjNextToken (\s a -> s {_lkpdjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpdjNextToken :: Lens.Lens' ListKeyPhrasesDetectionJobs (Lude.Maybe Lude.Text)
+lkpdjNextToken = Lens.lens (nextToken :: ListKeyPhrasesDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListKeyPhrasesDetectionJobs)
+{-# DEPRECATED lkpdjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
-lkpdjFilter :: Lens' ListKeyPhrasesDetectionJobs (Maybe KeyPhrasesDetectionJobFilter)
-lkpdjFilter = lens _lkpdjFilter (\s a -> s {_lkpdjFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpdjFilter :: Lens.Lens' ListKeyPhrasesDetectionJobs (Lude.Maybe KeyPhrasesDetectionJobFilter)
+lkpdjFilter = Lens.lens (filter :: ListKeyPhrasesDetectionJobs -> Lude.Maybe KeyPhrasesDetectionJobFilter) (\s a -> s {filter = a} :: ListKeyPhrasesDetectionJobs)
+{-# DEPRECATED lkpdjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
-lkpdjMaxResults :: Lens' ListKeyPhrasesDetectionJobs (Maybe Natural)
-lkpdjMaxResults = lens _lkpdjMaxResults (\s a -> s {_lkpdjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpdjMaxResults :: Lens.Lens' ListKeyPhrasesDetectionJobs (Lude.Maybe Lude.Natural)
+lkpdjMaxResults = Lens.lens (maxResults :: ListKeyPhrasesDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListKeyPhrasesDetectionJobs)
+{-# DEPRECATED lkpdjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListKeyPhrasesDetectionJobs where
+instance Page.AWSPager ListKeyPhrasesDetectionJobs where
   page rq rs
-    | stop (rs ^. lkpdjrsNextToken) = Nothing
-    | stop (rs ^. lkpdjrsKeyPhrasesDetectionJobPropertiesList) =
-      Nothing
-    | otherwise = Just $ rq & lkpdjNextToken .~ rs ^. lkpdjrsNextToken
+    | Page.stop (rs Lens.^. lkpdjrsNextToken) = Lude.Nothing
+    | Page.stop
+        (rs Lens.^. lkpdjrsKeyPhrasesDetectionJobPropertiesList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lkpdjNextToken Lens..~ rs Lens.^. lkpdjrsNextToken
 
-instance AWSRequest ListKeyPhrasesDetectionJobs where
+instance Lude.AWSRequest ListKeyPhrasesDetectionJobs where
   type
     Rs ListKeyPhrasesDetectionJobs =
       ListKeyPhrasesDetectionJobsResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListKeyPhrasesDetectionJobsResponse'
-            <$> (x .?> "KeyPhrasesDetectionJobPropertiesList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "KeyPhrasesDetectionJobPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListKeyPhrasesDetectionJobs
-
-instance NFData ListKeyPhrasesDetectionJobs
-
-instance ToHeaders ListKeyPhrasesDetectionJobs where
+instance Lude.ToHeaders ListKeyPhrasesDetectionJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListKeyPhrasesDetectionJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.ListKeyPhrasesDetectionJobs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListKeyPhrasesDetectionJobs where
+instance Lude.ToJSON ListKeyPhrasesDetectionJobs where
   toJSON ListKeyPhrasesDetectionJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lkpdjNextToken,
-            ("Filter" .=) <$> _lkpdjFilter,
-            ("MaxResults" .=) <$> _lkpdjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListKeyPhrasesDetectionJobs where
-  toPath = const "/"
+instance Lude.ToPath ListKeyPhrasesDetectionJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListKeyPhrasesDetectionJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListKeyPhrasesDetectionJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listKeyPhrasesDetectionJobsResponse' smart constructor.
+-- | /See:/ 'mkListKeyPhrasesDetectionJobsResponse' smart constructor.
 data ListKeyPhrasesDetectionJobsResponse = ListKeyPhrasesDetectionJobsResponse'
-  { _lkpdjrsKeyPhrasesDetectionJobPropertiesList ::
-      !( Maybe
-           [KeyPhrasesDetectionJobProperties]
-       ),
-    _lkpdjrsNextToken ::
-      !(Maybe Text),
-    _lkpdjrsResponseStatus ::
-      !Int
+  { keyPhrasesDetectionJobPropertiesList ::
+      Lude.Maybe
+        [KeyPhrasesDetectionJobProperties],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListKeyPhrasesDetectionJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lkpdjrsKeyPhrasesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
--- * 'lkpdjrsNextToken' - Identifies the next page of results to return.
---
--- * 'lkpdjrsResponseStatus' - -- | The response status code.
-listKeyPhrasesDetectionJobsResponse ::
-  -- | 'lkpdjrsResponseStatus'
-  Int ->
+-- * 'keyPhrasesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+mkListKeyPhrasesDetectionJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListKeyPhrasesDetectionJobsResponse
-listKeyPhrasesDetectionJobsResponse pResponseStatus_ =
+mkListKeyPhrasesDetectionJobsResponse pResponseStatus_ =
   ListKeyPhrasesDetectionJobsResponse'
-    { _lkpdjrsKeyPhrasesDetectionJobPropertiesList =
-        Nothing,
-      _lkpdjrsNextToken = Nothing,
-      _lkpdjrsResponseStatus = pResponseStatus_
+    { keyPhrasesDetectionJobPropertiesList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list containing the properties of each job that is returned.
-lkpdjrsKeyPhrasesDetectionJobPropertiesList :: Lens' ListKeyPhrasesDetectionJobsResponse [KeyPhrasesDetectionJobProperties]
-lkpdjrsKeyPhrasesDetectionJobPropertiesList = lens _lkpdjrsKeyPhrasesDetectionJobPropertiesList (\s a -> s {_lkpdjrsKeyPhrasesDetectionJobPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'keyPhrasesDetectionJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpdjrsKeyPhrasesDetectionJobPropertiesList :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse (Lude.Maybe [KeyPhrasesDetectionJobProperties])
+lkpdjrsKeyPhrasesDetectionJobPropertiesList = Lens.lens (keyPhrasesDetectionJobPropertiesList :: ListKeyPhrasesDetectionJobsResponse -> Lude.Maybe [KeyPhrasesDetectionJobProperties]) (\s a -> s {keyPhrasesDetectionJobPropertiesList = a} :: ListKeyPhrasesDetectionJobsResponse)
+{-# DEPRECATED lkpdjrsKeyPhrasesDetectionJobPropertiesList "Use generic-lens or generic-optics with 'keyPhrasesDetectionJobPropertiesList' instead." #-}
 
 -- | Identifies the next page of results to return.
-lkpdjrsNextToken :: Lens' ListKeyPhrasesDetectionJobsResponse (Maybe Text)
-lkpdjrsNextToken = lens _lkpdjrsNextToken (\s a -> s {_lkpdjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpdjrsNextToken :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse (Lude.Maybe Lude.Text)
+lkpdjrsNextToken = Lens.lens (nextToken :: ListKeyPhrasesDetectionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListKeyPhrasesDetectionJobsResponse)
+{-# DEPRECATED lkpdjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lkpdjrsResponseStatus :: Lens' ListKeyPhrasesDetectionJobsResponse Int
-lkpdjrsResponseStatus = lens _lkpdjrsResponseStatus (\s a -> s {_lkpdjrsResponseStatus = a})
-
-instance NFData ListKeyPhrasesDetectionJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpdjrsResponseStatus :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse Lude.Int
+lkpdjrsResponseStatus = Lens.lens (responseStatus :: ListKeyPhrasesDetectionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListKeyPhrasesDetectionJobsResponse)
+{-# DEPRECATED lkpdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

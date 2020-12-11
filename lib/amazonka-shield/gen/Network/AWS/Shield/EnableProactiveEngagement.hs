@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,105 @@
 --
 -- Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.
 module Network.AWS.Shield.EnableProactiveEngagement
-  ( -- * Creating a Request
-    enableProactiveEngagement,
-    EnableProactiveEngagement,
+  ( -- * Creating a request
+    EnableProactiveEngagement (..),
+    mkEnableProactiveEngagement,
 
-    -- * Destructuring the Response
-    enableProactiveEngagementResponse,
-    EnableProactiveEngagementResponse,
+    -- * Destructuring the response
+    EnableProactiveEngagementResponse (..),
+    mkEnableProactiveEngagementResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     epersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'enableProactiveEngagement' smart constructor.
+-- | /See:/ 'mkEnableProactiveEngagement' smart constructor.
 data EnableProactiveEngagement = EnableProactiveEngagement'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableProactiveEngagement' with the minimum fields required to make a request.
-enableProactiveEngagement ::
+mkEnableProactiveEngagement ::
   EnableProactiveEngagement
-enableProactiveEngagement = EnableProactiveEngagement'
+mkEnableProactiveEngagement = EnableProactiveEngagement'
 
-instance AWSRequest EnableProactiveEngagement where
+instance Lude.AWSRequest EnableProactiveEngagement where
   type
     Rs EnableProactiveEngagement =
       EnableProactiveEngagementResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          EnableProactiveEngagementResponse' <$> (pure (fromEnum s))
+          EnableProactiveEngagementResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableProactiveEngagement
-
-instance NFData EnableProactiveEngagement
-
-instance ToHeaders EnableProactiveEngagement where
+instance Lude.ToHeaders EnableProactiveEngagement where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.EnableProactiveEngagement" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShield_20160616.EnableProactiveEngagement" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableProactiveEngagement where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON EnableProactiveEngagement where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath EnableProactiveEngagement where
-  toPath = const "/"
+instance Lude.ToPath EnableProactiveEngagement where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableProactiveEngagement where
-  toQuery = const mempty
+instance Lude.ToQuery EnableProactiveEngagement where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableProactiveEngagementResponse' smart constructor.
+-- | /See:/ 'mkEnableProactiveEngagementResponse' smart constructor.
 newtype EnableProactiveEngagementResponse = EnableProactiveEngagementResponse'
-  { _epersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableProactiveEngagementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'epersResponseStatus' - -- | The response status code.
-enableProactiveEngagementResponse ::
-  -- | 'epersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkEnableProactiveEngagementResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableProactiveEngagementResponse
-enableProactiveEngagementResponse pResponseStatus_ =
+mkEnableProactiveEngagementResponse pResponseStatus_ =
   EnableProactiveEngagementResponse'
-    { _epersResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-epersResponseStatus :: Lens' EnableProactiveEngagementResponse Int
-epersResponseStatus = lens _epersResponseStatus (\s a -> s {_epersResponseStatus = a})
-
-instance NFData EnableProactiveEngagementResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epersResponseStatus :: Lens.Lens' EnableProactiveEngagementResponse Lude.Int
+epersResponseStatus = Lens.lens (responseStatus :: EnableProactiveEngagementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableProactiveEngagementResponse)
+{-# DEPRECATED epersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

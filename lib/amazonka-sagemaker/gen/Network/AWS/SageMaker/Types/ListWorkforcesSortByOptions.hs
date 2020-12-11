@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ListWorkforcesSortByOptions where
+module Network.AWS.SageMaker.Types.ListWorkforcesSortByOptions
+  ( ListWorkforcesSortByOptions
+      ( ListWorkforcesSortByOptions',
+        LWSBOCreateDate,
+        LWSBOName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ListWorkforcesSortByOptions
-  = LWSBOCreateDate
-  | LWSBOName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ListWorkforcesSortByOptions = ListWorkforcesSortByOptions' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ListWorkforcesSortByOptions where
-  parser =
-    takeLowerText >>= \case
-      "createdate" -> pure LWSBOCreateDate
-      "name" -> pure LWSBOName
-      e ->
-        fromTextError $
-          "Failure parsing ListWorkforcesSortByOptions from value: '" <> e
-            <> "'. Accepted values: createdate, name"
+pattern LWSBOCreateDate :: ListWorkforcesSortByOptions
+pattern LWSBOCreateDate = ListWorkforcesSortByOptions' "CreateDate"
 
-instance ToText ListWorkforcesSortByOptions where
-  toText = \case
-    LWSBOCreateDate -> "CreateDate"
-    LWSBOName -> "Name"
+pattern LWSBOName :: ListWorkforcesSortByOptions
+pattern LWSBOName = ListWorkforcesSortByOptions' "Name"
 
-instance Hashable ListWorkforcesSortByOptions
-
-instance NFData ListWorkforcesSortByOptions
-
-instance ToByteString ListWorkforcesSortByOptions
-
-instance ToQuery ListWorkforcesSortByOptions
-
-instance ToHeader ListWorkforcesSortByOptions
-
-instance ToJSON ListWorkforcesSortByOptions where
-  toJSON = toJSONText
+{-# COMPLETE
+  LWSBOCreateDate,
+  LWSBOName,
+  ListWorkforcesSortByOptions'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ArchiveContainerSettings where
+module Network.AWS.MediaLive.Types.ArchiveContainerSettings
+  ( ArchiveContainerSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkArchiveContainerSettings,
+
+    -- * Lenses
+    acsM2tsSettings,
+    acsRawSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.M2tsSettings
 import Network.AWS.MediaLive.Types.RawSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Archive Container Settings
 --
--- /See:/ 'archiveContainerSettings' smart constructor.
+-- /See:/ 'mkArchiveContainerSettings' smart constructor.
 data ArchiveContainerSettings = ArchiveContainerSettings'
-  { _acsM2tsSettings ::
-      !(Maybe M2tsSettings),
-    _acsRawSettings :: !(Maybe RawSettings)
+  { m2tsSettings ::
+      Lude.Maybe M2tsSettings,
+    rawSettings :: Lude.Maybe RawSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveContainerSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acsM2tsSettings' - Undocumented member.
---
--- * 'acsRawSettings' - Undocumented member.
-archiveContainerSettings ::
+-- * 'm2tsSettings' - Undocumented field.
+-- * 'rawSettings' - Undocumented field.
+mkArchiveContainerSettings ::
   ArchiveContainerSettings
-archiveContainerSettings =
+mkArchiveContainerSettings =
   ArchiveContainerSettings'
-    { _acsM2tsSettings = Nothing,
-      _acsRawSettings = Nothing
+    { m2tsSettings = Lude.Nothing,
+      rawSettings = Lude.Nothing
     }
 
--- | Undocumented member.
-acsM2tsSettings :: Lens' ArchiveContainerSettings (Maybe M2tsSettings)
-acsM2tsSettings = lens _acsM2tsSettings (\s a -> s {_acsM2tsSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'm2tsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsM2tsSettings :: Lens.Lens' ArchiveContainerSettings (Lude.Maybe M2tsSettings)
+acsM2tsSettings = Lens.lens (m2tsSettings :: ArchiveContainerSettings -> Lude.Maybe M2tsSettings) (\s a -> s {m2tsSettings = a} :: ArchiveContainerSettings)
+{-# DEPRECATED acsM2tsSettings "Use generic-lens or generic-optics with 'm2tsSettings' instead." #-}
 
--- | Undocumented member.
-acsRawSettings :: Lens' ArchiveContainerSettings (Maybe RawSettings)
-acsRawSettings = lens _acsRawSettings (\s a -> s {_acsRawSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rawSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsRawSettings :: Lens.Lens' ArchiveContainerSettings (Lude.Maybe RawSettings)
+acsRawSettings = Lens.lens (rawSettings :: ArchiveContainerSettings -> Lude.Maybe RawSettings) (\s a -> s {rawSettings = a} :: ArchiveContainerSettings)
+{-# DEPRECATED acsRawSettings "Use generic-lens or generic-optics with 'rawSettings' instead." #-}
 
-instance FromJSON ArchiveContainerSettings where
+instance Lude.FromJSON ArchiveContainerSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ArchiveContainerSettings"
       ( \x ->
           ArchiveContainerSettings'
-            <$> (x .:? "m2tsSettings") <*> (x .:? "rawSettings")
+            Lude.<$> (x Lude..:? "m2tsSettings") Lude.<*> (x Lude..:? "rawSettings")
       )
 
-instance Hashable ArchiveContainerSettings
-
-instance NFData ArchiveContainerSettings
-
-instance ToJSON ArchiveContainerSettings where
+instance Lude.ToJSON ArchiveContainerSettings where
   toJSON ArchiveContainerSettings' {..} =
-    object
-      ( catMaybes
-          [ ("m2tsSettings" .=) <$> _acsM2tsSettings,
-            ("rawSettings" .=) <$> _acsRawSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("m2tsSettings" Lude..=) Lude.<$> m2tsSettings,
+            ("rawSettings" Lude..=) Lude.<$> rawSettings
           ]
       )

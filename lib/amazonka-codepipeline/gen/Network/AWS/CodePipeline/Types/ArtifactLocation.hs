@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ArtifactLocation where
+module Network.AWS.CodePipeline.Types.ArtifactLocation
+  ( ArtifactLocation (..),
+
+    -- * Smart constructor
+    mkArtifactLocation,
+
+    -- * Lenses
+    alS3Location,
+    alType,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.ArtifactLocationType
 import Network.AWS.CodePipeline.Types.S3ArtifactLocation
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about the location of an artifact.
 --
---
---
--- /See:/ 'artifactLocation' smart constructor.
+-- /See:/ 'mkArtifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
-  { _alS3Location ::
-      !(Maybe S3ArtifactLocation),
-    _alType :: !(Maybe ArtifactLocationType)
+  { s3Location ::
+      Lude.Maybe S3ArtifactLocation,
+    type' :: Lude.Maybe ArtifactLocationType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArtifactLocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'alS3Location' - The S3 bucket that contains the artifact.
---
--- * 'alType' - The type of artifact in the location.
-artifactLocation ::
+-- * 's3Location' - The S3 bucket that contains the artifact.
+-- * 'type'' - The type of artifact in the location.
+mkArtifactLocation ::
   ArtifactLocation
-artifactLocation =
-  ArtifactLocation' {_alS3Location = Nothing, _alType = Nothing}
+mkArtifactLocation =
+  ArtifactLocation'
+    { s3Location = Lude.Nothing,
+      type' = Lude.Nothing
+    }
 
 -- | The S3 bucket that contains the artifact.
-alS3Location :: Lens' ArtifactLocation (Maybe S3ArtifactLocation)
-alS3Location = lens _alS3Location (\s a -> s {_alS3Location = a})
+--
+-- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alS3Location :: Lens.Lens' ArtifactLocation (Lude.Maybe S3ArtifactLocation)
+alS3Location = Lens.lens (s3Location :: ArtifactLocation -> Lude.Maybe S3ArtifactLocation) (\s a -> s {s3Location = a} :: ArtifactLocation)
+{-# DEPRECATED alS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
 -- | The type of artifact in the location.
-alType :: Lens' ArtifactLocation (Maybe ArtifactLocationType)
-alType = lens _alType (\s a -> s {_alType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alType :: Lens.Lens' ArtifactLocation (Lude.Maybe ArtifactLocationType)
+alType = Lens.lens (type' :: ArtifactLocation -> Lude.Maybe ArtifactLocationType) (\s a -> s {type' = a} :: ArtifactLocation)
+{-# DEPRECATED alType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON ArtifactLocation where
+instance Lude.FromJSON ArtifactLocation where
   parseJSON =
-    withObject
+    Lude.withObject
       "ArtifactLocation"
       ( \x ->
-          ArtifactLocation' <$> (x .:? "s3Location") <*> (x .:? "type")
+          ArtifactLocation'
+            Lude.<$> (x Lude..:? "s3Location") Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable ArtifactLocation
-
-instance NFData ArtifactLocation

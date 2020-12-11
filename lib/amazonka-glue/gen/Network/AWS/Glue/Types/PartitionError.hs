@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.PartitionError where
+module Network.AWS.Glue.Types.PartitionError
+  ( PartitionError (..),
+
+    -- * Smart constructor
+    mkPartitionError,
+
+    -- * Lenses
+    pePartitionValues,
+    peErrorDetail,
+  )
+where
 
 import Network.AWS.Glue.Types.ErrorDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a partition error.
 --
---
---
--- /See:/ 'partitionError' smart constructor.
+-- /See:/ 'mkPartitionError' smart constructor.
 data PartitionError = PartitionError'
-  { _pePartitionValues ::
-      !(Maybe [Text]),
-    _peErrorDetail :: !(Maybe ErrorDetail)
+  { partitionValues ::
+      Lude.Maybe [Lude.Text],
+    errorDetail :: Lude.Maybe ErrorDetail
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartitionError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pePartitionValues' - The values that define the partition.
---
--- * 'peErrorDetail' - The details about the partition error.
-partitionError ::
+-- * 'errorDetail' - The details about the partition error.
+-- * 'partitionValues' - The values that define the partition.
+mkPartitionError ::
   PartitionError
-partitionError =
+mkPartitionError =
   PartitionError'
-    { _pePartitionValues = Nothing,
-      _peErrorDetail = Nothing
+    { partitionValues = Lude.Nothing,
+      errorDetail = Lude.Nothing
     }
 
 -- | The values that define the partition.
-pePartitionValues :: Lens' PartitionError [Text]
-pePartitionValues = lens _pePartitionValues (\s a -> s {_pePartitionValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pePartitionValues :: Lens.Lens' PartitionError (Lude.Maybe [Lude.Text])
+pePartitionValues = Lens.lens (partitionValues :: PartitionError -> Lude.Maybe [Lude.Text]) (\s a -> s {partitionValues = a} :: PartitionError)
+{-# DEPRECATED pePartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
 
 -- | The details about the partition error.
-peErrorDetail :: Lens' PartitionError (Maybe ErrorDetail)
-peErrorDetail = lens _peErrorDetail (\s a -> s {_peErrorDetail = a})
+--
+-- /Note:/ Consider using 'errorDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peErrorDetail :: Lens.Lens' PartitionError (Lude.Maybe ErrorDetail)
+peErrorDetail = Lens.lens (errorDetail :: PartitionError -> Lude.Maybe ErrorDetail) (\s a -> s {errorDetail = a} :: PartitionError)
+{-# DEPRECATED peErrorDetail "Use generic-lens or generic-optics with 'errorDetail' instead." #-}
 
-instance FromJSON PartitionError where
+instance Lude.FromJSON PartitionError where
   parseJSON =
-    withObject
+    Lude.withObject
       "PartitionError"
       ( \x ->
           PartitionError'
-            <$> (x .:? "PartitionValues" .!= mempty) <*> (x .:? "ErrorDetail")
+            Lude.<$> (x Lude..:? "PartitionValues" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ErrorDetail")
       )
-
-instance Hashable PartitionError
-
-instance NFData PartitionError

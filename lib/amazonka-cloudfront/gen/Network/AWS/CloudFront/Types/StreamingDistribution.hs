@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.StreamingDistribution where
+module Network.AWS.CloudFront.Types.StreamingDistribution
+  ( StreamingDistribution (..),
+
+    -- * Smart constructor
+    mkStreamingDistribution,
+
+    -- * Lenses
+    sdLastModifiedTime,
+    sdId,
+    sdARN,
+    sdStatus,
+    sdDomainName,
+    sdActiveTrustedSigners,
+    sdStreamingDistributionConfig,
+  )
+where
 
 import Network.AWS.CloudFront.Types.ActiveTrustedSigners
 import Network.AWS.CloudFront.Types.StreamingDistributionConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to track and manage content delivery.
 --
---
---
--- /See:/ 'streamingDistribution' smart constructor.
+-- /See:/ 'mkStreamingDistribution' smart constructor.
 data StreamingDistribution = StreamingDistribution'
-  { _sdLastModifiedTime ::
-      !(Maybe ISO8601),
-    _sdId :: !Text,
-    _sdARN :: !Text,
-    _sdStatus :: !Text,
-    _sdDomainName :: !Text,
-    _sdActiveTrustedSigners ::
-      !ActiveTrustedSigners,
-    _sdStreamingDistributionConfig ::
-      !StreamingDistributionConfig
+  { lastModifiedTime ::
+      Lude.Maybe Lude.ISO8601,
+    id :: Lude.Text,
+    arn :: Lude.Text,
+    status :: Lude.Text,
+    domainName :: Lude.Text,
+    activeTrustedSigners :: ActiveTrustedSigners,
+    streamingDistributionConfig ::
+      StreamingDistributionConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamingDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'activeTrustedSigners' - A complex type that lists the AWS accounts, if any, that you included in the @TrustedSigners@ complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
 --
--- * 'sdLastModifiedTime' - The date and time that the distribution was last modified.
---
--- * 'sdId' - The identifier for the RTMP distribution. For example: @EGTXBD79EXAMPLE@ .
---
--- * 'sdARN' - The ARN (Amazon Resource Name) for the distribution. For example: @arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5@ , where @123456789012@ is your AWS account ID.
---
--- * 'sdStatus' - The current status of the RTMP distribution. When the status is @Deployed@ , the distribution's information is propagated to all CloudFront edge locations.
---
--- * 'sdDomainName' - The domain name that corresponds to the streaming distribution, for example, @s5c39gqb8ow64r.cloudfront.net@ .
---
--- * 'sdActiveTrustedSigners' - A complex type that lists the AWS accounts, if any, that you included in the @TrustedSigners@ complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content. The @Signer@ complex type lists the AWS account number of the trusted signer or @self@ if the signer is the AWS account that created the distribution. The @Signer@ element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no @KeyPairId@ element appears for a @Signer@ , that signer can't create signed URLs. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
---
--- * 'sdStreamingDistributionConfig' - The current configuration information for the RTMP distribution.
-streamingDistribution ::
-  -- | 'sdId'
-  Text ->
-  -- | 'sdARN'
-  Text ->
-  -- | 'sdStatus'
-  Text ->
-  -- | 'sdDomainName'
-  Text ->
-  -- | 'sdActiveTrustedSigners'
+-- The @Signer@ complex type lists the AWS account number of the trusted signer or @self@ if the signer is the AWS account that created the distribution. The @Signer@ element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no @KeyPairId@ element appears for a @Signer@ , that signer can't create signed URLs.
+-- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+-- * 'arn' - The ARN (Amazon Resource Name) for the distribution. For example: @arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5@ , where @123456789012@ is your AWS account ID.
+-- * 'domainName' - The domain name that corresponds to the streaming distribution, for example, @s5c39gqb8ow64r.cloudfront.net@ .
+-- * 'id' - The identifier for the RTMP distribution. For example: @EGTXBD79EXAMPLE@ .
+-- * 'lastModifiedTime' - The date and time that the distribution was last modified.
+-- * 'status' - The current status of the RTMP distribution. When the status is @Deployed@ , the distribution's information is propagated to all CloudFront edge locations.
+-- * 'streamingDistributionConfig' - The current configuration information for the RTMP distribution.
+mkStreamingDistribution ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'status'
+  Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'activeTrustedSigners'
   ActiveTrustedSigners ->
-  -- | 'sdStreamingDistributionConfig'
+  -- | 'streamingDistributionConfig'
   StreamingDistributionConfig ->
   StreamingDistribution
-streamingDistribution
+mkStreamingDistribution
   pId_
   pARN_
   pStatus_
@@ -78,54 +86,74 @@ streamingDistribution
   pActiveTrustedSigners_
   pStreamingDistributionConfig_ =
     StreamingDistribution'
-      { _sdLastModifiedTime = Nothing,
-        _sdId = pId_,
-        _sdARN = pARN_,
-        _sdStatus = pStatus_,
-        _sdDomainName = pDomainName_,
-        _sdActiveTrustedSigners = pActiveTrustedSigners_,
-        _sdStreamingDistributionConfig = pStreamingDistributionConfig_
+      { lastModifiedTime = Lude.Nothing,
+        id = pId_,
+        arn = pARN_,
+        status = pStatus_,
+        domainName = pDomainName_,
+        activeTrustedSigners = pActiveTrustedSigners_,
+        streamingDistributionConfig = pStreamingDistributionConfig_
       }
 
 -- | The date and time that the distribution was last modified.
-sdLastModifiedTime :: Lens' StreamingDistribution (Maybe UTCTime)
-sdLastModifiedTime = lens _sdLastModifiedTime (\s a -> s {_sdLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdLastModifiedTime :: Lens.Lens' StreamingDistribution (Lude.Maybe Lude.ISO8601)
+sdLastModifiedTime = Lens.lens (lastModifiedTime :: StreamingDistribution -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: StreamingDistribution)
+{-# DEPRECATED sdLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The identifier for the RTMP distribution. For example: @EGTXBD79EXAMPLE@ .
-sdId :: Lens' StreamingDistribution Text
-sdId = lens _sdId (\s a -> s {_sdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdId :: Lens.Lens' StreamingDistribution Lude.Text
+sdId = Lens.lens (id :: StreamingDistribution -> Lude.Text) (\s a -> s {id = a} :: StreamingDistribution)
+{-# DEPRECATED sdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example: @arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5@ , where @123456789012@ is your AWS account ID.
-sdARN :: Lens' StreamingDistribution Text
-sdARN = lens _sdARN (\s a -> s {_sdARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdARN :: Lens.Lens' StreamingDistribution Lude.Text
+sdARN = Lens.lens (arn :: StreamingDistribution -> Lude.Text) (\s a -> s {arn = a} :: StreamingDistribution)
+{-# DEPRECATED sdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The current status of the RTMP distribution. When the status is @Deployed@ , the distribution's information is propagated to all CloudFront edge locations.
-sdStatus :: Lens' StreamingDistribution Text
-sdStatus = lens _sdStatus (\s a -> s {_sdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdStatus :: Lens.Lens' StreamingDistribution Lude.Text
+sdStatus = Lens.lens (status :: StreamingDistribution -> Lude.Text) (\s a -> s {status = a} :: StreamingDistribution)
+{-# DEPRECATED sdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The domain name that corresponds to the streaming distribution, for example, @s5c39gqb8ow64r.cloudfront.net@ .
-sdDomainName :: Lens' StreamingDistribution Text
-sdDomainName = lens _sdDomainName (\s a -> s {_sdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdDomainName :: Lens.Lens' StreamingDistribution Lude.Text
+sdDomainName = Lens.lens (domainName :: StreamingDistribution -> Lude.Text) (\s a -> s {domainName = a} :: StreamingDistribution)
+{-# DEPRECATED sdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
--- | A complex type that lists the AWS accounts, if any, that you included in the @TrustedSigners@ complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content. The @Signer@ complex type lists the AWS account number of the trusted signer or @self@ if the signer is the AWS account that created the distribution. The @Signer@ element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no @KeyPairId@ element appears for a @Signer@ , that signer can't create signed URLs. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
-sdActiveTrustedSigners :: Lens' StreamingDistribution ActiveTrustedSigners
-sdActiveTrustedSigners = lens _sdActiveTrustedSigners (\s a -> s {_sdActiveTrustedSigners = a})
+-- | A complex type that lists the AWS accounts, if any, that you included in the @TrustedSigners@ complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
+--
+-- The @Signer@ complex type lists the AWS account number of the trusted signer or @self@ if the signer is the AWS account that created the distribution. The @Signer@ element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no @KeyPairId@ element appears for a @Signer@ , that signer can't create signed URLs.
+-- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+--
+-- /Note:/ Consider using 'activeTrustedSigners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdActiveTrustedSigners :: Lens.Lens' StreamingDistribution ActiveTrustedSigners
+sdActiveTrustedSigners = Lens.lens (activeTrustedSigners :: StreamingDistribution -> ActiveTrustedSigners) (\s a -> s {activeTrustedSigners = a} :: StreamingDistribution)
+{-# DEPRECATED sdActiveTrustedSigners "Use generic-lens or generic-optics with 'activeTrustedSigners' instead." #-}
 
 -- | The current configuration information for the RTMP distribution.
-sdStreamingDistributionConfig :: Lens' StreamingDistribution StreamingDistributionConfig
-sdStreamingDistributionConfig = lens _sdStreamingDistributionConfig (\s a -> s {_sdStreamingDistributionConfig = a})
+--
+-- /Note:/ Consider using 'streamingDistributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdStreamingDistributionConfig :: Lens.Lens' StreamingDistribution StreamingDistributionConfig
+sdStreamingDistributionConfig = Lens.lens (streamingDistributionConfig :: StreamingDistribution -> StreamingDistributionConfig) (\s a -> s {streamingDistributionConfig = a} :: StreamingDistribution)
+{-# DEPRECATED sdStreamingDistributionConfig "Use generic-lens or generic-optics with 'streamingDistributionConfig' instead." #-}
 
-instance FromXML StreamingDistribution where
+instance Lude.FromXML StreamingDistribution where
   parseXML x =
     StreamingDistribution'
-      <$> (x .@? "LastModifiedTime")
-      <*> (x .@ "Id")
-      <*> (x .@ "ARN")
-      <*> (x .@ "Status")
-      <*> (x .@ "DomainName")
-      <*> (x .@ "ActiveTrustedSigners")
-      <*> (x .@ "StreamingDistributionConfig")
-
-instance Hashable StreamingDistribution
-
-instance NFData StreamingDistribution
+      Lude.<$> (x Lude..@? "LastModifiedTime")
+      Lude.<*> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "ARN")
+      Lude.<*> (x Lude..@ "Status")
+      Lude.<*> (x Lude..@ "DomainName")
+      Lude.<*> (x Lude..@ "ActiveTrustedSigners")
+      Lude.<*> (x Lude..@ "StreamingDistributionConfig")

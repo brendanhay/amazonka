@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.OrderKey where
+module Network.AWS.SageMaker.Types.OrderKey
+  ( OrderKey
+      ( OrderKey',
+        OKAscending,
+        OKDescending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrderKey
-  = OKAscending
-  | OKDescending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrderKey = OrderKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrderKey where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure OKAscending
-      "descending" -> pure OKDescending
-      e ->
-        fromTextError $
-          "Failure parsing OrderKey from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern OKAscending :: OrderKey
+pattern OKAscending = OrderKey' "Ascending"
 
-instance ToText OrderKey where
-  toText = \case
-    OKAscending -> "Ascending"
-    OKDescending -> "Descending"
+pattern OKDescending :: OrderKey
+pattern OKDescending = OrderKey' "Descending"
 
-instance Hashable OrderKey
-
-instance NFData OrderKey
-
-instance ToByteString OrderKey
-
-instance ToQuery OrderKey
-
-instance ToHeader OrderKey
-
-instance ToJSON OrderKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  OKAscending,
+  OKDescending,
+  OrderKey'
+  #-}

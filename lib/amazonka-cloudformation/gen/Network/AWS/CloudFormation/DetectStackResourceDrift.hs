@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,150 @@
 --
 -- Returns information about whether a resource's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. This information includes actual and expected property values for resources in which AWS CloudFormation detects drift. Only resource properties explicitly defined in the stack template are checked for drift. For more information about stack and resource drift, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
 --
---
 -- Use @DetectStackResourceDrift@ to detect drift on individual resources, or 'DetectStackDrift' to detect drift on all resources in a given stack that support drift detection.
---
 -- Resources that do not currently support drift detection cannot be checked. For a list of resources that support drift detection, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .
 module Network.AWS.CloudFormation.DetectStackResourceDrift
-  ( -- * Creating a Request
-    detectStackResourceDrift,
-    DetectStackResourceDrift,
+  ( -- * Creating a request
+    DetectStackResourceDrift (..),
+    mkDetectStackResourceDrift,
 
-    -- * Request Lenses
+    -- ** Request lenses
     detStackName,
     detLogicalResourceId,
 
-    -- * Destructuring the Response
-    detectStackResourceDriftResponse,
-    DetectStackResourceDriftResponse,
+    -- * Destructuring the response
+    DetectStackResourceDriftResponse (..),
+    mkDetectStackResourceDriftResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrdrsResponseStatus,
     dsrdrsStackResourceDrift,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detectStackResourceDrift' smart constructor.
+-- | /See:/ 'mkDetectStackResourceDrift' smart constructor.
 data DetectStackResourceDrift = DetectStackResourceDrift'
-  { _detStackName ::
-      !Text,
-    _detLogicalResourceId :: !Text
+  { stackName ::
+      Lude.Text,
+    logicalResourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackResourceDrift' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detStackName' - The name of the stack to which the resource belongs.
---
--- * 'detLogicalResourceId' - The logical name of the resource for which to return drift information.
-detectStackResourceDrift ::
-  -- | 'detStackName'
-  Text ->
-  -- | 'detLogicalResourceId'
-  Text ->
+-- * 'logicalResourceId' - The logical name of the resource for which to return drift information.
+-- * 'stackName' - The name of the stack to which the resource belongs.
+mkDetectStackResourceDrift ::
+  -- | 'stackName'
+  Lude.Text ->
+  -- | 'logicalResourceId'
+  Lude.Text ->
   DetectStackResourceDrift
-detectStackResourceDrift pStackName_ pLogicalResourceId_ =
+mkDetectStackResourceDrift pStackName_ pLogicalResourceId_ =
   DetectStackResourceDrift'
-    { _detStackName = pStackName_,
-      _detLogicalResourceId = pLogicalResourceId_
+    { stackName = pStackName_,
+      logicalResourceId = pLogicalResourceId_
     }
 
 -- | The name of the stack to which the resource belongs.
-detStackName :: Lens' DetectStackResourceDrift Text
-detStackName = lens _detStackName (\s a -> s {_detStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detStackName :: Lens.Lens' DetectStackResourceDrift Lude.Text
+detStackName = Lens.lens (stackName :: DetectStackResourceDrift -> Lude.Text) (\s a -> s {stackName = a} :: DetectStackResourceDrift)
+{-# DEPRECATED detStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 -- | The logical name of the resource for which to return drift information.
-detLogicalResourceId :: Lens' DetectStackResourceDrift Text
-detLogicalResourceId = lens _detLogicalResourceId (\s a -> s {_detLogicalResourceId = a})
+--
+-- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detLogicalResourceId :: Lens.Lens' DetectStackResourceDrift Lude.Text
+detLogicalResourceId = Lens.lens (logicalResourceId :: DetectStackResourceDrift -> Lude.Text) (\s a -> s {logicalResourceId = a} :: DetectStackResourceDrift)
+{-# DEPRECATED detLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
 
-instance AWSRequest DetectStackResourceDrift where
+instance Lude.AWSRequest DetectStackResourceDrift where
   type Rs DetectStackResourceDrift = DetectStackResourceDriftResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DetectStackResourceDriftResult"
       ( \s h x ->
           DetectStackResourceDriftResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "StackResourceDrift")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "StackResourceDrift")
       )
 
-instance Hashable DetectStackResourceDrift
+instance Lude.ToHeaders DetectStackResourceDrift where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetectStackResourceDrift
+instance Lude.ToPath DetectStackResourceDrift where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetectStackResourceDrift where
-  toHeaders = const mempty
-
-instance ToPath DetectStackResourceDrift where
-  toPath = const "/"
-
-instance ToQuery DetectStackResourceDrift where
+instance Lude.ToQuery DetectStackResourceDrift where
   toQuery DetectStackResourceDrift' {..} =
-    mconcat
-      [ "Action" =: ("DetectStackResourceDrift" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackName" =: _detStackName,
-        "LogicalResourceId" =: _detLogicalResourceId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetectStackResourceDrift" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackName" Lude.=: stackName,
+        "LogicalResourceId" Lude.=: logicalResourceId
       ]
 
--- | /See:/ 'detectStackResourceDriftResponse' smart constructor.
+-- | /See:/ 'mkDetectStackResourceDriftResponse' smart constructor.
 data DetectStackResourceDriftResponse = DetectStackResourceDriftResponse'
-  { _dsrdrsResponseStatus ::
-      !Int,
-    _dsrdrsStackResourceDrift ::
-      !StackResourceDrift
+  { responseStatus ::
+      Lude.Int,
+    stackResourceDrift ::
+      StackResourceDrift
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackResourceDriftResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrdrsResponseStatus' - -- | The response status code.
---
--- * 'dsrdrsStackResourceDrift' - Information about whether the resource's actual configuration has drifted from its expected template configuration, including actual and expected property values and any differences detected.
-detectStackResourceDriftResponse ::
-  -- | 'dsrdrsResponseStatus'
-  Int ->
-  -- | 'dsrdrsStackResourceDrift'
+-- * 'responseStatus' - The response status code.
+-- * 'stackResourceDrift' - Information about whether the resource's actual configuration has drifted from its expected template configuration, including actual and expected property values and any differences detected.
+mkDetectStackResourceDriftResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'stackResourceDrift'
   StackResourceDrift ->
   DetectStackResourceDriftResponse
-detectStackResourceDriftResponse
+mkDetectStackResourceDriftResponse
   pResponseStatus_
   pStackResourceDrift_ =
     DetectStackResourceDriftResponse'
-      { _dsrdrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _dsrdrsStackResourceDrift = pStackResourceDrift_
+        stackResourceDrift = pStackResourceDrift_
       }
 
--- | -- | The response status code.
-dsrdrsResponseStatus :: Lens' DetectStackResourceDriftResponse Int
-dsrdrsResponseStatus = lens _dsrdrsResponseStatus (\s a -> s {_dsrdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrdrsResponseStatus :: Lens.Lens' DetectStackResourceDriftResponse Lude.Int
+dsrdrsResponseStatus = Lens.lens (responseStatus :: DetectStackResourceDriftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectStackResourceDriftResponse)
+{-# DEPRECATED dsrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about whether the resource's actual configuration has drifted from its expected template configuration, including actual and expected property values and any differences detected.
-dsrdrsStackResourceDrift :: Lens' DetectStackResourceDriftResponse StackResourceDrift
-dsrdrsStackResourceDrift = lens _dsrdrsStackResourceDrift (\s a -> s {_dsrdrsStackResourceDrift = a})
-
-instance NFData DetectStackResourceDriftResponse
+--
+-- /Note:/ Consider using 'stackResourceDrift' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrdrsStackResourceDrift :: Lens.Lens' DetectStackResourceDriftResponse StackResourceDrift
+dsrdrsStackResourceDrift = Lens.lens (stackResourceDrift :: DetectStackResourceDriftResponse -> StackResourceDrift) (\s a -> s {stackResourceDrift = a} :: DetectStackResourceDriftResponse)
+{-# DEPRECATED dsrdrsStackResourceDrift "Use generic-lens or generic-optics with 'stackResourceDrift' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a @DataSource@ object.
 module Network.AWS.AppSync.CreateDataSource
-  ( -- * Creating a Request
-    createDataSource,
-    CreateDataSource,
+  ( -- * Creating a request
+    CreateDataSource (..),
+    mkCreateDataSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdsServiceRoleARN,
     cdsRelationalDatabaseConfig,
     cdsDynamodbConfig,
@@ -35,200 +30,233 @@ module Network.AWS.AppSync.CreateDataSource
     cdsName,
     cdsType,
 
-    -- * Destructuring the Response
-    createDataSourceResponse,
-    CreateDataSourceResponse,
+    -- * Destructuring the response
+    CreateDataSourceResponse (..),
+    mkCreateDataSourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdsrsDataSource,
     cdsrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDataSource' smart constructor.
+-- | /See:/ 'mkCreateDataSource' smart constructor.
 data CreateDataSource = CreateDataSource'
-  { _cdsServiceRoleARN ::
-      !(Maybe Text),
-    _cdsRelationalDatabaseConfig ::
-      !(Maybe RelationalDatabaseDataSourceConfig),
-    _cdsDynamodbConfig :: !(Maybe DynamodbDataSourceConfig),
-    _cdsHttpConfig :: !(Maybe HTTPDataSourceConfig),
-    _cdsLambdaConfig :: !(Maybe LambdaDataSourceConfig),
-    _cdsDescription :: !(Maybe Text),
-    _cdsElasticsearchConfig ::
-      !(Maybe ElasticsearchDataSourceConfig),
-    _cdsApiId :: !Text,
-    _cdsName :: !Text,
-    _cdsType :: !DataSourceType
+  { serviceRoleARN ::
+      Lude.Maybe Lude.Text,
+    relationalDatabaseConfig ::
+      Lude.Maybe RelationalDatabaseDataSourceConfig,
+    dynamodbConfig :: Lude.Maybe DynamodbDataSourceConfig,
+    httpConfig :: Lude.Maybe HTTPDataSourceConfig,
+    lambdaConfig :: Lude.Maybe LambdaDataSourceConfig,
+    description :: Lude.Maybe Lude.Text,
+    elasticsearchConfig ::
+      Lude.Maybe ElasticsearchDataSourceConfig,
+    apiId :: Lude.Text,
+    name :: Lude.Text,
+    type' :: DataSourceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdsServiceRoleARN' - The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
---
--- * 'cdsRelationalDatabaseConfig' - Relational database settings.
---
--- * 'cdsDynamodbConfig' - Amazon DynamoDB settings.
---
--- * 'cdsHttpConfig' - HTTP endpoint settings.
---
--- * 'cdsLambdaConfig' - AWS Lambda settings.
---
--- * 'cdsDescription' - A description of the @DataSource@ .
---
--- * 'cdsElasticsearchConfig' - Amazon Elasticsearch Service settings.
---
--- * 'cdsApiId' - The API ID for the GraphQL API for the @DataSource@ .
---
--- * 'cdsName' - A user-supplied name for the @DataSource@ .
---
--- * 'cdsType' - The type of the @DataSource@ .
-createDataSource ::
-  -- | 'cdsApiId'
-  Text ->
-  -- | 'cdsName'
-  Text ->
-  -- | 'cdsType'
+-- * 'apiId' - The API ID for the GraphQL API for the @DataSource@ .
+-- * 'description' - A description of the @DataSource@ .
+-- * 'dynamodbConfig' - Amazon DynamoDB settings.
+-- * 'elasticsearchConfig' - Amazon Elasticsearch Service settings.
+-- * 'httpConfig' - HTTP endpoint settings.
+-- * 'lambdaConfig' - AWS Lambda settings.
+-- * 'name' - A user-supplied name for the @DataSource@ .
+-- * 'relationalDatabaseConfig' - Relational database settings.
+-- * 'serviceRoleARN' - The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+-- * 'type'' - The type of the @DataSource@ .
+mkCreateDataSource ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'type''
   DataSourceType ->
   CreateDataSource
-createDataSource pApiId_ pName_ pType_ =
+mkCreateDataSource pApiId_ pName_ pType_ =
   CreateDataSource'
-    { _cdsServiceRoleARN = Nothing,
-      _cdsRelationalDatabaseConfig = Nothing,
-      _cdsDynamodbConfig = Nothing,
-      _cdsHttpConfig = Nothing,
-      _cdsLambdaConfig = Nothing,
-      _cdsDescription = Nothing,
-      _cdsElasticsearchConfig = Nothing,
-      _cdsApiId = pApiId_,
-      _cdsName = pName_,
-      _cdsType = pType_
+    { serviceRoleARN = Lude.Nothing,
+      relationalDatabaseConfig = Lude.Nothing,
+      dynamodbConfig = Lude.Nothing,
+      httpConfig = Lude.Nothing,
+      lambdaConfig = Lude.Nothing,
+      description = Lude.Nothing,
+      elasticsearchConfig = Lude.Nothing,
+      apiId = pApiId_,
+      name = pName_,
+      type' = pType_
     }
 
 -- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
-cdsServiceRoleARN :: Lens' CreateDataSource (Maybe Text)
-cdsServiceRoleARN = lens _cdsServiceRoleARN (\s a -> s {_cdsServiceRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsServiceRoleARN :: Lens.Lens' CreateDataSource (Lude.Maybe Lude.Text)
+cdsServiceRoleARN = Lens.lens (serviceRoleARN :: CreateDataSource -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: CreateDataSource)
+{-# DEPRECATED cdsServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | Relational database settings.
-cdsRelationalDatabaseConfig :: Lens' CreateDataSource (Maybe RelationalDatabaseDataSourceConfig)
-cdsRelationalDatabaseConfig = lens _cdsRelationalDatabaseConfig (\s a -> s {_cdsRelationalDatabaseConfig = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsRelationalDatabaseConfig :: Lens.Lens' CreateDataSource (Lude.Maybe RelationalDatabaseDataSourceConfig)
+cdsRelationalDatabaseConfig = Lens.lens (relationalDatabaseConfig :: CreateDataSource -> Lude.Maybe RelationalDatabaseDataSourceConfig) (\s a -> s {relationalDatabaseConfig = a} :: CreateDataSource)
+{-# DEPRECATED cdsRelationalDatabaseConfig "Use generic-lens or generic-optics with 'relationalDatabaseConfig' instead." #-}
 
 -- | Amazon DynamoDB settings.
-cdsDynamodbConfig :: Lens' CreateDataSource (Maybe DynamodbDataSourceConfig)
-cdsDynamodbConfig = lens _cdsDynamodbConfig (\s a -> s {_cdsDynamodbConfig = a})
+--
+-- /Note:/ Consider using 'dynamodbConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDynamodbConfig :: Lens.Lens' CreateDataSource (Lude.Maybe DynamodbDataSourceConfig)
+cdsDynamodbConfig = Lens.lens (dynamodbConfig :: CreateDataSource -> Lude.Maybe DynamodbDataSourceConfig) (\s a -> s {dynamodbConfig = a} :: CreateDataSource)
+{-# DEPRECATED cdsDynamodbConfig "Use generic-lens or generic-optics with 'dynamodbConfig' instead." #-}
 
 -- | HTTP endpoint settings.
-cdsHttpConfig :: Lens' CreateDataSource (Maybe HTTPDataSourceConfig)
-cdsHttpConfig = lens _cdsHttpConfig (\s a -> s {_cdsHttpConfig = a})
+--
+-- /Note:/ Consider using 'httpConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsHttpConfig :: Lens.Lens' CreateDataSource (Lude.Maybe HTTPDataSourceConfig)
+cdsHttpConfig = Lens.lens (httpConfig :: CreateDataSource -> Lude.Maybe HTTPDataSourceConfig) (\s a -> s {httpConfig = a} :: CreateDataSource)
+{-# DEPRECATED cdsHttpConfig "Use generic-lens or generic-optics with 'httpConfig' instead." #-}
 
 -- | AWS Lambda settings.
-cdsLambdaConfig :: Lens' CreateDataSource (Maybe LambdaDataSourceConfig)
-cdsLambdaConfig = lens _cdsLambdaConfig (\s a -> s {_cdsLambdaConfig = a})
+--
+-- /Note:/ Consider using 'lambdaConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsLambdaConfig :: Lens.Lens' CreateDataSource (Lude.Maybe LambdaDataSourceConfig)
+cdsLambdaConfig = Lens.lens (lambdaConfig :: CreateDataSource -> Lude.Maybe LambdaDataSourceConfig) (\s a -> s {lambdaConfig = a} :: CreateDataSource)
+{-# DEPRECATED cdsLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
 
 -- | A description of the @DataSource@ .
-cdsDescription :: Lens' CreateDataSource (Maybe Text)
-cdsDescription = lens _cdsDescription (\s a -> s {_cdsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDescription :: Lens.Lens' CreateDataSource (Lude.Maybe Lude.Text)
+cdsDescription = Lens.lens (description :: CreateDataSource -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateDataSource)
+{-# DEPRECATED cdsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Amazon Elasticsearch Service settings.
-cdsElasticsearchConfig :: Lens' CreateDataSource (Maybe ElasticsearchDataSourceConfig)
-cdsElasticsearchConfig = lens _cdsElasticsearchConfig (\s a -> s {_cdsElasticsearchConfig = a})
+--
+-- /Note:/ Consider using 'elasticsearchConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsElasticsearchConfig :: Lens.Lens' CreateDataSource (Lude.Maybe ElasticsearchDataSourceConfig)
+cdsElasticsearchConfig = Lens.lens (elasticsearchConfig :: CreateDataSource -> Lude.Maybe ElasticsearchDataSourceConfig) (\s a -> s {elasticsearchConfig = a} :: CreateDataSource)
+{-# DEPRECATED cdsElasticsearchConfig "Use generic-lens or generic-optics with 'elasticsearchConfig' instead." #-}
 
 -- | The API ID for the GraphQL API for the @DataSource@ .
-cdsApiId :: Lens' CreateDataSource Text
-cdsApiId = lens _cdsApiId (\s a -> s {_cdsApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsApiId :: Lens.Lens' CreateDataSource Lude.Text
+cdsApiId = Lens.lens (apiId :: CreateDataSource -> Lude.Text) (\s a -> s {apiId = a} :: CreateDataSource)
+{-# DEPRECATED cdsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | A user-supplied name for the @DataSource@ .
-cdsName :: Lens' CreateDataSource Text
-cdsName = lens _cdsName (\s a -> s {_cdsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsName :: Lens.Lens' CreateDataSource Lude.Text
+cdsName = Lens.lens (name :: CreateDataSource -> Lude.Text) (\s a -> s {name = a} :: CreateDataSource)
+{-# DEPRECATED cdsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of the @DataSource@ .
-cdsType :: Lens' CreateDataSource DataSourceType
-cdsType = lens _cdsType (\s a -> s {_cdsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsType :: Lens.Lens' CreateDataSource DataSourceType
+cdsType = Lens.lens (type' :: CreateDataSource -> DataSourceType) (\s a -> s {type' = a} :: CreateDataSource)
+{-# DEPRECATED cdsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest CreateDataSource where
+instance Lude.AWSRequest CreateDataSource where
   type Rs CreateDataSource = CreateDataSourceResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDataSourceResponse'
-            <$> (x .?> "dataSource") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "dataSource") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDataSource
-
-instance NFData CreateDataSource
-
-instance ToHeaders CreateDataSource where
+instance Lude.ToHeaders CreateDataSource where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateDataSource where
-  toJSON CreateDataSource' {..} =
-    object
-      ( catMaybes
-          [ ("serviceRoleArn" .=) <$> _cdsServiceRoleARN,
-            ("relationalDatabaseConfig" .=) <$> _cdsRelationalDatabaseConfig,
-            ("dynamodbConfig" .=) <$> _cdsDynamodbConfig,
-            ("httpConfig" .=) <$> _cdsHttpConfig,
-            ("lambdaConfig" .=) <$> _cdsLambdaConfig,
-            ("description" .=) <$> _cdsDescription,
-            ("elasticsearchConfig" .=) <$> _cdsElasticsearchConfig,
-            Just ("name" .= _cdsName),
-            Just ("type" .= _cdsType)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateDataSource where
+instance Lude.ToJSON CreateDataSource where
+  toJSON CreateDataSource' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serviceRoleArn" Lude..=) Lude.<$> serviceRoleARN,
+            ("relationalDatabaseConfig" Lude..=)
+              Lude.<$> relationalDatabaseConfig,
+            ("dynamodbConfig" Lude..=) Lude.<$> dynamodbConfig,
+            ("httpConfig" Lude..=) Lude.<$> httpConfig,
+            ("lambdaConfig" Lude..=) Lude.<$> lambdaConfig,
+            ("description" Lude..=) Lude.<$> description,
+            ("elasticsearchConfig" Lude..=) Lude.<$> elasticsearchConfig,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("type" Lude..= type')
+          ]
+      )
+
+instance Lude.ToPath CreateDataSource where
   toPath CreateDataSource' {..} =
-    mconcat ["/v1/apis/", toBS _cdsApiId, "/datasources"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/datasources"]
 
-instance ToQuery CreateDataSource where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDataSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDataSourceResponse' smart constructor.
+-- | /See:/ 'mkCreateDataSourceResponse' smart constructor.
 data CreateDataSourceResponse = CreateDataSourceResponse'
-  { _cdsrsDataSource ::
-      !(Maybe DataSource),
-    _cdsrsResponseStatus :: !Int
+  { dataSource ::
+      Lude.Maybe DataSource,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataSourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdsrsDataSource' - The @DataSource@ object.
---
--- * 'cdsrsResponseStatus' - -- | The response status code.
-createDataSourceResponse ::
-  -- | 'cdsrsResponseStatus'
-  Int ->
+-- * 'dataSource' - The @DataSource@ object.
+-- * 'responseStatus' - The response status code.
+mkCreateDataSourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDataSourceResponse
-createDataSourceResponse pResponseStatus_ =
+mkCreateDataSourceResponse pResponseStatus_ =
   CreateDataSourceResponse'
-    { _cdsrsDataSource = Nothing,
-      _cdsrsResponseStatus = pResponseStatus_
+    { dataSource = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @DataSource@ object.
-cdsrsDataSource :: Lens' CreateDataSourceResponse (Maybe DataSource)
-cdsrsDataSource = lens _cdsrsDataSource (\s a -> s {_cdsrsDataSource = a})
+--
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsrsDataSource :: Lens.Lens' CreateDataSourceResponse (Lude.Maybe DataSource)
+cdsrsDataSource = Lens.lens (dataSource :: CreateDataSourceResponse -> Lude.Maybe DataSource) (\s a -> s {dataSource = a} :: CreateDataSourceResponse)
+{-# DEPRECATED cdsrsDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
--- | -- | The response status code.
-cdsrsResponseStatus :: Lens' CreateDataSourceResponse Int
-cdsrsResponseStatus = lens _cdsrsResponseStatus (\s a -> s {_cdsrsResponseStatus = a})
-
-instance NFData CreateDataSourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsrsResponseStatus :: Lens.Lens' CreateDataSourceResponse Lude.Int
+cdsrsResponseStatus = Lens.lens (responseStatus :: CreateDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDataSourceResponse)
+{-# DEPRECATED cdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

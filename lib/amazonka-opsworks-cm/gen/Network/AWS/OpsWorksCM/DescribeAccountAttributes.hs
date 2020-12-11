@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,120 @@
 --
 -- Describes your OpsWorks-CM account attributes.
 --
---
 -- This operation is synchronous.
 module Network.AWS.OpsWorksCM.DescribeAccountAttributes
-  ( -- * Creating a Request
-    describeAccountAttributes,
-    DescribeAccountAttributes,
+  ( -- * Creating a request
+    DescribeAccountAttributes (..),
+    mkDescribeAccountAttributes,
 
-    -- * Destructuring the Response
-    describeAccountAttributesResponse,
-    DescribeAccountAttributesResponse,
+    -- * Destructuring the response
+    DescribeAccountAttributesResponse (..),
+    mkDescribeAccountAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daarsAttributes,
     daarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAccountAttributes' smart constructor.
+-- | /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
-describeAccountAttributes ::
+mkDescribeAccountAttributes ::
   DescribeAccountAttributes
-describeAccountAttributes = DescribeAccountAttributes'
+mkDescribeAccountAttributes = DescribeAccountAttributes'
 
-instance AWSRequest DescribeAccountAttributes where
+instance Lude.AWSRequest DescribeAccountAttributes where
   type
     Rs DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = postJSON opsWorksCM
+  request = Req.postJSON opsWorksCMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            <$> (x .?> "Attributes" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccountAttributes
-
-instance NFData DescribeAccountAttributes
-
-instance ToHeaders DescribeAccountAttributes where
+instance Lude.ToHeaders DescribeAccountAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorksCM_V2016_11_01.DescribeAccountAttributes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OpsWorksCM_V2016_11_01.DescribeAccountAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAccountAttributes where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeAccountAttributes where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeAccountAttributes where
-  toPath = const "/"
+instance Lude.ToPath DescribeAccountAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAccountAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAccountAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAccountAttributesResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { _daarsAttributes ::
-      !( Maybe
-           [AccountAttribute]
-       ),
-    _daarsResponseStatus ::
-      !Int
+  { attributes ::
+      Lude.Maybe
+        [AccountAttribute],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daarsAttributes' - The attributes that are currently set for the account.
---
--- * 'daarsResponseStatus' - -- | The response status code.
-describeAccountAttributesResponse ::
-  -- | 'daarsResponseStatus'
-  Int ->
+-- * 'attributes' - The attributes that are currently set for the account.
+-- * 'responseStatus' - The response status code.
+mkDescribeAccountAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccountAttributesResponse
-describeAccountAttributesResponse pResponseStatus_ =
+mkDescribeAccountAttributesResponse pResponseStatus_ =
   DescribeAccountAttributesResponse'
-    { _daarsAttributes = Nothing,
-      _daarsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The attributes that are currently set for the account.
-daarsAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarsAttributes = lens _daarsAttributes (\s a -> s {_daarsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daarsAttributes :: Lens.Lens' DescribeAccountAttributesResponse (Lude.Maybe [AccountAttribute])
+daarsAttributes = Lens.lens (attributes :: DescribeAccountAttributesResponse -> Lude.Maybe [AccountAttribute]) (\s a -> s {attributes = a} :: DescribeAccountAttributesResponse)
+{-# DEPRECATED daarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\s a -> s {_daarsResponseStatus = a})
-
-instance NFData DescribeAccountAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daarsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Lude.Int
+daarsResponseStatus = Lens.lens (responseStatus :: DescribeAccountAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountAttributesResponse)
+{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

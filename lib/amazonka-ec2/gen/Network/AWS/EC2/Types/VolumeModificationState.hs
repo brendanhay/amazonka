@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeModificationState where
+module Network.AWS.EC2.Types.VolumeModificationState
+  ( VolumeModificationState
+      ( VolumeModificationState',
+        Completed,
+        Failed,
+        Modifying,
+        Optimizing
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VolumeModificationState
-  = Completed
-  | Failed
-  | Modifying
-  | Optimizing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeModificationState = VolumeModificationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeModificationState where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "modifying" -> pure Modifying
-      "optimizing" -> pure Optimizing
-      e ->
-        fromTextError $
-          "Failure parsing VolumeModificationState from value: '" <> e
-            <> "'. Accepted values: completed, failed, modifying, optimizing"
+pattern Completed :: VolumeModificationState
+pattern Completed = VolumeModificationState' "completed"
 
-instance ToText VolumeModificationState where
-  toText = \case
-    Completed -> "completed"
-    Failed -> "failed"
-    Modifying -> "modifying"
-    Optimizing -> "optimizing"
+pattern Failed :: VolumeModificationState
+pattern Failed = VolumeModificationState' "failed"
 
-instance Hashable VolumeModificationState
+pattern Modifying :: VolumeModificationState
+pattern Modifying = VolumeModificationState' "modifying"
 
-instance NFData VolumeModificationState
+pattern Optimizing :: VolumeModificationState
+pattern Optimizing = VolumeModificationState' "optimizing"
 
-instance ToByteString VolumeModificationState
-
-instance ToQuery VolumeModificationState
-
-instance ToHeader VolumeModificationState
-
-instance FromXML VolumeModificationState where
-  parseXML = parseXMLText "VolumeModificationState"
+{-# COMPLETE
+  Completed,
+  Failed,
+  Modifying,
+  Optimizing,
+  VolumeModificationState'
+  #-}

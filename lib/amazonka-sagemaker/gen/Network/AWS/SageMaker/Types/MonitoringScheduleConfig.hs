@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringScheduleConfig where
+module Network.AWS.SageMaker.Types.MonitoringScheduleConfig
+  ( MonitoringScheduleConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringScheduleConfig,
+
+    -- * Lenses
+    mscScheduleConfig,
+    mscMonitoringJobDefinition,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.MonitoringJobDefinition
 import Network.AWS.SageMaker.Types.ScheduleConfig
 
 -- | Configures the monitoring schedule and defines the monitoring job.
 --
---
---
--- /See:/ 'monitoringScheduleConfig' smart constructor.
+-- /See:/ 'mkMonitoringScheduleConfig' smart constructor.
 data MonitoringScheduleConfig = MonitoringScheduleConfig'
-  { _mscScheduleConfig ::
-      !(Maybe ScheduleConfig),
-    _mscMonitoringJobDefinition ::
-      !MonitoringJobDefinition
+  { scheduleConfig ::
+      Lude.Maybe ScheduleConfig,
+    monitoringJobDefinition ::
+      MonitoringJobDefinition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringScheduleConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mscScheduleConfig' - Configures the monitoring schedule.
---
--- * 'mscMonitoringJobDefinition' - Defines the monitoring job.
-monitoringScheduleConfig ::
-  -- | 'mscMonitoringJobDefinition'
+-- * 'monitoringJobDefinition' - Defines the monitoring job.
+-- * 'scheduleConfig' - Configures the monitoring schedule.
+mkMonitoringScheduleConfig ::
+  -- | 'monitoringJobDefinition'
   MonitoringJobDefinition ->
   MonitoringScheduleConfig
-monitoringScheduleConfig pMonitoringJobDefinition_ =
+mkMonitoringScheduleConfig pMonitoringJobDefinition_ =
   MonitoringScheduleConfig'
-    { _mscScheduleConfig = Nothing,
-      _mscMonitoringJobDefinition = pMonitoringJobDefinition_
+    { scheduleConfig = Lude.Nothing,
+      monitoringJobDefinition = pMonitoringJobDefinition_
     }
 
 -- | Configures the monitoring schedule.
-mscScheduleConfig :: Lens' MonitoringScheduleConfig (Maybe ScheduleConfig)
-mscScheduleConfig = lens _mscScheduleConfig (\s a -> s {_mscScheduleConfig = a})
+--
+-- /Note:/ Consider using 'scheduleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mscScheduleConfig :: Lens.Lens' MonitoringScheduleConfig (Lude.Maybe ScheduleConfig)
+mscScheduleConfig = Lens.lens (scheduleConfig :: MonitoringScheduleConfig -> Lude.Maybe ScheduleConfig) (\s a -> s {scheduleConfig = a} :: MonitoringScheduleConfig)
+{-# DEPRECATED mscScheduleConfig "Use generic-lens or generic-optics with 'scheduleConfig' instead." #-}
 
 -- | Defines the monitoring job.
-mscMonitoringJobDefinition :: Lens' MonitoringScheduleConfig MonitoringJobDefinition
-mscMonitoringJobDefinition = lens _mscMonitoringJobDefinition (\s a -> s {_mscMonitoringJobDefinition = a})
+--
+-- /Note:/ Consider using 'monitoringJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mscMonitoringJobDefinition :: Lens.Lens' MonitoringScheduleConfig MonitoringJobDefinition
+mscMonitoringJobDefinition = Lens.lens (monitoringJobDefinition :: MonitoringScheduleConfig -> MonitoringJobDefinition) (\s a -> s {monitoringJobDefinition = a} :: MonitoringScheduleConfig)
+{-# DEPRECATED mscMonitoringJobDefinition "Use generic-lens or generic-optics with 'monitoringJobDefinition' instead." #-}
 
-instance FromJSON MonitoringScheduleConfig where
+instance Lude.FromJSON MonitoringScheduleConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringScheduleConfig"
       ( \x ->
           MonitoringScheduleConfig'
-            <$> (x .:? "ScheduleConfig") <*> (x .: "MonitoringJobDefinition")
+            Lude.<$> (x Lude..:? "ScheduleConfig")
+            Lude.<*> (x Lude..: "MonitoringJobDefinition")
       )
 
-instance Hashable MonitoringScheduleConfig
-
-instance NFData MonitoringScheduleConfig
-
-instance ToJSON MonitoringScheduleConfig where
+instance Lude.ToJSON MonitoringScheduleConfig where
   toJSON MonitoringScheduleConfig' {..} =
-    object
-      ( catMaybes
-          [ ("ScheduleConfig" .=) <$> _mscScheduleConfig,
-            Just ("MonitoringJobDefinition" .= _mscMonitoringJobDefinition)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ScheduleConfig" Lude..=) Lude.<$> scheduleConfig,
+            Lude.Just
+              ("MonitoringJobDefinition" Lude..= monitoringJobDefinition)
           ]
       )

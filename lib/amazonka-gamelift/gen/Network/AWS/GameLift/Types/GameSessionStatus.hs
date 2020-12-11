@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionStatus where
+module Network.AWS.GameLift.Types.GameSessionStatus
+  ( GameSessionStatus
+      ( GameSessionStatus',
+        GSSActivating,
+        GSSActive,
+        GSSError,
+        GSSTerminated,
+        GSSTerminating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameSessionStatus
-  = GSSActivating
-  | GSSActive
-  | GSSError'
-  | GSSTerminated
-  | GSSTerminating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameSessionStatus = GameSessionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameSessionStatus where
-  parser =
-    takeLowerText >>= \case
-      "activating" -> pure GSSActivating
-      "active" -> pure GSSActive
-      "error" -> pure GSSError'
-      "terminated" -> pure GSSTerminated
-      "terminating" -> pure GSSTerminating
-      e ->
-        fromTextError $
-          "Failure parsing GameSessionStatus from value: '" <> e
-            <> "'. Accepted values: activating, active, error, terminated, terminating"
+pattern GSSActivating :: GameSessionStatus
+pattern GSSActivating = GameSessionStatus' "ACTIVATING"
 
-instance ToText GameSessionStatus where
-  toText = \case
-    GSSActivating -> "ACTIVATING"
-    GSSActive -> "ACTIVE"
-    GSSError' -> "ERROR"
-    GSSTerminated -> "TERMINATED"
-    GSSTerminating -> "TERMINATING"
+pattern GSSActive :: GameSessionStatus
+pattern GSSActive = GameSessionStatus' "ACTIVE"
 
-instance Hashable GameSessionStatus
+pattern GSSError :: GameSessionStatus
+pattern GSSError = GameSessionStatus' "ERROR"
 
-instance NFData GameSessionStatus
+pattern GSSTerminated :: GameSessionStatus
+pattern GSSTerminated = GameSessionStatus' "TERMINATED"
 
-instance ToByteString GameSessionStatus
+pattern GSSTerminating :: GameSessionStatus
+pattern GSSTerminating = GameSessionStatus' "TERMINATING"
 
-instance ToQuery GameSessionStatus
-
-instance ToHeader GameSessionStatus
-
-instance FromJSON GameSessionStatus where
-  parseJSON = parseJSONText "GameSessionStatus"
+{-# COMPLETE
+  GSSActivating,
+  GSSActive,
+  GSSError,
+  GSSTerminated,
+  GSSTerminating,
+  GameSessionStatus'
+  #-}

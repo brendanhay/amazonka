@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.
 --
---
 -- Registered instances have the same requirements as instances that are created by using the 'CreateInstance' API. For example, registered instances must be running a supported Linux-based operating system, and they must have a supported instance type. For more information about requirements for instances that you want to register, see <https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html Preparing the Instance> .
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.RegisterInstance
-  ( -- * Creating a Request
-    registerInstance,
-    RegisterInstance,
+  ( -- * Creating a request
+    RegisterInstance (..),
+    mkRegisterInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     riPrivateIP,
     riHostname,
     riInstanceIdentity,
@@ -37,174 +30,198 @@ module Network.AWS.OpsWorks.RegisterInstance
     riRsaPublicKey,
     riStackId,
 
-    -- * Destructuring the Response
-    registerInstanceResponse,
-    RegisterInstanceResponse,
+    -- * Destructuring the response
+    RegisterInstanceResponse (..),
+    mkRegisterInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rirsInstanceId,
     rirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerInstance' smart constructor.
+-- | /See:/ 'mkRegisterInstance' smart constructor.
 data RegisterInstance = RegisterInstance'
-  { _riPrivateIP ::
-      !(Maybe Text),
-    _riHostname :: !(Maybe Text),
-    _riInstanceIdentity :: !(Maybe InstanceIdentity),
-    _riPublicIP :: !(Maybe Text),
-    _riRsaPublicKeyFingerprint :: !(Maybe Text),
-    _riRsaPublicKey :: !(Maybe Text),
-    _riStackId :: !Text
+  { privateIP ::
+      Lude.Maybe Lude.Text,
+    hostname :: Lude.Maybe Lude.Text,
+    instanceIdentity :: Lude.Maybe InstanceIdentity,
+    publicIP :: Lude.Maybe Lude.Text,
+    rsaPublicKeyFingerprint :: Lude.Maybe Lude.Text,
+    rsaPublicKey :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riPrivateIP' - The instance's private IP address.
---
--- * 'riHostname' - The instance's hostname.
---
--- * 'riInstanceIdentity' - An InstanceIdentity object that contains the instance's identity.
---
--- * 'riPublicIP' - The instance's public IP address.
---
--- * 'riRsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
---
--- * 'riRsaPublicKey' - The instances public RSA key. This key is used to encrypt communication between the instance and the service.
---
--- * 'riStackId' - The ID of the stack that the instance is to be registered with.
-registerInstance ::
-  -- | 'riStackId'
-  Text ->
+-- * 'hostname' - The instance's hostname.
+-- * 'instanceIdentity' - An InstanceIdentity object that contains the instance's identity.
+-- * 'privateIP' - The instance's private IP address.
+-- * 'publicIP' - The instance's public IP address.
+-- * 'rsaPublicKey' - The instances public RSA key. This key is used to encrypt communication between the instance and the service.
+-- * 'rsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
+-- * 'stackId' - The ID of the stack that the instance is to be registered with.
+mkRegisterInstance ::
+  -- | 'stackId'
+  Lude.Text ->
   RegisterInstance
-registerInstance pStackId_ =
+mkRegisterInstance pStackId_ =
   RegisterInstance'
-    { _riPrivateIP = Nothing,
-      _riHostname = Nothing,
-      _riInstanceIdentity = Nothing,
-      _riPublicIP = Nothing,
-      _riRsaPublicKeyFingerprint = Nothing,
-      _riRsaPublicKey = Nothing,
-      _riStackId = pStackId_
+    { privateIP = Lude.Nothing,
+      hostname = Lude.Nothing,
+      instanceIdentity = Lude.Nothing,
+      publicIP = Lude.Nothing,
+      rsaPublicKeyFingerprint = Lude.Nothing,
+      rsaPublicKey = Lude.Nothing,
+      stackId = pStackId_
     }
 
 -- | The instance's private IP address.
-riPrivateIP :: Lens' RegisterInstance (Maybe Text)
-riPrivateIP = lens _riPrivateIP (\s a -> s {_riPrivateIP = a})
+--
+-- /Note:/ Consider using 'privateIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPrivateIP :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
+riPrivateIP = Lens.lens (privateIP :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {privateIP = a} :: RegisterInstance)
+{-# DEPRECATED riPrivateIP "Use generic-lens or generic-optics with 'privateIP' instead." #-}
 
 -- | The instance's hostname.
-riHostname :: Lens' RegisterInstance (Maybe Text)
-riHostname = lens _riHostname (\s a -> s {_riHostname = a})
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riHostname :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
+riHostname = Lens.lens (hostname :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: RegisterInstance)
+{-# DEPRECATED riHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- | An InstanceIdentity object that contains the instance's identity.
-riInstanceIdentity :: Lens' RegisterInstance (Maybe InstanceIdentity)
-riInstanceIdentity = lens _riInstanceIdentity (\s a -> s {_riInstanceIdentity = a})
+--
+-- /Note:/ Consider using 'instanceIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riInstanceIdentity :: Lens.Lens' RegisterInstance (Lude.Maybe InstanceIdentity)
+riInstanceIdentity = Lens.lens (instanceIdentity :: RegisterInstance -> Lude.Maybe InstanceIdentity) (\s a -> s {instanceIdentity = a} :: RegisterInstance)
+{-# DEPRECATED riInstanceIdentity "Use generic-lens or generic-optics with 'instanceIdentity' instead." #-}
 
 -- | The instance's public IP address.
-riPublicIP :: Lens' RegisterInstance (Maybe Text)
-riPublicIP = lens _riPublicIP (\s a -> s {_riPublicIP = a})
+--
+-- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPublicIP :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
+riPublicIP = Lens.lens (publicIP :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: RegisterInstance)
+{-# DEPRECATED riPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
 -- | The instances public RSA key fingerprint.
-riRsaPublicKeyFingerprint :: Lens' RegisterInstance (Maybe Text)
-riRsaPublicKeyFingerprint = lens _riRsaPublicKeyFingerprint (\s a -> s {_riRsaPublicKeyFingerprint = a})
+--
+-- /Note:/ Consider using 'rsaPublicKeyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRsaPublicKeyFingerprint :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
+riRsaPublicKeyFingerprint = Lens.lens (rsaPublicKeyFingerprint :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {rsaPublicKeyFingerprint = a} :: RegisterInstance)
+{-# DEPRECATED riRsaPublicKeyFingerprint "Use generic-lens or generic-optics with 'rsaPublicKeyFingerprint' instead." #-}
 
 -- | The instances public RSA key. This key is used to encrypt communication between the instance and the service.
-riRsaPublicKey :: Lens' RegisterInstance (Maybe Text)
-riRsaPublicKey = lens _riRsaPublicKey (\s a -> s {_riRsaPublicKey = a})
+--
+-- /Note:/ Consider using 'rsaPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRsaPublicKey :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
+riRsaPublicKey = Lens.lens (rsaPublicKey :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {rsaPublicKey = a} :: RegisterInstance)
+{-# DEPRECATED riRsaPublicKey "Use generic-lens or generic-optics with 'rsaPublicKey' instead." #-}
 
 -- | The ID of the stack that the instance is to be registered with.
-riStackId :: Lens' RegisterInstance Text
-riStackId = lens _riStackId (\s a -> s {_riStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riStackId :: Lens.Lens' RegisterInstance Lude.Text
+riStackId = Lens.lens (stackId :: RegisterInstance -> Lude.Text) (\s a -> s {stackId = a} :: RegisterInstance)
+{-# DEPRECATED riStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest RegisterInstance where
+instance Lude.AWSRequest RegisterInstance where
   type Rs RegisterInstance = RegisterInstanceResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterInstanceResponse'
-            <$> (x .?> "InstanceId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "InstanceId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterInstance
-
-instance NFData RegisterInstance
-
-instance ToHeaders RegisterInstance where
+instance Lude.ToHeaders RegisterInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.RegisterInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.RegisterInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterInstance where
+instance Lude.ToJSON RegisterInstance where
   toJSON RegisterInstance' {..} =
-    object
-      ( catMaybes
-          [ ("PrivateIp" .=) <$> _riPrivateIP,
-            ("Hostname" .=) <$> _riHostname,
-            ("InstanceIdentity" .=) <$> _riInstanceIdentity,
-            ("PublicIp" .=) <$> _riPublicIP,
-            ("RsaPublicKeyFingerprint" .=) <$> _riRsaPublicKeyFingerprint,
-            ("RsaPublicKey" .=) <$> _riRsaPublicKey,
-            Just ("StackId" .= _riStackId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PrivateIp" Lude..=) Lude.<$> privateIP,
+            ("Hostname" Lude..=) Lude.<$> hostname,
+            ("InstanceIdentity" Lude..=) Lude.<$> instanceIdentity,
+            ("PublicIp" Lude..=) Lude.<$> publicIP,
+            ("RsaPublicKeyFingerprint" Lude..=)
+              Lude.<$> rsaPublicKeyFingerprint,
+            ("RsaPublicKey" Lude..=) Lude.<$> rsaPublicKey,
+            Lude.Just ("StackId" Lude..= stackId)
           ]
       )
 
-instance ToPath RegisterInstance where
-  toPath = const "/"
+instance Lude.ToPath RegisterInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterInstance where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterInstance where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @RegisterInstanceResult@ request.
 --
---
---
--- /See:/ 'registerInstanceResponse' smart constructor.
+-- /See:/ 'mkRegisterInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
-  { _rirsInstanceId ::
-      !(Maybe Text),
-    _rirsResponseStatus :: !Int
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rirsInstanceId' - The registered instance's AWS OpsWorks Stacks ID.
---
--- * 'rirsResponseStatus' - -- | The response status code.
-registerInstanceResponse ::
-  -- | 'rirsResponseStatus'
-  Int ->
+-- * 'instanceId' - The registered instance's AWS OpsWorks Stacks ID.
+-- * 'responseStatus' - The response status code.
+mkRegisterInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterInstanceResponse
-registerInstanceResponse pResponseStatus_ =
+mkRegisterInstanceResponse pResponseStatus_ =
   RegisterInstanceResponse'
-    { _rirsInstanceId = Nothing,
-      _rirsResponseStatus = pResponseStatus_
+    { instanceId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The registered instance's AWS OpsWorks Stacks ID.
-rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
-rirsInstanceId = lens _rirsInstanceId (\s a -> s {_rirsInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirsInstanceId :: Lens.Lens' RegisterInstanceResponse (Lude.Maybe Lude.Text)
+rirsInstanceId = Lens.lens (instanceId :: RegisterInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: RegisterInstanceResponse)
+{-# DEPRECATED rirsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | -- | The response status code.
-rirsResponseStatus :: Lens' RegisterInstanceResponse Int
-rirsResponseStatus = lens _rirsResponseStatus (\s a -> s {_rirsResponseStatus = a})
-
-instance NFData RegisterInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirsResponseStatus :: Lens.Lens' RegisterInstanceResponse Lude.Int
+rirsResponseStatus = Lens.lens (responseStatus :: RegisterInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterInstanceResponse)
+{-# DEPRECATED rirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

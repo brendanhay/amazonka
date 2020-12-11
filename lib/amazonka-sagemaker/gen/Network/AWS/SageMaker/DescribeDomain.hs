@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- The description of the domain.
 module Network.AWS.SageMaker.DescribeDomain
-  ( -- * Creating a Request
-    describeDomain,
-    DescribeDomain,
+  ( -- * Creating a request
+    DescribeDomain (..),
+    mkDescribeDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desDomainId,
 
-    -- * Destructuring the Response
-    describeDomainResponse,
-    DescribeDomainResponse,
+    -- * Destructuring the response
+    DescribeDomainResponse (..),
+    mkDescribeDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsCreationTime,
     ddrsStatus,
     ddrsFailureReason,
@@ -52,245 +47,309 @@ module Network.AWS.SageMaker.DescribeDomain
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeDomain' smart constructor.
-newtype DescribeDomain = DescribeDomain' {_desDomainId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeDomain' smart constructor.
+newtype DescribeDomain = DescribeDomain' {domainId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desDomainId' - The domain ID.
-describeDomain ::
-  -- | 'desDomainId'
-  Text ->
+-- * 'domainId' - The domain ID.
+mkDescribeDomain ::
+  -- | 'domainId'
+  Lude.Text ->
   DescribeDomain
-describeDomain pDomainId_ =
-  DescribeDomain' {_desDomainId = pDomainId_}
+mkDescribeDomain pDomainId_ =
+  DescribeDomain' {domainId = pDomainId_}
 
 -- | The domain ID.
-desDomainId :: Lens' DescribeDomain Text
-desDomainId = lens _desDomainId (\s a -> s {_desDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desDomainId :: Lens.Lens' DescribeDomain Lude.Text
+desDomainId = Lens.lens (domainId :: DescribeDomain -> Lude.Text) (\s a -> s {domainId = a} :: DescribeDomain)
+{-# DEPRECATED desDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance AWSRequest DescribeDomain where
+instance Lude.AWSRequest DescribeDomain where
   type Rs DescribeDomain = DescribeDomainResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDomainResponse'
-            <$> (x .?> "CreationTime")
-            <*> (x .?> "Status")
-            <*> (x .?> "FailureReason")
-            <*> (x .?> "DefaultUserSettings")
-            <*> (x .?> "SubnetIds")
-            <*> (x .?> "DomainArn")
-            <*> (x .?> "VpcId")
-            <*> (x .?> "Url")
-            <*> (x .?> "AuthMode")
-            <*> (x .?> "HomeEfsFileSystemKmsKeyId")
-            <*> (x .?> "SingleSignOnManagedApplicationInstanceId")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "HomeEfsFileSystemId")
-            <*> (x .?> "KmsKeyId")
-            <*> (x .?> "DomainName")
-            <*> (x .?> "DomainId")
-            <*> (x .?> "AppNetworkAccessType")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreationTime")
+            Lude.<*> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "DefaultUserSettings")
+            Lude.<*> (x Lude..?> "SubnetIds")
+            Lude.<*> (x Lude..?> "DomainArn")
+            Lude.<*> (x Lude..?> "VpcId")
+            Lude.<*> (x Lude..?> "Url")
+            Lude.<*> (x Lude..?> "AuthMode")
+            Lude.<*> (x Lude..?> "HomeEfsFileSystemKmsKeyId")
+            Lude.<*> (x Lude..?> "SingleSignOnManagedApplicationInstanceId")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "HomeEfsFileSystemId")
+            Lude.<*> (x Lude..?> "KmsKeyId")
+            Lude.<*> (x Lude..?> "DomainName")
+            Lude.<*> (x Lude..?> "DomainId")
+            Lude.<*> (x Lude..?> "AppNetworkAccessType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDomain
-
-instance NFData DescribeDomain
-
-instance ToHeaders DescribeDomain where
+instance Lude.ToHeaders DescribeDomain where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeDomain" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDomain where
+instance Lude.ToJSON DescribeDomain where
   toJSON DescribeDomain' {..} =
-    object (catMaybes [Just ("DomainId" .= _desDomainId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DomainId" Lude..= domainId)])
 
-instance ToPath DescribeDomain where
-  toPath = const "/"
+instance Lude.ToPath DescribeDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDomain where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDomainResponse' smart constructor.
+-- | /See:/ 'mkDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { _ddrsCreationTime ::
-      !(Maybe POSIX),
-    _ddrsStatus :: !(Maybe DomainStatus),
-    _ddrsFailureReason :: !(Maybe Text),
-    _ddrsDefaultUserSettings ::
-      !(Maybe UserSettings),
-    _ddrsSubnetIds :: !(Maybe (List1 Text)),
-    _ddrsDomainARN :: !(Maybe Text),
-    _ddrsVPCId :: !(Maybe Text),
-    _ddrsURL :: !(Maybe Text),
-    _ddrsAuthMode :: !(Maybe AuthMode),
-    _ddrsHomeEfsFileSystemKMSKeyId ::
-      !(Maybe Text),
-    _ddrsSingleSignOnManagedApplicationInstanceId ::
-      !(Maybe Text),
-    _ddrsLastModifiedTime :: !(Maybe POSIX),
-    _ddrsHomeEfsFileSystemId :: !(Maybe Text),
-    _ddrsKMSKeyId :: !(Maybe Text),
-    _ddrsDomainName :: !(Maybe Text),
-    _ddrsDomainId :: !(Maybe Text),
-    _ddrsAppNetworkAccessType ::
-      !(Maybe AppNetworkAccessType),
-    _ddrsResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe DomainStatus,
+    failureReason :: Lude.Maybe Lude.Text,
+    defaultUserSettings ::
+      Lude.Maybe UserSettings,
+    subnetIds ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    domainARN :: Lude.Maybe Lude.Text,
+    vpcId :: Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    authMode :: Lude.Maybe AuthMode,
+    homeEfsFileSystemKMSKeyId ::
+      Lude.Maybe Lude.Text,
+    singleSignOnManagedApplicationInstanceId ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    homeEfsFileSystemId :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    domainName :: Lude.Maybe Lude.Text,
+    domainId :: Lude.Maybe Lude.Text,
+    appNetworkAccessType ::
+      Lude.Maybe AppNetworkAccessType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .
 --
--- * 'ddrsCreationTime' - The creation time.
 --
--- * 'ddrsStatus' - The status.
+--     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access
 --
--- * 'ddrsFailureReason' - The failure reason.
 --
--- * 'ddrsDefaultUserSettings' - Settings which are applied to all UserProfiles in this domain, if settings are not explicitly specified in a given UserProfile.
+--     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
 --
--- * 'ddrsSubnetIds' - The VPC subnets that Studio uses for communication.
 --
--- * 'ddrsDomainARN' - The domain's Amazon Resource Name (ARN).
---
--- * 'ddrsVPCId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
---
--- * 'ddrsURL' - The domain's URL.
---
--- * 'ddrsAuthMode' - The domain's authentication mode.
---
--- * 'ddrsHomeEfsFileSystemKMSKeyId' - This member is deprecated and replaced with @KmsKeyId@ .
---
--- * 'ddrsSingleSignOnManagedApplicationInstanceId' - The SSO managed application instance ID.
---
--- * 'ddrsLastModifiedTime' - The last modified time.
---
--- * 'ddrsHomeEfsFileSystemId' - The ID of the Amazon Elastic File System (EFS) managed by this Domain.
---
--- * 'ddrsKMSKeyId' - The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
---
--- * 'ddrsDomainName' - The domain name.
---
--- * 'ddrsDomainId' - The domain ID.
---
--- * 'ddrsAppNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-describeDomainResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- * 'authMode' - The domain's authentication mode.
+-- * 'creationTime' - The creation time.
+-- * 'defaultUserSettings' - Settings which are applied to all UserProfiles in this domain, if settings are not explicitly specified in a given UserProfile.
+-- * 'domainARN' - The domain's Amazon Resource Name (ARN).
+-- * 'domainId' - The domain ID.
+-- * 'domainName' - The domain name.
+-- * 'failureReason' - The failure reason.
+-- * 'homeEfsFileSystemId' - The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+-- * 'homeEfsFileSystemKMSKeyId' - This member is deprecated and replaced with @KmsKeyId@ .
+-- * 'kmsKeyId' - The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'responseStatus' - The response status code.
+-- * 'singleSignOnManagedApplicationInstanceId' - The SSO managed application instance ID.
+-- * 'status' - The status.
+-- * 'subnetIds' - The VPC subnets that Studio uses for communication.
+-- * 'url' - The domain's URL.
+-- * 'vpcId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+mkDescribeDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDomainResponse
-describeDomainResponse pResponseStatus_ =
+mkDescribeDomainResponse pResponseStatus_ =
   DescribeDomainResponse'
-    { _ddrsCreationTime = Nothing,
-      _ddrsStatus = Nothing,
-      _ddrsFailureReason = Nothing,
-      _ddrsDefaultUserSettings = Nothing,
-      _ddrsSubnetIds = Nothing,
-      _ddrsDomainARN = Nothing,
-      _ddrsVPCId = Nothing,
-      _ddrsURL = Nothing,
-      _ddrsAuthMode = Nothing,
-      _ddrsHomeEfsFileSystemKMSKeyId = Nothing,
-      _ddrsSingleSignOnManagedApplicationInstanceId = Nothing,
-      _ddrsLastModifiedTime = Nothing,
-      _ddrsHomeEfsFileSystemId = Nothing,
-      _ddrsKMSKeyId = Nothing,
-      _ddrsDomainName = Nothing,
-      _ddrsDomainId = Nothing,
-      _ddrsAppNetworkAccessType = Nothing,
-      _ddrsResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      defaultUserSettings = Lude.Nothing,
+      subnetIds = Lude.Nothing,
+      domainARN = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      url = Lude.Nothing,
+      authMode = Lude.Nothing,
+      homeEfsFileSystemKMSKeyId = Lude.Nothing,
+      singleSignOnManagedApplicationInstanceId = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      homeEfsFileSystemId = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      domainName = Lude.Nothing,
+      domainId = Lude.Nothing,
+      appNetworkAccessType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The creation time.
-ddrsCreationTime :: Lens' DescribeDomainResponse (Maybe UTCTime)
-ddrsCreationTime = lens _ddrsCreationTime (\s a -> s {_ddrsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsCreationTime :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Timestamp)
+ddrsCreationTime = Lens.lens (creationTime :: DescribeDomainResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status.
-ddrsStatus :: Lens' DescribeDomainResponse (Maybe DomainStatus)
-ddrsStatus = lens _ddrsStatus (\s a -> s {_ddrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsStatus :: Lens.Lens' DescribeDomainResponse (Lude.Maybe DomainStatus)
+ddrsStatus = Lens.lens (status :: DescribeDomainResponse -> Lude.Maybe DomainStatus) (\s a -> s {status = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The failure reason.
-ddrsFailureReason :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsFailureReason = lens _ddrsFailureReason (\s a -> s {_ddrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsFailureReason :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsFailureReason = Lens.lens (failureReason :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | Settings which are applied to all UserProfiles in this domain, if settings are not explicitly specified in a given UserProfile.
-ddrsDefaultUserSettings :: Lens' DescribeDomainResponse (Maybe UserSettings)
-ddrsDefaultUserSettings = lens _ddrsDefaultUserSettings (\s a -> s {_ddrsDefaultUserSettings = a})
+--
+-- /Note:/ Consider using 'defaultUserSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDefaultUserSettings :: Lens.Lens' DescribeDomainResponse (Lude.Maybe UserSettings)
+ddrsDefaultUserSettings = Lens.lens (defaultUserSettings :: DescribeDomainResponse -> Lude.Maybe UserSettings) (\s a -> s {defaultUserSettings = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsDefaultUserSettings "Use generic-lens or generic-optics with 'defaultUserSettings' instead." #-}
 
 -- | The VPC subnets that Studio uses for communication.
-ddrsSubnetIds :: Lens' DescribeDomainResponse (Maybe (NonEmpty Text))
-ddrsSubnetIds = lens _ddrsSubnetIds (\s a -> s {_ddrsSubnetIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsSubnetIds :: Lens.Lens' DescribeDomainResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+ddrsSubnetIds = Lens.lens (subnetIds :: DescribeDomainResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {subnetIds = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The domain's Amazon Resource Name (ARN).
-ddrsDomainARN :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsDomainARN = lens _ddrsDomainARN (\s a -> s {_ddrsDomainARN = a})
+--
+-- /Note:/ Consider using 'domainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDomainARN :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsDomainARN = Lens.lens (domainARN :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainARN = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsDomainARN "Use generic-lens or generic-optics with 'domainARN' instead." #-}
 
 -- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-ddrsVPCId :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsVPCId = lens _ddrsVPCId (\s a -> s {_ddrsVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsVPCId :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsVPCId = Lens.lens (vpcId :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The domain's URL.
-ddrsURL :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsURL = lens _ddrsURL (\s a -> s {_ddrsURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsURL :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsURL = Lens.lens (url :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The domain's authentication mode.
-ddrsAuthMode :: Lens' DescribeDomainResponse (Maybe AuthMode)
-ddrsAuthMode = lens _ddrsAuthMode (\s a -> s {_ddrsAuthMode = a})
+--
+-- /Note:/ Consider using 'authMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsAuthMode :: Lens.Lens' DescribeDomainResponse (Lude.Maybe AuthMode)
+ddrsAuthMode = Lens.lens (authMode :: DescribeDomainResponse -> Lude.Maybe AuthMode) (\s a -> s {authMode = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsAuthMode "Use generic-lens or generic-optics with 'authMode' instead." #-}
 
 -- | This member is deprecated and replaced with @KmsKeyId@ .
-ddrsHomeEfsFileSystemKMSKeyId :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsHomeEfsFileSystemKMSKeyId = lens _ddrsHomeEfsFileSystemKMSKeyId (\s a -> s {_ddrsHomeEfsFileSystemKMSKeyId = a})
+--
+-- /Note:/ Consider using 'homeEfsFileSystemKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsHomeEfsFileSystemKMSKeyId :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsHomeEfsFileSystemKMSKeyId = Lens.lens (homeEfsFileSystemKMSKeyId :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {homeEfsFileSystemKMSKeyId = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsHomeEfsFileSystemKMSKeyId "Use generic-lens or generic-optics with 'homeEfsFileSystemKMSKeyId' instead." #-}
 
 -- | The SSO managed application instance ID.
-ddrsSingleSignOnManagedApplicationInstanceId :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsSingleSignOnManagedApplicationInstanceId = lens _ddrsSingleSignOnManagedApplicationInstanceId (\s a -> s {_ddrsSingleSignOnManagedApplicationInstanceId = a})
+--
+-- /Note:/ Consider using 'singleSignOnManagedApplicationInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsSingleSignOnManagedApplicationInstanceId :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsSingleSignOnManagedApplicationInstanceId = Lens.lens (singleSignOnManagedApplicationInstanceId :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {singleSignOnManagedApplicationInstanceId = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsSingleSignOnManagedApplicationInstanceId "Use generic-lens or generic-optics with 'singleSignOnManagedApplicationInstanceId' instead." #-}
 
 -- | The last modified time.
-ddrsLastModifiedTime :: Lens' DescribeDomainResponse (Maybe UTCTime)
-ddrsLastModifiedTime = lens _ddrsLastModifiedTime (\s a -> s {_ddrsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsLastModifiedTime :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Timestamp)
+ddrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeDomainResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-ddrsHomeEfsFileSystemId :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsHomeEfsFileSystemId = lens _ddrsHomeEfsFileSystemId (\s a -> s {_ddrsHomeEfsFileSystemId = a})
+--
+-- /Note:/ Consider using 'homeEfsFileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsHomeEfsFileSystemId :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsHomeEfsFileSystemId = Lens.lens (homeEfsFileSystemId :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {homeEfsFileSystemId = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsHomeEfsFileSystemId "Use generic-lens or generic-optics with 'homeEfsFileSystemId' instead." #-}
 
 -- | The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-ddrsKMSKeyId :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsKMSKeyId = lens _ddrsKMSKeyId (\s a -> s {_ddrsKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsKMSKeyId :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsKMSKeyId = Lens.lens (kmsKeyId :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The domain name.
-ddrsDomainName :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsDomainName = lens _ddrsDomainName (\s a -> s {_ddrsDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDomainName :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsDomainName = Lens.lens (domainName :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The domain ID.
-ddrsDomainId :: Lens' DescribeDomainResponse (Maybe Text)
-ddrsDomainId = lens _ddrsDomainId (\s a -> s {_ddrsDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDomainId :: Lens.Lens' DescribeDomainResponse (Lude.Maybe Lude.Text)
+ddrsDomainId = Lens.lens (domainId :: DescribeDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
--- | Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
-ddrsAppNetworkAccessType :: Lens' DescribeDomainResponse (Maybe AppNetworkAccessType)
-ddrsAppNetworkAccessType = lens _ddrsAppNetworkAccessType (\s a -> s {_ddrsAppNetworkAccessType = a})
+-- | Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .
+--
+--
+--     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access
+--
+--
+--     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
+--
+--
+--
+-- /Note:/ Consider using 'appNetworkAccessType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsAppNetworkAccessType :: Lens.Lens' DescribeDomainResponse (Lude.Maybe AppNetworkAccessType)
+ddrsAppNetworkAccessType = Lens.lens (appNetworkAccessType :: DescribeDomainResponse -> Lude.Maybe AppNetworkAccessType) (\s a -> s {appNetworkAccessType = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsAppNetworkAccessType "Use generic-lens or generic-optics with 'appNetworkAccessType' instead." #-}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DescribeDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DescribeDomainResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

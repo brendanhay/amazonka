@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.MetricValue where
+module Network.AWS.IoT.Types.MetricValue
+  ( MetricValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricValue,
+
+    -- * Lenses
+    mvCidrs,
+    mvCount,
+    mvPorts,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The value to be compared with the @metric@ .
 --
---
---
--- /See:/ 'metricValue' smart constructor.
+-- /See:/ 'mkMetricValue' smart constructor.
 data MetricValue = MetricValue'
-  { _mvCidrs :: !(Maybe [Text]),
-    _mvCount :: !(Maybe Nat),
-    _mvPorts :: !(Maybe [Nat])
+  { cidrs :: Lude.Maybe [Lude.Text],
+    count :: Lude.Maybe Lude.Natural,
+    ports :: Lude.Maybe [Lude.Natural]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvCidrs' - If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
---
--- * 'mvCount' - If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
---
--- * 'mvPorts' - If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
-metricValue ::
+-- * 'cidrs' - If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
+-- * 'count' - If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
+-- * 'ports' - If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
+mkMetricValue ::
   MetricValue
-metricValue =
+mkMetricValue =
   MetricValue'
-    { _mvCidrs = Nothing,
-      _mvCount = Nothing,
-      _mvPorts = Nothing
+    { cidrs = Lude.Nothing,
+      count = Lude.Nothing,
+      ports = Lude.Nothing
     }
 
 -- | If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
-mvCidrs :: Lens' MetricValue [Text]
-mvCidrs = lens _mvCidrs (\s a -> s {_mvCidrs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cidrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvCidrs :: Lens.Lens' MetricValue (Lude.Maybe [Lude.Text])
+mvCidrs = Lens.lens (cidrs :: MetricValue -> Lude.Maybe [Lude.Text]) (\s a -> s {cidrs = a} :: MetricValue)
+{-# DEPRECATED mvCidrs "Use generic-lens or generic-optics with 'cidrs' instead." #-}
 
 -- | If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
-mvCount :: Lens' MetricValue (Maybe Natural)
-mvCount = lens _mvCount (\s a -> s {_mvCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvCount :: Lens.Lens' MetricValue (Lude.Maybe Lude.Natural)
+mvCount = Lens.lens (count :: MetricValue -> Lude.Maybe Lude.Natural) (\s a -> s {count = a} :: MetricValue)
+{-# DEPRECATED mvCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
-mvPorts :: Lens' MetricValue [Natural]
-mvPorts = lens _mvPorts (\s a -> s {_mvPorts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvPorts :: Lens.Lens' MetricValue (Lude.Maybe [Lude.Natural])
+mvPorts = Lens.lens (ports :: MetricValue -> Lude.Maybe [Lude.Natural]) (\s a -> s {ports = a} :: MetricValue)
+{-# DEPRECATED mvPorts "Use generic-lens or generic-optics with 'ports' instead." #-}
 
-instance FromJSON MetricValue where
+instance Lude.FromJSON MetricValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricValue"
       ( \x ->
           MetricValue'
-            <$> (x .:? "cidrs" .!= mempty)
-            <*> (x .:? "count")
-            <*> (x .:? "ports" .!= mempty)
+            Lude.<$> (x Lude..:? "cidrs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "count")
+            Lude.<*> (x Lude..:? "ports" Lude..!= Lude.mempty)
       )
 
-instance Hashable MetricValue
-
-instance NFData MetricValue
-
-instance ToJSON MetricValue where
+instance Lude.ToJSON MetricValue where
   toJSON MetricValue' {..} =
-    object
-      ( catMaybes
-          [ ("cidrs" .=) <$> _mvCidrs,
-            ("count" .=) <$> _mvCount,
-            ("ports" .=) <$> _mvPorts
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cidrs" Lude..=) Lude.<$> cidrs,
+            ("count" Lude..=) Lude.<$> count,
+            ("ports" Lude..=) Lude.<$> ports
           ]
       )

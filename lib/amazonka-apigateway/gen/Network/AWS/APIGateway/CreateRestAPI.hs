@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new 'RestApi' resource.
 module Network.AWS.APIGateway.CreateRestAPI
-  ( -- * Creating a Request
-    createRestAPI,
-    CreateRestAPI,
+  ( -- * Creating a request
+    CreateRestAPI (..),
+    mkCreateRestAPI,
 
-    -- * Request Lenses
+    -- ** Request lenses
     craMinimumCompressionSize,
     craDisableExecuteAPIEndpoint,
     craBinaryMediaTypes,
@@ -36,11 +31,11 @@ module Network.AWS.APIGateway.CreateRestAPI
     craTags,
     craName,
 
-    -- * Destructuring the Response
-    restAPI,
-    RestAPI,
+    -- * Destructuring the response
+    RestAPI (..),
+    mkRestAPI,
 
-    -- * Response Lenses
+    -- ** Response lenses
     raMinimumCompressionSize,
     raDisableExecuteAPIEndpoint,
     raBinaryMediaTypes,
@@ -58,153 +53,192 @@ module Network.AWS.APIGateway.CreateRestAPI
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The POST Request to add a new 'RestApi' resource to your collection.
 --
---
---
--- /See:/ 'createRestAPI' smart constructor.
+-- /See:/ 'mkCreateRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
-  { _craMinimumCompressionSize ::
-      !(Maybe Int),
-    _craDisableExecuteAPIEndpoint :: !(Maybe Bool),
-    _craBinaryMediaTypes :: !(Maybe [Text]),
-    _craVersion :: !(Maybe Text),
-    _craApiKeySource :: !(Maybe APIKeySourceType),
-    _craCloneFrom :: !(Maybe Text),
-    _craPolicy :: !(Maybe Text),
-    _craEndpointConfiguration :: !(Maybe EndpointConfiguration),
-    _craDescription :: !(Maybe Text),
-    _craTags :: !(Maybe (Map Text (Text))),
-    _craName :: !Text
+  { minimumCompressionSize ::
+      Lude.Maybe Lude.Int,
+    disableExecuteAPIEndpoint :: Lude.Maybe Lude.Bool,
+    binaryMediaTypes :: Lude.Maybe [Lude.Text],
+    version :: Lude.Maybe Lude.Text,
+    apiKeySource :: Lude.Maybe APIKeySourceType,
+    cloneFrom :: Lude.Maybe Lude.Text,
+    policy :: Lude.Maybe Lude.Text,
+    endpointConfiguration :: Lude.Maybe EndpointConfiguration,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRestAPI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'apiKeySource' - The source of the API key for metering requests according to a usage plan. Valid values are:
 --
--- * 'craMinimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+--     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.
 --
--- * 'craDisableExecuteAPIEndpoint' - Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+--     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
 --
--- * 'craBinaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
 --
--- * 'craVersion' - A version identifier for the API.
---
--- * 'craApiKeySource' - The source of the API key for metering requests according to a usage plan. Valid values are:     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
---
--- * 'craCloneFrom' - The ID of the 'RestApi' that you want to clone from.
---
--- * 'craPolicy' - 'Method'
---
--- * 'craEndpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
---
--- * 'craDescription' - The description of the 'RestApi' .
---
--- * 'craTags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
---
--- * 'craName' - [Required] The name of the 'RestApi' .
-createRestAPI ::
-  -- | 'craName'
-  Text ->
+-- * 'binaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
+-- * 'cloneFrom' - The ID of the 'RestApi' that you want to clone from.
+-- * 'description' - The description of the 'RestApi' .
+-- * 'disableExecuteAPIEndpoint' - Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+-- * 'endpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+-- * 'minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+-- * 'name' - [Required] The name of the 'RestApi' .
+-- * 'policy' - 'Method'
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+-- * 'version' - A version identifier for the API.
+mkCreateRestAPI ::
+  -- | 'name'
+  Lude.Text ->
   CreateRestAPI
-createRestAPI pName_ =
+mkCreateRestAPI pName_ =
   CreateRestAPI'
-    { _craMinimumCompressionSize = Nothing,
-      _craDisableExecuteAPIEndpoint = Nothing,
-      _craBinaryMediaTypes = Nothing,
-      _craVersion = Nothing,
-      _craApiKeySource = Nothing,
-      _craCloneFrom = Nothing,
-      _craPolicy = Nothing,
-      _craEndpointConfiguration = Nothing,
-      _craDescription = Nothing,
-      _craTags = Nothing,
-      _craName = pName_
+    { minimumCompressionSize = Lude.Nothing,
+      disableExecuteAPIEndpoint = Lude.Nothing,
+      binaryMediaTypes = Lude.Nothing,
+      version = Lude.Nothing,
+      apiKeySource = Lude.Nothing,
+      cloneFrom = Lude.Nothing,
+      policy = Lude.Nothing,
+      endpointConfiguration = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_
     }
 
 -- | A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
-craMinimumCompressionSize :: Lens' CreateRestAPI (Maybe Int)
-craMinimumCompressionSize = lens _craMinimumCompressionSize (\s a -> s {_craMinimumCompressionSize = a})
+--
+-- /Note:/ Consider using 'minimumCompressionSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craMinimumCompressionSize :: Lens.Lens' CreateRestAPI (Lude.Maybe Lude.Int)
+craMinimumCompressionSize = Lens.lens (minimumCompressionSize :: CreateRestAPI -> Lude.Maybe Lude.Int) (\s a -> s {minimumCompressionSize = a} :: CreateRestAPI)
+{-# DEPRECATED craMinimumCompressionSize "Use generic-lens or generic-optics with 'minimumCompressionSize' instead." #-}
 
 -- | Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
-craDisableExecuteAPIEndpoint :: Lens' CreateRestAPI (Maybe Bool)
-craDisableExecuteAPIEndpoint = lens _craDisableExecuteAPIEndpoint (\s a -> s {_craDisableExecuteAPIEndpoint = a})
+--
+-- /Note:/ Consider using 'disableExecuteAPIEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craDisableExecuteAPIEndpoint :: Lens.Lens' CreateRestAPI (Lude.Maybe Lude.Bool)
+craDisableExecuteAPIEndpoint = Lens.lens (disableExecuteAPIEndpoint :: CreateRestAPI -> Lude.Maybe Lude.Bool) (\s a -> s {disableExecuteAPIEndpoint = a} :: CreateRestAPI)
+{-# DEPRECATED craDisableExecuteAPIEndpoint "Use generic-lens or generic-optics with 'disableExecuteAPIEndpoint' instead." #-}
 
 -- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
-craBinaryMediaTypes :: Lens' CreateRestAPI [Text]
-craBinaryMediaTypes = lens _craBinaryMediaTypes (\s a -> s {_craBinaryMediaTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'binaryMediaTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craBinaryMediaTypes :: Lens.Lens' CreateRestAPI (Lude.Maybe [Lude.Text])
+craBinaryMediaTypes = Lens.lens (binaryMediaTypes :: CreateRestAPI -> Lude.Maybe [Lude.Text]) (\s a -> s {binaryMediaTypes = a} :: CreateRestAPI)
+{-# DEPRECATED craBinaryMediaTypes "Use generic-lens or generic-optics with 'binaryMediaTypes' instead." #-}
 
 -- | A version identifier for the API.
-craVersion :: Lens' CreateRestAPI (Maybe Text)
-craVersion = lens _craVersion (\s a -> s {_craVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craVersion :: Lens.Lens' CreateRestAPI (Lude.Maybe Lude.Text)
+craVersion = Lens.lens (version :: CreateRestAPI -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateRestAPI)
+{-# DEPRECATED craVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The source of the API key for metering requests according to a usage plan. Valid values are:     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
-craApiKeySource :: Lens' CreateRestAPI (Maybe APIKeySourceType)
-craApiKeySource = lens _craApiKeySource (\s a -> s {_craApiKeySource = a})
+-- | The source of the API key for metering requests according to a usage plan. Valid values are:
+--
+--     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.
+--
+--     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
+--
+--
+--
+-- /Note:/ Consider using 'apiKeySource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craApiKeySource :: Lens.Lens' CreateRestAPI (Lude.Maybe APIKeySourceType)
+craApiKeySource = Lens.lens (apiKeySource :: CreateRestAPI -> Lude.Maybe APIKeySourceType) (\s a -> s {apiKeySource = a} :: CreateRestAPI)
+{-# DEPRECATED craApiKeySource "Use generic-lens or generic-optics with 'apiKeySource' instead." #-}
 
 -- | The ID of the 'RestApi' that you want to clone from.
-craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
-craCloneFrom = lens _craCloneFrom (\s a -> s {_craCloneFrom = a})
+--
+-- /Note:/ Consider using 'cloneFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craCloneFrom :: Lens.Lens' CreateRestAPI (Lude.Maybe Lude.Text)
+craCloneFrom = Lens.lens (cloneFrom :: CreateRestAPI -> Lude.Maybe Lude.Text) (\s a -> s {cloneFrom = a} :: CreateRestAPI)
+{-# DEPRECATED craCloneFrom "Use generic-lens or generic-optics with 'cloneFrom' instead." #-}
 
 -- | 'Method'
-craPolicy :: Lens' CreateRestAPI (Maybe Text)
-craPolicy = lens _craPolicy (\s a -> s {_craPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craPolicy :: Lens.Lens' CreateRestAPI (Lude.Maybe Lude.Text)
+craPolicy = Lens.lens (policy :: CreateRestAPI -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: CreateRestAPI)
+{-# DEPRECATED craPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
-craEndpointConfiguration :: Lens' CreateRestAPI (Maybe EndpointConfiguration)
-craEndpointConfiguration = lens _craEndpointConfiguration (\s a -> s {_craEndpointConfiguration = a})
+--
+-- /Note:/ Consider using 'endpointConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craEndpointConfiguration :: Lens.Lens' CreateRestAPI (Lude.Maybe EndpointConfiguration)
+craEndpointConfiguration = Lens.lens (endpointConfiguration :: CreateRestAPI -> Lude.Maybe EndpointConfiguration) (\s a -> s {endpointConfiguration = a} :: CreateRestAPI)
+{-# DEPRECATED craEndpointConfiguration "Use generic-lens or generic-optics with 'endpointConfiguration' instead." #-}
 
 -- | The description of the 'RestApi' .
-craDescription :: Lens' CreateRestAPI (Maybe Text)
-craDescription = lens _craDescription (\s a -> s {_craDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craDescription :: Lens.Lens' CreateRestAPI (Lude.Maybe Lude.Text)
+craDescription = Lens.lens (description :: CreateRestAPI -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateRestAPI)
+{-# DEPRECATED craDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-craTags :: Lens' CreateRestAPI (HashMap Text (Text))
-craTags = lens _craTags (\s a -> s {_craTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craTags :: Lens.Lens' CreateRestAPI (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+craTags = Lens.lens (tags :: CreateRestAPI -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRestAPI)
+{-# DEPRECATED craTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | [Required] The name of the 'RestApi' .
-craName :: Lens' CreateRestAPI Text
-craName = lens _craName (\s a -> s {_craName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craName :: Lens.Lens' CreateRestAPI Lude.Text
+craName = Lens.lens (name :: CreateRestAPI -> Lude.Text) (\s a -> s {name = a} :: CreateRestAPI)
+{-# DEPRECATED craName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateRestAPI where
+instance Lude.AWSRequest CreateRestAPI where
   type Rs CreateRestAPI = RestAPI
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateRestAPI
-
-instance NFData CreateRestAPI
-
-instance ToHeaders CreateRestAPI where
+instance Lude.ToHeaders CreateRestAPI where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateRestAPI where
+instance Lude.ToJSON CreateRestAPI where
   toJSON CreateRestAPI' {..} =
-    object
-      ( catMaybes
-          [ ("minimumCompressionSize" .=) <$> _craMinimumCompressionSize,
-            ("disableExecuteApiEndpoint" .=) <$> _craDisableExecuteAPIEndpoint,
-            ("binaryMediaTypes" .=) <$> _craBinaryMediaTypes,
-            ("version" .=) <$> _craVersion,
-            ("apiKeySource" .=) <$> _craApiKeySource,
-            ("cloneFrom" .=) <$> _craCloneFrom,
-            ("policy" .=) <$> _craPolicy,
-            ("endpointConfiguration" .=) <$> _craEndpointConfiguration,
-            ("description" .=) <$> _craDescription,
-            ("tags" .=) <$> _craTags,
-            Just ("name" .= _craName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("minimumCompressionSize" Lude..=)
+              Lude.<$> minimumCompressionSize,
+            ("disableExecuteApiEndpoint" Lude..=)
+              Lude.<$> disableExecuteAPIEndpoint,
+            ("binaryMediaTypes" Lude..=) Lude.<$> binaryMediaTypes,
+            ("version" Lude..=) Lude.<$> version,
+            ("apiKeySource" Lude..=) Lude.<$> apiKeySource,
+            ("cloneFrom" Lude..=) Lude.<$> cloneFrom,
+            ("policy" Lude..=) Lude.<$> policy,
+            ("endpointConfiguration" Lude..=) Lude.<$> endpointConfiguration,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
-instance ToPath CreateRestAPI where
-  toPath = const "/restapis"
+instance Lude.ToPath CreateRestAPI where
+  toPath = Lude.const "/restapis"
 
-instance ToQuery CreateRestAPI where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRestAPI where
+  toQuery = Lude.const Lude.mempty

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.UpgradeStatus where
+module Network.AWS.ElasticSearch.Types.UpgradeStatus
+  ( UpgradeStatus
+      ( UpgradeStatus',
+        USFailed,
+        USInProgress,
+        USSucceeded,
+        USSucceededWithIssues
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UpgradeStatus
-  = USFailed
-  | USInProgress
-  | USSucceeded
-  | USSucceededWithIssues
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UpgradeStatus = UpgradeStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UpgradeStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure USFailed
-      "in_progress" -> pure USInProgress
-      "succeeded" -> pure USSucceeded
-      "succeeded_with_issues" -> pure USSucceededWithIssues
-      e ->
-        fromTextError $
-          "Failure parsing UpgradeStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, succeeded, succeeded_with_issues"
+pattern USFailed :: UpgradeStatus
+pattern USFailed = UpgradeStatus' "FAILED"
 
-instance ToText UpgradeStatus where
-  toText = \case
-    USFailed -> "FAILED"
-    USInProgress -> "IN_PROGRESS"
-    USSucceeded -> "SUCCEEDED"
-    USSucceededWithIssues -> "SUCCEEDED_WITH_ISSUES"
+pattern USInProgress :: UpgradeStatus
+pattern USInProgress = UpgradeStatus' "IN_PROGRESS"
 
-instance Hashable UpgradeStatus
+pattern USSucceeded :: UpgradeStatus
+pattern USSucceeded = UpgradeStatus' "SUCCEEDED"
 
-instance NFData UpgradeStatus
+pattern USSucceededWithIssues :: UpgradeStatus
+pattern USSucceededWithIssues = UpgradeStatus' "SUCCEEDED_WITH_ISSUES"
 
-instance ToByteString UpgradeStatus
-
-instance ToQuery UpgradeStatus
-
-instance ToHeader UpgradeStatus
-
-instance FromJSON UpgradeStatus where
-  parseJSON = parseJSONText "UpgradeStatus"
+{-# COMPLETE
+  USFailed,
+  USInProgress,
+  USSucceeded,
+  USSucceededWithIssues,
+  UpgradeStatus'
+  #-}

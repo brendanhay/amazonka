@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry where
+module Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
+  ( PutEventsRequestEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPutEventsRequestEntry,
+
+    -- * Lenses
+    pereTime,
+    pereDetailType,
+    pereResources,
+    pereEventBusName,
+    pereSource,
+    pereDetail,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an event to be submitted.
 --
---
---
--- /See:/ 'putEventsRequestEntry' smart constructor.
+-- /See:/ 'mkPutEventsRequestEntry' smart constructor.
 data PutEventsRequestEntry = PutEventsRequestEntry'
-  { _pereTime ::
-      !(Maybe POSIX),
-    _pereDetailType :: !(Maybe Text),
-    _pereResources :: !(Maybe [Text]),
-    _pereEventBusName :: !(Maybe Text),
-    _pereSource :: !(Maybe Text),
-    _pereDetail :: !(Maybe Text)
+  { time ::
+      Lude.Maybe Lude.Timestamp,
+    detailType :: Lude.Maybe Lude.Text,
+    resources :: Lude.Maybe [Lude.Text],
+    eventBusName :: Lude.Maybe Lude.Text,
+    source :: Lude.Maybe Lude.Text,
+    detail :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventsRequestEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pereTime' - The time stamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no time stamp is provided, the time stamp of the 'PutEvents' call is used.
---
--- * 'pereDetailType' - Free-form string used to decide what fields to expect in the event detail.
---
--- * 'pereResources' - AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
---
--- * 'pereEventBusName' - The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.
---
--- * 'pereSource' - The source of the event.
---
--- * 'pereDetail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
-putEventsRequestEntry ::
+-- * 'detail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
+-- * 'detailType' - Free-form string used to decide what fields to expect in the event detail.
+-- * 'eventBusName' - The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.
+-- * 'resources' - AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+-- * 'source' - The source of the event.
+-- * 'time' - The time stamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no time stamp is provided, the time stamp of the 'PutEvents' call is used.
+mkPutEventsRequestEntry ::
   PutEventsRequestEntry
-putEventsRequestEntry =
+mkPutEventsRequestEntry =
   PutEventsRequestEntry'
-    { _pereTime = Nothing,
-      _pereDetailType = Nothing,
-      _pereResources = Nothing,
-      _pereEventBusName = Nothing,
-      _pereSource = Nothing,
-      _pereDetail = Nothing
+    { time = Lude.Nothing,
+      detailType = Lude.Nothing,
+      resources = Lude.Nothing,
+      eventBusName = Lude.Nothing,
+      source = Lude.Nothing,
+      detail = Lude.Nothing
     }
 
 -- | The time stamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no time stamp is provided, the time stamp of the 'PutEvents' call is used.
-pereTime :: Lens' PutEventsRequestEntry (Maybe UTCTime)
-pereTime = lens _pereTime (\s a -> s {_pereTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'time' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pereTime :: Lens.Lens' PutEventsRequestEntry (Lude.Maybe Lude.Timestamp)
+pereTime = Lens.lens (time :: PutEventsRequestEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {time = a} :: PutEventsRequestEntry)
+{-# DEPRECATED pereTime "Use generic-lens or generic-optics with 'time' instead." #-}
 
 -- | Free-form string used to decide what fields to expect in the event detail.
-pereDetailType :: Lens' PutEventsRequestEntry (Maybe Text)
-pereDetailType = lens _pereDetailType (\s a -> s {_pereDetailType = a})
+--
+-- /Note:/ Consider using 'detailType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pereDetailType :: Lens.Lens' PutEventsRequestEntry (Lude.Maybe Lude.Text)
+pereDetailType = Lens.lens (detailType :: PutEventsRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {detailType = a} :: PutEventsRequestEntry)
+{-# DEPRECATED pereDetailType "Use generic-lens or generic-optics with 'detailType' instead." #-}
 
 -- | AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-pereResources :: Lens' PutEventsRequestEntry [Text]
-pereResources = lens _pereResources (\s a -> s {_pereResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pereResources :: Lens.Lens' PutEventsRequestEntry (Lude.Maybe [Lude.Text])
+pereResources = Lens.lens (resources :: PutEventsRequestEntry -> Lude.Maybe [Lude.Text]) (\s a -> s {resources = a} :: PutEventsRequestEntry)
+{-# DEPRECATED pereResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.
-pereEventBusName :: Lens' PutEventsRequestEntry (Maybe Text)
-pereEventBusName = lens _pereEventBusName (\s a -> s {_pereEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pereEventBusName :: Lens.Lens' PutEventsRequestEntry (Lude.Maybe Lude.Text)
+pereEventBusName = Lens.lens (eventBusName :: PutEventsRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: PutEventsRequestEntry)
+{-# DEPRECATED pereEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The source of the event.
-pereSource :: Lens' PutEventsRequestEntry (Maybe Text)
-pereSource = lens _pereSource (\s a -> s {_pereSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pereSource :: Lens.Lens' PutEventsRequestEntry (Lude.Maybe Lude.Text)
+pereSource = Lens.lens (source :: PutEventsRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: PutEventsRequestEntry)
+{-# DEPRECATED pereSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
-pereDetail :: Lens' PutEventsRequestEntry (Maybe Text)
-pereDetail = lens _pereDetail (\s a -> s {_pereDetail = a})
+--
+-- /Note:/ Consider using 'detail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pereDetail :: Lens.Lens' PutEventsRequestEntry (Lude.Maybe Lude.Text)
+pereDetail = Lens.lens (detail :: PutEventsRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {detail = a} :: PutEventsRequestEntry)
+{-# DEPRECATED pereDetail "Use generic-lens or generic-optics with 'detail' instead." #-}
 
-instance Hashable PutEventsRequestEntry
-
-instance NFData PutEventsRequestEntry
-
-instance ToJSON PutEventsRequestEntry where
+instance Lude.ToJSON PutEventsRequestEntry where
   toJSON PutEventsRequestEntry' {..} =
-    object
-      ( catMaybes
-          [ ("Time" .=) <$> _pereTime,
-            ("DetailType" .=) <$> _pereDetailType,
-            ("Resources" .=) <$> _pereResources,
-            ("EventBusName" .=) <$> _pereEventBusName,
-            ("Source" .=) <$> _pereSource,
-            ("Detail" .=) <$> _pereDetail
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Time" Lude..=) Lude.<$> time,
+            ("DetailType" Lude..=) Lude.<$> detailType,
+            ("Resources" Lude..=) Lude.<$> resources,
+            ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            ("Source" Lude..=) Lude.<$> source,
+            ("Detail" Lude..=) Lude.<$> detail
           ]
       )

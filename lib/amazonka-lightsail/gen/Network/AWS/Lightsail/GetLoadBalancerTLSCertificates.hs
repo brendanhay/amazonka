@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,147 @@
 --
 -- Returns information about the TLS certificates that are associated with the specified Lightsail load balancer.
 --
---
 -- TLS is just an updated, more secure version of Secure Socket Layer (SSL).
---
 -- You can have a maximum of 2 certificates associated with a Lightsail load balancer. One is active and the other is inactive.
 module Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
-  ( -- * Creating a Request
-    getLoadBalancerTLSCertificates,
-    GetLoadBalancerTLSCertificates,
+  ( -- * Creating a request
+    GetLoadBalancerTLSCertificates (..),
+    mkGetLoadBalancerTLSCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glbtcLoadBalancerName,
 
-    -- * Destructuring the Response
-    getLoadBalancerTLSCertificatesResponse,
-    GetLoadBalancerTLSCertificatesResponse,
+    -- * Destructuring the response
+    GetLoadBalancerTLSCertificatesResponse (..),
+    mkGetLoadBalancerTLSCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glbtcrsTlsCertificates,
     glbtcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLoadBalancerTLSCertificates' smart constructor.
+-- | /See:/ 'mkGetLoadBalancerTLSCertificates' smart constructor.
 newtype GetLoadBalancerTLSCertificates = GetLoadBalancerTLSCertificates'
-  { _glbtcLoadBalancerName ::
-      Text
+  { loadBalancerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoadBalancerTLSCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glbtcLoadBalancerName' - The name of the load balancer you associated with your SSL/TLS certificate.
-getLoadBalancerTLSCertificates ::
-  -- | 'glbtcLoadBalancerName'
-  Text ->
+-- * 'loadBalancerName' - The name of the load balancer you associated with your SSL/TLS certificate.
+mkGetLoadBalancerTLSCertificates ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
   GetLoadBalancerTLSCertificates
-getLoadBalancerTLSCertificates pLoadBalancerName_ =
+mkGetLoadBalancerTLSCertificates pLoadBalancerName_ =
   GetLoadBalancerTLSCertificates'
-    { _glbtcLoadBalancerName =
+    { loadBalancerName =
         pLoadBalancerName_
     }
 
 -- | The name of the load balancer you associated with your SSL/TLS certificate.
-glbtcLoadBalancerName :: Lens' GetLoadBalancerTLSCertificates Text
-glbtcLoadBalancerName = lens _glbtcLoadBalancerName (\s a -> s {_glbtcLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbtcLoadBalancerName :: Lens.Lens' GetLoadBalancerTLSCertificates Lude.Text
+glbtcLoadBalancerName = Lens.lens (loadBalancerName :: GetLoadBalancerTLSCertificates -> Lude.Text) (\s a -> s {loadBalancerName = a} :: GetLoadBalancerTLSCertificates)
+{-# DEPRECATED glbtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
-instance AWSRequest GetLoadBalancerTLSCertificates where
+instance Lude.AWSRequest GetLoadBalancerTLSCertificates where
   type
     Rs GetLoadBalancerTLSCertificates =
       GetLoadBalancerTLSCertificatesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLoadBalancerTLSCertificatesResponse'
-            <$> (x .?> "tlsCertificates" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "tlsCertificates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLoadBalancerTLSCertificates
-
-instance NFData GetLoadBalancerTLSCertificates
-
-instance ToHeaders GetLoadBalancerTLSCertificates where
+instance Lude.ToHeaders GetLoadBalancerTLSCertificates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.GetLoadBalancerTlsCertificates" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.GetLoadBalancerTlsCertificates" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetLoadBalancerTLSCertificates where
+instance Lude.ToJSON GetLoadBalancerTLSCertificates where
   toJSON GetLoadBalancerTLSCertificates' {..} =
-    object
-      (catMaybes [Just ("loadBalancerName" .= _glbtcLoadBalancerName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("loadBalancerName" Lude..= loadBalancerName)]
+      )
 
-instance ToPath GetLoadBalancerTLSCertificates where
-  toPath = const "/"
+instance Lude.ToPath GetLoadBalancerTLSCertificates where
+  toPath = Lude.const "/"
 
-instance ToQuery GetLoadBalancerTLSCertificates where
-  toQuery = const mempty
+instance Lude.ToQuery GetLoadBalancerTLSCertificates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLoadBalancerTLSCertificatesResponse' smart constructor.
+-- | /See:/ 'mkGetLoadBalancerTLSCertificatesResponse' smart constructor.
 data GetLoadBalancerTLSCertificatesResponse = GetLoadBalancerTLSCertificatesResponse'
-  { _glbtcrsTlsCertificates ::
-      !( Maybe
-           [LoadBalancerTLSCertificate]
-       ),
-    _glbtcrsResponseStatus ::
-      !Int
+  { tlsCertificates ::
+      Lude.Maybe
+        [LoadBalancerTLSCertificate],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoadBalancerTLSCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glbtcrsTlsCertificates' - An array of LoadBalancerTlsCertificate objects describing your SSL/TLS certificates.
---
--- * 'glbtcrsResponseStatus' - -- | The response status code.
-getLoadBalancerTLSCertificatesResponse ::
-  -- | 'glbtcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tlsCertificates' - An array of LoadBalancerTlsCertificate objects describing your SSL/TLS certificates.
+mkGetLoadBalancerTLSCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLoadBalancerTLSCertificatesResponse
-getLoadBalancerTLSCertificatesResponse pResponseStatus_ =
+mkGetLoadBalancerTLSCertificatesResponse pResponseStatus_ =
   GetLoadBalancerTLSCertificatesResponse'
-    { _glbtcrsTlsCertificates =
-        Nothing,
-      _glbtcrsResponseStatus = pResponseStatus_
+    { tlsCertificates =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of LoadBalancerTlsCertificate objects describing your SSL/TLS certificates.
-glbtcrsTlsCertificates :: Lens' GetLoadBalancerTLSCertificatesResponse [LoadBalancerTLSCertificate]
-glbtcrsTlsCertificates = lens _glbtcrsTlsCertificates (\s a -> s {_glbtcrsTlsCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tlsCertificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbtcrsTlsCertificates :: Lens.Lens' GetLoadBalancerTLSCertificatesResponse (Lude.Maybe [LoadBalancerTLSCertificate])
+glbtcrsTlsCertificates = Lens.lens (tlsCertificates :: GetLoadBalancerTLSCertificatesResponse -> Lude.Maybe [LoadBalancerTLSCertificate]) (\s a -> s {tlsCertificates = a} :: GetLoadBalancerTLSCertificatesResponse)
+{-# DEPRECATED glbtcrsTlsCertificates "Use generic-lens or generic-optics with 'tlsCertificates' instead." #-}
 
--- | -- | The response status code.
-glbtcrsResponseStatus :: Lens' GetLoadBalancerTLSCertificatesResponse Int
-glbtcrsResponseStatus = lens _glbtcrsResponseStatus (\s a -> s {_glbtcrsResponseStatus = a})
-
-instance NFData GetLoadBalancerTLSCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbtcrsResponseStatus :: Lens.Lens' GetLoadBalancerTLSCertificatesResponse Lude.Int
+glbtcrsResponseStatus = Lens.lens (responseStatus :: GetLoadBalancerTLSCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoadBalancerTLSCertificatesResponse)
+{-# DEPRECATED glbtcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

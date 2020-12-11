@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,154 @@
 --
 -- Configures the access rules that control access to the domain's document and search endpoints. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain> .
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-  ( -- * Creating a Request
-    updateServiceAccessPolicies,
-    UpdateServiceAccessPolicies,
+  ( -- * Creating a request
+    UpdateServiceAccessPolicies (..),
+    mkUpdateServiceAccessPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usapDomainName,
     usapAccessPolicies,
 
-    -- * Destructuring the Response
-    updateServiceAccessPoliciesResponse,
-    UpdateServiceAccessPoliciesResponse,
+    -- * Destructuring the response
+    UpdateServiceAccessPoliciesResponse (..),
+    mkUpdateServiceAccessPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usaprsResponseStatus,
     usaprsAccessPolicies,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'UpdateServiceAccessPolicies' @ operation. Specifies the name of the domain you want to update and the access rules you want to configure.
 --
---
---
--- /See:/ 'updateServiceAccessPolicies' smart constructor.
+-- /See:/ 'mkUpdateServiceAccessPolicies' smart constructor.
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
-  { _usapDomainName ::
-      !Text,
-    _usapAccessPolicies :: !Text
+  { domainName ::
+      Lude.Text,
+    accessPolicies :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServiceAccessPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usapDomainName' - Undocumented member.
---
--- * 'usapAccessPolicies' - The access rules you want to configure. These rules replace any existing rules.
-updateServiceAccessPolicies ::
-  -- | 'usapDomainName'
-  Text ->
-  -- | 'usapAccessPolicies'
-  Text ->
+-- * 'accessPolicies' - The access rules you want to configure. These rules replace any existing rules.
+-- * 'domainName' - Undocumented field.
+mkUpdateServiceAccessPolicies ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'accessPolicies'
+  Lude.Text ->
   UpdateServiceAccessPolicies
-updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
+mkUpdateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
   UpdateServiceAccessPolicies'
-    { _usapDomainName = pDomainName_,
-      _usapAccessPolicies = pAccessPolicies_
+    { domainName = pDomainName_,
+      accessPolicies = pAccessPolicies_
     }
 
--- | Undocumented member.
-usapDomainName :: Lens' UpdateServiceAccessPolicies Text
-usapDomainName = lens _usapDomainName (\s a -> s {_usapDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usapDomainName :: Lens.Lens' UpdateServiceAccessPolicies Lude.Text
+usapDomainName = Lens.lens (domainName :: UpdateServiceAccessPolicies -> Lude.Text) (\s a -> s {domainName = a} :: UpdateServiceAccessPolicies)
+{-# DEPRECATED usapDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The access rules you want to configure. These rules replace any existing rules.
-usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
-usapAccessPolicies = lens _usapAccessPolicies (\s a -> s {_usapAccessPolicies = a})
+--
+-- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usapAccessPolicies :: Lens.Lens' UpdateServiceAccessPolicies Lude.Text
+usapAccessPolicies = Lens.lens (accessPolicies :: UpdateServiceAccessPolicies -> Lude.Text) (\s a -> s {accessPolicies = a} :: UpdateServiceAccessPolicies)
+{-# DEPRECATED usapAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
 
-instance AWSRequest UpdateServiceAccessPolicies where
+instance Lude.AWSRequest UpdateServiceAccessPolicies where
   type
     Rs UpdateServiceAccessPolicies =
       UpdateServiceAccessPoliciesResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateServiceAccessPoliciesResult"
       ( \s h x ->
           UpdateServiceAccessPoliciesResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "AccessPolicies")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "AccessPolicies")
       )
 
-instance Hashable UpdateServiceAccessPolicies
+instance Lude.ToHeaders UpdateServiceAccessPolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateServiceAccessPolicies
+instance Lude.ToPath UpdateServiceAccessPolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateServiceAccessPolicies where
-  toHeaders = const mempty
-
-instance ToPath UpdateServiceAccessPolicies where
-  toPath = const "/"
-
-instance ToQuery UpdateServiceAccessPolicies where
+instance Lude.ToQuery UpdateServiceAccessPolicies where
   toQuery UpdateServiceAccessPolicies' {..} =
-    mconcat
-      [ "Action" =: ("UpdateServiceAccessPolicies" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "DomainName" =: _usapDomainName,
-        "AccessPolicies" =: _usapAccessPolicies
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("UpdateServiceAccessPolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName,
+        "AccessPolicies" Lude.=: accessPolicies
       ]
 
 -- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new access policies.
 --
---
---
--- /See:/ 'updateServiceAccessPoliciesResponse' smart constructor.
+-- /See:/ 'mkUpdateServiceAccessPoliciesResponse' smart constructor.
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-  { _usaprsResponseStatus ::
-      !Int,
-    _usaprsAccessPolicies ::
-      !AccessPoliciesStatus
+  { responseStatus ::
+      Lude.Int,
+    accessPolicies ::
+      AccessPoliciesStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServiceAccessPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usaprsResponseStatus' - -- | The response status code.
---
--- * 'usaprsAccessPolicies' - The access rules configured for the domain.
-updateServiceAccessPoliciesResponse ::
-  -- | 'usaprsResponseStatus'
-  Int ->
-  -- | 'usaprsAccessPolicies'
+-- * 'accessPolicies' - The access rules configured for the domain.
+-- * 'responseStatus' - The response status code.
+mkUpdateServiceAccessPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'accessPolicies'
   AccessPoliciesStatus ->
   UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse
+mkUpdateServiceAccessPoliciesResponse
   pResponseStatus_
   pAccessPolicies_ =
     UpdateServiceAccessPoliciesResponse'
-      { _usaprsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _usaprsAccessPolicies = pAccessPolicies_
+        accessPolicies = pAccessPolicies_
       }
 
--- | -- | The response status code.
-usaprsResponseStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
-usaprsResponseStatus = lens _usaprsResponseStatus (\s a -> s {_usaprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaprsResponseStatus :: Lens.Lens' UpdateServiceAccessPoliciesResponse Lude.Int
+usaprsResponseStatus = Lens.lens (responseStatus :: UpdateServiceAccessPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateServiceAccessPoliciesResponse)
+{-# DEPRECATED usaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The access rules configured for the domain.
-usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-usaprsAccessPolicies = lens _usaprsAccessPolicies (\s a -> s {_usaprsAccessPolicies = a})
-
-instance NFData UpdateServiceAccessPoliciesResponse
+--
+-- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaprsAccessPolicies :: Lens.Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
+usaprsAccessPolicies = Lens.lens (accessPolicies :: UpdateServiceAccessPoliciesResponse -> AccessPoliciesStatus) (\s a -> s {accessPolicies = a} :: UpdateServiceAccessPoliciesResponse)
+{-# DEPRECATED usaprsAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}

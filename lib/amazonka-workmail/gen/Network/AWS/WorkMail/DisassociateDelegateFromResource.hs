@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,162 @@
 --
 -- Removes a member from the resource's set of delegates.
 module Network.AWS.WorkMail.DisassociateDelegateFromResource
-  ( -- * Creating a Request
-    disassociateDelegateFromResource,
-    DisassociateDelegateFromResource,
+  ( -- * Creating a request
+    DisassociateDelegateFromResource (..),
+    mkDisassociateDelegateFromResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddfrOrganizationId,
     ddfrResourceId,
     ddfrEntityId,
 
-    -- * Destructuring the Response
-    disassociateDelegateFromResourceResponse,
-    DisassociateDelegateFromResourceResponse,
+    -- * Destructuring the response
+    DisassociateDelegateFromResourceResponse (..),
+    mkDisassociateDelegateFromResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'disassociateDelegateFromResource' smart constructor.
+-- | /See:/ 'mkDisassociateDelegateFromResource' smart constructor.
 data DisassociateDelegateFromResource = DisassociateDelegateFromResource'
-  { _ddfrOrganizationId ::
-      !Text,
-    _ddfrResourceId :: !Text,
-    _ddfrEntityId :: !Text
+  { organizationId ::
+      Lude.Text,
+    resourceId :: Lude.Text,
+    entityId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateDelegateFromResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddfrOrganizationId' - The identifier for the organization under which the resource exists.
---
--- * 'ddfrResourceId' - The identifier of the resource from which delegates' set members are removed.
---
--- * 'ddfrEntityId' - The identifier for the member (user, group) to be removed from the resource's delegates.
-disassociateDelegateFromResource ::
-  -- | 'ddfrOrganizationId'
-  Text ->
-  -- | 'ddfrResourceId'
-  Text ->
-  -- | 'ddfrEntityId'
-  Text ->
+-- * 'entityId' - The identifier for the member (user, group) to be removed from the resource's delegates.
+-- * 'organizationId' - The identifier for the organization under which the resource exists.
+-- * 'resourceId' - The identifier of the resource from which delegates' set members are removed.
+mkDisassociateDelegateFromResource ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
   DisassociateDelegateFromResource
-disassociateDelegateFromResource
+mkDisassociateDelegateFromResource
   pOrganizationId_
   pResourceId_
   pEntityId_ =
     DisassociateDelegateFromResource'
-      { _ddfrOrganizationId =
+      { organizationId =
           pOrganizationId_,
-        _ddfrResourceId = pResourceId_,
-        _ddfrEntityId = pEntityId_
+        resourceId = pResourceId_,
+        entityId = pEntityId_
       }
 
 -- | The identifier for the organization under which the resource exists.
-ddfrOrganizationId :: Lens' DisassociateDelegateFromResource Text
-ddfrOrganizationId = lens _ddfrOrganizationId (\s a -> s {_ddfrOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfrOrganizationId :: Lens.Lens' DisassociateDelegateFromResource Lude.Text
+ddfrOrganizationId = Lens.lens (organizationId :: DisassociateDelegateFromResource -> Lude.Text) (\s a -> s {organizationId = a} :: DisassociateDelegateFromResource)
+{-# DEPRECATED ddfrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the resource from which delegates' set members are removed.
-ddfrResourceId :: Lens' DisassociateDelegateFromResource Text
-ddfrResourceId = lens _ddfrResourceId (\s a -> s {_ddfrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfrResourceId :: Lens.Lens' DisassociateDelegateFromResource Lude.Text
+ddfrResourceId = Lens.lens (resourceId :: DisassociateDelegateFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: DisassociateDelegateFromResource)
+{-# DEPRECATED ddfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The identifier for the member (user, group) to be removed from the resource's delegates.
-ddfrEntityId :: Lens' DisassociateDelegateFromResource Text
-ddfrEntityId = lens _ddfrEntityId (\s a -> s {_ddfrEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfrEntityId :: Lens.Lens' DisassociateDelegateFromResource Lude.Text
+ddfrEntityId = Lens.lens (entityId :: DisassociateDelegateFromResource -> Lude.Text) (\s a -> s {entityId = a} :: DisassociateDelegateFromResource)
+{-# DEPRECATED ddfrEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
-instance AWSRequest DisassociateDelegateFromResource where
+instance Lude.AWSRequest DisassociateDelegateFromResource where
   type
     Rs DisassociateDelegateFromResource =
       DisassociateDelegateFromResourceResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisassociateDelegateFromResourceResponse' <$> (pure (fromEnum s))
+          DisassociateDelegateFromResourceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateDelegateFromResource
-
-instance NFData DisassociateDelegateFromResource
-
-instance ToHeaders DisassociateDelegateFromResource where
+instance Lude.ToHeaders DisassociateDelegateFromResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DisassociateDelegateFromResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkMailService.DisassociateDelegateFromResource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateDelegateFromResource where
+instance Lude.ToJSON DisassociateDelegateFromResource where
   toJSON DisassociateDelegateFromResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _ddfrOrganizationId),
-            Just ("ResourceId" .= _ddfrResourceId),
-            Just ("EntityId" .= _ddfrEntityId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("EntityId" Lude..= entityId)
           ]
       )
 
-instance ToPath DisassociateDelegateFromResource where
-  toPath = const "/"
+instance Lude.ToPath DisassociateDelegateFromResource where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateDelegateFromResource where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateDelegateFromResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateDelegateFromResourceResponse' smart constructor.
+-- | /See:/ 'mkDisassociateDelegateFromResourceResponse' smart constructor.
 newtype DisassociateDelegateFromResourceResponse = DisassociateDelegateFromResourceResponse'
-  { _ddfrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateDelegateFromResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddfrrsResponseStatus' - -- | The response status code.
-disassociateDelegateFromResourceResponse ::
-  -- | 'ddfrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateDelegateFromResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateDelegateFromResourceResponse
-disassociateDelegateFromResourceResponse pResponseStatus_ =
+mkDisassociateDelegateFromResourceResponse pResponseStatus_ =
   DisassociateDelegateFromResourceResponse'
-    { _ddfrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ddfrrsResponseStatus :: Lens' DisassociateDelegateFromResourceResponse Int
-ddfrrsResponseStatus = lens _ddfrrsResponseStatus (\s a -> s {_ddfrrsResponseStatus = a})
-
-instance NFData DisassociateDelegateFromResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfrrsResponseStatus :: Lens.Lens' DisassociateDelegateFromResourceResponse Lude.Int
+ddfrrsResponseStatus = Lens.lens (responseStatus :: DisassociateDelegateFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDelegateFromResourceResponse)
+{-# DEPRECATED ddfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

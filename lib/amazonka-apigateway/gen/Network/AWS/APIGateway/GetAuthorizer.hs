@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Describe an existing 'Authorizer' resource.
 --
---
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizer
-  ( -- * Creating a Request
-    getAuthorizer,
-    GetAuthorizer,
+  ( -- * Creating a request
+    GetAuthorizer (..),
+    mkGetAuthorizer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaaRestAPIId,
     gaaAuthorizerId,
 
-    -- * Destructuring the Response
-    authorizer,
-    Authorizer,
+    -- * Destructuring the response
+    Authorizer (..),
+    mkAuthorizer,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aAuthorizerURI,
     aIdentityValidationExpression,
     aProviderARNs,
@@ -49,70 +43,77 @@ module Network.AWS.APIGateway.GetAuthorizer
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to describe an existing 'Authorizer' resource.
 --
---
---
--- /See:/ 'getAuthorizer' smart constructor.
+-- /See:/ 'mkGetAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
-  { _gaaRestAPIId :: !Text,
-    _gaaAuthorizerId :: !Text
+  { restAPIId :: Lude.Text,
+    authorizerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAuthorizer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gaaAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
-getAuthorizer ::
-  -- | 'gaaRestAPIId'
-  Text ->
-  -- | 'gaaAuthorizerId'
-  Text ->
+-- * 'authorizerId' - [Required] The identifier of the 'Authorizer' resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetAuthorizer ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'authorizerId'
+  Lude.Text ->
   GetAuthorizer
-getAuthorizer pRestAPIId_ pAuthorizerId_ =
+mkGetAuthorizer pRestAPIId_ pAuthorizerId_ =
   GetAuthorizer'
-    { _gaaRestAPIId = pRestAPIId_,
-      _gaaAuthorizerId = pAuthorizerId_
+    { restAPIId = pRestAPIId_,
+      authorizerId = pAuthorizerId_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gaaRestAPIId :: Lens' GetAuthorizer Text
-gaaRestAPIId = lens _gaaRestAPIId (\s a -> s {_gaaRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaaRestAPIId :: Lens.Lens' GetAuthorizer Lude.Text
+gaaRestAPIId = Lens.lens (restAPIId :: GetAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: GetAuthorizer)
+{-# DEPRECATED gaaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Authorizer' resource.
-gaaAuthorizerId :: Lens' GetAuthorizer Text
-gaaAuthorizerId = lens _gaaAuthorizerId (\s a -> s {_gaaAuthorizerId = a})
+--
+-- /Note:/ Consider using 'authorizerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaaAuthorizerId :: Lens.Lens' GetAuthorizer Lude.Text
+gaaAuthorizerId = Lens.lens (authorizerId :: GetAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: GetAuthorizer)
+{-# DEPRECATED gaaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
 
-instance AWSRequest GetAuthorizer where
+instance Lude.AWSRequest GetAuthorizer where
   type Rs GetAuthorizer = Authorizer
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetAuthorizer
-
-instance NFData GetAuthorizer
-
-instance ToHeaders GetAuthorizer where
+instance Lude.ToHeaders GetAuthorizer where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetAuthorizer where
+instance Lude.ToPath GetAuthorizer where
   toPath GetAuthorizer' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _gaaRestAPIId,
+        Lude.toBS restAPIId,
         "/authorizers/",
-        toBS _gaaAuthorizerId
+        Lude.toBS authorizerId
       ]
 
-instance ToQuery GetAuthorizer where
-  toQuery = const mempty
+instance Lude.ToQuery GetAuthorizer where
+  toQuery = Lude.const Lude.mempty

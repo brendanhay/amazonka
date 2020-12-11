@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,169 @@
 --
 -- Retrieves attributes that are associated with a typed link.
 module Network.AWS.CloudDirectory.GetLinkAttributes
-  ( -- * Creating a Request
-    getLinkAttributes,
-    GetLinkAttributes,
+  ( -- * Creating a request
+    GetLinkAttributes (..),
+    mkGetLinkAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glaConsistencyLevel,
     glaDirectoryARN,
     glaTypedLinkSpecifier,
     glaAttributeNames,
 
-    -- * Destructuring the Response
-    getLinkAttributesResponse,
-    GetLinkAttributesResponse,
+    -- * Destructuring the response
+    GetLinkAttributesResponse (..),
+    mkGetLinkAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glarsAttributes,
     glarsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLinkAttributes' smart constructor.
+-- | /See:/ 'mkGetLinkAttributes' smart constructor.
 data GetLinkAttributes = GetLinkAttributes'
-  { _glaConsistencyLevel ::
-      !(Maybe ConsistencyLevel),
-    _glaDirectoryARN :: !Text,
-    _glaTypedLinkSpecifier :: !TypedLinkSpecifier,
-    _glaAttributeNames :: ![Text]
+  { consistencyLevel ::
+      Lude.Maybe ConsistencyLevel,
+    directoryARN :: Lude.Text,
+    typedLinkSpecifier :: TypedLinkSpecifier,
+    attributeNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLinkAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glaConsistencyLevel' - The consistency level at which to retrieve the attributes on a typed link.
---
--- * 'glaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- * 'glaTypedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
---
--- * 'glaAttributeNames' - A list of attribute names whose values will be retrieved.
-getLinkAttributes ::
-  -- | 'glaDirectoryARN'
-  Text ->
-  -- | 'glaTypedLinkSpecifier'
+-- * 'attributeNames' - A list of attribute names whose values will be retrieved.
+-- * 'consistencyLevel' - The consistency level at which to retrieve the attributes on a typed link.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'typedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
+mkGetLinkAttributes ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   GetLinkAttributes
-getLinkAttributes pDirectoryARN_ pTypedLinkSpecifier_ =
+mkGetLinkAttributes pDirectoryARN_ pTypedLinkSpecifier_ =
   GetLinkAttributes'
-    { _glaConsistencyLevel = Nothing,
-      _glaDirectoryARN = pDirectoryARN_,
-      _glaTypedLinkSpecifier = pTypedLinkSpecifier_,
-      _glaAttributeNames = mempty
+    { consistencyLevel = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      typedLinkSpecifier = pTypedLinkSpecifier_,
+      attributeNames = Lude.mempty
     }
 
 -- | The consistency level at which to retrieve the attributes on a typed link.
-glaConsistencyLevel :: Lens' GetLinkAttributes (Maybe ConsistencyLevel)
-glaConsistencyLevel = lens _glaConsistencyLevel (\s a -> s {_glaConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glaConsistencyLevel :: Lens.Lens' GetLinkAttributes (Lude.Maybe ConsistencyLevel)
+glaConsistencyLevel = Lens.lens (consistencyLevel :: GetLinkAttributes -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetLinkAttributes)
+{-# DEPRECATED glaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-glaDirectoryARN :: Lens' GetLinkAttributes Text
-glaDirectoryARN = lens _glaDirectoryARN (\s a -> s {_glaDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glaDirectoryARN :: Lens.Lens' GetLinkAttributes Lude.Text
+glaDirectoryARN = Lens.lens (directoryARN :: GetLinkAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: GetLinkAttributes)
+{-# DEPRECATED glaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Allows a typed link specifier to be accepted as input.
-glaTypedLinkSpecifier :: Lens' GetLinkAttributes TypedLinkSpecifier
-glaTypedLinkSpecifier = lens _glaTypedLinkSpecifier (\s a -> s {_glaTypedLinkSpecifier = a})
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glaTypedLinkSpecifier :: Lens.Lens' GetLinkAttributes TypedLinkSpecifier
+glaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: GetLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: GetLinkAttributes)
+{-# DEPRECATED glaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
 -- | A list of attribute names whose values will be retrieved.
-glaAttributeNames :: Lens' GetLinkAttributes [Text]
-glaAttributeNames = lens _glaAttributeNames (\s a -> s {_glaAttributeNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glaAttributeNames :: Lens.Lens' GetLinkAttributes [Lude.Text]
+glaAttributeNames = Lens.lens (attributeNames :: GetLinkAttributes -> [Lude.Text]) (\s a -> s {attributeNames = a} :: GetLinkAttributes)
+{-# DEPRECATED glaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
-instance AWSRequest GetLinkAttributes where
+instance Lude.AWSRequest GetLinkAttributes where
   type Rs GetLinkAttributes = GetLinkAttributesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLinkAttributesResponse'
-            <$> (x .?> "Attributes" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLinkAttributes
-
-instance NFData GetLinkAttributes
-
-instance ToHeaders GetLinkAttributes where
+instance Lude.ToHeaders GetLinkAttributes where
   toHeaders GetLinkAttributes' {..} =
-    mconcat ["x-amz-data-partition" =# _glaDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON GetLinkAttributes where
+instance Lude.ToJSON GetLinkAttributes where
   toJSON GetLinkAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("ConsistencyLevel" .=) <$> _glaConsistencyLevel,
-            Just ("TypedLinkSpecifier" .= _glaTypedLinkSpecifier),
-            Just ("AttributeNames" .= _glaAttributeNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConsistencyLevel" Lude..=) Lude.<$> consistencyLevel,
+            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier),
+            Lude.Just ("AttributeNames" Lude..= attributeNames)
           ]
       )
 
-instance ToPath GetLinkAttributes where
+instance Lude.ToPath GetLinkAttributes where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
+    Lude.const
+      "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
 
-instance ToQuery GetLinkAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery GetLinkAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLinkAttributesResponse' smart constructor.
+-- | /See:/ 'mkGetLinkAttributesResponse' smart constructor.
 data GetLinkAttributesResponse = GetLinkAttributesResponse'
-  { _glarsAttributes ::
-      !(Maybe [AttributeKeyAndValue]),
-    _glarsResponseStatus :: !Int
+  { attributes ::
+      Lude.Maybe [AttributeKeyAndValue],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLinkAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glarsAttributes' - The attributes that are associated with the typed link.
---
--- * 'glarsResponseStatus' - -- | The response status code.
-getLinkAttributesResponse ::
-  -- | 'glarsResponseStatus'
-  Int ->
+-- * 'attributes' - The attributes that are associated with the typed link.
+-- * 'responseStatus' - The response status code.
+mkGetLinkAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLinkAttributesResponse
-getLinkAttributesResponse pResponseStatus_ =
+mkGetLinkAttributesResponse pResponseStatus_ =
   GetLinkAttributesResponse'
-    { _glarsAttributes = Nothing,
-      _glarsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The attributes that are associated with the typed link.
-glarsAttributes :: Lens' GetLinkAttributesResponse [AttributeKeyAndValue]
-glarsAttributes = lens _glarsAttributes (\s a -> s {_glarsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glarsAttributes :: Lens.Lens' GetLinkAttributesResponse (Lude.Maybe [AttributeKeyAndValue])
+glarsAttributes = Lens.lens (attributes :: GetLinkAttributesResponse -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {attributes = a} :: GetLinkAttributesResponse)
+{-# DEPRECATED glarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-glarsResponseStatus :: Lens' GetLinkAttributesResponse Int
-glarsResponseStatus = lens _glarsResponseStatus (\s a -> s {_glarsResponseStatus = a})
-
-instance NFData GetLinkAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glarsResponseStatus :: Lens.Lens' GetLinkAttributesResponse Lude.Int
+glarsResponseStatus = Lens.lens (responseStatus :: GetLinkAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLinkAttributesResponse)
+{-# DEPRECATED glarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

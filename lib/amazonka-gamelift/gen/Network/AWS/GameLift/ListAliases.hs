@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,36 +17,40 @@
 --
 --     * 'CreateAlias'
 --
+--
 --     * 'ListAliases'
+--
 --
 --     * 'DescribeAlias'
 --
+--
 --     * 'UpdateAlias'
 --
+--
 --     * 'DeleteAlias'
+--
 --
 --     * 'ResolveAlias'
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListAliases
-  ( -- * Creating a Request
-    listAliases,
-    ListAliases,
+  ( -- * Creating a request
+    ListAliases (..),
+    mkListAliases,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laRoutingStrategyType,
     laNextToken,
     laName,
     laLimit,
 
-    -- * Destructuring the Response
-    listAliasesResponse,
-    ListAliasesResponse,
+    -- * Destructuring the response
+    ListAliasesResponse (..),
+    mkListAliasesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larsAliases,
     larsNextToken,
     larsResponseStatus,
@@ -59,154 +58,191 @@ module Network.AWS.GameLift.ListAliases
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'listAliases' smart constructor.
+-- /See:/ 'mkListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { _laRoutingStrategyType ::
-      !(Maybe RoutingStrategyType),
-    _laNextToken :: !(Maybe Text),
-    _laName :: !(Maybe Text),
-    _laLimit :: !(Maybe Nat)
+  { routingStrategyType ::
+      Lude.Maybe RoutingStrategyType,
+    nextToken :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
+-- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+-- * 'routingStrategyType' - The routing type to filter results on. Use this parameter to retrieve only aliases with a certain routing type. To retrieve all aliases, leave this parameter empty.
 --
--- * 'laRoutingStrategyType' - The routing type to filter results on. Use this parameter to retrieve only aliases with a certain routing type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+-- Possible routing types include the following:
 --
--- * 'laNextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+--     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.
 --
--- * 'laName' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
 --
--- * 'laLimit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
-listAliases ::
+--     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+mkListAliases ::
   ListAliases
-listAliases =
+mkListAliases =
   ListAliases'
-    { _laRoutingStrategyType = Nothing,
-      _laNextToken = Nothing,
-      _laName = Nothing,
-      _laLimit = Nothing
+    { routingStrategyType = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      name = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
--- | The routing type to filter results on. Use this parameter to retrieve only aliases with a certain routing type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
-laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
-laRoutingStrategyType = lens _laRoutingStrategyType (\s a -> s {_laRoutingStrategyType = a})
+-- | The routing type to filter results on. Use this parameter to retrieve only aliases with a certain routing type. To retrieve all aliases, leave this parameter empty.
+--
+-- Possible routing types include the following:
+--
+--     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.
+--
+--
+--     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+--
+--
+--
+-- /Note:/ Consider using 'routingStrategyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laRoutingStrategyType :: Lens.Lens' ListAliases (Lude.Maybe RoutingStrategyType)
+laRoutingStrategyType = Lens.lens (routingStrategyType :: ListAliases -> Lude.Maybe RoutingStrategyType) (\s a -> s {routingStrategyType = a} :: ListAliases)
+{-# DEPRECATED laRoutingStrategyType "Use generic-lens or generic-optics with 'routingStrategyType' instead." #-}
 
 -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
-laNextToken :: Lens' ListAliases (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s {_laNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
+laNextToken = Lens.lens (nextToken :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAliases)
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
-laName :: Lens' ListAliases (Maybe Text)
-laName = lens _laName (\s a -> s {_laName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laName :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
+laName = Lens.lens (name :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ListAliases)
+{-# DEPRECATED laName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
-laLimit :: Lens' ListAliases (Maybe Natural)
-laLimit = lens _laLimit (\s a -> s {_laLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laLimit :: Lens.Lens' ListAliases (Lude.Maybe Lude.Natural)
+laLimit = Lens.lens (limit :: ListAliases -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListAliases)
+{-# DEPRECATED laLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListAliases where
+instance Page.AWSPager ListAliases where
   page rq rs
-    | stop (rs ^. larsNextToken) = Nothing
-    | stop (rs ^. larsAliases) = Nothing
-    | otherwise = Just $ rq & laNextToken .~ rs ^. larsNextToken
+    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larsAliases) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
 
-instance AWSRequest ListAliases where
+instance Lude.AWSRequest ListAliases where
   type Rs ListAliases = ListAliasesResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            <$> (x .?> "Aliases" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Aliases" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAliases
-
-instance NFData ListAliases
-
-instance ToHeaders ListAliases where
+instance Lude.ToHeaders ListAliases where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.ListAliases" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.ListAliases" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAliases where
+instance Lude.ToJSON ListAliases where
   toJSON ListAliases' {..} =
-    object
-      ( catMaybes
-          [ ("RoutingStrategyType" .=) <$> _laRoutingStrategyType,
-            ("NextToken" .=) <$> _laNextToken,
-            ("Name" .=) <$> _laName,
-            ("Limit" .=) <$> _laLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoutingStrategyType" Lude..=) Lude.<$> routingStrategyType,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListAliases where
-  toPath = const "/"
+instance Lude.ToPath ListAliases where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAliases where
-  toQuery = const mempty
+instance Lude.ToQuery ListAliases where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'listAliasesResponse' smart constructor.
+-- /See:/ 'mkListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { _larsAliases ::
-      !(Maybe [Alias]),
-    _larsNextToken :: !(Maybe Text),
-    _larsResponseStatus :: !Int
+  { aliases ::
+      Lude.Maybe [Alias],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larsAliases' - A collection of alias resources that match the request parameters.
---
--- * 'larsNextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
---
--- * 'larsResponseStatus' - -- | The response status code.
-listAliasesResponse ::
-  -- | 'larsResponseStatus'
-  Int ->
+-- * 'aliases' - A collection of alias resources that match the request parameters.
+-- * 'nextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'responseStatus' - The response status code.
+mkListAliasesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAliasesResponse
-listAliasesResponse pResponseStatus_ =
+mkListAliasesResponse pResponseStatus_ =
   ListAliasesResponse'
-    { _larsAliases = Nothing,
-      _larsNextToken = Nothing,
-      _larsResponseStatus = pResponseStatus_
+    { aliases = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of alias resources that match the request parameters.
-larsAliases :: Lens' ListAliasesResponse [Alias]
-larsAliases = lens _larsAliases (\s a -> s {_larsAliases = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsAliases :: Lens.Lens' ListAliasesResponse (Lude.Maybe [Alias])
+larsAliases = Lens.lens (aliases :: ListAliasesResponse -> Lude.Maybe [Alias]) (\s a -> s {aliases = a} :: ListAliasesResponse)
+{-# DEPRECATED larsAliases "Use generic-lens or generic-optics with 'aliases' instead." #-}
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-larsNextToken :: Lens' ListAliasesResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\s a -> s {_larsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsNextToken :: Lens.Lens' ListAliasesResponse (Lude.Maybe Lude.Text)
+larsNextToken = Lens.lens (nextToken :: ListAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAliasesResponse)
+{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListAliasesResponse Int
-larsResponseStatus = lens _larsResponseStatus (\s a -> s {_larsResponseStatus = a})
-
-instance NFData ListAliasesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsResponseStatus :: Lens.Lens' ListAliasesResponse Lude.Int
+larsResponseStatus = Lens.lens (responseStatus :: ListAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAliasesResponse)
+{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

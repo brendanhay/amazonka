@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,733 +7,1184 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.CountryCode where
+module Network.AWS.Route53Domains.Types.CountryCode
+  ( CountryCode
+      ( CountryCode',
+        AD,
+        AE,
+        AF,
+        AG,
+        AI,
+        AL,
+        AM,
+        AN,
+        AO,
+        AQ,
+        AR,
+        AS,
+        AT,
+        AU,
+        AW,
+        AZ,
+        BA,
+        BB,
+        BD,
+        BE,
+        BF,
+        BG,
+        BH,
+        BI,
+        BJ,
+        BL,
+        BM,
+        BN,
+        BO,
+        BR,
+        BS,
+        BT,
+        BW,
+        BY,
+        BZ,
+        CA,
+        CC,
+        CD,
+        CF,
+        CG,
+        CH,
+        CI,
+        CK,
+        CL,
+        CM,
+        CN,
+        CO,
+        CR,
+        CU,
+        CV,
+        CX,
+        CY,
+        CZ,
+        DE,
+        DJ,
+        DK,
+        DM,
+        DO,
+        DZ,
+        EC,
+        EE,
+        EG,
+        ER,
+        ES,
+        ET,
+        FI,
+        FJ,
+        FK,
+        FM,
+        FO,
+        FR,
+        GA,
+        GB,
+        GD,
+        GE,
+        GH,
+        GI,
+        GL,
+        GM,
+        GN,
+        GQ,
+        GR,
+        GT,
+        GU,
+        GW,
+        GY,
+        HK,
+        HN,
+        HR,
+        HT,
+        HU,
+        IE,
+        IL,
+        IM,
+        IN,
+        IQ,
+        IR,
+        IS,
+        IT,
+        Id,
+        JM,
+        JO,
+        JP,
+        KE,
+        KG,
+        KH,
+        KI,
+        KM,
+        KN,
+        KP,
+        KR,
+        KW,
+        KY,
+        KZ,
+        LA,
+        LB,
+        LC,
+        LI,
+        LK,
+        LR,
+        LS,
+        LT,
+        LU,
+        LV,
+        LY,
+        MA,
+        MC,
+        MD,
+        ME,
+        MF,
+        MG,
+        MH,
+        MK,
+        ML,
+        MM,
+        MN,
+        MO,
+        MP,
+        MR,
+        MS,
+        MT,
+        MU,
+        MV,
+        MW,
+        MX,
+        MY,
+        MZ,
+        NA,
+        NC,
+        NE,
+        NG,
+        NI,
+        NL,
+        NO,
+        NP,
+        NR,
+        NU,
+        NZ,
+        OM,
+        PA,
+        PE,
+        PF,
+        PG,
+        PH,
+        PK,
+        PL,
+        PM,
+        PN,
+        PR,
+        PT,
+        PW,
+        PY,
+        QA,
+        RO,
+        RS,
+        RU,
+        RW,
+        SA,
+        SB,
+        SC,
+        SD,
+        SE,
+        SG,
+        SH,
+        SI,
+        SK,
+        SL,
+        SM,
+        SN,
+        SO,
+        SR,
+        ST,
+        SV,
+        SY,
+        SZ,
+        TC,
+        TD,
+        TG,
+        TH,
+        TJ,
+        TK,
+        TL,
+        TM,
+        TN,
+        TO,
+        TR,
+        TT,
+        TV,
+        TW,
+        TZ,
+        UA,
+        UG,
+        US,
+        UY,
+        UZ,
+        VA,
+        VC,
+        VE,
+        VG,
+        VI,
+        VN,
+        VU,
+        WF,
+        WS,
+        YE,
+        YT,
+        ZA,
+        ZM,
+        ZW
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CountryCode
-  = AD
-  | AE
-  | AF
-  | AG
-  | AI
-  | AL
-  | AM
-  | AN
-  | AO
-  | AQ
-  | AR
-  | AS
-  | AT
-  | AU
-  | AW
-  | AZ
-  | BA
-  | BB
-  | BD
-  | BE
-  | BF
-  | BG
-  | BH
-  | BI
-  | BJ
-  | BL
-  | BM
-  | BN
-  | BO
-  | BR
-  | BS
-  | BT
-  | BW
-  | BY
-  | BZ
-  | CA
-  | CC
-  | CD
-  | CF
-  | CG
-  | CH
-  | CI
-  | CK
-  | CL
-  | CM
-  | CN
-  | CO
-  | CR
-  | CU
-  | CV
-  | CX
-  | CY
-  | CZ
-  | DE
-  | DJ
-  | DK
-  | DM
-  | DO
-  | DZ
-  | EC
-  | EE
-  | EG
-  | ER
-  | ES
-  | ET
-  | FI
-  | FJ
-  | FK
-  | FM
-  | FO
-  | FR
-  | GA
-  | GB
-  | GD
-  | GE
-  | GH
-  | GI
-  | GL
-  | GM
-  | GN
-  | GQ
-  | GR
-  | GT'
-  | GU
-  | GW
-  | GY
-  | HK
-  | HN
-  | HR
-  | HT
-  | HU
-  | IE
-  | IL
-  | IM
-  | IN
-  | IQ
-  | IR
-  | IS
-  | IT
-  | Id
-  | JM
-  | JO
-  | JP
-  | KE
-  | KG
-  | KH
-  | KI
-  | KM
-  | KN
-  | KP
-  | KR
-  | KW
-  | KY
-  | KZ
-  | LA
-  | LB
-  | LC
-  | LI
-  | LK
-  | LR
-  | LS
-  | LT'
-  | LU
-  | LV
-  | LY
-  | MA
-  | MC
-  | MD
-  | ME
-  | MF
-  | MG
-  | MH
-  | MK
-  | ML
-  | MM
-  | MN
-  | MO
-  | MP
-  | MR
-  | MS
-  | MT
-  | MU
-  | MV
-  | MW
-  | MX
-  | MY
-  | MZ
-  | NA
-  | NC
-  | NE
-  | NG
-  | NI
-  | NL
-  | NO
-  | NP
-  | NR
-  | NU
-  | NZ
-  | OM
-  | PA
-  | PE
-  | PF
-  | PG
-  | PH
-  | PK
-  | PL
-  | PM
-  | PN
-  | PR
-  | PT
-  | PW
-  | PY
-  | QA
-  | RO
-  | RS
-  | RU
-  | RW
-  | SA
-  | SB
-  | SC
-  | SD
-  | SE
-  | SG
-  | SH
-  | SI
-  | SK
-  | SL
-  | SM
-  | SN
-  | SO
-  | SR
-  | ST
-  | SV
-  | SY
-  | SZ
-  | TC
-  | TD
-  | TG
-  | TH
-  | TJ
-  | TK
-  | TL
-  | TM
-  | TN
-  | TO
-  | TR
-  | TT
-  | TV
-  | TW
-  | TZ
-  | UA
-  | UG
-  | US
-  | UY
-  | UZ
-  | VA
-  | VC
-  | VE
-  | VG
-  | VI
-  | VN
-  | VU
-  | WF
-  | WS
-  | YE
-  | YT
-  | ZA
-  | ZM
-  | ZW
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CountryCode = CountryCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CountryCode where
-  parser =
-    takeLowerText >>= \case
-      "ad" -> pure AD
-      "ae" -> pure AE
-      "af" -> pure AF
-      "ag" -> pure AG
-      "ai" -> pure AI
-      "al" -> pure AL
-      "am" -> pure AM
-      "an" -> pure AN
-      "ao" -> pure AO
-      "aq" -> pure AQ
-      "ar" -> pure AR
-      "as" -> pure AS
-      "at" -> pure AT
-      "au" -> pure AU
-      "aw" -> pure AW
-      "az" -> pure AZ
-      "ba" -> pure BA
-      "bb" -> pure BB
-      "bd" -> pure BD
-      "be" -> pure BE
-      "bf" -> pure BF
-      "bg" -> pure BG
-      "bh" -> pure BH
-      "bi" -> pure BI
-      "bj" -> pure BJ
-      "bl" -> pure BL
-      "bm" -> pure BM
-      "bn" -> pure BN
-      "bo" -> pure BO
-      "br" -> pure BR
-      "bs" -> pure BS
-      "bt" -> pure BT
-      "bw" -> pure BW
-      "by" -> pure BY
-      "bz" -> pure BZ
-      "ca" -> pure CA
-      "cc" -> pure CC
-      "cd" -> pure CD
-      "cf" -> pure CF
-      "cg" -> pure CG
-      "ch" -> pure CH
-      "ci" -> pure CI
-      "ck" -> pure CK
-      "cl" -> pure CL
-      "cm" -> pure CM
-      "cn" -> pure CN
-      "co" -> pure CO
-      "cr" -> pure CR
-      "cu" -> pure CU
-      "cv" -> pure CV
-      "cx" -> pure CX
-      "cy" -> pure CY
-      "cz" -> pure CZ
-      "de" -> pure DE
-      "dj" -> pure DJ
-      "dk" -> pure DK
-      "dm" -> pure DM
-      "do" -> pure DO
-      "dz" -> pure DZ
-      "ec" -> pure EC
-      "ee" -> pure EE
-      "eg" -> pure EG
-      "er" -> pure ER
-      "es" -> pure ES
-      "et" -> pure ET
-      "fi" -> pure FI
-      "fj" -> pure FJ
-      "fk" -> pure FK
-      "fm" -> pure FM
-      "fo" -> pure FO
-      "fr" -> pure FR
-      "ga" -> pure GA
-      "gb" -> pure GB
-      "gd" -> pure GD
-      "ge" -> pure GE
-      "gh" -> pure GH
-      "gi" -> pure GI
-      "gl" -> pure GL
-      "gm" -> pure GM
-      "gn" -> pure GN
-      "gq" -> pure GQ
-      "gr" -> pure GR
-      "gt" -> pure GT'
-      "gu" -> pure GU
-      "gw" -> pure GW
-      "gy" -> pure GY
-      "hk" -> pure HK
-      "hn" -> pure HN
-      "hr" -> pure HR
-      "ht" -> pure HT
-      "hu" -> pure HU
-      "ie" -> pure IE
-      "il" -> pure IL
-      "im" -> pure IM
-      "in" -> pure IN
-      "iq" -> pure IQ
-      "ir" -> pure IR
-      "is" -> pure IS
-      "it" -> pure IT
-      "id" -> pure Id
-      "jm" -> pure JM
-      "jo" -> pure JO
-      "jp" -> pure JP
-      "ke" -> pure KE
-      "kg" -> pure KG
-      "kh" -> pure KH
-      "ki" -> pure KI
-      "km" -> pure KM
-      "kn" -> pure KN
-      "kp" -> pure KP
-      "kr" -> pure KR
-      "kw" -> pure KW
-      "ky" -> pure KY
-      "kz" -> pure KZ
-      "la" -> pure LA
-      "lb" -> pure LB
-      "lc" -> pure LC
-      "li" -> pure LI
-      "lk" -> pure LK
-      "lr" -> pure LR
-      "ls" -> pure LS
-      "lt" -> pure LT'
-      "lu" -> pure LU
-      "lv" -> pure LV
-      "ly" -> pure LY
-      "ma" -> pure MA
-      "mc" -> pure MC
-      "md" -> pure MD
-      "me" -> pure ME
-      "mf" -> pure MF
-      "mg" -> pure MG
-      "mh" -> pure MH
-      "mk" -> pure MK
-      "ml" -> pure ML
-      "mm" -> pure MM
-      "mn" -> pure MN
-      "mo" -> pure MO
-      "mp" -> pure MP
-      "mr" -> pure MR
-      "ms" -> pure MS
-      "mt" -> pure MT
-      "mu" -> pure MU
-      "mv" -> pure MV
-      "mw" -> pure MW
-      "mx" -> pure MX
-      "my" -> pure MY
-      "mz" -> pure MZ
-      "na" -> pure NA
-      "nc" -> pure NC
-      "ne" -> pure NE
-      "ng" -> pure NG
-      "ni" -> pure NI
-      "nl" -> pure NL
-      "no" -> pure NO
-      "np" -> pure NP
-      "nr" -> pure NR
-      "nu" -> pure NU
-      "nz" -> pure NZ
-      "om" -> pure OM
-      "pa" -> pure PA
-      "pe" -> pure PE
-      "pf" -> pure PF
-      "pg" -> pure PG
-      "ph" -> pure PH
-      "pk" -> pure PK
-      "pl" -> pure PL
-      "pm" -> pure PM
-      "pn" -> pure PN
-      "pr" -> pure PR
-      "pt" -> pure PT
-      "pw" -> pure PW
-      "py" -> pure PY
-      "qa" -> pure QA
-      "ro" -> pure RO
-      "rs" -> pure RS
-      "ru" -> pure RU
-      "rw" -> pure RW
-      "sa" -> pure SA
-      "sb" -> pure SB
-      "sc" -> pure SC
-      "sd" -> pure SD
-      "se" -> pure SE
-      "sg" -> pure SG
-      "sh" -> pure SH
-      "si" -> pure SI
-      "sk" -> pure SK
-      "sl" -> pure SL
-      "sm" -> pure SM
-      "sn" -> pure SN
-      "so" -> pure SO
-      "sr" -> pure SR
-      "st" -> pure ST
-      "sv" -> pure SV
-      "sy" -> pure SY
-      "sz" -> pure SZ
-      "tc" -> pure TC
-      "td" -> pure TD
-      "tg" -> pure TG
-      "th" -> pure TH
-      "tj" -> pure TJ
-      "tk" -> pure TK
-      "tl" -> pure TL
-      "tm" -> pure TM
-      "tn" -> pure TN
-      "to" -> pure TO
-      "tr" -> pure TR
-      "tt" -> pure TT
-      "tv" -> pure TV
-      "tw" -> pure TW
-      "tz" -> pure TZ
-      "ua" -> pure UA
-      "ug" -> pure UG
-      "us" -> pure US
-      "uy" -> pure UY
-      "uz" -> pure UZ
-      "va" -> pure VA
-      "vc" -> pure VC
-      "ve" -> pure VE
-      "vg" -> pure VG
-      "vi" -> pure VI
-      "vn" -> pure VN
-      "vu" -> pure VU
-      "wf" -> pure WF
-      "ws" -> pure WS
-      "ye" -> pure YE
-      "yt" -> pure YT
-      "za" -> pure ZA
-      "zm" -> pure ZM
-      "zw" -> pure ZW
-      e ->
-        fromTextError $
-          "Failure parsing CountryCode from value: '" <> e
-            <> "'. Accepted values: ad, ae, af, ag, ai, al, am, an, ao, aq, ar, as, at, au, aw, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gh, gi, gl, gm, gn, gq, gr, gt, gu, gw, gy, hk, hn, hr, ht, hu, ie, il, im, in, iq, ir, is, it, id, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mf, mg, mh, mk, ml, mm, mn, mo, mp, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, pt, pw, py, qa, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sk, sl, sm, sn, so, sr, st, sv, sy, sz, tc, td, tg, th, tj, tk, tl, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, za, zm, zw"
+pattern AD :: CountryCode
+pattern AD = CountryCode' "AD"
 
-instance ToText CountryCode where
-  toText = \case
-    AD -> "AD"
-    AE -> "AE"
-    AF -> "AF"
-    AG -> "AG"
-    AI -> "AI"
-    AL -> "AL"
-    AM -> "AM"
-    AN -> "AN"
-    AO -> "AO"
-    AQ -> "AQ"
-    AR -> "AR"
-    AS -> "AS"
-    AT -> "AT"
-    AU -> "AU"
-    AW -> "AW"
-    AZ -> "AZ"
-    BA -> "BA"
-    BB -> "BB"
-    BD -> "BD"
-    BE -> "BE"
-    BF -> "BF"
-    BG -> "BG"
-    BH -> "BH"
-    BI -> "BI"
-    BJ -> "BJ"
-    BL -> "BL"
-    BM -> "BM"
-    BN -> "BN"
-    BO -> "BO"
-    BR -> "BR"
-    BS -> "BS"
-    BT -> "BT"
-    BW -> "BW"
-    BY -> "BY"
-    BZ -> "BZ"
-    CA -> "CA"
-    CC -> "CC"
-    CD -> "CD"
-    CF -> "CF"
-    CG -> "CG"
-    CH -> "CH"
-    CI -> "CI"
-    CK -> "CK"
-    CL -> "CL"
-    CM -> "CM"
-    CN -> "CN"
-    CO -> "CO"
-    CR -> "CR"
-    CU -> "CU"
-    CV -> "CV"
-    CX -> "CX"
-    CY -> "CY"
-    CZ -> "CZ"
-    DE -> "DE"
-    DJ -> "DJ"
-    DK -> "DK"
-    DM -> "DM"
-    DO -> "DO"
-    DZ -> "DZ"
-    EC -> "EC"
-    EE -> "EE"
-    EG -> "EG"
-    ER -> "ER"
-    ES -> "ES"
-    ET -> "ET"
-    FI -> "FI"
-    FJ -> "FJ"
-    FK -> "FK"
-    FM -> "FM"
-    FO -> "FO"
-    FR -> "FR"
-    GA -> "GA"
-    GB -> "GB"
-    GD -> "GD"
-    GE -> "GE"
-    GH -> "GH"
-    GI -> "GI"
-    GL -> "GL"
-    GM -> "GM"
-    GN -> "GN"
-    GQ -> "GQ"
-    GR -> "GR"
-    GT' -> "GT"
-    GU -> "GU"
-    GW -> "GW"
-    GY -> "GY"
-    HK -> "HK"
-    HN -> "HN"
-    HR -> "HR"
-    HT -> "HT"
-    HU -> "HU"
-    IE -> "IE"
-    IL -> "IL"
-    IM -> "IM"
-    IN -> "IN"
-    IQ -> "IQ"
-    IR -> "IR"
-    IS -> "IS"
-    IT -> "IT"
-    Id -> "ID"
-    JM -> "JM"
-    JO -> "JO"
-    JP -> "JP"
-    KE -> "KE"
-    KG -> "KG"
-    KH -> "KH"
-    KI -> "KI"
-    KM -> "KM"
-    KN -> "KN"
-    KP -> "KP"
-    KR -> "KR"
-    KW -> "KW"
-    KY -> "KY"
-    KZ -> "KZ"
-    LA -> "LA"
-    LB -> "LB"
-    LC -> "LC"
-    LI -> "LI"
-    LK -> "LK"
-    LR -> "LR"
-    LS -> "LS"
-    LT' -> "LT"
-    LU -> "LU"
-    LV -> "LV"
-    LY -> "LY"
-    MA -> "MA"
-    MC -> "MC"
-    MD -> "MD"
-    ME -> "ME"
-    MF -> "MF"
-    MG -> "MG"
-    MH -> "MH"
-    MK -> "MK"
-    ML -> "ML"
-    MM -> "MM"
-    MN -> "MN"
-    MO -> "MO"
-    MP -> "MP"
-    MR -> "MR"
-    MS -> "MS"
-    MT -> "MT"
-    MU -> "MU"
-    MV -> "MV"
-    MW -> "MW"
-    MX -> "MX"
-    MY -> "MY"
-    MZ -> "MZ"
-    NA -> "NA"
-    NC -> "NC"
-    NE -> "NE"
-    NG -> "NG"
-    NI -> "NI"
-    NL -> "NL"
-    NO -> "NO"
-    NP -> "NP"
-    NR -> "NR"
-    NU -> "NU"
-    NZ -> "NZ"
-    OM -> "OM"
-    PA -> "PA"
-    PE -> "PE"
-    PF -> "PF"
-    PG -> "PG"
-    PH -> "PH"
-    PK -> "PK"
-    PL -> "PL"
-    PM -> "PM"
-    PN -> "PN"
-    PR -> "PR"
-    PT -> "PT"
-    PW -> "PW"
-    PY -> "PY"
-    QA -> "QA"
-    RO -> "RO"
-    RS -> "RS"
-    RU -> "RU"
-    RW -> "RW"
-    SA -> "SA"
-    SB -> "SB"
-    SC -> "SC"
-    SD -> "SD"
-    SE -> "SE"
-    SG -> "SG"
-    SH -> "SH"
-    SI -> "SI"
-    SK -> "SK"
-    SL -> "SL"
-    SM -> "SM"
-    SN -> "SN"
-    SO -> "SO"
-    SR -> "SR"
-    ST -> "ST"
-    SV -> "SV"
-    SY -> "SY"
-    SZ -> "SZ"
-    TC -> "TC"
-    TD -> "TD"
-    TG -> "TG"
-    TH -> "TH"
-    TJ -> "TJ"
-    TK -> "TK"
-    TL -> "TL"
-    TM -> "TM"
-    TN -> "TN"
-    TO -> "TO"
-    TR -> "TR"
-    TT -> "TT"
-    TV -> "TV"
-    TW -> "TW"
-    TZ -> "TZ"
-    UA -> "UA"
-    UG -> "UG"
-    US -> "US"
-    UY -> "UY"
-    UZ -> "UZ"
-    VA -> "VA"
-    VC -> "VC"
-    VE -> "VE"
-    VG -> "VG"
-    VI -> "VI"
-    VN -> "VN"
-    VU -> "VU"
-    WF -> "WF"
-    WS -> "WS"
-    YE -> "YE"
-    YT -> "YT"
-    ZA -> "ZA"
-    ZM -> "ZM"
-    ZW -> "ZW"
+pattern AE :: CountryCode
+pattern AE = CountryCode' "AE"
 
-instance Hashable CountryCode
+pattern AF :: CountryCode
+pattern AF = CountryCode' "AF"
 
-instance NFData CountryCode
+pattern AG :: CountryCode
+pattern AG = CountryCode' "AG"
 
-instance ToByteString CountryCode
+pattern AI :: CountryCode
+pattern AI = CountryCode' "AI"
 
-instance ToQuery CountryCode
+pattern AL :: CountryCode
+pattern AL = CountryCode' "AL"
 
-instance ToHeader CountryCode
+pattern AM :: CountryCode
+pattern AM = CountryCode' "AM"
 
-instance ToJSON CountryCode where
-  toJSON = toJSONText
+pattern AN :: CountryCode
+pattern AN = CountryCode' "AN"
 
-instance FromJSON CountryCode where
-  parseJSON = parseJSONText "CountryCode"
+pattern AO :: CountryCode
+pattern AO = CountryCode' "AO"
+
+pattern AQ :: CountryCode
+pattern AQ = CountryCode' "AQ"
+
+pattern AR :: CountryCode
+pattern AR = CountryCode' "AR"
+
+pattern AS :: CountryCode
+pattern AS = CountryCode' "AS"
+
+pattern AT :: CountryCode
+pattern AT = CountryCode' "AT"
+
+pattern AU :: CountryCode
+pattern AU = CountryCode' "AU"
+
+pattern AW :: CountryCode
+pattern AW = CountryCode' "AW"
+
+pattern AZ :: CountryCode
+pattern AZ = CountryCode' "AZ"
+
+pattern BA :: CountryCode
+pattern BA = CountryCode' "BA"
+
+pattern BB :: CountryCode
+pattern BB = CountryCode' "BB"
+
+pattern BD :: CountryCode
+pattern BD = CountryCode' "BD"
+
+pattern BE :: CountryCode
+pattern BE = CountryCode' "BE"
+
+pattern BF :: CountryCode
+pattern BF = CountryCode' "BF"
+
+pattern BG :: CountryCode
+pattern BG = CountryCode' "BG"
+
+pattern BH :: CountryCode
+pattern BH = CountryCode' "BH"
+
+pattern BI :: CountryCode
+pattern BI = CountryCode' "BI"
+
+pattern BJ :: CountryCode
+pattern BJ = CountryCode' "BJ"
+
+pattern BL :: CountryCode
+pattern BL = CountryCode' "BL"
+
+pattern BM :: CountryCode
+pattern BM = CountryCode' "BM"
+
+pattern BN :: CountryCode
+pattern BN = CountryCode' "BN"
+
+pattern BO :: CountryCode
+pattern BO = CountryCode' "BO"
+
+pattern BR :: CountryCode
+pattern BR = CountryCode' "BR"
+
+pattern BS :: CountryCode
+pattern BS = CountryCode' "BS"
+
+pattern BT :: CountryCode
+pattern BT = CountryCode' "BT"
+
+pattern BW :: CountryCode
+pattern BW = CountryCode' "BW"
+
+pattern BY :: CountryCode
+pattern BY = CountryCode' "BY"
+
+pattern BZ :: CountryCode
+pattern BZ = CountryCode' "BZ"
+
+pattern CA :: CountryCode
+pattern CA = CountryCode' "CA"
+
+pattern CC :: CountryCode
+pattern CC = CountryCode' "CC"
+
+pattern CD :: CountryCode
+pattern CD = CountryCode' "CD"
+
+pattern CF :: CountryCode
+pattern CF = CountryCode' "CF"
+
+pattern CG :: CountryCode
+pattern CG = CountryCode' "CG"
+
+pattern CH :: CountryCode
+pattern CH = CountryCode' "CH"
+
+pattern CI :: CountryCode
+pattern CI = CountryCode' "CI"
+
+pattern CK :: CountryCode
+pattern CK = CountryCode' "CK"
+
+pattern CL :: CountryCode
+pattern CL = CountryCode' "CL"
+
+pattern CM :: CountryCode
+pattern CM = CountryCode' "CM"
+
+pattern CN :: CountryCode
+pattern CN = CountryCode' "CN"
+
+pattern CO :: CountryCode
+pattern CO = CountryCode' "CO"
+
+pattern CR :: CountryCode
+pattern CR = CountryCode' "CR"
+
+pattern CU :: CountryCode
+pattern CU = CountryCode' "CU"
+
+pattern CV :: CountryCode
+pattern CV = CountryCode' "CV"
+
+pattern CX :: CountryCode
+pattern CX = CountryCode' "CX"
+
+pattern CY :: CountryCode
+pattern CY = CountryCode' "CY"
+
+pattern CZ :: CountryCode
+pattern CZ = CountryCode' "CZ"
+
+pattern DE :: CountryCode
+pattern DE = CountryCode' "DE"
+
+pattern DJ :: CountryCode
+pattern DJ = CountryCode' "DJ"
+
+pattern DK :: CountryCode
+pattern DK = CountryCode' "DK"
+
+pattern DM :: CountryCode
+pattern DM = CountryCode' "DM"
+
+pattern DO :: CountryCode
+pattern DO = CountryCode' "DO"
+
+pattern DZ :: CountryCode
+pattern DZ = CountryCode' "DZ"
+
+pattern EC :: CountryCode
+pattern EC = CountryCode' "EC"
+
+pattern EE :: CountryCode
+pattern EE = CountryCode' "EE"
+
+pattern EG :: CountryCode
+pattern EG = CountryCode' "EG"
+
+pattern ER :: CountryCode
+pattern ER = CountryCode' "ER"
+
+pattern ES :: CountryCode
+pattern ES = CountryCode' "ES"
+
+pattern ET :: CountryCode
+pattern ET = CountryCode' "ET"
+
+pattern FI :: CountryCode
+pattern FI = CountryCode' "FI"
+
+pattern FJ :: CountryCode
+pattern FJ = CountryCode' "FJ"
+
+pattern FK :: CountryCode
+pattern FK = CountryCode' "FK"
+
+pattern FM :: CountryCode
+pattern FM = CountryCode' "FM"
+
+pattern FO :: CountryCode
+pattern FO = CountryCode' "FO"
+
+pattern FR :: CountryCode
+pattern FR = CountryCode' "FR"
+
+pattern GA :: CountryCode
+pattern GA = CountryCode' "GA"
+
+pattern GB :: CountryCode
+pattern GB = CountryCode' "GB"
+
+pattern GD :: CountryCode
+pattern GD = CountryCode' "GD"
+
+pattern GE :: CountryCode
+pattern GE = CountryCode' "GE"
+
+pattern GH :: CountryCode
+pattern GH = CountryCode' "GH"
+
+pattern GI :: CountryCode
+pattern GI = CountryCode' "GI"
+
+pattern GL :: CountryCode
+pattern GL = CountryCode' "GL"
+
+pattern GM :: CountryCode
+pattern GM = CountryCode' "GM"
+
+pattern GN :: CountryCode
+pattern GN = CountryCode' "GN"
+
+pattern GQ :: CountryCode
+pattern GQ = CountryCode' "GQ"
+
+pattern GR :: CountryCode
+pattern GR = CountryCode' "GR"
+
+pattern GT :: CountryCode
+pattern GT = CountryCode' "GT"
+
+pattern GU :: CountryCode
+pattern GU = CountryCode' "GU"
+
+pattern GW :: CountryCode
+pattern GW = CountryCode' "GW"
+
+pattern GY :: CountryCode
+pattern GY = CountryCode' "GY"
+
+pattern HK :: CountryCode
+pattern HK = CountryCode' "HK"
+
+pattern HN :: CountryCode
+pattern HN = CountryCode' "HN"
+
+pattern HR :: CountryCode
+pattern HR = CountryCode' "HR"
+
+pattern HT :: CountryCode
+pattern HT = CountryCode' "HT"
+
+pattern HU :: CountryCode
+pattern HU = CountryCode' "HU"
+
+pattern IE :: CountryCode
+pattern IE = CountryCode' "IE"
+
+pattern IL :: CountryCode
+pattern IL = CountryCode' "IL"
+
+pattern IM :: CountryCode
+pattern IM = CountryCode' "IM"
+
+pattern IN :: CountryCode
+pattern IN = CountryCode' "IN"
+
+pattern IQ :: CountryCode
+pattern IQ = CountryCode' "IQ"
+
+pattern IR :: CountryCode
+pattern IR = CountryCode' "IR"
+
+pattern IS :: CountryCode
+pattern IS = CountryCode' "IS"
+
+pattern IT :: CountryCode
+pattern IT = CountryCode' "IT"
+
+pattern Id :: CountryCode
+pattern Id = CountryCode' "ID"
+
+pattern JM :: CountryCode
+pattern JM = CountryCode' "JM"
+
+pattern JO :: CountryCode
+pattern JO = CountryCode' "JO"
+
+pattern JP :: CountryCode
+pattern JP = CountryCode' "JP"
+
+pattern KE :: CountryCode
+pattern KE = CountryCode' "KE"
+
+pattern KG :: CountryCode
+pattern KG = CountryCode' "KG"
+
+pattern KH :: CountryCode
+pattern KH = CountryCode' "KH"
+
+pattern KI :: CountryCode
+pattern KI = CountryCode' "KI"
+
+pattern KM :: CountryCode
+pattern KM = CountryCode' "KM"
+
+pattern KN :: CountryCode
+pattern KN = CountryCode' "KN"
+
+pattern KP :: CountryCode
+pattern KP = CountryCode' "KP"
+
+pattern KR :: CountryCode
+pattern KR = CountryCode' "KR"
+
+pattern KW :: CountryCode
+pattern KW = CountryCode' "KW"
+
+pattern KY :: CountryCode
+pattern KY = CountryCode' "KY"
+
+pattern KZ :: CountryCode
+pattern KZ = CountryCode' "KZ"
+
+pattern LA :: CountryCode
+pattern LA = CountryCode' "LA"
+
+pattern LB :: CountryCode
+pattern LB = CountryCode' "LB"
+
+pattern LC :: CountryCode
+pattern LC = CountryCode' "LC"
+
+pattern LI :: CountryCode
+pattern LI = CountryCode' "LI"
+
+pattern LK :: CountryCode
+pattern LK = CountryCode' "LK"
+
+pattern LR :: CountryCode
+pattern LR = CountryCode' "LR"
+
+pattern LS :: CountryCode
+pattern LS = CountryCode' "LS"
+
+pattern LT :: CountryCode
+pattern LT = CountryCode' "LT"
+
+pattern LU :: CountryCode
+pattern LU = CountryCode' "LU"
+
+pattern LV :: CountryCode
+pattern LV = CountryCode' "LV"
+
+pattern LY :: CountryCode
+pattern LY = CountryCode' "LY"
+
+pattern MA :: CountryCode
+pattern MA = CountryCode' "MA"
+
+pattern MC :: CountryCode
+pattern MC = CountryCode' "MC"
+
+pattern MD :: CountryCode
+pattern MD = CountryCode' "MD"
+
+pattern ME :: CountryCode
+pattern ME = CountryCode' "ME"
+
+pattern MF :: CountryCode
+pattern MF = CountryCode' "MF"
+
+pattern MG :: CountryCode
+pattern MG = CountryCode' "MG"
+
+pattern MH :: CountryCode
+pattern MH = CountryCode' "MH"
+
+pattern MK :: CountryCode
+pattern MK = CountryCode' "MK"
+
+pattern ML :: CountryCode
+pattern ML = CountryCode' "ML"
+
+pattern MM :: CountryCode
+pattern MM = CountryCode' "MM"
+
+pattern MN :: CountryCode
+pattern MN = CountryCode' "MN"
+
+pattern MO :: CountryCode
+pattern MO = CountryCode' "MO"
+
+pattern MP :: CountryCode
+pattern MP = CountryCode' "MP"
+
+pattern MR :: CountryCode
+pattern MR = CountryCode' "MR"
+
+pattern MS :: CountryCode
+pattern MS = CountryCode' "MS"
+
+pattern MT :: CountryCode
+pattern MT = CountryCode' "MT"
+
+pattern MU :: CountryCode
+pattern MU = CountryCode' "MU"
+
+pattern MV :: CountryCode
+pattern MV = CountryCode' "MV"
+
+pattern MW :: CountryCode
+pattern MW = CountryCode' "MW"
+
+pattern MX :: CountryCode
+pattern MX = CountryCode' "MX"
+
+pattern MY :: CountryCode
+pattern MY = CountryCode' "MY"
+
+pattern MZ :: CountryCode
+pattern MZ = CountryCode' "MZ"
+
+pattern NA :: CountryCode
+pattern NA = CountryCode' "NA"
+
+pattern NC :: CountryCode
+pattern NC = CountryCode' "NC"
+
+pattern NE :: CountryCode
+pattern NE = CountryCode' "NE"
+
+pattern NG :: CountryCode
+pattern NG = CountryCode' "NG"
+
+pattern NI :: CountryCode
+pattern NI = CountryCode' "NI"
+
+pattern NL :: CountryCode
+pattern NL = CountryCode' "NL"
+
+pattern NO :: CountryCode
+pattern NO = CountryCode' "NO"
+
+pattern NP :: CountryCode
+pattern NP = CountryCode' "NP"
+
+pattern NR :: CountryCode
+pattern NR = CountryCode' "NR"
+
+pattern NU :: CountryCode
+pattern NU = CountryCode' "NU"
+
+pattern NZ :: CountryCode
+pattern NZ = CountryCode' "NZ"
+
+pattern OM :: CountryCode
+pattern OM = CountryCode' "OM"
+
+pattern PA :: CountryCode
+pattern PA = CountryCode' "PA"
+
+pattern PE :: CountryCode
+pattern PE = CountryCode' "PE"
+
+pattern PF :: CountryCode
+pattern PF = CountryCode' "PF"
+
+pattern PG :: CountryCode
+pattern PG = CountryCode' "PG"
+
+pattern PH :: CountryCode
+pattern PH = CountryCode' "PH"
+
+pattern PK :: CountryCode
+pattern PK = CountryCode' "PK"
+
+pattern PL :: CountryCode
+pattern PL = CountryCode' "PL"
+
+pattern PM :: CountryCode
+pattern PM = CountryCode' "PM"
+
+pattern PN :: CountryCode
+pattern PN = CountryCode' "PN"
+
+pattern PR :: CountryCode
+pattern PR = CountryCode' "PR"
+
+pattern PT :: CountryCode
+pattern PT = CountryCode' "PT"
+
+pattern PW :: CountryCode
+pattern PW = CountryCode' "PW"
+
+pattern PY :: CountryCode
+pattern PY = CountryCode' "PY"
+
+pattern QA :: CountryCode
+pattern QA = CountryCode' "QA"
+
+pattern RO :: CountryCode
+pattern RO = CountryCode' "RO"
+
+pattern RS :: CountryCode
+pattern RS = CountryCode' "RS"
+
+pattern RU :: CountryCode
+pattern RU = CountryCode' "RU"
+
+pattern RW :: CountryCode
+pattern RW = CountryCode' "RW"
+
+pattern SA :: CountryCode
+pattern SA = CountryCode' "SA"
+
+pattern SB :: CountryCode
+pattern SB = CountryCode' "SB"
+
+pattern SC :: CountryCode
+pattern SC = CountryCode' "SC"
+
+pattern SD :: CountryCode
+pattern SD = CountryCode' "SD"
+
+pattern SE :: CountryCode
+pattern SE = CountryCode' "SE"
+
+pattern SG :: CountryCode
+pattern SG = CountryCode' "SG"
+
+pattern SH :: CountryCode
+pattern SH = CountryCode' "SH"
+
+pattern SI :: CountryCode
+pattern SI = CountryCode' "SI"
+
+pattern SK :: CountryCode
+pattern SK = CountryCode' "SK"
+
+pattern SL :: CountryCode
+pattern SL = CountryCode' "SL"
+
+pattern SM :: CountryCode
+pattern SM = CountryCode' "SM"
+
+pattern SN :: CountryCode
+pattern SN = CountryCode' "SN"
+
+pattern SO :: CountryCode
+pattern SO = CountryCode' "SO"
+
+pattern SR :: CountryCode
+pattern SR = CountryCode' "SR"
+
+pattern ST :: CountryCode
+pattern ST = CountryCode' "ST"
+
+pattern SV :: CountryCode
+pattern SV = CountryCode' "SV"
+
+pattern SY :: CountryCode
+pattern SY = CountryCode' "SY"
+
+pattern SZ :: CountryCode
+pattern SZ = CountryCode' "SZ"
+
+pattern TC :: CountryCode
+pattern TC = CountryCode' "TC"
+
+pattern TD :: CountryCode
+pattern TD = CountryCode' "TD"
+
+pattern TG :: CountryCode
+pattern TG = CountryCode' "TG"
+
+pattern TH :: CountryCode
+pattern TH = CountryCode' "TH"
+
+pattern TJ :: CountryCode
+pattern TJ = CountryCode' "TJ"
+
+pattern TK :: CountryCode
+pattern TK = CountryCode' "TK"
+
+pattern TL :: CountryCode
+pattern TL = CountryCode' "TL"
+
+pattern TM :: CountryCode
+pattern TM = CountryCode' "TM"
+
+pattern TN :: CountryCode
+pattern TN = CountryCode' "TN"
+
+pattern TO :: CountryCode
+pattern TO = CountryCode' "TO"
+
+pattern TR :: CountryCode
+pattern TR = CountryCode' "TR"
+
+pattern TT :: CountryCode
+pattern TT = CountryCode' "TT"
+
+pattern TV :: CountryCode
+pattern TV = CountryCode' "TV"
+
+pattern TW :: CountryCode
+pattern TW = CountryCode' "TW"
+
+pattern TZ :: CountryCode
+pattern TZ = CountryCode' "TZ"
+
+pattern UA :: CountryCode
+pattern UA = CountryCode' "UA"
+
+pattern UG :: CountryCode
+pattern UG = CountryCode' "UG"
+
+pattern US :: CountryCode
+pattern US = CountryCode' "US"
+
+pattern UY :: CountryCode
+pattern UY = CountryCode' "UY"
+
+pattern UZ :: CountryCode
+pattern UZ = CountryCode' "UZ"
+
+pattern VA :: CountryCode
+pattern VA = CountryCode' "VA"
+
+pattern VC :: CountryCode
+pattern VC = CountryCode' "VC"
+
+pattern VE :: CountryCode
+pattern VE = CountryCode' "VE"
+
+pattern VG :: CountryCode
+pattern VG = CountryCode' "VG"
+
+pattern VI :: CountryCode
+pattern VI = CountryCode' "VI"
+
+pattern VN :: CountryCode
+pattern VN = CountryCode' "VN"
+
+pattern VU :: CountryCode
+pattern VU = CountryCode' "VU"
+
+pattern WF :: CountryCode
+pattern WF = CountryCode' "WF"
+
+pattern WS :: CountryCode
+pattern WS = CountryCode' "WS"
+
+pattern YE :: CountryCode
+pattern YE = CountryCode' "YE"
+
+pattern YT :: CountryCode
+pattern YT = CountryCode' "YT"
+
+pattern ZA :: CountryCode
+pattern ZA = CountryCode' "ZA"
+
+pattern ZM :: CountryCode
+pattern ZM = CountryCode' "ZM"
+
+pattern ZW :: CountryCode
+pattern ZW = CountryCode' "ZW"
+
+{-# COMPLETE
+  AD,
+  AE,
+  AF,
+  AG,
+  AI,
+  AL,
+  AM,
+  AN,
+  AO,
+  AQ,
+  AR,
+  AS,
+  AT,
+  AU,
+  AW,
+  AZ,
+  BA,
+  BB,
+  BD,
+  BE,
+  BF,
+  BG,
+  BH,
+  BI,
+  BJ,
+  BL,
+  BM,
+  BN,
+  BO,
+  BR,
+  BS,
+  BT,
+  BW,
+  BY,
+  BZ,
+  CA,
+  CC,
+  CD,
+  CF,
+  CG,
+  CH,
+  CI,
+  CK,
+  CL,
+  CM,
+  CN,
+  CO,
+  CR,
+  CU,
+  CV,
+  CX,
+  CY,
+  CZ,
+  DE,
+  DJ,
+  DK,
+  DM,
+  DO,
+  DZ,
+  EC,
+  EE,
+  EG,
+  ER,
+  ES,
+  ET,
+  FI,
+  FJ,
+  FK,
+  FM,
+  FO,
+  FR,
+  GA,
+  GB,
+  GD,
+  GE,
+  GH,
+  GI,
+  GL,
+  GM,
+  GN,
+  GQ,
+  GR,
+  GT,
+  GU,
+  GW,
+  GY,
+  HK,
+  HN,
+  HR,
+  HT,
+  HU,
+  IE,
+  IL,
+  IM,
+  IN,
+  IQ,
+  IR,
+  IS,
+  IT,
+  Id,
+  JM,
+  JO,
+  JP,
+  KE,
+  KG,
+  KH,
+  KI,
+  KM,
+  KN,
+  KP,
+  KR,
+  KW,
+  KY,
+  KZ,
+  LA,
+  LB,
+  LC,
+  LI,
+  LK,
+  LR,
+  LS,
+  LT,
+  LU,
+  LV,
+  LY,
+  MA,
+  MC,
+  MD,
+  ME,
+  MF,
+  MG,
+  MH,
+  MK,
+  ML,
+  MM,
+  MN,
+  MO,
+  MP,
+  MR,
+  MS,
+  MT,
+  MU,
+  MV,
+  MW,
+  MX,
+  MY,
+  MZ,
+  NA,
+  NC,
+  NE,
+  NG,
+  NI,
+  NL,
+  NO,
+  NP,
+  NR,
+  NU,
+  NZ,
+  OM,
+  PA,
+  PE,
+  PF,
+  PG,
+  PH,
+  PK,
+  PL,
+  PM,
+  PN,
+  PR,
+  PT,
+  PW,
+  PY,
+  QA,
+  RO,
+  RS,
+  RU,
+  RW,
+  SA,
+  SB,
+  SC,
+  SD,
+  SE,
+  SG,
+  SH,
+  SI,
+  SK,
+  SL,
+  SM,
+  SN,
+  SO,
+  SR,
+  ST,
+  SV,
+  SY,
+  SZ,
+  TC,
+  TD,
+  TG,
+  TH,
+  TJ,
+  TK,
+  TL,
+  TM,
+  TN,
+  TO,
+  TR,
+  TT,
+  TV,
+  TW,
+  TZ,
+  UA,
+  UG,
+  US,
+  UY,
+  UZ,
+  VA,
+  VC,
+  VE,
+  VG,
+  VI,
+  VN,
+  VU,
+  WF,
+  WS,
+  YE,
+  YT,
+  ZA,
+  ZM,
+  ZW,
+  CountryCode'
+  #-}

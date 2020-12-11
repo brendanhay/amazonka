@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AvailConfiguration where
+module Network.AWS.MediaLive.Types.AvailConfiguration
+  ( AvailConfiguration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAvailConfiguration,
+
+    -- * Lenses
+    acAvailSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AvailSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Avail Configuration
 --
--- /See:/ 'availConfiguration' smart constructor.
+-- /See:/ 'mkAvailConfiguration' smart constructor.
 newtype AvailConfiguration = AvailConfiguration'
-  { _acAvailSettings ::
-      Maybe AvailSettings
+  { availSettings ::
+      Lude.Maybe AvailSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acAvailSettings' - Ad avail settings.
-availConfiguration ::
+-- * 'availSettings' - Ad avail settings.
+mkAvailConfiguration ::
   AvailConfiguration
-availConfiguration =
-  AvailConfiguration' {_acAvailSettings = Nothing}
+mkAvailConfiguration =
+  AvailConfiguration' {availSettings = Lude.Nothing}
 
 -- | Ad avail settings.
-acAvailSettings :: Lens' AvailConfiguration (Maybe AvailSettings)
-acAvailSettings = lens _acAvailSettings (\s a -> s {_acAvailSettings = a})
+--
+-- /Note:/ Consider using 'availSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAvailSettings :: Lens.Lens' AvailConfiguration (Lude.Maybe AvailSettings)
+acAvailSettings = Lens.lens (availSettings :: AvailConfiguration -> Lude.Maybe AvailSettings) (\s a -> s {availSettings = a} :: AvailConfiguration)
+{-# DEPRECATED acAvailSettings "Use generic-lens or generic-optics with 'availSettings' instead." #-}
 
-instance FromJSON AvailConfiguration where
+instance Lude.FromJSON AvailConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AvailConfiguration"
-      (\x -> AvailConfiguration' <$> (x .:? "availSettings"))
+      (\x -> AvailConfiguration' Lude.<$> (x Lude..:? "availSettings"))
 
-instance Hashable AvailConfiguration
-
-instance NFData AvailConfiguration
-
-instance ToJSON AvailConfiguration where
+instance Lude.ToJSON AvailConfiguration where
   toJSON AvailConfiguration' {..} =
-    object (catMaybes [("availSettings" .=) <$> _acAvailSettings])
+    Lude.object
+      (Lude.catMaybes [("availSettings" Lude..=) Lude.<$> availSettings])

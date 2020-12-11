@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.HTTPInstanceSummary where
+module Network.AWS.Route53AutoNaming.Types.HTTPInstanceSummary
+  ( HTTPInstanceSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPInstanceSummary,
+
+    -- * Lenses
+    httpisInstanceId,
+    httpisNamespaceName,
+    httpisAttributes,
+    httpisServiceName,
+    httpisHealthStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.HealthStatus
 
 -- | In a response to a <https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html DiscoverInstances> request, @HttpInstanceSummary@ contains information about one instance that matches the values that you specified in the request.
 --
---
---
--- /See:/ 'hTTPInstanceSummary' smart constructor.
+-- /See:/ 'mkHTTPInstanceSummary' smart constructor.
 data HTTPInstanceSummary = HTTPInstanceSummary'
-  { _httpisInstanceId ::
-      !(Maybe Text),
-    _httpisNamespaceName :: !(Maybe Text),
-    _httpisAttributes :: !(Maybe (Map Text (Text))),
-    _httpisServiceName :: !(Maybe Text),
-    _httpisHealthStatus :: !(Maybe HealthStatus)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    namespaceName :: Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    serviceName :: Lude.Maybe Lude.Text,
+    healthStatus :: Lude.Maybe HealthStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPInstanceSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpisInstanceId' - The ID of an instance that matches the values that you specified in the request.
---
--- * 'httpisNamespaceName' - The name of the namespace that you specified when you registered the instance.
---
--- * 'httpisAttributes' - If you included any attributes when you registered the instance, the values of those attributes.
---
--- * 'httpisServiceName' - The name of the service that you specified when you registered the instance.
---
--- * 'httpisHealthStatus' - If you configured health checking in the service, the current health status of the service instance.
-hTTPInstanceSummary ::
+-- * 'attributes' - If you included any attributes when you registered the instance, the values of those attributes.
+-- * 'healthStatus' - If you configured health checking in the service, the current health status of the service instance.
+-- * 'instanceId' - The ID of an instance that matches the values that you specified in the request.
+-- * 'namespaceName' - The name of the namespace that you specified when you registered the instance.
+-- * 'serviceName' - The name of the service that you specified when you registered the instance.
+mkHTTPInstanceSummary ::
   HTTPInstanceSummary
-hTTPInstanceSummary =
+mkHTTPInstanceSummary =
   HTTPInstanceSummary'
-    { _httpisInstanceId = Nothing,
-      _httpisNamespaceName = Nothing,
-      _httpisAttributes = Nothing,
-      _httpisServiceName = Nothing,
-      _httpisHealthStatus = Nothing
+    { instanceId = Lude.Nothing,
+      namespaceName = Lude.Nothing,
+      attributes = Lude.Nothing,
+      serviceName = Lude.Nothing,
+      healthStatus = Lude.Nothing
     }
 
 -- | The ID of an instance that matches the values that you specified in the request.
-httpisInstanceId :: Lens' HTTPInstanceSummary (Maybe Text)
-httpisInstanceId = lens _httpisInstanceId (\s a -> s {_httpisInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpisInstanceId :: Lens.Lens' HTTPInstanceSummary (Lude.Maybe Lude.Text)
+httpisInstanceId = Lens.lens (instanceId :: HTTPInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: HTTPInstanceSummary)
+{-# DEPRECATED httpisInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the namespace that you specified when you registered the instance.
-httpisNamespaceName :: Lens' HTTPInstanceSummary (Maybe Text)
-httpisNamespaceName = lens _httpisNamespaceName (\s a -> s {_httpisNamespaceName = a})
+--
+-- /Note:/ Consider using 'namespaceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpisNamespaceName :: Lens.Lens' HTTPInstanceSummary (Lude.Maybe Lude.Text)
+httpisNamespaceName = Lens.lens (namespaceName :: HTTPInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {namespaceName = a} :: HTTPInstanceSummary)
+{-# DEPRECATED httpisNamespaceName "Use generic-lens or generic-optics with 'namespaceName' instead." #-}
 
 -- | If you included any attributes when you registered the instance, the values of those attributes.
-httpisAttributes :: Lens' HTTPInstanceSummary (HashMap Text (Text))
-httpisAttributes = lens _httpisAttributes (\s a -> s {_httpisAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpisAttributes :: Lens.Lens' HTTPInstanceSummary (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+httpisAttributes = Lens.lens (attributes :: HTTPInstanceSummary -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: HTTPInstanceSummary)
+{-# DEPRECATED httpisAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The name of the service that you specified when you registered the instance.
-httpisServiceName :: Lens' HTTPInstanceSummary (Maybe Text)
-httpisServiceName = lens _httpisServiceName (\s a -> s {_httpisServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpisServiceName :: Lens.Lens' HTTPInstanceSummary (Lude.Maybe Lude.Text)
+httpisServiceName = Lens.lens (serviceName :: HTTPInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: HTTPInstanceSummary)
+{-# DEPRECATED httpisServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | If you configured health checking in the service, the current health status of the service instance.
-httpisHealthStatus :: Lens' HTTPInstanceSummary (Maybe HealthStatus)
-httpisHealthStatus = lens _httpisHealthStatus (\s a -> s {_httpisHealthStatus = a})
+--
+-- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpisHealthStatus :: Lens.Lens' HTTPInstanceSummary (Lude.Maybe HealthStatus)
+httpisHealthStatus = Lens.lens (healthStatus :: HTTPInstanceSummary -> Lude.Maybe HealthStatus) (\s a -> s {healthStatus = a} :: HTTPInstanceSummary)
+{-# DEPRECATED httpisHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
 
-instance FromJSON HTTPInstanceSummary where
+instance Lude.FromJSON HTTPInstanceSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPInstanceSummary"
       ( \x ->
           HTTPInstanceSummary'
-            <$> (x .:? "InstanceId")
-            <*> (x .:? "NamespaceName")
-            <*> (x .:? "Attributes" .!= mempty)
-            <*> (x .:? "ServiceName")
-            <*> (x .:? "HealthStatus")
+            Lude.<$> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "NamespaceName")
+            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ServiceName")
+            Lude.<*> (x Lude..:? "HealthStatus")
       )
-
-instance Hashable HTTPInstanceSummary
-
-instance NFData HTTPInstanceSummary

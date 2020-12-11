@@ -28,31 +28,31 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestRegisterUsage $
---             registerUsage
+--             mkRegisterUsage
 --
 --         , requestBatchMeterUsage $
---             batchMeterUsage
+--             mkBatchMeterUsage
 --
 --         , requestResolveCustomer $
---             resolveCustomer
+--             mkResolveCustomer
 --
 --         , requestMeterUsage $
---             meterUsage
+--             mkMeterUsage
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseRegisterUsage $
---             registerUsageResponse
+--             mkRegisterUsageResponse
 --
 --         , responseBatchMeterUsage $
---             batchMeterUsageResponse
+--             mkBatchMeterUsageResponse
 --
 --         , responseResolveCustomer $
---             resolveCustomerResponse
+--             mkResolveCustomerResponse
 --
 --         , responseMeterUsage $
---             meterUsageResponse
+--             mkMeterUsageResponse
 --
 --           ]
 --     ]
@@ -90,7 +90,7 @@ responseRegisterUsage =
   res
     "RegisterUsageResponse"
     "fixture/RegisterUsageResponse.proto"
-    marketplaceMetering
+    marketplaceMeteringService
     (Proxy :: Proxy RegisterUsage)
 
 responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
@@ -98,7 +98,7 @@ responseBatchMeterUsage =
   res
     "BatchMeterUsageResponse"
     "fixture/BatchMeterUsageResponse.proto"
-    marketplaceMetering
+    marketplaceMeteringService
     (Proxy :: Proxy BatchMeterUsage)
 
 responseResolveCustomer :: ResolveCustomerResponse -> TestTree
@@ -106,7 +106,7 @@ responseResolveCustomer =
   res
     "ResolveCustomerResponse"
     "fixture/ResolveCustomerResponse.proto"
-    marketplaceMetering
+    marketplaceMeteringService
     (Proxy :: Proxy ResolveCustomer)
 
 responseMeterUsage :: MeterUsageResponse -> TestTree
@@ -114,5 +114,5 @@ responseMeterUsage =
   res
     "MeterUsageResponse"
     "fixture/MeterUsageResponse.proto"
-    marketplaceMetering
+    marketplaceMeteringService
     (Proxy :: Proxy MeterUsage)

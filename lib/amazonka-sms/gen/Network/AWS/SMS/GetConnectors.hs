@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,173 @@
 --
 -- Describes the connectors registered with the AWS SMS.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SMS.GetConnectors
-  ( -- * Creating a Request
-    getConnectors,
-    GetConnectors,
+  ( -- * Creating a request
+    GetConnectors (..),
+    mkGetConnectors,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcNextToken,
     gcMaxResults,
 
-    -- * Destructuring the Response
-    getConnectorsResponse,
-    GetConnectorsResponse,
+    -- * Destructuring the response
+    GetConnectorsResponse (..),
+    mkGetConnectorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsConnectorList,
     gcrsNextToken,
     gcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'getConnectors' smart constructor.
+-- | /See:/ 'mkGetConnectors' smart constructor.
 data GetConnectors = GetConnectors'
-  { _gcNextToken :: !(Maybe Text),
-    _gcMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectors' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcNextToken' - The token for the next set of results.
---
--- * 'gcMaxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-getConnectors ::
+-- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'nextToken' - The token for the next set of results.
+mkGetConnectors ::
   GetConnectors
-getConnectors =
-  GetConnectors' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
+mkGetConnectors =
+  GetConnectors'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | The token for the next set of results.
-gcNextToken :: Lens' GetConnectors (Maybe Text)
-gcNextToken = lens _gcNextToken (\s a -> s {_gcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcNextToken :: Lens.Lens' GetConnectors (Lude.Maybe Lude.Text)
+gcNextToken = Lens.lens (nextToken :: GetConnectors -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetConnectors)
+{-# DEPRECATED gcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-gcMaxResults :: Lens' GetConnectors (Maybe Int)
-gcMaxResults = lens _gcMaxResults (\s a -> s {_gcMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcMaxResults :: Lens.Lens' GetConnectors (Lude.Maybe Lude.Int)
+gcMaxResults = Lens.lens (maxResults :: GetConnectors -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetConnectors)
+{-# DEPRECATED gcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetConnectors where
+instance Page.AWSPager GetConnectors where
   page rq rs
-    | stop (rs ^. gcrsNextToken) = Nothing
-    | stop (rs ^. gcrsConnectorList) = Nothing
-    | otherwise = Just $ rq & gcNextToken .~ rs ^. gcrsNextToken
+    | Page.stop (rs Lens.^. gcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gcrsConnectorList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gcNextToken Lens..~ rs Lens.^. gcrsNextToken
 
-instance AWSRequest GetConnectors where
+instance Lude.AWSRequest GetConnectors where
   type Rs GetConnectors = GetConnectorsResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetConnectorsResponse'
-            <$> (x .?> "connectorList" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "connectorList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetConnectors
-
-instance NFData GetConnectors
-
-instance ToHeaders GetConnectors where
+instance Lude.ToHeaders GetConnectors where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.GetConnectors" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetConnectors" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetConnectors where
+instance Lude.ToJSON GetConnectors where
   toJSON GetConnectors' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _gcNextToken,
-            ("maxResults" .=) <$> _gcMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetConnectors where
-  toPath = const "/"
+instance Lude.ToPath GetConnectors where
+  toPath = Lude.const "/"
 
-instance ToQuery GetConnectors where
-  toQuery = const mempty
+instance Lude.ToQuery GetConnectors where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getConnectorsResponse' smart constructor.
+-- | /See:/ 'mkGetConnectorsResponse' smart constructor.
 data GetConnectorsResponse = GetConnectorsResponse'
-  { _gcrsConnectorList ::
-      !(Maybe [Connector]),
-    _gcrsNextToken :: !(Maybe Text),
-    _gcrsResponseStatus :: !Int
+  { connectorList ::
+      Lude.Maybe [Connector],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsConnectorList' - Information about the registered connectors.
---
--- * 'gcrsNextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
---
--- * 'gcrsResponseStatus' - -- | The response status code.
-getConnectorsResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
+-- * 'connectorList' - Information about the registered connectors.
+-- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkGetConnectorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetConnectorsResponse
-getConnectorsResponse pResponseStatus_ =
+mkGetConnectorsResponse pResponseStatus_ =
   GetConnectorsResponse'
-    { _gcrsConnectorList = Nothing,
-      _gcrsNextToken = Nothing,
-      _gcrsResponseStatus = pResponseStatus_
+    { connectorList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the registered connectors.
-gcrsConnectorList :: Lens' GetConnectorsResponse [Connector]
-gcrsConnectorList = lens _gcrsConnectorList (\s a -> s {_gcrsConnectorList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connectorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsConnectorList :: Lens.Lens' GetConnectorsResponse (Lude.Maybe [Connector])
+gcrsConnectorList = Lens.lens (connectorList :: GetConnectorsResponse -> Lude.Maybe [Connector]) (\s a -> s {connectorList = a} :: GetConnectorsResponse)
+{-# DEPRECATED gcrsConnectorList "Use generic-lens or generic-optics with 'connectorList' instead." #-}
 
 -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
-gcrsNextToken :: Lens' GetConnectorsResponse (Maybe Text)
-gcrsNextToken = lens _gcrsNextToken (\s a -> s {_gcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsNextToken :: Lens.Lens' GetConnectorsResponse (Lude.Maybe Lude.Text)
+gcrsNextToken = Lens.lens (nextToken :: GetConnectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetConnectorsResponse)
+{-# DEPRECATED gcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetConnectorsResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
-
-instance NFData GetConnectorsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetConnectorsResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetConnectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectorsResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

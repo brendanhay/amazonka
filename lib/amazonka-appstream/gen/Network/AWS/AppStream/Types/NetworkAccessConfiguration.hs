@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.NetworkAccessConfiguration where
+module Network.AWS.AppStream.Types.NetworkAccessConfiguration
+  ( NetworkAccessConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNetworkAccessConfiguration,
+
+    -- * Lenses
+    nacEniId,
+    nacEniPrivateIPAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the network details of the fleet or image builder instance.
 --
---
---
--- /See:/ 'networkAccessConfiguration' smart constructor.
+-- /See:/ 'mkNetworkAccessConfiguration' smart constructor.
 data NetworkAccessConfiguration = NetworkAccessConfiguration'
-  { _nacEniId ::
-      !(Maybe Text),
-    _nacEniPrivateIPAddress ::
-      !(Maybe Text)
+  { eniId ::
+      Lude.Maybe Lude.Text,
+    eniPrivateIPAddress ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkAccessConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nacEniId' - The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
---
--- * 'nacEniPrivateIPAddress' - The private IP address of the elastic network interface that is attached to instances in your VPC.
-networkAccessConfiguration ::
+-- * 'eniId' - The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
+-- * 'eniPrivateIPAddress' - The private IP address of the elastic network interface that is attached to instances in your VPC.
+mkNetworkAccessConfiguration ::
   NetworkAccessConfiguration
-networkAccessConfiguration =
+mkNetworkAccessConfiguration =
   NetworkAccessConfiguration'
-    { _nacEniId = Nothing,
-      _nacEniPrivateIPAddress = Nothing
+    { eniId = Lude.Nothing,
+      eniPrivateIPAddress = Lude.Nothing
     }
 
 -- | The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
-nacEniId :: Lens' NetworkAccessConfiguration (Maybe Text)
-nacEniId = lens _nacEniId (\s a -> s {_nacEniId = a})
+--
+-- /Note:/ Consider using 'eniId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nacEniId :: Lens.Lens' NetworkAccessConfiguration (Lude.Maybe Lude.Text)
+nacEniId = Lens.lens (eniId :: NetworkAccessConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {eniId = a} :: NetworkAccessConfiguration)
+{-# DEPRECATED nacEniId "Use generic-lens or generic-optics with 'eniId' instead." #-}
 
 -- | The private IP address of the elastic network interface that is attached to instances in your VPC.
-nacEniPrivateIPAddress :: Lens' NetworkAccessConfiguration (Maybe Text)
-nacEniPrivateIPAddress = lens _nacEniPrivateIPAddress (\s a -> s {_nacEniPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'eniPrivateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nacEniPrivateIPAddress :: Lens.Lens' NetworkAccessConfiguration (Lude.Maybe Lude.Text)
+nacEniPrivateIPAddress = Lens.lens (eniPrivateIPAddress :: NetworkAccessConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {eniPrivateIPAddress = a} :: NetworkAccessConfiguration)
+{-# DEPRECATED nacEniPrivateIPAddress "Use generic-lens or generic-optics with 'eniPrivateIPAddress' instead." #-}
 
-instance FromJSON NetworkAccessConfiguration where
+instance Lude.FromJSON NetworkAccessConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkAccessConfiguration"
       ( \x ->
           NetworkAccessConfiguration'
-            <$> (x .:? "EniId") <*> (x .:? "EniPrivateIpAddress")
+            Lude.<$> (x Lude..:? "EniId") Lude.<*> (x Lude..:? "EniPrivateIpAddress")
       )
-
-instance Hashable NetworkAccessConfiguration
-
-instance NFData NetworkAccessConfiguration

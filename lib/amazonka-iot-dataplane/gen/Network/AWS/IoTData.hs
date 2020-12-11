@@ -14,15 +14,12 @@
 -- __AWS IoT__
 --
 -- AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a persistent representation of your things and their state in the AWS cloud.
---
 -- Find the endpoint address for actions in the AWS IoT data plane by running this CLI command:
---
 -- @aws iot describe-endpoint --endpoint-type iot:Data-ATS@
---
 -- The service name used by <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html AWS Signature Version 4> to sign requests is: /iotdevicegateway/ .
 module Network.AWS.IoTData
-  ( -- * Service Configuration
-    ioTData,
+  ( -- * Service configuration
+    ioTDataService,
 
     -- * Errors
     -- $errors
@@ -49,6 +46,17 @@ module Network.AWS.IoTData
     module Network.AWS.IoTData.Publish,
 
     -- * Types
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -59,6 +67,7 @@ import Network.AWS.IoTData.Publish
 import Network.AWS.IoTData.Types
 import Network.AWS.IoTData.UpdateThingShadow
 import Network.AWS.IoTData.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

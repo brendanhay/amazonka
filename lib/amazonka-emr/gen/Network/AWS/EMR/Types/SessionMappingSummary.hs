@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.SessionMappingSummary where
+module Network.AWS.EMR.Types.SessionMappingSummary
+  ( SessionMappingSummary (..),
+
+    -- * Smart constructor
+    mkSessionMappingSummary,
+
+    -- * Lenses
+    smsCreationTime,
+    smsStudioId,
+    smsIdentityType,
+    smsIdentityId,
+    smsSessionPolicyARN,
+    smsIdentityName,
+  )
+where
 
 import Network.AWS.EMR.Types.IdentityType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details for an Amazon EMR Studio session mapping. The details do not include the time the session mapping was last modified.
 --
---
---
--- /See:/ 'sessionMappingSummary' smart constructor.
+-- /See:/ 'mkSessionMappingSummary' smart constructor.
 data SessionMappingSummary = SessionMappingSummary'
-  { _smsCreationTime ::
-      !(Maybe POSIX),
-    _smsStudioId :: !(Maybe Text),
-    _smsIdentityType :: !(Maybe IdentityType),
-    _smsIdentityId :: !(Maybe Text),
-    _smsSessionPolicyARN :: !(Maybe Text),
-    _smsIdentityName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    studioId :: Lude.Maybe Lude.Text,
+    identityType :: Lude.Maybe IdentityType,
+    identityId :: Lude.Maybe Lude.Text,
+    sessionPolicyARN :: Lude.Maybe Lude.Text,
+    identityName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SessionMappingSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smsCreationTime' - The time the session mapping was created.
---
--- * 'smsStudioId' - The ID of the Amazon EMR Studio.
---
--- * 'smsIdentityType' - Specifies whether the identity mapped to the Studio is a user or a group.
---
--- * 'smsIdentityId' - The globally unique identifier (GUID) of the user or group from the AWS SSO Identity Store.
---
--- * 'smsSessionPolicyARN' - The Amazon Resource Name (ARN) of the session policy associated with the user or group.
---
--- * 'smsIdentityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
-sessionMappingSummary ::
+-- * 'creationTime' - The time the session mapping was created.
+-- * 'identityId' - The globally unique identifier (GUID) of the user or group from the AWS SSO Identity Store.
+-- * 'identityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
+-- * 'identityType' - Specifies whether the identity mapped to the Studio is a user or a group.
+-- * 'sessionPolicyARN' - The Amazon Resource Name (ARN) of the session policy associated with the user or group.
+-- * 'studioId' - The ID of the Amazon EMR Studio.
+mkSessionMappingSummary ::
   SessionMappingSummary
-sessionMappingSummary =
+mkSessionMappingSummary =
   SessionMappingSummary'
-    { _smsCreationTime = Nothing,
-      _smsStudioId = Nothing,
-      _smsIdentityType = Nothing,
-      _smsIdentityId = Nothing,
-      _smsSessionPolicyARN = Nothing,
-      _smsIdentityName = Nothing
+    { creationTime = Lude.Nothing,
+      studioId = Lude.Nothing,
+      identityType = Lude.Nothing,
+      identityId = Lude.Nothing,
+      sessionPolicyARN = Lude.Nothing,
+      identityName = Lude.Nothing
     }
 
 -- | The time the session mapping was created.
-smsCreationTime :: Lens' SessionMappingSummary (Maybe UTCTime)
-smsCreationTime = lens _smsCreationTime (\s a -> s {_smsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsCreationTime :: Lens.Lens' SessionMappingSummary (Lude.Maybe Lude.Timestamp)
+smsCreationTime = Lens.lens (creationTime :: SessionMappingSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: SessionMappingSummary)
+{-# DEPRECATED smsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The ID of the Amazon EMR Studio.
-smsStudioId :: Lens' SessionMappingSummary (Maybe Text)
-smsStudioId = lens _smsStudioId (\s a -> s {_smsStudioId = a})
+--
+-- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsStudioId :: Lens.Lens' SessionMappingSummary (Lude.Maybe Lude.Text)
+smsStudioId = Lens.lens (studioId :: SessionMappingSummary -> Lude.Maybe Lude.Text) (\s a -> s {studioId = a} :: SessionMappingSummary)
+{-# DEPRECATED smsStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
 -- | Specifies whether the identity mapped to the Studio is a user or a group.
-smsIdentityType :: Lens' SessionMappingSummary (Maybe IdentityType)
-smsIdentityType = lens _smsIdentityType (\s a -> s {_smsIdentityType = a})
+--
+-- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsIdentityType :: Lens.Lens' SessionMappingSummary (Lude.Maybe IdentityType)
+smsIdentityType = Lens.lens (identityType :: SessionMappingSummary -> Lude.Maybe IdentityType) (\s a -> s {identityType = a} :: SessionMappingSummary)
+{-# DEPRECATED smsIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
 
 -- | The globally unique identifier (GUID) of the user or group from the AWS SSO Identity Store.
-smsIdentityId :: Lens' SessionMappingSummary (Maybe Text)
-smsIdentityId = lens _smsIdentityId (\s a -> s {_smsIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsIdentityId :: Lens.Lens' SessionMappingSummary (Lude.Maybe Lude.Text)
+smsIdentityId = Lens.lens (identityId :: SessionMappingSummary -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: SessionMappingSummary)
+{-# DEPRECATED smsIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the session policy associated with the user or group.
-smsSessionPolicyARN :: Lens' SessionMappingSummary (Maybe Text)
-smsSessionPolicyARN = lens _smsSessionPolicyARN (\s a -> s {_smsSessionPolicyARN = a})
+--
+-- /Note:/ Consider using 'sessionPolicyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsSessionPolicyARN :: Lens.Lens' SessionMappingSummary (Lude.Maybe Lude.Text)
+smsSessionPolicyARN = Lens.lens (sessionPolicyARN :: SessionMappingSummary -> Lude.Maybe Lude.Text) (\s a -> s {sessionPolicyARN = a} :: SessionMappingSummary)
+{-# DEPRECATED smsSessionPolicyARN "Use generic-lens or generic-optics with 'sessionPolicyARN' instead." #-}
 
 -- | The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
-smsIdentityName :: Lens' SessionMappingSummary (Maybe Text)
-smsIdentityName = lens _smsIdentityName (\s a -> s {_smsIdentityName = a})
+--
+-- /Note:/ Consider using 'identityName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsIdentityName :: Lens.Lens' SessionMappingSummary (Lude.Maybe Lude.Text)
+smsIdentityName = Lens.lens (identityName :: SessionMappingSummary -> Lude.Maybe Lude.Text) (\s a -> s {identityName = a} :: SessionMappingSummary)
+{-# DEPRECATED smsIdentityName "Use generic-lens or generic-optics with 'identityName' instead." #-}
 
-instance FromJSON SessionMappingSummary where
+instance Lude.FromJSON SessionMappingSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SessionMappingSummary"
       ( \x ->
           SessionMappingSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "StudioId")
-            <*> (x .:? "IdentityType")
-            <*> (x .:? "IdentityId")
-            <*> (x .:? "SessionPolicyArn")
-            <*> (x .:? "IdentityName")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "StudioId")
+            Lude.<*> (x Lude..:? "IdentityType")
+            Lude.<*> (x Lude..:? "IdentityId")
+            Lude.<*> (x Lude..:? "SessionPolicyArn")
+            Lude.<*> (x Lude..:? "IdentityName")
       )
-
-instance Hashable SessionMappingSummary
-
-instance NFData SessionMappingSummary

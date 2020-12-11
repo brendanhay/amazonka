@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.DateOptions where
+module Network.AWS.CloudSearch.Types.DateOptions
+  ( DateOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDateOptions,
+
+    -- * Lenses
+    doSourceField,
+    doReturnEnabled,
+    doFacetEnabled,
+    doSearchEnabled,
+    doSortEnabled,
+    doDefaultValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if @IndexFieldType@ specifies the field is of type @date@ . All options are enabled by default.
 --
---
---
--- /See:/ 'dateOptions' smart constructor.
+-- /See:/ 'mkDateOptions' smart constructor.
 data DateOptions = DateOptions'
-  { _doSourceField :: !(Maybe Text),
-    _doReturnEnabled :: !(Maybe Bool),
-    _doFacetEnabled :: !(Maybe Bool),
-    _doSearchEnabled :: !(Maybe Bool),
-    _doSortEnabled :: !(Maybe Bool),
-    _doDefaultValue :: !(Maybe Text)
+  { sourceField ::
+      Lude.Maybe Lude.Text,
+    returnEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Lude.Maybe Lude.Bool,
+    sortEnabled :: Lude.Maybe Lude.Bool,
+    defaultValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DateOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doSourceField' - Undocumented member.
---
--- * 'doReturnEnabled' - Whether the contents of the field can be returned in the search results.
---
--- * 'doFacetEnabled' - Whether facet information can be returned for the field.
---
--- * 'doSearchEnabled' - Whether the contents of the field are searchable.
---
--- * 'doSortEnabled' - Whether the field can be used to sort the search results.
---
--- * 'doDefaultValue' - A value to use for the field if the field isn't specified for a document.
-dateOptions ::
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'searchEnabled' - Whether the contents of the field are searchable.
+-- * 'sortEnabled' - Whether the field can be used to sort the search results.
+-- * 'sourceField' - Undocumented field.
+mkDateOptions ::
   DateOptions
-dateOptions =
+mkDateOptions =
   DateOptions'
-    { _doSourceField = Nothing,
-      _doReturnEnabled = Nothing,
-      _doFacetEnabled = Nothing,
-      _doSearchEnabled = Nothing,
-      _doSortEnabled = Nothing,
-      _doDefaultValue = Nothing
+    { sourceField = Lude.Nothing,
+      returnEnabled = Lude.Nothing,
+      facetEnabled = Lude.Nothing,
+      searchEnabled = Lude.Nothing,
+      sortEnabled = Lude.Nothing,
+      defaultValue = Lude.Nothing
     }
 
--- | Undocumented member.
-doSourceField :: Lens' DateOptions (Maybe Text)
-doSourceField = lens _doSourceField (\s a -> s {_doSourceField = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sourceField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doSourceField :: Lens.Lens' DateOptions (Lude.Maybe Lude.Text)
+doSourceField = Lens.lens (sourceField :: DateOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceField = a} :: DateOptions)
+{-# DEPRECATED doSourceField "Use generic-lens or generic-optics with 'sourceField' instead." #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-doReturnEnabled :: Lens' DateOptions (Maybe Bool)
-doReturnEnabled = lens _doReturnEnabled (\s a -> s {_doReturnEnabled = a})
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doReturnEnabled :: Lens.Lens' DateOptions (Lude.Maybe Lude.Bool)
+doReturnEnabled = Lens.lens (returnEnabled :: DateOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: DateOptions)
+{-# DEPRECATED doReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether facet information can be returned for the field.
-doFacetEnabled :: Lens' DateOptions (Maybe Bool)
-doFacetEnabled = lens _doFacetEnabled (\s a -> s {_doFacetEnabled = a})
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doFacetEnabled :: Lens.Lens' DateOptions (Lude.Maybe Lude.Bool)
+doFacetEnabled = Lens.lens (facetEnabled :: DateOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: DateOptions)
+{-# DEPRECATED doFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
-doSearchEnabled :: Lens' DateOptions (Maybe Bool)
-doSearchEnabled = lens _doSearchEnabled (\s a -> s {_doSearchEnabled = a})
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doSearchEnabled :: Lens.Lens' DateOptions (Lude.Maybe Lude.Bool)
+doSearchEnabled = Lens.lens (searchEnabled :: DateOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: DateOptions)
+{-# DEPRECATED doSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | Whether the field can be used to sort the search results.
-doSortEnabled :: Lens' DateOptions (Maybe Bool)
-doSortEnabled = lens _doSortEnabled (\s a -> s {_doSortEnabled = a})
+--
+-- /Note:/ Consider using 'sortEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doSortEnabled :: Lens.Lens' DateOptions (Lude.Maybe Lude.Bool)
+doSortEnabled = Lens.lens (sortEnabled :: DateOptions -> Lude.Maybe Lude.Bool) (\s a -> s {sortEnabled = a} :: DateOptions)
+{-# DEPRECATED doSortEnabled "Use generic-lens or generic-optics with 'sortEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
-doDefaultValue :: Lens' DateOptions (Maybe Text)
-doDefaultValue = lens _doDefaultValue (\s a -> s {_doDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doDefaultValue :: Lens.Lens' DateOptions (Lude.Maybe Lude.Text)
+doDefaultValue = Lens.lens (defaultValue :: DateOptions -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: DateOptions)
+{-# DEPRECATED doDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance FromXML DateOptions where
+instance Lude.FromXML DateOptions where
   parseXML x =
     DateOptions'
-      <$> (x .@? "SourceField")
-      <*> (x .@? "ReturnEnabled")
-      <*> (x .@? "FacetEnabled")
-      <*> (x .@? "SearchEnabled")
-      <*> (x .@? "SortEnabled")
-      <*> (x .@? "DefaultValue")
+      Lude.<$> (x Lude..@? "SourceField")
+      Lude.<*> (x Lude..@? "ReturnEnabled")
+      Lude.<*> (x Lude..@? "FacetEnabled")
+      Lude.<*> (x Lude..@? "SearchEnabled")
+      Lude.<*> (x Lude..@? "SortEnabled")
+      Lude.<*> (x Lude..@? "DefaultValue")
 
-instance Hashable DateOptions
-
-instance NFData DateOptions
-
-instance ToQuery DateOptions where
+instance Lude.ToQuery DateOptions where
   toQuery DateOptions' {..} =
-    mconcat
-      [ "SourceField" =: _doSourceField,
-        "ReturnEnabled" =: _doReturnEnabled,
-        "FacetEnabled" =: _doFacetEnabled,
-        "SearchEnabled" =: _doSearchEnabled,
-        "SortEnabled" =: _doSortEnabled,
-        "DefaultValue" =: _doDefaultValue
+    Lude.mconcat
+      [ "SourceField" Lude.=: sourceField,
+        "ReturnEnabled" Lude.=: returnEnabled,
+        "FacetEnabled" Lude.=: facetEnabled,
+        "SearchEnabled" Lude.=: searchEnabled,
+        "SortEnabled" Lude.=: sortEnabled,
+        "DefaultValue" Lude.=: defaultValue
       ]

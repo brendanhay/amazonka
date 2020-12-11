@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,174 @@
 --
 -- Returns a list of tags that are applied to the specified stack or layer.
 module Network.AWS.OpsWorks.ListTags
-  ( -- * Creating a Request
-    listTags,
-    ListTags,
+  ( -- * Creating a request
+    ListTags (..),
+    mkListTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltMaxResults,
     ltResourceARN,
 
-    -- * Destructuring the Response
-    listTagsResponse,
-    ListTagsResponse,
+    -- * Destructuring the response
+    ListTagsResponse (..),
+    mkListTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsNextToken,
     ltrsTags,
     ltrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTags' smart constructor.
+-- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { _ltNextToken :: !(Maybe Text),
-    _ltMaxResults :: !(Maybe Int),
-    _ltResourceARN :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
---
--- * 'ltMaxResults' - Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
---
--- * 'ltResourceARN' - The stack or layer's Amazon Resource Number (ARN).
-listTags ::
-  -- | 'ltResourceARN'
-  Text ->
+-- * 'maxResults' - Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
+-- * 'nextToken' - Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
+-- * 'resourceARN' - The stack or layer's Amazon Resource Number (ARN).
+mkListTags ::
+  -- | 'resourceARN'
+  Lude.Text ->
   ListTags
-listTags pResourceARN_ =
+mkListTags pResourceARN_ =
   ListTags'
-    { _ltNextToken = Nothing,
-      _ltMaxResults = Nothing,
-      _ltResourceARN = pResourceARN_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      resourceARN = pResourceARN_
     }
 
 -- | Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
-ltNextToken :: Lens' ListTags (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
-ltMaxResults :: Lens' ListTags (Maybe Int)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Int)
+ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListTags)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The stack or layer's Amazon Resource Number (ARN).
-ltResourceARN :: Lens' ListTags Text
-ltResourceARN = lens _ltResourceARN (\s a -> s {_ltResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltResourceARN :: Lens.Lens' ListTags Lude.Text
+ltResourceARN = Lens.lens (resourceARN :: ListTags -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTags)
+{-# DEPRECATED ltResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest ListTags where
+instance Lude.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTags
-
-instance NFData ListTags
-
-instance ToHeaders ListTags where
+instance Lude.ToHeaders ListTags where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.ListTags" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.ListTags" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTags where
+instance Lude.ToJSON ListTags where
   toJSON ListTags' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltNextToken,
-            ("MaxResults" .=) <$> _ltMaxResults,
-            Just ("ResourceArn" .= _ltResourceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ResourceArn" Lude..= resourceARN)
           ]
       )
 
-instance ToPath ListTags where
-  toPath = const "/"
+instance Lude.ToPath ListTags where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTags where
-  toQuery = const mempty
+instance Lude.ToQuery ListTags where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @ListTags@ request.
 --
---
---
--- /See:/ 'listTagsResponse' smart constructor.
+-- /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { _ltrsNextToken ::
-      !(Maybe Text),
-    _ltrsTags :: !(Maybe (Map Text (Text))),
-    _ltrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsNextToken' - If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
---
--- * 'ltrsTags' - A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTagsResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.
+mkListTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsResponse
-listTagsResponse pResponseStatus_ =
+mkListTagsResponse pResponseStatus_ =
   ListTagsResponse'
-    { _ltrsNextToken = Nothing,
-      _ltrsTags = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
-ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTagsResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.
-ltrsTags :: Lens' ListTagsResponse (HashMap Text (Text))
-ltrsTags = lens _ltrsTags (\s a -> s {_ltrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTags :: Lens.Lens' ListTagsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltrsTags = Lens.lens (tags :: ListTagsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTagsResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.PortfolioShareType where
+module Network.AWS.ServiceCatalog.Types.PortfolioShareType
+  ( PortfolioShareType
+      ( PortfolioShareType',
+        AWSOrganizations,
+        AWSServicecatalog,
+        Imported
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PortfolioShareType
-  = AWSOrganizations
-  | AWSServicecatalog
-  | Imported
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PortfolioShareType = PortfolioShareType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PortfolioShareType where
-  parser =
-    takeLowerText >>= \case
-      "aws_organizations" -> pure AWSOrganizations
-      "aws_servicecatalog" -> pure AWSServicecatalog
-      "imported" -> pure Imported
-      e ->
-        fromTextError $
-          "Failure parsing PortfolioShareType from value: '" <> e
-            <> "'. Accepted values: aws_organizations, aws_servicecatalog, imported"
+pattern AWSOrganizations :: PortfolioShareType
+pattern AWSOrganizations = PortfolioShareType' "AWS_ORGANIZATIONS"
 
-instance ToText PortfolioShareType where
-  toText = \case
-    AWSOrganizations -> "AWS_ORGANIZATIONS"
-    AWSServicecatalog -> "AWS_SERVICECATALOG"
-    Imported -> "IMPORTED"
+pattern AWSServicecatalog :: PortfolioShareType
+pattern AWSServicecatalog = PortfolioShareType' "AWS_SERVICECATALOG"
 
-instance Hashable PortfolioShareType
+pattern Imported :: PortfolioShareType
+pattern Imported = PortfolioShareType' "IMPORTED"
 
-instance NFData PortfolioShareType
-
-instance ToByteString PortfolioShareType
-
-instance ToQuery PortfolioShareType
-
-instance ToHeader PortfolioShareType
-
-instance ToJSON PortfolioShareType where
-  toJSON = toJSONText
+{-# COMPLETE
+  AWSOrganizations,
+  AWSServicecatalog,
+  Imported,
+  PortfolioShareType'
+  #-}

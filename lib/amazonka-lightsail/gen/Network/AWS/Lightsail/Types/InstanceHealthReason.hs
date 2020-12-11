@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.InstanceHealthReason where
+module Network.AWS.Lightsail.Types.InstanceHealthReason
+  ( InstanceHealthReason
+      ( InstanceHealthReason',
+        Instance_DeregistrationInProgress,
+        Instance_FailedHealthChecks,
+        Instance_IPUnusable,
+        Instance_InvalidState,
+        Instance_NotInUse,
+        Instance_NotRegistered,
+        Instance_ResponseCodeMismatch,
+        Instance_Timeout,
+        Lb_InitialHealthChecking,
+        Lb_InternalError,
+        Lb_RegistrationInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceHealthReason
-  = Instance_DeregistrationInProgress
-  | Instance_FailedHealthChecks
-  | Instance_IPUnusable
-  | Instance_InvalidState
-  | Instance_NotInUse
-  | Instance_NotRegistered
-  | Instance_ResponseCodeMismatch
-  | Instance_Timeout
-  | Lb_InitialHealthChecking
-  | Lb_InternalError
-  | Lb_RegistrationInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceHealthReason = InstanceHealthReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceHealthReason where
-  parser =
-    takeLowerText >>= \case
-      "instance.deregistrationinprogress" -> pure Instance_DeregistrationInProgress
-      "instance.failedhealthchecks" -> pure Instance_FailedHealthChecks
-      "instance.ipunusable" -> pure Instance_IPUnusable
-      "instance.invalidstate" -> pure Instance_InvalidState
-      "instance.notinuse" -> pure Instance_NotInUse
-      "instance.notregistered" -> pure Instance_NotRegistered
-      "instance.responsecodemismatch" -> pure Instance_ResponseCodeMismatch
-      "instance.timeout" -> pure Instance_Timeout
-      "lb.initialhealthchecking" -> pure Lb_InitialHealthChecking
-      "lb.internalerror" -> pure Lb_InternalError
-      "lb.registrationinprogress" -> pure Lb_RegistrationInProgress
-      e ->
-        fromTextError $
-          "Failure parsing InstanceHealthReason from value: '" <> e
-            <> "'. Accepted values: instance.deregistrationinprogress, instance.failedhealthchecks, instance.ipunusable, instance.invalidstate, instance.notinuse, instance.notregistered, instance.responsecodemismatch, instance.timeout, lb.initialhealthchecking, lb.internalerror, lb.registrationinprogress"
+pattern Instance_DeregistrationInProgress :: InstanceHealthReason
+pattern Instance_DeregistrationInProgress = InstanceHealthReason' "Instance.DeregistrationInProgress"
 
-instance ToText InstanceHealthReason where
-  toText = \case
-    Instance_DeregistrationInProgress -> "Instance.DeregistrationInProgress"
-    Instance_FailedHealthChecks -> "Instance.FailedHealthChecks"
-    Instance_IPUnusable -> "Instance.IpUnusable"
-    Instance_InvalidState -> "Instance.InvalidState"
-    Instance_NotInUse -> "Instance.NotInUse"
-    Instance_NotRegistered -> "Instance.NotRegistered"
-    Instance_ResponseCodeMismatch -> "Instance.ResponseCodeMismatch"
-    Instance_Timeout -> "Instance.Timeout"
-    Lb_InitialHealthChecking -> "Lb.InitialHealthChecking"
-    Lb_InternalError -> "Lb.InternalError"
-    Lb_RegistrationInProgress -> "Lb.RegistrationInProgress"
+pattern Instance_FailedHealthChecks :: InstanceHealthReason
+pattern Instance_FailedHealthChecks = InstanceHealthReason' "Instance.FailedHealthChecks"
 
-instance Hashable InstanceHealthReason
+pattern Instance_IPUnusable :: InstanceHealthReason
+pattern Instance_IPUnusable = InstanceHealthReason' "Instance.IpUnusable"
 
-instance NFData InstanceHealthReason
+pattern Instance_InvalidState :: InstanceHealthReason
+pattern Instance_InvalidState = InstanceHealthReason' "Instance.InvalidState"
 
-instance ToByteString InstanceHealthReason
+pattern Instance_NotInUse :: InstanceHealthReason
+pattern Instance_NotInUse = InstanceHealthReason' "Instance.NotInUse"
 
-instance ToQuery InstanceHealthReason
+pattern Instance_NotRegistered :: InstanceHealthReason
+pattern Instance_NotRegistered = InstanceHealthReason' "Instance.NotRegistered"
 
-instance ToHeader InstanceHealthReason
+pattern Instance_ResponseCodeMismatch :: InstanceHealthReason
+pattern Instance_ResponseCodeMismatch = InstanceHealthReason' "Instance.ResponseCodeMismatch"
 
-instance FromJSON InstanceHealthReason where
-  parseJSON = parseJSONText "InstanceHealthReason"
+pattern Instance_Timeout :: InstanceHealthReason
+pattern Instance_Timeout = InstanceHealthReason' "Instance.Timeout"
+
+pattern Lb_InitialHealthChecking :: InstanceHealthReason
+pattern Lb_InitialHealthChecking = InstanceHealthReason' "Lb.InitialHealthChecking"
+
+pattern Lb_InternalError :: InstanceHealthReason
+pattern Lb_InternalError = InstanceHealthReason' "Lb.InternalError"
+
+pattern Lb_RegistrationInProgress :: InstanceHealthReason
+pattern Lb_RegistrationInProgress = InstanceHealthReason' "Lb.RegistrationInProgress"
+
+{-# COMPLETE
+  Instance_DeregistrationInProgress,
+  Instance_FailedHealthChecks,
+  Instance_IPUnusable,
+  Instance_InvalidState,
+  Instance_NotInUse,
+  Instance_NotRegistered,
+  Instance_ResponseCodeMismatch,
+  Instance_Timeout,
+  Lb_InitialHealthChecking,
+  Lb_InternalError,
+  Lb_RegistrationInProgress,
+  InstanceHealthReason'
+  #-}

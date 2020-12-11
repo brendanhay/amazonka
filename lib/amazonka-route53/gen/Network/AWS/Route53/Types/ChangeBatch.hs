@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ChangeBatch where
+module Network.AWS.Route53.Types.ChangeBatch
+  ( ChangeBatch (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChangeBatch,
+
+    -- * Lenses
+    cbComment,
+    cbChanges,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.Change
 
 -- | The information for a change request.
 --
---
---
--- /See:/ 'changeBatch' smart constructor.
+-- /See:/ 'mkChangeBatch' smart constructor.
 data ChangeBatch = ChangeBatch'
-  { _cbComment :: !(Maybe Text),
-    _cbChanges :: !(List1 Change)
+  { comment :: Lude.Maybe Lude.Text,
+    changes :: Lude.NonEmpty Change
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeBatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbComment' - /Optional:/ Any comments you want to include about a change batch request.
---
--- * 'cbChanges' - Information about the changes to make to the record sets.
-changeBatch ::
-  -- | 'cbChanges'
-  NonEmpty Change ->
+-- * 'changes' - Information about the changes to make to the record sets.
+-- * 'comment' - /Optional:/ Any comments you want to include about a change batch request.
+mkChangeBatch ::
+  -- | 'changes'
+  Lude.NonEmpty Change ->
   ChangeBatch
-changeBatch pChanges_ =
-  ChangeBatch'
-    { _cbComment = Nothing,
-      _cbChanges = _List1 # pChanges_
-    }
+mkChangeBatch pChanges_ =
+  ChangeBatch' {comment = Lude.Nothing, changes = pChanges_}
 
 -- | /Optional:/ Any comments you want to include about a change batch request.
-cbComment :: Lens' ChangeBatch (Maybe Text)
-cbComment = lens _cbComment (\s a -> s {_cbComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbComment :: Lens.Lens' ChangeBatch (Lude.Maybe Lude.Text)
+cbComment = Lens.lens (comment :: ChangeBatch -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeBatch)
+{-# DEPRECATED cbComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | Information about the changes to make to the record sets.
-cbChanges :: Lens' ChangeBatch (NonEmpty Change)
-cbChanges = lens _cbChanges (\s a -> s {_cbChanges = a}) . _List1
+--
+-- /Note:/ Consider using 'changes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbChanges :: Lens.Lens' ChangeBatch (Lude.NonEmpty Change)
+cbChanges = Lens.lens (changes :: ChangeBatch -> Lude.NonEmpty Change) (\s a -> s {changes = a} :: ChangeBatch)
+{-# DEPRECATED cbChanges "Use generic-lens or generic-optics with 'changes' instead." #-}
 
-instance Hashable ChangeBatch
-
-instance NFData ChangeBatch
-
-instance ToXML ChangeBatch where
+instance Lude.ToXML ChangeBatch where
   toXML ChangeBatch' {..} =
-    mconcat
-      [ "Comment" @= _cbComment,
-        "Changes" @= toXMLList "Change" _cbChanges
+    Lude.mconcat
+      [ "Comment" Lude.@= comment,
+        "Changes" Lude.@= Lude.toXMLList "Change" changes
       ]

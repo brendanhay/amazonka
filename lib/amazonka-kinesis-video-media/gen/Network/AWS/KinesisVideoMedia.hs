@@ -11,8 +11,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoMedia
-  ( -- * Service Configuration
-    kinesisVideoMedia,
+  ( -- * Service configuration
+    kinesisVideoMediaService,
 
     -- * Errors
     -- $errors
@@ -32,18 +32,30 @@ module Network.AWS.KinesisVideoMedia
     StartSelectorType (..),
 
     -- ** StartSelector
-    StartSelector,
-    startSelector,
+    StartSelector (..),
+    mkStartSelector,
     ssContinuationToken,
     ssAfterFragmentNumber,
     ssStartTimestamp,
     ssStartSelectorType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
 import Network.AWS.KinesisVideoMedia.GetMedia
 import Network.AWS.KinesisVideoMedia.Types
 import Network.AWS.KinesisVideoMedia.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

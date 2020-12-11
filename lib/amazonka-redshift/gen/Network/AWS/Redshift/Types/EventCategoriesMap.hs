@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.EventCategoriesMap where
+module Network.AWS.Redshift.Types.EventCategoriesMap
+  ( EventCategoriesMap (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventCategoriesMap,
+
+    -- * Lenses
+    ecmSourceType,
+    ecmEvents,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.EventInfoMap
 
 -- | Describes event categories.
 --
---
---
--- /See:/ 'eventCategoriesMap' smart constructor.
+-- /See:/ 'mkEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { _ecmSourceType ::
-      !(Maybe Text),
-    _ecmEvents :: !(Maybe [EventInfoMap])
+  { sourceType ::
+      Lude.Maybe Lude.Text,
+    events :: Lude.Maybe [EventInfoMap]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecmSourceType' - The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
---
--- * 'ecmEvents' - The events in the event category.
-eventCategoriesMap ::
+-- * 'events' - The events in the event category.
+-- * 'sourceType' - The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
+mkEventCategoriesMap ::
   EventCategoriesMap
-eventCategoriesMap =
+mkEventCategoriesMap =
   EventCategoriesMap'
-    { _ecmSourceType = Nothing,
-      _ecmEvents = Nothing
+    { sourceType = Lude.Nothing,
+      events = Lude.Nothing
     }
 
 -- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
-ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
-ecmSourceType = lens _ecmSourceType (\s a -> s {_ecmSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecmSourceType :: Lens.Lens' EventCategoriesMap (Lude.Maybe Lude.Text)
+ecmSourceType = Lens.lens (sourceType :: EventCategoriesMap -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: EventCategoriesMap)
+{-# DEPRECATED ecmSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The events in the event category.
-ecmEvents :: Lens' EventCategoriesMap [EventInfoMap]
-ecmEvents = lens _ecmEvents (\s a -> s {_ecmEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecmEvents :: Lens.Lens' EventCategoriesMap (Lude.Maybe [EventInfoMap])
+ecmEvents = Lens.lens (events :: EventCategoriesMap -> Lude.Maybe [EventInfoMap]) (\s a -> s {events = a} :: EventCategoriesMap)
+{-# DEPRECATED ecmEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance FromXML EventCategoriesMap where
+instance Lude.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      <$> (x .@? "SourceType")
-      <*> (x .@? "Events" .!@ mempty >>= may (parseXMLList "EventInfoMap"))
-
-instance Hashable EventCategoriesMap
-
-instance NFData EventCategoriesMap
+      Lude.<$> (x Lude..@? "SourceType")
+      Lude.<*> ( x Lude..@? "Events" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "EventInfoMap")
+               )

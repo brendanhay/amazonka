@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.RepositoryNameIdPair where
+module Network.AWS.CodeCommit.Types.RepositoryNameIdPair
+  ( RepositoryNameIdPair (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRepositoryNameIdPair,
+
+    -- * Lenses
+    rnipRepositoryId,
+    rnipRepositoryName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a repository name and ID.
 --
---
---
--- /See:/ 'repositoryNameIdPair' smart constructor.
+-- /See:/ 'mkRepositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
-  { _rnipRepositoryId ::
-      !(Maybe Text),
-    _rnipRepositoryName :: !(Maybe Text)
+  { repositoryId ::
+      Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RepositoryNameIdPair' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rnipRepositoryId' - The ID associated with the repository.
---
--- * 'rnipRepositoryName' - The name associated with the repository.
-repositoryNameIdPair ::
+-- * 'repositoryId' - The ID associated with the repository.
+-- * 'repositoryName' - The name associated with the repository.
+mkRepositoryNameIdPair ::
   RepositoryNameIdPair
-repositoryNameIdPair =
+mkRepositoryNameIdPair =
   RepositoryNameIdPair'
-    { _rnipRepositoryId = Nothing,
-      _rnipRepositoryName = Nothing
+    { repositoryId = Lude.Nothing,
+      repositoryName = Lude.Nothing
     }
 
 -- | The ID associated with the repository.
-rnipRepositoryId :: Lens' RepositoryNameIdPair (Maybe Text)
-rnipRepositoryId = lens _rnipRepositoryId (\s a -> s {_rnipRepositoryId = a})
+--
+-- /Note:/ Consider using 'repositoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnipRepositoryId :: Lens.Lens' RepositoryNameIdPair (Lude.Maybe Lude.Text)
+rnipRepositoryId = Lens.lens (repositoryId :: RepositoryNameIdPair -> Lude.Maybe Lude.Text) (\s a -> s {repositoryId = a} :: RepositoryNameIdPair)
+{-# DEPRECATED rnipRepositoryId "Use generic-lens or generic-optics with 'repositoryId' instead." #-}
 
 -- | The name associated with the repository.
-rnipRepositoryName :: Lens' RepositoryNameIdPair (Maybe Text)
-rnipRepositoryName = lens _rnipRepositoryName (\s a -> s {_rnipRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnipRepositoryName :: Lens.Lens' RepositoryNameIdPair (Lude.Maybe Lude.Text)
+rnipRepositoryName = Lens.lens (repositoryName :: RepositoryNameIdPair -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: RepositoryNameIdPair)
+{-# DEPRECATED rnipRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance FromJSON RepositoryNameIdPair where
+instance Lude.FromJSON RepositoryNameIdPair where
   parseJSON =
-    withObject
+    Lude.withObject
       "RepositoryNameIdPair"
       ( \x ->
           RepositoryNameIdPair'
-            <$> (x .:? "repositoryId") <*> (x .:? "repositoryName")
+            Lude.<$> (x Lude..:? "repositoryId") Lude.<*> (x Lude..:? "repositoryName")
       )
-
-instance Hashable RepositoryNameIdPair
-
-instance NFData RepositoryNameIdPair

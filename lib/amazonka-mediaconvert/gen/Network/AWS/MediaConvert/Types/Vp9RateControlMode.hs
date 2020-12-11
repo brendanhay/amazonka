@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vp9RateControlMode where
+module Network.AWS.MediaConvert.Types.Vp9RateControlMode
+  ( Vp9RateControlMode
+      ( Vp9RateControlMode',
+        Vbr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | With the VP9 codec, you can use only the variable bitrate (VBR) rate control mode.
-data Vp9RateControlMode = Vbr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Vp9RateControlMode = Vp9RateControlMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Vp9RateControlMode where
-  parser =
-    takeLowerText >>= \case
-      "vbr" -> pure Vbr
-      e ->
-        fromTextError $
-          "Failure parsing Vp9RateControlMode from value: '" <> e
-            <> "'. Accepted values: vbr"
+pattern Vbr :: Vp9RateControlMode
+pattern Vbr = Vp9RateControlMode' "VBR"
 
-instance ToText Vp9RateControlMode where
-  toText = \case
-    Vbr -> "VBR"
-
-instance Hashable Vp9RateControlMode
-
-instance NFData Vp9RateControlMode
-
-instance ToByteString Vp9RateControlMode
-
-instance ToQuery Vp9RateControlMode
-
-instance ToHeader Vp9RateControlMode
-
-instance ToJSON Vp9RateControlMode where
-  toJSON = toJSONText
-
-instance FromJSON Vp9RateControlMode where
-  parseJSON = parseJSONText "Vp9RateControlMode"
+{-# COMPLETE
+  Vbr,
+  Vp9RateControlMode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.CustomerMasterKeySpec where
+module Network.AWS.KMS.Types.CustomerMasterKeySpec
+  ( CustomerMasterKeySpec
+      ( CustomerMasterKeySpec',
+        CMKSEccNistP256,
+        CMKSEccNistP384,
+        CMKSEccNistP521,
+        CMKSEccSecgP256K1,
+        CMKSRsa2048,
+        CMKSRsa3072,
+        CMKSRsa4096,
+        CMKSSymmetricDefault
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CustomerMasterKeySpec
-  = CMKSEccNistP256
-  | CMKSEccNistP384
-  | CMKSEccNistP521
-  | CMKSEccSecgP256K1
-  | CMKSRsa2048
-  | CMKSRsa3072
-  | CMKSRsa4096
-  | CMKSSymmetricDefault
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CustomerMasterKeySpec = CustomerMasterKeySpec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CustomerMasterKeySpec where
-  parser =
-    takeLowerText >>= \case
-      "ecc_nist_p256" -> pure CMKSEccNistP256
-      "ecc_nist_p384" -> pure CMKSEccNistP384
-      "ecc_nist_p521" -> pure CMKSEccNistP521
-      "ecc_secg_p256k1" -> pure CMKSEccSecgP256K1
-      "rsa_2048" -> pure CMKSRsa2048
-      "rsa_3072" -> pure CMKSRsa3072
-      "rsa_4096" -> pure CMKSRsa4096
-      "symmetric_default" -> pure CMKSSymmetricDefault
-      e ->
-        fromTextError $
-          "Failure parsing CustomerMasterKeySpec from value: '" <> e
-            <> "'. Accepted values: ecc_nist_p256, ecc_nist_p384, ecc_nist_p521, ecc_secg_p256k1, rsa_2048, rsa_3072, rsa_4096, symmetric_default"
+pattern CMKSEccNistP256 :: CustomerMasterKeySpec
+pattern CMKSEccNistP256 = CustomerMasterKeySpec' "ECC_NIST_P256"
 
-instance ToText CustomerMasterKeySpec where
-  toText = \case
-    CMKSEccNistP256 -> "ECC_NIST_P256"
-    CMKSEccNistP384 -> "ECC_NIST_P384"
-    CMKSEccNistP521 -> "ECC_NIST_P521"
-    CMKSEccSecgP256K1 -> "ECC_SECG_P256K1"
-    CMKSRsa2048 -> "RSA_2048"
-    CMKSRsa3072 -> "RSA_3072"
-    CMKSRsa4096 -> "RSA_4096"
-    CMKSSymmetricDefault -> "SYMMETRIC_DEFAULT"
+pattern CMKSEccNistP384 :: CustomerMasterKeySpec
+pattern CMKSEccNistP384 = CustomerMasterKeySpec' "ECC_NIST_P384"
 
-instance Hashable CustomerMasterKeySpec
+pattern CMKSEccNistP521 :: CustomerMasterKeySpec
+pattern CMKSEccNistP521 = CustomerMasterKeySpec' "ECC_NIST_P521"
 
-instance NFData CustomerMasterKeySpec
+pattern CMKSEccSecgP256K1 :: CustomerMasterKeySpec
+pattern CMKSEccSecgP256K1 = CustomerMasterKeySpec' "ECC_SECG_P256K1"
 
-instance ToByteString CustomerMasterKeySpec
+pattern CMKSRsa2048 :: CustomerMasterKeySpec
+pattern CMKSRsa2048 = CustomerMasterKeySpec' "RSA_2048"
 
-instance ToQuery CustomerMasterKeySpec
+pattern CMKSRsa3072 :: CustomerMasterKeySpec
+pattern CMKSRsa3072 = CustomerMasterKeySpec' "RSA_3072"
 
-instance ToHeader CustomerMasterKeySpec
+pattern CMKSRsa4096 :: CustomerMasterKeySpec
+pattern CMKSRsa4096 = CustomerMasterKeySpec' "RSA_4096"
 
-instance ToJSON CustomerMasterKeySpec where
-  toJSON = toJSONText
+pattern CMKSSymmetricDefault :: CustomerMasterKeySpec
+pattern CMKSSymmetricDefault = CustomerMasterKeySpec' "SYMMETRIC_DEFAULT"
 
-instance FromJSON CustomerMasterKeySpec where
-  parseJSON = parseJSONText "CustomerMasterKeySpec"
+{-# COMPLETE
+  CMKSEccNistP256,
+  CMKSEccNistP384,
+  CMKSEccNistP521,
+  CMKSEccSecgP256K1,
+  CMKSRsa2048,
+  CMKSRsa3072,
+  CMKSRsa4096,
+  CMKSSymmetricDefault,
+  CustomerMasterKeySpec'
+  #-}

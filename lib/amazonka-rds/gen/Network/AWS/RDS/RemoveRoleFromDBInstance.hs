@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,122 @@
 --
 -- Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.
 module Network.AWS.RDS.RemoveRoleFromDBInstance
-  ( -- * Creating a Request
-    removeRoleFromDBInstance,
-    RemoveRoleFromDBInstance,
+  ( -- * Creating a request
+    RemoveRoleFromDBInstance (..),
+    mkRemoveRoleFromDBInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rrfdiDBInstanceIdentifier,
     rrfdiRoleARN,
     rrfdiFeatureName,
 
-    -- * Destructuring the Response
-    removeRoleFromDBInstanceResponse,
-    RemoveRoleFromDBInstanceResponse,
+    -- * Destructuring the response
+    RemoveRoleFromDBInstanceResponse (..),
+    mkRemoveRoleFromDBInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removeRoleFromDBInstance' smart constructor.
+-- | /See:/ 'mkRemoveRoleFromDBInstance' smart constructor.
 data RemoveRoleFromDBInstance = RemoveRoleFromDBInstance'
-  { _rrfdiDBInstanceIdentifier ::
-      !Text,
-    _rrfdiRoleARN :: !Text,
-    _rrfdiFeatureName :: !Text
+  { dbInstanceIdentifier ::
+      Lude.Text,
+    roleARN :: Lude.Text,
+    featureName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveRoleFromDBInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrfdiDBInstanceIdentifier' - The name of the DB instance to disassociate the IAM role from.
---
--- * 'rrfdiRoleARN' - The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
---
--- * 'rrfdiFeatureName' - The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
-removeRoleFromDBInstance ::
-  -- | 'rrfdiDBInstanceIdentifier'
-  Text ->
-  -- | 'rrfdiRoleARN'
-  Text ->
-  -- | 'rrfdiFeatureName'
-  Text ->
+-- * 'dbInstanceIdentifier' - The name of the DB instance to disassociate the IAM role from.
+-- * 'featureName' - The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
+mkRemoveRoleFromDBInstance ::
+  -- | 'dbInstanceIdentifier'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'featureName'
+  Lude.Text ->
   RemoveRoleFromDBInstance
-removeRoleFromDBInstance
+mkRemoveRoleFromDBInstance
   pDBInstanceIdentifier_
   pRoleARN_
   pFeatureName_ =
     RemoveRoleFromDBInstance'
-      { _rrfdiDBInstanceIdentifier =
+      { dbInstanceIdentifier =
           pDBInstanceIdentifier_,
-        _rrfdiRoleARN = pRoleARN_,
-        _rrfdiFeatureName = pFeatureName_
+        roleARN = pRoleARN_,
+        featureName = pFeatureName_
       }
 
 -- | The name of the DB instance to disassociate the IAM role from.
-rrfdiDBInstanceIdentifier :: Lens' RemoveRoleFromDBInstance Text
-rrfdiDBInstanceIdentifier = lens _rrfdiDBInstanceIdentifier (\s a -> s {_rrfdiDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdiDBInstanceIdentifier :: Lens.Lens' RemoveRoleFromDBInstance Lude.Text
+rrfdiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: RemoveRoleFromDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: RemoveRoleFromDBInstance)
+{-# DEPRECATED rrfdiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
-rrfdiRoleARN :: Lens' RemoveRoleFromDBInstance Text
-rrfdiRoleARN = lens _rrfdiRoleARN (\s a -> s {_rrfdiRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdiRoleARN :: Lens.Lens' RemoveRoleFromDBInstance Lude.Text
+rrfdiRoleARN = Lens.lens (roleARN :: RemoveRoleFromDBInstance -> Lude.Text) (\s a -> s {roleARN = a} :: RemoveRoleFromDBInstance)
+{-# DEPRECATED rrfdiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
-rrfdiFeatureName :: Lens' RemoveRoleFromDBInstance Text
-rrfdiFeatureName = lens _rrfdiFeatureName (\s a -> s {_rrfdiFeatureName = a})
+--
+-- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdiFeatureName :: Lens.Lens' RemoveRoleFromDBInstance Lude.Text
+rrfdiFeatureName = Lens.lens (featureName :: RemoveRoleFromDBInstance -> Lude.Text) (\s a -> s {featureName = a} :: RemoveRoleFromDBInstance)
+{-# DEPRECATED rrfdiFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
-instance AWSRequest RemoveRoleFromDBInstance where
+instance Lude.AWSRequest RemoveRoleFromDBInstance where
   type Rs RemoveRoleFromDBInstance = RemoveRoleFromDBInstanceResponse
-  request = postQuery rds
-  response = receiveNull RemoveRoleFromDBInstanceResponse'
+  request = Req.postQuery rdsService
+  response = Res.receiveNull RemoveRoleFromDBInstanceResponse'
 
-instance Hashable RemoveRoleFromDBInstance
+instance Lude.ToHeaders RemoveRoleFromDBInstance where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemoveRoleFromDBInstance
+instance Lude.ToPath RemoveRoleFromDBInstance where
+  toPath = Lude.const "/"
 
-instance ToHeaders RemoveRoleFromDBInstance where
-  toHeaders = const mempty
-
-instance ToPath RemoveRoleFromDBInstance where
-  toPath = const "/"
-
-instance ToQuery RemoveRoleFromDBInstance where
+instance Lude.ToQuery RemoveRoleFromDBInstance where
   toQuery RemoveRoleFromDBInstance' {..} =
-    mconcat
-      [ "Action" =: ("RemoveRoleFromDBInstance" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBInstanceIdentifier" =: _rrfdiDBInstanceIdentifier,
-        "RoleArn" =: _rrfdiRoleARN,
-        "FeatureName" =: _rrfdiFeatureName
+    Lude.mconcat
+      [ "Action" Lude.=: ("RemoveRoleFromDBInstance" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
+        "RoleArn" Lude.=: roleARN,
+        "FeatureName" Lude.=: featureName
       ]
 
--- | /See:/ 'removeRoleFromDBInstanceResponse' smart constructor.
+-- | /See:/ 'mkRemoveRoleFromDBInstanceResponse' smart constructor.
 data RemoveRoleFromDBInstanceResponse = RemoveRoleFromDBInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveRoleFromDBInstanceResponse' with the minimum fields required to make a request.
-removeRoleFromDBInstanceResponse ::
+mkRemoveRoleFromDBInstanceResponse ::
   RemoveRoleFromDBInstanceResponse
-removeRoleFromDBInstanceResponse =
+mkRemoveRoleFromDBInstanceResponse =
   RemoveRoleFromDBInstanceResponse'
-
-instance NFData RemoveRoleFromDBInstanceResponse

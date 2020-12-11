@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.PolicyType where
+module Network.AWS.ApplicationAutoScaling.Types.PolicyType
+  ( PolicyType
+      ( PolicyType',
+        StepScaling,
+        TargetTrackingScaling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicyType
-  = StepScaling
-  | TargetTrackingScaling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicyType = PolicyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicyType where
-  parser =
-    takeLowerText >>= \case
-      "stepscaling" -> pure StepScaling
-      "targettrackingscaling" -> pure TargetTrackingScaling
-      e ->
-        fromTextError $
-          "Failure parsing PolicyType from value: '" <> e
-            <> "'. Accepted values: stepscaling, targettrackingscaling"
+pattern StepScaling :: PolicyType
+pattern StepScaling = PolicyType' "StepScaling"
 
-instance ToText PolicyType where
-  toText = \case
-    StepScaling -> "StepScaling"
-    TargetTrackingScaling -> "TargetTrackingScaling"
+pattern TargetTrackingScaling :: PolicyType
+pattern TargetTrackingScaling = PolicyType' "TargetTrackingScaling"
 
-instance Hashable PolicyType
-
-instance NFData PolicyType
-
-instance ToByteString PolicyType
-
-instance ToQuery PolicyType
-
-instance ToHeader PolicyType
-
-instance ToJSON PolicyType where
-  toJSON = toJSONText
-
-instance FromJSON PolicyType where
-  parseJSON = parseJSONText "PolicyType"
+{-# COMPLETE
+  StepScaling,
+  TargetTrackingScaling,
+  PolicyType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Gets information about a single custom language model. Use this information to see details about the language model in your AWS account. You can also see whether the base language model used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model. If the language model wasn't created, you can use this operation to understand why Amazon Transcribe couldn't create it.
 module Network.AWS.Transcribe.DescribeLanguageModel
-  ( -- * Creating a Request
-    describeLanguageModel,
-    DescribeLanguageModel,
+  ( -- * Creating a request
+    DescribeLanguageModel (..),
+    mkDescribeLanguageModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dModelName,
 
-    -- * Destructuring the Response
-    describeLanguageModelResponse,
-    DescribeLanguageModelResponse,
+    -- * Destructuring the response
+    DescribeLanguageModelResponse (..),
+    mkDescribeLanguageModelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlmrsLanguageModel,
     dlmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'describeLanguageModel' smart constructor.
+-- | /See:/ 'mkDescribeLanguageModel' smart constructor.
 newtype DescribeLanguageModel = DescribeLanguageModel'
-  { _dModelName ::
-      Text
+  { modelName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLanguageModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dModelName' - The name of the custom language model you submit to get more information.
-describeLanguageModel ::
-  -- | 'dModelName'
-  Text ->
+-- * 'modelName' - The name of the custom language model you submit to get more information.
+mkDescribeLanguageModel ::
+  -- | 'modelName'
+  Lude.Text ->
   DescribeLanguageModel
-describeLanguageModel pModelName_ =
-  DescribeLanguageModel' {_dModelName = pModelName_}
+mkDescribeLanguageModel pModelName_ =
+  DescribeLanguageModel' {modelName = pModelName_}
 
 -- | The name of the custom language model you submit to get more information.
-dModelName :: Lens' DescribeLanguageModel Text
-dModelName = lens _dModelName (\s a -> s {_dModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dModelName :: Lens.Lens' DescribeLanguageModel Lude.Text
+dModelName = Lens.lens (modelName :: DescribeLanguageModel -> Lude.Text) (\s a -> s {modelName = a} :: DescribeLanguageModel)
+{-# DEPRECATED dModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest DescribeLanguageModel where
+instance Lude.AWSRequest DescribeLanguageModel where
   type Rs DescribeLanguageModel = DescribeLanguageModelResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeLanguageModelResponse'
-            <$> (x .?> "LanguageModel") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LanguageModel")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLanguageModel
-
-instance NFData DescribeLanguageModel
-
-instance ToHeaders DescribeLanguageModel where
+instance Lude.ToHeaders DescribeLanguageModel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.DescribeLanguageModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.DescribeLanguageModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeLanguageModel where
+instance Lude.ToJSON DescribeLanguageModel where
   toJSON DescribeLanguageModel' {..} =
-    object (catMaybes [Just ("ModelName" .= _dModelName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ModelName" Lude..= modelName)])
 
-instance ToPath DescribeLanguageModel where
-  toPath = const "/"
+instance Lude.ToPath DescribeLanguageModel where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeLanguageModel where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeLanguageModel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeLanguageModelResponse' smart constructor.
+-- | /See:/ 'mkDescribeLanguageModelResponse' smart constructor.
 data DescribeLanguageModelResponse = DescribeLanguageModelResponse'
-  { _dlmrsLanguageModel ::
-      !(Maybe LanguageModel),
-    _dlmrsResponseStatus :: !Int
+  { languageModel ::
+      Lude.Maybe LanguageModel,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLanguageModelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlmrsLanguageModel' - The name of the custom language model you requested more information about.
---
--- * 'dlmrsResponseStatus' - -- | The response status code.
-describeLanguageModelResponse ::
-  -- | 'dlmrsResponseStatus'
-  Int ->
+-- * 'languageModel' - The name of the custom language model you requested more information about.
+-- * 'responseStatus' - The response status code.
+mkDescribeLanguageModelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLanguageModelResponse
-describeLanguageModelResponse pResponseStatus_ =
+mkDescribeLanguageModelResponse pResponseStatus_ =
   DescribeLanguageModelResponse'
-    { _dlmrsLanguageModel = Nothing,
-      _dlmrsResponseStatus = pResponseStatus_
+    { languageModel = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the custom language model you requested more information about.
-dlmrsLanguageModel :: Lens' DescribeLanguageModelResponse (Maybe LanguageModel)
-dlmrsLanguageModel = lens _dlmrsLanguageModel (\s a -> s {_dlmrsLanguageModel = a})
+--
+-- /Note:/ Consider using 'languageModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlmrsLanguageModel :: Lens.Lens' DescribeLanguageModelResponse (Lude.Maybe LanguageModel)
+dlmrsLanguageModel = Lens.lens (languageModel :: DescribeLanguageModelResponse -> Lude.Maybe LanguageModel) (\s a -> s {languageModel = a} :: DescribeLanguageModelResponse)
+{-# DEPRECATED dlmrsLanguageModel "Use generic-lens or generic-optics with 'languageModel' instead." #-}
 
--- | -- | The response status code.
-dlmrsResponseStatus :: Lens' DescribeLanguageModelResponse Int
-dlmrsResponseStatus = lens _dlmrsResponseStatus (\s a -> s {_dlmrsResponseStatus = a})
-
-instance NFData DescribeLanguageModelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlmrsResponseStatus :: Lens.Lens' DescribeLanguageModelResponse Lude.Int
+dlmrsResponseStatus = Lens.lens (responseStatus :: DescribeLanguageModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLanguageModelResponse)
+{-# DEPRECATED dlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

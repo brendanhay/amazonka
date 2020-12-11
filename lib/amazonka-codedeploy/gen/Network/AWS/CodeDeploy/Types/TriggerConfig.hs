@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TriggerConfig where
+module Network.AWS.CodeDeploy.Types.TriggerConfig
+  ( TriggerConfig (..),
+
+    -- * Smart constructor
+    mkTriggerConfig,
+
+    -- * Lenses
+    tcTriggerName,
+    tcTriggerEvents,
+    tcTriggerTargetARN,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.TriggerEventType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about notification triggers for the deployment group.
 --
---
---
--- /See:/ 'triggerConfig' smart constructor.
+-- /See:/ 'mkTriggerConfig' smart constructor.
 data TriggerConfig = TriggerConfig'
-  { _tcTriggerName ::
-      !(Maybe Text),
-    _tcTriggerEvents :: !(Maybe [TriggerEventType]),
-    _tcTriggerTargetARN :: !(Maybe Text)
+  { triggerName ::
+      Lude.Maybe Lude.Text,
+    triggerEvents :: Lude.Maybe [TriggerEventType],
+    triggerTargetARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TriggerConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcTriggerName' - The name of the notification trigger.
---
--- * 'tcTriggerEvents' - The event type or types for which notifications are triggered.
---
--- * 'tcTriggerTargetARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
-triggerConfig ::
+-- * 'triggerEvents' - The event type or types for which notifications are triggered.
+-- * 'triggerName' - The name of the notification trigger.
+-- * 'triggerTargetARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
+mkTriggerConfig ::
   TriggerConfig
-triggerConfig =
+mkTriggerConfig =
   TriggerConfig'
-    { _tcTriggerName = Nothing,
-      _tcTriggerEvents = Nothing,
-      _tcTriggerTargetARN = Nothing
+    { triggerName = Lude.Nothing,
+      triggerEvents = Lude.Nothing,
+      triggerTargetARN = Lude.Nothing
     }
 
 -- | The name of the notification trigger.
-tcTriggerName :: Lens' TriggerConfig (Maybe Text)
-tcTriggerName = lens _tcTriggerName (\s a -> s {_tcTriggerName = a})
+--
+-- /Note:/ Consider using 'triggerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcTriggerName :: Lens.Lens' TriggerConfig (Lude.Maybe Lude.Text)
+tcTriggerName = Lens.lens (triggerName :: TriggerConfig -> Lude.Maybe Lude.Text) (\s a -> s {triggerName = a} :: TriggerConfig)
+{-# DEPRECATED tcTriggerName "Use generic-lens or generic-optics with 'triggerName' instead." #-}
 
 -- | The event type or types for which notifications are triggered.
-tcTriggerEvents :: Lens' TriggerConfig [TriggerEventType]
-tcTriggerEvents = lens _tcTriggerEvents (\s a -> s {_tcTriggerEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggerEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcTriggerEvents :: Lens.Lens' TriggerConfig (Lude.Maybe [TriggerEventType])
+tcTriggerEvents = Lens.lens (triggerEvents :: TriggerConfig -> Lude.Maybe [TriggerEventType]) (\s a -> s {triggerEvents = a} :: TriggerConfig)
+{-# DEPRECATED tcTriggerEvents "Use generic-lens or generic-optics with 'triggerEvents' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
-tcTriggerTargetARN :: Lens' TriggerConfig (Maybe Text)
-tcTriggerTargetARN = lens _tcTriggerTargetARN (\s a -> s {_tcTriggerTargetARN = a})
+--
+-- /Note:/ Consider using 'triggerTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcTriggerTargetARN :: Lens.Lens' TriggerConfig (Lude.Maybe Lude.Text)
+tcTriggerTargetARN = Lens.lens (triggerTargetARN :: TriggerConfig -> Lude.Maybe Lude.Text) (\s a -> s {triggerTargetARN = a} :: TriggerConfig)
+{-# DEPRECATED tcTriggerTargetARN "Use generic-lens or generic-optics with 'triggerTargetARN' instead." #-}
 
-instance FromJSON TriggerConfig where
+instance Lude.FromJSON TriggerConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "TriggerConfig"
       ( \x ->
           TriggerConfig'
-            <$> (x .:? "triggerName")
-            <*> (x .:? "triggerEvents" .!= mempty)
-            <*> (x .:? "triggerTargetArn")
+            Lude.<$> (x Lude..:? "triggerName")
+            Lude.<*> (x Lude..:? "triggerEvents" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "triggerTargetArn")
       )
 
-instance Hashable TriggerConfig
-
-instance NFData TriggerConfig
-
-instance ToJSON TriggerConfig where
+instance Lude.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =
-    object
-      ( catMaybes
-          [ ("triggerName" .=) <$> _tcTriggerName,
-            ("triggerEvents" .=) <$> _tcTriggerEvents,
-            ("triggerTargetArn" .=) <$> _tcTriggerTargetARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("triggerName" Lude..=) Lude.<$> triggerName,
+            ("triggerEvents" Lude..=) Lude.<$> triggerEvents,
+            ("triggerTargetArn" Lude..=) Lude.<$> triggerTargetARN
           ]
       )

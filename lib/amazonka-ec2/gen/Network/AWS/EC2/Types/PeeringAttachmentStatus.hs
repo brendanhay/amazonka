@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PeeringAttachmentStatus where
+module Network.AWS.EC2.Types.PeeringAttachmentStatus
+  ( PeeringAttachmentStatus (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPeeringAttachmentStatus,
+
+    -- * Lenses
+    pasCode,
+    pasMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the transit gateway peering attachment.
 --
---
---
--- /See:/ 'peeringAttachmentStatus' smart constructor.
+-- /See:/ 'mkPeeringAttachmentStatus' smart constructor.
 data PeeringAttachmentStatus = PeeringAttachmentStatus'
-  { _pasCode ::
-      !(Maybe Text),
-    _pasMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PeeringAttachmentStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pasCode' - The status code.
---
--- * 'pasMessage' - The status message, if applicable.
-peeringAttachmentStatus ::
+-- * 'code' - The status code.
+-- * 'message' - The status message, if applicable.
+mkPeeringAttachmentStatus ::
   PeeringAttachmentStatus
-peeringAttachmentStatus =
+mkPeeringAttachmentStatus =
   PeeringAttachmentStatus'
-    { _pasCode = Nothing,
-      _pasMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The status code.
-pasCode :: Lens' PeeringAttachmentStatus (Maybe Text)
-pasCode = lens _pasCode (\s a -> s {_pasCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasCode :: Lens.Lens' PeeringAttachmentStatus (Lude.Maybe Lude.Text)
+pasCode = Lens.lens (code :: PeeringAttachmentStatus -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: PeeringAttachmentStatus)
+{-# DEPRECATED pasCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The status message, if applicable.
-pasMessage :: Lens' PeeringAttachmentStatus (Maybe Text)
-pasMessage = lens _pasMessage (\s a -> s {_pasMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasMessage :: Lens.Lens' PeeringAttachmentStatus (Lude.Maybe Lude.Text)
+pasMessage = Lens.lens (message :: PeeringAttachmentStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PeeringAttachmentStatus)
+{-# DEPRECATED pasMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML PeeringAttachmentStatus where
+instance Lude.FromXML PeeringAttachmentStatus where
   parseXML x =
-    PeeringAttachmentStatus' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable PeeringAttachmentStatus
-
-instance NFData PeeringAttachmentStatus
+    PeeringAttachmentStatus'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

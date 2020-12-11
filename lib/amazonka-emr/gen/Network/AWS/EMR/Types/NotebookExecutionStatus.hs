@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.NotebookExecutionStatus where
+module Network.AWS.EMR.Types.NotebookExecutionStatus
+  ( NotebookExecutionStatus
+      ( NotebookExecutionStatus',
+        NESFailed,
+        NESFailing,
+        NESFinished,
+        NESFinishing,
+        NESRunning,
+        NESStartPending,
+        NESStarting,
+        NESStopPending,
+        NESStopped,
+        NESStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotebookExecutionStatus
-  = NESFailed
-  | NESFailing
-  | NESFinished
-  | NESFinishing
-  | NESRunning
-  | NESStartPending
-  | NESStarting
-  | NESStopPending
-  | NESStopped
-  | NESStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotebookExecutionStatus = NotebookExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotebookExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure NESFailed
-      "failing" -> pure NESFailing
-      "finished" -> pure NESFinished
-      "finishing" -> pure NESFinishing
-      "running" -> pure NESRunning
-      "start_pending" -> pure NESStartPending
-      "starting" -> pure NESStarting
-      "stop_pending" -> pure NESStopPending
-      "stopped" -> pure NESStopped
-      "stopping" -> pure NESStopping
-      e ->
-        fromTextError $
-          "Failure parsing NotebookExecutionStatus from value: '" <> e
-            <> "'. Accepted values: failed, failing, finished, finishing, running, start_pending, starting, stop_pending, stopped, stopping"
+pattern NESFailed :: NotebookExecutionStatus
+pattern NESFailed = NotebookExecutionStatus' "FAILED"
 
-instance ToText NotebookExecutionStatus where
-  toText = \case
-    NESFailed -> "FAILED"
-    NESFailing -> "FAILING"
-    NESFinished -> "FINISHED"
-    NESFinishing -> "FINISHING"
-    NESRunning -> "RUNNING"
-    NESStartPending -> "START_PENDING"
-    NESStarting -> "STARTING"
-    NESStopPending -> "STOP_PENDING"
-    NESStopped -> "STOPPED"
-    NESStopping -> "STOPPING"
+pattern NESFailing :: NotebookExecutionStatus
+pattern NESFailing = NotebookExecutionStatus' "FAILING"
 
-instance Hashable NotebookExecutionStatus
+pattern NESFinished :: NotebookExecutionStatus
+pattern NESFinished = NotebookExecutionStatus' "FINISHED"
 
-instance NFData NotebookExecutionStatus
+pattern NESFinishing :: NotebookExecutionStatus
+pattern NESFinishing = NotebookExecutionStatus' "FINISHING"
 
-instance ToByteString NotebookExecutionStatus
+pattern NESRunning :: NotebookExecutionStatus
+pattern NESRunning = NotebookExecutionStatus' "RUNNING"
 
-instance ToQuery NotebookExecutionStatus
+pattern NESStartPending :: NotebookExecutionStatus
+pattern NESStartPending = NotebookExecutionStatus' "START_PENDING"
 
-instance ToHeader NotebookExecutionStatus
+pattern NESStarting :: NotebookExecutionStatus
+pattern NESStarting = NotebookExecutionStatus' "STARTING"
 
-instance ToJSON NotebookExecutionStatus where
-  toJSON = toJSONText
+pattern NESStopPending :: NotebookExecutionStatus
+pattern NESStopPending = NotebookExecutionStatus' "STOP_PENDING"
 
-instance FromJSON NotebookExecutionStatus where
-  parseJSON = parseJSONText "NotebookExecutionStatus"
+pattern NESStopped :: NotebookExecutionStatus
+pattern NESStopped = NotebookExecutionStatus' "STOPPED"
+
+pattern NESStopping :: NotebookExecutionStatus
+pattern NESStopping = NotebookExecutionStatus' "STOPPING"
+
+{-# COMPLETE
+  NESFailed,
+  NESFailing,
+  NESFinished,
+  NESFinishing,
+  NESRunning,
+  NESStartPending,
+  NESStarting,
+  NESStopPending,
+  NESStopped,
+  NESStopping,
+  NotebookExecutionStatus'
+  #-}

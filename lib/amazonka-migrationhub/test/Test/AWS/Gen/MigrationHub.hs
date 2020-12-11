@@ -28,109 +28,109 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestAssociateDiscoveredResource $
---             associateDiscoveredResource
+--             mkAssociateDiscoveredResource
 --
 --         , requestCreateProgressUpdateStream $
---             createProgressUpdateStream
+--             mkCreateProgressUpdateStream
 --
 --         , requestListApplicationStates $
---             listApplicationStates
+--             mkListApplicationStates
 --
 --         , requestListCreatedArtifacts $
---             listCreatedArtifacts
+--             mkListCreatedArtifacts
 --
 --         , requestDisassociateDiscoveredResource $
---             disassociateDiscoveredResource
+--             mkDisassociateDiscoveredResource
 --
 --         , requestNotifyApplicationState $
---             notifyApplicationState
+--             mkNotifyApplicationState
 --
 --         , requestDeleteProgressUpdateStream $
---             deleteProgressUpdateStream
+--             mkDeleteProgressUpdateStream
 --
 --         , requestListProgressUpdateStreams $
---             listProgressUpdateStreams
+--             mkListProgressUpdateStreams
 --
 --         , requestDisassociateCreatedArtifact $
---             disassociateCreatedArtifact
+--             mkDisassociateCreatedArtifact
 --
 --         , requestImportMigrationTask $
---             importMigrationTask
+--             mkImportMigrationTask
 --
 --         , requestDescribeMigrationTask $
---             describeMigrationTask
+--             mkDescribeMigrationTask
 --
 --         , requestPutResourceAttributes $
---             putResourceAttributes
+--             mkPutResourceAttributes
 --
 --         , requestAssociateCreatedArtifact $
---             associateCreatedArtifact
+--             mkAssociateCreatedArtifact
 --
 --         , requestNotifyMigrationTaskState $
---             notifyMigrationTaskState
+--             mkNotifyMigrationTaskState
 --
 --         , requestDescribeApplicationState $
---             describeApplicationState
+--             mkDescribeApplicationState
 --
 --         , requestListMigrationTasks $
---             listMigrationTasks
+--             mkListMigrationTasks
 --
 --         , requestListDiscoveredResources $
---             listDiscoveredResources
+--             mkListDiscoveredResources
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseAssociateDiscoveredResource $
---             associateDiscoveredResourceResponse
+--             mkAssociateDiscoveredResourceResponse
 --
 --         , responseCreateProgressUpdateStream $
---             createProgressUpdateStreamResponse
+--             mkCreateProgressUpdateStreamResponse
 --
 --         , responseListApplicationStates $
---             listApplicationStatesResponse
+--             mkListApplicationStatesResponse
 --
 --         , responseListCreatedArtifacts $
---             listCreatedArtifactsResponse
+--             mkListCreatedArtifactsResponse
 --
 --         , responseDisassociateDiscoveredResource $
---             disassociateDiscoveredResourceResponse
+--             mkDisassociateDiscoveredResourceResponse
 --
 --         , responseNotifyApplicationState $
---             notifyApplicationStateResponse
+--             mkNotifyApplicationStateResponse
 --
 --         , responseDeleteProgressUpdateStream $
---             deleteProgressUpdateStreamResponse
+--             mkDeleteProgressUpdateStreamResponse
 --
 --         , responseListProgressUpdateStreams $
---             listProgressUpdateStreamsResponse
+--             mkListProgressUpdateStreamsResponse
 --
 --         , responseDisassociateCreatedArtifact $
---             disassociateCreatedArtifactResponse
+--             mkDisassociateCreatedArtifactResponse
 --
 --         , responseImportMigrationTask $
---             importMigrationTaskResponse
+--             mkImportMigrationTaskResponse
 --
 --         , responseDescribeMigrationTask $
---             describeMigrationTaskResponse
+--             mkDescribeMigrationTaskResponse
 --
 --         , responsePutResourceAttributes $
---             putResourceAttributesResponse
+--             mkPutResourceAttributesResponse
 --
 --         , responseAssociateCreatedArtifact $
---             associateCreatedArtifactResponse
+--             mkAssociateCreatedArtifactResponse
 --
 --         , responseNotifyMigrationTaskState $
---             notifyMigrationTaskStateResponse
+--             mkNotifyMigrationTaskStateResponse
 --
 --         , responseDescribeApplicationState $
---             describeApplicationStateResponse
+--             mkDescribeApplicationStateResponse
 --
 --         , responseListMigrationTasks $
---             listMigrationTasksResponse
+--             mkListMigrationTasksResponse
 --
 --         , responseListDiscoveredResources $
---             listDiscoveredResourcesResponse
+--             mkListDiscoveredResourcesResponse
 --
 --           ]
 --     ]
@@ -246,7 +246,7 @@ responseAssociateDiscoveredResource =
   res
     "AssociateDiscoveredResourceResponse"
     "fixture/AssociateDiscoveredResourceResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy AssociateDiscoveredResource)
 
 responseCreateProgressUpdateStream :: CreateProgressUpdateStreamResponse -> TestTree
@@ -254,7 +254,7 @@ responseCreateProgressUpdateStream =
   res
     "CreateProgressUpdateStreamResponse"
     "fixture/CreateProgressUpdateStreamResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy CreateProgressUpdateStream)
 
 responseListApplicationStates :: ListApplicationStatesResponse -> TestTree
@@ -262,7 +262,7 @@ responseListApplicationStates =
   res
     "ListApplicationStatesResponse"
     "fixture/ListApplicationStatesResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy ListApplicationStates)
 
 responseListCreatedArtifacts :: ListCreatedArtifactsResponse -> TestTree
@@ -270,7 +270,7 @@ responseListCreatedArtifacts =
   res
     "ListCreatedArtifactsResponse"
     "fixture/ListCreatedArtifactsResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy ListCreatedArtifacts)
 
 responseDisassociateDiscoveredResource :: DisassociateDiscoveredResourceResponse -> TestTree
@@ -278,7 +278,7 @@ responseDisassociateDiscoveredResource =
   res
     "DisassociateDiscoveredResourceResponse"
     "fixture/DisassociateDiscoveredResourceResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy DisassociateDiscoveredResource)
 
 responseNotifyApplicationState :: NotifyApplicationStateResponse -> TestTree
@@ -286,7 +286,7 @@ responseNotifyApplicationState =
   res
     "NotifyApplicationStateResponse"
     "fixture/NotifyApplicationStateResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy NotifyApplicationState)
 
 responseDeleteProgressUpdateStream :: DeleteProgressUpdateStreamResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeleteProgressUpdateStream =
   res
     "DeleteProgressUpdateStreamResponse"
     "fixture/DeleteProgressUpdateStreamResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy DeleteProgressUpdateStream)
 
 responseListProgressUpdateStreams :: ListProgressUpdateStreamsResponse -> TestTree
@@ -302,7 +302,7 @@ responseListProgressUpdateStreams =
   res
     "ListProgressUpdateStreamsResponse"
     "fixture/ListProgressUpdateStreamsResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy ListProgressUpdateStreams)
 
 responseDisassociateCreatedArtifact :: DisassociateCreatedArtifactResponse -> TestTree
@@ -310,7 +310,7 @@ responseDisassociateCreatedArtifact =
   res
     "DisassociateCreatedArtifactResponse"
     "fixture/DisassociateCreatedArtifactResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy DisassociateCreatedArtifact)
 
 responseImportMigrationTask :: ImportMigrationTaskResponse -> TestTree
@@ -318,7 +318,7 @@ responseImportMigrationTask =
   res
     "ImportMigrationTaskResponse"
     "fixture/ImportMigrationTaskResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy ImportMigrationTask)
 
 responseDescribeMigrationTask :: DescribeMigrationTaskResponse -> TestTree
@@ -326,7 +326,7 @@ responseDescribeMigrationTask =
   res
     "DescribeMigrationTaskResponse"
     "fixture/DescribeMigrationTaskResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy DescribeMigrationTask)
 
 responsePutResourceAttributes :: PutResourceAttributesResponse -> TestTree
@@ -334,7 +334,7 @@ responsePutResourceAttributes =
   res
     "PutResourceAttributesResponse"
     "fixture/PutResourceAttributesResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy PutResourceAttributes)
 
 responseAssociateCreatedArtifact :: AssociateCreatedArtifactResponse -> TestTree
@@ -342,7 +342,7 @@ responseAssociateCreatedArtifact =
   res
     "AssociateCreatedArtifactResponse"
     "fixture/AssociateCreatedArtifactResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy AssociateCreatedArtifact)
 
 responseNotifyMigrationTaskState :: NotifyMigrationTaskStateResponse -> TestTree
@@ -350,7 +350,7 @@ responseNotifyMigrationTaskState =
   res
     "NotifyMigrationTaskStateResponse"
     "fixture/NotifyMigrationTaskStateResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy NotifyMigrationTaskState)
 
 responseDescribeApplicationState :: DescribeApplicationStateResponse -> TestTree
@@ -358,7 +358,7 @@ responseDescribeApplicationState =
   res
     "DescribeApplicationStateResponse"
     "fixture/DescribeApplicationStateResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy DescribeApplicationState)
 
 responseListMigrationTasks :: ListMigrationTasksResponse -> TestTree
@@ -366,7 +366,7 @@ responseListMigrationTasks =
   res
     "ListMigrationTasksResponse"
     "fixture/ListMigrationTasksResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy ListMigrationTasks)
 
 responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
@@ -374,5 +374,5 @@ responseListDiscoveredResources =
   res
     "ListDiscoveredResourcesResponse"
     "fixture/ListDiscoveredResourcesResponse.proto"
-    migrationHub
+    migrationHubService
     (Proxy :: Proxy ListDiscoveredResources)

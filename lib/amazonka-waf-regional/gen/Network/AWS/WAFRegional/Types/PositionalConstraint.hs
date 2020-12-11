@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.PositionalConstraint where
+module Network.AWS.WAFRegional.Types.PositionalConstraint
+  ( PositionalConstraint
+      ( PositionalConstraint',
+        Contains,
+        ContainsWord,
+        EndsWith,
+        Exactly,
+        StartsWith
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PositionalConstraint
-  = Contains
-  | ContainsWord
-  | EndsWith
-  | Exactly
-  | StartsWith
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PositionalConstraint = PositionalConstraint' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PositionalConstraint where
-  parser =
-    takeLowerText >>= \case
-      "contains" -> pure Contains
-      "contains_word" -> pure ContainsWord
-      "ends_with" -> pure EndsWith
-      "exactly" -> pure Exactly
-      "starts_with" -> pure StartsWith
-      e ->
-        fromTextError $
-          "Failure parsing PositionalConstraint from value: '" <> e
-            <> "'. Accepted values: contains, contains_word, ends_with, exactly, starts_with"
+pattern Contains :: PositionalConstraint
+pattern Contains = PositionalConstraint' "CONTAINS"
 
-instance ToText PositionalConstraint where
-  toText = \case
-    Contains -> "CONTAINS"
-    ContainsWord -> "CONTAINS_WORD"
-    EndsWith -> "ENDS_WITH"
-    Exactly -> "EXACTLY"
-    StartsWith -> "STARTS_WITH"
+pattern ContainsWord :: PositionalConstraint
+pattern ContainsWord = PositionalConstraint' "CONTAINS_WORD"
 
-instance Hashable PositionalConstraint
+pattern EndsWith :: PositionalConstraint
+pattern EndsWith = PositionalConstraint' "ENDS_WITH"
 
-instance NFData PositionalConstraint
+pattern Exactly :: PositionalConstraint
+pattern Exactly = PositionalConstraint' "EXACTLY"
 
-instance ToByteString PositionalConstraint
+pattern StartsWith :: PositionalConstraint
+pattern StartsWith = PositionalConstraint' "STARTS_WITH"
 
-instance ToQuery PositionalConstraint
-
-instance ToHeader PositionalConstraint
-
-instance ToJSON PositionalConstraint where
-  toJSON = toJSONText
-
-instance FromJSON PositionalConstraint where
-  parseJSON = parseJSONText "PositionalConstraint"
+{-# COMPLETE
+  Contains,
+  ContainsWord,
+  EndsWith,
+  Exactly,
+  StartsWith,
+  PositionalConstraint'
+  #-}

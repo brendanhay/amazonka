@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.UiTemplateInfo where
+module Network.AWS.SageMaker.Types.UiTemplateInfo
+  ( UiTemplateInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUiTemplateInfo,
+
+    -- * Lenses
+    utiURL,
+    utiContentSha256,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Container for user interface template information.
 --
---
---
--- /See:/ 'uiTemplateInfo' smart constructor.
+-- /See:/ 'mkUiTemplateInfo' smart constructor.
 data UiTemplateInfo = UiTemplateInfo'
-  { _utiURL :: !(Maybe Text),
-    _utiContentSha256 :: !(Maybe Text)
+  { url :: Lude.Maybe Lude.Text,
+    contentSha256 :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UiTemplateInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utiURL' - The URL for the user interface template.
---
--- * 'utiContentSha256' - The SHA-256 digest of the contents of the template.
-uiTemplateInfo ::
+-- * 'contentSha256' - The SHA-256 digest of the contents of the template.
+-- * 'url' - The URL for the user interface template.
+mkUiTemplateInfo ::
   UiTemplateInfo
-uiTemplateInfo =
-  UiTemplateInfo' {_utiURL = Nothing, _utiContentSha256 = Nothing}
+mkUiTemplateInfo =
+  UiTemplateInfo' {url = Lude.Nothing, contentSha256 = Lude.Nothing}
 
 -- | The URL for the user interface template.
-utiURL :: Lens' UiTemplateInfo (Maybe Text)
-utiURL = lens _utiURL (\s a -> s {_utiURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utiURL :: Lens.Lens' UiTemplateInfo (Lude.Maybe Lude.Text)
+utiURL = Lens.lens (url :: UiTemplateInfo -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: UiTemplateInfo)
+{-# DEPRECATED utiURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The SHA-256 digest of the contents of the template.
-utiContentSha256 :: Lens' UiTemplateInfo (Maybe Text)
-utiContentSha256 = lens _utiContentSha256 (\s a -> s {_utiContentSha256 = a})
+--
+-- /Note:/ Consider using 'contentSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utiContentSha256 :: Lens.Lens' UiTemplateInfo (Lude.Maybe Lude.Text)
+utiContentSha256 = Lens.lens (contentSha256 :: UiTemplateInfo -> Lude.Maybe Lude.Text) (\s a -> s {contentSha256 = a} :: UiTemplateInfo)
+{-# DEPRECATED utiContentSha256 "Use generic-lens or generic-optics with 'contentSha256' instead." #-}
 
-instance FromJSON UiTemplateInfo where
+instance Lude.FromJSON UiTemplateInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "UiTemplateInfo"
       ( \x ->
-          UiTemplateInfo' <$> (x .:? "Url") <*> (x .:? "ContentSha256")
+          UiTemplateInfo'
+            Lude.<$> (x Lude..:? "Url") Lude.<*> (x Lude..:? "ContentSha256")
       )
-
-instance Hashable UiTemplateInfo
-
-instance NFData UiTemplateInfo

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProjectVersionDescription where
+module Network.AWS.Rekognition.Types.ProjectVersionDescription
+  ( ProjectVersionDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProjectVersionDescription,
+
+    -- * Lenses
+    pvdMinInferenceUnits,
+    pvdStatus,
+    pvdEvaluationResult,
+    pvdManifestSummary,
+    pvdTestingDataResult,
+    pvdStatusMessage,
+    pvdCreationTimestamp,
+    pvdProjectVersionARN,
+    pvdOutputConfig,
+    pvdBillableTrainingTimeInSeconds,
+    pvdTrainingEndTimestamp,
+    pvdTrainingDataResult,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.EvaluationResult
 import Network.AWS.Rekognition.Types.GroundTruthManifest
 import Network.AWS.Rekognition.Types.OutputConfig
@@ -26,147 +40,172 @@ import Network.AWS.Rekognition.Types.TrainingDataResult
 
 -- | The description of a version of a model.
 --
---
---
--- /See:/ 'projectVersionDescription' smart constructor.
+-- /See:/ 'mkProjectVersionDescription' smart constructor.
 data ProjectVersionDescription = ProjectVersionDescription'
-  { _pvdMinInferenceUnits ::
-      !(Maybe Nat),
-    _pvdStatus ::
-      !(Maybe ProjectVersionStatus),
-    _pvdEvaluationResult ::
-      !(Maybe EvaluationResult),
-    _pvdManifestSummary ::
-      !(Maybe GroundTruthManifest),
-    _pvdTestingDataResult ::
-      !(Maybe TestingDataResult),
-    _pvdStatusMessage :: !(Maybe Text),
-    _pvdCreationTimestamp :: !(Maybe POSIX),
-    _pvdProjectVersionARN :: !(Maybe Text),
-    _pvdOutputConfig ::
-      !(Maybe OutputConfig),
-    _pvdBillableTrainingTimeInSeconds ::
-      !(Maybe Nat),
-    _pvdTrainingEndTimestamp ::
-      !(Maybe POSIX),
-    _pvdTrainingDataResult ::
-      !(Maybe TrainingDataResult)
+  { minInferenceUnits ::
+      Lude.Maybe Lude.Natural,
+    status ::
+      Lude.Maybe ProjectVersionStatus,
+    evaluationResult ::
+      Lude.Maybe EvaluationResult,
+    manifestSummary ::
+      Lude.Maybe GroundTruthManifest,
+    testingDataResult ::
+      Lude.Maybe TestingDataResult,
+    statusMessage :: Lude.Maybe Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    projectVersionARN ::
+      Lude.Maybe Lude.Text,
+    outputConfig :: Lude.Maybe OutputConfig,
+    billableTrainingTimeInSeconds ::
+      Lude.Maybe Lude.Natural,
+    trainingEndTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    trainingDataResult ::
+      Lude.Maybe TrainingDataResult
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectVersionDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvdMinInferenceUnits' - The minimum number of inference units used by the model. For more information, see 'StartProjectVersion' .
---
--- * 'pvdStatus' - The current status of the model version.
---
--- * 'pvdEvaluationResult' - The training results. @EvaluationResult@ is only returned if training is successful.
---
--- * 'pvdManifestSummary' - The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.
---
--- * 'pvdTestingDataResult' - Contains information about the testing results.
---
--- * 'pvdStatusMessage' - A descriptive message for an error or warning that occurred.
---
--- * 'pvdCreationTimestamp' - The Unix datetime for the date and time that training started.
---
--- * 'pvdProjectVersionARN' - The Amazon Resource Name (ARN) of the model version.
---
--- * 'pvdOutputConfig' - The location where training results are saved.
---
--- * 'pvdBillableTrainingTimeInSeconds' - The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.
---
--- * 'pvdTrainingEndTimestamp' - The Unix date and time that training of the model ended.
---
--- * 'pvdTrainingDataResult' - Contains information about the training results.
-projectVersionDescription ::
+-- * 'billableTrainingTimeInSeconds' - The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.
+-- * 'creationTimestamp' - The Unix datetime for the date and time that training started.
+-- * 'evaluationResult' - The training results. @EvaluationResult@ is only returned if training is successful.
+-- * 'manifestSummary' - The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.
+-- * 'minInferenceUnits' - The minimum number of inference units used by the model. For more information, see 'StartProjectVersion' .
+-- * 'outputConfig' - The location where training results are saved.
+-- * 'projectVersionARN' - The Amazon Resource Name (ARN) of the model version.
+-- * 'status' - The current status of the model version.
+-- * 'statusMessage' - A descriptive message for an error or warning that occurred.
+-- * 'testingDataResult' - Contains information about the testing results.
+-- * 'trainingDataResult' - Contains information about the training results.
+-- * 'trainingEndTimestamp' - The Unix date and time that training of the model ended.
+mkProjectVersionDescription ::
   ProjectVersionDescription
-projectVersionDescription =
+mkProjectVersionDescription =
   ProjectVersionDescription'
-    { _pvdMinInferenceUnits = Nothing,
-      _pvdStatus = Nothing,
-      _pvdEvaluationResult = Nothing,
-      _pvdManifestSummary = Nothing,
-      _pvdTestingDataResult = Nothing,
-      _pvdStatusMessage = Nothing,
-      _pvdCreationTimestamp = Nothing,
-      _pvdProjectVersionARN = Nothing,
-      _pvdOutputConfig = Nothing,
-      _pvdBillableTrainingTimeInSeconds = Nothing,
-      _pvdTrainingEndTimestamp = Nothing,
-      _pvdTrainingDataResult = Nothing
+    { minInferenceUnits = Lude.Nothing,
+      status = Lude.Nothing,
+      evaluationResult = Lude.Nothing,
+      manifestSummary = Lude.Nothing,
+      testingDataResult = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      projectVersionARN = Lude.Nothing,
+      outputConfig = Lude.Nothing,
+      billableTrainingTimeInSeconds = Lude.Nothing,
+      trainingEndTimestamp = Lude.Nothing,
+      trainingDataResult = Lude.Nothing
     }
 
 -- | The minimum number of inference units used by the model. For more information, see 'StartProjectVersion' .
-pvdMinInferenceUnits :: Lens' ProjectVersionDescription (Maybe Natural)
-pvdMinInferenceUnits = lens _pvdMinInferenceUnits (\s a -> s {_pvdMinInferenceUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'minInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdMinInferenceUnits :: Lens.Lens' ProjectVersionDescription (Lude.Maybe Lude.Natural)
+pvdMinInferenceUnits = Lens.lens (minInferenceUnits :: ProjectVersionDescription -> Lude.Maybe Lude.Natural) (\s a -> s {minInferenceUnits = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdMinInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead." #-}
 
 -- | The current status of the model version.
-pvdStatus :: Lens' ProjectVersionDescription (Maybe ProjectVersionStatus)
-pvdStatus = lens _pvdStatus (\s a -> s {_pvdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdStatus :: Lens.Lens' ProjectVersionDescription (Lude.Maybe ProjectVersionStatus)
+pvdStatus = Lens.lens (status :: ProjectVersionDescription -> Lude.Maybe ProjectVersionStatus) (\s a -> s {status = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The training results. @EvaluationResult@ is only returned if training is successful.
-pvdEvaluationResult :: Lens' ProjectVersionDescription (Maybe EvaluationResult)
-pvdEvaluationResult = lens _pvdEvaluationResult (\s a -> s {_pvdEvaluationResult = a})
+--
+-- /Note:/ Consider using 'evaluationResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdEvaluationResult :: Lens.Lens' ProjectVersionDescription (Lude.Maybe EvaluationResult)
+pvdEvaluationResult = Lens.lens (evaluationResult :: ProjectVersionDescription -> Lude.Maybe EvaluationResult) (\s a -> s {evaluationResult = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdEvaluationResult "Use generic-lens or generic-optics with 'evaluationResult' instead." #-}
 
 -- | The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.
-pvdManifestSummary :: Lens' ProjectVersionDescription (Maybe GroundTruthManifest)
-pvdManifestSummary = lens _pvdManifestSummary (\s a -> s {_pvdManifestSummary = a})
+--
+-- /Note:/ Consider using 'manifestSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdManifestSummary :: Lens.Lens' ProjectVersionDescription (Lude.Maybe GroundTruthManifest)
+pvdManifestSummary = Lens.lens (manifestSummary :: ProjectVersionDescription -> Lude.Maybe GroundTruthManifest) (\s a -> s {manifestSummary = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdManifestSummary "Use generic-lens or generic-optics with 'manifestSummary' instead." #-}
 
 -- | Contains information about the testing results.
-pvdTestingDataResult :: Lens' ProjectVersionDescription (Maybe TestingDataResult)
-pvdTestingDataResult = lens _pvdTestingDataResult (\s a -> s {_pvdTestingDataResult = a})
+--
+-- /Note:/ Consider using 'testingDataResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdTestingDataResult :: Lens.Lens' ProjectVersionDescription (Lude.Maybe TestingDataResult)
+pvdTestingDataResult = Lens.lens (testingDataResult :: ProjectVersionDescription -> Lude.Maybe TestingDataResult) (\s a -> s {testingDataResult = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdTestingDataResult "Use generic-lens or generic-optics with 'testingDataResult' instead." #-}
 
 -- | A descriptive message for an error or warning that occurred.
-pvdStatusMessage :: Lens' ProjectVersionDescription (Maybe Text)
-pvdStatusMessage = lens _pvdStatusMessage (\s a -> s {_pvdStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdStatusMessage :: Lens.Lens' ProjectVersionDescription (Lude.Maybe Lude.Text)
+pvdStatusMessage = Lens.lens (statusMessage :: ProjectVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The Unix datetime for the date and time that training started.
-pvdCreationTimestamp :: Lens' ProjectVersionDescription (Maybe UTCTime)
-pvdCreationTimestamp = lens _pvdCreationTimestamp (\s a -> s {_pvdCreationTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdCreationTimestamp :: Lens.Lens' ProjectVersionDescription (Lude.Maybe Lude.Timestamp)
+pvdCreationTimestamp = Lens.lens (creationTimestamp :: ProjectVersionDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimestamp = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the model version.
-pvdProjectVersionARN :: Lens' ProjectVersionDescription (Maybe Text)
-pvdProjectVersionARN = lens _pvdProjectVersionARN (\s a -> s {_pvdProjectVersionARN = a})
+--
+-- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdProjectVersionARN :: Lens.Lens' ProjectVersionDescription (Lude.Maybe Lude.Text)
+pvdProjectVersionARN = Lens.lens (projectVersionARN :: ProjectVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {projectVersionARN = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
 
 -- | The location where training results are saved.
-pvdOutputConfig :: Lens' ProjectVersionDescription (Maybe OutputConfig)
-pvdOutputConfig = lens _pvdOutputConfig (\s a -> s {_pvdOutputConfig = a})
+--
+-- /Note:/ Consider using 'outputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdOutputConfig :: Lens.Lens' ProjectVersionDescription (Lude.Maybe OutputConfig)
+pvdOutputConfig = Lens.lens (outputConfig :: ProjectVersionDescription -> Lude.Maybe OutputConfig) (\s a -> s {outputConfig = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdOutputConfig "Use generic-lens or generic-optics with 'outputConfig' instead." #-}
 
 -- | The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.
-pvdBillableTrainingTimeInSeconds :: Lens' ProjectVersionDescription (Maybe Natural)
-pvdBillableTrainingTimeInSeconds = lens _pvdBillableTrainingTimeInSeconds (\s a -> s {_pvdBillableTrainingTimeInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'billableTrainingTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdBillableTrainingTimeInSeconds :: Lens.Lens' ProjectVersionDescription (Lude.Maybe Lude.Natural)
+pvdBillableTrainingTimeInSeconds = Lens.lens (billableTrainingTimeInSeconds :: ProjectVersionDescription -> Lude.Maybe Lude.Natural) (\s a -> s {billableTrainingTimeInSeconds = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdBillableTrainingTimeInSeconds "Use generic-lens or generic-optics with 'billableTrainingTimeInSeconds' instead." #-}
 
 -- | The Unix date and time that training of the model ended.
-pvdTrainingEndTimestamp :: Lens' ProjectVersionDescription (Maybe UTCTime)
-pvdTrainingEndTimestamp = lens _pvdTrainingEndTimestamp (\s a -> s {_pvdTrainingEndTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'trainingEndTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdTrainingEndTimestamp :: Lens.Lens' ProjectVersionDescription (Lude.Maybe Lude.Timestamp)
+pvdTrainingEndTimestamp = Lens.lens (trainingEndTimestamp :: ProjectVersionDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingEndTimestamp = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdTrainingEndTimestamp "Use generic-lens or generic-optics with 'trainingEndTimestamp' instead." #-}
 
 -- | Contains information about the training results.
-pvdTrainingDataResult :: Lens' ProjectVersionDescription (Maybe TrainingDataResult)
-pvdTrainingDataResult = lens _pvdTrainingDataResult (\s a -> s {_pvdTrainingDataResult = a})
+--
+-- /Note:/ Consider using 'trainingDataResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdTrainingDataResult :: Lens.Lens' ProjectVersionDescription (Lude.Maybe TrainingDataResult)
+pvdTrainingDataResult = Lens.lens (trainingDataResult :: ProjectVersionDescription -> Lude.Maybe TrainingDataResult) (\s a -> s {trainingDataResult = a} :: ProjectVersionDescription)
+{-# DEPRECATED pvdTrainingDataResult "Use generic-lens or generic-optics with 'trainingDataResult' instead." #-}
 
-instance FromJSON ProjectVersionDescription where
+instance Lude.FromJSON ProjectVersionDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectVersionDescription"
       ( \x ->
           ProjectVersionDescription'
-            <$> (x .:? "MinInferenceUnits")
-            <*> (x .:? "Status")
-            <*> (x .:? "EvaluationResult")
-            <*> (x .:? "ManifestSummary")
-            <*> (x .:? "TestingDataResult")
-            <*> (x .:? "StatusMessage")
-            <*> (x .:? "CreationTimestamp")
-            <*> (x .:? "ProjectVersionArn")
-            <*> (x .:? "OutputConfig")
-            <*> (x .:? "BillableTrainingTimeInSeconds")
-            <*> (x .:? "TrainingEndTimestamp")
-            <*> (x .:? "TrainingDataResult")
+            Lude.<$> (x Lude..:? "MinInferenceUnits")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "EvaluationResult")
+            Lude.<*> (x Lude..:? "ManifestSummary")
+            Lude.<*> (x Lude..:? "TestingDataResult")
+            Lude.<*> (x Lude..:? "StatusMessage")
+            Lude.<*> (x Lude..:? "CreationTimestamp")
+            Lude.<*> (x Lude..:? "ProjectVersionArn")
+            Lude.<*> (x Lude..:? "OutputConfig")
+            Lude.<*> (x Lude..:? "BillableTrainingTimeInSeconds")
+            Lude.<*> (x Lude..:? "TrainingEndTimestamp")
+            Lude.<*> (x Lude..:? "TrainingDataResult")
       )
-
-instance Hashable ProjectVersionDescription
-
-instance NFData ProjectVersionDescription

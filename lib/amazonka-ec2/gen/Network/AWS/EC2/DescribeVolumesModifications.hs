@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,30 +14,27 @@
 --
 -- Describes the most recent volume modification request for the specified EBS volumes.
 --
---
 -- If a volume has never been modified, some information in the output will be null. If a volume has been modified more than once, the output includes only the most recent modification request.
---
 -- You can also use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ Amazon CloudWatch Events User Guide> . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods Monitoring volume modifications> in the /Amazon Elastic Compute Cloud User Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVolumesModifications
-  ( -- * Creating a Request
-    describeVolumesModifications,
-    DescribeVolumesModifications,
+  ( -- * Creating a request
+    DescribeVolumesModifications (..),
+    mkDescribeVolumesModifications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvmFilters,
     dvmVolumeIds,
     dvmNextToken,
     dvmDryRun,
     dvmMaxResults,
 
-    -- * Destructuring the Response
-    describeVolumesModificationsResponse,
-    DescribeVolumesModificationsResponse,
+    -- * Destructuring the response
+    DescribeVolumesModificationsResponse (..),
+    mkDescribeVolumesModificationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvmrsVolumesModifications,
     dvmrsNextToken,
     dvmrsResponseStatus,
@@ -50,155 +42,252 @@ module Network.AWS.EC2.DescribeVolumesModifications
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVolumesModifications' smart constructor.
+-- | /See:/ 'mkDescribeVolumesModifications' smart constructor.
 data DescribeVolumesModifications = DescribeVolumesModifications'
-  { _dvmFilters ::
-      !(Maybe [Filter]),
-    _dvmVolumeIds :: !(Maybe [Text]),
-    _dvmNextToken :: !(Maybe Text),
-    _dvmDryRun :: !(Maybe Bool),
-    _dvmMaxResults :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    volumeIds ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumesModifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - The filters.
 --
--- * 'dvmFilters' - The filters.     * @modification-state@ - The current modification state (modifying | optimizing | completed | failed).     * @original-iops@ - The original IOPS rate of the volume.     * @original-size@ - The original size of the volume, in GiB.     * @original-volume-type@ - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).     * @originalMultiAttachEnabled@ - Indicates whether Multi-Attach support was enabled (true | false).     * @start-time@ - The modification start time.     * @target-iops@ - The target IOPS rate of the volume.     * @target-size@ - The target size of the volume, in GiB.     * @target-volume-type@ - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).     * @targetMultiAttachEnabled@ - Indicates whether Multi-Attach support is to be enabled (true | false).     * @volume-id@ - The ID of the volume.
 --
--- * 'dvmVolumeIds' - The IDs of the volumes.
+--     * @modification-state@ - The current modification state (modifying | optimizing | completed | failed).
 --
--- * 'dvmNextToken' - The @nextToken@ value returned by a previous paginated request.
 --
--- * 'dvmDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @original-iops@ - The original IOPS rate of the volume.
 --
--- * 'dvmMaxResults' - The maximum number of results (up to a limit of 500) to be returned in a paginated request.
-describeVolumesModifications ::
+--
+--     * @original-size@ - The original size of the volume, in GiB.
+--
+--
+--     * @original-volume-type@ - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).
+--
+--
+--     * @originalMultiAttachEnabled@ - Indicates whether Multi-Attach support was enabled (true | false).
+--
+--
+--     * @start-time@ - The modification start time.
+--
+--
+--     * @target-iops@ - The target IOPS rate of the volume.
+--
+--
+--     * @target-size@ - The target size of the volume, in GiB.
+--
+--
+--     * @target-volume-type@ - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).
+--
+--
+--     * @targetMultiAttachEnabled@ - Indicates whether Multi-Attach support is to be enabled (true | false).
+--
+--
+--     * @volume-id@ - The ID of the volume.
+--
+--
+-- * 'maxResults' - The maximum number of results (up to a limit of 500) to be returned in a paginated request.
+-- * 'nextToken' - The @nextToken@ value returned by a previous paginated request.
+-- * 'volumeIds' - The IDs of the volumes.
+mkDescribeVolumesModifications ::
   DescribeVolumesModifications
-describeVolumesModifications =
+mkDescribeVolumesModifications =
   DescribeVolumesModifications'
-    { _dvmFilters = Nothing,
-      _dvmVolumeIds = Nothing,
-      _dvmNextToken = Nothing,
-      _dvmDryRun = Nothing,
-      _dvmMaxResults = Nothing
+    { filters = Lude.Nothing,
+      volumeIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | The filters.     * @modification-state@ - The current modification state (modifying | optimizing | completed | failed).     * @original-iops@ - The original IOPS rate of the volume.     * @original-size@ - The original size of the volume, in GiB.     * @original-volume-type@ - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).     * @originalMultiAttachEnabled@ - Indicates whether Multi-Attach support was enabled (true | false).     * @start-time@ - The modification start time.     * @target-iops@ - The target IOPS rate of the volume.     * @target-size@ - The target size of the volume, in GiB.     * @target-volume-type@ - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).     * @targetMultiAttachEnabled@ - Indicates whether Multi-Attach support is to be enabled (true | false).     * @volume-id@ - The ID of the volume.
-dvmFilters :: Lens' DescribeVolumesModifications [Filter]
-dvmFilters = lens _dvmFilters (\s a -> s {_dvmFilters = a}) . _Default . _Coerce
+-- | The filters.
+--
+--
+--     * @modification-state@ - The current modification state (modifying | optimizing | completed | failed).
+--
+--
+--     * @original-iops@ - The original IOPS rate of the volume.
+--
+--
+--     * @original-size@ - The original size of the volume, in GiB.
+--
+--
+--     * @original-volume-type@ - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).
+--
+--
+--     * @originalMultiAttachEnabled@ - Indicates whether Multi-Attach support was enabled (true | false).
+--
+--
+--     * @start-time@ - The modification start time.
+--
+--
+--     * @target-iops@ - The target IOPS rate of the volume.
+--
+--
+--     * @target-size@ - The target size of the volume, in GiB.
+--
+--
+--     * @target-volume-type@ - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).
+--
+--
+--     * @targetMultiAttachEnabled@ - Indicates whether Multi-Attach support is to be enabled (true | false).
+--
+--
+--     * @volume-id@ - The ID of the volume.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmFilters :: Lens.Lens' DescribeVolumesModifications (Lude.Maybe [Filter])
+dvmFilters = Lens.lens (filters :: DescribeVolumesModifications -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVolumesModifications)
+{-# DEPRECATED dvmFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The IDs of the volumes.
-dvmVolumeIds :: Lens' DescribeVolumesModifications [Text]
-dvmVolumeIds = lens _dvmVolumeIds (\s a -> s {_dvmVolumeIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmVolumeIds :: Lens.Lens' DescribeVolumesModifications (Lude.Maybe [Lude.Text])
+dvmVolumeIds = Lens.lens (volumeIds :: DescribeVolumesModifications -> Lude.Maybe [Lude.Text]) (\s a -> s {volumeIds = a} :: DescribeVolumesModifications)
+{-# DEPRECATED dvmVolumeIds "Use generic-lens or generic-optics with 'volumeIds' instead." #-}
 
 -- | The @nextToken@ value returned by a previous paginated request.
-dvmNextToken :: Lens' DescribeVolumesModifications (Maybe Text)
-dvmNextToken = lens _dvmNextToken (\s a -> s {_dvmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmNextToken :: Lens.Lens' DescribeVolumesModifications (Lude.Maybe Lude.Text)
+dvmNextToken = Lens.lens (nextToken :: DescribeVolumesModifications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVolumesModifications)
+{-# DEPRECATED dvmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvmDryRun :: Lens' DescribeVolumesModifications (Maybe Bool)
-dvmDryRun = lens _dvmDryRun (\s a -> s {_dvmDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmDryRun :: Lens.Lens' DescribeVolumesModifications (Lude.Maybe Lude.Bool)
+dvmDryRun = Lens.lens (dryRun :: DescribeVolumesModifications -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVolumesModifications)
+{-# DEPRECATED dvmDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results (up to a limit of 500) to be returned in a paginated request.
-dvmMaxResults :: Lens' DescribeVolumesModifications (Maybe Int)
-dvmMaxResults = lens _dvmMaxResults (\s a -> s {_dvmMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmMaxResults :: Lens.Lens' DescribeVolumesModifications (Lude.Maybe Lude.Int)
+dvmMaxResults = Lens.lens (maxResults :: DescribeVolumesModifications -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeVolumesModifications)
+{-# DEPRECATED dvmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeVolumesModifications where
+instance Page.AWSPager DescribeVolumesModifications where
   page rq rs
-    | stop (rs ^. dvmrsNextToken) = Nothing
-    | stop (rs ^. dvmrsVolumesModifications) = Nothing
-    | otherwise = Just $ rq & dvmNextToken .~ rs ^. dvmrsNextToken
+    | Page.stop (rs Lens.^. dvmrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvmrsVolumesModifications) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dvmNextToken Lens..~ rs Lens.^. dvmrsNextToken
 
-instance AWSRequest DescribeVolumesModifications where
+instance Lude.AWSRequest DescribeVolumesModifications where
   type
     Rs DescribeVolumesModifications =
       DescribeVolumesModificationsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVolumesModificationsResponse'
-            <$> ( x .@? "volumeModificationSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "volumeModificationSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVolumesModifications
+instance Lude.ToHeaders DescribeVolumesModifications where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVolumesModifications
+instance Lude.ToPath DescribeVolumesModifications where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVolumesModifications where
-  toHeaders = const mempty
-
-instance ToPath DescribeVolumesModifications where
-  toPath = const "/"
-
-instance ToQuery DescribeVolumesModifications where
+instance Lude.ToQuery DescribeVolumesModifications where
   toQuery DescribeVolumesModifications' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVolumesModifications" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dvmFilters),
-        toQuery (toQueryList "VolumeId" <$> _dvmVolumeIds),
-        "NextToken" =: _dvmNextToken,
-        "DryRun" =: _dvmDryRun,
-        "MaxResults" =: _dvmMaxResults
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeVolumesModifications" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        Lude.toQuery (Lude.toQueryList "VolumeId" Lude.<$> volumeIds),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeVolumesModificationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeVolumesModificationsResponse' smart constructor.
 data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse'
-  { _dvmrsVolumesModifications ::
-      !( Maybe
-           [VolumeModification]
-       ),
-    _dvmrsNextToken ::
-      !(Maybe Text),
-    _dvmrsResponseStatus ::
-      !Int
+  { volumesModifications ::
+      Lude.Maybe
+        [VolumeModification],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumesModificationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvmrsVolumesModifications' - Information about the volume modifications.
---
--- * 'dvmrsNextToken' - Token for pagination, null if there are no more results
---
--- * 'dvmrsResponseStatus' - -- | The response status code.
-describeVolumesModificationsResponse ::
-  -- | 'dvmrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Token for pagination, null if there are no more results
+-- * 'responseStatus' - The response status code.
+-- * 'volumesModifications' - Information about the volume modifications.
+mkDescribeVolumesModificationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVolumesModificationsResponse
-describeVolumesModificationsResponse pResponseStatus_ =
+mkDescribeVolumesModificationsResponse pResponseStatus_ =
   DescribeVolumesModificationsResponse'
-    { _dvmrsVolumesModifications =
-        Nothing,
-      _dvmrsNextToken = Nothing,
-      _dvmrsResponseStatus = pResponseStatus_
+    { volumesModifications =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the volume modifications.
-dvmrsVolumesModifications :: Lens' DescribeVolumesModificationsResponse [VolumeModification]
-dvmrsVolumesModifications = lens _dvmrsVolumesModifications (\s a -> s {_dvmrsVolumesModifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumesModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmrsVolumesModifications :: Lens.Lens' DescribeVolumesModificationsResponse (Lude.Maybe [VolumeModification])
+dvmrsVolumesModifications = Lens.lens (volumesModifications :: DescribeVolumesModificationsResponse -> Lude.Maybe [VolumeModification]) (\s a -> s {volumesModifications = a} :: DescribeVolumesModificationsResponse)
+{-# DEPRECATED dvmrsVolumesModifications "Use generic-lens or generic-optics with 'volumesModifications' instead." #-}
 
 -- | Token for pagination, null if there are no more results
-dvmrsNextToken :: Lens' DescribeVolumesModificationsResponse (Maybe Text)
-dvmrsNextToken = lens _dvmrsNextToken (\s a -> s {_dvmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmrsNextToken :: Lens.Lens' DescribeVolumesModificationsResponse (Lude.Maybe Lude.Text)
+dvmrsNextToken = Lens.lens (nextToken :: DescribeVolumesModificationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVolumesModificationsResponse)
+{-# DEPRECATED dvmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dvmrsResponseStatus :: Lens' DescribeVolumesModificationsResponse Int
-dvmrsResponseStatus = lens _dvmrsResponseStatus (\s a -> s {_dvmrsResponseStatus = a})
-
-instance NFData DescribeVolumesModificationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmrsResponseStatus :: Lens.Lens' DescribeVolumesModificationsResponse Lude.Int
+dvmrsResponseStatus = Lens.lens (responseStatus :: DescribeVolumesModificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVolumesModificationsResponse)
+{-# DEPRECATED dvmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

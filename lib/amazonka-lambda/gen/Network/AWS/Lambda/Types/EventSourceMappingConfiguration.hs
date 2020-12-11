@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,234 +7,308 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.EventSourceMappingConfiguration where
+module Network.AWS.Lambda.Types.EventSourceMappingConfiguration
+  ( EventSourceMappingConfiguration (..),
+
+    -- * Smart constructor
+    mkEventSourceMappingConfiguration,
+
+    -- * Lenses
+    esmcEventSourceARN,
+    esmcState,
+    esmcStartingPositionTimestamp,
+    esmcFunctionARN,
+    esmcTopics,
+    esmcQueues,
+    esmcBisectBatchOnFunctionError,
+    esmcUUId,
+    esmcParallelizationFactor,
+    esmcLastProcessingResult,
+    esmcMaximumRetryAttempts,
+    esmcBatchSize,
+    esmcStateTransitionReason,
+    esmcMaximumBatchingWindowInSeconds,
+    esmcSourceAccessConfigurations,
+    esmcMaximumRecordAgeInSeconds,
+    esmcLastModified,
+    esmcDestinationConfig,
+    esmcStartingPosition,
+  )
+where
 
 import Network.AWS.Lambda.Types.DestinationConfig
 import Network.AWS.Lambda.Types.EventSourcePosition
 import Network.AWS.Lambda.Types.SourceAccessConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A mapping between an AWS resource and an AWS Lambda function. See 'CreateEventSourceMapping' for details.
 --
---
---
--- /See:/ 'eventSourceMappingConfiguration' smart constructor.
+-- /See:/ 'mkEventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-  { _esmcEventSourceARN ::
-      !(Maybe Text),
-    _esmcState :: !(Maybe Text),
-    _esmcStartingPositionTimestamp ::
-      !(Maybe POSIX),
-    _esmcFunctionARN ::
-      !(Maybe Text),
-    _esmcTopics ::
-      !(Maybe (List1 Text)),
-    _esmcQueues ::
-      !(Maybe (List1 Text)),
-    _esmcBisectBatchOnFunctionError ::
-      !(Maybe Bool),
-    _esmcUUId :: !(Maybe Text),
-    _esmcParallelizationFactor ::
-      !(Maybe Nat),
-    _esmcLastProcessingResult ::
-      !(Maybe Text),
-    _esmcMaximumRetryAttempts ::
-      !(Maybe Int),
-    _esmcBatchSize ::
-      !(Maybe Nat),
-    _esmcStateTransitionReason ::
-      !(Maybe Text),
-    _esmcMaximumBatchingWindowInSeconds ::
-      !(Maybe Nat),
-    _esmcSourceAccessConfigurations ::
-      !( Maybe
-           ( List1
-               SourceAccessConfiguration
-           )
-       ),
-    _esmcMaximumRecordAgeInSeconds ::
-      !(Maybe Int),
-    _esmcLastModified ::
-      !(Maybe POSIX),
-    _esmcDestinationConfig ::
-      !(Maybe DestinationConfig),
-    _esmcStartingPosition ::
-      !( Maybe
-           EventSourcePosition
-       )
+  { eventSourceARN ::
+      Lude.Maybe Lude.Text,
+    state ::
+      Lude.Maybe Lude.Text,
+    startingPositionTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    functionARN ::
+      Lude.Maybe Lude.Text,
+    topics ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Text),
+    queues ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Text),
+    bisectBatchOnFunctionError ::
+      Lude.Maybe Lude.Bool,
+    uUId ::
+      Lude.Maybe Lude.Text,
+    parallelizationFactor ::
+      Lude.Maybe Lude.Natural,
+    lastProcessingResult ::
+      Lude.Maybe Lude.Text,
+    maximumRetryAttempts ::
+      Lude.Maybe Lude.Int,
+    batchSize ::
+      Lude.Maybe Lude.Natural,
+    stateTransitionReason ::
+      Lude.Maybe Lude.Text,
+    maximumBatchingWindowInSeconds ::
+      Lude.Maybe Lude.Natural,
+    sourceAccessConfigurations ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            SourceAccessConfiguration
+        ),
+    maximumRecordAgeInSeconds ::
+      Lude.Maybe Lude.Int,
+    lastModified ::
+      Lude.Maybe Lude.Timestamp,
+    destinationConfig ::
+      Lude.Maybe
+        DestinationConfig,
+    startingPosition ::
+      Lude.Maybe
+        EventSourcePosition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSourceMappingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'batchSize' - The maximum number of items to retrieve in a single batch.
+-- * 'bisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry. The default value is false.
+-- * 'destinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+-- * 'eventSourceARN' - The Amazon Resource Name (ARN) of the event source.
+-- * 'functionARN' - The ARN of the Lambda function.
+-- * 'lastModified' - The date that the event source mapping was last updated, or its state changed.
+-- * 'lastProcessingResult' - The result of the last AWS Lambda invocation of your Lambda function.
+-- * 'maximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.
+-- * 'maximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+-- * 'maximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+-- * 'parallelizationFactor' - (Streams) The number of batches to process from each shard concurrently. The default value is 1.
+-- * 'queues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
+-- * 'sourceAccessConfigurations' - (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
 --
--- * 'esmcEventSourceARN' - The Amazon Resource Name (ARN) of the event source.
---
--- * 'esmcState' - The state of the event source mapping. It can be one of the following: @Creating@ , @Enabling@ , @Enabled@ , @Disabling@ , @Disabled@ , @Updating@ , or @Deleting@ .
---
--- * 'esmcStartingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
---
--- * 'esmcFunctionARN' - The ARN of the Lambda function.
---
--- * 'esmcTopics' - (MSK) The name of the Kafka topic to consume.
---
--- * 'esmcQueues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
---
--- * 'esmcBisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry. The default value is false.
---
--- * 'esmcUUId' - The identifier of the event source mapping.
---
--- * 'esmcParallelizationFactor' - (Streams) The number of batches to process from each shard concurrently. The default value is 1.
---
--- * 'esmcLastProcessingResult' - The result of the last AWS Lambda invocation of your Lambda function.
---
--- * 'esmcMaximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
---
--- * 'esmcBatchSize' - The maximum number of items to retrieve in a single batch.
---
--- * 'esmcStateTransitionReason' - Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.
---
--- * 'esmcMaximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.
---
--- * 'esmcSourceAccessConfigurations' - (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@  To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@  The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
---
--- * 'esmcMaximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
---
--- * 'esmcLastModified' - The date that the event source mapping was last updated, or its state changed.
---
--- * 'esmcDestinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
---
--- * 'esmcStartingPosition' - The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
-eventSourceMappingConfiguration ::
+-- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+-- * 'startingPosition' - The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+-- * 'startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
+-- * 'state' - The state of the event source mapping. It can be one of the following: @Creating@ , @Enabling@ , @Enabled@ , @Disabling@ , @Disabled@ , @Updating@ , or @Deleting@ .
+-- * 'stateTransitionReason' - Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.
+-- * 'topics' - (MSK) The name of the Kafka topic to consume.
+-- * 'uUId' - The identifier of the event source mapping.
+mkEventSourceMappingConfiguration ::
   EventSourceMappingConfiguration
-eventSourceMappingConfiguration =
+mkEventSourceMappingConfiguration =
   EventSourceMappingConfiguration'
-    { _esmcEventSourceARN = Nothing,
-      _esmcState = Nothing,
-      _esmcStartingPositionTimestamp = Nothing,
-      _esmcFunctionARN = Nothing,
-      _esmcTopics = Nothing,
-      _esmcQueues = Nothing,
-      _esmcBisectBatchOnFunctionError = Nothing,
-      _esmcUUId = Nothing,
-      _esmcParallelizationFactor = Nothing,
-      _esmcLastProcessingResult = Nothing,
-      _esmcMaximumRetryAttempts = Nothing,
-      _esmcBatchSize = Nothing,
-      _esmcStateTransitionReason = Nothing,
-      _esmcMaximumBatchingWindowInSeconds = Nothing,
-      _esmcSourceAccessConfigurations = Nothing,
-      _esmcMaximumRecordAgeInSeconds = Nothing,
-      _esmcLastModified = Nothing,
-      _esmcDestinationConfig = Nothing,
-      _esmcStartingPosition = Nothing
+    { eventSourceARN = Lude.Nothing,
+      state = Lude.Nothing,
+      startingPositionTimestamp = Lude.Nothing,
+      functionARN = Lude.Nothing,
+      topics = Lude.Nothing,
+      queues = Lude.Nothing,
+      bisectBatchOnFunctionError = Lude.Nothing,
+      uUId = Lude.Nothing,
+      parallelizationFactor = Lude.Nothing,
+      lastProcessingResult = Lude.Nothing,
+      maximumRetryAttempts = Lude.Nothing,
+      batchSize = Lude.Nothing,
+      stateTransitionReason = Lude.Nothing,
+      maximumBatchingWindowInSeconds = Lude.Nothing,
+      sourceAccessConfigurations = Lude.Nothing,
+      maximumRecordAgeInSeconds = Lude.Nothing,
+      lastModified = Lude.Nothing,
+      destinationConfig = Lude.Nothing,
+      startingPosition = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the event source.
-esmcEventSourceARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcEventSourceARN = lens _esmcEventSourceARN (\s a -> s {_esmcEventSourceARN = a})
+--
+-- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcEventSourceARN :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Text)
+esmcEventSourceARN = Lens.lens (eventSourceARN :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
 
 -- | The state of the event source mapping. It can be one of the following: @Creating@ , @Enabling@ , @Enabled@ , @Disabling@ , @Disabled@ , @Updating@ , or @Deleting@ .
-esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcState = lens _esmcState (\s a -> s {_esmcState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcState :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Text)
+esmcState = Lens.lens (state :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
-esmcStartingPositionTimestamp :: Lens' EventSourceMappingConfiguration (Maybe UTCTime)
-esmcStartingPositionTimestamp = lens _esmcStartingPositionTimestamp (\s a -> s {_esmcStartingPositionTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startingPositionTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcStartingPositionTimestamp :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Timestamp)
+esmcStartingPositionTimestamp = Lens.lens (startingPositionTimestamp :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Timestamp) (\s a -> s {startingPositionTimestamp = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcStartingPositionTimestamp "Use generic-lens or generic-optics with 'startingPositionTimestamp' instead." #-}
 
 -- | The ARN of the Lambda function.
-esmcFunctionARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcFunctionARN = lens _esmcFunctionARN (\s a -> s {_esmcFunctionARN = a})
+--
+-- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcFunctionARN :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Text)
+esmcFunctionARN = Lens.lens (functionARN :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {functionARN = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
 
 -- | (MSK) The name of the Kafka topic to consume.
-esmcTopics :: Lens' EventSourceMappingConfiguration (Maybe (NonEmpty Text))
-esmcTopics = lens _esmcTopics (\s a -> s {_esmcTopics = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'topics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcTopics :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe (Lude.NonEmpty Lude.Text))
+esmcTopics = Lens.lens (topics :: EventSourceMappingConfiguration -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {topics = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcTopics "Use generic-lens or generic-optics with 'topics' instead." #-}
 
 -- | (MQ) The name of the Amazon MQ broker destination queue to consume.
-esmcQueues :: Lens' EventSourceMappingConfiguration (Maybe (NonEmpty Text))
-esmcQueues = lens _esmcQueues (\s a -> s {_esmcQueues = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'queues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcQueues :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe (Lude.NonEmpty Lude.Text))
+esmcQueues = Lens.lens (queues :: EventSourceMappingConfiguration -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {queues = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcQueues "Use generic-lens or generic-optics with 'queues' instead." #-}
 
 -- | (Streams) If the function returns an error, split the batch in two and retry. The default value is false.
-esmcBisectBatchOnFunctionError :: Lens' EventSourceMappingConfiguration (Maybe Bool)
-esmcBisectBatchOnFunctionError = lens _esmcBisectBatchOnFunctionError (\s a -> s {_esmcBisectBatchOnFunctionError = a})
+--
+-- /Note:/ Consider using 'bisectBatchOnFunctionError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcBisectBatchOnFunctionError :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Bool)
+esmcBisectBatchOnFunctionError = Lens.lens (bisectBatchOnFunctionError :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {bisectBatchOnFunctionError = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcBisectBatchOnFunctionError "Use generic-lens or generic-optics with 'bisectBatchOnFunctionError' instead." #-}
 
 -- | The identifier of the event source mapping.
-esmcUUId :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcUUId = lens _esmcUUId (\s a -> s {_esmcUUId = a})
+--
+-- /Note:/ Consider using 'uUId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcUUId :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Text)
+esmcUUId = Lens.lens (uUId :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {uUId = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcUUId "Use generic-lens or generic-optics with 'uUId' instead." #-}
 
 -- | (Streams) The number of batches to process from each shard concurrently. The default value is 1.
-esmcParallelizationFactor :: Lens' EventSourceMappingConfiguration (Maybe Natural)
-esmcParallelizationFactor = lens _esmcParallelizationFactor (\s a -> s {_esmcParallelizationFactor = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'parallelizationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcParallelizationFactor :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Natural)
+esmcParallelizationFactor = Lens.lens (parallelizationFactor :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {parallelizationFactor = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcParallelizationFactor "Use generic-lens or generic-optics with 'parallelizationFactor' instead." #-}
 
 -- | The result of the last AWS Lambda invocation of your Lambda function.
-esmcLastProcessingResult :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcLastProcessingResult = lens _esmcLastProcessingResult (\s a -> s {_esmcLastProcessingResult = a})
+--
+-- /Note:/ Consider using 'lastProcessingResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcLastProcessingResult :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Text)
+esmcLastProcessingResult = Lens.lens (lastProcessingResult :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {lastProcessingResult = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcLastProcessingResult "Use generic-lens or generic-optics with 'lastProcessingResult' instead." #-}
 
 -- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
-esmcMaximumRetryAttempts :: Lens' EventSourceMappingConfiguration (Maybe Int)
-esmcMaximumRetryAttempts = lens _esmcMaximumRetryAttempts (\s a -> s {_esmcMaximumRetryAttempts = a})
+--
+-- /Note:/ Consider using 'maximumRetryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcMaximumRetryAttempts :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Int)
+esmcMaximumRetryAttempts = Lens.lens (maximumRetryAttempts :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {maximumRetryAttempts = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcMaximumRetryAttempts "Use generic-lens or generic-optics with 'maximumRetryAttempts' instead." #-}
 
 -- | The maximum number of items to retrieve in a single batch.
-esmcBatchSize :: Lens' EventSourceMappingConfiguration (Maybe Natural)
-esmcBatchSize = lens _esmcBatchSize (\s a -> s {_esmcBatchSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'batchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcBatchSize :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Natural)
+esmcBatchSize = Lens.lens (batchSize :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {batchSize = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcBatchSize "Use generic-lens or generic-optics with 'batchSize' instead." #-}
 
 -- | Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.
-esmcStateTransitionReason :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcStateTransitionReason = lens _esmcStateTransitionReason (\s a -> s {_esmcStateTransitionReason = a})
+--
+-- /Note:/ Consider using 'stateTransitionReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcStateTransitionReason :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Text)
+esmcStateTransitionReason = Lens.lens (stateTransitionReason :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {stateTransitionReason = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcStateTransitionReason "Use generic-lens or generic-optics with 'stateTransitionReason' instead." #-}
 
 -- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.
-esmcMaximumBatchingWindowInSeconds :: Lens' EventSourceMappingConfiguration (Maybe Natural)
-esmcMaximumBatchingWindowInSeconds = lens _esmcMaximumBatchingWindowInSeconds (\s a -> s {_esmcMaximumBatchingWindowInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maximumBatchingWindowInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcMaximumBatchingWindowInSeconds :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Natural)
+esmcMaximumBatchingWindowInSeconds = Lens.lens (maximumBatchingWindowInSeconds :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {maximumBatchingWindowInSeconds = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcMaximumBatchingWindowInSeconds "Use generic-lens or generic-optics with 'maximumBatchingWindowInSeconds' instead." #-}
 
--- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@  To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@  The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
-esmcSourceAccessConfigurations :: Lens' EventSourceMappingConfiguration (Maybe (NonEmpty SourceAccessConfiguration))
-esmcSourceAccessConfigurations = lens _esmcSourceAccessConfigurations (\s a -> s {_esmcSourceAccessConfigurations = a}) . mapping _List1
+-- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+--
+-- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+--
+-- /Note:/ Consider using 'sourceAccessConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcSourceAccessConfigurations :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration))
+esmcSourceAccessConfigurations = Lens.lens (sourceAccessConfigurations :: EventSourceMappingConfiguration -> Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration)) (\s a -> s {sourceAccessConfigurations = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcSourceAccessConfigurations "Use generic-lens or generic-optics with 'sourceAccessConfigurations' instead." #-}
 
 -- | (Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
-esmcMaximumRecordAgeInSeconds :: Lens' EventSourceMappingConfiguration (Maybe Int)
-esmcMaximumRecordAgeInSeconds = lens _esmcMaximumRecordAgeInSeconds (\s a -> s {_esmcMaximumRecordAgeInSeconds = a})
+--
+-- /Note:/ Consider using 'maximumRecordAgeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcMaximumRecordAgeInSeconds :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Int)
+esmcMaximumRecordAgeInSeconds = Lens.lens (maximumRecordAgeInSeconds :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {maximumRecordAgeInSeconds = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcMaximumRecordAgeInSeconds "Use generic-lens or generic-optics with 'maximumRecordAgeInSeconds' instead." #-}
 
 -- | The date that the event source mapping was last updated, or its state changed.
-esmcLastModified :: Lens' EventSourceMappingConfiguration (Maybe UTCTime)
-esmcLastModified = lens _esmcLastModified (\s a -> s {_esmcLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcLastModified :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe Lude.Timestamp)
+esmcLastModified = Lens.lens (lastModified :: EventSourceMappingConfiguration -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-esmcDestinationConfig :: Lens' EventSourceMappingConfiguration (Maybe DestinationConfig)
-esmcDestinationConfig = lens _esmcDestinationConfig (\s a -> s {_esmcDestinationConfig = a})
+--
+-- /Note:/ Consider using 'destinationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcDestinationConfig :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe DestinationConfig)
+esmcDestinationConfig = Lens.lens (destinationConfig :: EventSourceMappingConfiguration -> Lude.Maybe DestinationConfig) (\s a -> s {destinationConfig = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
 
 -- | The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
-esmcStartingPosition :: Lens' EventSourceMappingConfiguration (Maybe EventSourcePosition)
-esmcStartingPosition = lens _esmcStartingPosition (\s a -> s {_esmcStartingPosition = a})
+--
+-- /Note:/ Consider using 'startingPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esmcStartingPosition :: Lens.Lens' EventSourceMappingConfiguration (Lude.Maybe EventSourcePosition)
+esmcStartingPosition = Lens.lens (startingPosition :: EventSourceMappingConfiguration -> Lude.Maybe EventSourcePosition) (\s a -> s {startingPosition = a} :: EventSourceMappingConfiguration)
+{-# DEPRECATED esmcStartingPosition "Use generic-lens or generic-optics with 'startingPosition' instead." #-}
 
-instance FromJSON EventSourceMappingConfiguration where
+instance Lude.FromJSON EventSourceMappingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventSourceMappingConfiguration"
       ( \x ->
           EventSourceMappingConfiguration'
-            <$> (x .:? "EventSourceArn")
-            <*> (x .:? "State")
-            <*> (x .:? "StartingPositionTimestamp")
-            <*> (x .:? "FunctionArn")
-            <*> (x .:? "Topics")
-            <*> (x .:? "Queues")
-            <*> (x .:? "BisectBatchOnFunctionError")
-            <*> (x .:? "UUID")
-            <*> (x .:? "ParallelizationFactor")
-            <*> (x .:? "LastProcessingResult")
-            <*> (x .:? "MaximumRetryAttempts")
-            <*> (x .:? "BatchSize")
-            <*> (x .:? "StateTransitionReason")
-            <*> (x .:? "MaximumBatchingWindowInSeconds")
-            <*> (x .:? "SourceAccessConfigurations")
-            <*> (x .:? "MaximumRecordAgeInSeconds")
-            <*> (x .:? "LastModified")
-            <*> (x .:? "DestinationConfig")
-            <*> (x .:? "StartingPosition")
+            Lude.<$> (x Lude..:? "EventSourceArn")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "StartingPositionTimestamp")
+            Lude.<*> (x Lude..:? "FunctionArn")
+            Lude.<*> (x Lude..:? "Topics")
+            Lude.<*> (x Lude..:? "Queues")
+            Lude.<*> (x Lude..:? "BisectBatchOnFunctionError")
+            Lude.<*> (x Lude..:? "UUID")
+            Lude.<*> (x Lude..:? "ParallelizationFactor")
+            Lude.<*> (x Lude..:? "LastProcessingResult")
+            Lude.<*> (x Lude..:? "MaximumRetryAttempts")
+            Lude.<*> (x Lude..:? "BatchSize")
+            Lude.<*> (x Lude..:? "StateTransitionReason")
+            Lude.<*> (x Lude..:? "MaximumBatchingWindowInSeconds")
+            Lude.<*> (x Lude..:? "SourceAccessConfigurations")
+            Lude.<*> (x Lude..:? "MaximumRecordAgeInSeconds")
+            Lude.<*> (x Lude..:? "LastModified")
+            Lude.<*> (x Lude..:? "DestinationConfig")
+            Lude.<*> (x Lude..:? "StartingPosition")
       )
-
-instance Hashable EventSourceMappingConfiguration
-
-instance NFData EventSourceMappingConfiguration

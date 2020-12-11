@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Id3Insertion where
+module Network.AWS.MediaConvert.Types.Id3Insertion
+  ( Id3Insertion (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkId3Insertion,
+
+    -- * Lenses
+    iiId3,
+    iiTimecode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
 --
--- /See:/ 'id3Insertion' smart constructor.
+-- /See:/ 'mkId3Insertion' smart constructor.
 data Id3Insertion = Id3Insertion'
-  { _iiId3 :: !(Maybe Text),
-    _iiTimecode :: !(Maybe Text)
+  { id3 :: Lude.Maybe Lude.Text,
+    timecode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Id3Insertion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iiId3' - Use ID3 tag (Id3) to provide a tag value in base64-encode format.
---
--- * 'iiTimecode' - Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
-id3Insertion ::
+-- * 'id3' - Use ID3 tag (Id3) to provide a tag value in base64-encode format.
+-- * 'timecode' - Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
+mkId3Insertion ::
   Id3Insertion
-id3Insertion =
-  Id3Insertion' {_iiId3 = Nothing, _iiTimecode = Nothing}
+mkId3Insertion =
+  Id3Insertion' {id3 = Lude.Nothing, timecode = Lude.Nothing}
 
 -- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.
-iiId3 :: Lens' Id3Insertion (Maybe Text)
-iiId3 = lens _iiId3 (\s a -> s {_iiId3 = a})
+--
+-- /Note:/ Consider using 'id3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiId3 :: Lens.Lens' Id3Insertion (Lude.Maybe Lude.Text)
+iiId3 = Lens.lens (id3 :: Id3Insertion -> Lude.Maybe Lude.Text) (\s a -> s {id3 = a} :: Id3Insertion)
+{-# DEPRECATED iiId3 "Use generic-lens or generic-optics with 'id3' instead." #-}
 
 -- | Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
-iiTimecode :: Lens' Id3Insertion (Maybe Text)
-iiTimecode = lens _iiTimecode (\s a -> s {_iiTimecode = a})
+--
+-- /Note:/ Consider using 'timecode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiTimecode :: Lens.Lens' Id3Insertion (Lude.Maybe Lude.Text)
+iiTimecode = Lens.lens (timecode :: Id3Insertion -> Lude.Maybe Lude.Text) (\s a -> s {timecode = a} :: Id3Insertion)
+{-# DEPRECATED iiTimecode "Use generic-lens or generic-optics with 'timecode' instead." #-}
 
-instance FromJSON Id3Insertion where
+instance Lude.FromJSON Id3Insertion where
   parseJSON =
-    withObject
+    Lude.withObject
       "Id3Insertion"
-      (\x -> Id3Insertion' <$> (x .:? "id3") <*> (x .:? "timecode"))
+      ( \x ->
+          Id3Insertion'
+            Lude.<$> (x Lude..:? "id3") Lude.<*> (x Lude..:? "timecode")
+      )
 
-instance Hashable Id3Insertion
-
-instance NFData Id3Insertion
-
-instance ToJSON Id3Insertion where
+instance Lude.ToJSON Id3Insertion where
   toJSON Id3Insertion' {..} =
-    object
-      ( catMaybes
-          [("id3" .=) <$> _iiId3, ("timecode" .=) <$> _iiTimecode]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("id3" Lude..=) Lude.<$> id3,
+            ("timecode" Lude..=) Lude.<$> timecode
+          ]
       )

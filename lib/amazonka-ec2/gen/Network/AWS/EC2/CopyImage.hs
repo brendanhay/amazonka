@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Initiates the copy of an AMI from the specified source Region to the current Region. You specify the destination Region by using its endpoint when making the request.
 --
---
 -- Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set @Encrypted@ during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.
---
 -- For more information about the prerequisites and limits when copying an AMI, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying an AMI> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.CopyImage
-  ( -- * Creating a Request
-    copyImage,
-    CopyImage,
+  ( -- * Creating a request
+    CopyImage (..),
+    mkCopyImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ciClientToken,
     ciEncrypted,
     ciKMSKeyId,
@@ -38,179 +31,238 @@ module Network.AWS.EC2.CopyImage
     ciSourceImageId,
     ciSourceRegion,
 
-    -- * Destructuring the Response
-    copyImageResponse,
-    CopyImageResponse,
+    -- * Destructuring the response
+    CopyImageResponse (..),
+    mkCopyImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ciirsImageId,
     ciirsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for CopyImage.
 --
---
---
--- /See:/ 'copyImage' smart constructor.
+-- /See:/ 'mkCopyImage' smart constructor.
 data CopyImage = CopyImage'
-  { _ciClientToken :: !(Maybe Text),
-    _ciEncrypted :: !(Maybe Bool),
-    _ciKMSKeyId :: !(Maybe Text),
-    _ciDescription :: !(Maybe Text),
-    _ciDryRun :: !(Maybe Bool),
-    _ciName :: !Text,
-    _ciSourceImageId :: !Text,
-    _ciSourceRegion :: !Text
+  { clientToken :: Lude.Maybe Lude.Text,
+    encrypted :: Lude.Maybe Lude.Bool,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    name :: Lude.Text,
+    sourceImageId :: Lude.Text,
+    sourceRegion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'description' - A description for the new AMI in the destination Region.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'encrypted' - Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'kmsKeyId' - The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating encrypted volumes. If this parameter is not specified, your AWS managed CMK for EBS is used. If you specify a CMK, you must also set the encrypted state to @true@ .
 --
--- * 'ciClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- You can specify a CMK using any of the following:
 --
--- * 'ciEncrypted' - Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+--     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
--- * 'ciKMSKeyId' - The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating encrypted volumes. If this parameter is not specified, your AWS managed CMK for EBS is used. If you specify a CMK, you must also set the encrypted state to @true@ . You can specify a CMK using any of the following:     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.     * Key alias. For example, alias/ExampleAlias.     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias. AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier that is not valid, the action can appear to complete, but eventually fails. The specified CMK must exist in the destination Region. Amazon EBS does not support asymmetric CMKs.
 --
--- * 'ciDescription' - A description for the new AMI in the destination Region.
+--     * Key alias. For example, alias/ExampleAlias.
 --
--- * 'ciDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ciName' - The name of the new AMI in the destination Region.
+--     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
 --
--- * 'ciSourceImageId' - The ID of the AMI to copy.
 --
--- * 'ciSourceRegion' - The name of the Region that contains the AMI to copy.
-copyImage ::
-  -- | 'ciName'
-  Text ->
-  -- | 'ciSourceImageId'
-  Text ->
-  -- | 'ciSourceRegion'
-  Text ->
+--     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+--
+--
+-- AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier that is not valid, the action can appear to complete, but eventually fails.
+-- The specified CMK must exist in the destination Region.
+-- Amazon EBS does not support asymmetric CMKs.
+-- * 'name' - The name of the new AMI in the destination Region.
+-- * 'sourceImageId' - The ID of the AMI to copy.
+-- * 'sourceRegion' - The name of the Region that contains the AMI to copy.
+mkCopyImage ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'sourceImageId'
+  Lude.Text ->
+  -- | 'sourceRegion'
+  Lude.Text ->
   CopyImage
-copyImage pName_ pSourceImageId_ pSourceRegion_ =
+mkCopyImage pName_ pSourceImageId_ pSourceRegion_ =
   CopyImage'
-    { _ciClientToken = Nothing,
-      _ciEncrypted = Nothing,
-      _ciKMSKeyId = Nothing,
-      _ciDescription = Nothing,
-      _ciDryRun = Nothing,
-      _ciName = pName_,
-      _ciSourceImageId = pSourceImageId_,
-      _ciSourceRegion = pSourceRegion_
+    { clientToken = Lude.Nothing,
+      encrypted = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      description = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      name = pName_,
+      sourceImageId = pSourceImageId_,
+      sourceRegion = pSourceRegion_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
-ciClientToken :: Lens' CopyImage (Maybe Text)
-ciClientToken = lens _ciClientToken (\s a -> s {_ciClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciClientToken :: Lens.Lens' CopyImage (Lude.Maybe Lude.Text)
+ciClientToken = Lens.lens (clientToken :: CopyImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CopyImage)
+{-# DEPRECATED ciClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
-ciEncrypted :: Lens' CopyImage (Maybe Bool)
-ciEncrypted = lens _ciEncrypted (\s a -> s {_ciEncrypted = a})
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciEncrypted :: Lens.Lens' CopyImage (Lude.Maybe Lude.Bool)
+ciEncrypted = Lens.lens (encrypted :: CopyImage -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: CopyImage)
+{-# DEPRECATED ciEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
--- | The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating encrypted volumes. If this parameter is not specified, your AWS managed CMK for EBS is used. If you specify a CMK, you must also set the encrypted state to @true@ . You can specify a CMK using any of the following:     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.     * Key alias. For example, alias/ExampleAlias.     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias. AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier that is not valid, the action can appear to complete, but eventually fails. The specified CMK must exist in the destination Region. Amazon EBS does not support asymmetric CMKs.
-ciKMSKeyId :: Lens' CopyImage (Maybe Text)
-ciKMSKeyId = lens _ciKMSKeyId (\s a -> s {_ciKMSKeyId = a})
+-- | The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating encrypted volumes. If this parameter is not specified, your AWS managed CMK for EBS is used. If you specify a CMK, you must also set the encrypted state to @true@ .
+--
+-- You can specify a CMK using any of the following:
+--
+--     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+--
+--     * Key alias. For example, alias/ExampleAlias.
+--
+--
+--     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+--
+--     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+--
+--
+-- AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier that is not valid, the action can appear to complete, but eventually fails.
+-- The specified CMK must exist in the destination Region.
+-- Amazon EBS does not support asymmetric CMKs.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciKMSKeyId :: Lens.Lens' CopyImage (Lude.Maybe Lude.Text)
+ciKMSKeyId = Lens.lens (kmsKeyId :: CopyImage -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CopyImage)
+{-# DEPRECATED ciKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | A description for the new AMI in the destination Region.
-ciDescription :: Lens' CopyImage (Maybe Text)
-ciDescription = lens _ciDescription (\s a -> s {_ciDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDescription :: Lens.Lens' CopyImage (Lude.Maybe Lude.Text)
+ciDescription = Lens.lens (description :: CopyImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopyImage)
+{-# DEPRECATED ciDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-ciDryRun :: Lens' CopyImage (Maybe Bool)
-ciDryRun = lens _ciDryRun (\s a -> s {_ciDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDryRun :: Lens.Lens' CopyImage (Lude.Maybe Lude.Bool)
+ciDryRun = Lens.lens (dryRun :: CopyImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CopyImage)
+{-# DEPRECATED ciDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the new AMI in the destination Region.
-ciName :: Lens' CopyImage Text
-ciName = lens _ciName (\s a -> s {_ciName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciName :: Lens.Lens' CopyImage Lude.Text
+ciName = Lens.lens (name :: CopyImage -> Lude.Text) (\s a -> s {name = a} :: CopyImage)
+{-# DEPRECATED ciName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the AMI to copy.
-ciSourceImageId :: Lens' CopyImage Text
-ciSourceImageId = lens _ciSourceImageId (\s a -> s {_ciSourceImageId = a})
+--
+-- /Note:/ Consider using 'sourceImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSourceImageId :: Lens.Lens' CopyImage Lude.Text
+ciSourceImageId = Lens.lens (sourceImageId :: CopyImage -> Lude.Text) (\s a -> s {sourceImageId = a} :: CopyImage)
+{-# DEPRECATED ciSourceImageId "Use generic-lens or generic-optics with 'sourceImageId' instead." #-}
 
 -- | The name of the Region that contains the AMI to copy.
-ciSourceRegion :: Lens' CopyImage Text
-ciSourceRegion = lens _ciSourceRegion (\s a -> s {_ciSourceRegion = a})
+--
+-- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSourceRegion :: Lens.Lens' CopyImage Lude.Text
+ciSourceRegion = Lens.lens (sourceRegion :: CopyImage -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopyImage)
+{-# DEPRECATED ciSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
-instance AWSRequest CopyImage where
+instance Lude.AWSRequest CopyImage where
   type Rs CopyImage = CopyImageResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
-          CopyImageResponse' <$> (x .@? "imageId") <*> (pure (fromEnum s))
+          CopyImageResponse'
+            Lude.<$> (x Lude..@? "imageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyImage
+instance Lude.ToHeaders CopyImage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CopyImage
+instance Lude.ToPath CopyImage where
+  toPath = Lude.const "/"
 
-instance ToHeaders CopyImage where
-  toHeaders = const mempty
-
-instance ToPath CopyImage where
-  toPath = const "/"
-
-instance ToQuery CopyImage where
+instance Lude.ToQuery CopyImage where
   toQuery CopyImage' {..} =
-    mconcat
-      [ "Action" =: ("CopyImage" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _ciClientToken,
-        "Encrypted" =: _ciEncrypted,
-        "KmsKeyId" =: _ciKMSKeyId,
-        "Description" =: _ciDescription,
-        "DryRun" =: _ciDryRun,
-        "Name" =: _ciName,
-        "SourceImageId" =: _ciSourceImageId,
-        "SourceRegion" =: _ciSourceRegion
+    Lude.mconcat
+      [ "Action" Lude.=: ("CopyImage" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        "Encrypted" Lude.=: encrypted,
+        "KmsKeyId" Lude.=: kmsKeyId,
+        "Description" Lude.=: description,
+        "DryRun" Lude.=: dryRun,
+        "Name" Lude.=: name,
+        "SourceImageId" Lude.=: sourceImageId,
+        "SourceRegion" Lude.=: sourceRegion
       ]
 
 -- | Contains the output of CopyImage.
 --
---
---
--- /See:/ 'copyImageResponse' smart constructor.
+-- /See:/ 'mkCopyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
-  { _ciirsImageId ::
-      !(Maybe Text),
-    _ciirsResponseStatus :: !Int
+  { imageId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciirsImageId' - The ID of the new AMI.
---
--- * 'ciirsResponseStatus' - -- | The response status code.
-copyImageResponse ::
-  -- | 'ciirsResponseStatus'
-  Int ->
+-- * 'imageId' - The ID of the new AMI.
+-- * 'responseStatus' - The response status code.
+mkCopyImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyImageResponse
-copyImageResponse pResponseStatus_ =
+mkCopyImageResponse pResponseStatus_ =
   CopyImageResponse'
-    { _ciirsImageId = Nothing,
-      _ciirsResponseStatus = pResponseStatus_
+    { imageId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the new AMI.
-ciirsImageId :: Lens' CopyImageResponse (Maybe Text)
-ciirsImageId = lens _ciirsImageId (\s a -> s {_ciirsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciirsImageId :: Lens.Lens' CopyImageResponse (Lude.Maybe Lude.Text)
+ciirsImageId = Lens.lens (imageId :: CopyImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: CopyImageResponse)
+{-# DEPRECATED ciirsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
--- | -- | The response status code.
-ciirsResponseStatus :: Lens' CopyImageResponse Int
-ciirsResponseStatus = lens _ciirsResponseStatus (\s a -> s {_ciirsResponseStatus = a})
-
-instance NFData CopyImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciirsResponseStatus :: Lens.Lens' CopyImageResponse Lude.Int
+ciirsResponseStatus = Lens.lens (responseStatus :: CopyImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyImageResponse)
+{-# DEPRECATED ciirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

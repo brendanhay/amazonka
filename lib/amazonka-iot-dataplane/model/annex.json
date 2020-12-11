@@ -1,0 +1,13 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "IoTData"
+    },
+    "shapes": {
+        "JsonDocument": {
+            "type": "json"
+        },
+        "Payload": {
+            "type": "json"
+        }
+    }
+}

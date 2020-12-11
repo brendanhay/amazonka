@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ImportStatus where
+module Network.AWS.Discovery.Types.ImportStatus
+  ( ImportStatus
+      ( ImportStatus',
+        DeleteComplete,
+        DeleteFailed,
+        DeleteFailedLimitExceeded,
+        DeleteInProgress,
+        ImportComplete,
+        ImportCompleteWithErrors,
+        ImportFailed,
+        ImportFailedRecordLimitExceeded,
+        ImportFailedServerLimitExceeded,
+        ImportInProgress,
+        InternalError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImportStatus
-  = DeleteComplete
-  | DeleteFailed
-  | DeleteFailedLimitExceeded
-  | DeleteInProgress
-  | ImportComplete
-  | ImportCompleteWithErrors
-  | ImportFailed
-  | ImportFailedRecordLimitExceeded
-  | ImportFailedServerLimitExceeded
-  | ImportInProgress
-  | InternalError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImportStatus = ImportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImportStatus where
-  parser =
-    takeLowerText >>= \case
-      "delete_complete" -> pure DeleteComplete
-      "delete_failed" -> pure DeleteFailed
-      "delete_failed_limit_exceeded" -> pure DeleteFailedLimitExceeded
-      "delete_in_progress" -> pure DeleteInProgress
-      "import_complete" -> pure ImportComplete
-      "import_complete_with_errors" -> pure ImportCompleteWithErrors
-      "import_failed" -> pure ImportFailed
-      "import_failed_record_limit_exceeded" -> pure ImportFailedRecordLimitExceeded
-      "import_failed_server_limit_exceeded" -> pure ImportFailedServerLimitExceeded
-      "import_in_progress" -> pure ImportInProgress
-      "internal_error" -> pure InternalError
-      e ->
-        fromTextError $
-          "Failure parsing ImportStatus from value: '" <> e
-            <> "'. Accepted values: delete_complete, delete_failed, delete_failed_limit_exceeded, delete_in_progress, import_complete, import_complete_with_errors, import_failed, import_failed_record_limit_exceeded, import_failed_server_limit_exceeded, import_in_progress, internal_error"
+pattern DeleteComplete :: ImportStatus
+pattern DeleteComplete = ImportStatus' "DELETE_COMPLETE"
 
-instance ToText ImportStatus where
-  toText = \case
-    DeleteComplete -> "DELETE_COMPLETE"
-    DeleteFailed -> "DELETE_FAILED"
-    DeleteFailedLimitExceeded -> "DELETE_FAILED_LIMIT_EXCEEDED"
-    DeleteInProgress -> "DELETE_IN_PROGRESS"
-    ImportComplete -> "IMPORT_COMPLETE"
-    ImportCompleteWithErrors -> "IMPORT_COMPLETE_WITH_ERRORS"
-    ImportFailed -> "IMPORT_FAILED"
-    ImportFailedRecordLimitExceeded -> "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
-    ImportFailedServerLimitExceeded -> "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED"
-    ImportInProgress -> "IMPORT_IN_PROGRESS"
-    InternalError -> "INTERNAL_ERROR"
+pattern DeleteFailed :: ImportStatus
+pattern DeleteFailed = ImportStatus' "DELETE_FAILED"
 
-instance Hashable ImportStatus
+pattern DeleteFailedLimitExceeded :: ImportStatus
+pattern DeleteFailedLimitExceeded = ImportStatus' "DELETE_FAILED_LIMIT_EXCEEDED"
 
-instance NFData ImportStatus
+pattern DeleteInProgress :: ImportStatus
+pattern DeleteInProgress = ImportStatus' "DELETE_IN_PROGRESS"
 
-instance ToByteString ImportStatus
+pattern ImportComplete :: ImportStatus
+pattern ImportComplete = ImportStatus' "IMPORT_COMPLETE"
 
-instance ToQuery ImportStatus
+pattern ImportCompleteWithErrors :: ImportStatus
+pattern ImportCompleteWithErrors = ImportStatus' "IMPORT_COMPLETE_WITH_ERRORS"
 
-instance ToHeader ImportStatus
+pattern ImportFailed :: ImportStatus
+pattern ImportFailed = ImportStatus' "IMPORT_FAILED"
 
-instance FromJSON ImportStatus where
-  parseJSON = parseJSONText "ImportStatus"
+pattern ImportFailedRecordLimitExceeded :: ImportStatus
+pattern ImportFailedRecordLimitExceeded = ImportStatus' "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
+
+pattern ImportFailedServerLimitExceeded :: ImportStatus
+pattern ImportFailedServerLimitExceeded = ImportStatus' "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED"
+
+pattern ImportInProgress :: ImportStatus
+pattern ImportInProgress = ImportStatus' "IMPORT_IN_PROGRESS"
+
+pattern InternalError :: ImportStatus
+pattern InternalError = ImportStatus' "INTERNAL_ERROR"
+
+{-# COMPLETE
+  DeleteComplete,
+  DeleteFailed,
+  DeleteFailedLimitExceeded,
+  DeleteInProgress,
+  ImportComplete,
+  ImportCompleteWithErrors,
+  ImportFailed,
+  ImportFailedRecordLimitExceeded,
+  ImportFailedServerLimitExceeded,
+  ImportInProgress,
+  InternalError,
+  ImportStatus'
+  #-}

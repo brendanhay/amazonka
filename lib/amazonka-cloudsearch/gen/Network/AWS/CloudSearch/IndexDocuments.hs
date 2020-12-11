@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,128 @@
 --
 -- Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose 'OptionStatus' is @RequiresIndexDocuments@ .
 module Network.AWS.CloudSearch.IndexDocuments
-  ( -- * Creating a Request
-    indexDocuments,
-    IndexDocuments,
+  ( -- * Creating a request
+    IndexDocuments (..),
+    mkIndexDocuments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     idDomainName,
 
-    -- * Destructuring the Response
-    indexDocumentsResponse,
-    IndexDocumentsResponse,
+    -- * Destructuring the response
+    IndexDocumentsResponse (..),
+    mkIndexDocumentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     idrsFieldNames,
     idrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'IndexDocuments' @ operation. Specifies the name of the domain you want to re-index.
 --
---
---
--- /See:/ 'indexDocuments' smart constructor.
-newtype IndexDocuments = IndexDocuments' {_idDomainName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkIndexDocuments' smart constructor.
+newtype IndexDocuments = IndexDocuments' {domainName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IndexDocuments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idDomainName' - Undocumented member.
-indexDocuments ::
-  -- | 'idDomainName'
-  Text ->
+-- * 'domainName' - Undocumented field.
+mkIndexDocuments ::
+  -- | 'domainName'
+  Lude.Text ->
   IndexDocuments
-indexDocuments pDomainName_ =
-  IndexDocuments' {_idDomainName = pDomainName_}
+mkIndexDocuments pDomainName_ =
+  IndexDocuments' {domainName = pDomainName_}
 
--- | Undocumented member.
-idDomainName :: Lens' IndexDocuments Text
-idDomainName = lens _idDomainName (\s a -> s {_idDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idDomainName :: Lens.Lens' IndexDocuments Lude.Text
+idDomainName = Lens.lens (domainName :: IndexDocuments -> Lude.Text) (\s a -> s {domainName = a} :: IndexDocuments)
+{-# DEPRECATED idDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest IndexDocuments where
+instance Lude.AWSRequest IndexDocuments where
   type Rs IndexDocuments = IndexDocumentsResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "IndexDocumentsResult"
       ( \s h x ->
           IndexDocumentsResponse'
-            <$> (x .@? "FieldNames" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "FieldNames" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable IndexDocuments
+instance Lude.ToHeaders IndexDocuments where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData IndexDocuments
+instance Lude.ToPath IndexDocuments where
+  toPath = Lude.const "/"
 
-instance ToHeaders IndexDocuments where
-  toHeaders = const mempty
-
-instance ToPath IndexDocuments where
-  toPath = const "/"
-
-instance ToQuery IndexDocuments where
+instance Lude.ToQuery IndexDocuments where
   toQuery IndexDocuments' {..} =
-    mconcat
-      [ "Action" =: ("IndexDocuments" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "DomainName" =: _idDomainName
+    Lude.mconcat
+      [ "Action" Lude.=: ("IndexDocuments" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of an @IndexDocuments@ request. Contains the status of the indexing operation, including the fields being indexed.
 --
---
---
--- /See:/ 'indexDocumentsResponse' smart constructor.
+-- /See:/ 'mkIndexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'
-  { _idrsFieldNames ::
-      !(Maybe [Text]),
-    _idrsResponseStatus :: !Int
+  { fieldNames ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IndexDocumentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idrsFieldNames' - The names of the fields that are currently being indexed.
---
--- * 'idrsResponseStatus' - -- | The response status code.
-indexDocumentsResponse ::
-  -- | 'idrsResponseStatus'
-  Int ->
+-- * 'fieldNames' - The names of the fields that are currently being indexed.
+-- * 'responseStatus' - The response status code.
+mkIndexDocumentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   IndexDocumentsResponse
-indexDocumentsResponse pResponseStatus_ =
+mkIndexDocumentsResponse pResponseStatus_ =
   IndexDocumentsResponse'
-    { _idrsFieldNames = Nothing,
-      _idrsResponseStatus = pResponseStatus_
+    { fieldNames = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of the fields that are currently being indexed.
-idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrsFieldNames = lens _idrsFieldNames (\s a -> s {_idrsFieldNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fieldNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idrsFieldNames :: Lens.Lens' IndexDocumentsResponse (Lude.Maybe [Lude.Text])
+idrsFieldNames = Lens.lens (fieldNames :: IndexDocumentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {fieldNames = a} :: IndexDocumentsResponse)
+{-# DEPRECATED idrsFieldNames "Use generic-lens or generic-optics with 'fieldNames' instead." #-}
 
--- | -- | The response status code.
-idrsResponseStatus :: Lens' IndexDocumentsResponse Int
-idrsResponseStatus = lens _idrsResponseStatus (\s a -> s {_idrsResponseStatus = a})
-
-instance NFData IndexDocumentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idrsResponseStatus :: Lens.Lens' IndexDocumentsResponse Lude.Int
+idrsResponseStatus = Lens.lens (responseStatus :: IndexDocumentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: IndexDocumentsResponse)
+{-# DEPRECATED idrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DetailedAlgorithmStatus where
+module Network.AWS.SageMaker.Types.DetailedAlgorithmStatus
+  ( DetailedAlgorithmStatus
+      ( DetailedAlgorithmStatus',
+        DASCompleted,
+        DASFailed,
+        DASInProgress,
+        DASNotStarted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DetailedAlgorithmStatus
-  = DASCompleted
-  | DASFailed
-  | DASInProgress
-  | DASNotStarted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DetailedAlgorithmStatus = DetailedAlgorithmStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DetailedAlgorithmStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure DASCompleted
-      "failed" -> pure DASFailed
-      "inprogress" -> pure DASInProgress
-      "notstarted" -> pure DASNotStarted
-      e ->
-        fromTextError $
-          "Failure parsing DetailedAlgorithmStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, notstarted"
+pattern DASCompleted :: DetailedAlgorithmStatus
+pattern DASCompleted = DetailedAlgorithmStatus' "Completed"
 
-instance ToText DetailedAlgorithmStatus where
-  toText = \case
-    DASCompleted -> "Completed"
-    DASFailed -> "Failed"
-    DASInProgress -> "InProgress"
-    DASNotStarted -> "NotStarted"
+pattern DASFailed :: DetailedAlgorithmStatus
+pattern DASFailed = DetailedAlgorithmStatus' "Failed"
 
-instance Hashable DetailedAlgorithmStatus
+pattern DASInProgress :: DetailedAlgorithmStatus
+pattern DASInProgress = DetailedAlgorithmStatus' "InProgress"
 
-instance NFData DetailedAlgorithmStatus
+pattern DASNotStarted :: DetailedAlgorithmStatus
+pattern DASNotStarted = DetailedAlgorithmStatus' "NotStarted"
 
-instance ToByteString DetailedAlgorithmStatus
-
-instance ToQuery DetailedAlgorithmStatus
-
-instance ToHeader DetailedAlgorithmStatus
-
-instance FromJSON DetailedAlgorithmStatus where
-  parseJSON = parseJSONText "DetailedAlgorithmStatus"
+{-# COMPLETE
+  DASCompleted,
+  DASFailed,
+  DASInProgress,
+  DASNotStarted,
+  DetailedAlgorithmStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,167 +14,189 @@
 --
 -- Applies a schema extension to a Microsoft AD directory.
 module Network.AWS.DirectoryService.StartSchemaExtension
-  ( -- * Creating a Request
-    startSchemaExtension,
-    StartSchemaExtension,
+  ( -- * Creating a request
+    StartSchemaExtension (..),
+    mkStartSchemaExtension,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sseDirectoryId,
     sseCreateSnapshotBeforeSchemaExtension,
     sseLdifContent,
     sseDescription,
 
-    -- * Destructuring the Response
-    startSchemaExtensionResponse,
-    StartSchemaExtensionResponse,
+    -- * Destructuring the response
+    StartSchemaExtensionResponse (..),
+    mkStartSchemaExtensionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ssersSchemaExtensionId,
     ssersResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startSchemaExtension' smart constructor.
+-- | /See:/ 'mkStartSchemaExtension' smart constructor.
 data StartSchemaExtension = StartSchemaExtension'
-  { _sseDirectoryId ::
-      !Text,
-    _sseCreateSnapshotBeforeSchemaExtension :: !Bool,
-    _sseLdifContent :: !Text,
-    _sseDescription :: !Text
+  { directoryId ::
+      Lude.Text,
+    createSnapshotBeforeSchemaExtension :: Lude.Bool,
+    ldifContent :: Lude.Text,
+    description :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaExtension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sseDirectoryId' - The identifier of the directory for which the schema extension will be applied to.
---
--- * 'sseCreateSnapshotBeforeSchemaExtension' - If true, creates a snapshot of the directory before applying the schema extension.
---
--- * 'sseLdifContent' - The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
---
--- * 'sseDescription' - A description of the schema extension.
-startSchemaExtension ::
-  -- | 'sseDirectoryId'
-  Text ->
-  -- | 'sseCreateSnapshotBeforeSchemaExtension'
-  Bool ->
-  -- | 'sseLdifContent'
-  Text ->
-  -- | 'sseDescription'
-  Text ->
+-- * 'createSnapshotBeforeSchemaExtension' - If true, creates a snapshot of the directory before applying the schema extension.
+-- * 'description' - A description of the schema extension.
+-- * 'directoryId' - The identifier of the directory for which the schema extension will be applied to.
+-- * 'ldifContent' - The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
+mkStartSchemaExtension ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'createSnapshotBeforeSchemaExtension'
+  Lude.Bool ->
+  -- | 'ldifContent'
+  Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   StartSchemaExtension
-startSchemaExtension
+mkStartSchemaExtension
   pDirectoryId_
   pCreateSnapshotBeforeSchemaExtension_
   pLdifContent_
   pDescription_ =
     StartSchemaExtension'
-      { _sseDirectoryId = pDirectoryId_,
-        _sseCreateSnapshotBeforeSchemaExtension =
+      { directoryId = pDirectoryId_,
+        createSnapshotBeforeSchemaExtension =
           pCreateSnapshotBeforeSchemaExtension_,
-        _sseLdifContent = pLdifContent_,
-        _sseDescription = pDescription_
+        ldifContent = pLdifContent_,
+        description = pDescription_
       }
 
 -- | The identifier of the directory for which the schema extension will be applied to.
-sseDirectoryId :: Lens' StartSchemaExtension Text
-sseDirectoryId = lens _sseDirectoryId (\s a -> s {_sseDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseDirectoryId :: Lens.Lens' StartSchemaExtension Lude.Text
+sseDirectoryId = Lens.lens (directoryId :: StartSchemaExtension -> Lude.Text) (\s a -> s {directoryId = a} :: StartSchemaExtension)
+{-# DEPRECATED sseDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | If true, creates a snapshot of the directory before applying the schema extension.
-sseCreateSnapshotBeforeSchemaExtension :: Lens' StartSchemaExtension Bool
-sseCreateSnapshotBeforeSchemaExtension = lens _sseCreateSnapshotBeforeSchemaExtension (\s a -> s {_sseCreateSnapshotBeforeSchemaExtension = a})
+--
+-- /Note:/ Consider using 'createSnapshotBeforeSchemaExtension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseCreateSnapshotBeforeSchemaExtension :: Lens.Lens' StartSchemaExtension Lude.Bool
+sseCreateSnapshotBeforeSchemaExtension = Lens.lens (createSnapshotBeforeSchemaExtension :: StartSchemaExtension -> Lude.Bool) (\s a -> s {createSnapshotBeforeSchemaExtension = a} :: StartSchemaExtension)
+{-# DEPRECATED sseCreateSnapshotBeforeSchemaExtension "Use generic-lens or generic-optics with 'createSnapshotBeforeSchemaExtension' instead." #-}
 
 -- | The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
-sseLdifContent :: Lens' StartSchemaExtension Text
-sseLdifContent = lens _sseLdifContent (\s a -> s {_sseLdifContent = a})
+--
+-- /Note:/ Consider using 'ldifContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseLdifContent :: Lens.Lens' StartSchemaExtension Lude.Text
+sseLdifContent = Lens.lens (ldifContent :: StartSchemaExtension -> Lude.Text) (\s a -> s {ldifContent = a} :: StartSchemaExtension)
+{-# DEPRECATED sseLdifContent "Use generic-lens or generic-optics with 'ldifContent' instead." #-}
 
 -- | A description of the schema extension.
-sseDescription :: Lens' StartSchemaExtension Text
-sseDescription = lens _sseDescription (\s a -> s {_sseDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseDescription :: Lens.Lens' StartSchemaExtension Lude.Text
+sseDescription = Lens.lens (description :: StartSchemaExtension -> Lude.Text) (\s a -> s {description = a} :: StartSchemaExtension)
+{-# DEPRECATED sseDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance AWSRequest StartSchemaExtension where
+instance Lude.AWSRequest StartSchemaExtension where
   type Rs StartSchemaExtension = StartSchemaExtensionResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartSchemaExtensionResponse'
-            <$> (x .?> "SchemaExtensionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SchemaExtensionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartSchemaExtension
-
-instance NFData StartSchemaExtension
-
-instance ToHeaders StartSchemaExtension where
+instance Lude.ToHeaders StartSchemaExtension where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.StartSchemaExtension" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.StartSchemaExtension" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartSchemaExtension where
+instance Lude.ToJSON StartSchemaExtension where
   toJSON StartSchemaExtension' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _sseDirectoryId),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just
               ( "CreateSnapshotBeforeSchemaExtension"
-                  .= _sseCreateSnapshotBeforeSchemaExtension
+                  Lude..= createSnapshotBeforeSchemaExtension
               ),
-            Just ("LdifContent" .= _sseLdifContent),
-            Just ("Description" .= _sseDescription)
+            Lude.Just ("LdifContent" Lude..= ldifContent),
+            Lude.Just ("Description" Lude..= description)
           ]
       )
 
-instance ToPath StartSchemaExtension where
-  toPath = const "/"
+instance Lude.ToPath StartSchemaExtension where
+  toPath = Lude.const "/"
 
-instance ToQuery StartSchemaExtension where
-  toQuery = const mempty
+instance Lude.ToQuery StartSchemaExtension where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startSchemaExtensionResponse' smart constructor.
+-- | /See:/ 'mkStartSchemaExtensionResponse' smart constructor.
 data StartSchemaExtensionResponse = StartSchemaExtensionResponse'
-  { _ssersSchemaExtensionId ::
-      !(Maybe Text),
-    _ssersResponseStatus :: !Int
+  { schemaExtensionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaExtensionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssersSchemaExtensionId' - The identifier of the schema extension that will be applied.
---
--- * 'ssersResponseStatus' - -- | The response status code.
-startSchemaExtensionResponse ::
-  -- | 'ssersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'schemaExtensionId' - The identifier of the schema extension that will be applied.
+mkStartSchemaExtensionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartSchemaExtensionResponse
-startSchemaExtensionResponse pResponseStatus_ =
+mkStartSchemaExtensionResponse pResponseStatus_ =
   StartSchemaExtensionResponse'
-    { _ssersSchemaExtensionId = Nothing,
-      _ssersResponseStatus = pResponseStatus_
+    { schemaExtensionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the schema extension that will be applied.
-ssersSchemaExtensionId :: Lens' StartSchemaExtensionResponse (Maybe Text)
-ssersSchemaExtensionId = lens _ssersSchemaExtensionId (\s a -> s {_ssersSchemaExtensionId = a})
+--
+-- /Note:/ Consider using 'schemaExtensionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersSchemaExtensionId :: Lens.Lens' StartSchemaExtensionResponse (Lude.Maybe Lude.Text)
+ssersSchemaExtensionId = Lens.lens (schemaExtensionId :: StartSchemaExtensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaExtensionId = a} :: StartSchemaExtensionResponse)
+{-# DEPRECATED ssersSchemaExtensionId "Use generic-lens or generic-optics with 'schemaExtensionId' instead." #-}
 
--- | -- | The response status code.
-ssersResponseStatus :: Lens' StartSchemaExtensionResponse Int
-ssersResponseStatus = lens _ssersResponseStatus (\s a -> s {_ssersResponseStatus = a})
-
-instance NFData StartSchemaExtensionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersResponseStatus :: Lens.Lens' StartSchemaExtensionResponse Lude.Int
+ssersResponseStatus = Lens.lens (responseStatus :: StartSchemaExtensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSchemaExtensionResponse)
+{-# DEPRECATED ssersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

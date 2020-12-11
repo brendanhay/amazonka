@@ -28,241 +28,241 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDeleteIntentVersion $
---             deleteIntentVersion
+--             mkDeleteIntentVersion
 --
 --         , requestGetBotAliases $
---             getBotAliases
+--             mkGetBotAliases
 --
 --         , requestDeleteBotChannelAssociation $
---             deleteBotChannelAssociation
+--             mkDeleteBotChannelAssociation
 --
 --         , requestCreateSlotTypeVersion $
---             createSlotTypeVersion
+--             mkCreateSlotTypeVersion
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestGetIntent $
---             getIntent
+--             mkGetIntent
 --
 --         , requestPutIntent $
---             putIntent
+--             mkPutIntent
 --
 --         , requestDeleteIntent $
---             deleteIntent
+--             mkDeleteIntent
 --
 --         , requestGetBuiltinIntents $
---             getBuiltinIntents
+--             mkGetBuiltinIntents
 --
 --         , requestPutBot $
---             putBot
+--             mkPutBot
 --
 --         , requestDeleteBot $
---             deleteBot
+--             mkDeleteBot
 --
 --         , requestGetImport $
---             getImport
+--             mkGetImport
 --
 --         , requestGetIntentVersions $
---             getIntentVersions
+--             mkGetIntentVersions
 --
 --         , requestGetBuiltinIntent $
---             getBuiltinIntent
+--             mkGetBuiltinIntent
 --
 --         , requestPutBotAlias $
---             putBotAlias
+--             mkPutBotAlias
 --
 --         , requestGetBotVersions $
---             getBotVersions
+--             mkGetBotVersions
 --
 --         , requestGetBotChannelAssociations $
---             getBotChannelAssociations
+--             mkGetBotChannelAssociations
 --
 --         , requestDeleteBotAlias $
---             deleteBotAlias
+--             mkDeleteBotAlias
 --
 --         , requestGetSlotTypes $
---             getSlotTypes
+--             mkGetSlotTypes
 --
 --         , requestDeleteUtterances $
---             deleteUtterances
+--             mkDeleteUtterances
 --
 --         , requestGetBots $
---             getBots
+--             mkGetBots
 --
 --         , requestGetBot $
---             getBot
+--             mkGetBot
 --
 --         , requestCreateBotVersion $
---             createBotVersion
+--             mkCreateBotVersion
 --
 --         , requestDeleteSlotTypeVersion $
---             deleteSlotTypeVersion
+--             mkDeleteSlotTypeVersion
 --
 --         , requestDeleteBotVersion $
---             deleteBotVersion
+--             mkDeleteBotVersion
 --
 --         , requestGetSlotType $
---             getSlotType
+--             mkGetSlotType
 --
 --         , requestGetExport $
---             getExport
+--             mkGetExport
 --
 --         , requestCreateIntentVersion $
---             createIntentVersion
+--             mkCreateIntentVersion
 --
 --         , requestDeleteSlotType $
---             deleteSlotType
+--             mkDeleteSlotType
 --
 --         , requestStartImport $
---             startImport
+--             mkStartImport
 --
 --         , requestGetBotChannelAssociation $
---             getBotChannelAssociation
+--             mkGetBotChannelAssociation
 --
 --         , requestPutSlotType $
---             putSlotType
+--             mkPutSlotType
 --
 --         , requestGetBuiltinSlotTypes $
---             getBuiltinSlotTypes
+--             mkGetBuiltinSlotTypes
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestGetUtterancesView $
---             getUtterancesView
+--             mkGetUtterancesView
 --
 --         , requestGetSlotTypeVersions $
---             getSlotTypeVersions
+--             mkGetSlotTypeVersions
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestGetIntents $
---             getIntents
+--             mkGetIntents
 --
 --         , requestGetBotAlias $
---             getBotAlias
+--             mkGetBotAlias
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDeleteIntentVersion $
---             deleteIntentVersionResponse
+--             mkDeleteIntentVersionResponse
 --
 --         , responseGetBotAliases $
---             getBotAliasesResponse
+--             mkGetBotAliasesResponse
 --
 --         , responseDeleteBotChannelAssociation $
---             deleteBotChannelAssociationResponse
+--             mkDeleteBotChannelAssociationResponse
 --
 --         , responseCreateSlotTypeVersion $
---             createSlotTypeVersionResponse
+--             mkCreateSlotTypeVersionResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseGetIntent $
---             getIntentResponse
+--             mkGetIntentResponse
 --
 --         , responsePutIntent $
---             putIntentResponse
+--             mkPutIntentResponse
 --
 --         , responseDeleteIntent $
---             deleteIntentResponse
+--             mkDeleteIntentResponse
 --
 --         , responseGetBuiltinIntents $
---             getBuiltinIntentsResponse
+--             mkGetBuiltinIntentsResponse
 --
 --         , responsePutBot $
---             putBotResponse
+--             mkPutBotResponse
 --
 --         , responseDeleteBot $
---             deleteBotResponse
+--             mkDeleteBotResponse
 --
 --         , responseGetImport $
---             getImportResponse
+--             mkGetImportResponse
 --
 --         , responseGetIntentVersions $
---             getIntentVersionsResponse
+--             mkGetIntentVersionsResponse
 --
 --         , responseGetBuiltinIntent $
---             getBuiltinIntentResponse
+--             mkGetBuiltinIntentResponse
 --
 --         , responsePutBotAlias $
---             putBotAliasResponse
+--             mkPutBotAliasResponse
 --
 --         , responseGetBotVersions $
---             getBotVersionsResponse
+--             mkGetBotVersionsResponse
 --
 --         , responseGetBotChannelAssociations $
---             getBotChannelAssociationsResponse
+--             mkGetBotChannelAssociationsResponse
 --
 --         , responseDeleteBotAlias $
---             deleteBotAliasResponse
+--             mkDeleteBotAliasResponse
 --
 --         , responseGetSlotTypes $
---             getSlotTypesResponse
+--             mkGetSlotTypesResponse
 --
 --         , responseDeleteUtterances $
---             deleteUtterancesResponse
+--             mkDeleteUtterancesResponse
 --
 --         , responseGetBots $
---             getBotsResponse
+--             mkGetBotsResponse
 --
 --         , responseGetBot $
---             getBotResponse
+--             mkGetBotResponse
 --
 --         , responseCreateBotVersion $
---             createBotVersionResponse
+--             mkCreateBotVersionResponse
 --
 --         , responseDeleteSlotTypeVersion $
---             deleteSlotTypeVersionResponse
+--             mkDeleteSlotTypeVersionResponse
 --
 --         , responseDeleteBotVersion $
---             deleteBotVersionResponse
+--             mkDeleteBotVersionResponse
 --
 --         , responseGetSlotType $
---             getSlotTypeResponse
+--             mkGetSlotTypeResponse
 --
 --         , responseGetExport $
---             getExportResponse
+--             mkGetExportResponse
 --
 --         , responseCreateIntentVersion $
---             createIntentVersionResponse
+--             mkCreateIntentVersionResponse
 --
 --         , responseDeleteSlotType $
---             deleteSlotTypeResponse
+--             mkDeleteSlotTypeResponse
 --
 --         , responseStartImport $
---             startImportResponse
+--             mkStartImportResponse
 --
 --         , responseGetBotChannelAssociation $
---             getBotChannelAssociationResponse
+--             mkGetBotChannelAssociationResponse
 --
 --         , responsePutSlotType $
---             putSlotTypeResponse
+--             mkPutSlotTypeResponse
 --
 --         , responseGetBuiltinSlotTypes $
---             getBuiltinSlotTypesResponse
+--             mkGetBuiltinSlotTypesResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseGetUtterancesView $
---             getUtterancesViewResponse
+--             mkGetUtterancesViewResponse
 --
 --         , responseGetSlotTypeVersions $
---             getSlotTypeVersionsResponse
+--             mkGetSlotTypeVersionsResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseGetIntents $
---             getIntentsResponse
+--             mkGetIntentsResponse
 --
 --         , responseGetBotAlias $
---             getBotAliasResponse
+--             mkGetBotAliasResponse
 --
 --           ]
 --     ]
@@ -510,7 +510,7 @@ responseDeleteIntentVersion =
   res
     "DeleteIntentVersionResponse"
     "fixture/DeleteIntentVersionResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteIntentVersion)
 
 responseGetBotAliases :: GetBotAliasesResponse -> TestTree
@@ -518,7 +518,7 @@ responseGetBotAliases =
   res
     "GetBotAliasesResponse"
     "fixture/GetBotAliasesResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBotAliases)
 
 responseDeleteBotChannelAssociation :: DeleteBotChannelAssociationResponse -> TestTree
@@ -526,7 +526,7 @@ responseDeleteBotChannelAssociation =
   res
     "DeleteBotChannelAssociationResponse"
     "fixture/DeleteBotChannelAssociationResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteBotChannelAssociation)
 
 responseCreateSlotTypeVersion :: CreateSlotTypeVersionResponse -> TestTree
@@ -534,7 +534,7 @@ responseCreateSlotTypeVersion =
   res
     "CreateSlotTypeVersionResponse"
     "fixture/CreateSlotTypeVersionResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy CreateSlotTypeVersion)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -542,7 +542,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetIntent :: GetIntentResponse -> TestTree
@@ -550,7 +550,7 @@ responseGetIntent =
   res
     "GetIntentResponse"
     "fixture/GetIntentResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetIntent)
 
 responsePutIntent :: PutIntentResponse -> TestTree
@@ -558,7 +558,7 @@ responsePutIntent =
   res
     "PutIntentResponse"
     "fixture/PutIntentResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy PutIntent)
 
 responseDeleteIntent :: DeleteIntentResponse -> TestTree
@@ -566,7 +566,7 @@ responseDeleteIntent =
   res
     "DeleteIntentResponse"
     "fixture/DeleteIntentResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteIntent)
 
 responseGetBuiltinIntents :: GetBuiltinIntentsResponse -> TestTree
@@ -574,7 +574,7 @@ responseGetBuiltinIntents =
   res
     "GetBuiltinIntentsResponse"
     "fixture/GetBuiltinIntentsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBuiltinIntents)
 
 responsePutBot :: PutBotResponse -> TestTree
@@ -582,7 +582,7 @@ responsePutBot =
   res
     "PutBotResponse"
     "fixture/PutBotResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy PutBot)
 
 responseDeleteBot :: DeleteBotResponse -> TestTree
@@ -590,7 +590,7 @@ responseDeleteBot =
   res
     "DeleteBotResponse"
     "fixture/DeleteBotResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteBot)
 
 responseGetImport :: GetImportResponse -> TestTree
@@ -598,7 +598,7 @@ responseGetImport =
   res
     "GetImportResponse"
     "fixture/GetImportResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetImport)
 
 responseGetIntentVersions :: GetIntentVersionsResponse -> TestTree
@@ -606,7 +606,7 @@ responseGetIntentVersions =
   res
     "GetIntentVersionsResponse"
     "fixture/GetIntentVersionsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetIntentVersions)
 
 responseGetBuiltinIntent :: GetBuiltinIntentResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetBuiltinIntent =
   res
     "GetBuiltinIntentResponse"
     "fixture/GetBuiltinIntentResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBuiltinIntent)
 
 responsePutBotAlias :: PutBotAliasResponse -> TestTree
@@ -622,7 +622,7 @@ responsePutBotAlias =
   res
     "PutBotAliasResponse"
     "fixture/PutBotAliasResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy PutBotAlias)
 
 responseGetBotVersions :: GetBotVersionsResponse -> TestTree
@@ -630,7 +630,7 @@ responseGetBotVersions =
   res
     "GetBotVersionsResponse"
     "fixture/GetBotVersionsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBotVersions)
 
 responseGetBotChannelAssociations :: GetBotChannelAssociationsResponse -> TestTree
@@ -638,7 +638,7 @@ responseGetBotChannelAssociations =
   res
     "GetBotChannelAssociationsResponse"
     "fixture/GetBotChannelAssociationsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBotChannelAssociations)
 
 responseDeleteBotAlias :: DeleteBotAliasResponse -> TestTree
@@ -646,7 +646,7 @@ responseDeleteBotAlias =
   res
     "DeleteBotAliasResponse"
     "fixture/DeleteBotAliasResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteBotAlias)
 
 responseGetSlotTypes :: GetSlotTypesResponse -> TestTree
@@ -654,7 +654,7 @@ responseGetSlotTypes =
   res
     "GetSlotTypesResponse"
     "fixture/GetSlotTypesResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetSlotTypes)
 
 responseDeleteUtterances :: DeleteUtterancesResponse -> TestTree
@@ -662,7 +662,7 @@ responseDeleteUtterances =
   res
     "DeleteUtterancesResponse"
     "fixture/DeleteUtterancesResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteUtterances)
 
 responseGetBots :: GetBotsResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetBots =
   res
     "GetBotsResponse"
     "fixture/GetBotsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBots)
 
 responseGetBot :: GetBotResponse -> TestTree
@@ -678,7 +678,7 @@ responseGetBot =
   res
     "GetBotResponse"
     "fixture/GetBotResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBot)
 
 responseCreateBotVersion :: CreateBotVersionResponse -> TestTree
@@ -686,7 +686,7 @@ responseCreateBotVersion =
   res
     "CreateBotVersionResponse"
     "fixture/CreateBotVersionResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy CreateBotVersion)
 
 responseDeleteSlotTypeVersion :: DeleteSlotTypeVersionResponse -> TestTree
@@ -694,7 +694,7 @@ responseDeleteSlotTypeVersion =
   res
     "DeleteSlotTypeVersionResponse"
     "fixture/DeleteSlotTypeVersionResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteSlotTypeVersion)
 
 responseDeleteBotVersion :: DeleteBotVersionResponse -> TestTree
@@ -702,7 +702,7 @@ responseDeleteBotVersion =
   res
     "DeleteBotVersionResponse"
     "fixture/DeleteBotVersionResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteBotVersion)
 
 responseGetSlotType :: GetSlotTypeResponse -> TestTree
@@ -710,7 +710,7 @@ responseGetSlotType =
   res
     "GetSlotTypeResponse"
     "fixture/GetSlotTypeResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetSlotType)
 
 responseGetExport :: GetExportResponse -> TestTree
@@ -718,7 +718,7 @@ responseGetExport =
   res
     "GetExportResponse"
     "fixture/GetExportResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetExport)
 
 responseCreateIntentVersion :: CreateIntentVersionResponse -> TestTree
@@ -726,7 +726,7 @@ responseCreateIntentVersion =
   res
     "CreateIntentVersionResponse"
     "fixture/CreateIntentVersionResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy CreateIntentVersion)
 
 responseDeleteSlotType :: DeleteSlotTypeResponse -> TestTree
@@ -734,7 +734,7 @@ responseDeleteSlotType =
   res
     "DeleteSlotTypeResponse"
     "fixture/DeleteSlotTypeResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy DeleteSlotType)
 
 responseStartImport :: StartImportResponse -> TestTree
@@ -742,7 +742,7 @@ responseStartImport =
   res
     "StartImportResponse"
     "fixture/StartImportResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy StartImport)
 
 responseGetBotChannelAssociation :: GetBotChannelAssociationResponse -> TestTree
@@ -750,7 +750,7 @@ responseGetBotChannelAssociation =
   res
     "GetBotChannelAssociationResponse"
     "fixture/GetBotChannelAssociationResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBotChannelAssociation)
 
 responsePutSlotType :: PutSlotTypeResponse -> TestTree
@@ -758,7 +758,7 @@ responsePutSlotType =
   res
     "PutSlotTypeResponse"
     "fixture/PutSlotTypeResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy PutSlotType)
 
 responseGetBuiltinSlotTypes :: GetBuiltinSlotTypesResponse -> TestTree
@@ -766,7 +766,7 @@ responseGetBuiltinSlotTypes =
   res
     "GetBuiltinSlotTypesResponse"
     "fixture/GetBuiltinSlotTypesResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBuiltinSlotTypes)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -774,7 +774,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy TagResource)
 
 responseGetUtterancesView :: GetUtterancesViewResponse -> TestTree
@@ -782,7 +782,7 @@ responseGetUtterancesView =
   res
     "GetUtterancesViewResponse"
     "fixture/GetUtterancesViewResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetUtterancesView)
 
 responseGetSlotTypeVersions :: GetSlotTypeVersionsResponse -> TestTree
@@ -790,7 +790,7 @@ responseGetSlotTypeVersions =
   res
     "GetSlotTypeVersionsResponse"
     "fixture/GetSlotTypeVersionsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetSlotTypeVersions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -798,7 +798,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy UntagResource)
 
 responseGetIntents :: GetIntentsResponse -> TestTree
@@ -806,7 +806,7 @@ responseGetIntents =
   res
     "GetIntentsResponse"
     "fixture/GetIntentsResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetIntents)
 
 responseGetBotAlias :: GetBotAliasResponse -> TestTree
@@ -814,5 +814,5 @@ responseGetBotAlias =
   res
     "GetBotAliasResponse"
     "fixture/GetBotAliasResponse.proto"
-    lexModels
+    lexModelsService
     (Proxy :: Proxy GetBotAlias)

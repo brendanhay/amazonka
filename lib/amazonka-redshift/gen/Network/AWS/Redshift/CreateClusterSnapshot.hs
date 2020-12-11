@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,208 @@
 --
 -- Creates a manual snapshot of the specified cluster. The cluster must be in the @available@ state.
 --
---
 -- For more information about working with snapshots, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.CreateClusterSnapshot
-  ( -- * Creating a Request
-    createClusterSnapshot,
-    CreateClusterSnapshot,
+  ( -- * Creating a request
+    CreateClusterSnapshot (..),
+    mkCreateClusterSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccsManualSnapshotRetentionPeriod,
     ccsTags,
     ccsSnapshotIdentifier,
     ccsClusterIdentifier,
 
-    -- * Destructuring the Response
-    createClusterSnapshotResponse,
-    CreateClusterSnapshotResponse,
+    -- * Destructuring the response
+    CreateClusterSnapshotResponse (..),
+    mkCreateClusterSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crersSnapshot,
     crersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createClusterSnapshot' smart constructor.
+-- /See:/ 'mkCreateClusterSnapshot' smart constructor.
 data CreateClusterSnapshot = CreateClusterSnapshot'
-  { _ccsManualSnapshotRetentionPeriod ::
-      !(Maybe Int),
-    _ccsTags :: !(Maybe [Tag]),
-    _ccsSnapshotIdentifier :: !Text,
-    _ccsClusterIdentifier :: !Text
+  { manualSnapshotRetentionPeriod ::
+      Lude.Maybe Lude.Int,
+    tags :: Lude.Maybe [Tag],
+    snapshotIdentifier :: Lude.Text,
+    clusterIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The cluster identifier for which you want a snapshot.
+-- * 'manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
 --
--- * 'ccsManualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- The default value is -1.
+-- * 'snapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.
 --
--- * 'ccsTags' - A list of tag instances.
+-- Constraints:
 --
--- * 'ccsSnapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+--     * Cannot be null, empty, or blank
 --
--- * 'ccsClusterIdentifier' - The cluster identifier for which you want a snapshot.
-createClusterSnapshot ::
-  -- | 'ccsSnapshotIdentifier'
-  Text ->
-  -- | 'ccsClusterIdentifier'
-  Text ->
+--
+--     * Must contain from 1 to 255 alphanumeric characters or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @my-snapshot-id@
+-- * 'tags' - A list of tag instances.
+mkCreateClusterSnapshot ::
+  -- | 'snapshotIdentifier'
+  Lude.Text ->
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   CreateClusterSnapshot
-createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
+mkCreateClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
   CreateClusterSnapshot'
-    { _ccsManualSnapshotRetentionPeriod =
-        Nothing,
-      _ccsTags = Nothing,
-      _ccsSnapshotIdentifier = pSnapshotIdentifier_,
-      _ccsClusterIdentifier = pClusterIdentifier_
+    { manualSnapshotRetentionPeriod =
+        Lude.Nothing,
+      tags = Lude.Nothing,
+      snapshotIdentifier = pSnapshotIdentifier_,
+      clusterIdentifier = pClusterIdentifier_
     }
 
--- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
-ccsManualSnapshotRetentionPeriod :: Lens' CreateClusterSnapshot (Maybe Int)
-ccsManualSnapshotRetentionPeriod = lens _ccsManualSnapshotRetentionPeriod (\s a -> s {_ccsManualSnapshotRetentionPeriod = a})
+-- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- The default value is -1.
+--
+-- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsManualSnapshotRetentionPeriod :: Lens.Lens' CreateClusterSnapshot (Lude.Maybe Lude.Int)
+ccsManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: CreateClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: CreateClusterSnapshot)
+{-# DEPRECATED ccsManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
 -- | A list of tag instances.
-ccsTags :: Lens' CreateClusterSnapshot [Tag]
-ccsTags = lens _ccsTags (\s a -> s {_ccsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsTags :: Lens.Lens' CreateClusterSnapshot (Lude.Maybe [Tag])
+ccsTags = Lens.lens (tags :: CreateClusterSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateClusterSnapshot)
+{-# DEPRECATED ccsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
-ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
-ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\s a -> s {_ccsSnapshotIdentifier = a})
+-- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.
+--
+-- Constraints:
+--
+--     * Cannot be null, empty, or blank
+--
+--
+--     * Must contain from 1 to 255 alphanumeric characters or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @my-snapshot-id@
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsSnapshotIdentifier :: Lens.Lens' CreateClusterSnapshot Lude.Text
+ccsSnapshotIdentifier = Lens.lens (snapshotIdentifier :: CreateClusterSnapshot -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: CreateClusterSnapshot)
+{-# DEPRECATED ccsSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
 
 -- | The cluster identifier for which you want a snapshot.
-ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
-ccsClusterIdentifier = lens _ccsClusterIdentifier (\s a -> s {_ccsClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsClusterIdentifier :: Lens.Lens' CreateClusterSnapshot Lude.Text
+ccsClusterIdentifier = Lens.lens (clusterIdentifier :: CreateClusterSnapshot -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: CreateClusterSnapshot)
+{-# DEPRECATED ccsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest CreateClusterSnapshot where
+instance Lude.AWSRequest CreateClusterSnapshot where
   type Rs CreateClusterSnapshot = CreateClusterSnapshotResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateClusterSnapshotResult"
       ( \s h x ->
           CreateClusterSnapshotResponse'
-            <$> (x .@? "Snapshot") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Snapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateClusterSnapshot
+instance Lude.ToHeaders CreateClusterSnapshot where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateClusterSnapshot
+instance Lude.ToPath CreateClusterSnapshot where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateClusterSnapshot where
-  toHeaders = const mempty
-
-instance ToPath CreateClusterSnapshot where
-  toPath = const "/"
-
-instance ToQuery CreateClusterSnapshot where
+instance Lude.ToQuery CreateClusterSnapshot where
   toQuery CreateClusterSnapshot' {..} =
-    mconcat
-      [ "Action" =: ("CreateClusterSnapshot" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateClusterSnapshot" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
         "ManualSnapshotRetentionPeriod"
-          =: _ccsManualSnapshotRetentionPeriod,
-        "Tags" =: toQuery (toQueryList "Tag" <$> _ccsTags),
-        "SnapshotIdentifier" =: _ccsSnapshotIdentifier,
-        "ClusterIdentifier" =: _ccsClusterIdentifier
+          Lude.=: manualSnapshotRetentionPeriod,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "SnapshotIdentifier" Lude.=: snapshotIdentifier,
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'createClusterSnapshotResponse' smart constructor.
+-- | /See:/ 'mkCreateClusterSnapshotResponse' smart constructor.
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-  { _crersSnapshot ::
-      !(Maybe Snapshot),
-    _crersResponseStatus :: !Int
+  { snapshot ::
+      Lude.Maybe Snapshot,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crersSnapshot' - Undocumented member.
---
--- * 'crersResponseStatus' - -- | The response status code.
-createClusterSnapshotResponse ::
-  -- | 'crersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'snapshot' - Undocumented field.
+mkCreateClusterSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateClusterSnapshotResponse
-createClusterSnapshotResponse pResponseStatus_ =
+mkCreateClusterSnapshotResponse pResponseStatus_ =
   CreateClusterSnapshotResponse'
-    { _crersSnapshot = Nothing,
-      _crersResponseStatus = pResponseStatus_
+    { snapshot = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-crersSnapshot = lens _crersSnapshot (\s a -> s {_crersSnapshot = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersSnapshot :: Lens.Lens' CreateClusterSnapshotResponse (Lude.Maybe Snapshot)
+crersSnapshot = Lens.lens (snapshot :: CreateClusterSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: CreateClusterSnapshotResponse)
+{-# DEPRECATED crersSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
--- | -- | The response status code.
-crersResponseStatus :: Lens' CreateClusterSnapshotResponse Int
-crersResponseStatus = lens _crersResponseStatus (\s a -> s {_crersResponseStatus = a})
-
-instance NFData CreateClusterSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersResponseStatus :: Lens.Lens' CreateClusterSnapshotResponse Lude.Int
+crersResponseStatus = Lens.lens (responseStatus :: CreateClusterSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateClusterSnapshotResponse)
+{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

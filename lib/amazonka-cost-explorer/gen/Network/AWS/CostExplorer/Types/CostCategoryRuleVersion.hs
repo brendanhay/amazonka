@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategoryRuleVersion where
+module Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
+  ( CostCategoryRuleVersion
+      ( CostCategoryRuleVersion',
+        CostCategoryExpression_V1
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The rule schema version in this particular Cost Category.
-data CostCategoryRuleVersion = CostCategoryExpression_V1
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CostCategoryRuleVersion = CostCategoryRuleVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CostCategoryRuleVersion where
-  parser =
-    takeLowerText >>= \case
-      "costcategoryexpression.v1" -> pure CostCategoryExpression_V1
-      e ->
-        fromTextError $
-          "Failure parsing CostCategoryRuleVersion from value: '" <> e
-            <> "'. Accepted values: costcategoryexpression.v1"
+pattern CostCategoryExpression_V1 :: CostCategoryRuleVersion
+pattern CostCategoryExpression_V1 = CostCategoryRuleVersion' "CostCategoryExpression.v1"
 
-instance ToText CostCategoryRuleVersion where
-  toText = \case
-    CostCategoryExpression_V1 -> "CostCategoryExpression.v1"
-
-instance Hashable CostCategoryRuleVersion
-
-instance NFData CostCategoryRuleVersion
-
-instance ToByteString CostCategoryRuleVersion
-
-instance ToQuery CostCategoryRuleVersion
-
-instance ToHeader CostCategoryRuleVersion
-
-instance ToJSON CostCategoryRuleVersion where
-  toJSON = toJSONText
-
-instance FromJSON CostCategoryRuleVersion where
-  parseJSON = parseJSONText "CostCategoryRuleVersion"
+{-# COMPLETE
+  CostCategoryExpression_V1,
+  CostCategoryRuleVersion'
+  #-}

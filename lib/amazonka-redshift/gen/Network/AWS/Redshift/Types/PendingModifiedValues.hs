@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,135 +7,182 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.PendingModifiedValues where
+module Network.AWS.Redshift.Types.PendingModifiedValues
+  ( PendingModifiedValues (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingModifiedValues,
+
+    -- * Lenses
+    pmvEncryptionType,
+    pmvEnhancedVPCRouting,
+    pmvMasterUserPassword,
+    pmvPubliclyAccessible,
+    pmvMaintenanceTrackName,
+    pmvAutomatedSnapshotRetentionPeriod,
+    pmvClusterIdentifier,
+    pmvNumberOfNodes,
+    pmvClusterType,
+    pmvClusterVersion,
+    pmvNodeType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes cluster attributes that are in a pending state. A change to one or more the attributes was requested and is in progress or will be applied.
 --
---
---
--- /See:/ 'pendingModifiedValues' smart constructor.
+-- /See:/ 'mkPendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { _pmvEncryptionType ::
-      !(Maybe Text),
-    _pmvEnhancedVPCRouting :: !(Maybe Bool),
-    _pmvMasterUserPassword :: !(Maybe Text),
-    _pmvPubliclyAccessible :: !(Maybe Bool),
-    _pmvMaintenanceTrackName :: !(Maybe Text),
-    _pmvAutomatedSnapshotRetentionPeriod ::
-      !(Maybe Int),
-    _pmvClusterIdentifier :: !(Maybe Text),
-    _pmvNumberOfNodes :: !(Maybe Int),
-    _pmvClusterType :: !(Maybe Text),
-    _pmvClusterVersion :: !(Maybe Text),
-    _pmvNodeType :: !(Maybe Text)
+  { encryptionType ::
+      Lude.Maybe Lude.Text,
+    enhancedVPCRouting :: Lude.Maybe Lude.Bool,
+    masterUserPassword :: Lude.Maybe Lude.Text,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    maintenanceTrackName :: Lude.Maybe Lude.Text,
+    automatedSnapshotRetentionPeriod ::
+      Lude.Maybe Lude.Int,
+    clusterIdentifier :: Lude.Maybe Lude.Text,
+    numberOfNodes :: Lude.Maybe Lude.Int,
+    clusterType :: Lude.Maybe Lude.Text,
+    clusterVersion :: Lude.Maybe Lude.Text,
+    nodeType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'automatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention period.
+-- * 'clusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.
+-- * 'clusterType' - The pending or in-progress change of the cluster type.
+-- * 'clusterVersion' - The pending or in-progress change of the service version.
+-- * 'encryptionType' - The encryption type for a cluster. Possible values are: KMS and None.
+-- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
 --
--- * 'pmvEncryptionType' - The encryption type for a cluster. Possible values are: KMS and None.
---
--- * 'pmvEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
---
--- * 'pmvMasterUserPassword' - The pending or in-progress change of the master user password for the cluster.
---
--- * 'pmvPubliclyAccessible' - The pending or in-progress change of the ability to connect to the cluster from the public network.
---
--- * 'pmvMaintenanceTrackName' - The name of the maintenance track that the cluster will change to during the next maintenance window.
---
--- * 'pmvAutomatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention period.
---
--- * 'pmvClusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.
---
--- * 'pmvNumberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.
---
--- * 'pmvClusterType' - The pending or in-progress change of the cluster type.
---
--- * 'pmvClusterVersion' - The pending or in-progress change of the service version.
---
--- * 'pmvNodeType' - The pending or in-progress change of the cluster's node type.
-pendingModifiedValues ::
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+-- * 'maintenanceTrackName' - The name of the maintenance track that the cluster will change to during the next maintenance window.
+-- * 'masterUserPassword' - The pending or in-progress change of the master user password for the cluster.
+-- * 'nodeType' - The pending or in-progress change of the cluster's node type.
+-- * 'numberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.
+-- * 'publiclyAccessible' - The pending or in-progress change of the ability to connect to the cluster from the public network.
+mkPendingModifiedValues ::
   PendingModifiedValues
-pendingModifiedValues =
+mkPendingModifiedValues =
   PendingModifiedValues'
-    { _pmvEncryptionType = Nothing,
-      _pmvEnhancedVPCRouting = Nothing,
-      _pmvMasterUserPassword = Nothing,
-      _pmvPubliclyAccessible = Nothing,
-      _pmvMaintenanceTrackName = Nothing,
-      _pmvAutomatedSnapshotRetentionPeriod = Nothing,
-      _pmvClusterIdentifier = Nothing,
-      _pmvNumberOfNodes = Nothing,
-      _pmvClusterType = Nothing,
-      _pmvClusterVersion = Nothing,
-      _pmvNodeType = Nothing
+    { encryptionType = Lude.Nothing,
+      enhancedVPCRouting = Lude.Nothing,
+      masterUserPassword = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      maintenanceTrackName = Lude.Nothing,
+      automatedSnapshotRetentionPeriod = Lude.Nothing,
+      clusterIdentifier = Lude.Nothing,
+      numberOfNodes = Lude.Nothing,
+      clusterType = Lude.Nothing,
+      clusterVersion = Lude.Nothing,
+      nodeType = Lude.Nothing
     }
 
 -- | The encryption type for a cluster. Possible values are: KMS and None.
-pmvEncryptionType :: Lens' PendingModifiedValues (Maybe Text)
-pmvEncryptionType = lens _pmvEncryptionType (\s a -> s {_pmvEncryptionType = a})
+--
+-- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvEncryptionType :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvEncryptionType = Lens.lens (encryptionType :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {encryptionType = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
--- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
-pmvEnhancedVPCRouting :: Lens' PendingModifiedValues (Maybe Bool)
-pmvEnhancedVPCRouting = lens _pmvEnhancedVPCRouting (\s a -> s {_pmvEnhancedVPCRouting = a})
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+--
+-- /Note:/ Consider using 'enhancedVPCRouting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvEnhancedVPCRouting :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Bool)
+pmvEnhancedVPCRouting = Lens.lens (enhancedVPCRouting :: PendingModifiedValues -> Lude.Maybe Lude.Bool) (\s a -> s {enhancedVPCRouting = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvEnhancedVPCRouting "Use generic-lens or generic-optics with 'enhancedVPCRouting' instead." #-}
 
 -- | The pending or in-progress change of the master user password for the cluster.
-pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
-pmvMasterUserPassword = lens _pmvMasterUserPassword (\s a -> s {_pmvMasterUserPassword = a})
+--
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvMasterUserPassword :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvMasterUserPassword = Lens.lens (masterUserPassword :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {masterUserPassword = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
 
 -- | The pending or in-progress change of the ability to connect to the cluster from the public network.
-pmvPubliclyAccessible :: Lens' PendingModifiedValues (Maybe Bool)
-pmvPubliclyAccessible = lens _pmvPubliclyAccessible (\s a -> s {_pmvPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvPubliclyAccessible :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Bool)
+pmvPubliclyAccessible = Lens.lens (publiclyAccessible :: PendingModifiedValues -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | The name of the maintenance track that the cluster will change to during the next maintenance window.
-pmvMaintenanceTrackName :: Lens' PendingModifiedValues (Maybe Text)
-pmvMaintenanceTrackName = lens _pmvMaintenanceTrackName (\s a -> s {_pmvMaintenanceTrackName = a})
+--
+-- /Note:/ Consider using 'maintenanceTrackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvMaintenanceTrackName :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvMaintenanceTrackName = Lens.lens (maintenanceTrackName :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {maintenanceTrackName = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvMaintenanceTrackName "Use generic-lens or generic-optics with 'maintenanceTrackName' instead." #-}
 
 -- | The pending or in-progress change of the automated snapshot retention period.
-pmvAutomatedSnapshotRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
-pmvAutomatedSnapshotRetentionPeriod = lens _pmvAutomatedSnapshotRetentionPeriod (\s a -> s {_pmvAutomatedSnapshotRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'automatedSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvAutomatedSnapshotRetentionPeriod :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Int)
+pmvAutomatedSnapshotRetentionPeriod = Lens.lens (automatedSnapshotRetentionPeriod :: PendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {automatedSnapshotRetentionPeriod = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvAutomatedSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'automatedSnapshotRetentionPeriod' instead." #-}
 
 -- | The pending or in-progress change of the new identifier for the cluster.
-pmvClusterIdentifier :: Lens' PendingModifiedValues (Maybe Text)
-pmvClusterIdentifier = lens _pmvClusterIdentifier (\s a -> s {_pmvClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvClusterIdentifier :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvClusterIdentifier = Lens.lens (clusterIdentifier :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | The pending or in-progress change of the number of nodes in the cluster.
-pmvNumberOfNodes :: Lens' PendingModifiedValues (Maybe Int)
-pmvNumberOfNodes = lens _pmvNumberOfNodes (\s a -> s {_pmvNumberOfNodes = a})
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvNumberOfNodes :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Int)
+pmvNumberOfNodes = Lens.lens (numberOfNodes :: PendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
 
 -- | The pending or in-progress change of the cluster type.
-pmvClusterType :: Lens' PendingModifiedValues (Maybe Text)
-pmvClusterType = lens _pmvClusterType (\s a -> s {_pmvClusterType = a})
+--
+-- /Note:/ Consider using 'clusterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvClusterType :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvClusterType = Lens.lens (clusterType :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {clusterType = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvClusterType "Use generic-lens or generic-optics with 'clusterType' instead." #-}
 
 -- | The pending or in-progress change of the service version.
-pmvClusterVersion :: Lens' PendingModifiedValues (Maybe Text)
-pmvClusterVersion = lens _pmvClusterVersion (\s a -> s {_pmvClusterVersion = a})
+--
+-- /Note:/ Consider using 'clusterVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvClusterVersion :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvClusterVersion = Lens.lens (clusterVersion :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {clusterVersion = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvClusterVersion "Use generic-lens or generic-optics with 'clusterVersion' instead." #-}
 
 -- | The pending or in-progress change of the cluster's node type.
-pmvNodeType :: Lens' PendingModifiedValues (Maybe Text)
-pmvNodeType = lens _pmvNodeType (\s a -> s {_pmvNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvNodeType :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvNodeType = Lens.lens (nodeType :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
-instance FromXML PendingModifiedValues where
+instance Lude.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      <$> (x .@? "EncryptionType")
-      <*> (x .@? "EnhancedVpcRouting")
-      <*> (x .@? "MasterUserPassword")
-      <*> (x .@? "PubliclyAccessible")
-      <*> (x .@? "MaintenanceTrackName")
-      <*> (x .@? "AutomatedSnapshotRetentionPeriod")
-      <*> (x .@? "ClusterIdentifier")
-      <*> (x .@? "NumberOfNodes")
-      <*> (x .@? "ClusterType")
-      <*> (x .@? "ClusterVersion")
-      <*> (x .@? "NodeType")
-
-instance Hashable PendingModifiedValues
-
-instance NFData PendingModifiedValues
+      Lude.<$> (x Lude..@? "EncryptionType")
+      Lude.<*> (x Lude..@? "EnhancedVpcRouting")
+      Lude.<*> (x Lude..@? "MasterUserPassword")
+      Lude.<*> (x Lude..@? "PubliclyAccessible")
+      Lude.<*> (x Lude..@? "MaintenanceTrackName")
+      Lude.<*> (x Lude..@? "AutomatedSnapshotRetentionPeriod")
+      Lude.<*> (x Lude..@? "ClusterIdentifier")
+      Lude.<*> (x Lude..@? "NumberOfNodes")
+      Lude.<*> (x Lude..@? "ClusterType")
+      Lude.<*> (x Lude..@? "ClusterVersion")
+      Lude.<*> (x Lude..@? "NodeType")

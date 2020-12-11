@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.HandshakeState where
+module Network.AWS.Organizations.Types.HandshakeState
+  ( HandshakeState
+      ( HandshakeState',
+        Accepted,
+        Canceled,
+        Declined,
+        Expired,
+        Open,
+        Requested
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HandshakeState
-  = Accepted
-  | Canceled
-  | Declined
-  | Expired
-  | Open
-  | Requested
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HandshakeState = HandshakeState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HandshakeState where
-  parser =
-    takeLowerText >>= \case
-      "accepted" -> pure Accepted
-      "canceled" -> pure Canceled
-      "declined" -> pure Declined
-      "expired" -> pure Expired
-      "open" -> pure Open
-      "requested" -> pure Requested
-      e ->
-        fromTextError $
-          "Failure parsing HandshakeState from value: '" <> e
-            <> "'. Accepted values: accepted, canceled, declined, expired, open, requested"
+pattern Accepted :: HandshakeState
+pattern Accepted = HandshakeState' "ACCEPTED"
 
-instance ToText HandshakeState where
-  toText = \case
-    Accepted -> "ACCEPTED"
-    Canceled -> "CANCELED"
-    Declined -> "DECLINED"
-    Expired -> "EXPIRED"
-    Open -> "OPEN"
-    Requested -> "REQUESTED"
+pattern Canceled :: HandshakeState
+pattern Canceled = HandshakeState' "CANCELED"
 
-instance Hashable HandshakeState
+pattern Declined :: HandshakeState
+pattern Declined = HandshakeState' "DECLINED"
 
-instance NFData HandshakeState
+pattern Expired :: HandshakeState
+pattern Expired = HandshakeState' "EXPIRED"
 
-instance ToByteString HandshakeState
+pattern Open :: HandshakeState
+pattern Open = HandshakeState' "OPEN"
 
-instance ToQuery HandshakeState
+pattern Requested :: HandshakeState
+pattern Requested = HandshakeState' "REQUESTED"
 
-instance ToHeader HandshakeState
-
-instance FromJSON HandshakeState where
-  parseJSON = parseJSONText "HandshakeState"
+{-# COMPLETE
+  Accepted,
+  Canceled,
+  Declined,
+  Expired,
+  Open,
+  Requested,
+  HandshakeState'
+  #-}

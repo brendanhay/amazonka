@@ -14,17 +14,13 @@
 -- __Amazon Redshift__
 --
 -- __Overview__
---
 -- This is an interface reference for Amazon Redshift. It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift clusters. Note that Amazon Redshift is asynchronous, which means that some interfaces may require techniques, such as polling or asynchronous callback handlers, to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a change is applied immediately, on the next instance reboot, or during the next maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html Using the Amazon Redshift Management Interfaces> .
---
 -- Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine. You can focus on using your data to acquire new insights for your business and customers.
---
 -- If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the <https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html Amazon Redshift Getting Started Guide> .
---
 -- If you are a database developer, the <https://docs.aws.amazon.com/redshift/latest/dg/welcome.html Amazon Redshift Database Developer Guide> explains how to design, build, query, and maintain the databases that make up your data warehouse.
 module Network.AWS.Redshift
-  ( -- * Service Configuration
-    redshift,
+  ( -- * Service configuration
+    redshiftService,
 
     -- * Errors
     -- $errors
@@ -33,16 +29,16 @@ module Network.AWS.Redshift
     -- $waiters
 
     -- ** ClusterRestored
-    clusterRestored,
+    mkClusterRestored,
 
     -- ** ClusterDeleted
-    clusterDeleted,
+    mkClusterDeleted,
 
     -- ** SnapshotAvailable
-    snapshotAvailable,
+    mkSnapshotAvailable,
 
     -- ** ClusterAvailable
-    clusterAvailable,
+    mkClusterAvailable,
 
     -- * Operations
     -- $operations
@@ -383,31 +379,31 @@ module Network.AWS.Redshift
     UsageLimitPeriod (..),
 
     -- ** AccountAttribute
-    AccountAttribute,
-    accountAttribute,
+    AccountAttribute (..),
+    mkAccountAttribute,
     aaAttributeValues,
     aaAttributeName,
 
     -- ** AccountWithRestoreAccess
-    AccountWithRestoreAccess,
-    accountWithRestoreAccess,
+    AccountWithRestoreAccess (..),
+    mkAccountWithRestoreAccess,
     awraAccountAlias,
     awraAccountId,
 
     -- ** AttributeValueTarget
-    AttributeValueTarget,
-    attributeValueTarget,
+    AttributeValueTarget (..),
+    mkAttributeValueTarget,
     avtAttributeValue,
 
     -- ** AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
     azSupportedPlatforms,
 
     -- ** Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cResizeInfo,
     cRestoreStatus,
     cManualSnapshotRetentionPeriod,
@@ -457,63 +453,63 @@ module Network.AWS.Redshift
     cDBName,
 
     -- ** ClusterAssociatedToSchedule
-    ClusterAssociatedToSchedule,
-    clusterAssociatedToSchedule,
+    ClusterAssociatedToSchedule (..),
+    mkClusterAssociatedToSchedule,
     catsScheduleAssociationState,
     catsClusterIdentifier,
 
     -- ** ClusterDBRevision
-    ClusterDBRevision,
-    clusterDBRevision,
+    ClusterDBRevision (..),
+    mkClusterDBRevision,
     cdrDatabaseRevisionReleaseDate,
     cdrClusterIdentifier,
     cdrCurrentDatabaseRevision,
     cdrRevisionTargets,
 
     -- ** ClusterIAMRole
-    ClusterIAMRole,
-    clusterIAMRole,
+    ClusterIAMRole (..),
+    mkClusterIAMRole,
     cirIAMRoleARN,
     cirApplyStatus,
 
     -- ** ClusterNode
-    ClusterNode,
-    clusterNode,
+    ClusterNode (..),
+    mkClusterNode,
     cnNodeRole,
     cnPrivateIPAddress,
     cnPublicIPAddress,
 
     -- ** ClusterParameterGroup
-    ClusterParameterGroup,
-    clusterParameterGroup,
+    ClusterParameterGroup (..),
+    mkClusterParameterGroup,
     cpgParameterGroupFamily,
     cpgDescription,
     cpgTags,
     cpgParameterGroupName,
 
     -- ** ClusterParameterGroupNameMessage
-    ClusterParameterGroupNameMessage,
-    clusterParameterGroupNameMessage,
+    ClusterParameterGroupNameMessage (..),
+    mkClusterParameterGroupNameMessage,
     cpgnmParameterGroupStatus,
     cpgnmParameterGroupName,
 
     -- ** ClusterParameterGroupStatus
-    ClusterParameterGroupStatus,
-    clusterParameterGroupStatus,
+    ClusterParameterGroupStatus (..),
+    mkClusterParameterGroupStatus,
     cpgsClusterParameterStatusList,
     cpgsParameterApplyStatus,
     cpgsParameterGroupName,
 
     -- ** ClusterParameterStatus
-    ClusterParameterStatus,
-    clusterParameterStatus,
+    ClusterParameterStatus (..),
+    mkClusterParameterStatus,
     cpsParameterApplyErrorDescription,
     cpsParameterName,
     cpsParameterApplyStatus,
 
     -- ** ClusterSecurityGroup
-    ClusterSecurityGroup,
-    clusterSecurityGroup,
+    ClusterSecurityGroup (..),
+    mkClusterSecurityGroup,
     cluClusterSecurityGroupName,
     cluIPRanges,
     cluEC2SecurityGroups,
@@ -521,22 +517,22 @@ module Network.AWS.Redshift
     cluTags,
 
     -- ** ClusterSecurityGroupMembership
-    ClusterSecurityGroupMembership,
-    clusterSecurityGroupMembership,
+    ClusterSecurityGroupMembership (..),
+    mkClusterSecurityGroupMembership,
     csgmStatus,
     csgmClusterSecurityGroupName,
 
     -- ** ClusterSnapshotCopyStatus
-    ClusterSnapshotCopyStatus,
-    clusterSnapshotCopyStatus,
+    ClusterSnapshotCopyStatus (..),
+    mkClusterSnapshotCopyStatus,
     cscsManualSnapshotRetentionPeriod,
     cscsRetentionPeriod,
     cscsDestinationRegion,
     cscsSnapshotCopyGrantName,
 
     -- ** ClusterSubnetGroup
-    ClusterSubnetGroup,
-    clusterSubnetGroup,
+    ClusterSubnetGroup (..),
+    mkClusterSubnetGroup,
     csgVPCId,
     csgSubnets,
     csgClusterSubnetGroupName,
@@ -545,15 +541,15 @@ module Network.AWS.Redshift
     csgTags,
 
     -- ** ClusterVersion
-    ClusterVersion,
-    clusterVersion,
+    ClusterVersion (..),
+    mkClusterVersion,
     cvClusterParameterGroupFamily,
     cvClusterVersion,
     cvDescription,
 
     -- ** DataTransferProgress
-    DataTransferProgress,
-    dataTransferProgress,
+    DataTransferProgress (..),
+    mkDataTransferProgress,
     dtpCurrentRateInMegaBytesPerSecond,
     dtpStatus,
     dtpEstimatedTimeToCompletionInSeconds,
@@ -562,48 +558,48 @@ module Network.AWS.Redshift
     dtpElapsedTimeInSeconds,
 
     -- ** DefaultClusterParameters
-    DefaultClusterParameters,
-    defaultClusterParameters,
+    DefaultClusterParameters (..),
+    mkDefaultClusterParameters,
     dcpMarker,
     dcpParameters,
     dcpParameterGroupFamily,
 
     -- ** DeferredMaintenanceWindow
-    DeferredMaintenanceWindow,
-    deferredMaintenanceWindow,
+    DeferredMaintenanceWindow (..),
+    mkDeferredMaintenanceWindow,
     dmwDeferMaintenanceEndTime,
     dmwDeferMaintenanceStartTime,
     dmwDeferMaintenanceIdentifier,
 
     -- ** DeleteClusterSnapshotMessage
-    DeleteClusterSnapshotMessage,
-    deleteClusterSnapshotMessage,
+    DeleteClusterSnapshotMessage (..),
+    mkDeleteClusterSnapshotMessage,
     dcsmSnapshotClusterIdentifier,
     dcsmSnapshotIdentifier,
 
     -- ** EC2SecurityGroup
-    EC2SecurityGroup,
-    ec2SecurityGroup,
+    EC2SecurityGroup (..),
+    mkEC2SecurityGroup,
     esgStatus,
     esgEC2SecurityGroupOwnerId,
     esgEC2SecurityGroupName,
     esgTags,
 
     -- ** ElasticIPStatus
-    ElasticIPStatus,
-    elasticIPStatus,
+    ElasticIPStatus (..),
+    mkElasticIPStatus,
     eisStatus,
     eisElasticIP,
 
     -- ** Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eAddress,
     ePort,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eSourceType,
     eSeverity,
     eSourceIdentifier,
@@ -613,22 +609,22 @@ module Network.AWS.Redshift
     eEventId,
 
     -- ** EventCategoriesMap
-    EventCategoriesMap,
-    eventCategoriesMap,
+    EventCategoriesMap (..),
+    mkEventCategoriesMap,
     ecmSourceType,
     ecmEvents,
 
     -- ** EventInfoMap
-    EventInfoMap,
-    eventInfoMap,
+    EventInfoMap (..),
+    mkEventInfoMap,
     eimEventDescription,
     eimSeverity,
     eimEventCategories,
     eimEventId,
 
     -- ** EventSubscription
-    EventSubscription,
-    eventSubscription,
+    EventSubscription (..),
+    mkEventSubscription,
     esStatus,
     esCustomerAWSId,
     esCustSubscriptionId,
@@ -642,15 +638,15 @@ module Network.AWS.Redshift
     esSourceIdsList,
 
     -- ** HSMClientCertificate
-    HSMClientCertificate,
-    hsmClientCertificate,
+    HSMClientCertificate (..),
+    mkHSMClientCertificate,
     hccHSMClientCertificateIdentifier,
     hccHSMClientCertificatePublicKey,
     hccTags,
 
     -- ** HSMConfiguration
-    HSMConfiguration,
-    hsmConfiguration,
+    HSMConfiguration (..),
+    mkHSMConfiguration,
     hcHSMConfigurationIdentifier,
     hcHSMPartitionName,
     hcDescription,
@@ -658,22 +654,22 @@ module Network.AWS.Redshift
     hcHSMIPAddress,
 
     -- ** HSMStatus
-    HSMStatus,
-    hsmStatus,
+    HSMStatus (..),
+    mkHSMStatus,
     hsStatus,
     hsHSMConfigurationIdentifier,
     hsHSMClientCertificateIdentifier,
 
     -- ** IPRange
-    IPRange,
-    ipRange,
+    IPRange (..),
+    mkIPRange,
     irStatus,
     irCIdRIP,
     irTags,
 
     -- ** LoggingStatus
-    LoggingStatus,
-    loggingStatus,
+    LoggingStatus (..),
+    mkLoggingStatus,
     lsLastFailureTime,
     lsLastSuccessfulDeliveryTime,
     lsS3KeyPrefix,
@@ -682,38 +678,38 @@ module Network.AWS.Redshift
     lsLastFailureMessage,
 
     -- ** MaintenanceTrack
-    MaintenanceTrack,
-    maintenanceTrack,
+    MaintenanceTrack (..),
+    mkMaintenanceTrack,
     mtDatabaseVersion,
     mtMaintenanceTrackName,
     mtUpdateTargets,
 
     -- ** NodeConfigurationOption
-    NodeConfigurationOption,
-    nodeConfigurationOption,
+    NodeConfigurationOption (..),
+    mkNodeConfigurationOption,
     ncoMode,
     ncoNumberOfNodes,
     ncoNodeType,
     ncoEstimatedDiskUtilizationPercent,
 
     -- ** NodeConfigurationOptionsFilter
-    NodeConfigurationOptionsFilter,
-    nodeConfigurationOptionsFilter,
+    NodeConfigurationOptionsFilter (..),
+    mkNodeConfigurationOptionsFilter,
     ncofValues,
     ncofOperator,
     ncofName,
 
     -- ** OrderableClusterOption
-    OrderableClusterOption,
-    orderableClusterOption,
+    OrderableClusterOption (..),
+    mkOrderableClusterOption,
     ocoAvailabilityZones,
     ocoClusterType,
     ocoClusterVersion,
     ocoNodeType,
 
     -- ** Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pApplyType,
     pParameterValue,
     pMinimumEngineVersion,
@@ -725,13 +721,13 @@ module Network.AWS.Redshift
     pDescription,
 
     -- ** PauseClusterMessage
-    PauseClusterMessage,
-    pauseClusterMessage,
+    PauseClusterMessage (..),
+    mkPauseClusterMessage,
     pcmClusterIdentifier,
 
     -- ** PendingModifiedValues
-    PendingModifiedValues,
-    pendingModifiedValues,
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
     pmvEncryptionType,
     pmvEnhancedVPCRouting,
     pmvMasterUserPassword,
@@ -745,14 +741,14 @@ module Network.AWS.Redshift
     pmvNodeType,
 
     -- ** RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcRecurringChargeFrequency,
     rcRecurringChargeAmount,
 
     -- ** ReservedNode
-    ReservedNode,
-    reservedNode,
+    ReservedNode (..),
+    mkReservedNode,
     rnReservedNodeOfferingType,
     rnState,
     rnCurrencyCode,
@@ -768,8 +764,8 @@ module Network.AWS.Redshift
     rnDuration,
 
     -- ** ReservedNodeOffering
-    ReservedNodeOffering,
-    reservedNodeOffering,
+    ReservedNodeOffering (..),
+    mkReservedNodeOffering,
     rnoReservedNodeOfferingType,
     rnoCurrencyCode,
     rnoReservedNodeOfferingId,
@@ -781,8 +777,8 @@ module Network.AWS.Redshift
     rnoDuration,
 
     -- ** ResizeClusterMessage
-    ResizeClusterMessage,
-    resizeClusterMessage,
+    ResizeClusterMessage (..),
+    mkResizeClusterMessage,
     rcmNumberOfNodes,
     rcmClassic,
     rcmClusterType,
@@ -790,14 +786,14 @@ module Network.AWS.Redshift
     rcmClusterIdentifier,
 
     -- ** ResizeInfo
-    ResizeInfo,
-    resizeInfo,
+    ResizeInfo (..),
+    mkResizeInfo,
     riAllowCancelResize,
     riResizeType,
 
     -- ** ResizeProgressMessage
-    ResizeProgressMessage,
-    resizeProgressMessage,
+    ResizeProgressMessage (..),
+    mkResizeProgressMessage,
     rpmImportTablesNotStarted,
     rpmStatus,
     rpmEstimatedTimeToCompletionInSeconds,
@@ -816,8 +812,8 @@ module Network.AWS.Redshift
     rpmElapsedTimeInSeconds,
 
     -- ** RestoreStatus
-    RestoreStatus,
-    restoreStatus,
+    RestoreStatus (..),
+    mkRestoreStatus,
     rsStatus,
     rsEstimatedTimeToCompletionInSeconds,
     rsCurrentRestoreRateInMegaBytesPerSecond,
@@ -826,20 +822,20 @@ module Network.AWS.Redshift
     rsSnapshotSizeInMegaBytes,
 
     -- ** ResumeClusterMessage
-    ResumeClusterMessage,
-    resumeClusterMessage,
+    ResumeClusterMessage (..),
+    mkResumeClusterMessage,
     rClusterIdentifier,
 
     -- ** RevisionTarget
-    RevisionTarget,
-    revisionTarget,
+    RevisionTarget (..),
+    mkRevisionTarget,
     rtDatabaseRevisionReleaseDate,
     rtDatabaseRevision,
     rtDescription,
 
     -- ** ScheduledAction
-    ScheduledAction,
-    scheduledAction,
+    ScheduledAction (..),
+    mkScheduledAction,
     saState,
     saTargetAction,
     saStartTime,
@@ -851,21 +847,21 @@ module Network.AWS.Redshift
     saIAMRole,
 
     -- ** ScheduledActionFilter
-    ScheduledActionFilter,
-    scheduledActionFilter,
+    ScheduledActionFilter (..),
+    mkScheduledActionFilter,
     safName,
     safValues,
 
     -- ** ScheduledActionType
-    ScheduledActionType,
-    scheduledActionType,
+    ScheduledActionType (..),
+    mkScheduledActionType,
     satResizeCluster,
     satResumeCluster,
     satPauseCluster,
 
     -- ** Snapshot
-    Snapshot,
-    snapshot,
+    Snapshot (..),
+    mkSnapshot,
     sStatus,
     sRestorableNodeTypes,
     sAccountsWithRestoreAccess,
@@ -901,23 +897,23 @@ module Network.AWS.Redshift
     sDBName,
 
     -- ** SnapshotCopyGrant
-    SnapshotCopyGrant,
-    snapshotCopyGrant,
+    SnapshotCopyGrant (..),
+    mkSnapshotCopyGrant,
     scgKMSKeyId,
     scgSnapshotCopyGrantName,
     scgTags,
 
     -- ** SnapshotErrorMessage
-    SnapshotErrorMessage,
-    snapshotErrorMessage,
+    SnapshotErrorMessage (..),
+    mkSnapshotErrorMessage,
     semFailureReason,
     semSnapshotIdentifier,
     semSnapshotClusterIdentifier,
     semFailureCode,
 
     -- ** SnapshotSchedule
-    SnapshotSchedule,
-    snapshotSchedule,
+    SnapshotSchedule (..),
+    mkSnapshotSchedule,
     ssAssociatedClusters,
     ssNextInvocations,
     ssScheduleDefinitions,
@@ -927,31 +923,31 @@ module Network.AWS.Redshift
     ssTags,
 
     -- ** SnapshotSortingEntity
-    SnapshotSortingEntity,
-    snapshotSortingEntity,
+    SnapshotSortingEntity (..),
+    mkSnapshotSortingEntity,
     sseSortOrder,
     sseAttribute,
 
     -- ** Subnet
-    Subnet,
-    subnet,
+    Subnet (..),
+    mkSubnet,
     sSubnetStatus,
     sSubnetIdentifier,
     sSubnetAvailabilityZone,
 
     -- ** SupportedOperation
-    SupportedOperation,
-    supportedOperation,
+    SupportedOperation (..),
+    mkSupportedOperation,
     soOperationName,
 
     -- ** SupportedPlatform
-    SupportedPlatform,
-    supportedPlatform,
+    SupportedPlatform (..),
+    mkSupportedPlatform,
     spName,
 
     -- ** TableRestoreStatus
-    TableRestoreStatus,
-    tableRestoreStatus,
+    TableRestoreStatus (..),
+    mkTableRestoreStatus,
     trsStatus,
     trsTargetSchemaName,
     trsSnapshotIdentifier,
@@ -968,28 +964,28 @@ module Network.AWS.Redshift
     trsMessage,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TaggedResource
-    TaggedResource,
-    taggedResource,
+    TaggedResource (..),
+    mkTaggedResource,
     trTag,
     trResourceType,
     trResourceName,
 
     -- ** UpdateTarget
-    UpdateTarget,
-    updateTarget,
+    UpdateTarget (..),
+    mkUpdateTarget,
     utDatabaseVersion,
     utMaintenanceTrackName,
     utSupportedOperations,
 
     -- ** UsageLimit
-    UsageLimit,
-    usageLimit,
+    UsageLimit (..),
+    mkUsageLimit,
     ulAmount,
     ulLimitType,
     ulUsageLimitId,
@@ -1000,13 +996,25 @@ module Network.AWS.Redshift
     ulTags,
 
     -- ** VPCSecurityGroupMembership
-    VPCSecurityGroupMembership,
-    vpcSecurityGroupMembership,
+    VPCSecurityGroupMembership (..),
+    mkVPCSecurityGroupMembership,
     vsgmStatus,
     vsgmVPCSecurityGroupId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.AcceptReservedNodeExchange
 import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 import Network.AWS.Redshift.AuthorizeSnapshotAccess

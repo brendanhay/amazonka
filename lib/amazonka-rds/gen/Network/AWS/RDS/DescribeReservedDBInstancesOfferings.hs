@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists available reserved DB instance offerings.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
-  ( -- * Creating a Request
-    describeReservedDBInstancesOfferings,
-    DescribeReservedDBInstancesOfferings,
+  ( -- * Creating a request
+    DescribeReservedDBInstancesOfferings (..),
+    mkDescribeReservedDBInstancesOfferings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drdioProductDescription,
     drdioFilters,
     drdioDBInstanceClass,
@@ -38,232 +31,281 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     drdioOfferingType,
     drdioDuration,
 
-    -- * Destructuring the Response
-    describeReservedDBInstancesOfferingsResponse,
-    DescribeReservedDBInstancesOfferingsResponse,
+    -- * Destructuring the response
+    DescribeReservedDBInstancesOfferingsResponse (..),
+    mkDescribeReservedDBInstancesOfferingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drdiorsMarker,
     drdiorsReservedDBInstancesOfferings,
     drdiorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeReservedDBInstancesOfferings' smart constructor.
+-- /See:/ 'mkDescribeReservedDBInstancesOfferings' smart constructor.
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'
-  { _drdioProductDescription ::
-      !(Maybe Text),
-    _drdioFilters ::
-      !(Maybe [Filter]),
-    _drdioDBInstanceClass ::
-      !(Maybe Text),
-    _drdioMarker ::
-      !(Maybe Text),
-    _drdioMaxRecords ::
-      !(Maybe Int),
-    _drdioMultiAZ ::
-      !(Maybe Bool),
-    _drdioReservedDBInstancesOfferingId ::
-      !(Maybe Text),
-    _drdioOfferingType ::
-      !(Maybe Text),
-    _drdioDuration ::
-      !(Maybe Text)
+  { productDescription ::
+      Lude.Maybe
+        Lude.Text,
+    filters ::
+      Lude.Maybe
+        [Filter],
+    dbInstanceClass ::
+      Lude.Maybe
+        Lude.Text,
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    maxRecords ::
+      Lude.Maybe
+        Lude.Int,
+    multiAZ ::
+      Lude.Maybe
+        Lude.Bool,
+    reservedDBInstancesOfferingId ::
+      Lude.Maybe
+        Lude.Text,
+    offeringType ::
+      Lude.Maybe
+        Lude.Text,
+    duration ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedDBInstancesOfferings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
+-- * 'duration' - Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
 --
--- * 'drdioProductDescription' - Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.
+-- Valid Values: @1 | 3 | 31536000 | 94608000@
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
--- * 'drdioFilters' - This parameter isn't currently supported.
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'multiAZ' - A value that indicates whether to show only those reservations that support Multi-AZ.
+-- * 'offeringType' - The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
 --
--- * 'drdioDBInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
+-- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
+-- * 'productDescription' - Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.
+-- * 'reservedDBInstancesOfferingId' - The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.
 --
--- * 'drdioMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'drdioMaxRecords' - The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
---
--- * 'drdioMultiAZ' - A value that indicates whether to show only those reservations that support Multi-AZ.
---
--- * 'drdioReservedDBInstancesOfferingId' - The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier. Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
---
--- * 'drdioOfferingType' - The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type. Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
---
--- * 'drdioDuration' - Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration. Valid Values: @1 | 3 | 31536000 | 94608000@
-describeReservedDBInstancesOfferings ::
+-- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+mkDescribeReservedDBInstancesOfferings ::
   DescribeReservedDBInstancesOfferings
-describeReservedDBInstancesOfferings =
+mkDescribeReservedDBInstancesOfferings =
   DescribeReservedDBInstancesOfferings'
-    { _drdioProductDescription =
-        Nothing,
-      _drdioFilters = Nothing,
-      _drdioDBInstanceClass = Nothing,
-      _drdioMarker = Nothing,
-      _drdioMaxRecords = Nothing,
-      _drdioMultiAZ = Nothing,
-      _drdioReservedDBInstancesOfferingId = Nothing,
-      _drdioOfferingType = Nothing,
-      _drdioDuration = Nothing
+    { productDescription =
+        Lude.Nothing,
+      filters = Lude.Nothing,
+      dbInstanceClass = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      multiAZ = Lude.Nothing,
+      reservedDBInstancesOfferingId = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
 -- | Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.
-drdioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioProductDescription = lens _drdioProductDescription (\s a -> s {_drdioProductDescription = a})
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioProductDescription :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Text)
+drdioProductDescription = Lens.lens (productDescription :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {productDescription = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | This parameter isn't currently supported.
-drdioFilters :: Lens' DescribeReservedDBInstancesOfferings [Filter]
-drdioFilters = lens _drdioFilters (\s a -> s {_drdioFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioFilters :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe [Filter])
+drdioFilters = Lens.lens (filters :: DescribeReservedDBInstancesOfferings -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
-drdioDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioDBInstanceClass = lens _drdioDBInstanceClass (\s a -> s {_drdioDBInstanceClass = a})
+--
+-- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioDBInstanceClass :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Text)
+drdioDBInstanceClass = Lens.lens (dbInstanceClass :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drdioMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioMarker = lens _drdioMarker (\s a -> s {_drdioMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioMarker :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Text)
+drdioMarker = Lens.lens (marker :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-drdioMaxRecords :: Lens' DescribeReservedDBInstancesOfferings (Maybe Int)
-drdioMaxRecords = lens _drdioMaxRecords (\s a -> s {_drdioMaxRecords = a})
+-- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioMaxRecords :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Int)
+drdioMaxRecords = Lens.lens (maxRecords :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | A value that indicates whether to show only those reservations that support Multi-AZ.
-drdioMultiAZ :: Lens' DescribeReservedDBInstancesOfferings (Maybe Bool)
-drdioMultiAZ = lens _drdioMultiAZ (\s a -> s {_drdioMultiAZ = a})
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioMultiAZ :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Bool)
+drdioMultiAZ = Lens.lens (multiAZ :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
--- | The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier. Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-drdioReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioReservedDBInstancesOfferingId = lens _drdioReservedDBInstancesOfferingId (\s a -> s {_drdioReservedDBInstancesOfferingId = a})
+-- | The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.
+--
+-- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+--
+-- /Note:/ Consider using 'reservedDBInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioReservedDBInstancesOfferingId :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Text)
+drdioReservedDBInstancesOfferingId = Lens.lens (reservedDBInstancesOfferingId :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {reservedDBInstancesOfferingId = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioReservedDBInstancesOfferingId "Use generic-lens or generic-optics with 'reservedDBInstancesOfferingId' instead." #-}
 
--- | The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type. Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
-drdioOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioOfferingType = lens _drdioOfferingType (\s a -> s {_drdioOfferingType = a})
+-- | The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
+--
+-- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioOfferingType :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Text)
+drdioOfferingType = Lens.lens (offeringType :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {offeringType = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
--- | Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration. Valid Values: @1 | 3 | 31536000 | 94608000@
-drdioDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioDuration = lens _drdioDuration (\s a -> s {_drdioDuration = a})
+-- | Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
+--
+-- Valid Values: @1 | 3 | 31536000 | 94608000@
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdioDuration :: Lens.Lens' DescribeReservedDBInstancesOfferings (Lude.Maybe Lude.Text)
+drdioDuration = Lens.lens (duration :: DescribeReservedDBInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {duration = a} :: DescribeReservedDBInstancesOfferings)
+{-# DEPRECATED drdioDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance AWSPager DescribeReservedDBInstancesOfferings where
+instance Page.AWSPager DescribeReservedDBInstancesOfferings where
   page rq rs
-    | stop (rs ^. drdiorsMarker) = Nothing
-    | stop (rs ^. drdiorsReservedDBInstancesOfferings) = Nothing
-    | otherwise = Just $ rq & drdioMarker .~ rs ^. drdiorsMarker
+    | Page.stop (rs Lens.^. drdiorsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. drdiorsReservedDBInstancesOfferings) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& drdioMarker Lens..~ rs Lens.^. drdiorsMarker
 
-instance AWSRequest DescribeReservedDBInstancesOfferings where
+instance Lude.AWSRequest DescribeReservedDBInstancesOfferings where
   type
     Rs DescribeReservedDBInstancesOfferings =
       DescribeReservedDBInstancesOfferingsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeReservedDBInstancesOfferingsResult"
       ( \s h x ->
           DescribeReservedDBInstancesOfferingsResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "ReservedDBInstancesOfferings" .!@ mempty
-                    >>= may (parseXMLList "ReservedDBInstancesOffering")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "ReservedDBInstancesOfferings" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "ReservedDBInstancesOffering")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReservedDBInstancesOfferings
+instance Lude.ToHeaders DescribeReservedDBInstancesOfferings where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeReservedDBInstancesOfferings
+instance Lude.ToPath DescribeReservedDBInstancesOfferings where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeReservedDBInstancesOfferings where
-  toHeaders = const mempty
-
-instance ToPath DescribeReservedDBInstancesOfferings where
-  toPath = const "/"
-
-instance ToQuery DescribeReservedDBInstancesOfferings where
+instance Lude.ToQuery DescribeReservedDBInstancesOfferings where
   toQuery DescribeReservedDBInstancesOfferings' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DescribeReservedDBInstancesOfferings" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "ProductDescription" =: _drdioProductDescription,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _drdioFilters),
-        "DBInstanceClass" =: _drdioDBInstanceClass,
-        "Marker" =: _drdioMarker,
-        "MaxRecords" =: _drdioMaxRecords,
-        "MultiAZ" =: _drdioMultiAZ,
+          Lude.=: ("DescribeReservedDBInstancesOfferings" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "ProductDescription" Lude.=: productDescription,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "DBInstanceClass" Lude.=: dbInstanceClass,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "MultiAZ" Lude.=: multiAZ,
         "ReservedDBInstancesOfferingId"
-          =: _drdioReservedDBInstancesOfferingId,
-        "OfferingType" =: _drdioOfferingType,
-        "Duration" =: _drdioDuration
+          Lude.=: reservedDBInstancesOfferingId,
+        "OfferingType" Lude.=: offeringType,
+        "Duration" Lude.=: duration
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeReservedDBInstancesOfferings@ action.
 --
---
---
--- /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
+-- /See:/ 'mkDescribeReservedDBInstancesOfferingsResponse' smart constructor.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
-  { _drdiorsMarker ::
-      !( Maybe
-           Text
-       ),
-    _drdiorsReservedDBInstancesOfferings ::
-      !( Maybe
-           [ReservedDBInstancesOffering]
-       ),
-    _drdiorsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    reservedDBInstancesOfferings ::
+      Lude.Maybe
+        [ReservedDBInstancesOffering],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedDBInstancesOfferingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdiorsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'drdiorsReservedDBInstancesOfferings' - A list of reserved DB instance offerings.
---
--- * 'drdiorsResponseStatus' - -- | The response status code.
-describeReservedDBInstancesOfferingsResponse ::
-  -- | 'drdiorsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'reservedDBInstancesOfferings' - A list of reserved DB instance offerings.
+-- * 'responseStatus' - The response status code.
+mkDescribeReservedDBInstancesOfferingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse pResponseStatus_ =
+mkDescribeReservedDBInstancesOfferingsResponse pResponseStatus_ =
   DescribeReservedDBInstancesOfferingsResponse'
-    { _drdiorsMarker =
-        Nothing,
-      _drdiorsReservedDBInstancesOfferings = Nothing,
-      _drdiorsResponseStatus = pResponseStatus_
+    { marker =
+        Lude.Nothing,
+      reservedDBInstancesOfferings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drdiorsMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
-drdiorsMarker = lens _drdiorsMarker (\s a -> s {_drdiorsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdiorsMarker :: Lens.Lens' DescribeReservedDBInstancesOfferingsResponse (Lude.Maybe Lude.Text)
+drdiorsMarker = Lens.lens (marker :: DescribeReservedDBInstancesOfferingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReservedDBInstancesOfferingsResponse)
+{-# DEPRECATED drdiorsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of reserved DB instance offerings.
-drdiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
-drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings (\s a -> s {_drdiorsReservedDBInstancesOfferings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reservedDBInstancesOfferings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdiorsReservedDBInstancesOfferings :: Lens.Lens' DescribeReservedDBInstancesOfferingsResponse (Lude.Maybe [ReservedDBInstancesOffering])
+drdiorsReservedDBInstancesOfferings = Lens.lens (reservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferingsResponse -> Lude.Maybe [ReservedDBInstancesOffering]) (\s a -> s {reservedDBInstancesOfferings = a} :: DescribeReservedDBInstancesOfferingsResponse)
+{-# DEPRECATED drdiorsReservedDBInstancesOfferings "Use generic-lens or generic-optics with 'reservedDBInstancesOfferings' instead." #-}
 
--- | -- | The response status code.
-drdiorsResponseStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
-drdiorsResponseStatus = lens _drdiorsResponseStatus (\s a -> s {_drdiorsResponseStatus = a})
-
-instance NFData DescribeReservedDBInstancesOfferingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdiorsResponseStatus :: Lens.Lens' DescribeReservedDBInstancesOfferingsResponse Lude.Int
+drdiorsResponseStatus = Lens.lens (responseStatus :: DescribeReservedDBInstancesOfferingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedDBInstancesOfferingsResponse)
+{-# DEPRECATED drdiorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

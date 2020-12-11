@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BurnInShadowColor where
+module Network.AWS.MediaLive.Types.BurnInShadowColor
+  ( BurnInShadowColor
+      ( BurnInShadowColor',
+        BISCBlack,
+        BISCNone,
+        BISCWhite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Burn In Shadow Color
-data BurnInShadowColor
-  = BISCBlack
-  | BISCNone
-  | BISCWhite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurnInShadowColor = BurnInShadowColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurnInShadowColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure BISCBlack
-      "none" -> pure BISCNone
-      "white" -> pure BISCWhite
-      e ->
-        fromTextError $
-          "Failure parsing BurnInShadowColor from value: '" <> e
-            <> "'. Accepted values: black, none, white"
+pattern BISCBlack :: BurnInShadowColor
+pattern BISCBlack = BurnInShadowColor' "BLACK"
 
-instance ToText BurnInShadowColor where
-  toText = \case
-    BISCBlack -> "BLACK"
-    BISCNone -> "NONE"
-    BISCWhite -> "WHITE"
+pattern BISCNone :: BurnInShadowColor
+pattern BISCNone = BurnInShadowColor' "NONE"
 
-instance Hashable BurnInShadowColor
+pattern BISCWhite :: BurnInShadowColor
+pattern BISCWhite = BurnInShadowColor' "WHITE"
 
-instance NFData BurnInShadowColor
-
-instance ToByteString BurnInShadowColor
-
-instance ToQuery BurnInShadowColor
-
-instance ToHeader BurnInShadowColor
-
-instance ToJSON BurnInShadowColor where
-  toJSON = toJSONText
-
-instance FromJSON BurnInShadowColor where
-  parseJSON = parseJSONText "BurnInShadowColor"
+{-# COMPLETE
+  BISCBlack,
+  BISCNone,
+  BISCWhite,
+  BurnInShadowColor'
+  #-}

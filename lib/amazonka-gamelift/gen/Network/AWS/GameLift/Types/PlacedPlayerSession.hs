@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,25 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.PlacedPlayerSession where
+module Network.AWS.GameLift.Types.PlacedPlayerSession
+  ( PlacedPlayerSession (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPlacedPlayerSession,
+
+    -- * Lenses
+    ppsPlayerSessionId,
+    ppsPlayerId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a player session that was created as part of a 'StartGameSessionPlacement' request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call 'DescribePlayerSessions' with the player session ID.
 --
 --
 --     * 'CreatePlayerSession'
 --
+--
 --     * 'CreatePlayerSessions'
 --
+--
 --     * 'DescribePlayerSessions'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 --
@@ -39,47 +48,52 @@ import Network.AWS.Prelude
 --
 --
 --
---
--- /See:/ 'placedPlayerSession' smart constructor.
+-- /See:/ 'mkPlacedPlayerSession' smart constructor.
 data PlacedPlayerSession = PlacedPlayerSession'
-  { _ppsPlayerSessionId ::
-      !(Maybe Text),
-    _ppsPlayerId :: !(Maybe Text)
+  { playerSessionId ::
+      Lude.Maybe Lude.Text,
+    playerId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacedPlayerSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppsPlayerSessionId' - A unique identifier for a player session.
---
--- * 'ppsPlayerId' - A unique identifier for a player that is associated with this player session.
-placedPlayerSession ::
+-- * 'playerId' - A unique identifier for a player that is associated with this player session.
+-- * 'playerSessionId' - A unique identifier for a player session.
+mkPlacedPlayerSession ::
   PlacedPlayerSession
-placedPlayerSession =
+mkPlacedPlayerSession =
   PlacedPlayerSession'
-    { _ppsPlayerSessionId = Nothing,
-      _ppsPlayerId = Nothing
+    { playerSessionId = Lude.Nothing,
+      playerId = Lude.Nothing
     }
 
 -- | A unique identifier for a player session.
-ppsPlayerSessionId :: Lens' PlacedPlayerSession (Maybe Text)
-ppsPlayerSessionId = lens _ppsPlayerSessionId (\s a -> s {_ppsPlayerSessionId = a})
+--
+-- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppsPlayerSessionId :: Lens.Lens' PlacedPlayerSession (Lude.Maybe Lude.Text)
+ppsPlayerSessionId = Lens.lens (playerSessionId :: PlacedPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerSessionId = a} :: PlacedPlayerSession)
+{-# DEPRECATED ppsPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
 
 -- | A unique identifier for a player that is associated with this player session.
-ppsPlayerId :: Lens' PlacedPlayerSession (Maybe Text)
-ppsPlayerId = lens _ppsPlayerId (\s a -> s {_ppsPlayerId = a})
+--
+-- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppsPlayerId :: Lens.Lens' PlacedPlayerSession (Lude.Maybe Lude.Text)
+ppsPlayerId = Lens.lens (playerId :: PlacedPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: PlacedPlayerSession)
+{-# DEPRECATED ppsPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
-instance FromJSON PlacedPlayerSession where
+instance Lude.FromJSON PlacedPlayerSession where
   parseJSON =
-    withObject
+    Lude.withObject
       "PlacedPlayerSession"
       ( \x ->
           PlacedPlayerSession'
-            <$> (x .:? "PlayerSessionId") <*> (x .:? "PlayerId")
+            Lude.<$> (x Lude..:? "PlayerSessionId") Lude.<*> (x Lude..:? "PlayerId")
       )
-
-instance Hashable PlacedPlayerSession
-
-instance NFData PlacedPlayerSession

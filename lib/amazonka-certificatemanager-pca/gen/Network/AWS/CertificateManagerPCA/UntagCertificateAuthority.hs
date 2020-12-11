@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,123 @@
 --
 -- Remove one or more tags from your private CA. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this action, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value. To add tags to a private CA, use the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html TagCertificateAuthority> . Call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html ListTags> action to see what tags are associated with your CA.
 module Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
-  ( -- * Creating a Request
-    untagCertificateAuthority,
-    UntagCertificateAuthority,
+  ( -- * Creating a request
+    UntagCertificateAuthority (..),
+    mkUntagCertificateAuthority,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uCertificateAuthorityARN,
     uTags,
 
-    -- * Destructuring the Response
-    untagCertificateAuthorityResponse,
-    UntagCertificateAuthorityResponse,
+    -- * Destructuring the response
+    UntagCertificateAuthorityResponse (..),
+    mkUntagCertificateAuthorityResponse,
   )
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagCertificateAuthority' smart constructor.
+-- | /See:/ 'mkUntagCertificateAuthority' smart constructor.
 data UntagCertificateAuthority = UntagCertificateAuthority'
-  { _uCertificateAuthorityARN ::
-      !Text,
-    _uTags :: !(List1 Tag)
+  { certificateAuthorityARN ::
+      Lude.Text,
+    tags :: Lude.NonEmpty Tag
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagCertificateAuthority' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
 --
--- * 'uCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
---
--- * 'uTags' - List of tags to be removed from the CA.
-untagCertificateAuthority ::
-  -- | 'uCertificateAuthorityARN'
-  Text ->
-  -- | 'uTags'
-  NonEmpty Tag ->
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'tags' - List of tags to be removed from the CA.
+mkUntagCertificateAuthority ::
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
+  -- | 'tags'
+  Lude.NonEmpty Tag ->
   UntagCertificateAuthority
-untagCertificateAuthority pCertificateAuthorityARN_ pTags_ =
+mkUntagCertificateAuthority pCertificateAuthorityARN_ pTags_ =
   UntagCertificateAuthority'
-    { _uCertificateAuthorityARN =
+    { certificateAuthorityARN =
         pCertificateAuthorityARN_,
-      _uTags = _List1 # pTags_
+      tags = pTags_
     }
 
--- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-uCertificateAuthorityARN :: Lens' UntagCertificateAuthority Text
-uCertificateAuthorityARN = lens _uCertificateAuthorityARN (\s a -> s {_uCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
+--
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+--
+-- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uCertificateAuthorityARN :: Lens.Lens' UntagCertificateAuthority Lude.Text
+uCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: UntagCertificateAuthority -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: UntagCertificateAuthority)
+{-# DEPRECATED uCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
 -- | List of tags to be removed from the CA.
-uTags :: Lens' UntagCertificateAuthority (NonEmpty Tag)
-uTags = lens _uTags (\s a -> s {_uTags = a}) . _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uTags :: Lens.Lens' UntagCertificateAuthority (Lude.NonEmpty Tag)
+uTags = Lens.lens (tags :: UntagCertificateAuthority -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: UntagCertificateAuthority)
+{-# DEPRECATED uTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest UntagCertificateAuthority where
+instance Lude.AWSRequest UntagCertificateAuthority where
   type
     Rs UntagCertificateAuthority =
       UntagCertificateAuthorityResponse
-  request = postJSON certificateManagerPCA
-  response = receiveNull UntagCertificateAuthorityResponse'
+  request = Req.postJSON certificateManagerPCAService
+  response = Res.receiveNull UntagCertificateAuthorityResponse'
 
-instance Hashable UntagCertificateAuthority
-
-instance NFData UntagCertificateAuthority
-
-instance ToHeaders UntagCertificateAuthority where
+instance Lude.ToHeaders UntagCertificateAuthority where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ACMPrivateCA.UntagCertificateAuthority" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ACMPrivateCA.UntagCertificateAuthority" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UntagCertificateAuthority where
+instance Lude.ToJSON UntagCertificateAuthority where
   toJSON UntagCertificateAuthority' {..} =
-    object
-      ( catMaybes
-          [ Just ("CertificateAuthorityArn" .= _uCertificateAuthorityARN),
-            Just ("Tags" .= _uTags)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN),
+            Lude.Just ("Tags" Lude..= tags)
           ]
       )
 
-instance ToPath UntagCertificateAuthority where
-  toPath = const "/"
+instance Lude.ToPath UntagCertificateAuthority where
+  toPath = Lude.const "/"
 
-instance ToQuery UntagCertificateAuthority where
-  toQuery = const mempty
+instance Lude.ToQuery UntagCertificateAuthority where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'untagCertificateAuthorityResponse' smart constructor.
+-- | /See:/ 'mkUntagCertificateAuthorityResponse' smart constructor.
 data UntagCertificateAuthorityResponse = UntagCertificateAuthorityResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagCertificateAuthorityResponse' with the minimum fields required to make a request.
-untagCertificateAuthorityResponse ::
+mkUntagCertificateAuthorityResponse ::
   UntagCertificateAuthorityResponse
-untagCertificateAuthorityResponse =
+mkUntagCertificateAuthorityResponse =
   UntagCertificateAuthorityResponse'
-
-instance NFData UntagCertificateAuthorityResponse

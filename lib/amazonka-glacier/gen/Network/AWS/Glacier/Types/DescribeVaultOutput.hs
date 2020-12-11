@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.DescribeVaultOutput where
+module Network.AWS.Glacier.Types.DescribeVaultOutput
+  ( DescribeVaultOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDescribeVaultOutput,
+
+    -- * Lenses
+    dvoVaultName,
+    dvoSizeInBytes,
+    dvoLastInventoryDate,
+    dvoVaultARN,
+    dvoCreationDate,
+    dvoNumberOfArchives,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'describeVaultOutput' smart constructor.
+-- /See:/ 'mkDescribeVaultOutput' smart constructor.
 data DescribeVaultOutput = DescribeVaultOutput'
-  { _dvoVaultName ::
-      !(Maybe Text),
-    _dvoSizeInBytes :: !(Maybe Integer),
-    _dvoLastInventoryDate :: !(Maybe Text),
-    _dvoVaultARN :: !(Maybe Text),
-    _dvoCreationDate :: !(Maybe Text),
-    _dvoNumberOfArchives :: !(Maybe Integer)
+  { vaultName ::
+      Lude.Maybe Lude.Text,
+    sizeInBytes :: Lude.Maybe Lude.Integer,
+    lastInventoryDate :: Lude.Maybe Lude.Text,
+    vaultARN :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text,
+    numberOfArchives :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVaultOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvoVaultName' - The name of the vault.
---
--- * 'dvoSizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
---
--- * 'dvoLastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
---
--- * 'dvoVaultARN' - The Amazon Resource Name (ARN) of the vault.
---
--- * 'dvoCreationDate' - The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
---
--- * 'dvoNumberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
-describeVaultOutput ::
+-- * 'creationDate' - The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
+-- * 'lastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
+-- * 'numberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
+-- * 'sizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
+-- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault.
+-- * 'vaultName' - The name of the vault.
+mkDescribeVaultOutput ::
   DescribeVaultOutput
-describeVaultOutput =
+mkDescribeVaultOutput =
   DescribeVaultOutput'
-    { _dvoVaultName = Nothing,
-      _dvoSizeInBytes = Nothing,
-      _dvoLastInventoryDate = Nothing,
-      _dvoVaultARN = Nothing,
-      _dvoCreationDate = Nothing,
-      _dvoNumberOfArchives = Nothing
+    { vaultName = Lude.Nothing,
+      sizeInBytes = Lude.Nothing,
+      lastInventoryDate = Lude.Nothing,
+      vaultARN = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      numberOfArchives = Lude.Nothing
     }
 
 -- | The name of the vault.
-dvoVaultName :: Lens' DescribeVaultOutput (Maybe Text)
-dvoVaultName = lens _dvoVaultName (\s a -> s {_dvoVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvoVaultName :: Lens.Lens' DescribeVaultOutput (Lude.Maybe Lude.Text)
+dvoVaultName = Lens.lens (vaultName :: DescribeVaultOutput -> Lude.Maybe Lude.Text) (\s a -> s {vaultName = a} :: DescribeVaultOutput)
+{-# DEPRECATED dvoVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
-dvoSizeInBytes :: Lens' DescribeVaultOutput (Maybe Integer)
-dvoSizeInBytes = lens _dvoSizeInBytes (\s a -> s {_dvoSizeInBytes = a})
+--
+-- /Note:/ Consider using 'sizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvoSizeInBytes :: Lens.Lens' DescribeVaultOutput (Lude.Maybe Lude.Integer)
+dvoSizeInBytes = Lens.lens (sizeInBytes :: DescribeVaultOutput -> Lude.Maybe Lude.Integer) (\s a -> s {sizeInBytes = a} :: DescribeVaultOutput)
+{-# DEPRECATED dvoSizeInBytes "Use generic-lens or generic-optics with 'sizeInBytes' instead." #-}
 
 -- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
-dvoLastInventoryDate :: Lens' DescribeVaultOutput (Maybe Text)
-dvoLastInventoryDate = lens _dvoLastInventoryDate (\s a -> s {_dvoLastInventoryDate = a})
+--
+-- /Note:/ Consider using 'lastInventoryDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvoLastInventoryDate :: Lens.Lens' DescribeVaultOutput (Lude.Maybe Lude.Text)
+dvoLastInventoryDate = Lens.lens (lastInventoryDate :: DescribeVaultOutput -> Lude.Maybe Lude.Text) (\s a -> s {lastInventoryDate = a} :: DescribeVaultOutput)
+{-# DEPRECATED dvoLastInventoryDate "Use generic-lens or generic-optics with 'lastInventoryDate' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the vault.
-dvoVaultARN :: Lens' DescribeVaultOutput (Maybe Text)
-dvoVaultARN = lens _dvoVaultARN (\s a -> s {_dvoVaultARN = a})
+--
+-- /Note:/ Consider using 'vaultARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvoVaultARN :: Lens.Lens' DescribeVaultOutput (Lude.Maybe Lude.Text)
+dvoVaultARN = Lens.lens (vaultARN :: DescribeVaultOutput -> Lude.Maybe Lude.Text) (\s a -> s {vaultARN = a} :: DescribeVaultOutput)
+{-# DEPRECATED dvoVaultARN "Use generic-lens or generic-optics with 'vaultARN' instead." #-}
 
 -- | The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
-dvoCreationDate :: Lens' DescribeVaultOutput (Maybe Text)
-dvoCreationDate = lens _dvoCreationDate (\s a -> s {_dvoCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvoCreationDate :: Lens.Lens' DescribeVaultOutput (Lude.Maybe Lude.Text)
+dvoCreationDate = Lens.lens (creationDate :: DescribeVaultOutput -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: DescribeVaultOutput)
+{-# DEPRECATED dvoCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
-dvoNumberOfArchives :: Lens' DescribeVaultOutput (Maybe Integer)
-dvoNumberOfArchives = lens _dvoNumberOfArchives (\s a -> s {_dvoNumberOfArchives = a})
+--
+-- /Note:/ Consider using 'numberOfArchives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvoNumberOfArchives :: Lens.Lens' DescribeVaultOutput (Lude.Maybe Lude.Integer)
+dvoNumberOfArchives = Lens.lens (numberOfArchives :: DescribeVaultOutput -> Lude.Maybe Lude.Integer) (\s a -> s {numberOfArchives = a} :: DescribeVaultOutput)
+{-# DEPRECATED dvoNumberOfArchives "Use generic-lens or generic-optics with 'numberOfArchives' instead." #-}
 
-instance FromJSON DescribeVaultOutput where
+instance Lude.FromJSON DescribeVaultOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "DescribeVaultOutput"
       ( \x ->
           DescribeVaultOutput'
-            <$> (x .:? "VaultName")
-            <*> (x .:? "SizeInBytes")
-            <*> (x .:? "LastInventoryDate")
-            <*> (x .:? "VaultARN")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "NumberOfArchives")
+            Lude.<$> (x Lude..:? "VaultName")
+            Lude.<*> (x Lude..:? "SizeInBytes")
+            Lude.<*> (x Lude..:? "LastInventoryDate")
+            Lude.<*> (x Lude..:? "VaultARN")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "NumberOfArchives")
       )
-
-instance Hashable DescribeVaultOutput
-
-instance NFData DescribeVaultOutput

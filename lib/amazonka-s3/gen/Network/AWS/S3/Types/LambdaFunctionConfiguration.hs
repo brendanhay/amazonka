@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.LambdaFunctionConfiguration where
+module Network.AWS.S3.Types.LambdaFunctionConfiguration
+  ( LambdaFunctionConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaFunctionConfiguration,
+
+    -- * Lenses
+    lfcId,
+    lfcFilter,
+    lfcLambdaFunctionARN,
+    lfcEvents,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Event
 import Network.AWS.S3.Types.NotificationConfigurationFilter
 
 -- | A container for specifying the configuration for AWS Lambda notifications.
 --
---
---
--- /See:/ 'lambdaFunctionConfiguration' smart constructor.
+-- /See:/ 'mkLambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
-  { _lfcId ::
-      !(Maybe Text),
-    _lfcFilter ::
-      !( Maybe
-           NotificationConfigurationFilter
-       ),
-    _lfcLambdaFunctionARN :: !Text,
-    _lfcEvents :: ![Event]
+  { id ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe
+        NotificationConfigurationFilter,
+    lambdaFunctionARN :: Lude.Text,
+    events :: [Event]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfcId' - Undocumented member.
---
--- * 'lfcFilter' - Undocumented member.
---
--- * 'lfcLambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
---
--- * 'lfcEvents' - The Amazon S3 bucket event for which to invoke the AWS Lambda function. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types> in the /Amazon Simple Storage Service Developer Guide/ .
-lambdaFunctionConfiguration ::
-  -- | 'lfcLambdaFunctionARN'
-  Text ->
+-- * 'events' - The Amazon S3 bucket event for which to invoke the AWS Lambda function. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'filter' - Undocumented field.
+-- * 'id' - Undocumented field.
+-- * 'lambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+mkLambdaFunctionConfiguration ::
+  -- | 'lambdaFunctionARN'
+  Lude.Text ->
   LambdaFunctionConfiguration
-lambdaFunctionConfiguration pLambdaFunctionARN_ =
+mkLambdaFunctionConfiguration pLambdaFunctionARN_ =
   LambdaFunctionConfiguration'
-    { _lfcId = Nothing,
-      _lfcFilter = Nothing,
-      _lfcLambdaFunctionARN = pLambdaFunctionARN_,
-      _lfcEvents = mempty
+    { id = Lude.Nothing,
+      filter = Lude.Nothing,
+      lambdaFunctionARN = pLambdaFunctionARN_,
+      events = Lude.mempty
     }
 
--- | Undocumented member.
-lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
-lfcId = lens _lfcId (\s a -> s {_lfcId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfcId :: Lens.Lens' LambdaFunctionConfiguration (Lude.Maybe Lude.Text)
+lfcId = Lens.lens (id :: LambdaFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: LambdaFunctionConfiguration)
+{-# DEPRECATED lfcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Undocumented member.
-lfcFilter :: Lens' LambdaFunctionConfiguration (Maybe NotificationConfigurationFilter)
-lfcFilter = lens _lfcFilter (\s a -> s {_lfcFilter = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfcFilter :: Lens.Lens' LambdaFunctionConfiguration (Lude.Maybe NotificationConfigurationFilter)
+lfcFilter = Lens.lens (filter :: LambdaFunctionConfiguration -> Lude.Maybe NotificationConfigurationFilter) (\s a -> s {filter = a} :: LambdaFunctionConfiguration)
+{-# DEPRECATED lfcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
-lfcLambdaFunctionARN :: Lens' LambdaFunctionConfiguration Text
-lfcLambdaFunctionARN = lens _lfcLambdaFunctionARN (\s a -> s {_lfcLambdaFunctionARN = a})
+--
+-- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfcLambdaFunctionARN :: Lens.Lens' LambdaFunctionConfiguration Lude.Text
+lfcLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: LambdaFunctionConfiguration -> Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: LambdaFunctionConfiguration)
+{-# DEPRECATED lfcLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
 
 -- | The Amazon S3 bucket event for which to invoke the AWS Lambda function. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types> in the /Amazon Simple Storage Service Developer Guide/ .
-lfcEvents :: Lens' LambdaFunctionConfiguration [Event]
-lfcEvents = lens _lfcEvents (\s a -> s {_lfcEvents = a}) . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfcEvents :: Lens.Lens' LambdaFunctionConfiguration [Event]
+lfcEvents = Lens.lens (events :: LambdaFunctionConfiguration -> [Event]) (\s a -> s {events = a} :: LambdaFunctionConfiguration)
+{-# DEPRECATED lfcEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance FromXML LambdaFunctionConfiguration where
+instance Lude.FromXML LambdaFunctionConfiguration where
   parseXML x =
     LambdaFunctionConfiguration'
-      <$> (x .@? "Id")
-      <*> (x .@? "Filter")
-      <*> (x .@ "CloudFunction")
-      <*> (parseXMLList "Event" x)
+      Lude.<$> (x Lude..@? "Id")
+      Lude.<*> (x Lude..@? "Filter")
+      Lude.<*> (x Lude..@ "CloudFunction")
+      Lude.<*> (Lude.parseXMLList "Event" x)
 
-instance Hashable LambdaFunctionConfiguration
-
-instance NFData LambdaFunctionConfiguration
-
-instance ToXML LambdaFunctionConfiguration where
+instance Lude.ToXML LambdaFunctionConfiguration where
   toXML LambdaFunctionConfiguration' {..} =
-    mconcat
-      [ "Id" @= _lfcId,
-        "Filter" @= _lfcFilter,
-        "CloudFunction" @= _lfcLambdaFunctionARN,
-        toXMLList "Event" _lfcEvents
+    Lude.mconcat
+      [ "Id" Lude.@= id,
+        "Filter" Lude.@= filter,
+        "CloudFunction" Lude.@= lambdaFunctionARN,
+        Lude.toXMLList "Event" events
       ]

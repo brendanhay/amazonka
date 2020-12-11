@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns a list of all currently running remote access sessions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListRemoteAccessSessions
-  ( -- * Creating a Request
-    listRemoteAccessSessions,
-    ListRemoteAccessSessions,
+  ( -- * Creating a request
+    ListRemoteAccessSessions (..),
+    mkListRemoteAccessSessions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrasNextToken,
     lrasArn,
 
-    -- * Destructuring the Response
-    listRemoteAccessSessionsResponse,
-    ListRemoteAccessSessionsResponse,
+    -- * Destructuring the response
+    ListRemoteAccessSessionsResponse (..),
+    mkListRemoteAccessSessionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrasrsNextToken,
     lrasrsRemoteAccessSessions,
     lrasrsResponseStatus,
@@ -43,141 +36,157 @@ module Network.AWS.DeviceFarm.ListRemoteAccessSessions
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to return information about the remote access session.
 --
---
---
--- /See:/ 'listRemoteAccessSessions' smart constructor.
+-- /See:/ 'mkListRemoteAccessSessions' smart constructor.
 data ListRemoteAccessSessions = ListRemoteAccessSessions'
-  { _lrasNextToken ::
-      !(Maybe Text),
-    _lrasArn :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRemoteAccessSessions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrasNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lrasArn' - The Amazon Resource Name (ARN) of the project about which you are requesting information.
-listRemoteAccessSessions ::
-  -- | 'lrasArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the project about which you are requesting information.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListRemoteAccessSessions ::
+  -- | 'arn'
+  Lude.Text ->
   ListRemoteAccessSessions
-listRemoteAccessSessions pArn_ =
-  ListRemoteAccessSessions'
-    { _lrasNextToken = Nothing,
-      _lrasArn = pArn_
-    }
+mkListRemoteAccessSessions pArn_ =
+  ListRemoteAccessSessions' {nextToken = Lude.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lrasNextToken :: Lens' ListRemoteAccessSessions (Maybe Text)
-lrasNextToken = lens _lrasNextToken (\s a -> s {_lrasNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrasNextToken :: Lens.Lens' ListRemoteAccessSessions (Lude.Maybe Lude.Text)
+lrasNextToken = Lens.lens (nextToken :: ListRemoteAccessSessions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRemoteAccessSessions)
+{-# DEPRECATED lrasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the project about which you are requesting information.
-lrasArn :: Lens' ListRemoteAccessSessions Text
-lrasArn = lens _lrasArn (\s a -> s {_lrasArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrasArn :: Lens.Lens' ListRemoteAccessSessions Lude.Text
+lrasArn = Lens.lens (arn :: ListRemoteAccessSessions -> Lude.Text) (\s a -> s {arn = a} :: ListRemoteAccessSessions)
+{-# DEPRECATED lrasArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSPager ListRemoteAccessSessions where
+instance Page.AWSPager ListRemoteAccessSessions where
   page rq rs
-    | stop (rs ^. lrasrsNextToken) = Nothing
-    | stop (rs ^. lrasrsRemoteAccessSessions) = Nothing
-    | otherwise = Just $ rq & lrasNextToken .~ rs ^. lrasrsNextToken
+    | Page.stop (rs Lens.^. lrasrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrasrsRemoteAccessSessions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrasNextToken Lens..~ rs Lens.^. lrasrsNextToken
 
-instance AWSRequest ListRemoteAccessSessions where
+instance Lude.AWSRequest ListRemoteAccessSessions where
   type Rs ListRemoteAccessSessions = ListRemoteAccessSessionsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRemoteAccessSessionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "remoteAccessSessions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "remoteAccessSessions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRemoteAccessSessions
-
-instance NFData ListRemoteAccessSessions
-
-instance ToHeaders ListRemoteAccessSessions where
+instance Lude.ToHeaders ListRemoteAccessSessions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListRemoteAccessSessions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DeviceFarm_20150623.ListRemoteAccessSessions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRemoteAccessSessions where
+instance Lude.ToJSON ListRemoteAccessSessions where
   toJSON ListRemoteAccessSessions' {..} =
-    object
-      ( catMaybes
-          [("nextToken" .=) <$> _lrasNextToken, Just ("arn" .= _lrasArn)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("arn" Lude..= arn)
+          ]
       )
 
-instance ToPath ListRemoteAccessSessions where
-  toPath = const "/"
+instance Lude.ToPath ListRemoteAccessSessions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRemoteAccessSessions where
-  toQuery = const mempty
+instance Lude.ToQuery ListRemoteAccessSessions where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server after AWS Device Farm makes a request to return information about the remote access session.
 --
---
---
--- /See:/ 'listRemoteAccessSessionsResponse' smart constructor.
+-- /See:/ 'mkListRemoteAccessSessionsResponse' smart constructor.
 data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
-  { _lrasrsNextToken ::
-      !(Maybe Text),
-    _lrasrsRemoteAccessSessions ::
-      !( Maybe
-           [RemoteAccessSession]
-       ),
-    _lrasrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    remoteAccessSessions ::
+      Lude.Maybe
+        [RemoteAccessSession],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRemoteAccessSessionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrasrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lrasrsRemoteAccessSessions' - A container that represents the metadata from the service about each remote access session you are requesting.
---
--- * 'lrasrsResponseStatus' - -- | The response status code.
-listRemoteAccessSessionsResponse ::
-  -- | 'lrasrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'remoteAccessSessions' - A container that represents the metadata from the service about each remote access session you are requesting.
+-- * 'responseStatus' - The response status code.
+mkListRemoteAccessSessionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRemoteAccessSessionsResponse
-listRemoteAccessSessionsResponse pResponseStatus_ =
+mkListRemoteAccessSessionsResponse pResponseStatus_ =
   ListRemoteAccessSessionsResponse'
-    { _lrasrsNextToken = Nothing,
-      _lrasrsRemoteAccessSessions = Nothing,
-      _lrasrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      remoteAccessSessions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lrasrsNextToken :: Lens' ListRemoteAccessSessionsResponse (Maybe Text)
-lrasrsNextToken = lens _lrasrsNextToken (\s a -> s {_lrasrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrasrsNextToken :: Lens.Lens' ListRemoteAccessSessionsResponse (Lude.Maybe Lude.Text)
+lrasrsNextToken = Lens.lens (nextToken :: ListRemoteAccessSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRemoteAccessSessionsResponse)
+{-# DEPRECATED lrasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A container that represents the metadata from the service about each remote access session you are requesting.
-lrasrsRemoteAccessSessions :: Lens' ListRemoteAccessSessionsResponse [RemoteAccessSession]
-lrasrsRemoteAccessSessions = lens _lrasrsRemoteAccessSessions (\s a -> s {_lrasrsRemoteAccessSessions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'remoteAccessSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrasrsRemoteAccessSessions :: Lens.Lens' ListRemoteAccessSessionsResponse (Lude.Maybe [RemoteAccessSession])
+lrasrsRemoteAccessSessions = Lens.lens (remoteAccessSessions :: ListRemoteAccessSessionsResponse -> Lude.Maybe [RemoteAccessSession]) (\s a -> s {remoteAccessSessions = a} :: ListRemoteAccessSessionsResponse)
+{-# DEPRECATED lrasrsRemoteAccessSessions "Use generic-lens or generic-optics with 'remoteAccessSessions' instead." #-}
 
--- | -- | The response status code.
-lrasrsResponseStatus :: Lens' ListRemoteAccessSessionsResponse Int
-lrasrsResponseStatus = lens _lrasrsResponseStatus (\s a -> s {_lrasrsResponseStatus = a})
-
-instance NFData ListRemoteAccessSessionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrasrsResponseStatus :: Lens.Lens' ListRemoteAccessSessionsResponse Lude.Int
+lrasrsResponseStatus = Lens.lens (responseStatus :: ListRemoteAccessSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRemoteAccessSessionsResponse)
+{-# DEPRECATED lrasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

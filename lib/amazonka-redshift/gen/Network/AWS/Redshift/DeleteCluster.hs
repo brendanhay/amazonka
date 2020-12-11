@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,233 @@
 --
 -- Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web service indicates that the request was received correctly. Use 'DescribeClusters' to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 --
---
 -- If you want to shut down the cluster and retain it for future use, set /SkipFinalClusterSnapshot/ to @false@ and specify a name for /FinalClusterSnapshotIdentifier/ . You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be "final-snapshot" while the snapshot is being taken, then it's "deleting" once Amazon Redshift begins deleting the cluster.
---
 -- For more information about managing clusters, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.DeleteCluster
-  ( -- * Creating a Request
-    deleteCluster,
-    DeleteCluster,
+  ( -- * Creating a request
+    DeleteCluster (..),
+    mkDeleteCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delSkipFinalClusterSnapshot,
     delFinalClusterSnapshotRetentionPeriod,
     delFinalClusterSnapshotIdentifier,
     delClusterIdentifier,
 
-    -- * Destructuring the Response
-    deleteClusterResponse,
-    DeleteClusterResponse,
+    -- * Destructuring the response
+    DeleteClusterResponse (..),
+    mkDeleteClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsCluster,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteCluster' smart constructor.
+-- /See:/ 'mkDeleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
-  { _delSkipFinalClusterSnapshot ::
-      !(Maybe Bool),
-    _delFinalClusterSnapshotRetentionPeriod :: !(Maybe Int),
-    _delFinalClusterSnapshotIdentifier :: !(Maybe Text),
-    _delClusterIdentifier :: !Text
+  { skipFinalClusterSnapshot ::
+      Lude.Maybe Lude.Bool,
+    finalClusterSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    finalClusterSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    clusterIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The identifier of the cluster to be deleted.
 --
--- * 'delSkipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.  Default: @false@
+-- Constraints:
 --
--- * 'delFinalClusterSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
+--     * Must contain lowercase characters.
 --
--- * 'delFinalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'delClusterIdentifier' - The identifier of the cluster to be deleted. Constraints:     * Must contain lowercase characters.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-deleteCluster ::
-  -- | 'delClusterIdentifier'
-  Text ->
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'finalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 alphanumeric characters.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'finalClusterSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- The default value is -1.
+-- * 'skipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.
+--
+-- Default: @false@
+mkDeleteCluster ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   DeleteCluster
-deleteCluster pClusterIdentifier_ =
+mkDeleteCluster pClusterIdentifier_ =
   DeleteCluster'
-    { _delSkipFinalClusterSnapshot = Nothing,
-      _delFinalClusterSnapshotRetentionPeriod = Nothing,
-      _delFinalClusterSnapshotIdentifier = Nothing,
-      _delClusterIdentifier = pClusterIdentifier_
+    { skipFinalClusterSnapshot = Lude.Nothing,
+      finalClusterSnapshotRetentionPeriod = Lude.Nothing,
+      finalClusterSnapshotIdentifier = Lude.Nothing,
+      clusterIdentifier = pClusterIdentifier_
     }
 
--- | Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.  Default: @false@
-delSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
-delSkipFinalClusterSnapshot = lens _delSkipFinalClusterSnapshot (\s a -> s {_delSkipFinalClusterSnapshot = a})
+-- | Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'skipFinalClusterSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delSkipFinalClusterSnapshot :: Lens.Lens' DeleteCluster (Lude.Maybe Lude.Bool)
+delSkipFinalClusterSnapshot = Lens.lens (skipFinalClusterSnapshot :: DeleteCluster -> Lude.Maybe Lude.Bool) (\s a -> s {skipFinalClusterSnapshot = a} :: DeleteCluster)
+{-# DEPRECATED delSkipFinalClusterSnapshot "Use generic-lens or generic-optics with 'skipFinalClusterSnapshot' instead." #-}
 
--- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
-delFinalClusterSnapshotRetentionPeriod :: Lens' DeleteCluster (Maybe Int)
-delFinalClusterSnapshotRetentionPeriod = lens _delFinalClusterSnapshotRetentionPeriod (\s a -> s {_delFinalClusterSnapshotRetentionPeriod = a})
+-- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- The default value is -1.
+--
+-- /Note:/ Consider using 'finalClusterSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delFinalClusterSnapshotRetentionPeriod :: Lens.Lens' DeleteCluster (Lude.Maybe Lude.Int)
+delFinalClusterSnapshotRetentionPeriod = Lens.lens (finalClusterSnapshotRetentionPeriod :: DeleteCluster -> Lude.Maybe Lude.Int) (\s a -> s {finalClusterSnapshotRetentionPeriod = a} :: DeleteCluster)
+{-# DEPRECATED delFinalClusterSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'finalClusterSnapshotRetentionPeriod' instead." #-}
 
--- | The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-delFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
-delFinalClusterSnapshotIdentifier = lens _delFinalClusterSnapshotIdentifier (\s a -> s {_delFinalClusterSnapshotIdentifier = a})
+-- | The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 alphanumeric characters.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'finalClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delFinalClusterSnapshotIdentifier :: Lens.Lens' DeleteCluster (Lude.Maybe Lude.Text)
+delFinalClusterSnapshotIdentifier = Lens.lens (finalClusterSnapshotIdentifier :: DeleteCluster -> Lude.Maybe Lude.Text) (\s a -> s {finalClusterSnapshotIdentifier = a} :: DeleteCluster)
+{-# DEPRECATED delFinalClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'finalClusterSnapshotIdentifier' instead." #-}
 
--- | The identifier of the cluster to be deleted. Constraints:     * Must contain lowercase characters.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-delClusterIdentifier :: Lens' DeleteCluster Text
-delClusterIdentifier = lens _delClusterIdentifier (\s a -> s {_delClusterIdentifier = a})
+-- | The identifier of the cluster to be deleted.
+--
+-- Constraints:
+--
+--     * Must contain lowercase characters.
+--
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delClusterIdentifier :: Lens.Lens' DeleteCluster Lude.Text
+delClusterIdentifier = Lens.lens (clusterIdentifier :: DeleteCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DeleteCluster)
+{-# DEPRECATED delClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest DeleteCluster where
+instance Lude.AWSRequest DeleteCluster where
   type Rs DeleteCluster = DeleteClusterResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteClusterResult"
       ( \s h x ->
           DeleteClusterResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCluster
+instance Lude.ToHeaders DeleteCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteCluster
+instance Lude.ToPath DeleteCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteCluster where
-  toHeaders = const mempty
-
-instance ToPath DeleteCluster where
-  toPath = const "/"
-
-instance ToQuery DeleteCluster where
+instance Lude.ToQuery DeleteCluster where
   toQuery DeleteCluster' {..} =
-    mconcat
-      [ "Action" =: ("DeleteCluster" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "SkipFinalClusterSnapshot" =: _delSkipFinalClusterSnapshot,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "SkipFinalClusterSnapshot" Lude.=: skipFinalClusterSnapshot,
         "FinalClusterSnapshotRetentionPeriod"
-          =: _delFinalClusterSnapshotRetentionPeriod,
+          Lude.=: finalClusterSnapshotRetentionPeriod,
         "FinalClusterSnapshotIdentifier"
-          =: _delFinalClusterSnapshotIdentifier,
-        "ClusterIdentifier" =: _delClusterIdentifier
+          Lude.=: finalClusterSnapshotIdentifier,
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'deleteClusterResponse' smart constructor.
+-- | /See:/ 'mkDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-  { _drsCluster ::
-      !(Maybe Cluster),
-    _drsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsCluster' - Undocumented member.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteClusterResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteClusterResponse
-deleteClusterResponse pResponseStatus_ =
+mkDeleteClusterResponse pResponseStatus_ =
   DeleteClusterResponse'
-    { _drsCluster = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-drsCluster = lens _drsCluster (\s a -> s {_drsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCluster :: Lens.Lens' DeleteClusterResponse (Lude.Maybe Cluster)
+drsCluster = Lens.lens (cluster :: DeleteClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: DeleteClusterResponse)
+{-# DEPRECATED drsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteClusterResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteClusterResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClusterResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription where
+module Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
+  ( IdentityPoolShortDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIdentityPoolShortDescription,
+
+    -- * Lenses
+    ipsdIdentityPoolId,
+    ipsdIdentityPoolName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A description of the identity pool.
 --
---
---
--- /See:/ 'identityPoolShortDescription' smart constructor.
+-- /See:/ 'mkIdentityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-  { _ipsdIdentityPoolId ::
-      !(Maybe Text),
-    _ipsdIdentityPoolName ::
-      !(Maybe Text)
+  { identityPoolId ::
+      Lude.Maybe Lude.Text,
+    identityPoolName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityPoolShortDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipsdIdentityPoolId' - An identity pool ID in the format REGION:GUID.
---
--- * 'ipsdIdentityPoolName' - A string that you provide.
-identityPoolShortDescription ::
+-- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'identityPoolName' - A string that you provide.
+mkIdentityPoolShortDescription ::
   IdentityPoolShortDescription
-identityPoolShortDescription =
+mkIdentityPoolShortDescription =
   IdentityPoolShortDescription'
-    { _ipsdIdentityPoolId = Nothing,
-      _ipsdIdentityPoolName = Nothing
+    { identityPoolId = Lude.Nothing,
+      identityPoolName = Lude.Nothing
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
-ipsdIdentityPoolId = lens _ipsdIdentityPoolId (\s a -> s {_ipsdIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsdIdentityPoolId :: Lens.Lens' IdentityPoolShortDescription (Lude.Maybe Lude.Text)
+ipsdIdentityPoolId = Lens.lens (identityPoolId :: IdentityPoolShortDescription -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolId = a} :: IdentityPoolShortDescription)
+{-# DEPRECATED ipsdIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A string that you provide.
-ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
-ipsdIdentityPoolName = lens _ipsdIdentityPoolName (\s a -> s {_ipsdIdentityPoolName = a})
+--
+-- /Note:/ Consider using 'identityPoolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsdIdentityPoolName :: Lens.Lens' IdentityPoolShortDescription (Lude.Maybe Lude.Text)
+ipsdIdentityPoolName = Lens.lens (identityPoolName :: IdentityPoolShortDescription -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolName = a} :: IdentityPoolShortDescription)
+{-# DEPRECATED ipsdIdentityPoolName "Use generic-lens or generic-optics with 'identityPoolName' instead." #-}
 
-instance FromJSON IdentityPoolShortDescription where
+instance Lude.FromJSON IdentityPoolShortDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "IdentityPoolShortDescription"
       ( \x ->
           IdentityPoolShortDescription'
-            <$> (x .:? "IdentityPoolId") <*> (x .:? "IdentityPoolName")
+            Lude.<$> (x Lude..:? "IdentityPoolId")
+            Lude.<*> (x Lude..:? "IdentityPoolName")
       )
-
-instance Hashable IdentityPoolShortDescription
-
-instance NFData IdentityPoolShortDescription

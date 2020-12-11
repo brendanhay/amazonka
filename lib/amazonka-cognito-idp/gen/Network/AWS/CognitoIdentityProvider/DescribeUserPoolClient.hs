@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,145 @@
 --
 -- Client method for returning the configuration information and metadata of the specified user pool app client.
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
-  ( -- * Creating a Request
-    describeUserPoolClient,
-    DescribeUserPoolClient,
+  ( -- * Creating a request
+    DescribeUserPoolClient (..),
+    mkDescribeUserPoolClient,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupcuUserPoolId,
     dupcuClientId,
 
-    -- * Destructuring the Response
-    describeUserPoolClientResponse,
-    DescribeUserPoolClientResponse,
+    -- * Destructuring the response
+    DescribeUserPoolClientResponse (..),
+    mkDescribeUserPoolClientResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dupcrsUserPoolClient,
     dupcrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to describe a user pool client.
 --
---
---
--- /See:/ 'describeUserPoolClient' smart constructor.
+-- /See:/ 'mkDescribeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-  { _dupcuUserPoolId ::
-      !Text,
-    _dupcuClientId :: !(Sensitive Text)
+  { userPoolId ::
+      Lude.Text,
+    clientId :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserPoolClient' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupcuUserPoolId' - The user pool ID for the user pool you want to describe.
---
--- * 'dupcuClientId' - The app client ID of the app associated with the user pool.
-describeUserPoolClient ::
-  -- | 'dupcuUserPoolId'
-  Text ->
-  -- | 'dupcuClientId'
-  Text ->
+-- * 'clientId' - The app client ID of the app associated with the user pool.
+-- * 'userPoolId' - The user pool ID for the user pool you want to describe.
+mkDescribeUserPoolClient ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'clientId'
+  Lude.Sensitive Lude.Text ->
   DescribeUserPoolClient
-describeUserPoolClient pUserPoolId_ pClientId_ =
+mkDescribeUserPoolClient pUserPoolId_ pClientId_ =
   DescribeUserPoolClient'
-    { _dupcuUserPoolId = pUserPoolId_,
-      _dupcuClientId = _Sensitive # pClientId_
+    { userPoolId = pUserPoolId_,
+      clientId = pClientId_
     }
 
 -- | The user pool ID for the user pool you want to describe.
-dupcuUserPoolId :: Lens' DescribeUserPoolClient Text
-dupcuUserPoolId = lens _dupcuUserPoolId (\s a -> s {_dupcuUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupcuUserPoolId :: Lens.Lens' DescribeUserPoolClient Lude.Text
+dupcuUserPoolId = Lens.lens (userPoolId :: DescribeUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserPoolClient)
+{-# DEPRECATED dupcuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The app client ID of the app associated with the user pool.
-dupcuClientId :: Lens' DescribeUserPoolClient Text
-dupcuClientId = lens _dupcuClientId (\s a -> s {_dupcuClientId = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupcuClientId :: Lens.Lens' DescribeUserPoolClient (Lude.Sensitive Lude.Text)
+dupcuClientId = Lens.lens (clientId :: DescribeUserPoolClient -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: DescribeUserPoolClient)
+{-# DEPRECATED dupcuClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
-instance AWSRequest DescribeUserPoolClient where
+instance Lude.AWSRequest DescribeUserPoolClient where
   type Rs DescribeUserPoolClient = DescribeUserPoolClientResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUserPoolClientResponse'
-            <$> (x .?> "UserPoolClient") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserPoolClient")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUserPoolClient
-
-instance NFData DescribeUserPoolClient
-
-instance ToHeaders DescribeUserPoolClient where
+instance Lude.ToHeaders DescribeUserPoolClient where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.DescribeUserPoolClient" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolClient" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUserPoolClient where
+instance Lude.ToJSON DescribeUserPoolClient where
   toJSON DescribeUserPoolClient' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _dupcuUserPoolId),
-            Just ("ClientId" .= _dupcuClientId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("ClientId" Lude..= clientId)
           ]
       )
 
-instance ToPath DescribeUserPoolClient where
-  toPath = const "/"
+instance Lude.ToPath DescribeUserPoolClient where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUserPoolClient where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUserPoolClient where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server from a request to describe the user pool client.
 --
---
---
--- /See:/ 'describeUserPoolClientResponse' smart constructor.
+-- /See:/ 'mkDescribeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
-  { _dupcrsUserPoolClient ::
-      !(Maybe UserPoolClientType),
-    _dupcrsResponseStatus :: !Int
+  { userPoolClient ::
+      Lude.Maybe UserPoolClientType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserPoolClientResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupcrsUserPoolClient' - The user pool client from a server response to describe the user pool client.
---
--- * 'dupcrsResponseStatus' - -- | The response status code.
-describeUserPoolClientResponse ::
-  -- | 'dupcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userPoolClient' - The user pool client from a server response to describe the user pool client.
+mkDescribeUserPoolClientResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUserPoolClientResponse
-describeUserPoolClientResponse pResponseStatus_ =
+mkDescribeUserPoolClientResponse pResponseStatus_ =
   DescribeUserPoolClientResponse'
-    { _dupcrsUserPoolClient = Nothing,
-      _dupcrsResponseStatus = pResponseStatus_
+    { userPoolClient = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user pool client from a server response to describe the user pool client.
-dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
-dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\s a -> s {_dupcrsUserPoolClient = a})
+--
+-- /Note:/ Consider using 'userPoolClient' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupcrsUserPoolClient :: Lens.Lens' DescribeUserPoolClientResponse (Lude.Maybe UserPoolClientType)
+dupcrsUserPoolClient = Lens.lens (userPoolClient :: DescribeUserPoolClientResponse -> Lude.Maybe UserPoolClientType) (\s a -> s {userPoolClient = a} :: DescribeUserPoolClientResponse)
+{-# DEPRECATED dupcrsUserPoolClient "Use generic-lens or generic-optics with 'userPoolClient' instead." #-}
 
--- | -- | The response status code.
-dupcrsResponseStatus :: Lens' DescribeUserPoolClientResponse Int
-dupcrsResponseStatus = lens _dupcrsResponseStatus (\s a -> s {_dupcrsResponseStatus = a})
-
-instance NFData DescribeUserPoolClientResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupcrsResponseStatus :: Lens.Lens' DescribeUserPoolClientResponse Lude.Int
+dupcrsResponseStatus = Lens.lens (responseStatus :: DescribeUserPoolClientResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserPoolClientResponse)
+{-# DEPRECATED dupcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

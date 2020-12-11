@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ActionType where
+module Network.AWS.IoT.Types.ActionType
+  ( ActionType
+      ( ActionType',
+        Connect,
+        Publish,
+        Receive,
+        Subscribe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionType
-  = Connect
-  | Publish
-  | Receive
-  | Subscribe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionType = ActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionType where
-  parser =
-    takeLowerText >>= \case
-      "connect" -> pure Connect
-      "publish" -> pure Publish
-      "receive" -> pure Receive
-      "subscribe" -> pure Subscribe
-      e ->
-        fromTextError $
-          "Failure parsing ActionType from value: '" <> e
-            <> "'. Accepted values: connect, publish, receive, subscribe"
+pattern Connect :: ActionType
+pattern Connect = ActionType' "CONNECT"
 
-instance ToText ActionType where
-  toText = \case
-    Connect -> "CONNECT"
-    Publish -> "PUBLISH"
-    Receive -> "RECEIVE"
-    Subscribe -> "SUBSCRIBE"
+pattern Publish :: ActionType
+pattern Publish = ActionType' "PUBLISH"
 
-instance Hashable ActionType
+pattern Receive :: ActionType
+pattern Receive = ActionType' "RECEIVE"
 
-instance NFData ActionType
+pattern Subscribe :: ActionType
+pattern Subscribe = ActionType' "SUBSCRIBE"
 
-instance ToByteString ActionType
-
-instance ToQuery ActionType
-
-instance ToHeader ActionType
-
-instance ToJSON ActionType where
-  toJSON = toJSONText
-
-instance FromJSON ActionType where
-  parseJSON = parseJSONText "ActionType"
+{-# COMPLETE
+  Connect,
+  Publish,
+  Receive,
+  Subscribe,
+  ActionType'
+  #-}

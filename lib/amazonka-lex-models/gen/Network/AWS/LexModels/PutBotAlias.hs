@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates an alias for the specified version of the bot or replaces an alias for the specified bot. To change the version of the bot that the alias points to, replace the alias. For more information about aliases, see 'versioning-aliases' .
 --
---
 -- This operation requires permissions for the @lex:PutBotAlias@ action.
 module Network.AWS.LexModels.PutBotAlias
-  ( -- * Creating a Request
-    putBotAlias,
-    PutBotAlias,
+  ( -- * Creating a request
+    PutBotAlias (..),
+    mkPutBotAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbaChecksum,
     pbaConversationLogs,
     pbaDescription,
@@ -35,11 +29,11 @@ module Network.AWS.LexModels.PutBotAlias
     pbaBotVersion,
     pbaBotName,
 
-    -- * Destructuring the Response
-    putBotAliasResponse,
-    PutBotAliasResponse,
+    -- * Destructuring the response
+    PutBotAliasResponse (..),
+    mkPutBotAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pbarsChecksum,
     pbarsBotVersion,
     pbarsBotName,
@@ -53,233 +47,282 @@ module Network.AWS.LexModels.PutBotAlias
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putBotAlias' smart constructor.
+-- | /See:/ 'mkPutBotAlias' smart constructor.
 data PutBotAlias = PutBotAlias'
-  { _pbaChecksum :: !(Maybe Text),
-    _pbaConversationLogs :: !(Maybe ConversationLogsRequest),
-    _pbaDescription :: !(Maybe Text),
-    _pbaTags :: !(Maybe [Tag]),
-    _pbaName :: !Text,
-    _pbaBotVersion :: !Text,
-    _pbaBotName :: !Text
+  { checksum :: Lude.Maybe Lude.Text,
+    conversationLogs :: Lude.Maybe ConversationLogsRequest,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text,
+    botVersion :: Lude.Text,
+    botName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBotAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'botName' - The name of the bot.
+-- * 'botVersion' - The version of the bot.
+-- * 'checksum' - Identifies a specific revision of the @> LATEST@ version.
 --
--- * 'pbaChecksum' - Identifies a specific revision of the @> LATEST@ version. When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
---
--- * 'pbaConversationLogs' - Settings for conversation logs for the alias.
---
--- * 'pbaDescription' - A description of the alias.
---
--- * 'pbaTags' - A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the @PutBotAlias@ operation to update the tags on a bot alias. To update tags, use the @TagResource@ operation.
---
--- * 'pbaName' - The name of the alias. The name is /not/ case sensitive.
---
--- * 'pbaBotVersion' - The version of the bot.
---
--- * 'pbaBotName' - The name of the bot.
-putBotAlias ::
-  -- | 'pbaName'
-  Text ->
-  -- | 'pbaBotVersion'
-  Text ->
-  -- | 'pbaBotName'
-  Text ->
+-- When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+-- When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+-- * 'conversationLogs' - Settings for conversation logs for the alias.
+-- * 'description' - A description of the alias.
+-- * 'name' - The name of the alias. The name is /not/ case sensitive.
+-- * 'tags' - A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the @PutBotAlias@ operation to update the tags on a bot alias. To update tags, use the @TagResource@ operation.
+mkPutBotAlias ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'botVersion'
+  Lude.Text ->
+  -- | 'botName'
+  Lude.Text ->
   PutBotAlias
-putBotAlias pName_ pBotVersion_ pBotName_ =
+mkPutBotAlias pName_ pBotVersion_ pBotName_ =
   PutBotAlias'
-    { _pbaChecksum = Nothing,
-      _pbaConversationLogs = Nothing,
-      _pbaDescription = Nothing,
-      _pbaTags = Nothing,
-      _pbaName = pName_,
-      _pbaBotVersion = pBotVersion_,
-      _pbaBotName = pBotName_
+    { checksum = Lude.Nothing,
+      conversationLogs = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      botVersion = pBotVersion_,
+      botName = pBotName_
     }
 
--- | Identifies a specific revision of the @> LATEST@ version. When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
-pbaChecksum :: Lens' PutBotAlias (Maybe Text)
-pbaChecksum = lens _pbaChecksum (\s a -> s {_pbaChecksum = a})
+-- | Identifies a specific revision of the @> LATEST@ version.
+--
+-- When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+-- When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaChecksum :: Lens.Lens' PutBotAlias (Lude.Maybe Lude.Text)
+pbaChecksum = Lens.lens (checksum :: PutBotAlias -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: PutBotAlias)
+{-# DEPRECATED pbaChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | Settings for conversation logs for the alias.
-pbaConversationLogs :: Lens' PutBotAlias (Maybe ConversationLogsRequest)
-pbaConversationLogs = lens _pbaConversationLogs (\s a -> s {_pbaConversationLogs = a})
+--
+-- /Note:/ Consider using 'conversationLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaConversationLogs :: Lens.Lens' PutBotAlias (Lude.Maybe ConversationLogsRequest)
+pbaConversationLogs = Lens.lens (conversationLogs :: PutBotAlias -> Lude.Maybe ConversationLogsRequest) (\s a -> s {conversationLogs = a} :: PutBotAlias)
+{-# DEPRECATED pbaConversationLogs "Use generic-lens or generic-optics with 'conversationLogs' instead." #-}
 
 -- | A description of the alias.
-pbaDescription :: Lens' PutBotAlias (Maybe Text)
-pbaDescription = lens _pbaDescription (\s a -> s {_pbaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaDescription :: Lens.Lens' PutBotAlias (Lude.Maybe Lude.Text)
+pbaDescription = Lens.lens (description :: PutBotAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PutBotAlias)
+{-# DEPRECATED pbaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the @PutBotAlias@ operation to update the tags on a bot alias. To update tags, use the @TagResource@ operation.
-pbaTags :: Lens' PutBotAlias [Tag]
-pbaTags = lens _pbaTags (\s a -> s {_pbaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaTags :: Lens.Lens' PutBotAlias (Lude.Maybe [Tag])
+pbaTags = Lens.lens (tags :: PutBotAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutBotAlias)
+{-# DEPRECATED pbaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the alias. The name is /not/ case sensitive.
-pbaName :: Lens' PutBotAlias Text
-pbaName = lens _pbaName (\s a -> s {_pbaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaName :: Lens.Lens' PutBotAlias Lude.Text
+pbaName = Lens.lens (name :: PutBotAlias -> Lude.Text) (\s a -> s {name = a} :: PutBotAlias)
+{-# DEPRECATED pbaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the bot.
-pbaBotVersion :: Lens' PutBotAlias Text
-pbaBotVersion = lens _pbaBotVersion (\s a -> s {_pbaBotVersion = a})
+--
+-- /Note:/ Consider using 'botVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaBotVersion :: Lens.Lens' PutBotAlias Lude.Text
+pbaBotVersion = Lens.lens (botVersion :: PutBotAlias -> Lude.Text) (\s a -> s {botVersion = a} :: PutBotAlias)
+{-# DEPRECATED pbaBotVersion "Use generic-lens or generic-optics with 'botVersion' instead." #-}
 
 -- | The name of the bot.
-pbaBotName :: Lens' PutBotAlias Text
-pbaBotName = lens _pbaBotName (\s a -> s {_pbaBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaBotName :: Lens.Lens' PutBotAlias Lude.Text
+pbaBotName = Lens.lens (botName :: PutBotAlias -> Lude.Text) (\s a -> s {botName = a} :: PutBotAlias)
+{-# DEPRECATED pbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
-instance AWSRequest PutBotAlias where
+instance Lude.AWSRequest PutBotAlias where
   type Rs PutBotAlias = PutBotAliasResponse
-  request = putJSON lexModels
+  request = Req.putJSON lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutBotAliasResponse'
-            <$> (x .?> "checksum")
-            <*> (x .?> "botVersion")
-            <*> (x .?> "botName")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "name")
-            <*> (x .?> "conversationLogs")
-            <*> (x .?> "lastUpdatedDate")
-            <*> (x .?> "description")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "checksum")
+            Lude.<*> (x Lude..?> "botVersion")
+            Lude.<*> (x Lude..?> "botName")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "conversationLogs")
+            Lude.<*> (x Lude..?> "lastUpdatedDate")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutBotAlias
-
-instance NFData PutBotAlias
-
-instance ToHeaders PutBotAlias where
+instance Lude.ToHeaders PutBotAlias where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON PutBotAlias where
-  toJSON PutBotAlias' {..} =
-    object
-      ( catMaybes
-          [ ("checksum" .=) <$> _pbaChecksum,
-            ("conversationLogs" .=) <$> _pbaConversationLogs,
-            ("description" .=) <$> _pbaDescription,
-            ("tags" .=) <$> _pbaTags,
-            Just ("botVersion" .= _pbaBotVersion)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath PutBotAlias where
+instance Lude.ToJSON PutBotAlias where
+  toJSON PutBotAlias' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("checksum" Lude..=) Lude.<$> checksum,
+            ("conversationLogs" Lude..=) Lude.<$> conversationLogs,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("botVersion" Lude..= botVersion)
+          ]
+      )
+
+instance Lude.ToPath PutBotAlias where
   toPath PutBotAlias' {..} =
-    mconcat ["/bots/", toBS _pbaBotName, "/aliases/", toBS _pbaName]
+    Lude.mconcat
+      ["/bots/", Lude.toBS botName, "/aliases/", Lude.toBS name]
 
-instance ToQuery PutBotAlias where
-  toQuery = const mempty
+instance Lude.ToQuery PutBotAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putBotAliasResponse' smart constructor.
+-- | /See:/ 'mkPutBotAliasResponse' smart constructor.
 data PutBotAliasResponse = PutBotAliasResponse'
-  { _pbarsChecksum ::
-      !(Maybe Text),
-    _pbarsBotVersion :: !(Maybe Text),
-    _pbarsBotName :: !(Maybe Text),
-    _pbarsCreatedDate :: !(Maybe POSIX),
-    _pbarsName :: !(Maybe Text),
-    _pbarsConversationLogs ::
-      !(Maybe ConversationLogsResponse),
-    _pbarsLastUpdatedDate :: !(Maybe POSIX),
-    _pbarsDescription :: !(Maybe Text),
-    _pbarsTags :: !(Maybe [Tag]),
-    _pbarsResponseStatus :: !Int
+  { checksum ::
+      Lude.Maybe Lude.Text,
+    botVersion :: Lude.Maybe Lude.Text,
+    botName :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    conversationLogs ::
+      Lude.Maybe ConversationLogsResponse,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBotAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbarsChecksum' - The checksum for the current version of the alias.
---
--- * 'pbarsBotVersion' - The version of the bot that the alias points to.
---
--- * 'pbarsBotName' - The name of the bot that the alias points to.
---
--- * 'pbarsCreatedDate' - The date that the bot alias was created.
---
--- * 'pbarsName' - The name of the alias.
---
--- * 'pbarsConversationLogs' - The settings that determine how Amazon Lex uses conversation logs for the alias.
---
--- * 'pbarsLastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
---
--- * 'pbarsDescription' - A description of the alias.
---
--- * 'pbarsTags' - A list of tags associated with a bot.
---
--- * 'pbarsResponseStatus' - -- | The response status code.
-putBotAliasResponse ::
-  -- | 'pbarsResponseStatus'
-  Int ->
+-- * 'botName' - The name of the bot that the alias points to.
+-- * 'botVersion' - The version of the bot that the alias points to.
+-- * 'checksum' - The checksum for the current version of the alias.
+-- * 'conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'createdDate' - The date that the bot alias was created.
+-- * 'description' - A description of the alias.
+-- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+-- * 'name' - The name of the alias.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - A list of tags associated with a bot.
+mkPutBotAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutBotAliasResponse
-putBotAliasResponse pResponseStatus_ =
+mkPutBotAliasResponse pResponseStatus_ =
   PutBotAliasResponse'
-    { _pbarsChecksum = Nothing,
-      _pbarsBotVersion = Nothing,
-      _pbarsBotName = Nothing,
-      _pbarsCreatedDate = Nothing,
-      _pbarsName = Nothing,
-      _pbarsConversationLogs = Nothing,
-      _pbarsLastUpdatedDate = Nothing,
-      _pbarsDescription = Nothing,
-      _pbarsTags = Nothing,
-      _pbarsResponseStatus = pResponseStatus_
+    { checksum = Lude.Nothing,
+      botVersion = Lude.Nothing,
+      botName = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      conversationLogs = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The checksum for the current version of the alias.
-pbarsChecksum :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsChecksum = lens _pbarsChecksum (\s a -> s {_pbarsChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsChecksum :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Text)
+pbarsChecksum = Lens.lens (checksum :: PutBotAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The version of the bot that the alias points to.
-pbarsBotVersion :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsBotVersion = lens _pbarsBotVersion (\s a -> s {_pbarsBotVersion = a})
+--
+-- /Note:/ Consider using 'botVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsBotVersion :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Text)
+pbarsBotVersion = Lens.lens (botVersion :: PutBotAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {botVersion = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsBotVersion "Use generic-lens or generic-optics with 'botVersion' instead." #-}
 
 -- | The name of the bot that the alias points to.
-pbarsBotName :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsBotName = lens _pbarsBotName (\s a -> s {_pbarsBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsBotName :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Text)
+pbarsBotName = Lens.lens (botName :: PutBotAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {botName = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The date that the bot alias was created.
-pbarsCreatedDate :: Lens' PutBotAliasResponse (Maybe UTCTime)
-pbarsCreatedDate = lens _pbarsCreatedDate (\s a -> s {_pbarsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsCreatedDate :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Timestamp)
+pbarsCreatedDate = Lens.lens (createdDate :: PutBotAliasResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the alias.
-pbarsName :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsName = lens _pbarsName (\s a -> s {_pbarsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsName :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Text)
+pbarsName = Lens.lens (name :: PutBotAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The settings that determine how Amazon Lex uses conversation logs for the alias.
-pbarsConversationLogs :: Lens' PutBotAliasResponse (Maybe ConversationLogsResponse)
-pbarsConversationLogs = lens _pbarsConversationLogs (\s a -> s {_pbarsConversationLogs = a})
+--
+-- /Note:/ Consider using 'conversationLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsConversationLogs :: Lens.Lens' PutBotAliasResponse (Lude.Maybe ConversationLogsResponse)
+pbarsConversationLogs = Lens.lens (conversationLogs :: PutBotAliasResponse -> Lude.Maybe ConversationLogsResponse) (\s a -> s {conversationLogs = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsConversationLogs "Use generic-lens or generic-optics with 'conversationLogs' instead." #-}
 
 -- | The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-pbarsLastUpdatedDate :: Lens' PutBotAliasResponse (Maybe UTCTime)
-pbarsLastUpdatedDate = lens _pbarsLastUpdatedDate (\s a -> s {_pbarsLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsLastUpdatedDate :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Timestamp)
+pbarsLastUpdatedDate = Lens.lens (lastUpdatedDate :: PutBotAliasResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | A description of the alias.
-pbarsDescription :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsDescription = lens _pbarsDescription (\s a -> s {_pbarsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsDescription :: Lens.Lens' PutBotAliasResponse (Lude.Maybe Lude.Text)
+pbarsDescription = Lens.lens (description :: PutBotAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of tags associated with a bot.
-pbarsTags :: Lens' PutBotAliasResponse [Tag]
-pbarsTags = lens _pbarsTags (\s a -> s {_pbarsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsTags :: Lens.Lens' PutBotAliasResponse (Lude.Maybe [Tag])
+pbarsTags = Lens.lens (tags :: PutBotAliasResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-pbarsResponseStatus :: Lens' PutBotAliasResponse Int
-pbarsResponseStatus = lens _pbarsResponseStatus (\s a -> s {_pbarsResponseStatus = a})
-
-instance NFData PutBotAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbarsResponseStatus :: Lens.Lens' PutBotAliasResponse Lude.Int
+pbarsResponseStatus = Lens.lens (responseStatus :: PutBotAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutBotAliasResponse)
+{-# DEPRECATED pbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

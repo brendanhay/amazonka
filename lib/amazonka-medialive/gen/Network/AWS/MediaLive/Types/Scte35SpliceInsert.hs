@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35SpliceInsert where
+module Network.AWS.MediaLive.Types.Scte35SpliceInsert
+  ( Scte35SpliceInsert (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkScte35SpliceInsert,
+
+    -- * Lenses
+    ssiWebDeliveryAllowedFlag,
+    ssiAdAvailOffset,
+    ssiNoRegionalBlackoutFlag,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
 import Network.AWS.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Scte35 Splice Insert
 --
--- /See:/ 'scte35SpliceInsert' smart constructor.
+-- /See:/ 'mkScte35SpliceInsert' smart constructor.
 data Scte35SpliceInsert = Scte35SpliceInsert'
-  { _ssiWebDeliveryAllowedFlag ::
-      !(Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior),
-    _ssiAdAvailOffset :: !(Maybe Int),
-    _ssiNoRegionalBlackoutFlag ::
-      !(Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
+  { webDeliveryAllowedFlag ::
+      Lude.Maybe
+        Scte35SpliceInsertWebDeliveryAllowedBehavior,
+    adAvailOffset :: Lude.Maybe Lude.Int,
+    noRegionalBlackoutFlag ::
+      Lude.Maybe
+        Scte35SpliceInsertNoRegionalBlackoutBehavior
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35SpliceInsert' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssiWebDeliveryAllowedFlag' - When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
---
--- * 'ssiAdAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
---
--- * 'ssiNoRegionalBlackoutFlag' - When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-scte35SpliceInsert ::
+-- * 'adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+-- * 'noRegionalBlackoutFlag' - When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+-- * 'webDeliveryAllowedFlag' - When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+mkScte35SpliceInsert ::
   Scte35SpliceInsert
-scte35SpliceInsert =
+mkScte35SpliceInsert =
   Scte35SpliceInsert'
-    { _ssiWebDeliveryAllowedFlag = Nothing,
-      _ssiAdAvailOffset = Nothing,
-      _ssiNoRegionalBlackoutFlag = Nothing
+    { webDeliveryAllowedFlag = Lude.Nothing,
+      adAvailOffset = Lude.Nothing,
+      noRegionalBlackoutFlag = Lude.Nothing
     }
 
 -- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-ssiWebDeliveryAllowedFlag :: Lens' Scte35SpliceInsert (Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
-ssiWebDeliveryAllowedFlag = lens _ssiWebDeliveryAllowedFlag (\s a -> s {_ssiWebDeliveryAllowedFlag = a})
+--
+-- /Note:/ Consider using 'webDeliveryAllowedFlag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssiWebDeliveryAllowedFlag :: Lens.Lens' Scte35SpliceInsert (Lude.Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
+ssiWebDeliveryAllowedFlag = Lens.lens (webDeliveryAllowedFlag :: Scte35SpliceInsert -> Lude.Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior) (\s a -> s {webDeliveryAllowedFlag = a} :: Scte35SpliceInsert)
+{-# DEPRECATED ssiWebDeliveryAllowedFlag "Use generic-lens or generic-optics with 'webDeliveryAllowedFlag' instead." #-}
 
 -- | When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-ssiAdAvailOffset :: Lens' Scte35SpliceInsert (Maybe Int)
-ssiAdAvailOffset = lens _ssiAdAvailOffset (\s a -> s {_ssiAdAvailOffset = a})
+--
+-- /Note:/ Consider using 'adAvailOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssiAdAvailOffset :: Lens.Lens' Scte35SpliceInsert (Lude.Maybe Lude.Int)
+ssiAdAvailOffset = Lens.lens (adAvailOffset :: Scte35SpliceInsert -> Lude.Maybe Lude.Int) (\s a -> s {adAvailOffset = a} :: Scte35SpliceInsert)
+{-# DEPRECATED ssiAdAvailOffset "Use generic-lens or generic-optics with 'adAvailOffset' instead." #-}
 
 -- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-ssiNoRegionalBlackoutFlag :: Lens' Scte35SpliceInsert (Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
-ssiNoRegionalBlackoutFlag = lens _ssiNoRegionalBlackoutFlag (\s a -> s {_ssiNoRegionalBlackoutFlag = a})
+--
+-- /Note:/ Consider using 'noRegionalBlackoutFlag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssiNoRegionalBlackoutFlag :: Lens.Lens' Scte35SpliceInsert (Lude.Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
+ssiNoRegionalBlackoutFlag = Lens.lens (noRegionalBlackoutFlag :: Scte35SpliceInsert -> Lude.Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior) (\s a -> s {noRegionalBlackoutFlag = a} :: Scte35SpliceInsert)
+{-# DEPRECATED ssiNoRegionalBlackoutFlag "Use generic-lens or generic-optics with 'noRegionalBlackoutFlag' instead." #-}
 
-instance FromJSON Scte35SpliceInsert where
+instance Lude.FromJSON Scte35SpliceInsert where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scte35SpliceInsert"
       ( \x ->
           Scte35SpliceInsert'
-            <$> (x .:? "webDeliveryAllowedFlag")
-            <*> (x .:? "adAvailOffset")
-            <*> (x .:? "noRegionalBlackoutFlag")
+            Lude.<$> (x Lude..:? "webDeliveryAllowedFlag")
+            Lude.<*> (x Lude..:? "adAvailOffset")
+            Lude.<*> (x Lude..:? "noRegionalBlackoutFlag")
       )
 
-instance Hashable Scte35SpliceInsert
-
-instance NFData Scte35SpliceInsert
-
-instance ToJSON Scte35SpliceInsert where
+instance Lude.ToJSON Scte35SpliceInsert where
   toJSON Scte35SpliceInsert' {..} =
-    object
-      ( catMaybes
-          [ ("webDeliveryAllowedFlag" .=) <$> _ssiWebDeliveryAllowedFlag,
-            ("adAvailOffset" .=) <$> _ssiAdAvailOffset,
-            ("noRegionalBlackoutFlag" .=) <$> _ssiNoRegionalBlackoutFlag
+    Lude.object
+      ( Lude.catMaybes
+          [ ("webDeliveryAllowedFlag" Lude..=)
+              Lude.<$> webDeliveryAllowedFlag,
+            ("adAvailOffset" Lude..=) Lude.<$> adAvailOffset,
+            ("noRegionalBlackoutFlag" Lude..=)
+              Lude.<$> noRegionalBlackoutFlag
           ]
       )

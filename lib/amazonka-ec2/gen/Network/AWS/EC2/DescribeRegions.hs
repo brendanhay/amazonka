@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,187 @@
 --
 -- Describes the Regions that are enabled for your account, or all Regions.
 --
---
 -- For a list of the Regions supported by Amazon EC2, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints> .
---
 -- For information about enabling and disabling Regions for your account, see <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html Managing AWS Regions> in the /AWS General Reference/ .
 module Network.AWS.EC2.DescribeRegions
-  ( -- * Creating a Request
-    describeRegions,
-    DescribeRegions,
+  ( -- * Creating a request
+    DescribeRegions (..),
+    mkDescribeRegions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drsRegionNames,
     drsFilters,
     drsAllRegions,
     drsDryRun,
 
-    -- * Destructuring the Response
-    describeRegionsResponse,
-    DescribeRegionsResponse,
+    -- * Destructuring the response
+    DescribeRegionsResponse (..),
+    mkDescribeRegionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsRegions,
     drrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRegions' smart constructor.
+-- | /See:/ 'mkDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
-  { _drsRegionNames ::
-      !(Maybe [Text]),
-    _drsFilters :: !(Maybe [Filter]),
-    _drsAllRegions :: !(Maybe Bool),
-    _drsDryRun :: !(Maybe Bool)
+  { regionNames ::
+      Lude.Maybe [Lude.Text],
+    filters :: Lude.Maybe [Filter],
+    allRegions :: Lude.Maybe Lude.Bool,
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRegions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allRegions' - Indicates whether to display all Regions, including Regions that are disabled for your account.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - The filters.
 --
--- * 'drsRegionNames' - The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.
 --
--- * 'drsFilters' - The filters.     * @endpoint@ - The endpoint of the Region (for example, @ec2.us-east-1.amazonaws.com@ ).     * @opt-in-status@ - The opt-in status of the Region (@opt-in-not-required@ | @opted-in@ | @not-opted-in@ ).     * @region-name@ - The name of the Region (for example, @us-east-1@ ).
+--     * @endpoint@ - The endpoint of the Region (for example, @ec2.us-east-1.amazonaws.com@ ).
 --
--- * 'drsAllRegions' - Indicates whether to display all Regions, including Regions that are disabled for your account.
 --
--- * 'drsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeRegions ::
+--     * @opt-in-status@ - The opt-in status of the Region (@opt-in-not-required@ | @opted-in@ | @not-opted-in@ ).
+--
+--
+--     * @region-name@ - The name of the Region (for example, @us-east-1@ ).
+--
+--
+-- * 'regionNames' - The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.
+mkDescribeRegions ::
   DescribeRegions
-describeRegions =
+mkDescribeRegions =
   DescribeRegions'
-    { _drsRegionNames = Nothing,
-      _drsFilters = Nothing,
-      _drsAllRegions = Nothing,
-      _drsDryRun = Nothing
+    { regionNames = Lude.Nothing,
+      filters = Lude.Nothing,
+      allRegions = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.
-drsRegionNames :: Lens' DescribeRegions [Text]
-drsRegionNames = lens _drsRegionNames (\s a -> s {_drsRegionNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'regionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsRegionNames :: Lens.Lens' DescribeRegions (Lude.Maybe [Lude.Text])
+drsRegionNames = Lens.lens (regionNames :: DescribeRegions -> Lude.Maybe [Lude.Text]) (\s a -> s {regionNames = a} :: DescribeRegions)
+{-# DEPRECATED drsRegionNames "Use generic-lens or generic-optics with 'regionNames' instead." #-}
 
--- | The filters.     * @endpoint@ - The endpoint of the Region (for example, @ec2.us-east-1.amazonaws.com@ ).     * @opt-in-status@ - The opt-in status of the Region (@opt-in-not-required@ | @opted-in@ | @not-opted-in@ ).     * @region-name@ - The name of the Region (for example, @us-east-1@ ).
-drsFilters :: Lens' DescribeRegions [Filter]
-drsFilters = lens _drsFilters (\s a -> s {_drsFilters = a}) . _Default . _Coerce
+-- | The filters.
+--
+--
+--     * @endpoint@ - The endpoint of the Region (for example, @ec2.us-east-1.amazonaws.com@ ).
+--
+--
+--     * @opt-in-status@ - The opt-in status of the Region (@opt-in-not-required@ | @opted-in@ | @not-opted-in@ ).
+--
+--
+--     * @region-name@ - The name of the Region (for example, @us-east-1@ ).
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsFilters :: Lens.Lens' DescribeRegions (Lude.Maybe [Filter])
+drsFilters = Lens.lens (filters :: DescribeRegions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeRegions)
+{-# DEPRECATED drsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | Indicates whether to display all Regions, including Regions that are disabled for your account.
-drsAllRegions :: Lens' DescribeRegions (Maybe Bool)
-drsAllRegions = lens _drsAllRegions (\s a -> s {_drsAllRegions = a})
+--
+-- /Note:/ Consider using 'allRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsAllRegions :: Lens.Lens' DescribeRegions (Lude.Maybe Lude.Bool)
+drsAllRegions = Lens.lens (allRegions :: DescribeRegions -> Lude.Maybe Lude.Bool) (\s a -> s {allRegions = a} :: DescribeRegions)
+{-# DEPRECATED drsAllRegions "Use generic-lens or generic-optics with 'allRegions' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-drsDryRun :: Lens' DescribeRegions (Maybe Bool)
-drsDryRun = lens _drsDryRun (\s a -> s {_drsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDryRun :: Lens.Lens' DescribeRegions (Lude.Maybe Lude.Bool)
+drsDryRun = Lens.lens (dryRun :: DescribeRegions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeRegions)
+{-# DEPRECATED drsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DescribeRegions where
+instance Lude.AWSRequest DescribeRegions where
   type Rs DescribeRegions = DescribeRegionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeRegionsResponse'
-            <$> (x .@? "regionInfo" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "regionInfo" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRegions
+instance Lude.ToHeaders DescribeRegions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeRegions
+instance Lude.ToPath DescribeRegions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeRegions where
-  toHeaders = const mempty
-
-instance ToPath DescribeRegions where
-  toPath = const "/"
-
-instance ToQuery DescribeRegions where
+instance Lude.ToQuery DescribeRegions where
   toQuery DescribeRegions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeRegions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "RegionName" <$> _drsRegionNames),
-        toQuery (toQueryList "Filter" <$> _drsFilters),
-        "AllRegions" =: _drsAllRegions,
-        "DryRun" =: _drsDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeRegions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "RegionName" Lude.<$> regionNames),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "AllRegions" Lude.=: allRegions,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'describeRegionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
-  { _drrsRegions ::
-      !(Maybe [RegionInfo]),
-    _drrsResponseStatus :: !Int
+  { regions ::
+      Lude.Maybe [RegionInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsRegions' - Information about the Regions.
---
--- * 'drrsResponseStatus' - -- | The response status code.
-describeRegionsResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'regions' - Information about the Regions.
+-- * 'responseStatus' - The response status code.
+mkDescribeRegionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRegionsResponse
-describeRegionsResponse pResponseStatus_ =
+mkDescribeRegionsResponse pResponseStatus_ =
   DescribeRegionsResponse'
-    { _drrsRegions = Nothing,
-      _drrsResponseStatus = pResponseStatus_
+    { regions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the Regions.
-drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
-drrsRegions = lens _drrsRegions (\s a -> s {_drrsRegions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsRegions :: Lens.Lens' DescribeRegionsResponse (Lude.Maybe [RegionInfo])
+drrsRegions = Lens.lens (regions :: DescribeRegionsResponse -> Lude.Maybe [RegionInfo]) (\s a -> s {regions = a} :: DescribeRegionsResponse)
+{-# DEPRECATED drrsRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DescribeRegionsResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DescribeRegionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DescribeRegionsResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DescribeRegionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRegionsResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

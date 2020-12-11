@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType where
+module Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
+  ( ServiceActionDefinitionType
+      ( ServiceActionDefinitionType',
+        SsmAutomation
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceActionDefinitionType = SsmAutomation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceActionDefinitionType = ServiceActionDefinitionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceActionDefinitionType where
-  parser =
-    takeLowerText >>= \case
-      "ssm_automation" -> pure SsmAutomation
-      e ->
-        fromTextError $
-          "Failure parsing ServiceActionDefinitionType from value: '" <> e
-            <> "'. Accepted values: ssm_automation"
+pattern SsmAutomation :: ServiceActionDefinitionType
+pattern SsmAutomation = ServiceActionDefinitionType' "SSM_AUTOMATION"
 
-instance ToText ServiceActionDefinitionType where
-  toText = \case
-    SsmAutomation -> "SSM_AUTOMATION"
-
-instance Hashable ServiceActionDefinitionType
-
-instance NFData ServiceActionDefinitionType
-
-instance ToByteString ServiceActionDefinitionType
-
-instance ToQuery ServiceActionDefinitionType
-
-instance ToHeader ServiceActionDefinitionType
-
-instance ToJSON ServiceActionDefinitionType where
-  toJSON = toJSONText
-
-instance FromJSON ServiceActionDefinitionType where
-  parseJSON = parseJSONText "ServiceActionDefinitionType"
+{-# COMPLETE
+  SsmAutomation,
+  ServiceActionDefinitionType'
+  #-}

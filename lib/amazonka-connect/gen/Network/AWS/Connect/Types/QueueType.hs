@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.QueueType where
+module Network.AWS.Connect.Types.QueueType
+  ( QueueType
+      ( QueueType',
+        Agent,
+        Standard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QueueType
-  = Agent
-  | Standard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueueType = QueueType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueueType where
-  parser =
-    takeLowerText >>= \case
-      "agent" -> pure Agent
-      "standard" -> pure Standard
-      e ->
-        fromTextError $
-          "Failure parsing QueueType from value: '" <> e
-            <> "'. Accepted values: agent, standard"
+pattern Agent :: QueueType
+pattern Agent = QueueType' "AGENT"
 
-instance ToText QueueType where
-  toText = \case
-    Agent -> "AGENT"
-    Standard -> "STANDARD"
+pattern Standard :: QueueType
+pattern Standard = QueueType' "STANDARD"
 
-instance Hashable QueueType
-
-instance NFData QueueType
-
-instance ToByteString QueueType
-
-instance ToQuery QueueType
-
-instance ToHeader QueueType
-
-instance ToJSON QueueType where
-  toJSON = toJSONText
-
-instance FromJSON QueueType where
-  parseJSON = parseJSONText "QueueType"
+{-# COMPLETE
+  Agent,
+  Standard,
+  QueueType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.AWSAPICallAction where
+module Network.AWS.GuardDuty.Types.AWSAPICallAction
+  ( AWSAPICallAction (..),
+
+    -- * Smart constructor
+    mkAWSAPICallAction,
+
+    -- * Lenses
+    aacaRemoteIPDetails,
+    aacaCallerType,
+    aacaDomainDetails,
+    aacaServiceName,
+    aacaErrorCode,
+    aacaAPI,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.DomainDetails
 import Network.AWS.GuardDuty.Types.RemoteIPDetails
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the API action.
 --
---
---
--- /See:/ 'awsAPICallAction' smart constructor.
+-- /See:/ 'mkAWSAPICallAction' smart constructor.
 data AWSAPICallAction = AWSAPICallAction'
-  { _aacaRemoteIPDetails ::
-      !(Maybe RemoteIPDetails),
-    _aacaCallerType :: !(Maybe Text),
-    _aacaDomainDetails :: !(Maybe DomainDetails),
-    _aacaServiceName :: !(Maybe Text),
-    _aacaErrorCode :: !(Maybe Text),
-    _aacaAPI :: !(Maybe Text)
+  { remoteIPDetails ::
+      Lude.Maybe RemoteIPDetails,
+    callerType :: Lude.Maybe Lude.Text,
+    domainDetails :: Lude.Maybe DomainDetails,
+    serviceName :: Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe Lude.Text,
+    api :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSAPICallAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aacaRemoteIPDetails' - The remote IP information of the connection that initiated the AWS API call.
---
--- * 'aacaCallerType' - The AWS API caller type.
---
--- * 'aacaDomainDetails' - The domain information for the AWS API call.
---
--- * 'aacaServiceName' - The AWS service name whose API was invoked.
---
--- * 'aacaErrorCode' - The error code of the failed AWS API action.
---
--- * 'aacaAPI' - The AWS API name.
-awsAPICallAction ::
+-- * 'api' - The AWS API name.
+-- * 'callerType' - The AWS API caller type.
+-- * 'domainDetails' - The domain information for the AWS API call.
+-- * 'errorCode' - The error code of the failed AWS API action.
+-- * 'remoteIPDetails' - The remote IP information of the connection that initiated the AWS API call.
+-- * 'serviceName' - The AWS service name whose API was invoked.
+mkAWSAPICallAction ::
   AWSAPICallAction
-awsAPICallAction =
+mkAWSAPICallAction =
   AWSAPICallAction'
-    { _aacaRemoteIPDetails = Nothing,
-      _aacaCallerType = Nothing,
-      _aacaDomainDetails = Nothing,
-      _aacaServiceName = Nothing,
-      _aacaErrorCode = Nothing,
-      _aacaAPI = Nothing
+    { remoteIPDetails = Lude.Nothing,
+      callerType = Lude.Nothing,
+      domainDetails = Lude.Nothing,
+      serviceName = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      api = Lude.Nothing
     }
 
 -- | The remote IP information of the connection that initiated the AWS API call.
-aacaRemoteIPDetails :: Lens' AWSAPICallAction (Maybe RemoteIPDetails)
-aacaRemoteIPDetails = lens _aacaRemoteIPDetails (\s a -> s {_aacaRemoteIPDetails = a})
+--
+-- /Note:/ Consider using 'remoteIPDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacaRemoteIPDetails :: Lens.Lens' AWSAPICallAction (Lude.Maybe RemoteIPDetails)
+aacaRemoteIPDetails = Lens.lens (remoteIPDetails :: AWSAPICallAction -> Lude.Maybe RemoteIPDetails) (\s a -> s {remoteIPDetails = a} :: AWSAPICallAction)
+{-# DEPRECATED aacaRemoteIPDetails "Use generic-lens or generic-optics with 'remoteIPDetails' instead." #-}
 
 -- | The AWS API caller type.
-aacaCallerType :: Lens' AWSAPICallAction (Maybe Text)
-aacaCallerType = lens _aacaCallerType (\s a -> s {_aacaCallerType = a})
+--
+-- /Note:/ Consider using 'callerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacaCallerType :: Lens.Lens' AWSAPICallAction (Lude.Maybe Lude.Text)
+aacaCallerType = Lens.lens (callerType :: AWSAPICallAction -> Lude.Maybe Lude.Text) (\s a -> s {callerType = a} :: AWSAPICallAction)
+{-# DEPRECATED aacaCallerType "Use generic-lens or generic-optics with 'callerType' instead." #-}
 
 -- | The domain information for the AWS API call.
-aacaDomainDetails :: Lens' AWSAPICallAction (Maybe DomainDetails)
-aacaDomainDetails = lens _aacaDomainDetails (\s a -> s {_aacaDomainDetails = a})
+--
+-- /Note:/ Consider using 'domainDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacaDomainDetails :: Lens.Lens' AWSAPICallAction (Lude.Maybe DomainDetails)
+aacaDomainDetails = Lens.lens (domainDetails :: AWSAPICallAction -> Lude.Maybe DomainDetails) (\s a -> s {domainDetails = a} :: AWSAPICallAction)
+{-# DEPRECATED aacaDomainDetails "Use generic-lens or generic-optics with 'domainDetails' instead." #-}
 
 -- | The AWS service name whose API was invoked.
-aacaServiceName :: Lens' AWSAPICallAction (Maybe Text)
-aacaServiceName = lens _aacaServiceName (\s a -> s {_aacaServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacaServiceName :: Lens.Lens' AWSAPICallAction (Lude.Maybe Lude.Text)
+aacaServiceName = Lens.lens (serviceName :: AWSAPICallAction -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: AWSAPICallAction)
+{-# DEPRECATED aacaServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The error code of the failed AWS API action.
-aacaErrorCode :: Lens' AWSAPICallAction (Maybe Text)
-aacaErrorCode = lens _aacaErrorCode (\s a -> s {_aacaErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacaErrorCode :: Lens.Lens' AWSAPICallAction (Lude.Maybe Lude.Text)
+aacaErrorCode = Lens.lens (errorCode :: AWSAPICallAction -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: AWSAPICallAction)
+{-# DEPRECATED aacaErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The AWS API name.
-aacaAPI :: Lens' AWSAPICallAction (Maybe Text)
-aacaAPI = lens _aacaAPI (\s a -> s {_aacaAPI = a})
+--
+-- /Note:/ Consider using 'api' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacaAPI :: Lens.Lens' AWSAPICallAction (Lude.Maybe Lude.Text)
+aacaAPI = Lens.lens (api :: AWSAPICallAction -> Lude.Maybe Lude.Text) (\s a -> s {api = a} :: AWSAPICallAction)
+{-# DEPRECATED aacaAPI "Use generic-lens or generic-optics with 'api' instead." #-}
 
-instance FromJSON AWSAPICallAction where
+instance Lude.FromJSON AWSAPICallAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSAPICallAction"
       ( \x ->
           AWSAPICallAction'
-            <$> (x .:? "remoteIpDetails")
-            <*> (x .:? "callerType")
-            <*> (x .:? "domainDetails")
-            <*> (x .:? "serviceName")
-            <*> (x .:? "errorCode")
-            <*> (x .:? "api")
+            Lude.<$> (x Lude..:? "remoteIpDetails")
+            Lude.<*> (x Lude..:? "callerType")
+            Lude.<*> (x Lude..:? "domainDetails")
+            Lude.<*> (x Lude..:? "serviceName")
+            Lude.<*> (x Lude..:? "errorCode")
+            Lude.<*> (x Lude..:? "api")
       )
-
-instance Hashable AWSAPICallAction
-
-instance NFData AWSAPICallAction

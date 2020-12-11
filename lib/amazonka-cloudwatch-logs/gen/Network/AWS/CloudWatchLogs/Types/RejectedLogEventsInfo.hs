@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo where
+module Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
+  ( RejectedLogEventsInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRejectedLogEventsInfo,
+
+    -- * Lenses
+    rleiTooOldLogEventEndIndex,
+    rleiTooNewLogEventStartIndex,
+    rleiExpiredLogEventEndIndex,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the rejected events.
 --
---
---
--- /See:/ 'rejectedLogEventsInfo' smart constructor.
+-- /See:/ 'mkRejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
-  { _rleiTooOldLogEventEndIndex ::
-      !(Maybe Int),
-    _rleiTooNewLogEventStartIndex :: !(Maybe Int),
-    _rleiExpiredLogEventEndIndex :: !(Maybe Int)
+  { tooOldLogEventEndIndex ::
+      Lude.Maybe Lude.Int,
+    tooNewLogEventStartIndex :: Lude.Maybe Lude.Int,
+    expiredLogEventEndIndex :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectedLogEventsInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rleiTooOldLogEventEndIndex' - The log events that are too old.
---
--- * 'rleiTooNewLogEventStartIndex' - The log events that are too new.
---
--- * 'rleiExpiredLogEventEndIndex' - The expired log events.
-rejectedLogEventsInfo ::
+-- * 'expiredLogEventEndIndex' - The expired log events.
+-- * 'tooNewLogEventStartIndex' - The log events that are too new.
+-- * 'tooOldLogEventEndIndex' - The log events that are too old.
+mkRejectedLogEventsInfo ::
   RejectedLogEventsInfo
-rejectedLogEventsInfo =
+mkRejectedLogEventsInfo =
   RejectedLogEventsInfo'
-    { _rleiTooOldLogEventEndIndex = Nothing,
-      _rleiTooNewLogEventStartIndex = Nothing,
-      _rleiExpiredLogEventEndIndex = Nothing
+    { tooOldLogEventEndIndex = Lude.Nothing,
+      tooNewLogEventStartIndex = Lude.Nothing,
+      expiredLogEventEndIndex = Lude.Nothing
     }
 
 -- | The log events that are too old.
-rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
-rleiTooOldLogEventEndIndex = lens _rleiTooOldLogEventEndIndex (\s a -> s {_rleiTooOldLogEventEndIndex = a})
+--
+-- /Note:/ Consider using 'tooOldLogEventEndIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rleiTooOldLogEventEndIndex :: Lens.Lens' RejectedLogEventsInfo (Lude.Maybe Lude.Int)
+rleiTooOldLogEventEndIndex = Lens.lens (tooOldLogEventEndIndex :: RejectedLogEventsInfo -> Lude.Maybe Lude.Int) (\s a -> s {tooOldLogEventEndIndex = a} :: RejectedLogEventsInfo)
+{-# DEPRECATED rleiTooOldLogEventEndIndex "Use generic-lens or generic-optics with 'tooOldLogEventEndIndex' instead." #-}
 
 -- | The log events that are too new.
-rleiTooNewLogEventStartIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
-rleiTooNewLogEventStartIndex = lens _rleiTooNewLogEventStartIndex (\s a -> s {_rleiTooNewLogEventStartIndex = a})
+--
+-- /Note:/ Consider using 'tooNewLogEventStartIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rleiTooNewLogEventStartIndex :: Lens.Lens' RejectedLogEventsInfo (Lude.Maybe Lude.Int)
+rleiTooNewLogEventStartIndex = Lens.lens (tooNewLogEventStartIndex :: RejectedLogEventsInfo -> Lude.Maybe Lude.Int) (\s a -> s {tooNewLogEventStartIndex = a} :: RejectedLogEventsInfo)
+{-# DEPRECATED rleiTooNewLogEventStartIndex "Use generic-lens or generic-optics with 'tooNewLogEventStartIndex' instead." #-}
 
 -- | The expired log events.
-rleiExpiredLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
-rleiExpiredLogEventEndIndex = lens _rleiExpiredLogEventEndIndex (\s a -> s {_rleiExpiredLogEventEndIndex = a})
+--
+-- /Note:/ Consider using 'expiredLogEventEndIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rleiExpiredLogEventEndIndex :: Lens.Lens' RejectedLogEventsInfo (Lude.Maybe Lude.Int)
+rleiExpiredLogEventEndIndex = Lens.lens (expiredLogEventEndIndex :: RejectedLogEventsInfo -> Lude.Maybe Lude.Int) (\s a -> s {expiredLogEventEndIndex = a} :: RejectedLogEventsInfo)
+{-# DEPRECATED rleiExpiredLogEventEndIndex "Use generic-lens or generic-optics with 'expiredLogEventEndIndex' instead." #-}
 
-instance FromJSON RejectedLogEventsInfo where
+instance Lude.FromJSON RejectedLogEventsInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "RejectedLogEventsInfo"
       ( \x ->
           RejectedLogEventsInfo'
-            <$> (x .:? "tooOldLogEventEndIndex")
-            <*> (x .:? "tooNewLogEventStartIndex")
-            <*> (x .:? "expiredLogEventEndIndex")
+            Lude.<$> (x Lude..:? "tooOldLogEventEndIndex")
+            Lude.<*> (x Lude..:? "tooNewLogEventStartIndex")
+            Lude.<*> (x Lude..:? "expiredLogEventEndIndex")
       )
-
-instance Hashable RejectedLogEventsInfo
-
-instance NFData RejectedLogEventsInfo

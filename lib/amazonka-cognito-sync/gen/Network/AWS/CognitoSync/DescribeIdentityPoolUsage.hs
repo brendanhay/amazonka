@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,137 @@
 --
 -- Gets usage details (for example, data storage) about a particular identity pool.
 --
---
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-  ( -- * Creating a Request
-    describeIdentityPoolUsage,
-    DescribeIdentityPoolUsage,
+  ( -- * Creating a request
+    DescribeIdentityPoolUsage (..),
+    mkDescribeIdentityPoolUsage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dipuIdentityPoolId,
 
-    -- * Destructuring the Response
-    describeIdentityPoolUsageResponse,
-    DescribeIdentityPoolUsageResponse,
+    -- * Destructuring the response
+    DescribeIdentityPoolUsageResponse (..),
+    mkDescribeIdentityPoolUsageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dipursIdentityPoolUsage,
     dipursResponseStatus,
   )
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request for usage information about the identity pool.
 --
--- /See:/ 'describeIdentityPoolUsage' smart constructor.
+-- /See:/ 'mkDescribeIdentityPoolUsage' smart constructor.
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
-  { _dipuIdentityPoolId ::
-      Text
+  { identityPoolId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityPoolUsage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipuIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-describeIdentityPoolUsage ::
-  -- | 'dipuIdentityPoolId'
-  Text ->
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+mkDescribeIdentityPoolUsage ::
+  -- | 'identityPoolId'
+  Lude.Text ->
   DescribeIdentityPoolUsage
-describeIdentityPoolUsage pIdentityPoolId_ =
-  DescribeIdentityPoolUsage'
-    { _dipuIdentityPoolId =
-        pIdentityPoolId_
-    }
+mkDescribeIdentityPoolUsage pIdentityPoolId_ =
+  DescribeIdentityPoolUsage' {identityPoolId = pIdentityPoolId_}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
-dipuIdentityPoolId = lens _dipuIdentityPoolId (\s a -> s {_dipuIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipuIdentityPoolId :: Lens.Lens' DescribeIdentityPoolUsage Lude.Text
+dipuIdentityPoolId = Lens.lens (identityPoolId :: DescribeIdentityPoolUsage -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeIdentityPoolUsage)
+{-# DEPRECATED dipuIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance AWSRequest DescribeIdentityPoolUsage where
+instance Lude.AWSRequest DescribeIdentityPoolUsage where
   type
     Rs DescribeIdentityPoolUsage =
       DescribeIdentityPoolUsageResponse
-  request = get cognitoSync
+  request = Req.get cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeIdentityPoolUsageResponse'
-            <$> (x .?> "IdentityPoolUsage") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "IdentityPoolUsage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeIdentityPoolUsage
-
-instance NFData DescribeIdentityPoolUsage
-
-instance ToHeaders DescribeIdentityPoolUsage where
+instance Lude.ToHeaders DescribeIdentityPoolUsage where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeIdentityPoolUsage where
+instance Lude.ToPath DescribeIdentityPoolUsage where
   toPath DescribeIdentityPoolUsage' {..} =
-    mconcat ["/identitypools/", toBS _dipuIdentityPoolId]
+    Lude.mconcat ["/identitypools/", Lude.toBS identityPoolId]
 
-instance ToQuery DescribeIdentityPoolUsage where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeIdentityPoolUsage where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response to a successful DescribeIdentityPoolUsage request.
 --
--- /See:/ 'describeIdentityPoolUsageResponse' smart constructor.
+-- /See:/ 'mkDescribeIdentityPoolUsageResponse' smart constructor.
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
-  { _dipursIdentityPoolUsage ::
-      !( Maybe
-           IdentityPoolUsage
-       ),
-    _dipursResponseStatus ::
-      !Int
+  { identityPoolUsage ::
+      Lude.Maybe
+        IdentityPoolUsage,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityPoolUsageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipursIdentityPoolUsage' - Information about the usage of the identity pool.
---
--- * 'dipursResponseStatus' - -- | The response status code.
-describeIdentityPoolUsageResponse ::
-  -- | 'dipursResponseStatus'
-  Int ->
+-- * 'identityPoolUsage' - Information about the usage of the identity pool.
+-- * 'responseStatus' - The response status code.
+mkDescribeIdentityPoolUsageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeIdentityPoolUsageResponse
-describeIdentityPoolUsageResponse pResponseStatus_ =
+mkDescribeIdentityPoolUsageResponse pResponseStatus_ =
   DescribeIdentityPoolUsageResponse'
-    { _dipursIdentityPoolUsage =
-        Nothing,
-      _dipursResponseStatus = pResponseStatus_
+    { identityPoolUsage =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the usage of the identity pool.
-dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
-dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\s a -> s {_dipursIdentityPoolUsage = a})
+--
+-- /Note:/ Consider using 'identityPoolUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipursIdentityPoolUsage :: Lens.Lens' DescribeIdentityPoolUsageResponse (Lude.Maybe IdentityPoolUsage)
+dipursIdentityPoolUsage = Lens.lens (identityPoolUsage :: DescribeIdentityPoolUsageResponse -> Lude.Maybe IdentityPoolUsage) (\s a -> s {identityPoolUsage = a} :: DescribeIdentityPoolUsageResponse)
+{-# DEPRECATED dipursIdentityPoolUsage "Use generic-lens or generic-optics with 'identityPoolUsage' instead." #-}
 
--- | -- | The response status code.
-dipursResponseStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-dipursResponseStatus = lens _dipursResponseStatus (\s a -> s {_dipursResponseStatus = a})
-
-instance NFData DescribeIdentityPoolUsageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipursResponseStatus :: Lens.Lens' DescribeIdentityPoolUsageResponse Lude.Int
+dipursResponseStatus = Lens.lens (responseStatus :: DescribeIdentityPoolUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIdentityPoolUsageResponse)
+{-# DEPRECATED dipursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

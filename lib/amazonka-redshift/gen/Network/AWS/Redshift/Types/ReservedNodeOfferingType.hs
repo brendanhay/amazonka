@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ReservedNodeOfferingType where
+module Network.AWS.Redshift.Types.ReservedNodeOfferingType
+  ( ReservedNodeOfferingType
+      ( ReservedNodeOfferingType',
+        Regular,
+        Upgradable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data ReservedNodeOfferingType
-  = Regular
-  | Upgradable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReservedNodeOfferingType = ReservedNodeOfferingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReservedNodeOfferingType where
-  parser =
-    takeLowerText >>= \case
-      "regular" -> pure Regular
-      "upgradable" -> pure Upgradable
-      e ->
-        fromTextError $
-          "Failure parsing ReservedNodeOfferingType from value: '" <> e
-            <> "'. Accepted values: regular, upgradable"
+pattern Regular :: ReservedNodeOfferingType
+pattern Regular = ReservedNodeOfferingType' "Regular"
 
-instance ToText ReservedNodeOfferingType where
-  toText = \case
-    Regular -> "Regular"
-    Upgradable -> "Upgradable"
+pattern Upgradable :: ReservedNodeOfferingType
+pattern Upgradable = ReservedNodeOfferingType' "Upgradable"
 
-instance Hashable ReservedNodeOfferingType
-
-instance NFData ReservedNodeOfferingType
-
-instance ToByteString ReservedNodeOfferingType
-
-instance ToQuery ReservedNodeOfferingType
-
-instance ToHeader ReservedNodeOfferingType
-
-instance FromXML ReservedNodeOfferingType where
-  parseXML = parseXMLText "ReservedNodeOfferingType"
+{-# COMPLETE
+  Regular,
+  Upgradable,
+  ReservedNodeOfferingType'
+  #-}

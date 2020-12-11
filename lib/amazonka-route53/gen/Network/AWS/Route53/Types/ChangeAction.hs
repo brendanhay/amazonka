@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ChangeAction where
+module Network.AWS.Route53.Types.ChangeAction
+  ( ChangeAction
+      ( ChangeAction',
+        Create,
+        Delete,
+        Upsert
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data ChangeAction
-  = Create
-  | Delete
-  | Upsert
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeAction = ChangeAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeAction where
-  parser =
-    takeLowerText >>= \case
-      "create" -> pure Create
-      "delete" -> pure Delete
-      "upsert" -> pure Upsert
-      e ->
-        fromTextError $
-          "Failure parsing ChangeAction from value: '" <> e
-            <> "'. Accepted values: create, delete, upsert"
+pattern Create :: ChangeAction
+pattern Create = ChangeAction' "CREATE"
 
-instance ToText ChangeAction where
-  toText = \case
-    Create -> "CREATE"
-    Delete -> "DELETE"
-    Upsert -> "UPSERT"
+pattern Delete :: ChangeAction
+pattern Delete = ChangeAction' "DELETE"
 
-instance Hashable ChangeAction
+pattern Upsert :: ChangeAction
+pattern Upsert = ChangeAction' "UPSERT"
 
-instance NFData ChangeAction
-
-instance ToByteString ChangeAction
-
-instance ToQuery ChangeAction
-
-instance ToHeader ChangeAction
-
-instance ToXML ChangeAction where
-  toXML = toXMLText
+{-# COMPLETE
+  Create,
+  Delete,
+  Upsert,
+  ChangeAction'
+  #-}

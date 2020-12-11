@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDestinationRequest where
+module Network.AWS.MediaLive.Types.InputDestinationRequest
+  ( InputDestinationRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputDestinationRequest,
+
+    -- * Lenses
+    idrStreamName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Endpoint settings for a PUSH type input.
 --
--- /See:/ 'inputDestinationRequest' smart constructor.
+-- /See:/ 'mkInputDestinationRequest' smart constructor.
 newtype InputDestinationRequest = InputDestinationRequest'
-  { _idrStreamName ::
-      Maybe Text
+  { streamName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDestinationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'streamName' - A unique name for the location the RTMP stream is being pushed
 --
--- * 'idrStreamName' - A unique name for the location the RTMP stream is being pushed to.
-inputDestinationRequest ::
+-- to.
+mkInputDestinationRequest ::
   InputDestinationRequest
-inputDestinationRequest =
-  InputDestinationRequest' {_idrStreamName = Nothing}
+mkInputDestinationRequest =
+  InputDestinationRequest' {streamName = Lude.Nothing}
 
--- | A unique name for the location the RTMP stream is being pushed to.
-idrStreamName :: Lens' InputDestinationRequest (Maybe Text)
-idrStreamName = lens _idrStreamName (\s a -> s {_idrStreamName = a})
+-- | A unique name for the location the RTMP stream is being pushed
+--
+-- to.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idrStreamName :: Lens.Lens' InputDestinationRequest (Lude.Maybe Lude.Text)
+idrStreamName = Lens.lens (streamName :: InputDestinationRequest -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: InputDestinationRequest)
+{-# DEPRECATED idrStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Hashable InputDestinationRequest
-
-instance NFData InputDestinationRequest
-
-instance ToJSON InputDestinationRequest where
+instance Lude.ToJSON InputDestinationRequest where
   toJSON InputDestinationRequest' {..} =
-    object (catMaybes [("streamName" .=) <$> _idrStreamName])
+    Lude.object
+      (Lude.catMaybes [("streamName" Lude..=) Lude.<$> streamName])

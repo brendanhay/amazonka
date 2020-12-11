@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PciId where
+module Network.AWS.EC2.Types.PciId
+  ( PciId (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPciId,
+
+    -- * Lenses
+    piSubsystemId,
+    piDeviceId,
+    piSubsystemVendorId,
+    piVendorId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.
 --
---
---
--- /See:/ 'pciId' smart constructor.
+-- /See:/ 'mkPciId' smart constructor.
 data PciId = PciId'
-  { _piSubsystemId :: !(Maybe Text),
-    _piDeviceId :: !(Maybe Text),
-    _piSubsystemVendorId :: !(Maybe Text),
-    _piVendorId :: !(Maybe Text)
+  { subsystemId :: Lude.Maybe Lude.Text,
+    deviceId :: Lude.Maybe Lude.Text,
+    subsystemVendorId :: Lude.Maybe Lude.Text,
+    vendorId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PciId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piSubsystemId' - The ID of the subsystem.
---
--- * 'piDeviceId' - The ID of the device.
---
--- * 'piSubsystemVendorId' - The ID of the vendor for the subsystem.
---
--- * 'piVendorId' - The ID of the vendor.
-pciId ::
+-- * 'deviceId' - The ID of the device.
+-- * 'subsystemId' - The ID of the subsystem.
+-- * 'subsystemVendorId' - The ID of the vendor for the subsystem.
+-- * 'vendorId' - The ID of the vendor.
+mkPciId ::
   PciId
-pciId =
+mkPciId =
   PciId'
-    { _piSubsystemId = Nothing,
-      _piDeviceId = Nothing,
-      _piSubsystemVendorId = Nothing,
-      _piVendorId = Nothing
+    { subsystemId = Lude.Nothing,
+      deviceId = Lude.Nothing,
+      subsystemVendorId = Lude.Nothing,
+      vendorId = Lude.Nothing
     }
 
 -- | The ID of the subsystem.
-piSubsystemId :: Lens' PciId (Maybe Text)
-piSubsystemId = lens _piSubsystemId (\s a -> s {_piSubsystemId = a})
+--
+-- /Note:/ Consider using 'subsystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSubsystemId :: Lens.Lens' PciId (Lude.Maybe Lude.Text)
+piSubsystemId = Lens.lens (subsystemId :: PciId -> Lude.Maybe Lude.Text) (\s a -> s {subsystemId = a} :: PciId)
+{-# DEPRECATED piSubsystemId "Use generic-lens or generic-optics with 'subsystemId' instead." #-}
 
 -- | The ID of the device.
-piDeviceId :: Lens' PciId (Maybe Text)
-piDeviceId = lens _piDeviceId (\s a -> s {_piDeviceId = a})
+--
+-- /Note:/ Consider using 'deviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piDeviceId :: Lens.Lens' PciId (Lude.Maybe Lude.Text)
+piDeviceId = Lens.lens (deviceId :: PciId -> Lude.Maybe Lude.Text) (\s a -> s {deviceId = a} :: PciId)
+{-# DEPRECATED piDeviceId "Use generic-lens or generic-optics with 'deviceId' instead." #-}
 
 -- | The ID of the vendor for the subsystem.
-piSubsystemVendorId :: Lens' PciId (Maybe Text)
-piSubsystemVendorId = lens _piSubsystemVendorId (\s a -> s {_piSubsystemVendorId = a})
+--
+-- /Note:/ Consider using 'subsystemVendorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSubsystemVendorId :: Lens.Lens' PciId (Lude.Maybe Lude.Text)
+piSubsystemVendorId = Lens.lens (subsystemVendorId :: PciId -> Lude.Maybe Lude.Text) (\s a -> s {subsystemVendorId = a} :: PciId)
+{-# DEPRECATED piSubsystemVendorId "Use generic-lens or generic-optics with 'subsystemVendorId' instead." #-}
 
 -- | The ID of the vendor.
-piVendorId :: Lens' PciId (Maybe Text)
-piVendorId = lens _piVendorId (\s a -> s {_piVendorId = a})
+--
+-- /Note:/ Consider using 'vendorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piVendorId :: Lens.Lens' PciId (Lude.Maybe Lude.Text)
+piVendorId = Lens.lens (vendorId :: PciId -> Lude.Maybe Lude.Text) (\s a -> s {vendorId = a} :: PciId)
+{-# DEPRECATED piVendorId "Use generic-lens or generic-optics with 'vendorId' instead." #-}
 
-instance FromXML PciId where
+instance Lude.FromXML PciId where
   parseXML x =
     PciId'
-      <$> (x .@? "SubsystemId")
-      <*> (x .@? "DeviceId")
-      <*> (x .@? "SubsystemVendorId")
-      <*> (x .@? "VendorId")
-
-instance Hashable PciId
-
-instance NFData PciId
+      Lude.<$> (x Lude..@? "SubsystemId")
+      Lude.<*> (x Lude..@? "DeviceId")
+      Lude.<*> (x Lude..@? "SubsystemVendorId")
+      Lude.<*> (x Lude..@? "VendorId")

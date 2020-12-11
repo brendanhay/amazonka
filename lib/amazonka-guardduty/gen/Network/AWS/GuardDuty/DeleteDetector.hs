@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,108 @@
 --
 -- Deletes an Amazon GuardDuty detector that is specified by the detector ID.
 module Network.AWS.GuardDuty.DeleteDetector
-  ( -- * Creating a Request
-    deleteDetector,
-    DeleteDetector,
+  ( -- * Creating a request
+    DeleteDetector (..),
+    mkDeleteDetector,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDetectorId,
 
-    -- * Destructuring the Response
-    deleteDetectorResponse,
-    DeleteDetectorResponse,
+    -- * Destructuring the response
+    DeleteDetectorResponse (..),
+    mkDeleteDetectorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDetector' smart constructor.
-newtype DeleteDetector = DeleteDetector' {_ddDetectorId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteDetector' smart constructor.
+newtype DeleteDetector = DeleteDetector' {detectorId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDetector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDetectorId' - The unique ID of the detector that you want to delete.
-deleteDetector ::
-  -- | 'ddDetectorId'
-  Text ->
+-- * 'detectorId' - The unique ID of the detector that you want to delete.
+mkDeleteDetector ::
+  -- | 'detectorId'
+  Lude.Text ->
   DeleteDetector
-deleteDetector pDetectorId_ =
-  DeleteDetector' {_ddDetectorId = pDetectorId_}
+mkDeleteDetector pDetectorId_ =
+  DeleteDetector' {detectorId = pDetectorId_}
 
 -- | The unique ID of the detector that you want to delete.
-ddDetectorId :: Lens' DeleteDetector Text
-ddDetectorId = lens _ddDetectorId (\s a -> s {_ddDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDetectorId :: Lens.Lens' DeleteDetector Lude.Text
+ddDetectorId = Lens.lens (detectorId :: DeleteDetector -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteDetector)
+{-# DEPRECATED ddDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance AWSRequest DeleteDetector where
+instance Lude.AWSRequest DeleteDetector where
   type Rs DeleteDetector = DeleteDetectorResponse
-  request = delete guardDuty
+  request = Req.delete guardDutyService
   response =
-    receiveEmpty
-      (\s h x -> DeleteDetectorResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteDetector
-
-instance NFData DeleteDetector
-
-instance ToHeaders DeleteDetector where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteDetectorResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteDetector where
+instance Lude.ToHeaders DeleteDetector where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath DeleteDetector where
   toPath DeleteDetector' {..} =
-    mconcat ["/detector/", toBS _ddDetectorId]
+    Lude.mconcat ["/detector/", Lude.toBS detectorId]
 
-instance ToQuery DeleteDetector where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDetector where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDetectorResponse' smart constructor.
+-- | /See:/ 'mkDeleteDetectorResponse' smart constructor.
 newtype DeleteDetectorResponse = DeleteDetectorResponse'
-  { _ddrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDetectorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteDetectorResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDetectorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDetectorResponse
-deleteDetectorResponse pResponseStatus_ =
-  DeleteDetectorResponse' {_ddrsResponseStatus = pResponseStatus_}
+mkDeleteDetectorResponse pResponseStatus_ =
+  DeleteDetectorResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDetectorResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DeleteDetectorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DeleteDetectorResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDetectorResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

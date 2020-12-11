@@ -13,8 +13,8 @@
 --
 -- Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of operations (API). Your conversational bot uses the runtime API to understand user utterances (user input text or voice). For example, suppose a user says "I want pizza", your bot sends this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is for the OrderPizza intent (one of the intents defined in the bot). Then Amazon Lex engages in user conversation on behalf of the bot to elicit required information (slot values, such as pizza size and crust type), and then performs fulfillment activity (that you configured when you created the bot). You use the build-time API to create and manage your Amazon Lex bot. For a list of build-time operations, see the build-time API, .
 module Network.AWS.LexRuntime
-  ( -- * Service Configuration
-    lexRuntime,
+  ( -- * Service configuration
+    lexRuntimeService,
 
     -- * Errors
     -- $errors
@@ -61,27 +61,27 @@ module Network.AWS.LexRuntime
     MessageFormatType (..),
 
     -- ** ActiveContext
-    ActiveContext,
-    activeContext,
+    ActiveContext (..),
+    mkActiveContext,
     acName,
     acTimeToLive,
     acParameters,
 
     -- ** ActiveContextTimeToLive
-    ActiveContextTimeToLive,
-    activeContextTimeToLive,
+    ActiveContextTimeToLive (..),
+    mkActiveContextTimeToLive,
     acttlTurnsToLive,
     acttlTimeToLiveInSeconds,
 
     -- ** Button
-    Button,
-    button,
+    Button (..),
+    mkButton,
     bText,
     bValue,
 
     -- ** DialogAction
-    DialogAction,
-    dialogAction,
+    DialogAction (..),
+    mkDialogAction,
     daSlots,
     daIntentName,
     daFulfillmentState,
@@ -91,8 +91,8 @@ module Network.AWS.LexRuntime
     daType,
 
     -- ** GenericAttachment
-    GenericAttachment,
-    genericAttachment,
+    GenericAttachment (..),
+    mkGenericAttachment,
     gaButtons,
     gaSubTitle,
     gaImageURL,
@@ -100,13 +100,13 @@ module Network.AWS.LexRuntime
     gaTitle,
 
     -- ** IntentConfidence
-    IntentConfidence,
-    intentConfidence,
+    IntentConfidence (..),
+    mkIntentConfidence,
     icScore,
 
     -- ** IntentSummary
-    IntentSummary,
-    intentSummary,
+    IntentSummary (..),
+    mkIntentSummary,
     isCheckpointLabel,
     isSlots,
     isIntentName,
@@ -116,24 +116,35 @@ module Network.AWS.LexRuntime
     isDialogActionType,
 
     -- ** PredictedIntent
-    PredictedIntent,
-    predictedIntent,
+    PredictedIntent (..),
+    mkPredictedIntent,
     piNluIntentConfidence,
     piSlots,
     piIntentName,
 
     -- ** ResponseCard
-    ResponseCard,
-    responseCard,
+    ResponseCard (..),
+    mkResponseCard,
     rcGenericAttachments,
     rcVersion,
     rcContentType,
 
     -- ** SentimentResponse
-    SentimentResponse,
-    sentimentResponse,
+    SentimentResponse (..),
+    mkSentimentResponse,
     sSentimentScore,
     sSentimentLabel,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -144,6 +155,7 @@ import Network.AWS.LexRuntime.PostText
 import Network.AWS.LexRuntime.PutSession
 import Network.AWS.LexRuntime.Types
 import Network.AWS.LexRuntime.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

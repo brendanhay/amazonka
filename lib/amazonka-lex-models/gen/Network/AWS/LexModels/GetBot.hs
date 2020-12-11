@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Returns metadata information for a specific bot. You must provide the bot name and the bot version or alias.
 --
---
 -- This operation requires permissions for the @lex:GetBot@ action.
 module Network.AWS.LexModels.GetBot
-  ( -- * Creating a Request
-    getBot,
-    GetBot,
+  ( -- * Creating a request
+    GetBot (..),
+    mkGetBot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbName,
     gbVersionOrAlias,
 
-    -- * Destructuring the Response
-    getBotResponse,
-    GetBotResponse,
+    -- * Destructuring the response
+    GetBotResponse (..),
+    mkGetBotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbrsFailureReason,
     gbrsStatus,
     gbrsAbortStatement,
@@ -57,254 +51,321 @@ module Network.AWS.LexModels.GetBot
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBot' smart constructor.
-data GetBot = GetBot' {_gbName :: !Text, _gbVersionOrAlias :: !Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetBot' smart constructor.
+data GetBot = GetBot'
+  { name :: Lude.Text,
+    versionOrAlias :: Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbName' - The name of the bot. The name is case sensitive.
---
--- * 'gbVersionOrAlias' - The version or alias of the bot.
-getBot ::
-  -- | 'gbName'
-  Text ->
-  -- | 'gbVersionOrAlias'
-  Text ->
+-- * 'name' - The name of the bot. The name is case sensitive.
+-- * 'versionOrAlias' - The version or alias of the bot.
+mkGetBot ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'versionOrAlias'
+  Lude.Text ->
   GetBot
-getBot pName_ pVersionOrAlias_ =
-  GetBot' {_gbName = pName_, _gbVersionOrAlias = pVersionOrAlias_}
+mkGetBot pName_ pVersionOrAlias_ =
+  GetBot' {name = pName_, versionOrAlias = pVersionOrAlias_}
 
 -- | The name of the bot. The name is case sensitive.
-gbName :: Lens' GetBot Text
-gbName = lens _gbName (\s a -> s {_gbName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbName :: Lens.Lens' GetBot Lude.Text
+gbName = Lens.lens (name :: GetBot -> Lude.Text) (\s a -> s {name = a} :: GetBot)
+{-# DEPRECATED gbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version or alias of the bot.
-gbVersionOrAlias :: Lens' GetBot Text
-gbVersionOrAlias = lens _gbVersionOrAlias (\s a -> s {_gbVersionOrAlias = a})
+--
+-- /Note:/ Consider using 'versionOrAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbVersionOrAlias :: Lens.Lens' GetBot Lude.Text
+gbVersionOrAlias = Lens.lens (versionOrAlias :: GetBot -> Lude.Text) (\s a -> s {versionOrAlias = a} :: GetBot)
+{-# DEPRECATED gbVersionOrAlias "Use generic-lens or generic-optics with 'versionOrAlias' instead." #-}
 
-instance AWSRequest GetBot where
+instance Lude.AWSRequest GetBot where
   type Rs GetBot = GetBotResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBotResponse'
-            <$> (x .?> "failureReason")
-            <*> (x .?> "status")
-            <*> (x .?> "abortStatement")
-            <*> (x .?> "intents" .!@ mempty)
-            <*> (x .?> "checksum")
-            <*> (x .?> "enableModelImprovements")
-            <*> (x .?> "nluIntentConfidenceThreshold")
-            <*> (x .?> "detectSentiment")
-            <*> (x .?> "locale")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (x .?> "idleSessionTTLInSeconds")
-            <*> (x .?> "clarificationPrompt")
-            <*> (x .?> "voiceId")
-            <*> (x .?> "lastUpdatedDate")
-            <*> (x .?> "childDirected")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "failureReason")
+            Lude.<*> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "abortStatement")
+            Lude.<*> (x Lude..?> "intents" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "checksum")
+            Lude.<*> (x Lude..?> "enableModelImprovements")
+            Lude.<*> (x Lude..?> "nluIntentConfidenceThreshold")
+            Lude.<*> (x Lude..?> "detectSentiment")
+            Lude.<*> (x Lude..?> "locale")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "idleSessionTTLInSeconds")
+            Lude.<*> (x Lude..?> "clarificationPrompt")
+            Lude.<*> (x Lude..?> "voiceId")
+            Lude.<*> (x Lude..?> "lastUpdatedDate")
+            Lude.<*> (x Lude..?> "childDirected")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBot
-
-instance NFData GetBot
-
-instance ToHeaders GetBot where
+instance Lude.ToHeaders GetBot where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetBot where
+instance Lude.ToPath GetBot where
   toPath GetBot' {..} =
-    mconcat
-      ["/bots/", toBS _gbName, "/versions/", toBS _gbVersionOrAlias]
+    Lude.mconcat
+      ["/bots/", Lude.toBS name, "/versions/", Lude.toBS versionOrAlias]
 
-instance ToQuery GetBot where
-  toQuery = const mempty
+instance Lude.ToQuery GetBot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getBotResponse' smart constructor.
+-- | /See:/ 'mkGetBotResponse' smart constructor.
 data GetBotResponse = GetBotResponse'
-  { _gbrsFailureReason ::
-      !(Maybe Text),
-    _gbrsStatus :: !(Maybe LexStatus),
-    _gbrsAbortStatement :: !(Maybe Statement),
-    _gbrsIntents :: !(Maybe [Intent]),
-    _gbrsChecksum :: !(Maybe Text),
-    _gbrsEnableModelImprovements :: !(Maybe Bool),
-    _gbrsNluIntentConfidenceThreshold :: !(Maybe Double),
-    _gbrsDetectSentiment :: !(Maybe Bool),
-    _gbrsLocale :: !(Maybe Locale),
-    _gbrsCreatedDate :: !(Maybe POSIX),
-    _gbrsName :: !(Maybe Text),
-    _gbrsVersion :: !(Maybe Text),
-    _gbrsIdleSessionTTLInSeconds :: !(Maybe Nat),
-    _gbrsClarificationPrompt :: !(Maybe Prompt),
-    _gbrsVoiceId :: !(Maybe Text),
-    _gbrsLastUpdatedDate :: !(Maybe POSIX),
-    _gbrsChildDirected :: !(Maybe Bool),
-    _gbrsDescription :: !(Maybe Text),
-    _gbrsResponseStatus :: !Int
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe LexStatus,
+    abortStatement :: Lude.Maybe Statement,
+    intents :: Lude.Maybe [Intent],
+    checksum :: Lude.Maybe Lude.Text,
+    enableModelImprovements :: Lude.Maybe Lude.Bool,
+    nluIntentConfidenceThreshold :: Lude.Maybe Lude.Double,
+    detectSentiment :: Lude.Maybe Lude.Bool,
+    locale :: Lude.Maybe Locale,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    idleSessionTTLInSeconds :: Lude.Maybe Lude.Natural,
+    clarificationPrompt :: Lude.Maybe Prompt,
+    voiceId :: Lude.Maybe Lude.Text,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    childDirected :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'abortStatement' - The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see 'PutBot' .
+-- * 'checksum' - Checksum of the bot used to identify a specific revision of the bot's @> LATEST@ version.
+-- * 'childDirected' - For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying @true@ or @false@ in the @childDirected@ field. By specifying @true@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying @false@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is not__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the @childDirected@ field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
 --
--- * 'gbrsFailureReason' - If @status@ is @FAILED@ , Amazon Lex explains why it failed to build the bot.
+-- If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
+-- * 'clarificationPrompt' - The message Amazon Lex uses when it doesn't understand the user's request. For more information, see 'PutBot' .
+-- * 'createdDate' - The date that the bot was created.
+-- * 'description' - A description of the bot.
+-- * 'detectSentiment' - Indicates whether user utterances should be sent to Amazon Comprehend for sentiment analysis.
+-- * 'enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates that the bot is using the improvements, otherwise, @false@ .
+-- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex explains why it failed to build the bot.
+-- * 'idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see 'PutBot' .
+-- * 'intents' - An array of @intent@ objects. For more information, see 'PutBot' .
+-- * 'lastUpdatedDate' - The date that the bot was updated. When you create a resource, the creation date and last updated date are the same.
+-- * 'locale' - The target locale for the bot.
+-- * 'name' - The name of the bot.
+-- * 'nluIntentConfidenceThreshold' - The score that determines where Amazon Lex inserts the @AMAZON.FallbackIntent@ , @AMAZON.KendraSearchIntent@ , or both when returning alternative intents in a <https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> response. @AMAZON.FallbackIntent@ is inserted if the confidence score for all intents is below this value. @AMAZON.KendraSearchIntent@ is only inserted if it is configured for the bot.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the bot.
 --
--- * 'gbrsStatus' - The status of the bot.  When the status is @BUILDING@ Amazon Lex is building the bot for testing and use. If the status of the bot is @READY_BASIC_TESTING@ , you can test the bot using the exact utterances specified in the bot's intents. When the bot is ready for full testing or to run, the status is @READY@ . If there was a problem with building the bot, the status is @FAILED@ and the @failureReason@ field explains why the bot did not build. If the bot was saved but not built, the status is @NOT_BUILT@ .
---
--- * 'gbrsAbortStatement' - The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see 'PutBot' .
---
--- * 'gbrsIntents' - An array of @intent@ objects. For more information, see 'PutBot' .
---
--- * 'gbrsChecksum' - Checksum of the bot used to identify a specific revision of the bot's @> LATEST@ version.
---
--- * 'gbrsEnableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates that the bot is using the improvements, otherwise, @false@ .
---
--- * 'gbrsNluIntentConfidenceThreshold' - The score that determines where Amazon Lex inserts the @AMAZON.FallbackIntent@ , @AMAZON.KendraSearchIntent@ , or both when returning alternative intents in a <https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> response. @AMAZON.FallbackIntent@ is inserted if the confidence score for all intents is below this value. @AMAZON.KendraSearchIntent@ is only inserted if it is configured for the bot.
---
--- * 'gbrsDetectSentiment' - Indicates whether user utterances should be sent to Amazon Comprehend for sentiment analysis.
---
--- * 'gbrsLocale' - The target locale for the bot.
---
--- * 'gbrsCreatedDate' - The date that the bot was created.
---
--- * 'gbrsName' - The name of the bot.
---
--- * 'gbrsVersion' - The version of the bot. For a new bot, the version is always @> LATEST@ .
---
--- * 'gbrsIdleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see 'PutBot' .
---
--- * 'gbrsClarificationPrompt' - The message Amazon Lex uses when it doesn't understand the user's request. For more information, see 'PutBot' .
---
--- * 'gbrsVoiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. For more information, see 'PutBot' .
---
--- * 'gbrsLastUpdatedDate' - The date that the bot was updated. When you create a resource, the creation date and last updated date are the same.
---
--- * 'gbrsChildDirected' - For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying @true@ or @false@ in the @childDirected@ field. By specifying @true@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying @false@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is not__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the @childDirected@ field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
---
--- * 'gbrsDescription' - A description of the bot.
---
--- * 'gbrsResponseStatus' - -- | The response status code.
-getBotResponse ::
-  -- | 'gbrsResponseStatus'
-  Int ->
+-- When the status is @BUILDING@ Amazon Lex is building the bot for testing and use.
+-- If the status of the bot is @READY_BASIC_TESTING@ , you can test the bot using the exact utterances specified in the bot's intents. When the bot is ready for full testing or to run, the status is @READY@ .
+-- If there was a problem with building the bot, the status is @FAILED@ and the @failureReason@ field explains why the bot did not build.
+-- If the bot was saved but not built, the status is @NOT_BUILT@ .
+-- * 'version' - The version of the bot. For a new bot, the version is always @> LATEST@ .
+-- * 'voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. For more information, see 'PutBot' .
+mkGetBotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBotResponse
-getBotResponse pResponseStatus_ =
+mkGetBotResponse pResponseStatus_ =
   GetBotResponse'
-    { _gbrsFailureReason = Nothing,
-      _gbrsStatus = Nothing,
-      _gbrsAbortStatement = Nothing,
-      _gbrsIntents = Nothing,
-      _gbrsChecksum = Nothing,
-      _gbrsEnableModelImprovements = Nothing,
-      _gbrsNluIntentConfidenceThreshold = Nothing,
-      _gbrsDetectSentiment = Nothing,
-      _gbrsLocale = Nothing,
-      _gbrsCreatedDate = Nothing,
-      _gbrsName = Nothing,
-      _gbrsVersion = Nothing,
-      _gbrsIdleSessionTTLInSeconds = Nothing,
-      _gbrsClarificationPrompt = Nothing,
-      _gbrsVoiceId = Nothing,
-      _gbrsLastUpdatedDate = Nothing,
-      _gbrsChildDirected = Nothing,
-      _gbrsDescription = Nothing,
-      _gbrsResponseStatus = pResponseStatus_
+    { failureReason = Lude.Nothing,
+      status = Lude.Nothing,
+      abortStatement = Lude.Nothing,
+      intents = Lude.Nothing,
+      checksum = Lude.Nothing,
+      enableModelImprovements = Lude.Nothing,
+      nluIntentConfidenceThreshold = Lude.Nothing,
+      detectSentiment = Lude.Nothing,
+      locale = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      idleSessionTTLInSeconds = Lude.Nothing,
+      clarificationPrompt = Lude.Nothing,
+      voiceId = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      childDirected = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If @status@ is @FAILED@ , Amazon Lex explains why it failed to build the bot.
-gbrsFailureReason :: Lens' GetBotResponse (Maybe Text)
-gbrsFailureReason = lens _gbrsFailureReason (\s a -> s {_gbrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsFailureReason :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Text)
+gbrsFailureReason = Lens.lens (failureReason :: GetBotResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: GetBotResponse)
+{-# DEPRECATED gbrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
--- | The status of the bot.  When the status is @BUILDING@ Amazon Lex is building the bot for testing and use. If the status of the bot is @READY_BASIC_TESTING@ , you can test the bot using the exact utterances specified in the bot's intents. When the bot is ready for full testing or to run, the status is @READY@ . If there was a problem with building the bot, the status is @FAILED@ and the @failureReason@ field explains why the bot did not build. If the bot was saved but not built, the status is @NOT_BUILT@ .
-gbrsStatus :: Lens' GetBotResponse (Maybe LexStatus)
-gbrsStatus = lens _gbrsStatus (\s a -> s {_gbrsStatus = a})
+-- | The status of the bot.
+--
+-- When the status is @BUILDING@ Amazon Lex is building the bot for testing and use.
+-- If the status of the bot is @READY_BASIC_TESTING@ , you can test the bot using the exact utterances specified in the bot's intents. When the bot is ready for full testing or to run, the status is @READY@ .
+-- If there was a problem with building the bot, the status is @FAILED@ and the @failureReason@ field explains why the bot did not build.
+-- If the bot was saved but not built, the status is @NOT_BUILT@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsStatus :: Lens.Lens' GetBotResponse (Lude.Maybe LexStatus)
+gbrsStatus = Lens.lens (status :: GetBotResponse -> Lude.Maybe LexStatus) (\s a -> s {status = a} :: GetBotResponse)
+{-# DEPRECATED gbrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see 'PutBot' .
-gbrsAbortStatement :: Lens' GetBotResponse (Maybe Statement)
-gbrsAbortStatement = lens _gbrsAbortStatement (\s a -> s {_gbrsAbortStatement = a})
+--
+-- /Note:/ Consider using 'abortStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsAbortStatement :: Lens.Lens' GetBotResponse (Lude.Maybe Statement)
+gbrsAbortStatement = Lens.lens (abortStatement :: GetBotResponse -> Lude.Maybe Statement) (\s a -> s {abortStatement = a} :: GetBotResponse)
+{-# DEPRECATED gbrsAbortStatement "Use generic-lens or generic-optics with 'abortStatement' instead." #-}
 
 -- | An array of @intent@ objects. For more information, see 'PutBot' .
-gbrsIntents :: Lens' GetBotResponse [Intent]
-gbrsIntents = lens _gbrsIntents (\s a -> s {_gbrsIntents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'intents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsIntents :: Lens.Lens' GetBotResponse (Lude.Maybe [Intent])
+gbrsIntents = Lens.lens (intents :: GetBotResponse -> Lude.Maybe [Intent]) (\s a -> s {intents = a} :: GetBotResponse)
+{-# DEPRECATED gbrsIntents "Use generic-lens or generic-optics with 'intents' instead." #-}
 
 -- | Checksum of the bot used to identify a specific revision of the bot's @> LATEST@ version.
-gbrsChecksum :: Lens' GetBotResponse (Maybe Text)
-gbrsChecksum = lens _gbrsChecksum (\s a -> s {_gbrsChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsChecksum :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Text)
+gbrsChecksum = Lens.lens (checksum :: GetBotResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: GetBotResponse)
+{-# DEPRECATED gbrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | Indicates whether the bot uses accuracy improvements. @true@ indicates that the bot is using the improvements, otherwise, @false@ .
-gbrsEnableModelImprovements :: Lens' GetBotResponse (Maybe Bool)
-gbrsEnableModelImprovements = lens _gbrsEnableModelImprovements (\s a -> s {_gbrsEnableModelImprovements = a})
+--
+-- /Note:/ Consider using 'enableModelImprovements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsEnableModelImprovements :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Bool)
+gbrsEnableModelImprovements = Lens.lens (enableModelImprovements :: GetBotResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enableModelImprovements = a} :: GetBotResponse)
+{-# DEPRECATED gbrsEnableModelImprovements "Use generic-lens or generic-optics with 'enableModelImprovements' instead." #-}
 
 -- | The score that determines where Amazon Lex inserts the @AMAZON.FallbackIntent@ , @AMAZON.KendraSearchIntent@ , or both when returning alternative intents in a <https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> response. @AMAZON.FallbackIntent@ is inserted if the confidence score for all intents is below this value. @AMAZON.KendraSearchIntent@ is only inserted if it is configured for the bot.
-gbrsNluIntentConfidenceThreshold :: Lens' GetBotResponse (Maybe Double)
-gbrsNluIntentConfidenceThreshold = lens _gbrsNluIntentConfidenceThreshold (\s a -> s {_gbrsNluIntentConfidenceThreshold = a})
+--
+-- /Note:/ Consider using 'nluIntentConfidenceThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsNluIntentConfidenceThreshold :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Double)
+gbrsNluIntentConfidenceThreshold = Lens.lens (nluIntentConfidenceThreshold :: GetBotResponse -> Lude.Maybe Lude.Double) (\s a -> s {nluIntentConfidenceThreshold = a} :: GetBotResponse)
+{-# DEPRECATED gbrsNluIntentConfidenceThreshold "Use generic-lens or generic-optics with 'nluIntentConfidenceThreshold' instead." #-}
 
 -- | Indicates whether user utterances should be sent to Amazon Comprehend for sentiment analysis.
-gbrsDetectSentiment :: Lens' GetBotResponse (Maybe Bool)
-gbrsDetectSentiment = lens _gbrsDetectSentiment (\s a -> s {_gbrsDetectSentiment = a})
+--
+-- /Note:/ Consider using 'detectSentiment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsDetectSentiment :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Bool)
+gbrsDetectSentiment = Lens.lens (detectSentiment :: GetBotResponse -> Lude.Maybe Lude.Bool) (\s a -> s {detectSentiment = a} :: GetBotResponse)
+{-# DEPRECATED gbrsDetectSentiment "Use generic-lens or generic-optics with 'detectSentiment' instead." #-}
 
 -- | The target locale for the bot.
-gbrsLocale :: Lens' GetBotResponse (Maybe Locale)
-gbrsLocale = lens _gbrsLocale (\s a -> s {_gbrsLocale = a})
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsLocale :: Lens.Lens' GetBotResponse (Lude.Maybe Locale)
+gbrsLocale = Lens.lens (locale :: GetBotResponse -> Lude.Maybe Locale) (\s a -> s {locale = a} :: GetBotResponse)
+{-# DEPRECATED gbrsLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The date that the bot was created.
-gbrsCreatedDate :: Lens' GetBotResponse (Maybe UTCTime)
-gbrsCreatedDate = lens _gbrsCreatedDate (\s a -> s {_gbrsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsCreatedDate :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Timestamp)
+gbrsCreatedDate = Lens.lens (createdDate :: GetBotResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: GetBotResponse)
+{-# DEPRECATED gbrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the bot.
-gbrsName :: Lens' GetBotResponse (Maybe Text)
-gbrsName = lens _gbrsName (\s a -> s {_gbrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsName :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Text)
+gbrsName = Lens.lens (name :: GetBotResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetBotResponse)
+{-# DEPRECATED gbrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the bot. For a new bot, the version is always @> LATEST@ .
-gbrsVersion :: Lens' GetBotResponse (Maybe Text)
-gbrsVersion = lens _gbrsVersion (\s a -> s {_gbrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsVersion :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Text)
+gbrsVersion = Lens.lens (version :: GetBotResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetBotResponse)
+{-# DEPRECATED gbrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see 'PutBot' .
-gbrsIdleSessionTTLInSeconds :: Lens' GetBotResponse (Maybe Natural)
-gbrsIdleSessionTTLInSeconds = lens _gbrsIdleSessionTTLInSeconds (\s a -> s {_gbrsIdleSessionTTLInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'idleSessionTTLInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsIdleSessionTTLInSeconds :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Natural)
+gbrsIdleSessionTTLInSeconds = Lens.lens (idleSessionTTLInSeconds :: GetBotResponse -> Lude.Maybe Lude.Natural) (\s a -> s {idleSessionTTLInSeconds = a} :: GetBotResponse)
+{-# DEPRECATED gbrsIdleSessionTTLInSeconds "Use generic-lens or generic-optics with 'idleSessionTTLInSeconds' instead." #-}
 
 -- | The message Amazon Lex uses when it doesn't understand the user's request. For more information, see 'PutBot' .
-gbrsClarificationPrompt :: Lens' GetBotResponse (Maybe Prompt)
-gbrsClarificationPrompt = lens _gbrsClarificationPrompt (\s a -> s {_gbrsClarificationPrompt = a})
+--
+-- /Note:/ Consider using 'clarificationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsClarificationPrompt :: Lens.Lens' GetBotResponse (Lude.Maybe Prompt)
+gbrsClarificationPrompt = Lens.lens (clarificationPrompt :: GetBotResponse -> Lude.Maybe Prompt) (\s a -> s {clarificationPrompt = a} :: GetBotResponse)
+{-# DEPRECATED gbrsClarificationPrompt "Use generic-lens or generic-optics with 'clarificationPrompt' instead." #-}
 
 -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. For more information, see 'PutBot' .
-gbrsVoiceId :: Lens' GetBotResponse (Maybe Text)
-gbrsVoiceId = lens _gbrsVoiceId (\s a -> s {_gbrsVoiceId = a})
+--
+-- /Note:/ Consider using 'voiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsVoiceId :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Text)
+gbrsVoiceId = Lens.lens (voiceId :: GetBotResponse -> Lude.Maybe Lude.Text) (\s a -> s {voiceId = a} :: GetBotResponse)
+{-# DEPRECATED gbrsVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
 
 -- | The date that the bot was updated. When you create a resource, the creation date and last updated date are the same.
-gbrsLastUpdatedDate :: Lens' GetBotResponse (Maybe UTCTime)
-gbrsLastUpdatedDate = lens _gbrsLastUpdatedDate (\s a -> s {_gbrsLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsLastUpdatedDate :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Timestamp)
+gbrsLastUpdatedDate = Lens.lens (lastUpdatedDate :: GetBotResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: GetBotResponse)
+{-# DEPRECATED gbrsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
--- | For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying @true@ or @false@ in the @childDirected@ field. By specifying @true@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying @false@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is not__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the @childDirected@ field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
-gbrsChildDirected :: Lens' GetBotResponse (Maybe Bool)
-gbrsChildDirected = lens _gbrsChildDirected (\s a -> s {_gbrsChildDirected = a})
+-- | For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying @true@ or @false@ in the @childDirected@ field. By specifying @true@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying @false@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is not__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the @childDirected@ field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+--
+-- If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
+--
+-- /Note:/ Consider using 'childDirected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsChildDirected :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Bool)
+gbrsChildDirected = Lens.lens (childDirected :: GetBotResponse -> Lude.Maybe Lude.Bool) (\s a -> s {childDirected = a} :: GetBotResponse)
+{-# DEPRECATED gbrsChildDirected "Use generic-lens or generic-optics with 'childDirected' instead." #-}
 
 -- | A description of the bot.
-gbrsDescription :: Lens' GetBotResponse (Maybe Text)
-gbrsDescription = lens _gbrsDescription (\s a -> s {_gbrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsDescription :: Lens.Lens' GetBotResponse (Lude.Maybe Lude.Text)
+gbrsDescription = Lens.lens (description :: GetBotResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetBotResponse)
+{-# DEPRECATED gbrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-gbrsResponseStatus :: Lens' GetBotResponse Int
-gbrsResponseStatus = lens _gbrsResponseStatus (\s a -> s {_gbrsResponseStatus = a})
-
-instance NFData GetBotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsResponseStatus :: Lens.Lens' GetBotResponse Lude.Int
+gbrsResponseStatus = Lens.lens (responseStatus :: GetBotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBotResponse)
+{-# DEPRECATED gbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

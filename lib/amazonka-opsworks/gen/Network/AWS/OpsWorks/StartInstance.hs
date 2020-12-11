@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,94 @@
 --
 -- Starts a specified instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.StartInstance
-  ( -- * Creating a Request
-    startInstance,
-    StartInstance,
+  ( -- * Creating a request
+    StartInstance (..),
+    mkStartInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sInstanceId,
 
-    -- * Destructuring the Response
-    startInstanceResponse,
-    StartInstanceResponse,
+    -- * Destructuring the response
+    StartInstanceResponse (..),
+    mkStartInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startInstance' smart constructor.
-newtype StartInstance = StartInstance' {_sInstanceId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStartInstance' smart constructor.
+newtype StartInstance = StartInstance' {instanceId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sInstanceId' - The instance ID.
-startInstance ::
-  -- | 'sInstanceId'
-  Text ->
+-- * 'instanceId' - The instance ID.
+mkStartInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   StartInstance
-startInstance pInstanceId_ =
-  StartInstance' {_sInstanceId = pInstanceId_}
+mkStartInstance pInstanceId_ =
+  StartInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-sInstanceId :: Lens' StartInstance Text
-sInstanceId = lens _sInstanceId (\s a -> s {_sInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInstanceId :: Lens.Lens' StartInstance Lude.Text
+sInstanceId = Lens.lens (instanceId :: StartInstance -> Lude.Text) (\s a -> s {instanceId = a} :: StartInstance)
+{-# DEPRECATED sInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest StartInstance where
+instance Lude.AWSRequest StartInstance where
   type Rs StartInstance = StartInstanceResponse
-  request = postJSON opsWorks
-  response = receiveNull StartInstanceResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull StartInstanceResponse'
 
-instance Hashable StartInstance
-
-instance NFData StartInstance
-
-instance ToHeaders StartInstance where
+instance Lude.ToHeaders StartInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.StartInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.StartInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartInstance where
+instance Lude.ToJSON StartInstance where
   toJSON StartInstance' {..} =
-    object (catMaybes [Just ("InstanceId" .= _sInstanceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
 
-instance ToPath StartInstance where
-  toPath = const "/"
+instance Lude.ToPath StartInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery StartInstance where
-  toQuery = const mempty
+instance Lude.ToQuery StartInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startInstanceResponse' smart constructor.
+-- | /See:/ 'mkStartInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceResponse' with the minimum fields required to make a request.
-startInstanceResponse ::
+mkStartInstanceResponse ::
   StartInstanceResponse
-startInstanceResponse = StartInstanceResponse'
-
-instance NFData StartInstanceResponse
+mkStartInstanceResponse = StartInstanceResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.DeploymentCanarySettings where
+module Network.AWS.APIGateway.Types.DeploymentCanarySettings
+  ( DeploymentCanarySettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeploymentCanarySettings,
+
+    -- * Lenses
+    dcsStageVariableOverrides,
+    dcsUseStageCache,
+    dcsPercentTraffic,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The input configuration for a canary deployment.
 --
---
---
--- /See:/ 'deploymentCanarySettings' smart constructor.
+-- /See:/ 'mkDeploymentCanarySettings' smart constructor.
 data DeploymentCanarySettings = DeploymentCanarySettings'
-  { _dcsStageVariableOverrides ::
-      !(Maybe (Map Text (Text))),
-    _dcsUseStageCache :: !(Maybe Bool),
-    _dcsPercentTraffic :: !(Maybe Double)
+  { stageVariableOverrides ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    useStageCache :: Lude.Maybe Lude.Bool,
+    percentTraffic :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentCanarySettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsStageVariableOverrides' - A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
---
--- * 'dcsUseStageCache' - A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
---
--- * 'dcsPercentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.
-deploymentCanarySettings ::
+-- * 'percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.
+-- * 'stageVariableOverrides' - A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+-- * 'useStageCache' - A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
+mkDeploymentCanarySettings ::
   DeploymentCanarySettings
-deploymentCanarySettings =
+mkDeploymentCanarySettings =
   DeploymentCanarySettings'
-    { _dcsStageVariableOverrides = Nothing,
-      _dcsUseStageCache = Nothing,
-      _dcsPercentTraffic = Nothing
+    { stageVariableOverrides = Lude.Nothing,
+      useStageCache = Lude.Nothing,
+      percentTraffic = Lude.Nothing
     }
 
 -- | A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-dcsStageVariableOverrides :: Lens' DeploymentCanarySettings (HashMap Text (Text))
-dcsStageVariableOverrides = lens _dcsStageVariableOverrides (\s a -> s {_dcsStageVariableOverrides = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'stageVariableOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsStageVariableOverrides :: Lens.Lens' DeploymentCanarySettings (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dcsStageVariableOverrides = Lens.lens (stageVariableOverrides :: DeploymentCanarySettings -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {stageVariableOverrides = a} :: DeploymentCanarySettings)
+{-# DEPRECATED dcsStageVariableOverrides "Use generic-lens or generic-optics with 'stageVariableOverrides' instead." #-}
 
 -- | A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-dcsUseStageCache :: Lens' DeploymentCanarySettings (Maybe Bool)
-dcsUseStageCache = lens _dcsUseStageCache (\s a -> s {_dcsUseStageCache = a})
+--
+-- /Note:/ Consider using 'useStageCache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsUseStageCache :: Lens.Lens' DeploymentCanarySettings (Lude.Maybe Lude.Bool)
+dcsUseStageCache = Lens.lens (useStageCache :: DeploymentCanarySettings -> Lude.Maybe Lude.Bool) (\s a -> s {useStageCache = a} :: DeploymentCanarySettings)
+{-# DEPRECATED dcsUseStageCache "Use generic-lens or generic-optics with 'useStageCache' instead." #-}
 
 -- | The percentage (0.0-100.0) of traffic routed to the canary deployment.
-dcsPercentTraffic :: Lens' DeploymentCanarySettings (Maybe Double)
-dcsPercentTraffic = lens _dcsPercentTraffic (\s a -> s {_dcsPercentTraffic = a})
+--
+-- /Note:/ Consider using 'percentTraffic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsPercentTraffic :: Lens.Lens' DeploymentCanarySettings (Lude.Maybe Lude.Double)
+dcsPercentTraffic = Lens.lens (percentTraffic :: DeploymentCanarySettings -> Lude.Maybe Lude.Double) (\s a -> s {percentTraffic = a} :: DeploymentCanarySettings)
+{-# DEPRECATED dcsPercentTraffic "Use generic-lens or generic-optics with 'percentTraffic' instead." #-}
 
-instance Hashable DeploymentCanarySettings
-
-instance NFData DeploymentCanarySettings
-
-instance ToJSON DeploymentCanarySettings where
+instance Lude.ToJSON DeploymentCanarySettings where
   toJSON DeploymentCanarySettings' {..} =
-    object
-      ( catMaybes
-          [ ("stageVariableOverrides" .=) <$> _dcsStageVariableOverrides,
-            ("useStageCache" .=) <$> _dcsUseStageCache,
-            ("percentTraffic" .=) <$> _dcsPercentTraffic
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stageVariableOverrides" Lude..=)
+              Lude.<$> stageVariableOverrides,
+            ("useStageCache" Lude..=) Lude.<$> useStageCache,
+            ("percentTraffic" Lude..=) Lude.<$> percentTraffic
           ]
       )

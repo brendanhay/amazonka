@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,131 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.SubscriptionFilter where
+module Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
+  ( SubscriptionFilter (..),
+
+    -- * Smart constructor
+    mkSubscriptionFilter,
+
+    -- * Lenses
+    sfCreationTime,
+    sfFilterName,
+    sfDistribution,
+    sfDestinationARN,
+    sfLogGroupName,
+    sfFilterPattern,
+    sfRoleARN,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types.Distribution
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a subscription filter.
 --
---
---
--- /See:/ 'subscriptionFilter' smart constructor.
+-- /See:/ 'mkSubscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
-  { _sfCreationTime ::
-      !(Maybe Nat),
-    _sfFilterName :: !(Maybe Text),
-    _sfDistribution :: !(Maybe Distribution),
-    _sfDestinationARN :: !(Maybe Text),
-    _sfLogGroupName :: !(Maybe Text),
-    _sfFilterPattern :: !(Maybe Text),
-    _sfRoleARN :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Natural,
+    filterName :: Lude.Maybe Lude.Text,
+    distribution :: Lude.Maybe Distribution,
+    destinationARN :: Lude.Maybe Lude.Text,
+    logGroupName :: Lude.Maybe Lude.Text,
+    filterPattern :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscriptionFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfCreationTime' - The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'sfFilterName' - The name of the subscription filter.
---
--- * 'sfDistribution' - Undocumented member.
---
--- * 'sfDestinationARN' - The Amazon Resource Name (ARN) of the destination.
---
--- * 'sfLogGroupName' - The name of the log group.
---
--- * 'sfFilterPattern' - Undocumented member.
---
--- * 'sfRoleARN' -
-subscriptionFilter ::
+-- * 'creationTime' - The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'destinationARN' - The Amazon Resource Name (ARN) of the destination.
+-- * 'distribution' - Undocumented field.
+-- * 'filterName' - The name of the subscription filter.
+-- * 'filterPattern' - Undocumented field.
+-- * 'logGroupName' - The name of the log group.
+-- * 'roleARN' -
+mkSubscriptionFilter ::
   SubscriptionFilter
-subscriptionFilter =
+mkSubscriptionFilter =
   SubscriptionFilter'
-    { _sfCreationTime = Nothing,
-      _sfFilterName = Nothing,
-      _sfDistribution = Nothing,
-      _sfDestinationARN = Nothing,
-      _sfLogGroupName = Nothing,
-      _sfFilterPattern = Nothing,
-      _sfRoleARN = Nothing
+    { creationTime = Lude.Nothing,
+      filterName = Lude.Nothing,
+      distribution = Lude.Nothing,
+      destinationARN = Lude.Nothing,
+      logGroupName = Lude.Nothing,
+      filterPattern = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
-sfCreationTime = lens _sfCreationTime (\s a -> s {_sfCreationTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfCreationTime :: Lens.Lens' SubscriptionFilter (Lude.Maybe Lude.Natural)
+sfCreationTime = Lens.lens (creationTime :: SubscriptionFilter -> Lude.Maybe Lude.Natural) (\s a -> s {creationTime = a} :: SubscriptionFilter)
+{-# DEPRECATED sfCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the subscription filter.
-sfFilterName :: Lens' SubscriptionFilter (Maybe Text)
-sfFilterName = lens _sfFilterName (\s a -> s {_sfFilterName = a})
+--
+-- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfFilterName :: Lens.Lens' SubscriptionFilter (Lude.Maybe Lude.Text)
+sfFilterName = Lens.lens (filterName :: SubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {filterName = a} :: SubscriptionFilter)
+{-# DEPRECATED sfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
 
--- | Undocumented member.
-sfDistribution :: Lens' SubscriptionFilter (Maybe Distribution)
-sfDistribution = lens _sfDistribution (\s a -> s {_sfDistribution = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfDistribution :: Lens.Lens' SubscriptionFilter (Lude.Maybe Distribution)
+sfDistribution = Lens.lens (distribution :: SubscriptionFilter -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: SubscriptionFilter)
+{-# DEPRECATED sfDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the destination.
-sfDestinationARN :: Lens' SubscriptionFilter (Maybe Text)
-sfDestinationARN = lens _sfDestinationARN (\s a -> s {_sfDestinationARN = a})
+--
+-- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfDestinationARN :: Lens.Lens' SubscriptionFilter (Lude.Maybe Lude.Text)
+sfDestinationARN = Lens.lens (destinationARN :: SubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {destinationARN = a} :: SubscriptionFilter)
+{-# DEPRECATED sfDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
 
 -- | The name of the log group.
-sfLogGroupName :: Lens' SubscriptionFilter (Maybe Text)
-sfLogGroupName = lens _sfLogGroupName (\s a -> s {_sfLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfLogGroupName :: Lens.Lens' SubscriptionFilter (Lude.Maybe Lude.Text)
+sfLogGroupName = Lens.lens (logGroupName :: SubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: SubscriptionFilter)
+{-# DEPRECATED sfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | Undocumented member.
-sfFilterPattern :: Lens' SubscriptionFilter (Maybe Text)
-sfFilterPattern = lens _sfFilterPattern (\s a -> s {_sfFilterPattern = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'filterPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfFilterPattern :: Lens.Lens' SubscriptionFilter (Lude.Maybe Lude.Text)
+sfFilterPattern = Lens.lens (filterPattern :: SubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {filterPattern = a} :: SubscriptionFilter)
+{-# DEPRECATED sfFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
 
 -- |
-sfRoleARN :: Lens' SubscriptionFilter (Maybe Text)
-sfRoleARN = lens _sfRoleARN (\s a -> s {_sfRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfRoleARN :: Lens.Lens' SubscriptionFilter (Lude.Maybe Lude.Text)
+sfRoleARN = Lens.lens (roleARN :: SubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: SubscriptionFilter)
+{-# DEPRECATED sfRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON SubscriptionFilter where
+instance Lude.FromJSON SubscriptionFilter where
   parseJSON =
-    withObject
+    Lude.withObject
       "SubscriptionFilter"
       ( \x ->
           SubscriptionFilter'
-            <$> (x .:? "creationTime")
-            <*> (x .:? "filterName")
-            <*> (x .:? "distribution")
-            <*> (x .:? "destinationArn")
-            <*> (x .:? "logGroupName")
-            <*> (x .:? "filterPattern")
-            <*> (x .:? "roleArn")
+            Lude.<$> (x Lude..:? "creationTime")
+            Lude.<*> (x Lude..:? "filterName")
+            Lude.<*> (x Lude..:? "distribution")
+            Lude.<*> (x Lude..:? "destinationArn")
+            Lude.<*> (x Lude..:? "logGroupName")
+            Lude.<*> (x Lude..:? "filterPattern")
+            Lude.<*> (x Lude..:? "roleArn")
       )
-
-instance Hashable SubscriptionFilter
-
-instance NFData SubscriptionFilter

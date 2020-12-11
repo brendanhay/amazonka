@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,174 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.MetricUnit where
+module Network.AWS.Lightsail.Types.MetricUnit
+  ( MetricUnit
+      ( MetricUnit',
+        Bits,
+        BitsSecond,
+        Bytes,
+        BytesSecond,
+        Count,
+        CountSecond,
+        Gigabits,
+        GigabitsSecond,
+        Gigabytes,
+        GigabytesSecond,
+        Kilobits,
+        KilobitsSecond,
+        Kilobytes,
+        KilobytesSecond,
+        Megabits,
+        MegabitsSecond,
+        Megabytes,
+        MegabytesSecond,
+        Microseconds,
+        Milliseconds,
+        None,
+        Percent,
+        Seconds,
+        Terabits,
+        TerabitsSecond,
+        Terabytes,
+        TerabytesSecond
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricUnit
-  = Bits
-  | BitsSecond
-  | Bytes
-  | BytesSecond
-  | Count
-  | CountSecond
-  | Gigabits
-  | GigabitsSecond
-  | Gigabytes
-  | GigabytesSecond
-  | Kilobits
-  | KilobitsSecond
-  | Kilobytes
-  | KilobytesSecond
-  | Megabits
-  | MegabitsSecond
-  | Megabytes
-  | MegabytesSecond
-  | Microseconds
-  | Milliseconds
-  | None
-  | Percent
-  | Seconds
-  | Terabits
-  | TerabitsSecond
-  | Terabytes
-  | TerabytesSecond
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricUnit = MetricUnit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricUnit where
-  parser =
-    takeLowerText >>= \case
-      "bits" -> pure Bits
-      "bits/second" -> pure BitsSecond
-      "bytes" -> pure Bytes
-      "bytes/second" -> pure BytesSecond
-      "count" -> pure Count
-      "count/second" -> pure CountSecond
-      "gigabits" -> pure Gigabits
-      "gigabits/second" -> pure GigabitsSecond
-      "gigabytes" -> pure Gigabytes
-      "gigabytes/second" -> pure GigabytesSecond
-      "kilobits" -> pure Kilobits
-      "kilobits/second" -> pure KilobitsSecond
-      "kilobytes" -> pure Kilobytes
-      "kilobytes/second" -> pure KilobytesSecond
-      "megabits" -> pure Megabits
-      "megabits/second" -> pure MegabitsSecond
-      "megabytes" -> pure Megabytes
-      "megabytes/second" -> pure MegabytesSecond
-      "microseconds" -> pure Microseconds
-      "milliseconds" -> pure Milliseconds
-      "none" -> pure None
-      "percent" -> pure Percent
-      "seconds" -> pure Seconds
-      "terabits" -> pure Terabits
-      "terabits/second" -> pure TerabitsSecond
-      "terabytes" -> pure Terabytes
-      "terabytes/second" -> pure TerabytesSecond
-      e ->
-        fromTextError $
-          "Failure parsing MetricUnit from value: '" <> e
-            <> "'. Accepted values: bits, bits/second, bytes, bytes/second, count, count/second, gigabits, gigabits/second, gigabytes, gigabytes/second, kilobits, kilobits/second, kilobytes, kilobytes/second, megabits, megabits/second, megabytes, megabytes/second, microseconds, milliseconds, none, percent, seconds, terabits, terabits/second, terabytes, terabytes/second"
+pattern Bits :: MetricUnit
+pattern Bits = MetricUnit' "Bits"
 
-instance ToText MetricUnit where
-  toText = \case
-    Bits -> "Bits"
-    BitsSecond -> "Bits/Second"
-    Bytes -> "Bytes"
-    BytesSecond -> "Bytes/Second"
-    Count -> "Count"
-    CountSecond -> "Count/Second"
-    Gigabits -> "Gigabits"
-    GigabitsSecond -> "Gigabits/Second"
-    Gigabytes -> "Gigabytes"
-    GigabytesSecond -> "Gigabytes/Second"
-    Kilobits -> "Kilobits"
-    KilobitsSecond -> "Kilobits/Second"
-    Kilobytes -> "Kilobytes"
-    KilobytesSecond -> "Kilobytes/Second"
-    Megabits -> "Megabits"
-    MegabitsSecond -> "Megabits/Second"
-    Megabytes -> "Megabytes"
-    MegabytesSecond -> "Megabytes/Second"
-    Microseconds -> "Microseconds"
-    Milliseconds -> "Milliseconds"
-    None -> "None"
-    Percent -> "Percent"
-    Seconds -> "Seconds"
-    Terabits -> "Terabits"
-    TerabitsSecond -> "Terabits/Second"
-    Terabytes -> "Terabytes"
-    TerabytesSecond -> "Terabytes/Second"
+pattern BitsSecond :: MetricUnit
+pattern BitsSecond = MetricUnit' "Bits/Second"
 
-instance Hashable MetricUnit
+pattern Bytes :: MetricUnit
+pattern Bytes = MetricUnit' "Bytes"
 
-instance NFData MetricUnit
+pattern BytesSecond :: MetricUnit
+pattern BytesSecond = MetricUnit' "Bytes/Second"
 
-instance ToByteString MetricUnit
+pattern Count :: MetricUnit
+pattern Count = MetricUnit' "Count"
 
-instance ToQuery MetricUnit
+pattern CountSecond :: MetricUnit
+pattern CountSecond = MetricUnit' "Count/Second"
 
-instance ToHeader MetricUnit
+pattern Gigabits :: MetricUnit
+pattern Gigabits = MetricUnit' "Gigabits"
 
-instance ToJSON MetricUnit where
-  toJSON = toJSONText
+pattern GigabitsSecond :: MetricUnit
+pattern GigabitsSecond = MetricUnit' "Gigabits/Second"
 
-instance FromJSON MetricUnit where
-  parseJSON = parseJSONText "MetricUnit"
+pattern Gigabytes :: MetricUnit
+pattern Gigabytes = MetricUnit' "Gigabytes"
+
+pattern GigabytesSecond :: MetricUnit
+pattern GigabytesSecond = MetricUnit' "Gigabytes/Second"
+
+pattern Kilobits :: MetricUnit
+pattern Kilobits = MetricUnit' "Kilobits"
+
+pattern KilobitsSecond :: MetricUnit
+pattern KilobitsSecond = MetricUnit' "Kilobits/Second"
+
+pattern Kilobytes :: MetricUnit
+pattern Kilobytes = MetricUnit' "Kilobytes"
+
+pattern KilobytesSecond :: MetricUnit
+pattern KilobytesSecond = MetricUnit' "Kilobytes/Second"
+
+pattern Megabits :: MetricUnit
+pattern Megabits = MetricUnit' "Megabits"
+
+pattern MegabitsSecond :: MetricUnit
+pattern MegabitsSecond = MetricUnit' "Megabits/Second"
+
+pattern Megabytes :: MetricUnit
+pattern Megabytes = MetricUnit' "Megabytes"
+
+pattern MegabytesSecond :: MetricUnit
+pattern MegabytesSecond = MetricUnit' "Megabytes/Second"
+
+pattern Microseconds :: MetricUnit
+pattern Microseconds = MetricUnit' "Microseconds"
+
+pattern Milliseconds :: MetricUnit
+pattern Milliseconds = MetricUnit' "Milliseconds"
+
+pattern None :: MetricUnit
+pattern None = MetricUnit' "None"
+
+pattern Percent :: MetricUnit
+pattern Percent = MetricUnit' "Percent"
+
+pattern Seconds :: MetricUnit
+pattern Seconds = MetricUnit' "Seconds"
+
+pattern Terabits :: MetricUnit
+pattern Terabits = MetricUnit' "Terabits"
+
+pattern TerabitsSecond :: MetricUnit
+pattern TerabitsSecond = MetricUnit' "Terabits/Second"
+
+pattern Terabytes :: MetricUnit
+pattern Terabytes = MetricUnit' "Terabytes"
+
+pattern TerabytesSecond :: MetricUnit
+pattern TerabytesSecond = MetricUnit' "Terabytes/Second"
+
+{-# COMPLETE
+  Bits,
+  BitsSecond,
+  Bytes,
+  BytesSecond,
+  Count,
+  CountSecond,
+  Gigabits,
+  GigabitsSecond,
+  Gigabytes,
+  GigabytesSecond,
+  Kilobits,
+  KilobitsSecond,
+  Kilobytes,
+  KilobytesSecond,
+  Megabits,
+  MegabitsSecond,
+  Megabytes,
+  MegabytesSecond,
+  Microseconds,
+  Milliseconds,
+  None,
+  Percent,
+  Seconds,
+  Terabits,
+  TerabitsSecond,
+  Terabytes,
+  TerabytesSecond,
+  MetricUnit'
+  #-}

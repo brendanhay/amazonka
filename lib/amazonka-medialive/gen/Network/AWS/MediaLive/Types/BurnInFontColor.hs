@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BurnInFontColor where
+module Network.AWS.MediaLive.Types.BurnInFontColor
+  ( BurnInFontColor
+      ( BurnInFontColor',
+        BIFCBlack,
+        BIFCBlue,
+        BIFCGreen,
+        BIFCRed,
+        BIFCWhite,
+        BIFCYellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Burn In Font Color
-data BurnInFontColor
-  = BIFCBlack
-  | BIFCBlue
-  | BIFCGreen
-  | BIFCRed
-  | BIFCWhite
-  | BIFCYellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurnInFontColor = BurnInFontColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurnInFontColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure BIFCBlack
-      "blue" -> pure BIFCBlue
-      "green" -> pure BIFCGreen
-      "red" -> pure BIFCRed
-      "white" -> pure BIFCWhite
-      "yellow" -> pure BIFCYellow
-      e ->
-        fromTextError $
-          "Failure parsing BurnInFontColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern BIFCBlack :: BurnInFontColor
+pattern BIFCBlack = BurnInFontColor' "BLACK"
 
-instance ToText BurnInFontColor where
-  toText = \case
-    BIFCBlack -> "BLACK"
-    BIFCBlue -> "BLUE"
-    BIFCGreen -> "GREEN"
-    BIFCRed -> "RED"
-    BIFCWhite -> "WHITE"
-    BIFCYellow -> "YELLOW"
+pattern BIFCBlue :: BurnInFontColor
+pattern BIFCBlue = BurnInFontColor' "BLUE"
 
-instance Hashable BurnInFontColor
+pattern BIFCGreen :: BurnInFontColor
+pattern BIFCGreen = BurnInFontColor' "GREEN"
 
-instance NFData BurnInFontColor
+pattern BIFCRed :: BurnInFontColor
+pattern BIFCRed = BurnInFontColor' "RED"
 
-instance ToByteString BurnInFontColor
+pattern BIFCWhite :: BurnInFontColor
+pattern BIFCWhite = BurnInFontColor' "WHITE"
 
-instance ToQuery BurnInFontColor
+pattern BIFCYellow :: BurnInFontColor
+pattern BIFCYellow = BurnInFontColor' "YELLOW"
 
-instance ToHeader BurnInFontColor
-
-instance ToJSON BurnInFontColor where
-  toJSON = toJSONText
-
-instance FromJSON BurnInFontColor where
-  parseJSON = parseJSONText "BurnInFontColor"
+{-# COMPLETE
+  BIFCBlack,
+  BIFCBlue,
+  BIFCGreen,
+  BIFCRed,
+  BIFCWhite,
+  BIFCYellow,
+  BurnInFontColor'
+  #-}

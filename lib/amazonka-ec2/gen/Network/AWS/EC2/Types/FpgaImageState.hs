@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaImageState where
+module Network.AWS.EC2.Types.FpgaImageState
+  ( FpgaImageState (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkFpgaImageState,
+
+    -- * Lenses
+    fisCode,
+    fisMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.FpgaImageStateCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).
 --
---
---
--- /See:/ 'fpgaImageState' smart constructor.
+-- /See:/ 'mkFpgaImageState' smart constructor.
 data FpgaImageState = FpgaImageState'
-  { _fisCode ::
-      !(Maybe FpgaImageStateCode),
-    _fisMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe FpgaImageStateCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaImageState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'code' - The state. The following are the possible values:
 --
--- * 'fisCode' - The state. The following are the possible values:     * @pending@ - AFI bitstream generation is in progress.     * @available@ - The AFI is available for use.     * @failed@ - AFI bitstream generation failed.     * @unavailable@ - The AFI is no longer available for use.
 --
--- * 'fisMessage' - If the state is @failed@ , this is the error message.
-fpgaImageState ::
+--     * @pending@ - AFI bitstream generation is in progress.
+--
+--
+--     * @available@ - The AFI is available for use.
+--
+--
+--     * @failed@ - AFI bitstream generation failed.
+--
+--
+--     * @unavailable@ - The AFI is no longer available for use.
+--
+--
+-- * 'message' - If the state is @failed@ , this is the error message.
+mkFpgaImageState ::
   FpgaImageState
-fpgaImageState =
-  FpgaImageState' {_fisCode = Nothing, _fisMessage = Nothing}
+mkFpgaImageState =
+  FpgaImageState' {code = Lude.Nothing, message = Lude.Nothing}
 
--- | The state. The following are the possible values:     * @pending@ - AFI bitstream generation is in progress.     * @available@ - The AFI is available for use.     * @failed@ - AFI bitstream generation failed.     * @unavailable@ - The AFI is no longer available for use.
-fisCode :: Lens' FpgaImageState (Maybe FpgaImageStateCode)
-fisCode = lens _fisCode (\s a -> s {_fisCode = a})
+-- | The state. The following are the possible values:
+--
+--
+--     * @pending@ - AFI bitstream generation is in progress.
+--
+--
+--     * @available@ - The AFI is available for use.
+--
+--
+--     * @failed@ - AFI bitstream generation failed.
+--
+--
+--     * @unavailable@ - The AFI is no longer available for use.
+--
+--
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fisCode :: Lens.Lens' FpgaImageState (Lude.Maybe FpgaImageStateCode)
+fisCode = Lens.lens (code :: FpgaImageState -> Lude.Maybe FpgaImageStateCode) (\s a -> s {code = a} :: FpgaImageState)
+{-# DEPRECATED fisCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | If the state is @failed@ , this is the error message.
-fisMessage :: Lens' FpgaImageState (Maybe Text)
-fisMessage = lens _fisMessage (\s a -> s {_fisMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fisMessage :: Lens.Lens' FpgaImageState (Lude.Maybe Lude.Text)
+fisMessage = Lens.lens (message :: FpgaImageState -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: FpgaImageState)
+{-# DEPRECATED fisMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML FpgaImageState where
+instance Lude.FromXML FpgaImageState where
   parseXML x =
-    FpgaImageState' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable FpgaImageState
-
-instance NFData FpgaImageState
+    FpgaImageState'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

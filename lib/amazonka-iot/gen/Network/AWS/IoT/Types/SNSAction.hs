@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.SNSAction where
+module Network.AWS.IoT.Types.SNSAction
+  ( SNSAction (..),
+
+    -- * Smart constructor
+    mkSNSAction,
+
+    -- * Lenses
+    snsaMessageFormat,
+    snsaTargetARN,
+    snsaRoleARN,
+  )
+where
 
 import Network.AWS.IoT.Types.MessageFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an action to publish to an Amazon SNS topic.
 --
---
---
--- /See:/ 'snsAction' smart constructor.
+-- /See:/ 'mkSNSAction' smart constructor.
 data SNSAction = SNSAction'
-  { _snsaMessageFormat ::
-      !(Maybe MessageFormat),
-    _snsaTargetARN :: !Text,
-    _snsaRoleARN :: !Text
+  { messageFormat ::
+      Lude.Maybe MessageFormat,
+    targetARN :: Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SNSAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'snsaMessageFormat' - (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <https://docs.aws.amazon.com/sns/latest/dg/json-formats.html https://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to their official documentation.
---
--- * 'snsaTargetARN' - The ARN of the SNS topic.
---
--- * 'snsaRoleARN' - The ARN of the IAM role that grants access.
-snsAction ::
-  -- | 'snsaTargetARN'
-  Text ->
-  -- | 'snsaRoleARN'
-  Text ->
+-- * 'messageFormat' - (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <https://docs.aws.amazon.com/sns/latest/dg/json-formats.html https://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to their official documentation.
+-- * 'roleARN' - The ARN of the IAM role that grants access.
+-- * 'targetARN' - The ARN of the SNS topic.
+mkSNSAction ::
+  -- | 'targetARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   SNSAction
-snsAction pTargetARN_ pRoleARN_ =
+mkSNSAction pTargetARN_ pRoleARN_ =
   SNSAction'
-    { _snsaMessageFormat = Nothing,
-      _snsaTargetARN = pTargetARN_,
-      _snsaRoleARN = pRoleARN_
+    { messageFormat = Lude.Nothing,
+      targetARN = pTargetARN_,
+      roleARN = pRoleARN_
     }
 
 -- | (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <https://docs.aws.amazon.com/sns/latest/dg/json-formats.html https://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to their official documentation.
-snsaMessageFormat :: Lens' SNSAction (Maybe MessageFormat)
-snsaMessageFormat = lens _snsaMessageFormat (\s a -> s {_snsaMessageFormat = a})
+--
+-- /Note:/ Consider using 'messageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snsaMessageFormat :: Lens.Lens' SNSAction (Lude.Maybe MessageFormat)
+snsaMessageFormat = Lens.lens (messageFormat :: SNSAction -> Lude.Maybe MessageFormat) (\s a -> s {messageFormat = a} :: SNSAction)
+{-# DEPRECATED snsaMessageFormat "Use generic-lens or generic-optics with 'messageFormat' instead." #-}
 
 -- | The ARN of the SNS topic.
-snsaTargetARN :: Lens' SNSAction Text
-snsaTargetARN = lens _snsaTargetARN (\s a -> s {_snsaTargetARN = a})
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snsaTargetARN :: Lens.Lens' SNSAction Lude.Text
+snsaTargetARN = Lens.lens (targetARN :: SNSAction -> Lude.Text) (\s a -> s {targetARN = a} :: SNSAction)
+{-# DEPRECATED snsaTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The ARN of the IAM role that grants access.
-snsaRoleARN :: Lens' SNSAction Text
-snsaRoleARN = lens _snsaRoleARN (\s a -> s {_snsaRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snsaRoleARN :: Lens.Lens' SNSAction Lude.Text
+snsaRoleARN = Lens.lens (roleARN :: SNSAction -> Lude.Text) (\s a -> s {roleARN = a} :: SNSAction)
+{-# DEPRECATED snsaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON SNSAction where
+instance Lude.FromJSON SNSAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "SNSAction"
       ( \x ->
           SNSAction'
-            <$> (x .:? "messageFormat")
-            <*> (x .: "targetArn")
-            <*> (x .: "roleArn")
+            Lude.<$> (x Lude..:? "messageFormat")
+            Lude.<*> (x Lude..: "targetArn")
+            Lude.<*> (x Lude..: "roleArn")
       )
 
-instance Hashable SNSAction
-
-instance NFData SNSAction
-
-instance ToJSON SNSAction where
+instance Lude.ToJSON SNSAction where
   toJSON SNSAction' {..} =
-    object
-      ( catMaybes
-          [ ("messageFormat" .=) <$> _snsaMessageFormat,
-            Just ("targetArn" .= _snsaTargetARN),
-            Just ("roleArn" .= _snsaRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("messageFormat" Lude..=) Lude.<$> messageFormat,
+            Lude.Just ("targetArn" Lude..= targetARN),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

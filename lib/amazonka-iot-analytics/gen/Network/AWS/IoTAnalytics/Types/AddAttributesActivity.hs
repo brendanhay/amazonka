@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.AddAttributesActivity where
+module Network.AWS.IoTAnalytics.Types.AddAttributesActivity
+  ( AddAttributesActivity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAddAttributesActivity,
+
+    -- * Lenses
+    aaaNext,
+    aaaName,
+    aaaAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An activity that adds other attributes based on existing attributes in the message.
 --
---
---
--- /See:/ 'addAttributesActivity' smart constructor.
+-- /See:/ 'mkAddAttributesActivity' smart constructor.
 data AddAttributesActivity = AddAttributesActivity'
-  { _aaaNext ::
-      !(Maybe Text),
-    _aaaName :: !Text,
-    _aaaAttributes :: !(Map Text (Text))
+  { next ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    attributes ::
+      Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttributesActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aaaNext' - The next activity in the pipeline.
---
--- * 'aaaName' - The name of the addAttributes activity.
---
--- * 'aaaAttributes' - A list of 1-50 @AttributeNameMapping@ objects that map an existing attribute to a new attribute.
-addAttributesActivity ::
-  -- | 'aaaName'
-  Text ->
+-- * 'attributes' - A list of 1-50 @AttributeNameMapping@ objects that map an existing attribute to a new attribute.
+-- * 'name' - The name of the addAttributes activity.
+-- * 'next' - The next activity in the pipeline.
+mkAddAttributesActivity ::
+  -- | 'name'
+  Lude.Text ->
   AddAttributesActivity
-addAttributesActivity pName_ =
+mkAddAttributesActivity pName_ =
   AddAttributesActivity'
-    { _aaaNext = Nothing,
-      _aaaName = pName_,
-      _aaaAttributes = mempty
+    { next = Lude.Nothing,
+      name = pName_,
+      attributes = Lude.mempty
     }
 
 -- | The next activity in the pipeline.
-aaaNext :: Lens' AddAttributesActivity (Maybe Text)
-aaaNext = lens _aaaNext (\s a -> s {_aaaNext = a})
+--
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaaNext :: Lens.Lens' AddAttributesActivity (Lude.Maybe Lude.Text)
+aaaNext = Lens.lens (next :: AddAttributesActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: AddAttributesActivity)
+{-# DEPRECATED aaaNext "Use generic-lens or generic-optics with 'next' instead." #-}
 
 -- | The name of the addAttributes activity.
-aaaName :: Lens' AddAttributesActivity Text
-aaaName = lens _aaaName (\s a -> s {_aaaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaaName :: Lens.Lens' AddAttributesActivity Lude.Text
+aaaName = Lens.lens (name :: AddAttributesActivity -> Lude.Text) (\s a -> s {name = a} :: AddAttributesActivity)
+{-# DEPRECATED aaaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of 1-50 @AttributeNameMapping@ objects that map an existing attribute to a new attribute.
-aaaAttributes :: Lens' AddAttributesActivity (HashMap Text (Text))
-aaaAttributes = lens _aaaAttributes (\s a -> s {_aaaAttributes = a}) . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaaAttributes :: Lens.Lens' AddAttributesActivity (Lude.HashMap Lude.Text (Lude.Text))
+aaaAttributes = Lens.lens (attributes :: AddAttributesActivity -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: AddAttributesActivity)
+{-# DEPRECATED aaaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromJSON AddAttributesActivity where
+instance Lude.FromJSON AddAttributesActivity where
   parseJSON =
-    withObject
+    Lude.withObject
       "AddAttributesActivity"
       ( \x ->
           AddAttributesActivity'
-            <$> (x .:? "next")
-            <*> (x .: "name")
-            <*> (x .:? "attributes" .!= mempty)
+            Lude.<$> (x Lude..:? "next")
+            Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
       )
 
-instance Hashable AddAttributesActivity
-
-instance NFData AddAttributesActivity
-
-instance ToJSON AddAttributesActivity where
+instance Lude.ToJSON AddAttributesActivity where
   toJSON AddAttributesActivity' {..} =
-    object
-      ( catMaybes
-          [ ("next" .=) <$> _aaaNext,
-            Just ("name" .= _aaaName),
-            Just ("attributes" .= _aaaAttributes)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("next" Lude..=) Lude.<$> next,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("attributes" Lude..= attributes)
           ]
       )

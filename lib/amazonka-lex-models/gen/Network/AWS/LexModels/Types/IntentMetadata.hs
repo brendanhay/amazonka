@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.IntentMetadata where
+module Network.AWS.LexModels.Types.IntentMetadata
+  ( IntentMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIntentMetadata,
+
+    -- * Lenses
+    imCreatedDate,
+    imName,
+    imVersion,
+    imLastUpdatedDate,
+    imDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about an intent.
 --
---
---
--- /See:/ 'intentMetadata' smart constructor.
+-- /See:/ 'mkIntentMetadata' smart constructor.
 data IntentMetadata = IntentMetadata'
-  { _imCreatedDate ::
-      !(Maybe POSIX),
-    _imName :: !(Maybe Text),
-    _imVersion :: !(Maybe Text),
-    _imLastUpdatedDate :: !(Maybe POSIX),
-    _imDescription :: !(Maybe Text)
+  { createdDate ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntentMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'imCreatedDate' - The date that the intent was created.
---
--- * 'imName' - The name of the intent.
---
--- * 'imVersion' - The version of the intent.
---
--- * 'imLastUpdatedDate' - The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
---
--- * 'imDescription' - A description of the intent.
-intentMetadata ::
+-- * 'createdDate' - The date that the intent was created.
+-- * 'description' - A description of the intent.
+-- * 'lastUpdatedDate' - The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
+-- * 'name' - The name of the intent.
+-- * 'version' - The version of the intent.
+mkIntentMetadata ::
   IntentMetadata
-intentMetadata =
+mkIntentMetadata =
   IntentMetadata'
-    { _imCreatedDate = Nothing,
-      _imName = Nothing,
-      _imVersion = Nothing,
-      _imLastUpdatedDate = Nothing,
-      _imDescription = Nothing
+    { createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The date that the intent was created.
-imCreatedDate :: Lens' IntentMetadata (Maybe UTCTime)
-imCreatedDate = lens _imCreatedDate (\s a -> s {_imCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imCreatedDate :: Lens.Lens' IntentMetadata (Lude.Maybe Lude.Timestamp)
+imCreatedDate = Lens.lens (createdDate :: IntentMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: IntentMetadata)
+{-# DEPRECATED imCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the intent.
-imName :: Lens' IntentMetadata (Maybe Text)
-imName = lens _imName (\s a -> s {_imName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imName :: Lens.Lens' IntentMetadata (Lude.Maybe Lude.Text)
+imName = Lens.lens (name :: IntentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: IntentMetadata)
+{-# DEPRECATED imName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the intent.
-imVersion :: Lens' IntentMetadata (Maybe Text)
-imVersion = lens _imVersion (\s a -> s {_imVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imVersion :: Lens.Lens' IntentMetadata (Lude.Maybe Lude.Text)
+imVersion = Lens.lens (version :: IntentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: IntentMetadata)
+{-# DEPRECATED imVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
-imLastUpdatedDate :: Lens' IntentMetadata (Maybe UTCTime)
-imLastUpdatedDate = lens _imLastUpdatedDate (\s a -> s {_imLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imLastUpdatedDate :: Lens.Lens' IntentMetadata (Lude.Maybe Lude.Timestamp)
+imLastUpdatedDate = Lens.lens (lastUpdatedDate :: IntentMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: IntentMetadata)
+{-# DEPRECATED imLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | A description of the intent.
-imDescription :: Lens' IntentMetadata (Maybe Text)
-imDescription = lens _imDescription (\s a -> s {_imDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imDescription :: Lens.Lens' IntentMetadata (Lude.Maybe Lude.Text)
+imDescription = Lens.lens (description :: IntentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: IntentMetadata)
+{-# DEPRECATED imDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON IntentMetadata where
+instance Lude.FromJSON IntentMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "IntentMetadata"
       ( \x ->
           IntentMetadata'
-            <$> (x .:? "createdDate")
-            <*> (x .:? "name")
-            <*> (x .:? "version")
-            <*> (x .:? "lastUpdatedDate")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "lastUpdatedDate")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable IntentMetadata
-
-instance NFData IntentMetadata

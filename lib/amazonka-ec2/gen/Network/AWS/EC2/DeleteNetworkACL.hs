@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,101 @@
 --
 -- Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.
 module Network.AWS.EC2.DeleteNetworkACL
-  ( -- * Creating a Request
-    deleteNetworkACL,
-    DeleteNetworkACL,
+  ( -- * Creating a request
+    DeleteNetworkACL (..),
+    mkDeleteNetworkACL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dnaDryRun,
     dnaNetworkACLId,
 
-    -- * Destructuring the Response
-    deleteNetworkACLResponse,
-    DeleteNetworkACLResponse,
+    -- * Destructuring the response
+    DeleteNetworkACLResponse (..),
+    mkDeleteNetworkACLResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteNetworkACL' smart constructor.
+-- | /See:/ 'mkDeleteNetworkACL' smart constructor.
 data DeleteNetworkACL = DeleteNetworkACL'
-  { _dnaDryRun ::
-      !(Maybe Bool),
-    _dnaNetworkACLId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    networkACLId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkACL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dnaNetworkACLId' - The ID of the network ACL.
-deleteNetworkACL ::
-  -- | 'dnaNetworkACLId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'networkACLId' - The ID of the network ACL.
+mkDeleteNetworkACL ::
+  -- | 'networkACLId'
+  Lude.Text ->
   DeleteNetworkACL
-deleteNetworkACL pNetworkACLId_ =
+mkDeleteNetworkACL pNetworkACLId_ =
   DeleteNetworkACL'
-    { _dnaDryRun = Nothing,
-      _dnaNetworkACLId = pNetworkACLId_
+    { dryRun = Lude.Nothing,
+      networkACLId = pNetworkACLId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dnaDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
-dnaDryRun = lens _dnaDryRun (\s a -> s {_dnaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnaDryRun :: Lens.Lens' DeleteNetworkACL (Lude.Maybe Lude.Bool)
+dnaDryRun = Lens.lens (dryRun :: DeleteNetworkACL -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkACL)
+{-# DEPRECATED dnaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the network ACL.
-dnaNetworkACLId :: Lens' DeleteNetworkACL Text
-dnaNetworkACLId = lens _dnaNetworkACLId (\s a -> s {_dnaNetworkACLId = a})
+--
+-- /Note:/ Consider using 'networkACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnaNetworkACLId :: Lens.Lens' DeleteNetworkACL Lude.Text
+dnaNetworkACLId = Lens.lens (networkACLId :: DeleteNetworkACL -> Lude.Text) (\s a -> s {networkACLId = a} :: DeleteNetworkACL)
+{-# DEPRECATED dnaNetworkACLId "Use generic-lens or generic-optics with 'networkACLId' instead." #-}
 
-instance AWSRequest DeleteNetworkACL where
+instance Lude.AWSRequest DeleteNetworkACL where
   type Rs DeleteNetworkACL = DeleteNetworkACLResponse
-  request = postQuery ec2
-  response = receiveNull DeleteNetworkACLResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteNetworkACLResponse'
 
-instance Hashable DeleteNetworkACL
+instance Lude.ToHeaders DeleteNetworkACL where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteNetworkACL
+instance Lude.ToPath DeleteNetworkACL where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteNetworkACL where
-  toHeaders = const mempty
-
-instance ToPath DeleteNetworkACL where
-  toPath = const "/"
-
-instance ToQuery DeleteNetworkACL where
+instance Lude.ToQuery DeleteNetworkACL where
   toQuery DeleteNetworkACL' {..} =
-    mconcat
-      [ "Action" =: ("DeleteNetworkAcl" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dnaDryRun,
-        "NetworkAclId" =: _dnaNetworkACLId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteNetworkAcl" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "NetworkAclId" Lude.=: networkACLId
       ]
 
--- | /See:/ 'deleteNetworkACLResponse' smart constructor.
+-- | /See:/ 'mkDeleteNetworkACLResponse' smart constructor.
 data DeleteNetworkACLResponse = DeleteNetworkACLResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkACLResponse' with the minimum fields required to make a request.
-deleteNetworkACLResponse ::
+mkDeleteNetworkACLResponse ::
   DeleteNetworkACLResponse
-deleteNetworkACLResponse = DeleteNetworkACLResponse'
-
-instance NFData DeleteNetworkACLResponse
+mkDeleteNetworkACLResponse = DeleteNetworkACLResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3StereoDownmix where
+module Network.AWS.MediaConvert.Types.Eac3StereoDownmix
+  ( Eac3StereoDownmix
+      ( Eac3StereoDownmix',
+        ESDDPL2,
+        ESDLoRo,
+        ESDLtRt,
+        ESDNotIndicated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
-data Eac3StereoDownmix
-  = ESDDPL2
-  | ESDLoRo
-  | ESDLtRt
-  | ESDNotIndicated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3StereoDownmix = Eac3StereoDownmix' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3StereoDownmix where
-  parser =
-    takeLowerText >>= \case
-      "dpl2" -> pure ESDDPL2
-      "lo_ro" -> pure ESDLoRo
-      "lt_rt" -> pure ESDLtRt
-      "not_indicated" -> pure ESDNotIndicated
-      e ->
-        fromTextError $
-          "Failure parsing Eac3StereoDownmix from value: '" <> e
-            <> "'. Accepted values: dpl2, lo_ro, lt_rt, not_indicated"
+pattern ESDDPL2 :: Eac3StereoDownmix
+pattern ESDDPL2 = Eac3StereoDownmix' "DPL2"
 
-instance ToText Eac3StereoDownmix where
-  toText = \case
-    ESDDPL2 -> "DPL2"
-    ESDLoRo -> "LO_RO"
-    ESDLtRt -> "LT_RT"
-    ESDNotIndicated -> "NOT_INDICATED"
+pattern ESDLoRo :: Eac3StereoDownmix
+pattern ESDLoRo = Eac3StereoDownmix' "LO_RO"
 
-instance Hashable Eac3StereoDownmix
+pattern ESDLtRt :: Eac3StereoDownmix
+pattern ESDLtRt = Eac3StereoDownmix' "LT_RT"
 
-instance NFData Eac3StereoDownmix
+pattern ESDNotIndicated :: Eac3StereoDownmix
+pattern ESDNotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
 
-instance ToByteString Eac3StereoDownmix
-
-instance ToQuery Eac3StereoDownmix
-
-instance ToHeader Eac3StereoDownmix
-
-instance ToJSON Eac3StereoDownmix where
-  toJSON = toJSONText
-
-instance FromJSON Eac3StereoDownmix where
-  parseJSON = parseJSONText "Eac3StereoDownmix"
+{-# COMPLETE
+  ESDDPL2,
+  ESDLoRo,
+  ESDLtRt,
+  ESDNotIndicated,
+  Eac3StereoDownmix'
+  #-}

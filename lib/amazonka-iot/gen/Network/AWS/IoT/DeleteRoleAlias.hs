@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,102 @@
 --
 -- Deletes a role alias
 module Network.AWS.IoT.DeleteRoleAlias
-  ( -- * Creating a Request
-    deleteRoleAlias,
-    DeleteRoleAlias,
+  ( -- * Creating a request
+    DeleteRoleAlias (..),
+    mkDeleteRoleAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dRoleAlias,
 
-    -- * Destructuring the Response
-    deleteRoleAliasResponse,
-    DeleteRoleAliasResponse,
+    -- * Destructuring the response
+    DeleteRoleAliasResponse (..),
+    mkDeleteRoleAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRoleAlias' smart constructor.
-newtype DeleteRoleAlias = DeleteRoleAlias' {_dRoleAlias :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteRoleAlias' smart constructor.
+newtype DeleteRoleAlias = DeleteRoleAlias' {roleAlias :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoleAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dRoleAlias' - The role alias to delete.
-deleteRoleAlias ::
-  -- | 'dRoleAlias'
-  Text ->
+-- * 'roleAlias' - The role alias to delete.
+mkDeleteRoleAlias ::
+  -- | 'roleAlias'
+  Lude.Text ->
   DeleteRoleAlias
-deleteRoleAlias pRoleAlias_ =
-  DeleteRoleAlias' {_dRoleAlias = pRoleAlias_}
+mkDeleteRoleAlias pRoleAlias_ =
+  DeleteRoleAlias' {roleAlias = pRoleAlias_}
 
 -- | The role alias to delete.
-dRoleAlias :: Lens' DeleteRoleAlias Text
-dRoleAlias = lens _dRoleAlias (\s a -> s {_dRoleAlias = a})
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRoleAlias :: Lens.Lens' DeleteRoleAlias Lude.Text
+dRoleAlias = Lens.lens (roleAlias :: DeleteRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: DeleteRoleAlias)
+{-# DEPRECATED dRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
-instance AWSRequest DeleteRoleAlias where
+instance Lude.AWSRequest DeleteRoleAlias where
   type Rs DeleteRoleAlias = DeleteRoleAliasResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteRoleAliasResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteRoleAliasResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteRoleAlias
+instance Lude.ToHeaders DeleteRoleAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteRoleAlias
-
-instance ToHeaders DeleteRoleAlias where
-  toHeaders = const mempty
-
-instance ToPath DeleteRoleAlias where
+instance Lude.ToPath DeleteRoleAlias where
   toPath DeleteRoleAlias' {..} =
-    mconcat ["/role-aliases/", toBS _dRoleAlias]
+    Lude.mconcat ["/role-aliases/", Lude.toBS roleAlias]
 
-instance ToQuery DeleteRoleAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRoleAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRoleAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteRoleAliasResponse' smart constructor.
 newtype DeleteRoleAliasResponse = DeleteRoleAliasResponse'
-  { _drsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoleAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteRoleAliasResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteRoleAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRoleAliasResponse
-deleteRoleAliasResponse pResponseStatus_ =
-  DeleteRoleAliasResponse' {_drsResponseStatus = pResponseStatus_}
+mkDeleteRoleAliasResponse pResponseStatus_ =
+  DeleteRoleAliasResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteRoleAliasResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteRoleAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteRoleAliasResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteRoleAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRoleAliasResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

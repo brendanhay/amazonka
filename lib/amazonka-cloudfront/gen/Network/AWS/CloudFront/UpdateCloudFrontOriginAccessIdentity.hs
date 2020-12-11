@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Update an origin access identity.
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
-  ( -- * Creating a Request
-    updateCloudFrontOriginAccessIdentity,
-    UpdateCloudFrontOriginAccessIdentity,
+  ( -- * Creating a request
+    UpdateCloudFrontOriginAccessIdentity (..),
+    mkUpdateCloudFrontOriginAccessIdentity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucfoaiIfMatch,
     ucfoaiCloudFrontOriginAccessIdentityConfig,
     ucfoaiId,
 
-    -- * Destructuring the Response
-    updateCloudFrontOriginAccessIdentityResponse,
-    UpdateCloudFrontOriginAccessIdentityResponse,
+    -- * Destructuring the response
+    UpdateCloudFrontOriginAccessIdentityResponse (..),
+    mkUpdateCloudFrontOriginAccessIdentityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucfoairsETag,
     ucfoairsCloudFrontOriginAccessIdentity,
     ucfoairsResponseStatus,
@@ -40,157 +35,164 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to update an origin access identity.
 --
---
---
--- /See:/ 'updateCloudFrontOriginAccessIdentity' smart constructor.
+-- /See:/ 'mkUpdateCloudFrontOriginAccessIdentity' smart constructor.
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-  { _ucfoaiIfMatch ::
-      !(Maybe Text),
-    _ucfoaiCloudFrontOriginAccessIdentityConfig ::
-      !CloudFrontOriginAccessIdentityConfig,
-    _ucfoaiId ::
-      !Text
+  { ifMatch ::
+      Lude.Maybe
+        Lude.Text,
+    cloudFrontOriginAccessIdentityConfig ::
+      CloudFrontOriginAccessIdentityConfig,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucfoaiIfMatch' - The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'ucfoaiCloudFrontOriginAccessIdentityConfig' - The identity's configuration information.
---
--- * 'ucfoaiId' - The identity's id.
-updateCloudFrontOriginAccessIdentity ::
-  -- | 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+-- * 'cloudFrontOriginAccessIdentityConfig' - The identity's configuration information.
+-- * 'id' - The identity's id.
+-- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
+mkUpdateCloudFrontOriginAccessIdentity ::
+  -- | 'cloudFrontOriginAccessIdentityConfig'
   CloudFrontOriginAccessIdentityConfig ->
-  -- | 'ucfoaiId'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
   UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity
+mkUpdateCloudFrontOriginAccessIdentity
   pCloudFrontOriginAccessIdentityConfig_
   pId_ =
     UpdateCloudFrontOriginAccessIdentity'
-      { _ucfoaiIfMatch = Nothing,
-        _ucfoaiCloudFrontOriginAccessIdentityConfig =
+      { ifMatch = Lude.Nothing,
+        cloudFrontOriginAccessIdentityConfig =
           pCloudFrontOriginAccessIdentityConfig_,
-        _ucfoaiId = pId_
+        id = pId_
       }
 
 -- | The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
-ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
-ucfoaiIfMatch = lens _ucfoaiIfMatch (\s a -> s {_ucfoaiIfMatch = a})
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfoaiIfMatch :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity (Lude.Maybe Lude.Text)
+ucfoaiIfMatch = Lens.lens (ifMatch :: UpdateCloudFrontOriginAccessIdentity -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateCloudFrontOriginAccessIdentity)
+{-# DEPRECATED ucfoaiIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | The identity's configuration information.
-ucfoaiCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
-ucfoaiCloudFrontOriginAccessIdentityConfig = lens _ucfoaiCloudFrontOriginAccessIdentityConfig (\s a -> s {_ucfoaiCloudFrontOriginAccessIdentityConfig = a})
+--
+-- /Note:/ Consider using 'cloudFrontOriginAccessIdentityConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfoaiCloudFrontOriginAccessIdentityConfig :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
+ucfoaiCloudFrontOriginAccessIdentityConfig = Lens.lens (cloudFrontOriginAccessIdentityConfig :: UpdateCloudFrontOriginAccessIdentity -> CloudFrontOriginAccessIdentityConfig) (\s a -> s {cloudFrontOriginAccessIdentityConfig = a} :: UpdateCloudFrontOriginAccessIdentity)
+{-# DEPRECATED ucfoaiCloudFrontOriginAccessIdentityConfig "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentityConfig' instead." #-}
 
 -- | The identity's id.
-ucfoaiId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
-ucfoaiId = lens _ucfoaiId (\s a -> s {_ucfoaiId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfoaiId :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity Lude.Text
+ucfoaiId = Lens.lens (id :: UpdateCloudFrontOriginAccessIdentity -> Lude.Text) (\s a -> s {id = a} :: UpdateCloudFrontOriginAccessIdentity)
+{-# DEPRECATED ucfoaiId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
+instance Lude.AWSRequest UpdateCloudFrontOriginAccessIdentity where
   type
     Rs UpdateCloudFrontOriginAccessIdentity =
       UpdateCloudFrontOriginAccessIdentityResponse
-  request = putXML cloudFront
+  request = Req.putXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdateCloudFrontOriginAccessIdentityResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateCloudFrontOriginAccessIdentity
-
-instance NFData UpdateCloudFrontOriginAccessIdentity
-
-instance ToElement UpdateCloudFrontOriginAccessIdentity where
+instance Lude.ToElement UpdateCloudFrontOriginAccessIdentity where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CloudFrontOriginAccessIdentityConfig"
-      . _ucfoaiCloudFrontOriginAccessIdentityConfig
+      Lude.. cloudFrontOriginAccessIdentityConfig
 
-instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
+instance Lude.ToHeaders UpdateCloudFrontOriginAccessIdentity where
   toHeaders UpdateCloudFrontOriginAccessIdentity' {..} =
-    mconcat ["If-Match" =# _ucfoaiIfMatch]
+    Lude.mconcat ["If-Match" Lude.=# ifMatch]
 
-instance ToPath UpdateCloudFrontOriginAccessIdentity where
+instance Lude.ToPath UpdateCloudFrontOriginAccessIdentity where
   toPath UpdateCloudFrontOriginAccessIdentity' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/origin-access-identity/cloudfront/",
-        toBS _ucfoaiId,
+        Lude.toBS id,
         "/config"
       ]
 
-instance ToQuery UpdateCloudFrontOriginAccessIdentity where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateCloudFrontOriginAccessIdentity where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'updateCloudFrontOriginAccessIdentityResponse' smart constructor.
+-- /See:/ 'mkUpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-  { _ucfoairsETag ::
-      !( Maybe
-           Text
-       ),
-    _ucfoairsCloudFrontOriginAccessIdentity ::
-      !( Maybe
-           CloudFrontOriginAccessIdentity
-       ),
-    _ucfoairsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    cloudFrontOriginAccessIdentity ::
+      Lude.Maybe
+        CloudFrontOriginAccessIdentity,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucfoairsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'ucfoairsCloudFrontOriginAccessIdentity' - The origin access identity's information.
---
--- * 'ucfoairsResponseStatus' - -- | The response status code.
-updateCloudFrontOriginAccessIdentityResponse ::
-  -- | 'ucfoairsResponseStatus'
-  Int ->
+-- * 'cloudFrontOriginAccessIdentity' - The origin access identity's information.
+-- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+-- * 'responseStatus' - The response status code.
+mkUpdateCloudFrontOriginAccessIdentityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateCloudFrontOriginAccessIdentityResponse
-updateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
+mkUpdateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
   UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairsETag =
-        Nothing,
-      _ucfoairsCloudFrontOriginAccessIdentity = Nothing,
-      _ucfoairsResponseStatus = pResponseStatus_
+    { eTag =
+        Lude.Nothing,
+      cloudFrontOriginAccessIdentity = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-ucfoairsETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ucfoairsETag = lens _ucfoairsETag (\s a -> s {_ucfoairsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfoairsETag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Lude.Maybe Lude.Text)
+ucfoairsETag = Lens.lens (eTag :: UpdateCloudFrontOriginAccessIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ucfoairsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The origin access identity's information.
-ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIdentity (\s a -> s {_ucfoairsCloudFrontOriginAccessIdentity = a})
+--
+-- /Note:/ Consider using 'cloudFrontOriginAccessIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfoairsCloudFrontOriginAccessIdentity :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Lude.Maybe CloudFrontOriginAccessIdentity)
+ucfoairsCloudFrontOriginAccessIdentity = Lens.lens (cloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentityResponse -> Lude.Maybe CloudFrontOriginAccessIdentity) (\s a -> s {cloudFrontOriginAccessIdentity = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ucfoairsCloudFrontOriginAccessIdentity "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentity' instead." #-}
 
--- | -- | The response status code.
-ucfoairsResponseStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
-ucfoairsResponseStatus = lens _ucfoairsResponseStatus (\s a -> s {_ucfoairsResponseStatus = a})
-
-instance NFData UpdateCloudFrontOriginAccessIdentityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfoairsResponseStatus :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse Lude.Int
+ucfoairsResponseStatus = Lens.lens (responseStatus :: UpdateCloudFrontOriginAccessIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ucfoairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

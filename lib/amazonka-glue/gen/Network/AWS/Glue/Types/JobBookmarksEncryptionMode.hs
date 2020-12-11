@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JobBookmarksEncryptionMode where
+module Network.AWS.Glue.Types.JobBookmarksEncryptionMode
+  ( JobBookmarksEncryptionMode
+      ( JobBookmarksEncryptionMode',
+        JBEMCseKMS,
+        JBEMDisabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobBookmarksEncryptionMode
-  = JBEMCseKMS
-  | JBEMDisabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobBookmarksEncryptionMode = JobBookmarksEncryptionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobBookmarksEncryptionMode where
-  parser =
-    takeLowerText >>= \case
-      "cse-kms" -> pure JBEMCseKMS
-      "disabled" -> pure JBEMDisabled
-      e ->
-        fromTextError $
-          "Failure parsing JobBookmarksEncryptionMode from value: '" <> e
-            <> "'. Accepted values: cse-kms, disabled"
+pattern JBEMCseKMS :: JobBookmarksEncryptionMode
+pattern JBEMCseKMS = JobBookmarksEncryptionMode' "CSE-KMS"
 
-instance ToText JobBookmarksEncryptionMode where
-  toText = \case
-    JBEMCseKMS -> "CSE-KMS"
-    JBEMDisabled -> "DISABLED"
+pattern JBEMDisabled :: JobBookmarksEncryptionMode
+pattern JBEMDisabled = JobBookmarksEncryptionMode' "DISABLED"
 
-instance Hashable JobBookmarksEncryptionMode
-
-instance NFData JobBookmarksEncryptionMode
-
-instance ToByteString JobBookmarksEncryptionMode
-
-instance ToQuery JobBookmarksEncryptionMode
-
-instance ToHeader JobBookmarksEncryptionMode
-
-instance ToJSON JobBookmarksEncryptionMode where
-  toJSON = toJSONText
-
-instance FromJSON JobBookmarksEncryptionMode where
-  parseJSON = parseJSONText "JobBookmarksEncryptionMode"
+{-# COMPLETE
+  JBEMCseKMS,
+  JBEMDisabled,
+  JobBookmarksEncryptionMode'
+  #-}

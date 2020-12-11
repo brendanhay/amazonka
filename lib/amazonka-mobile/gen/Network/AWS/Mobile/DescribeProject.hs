@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,145 @@
 --
 -- Gets details about a project in AWS Mobile Hub.
 module Network.AWS.Mobile.DescribeProject
-  ( -- * Creating a Request
-    describeProject,
-    DescribeProject,
+  ( -- * Creating a request
+    DescribeProject (..),
+    mkDescribeProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dSyncFromResources,
     dProjectId,
 
-    -- * Destructuring the Response
-    describeProjectResponse,
-    DescribeProjectResponse,
+    -- * Destructuring the response
+    DescribeProjectResponse (..),
+    mkDescribeProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsDetails,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request structure used to request details about a project.
 --
---
---
--- /See:/ 'describeProject' smart constructor.
+-- /See:/ 'mkDescribeProject' smart constructor.
 data DescribeProject = DescribeProject'
-  { _dSyncFromResources ::
-      !(Maybe Bool),
-    _dProjectId :: !Text
+  { syncFromResources ::
+      Lude.Maybe Lude.Bool,
+    projectId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dSyncFromResources' - If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
---
--- * 'dProjectId' - Unique project identifier.
-describeProject ::
-  -- | 'dProjectId'
-  Text ->
+-- * 'projectId' - Unique project identifier.
+-- * 'syncFromResources' - If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
+mkDescribeProject ::
+  -- | 'projectId'
+  Lude.Text ->
   DescribeProject
-describeProject pProjectId_ =
+mkDescribeProject pProjectId_ =
   DescribeProject'
-    { _dSyncFromResources = Nothing,
-      _dProjectId = pProjectId_
+    { syncFromResources = Lude.Nothing,
+      projectId = pProjectId_
     }
 
 -- | If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
-dSyncFromResources :: Lens' DescribeProject (Maybe Bool)
-dSyncFromResources = lens _dSyncFromResources (\s a -> s {_dSyncFromResources = a})
+--
+-- /Note:/ Consider using 'syncFromResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSyncFromResources :: Lens.Lens' DescribeProject (Lude.Maybe Lude.Bool)
+dSyncFromResources = Lens.lens (syncFromResources :: DescribeProject -> Lude.Maybe Lude.Bool) (\s a -> s {syncFromResources = a} :: DescribeProject)
+{-# DEPRECATED dSyncFromResources "Use generic-lens or generic-optics with 'syncFromResources' instead." #-}
 
 -- | Unique project identifier.
-dProjectId :: Lens' DescribeProject Text
-dProjectId = lens _dProjectId (\s a -> s {_dProjectId = a})
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dProjectId :: Lens.Lens' DescribeProject Lude.Text
+dProjectId = Lens.lens (projectId :: DescribeProject -> Lude.Text) (\s a -> s {projectId = a} :: DescribeProject)
+{-# DEPRECATED dProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance AWSRequest DescribeProject where
+instance Lude.AWSRequest DescribeProject where
   type Rs DescribeProject = DescribeProjectResponse
-  request = get mobile
+  request = Req.get mobileService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            <$> (x .?> "details") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "details") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeProject
-
-instance NFData DescribeProject
-
-instance ToHeaders DescribeProject where
+instance Lude.ToHeaders DescribeProject where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeProject where
-  toPath = const "/project"
+instance Lude.ToPath DescribeProject where
+  toPath = Lude.const "/project"
 
-instance ToQuery DescribeProject where
+instance Lude.ToQuery DescribeProject where
   toQuery DescribeProject' {..} =
-    mconcat
-      [ "syncFromResources" =: _dSyncFromResources,
-        "projectId" =: _dProjectId
+    Lude.mconcat
+      [ "syncFromResources" Lude.=: syncFromResources,
+        "projectId" Lude.=: projectId
       ]
 
 -- | Result structure used for requests of project details.
 --
---
---
--- /See:/ 'describeProjectResponse' smart constructor.
+-- /See:/ 'mkDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { _drsDetails ::
-      !(Maybe ProjectDetails),
-    _drsResponseStatus :: !Int
+  { details ::
+      Lude.Maybe ProjectDetails,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsDetails' - Undocumented member.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeProjectResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'details' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeProjectResponse
-describeProjectResponse pResponseStatus_ =
+mkDescribeProjectResponse pResponseStatus_ =
   DescribeProjectResponse'
-    { _drsDetails = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { details = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-drsDetails :: Lens' DescribeProjectResponse (Maybe ProjectDetails)
-drsDetails = lens _drsDetails (\s a -> s {_drsDetails = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDetails :: Lens.Lens' DescribeProjectResponse (Lude.Maybe ProjectDetails)
+drsDetails = Lens.lens (details :: DescribeProjectResponse -> Lude.Maybe ProjectDetails) (\s a -> s {details = a} :: DescribeProjectResponse)
+{-# DEPRECATED drsDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeProjectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeProjectResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProjectResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

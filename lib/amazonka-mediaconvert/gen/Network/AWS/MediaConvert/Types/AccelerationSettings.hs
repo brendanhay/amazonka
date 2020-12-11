@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AccelerationSettings where
+module Network.AWS.MediaConvert.Types.AccelerationSettings
+  ( AccelerationSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAccelerationSettings,
+
+    -- * Lenses
+    asMode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AccelerationMode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Accelerated transcoding can significantly speed up jobs with long, visually complex content.
 --
--- /See:/ 'accelerationSettings' smart constructor.
+-- /See:/ 'mkAccelerationSettings' smart constructor.
 newtype AccelerationSettings = AccelerationSettings'
-  { _asMode ::
+  { mode ::
       AccelerationMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccelerationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asMode' - Specify the conditions when the service will run your job with accelerated transcoding.
-accelerationSettings ::
-  -- | 'asMode'
+-- * 'mode' - Specify the conditions when the service will run your job with accelerated transcoding.
+mkAccelerationSettings ::
+  -- | 'mode'
   AccelerationMode ->
   AccelerationSettings
-accelerationSettings pMode_ =
-  AccelerationSettings' {_asMode = pMode_}
+mkAccelerationSettings pMode_ =
+  AccelerationSettings' {mode = pMode_}
 
 -- | Specify the conditions when the service will run your job with accelerated transcoding.
-asMode :: Lens' AccelerationSettings AccelerationMode
-asMode = lens _asMode (\s a -> s {_asMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asMode :: Lens.Lens' AccelerationSettings AccelerationMode
+asMode = Lens.lens (mode :: AccelerationSettings -> AccelerationMode) (\s a -> s {mode = a} :: AccelerationSettings)
+{-# DEPRECATED asMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
-instance FromJSON AccelerationSettings where
+instance Lude.FromJSON AccelerationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccelerationSettings"
-      (\x -> AccelerationSettings' <$> (x .: "mode"))
+      (\x -> AccelerationSettings' Lude.<$> (x Lude..: "mode"))
 
-instance Hashable AccelerationSettings
-
-instance NFData AccelerationSettings
-
-instance ToJSON AccelerationSettings where
+instance Lude.ToJSON AccelerationSettings where
   toJSON AccelerationSettings' {..} =
-    object (catMaybes [Just ("mode" .= _asMode)])
+    Lude.object (Lude.catMaybes [Lude.Just ("mode" Lude..= mode)])

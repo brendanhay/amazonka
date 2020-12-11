@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.
 module Network.AWS.EC2.DescribeImageAttribute
-  ( -- * Creating a Request
-    describeImageAttribute,
-    DescribeImageAttribute,
+  ( -- * Creating a request
+    DescribeImageAttribute (..),
+    mkDescribeImageAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diaiDryRun,
     diaiAttribute,
     diaiImageId,
 
-    -- * Destructuring the Response
-    describeImageAttributeResponse,
-    DescribeImageAttributeResponse,
+    -- * Destructuring the response
+    DescribeImageAttributeResponse (..),
+    mkDescribeImageAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diarsLaunchPermissions,
     diarsRAMDiskId,
     diarsKernelId,
@@ -46,197 +41,231 @@ module Network.AWS.EC2.DescribeImageAttribute
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeImageAttribute.
 --
---
---
--- /See:/ 'describeImageAttribute' smart constructor.
+-- /See:/ 'mkDescribeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
-  { _diaiDryRun ::
-      !(Maybe Bool),
-    _diaiAttribute :: !ImageAttributeName,
-    _diaiImageId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    attribute :: ImageAttributeName,
+    imageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attribute' - The AMI attribute.
 --
--- * 'diaiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'diaiAttribute' - The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
---
--- * 'diaiImageId' - The ID of the AMI.
-describeImageAttribute ::
-  -- | 'diaiAttribute'
+-- __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'imageId' - The ID of the AMI.
+mkDescribeImageAttribute ::
+  -- | 'attribute'
   ImageAttributeName ->
-  -- | 'diaiImageId'
-  Text ->
+  -- | 'imageId'
+  Lude.Text ->
   DescribeImageAttribute
-describeImageAttribute pAttribute_ pImageId_ =
+mkDescribeImageAttribute pAttribute_ pImageId_ =
   DescribeImageAttribute'
-    { _diaiDryRun = Nothing,
-      _diaiAttribute = pAttribute_,
-      _diaiImageId = pImageId_
+    { dryRun = Lude.Nothing,
+      attribute = pAttribute_,
+      imageId = pImageId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
-diaiDryRun = lens _diaiDryRun (\s a -> s {_diaiDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaiDryRun :: Lens.Lens' DescribeImageAttribute (Lude.Maybe Lude.Bool)
+diaiDryRun = Lens.lens (dryRun :: DescribeImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeImageAttribute)
+{-# DEPRECATED diaiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
-diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
-diaiAttribute = lens _diaiAttribute (\s a -> s {_diaiAttribute = a})
+-- | The AMI attribute.
+--
+-- __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaiAttribute :: Lens.Lens' DescribeImageAttribute ImageAttributeName
+diaiAttribute = Lens.lens (attribute :: DescribeImageAttribute -> ImageAttributeName) (\s a -> s {attribute = a} :: DescribeImageAttribute)
+{-# DEPRECATED diaiAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the AMI.
-diaiImageId :: Lens' DescribeImageAttribute Text
-diaiImageId = lens _diaiImageId (\s a -> s {_diaiImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaiImageId :: Lens.Lens' DescribeImageAttribute Lude.Text
+diaiImageId = Lens.lens (imageId :: DescribeImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: DescribeImageAttribute)
+{-# DEPRECATED diaiImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance AWSRequest DescribeImageAttribute where
+instance Lude.AWSRequest DescribeImageAttribute where
   type Rs DescribeImageAttribute = DescribeImageAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeImageAttributeResponse'
-            <$> (x .@? "launchPermission" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "ramdisk")
-            <*> (x .@? "kernel")
-            <*> (x .@? "sriovNetSupport")
-            <*> (x .@? "imageId")
-            <*> (x .@? "productCodes" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "description")
-            <*> ( x .@? "blockDeviceMapping" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "launchPermission" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "ramdisk")
+            Lude.<*> (x Lude..@? "kernel")
+            Lude.<*> (x Lude..@? "sriovNetSupport")
+            Lude.<*> (x Lude..@? "imageId")
+            Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "description")
+            Lude.<*> ( x Lude..@? "blockDeviceMapping" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeImageAttribute
+instance Lude.ToHeaders DescribeImageAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeImageAttribute
+instance Lude.ToPath DescribeImageAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeImageAttribute where
-  toHeaders = const mempty
-
-instance ToPath DescribeImageAttribute where
-  toPath = const "/"
-
-instance ToQuery DescribeImageAttribute where
+instance Lude.ToQuery DescribeImageAttribute where
   toQuery DescribeImageAttribute' {..} =
-    mconcat
-      [ "Action" =: ("DescribeImageAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _diaiDryRun,
-        "Attribute" =: _diaiAttribute,
-        "ImageId" =: _diaiImageId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeImageAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Attribute" Lude.=: attribute,
+        "ImageId" Lude.=: imageId
       ]
 
 -- | Describes an image attribute.
 --
---
---
--- /See:/ 'describeImageAttributeResponse' smart constructor.
+-- /See:/ 'mkDescribeImageAttributeResponse' smart constructor.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-  { _diarsLaunchPermissions ::
-      !(Maybe [LaunchPermission]),
-    _diarsRAMDiskId ::
-      !(Maybe AttributeValue),
-    _diarsKernelId ::
-      !(Maybe AttributeValue),
-    _diarsSRIOVNetSupport ::
-      !(Maybe AttributeValue),
-    _diarsImageId ::
-      !(Maybe Text),
-    _diarsProductCodes ::
-      !(Maybe [ProductCode]),
-    _diarsDescription ::
-      !(Maybe AttributeValue),
-    _diarsBlockDeviceMappings ::
-      !(Maybe [BlockDeviceMapping]),
-    _diarsResponseStatus :: !Int
+  { launchPermissions ::
+      Lude.Maybe [LaunchPermission],
+    ramdiskId ::
+      Lude.Maybe AttributeValue,
+    kernelId ::
+      Lude.Maybe AttributeValue,
+    sriovNetSupport ::
+      Lude.Maybe AttributeValue,
+    imageId ::
+      Lude.Maybe Lude.Text,
+    productCodes ::
+      Lude.Maybe [ProductCode],
+    description ::
+      Lude.Maybe AttributeValue,
+    blockDeviceMappings ::
+      Lude.Maybe
+        [BlockDeviceMapping],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diarsLaunchPermissions' - The launch permissions.
---
--- * 'diarsRAMDiskId' - The RAM disk ID.
---
--- * 'diarsKernelId' - The kernel ID.
---
--- * 'diarsSRIOVNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
---
--- * 'diarsImageId' - The ID of the AMI.
---
--- * 'diarsProductCodes' - The product codes.
---
--- * 'diarsDescription' - A description for the AMI.
---
--- * 'diarsBlockDeviceMappings' - The block device mapping entries.
---
--- * 'diarsResponseStatus' - -- | The response status code.
-describeImageAttributeResponse ::
-  -- | 'diarsResponseStatus'
-  Int ->
+-- * 'blockDeviceMappings' - The block device mapping entries.
+-- * 'description' - A description for the AMI.
+-- * 'imageId' - The ID of the AMI.
+-- * 'kernelId' - The kernel ID.
+-- * 'launchPermissions' - The launch permissions.
+-- * 'productCodes' - The product codes.
+-- * 'ramdiskId' - The RAM disk ID.
+-- * 'responseStatus' - The response status code.
+-- * 'sriovNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+mkDescribeImageAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeImageAttributeResponse
-describeImageAttributeResponse pResponseStatus_ =
+mkDescribeImageAttributeResponse pResponseStatus_ =
   DescribeImageAttributeResponse'
-    { _diarsLaunchPermissions =
-        Nothing,
-      _diarsRAMDiskId = Nothing,
-      _diarsKernelId = Nothing,
-      _diarsSRIOVNetSupport = Nothing,
-      _diarsImageId = Nothing,
-      _diarsProductCodes = Nothing,
-      _diarsDescription = Nothing,
-      _diarsBlockDeviceMappings = Nothing,
-      _diarsResponseStatus = pResponseStatus_
+    { launchPermissions = Lude.Nothing,
+      ramdiskId = Lude.Nothing,
+      kernelId = Lude.Nothing,
+      sriovNetSupport = Lude.Nothing,
+      imageId = Lude.Nothing,
+      productCodes = Lude.Nothing,
+      description = Lude.Nothing,
+      blockDeviceMappings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The launch permissions.
-diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diarsLaunchPermissions = lens _diarsLaunchPermissions (\s a -> s {_diarsLaunchPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'launchPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsLaunchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe [LaunchPermission])
+diarsLaunchPermissions = Lens.lens (launchPermissions :: DescribeImageAttributeResponse -> Lude.Maybe [LaunchPermission]) (\s a -> s {launchPermissions = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsLaunchPermissions "Use generic-lens or generic-optics with 'launchPermissions' instead." #-}
 
 -- | The RAM disk ID.
-diarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsRAMDiskId = lens _diarsRAMDiskId (\s a -> s {_diarsRAMDiskId = a})
+--
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsRAMDiskId :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe AttributeValue)
+diarsRAMDiskId = Lens.lens (ramdiskId :: DescribeImageAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {ramdiskId = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
 
 -- | The kernel ID.
-diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsKernelId = lens _diarsKernelId (\s a -> s {_diarsKernelId = a})
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsKernelId :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe AttributeValue)
+diarsKernelId = Lens.lens (kernelId :: DescribeImageAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {kernelId = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
 
 -- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
-diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\s a -> s {_diarsSRIOVNetSupport = a})
+--
+-- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsSRIOVNetSupport :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe AttributeValue)
+diarsSRIOVNetSupport = Lens.lens (sriovNetSupport :: DescribeImageAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {sriovNetSupport = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
 
 -- | The ID of the AMI.
-diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
-diarsImageId = lens _diarsImageId (\s a -> s {_diarsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsImageId :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe Lude.Text)
+diarsImageId = Lens.lens (imageId :: DescribeImageAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The product codes.
-diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarsProductCodes = lens _diarsProductCodes (\s a -> s {_diarsProductCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsProductCodes :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe [ProductCode])
+diarsProductCodes = Lens.lens (productCodes :: DescribeImageAttributeResponse -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | A description for the AMI.
-diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsDescription = lens _diarsDescription (\s a -> s {_diarsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsDescription :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe AttributeValue)
+diarsDescription = Lens.lens (description :: DescribeImageAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {description = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The block device mapping entries.
-diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\s a -> s {_diarsBlockDeviceMappings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsBlockDeviceMappings :: Lens.Lens' DescribeImageAttributeResponse (Lude.Maybe [BlockDeviceMapping])
+diarsBlockDeviceMappings = Lens.lens (blockDeviceMappings :: DescribeImageAttributeResponse -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
 
--- | -- | The response status code.
-diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
-diarsResponseStatus = lens _diarsResponseStatus (\s a -> s {_diarsResponseStatus = a})
-
-instance NFData DescribeImageAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsResponseStatus :: Lens.Lens' DescribeImageAttributeResponse Lude.Int
+diarsResponseStatus = Lens.lens (responseStatus :: DescribeImageAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImageAttributeResponse)
+{-# DEPRECATED diarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

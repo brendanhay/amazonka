@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.PredicateType where
+module Network.AWS.WAFRegional.Types.PredicateType
+  ( PredicateType
+      ( PredicateType',
+        ByteMatch,
+        GeoMatch,
+        IPMatch,
+        RegexMatch,
+        SizeConstraint,
+        SqlInjectionMatch,
+        XSSMatch
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PredicateType
-  = ByteMatch
-  | GeoMatch
-  | IPMatch
-  | RegexMatch
-  | SizeConstraint
-  | SqlInjectionMatch
-  | XSSMatch
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PredicateType = PredicateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PredicateType where
-  parser =
-    takeLowerText >>= \case
-      "bytematch" -> pure ByteMatch
-      "geomatch" -> pure GeoMatch
-      "ipmatch" -> pure IPMatch
-      "regexmatch" -> pure RegexMatch
-      "sizeconstraint" -> pure SizeConstraint
-      "sqlinjectionmatch" -> pure SqlInjectionMatch
-      "xssmatch" -> pure XSSMatch
-      e ->
-        fromTextError $
-          "Failure parsing PredicateType from value: '" <> e
-            <> "'. Accepted values: bytematch, geomatch, ipmatch, regexmatch, sizeconstraint, sqlinjectionmatch, xssmatch"
+pattern ByteMatch :: PredicateType
+pattern ByteMatch = PredicateType' "ByteMatch"
 
-instance ToText PredicateType where
-  toText = \case
-    ByteMatch -> "ByteMatch"
-    GeoMatch -> "GeoMatch"
-    IPMatch -> "IPMatch"
-    RegexMatch -> "RegexMatch"
-    SizeConstraint -> "SizeConstraint"
-    SqlInjectionMatch -> "SqlInjectionMatch"
-    XSSMatch -> "XssMatch"
+pattern GeoMatch :: PredicateType
+pattern GeoMatch = PredicateType' "GeoMatch"
 
-instance Hashable PredicateType
+pattern IPMatch :: PredicateType
+pattern IPMatch = PredicateType' "IPMatch"
 
-instance NFData PredicateType
+pattern RegexMatch :: PredicateType
+pattern RegexMatch = PredicateType' "RegexMatch"
 
-instance ToByteString PredicateType
+pattern SizeConstraint :: PredicateType
+pattern SizeConstraint = PredicateType' "SizeConstraint"
 
-instance ToQuery PredicateType
+pattern SqlInjectionMatch :: PredicateType
+pattern SqlInjectionMatch = PredicateType' "SqlInjectionMatch"
 
-instance ToHeader PredicateType
+pattern XSSMatch :: PredicateType
+pattern XSSMatch = PredicateType' "XssMatch"
 
-instance ToJSON PredicateType where
-  toJSON = toJSONText
-
-instance FromJSON PredicateType where
-  parseJSON = parseJSONText "PredicateType"
+{-# COMPLETE
+  ByteMatch,
+  GeoMatch,
+  IPMatch,
+  RegexMatch,
+  SizeConstraint,
+  SqlInjectionMatch,
+  XSSMatch,
+  PredicateType'
+  #-}

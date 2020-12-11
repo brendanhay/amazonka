@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Describes the notification actions associated with the specified Auto Scaling group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
-  ( -- * Creating a Request
-    describeNotificationConfigurations,
-    DescribeNotificationConfigurations,
+  ( -- * Creating a request
+    DescribeNotificationConfigurations (..),
+    mkDescribeNotificationConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dncAutoScalingGroupNames,
     dncNextToken,
     dncMaxRecords,
 
-    -- * Destructuring the Response
-    describeNotificationConfigurationsResponse,
-    DescribeNotificationConfigurationsResponse,
+    -- * Destructuring the response
+    DescribeNotificationConfigurationsResponse (..),
+    mkDescribeNotificationConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dncrsNextToken,
     dncrsResponseStatus,
     dncrsNotificationConfigurations,
@@ -44,149 +37,166 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeNotificationConfigurations' smart constructor.
+-- | /See:/ 'mkDescribeNotificationConfigurations' smart constructor.
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
-  { _dncAutoScalingGroupNames ::
-      !(Maybe [Text]),
-    _dncNextToken ::
-      !(Maybe Text),
-    _dncMaxRecords ::
-      !(Maybe Int)
+  { autoScalingGroupNames ::
+      Lude.Maybe
+        [Lude.Text],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dncAutoScalingGroupNames' - The name of the Auto Scaling group.
---
--- * 'dncNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dncMaxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
-describeNotificationConfigurations ::
+-- * 'autoScalingGroupNames' - The name of the Auto Scaling group.
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeNotificationConfigurations ::
   DescribeNotificationConfigurations
-describeNotificationConfigurations =
+mkDescribeNotificationConfigurations =
   DescribeNotificationConfigurations'
-    { _dncAutoScalingGroupNames =
-        Nothing,
-      _dncNextToken = Nothing,
-      _dncMaxRecords = Nothing
+    { autoScalingGroupNames =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | The name of the Auto Scaling group.
-dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
-dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\s a -> s {_dncAutoScalingGroupNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'autoScalingGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncAutoScalingGroupNames :: Lens.Lens' DescribeNotificationConfigurations (Lude.Maybe [Lude.Text])
+dncAutoScalingGroupNames = Lens.lens (autoScalingGroupNames :: DescribeNotificationConfigurations -> Lude.Maybe [Lude.Text]) (\s a -> s {autoScalingGroupNames = a} :: DescribeNotificationConfigurations)
+{-# DEPRECATED dncAutoScalingGroupNames "Use generic-lens or generic-optics with 'autoScalingGroupNames' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
-dncNextToken = lens _dncNextToken (\s a -> s {_dncNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncNextToken :: Lens.Lens' DescribeNotificationConfigurations (Lude.Maybe Lude.Text)
+dncNextToken = Lens.lens (nextToken :: DescribeNotificationConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationConfigurations)
+{-# DEPRECATED dncNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
-dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
-dncMaxRecords = lens _dncMaxRecords (\s a -> s {_dncMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncMaxRecords :: Lens.Lens' DescribeNotificationConfigurations (Lude.Maybe Lude.Int)
+dncMaxRecords = Lens.lens (maxRecords :: DescribeNotificationConfigurations -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeNotificationConfigurations)
+{-# DEPRECATED dncMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeNotificationConfigurations where
+instance Page.AWSPager DescribeNotificationConfigurations where
   page rq rs
-    | stop (rs ^. dncrsNextToken) = Nothing
-    | stop (rs ^. dncrsNotificationConfigurations) = Nothing
-    | otherwise = Just $ rq & dncNextToken .~ rs ^. dncrsNextToken
+    | Page.stop (rs Lens.^. dncrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dncrsNotificationConfigurations) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dncNextToken Lens..~ rs Lens.^. dncrsNextToken
 
-instance AWSRequest DescribeNotificationConfigurations where
+instance Lude.AWSRequest DescribeNotificationConfigurations where
   type
     Rs DescribeNotificationConfigurations =
       DescribeNotificationConfigurationsResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeNotificationConfigurationsResult"
       ( \s h x ->
           DescribeNotificationConfigurationsResponse'
-            <$> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
-            <*> ( x .@? "NotificationConfigurations" .!@ mempty
-                    >>= parseXMLList "member"
-                )
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "NotificationConfigurations" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable DescribeNotificationConfigurations
+instance Lude.ToHeaders DescribeNotificationConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeNotificationConfigurations
+instance Lude.ToPath DescribeNotificationConfigurations where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeNotificationConfigurations where
-  toHeaders = const mempty
-
-instance ToPath DescribeNotificationConfigurations where
-  toPath = const "/"
-
-instance ToQuery DescribeNotificationConfigurations where
+instance Lude.ToQuery DescribeNotificationConfigurations where
   toQuery DescribeNotificationConfigurations' {..} =
-    mconcat
-      [ "Action" =: ("DescribeNotificationConfigurations" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeNotificationConfigurations" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "AutoScalingGroupNames"
-          =: toQuery (toQueryList "member" <$> _dncAutoScalingGroupNames),
-        "NextToken" =: _dncNextToken,
-        "MaxRecords" =: _dncMaxRecords
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> autoScalingGroupNames),
+        "NextToken" Lude.=: nextToken,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
--- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeNotificationConfigurationsResponse' smart constructor.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
-  { _dncrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dncrsResponseStatus ::
-      !Int,
-    _dncrsNotificationConfigurations ::
-      ![NotificationConfiguration]
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    notificationConfigurations ::
+      [NotificationConfiguration]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dncrsNextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
---
--- * 'dncrsResponseStatus' - -- | The response status code.
---
--- * 'dncrsNotificationConfigurations' - The notification configurations.
-describeNotificationConfigurationsResponse ::
-  -- | 'dncrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'notificationConfigurations' - The notification configurations.
+-- * 'responseStatus' - The response status code.
+mkDescribeNotificationConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse pResponseStatus_ =
+mkDescribeNotificationConfigurationsResponse pResponseStatus_ =
   DescribeNotificationConfigurationsResponse'
-    { _dncrsNextToken =
-        Nothing,
-      _dncrsResponseStatus = pResponseStatus_,
-      _dncrsNotificationConfigurations = mempty
+    { nextToken =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      notificationConfigurations = Lude.mempty
     }
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
-dncrsNextToken = lens _dncrsNextToken (\s a -> s {_dncrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncrsNextToken :: Lens.Lens' DescribeNotificationConfigurationsResponse (Lude.Maybe Lude.Text)
+dncrsNextToken = Lens.lens (nextToken :: DescribeNotificationConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationConfigurationsResponse)
+{-# DEPRECATED dncrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dncrsResponseStatus :: Lens' DescribeNotificationConfigurationsResponse Int
-dncrsResponseStatus = lens _dncrsResponseStatus (\s a -> s {_dncrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncrsResponseStatus :: Lens.Lens' DescribeNotificationConfigurationsResponse Lude.Int
+dncrsResponseStatus = Lens.lens (responseStatus :: DescribeNotificationConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotificationConfigurationsResponse)
+{-# DEPRECATED dncrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The notification configurations.
-dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\s a -> s {_dncrsNotificationConfigurations = a}) . _Coerce
-
-instance NFData DescribeNotificationConfigurationsResponse
+--
+-- /Note:/ Consider using 'notificationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncrsNotificationConfigurations :: Lens.Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
+dncrsNotificationConfigurations = Lens.lens (notificationConfigurations :: DescribeNotificationConfigurationsResponse -> [NotificationConfiguration]) (\s a -> s {notificationConfigurations = a} :: DescribeNotificationConfigurationsResponse)
+{-# DEPRECATED dncrsNotificationConfigurations "Use generic-lens or generic-optics with 'notificationConfigurations' instead." #-}

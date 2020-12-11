@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Attribute where
+module Network.AWS.Connect.Types.Attribute
+  ( Attribute (..),
+
+    -- * Smart constructor
+    mkAttribute,
+
+    -- * Lenses
+    aValue,
+    aAttributeType,
+  )
+where
 
 import Network.AWS.Connect.Types.InstanceAttributeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A toggle for an individual feature at the instance level.
 --
---
---
--- /See:/ 'attribute' smart constructor.
+-- /See:/ 'mkAttribute' smart constructor.
 data Attribute = Attribute'
-  { _aValue :: !(Maybe Text),
-    _aAttributeType :: !(Maybe InstanceAttributeType)
+  { value :: Lude.Maybe Lude.Text,
+    attributeType :: Lude.Maybe InstanceAttributeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aValue' - The value of the attribute.
---
--- * 'aAttributeType' - The type of attribute.
-attribute ::
+-- * 'attributeType' - The type of attribute.
+-- * 'value' - The value of the attribute.
+mkAttribute ::
   Attribute
-attribute =
-  Attribute' {_aValue = Nothing, _aAttributeType = Nothing}
+mkAttribute =
+  Attribute' {value = Lude.Nothing, attributeType = Lude.Nothing}
 
 -- | The value of the attribute.
-aValue :: Lens' Attribute (Maybe Text)
-aValue = lens _aValue (\s a -> s {_aValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aValue :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
+aValue = Lens.lens (value :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Attribute)
+{-# DEPRECATED aValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of attribute.
-aAttributeType :: Lens' Attribute (Maybe InstanceAttributeType)
-aAttributeType = lens _aAttributeType (\s a -> s {_aAttributeType = a})
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAttributeType :: Lens.Lens' Attribute (Lude.Maybe InstanceAttributeType)
+aAttributeType = Lens.lens (attributeType :: Attribute -> Lude.Maybe InstanceAttributeType) (\s a -> s {attributeType = a} :: Attribute)
+{-# DEPRECATED aAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
-instance FromJSON Attribute where
+instance Lude.FromJSON Attribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "Attribute"
-      (\x -> Attribute' <$> (x .:? "Value") <*> (x .:? "AttributeType"))
-
-instance Hashable Attribute
-
-instance NFData Attribute
+      ( \x ->
+          Attribute'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "AttributeType")
+      )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,133 @@
 --
 -- Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.
 module Network.AWS.DirectoryService.UpdateRadius
-  ( -- * Creating a Request
-    updateRadius,
-    UpdateRadius,
+  ( -- * Creating a request
+    UpdateRadius (..),
+    mkUpdateRadius,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urDirectoryId,
     urRadiusSettings,
 
-    -- * Destructuring the Response
-    updateRadiusResponse,
-    UpdateRadiusResponse,
+    -- * Destructuring the response
+    UpdateRadiusResponse (..),
+    mkUpdateRadiusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'UpdateRadius' operation.
 --
---
---
--- /See:/ 'updateRadius' smart constructor.
+-- /See:/ 'mkUpdateRadius' smart constructor.
 data UpdateRadius = UpdateRadius'
-  { _urDirectoryId :: !Text,
-    _urRadiusSettings :: !RadiusSettings
+  { directoryId :: Lude.Text,
+    radiusSettings :: RadiusSettings
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRadius' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urDirectoryId' - The identifier of the directory for which to update the RADIUS server information.
---
--- * 'urRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
-updateRadius ::
-  -- | 'urDirectoryId'
-  Text ->
-  -- | 'urRadiusSettings'
+-- * 'directoryId' - The identifier of the directory for which to update the RADIUS server information.
+-- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
+mkUpdateRadius ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'radiusSettings'
   RadiusSettings ->
   UpdateRadius
-updateRadius pDirectoryId_ pRadiusSettings_ =
+mkUpdateRadius pDirectoryId_ pRadiusSettings_ =
   UpdateRadius'
-    { _urDirectoryId = pDirectoryId_,
-      _urRadiusSettings = pRadiusSettings_
+    { directoryId = pDirectoryId_,
+      radiusSettings = pRadiusSettings_
     }
 
 -- | The identifier of the directory for which to update the RADIUS server information.
-urDirectoryId :: Lens' UpdateRadius Text
-urDirectoryId = lens _urDirectoryId (\s a -> s {_urDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urDirectoryId :: Lens.Lens' UpdateRadius Lude.Text
+urDirectoryId = Lens.lens (directoryId :: UpdateRadius -> Lude.Text) (\s a -> s {directoryId = a} :: UpdateRadius)
+{-# DEPRECATED urDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | A 'RadiusSettings' object that contains information about the RADIUS server.
-urRadiusSettings :: Lens' UpdateRadius RadiusSettings
-urRadiusSettings = lens _urRadiusSettings (\s a -> s {_urRadiusSettings = a})
+--
+-- /Note:/ Consider using 'radiusSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRadiusSettings :: Lens.Lens' UpdateRadius RadiusSettings
+urRadiusSettings = Lens.lens (radiusSettings :: UpdateRadius -> RadiusSettings) (\s a -> s {radiusSettings = a} :: UpdateRadius)
+{-# DEPRECATED urRadiusSettings "Use generic-lens or generic-optics with 'radiusSettings' instead." #-}
 
-instance AWSRequest UpdateRadius where
+instance Lude.AWSRequest UpdateRadius where
   type Rs UpdateRadius = UpdateRadiusResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> UpdateRadiusResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateRadiusResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateRadius
-
-instance NFData UpdateRadius
-
-instance ToHeaders UpdateRadius where
+instance Lude.ToHeaders UpdateRadius where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.UpdateRadius" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.UpdateRadius" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRadius where
+instance Lude.ToJSON UpdateRadius where
   toJSON UpdateRadius' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _urDirectoryId),
-            Just ("RadiusSettings" .= _urRadiusSettings)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("RadiusSettings" Lude..= radiusSettings)
           ]
       )
 
-instance ToPath UpdateRadius where
-  toPath = const "/"
+instance Lude.ToPath UpdateRadius where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRadius where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRadius where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'UpdateRadius' operation.
 --
---
---
--- /See:/ 'updateRadiusResponse' smart constructor.
+-- /See:/ 'mkUpdateRadiusResponse' smart constructor.
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
-  { _urrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRadiusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRadiusResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateRadiusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRadiusResponse
-updateRadiusResponse pResponseStatus_ =
-  UpdateRadiusResponse' {_urrsResponseStatus = pResponseStatus_}
+mkUpdateRadiusResponse pResponseStatus_ =
+  UpdateRadiusResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRadiusResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UpdateRadiusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UpdateRadiusResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UpdateRadiusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRadiusResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

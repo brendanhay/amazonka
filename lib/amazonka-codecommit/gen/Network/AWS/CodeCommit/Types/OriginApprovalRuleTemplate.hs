@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate where
+module Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate
+  ( OriginApprovalRuleTemplate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOriginApprovalRuleTemplate,
+
+    -- * Lenses
+    oartApprovalRuleTemplateId,
+    oartApprovalRuleTemplateName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the template that created the approval rule for a pull request.
 --
---
---
--- /See:/ 'originApprovalRuleTemplate' smart constructor.
+-- /See:/ 'mkOriginApprovalRuleTemplate' smart constructor.
 data OriginApprovalRuleTemplate = OriginApprovalRuleTemplate'
-  { _oartApprovalRuleTemplateId ::
-      !(Maybe Text),
-    _oartApprovalRuleTemplateName ::
-      !(Maybe Text)
+  { approvalRuleTemplateId ::
+      Lude.Maybe Lude.Text,
+    approvalRuleTemplateName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginApprovalRuleTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oartApprovalRuleTemplateId' - The ID of the template that created the approval rule.
---
--- * 'oartApprovalRuleTemplateName' - The name of the template that created the approval rule.
-originApprovalRuleTemplate ::
+-- * 'approvalRuleTemplateId' - The ID of the template that created the approval rule.
+-- * 'approvalRuleTemplateName' - The name of the template that created the approval rule.
+mkOriginApprovalRuleTemplate ::
   OriginApprovalRuleTemplate
-originApprovalRuleTemplate =
+mkOriginApprovalRuleTemplate =
   OriginApprovalRuleTemplate'
-    { _oartApprovalRuleTemplateId =
-        Nothing,
-      _oartApprovalRuleTemplateName = Nothing
+    { approvalRuleTemplateId =
+        Lude.Nothing,
+      approvalRuleTemplateName = Lude.Nothing
     }
 
 -- | The ID of the template that created the approval rule.
-oartApprovalRuleTemplateId :: Lens' OriginApprovalRuleTemplate (Maybe Text)
-oartApprovalRuleTemplateId = lens _oartApprovalRuleTemplateId (\s a -> s {_oartApprovalRuleTemplateId = a})
+--
+-- /Note:/ Consider using 'approvalRuleTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oartApprovalRuleTemplateId :: Lens.Lens' OriginApprovalRuleTemplate (Lude.Maybe Lude.Text)
+oartApprovalRuleTemplateId = Lens.lens (approvalRuleTemplateId :: OriginApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateId = a} :: OriginApprovalRuleTemplate)
+{-# DEPRECATED oartApprovalRuleTemplateId "Use generic-lens or generic-optics with 'approvalRuleTemplateId' instead." #-}
 
 -- | The name of the template that created the approval rule.
-oartApprovalRuleTemplateName :: Lens' OriginApprovalRuleTemplate (Maybe Text)
-oartApprovalRuleTemplateName = lens _oartApprovalRuleTemplateName (\s a -> s {_oartApprovalRuleTemplateName = a})
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oartApprovalRuleTemplateName :: Lens.Lens' OriginApprovalRuleTemplate (Lude.Maybe Lude.Text)
+oartApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: OriginApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: OriginApprovalRuleTemplate)
+{-# DEPRECATED oartApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
-instance FromJSON OriginApprovalRuleTemplate where
+instance Lude.FromJSON OriginApprovalRuleTemplate where
   parseJSON =
-    withObject
+    Lude.withObject
       "OriginApprovalRuleTemplate"
       ( \x ->
           OriginApprovalRuleTemplate'
-            <$> (x .:? "approvalRuleTemplateId")
-            <*> (x .:? "approvalRuleTemplateName")
+            Lude.<$> (x Lude..:? "approvalRuleTemplateId")
+            Lude.<*> (x Lude..:? "approvalRuleTemplateName")
       )
-
-instance Hashable OriginApprovalRuleTemplate
-
-instance NFData OriginApprovalRuleTemplate

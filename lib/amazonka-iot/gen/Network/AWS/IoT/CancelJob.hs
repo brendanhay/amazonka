@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Cancels a job.
 module Network.AWS.IoT.CancelJob
-  ( -- * Creating a Request
-    cancelJob,
-    CancelJob,
+  ( -- * Creating a request
+    CancelJob (..),
+    mkCancelJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cForce,
     cReasonCode,
     cComment,
     cJobId,
 
-    -- * Destructuring the Response
-    cancelJobResponse,
-    CancelJobResponse,
+    -- * Destructuring the response
+    CancelJobResponse (..),
+    mkCancelJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     canrsJobId,
     canrsJobARN,
     canrsDescription,
@@ -42,139 +37,168 @@ module Network.AWS.IoT.CancelJob
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelJob' smart constructor.
+-- | /See:/ 'mkCancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { _cForce :: !(Maybe Bool),
-    _cReasonCode :: !(Maybe Text),
-    _cComment :: !(Maybe Text),
-    _cJobId :: !Text
+  { force :: Lude.Maybe Lude.Bool,
+    reasonCode :: Lude.Maybe Lude.Text,
+    comment :: Lude.Maybe Lude.Text,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'comment' - An optional comment string describing why the job was canceled.
+-- * 'force' - (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ .
 --
--- * 'cForce' - (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ . Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
---
--- * 'cReasonCode' - (Optional)A reason code string that explains why the job was canceled.
---
--- * 'cComment' - An optional comment string describing why the job was canceled.
---
--- * 'cJobId' - The unique identifier you assigned to this job when it was created.
-cancelJob ::
-  -- | 'cJobId'
-  Text ->
+-- Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'reasonCode' - (Optional)A reason code string that explains why the job was canceled.
+mkCancelJob ::
+  -- | 'jobId'
+  Lude.Text ->
   CancelJob
-cancelJob pJobId_ =
+mkCancelJob pJobId_ =
   CancelJob'
-    { _cForce = Nothing,
-      _cReasonCode = Nothing,
-      _cComment = Nothing,
-      _cJobId = pJobId_
+    { force = Lude.Nothing,
+      reasonCode = Lude.Nothing,
+      comment = Lude.Nothing,
+      jobId = pJobId_
     }
 
--- | (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ . Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
-cForce :: Lens' CancelJob (Maybe Bool)
-cForce = lens _cForce (\s a -> s {_cForce = a})
+-- | (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ .
+--
+-- Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cForce :: Lens.Lens' CancelJob (Lude.Maybe Lude.Bool)
+cForce = Lens.lens (force :: CancelJob -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: CancelJob)
+{-# DEPRECATED cForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | (Optional)A reason code string that explains why the job was canceled.
-cReasonCode :: Lens' CancelJob (Maybe Text)
-cReasonCode = lens _cReasonCode (\s a -> s {_cReasonCode = a})
+--
+-- /Note:/ Consider using 'reasonCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cReasonCode :: Lens.Lens' CancelJob (Lude.Maybe Lude.Text)
+cReasonCode = Lens.lens (reasonCode :: CancelJob -> Lude.Maybe Lude.Text) (\s a -> s {reasonCode = a} :: CancelJob)
+{-# DEPRECATED cReasonCode "Use generic-lens or generic-optics with 'reasonCode' instead." #-}
 
 -- | An optional comment string describing why the job was canceled.
-cComment :: Lens' CancelJob (Maybe Text)
-cComment = lens _cComment (\s a -> s {_cComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cComment :: Lens.Lens' CancelJob (Lude.Maybe Lude.Text)
+cComment = Lens.lens (comment :: CancelJob -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CancelJob)
+{-# DEPRECATED cComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
-cJobId :: Lens' CancelJob Text
-cJobId = lens _cJobId (\s a -> s {_cJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cJobId :: Lens.Lens' CancelJob Lude.Text
+cJobId = Lens.lens (jobId :: CancelJob -> Lude.Text) (\s a -> s {jobId = a} :: CancelJob)
+{-# DEPRECATED cJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest CancelJob where
+instance Lude.AWSRequest CancelJob where
   type Rs CancelJob = CancelJobResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CancelJobResponse'
-            <$> (x .?> "jobId")
-            <*> (x .?> "jobArn")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobId")
+            Lude.<*> (x Lude..?> "jobArn")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelJob
+instance Lude.ToHeaders CancelJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelJob
-
-instance ToHeaders CancelJob where
-  toHeaders = const mempty
-
-instance ToJSON CancelJob where
+instance Lude.ToJSON CancelJob where
   toJSON CancelJob' {..} =
-    object
-      ( catMaybes
-          [("reasonCode" .=) <$> _cReasonCode, ("comment" .=) <$> _cComment]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("reasonCode" Lude..=) Lude.<$> reasonCode,
+            ("comment" Lude..=) Lude.<$> comment
+          ]
       )
 
-instance ToPath CancelJob where
-  toPath CancelJob' {..} = mconcat ["/jobs/", toBS _cJobId, "/cancel"]
+instance Lude.ToPath CancelJob where
+  toPath CancelJob' {..} =
+    Lude.mconcat ["/jobs/", Lude.toBS jobId, "/cancel"]
 
-instance ToQuery CancelJob where
-  toQuery CancelJob' {..} = mconcat ["force" =: _cForce]
+instance Lude.ToQuery CancelJob where
+  toQuery CancelJob' {..} = Lude.mconcat ["force" Lude.=: force]
 
--- | /See:/ 'cancelJobResponse' smart constructor.
+-- | /See:/ 'mkCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { _canrsJobId ::
-      !(Maybe Text),
-    _canrsJobARN :: !(Maybe Text),
-    _canrsDescription :: !(Maybe Text),
-    _canrsResponseStatus :: !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobARN :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'canrsJobId' - The unique identifier you assigned to this job when it was created.
---
--- * 'canrsJobARN' - The job ARN.
---
--- * 'canrsDescription' - A short text description of the job.
---
--- * 'canrsResponseStatus' - -- | The response status code.
-cancelJobResponse ::
-  -- | 'canrsResponseStatus'
-  Int ->
+-- * 'description' - A short text description of the job.
+-- * 'jobARN' - The job ARN.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'responseStatus' - The response status code.
+mkCancelJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelJobResponse
-cancelJobResponse pResponseStatus_ =
+mkCancelJobResponse pResponseStatus_ =
   CancelJobResponse'
-    { _canrsJobId = Nothing,
-      _canrsJobARN = Nothing,
-      _canrsDescription = Nothing,
-      _canrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobARN = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier you assigned to this job when it was created.
-canrsJobId :: Lens' CancelJobResponse (Maybe Text)
-canrsJobId = lens _canrsJobId (\s a -> s {_canrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+canrsJobId :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
+canrsJobId = Lens.lens (jobId :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: CancelJobResponse)
+{-# DEPRECATED canrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The job ARN.
-canrsJobARN :: Lens' CancelJobResponse (Maybe Text)
-canrsJobARN = lens _canrsJobARN (\s a -> s {_canrsJobARN = a})
+--
+-- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+canrsJobARN :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
+canrsJobARN = Lens.lens (jobARN :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: CancelJobResponse)
+{-# DEPRECATED canrsJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
 
 -- | A short text description of the job.
-canrsDescription :: Lens' CancelJobResponse (Maybe Text)
-canrsDescription = lens _canrsDescription (\s a -> s {_canrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+canrsDescription :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
+canrsDescription = Lens.lens (description :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CancelJobResponse)
+{-# DEPRECATED canrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-canrsResponseStatus :: Lens' CancelJobResponse Int
-canrsResponseStatus = lens _canrsResponseStatus (\s a -> s {_canrsResponseStatus = a})
-
-instance NFData CancelJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+canrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
+canrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
+{-# DEPRECATED canrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

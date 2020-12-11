@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,120 +7,155 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.MailboxExportJob where
+module Network.AWS.WorkMail.Types.MailboxExportJob
+  ( MailboxExportJob (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMailboxExportJob,
+
+    -- * Lenses
+    mejState,
+    mejJobId,
+    mejStartTime,
+    mejEstimatedProgress,
+    mejEndTime,
+    mejS3Path,
+    mejEntityId,
+    mejDescription,
+    mejS3BucketName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkMail.Types.MailboxExportJobState
 
 -- | The details of a mailbox export job, including the user or resource ID associated with the mailbox and the S3 bucket that the mailbox contents are exported to.
 --
---
---
--- /See:/ 'mailboxExportJob' smart constructor.
+-- /See:/ 'mkMailboxExportJob' smart constructor.
 data MailboxExportJob = MailboxExportJob'
-  { _mejState ::
-      !(Maybe MailboxExportJobState),
-    _mejJobId :: !(Maybe Text),
-    _mejStartTime :: !(Maybe POSIX),
-    _mejEstimatedProgress :: !(Maybe Nat),
-    _mejEndTime :: !(Maybe POSIX),
-    _mejS3Path :: !(Maybe Text),
-    _mejEntityId :: !(Maybe Text),
-    _mejDescription :: !(Maybe Text),
-    _mejS3BucketName :: !(Maybe Text)
+  { state ::
+      Lude.Maybe MailboxExportJobState,
+    jobId :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    estimatedProgress :: Lude.Maybe Lude.Natural,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    s3Path :: Lude.Maybe Lude.Text,
+    entityId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MailboxExportJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mejState' - The state of the mailbox export job.
---
--- * 'mejJobId' - The identifier of the mailbox export job.
---
--- * 'mejStartTime' - The mailbox export job start timestamp.
---
--- * 'mejEstimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
---
--- * 'mejEndTime' - The mailbox export job end timestamp.
---
--- * 'mejS3Path' - The path to the S3 bucket and file that the mailbox export job exports to.
---
--- * 'mejEntityId' - The identifier of the user or resource associated with the mailbox.
---
--- * 'mejDescription' - The mailbox export job description.
---
--- * 'mejS3BucketName' - The name of the S3 bucket.
-mailboxExportJob ::
+-- * 'description' - The mailbox export job description.
+-- * 'endTime' - The mailbox export job end timestamp.
+-- * 'entityId' - The identifier of the user or resource associated with the mailbox.
+-- * 'estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
+-- * 'jobId' - The identifier of the mailbox export job.
+-- * 's3BucketName' - The name of the S3 bucket.
+-- * 's3Path' - The path to the S3 bucket and file that the mailbox export job exports to.
+-- * 'startTime' - The mailbox export job start timestamp.
+-- * 'state' - The state of the mailbox export job.
+mkMailboxExportJob ::
   MailboxExportJob
-mailboxExportJob =
+mkMailboxExportJob =
   MailboxExportJob'
-    { _mejState = Nothing,
-      _mejJobId = Nothing,
-      _mejStartTime = Nothing,
-      _mejEstimatedProgress = Nothing,
-      _mejEndTime = Nothing,
-      _mejS3Path = Nothing,
-      _mejEntityId = Nothing,
-      _mejDescription = Nothing,
-      _mejS3BucketName = Nothing
+    { state = Lude.Nothing,
+      jobId = Lude.Nothing,
+      startTime = Lude.Nothing,
+      estimatedProgress = Lude.Nothing,
+      endTime = Lude.Nothing,
+      s3Path = Lude.Nothing,
+      entityId = Lude.Nothing,
+      description = Lude.Nothing,
+      s3BucketName = Lude.Nothing
     }
 
 -- | The state of the mailbox export job.
-mejState :: Lens' MailboxExportJob (Maybe MailboxExportJobState)
-mejState = lens _mejState (\s a -> s {_mejState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejState :: Lens.Lens' MailboxExportJob (Lude.Maybe MailboxExportJobState)
+mejState = Lens.lens (state :: MailboxExportJob -> Lude.Maybe MailboxExportJobState) (\s a -> s {state = a} :: MailboxExportJob)
+{-# DEPRECATED mejState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The identifier of the mailbox export job.
-mejJobId :: Lens' MailboxExportJob (Maybe Text)
-mejJobId = lens _mejJobId (\s a -> s {_mejJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejJobId :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Text)
+mejJobId = Lens.lens (jobId :: MailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: MailboxExportJob)
+{-# DEPRECATED mejJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The mailbox export job start timestamp.
-mejStartTime :: Lens' MailboxExportJob (Maybe UTCTime)
-mejStartTime = lens _mejStartTime (\s a -> s {_mejStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejStartTime :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Timestamp)
+mejStartTime = Lens.lens (startTime :: MailboxExportJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: MailboxExportJob)
+{-# DEPRECATED mejStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The estimated progress of the mailbox export job, in percentage points.
-mejEstimatedProgress :: Lens' MailboxExportJob (Maybe Natural)
-mejEstimatedProgress = lens _mejEstimatedProgress (\s a -> s {_mejEstimatedProgress = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'estimatedProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejEstimatedProgress :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Natural)
+mejEstimatedProgress = Lens.lens (estimatedProgress :: MailboxExportJob -> Lude.Maybe Lude.Natural) (\s a -> s {estimatedProgress = a} :: MailboxExportJob)
+{-# DEPRECATED mejEstimatedProgress "Use generic-lens or generic-optics with 'estimatedProgress' instead." #-}
 
 -- | The mailbox export job end timestamp.
-mejEndTime :: Lens' MailboxExportJob (Maybe UTCTime)
-mejEndTime = lens _mejEndTime (\s a -> s {_mejEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejEndTime :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Timestamp)
+mejEndTime = Lens.lens (endTime :: MailboxExportJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: MailboxExportJob)
+{-# DEPRECATED mejEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The path to the S3 bucket and file that the mailbox export job exports to.
-mejS3Path :: Lens' MailboxExportJob (Maybe Text)
-mejS3Path = lens _mejS3Path (\s a -> s {_mejS3Path = a})
+--
+-- /Note:/ Consider using 's3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejS3Path :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Text)
+mejS3Path = Lens.lens (s3Path :: MailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {s3Path = a} :: MailboxExportJob)
+{-# DEPRECATED mejS3Path "Use generic-lens or generic-optics with 's3Path' instead." #-}
 
 -- | The identifier of the user or resource associated with the mailbox.
-mejEntityId :: Lens' MailboxExportJob (Maybe Text)
-mejEntityId = lens _mejEntityId (\s a -> s {_mejEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejEntityId :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Text)
+mejEntityId = Lens.lens (entityId :: MailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {entityId = a} :: MailboxExportJob)
+{-# DEPRECATED mejEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The mailbox export job description.
-mejDescription :: Lens' MailboxExportJob (Maybe Text)
-mejDescription = lens _mejDescription (\s a -> s {_mejDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejDescription :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Text)
+mejDescription = Lens.lens (description :: MailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: MailboxExportJob)
+{-# DEPRECATED mejDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the S3 bucket.
-mejS3BucketName :: Lens' MailboxExportJob (Maybe Text)
-mejS3BucketName = lens _mejS3BucketName (\s a -> s {_mejS3BucketName = a})
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mejS3BucketName :: Lens.Lens' MailboxExportJob (Lude.Maybe Lude.Text)
+mejS3BucketName = Lens.lens (s3BucketName :: MailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: MailboxExportJob)
+{-# DEPRECATED mejS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
-instance FromJSON MailboxExportJob where
+instance Lude.FromJSON MailboxExportJob where
   parseJSON =
-    withObject
+    Lude.withObject
       "MailboxExportJob"
       ( \x ->
           MailboxExportJob'
-            <$> (x .:? "State")
-            <*> (x .:? "JobId")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "EstimatedProgress")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "S3Path")
-            <*> (x .:? "EntityId")
-            <*> (x .:? "Description")
-            <*> (x .:? "S3BucketName")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "JobId")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "EstimatedProgress")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "S3Path")
+            Lude.<*> (x Lude..:? "EntityId")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "S3BucketName")
       )
-
-instance Hashable MailboxExportJob
-
-instance NFData MailboxExportJob

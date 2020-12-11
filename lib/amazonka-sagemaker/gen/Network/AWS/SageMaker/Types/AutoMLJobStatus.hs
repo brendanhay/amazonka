@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLJobStatus where
+module Network.AWS.SageMaker.Types.AutoMLJobStatus
+  ( AutoMLJobStatus
+      ( AutoMLJobStatus',
+        AMLJSCompleted,
+        AMLJSFailed,
+        AMLJSInProgress,
+        AMLJSStopped,
+        AMLJSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoMLJobStatus
-  = AMLJSCompleted
-  | AMLJSFailed
-  | AMLJSInProgress
-  | AMLJSStopped
-  | AMLJSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoMLJobStatus = AutoMLJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoMLJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure AMLJSCompleted
-      "failed" -> pure AMLJSFailed
-      "inprogress" -> pure AMLJSInProgress
-      "stopped" -> pure AMLJSStopped
-      "stopping" -> pure AMLJSStopping
-      e ->
-        fromTextError $
-          "Failure parsing AutoMLJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, stopped, stopping"
+pattern AMLJSCompleted :: AutoMLJobStatus
+pattern AMLJSCompleted = AutoMLJobStatus' "Completed"
 
-instance ToText AutoMLJobStatus where
-  toText = \case
-    AMLJSCompleted -> "Completed"
-    AMLJSFailed -> "Failed"
-    AMLJSInProgress -> "InProgress"
-    AMLJSStopped -> "Stopped"
-    AMLJSStopping -> "Stopping"
+pattern AMLJSFailed :: AutoMLJobStatus
+pattern AMLJSFailed = AutoMLJobStatus' "Failed"
 
-instance Hashable AutoMLJobStatus
+pattern AMLJSInProgress :: AutoMLJobStatus
+pattern AMLJSInProgress = AutoMLJobStatus' "InProgress"
 
-instance NFData AutoMLJobStatus
+pattern AMLJSStopped :: AutoMLJobStatus
+pattern AMLJSStopped = AutoMLJobStatus' "Stopped"
 
-instance ToByteString AutoMLJobStatus
+pattern AMLJSStopping :: AutoMLJobStatus
+pattern AMLJSStopping = AutoMLJobStatus' "Stopping"
 
-instance ToQuery AutoMLJobStatus
-
-instance ToHeader AutoMLJobStatus
-
-instance ToJSON AutoMLJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON AutoMLJobStatus where
-  parseJSON = parseJSONText "AutoMLJobStatus"
+{-# COMPLETE
+  AMLJSCompleted,
+  AMLJSFailed,
+  AMLJSInProgress,
+  AMLJSStopped,
+  AMLJSStopping,
+  AutoMLJobStatus'
+  #-}

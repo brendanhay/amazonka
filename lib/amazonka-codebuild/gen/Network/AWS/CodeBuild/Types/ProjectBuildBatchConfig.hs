@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig where
+module Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig
+  ( ProjectBuildBatchConfig (..),
+
+    -- * Smart constructor
+    mkProjectBuildBatchConfig,
+
+    -- * Lenses
+    pbbcCombineArtifacts,
+    pbbcTimeoutInMins,
+    pbbcRestrictions,
+    pbbcServiceRole,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.BatchRestrictions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains configuration information about a batch build project.
 --
---
---
--- /See:/ 'projectBuildBatchConfig' smart constructor.
+-- /See:/ 'mkProjectBuildBatchConfig' smart constructor.
 data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
-  { _pbbcCombineArtifacts ::
-      !(Maybe Bool),
-    _pbbcTimeoutInMins :: !(Maybe Int),
-    _pbbcRestrictions ::
-      !(Maybe BatchRestrictions),
-    _pbbcServiceRole :: !(Maybe Text)
+  { combineArtifacts ::
+      Lude.Maybe Lude.Bool,
+    timeoutInMins :: Lude.Maybe Lude.Int,
+    restrictions ::
+      Lude.Maybe BatchRestrictions,
+    serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectBuildBatchConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbbcCombineArtifacts' - Specifies if the build artifacts for the batch build should be combined into a single artifact location.
---
--- * 'pbbcTimeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
---
--- * 'pbbcRestrictions' - A @BatchRestrictions@ object that specifies the restrictions for the batch build.
---
--- * 'pbbcServiceRole' - Specifies the service role ARN for the batch build project.
-projectBuildBatchConfig ::
+-- * 'combineArtifacts' - Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+-- * 'restrictions' - A @BatchRestrictions@ object that specifies the restrictions for the batch build.
+-- * 'serviceRole' - Specifies the service role ARN for the batch build project.
+-- * 'timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+mkProjectBuildBatchConfig ::
   ProjectBuildBatchConfig
-projectBuildBatchConfig =
+mkProjectBuildBatchConfig =
   ProjectBuildBatchConfig'
-    { _pbbcCombineArtifacts = Nothing,
-      _pbbcTimeoutInMins = Nothing,
-      _pbbcRestrictions = Nothing,
-      _pbbcServiceRole = Nothing
+    { combineArtifacts = Lude.Nothing,
+      timeoutInMins = Lude.Nothing,
+      restrictions = Lude.Nothing,
+      serviceRole = Lude.Nothing
     }
 
 -- | Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-pbbcCombineArtifacts :: Lens' ProjectBuildBatchConfig (Maybe Bool)
-pbbcCombineArtifacts = lens _pbbcCombineArtifacts (\s a -> s {_pbbcCombineArtifacts = a})
+--
+-- /Note:/ Consider using 'combineArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbbcCombineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Lude.Maybe Lude.Bool)
+pbbcCombineArtifacts = Lens.lens (combineArtifacts :: ProjectBuildBatchConfig -> Lude.Maybe Lude.Bool) (\s a -> s {combineArtifacts = a} :: ProjectBuildBatchConfig)
+{-# DEPRECATED pbbcCombineArtifacts "Use generic-lens or generic-optics with 'combineArtifacts' instead." #-}
 
 -- | Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
-pbbcTimeoutInMins :: Lens' ProjectBuildBatchConfig (Maybe Int)
-pbbcTimeoutInMins = lens _pbbcTimeoutInMins (\s a -> s {_pbbcTimeoutInMins = a})
+--
+-- /Note:/ Consider using 'timeoutInMins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbbcTimeoutInMins :: Lens.Lens' ProjectBuildBatchConfig (Lude.Maybe Lude.Int)
+pbbcTimeoutInMins = Lens.lens (timeoutInMins :: ProjectBuildBatchConfig -> Lude.Maybe Lude.Int) (\s a -> s {timeoutInMins = a} :: ProjectBuildBatchConfig)
+{-# DEPRECATED pbbcTimeoutInMins "Use generic-lens or generic-optics with 'timeoutInMins' instead." #-}
 
 -- | A @BatchRestrictions@ object that specifies the restrictions for the batch build.
-pbbcRestrictions :: Lens' ProjectBuildBatchConfig (Maybe BatchRestrictions)
-pbbcRestrictions = lens _pbbcRestrictions (\s a -> s {_pbbcRestrictions = a})
+--
+-- /Note:/ Consider using 'restrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbbcRestrictions :: Lens.Lens' ProjectBuildBatchConfig (Lude.Maybe BatchRestrictions)
+pbbcRestrictions = Lens.lens (restrictions :: ProjectBuildBatchConfig -> Lude.Maybe BatchRestrictions) (\s a -> s {restrictions = a} :: ProjectBuildBatchConfig)
+{-# DEPRECATED pbbcRestrictions "Use generic-lens or generic-optics with 'restrictions' instead." #-}
 
 -- | Specifies the service role ARN for the batch build project.
-pbbcServiceRole :: Lens' ProjectBuildBatchConfig (Maybe Text)
-pbbcServiceRole = lens _pbbcServiceRole (\s a -> s {_pbbcServiceRole = a})
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbbcServiceRole :: Lens.Lens' ProjectBuildBatchConfig (Lude.Maybe Lude.Text)
+pbbcServiceRole = Lens.lens (serviceRole :: ProjectBuildBatchConfig -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
+{-# DEPRECATED pbbcServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
-instance FromJSON ProjectBuildBatchConfig where
+instance Lude.FromJSON ProjectBuildBatchConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectBuildBatchConfig"
       ( \x ->
           ProjectBuildBatchConfig'
-            <$> (x .:? "combineArtifacts")
-            <*> (x .:? "timeoutInMins")
-            <*> (x .:? "restrictions")
-            <*> (x .:? "serviceRole")
+            Lude.<$> (x Lude..:? "combineArtifacts")
+            Lude.<*> (x Lude..:? "timeoutInMins")
+            Lude.<*> (x Lude..:? "restrictions")
+            Lude.<*> (x Lude..:? "serviceRole")
       )
 
-instance Hashable ProjectBuildBatchConfig
-
-instance NFData ProjectBuildBatchConfig
-
-instance ToJSON ProjectBuildBatchConfig where
+instance Lude.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =
-    object
-      ( catMaybes
-          [ ("combineArtifacts" .=) <$> _pbbcCombineArtifacts,
-            ("timeoutInMins" .=) <$> _pbbcTimeoutInMins,
-            ("restrictions" .=) <$> _pbbcRestrictions,
-            ("serviceRole" .=) <$> _pbbcServiceRole
+    Lude.object
+      ( Lude.catMaybes
+          [ ("combineArtifacts" Lude..=) Lude.<$> combineArtifacts,
+            ("timeoutInMins" Lude..=) Lude.<$> timeoutInMins,
+            ("restrictions" Lude..=) Lude.<$> restrictions,
+            ("serviceRole" Lude..=) Lude.<$> serviceRole
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.Group where
+module Network.AWS.ResourceGroups.Types.Group
+  ( Group (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroup,
+
+    -- * Lenses
+    gDescription,
+    gGroupARN,
+    gName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A resource group that contains AWS resources. You can assign resources to the group by associating either of the following elements with the group:
 --
 --
 --     * 'ResourceQuery' - Use a resource query to specify a set of tag keys and values. All resources in the same AWS Region and AWS account that have those keys with the same values are included in the group. You can add a resource query when you create the group.
 --
+--
 --     * 'GroupConfiguration' - Use a service configuration to associate the group with an AWS service. The configuration specifies which resource types can be included in the group.
 --
 --
 --
---
--- /See:/ 'group'' smart constructor.
+-- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { _gDescription :: !(Maybe Text),
-    _gGroupARN :: !Text,
-    _gName :: !Text
+  { description :: Lude.Maybe Lude.Text,
+    groupARN :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gDescription' - The description of the resource group.
---
--- * 'gGroupARN' - The ARN of the resource group.
---
--- * 'gName' - The name of the resource group.
-group' ::
-  -- | 'gGroupARN'
-  Text ->
-  -- | 'gName'
-  Text ->
+-- * 'description' - The description of the resource group.
+-- * 'groupARN' - The ARN of the resource group.
+-- * 'name' - The name of the resource group.
+mkGroup ::
+  -- | 'groupARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   Group
-group' pGroupARN_ pName_ =
+mkGroup pGroupARN_ pName_ =
   Group'
-    { _gDescription = Nothing,
-      _gGroupARN = pGroupARN_,
-      _gName = pName_
+    { description = Lude.Nothing,
+      groupARN = pGroupARN_,
+      name = pName_
     }
 
 -- | The description of the resource group.
-gDescription :: Lens' Group (Maybe Text)
-gDescription = lens _gDescription (\s a -> s {_gDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDescription :: Lens.Lens' Group (Lude.Maybe Lude.Text)
+gDescription = Lens.lens (description :: Group -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Group)
+{-# DEPRECATED gDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of the resource group.
-gGroupARN :: Lens' Group Text
-gGroupARN = lens _gGroupARN (\s a -> s {_gGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gGroupARN :: Lens.Lens' Group Lude.Text
+gGroupARN = Lens.lens (groupARN :: Group -> Lude.Text) (\s a -> s {groupARN = a} :: Group)
+{-# DEPRECATED gGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The name of the resource group.
-gName :: Lens' Group Text
-gName = lens _gName (\s a -> s {_gName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gName :: Lens.Lens' Group Lude.Text
+gName = Lens.lens (name :: Group -> Lude.Text) (\s a -> s {name = a} :: Group)
+{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Group where
+instance Lude.FromJSON Group where
   parseJSON =
-    withObject
+    Lude.withObject
       "Group"
       ( \x ->
           Group'
-            <$> (x .:? "Description") <*> (x .: "GroupArn") <*> (x .: "Name")
+            Lude.<$> (x Lude..:? "Description")
+            Lude.<*> (x Lude..: "GroupArn")
+            Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable Group
-
-instance NFData Group

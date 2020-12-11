@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ParquetSerDe where
+module Network.AWS.Firehose.Types.ParquetSerDe
+  ( ParquetSerDe (..),
+
+    -- * Smart constructor
+    mkParquetSerDe,
+
+    -- * Lenses
+    psdWriterVersion,
+    psdCompression,
+    psdMaxPaddingBytes,
+    psdEnableDictionaryCompression,
+    psdPageSizeBytes,
+    psdBlockSizeBytes,
+  )
+where
 
 import Network.AWS.Firehose.Types.ParquetCompression
 import Network.AWS.Firehose.Types.ParquetWriterVersion
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
 --
---
---
--- /See:/ 'parquetSerDe' smart constructor.
+-- /See:/ 'mkParquetSerDe' smart constructor.
 data ParquetSerDe = ParquetSerDe'
-  { _psdWriterVersion ::
-      !(Maybe ParquetWriterVersion),
-    _psdCompression :: !(Maybe ParquetCompression),
-    _psdMaxPaddingBytes :: !(Maybe Nat),
-    _psdEnableDictionaryCompression :: !(Maybe Bool),
-    _psdPageSizeBytes :: !(Maybe Nat),
-    _psdBlockSizeBytes :: !(Maybe Nat)
+  { writerVersion ::
+      Lude.Maybe ParquetWriterVersion,
+    compression :: Lude.Maybe ParquetCompression,
+    maxPaddingBytes :: Lude.Maybe Lude.Natural,
+    enableDictionaryCompression :: Lude.Maybe Lude.Bool,
+    pageSizeBytes :: Lude.Maybe Lude.Natural,
+    blockSizeBytes :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParquetSerDe' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psdWriterVersion' - Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
---
--- * 'psdCompression' - The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
---
--- * 'psdMaxPaddingBytes' - The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
---
--- * 'psdEnableDictionaryCompression' - Indicates whether to enable dictionary compression.
---
--- * 'psdPageSizeBytes' - The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
---
--- * 'psdBlockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-parquetSerDe ::
+-- * 'blockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+-- * 'compression' - The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
+-- * 'enableDictionaryCompression' - Indicates whether to enable dictionary compression.
+-- * 'maxPaddingBytes' - The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
+-- * 'pageSizeBytes' - The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+-- * 'writerVersion' - Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
+mkParquetSerDe ::
   ParquetSerDe
-parquetSerDe =
+mkParquetSerDe =
   ParquetSerDe'
-    { _psdWriterVersion = Nothing,
-      _psdCompression = Nothing,
-      _psdMaxPaddingBytes = Nothing,
-      _psdEnableDictionaryCompression = Nothing,
-      _psdPageSizeBytes = Nothing,
-      _psdBlockSizeBytes = Nothing
+    { writerVersion = Lude.Nothing,
+      compression = Lude.Nothing,
+      maxPaddingBytes = Lude.Nothing,
+      enableDictionaryCompression = Lude.Nothing,
+      pageSizeBytes = Lude.Nothing,
+      blockSizeBytes = Lude.Nothing
     }
 
 -- | Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
-psdWriterVersion :: Lens' ParquetSerDe (Maybe ParquetWriterVersion)
-psdWriterVersion = lens _psdWriterVersion (\s a -> s {_psdWriterVersion = a})
+--
+-- /Note:/ Consider using 'writerVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdWriterVersion :: Lens.Lens' ParquetSerDe (Lude.Maybe ParquetWriterVersion)
+psdWriterVersion = Lens.lens (writerVersion :: ParquetSerDe -> Lude.Maybe ParquetWriterVersion) (\s a -> s {writerVersion = a} :: ParquetSerDe)
+{-# DEPRECATED psdWriterVersion "Use generic-lens or generic-optics with 'writerVersion' instead." #-}
 
 -- | The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
-psdCompression :: Lens' ParquetSerDe (Maybe ParquetCompression)
-psdCompression = lens _psdCompression (\s a -> s {_psdCompression = a})
+--
+-- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdCompression :: Lens.Lens' ParquetSerDe (Lude.Maybe ParquetCompression)
+psdCompression = Lens.lens (compression :: ParquetSerDe -> Lude.Maybe ParquetCompression) (\s a -> s {compression = a} :: ParquetSerDe)
+{-# DEPRECATED psdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
 
 -- | The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
-psdMaxPaddingBytes :: Lens' ParquetSerDe (Maybe Natural)
-psdMaxPaddingBytes = lens _psdMaxPaddingBytes (\s a -> s {_psdMaxPaddingBytes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxPaddingBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdMaxPaddingBytes :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Natural)
+psdMaxPaddingBytes = Lens.lens (maxPaddingBytes :: ParquetSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {maxPaddingBytes = a} :: ParquetSerDe)
+{-# DEPRECATED psdMaxPaddingBytes "Use generic-lens or generic-optics with 'maxPaddingBytes' instead." #-}
 
 -- | Indicates whether to enable dictionary compression.
-psdEnableDictionaryCompression :: Lens' ParquetSerDe (Maybe Bool)
-psdEnableDictionaryCompression = lens _psdEnableDictionaryCompression (\s a -> s {_psdEnableDictionaryCompression = a})
+--
+-- /Note:/ Consider using 'enableDictionaryCompression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdEnableDictionaryCompression :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Bool)
+psdEnableDictionaryCompression = Lens.lens (enableDictionaryCompression :: ParquetSerDe -> Lude.Maybe Lude.Bool) (\s a -> s {enableDictionaryCompression = a} :: ParquetSerDe)
+{-# DEPRECATED psdEnableDictionaryCompression "Use generic-lens or generic-optics with 'enableDictionaryCompression' instead." #-}
 
 -- | The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-psdPageSizeBytes :: Lens' ParquetSerDe (Maybe Natural)
-psdPageSizeBytes = lens _psdPageSizeBytes (\s a -> s {_psdPageSizeBytes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdPageSizeBytes :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Natural)
+psdPageSizeBytes = Lens.lens (pageSizeBytes :: ParquetSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {pageSizeBytes = a} :: ParquetSerDe)
+{-# DEPRECATED psdPageSizeBytes "Use generic-lens or generic-optics with 'pageSizeBytes' instead." #-}
 
 -- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-psdBlockSizeBytes :: Lens' ParquetSerDe (Maybe Natural)
-psdBlockSizeBytes = lens _psdBlockSizeBytes (\s a -> s {_psdBlockSizeBytes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'blockSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdBlockSizeBytes :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Natural)
+psdBlockSizeBytes = Lens.lens (blockSizeBytes :: ParquetSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {blockSizeBytes = a} :: ParquetSerDe)
+{-# DEPRECATED psdBlockSizeBytes "Use generic-lens or generic-optics with 'blockSizeBytes' instead." #-}
 
-instance FromJSON ParquetSerDe where
+instance Lude.FromJSON ParquetSerDe where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParquetSerDe"
       ( \x ->
           ParquetSerDe'
-            <$> (x .:? "WriterVersion")
-            <*> (x .:? "Compression")
-            <*> (x .:? "MaxPaddingBytes")
-            <*> (x .:? "EnableDictionaryCompression")
-            <*> (x .:? "PageSizeBytes")
-            <*> (x .:? "BlockSizeBytes")
+            Lude.<$> (x Lude..:? "WriterVersion")
+            Lude.<*> (x Lude..:? "Compression")
+            Lude.<*> (x Lude..:? "MaxPaddingBytes")
+            Lude.<*> (x Lude..:? "EnableDictionaryCompression")
+            Lude.<*> (x Lude..:? "PageSizeBytes")
+            Lude.<*> (x Lude..:? "BlockSizeBytes")
       )
 
-instance Hashable ParquetSerDe
-
-instance NFData ParquetSerDe
-
-instance ToJSON ParquetSerDe where
+instance Lude.ToJSON ParquetSerDe where
   toJSON ParquetSerDe' {..} =
-    object
-      ( catMaybes
-          [ ("WriterVersion" .=) <$> _psdWriterVersion,
-            ("Compression" .=) <$> _psdCompression,
-            ("MaxPaddingBytes" .=) <$> _psdMaxPaddingBytes,
-            ("EnableDictionaryCompression" .=)
-              <$> _psdEnableDictionaryCompression,
-            ("PageSizeBytes" .=) <$> _psdPageSizeBytes,
-            ("BlockSizeBytes" .=) <$> _psdBlockSizeBytes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("WriterVersion" Lude..=) Lude.<$> writerVersion,
+            ("Compression" Lude..=) Lude.<$> compression,
+            ("MaxPaddingBytes" Lude..=) Lude.<$> maxPaddingBytes,
+            ("EnableDictionaryCompression" Lude..=)
+              Lude.<$> enableDictionaryCompression,
+            ("PageSizeBytes" Lude..=) Lude.<$> pageSizeBytes,
+            ("BlockSizeBytes" Lude..=) Lude.<$> blockSizeBytes
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,115 @@
 --
 -- Cancels a bulk thing provisioning task.
 module Network.AWS.IoT.StopThingRegistrationTask
-  ( -- * Creating a Request
-    stopThingRegistrationTask,
-    StopThingRegistrationTask,
+  ( -- * Creating a request
+    StopThingRegistrationTask (..),
+    mkStopThingRegistrationTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     strtTaskId,
 
-    -- * Destructuring the Response
-    stopThingRegistrationTaskResponse,
-    StopThingRegistrationTaskResponse,
+    -- * Destructuring the response
+    StopThingRegistrationTaskResponse (..),
+    mkStopThingRegistrationTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopThingRegistrationTask' smart constructor.
+-- | /See:/ 'mkStopThingRegistrationTask' smart constructor.
 newtype StopThingRegistrationTask = StopThingRegistrationTask'
-  { _strtTaskId ::
-      Text
+  { taskId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopThingRegistrationTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'strtTaskId' - The bulk thing provisioning task ID.
-stopThingRegistrationTask ::
-  -- | 'strtTaskId'
-  Text ->
+-- * 'taskId' - The bulk thing provisioning task ID.
+mkStopThingRegistrationTask ::
+  -- | 'taskId'
+  Lude.Text ->
   StopThingRegistrationTask
-stopThingRegistrationTask pTaskId_ =
-  StopThingRegistrationTask' {_strtTaskId = pTaskId_}
+mkStopThingRegistrationTask pTaskId_ =
+  StopThingRegistrationTask' {taskId = pTaskId_}
 
 -- | The bulk thing provisioning task ID.
-strtTaskId :: Lens' StopThingRegistrationTask Text
-strtTaskId = lens _strtTaskId (\s a -> s {_strtTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strtTaskId :: Lens.Lens' StopThingRegistrationTask Lude.Text
+strtTaskId = Lens.lens (taskId :: StopThingRegistrationTask -> Lude.Text) (\s a -> s {taskId = a} :: StopThingRegistrationTask)
+{-# DEPRECATED strtTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance AWSRequest StopThingRegistrationTask where
+instance Lude.AWSRequest StopThingRegistrationTask where
   type
     Rs StopThingRegistrationTask =
       StopThingRegistrationTaskResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StopThingRegistrationTaskResponse' <$> (pure (fromEnum s))
+          StopThingRegistrationTaskResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopThingRegistrationTask
+instance Lude.ToHeaders StopThingRegistrationTask where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StopThingRegistrationTask
+instance Lude.ToJSON StopThingRegistrationTask where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders StopThingRegistrationTask where
-  toHeaders = const mempty
-
-instance ToJSON StopThingRegistrationTask where
-  toJSON = const (Object mempty)
-
-instance ToPath StopThingRegistrationTask where
+instance Lude.ToPath StopThingRegistrationTask where
   toPath StopThingRegistrationTask' {..} =
-    mconcat
-      ["/thing-registration-tasks/", toBS _strtTaskId, "/cancel"]
+    Lude.mconcat
+      ["/thing-registration-tasks/", Lude.toBS taskId, "/cancel"]
 
-instance ToQuery StopThingRegistrationTask where
-  toQuery = const mempty
+instance Lude.ToQuery StopThingRegistrationTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopThingRegistrationTaskResponse' smart constructor.
+-- | /See:/ 'mkStopThingRegistrationTaskResponse' smart constructor.
 newtype StopThingRegistrationTaskResponse = StopThingRegistrationTaskResponse'
-  { _srsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopThingRegistrationTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopThingRegistrationTaskResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopThingRegistrationTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopThingRegistrationTaskResponse
-stopThingRegistrationTaskResponse pResponseStatus_ =
+mkStopThingRegistrationTaskResponse pResponseStatus_ =
   StopThingRegistrationTaskResponse'
-    { _srsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopThingRegistrationTaskResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopThingRegistrationTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopThingRegistrationTaskResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopThingRegistrationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopThingRegistrationTaskResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

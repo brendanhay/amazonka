@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,147 @@
 --
 -- Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately.
 module Network.AWS.DirectoryService.EnableSSO
-  ( -- * Creating a Request
-    enableSSO,
-    EnableSSO,
+  ( -- * Creating a request
+    EnableSSO (..),
+    mkEnableSSO,
 
-    -- * Request Lenses
+    -- ** Request lenses
     esUserName,
     esPassword,
     esDirectoryId,
 
-    -- * Destructuring the Response
-    enableSSOResponse,
-    EnableSSOResponse,
+    -- * Destructuring the response
+    EnableSSOResponse (..),
+    mkEnableSSOResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     esrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'EnableSso' operation.
 --
---
---
--- /See:/ 'enableSSO' smart constructor.
+-- /See:/ 'mkEnableSSO' smart constructor.
 data EnableSSO = EnableSSO'
-  { _esUserName :: !(Maybe Text),
-    _esPassword :: !(Maybe (Sensitive Text)),
-    _esDirectoryId :: !Text
+  { userName :: Lude.Maybe Lude.Text,
+    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    directoryId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableSSO' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'directoryId' - The identifier of the directory for which to enable single-sign on.
+-- * 'password' - The password of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
+-- * 'userName' - The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name.
 --
--- * 'esUserName' - The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name. If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
---
--- * 'esPassword' - The password of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
---
--- * 'esDirectoryId' - The identifier of the directory for which to enable single-sign on.
-enableSSO ::
-  -- | 'esDirectoryId'
-  Text ->
+-- If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
+mkEnableSSO ::
+  -- | 'directoryId'
+  Lude.Text ->
   EnableSSO
-enableSSO pDirectoryId_ =
+mkEnableSSO pDirectoryId_ =
   EnableSSO'
-    { _esUserName = Nothing,
-      _esPassword = Nothing,
-      _esDirectoryId = pDirectoryId_
+    { userName = Lude.Nothing,
+      password = Lude.Nothing,
+      directoryId = pDirectoryId_
     }
 
--- | The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name. If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
-esUserName :: Lens' EnableSSO (Maybe Text)
-esUserName = lens _esUserName (\s a -> s {_esUserName = a})
+-- | The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name.
+--
+-- If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esUserName :: Lens.Lens' EnableSSO (Lude.Maybe Lude.Text)
+esUserName = Lens.lens (userName :: EnableSSO -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: EnableSSO)
+{-# DEPRECATED esUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The password of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
-esPassword :: Lens' EnableSSO (Maybe Text)
-esPassword = lens _esPassword (\s a -> s {_esPassword = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esPassword :: Lens.Lens' EnableSSO (Lude.Maybe (Lude.Sensitive Lude.Text))
+esPassword = Lens.lens (password :: EnableSSO -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {password = a} :: EnableSSO)
+{-# DEPRECATED esPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | The identifier of the directory for which to enable single-sign on.
-esDirectoryId :: Lens' EnableSSO Text
-esDirectoryId = lens _esDirectoryId (\s a -> s {_esDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esDirectoryId :: Lens.Lens' EnableSSO Lude.Text
+esDirectoryId = Lens.lens (directoryId :: EnableSSO -> Lude.Text) (\s a -> s {directoryId = a} :: EnableSSO)
+{-# DEPRECATED esDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance AWSRequest EnableSSO where
+instance Lude.AWSRequest EnableSSO where
   type Rs EnableSSO = EnableSSOResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> EnableSSOResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          EnableSSOResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable EnableSSO
-
-instance NFData EnableSSO
-
-instance ToHeaders EnableSSO where
+instance Lude.ToHeaders EnableSSO where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.EnableSso" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.EnableSso" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableSSO where
+instance Lude.ToJSON EnableSSO where
   toJSON EnableSSO' {..} =
-    object
-      ( catMaybes
-          [ ("UserName" .=) <$> _esUserName,
-            ("Password" .=) <$> _esPassword,
-            Just ("DirectoryId" .= _esDirectoryId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserName" Lude..=) Lude.<$> userName,
+            ("Password" Lude..=) Lude.<$> password,
+            Lude.Just ("DirectoryId" Lude..= directoryId)
           ]
       )
 
-instance ToPath EnableSSO where
-  toPath = const "/"
+instance Lude.ToPath EnableSSO where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableSSO where
-  toQuery = const mempty
+instance Lude.ToQuery EnableSSO where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'EnableSso' operation.
 --
---
---
--- /See:/ 'enableSSOResponse' smart constructor.
+-- /See:/ 'mkEnableSSOResponse' smart constructor.
 newtype EnableSSOResponse = EnableSSOResponse'
-  { _esrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableSSOResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esrsResponseStatus' - -- | The response status code.
-enableSSOResponse ::
-  -- | 'esrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkEnableSSOResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableSSOResponse
-enableSSOResponse pResponseStatus_ =
-  EnableSSOResponse' {_esrsResponseStatus = pResponseStatus_}
+mkEnableSSOResponse pResponseStatus_ =
+  EnableSSOResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-esrsResponseStatus :: Lens' EnableSSOResponse Int
-esrsResponseStatus = lens _esrsResponseStatus (\s a -> s {_esrsResponseStatus = a})
-
-instance NFData EnableSSOResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsResponseStatus :: Lens.Lens' EnableSSOResponse Lude.Int
+esrsResponseStatus = Lens.lens (responseStatus :: EnableSSOResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableSSOResponse)
+{-# DEPRECATED esrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

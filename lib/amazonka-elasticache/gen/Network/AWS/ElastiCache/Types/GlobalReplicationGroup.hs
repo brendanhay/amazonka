@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,12 +7,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.GlobalReplicationGroup where
+module Network.AWS.ElastiCache.Types.GlobalReplicationGroup
+  ( GlobalReplicationGroup (..),
+
+    -- * Smart constructor
+    mkGlobalReplicationGroup,
+
+    -- * Lenses
+    grgEngineVersion,
+    grgStatus,
+    grgCacheNodeType,
+    grgClusterEnabled,
+    grgAtRestEncryptionEnabled,
+    grgARN,
+    grgTransitEncryptionEnabled,
+    grgMembers,
+    grgEngine,
+    grgAuthTokenEnabled,
+    grgGlobalNodeGroups,
+    grgGlobalReplicationGroupId,
+    grgGlobalReplicationGroupDescription,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.GlobalNodeGroup
 import Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary cluster automatically replicates updates to the secondary cluster.
 --
@@ -27,150 +42,190 @@ import Network.AWS.Prelude
 --
 --
 --
---
--- /See:/ 'globalReplicationGroup' smart constructor.
+-- /See:/ 'mkGlobalReplicationGroup' smart constructor.
 data GlobalReplicationGroup = GlobalReplicationGroup'
-  { _grgEngineVersion ::
-      !(Maybe Text),
-    _grgStatus :: !(Maybe Text),
-    _grgCacheNodeType :: !(Maybe Text),
-    _grgClusterEnabled :: !(Maybe Bool),
-    _grgAtRestEncryptionEnabled :: !(Maybe Bool),
-    _grgARN :: !(Maybe Text),
-    _grgTransitEncryptionEnabled :: !(Maybe Bool),
-    _grgMembers ::
-      !(Maybe [GlobalReplicationGroupMember]),
-    _grgEngine :: !(Maybe Text),
-    _grgAuthTokenEnabled :: !(Maybe Bool),
-    _grgGlobalNodeGroups ::
-      !(Maybe [GlobalNodeGroup]),
-    _grgGlobalReplicationGroupId :: !(Maybe Text),
-    _grgGlobalReplicationGroupDescription ::
-      !(Maybe Text)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    cacheNodeType :: Lude.Maybe Lude.Text,
+    clusterEnabled :: Lude.Maybe Lude.Bool,
+    atRestEncryptionEnabled ::
+      Lude.Maybe Lude.Bool,
+    arn :: Lude.Maybe Lude.Text,
+    transitEncryptionEnabled ::
+      Lude.Maybe Lude.Bool,
+    members ::
+      Lude.Maybe [GlobalReplicationGroupMember],
+    engine :: Lude.Maybe Lude.Text,
+    authTokenEnabled :: Lude.Maybe Lude.Bool,
+    globalNodeGroups ::
+      Lude.Maybe [GlobalNodeGroup],
+    globalReplicationGroupId ::
+      Lude.Maybe Lude.Text,
+    globalReplicationGroupDescription ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The ARN (Amazon Resource Name) of the global replication group.
+-- * 'atRestEncryptionEnabled' - A flag that enables encryption at rest when set to @true@ .
 --
--- * 'grgEngineVersion' - The Elasticache Redis engine version.
+-- You cannot modify the value of @AtRestEncryptionEnabled@ after the replication group is created. To enable encryption at rest on a replication group you must set @AtRestEncryptionEnabled@ to @true@ when you create the replication group.
+-- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+-- * 'authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
 --
--- * 'grgStatus' - The status of the Global Datastore
---
--- * 'grgCacheNodeType' - The cache node type of the Global Datastore
---
--- * 'grgClusterEnabled' - A flag that indicates whether the Global Datastore is cluster enabled.
---
--- * 'grgAtRestEncryptionEnabled' - A flag that enables encryption at rest when set to @true@ . You cannot modify the value of @AtRestEncryptionEnabled@ after the replication group is created. To enable encryption at rest on a replication group you must set @AtRestEncryptionEnabled@ to @true@ when you create the replication group.  __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
---
--- * 'grgARN' - The ARN (Amazon Resource Name) of the global replication group.
---
--- * 'grgTransitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to true when you create a cluster.
---
--- * 'grgMembers' - The replication groups that comprise the Global Datastore.
---
--- * 'grgEngine' - The Elasticache engine. For Redis only.
---
--- * 'grgAuthTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands. Default: @false@
---
--- * 'grgGlobalNodeGroups' - Indicates the slot configuration and global identifier for each slice group.
---
--- * 'grgGlobalReplicationGroupId' - The name of the Global Datastore
---
--- * 'grgGlobalReplicationGroupDescription' - The optional description of the Global Datastore
-globalReplicationGroup ::
+-- Default: @false@
+-- * 'cacheNodeType' - The cache node type of the Global Datastore
+-- * 'clusterEnabled' - A flag that indicates whether the Global Datastore is cluster enabled.
+-- * 'engine' - The Elasticache engine. For Redis only.
+-- * 'engineVersion' - The Elasticache Redis engine version.
+-- * 'globalNodeGroups' - Indicates the slot configuration and global identifier for each slice group.
+-- * 'globalReplicationGroupDescription' - The optional description of the Global Datastore
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- * 'members' - The replication groups that comprise the Global Datastore.
+-- * 'status' - The status of the Global Datastore
+-- * 'transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to true when you create a cluster.
+mkGlobalReplicationGroup ::
   GlobalReplicationGroup
-globalReplicationGroup =
+mkGlobalReplicationGroup =
   GlobalReplicationGroup'
-    { _grgEngineVersion = Nothing,
-      _grgStatus = Nothing,
-      _grgCacheNodeType = Nothing,
-      _grgClusterEnabled = Nothing,
-      _grgAtRestEncryptionEnabled = Nothing,
-      _grgARN = Nothing,
-      _grgTransitEncryptionEnabled = Nothing,
-      _grgMembers = Nothing,
-      _grgEngine = Nothing,
-      _grgAuthTokenEnabled = Nothing,
-      _grgGlobalNodeGroups = Nothing,
-      _grgGlobalReplicationGroupId = Nothing,
-      _grgGlobalReplicationGroupDescription = Nothing
+    { engineVersion = Lude.Nothing,
+      status = Lude.Nothing,
+      cacheNodeType = Lude.Nothing,
+      clusterEnabled = Lude.Nothing,
+      atRestEncryptionEnabled = Lude.Nothing,
+      arn = Lude.Nothing,
+      transitEncryptionEnabled = Lude.Nothing,
+      members = Lude.Nothing,
+      engine = Lude.Nothing,
+      authTokenEnabled = Lude.Nothing,
+      globalNodeGroups = Lude.Nothing,
+      globalReplicationGroupId = Lude.Nothing,
+      globalReplicationGroupDescription = Lude.Nothing
     }
 
 -- | The Elasticache Redis engine version.
-grgEngineVersion :: Lens' GlobalReplicationGroup (Maybe Text)
-grgEngineVersion = lens _grgEngineVersion (\s a -> s {_grgEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgEngineVersion :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgEngineVersion = Lens.lens (engineVersion :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The status of the Global Datastore
-grgStatus :: Lens' GlobalReplicationGroup (Maybe Text)
-grgStatus = lens _grgStatus (\s a -> s {_grgStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgStatus :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgStatus = Lens.lens (status :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The cache node type of the Global Datastore
-grgCacheNodeType :: Lens' GlobalReplicationGroup (Maybe Text)
-grgCacheNodeType = lens _grgCacheNodeType (\s a -> s {_grgCacheNodeType = a})
+--
+-- /Note:/ Consider using 'cacheNodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgCacheNodeType :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgCacheNodeType = Lens.lens (cacheNodeType :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeType = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgCacheNodeType "Use generic-lens or generic-optics with 'cacheNodeType' instead." #-}
 
 -- | A flag that indicates whether the Global Datastore is cluster enabled.
-grgClusterEnabled :: Lens' GlobalReplicationGroup (Maybe Bool)
-grgClusterEnabled = lens _grgClusterEnabled (\s a -> s {_grgClusterEnabled = a})
+--
+-- /Note:/ Consider using 'clusterEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgClusterEnabled :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Bool)
+grgClusterEnabled = Lens.lens (clusterEnabled :: GlobalReplicationGroup -> Lude.Maybe Lude.Bool) (\s a -> s {clusterEnabled = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgClusterEnabled "Use generic-lens or generic-optics with 'clusterEnabled' instead." #-}
 
--- | A flag that enables encryption at rest when set to @true@ . You cannot modify the value of @AtRestEncryptionEnabled@ after the replication group is created. To enable encryption at rest on a replication group you must set @AtRestEncryptionEnabled@ to @true@ when you create the replication group.  __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
-grgAtRestEncryptionEnabled :: Lens' GlobalReplicationGroup (Maybe Bool)
-grgAtRestEncryptionEnabled = lens _grgAtRestEncryptionEnabled (\s a -> s {_grgAtRestEncryptionEnabled = a})
+-- | A flag that enables encryption at rest when set to @true@ .
+--
+-- You cannot modify the value of @AtRestEncryptionEnabled@ after the replication group is created. To enable encryption at rest on a replication group you must set @AtRestEncryptionEnabled@ to @true@ when you create the replication group.
+-- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+--
+-- /Note:/ Consider using 'atRestEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgAtRestEncryptionEnabled :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Bool)
+grgAtRestEncryptionEnabled = Lens.lens (atRestEncryptionEnabled :: GlobalReplicationGroup -> Lude.Maybe Lude.Bool) (\s a -> s {atRestEncryptionEnabled = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgAtRestEncryptionEnabled "Use generic-lens or generic-optics with 'atRestEncryptionEnabled' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the global replication group.
-grgARN :: Lens' GlobalReplicationGroup (Maybe Text)
-grgARN = lens _grgARN (\s a -> s {_grgARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgARN :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgARN = Lens.lens (arn :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A flag that enables in-transit encryption when set to true. You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to true when you create a cluster.
-grgTransitEncryptionEnabled :: Lens' GlobalReplicationGroup (Maybe Bool)
-grgTransitEncryptionEnabled = lens _grgTransitEncryptionEnabled (\s a -> s {_grgTransitEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'transitEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgTransitEncryptionEnabled :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Bool)
+grgTransitEncryptionEnabled = Lens.lens (transitEncryptionEnabled :: GlobalReplicationGroup -> Lude.Maybe Lude.Bool) (\s a -> s {transitEncryptionEnabled = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgTransitEncryptionEnabled "Use generic-lens or generic-optics with 'transitEncryptionEnabled' instead." #-}
 
 -- | The replication groups that comprise the Global Datastore.
-grgMembers :: Lens' GlobalReplicationGroup [GlobalReplicationGroupMember]
-grgMembers = lens _grgMembers (\s a -> s {_grgMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'members' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgMembers :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe [GlobalReplicationGroupMember])
+grgMembers = Lens.lens (members :: GlobalReplicationGroup -> Lude.Maybe [GlobalReplicationGroupMember]) (\s a -> s {members = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgMembers "Use generic-lens or generic-optics with 'members' instead." #-}
 
 -- | The Elasticache engine. For Redis only.
-grgEngine :: Lens' GlobalReplicationGroup (Maybe Text)
-grgEngine = lens _grgEngine (\s a -> s {_grgEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgEngine :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgEngine = Lens.lens (engine :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
--- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands. Default: @false@
-grgAuthTokenEnabled :: Lens' GlobalReplicationGroup (Maybe Bool)
-grgAuthTokenEnabled = lens _grgAuthTokenEnabled (\s a -> s {_grgAuthTokenEnabled = a})
+-- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'authTokenEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgAuthTokenEnabled :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Bool)
+grgAuthTokenEnabled = Lens.lens (authTokenEnabled :: GlobalReplicationGroup -> Lude.Maybe Lude.Bool) (\s a -> s {authTokenEnabled = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgAuthTokenEnabled "Use generic-lens or generic-optics with 'authTokenEnabled' instead." #-}
 
 -- | Indicates the slot configuration and global identifier for each slice group.
-grgGlobalNodeGroups :: Lens' GlobalReplicationGroup [GlobalNodeGroup]
-grgGlobalNodeGroups = lens _grgGlobalNodeGroups (\s a -> s {_grgGlobalNodeGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'globalNodeGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgGlobalNodeGroups :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe [GlobalNodeGroup])
+grgGlobalNodeGroups = Lens.lens (globalNodeGroups :: GlobalReplicationGroup -> Lude.Maybe [GlobalNodeGroup]) (\s a -> s {globalNodeGroups = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgGlobalNodeGroups "Use generic-lens or generic-optics with 'globalNodeGroups' instead." #-}
 
 -- | The name of the Global Datastore
-grgGlobalReplicationGroupId :: Lens' GlobalReplicationGroup (Maybe Text)
-grgGlobalReplicationGroupId = lens _grgGlobalReplicationGroupId (\s a -> s {_grgGlobalReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgGlobalReplicationGroupId :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | The optional description of the Global Datastore
-grgGlobalReplicationGroupDescription :: Lens' GlobalReplicationGroup (Maybe Text)
-grgGlobalReplicationGroupDescription = lens _grgGlobalReplicationGroupDescription (\s a -> s {_grgGlobalReplicationGroupDescription = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgGlobalReplicationGroupDescription :: Lens.Lens' GlobalReplicationGroup (Lude.Maybe Lude.Text)
+grgGlobalReplicationGroupDescription = Lens.lens (globalReplicationGroupDescription :: GlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupDescription = a} :: GlobalReplicationGroup)
+{-# DEPRECATED grgGlobalReplicationGroupDescription "Use generic-lens or generic-optics with 'globalReplicationGroupDescription' instead." #-}
 
-instance FromXML GlobalReplicationGroup where
+instance Lude.FromXML GlobalReplicationGroup where
   parseXML x =
     GlobalReplicationGroup'
-      <$> (x .@? "EngineVersion")
-      <*> (x .@? "Status")
-      <*> (x .@? "CacheNodeType")
-      <*> (x .@? "ClusterEnabled")
-      <*> (x .@? "AtRestEncryptionEnabled")
-      <*> (x .@? "ARN")
-      <*> (x .@? "TransitEncryptionEnabled")
-      <*> ( x .@? "Members" .!@ mempty
-              >>= may (parseXMLList "GlobalReplicationGroupMember")
-          )
-      <*> (x .@? "Engine")
-      <*> (x .@? "AuthTokenEnabled")
-      <*> ( x .@? "GlobalNodeGroups" .!@ mempty
-              >>= may (parseXMLList "GlobalNodeGroup")
-          )
-      <*> (x .@? "GlobalReplicationGroupId")
-      <*> (x .@? "GlobalReplicationGroupDescription")
-
-instance Hashable GlobalReplicationGroup
-
-instance NFData GlobalReplicationGroup
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "CacheNodeType")
+      Lude.<*> (x Lude..@? "ClusterEnabled")
+      Lude.<*> (x Lude..@? "AtRestEncryptionEnabled")
+      Lude.<*> (x Lude..@? "ARN")
+      Lude.<*> (x Lude..@? "TransitEncryptionEnabled")
+      Lude.<*> ( x Lude..@? "Members" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "GlobalReplicationGroupMember")
+               )
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "AuthTokenEnabled")
+      Lude.<*> ( x Lude..@? "GlobalNodeGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "GlobalNodeGroup")
+               )
+      Lude.<*> (x Lude..@? "GlobalReplicationGroupId")
+      Lude.<*> (x Lude..@? "GlobalReplicationGroupDescription")

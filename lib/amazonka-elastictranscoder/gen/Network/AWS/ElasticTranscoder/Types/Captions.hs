@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.Captions where
+module Network.AWS.ElasticTranscoder.Types.Captions
+  ( Captions (..),
+
+    -- * Smart constructor
+    mkCaptions,
+
+    -- * Lenses
+    cMergePolicy,
+    cCaptionSources,
+    cCaptionFormats,
+  )
+where
 
 import Network.AWS.ElasticTranscoder.Types.CaptionFormat
 import Network.AWS.ElasticTranscoder.Types.CaptionSource
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The captions to be created, if any.
 --
---
---
--- /See:/ 'captions' smart constructor.
+-- /See:/ 'mkCaptions' smart constructor.
 data Captions = Captions'
-  { _cMergePolicy :: !(Maybe Text),
-    _cCaptionSources :: !(Maybe [CaptionSource]),
-    _cCaptionFormats :: !(Maybe [CaptionFormat])
+  { mergePolicy :: Lude.Maybe Lude.Text,
+    captionSources :: Lude.Maybe [CaptionSource],
+    captionFormats :: Lude.Maybe [CaptionFormat]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Captions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'captionFormats' - The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
+-- * 'captionSources' - Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
+-- * 'mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of multiple captions.
 --
--- * 'cMergePolicy' - A policy that determines how Elastic Transcoder handles the existence of multiple captions.     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ . @MergePolicy@ cannot be null.
 --
--- * 'cCaptionSources' - Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
+--     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.
 --
--- * 'cCaptionFormats' - The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
-captions ::
+--
+--     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.
+--
+--
+--     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ .
+--
+--
+-- @MergePolicy@ cannot be null.
+mkCaptions ::
   Captions
-captions =
+mkCaptions =
   Captions'
-    { _cMergePolicy = Nothing,
-      _cCaptionSources = Nothing,
-      _cCaptionFormats = Nothing
+    { mergePolicy = Lude.Nothing,
+      captionSources = Lude.Nothing,
+      captionFormats = Lude.Nothing
     }
 
--- | A policy that determines how Elastic Transcoder handles the existence of multiple captions.     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ . @MergePolicy@ cannot be null.
-cMergePolicy :: Lens' Captions (Maybe Text)
-cMergePolicy = lens _cMergePolicy (\s a -> s {_cMergePolicy = a})
+-- | A policy that determines how Elastic Transcoder handles the existence of multiple captions.
+--
+--
+--     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.
+--
+--
+--     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.
+--
+--
+--     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ .
+--
+--
+-- @MergePolicy@ cannot be null.
+--
+-- /Note:/ Consider using 'mergePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cMergePolicy :: Lens.Lens' Captions (Lude.Maybe Lude.Text)
+cMergePolicy = Lens.lens (mergePolicy :: Captions -> Lude.Maybe Lude.Text) (\s a -> s {mergePolicy = a} :: Captions)
+{-# DEPRECATED cMergePolicy "Use generic-lens or generic-optics with 'mergePolicy' instead." #-}
 
 -- | Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
-cCaptionSources :: Lens' Captions [CaptionSource]
-cCaptionSources = lens _cCaptionSources (\s a -> s {_cCaptionSources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'captionSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCaptionSources :: Lens.Lens' Captions (Lude.Maybe [CaptionSource])
+cCaptionSources = Lens.lens (captionSources :: Captions -> Lude.Maybe [CaptionSource]) (\s a -> s {captionSources = a} :: Captions)
+{-# DEPRECATED cCaptionSources "Use generic-lens or generic-optics with 'captionSources' instead." #-}
 
 -- | The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
-cCaptionFormats :: Lens' Captions [CaptionFormat]
-cCaptionFormats = lens _cCaptionFormats (\s a -> s {_cCaptionFormats = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'captionFormats' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCaptionFormats :: Lens.Lens' Captions (Lude.Maybe [CaptionFormat])
+cCaptionFormats = Lens.lens (captionFormats :: Captions -> Lude.Maybe [CaptionFormat]) (\s a -> s {captionFormats = a} :: Captions)
+{-# DEPRECATED cCaptionFormats "Use generic-lens or generic-optics with 'captionFormats' instead." #-}
 
-instance FromJSON Captions where
+instance Lude.FromJSON Captions where
   parseJSON =
-    withObject
+    Lude.withObject
       "Captions"
       ( \x ->
           Captions'
-            <$> (x .:? "MergePolicy")
-            <*> (x .:? "CaptionSources" .!= mempty)
-            <*> (x .:? "CaptionFormats" .!= mempty)
+            Lude.<$> (x Lude..:? "MergePolicy")
+            Lude.<*> (x Lude..:? "CaptionSources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CaptionFormats" Lude..!= Lude.mempty)
       )
 
-instance Hashable Captions
-
-instance NFData Captions
-
-instance ToJSON Captions where
+instance Lude.ToJSON Captions where
   toJSON Captions' {..} =
-    object
-      ( catMaybes
-          [ ("MergePolicy" .=) <$> _cMergePolicy,
-            ("CaptionSources" .=) <$> _cCaptionSources,
-            ("CaptionFormats" .=) <$> _cCaptionFormats
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MergePolicy" Lude..=) Lude.<$> mergePolicy,
+            ("CaptionSources" Lude..=) Lude.<$> captionSources,
+            ("CaptionFormats" Lude..=) Lude.<$> captionFormats
           ]
       )

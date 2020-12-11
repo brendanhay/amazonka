@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.AliasConfiguration where
+module Network.AWS.Lambda.Types.AliasConfiguration
+  ( AliasConfiguration (..),
+
+    -- * Smart constructor
+    mkAliasConfiguration,
+
+    -- * Lenses
+    acRoutingConfig,
+    acName,
+    acFunctionVersion,
+    acAliasARN,
+    acDescription,
+    acRevisionId,
+  )
+where
 
 import Network.AWS.Lambda.Types.AliasRoutingConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides configuration information about a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 --
---
---
--- /See:/ 'aliasConfiguration' smart constructor.
+-- /See:/ 'mkAliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
-  { _acRoutingConfig ::
-      !(Maybe AliasRoutingConfiguration),
-    _acName :: !(Maybe Text),
-    _acFunctionVersion :: !(Maybe Text),
-    _acAliasARN :: !(Maybe Text),
-    _acDescription :: !(Maybe Text),
-    _acRevisionId :: !(Maybe Text)
+  { routingConfig ::
+      Lude.Maybe AliasRoutingConfiguration,
+    name :: Lude.Maybe Lude.Text,
+    functionVersion :: Lude.Maybe Lude.Text,
+    aliasARN :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    revisionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AliasConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acRoutingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
---
--- * 'acName' - The name of the alias.
---
--- * 'acFunctionVersion' - The function version that the alias invokes.
---
--- * 'acAliasARN' - The Amazon Resource Name (ARN) of the alias.
---
--- * 'acDescription' - A description of the alias.
---
--- * 'acRevisionId' - A unique identifier that changes when you update the alias.
-aliasConfiguration ::
+-- * 'aliasARN' - The Amazon Resource Name (ARN) of the alias.
+-- * 'description' - A description of the alias.
+-- * 'functionVersion' - The function version that the alias invokes.
+-- * 'name' - The name of the alias.
+-- * 'revisionId' - A unique identifier that changes when you update the alias.
+-- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
+mkAliasConfiguration ::
   AliasConfiguration
-aliasConfiguration =
+mkAliasConfiguration =
   AliasConfiguration'
-    { _acRoutingConfig = Nothing,
-      _acName = Nothing,
-      _acFunctionVersion = Nothing,
-      _acAliasARN = Nothing,
-      _acDescription = Nothing,
-      _acRevisionId = Nothing
+    { routingConfig = Lude.Nothing,
+      name = Lude.Nothing,
+      functionVersion = Lude.Nothing,
+      aliasARN = Lude.Nothing,
+      description = Lude.Nothing,
+      revisionId = Lude.Nothing
     }
 
 -- | The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
-acRoutingConfig :: Lens' AliasConfiguration (Maybe AliasRoutingConfiguration)
-acRoutingConfig = lens _acRoutingConfig (\s a -> s {_acRoutingConfig = a})
+--
+-- /Note:/ Consider using 'routingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acRoutingConfig :: Lens.Lens' AliasConfiguration (Lude.Maybe AliasRoutingConfiguration)
+acRoutingConfig = Lens.lens (routingConfig :: AliasConfiguration -> Lude.Maybe AliasRoutingConfiguration) (\s a -> s {routingConfig = a} :: AliasConfiguration)
+{-# DEPRECATED acRoutingConfig "Use generic-lens or generic-optics with 'routingConfig' instead." #-}
 
 -- | The name of the alias.
-acName :: Lens' AliasConfiguration (Maybe Text)
-acName = lens _acName (\s a -> s {_acName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acName :: Lens.Lens' AliasConfiguration (Lude.Maybe Lude.Text)
+acName = Lens.lens (name :: AliasConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AliasConfiguration)
+{-# DEPRECATED acName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The function version that the alias invokes.
-acFunctionVersion :: Lens' AliasConfiguration (Maybe Text)
-acFunctionVersion = lens _acFunctionVersion (\s a -> s {_acFunctionVersion = a})
+--
+-- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acFunctionVersion :: Lens.Lens' AliasConfiguration (Lude.Maybe Lude.Text)
+acFunctionVersion = Lens.lens (functionVersion :: AliasConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {functionVersion = a} :: AliasConfiguration)
+{-# DEPRECATED acFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the alias.
-acAliasARN :: Lens' AliasConfiguration (Maybe Text)
-acAliasARN = lens _acAliasARN (\s a -> s {_acAliasARN = a})
+--
+-- /Note:/ Consider using 'aliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAliasARN :: Lens.Lens' AliasConfiguration (Lude.Maybe Lude.Text)
+acAliasARN = Lens.lens (aliasARN :: AliasConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {aliasARN = a} :: AliasConfiguration)
+{-# DEPRECATED acAliasARN "Use generic-lens or generic-optics with 'aliasARN' instead." #-}
 
 -- | A description of the alias.
-acDescription :: Lens' AliasConfiguration (Maybe Text)
-acDescription = lens _acDescription (\s a -> s {_acDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acDescription :: Lens.Lens' AliasConfiguration (Lude.Maybe Lude.Text)
+acDescription = Lens.lens (description :: AliasConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AliasConfiguration)
+{-# DEPRECATED acDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A unique identifier that changes when you update the alias.
-acRevisionId :: Lens' AliasConfiguration (Maybe Text)
-acRevisionId = lens _acRevisionId (\s a -> s {_acRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acRevisionId :: Lens.Lens' AliasConfiguration (Lude.Maybe Lude.Text)
+acRevisionId = Lens.lens (revisionId :: AliasConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: AliasConfiguration)
+{-# DEPRECATED acRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance FromJSON AliasConfiguration where
+instance Lude.FromJSON AliasConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AliasConfiguration"
       ( \x ->
           AliasConfiguration'
-            <$> (x .:? "RoutingConfig")
-            <*> (x .:? "Name")
-            <*> (x .:? "FunctionVersion")
-            <*> (x .:? "AliasArn")
-            <*> (x .:? "Description")
-            <*> (x .:? "RevisionId")
+            Lude.<$> (x Lude..:? "RoutingConfig")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "FunctionVersion")
+            Lude.<*> (x Lude..:? "AliasArn")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "RevisionId")
       )
-
-instance Hashable AliasConfiguration
-
-instance NFData AliasConfiguration

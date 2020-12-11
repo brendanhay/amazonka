@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CertificateMode where
+module Network.AWS.IoT.Types.CertificateMode
+  ( CertificateMode
+      ( CertificateMode',
+        Default,
+        SNIOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateMode
-  = Default
-  | SNIOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateMode = CertificateMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateMode where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure Default
-      "sni_only" -> pure SNIOnly
-      e ->
-        fromTextError $
-          "Failure parsing CertificateMode from value: '" <> e
-            <> "'. Accepted values: default, sni_only"
+pattern Default :: CertificateMode
+pattern Default = CertificateMode' "DEFAULT"
 
-instance ToText CertificateMode where
-  toText = \case
-    Default -> "DEFAULT"
-    SNIOnly -> "SNI_ONLY"
+pattern SNIOnly :: CertificateMode
+pattern SNIOnly = CertificateMode' "SNI_ONLY"
 
-instance Hashable CertificateMode
-
-instance NFData CertificateMode
-
-instance ToByteString CertificateMode
-
-instance ToQuery CertificateMode
-
-instance ToHeader CertificateMode
-
-instance FromJSON CertificateMode where
-  parseJSON = parseJSONText "CertificateMode"
+{-# COMPLETE
+  Default,
+  SNIOnly,
+  CertificateMode'
+  #-}

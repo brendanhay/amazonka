@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.CopyProductStatus where
+module Network.AWS.ServiceCatalog.Types.CopyProductStatus
+  ( CopyProductStatus
+      ( CopyProductStatus',
+        CPSFailed,
+        CPSInProgress,
+        CPSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CopyProductStatus
-  = CPSFailed
-  | CPSInProgress
-  | CPSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CopyProductStatus = CopyProductStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CopyProductStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure CPSFailed
-      "in_progress" -> pure CPSInProgress
-      "succeeded" -> pure CPSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing CopyProductStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, succeeded"
+pattern CPSFailed :: CopyProductStatus
+pattern CPSFailed = CopyProductStatus' "FAILED"
 
-instance ToText CopyProductStatus where
-  toText = \case
-    CPSFailed -> "FAILED"
-    CPSInProgress -> "IN_PROGRESS"
-    CPSSucceeded -> "SUCCEEDED"
+pattern CPSInProgress :: CopyProductStatus
+pattern CPSInProgress = CopyProductStatus' "IN_PROGRESS"
 
-instance Hashable CopyProductStatus
+pattern CPSSucceeded :: CopyProductStatus
+pattern CPSSucceeded = CopyProductStatus' "SUCCEEDED"
 
-instance NFData CopyProductStatus
-
-instance ToByteString CopyProductStatus
-
-instance ToQuery CopyProductStatus
-
-instance ToHeader CopyProductStatus
-
-instance FromJSON CopyProductStatus where
-  parseJSON = parseJSONText "CopyProductStatus"
+{-# COMPLETE
+  CPSFailed,
+  CPSInProgress,
+  CPSSucceeded,
+  CopyProductStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets summary information about a domain configuration.
 module Network.AWS.IoT.DescribeDomainConfiguration
-  ( -- * Creating a Request
-    describeDomainConfiguration,
-    DescribeDomainConfiguration,
+  ( -- * Creating a request
+    DescribeDomainConfiguration (..),
+    mkDescribeDomainConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcDomainConfigurationName,
 
-    -- * Destructuring the Response
-    describeDomainConfigurationResponse,
-    DescribeDomainConfigurationResponse,
+    -- * Destructuring the response
+    DescribeDomainConfigurationResponse (..),
+    mkDescribeDomainConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcrsDomainConfigurationName,
     ddcrsServerCertificates,
     ddcrsAuthorizerConfig,
@@ -45,186 +40,215 @@ module Network.AWS.IoT.DescribeDomainConfiguration
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDomainConfiguration' smart constructor.
+-- | /See:/ 'mkDescribeDomainConfiguration' smart constructor.
 newtype DescribeDomainConfiguration = DescribeDomainConfiguration'
-  { _ddcDomainConfigurationName ::
-      Text
+  { domainConfigurationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcDomainConfigurationName' - The name of the domain configuration.
-describeDomainConfiguration ::
-  -- | 'ddcDomainConfigurationName'
-  Text ->
+-- * 'domainConfigurationName' - The name of the domain configuration.
+mkDescribeDomainConfiguration ::
+  -- | 'domainConfigurationName'
+  Lude.Text ->
   DescribeDomainConfiguration
-describeDomainConfiguration pDomainConfigurationName_ =
+mkDescribeDomainConfiguration pDomainConfigurationName_ =
   DescribeDomainConfiguration'
-    { _ddcDomainConfigurationName =
+    { domainConfigurationName =
         pDomainConfigurationName_
     }
 
 -- | The name of the domain configuration.
-ddcDomainConfigurationName :: Lens' DescribeDomainConfiguration Text
-ddcDomainConfigurationName = lens _ddcDomainConfigurationName (\s a -> s {_ddcDomainConfigurationName = a})
+--
+-- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDomainConfigurationName :: Lens.Lens' DescribeDomainConfiguration Lude.Text
+ddcDomainConfigurationName = Lens.lens (domainConfigurationName :: DescribeDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: DescribeDomainConfiguration)
+{-# DEPRECATED ddcDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
-instance AWSRequest DescribeDomainConfiguration where
+instance Lude.AWSRequest DescribeDomainConfiguration where
   type
     Rs DescribeDomainConfiguration =
       DescribeDomainConfigurationResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDomainConfigurationResponse'
-            <$> (x .?> "domainConfigurationName")
-            <*> (x .?> "serverCertificates" .!@ mempty)
-            <*> (x .?> "authorizerConfig")
-            <*> (x .?> "lastStatusChangeDate")
-            <*> (x .?> "domainConfigurationStatus")
-            <*> (x .?> "domainName")
-            <*> (x .?> "domainConfigurationArn")
-            <*> (x .?> "serviceType")
-            <*> (x .?> "domainType")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "domainConfigurationName")
+            Lude.<*> (x Lude..?> "serverCertificates" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "authorizerConfig")
+            Lude.<*> (x Lude..?> "lastStatusChangeDate")
+            Lude.<*> (x Lude..?> "domainConfigurationStatus")
+            Lude.<*> (x Lude..?> "domainName")
+            Lude.<*> (x Lude..?> "domainConfigurationArn")
+            Lude.<*> (x Lude..?> "serviceType")
+            Lude.<*> (x Lude..?> "domainType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDomainConfiguration
+instance Lude.ToHeaders DescribeDomainConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDomainConfiguration
-
-instance ToHeaders DescribeDomainConfiguration where
-  toHeaders = const mempty
-
-instance ToPath DescribeDomainConfiguration where
+instance Lude.ToPath DescribeDomainConfiguration where
   toPath DescribeDomainConfiguration' {..} =
-    mconcat
-      ["/domainConfigurations/", toBS _ddcDomainConfigurationName]
+    Lude.mconcat
+      ["/domainConfigurations/", Lude.toBS domainConfigurationName]
 
-instance ToQuery DescribeDomainConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDomainConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDomainConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDescribeDomainConfigurationResponse' smart constructor.
 data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
-  { _ddcrsDomainConfigurationName ::
-      !(Maybe Text),
-    _ddcrsServerCertificates ::
-      !( Maybe
-           [ServerCertificateSummary]
-       ),
-    _ddcrsAuthorizerConfig ::
-      !( Maybe
-           AuthorizerConfig
-       ),
-    _ddcrsLastStatusChangeDate ::
-      !(Maybe POSIX),
-    _ddcrsDomainConfigurationStatus ::
-      !( Maybe
-           DomainConfigurationStatus
-       ),
-    _ddcrsDomainName ::
-      !(Maybe Text),
-    _ddcrsDomainConfigurationARN ::
-      !(Maybe Text),
-    _ddcrsServiceType ::
-      !( Maybe
-           ServiceType
-       ),
-    _ddcrsDomainType ::
-      !(Maybe DomainType),
-    _ddcrsResponseStatus ::
-      !Int
+  { domainConfigurationName ::
+      Lude.Maybe
+        Lude.Text,
+    serverCertificates ::
+      Lude.Maybe
+        [ServerCertificateSummary],
+    authorizerConfig ::
+      Lude.Maybe
+        AuthorizerConfig,
+    lastStatusChangeDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    domainConfigurationStatus ::
+      Lude.Maybe
+        DomainConfigurationStatus,
+    domainName ::
+      Lude.Maybe
+        Lude.Text,
+    domainConfigurationARN ::
+      Lude.Maybe
+        Lude.Text,
+    serviceType ::
+      Lude.Maybe
+        ServiceType,
+    domainType ::
+      Lude.Maybe
+        DomainType,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcrsDomainConfigurationName' - The name of the domain configuration.
---
--- * 'ddcrsServerCertificates' - A list containing summary information about the server certificate included in the domain configuration.
---
--- * 'ddcrsAuthorizerConfig' - An object that specifies the authorization service for a domain.
---
--- * 'ddcrsLastStatusChangeDate' - The date and time the domain configuration's status was last changed.
---
--- * 'ddcrsDomainConfigurationStatus' - A Boolean value that specifies the current state of the domain configuration.
---
--- * 'ddcrsDomainName' - The name of the domain.
---
--- * 'ddcrsDomainConfigurationARN' - The ARN of the domain configuration.
---
--- * 'ddcrsServiceType' - The type of service delivered by the endpoint.
---
--- * 'ddcrsDomainType' - The type of the domain.
---
--- * 'ddcrsResponseStatus' - -- | The response status code.
-describeDomainConfigurationResponse ::
-  -- | 'ddcrsResponseStatus'
-  Int ->
+-- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
+-- * 'domainConfigurationARN' - The ARN of the domain configuration.
+-- * 'domainConfigurationName' - The name of the domain configuration.
+-- * 'domainConfigurationStatus' - A Boolean value that specifies the current state of the domain configuration.
+-- * 'domainName' - The name of the domain.
+-- * 'domainType' - The type of the domain.
+-- * 'lastStatusChangeDate' - The date and time the domain configuration's status was last changed.
+-- * 'responseStatus' - The response status code.
+-- * 'serverCertificates' - A list containing summary information about the server certificate included in the domain configuration.
+-- * 'serviceType' - The type of service delivered by the endpoint.
+mkDescribeDomainConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDomainConfigurationResponse
-describeDomainConfigurationResponse pResponseStatus_ =
+mkDescribeDomainConfigurationResponse pResponseStatus_ =
   DescribeDomainConfigurationResponse'
-    { _ddcrsDomainConfigurationName =
-        Nothing,
-      _ddcrsServerCertificates = Nothing,
-      _ddcrsAuthorizerConfig = Nothing,
-      _ddcrsLastStatusChangeDate = Nothing,
-      _ddcrsDomainConfigurationStatus = Nothing,
-      _ddcrsDomainName = Nothing,
-      _ddcrsDomainConfigurationARN = Nothing,
-      _ddcrsServiceType = Nothing,
-      _ddcrsDomainType = Nothing,
-      _ddcrsResponseStatus = pResponseStatus_
+    { domainConfigurationName =
+        Lude.Nothing,
+      serverCertificates = Lude.Nothing,
+      authorizerConfig = Lude.Nothing,
+      lastStatusChangeDate = Lude.Nothing,
+      domainConfigurationStatus = Lude.Nothing,
+      domainName = Lude.Nothing,
+      domainConfigurationARN = Lude.Nothing,
+      serviceType = Lude.Nothing,
+      domainType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the domain configuration.
-ddcrsDomainConfigurationName :: Lens' DescribeDomainConfigurationResponse (Maybe Text)
-ddcrsDomainConfigurationName = lens _ddcrsDomainConfigurationName (\s a -> s {_ddcrsDomainConfigurationName = a})
+--
+-- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDomainConfigurationName :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe Lude.Text)
+ddcrsDomainConfigurationName = Lens.lens (domainConfigurationName :: DescribeDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationName = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
 -- | A list containing summary information about the server certificate included in the domain configuration.
-ddcrsServerCertificates :: Lens' DescribeDomainConfigurationResponse [ServerCertificateSummary]
-ddcrsServerCertificates = lens _ddcrsServerCertificates (\s a -> s {_ddcrsServerCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverCertificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsServerCertificates :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe [ServerCertificateSummary])
+ddcrsServerCertificates = Lens.lens (serverCertificates :: DescribeDomainConfigurationResponse -> Lude.Maybe [ServerCertificateSummary]) (\s a -> s {serverCertificates = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsServerCertificates "Use generic-lens or generic-optics with 'serverCertificates' instead." #-}
 
 -- | An object that specifies the authorization service for a domain.
-ddcrsAuthorizerConfig :: Lens' DescribeDomainConfigurationResponse (Maybe AuthorizerConfig)
-ddcrsAuthorizerConfig = lens _ddcrsAuthorizerConfig (\s a -> s {_ddcrsAuthorizerConfig = a})
+--
+-- /Note:/ Consider using 'authorizerConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsAuthorizerConfig :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe AuthorizerConfig)
+ddcrsAuthorizerConfig = Lens.lens (authorizerConfig :: DescribeDomainConfigurationResponse -> Lude.Maybe AuthorizerConfig) (\s a -> s {authorizerConfig = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsAuthorizerConfig "Use generic-lens or generic-optics with 'authorizerConfig' instead." #-}
 
 -- | The date and time the domain configuration's status was last changed.
-ddcrsLastStatusChangeDate :: Lens' DescribeDomainConfigurationResponse (Maybe UTCTime)
-ddcrsLastStatusChangeDate = lens _ddcrsLastStatusChangeDate (\s a -> s {_ddcrsLastStatusChangeDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastStatusChangeDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsLastStatusChangeDate :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe Lude.Timestamp)
+ddcrsLastStatusChangeDate = Lens.lens (lastStatusChangeDate :: DescribeDomainConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStatusChangeDate = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsLastStatusChangeDate "Use generic-lens or generic-optics with 'lastStatusChangeDate' instead." #-}
 
 -- | A Boolean value that specifies the current state of the domain configuration.
-ddcrsDomainConfigurationStatus :: Lens' DescribeDomainConfigurationResponse (Maybe DomainConfigurationStatus)
-ddcrsDomainConfigurationStatus = lens _ddcrsDomainConfigurationStatus (\s a -> s {_ddcrsDomainConfigurationStatus = a})
+--
+-- /Note:/ Consider using 'domainConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDomainConfigurationStatus :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe DomainConfigurationStatus)
+ddcrsDomainConfigurationStatus = Lens.lens (domainConfigurationStatus :: DescribeDomainConfigurationResponse -> Lude.Maybe DomainConfigurationStatus) (\s a -> s {domainConfigurationStatus = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsDomainConfigurationStatus "Use generic-lens or generic-optics with 'domainConfigurationStatus' instead." #-}
 
 -- | The name of the domain.
-ddcrsDomainName :: Lens' DescribeDomainConfigurationResponse (Maybe Text)
-ddcrsDomainName = lens _ddcrsDomainName (\s a -> s {_ddcrsDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDomainName :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe Lude.Text)
+ddcrsDomainName = Lens.lens (domainName :: DescribeDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The ARN of the domain configuration.
-ddcrsDomainConfigurationARN :: Lens' DescribeDomainConfigurationResponse (Maybe Text)
-ddcrsDomainConfigurationARN = lens _ddcrsDomainConfigurationARN (\s a -> s {_ddcrsDomainConfigurationARN = a})
+--
+-- /Note:/ Consider using 'domainConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDomainConfigurationARN :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe Lude.Text)
+ddcrsDomainConfigurationARN = Lens.lens (domainConfigurationARN :: DescribeDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationARN = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsDomainConfigurationARN "Use generic-lens or generic-optics with 'domainConfigurationARN' instead." #-}
 
 -- | The type of service delivered by the endpoint.
-ddcrsServiceType :: Lens' DescribeDomainConfigurationResponse (Maybe ServiceType)
-ddcrsServiceType = lens _ddcrsServiceType (\s a -> s {_ddcrsServiceType = a})
+--
+-- /Note:/ Consider using 'serviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsServiceType :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe ServiceType)
+ddcrsServiceType = Lens.lens (serviceType :: DescribeDomainConfigurationResponse -> Lude.Maybe ServiceType) (\s a -> s {serviceType = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsServiceType "Use generic-lens or generic-optics with 'serviceType' instead." #-}
 
 -- | The type of the domain.
-ddcrsDomainType :: Lens' DescribeDomainConfigurationResponse (Maybe DomainType)
-ddcrsDomainType = lens _ddcrsDomainType (\s a -> s {_ddcrsDomainType = a})
+--
+-- /Note:/ Consider using 'domainType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDomainType :: Lens.Lens' DescribeDomainConfigurationResponse (Lude.Maybe DomainType)
+ddcrsDomainType = Lens.lens (domainType :: DescribeDomainConfigurationResponse -> Lude.Maybe DomainType) (\s a -> s {domainType = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsDomainType "Use generic-lens or generic-optics with 'domainType' instead." #-}
 
--- | -- | The response status code.
-ddcrsResponseStatus :: Lens' DescribeDomainConfigurationResponse Int
-ddcrsResponseStatus = lens _ddcrsResponseStatus (\s a -> s {_ddcrsResponseStatus = a})
-
-instance NFData DescribeDomainConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsResponseStatus :: Lens.Lens' DescribeDomainConfigurationResponse Lude.Int
+ddcrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainConfigurationResponse)
+{-# DEPRECATED ddcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

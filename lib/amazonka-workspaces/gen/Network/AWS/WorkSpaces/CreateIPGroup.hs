@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,175 @@
 --
 -- Creates an IP access control group.
 --
---
 -- An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using 'AuthorizeIpRules' .
---
 -- There is a default IP access control group associated with your directory. If you don't associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.
 module Network.AWS.WorkSpaces.CreateIPGroup
-  ( -- * Creating a Request
-    createIPGroup,
-    CreateIPGroup,
+  ( -- * Creating a request
+    CreateIPGroup (..),
+    mkCreateIPGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cigGroupDesc,
     cigUserRules,
     cigTags,
     cigGroupName,
 
-    -- * Destructuring the Response
-    createIPGroupResponse,
-    CreateIPGroupResponse,
+    -- * Destructuring the response
+    CreateIPGroupResponse (..),
+    mkCreateIPGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cigrsGroupId,
     cigrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'createIPGroup' smart constructor.
+-- | /See:/ 'mkCreateIPGroup' smart constructor.
 data CreateIPGroup = CreateIPGroup'
-  { _cigGroupDesc :: !(Maybe Text),
-    _cigUserRules :: !(Maybe [IPRuleItem]),
-    _cigTags :: !(Maybe [Tag]),
-    _cigGroupName :: !Text
+  { groupDesc ::
+      Lude.Maybe Lude.Text,
+    userRules :: Lude.Maybe [IPRuleItem],
+    tags :: Lude.Maybe [Tag],
+    groupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cigGroupDesc' - The description of the group.
---
--- * 'cigUserRules' - The rules to add to the group.
---
--- * 'cigTags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
---
--- * 'cigGroupName' - The name of the group.
-createIPGroup ::
-  -- | 'cigGroupName'
-  Text ->
+-- * 'groupDesc' - The description of the group.
+-- * 'groupName' - The name of the group.
+-- * 'tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+-- * 'userRules' - The rules to add to the group.
+mkCreateIPGroup ::
+  -- | 'groupName'
+  Lude.Text ->
   CreateIPGroup
-createIPGroup pGroupName_ =
+mkCreateIPGroup pGroupName_ =
   CreateIPGroup'
-    { _cigGroupDesc = Nothing,
-      _cigUserRules = Nothing,
-      _cigTags = Nothing,
-      _cigGroupName = pGroupName_
+    { groupDesc = Lude.Nothing,
+      userRules = Lude.Nothing,
+      tags = Lude.Nothing,
+      groupName = pGroupName_
     }
 
 -- | The description of the group.
-cigGroupDesc :: Lens' CreateIPGroup (Maybe Text)
-cigGroupDesc = lens _cigGroupDesc (\s a -> s {_cigGroupDesc = a})
+--
+-- /Note:/ Consider using 'groupDesc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigGroupDesc :: Lens.Lens' CreateIPGroup (Lude.Maybe Lude.Text)
+cigGroupDesc = Lens.lens (groupDesc :: CreateIPGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupDesc = a} :: CreateIPGroup)
+{-# DEPRECATED cigGroupDesc "Use generic-lens or generic-optics with 'groupDesc' instead." #-}
 
 -- | The rules to add to the group.
-cigUserRules :: Lens' CreateIPGroup [IPRuleItem]
-cigUserRules = lens _cigUserRules (\s a -> s {_cigUserRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigUserRules :: Lens.Lens' CreateIPGroup (Lude.Maybe [IPRuleItem])
+cigUserRules = Lens.lens (userRules :: CreateIPGroup -> Lude.Maybe [IPRuleItem]) (\s a -> s {userRules = a} :: CreateIPGroup)
+{-# DEPRECATED cigUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-cigTags :: Lens' CreateIPGroup [Tag]
-cigTags = lens _cigTags (\s a -> s {_cigTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigTags :: Lens.Lens' CreateIPGroup (Lude.Maybe [Tag])
+cigTags = Lens.lens (tags :: CreateIPGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateIPGroup)
+{-# DEPRECATED cigTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the group.
-cigGroupName :: Lens' CreateIPGroup Text
-cigGroupName = lens _cigGroupName (\s a -> s {_cigGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigGroupName :: Lens.Lens' CreateIPGroup Lude.Text
+cigGroupName = Lens.lens (groupName :: CreateIPGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateIPGroup)
+{-# DEPRECATED cigGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSRequest CreateIPGroup where
+instance Lude.AWSRequest CreateIPGroup where
   type Rs CreateIPGroup = CreateIPGroupResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateIPGroupResponse'
-            <$> (x .?> "GroupId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GroupId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateIPGroup
-
-instance NFData CreateIPGroup
-
-instance ToHeaders CreateIPGroup where
+instance Lude.ToHeaders CreateIPGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.CreateIpGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.CreateIpGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateIPGroup where
+instance Lude.ToJSON CreateIPGroup where
   toJSON CreateIPGroup' {..} =
-    object
-      ( catMaybes
-          [ ("GroupDesc" .=) <$> _cigGroupDesc,
-            ("UserRules" .=) <$> _cigUserRules,
-            ("Tags" .=) <$> _cigTags,
-            Just ("GroupName" .= _cigGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GroupDesc" Lude..=) Lude.<$> groupDesc,
+            ("UserRules" Lude..=) Lude.<$> userRules,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("GroupName" Lude..= groupName)
           ]
       )
 
-instance ToPath CreateIPGroup where
-  toPath = const "/"
+instance Lude.ToPath CreateIPGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateIPGroup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateIPGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createIPGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateIPGroupResponse' smart constructor.
 data CreateIPGroupResponse = CreateIPGroupResponse'
-  { _cigrsGroupId ::
-      !(Maybe Text),
-    _cigrsResponseStatus :: !Int
+  { groupId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cigrsGroupId' - The identifier of the group.
---
--- * 'cigrsResponseStatus' - -- | The response status code.
-createIPGroupResponse ::
-  -- | 'cigrsResponseStatus'
-  Int ->
+-- * 'groupId' - The identifier of the group.
+-- * 'responseStatus' - The response status code.
+mkCreateIPGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateIPGroupResponse
-createIPGroupResponse pResponseStatus_ =
+mkCreateIPGroupResponse pResponseStatus_ =
   CreateIPGroupResponse'
-    { _cigrsGroupId = Nothing,
-      _cigrsResponseStatus = pResponseStatus_
+    { groupId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the group.
-cigrsGroupId :: Lens' CreateIPGroupResponse (Maybe Text)
-cigrsGroupId = lens _cigrsGroupId (\s a -> s {_cigrsGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigrsGroupId :: Lens.Lens' CreateIPGroupResponse (Lude.Maybe Lude.Text)
+cigrsGroupId = Lens.lens (groupId :: CreateIPGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: CreateIPGroupResponse)
+{-# DEPRECATED cigrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
--- | -- | The response status code.
-cigrsResponseStatus :: Lens' CreateIPGroupResponse Int
-cigrsResponseStatus = lens _cigrsResponseStatus (\s a -> s {_cigrsResponseStatus = a})
-
-instance NFData CreateIPGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigrsResponseStatus :: Lens.Lens' CreateIPGroupResponse Lude.Int
+cigrsResponseStatus = Lens.lens (responseStatus :: CreateIPGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIPGroupResponse)
+{-# DEPRECATED cigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

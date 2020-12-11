@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TimeRange where
+module Network.AWS.CodeDeploy.Types.TimeRange
+  ( TimeRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeRange,
+
+    -- * Lenses
+    trStart,
+    trEnd,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a time range.
 --
---
---
--- /See:/ 'timeRange' smart constructor.
+-- /See:/ 'mkTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { _trStart :: !(Maybe POSIX),
-    _trEnd :: !(Maybe POSIX)
+  { start :: Lude.Maybe Lude.Timestamp,
+    end :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trStart' - The start time of the time range.
---
--- * 'trEnd' - The end time of the time range.
-timeRange ::
+-- * 'end' - The end time of the time range.
+-- * 'start' - The start time of the time range.
+mkTimeRange ::
   TimeRange
-timeRange = TimeRange' {_trStart = Nothing, _trEnd = Nothing}
+mkTimeRange = TimeRange' {start = Lude.Nothing, end = Lude.Nothing}
 
 -- | The start time of the time range.
-trStart :: Lens' TimeRange (Maybe UTCTime)
-trStart = lens _trStart (\s a -> s {_trStart = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trStart :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
+trStart = Lens.lens (start :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {start = a} :: TimeRange)
+{-# DEPRECATED trStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The end time of the time range.
-trEnd :: Lens' TimeRange (Maybe UTCTime)
-trEnd = lens _trEnd (\s a -> s {_trEnd = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trEnd :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
+trEnd = Lens.lens (end :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {end = a} :: TimeRange)
+{-# DEPRECATED trEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
-instance Hashable TimeRange
-
-instance NFData TimeRange
-
-instance ToJSON TimeRange where
+instance Lude.ToJSON TimeRange where
   toJSON TimeRange' {..} =
-    object
-      (catMaybes [("start" .=) <$> _trStart, ("end" .=) <$> _trEnd])
+    Lude.object
+      ( Lude.catMaybes
+          [("start" Lude..=) Lude.<$> start, ("end" Lude..=) Lude.<$> end]
+      )

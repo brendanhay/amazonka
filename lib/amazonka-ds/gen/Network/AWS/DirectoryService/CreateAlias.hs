@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Creates an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as @http://<alias>.awsapps.com@ .
 --
---
 -- /Important:/ After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
 module Network.AWS.DirectoryService.CreateAlias
-  ( -- * Creating a Request
-    createAlias,
-    CreateAlias,
+  ( -- * Creating a request
+    CreateAlias (..),
+    mkCreateAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caDirectoryId,
     caAlias,
 
-    -- * Destructuring the Response
-    createAliasResponse,
-    CreateAliasResponse,
+    -- * Destructuring the response
+    CreateAliasResponse (..),
+    mkCreateAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsDirectoryId,
     carsAlias,
     carsResponseStatus,
@@ -42,128 +36,147 @@ module Network.AWS.DirectoryService.CreateAlias
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'CreateAlias' operation.
 --
---
---
--- /See:/ 'createAlias' smart constructor.
+-- /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { _caDirectoryId :: !Text,
-    _caAlias :: !Text
+  { directoryId :: Lude.Text,
+    alias :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'alias' - The requested alias.
 --
--- * 'caDirectoryId' - The identifier of the directory for which to create the alias.
---
--- * 'caAlias' - The requested alias. The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
-createAlias ::
-  -- | 'caDirectoryId'
-  Text ->
-  -- | 'caAlias'
-  Text ->
+-- The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
+-- * 'directoryId' - The identifier of the directory for which to create the alias.
+mkCreateAlias ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'alias'
+  Lude.Text ->
   CreateAlias
-createAlias pDirectoryId_ pAlias_ =
-  CreateAlias' {_caDirectoryId = pDirectoryId_, _caAlias = pAlias_}
+mkCreateAlias pDirectoryId_ pAlias_ =
+  CreateAlias' {directoryId = pDirectoryId_, alias = pAlias_}
 
 -- | The identifier of the directory for which to create the alias.
-caDirectoryId :: Lens' CreateAlias Text
-caDirectoryId = lens _caDirectoryId (\s a -> s {_caDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDirectoryId :: Lens.Lens' CreateAlias Lude.Text
+caDirectoryId = Lens.lens (directoryId :: CreateAlias -> Lude.Text) (\s a -> s {directoryId = a} :: CreateAlias)
+{-# DEPRECATED caDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
--- | The requested alias. The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
-caAlias :: Lens' CreateAlias Text
-caAlias = lens _caAlias (\s a -> s {_caAlias = a})
+-- | The requested alias.
+--
+-- The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlias :: Lens.Lens' CreateAlias Lude.Text
+caAlias = Lens.lens (alias :: CreateAlias -> Lude.Text) (\s a -> s {alias = a} :: CreateAlias)
+{-# DEPRECATED caAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
-instance AWSRequest CreateAlias where
+instance Lude.AWSRequest CreateAlias where
   type Rs CreateAlias = CreateAliasResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAliasResponse'
-            <$> (x .?> "DirectoryId") <*> (x .?> "Alias") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryId")
+            Lude.<*> (x Lude..?> "Alias")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAlias
-
-instance NFData CreateAlias
-
-instance ToHeaders CreateAlias where
+instance Lude.ToHeaders CreateAlias where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.CreateAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.CreateAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAlias where
+instance Lude.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _caDirectoryId),
-            Just ("Alias" .= _caAlias)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("Alias" Lude..= alias)
           ]
       )
 
-instance ToPath CreateAlias where
-  toPath = const "/"
+instance Lude.ToPath CreateAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAlias where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAlias where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'CreateAlias' operation.
 --
---
---
--- /See:/ 'createAliasResponse' smart constructor.
+-- /See:/ 'mkCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-  { _carsDirectoryId ::
-      !(Maybe Text),
-    _carsAlias :: !(Maybe Text),
-    _carsResponseStatus :: !Int
+  { directoryId ::
+      Lude.Maybe Lude.Text,
+    alias :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsDirectoryId' - The identifier of the directory.
---
--- * 'carsAlias' - The alias for the directory.
---
--- * 'carsResponseStatus' - -- | The response status code.
-createAliasResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'alias' - The alias for the directory.
+-- * 'directoryId' - The identifier of the directory.
+-- * 'responseStatus' - The response status code.
+mkCreateAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAliasResponse
-createAliasResponse pResponseStatus_ =
+mkCreateAliasResponse pResponseStatus_ =
   CreateAliasResponse'
-    { _carsDirectoryId = Nothing,
-      _carsAlias = Nothing,
-      _carsResponseStatus = pResponseStatus_
+    { directoryId = Lude.Nothing,
+      alias = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the directory.
-carsDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
-carsDirectoryId = lens _carsDirectoryId (\s a -> s {_carsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsDirectoryId :: Lens.Lens' CreateAliasResponse (Lude.Maybe Lude.Text)
+carsDirectoryId = Lens.lens (directoryId :: CreateAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: CreateAliasResponse)
+{-# DEPRECATED carsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The alias for the directory.
-carsAlias :: Lens' CreateAliasResponse (Maybe Text)
-carsAlias = lens _carsAlias (\s a -> s {_carsAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsAlias :: Lens.Lens' CreateAliasResponse (Lude.Maybe Lude.Text)
+carsAlias = Lens.lens (alias :: CreateAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {alias = a} :: CreateAliasResponse)
+{-# DEPRECATED carsAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAliasResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAliasResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAliasResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

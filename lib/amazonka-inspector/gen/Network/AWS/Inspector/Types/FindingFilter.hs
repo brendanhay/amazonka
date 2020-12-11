@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.FindingFilter where
+module Network.AWS.Inspector.Types.FindingFilter
+  ( FindingFilter (..),
+
+    -- * Smart constructor
+    mkFindingFilter,
+
+    -- * Lenses
+    ffAgentIds,
+    ffRuleNames,
+    ffUserAttributes,
+    ffRulesPackageARNs,
+    ffAttributes,
+    ffSeverities,
+    ffCreationTimeRange,
+    ffAutoScalingGroups,
+  )
+where
 
 import Network.AWS.Inspector.Types.Attribute
 import Network.AWS.Inspector.Types.Severity
 import Network.AWS.Inspector.Types.TimestampRange
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used as a request parameter in the 'ListFindings' action.
 --
---
---
--- /See:/ 'findingFilter' smart constructor.
+-- /See:/ 'mkFindingFilter' smart constructor.
 data FindingFilter = FindingFilter'
-  { _ffAgentIds :: !(Maybe [Text]),
-    _ffRuleNames :: !(Maybe [Text]),
-    _ffUserAttributes :: !(Maybe [Attribute]),
-    _ffRulesPackageARNs :: !(Maybe [Text]),
-    _ffAttributes :: !(Maybe [Attribute]),
-    _ffSeverities :: !(Maybe [Severity]),
-    _ffCreationTimeRange :: !(Maybe TimestampRange),
-    _ffAutoScalingGroups :: !(Maybe [Text])
+  { agentIds ::
+      Lude.Maybe [Lude.Text],
+    ruleNames :: Lude.Maybe [Lude.Text],
+    userAttributes :: Lude.Maybe [Attribute],
+    rulesPackageARNs :: Lude.Maybe [Lude.Text],
+    attributes :: Lude.Maybe [Attribute],
+    severities :: Lude.Maybe [Severity],
+    creationTimeRange :: Lude.Maybe TimestampRange,
+    autoScalingGroups :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FindingFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ffAgentIds' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
---
--- * 'ffRuleNames' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
---
--- * 'ffUserAttributes' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
---
--- * 'ffRulesPackageARNs' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
---
--- * 'ffAttributes' - For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
---
--- * 'ffSeverities' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
---
--- * 'ffCreationTimeRange' - The time range during which the finding is generated.
---
--- * 'ffAutoScalingGroups' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
-findingFilter ::
+-- * 'agentIds' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
+-- * 'attributes' - For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
+-- * 'autoScalingGroups' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
+-- * 'creationTimeRange' - The time range during which the finding is generated.
+-- * 'ruleNames' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
+-- * 'rulesPackageARNs' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
+-- * 'severities' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
+-- * 'userAttributes' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
+mkFindingFilter ::
   FindingFilter
-findingFilter =
+mkFindingFilter =
   FindingFilter'
-    { _ffAgentIds = Nothing,
-      _ffRuleNames = Nothing,
-      _ffUserAttributes = Nothing,
-      _ffRulesPackageARNs = Nothing,
-      _ffAttributes = Nothing,
-      _ffSeverities = Nothing,
-      _ffCreationTimeRange = Nothing,
-      _ffAutoScalingGroups = Nothing
+    { agentIds = Lude.Nothing,
+      ruleNames = Lude.Nothing,
+      userAttributes = Lude.Nothing,
+      rulesPackageARNs = Lude.Nothing,
+      attributes = Lude.Nothing,
+      severities = Lude.Nothing,
+      creationTimeRange = Lude.Nothing,
+      autoScalingGroups = Lude.Nothing
     }
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
-ffAgentIds :: Lens' FindingFilter [Text]
-ffAgentIds = lens _ffAgentIds (\s a -> s {_ffAgentIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'agentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffAgentIds :: Lens.Lens' FindingFilter (Lude.Maybe [Lude.Text])
+ffAgentIds = Lens.lens (agentIds :: FindingFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {agentIds = a} :: FindingFilter)
+{-# DEPRECATED ffAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
-ffRuleNames :: Lens' FindingFilter [Text]
-ffRuleNames = lens _ffRuleNames (\s a -> s {_ffRuleNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffRuleNames :: Lens.Lens' FindingFilter (Lude.Maybe [Lude.Text])
+ffRuleNames = Lens.lens (ruleNames :: FindingFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {ruleNames = a} :: FindingFilter)
+{-# DEPRECATED ffRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
 -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
-ffUserAttributes :: Lens' FindingFilter [Attribute]
-ffUserAttributes = lens _ffUserAttributes (\s a -> s {_ffUserAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffUserAttributes :: Lens.Lens' FindingFilter (Lude.Maybe [Attribute])
+ffUserAttributes = Lens.lens (userAttributes :: FindingFilter -> Lude.Maybe [Attribute]) (\s a -> s {userAttributes = a} :: FindingFilter)
+{-# DEPRECATED ffUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
-ffRulesPackageARNs :: Lens' FindingFilter [Text]
-ffRulesPackageARNs = lens _ffRulesPackageARNs (\s a -> s {_ffRulesPackageARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffRulesPackageARNs :: Lens.Lens' FindingFilter (Lude.Maybe [Lude.Text])
+ffRulesPackageARNs = Lens.lens (rulesPackageARNs :: FindingFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {rulesPackageARNs = a} :: FindingFilter)
+{-# DEPRECATED ffRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
 
 -- | For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
-ffAttributes :: Lens' FindingFilter [Attribute]
-ffAttributes = lens _ffAttributes (\s a -> s {_ffAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffAttributes :: Lens.Lens' FindingFilter (Lude.Maybe [Attribute])
+ffAttributes = Lens.lens (attributes :: FindingFilter -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: FindingFilter)
+{-# DEPRECATED ffAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
-ffSeverities :: Lens' FindingFilter [Severity]
-ffSeverities = lens _ffSeverities (\s a -> s {_ffSeverities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'severities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffSeverities :: Lens.Lens' FindingFilter (Lude.Maybe [Severity])
+ffSeverities = Lens.lens (severities :: FindingFilter -> Lude.Maybe [Severity]) (\s a -> s {severities = a} :: FindingFilter)
+{-# DEPRECATED ffSeverities "Use generic-lens or generic-optics with 'severities' instead." #-}
 
 -- | The time range during which the finding is generated.
-ffCreationTimeRange :: Lens' FindingFilter (Maybe TimestampRange)
-ffCreationTimeRange = lens _ffCreationTimeRange (\s a -> s {_ffCreationTimeRange = a})
+--
+-- /Note:/ Consider using 'creationTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffCreationTimeRange :: Lens.Lens' FindingFilter (Lude.Maybe TimestampRange)
+ffCreationTimeRange = Lens.lens (creationTimeRange :: FindingFilter -> Lude.Maybe TimestampRange) (\s a -> s {creationTimeRange = a} :: FindingFilter)
+{-# DEPRECATED ffCreationTimeRange "Use generic-lens or generic-optics with 'creationTimeRange' instead." #-}
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
-ffAutoScalingGroups :: Lens' FindingFilter [Text]
-ffAutoScalingGroups = lens _ffAutoScalingGroups (\s a -> s {_ffAutoScalingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'autoScalingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ffAutoScalingGroups :: Lens.Lens' FindingFilter (Lude.Maybe [Lude.Text])
+ffAutoScalingGroups = Lens.lens (autoScalingGroups :: FindingFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {autoScalingGroups = a} :: FindingFilter)
+{-# DEPRECATED ffAutoScalingGroups "Use generic-lens or generic-optics with 'autoScalingGroups' instead." #-}
 
-instance Hashable FindingFilter
-
-instance NFData FindingFilter
-
-instance ToJSON FindingFilter where
+instance Lude.ToJSON FindingFilter where
   toJSON FindingFilter' {..} =
-    object
-      ( catMaybes
-          [ ("agentIds" .=) <$> _ffAgentIds,
-            ("ruleNames" .=) <$> _ffRuleNames,
-            ("userAttributes" .=) <$> _ffUserAttributes,
-            ("rulesPackageArns" .=) <$> _ffRulesPackageARNs,
-            ("attributes" .=) <$> _ffAttributes,
-            ("severities" .=) <$> _ffSeverities,
-            ("creationTimeRange" .=) <$> _ffCreationTimeRange,
-            ("autoScalingGroups" .=) <$> _ffAutoScalingGroups
+    Lude.object
+      ( Lude.catMaybes
+          [ ("agentIds" Lude..=) Lude.<$> agentIds,
+            ("ruleNames" Lude..=) Lude.<$> ruleNames,
+            ("userAttributes" Lude..=) Lude.<$> userAttributes,
+            ("rulesPackageArns" Lude..=) Lude.<$> rulesPackageARNs,
+            ("attributes" Lude..=) Lude.<$> attributes,
+            ("severities" Lude..=) Lude.<$> severities,
+            ("creationTimeRange" Lude..=) Lude.<$> creationTimeRange,
+            ("autoScalingGroups" Lude..=) Lude.<$> autoScalingGroups
           ]
       )

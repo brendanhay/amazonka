@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.ActionTypeEnum where
+module Network.AWS.ELBv2.Types.ActionTypeEnum
+  ( ActionTypeEnum
+      ( ActionTypeEnum',
+        AuthenticateCognito,
+        AuthenticateOidc,
+        FixedResponse,
+        Forward,
+        Redirect
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionTypeEnum
-  = AuthenticateCognito
-  | AuthenticateOidc
-  | FixedResponse
-  | Forward
-  | Redirect
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionTypeEnum = ActionTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "authenticate-cognito" -> pure AuthenticateCognito
-      "authenticate-oidc" -> pure AuthenticateOidc
-      "fixed-response" -> pure FixedResponse
-      "forward" -> pure Forward
-      "redirect" -> pure Redirect
-      e ->
-        fromTextError $
-          "Failure parsing ActionTypeEnum from value: '" <> e
-            <> "'. Accepted values: authenticate-cognito, authenticate-oidc, fixed-response, forward, redirect"
+pattern AuthenticateCognito :: ActionTypeEnum
+pattern AuthenticateCognito = ActionTypeEnum' "authenticate-cognito"
 
-instance ToText ActionTypeEnum where
-  toText = \case
-    AuthenticateCognito -> "authenticate-cognito"
-    AuthenticateOidc -> "authenticate-oidc"
-    FixedResponse -> "fixed-response"
-    Forward -> "forward"
-    Redirect -> "redirect"
+pattern AuthenticateOidc :: ActionTypeEnum
+pattern AuthenticateOidc = ActionTypeEnum' "authenticate-oidc"
 
-instance Hashable ActionTypeEnum
+pattern FixedResponse :: ActionTypeEnum
+pattern FixedResponse = ActionTypeEnum' "fixed-response"
 
-instance NFData ActionTypeEnum
+pattern Forward :: ActionTypeEnum
+pattern Forward = ActionTypeEnum' "forward"
 
-instance ToByteString ActionTypeEnum
+pattern Redirect :: ActionTypeEnum
+pattern Redirect = ActionTypeEnum' "redirect"
 
-instance ToQuery ActionTypeEnum
-
-instance ToHeader ActionTypeEnum
-
-instance FromXML ActionTypeEnum where
-  parseXML = parseXMLText "ActionTypeEnum"
+{-# COMPLETE
+  AuthenticateCognito,
+  AuthenticateOidc,
+  FixedResponse,
+  Forward,
+  Redirect,
+  ActionTypeEnum'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse where
+module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
+  ( BatchListPolicyAttachmentsResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchListPolicyAttachmentsResponse,
+
+    -- * Lenses
+    blpaObjectIdentifiers,
+    blpaNextToken,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'ListPolicyAttachments' response operation.
 --
---
---
--- /See:/ 'batchListPolicyAttachmentsResponse' smart constructor.
+-- /See:/ 'mkBatchListPolicyAttachmentsResponse' smart constructor.
 data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
-  { _blpaObjectIdentifiers ::
-      !(Maybe [Text]),
-    _blpaNextToken ::
-      !(Maybe Text)
+  { objectIdentifiers ::
+      Lude.Maybe
+        [Lude.Text],
+    nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListPolicyAttachmentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blpaObjectIdentifiers' - A list of @ObjectIdentifiers@ to which the policy is attached.
---
--- * 'blpaNextToken' - The pagination token.
-batchListPolicyAttachmentsResponse ::
+-- * 'nextToken' - The pagination token.
+-- * 'objectIdentifiers' - A list of @ObjectIdentifiers@ to which the policy is attached.
+mkBatchListPolicyAttachmentsResponse ::
   BatchListPolicyAttachmentsResponse
-batchListPolicyAttachmentsResponse =
+mkBatchListPolicyAttachmentsResponse =
   BatchListPolicyAttachmentsResponse'
-    { _blpaObjectIdentifiers =
-        Nothing,
-      _blpaNextToken = Nothing
+    { objectIdentifiers =
+        Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-blpaObjectIdentifiers :: Lens' BatchListPolicyAttachmentsResponse [Text]
-blpaObjectIdentifiers = lens _blpaObjectIdentifiers (\s a -> s {_blpaObjectIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'objectIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpaObjectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Lude.Maybe [Lude.Text])
+blpaObjectIdentifiers = Lens.lens (objectIdentifiers :: BatchListPolicyAttachmentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse)
+{-# DEPRECATED blpaObjectIdentifiers "Use generic-lens or generic-optics with 'objectIdentifiers' instead." #-}
 
 -- | The pagination token.
-blpaNextToken :: Lens' BatchListPolicyAttachmentsResponse (Maybe Text)
-blpaNextToken = lens _blpaNextToken (\s a -> s {_blpaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpaNextToken :: Lens.Lens' BatchListPolicyAttachmentsResponse (Lude.Maybe Lude.Text)
+blpaNextToken = Lens.lens (nextToken :: BatchListPolicyAttachmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListPolicyAttachmentsResponse)
+{-# DEPRECATED blpaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance FromJSON BatchListPolicyAttachmentsResponse where
+instance Lude.FromJSON BatchListPolicyAttachmentsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchListPolicyAttachmentsResponse"
       ( \x ->
           BatchListPolicyAttachmentsResponse'
-            <$> (x .:? "ObjectIdentifiers" .!= mempty) <*> (x .:? "NextToken")
+            Lude.<$> (x Lude..:? "ObjectIdentifiers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextToken")
       )
-
-instance Hashable BatchListPolicyAttachmentsResponse
-
-instance NFData BatchListPolicyAttachmentsResponse

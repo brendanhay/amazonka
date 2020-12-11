@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,175 @@
 --
 -- Unsubscribes from receiving notifications when a dataset is modified by another device.
 --
---
 -- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
-  ( -- * Creating a Request
-    unsubscribeFromDataset,
-    UnsubscribeFromDataset,
+  ( -- * Creating a request
+    UnsubscribeFromDataset (..),
+    mkUnsubscribeFromDataset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ufdIdentityPoolId,
     ufdIdentityId,
     ufdDatasetName,
     ufdDeviceId,
 
-    -- * Destructuring the Response
-    unsubscribeFromDatasetResponse,
-    UnsubscribeFromDatasetResponse,
+    -- * Destructuring the response
+    UnsubscribeFromDatasetResponse (..),
+    mkUnsubscribeFromDatasetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ufdrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to UnsubscribeFromDataset.
 --
---
---
--- /See:/ 'unsubscribeFromDataset' smart constructor.
+-- /See:/ 'mkUnsubscribeFromDataset' smart constructor.
 data UnsubscribeFromDataset = UnsubscribeFromDataset'
-  { _ufdIdentityPoolId ::
-      !Text,
-    _ufdIdentityId :: !Text,
-    _ufdDatasetName :: !Text,
-    _ufdDeviceId :: !Text
+  { identityPoolId ::
+      Lude.Text,
+    identityId :: Lude.Text,
+    datasetName :: Lude.Text,
+    deviceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsubscribeFromDataset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
---
--- * 'ufdIdentityId' - Unique ID for this identity.
---
--- * 'ufdDatasetName' - The name of the dataset from which to unsubcribe.
---
--- * 'ufdDeviceId' - The unique ID generated for this device by Cognito.
-unsubscribeFromDataset ::
-  -- | 'ufdIdentityPoolId'
-  Text ->
-  -- | 'ufdIdentityId'
-  Text ->
-  -- | 'ufdDatasetName'
-  Text ->
-  -- | 'ufdDeviceId'
-  Text ->
+-- * 'datasetName' - The name of the dataset from which to unsubcribe.
+-- * 'deviceId' - The unique ID generated for this device by Cognito.
+-- * 'identityId' - Unique ID for this identity.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
+mkUnsubscribeFromDataset ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
+  -- | 'datasetName'
+  Lude.Text ->
+  -- | 'deviceId'
+  Lude.Text ->
   UnsubscribeFromDataset
-unsubscribeFromDataset
+mkUnsubscribeFromDataset
   pIdentityPoolId_
   pIdentityId_
   pDatasetName_
   pDeviceId_ =
     UnsubscribeFromDataset'
-      { _ufdIdentityPoolId = pIdentityPoolId_,
-        _ufdIdentityId = pIdentityId_,
-        _ufdDatasetName = pDatasetName_,
-        _ufdDeviceId = pDeviceId_
+      { identityPoolId = pIdentityPoolId_,
+        identityId = pIdentityId_,
+        datasetName = pDatasetName_,
+        deviceId = pDeviceId_
       }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
-ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
-ufdIdentityPoolId = lens _ufdIdentityPoolId (\s a -> s {_ufdIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdIdentityPoolId :: Lens.Lens' UnsubscribeFromDataset Lude.Text
+ufdIdentityPoolId = Lens.lens (identityPoolId :: UnsubscribeFromDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: UnsubscribeFromDataset)
+{-# DEPRECATED ufdIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | Unique ID for this identity.
-ufdIdentityId :: Lens' UnsubscribeFromDataset Text
-ufdIdentityId = lens _ufdIdentityId (\s a -> s {_ufdIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdIdentityId :: Lens.Lens' UnsubscribeFromDataset Lude.Text
+ufdIdentityId = Lens.lens (identityId :: UnsubscribeFromDataset -> Lude.Text) (\s a -> s {identityId = a} :: UnsubscribeFromDataset)
+{-# DEPRECATED ufdIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The name of the dataset from which to unsubcribe.
-ufdDatasetName :: Lens' UnsubscribeFromDataset Text
-ufdDatasetName = lens _ufdDatasetName (\s a -> s {_ufdDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdDatasetName :: Lens.Lens' UnsubscribeFromDataset Lude.Text
+ufdDatasetName = Lens.lens (datasetName :: UnsubscribeFromDataset -> Lude.Text) (\s a -> s {datasetName = a} :: UnsubscribeFromDataset)
+{-# DEPRECATED ufdDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 -- | The unique ID generated for this device by Cognito.
-ufdDeviceId :: Lens' UnsubscribeFromDataset Text
-ufdDeviceId = lens _ufdDeviceId (\s a -> s {_ufdDeviceId = a})
+--
+-- /Note:/ Consider using 'deviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdDeviceId :: Lens.Lens' UnsubscribeFromDataset Lude.Text
+ufdDeviceId = Lens.lens (deviceId :: UnsubscribeFromDataset -> Lude.Text) (\s a -> s {deviceId = a} :: UnsubscribeFromDataset)
+{-# DEPRECATED ufdDeviceId "Use generic-lens or generic-optics with 'deviceId' instead." #-}
 
-instance AWSRequest UnsubscribeFromDataset where
+instance Lude.AWSRequest UnsubscribeFromDataset where
   type Rs UnsubscribeFromDataset = UnsubscribeFromDatasetResponse
-  request = delete cognitoSync
+  request = Req.delete cognitoSyncService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UnsubscribeFromDatasetResponse' <$> (pure (fromEnum s))
+          UnsubscribeFromDatasetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UnsubscribeFromDataset
-
-instance NFData UnsubscribeFromDataset
-
-instance ToHeaders UnsubscribeFromDataset where
+instance Lude.ToHeaders UnsubscribeFromDataset where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath UnsubscribeFromDataset where
+instance Lude.ToPath UnsubscribeFromDataset where
   toPath UnsubscribeFromDataset' {..} =
-    mconcat
+    Lude.mconcat
       [ "/identitypools/",
-        toBS _ufdIdentityPoolId,
+        Lude.toBS identityPoolId,
         "/identities/",
-        toBS _ufdIdentityId,
+        Lude.toBS identityId,
         "/datasets/",
-        toBS _ufdDatasetName,
+        Lude.toBS datasetName,
         "/subscriptions/",
-        toBS _ufdDeviceId
+        Lude.toBS deviceId
       ]
 
-instance ToQuery UnsubscribeFromDataset where
-  toQuery = const mempty
+instance Lude.ToQuery UnsubscribeFromDataset where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response to an UnsubscribeFromDataset request.
 --
---
---
--- /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
+-- /See:/ 'mkUnsubscribeFromDatasetResponse' smart constructor.
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
-  { _ufdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsubscribeFromDatasetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufdrsResponseStatus' - -- | The response status code.
-unsubscribeFromDatasetResponse ::
-  -- | 'ufdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUnsubscribeFromDatasetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UnsubscribeFromDatasetResponse
-unsubscribeFromDatasetResponse pResponseStatus_ =
+mkUnsubscribeFromDatasetResponse pResponseStatus_ =
   UnsubscribeFromDatasetResponse'
-    { _ufdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ufdrsResponseStatus :: Lens' UnsubscribeFromDatasetResponse Int
-ufdrsResponseStatus = lens _ufdrsResponseStatus (\s a -> s {_ufdrsResponseStatus = a})
-
-instance NFData UnsubscribeFromDatasetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdrsResponseStatus :: Lens.Lens' UnsubscribeFromDatasetResponse Lude.Int
+ufdrsResponseStatus = Lens.lens (responseStatus :: UnsubscribeFromDatasetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UnsubscribeFromDatasetResponse)
+{-# DEPRECATED ufdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

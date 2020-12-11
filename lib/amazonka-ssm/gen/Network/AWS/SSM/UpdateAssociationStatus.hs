@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,167 @@
 --
 -- Updates the status of the Systems Manager document associated with the specified instance.
 module Network.AWS.SSM.UpdateAssociationStatus
-  ( -- * Creating a Request
-    updateAssociationStatus,
-    UpdateAssociationStatus,
+  ( -- * Creating a request
+    UpdateAssociationStatus (..),
+    mkUpdateAssociationStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uasName,
     uasInstanceId,
     uasAssociationStatus,
 
-    -- * Destructuring the Response
-    updateAssociationStatusResponse,
-    UpdateAssociationStatusResponse,
+    -- * Destructuring the response
+    UpdateAssociationStatusResponse (..),
+    mkUpdateAssociationStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uasrsAssociationDescription,
     uasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'updateAssociationStatus' smart constructor.
+-- | /See:/ 'mkUpdateAssociationStatus' smart constructor.
 data UpdateAssociationStatus = UpdateAssociationStatus'
-  { _uasName ::
-      !Text,
-    _uasInstanceId :: !Text,
-    _uasAssociationStatus :: !AssociationStatus
+  { name ::
+      Lude.Text,
+    instanceId :: Lude.Text,
+    associationStatus :: AssociationStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAssociationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uasName' - The name of the Systems Manager document.
---
--- * 'uasInstanceId' - The ID of the instance.
---
--- * 'uasAssociationStatus' - The association status.
-updateAssociationStatus ::
-  -- | 'uasName'
-  Text ->
-  -- | 'uasInstanceId'
-  Text ->
-  -- | 'uasAssociationStatus'
+-- * 'associationStatus' - The association status.
+-- * 'instanceId' - The ID of the instance.
+-- * 'name' - The name of the Systems Manager document.
+mkUpdateAssociationStatus ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'associationStatus'
   AssociationStatus ->
   UpdateAssociationStatus
-updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
+mkUpdateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
   UpdateAssociationStatus'
-    { _uasName = pName_,
-      _uasInstanceId = pInstanceId_,
-      _uasAssociationStatus = pAssociationStatus_
+    { name = pName_,
+      instanceId = pInstanceId_,
+      associationStatus = pAssociationStatus_
     }
 
 -- | The name of the Systems Manager document.
-uasName :: Lens' UpdateAssociationStatus Text
-uasName = lens _uasName (\s a -> s {_uasName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasName :: Lens.Lens' UpdateAssociationStatus Lude.Text
+uasName = Lens.lens (name :: UpdateAssociationStatus -> Lude.Text) (\s a -> s {name = a} :: UpdateAssociationStatus)
+{-# DEPRECATED uasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the instance.
-uasInstanceId :: Lens' UpdateAssociationStatus Text
-uasInstanceId = lens _uasInstanceId (\s a -> s {_uasInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasInstanceId :: Lens.Lens' UpdateAssociationStatus Lude.Text
+uasInstanceId = Lens.lens (instanceId :: UpdateAssociationStatus -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateAssociationStatus)
+{-# DEPRECATED uasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The association status.
-uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
-uasAssociationStatus = lens _uasAssociationStatus (\s a -> s {_uasAssociationStatus = a})
+--
+-- /Note:/ Consider using 'associationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasAssociationStatus :: Lens.Lens' UpdateAssociationStatus AssociationStatus
+uasAssociationStatus = Lens.lens (associationStatus :: UpdateAssociationStatus -> AssociationStatus) (\s a -> s {associationStatus = a} :: UpdateAssociationStatus)
+{-# DEPRECATED uasAssociationStatus "Use generic-lens or generic-optics with 'associationStatus' instead." #-}
 
-instance AWSRequest UpdateAssociationStatus where
+instance Lude.AWSRequest UpdateAssociationStatus where
   type Rs UpdateAssociationStatus = UpdateAssociationStatusResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAssociationStatusResponse'
-            <$> (x .?> "AssociationDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AssociationDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateAssociationStatus
-
-instance NFData UpdateAssociationStatus
-
-instance ToHeaders UpdateAssociationStatus where
+instance Lude.ToHeaders UpdateAssociationStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.UpdateAssociationStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.UpdateAssociationStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateAssociationStatus where
+instance Lude.ToJSON UpdateAssociationStatus where
   toJSON UpdateAssociationStatus' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _uasName),
-            Just ("InstanceId" .= _uasInstanceId),
-            Just ("AssociationStatus" .= _uasAssociationStatus)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("AssociationStatus" Lude..= associationStatus)
           ]
       )
 
-instance ToPath UpdateAssociationStatus where
-  toPath = const "/"
+instance Lude.ToPath UpdateAssociationStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateAssociationStatus where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAssociationStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAssociationStatusResponse' smart constructor.
+-- | /See:/ 'mkUpdateAssociationStatusResponse' smart constructor.
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
-  { _uasrsAssociationDescription ::
-      !( Maybe
-           AssociationDescription
-       ),
-    _uasrsResponseStatus ::
-      !Int
+  { associationDescription ::
+      Lude.Maybe
+        AssociationDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAssociationStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uasrsAssociationDescription' - Information about the association.
---
--- * 'uasrsResponseStatus' - -- | The response status code.
-updateAssociationStatusResponse ::
-  -- | 'uasrsResponseStatus'
-  Int ->
+-- * 'associationDescription' - Information about the association.
+-- * 'responseStatus' - The response status code.
+mkUpdateAssociationStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAssociationStatusResponse
-updateAssociationStatusResponse pResponseStatus_ =
+mkUpdateAssociationStatusResponse pResponseStatus_ =
   UpdateAssociationStatusResponse'
-    { _uasrsAssociationDescription =
-        Nothing,
-      _uasrsResponseStatus = pResponseStatus_
+    { associationDescription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
-uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
-uasrsAssociationDescription = lens _uasrsAssociationDescription (\s a -> s {_uasrsAssociationDescription = a})
+--
+-- /Note:/ Consider using 'associationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrsAssociationDescription :: Lens.Lens' UpdateAssociationStatusResponse (Lude.Maybe AssociationDescription)
+uasrsAssociationDescription = Lens.lens (associationDescription :: UpdateAssociationStatusResponse -> Lude.Maybe AssociationDescription) (\s a -> s {associationDescription = a} :: UpdateAssociationStatusResponse)
+{-# DEPRECATED uasrsAssociationDescription "Use generic-lens or generic-optics with 'associationDescription' instead." #-}
 
--- | -- | The response status code.
-uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
-uasrsResponseStatus = lens _uasrsResponseStatus (\s a -> s {_uasrsResponseStatus = a})
-
-instance NFData UpdateAssociationStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrsResponseStatus :: Lens.Lens' UpdateAssociationStatusResponse Lude.Int
+uasrsResponseStatus = Lens.lens (responseStatus :: UpdateAssociationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAssociationStatusResponse)
+{-# DEPRECATED uasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

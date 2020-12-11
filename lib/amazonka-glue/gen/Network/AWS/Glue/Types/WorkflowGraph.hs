@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.WorkflowGraph where
+module Network.AWS.Glue.Types.WorkflowGraph
+  ( WorkflowGraph (..),
+
+    -- * Smart constructor
+    mkWorkflowGraph,
+
+    -- * Lenses
+    wgEdges,
+    wgNodes,
+  )
+where
 
 import Network.AWS.Glue.Types.Edge
 import Network.AWS.Glue.Types.Node
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A workflow graph represents the complete workflow containing all the AWS Glue components present in the workflow and all the directed connections between them.
 --
---
---
--- /See:/ 'workflowGraph' smart constructor.
+-- /See:/ 'mkWorkflowGraph' smart constructor.
 data WorkflowGraph = WorkflowGraph'
-  { _wgEdges :: !(Maybe [Edge]),
-    _wgNodes :: !(Maybe [Node])
+  { edges :: Lude.Maybe [Edge],
+    nodes :: Lude.Maybe [Node]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowGraph' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wgEdges' - A list of all the directed connections between the nodes belonging to the workflow.
---
--- * 'wgNodes' - A list of the the AWS Glue components belong to the workflow represented as nodes.
-workflowGraph ::
+-- * 'edges' - A list of all the directed connections between the nodes belonging to the workflow.
+-- * 'nodes' - A list of the the AWS Glue components belong to the workflow represented as nodes.
+mkWorkflowGraph ::
   WorkflowGraph
-workflowGraph =
-  WorkflowGraph' {_wgEdges = Nothing, _wgNodes = Nothing}
+mkWorkflowGraph =
+  WorkflowGraph' {edges = Lude.Nothing, nodes = Lude.Nothing}
 
 -- | A list of all the directed connections between the nodes belonging to the workflow.
-wgEdges :: Lens' WorkflowGraph [Edge]
-wgEdges = lens _wgEdges (\s a -> s {_wgEdges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'edges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wgEdges :: Lens.Lens' WorkflowGraph (Lude.Maybe [Edge])
+wgEdges = Lens.lens (edges :: WorkflowGraph -> Lude.Maybe [Edge]) (\s a -> s {edges = a} :: WorkflowGraph)
+{-# DEPRECATED wgEdges "Use generic-lens or generic-optics with 'edges' instead." #-}
 
 -- | A list of the the AWS Glue components belong to the workflow represented as nodes.
-wgNodes :: Lens' WorkflowGraph [Node]
-wgNodes = lens _wgNodes (\s a -> s {_wgNodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wgNodes :: Lens.Lens' WorkflowGraph (Lude.Maybe [Node])
+wgNodes = Lens.lens (nodes :: WorkflowGraph -> Lude.Maybe [Node]) (\s a -> s {nodes = a} :: WorkflowGraph)
+{-# DEPRECATED wgNodes "Use generic-lens or generic-optics with 'nodes' instead." #-}
 
-instance FromJSON WorkflowGraph where
+instance Lude.FromJSON WorkflowGraph where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowGraph"
       ( \x ->
           WorkflowGraph'
-            <$> (x .:? "Edges" .!= mempty) <*> (x .:? "Nodes" .!= mempty)
+            Lude.<$> (x Lude..:? "Edges" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Nodes" Lude..!= Lude.mempty)
       )
-
-instance Hashable WorkflowGraph
-
-instance NFData WorkflowGraph

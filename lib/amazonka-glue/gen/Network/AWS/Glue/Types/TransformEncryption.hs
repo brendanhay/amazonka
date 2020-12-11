@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TransformEncryption where
+module Network.AWS.Glue.Types.TransformEncryption
+  ( TransformEncryption (..),
+
+    -- * Smart constructor
+    mkTransformEncryption,
+
+    -- * Lenses
+    teMlUserDataEncryption,
+    teTaskRunSecurityConfigurationName,
+  )
+where
 
 import Network.AWS.Glue.Types.MLUserDataEncryption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
 --
---
 -- Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.
 --
---
--- /See:/ 'transformEncryption' smart constructor.
+-- /See:/ 'mkTransformEncryption' smart constructor.
 data TransformEncryption = TransformEncryption'
-  { _teMlUserDataEncryption ::
-      !(Maybe MLUserDataEncryption),
-    _teTaskRunSecurityConfigurationName ::
-      !(Maybe Text)
+  { mlUserDataEncryption ::
+      Lude.Maybe MLUserDataEncryption,
+    taskRunSecurityConfigurationName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'teMlUserDataEncryption' - An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
---
--- * 'teTaskRunSecurityConfigurationName' - The name of the security configuration.
-transformEncryption ::
+-- * 'mlUserDataEncryption' - An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
+-- * 'taskRunSecurityConfigurationName' - The name of the security configuration.
+mkTransformEncryption ::
   TransformEncryption
-transformEncryption =
+mkTransformEncryption =
   TransformEncryption'
-    { _teMlUserDataEncryption = Nothing,
-      _teTaskRunSecurityConfigurationName = Nothing
+    { mlUserDataEncryption = Lude.Nothing,
+      taskRunSecurityConfigurationName = Lude.Nothing
     }
 
 -- | An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
-teMlUserDataEncryption :: Lens' TransformEncryption (Maybe MLUserDataEncryption)
-teMlUserDataEncryption = lens _teMlUserDataEncryption (\s a -> s {_teMlUserDataEncryption = a})
+--
+-- /Note:/ Consider using 'mlUserDataEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teMlUserDataEncryption :: Lens.Lens' TransformEncryption (Lude.Maybe MLUserDataEncryption)
+teMlUserDataEncryption = Lens.lens (mlUserDataEncryption :: TransformEncryption -> Lude.Maybe MLUserDataEncryption) (\s a -> s {mlUserDataEncryption = a} :: TransformEncryption)
+{-# DEPRECATED teMlUserDataEncryption "Use generic-lens or generic-optics with 'mlUserDataEncryption' instead." #-}
 
 -- | The name of the security configuration.
-teTaskRunSecurityConfigurationName :: Lens' TransformEncryption (Maybe Text)
-teTaskRunSecurityConfigurationName = lens _teTaskRunSecurityConfigurationName (\s a -> s {_teTaskRunSecurityConfigurationName = a})
+--
+-- /Note:/ Consider using 'taskRunSecurityConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teTaskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Lude.Maybe Lude.Text)
+teTaskRunSecurityConfigurationName = Lens.lens (taskRunSecurityConfigurationName :: TransformEncryption -> Lude.Maybe Lude.Text) (\s a -> s {taskRunSecurityConfigurationName = a} :: TransformEncryption)
+{-# DEPRECATED teTaskRunSecurityConfigurationName "Use generic-lens or generic-optics with 'taskRunSecurityConfigurationName' instead." #-}
 
-instance FromJSON TransformEncryption where
+instance Lude.FromJSON TransformEncryption where
   parseJSON =
-    withObject
+    Lude.withObject
       "TransformEncryption"
       ( \x ->
           TransformEncryption'
-            <$> (x .:? "MlUserDataEncryption")
-            <*> (x .:? "TaskRunSecurityConfigurationName")
+            Lude.<$> (x Lude..:? "MlUserDataEncryption")
+            Lude.<*> (x Lude..:? "TaskRunSecurityConfigurationName")
       )
 
-instance Hashable TransformEncryption
-
-instance NFData TransformEncryption
-
-instance ToJSON TransformEncryption where
+instance Lude.ToJSON TransformEncryption where
   toJSON TransformEncryption' {..} =
-    object
-      ( catMaybes
-          [ ("MlUserDataEncryption" .=) <$> _teMlUserDataEncryption,
-            ("TaskRunSecurityConfigurationName" .=)
-              <$> _teTaskRunSecurityConfigurationName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MlUserDataEncryption" Lude..=) Lude.<$> mlUserDataEncryption,
+            ("TaskRunSecurityConfigurationName" Lude..=)
+              Lude.<$> taskRunSecurityConfigurationName
           ]
       )

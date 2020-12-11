@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Lists completed exports within the past 90 days.
 module Network.AWS.DynamoDB.ListExports
-  ( -- * Creating a Request
-    listExports,
-    ListExports,
+  ( -- * Creating a request
+    ListExports (..),
+    mkListExports,
 
-    -- * Request Lenses
+    -- ** Request lenses
     leTableARN,
     leNextToken,
     leMaxResults,
 
-    -- * Destructuring the Response
-    listExportsResponse,
-    ListExportsResponse,
+    -- * Destructuring the response
+    ListExportsResponse (..),
+    mkListExportsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lersExportSummaries,
     lersNextToken,
     lersResponseStatus,
@@ -40,129 +35,149 @@ module Network.AWS.DynamoDB.ListExports
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listExports' smart constructor.
+-- | /See:/ 'mkListExports' smart constructor.
 data ListExports = ListExports'
-  { _leTableARN :: !(Maybe Text),
-    _leNextToken :: !(Maybe Text),
-    _leMaxResults :: !(Maybe Nat)
+  { tableARN :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExports' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leTableARN' - The Amazon Resource Name (ARN) associated with the exported table.
---
--- * 'leNextToken' - An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
---
--- * 'leMaxResults' - Maximum number of results to return per page.
-listExports ::
+-- * 'maxResults' - Maximum number of results to return per page.
+-- * 'nextToken' - An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
+-- * 'tableARN' - The Amazon Resource Name (ARN) associated with the exported table.
+mkListExports ::
   ListExports
-listExports =
+mkListExports =
   ListExports'
-    { _leTableARN = Nothing,
-      _leNextToken = Nothing,
-      _leMaxResults = Nothing
+    { tableARN = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) associated with the exported table.
-leTableARN :: Lens' ListExports (Maybe Text)
-leTableARN = lens _leTableARN (\s a -> s {_leTableARN = a})
+--
+-- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leTableARN :: Lens.Lens' ListExports (Lude.Maybe Lude.Text)
+leTableARN = Lens.lens (tableARN :: ListExports -> Lude.Maybe Lude.Text) (\s a -> s {tableARN = a} :: ListExports)
+{-# DEPRECATED leTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
 
 -- | An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
-leNextToken :: Lens' ListExports (Maybe Text)
-leNextToken = lens _leNextToken (\s a -> s {_leNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leNextToken :: Lens.Lens' ListExports (Lude.Maybe Lude.Text)
+leNextToken = Lens.lens (nextToken :: ListExports -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExports)
+{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per page.
-leMaxResults :: Lens' ListExports (Maybe Natural)
-leMaxResults = lens _leMaxResults (\s a -> s {_leMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMaxResults :: Lens.Lens' ListExports (Lude.Maybe Lude.Natural)
+leMaxResults = Lens.lens (maxResults :: ListExports -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListExports)
+{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListExports where
+instance Lude.AWSRequest ListExports where
   type Rs ListExports = ListExportsResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListExportsResponse'
-            <$> (x .?> "ExportSummaries" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ExportSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListExports
-
-instance NFData ListExports
-
-instance ToHeaders ListExports where
+instance Lude.ToHeaders ListExports where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DynamoDB_20120810.ListExports" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DynamoDB_20120810.ListExports" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListExports where
+instance Lude.ToJSON ListExports where
   toJSON ListExports' {..} =
-    object
-      ( catMaybes
-          [ ("TableArn" .=) <$> _leTableARN,
-            ("NextToken" .=) <$> _leNextToken,
-            ("MaxResults" .=) <$> _leMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TableArn" Lude..=) Lude.<$> tableARN,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListExports where
-  toPath = const "/"
+instance Lude.ToPath ListExports where
+  toPath = Lude.const "/"
 
-instance ToQuery ListExports where
-  toQuery = const mempty
+instance Lude.ToQuery ListExports where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listExportsResponse' smart constructor.
+-- | /See:/ 'mkListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { _lersExportSummaries ::
-      !(Maybe [ExportSummary]),
-    _lersNextToken :: !(Maybe Text),
-    _lersResponseStatus :: !Int
+  { exportSummaries ::
+      Lude.Maybe [ExportSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExportsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lersExportSummaries' - A list of @ExportSummary@ objects.
---
--- * 'lersNextToken' - If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
---
--- * 'lersResponseStatus' - -- | The response status code.
-listExportsResponse ::
-  -- | 'lersResponseStatus'
-  Int ->
+-- * 'exportSummaries' - A list of @ExportSummary@ objects.
+-- * 'nextToken' - If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
+-- * 'responseStatus' - The response status code.
+mkListExportsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListExportsResponse
-listExportsResponse pResponseStatus_ =
+mkListExportsResponse pResponseStatus_ =
   ListExportsResponse'
-    { _lersExportSummaries = Nothing,
-      _lersNextToken = Nothing,
-      _lersResponseStatus = pResponseStatus_
+    { exportSummaries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @ExportSummary@ objects.
-lersExportSummaries :: Lens' ListExportsResponse [ExportSummary]
-lersExportSummaries = lens _lersExportSummaries (\s a -> s {_lersExportSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exportSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersExportSummaries :: Lens.Lens' ListExportsResponse (Lude.Maybe [ExportSummary])
+lersExportSummaries = Lens.lens (exportSummaries :: ListExportsResponse -> Lude.Maybe [ExportSummary]) (\s a -> s {exportSummaries = a} :: ListExportsResponse)
+{-# DEPRECATED lersExportSummaries "Use generic-lens or generic-optics with 'exportSummaries' instead." #-}
 
 -- | If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
-lersNextToken :: Lens' ListExportsResponse (Maybe Text)
-lersNextToken = lens _lersNextToken (\s a -> s {_lersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersNextToken :: Lens.Lens' ListExportsResponse (Lude.Maybe Lude.Text)
+lersNextToken = Lens.lens (nextToken :: ListExportsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExportsResponse)
+{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lersResponseStatus :: Lens' ListExportsResponse Int
-lersResponseStatus = lens _lersResponseStatus (\s a -> s {_lersResponseStatus = a})
-
-instance NFData ListExportsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersResponseStatus :: Lens.Lens' ListExportsResponse Lude.Int
+lersResponseStatus = Lens.lens (responseStatus :: ListExportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListExportsResponse)
+{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

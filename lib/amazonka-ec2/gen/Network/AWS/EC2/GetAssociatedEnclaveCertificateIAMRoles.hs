@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,151 @@
 --
 -- Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master key (CMK) that's used to encrypt the private key.
 module Network.AWS.EC2.GetAssociatedEnclaveCertificateIAMRoles
-  ( -- * Creating a Request
-    getAssociatedEnclaveCertificateIAMRoles,
-    GetAssociatedEnclaveCertificateIAMRoles,
+  ( -- * Creating a request
+    GetAssociatedEnclaveCertificateIAMRoles (..),
+    mkGetAssociatedEnclaveCertificateIAMRoles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaecirCertificateARN,
     gaecirDryRun,
 
-    -- * Destructuring the Response
-    getAssociatedEnclaveCertificateIAMRolesResponse,
-    GetAssociatedEnclaveCertificateIAMRolesResponse,
+    -- * Destructuring the response
+    GetAssociatedEnclaveCertificateIAMRolesResponse (..),
+    mkGetAssociatedEnclaveCertificateIAMRolesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gaecirrsAssociatedRoles,
     gaecirrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAssociatedEnclaveCertificateIAMRoles' smart constructor.
+-- | /See:/ 'mkGetAssociatedEnclaveCertificateIAMRoles' smart constructor.
 data GetAssociatedEnclaveCertificateIAMRoles = GetAssociatedEnclaveCertificateIAMRoles'
-  { _gaecirCertificateARN ::
-      !( Maybe
-           Text
-       ),
-    _gaecirDryRun ::
-      !( Maybe
-           Bool
-       )
+  { certificateARN ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedEnclaveCertificateIAMRoles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaecirCertificateARN' - The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.
---
--- * 'gaecirDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-getAssociatedEnclaveCertificateIAMRoles ::
+-- * 'certificateARN' - The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+mkGetAssociatedEnclaveCertificateIAMRoles ::
   GetAssociatedEnclaveCertificateIAMRoles
-getAssociatedEnclaveCertificateIAMRoles =
+mkGetAssociatedEnclaveCertificateIAMRoles =
   GetAssociatedEnclaveCertificateIAMRoles'
-    { _gaecirCertificateARN =
-        Nothing,
-      _gaecirDryRun = Nothing
+    { certificateARN =
+        Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.
-gaecirCertificateARN :: Lens' GetAssociatedEnclaveCertificateIAMRoles (Maybe Text)
-gaecirCertificateARN = lens _gaecirCertificateARN (\s a -> s {_gaecirCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaecirCertificateARN :: Lens.Lens' GetAssociatedEnclaveCertificateIAMRoles (Lude.Maybe Lude.Text)
+gaecirCertificateARN = Lens.lens (certificateARN :: GetAssociatedEnclaveCertificateIAMRoles -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: GetAssociatedEnclaveCertificateIAMRoles)
+{-# DEPRECATED gaecirCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-gaecirDryRun :: Lens' GetAssociatedEnclaveCertificateIAMRoles (Maybe Bool)
-gaecirDryRun = lens _gaecirDryRun (\s a -> s {_gaecirDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaecirDryRun :: Lens.Lens' GetAssociatedEnclaveCertificateIAMRoles (Lude.Maybe Lude.Bool)
+gaecirDryRun = Lens.lens (dryRun :: GetAssociatedEnclaveCertificateIAMRoles -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetAssociatedEnclaveCertificateIAMRoles)
+{-# DEPRECATED gaecirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest GetAssociatedEnclaveCertificateIAMRoles where
+instance Lude.AWSRequest GetAssociatedEnclaveCertificateIAMRoles where
   type
     Rs GetAssociatedEnclaveCertificateIAMRoles =
       GetAssociatedEnclaveCertificateIAMRolesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetAssociatedEnclaveCertificateIAMRolesResponse'
-            <$> ( x .@? "associatedRoleSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "associatedRoleSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAssociatedEnclaveCertificateIAMRoles
+instance Lude.ToHeaders GetAssociatedEnclaveCertificateIAMRoles where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAssociatedEnclaveCertificateIAMRoles
+instance Lude.ToPath GetAssociatedEnclaveCertificateIAMRoles where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetAssociatedEnclaveCertificateIAMRoles where
-  toHeaders = const mempty
-
-instance ToPath GetAssociatedEnclaveCertificateIAMRoles where
-  toPath = const "/"
-
-instance ToQuery GetAssociatedEnclaveCertificateIAMRoles where
+instance Lude.ToQuery GetAssociatedEnclaveCertificateIAMRoles where
   toQuery GetAssociatedEnclaveCertificateIAMRoles' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("GetAssociatedEnclaveCertificateIamRoles" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "CertificateArn" =: _gaecirCertificateARN,
-        "DryRun" =: _gaecirDryRun
+          Lude.=: ("GetAssociatedEnclaveCertificateIamRoles" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "CertificateArn" Lude.=: certificateARN,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'getAssociatedEnclaveCertificateIAMRolesResponse' smart constructor.
+-- | /See:/ 'mkGetAssociatedEnclaveCertificateIAMRolesResponse' smart constructor.
 data GetAssociatedEnclaveCertificateIAMRolesResponse = GetAssociatedEnclaveCertificateIAMRolesResponse'
-  { _gaecirrsAssociatedRoles ::
-      !( Maybe
-           [AssociatedRole]
-       ),
-    _gaecirrsResponseStatus ::
-      !Int
+  { associatedRoles ::
+      Lude.Maybe
+        [AssociatedRole],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetAssociatedEnclaveCertificateIAMRolesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaecirrsAssociatedRoles' - Information about the associated IAM roles.
---
--- * 'gaecirrsResponseStatus' - -- | The response status code.
-getAssociatedEnclaveCertificateIAMRolesResponse ::
-  -- | 'gaecirrsResponseStatus'
-  Int ->
+-- * 'associatedRoles' - Information about the associated IAM roles.
+-- * 'responseStatus' - The response status code.
+mkGetAssociatedEnclaveCertificateIAMRolesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAssociatedEnclaveCertificateIAMRolesResponse
-getAssociatedEnclaveCertificateIAMRolesResponse pResponseStatus_ =
+mkGetAssociatedEnclaveCertificateIAMRolesResponse pResponseStatus_ =
   GetAssociatedEnclaveCertificateIAMRolesResponse'
-    { _gaecirrsAssociatedRoles =
-        Nothing,
-      _gaecirrsResponseStatus = pResponseStatus_
+    { associatedRoles =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the associated IAM roles.
-gaecirrsAssociatedRoles :: Lens' GetAssociatedEnclaveCertificateIAMRolesResponse [AssociatedRole]
-gaecirrsAssociatedRoles = lens _gaecirrsAssociatedRoles (\s a -> s {_gaecirrsAssociatedRoles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'associatedRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaecirrsAssociatedRoles :: Lens.Lens' GetAssociatedEnclaveCertificateIAMRolesResponse (Lude.Maybe [AssociatedRole])
+gaecirrsAssociatedRoles = Lens.lens (associatedRoles :: GetAssociatedEnclaveCertificateIAMRolesResponse -> Lude.Maybe [AssociatedRole]) (\s a -> s {associatedRoles = a} :: GetAssociatedEnclaveCertificateIAMRolesResponse)
+{-# DEPRECATED gaecirrsAssociatedRoles "Use generic-lens or generic-optics with 'associatedRoles' instead." #-}
 
--- | -- | The response status code.
-gaecirrsResponseStatus :: Lens' GetAssociatedEnclaveCertificateIAMRolesResponse Int
-gaecirrsResponseStatus = lens _gaecirrsResponseStatus (\s a -> s {_gaecirrsResponseStatus = a})
-
-instance NFData GetAssociatedEnclaveCertificateIAMRolesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaecirrsResponseStatus :: Lens.Lens' GetAssociatedEnclaveCertificateIAMRolesResponse Lude.Int
+gaecirrsResponseStatus = Lens.lens (responseStatus :: GetAssociatedEnclaveCertificateIAMRolesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAssociatedEnclaveCertificateIAMRolesResponse)
+{-# DEPRECATED gaecirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

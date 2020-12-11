@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.OptionSpecification where
+module Network.AWS.ElasticBeanstalk.Types.OptionSpecification
+  ( OptionSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOptionSpecification,
+
+    -- * Lenses
+    osOptionName,
+    osResourceName,
+    osNamespace,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A specification identifying an individual configuration option.
 --
---
---
--- /See:/ 'optionSpecification' smart constructor.
+-- /See:/ 'mkOptionSpecification' smart constructor.
 data OptionSpecification = OptionSpecification'
-  { _osOptionName ::
-      !(Maybe Text),
-    _osResourceName :: !(Maybe Text),
-    _osNamespace :: !(Maybe Text)
+  { optionName ::
+      Lude.Maybe Lude.Text,
+    resourceName :: Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osOptionName' - The name of the configuration option.
---
--- * 'osResourceName' - A unique resource name for a time-based scaling configuration option.
---
--- * 'osNamespace' - A unique namespace identifying the option's associated AWS resource.
-optionSpecification ::
+-- * 'namespace' - A unique namespace identifying the option's associated AWS resource.
+-- * 'optionName' - The name of the configuration option.
+-- * 'resourceName' - A unique resource name for a time-based scaling configuration option.
+mkOptionSpecification ::
   OptionSpecification
-optionSpecification =
+mkOptionSpecification =
   OptionSpecification'
-    { _osOptionName = Nothing,
-      _osResourceName = Nothing,
-      _osNamespace = Nothing
+    { optionName = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      namespace = Lude.Nothing
     }
 
 -- | The name of the configuration option.
-osOptionName :: Lens' OptionSpecification (Maybe Text)
-osOptionName = lens _osOptionName (\s a -> s {_osOptionName = a})
+--
+-- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osOptionName :: Lens.Lens' OptionSpecification (Lude.Maybe Lude.Text)
+osOptionName = Lens.lens (optionName :: OptionSpecification -> Lude.Maybe Lude.Text) (\s a -> s {optionName = a} :: OptionSpecification)
+{-# DEPRECATED osOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
 
 -- | A unique resource name for a time-based scaling configuration option.
-osResourceName :: Lens' OptionSpecification (Maybe Text)
-osResourceName = lens _osResourceName (\s a -> s {_osResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osResourceName :: Lens.Lens' OptionSpecification (Lude.Maybe Lude.Text)
+osResourceName = Lens.lens (resourceName :: OptionSpecification -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: OptionSpecification)
+{-# DEPRECATED osResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | A unique namespace identifying the option's associated AWS resource.
-osNamespace :: Lens' OptionSpecification (Maybe Text)
-osNamespace = lens _osNamespace (\s a -> s {_osNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osNamespace :: Lens.Lens' OptionSpecification (Lude.Maybe Lude.Text)
+osNamespace = Lens.lens (namespace :: OptionSpecification -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: OptionSpecification)
+{-# DEPRECATED osNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
-instance Hashable OptionSpecification
-
-instance NFData OptionSpecification
-
-instance ToQuery OptionSpecification where
+instance Lude.ToQuery OptionSpecification where
   toQuery OptionSpecification' {..} =
-    mconcat
-      [ "OptionName" =: _osOptionName,
-        "ResourceName" =: _osResourceName,
-        "Namespace" =: _osNamespace
+    Lude.mconcat
+      [ "OptionName" Lude.=: optionName,
+        "ResourceName" Lude.=: resourceName,
+        "Namespace" Lude.=: namespace
       ]

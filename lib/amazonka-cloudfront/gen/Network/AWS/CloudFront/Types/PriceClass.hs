@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.PriceClass where
+module Network.AWS.CloudFront.Types.PriceClass
+  ( PriceClass
+      ( PriceClass',
+        PriceClass100,
+        PriceClass200,
+        PriceClassAll
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PriceClass
-  = PriceClass100
-  | PriceClass200
-  | PriceClassAll
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PriceClass = PriceClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PriceClass where
-  parser =
-    takeLowerText >>= \case
-      "priceclass_100" -> pure PriceClass100
-      "priceclass_200" -> pure PriceClass200
-      "priceclass_all" -> pure PriceClassAll
-      e ->
-        fromTextError $
-          "Failure parsing PriceClass from value: '" <> e
-            <> "'. Accepted values: priceclass_100, priceclass_200, priceclass_all"
+pattern PriceClass100 :: PriceClass
+pattern PriceClass100 = PriceClass' "PriceClass_100"
 
-instance ToText PriceClass where
-  toText = \case
-    PriceClass100 -> "PriceClass_100"
-    PriceClass200 -> "PriceClass_200"
-    PriceClassAll -> "PriceClass_All"
+pattern PriceClass200 :: PriceClass
+pattern PriceClass200 = PriceClass' "PriceClass_200"
 
-instance Hashable PriceClass
+pattern PriceClassAll :: PriceClass
+pattern PriceClassAll = PriceClass' "PriceClass_All"
 
-instance NFData PriceClass
-
-instance ToByteString PriceClass
-
-instance ToQuery PriceClass
-
-instance ToHeader PriceClass
-
-instance FromXML PriceClass where
-  parseXML = parseXMLText "PriceClass"
-
-instance ToXML PriceClass where
-  toXML = toXMLText
+{-# COMPLETE
+  PriceClass100,
+  PriceClass200,
+  PriceClassAll,
+  PriceClass'
+  #-}

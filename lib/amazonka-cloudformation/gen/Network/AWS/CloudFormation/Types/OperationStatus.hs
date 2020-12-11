@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.OperationStatus where
+module Network.AWS.CloudFormation.Types.OperationStatus
+  ( OperationStatus
+      ( OperationStatus',
+        OSFailed,
+        OSInProgress,
+        OSPending,
+        OSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationStatus
-  = OSFailed
-  | OSInProgress
-  | OSPending
-  | OSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationStatus = OperationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure OSFailed
-      "in_progress" -> pure OSInProgress
-      "pending" -> pure OSPending
-      "success" -> pure OSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing OperationStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, pending, success"
+pattern OSFailed :: OperationStatus
+pattern OSFailed = OperationStatus' "FAILED"
 
-instance ToText OperationStatus where
-  toText = \case
-    OSFailed -> "FAILED"
-    OSInProgress -> "IN_PROGRESS"
-    OSPending -> "PENDING"
-    OSSuccess -> "SUCCESS"
+pattern OSInProgress :: OperationStatus
+pattern OSInProgress = OperationStatus' "IN_PROGRESS"
 
-instance Hashable OperationStatus
+pattern OSPending :: OperationStatus
+pattern OSPending = OperationStatus' "PENDING"
 
-instance NFData OperationStatus
+pattern OSSuccess :: OperationStatus
+pattern OSSuccess = OperationStatus' "SUCCESS"
 
-instance ToByteString OperationStatus
-
-instance ToQuery OperationStatus
-
-instance ToHeader OperationStatus
+{-# COMPLETE
+  OSFailed,
+  OSInProgress,
+  OSPending,
+  OSSuccess,
+  OperationStatus'
+  #-}

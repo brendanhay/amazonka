@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ExportLabelsTaskRunProperties where
+module Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
+  ( ExportLabelsTaskRunProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExportLabelsTaskRunProperties,
+
+    -- * Lenses
+    eltrpOutputS3Path,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies configuration properties for an exporting labels task run.
 --
---
---
--- /See:/ 'exportLabelsTaskRunProperties' smart constructor.
+-- /See:/ 'mkExportLabelsTaskRunProperties' smart constructor.
 newtype ExportLabelsTaskRunProperties = ExportLabelsTaskRunProperties'
-  { _eltrpOutputS3Path ::
-      Maybe Text
+  { outputS3Path ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportLabelsTaskRunProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eltrpOutputS3Path' - The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.
-exportLabelsTaskRunProperties ::
+-- * 'outputS3Path' - The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.
+mkExportLabelsTaskRunProperties ::
   ExportLabelsTaskRunProperties
-exportLabelsTaskRunProperties =
-  ExportLabelsTaskRunProperties' {_eltrpOutputS3Path = Nothing}
+mkExportLabelsTaskRunProperties =
+  ExportLabelsTaskRunProperties' {outputS3Path = Lude.Nothing}
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.
-eltrpOutputS3Path :: Lens' ExportLabelsTaskRunProperties (Maybe Text)
-eltrpOutputS3Path = lens _eltrpOutputS3Path (\s a -> s {_eltrpOutputS3Path = a})
+--
+-- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eltrpOutputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Lude.Maybe Lude.Text)
+eltrpOutputS3Path = Lens.lens (outputS3Path :: ExportLabelsTaskRunProperties -> Lude.Maybe Lude.Text) (\s a -> s {outputS3Path = a} :: ExportLabelsTaskRunProperties)
+{-# DEPRECATED eltrpOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
 
-instance FromJSON ExportLabelsTaskRunProperties where
+instance Lude.FromJSON ExportLabelsTaskRunProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportLabelsTaskRunProperties"
-      (\x -> ExportLabelsTaskRunProperties' <$> (x .:? "OutputS3Path"))
-
-instance Hashable ExportLabelsTaskRunProperties
-
-instance NFData ExportLabelsTaskRunProperties
+      ( \x ->
+          ExportLabelsTaskRunProperties'
+            Lude.<$> (x Lude..:? "OutputS3Path")
+      )

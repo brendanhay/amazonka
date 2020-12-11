@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,107 @@
 --
 -- Adds the specified user to the specified group.
 module Network.AWS.IAM.AddUserToGroup
-  ( -- * Creating a Request
-    addUserToGroup,
-    AddUserToGroup,
+  ( -- * Creating a request
+    AddUserToGroup (..),
+    mkAddUserToGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     autgGroupName,
     autgUserName,
 
-    -- * Destructuring the Response
-    addUserToGroupResponse,
-    AddUserToGroupResponse,
+    -- * Destructuring the response
+    AddUserToGroupResponse (..),
+    mkAddUserToGroupResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addUserToGroup' smart constructor.
+-- | /See:/ 'mkAddUserToGroup' smart constructor.
 data AddUserToGroup = AddUserToGroup'
-  { _autgGroupName :: !Text,
-    _autgUserName :: !Text
+  { groupName :: Lude.Text,
+    userName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddUserToGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The name of the group to update.
 --
--- * 'autgGroupName' - The name of the group to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'userName' - The name of the user to add.
 --
--- * 'autgUserName' - The name of the user to add. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-addUserToGroup ::
-  -- | 'autgGroupName'
-  Text ->
-  -- | 'autgUserName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkAddUserToGroup ::
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'userName'
+  Lude.Text ->
   AddUserToGroup
-addUserToGroup pGroupName_ pUserName_ =
-  AddUserToGroup'
-    { _autgGroupName = pGroupName_,
-      _autgUserName = pUserName_
-    }
+mkAddUserToGroup pGroupName_ pUserName_ =
+  AddUserToGroup' {groupName = pGroupName_, userName = pUserName_}
 
--- | The name of the group to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-autgGroupName :: Lens' AddUserToGroup Text
-autgGroupName = lens _autgGroupName (\s a -> s {_autgGroupName = a})
+-- | The name of the group to update.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+autgGroupName :: Lens.Lens' AddUserToGroup Lude.Text
+autgGroupName = Lens.lens (groupName :: AddUserToGroup -> Lude.Text) (\s a -> s {groupName = a} :: AddUserToGroup)
+{-# DEPRECATED autgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | The name of the user to add. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-autgUserName :: Lens' AddUserToGroup Text
-autgUserName = lens _autgUserName (\s a -> s {_autgUserName = a})
+-- | The name of the user to add.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+autgUserName :: Lens.Lens' AddUserToGroup Lude.Text
+autgUserName = Lens.lens (userName :: AddUserToGroup -> Lude.Text) (\s a -> s {userName = a} :: AddUserToGroup)
+{-# DEPRECATED autgUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance AWSRequest AddUserToGroup where
+instance Lude.AWSRequest AddUserToGroup where
   type Rs AddUserToGroup = AddUserToGroupResponse
-  request = postQuery iam
-  response = receiveNull AddUserToGroupResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull AddUserToGroupResponse'
 
-instance Hashable AddUserToGroup
+instance Lude.ToHeaders AddUserToGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddUserToGroup
+instance Lude.ToPath AddUserToGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddUserToGroup where
-  toHeaders = const mempty
-
-instance ToPath AddUserToGroup where
-  toPath = const "/"
-
-instance ToQuery AddUserToGroup where
+instance Lude.ToQuery AddUserToGroup where
   toQuery AddUserToGroup' {..} =
-    mconcat
-      [ "Action" =: ("AddUserToGroup" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "GroupName" =: _autgGroupName,
-        "UserName" =: _autgUserName
+    Lude.mconcat
+      [ "Action" Lude.=: ("AddUserToGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "GroupName" Lude.=: groupName,
+        "UserName" Lude.=: userName
       ]
 
--- | /See:/ 'addUserToGroupResponse' smart constructor.
+-- | /See:/ 'mkAddUserToGroupResponse' smart constructor.
 data AddUserToGroupResponse = AddUserToGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddUserToGroupResponse' with the minimum fields required to make a request.
-addUserToGroupResponse ::
+mkAddUserToGroupResponse ::
   AddUserToGroupResponse
-addUserToGroupResponse = AddUserToGroupResponse'
-
-instance NFData AddUserToGroupResponse
+mkAddUserToGroupResponse = AddUserToGroupResponse'

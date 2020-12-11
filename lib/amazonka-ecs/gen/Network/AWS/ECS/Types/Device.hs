@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Device where
+module Network.AWS.ECS.Types.Device
+  ( Device (..),
+
+    -- * Smart constructor
+    mkDevice,
+
+    -- * Lenses
+    dContainerPath,
+    dPermissions,
+    dHostPath,
+  )
+where
 
 import Network.AWS.ECS.Types.DeviceCgroupPermission
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing a container instance host device.
 --
---
---
--- /See:/ 'device' smart constructor.
+-- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { _dContainerPath :: !(Maybe Text),
-    _dPermissions :: !(Maybe [DeviceCgroupPermission]),
-    _dHostPath :: !Text
+  { containerPath :: Lude.Maybe Lude.Text,
+    permissions :: Lude.Maybe [DeviceCgroupPermission],
+    hostPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dContainerPath' - The path inside the container at which to expose the host device.
---
--- * 'dPermissions' - The explicit permissions to provide to the container for the device. By default, the container has permissions for @read@ , @write@ , and @mknod@ for the device.
---
--- * 'dHostPath' - The path for the device on the host container instance.
-device ::
-  -- | 'dHostPath'
-  Text ->
+-- * 'containerPath' - The path inside the container at which to expose the host device.
+-- * 'hostPath' - The path for the device on the host container instance.
+-- * 'permissions' - The explicit permissions to provide to the container for the device. By default, the container has permissions for @read@ , @write@ , and @mknod@ for the device.
+mkDevice ::
+  -- | 'hostPath'
+  Lude.Text ->
   Device
-device pHostPath_ =
+mkDevice pHostPath_ =
   Device'
-    { _dContainerPath = Nothing,
-      _dPermissions = Nothing,
-      _dHostPath = pHostPath_
+    { containerPath = Lude.Nothing,
+      permissions = Lude.Nothing,
+      hostPath = pHostPath_
     }
 
 -- | The path inside the container at which to expose the host device.
-dContainerPath :: Lens' Device (Maybe Text)
-dContainerPath = lens _dContainerPath (\s a -> s {_dContainerPath = a})
+--
+-- /Note:/ Consider using 'containerPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dContainerPath :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dContainerPath = Lens.lens (containerPath :: Device -> Lude.Maybe Lude.Text) (\s a -> s {containerPath = a} :: Device)
+{-# DEPRECATED dContainerPath "Use generic-lens or generic-optics with 'containerPath' instead." #-}
 
 -- | The explicit permissions to provide to the container for the device. By default, the container has permissions for @read@ , @write@ , and @mknod@ for the device.
-dPermissions :: Lens' Device [DeviceCgroupPermission]
-dPermissions = lens _dPermissions (\s a -> s {_dPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPermissions :: Lens.Lens' Device (Lude.Maybe [DeviceCgroupPermission])
+dPermissions = Lens.lens (permissions :: Device -> Lude.Maybe [DeviceCgroupPermission]) (\s a -> s {permissions = a} :: Device)
+{-# DEPRECATED dPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
 -- | The path for the device on the host container instance.
-dHostPath :: Lens' Device Text
-dHostPath = lens _dHostPath (\s a -> s {_dHostPath = a})
+--
+-- /Note:/ Consider using 'hostPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dHostPath :: Lens.Lens' Device Lude.Text
+dHostPath = Lens.lens (hostPath :: Device -> Lude.Text) (\s a -> s {hostPath = a} :: Device)
+{-# DEPRECATED dHostPath "Use generic-lens or generic-optics with 'hostPath' instead." #-}
 
-instance FromJSON Device where
+instance Lude.FromJSON Device where
   parseJSON =
-    withObject
+    Lude.withObject
       "Device"
       ( \x ->
           Device'
-            <$> (x .:? "containerPath")
-            <*> (x .:? "permissions" .!= mempty)
-            <*> (x .: "hostPath")
+            Lude.<$> (x Lude..:? "containerPath")
+            Lude.<*> (x Lude..:? "permissions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "hostPath")
       )
 
-instance Hashable Device
-
-instance NFData Device
-
-instance ToJSON Device where
+instance Lude.ToJSON Device where
   toJSON Device' {..} =
-    object
-      ( catMaybes
-          [ ("containerPath" .=) <$> _dContainerPath,
-            ("permissions" .=) <$> _dPermissions,
-            Just ("hostPath" .= _dHostPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("containerPath" Lude..=) Lude.<$> containerPath,
+            ("permissions" Lude..=) Lude.<$> permissions,
+            Lude.Just ("hostPath" Lude..= hostPath)
           ]
       )

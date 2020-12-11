@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.WafRuleType where
+module Network.AWS.WAF.Types.WafRuleType
+  ( WafRuleType
+      ( WafRuleType',
+        Group,
+        RateBased,
+        Regular
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WafRuleType
-  = Group
-  | RateBased
-  | Regular
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WafRuleType = WafRuleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WafRuleType where
-  parser =
-    takeLowerText >>= \case
-      "group" -> pure Group
-      "rate_based" -> pure RateBased
-      "regular" -> pure Regular
-      e ->
-        fromTextError $
-          "Failure parsing WafRuleType from value: '" <> e
-            <> "'. Accepted values: group, rate_based, regular"
+pattern Group :: WafRuleType
+pattern Group = WafRuleType' "GROUP"
 
-instance ToText WafRuleType where
-  toText = \case
-    Group -> "GROUP"
-    RateBased -> "RATE_BASED"
-    Regular -> "REGULAR"
+pattern RateBased :: WafRuleType
+pattern RateBased = WafRuleType' "RATE_BASED"
 
-instance Hashable WafRuleType
+pattern Regular :: WafRuleType
+pattern Regular = WafRuleType' "REGULAR"
 
-instance NFData WafRuleType
-
-instance ToByteString WafRuleType
-
-instance ToQuery WafRuleType
-
-instance ToHeader WafRuleType
-
-instance ToJSON WafRuleType where
-  toJSON = toJSONText
-
-instance FromJSON WafRuleType where
-  parseJSON = parseJSONText "WafRuleType"
+{-# COMPLETE
+  Group,
+  RateBased,
+  Regular,
+  WafRuleType'
+  #-}

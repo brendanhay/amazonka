@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification where
+module Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
+  ( PredefinedLoadMetricSpecification (..),
+
+    -- * Smart constructor
+    mkPredefinedLoadMetricSpecification,
+
+    -- * Lenses
+    plmsResourceLabel,
+    plmsPredefinedLoadMetricType,
+  )
+where
 
 import Network.AWS.AutoScalingPlans.Types.LoadMetricType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a predefined metric that can be used for predictive scaling.
 --
---
---
--- /See:/ 'predefinedLoadMetricSpecification' smart constructor.
+-- /See:/ 'mkPredefinedLoadMetricSpecification' smart constructor.
 data PredefinedLoadMetricSpecification = PredefinedLoadMetricSpecification'
-  { _plmsResourceLabel ::
-      !(Maybe Text),
-    _plmsPredefinedLoadMetricType ::
-      !LoadMetricType
+  { resourceLabel ::
+      Lude.Maybe Lude.Text,
+    predefinedLoadMetricType ::
+      LoadMetricType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PredefinedLoadMetricSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'predefinedLoadMetricType' - The metric type.
+-- * 'resourceLabel' - Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
 --
--- * 'plmsResourceLabel' - Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group. The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+-- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
 --
--- * 'plmsPredefinedLoadMetricType' - The metric type.
-predefinedLoadMetricSpecification ::
-  -- | 'plmsPredefinedLoadMetricType'
+--     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.
+--
+--
+--     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+mkPredefinedLoadMetricSpecification ::
+  -- | 'predefinedLoadMetricType'
   LoadMetricType ->
   PredefinedLoadMetricSpecification
-predefinedLoadMetricSpecification pPredefinedLoadMetricType_ =
+mkPredefinedLoadMetricSpecification pPredefinedLoadMetricType_ =
   PredefinedLoadMetricSpecification'
-    { _plmsResourceLabel = Nothing,
-      _plmsPredefinedLoadMetricType = pPredefinedLoadMetricType_
+    { resourceLabel = Lude.Nothing,
+      predefinedLoadMetricType = pPredefinedLoadMetricType_
     }
 
--- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group. The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
-plmsResourceLabel :: Lens' PredefinedLoadMetricSpecification (Maybe Text)
-plmsResourceLabel = lens _plmsResourceLabel (\s a -> s {_plmsResourceLabel = a})
+-- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
+--
+-- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
+--
+--     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.
+--
+--
+--     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+--
+--
+--
+-- /Note:/ Consider using 'resourceLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plmsResourceLabel :: Lens.Lens' PredefinedLoadMetricSpecification (Lude.Maybe Lude.Text)
+plmsResourceLabel = Lens.lens (resourceLabel :: PredefinedLoadMetricSpecification -> Lude.Maybe Lude.Text) (\s a -> s {resourceLabel = a} :: PredefinedLoadMetricSpecification)
+{-# DEPRECATED plmsResourceLabel "Use generic-lens or generic-optics with 'resourceLabel' instead." #-}
 
 -- | The metric type.
-plmsPredefinedLoadMetricType :: Lens' PredefinedLoadMetricSpecification LoadMetricType
-plmsPredefinedLoadMetricType = lens _plmsPredefinedLoadMetricType (\s a -> s {_plmsPredefinedLoadMetricType = a})
+--
+-- /Note:/ Consider using 'predefinedLoadMetricType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plmsPredefinedLoadMetricType :: Lens.Lens' PredefinedLoadMetricSpecification LoadMetricType
+plmsPredefinedLoadMetricType = Lens.lens (predefinedLoadMetricType :: PredefinedLoadMetricSpecification -> LoadMetricType) (\s a -> s {predefinedLoadMetricType = a} :: PredefinedLoadMetricSpecification)
+{-# DEPRECATED plmsPredefinedLoadMetricType "Use generic-lens or generic-optics with 'predefinedLoadMetricType' instead." #-}
 
-instance FromJSON PredefinedLoadMetricSpecification where
+instance Lude.FromJSON PredefinedLoadMetricSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "PredefinedLoadMetricSpecification"
       ( \x ->
           PredefinedLoadMetricSpecification'
-            <$> (x .:? "ResourceLabel") <*> (x .: "PredefinedLoadMetricType")
+            Lude.<$> (x Lude..:? "ResourceLabel")
+            Lude.<*> (x Lude..: "PredefinedLoadMetricType")
       )
 
-instance Hashable PredefinedLoadMetricSpecification
-
-instance NFData PredefinedLoadMetricSpecification
-
-instance ToJSON PredefinedLoadMetricSpecification where
+instance Lude.ToJSON PredefinedLoadMetricSpecification where
   toJSON PredefinedLoadMetricSpecification' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceLabel" .=) <$> _plmsResourceLabel,
-            Just
-              ("PredefinedLoadMetricType" .= _plmsPredefinedLoadMetricType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceLabel" Lude..=) Lude.<$> resourceLabel,
+            Lude.Just
+              ("PredefinedLoadMetricType" Lude..= predefinedLoadMetricType)
           ]
       )

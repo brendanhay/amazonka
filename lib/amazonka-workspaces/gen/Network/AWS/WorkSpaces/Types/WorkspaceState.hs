@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceState where
+module Network.AWS.WorkSpaces.Types.WorkspaceState
+  ( WorkspaceState
+      ( WorkspaceState',
+        WSAdminMaintenance,
+        WSAvailable,
+        WSError,
+        WSImpaired,
+        WSMaintenance,
+        WSPending,
+        WSRebooting,
+        WSRebuilding,
+        WSRestoring,
+        WSStarting,
+        WSStopped,
+        WSStopping,
+        WSSuspended,
+        WSTerminated,
+        WSTerminating,
+        WSUnhealthy,
+        WSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkspaceState
-  = WSAdminMaintenance
-  | WSAvailable
-  | WSError'
-  | WSImpaired
-  | WSMaintenance
-  | WSPending
-  | WSRebooting
-  | WSRebuilding
-  | WSRestoring
-  | WSStarting
-  | WSStopped
-  | WSStopping
-  | WSSuspended
-  | WSTerminated
-  | WSTerminating
-  | WSUnhealthy
-  | WSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkspaceState = WorkspaceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkspaceState where
-  parser =
-    takeLowerText >>= \case
-      "admin_maintenance" -> pure WSAdminMaintenance
-      "available" -> pure WSAvailable
-      "error" -> pure WSError'
-      "impaired" -> pure WSImpaired
-      "maintenance" -> pure WSMaintenance
-      "pending" -> pure WSPending
-      "rebooting" -> pure WSRebooting
-      "rebuilding" -> pure WSRebuilding
-      "restoring" -> pure WSRestoring
-      "starting" -> pure WSStarting
-      "stopped" -> pure WSStopped
-      "stopping" -> pure WSStopping
-      "suspended" -> pure WSSuspended
-      "terminated" -> pure WSTerminated
-      "terminating" -> pure WSTerminating
-      "unhealthy" -> pure WSUnhealthy
-      "updating" -> pure WSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing WorkspaceState from value: '" <> e
-            <> "'. Accepted values: admin_maintenance, available, error, impaired, maintenance, pending, rebooting, rebuilding, restoring, starting, stopped, stopping, suspended, terminated, terminating, unhealthy, updating"
+pattern WSAdminMaintenance :: WorkspaceState
+pattern WSAdminMaintenance = WorkspaceState' "ADMIN_MAINTENANCE"
 
-instance ToText WorkspaceState where
-  toText = \case
-    WSAdminMaintenance -> "ADMIN_MAINTENANCE"
-    WSAvailable -> "AVAILABLE"
-    WSError' -> "ERROR"
-    WSImpaired -> "IMPAIRED"
-    WSMaintenance -> "MAINTENANCE"
-    WSPending -> "PENDING"
-    WSRebooting -> "REBOOTING"
-    WSRebuilding -> "REBUILDING"
-    WSRestoring -> "RESTORING"
-    WSStarting -> "STARTING"
-    WSStopped -> "STOPPED"
-    WSStopping -> "STOPPING"
-    WSSuspended -> "SUSPENDED"
-    WSTerminated -> "TERMINATED"
-    WSTerminating -> "TERMINATING"
-    WSUnhealthy -> "UNHEALTHY"
-    WSUpdating -> "UPDATING"
+pattern WSAvailable :: WorkspaceState
+pattern WSAvailable = WorkspaceState' "AVAILABLE"
 
-instance Hashable WorkspaceState
+pattern WSError :: WorkspaceState
+pattern WSError = WorkspaceState' "ERROR"
 
-instance NFData WorkspaceState
+pattern WSImpaired :: WorkspaceState
+pattern WSImpaired = WorkspaceState' "IMPAIRED"
 
-instance ToByteString WorkspaceState
+pattern WSMaintenance :: WorkspaceState
+pattern WSMaintenance = WorkspaceState' "MAINTENANCE"
 
-instance ToQuery WorkspaceState
+pattern WSPending :: WorkspaceState
+pattern WSPending = WorkspaceState' "PENDING"
 
-instance ToHeader WorkspaceState
+pattern WSRebooting :: WorkspaceState
+pattern WSRebooting = WorkspaceState' "REBOOTING"
 
-instance FromJSON WorkspaceState where
-  parseJSON = parseJSONText "WorkspaceState"
+pattern WSRebuilding :: WorkspaceState
+pattern WSRebuilding = WorkspaceState' "REBUILDING"
+
+pattern WSRestoring :: WorkspaceState
+pattern WSRestoring = WorkspaceState' "RESTORING"
+
+pattern WSStarting :: WorkspaceState
+pattern WSStarting = WorkspaceState' "STARTING"
+
+pattern WSStopped :: WorkspaceState
+pattern WSStopped = WorkspaceState' "STOPPED"
+
+pattern WSStopping :: WorkspaceState
+pattern WSStopping = WorkspaceState' "STOPPING"
+
+pattern WSSuspended :: WorkspaceState
+pattern WSSuspended = WorkspaceState' "SUSPENDED"
+
+pattern WSTerminated :: WorkspaceState
+pattern WSTerminated = WorkspaceState' "TERMINATED"
+
+pattern WSTerminating :: WorkspaceState
+pattern WSTerminating = WorkspaceState' "TERMINATING"
+
+pattern WSUnhealthy :: WorkspaceState
+pattern WSUnhealthy = WorkspaceState' "UNHEALTHY"
+
+pattern WSUpdating :: WorkspaceState
+pattern WSUpdating = WorkspaceState' "UPDATING"
+
+{-# COMPLETE
+  WSAdminMaintenance,
+  WSAvailable,
+  WSError,
+  WSImpaired,
+  WSMaintenance,
+  WSPending,
+  WSRebooting,
+  WSRebuilding,
+  WSRestoring,
+  WSStarting,
+  WSStopped,
+  WSStopping,
+  WSSuspended,
+  WSTerminated,
+  WSTerminating,
+  WSUnhealthy,
+  WSUpdating,
+  WorkspaceState'
+  #-}

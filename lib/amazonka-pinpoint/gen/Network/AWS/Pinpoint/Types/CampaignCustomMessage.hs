@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.CampaignCustomMessage where
+module Network.AWS.Pinpoint.Types.CampaignCustomMessage
+  ( CampaignCustomMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCampaignCustomMessage,
+
+    -- * Lenses
+    ccmData,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.
 --
---
---
--- /See:/ 'campaignCustomMessage' smart constructor.
+-- /See:/ 'mkCampaignCustomMessage' smart constructor.
 newtype CampaignCustomMessage = CampaignCustomMessage'
-  { _ccmData ::
-      Maybe Text
+  { data' ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignCustomMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccmData' - The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.
-campaignCustomMessage ::
+-- * 'data'' - The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.
+mkCampaignCustomMessage ::
   CampaignCustomMessage
-campaignCustomMessage = CampaignCustomMessage' {_ccmData = Nothing}
+mkCampaignCustomMessage =
+  CampaignCustomMessage' {data' = Lude.Nothing}
 
 -- | The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.
-ccmData :: Lens' CampaignCustomMessage (Maybe Text)
-ccmData = lens _ccmData (\s a -> s {_ccmData = a})
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmData :: Lens.Lens' CampaignCustomMessage (Lude.Maybe Lude.Text)
+ccmData = Lens.lens (data' :: CampaignCustomMessage -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: CampaignCustomMessage)
+{-# DEPRECATED ccmData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance FromJSON CampaignCustomMessage where
+instance Lude.FromJSON CampaignCustomMessage where
   parseJSON =
-    withObject
+    Lude.withObject
       "CampaignCustomMessage"
-      (\x -> CampaignCustomMessage' <$> (x .:? "Data"))
+      (\x -> CampaignCustomMessage' Lude.<$> (x Lude..:? "Data"))
 
-instance Hashable CampaignCustomMessage
-
-instance NFData CampaignCustomMessage
-
-instance ToJSON CampaignCustomMessage where
+instance Lude.ToJSON CampaignCustomMessage where
   toJSON CampaignCustomMessage' {..} =
-    object (catMaybes [("Data" .=) <$> _ccmData])
+    Lude.object (Lude.catMaybes [("Data" Lude..=) Lude.<$> data'])

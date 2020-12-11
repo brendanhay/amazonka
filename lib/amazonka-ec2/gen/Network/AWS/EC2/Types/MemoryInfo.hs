@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.MemoryInfo where
+module Network.AWS.EC2.Types.MemoryInfo
+  ( MemoryInfo (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMemoryInfo,
+
+    -- * Lenses
+    miSizeInMiB,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the memory for the instance type.
 --
---
---
--- /See:/ 'memoryInfo' smart constructor.
-newtype MemoryInfo = MemoryInfo' {_miSizeInMiB :: Maybe Integer}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkMemoryInfo' smart constructor.
+newtype MemoryInfo = MemoryInfo'
+  { sizeInMiB ::
+      Lude.Maybe Lude.Integer
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MemoryInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miSizeInMiB' - The size of the memory, in MiB.
-memoryInfo ::
+-- * 'sizeInMiB' - The size of the memory, in MiB.
+mkMemoryInfo ::
   MemoryInfo
-memoryInfo = MemoryInfo' {_miSizeInMiB = Nothing}
+mkMemoryInfo = MemoryInfo' {sizeInMiB = Lude.Nothing}
 
 -- | The size of the memory, in MiB.
-miSizeInMiB :: Lens' MemoryInfo (Maybe Integer)
-miSizeInMiB = lens _miSizeInMiB (\s a -> s {_miSizeInMiB = a})
+--
+-- /Note:/ Consider using 'sizeInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miSizeInMiB :: Lens.Lens' MemoryInfo (Lude.Maybe Lude.Integer)
+miSizeInMiB = Lens.lens (sizeInMiB :: MemoryInfo -> Lude.Maybe Lude.Integer) (\s a -> s {sizeInMiB = a} :: MemoryInfo)
+{-# DEPRECATED miSizeInMiB "Use generic-lens or generic-optics with 'sizeInMiB' instead." #-}
 
-instance FromXML MemoryInfo where
-  parseXML x = MemoryInfo' <$> (x .@? "sizeInMiB")
-
-instance Hashable MemoryInfo
-
-instance NFData MemoryInfo
+instance Lude.FromXML MemoryInfo where
+  parseXML x = MemoryInfo' Lude.<$> (x Lude..@? "sizeInMiB")

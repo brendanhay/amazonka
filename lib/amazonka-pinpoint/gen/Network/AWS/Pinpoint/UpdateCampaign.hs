@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,169 @@
 --
 -- Updates the configuration and other settings for a campaign.
 module Network.AWS.Pinpoint.UpdateCampaign
-  ( -- * Creating a Request
-    updateCampaign,
-    UpdateCampaign,
+  ( -- * Creating a request
+    UpdateCampaign (..),
+    mkUpdateCampaign,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucCampaignId,
     ucApplicationId,
     ucWriteCampaignRequest,
 
-    -- * Destructuring the Response
-    updateCampaignResponse,
-    UpdateCampaignResponse,
+    -- * Destructuring the response
+    UpdateCampaignResponse (..),
+    mkUpdateCampaignResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucrsResponseStatus,
     ucrsCampaignResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateCampaign' smart constructor.
+-- | /See:/ 'mkUpdateCampaign' smart constructor.
 data UpdateCampaign = UpdateCampaign'
-  { _ucCampaignId :: !Text,
-    _ucApplicationId :: !Text,
-    _ucWriteCampaignRequest :: !WriteCampaignRequest
+  { campaignId :: Lude.Text,
+    applicationId :: Lude.Text,
+    writeCampaignRequest :: WriteCampaignRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCampaign' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucCampaignId' - The unique identifier for the campaign.
---
--- * 'ucApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'ucWriteCampaignRequest' - Undocumented member.
-updateCampaign ::
-  -- | 'ucCampaignId'
-  Text ->
-  -- | 'ucApplicationId'
-  Text ->
-  -- | 'ucWriteCampaignRequest'
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'campaignId' - The unique identifier for the campaign.
+-- * 'writeCampaignRequest' - Undocumented field.
+mkUpdateCampaign ::
+  -- | 'campaignId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'writeCampaignRequest'
   WriteCampaignRequest ->
   UpdateCampaign
-updateCampaign pCampaignId_ pApplicationId_ pWriteCampaignRequest_ =
-  UpdateCampaign'
-    { _ucCampaignId = pCampaignId_,
-      _ucApplicationId = pApplicationId_,
-      _ucWriteCampaignRequest = pWriteCampaignRequest_
-    }
+mkUpdateCampaign
+  pCampaignId_
+  pApplicationId_
+  pWriteCampaignRequest_ =
+    UpdateCampaign'
+      { campaignId = pCampaignId_,
+        applicationId = pApplicationId_,
+        writeCampaignRequest = pWriteCampaignRequest_
+      }
 
 -- | The unique identifier for the campaign.
-ucCampaignId :: Lens' UpdateCampaign Text
-ucCampaignId = lens _ucCampaignId (\s a -> s {_ucCampaignId = a})
+--
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCampaignId :: Lens.Lens' UpdateCampaign Lude.Text
+ucCampaignId = Lens.lens (campaignId :: UpdateCampaign -> Lude.Text) (\s a -> s {campaignId = a} :: UpdateCampaign)
+{-# DEPRECATED ucCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-ucApplicationId :: Lens' UpdateCampaign Text
-ucApplicationId = lens _ucApplicationId (\s a -> s {_ucApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucApplicationId :: Lens.Lens' UpdateCampaign Lude.Text
+ucApplicationId = Lens.lens (applicationId :: UpdateCampaign -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateCampaign)
+{-# DEPRECATED ucApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-ucWriteCampaignRequest :: Lens' UpdateCampaign WriteCampaignRequest
-ucWriteCampaignRequest = lens _ucWriteCampaignRequest (\s a -> s {_ucWriteCampaignRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'writeCampaignRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucWriteCampaignRequest :: Lens.Lens' UpdateCampaign WriteCampaignRequest
+ucWriteCampaignRequest = Lens.lens (writeCampaignRequest :: UpdateCampaign -> WriteCampaignRequest) (\s a -> s {writeCampaignRequest = a} :: UpdateCampaign)
+{-# DEPRECATED ucWriteCampaignRequest "Use generic-lens or generic-optics with 'writeCampaignRequest' instead." #-}
 
-instance AWSRequest UpdateCampaign where
+instance Lude.AWSRequest UpdateCampaign where
   type Rs UpdateCampaign = UpdateCampaignResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateCampaignResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateCampaign
-
-instance NFData UpdateCampaign
-
-instance ToHeaders UpdateCampaign where
+instance Lude.ToHeaders UpdateCampaign where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateCampaign where
+instance Lude.ToJSON UpdateCampaign where
   toJSON UpdateCampaign' {..} =
-    object
-      ( catMaybes
-          [Just ("WriteCampaignRequest" .= _ucWriteCampaignRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("WriteCampaignRequest" Lude..= writeCampaignRequest)]
       )
 
-instance ToPath UpdateCampaign where
+instance Lude.ToPath UpdateCampaign where
   toPath UpdateCampaign' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _ucApplicationId,
+        Lude.toBS applicationId,
         "/campaigns/",
-        toBS _ucCampaignId
+        Lude.toBS campaignId
       ]
 
-instance ToQuery UpdateCampaign where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateCampaign where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateCampaignResponse' smart constructor.
+-- | /See:/ 'mkUpdateCampaignResponse' smart constructor.
 data UpdateCampaignResponse = UpdateCampaignResponse'
-  { _ucrsResponseStatus ::
-      !Int,
-    _ucrsCampaignResponse :: !CampaignResponse
+  { responseStatus ::
+      Lude.Int,
+    campaignResponse :: CampaignResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCampaignResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucrsResponseStatus' - -- | The response status code.
---
--- * 'ucrsCampaignResponse' - Undocumented member.
-updateCampaignResponse ::
-  -- | 'ucrsResponseStatus'
-  Int ->
-  -- | 'ucrsCampaignResponse'
+-- * 'campaignResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateCampaignResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'campaignResponse'
   CampaignResponse ->
   UpdateCampaignResponse
-updateCampaignResponse pResponseStatus_ pCampaignResponse_ =
+mkUpdateCampaignResponse pResponseStatus_ pCampaignResponse_ =
   UpdateCampaignResponse'
-    { _ucrsResponseStatus = pResponseStatus_,
-      _ucrsCampaignResponse = pCampaignResponse_
+    { responseStatus = pResponseStatus_,
+      campaignResponse = pCampaignResponse_
     }
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateCampaignResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\s a -> s {_ucrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsResponseStatus :: Lens.Lens' UpdateCampaignResponse Lude.Int
+ucrsResponseStatus = Lens.lens (responseStatus :: UpdateCampaignResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCampaignResponse)
+{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-ucrsCampaignResponse :: Lens' UpdateCampaignResponse CampaignResponse
-ucrsCampaignResponse = lens _ucrsCampaignResponse (\s a -> s {_ucrsCampaignResponse = a})
-
-instance NFData UpdateCampaignResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'campaignResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsCampaignResponse :: Lens.Lens' UpdateCampaignResponse CampaignResponse
+ucrsCampaignResponse = Lens.lens (campaignResponse :: UpdateCampaignResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: UpdateCampaignResponse)
+{-# DEPRECATED ucrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}

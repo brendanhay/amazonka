@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,164 @@
 --
 -- Gets a Boolean value that indicates whether <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html automatic rotation of the key material> is enabled for the specified customer master key (CMK).
 --
---
 -- You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> . The key rotation status for these CMKs is always @false@ .
---
 -- The CMK that you use for this operation must be in a compatible key state. For details, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
 --
 --     * Disabled: The key rotation status does not change when you disable a CMK. However, while the CMK is disabled, AWS KMS does not rotate the backing key.
 --
---     * Pending deletion: While a CMK is pending deletion, its key rotation status is @false@ and AWS KMS does not rotate the backing key. If you cancel the deletion, the original key rotation status is restored.
 --
+--     * Pending deletion: While a CMK is pending deletion, its key rotation status is @false@ and AWS KMS does not rotate the backing key. If you cancel the deletion, the original key rotation status is restored.
 --
 --
 -- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the @KeyId@ parameter.
 module Network.AWS.KMS.GetKeyRotationStatus
-  ( -- * Creating a Request
-    getKeyRotationStatus,
-    GetKeyRotationStatus,
+  ( -- * Creating a request
+    GetKeyRotationStatus (..),
+    mkGetKeyRotationStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gkrsKeyId,
 
-    -- * Destructuring the Response
-    getKeyRotationStatusResponse,
-    GetKeyRotationStatusResponse,
+    -- * Destructuring the response
+    GetKeyRotationStatusResponse (..),
+    mkGetKeyRotationStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gkrsrsKeyRotationEnabled,
     gkrsrsResponseStatus,
   )
 where
 
 import Network.AWS.KMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getKeyRotationStatus' smart constructor.
+-- | /See:/ 'mkGetKeyRotationStatus' smart constructor.
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
-  { _gkrsKeyId ::
-      Text
+  { keyId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetKeyRotationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'keyId' - A unique identifier for the customer master key (CMK).
 --
--- * 'gkrsKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-getKeyRotationStatus ::
-  -- | 'gkrsKeyId'
-  Text ->
+-- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+-- For example:
+--
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+mkGetKeyRotationStatus ::
+  -- | 'keyId'
+  Lude.Text ->
   GetKeyRotationStatus
-getKeyRotationStatus pKeyId_ =
-  GetKeyRotationStatus' {_gkrsKeyId = pKeyId_}
+mkGetKeyRotationStatus pKeyId_ =
+  GetKeyRotationStatus' {keyId = pKeyId_}
 
--- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-gkrsKeyId :: Lens' GetKeyRotationStatus Text
-gkrsKeyId = lens _gkrsKeyId (\s a -> s {_gkrsKeyId = a})
+-- | A unique identifier for the customer master key (CMK).
+--
+-- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+-- For example:
+--
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkrsKeyId :: Lens.Lens' GetKeyRotationStatus Lude.Text
+gkrsKeyId = Lens.lens (keyId :: GetKeyRotationStatus -> Lude.Text) (\s a -> s {keyId = a} :: GetKeyRotationStatus)
+{-# DEPRECATED gkrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance AWSRequest GetKeyRotationStatus where
+instance Lude.AWSRequest GetKeyRotationStatus where
   type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
-  request = postJSON kms
+  request = Req.postJSON kmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetKeyRotationStatusResponse'
-            <$> (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "KeyRotationEnabled")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetKeyRotationStatus
-
-instance NFData GetKeyRotationStatus
-
-instance ToHeaders GetKeyRotationStatus where
+instance Lude.ToHeaders GetKeyRotationStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("TrentService.GetKeyRotationStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("TrentService.GetKeyRotationStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetKeyRotationStatus where
+instance Lude.ToJSON GetKeyRotationStatus where
   toJSON GetKeyRotationStatus' {..} =
-    object (catMaybes [Just ("KeyId" .= _gkrsKeyId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("KeyId" Lude..= keyId)])
 
-instance ToPath GetKeyRotationStatus where
-  toPath = const "/"
+instance Lude.ToPath GetKeyRotationStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetKeyRotationStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetKeyRotationStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getKeyRotationStatusResponse' smart constructor.
+-- | /See:/ 'mkGetKeyRotationStatusResponse' smart constructor.
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
-  { _gkrsrsKeyRotationEnabled ::
-      !(Maybe Bool),
-    _gkrsrsResponseStatus :: !Int
+  { keyRotationEnabled ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetKeyRotationStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gkrsrsKeyRotationEnabled' - A Boolean value that specifies whether key rotation is enabled.
---
--- * 'gkrsrsResponseStatus' - -- | The response status code.
-getKeyRotationStatusResponse ::
-  -- | 'gkrsrsResponseStatus'
-  Int ->
+-- * 'keyRotationEnabled' - A Boolean value that specifies whether key rotation is enabled.
+-- * 'responseStatus' - The response status code.
+mkGetKeyRotationStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetKeyRotationStatusResponse
-getKeyRotationStatusResponse pResponseStatus_ =
+mkGetKeyRotationStatusResponse pResponseStatus_ =
   GetKeyRotationStatusResponse'
-    { _gkrsrsKeyRotationEnabled =
-        Nothing,
-      _gkrsrsResponseStatus = pResponseStatus_
+    { keyRotationEnabled = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.
-gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
-gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\s a -> s {_gkrsrsKeyRotationEnabled = a})
+--
+-- /Note:/ Consider using 'keyRotationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkrsrsKeyRotationEnabled :: Lens.Lens' GetKeyRotationStatusResponse (Lude.Maybe Lude.Bool)
+gkrsrsKeyRotationEnabled = Lens.lens (keyRotationEnabled :: GetKeyRotationStatusResponse -> Lude.Maybe Lude.Bool) (\s a -> s {keyRotationEnabled = a} :: GetKeyRotationStatusResponse)
+{-# DEPRECATED gkrsrsKeyRotationEnabled "Use generic-lens or generic-optics with 'keyRotationEnabled' instead." #-}
 
--- | -- | The response status code.
-gkrsrsResponseStatus :: Lens' GetKeyRotationStatusResponse Int
-gkrsrsResponseStatus = lens _gkrsrsResponseStatus (\s a -> s {_gkrsrsResponseStatus = a})
-
-instance NFData GetKeyRotationStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkrsrsResponseStatus :: Lens.Lens' GetKeyRotationStatusResponse Lude.Int
+gkrsrsResponseStatus = Lens.lens (responseStatus :: GetKeyRotationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyRotationStatusResponse)
+{-# DEPRECATED gkrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

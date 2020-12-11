@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,161 @@
 --
 -- Change details of a project.
 module Network.AWS.DeviceFarm.UpdateTestGridProject
-  ( -- * Creating a Request
-    updateTestGridProject,
-    UpdateTestGridProject,
+  ( -- * Creating a request
+    UpdateTestGridProject (..),
+    mkUpdateTestGridProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utgpName,
     utgpDescription,
     utgpProjectARN,
 
-    -- * Destructuring the Response
-    updateTestGridProjectResponse,
-    UpdateTestGridProjectResponse,
+    -- * Destructuring the response
+    UpdateTestGridProjectResponse (..),
+    mkUpdateTestGridProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utgprsTestGridProject,
     utgprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTestGridProject' smart constructor.
+-- | /See:/ 'mkUpdateTestGridProject' smart constructor.
 data UpdateTestGridProject = UpdateTestGridProject'
-  { _utgpName ::
-      !(Maybe Text),
-    _utgpDescription :: !(Maybe Text),
-    _utgpProjectARN :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    projectARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTestGridProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utgpName' - Human-readable name for the project.
---
--- * 'utgpDescription' - Human-readable description for the project.
---
--- * 'utgpProjectARN' - ARN of the project to update.
-updateTestGridProject ::
-  -- | 'utgpProjectARN'
-  Text ->
+-- * 'description' - Human-readable description for the project.
+-- * 'name' - Human-readable name for the project.
+-- * 'projectARN' - ARN of the project to update.
+mkUpdateTestGridProject ::
+  -- | 'projectARN'
+  Lude.Text ->
   UpdateTestGridProject
-updateTestGridProject pProjectARN_ =
+mkUpdateTestGridProject pProjectARN_ =
   UpdateTestGridProject'
-    { _utgpName = Nothing,
-      _utgpDescription = Nothing,
-      _utgpProjectARN = pProjectARN_
+    { name = Lude.Nothing,
+      description = Lude.Nothing,
+      projectARN = pProjectARN_
     }
 
 -- | Human-readable name for the project.
-utgpName :: Lens' UpdateTestGridProject (Maybe Text)
-utgpName = lens _utgpName (\s a -> s {_utgpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgpName :: Lens.Lens' UpdateTestGridProject (Lude.Maybe Lude.Text)
+utgpName = Lens.lens (name :: UpdateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateTestGridProject)
+{-# DEPRECATED utgpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Human-readable description for the project.
-utgpDescription :: Lens' UpdateTestGridProject (Maybe Text)
-utgpDescription = lens _utgpDescription (\s a -> s {_utgpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgpDescription :: Lens.Lens' UpdateTestGridProject (Lude.Maybe Lude.Text)
+utgpDescription = Lens.lens (description :: UpdateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateTestGridProject)
+{-# DEPRECATED utgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | ARN of the project to update.
-utgpProjectARN :: Lens' UpdateTestGridProject Text
-utgpProjectARN = lens _utgpProjectARN (\s a -> s {_utgpProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgpProjectARN :: Lens.Lens' UpdateTestGridProject Lude.Text
+utgpProjectARN = Lens.lens (projectARN :: UpdateTestGridProject -> Lude.Text) (\s a -> s {projectARN = a} :: UpdateTestGridProject)
+{-# DEPRECATED utgpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
-instance AWSRequest UpdateTestGridProject where
+instance Lude.AWSRequest UpdateTestGridProject where
   type Rs UpdateTestGridProject = UpdateTestGridProjectResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateTestGridProjectResponse'
-            <$> (x .?> "testGridProject") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "testGridProject")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateTestGridProject
-
-instance NFData UpdateTestGridProject
-
-instance ToHeaders UpdateTestGridProject where
+instance Lude.ToHeaders UpdateTestGridProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.UpdateTestGridProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.UpdateTestGridProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateTestGridProject where
+instance Lude.ToJSON UpdateTestGridProject where
   toJSON UpdateTestGridProject' {..} =
-    object
-      ( catMaybes
-          [ ("name" .=) <$> _utgpName,
-            ("description" .=) <$> _utgpDescription,
-            Just ("projectArn" .= _utgpProjectARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("name" Lude..=) Lude.<$> name,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("projectArn" Lude..= projectARN)
           ]
       )
 
-instance ToPath UpdateTestGridProject where
-  toPath = const "/"
+instance Lude.ToPath UpdateTestGridProject where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateTestGridProject where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTestGridProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTestGridProjectResponse' smart constructor.
+-- | /See:/ 'mkUpdateTestGridProjectResponse' smart constructor.
 data UpdateTestGridProjectResponse = UpdateTestGridProjectResponse'
-  { _utgprsTestGridProject ::
-      !(Maybe TestGridProject),
-    _utgprsResponseStatus :: !Int
+  { testGridProject ::
+      Lude.Maybe TestGridProject,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTestGridProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utgprsTestGridProject' - The project, including updated information.
---
--- * 'utgprsResponseStatus' - -- | The response status code.
-updateTestGridProjectResponse ::
-  -- | 'utgprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'testGridProject' - The project, including updated information.
+mkUpdateTestGridProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTestGridProjectResponse
-updateTestGridProjectResponse pResponseStatus_ =
+mkUpdateTestGridProjectResponse pResponseStatus_ =
   UpdateTestGridProjectResponse'
-    { _utgprsTestGridProject = Nothing,
-      _utgprsResponseStatus = pResponseStatus_
+    { testGridProject = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The project, including updated information.
-utgprsTestGridProject :: Lens' UpdateTestGridProjectResponse (Maybe TestGridProject)
-utgprsTestGridProject = lens _utgprsTestGridProject (\s a -> s {_utgprsTestGridProject = a})
+--
+-- /Note:/ Consider using 'testGridProject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgprsTestGridProject :: Lens.Lens' UpdateTestGridProjectResponse (Lude.Maybe TestGridProject)
+utgprsTestGridProject = Lens.lens (testGridProject :: UpdateTestGridProjectResponse -> Lude.Maybe TestGridProject) (\s a -> s {testGridProject = a} :: UpdateTestGridProjectResponse)
+{-# DEPRECATED utgprsTestGridProject "Use generic-lens or generic-optics with 'testGridProject' instead." #-}
 
--- | -- | The response status code.
-utgprsResponseStatus :: Lens' UpdateTestGridProjectResponse Int
-utgprsResponseStatus = lens _utgprsResponseStatus (\s a -> s {_utgprsResponseStatus = a})
-
-instance NFData UpdateTestGridProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgprsResponseStatus :: Lens.Lens' UpdateTestGridProjectResponse Lude.Int
+utgprsResponseStatus = Lens.lens (responseStatus :: UpdateTestGridProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTestGridProjectResponse)
+{-# DEPRECATED utgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

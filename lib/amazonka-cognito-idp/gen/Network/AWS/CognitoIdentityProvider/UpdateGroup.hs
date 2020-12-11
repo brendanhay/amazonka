@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,191 @@
 --
 -- Updates the specified group with the specified attributes.
 --
---
 -- Calling this action requires developer credentials.
---
 -- /Important:/ If you don't provide a value for an attribute, it will be set to the default value.
 module Network.AWS.CognitoIdentityProvider.UpdateGroup
-  ( -- * Creating a Request
-    updateGroup,
-    UpdateGroup,
+  ( -- * Creating a request
+    UpdateGroup (..),
+    mkUpdateGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugPrecedence,
     ugDescription,
     ugRoleARN,
     ugGroupName,
     ugUserPoolId,
 
-    -- * Destructuring the Response
-    updateGroupResponse,
-    UpdateGroupResponse,
+    -- * Destructuring the response
+    UpdateGroupResponse (..),
+    mkUpdateGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugrsGroup,
     ugrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGroup' smart constructor.
+-- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { _ugPrecedence :: !(Maybe Nat),
-    _ugDescription :: !(Maybe Text),
-    _ugRoleARN :: !(Maybe Text),
-    _ugGroupName :: !Text,
-    _ugUserPoolId :: !Text
+  { precedence ::
+      Lude.Maybe Lude.Natural,
+    description :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Text,
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugPrecedence' - The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
---
--- * 'ugDescription' - A string containing the new description of the group.
---
--- * 'ugRoleARN' - The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
---
--- * 'ugGroupName' - The name of the group.
---
--- * 'ugUserPoolId' - The user pool ID for the user pool.
-updateGroup ::
-  -- | 'ugGroupName'
-  Text ->
-  -- | 'ugUserPoolId'
-  Text ->
+-- * 'description' - A string containing the new description of the group.
+-- * 'groupName' - The name of the group.
+-- * 'precedence' - The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
+-- * 'roleARN' - The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+-- * 'userPoolId' - The user pool ID for the user pool.
+mkUpdateGroup ::
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   UpdateGroup
-updateGroup pGroupName_ pUserPoolId_ =
+mkUpdateGroup pGroupName_ pUserPoolId_ =
   UpdateGroup'
-    { _ugPrecedence = Nothing,
-      _ugDescription = Nothing,
-      _ugRoleARN = Nothing,
-      _ugGroupName = pGroupName_,
-      _ugUserPoolId = pUserPoolId_
+    { precedence = Lude.Nothing,
+      description = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      groupName = pGroupName_,
+      userPoolId = pUserPoolId_
     }
 
 -- | The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
-ugPrecedence :: Lens' UpdateGroup (Maybe Natural)
-ugPrecedence = lens _ugPrecedence (\s a -> s {_ugPrecedence = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'precedence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugPrecedence :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Natural)
+ugPrecedence = Lens.lens (precedence :: UpdateGroup -> Lude.Maybe Lude.Natural) (\s a -> s {precedence = a} :: UpdateGroup)
+{-# DEPRECATED ugPrecedence "Use generic-lens or generic-optics with 'precedence' instead." #-}
 
 -- | A string containing the new description of the group.
-ugDescription :: Lens' UpdateGroup (Maybe Text)
-ugDescription = lens _ugDescription (\s a -> s {_ugDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugDescription :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
+ugDescription = Lens.lens (description :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGroup)
+{-# DEPRECATED ugDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
-ugRoleARN :: Lens' UpdateGroup (Maybe Text)
-ugRoleARN = lens _ugRoleARN (\s a -> s {_ugRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugRoleARN :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
+ugRoleARN = Lens.lens (roleARN :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateGroup)
+{-# DEPRECATED ugRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The name of the group.
-ugGroupName :: Lens' UpdateGroup Text
-ugGroupName = lens _ugGroupName (\s a -> s {_ugGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGroupName :: Lens.Lens' UpdateGroup Lude.Text
+ugGroupName = Lens.lens (groupName :: UpdateGroup -> Lude.Text) (\s a -> s {groupName = a} :: UpdateGroup)
+{-# DEPRECATED ugGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The user pool ID for the user pool.
-ugUserPoolId :: Lens' UpdateGroup Text
-ugUserPoolId = lens _ugUserPoolId (\s a -> s {_ugUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugUserPoolId :: Lens.Lens' UpdateGroup Lude.Text
+ugUserPoolId = Lens.lens (userPoolId :: UpdateGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateGroup)
+{-# DEPRECATED ugUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest UpdateGroup where
+instance Lude.AWSRequest UpdateGroup where
   type Rs UpdateGroup = UpdateGroupResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateGroupResponse' <$> (x .?> "Group") <*> (pure (fromEnum s))
+          UpdateGroupResponse'
+            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGroup
-
-instance NFData UpdateGroup
-
-instance ToHeaders UpdateGroup where
+instance Lude.ToHeaders UpdateGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.UpdateGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.UpdateGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGroup where
+instance Lude.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
-    object
-      ( catMaybes
-          [ ("Precedence" .=) <$> _ugPrecedence,
-            ("Description" .=) <$> _ugDescription,
-            ("RoleArn" .=) <$> _ugRoleARN,
-            Just ("GroupName" .= _ugGroupName),
-            Just ("UserPoolId" .= _ugUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Precedence" Lude..=) Lude.<$> precedence,
+            ("Description" Lude..=) Lude.<$> description,
+            ("RoleArn" Lude..=) Lude.<$> roleARN,
+            Lude.Just ("GroupName" Lude..= groupName),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath UpdateGroup where
-  toPath = const "/"
+instance Lude.ToPath UpdateGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { _ugrsGroup ::
-      !(Maybe GroupType),
-    _ugrsResponseStatus :: !Int
+  { group ::
+      Lude.Maybe GroupType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugrsGroup' - The group object for the group.
---
--- * 'ugrsResponseStatus' - -- | The response status code.
-updateGroupResponse ::
-  -- | 'ugrsResponseStatus'
-  Int ->
+-- * 'group' - The group object for the group.
+-- * 'responseStatus' - The response status code.
+mkUpdateGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGroupResponse
-updateGroupResponse pResponseStatus_ =
+mkUpdateGroupResponse pResponseStatus_ =
   UpdateGroupResponse'
-    { _ugrsGroup = Nothing,
-      _ugrsResponseStatus = pResponseStatus_
+    { group = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The group object for the group.
-ugrsGroup :: Lens' UpdateGroupResponse (Maybe GroupType)
-ugrsGroup = lens _ugrsGroup (\s a -> s {_ugrsGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugrsGroup :: Lens.Lens' UpdateGroupResponse (Lude.Maybe GroupType)
+ugrsGroup = Lens.lens (group :: UpdateGroupResponse -> Lude.Maybe GroupType) (\s a -> s {group = a} :: UpdateGroupResponse)
+{-# DEPRECATED ugrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
--- | -- | The response status code.
-ugrsResponseStatus :: Lens' UpdateGroupResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\s a -> s {_ugrsResponseStatus = a})
-
-instance NFData UpdateGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugrsResponseStatus :: Lens.Lens' UpdateGroupResponse Lude.Int
+ugrsResponseStatus = Lens.lens (responseStatus :: UpdateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGroupResponse)
+{-# DEPRECATED ugrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

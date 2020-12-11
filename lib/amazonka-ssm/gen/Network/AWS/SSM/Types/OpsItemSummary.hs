@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,148 +7,193 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemSummary where
+module Network.AWS.SSM.Types.OpsItemSummary
+  ( OpsItemSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpsItemSummary,
+
+    -- * Lenses
+    oisOpsItemId,
+    oisStatus,
+    oisPriority,
+    oisCreatedTime,
+    oisCategory,
+    oisSeverity,
+    oisCreatedBy,
+    oisLastModifiedTime,
+    oisSource,
+    oisTitle,
+    oisLastModifiedBy,
+    oisOperationalData,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.OpsItemDataValue
 import Network.AWS.SSM.Types.OpsItemStatus
 
 -- | A count of OpsItems.
 --
---
---
--- /See:/ 'opsItemSummary' smart constructor.
+-- /See:/ 'mkOpsItemSummary' smart constructor.
 data OpsItemSummary = OpsItemSummary'
-  { _oisOpsItemId ::
-      !(Maybe Text),
-    _oisStatus :: !(Maybe OpsItemStatus),
-    _oisPriority :: !(Maybe Nat),
-    _oisCreatedTime :: !(Maybe POSIX),
-    _oisCategory :: !(Maybe Text),
-    _oisSeverity :: !(Maybe Text),
-    _oisCreatedBy :: !(Maybe Text),
-    _oisLastModifiedTime :: !(Maybe POSIX),
-    _oisSource :: !(Maybe Text),
-    _oisTitle :: !(Maybe Text),
-    _oisLastModifiedBy :: !(Maybe Text),
-    _oisOperationalData :: !(Maybe (Map Text (OpsItemDataValue)))
+  { opsItemId ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe OpsItemStatus,
+    priority :: Lude.Maybe Lude.Natural,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    category :: Lude.Maybe Lude.Text,
+    severity :: Lude.Maybe Lude.Text,
+    createdBy :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    source :: Lude.Maybe Lude.Text,
+    title :: Lude.Maybe Lude.Text,
+    lastModifiedBy :: Lude.Maybe Lude.Text,
+    operationalData ::
+      Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItemSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oisOpsItemId' - The ID of the OpsItem.
---
--- * 'oisStatus' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ .
---
--- * 'oisPriority' - The importance of this OpsItem in relation to other OpsItems in the system.
---
--- * 'oisCreatedTime' - The date and time the OpsItem was created.
---
--- * 'oisCategory' - A list of OpsItems by category.
---
--- * 'oisSeverity' - A list of OpsItems by severity.
---
--- * 'oisCreatedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
---
--- * 'oisLastModifiedTime' - The date and time the OpsItem was last updated.
---
--- * 'oisSource' - The impacted AWS resource.
---
--- * 'oisTitle' - A short heading that describes the nature of the OpsItem and the impacted resource.
---
--- * 'oisLastModifiedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
---
--- * 'oisOperationalData' - Operational data is custom data that provides useful reference details about the OpsItem.
-opsItemSummary ::
+-- * 'category' - A list of OpsItems by category.
+-- * 'createdBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
+-- * 'createdTime' - The date and time the OpsItem was created.
+-- * 'lastModifiedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
+-- * 'lastModifiedTime' - The date and time the OpsItem was last updated.
+-- * 'operationalData' - Operational data is custom data that provides useful reference details about the OpsItem.
+-- * 'opsItemId' - The ID of the OpsItem.
+-- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
+-- * 'severity' - A list of OpsItems by severity.
+-- * 'source' - The impacted AWS resource.
+-- * 'status' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ .
+-- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
+mkOpsItemSummary ::
   OpsItemSummary
-opsItemSummary =
+mkOpsItemSummary =
   OpsItemSummary'
-    { _oisOpsItemId = Nothing,
-      _oisStatus = Nothing,
-      _oisPriority = Nothing,
-      _oisCreatedTime = Nothing,
-      _oisCategory = Nothing,
-      _oisSeverity = Nothing,
-      _oisCreatedBy = Nothing,
-      _oisLastModifiedTime = Nothing,
-      _oisSource = Nothing,
-      _oisTitle = Nothing,
-      _oisLastModifiedBy = Nothing,
-      _oisOperationalData = Nothing
+    { opsItemId = Lude.Nothing,
+      status = Lude.Nothing,
+      priority = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      category = Lude.Nothing,
+      severity = Lude.Nothing,
+      createdBy = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      source = Lude.Nothing,
+      title = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing,
+      operationalData = Lude.Nothing
     }
 
 -- | The ID of the OpsItem.
-oisOpsItemId :: Lens' OpsItemSummary (Maybe Text)
-oisOpsItemId = lens _oisOpsItemId (\s a -> s {_oisOpsItemId = a})
+--
+-- /Note:/ Consider using 'opsItemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisOpsItemId :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisOpsItemId = Lens.lens (opsItemId :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {opsItemId = a} :: OpsItemSummary)
+{-# DEPRECATED oisOpsItemId "Use generic-lens or generic-optics with 'opsItemId' instead." #-}
 
 -- | The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ .
-oisStatus :: Lens' OpsItemSummary (Maybe OpsItemStatus)
-oisStatus = lens _oisStatus (\s a -> s {_oisStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisStatus :: Lens.Lens' OpsItemSummary (Lude.Maybe OpsItemStatus)
+oisStatus = Lens.lens (status :: OpsItemSummary -> Lude.Maybe OpsItemStatus) (\s a -> s {status = a} :: OpsItemSummary)
+{-# DEPRECATED oisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The importance of this OpsItem in relation to other OpsItems in the system.
-oisPriority :: Lens' OpsItemSummary (Maybe Natural)
-oisPriority = lens _oisPriority (\s a -> s {_oisPriority = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisPriority :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Natural)
+oisPriority = Lens.lens (priority :: OpsItemSummary -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: OpsItemSummary)
+{-# DEPRECATED oisPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The date and time the OpsItem was created.
-oisCreatedTime :: Lens' OpsItemSummary (Maybe UTCTime)
-oisCreatedTime = lens _oisCreatedTime (\s a -> s {_oisCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisCreatedTime :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Timestamp)
+oisCreatedTime = Lens.lens (createdTime :: OpsItemSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: OpsItemSummary)
+{-# DEPRECATED oisCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | A list of OpsItems by category.
-oisCategory :: Lens' OpsItemSummary (Maybe Text)
-oisCategory = lens _oisCategory (\s a -> s {_oisCategory = a})
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisCategory :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisCategory = Lens.lens (category :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {category = a} :: OpsItemSummary)
+{-# DEPRECATED oisCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | A list of OpsItems by severity.
-oisSeverity :: Lens' OpsItemSummary (Maybe Text)
-oisSeverity = lens _oisSeverity (\s a -> s {_oisSeverity = a})
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisSeverity :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisSeverity = Lens.lens (severity :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: OpsItemSummary)
+{-# DEPRECATED oisSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
-oisCreatedBy :: Lens' OpsItemSummary (Maybe Text)
-oisCreatedBy = lens _oisCreatedBy (\s a -> s {_oisCreatedBy = a})
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisCreatedBy :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisCreatedBy = Lens.lens (createdBy :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: OpsItemSummary)
+{-# DEPRECATED oisCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | The date and time the OpsItem was last updated.
-oisLastModifiedTime :: Lens' OpsItemSummary (Maybe UTCTime)
-oisLastModifiedTime = lens _oisLastModifiedTime (\s a -> s {_oisLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisLastModifiedTime :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Timestamp)
+oisLastModifiedTime = Lens.lens (lastModifiedTime :: OpsItemSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: OpsItemSummary)
+{-# DEPRECATED oisLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The impacted AWS resource.
-oisSource :: Lens' OpsItemSummary (Maybe Text)
-oisSource = lens _oisSource (\s a -> s {_oisSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisSource :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisSource = Lens.lens (source :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: OpsItemSummary)
+{-# DEPRECATED oisSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | A short heading that describes the nature of the OpsItem and the impacted resource.
-oisTitle :: Lens' OpsItemSummary (Maybe Text)
-oisTitle = lens _oisTitle (\s a -> s {_oisTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisTitle :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisTitle = Lens.lens (title :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: OpsItemSummary)
+{-# DEPRECATED oisTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
-oisLastModifiedBy :: Lens' OpsItemSummary (Maybe Text)
-oisLastModifiedBy = lens _oisLastModifiedBy (\s a -> s {_oisLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisLastModifiedBy :: Lens.Lens' OpsItemSummary (Lude.Maybe Lude.Text)
+oisLastModifiedBy = Lens.lens (lastModifiedBy :: OpsItemSummary -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: OpsItemSummary)
+{-# DEPRECATED oisLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
 -- | Operational data is custom data that provides useful reference details about the OpsItem.
-oisOperationalData :: Lens' OpsItemSummary (HashMap Text (OpsItemDataValue))
-oisOperationalData = lens _oisOperationalData (\s a -> s {_oisOperationalData = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'operationalData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oisOperationalData :: Lens.Lens' OpsItemSummary (Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)))
+oisOperationalData = Lens.lens (operationalData :: OpsItemSummary -> Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue))) (\s a -> s {operationalData = a} :: OpsItemSummary)
+{-# DEPRECATED oisOperationalData "Use generic-lens or generic-optics with 'operationalData' instead." #-}
 
-instance FromJSON OpsItemSummary where
+instance Lude.FromJSON OpsItemSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "OpsItemSummary"
       ( \x ->
           OpsItemSummary'
-            <$> (x .:? "OpsItemId")
-            <*> (x .:? "Status")
-            <*> (x .:? "Priority")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "Category")
-            <*> (x .:? "Severity")
-            <*> (x .:? "CreatedBy")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "Source")
-            <*> (x .:? "Title")
-            <*> (x .:? "LastModifiedBy")
-            <*> (x .:? "OperationalData" .!= mempty)
+            Lude.<$> (x Lude..:? "OpsItemId")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "Priority")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "Category")
+            Lude.<*> (x Lude..:? "Severity")
+            Lude.<*> (x Lude..:? "CreatedBy")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "Source")
+            Lude.<*> (x Lude..:? "Title")
+            Lude.<*> (x Lude..:? "LastModifiedBy")
+            Lude.<*> (x Lude..:? "OperationalData" Lude..!= Lude.mempty)
       )
-
-instance Hashable OpsItemSummary
-
-instance NFData OpsItemSummary

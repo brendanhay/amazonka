@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.AccessStatus where
+module Network.AWS.ServiceCatalog.Types.AccessStatus
+  ( AccessStatus
+      ( AccessStatus',
+        Disabled,
+        Enabled,
+        UnderChange
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccessStatus
-  = Disabled
-  | Enabled
-  | UnderChange
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccessStatus = AccessStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccessStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      "under_change" -> pure UnderChange
-      e ->
-        fromTextError $
-          "Failure parsing AccessStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled, under_change"
+pattern Disabled :: AccessStatus
+pattern Disabled = AccessStatus' "DISABLED"
 
-instance ToText AccessStatus where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
-    UnderChange -> "UNDER_CHANGE"
+pattern Enabled :: AccessStatus
+pattern Enabled = AccessStatus' "ENABLED"
 
-instance Hashable AccessStatus
+pattern UnderChange :: AccessStatus
+pattern UnderChange = AccessStatus' "UNDER_CHANGE"
 
-instance NFData AccessStatus
-
-instance ToByteString AccessStatus
-
-instance ToQuery AccessStatus
-
-instance ToHeader AccessStatus
-
-instance FromJSON AccessStatus where
-  parseJSON = parseJSONText "AccessStatus"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  UnderChange,
+  AccessStatus'
+  #-}

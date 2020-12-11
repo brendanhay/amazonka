@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,143 @@
 --
 -- This operation removes the transfer lock on the domain (specifically the @clientTransferProhibited@ status) to allow domain transfers. We recommend you refrain from performing this action unless you intend to transfer the domain to a different registrar. Successful submission returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.DisableDomainTransferLock
-  ( -- * Creating a Request
-    disableDomainTransferLock,
-    DisableDomainTransferLock,
+  ( -- * Creating a request
+    DisableDomainTransferLock (..),
+    mkDisableDomainTransferLock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddtlDomainName,
 
-    -- * Destructuring the Response
-    disableDomainTransferLockResponse,
-    DisableDomainTransferLockResponse,
+    -- * Destructuring the response
+    DisableDomainTransferLockResponse (..),
+    mkDisableDomainTransferLockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddtlrsResponseStatus,
     ddtlrsOperationId,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The DisableDomainTransferLock request includes the following element.
 --
---
---
--- /See:/ 'disableDomainTransferLock' smart constructor.
+-- /See:/ 'mkDisableDomainTransferLock' smart constructor.
 newtype DisableDomainTransferLock = DisableDomainTransferLock'
-  { _ddtlDomainName ::
-      Text
+  { domainName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainTransferLock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddtlDomainName' - The name of the domain that you want to remove the transfer lock for.
-disableDomainTransferLock ::
-  -- | 'ddtlDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain that you want to remove the transfer lock for.
+mkDisableDomainTransferLock ::
+  -- | 'domainName'
+  Lude.Text ->
   DisableDomainTransferLock
-disableDomainTransferLock pDomainName_ =
-  DisableDomainTransferLock' {_ddtlDomainName = pDomainName_}
+mkDisableDomainTransferLock pDomainName_ =
+  DisableDomainTransferLock' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to remove the transfer lock for.
-ddtlDomainName :: Lens' DisableDomainTransferLock Text
-ddtlDomainName = lens _ddtlDomainName (\s a -> s {_ddtlDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtlDomainName :: Lens.Lens' DisableDomainTransferLock Lude.Text
+ddtlDomainName = Lens.lens (domainName :: DisableDomainTransferLock -> Lude.Text) (\s a -> s {domainName = a} :: DisableDomainTransferLock)
+{-# DEPRECATED ddtlDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DisableDomainTransferLock where
+instance Lude.AWSRequest DisableDomainTransferLock where
   type
     Rs DisableDomainTransferLock =
       DisableDomainTransferLockResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisableDomainTransferLockResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "OperationId")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
       )
 
-instance Hashable DisableDomainTransferLock
-
-instance NFData DisableDomainTransferLock
-
-instance ToHeaders DisableDomainTransferLock where
+instance Lude.ToHeaders DisableDomainTransferLock where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53Domains_v20140515.DisableDomainTransferLock" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.DisableDomainTransferLock" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableDomainTransferLock where
+instance Lude.ToJSON DisableDomainTransferLock where
   toJSON DisableDomainTransferLock' {..} =
-    object (catMaybes [Just ("DomainName" .= _ddtlDomainName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
 
-instance ToPath DisableDomainTransferLock where
-  toPath = const "/"
+instance Lude.ToPath DisableDomainTransferLock where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableDomainTransferLock where
-  toQuery = const mempty
+instance Lude.ToQuery DisableDomainTransferLock where
+  toQuery = Lude.const Lude.mempty
 
 -- | The DisableDomainTransferLock response includes the following element.
 --
---
---
--- /See:/ 'disableDomainTransferLockResponse' smart constructor.
+-- /See:/ 'mkDisableDomainTransferLockResponse' smart constructor.
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-  { _ddtlrsResponseStatus ::
-      !Int,
-    _ddtlrsOperationId ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    operationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainTransferLockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddtlrsResponseStatus' - -- | The response status code.
---
--- * 'ddtlrsOperationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
-disableDomainTransferLockResponse ::
-  -- | 'ddtlrsResponseStatus'
-  Int ->
-  -- | 'ddtlrsOperationId'
-  Text ->
+-- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+-- * 'responseStatus' - The response status code.
+mkDisableDomainTransferLockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'operationId'
+  Lude.Text ->
   DisableDomainTransferLockResponse
-disableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
+mkDisableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
   DisableDomainTransferLockResponse'
-    { _ddtlrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _ddtlrsOperationId = pOperationId_
+      operationId = pOperationId_
     }
 
--- | -- | The response status code.
-ddtlrsResponseStatus :: Lens' DisableDomainTransferLockResponse Int
-ddtlrsResponseStatus = lens _ddtlrsResponseStatus (\s a -> s {_ddtlrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtlrsResponseStatus :: Lens.Lens' DisableDomainTransferLockResponse Lude.Int
+ddtlrsResponseStatus = Lens.lens (responseStatus :: DisableDomainTransferLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDomainTransferLockResponse)
+{-# DEPRECATED ddtlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
-ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
-ddtlrsOperationId = lens _ddtlrsOperationId (\s a -> s {_ddtlrsOperationId = a})
-
-instance NFData DisableDomainTransferLockResponse
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtlrsOperationId :: Lens.Lens' DisableDomainTransferLockResponse Lude.Text
+ddtlrsOperationId = Lens.lens (operationId :: DisableDomainTransferLockResponse -> Lude.Text) (\s a -> s {operationId = a} :: DisableDomainTransferLockResponse)
+{-# DEPRECATED ddtlrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}

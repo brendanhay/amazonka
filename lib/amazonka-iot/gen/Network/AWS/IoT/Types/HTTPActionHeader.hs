@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.HTTPActionHeader where
+module Network.AWS.IoT.Types.HTTPActionHeader
+  ( HTTPActionHeader (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPActionHeader,
+
+    -- * Lenses
+    httpahKey,
+    httpahValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The HTTP action header.
 --
---
---
--- /See:/ 'hTTPActionHeader' smart constructor.
+-- /See:/ 'mkHTTPActionHeader' smart constructor.
 data HTTPActionHeader = HTTPActionHeader'
-  { _httpahKey :: !Text,
-    _httpahValue :: !Text
+  { key :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPActionHeader' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpahKey' - The HTTP header key.
---
--- * 'httpahValue' - The HTTP header value. Substitution templates are supported.
-hTTPActionHeader ::
-  -- | 'httpahKey'
-  Text ->
-  -- | 'httpahValue'
-  Text ->
+-- * 'key' - The HTTP header key.
+-- * 'value' - The HTTP header value. Substitution templates are supported.
+mkHTTPActionHeader ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   HTTPActionHeader
-hTTPActionHeader pKey_ pValue_ =
-  HTTPActionHeader' {_httpahKey = pKey_, _httpahValue = pValue_}
+mkHTTPActionHeader pKey_ pValue_ =
+  HTTPActionHeader' {key = pKey_, value = pValue_}
 
 -- | The HTTP header key.
-httpahKey :: Lens' HTTPActionHeader Text
-httpahKey = lens _httpahKey (\s a -> s {_httpahKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpahKey :: Lens.Lens' HTTPActionHeader Lude.Text
+httpahKey = Lens.lens (key :: HTTPActionHeader -> Lude.Text) (\s a -> s {key = a} :: HTTPActionHeader)
+{-# DEPRECATED httpahKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The HTTP header value. Substitution templates are supported.
-httpahValue :: Lens' HTTPActionHeader Text
-httpahValue = lens _httpahValue (\s a -> s {_httpahValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpahValue :: Lens.Lens' HTTPActionHeader Lude.Text
+httpahValue = Lens.lens (value :: HTTPActionHeader -> Lude.Text) (\s a -> s {value = a} :: HTTPActionHeader)
+{-# DEPRECATED httpahValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON HTTPActionHeader where
+instance Lude.FromJSON HTTPActionHeader where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPActionHeader"
-      (\x -> HTTPActionHeader' <$> (x .: "key") <*> (x .: "value"))
+      ( \x ->
+          HTTPActionHeader'
+            Lude.<$> (x Lude..: "key") Lude.<*> (x Lude..: "value")
+      )
 
-instance Hashable HTTPActionHeader
-
-instance NFData HTTPActionHeader
-
-instance ToJSON HTTPActionHeader where
+instance Lude.ToJSON HTTPActionHeader where
   toJSON HTTPActionHeader' {..} =
-    object
-      ( catMaybes
-          [Just ("key" .= _httpahKey), Just ("value" .= _httpahValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("key" Lude..= key), Lude.Just ("value" Lude..= value)]
       )

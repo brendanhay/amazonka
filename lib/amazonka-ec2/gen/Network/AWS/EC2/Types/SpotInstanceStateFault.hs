@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotInstanceStateFault where
+module Network.AWS.EC2.Types.SpotInstanceStateFault
+  ( SpotInstanceStateFault (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSpotInstanceStateFault,
+
+    -- * Lenses
+    sisfCode,
+    sisfMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Spot Instance state change.
 --
---
---
--- /See:/ 'spotInstanceStateFault' smart constructor.
+-- /See:/ 'mkSpotInstanceStateFault' smart constructor.
 data SpotInstanceStateFault = SpotInstanceStateFault'
-  { _sisfCode ::
-      !(Maybe Text),
-    _sisfMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotInstanceStateFault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sisfCode' - The reason code for the Spot Instance state change.
---
--- * 'sisfMessage' - The message for the Spot Instance state change.
-spotInstanceStateFault ::
+-- * 'code' - The reason code for the Spot Instance state change.
+-- * 'message' - The message for the Spot Instance state change.
+mkSpotInstanceStateFault ::
   SpotInstanceStateFault
-spotInstanceStateFault =
+mkSpotInstanceStateFault =
   SpotInstanceStateFault'
-    { _sisfCode = Nothing,
-      _sisfMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The reason code for the Spot Instance state change.
-sisfCode :: Lens' SpotInstanceStateFault (Maybe Text)
-sisfCode = lens _sisfCode (\s a -> s {_sisfCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisfCode :: Lens.Lens' SpotInstanceStateFault (Lude.Maybe Lude.Text)
+sisfCode = Lens.lens (code :: SpotInstanceStateFault -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: SpotInstanceStateFault)
+{-# DEPRECATED sisfCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The message for the Spot Instance state change.
-sisfMessage :: Lens' SpotInstanceStateFault (Maybe Text)
-sisfMessage = lens _sisfMessage (\s a -> s {_sisfMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisfMessage :: Lens.Lens' SpotInstanceStateFault (Lude.Maybe Lude.Text)
+sisfMessage = Lens.lens (message :: SpotInstanceStateFault -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: SpotInstanceStateFault)
+{-# DEPRECATED sisfMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML SpotInstanceStateFault where
+instance Lude.FromXML SpotInstanceStateFault where
   parseXML x =
-    SpotInstanceStateFault' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable SpotInstanceStateFault
-
-instance NFData SpotInstanceStateFault
+    SpotInstanceStateFault'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

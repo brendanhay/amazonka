@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,203 @@
 --
 -- Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.
 --
---
 -- This API allows you to compare two schema versions between two schema definitions under the same schema.
 module Network.AWS.Glue.GetSchemaVersionsDiff
-  ( -- * Creating a Request
-    getSchemaVersionsDiff,
-    GetSchemaVersionsDiff,
+  ( -- * Creating a request
+    GetSchemaVersionsDiff (..),
+    mkGetSchemaVersionsDiff,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsvdSchemaId,
     gsvdFirstSchemaVersionNumber,
     gsvdSecondSchemaVersionNumber,
     gsvdSchemaDiffType,
 
-    -- * Destructuring the Response
-    getSchemaVersionsDiffResponse,
-    GetSchemaVersionsDiffResponse,
+    -- * Destructuring the response
+    GetSchemaVersionsDiffResponse (..),
+    mkGetSchemaVersionsDiffResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsvdrsDiff,
     gsvdrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSchemaVersionsDiff' smart constructor.
+-- | /See:/ 'mkGetSchemaVersionsDiff' smart constructor.
 data GetSchemaVersionsDiff = GetSchemaVersionsDiff'
-  { _gsvdSchemaId ::
-      !SchemaId,
-    _gsvdFirstSchemaVersionNumber ::
-      !SchemaVersionNumber,
-    _gsvdSecondSchemaVersionNumber ::
-      !SchemaVersionNumber,
-    _gsvdSchemaDiffType :: !SchemaDiffType
+  { schemaId ::
+      SchemaId,
+    firstSchemaVersionNumber :: SchemaVersionNumber,
+    secondSchemaVersionNumber ::
+      SchemaVersionNumber,
+    schemaDiffType :: SchemaDiffType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaVersionsDiff' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'firstSchemaVersionNumber' - The first of the two schema versions to be compared.
+-- * 'schemaDiffType' - Refers to @SYNTAX_DIFF@ , which is the currently supported diff type.
+-- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
 --
--- * 'gsvdSchemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
 --
--- * 'gsvdFirstSchemaVersionNumber' - The first of the two schema versions to be compared.
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
 --
--- * 'gsvdSecondSchemaVersionNumber' - The second of the two schema versions to be compared.
 --
--- * 'gsvdSchemaDiffType' - Refers to @SYNTAX_DIFF@ , which is the currently supported diff type.
-getSchemaVersionsDiff ::
-  -- | 'gsvdSchemaId'
+--     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+--
+--
+-- * 'secondSchemaVersionNumber' - The second of the two schema versions to be compared.
+mkGetSchemaVersionsDiff ::
+  -- | 'schemaId'
   SchemaId ->
-  -- | 'gsvdFirstSchemaVersionNumber'
+  -- | 'firstSchemaVersionNumber'
   SchemaVersionNumber ->
-  -- | 'gsvdSecondSchemaVersionNumber'
+  -- | 'secondSchemaVersionNumber'
   SchemaVersionNumber ->
-  -- | 'gsvdSchemaDiffType'
+  -- | 'schemaDiffType'
   SchemaDiffType ->
   GetSchemaVersionsDiff
-getSchemaVersionsDiff
+mkGetSchemaVersionsDiff
   pSchemaId_
   pFirstSchemaVersionNumber_
   pSecondSchemaVersionNumber_
   pSchemaDiffType_ =
     GetSchemaVersionsDiff'
-      { _gsvdSchemaId = pSchemaId_,
-        _gsvdFirstSchemaVersionNumber = pFirstSchemaVersionNumber_,
-        _gsvdSecondSchemaVersionNumber = pSecondSchemaVersionNumber_,
-        _gsvdSchemaDiffType = pSchemaDiffType_
+      { schemaId = pSchemaId_,
+        firstSchemaVersionNumber = pFirstSchemaVersionNumber_,
+        secondSchemaVersionNumber = pSecondSchemaVersionNumber_,
+        schemaDiffType = pSchemaDiffType_
       }
 
--- | This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
-gsvdSchemaId :: Lens' GetSchemaVersionsDiff SchemaId
-gsvdSchemaId = lens _gsvdSchemaId (\s a -> s {_gsvdSchemaId = a})
+-- | This is a wrapper structure to contain schema identity fields. The structure contains:
+--
+--
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+--
+--
+--     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+--
+--
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvdSchemaId :: Lens.Lens' GetSchemaVersionsDiff SchemaId
+gsvdSchemaId = Lens.lens (schemaId :: GetSchemaVersionsDiff -> SchemaId) (\s a -> s {schemaId = a} :: GetSchemaVersionsDiff)
+{-# DEPRECATED gsvdSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | The first of the two schema versions to be compared.
-gsvdFirstSchemaVersionNumber :: Lens' GetSchemaVersionsDiff SchemaVersionNumber
-gsvdFirstSchemaVersionNumber = lens _gsvdFirstSchemaVersionNumber (\s a -> s {_gsvdFirstSchemaVersionNumber = a})
+--
+-- /Note:/ Consider using 'firstSchemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvdFirstSchemaVersionNumber :: Lens.Lens' GetSchemaVersionsDiff SchemaVersionNumber
+gsvdFirstSchemaVersionNumber = Lens.lens (firstSchemaVersionNumber :: GetSchemaVersionsDiff -> SchemaVersionNumber) (\s a -> s {firstSchemaVersionNumber = a} :: GetSchemaVersionsDiff)
+{-# DEPRECATED gsvdFirstSchemaVersionNumber "Use generic-lens or generic-optics with 'firstSchemaVersionNumber' instead." #-}
 
 -- | The second of the two schema versions to be compared.
-gsvdSecondSchemaVersionNumber :: Lens' GetSchemaVersionsDiff SchemaVersionNumber
-gsvdSecondSchemaVersionNumber = lens _gsvdSecondSchemaVersionNumber (\s a -> s {_gsvdSecondSchemaVersionNumber = a})
+--
+-- /Note:/ Consider using 'secondSchemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvdSecondSchemaVersionNumber :: Lens.Lens' GetSchemaVersionsDiff SchemaVersionNumber
+gsvdSecondSchemaVersionNumber = Lens.lens (secondSchemaVersionNumber :: GetSchemaVersionsDiff -> SchemaVersionNumber) (\s a -> s {secondSchemaVersionNumber = a} :: GetSchemaVersionsDiff)
+{-# DEPRECATED gsvdSecondSchemaVersionNumber "Use generic-lens or generic-optics with 'secondSchemaVersionNumber' instead." #-}
 
 -- | Refers to @SYNTAX_DIFF@ , which is the currently supported diff type.
-gsvdSchemaDiffType :: Lens' GetSchemaVersionsDiff SchemaDiffType
-gsvdSchemaDiffType = lens _gsvdSchemaDiffType (\s a -> s {_gsvdSchemaDiffType = a})
+--
+-- /Note:/ Consider using 'schemaDiffType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvdSchemaDiffType :: Lens.Lens' GetSchemaVersionsDiff SchemaDiffType
+gsvdSchemaDiffType = Lens.lens (schemaDiffType :: GetSchemaVersionsDiff -> SchemaDiffType) (\s a -> s {schemaDiffType = a} :: GetSchemaVersionsDiff)
+{-# DEPRECATED gsvdSchemaDiffType "Use generic-lens or generic-optics with 'schemaDiffType' instead." #-}
 
-instance AWSRequest GetSchemaVersionsDiff where
+instance Lude.AWSRequest GetSchemaVersionsDiff where
   type Rs GetSchemaVersionsDiff = GetSchemaVersionsDiffResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSchemaVersionsDiffResponse'
-            <$> (x .?> "Diff") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Diff") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSchemaVersionsDiff
-
-instance NFData GetSchemaVersionsDiff
-
-instance ToHeaders GetSchemaVersionsDiff where
+instance Lude.ToHeaders GetSchemaVersionsDiff where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetSchemaVersionsDiff" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetSchemaVersionsDiff" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSchemaVersionsDiff where
+instance Lude.ToJSON GetSchemaVersionsDiff where
   toJSON GetSchemaVersionsDiff' {..} =
-    object
-      ( catMaybes
-          [ Just ("SchemaId" .= _gsvdSchemaId),
-            Just ("FirstSchemaVersionNumber" .= _gsvdFirstSchemaVersionNumber),
-            Just
-              ("SecondSchemaVersionNumber" .= _gsvdSecondSchemaVersionNumber),
-            Just ("SchemaDiffType" .= _gsvdSchemaDiffType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SchemaId" Lude..= schemaId),
+            Lude.Just
+              ("FirstSchemaVersionNumber" Lude..= firstSchemaVersionNumber),
+            Lude.Just
+              ("SecondSchemaVersionNumber" Lude..= secondSchemaVersionNumber),
+            Lude.Just ("SchemaDiffType" Lude..= schemaDiffType)
           ]
       )
 
-instance ToPath GetSchemaVersionsDiff where
-  toPath = const "/"
+instance Lude.ToPath GetSchemaVersionsDiff where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSchemaVersionsDiff where
-  toQuery = const mempty
+instance Lude.ToQuery GetSchemaVersionsDiff where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSchemaVersionsDiffResponse' smart constructor.
+-- | /See:/ 'mkGetSchemaVersionsDiffResponse' smart constructor.
 data GetSchemaVersionsDiffResponse = GetSchemaVersionsDiffResponse'
-  { _gsvdrsDiff ::
-      !(Maybe Text),
-    _gsvdrsResponseStatus :: !Int
+  { diff ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaVersionsDiffResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsvdrsDiff' - The difference between schemas as a string in JsonPatch format.
---
--- * 'gsvdrsResponseStatus' - -- | The response status code.
-getSchemaVersionsDiffResponse ::
-  -- | 'gsvdrsResponseStatus'
-  Int ->
+-- * 'diff' - The difference between schemas as a string in JsonPatch format.
+-- * 'responseStatus' - The response status code.
+mkGetSchemaVersionsDiffResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSchemaVersionsDiffResponse
-getSchemaVersionsDiffResponse pResponseStatus_ =
+mkGetSchemaVersionsDiffResponse pResponseStatus_ =
   GetSchemaVersionsDiffResponse'
-    { _gsvdrsDiff = Nothing,
-      _gsvdrsResponseStatus = pResponseStatus_
+    { diff = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The difference between schemas as a string in JsonPatch format.
-gsvdrsDiff :: Lens' GetSchemaVersionsDiffResponse (Maybe Text)
-gsvdrsDiff = lens _gsvdrsDiff (\s a -> s {_gsvdrsDiff = a})
+--
+-- /Note:/ Consider using 'diff' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvdrsDiff :: Lens.Lens' GetSchemaVersionsDiffResponse (Lude.Maybe Lude.Text)
+gsvdrsDiff = Lens.lens (diff :: GetSchemaVersionsDiffResponse -> Lude.Maybe Lude.Text) (\s a -> s {diff = a} :: GetSchemaVersionsDiffResponse)
+{-# DEPRECATED gsvdrsDiff "Use generic-lens or generic-optics with 'diff' instead." #-}
 
--- | -- | The response status code.
-gsvdrsResponseStatus :: Lens' GetSchemaVersionsDiffResponse Int
-gsvdrsResponseStatus = lens _gsvdrsResponseStatus (\s a -> s {_gsvdrsResponseStatus = a})
-
-instance NFData GetSchemaVersionsDiffResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvdrsResponseStatus :: Lens.Lens' GetSchemaVersionsDiffResponse Lude.Int
+gsvdrsResponseStatus = Lens.lens (responseStatus :: GetSchemaVersionsDiffResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSchemaVersionsDiffResponse)
+{-# DEPRECATED gsvdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

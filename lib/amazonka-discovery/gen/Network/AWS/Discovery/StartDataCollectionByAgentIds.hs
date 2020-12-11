@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,137 @@
 --
 -- Instructs the specified agents or connectors to start collecting data.
 module Network.AWS.Discovery.StartDataCollectionByAgentIds
-  ( -- * Creating a Request
-    startDataCollectionByAgentIds,
-    StartDataCollectionByAgentIds,
+  ( -- * Creating a request
+    StartDataCollectionByAgentIds (..),
+    mkStartDataCollectionByAgentIds,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sAgentIds,
 
-    -- * Destructuring the Response
-    startDataCollectionByAgentIdsResponse,
-    StartDataCollectionByAgentIdsResponse,
+    -- * Destructuring the response
+    StartDataCollectionByAgentIdsResponse (..),
+    mkStartDataCollectionByAgentIdsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sdcbaisrsAgentsConfigurationStatus,
     sdcbaisrsResponseStatus,
   )
 where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startDataCollectionByAgentIds' smart constructor.
+-- | /See:/ 'mkStartDataCollectionByAgentIds' smart constructor.
 newtype StartDataCollectionByAgentIds = StartDataCollectionByAgentIds'
-  { _sAgentIds ::
-      [Text]
+  { agentIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDataCollectionByAgentIds' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sAgentIds' - The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
-startDataCollectionByAgentIds ::
+-- * 'agentIds' - The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
+mkStartDataCollectionByAgentIds ::
   StartDataCollectionByAgentIds
-startDataCollectionByAgentIds =
-  StartDataCollectionByAgentIds' {_sAgentIds = mempty}
+mkStartDataCollectionByAgentIds =
+  StartDataCollectionByAgentIds' {agentIds = Lude.mempty}
 
 -- | The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
-sAgentIds :: Lens' StartDataCollectionByAgentIds [Text]
-sAgentIds = lens _sAgentIds (\s a -> s {_sAgentIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'agentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAgentIds :: Lens.Lens' StartDataCollectionByAgentIds [Lude.Text]
+sAgentIds = Lens.lens (agentIds :: StartDataCollectionByAgentIds -> [Lude.Text]) (\s a -> s {agentIds = a} :: StartDataCollectionByAgentIds)
+{-# DEPRECATED sAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
 
-instance AWSRequest StartDataCollectionByAgentIds where
+instance Lude.AWSRequest StartDataCollectionByAgentIds where
   type
     Rs StartDataCollectionByAgentIds =
       StartDataCollectionByAgentIdsResponse
-  request = postJSON discovery
+  request = Req.postJSON discoveryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartDataCollectionByAgentIdsResponse'
-            <$> (x .?> "agentsConfigurationStatus" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "agentsConfigurationStatus" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartDataCollectionByAgentIds
-
-instance NFData StartDataCollectionByAgentIds
-
-instance ToHeaders StartDataCollectionByAgentIds where
+instance Lude.ToHeaders StartDataCollectionByAgentIds where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartDataCollectionByAgentIds where
+instance Lude.ToJSON StartDataCollectionByAgentIds where
   toJSON StartDataCollectionByAgentIds' {..} =
-    object (catMaybes [Just ("agentIds" .= _sAgentIds)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("agentIds" Lude..= agentIds)])
 
-instance ToPath StartDataCollectionByAgentIds where
-  toPath = const "/"
+instance Lude.ToPath StartDataCollectionByAgentIds where
+  toPath = Lude.const "/"
 
-instance ToQuery StartDataCollectionByAgentIds where
-  toQuery = const mempty
+instance Lude.ToQuery StartDataCollectionByAgentIds where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startDataCollectionByAgentIdsResponse' smart constructor.
+-- | /See:/ 'mkStartDataCollectionByAgentIdsResponse' smart constructor.
 data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse'
-  { _sdcbaisrsAgentsConfigurationStatus ::
-      !( Maybe
-           [AgentConfigurationStatus]
-       ),
-    _sdcbaisrsResponseStatus ::
-      !Int
+  { agentsConfigurationStatus ::
+      Lude.Maybe
+        [AgentConfigurationStatus],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDataCollectionByAgentIdsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdcbaisrsAgentsConfigurationStatus' - Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
---
--- * 'sdcbaisrsResponseStatus' - -- | The response status code.
-startDataCollectionByAgentIdsResponse ::
-  -- | 'sdcbaisrsResponseStatus'
-  Int ->
+-- * 'agentsConfigurationStatus' - Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
+-- * 'responseStatus' - The response status code.
+mkStartDataCollectionByAgentIdsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartDataCollectionByAgentIdsResponse
-startDataCollectionByAgentIdsResponse pResponseStatus_ =
+mkStartDataCollectionByAgentIdsResponse pResponseStatus_ =
   StartDataCollectionByAgentIdsResponse'
-    { _sdcbaisrsAgentsConfigurationStatus =
-        Nothing,
-      _sdcbaisrsResponseStatus = pResponseStatus_
+    { agentsConfigurationStatus =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
-sdcbaisrsAgentsConfigurationStatus :: Lens' StartDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
-sdcbaisrsAgentsConfigurationStatus = lens _sdcbaisrsAgentsConfigurationStatus (\s a -> s {_sdcbaisrsAgentsConfigurationStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'agentsConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcbaisrsAgentsConfigurationStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse (Lude.Maybe [AgentConfigurationStatus])
+sdcbaisrsAgentsConfigurationStatus = Lens.lens (agentsConfigurationStatus :: StartDataCollectionByAgentIdsResponse -> Lude.Maybe [AgentConfigurationStatus]) (\s a -> s {agentsConfigurationStatus = a} :: StartDataCollectionByAgentIdsResponse)
+{-# DEPRECATED sdcbaisrsAgentsConfigurationStatus "Use generic-lens or generic-optics with 'agentsConfigurationStatus' instead." #-}
 
--- | -- | The response status code.
-sdcbaisrsResponseStatus :: Lens' StartDataCollectionByAgentIdsResponse Int
-sdcbaisrsResponseStatus = lens _sdcbaisrsResponseStatus (\s a -> s {_sdcbaisrsResponseStatus = a})
-
-instance NFData StartDataCollectionByAgentIdsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcbaisrsResponseStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse Lude.Int
+sdcbaisrsResponseStatus = Lens.lens (responseStatus :: StartDataCollectionByAgentIdsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDataCollectionByAgentIdsResponse)
+{-# DEPRECATED sdcbaisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

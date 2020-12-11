@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
---
 -- ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.
 module Network.AWS.CognitoSync.ListRecords
-  ( -- * Creating a Request
-    listRecords,
-    ListRecords,
+  ( -- * Creating a request
+    ListRecords (..),
+    mkListRecords,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrLastSyncCount,
     lrNextToken,
     lrSyncSessionToken,
@@ -35,11 +29,11 @@ module Network.AWS.CognitoSync.ListRecords
     lrIdentityId,
     lrDatasetName,
 
-    -- * Destructuring the Response
-    listRecordsResponse,
-    ListRecordsResponse,
+    -- * Destructuring the response
+    ListRecordsResponse (..),
+    mkListRecordsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrrsDatasetDeletedAfterRequestedSyncCount,
     lrrsDatasetExists,
     lrrsCount,
@@ -54,239 +48,281 @@ module Network.AWS.CognitoSync.ListRecords
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request for a list of records.
 --
--- /See:/ 'listRecords' smart constructor.
+-- /See:/ 'mkListRecords' smart constructor.
 data ListRecords = ListRecords'
-  { _lrLastSyncCount ::
-      !(Maybe Integer),
-    _lrNextToken :: !(Maybe Text),
-    _lrSyncSessionToken :: !(Maybe Text),
-    _lrMaxResults :: !(Maybe Int),
-    _lrIdentityPoolId :: !Text,
-    _lrIdentityId :: !Text,
-    _lrDatasetName :: !Text
+  { lastSyncCount ::
+      Lude.Maybe Lude.Integer,
+    nextToken :: Lude.Maybe Lude.Text,
+    syncSessionToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    identityPoolId :: Lude.Text,
+    identityId :: Lude.Text,
+    datasetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecords' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrLastSyncCount' - The last server sync count for this record.
---
--- * 'lrNextToken' - A pagination token for obtaining the next page of results.
---
--- * 'lrSyncSessionToken' - A token containing a session ID, identity ID, and expiration.
---
--- * 'lrMaxResults' - The maximum number of results to be returned.
---
--- * 'lrIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'lrIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'lrDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
-listRecords ::
-  -- | 'lrIdentityPoolId'
-  Text ->
-  -- | 'lrIdentityId'
-  Text ->
-  -- | 'lrDatasetName'
-  Text ->
+-- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'lastSyncCount' - The last server sync count for this record.
+-- * 'maxResults' - The maximum number of results to be returned.
+-- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'syncSessionToken' - A token containing a session ID, identity ID, and expiration.
+mkListRecords ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
+  -- | 'datasetName'
+  Lude.Text ->
   ListRecords
-listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+mkListRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
   ListRecords'
-    { _lrLastSyncCount = Nothing,
-      _lrNextToken = Nothing,
-      _lrSyncSessionToken = Nothing,
-      _lrMaxResults = Nothing,
-      _lrIdentityPoolId = pIdentityPoolId_,
-      _lrIdentityId = pIdentityId_,
-      _lrDatasetName = pDatasetName_
+    { lastSyncCount = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      syncSessionToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      identityPoolId = pIdentityPoolId_,
+      identityId = pIdentityId_,
+      datasetName = pDatasetName_
     }
 
 -- | The last server sync count for this record.
-lrLastSyncCount :: Lens' ListRecords (Maybe Integer)
-lrLastSyncCount = lens _lrLastSyncCount (\s a -> s {_lrLastSyncCount = a})
+--
+-- /Note:/ Consider using 'lastSyncCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrLastSyncCount :: Lens.Lens' ListRecords (Lude.Maybe Lude.Integer)
+lrLastSyncCount = Lens.lens (lastSyncCount :: ListRecords -> Lude.Maybe Lude.Integer) (\s a -> s {lastSyncCount = a} :: ListRecords)
+{-# DEPRECATED lrLastSyncCount "Use generic-lens or generic-optics with 'lastSyncCount' instead." #-}
 
 -- | A pagination token for obtaining the next page of results.
-lrNextToken :: Lens' ListRecords (Maybe Text)
-lrNextToken = lens _lrNextToken (\s a -> s {_lrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListRecords (Lude.Maybe Lude.Text)
+lrNextToken = Lens.lens (nextToken :: ListRecords -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRecords)
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A token containing a session ID, identity ID, and expiration.
-lrSyncSessionToken :: Lens' ListRecords (Maybe Text)
-lrSyncSessionToken = lens _lrSyncSessionToken (\s a -> s {_lrSyncSessionToken = a})
+--
+-- /Note:/ Consider using 'syncSessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrSyncSessionToken :: Lens.Lens' ListRecords (Lude.Maybe Lude.Text)
+lrSyncSessionToken = Lens.lens (syncSessionToken :: ListRecords -> Lude.Maybe Lude.Text) (\s a -> s {syncSessionToken = a} :: ListRecords)
+{-# DEPRECATED lrSyncSessionToken "Use generic-lens or generic-optics with 'syncSessionToken' instead." #-}
 
 -- | The maximum number of results to be returned.
-lrMaxResults :: Lens' ListRecords (Maybe Int)
-lrMaxResults = lens _lrMaxResults (\s a -> s {_lrMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrMaxResults :: Lens.Lens' ListRecords (Lude.Maybe Lude.Int)
+lrMaxResults = Lens.lens (maxResults :: ListRecords -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListRecords)
+{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-lrIdentityPoolId :: Lens' ListRecords Text
-lrIdentityPoolId = lens _lrIdentityPoolId (\s a -> s {_lrIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrIdentityPoolId :: Lens.Lens' ListRecords Lude.Text
+lrIdentityPoolId = Lens.lens (identityPoolId :: ListRecords -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListRecords)
+{-# DEPRECATED lrIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-lrIdentityId :: Lens' ListRecords Text
-lrIdentityId = lens _lrIdentityId (\s a -> s {_lrIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrIdentityId :: Lens.Lens' ListRecords Lude.Text
+lrIdentityId = Lens.lens (identityId :: ListRecords -> Lude.Text) (\s a -> s {identityId = a} :: ListRecords)
+{-# DEPRECATED lrIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
-lrDatasetName :: Lens' ListRecords Text
-lrDatasetName = lens _lrDatasetName (\s a -> s {_lrDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrDatasetName :: Lens.Lens' ListRecords Lude.Text
+lrDatasetName = Lens.lens (datasetName :: ListRecords -> Lude.Text) (\s a -> s {datasetName = a} :: ListRecords)
+{-# DEPRECATED lrDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance AWSRequest ListRecords where
+instance Lude.AWSRequest ListRecords where
   type Rs ListRecords = ListRecordsResponse
-  request = get cognitoSync
+  request = Req.get cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRecordsResponse'
-            <$> (x .?> "DatasetDeletedAfterRequestedSyncCount")
-            <*> (x .?> "DatasetExists")
-            <*> (x .?> "Count")
-            <*> (x .?> "Records" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "MergedDatasetNames" .!@ mempty)
-            <*> (x .?> "SyncSessionToken")
-            <*> (x .?> "LastModifiedBy")
-            <*> (x .?> "DatasetSyncCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DatasetDeletedAfterRequestedSyncCount")
+            Lude.<*> (x Lude..?> "DatasetExists")
+            Lude.<*> (x Lude..?> "Count")
+            Lude.<*> (x Lude..?> "Records" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "MergedDatasetNames" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "SyncSessionToken")
+            Lude.<*> (x Lude..?> "LastModifiedBy")
+            Lude.<*> (x Lude..?> "DatasetSyncCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRecords
-
-instance NFData ListRecords
-
-instance ToHeaders ListRecords where
+instance Lude.ToHeaders ListRecords where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListRecords where
+instance Lude.ToPath ListRecords where
   toPath ListRecords' {..} =
-    mconcat
+    Lude.mconcat
       [ "/identitypools/",
-        toBS _lrIdentityPoolId,
+        Lude.toBS identityPoolId,
         "/identities/",
-        toBS _lrIdentityId,
+        Lude.toBS identityId,
         "/datasets/",
-        toBS _lrDatasetName,
+        Lude.toBS datasetName,
         "/records"
       ]
 
-instance ToQuery ListRecords where
+instance Lude.ToQuery ListRecords where
   toQuery ListRecords' {..} =
-    mconcat
-      [ "lastSyncCount" =: _lrLastSyncCount,
-        "nextToken" =: _lrNextToken,
-        "syncSessionToken" =: _lrSyncSessionToken,
-        "maxResults" =: _lrMaxResults
+    Lude.mconcat
+      [ "lastSyncCount" Lude.=: lastSyncCount,
+        "nextToken" Lude.=: nextToken,
+        "syncSessionToken" Lude.=: syncSessionToken,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | Returned for a successful ListRecordsRequest.
 --
--- /See:/ 'listRecordsResponse' smart constructor.
+-- /See:/ 'mkListRecordsResponse' smart constructor.
 data ListRecordsResponse = ListRecordsResponse'
-  { _lrrsDatasetDeletedAfterRequestedSyncCount ::
-      !(Maybe Bool),
-    _lrrsDatasetExists :: !(Maybe Bool),
-    _lrrsCount :: !(Maybe Int),
-    _lrrsRecords :: !(Maybe [Record]),
-    _lrrsNextToken :: !(Maybe Text),
-    _lrrsMergedDatasetNames :: !(Maybe [Text]),
-    _lrrsSyncSessionToken :: !(Maybe Text),
-    _lrrsLastModifiedBy :: !(Maybe Text),
-    _lrrsDatasetSyncCount :: !(Maybe Integer),
-    _lrrsResponseStatus :: !Int
+  { datasetDeletedAfterRequestedSyncCount ::
+      Lude.Maybe Lude.Bool,
+    datasetExists :: Lude.Maybe Lude.Bool,
+    count :: Lude.Maybe Lude.Int,
+    records :: Lude.Maybe [Record],
+    nextToken :: Lude.Maybe Lude.Text,
+    mergedDatasetNames :: Lude.Maybe [Lude.Text],
+    syncSessionToken :: Lude.Maybe Lude.Text,
+    lastModifiedBy :: Lude.Maybe Lude.Text,
+    datasetSyncCount :: Lude.Maybe Lude.Integer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecordsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsDatasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
---
--- * 'lrrsDatasetExists' - Indicates whether the dataset exists.
---
--- * 'lrrsCount' - Total number of records.
---
--- * 'lrrsRecords' - A list of all records.
---
--- * 'lrrsNextToken' - A pagination token for obtaining the next page of results.
---
--- * 'lrrsMergedDatasetNames' - Names of merged datasets.
---
--- * 'lrrsSyncSessionToken' - A token containing a session ID, identity ID, and expiration.
---
--- * 'lrrsLastModifiedBy' - The user/device that made the last change to this record.
---
--- * 'lrrsDatasetSyncCount' - Server sync count for this dataset.
---
--- * 'lrrsResponseStatus' - -- | The response status code.
-listRecordsResponse ::
-  -- | 'lrrsResponseStatus'
-  Int ->
+-- * 'count' - Total number of records.
+-- * 'datasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
+-- * 'datasetExists' - Indicates whether the dataset exists.
+-- * 'datasetSyncCount' - Server sync count for this dataset.
+-- * 'lastModifiedBy' - The user/device that made the last change to this record.
+-- * 'mergedDatasetNames' - Names of merged datasets.
+-- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'records' - A list of all records.
+-- * 'responseStatus' - The response status code.
+-- * 'syncSessionToken' - A token containing a session ID, identity ID, and expiration.
+mkListRecordsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRecordsResponse
-listRecordsResponse pResponseStatus_ =
+mkListRecordsResponse pResponseStatus_ =
   ListRecordsResponse'
-    { _lrrsDatasetDeletedAfterRequestedSyncCount =
-        Nothing,
-      _lrrsDatasetExists = Nothing,
-      _lrrsCount = Nothing,
-      _lrrsRecords = Nothing,
-      _lrrsNextToken = Nothing,
-      _lrrsMergedDatasetNames = Nothing,
-      _lrrsSyncSessionToken = Nothing,
-      _lrrsLastModifiedBy = Nothing,
-      _lrrsDatasetSyncCount = Nothing,
-      _lrrsResponseStatus = pResponseStatus_
+    { datasetDeletedAfterRequestedSyncCount =
+        Lude.Nothing,
+      datasetExists = Lude.Nothing,
+      count = Lude.Nothing,
+      records = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      mergedDatasetNames = Lude.Nothing,
+      syncSessionToken = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing,
+      datasetSyncCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A boolean value specifying whether to delete the dataset locally.
-lrrsDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
-lrrsDatasetDeletedAfterRequestedSyncCount = lens _lrrsDatasetDeletedAfterRequestedSyncCount (\s a -> s {_lrrsDatasetDeletedAfterRequestedSyncCount = a})
+--
+-- /Note:/ Consider using 'datasetDeletedAfterRequestedSyncCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsDatasetDeletedAfterRequestedSyncCount :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Bool)
+lrrsDatasetDeletedAfterRequestedSyncCount = Lens.lens (datasetDeletedAfterRequestedSyncCount :: ListRecordsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {datasetDeletedAfterRequestedSyncCount = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsDatasetDeletedAfterRequestedSyncCount "Use generic-lens or generic-optics with 'datasetDeletedAfterRequestedSyncCount' instead." #-}
 
 -- | Indicates whether the dataset exists.
-lrrsDatasetExists :: Lens' ListRecordsResponse (Maybe Bool)
-lrrsDatasetExists = lens _lrrsDatasetExists (\s a -> s {_lrrsDatasetExists = a})
+--
+-- /Note:/ Consider using 'datasetExists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsDatasetExists :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Bool)
+lrrsDatasetExists = Lens.lens (datasetExists :: ListRecordsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {datasetExists = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsDatasetExists "Use generic-lens or generic-optics with 'datasetExists' instead." #-}
 
 -- | Total number of records.
-lrrsCount :: Lens' ListRecordsResponse (Maybe Int)
-lrrsCount = lens _lrrsCount (\s a -> s {_lrrsCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsCount :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Int)
+lrrsCount = Lens.lens (count :: ListRecordsResponse -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | A list of all records.
-lrrsRecords :: Lens' ListRecordsResponse [Record]
-lrrsRecords = lens _lrrsRecords (\s a -> s {_lrrsRecords = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsRecords :: Lens.Lens' ListRecordsResponse (Lude.Maybe [Record])
+lrrsRecords = Lens.lens (records :: ListRecordsResponse -> Lude.Maybe [Record]) (\s a -> s {records = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
 
 -- | A pagination token for obtaining the next page of results.
-lrrsNextToken :: Lens' ListRecordsResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\s a -> s {_lrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsNextToken :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Text)
+lrrsNextToken = Lens.lens (nextToken :: ListRecordsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Names of merged datasets.
-lrrsMergedDatasetNames :: Lens' ListRecordsResponse [Text]
-lrrsMergedDatasetNames = lens _lrrsMergedDatasetNames (\s a -> s {_lrrsMergedDatasetNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'mergedDatasetNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsMergedDatasetNames :: Lens.Lens' ListRecordsResponse (Lude.Maybe [Lude.Text])
+lrrsMergedDatasetNames = Lens.lens (mergedDatasetNames :: ListRecordsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {mergedDatasetNames = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsMergedDatasetNames "Use generic-lens or generic-optics with 'mergedDatasetNames' instead." #-}
 
 -- | A token containing a session ID, identity ID, and expiration.
-lrrsSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
-lrrsSyncSessionToken = lens _lrrsSyncSessionToken (\s a -> s {_lrrsSyncSessionToken = a})
+--
+-- /Note:/ Consider using 'syncSessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsSyncSessionToken :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Text)
+lrrsSyncSessionToken = Lens.lens (syncSessionToken :: ListRecordsResponse -> Lude.Maybe Lude.Text) (\s a -> s {syncSessionToken = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsSyncSessionToken "Use generic-lens or generic-optics with 'syncSessionToken' instead." #-}
 
 -- | The user/device that made the last change to this record.
-lrrsLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
-lrrsLastModifiedBy = lens _lrrsLastModifiedBy (\s a -> s {_lrrsLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsLastModifiedBy :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Text)
+lrrsLastModifiedBy = Lens.lens (lastModifiedBy :: ListRecordsResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
 -- | Server sync count for this dataset.
-lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
-lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\s a -> s {_lrrsDatasetSyncCount = a})
+--
+-- /Note:/ Consider using 'datasetSyncCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsDatasetSyncCount :: Lens.Lens' ListRecordsResponse (Lude.Maybe Lude.Integer)
+lrrsDatasetSyncCount = Lens.lens (datasetSyncCount :: ListRecordsResponse -> Lude.Maybe Lude.Integer) (\s a -> s {datasetSyncCount = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsDatasetSyncCount "Use generic-lens or generic-optics with 'datasetSyncCount' instead." #-}
 
--- | -- | The response status code.
-lrrsResponseStatus :: Lens' ListRecordsResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\s a -> s {_lrrsResponseStatus = a})
-
-instance NFData ListRecordsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsResponseStatus :: Lens.Lens' ListRecordsResponse Lude.Int
+lrrsResponseStatus = Lens.lens (responseStatus :: ListRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRecordsResponse)
+{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

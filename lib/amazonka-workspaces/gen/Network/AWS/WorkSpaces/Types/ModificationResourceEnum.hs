@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ModificationResourceEnum where
+module Network.AWS.WorkSpaces.Types.ModificationResourceEnum
+  ( ModificationResourceEnum
+      ( ModificationResourceEnum',
+        ComputeType,
+        RootVolume,
+        UserVolume
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ModificationResourceEnum
-  = ComputeType
-  | RootVolume
-  | UserVolume
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ModificationResourceEnum = ModificationResourceEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ModificationResourceEnum where
-  parser =
-    takeLowerText >>= \case
-      "compute_type" -> pure ComputeType
-      "root_volume" -> pure RootVolume
-      "user_volume" -> pure UserVolume
-      e ->
-        fromTextError $
-          "Failure parsing ModificationResourceEnum from value: '" <> e
-            <> "'. Accepted values: compute_type, root_volume, user_volume"
+pattern ComputeType :: ModificationResourceEnum
+pattern ComputeType = ModificationResourceEnum' "COMPUTE_TYPE"
 
-instance ToText ModificationResourceEnum where
-  toText = \case
-    ComputeType -> "COMPUTE_TYPE"
-    RootVolume -> "ROOT_VOLUME"
-    UserVolume -> "USER_VOLUME"
+pattern RootVolume :: ModificationResourceEnum
+pattern RootVolume = ModificationResourceEnum' "ROOT_VOLUME"
 
-instance Hashable ModificationResourceEnum
+pattern UserVolume :: ModificationResourceEnum
+pattern UserVolume = ModificationResourceEnum' "USER_VOLUME"
 
-instance NFData ModificationResourceEnum
-
-instance ToByteString ModificationResourceEnum
-
-instance ToQuery ModificationResourceEnum
-
-instance ToHeader ModificationResourceEnum
-
-instance FromJSON ModificationResourceEnum where
-  parseJSON = parseJSONText "ModificationResourceEnum"
+{-# COMPLETE
+  ComputeType,
+  RootVolume,
+  UserVolume,
+  ModificationResourceEnum'
+  #-}

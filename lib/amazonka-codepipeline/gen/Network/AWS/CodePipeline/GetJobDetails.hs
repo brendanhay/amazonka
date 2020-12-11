@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,132 @@
 --
 -- Returns information about a job. Used for custom actions only.
 --
---
 -- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.
 module Network.AWS.CodePipeline.GetJobDetails
-  ( -- * Creating a Request
-    getJobDetails,
-    GetJobDetails,
+  ( -- * Creating a request
+    GetJobDetails (..),
+    mkGetJobDetails,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gjdJobId,
 
-    -- * Destructuring the Response
-    getJobDetailsResponse,
-    GetJobDetailsResponse,
+    -- * Destructuring the response
+    GetJobDetailsResponse (..),
+    mkGetJobDetailsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjdrsJobDetails,
     gjdrsResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetJobDetails@ action.
 --
---
---
--- /See:/ 'getJobDetails' smart constructor.
-newtype GetJobDetails = GetJobDetails' {_gjdJobId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetJobDetails' smart constructor.
+newtype GetJobDetails = GetJobDetails' {jobId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjdJobId' - The unique system-generated ID for the job.
-getJobDetails ::
-  -- | 'gjdJobId'
-  Text ->
+-- * 'jobId' - The unique system-generated ID for the job.
+mkGetJobDetails ::
+  -- | 'jobId'
+  Lude.Text ->
   GetJobDetails
-getJobDetails pJobId_ = GetJobDetails' {_gjdJobId = pJobId_}
+mkGetJobDetails pJobId_ = GetJobDetails' {jobId = pJobId_}
 
 -- | The unique system-generated ID for the job.
-gjdJobId :: Lens' GetJobDetails Text
-gjdJobId = lens _gjdJobId (\s a -> s {_gjdJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdJobId :: Lens.Lens' GetJobDetails Lude.Text
+gjdJobId = Lens.lens (jobId :: GetJobDetails -> Lude.Text) (\s a -> s {jobId = a} :: GetJobDetails)
+{-# DEPRECATED gjdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetJobDetails where
+instance Lude.AWSRequest GetJobDetails where
   type Rs GetJobDetails = GetJobDetailsResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetJobDetailsResponse'
-            <$> (x .?> "jobDetails") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobDetails") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetJobDetails
-
-instance NFData GetJobDetails
-
-instance ToHeaders GetJobDetails where
+instance Lude.ToHeaders GetJobDetails where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.GetJobDetails" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.GetJobDetails" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetJobDetails where
+instance Lude.ToJSON GetJobDetails where
   toJSON GetJobDetails' {..} =
-    object (catMaybes [Just ("jobId" .= _gjdJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("jobId" Lude..= jobId)])
 
-instance ToPath GetJobDetails where
-  toPath = const "/"
+instance Lude.ToPath GetJobDetails where
+  toPath = Lude.const "/"
 
-instance ToQuery GetJobDetails where
-  toQuery = const mempty
+instance Lude.ToQuery GetJobDetails where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetJobDetails@ action.
 --
---
---
--- /See:/ 'getJobDetailsResponse' smart constructor.
+-- /See:/ 'mkGetJobDetailsResponse' smart constructor.
 data GetJobDetailsResponse = GetJobDetailsResponse'
-  { _gjdrsJobDetails ::
-      !(Maybe JobDetails),
-    _gjdrsResponseStatus :: !Int
+  { jobDetails ::
+      Lude.Maybe JobDetails,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobDetailsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjdrsJobDetails' - The details of the job.
---
--- * 'gjdrsResponseStatus' - -- | The response status code.
-getJobDetailsResponse ::
-  -- | 'gjdrsResponseStatus'
-  Int ->
+-- * 'jobDetails' - The details of the job.
+-- * 'responseStatus' - The response status code.
+mkGetJobDetailsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetJobDetailsResponse
-getJobDetailsResponse pResponseStatus_ =
+mkGetJobDetailsResponse pResponseStatus_ =
   GetJobDetailsResponse'
-    { _gjdrsJobDetails = Nothing,
-      _gjdrsResponseStatus = pResponseStatus_
+    { jobDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the job.
-gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
-gjdrsJobDetails = lens _gjdrsJobDetails (\s a -> s {_gjdrsJobDetails = a})
+--
+-- /Note:/ Consider using 'jobDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrsJobDetails :: Lens.Lens' GetJobDetailsResponse (Lude.Maybe JobDetails)
+gjdrsJobDetails = Lens.lens (jobDetails :: GetJobDetailsResponse -> Lude.Maybe JobDetails) (\s a -> s {jobDetails = a} :: GetJobDetailsResponse)
+{-# DEPRECATED gjdrsJobDetails "Use generic-lens or generic-optics with 'jobDetails' instead." #-}
 
--- | -- | The response status code.
-gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
-gjdrsResponseStatus = lens _gjdrsResponseStatus (\s a -> s {_gjdrsResponseStatus = a})
-
-instance NFData GetJobDetailsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrsResponseStatus :: Lens.Lens' GetJobDetailsResponse Lude.Int
+gjdrsResponseStatus = Lens.lens (responseStatus :: GetJobDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobDetailsResponse)
+{-# DEPRECATED gjdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

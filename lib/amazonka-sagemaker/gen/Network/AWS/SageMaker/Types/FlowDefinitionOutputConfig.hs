@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.FlowDefinitionOutputConfig where
+module Network.AWS.SageMaker.Types.FlowDefinitionOutputConfig
+  ( FlowDefinitionOutputConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFlowDefinitionOutputConfig,
+
+    -- * Lenses
+    fdocKMSKeyId,
+    fdocS3OutputPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about where human output will be stored.
 --
---
---
--- /See:/ 'flowDefinitionOutputConfig' smart constructor.
+-- /See:/ 'mkFlowDefinitionOutputConfig' smart constructor.
 data FlowDefinitionOutputConfig = FlowDefinitionOutputConfig'
-  { _fdocKMSKeyId ::
-      !(Maybe Text),
-    _fdocS3OutputPath :: !Text
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    s3OutputPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlowDefinitionOutputConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdocKMSKeyId' - The Amazon Key Management Service (KMS) key ID for server-side encryption.
---
--- * 'fdocS3OutputPath' - The Amazon S3 path where the object containing human output will be made available.
-flowDefinitionOutputConfig ::
-  -- | 'fdocS3OutputPath'
-  Text ->
+-- * 'kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side encryption.
+-- * 's3OutputPath' - The Amazon S3 path where the object containing human output will be made available.
+mkFlowDefinitionOutputConfig ::
+  -- | 's3OutputPath'
+  Lude.Text ->
   FlowDefinitionOutputConfig
-flowDefinitionOutputConfig pS3OutputPath_ =
+mkFlowDefinitionOutputConfig pS3OutputPath_ =
   FlowDefinitionOutputConfig'
-    { _fdocKMSKeyId = Nothing,
-      _fdocS3OutputPath = pS3OutputPath_
+    { kmsKeyId = Lude.Nothing,
+      s3OutputPath = pS3OutputPath_
     }
 
 -- | The Amazon Key Management Service (KMS) key ID for server-side encryption.
-fdocKMSKeyId :: Lens' FlowDefinitionOutputConfig (Maybe Text)
-fdocKMSKeyId = lens _fdocKMSKeyId (\s a -> s {_fdocKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdocKMSKeyId :: Lens.Lens' FlowDefinitionOutputConfig (Lude.Maybe Lude.Text)
+fdocKMSKeyId = Lens.lens (kmsKeyId :: FlowDefinitionOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: FlowDefinitionOutputConfig)
+{-# DEPRECATED fdocKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The Amazon S3 path where the object containing human output will be made available.
-fdocS3OutputPath :: Lens' FlowDefinitionOutputConfig Text
-fdocS3OutputPath = lens _fdocS3OutputPath (\s a -> s {_fdocS3OutputPath = a})
+--
+-- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdocS3OutputPath :: Lens.Lens' FlowDefinitionOutputConfig Lude.Text
+fdocS3OutputPath = Lens.lens (s3OutputPath :: FlowDefinitionOutputConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: FlowDefinitionOutputConfig)
+{-# DEPRECATED fdocS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
-instance FromJSON FlowDefinitionOutputConfig where
+instance Lude.FromJSON FlowDefinitionOutputConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "FlowDefinitionOutputConfig"
       ( \x ->
           FlowDefinitionOutputConfig'
-            <$> (x .:? "KmsKeyId") <*> (x .: "S3OutputPath")
+            Lude.<$> (x Lude..:? "KmsKeyId") Lude.<*> (x Lude..: "S3OutputPath")
       )
 
-instance Hashable FlowDefinitionOutputConfig
-
-instance NFData FlowDefinitionOutputConfig
-
-instance ToJSON FlowDefinitionOutputConfig where
+instance Lude.ToJSON FlowDefinitionOutputConfig where
   toJSON FlowDefinitionOutputConfig' {..} =
-    object
-      ( catMaybes
-          [ ("KmsKeyId" .=) <$> _fdocKMSKeyId,
-            Just ("S3OutputPath" .= _fdocS3OutputPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just ("S3OutputPath" Lude..= s3OutputPath)
           ]
       )

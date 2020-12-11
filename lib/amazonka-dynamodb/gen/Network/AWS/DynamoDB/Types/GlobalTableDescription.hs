@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,137 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalTableDescription where
+module Network.AWS.DynamoDB.Types.GlobalTableDescription
+  ( GlobalTableDescription (..),
+
+    -- * Smart constructor
+    mkGlobalTableDescription,
+
+    -- * Lenses
+    gtdGlobalTableStatus,
+    gtdGlobalTableName,
+    gtdGlobalTableARN,
+    gtdCreationDateTime,
+    gtdReplicationGroup,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.GlobalTableStatus
 import Network.AWS.DynamoDB.Types.ReplicaDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the global table.
 --
---
---
--- /See:/ 'globalTableDescription' smart constructor.
+-- /See:/ 'mkGlobalTableDescription' smart constructor.
 data GlobalTableDescription = GlobalTableDescription'
-  { _gtdGlobalTableStatus ::
-      !(Maybe GlobalTableStatus),
-    _gtdGlobalTableName :: !(Maybe Text),
-    _gtdGlobalTableARN :: !(Maybe Text),
-    _gtdCreationDateTime :: !(Maybe POSIX),
-    _gtdReplicationGroup ::
-      !(Maybe [ReplicaDescription])
+  { globalTableStatus ::
+      Lude.Maybe GlobalTableStatus,
+    globalTableName :: Lude.Maybe Lude.Text,
+    globalTableARN :: Lude.Maybe Lude.Text,
+    creationDateTime :: Lude.Maybe Lude.Timestamp,
+    replicationGroup ::
+      Lude.Maybe [ReplicaDescription]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalTableDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationDateTime' - The creation time of the global table.
+-- * 'globalTableARN' - The unique identifier of the global table.
+-- * 'globalTableName' - The global table name.
+-- * 'globalTableStatus' - The current state of the global table:
 --
--- * 'gtdGlobalTableStatus' - The current state of the global table:     * @CREATING@ - The global table is being created.     * @UPDATING@ - The global table is being updated.     * @DELETING@ - The global table is being deleted.     * @ACTIVE@ - The global table is ready for use.
 --
--- * 'gtdGlobalTableName' - The global table name.
+--     * @CREATING@ - The global table is being created.
 --
--- * 'gtdGlobalTableARN' - The unique identifier of the global table.
 --
--- * 'gtdCreationDateTime' - The creation time of the global table.
+--     * @UPDATING@ - The global table is being updated.
 --
--- * 'gtdReplicationGroup' - The Regions where the global table has replicas.
-globalTableDescription ::
+--
+--     * @DELETING@ - The global table is being deleted.
+--
+--
+--     * @ACTIVE@ - The global table is ready for use.
+--
+--
+-- * 'replicationGroup' - The Regions where the global table has replicas.
+mkGlobalTableDescription ::
   GlobalTableDescription
-globalTableDescription =
+mkGlobalTableDescription =
   GlobalTableDescription'
-    { _gtdGlobalTableStatus = Nothing,
-      _gtdGlobalTableName = Nothing,
-      _gtdGlobalTableARN = Nothing,
-      _gtdCreationDateTime = Nothing,
-      _gtdReplicationGroup = Nothing
+    { globalTableStatus = Lude.Nothing,
+      globalTableName = Lude.Nothing,
+      globalTableARN = Lude.Nothing,
+      creationDateTime = Lude.Nothing,
+      replicationGroup = Lude.Nothing
     }
 
--- | The current state of the global table:     * @CREATING@ - The global table is being created.     * @UPDATING@ - The global table is being updated.     * @DELETING@ - The global table is being deleted.     * @ACTIVE@ - The global table is ready for use.
-gtdGlobalTableStatus :: Lens' GlobalTableDescription (Maybe GlobalTableStatus)
-gtdGlobalTableStatus = lens _gtdGlobalTableStatus (\s a -> s {_gtdGlobalTableStatus = a})
+-- | The current state of the global table:
+--
+--
+--     * @CREATING@ - The global table is being created.
+--
+--
+--     * @UPDATING@ - The global table is being updated.
+--
+--
+--     * @DELETING@ - The global table is being deleted.
+--
+--
+--     * @ACTIVE@ - The global table is ready for use.
+--
+--
+--
+-- /Note:/ Consider using 'globalTableStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdGlobalTableStatus :: Lens.Lens' GlobalTableDescription (Lude.Maybe GlobalTableStatus)
+gtdGlobalTableStatus = Lens.lens (globalTableStatus :: GlobalTableDescription -> Lude.Maybe GlobalTableStatus) (\s a -> s {globalTableStatus = a} :: GlobalTableDescription)
+{-# DEPRECATED gtdGlobalTableStatus "Use generic-lens or generic-optics with 'globalTableStatus' instead." #-}
 
 -- | The global table name.
-gtdGlobalTableName :: Lens' GlobalTableDescription (Maybe Text)
-gtdGlobalTableName = lens _gtdGlobalTableName (\s a -> s {_gtdGlobalTableName = a})
+--
+-- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdGlobalTableName :: Lens.Lens' GlobalTableDescription (Lude.Maybe Lude.Text)
+gtdGlobalTableName = Lens.lens (globalTableName :: GlobalTableDescription -> Lude.Maybe Lude.Text) (\s a -> s {globalTableName = a} :: GlobalTableDescription)
+{-# DEPRECATED gtdGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
 -- | The unique identifier of the global table.
-gtdGlobalTableARN :: Lens' GlobalTableDescription (Maybe Text)
-gtdGlobalTableARN = lens _gtdGlobalTableARN (\s a -> s {_gtdGlobalTableARN = a})
+--
+-- /Note:/ Consider using 'globalTableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdGlobalTableARN :: Lens.Lens' GlobalTableDescription (Lude.Maybe Lude.Text)
+gtdGlobalTableARN = Lens.lens (globalTableARN :: GlobalTableDescription -> Lude.Maybe Lude.Text) (\s a -> s {globalTableARN = a} :: GlobalTableDescription)
+{-# DEPRECATED gtdGlobalTableARN "Use generic-lens or generic-optics with 'globalTableARN' instead." #-}
 
 -- | The creation time of the global table.
-gtdCreationDateTime :: Lens' GlobalTableDescription (Maybe UTCTime)
-gtdCreationDateTime = lens _gtdCreationDateTime (\s a -> s {_gtdCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdCreationDateTime :: Lens.Lens' GlobalTableDescription (Lude.Maybe Lude.Timestamp)
+gtdCreationDateTime = Lens.lens (creationDateTime :: GlobalTableDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: GlobalTableDescription)
+{-# DEPRECATED gtdCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The Regions where the global table has replicas.
-gtdReplicationGroup :: Lens' GlobalTableDescription [ReplicaDescription]
-gtdReplicationGroup = lens _gtdReplicationGroup (\s a -> s {_gtdReplicationGroup = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdReplicationGroup :: Lens.Lens' GlobalTableDescription (Lude.Maybe [ReplicaDescription])
+gtdReplicationGroup = Lens.lens (replicationGroup :: GlobalTableDescription -> Lude.Maybe [ReplicaDescription]) (\s a -> s {replicationGroup = a} :: GlobalTableDescription)
+{-# DEPRECATED gtdReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
 
-instance FromJSON GlobalTableDescription where
+instance Lude.FromJSON GlobalTableDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "GlobalTableDescription"
       ( \x ->
           GlobalTableDescription'
-            <$> (x .:? "GlobalTableStatus")
-            <*> (x .:? "GlobalTableName")
-            <*> (x .:? "GlobalTableArn")
-            <*> (x .:? "CreationDateTime")
-            <*> (x .:? "ReplicationGroup" .!= mempty)
+            Lude.<$> (x Lude..:? "GlobalTableStatus")
+            Lude.<*> (x Lude..:? "GlobalTableName")
+            Lude.<*> (x Lude..:? "GlobalTableArn")
+            Lude.<*> (x Lude..:? "CreationDateTime")
+            Lude.<*> (x Lude..:? "ReplicationGroup" Lude..!= Lude.mempty)
       )
-
-instance Hashable GlobalTableDescription
-
-instance NFData GlobalTableDescription

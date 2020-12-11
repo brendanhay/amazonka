@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.PolicyOwnerEntityType where
+module Network.AWS.IAM.Types.PolicyOwnerEntityType
+  ( PolicyOwnerEntityType
+      ( PolicyOwnerEntityType',
+        POETGroup,
+        POETRole,
+        POETUser
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicyOwnerEntityType
-  = POETGroup
-  | POETRole
-  | POETUser
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicyOwnerEntityType = PolicyOwnerEntityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicyOwnerEntityType where
-  parser =
-    takeLowerText >>= \case
-      "group" -> pure POETGroup
-      "role" -> pure POETRole
-      "user" -> pure POETUser
-      e ->
-        fromTextError $
-          "Failure parsing PolicyOwnerEntityType from value: '" <> e
-            <> "'. Accepted values: group, role, user"
+pattern POETGroup :: PolicyOwnerEntityType
+pattern POETGroup = PolicyOwnerEntityType' "GROUP"
 
-instance ToText PolicyOwnerEntityType where
-  toText = \case
-    POETGroup -> "GROUP"
-    POETRole -> "ROLE"
-    POETUser -> "USER"
+pattern POETRole :: PolicyOwnerEntityType
+pattern POETRole = PolicyOwnerEntityType' "ROLE"
 
-instance Hashable PolicyOwnerEntityType
+pattern POETUser :: PolicyOwnerEntityType
+pattern POETUser = PolicyOwnerEntityType' "USER"
 
-instance NFData PolicyOwnerEntityType
-
-instance ToByteString PolicyOwnerEntityType
-
-instance ToQuery PolicyOwnerEntityType
-
-instance ToHeader PolicyOwnerEntityType
-
-instance FromXML PolicyOwnerEntityType where
-  parseXML = parseXMLText "PolicyOwnerEntityType"
+{-# COMPLETE
+  POETGroup,
+  POETRole,
+  POETUser,
+  PolicyOwnerEntityType'
+  #-}

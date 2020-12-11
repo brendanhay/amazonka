@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,135 @@
 --
 -- Disassociates the specified fleet from the specified stack.
 module Network.AWS.AppStream.DisassociateFleet
-  ( -- * Creating a Request
-    disassociateFleet,
-    DisassociateFleet,
+  ( -- * Creating a request
+    DisassociateFleet (..),
+    mkDisassociateFleet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfFleetName,
     dfStackName,
 
-    -- * Destructuring the Response
-    disassociateFleetResponse,
-    DisassociateFleetResponse,
+    -- * Destructuring the response
+    DisassociateFleetResponse (..),
+    mkDisassociateFleetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateFleet' smart constructor.
+-- | /See:/ 'mkDisassociateFleet' smart constructor.
 data DisassociateFleet = DisassociateFleet'
-  { _dfFleetName :: !Text,
-    _dfStackName :: !Text
+  { fleetName :: Lude.Text,
+    stackName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateFleet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfFleetName' - The name of the fleet.
---
--- * 'dfStackName' - The name of the stack.
-disassociateFleet ::
-  -- | 'dfFleetName'
-  Text ->
-  -- | 'dfStackName'
-  Text ->
+-- * 'fleetName' - The name of the fleet.
+-- * 'stackName' - The name of the stack.
+mkDisassociateFleet ::
+  -- | 'fleetName'
+  Lude.Text ->
+  -- | 'stackName'
+  Lude.Text ->
   DisassociateFleet
-disassociateFleet pFleetName_ pStackName_ =
+mkDisassociateFleet pFleetName_ pStackName_ =
   DisassociateFleet'
-    { _dfFleetName = pFleetName_,
-      _dfStackName = pStackName_
+    { fleetName = pFleetName_,
+      stackName = pStackName_
     }
 
 -- | The name of the fleet.
-dfFleetName :: Lens' DisassociateFleet Text
-dfFleetName = lens _dfFleetName (\s a -> s {_dfFleetName = a})
+--
+-- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfFleetName :: Lens.Lens' DisassociateFleet Lude.Text
+dfFleetName = Lens.lens (fleetName :: DisassociateFleet -> Lude.Text) (\s a -> s {fleetName = a} :: DisassociateFleet)
+{-# DEPRECATED dfFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
 
 -- | The name of the stack.
-dfStackName :: Lens' DisassociateFleet Text
-dfStackName = lens _dfStackName (\s a -> s {_dfStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfStackName :: Lens.Lens' DisassociateFleet Lude.Text
+dfStackName = Lens.lens (stackName :: DisassociateFleet -> Lude.Text) (\s a -> s {stackName = a} :: DisassociateFleet)
+{-# DEPRECATED dfStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance AWSRequest DisassociateFleet where
+instance Lude.AWSRequest DisassociateFleet where
   type Rs DisassociateFleet = DisassociateFleetResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveEmpty
-      (\s h x -> DisassociateFleetResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DisassociateFleetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DisassociateFleet
-
-instance NFData DisassociateFleet
-
-instance ToHeaders DisassociateFleet where
+instance Lude.ToHeaders DisassociateFleet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DisassociateFleet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DisassociateFleet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateFleet where
+instance Lude.ToJSON DisassociateFleet where
   toJSON DisassociateFleet' {..} =
-    object
-      ( catMaybes
-          [ Just ("FleetName" .= _dfFleetName),
-            Just ("StackName" .= _dfStackName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("FleetName" Lude..= fleetName),
+            Lude.Just ("StackName" Lude..= stackName)
           ]
       )
 
-instance ToPath DisassociateFleet where
-  toPath = const "/"
+instance Lude.ToPath DisassociateFleet where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateFleet where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateFleet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateFleetResponse' smart constructor.
+-- | /See:/ 'mkDisassociateFleetResponse' smart constructor.
 newtype DisassociateFleetResponse = DisassociateFleetResponse'
-  { _drsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateFleetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
-disassociateFleetResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateFleetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateFleetResponse
-disassociateFleetResponse pResponseStatus_ =
-  DisassociateFleetResponse' {_drsResponseStatus = pResponseStatus_}
+mkDisassociateFleetResponse pResponseStatus_ =
+  DisassociateFleetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DisassociateFleetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DisassociateFleetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DisassociateFleetResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DisassociateFleetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateFleetResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

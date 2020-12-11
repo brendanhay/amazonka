@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.EnabledServicePrincipal where
+module Network.AWS.Organizations.Types.EnabledServicePrincipal
+  ( EnabledServicePrincipal (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnabledServicePrincipal,
+
+    -- * Lenses
+    espServicePrincipal,
+    espDateEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure that contains details of a service principal that represents an AWS service that is enabled to integrate with AWS Organizations.
 --
---
---
--- /See:/ 'enabledServicePrincipal' smart constructor.
+-- /See:/ 'mkEnabledServicePrincipal' smart constructor.
 data EnabledServicePrincipal = EnabledServicePrincipal'
-  { _espServicePrincipal ::
-      !(Maybe Text),
-    _espDateEnabled :: !(Maybe POSIX)
+  { servicePrincipal ::
+      Lude.Maybe Lude.Text,
+    dateEnabled :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnabledServicePrincipal' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'espServicePrincipal' - The name of the service principal. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
---
--- * 'espDateEnabled' - The date that the service principal was enabled for integration with AWS Organizations.
-enabledServicePrincipal ::
+-- * 'dateEnabled' - The date that the service principal was enabled for integration with AWS Organizations.
+-- * 'servicePrincipal' - The name of the service principal. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
+mkEnabledServicePrincipal ::
   EnabledServicePrincipal
-enabledServicePrincipal =
+mkEnabledServicePrincipal =
   EnabledServicePrincipal'
-    { _espServicePrincipal = Nothing,
-      _espDateEnabled = Nothing
+    { servicePrincipal = Lude.Nothing,
+      dateEnabled = Lude.Nothing
     }
 
 -- | The name of the service principal. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
-espServicePrincipal :: Lens' EnabledServicePrincipal (Maybe Text)
-espServicePrincipal = lens _espServicePrincipal (\s a -> s {_espServicePrincipal = a})
+--
+-- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+espServicePrincipal :: Lens.Lens' EnabledServicePrincipal (Lude.Maybe Lude.Text)
+espServicePrincipal = Lens.lens (servicePrincipal :: EnabledServicePrincipal -> Lude.Maybe Lude.Text) (\s a -> s {servicePrincipal = a} :: EnabledServicePrincipal)
+{-# DEPRECATED espServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
 
 -- | The date that the service principal was enabled for integration with AWS Organizations.
-espDateEnabled :: Lens' EnabledServicePrincipal (Maybe UTCTime)
-espDateEnabled = lens _espDateEnabled (\s a -> s {_espDateEnabled = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+espDateEnabled :: Lens.Lens' EnabledServicePrincipal (Lude.Maybe Lude.Timestamp)
+espDateEnabled = Lens.lens (dateEnabled :: EnabledServicePrincipal -> Lude.Maybe Lude.Timestamp) (\s a -> s {dateEnabled = a} :: EnabledServicePrincipal)
+{-# DEPRECATED espDateEnabled "Use generic-lens or generic-optics with 'dateEnabled' instead." #-}
 
-instance FromJSON EnabledServicePrincipal where
+instance Lude.FromJSON EnabledServicePrincipal where
   parseJSON =
-    withObject
+    Lude.withObject
       "EnabledServicePrincipal"
       ( \x ->
           EnabledServicePrincipal'
-            <$> (x .:? "ServicePrincipal") <*> (x .:? "DateEnabled")
+            Lude.<$> (x Lude..:? "ServicePrincipal")
+            Lude.<*> (x Lude..:? "DateEnabled")
       )
-
-instance Hashable EnabledServicePrincipal
-
-instance NFData EnabledServicePrincipal

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,138 @@
 --
 -- Unlinks a third-party account from a skill.
 module Network.AWS.AlexaBusiness.DeleteSkillAuthorization
-  ( -- * Creating a Request
-    deleteSkillAuthorization,
-    DeleteSkillAuthorization,
+  ( -- * Creating a request
+    DeleteSkillAuthorization (..),
+    mkDeleteSkillAuthorization,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsaRoomARN,
     dsaSkillId,
 
-    -- * Destructuring the Response
-    deleteSkillAuthorizationResponse,
-    DeleteSkillAuthorizationResponse,
+    -- * Destructuring the response
+    DeleteSkillAuthorizationResponse (..),
+    mkDeleteSkillAuthorizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsarsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSkillAuthorization' smart constructor.
+-- | /See:/ 'mkDeleteSkillAuthorization' smart constructor.
 data DeleteSkillAuthorization = DeleteSkillAuthorization'
-  { _dsaRoomARN ::
-      !(Maybe Text),
-    _dsaSkillId :: !Text
+  { roomARN ::
+      Lude.Maybe Lude.Text,
+    skillId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSkillAuthorization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsaRoomARN' - The room that the skill is authorized for.
---
--- * 'dsaSkillId' - The unique identifier of a skill.
-deleteSkillAuthorization ::
-  -- | 'dsaSkillId'
-  Text ->
+-- * 'roomARN' - The room that the skill is authorized for.
+-- * 'skillId' - The unique identifier of a skill.
+mkDeleteSkillAuthorization ::
+  -- | 'skillId'
+  Lude.Text ->
   DeleteSkillAuthorization
-deleteSkillAuthorization pSkillId_ =
+mkDeleteSkillAuthorization pSkillId_ =
   DeleteSkillAuthorization'
-    { _dsaRoomARN = Nothing,
-      _dsaSkillId = pSkillId_
+    { roomARN = Lude.Nothing,
+      skillId = pSkillId_
     }
 
 -- | The room that the skill is authorized for.
-dsaRoomARN :: Lens' DeleteSkillAuthorization (Maybe Text)
-dsaRoomARN = lens _dsaRoomARN (\s a -> s {_dsaRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaRoomARN :: Lens.Lens' DeleteSkillAuthorization (Lude.Maybe Lude.Text)
+dsaRoomARN = Lens.lens (roomARN :: DeleteSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DeleteSkillAuthorization)
+{-# DEPRECATED dsaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The unique identifier of a skill.
-dsaSkillId :: Lens' DeleteSkillAuthorization Text
-dsaSkillId = lens _dsaSkillId (\s a -> s {_dsaSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaSkillId :: Lens.Lens' DeleteSkillAuthorization Lude.Text
+dsaSkillId = Lens.lens (skillId :: DeleteSkillAuthorization -> Lude.Text) (\s a -> s {skillId = a} :: DeleteSkillAuthorization)
+{-# DEPRECATED dsaSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance AWSRequest DeleteSkillAuthorization where
+instance Lude.AWSRequest DeleteSkillAuthorization where
   type Rs DeleteSkillAuthorization = DeleteSkillAuthorizationResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteSkillAuthorizationResponse' <$> (pure (fromEnum s))
+          DeleteSkillAuthorizationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSkillAuthorization
-
-instance NFData DeleteSkillAuthorization
-
-instance ToHeaders DeleteSkillAuthorization where
+instance Lude.ToHeaders DeleteSkillAuthorization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DeleteSkillAuthorization" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.DeleteSkillAuthorization" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSkillAuthorization where
+instance Lude.ToJSON DeleteSkillAuthorization where
   toJSON DeleteSkillAuthorization' {..} =
-    object
-      ( catMaybes
-          [("RoomArn" .=) <$> _dsaRoomARN, Just ("SkillId" .= _dsaSkillId)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
+            Lude.Just ("SkillId" Lude..= skillId)
+          ]
       )
 
-instance ToPath DeleteSkillAuthorization where
-  toPath = const "/"
+instance Lude.ToPath DeleteSkillAuthorization where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSkillAuthorization where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSkillAuthorization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSkillAuthorizationResponse' smart constructor.
+-- | /See:/ 'mkDeleteSkillAuthorizationResponse' smart constructor.
 newtype DeleteSkillAuthorizationResponse = DeleteSkillAuthorizationResponse'
-  { _dsarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSkillAuthorizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsarsResponseStatus' - -- | The response status code.
-deleteSkillAuthorizationResponse ::
-  -- | 'dsarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSkillAuthorizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSkillAuthorizationResponse
-deleteSkillAuthorizationResponse pResponseStatus_ =
+mkDeleteSkillAuthorizationResponse pResponseStatus_ =
   DeleteSkillAuthorizationResponse'
-    { _dsarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dsarsResponseStatus :: Lens' DeleteSkillAuthorizationResponse Int
-dsarsResponseStatus = lens _dsarsResponseStatus (\s a -> s {_dsarsResponseStatus = a})
-
-instance NFData DeleteSkillAuthorizationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsResponseStatus :: Lens.Lens' DeleteSkillAuthorizationResponse Lude.Int
+dsarsResponseStatus = Lens.lens (responseStatus :: DeleteSkillAuthorizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSkillAuthorizationResponse)
+{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

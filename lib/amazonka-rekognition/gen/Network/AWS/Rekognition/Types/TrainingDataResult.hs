@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TrainingDataResult where
+module Network.AWS.Rekognition.Types.TrainingDataResult
+  ( TrainingDataResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrainingDataResult,
+
+    -- * Lenses
+    tInput,
+    tOutput,
+    tValidation,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.TrainingData
 import Network.AWS.Rekognition.Types.ValidationData
 
 -- | Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.
 --
---
---
--- /See:/ 'trainingDataResult' smart constructor.
+-- /See:/ 'mkTrainingDataResult' smart constructor.
 data TrainingDataResult = TrainingDataResult'
-  { _tInput ::
-      !(Maybe TrainingData),
-    _tOutput :: !(Maybe TrainingData),
-    _tValidation :: !(Maybe ValidationData)
+  { input ::
+      Lude.Maybe TrainingData,
+    output :: Lude.Maybe TrainingData,
+    validation :: Lude.Maybe ValidationData
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingDataResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tInput' - The training assets that you supplied for training.
---
--- * 'tOutput' - The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
---
--- * 'tValidation' - The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
-trainingDataResult ::
+-- * 'input' - The training assets that you supplied for training.
+-- * 'output' - The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
+-- * 'validation' - The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
+mkTrainingDataResult ::
   TrainingDataResult
-trainingDataResult =
+mkTrainingDataResult =
   TrainingDataResult'
-    { _tInput = Nothing,
-      _tOutput = Nothing,
-      _tValidation = Nothing
+    { input = Lude.Nothing,
+      output = Lude.Nothing,
+      validation = Lude.Nothing
     }
 
 -- | The training assets that you supplied for training.
-tInput :: Lens' TrainingDataResult (Maybe TrainingData)
-tInput = lens _tInput (\s a -> s {_tInput = a})
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tInput :: Lens.Lens' TrainingDataResult (Lude.Maybe TrainingData)
+tInput = Lens.lens (input :: TrainingDataResult -> Lude.Maybe TrainingData) (\s a -> s {input = a} :: TrainingDataResult)
+{-# DEPRECATED tInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
-tOutput :: Lens' TrainingDataResult (Maybe TrainingData)
-tOutput = lens _tOutput (\s a -> s {_tOutput = a})
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tOutput :: Lens.Lens' TrainingDataResult (Lude.Maybe TrainingData)
+tOutput = Lens.lens (output :: TrainingDataResult -> Lude.Maybe TrainingData) (\s a -> s {output = a} :: TrainingDataResult)
+{-# DEPRECATED tOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
-tValidation :: Lens' TrainingDataResult (Maybe ValidationData)
-tValidation = lens _tValidation (\s a -> s {_tValidation = a})
+--
+-- /Note:/ Consider using 'validation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValidation :: Lens.Lens' TrainingDataResult (Lude.Maybe ValidationData)
+tValidation = Lens.lens (validation :: TrainingDataResult -> Lude.Maybe ValidationData) (\s a -> s {validation = a} :: TrainingDataResult)
+{-# DEPRECATED tValidation "Use generic-lens or generic-optics with 'validation' instead." #-}
 
-instance FromJSON TrainingDataResult where
+instance Lude.FromJSON TrainingDataResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrainingDataResult"
       ( \x ->
           TrainingDataResult'
-            <$> (x .:? "Input") <*> (x .:? "Output") <*> (x .:? "Validation")
+            Lude.<$> (x Lude..:? "Input")
+            Lude.<*> (x Lude..:? "Output")
+            Lude.<*> (x Lude..:? "Validation")
       )
-
-instance Hashable TrainingDataResult
-
-instance NFData TrainingDataResult

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about an Amazon SageMaker job.
 module Network.AWS.SageMaker.DescribeAutoMLJob
-  ( -- * Creating a Request
-    describeAutoMLJob,
-    DescribeAutoMLJob,
+  ( -- * Creating a request
+    DescribeAutoMLJob (..),
+    mkDescribeAutoMLJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     damljAutoMLJobName,
 
-    -- * Destructuring the Response
-    describeAutoMLJobResponse,
-    DescribeAutoMLJobResponse,
+    -- * Destructuring the response
+    DescribeAutoMLJobResponse (..),
+    mkDescribeAutoMLJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     damljrsGenerateCandidateDefinitionsOnly,
     damljrsFailureReason,
     damljrsProblemType,
@@ -53,186 +48,179 @@ module Network.AWS.SageMaker.DescribeAutoMLJob
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeAutoMLJob' smart constructor.
+-- | /See:/ 'mkDescribeAutoMLJob' smart constructor.
 newtype DescribeAutoMLJob = DescribeAutoMLJob'
-  { _damljAutoMLJobName ::
-      Text
+  { autoMLJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutoMLJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damljAutoMLJobName' - Request information about a job using that job's unique name.
-describeAutoMLJob ::
-  -- | 'damljAutoMLJobName'
-  Text ->
+-- * 'autoMLJobName' - Request information about a job using that job's unique name.
+mkDescribeAutoMLJob ::
+  -- | 'autoMLJobName'
+  Lude.Text ->
   DescribeAutoMLJob
-describeAutoMLJob pAutoMLJobName_ =
-  DescribeAutoMLJob' {_damljAutoMLJobName = pAutoMLJobName_}
+mkDescribeAutoMLJob pAutoMLJobName_ =
+  DescribeAutoMLJob' {autoMLJobName = pAutoMLJobName_}
 
 -- | Request information about a job using that job's unique name.
-damljAutoMLJobName :: Lens' DescribeAutoMLJob Text
-damljAutoMLJobName = lens _damljAutoMLJobName (\s a -> s {_damljAutoMLJobName = a})
+--
+-- /Note:/ Consider using 'autoMLJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljAutoMLJobName :: Lens.Lens' DescribeAutoMLJob Lude.Text
+damljAutoMLJobName = Lens.lens (autoMLJobName :: DescribeAutoMLJob -> Lude.Text) (\s a -> s {autoMLJobName = a} :: DescribeAutoMLJob)
+{-# DEPRECATED damljAutoMLJobName "Use generic-lens or generic-optics with 'autoMLJobName' instead." #-}
 
-instance AWSRequest DescribeAutoMLJob where
+instance Lude.AWSRequest DescribeAutoMLJob where
   type Rs DescribeAutoMLJob = DescribeAutoMLJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAutoMLJobResponse'
-            <$> (x .?> "GenerateCandidateDefinitionsOnly")
-            <*> (x .?> "FailureReason")
-            <*> (x .?> "ProblemType")
-            <*> (x .?> "AutoMLJobConfig")
-            <*> (x .?> "AutoMLJobObjective")
-            <*> (x .?> "AutoMLJobArtifacts")
-            <*> (x .?> "ResolvedAttributes")
-            <*> (x .?> "EndTime")
-            <*> (x .?> "BestCandidate")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "AutoMLJobName")
-            <*> (x .:> "AutoMLJobArn")
-            <*> (x .:> "InputDataConfig")
-            <*> (x .:> "OutputDataConfig")
-            <*> (x .:> "RoleArn")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "LastModifiedTime")
-            <*> (x .:> "AutoMLJobStatus")
-            <*> (x .:> "AutoMLJobSecondaryStatus")
+            Lude.<$> (x Lude..?> "GenerateCandidateDefinitionsOnly")
+            Lude.<*> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "ProblemType")
+            Lude.<*> (x Lude..?> "AutoMLJobConfig")
+            Lude.<*> (x Lude..?> "AutoMLJobObjective")
+            Lude.<*> (x Lude..?> "AutoMLJobArtifacts")
+            Lude.<*> (x Lude..?> "ResolvedAttributes")
+            Lude.<*> (x Lude..?> "EndTime")
+            Lude.<*> (x Lude..?> "BestCandidate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "AutoMLJobName")
+            Lude.<*> (x Lude..:> "AutoMLJobArn")
+            Lude.<*> (x Lude..:> "InputDataConfig")
+            Lude.<*> (x Lude..:> "OutputDataConfig")
+            Lude.<*> (x Lude..:> "RoleArn")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "LastModifiedTime")
+            Lude.<*> (x Lude..:> "AutoMLJobStatus")
+            Lude.<*> (x Lude..:> "AutoMLJobSecondaryStatus")
       )
 
-instance Hashable DescribeAutoMLJob
-
-instance NFData DescribeAutoMLJob
-
-instance ToHeaders DescribeAutoMLJob where
+instance Lude.ToHeaders DescribeAutoMLJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeAutoMLJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeAutoMLJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAutoMLJob where
+instance Lude.ToJSON DescribeAutoMLJob where
   toJSON DescribeAutoMLJob' {..} =
-    object
-      (catMaybes [Just ("AutoMLJobName" .= _damljAutoMLJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("AutoMLJobName" Lude..= autoMLJobName)]
+      )
 
-instance ToPath DescribeAutoMLJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeAutoMLJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAutoMLJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAutoMLJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAutoMLJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeAutoMLJobResponse' smart constructor.
 data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
-  { _damljrsGenerateCandidateDefinitionsOnly ::
-      !(Maybe Bool),
-    _damljrsFailureReason :: !(Maybe Text),
-    _damljrsProblemType ::
-      !(Maybe ProblemType),
-    _damljrsAutoMLJobConfig ::
-      !(Maybe AutoMLJobConfig),
-    _damljrsAutoMLJobObjective ::
-      !(Maybe AutoMLJobObjective),
-    _damljrsAutoMLJobArtifacts ::
-      !(Maybe AutoMLJobArtifacts),
-    _damljrsResolvedAttributes ::
-      !(Maybe ResolvedAttributes),
-    _damljrsEndTime :: !(Maybe POSIX),
-    _damljrsBestCandidate ::
-      !(Maybe AutoMLCandidate),
-    _damljrsResponseStatus :: !Int,
-    _damljrsAutoMLJobName :: !Text,
-    _damljrsAutoMLJobARN :: !Text,
-    _damljrsInputDataConfig ::
-      !(List1 AutoMLChannel),
-    _damljrsOutputDataConfig ::
-      !AutoMLOutputDataConfig,
-    _damljrsRoleARN :: !Text,
-    _damljrsCreationTime :: !POSIX,
-    _damljrsLastModifiedTime :: !POSIX,
-    _damljrsAutoMLJobStatus ::
-      !AutoMLJobStatus,
-    _damljrsAutoMLJobSecondaryStatus ::
-      !AutoMLJobSecondaryStatus
+  { generateCandidateDefinitionsOnly ::
+      Lude.Maybe Lude.Bool,
+    failureReason :: Lude.Maybe Lude.Text,
+    problemType :: Lude.Maybe ProblemType,
+    autoMLJobConfig ::
+      Lude.Maybe AutoMLJobConfig,
+    autoMLJobObjective ::
+      Lude.Maybe AutoMLJobObjective,
+    autoMLJobArtifacts ::
+      Lude.Maybe AutoMLJobArtifacts,
+    resolvedAttributes ::
+      Lude.Maybe ResolvedAttributes,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    bestCandidate ::
+      Lude.Maybe AutoMLCandidate,
+    responseStatus :: Lude.Int,
+    autoMLJobName :: Lude.Text,
+    autoMLJobARN :: Lude.Text,
+    inputDataConfig ::
+      Lude.NonEmpty AutoMLChannel,
+    outputDataConfig ::
+      AutoMLOutputDataConfig,
+    roleARN :: Lude.Text,
+    creationTime :: Lude.Timestamp,
+    lastModifiedTime :: Lude.Timestamp,
+    autoMLJobStatus :: AutoMLJobStatus,
+    autoMLJobSecondaryStatus ::
+      AutoMLJobSecondaryStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutoMLJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damljrsGenerateCandidateDefinitionsOnly' - Returns the job's output from GenerateCandidateDefinitionsOnly.
---
--- * 'damljrsFailureReason' - Returns the job's FailureReason.
---
--- * 'damljrsProblemType' - Returns the job's problem type.
---
--- * 'damljrsAutoMLJobConfig' - Returns the job's config.
---
--- * 'damljrsAutoMLJobObjective' - Returns the job's objective.
---
--- * 'damljrsAutoMLJobArtifacts' - Returns information on the job's artifacts found in AutoMLJobArtifacts.
---
--- * 'damljrsResolvedAttributes' - This contains ProblemType, AutoMLJobObjective and CompletionCriteria. They're auto-inferred values, if not provided by you. If you do provide them, then they'll be the same as provided.
---
--- * 'damljrsEndTime' - Returns the job's end time.
---
--- * 'damljrsBestCandidate' - Returns the job's BestCandidate.
---
--- * 'damljrsResponseStatus' - -- | The response status code.
---
--- * 'damljrsAutoMLJobName' - Returns the name of a job.
---
--- * 'damljrsAutoMLJobARN' - Returns the job's ARN.
---
--- * 'damljrsInputDataConfig' - Returns the job's input data config.
---
--- * 'damljrsOutputDataConfig' - Returns the job's output data config.
---
--- * 'damljrsRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that has read permission to the input data location and write permission to the output data location in Amazon S3.
---
--- * 'damljrsCreationTime' - Returns the job's creation time.
---
--- * 'damljrsLastModifiedTime' - Returns the job's last modified time.
---
--- * 'damljrsAutoMLJobStatus' - Returns the job's AutoMLJobStatus.
---
--- * 'damljrsAutoMLJobSecondaryStatus' - Returns the job's AutoMLJobSecondaryStatus.
-describeAutoMLJobResponse ::
-  -- | 'damljrsResponseStatus'
-  Int ->
-  -- | 'damljrsAutoMLJobName'
-  Text ->
-  -- | 'damljrsAutoMLJobARN'
-  Text ->
-  -- | 'damljrsInputDataConfig'
-  NonEmpty AutoMLChannel ->
-  -- | 'damljrsOutputDataConfig'
+-- * 'autoMLJobARN' - Returns the job's ARN.
+-- * 'autoMLJobArtifacts' - Returns information on the job's artifacts found in AutoMLJobArtifacts.
+-- * 'autoMLJobConfig' - Returns the job's config.
+-- * 'autoMLJobName' - Returns the name of a job.
+-- * 'autoMLJobObjective' - Returns the job's objective.
+-- * 'autoMLJobSecondaryStatus' - Returns the job's AutoMLJobSecondaryStatus.
+-- * 'autoMLJobStatus' - Returns the job's AutoMLJobStatus.
+-- * 'bestCandidate' - Returns the job's BestCandidate.
+-- * 'creationTime' - Returns the job's creation time.
+-- * 'endTime' - Returns the job's end time.
+-- * 'failureReason' - Returns the job's FailureReason.
+-- * 'generateCandidateDefinitionsOnly' - Returns the job's output from GenerateCandidateDefinitionsOnly.
+-- * 'inputDataConfig' - Returns the job's input data config.
+-- * 'lastModifiedTime' - Returns the job's last modified time.
+-- * 'outputDataConfig' - Returns the job's output data config.
+-- * 'problemType' - Returns the job's problem type.
+-- * 'resolvedAttributes' - This contains ProblemType, AutoMLJobObjective and CompletionCriteria. They're auto-inferred values, if not provided by you. If you do provide them, then they'll be the same as provided.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that has read permission to the input data location and write permission to the output data location in Amazon S3.
+mkDescribeAutoMLJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'autoMLJobName'
+  Lude.Text ->
+  -- | 'autoMLJobARN'
+  Lude.Text ->
+  -- | 'inputDataConfig'
+  Lude.NonEmpty AutoMLChannel ->
+  -- | 'outputDataConfig'
   AutoMLOutputDataConfig ->
-  -- | 'damljrsRoleARN'
-  Text ->
-  -- | 'damljrsCreationTime'
-  UTCTime ->
-  -- | 'damljrsLastModifiedTime'
-  UTCTime ->
-  -- | 'damljrsAutoMLJobStatus'
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
+  -- | 'autoMLJobStatus'
   AutoMLJobStatus ->
-  -- | 'damljrsAutoMLJobSecondaryStatus'
+  -- | 'autoMLJobSecondaryStatus'
   AutoMLJobSecondaryStatus ->
   DescribeAutoMLJobResponse
-describeAutoMLJobResponse
+mkDescribeAutoMLJobResponse
   pResponseStatus_
   pAutoMLJobName_
   pAutoMLJobARN_
@@ -244,102 +232,157 @@ describeAutoMLJobResponse
   pAutoMLJobStatus_
   pAutoMLJobSecondaryStatus_ =
     DescribeAutoMLJobResponse'
-      { _damljrsGenerateCandidateDefinitionsOnly =
-          Nothing,
-        _damljrsFailureReason = Nothing,
-        _damljrsProblemType = Nothing,
-        _damljrsAutoMLJobConfig = Nothing,
-        _damljrsAutoMLJobObjective = Nothing,
-        _damljrsAutoMLJobArtifacts = Nothing,
-        _damljrsResolvedAttributes = Nothing,
-        _damljrsEndTime = Nothing,
-        _damljrsBestCandidate = Nothing,
-        _damljrsResponseStatus = pResponseStatus_,
-        _damljrsAutoMLJobName = pAutoMLJobName_,
-        _damljrsAutoMLJobARN = pAutoMLJobARN_,
-        _damljrsInputDataConfig = _List1 # pInputDataConfig_,
-        _damljrsOutputDataConfig = pOutputDataConfig_,
-        _damljrsRoleARN = pRoleARN_,
-        _damljrsCreationTime = _Time # pCreationTime_,
-        _damljrsLastModifiedTime = _Time # pLastModifiedTime_,
-        _damljrsAutoMLJobStatus = pAutoMLJobStatus_,
-        _damljrsAutoMLJobSecondaryStatus = pAutoMLJobSecondaryStatus_
+      { generateCandidateDefinitionsOnly =
+          Lude.Nothing,
+        failureReason = Lude.Nothing,
+        problemType = Lude.Nothing,
+        autoMLJobConfig = Lude.Nothing,
+        autoMLJobObjective = Lude.Nothing,
+        autoMLJobArtifacts = Lude.Nothing,
+        resolvedAttributes = Lude.Nothing,
+        endTime = Lude.Nothing,
+        bestCandidate = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        autoMLJobName = pAutoMLJobName_,
+        autoMLJobARN = pAutoMLJobARN_,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        roleARN = pRoleARN_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_,
+        autoMLJobStatus = pAutoMLJobStatus_,
+        autoMLJobSecondaryStatus = pAutoMLJobSecondaryStatus_
       }
 
 -- | Returns the job's output from GenerateCandidateDefinitionsOnly.
-damljrsGenerateCandidateDefinitionsOnly :: Lens' DescribeAutoMLJobResponse (Maybe Bool)
-damljrsGenerateCandidateDefinitionsOnly = lens _damljrsGenerateCandidateDefinitionsOnly (\s a -> s {_damljrsGenerateCandidateDefinitionsOnly = a})
+--
+-- /Note:/ Consider using 'generateCandidateDefinitionsOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsGenerateCandidateDefinitionsOnly :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe Lude.Bool)
+damljrsGenerateCandidateDefinitionsOnly = Lens.lens (generateCandidateDefinitionsOnly :: DescribeAutoMLJobResponse -> Lude.Maybe Lude.Bool) (\s a -> s {generateCandidateDefinitionsOnly = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsGenerateCandidateDefinitionsOnly "Use generic-lens or generic-optics with 'generateCandidateDefinitionsOnly' instead." #-}
 
 -- | Returns the job's FailureReason.
-damljrsFailureReason :: Lens' DescribeAutoMLJobResponse (Maybe Text)
-damljrsFailureReason = lens _damljrsFailureReason (\s a -> s {_damljrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsFailureReason :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe Lude.Text)
+damljrsFailureReason = Lens.lens (failureReason :: DescribeAutoMLJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | Returns the job's problem type.
-damljrsProblemType :: Lens' DescribeAutoMLJobResponse (Maybe ProblemType)
-damljrsProblemType = lens _damljrsProblemType (\s a -> s {_damljrsProblemType = a})
+--
+-- /Note:/ Consider using 'problemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsProblemType :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe ProblemType)
+damljrsProblemType = Lens.lens (problemType :: DescribeAutoMLJobResponse -> Lude.Maybe ProblemType) (\s a -> s {problemType = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsProblemType "Use generic-lens or generic-optics with 'problemType' instead." #-}
 
 -- | Returns the job's config.
-damljrsAutoMLJobConfig :: Lens' DescribeAutoMLJobResponse (Maybe AutoMLJobConfig)
-damljrsAutoMLJobConfig = lens _damljrsAutoMLJobConfig (\s a -> s {_damljrsAutoMLJobConfig = a})
+--
+-- /Note:/ Consider using 'autoMLJobConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobConfig :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe AutoMLJobConfig)
+damljrsAutoMLJobConfig = Lens.lens (autoMLJobConfig :: DescribeAutoMLJobResponse -> Lude.Maybe AutoMLJobConfig) (\s a -> s {autoMLJobConfig = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobConfig "Use generic-lens or generic-optics with 'autoMLJobConfig' instead." #-}
 
 -- | Returns the job's objective.
-damljrsAutoMLJobObjective :: Lens' DescribeAutoMLJobResponse (Maybe AutoMLJobObjective)
-damljrsAutoMLJobObjective = lens _damljrsAutoMLJobObjective (\s a -> s {_damljrsAutoMLJobObjective = a})
+--
+-- /Note:/ Consider using 'autoMLJobObjective' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobObjective :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe AutoMLJobObjective)
+damljrsAutoMLJobObjective = Lens.lens (autoMLJobObjective :: DescribeAutoMLJobResponse -> Lude.Maybe AutoMLJobObjective) (\s a -> s {autoMLJobObjective = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobObjective "Use generic-lens or generic-optics with 'autoMLJobObjective' instead." #-}
 
 -- | Returns information on the job's artifacts found in AutoMLJobArtifacts.
-damljrsAutoMLJobArtifacts :: Lens' DescribeAutoMLJobResponse (Maybe AutoMLJobArtifacts)
-damljrsAutoMLJobArtifacts = lens _damljrsAutoMLJobArtifacts (\s a -> s {_damljrsAutoMLJobArtifacts = a})
+--
+-- /Note:/ Consider using 'autoMLJobArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobArtifacts :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe AutoMLJobArtifacts)
+damljrsAutoMLJobArtifacts = Lens.lens (autoMLJobArtifacts :: DescribeAutoMLJobResponse -> Lude.Maybe AutoMLJobArtifacts) (\s a -> s {autoMLJobArtifacts = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobArtifacts "Use generic-lens or generic-optics with 'autoMLJobArtifacts' instead." #-}
 
 -- | This contains ProblemType, AutoMLJobObjective and CompletionCriteria. They're auto-inferred values, if not provided by you. If you do provide them, then they'll be the same as provided.
-damljrsResolvedAttributes :: Lens' DescribeAutoMLJobResponse (Maybe ResolvedAttributes)
-damljrsResolvedAttributes = lens _damljrsResolvedAttributes (\s a -> s {_damljrsResolvedAttributes = a})
+--
+-- /Note:/ Consider using 'resolvedAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsResolvedAttributes :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe ResolvedAttributes)
+damljrsResolvedAttributes = Lens.lens (resolvedAttributes :: DescribeAutoMLJobResponse -> Lude.Maybe ResolvedAttributes) (\s a -> s {resolvedAttributes = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsResolvedAttributes "Use generic-lens or generic-optics with 'resolvedAttributes' instead." #-}
 
 -- | Returns the job's end time.
-damljrsEndTime :: Lens' DescribeAutoMLJobResponse (Maybe UTCTime)
-damljrsEndTime = lens _damljrsEndTime (\s a -> s {_damljrsEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsEndTime :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe Lude.Timestamp)
+damljrsEndTime = Lens.lens (endTime :: DescribeAutoMLJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | Returns the job's BestCandidate.
-damljrsBestCandidate :: Lens' DescribeAutoMLJobResponse (Maybe AutoMLCandidate)
-damljrsBestCandidate = lens _damljrsBestCandidate (\s a -> s {_damljrsBestCandidate = a})
+--
+-- /Note:/ Consider using 'bestCandidate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsBestCandidate :: Lens.Lens' DescribeAutoMLJobResponse (Lude.Maybe AutoMLCandidate)
+damljrsBestCandidate = Lens.lens (bestCandidate :: DescribeAutoMLJobResponse -> Lude.Maybe AutoMLCandidate) (\s a -> s {bestCandidate = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsBestCandidate "Use generic-lens or generic-optics with 'bestCandidate' instead." #-}
 
--- | -- | The response status code.
-damljrsResponseStatus :: Lens' DescribeAutoMLJobResponse Int
-damljrsResponseStatus = lens _damljrsResponseStatus (\s a -> s {_damljrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsResponseStatus :: Lens.Lens' DescribeAutoMLJobResponse Lude.Int
+damljrsResponseStatus = Lens.lens (responseStatus :: DescribeAutoMLJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Returns the name of a job.
-damljrsAutoMLJobName :: Lens' DescribeAutoMLJobResponse Text
-damljrsAutoMLJobName = lens _damljrsAutoMLJobName (\s a -> s {_damljrsAutoMLJobName = a})
+--
+-- /Note:/ Consider using 'autoMLJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobName :: Lens.Lens' DescribeAutoMLJobResponse Lude.Text
+damljrsAutoMLJobName = Lens.lens (autoMLJobName :: DescribeAutoMLJobResponse -> Lude.Text) (\s a -> s {autoMLJobName = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobName "Use generic-lens or generic-optics with 'autoMLJobName' instead." #-}
 
 -- | Returns the job's ARN.
-damljrsAutoMLJobARN :: Lens' DescribeAutoMLJobResponse Text
-damljrsAutoMLJobARN = lens _damljrsAutoMLJobARN (\s a -> s {_damljrsAutoMLJobARN = a})
+--
+-- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobARN :: Lens.Lens' DescribeAutoMLJobResponse Lude.Text
+damljrsAutoMLJobARN = Lens.lens (autoMLJobARN :: DescribeAutoMLJobResponse -> Lude.Text) (\s a -> s {autoMLJobARN = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}
 
 -- | Returns the job's input data config.
-damljrsInputDataConfig :: Lens' DescribeAutoMLJobResponse (NonEmpty AutoMLChannel)
-damljrsInputDataConfig = lens _damljrsInputDataConfig (\s a -> s {_damljrsInputDataConfig = a}) . _List1
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsInputDataConfig :: Lens.Lens' DescribeAutoMLJobResponse (Lude.NonEmpty AutoMLChannel)
+damljrsInputDataConfig = Lens.lens (inputDataConfig :: DescribeAutoMLJobResponse -> Lude.NonEmpty AutoMLChannel) (\s a -> s {inputDataConfig = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Returns the job's output data config.
-damljrsOutputDataConfig :: Lens' DescribeAutoMLJobResponse AutoMLOutputDataConfig
-damljrsOutputDataConfig = lens _damljrsOutputDataConfig (\s a -> s {_damljrsOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsOutputDataConfig :: Lens.Lens' DescribeAutoMLJobResponse AutoMLOutputDataConfig
+damljrsOutputDataConfig = Lens.lens (outputDataConfig :: DescribeAutoMLJobResponse -> AutoMLOutputDataConfig) (\s a -> s {outputDataConfig = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that has read permission to the input data location and write permission to the output data location in Amazon S3.
-damljrsRoleARN :: Lens' DescribeAutoMLJobResponse Text
-damljrsRoleARN = lens _damljrsRoleARN (\s a -> s {_damljrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsRoleARN :: Lens.Lens' DescribeAutoMLJobResponse Lude.Text
+damljrsRoleARN = Lens.lens (roleARN :: DescribeAutoMLJobResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | Returns the job's creation time.
-damljrsCreationTime :: Lens' DescribeAutoMLJobResponse UTCTime
-damljrsCreationTime = lens _damljrsCreationTime (\s a -> s {_damljrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsCreationTime :: Lens.Lens' DescribeAutoMLJobResponse Lude.Timestamp
+damljrsCreationTime = Lens.lens (creationTime :: DescribeAutoMLJobResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Returns the job's last modified time.
-damljrsLastModifiedTime :: Lens' DescribeAutoMLJobResponse UTCTime
-damljrsLastModifiedTime = lens _damljrsLastModifiedTime (\s a -> s {_damljrsLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsLastModifiedTime :: Lens.Lens' DescribeAutoMLJobResponse Lude.Timestamp
+damljrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeAutoMLJobResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | Returns the job's AutoMLJobStatus.
-damljrsAutoMLJobStatus :: Lens' DescribeAutoMLJobResponse AutoMLJobStatus
-damljrsAutoMLJobStatus = lens _damljrsAutoMLJobStatus (\s a -> s {_damljrsAutoMLJobStatus = a})
+--
+-- /Note:/ Consider using 'autoMLJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobStatus :: Lens.Lens' DescribeAutoMLJobResponse AutoMLJobStatus
+damljrsAutoMLJobStatus = Lens.lens (autoMLJobStatus :: DescribeAutoMLJobResponse -> AutoMLJobStatus) (\s a -> s {autoMLJobStatus = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobStatus "Use generic-lens or generic-optics with 'autoMLJobStatus' instead." #-}
 
 -- | Returns the job's AutoMLJobSecondaryStatus.
-damljrsAutoMLJobSecondaryStatus :: Lens' DescribeAutoMLJobResponse AutoMLJobSecondaryStatus
-damljrsAutoMLJobSecondaryStatus = lens _damljrsAutoMLJobSecondaryStatus (\s a -> s {_damljrsAutoMLJobSecondaryStatus = a})
-
-instance NFData DescribeAutoMLJobResponse
+--
+-- /Note:/ Consider using 'autoMLJobSecondaryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damljrsAutoMLJobSecondaryStatus :: Lens.Lens' DescribeAutoMLJobResponse AutoMLJobSecondaryStatus
+damljrsAutoMLJobSecondaryStatus = Lens.lens (autoMLJobSecondaryStatus :: DescribeAutoMLJobResponse -> AutoMLJobSecondaryStatus) (\s a -> s {autoMLJobSecondaryStatus = a} :: DescribeAutoMLJobResponse)
+{-# DEPRECATED damljrsAutoMLJobSecondaryStatus "Use generic-lens or generic-optics with 'autoMLJobSecondaryStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.StreamInfo where
+module Network.AWS.IoT.Types.StreamInfo
+  ( StreamInfo (..),
+
+    -- * Smart constructor
+    mkStreamInfo,
+
+    -- * Lenses
+    siLastUpdatedAt,
+    siCreatedAt,
+    siStreamVersion,
+    siStreamARN,
+    siFiles,
+    siDescription,
+    siStreamId,
+    siRoleARN,
+  )
+where
 
 import Network.AWS.IoT.Types.StreamFile
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a stream.
 --
---
---
--- /See:/ 'streamInfo' smart constructor.
+-- /See:/ 'mkStreamInfo' smart constructor.
 data StreamInfo = StreamInfo'
-  { _siLastUpdatedAt :: !(Maybe POSIX),
-    _siCreatedAt :: !(Maybe POSIX),
-    _siStreamVersion :: !(Maybe Nat),
-    _siStreamARN :: !(Maybe Text),
-    _siFiles :: !(Maybe (List1 StreamFile)),
-    _siDescription :: !(Maybe Text),
-    _siStreamId :: !(Maybe Text),
-    _siRoleARN :: !(Maybe Text)
+  { lastUpdatedAt ::
+      Lude.Maybe Lude.Timestamp,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    streamVersion :: Lude.Maybe Lude.Natural,
+    streamARN :: Lude.Maybe Lude.Text,
+    files :: Lude.Maybe (Lude.NonEmpty StreamFile),
+    description :: Lude.Maybe Lude.Text,
+    streamId :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siLastUpdatedAt' - The date when the stream was last updated.
---
--- * 'siCreatedAt' - The date when the stream was created.
---
--- * 'siStreamVersion' - The stream version.
---
--- * 'siStreamARN' - The stream ARN.
---
--- * 'siFiles' - The files to stream.
---
--- * 'siDescription' - The description of the stream.
---
--- * 'siStreamId' - The stream ID.
---
--- * 'siRoleARN' - An IAM role AWS IoT assumes to access your S3 files.
-streamInfo ::
+-- * 'createdAt' - The date when the stream was created.
+-- * 'description' - The description of the stream.
+-- * 'files' - The files to stream.
+-- * 'lastUpdatedAt' - The date when the stream was last updated.
+-- * 'roleARN' - An IAM role AWS IoT assumes to access your S3 files.
+-- * 'streamARN' - The stream ARN.
+-- * 'streamId' - The stream ID.
+-- * 'streamVersion' - The stream version.
+mkStreamInfo ::
   StreamInfo
-streamInfo =
+mkStreamInfo =
   StreamInfo'
-    { _siLastUpdatedAt = Nothing,
-      _siCreatedAt = Nothing,
-      _siStreamVersion = Nothing,
-      _siStreamARN = Nothing,
-      _siFiles = Nothing,
-      _siDescription = Nothing,
-      _siStreamId = Nothing,
-      _siRoleARN = Nothing
+    { lastUpdatedAt = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      streamVersion = Lude.Nothing,
+      streamARN = Lude.Nothing,
+      files = Lude.Nothing,
+      description = Lude.Nothing,
+      streamId = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | The date when the stream was last updated.
-siLastUpdatedAt :: Lens' StreamInfo (Maybe UTCTime)
-siLastUpdatedAt = lens _siLastUpdatedAt (\s a -> s {_siLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siLastUpdatedAt :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Timestamp)
+siLastUpdatedAt = Lens.lens (lastUpdatedAt :: StreamInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: StreamInfo)
+{-# DEPRECATED siLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The date when the stream was created.
-siCreatedAt :: Lens' StreamInfo (Maybe UTCTime)
-siCreatedAt = lens _siCreatedAt (\s a -> s {_siCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siCreatedAt :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Timestamp)
+siCreatedAt = Lens.lens (createdAt :: StreamInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: StreamInfo)
+{-# DEPRECATED siCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The stream version.
-siStreamVersion :: Lens' StreamInfo (Maybe Natural)
-siStreamVersion = lens _siStreamVersion (\s a -> s {_siStreamVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'streamVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStreamVersion :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Natural)
+siStreamVersion = Lens.lens (streamVersion :: StreamInfo -> Lude.Maybe Lude.Natural) (\s a -> s {streamVersion = a} :: StreamInfo)
+{-# DEPRECATED siStreamVersion "Use generic-lens or generic-optics with 'streamVersion' instead." #-}
 
 -- | The stream ARN.
-siStreamARN :: Lens' StreamInfo (Maybe Text)
-siStreamARN = lens _siStreamARN (\s a -> s {_siStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStreamARN :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siStreamARN = Lens.lens (streamARN :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: StreamInfo)
+{-# DEPRECATED siStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The files to stream.
-siFiles :: Lens' StreamInfo (Maybe (NonEmpty StreamFile))
-siFiles = lens _siFiles (\s a -> s {_siFiles = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siFiles :: Lens.Lens' StreamInfo (Lude.Maybe (Lude.NonEmpty StreamFile))
+siFiles = Lens.lens (files :: StreamInfo -> Lude.Maybe (Lude.NonEmpty StreamFile)) (\s a -> s {files = a} :: StreamInfo)
+{-# DEPRECATED siFiles "Use generic-lens or generic-optics with 'files' instead." #-}
 
 -- | The description of the stream.
-siDescription :: Lens' StreamInfo (Maybe Text)
-siDescription = lens _siDescription (\s a -> s {_siDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDescription :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siDescription = Lens.lens (description :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StreamInfo)
+{-# DEPRECATED siDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The stream ID.
-siStreamId :: Lens' StreamInfo (Maybe Text)
-siStreamId = lens _siStreamId (\s a -> s {_siStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStreamId :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siStreamId = Lens.lens (streamId :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {streamId = a} :: StreamInfo)
+{-# DEPRECATED siStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
 -- | An IAM role AWS IoT assumes to access your S3 files.
-siRoleARN :: Lens' StreamInfo (Maybe Text)
-siRoleARN = lens _siRoleARN (\s a -> s {_siRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siRoleARN :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siRoleARN = Lens.lens (roleARN :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: StreamInfo)
+{-# DEPRECATED siRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON StreamInfo where
+instance Lude.FromJSON StreamInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "StreamInfo"
       ( \x ->
           StreamInfo'
-            <$> (x .:? "lastUpdatedAt")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "streamVersion")
-            <*> (x .:? "streamArn")
-            <*> (x .:? "files")
-            <*> (x .:? "description")
-            <*> (x .:? "streamId")
-            <*> (x .:? "roleArn")
+            Lude.<$> (x Lude..:? "lastUpdatedAt")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "streamVersion")
+            Lude.<*> (x Lude..:? "streamArn")
+            Lude.<*> (x Lude..:? "files")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "streamId")
+            Lude.<*> (x Lude..:? "roleArn")
       )
-
-instance Hashable StreamInfo
-
-instance NFData StreamInfo

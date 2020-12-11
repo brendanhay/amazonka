@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.ContactFlowSummary where
+module Network.AWS.Connect.Types.ContactFlowSummary
+  ( ContactFlowSummary (..),
+
+    -- * Smart constructor
+    mkContactFlowSummary,
+
+    -- * Lenses
+    cfsARN,
+    cfsName,
+    cfsContactFlowType,
+    cfsId,
+  )
+where
 
 import Network.AWS.Connect.Types.ContactFlowType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary information about a contact flow.
 --
---
 -- You can also create and update contact flows using the <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language> .
 --
---
--- /See:/ 'contactFlowSummary' smart constructor.
+-- /See:/ 'mkContactFlowSummary' smart constructor.
 data ContactFlowSummary = ContactFlowSummary'
-  { _cfsARN ::
-      !(Maybe Text),
-    _cfsName :: !(Maybe Text),
-    _cfsContactFlowType :: !(Maybe ContactFlowType),
-    _cfsId :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    contactFlowType :: Lude.Maybe ContactFlowType,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContactFlowSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfsARN' - The Amazon Resource Name (ARN) of the contact flow.
---
--- * 'cfsName' - The name of the contact flow.
---
--- * 'cfsContactFlowType' - The type of contact flow.
---
--- * 'cfsId' - The identifier of the contact flow.
-contactFlowSummary ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the contact flow.
+-- * 'contactFlowType' - The type of contact flow.
+-- * 'id' - The identifier of the contact flow.
+-- * 'name' - The name of the contact flow.
+mkContactFlowSummary ::
   ContactFlowSummary
-contactFlowSummary =
+mkContactFlowSummary =
   ContactFlowSummary'
-    { _cfsARN = Nothing,
-      _cfsName = Nothing,
-      _cfsContactFlowType = Nothing,
-      _cfsId = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      contactFlowType = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the contact flow.
-cfsARN :: Lens' ContactFlowSummary (Maybe Text)
-cfsARN = lens _cfsARN (\s a -> s {_cfsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsARN :: Lens.Lens' ContactFlowSummary (Lude.Maybe Lude.Text)
+cfsARN = Lens.lens (arn :: ContactFlowSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ContactFlowSummary)
+{-# DEPRECATED cfsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the contact flow.
-cfsName :: Lens' ContactFlowSummary (Maybe Text)
-cfsName = lens _cfsName (\s a -> s {_cfsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsName :: Lens.Lens' ContactFlowSummary (Lude.Maybe Lude.Text)
+cfsName = Lens.lens (name :: ContactFlowSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ContactFlowSummary)
+{-# DEPRECATED cfsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of contact flow.
-cfsContactFlowType :: Lens' ContactFlowSummary (Maybe ContactFlowType)
-cfsContactFlowType = lens _cfsContactFlowType (\s a -> s {_cfsContactFlowType = a})
+--
+-- /Note:/ Consider using 'contactFlowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsContactFlowType :: Lens.Lens' ContactFlowSummary (Lude.Maybe ContactFlowType)
+cfsContactFlowType = Lens.lens (contactFlowType :: ContactFlowSummary -> Lude.Maybe ContactFlowType) (\s a -> s {contactFlowType = a} :: ContactFlowSummary)
+{-# DEPRECATED cfsContactFlowType "Use generic-lens or generic-optics with 'contactFlowType' instead." #-}
 
 -- | The identifier of the contact flow.
-cfsId :: Lens' ContactFlowSummary (Maybe Text)
-cfsId = lens _cfsId (\s a -> s {_cfsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsId :: Lens.Lens' ContactFlowSummary (Lude.Maybe Lude.Text)
+cfsId = Lens.lens (id :: ContactFlowSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ContactFlowSummary)
+{-# DEPRECATED cfsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON ContactFlowSummary where
+instance Lude.FromJSON ContactFlowSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContactFlowSummary"
       ( \x ->
           ContactFlowSummary'
-            <$> (x .:? "Arn")
-            <*> (x .:? "Name")
-            <*> (x .:? "ContactFlowType")
-            <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "ContactFlowType")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable ContactFlowSummary
-
-instance NFData ContactFlowSummary

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,95 @@
 --
 -- Permanently deletes the specified document and its associated metadata.
 module Network.AWS.WorkDocs.DeleteDocument
-  ( -- * Creating a Request
-    deleteDocument,
-    DeleteDocument,
+  ( -- * Creating a request
+    DeleteDocument (..),
+    mkDeleteDocument,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddAuthenticationToken,
     ddDocumentId,
 
-    -- * Destructuring the Response
-    deleteDocumentResponse,
-    DeleteDocumentResponse,
+    -- * Destructuring the response
+    DeleteDocumentResponse (..),
+    mkDeleteDocumentResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'deleteDocument' smart constructor.
+-- | /See:/ 'mkDeleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
-  { _ddAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _ddDocumentId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    documentId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'ddDocumentId' - The ID of the document.
-deleteDocument ::
-  -- | 'ddDocumentId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'documentId' - The ID of the document.
+mkDeleteDocument ::
+  -- | 'documentId'
+  Lude.Text ->
   DeleteDocument
-deleteDocument pDocumentId_ =
+mkDeleteDocument pDocumentId_ =
   DeleteDocument'
-    { _ddAuthenticationToken = Nothing,
-      _ddDocumentId = pDocumentId_
+    { authenticationToken = Lude.Nothing,
+      documentId = pDocumentId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-ddAuthenticationToken :: Lens' DeleteDocument (Maybe Text)
-ddAuthenticationToken = lens _ddAuthenticationToken (\s a -> s {_ddAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddAuthenticationToken :: Lens.Lens' DeleteDocument (Lude.Maybe (Lude.Sensitive Lude.Text))
+ddAuthenticationToken = Lens.lens (authenticationToken :: DeleteDocument -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteDocument)
+{-# DEPRECATED ddAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the document.
-ddDocumentId :: Lens' DeleteDocument Text
-ddDocumentId = lens _ddDocumentId (\s a -> s {_ddDocumentId = a})
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDocumentId :: Lens.Lens' DeleteDocument Lude.Text
+ddDocumentId = Lens.lens (documentId :: DeleteDocument -> Lude.Text) (\s a -> s {documentId = a} :: DeleteDocument)
+{-# DEPRECATED ddDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
-instance AWSRequest DeleteDocument where
+instance Lude.AWSRequest DeleteDocument where
   type Rs DeleteDocument = DeleteDocumentResponse
-  request = delete workDocs
-  response = receiveNull DeleteDocumentResponse'
+  request = Req.delete workDocsService
+  response = Res.receiveNull DeleteDocumentResponse'
 
-instance Hashable DeleteDocument
-
-instance NFData DeleteDocument
-
-instance ToHeaders DeleteDocument where
+instance Lude.ToHeaders DeleteDocument where
   toHeaders DeleteDocument' {..} =
-    mconcat
-      [ "Authentication" =# _ddAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath DeleteDocument where
+instance Lude.ToPath DeleteDocument where
   toPath DeleteDocument' {..} =
-    mconcat ["/api/v1/documents/", toBS _ddDocumentId]
+    Lude.mconcat ["/api/v1/documents/", Lude.toBS documentId]
 
-instance ToQuery DeleteDocument where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDocument where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDocumentResponse' smart constructor.
+-- | /See:/ 'mkDeleteDocumentResponse' smart constructor.
 data DeleteDocumentResponse = DeleteDocumentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
-deleteDocumentResponse ::
+mkDeleteDocumentResponse ::
   DeleteDocumentResponse
-deleteDocumentResponse = DeleteDocumentResponse'
-
-instance NFData DeleteDocumentResponse
+mkDeleteDocumentResponse = DeleteDocumentResponse'

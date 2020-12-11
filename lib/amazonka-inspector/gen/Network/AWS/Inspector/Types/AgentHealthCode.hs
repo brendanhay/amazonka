@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AgentHealthCode where
+module Network.AWS.Inspector.Types.AgentHealthCode
+  ( AgentHealthCode
+      ( AgentHealthCode',
+        Idle,
+        Running,
+        Shutdown,
+        Throttled,
+        Unhealthy,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AgentHealthCode
-  = Idle
-  | Running
-  | Shutdown
-  | Throttled
-  | Unhealthy
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AgentHealthCode = AgentHealthCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AgentHealthCode where
-  parser =
-    takeLowerText >>= \case
-      "idle" -> pure Idle
-      "running" -> pure Running
-      "shutdown" -> pure Shutdown
-      "throttled" -> pure Throttled
-      "unhealthy" -> pure Unhealthy
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing AgentHealthCode from value: '" <> e
-            <> "'. Accepted values: idle, running, shutdown, throttled, unhealthy, unknown"
+pattern Idle :: AgentHealthCode
+pattern Idle = AgentHealthCode' "IDLE"
 
-instance ToText AgentHealthCode where
-  toText = \case
-    Idle -> "IDLE"
-    Running -> "RUNNING"
-    Shutdown -> "SHUTDOWN"
-    Throttled -> "THROTTLED"
-    Unhealthy -> "UNHEALTHY"
-    Unknown -> "UNKNOWN"
+pattern Running :: AgentHealthCode
+pattern Running = AgentHealthCode' "RUNNING"
 
-instance Hashable AgentHealthCode
+pattern Shutdown :: AgentHealthCode
+pattern Shutdown = AgentHealthCode' "SHUTDOWN"
 
-instance NFData AgentHealthCode
+pattern Throttled :: AgentHealthCode
+pattern Throttled = AgentHealthCode' "THROTTLED"
 
-instance ToByteString AgentHealthCode
+pattern Unhealthy :: AgentHealthCode
+pattern Unhealthy = AgentHealthCode' "UNHEALTHY"
 
-instance ToQuery AgentHealthCode
+pattern Unknown :: AgentHealthCode
+pattern Unknown = AgentHealthCode' "UNKNOWN"
 
-instance ToHeader AgentHealthCode
-
-instance ToJSON AgentHealthCode where
-  toJSON = toJSONText
-
-instance FromJSON AgentHealthCode where
-  parseJSON = parseJSONText "AgentHealthCode"
+{-# COMPLETE
+  Idle,
+  Running,
+  Shutdown,
+  Throttled,
+  Unhealthy,
+  Unknown,
+  AgentHealthCode'
+  #-}

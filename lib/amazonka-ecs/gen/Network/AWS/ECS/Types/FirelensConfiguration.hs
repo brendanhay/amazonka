@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.FirelensConfiguration where
+module Network.AWS.ECS.Types.FirelensConfiguration
+  ( FirelensConfiguration (..),
+
+    -- * Smart constructor
+    mkFirelensConfiguration,
+
+    -- * Lenses
+    fcOptions,
+    fcType,
+  )
+where
 
 import Network.AWS.ECS.Types.FirelensConfigurationType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom Log Routing> in the /Amazon Elastic Container Service Developer Guide/ .
 --
---
---
--- /See:/ 'firelensConfiguration' smart constructor.
+-- /See:/ 'mkFirelensConfiguration' smart constructor.
 data FirelensConfiguration = FirelensConfiguration'
-  { _fcOptions ::
-      !(Maybe (Map Text (Text))),
-    _fcType :: !FirelensConfigurationType
+  { options ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    type' :: FirelensConfigurationType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FirelensConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcOptions' - The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is @"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration> in the /Amazon Elastic Container Service Developer Guide/ .
---
--- * 'fcType' - The log router to use. The valid values are @fluentd@ or @fluentbit@ .
-firelensConfiguration ::
-  -- | 'fcType'
+-- * 'options' - The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is @"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'type'' - The log router to use. The valid values are @fluentd@ or @fluentbit@ .
+mkFirelensConfiguration ::
+  -- | 'type''
   FirelensConfigurationType ->
   FirelensConfiguration
-firelensConfiguration pType_ =
-  FirelensConfiguration' {_fcOptions = Nothing, _fcType = pType_}
+mkFirelensConfiguration pType_ =
+  FirelensConfiguration' {options = Lude.Nothing, type' = pType_}
 
 -- | The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is @"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration> in the /Amazon Elastic Container Service Developer Guide/ .
-fcOptions :: Lens' FirelensConfiguration (HashMap Text (Text))
-fcOptions = lens _fcOptions (\s a -> s {_fcOptions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcOptions :: Lens.Lens' FirelensConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+fcOptions = Lens.lens (options :: FirelensConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {options = a} :: FirelensConfiguration)
+{-# DEPRECATED fcOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The log router to use. The valid values are @fluentd@ or @fluentbit@ .
-fcType :: Lens' FirelensConfiguration FirelensConfigurationType
-fcType = lens _fcType (\s a -> s {_fcType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcType :: Lens.Lens' FirelensConfiguration FirelensConfigurationType
+fcType = Lens.lens (type' :: FirelensConfiguration -> FirelensConfigurationType) (\s a -> s {type' = a} :: FirelensConfiguration)
+{-# DEPRECATED fcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON FirelensConfiguration where
+instance Lude.FromJSON FirelensConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "FirelensConfiguration"
       ( \x ->
           FirelensConfiguration'
-            <$> (x .:? "options" .!= mempty) <*> (x .: "type")
+            Lude.<$> (x Lude..:? "options" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "type")
       )
 
-instance Hashable FirelensConfiguration
-
-instance NFData FirelensConfiguration
-
-instance ToJSON FirelensConfiguration where
+instance Lude.ToJSON FirelensConfiguration where
   toJSON FirelensConfiguration' {..} =
-    object
-      ( catMaybes
-          [("options" .=) <$> _fcOptions, Just ("type" .= _fcType)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("options" Lude..=) Lude.<$> options,
+            Lude.Just ("type" Lude..= type')
+          ]
       )

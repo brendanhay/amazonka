@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationDescription where
+module Network.AWS.SSM.Types.AssociationDescription
+  ( AssociationDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssociationDescription,
+
+    -- * Lenses
+    adAssociationId,
+    adInstanceId,
+    adStatus,
+    adApplyOnlyAtCronInterval,
+    adLastSuccessfulExecutionDate,
+    adOverview,
+    adLastUpdateAssociationDate,
+    adDate,
+    adLastExecutionDate,
+    adMaxErrors,
+    adScheduleExpression,
+    adName,
+    adOutputLocation,
+    adSyncCompliance,
+    adTargets,
+    adParameters,
+    adDocumentVersion,
+    adAutomationTargetParameterName,
+    adAssociationVersion,
+    adAssociationName,
+    adComplianceSeverity,
+    adMaxConcurrency,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AssociationComplianceSeverity
 import Network.AWS.SSM.Types.AssociationOverview
 import Network.AWS.SSM.Types.AssociationStatus
@@ -26,235 +50,297 @@ import Network.AWS.SSM.Types.Target
 
 -- | Describes the parameters for a document.
 --
---
---
--- /See:/ 'associationDescription' smart constructor.
+-- /See:/ 'mkAssociationDescription' smart constructor.
 data AssociationDescription = AssociationDescription'
-  { _adAssociationId ::
-      !(Maybe Text),
-    _adInstanceId :: !(Maybe Text),
-    _adStatus :: !(Maybe AssociationStatus),
-    _adApplyOnlyAtCronInterval :: !(Maybe Bool),
-    _adLastSuccessfulExecutionDate ::
-      !(Maybe POSIX),
-    _adOverview :: !(Maybe AssociationOverview),
-    _adLastUpdateAssociationDate ::
-      !(Maybe POSIX),
-    _adDate :: !(Maybe POSIX),
-    _adLastExecutionDate :: !(Maybe POSIX),
-    _adMaxErrors :: !(Maybe Text),
-    _adScheduleExpression :: !(Maybe Text),
-    _adName :: !(Maybe Text),
-    _adOutputLocation ::
-      !(Maybe InstanceAssociationOutputLocation),
-    _adSyncCompliance ::
-      !(Maybe AssociationSyncCompliance),
-    _adTargets :: !(Maybe [Target]),
-    _adParameters :: !(Maybe (Map Text ([Text]))),
-    _adDocumentVersion :: !(Maybe Text),
-    _adAutomationTargetParameterName ::
-      !(Maybe Text),
-    _adAssociationVersion :: !(Maybe Text),
-    _adAssociationName :: !(Maybe Text),
-    _adComplianceSeverity ::
-      !(Maybe AssociationComplianceSeverity),
-    _adMaxConcurrency :: !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    instanceId :: Lude.Maybe Lude.Text,
+    status :: Lude.Maybe AssociationStatus,
+    applyOnlyAtCronInterval ::
+      Lude.Maybe Lude.Bool,
+    lastSuccessfulExecutionDate ::
+      Lude.Maybe Lude.Timestamp,
+    overview :: Lude.Maybe AssociationOverview,
+    lastUpdateAssociationDate ::
+      Lude.Maybe Lude.Timestamp,
+    date :: Lude.Maybe Lude.Timestamp,
+    lastExecutionDate ::
+      Lude.Maybe Lude.Timestamp,
+    maxErrors :: Lude.Maybe Lude.Text,
+    scheduleExpression :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    outputLocation ::
+      Lude.Maybe InstanceAssociationOutputLocation,
+    syncCompliance ::
+      Lude.Maybe AssociationSyncCompliance,
+    targets :: Lude.Maybe [Target],
+    parameters ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text ([Lude.Text])),
+    documentVersion :: Lude.Maybe Lude.Text,
+    automationTargetParameterName ::
+      Lude.Maybe Lude.Text,
+    associationVersion :: Lude.Maybe Lude.Text,
+    associationName :: Lude.Maybe Lude.Text,
+    complianceSeverity ::
+      Lude.Maybe AssociationComplianceSeverity,
+    maxConcurrency :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
+-- * 'associationId' - The association ID.
+-- * 'associationName' - The association name.
+-- * 'associationVersion' - The association version.
+-- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+-- * 'complianceSeverity' - The severity level that is assigned to the association.
+-- * 'date' - The date when the association was made.
+-- * 'documentVersion' - The document version.
+-- * 'instanceId' - The ID of the instance.
+-- * 'lastExecutionDate' - The date on which the association was last run.
+-- * 'lastSuccessfulExecutionDate' - The last date on which the association was successfully run.
+-- * 'lastUpdateAssociationDate' - The date when the association was last updated.
+-- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
 --
--- * 'adAssociationId' - The association ID.
+-- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+-- * 'maxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
 --
--- * 'adInstanceId' - The ID of the instance.
+-- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+-- * 'name' - The name of the Systems Manager document.
+-- * 'outputLocation' - An S3 bucket where you want to store the output details of the request.
+-- * 'overview' - Information about the association.
+-- * 'parameters' - A description of the parameters for a document.
+-- * 'scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+-- * 'status' - The association status.
+-- * 'syncCompliance' - The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
 --
--- * 'adStatus' - The association status.
---
--- * 'adApplyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
---
--- * 'adLastSuccessfulExecutionDate' - The last date on which the association was successfully run.
---
--- * 'adOverview' - Information about the association.
---
--- * 'adLastUpdateAssociationDate' - The date when the association was last updated.
---
--- * 'adDate' - The date when the association was made.
---
--- * 'adLastExecutionDate' - The date on which the association was last run.
---
--- * 'adMaxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
---
--- * 'adScheduleExpression' - A cron expression that specifies a schedule when the association runs.
---
--- * 'adName' - The name of the Systems Manager document.
---
--- * 'adOutputLocation' - An S3 bucket where you want to store the output details of the request.
---
--- * 'adSyncCompliance' - The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ . In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action. By default, all associations use @AUTO@ mode.
---
--- * 'adTargets' - The instances targeted by the request.
---
--- * 'adParameters' - A description of the parameters for a document.
---
--- * 'adDocumentVersion' - The document version.
---
--- * 'adAutomationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
---
--- * 'adAssociationVersion' - The association version.
---
--- * 'adAssociationName' - The association name.
---
--- * 'adComplianceSeverity' - The severity level that is assigned to the association.
---
--- * 'adMaxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
-associationDescription ::
+-- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
+-- By default, all associations use @AUTO@ mode.
+-- * 'targets' - The instances targeted by the request.
+mkAssociationDescription ::
   AssociationDescription
-associationDescription =
+mkAssociationDescription =
   AssociationDescription'
-    { _adAssociationId = Nothing,
-      _adInstanceId = Nothing,
-      _adStatus = Nothing,
-      _adApplyOnlyAtCronInterval = Nothing,
-      _adLastSuccessfulExecutionDate = Nothing,
-      _adOverview = Nothing,
-      _adLastUpdateAssociationDate = Nothing,
-      _adDate = Nothing,
-      _adLastExecutionDate = Nothing,
-      _adMaxErrors = Nothing,
-      _adScheduleExpression = Nothing,
-      _adName = Nothing,
-      _adOutputLocation = Nothing,
-      _adSyncCompliance = Nothing,
-      _adTargets = Nothing,
-      _adParameters = Nothing,
-      _adDocumentVersion = Nothing,
-      _adAutomationTargetParameterName = Nothing,
-      _adAssociationVersion = Nothing,
-      _adAssociationName = Nothing,
-      _adComplianceSeverity = Nothing,
-      _adMaxConcurrency = Nothing
+    { associationId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      status = Lude.Nothing,
+      applyOnlyAtCronInterval = Lude.Nothing,
+      lastSuccessfulExecutionDate = Lude.Nothing,
+      overview = Lude.Nothing,
+      lastUpdateAssociationDate = Lude.Nothing,
+      date = Lude.Nothing,
+      lastExecutionDate = Lude.Nothing,
+      maxErrors = Lude.Nothing,
+      scheduleExpression = Lude.Nothing,
+      name = Lude.Nothing,
+      outputLocation = Lude.Nothing,
+      syncCompliance = Lude.Nothing,
+      targets = Lude.Nothing,
+      parameters = Lude.Nothing,
+      documentVersion = Lude.Nothing,
+      automationTargetParameterName = Lude.Nothing,
+      associationVersion = Lude.Nothing,
+      associationName = Lude.Nothing,
+      complianceSeverity = Lude.Nothing,
+      maxConcurrency = Lude.Nothing
     }
 
 -- | The association ID.
-adAssociationId :: Lens' AssociationDescription (Maybe Text)
-adAssociationId = lens _adAssociationId (\s a -> s {_adAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAssociationId :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adAssociationId = Lens.lens (associationId :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociationDescription)
+{-# DEPRECATED adAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The ID of the instance.
-adInstanceId :: Lens' AssociationDescription (Maybe Text)
-adInstanceId = lens _adInstanceId (\s a -> s {_adInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adInstanceId :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adInstanceId = Lens.lens (instanceId :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: AssociationDescription)
+{-# DEPRECATED adInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The association status.
-adStatus :: Lens' AssociationDescription (Maybe AssociationStatus)
-adStatus = lens _adStatus (\s a -> s {_adStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adStatus :: Lens.Lens' AssociationDescription (Lude.Maybe AssociationStatus)
+adStatus = Lens.lens (status :: AssociationDescription -> Lude.Maybe AssociationStatus) (\s a -> s {status = a} :: AssociationDescription)
+{-# DEPRECATED adStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
-adApplyOnlyAtCronInterval :: Lens' AssociationDescription (Maybe Bool)
-adApplyOnlyAtCronInterval = lens _adApplyOnlyAtCronInterval (\s a -> s {_adApplyOnlyAtCronInterval = a})
+--
+-- /Note:/ Consider using 'applyOnlyAtCronInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adApplyOnlyAtCronInterval :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Bool)
+adApplyOnlyAtCronInterval = Lens.lens (applyOnlyAtCronInterval :: AssociationDescription -> Lude.Maybe Lude.Bool) (\s a -> s {applyOnlyAtCronInterval = a} :: AssociationDescription)
+{-# DEPRECATED adApplyOnlyAtCronInterval "Use generic-lens or generic-optics with 'applyOnlyAtCronInterval' instead." #-}
 
 -- | The last date on which the association was successfully run.
-adLastSuccessfulExecutionDate :: Lens' AssociationDescription (Maybe UTCTime)
-adLastSuccessfulExecutionDate = lens _adLastSuccessfulExecutionDate (\s a -> s {_adLastSuccessfulExecutionDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastSuccessfulExecutionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLastSuccessfulExecutionDate :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Timestamp)
+adLastSuccessfulExecutionDate = Lens.lens (lastSuccessfulExecutionDate :: AssociationDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastSuccessfulExecutionDate = a} :: AssociationDescription)
+{-# DEPRECATED adLastSuccessfulExecutionDate "Use generic-lens or generic-optics with 'lastSuccessfulExecutionDate' instead." #-}
 
 -- | Information about the association.
-adOverview :: Lens' AssociationDescription (Maybe AssociationOverview)
-adOverview = lens _adOverview (\s a -> s {_adOverview = a})
+--
+-- /Note:/ Consider using 'overview' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adOverview :: Lens.Lens' AssociationDescription (Lude.Maybe AssociationOverview)
+adOverview = Lens.lens (overview :: AssociationDescription -> Lude.Maybe AssociationOverview) (\s a -> s {overview = a} :: AssociationDescription)
+{-# DEPRECATED adOverview "Use generic-lens or generic-optics with 'overview' instead." #-}
 
 -- | The date when the association was last updated.
-adLastUpdateAssociationDate :: Lens' AssociationDescription (Maybe UTCTime)
-adLastUpdateAssociationDate = lens _adLastUpdateAssociationDate (\s a -> s {_adLastUpdateAssociationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateAssociationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLastUpdateAssociationDate :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Timestamp)
+adLastUpdateAssociationDate = Lens.lens (lastUpdateAssociationDate :: AssociationDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateAssociationDate = a} :: AssociationDescription)
+{-# DEPRECATED adLastUpdateAssociationDate "Use generic-lens or generic-optics with 'lastUpdateAssociationDate' instead." #-}
 
 -- | The date when the association was made.
-adDate :: Lens' AssociationDescription (Maybe UTCTime)
-adDate = lens _adDate (\s a -> s {_adDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDate :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Timestamp)
+adDate = Lens.lens (date :: AssociationDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {date = a} :: AssociationDescription)
+{-# DEPRECATED adDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | The date on which the association was last run.
-adLastExecutionDate :: Lens' AssociationDescription (Maybe UTCTime)
-adLastExecutionDate = lens _adLastExecutionDate (\s a -> s {_adLastExecutionDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastExecutionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLastExecutionDate :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Timestamp)
+adLastExecutionDate = Lens.lens (lastExecutionDate :: AssociationDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastExecutionDate = a} :: AssociationDescription)
+{-# DEPRECATED adLastExecutionDate "Use generic-lens or generic-optics with 'lastExecutionDate' instead." #-}
 
--- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
-adMaxErrors :: Lens' AssociationDescription (Maybe Text)
-adMaxErrors = lens _adMaxErrors (\s a -> s {_adMaxErrors = a})
+-- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
+--
+-- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+--
+-- /Note:/ Consider using 'maxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMaxErrors :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adMaxErrors = Lens.lens (maxErrors :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {maxErrors = a} :: AssociationDescription)
+{-# DEPRECATED adMaxErrors "Use generic-lens or generic-optics with 'maxErrors' instead." #-}
 
 -- | A cron expression that specifies a schedule when the association runs.
-adScheduleExpression :: Lens' AssociationDescription (Maybe Text)
-adScheduleExpression = lens _adScheduleExpression (\s a -> s {_adScheduleExpression = a})
+--
+-- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adScheduleExpression :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adScheduleExpression = Lens.lens (scheduleExpression :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: AssociationDescription)
+{-# DEPRECATED adScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
 
 -- | The name of the Systems Manager document.
-adName :: Lens' AssociationDescription (Maybe Text)
-adName = lens _adName (\s a -> s {_adName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adName :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adName = Lens.lens (name :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AssociationDescription)
+{-# DEPRECATED adName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An S3 bucket where you want to store the output details of the request.
-adOutputLocation :: Lens' AssociationDescription (Maybe InstanceAssociationOutputLocation)
-adOutputLocation = lens _adOutputLocation (\s a -> s {_adOutputLocation = a})
+--
+-- /Note:/ Consider using 'outputLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adOutputLocation :: Lens.Lens' AssociationDescription (Lude.Maybe InstanceAssociationOutputLocation)
+adOutputLocation = Lens.lens (outputLocation :: AssociationDescription -> Lude.Maybe InstanceAssociationOutputLocation) (\s a -> s {outputLocation = a} :: AssociationDescription)
+{-# DEPRECATED adOutputLocation "Use generic-lens or generic-optics with 'outputLocation' instead." #-}
 
--- | The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ . In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action. By default, all associations use @AUTO@ mode.
-adSyncCompliance :: Lens' AssociationDescription (Maybe AssociationSyncCompliance)
-adSyncCompliance = lens _adSyncCompliance (\s a -> s {_adSyncCompliance = a})
+-- | The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
+--
+-- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
+-- By default, all associations use @AUTO@ mode.
+--
+-- /Note:/ Consider using 'syncCompliance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adSyncCompliance :: Lens.Lens' AssociationDescription (Lude.Maybe AssociationSyncCompliance)
+adSyncCompliance = Lens.lens (syncCompliance :: AssociationDescription -> Lude.Maybe AssociationSyncCompliance) (\s a -> s {syncCompliance = a} :: AssociationDescription)
+{-# DEPRECATED adSyncCompliance "Use generic-lens or generic-optics with 'syncCompliance' instead." #-}
 
 -- | The instances targeted by the request.
-adTargets :: Lens' AssociationDescription [Target]
-adTargets = lens _adTargets (\s a -> s {_adTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adTargets :: Lens.Lens' AssociationDescription (Lude.Maybe [Target])
+adTargets = Lens.lens (targets :: AssociationDescription -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: AssociationDescription)
+{-# DEPRECATED adTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | A description of the parameters for a document.
-adParameters :: Lens' AssociationDescription (HashMap Text ([Text]))
-adParameters = lens _adParameters (\s a -> s {_adParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adParameters :: Lens.Lens' AssociationDescription (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+adParameters = Lens.lens (parameters :: AssociationDescription -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {parameters = a} :: AssociationDescription)
+{-# DEPRECATED adParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The document version.
-adDocumentVersion :: Lens' AssociationDescription (Maybe Text)
-adDocumentVersion = lens _adDocumentVersion (\s a -> s {_adDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDocumentVersion :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adDocumentVersion = Lens.lens (documentVersion :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: AssociationDescription)
+{-# DEPRECATED adDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
-adAutomationTargetParameterName :: Lens' AssociationDescription (Maybe Text)
-adAutomationTargetParameterName = lens _adAutomationTargetParameterName (\s a -> s {_adAutomationTargetParameterName = a})
+--
+-- /Note:/ Consider using 'automationTargetParameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAutomationTargetParameterName :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adAutomationTargetParameterName = Lens.lens (automationTargetParameterName :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {automationTargetParameterName = a} :: AssociationDescription)
+{-# DEPRECATED adAutomationTargetParameterName "Use generic-lens or generic-optics with 'automationTargetParameterName' instead." #-}
 
 -- | The association version.
-adAssociationVersion :: Lens' AssociationDescription (Maybe Text)
-adAssociationVersion = lens _adAssociationVersion (\s a -> s {_adAssociationVersion = a})
+--
+-- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAssociationVersion :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adAssociationVersion = Lens.lens (associationVersion :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: AssociationDescription)
+{-# DEPRECATED adAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
 
 -- | The association name.
-adAssociationName :: Lens' AssociationDescription (Maybe Text)
-adAssociationName = lens _adAssociationName (\s a -> s {_adAssociationName = a})
+--
+-- /Note:/ Consider using 'associationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAssociationName :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adAssociationName = Lens.lens (associationName :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {associationName = a} :: AssociationDescription)
+{-# DEPRECATED adAssociationName "Use generic-lens or generic-optics with 'associationName' instead." #-}
 
 -- | The severity level that is assigned to the association.
-adComplianceSeverity :: Lens' AssociationDescription (Maybe AssociationComplianceSeverity)
-adComplianceSeverity = lens _adComplianceSeverity (\s a -> s {_adComplianceSeverity = a})
+--
+-- /Note:/ Consider using 'complianceSeverity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adComplianceSeverity :: Lens.Lens' AssociationDescription (Lude.Maybe AssociationComplianceSeverity)
+adComplianceSeverity = Lens.lens (complianceSeverity :: AssociationDescription -> Lude.Maybe AssociationComplianceSeverity) (\s a -> s {complianceSeverity = a} :: AssociationDescription)
+{-# DEPRECATED adComplianceSeverity "Use generic-lens or generic-optics with 'complianceSeverity' instead." #-}
 
--- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
-adMaxConcurrency :: Lens' AssociationDescription (Maybe Text)
-adMaxConcurrency = lens _adMaxConcurrency (\s a -> s {_adMaxConcurrency = a})
+-- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+--
+-- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+--
+-- /Note:/ Consider using 'maxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMaxConcurrency :: Lens.Lens' AssociationDescription (Lude.Maybe Lude.Text)
+adMaxConcurrency = Lens.lens (maxConcurrency :: AssociationDescription -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: AssociationDescription)
+{-# DEPRECATED adMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
-instance FromJSON AssociationDescription where
+instance Lude.FromJSON AssociationDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "AssociationDescription"
       ( \x ->
           AssociationDescription'
-            <$> (x .:? "AssociationId")
-            <*> (x .:? "InstanceId")
-            <*> (x .:? "Status")
-            <*> (x .:? "ApplyOnlyAtCronInterval")
-            <*> (x .:? "LastSuccessfulExecutionDate")
-            <*> (x .:? "Overview")
-            <*> (x .:? "LastUpdateAssociationDate")
-            <*> (x .:? "Date")
-            <*> (x .:? "LastExecutionDate")
-            <*> (x .:? "MaxErrors")
-            <*> (x .:? "ScheduleExpression")
-            <*> (x .:? "Name")
-            <*> (x .:? "OutputLocation")
-            <*> (x .:? "SyncCompliance")
-            <*> (x .:? "Targets" .!= mempty)
-            <*> (x .:? "Parameters" .!= mempty)
-            <*> (x .:? "DocumentVersion")
-            <*> (x .:? "AutomationTargetParameterName")
-            <*> (x .:? "AssociationVersion")
-            <*> (x .:? "AssociationName")
-            <*> (x .:? "ComplianceSeverity")
-            <*> (x .:? "MaxConcurrency")
+            Lude.<$> (x Lude..:? "AssociationId")
+            Lude.<*> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ApplyOnlyAtCronInterval")
+            Lude.<*> (x Lude..:? "LastSuccessfulExecutionDate")
+            Lude.<*> (x Lude..:? "Overview")
+            Lude.<*> (x Lude..:? "LastUpdateAssociationDate")
+            Lude.<*> (x Lude..:? "Date")
+            Lude.<*> (x Lude..:? "LastExecutionDate")
+            Lude.<*> (x Lude..:? "MaxErrors")
+            Lude.<*> (x Lude..:? "ScheduleExpression")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "OutputLocation")
+            Lude.<*> (x Lude..:? "SyncCompliance")
+            Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DocumentVersion")
+            Lude.<*> (x Lude..:? "AutomationTargetParameterName")
+            Lude.<*> (x Lude..:? "AssociationVersion")
+            Lude.<*> (x Lude..:? "AssociationName")
+            Lude.<*> (x Lude..:? "ComplianceSeverity")
+            Lude.<*> (x Lude..:? "MaxConcurrency")
       )
-
-instance Hashable AssociationDescription
-
-instance NFData AssociationDescription

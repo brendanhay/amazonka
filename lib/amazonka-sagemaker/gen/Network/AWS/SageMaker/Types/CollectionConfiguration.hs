@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.CollectionConfiguration where
+module Network.AWS.SageMaker.Types.CollectionConfiguration
+  ( CollectionConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCollectionConfiguration,
+
+    -- * Lenses
+    ccCollectionParameters,
+    ccCollectionName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information for tensor collections.
 --
---
---
--- /See:/ 'collectionConfiguration' smart constructor.
+-- /See:/ 'mkCollectionConfiguration' smart constructor.
 data CollectionConfiguration = CollectionConfiguration'
-  { _ccCollectionParameters ::
-      !(Maybe (Map Text (Text))),
-    _ccCollectionName :: !(Maybe Text)
+  { collectionParameters ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    collectionName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CollectionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccCollectionParameters' - Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
---
--- * 'ccCollectionName' - The name of the tensor collection. The name must be unique relative to other rule configuration names.
-collectionConfiguration ::
+-- * 'collectionName' - The name of the tensor collection. The name must be unique relative to other rule configuration names.
+-- * 'collectionParameters' - Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
+mkCollectionConfiguration ::
   CollectionConfiguration
-collectionConfiguration =
+mkCollectionConfiguration =
   CollectionConfiguration'
-    { _ccCollectionParameters = Nothing,
-      _ccCollectionName = Nothing
+    { collectionParameters = Lude.Nothing,
+      collectionName = Lude.Nothing
     }
 
 -- | Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
-ccCollectionParameters :: Lens' CollectionConfiguration (HashMap Text (Text))
-ccCollectionParameters = lens _ccCollectionParameters (\s a -> s {_ccCollectionParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'collectionParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCollectionParameters :: Lens.Lens' CollectionConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ccCollectionParameters = Lens.lens (collectionParameters :: CollectionConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {collectionParameters = a} :: CollectionConfiguration)
+{-# DEPRECATED ccCollectionParameters "Use generic-lens or generic-optics with 'collectionParameters' instead." #-}
 
 -- | The name of the tensor collection. The name must be unique relative to other rule configuration names.
-ccCollectionName :: Lens' CollectionConfiguration (Maybe Text)
-ccCollectionName = lens _ccCollectionName (\s a -> s {_ccCollectionName = a})
+--
+-- /Note:/ Consider using 'collectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCollectionName :: Lens.Lens' CollectionConfiguration (Lude.Maybe Lude.Text)
+ccCollectionName = Lens.lens (collectionName :: CollectionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {collectionName = a} :: CollectionConfiguration)
+{-# DEPRECATED ccCollectionName "Use generic-lens or generic-optics with 'collectionName' instead." #-}
 
-instance FromJSON CollectionConfiguration where
+instance Lude.FromJSON CollectionConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "CollectionConfiguration"
       ( \x ->
           CollectionConfiguration'
-            <$> (x .:? "CollectionParameters" .!= mempty)
-            <*> (x .:? "CollectionName")
+            Lude.<$> (x Lude..:? "CollectionParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CollectionName")
       )
 
-instance Hashable CollectionConfiguration
-
-instance NFData CollectionConfiguration
-
-instance ToJSON CollectionConfiguration where
+instance Lude.ToJSON CollectionConfiguration where
   toJSON CollectionConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("CollectionParameters" .=) <$> _ccCollectionParameters,
-            ("CollectionName" .=) <$> _ccCollectionName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CollectionParameters" Lude..=) Lude.<$> collectionParameters,
+            ("CollectionName" Lude..=) Lude.<$> collectionName
           ]
       )

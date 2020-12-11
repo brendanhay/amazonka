@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,127 @@
 --
 -- Deletes the evaluation results for the specified AWS Config rule. You can specify one AWS Config rule per request. After you delete the evaluation results, you can call the 'StartConfigRulesEvaluation' API to start evaluating your AWS resources against the rule.
 module Network.AWS.Config.DeleteEvaluationResults
-  ( -- * Creating a Request
-    deleteEvaluationResults,
-    DeleteEvaluationResults,
+  ( -- * Creating a request
+    DeleteEvaluationResults (..),
+    mkDeleteEvaluationResults,
 
-    -- * Request Lenses
+    -- ** Request lenses
     derConfigRuleName,
 
-    -- * Destructuring the Response
-    deleteEvaluationResultsResponse,
-    DeleteEvaluationResultsResponse,
+    -- * Destructuring the response
+    DeleteEvaluationResultsResponse (..),
+    mkDeleteEvaluationResultsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     derrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteEvaluationResults' smart constructor.
+-- /See:/ 'mkDeleteEvaluationResults' smart constructor.
 newtype DeleteEvaluationResults = DeleteEvaluationResults'
-  { _derConfigRuleName ::
-      Text
+  { configRuleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEvaluationResults' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'derConfigRuleName' - The name of the AWS Config rule for which you want to delete the evaluation results.
-deleteEvaluationResults ::
-  -- | 'derConfigRuleName'
-  Text ->
+-- * 'configRuleName' - The name of the AWS Config rule for which you want to delete the evaluation results.
+mkDeleteEvaluationResults ::
+  -- | 'configRuleName'
+  Lude.Text ->
   DeleteEvaluationResults
-deleteEvaluationResults pConfigRuleName_ =
-  DeleteEvaluationResults' {_derConfigRuleName = pConfigRuleName_}
+mkDeleteEvaluationResults pConfigRuleName_ =
+  DeleteEvaluationResults' {configRuleName = pConfigRuleName_}
 
 -- | The name of the AWS Config rule for which you want to delete the evaluation results.
-derConfigRuleName :: Lens' DeleteEvaluationResults Text
-derConfigRuleName = lens _derConfigRuleName (\s a -> s {_derConfigRuleName = a})
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derConfigRuleName :: Lens.Lens' DeleteEvaluationResults Lude.Text
+derConfigRuleName = Lens.lens (configRuleName :: DeleteEvaluationResults -> Lude.Text) (\s a -> s {configRuleName = a} :: DeleteEvaluationResults)
+{-# DEPRECATED derConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
-instance AWSRequest DeleteEvaluationResults where
+instance Lude.AWSRequest DeleteEvaluationResults where
   type Rs DeleteEvaluationResults = DeleteEvaluationResultsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteEvaluationResultsResponse' <$> (pure (fromEnum s))
+          DeleteEvaluationResultsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteEvaluationResults
-
-instance NFData DeleteEvaluationResults
-
-instance ToHeaders DeleteEvaluationResults where
+instance Lude.ToHeaders DeleteEvaluationResults where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteEvaluationResults" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.DeleteEvaluationResults" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteEvaluationResults where
+instance Lude.ToJSON DeleteEvaluationResults where
   toJSON DeleteEvaluationResults' {..} =
-    object
-      (catMaybes [Just ("ConfigRuleName" .= _derConfigRuleName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ConfigRuleName" Lude..= configRuleName)]
+      )
 
-instance ToPath DeleteEvaluationResults where
-  toPath = const "/"
+instance Lude.ToPath DeleteEvaluationResults where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteEvaluationResults where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteEvaluationResults where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output when you delete the evaluation results for the specified AWS Config rule.
 --
---
---
--- /See:/ 'deleteEvaluationResultsResponse' smart constructor.
+-- /See:/ 'mkDeleteEvaluationResultsResponse' smart constructor.
 newtype DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
-  { _derrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEvaluationResultsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'derrsResponseStatus' - -- | The response status code.
-deleteEvaluationResultsResponse ::
-  -- | 'derrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteEvaluationResultsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteEvaluationResultsResponse
-deleteEvaluationResultsResponse pResponseStatus_ =
+mkDeleteEvaluationResultsResponse pResponseStatus_ =
   DeleteEvaluationResultsResponse'
-    { _derrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-derrsResponseStatus :: Lens' DeleteEvaluationResultsResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\s a -> s {_derrsResponseStatus = a})
-
-instance NFData DeleteEvaluationResultsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsResponseStatus :: Lens.Lens' DeleteEvaluationResultsResponse Lude.Int
+derrsResponseStatus = Lens.lens (responseStatus :: DeleteEvaluationResultsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEvaluationResultsResponse)
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

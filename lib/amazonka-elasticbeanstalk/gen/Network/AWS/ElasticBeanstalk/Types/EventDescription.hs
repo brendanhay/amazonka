@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,116 +7,151 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EventDescription where
+module Network.AWS.ElasticBeanstalk.Types.EventDescription
+  ( EventDescription (..),
+
+    -- * Smart constructor
+    mkEventDescription,
+
+    -- * Lenses
+    edRequestId,
+    edTemplateName,
+    edSeverity,
+    edVersionLabel,
+    edPlatformARN,
+    edEnvironmentName,
+    edApplicationName,
+    edEventDate,
+    edMessage,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.EventSeverity
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an event.
 --
---
---
--- /See:/ 'eventDescription' smart constructor.
+-- /See:/ 'mkEventDescription' smart constructor.
 data EventDescription = EventDescription'
-  { _edRequestId ::
-      !(Maybe Text),
-    _edTemplateName :: !(Maybe Text),
-    _edSeverity :: !(Maybe EventSeverity),
-    _edVersionLabel :: !(Maybe Text),
-    _edPlatformARN :: !(Maybe Text),
-    _edEnvironmentName :: !(Maybe Text),
-    _edApplicationName :: !(Maybe Text),
-    _edEventDate :: !(Maybe ISO8601),
-    _edMessage :: !(Maybe Text)
+  { requestId ::
+      Lude.Maybe Lude.Text,
+    templateName :: Lude.Maybe Lude.Text,
+    severity :: Lude.Maybe EventSeverity,
+    versionLabel :: Lude.Maybe Lude.Text,
+    platformARN :: Lude.Maybe Lude.Text,
+    environmentName :: Lude.Maybe Lude.Text,
+    applicationName :: Lude.Maybe Lude.Text,
+    eventDate :: Lude.Maybe Lude.ISO8601,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edRequestId' - The web service request ID for the activity of this event.
---
--- * 'edTemplateName' - The name of the configuration associated with this event.
---
--- * 'edSeverity' - The severity level of this event.
---
--- * 'edVersionLabel' - The release label for the application version associated with this event.
---
--- * 'edPlatformARN' - The ARN of the platform version.
---
--- * 'edEnvironmentName' - The name of the environment associated with this event.
---
--- * 'edApplicationName' - The application associated with the event.
---
--- * 'edEventDate' - The date when the event occurred.
---
--- * 'edMessage' - The event message.
-eventDescription ::
+-- * 'applicationName' - The application associated with the event.
+-- * 'environmentName' - The name of the environment associated with this event.
+-- * 'eventDate' - The date when the event occurred.
+-- * 'message' - The event message.
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'requestId' - The web service request ID for the activity of this event.
+-- * 'severity' - The severity level of this event.
+-- * 'templateName' - The name of the configuration associated with this event.
+-- * 'versionLabel' - The release label for the application version associated with this event.
+mkEventDescription ::
   EventDescription
-eventDescription =
+mkEventDescription =
   EventDescription'
-    { _edRequestId = Nothing,
-      _edTemplateName = Nothing,
-      _edSeverity = Nothing,
-      _edVersionLabel = Nothing,
-      _edPlatformARN = Nothing,
-      _edEnvironmentName = Nothing,
-      _edApplicationName = Nothing,
-      _edEventDate = Nothing,
-      _edMessage = Nothing
+    { requestId = Lude.Nothing,
+      templateName = Lude.Nothing,
+      severity = Lude.Nothing,
+      versionLabel = Lude.Nothing,
+      platformARN = Lude.Nothing,
+      environmentName = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      eventDate = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The web service request ID for the activity of this event.
-edRequestId :: Lens' EventDescription (Maybe Text)
-edRequestId = lens _edRequestId (\s a -> s {_edRequestId = a})
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edRequestId :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edRequestId = Lens.lens (requestId :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: EventDescription)
+{-# DEPRECATED edRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | The name of the configuration associated with this event.
-edTemplateName :: Lens' EventDescription (Maybe Text)
-edTemplateName = lens _edTemplateName (\s a -> s {_edTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edTemplateName :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edTemplateName = Lens.lens (templateName :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: EventDescription)
+{-# DEPRECATED edTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The severity level of this event.
-edSeverity :: Lens' EventDescription (Maybe EventSeverity)
-edSeverity = lens _edSeverity (\s a -> s {_edSeverity = a})
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edSeverity :: Lens.Lens' EventDescription (Lude.Maybe EventSeverity)
+edSeverity = Lens.lens (severity :: EventDescription -> Lude.Maybe EventSeverity) (\s a -> s {severity = a} :: EventDescription)
+{-# DEPRECATED edSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
 -- | The release label for the application version associated with this event.
-edVersionLabel :: Lens' EventDescription (Maybe Text)
-edVersionLabel = lens _edVersionLabel (\s a -> s {_edVersionLabel = a})
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edVersionLabel :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edVersionLabel = Lens.lens (versionLabel :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: EventDescription)
+{-# DEPRECATED edVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | The ARN of the platform version.
-edPlatformARN :: Lens' EventDescription (Maybe Text)
-edPlatformARN = lens _edPlatformARN (\s a -> s {_edPlatformARN = a})
+--
+-- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edPlatformARN :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edPlatformARN = Lens.lens (platformARN :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: EventDescription)
+{-# DEPRECATED edPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
 
 -- | The name of the environment associated with this event.
-edEnvironmentName :: Lens' EventDescription (Maybe Text)
-edEnvironmentName = lens _edEnvironmentName (\s a -> s {_edEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEnvironmentName :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edEnvironmentName = Lens.lens (environmentName :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: EventDescription)
+{-# DEPRECATED edEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The application associated with the event.
-edApplicationName :: Lens' EventDescription (Maybe Text)
-edApplicationName = lens _edApplicationName (\s a -> s {_edApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edApplicationName :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edApplicationName = Lens.lens (applicationName :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: EventDescription)
+{-# DEPRECATED edApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The date when the event occurred.
-edEventDate :: Lens' EventDescription (Maybe UTCTime)
-edEventDate = lens _edEventDate (\s a -> s {_edEventDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEventDate :: Lens.Lens' EventDescription (Lude.Maybe Lude.ISO8601)
+edEventDate = Lens.lens (eventDate :: EventDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {eventDate = a} :: EventDescription)
+{-# DEPRECATED edEventDate "Use generic-lens or generic-optics with 'eventDate' instead." #-}
 
 -- | The event message.
-edMessage :: Lens' EventDescription (Maybe Text)
-edMessage = lens _edMessage (\s a -> s {_edMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edMessage :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edMessage = Lens.lens (message :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EventDescription)
+{-# DEPRECATED edMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML EventDescription where
+instance Lude.FromXML EventDescription where
   parseXML x =
     EventDescription'
-      <$> (x .@? "RequestId")
-      <*> (x .@? "TemplateName")
-      <*> (x .@? "Severity")
-      <*> (x .@? "VersionLabel")
-      <*> (x .@? "PlatformArn")
-      <*> (x .@? "EnvironmentName")
-      <*> (x .@? "ApplicationName")
-      <*> (x .@? "EventDate")
-      <*> (x .@? "Message")
-
-instance Hashable EventDescription
-
-instance NFData EventDescription
+      Lude.<$> (x Lude..@? "RequestId")
+      Lude.<*> (x Lude..@? "TemplateName")
+      Lude.<*> (x Lude..@? "Severity")
+      Lude.<*> (x Lude..@? "VersionLabel")
+      Lude.<*> (x Lude..@? "PlatformArn")
+      Lude.<*> (x Lude..@? "EnvironmentName")
+      Lude.<*> (x Lude..@? "ApplicationName")
+      Lude.<*> (x Lude..@? "EventDate")
+      Lude.<*> (x Lude..@? "Message")

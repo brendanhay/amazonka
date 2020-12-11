@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.MigrationTaskSummary where
+module Network.AWS.MigrationHub.Types.MigrationTaskSummary
+  ( MigrationTaskSummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMigrationTaskSummary,
+
+    -- * Lenses
+    mtsStatus,
+    mtsUpdateDateTime,
+    mtsProgressPercent,
+    mtsStatusDetail,
+    mtsProgressUpdateStream,
+    mtsMigrationTaskName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.MigrationStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | MigrationTaskSummary includes @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and @UpdateDateTime@ for each task.
 --
---
---
--- /See:/ 'migrationTaskSummary' smart constructor.
+-- /See:/ 'mkMigrationTaskSummary' smart constructor.
 data MigrationTaskSummary = MigrationTaskSummary'
-  { _mtsStatus ::
-      !(Maybe MigrationStatus),
-    _mtsUpdateDateTime :: !(Maybe POSIX),
-    _mtsProgressPercent :: !(Maybe Nat),
-    _mtsStatusDetail :: !(Maybe Text),
-    _mtsProgressUpdateStream :: !(Maybe Text),
-    _mtsMigrationTaskName :: !(Maybe Text)
+  { status ::
+      Lude.Maybe MigrationStatus,
+    updateDateTime :: Lude.Maybe Lude.Timestamp,
+    progressPercent :: Lude.Maybe Lude.Natural,
+    statusDetail :: Lude.Maybe Lude.Text,
+    progressUpdateStream :: Lude.Maybe Lude.Text,
+    migrationTaskName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MigrationTaskSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtsStatus' - Status of the task.
---
--- * 'mtsUpdateDateTime' - The timestamp when the task was gathered.
---
--- * 'mtsProgressPercent' - Indication of the percentage completion of the task.
---
--- * 'mtsStatusDetail' - Detail information of what is being done within the overall status state.
---
--- * 'mtsProgressUpdateStream' - An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
---
--- * 'mtsMigrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
-migrationTaskSummary ::
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'progressPercent' - Indication of the percentage completion of the task.
+-- * 'progressUpdateStream' - An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
+-- * 'status' - Status of the task.
+-- * 'statusDetail' - Detail information of what is being done within the overall status state.
+-- * 'updateDateTime' - The timestamp when the task was gathered.
+mkMigrationTaskSummary ::
   MigrationTaskSummary
-migrationTaskSummary =
+mkMigrationTaskSummary =
   MigrationTaskSummary'
-    { _mtsStatus = Nothing,
-      _mtsUpdateDateTime = Nothing,
-      _mtsProgressPercent = Nothing,
-      _mtsStatusDetail = Nothing,
-      _mtsProgressUpdateStream = Nothing,
-      _mtsMigrationTaskName = Nothing
+    { status = Lude.Nothing,
+      updateDateTime = Lude.Nothing,
+      progressPercent = Lude.Nothing,
+      statusDetail = Lude.Nothing,
+      progressUpdateStream = Lude.Nothing,
+      migrationTaskName = Lude.Nothing
     }
 
 -- | Status of the task.
-mtsStatus :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
-mtsStatus = lens _mtsStatus (\s a -> s {_mtsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsStatus :: Lens.Lens' MigrationTaskSummary (Lude.Maybe MigrationStatus)
+mtsStatus = Lens.lens (status :: MigrationTaskSummary -> Lude.Maybe MigrationStatus) (\s a -> s {status = a} :: MigrationTaskSummary)
+{-# DEPRECATED mtsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The timestamp when the task was gathered.
-mtsUpdateDateTime :: Lens' MigrationTaskSummary (Maybe UTCTime)
-mtsUpdateDateTime = lens _mtsUpdateDateTime (\s a -> s {_mtsUpdateDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsUpdateDateTime :: Lens.Lens' MigrationTaskSummary (Lude.Maybe Lude.Timestamp)
+mtsUpdateDateTime = Lens.lens (updateDateTime :: MigrationTaskSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateDateTime = a} :: MigrationTaskSummary)
+{-# DEPRECATED mtsUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
 
 -- | Indication of the percentage completion of the task.
-mtsProgressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
-mtsProgressPercent = lens _mtsProgressPercent (\s a -> s {_mtsProgressPercent = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'progressPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsProgressPercent :: Lens.Lens' MigrationTaskSummary (Lude.Maybe Lude.Natural)
+mtsProgressPercent = Lens.lens (progressPercent :: MigrationTaskSummary -> Lude.Maybe Lude.Natural) (\s a -> s {progressPercent = a} :: MigrationTaskSummary)
+{-# DEPRECATED mtsProgressPercent "Use generic-lens or generic-optics with 'progressPercent' instead." #-}
 
 -- | Detail information of what is being done within the overall status state.
-mtsStatusDetail :: Lens' MigrationTaskSummary (Maybe Text)
-mtsStatusDetail = lens _mtsStatusDetail (\s a -> s {_mtsStatusDetail = a})
+--
+-- /Note:/ Consider using 'statusDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsStatusDetail :: Lens.Lens' MigrationTaskSummary (Lude.Maybe Lude.Text)
+mtsStatusDetail = Lens.lens (statusDetail :: MigrationTaskSummary -> Lude.Maybe Lude.Text) (\s a -> s {statusDetail = a} :: MigrationTaskSummary)
+{-# DEPRECATED mtsStatusDetail "Use generic-lens or generic-optics with 'statusDetail' instead." #-}
 
 -- | An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
-mtsProgressUpdateStream :: Lens' MigrationTaskSummary (Maybe Text)
-mtsProgressUpdateStream = lens _mtsProgressUpdateStream (\s a -> s {_mtsProgressUpdateStream = a})
+--
+-- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsProgressUpdateStream :: Lens.Lens' MigrationTaskSummary (Lude.Maybe Lude.Text)
+mtsProgressUpdateStream = Lens.lens (progressUpdateStream :: MigrationTaskSummary -> Lude.Maybe Lude.Text) (\s a -> s {progressUpdateStream = a} :: MigrationTaskSummary)
+{-# DEPRECATED mtsProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-mtsMigrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
-mtsMigrationTaskName = lens _mtsMigrationTaskName (\s a -> s {_mtsMigrationTaskName = a})
+--
+-- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsMigrationTaskName :: Lens.Lens' MigrationTaskSummary (Lude.Maybe Lude.Text)
+mtsMigrationTaskName = Lens.lens (migrationTaskName :: MigrationTaskSummary -> Lude.Maybe Lude.Text) (\s a -> s {migrationTaskName = a} :: MigrationTaskSummary)
+{-# DEPRECATED mtsMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
-instance FromJSON MigrationTaskSummary where
+instance Lude.FromJSON MigrationTaskSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "MigrationTaskSummary"
       ( \x ->
           MigrationTaskSummary'
-            <$> (x .:? "Status")
-            <*> (x .:? "UpdateDateTime")
-            <*> (x .:? "ProgressPercent")
-            <*> (x .:? "StatusDetail")
-            <*> (x .:? "ProgressUpdateStream")
-            <*> (x .:? "MigrationTaskName")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "UpdateDateTime")
+            Lude.<*> (x Lude..:? "ProgressPercent")
+            Lude.<*> (x Lude..:? "StatusDetail")
+            Lude.<*> (x Lude..:? "ProgressUpdateStream")
+            Lude.<*> (x Lude..:? "MigrationTaskName")
       )
-
-instance Hashable MigrationTaskSummary
-
-instance NFData MigrationTaskSummary

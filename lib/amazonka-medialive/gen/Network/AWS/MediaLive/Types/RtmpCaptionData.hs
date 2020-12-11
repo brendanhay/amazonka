@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RtmpCaptionData where
+module Network.AWS.MediaLive.Types.RtmpCaptionData
+  ( RtmpCaptionData
+      ( RtmpCaptionData',
+        All,
+        FIELD1608,
+        FIELD1AndFIELD2608
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Rtmp Caption Data
-data RtmpCaptionData
-  = All
-  | FIELD1608
-  | FIELD1AndFIELD2608
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RtmpCaptionData = RtmpCaptionData' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RtmpCaptionData where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "field1_608" -> pure FIELD1608
-      "field1_and_field2_608" -> pure FIELD1AndFIELD2608
-      e ->
-        fromTextError $
-          "Failure parsing RtmpCaptionData from value: '" <> e
-            <> "'. Accepted values: all, field1_608, field1_and_field2_608"
+pattern All :: RtmpCaptionData
+pattern All = RtmpCaptionData' "ALL"
 
-instance ToText RtmpCaptionData where
-  toText = \case
-    All -> "ALL"
-    FIELD1608 -> "FIELD1_608"
-    FIELD1AndFIELD2608 -> "FIELD1_AND_FIELD2_608"
+pattern FIELD1608 :: RtmpCaptionData
+pattern FIELD1608 = RtmpCaptionData' "FIELD1_608"
 
-instance Hashable RtmpCaptionData
+pattern FIELD1AndFIELD2608 :: RtmpCaptionData
+pattern FIELD1AndFIELD2608 = RtmpCaptionData' "FIELD1_AND_FIELD2_608"
 
-instance NFData RtmpCaptionData
-
-instance ToByteString RtmpCaptionData
-
-instance ToQuery RtmpCaptionData
-
-instance ToHeader RtmpCaptionData
-
-instance ToJSON RtmpCaptionData where
-  toJSON = toJSONText
-
-instance FromJSON RtmpCaptionData where
-  parseJSON = parseJSONText "RtmpCaptionData"
+{-# COMPLETE
+  All,
+  FIELD1608,
+  FIELD1AndFIELD2608,
+  RtmpCaptionData'
+  #-}

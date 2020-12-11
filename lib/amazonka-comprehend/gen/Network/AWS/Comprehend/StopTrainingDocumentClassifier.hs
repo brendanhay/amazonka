@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,134 @@
 --
 -- Stops a document classifier training job while in progress.
 --
---
 -- If the training job state is @TRAINING@ , the job is marked for termination and put into the @STOP_REQUESTED@ state. If the training job completes before it can be stopped, it is put into the @TRAINED@ ; otherwise the training job is stopped and put into the @STOPPED@ state and the service sends back an HTTP 200 response with an empty HTTP body.
 module Network.AWS.Comprehend.StopTrainingDocumentClassifier
-  ( -- * Creating a Request
-    stopTrainingDocumentClassifier,
-    StopTrainingDocumentClassifier,
+  ( -- * Creating a request
+    StopTrainingDocumentClassifier (..),
+    mkStopTrainingDocumentClassifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stdcDocumentClassifierARN,
 
-    -- * Destructuring the Response
-    stopTrainingDocumentClassifierResponse,
-    StopTrainingDocumentClassifierResponse,
+    -- * Destructuring the response
+    StopTrainingDocumentClassifierResponse (..),
+    mkStopTrainingDocumentClassifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stdcrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopTrainingDocumentClassifier' smart constructor.
+-- | /See:/ 'mkStopTrainingDocumentClassifier' smart constructor.
 newtype StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'
-  { _stdcDocumentClassifierARN ::
-      Text
+  { documentClassifierARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrainingDocumentClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stdcDocumentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.
-stopTrainingDocumentClassifier ::
-  -- | 'stdcDocumentClassifierARN'
-  Text ->
+-- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.
+mkStopTrainingDocumentClassifier ::
+  -- | 'documentClassifierARN'
+  Lude.Text ->
   StopTrainingDocumentClassifier
-stopTrainingDocumentClassifier pDocumentClassifierARN_ =
+mkStopTrainingDocumentClassifier pDocumentClassifierARN_ =
   StopTrainingDocumentClassifier'
-    { _stdcDocumentClassifierARN =
+    { documentClassifierARN =
         pDocumentClassifierARN_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.
-stdcDocumentClassifierARN :: Lens' StopTrainingDocumentClassifier Text
-stdcDocumentClassifierARN = lens _stdcDocumentClassifierARN (\s a -> s {_stdcDocumentClassifierARN = a})
+--
+-- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdcDocumentClassifierARN :: Lens.Lens' StopTrainingDocumentClassifier Lude.Text
+stdcDocumentClassifierARN = Lens.lens (documentClassifierARN :: StopTrainingDocumentClassifier -> Lude.Text) (\s a -> s {documentClassifierARN = a} :: StopTrainingDocumentClassifier)
+{-# DEPRECATED stdcDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
 
-instance AWSRequest StopTrainingDocumentClassifier where
+instance Lude.AWSRequest StopTrainingDocumentClassifier where
   type
     Rs StopTrainingDocumentClassifier =
       StopTrainingDocumentClassifierResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StopTrainingDocumentClassifierResponse' <$> (pure (fromEnum s))
+          StopTrainingDocumentClassifierResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopTrainingDocumentClassifier
-
-instance NFData StopTrainingDocumentClassifier
-
-instance ToHeaders StopTrainingDocumentClassifier where
+instance Lude.ToHeaders StopTrainingDocumentClassifier where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopTrainingDocumentClassifier where
+instance Lude.ToJSON StopTrainingDocumentClassifier where
   toJSON StopTrainingDocumentClassifier' {..} =
-    object
-      ( catMaybes
-          [Just ("DocumentClassifierArn" .= _stdcDocumentClassifierARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("DocumentClassifierArn" Lude..= documentClassifierARN)
+          ]
       )
 
-instance ToPath StopTrainingDocumentClassifier where
-  toPath = const "/"
+instance Lude.ToPath StopTrainingDocumentClassifier where
+  toPath = Lude.const "/"
 
-instance ToQuery StopTrainingDocumentClassifier where
-  toQuery = const mempty
+instance Lude.ToQuery StopTrainingDocumentClassifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopTrainingDocumentClassifierResponse' smart constructor.
+-- | /See:/ 'mkStopTrainingDocumentClassifierResponse' smart constructor.
 newtype StopTrainingDocumentClassifierResponse = StopTrainingDocumentClassifierResponse'
-  { _stdcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrainingDocumentClassifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stdcrsResponseStatus' - -- | The response status code.
-stopTrainingDocumentClassifierResponse ::
-  -- | 'stdcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopTrainingDocumentClassifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopTrainingDocumentClassifierResponse
-stopTrainingDocumentClassifierResponse pResponseStatus_ =
+mkStopTrainingDocumentClassifierResponse pResponseStatus_ =
   StopTrainingDocumentClassifierResponse'
-    { _stdcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-stdcrsResponseStatus :: Lens' StopTrainingDocumentClassifierResponse Int
-stdcrsResponseStatus = lens _stdcrsResponseStatus (\s a -> s {_stdcrsResponseStatus = a})
-
-instance NFData StopTrainingDocumentClassifierResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdcrsResponseStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Lude.Int
+stdcrsResponseStatus = Lens.lens (responseStatus :: StopTrainingDocumentClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTrainingDocumentClassifierResponse)
+{-# DEPRECATED stdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

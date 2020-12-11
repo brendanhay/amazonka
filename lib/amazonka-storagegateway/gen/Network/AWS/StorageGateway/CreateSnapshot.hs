@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,37 +14,34 @@
 --
 -- Initiates a snapshot of a volume.
 --
---
 -- AWS Storage Gateway provides the ability to back up point-in-time snapshots of your data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, as well as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc basis. This API enables you to take an ad hoc snapshot. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot Editing a snapshot schedule> .
---
 -- In the @CreateSnapshot@ request, you identify the volume by providing its Amazon Resource Name (ARN). You must also provide description for the snapshot. When AWS Storage Gateway takes the snapshot of specified volume, the snapshot and description appears in the AWS Storage Gateway console. In response, AWS Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot. This operation is only supported in stored and cached volume gateway type.
---
 -- /Important:/ Volume and snapshot IDs are changing to a longer length ID format. For more information, see the important note on the <https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html Welcome> page.
 module Network.AWS.StorageGateway.CreateSnapshot
-  ( -- * Creating a Request
-    createSnapshot,
-    CreateSnapshot,
+  ( -- * Creating a request
+    CreateSnapshot (..),
+    mkCreateSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csTags,
     csVolumeARN,
     csSnapshotDescription,
 
-    -- * Destructuring the Response
-    createSnapshotResponse,
-    CreateSnapshotResponse,
+    -- * Destructuring the response
+    CreateSnapshotResponse (..),
+    mkCreateSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsVolumeARN,
     csrsSnapshotId,
     csrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
@@ -57,138 +49,155 @@ import Network.AWS.StorageGateway.Types
 --
 --     * 'CreateSnapshotInput$SnapshotDescription'
 --
+--
 --     * 'CreateSnapshotInput$VolumeARN'
 --
 --
 --
---
--- /See:/ 'createSnapshot' smart constructor.
+-- /See:/ 'mkCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { _csTags :: !(Maybe [Tag]),
-    _csVolumeARN :: !Text,
-    _csSnapshotDescription :: !Text
+  { tags :: Lude.Maybe [Tag],
+    volumeARN :: Lude.Text,
+    snapshotDescription :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csTags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
---
--- * 'csVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
---
--- * 'csSnapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
-createSnapshot ::
-  -- | 'csVolumeARN'
-  Text ->
-  -- | 'csSnapshotDescription'
-  Text ->
+-- * 'snapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
+-- * 'tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+mkCreateSnapshot ::
+  -- | 'volumeARN'
+  Lude.Text ->
+  -- | 'snapshotDescription'
+  Lude.Text ->
   CreateSnapshot
-createSnapshot pVolumeARN_ pSnapshotDescription_ =
+mkCreateSnapshot pVolumeARN_ pSnapshotDescription_ =
   CreateSnapshot'
-    { _csTags = Nothing,
-      _csVolumeARN = pVolumeARN_,
-      _csSnapshotDescription = pSnapshotDescription_
+    { tags = Lude.Nothing,
+      volumeARN = pVolumeARN_,
+      snapshotDescription = pSnapshotDescription_
     }
 
 -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
-csTags :: Lens' CreateSnapshot [Tag]
-csTags = lens _csTags (\s a -> s {_csTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' CreateSnapshot (Lude.Maybe [Tag])
+csTags = Lens.lens (tags :: CreateSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshot)
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
-csVolumeARN :: Lens' CreateSnapshot Text
-csVolumeARN = lens _csVolumeARN (\s a -> s {_csVolumeARN = a})
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csVolumeARN :: Lens.Lens' CreateSnapshot Lude.Text
+csVolumeARN = Lens.lens (volumeARN :: CreateSnapshot -> Lude.Text) (\s a -> s {volumeARN = a} :: CreateSnapshot)
+{-# DEPRECATED csVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
-csSnapshotDescription :: Lens' CreateSnapshot Text
-csSnapshotDescription = lens _csSnapshotDescription (\s a -> s {_csSnapshotDescription = a})
+--
+-- /Note:/ Consider using 'snapshotDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSnapshotDescription :: Lens.Lens' CreateSnapshot Lude.Text
+csSnapshotDescription = Lens.lens (snapshotDescription :: CreateSnapshot -> Lude.Text) (\s a -> s {snapshotDescription = a} :: CreateSnapshot)
+{-# DEPRECATED csSnapshotDescription "Use generic-lens or generic-optics with 'snapshotDescription' instead." #-}
 
-instance AWSRequest CreateSnapshot where
+instance Lude.AWSRequest CreateSnapshot where
   type Rs CreateSnapshot = CreateSnapshotResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSnapshotResponse'
-            <$> (x .?> "VolumeARN")
-            <*> (x .?> "SnapshotId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VolumeARN")
+            Lude.<*> (x Lude..?> "SnapshotId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSnapshot
-
-instance NFData CreateSnapshot
-
-instance ToHeaders CreateSnapshot where
+instance Lude.ToHeaders CreateSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.CreateSnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.CreateSnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateSnapshot where
+instance Lude.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
-    object
-      ( catMaybes
-          [ ("Tags" .=) <$> _csTags,
-            Just ("VolumeARN" .= _csVolumeARN),
-            Just ("SnapshotDescription" .= _csSnapshotDescription)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("VolumeARN" Lude..= volumeARN),
+            Lude.Just ("SnapshotDescription" Lude..= snapshotDescription)
           ]
       )
 
-instance ToPath CreateSnapshot where
-  toPath = const "/"
+instance Lude.ToPath CreateSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSnapshot where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
---
---
--- /See:/ 'createSnapshotResponse' smart constructor.
+-- /See:/ 'mkCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-  { _csrsVolumeARN ::
-      !(Maybe Text),
-    _csrsSnapshotId :: !(Maybe Text),
-    _csrsResponseStatus :: !Int
+  { volumeARN ::
+      Lude.Maybe Lude.Text,
+    snapshotId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsVolumeARN' - The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
---
--- * 'csrsSnapshotId' - The snapshot ID that is used to refer to the snapshot in future operations such as describing snapshots (Amazon Elastic Compute Cloud API @DescribeSnapshots@ ) or creating a volume from a snapshot ('CreateStorediSCSIVolume' ).
---
--- * 'csrsResponseStatus' - -- | The response status code.
-createSnapshotResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'snapshotId' - The snapshot ID that is used to refer to the snapshot in future operations such as describing snapshots (Amazon Elastic Compute Cloud API @DescribeSnapshots@ ) or creating a volume from a snapshot ('CreateStorediSCSIVolume' ).
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
+mkCreateSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSnapshotResponse
-createSnapshotResponse pResponseStatus_ =
+mkCreateSnapshotResponse pResponseStatus_ =
   CreateSnapshotResponse'
-    { _csrsVolumeARN = Nothing,
-      _csrsSnapshotId = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { volumeARN = Lude.Nothing,
+      snapshotId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
-csrsVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
-csrsVolumeARN = lens _csrsVolumeARN (\s a -> s {_csrsVolumeARN = a})
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsVolumeARN :: Lens.Lens' CreateSnapshotResponse (Lude.Maybe Lude.Text)
+csrsVolumeARN = Lens.lens (volumeARN :: CreateSnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: CreateSnapshotResponse)
+{-# DEPRECATED csrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The snapshot ID that is used to refer to the snapshot in future operations such as describing snapshots (Amazon Elastic Compute Cloud API @DescribeSnapshots@ ) or creating a volume from a snapshot ('CreateStorediSCSIVolume' ).
-csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-csrsSnapshotId = lens _csrsSnapshotId (\s a -> s {_csrsSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSnapshotId :: Lens.Lens' CreateSnapshotResponse (Lude.Maybe Lude.Text)
+csrsSnapshotId = Lens.lens (snapshotId :: CreateSnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateSnapshotResponse)
+{-# DEPRECATED csrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateSnapshotResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CreateSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateSnapshotResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

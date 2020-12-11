@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,167 +14,189 @@
 --
 -- Adds an IAM user to the team for an AWS CodeStar project.
 module Network.AWS.CodeStar.AssociateTeamMember
-  ( -- * Creating a Request
-    associateTeamMember,
-    AssociateTeamMember,
+  ( -- * Creating a request
+    AssociateTeamMember (..),
+    mkAssociateTeamMember,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atmRemoteAccessAllowed,
     atmClientRequestToken,
     atmProjectId,
     atmUserARN,
     atmProjectRole,
 
-    -- * Destructuring the Response
-    associateTeamMemberResponse,
-    AssociateTeamMemberResponse,
+    -- * Destructuring the response
+    AssociateTeamMemberResponse (..),
+    mkAssociateTeamMemberResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atmrsClientRequestToken,
     atmrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateTeamMember' smart constructor.
+-- | /See:/ 'mkAssociateTeamMember' smart constructor.
 data AssociateTeamMember = AssociateTeamMember'
-  { _atmRemoteAccessAllowed ::
-      !(Maybe Bool),
-    _atmClientRequestToken :: !(Maybe Text),
-    _atmProjectId :: !Text,
-    _atmUserARN :: !Text,
-    _atmProjectRole :: !Text
+  { remoteAccessAllowed ::
+      Lude.Maybe Lude.Bool,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    projectId :: Lude.Text,
+    userARN :: Lude.Text,
+    projectRole :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTeamMember' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atmRemoteAccessAllowed' - Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
---
--- * 'atmClientRequestToken' - A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
---
--- * 'atmProjectId' - The ID of the project to which you will add the IAM user.
---
--- * 'atmUserARN' - The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
---
--- * 'atmProjectRole' - The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
-associateTeamMember ::
-  -- | 'atmProjectId'
-  Text ->
-  -- | 'atmUserARN'
-  Text ->
-  -- | 'atmProjectRole'
-  Text ->
+-- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
+-- * 'projectId' - The ID of the project to which you will add the IAM user.
+-- * 'projectRole' - The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
+-- * 'remoteAccessAllowed' - Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
+-- * 'userARN' - The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
+mkAssociateTeamMember ::
+  -- | 'projectId'
+  Lude.Text ->
+  -- | 'userARN'
+  Lude.Text ->
+  -- | 'projectRole'
+  Lude.Text ->
   AssociateTeamMember
-associateTeamMember pProjectId_ pUserARN_ pProjectRole_ =
+mkAssociateTeamMember pProjectId_ pUserARN_ pProjectRole_ =
   AssociateTeamMember'
-    { _atmRemoteAccessAllowed = Nothing,
-      _atmClientRequestToken = Nothing,
-      _atmProjectId = pProjectId_,
-      _atmUserARN = pUserARN_,
-      _atmProjectRole = pProjectRole_
+    { remoteAccessAllowed = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      projectId = pProjectId_,
+      userARN = pUserARN_,
+      projectRole = pProjectRole_
     }
 
 -- | Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
-atmRemoteAccessAllowed :: Lens' AssociateTeamMember (Maybe Bool)
-atmRemoteAccessAllowed = lens _atmRemoteAccessAllowed (\s a -> s {_atmRemoteAccessAllowed = a})
+--
+-- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmRemoteAccessAllowed :: Lens.Lens' AssociateTeamMember (Lude.Maybe Lude.Bool)
+atmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: AssociateTeamMember -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessAllowed = a} :: AssociateTeamMember)
+{-# DEPRECATED atmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
 
 -- | A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
-atmClientRequestToken :: Lens' AssociateTeamMember (Maybe Text)
-atmClientRequestToken = lens _atmClientRequestToken (\s a -> s {_atmClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmClientRequestToken :: Lens.Lens' AssociateTeamMember (Lude.Maybe Lude.Text)
+atmClientRequestToken = Lens.lens (clientRequestToken :: AssociateTeamMember -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: AssociateTeamMember)
+{-# DEPRECATED atmClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The ID of the project to which you will add the IAM user.
-atmProjectId :: Lens' AssociateTeamMember Text
-atmProjectId = lens _atmProjectId (\s a -> s {_atmProjectId = a})
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmProjectId :: Lens.Lens' AssociateTeamMember Lude.Text
+atmProjectId = Lens.lens (projectId :: AssociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: AssociateTeamMember)
+{-# DEPRECATED atmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
-atmUserARN :: Lens' AssociateTeamMember Text
-atmUserARN = lens _atmUserARN (\s a -> s {_atmUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmUserARN :: Lens.Lens' AssociateTeamMember Lude.Text
+atmUserARN = Lens.lens (userARN :: AssociateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: AssociateTeamMember)
+{-# DEPRECATED atmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
-atmProjectRole :: Lens' AssociateTeamMember Text
-atmProjectRole = lens _atmProjectRole (\s a -> s {_atmProjectRole = a})
+--
+-- /Note:/ Consider using 'projectRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmProjectRole :: Lens.Lens' AssociateTeamMember Lude.Text
+atmProjectRole = Lens.lens (projectRole :: AssociateTeamMember -> Lude.Text) (\s a -> s {projectRole = a} :: AssociateTeamMember)
+{-# DEPRECATED atmProjectRole "Use generic-lens or generic-optics with 'projectRole' instead." #-}
 
-instance AWSRequest AssociateTeamMember where
+instance Lude.AWSRequest AssociateTeamMember where
   type Rs AssociateTeamMember = AssociateTeamMemberResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AssociateTeamMemberResponse'
-            <$> (x .?> "clientRequestToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "clientRequestToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateTeamMember
-
-instance NFData AssociateTeamMember
-
-instance ToHeaders AssociateTeamMember where
+instance Lude.ToHeaders AssociateTeamMember where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.AssociateTeamMember" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.AssociateTeamMember" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateTeamMember where
+instance Lude.ToJSON AssociateTeamMember where
   toJSON AssociateTeamMember' {..} =
-    object
-      ( catMaybes
-          [ ("remoteAccessAllowed" .=) <$> _atmRemoteAccessAllowed,
-            ("clientRequestToken" .=) <$> _atmClientRequestToken,
-            Just ("projectId" .= _atmProjectId),
-            Just ("userArn" .= _atmUserARN),
-            Just ("projectRole" .= _atmProjectRole)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("remoteAccessAllowed" Lude..=) Lude.<$> remoteAccessAllowed,
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("projectId" Lude..= projectId),
+            Lude.Just ("userArn" Lude..= userARN),
+            Lude.Just ("projectRole" Lude..= projectRole)
           ]
       )
 
-instance ToPath AssociateTeamMember where
-  toPath = const "/"
+instance Lude.ToPath AssociateTeamMember where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateTeamMember where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateTeamMember where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateTeamMemberResponse' smart constructor.
+-- | /See:/ 'mkAssociateTeamMemberResponse' smart constructor.
 data AssociateTeamMemberResponse = AssociateTeamMemberResponse'
-  { _atmrsClientRequestToken ::
-      !(Maybe Text),
-    _atmrsResponseStatus :: !Int
+  { clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTeamMemberResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atmrsClientRequestToken' - The user- or system-generated token from the initial request that can be used to repeat the request.
---
--- * 'atmrsResponseStatus' - -- | The response status code.
-associateTeamMemberResponse ::
-  -- | 'atmrsResponseStatus'
-  Int ->
+-- * 'clientRequestToken' - The user- or system-generated token from the initial request that can be used to repeat the request.
+-- * 'responseStatus' - The response status code.
+mkAssociateTeamMemberResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateTeamMemberResponse
-associateTeamMemberResponse pResponseStatus_ =
+mkAssociateTeamMemberResponse pResponseStatus_ =
   AssociateTeamMemberResponse'
-    { _atmrsClientRequestToken = Nothing,
-      _atmrsResponseStatus = pResponseStatus_
+    { clientRequestToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user- or system-generated token from the initial request that can be used to repeat the request.
-atmrsClientRequestToken :: Lens' AssociateTeamMemberResponse (Maybe Text)
-atmrsClientRequestToken = lens _atmrsClientRequestToken (\s a -> s {_atmrsClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmrsClientRequestToken :: Lens.Lens' AssociateTeamMemberResponse (Lude.Maybe Lude.Text)
+atmrsClientRequestToken = Lens.lens (clientRequestToken :: AssociateTeamMemberResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: AssociateTeamMemberResponse)
+{-# DEPRECATED atmrsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
--- | -- | The response status code.
-atmrsResponseStatus :: Lens' AssociateTeamMemberResponse Int
-atmrsResponseStatus = lens _atmrsResponseStatus (\s a -> s {_atmrsResponseStatus = a})
-
-instance NFData AssociateTeamMemberResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmrsResponseStatus :: Lens.Lens' AssociateTeamMemberResponse Lude.Int
+atmrsResponseStatus = Lens.lens (responseStatus :: AssociateTeamMemberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateTeamMemberResponse)
+{-# DEPRECATED atmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

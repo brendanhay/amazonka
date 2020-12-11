@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,186 +14,224 @@
 --
 -- Disassociates the specified self-service action association from the specified provisioning artifact.
 module Network.AWS.ServiceCatalog.DisassociateServiceActionFromProvisioningArtifact
-  ( -- * Creating a Request
-    disassociateServiceActionFromProvisioningArtifact,
-    DisassociateServiceActionFromProvisioningArtifact,
+  ( -- * Creating a request
+    DisassociateServiceActionFromProvisioningArtifact (..),
+    mkDisassociateServiceActionFromProvisioningArtifact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsafpaAcceptLanguage,
     dsafpaProductId,
     dsafpaProvisioningArtifactId,
     dsafpaServiceActionId,
 
-    -- * Destructuring the Response
-    disassociateServiceActionFromProvisioningArtifactResponse,
-    DisassociateServiceActionFromProvisioningArtifactResponse,
+    -- * Destructuring the response
+    DisassociateServiceActionFromProvisioningArtifactResponse (..),
+    mkDisassociateServiceActionFromProvisioningArtifactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsafparsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'disassociateServiceActionFromProvisioningArtifact' smart constructor.
+-- | /See:/ 'mkDisassociateServiceActionFromProvisioningArtifact' smart constructor.
 data DisassociateServiceActionFromProvisioningArtifact = DisassociateServiceActionFromProvisioningArtifact'
-  { _dsafpaAcceptLanguage ::
-      !( Maybe
-           Text
-       ),
-    _dsafpaProductId ::
-      !Text,
-    _dsafpaProvisioningArtifactId ::
-      !Text,
-    _dsafpaServiceActionId ::
-      !Text
+  { acceptLanguage ::
+      Lude.Maybe
+        Lude.Text,
+    productId ::
+      Lude.Text,
+    provisioningArtifactId ::
+      Lude.Text,
+    serviceActionId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisassociateServiceActionFromProvisioningArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'dsafpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dsafpaProductId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+--     * @en@ - English (default)
 --
--- * 'dsafpaProvisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 --
--- * 'dsafpaServiceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-disassociateServiceActionFromProvisioningArtifact ::
-  -- | 'dsafpaProductId'
-  Text ->
-  -- | 'dsafpaProvisioningArtifactId'
-  Text ->
-  -- | 'dsafpaServiceActionId'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+-- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+mkDisassociateServiceActionFromProvisioningArtifact ::
+  -- | 'productId'
+  Lude.Text ->
+  -- | 'provisioningArtifactId'
+  Lude.Text ->
+  -- | 'serviceActionId'
+  Lude.Text ->
   DisassociateServiceActionFromProvisioningArtifact
-disassociateServiceActionFromProvisioningArtifact
+mkDisassociateServiceActionFromProvisioningArtifact
   pProductId_
   pProvisioningArtifactId_
   pServiceActionId_ =
     DisassociateServiceActionFromProvisioningArtifact'
-      { _dsafpaAcceptLanguage =
-          Nothing,
-        _dsafpaProductId = pProductId_,
-        _dsafpaProvisioningArtifactId =
+      { acceptLanguage =
+          Lude.Nothing,
+        productId = pProductId_,
+        provisioningArtifactId =
           pProvisioningArtifactId_,
-        _dsafpaServiceActionId = pServiceActionId_
+        serviceActionId = pServiceActionId_
       }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dsafpaAcceptLanguage :: Lens' DisassociateServiceActionFromProvisioningArtifact (Maybe Text)
-dsafpaAcceptLanguage = lens _dsafpaAcceptLanguage (\s a -> s {_dsafpaAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsafpaAcceptLanguage :: Lens.Lens' DisassociateServiceActionFromProvisioningArtifact (Lude.Maybe Lude.Text)
+dsafpaAcceptLanguage = Lens.lens (acceptLanguage :: DisassociateServiceActionFromProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DisassociateServiceActionFromProvisioningArtifact)
+{-# DEPRECATED dsafpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
-dsafpaProductId :: Lens' DisassociateServiceActionFromProvisioningArtifact Text
-dsafpaProductId = lens _dsafpaProductId (\s a -> s {_dsafpaProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsafpaProductId :: Lens.Lens' DisassociateServiceActionFromProvisioningArtifact Lude.Text
+dsafpaProductId = Lens.lens (productId :: DisassociateServiceActionFromProvisioningArtifact -> Lude.Text) (\s a -> s {productId = a} :: DisassociateServiceActionFromProvisioningArtifact)
+{-# DEPRECATED dsafpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
-dsafpaProvisioningArtifactId :: Lens' DisassociateServiceActionFromProvisioningArtifact Text
-dsafpaProvisioningArtifactId = lens _dsafpaProvisioningArtifactId (\s a -> s {_dsafpaProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsafpaProvisioningArtifactId :: Lens.Lens' DisassociateServiceActionFromProvisioningArtifact Lude.Text
+dsafpaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: DisassociateServiceActionFromProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: DisassociateServiceActionFromProvisioningArtifact)
+{-# DEPRECATED dsafpaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-dsafpaServiceActionId :: Lens' DisassociateServiceActionFromProvisioningArtifact Text
-dsafpaServiceActionId = lens _dsafpaServiceActionId (\s a -> s {_dsafpaServiceActionId = a})
+--
+-- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsafpaServiceActionId :: Lens.Lens' DisassociateServiceActionFromProvisioningArtifact Lude.Text
+dsafpaServiceActionId = Lens.lens (serviceActionId :: DisassociateServiceActionFromProvisioningArtifact -> Lude.Text) (\s a -> s {serviceActionId = a} :: DisassociateServiceActionFromProvisioningArtifact)
+{-# DEPRECATED dsafpaServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
 
 instance
-  AWSRequest
+  Lude.AWSRequest
     DisassociateServiceActionFromProvisioningArtifact
   where
   type
     Rs DisassociateServiceActionFromProvisioningArtifact =
       DisassociateServiceActionFromProvisioningArtifactResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           DisassociateServiceActionFromProvisioningArtifactResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateServiceActionFromProvisioningArtifact
-
-instance NFData DisassociateServiceActionFromProvisioningArtifact
-
 instance
-  ToHeaders
+  Lude.ToHeaders
     DisassociateServiceActionFromProvisioningArtifact
   where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateServiceActionFromProvisioningArtifact where
+instance
+  Lude.ToJSON
+    DisassociateServiceActionFromProvisioningArtifact
+  where
   toJSON DisassociateServiceActionFromProvisioningArtifact' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _dsafpaAcceptLanguage,
-            Just ("ProductId" .= _dsafpaProductId),
-            Just ("ProvisioningArtifactId" .= _dsafpaProvisioningArtifactId),
-            Just ("ServiceActionId" .= _dsafpaServiceActionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("ProductId" Lude..= productId),
+            Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            Lude.Just ("ServiceActionId" Lude..= serviceActionId)
           ]
       )
 
-instance ToPath DisassociateServiceActionFromProvisioningArtifact where
-  toPath = const "/"
+instance
+  Lude.ToPath
+    DisassociateServiceActionFromProvisioningArtifact
+  where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateServiceActionFromProvisioningArtifact where
-  toQuery = const mempty
+instance
+  Lude.ToQuery
+    DisassociateServiceActionFromProvisioningArtifact
+  where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateServiceActionFromProvisioningArtifactResponse' smart constructor.
+-- | /See:/ 'mkDisassociateServiceActionFromProvisioningArtifactResponse' smart constructor.
 newtype DisassociateServiceActionFromProvisioningArtifactResponse = DisassociateServiceActionFromProvisioningArtifactResponse'
-  { _dsafparsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisassociateServiceActionFromProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsafparsResponseStatus' - -- | The response status code.
-disassociateServiceActionFromProvisioningArtifactResponse ::
-  -- | 'dsafparsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateServiceActionFromProvisioningArtifactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateServiceActionFromProvisioningArtifactResponse
-disassociateServiceActionFromProvisioningArtifactResponse
+mkDisassociateServiceActionFromProvisioningArtifactResponse
   pResponseStatus_ =
     DisassociateServiceActionFromProvisioningArtifactResponse'
-      { _dsafparsResponseStatus =
+      { responseStatus =
           pResponseStatus_
       }
 
--- | -- | The response status code.
-dsafparsResponseStatus :: Lens' DisassociateServiceActionFromProvisioningArtifactResponse Int
-dsafparsResponseStatus = lens _dsafparsResponseStatus (\s a -> s {_dsafparsResponseStatus = a})
-
-instance
-  NFData
-    DisassociateServiceActionFromProvisioningArtifactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsafparsResponseStatus :: Lens.Lens' DisassociateServiceActionFromProvisioningArtifactResponse Lude.Int
+dsafparsResponseStatus = Lens.lens (responseStatus :: DisassociateServiceActionFromProvisioningArtifactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateServiceActionFromProvisioningArtifactResponse)
+{-# DEPRECATED dsafparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

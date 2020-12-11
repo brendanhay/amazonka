@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Modifies the settings for a DAX cluster. You can use this action to change one or more cluster configuration parameters by specifying the parameters and the new values.
 module Network.AWS.DAX.UpdateCluster
-  ( -- * Creating a Request
-    updateCluster,
-    UpdateCluster,
+  ( -- * Creating a request
+    UpdateCluster (..),
+    mkUpdateCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucSecurityGroupIds,
     ucPreferredMaintenanceWindow,
     ucNotificationTopicStatus,
@@ -32,170 +27,197 @@ module Network.AWS.DAX.UpdateCluster
     ucParameterGroupName,
     ucClusterName,
 
-    -- * Destructuring the Response
-    updateClusterResponse,
-    UpdateClusterResponse,
+    -- * Destructuring the response
+    UpdateClusterResponse (..),
+    mkUpdateClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucrsCluster,
     ucrsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateCluster' smart constructor.
+-- | /See:/ 'mkUpdateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-  { _ucSecurityGroupIds ::
-      !(Maybe [Text]),
-    _ucPreferredMaintenanceWindow :: !(Maybe Text),
-    _ucNotificationTopicStatus :: !(Maybe Text),
-    _ucDescription :: !(Maybe Text),
-    _ucNotificationTopicARN :: !(Maybe Text),
-    _ucParameterGroupName :: !(Maybe Text),
-    _ucClusterName :: !Text
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    notificationTopicStatus :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    notificationTopicARN :: Lude.Maybe Lude.Text,
+    parameterGroupName :: Lude.Maybe Lude.Text,
+    clusterName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucSecurityGroupIds' - A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
---
--- * 'ucPreferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
---
--- * 'ucNotificationTopicStatus' - The current state of the topic.
---
--- * 'ucDescription' - A description of the changes being made to the cluster.
---
--- * 'ucNotificationTopicARN' - The Amazon Resource Name (ARN) that identifies the topic.
---
--- * 'ucParameterGroupName' - The name of a parameter group for this cluster.
---
--- * 'ucClusterName' - The name of the DAX cluster to be modified.
-updateCluster ::
-  -- | 'ucClusterName'
-  Text ->
+-- * 'clusterName' - The name of the DAX cluster to be modified.
+-- * 'description' - A description of the changes being made to the cluster.
+-- * 'notificationTopicARN' - The Amazon Resource Name (ARN) that identifies the topic.
+-- * 'notificationTopicStatus' - The current state of the topic.
+-- * 'parameterGroupName' - The name of a parameter group for this cluster.
+-- * 'preferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
+-- * 'securityGroupIds' - A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
+mkUpdateCluster ::
+  -- | 'clusterName'
+  Lude.Text ->
   UpdateCluster
-updateCluster pClusterName_ =
+mkUpdateCluster pClusterName_ =
   UpdateCluster'
-    { _ucSecurityGroupIds = Nothing,
-      _ucPreferredMaintenanceWindow = Nothing,
-      _ucNotificationTopicStatus = Nothing,
-      _ucDescription = Nothing,
-      _ucNotificationTopicARN = Nothing,
-      _ucParameterGroupName = Nothing,
-      _ucClusterName = pClusterName_
+    { securityGroupIds = Lude.Nothing,
+      preferredMaintenanceWindow = Lude.Nothing,
+      notificationTopicStatus = Lude.Nothing,
+      description = Lude.Nothing,
+      notificationTopicARN = Lude.Nothing,
+      parameterGroupName = Lude.Nothing,
+      clusterName = pClusterName_
     }
 
 -- | A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
-ucSecurityGroupIds :: Lens' UpdateCluster [Text]
-ucSecurityGroupIds = lens _ucSecurityGroupIds (\s a -> s {_ucSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucSecurityGroupIds :: Lens.Lens' UpdateCluster (Lude.Maybe [Lude.Text])
+ucSecurityGroupIds = Lens.lens (securityGroupIds :: UpdateCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: UpdateCluster)
+{-# DEPRECATED ucSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
-ucPreferredMaintenanceWindow :: Lens' UpdateCluster (Maybe Text)
-ucPreferredMaintenanceWindow = lens _ucPreferredMaintenanceWindow (\s a -> s {_ucPreferredMaintenanceWindow = a})
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucPreferredMaintenanceWindow :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
+ucPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: UpdateCluster)
+{-# DEPRECATED ucPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The current state of the topic.
-ucNotificationTopicStatus :: Lens' UpdateCluster (Maybe Text)
-ucNotificationTopicStatus = lens _ucNotificationTopicStatus (\s a -> s {_ucNotificationTopicStatus = a})
+--
+-- /Note:/ Consider using 'notificationTopicStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucNotificationTopicStatus :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
+ucNotificationTopicStatus = Lens.lens (notificationTopicStatus :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {notificationTopicStatus = a} :: UpdateCluster)
+{-# DEPRECATED ucNotificationTopicStatus "Use generic-lens or generic-optics with 'notificationTopicStatus' instead." #-}
 
 -- | A description of the changes being made to the cluster.
-ucDescription :: Lens' UpdateCluster (Maybe Text)
-ucDescription = lens _ucDescription (\s a -> s {_ucDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucDescription :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
+ucDescription = Lens.lens (description :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateCluster)
+{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
-ucNotificationTopicARN :: Lens' UpdateCluster (Maybe Text)
-ucNotificationTopicARN = lens _ucNotificationTopicARN (\s a -> s {_ucNotificationTopicARN = a})
+--
+-- /Note:/ Consider using 'notificationTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucNotificationTopicARN :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
+ucNotificationTopicARN = Lens.lens (notificationTopicARN :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {notificationTopicARN = a} :: UpdateCluster)
+{-# DEPRECATED ucNotificationTopicARN "Use generic-lens or generic-optics with 'notificationTopicARN' instead." #-}
 
 -- | The name of a parameter group for this cluster.
-ucParameterGroupName :: Lens' UpdateCluster (Maybe Text)
-ucParameterGroupName = lens _ucParameterGroupName (\s a -> s {_ucParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucParameterGroupName :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
+ucParameterGroupName = Lens.lens (parameterGroupName :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: UpdateCluster)
+{-# DEPRECATED ucParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 -- | The name of the DAX cluster to be modified.
-ucClusterName :: Lens' UpdateCluster Text
-ucClusterName = lens _ucClusterName (\s a -> s {_ucClusterName = a})
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucClusterName :: Lens.Lens' UpdateCluster Lude.Text
+ucClusterName = Lens.lens (clusterName :: UpdateCluster -> Lude.Text) (\s a -> s {clusterName = a} :: UpdateCluster)
+{-# DEPRECATED ucClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
-instance AWSRequest UpdateCluster where
+instance Lude.AWSRequest UpdateCluster where
   type Rs UpdateCluster = UpdateClusterResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateClusterResponse'
-            <$> (x .?> "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateCluster
-
-instance NFData UpdateCluster
-
-instance ToHeaders UpdateCluster where
+instance Lude.ToHeaders UpdateCluster where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.UpdateCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.UpdateCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateCluster where
+instance Lude.ToJSON UpdateCluster where
   toJSON UpdateCluster' {..} =
-    object
-      ( catMaybes
-          [ ("SecurityGroupIds" .=) <$> _ucSecurityGroupIds,
-            ("PreferredMaintenanceWindow" .=)
-              <$> _ucPreferredMaintenanceWindow,
-            ("NotificationTopicStatus" .=) <$> _ucNotificationTopicStatus,
-            ("Description" .=) <$> _ucDescription,
-            ("NotificationTopicArn" .=) <$> _ucNotificationTopicARN,
-            ("ParameterGroupName" .=) <$> _ucParameterGroupName,
-            Just ("ClusterName" .= _ucClusterName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
+            ("PreferredMaintenanceWindow" Lude..=)
+              Lude.<$> preferredMaintenanceWindow,
+            ("NotificationTopicStatus" Lude..=)
+              Lude.<$> notificationTopicStatus,
+            ("Description" Lude..=) Lude.<$> description,
+            ("NotificationTopicArn" Lude..=) Lude.<$> notificationTopicARN,
+            ("ParameterGroupName" Lude..=) Lude.<$> parameterGroupName,
+            Lude.Just ("ClusterName" Lude..= clusterName)
           ]
       )
 
-instance ToPath UpdateCluster where
-  toPath = const "/"
+instance Lude.ToPath UpdateCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateCluster where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateClusterResponse' smart constructor.
+-- | /See:/ 'mkUpdateClusterResponse' smart constructor.
 data UpdateClusterResponse = UpdateClusterResponse'
-  { _ucrsCluster ::
-      !(Maybe Cluster),
-    _ucrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucrsCluster' - A description of the DAX cluster, after it has been modified.
---
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateClusterResponse ::
-  -- | 'ucrsResponseStatus'
-  Int ->
+-- * 'cluster' - A description of the DAX cluster, after it has been modified.
+-- * 'responseStatus' - The response status code.
+mkUpdateClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateClusterResponse
-updateClusterResponse pResponseStatus_ =
+mkUpdateClusterResponse pResponseStatus_ =
   UpdateClusterResponse'
-    { _ucrsCluster = Nothing,
-      _ucrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A description of the DAX cluster, after it has been modified.
-ucrsCluster :: Lens' UpdateClusterResponse (Maybe Cluster)
-ucrsCluster = lens _ucrsCluster (\s a -> s {_ucrsCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsCluster :: Lens.Lens' UpdateClusterResponse (Lude.Maybe Cluster)
+ucrsCluster = Lens.lens (cluster :: UpdateClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: UpdateClusterResponse)
+{-# DEPRECATED ucrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateClusterResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\s a -> s {_ucrsResponseStatus = a})
-
-instance NFData UpdateClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsResponseStatus :: Lens.Lens' UpdateClusterResponse Lude.Int
+ucrsResponseStatus = Lens.lens (responseStatus :: UpdateClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateClusterResponse)
+{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.AssignPublicIP where
+module Network.AWS.ECS.Types.AssignPublicIP
+  ( AssignPublicIP
+      ( AssignPublicIP',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssignPublicIP
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssignPublicIP = AssignPublicIP' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssignPublicIP where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing AssignPublicIP from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: AssignPublicIP
+pattern Disabled = AssignPublicIP' "DISABLED"
 
-instance ToText AssignPublicIP where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: AssignPublicIP
+pattern Enabled = AssignPublicIP' "ENABLED"
 
-instance Hashable AssignPublicIP
-
-instance NFData AssignPublicIP
-
-instance ToByteString AssignPublicIP
-
-instance ToQuery AssignPublicIP
-
-instance ToHeader AssignPublicIP
-
-instance ToJSON AssignPublicIP where
-  toJSON = toJSONText
-
-instance FromJSON AssignPublicIP where
-  parseJSON = parseJSONText "AssignPublicIP"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  AssignPublicIP'
+  #-}

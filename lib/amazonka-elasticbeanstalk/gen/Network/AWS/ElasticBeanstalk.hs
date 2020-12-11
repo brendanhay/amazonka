@@ -14,15 +14,12 @@
 -- __AWS Elastic Beanstalk__
 --
 -- AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on the Amazon Web Services cloud.
---
 -- For more information about this product, go to the <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details page. The location of the latest AWS Elastic Beanstalk WSDL is <https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl> . To install the Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools that enable you to access the API, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
---
 -- __Endpoints__
---
 -- For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/ .
 module Network.AWS.ElasticBeanstalk
-  ( -- * Service Configuration
-    elasticBeanstalk,
+  ( -- * Service configuration
+    elasticBeanstalkService,
 
     -- * Errors
     -- $errors
@@ -31,13 +28,13 @@ module Network.AWS.ElasticBeanstalk
     -- $waiters
 
     -- ** EnvironmentExists
-    environmentExists,
+    mkEnvironmentExists,
 
     -- ** EnvironmentUpdated
-    environmentUpdated,
+    mkEnvironmentUpdated,
 
     -- ** EnvironmentTerminated
-    environmentTerminated,
+    mkEnvironmentTerminated,
 
     -- * Operations
     -- $operations
@@ -243,8 +240,8 @@ module Network.AWS.ElasticBeanstalk
     ValidationSeverity (..),
 
     -- ** ApplicationDescription
-    ApplicationDescription,
-    applicationDescription,
+    ApplicationDescription (..),
+    mkApplicationDescription,
     adApplicationARN,
     adVersions,
     adDateUpdated,
@@ -255,27 +252,27 @@ module Network.AWS.ElasticBeanstalk
     adDescription,
 
     -- ** ApplicationDescriptionMessage
-    ApplicationDescriptionMessage,
-    applicationDescriptionMessage,
+    ApplicationDescriptionMessage (..),
+    mkApplicationDescriptionMessage,
     admApplication,
 
     -- ** ApplicationMetrics
-    ApplicationMetrics,
-    applicationMetrics,
+    ApplicationMetrics (..),
+    mkApplicationMetrics,
     amRequestCount,
     amLatency,
     amStatusCodes,
     amDuration,
 
     -- ** ApplicationResourceLifecycleConfig
-    ApplicationResourceLifecycleConfig,
-    applicationResourceLifecycleConfig,
+    ApplicationResourceLifecycleConfig (..),
+    mkApplicationResourceLifecycleConfig,
     arlcVersionLifecycleConfig,
     arlcServiceRole,
 
     -- ** ApplicationVersionDescription
-    ApplicationVersionDescription,
-    applicationVersionDescription,
+    ApplicationVersionDescription (..),
+    mkApplicationVersionDescription,
     avdStatus,
     avdSourceBundle,
     avdDateUpdated,
@@ -288,24 +285,24 @@ module Network.AWS.ElasticBeanstalk
     avdDescription,
 
     -- ** ApplicationVersionDescriptionMessage
-    ApplicationVersionDescriptionMessage,
-    applicationVersionDescriptionMessage,
+    ApplicationVersionDescriptionMessage (..),
+    mkApplicationVersionDescriptionMessage,
     avdmApplicationVersion,
 
     -- ** ApplicationVersionLifecycleConfig
-    ApplicationVersionLifecycleConfig,
-    applicationVersionLifecycleConfig,
+    ApplicationVersionLifecycleConfig (..),
+    mkApplicationVersionLifecycleConfig,
     avlcMaxAgeRule,
     avlcMaxCountRule,
 
     -- ** AutoScalingGroup
-    AutoScalingGroup,
-    autoScalingGroup,
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
     asgName,
 
     -- ** BuildConfiguration
-    BuildConfiguration,
-    buildConfiguration,
+    BuildConfiguration (..),
+    mkBuildConfiguration,
     bcArtifactName,
     bcComputeType,
     bcTimeoutInMinutes,
@@ -313,13 +310,13 @@ module Network.AWS.ElasticBeanstalk
     bcImage,
 
     -- ** Builder
-    Builder,
-    builder,
+    Builder (..),
+    mkBuilder,
     bARN,
 
     -- ** CPUUtilization
-    CPUUtilization,
-    cpuUtilization,
+    CPUUtilization (..),
+    mkCPUUtilization,
     cuSoftIRQ,
     cuIdle,
     cuIRQ,
@@ -330,8 +327,8 @@ module Network.AWS.ElasticBeanstalk
     cuNice,
 
     -- ** ConfigurationOptionDescription
-    ConfigurationOptionDescription,
-    configurationOptionDescription,
+    ConfigurationOptionDescription (..),
+    mkConfigurationOptionDescription,
     codMaxValue,
     codRegex,
     codMaxLength,
@@ -345,16 +342,16 @@ module Network.AWS.ElasticBeanstalk
     codMinValue,
 
     -- ** ConfigurationOptionSetting
-    ConfigurationOptionSetting,
-    configurationOptionSetting,
+    ConfigurationOptionSetting (..),
+    mkConfigurationOptionSetting,
     cosOptionName,
     cosResourceName,
     cosNamespace,
     cosValue,
 
     -- ** ConfigurationSettingsDescription
-    ConfigurationSettingsDescription,
-    configurationSettingsDescription,
+    ConfigurationSettingsDescription (..),
+    mkConfigurationSettingsDescription,
     csdTemplateName,
     csdOptionSettings,
     csdDateUpdated,
@@ -367,22 +364,22 @@ module Network.AWS.ElasticBeanstalk
     csdDescription,
 
     -- ** CustomAMI
-    CustomAMI,
-    customAMI,
+    CustomAMI (..),
+    mkCustomAMI,
     caVirtualizationType,
     caImageId,
 
     -- ** Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dDeploymentId,
     dStatus,
     dDeploymentTime,
     dVersionLabel,
 
     -- ** EnvironmentDescription
-    EnvironmentDescription,
-    environmentDescription,
+    EnvironmentDescription (..),
+    mkEnvironmentDescription,
     eStatus,
     eCNAME,
     eTemplateName,
@@ -406,28 +403,28 @@ module Network.AWS.ElasticBeanstalk
     eDescription,
 
     -- ** EnvironmentDescriptionsMessage
-    EnvironmentDescriptionsMessage,
-    environmentDescriptionsMessage,
+    EnvironmentDescriptionsMessage (..),
+    mkEnvironmentDescriptionsMessage,
     edmNextToken,
     edmEnvironments,
 
     -- ** EnvironmentInfoDescription
-    EnvironmentInfoDescription,
-    environmentInfoDescription,
+    EnvironmentInfoDescription (..),
+    mkEnvironmentInfoDescription,
     eidSampleTimestamp,
     eidEC2InstanceId,
     eidInfoType,
     eidMessage,
 
     -- ** EnvironmentLink
-    EnvironmentLink,
-    environmentLink,
+    EnvironmentLink (..),
+    mkEnvironmentLink,
     elLinkName,
     elEnvironmentName,
 
     -- ** EnvironmentResourceDescription
-    EnvironmentResourceDescription,
-    environmentResourceDescription,
+    EnvironmentResourceDescription (..),
+    mkEnvironmentResourceDescription,
     erdQueues,
     erdTriggers,
     erdLaunchTemplates,
@@ -438,20 +435,20 @@ module Network.AWS.ElasticBeanstalk
     erdAutoScalingGroups,
 
     -- ** EnvironmentResourcesDescription
-    EnvironmentResourcesDescription,
-    environmentResourcesDescription,
+    EnvironmentResourcesDescription (..),
+    mkEnvironmentResourcesDescription,
     erdLoadBalancer,
 
     -- ** EnvironmentTier
-    EnvironmentTier,
-    environmentTier,
+    EnvironmentTier (..),
+    mkEnvironmentTier,
     etName,
     etVersion,
     etType,
 
     -- ** EventDescription
-    EventDescription,
-    eventDescription,
+    EventDescription (..),
+    mkEventDescription,
     edRequestId,
     edTemplateName,
     edSeverity,
@@ -463,13 +460,13 @@ module Network.AWS.ElasticBeanstalk
     edMessage,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iId,
 
     -- ** InstanceHealthSummary
-    InstanceHealthSummary,
-    instanceHealthSummary,
+    InstanceHealthSummary (..),
+    mkInstanceHealthSummary,
     ihsOK,
     ihsPending,
     ihsSevere,
@@ -480,8 +477,8 @@ module Network.AWS.ElasticBeanstalk
     ihsInfo,
 
     -- ** Latency
-    Latency,
-    latency,
+    Latency (..),
+    mkLatency,
     lP75,
     lP50,
     lP85,
@@ -492,36 +489,36 @@ module Network.AWS.ElasticBeanstalk
     lP10,
 
     -- ** LaunchConfiguration
-    LaunchConfiguration,
-    launchConfiguration,
+    LaunchConfiguration (..),
+    mkLaunchConfiguration,
     lcName,
 
     -- ** LaunchTemplate
-    LaunchTemplate,
-    launchTemplate,
+    LaunchTemplate (..),
+    mkLaunchTemplate,
     ltId,
 
     -- ** Listener
-    Listener,
-    listener,
+    Listener (..),
+    mkListener,
     lProtocol,
     lPort,
 
     -- ** LoadBalancer
-    LoadBalancer,
-    loadBalancer,
+    LoadBalancer (..),
+    mkLoadBalancer,
     lbName,
 
     -- ** LoadBalancerDescription
-    LoadBalancerDescription,
-    loadBalancerDescription,
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
     lbdLoadBalancerName,
     lbdDomain,
     lbdListeners,
 
     -- ** ManagedAction
-    ManagedAction,
-    managedAction,
+    ManagedAction (..),
+    mkManagedAction,
     maStatus,
     maActionId,
     maWindowStartTime,
@@ -529,8 +526,8 @@ module Network.AWS.ElasticBeanstalk
     maActionType,
 
     -- ** ManagedActionHistoryItem
-    ManagedActionHistoryItem,
-    managedActionHistoryItem,
+    ManagedActionHistoryItem (..),
+    mkManagedActionHistoryItem,
     mahiStatus,
     mahiFailureType,
     mahiActionId,
@@ -541,35 +538,35 @@ module Network.AWS.ElasticBeanstalk
     mahiActionType,
 
     -- ** MaxAgeRule
-    MaxAgeRule,
-    maxAgeRule,
+    MaxAgeRule (..),
+    mkMaxAgeRule,
     marDeleteSourceFromS3,
     marMaxAgeInDays,
     marEnabled,
 
     -- ** MaxCountRule
-    MaxCountRule,
-    maxCountRule,
+    MaxCountRule (..),
+    mkMaxCountRule,
     mcrMaxCount,
     mcrDeleteSourceFromS3,
     mcrEnabled,
 
     -- ** OptionRestrictionRegex
-    OptionRestrictionRegex,
-    optionRestrictionRegex,
+    OptionRestrictionRegex (..),
+    mkOptionRestrictionRegex,
     orrPattern,
     orrLabel,
 
     -- ** OptionSpecification
-    OptionSpecification,
-    optionSpecification,
+    OptionSpecification (..),
+    mkOptionSpecification,
     osOptionName,
     osResourceName,
     osNamespace,
 
     -- ** PlatformBranchSummary
-    PlatformBranchSummary,
-    platformBranchSummary,
+    PlatformBranchSummary (..),
+    mkPlatformBranchSummary,
     pbsBranchName,
     pbsBranchOrder,
     pbsPlatformName,
@@ -577,8 +574,8 @@ module Network.AWS.ElasticBeanstalk
     pbsLifecycleState,
 
     -- ** PlatformDescription
-    PlatformDescription,
-    platformDescription,
+    PlatformDescription (..),
+    mkPlatformDescription,
     pdPlatformBranchName,
     pdSupportedAddonList,
     pdPlatformCategory,
@@ -602,27 +599,27 @@ module Network.AWS.ElasticBeanstalk
     pdSupportedTierList,
 
     -- ** PlatformFilter
-    PlatformFilter,
-    platformFilter,
+    PlatformFilter (..),
+    mkPlatformFilter,
     pfValues,
     pfOperator,
     pfType,
 
     -- ** PlatformFramework
-    PlatformFramework,
-    platformFramework,
+    PlatformFramework (..),
+    mkPlatformFramework,
     pfName,
     pfVersion,
 
     -- ** PlatformProgrammingLanguage
-    PlatformProgrammingLanguage,
-    platformProgrammingLanguage,
+    PlatformProgrammingLanguage (..),
+    mkPlatformProgrammingLanguage,
     pplName,
     pplVersion,
 
     -- ** PlatformSummary
-    PlatformSummary,
-    platformSummary,
+    PlatformSummary (..),
+    mkPlatformSummary,
     psPlatformBranchName,
     psSupportedAddonList,
     psPlatformCategory,
@@ -637,19 +634,19 @@ module Network.AWS.ElasticBeanstalk
     psSupportedTierList,
 
     -- ** Queue
-    Queue,
-    queue,
+    Queue (..),
+    mkQueue,
     qURL,
     qName,
 
     -- ** ResourceQuota
-    ResourceQuota,
-    resourceQuota,
+    ResourceQuota (..),
+    mkResourceQuota,
     rqMaximum,
 
     -- ** ResourceQuotas
-    ResourceQuotas,
-    resourceQuotas,
+    ResourceQuotas (..),
+    mkResourceQuotas,
     rqApplicationQuota,
     rqCustomPlatformQuota,
     rqApplicationVersionQuota,
@@ -657,21 +654,21 @@ module Network.AWS.ElasticBeanstalk
     rqConfigurationTemplateQuota,
 
     -- ** S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slS3Key,
     slS3Bucket,
 
     -- ** SearchFilter
-    SearchFilter,
-    searchFilter,
+    SearchFilter (..),
+    mkSearchFilter,
     sfAttribute,
     sfValues,
     sfOperator,
 
     -- ** SingleInstanceHealth
-    SingleInstanceHealth,
-    singleInstanceHealth,
+    SingleInstanceHealth (..),
+    mkSingleInstanceHealth,
     sihInstanceId,
     sihCauses,
     sihSystem,
@@ -684,56 +681,67 @@ module Network.AWS.ElasticBeanstalk
     sihLaunchedAt,
 
     -- ** SolutionStackDescription
-    SolutionStackDescription,
-    solutionStackDescription,
+    SolutionStackDescription (..),
+    mkSolutionStackDescription,
     ssdPermittedFileTypes,
     ssdSolutionStackName,
 
     -- ** SourceBuildInformation
-    SourceBuildInformation,
-    sourceBuildInformation,
+    SourceBuildInformation (..),
+    mkSourceBuildInformation,
     sbiSourceType,
     sbiSourceRepository,
     sbiSourceLocation,
 
     -- ** SourceConfiguration
-    SourceConfiguration,
-    sourceConfiguration,
+    SourceConfiguration (..),
+    mkSourceConfiguration,
     scTemplateName,
     scApplicationName,
 
     -- ** StatusCodes
-    StatusCodes,
-    statusCodes,
+    StatusCodes (..),
+    mkStatusCodes,
     scStatus2xx,
     scStatus3xx,
     scStatus4xx,
     scStatus5xx,
 
     -- ** SystemStatus
-    SystemStatus,
-    systemStatus,
+    SystemStatus (..),
+    mkSystemStatus,
     ssCPUUtilization,
     ssLoadAverage,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** Trigger
-    Trigger,
-    trigger,
+    Trigger (..),
+    mkTrigger,
     tName,
 
     -- ** ValidationMessage
-    ValidationMessage,
-    validationMessage,
+    ValidationMessage (..),
+    mkValidationMessage,
     vmOptionName,
     vmSeverity,
     vmNamespace,
     vmMessage,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -786,6 +794,7 @@ import Network.AWS.ElasticBeanstalk.UpdateEnvironment
 import Network.AWS.ElasticBeanstalk.UpdateTagsForResource
 import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 import Network.AWS.ElasticBeanstalk.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

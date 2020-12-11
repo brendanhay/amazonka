@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl where
+module Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
+  ( AudioDescriptionAudioTypeControl
+      ( AudioDescriptionAudioTypeControl',
+        ADATCFollowInput,
+        ADATCUseConfigured
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Description Audio Type Control
-data AudioDescriptionAudioTypeControl
-  = ADATCFollowInput
-  | ADATCUseConfigured
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioDescriptionAudioTypeControl = AudioDescriptionAudioTypeControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioDescriptionAudioTypeControl where
-  parser =
-    takeLowerText >>= \case
-      "follow_input" -> pure ADATCFollowInput
-      "use_configured" -> pure ADATCUseConfigured
-      e ->
-        fromTextError $
-          "Failure parsing AudioDescriptionAudioTypeControl from value: '" <> e
-            <> "'. Accepted values: follow_input, use_configured"
+pattern ADATCFollowInput :: AudioDescriptionAudioTypeControl
+pattern ADATCFollowInput = AudioDescriptionAudioTypeControl' "FOLLOW_INPUT"
 
-instance ToText AudioDescriptionAudioTypeControl where
-  toText = \case
-    ADATCFollowInput -> "FOLLOW_INPUT"
-    ADATCUseConfigured -> "USE_CONFIGURED"
+pattern ADATCUseConfigured :: AudioDescriptionAudioTypeControl
+pattern ADATCUseConfigured = AudioDescriptionAudioTypeControl' "USE_CONFIGURED"
 
-instance Hashable AudioDescriptionAudioTypeControl
-
-instance NFData AudioDescriptionAudioTypeControl
-
-instance ToByteString AudioDescriptionAudioTypeControl
-
-instance ToQuery AudioDescriptionAudioTypeControl
-
-instance ToHeader AudioDescriptionAudioTypeControl
-
-instance ToJSON AudioDescriptionAudioTypeControl where
-  toJSON = toJSONText
-
-instance FromJSON AudioDescriptionAudioTypeControl where
-  parseJSON = parseJSONText "AudioDescriptionAudioTypeControl"
+{-# COMPLETE
+  ADATCFollowInput,
+  ADATCUseConfigured,
+  AudioDescriptionAudioTypeControl'
+  #-}

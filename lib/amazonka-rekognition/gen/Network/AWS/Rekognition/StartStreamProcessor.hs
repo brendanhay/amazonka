@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,117 @@
 --
 -- Starts processing a stream processor. You create a stream processor by calling 'CreateStreamProcessor' . To tell @StartStreamProcessor@ which stream processor to start, use the value of the @Name@ field specified in the call to @CreateStreamProcessor@ .
 module Network.AWS.Rekognition.StartStreamProcessor
-  ( -- * Creating a Request
-    startStreamProcessor,
-    StartStreamProcessor,
+  ( -- * Creating a request
+    StartStreamProcessor (..),
+    mkStartStreamProcessor,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sName,
 
-    -- * Destructuring the Response
-    startStreamProcessorResponse,
-    StartStreamProcessorResponse,
+    -- * Destructuring the response
+    StartStreamProcessorResponse (..),
+    mkStartStreamProcessorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     starsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startStreamProcessor' smart constructor.
+-- | /See:/ 'mkStartStreamProcessor' smart constructor.
 newtype StartStreamProcessor = StartStreamProcessor'
-  { _sName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStreamProcessor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sName' - The name of the stream processor to start processing.
-startStreamProcessor ::
-  -- | 'sName'
-  Text ->
+-- * 'name' - The name of the stream processor to start processing.
+mkStartStreamProcessor ::
+  -- | 'name'
+  Lude.Text ->
   StartStreamProcessor
-startStreamProcessor pName_ =
-  StartStreamProcessor' {_sName = pName_}
+mkStartStreamProcessor pName_ =
+  StartStreamProcessor' {name = pName_}
 
 -- | The name of the stream processor to start processing.
-sName :: Lens' StartStreamProcessor Text
-sName = lens _sName (\s a -> s {_sName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' StartStreamProcessor Lude.Text
+sName = Lens.lens (name :: StartStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: StartStreamProcessor)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest StartStreamProcessor where
+instance Lude.AWSRequest StartStreamProcessor where
   type Rs StartStreamProcessor = StartStreamProcessorResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveEmpty
-      (\s h x -> StartStreamProcessorResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StartStreamProcessorResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StartStreamProcessor
-
-instance NFData StartStreamProcessor
-
-instance ToHeaders StartStreamProcessor where
+instance Lude.ToHeaders StartStreamProcessor where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.StartStreamProcessor" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.StartStreamProcessor" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartStreamProcessor where
+instance Lude.ToJSON StartStreamProcessor where
   toJSON StartStreamProcessor' {..} =
-    object (catMaybes [Just ("Name" .= _sName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath StartStreamProcessor where
-  toPath = const "/"
+instance Lude.ToPath StartStreamProcessor where
+  toPath = Lude.const "/"
 
-instance ToQuery StartStreamProcessor where
-  toQuery = const mempty
+instance Lude.ToQuery StartStreamProcessor where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startStreamProcessorResponse' smart constructor.
+-- | /See:/ 'mkStartStreamProcessorResponse' smart constructor.
 newtype StartStreamProcessorResponse = StartStreamProcessorResponse'
-  { _starsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStreamProcessorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'starsResponseStatus' - -- | The response status code.
-startStreamProcessorResponse ::
-  -- | 'starsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartStreamProcessorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartStreamProcessorResponse
-startStreamProcessorResponse pResponseStatus_ =
-  StartStreamProcessorResponse'
-    { _starsResponseStatus =
-        pResponseStatus_
-    }
+mkStartStreamProcessorResponse pResponseStatus_ =
+  StartStreamProcessorResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-starsResponseStatus :: Lens' StartStreamProcessorResponse Int
-starsResponseStatus = lens _starsResponseStatus (\s a -> s {_starsResponseStatus = a})
-
-instance NFData StartStreamProcessorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsResponseStatus :: Lens.Lens' StartStreamProcessorResponse Lude.Int
+starsResponseStatus = Lens.lens (responseStatus :: StartStreamProcessorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartStreamProcessorResponse)
+{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

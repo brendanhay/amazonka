@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.RoomData where
+module Network.AWS.AlexaBusiness.Types.RoomData
+  ( RoomData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRoomData,
+
+    -- * Lenses
+    rdProfileARN,
+    rdProviderCalendarId,
+    rdProfileName,
+    rdRoomARN,
+    rdRoomName,
+    rdDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The data of a room.
 --
---
---
--- /See:/ 'roomData' smart constructor.
+-- /See:/ 'mkRoomData' smart constructor.
 data RoomData = RoomData'
-  { _rdProfileARN :: !(Maybe Text),
-    _rdProviderCalendarId :: !(Maybe Text),
-    _rdProfileName :: !(Maybe Text),
-    _rdRoomARN :: !(Maybe Text),
-    _rdRoomName :: !(Maybe Text),
-    _rdDescription :: !(Maybe Text)
+  { profileARN :: Lude.Maybe Lude.Text,
+    providerCalendarId :: Lude.Maybe Lude.Text,
+    profileName :: Lude.Maybe Lude.Text,
+    roomARN :: Lude.Maybe Lude.Text,
+    roomName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoomData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdProfileARN' - The profile ARN of a room.
---
--- * 'rdProviderCalendarId' - The provider calendar ARN of a room.
---
--- * 'rdProfileName' - The profile name of a room.
---
--- * 'rdRoomARN' - The ARN of a room.
---
--- * 'rdRoomName' - The name of a room.
---
--- * 'rdDescription' - The description of a room.
-roomData ::
+-- * 'description' - The description of a room.
+-- * 'profileARN' - The profile ARN of a room.
+-- * 'profileName' - The profile name of a room.
+-- * 'providerCalendarId' - The provider calendar ARN of a room.
+-- * 'roomARN' - The ARN of a room.
+-- * 'roomName' - The name of a room.
+mkRoomData ::
   RoomData
-roomData =
+mkRoomData =
   RoomData'
-    { _rdProfileARN = Nothing,
-      _rdProviderCalendarId = Nothing,
-      _rdProfileName = Nothing,
-      _rdRoomARN = Nothing,
-      _rdRoomName = Nothing,
-      _rdDescription = Nothing
+    { profileARN = Lude.Nothing,
+      providerCalendarId = Lude.Nothing,
+      profileName = Lude.Nothing,
+      roomARN = Lude.Nothing,
+      roomName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The profile ARN of a room.
-rdProfileARN :: Lens' RoomData (Maybe Text)
-rdProfileARN = lens _rdProfileARN (\s a -> s {_rdProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProfileARN :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
+rdProfileARN = Lens.lens (profileARN :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: RoomData)
+{-# DEPRECATED rdProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
 -- | The provider calendar ARN of a room.
-rdProviderCalendarId :: Lens' RoomData (Maybe Text)
-rdProviderCalendarId = lens _rdProviderCalendarId (\s a -> s {_rdProviderCalendarId = a})
+--
+-- /Note:/ Consider using 'providerCalendarId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProviderCalendarId :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
+rdProviderCalendarId = Lens.lens (providerCalendarId :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {providerCalendarId = a} :: RoomData)
+{-# DEPRECATED rdProviderCalendarId "Use generic-lens or generic-optics with 'providerCalendarId' instead." #-}
 
 -- | The profile name of a room.
-rdProfileName :: Lens' RoomData (Maybe Text)
-rdProfileName = lens _rdProfileName (\s a -> s {_rdProfileName = a})
+--
+-- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProfileName :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
+rdProfileName = Lens.lens (profileName :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {profileName = a} :: RoomData)
+{-# DEPRECATED rdProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
 
 -- | The ARN of a room.
-rdRoomARN :: Lens' RoomData (Maybe Text)
-rdRoomARN = lens _rdRoomARN (\s a -> s {_rdRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoomARN :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
+rdRoomARN = Lens.lens (roomARN :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: RoomData)
+{-# DEPRECATED rdRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The name of a room.
-rdRoomName :: Lens' RoomData (Maybe Text)
-rdRoomName = lens _rdRoomName (\s a -> s {_rdRoomName = a})
+--
+-- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoomName :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
+rdRoomName = Lens.lens (roomName :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {roomName = a} :: RoomData)
+{-# DEPRECATED rdRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
 
 -- | The description of a room.
-rdDescription :: Lens' RoomData (Maybe Text)
-rdDescription = lens _rdDescription (\s a -> s {_rdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdDescription :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
+rdDescription = Lens.lens (description :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RoomData)
+{-# DEPRECATED rdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON RoomData where
+instance Lude.FromJSON RoomData where
   parseJSON =
-    withObject
+    Lude.withObject
       "RoomData"
       ( \x ->
           RoomData'
-            <$> (x .:? "ProfileArn")
-            <*> (x .:? "ProviderCalendarId")
-            <*> (x .:? "ProfileName")
-            <*> (x .:? "RoomArn")
-            <*> (x .:? "RoomName")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "ProfileArn")
+            Lude.<*> (x Lude..:? "ProviderCalendarId")
+            Lude.<*> (x Lude..:? "ProfileName")
+            Lude.<*> (x Lude..:? "RoomArn")
+            Lude.<*> (x Lude..:? "RoomName")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable RoomData
-
-instance NFData RoomData

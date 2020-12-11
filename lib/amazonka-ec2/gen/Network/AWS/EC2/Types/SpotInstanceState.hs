@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotInstanceState where
+module Network.AWS.EC2.Types.SpotInstanceState
+  ( SpotInstanceState
+      ( SpotInstanceState',
+        SISActive,
+        SISCancelled,
+        SISClosed,
+        SISFailed,
+        SISOpen
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SpotInstanceState
-  = SISActive
-  | SISCancelled
-  | SISClosed
-  | SISFailed
-  | SISOpen
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SpotInstanceState = SpotInstanceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SpotInstanceState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure SISActive
-      "cancelled" -> pure SISCancelled
-      "closed" -> pure SISClosed
-      "failed" -> pure SISFailed
-      "open" -> pure SISOpen
-      e ->
-        fromTextError $
-          "Failure parsing SpotInstanceState from value: '" <> e
-            <> "'. Accepted values: active, cancelled, closed, failed, open"
+pattern SISActive :: SpotInstanceState
+pattern SISActive = SpotInstanceState' "active"
 
-instance ToText SpotInstanceState where
-  toText = \case
-    SISActive -> "active"
-    SISCancelled -> "cancelled"
-    SISClosed -> "closed"
-    SISFailed -> "failed"
-    SISOpen -> "open"
+pattern SISCancelled :: SpotInstanceState
+pattern SISCancelled = SpotInstanceState' "cancelled"
 
-instance Hashable SpotInstanceState
+pattern SISClosed :: SpotInstanceState
+pattern SISClosed = SpotInstanceState' "closed"
 
-instance NFData SpotInstanceState
+pattern SISFailed :: SpotInstanceState
+pattern SISFailed = SpotInstanceState' "failed"
 
-instance ToByteString SpotInstanceState
+pattern SISOpen :: SpotInstanceState
+pattern SISOpen = SpotInstanceState' "open"
 
-instance ToQuery SpotInstanceState
-
-instance ToHeader SpotInstanceState
-
-instance FromXML SpotInstanceState where
-  parseXML = parseXMLText "SpotInstanceState"
+{-# COMPLETE
+  SISActive,
+  SISCancelled,
+  SISClosed,
+  SISFailed,
+  SISOpen,
+  SpotInstanceState'
+  #-}

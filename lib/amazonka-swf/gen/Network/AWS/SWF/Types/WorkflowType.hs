@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowType where
+module Network.AWS.SWF.Types.WorkflowType
+  ( WorkflowType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowType,
+
+    -- * Lenses
+    wtName,
+    wtVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a workflow type.
 --
---
---
--- /See:/ 'workflowType' smart constructor.
+-- /See:/ 'mkWorkflowType' smart constructor.
 data WorkflowType = WorkflowType'
-  { _wtName :: !Text,
-    _wtVersion :: !Text
+  { name :: Lude.Text,
+    version :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wtName' - The name of the workflow type.
---
--- * 'wtVersion' - The version of the workflow type.
-workflowType ::
-  -- | 'wtName'
-  Text ->
-  -- | 'wtVersion'
-  Text ->
+-- * 'name' - The name of the workflow type.
+-- * 'version' - The version of the workflow type.
+mkWorkflowType ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   WorkflowType
-workflowType pName_ pVersion_ =
-  WorkflowType' {_wtName = pName_, _wtVersion = pVersion_}
+mkWorkflowType pName_ pVersion_ =
+  WorkflowType' {name = pName_, version = pVersion_}
 
 -- | The name of the workflow type.
-wtName :: Lens' WorkflowType Text
-wtName = lens _wtName (\s a -> s {_wtName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtName :: Lens.Lens' WorkflowType Lude.Text
+wtName = Lens.lens (name :: WorkflowType -> Lude.Text) (\s a -> s {name = a} :: WorkflowType)
+{-# DEPRECATED wtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the workflow type.
-wtVersion :: Lens' WorkflowType Text
-wtVersion = lens _wtVersion (\s a -> s {_wtVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtVersion :: Lens.Lens' WorkflowType Lude.Text
+wtVersion = Lens.lens (version :: WorkflowType -> Lude.Text) (\s a -> s {version = a} :: WorkflowType)
+{-# DEPRECATED wtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromJSON WorkflowType where
+instance Lude.FromJSON WorkflowType where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowType"
-      (\x -> WorkflowType' <$> (x .: "name") <*> (x .: "version"))
+      ( \x ->
+          WorkflowType'
+            Lude.<$> (x Lude..: "name") Lude.<*> (x Lude..: "version")
+      )
 
-instance Hashable WorkflowType
-
-instance NFData WorkflowType
-
-instance ToJSON WorkflowType where
+instance Lude.ToJSON WorkflowType where
   toJSON WorkflowType' {..} =
-    object
-      ( catMaybes
-          [Just ("name" .= _wtName), Just ("version" .= _wtVersion)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("version" Lude..= version)
+          ]
       )

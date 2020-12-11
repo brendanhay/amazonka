@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CreateJSONClassifierRequest where
+module Network.AWS.Glue.Types.CreateJSONClassifierRequest
+  ( CreateJSONClassifierRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCreateJSONClassifierRequest,
+
+    -- * Lenses
+    cjcrName,
+    cjcrJSONPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a JSON classifier for @CreateClassifier@ to create.
 --
---
---
--- /See:/ 'createJSONClassifierRequest' smart constructor.
+-- /See:/ 'mkCreateJSONClassifierRequest' smart constructor.
 data CreateJSONClassifierRequest = CreateJSONClassifierRequest'
-  { _cjcrName ::
-      !Text,
-    _cjcrJSONPath :: !Text
+  { name ::
+      Lude.Text,
+    jsonPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJSONClassifierRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cjcrName' - The name of the classifier.
---
--- * 'cjcrJSONPath' - A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
-createJSONClassifierRequest ::
-  -- | 'cjcrName'
-  Text ->
-  -- | 'cjcrJSONPath'
-  Text ->
+-- * 'jsonPath' - A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
+-- * 'name' - The name of the classifier.
+mkCreateJSONClassifierRequest ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'jsonPath'
+  Lude.Text ->
   CreateJSONClassifierRequest
-createJSONClassifierRequest pName_ pJSONPath_ =
+mkCreateJSONClassifierRequest pName_ pJSONPath_ =
   CreateJSONClassifierRequest'
-    { _cjcrName = pName_,
-      _cjcrJSONPath = pJSONPath_
+    { name = pName_,
+      jsonPath = pJSONPath_
     }
 
 -- | The name of the classifier.
-cjcrName :: Lens' CreateJSONClassifierRequest Text
-cjcrName = lens _cjcrName (\s a -> s {_cjcrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjcrName :: Lens.Lens' CreateJSONClassifierRequest Lude.Text
+cjcrName = Lens.lens (name :: CreateJSONClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: CreateJSONClassifierRequest)
+{-# DEPRECATED cjcrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
-cjcrJSONPath :: Lens' CreateJSONClassifierRequest Text
-cjcrJSONPath = lens _cjcrJSONPath (\s a -> s {_cjcrJSONPath = a})
+--
+-- /Note:/ Consider using 'jsonPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjcrJSONPath :: Lens.Lens' CreateJSONClassifierRequest Lude.Text
+cjcrJSONPath = Lens.lens (jsonPath :: CreateJSONClassifierRequest -> Lude.Text) (\s a -> s {jsonPath = a} :: CreateJSONClassifierRequest)
+{-# DEPRECATED cjcrJSONPath "Use generic-lens or generic-optics with 'jsonPath' instead." #-}
 
-instance Hashable CreateJSONClassifierRequest
-
-instance NFData CreateJSONClassifierRequest
-
-instance ToJSON CreateJSONClassifierRequest where
+instance Lude.ToJSON CreateJSONClassifierRequest where
   toJSON CreateJSONClassifierRequest' {..} =
-    object
-      ( catMaybes
-          [Just ("Name" .= _cjcrName), Just ("JsonPath" .= _cjcrJSONPath)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("JsonPath" Lude..= jsonPath)
+          ]
       )

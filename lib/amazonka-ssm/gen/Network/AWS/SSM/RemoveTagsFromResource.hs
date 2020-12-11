@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,162 @@
 --
 -- Removes tag keys from the specified resource.
 module Network.AWS.SSM.RemoveTagsFromResource
-  ( -- * Creating a Request
-    removeTagsFromResource,
-    RemoveTagsFromResource,
+  ( -- * Creating a request
+    RemoveTagsFromResource (..),
+    mkRemoveTagsFromResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtfrResourceType,
     rtfrResourceId,
     rtfrTagKeys,
 
-    -- * Destructuring the Response
-    removeTagsFromResourceResponse,
-    RemoveTagsFromResourceResponse,
+    -- * Destructuring the response
+    RemoveTagsFromResourceResponse (..),
+    mkRemoveTagsFromResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'removeTagsFromResource' smart constructor.
+-- | /See:/ 'mkRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceType ::
-      !ResourceTypeForTagging,
-    _rtfrResourceId :: !Text,
-    _rtfrTagKeys :: ![Text]
+  { resourceType ::
+      ResourceTypeForTagging,
+    resourceId :: Lude.Text,
+    tagKeys :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceId' - The ID of the resource from which you want to remove tags. For example:
 --
--- * 'rtfrResourceType' - The type of resource from which you want to remove a tag.
---
--- * 'rtfrResourceId' - The ID of the resource from which you want to remove tags. For example: ManagedInstance: mi-012345abcde MaintenanceWindow: mw-012345abcde PatchBaseline: pb-012345abcde For the Document and Parameter values, use the name of the resource.
---
--- * 'rtfrTagKeys' - Tag keys that you want to remove from the specified resource.
-removeTagsFromResource ::
-  -- | 'rtfrResourceType'
+-- ManagedInstance: mi-012345abcde
+-- MaintenanceWindow: mw-012345abcde
+-- PatchBaseline: pb-012345abcde
+-- For the Document and Parameter values, use the name of the resource.
+-- * 'resourceType' - The type of resource from which you want to remove a tag.
+-- * 'tagKeys' - Tag keys that you want to remove from the specified resource.
+mkRemoveTagsFromResource ::
+  -- | 'resourceType'
   ResourceTypeForTagging ->
-  -- | 'rtfrResourceId'
-  Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   RemoveTagsFromResource
-removeTagsFromResource pResourceType_ pResourceId_ =
+mkRemoveTagsFromResource pResourceType_ pResourceId_ =
   RemoveTagsFromResource'
-    { _rtfrResourceType = pResourceType_,
-      _rtfrResourceId = pResourceId_,
-      _rtfrTagKeys = mempty
+    { resourceType = pResourceType_,
+      resourceId = pResourceId_,
+      tagKeys = Lude.mempty
     }
 
 -- | The type of resource from which you want to remove a tag.
-rtfrResourceType :: Lens' RemoveTagsFromResource ResourceTypeForTagging
-rtfrResourceType = lens _rtfrResourceType (\s a -> s {_rtfrResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrResourceType :: Lens.Lens' RemoveTagsFromResource ResourceTypeForTagging
+rtfrResourceType = Lens.lens (resourceType :: RemoveTagsFromResource -> ResourceTypeForTagging) (\s a -> s {resourceType = a} :: RemoveTagsFromResource)
+{-# DEPRECATED rtfrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | The ID of the resource from which you want to remove tags. For example: ManagedInstance: mi-012345abcde MaintenanceWindow: mw-012345abcde PatchBaseline: pb-012345abcde For the Document and Parameter values, use the name of the resource.
-rtfrResourceId :: Lens' RemoveTagsFromResource Text
-rtfrResourceId = lens _rtfrResourceId (\s a -> s {_rtfrResourceId = a})
+-- | The ID of the resource from which you want to remove tags. For example:
+--
+-- ManagedInstance: mi-012345abcde
+-- MaintenanceWindow: mw-012345abcde
+-- PatchBaseline: pb-012345abcde
+-- For the Document and Parameter values, use the name of the resource.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrResourceId :: Lens.Lens' RemoveTagsFromResource Lude.Text
+rtfrResourceId = Lens.lens (resourceId :: RemoveTagsFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveTagsFromResource)
+{-# DEPRECATED rtfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Tag keys that you want to remove from the specified resource.
-rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\s a -> s {_rtfrTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrTagKeys :: Lens.Lens' RemoveTagsFromResource [Lude.Text]
+rtfrTagKeys = Lens.lens (tagKeys :: RemoveTagsFromResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTagsFromResource)
+{-# DEPRECATED rtfrTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest RemoveTagsFromResource where
+instance Lude.AWSRequest RemoveTagsFromResource where
   type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          RemoveTagsFromResourceResponse' <$> (pure (fromEnum s))
+          RemoveTagsFromResourceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RemoveTagsFromResource
-
-instance NFData RemoveTagsFromResource
-
-instance ToHeaders RemoveTagsFromResource where
+instance Lude.ToHeaders RemoveTagsFromResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.RemoveTagsFromResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.RemoveTagsFromResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RemoveTagsFromResource where
+instance Lude.ToJSON RemoveTagsFromResource where
   toJSON RemoveTagsFromResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceType" .= _rtfrResourceType),
-            Just ("ResourceId" .= _rtfrResourceId),
-            Just ("TagKeys" .= _rtfrTagKeys)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceType" Lude..= resourceType),
+            Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("TagKeys" Lude..= tagKeys)
           ]
       )
 
-instance ToPath RemoveTagsFromResource where
-  toPath = const "/"
+instance Lude.ToPath RemoveTagsFromResource where
+  toPath = Lude.const "/"
 
-instance ToQuery RemoveTagsFromResource where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveTagsFromResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
+-- | /See:/ 'mkRemoveTagsFromResourceResponse' smart constructor.
 newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { _rtfrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfrrsResponseStatus' - -- | The response status code.
-removeTagsFromResourceResponse ::
-  -- | 'rtfrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRemoveTagsFromResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RemoveTagsFromResourceResponse
-removeTagsFromResourceResponse pResponseStatus_ =
+mkRemoveTagsFromResourceResponse pResponseStatus_ =
   RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\s a -> s {_rtfrrsResponseStatus = a})
-
-instance NFData RemoveTagsFromResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrrsResponseStatus :: Lens.Lens' RemoveTagsFromResourceResponse Lude.Int
+rtfrrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsFromResourceResponse)
+{-# DEPRECATED rtfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

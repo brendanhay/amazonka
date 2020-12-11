@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,140 @@
 --
 -- Mark a user, group, or resource as no longer used in Amazon WorkMail. This action disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days before they are permanently removed. The functionality in the console is /Disable/ .
 module Network.AWS.WorkMail.DeregisterFromWorkMail
-  ( -- * Creating a Request
-    deregisterFromWorkMail,
-    DeregisterFromWorkMail,
+  ( -- * Creating a request
+    DeregisterFromWorkMail (..),
+    mkDeregisterFromWorkMail,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfwmOrganizationId,
     dfwmEntityId,
 
-    -- * Destructuring the Response
-    deregisterFromWorkMailResponse,
-    DeregisterFromWorkMailResponse,
+    -- * Destructuring the response
+    DeregisterFromWorkMailResponse (..),
+    mkDeregisterFromWorkMailResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfwmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'deregisterFromWorkMail' smart constructor.
+-- | /See:/ 'mkDeregisterFromWorkMail' smart constructor.
 data DeregisterFromWorkMail = DeregisterFromWorkMail'
-  { _dfwmOrganizationId ::
-      !Text,
-    _dfwmEntityId :: !Text
+  { organizationId ::
+      Lude.Text,
+    entityId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterFromWorkMail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfwmOrganizationId' - The identifier for the organization under which the Amazon WorkMail entity exists.
---
--- * 'dfwmEntityId' - The identifier for the member (user or group) to be updated.
-deregisterFromWorkMail ::
-  -- | 'dfwmOrganizationId'
-  Text ->
-  -- | 'dfwmEntityId'
-  Text ->
+-- * 'entityId' - The identifier for the member (user or group) to be updated.
+-- * 'organizationId' - The identifier for the organization under which the Amazon WorkMail entity exists.
+mkDeregisterFromWorkMail ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
   DeregisterFromWorkMail
-deregisterFromWorkMail pOrganizationId_ pEntityId_ =
+mkDeregisterFromWorkMail pOrganizationId_ pEntityId_ =
   DeregisterFromWorkMail'
-    { _dfwmOrganizationId = pOrganizationId_,
-      _dfwmEntityId = pEntityId_
+    { organizationId = pOrganizationId_,
+      entityId = pEntityId_
     }
 
 -- | The identifier for the organization under which the Amazon WorkMail entity exists.
-dfwmOrganizationId :: Lens' DeregisterFromWorkMail Text
-dfwmOrganizationId = lens _dfwmOrganizationId (\s a -> s {_dfwmOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfwmOrganizationId :: Lens.Lens' DeregisterFromWorkMail Lude.Text
+dfwmOrganizationId = Lens.lens (organizationId :: DeregisterFromWorkMail -> Lude.Text) (\s a -> s {organizationId = a} :: DeregisterFromWorkMail)
+{-# DEPRECATED dfwmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the member (user or group) to be updated.
-dfwmEntityId :: Lens' DeregisterFromWorkMail Text
-dfwmEntityId = lens _dfwmEntityId (\s a -> s {_dfwmEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfwmEntityId :: Lens.Lens' DeregisterFromWorkMail Lude.Text
+dfwmEntityId = Lens.lens (entityId :: DeregisterFromWorkMail -> Lude.Text) (\s a -> s {entityId = a} :: DeregisterFromWorkMail)
+{-# DEPRECATED dfwmEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
-instance AWSRequest DeregisterFromWorkMail where
+instance Lude.AWSRequest DeregisterFromWorkMail where
   type Rs DeregisterFromWorkMail = DeregisterFromWorkMailResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeregisterFromWorkMailResponse' <$> (pure (fromEnum s))
+          DeregisterFromWorkMailResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterFromWorkMail
-
-instance NFData DeregisterFromWorkMail
-
-instance ToHeaders DeregisterFromWorkMail where
+instance Lude.ToHeaders DeregisterFromWorkMail where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DeregisterFromWorkMail" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.DeregisterFromWorkMail" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterFromWorkMail where
+instance Lude.ToJSON DeregisterFromWorkMail where
   toJSON DeregisterFromWorkMail' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _dfwmOrganizationId),
-            Just ("EntityId" .= _dfwmEntityId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("EntityId" Lude..= entityId)
           ]
       )
 
-instance ToPath DeregisterFromWorkMail where
-  toPath = const "/"
+instance Lude.ToPath DeregisterFromWorkMail where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterFromWorkMail where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterFromWorkMail where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterFromWorkMailResponse' smart constructor.
+-- | /See:/ 'mkDeregisterFromWorkMailResponse' smart constructor.
 newtype DeregisterFromWorkMailResponse = DeregisterFromWorkMailResponse'
-  { _dfwmrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterFromWorkMailResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfwmrsResponseStatus' - -- | The response status code.
-deregisterFromWorkMailResponse ::
-  -- | 'dfwmrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeregisterFromWorkMailResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterFromWorkMailResponse
-deregisterFromWorkMailResponse pResponseStatus_ =
+mkDeregisterFromWorkMailResponse pResponseStatus_ =
   DeregisterFromWorkMailResponse'
-    { _dfwmrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dfwmrsResponseStatus :: Lens' DeregisterFromWorkMailResponse Int
-dfwmrsResponseStatus = lens _dfwmrsResponseStatus (\s a -> s {_dfwmrsResponseStatus = a})
-
-instance NFData DeregisterFromWorkMailResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfwmrsResponseStatus :: Lens.Lens' DeregisterFromWorkMailResponse Lude.Int
+dfwmrsResponseStatus = Lens.lens (responseStatus :: DeregisterFromWorkMailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterFromWorkMailResponse)
+{-# DEPRECATED dfwmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

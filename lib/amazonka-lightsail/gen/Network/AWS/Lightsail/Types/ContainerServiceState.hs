@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServiceState where
+module Network.AWS.Lightsail.Types.ContainerServiceState
+  ( ContainerServiceState
+      ( ContainerServiceState',
+        Deleting,
+        Disabled,
+        Pending,
+        Ready,
+        Running,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContainerServiceState
-  = Deleting
-  | Disabled
-  | Pending
-  | Ready
-  | Running
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerServiceState = ContainerServiceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerServiceState where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure Deleting
-      "disabled" -> pure Disabled
-      "pending" -> pure Pending
-      "ready" -> pure Ready
-      "running" -> pure Running
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing ContainerServiceState from value: '" <> e
-            <> "'. Accepted values: deleting, disabled, pending, ready, running, updating"
+pattern Deleting :: ContainerServiceState
+pattern Deleting = ContainerServiceState' "DELETING"
 
-instance ToText ContainerServiceState where
-  toText = \case
-    Deleting -> "DELETING"
-    Disabled -> "DISABLED"
-    Pending -> "PENDING"
-    Ready -> "READY"
-    Running -> "RUNNING"
-    Updating -> "UPDATING"
+pattern Disabled :: ContainerServiceState
+pattern Disabled = ContainerServiceState' "DISABLED"
 
-instance Hashable ContainerServiceState
+pattern Pending :: ContainerServiceState
+pattern Pending = ContainerServiceState' "PENDING"
 
-instance NFData ContainerServiceState
+pattern Ready :: ContainerServiceState
+pattern Ready = ContainerServiceState' "READY"
 
-instance ToByteString ContainerServiceState
+pattern Running :: ContainerServiceState
+pattern Running = ContainerServiceState' "RUNNING"
 
-instance ToQuery ContainerServiceState
+pattern Updating :: ContainerServiceState
+pattern Updating = ContainerServiceState' "UPDATING"
 
-instance ToHeader ContainerServiceState
-
-instance FromJSON ContainerServiceState where
-  parseJSON = parseJSONText "ContainerServiceState"
+{-# COMPLETE
+  Deleting,
+  Disabled,
+  Pending,
+  Ready,
+  Running,
+  Updating,
+  ContainerServiceState'
+  #-}

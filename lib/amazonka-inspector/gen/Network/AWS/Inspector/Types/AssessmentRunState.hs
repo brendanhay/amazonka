@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssessmentRunState where
+module Network.AWS.Inspector.Types.AssessmentRunState
+  ( AssessmentRunState
+      ( AssessmentRunState',
+        Canceled,
+        CollectingData,
+        Completed,
+        CompletedWithErrors,
+        Created,
+        DataCollected,
+        Error,
+        EvaluatingRules,
+        Failed,
+        StartDataCollectionInProgress,
+        StartDataCollectionPending,
+        StartEvaluatingRulesPending,
+        StopDataCollectionPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssessmentRunState
-  = Canceled
-  | CollectingData
-  | Completed
-  | CompletedWithErrors
-  | Created
-  | DataCollected
-  | Error'
-  | EvaluatingRules
-  | Failed
-  | StartDataCollectionInProgress
-  | StartDataCollectionPending
-  | StartEvaluatingRulesPending
-  | StopDataCollectionPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssessmentRunState = AssessmentRunState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssessmentRunState where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure Canceled
-      "collecting_data" -> pure CollectingData
-      "completed" -> pure Completed
-      "completed_with_errors" -> pure CompletedWithErrors
-      "created" -> pure Created
-      "data_collected" -> pure DataCollected
-      "error" -> pure Error'
-      "evaluating_rules" -> pure EvaluatingRules
-      "failed" -> pure Failed
-      "start_data_collection_in_progress" -> pure StartDataCollectionInProgress
-      "start_data_collection_pending" -> pure StartDataCollectionPending
-      "start_evaluating_rules_pending" -> pure StartEvaluatingRulesPending
-      "stop_data_collection_pending" -> pure StopDataCollectionPending
-      e ->
-        fromTextError $
-          "Failure parsing AssessmentRunState from value: '" <> e
-            <> "'. Accepted values: canceled, collecting_data, completed, completed_with_errors, created, data_collected, error, evaluating_rules, failed, start_data_collection_in_progress, start_data_collection_pending, start_evaluating_rules_pending, stop_data_collection_pending"
+pattern Canceled :: AssessmentRunState
+pattern Canceled = AssessmentRunState' "CANCELED"
 
-instance ToText AssessmentRunState where
-  toText = \case
-    Canceled -> "CANCELED"
-    CollectingData -> "COLLECTING_DATA"
-    Completed -> "COMPLETED"
-    CompletedWithErrors -> "COMPLETED_WITH_ERRORS"
-    Created -> "CREATED"
-    DataCollected -> "DATA_COLLECTED"
-    Error' -> "ERROR"
-    EvaluatingRules -> "EVALUATING_RULES"
-    Failed -> "FAILED"
-    StartDataCollectionInProgress -> "START_DATA_COLLECTION_IN_PROGRESS"
-    StartDataCollectionPending -> "START_DATA_COLLECTION_PENDING"
-    StartEvaluatingRulesPending -> "START_EVALUATING_RULES_PENDING"
-    StopDataCollectionPending -> "STOP_DATA_COLLECTION_PENDING"
+pattern CollectingData :: AssessmentRunState
+pattern CollectingData = AssessmentRunState' "COLLECTING_DATA"
 
-instance Hashable AssessmentRunState
+pattern Completed :: AssessmentRunState
+pattern Completed = AssessmentRunState' "COMPLETED"
 
-instance NFData AssessmentRunState
+pattern CompletedWithErrors :: AssessmentRunState
+pattern CompletedWithErrors = AssessmentRunState' "COMPLETED_WITH_ERRORS"
 
-instance ToByteString AssessmentRunState
+pattern Created :: AssessmentRunState
+pattern Created = AssessmentRunState' "CREATED"
 
-instance ToQuery AssessmentRunState
+pattern DataCollected :: AssessmentRunState
+pattern DataCollected = AssessmentRunState' "DATA_COLLECTED"
 
-instance ToHeader AssessmentRunState
+pattern Error :: AssessmentRunState
+pattern Error = AssessmentRunState' "ERROR"
 
-instance ToJSON AssessmentRunState where
-  toJSON = toJSONText
+pattern EvaluatingRules :: AssessmentRunState
+pattern EvaluatingRules = AssessmentRunState' "EVALUATING_RULES"
 
-instance FromJSON AssessmentRunState where
-  parseJSON = parseJSONText "AssessmentRunState"
+pattern Failed :: AssessmentRunState
+pattern Failed = AssessmentRunState' "FAILED"
+
+pattern StartDataCollectionInProgress :: AssessmentRunState
+pattern StartDataCollectionInProgress = AssessmentRunState' "START_DATA_COLLECTION_IN_PROGRESS"
+
+pattern StartDataCollectionPending :: AssessmentRunState
+pattern StartDataCollectionPending = AssessmentRunState' "START_DATA_COLLECTION_PENDING"
+
+pattern StartEvaluatingRulesPending :: AssessmentRunState
+pattern StartEvaluatingRulesPending = AssessmentRunState' "START_EVALUATING_RULES_PENDING"
+
+pattern StopDataCollectionPending :: AssessmentRunState
+pattern StopDataCollectionPending = AssessmentRunState' "STOP_DATA_COLLECTION_PENDING"
+
+{-# COMPLETE
+  Canceled,
+  CollectingData,
+  Completed,
+  CompletedWithErrors,
+  Created,
+  DataCollected,
+  Error,
+  EvaluatingRules,
+  Failed,
+  StartDataCollectionInProgress,
+  StartDataCollectionPending,
+  StartEvaluatingRulesPending,
+  StopDataCollectionPending,
+  AssessmentRunState'
+  #-}

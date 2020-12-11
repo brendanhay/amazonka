@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.KinesisVideoStreamConfig where
+module Network.AWS.Connect.Types.KinesisVideoStreamConfig
+  ( KinesisVideoStreamConfig (..),
+
+    -- * Smart constructor
+    mkKinesisVideoStreamConfig,
+
+    -- * Lenses
+    kvscPrefix,
+    kvscRetentionPeriodHours,
+    kvscEncryptionConfig,
+  )
+where
 
 import Network.AWS.Connect.Types.EncryptionConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information of a Kinesis video stream.
 --
---
---
--- /See:/ 'kinesisVideoStreamConfig' smart constructor.
+-- /See:/ 'mkKinesisVideoStreamConfig' smart constructor.
 data KinesisVideoStreamConfig = KinesisVideoStreamConfig'
-  { _kvscPrefix ::
-      !Text,
-    _kvscRetentionPeriodHours :: !Nat,
-    _kvscEncryptionConfig ::
-      !EncryptionConfig
+  { prefix ::
+      Lude.Text,
+    retentionPeriodHours :: Lude.Natural,
+    encryptionConfig :: EncryptionConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisVideoStreamConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encryptionConfig' - The encryption configuration.
+-- * 'prefix' - The prefix of the video stream.
+-- * 'retentionPeriodHours' - The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
 --
--- * 'kvscPrefix' - The prefix of the video stream.
---
--- * 'kvscRetentionPeriodHours' - The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is 0, indicating that the stream does not persist data.
---
--- * 'kvscEncryptionConfig' - The encryption configuration.
-kinesisVideoStreamConfig ::
-  -- | 'kvscPrefix'
-  Text ->
-  -- | 'kvscRetentionPeriodHours'
-  Natural ->
-  -- | 'kvscEncryptionConfig'
+-- The default value is 0, indicating that the stream does not persist data.
+mkKinesisVideoStreamConfig ::
+  -- | 'prefix'
+  Lude.Text ->
+  -- | 'retentionPeriodHours'
+  Lude.Natural ->
+  -- | 'encryptionConfig'
   EncryptionConfig ->
   KinesisVideoStreamConfig
-kinesisVideoStreamConfig
+mkKinesisVideoStreamConfig
   pPrefix_
   pRetentionPeriodHours_
   pEncryptionConfig_ =
     KinesisVideoStreamConfig'
-      { _kvscPrefix = pPrefix_,
-        _kvscRetentionPeriodHours = _Nat # pRetentionPeriodHours_,
-        _kvscEncryptionConfig = pEncryptionConfig_
+      { prefix = pPrefix_,
+        retentionPeriodHours = pRetentionPeriodHours_,
+        encryptionConfig = pEncryptionConfig_
       }
 
 -- | The prefix of the video stream.
-kvscPrefix :: Lens' KinesisVideoStreamConfig Text
-kvscPrefix = lens _kvscPrefix (\s a -> s {_kvscPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvscPrefix :: Lens.Lens' KinesisVideoStreamConfig Lude.Text
+kvscPrefix = Lens.lens (prefix :: KinesisVideoStreamConfig -> Lude.Text) (\s a -> s {prefix = a} :: KinesisVideoStreamConfig)
+{-# DEPRECATED kvscPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
--- | The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is 0, indicating that the stream does not persist data.
-kvscRetentionPeriodHours :: Lens' KinesisVideoStreamConfig Natural
-kvscRetentionPeriodHours = lens _kvscRetentionPeriodHours (\s a -> s {_kvscRetentionPeriodHours = a}) . _Nat
+-- | The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+--
+-- The default value is 0, indicating that the stream does not persist data.
+--
+-- /Note:/ Consider using 'retentionPeriodHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvscRetentionPeriodHours :: Lens.Lens' KinesisVideoStreamConfig Lude.Natural
+kvscRetentionPeriodHours = Lens.lens (retentionPeriodHours :: KinesisVideoStreamConfig -> Lude.Natural) (\s a -> s {retentionPeriodHours = a} :: KinesisVideoStreamConfig)
+{-# DEPRECATED kvscRetentionPeriodHours "Use generic-lens or generic-optics with 'retentionPeriodHours' instead." #-}
 
 -- | The encryption configuration.
-kvscEncryptionConfig :: Lens' KinesisVideoStreamConfig EncryptionConfig
-kvscEncryptionConfig = lens _kvscEncryptionConfig (\s a -> s {_kvscEncryptionConfig = a})
+--
+-- /Note:/ Consider using 'encryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvscEncryptionConfig :: Lens.Lens' KinesisVideoStreamConfig EncryptionConfig
+kvscEncryptionConfig = Lens.lens (encryptionConfig :: KinesisVideoStreamConfig -> EncryptionConfig) (\s a -> s {encryptionConfig = a} :: KinesisVideoStreamConfig)
+{-# DEPRECATED kvscEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
 
-instance FromJSON KinesisVideoStreamConfig where
+instance Lude.FromJSON KinesisVideoStreamConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisVideoStreamConfig"
       ( \x ->
           KinesisVideoStreamConfig'
-            <$> (x .: "Prefix")
-            <*> (x .: "RetentionPeriodHours")
-            <*> (x .: "EncryptionConfig")
+            Lude.<$> (x Lude..: "Prefix")
+            Lude.<*> (x Lude..: "RetentionPeriodHours")
+            Lude.<*> (x Lude..: "EncryptionConfig")
       )
 
-instance Hashable KinesisVideoStreamConfig
-
-instance NFData KinesisVideoStreamConfig
-
-instance ToJSON KinesisVideoStreamConfig where
+instance Lude.ToJSON KinesisVideoStreamConfig where
   toJSON KinesisVideoStreamConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("Prefix" .= _kvscPrefix),
-            Just ("RetentionPeriodHours" .= _kvscRetentionPeriodHours),
-            Just ("EncryptionConfig" .= _kvscEncryptionConfig)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Prefix" Lude..= prefix),
+            Lude.Just ("RetentionPeriodHours" Lude..= retentionPeriodHours),
+            Lude.Just ("EncryptionConfig" Lude..= encryptionConfig)
           ]
       )

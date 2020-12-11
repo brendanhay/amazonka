@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDeleteObject where
+module Network.AWS.CloudDirectory.Types.BatchDeleteObject
+  ( BatchDeleteObject (..),
+
+    -- * Smart constructor
+    mkBatchDeleteObject,
+
+    -- * Lenses
+    bdoObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'DeleteObject' operation.
 --
---
---
--- /See:/ 'batchDeleteObject' smart constructor.
+-- /See:/ 'mkBatchDeleteObject' smart constructor.
 newtype BatchDeleteObject = BatchDeleteObject'
-  { _bdoObjectReference ::
+  { objectReference ::
       ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdoObjectReference' - The reference that identifies the object.
-batchDeleteObject ::
-  -- | 'bdoObjectReference'
+-- * 'objectReference' - The reference that identifies the object.
+mkBatchDeleteObject ::
+  -- | 'objectReference'
   ObjectReference ->
   BatchDeleteObject
-batchDeleteObject pObjectReference_ =
-  BatchDeleteObject' {_bdoObjectReference = pObjectReference_}
+mkBatchDeleteObject pObjectReference_ =
+  BatchDeleteObject' {objectReference = pObjectReference_}
 
 -- | The reference that identifies the object.
-bdoObjectReference :: Lens' BatchDeleteObject ObjectReference
-bdoObjectReference = lens _bdoObjectReference (\s a -> s {_bdoObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdoObjectReference :: Lens.Lens' BatchDeleteObject ObjectReference
+bdoObjectReference = Lens.lens (objectReference :: BatchDeleteObject -> ObjectReference) (\s a -> s {objectReference = a} :: BatchDeleteObject)
+{-# DEPRECATED bdoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchDeleteObject
-
-instance NFData BatchDeleteObject
-
-instance ToJSON BatchDeleteObject where
+instance Lude.ToJSON BatchDeleteObject where
   toJSON BatchDeleteObject' {..} =
-    object
-      (catMaybes [Just ("ObjectReference" .= _bdoObjectReference)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ObjectReference" Lude..= objectReference)]
+      )

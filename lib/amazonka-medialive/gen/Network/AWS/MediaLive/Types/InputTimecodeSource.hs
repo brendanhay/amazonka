@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputTimecodeSource where
+module Network.AWS.MediaLive.Types.InputTimecodeSource
+  ( InputTimecodeSource
+      ( InputTimecodeSource',
+        Embedded,
+        Zerobased
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Documentation update needed
-data InputTimecodeSource
-  = Embedded
-  | Zerobased
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputTimecodeSource = InputTimecodeSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputTimecodeSource where
-  parser =
-    takeLowerText >>= \case
-      "embedded" -> pure Embedded
-      "zerobased" -> pure Zerobased
-      e ->
-        fromTextError $
-          "Failure parsing InputTimecodeSource from value: '" <> e
-            <> "'. Accepted values: embedded, zerobased"
+pattern Embedded :: InputTimecodeSource
+pattern Embedded = InputTimecodeSource' "EMBEDDED"
 
-instance ToText InputTimecodeSource where
-  toText = \case
-    Embedded -> "EMBEDDED"
-    Zerobased -> "ZEROBASED"
+pattern Zerobased :: InputTimecodeSource
+pattern Zerobased = InputTimecodeSource' "ZEROBASED"
 
-instance Hashable InputTimecodeSource
-
-instance NFData InputTimecodeSource
-
-instance ToByteString InputTimecodeSource
-
-instance ToQuery InputTimecodeSource
-
-instance ToHeader InputTimecodeSource
-
-instance ToJSON InputTimecodeSource where
-  toJSON = toJSONText
-
-instance FromJSON InputTimecodeSource where
-  parseJSON = parseJSONText "InputTimecodeSource"
+{-# COMPLETE
+  Embedded,
+  Zerobased,
+  InputTimecodeSource'
+  #-}

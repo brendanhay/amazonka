@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Template where
+module Network.AWS.Pinpoint.Types.Template
+  ( Template (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTemplate,
+
+    -- * Lenses
+    tName,
+    tVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the name and version of the message template to use for the message.
 --
---
---
--- /See:/ 'template' smart constructor.
+-- /See:/ 'mkTemplate' smart constructor.
 data Template = Template'
-  { _tName :: !(Maybe Text),
-    _tVersion :: !(Maybe Text)
+  { name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Template' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the message template to use for the message. If specified, this value must match the name of an existing message template.
+-- * 'version' - The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
 --
--- * 'tName' - The name of the message template to use for the message. If specified, this value must match the name of an existing message template.
---
--- * 'tVersion' - The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource. If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
-template ::
+-- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
+mkTemplate ::
   Template
-template = Template' {_tName = Nothing, _tVersion = Nothing}
+mkTemplate = Template' {name = Lude.Nothing, version = Lude.Nothing}
 
 -- | The name of the message template to use for the message. If specified, this value must match the name of an existing message template.
-tName :: Lens' Template (Maybe Text)
-tName = lens _tName (\s a -> s {_tName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Template (Lude.Maybe Lude.Text)
+tName = Lens.lens (name :: Template -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Template)
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource. If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
-tVersion :: Lens' Template (Maybe Text)
-tVersion = lens _tVersion (\s a -> s {_tVersion = a})
+-- | The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
+--
+-- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tVersion :: Lens.Lens' Template (Lude.Maybe Lude.Text)
+tVersion = Lens.lens (version :: Template -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: Template)
+{-# DEPRECATED tVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromJSON Template where
+instance Lude.FromJSON Template where
   parseJSON =
-    withObject
+    Lude.withObject
       "Template"
-      (\x -> Template' <$> (x .:? "Name") <*> (x .:? "Version"))
+      ( \x ->
+          Template'
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Version")
+      )
 
-instance Hashable Template
-
-instance NFData Template
-
-instance ToJSON Template where
+instance Lude.ToJSON Template where
   toJSON Template' {..} =
-    object
-      (catMaybes [("Name" .=) <$> _tName, ("Version" .=) <$> _tVersion])
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("Version" Lude..=) Lude.<$> version
+          ]
+      )

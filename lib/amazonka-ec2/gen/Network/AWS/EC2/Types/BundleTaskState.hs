@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.BundleTaskState where
+module Network.AWS.EC2.Types.BundleTaskState
+  ( BundleTaskState
+      ( BundleTaskState',
+        BTSBundling,
+        BTSCancelling,
+        BTSComplete,
+        BTSFailed,
+        BTSPending,
+        BTSStoring,
+        BTSWaitingForShutdown
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BundleTaskState
-  = BTSBundling
-  | BTSCancelling
-  | BTSComplete
-  | BTSFailed
-  | BTSPending
-  | BTSStoring
-  | BTSWaitingForShutdown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BundleTaskState = BundleTaskState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BundleTaskState where
-  parser =
-    takeLowerText >>= \case
-      "bundling" -> pure BTSBundling
-      "cancelling" -> pure BTSCancelling
-      "complete" -> pure BTSComplete
-      "failed" -> pure BTSFailed
-      "pending" -> pure BTSPending
-      "storing" -> pure BTSStoring
-      "waiting-for-shutdown" -> pure BTSWaitingForShutdown
-      e ->
-        fromTextError $
-          "Failure parsing BundleTaskState from value: '" <> e
-            <> "'. Accepted values: bundling, cancelling, complete, failed, pending, storing, waiting-for-shutdown"
+pattern BTSBundling :: BundleTaskState
+pattern BTSBundling = BundleTaskState' "bundling"
 
-instance ToText BundleTaskState where
-  toText = \case
-    BTSBundling -> "bundling"
-    BTSCancelling -> "cancelling"
-    BTSComplete -> "complete"
-    BTSFailed -> "failed"
-    BTSPending -> "pending"
-    BTSStoring -> "storing"
-    BTSWaitingForShutdown -> "waiting-for-shutdown"
+pattern BTSCancelling :: BundleTaskState
+pattern BTSCancelling = BundleTaskState' "cancelling"
 
-instance Hashable BundleTaskState
+pattern BTSComplete :: BundleTaskState
+pattern BTSComplete = BundleTaskState' "complete"
 
-instance NFData BundleTaskState
+pattern BTSFailed :: BundleTaskState
+pattern BTSFailed = BundleTaskState' "failed"
 
-instance ToByteString BundleTaskState
+pattern BTSPending :: BundleTaskState
+pattern BTSPending = BundleTaskState' "pending"
 
-instance ToQuery BundleTaskState
+pattern BTSStoring :: BundleTaskState
+pattern BTSStoring = BundleTaskState' "storing"
 
-instance ToHeader BundleTaskState
+pattern BTSWaitingForShutdown :: BundleTaskState
+pattern BTSWaitingForShutdown = BundleTaskState' "waiting-for-shutdown"
 
-instance FromXML BundleTaskState where
-  parseXML = parseXMLText "BundleTaskState"
+{-# COMPLETE
+  BTSBundling,
+  BTSCancelling,
+  BTSComplete,
+  BTSFailed,
+  BTSPending,
+  BTSStoring,
+  BTSWaitingForShutdown,
+  BundleTaskState'
+  #-}

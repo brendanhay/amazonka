@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ExecutionStatus where
+module Network.AWS.SageMaker.Types.ExecutionStatus
+  ( ExecutionStatus
+      ( ExecutionStatus',
+        ECompleted,
+        ECompletedWithViolations,
+        EFailed,
+        EInProgress,
+        EPending,
+        EStopped,
+        EStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionStatus
-  = ECompleted
-  | ECompletedWithViolations
-  | EFailed
-  | EInProgress
-  | EPending
-  | EStopped
-  | EStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionStatus = ExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure ECompleted
-      "completedwithviolations" -> pure ECompletedWithViolations
-      "failed" -> pure EFailed
-      "inprogress" -> pure EInProgress
-      "pending" -> pure EPending
-      "stopped" -> pure EStopped
-      "stopping" -> pure EStopping
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionStatus from value: '" <> e
-            <> "'. Accepted values: completed, completedwithviolations, failed, inprogress, pending, stopped, stopping"
+pattern ECompleted :: ExecutionStatus
+pattern ECompleted = ExecutionStatus' "Completed"
 
-instance ToText ExecutionStatus where
-  toText = \case
-    ECompleted -> "Completed"
-    ECompletedWithViolations -> "CompletedWithViolations"
-    EFailed -> "Failed"
-    EInProgress -> "InProgress"
-    EPending -> "Pending"
-    EStopped -> "Stopped"
-    EStopping -> "Stopping"
+pattern ECompletedWithViolations :: ExecutionStatus
+pattern ECompletedWithViolations = ExecutionStatus' "CompletedWithViolations"
 
-instance Hashable ExecutionStatus
+pattern EFailed :: ExecutionStatus
+pattern EFailed = ExecutionStatus' "Failed"
 
-instance NFData ExecutionStatus
+pattern EInProgress :: ExecutionStatus
+pattern EInProgress = ExecutionStatus' "InProgress"
 
-instance ToByteString ExecutionStatus
+pattern EPending :: ExecutionStatus
+pattern EPending = ExecutionStatus' "Pending"
 
-instance ToQuery ExecutionStatus
+pattern EStopped :: ExecutionStatus
+pattern EStopped = ExecutionStatus' "Stopped"
 
-instance ToHeader ExecutionStatus
+pattern EStopping :: ExecutionStatus
+pattern EStopping = ExecutionStatus' "Stopping"
 
-instance ToJSON ExecutionStatus where
-  toJSON = toJSONText
-
-instance FromJSON ExecutionStatus where
-  parseJSON = parseJSONText "ExecutionStatus"
+{-# COMPLETE
+  ECompleted,
+  ECompletedWithViolations,
+  EFailed,
+  EInProgress,
+  EPending,
+  EStopped,
+  EStopping,
+  ExecutionStatus'
+  #-}

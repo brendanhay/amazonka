@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.TestCaseFilter where
+module Network.AWS.CodeBuild.Types.TestCaseFilter
+  ( TestCaseFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTestCaseFilter,
+
+    -- * Lenses
+    tcfStatus,
+    tcfKeyword,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A filter used to return specific types of test cases. In order to pass the filter, the report must meet all of the filter properties.
 --
---
---
--- /See:/ 'testCaseFilter' smart constructor.
+-- /See:/ 'mkTestCaseFilter' smart constructor.
 data TestCaseFilter = TestCaseFilter'
-  { _tcfStatus :: !(Maybe Text),
-    _tcfKeyword :: !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    keyword :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestCaseFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'keyword' - A keyword that is used to filter on the @name@ or the @prefix@ of the test cases. Only test cases where the keyword is a substring of the @name@ or the @prefix@ will be returned.
+-- * 'status' - The status used to filter test cases. A @TestCaseFilter@ can have one status. Valid values are:
 --
--- * 'tcfStatus' - The status used to filter test cases. A @TestCaseFilter@ can have one status. Valid values are:     * @SUCCEEDED@      * @FAILED@      * @ERROR@      * @SKIPPED@      * @UNKNOWN@
 --
--- * 'tcfKeyword' - A keyword that is used to filter on the @name@ or the @prefix@ of the test cases. Only test cases where the keyword is a substring of the @name@ or the @prefix@ will be returned.
-testCaseFilter ::
+--     * @SUCCEEDED@
+--
+--
+--     * @FAILED@
+--
+--
+--     * @ERROR@
+--
+--
+--     * @SKIPPED@
+--
+--
+--     * @UNKNOWN@
+mkTestCaseFilter ::
   TestCaseFilter
-testCaseFilter =
-  TestCaseFilter' {_tcfStatus = Nothing, _tcfKeyword = Nothing}
+mkTestCaseFilter =
+  TestCaseFilter' {status = Lude.Nothing, keyword = Lude.Nothing}
 
--- | The status used to filter test cases. A @TestCaseFilter@ can have one status. Valid values are:     * @SUCCEEDED@      * @FAILED@      * @ERROR@      * @SKIPPED@      * @UNKNOWN@
-tcfStatus :: Lens' TestCaseFilter (Maybe Text)
-tcfStatus = lens _tcfStatus (\s a -> s {_tcfStatus = a})
+-- | The status used to filter test cases. A @TestCaseFilter@ can have one status. Valid values are:
+--
+--
+--     * @SUCCEEDED@
+--
+--
+--     * @FAILED@
+--
+--
+--     * @ERROR@
+--
+--
+--     * @SKIPPED@
+--
+--
+--     * @UNKNOWN@
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcfStatus :: Lens.Lens' TestCaseFilter (Lude.Maybe Lude.Text)
+tcfStatus = Lens.lens (status :: TestCaseFilter -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: TestCaseFilter)
+{-# DEPRECATED tcfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A keyword that is used to filter on the @name@ or the @prefix@ of the test cases. Only test cases where the keyword is a substring of the @name@ or the @prefix@ will be returned.
-tcfKeyword :: Lens' TestCaseFilter (Maybe Text)
-tcfKeyword = lens _tcfKeyword (\s a -> s {_tcfKeyword = a})
+--
+-- /Note:/ Consider using 'keyword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcfKeyword :: Lens.Lens' TestCaseFilter (Lude.Maybe Lude.Text)
+tcfKeyword = Lens.lens (keyword :: TestCaseFilter -> Lude.Maybe Lude.Text) (\s a -> s {keyword = a} :: TestCaseFilter)
+{-# DEPRECATED tcfKeyword "Use generic-lens or generic-optics with 'keyword' instead." #-}
 
-instance Hashable TestCaseFilter
-
-instance NFData TestCaseFilter
-
-instance ToJSON TestCaseFilter where
+instance Lude.ToJSON TestCaseFilter where
   toJSON TestCaseFilter' {..} =
-    object
-      ( catMaybes
-          [("status" .=) <$> _tcfStatus, ("keyword" .=) <$> _tcfKeyword]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("status" Lude..=) Lude.<$> status,
+            ("keyword" Lude..=) Lude.<$> keyword
+          ]
       )

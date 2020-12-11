@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationExceptionResourceKey where
+module Network.AWS.Config.Types.RemediationExceptionResourceKey
+  ( RemediationExceptionResourceKey (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRemediationExceptionResourceKey,
+
+    -- * Lenses
+    rerkResourceId,
+    rerkResourceType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details that identify a resource within AWS Config, including the resource type and resource ID.
 --
---
---
--- /See:/ 'remediationExceptionResourceKey' smart constructor.
+-- /See:/ 'mkRemediationExceptionResourceKey' smart constructor.
 data RemediationExceptionResourceKey = RemediationExceptionResourceKey'
-  { _rerkResourceId ::
-      !(Maybe Text),
-    _rerkResourceType ::
-      !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationExceptionResourceKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rerkResourceId' - The ID of the resource (for example., sg-xxxxxx).
---
--- * 'rerkResourceType' - The type of a resource.
-remediationExceptionResourceKey ::
+-- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
+-- * 'resourceType' - The type of a resource.
+mkRemediationExceptionResourceKey ::
   RemediationExceptionResourceKey
-remediationExceptionResourceKey =
+mkRemediationExceptionResourceKey =
   RemediationExceptionResourceKey'
-    { _rerkResourceId = Nothing,
-      _rerkResourceType = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing
     }
 
 -- | The ID of the resource (for example., sg-xxxxxx).
-rerkResourceId :: Lens' RemediationExceptionResourceKey (Maybe Text)
-rerkResourceId = lens _rerkResourceId (\s a -> s {_rerkResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rerkResourceId :: Lens.Lens' RemediationExceptionResourceKey (Lude.Maybe Lude.Text)
+rerkResourceId = Lens.lens (resourceId :: RemediationExceptionResourceKey -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: RemediationExceptionResourceKey)
+{-# DEPRECATED rerkResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of a resource.
-rerkResourceType :: Lens' RemediationExceptionResourceKey (Maybe Text)
-rerkResourceType = lens _rerkResourceType (\s a -> s {_rerkResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rerkResourceType :: Lens.Lens' RemediationExceptionResourceKey (Lude.Maybe Lude.Text)
+rerkResourceType = Lens.lens (resourceType :: RemediationExceptionResourceKey -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: RemediationExceptionResourceKey)
+{-# DEPRECATED rerkResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance FromJSON RemediationExceptionResourceKey where
+instance Lude.FromJSON RemediationExceptionResourceKey where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemediationExceptionResourceKey"
       ( \x ->
           RemediationExceptionResourceKey'
-            <$> (x .:? "ResourceId") <*> (x .:? "ResourceType")
+            Lude.<$> (x Lude..:? "ResourceId") Lude.<*> (x Lude..:? "ResourceType")
       )
 
-instance Hashable RemediationExceptionResourceKey
-
-instance NFData RemediationExceptionResourceKey
-
-instance ToJSON RemediationExceptionResourceKey where
+instance Lude.ToJSON RemediationExceptionResourceKey where
   toJSON RemediationExceptionResourceKey' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceId" .=) <$> _rerkResourceId,
-            ("ResourceType" .=) <$> _rerkResourceType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceId" Lude..=) Lude.<$> resourceId,
+            ("ResourceType" Lude..=) Lude.<$> resourceType
           ]
       )

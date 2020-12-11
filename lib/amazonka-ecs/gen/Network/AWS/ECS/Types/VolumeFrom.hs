@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.VolumeFrom where
+module Network.AWS.ECS.Types.VolumeFrom
+  ( VolumeFrom (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVolumeFrom,
+
+    -- * Lenses
+    vfSourceContainer,
+    vfReadOnly,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details on a data volume from another container in the same task definition.
 --
---
---
--- /See:/ 'volumeFrom' smart constructor.
+-- /See:/ 'mkVolumeFrom' smart constructor.
 data VolumeFrom = VolumeFrom'
-  { _vfSourceContainer :: !(Maybe Text),
-    _vfReadOnly :: !(Maybe Bool)
+  { sourceContainer ::
+      Lude.Maybe Lude.Text,
+    readOnly :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeFrom' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vfSourceContainer' - The name of another container within the same task definition from which to mount volumes.
---
--- * 'vfReadOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
-volumeFrom ::
+-- * 'readOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
+-- * 'sourceContainer' - The name of another container within the same task definition from which to mount volumes.
+mkVolumeFrom ::
   VolumeFrom
-volumeFrom =
-  VolumeFrom' {_vfSourceContainer = Nothing, _vfReadOnly = Nothing}
+mkVolumeFrom =
+  VolumeFrom'
+    { sourceContainer = Lude.Nothing,
+      readOnly = Lude.Nothing
+    }
 
 -- | The name of another container within the same task definition from which to mount volumes.
-vfSourceContainer :: Lens' VolumeFrom (Maybe Text)
-vfSourceContainer = lens _vfSourceContainer (\s a -> s {_vfSourceContainer = a})
+--
+-- /Note:/ Consider using 'sourceContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfSourceContainer :: Lens.Lens' VolumeFrom (Lude.Maybe Lude.Text)
+vfSourceContainer = Lens.lens (sourceContainer :: VolumeFrom -> Lude.Maybe Lude.Text) (\s a -> s {sourceContainer = a} :: VolumeFrom)
+{-# DEPRECATED vfSourceContainer "Use generic-lens or generic-optics with 'sourceContainer' instead." #-}
 
 -- | If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
-vfReadOnly :: Lens' VolumeFrom (Maybe Bool)
-vfReadOnly = lens _vfReadOnly (\s a -> s {_vfReadOnly = a})
+--
+-- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfReadOnly :: Lens.Lens' VolumeFrom (Lude.Maybe Lude.Bool)
+vfReadOnly = Lens.lens (readOnly :: VolumeFrom -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: VolumeFrom)
+{-# DEPRECATED vfReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
-instance FromJSON VolumeFrom where
+instance Lude.FromJSON VolumeFrom where
   parseJSON =
-    withObject
+    Lude.withObject
       "VolumeFrom"
       ( \x ->
-          VolumeFrom' <$> (x .:? "sourceContainer") <*> (x .:? "readOnly")
+          VolumeFrom'
+            Lude.<$> (x Lude..:? "sourceContainer") Lude.<*> (x Lude..:? "readOnly")
       )
 
-instance Hashable VolumeFrom
-
-instance NFData VolumeFrom
-
-instance ToJSON VolumeFrom where
+instance Lude.ToJSON VolumeFrom where
   toJSON VolumeFrom' {..} =
-    object
-      ( catMaybes
-          [ ("sourceContainer" .=) <$> _vfSourceContainer,
-            ("readOnly" .=) <$> _vfReadOnly
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sourceContainer" Lude..=) Lude.<$> sourceContainer,
+            ("readOnly" Lude..=) Lude.<$> readOnly
           ]
       )

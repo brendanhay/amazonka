@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateCPUOptionsRequest where
+module Network.AWS.EC2.Types.LaunchTemplateCPUOptionsRequest
+  ( LaunchTemplateCPUOptionsRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchTemplateCPUOptionsRequest,
+
+    -- * Lenses
+    ltcorCoreCount,
+    ltcorThreadsPerCore,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The CPU options for the instance. Both the core count and threads per core must be specified in the request.
 --
---
---
--- /See:/ 'launchTemplateCPUOptionsRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateCPUOptionsRequest' smart constructor.
 data LaunchTemplateCPUOptionsRequest = LaunchTemplateCPUOptionsRequest'
-  { _ltcorCoreCount ::
-      !(Maybe Int),
-    _ltcorThreadsPerCore ::
-      !(Maybe Int)
+  { coreCount ::
+      Lude.Maybe Lude.Int,
+    threadsPerCore ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateCPUOptionsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltcorCoreCount' - The number of CPU cores for the instance.
---
--- * 'ltcorThreadsPerCore' - The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
-launchTemplateCPUOptionsRequest ::
+-- * 'coreCount' - The number of CPU cores for the instance.
+-- * 'threadsPerCore' - The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+mkLaunchTemplateCPUOptionsRequest ::
   LaunchTemplateCPUOptionsRequest
-launchTemplateCPUOptionsRequest =
+mkLaunchTemplateCPUOptionsRequest =
   LaunchTemplateCPUOptionsRequest'
-    { _ltcorCoreCount = Nothing,
-      _ltcorThreadsPerCore = Nothing
+    { coreCount = Lude.Nothing,
+      threadsPerCore = Lude.Nothing
     }
 
 -- | The number of CPU cores for the instance.
-ltcorCoreCount :: Lens' LaunchTemplateCPUOptionsRequest (Maybe Int)
-ltcorCoreCount = lens _ltcorCoreCount (\s a -> s {_ltcorCoreCount = a})
+--
+-- /Note:/ Consider using 'coreCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcorCoreCount :: Lens.Lens' LaunchTemplateCPUOptionsRequest (Lude.Maybe Lude.Int)
+ltcorCoreCount = Lens.lens (coreCount :: LaunchTemplateCPUOptionsRequest -> Lude.Maybe Lude.Int) (\s a -> s {coreCount = a} :: LaunchTemplateCPUOptionsRequest)
+{-# DEPRECATED ltcorCoreCount "Use generic-lens or generic-optics with 'coreCount' instead." #-}
 
 -- | The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
-ltcorThreadsPerCore :: Lens' LaunchTemplateCPUOptionsRequest (Maybe Int)
-ltcorThreadsPerCore = lens _ltcorThreadsPerCore (\s a -> s {_ltcorThreadsPerCore = a})
+--
+-- /Note:/ Consider using 'threadsPerCore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcorThreadsPerCore :: Lens.Lens' LaunchTemplateCPUOptionsRequest (Lude.Maybe Lude.Int)
+ltcorThreadsPerCore = Lens.lens (threadsPerCore :: LaunchTemplateCPUOptionsRequest -> Lude.Maybe Lude.Int) (\s a -> s {threadsPerCore = a} :: LaunchTemplateCPUOptionsRequest)
+{-# DEPRECATED ltcorThreadsPerCore "Use generic-lens or generic-optics with 'threadsPerCore' instead." #-}
 
-instance Hashable LaunchTemplateCPUOptionsRequest
-
-instance NFData LaunchTemplateCPUOptionsRequest
-
-instance ToQuery LaunchTemplateCPUOptionsRequest where
+instance Lude.ToQuery LaunchTemplateCPUOptionsRequest where
   toQuery LaunchTemplateCPUOptionsRequest' {..} =
-    mconcat
-      [ "CoreCount" =: _ltcorCoreCount,
-        "ThreadsPerCore" =: _ltcorThreadsPerCore
+    Lude.mconcat
+      [ "CoreCount" Lude.=: coreCount,
+        "ThreadsPerCore" Lude.=: threadsPerCore
       ]

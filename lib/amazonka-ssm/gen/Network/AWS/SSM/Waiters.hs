@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,50 +10,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Waiters where
+module Network.AWS.SSM.Waiters
+  ( -- * CommandExecuted
+    mkCommandExecuted,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.GetCommandInvocation
 import Network.AWS.SSM.Types
-import Network.AWS.Waiter
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.SSM.GetCommandInvocation' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-commandExecuted :: Wait GetCommandInvocation
-commandExecuted =
-  Wait
-    { _waitName = "CommandExecuted",
-      _waitAttempts = 20,
-      _waitDelay = 5,
-      _waitAcceptors =
-        [ matchAll
+mkCommandExecuted :: Wait.Wait GetCommandInvocation
+mkCommandExecuted =
+  Wait.Wait
+    { Wait._waitName = "CommandExecuted",
+      Wait._waitAttempts = 20,
+      Wait._waitDelay = 5,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Pending"
-            AcceptRetry
-            (gcirsStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptRetry
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "InProgress"
-            AcceptRetry
-            (gcirsStatus . _Just . to toTextCI),
-          matchAll "Delayed" AcceptRetry (gcirsStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptRetry
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
+            "Delayed"
+            Wait.AcceptRetry
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Success"
-            AcceptSuccess
-            (gcirsStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Cancelled"
-            AcceptFailure
-            (gcirsStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptFailure
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "TimedOut"
-            AcceptFailure
-            (gcirsStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptFailure
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (gcirsStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptFailure
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Cancelling"
-            AcceptFailure
-            (gcirsStatus . _Just . to toTextCI)
+            Wait.AcceptFailure
+            (gcirsStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText)
         ]
     }

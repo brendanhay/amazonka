@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag where
+module Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
+  ( Scte35WebDeliveryAllowedFlag
+      ( Scte35WebDeliveryAllowedFlag',
+        WebDeliveryAllowed,
+        WebDeliveryNotAllowed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Corresponds to the web_delivery_allowed_flag parameter. A value of WEB_DELIVERY_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35 specification. If you include one of the "restriction" flags then you must include all four of them.
-data Scte35WebDeliveryAllowedFlag
-  = WebDeliveryAllowed
-  | WebDeliveryNotAllowed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scte35WebDeliveryAllowedFlag = Scte35WebDeliveryAllowedFlag' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scte35WebDeliveryAllowedFlag where
-  parser =
-    takeLowerText >>= \case
-      "web_delivery_allowed" -> pure WebDeliveryAllowed
-      "web_delivery_not_allowed" -> pure WebDeliveryNotAllowed
-      e ->
-        fromTextError $
-          "Failure parsing Scte35WebDeliveryAllowedFlag from value: '" <> e
-            <> "'. Accepted values: web_delivery_allowed, web_delivery_not_allowed"
+pattern WebDeliveryAllowed :: Scte35WebDeliveryAllowedFlag
+pattern WebDeliveryAllowed = Scte35WebDeliveryAllowedFlag' "WEB_DELIVERY_ALLOWED"
 
-instance ToText Scte35WebDeliveryAllowedFlag where
-  toText = \case
-    WebDeliveryAllowed -> "WEB_DELIVERY_ALLOWED"
-    WebDeliveryNotAllowed -> "WEB_DELIVERY_NOT_ALLOWED"
+pattern WebDeliveryNotAllowed :: Scte35WebDeliveryAllowedFlag
+pattern WebDeliveryNotAllowed = Scte35WebDeliveryAllowedFlag' "WEB_DELIVERY_NOT_ALLOWED"
 
-instance Hashable Scte35WebDeliveryAllowedFlag
-
-instance NFData Scte35WebDeliveryAllowedFlag
-
-instance ToByteString Scte35WebDeliveryAllowedFlag
-
-instance ToQuery Scte35WebDeliveryAllowedFlag
-
-instance ToHeader Scte35WebDeliveryAllowedFlag
-
-instance ToJSON Scte35WebDeliveryAllowedFlag where
-  toJSON = toJSONText
-
-instance FromJSON Scte35WebDeliveryAllowedFlag where
-  parseJSON = parseJSONText "Scte35WebDeliveryAllowedFlag"
+{-# COMPLETE
+  WebDeliveryAllowed,
+  WebDeliveryNotAllowed,
+  Scte35WebDeliveryAllowedFlag'
+  #-}

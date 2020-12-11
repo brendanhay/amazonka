@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Deletes currently cached content from your Amazon Lightsail content delivery network (CDN) distribution.
 --
---
 -- After resetting the cache, the next time a content request is made, your distribution pulls, serves, and caches it from the origin.
 module Network.AWS.Lightsail.ResetDistributionCache
-  ( -- * Creating a Request
-    resetDistributionCache,
-    ResetDistributionCache,
+  ( -- * Creating a request
+    ResetDistributionCache (..),
+    mkResetDistributionCache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rdcDistributionName,
 
-    -- * Destructuring the Response
-    resetDistributionCacheResponse,
-    ResetDistributionCacheResponse,
+    -- * Destructuring the response
+    ResetDistributionCacheResponse (..),
+    mkResetDistributionCacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rdcrsStatus,
     rdcrsOperation,
     rdcrsCreateTime,
@@ -41,120 +35,143 @@ module Network.AWS.Lightsail.ResetDistributionCache
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resetDistributionCache' smart constructor.
+-- | /See:/ 'mkResetDistributionCache' smart constructor.
 newtype ResetDistributionCache = ResetDistributionCache'
-  { _rdcDistributionName ::
-      Maybe Text
+  { distributionName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDistributionCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'distributionName' - The name of the distribution for which to reset cache.
 --
--- * 'rdcDistributionName' - The name of the distribution for which to reset cache. Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-resetDistributionCache ::
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+mkResetDistributionCache ::
   ResetDistributionCache
-resetDistributionCache =
-  ResetDistributionCache' {_rdcDistributionName = Nothing}
+mkResetDistributionCache =
+  ResetDistributionCache' {distributionName = Lude.Nothing}
 
--- | The name of the distribution for which to reset cache. Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-rdcDistributionName :: Lens' ResetDistributionCache (Maybe Text)
-rdcDistributionName = lens _rdcDistributionName (\s a -> s {_rdcDistributionName = a})
+-- | The name of the distribution for which to reset cache.
+--
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcDistributionName :: Lens.Lens' ResetDistributionCache (Lude.Maybe Lude.Text)
+rdcDistributionName = Lens.lens (distributionName :: ResetDistributionCache -> Lude.Maybe Lude.Text) (\s a -> s {distributionName = a} :: ResetDistributionCache)
+{-# DEPRECATED rdcDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
-instance AWSRequest ResetDistributionCache where
+instance Lude.AWSRequest ResetDistributionCache where
   type Rs ResetDistributionCache = ResetDistributionCacheResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResetDistributionCacheResponse'
-            <$> (x .?> "status")
-            <*> (x .?> "operation")
-            <*> (x .?> "createTime")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "operation")
+            Lude.<*> (x Lude..?> "createTime")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResetDistributionCache
-
-instance NFData ResetDistributionCache
-
-instance ToHeaders ResetDistributionCache where
+instance Lude.ToHeaders ResetDistributionCache where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.ResetDistributionCache" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.ResetDistributionCache" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResetDistributionCache where
+instance Lude.ToJSON ResetDistributionCache where
   toJSON ResetDistributionCache' {..} =
-    object
-      (catMaybes [("distributionName" .=) <$> _rdcDistributionName])
+    Lude.object
+      ( Lude.catMaybes
+          [("distributionName" Lude..=) Lude.<$> distributionName]
+      )
 
-instance ToPath ResetDistributionCache where
-  toPath = const "/"
+instance Lude.ToPath ResetDistributionCache where
+  toPath = Lude.const "/"
 
-instance ToQuery ResetDistributionCache where
-  toQuery = const mempty
+instance Lude.ToQuery ResetDistributionCache where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resetDistributionCacheResponse' smart constructor.
+-- | /See:/ 'mkResetDistributionCacheResponse' smart constructor.
 data ResetDistributionCacheResponse = ResetDistributionCacheResponse'
-  { _rdcrsStatus ::
-      !(Maybe Text),
-    _rdcrsOperation ::
-      !(Maybe Operation),
-    _rdcrsCreateTime ::
-      !(Maybe POSIX),
-    _rdcrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe Lude.Text,
+    operation ::
+      Lude.Maybe Operation,
+    createTime ::
+      Lude.Maybe Lude.Timestamp,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDistributionCacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdcrsStatus' - The status of the reset cache request.
---
--- * 'rdcrsOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'rdcrsCreateTime' - The timestamp of the reset cache request (e.g., @1479734909.17@ ) in Unix time format.
---
--- * 'rdcrsResponseStatus' - -- | The response status code.
-resetDistributionCacheResponse ::
-  -- | 'rdcrsResponseStatus'
-  Int ->
+-- * 'createTime' - The timestamp of the reset cache request (e.g., @1479734909.17@ ) in Unix time format.
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the reset cache request.
+mkResetDistributionCacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetDistributionCacheResponse
-resetDistributionCacheResponse pResponseStatus_ =
+mkResetDistributionCacheResponse pResponseStatus_ =
   ResetDistributionCacheResponse'
-    { _rdcrsStatus = Nothing,
-      _rdcrsOperation = Nothing,
-      _rdcrsCreateTime = Nothing,
-      _rdcrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      operation = Lude.Nothing,
+      createTime = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the reset cache request.
-rdcrsStatus :: Lens' ResetDistributionCacheResponse (Maybe Text)
-rdcrsStatus = lens _rdcrsStatus (\s a -> s {_rdcrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcrsStatus :: Lens.Lens' ResetDistributionCacheResponse (Lude.Maybe Lude.Text)
+rdcrsStatus = Lens.lens (status :: ResetDistributionCacheResponse -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ResetDistributionCacheResponse)
+{-# DEPRECATED rdcrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-rdcrsOperation :: Lens' ResetDistributionCacheResponse (Maybe Operation)
-rdcrsOperation = lens _rdcrsOperation (\s a -> s {_rdcrsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcrsOperation :: Lens.Lens' ResetDistributionCacheResponse (Lude.Maybe Operation)
+rdcrsOperation = Lens.lens (operation :: ResetDistributionCacheResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: ResetDistributionCacheResponse)
+{-# DEPRECATED rdcrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The timestamp of the reset cache request (e.g., @1479734909.17@ ) in Unix time format.
-rdcrsCreateTime :: Lens' ResetDistributionCacheResponse (Maybe UTCTime)
-rdcrsCreateTime = lens _rdcrsCreateTime (\s a -> s {_rdcrsCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcrsCreateTime :: Lens.Lens' ResetDistributionCacheResponse (Lude.Maybe Lude.Timestamp)
+rdcrsCreateTime = Lens.lens (createTime :: ResetDistributionCacheResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: ResetDistributionCacheResponse)
+{-# DEPRECATED rdcrsCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
--- | -- | The response status code.
-rdcrsResponseStatus :: Lens' ResetDistributionCacheResponse Int
-rdcrsResponseStatus = lens _rdcrsResponseStatus (\s a -> s {_rdcrsResponseStatus = a})
-
-instance NFData ResetDistributionCacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcrsResponseStatus :: Lens.Lens' ResetDistributionCacheResponse Lude.Int
+rdcrsResponseStatus = Lens.lens (responseStatus :: ResetDistributionCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetDistributionCacheResponse)
+{-# DEPRECATED rdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

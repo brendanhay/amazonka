@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SourceAlgorithmSpecification where
+module Network.AWS.SageMaker.Types.SourceAlgorithmSpecification
+  ( SourceAlgorithmSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSourceAlgorithmSpecification,
+
+    -- * Lenses
+    sasSourceAlgorithms,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.SourceAlgorithm
 
 -- | A list of algorithms that were used to create a model package.
 --
---
---
--- /See:/ 'sourceAlgorithmSpecification' smart constructor.
+-- /See:/ 'mkSourceAlgorithmSpecification' smart constructor.
 newtype SourceAlgorithmSpecification = SourceAlgorithmSpecification'
-  { _sasSourceAlgorithms ::
-      List1 SourceAlgorithm
+  { sourceAlgorithms ::
+      Lude.NonEmpty SourceAlgorithm
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceAlgorithmSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sasSourceAlgorithms' - A list of the algorithms that were used to create a model package.
-sourceAlgorithmSpecification ::
-  -- | 'sasSourceAlgorithms'
-  NonEmpty SourceAlgorithm ->
+-- * 'sourceAlgorithms' - A list of the algorithms that were used to create a model package.
+mkSourceAlgorithmSpecification ::
+  -- | 'sourceAlgorithms'
+  Lude.NonEmpty SourceAlgorithm ->
   SourceAlgorithmSpecification
-sourceAlgorithmSpecification pSourceAlgorithms_ =
+mkSourceAlgorithmSpecification pSourceAlgorithms_ =
   SourceAlgorithmSpecification'
-    { _sasSourceAlgorithms =
-        _List1 # pSourceAlgorithms_
+    { sourceAlgorithms =
+        pSourceAlgorithms_
     }
 
 -- | A list of the algorithms that were used to create a model package.
-sasSourceAlgorithms :: Lens' SourceAlgorithmSpecification (NonEmpty SourceAlgorithm)
-sasSourceAlgorithms = lens _sasSourceAlgorithms (\s a -> s {_sasSourceAlgorithms = a}) . _List1
+--
+-- /Note:/ Consider using 'sourceAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasSourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Lude.NonEmpty SourceAlgorithm)
+sasSourceAlgorithms = Lens.lens (sourceAlgorithms :: SourceAlgorithmSpecification -> Lude.NonEmpty SourceAlgorithm) (\s a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification)
+{-# DEPRECATED sasSourceAlgorithms "Use generic-lens or generic-optics with 'sourceAlgorithms' instead." #-}
 
-instance FromJSON SourceAlgorithmSpecification where
+instance Lude.FromJSON SourceAlgorithmSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "SourceAlgorithmSpecification"
       ( \x ->
-          SourceAlgorithmSpecification' <$> (x .: "SourceAlgorithms")
+          SourceAlgorithmSpecification'
+            Lude.<$> (x Lude..: "SourceAlgorithms")
       )
 
-instance Hashable SourceAlgorithmSpecification
-
-instance NFData SourceAlgorithmSpecification
-
-instance ToJSON SourceAlgorithmSpecification where
+instance Lude.ToJSON SourceAlgorithmSpecification where
   toJSON SourceAlgorithmSpecification' {..} =
-    object
-      (catMaybes [Just ("SourceAlgorithms" .= _sasSourceAlgorithms)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("SourceAlgorithms" Lude..= sourceAlgorithms)]
+      )

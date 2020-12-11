@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,134 @@
 --
 -- Creates a connection definition in the Data Catalog.
 module Network.AWS.Glue.CreateConnection
-  ( -- * Creating a Request
-    createConnection,
-    CreateConnection,
+  ( -- * Creating a request
+    CreateConnection (..),
+    mkCreateConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccCatalogId,
     ccConnectionInput,
 
-    -- * Destructuring the Response
-    createConnectionResponse,
-    CreateConnectionResponse,
+    -- * Destructuring the response
+    CreateConnectionResponse (..),
+    mkCreateConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createConnection' smart constructor.
+-- | /See:/ 'mkCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { _ccCatalogId ::
-      !(Maybe Text),
-    _ccConnectionInput :: !ConnectionInput
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    connectionInput :: ConnectionInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccCatalogId' - The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
---
--- * 'ccConnectionInput' - A @ConnectionInput@ object defining the connection to create.
-createConnection ::
-  -- | 'ccConnectionInput'
+-- * 'catalogId' - The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
+-- * 'connectionInput' - A @ConnectionInput@ object defining the connection to create.
+mkCreateConnection ::
+  -- | 'connectionInput'
   ConnectionInput ->
   CreateConnection
-createConnection pConnectionInput_ =
+mkCreateConnection pConnectionInput_ =
   CreateConnection'
-    { _ccCatalogId = Nothing,
-      _ccConnectionInput = pConnectionInput_
+    { catalogId = Lude.Nothing,
+      connectionInput = pConnectionInput_
     }
 
 -- | The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
-ccCatalogId :: Lens' CreateConnection (Maybe Text)
-ccCatalogId = lens _ccCatalogId (\s a -> s {_ccCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCatalogId :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
+ccCatalogId = Lens.lens (catalogId :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateConnection)
+{-# DEPRECATED ccCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A @ConnectionInput@ object defining the connection to create.
-ccConnectionInput :: Lens' CreateConnection ConnectionInput
-ccConnectionInput = lens _ccConnectionInput (\s a -> s {_ccConnectionInput = a})
+--
+-- /Note:/ Consider using 'connectionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccConnectionInput :: Lens.Lens' CreateConnection ConnectionInput
+ccConnectionInput = Lens.lens (connectionInput :: CreateConnection -> ConnectionInput) (\s a -> s {connectionInput = a} :: CreateConnection)
+{-# DEPRECATED ccConnectionInput "Use generic-lens or generic-optics with 'connectionInput' instead." #-}
 
-instance AWSRequest CreateConnection where
+instance Lude.AWSRequest CreateConnection where
   type Rs CreateConnection = CreateConnectionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> CreateConnectionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateConnectionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateConnection
-
-instance NFData CreateConnection
-
-instance ToHeaders CreateConnection where
+instance Lude.ToHeaders CreateConnection where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateConnection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateConnection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateConnection where
+instance Lude.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _ccCatalogId,
-            Just ("ConnectionInput" .= _ccConnectionInput)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("ConnectionInput" Lude..= connectionInput)
           ]
       )
 
-instance ToPath CreateConnection where
-  toPath = const "/"
+instance Lude.ToPath CreateConnection where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateConnection where
-  toQuery = const mempty
+instance Lude.ToQuery CreateConnection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createConnectionResponse' smart constructor.
+-- | /See:/ 'mkCreateConnectionResponse' smart constructor.
 newtype CreateConnectionResponse = CreateConnectionResponse'
-  { _crsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsResponseStatus' - -- | The response status code.
-createConnectionResponse ::
-  -- | 'crsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConnectionResponse
-createConnectionResponse pResponseStatus_ =
-  CreateConnectionResponse' {_crsResponseStatus = pResponseStatus_}
+mkCreateConnectionResponse pResponseStatus_ =
+  CreateConnectionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' CreateConnectionResponse Int
-crsResponseStatus = lens _crsResponseStatus (\s a -> s {_crsResponseStatus = a})
-
-instance NFData CreateConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsResponseStatus :: Lens.Lens' CreateConnectionResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConnectionResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

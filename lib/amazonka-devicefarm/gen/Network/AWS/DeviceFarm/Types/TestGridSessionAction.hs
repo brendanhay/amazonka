@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.TestGridSessionAction where
+module Network.AWS.DeviceFarm.Types.TestGridSessionAction
+  ( TestGridSessionAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTestGridSessionAction,
+
+    -- * Lenses
+    tgsaAction,
+    tgsaDuration,
+    tgsaRequestMethod,
+    tgsaStarted,
+    tgsaStatusCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An action taken by a 'TestGridSession' browser instance.
 --
---
---
--- /See:/ 'testGridSessionAction' smart constructor.
+-- /See:/ 'mkTestGridSessionAction' smart constructor.
 data TestGridSessionAction = TestGridSessionAction'
-  { _tgsaAction ::
-      !(Maybe Text),
-    _tgsaDuration :: !(Maybe Integer),
-    _tgsaRequestMethod :: !(Maybe Text),
-    _tgsaStarted :: !(Maybe POSIX),
-    _tgsaStatusCode :: !(Maybe Text)
+  { action ::
+      Lude.Maybe Lude.Text,
+    duration :: Lude.Maybe Lude.Integer,
+    requestMethod :: Lude.Maybe Lude.Text,
+    started :: Lude.Maybe Lude.Timestamp,
+    statusCode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestGridSessionAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgsaAction' - The action taken by the session.
---
--- * 'tgsaDuration' - The time, in milliseconds, that the action took to complete in the browser.
---
--- * 'tgsaRequestMethod' - HTTP method that the browser used to make the request.
---
--- * 'tgsaStarted' - The time that the session invoked the action.
---
--- * 'tgsaStatusCode' - HTTP status code returned to the browser when the action was taken.
-testGridSessionAction ::
+-- * 'action' - The action taken by the session.
+-- * 'duration' - The time, in milliseconds, that the action took to complete in the browser.
+-- * 'requestMethod' - HTTP method that the browser used to make the request.
+-- * 'started' - The time that the session invoked the action.
+-- * 'statusCode' - HTTP status code returned to the browser when the action was taken.
+mkTestGridSessionAction ::
   TestGridSessionAction
-testGridSessionAction =
+mkTestGridSessionAction =
   TestGridSessionAction'
-    { _tgsaAction = Nothing,
-      _tgsaDuration = Nothing,
-      _tgsaRequestMethod = Nothing,
-      _tgsaStarted = Nothing,
-      _tgsaStatusCode = Nothing
+    { action = Lude.Nothing,
+      duration = Lude.Nothing,
+      requestMethod = Lude.Nothing,
+      started = Lude.Nothing,
+      statusCode = Lude.Nothing
     }
 
 -- | The action taken by the session.
-tgsaAction :: Lens' TestGridSessionAction (Maybe Text)
-tgsaAction = lens _tgsaAction (\s a -> s {_tgsaAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaAction :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Text)
+tgsaAction = Lens.lens (action :: TestGridSessionAction -> Lude.Maybe Lude.Text) (\s a -> s {action = a} :: TestGridSessionAction)
+{-# DEPRECATED tgsaAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The time, in milliseconds, that the action took to complete in the browser.
-tgsaDuration :: Lens' TestGridSessionAction (Maybe Integer)
-tgsaDuration = lens _tgsaDuration (\s a -> s {_tgsaDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaDuration :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Integer)
+tgsaDuration = Lens.lens (duration :: TestGridSessionAction -> Lude.Maybe Lude.Integer) (\s a -> s {duration = a} :: TestGridSessionAction)
+{-# DEPRECATED tgsaDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | HTTP method that the browser used to make the request.
-tgsaRequestMethod :: Lens' TestGridSessionAction (Maybe Text)
-tgsaRequestMethod = lens _tgsaRequestMethod (\s a -> s {_tgsaRequestMethod = a})
+--
+-- /Note:/ Consider using 'requestMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaRequestMethod :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Text)
+tgsaRequestMethod = Lens.lens (requestMethod :: TestGridSessionAction -> Lude.Maybe Lude.Text) (\s a -> s {requestMethod = a} :: TestGridSessionAction)
+{-# DEPRECATED tgsaRequestMethod "Use generic-lens or generic-optics with 'requestMethod' instead." #-}
 
 -- | The time that the session invoked the action.
-tgsaStarted :: Lens' TestGridSessionAction (Maybe UTCTime)
-tgsaStarted = lens _tgsaStarted (\s a -> s {_tgsaStarted = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaStarted :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Timestamp)
+tgsaStarted = Lens.lens (started :: TestGridSessionAction -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: TestGridSessionAction)
+{-# DEPRECATED tgsaStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
 -- | HTTP status code returned to the browser when the action was taken.
-tgsaStatusCode :: Lens' TestGridSessionAction (Maybe Text)
-tgsaStatusCode = lens _tgsaStatusCode (\s a -> s {_tgsaStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaStatusCode :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Text)
+tgsaStatusCode = Lens.lens (statusCode :: TestGridSessionAction -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: TestGridSessionAction)
+{-# DEPRECATED tgsaStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON TestGridSessionAction where
+instance Lude.FromJSON TestGridSessionAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "TestGridSessionAction"
       ( \x ->
           TestGridSessionAction'
-            <$> (x .:? "action")
-            <*> (x .:? "duration")
-            <*> (x .:? "requestMethod")
-            <*> (x .:? "started")
-            <*> (x .:? "statusCode")
+            Lude.<$> (x Lude..:? "action")
+            Lude.<*> (x Lude..:? "duration")
+            Lude.<*> (x Lude..:? "requestMethod")
+            Lude.<*> (x Lude..:? "started")
+            Lude.<*> (x Lude..:? "statusCode")
       )
-
-instance Hashable TestGridSessionAction
-
-instance NFData TestGridSessionAction

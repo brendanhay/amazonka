@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.StateExitedEventDetails where
+module Network.AWS.StepFunctions.Types.StateExitedEventDetails
+  ( StateExitedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStateExitedEventDetails,
+
+    -- * Lenses
+    seedOutput,
+    seedOutputDetails,
+    seedName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about an exit from a state during an execution.
 --
---
---
--- /See:/ 'stateExitedEventDetails' smart constructor.
+-- /See:/ 'mkStateExitedEventDetails' smart constructor.
 data StateExitedEventDetails = StateExitedEventDetails'
-  { _seedOutput ::
-      !(Maybe (Sensitive Text)),
-    _seedOutputDetails ::
-      !(Maybe HistoryEventExecutionDataDetails),
-    _seedName :: !Text
+  { output ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    outputDetails ::
+      Lude.Maybe HistoryEventExecutionDataDetails,
+    name :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StateExitedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the state.
 --
--- * 'seedOutput' - The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- A name must /not/ contain:
 --
--- * 'seedOutputDetails' - Contains details about the output of an execution history event.
+--     * white space
 --
--- * 'seedName' - The name of the state. A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-stateExitedEventDetails ::
-  -- | 'seedName'
-  Text ->
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+-- * 'output' - The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'outputDetails' - Contains details about the output of an execution history event.
+mkStateExitedEventDetails ::
+  -- | 'name'
+  Lude.Text ->
   StateExitedEventDetails
-stateExitedEventDetails pName_ =
+mkStateExitedEventDetails pName_ =
   StateExitedEventDetails'
-    { _seedOutput = Nothing,
-      _seedOutputDetails = Nothing,
-      _seedName = pName_
+    { output = Lude.Nothing,
+      outputDetails = Lude.Nothing,
+      name = pName_
     }
 
 -- | The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-seedOutput :: Lens' StateExitedEventDetails (Maybe Text)
-seedOutput = lens _seedOutput (\s a -> s {_seedOutput = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seedOutput :: Lens.Lens' StateExitedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+seedOutput = Lens.lens (output :: StateExitedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: StateExitedEventDetails)
+{-# DEPRECATED seedOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | Contains details about the output of an execution history event.
-seedOutputDetails :: Lens' StateExitedEventDetails (Maybe HistoryEventExecutionDataDetails)
-seedOutputDetails = lens _seedOutputDetails (\s a -> s {_seedOutputDetails = a})
+--
+-- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seedOutputDetails :: Lens.Lens' StateExitedEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
+seedOutputDetails = Lens.lens (outputDetails :: StateExitedEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {outputDetails = a} :: StateExitedEventDetails)
+{-# DEPRECATED seedOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
--- | The name of the state. A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-seedName :: Lens' StateExitedEventDetails Text
-seedName = lens _seedName (\s a -> s {_seedName = a})
+-- | The name of the state.
+--
+-- A name must /not/ contain:
+--
+--     * white space
+--
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seedName :: Lens.Lens' StateExitedEventDetails Lude.Text
+seedName = Lens.lens (name :: StateExitedEventDetails -> Lude.Text) (\s a -> s {name = a} :: StateExitedEventDetails)
+{-# DEPRECATED seedName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON StateExitedEventDetails where
+instance Lude.FromJSON StateExitedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "StateExitedEventDetails"
       ( \x ->
           StateExitedEventDetails'
-            <$> (x .:? "output") <*> (x .:? "outputDetails") <*> (x .: "name")
+            Lude.<$> (x Lude..:? "output")
+            Lude.<*> (x Lude..:? "outputDetails")
+            Lude.<*> (x Lude..: "name")
       )
-
-instance Hashable StateExitedEventDetails
-
-instance NFData StateExitedEventDetails

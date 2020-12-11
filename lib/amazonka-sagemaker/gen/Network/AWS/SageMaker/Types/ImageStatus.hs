@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ImageStatus where
+module Network.AWS.SageMaker.Types.ImageStatus
+  ( ImageStatus
+      ( ImageStatus',
+        ISCreateFailed,
+        ISCreated,
+        ISCreating,
+        ISDeleteFailed,
+        ISDeleting,
+        ISUpdateFailed,
+        ISUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageStatus
-  = ISCreateFailed
-  | ISCreated
-  | ISCreating
-  | ISDeleteFailed
-  | ISDeleting
-  | ISUpdateFailed
-  | ISUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageStatus = ImageStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure ISCreateFailed
-      "created" -> pure ISCreated
-      "creating" -> pure ISCreating
-      "delete_failed" -> pure ISDeleteFailed
-      "deleting" -> pure ISDeleting
-      "update_failed" -> pure ISUpdateFailed
-      "updating" -> pure ISUpdating
-      e ->
-        fromTextError $
-          "Failure parsing ImageStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, created, creating, delete_failed, deleting, update_failed, updating"
+pattern ISCreateFailed :: ImageStatus
+pattern ISCreateFailed = ImageStatus' "CREATE_FAILED"
 
-instance ToText ImageStatus where
-  toText = \case
-    ISCreateFailed -> "CREATE_FAILED"
-    ISCreated -> "CREATED"
-    ISCreating -> "CREATING"
-    ISDeleteFailed -> "DELETE_FAILED"
-    ISDeleting -> "DELETING"
-    ISUpdateFailed -> "UPDATE_FAILED"
-    ISUpdating -> "UPDATING"
+pattern ISCreated :: ImageStatus
+pattern ISCreated = ImageStatus' "CREATED"
 
-instance Hashable ImageStatus
+pattern ISCreating :: ImageStatus
+pattern ISCreating = ImageStatus' "CREATING"
 
-instance NFData ImageStatus
+pattern ISDeleteFailed :: ImageStatus
+pattern ISDeleteFailed = ImageStatus' "DELETE_FAILED"
 
-instance ToByteString ImageStatus
+pattern ISDeleting :: ImageStatus
+pattern ISDeleting = ImageStatus' "DELETING"
 
-instance ToQuery ImageStatus
+pattern ISUpdateFailed :: ImageStatus
+pattern ISUpdateFailed = ImageStatus' "UPDATE_FAILED"
 
-instance ToHeader ImageStatus
+pattern ISUpdating :: ImageStatus
+pattern ISUpdating = ImageStatus' "UPDATING"
 
-instance FromJSON ImageStatus where
-  parseJSON = parseJSONText "ImageStatus"
+{-# COMPLETE
+  ISCreateFailed,
+  ISCreated,
+  ISCreating,
+  ISDeleteFailed,
+  ISDeleting,
+  ISUpdateFailed,
+  ISUpdating,
+  ImageStatus'
+  #-}

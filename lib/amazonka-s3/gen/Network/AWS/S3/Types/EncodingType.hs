@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.EncodingType where
+module Network.AWS.S3.Types.EncodingType
+  ( EncodingType
+      ( EncodingType',
+        URL
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
-data EncodingType = URL
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncodingType = EncodingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncodingType where
-  parser =
-    takeLowerText >>= \case
-      "url" -> pure URL
-      e ->
-        fromTextError $
-          "Failure parsing EncodingType from value: '" <> e
-            <> "'. Accepted values: url"
+pattern URL :: EncodingType
+pattern URL = EncodingType' "url"
 
-instance ToText EncodingType where
-  toText = \case
-    URL -> "url"
-
-instance Hashable EncodingType
-
-instance NFData EncodingType
-
-instance ToByteString EncodingType
-
-instance ToQuery EncodingType
-
-instance ToHeader EncodingType
-
-instance FromXML EncodingType where
-  parseXML = parseXMLText "EncodingType"
-
-instance ToXML EncodingType where
-  toXML = toXMLText
+{-# COMPLETE
+  URL,
+  EncodingType'
+  #-}

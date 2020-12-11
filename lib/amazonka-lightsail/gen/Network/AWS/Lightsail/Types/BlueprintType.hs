@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.BlueprintType where
+module Network.AWS.Lightsail.Types.BlueprintType
+  ( BlueprintType
+      ( BlueprintType',
+        App,
+        OS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BlueprintType
-  = App
-  | OS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BlueprintType = BlueprintType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BlueprintType where
-  parser =
-    takeLowerText >>= \case
-      "app" -> pure App
-      "os" -> pure OS
-      e ->
-        fromTextError $
-          "Failure parsing BlueprintType from value: '" <> e
-            <> "'. Accepted values: app, os"
+pattern App :: BlueprintType
+pattern App = BlueprintType' "app"
 
-instance ToText BlueprintType where
-  toText = \case
-    App -> "app"
-    OS -> "os"
+pattern OS :: BlueprintType
+pattern OS = BlueprintType' "os"
 
-instance Hashable BlueprintType
-
-instance NFData BlueprintType
-
-instance ToByteString BlueprintType
-
-instance ToQuery BlueprintType
-
-instance ToHeader BlueprintType
-
-instance FromJSON BlueprintType where
-  parseJSON = parseJSONText "BlueprintType"
+{-# COMPLETE
+  App,
+  OS,
+  BlueprintType'
+  #-}

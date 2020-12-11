@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.SigningProfileParameter where
+module Network.AWS.IoT.Types.SigningProfileParameter
+  ( SigningProfileParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSigningProfileParameter,
+
+    -- * Lenses
+    sppPlatform,
+    sppCertificateARN,
+    sppCertificatePathOnDevice,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the code-signing profile.
 --
---
---
--- /See:/ 'signingProfileParameter' smart constructor.
+-- /See:/ 'mkSigningProfileParameter' smart constructor.
 data SigningProfileParameter = SigningProfileParameter'
-  { _sppPlatform ::
-      !(Maybe Text),
-    _sppCertificateARN :: !(Maybe Text),
-    _sppCertificatePathOnDevice ::
-      !(Maybe Text)
+  { platform ::
+      Lude.Maybe Lude.Text,
+    certificateARN :: Lude.Maybe Lude.Text,
+    certificatePathOnDevice ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SigningProfileParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sppPlatform' - The hardware platform of your device.
---
--- * 'sppCertificateARN' - Certificate ARN.
---
--- * 'sppCertificatePathOnDevice' - The location of the code-signing certificate on your device.
-signingProfileParameter ::
+-- * 'certificateARN' - Certificate ARN.
+-- * 'certificatePathOnDevice' - The location of the code-signing certificate on your device.
+-- * 'platform' - The hardware platform of your device.
+mkSigningProfileParameter ::
   SigningProfileParameter
-signingProfileParameter =
+mkSigningProfileParameter =
   SigningProfileParameter'
-    { _sppPlatform = Nothing,
-      _sppCertificateARN = Nothing,
-      _sppCertificatePathOnDevice = Nothing
+    { platform = Lude.Nothing,
+      certificateARN = Lude.Nothing,
+      certificatePathOnDevice = Lude.Nothing
     }
 
 -- | The hardware platform of your device.
-sppPlatform :: Lens' SigningProfileParameter (Maybe Text)
-sppPlatform = lens _sppPlatform (\s a -> s {_sppPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppPlatform :: Lens.Lens' SigningProfileParameter (Lude.Maybe Lude.Text)
+sppPlatform = Lens.lens (platform :: SigningProfileParameter -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: SigningProfileParameter)
+{-# DEPRECATED sppPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | Certificate ARN.
-sppCertificateARN :: Lens' SigningProfileParameter (Maybe Text)
-sppCertificateARN = lens _sppCertificateARN (\s a -> s {_sppCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppCertificateARN :: Lens.Lens' SigningProfileParameter (Lude.Maybe Lude.Text)
+sppCertificateARN = Lens.lens (certificateARN :: SigningProfileParameter -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: SigningProfileParameter)
+{-# DEPRECATED sppCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The location of the code-signing certificate on your device.
-sppCertificatePathOnDevice :: Lens' SigningProfileParameter (Maybe Text)
-sppCertificatePathOnDevice = lens _sppCertificatePathOnDevice (\s a -> s {_sppCertificatePathOnDevice = a})
+--
+-- /Note:/ Consider using 'certificatePathOnDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppCertificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Lude.Maybe Lude.Text)
+sppCertificatePathOnDevice = Lens.lens (certificatePathOnDevice :: SigningProfileParameter -> Lude.Maybe Lude.Text) (\s a -> s {certificatePathOnDevice = a} :: SigningProfileParameter)
+{-# DEPRECATED sppCertificatePathOnDevice "Use generic-lens or generic-optics with 'certificatePathOnDevice' instead." #-}
 
-instance FromJSON SigningProfileParameter where
+instance Lude.FromJSON SigningProfileParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "SigningProfileParameter"
       ( \x ->
           SigningProfileParameter'
-            <$> (x .:? "platform")
-            <*> (x .:? "certificateArn")
-            <*> (x .:? "certificatePathOnDevice")
+            Lude.<$> (x Lude..:? "platform")
+            Lude.<*> (x Lude..:? "certificateArn")
+            Lude.<*> (x Lude..:? "certificatePathOnDevice")
       )
 
-instance Hashable SigningProfileParameter
-
-instance NFData SigningProfileParameter
-
-instance ToJSON SigningProfileParameter where
+instance Lude.ToJSON SigningProfileParameter where
   toJSON SigningProfileParameter' {..} =
-    object
-      ( catMaybes
-          [ ("platform" .=) <$> _sppPlatform,
-            ("certificateArn" .=) <$> _sppCertificateARN,
-            ("certificatePathOnDevice" .=) <$> _sppCertificatePathOnDevice
+    Lude.object
+      ( Lude.catMaybes
+          [ ("platform" Lude..=) Lude.<$> platform,
+            ("certificateArn" Lude..=) Lude.<$> certificateARN,
+            ("certificatePathOnDevice" Lude..=)
+              Lude.<$> certificatePathOnDevice
           ]
       )

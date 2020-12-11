@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,24 +17,24 @@
 --
 --     * The policy’s identifier.
 --
---     * The date and time when the policy was last modified.
 --
+--     * The date and time when the policy was last modified.
 --
 --
 -- To get an origin request policy, you must provide the policy’s identifier. If the origin request policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the origin request policy is not attached to a cache behavior, you can get the identifier using @ListOriginRequestPolicies@ .
 module Network.AWS.CloudFront.GetOriginRequestPolicy
-  ( -- * Creating a Request
-    getOriginRequestPolicy,
-    GetOriginRequestPolicy,
+  ( -- * Creating a request
+    GetOriginRequestPolicy (..),
+    mkGetOriginRequestPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gorpId,
 
-    -- * Destructuring the Response
-    getOriginRequestPolicyResponse,
-    GetOriginRequestPolicyResponse,
+    -- * Destructuring the response
+    GetOriginRequestPolicyResponse (..),
+    mkGetOriginRequestPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gorprsETag,
     gorprsOriginRequestPolicy,
     gorprsResponseStatus,
@@ -47,98 +42,114 @@ module Network.AWS.CloudFront.GetOriginRequestPolicy
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getOriginRequestPolicy' smart constructor.
+-- | /See:/ 'mkGetOriginRequestPolicy' smart constructor.
 newtype GetOriginRequestPolicy = GetOriginRequestPolicy'
-  { _gorpId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOriginRequestPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gorpId' - The unique identifier for the origin request policy. If the origin request policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the origin request policy is not attached to a cache behavior, you can get the identifier using @ListOriginRequestPolicies@ .
-getOriginRequestPolicy ::
-  -- | 'gorpId'
-  Text ->
+-- * 'id' - The unique identifier for the origin request policy. If the origin request policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the origin request policy is not attached to a cache behavior, you can get the identifier using @ListOriginRequestPolicies@ .
+mkGetOriginRequestPolicy ::
+  -- | 'id'
+  Lude.Text ->
   GetOriginRequestPolicy
-getOriginRequestPolicy pId_ =
-  GetOriginRequestPolicy' {_gorpId = pId_}
+mkGetOriginRequestPolicy pId_ = GetOriginRequestPolicy' {id = pId_}
 
 -- | The unique identifier for the origin request policy. If the origin request policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the origin request policy is not attached to a cache behavior, you can get the identifier using @ListOriginRequestPolicies@ .
-gorpId :: Lens' GetOriginRequestPolicy Text
-gorpId = lens _gorpId (\s a -> s {_gorpId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorpId :: Lens.Lens' GetOriginRequestPolicy Lude.Text
+gorpId = Lens.lens (id :: GetOriginRequestPolicy -> Lude.Text) (\s a -> s {id = a} :: GetOriginRequestPolicy)
+{-# DEPRECATED gorpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetOriginRequestPolicy where
+instance Lude.AWSRequest GetOriginRequestPolicy where
   type Rs GetOriginRequestPolicy = GetOriginRequestPolicyResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetOriginRequestPolicyResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOriginRequestPolicy
+instance Lude.ToHeaders GetOriginRequestPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetOriginRequestPolicy
-
-instance ToHeaders GetOriginRequestPolicy where
-  toHeaders = const mempty
-
-instance ToPath GetOriginRequestPolicy where
+instance Lude.ToPath GetOriginRequestPolicy where
   toPath GetOriginRequestPolicy' {..} =
-    mconcat ["/2020-05-31/origin-request-policy/", toBS _gorpId]
+    Lude.mconcat ["/2020-05-31/origin-request-policy/", Lude.toBS id]
 
-instance ToQuery GetOriginRequestPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetOriginRequestPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getOriginRequestPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetOriginRequestPolicyResponse' smart constructor.
 data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
-  { _gorprsETag ::
-      !(Maybe Text),
-    _gorprsOriginRequestPolicy ::
-      !(Maybe OriginRequestPolicy),
-    _gorprsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    originRequestPolicy ::
+      Lude.Maybe
+        OriginRequestPolicy,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOriginRequestPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gorprsETag' - The current version of the origin request policy.
---
--- * 'gorprsOriginRequestPolicy' - The origin request policy.
---
--- * 'gorprsResponseStatus' - -- | The response status code.
-getOriginRequestPolicyResponse ::
-  -- | 'gorprsResponseStatus'
-  Int ->
+-- * 'eTag' - The current version of the origin request policy.
+-- * 'originRequestPolicy' - The origin request policy.
+-- * 'responseStatus' - The response status code.
+mkGetOriginRequestPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOriginRequestPolicyResponse
-getOriginRequestPolicyResponse pResponseStatus_ =
+mkGetOriginRequestPolicyResponse pResponseStatus_ =
   GetOriginRequestPolicyResponse'
-    { _gorprsETag = Nothing,
-      _gorprsOriginRequestPolicy = Nothing,
-      _gorprsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      originRequestPolicy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the origin request policy.
-gorprsETag :: Lens' GetOriginRequestPolicyResponse (Maybe Text)
-gorprsETag = lens _gorprsETag (\s a -> s {_gorprsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorprsETag :: Lens.Lens' GetOriginRequestPolicyResponse (Lude.Maybe Lude.Text)
+gorprsETag = Lens.lens (eTag :: GetOriginRequestPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetOriginRequestPolicyResponse)
+{-# DEPRECATED gorprsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The origin request policy.
-gorprsOriginRequestPolicy :: Lens' GetOriginRequestPolicyResponse (Maybe OriginRequestPolicy)
-gorprsOriginRequestPolicy = lens _gorprsOriginRequestPolicy (\s a -> s {_gorprsOriginRequestPolicy = a})
+--
+-- /Note:/ Consider using 'originRequestPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorprsOriginRequestPolicy :: Lens.Lens' GetOriginRequestPolicyResponse (Lude.Maybe OriginRequestPolicy)
+gorprsOriginRequestPolicy = Lens.lens (originRequestPolicy :: GetOriginRequestPolicyResponse -> Lude.Maybe OriginRequestPolicy) (\s a -> s {originRequestPolicy = a} :: GetOriginRequestPolicyResponse)
+{-# DEPRECATED gorprsOriginRequestPolicy "Use generic-lens or generic-optics with 'originRequestPolicy' instead." #-}
 
--- | -- | The response status code.
-gorprsResponseStatus :: Lens' GetOriginRequestPolicyResponse Int
-gorprsResponseStatus = lens _gorprsResponseStatus (\s a -> s {_gorprsResponseStatus = a})
-
-instance NFData GetOriginRequestPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorprsResponseStatus :: Lens.Lens' GetOriginRequestPolicyResponse Lude.Int
+gorprsResponseStatus = Lens.lens (responseStatus :: GetOriginRequestPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOriginRequestPolicyResponse)
+{-# DEPRECATED gorprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

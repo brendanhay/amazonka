@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginGroupMember where
+module Network.AWS.CloudFront.Types.OriginGroupMember
+  ( OriginGroupMember (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOriginGroupMember,
+
+    -- * Lenses
+    ogmOriginId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An origin in an origin group.
 --
---
---
--- /See:/ 'originGroupMember' smart constructor.
+-- /See:/ 'mkOriginGroupMember' smart constructor.
 newtype OriginGroupMember = OriginGroupMember'
-  { _ogmOriginId ::
-      Text
+  { originId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginGroupMember' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogmOriginId' - The ID for an origin in an origin group.
-originGroupMember ::
-  -- | 'ogmOriginId'
-  Text ->
+-- * 'originId' - The ID for an origin in an origin group.
+mkOriginGroupMember ::
+  -- | 'originId'
+  Lude.Text ->
   OriginGroupMember
-originGroupMember pOriginId_ =
-  OriginGroupMember' {_ogmOriginId = pOriginId_}
+mkOriginGroupMember pOriginId_ =
+  OriginGroupMember' {originId = pOriginId_}
 
 -- | The ID for an origin in an origin group.
-ogmOriginId :: Lens' OriginGroupMember Text
-ogmOriginId = lens _ogmOriginId (\s a -> s {_ogmOriginId = a})
+--
+-- /Note:/ Consider using 'originId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogmOriginId :: Lens.Lens' OriginGroupMember Lude.Text
+ogmOriginId = Lens.lens (originId :: OriginGroupMember -> Lude.Text) (\s a -> s {originId = a} :: OriginGroupMember)
+{-# DEPRECATED ogmOriginId "Use generic-lens or generic-optics with 'originId' instead." #-}
 
-instance FromXML OriginGroupMember where
-  parseXML x = OriginGroupMember' <$> (x .@ "OriginId")
+instance Lude.FromXML OriginGroupMember where
+  parseXML x = OriginGroupMember' Lude.<$> (x Lude..@ "OriginId")
 
-instance Hashable OriginGroupMember
-
-instance NFData OriginGroupMember
-
-instance ToXML OriginGroupMember where
-  toXML OriginGroupMember' {..} = mconcat ["OriginId" @= _ogmOriginId]
+instance Lude.ToXML OriginGroupMember where
+  toXML OriginGroupMember' {..} =
+    Lude.mconcat ["OriginId" Lude.@= originId]

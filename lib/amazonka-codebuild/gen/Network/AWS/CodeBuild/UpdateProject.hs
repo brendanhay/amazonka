@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Changes the settings of a build project.
 module Network.AWS.CodeBuild.UpdateProject
-  ( -- * Creating a Request
-    updateProject,
-    UpdateProject,
+  ( -- * Creating a request
+    UpdateProject (..),
+    mkUpdateProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upSecondaryArtifacts,
     upArtifacts,
     upEnvironment,
@@ -45,287 +40,379 @@ module Network.AWS.CodeBuild.UpdateProject
     upTimeoutInMinutes,
     upName,
 
-    -- * Destructuring the Response
-    updateProjectResponse,
-    UpdateProjectResponse,
+    -- * Destructuring the response
+    UpdateProjectResponse (..),
+    mkUpdateProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprsProject,
     uprsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateProject' smart constructor.
+-- | /See:/ 'mkUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upSecondaryArtifacts ::
-      !(Maybe [ProjectArtifacts]),
-    _upArtifacts :: !(Maybe ProjectArtifacts),
-    _upEnvironment :: !(Maybe ProjectEnvironment),
-    _upBadgeEnabled :: !(Maybe Bool),
-    _upSecondarySourceVersions :: !(Maybe [ProjectSourceVersion]),
-    _upQueuedTimeoutInMinutes :: !(Maybe Nat),
-    _upCache :: !(Maybe ProjectCache),
-    _upSecondarySources :: !(Maybe [ProjectSource]),
-    _upSourceVersion :: !(Maybe Text),
-    _upVpcConfig :: !(Maybe VPCConfig),
-    _upSource :: !(Maybe ProjectSource),
-    _upLogsConfig :: !(Maybe LogsConfig),
-    _upFileSystemLocations :: !(Maybe [ProjectFileSystemLocation]),
-    _upBuildBatchConfig :: !(Maybe ProjectBuildBatchConfig),
-    _upEncryptionKey :: !(Maybe Text),
-    _upDescription :: !(Maybe Text),
-    _upServiceRole :: !(Maybe Text),
-    _upTags :: !(Maybe [Tag]),
-    _upTimeoutInMinutes :: !(Maybe Nat),
-    _upName :: !Text
+  { secondaryArtifacts ::
+      Lude.Maybe [ProjectArtifacts],
+    artifacts :: Lude.Maybe ProjectArtifacts,
+    environment :: Lude.Maybe ProjectEnvironment,
+    badgeEnabled :: Lude.Maybe Lude.Bool,
+    secondarySourceVersions :: Lude.Maybe [ProjectSourceVersion],
+    queuedTimeoutInMinutes :: Lude.Maybe Lude.Natural,
+    cache :: Lude.Maybe ProjectCache,
+    secondarySources :: Lude.Maybe [ProjectSource],
+    sourceVersion :: Lude.Maybe Lude.Text,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    source :: Lude.Maybe ProjectSource,
+    logsConfig :: Lude.Maybe LogsConfig,
+    fileSystemLocations :: Lude.Maybe [ProjectFileSystemLocation],
+    buildBatchConfig :: Lude.Maybe ProjectBuildBatchConfig,
+    encryptionKey :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    serviceRole :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    timeoutInMinutes :: Lude.Maybe Lude.Natural,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'artifacts' - Information to be changed about the build output artifacts for the build project.
+-- * 'badgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
+-- * 'buildBatchConfig' - Undocumented field.
+-- * 'cache' - Stores recently used information so that it can be quickly accessed at a later time.
+-- * 'description' - A new or replacement description of the build project.
+-- * 'encryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
 --
--- * 'upSecondaryArtifacts' - An array of @ProjectSource@ objects.
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+-- * 'environment' - Information to be changed about the build environment for the build project.
+-- * 'fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
+-- * 'logsConfig' - Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, logs in an S3 bucket, or both.
+-- * 'name' - The name of the build project.
+-- * 'queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
+-- * 'secondaryArtifacts' - An array of @ProjectSource@ objects.
+-- * 'secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@ is specified at the build level, then they take over these @secondarySourceVersions@ (at the project level).
+-- * 'secondarySources' - An array of @ProjectSource@ objects.
+-- * 'serviceRole' - The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+-- * 'source' - Information to be changed about the build input source code for the build project.
+-- * 'sourceVersion' - A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
 --
--- * 'upArtifacts' - Information to be changed about the build output artifacts for the build project.
 --
--- * 'upEnvironment' - Information to be changed about the build environment for the build project.
+--     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
 --
--- * 'upBadgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
 --
--- * 'upSecondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@ is specified at the build level, then they take over these @secondarySourceVersions@ (at the project level).
+--     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 --
--- * 'upQueuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
 --
--- * 'upCache' - Stores recently used information so that it can be quickly accessed at a later time.
+--     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 --
--- * 'upSecondarySources' - An array of @ProjectSource@ objects.
 --
--- * 'upSourceVersion' - A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:      * For AWS CodeCommit: the commit ID, branch, or Git tag to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use. If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).  For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+--     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
 --
--- * 'upVpcConfig' - VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
 --
--- * 'upSource' - Information to be changed about the build input source code for the build project.
+-- If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+-- * 'tags' - An updated list of tag key and value pairs associated with this build project.
 --
--- * 'upLogsConfig' - Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, logs in an S3 bucket, or both.
---
--- * 'upFileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
---
--- * 'upBuildBatchConfig' - Undocumented member.
---
--- * 'upEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
---
--- * 'upDescription' - A new or replacement description of the build project.
---
--- * 'upServiceRole' - The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
---
--- * 'upTags' - An updated list of tag key and value pairs associated with this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
---
--- * 'upTimeoutInMinutes' - The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed.
---
--- * 'upName' - The name of the build project.
-updateProject ::
-  -- | 'upName'
-  Text ->
+-- These tags are available for use by AWS services that support AWS CodeBuild build project tags.
+-- * 'timeoutInMinutes' - The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed.
+-- * 'vpcConfig' - VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
+mkUpdateProject ::
+  -- | 'name'
+  Lude.Text ->
   UpdateProject
-updateProject pName_ =
+mkUpdateProject pName_ =
   UpdateProject'
-    { _upSecondaryArtifacts = Nothing,
-      _upArtifacts = Nothing,
-      _upEnvironment = Nothing,
-      _upBadgeEnabled = Nothing,
-      _upSecondarySourceVersions = Nothing,
-      _upQueuedTimeoutInMinutes = Nothing,
-      _upCache = Nothing,
-      _upSecondarySources = Nothing,
-      _upSourceVersion = Nothing,
-      _upVpcConfig = Nothing,
-      _upSource = Nothing,
-      _upLogsConfig = Nothing,
-      _upFileSystemLocations = Nothing,
-      _upBuildBatchConfig = Nothing,
-      _upEncryptionKey = Nothing,
-      _upDescription = Nothing,
-      _upServiceRole = Nothing,
-      _upTags = Nothing,
-      _upTimeoutInMinutes = Nothing,
-      _upName = pName_
+    { secondaryArtifacts = Lude.Nothing,
+      artifacts = Lude.Nothing,
+      environment = Lude.Nothing,
+      badgeEnabled = Lude.Nothing,
+      secondarySourceVersions = Lude.Nothing,
+      queuedTimeoutInMinutes = Lude.Nothing,
+      cache = Lude.Nothing,
+      secondarySources = Lude.Nothing,
+      sourceVersion = Lude.Nothing,
+      vpcConfig = Lude.Nothing,
+      source = Lude.Nothing,
+      logsConfig = Lude.Nothing,
+      fileSystemLocations = Lude.Nothing,
+      buildBatchConfig = Lude.Nothing,
+      encryptionKey = Lude.Nothing,
+      description = Lude.Nothing,
+      serviceRole = Lude.Nothing,
+      tags = Lude.Nothing,
+      timeoutInMinutes = Lude.Nothing,
+      name = pName_
     }
 
 -- | An array of @ProjectSource@ objects.
-upSecondaryArtifacts :: Lens' UpdateProject [ProjectArtifacts]
-upSecondaryArtifacts = lens _upSecondaryArtifacts (\s a -> s {_upSecondaryArtifacts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondaryArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSecondaryArtifacts :: Lens.Lens' UpdateProject (Lude.Maybe [ProjectArtifacts])
+upSecondaryArtifacts = Lens.lens (secondaryArtifacts :: UpdateProject -> Lude.Maybe [ProjectArtifacts]) (\s a -> s {secondaryArtifacts = a} :: UpdateProject)
+{-# DEPRECATED upSecondaryArtifacts "Use generic-lens or generic-optics with 'secondaryArtifacts' instead." #-}
 
 -- | Information to be changed about the build output artifacts for the build project.
-upArtifacts :: Lens' UpdateProject (Maybe ProjectArtifacts)
-upArtifacts = lens _upArtifacts (\s a -> s {_upArtifacts = a})
+--
+-- /Note:/ Consider using 'artifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upArtifacts :: Lens.Lens' UpdateProject (Lude.Maybe ProjectArtifacts)
+upArtifacts = Lens.lens (artifacts :: UpdateProject -> Lude.Maybe ProjectArtifacts) (\s a -> s {artifacts = a} :: UpdateProject)
+{-# DEPRECATED upArtifacts "Use generic-lens or generic-optics with 'artifacts' instead." #-}
 
 -- | Information to be changed about the build environment for the build project.
-upEnvironment :: Lens' UpdateProject (Maybe ProjectEnvironment)
-upEnvironment = lens _upEnvironment (\s a -> s {_upEnvironment = a})
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upEnvironment :: Lens.Lens' UpdateProject (Lude.Maybe ProjectEnvironment)
+upEnvironment = Lens.lens (environment :: UpdateProject -> Lude.Maybe ProjectEnvironment) (\s a -> s {environment = a} :: UpdateProject)
+{-# DEPRECATED upEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | Set this to true to generate a publicly accessible URL for your project's build badge.
-upBadgeEnabled :: Lens' UpdateProject (Maybe Bool)
-upBadgeEnabled = lens _upBadgeEnabled (\s a -> s {_upBadgeEnabled = a})
+--
+-- /Note:/ Consider using 'badgeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upBadgeEnabled :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Bool)
+upBadgeEnabled = Lens.lens (badgeEnabled :: UpdateProject -> Lude.Maybe Lude.Bool) (\s a -> s {badgeEnabled = a} :: UpdateProject)
+{-# DEPRECATED upBadgeEnabled "Use generic-lens or generic-optics with 'badgeEnabled' instead." #-}
 
 -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@ is specified at the build level, then they take over these @secondarySourceVersions@ (at the project level).
-upSecondarySourceVersions :: Lens' UpdateProject [ProjectSourceVersion]
-upSecondarySourceVersions = lens _upSecondarySourceVersions (\s a -> s {_upSecondarySourceVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondarySourceVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSecondarySourceVersions :: Lens.Lens' UpdateProject (Lude.Maybe [ProjectSourceVersion])
+upSecondarySourceVersions = Lens.lens (secondarySourceVersions :: UpdateProject -> Lude.Maybe [ProjectSourceVersion]) (\s a -> s {secondarySourceVersions = a} :: UpdateProject)
+{-# DEPRECATED upSecondarySourceVersions "Use generic-lens or generic-optics with 'secondarySourceVersions' instead." #-}
 
 -- | The number of minutes a build is allowed to be queued before it times out.
-upQueuedTimeoutInMinutes :: Lens' UpdateProject (Maybe Natural)
-upQueuedTimeoutInMinutes = lens _upQueuedTimeoutInMinutes (\s a -> s {_upQueuedTimeoutInMinutes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'queuedTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upQueuedTimeoutInMinutes :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Natural)
+upQueuedTimeoutInMinutes = Lens.lens (queuedTimeoutInMinutes :: UpdateProject -> Lude.Maybe Lude.Natural) (\s a -> s {queuedTimeoutInMinutes = a} :: UpdateProject)
+{-# DEPRECATED upQueuedTimeoutInMinutes "Use generic-lens or generic-optics with 'queuedTimeoutInMinutes' instead." #-}
 
 -- | Stores recently used information so that it can be quickly accessed at a later time.
-upCache :: Lens' UpdateProject (Maybe ProjectCache)
-upCache = lens _upCache (\s a -> s {_upCache = a})
+--
+-- /Note:/ Consider using 'cache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upCache :: Lens.Lens' UpdateProject (Lude.Maybe ProjectCache)
+upCache = Lens.lens (cache :: UpdateProject -> Lude.Maybe ProjectCache) (\s a -> s {cache = a} :: UpdateProject)
+{-# DEPRECATED upCache "Use generic-lens or generic-optics with 'cache' instead." #-}
 
 -- | An array of @ProjectSource@ objects.
-upSecondarySources :: Lens' UpdateProject [ProjectSource]
-upSecondarySources = lens _upSecondarySources (\s a -> s {_upSecondarySources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondarySources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSecondarySources :: Lens.Lens' UpdateProject (Lude.Maybe [ProjectSource])
+upSecondarySources = Lens.lens (secondarySources :: UpdateProject -> Lude.Maybe [ProjectSource]) (\s a -> s {secondarySources = a} :: UpdateProject)
+{-# DEPRECATED upSecondarySources "Use generic-lens or generic-optics with 'secondarySources' instead." #-}
 
--- | A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:      * For AWS CodeCommit: the commit ID, branch, or Git tag to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use. If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).  For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
-upSourceVersion :: Lens' UpdateProject (Maybe Text)
-upSourceVersion = lens _upSourceVersion (\s a -> s {_upSourceVersion = a})
+-- | A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
+--
+--
+--     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+--
+--
+--     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
+--
+--
+-- If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+--
+-- /Note:/ Consider using 'sourceVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSourceVersion :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Text)
+upSourceVersion = Lens.lens (sourceVersion :: UpdateProject -> Lude.Maybe Lude.Text) (\s a -> s {sourceVersion = a} :: UpdateProject)
+{-# DEPRECATED upSourceVersion "Use generic-lens or generic-optics with 'sourceVersion' instead." #-}
 
 -- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
-upVpcConfig :: Lens' UpdateProject (Maybe VPCConfig)
-upVpcConfig = lens _upVpcConfig (\s a -> s {_upVpcConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upVpcConfig :: Lens.Lens' UpdateProject (Lude.Maybe VPCConfig)
+upVpcConfig = Lens.lens (vpcConfig :: UpdateProject -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: UpdateProject)
+{-# DEPRECATED upVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | Information to be changed about the build input source code for the build project.
-upSource :: Lens' UpdateProject (Maybe ProjectSource)
-upSource = lens _upSource (\s a -> s {_upSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSource :: Lens.Lens' UpdateProject (Lude.Maybe ProjectSource)
+upSource = Lens.lens (source :: UpdateProject -> Lude.Maybe ProjectSource) (\s a -> s {source = a} :: UpdateProject)
+{-# DEPRECATED upSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, logs in an S3 bucket, or both.
-upLogsConfig :: Lens' UpdateProject (Maybe LogsConfig)
-upLogsConfig = lens _upLogsConfig (\s a -> s {_upLogsConfig = a})
+--
+-- /Note:/ Consider using 'logsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upLogsConfig :: Lens.Lens' UpdateProject (Lude.Maybe LogsConfig)
+upLogsConfig = Lens.lens (logsConfig :: UpdateProject -> Lude.Maybe LogsConfig) (\s a -> s {logsConfig = a} :: UpdateProject)
+{-# DEPRECATED upLogsConfig "Use generic-lens or generic-optics with 'logsConfig' instead." #-}
 
 -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
-upFileSystemLocations :: Lens' UpdateProject [ProjectFileSystemLocation]
-upFileSystemLocations = lens _upFileSystemLocations (\s a -> s {_upFileSystemLocations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fileSystemLocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upFileSystemLocations :: Lens.Lens' UpdateProject (Lude.Maybe [ProjectFileSystemLocation])
+upFileSystemLocations = Lens.lens (fileSystemLocations :: UpdateProject -> Lude.Maybe [ProjectFileSystemLocation]) (\s a -> s {fileSystemLocations = a} :: UpdateProject)
+{-# DEPRECATED upFileSystemLocations "Use generic-lens or generic-optics with 'fileSystemLocations' instead." #-}
 
--- | Undocumented member.
-upBuildBatchConfig :: Lens' UpdateProject (Maybe ProjectBuildBatchConfig)
-upBuildBatchConfig = lens _upBuildBatchConfig (\s a -> s {_upBuildBatchConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'buildBatchConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upBuildBatchConfig :: Lens.Lens' UpdateProject (Lude.Maybe ProjectBuildBatchConfig)
+upBuildBatchConfig = Lens.lens (buildBatchConfig :: UpdateProject -> Lude.Maybe ProjectBuildBatchConfig) (\s a -> s {buildBatchConfig = a} :: UpdateProject)
+{-# DEPRECATED upBuildBatchConfig "Use generic-lens or generic-optics with 'buildBatchConfig' instead." #-}
 
--- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
-upEncryptionKey :: Lens' UpdateProject (Maybe Text)
-upEncryptionKey = lens _upEncryptionKey (\s a -> s {_upEncryptionKey = a})
+-- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+--
+-- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upEncryptionKey :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Text)
+upEncryptionKey = Lens.lens (encryptionKey :: UpdateProject -> Lude.Maybe Lude.Text) (\s a -> s {encryptionKey = a} :: UpdateProject)
+{-# DEPRECATED upEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
 
 -- | A new or replacement description of the build project.
-upDescription :: Lens' UpdateProject (Maybe Text)
-upDescription = lens _upDescription (\s a -> s {_upDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Text)
+upDescription = Lens.lens (description :: UpdateProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateProject)
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-upServiceRole :: Lens' UpdateProject (Maybe Text)
-upServiceRole = lens _upServiceRole (\s a -> s {_upServiceRole = a})
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upServiceRole :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Text)
+upServiceRole = Lens.lens (serviceRole :: UpdateProject -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: UpdateProject)
+{-# DEPRECATED upServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
--- | An updated list of tag key and value pairs associated with this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
-upTags :: Lens' UpdateProject [Tag]
-upTags = lens _upTags (\s a -> s {_upTags = a}) . _Default . _Coerce
+-- | An updated list of tag key and value pairs associated with this build project.
+--
+-- These tags are available for use by AWS services that support AWS CodeBuild build project tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upTags :: Lens.Lens' UpdateProject (Lude.Maybe [Tag])
+upTags = Lens.lens (tags :: UpdateProject -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateProject)
+{-# DEPRECATED upTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed.
-upTimeoutInMinutes :: Lens' UpdateProject (Maybe Natural)
-upTimeoutInMinutes = lens _upTimeoutInMinutes (\s a -> s {_upTimeoutInMinutes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upTimeoutInMinutes :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Natural)
+upTimeoutInMinutes = Lens.lens (timeoutInMinutes :: UpdateProject -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInMinutes = a} :: UpdateProject)
+{-# DEPRECATED upTimeoutInMinutes "Use generic-lens or generic-optics with 'timeoutInMinutes' instead." #-}
 
 -- | The name of the build project.
-upName :: Lens' UpdateProject Text
-upName = lens _upName (\s a -> s {_upName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UpdateProject Lude.Text
+upName = Lens.lens (name :: UpdateProject -> Lude.Text) (\s a -> s {name = a} :: UpdateProject)
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest UpdateProject where
+instance Lude.AWSRequest UpdateProject where
   type Rs UpdateProject = UpdateProjectResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateProjectResponse'
-            <$> (x .?> "project") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "project") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateProject
-
-instance NFData UpdateProject
-
-instance ToHeaders UpdateProject where
+instance Lude.ToHeaders UpdateProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.UpdateProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.UpdateProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateProject where
+instance Lude.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
-    object
-      ( catMaybes
-          [ ("secondaryArtifacts" .=) <$> _upSecondaryArtifacts,
-            ("artifacts" .=) <$> _upArtifacts,
-            ("environment" .=) <$> _upEnvironment,
-            ("badgeEnabled" .=) <$> _upBadgeEnabled,
-            ("secondarySourceVersions" .=) <$> _upSecondarySourceVersions,
-            ("queuedTimeoutInMinutes" .=) <$> _upQueuedTimeoutInMinutes,
-            ("cache" .=) <$> _upCache,
-            ("secondarySources" .=) <$> _upSecondarySources,
-            ("sourceVersion" .=) <$> _upSourceVersion,
-            ("vpcConfig" .=) <$> _upVpcConfig,
-            ("source" .=) <$> _upSource,
-            ("logsConfig" .=) <$> _upLogsConfig,
-            ("fileSystemLocations" .=) <$> _upFileSystemLocations,
-            ("buildBatchConfig" .=) <$> _upBuildBatchConfig,
-            ("encryptionKey" .=) <$> _upEncryptionKey,
-            ("description" .=) <$> _upDescription,
-            ("serviceRole" .=) <$> _upServiceRole,
-            ("tags" .=) <$> _upTags,
-            ("timeoutInMinutes" .=) <$> _upTimeoutInMinutes,
-            Just ("name" .= _upName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("secondaryArtifacts" Lude..=) Lude.<$> secondaryArtifacts,
+            ("artifacts" Lude..=) Lude.<$> artifacts,
+            ("environment" Lude..=) Lude.<$> environment,
+            ("badgeEnabled" Lude..=) Lude.<$> badgeEnabled,
+            ("secondarySourceVersions" Lude..=)
+              Lude.<$> secondarySourceVersions,
+            ("queuedTimeoutInMinutes" Lude..=) Lude.<$> queuedTimeoutInMinutes,
+            ("cache" Lude..=) Lude.<$> cache,
+            ("secondarySources" Lude..=) Lude.<$> secondarySources,
+            ("sourceVersion" Lude..=) Lude.<$> sourceVersion,
+            ("vpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("source" Lude..=) Lude.<$> source,
+            ("logsConfig" Lude..=) Lude.<$> logsConfig,
+            ("fileSystemLocations" Lude..=) Lude.<$> fileSystemLocations,
+            ("buildBatchConfig" Lude..=) Lude.<$> buildBatchConfig,
+            ("encryptionKey" Lude..=) Lude.<$> encryptionKey,
+            ("description" Lude..=) Lude.<$> description,
+            ("serviceRole" Lude..=) Lude.<$> serviceRole,
+            ("tags" Lude..=) Lude.<$> tags,
+            ("timeoutInMinutes" Lude..=) Lude.<$> timeoutInMinutes,
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
-instance ToPath UpdateProject where
-  toPath = const "/"
+instance Lude.ToPath UpdateProject where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateProject where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateProjectResponse' smart constructor.
+-- | /See:/ 'mkUpdateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
-  { _uprsProject ::
-      !(Maybe Project),
-    _uprsResponseStatus :: !Int
+  { project ::
+      Lude.Maybe Project,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprsProject' - Information about the build project that was changed.
---
--- * 'uprsResponseStatus' - -- | The response status code.
-updateProjectResponse ::
-  -- | 'uprsResponseStatus'
-  Int ->
+-- * 'project' - Information about the build project that was changed.
+-- * 'responseStatus' - The response status code.
+mkUpdateProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateProjectResponse
-updateProjectResponse pResponseStatus_ =
+mkUpdateProjectResponse pResponseStatus_ =
   UpdateProjectResponse'
-    { _uprsProject = Nothing,
-      _uprsResponseStatus = pResponseStatus_
+    { project = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the build project that was changed.
-uprsProject :: Lens' UpdateProjectResponse (Maybe Project)
-uprsProject = lens _uprsProject (\s a -> s {_uprsProject = a})
+--
+-- /Note:/ Consider using 'project' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsProject :: Lens.Lens' UpdateProjectResponse (Lude.Maybe Project)
+uprsProject = Lens.lens (project :: UpdateProjectResponse -> Lude.Maybe Project) (\s a -> s {project = a} :: UpdateProjectResponse)
+{-# DEPRECATED uprsProject "Use generic-lens or generic-optics with 'project' instead." #-}
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdateProjectResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\s a -> s {_uprsResponseStatus = a})
-
-instance NFData UpdateProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsResponseStatus :: Lens.Lens' UpdateProjectResponse Lude.Int
+uprsResponseStatus = Lens.lens (responseStatus :: UpdateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProjectResponse)
+{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

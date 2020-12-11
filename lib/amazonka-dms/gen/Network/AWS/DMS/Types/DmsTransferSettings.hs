@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.DmsTransferSettings where
+module Network.AWS.DMS.Types.DmsTransferSettings
+  ( DmsTransferSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDmsTransferSettings,
+
+    -- * Lenses
+    dtsServiceAccessRoleARN,
+    dtsBucketName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The settings in JSON format for the DMS Transfer type source endpoint.
 --
---
---
--- /See:/ 'dmsTransferSettings' smart constructor.
+-- /See:/ 'mkDmsTransferSettings' smart constructor.
 data DmsTransferSettings = DmsTransferSettings'
-  { _dtsServiceAccessRoleARN ::
-      !(Maybe Text),
-    _dtsBucketName :: !(Maybe Text)
+  { serviceAccessRoleARN ::
+      Lude.Maybe Lude.Text,
+    bucketName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DmsTransferSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtsServiceAccessRoleARN' - The IAM role that has permission to access the Amazon S3 bucket.
---
--- * 'dtsBucketName' - The name of the S3 bucket to use.
-dmsTransferSettings ::
+-- * 'bucketName' - The name of the S3 bucket to use.
+-- * 'serviceAccessRoleARN' - The IAM role that has permission to access the Amazon S3 bucket.
+mkDmsTransferSettings ::
   DmsTransferSettings
-dmsTransferSettings =
+mkDmsTransferSettings =
   DmsTransferSettings'
-    { _dtsServiceAccessRoleARN = Nothing,
-      _dtsBucketName = Nothing
+    { serviceAccessRoleARN = Lude.Nothing,
+      bucketName = Lude.Nothing
     }
 
 -- | The IAM role that has permission to access the Amazon S3 bucket.
-dtsServiceAccessRoleARN :: Lens' DmsTransferSettings (Maybe Text)
-dtsServiceAccessRoleARN = lens _dtsServiceAccessRoleARN (\s a -> s {_dtsServiceAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsServiceAccessRoleARN :: Lens.Lens' DmsTransferSettings (Lude.Maybe Lude.Text)
+dtsServiceAccessRoleARN = Lens.lens (serviceAccessRoleARN :: DmsTransferSettings -> Lude.Maybe Lude.Text) (\s a -> s {serviceAccessRoleARN = a} :: DmsTransferSettings)
+{-# DEPRECATED dtsServiceAccessRoleARN "Use generic-lens or generic-optics with 'serviceAccessRoleARN' instead." #-}
 
 -- | The name of the S3 bucket to use.
-dtsBucketName :: Lens' DmsTransferSettings (Maybe Text)
-dtsBucketName = lens _dtsBucketName (\s a -> s {_dtsBucketName = a})
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsBucketName :: Lens.Lens' DmsTransferSettings (Lude.Maybe Lude.Text)
+dtsBucketName = Lens.lens (bucketName :: DmsTransferSettings -> Lude.Maybe Lude.Text) (\s a -> s {bucketName = a} :: DmsTransferSettings)
+{-# DEPRECATED dtsBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
-instance FromJSON DmsTransferSettings where
+instance Lude.FromJSON DmsTransferSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "DmsTransferSettings"
       ( \x ->
           DmsTransferSettings'
-            <$> (x .:? "ServiceAccessRoleArn") <*> (x .:? "BucketName")
+            Lude.<$> (x Lude..:? "ServiceAccessRoleArn")
+            Lude.<*> (x Lude..:? "BucketName")
       )
 
-instance Hashable DmsTransferSettings
-
-instance NFData DmsTransferSettings
-
-instance ToJSON DmsTransferSettings where
+instance Lude.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =
-    object
-      ( catMaybes
-          [ ("ServiceAccessRoleArn" .=) <$> _dtsServiceAccessRoleARN,
-            ("BucketName" .=) <$> _dtsBucketName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ServiceAccessRoleArn" Lude..=) Lude.<$> serviceAccessRoleARN,
+            ("BucketName" Lude..=) Lude.<$> bucketName
           ]
       )

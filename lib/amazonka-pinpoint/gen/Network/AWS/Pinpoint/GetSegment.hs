@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,146 @@
 --
 -- Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.
 module Network.AWS.Pinpoint.GetSegment
-  ( -- * Creating a Request
-    getSegment,
-    GetSegment,
+  ( -- * Creating a request
+    GetSegment (..),
+    mkGetSegment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsSegmentId,
     gsApplicationId,
 
-    -- * Destructuring the Response
-    getSegmentResponse,
-    GetSegmentResponse,
+    -- * Destructuring the response
+    GetSegmentResponse (..),
+    mkGetSegmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gssrsResponseStatus,
     gssrsSegmentResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSegment' smart constructor.
+-- | /See:/ 'mkGetSegment' smart constructor.
 data GetSegment = GetSegment'
-  { _gsSegmentId :: !Text,
-    _gsApplicationId :: !Text
+  { segmentId :: Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsSegmentId' - The unique identifier for the segment.
---
--- * 'gsApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getSegment ::
-  -- | 'gsSegmentId'
-  Text ->
-  -- | 'gsApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'segmentId' - The unique identifier for the segment.
+mkGetSegment ::
+  -- | 'segmentId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   GetSegment
-getSegment pSegmentId_ pApplicationId_ =
+mkGetSegment pSegmentId_ pApplicationId_ =
   GetSegment'
-    { _gsSegmentId = pSegmentId_,
-      _gsApplicationId = pApplicationId_
+    { segmentId = pSegmentId_,
+      applicationId = pApplicationId_
     }
 
 -- | The unique identifier for the segment.
-gsSegmentId :: Lens' GetSegment Text
-gsSegmentId = lens _gsSegmentId (\s a -> s {_gsSegmentId = a})
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsSegmentId :: Lens.Lens' GetSegment Lude.Text
+gsSegmentId = Lens.lens (segmentId :: GetSegment -> Lude.Text) (\s a -> s {segmentId = a} :: GetSegment)
+{-# DEPRECATED gsSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gsApplicationId :: Lens' GetSegment Text
-gsApplicationId = lens _gsApplicationId (\s a -> s {_gsApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsApplicationId :: Lens.Lens' GetSegment Lude.Text
+gsApplicationId = Lens.lens (applicationId :: GetSegment -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegment)
+{-# DEPRECATED gsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetSegment where
+instance Lude.AWSRequest GetSegment where
   type Rs GetSegment = GetSegmentResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSegmentResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetSegment
-
-instance NFData GetSegment
-
-instance ToHeaders GetSegment where
+instance Lude.ToHeaders GetSegment where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSegment where
+instance Lude.ToPath GetSegment where
   toPath GetSegment' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _gsApplicationId,
+        Lude.toBS applicationId,
         "/segments/",
-        toBS _gsSegmentId
+        Lude.toBS segmentId
       ]
 
-instance ToQuery GetSegment where
-  toQuery = const mempty
+instance Lude.ToQuery GetSegment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSegmentResponse' smart constructor.
+-- | /See:/ 'mkGetSegmentResponse' smart constructor.
 data GetSegmentResponse = GetSegmentResponse'
-  { _gssrsResponseStatus ::
-      !Int,
-    _gssrsSegmentResponse :: !SegmentResponse
+  { responseStatus ::
+      Lude.Int,
+    segmentResponse :: SegmentResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gssrsResponseStatus' - -- | The response status code.
---
--- * 'gssrsSegmentResponse' - Undocumented member.
-getSegmentResponse ::
-  -- | 'gssrsResponseStatus'
-  Int ->
-  -- | 'gssrsSegmentResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'segmentResponse' - Undocumented field.
+mkGetSegmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'segmentResponse'
   SegmentResponse ->
   GetSegmentResponse
-getSegmentResponse pResponseStatus_ pSegmentResponse_ =
+mkGetSegmentResponse pResponseStatus_ pSegmentResponse_ =
   GetSegmentResponse'
-    { _gssrsResponseStatus = pResponseStatus_,
-      _gssrsSegmentResponse = pSegmentResponse_
+    { responseStatus = pResponseStatus_,
+      segmentResponse = pSegmentResponse_
     }
 
--- | -- | The response status code.
-gssrsResponseStatus :: Lens' GetSegmentResponse Int
-gssrsResponseStatus = lens _gssrsResponseStatus (\s a -> s {_gssrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsResponseStatus :: Lens.Lens' GetSegmentResponse Lude.Int
+gssrsResponseStatus = Lens.lens (responseStatus :: GetSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentResponse)
+{-# DEPRECATED gssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gssrsSegmentResponse :: Lens' GetSegmentResponse SegmentResponse
-gssrsSegmentResponse = lens _gssrsSegmentResponse (\s a -> s {_gssrsSegmentResponse = a})
-
-instance NFData GetSegmentResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsSegmentResponse :: Lens.Lens' GetSegmentResponse SegmentResponse
+gssrsSegmentResponse = Lens.lens (segmentResponse :: GetSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: GetSegmentResponse)
+{-# DEPRECATED gssrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}

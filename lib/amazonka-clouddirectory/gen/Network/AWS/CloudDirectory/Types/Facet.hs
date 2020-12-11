@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.Facet where
+module Network.AWS.CloudDirectory.Types.Facet
+  ( Facet (..),
+
+    -- * Smart constructor
+    mkFacet,
+
+    -- * Lenses
+    fFacetStyle,
+    fObjectType,
+    fName,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.FacetStyle
 import Network.AWS.CloudDirectory.Types.ObjectType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure that contains @Name@ , @ARN@ , @Attributes@ , @'Rule' s@ , and @ObjectTypes@ . See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_whatarefacets.html Facets> for more information.
 --
---
---
--- /See:/ 'facet' smart constructor.
+-- /See:/ 'mkFacet' smart constructor.
 data Facet = Facet'
-  { _fFacetStyle :: !(Maybe FacetStyle),
-    _fObjectType :: !(Maybe ObjectType),
-    _fName :: !(Maybe Text)
+  { facetStyle :: Lude.Maybe FacetStyle,
+    objectType :: Lude.Maybe ObjectType,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Facet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fFacetStyle' - There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
---
--- * 'fObjectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
---
--- * 'fName' - The name of the 'Facet' .
-facet ::
+-- * 'facetStyle' - There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
+-- * 'name' - The name of the 'Facet' .
+-- * 'objectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+mkFacet ::
   Facet
-facet =
+mkFacet =
   Facet'
-    { _fFacetStyle = Nothing,
-      _fObjectType = Nothing,
-      _fName = Nothing
+    { facetStyle = Lude.Nothing,
+      objectType = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
-fFacetStyle :: Lens' Facet (Maybe FacetStyle)
-fFacetStyle = lens _fFacetStyle (\s a -> s {_fFacetStyle = a})
+--
+-- /Note:/ Consider using 'facetStyle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFacetStyle :: Lens.Lens' Facet (Lude.Maybe FacetStyle)
+fFacetStyle = Lens.lens (facetStyle :: Facet -> Lude.Maybe FacetStyle) (\s a -> s {facetStyle = a} :: Facet)
+{-# DEPRECATED fFacetStyle "Use generic-lens or generic-optics with 'facetStyle' instead." #-}
 
 -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
-fObjectType :: Lens' Facet (Maybe ObjectType)
-fObjectType = lens _fObjectType (\s a -> s {_fObjectType = a})
+--
+-- /Note:/ Consider using 'objectType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fObjectType :: Lens.Lens' Facet (Lude.Maybe ObjectType)
+fObjectType = Lens.lens (objectType :: Facet -> Lude.Maybe ObjectType) (\s a -> s {objectType = a} :: Facet)
+{-# DEPRECATED fObjectType "Use generic-lens or generic-optics with 'objectType' instead." #-}
 
 -- | The name of the 'Facet' .
-fName :: Lens' Facet (Maybe Text)
-fName = lens _fName (\s a -> s {_fName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fName :: Lens.Lens' Facet (Lude.Maybe Lude.Text)
+fName = Lens.lens (name :: Facet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Facet)
+{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Facet where
+instance Lude.FromJSON Facet where
   parseJSON =
-    withObject
+    Lude.withObject
       "Facet"
       ( \x ->
           Facet'
-            <$> (x .:? "FacetStyle") <*> (x .:? "ObjectType") <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "FacetStyle")
+            Lude.<*> (x Lude..:? "ObjectType")
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable Facet
-
-instance NFData Facet

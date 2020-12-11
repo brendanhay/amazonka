@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,120 @@
 --
 -- Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.
 module Network.AWS.DeviceFarm.DeleteVPCEConfiguration
-  ( -- * Creating a Request
-    deleteVPCEConfiguration,
-    DeleteVPCEConfiguration,
+  ( -- * Creating a request
+    DeleteVPCEConfiguration (..),
+    mkDeleteVPCEConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvecArn,
 
-    -- * Destructuring the Response
-    deleteVPCEConfigurationResponse,
-    DeleteVPCEConfigurationResponse,
+    -- * Destructuring the response
+    DeleteVPCEConfigurationResponse (..),
+    mkDeleteVPCEConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvecrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVPCEConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteVPCEConfiguration' smart constructor.
 newtype DeleteVPCEConfiguration = DeleteVPCEConfiguration'
-  { _dvecArn ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvecArn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to delete.
-deleteVPCEConfiguration ::
-  -- | 'dvecArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to delete.
+mkDeleteVPCEConfiguration ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteVPCEConfiguration
-deleteVPCEConfiguration pArn_ =
-  DeleteVPCEConfiguration' {_dvecArn = pArn_}
+mkDeleteVPCEConfiguration pArn_ =
+  DeleteVPCEConfiguration' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to delete.
-dvecArn :: Lens' DeleteVPCEConfiguration Text
-dvecArn = lens _dvecArn (\s a -> s {_dvecArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecArn :: Lens.Lens' DeleteVPCEConfiguration Lude.Text
+dvecArn = Lens.lens (arn :: DeleteVPCEConfiguration -> Lude.Text) (\s a -> s {arn = a} :: DeleteVPCEConfiguration)
+{-# DEPRECATED dvecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteVPCEConfiguration where
+instance Lude.AWSRequest DeleteVPCEConfiguration where
   type Rs DeleteVPCEConfiguration = DeleteVPCEConfigurationResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteVPCEConfigurationResponse' <$> (pure (fromEnum s))
+          DeleteVPCEConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteVPCEConfiguration
-
-instance NFData DeleteVPCEConfiguration
-
-instance ToHeaders DeleteVPCEConfiguration where
+instance Lude.ToHeaders DeleteVPCEConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.DeleteVPCEConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.DeleteVPCEConfiguration" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteVPCEConfiguration where
+instance Lude.ToJSON DeleteVPCEConfiguration where
   toJSON DeleteVPCEConfiguration' {..} =
-    object (catMaybes [Just ("arn" .= _dvecArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath DeleteVPCEConfiguration where
-  toPath = const "/"
+instance Lude.ToPath DeleteVPCEConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteVPCEConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteVPCEConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteVPCEConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPCEConfigurationResponse' smart constructor.
 newtype DeleteVPCEConfigurationResponse = DeleteVPCEConfigurationResponse'
-  { _dvecrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvecrsResponseStatus' - -- | The response status code.
-deleteVPCEConfigurationResponse ::
-  -- | 'dvecrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteVPCEConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteVPCEConfigurationResponse
-deleteVPCEConfigurationResponse pResponseStatus_ =
+mkDeleteVPCEConfigurationResponse pResponseStatus_ =
   DeleteVPCEConfigurationResponse'
-    { _dvecrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dvecrsResponseStatus :: Lens' DeleteVPCEConfigurationResponse Int
-dvecrsResponseStatus = lens _dvecrsResponseStatus (\s a -> s {_dvecrsResponseStatus = a})
-
-instance NFData DeleteVPCEConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecrsResponseStatus :: Lens.Lens' DeleteVPCEConfigurationResponse Lude.Int
+dvecrsResponseStatus = Lens.lens (responseStatus :: DeleteVPCEConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCEConfigurationResponse)
+{-# DEPRECATED dvecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

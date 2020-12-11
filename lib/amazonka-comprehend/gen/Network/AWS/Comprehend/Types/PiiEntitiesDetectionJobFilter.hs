@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobFilter where
+module Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobFilter
+  ( PiiEntitiesDetectionJobFilter (..),
+
+    -- * Smart constructor
+    mkPiiEntitiesDetectionJobFilter,
+
+    -- * Lenses
+    pedjfSubmitTimeAfter,
+    pedjfSubmitTimeBefore,
+    pedjfJobName,
+    pedjfJobStatus,
+  )
+where
 
 import Network.AWS.Comprehend.Types.JobStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information for filtering a list of PII entity detection jobs.
 --
---
---
--- /See:/ 'piiEntitiesDetectionJobFilter' smart constructor.
+-- /See:/ 'mkPiiEntitiesDetectionJobFilter' smart constructor.
 data PiiEntitiesDetectionJobFilter = PiiEntitiesDetectionJobFilter'
-  { _pedjfSubmitTimeAfter ::
-      !(Maybe POSIX),
-    _pedjfSubmitTimeBefore ::
-      !(Maybe POSIX),
-    _pedjfJobName :: !(Maybe Text),
-    _pedjfJobStatus ::
-      !(Maybe JobStatus)
+  { submitTimeAfter ::
+      Lude.Maybe Lude.Timestamp,
+    submitTimeBefore ::
+      Lude.Maybe Lude.Timestamp,
+    jobName :: Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe JobStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PiiEntitiesDetectionJobFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pedjfSubmitTimeAfter' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
---
--- * 'pedjfSubmitTimeBefore' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
---
--- * 'pedjfJobName' - Filters on the name of the job.
---
--- * 'pedjfJobStatus' - Filters the list of jobs based on job status. Returns only jobs with the specified status.
-piiEntitiesDetectionJobFilter ::
+-- * 'jobName' - Filters on the name of the job.
+-- * 'jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the specified status.
+-- * 'submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+-- * 'submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+mkPiiEntitiesDetectionJobFilter ::
   PiiEntitiesDetectionJobFilter
-piiEntitiesDetectionJobFilter =
+mkPiiEntitiesDetectionJobFilter =
   PiiEntitiesDetectionJobFilter'
-    { _pedjfSubmitTimeAfter = Nothing,
-      _pedjfSubmitTimeBefore = Nothing,
-      _pedjfJobName = Nothing,
-      _pedjfJobStatus = Nothing
+    { submitTimeAfter = Lude.Nothing,
+      submitTimeBefore = Lude.Nothing,
+      jobName = Lude.Nothing,
+      jobStatus = Lude.Nothing
     }
 
 -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
-pedjfSubmitTimeAfter :: Lens' PiiEntitiesDetectionJobFilter (Maybe UTCTime)
-pedjfSubmitTimeAfter = lens _pedjfSubmitTimeAfter (\s a -> s {_pedjfSubmitTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjfSubmitTimeAfter :: Lens.Lens' PiiEntitiesDetectionJobFilter (Lude.Maybe Lude.Timestamp)
+pedjfSubmitTimeAfter = Lens.lens (submitTimeAfter :: PiiEntitiesDetectionJobFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTimeAfter = a} :: PiiEntitiesDetectionJobFilter)
+{-# DEPRECATED pedjfSubmitTimeAfter "Use generic-lens or generic-optics with 'submitTimeAfter' instead." #-}
 
 -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
-pedjfSubmitTimeBefore :: Lens' PiiEntitiesDetectionJobFilter (Maybe UTCTime)
-pedjfSubmitTimeBefore = lens _pedjfSubmitTimeBefore (\s a -> s {_pedjfSubmitTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjfSubmitTimeBefore :: Lens.Lens' PiiEntitiesDetectionJobFilter (Lude.Maybe Lude.Timestamp)
+pedjfSubmitTimeBefore = Lens.lens (submitTimeBefore :: PiiEntitiesDetectionJobFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTimeBefore = a} :: PiiEntitiesDetectionJobFilter)
+{-# DEPRECATED pedjfSubmitTimeBefore "Use generic-lens or generic-optics with 'submitTimeBefore' instead." #-}
 
 -- | Filters on the name of the job.
-pedjfJobName :: Lens' PiiEntitiesDetectionJobFilter (Maybe Text)
-pedjfJobName = lens _pedjfJobName (\s a -> s {_pedjfJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjfJobName :: Lens.Lens' PiiEntitiesDetectionJobFilter (Lude.Maybe Lude.Text)
+pedjfJobName = Lens.lens (jobName :: PiiEntitiesDetectionJobFilter -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: PiiEntitiesDetectionJobFilter)
+{-# DEPRECATED pedjfJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Filters the list of jobs based on job status. Returns only jobs with the specified status.
-pedjfJobStatus :: Lens' PiiEntitiesDetectionJobFilter (Maybe JobStatus)
-pedjfJobStatus = lens _pedjfJobStatus (\s a -> s {_pedjfJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjfJobStatus :: Lens.Lens' PiiEntitiesDetectionJobFilter (Lude.Maybe JobStatus)
+pedjfJobStatus = Lens.lens (jobStatus :: PiiEntitiesDetectionJobFilter -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: PiiEntitiesDetectionJobFilter)
+{-# DEPRECATED pedjfJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
-instance Hashable PiiEntitiesDetectionJobFilter
-
-instance NFData PiiEntitiesDetectionJobFilter
-
-instance ToJSON PiiEntitiesDetectionJobFilter where
+instance Lude.ToJSON PiiEntitiesDetectionJobFilter where
   toJSON PiiEntitiesDetectionJobFilter' {..} =
-    object
-      ( catMaybes
-          [ ("SubmitTimeAfter" .=) <$> _pedjfSubmitTimeAfter,
-            ("SubmitTimeBefore" .=) <$> _pedjfSubmitTimeBefore,
-            ("JobName" .=) <$> _pedjfJobName,
-            ("JobStatus" .=) <$> _pedjfJobStatus
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SubmitTimeAfter" Lude..=) Lude.<$> submitTimeAfter,
+            ("SubmitTimeBefore" Lude..=) Lude.<$> submitTimeBefore,
+            ("JobName" Lude..=) Lude.<$> jobName,
+            ("JobStatus" Lude..=) Lude.<$> jobStatus
           ]
       )

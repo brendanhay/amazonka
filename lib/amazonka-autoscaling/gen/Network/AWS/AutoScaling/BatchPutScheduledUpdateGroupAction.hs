@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,151 @@
 --
 -- Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.
 module Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
-  ( -- * Creating a Request
-    batchPutScheduledUpdateGroupAction,
-    BatchPutScheduledUpdateGroupAction,
+  ( -- * Creating a request
+    BatchPutScheduledUpdateGroupAction (..),
+    mkBatchPutScheduledUpdateGroupAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bpsugaAutoScalingGroupName,
     bpsugaScheduledUpdateGroupActions,
 
-    -- * Destructuring the Response
-    batchPutScheduledUpdateGroupActionResponse,
-    BatchPutScheduledUpdateGroupActionResponse,
+    -- * Destructuring the response
+    BatchPutScheduledUpdateGroupActionResponse (..),
+    mkBatchPutScheduledUpdateGroupActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bpsugarsFailedScheduledUpdateGroupActions,
     bpsugarsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchPutScheduledUpdateGroupAction' smart constructor.
+-- | /See:/ 'mkBatchPutScheduledUpdateGroupAction' smart constructor.
 data BatchPutScheduledUpdateGroupAction = BatchPutScheduledUpdateGroupAction'
-  { _bpsugaAutoScalingGroupName ::
-      !Text,
-    _bpsugaScheduledUpdateGroupActions ::
-      ![ScheduledUpdateGroupActionRequest]
+  { autoScalingGroupName ::
+      Lude.Text,
+    scheduledUpdateGroupActions ::
+      [ScheduledUpdateGroupActionRequest]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bpsugaAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'bpsugaScheduledUpdateGroupActions' - One or more scheduled actions. The maximum number allowed is 50.
-batchPutScheduledUpdateGroupAction ::
-  -- | 'bpsugaAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'scheduledUpdateGroupActions' - One or more scheduled actions. The maximum number allowed is 50.
+mkBatchPutScheduledUpdateGroupAction ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   BatchPutScheduledUpdateGroupAction
-batchPutScheduledUpdateGroupAction pAutoScalingGroupName_ =
+mkBatchPutScheduledUpdateGroupAction pAutoScalingGroupName_ =
   BatchPutScheduledUpdateGroupAction'
-    { _bpsugaAutoScalingGroupName =
+    { autoScalingGroupName =
         pAutoScalingGroupName_,
-      _bpsugaScheduledUpdateGroupActions = mempty
+      scheduledUpdateGroupActions = Lude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-bpsugaAutoScalingGroupName :: Lens' BatchPutScheduledUpdateGroupAction Text
-bpsugaAutoScalingGroupName = lens _bpsugaAutoScalingGroupName (\s a -> s {_bpsugaAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpsugaAutoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Lude.Text
+bpsugaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: BatchPutScheduledUpdateGroupAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: BatchPutScheduledUpdateGroupAction)
+{-# DEPRECATED bpsugaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One or more scheduled actions. The maximum number allowed is 50.
-bpsugaScheduledUpdateGroupActions :: Lens' BatchPutScheduledUpdateGroupAction [ScheduledUpdateGroupActionRequest]
-bpsugaScheduledUpdateGroupActions = lens _bpsugaScheduledUpdateGroupActions (\s a -> s {_bpsugaScheduledUpdateGroupActions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'scheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpsugaScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupAction [ScheduledUpdateGroupActionRequest]
+bpsugaScheduledUpdateGroupActions = Lens.lens (scheduledUpdateGroupActions :: BatchPutScheduledUpdateGroupAction -> [ScheduledUpdateGroupActionRequest]) (\s a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction)
+{-# DEPRECATED bpsugaScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'scheduledUpdateGroupActions' instead." #-}
 
-instance AWSRequest BatchPutScheduledUpdateGroupAction where
+instance Lude.AWSRequest BatchPutScheduledUpdateGroupAction where
   type
     Rs BatchPutScheduledUpdateGroupAction =
       BatchPutScheduledUpdateGroupActionResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "BatchPutScheduledUpdateGroupActionResult"
       ( \s h x ->
           BatchPutScheduledUpdateGroupActionResponse'
-            <$> ( x .@? "FailedScheduledUpdateGroupActions" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "FailedScheduledUpdateGroupActions"
+                         Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchPutScheduledUpdateGroupAction
+instance Lude.ToHeaders BatchPutScheduledUpdateGroupAction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BatchPutScheduledUpdateGroupAction
+instance Lude.ToPath BatchPutScheduledUpdateGroupAction where
+  toPath = Lude.const "/"
 
-instance ToHeaders BatchPutScheduledUpdateGroupAction where
-  toHeaders = const mempty
-
-instance ToPath BatchPutScheduledUpdateGroupAction where
-  toPath = const "/"
-
-instance ToQuery BatchPutScheduledUpdateGroupAction where
+instance Lude.ToQuery BatchPutScheduledUpdateGroupAction where
   toQuery BatchPutScheduledUpdateGroupAction' {..} =
-    mconcat
-      [ "Action" =: ("BatchPutScheduledUpdateGroupAction" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _bpsugaAutoScalingGroupName,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("BatchPutScheduledUpdateGroupAction" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "ScheduledUpdateGroupActions"
-          =: toQueryList "member" _bpsugaScheduledUpdateGroupActions
+          Lude.=: Lude.toQueryList "member" scheduledUpdateGroupActions
       ]
 
--- | /See:/ 'batchPutScheduledUpdateGroupActionResponse' smart constructor.
+-- | /See:/ 'mkBatchPutScheduledUpdateGroupActionResponse' smart constructor.
 data BatchPutScheduledUpdateGroupActionResponse = BatchPutScheduledUpdateGroupActionResponse'
-  { _bpsugarsFailedScheduledUpdateGroupActions ::
-      !( Maybe
-           [FailedScheduledUpdateGroupActionRequest]
-       ),
-    _bpsugarsResponseStatus ::
-      !Int
+  { failedScheduledUpdateGroupActions ::
+      Lude.Maybe
+        [FailedScheduledUpdateGroupActionRequest],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutScheduledUpdateGroupActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bpsugarsFailedScheduledUpdateGroupActions' - The names of the scheduled actions that could not be created or updated, including an error message.
---
--- * 'bpsugarsResponseStatus' - -- | The response status code.
-batchPutScheduledUpdateGroupActionResponse ::
-  -- | 'bpsugarsResponseStatus'
-  Int ->
+-- * 'failedScheduledUpdateGroupActions' - The names of the scheduled actions that could not be created or updated, including an error message.
+-- * 'responseStatus' - The response status code.
+mkBatchPutScheduledUpdateGroupActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchPutScheduledUpdateGroupActionResponse
-batchPutScheduledUpdateGroupActionResponse pResponseStatus_ =
+mkBatchPutScheduledUpdateGroupActionResponse pResponseStatus_ =
   BatchPutScheduledUpdateGroupActionResponse'
-    { _bpsugarsFailedScheduledUpdateGroupActions =
-        Nothing,
-      _bpsugarsResponseStatus = pResponseStatus_
+    { failedScheduledUpdateGroupActions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of the scheduled actions that could not be created or updated, including an error message.
-bpsugarsFailedScheduledUpdateGroupActions :: Lens' BatchPutScheduledUpdateGroupActionResponse [FailedScheduledUpdateGroupActionRequest]
-bpsugarsFailedScheduledUpdateGroupActions = lens _bpsugarsFailedScheduledUpdateGroupActions (\s a -> s {_bpsugarsFailedScheduledUpdateGroupActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failedScheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpsugarsFailedScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse (Lude.Maybe [FailedScheduledUpdateGroupActionRequest])
+bpsugarsFailedScheduledUpdateGroupActions = Lens.lens (failedScheduledUpdateGroupActions :: BatchPutScheduledUpdateGroupActionResponse -> Lude.Maybe [FailedScheduledUpdateGroupActionRequest]) (\s a -> s {failedScheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupActionResponse)
+{-# DEPRECATED bpsugarsFailedScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'failedScheduledUpdateGroupActions' instead." #-}
 
--- | -- | The response status code.
-bpsugarsResponseStatus :: Lens' BatchPutScheduledUpdateGroupActionResponse Int
-bpsugarsResponseStatus = lens _bpsugarsResponseStatus (\s a -> s {_bpsugarsResponseStatus = a})
-
-instance NFData BatchPutScheduledUpdateGroupActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpsugarsResponseStatus :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse Lude.Int
+bpsugarsResponseStatus = Lens.lens (responseStatus :: BatchPutScheduledUpdateGroupActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchPutScheduledUpdateGroupActionResponse)
+{-# DEPRECATED bpsugarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

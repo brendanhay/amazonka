@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,164 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.MetricName where
+module Network.AWS.Lightsail.Types.MetricName
+  ( MetricName
+      ( MetricName',
+        MNBurstCapacityPercentage,
+        MNBurstCapacityTime,
+        MNCPUUtilization,
+        MNClientTLSNegotiationErrorCount,
+        MNDatabaseConnections,
+        MNDiskQueueDepth,
+        MNFreeStorageSpace,
+        MNHTTPCodeInstance2XXCount,
+        MNHTTPCodeInstance3XXCount,
+        MNHTTPCodeInstance4XXCount,
+        MNHTTPCodeInstance5XXCount,
+        MNHTTPCodeLb4XXCount,
+        MNHTTPCodeLb5XXCount,
+        MNHealthyHostCount,
+        MNInstanceResponseTime,
+        MNNetworkIn,
+        MNNetworkOut,
+        MNNetworkReceiveThroughput,
+        MNNetworkTransmitThroughput,
+        MNRejectedConnectionCount,
+        MNRequestCount,
+        MNStatusCheckFailed,
+        MNStatusCheckFailedInstance,
+        MNStatusCheckFailedSystem,
+        MNUnhealthyHostCount
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricName
-  = MNBurstCapacityPercentage
-  | MNBurstCapacityTime
-  | MNCPUUtilization
-  | MNClientTLSNegotiationErrorCount
-  | MNDatabaseConnections
-  | MNDiskQueueDepth
-  | MNFreeStorageSpace
-  | MNHTTPCodeInstance2XXCount
-  | MNHTTPCodeInstance3XXCount
-  | MNHTTPCodeInstance4XXCount
-  | MNHTTPCodeInstance5XXCount
-  | MNHTTPCodeLb4XXCount
-  | MNHTTPCodeLb5XXCount
-  | MNHealthyHostCount
-  | MNInstanceResponseTime
-  | MNNetworkIn
-  | MNNetworkOut
-  | MNNetworkReceiveThroughput
-  | MNNetworkTransmitThroughput
-  | MNRejectedConnectionCount
-  | MNRequestCount
-  | MNStatusCheckFailed
-  | MNStatusCheckFailedInstance
-  | MNStatusCheckFailedSystem
-  | MNUnhealthyHostCount
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricName = MetricName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricName where
-  parser =
-    takeLowerText >>= \case
-      "burstcapacitypercentage" -> pure MNBurstCapacityPercentage
-      "burstcapacitytime" -> pure MNBurstCapacityTime
-      "cpuutilization" -> pure MNCPUUtilization
-      "clienttlsnegotiationerrorcount" -> pure MNClientTLSNegotiationErrorCount
-      "databaseconnections" -> pure MNDatabaseConnections
-      "diskqueuedepth" -> pure MNDiskQueueDepth
-      "freestoragespace" -> pure MNFreeStorageSpace
-      "httpcode_instance_2xx_count" -> pure MNHTTPCodeInstance2XXCount
-      "httpcode_instance_3xx_count" -> pure MNHTTPCodeInstance3XXCount
-      "httpcode_instance_4xx_count" -> pure MNHTTPCodeInstance4XXCount
-      "httpcode_instance_5xx_count" -> pure MNHTTPCodeInstance5XXCount
-      "httpcode_lb_4xx_count" -> pure MNHTTPCodeLb4XXCount
-      "httpcode_lb_5xx_count" -> pure MNHTTPCodeLb5XXCount
-      "healthyhostcount" -> pure MNHealthyHostCount
-      "instanceresponsetime" -> pure MNInstanceResponseTime
-      "networkin" -> pure MNNetworkIn
-      "networkout" -> pure MNNetworkOut
-      "networkreceivethroughput" -> pure MNNetworkReceiveThroughput
-      "networktransmitthroughput" -> pure MNNetworkTransmitThroughput
-      "rejectedconnectioncount" -> pure MNRejectedConnectionCount
-      "requestcount" -> pure MNRequestCount
-      "statuscheckfailed" -> pure MNStatusCheckFailed
-      "statuscheckfailed_instance" -> pure MNStatusCheckFailedInstance
-      "statuscheckfailed_system" -> pure MNStatusCheckFailedSystem
-      "unhealthyhostcount" -> pure MNUnhealthyHostCount
-      e ->
-        fromTextError $
-          "Failure parsing MetricName from value: '" <> e
-            <> "'. Accepted values: burstcapacitypercentage, burstcapacitytime, cpuutilization, clienttlsnegotiationerrorcount, databaseconnections, diskqueuedepth, freestoragespace, httpcode_instance_2xx_count, httpcode_instance_3xx_count, httpcode_instance_4xx_count, httpcode_instance_5xx_count, httpcode_lb_4xx_count, httpcode_lb_5xx_count, healthyhostcount, instanceresponsetime, networkin, networkout, networkreceivethroughput, networktransmitthroughput, rejectedconnectioncount, requestcount, statuscheckfailed, statuscheckfailed_instance, statuscheckfailed_system, unhealthyhostcount"
+pattern MNBurstCapacityPercentage :: MetricName
+pattern MNBurstCapacityPercentage = MetricName' "BurstCapacityPercentage"
 
-instance ToText MetricName where
-  toText = \case
-    MNBurstCapacityPercentage -> "BurstCapacityPercentage"
-    MNBurstCapacityTime -> "BurstCapacityTime"
-    MNCPUUtilization -> "CPUUtilization"
-    MNClientTLSNegotiationErrorCount -> "ClientTLSNegotiationErrorCount"
-    MNDatabaseConnections -> "DatabaseConnections"
-    MNDiskQueueDepth -> "DiskQueueDepth"
-    MNFreeStorageSpace -> "FreeStorageSpace"
-    MNHTTPCodeInstance2XXCount -> "HTTPCode_Instance_2XX_Count"
-    MNHTTPCodeInstance3XXCount -> "HTTPCode_Instance_3XX_Count"
-    MNHTTPCodeInstance4XXCount -> "HTTPCode_Instance_4XX_Count"
-    MNHTTPCodeInstance5XXCount -> "HTTPCode_Instance_5XX_Count"
-    MNHTTPCodeLb4XXCount -> "HTTPCode_LB_4XX_Count"
-    MNHTTPCodeLb5XXCount -> "HTTPCode_LB_5XX_Count"
-    MNHealthyHostCount -> "HealthyHostCount"
-    MNInstanceResponseTime -> "InstanceResponseTime"
-    MNNetworkIn -> "NetworkIn"
-    MNNetworkOut -> "NetworkOut"
-    MNNetworkReceiveThroughput -> "NetworkReceiveThroughput"
-    MNNetworkTransmitThroughput -> "NetworkTransmitThroughput"
-    MNRejectedConnectionCount -> "RejectedConnectionCount"
-    MNRequestCount -> "RequestCount"
-    MNStatusCheckFailed -> "StatusCheckFailed"
-    MNStatusCheckFailedInstance -> "StatusCheckFailed_Instance"
-    MNStatusCheckFailedSystem -> "StatusCheckFailed_System"
-    MNUnhealthyHostCount -> "UnhealthyHostCount"
+pattern MNBurstCapacityTime :: MetricName
+pattern MNBurstCapacityTime = MetricName' "BurstCapacityTime"
 
-instance Hashable MetricName
+pattern MNCPUUtilization :: MetricName
+pattern MNCPUUtilization = MetricName' "CPUUtilization"
 
-instance NFData MetricName
+pattern MNClientTLSNegotiationErrorCount :: MetricName
+pattern MNClientTLSNegotiationErrorCount = MetricName' "ClientTLSNegotiationErrorCount"
 
-instance ToByteString MetricName
+pattern MNDatabaseConnections :: MetricName
+pattern MNDatabaseConnections = MetricName' "DatabaseConnections"
 
-instance ToQuery MetricName
+pattern MNDiskQueueDepth :: MetricName
+pattern MNDiskQueueDepth = MetricName' "DiskQueueDepth"
 
-instance ToHeader MetricName
+pattern MNFreeStorageSpace :: MetricName
+pattern MNFreeStorageSpace = MetricName' "FreeStorageSpace"
 
-instance ToJSON MetricName where
-  toJSON = toJSONText
+pattern MNHTTPCodeInstance2XXCount :: MetricName
+pattern MNHTTPCodeInstance2XXCount = MetricName' "HTTPCode_Instance_2XX_Count"
 
-instance FromJSON MetricName where
-  parseJSON = parseJSONText "MetricName"
+pattern MNHTTPCodeInstance3XXCount :: MetricName
+pattern MNHTTPCodeInstance3XXCount = MetricName' "HTTPCode_Instance_3XX_Count"
+
+pattern MNHTTPCodeInstance4XXCount :: MetricName
+pattern MNHTTPCodeInstance4XXCount = MetricName' "HTTPCode_Instance_4XX_Count"
+
+pattern MNHTTPCodeInstance5XXCount :: MetricName
+pattern MNHTTPCodeInstance5XXCount = MetricName' "HTTPCode_Instance_5XX_Count"
+
+pattern MNHTTPCodeLb4XXCount :: MetricName
+pattern MNHTTPCodeLb4XXCount = MetricName' "HTTPCode_LB_4XX_Count"
+
+pattern MNHTTPCodeLb5XXCount :: MetricName
+pattern MNHTTPCodeLb5XXCount = MetricName' "HTTPCode_LB_5XX_Count"
+
+pattern MNHealthyHostCount :: MetricName
+pattern MNHealthyHostCount = MetricName' "HealthyHostCount"
+
+pattern MNInstanceResponseTime :: MetricName
+pattern MNInstanceResponseTime = MetricName' "InstanceResponseTime"
+
+pattern MNNetworkIn :: MetricName
+pattern MNNetworkIn = MetricName' "NetworkIn"
+
+pattern MNNetworkOut :: MetricName
+pattern MNNetworkOut = MetricName' "NetworkOut"
+
+pattern MNNetworkReceiveThroughput :: MetricName
+pattern MNNetworkReceiveThroughput = MetricName' "NetworkReceiveThroughput"
+
+pattern MNNetworkTransmitThroughput :: MetricName
+pattern MNNetworkTransmitThroughput = MetricName' "NetworkTransmitThroughput"
+
+pattern MNRejectedConnectionCount :: MetricName
+pattern MNRejectedConnectionCount = MetricName' "RejectedConnectionCount"
+
+pattern MNRequestCount :: MetricName
+pattern MNRequestCount = MetricName' "RequestCount"
+
+pattern MNStatusCheckFailed :: MetricName
+pattern MNStatusCheckFailed = MetricName' "StatusCheckFailed"
+
+pattern MNStatusCheckFailedInstance :: MetricName
+pattern MNStatusCheckFailedInstance = MetricName' "StatusCheckFailed_Instance"
+
+pattern MNStatusCheckFailedSystem :: MetricName
+pattern MNStatusCheckFailedSystem = MetricName' "StatusCheckFailed_System"
+
+pattern MNUnhealthyHostCount :: MetricName
+pattern MNUnhealthyHostCount = MetricName' "UnhealthyHostCount"
+
+{-# COMPLETE
+  MNBurstCapacityPercentage,
+  MNBurstCapacityTime,
+  MNCPUUtilization,
+  MNClientTLSNegotiationErrorCount,
+  MNDatabaseConnections,
+  MNDiskQueueDepth,
+  MNFreeStorageSpace,
+  MNHTTPCodeInstance2XXCount,
+  MNHTTPCodeInstance3XXCount,
+  MNHTTPCodeInstance4XXCount,
+  MNHTTPCodeInstance5XXCount,
+  MNHTTPCodeLb4XXCount,
+  MNHTTPCodeLb5XXCount,
+  MNHealthyHostCount,
+  MNInstanceResponseTime,
+  MNNetworkIn,
+  MNNetworkOut,
+  MNNetworkReceiveThroughput,
+  MNNetworkTransmitThroughput,
+  MNRejectedConnectionCount,
+  MNRequestCount,
+  MNStatusCheckFailed,
+  MNStatusCheckFailedInstance,
+  MNStatusCheckFailedSystem,
+  MNUnhealthyHostCount,
+  MetricName'
+  #-}

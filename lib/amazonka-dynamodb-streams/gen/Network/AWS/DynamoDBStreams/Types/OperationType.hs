@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types.OperationType where
+module Network.AWS.DynamoDBStreams.Types.OperationType
+  ( OperationType
+      ( OperationType',
+        Insert,
+        Modify,
+        Remove
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationType
-  = Insert
-  | Modify
-  | Remove
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationType = OperationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationType where
-  parser =
-    takeLowerText >>= \case
-      "insert" -> pure Insert
-      "modify" -> pure Modify
-      "remove" -> pure Remove
-      e ->
-        fromTextError $
-          "Failure parsing OperationType from value: '" <> e
-            <> "'. Accepted values: insert, modify, remove"
+pattern Insert :: OperationType
+pattern Insert = OperationType' "INSERT"
 
-instance ToText OperationType where
-  toText = \case
-    Insert -> "INSERT"
-    Modify -> "MODIFY"
-    Remove -> "REMOVE"
+pattern Modify :: OperationType
+pattern Modify = OperationType' "MODIFY"
 
-instance Hashable OperationType
+pattern Remove :: OperationType
+pattern Remove = OperationType' "REMOVE"
 
-instance NFData OperationType
-
-instance ToByteString OperationType
-
-instance ToQuery OperationType
-
-instance ToHeader OperationType
-
-instance FromJSON OperationType where
-  parseJSON = parseJSONText "OperationType"
+{-# COMPLETE
+  Insert,
+  Modify,
+  Remove,
+  OperationType'
+  #-}

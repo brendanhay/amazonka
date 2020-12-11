@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.TracingConfigResponse where
+module Network.AWS.Lambda.Types.TracingConfigResponse
+  ( TracingConfigResponse (..),
+
+    -- * Smart constructor
+    mkTracingConfigResponse,
+
+    -- * Lenses
+    tcMode,
+  )
+where
 
 import Network.AWS.Lambda.Types.TracingMode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The function's AWS X-Ray tracing configuration.
 --
---
---
--- /See:/ 'tracingConfigResponse' smart constructor.
+-- /See:/ 'mkTracingConfigResponse' smart constructor.
 newtype TracingConfigResponse = TracingConfigResponse'
-  { _tcMode ::
-      Maybe TracingMode
+  { mode ::
+      Lude.Maybe TracingMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TracingConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcMode' - The tracing mode.
-tracingConfigResponse ::
+-- * 'mode' - The tracing mode.
+mkTracingConfigResponse ::
   TracingConfigResponse
-tracingConfigResponse = TracingConfigResponse' {_tcMode = Nothing}
+mkTracingConfigResponse =
+  TracingConfigResponse' {mode = Lude.Nothing}
 
 -- | The tracing mode.
-tcMode :: Lens' TracingConfigResponse (Maybe TracingMode)
-tcMode = lens _tcMode (\s a -> s {_tcMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcMode :: Lens.Lens' TracingConfigResponse (Lude.Maybe TracingMode)
+tcMode = Lens.lens (mode :: TracingConfigResponse -> Lude.Maybe TracingMode) (\s a -> s {mode = a} :: TracingConfigResponse)
+{-# DEPRECATED tcMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
-instance FromJSON TracingConfigResponse where
+instance Lude.FromJSON TracingConfigResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "TracingConfigResponse"
-      (\x -> TracingConfigResponse' <$> (x .:? "Mode"))
-
-instance Hashable TracingConfigResponse
-
-instance NFData TracingConfigResponse
+      (\x -> TracingConfigResponse' Lude.<$> (x Lude..:? "Mode"))

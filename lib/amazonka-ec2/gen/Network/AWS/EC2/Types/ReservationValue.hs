@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservationValue where
+module Network.AWS.EC2.Types.ReservationValue
+  ( ReservationValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReservationValue,
+
+    -- * Lenses
+    rvHourlyPrice,
+    rvRemainingTotalValue,
+    rvRemainingUpfrontValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The cost associated with the Reserved Instance.
 --
---
---
--- /See:/ 'reservationValue' smart constructor.
+-- /See:/ 'mkReservationValue' smart constructor.
 data ReservationValue = ReservationValue'
-  { _rvHourlyPrice ::
-      !(Maybe Text),
-    _rvRemainingTotalValue :: !(Maybe Text),
-    _rvRemainingUpfrontValue :: !(Maybe Text)
+  { hourlyPrice ::
+      Lude.Maybe Lude.Text,
+    remainingTotalValue :: Lude.Maybe Lude.Text,
+    remainingUpfrontValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvHourlyPrice' - The hourly rate of the reservation.
---
--- * 'rvRemainingTotalValue' - The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
---
--- * 'rvRemainingUpfrontValue' - The remaining upfront cost of the reservation.
-reservationValue ::
+-- * 'hourlyPrice' - The hourly rate of the reservation.
+-- * 'remainingTotalValue' - The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
+-- * 'remainingUpfrontValue' - The remaining upfront cost of the reservation.
+mkReservationValue ::
   ReservationValue
-reservationValue =
+mkReservationValue =
   ReservationValue'
-    { _rvHourlyPrice = Nothing,
-      _rvRemainingTotalValue = Nothing,
-      _rvRemainingUpfrontValue = Nothing
+    { hourlyPrice = Lude.Nothing,
+      remainingTotalValue = Lude.Nothing,
+      remainingUpfrontValue = Lude.Nothing
     }
 
 -- | The hourly rate of the reservation.
-rvHourlyPrice :: Lens' ReservationValue (Maybe Text)
-rvHourlyPrice = lens _rvHourlyPrice (\s a -> s {_rvHourlyPrice = a})
+--
+-- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvHourlyPrice :: Lens.Lens' ReservationValue (Lude.Maybe Lude.Text)
+rvHourlyPrice = Lens.lens (hourlyPrice :: ReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: ReservationValue)
+{-# DEPRECATED rvHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
 
 -- | The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
-rvRemainingTotalValue :: Lens' ReservationValue (Maybe Text)
-rvRemainingTotalValue = lens _rvRemainingTotalValue (\s a -> s {_rvRemainingTotalValue = a})
+--
+-- /Note:/ Consider using 'remainingTotalValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvRemainingTotalValue :: Lens.Lens' ReservationValue (Lude.Maybe Lude.Text)
+rvRemainingTotalValue = Lens.lens (remainingTotalValue :: ReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {remainingTotalValue = a} :: ReservationValue)
+{-# DEPRECATED rvRemainingTotalValue "Use generic-lens or generic-optics with 'remainingTotalValue' instead." #-}
 
 -- | The remaining upfront cost of the reservation.
-rvRemainingUpfrontValue :: Lens' ReservationValue (Maybe Text)
-rvRemainingUpfrontValue = lens _rvRemainingUpfrontValue (\s a -> s {_rvRemainingUpfrontValue = a})
+--
+-- /Note:/ Consider using 'remainingUpfrontValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvRemainingUpfrontValue :: Lens.Lens' ReservationValue (Lude.Maybe Lude.Text)
+rvRemainingUpfrontValue = Lens.lens (remainingUpfrontValue :: ReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {remainingUpfrontValue = a} :: ReservationValue)
+{-# DEPRECATED rvRemainingUpfrontValue "Use generic-lens or generic-optics with 'remainingUpfrontValue' instead." #-}
 
-instance FromXML ReservationValue where
+instance Lude.FromXML ReservationValue where
   parseXML x =
     ReservationValue'
-      <$> (x .@? "hourlyPrice")
-      <*> (x .@? "remainingTotalValue")
-      <*> (x .@? "remainingUpfrontValue")
-
-instance Hashable ReservationValue
-
-instance NFData ReservationValue
+      Lude.<$> (x Lude..@? "hourlyPrice")
+      Lude.<*> (x Lude..@? "remainingTotalValue")
+      Lude.<*> (x Lude..@? "remainingUpfrontValue")

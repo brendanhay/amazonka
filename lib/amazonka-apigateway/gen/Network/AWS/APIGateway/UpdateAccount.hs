@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Changes information about the current 'Account' resource.
 module Network.AWS.APIGateway.UpdateAccount
-  ( -- * Creating a Request
-    updateAccount,
-    UpdateAccount,
+  ( -- * Creating a request
+    UpdateAccount (..),
+    mkUpdateAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaPatchOperations,
 
-    -- * Destructuring the Response
-    account,
-    Account,
+    -- * Destructuring the response
+    Account (..),
+    mkAccount,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aApiKeyVersion,
     aCloudwatchRoleARN,
     aFeatures,
@@ -39,55 +34,62 @@ module Network.AWS.APIGateway.UpdateAccount
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to change information about the current 'Account' resource.
 --
---
---
--- /See:/ 'updateAccount' smart constructor.
+-- /See:/ 'mkUpdateAccount' smart constructor.
 newtype UpdateAccount = UpdateAccount'
-  { _uaPatchOperations ::
-      Maybe [PatchOperation]
+  { patchOperations ::
+      Lude.Maybe [PatchOperation]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
-updateAccount ::
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+mkUpdateAccount ::
   UpdateAccount
-updateAccount = UpdateAccount' {_uaPatchOperations = Nothing}
+mkUpdateAccount = UpdateAccount' {patchOperations = Lude.Nothing}
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uaPatchOperations :: Lens' UpdateAccount [PatchOperation]
-uaPatchOperations = lens _uaPatchOperations (\s a -> s {_uaPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaPatchOperations :: Lens.Lens' UpdateAccount (Lude.Maybe [PatchOperation])
+uaPatchOperations = Lens.lens (patchOperations :: UpdateAccount -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAccount)
+{-# DEPRECATED uaPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
-instance AWSRequest UpdateAccount where
+instance Lude.AWSRequest UpdateAccount where
   type Rs UpdateAccount = Account
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateAccount
-
-instance NFData UpdateAccount
-
-instance ToHeaders UpdateAccount where
+instance Lude.ToHeaders UpdateAccount where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateAccount where
+instance Lude.ToJSON UpdateAccount where
   toJSON UpdateAccount' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uaPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateAccount where
-  toPath = const "/account"
+instance Lude.ToPath UpdateAccount where
+  toPath = Lude.const "/account"
 
-instance ToQuery UpdateAccount where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAccount where
+  toQuery = Lude.const Lude.mempty

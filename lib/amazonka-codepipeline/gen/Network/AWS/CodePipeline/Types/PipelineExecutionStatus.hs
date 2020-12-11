@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.PipelineExecutionStatus where
+module Network.AWS.CodePipeline.Types.PipelineExecutionStatus
+  ( PipelineExecutionStatus
+      ( PipelineExecutionStatus',
+        Failed,
+        InProgress,
+        Stopped,
+        Stopping,
+        Succeeded,
+        Superseded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PipelineExecutionStatus
-  = Failed
-  | InProgress
-  | Stopped
-  | Stopping
-  | Succeeded
-  | Superseded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PipelineExecutionStatus = PipelineExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PipelineExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "inprogress" -> pure InProgress
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      "succeeded" -> pure Succeeded
-      "superseded" -> pure Superseded
-      e ->
-        fromTextError $
-          "Failure parsing PipelineExecutionStatus from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, stopped, stopping, succeeded, superseded"
+pattern Failed :: PipelineExecutionStatus
+pattern Failed = PipelineExecutionStatus' "Failed"
 
-instance ToText PipelineExecutionStatus where
-  toText = \case
-    Failed -> "Failed"
-    InProgress -> "InProgress"
-    Stopped -> "Stopped"
-    Stopping -> "Stopping"
-    Succeeded -> "Succeeded"
-    Superseded -> "Superseded"
+pattern InProgress :: PipelineExecutionStatus
+pattern InProgress = PipelineExecutionStatus' "InProgress"
 
-instance Hashable PipelineExecutionStatus
+pattern Stopped :: PipelineExecutionStatus
+pattern Stopped = PipelineExecutionStatus' "Stopped"
 
-instance NFData PipelineExecutionStatus
+pattern Stopping :: PipelineExecutionStatus
+pattern Stopping = PipelineExecutionStatus' "Stopping"
 
-instance ToByteString PipelineExecutionStatus
+pattern Succeeded :: PipelineExecutionStatus
+pattern Succeeded = PipelineExecutionStatus' "Succeeded"
 
-instance ToQuery PipelineExecutionStatus
+pattern Superseded :: PipelineExecutionStatus
+pattern Superseded = PipelineExecutionStatus' "Superseded"
 
-instance ToHeader PipelineExecutionStatus
-
-instance FromJSON PipelineExecutionStatus where
-  parseJSON = parseJSONText "PipelineExecutionStatus"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  Stopped,
+  Stopping,
+  Succeeded,
+  Superseded,
+  PipelineExecutionStatus'
+  #-}

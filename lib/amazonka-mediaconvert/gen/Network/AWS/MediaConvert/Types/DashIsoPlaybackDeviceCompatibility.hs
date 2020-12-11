@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility where
+module Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
+  ( DashIsoPlaybackDeviceCompatibility
+      ( DashIsoPlaybackDeviceCompatibility',
+        CencV1,
+        UnencryptedSei
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | This setting can improve the compatibility of your output with video players on obsolete devices. It applies only to DASH H.264 outputs with DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that output, the service will exclude the access unit delimiter and will leave the SEI NAL units unencrypted.
-data DashIsoPlaybackDeviceCompatibility
-  = CencV1
-  | UnencryptedSei
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DashIsoPlaybackDeviceCompatibility = DashIsoPlaybackDeviceCompatibility' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DashIsoPlaybackDeviceCompatibility where
-  parser =
-    takeLowerText >>= \case
-      "cenc_v1" -> pure CencV1
-      "unencrypted_sei" -> pure UnencryptedSei
-      e ->
-        fromTextError $
-          "Failure parsing DashIsoPlaybackDeviceCompatibility from value: '" <> e
-            <> "'. Accepted values: cenc_v1, unencrypted_sei"
+pattern CencV1 :: DashIsoPlaybackDeviceCompatibility
+pattern CencV1 = DashIsoPlaybackDeviceCompatibility' "CENC_V1"
 
-instance ToText DashIsoPlaybackDeviceCompatibility where
-  toText = \case
-    CencV1 -> "CENC_V1"
-    UnencryptedSei -> "UNENCRYPTED_SEI"
+pattern UnencryptedSei :: DashIsoPlaybackDeviceCompatibility
+pattern UnencryptedSei = DashIsoPlaybackDeviceCompatibility' "UNENCRYPTED_SEI"
 
-instance Hashable DashIsoPlaybackDeviceCompatibility
-
-instance NFData DashIsoPlaybackDeviceCompatibility
-
-instance ToByteString DashIsoPlaybackDeviceCompatibility
-
-instance ToQuery DashIsoPlaybackDeviceCompatibility
-
-instance ToHeader DashIsoPlaybackDeviceCompatibility
-
-instance ToJSON DashIsoPlaybackDeviceCompatibility where
-  toJSON = toJSONText
-
-instance FromJSON DashIsoPlaybackDeviceCompatibility where
-  parseJSON = parseJSONText "DashIsoPlaybackDeviceCompatibility"
+{-# COMPLETE
+  CencV1,
+  UnencryptedSei,
+  DashIsoPlaybackDeviceCompatibility'
+  #-}

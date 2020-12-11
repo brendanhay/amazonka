@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Retrieves information about a device definition version.
 module Network.AWS.Greengrass.GetDeviceDefinitionVersion
-  ( -- * Creating a Request
-    getDeviceDefinitionVersion,
-    GetDeviceDefinitionVersion,
+  ( -- * Creating a request
+    GetDeviceDefinitionVersion (..),
+    mkGetDeviceDefinitionVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gddvNextToken,
     gddvDeviceDefinitionVersionId,
     gddvDeviceDefinitionId,
 
-    -- * Destructuring the Response
-    getDeviceDefinitionVersionResponse,
-    GetDeviceDefinitionVersionResponse,
+    -- * Destructuring the response
+    GetDeviceDefinitionVersionResponse (..),
+    mkGetDeviceDefinitionVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gddvrsDefinition,
     gddvrsARN,
     gddvrsNextToken,
@@ -44,178 +39,205 @@ module Network.AWS.Greengrass.GetDeviceDefinitionVersion
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDeviceDefinitionVersion' smart constructor.
+-- | /See:/ 'mkGetDeviceDefinitionVersion' smart constructor.
 data GetDeviceDefinitionVersion = GetDeviceDefinitionVersion'
-  { _gddvNextToken ::
-      !(Maybe Text),
-    _gddvDeviceDefinitionVersionId ::
-      !Text,
-    _gddvDeviceDefinitionId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    deviceDefinitionVersionId ::
+      Lude.Text,
+    deviceDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeviceDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gddvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'gddvDeviceDefinitionVersionId' - The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
---
--- * 'gddvDeviceDefinitionId' - The ID of the device definition.
-getDeviceDefinitionVersion ::
-  -- | 'gddvDeviceDefinitionVersionId'
-  Text ->
-  -- | 'gddvDeviceDefinitionId'
-  Text ->
+-- * 'deviceDefinitionId' - The ID of the device definition.
+-- * 'deviceDefinitionVersionId' - The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkGetDeviceDefinitionVersion ::
+  -- | 'deviceDefinitionVersionId'
+  Lude.Text ->
+  -- | 'deviceDefinitionId'
+  Lude.Text ->
   GetDeviceDefinitionVersion
-getDeviceDefinitionVersion
+mkGetDeviceDefinitionVersion
   pDeviceDefinitionVersionId_
   pDeviceDefinitionId_ =
     GetDeviceDefinitionVersion'
-      { _gddvNextToken = Nothing,
-        _gddvDeviceDefinitionVersionId = pDeviceDefinitionVersionId_,
-        _gddvDeviceDefinitionId = pDeviceDefinitionId_
+      { nextToken = Lude.Nothing,
+        deviceDefinitionVersionId = pDeviceDefinitionVersionId_,
+        deviceDefinitionId = pDeviceDefinitionId_
       }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-gddvNextToken :: Lens' GetDeviceDefinitionVersion (Maybe Text)
-gddvNextToken = lens _gddvNextToken (\s a -> s {_gddvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvNextToken :: Lens.Lens' GetDeviceDefinitionVersion (Lude.Maybe Lude.Text)
+gddvNextToken = Lens.lens (nextToken :: GetDeviceDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetDeviceDefinitionVersion)
+{-# DEPRECATED gddvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
-gddvDeviceDefinitionVersionId :: Lens' GetDeviceDefinitionVersion Text
-gddvDeviceDefinitionVersionId = lens _gddvDeviceDefinitionVersionId (\s a -> s {_gddvDeviceDefinitionVersionId = a})
+--
+-- /Note:/ Consider using 'deviceDefinitionVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvDeviceDefinitionVersionId :: Lens.Lens' GetDeviceDefinitionVersion Lude.Text
+gddvDeviceDefinitionVersionId = Lens.lens (deviceDefinitionVersionId :: GetDeviceDefinitionVersion -> Lude.Text) (\s a -> s {deviceDefinitionVersionId = a} :: GetDeviceDefinitionVersion)
+{-# DEPRECATED gddvDeviceDefinitionVersionId "Use generic-lens or generic-optics with 'deviceDefinitionVersionId' instead." #-}
 
 -- | The ID of the device definition.
-gddvDeviceDefinitionId :: Lens' GetDeviceDefinitionVersion Text
-gddvDeviceDefinitionId = lens _gddvDeviceDefinitionId (\s a -> s {_gddvDeviceDefinitionId = a})
+--
+-- /Note:/ Consider using 'deviceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvDeviceDefinitionId :: Lens.Lens' GetDeviceDefinitionVersion Lude.Text
+gddvDeviceDefinitionId = Lens.lens (deviceDefinitionId :: GetDeviceDefinitionVersion -> Lude.Text) (\s a -> s {deviceDefinitionId = a} :: GetDeviceDefinitionVersion)
+{-# DEPRECATED gddvDeviceDefinitionId "Use generic-lens or generic-optics with 'deviceDefinitionId' instead." #-}
 
-instance AWSRequest GetDeviceDefinitionVersion where
+instance Lude.AWSRequest GetDeviceDefinitionVersion where
   type
     Rs GetDeviceDefinitionVersion =
       GetDeviceDefinitionVersionResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDeviceDefinitionVersionResponse'
-            <$> (x .?> "Definition")
-            <*> (x .?> "Arn")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Version")
-            <*> (x .?> "Id")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Definition")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Version")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDeviceDefinitionVersion
-
-instance NFData GetDeviceDefinitionVersion
-
-instance ToHeaders GetDeviceDefinitionVersion where
+instance Lude.ToHeaders GetDeviceDefinitionVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetDeviceDefinitionVersion where
+instance Lude.ToPath GetDeviceDefinitionVersion where
   toPath GetDeviceDefinitionVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/devices/",
-        toBS _gddvDeviceDefinitionId,
+        Lude.toBS deviceDefinitionId,
         "/versions/",
-        toBS _gddvDeviceDefinitionVersionId
+        Lude.toBS deviceDefinitionVersionId
       ]
 
-instance ToQuery GetDeviceDefinitionVersion where
+instance Lude.ToQuery GetDeviceDefinitionVersion where
   toQuery GetDeviceDefinitionVersion' {..} =
-    mconcat ["NextToken" =: _gddvNextToken]
+    Lude.mconcat ["NextToken" Lude.=: nextToken]
 
--- | /See:/ 'getDeviceDefinitionVersionResponse' smart constructor.
+-- | /See:/ 'mkGetDeviceDefinitionVersionResponse' smart constructor.
 data GetDeviceDefinitionVersionResponse = GetDeviceDefinitionVersionResponse'
-  { _gddvrsDefinition ::
-      !( Maybe
-           DeviceDefinitionVersion
-       ),
-    _gddvrsARN ::
-      !(Maybe Text),
-    _gddvrsNextToken ::
-      !(Maybe Text),
-    _gddvrsCreationTimestamp ::
-      !(Maybe Text),
-    _gddvrsVersion ::
-      !(Maybe Text),
-    _gddvrsId ::
-      !(Maybe Text),
-    _gddvrsResponseStatus ::
-      !Int
+  { definition ::
+      Lude.Maybe
+        DeviceDefinitionVersion,
+    arn ::
+      Lude.Maybe Lude.Text,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe Lude.Text,
+    version ::
+      Lude.Maybe Lude.Text,
+    id ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeviceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gddvrsDefinition' - Information about the device definition version.
---
--- * 'gddvrsARN' - The ARN of the device definition version.
---
--- * 'gddvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'gddvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the device definition version was created.
---
--- * 'gddvrsVersion' - The version of the device definition version.
---
--- * 'gddvrsId' - The ID of the device definition version.
---
--- * 'gddvrsResponseStatus' - -- | The response status code.
-getDeviceDefinitionVersionResponse ::
-  -- | 'gddvrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the device definition version.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the device definition version was created.
+-- * 'definition' - Information about the device definition version.
+-- * 'id' - The ID of the device definition version.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The version of the device definition version.
+mkGetDeviceDefinitionVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDeviceDefinitionVersionResponse
-getDeviceDefinitionVersionResponse pResponseStatus_ =
+mkGetDeviceDefinitionVersionResponse pResponseStatus_ =
   GetDeviceDefinitionVersionResponse'
-    { _gddvrsDefinition = Nothing,
-      _gddvrsARN = Nothing,
-      _gddvrsNextToken = Nothing,
-      _gddvrsCreationTimestamp = Nothing,
-      _gddvrsVersion = Nothing,
-      _gddvrsId = Nothing,
-      _gddvrsResponseStatus = pResponseStatus_
+    { definition = Lude.Nothing,
+      arn = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the device definition version.
-gddvrsDefinition :: Lens' GetDeviceDefinitionVersionResponse (Maybe DeviceDefinitionVersion)
-gddvrsDefinition = lens _gddvrsDefinition (\s a -> s {_gddvrsDefinition = a})
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsDefinition :: Lens.Lens' GetDeviceDefinitionVersionResponse (Lude.Maybe DeviceDefinitionVersion)
+gddvrsDefinition = Lens.lens (definition :: GetDeviceDefinitionVersionResponse -> Lude.Maybe DeviceDefinitionVersion) (\s a -> s {definition = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The ARN of the device definition version.
-gddvrsARN :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsARN = lens _gddvrsARN (\s a -> s {_gddvrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsARN :: Lens.Lens' GetDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gddvrsARN = Lens.lens (arn :: GetDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-gddvrsNextToken :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsNextToken = lens _gddvrsNextToken (\s a -> s {_gddvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsNextToken :: Lens.Lens' GetDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gddvrsNextToken = Lens.lens (nextToken :: GetDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the device definition version was created.
-gddvrsCreationTimestamp :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsCreationTimestamp = lens _gddvrsCreationTimestamp (\s a -> s {_gddvrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsCreationTimestamp :: Lens.Lens' GetDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gddvrsCreationTimestamp = Lens.lens (creationTimestamp :: GetDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The version of the device definition version.
-gddvrsVersion :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsVersion = lens _gddvrsVersion (\s a -> s {_gddvrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsVersion :: Lens.Lens' GetDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gddvrsVersion = Lens.lens (version :: GetDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the device definition version.
-gddvrsId :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsId = lens _gddvrsId (\s a -> s {_gddvrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsId :: Lens.Lens' GetDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gddvrsId = Lens.lens (id :: GetDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | -- | The response status code.
-gddvrsResponseStatus :: Lens' GetDeviceDefinitionVersionResponse Int
-gddvrsResponseStatus = lens _gddvrsResponseStatus (\s a -> s {_gddvrsResponseStatus = a})
-
-instance NFData GetDeviceDefinitionVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddvrsResponseStatus :: Lens.Lens' GetDeviceDefinitionVersionResponse Lude.Int
+gddvrsResponseStatus = Lens.lens (responseStatus :: GetDeviceDefinitionVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeviceDefinitionVersionResponse)
+{-# DEPRECATED gddvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AutomationExecutionFilterKey where
+module Network.AWS.SSM.Types.AutomationExecutionFilterKey
+  ( AutomationExecutionFilterKey
+      ( AutomationExecutionFilterKey',
+        AEFKAutomationType,
+        AEFKCurrentAction,
+        AEFKDocumentNamePrefix,
+        AEFKExecutionId,
+        AEFKExecutionStatus,
+        AEFKParentExecutionId,
+        AEFKStartTimeAfter,
+        AEFKStartTimeBefore,
+        AEFKTagKey,
+        AEFKTargetResourceGroup
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutomationExecutionFilterKey
-  = AEFKAutomationType
-  | AEFKCurrentAction
-  | AEFKDocumentNamePrefix
-  | AEFKExecutionId
-  | AEFKExecutionStatus
-  | AEFKParentExecutionId
-  | AEFKStartTimeAfter
-  | AEFKStartTimeBefore
-  | AEFKTagKey
-  | AEFKTargetResourceGroup
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutomationExecutionFilterKey = AutomationExecutionFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutomationExecutionFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "automationtype" -> pure AEFKAutomationType
-      "currentaction" -> pure AEFKCurrentAction
-      "documentnameprefix" -> pure AEFKDocumentNamePrefix
-      "executionid" -> pure AEFKExecutionId
-      "executionstatus" -> pure AEFKExecutionStatus
-      "parentexecutionid" -> pure AEFKParentExecutionId
-      "starttimeafter" -> pure AEFKStartTimeAfter
-      "starttimebefore" -> pure AEFKStartTimeBefore
-      "tagkey" -> pure AEFKTagKey
-      "targetresourcegroup" -> pure AEFKTargetResourceGroup
-      e ->
-        fromTextError $
-          "Failure parsing AutomationExecutionFilterKey from value: '" <> e
-            <> "'. Accepted values: automationtype, currentaction, documentnameprefix, executionid, executionstatus, parentexecutionid, starttimeafter, starttimebefore, tagkey, targetresourcegroup"
+pattern AEFKAutomationType :: AutomationExecutionFilterKey
+pattern AEFKAutomationType = AutomationExecutionFilterKey' "AutomationType"
 
-instance ToText AutomationExecutionFilterKey where
-  toText = \case
-    AEFKAutomationType -> "AutomationType"
-    AEFKCurrentAction -> "CurrentAction"
-    AEFKDocumentNamePrefix -> "DocumentNamePrefix"
-    AEFKExecutionId -> "ExecutionId"
-    AEFKExecutionStatus -> "ExecutionStatus"
-    AEFKParentExecutionId -> "ParentExecutionId"
-    AEFKStartTimeAfter -> "StartTimeAfter"
-    AEFKStartTimeBefore -> "StartTimeBefore"
-    AEFKTagKey -> "TagKey"
-    AEFKTargetResourceGroup -> "TargetResourceGroup"
+pattern AEFKCurrentAction :: AutomationExecutionFilterKey
+pattern AEFKCurrentAction = AutomationExecutionFilterKey' "CurrentAction"
 
-instance Hashable AutomationExecutionFilterKey
+pattern AEFKDocumentNamePrefix :: AutomationExecutionFilterKey
+pattern AEFKDocumentNamePrefix = AutomationExecutionFilterKey' "DocumentNamePrefix"
 
-instance NFData AutomationExecutionFilterKey
+pattern AEFKExecutionId :: AutomationExecutionFilterKey
+pattern AEFKExecutionId = AutomationExecutionFilterKey' "ExecutionId"
 
-instance ToByteString AutomationExecutionFilterKey
+pattern AEFKExecutionStatus :: AutomationExecutionFilterKey
+pattern AEFKExecutionStatus = AutomationExecutionFilterKey' "ExecutionStatus"
 
-instance ToQuery AutomationExecutionFilterKey
+pattern AEFKParentExecutionId :: AutomationExecutionFilterKey
+pattern AEFKParentExecutionId = AutomationExecutionFilterKey' "ParentExecutionId"
 
-instance ToHeader AutomationExecutionFilterKey
+pattern AEFKStartTimeAfter :: AutomationExecutionFilterKey
+pattern AEFKStartTimeAfter = AutomationExecutionFilterKey' "StartTimeAfter"
 
-instance ToJSON AutomationExecutionFilterKey where
-  toJSON = toJSONText
+pattern AEFKStartTimeBefore :: AutomationExecutionFilterKey
+pattern AEFKStartTimeBefore = AutomationExecutionFilterKey' "StartTimeBefore"
+
+pattern AEFKTagKey :: AutomationExecutionFilterKey
+pattern AEFKTagKey = AutomationExecutionFilterKey' "TagKey"
+
+pattern AEFKTargetResourceGroup :: AutomationExecutionFilterKey
+pattern AEFKTargetResourceGroup = AutomationExecutionFilterKey' "TargetResourceGroup"
+
+{-# COMPLETE
+  AEFKAutomationType,
+  AEFKCurrentAction,
+  AEFKDocumentNamePrefix,
+  AEFKExecutionId,
+  AEFKExecutionStatus,
+  AEFKParentExecutionId,
+  AEFKStartTimeAfter,
+  AEFKStartTimeBefore,
+  AEFKTagKey,
+  AEFKTargetResourceGroup,
+  AutomationExecutionFilterKey'
+  #-}

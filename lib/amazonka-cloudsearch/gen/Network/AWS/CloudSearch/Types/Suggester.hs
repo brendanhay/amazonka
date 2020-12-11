@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.Suggester where
+module Network.AWS.CloudSearch.Types.Suggester
+  ( Suggester (..),
+
+    -- * Smart constructor
+    mkSuggester,
+
+    -- * Lenses
+    sSuggesterName,
+    sDocumentSuggesterOptions,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: @FuzzyMatching@ , @SortExpression@ .
 --
---
---
--- /See:/ 'suggester' smart constructor.
+-- /See:/ 'mkSuggester' smart constructor.
 data Suggester = Suggester'
-  { _sSuggesterName :: !Text,
-    _sDocumentSuggesterOptions :: !DocumentSuggesterOptions
+  { suggesterName :: Lude.Text,
+    documentSuggesterOptions :: DocumentSuggesterOptions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Suggester' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sSuggesterName' - Undocumented member.
---
--- * 'sDocumentSuggesterOptions' - Undocumented member.
-suggester ::
-  -- | 'sSuggesterName'
-  Text ->
-  -- | 'sDocumentSuggesterOptions'
+-- * 'documentSuggesterOptions' - Undocumented field.
+-- * 'suggesterName' - Undocumented field.
+mkSuggester ::
+  -- | 'suggesterName'
+  Lude.Text ->
+  -- | 'documentSuggesterOptions'
   DocumentSuggesterOptions ->
   Suggester
-suggester pSuggesterName_ pDocumentSuggesterOptions_ =
+mkSuggester pSuggesterName_ pDocumentSuggesterOptions_ =
   Suggester'
-    { _sSuggesterName = pSuggesterName_,
-      _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
+    { suggesterName = pSuggesterName_,
+      documentSuggesterOptions = pDocumentSuggesterOptions_
     }
 
--- | Undocumented member.
-sSuggesterName :: Lens' Suggester Text
-sSuggesterName = lens _sSuggesterName (\s a -> s {_sSuggesterName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'suggesterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSuggesterName :: Lens.Lens' Suggester Lude.Text
+sSuggesterName = Lens.lens (suggesterName :: Suggester -> Lude.Text) (\s a -> s {suggesterName = a} :: Suggester)
+{-# DEPRECATED sSuggesterName "Use generic-lens or generic-optics with 'suggesterName' instead." #-}
 
--- | Undocumented member.
-sDocumentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
-sDocumentSuggesterOptions = lens _sDocumentSuggesterOptions (\s a -> s {_sDocumentSuggesterOptions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'documentSuggesterOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDocumentSuggesterOptions :: Lens.Lens' Suggester DocumentSuggesterOptions
+sDocumentSuggesterOptions = Lens.lens (documentSuggesterOptions :: Suggester -> DocumentSuggesterOptions) (\s a -> s {documentSuggesterOptions = a} :: Suggester)
+{-# DEPRECATED sDocumentSuggesterOptions "Use generic-lens or generic-optics with 'documentSuggesterOptions' instead." #-}
 
-instance FromXML Suggester where
+instance Lude.FromXML Suggester where
   parseXML x =
     Suggester'
-      <$> (x .@ "SuggesterName") <*> (x .@ "DocumentSuggesterOptions")
+      Lude.<$> (x Lude..@ "SuggesterName")
+      Lude.<*> (x Lude..@ "DocumentSuggesterOptions")
 
-instance Hashable Suggester
-
-instance NFData Suggester
-
-instance ToQuery Suggester where
+instance Lude.ToQuery Suggester where
   toQuery Suggester' {..} =
-    mconcat
-      [ "SuggesterName" =: _sSuggesterName,
-        "DocumentSuggesterOptions" =: _sDocumentSuggesterOptions
+    Lude.mconcat
+      [ "SuggesterName" Lude.=: suggesterName,
+        "DocumentSuggesterOptions" Lude.=: documentSuggesterOptions
       ]

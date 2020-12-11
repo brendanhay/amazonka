@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DeleteFleetErrorCode where
+module Network.AWS.EC2.Types.DeleteFleetErrorCode
+  ( DeleteFleetErrorCode
+      ( DeleteFleetErrorCode',
+        DFECFleetIdDoesNotExist,
+        DFECFleetIdMalformed,
+        DFECFleetNotInDeletableState,
+        DFECUnexpectedError
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeleteFleetErrorCode
-  = DFECFleetIdDoesNotExist
-  | DFECFleetIdMalformed
-  | DFECFleetNotInDeletableState
-  | DFECUnexpectedError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeleteFleetErrorCode = DeleteFleetErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeleteFleetErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "fleetiddoesnotexist" -> pure DFECFleetIdDoesNotExist
-      "fleetidmalformed" -> pure DFECFleetIdMalformed
-      "fleetnotindeletablestate" -> pure DFECFleetNotInDeletableState
-      "unexpectederror" -> pure DFECUnexpectedError
-      e ->
-        fromTextError $
-          "Failure parsing DeleteFleetErrorCode from value: '" <> e
-            <> "'. Accepted values: fleetiddoesnotexist, fleetidmalformed, fleetnotindeletablestate, unexpectederror"
+pattern DFECFleetIdDoesNotExist :: DeleteFleetErrorCode
+pattern DFECFleetIdDoesNotExist = DeleteFleetErrorCode' "fleetIdDoesNotExist"
 
-instance ToText DeleteFleetErrorCode where
-  toText = \case
-    DFECFleetIdDoesNotExist -> "fleetIdDoesNotExist"
-    DFECFleetIdMalformed -> "fleetIdMalformed"
-    DFECFleetNotInDeletableState -> "fleetNotInDeletableState"
-    DFECUnexpectedError -> "unexpectedError"
+pattern DFECFleetIdMalformed :: DeleteFleetErrorCode
+pattern DFECFleetIdMalformed = DeleteFleetErrorCode' "fleetIdMalformed"
 
-instance Hashable DeleteFleetErrorCode
+pattern DFECFleetNotInDeletableState :: DeleteFleetErrorCode
+pattern DFECFleetNotInDeletableState = DeleteFleetErrorCode' "fleetNotInDeletableState"
 
-instance NFData DeleteFleetErrorCode
+pattern DFECUnexpectedError :: DeleteFleetErrorCode
+pattern DFECUnexpectedError = DeleteFleetErrorCode' "unexpectedError"
 
-instance ToByteString DeleteFleetErrorCode
-
-instance ToQuery DeleteFleetErrorCode
-
-instance ToHeader DeleteFleetErrorCode
-
-instance FromXML DeleteFleetErrorCode where
-  parseXML = parseXMLText "DeleteFleetErrorCode"
+{-# COMPLETE
+  DFECFleetIdDoesNotExist,
+  DFECFleetIdMalformed,
+  DFECFleetNotInDeletableState,
+  DFECUnexpectedError,
+  DeleteFleetErrorCode'
+  #-}

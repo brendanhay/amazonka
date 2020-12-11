@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.ResourceType where
+module Network.AWS.WorkMail.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        Equipment,
+        Room
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = Equipment
-  | Room
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "equipment" -> pure Equipment
-      "room" -> pure Room
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: equipment, room"
+pattern Equipment :: ResourceType
+pattern Equipment = ResourceType' "EQUIPMENT"
 
-instance ToText ResourceType where
-  toText = \case
-    Equipment -> "EQUIPMENT"
-    Room -> "ROOM"
+pattern Room :: ResourceType
+pattern Room = ResourceType' "ROOM"
 
-instance Hashable ResourceType
-
-instance NFData ResourceType
-
-instance ToByteString ResourceType
-
-instance ToQuery ResourceType
-
-instance ToHeader ResourceType
-
-instance ToJSON ResourceType where
-  toJSON = toJSONText
-
-instance FromJSON ResourceType where
-  parseJSON = parseJSONText "ResourceType"
+{-# COMPLETE
+  Equipment,
+  Room,
+  ResourceType'
+  #-}

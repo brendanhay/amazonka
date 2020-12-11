@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
---
 -- ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.
 module Network.AWS.CognitoSync.ListDatasets
-  ( -- * Creating a Request
-    listDatasets,
-    ListDatasets,
+  ( -- * Creating a request
+    ListDatasets (..),
+    mkListDatasets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldNextToken,
     ldMaxResults,
     ldIdentityId,
     ldIdentityPoolId,
 
-    -- * Destructuring the Response
-    listDatasetsResponse,
-    ListDatasetsResponse,
+    -- * Destructuring the response
+    ListDatasetsResponse (..),
+    mkListDatasetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsCount,
     ldrsNextToken,
     ldrsDatasets,
@@ -45,151 +39,176 @@ module Network.AWS.CognitoSync.ListDatasets
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request for a list of datasets for an identity.
 --
--- /See:/ 'listDatasets' smart constructor.
+-- /See:/ 'mkListDatasets' smart constructor.
 data ListDatasets = ListDatasets'
-  { _ldNextToken :: !(Maybe Text),
-    _ldMaxResults :: !(Maybe Int),
-    _ldIdentityId :: !Text,
-    _ldIdentityPoolId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    identityId :: Lude.Text,
+    identityPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatasets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldNextToken' - A pagination token for obtaining the next page of results.
---
--- * 'ldMaxResults' - The maximum number of results to be returned.
---
--- * 'ldIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'ldIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-listDatasets ::
-  -- | 'ldIdentityId'
-  Text ->
-  -- | 'ldIdentityPoolId'
-  Text ->
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'maxResults' - The maximum number of results to be returned.
+-- * 'nextToken' - A pagination token for obtaining the next page of results.
+mkListDatasets ::
+  -- | 'identityId'
+  Lude.Text ->
+  -- | 'identityPoolId'
+  Lude.Text ->
   ListDatasets
-listDatasets pIdentityId_ pIdentityPoolId_ =
+mkListDatasets pIdentityId_ pIdentityPoolId_ =
   ListDatasets'
-    { _ldNextToken = Nothing,
-      _ldMaxResults = Nothing,
-      _ldIdentityId = pIdentityId_,
-      _ldIdentityPoolId = pIdentityPoolId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      identityId = pIdentityId_,
+      identityPoolId = pIdentityPoolId_
     }
 
 -- | A pagination token for obtaining the next page of results.
-ldNextToken :: Lens' ListDatasets (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDatasets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasets)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned.
-ldMaxResults :: Lens' ListDatasets (Maybe Int)
-ldMaxResults = lens _ldMaxResults (\s a -> s {_ldMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxResults :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Int)
+ldMaxResults = Lens.lens (maxResults :: ListDatasets -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDatasets)
+{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-ldIdentityId :: Lens' ListDatasets Text
-ldIdentityId = lens _ldIdentityId (\s a -> s {_ldIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldIdentityId :: Lens.Lens' ListDatasets Lude.Text
+ldIdentityId = Lens.lens (identityId :: ListDatasets -> Lude.Text) (\s a -> s {identityId = a} :: ListDatasets)
+{-# DEPRECATED ldIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-ldIdentityPoolId :: Lens' ListDatasets Text
-ldIdentityPoolId = lens _ldIdentityPoolId (\s a -> s {_ldIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldIdentityPoolId :: Lens.Lens' ListDatasets Lude.Text
+ldIdentityPoolId = Lens.lens (identityPoolId :: ListDatasets -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListDatasets)
+{-# DEPRECATED ldIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance AWSRequest ListDatasets where
+instance Lude.AWSRequest ListDatasets where
   type Rs ListDatasets = ListDatasetsResponse
-  request = get cognitoSync
+  request = Req.get cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            <$> (x .?> "Count")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "Datasets" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Count")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Datasets" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDatasets
-
-instance NFData ListDatasets
-
-instance ToHeaders ListDatasets where
+instance Lude.ToHeaders ListDatasets where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListDatasets where
+instance Lude.ToPath ListDatasets where
   toPath ListDatasets' {..} =
-    mconcat
+    Lude.mconcat
       [ "/identitypools/",
-        toBS _ldIdentityPoolId,
+        Lude.toBS identityPoolId,
         "/identities/",
-        toBS _ldIdentityId,
+        Lude.toBS identityId,
         "/datasets"
       ]
 
-instance ToQuery ListDatasets where
+instance Lude.ToQuery ListDatasets where
   toQuery ListDatasets' {..} =
-    mconcat
-      ["nextToken" =: _ldNextToken, "maxResults" =: _ldMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Returned for a successful ListDatasets request.
 --
--- /See:/ 'listDatasetsResponse' smart constructor.
+-- /See:/ 'mkListDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-  { _ldrsCount ::
-      !(Maybe Int),
-    _ldrsNextToken :: !(Maybe Text),
-    _ldrsDatasets :: !(Maybe [Dataset]),
-    _ldrsResponseStatus :: !Int
+  { count ::
+      Lude.Maybe Lude.Int,
+    nextToken :: Lude.Maybe Lude.Text,
+    datasets :: Lude.Maybe [Dataset],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsCount' - Number of datasets returned.
---
--- * 'ldrsNextToken' - A pagination token for obtaining the next page of results.
---
--- * 'ldrsDatasets' - A set of datasets.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDatasetsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'count' - Number of datasets returned.
+-- * 'datasets' - A set of datasets.
+-- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'responseStatus' - The response status code.
+mkListDatasetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDatasetsResponse
-listDatasetsResponse pResponseStatus_ =
+mkListDatasetsResponse pResponseStatus_ =
   ListDatasetsResponse'
-    { _ldrsCount = Nothing,
-      _ldrsNextToken = Nothing,
-      _ldrsDatasets = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { count = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      datasets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Number of datasets returned.
-ldrsCount :: Lens' ListDatasetsResponse (Maybe Int)
-ldrsCount = lens _ldrsCount (\s a -> s {_ldrsCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsCount :: Lens.Lens' ListDatasetsResponse (Lude.Maybe Lude.Int)
+ldrsCount = Lens.lens (count :: ListDatasetsResponse -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: ListDatasetsResponse)
+{-# DEPRECATED ldrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | A pagination token for obtaining the next page of results.
-ldrsNextToken :: Lens' ListDatasetsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDatasetsResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDatasetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasetsResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A set of datasets.
-ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
-ldrsDatasets = lens _ldrsDatasets (\s a -> s {_ldrsDatasets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'datasets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDatasets :: Lens.Lens' ListDatasetsResponse (Lude.Maybe [Dataset])
+ldrsDatasets = Lens.lens (datasets :: ListDatasetsResponse -> Lude.Maybe [Dataset]) (\s a -> s {datasets = a} :: ListDatasetsResponse)
+{-# DEPRECATED ldrsDatasets "Use generic-lens or generic-optics with 'datasets' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDatasetsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDatasetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDatasetsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDatasetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDatasetsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

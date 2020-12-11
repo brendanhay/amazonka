@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns information about the specified AWS Firewall Manager applications list.
 module Network.AWS.FMS.GetAppsList
-  ( -- * Creating a Request
-    getAppsList,
-    GetAppsList,
+  ( -- * Creating a request
+    GetAppsList (..),
+    mkGetAppsList,
 
-    -- * Request Lenses
+    -- ** Request lenses
     galDefaultList,
     galListId,
 
-    -- * Destructuring the Response
-    getAppsListResponse,
-    GetAppsListResponse,
+    -- * Destructuring the response
+    GetAppsListResponse (..),
+    mkGetAppsListResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     galrsAppsListARN,
     galrsAppsList,
     galrsResponseStatus,
@@ -39,119 +34,138 @@ module Network.AWS.FMS.GetAppsList
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAppsList' smart constructor.
+-- | /See:/ 'mkGetAppsList' smart constructor.
 data GetAppsList = GetAppsList'
-  { _galDefaultList :: !(Maybe Bool),
-    _galListId :: !Text
+  { defaultList ::
+      Lude.Maybe Lude.Bool,
+    listId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppsList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'galDefaultList' - Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
---
--- * 'galListId' - The ID of the AWS Firewall Manager applications list that you want the details for.
-getAppsList ::
-  -- | 'galListId'
-  Text ->
+-- * 'defaultList' - Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
+-- * 'listId' - The ID of the AWS Firewall Manager applications list that you want the details for.
+mkGetAppsList ::
+  -- | 'listId'
+  Lude.Text ->
   GetAppsList
-getAppsList pListId_ =
-  GetAppsList' {_galDefaultList = Nothing, _galListId = pListId_}
+mkGetAppsList pListId_ =
+  GetAppsList' {defaultList = Lude.Nothing, listId = pListId_}
 
 -- | Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
-galDefaultList :: Lens' GetAppsList (Maybe Bool)
-galDefaultList = lens _galDefaultList (\s a -> s {_galDefaultList = a})
+--
+-- /Note:/ Consider using 'defaultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galDefaultList :: Lens.Lens' GetAppsList (Lude.Maybe Lude.Bool)
+galDefaultList = Lens.lens (defaultList :: GetAppsList -> Lude.Maybe Lude.Bool) (\s a -> s {defaultList = a} :: GetAppsList)
+{-# DEPRECATED galDefaultList "Use generic-lens or generic-optics with 'defaultList' instead." #-}
 
 -- | The ID of the AWS Firewall Manager applications list that you want the details for.
-galListId :: Lens' GetAppsList Text
-galListId = lens _galListId (\s a -> s {_galListId = a})
+--
+-- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galListId :: Lens.Lens' GetAppsList Lude.Text
+galListId = Lens.lens (listId :: GetAppsList -> Lude.Text) (\s a -> s {listId = a} :: GetAppsList)
+{-# DEPRECATED galListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
-instance AWSRequest GetAppsList where
+instance Lude.AWSRequest GetAppsList where
   type Rs GetAppsList = GetAppsListResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAppsListResponse'
-            <$> (x .?> "AppsListArn")
-            <*> (x .?> "AppsList")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AppsListArn")
+            Lude.<*> (x Lude..?> "AppsList")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAppsList
-
-instance NFData GetAppsList
-
-instance ToHeaders GetAppsList where
+instance Lude.ToHeaders GetAppsList where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSFMS_20180101.GetAppsList" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSFMS_20180101.GetAppsList" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAppsList where
+instance Lude.ToJSON GetAppsList where
   toJSON GetAppsList' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultList" .=) <$> _galDefaultList,
-            Just ("ListId" .= _galListId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultList" Lude..=) Lude.<$> defaultList,
+            Lude.Just ("ListId" Lude..= listId)
           ]
       )
 
-instance ToPath GetAppsList where
-  toPath = const "/"
+instance Lude.ToPath GetAppsList where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAppsList where
-  toQuery = const mempty
+instance Lude.ToQuery GetAppsList where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAppsListResponse' smart constructor.
+-- | /See:/ 'mkGetAppsListResponse' smart constructor.
 data GetAppsListResponse = GetAppsListResponse'
-  { _galrsAppsListARN ::
-      !(Maybe Text),
-    _galrsAppsList :: !(Maybe AppsListData),
-    _galrsResponseStatus :: !Int
+  { appsListARN ::
+      Lude.Maybe Lude.Text,
+    appsList :: Lude.Maybe AppsListData,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppsListResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'galrsAppsListARN' - The Amazon Resource Name (ARN) of the applications list.
---
--- * 'galrsAppsList' - Information about the specified AWS Firewall Manager applications list.
---
--- * 'galrsResponseStatus' - -- | The response status code.
-getAppsListResponse ::
-  -- | 'galrsResponseStatus'
-  Int ->
+-- * 'appsList' - Information about the specified AWS Firewall Manager applications list.
+-- * 'appsListARN' - The Amazon Resource Name (ARN) of the applications list.
+-- * 'responseStatus' - The response status code.
+mkGetAppsListResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppsListResponse
-getAppsListResponse pResponseStatus_ =
+mkGetAppsListResponse pResponseStatus_ =
   GetAppsListResponse'
-    { _galrsAppsListARN = Nothing,
-      _galrsAppsList = Nothing,
-      _galrsResponseStatus = pResponseStatus_
+    { appsListARN = Lude.Nothing,
+      appsList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the applications list.
-galrsAppsListARN :: Lens' GetAppsListResponse (Maybe Text)
-galrsAppsListARN = lens _galrsAppsListARN (\s a -> s {_galrsAppsListARN = a})
+--
+-- /Note:/ Consider using 'appsListARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galrsAppsListARN :: Lens.Lens' GetAppsListResponse (Lude.Maybe Lude.Text)
+galrsAppsListARN = Lens.lens (appsListARN :: GetAppsListResponse -> Lude.Maybe Lude.Text) (\s a -> s {appsListARN = a} :: GetAppsListResponse)
+{-# DEPRECATED galrsAppsListARN "Use generic-lens or generic-optics with 'appsListARN' instead." #-}
 
 -- | Information about the specified AWS Firewall Manager applications list.
-galrsAppsList :: Lens' GetAppsListResponse (Maybe AppsListData)
-galrsAppsList = lens _galrsAppsList (\s a -> s {_galrsAppsList = a})
+--
+-- /Note:/ Consider using 'appsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galrsAppsList :: Lens.Lens' GetAppsListResponse (Lude.Maybe AppsListData)
+galrsAppsList = Lens.lens (appsList :: GetAppsListResponse -> Lude.Maybe AppsListData) (\s a -> s {appsList = a} :: GetAppsListResponse)
+{-# DEPRECATED galrsAppsList "Use generic-lens or generic-optics with 'appsList' instead." #-}
 
--- | -- | The response status code.
-galrsResponseStatus :: Lens' GetAppsListResponse Int
-galrsResponseStatus = lens _galrsResponseStatus (\s a -> s {_galrsResponseStatus = a})
-
-instance NFData GetAppsListResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galrsResponseStatus :: Lens.Lens' GetAppsListResponse Lude.Int
+galrsResponseStatus = Lens.lens (responseStatus :: GetAppsListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppsListResponse)
+{-# DEPRECATED galrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

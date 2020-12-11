@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest where
+module Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest
+  ( TrafficMirrorPortRangeRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrafficMirrorPortRangeRequest,
+
+    -- * Lenses
+    tmprrFromPort,
+    tmprrToPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the Traffic Mirror filter rule port range.
 --
---
---
--- /See:/ 'trafficMirrorPortRangeRequest' smart constructor.
+-- /See:/ 'mkTrafficMirrorPortRangeRequest' smart constructor.
 data TrafficMirrorPortRangeRequest = TrafficMirrorPortRangeRequest'
-  { _tmprrFromPort ::
-      !(Maybe Int),
-    _tmprrToPort :: !(Maybe Int)
+  { fromPort ::
+      Lude.Maybe Lude.Int,
+    toPort :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficMirrorPortRangeRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tmprrFromPort' - The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.
---
--- * 'tmprrToPort' - The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.
-trafficMirrorPortRangeRequest ::
+-- * 'fromPort' - The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.
+-- * 'toPort' - The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.
+mkTrafficMirrorPortRangeRequest ::
   TrafficMirrorPortRangeRequest
-trafficMirrorPortRangeRequest =
+mkTrafficMirrorPortRangeRequest =
   TrafficMirrorPortRangeRequest'
-    { _tmprrFromPort = Nothing,
-      _tmprrToPort = Nothing
+    { fromPort = Lude.Nothing,
+      toPort = Lude.Nothing
     }
 
 -- | The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.
-tmprrFromPort :: Lens' TrafficMirrorPortRangeRequest (Maybe Int)
-tmprrFromPort = lens _tmprrFromPort (\s a -> s {_tmprrFromPort = a})
+--
+-- /Note:/ Consider using 'fromPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmprrFromPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Lude.Maybe Lude.Int)
+tmprrFromPort = Lens.lens (fromPort :: TrafficMirrorPortRangeRequest -> Lude.Maybe Lude.Int) (\s a -> s {fromPort = a} :: TrafficMirrorPortRangeRequest)
+{-# DEPRECATED tmprrFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
 
 -- | The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.
-tmprrToPort :: Lens' TrafficMirrorPortRangeRequest (Maybe Int)
-tmprrToPort = lens _tmprrToPort (\s a -> s {_tmprrToPort = a})
+--
+-- /Note:/ Consider using 'toPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmprrToPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Lude.Maybe Lude.Int)
+tmprrToPort = Lens.lens (toPort :: TrafficMirrorPortRangeRequest -> Lude.Maybe Lude.Int) (\s a -> s {toPort = a} :: TrafficMirrorPortRangeRequest)
+{-# DEPRECATED tmprrToPort "Use generic-lens or generic-optics with 'toPort' instead." #-}
 
-instance Hashable TrafficMirrorPortRangeRequest
-
-instance NFData TrafficMirrorPortRangeRequest
-
-instance ToQuery TrafficMirrorPortRangeRequest where
+instance Lude.ToQuery TrafficMirrorPortRangeRequest where
   toQuery TrafficMirrorPortRangeRequest' {..} =
-    mconcat ["FromPort" =: _tmprrFromPort, "ToPort" =: _tmprrToPort]
+    Lude.mconcat
+      ["FromPort" Lude.=: fromPort, "ToPort" Lude.=: toPort]

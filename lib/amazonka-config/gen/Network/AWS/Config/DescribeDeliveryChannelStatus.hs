@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,146 @@
 --
 -- Returns the current status of the specified delivery channel. If a delivery channel is not specified, this action returns the current status of all delivery channels associated with the account.
 module Network.AWS.Config.DescribeDeliveryChannelStatus
-  ( -- * Creating a Request
-    describeDeliveryChannelStatus,
-    DescribeDeliveryChannelStatus,
+  ( -- * Creating a request
+    DescribeDeliveryChannelStatus (..),
+    mkDescribeDeliveryChannelStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcsDeliveryChannelNames,
 
-    -- * Destructuring the Response
-    describeDeliveryChannelStatusResponse,
-    DescribeDeliveryChannelStatusResponse,
+    -- * Destructuring the response
+    DescribeDeliveryChannelStatusResponse (..),
+    mkDescribeDeliveryChannelStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcsrsDeliveryChannelsStatus,
     ddcsrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'DeliveryChannelStatus' action.
 --
---
---
--- /See:/ 'describeDeliveryChannelStatus' smart constructor.
+-- /See:/ 'mkDescribeDeliveryChannelStatus' smart constructor.
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
-  { _ddcsDeliveryChannelNames ::
-      Maybe [Text]
+  { deliveryChannelNames ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryChannelStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcsDeliveryChannelNames' - A list of delivery channel names.
-describeDeliveryChannelStatus ::
+-- * 'deliveryChannelNames' - A list of delivery channel names.
+mkDescribeDeliveryChannelStatus ::
   DescribeDeliveryChannelStatus
-describeDeliveryChannelStatus =
+mkDescribeDeliveryChannelStatus =
   DescribeDeliveryChannelStatus'
-    { _ddcsDeliveryChannelNames =
-        Nothing
+    { deliveryChannelNames =
+        Lude.Nothing
     }
 
 -- | A list of delivery channel names.
-ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
-ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\s a -> s {_ddcsDeliveryChannelNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deliveryChannelNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcsDeliveryChannelNames :: Lens.Lens' DescribeDeliveryChannelStatus (Lude.Maybe [Lude.Text])
+ddcsDeliveryChannelNames = Lens.lens (deliveryChannelNames :: DescribeDeliveryChannelStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {deliveryChannelNames = a} :: DescribeDeliveryChannelStatus)
+{-# DEPRECATED ddcsDeliveryChannelNames "Use generic-lens or generic-optics with 'deliveryChannelNames' instead." #-}
 
-instance AWSRequest DescribeDeliveryChannelStatus where
+instance Lude.AWSRequest DescribeDeliveryChannelStatus where
   type
     Rs DescribeDeliveryChannelStatus =
       DescribeDeliveryChannelStatusResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDeliveryChannelStatusResponse'
-            <$> (x .?> "DeliveryChannelsStatus" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DeliveryChannelsStatus" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDeliveryChannelStatus
-
-instance NFData DescribeDeliveryChannelStatus
-
-instance ToHeaders DescribeDeliveryChannelStatus where
+instance Lude.ToHeaders DescribeDeliveryChannelStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeDeliveryChannelStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeDeliveryChannelStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDeliveryChannelStatus where
+instance Lude.ToJSON DescribeDeliveryChannelStatus where
   toJSON DescribeDeliveryChannelStatus' {..} =
-    object
-      ( catMaybes
-          [("DeliveryChannelNames" .=) <$> _ddcsDeliveryChannelNames]
+    Lude.object
+      ( Lude.catMaybes
+          [("DeliveryChannelNames" Lude..=) Lude.<$> deliveryChannelNames]
       )
 
-instance ToPath DescribeDeliveryChannelStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeDeliveryChannelStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDeliveryChannelStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDeliveryChannelStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the 'DescribeDeliveryChannelStatus' action.
 --
---
---
--- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
+-- /See:/ 'mkDescribeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
-  { _ddcsrsDeliveryChannelsStatus ::
-      !( Maybe
-           [DeliveryChannelStatus]
-       ),
-    _ddcsrsResponseStatus ::
-      !Int
+  { deliveryChannelsStatus ::
+      Lude.Maybe
+        [DeliveryChannelStatus],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcsrsDeliveryChannelsStatus' - A list that contains the status of a specified delivery channel.
---
--- * 'ddcsrsResponseStatus' - -- | The response status code.
-describeDeliveryChannelStatusResponse ::
-  -- | 'ddcsrsResponseStatus'
-  Int ->
+-- * 'deliveryChannelsStatus' - A list that contains the status of a specified delivery channel.
+-- * 'responseStatus' - The response status code.
+mkDescribeDeliveryChannelStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDeliveryChannelStatusResponse
-describeDeliveryChannelStatusResponse pResponseStatus_ =
+mkDescribeDeliveryChannelStatusResponse pResponseStatus_ =
   DescribeDeliveryChannelStatusResponse'
-    { _ddcsrsDeliveryChannelsStatus =
-        Nothing,
-      _ddcsrsResponseStatus = pResponseStatus_
+    { deliveryChannelsStatus =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list that contains the status of a specified delivery channel.
-ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
-ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\s a -> s {_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deliveryChannelsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcsrsDeliveryChannelsStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse (Lude.Maybe [DeliveryChannelStatus])
+ddcsrsDeliveryChannelsStatus = Lens.lens (deliveryChannelsStatus :: DescribeDeliveryChannelStatusResponse -> Lude.Maybe [DeliveryChannelStatus]) (\s a -> s {deliveryChannelsStatus = a} :: DescribeDeliveryChannelStatusResponse)
+{-# DEPRECATED ddcsrsDeliveryChannelsStatus "Use generic-lens or generic-optics with 'deliveryChannelsStatus' instead." #-}
 
--- | -- | The response status code.
-ddcsrsResponseStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
-ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\s a -> s {_ddcsrsResponseStatus = a})
-
-instance NFData DescribeDeliveryChannelStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcsrsResponseStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse Lude.Int
+ddcsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryChannelStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeliveryChannelStatusResponse)
+{-# DEPRECATED ddcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

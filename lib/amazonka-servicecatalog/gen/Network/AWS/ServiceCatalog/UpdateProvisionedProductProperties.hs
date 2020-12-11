@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Requests updates to the properties of the specified provisioned product.
 module Network.AWS.ServiceCatalog.UpdateProvisionedProductProperties
-  ( -- * Creating a Request
-    updateProvisionedProductProperties,
-    UpdateProvisionedProductProperties,
+  ( -- * Creating a request
+    UpdateProvisionedProductProperties (..),
+    mkUpdateProvisionedProductProperties,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upppAcceptLanguage,
     upppProvisionedProductId,
     upppProvisionedProductProperties,
     upppIdempotencyToken,
 
-    -- * Destructuring the Response
-    updateProvisionedProductPropertiesResponse,
-    UpdateProvisionedProductPropertiesResponse,
+    -- * Destructuring the response
+    UpdateProvisionedProductPropertiesResponse (..),
+    mkUpdateProvisionedProductPropertiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uppprsStatus,
     uppprsProvisionedProductProperties,
     uppprsRecordId,
@@ -42,202 +37,247 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProductProperties
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'updateProvisionedProductProperties' smart constructor.
+-- | /See:/ 'mkUpdateProvisionedProductProperties' smart constructor.
 data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
-  { _upppAcceptLanguage ::
-      !(Maybe Text),
-    _upppProvisionedProductId ::
-      !Text,
-    _upppProvisionedProductProperties ::
-      !( Map
-           PropertyKey
-           (Text)
-       ),
-    _upppIdempotencyToken ::
-      !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    provisionedProductId ::
+      Lude.Text,
+    provisionedProductProperties ::
+      Lude.HashMap
+        PropertyKey
+        (Lude.Text),
+    idempotencyToken ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisionedProductProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'upppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'upppProvisionedProductId' - The identifier of the provisioned product.
+--     * @en@ - English (default)
 --
--- * 'upppProvisionedProductProperties' - A map that contains the provisioned product properties to be updated. The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.  The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product. The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ . If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
 --
--- * 'upppIdempotencyToken' - The idempotency token that uniquely identifies the provisioning product update request.
-updateProvisionedProductProperties ::
-  -- | 'upppProvisionedProductId'
-  Text ->
-  -- | 'upppIdempotencyToken'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'idempotencyToken' - The idempotency token that uniquely identifies the provisioning product update request.
+-- * 'provisionedProductId' - The identifier of the provisioned product.
+-- * 'provisionedProductProperties' - A map that contains the provisioned product properties to be updated.
+--
+-- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.
+-- The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
+-- The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ .
+-- If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
+mkUpdateProvisionedProductProperties ::
+  -- | 'provisionedProductId'
+  Lude.Text ->
+  -- | 'idempotencyToken'
+  Lude.Text ->
   UpdateProvisionedProductProperties
-updateProvisionedProductProperties
+mkUpdateProvisionedProductProperties
   pProvisionedProductId_
   pIdempotencyToken_ =
     UpdateProvisionedProductProperties'
-      { _upppAcceptLanguage =
-          Nothing,
-        _upppProvisionedProductId = pProvisionedProductId_,
-        _upppProvisionedProductProperties = mempty,
-        _upppIdempotencyToken = pIdempotencyToken_
+      { acceptLanguage =
+          Lude.Nothing,
+        provisionedProductId = pProvisionedProductId_,
+        provisionedProductProperties = Lude.mempty,
+        idempotencyToken = pIdempotencyToken_
       }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-upppAcceptLanguage :: Lens' UpdateProvisionedProductProperties (Maybe Text)
-upppAcceptLanguage = lens _upppAcceptLanguage (\s a -> s {_upppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upppAcceptLanguage :: Lens.Lens' UpdateProvisionedProductProperties (Lude.Maybe Lude.Text)
+upppAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProvisionedProductProperties -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdateProvisionedProductProperties)
+{-# DEPRECATED upppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The identifier of the provisioned product.
-upppProvisionedProductId :: Lens' UpdateProvisionedProductProperties Text
-upppProvisionedProductId = lens _upppProvisionedProductId (\s a -> s {_upppProvisionedProductId = a})
+--
+-- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upppProvisionedProductId :: Lens.Lens' UpdateProvisionedProductProperties Lude.Text
+upppProvisionedProductId = Lens.lens (provisionedProductId :: UpdateProvisionedProductProperties -> Lude.Text) (\s a -> s {provisionedProductId = a} :: UpdateProvisionedProductProperties)
+{-# DEPRECATED upppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
 
--- | A map that contains the provisioned product properties to be updated. The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.  The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product. The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ . If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
-upppProvisionedProductProperties :: Lens' UpdateProvisionedProductProperties (HashMap PropertyKey (Text))
-upppProvisionedProductProperties = lens _upppProvisionedProductProperties (\s a -> s {_upppProvisionedProductProperties = a}) . _Map
+-- | A map that contains the provisioned product properties to be updated.
+--
+-- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.
+-- The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
+-- The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ .
+-- If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
+--
+-- /Note:/ Consider using 'provisionedProductProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upppProvisionedProductProperties :: Lens.Lens' UpdateProvisionedProductProperties (Lude.HashMap PropertyKey (Lude.Text))
+upppProvisionedProductProperties = Lens.lens (provisionedProductProperties :: UpdateProvisionedProductProperties -> Lude.HashMap PropertyKey (Lude.Text)) (\s a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties)
+{-# DEPRECATED upppProvisionedProductProperties "Use generic-lens or generic-optics with 'provisionedProductProperties' instead." #-}
 
 -- | The idempotency token that uniquely identifies the provisioning product update request.
-upppIdempotencyToken :: Lens' UpdateProvisionedProductProperties Text
-upppIdempotencyToken = lens _upppIdempotencyToken (\s a -> s {_upppIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upppIdempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties Lude.Text
+upppIdempotencyToken = Lens.lens (idempotencyToken :: UpdateProvisionedProductProperties -> Lude.Text) (\s a -> s {idempotencyToken = a} :: UpdateProvisionedProductProperties)
+{-# DEPRECATED upppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
-instance AWSRequest UpdateProvisionedProductProperties where
+instance Lude.AWSRequest UpdateProvisionedProductProperties where
   type
     Rs UpdateProvisionedProductProperties =
       UpdateProvisionedProductPropertiesResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateProvisionedProductPropertiesResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "ProvisionedProductProperties" .!@ mempty)
-            <*> (x .?> "RecordId")
-            <*> (x .?> "ProvisionedProductId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "ProvisionedProductProperties" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "RecordId")
+            Lude.<*> (x Lude..?> "ProvisionedProductId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateProvisionedProductProperties
-
-instance NFData UpdateProvisionedProductProperties
-
-instance ToHeaders UpdateProvisionedProductProperties where
+instance Lude.ToHeaders UpdateProvisionedProductProperties where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateProvisionedProductProperties where
+instance Lude.ToJSON UpdateProvisionedProductProperties where
   toJSON UpdateProvisionedProductProperties' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _upppAcceptLanguage,
-            Just ("ProvisionedProductId" .= _upppProvisionedProductId),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("ProvisionedProductId" Lude..= provisionedProductId),
+            Lude.Just
               ( "ProvisionedProductProperties"
-                  .= _upppProvisionedProductProperties
+                  Lude..= provisionedProductProperties
               ),
-            Just ("IdempotencyToken" .= _upppIdempotencyToken)
+            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
           ]
       )
 
-instance ToPath UpdateProvisionedProductProperties where
-  toPath = const "/"
+instance Lude.ToPath UpdateProvisionedProductProperties where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateProvisionedProductProperties where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateProvisionedProductProperties where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateProvisionedProductPropertiesResponse' smart constructor.
+-- | /See:/ 'mkUpdateProvisionedProductPropertiesResponse' smart constructor.
 data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductPropertiesResponse'
-  { _uppprsStatus ::
-      !( Maybe
-           RecordStatus
-       ),
-    _uppprsProvisionedProductProperties ::
-      !( Maybe
-           ( Map
-               PropertyKey
-               (Text)
-           )
-       ),
-    _uppprsRecordId ::
-      !( Maybe
-           Text
-       ),
-    _uppprsProvisionedProductId ::
-      !( Maybe
-           Text
-       ),
-    _uppprsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        RecordStatus,
+    provisionedProductProperties ::
+      Lude.Maybe
+        ( Lude.HashMap
+            PropertyKey
+            (Lude.Text)
+        ),
+    recordId ::
+      Lude.Maybe
+        Lude.Text,
+    provisionedProductId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisionedProductPropertiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uppprsStatus' - The status of the request.
---
--- * 'uppprsProvisionedProductProperties' - A map that contains the properties updated.
---
--- * 'uppprsRecordId' - The identifier of the record.
---
--- * 'uppprsProvisionedProductId' - The provisioned product identifier.
---
--- * 'uppprsResponseStatus' - -- | The response status code.
-updateProvisionedProductPropertiesResponse ::
-  -- | 'uppprsResponseStatus'
-  Int ->
+-- * 'provisionedProductId' - The provisioned product identifier.
+-- * 'provisionedProductProperties' - A map that contains the properties updated.
+-- * 'recordId' - The identifier of the record.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the request.
+mkUpdateProvisionedProductPropertiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateProvisionedProductPropertiesResponse
-updateProvisionedProductPropertiesResponse pResponseStatus_ =
+mkUpdateProvisionedProductPropertiesResponse pResponseStatus_ =
   UpdateProvisionedProductPropertiesResponse'
-    { _uppprsStatus =
-        Nothing,
-      _uppprsProvisionedProductProperties = Nothing,
-      _uppprsRecordId = Nothing,
-      _uppprsProvisionedProductId = Nothing,
-      _uppprsResponseStatus = pResponseStatus_
+    { status =
+        Lude.Nothing,
+      provisionedProductProperties = Lude.Nothing,
+      recordId = Lude.Nothing,
+      provisionedProductId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the request.
-uppprsStatus :: Lens' UpdateProvisionedProductPropertiesResponse (Maybe RecordStatus)
-uppprsStatus = lens _uppprsStatus (\s a -> s {_uppprsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppprsStatus :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Lude.Maybe RecordStatus)
+uppprsStatus = Lens.lens (status :: UpdateProvisionedProductPropertiesResponse -> Lude.Maybe RecordStatus) (\s a -> s {status = a} :: UpdateProvisionedProductPropertiesResponse)
+{-# DEPRECATED uppprsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A map that contains the properties updated.
-uppprsProvisionedProductProperties :: Lens' UpdateProvisionedProductPropertiesResponse (HashMap PropertyKey (Text))
-uppprsProvisionedProductProperties = lens _uppprsProvisionedProductProperties (\s a -> s {_uppprsProvisionedProductProperties = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'provisionedProductProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppprsProvisionedProductProperties :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Lude.Maybe (Lude.HashMap PropertyKey (Lude.Text)))
+uppprsProvisionedProductProperties = Lens.lens (provisionedProductProperties :: UpdateProvisionedProductPropertiesResponse -> Lude.Maybe (Lude.HashMap PropertyKey (Lude.Text))) (\s a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductPropertiesResponse)
+{-# DEPRECATED uppprsProvisionedProductProperties "Use generic-lens or generic-optics with 'provisionedProductProperties' instead." #-}
 
 -- | The identifier of the record.
-uppprsRecordId :: Lens' UpdateProvisionedProductPropertiesResponse (Maybe Text)
-uppprsRecordId = lens _uppprsRecordId (\s a -> s {_uppprsRecordId = a})
+--
+-- /Note:/ Consider using 'recordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppprsRecordId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Lude.Maybe Lude.Text)
+uppprsRecordId = Lens.lens (recordId :: UpdateProvisionedProductPropertiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {recordId = a} :: UpdateProvisionedProductPropertiesResponse)
+{-# DEPRECATED uppprsRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}
 
 -- | The provisioned product identifier.
-uppprsProvisionedProductId :: Lens' UpdateProvisionedProductPropertiesResponse (Maybe Text)
-uppprsProvisionedProductId = lens _uppprsProvisionedProductId (\s a -> s {_uppprsProvisionedProductId = a})
+--
+-- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppprsProvisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Lude.Maybe Lude.Text)
+uppprsProvisionedProductId = Lens.lens (provisionedProductId :: UpdateProvisionedProductPropertiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductId = a} :: UpdateProvisionedProductPropertiesResponse)
+{-# DEPRECATED uppprsProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
 
--- | -- | The response status code.
-uppprsResponseStatus :: Lens' UpdateProvisionedProductPropertiesResponse Int
-uppprsResponseStatus = lens _uppprsResponseStatus (\s a -> s {_uppprsResponseStatus = a})
-
-instance NFData UpdateProvisionedProductPropertiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppprsResponseStatus :: Lens.Lens' UpdateProvisionedProductPropertiesResponse Lude.Int
+uppprsResponseStatus = Lens.lens (responseStatus :: UpdateProvisionedProductPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProvisionedProductPropertiesResponse)
+{-# DEPRECATED uppprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

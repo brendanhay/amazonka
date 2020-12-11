@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about a mitigation action.
 module Network.AWS.IoT.DescribeMitigationAction
-  ( -- * Creating a Request
-    describeMitigationAction,
-    DescribeMitigationAction,
+  ( -- * Creating a request
+    DescribeMitigationAction (..),
+    mkDescribeMitigationAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dActionName,
 
-    -- * Destructuring the Response
-    describeMitigationActionResponse,
-    DescribeMitigationActionResponse,
+    -- * Destructuring the response
+    DescribeMitigationActionResponse (..),
+    mkDescribeMitigationActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsLastModifiedDate,
     desrsActionParams,
     desrsActionId,
@@ -44,166 +39,191 @@ module Network.AWS.IoT.DescribeMitigationAction
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeMitigationAction' smart constructor.
+-- | /See:/ 'mkDescribeMitigationAction' smart constructor.
 newtype DescribeMitigationAction = DescribeMitigationAction'
-  { _dActionName ::
-      Text
+  { actionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMitigationAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dActionName' - The friendly name that uniquely identifies the mitigation action.
-describeMitigationAction ::
-  -- | 'dActionName'
-  Text ->
+-- * 'actionName' - The friendly name that uniquely identifies the mitigation action.
+mkDescribeMitigationAction ::
+  -- | 'actionName'
+  Lude.Text ->
   DescribeMitigationAction
-describeMitigationAction pActionName_ =
-  DescribeMitigationAction' {_dActionName = pActionName_}
+mkDescribeMitigationAction pActionName_ =
+  DescribeMitigationAction' {actionName = pActionName_}
 
 -- | The friendly name that uniquely identifies the mitigation action.
-dActionName :: Lens' DescribeMitigationAction Text
-dActionName = lens _dActionName (\s a -> s {_dActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dActionName :: Lens.Lens' DescribeMitigationAction Lude.Text
+dActionName = Lens.lens (actionName :: DescribeMitigationAction -> Lude.Text) (\s a -> s {actionName = a} :: DescribeMitigationAction)
+{-# DEPRECATED dActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
-instance AWSRequest DescribeMitigationAction where
+instance Lude.AWSRequest DescribeMitigationAction where
   type Rs DescribeMitigationAction = DescribeMitigationActionResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMitigationActionResponse'
-            <$> (x .?> "lastModifiedDate")
-            <*> (x .?> "actionParams")
-            <*> (x .?> "actionId")
-            <*> (x .?> "actionName")
-            <*> (x .?> "creationDate")
-            <*> (x .?> "actionArn")
-            <*> (x .?> "actionType")
-            <*> (x .?> "roleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "lastModifiedDate")
+            Lude.<*> (x Lude..?> "actionParams")
+            Lude.<*> (x Lude..?> "actionId")
+            Lude.<*> (x Lude..?> "actionName")
+            Lude.<*> (x Lude..?> "creationDate")
+            Lude.<*> (x Lude..?> "actionArn")
+            Lude.<*> (x Lude..?> "actionType")
+            Lude.<*> (x Lude..?> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMitigationAction
+instance Lude.ToHeaders DescribeMitigationAction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeMitigationAction
-
-instance ToHeaders DescribeMitigationAction where
-  toHeaders = const mempty
-
-instance ToPath DescribeMitigationAction where
+instance Lude.ToPath DescribeMitigationAction where
   toPath DescribeMitigationAction' {..} =
-    mconcat ["/mitigationactions/actions/", toBS _dActionName]
+    Lude.mconcat
+      ["/mitigationactions/actions/", Lude.toBS actionName]
 
-instance ToQuery DescribeMitigationAction where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMitigationAction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeMitigationActionResponse' smart constructor.
+-- | /See:/ 'mkDescribeMitigationActionResponse' smart constructor.
 data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
-  { _desrsLastModifiedDate ::
-      !(Maybe POSIX),
-    _desrsActionParams ::
-      !( Maybe
-           MitigationActionParams
-       ),
-    _desrsActionId ::
-      !(Maybe Text),
-    _desrsActionName ::
-      !(Maybe Text),
-    _desrsCreationDate ::
-      !(Maybe POSIX),
-    _desrsActionARN ::
-      !(Maybe Text),
-    _desrsActionType ::
-      !( Maybe
-           MitigationActionType
-       ),
-    _desrsRoleARN ::
-      !(Maybe Text),
-    _desrsResponseStatus ::
-      !Int
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    actionParams ::
+      Lude.Maybe
+        MitigationActionParams,
+    actionId ::
+      Lude.Maybe Lude.Text,
+    actionName ::
+      Lude.Maybe Lude.Text,
+    creationDate ::
+      Lude.Maybe Lude.Timestamp,
+    actionARN ::
+      Lude.Maybe Lude.Text,
+    actionType ::
+      Lude.Maybe
+        MitigationActionType,
+    roleARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMitigationActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsLastModifiedDate' - The date and time when the mitigation action was last changed.
---
--- * 'desrsActionParams' - Parameters that control how the mitigation action is applied, specific to the type of mitigation action.
---
--- * 'desrsActionId' - A unique identifier for this action.
---
--- * 'desrsActionName' - The friendly name that uniquely identifies the mitigation action.
---
--- * 'desrsCreationDate' - The date and time when the mitigation action was added to your AWS account.
---
--- * 'desrsActionARN' - The ARN that identifies this migration action.
---
--- * 'desrsActionType' - The type of mitigation action.
---
--- * 'desrsRoleARN' - The ARN of the IAM role used to apply this action.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeMitigationActionResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'actionARN' - The ARN that identifies this migration action.
+-- * 'actionId' - A unique identifier for this action.
+-- * 'actionName' - The friendly name that uniquely identifies the mitigation action.
+-- * 'actionParams' - Parameters that control how the mitigation action is applied, specific to the type of mitigation action.
+-- * 'actionType' - The type of mitigation action.
+-- * 'creationDate' - The date and time when the mitigation action was added to your AWS account.
+-- * 'lastModifiedDate' - The date and time when the mitigation action was last changed.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The ARN of the IAM role used to apply this action.
+mkDescribeMitigationActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMitigationActionResponse
-describeMitigationActionResponse pResponseStatus_ =
+mkDescribeMitigationActionResponse pResponseStatus_ =
   DescribeMitigationActionResponse'
-    { _desrsLastModifiedDate =
-        Nothing,
-      _desrsActionParams = Nothing,
-      _desrsActionId = Nothing,
-      _desrsActionName = Nothing,
-      _desrsCreationDate = Nothing,
-      _desrsActionARN = Nothing,
-      _desrsActionType = Nothing,
-      _desrsRoleARN = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { lastModifiedDate =
+        Lude.Nothing,
+      actionParams = Lude.Nothing,
+      actionId = Lude.Nothing,
+      actionName = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      actionARN = Lude.Nothing,
+      actionType = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The date and time when the mitigation action was last changed.
-desrsLastModifiedDate :: Lens' DescribeMitigationActionResponse (Maybe UTCTime)
-desrsLastModifiedDate = lens _desrsLastModifiedDate (\s a -> s {_desrsLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsLastModifiedDate :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe Lude.Timestamp)
+desrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeMitigationActionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Parameters that control how the mitigation action is applied, specific to the type of mitigation action.
-desrsActionParams :: Lens' DescribeMitigationActionResponse (Maybe MitigationActionParams)
-desrsActionParams = lens _desrsActionParams (\s a -> s {_desrsActionParams = a})
+--
+-- /Note:/ Consider using 'actionParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsActionParams :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe MitigationActionParams)
+desrsActionParams = Lens.lens (actionParams :: DescribeMitigationActionResponse -> Lude.Maybe MitigationActionParams) (\s a -> s {actionParams = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsActionParams "Use generic-lens or generic-optics with 'actionParams' instead." #-}
 
 -- | A unique identifier for this action.
-desrsActionId :: Lens' DescribeMitigationActionResponse (Maybe Text)
-desrsActionId = lens _desrsActionId (\s a -> s {_desrsActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsActionId :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe Lude.Text)
+desrsActionId = Lens.lens (actionId :: DescribeMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The friendly name that uniquely identifies the mitigation action.
-desrsActionName :: Lens' DescribeMitigationActionResponse (Maybe Text)
-desrsActionName = lens _desrsActionName (\s a -> s {_desrsActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsActionName :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe Lude.Text)
+desrsActionName = Lens.lens (actionName :: DescribeMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The date and time when the mitigation action was added to your AWS account.
-desrsCreationDate :: Lens' DescribeMitigationActionResponse (Maybe UTCTime)
-desrsCreationDate = lens _desrsCreationDate (\s a -> s {_desrsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsCreationDate :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe Lude.Timestamp)
+desrsCreationDate = Lens.lens (creationDate :: DescribeMitigationActionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The ARN that identifies this migration action.
-desrsActionARN :: Lens' DescribeMitigationActionResponse (Maybe Text)
-desrsActionARN = lens _desrsActionARN (\s a -> s {_desrsActionARN = a})
+--
+-- /Note:/ Consider using 'actionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsActionARN :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe Lude.Text)
+desrsActionARN = Lens.lens (actionARN :: DescribeMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionARN = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsActionARN "Use generic-lens or generic-optics with 'actionARN' instead." #-}
 
 -- | The type of mitigation action.
-desrsActionType :: Lens' DescribeMitigationActionResponse (Maybe MitigationActionType)
-desrsActionType = lens _desrsActionType (\s a -> s {_desrsActionType = a})
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsActionType :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe MitigationActionType)
+desrsActionType = Lens.lens (actionType :: DescribeMitigationActionResponse -> Lude.Maybe MitigationActionType) (\s a -> s {actionType = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
 -- | The ARN of the IAM role used to apply this action.
-desrsRoleARN :: Lens' DescribeMitigationActionResponse (Maybe Text)
-desrsRoleARN = lens _desrsRoleARN (\s a -> s {_desrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsRoleARN :: Lens.Lens' DescribeMitigationActionResponse (Lude.Maybe Lude.Text)
+desrsRoleARN = Lens.lens (roleARN :: DescribeMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeMitigationActionResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeMitigationActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeMitigationActionResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeMitigationActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMitigationActionResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

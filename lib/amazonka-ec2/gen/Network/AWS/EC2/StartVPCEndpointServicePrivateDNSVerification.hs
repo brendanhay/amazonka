@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,164 @@
 --
 -- Initiates the verification process to prove that the service provider owns the private DNS name domain for the endpoint service.
 --
---
 -- The service provider must successfully perform the verification before the consumer can use the name to access the service.
---
 -- Before the service provider runs this command, they must add a record to the DNS server. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record Adding a TXT Record to Your Domain's DNS Server > in the /Amazon VPC User Guide/ .
 module Network.AWS.EC2.StartVPCEndpointServicePrivateDNSVerification
-  ( -- * Creating a Request
-    startVPCEndpointServicePrivateDNSVerification,
-    StartVPCEndpointServicePrivateDNSVerification,
+  ( -- * Creating a request
+    StartVPCEndpointServicePrivateDNSVerification (..),
+    mkStartVPCEndpointServicePrivateDNSVerification,
 
-    -- * Request Lenses
+    -- ** Request lenses
     svespdvDryRun,
     svespdvServiceId,
 
-    -- * Destructuring the Response
-    startVPCEndpointServicePrivateDNSVerificationResponse,
-    StartVPCEndpointServicePrivateDNSVerificationResponse,
+    -- * Destructuring the response
+    StartVPCEndpointServicePrivateDNSVerificationResponse (..),
+    mkStartVPCEndpointServicePrivateDNSVerificationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     svespdvrsReturnValue,
     svespdvrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startVPCEndpointServicePrivateDNSVerification' smart constructor.
+-- | /See:/ 'mkStartVPCEndpointServicePrivateDNSVerification' smart constructor.
 data StartVPCEndpointServicePrivateDNSVerification = StartVPCEndpointServicePrivateDNSVerification'
-  { _svespdvDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _svespdvServiceId ::
-      !Text
+  { dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    serviceId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'StartVPCEndpointServicePrivateDNSVerification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'svespdvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'svespdvServiceId' - The ID of the endpoint service.
-startVPCEndpointServicePrivateDNSVerification ::
-  -- | 'svespdvServiceId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'serviceId' - The ID of the endpoint service.
+mkStartVPCEndpointServicePrivateDNSVerification ::
+  -- | 'serviceId'
+  Lude.Text ->
   StartVPCEndpointServicePrivateDNSVerification
-startVPCEndpointServicePrivateDNSVerification pServiceId_ =
+mkStartVPCEndpointServicePrivateDNSVerification pServiceId_ =
   StartVPCEndpointServicePrivateDNSVerification'
-    { _svespdvDryRun =
-        Nothing,
-      _svespdvServiceId = pServiceId_
+    { dryRun =
+        Lude.Nothing,
+      serviceId = pServiceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-svespdvDryRun :: Lens' StartVPCEndpointServicePrivateDNSVerification (Maybe Bool)
-svespdvDryRun = lens _svespdvDryRun (\s a -> s {_svespdvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svespdvDryRun :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerification (Lude.Maybe Lude.Bool)
+svespdvDryRun = Lens.lens (dryRun :: StartVPCEndpointServicePrivateDNSVerification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StartVPCEndpointServicePrivateDNSVerification)
+{-# DEPRECATED svespdvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the endpoint service.
-svespdvServiceId :: Lens' StartVPCEndpointServicePrivateDNSVerification Text
-svespdvServiceId = lens _svespdvServiceId (\s a -> s {_svespdvServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svespdvServiceId :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerification Lude.Text
+svespdvServiceId = Lens.lens (serviceId :: StartVPCEndpointServicePrivateDNSVerification -> Lude.Text) (\s a -> s {serviceId = a} :: StartVPCEndpointServicePrivateDNSVerification)
+{-# DEPRECATED svespdvServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance AWSRequest StartVPCEndpointServicePrivateDNSVerification where
+instance
+  Lude.AWSRequest
+    StartVPCEndpointServicePrivateDNSVerification
+  where
   type
     Rs StartVPCEndpointServicePrivateDNSVerification =
       StartVPCEndpointServicePrivateDNSVerificationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           StartVPCEndpointServicePrivateDNSVerificationResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartVPCEndpointServicePrivateDNSVerification
+instance
+  Lude.ToHeaders
+    StartVPCEndpointServicePrivateDNSVerification
+  where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StartVPCEndpointServicePrivateDNSVerification
+instance Lude.ToPath StartVPCEndpointServicePrivateDNSVerification where
+  toPath = Lude.const "/"
 
-instance ToHeaders StartVPCEndpointServicePrivateDNSVerification where
-  toHeaders = const mempty
-
-instance ToPath StartVPCEndpointServicePrivateDNSVerification where
-  toPath = const "/"
-
-instance ToQuery StartVPCEndpointServicePrivateDNSVerification where
+instance Lude.ToQuery StartVPCEndpointServicePrivateDNSVerification where
   toQuery StartVPCEndpointServicePrivateDNSVerification' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("StartVpcEndpointServicePrivateDnsVerification" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _svespdvDryRun,
-        "ServiceId" =: _svespdvServiceId
+          Lude.=: ( "StartVpcEndpointServicePrivateDnsVerification" ::
+                      Lude.ByteString
+                  ),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "ServiceId" Lude.=: serviceId
       ]
 
--- | /See:/ 'startVPCEndpointServicePrivateDNSVerificationResponse' smart constructor.
+-- | /See:/ 'mkStartVPCEndpointServicePrivateDNSVerificationResponse' smart constructor.
 data StartVPCEndpointServicePrivateDNSVerificationResponse = StartVPCEndpointServicePrivateDNSVerificationResponse'
-  { _svespdvrsReturnValue ::
-      !( Maybe
-           Bool
-       ),
-    _svespdvrsResponseStatus ::
-      !Int
+  { returnValue ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'StartVPCEndpointServicePrivateDNSVerificationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'svespdvrsReturnValue' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'svespdvrsResponseStatus' - -- | The response status code.
-startVPCEndpointServicePrivateDNSVerificationResponse ::
-  -- | 'svespdvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'returnValue' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkStartVPCEndpointServicePrivateDNSVerificationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartVPCEndpointServicePrivateDNSVerificationResponse
-startVPCEndpointServicePrivateDNSVerificationResponse
+mkStartVPCEndpointServicePrivateDNSVerificationResponse
   pResponseStatus_ =
     StartVPCEndpointServicePrivateDNSVerificationResponse'
-      { _svespdvrsReturnValue =
-          Nothing,
-        _svespdvrsResponseStatus =
-          pResponseStatus_
+      { returnValue =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-svespdvrsReturnValue :: Lens' StartVPCEndpointServicePrivateDNSVerificationResponse (Maybe Bool)
-svespdvrsReturnValue = lens _svespdvrsReturnValue (\s a -> s {_svespdvrsReturnValue = a})
+--
+-- /Note:/ Consider using 'returnValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svespdvrsReturnValue :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerificationResponse (Lude.Maybe Lude.Bool)
+svespdvrsReturnValue = Lens.lens (returnValue :: StartVPCEndpointServicePrivateDNSVerificationResponse -> Lude.Maybe Lude.Bool) (\s a -> s {returnValue = a} :: StartVPCEndpointServicePrivateDNSVerificationResponse)
+{-# DEPRECATED svespdvrsReturnValue "Use generic-lens or generic-optics with 'returnValue' instead." #-}
 
--- | -- | The response status code.
-svespdvrsResponseStatus :: Lens' StartVPCEndpointServicePrivateDNSVerificationResponse Int
-svespdvrsResponseStatus = lens _svespdvrsResponseStatus (\s a -> s {_svespdvrsResponseStatus = a})
-
-instance
-  NFData
-    StartVPCEndpointServicePrivateDNSVerificationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svespdvrsResponseStatus :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerificationResponse Lude.Int
+svespdvrsResponseStatus = Lens.lens (responseStatus :: StartVPCEndpointServicePrivateDNSVerificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartVPCEndpointServicePrivateDNSVerificationResponse)
+{-# DEPRECATED svespdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,89 @@
 --
 -- Delete the connection with the provided id.
 module Network.AWS.APIGatewayManagementAPI.DeleteConnection
-  ( -- * Creating a Request
-    deleteConnection,
-    DeleteConnection,
+  ( -- * Creating a request
+    DeleteConnection (..),
+    mkDeleteConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcConnectionId,
 
-    -- * Destructuring the Response
-    deleteConnectionResponse,
-    DeleteConnectionResponse,
+    -- * Destructuring the response
+    DeleteConnectionResponse (..),
+    mkDeleteConnectionResponse,
   )
 where
 
 import Network.AWS.APIGatewayManagementAPI.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteConnection' smart constructor.
+-- | /See:/ 'mkDeleteConnection' smart constructor.
 newtype DeleteConnection = DeleteConnection'
-  { _dcConnectionId ::
-      Text
+  { connectionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcConnectionId' - Undocumented member.
-deleteConnection ::
-  -- | 'dcConnectionId'
-  Text ->
+-- * 'connectionId' - Undocumented field.
+mkDeleteConnection ::
+  -- | 'connectionId'
+  Lude.Text ->
   DeleteConnection
-deleteConnection pConnectionId_ =
-  DeleteConnection' {_dcConnectionId = pConnectionId_}
+mkDeleteConnection pConnectionId_ =
+  DeleteConnection' {connectionId = pConnectionId_}
 
--- | Undocumented member.
-dcConnectionId :: Lens' DeleteConnection Text
-dcConnectionId = lens _dcConnectionId (\s a -> s {_dcConnectionId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcConnectionId :: Lens.Lens' DeleteConnection Lude.Text
+dcConnectionId = Lens.lens (connectionId :: DeleteConnection -> Lude.Text) (\s a -> s {connectionId = a} :: DeleteConnection)
+{-# DEPRECATED dcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance AWSRequest DeleteConnection where
+instance Lude.AWSRequest DeleteConnection where
   type Rs DeleteConnection = DeleteConnectionResponse
-  request = delete apiGatewayManagementAPI
-  response = receiveNull DeleteConnectionResponse'
+  request = Req.delete apiGatewayManagementAPIService
+  response = Res.receiveNull DeleteConnectionResponse'
 
-instance Hashable DeleteConnection
-
-instance NFData DeleteConnection
-
-instance ToHeaders DeleteConnection where
+instance Lude.ToHeaders DeleteConnection where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteConnection where
+instance Lude.ToPath DeleteConnection where
   toPath DeleteConnection' {..} =
-    mconcat ["/@connections/", toBS _dcConnectionId]
+    Lude.mconcat ["/@connections/", Lude.toBS connectionId]
 
-instance ToQuery DeleteConnection where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteConnection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteConnectionResponse' smart constructor.
+-- | /See:/ 'mkDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionResponse' with the minimum fields required to make a request.
-deleteConnectionResponse ::
+mkDeleteConnectionResponse ::
   DeleteConnectionResponse
-deleteConnectionResponse = DeleteConnectionResponse'
-
-instance NFData DeleteConnectionResponse
+mkDeleteConnectionResponse = DeleteConnectionResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus where
+module Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
+  ( DomainEndpointOptionsStatus (..),
+
+    -- * Smart constructor
+    mkDomainEndpointOptionsStatus,
+
+    -- * Lenses
+    deosOptions,
+    deosStatus,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.DomainEndpointOptions
 import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The configuration and status of the domain's endpoint options.
 --
---
---
--- /See:/ 'domainEndpointOptionsStatus' smart constructor.
+-- /See:/ 'mkDomainEndpointOptionsStatus' smart constructor.
 data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
-  { _deosOptions ::
-      !DomainEndpointOptions,
-    _deosStatus :: !OptionStatus
+  { options ::
+      DomainEndpointOptions,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainEndpointOptionsStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deosOptions' - The domain endpoint options configured for the domain.
---
--- * 'deosStatus' - The status of the configured domain endpoint options.
-domainEndpointOptionsStatus ::
-  -- | 'deosOptions'
+-- * 'options' - The domain endpoint options configured for the domain.
+-- * 'status' - The status of the configured domain endpoint options.
+mkDomainEndpointOptionsStatus ::
+  -- | 'options'
   DomainEndpointOptions ->
-  -- | 'deosStatus'
+  -- | 'status'
   OptionStatus ->
   DomainEndpointOptionsStatus
-domainEndpointOptionsStatus pOptions_ pStatus_ =
+mkDomainEndpointOptionsStatus pOptions_ pStatus_ =
   DomainEndpointOptionsStatus'
-    { _deosOptions = pOptions_,
-      _deosStatus = pStatus_
+    { options = pOptions_,
+      status = pStatus_
     }
 
 -- | The domain endpoint options configured for the domain.
-deosOptions :: Lens' DomainEndpointOptionsStatus DomainEndpointOptions
-deosOptions = lens _deosOptions (\s a -> s {_deosOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deosOptions :: Lens.Lens' DomainEndpointOptionsStatus DomainEndpointOptions
+deosOptions = Lens.lens (options :: DomainEndpointOptionsStatus -> DomainEndpointOptions) (\s a -> s {options = a} :: DomainEndpointOptionsStatus)
+{-# DEPRECATED deosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The status of the configured domain endpoint options.
-deosStatus :: Lens' DomainEndpointOptionsStatus OptionStatus
-deosStatus = lens _deosStatus (\s a -> s {_deosStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deosStatus :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
+deosStatus = Lens.lens (status :: DomainEndpointOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: DomainEndpointOptionsStatus)
+{-# DEPRECATED deosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML DomainEndpointOptionsStatus where
+instance Lude.FromXML DomainEndpointOptionsStatus where
   parseXML x =
     DomainEndpointOptionsStatus'
-      <$> (x .@ "Options") <*> (x .@ "Status")
-
-instance Hashable DomainEndpointOptionsStatus
-
-instance NFData DomainEndpointOptionsStatus
+      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")

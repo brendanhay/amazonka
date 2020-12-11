@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationStatus where
+module Network.AWS.SSM.Types.AssociationStatus
+  ( AssociationStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssociationStatus,
+
+    -- * Lenses
+    asAdditionalInfo,
+    asDate,
+    asName,
+    asMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AssociationStatusName
 
 -- | Describes an association status.
 --
---
---
--- /See:/ 'associationStatus' smart constructor.
+-- /See:/ 'mkAssociationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
-  { _asAdditionalInfo ::
-      !(Maybe Text),
-    _asDate :: !POSIX,
-    _asName :: !AssociationStatusName,
-    _asMessage :: !Text
+  { additionalInfo ::
+      Lude.Maybe Lude.Text,
+    date :: Lude.Timestamp,
+    name :: AssociationStatusName,
+    message :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asAdditionalInfo' - A user-defined string.
---
--- * 'asDate' - The date when the status changed.
---
--- * 'asName' - The status.
---
--- * 'asMessage' - The reason for the status.
-associationStatus ::
-  -- | 'asDate'
-  UTCTime ->
-  -- | 'asName'
+-- * 'additionalInfo' - A user-defined string.
+-- * 'date' - The date when the status changed.
+-- * 'message' - The reason for the status.
+-- * 'name' - The status.
+mkAssociationStatus ::
+  -- | 'date'
+  Lude.Timestamp ->
+  -- | 'name'
   AssociationStatusName ->
-  -- | 'asMessage'
-  Text ->
+  -- | 'message'
+  Lude.Text ->
   AssociationStatus
-associationStatus pDate_ pName_ pMessage_ =
+mkAssociationStatus pDate_ pName_ pMessage_ =
   AssociationStatus'
-    { _asAdditionalInfo = Nothing,
-      _asDate = _Time # pDate_,
-      _asName = pName_,
-      _asMessage = pMessage_
+    { additionalInfo = Lude.Nothing,
+      date = pDate_,
+      name = pName_,
+      message = pMessage_
     }
 
 -- | A user-defined string.
-asAdditionalInfo :: Lens' AssociationStatus (Maybe Text)
-asAdditionalInfo = lens _asAdditionalInfo (\s a -> s {_asAdditionalInfo = a})
+--
+-- /Note:/ Consider using 'additionalInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAdditionalInfo :: Lens.Lens' AssociationStatus (Lude.Maybe Lude.Text)
+asAdditionalInfo = Lens.lens (additionalInfo :: AssociationStatus -> Lude.Maybe Lude.Text) (\s a -> s {additionalInfo = a} :: AssociationStatus)
+{-# DEPRECATED asAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
 
 -- | The date when the status changed.
-asDate :: Lens' AssociationStatus UTCTime
-asDate = lens _asDate (\s a -> s {_asDate = a}) . _Time
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asDate :: Lens.Lens' AssociationStatus Lude.Timestamp
+asDate = Lens.lens (date :: AssociationStatus -> Lude.Timestamp) (\s a -> s {date = a} :: AssociationStatus)
+{-# DEPRECATED asDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | The status.
-asName :: Lens' AssociationStatus AssociationStatusName
-asName = lens _asName (\s a -> s {_asName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asName :: Lens.Lens' AssociationStatus AssociationStatusName
+asName = Lens.lens (name :: AssociationStatus -> AssociationStatusName) (\s a -> s {name = a} :: AssociationStatus)
+{-# DEPRECATED asName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The reason for the status.
-asMessage :: Lens' AssociationStatus Text
-asMessage = lens _asMessage (\s a -> s {_asMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asMessage :: Lens.Lens' AssociationStatus Lude.Text
+asMessage = Lens.lens (message :: AssociationStatus -> Lude.Text) (\s a -> s {message = a} :: AssociationStatus)
+{-# DEPRECATED asMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON AssociationStatus where
+instance Lude.FromJSON AssociationStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "AssociationStatus"
       ( \x ->
           AssociationStatus'
-            <$> (x .:? "AdditionalInfo")
-            <*> (x .: "Date")
-            <*> (x .: "Name")
-            <*> (x .: "Message")
+            Lude.<$> (x Lude..:? "AdditionalInfo")
+            Lude.<*> (x Lude..: "Date")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "Message")
       )
 
-instance Hashable AssociationStatus
-
-instance NFData AssociationStatus
-
-instance ToJSON AssociationStatus where
+instance Lude.ToJSON AssociationStatus where
   toJSON AssociationStatus' {..} =
-    object
-      ( catMaybes
-          [ ("AdditionalInfo" .=) <$> _asAdditionalInfo,
-            Just ("Date" .= _asDate),
-            Just ("Name" .= _asName),
-            Just ("Message" .= _asMessage)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AdditionalInfo" Lude..=) Lude.<$> additionalInfo,
+            Lude.Just ("Date" Lude..= date),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Message" Lude..= message)
           ]
       )

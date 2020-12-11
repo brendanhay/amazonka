@@ -13,8 +13,8 @@
 --
 -- The Amazon API Gateway Management API allows you to directly manage runtime aspects of your deployed APIs. To use it, you must explicitly set the SDK's endpoint to point to the endpoint of your deployed API. The endpoint will be of the form https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will be the endpoint corresponding to your API's custom domain and base path, if applicable.
 module Network.AWS.APIGatewayManagementAPI
-  ( -- * Service Configuration
-    apiGatewayManagementAPI,
+  ( -- * Service configuration
+    apiGatewayManagementAPIService,
 
     -- * Errors
     -- $errors
@@ -37,10 +37,21 @@ module Network.AWS.APIGatewayManagementAPI
     -- * Types
 
     -- ** Identity
-    Identity,
-    identity,
+    Identity (..),
+    mkIdentity,
     iSourceIP,
     iUserAgent,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -49,6 +60,7 @@ import Network.AWS.APIGatewayManagementAPI.GetConnection
 import Network.AWS.APIGatewayManagementAPI.PostToConnection
 import Network.AWS.APIGatewayManagementAPI.Types
 import Network.AWS.APIGatewayManagementAPI.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,121 @@
 --
 -- Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html Elastic Load Balancing> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.AttachElasticLoadBalancer
-  ( -- * Creating a Request
-    attachElasticLoadBalancer,
-    AttachElasticLoadBalancer,
+  ( -- * Creating a request
+    AttachElasticLoadBalancer (..),
+    mkAttachElasticLoadBalancer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aelbElasticLoadBalancerName,
     aelbLayerId,
 
-    -- * Destructuring the Response
-    attachElasticLoadBalancerResponse,
-    AttachElasticLoadBalancerResponse,
+    -- * Destructuring the response
+    AttachElasticLoadBalancerResponse (..),
+    mkAttachElasticLoadBalancerResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachElasticLoadBalancer' smart constructor.
+-- | /See:/ 'mkAttachElasticLoadBalancer' smart constructor.
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
-  { _aelbElasticLoadBalancerName ::
-      !Text,
-    _aelbLayerId :: !Text
+  { elasticLoadBalancerName ::
+      Lude.Text,
+    layerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachElasticLoadBalancer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aelbElasticLoadBalancerName' - The Elastic Load Balancing instance's name.
---
--- * 'aelbLayerId' - The ID of the layer to which the Elastic Load Balancing instance is to be attached.
-attachElasticLoadBalancer ::
-  -- | 'aelbElasticLoadBalancerName'
-  Text ->
-  -- | 'aelbLayerId'
-  Text ->
+-- * 'elasticLoadBalancerName' - The Elastic Load Balancing instance's name.
+-- * 'layerId' - The ID of the layer to which the Elastic Load Balancing instance is to be attached.
+mkAttachElasticLoadBalancer ::
+  -- | 'elasticLoadBalancerName'
+  Lude.Text ->
+  -- | 'layerId'
+  Lude.Text ->
   AttachElasticLoadBalancer
-attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
+mkAttachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
   AttachElasticLoadBalancer'
-    { _aelbElasticLoadBalancerName =
+    { elasticLoadBalancerName =
         pElasticLoadBalancerName_,
-      _aelbLayerId = pLayerId_
+      layerId = pLayerId_
     }
 
 -- | The Elastic Load Balancing instance's name.
-aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
-aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\s a -> s {_aelbElasticLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'elasticLoadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aelbElasticLoadBalancerName :: Lens.Lens' AttachElasticLoadBalancer Lude.Text
+aelbElasticLoadBalancerName = Lens.lens (elasticLoadBalancerName :: AttachElasticLoadBalancer -> Lude.Text) (\s a -> s {elasticLoadBalancerName = a} :: AttachElasticLoadBalancer)
+{-# DEPRECATED aelbElasticLoadBalancerName "Use generic-lens or generic-optics with 'elasticLoadBalancerName' instead." #-}
 
 -- | The ID of the layer to which the Elastic Load Balancing instance is to be attached.
-aelbLayerId :: Lens' AttachElasticLoadBalancer Text
-aelbLayerId = lens _aelbLayerId (\s a -> s {_aelbLayerId = a})
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aelbLayerId :: Lens.Lens' AttachElasticLoadBalancer Lude.Text
+aelbLayerId = Lens.lens (layerId :: AttachElasticLoadBalancer -> Lude.Text) (\s a -> s {layerId = a} :: AttachElasticLoadBalancer)
+{-# DEPRECATED aelbLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance AWSRequest AttachElasticLoadBalancer where
+instance Lude.AWSRequest AttachElasticLoadBalancer where
   type
     Rs AttachElasticLoadBalancer =
       AttachElasticLoadBalancerResponse
-  request = postJSON opsWorks
-  response = receiveNull AttachElasticLoadBalancerResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull AttachElasticLoadBalancerResponse'
 
-instance Hashable AttachElasticLoadBalancer
-
-instance NFData AttachElasticLoadBalancer
-
-instance ToHeaders AttachElasticLoadBalancer where
+instance Lude.ToHeaders AttachElasticLoadBalancer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.AttachElasticLoadBalancer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.AttachElasticLoadBalancer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AttachElasticLoadBalancer where
+instance Lude.ToJSON AttachElasticLoadBalancer where
   toJSON AttachElasticLoadBalancer' {..} =
-    object
-      ( catMaybes
-          [ Just ("ElasticLoadBalancerName" .= _aelbElasticLoadBalancerName),
-            Just ("LayerId" .= _aelbLayerId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ElasticLoadBalancerName" Lude..= elasticLoadBalancerName),
+            Lude.Just ("LayerId" Lude..= layerId)
           ]
       )
 
-instance ToPath AttachElasticLoadBalancer where
-  toPath = const "/"
+instance Lude.ToPath AttachElasticLoadBalancer where
+  toPath = Lude.const "/"
 
-instance ToQuery AttachElasticLoadBalancer where
-  toQuery = const mempty
+instance Lude.ToQuery AttachElasticLoadBalancer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachElasticLoadBalancerResponse' smart constructor.
+-- | /See:/ 'mkAttachElasticLoadBalancerResponse' smart constructor.
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachElasticLoadBalancerResponse' with the minimum fields required to make a request.
-attachElasticLoadBalancerResponse ::
+mkAttachElasticLoadBalancerResponse ::
   AttachElasticLoadBalancerResponse
-attachElasticLoadBalancerResponse =
+mkAttachElasticLoadBalancerResponse =
   AttachElasticLoadBalancerResponse'
-
-instance NFData AttachElasticLoadBalancerResponse

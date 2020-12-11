@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.RecordTag where
+module Network.AWS.ServiceCatalog.Types.RecordTag
+  ( RecordTag (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecordTag,
+
+    -- * Lenses
+    rtValue,
+    rtKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a tag, which is a key-value pair.
 --
---
---
--- /See:/ 'recordTag' smart constructor.
+-- /See:/ 'mkRecordTag' smart constructor.
 data RecordTag = RecordTag'
-  { _rtValue :: !(Maybe Text),
-    _rtKey :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordTag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtValue' - The value for this tag.
---
--- * 'rtKey' - The key for this tag.
-recordTag ::
+-- * 'key' - The key for this tag.
+-- * 'value' - The value for this tag.
+mkRecordTag ::
   RecordTag
-recordTag = RecordTag' {_rtValue = Nothing, _rtKey = Nothing}
+mkRecordTag = RecordTag' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | The value for this tag.
-rtValue :: Lens' RecordTag (Maybe Text)
-rtValue = lens _rtValue (\s a -> s {_rtValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtValue :: Lens.Lens' RecordTag (Lude.Maybe Lude.Text)
+rtValue = Lens.lens (value :: RecordTag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: RecordTag)
+{-# DEPRECATED rtValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key for this tag.
-rtKey :: Lens' RecordTag (Maybe Text)
-rtKey = lens _rtKey (\s a -> s {_rtKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtKey :: Lens.Lens' RecordTag (Lude.Maybe Lude.Text)
+rtKey = Lens.lens (key :: RecordTag -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: RecordTag)
+{-# DEPRECATED rtKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON RecordTag where
+instance Lude.FromJSON RecordTag where
   parseJSON =
-    withObject
+    Lude.withObject
       "RecordTag"
-      (\x -> RecordTag' <$> (x .:? "Value") <*> (x .:? "Key"))
-
-instance Hashable RecordTag
-
-instance NFData RecordTag
+      ( \x ->
+          RecordTag'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Key")
+      )

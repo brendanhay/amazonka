@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.DocumentVersionStatus where
+module Network.AWS.WorkDocs.Types.DocumentVersionStatus
+  ( DocumentVersionStatus
+      ( DocumentVersionStatus',
+        DVSActive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentVersionStatus = DVSActive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentVersionStatus = DocumentVersionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentVersionStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DVSActive
-      e ->
-        fromTextError $
-          "Failure parsing DocumentVersionStatus from value: '" <> e
-            <> "'. Accepted values: active"
+pattern DVSActive :: DocumentVersionStatus
+pattern DVSActive = DocumentVersionStatus' "ACTIVE"
 
-instance ToText DocumentVersionStatus where
-  toText = \case
-    DVSActive -> "ACTIVE"
-
-instance Hashable DocumentVersionStatus
-
-instance NFData DocumentVersionStatus
-
-instance ToByteString DocumentVersionStatus
-
-instance ToQuery DocumentVersionStatus
-
-instance ToHeader DocumentVersionStatus
-
-instance ToJSON DocumentVersionStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  DVSActive,
+  DocumentVersionStatus'
+  #-}

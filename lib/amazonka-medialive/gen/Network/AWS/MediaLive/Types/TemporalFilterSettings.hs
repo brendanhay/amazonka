@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.TemporalFilterSettings where
+module Network.AWS.MediaLive.Types.TemporalFilterSettings
+  ( TemporalFilterSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkTemporalFilterSettings,
+
+    -- * Lenses
+    tfsStrength,
+    tfsPostFilterSharpening,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
 import Network.AWS.MediaLive.Types.TemporalFilterStrength
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Temporal Filter Settings
 --
--- /See:/ 'temporalFilterSettings' smart constructor.
+-- /See:/ 'mkTemporalFilterSettings' smart constructor.
 data TemporalFilterSettings = TemporalFilterSettings'
-  { _tfsStrength ::
-      !(Maybe TemporalFilterStrength),
-    _tfsPostFilterSharpening ::
-      !(Maybe TemporalFilterPostFilterSharpening)
+  { strength ::
+      Lude.Maybe TemporalFilterStrength,
+    postFilterSharpening ::
+      Lude.Maybe TemporalFilterPostFilterSharpening
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemporalFilterSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'postFilterSharpening' - If you enable this filter, the results are the following:
 --
--- * 'tfsStrength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
---
--- * 'tfsPostFilterSharpening' - If you enable this filter, the results are the following: - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source. - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
-temporalFilterSettings ::
+-- - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
+-- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+-- * 'strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+mkTemporalFilterSettings ::
   TemporalFilterSettings
-temporalFilterSettings =
+mkTemporalFilterSettings =
   TemporalFilterSettings'
-    { _tfsStrength = Nothing,
-      _tfsPostFilterSharpening = Nothing
+    { strength = Lude.Nothing,
+      postFilterSharpening = Lude.Nothing
     }
 
 -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
-tfsStrength :: Lens' TemporalFilterSettings (Maybe TemporalFilterStrength)
-tfsStrength = lens _tfsStrength (\s a -> s {_tfsStrength = a})
+--
+-- /Note:/ Consider using 'strength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfsStrength :: Lens.Lens' TemporalFilterSettings (Lude.Maybe TemporalFilterStrength)
+tfsStrength = Lens.lens (strength :: TemporalFilterSettings -> Lude.Maybe TemporalFilterStrength) (\s a -> s {strength = a} :: TemporalFilterSettings)
+{-# DEPRECATED tfsStrength "Use generic-lens or generic-optics with 'strength' instead." #-}
 
--- | If you enable this filter, the results are the following: - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source. - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
-tfsPostFilterSharpening :: Lens' TemporalFilterSettings (Maybe TemporalFilterPostFilterSharpening)
-tfsPostFilterSharpening = lens _tfsPostFilterSharpening (\s a -> s {_tfsPostFilterSharpening = a})
+-- | If you enable this filter, the results are the following:
+--
+-- - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
+-- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+--
+-- /Note:/ Consider using 'postFilterSharpening' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfsPostFilterSharpening :: Lens.Lens' TemporalFilterSettings (Lude.Maybe TemporalFilterPostFilterSharpening)
+tfsPostFilterSharpening = Lens.lens (postFilterSharpening :: TemporalFilterSettings -> Lude.Maybe TemporalFilterPostFilterSharpening) (\s a -> s {postFilterSharpening = a} :: TemporalFilterSettings)
+{-# DEPRECATED tfsPostFilterSharpening "Use generic-lens or generic-optics with 'postFilterSharpening' instead." #-}
 
-instance FromJSON TemporalFilterSettings where
+instance Lude.FromJSON TemporalFilterSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "TemporalFilterSettings"
       ( \x ->
           TemporalFilterSettings'
-            <$> (x .:? "strength") <*> (x .:? "postFilterSharpening")
+            Lude.<$> (x Lude..:? "strength")
+            Lude.<*> (x Lude..:? "postFilterSharpening")
       )
 
-instance Hashable TemporalFilterSettings
-
-instance NFData TemporalFilterSettings
-
-instance ToJSON TemporalFilterSettings where
+instance Lude.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =
-    object
-      ( catMaybes
-          [ ("strength" .=) <$> _tfsStrength,
-            ("postFilterSharpening" .=) <$> _tfsPostFilterSharpening
+    Lude.object
+      ( Lude.catMaybes
+          [ ("strength" Lude..=) Lude.<$> strength,
+            ("postFilterSharpening" Lude..=) Lude.<$> postFilterSharpening
           ]
       )

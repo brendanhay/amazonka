@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,24 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.MultipartUpload where
+module Network.AWS.S3.Types.MultipartUpload
+  ( MultipartUpload (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMultipartUpload,
+
+    -- * Lenses
+    muInitiated,
+    muInitiator,
+    muOwner,
+    muKey,
+    muStorageClass,
+    muUploadId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Initiator
 import Network.AWS.S3.Types.Owner
@@ -24,81 +32,93 @@ import Network.AWS.S3.Types.StorageClass
 
 -- | Container for the @MultipartUpload@ for the Amazon S3 object.
 --
---
---
--- /See:/ 'multipartUpload' smart constructor.
+-- /See:/ 'mkMultipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
-  { _muInitiated ::
-      !(Maybe ISO8601),
-    _muInitiator :: !(Maybe Initiator),
-    _muOwner :: !(Maybe Owner),
-    _muKey :: !(Maybe ObjectKey),
-    _muStorageClass :: !(Maybe StorageClass),
-    _muUploadId :: !(Maybe Text)
+  { initiated ::
+      Lude.Maybe Lude.ISO8601,
+    initiator :: Lude.Maybe Initiator,
+    owner :: Lude.Maybe Owner,
+    key :: Lude.Maybe ObjectKey,
+    storageClass :: Lude.Maybe StorageClass,
+    uploadId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultipartUpload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'muInitiated' - Date and time at which the multipart upload was initiated.
---
--- * 'muInitiator' - Identifies who initiated the multipart upload.
---
--- * 'muOwner' - Specifies the owner of the object that is part of the multipart upload.
---
--- * 'muKey' - Key of the object for which the multipart upload was initiated.
---
--- * 'muStorageClass' - The class of storage used to store the object.
---
--- * 'muUploadId' - Upload ID that identifies the multipart upload.
-multipartUpload ::
+-- * 'initiated' - Date and time at which the multipart upload was initiated.
+-- * 'initiator' - Identifies who initiated the multipart upload.
+-- * 'key' - Key of the object for which the multipart upload was initiated.
+-- * 'owner' - Specifies the owner of the object that is part of the multipart upload.
+-- * 'storageClass' - The class of storage used to store the object.
+-- * 'uploadId' - Upload ID that identifies the multipart upload.
+mkMultipartUpload ::
   MultipartUpload
-multipartUpload =
+mkMultipartUpload =
   MultipartUpload'
-    { _muInitiated = Nothing,
-      _muInitiator = Nothing,
-      _muOwner = Nothing,
-      _muKey = Nothing,
-      _muStorageClass = Nothing,
-      _muUploadId = Nothing
+    { initiated = Lude.Nothing,
+      initiator = Lude.Nothing,
+      owner = Lude.Nothing,
+      key = Lude.Nothing,
+      storageClass = Lude.Nothing,
+      uploadId = Lude.Nothing
     }
 
 -- | Date and time at which the multipart upload was initiated.
-muInitiated :: Lens' MultipartUpload (Maybe UTCTime)
-muInitiated = lens _muInitiated (\s a -> s {_muInitiated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'initiated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muInitiated :: Lens.Lens' MultipartUpload (Lude.Maybe Lude.ISO8601)
+muInitiated = Lens.lens (initiated :: MultipartUpload -> Lude.Maybe Lude.ISO8601) (\s a -> s {initiated = a} :: MultipartUpload)
+{-# DEPRECATED muInitiated "Use generic-lens or generic-optics with 'initiated' instead." #-}
 
 -- | Identifies who initiated the multipart upload.
-muInitiator :: Lens' MultipartUpload (Maybe Initiator)
-muInitiator = lens _muInitiator (\s a -> s {_muInitiator = a})
+--
+-- /Note:/ Consider using 'initiator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muInitiator :: Lens.Lens' MultipartUpload (Lude.Maybe Initiator)
+muInitiator = Lens.lens (initiator :: MultipartUpload -> Lude.Maybe Initiator) (\s a -> s {initiator = a} :: MultipartUpload)
+{-# DEPRECATED muInitiator "Use generic-lens or generic-optics with 'initiator' instead." #-}
 
 -- | Specifies the owner of the object that is part of the multipart upload.
-muOwner :: Lens' MultipartUpload (Maybe Owner)
-muOwner = lens _muOwner (\s a -> s {_muOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muOwner :: Lens.Lens' MultipartUpload (Lude.Maybe Owner)
+muOwner = Lens.lens (owner :: MultipartUpload -> Lude.Maybe Owner) (\s a -> s {owner = a} :: MultipartUpload)
+{-# DEPRECATED muOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | Key of the object for which the multipart upload was initiated.
-muKey :: Lens' MultipartUpload (Maybe ObjectKey)
-muKey = lens _muKey (\s a -> s {_muKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muKey :: Lens.Lens' MultipartUpload (Lude.Maybe ObjectKey)
+muKey = Lens.lens (key :: MultipartUpload -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: MultipartUpload)
+{-# DEPRECATED muKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The class of storage used to store the object.
-muStorageClass :: Lens' MultipartUpload (Maybe StorageClass)
-muStorageClass = lens _muStorageClass (\s a -> s {_muStorageClass = a})
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muStorageClass :: Lens.Lens' MultipartUpload (Lude.Maybe StorageClass)
+muStorageClass = Lens.lens (storageClass :: MultipartUpload -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: MultipartUpload)
+{-# DEPRECATED muStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
 -- | Upload ID that identifies the multipart upload.
-muUploadId :: Lens' MultipartUpload (Maybe Text)
-muUploadId = lens _muUploadId (\s a -> s {_muUploadId = a})
+--
+-- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muUploadId :: Lens.Lens' MultipartUpload (Lude.Maybe Lude.Text)
+muUploadId = Lens.lens (uploadId :: MultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {uploadId = a} :: MultipartUpload)
+{-# DEPRECATED muUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
-instance FromXML MultipartUpload where
+instance Lude.FromXML MultipartUpload where
   parseXML x =
     MultipartUpload'
-      <$> (x .@? "Initiated")
-      <*> (x .@? "Initiator")
-      <*> (x .@? "Owner")
-      <*> (x .@? "Key")
-      <*> (x .@? "StorageClass")
-      <*> (x .@? "UploadId")
-
-instance Hashable MultipartUpload
-
-instance NFData MultipartUpload
+      Lude.<$> (x Lude..@? "Initiated")
+      Lude.<*> (x Lude..@? "Initiator")
+      Lude.<*> (x Lude..@? "Owner")
+      Lude.<*> (x Lude..@? "Key")
+      Lude.<*> (x Lude..@? "StorageClass")
+      Lude.<*> (x Lude..@? "UploadId")

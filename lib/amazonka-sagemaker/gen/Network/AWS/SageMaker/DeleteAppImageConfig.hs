@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,97 @@
 --
 -- Deletes an AppImageConfig.
 module Network.AWS.SageMaker.DeleteAppImageConfig
-  ( -- * Creating a Request
-    deleteAppImageConfig,
-    DeleteAppImageConfig,
+  ( -- * Creating a request
+    DeleteAppImageConfig (..),
+    mkDeleteAppImageConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daicAppImageConfigName,
 
-    -- * Destructuring the Response
-    deleteAppImageConfigResponse,
-    DeleteAppImageConfigResponse,
+    -- * Destructuring the response
+    DeleteAppImageConfigResponse (..),
+    mkDeleteAppImageConfigResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteAppImageConfig' smart constructor.
+-- | /See:/ 'mkDeleteAppImageConfig' smart constructor.
 newtype DeleteAppImageConfig = DeleteAppImageConfig'
-  { _daicAppImageConfigName ::
-      Text
+  { appImageConfigName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppImageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daicAppImageConfigName' - The name of the AppImageConfig to delete.
-deleteAppImageConfig ::
-  -- | 'daicAppImageConfigName'
-  Text ->
+-- * 'appImageConfigName' - The name of the AppImageConfig to delete.
+mkDeleteAppImageConfig ::
+  -- | 'appImageConfigName'
+  Lude.Text ->
   DeleteAppImageConfig
-deleteAppImageConfig pAppImageConfigName_ =
-  DeleteAppImageConfig'
-    { _daicAppImageConfigName =
-        pAppImageConfigName_
-    }
+mkDeleteAppImageConfig pAppImageConfigName_ =
+  DeleteAppImageConfig' {appImageConfigName = pAppImageConfigName_}
 
 -- | The name of the AppImageConfig to delete.
-daicAppImageConfigName :: Lens' DeleteAppImageConfig Text
-daicAppImageConfigName = lens _daicAppImageConfigName (\s a -> s {_daicAppImageConfigName = a})
+--
+-- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daicAppImageConfigName :: Lens.Lens' DeleteAppImageConfig Lude.Text
+daicAppImageConfigName = Lens.lens (appImageConfigName :: DeleteAppImageConfig -> Lude.Text) (\s a -> s {appImageConfigName = a} :: DeleteAppImageConfig)
+{-# DEPRECATED daicAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
-instance AWSRequest DeleteAppImageConfig where
+instance Lude.AWSRequest DeleteAppImageConfig where
   type Rs DeleteAppImageConfig = DeleteAppImageConfigResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteAppImageConfigResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteAppImageConfigResponse'
 
-instance Hashable DeleteAppImageConfig
-
-instance NFData DeleteAppImageConfig
-
-instance ToHeaders DeleteAppImageConfig where
+instance Lude.ToHeaders DeleteAppImageConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DeleteAppImageConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DeleteAppImageConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAppImageConfig where
+instance Lude.ToJSON DeleteAppImageConfig where
   toJSON DeleteAppImageConfig' {..} =
-    object
-      ( catMaybes
-          [Just ("AppImageConfigName" .= _daicAppImageConfigName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("AppImageConfigName" Lude..= appImageConfigName)]
       )
 
-instance ToPath DeleteAppImageConfig where
-  toPath = const "/"
+instance Lude.ToPath DeleteAppImageConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAppImageConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAppImageConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAppImageConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteAppImageConfigResponse' smart constructor.
 data DeleteAppImageConfigResponse = DeleteAppImageConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppImageConfigResponse' with the minimum fields required to make a request.
-deleteAppImageConfigResponse ::
+mkDeleteAppImageConfigResponse ::
   DeleteAppImageConfigResponse
-deleteAppImageConfigResponse = DeleteAppImageConfigResponse'
-
-instance NFData DeleteAppImageConfigResponse
+mkDeleteAppImageConfigResponse = DeleteAppImageConfigResponse'

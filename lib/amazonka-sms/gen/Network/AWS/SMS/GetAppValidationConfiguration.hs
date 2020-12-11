@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,154 @@
 --
 -- Retrieves information about a configuration for validating an application.
 module Network.AWS.SMS.GetAppValidationConfiguration
-  ( -- * Creating a Request
-    getAppValidationConfiguration,
-    GetAppValidationConfiguration,
+  ( -- * Creating a request
+    GetAppValidationConfiguration (..),
+    mkGetAppValidationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gavcAppId,
 
-    -- * Destructuring the Response
-    getAppValidationConfigurationResponse,
-    GetAppValidationConfigurationResponse,
+    -- * Destructuring the response
+    GetAppValidationConfigurationResponse (..),
+    mkGetAppValidationConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gavcrsServerGroupValidationConfigurations,
     gavcrsAppValidationConfigurations,
     gavcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'getAppValidationConfiguration' smart constructor.
+-- | /See:/ 'mkGetAppValidationConfiguration' smart constructor.
 newtype GetAppValidationConfiguration = GetAppValidationConfiguration'
-  { _gavcAppId ::
-      Text
+  { appId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppValidationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gavcAppId' - The ID of the application.
-getAppValidationConfiguration ::
-  -- | 'gavcAppId'
-  Text ->
+-- * 'appId' - The ID of the application.
+mkGetAppValidationConfiguration ::
+  -- | 'appId'
+  Lude.Text ->
   GetAppValidationConfiguration
-getAppValidationConfiguration pAppId_ =
-  GetAppValidationConfiguration' {_gavcAppId = pAppId_}
+mkGetAppValidationConfiguration pAppId_ =
+  GetAppValidationConfiguration' {appId = pAppId_}
 
 -- | The ID of the application.
-gavcAppId :: Lens' GetAppValidationConfiguration Text
-gavcAppId = lens _gavcAppId (\s a -> s {_gavcAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcAppId :: Lens.Lens' GetAppValidationConfiguration Lude.Text
+gavcAppId = Lens.lens (appId :: GetAppValidationConfiguration -> Lude.Text) (\s a -> s {appId = a} :: GetAppValidationConfiguration)
+{-# DEPRECATED gavcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest GetAppValidationConfiguration where
+instance Lude.AWSRequest GetAppValidationConfiguration where
   type
     Rs GetAppValidationConfiguration =
       GetAppValidationConfigurationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAppValidationConfigurationResponse'
-            <$> (x .?> "serverGroupValidationConfigurations" .!@ mempty)
-            <*> (x .?> "appValidationConfigurations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "serverGroupValidationConfigurations"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "appValidationConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAppValidationConfiguration
-
-instance NFData GetAppValidationConfiguration
-
-instance ToHeaders GetAppValidationConfiguration where
+instance Lude.ToHeaders GetAppValidationConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAppValidationConfiguration where
+instance Lude.ToJSON GetAppValidationConfiguration where
   toJSON GetAppValidationConfiguration' {..} =
-    object (catMaybes [Just ("appId" .= _gavcAppId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("appId" Lude..= appId)])
 
-instance ToPath GetAppValidationConfiguration where
-  toPath = const "/"
+instance Lude.ToPath GetAppValidationConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAppValidationConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetAppValidationConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAppValidationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetAppValidationConfigurationResponse' smart constructor.
 data GetAppValidationConfigurationResponse = GetAppValidationConfigurationResponse'
-  { _gavcrsServerGroupValidationConfigurations ::
-      !( Maybe
-           [ServerGroupValidationConfiguration]
-       ),
-    _gavcrsAppValidationConfigurations ::
-      !( Maybe
-           [AppValidationConfiguration]
-       ),
-    _gavcrsResponseStatus ::
-      !Int
+  { serverGroupValidationConfigurations ::
+      Lude.Maybe
+        [ServerGroupValidationConfiguration],
+    appValidationConfigurations ::
+      Lude.Maybe
+        [AppValidationConfiguration],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppValidationConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gavcrsServerGroupValidationConfigurations' - The configuration for instance validation.
---
--- * 'gavcrsAppValidationConfigurations' - The configuration for application validation.
---
--- * 'gavcrsResponseStatus' - -- | The response status code.
-getAppValidationConfigurationResponse ::
-  -- | 'gavcrsResponseStatus'
-  Int ->
+-- * 'appValidationConfigurations' - The configuration for application validation.
+-- * 'responseStatus' - The response status code.
+-- * 'serverGroupValidationConfigurations' - The configuration for instance validation.
+mkGetAppValidationConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppValidationConfigurationResponse
-getAppValidationConfigurationResponse pResponseStatus_ =
+mkGetAppValidationConfigurationResponse pResponseStatus_ =
   GetAppValidationConfigurationResponse'
-    { _gavcrsServerGroupValidationConfigurations =
-        Nothing,
-      _gavcrsAppValidationConfigurations = Nothing,
-      _gavcrsResponseStatus = pResponseStatus_
+    { serverGroupValidationConfigurations =
+        Lude.Nothing,
+      appValidationConfigurations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The configuration for instance validation.
-gavcrsServerGroupValidationConfigurations :: Lens' GetAppValidationConfigurationResponse [ServerGroupValidationConfiguration]
-gavcrsServerGroupValidationConfigurations = lens _gavcrsServerGroupValidationConfigurations (\s a -> s {_gavcrsServerGroupValidationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroupValidationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcrsServerGroupValidationConfigurations :: Lens.Lens' GetAppValidationConfigurationResponse (Lude.Maybe [ServerGroupValidationConfiguration])
+gavcrsServerGroupValidationConfigurations = Lens.lens (serverGroupValidationConfigurations :: GetAppValidationConfigurationResponse -> Lude.Maybe [ServerGroupValidationConfiguration]) (\s a -> s {serverGroupValidationConfigurations = a} :: GetAppValidationConfigurationResponse)
+{-# DEPRECATED gavcrsServerGroupValidationConfigurations "Use generic-lens or generic-optics with 'serverGroupValidationConfigurations' instead." #-}
 
 -- | The configuration for application validation.
-gavcrsAppValidationConfigurations :: Lens' GetAppValidationConfigurationResponse [AppValidationConfiguration]
-gavcrsAppValidationConfigurations = lens _gavcrsAppValidationConfigurations (\s a -> s {_gavcrsAppValidationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'appValidationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcrsAppValidationConfigurations :: Lens.Lens' GetAppValidationConfigurationResponse (Lude.Maybe [AppValidationConfiguration])
+gavcrsAppValidationConfigurations = Lens.lens (appValidationConfigurations :: GetAppValidationConfigurationResponse -> Lude.Maybe [AppValidationConfiguration]) (\s a -> s {appValidationConfigurations = a} :: GetAppValidationConfigurationResponse)
+{-# DEPRECATED gavcrsAppValidationConfigurations "Use generic-lens or generic-optics with 'appValidationConfigurations' instead." #-}
 
--- | -- | The response status code.
-gavcrsResponseStatus :: Lens' GetAppValidationConfigurationResponse Int
-gavcrsResponseStatus = lens _gavcrsResponseStatus (\s a -> s {_gavcrsResponseStatus = a})
-
-instance NFData GetAppValidationConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcrsResponseStatus :: Lens.Lens' GetAppValidationConfigurationResponse Lude.Int
+gavcrsResponseStatus = Lens.lens (responseStatus :: GetAppValidationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppValidationConfigurationResponse)
+{-# DEPRECATED gavcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

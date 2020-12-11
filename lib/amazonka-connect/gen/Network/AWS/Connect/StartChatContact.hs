@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> API in the Amazon Connect Participant Service.
 --
---
 -- When a new chat contact is successfully created, clients need to subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> with WEBSOCKET and CONNECTION_CREDENTIALS.
---
 -- A 429 error occurs in two situations:
 --
 --     * API rate limit is exceeded. API TPS throttling returns a @TooManyRequests@ exception from the API Gateway.
 --
---     * The <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html quota for concurrent active chats> is exceeded. Active chat throttling returns a @LimitExceededException@ .
 --
+--     * The <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html quota for concurrent active chats> is exceeded. Active chat throttling returns a @LimitExceededException@ .
 --
 --
 -- For more information about how chat works, see <https://docs.aws.amazon.com/connect/latest/adminguide/chat.html Chat> in the /Amazon Connect Administrator Guide/ .
 module Network.AWS.Connect.StartChatContact
-  ( -- * Creating a Request
-    startChatContact,
-    StartChatContact,
+  ( -- * Creating a request
+    StartChatContact (..),
+    mkStartChatContact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sccClientToken,
     sccAttributes,
     sccInitialMessage,
@@ -44,11 +37,11 @@ module Network.AWS.Connect.StartChatContact
     sccContactFlowId,
     sccParticipantDetails,
 
-    -- * Destructuring the Response
-    startChatContactResponse,
-    StartChatContactResponse,
+    -- * Destructuring the response
+    StartChatContactResponse (..),
+    mkStartChatContactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sccrsParticipantToken,
     sccrsParticipantId,
     sccrsContactId,
@@ -57,170 +50,210 @@ module Network.AWS.Connect.StartChatContact
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startChatContact' smart constructor.
+-- | /See:/ 'mkStartChatContact' smart constructor.
 data StartChatContact = StartChatContact'
-  { _sccClientToken ::
-      !(Maybe Text),
-    _sccAttributes :: !(Maybe (Map Text (Text))),
-    _sccInitialMessage :: !(Maybe ChatMessage),
-    _sccInstanceId :: !Text,
-    _sccContactFlowId :: !Text,
-    _sccParticipantDetails :: !ParticipantDetails
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    initialMessage :: Lude.Maybe ChatMessage,
+    instanceId :: Lude.Text,
+    contactFlowId :: Lude.Text,
+    participantDetails :: ParticipantDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChatContact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
 --
--- * 'sccClientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+-- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+-- * 'contactFlowId' - The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
 --
--- * 'sccAttributes' - A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.  There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
---
--- * 'sccInitialMessage' - The initial message to be sent to the newly created chat.
---
--- * 'sccInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'sccContactFlowId' - The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
---
--- * 'sccParticipantDetails' - Information identifying the participant.
-startChatContact ::
-  -- | 'sccInstanceId'
-  Text ->
-  -- | 'sccContactFlowId'
-  Text ->
-  -- | 'sccParticipantDetails'
+-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+-- * 'initialMessage' - The initial message to be sent to the newly created chat.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'participantDetails' - Information identifying the participant.
+mkStartChatContact ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'contactFlowId'
+  Lude.Text ->
+  -- | 'participantDetails'
   ParticipantDetails ->
   StartChatContact
-startChatContact pInstanceId_ pContactFlowId_ pParticipantDetails_ =
-  StartChatContact'
-    { _sccClientToken = Nothing,
-      _sccAttributes = Nothing,
-      _sccInitialMessage = Nothing,
-      _sccInstanceId = pInstanceId_,
-      _sccContactFlowId = pContactFlowId_,
-      _sccParticipantDetails = pParticipantDetails_
-    }
+mkStartChatContact
+  pInstanceId_
+  pContactFlowId_
+  pParticipantDetails_ =
+    StartChatContact'
+      { clientToken = Lude.Nothing,
+        attributes = Lude.Nothing,
+        initialMessage = Lude.Nothing,
+        instanceId = pInstanceId_,
+        contactFlowId = pContactFlowId_,
+        participantDetails = pParticipantDetails_
+      }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-sccClientToken :: Lens' StartChatContact (Maybe Text)
-sccClientToken = lens _sccClientToken (\s a -> s {_sccClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccClientToken :: Lens.Lens' StartChatContact (Lude.Maybe Lude.Text)
+sccClientToken = Lens.lens (clientToken :: StartChatContact -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: StartChatContact)
+{-# DEPRECATED sccClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.  There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
-sccAttributes :: Lens' StartChatContact (HashMap Text (Text))
-sccAttributes = lens _sccAttributes (\s a -> s {_sccAttributes = a}) . _Default . _Map
+-- | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
+--
+-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccAttributes :: Lens.Lens' StartChatContact (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sccAttributes = Lens.lens (attributes :: StartChatContact -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: StartChatContact)
+{-# DEPRECATED sccAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The initial message to be sent to the newly created chat.
-sccInitialMessage :: Lens' StartChatContact (Maybe ChatMessage)
-sccInitialMessage = lens _sccInitialMessage (\s a -> s {_sccInitialMessage = a})
+--
+-- /Note:/ Consider using 'initialMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccInitialMessage :: Lens.Lens' StartChatContact (Lude.Maybe ChatMessage)
+sccInitialMessage = Lens.lens (initialMessage :: StartChatContact -> Lude.Maybe ChatMessage) (\s a -> s {initialMessage = a} :: StartChatContact)
+{-# DEPRECATED sccInitialMessage "Use generic-lens or generic-optics with 'initialMessage' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-sccInstanceId :: Lens' StartChatContact Text
-sccInstanceId = lens _sccInstanceId (\s a -> s {_sccInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccInstanceId :: Lens.Lens' StartChatContact Lude.Text
+sccInstanceId = Lens.lens (instanceId :: StartChatContact -> Lude.Text) (\s a -> s {instanceId = a} :: StartChatContact)
+{-# DEPRECATED sccInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
-sccContactFlowId :: Lens' StartChatContact Text
-sccContactFlowId = lens _sccContactFlowId (\s a -> s {_sccContactFlowId = a})
+-- | The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
+--
+-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+--
+-- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccContactFlowId :: Lens.Lens' StartChatContact Lude.Text
+sccContactFlowId = Lens.lens (contactFlowId :: StartChatContact -> Lude.Text) (\s a -> s {contactFlowId = a} :: StartChatContact)
+{-# DEPRECATED sccContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
 -- | Information identifying the participant.
-sccParticipantDetails :: Lens' StartChatContact ParticipantDetails
-sccParticipantDetails = lens _sccParticipantDetails (\s a -> s {_sccParticipantDetails = a})
+--
+-- /Note:/ Consider using 'participantDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccParticipantDetails :: Lens.Lens' StartChatContact ParticipantDetails
+sccParticipantDetails = Lens.lens (participantDetails :: StartChatContact -> ParticipantDetails) (\s a -> s {participantDetails = a} :: StartChatContact)
+{-# DEPRECATED sccParticipantDetails "Use generic-lens or generic-optics with 'participantDetails' instead." #-}
 
-instance AWSRequest StartChatContact where
+instance Lude.AWSRequest StartChatContact where
   type Rs StartChatContact = StartChatContactResponse
-  request = putJSON connect
+  request = Req.putJSON connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartChatContactResponse'
-            <$> (x .?> "ParticipantToken")
-            <*> (x .?> "ParticipantId")
-            <*> (x .?> "ContactId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ParticipantToken")
+            Lude.<*> (x Lude..?> "ParticipantId")
+            Lude.<*> (x Lude..?> "ContactId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartChatContact
-
-instance NFData StartChatContact
-
-instance ToHeaders StartChatContact where
+instance Lude.ToHeaders StartChatContact where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON StartChatContact where
-  toJSON StartChatContact' {..} =
-    object
-      ( catMaybes
-          [ ("ClientToken" .=) <$> _sccClientToken,
-            ("Attributes" .=) <$> _sccAttributes,
-            ("InitialMessage" .=) <$> _sccInitialMessage,
-            Just ("InstanceId" .= _sccInstanceId),
-            Just ("ContactFlowId" .= _sccContactFlowId),
-            Just ("ParticipantDetails" .= _sccParticipantDetails)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath StartChatContact where
-  toPath = const "/contact/chat"
+instance Lude.ToJSON StartChatContact where
+  toJSON StartChatContact' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
+            ("Attributes" Lude..=) Lude.<$> attributes,
+            ("InitialMessage" Lude..=) Lude.<$> initialMessage,
+            Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("ContactFlowId" Lude..= contactFlowId),
+            Lude.Just ("ParticipantDetails" Lude..= participantDetails)
+          ]
+      )
 
-instance ToQuery StartChatContact where
-  toQuery = const mempty
+instance Lude.ToPath StartChatContact where
+  toPath = Lude.const "/contact/chat"
 
--- | /See:/ 'startChatContactResponse' smart constructor.
+instance Lude.ToQuery StartChatContact where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkStartChatContactResponse' smart constructor.
 data StartChatContactResponse = StartChatContactResponse'
-  { _sccrsParticipantToken ::
-      !(Maybe Text),
-    _sccrsParticipantId :: !(Maybe Text),
-    _sccrsContactId :: !(Maybe Text),
-    _sccrsResponseStatus :: !Int
+  { participantToken ::
+      Lude.Maybe Lude.Text,
+    participantId :: Lude.Maybe Lude.Text,
+    contactId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChatContactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sccrsParticipantToken' - The token used by the chat participant to call <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> . The participant token is valid for the lifetime of a chat participant.
---
--- * 'sccrsParticipantId' - The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.
---
--- * 'sccrsContactId' - The identifier of this contact within the Amazon Connect instance.
---
--- * 'sccrsResponseStatus' - -- | The response status code.
-startChatContactResponse ::
-  -- | 'sccrsResponseStatus'
-  Int ->
+-- * 'contactId' - The identifier of this contact within the Amazon Connect instance.
+-- * 'participantId' - The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.
+-- * 'participantToken' - The token used by the chat participant to call <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> . The participant token is valid for the lifetime of a chat participant.
+-- * 'responseStatus' - The response status code.
+mkStartChatContactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartChatContactResponse
-startChatContactResponse pResponseStatus_ =
+mkStartChatContactResponse pResponseStatus_ =
   StartChatContactResponse'
-    { _sccrsParticipantToken = Nothing,
-      _sccrsParticipantId = Nothing,
-      _sccrsContactId = Nothing,
-      _sccrsResponseStatus = pResponseStatus_
+    { participantToken = Lude.Nothing,
+      participantId = Lude.Nothing,
+      contactId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token used by the chat participant to call <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> . The participant token is valid for the lifetime of a chat participant.
-sccrsParticipantToken :: Lens' StartChatContactResponse (Maybe Text)
-sccrsParticipantToken = lens _sccrsParticipantToken (\s a -> s {_sccrsParticipantToken = a})
+--
+-- /Note:/ Consider using 'participantToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccrsParticipantToken :: Lens.Lens' StartChatContactResponse (Lude.Maybe Lude.Text)
+sccrsParticipantToken = Lens.lens (participantToken :: StartChatContactResponse -> Lude.Maybe Lude.Text) (\s a -> s {participantToken = a} :: StartChatContactResponse)
+{-# DEPRECATED sccrsParticipantToken "Use generic-lens or generic-optics with 'participantToken' instead." #-}
 
 -- | The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.
-sccrsParticipantId :: Lens' StartChatContactResponse (Maybe Text)
-sccrsParticipantId = lens _sccrsParticipantId (\s a -> s {_sccrsParticipantId = a})
+--
+-- /Note:/ Consider using 'participantId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccrsParticipantId :: Lens.Lens' StartChatContactResponse (Lude.Maybe Lude.Text)
+sccrsParticipantId = Lens.lens (participantId :: StartChatContactResponse -> Lude.Maybe Lude.Text) (\s a -> s {participantId = a} :: StartChatContactResponse)
+{-# DEPRECATED sccrsParticipantId "Use generic-lens or generic-optics with 'participantId' instead." #-}
 
 -- | The identifier of this contact within the Amazon Connect instance.
-sccrsContactId :: Lens' StartChatContactResponse (Maybe Text)
-sccrsContactId = lens _sccrsContactId (\s a -> s {_sccrsContactId = a})
+--
+-- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccrsContactId :: Lens.Lens' StartChatContactResponse (Lude.Maybe Lude.Text)
+sccrsContactId = Lens.lens (contactId :: StartChatContactResponse -> Lude.Maybe Lude.Text) (\s a -> s {contactId = a} :: StartChatContactResponse)
+{-# DEPRECATED sccrsContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
 
--- | -- | The response status code.
-sccrsResponseStatus :: Lens' StartChatContactResponse Int
-sccrsResponseStatus = lens _sccrsResponseStatus (\s a -> s {_sccrsResponseStatus = a})
-
-instance NFData StartChatContactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccrsResponseStatus :: Lens.Lens' StartChatContactResponse Lude.Int
+sccrsResponseStatus = Lens.lens (responseStatus :: StartChatContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartChatContactResponse)
+{-# DEPRECATED sccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

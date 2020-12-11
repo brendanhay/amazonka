@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AssemblyType where
+module Network.AWS.SageMaker.Types.AssemblyType
+  ( AssemblyType
+      ( AssemblyType',
+        ATLine,
+        ATNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssemblyType
-  = ATLine
-  | ATNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssemblyType = AssemblyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssemblyType where
-  parser =
-    takeLowerText >>= \case
-      "line" -> pure ATLine
-      "none" -> pure ATNone
-      e ->
-        fromTextError $
-          "Failure parsing AssemblyType from value: '" <> e
-            <> "'. Accepted values: line, none"
+pattern ATLine :: AssemblyType
+pattern ATLine = AssemblyType' "Line"
 
-instance ToText AssemblyType where
-  toText = \case
-    ATLine -> "Line"
-    ATNone -> "None"
+pattern ATNone :: AssemblyType
+pattern ATNone = AssemblyType' "None"
 
-instance Hashable AssemblyType
-
-instance NFData AssemblyType
-
-instance ToByteString AssemblyType
-
-instance ToQuery AssemblyType
-
-instance ToHeader AssemblyType
-
-instance ToJSON AssemblyType where
-  toJSON = toJSONText
-
-instance FromJSON AssemblyType where
-  parseJSON = parseJSONText "AssemblyType"
+{-# COMPLETE
+  ATLine,
+  ATNone,
+  AssemblyType'
+  #-}

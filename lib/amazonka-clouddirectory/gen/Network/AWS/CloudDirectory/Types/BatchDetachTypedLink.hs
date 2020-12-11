@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDetachTypedLink where
+module Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
+  ( BatchDetachTypedLink (..),
+
+    -- * Smart constructor
+    mkBatchDetachTypedLink,
+
+    -- * Lenses
+    bdtlTypedLinkSpecifier,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Detaches a typed link from a specified source and target object inside a 'BatchRead' operation. For more information, see 'DetachTypedLink' and 'BatchReadRequest$Operations' .
 --
---
---
--- /See:/ 'batchDetachTypedLink' smart constructor.
+-- /See:/ 'mkBatchDetachTypedLink' smart constructor.
 newtype BatchDetachTypedLink = BatchDetachTypedLink'
-  { _bdtlTypedLinkSpecifier ::
+  { typedLinkSpecifier ::
       TypedLinkSpecifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetachTypedLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdtlTypedLinkSpecifier' - Used to accept a typed link specifier as input.
-batchDetachTypedLink ::
-  -- | 'bdtlTypedLinkSpecifier'
+-- * 'typedLinkSpecifier' - Used to accept a typed link specifier as input.
+mkBatchDetachTypedLink ::
+  -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   BatchDetachTypedLink
-batchDetachTypedLink pTypedLinkSpecifier_ =
-  BatchDetachTypedLink'
-    { _bdtlTypedLinkSpecifier =
-        pTypedLinkSpecifier_
-    }
+mkBatchDetachTypedLink pTypedLinkSpecifier_ =
+  BatchDetachTypedLink' {typedLinkSpecifier = pTypedLinkSpecifier_}
 
 -- | Used to accept a typed link specifier as input.
-bdtlTypedLinkSpecifier :: Lens' BatchDetachTypedLink TypedLinkSpecifier
-bdtlTypedLinkSpecifier = lens _bdtlTypedLinkSpecifier (\s a -> s {_bdtlTypedLinkSpecifier = a})
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtlTypedLinkSpecifier :: Lens.Lens' BatchDetachTypedLink TypedLinkSpecifier
+bdtlTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchDetachTypedLink -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchDetachTypedLink)
+{-# DEPRECATED bdtlTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance Hashable BatchDetachTypedLink
-
-instance NFData BatchDetachTypedLink
-
-instance ToJSON BatchDetachTypedLink where
+instance Lude.ToJSON BatchDetachTypedLink where
   toJSON BatchDetachTypedLink' {..} =
-    object
-      ( catMaybes
-          [Just ("TypedLinkSpecifier" .= _bdtlTypedLinkSpecifier)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)]
       )

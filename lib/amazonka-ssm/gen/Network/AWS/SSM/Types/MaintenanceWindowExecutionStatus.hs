@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus where
+module Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
+  ( MaintenanceWindowExecutionStatus
+      ( MaintenanceWindowExecutionStatus',
+        MWESCancelled,
+        MWESCancelling,
+        MWESFailed,
+        MWESInProgress,
+        MWESPending,
+        MWESSkippedOverlapping,
+        MWESSuccess,
+        MWESTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MaintenanceWindowExecutionStatus
-  = MWESCancelled
-  | MWESCancelling
-  | MWESFailed
-  | MWESInProgress
-  | MWESPending
-  | MWESSkippedOverlapping
-  | MWESSuccess
-  | MWESTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MaintenanceWindowExecutionStatus = MaintenanceWindowExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MaintenanceWindowExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure MWESCancelled
-      "cancelling" -> pure MWESCancelling
-      "failed" -> pure MWESFailed
-      "in_progress" -> pure MWESInProgress
-      "pending" -> pure MWESPending
-      "skipped_overlapping" -> pure MWESSkippedOverlapping
-      "success" -> pure MWESSuccess
-      "timed_out" -> pure MWESTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing MaintenanceWindowExecutionStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, cancelling, failed, in_progress, pending, skipped_overlapping, success, timed_out"
+pattern MWESCancelled :: MaintenanceWindowExecutionStatus
+pattern MWESCancelled = MaintenanceWindowExecutionStatus' "CANCELLED"
 
-instance ToText MaintenanceWindowExecutionStatus where
-  toText = \case
-    MWESCancelled -> "CANCELLED"
-    MWESCancelling -> "CANCELLING"
-    MWESFailed -> "FAILED"
-    MWESInProgress -> "IN_PROGRESS"
-    MWESPending -> "PENDING"
-    MWESSkippedOverlapping -> "SKIPPED_OVERLAPPING"
-    MWESSuccess -> "SUCCESS"
-    MWESTimedOut -> "TIMED_OUT"
+pattern MWESCancelling :: MaintenanceWindowExecutionStatus
+pattern MWESCancelling = MaintenanceWindowExecutionStatus' "CANCELLING"
 
-instance Hashable MaintenanceWindowExecutionStatus
+pattern MWESFailed :: MaintenanceWindowExecutionStatus
+pattern MWESFailed = MaintenanceWindowExecutionStatus' "FAILED"
 
-instance NFData MaintenanceWindowExecutionStatus
+pattern MWESInProgress :: MaintenanceWindowExecutionStatus
+pattern MWESInProgress = MaintenanceWindowExecutionStatus' "IN_PROGRESS"
 
-instance ToByteString MaintenanceWindowExecutionStatus
+pattern MWESPending :: MaintenanceWindowExecutionStatus
+pattern MWESPending = MaintenanceWindowExecutionStatus' "PENDING"
 
-instance ToQuery MaintenanceWindowExecutionStatus
+pattern MWESSkippedOverlapping :: MaintenanceWindowExecutionStatus
+pattern MWESSkippedOverlapping = MaintenanceWindowExecutionStatus' "SKIPPED_OVERLAPPING"
 
-instance ToHeader MaintenanceWindowExecutionStatus
+pattern MWESSuccess :: MaintenanceWindowExecutionStatus
+pattern MWESSuccess = MaintenanceWindowExecutionStatus' "SUCCESS"
 
-instance FromJSON MaintenanceWindowExecutionStatus where
-  parseJSON = parseJSONText "MaintenanceWindowExecutionStatus"
+pattern MWESTimedOut :: MaintenanceWindowExecutionStatus
+pattern MWESTimedOut = MaintenanceWindowExecutionStatus' "TIMED_OUT"
+
+{-# COMPLETE
+  MWESCancelled,
+  MWESCancelling,
+  MWESFailed,
+  MWESInProgress,
+  MWESPending,
+  MWESSkippedOverlapping,
+  MWESSuccess,
+  MWESTimedOut,
+  MaintenanceWindowExecutionStatus'
+  #-}

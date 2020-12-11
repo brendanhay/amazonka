@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,18 @@
 --
 -- Creates a Lambda function. To create a function, you need a <https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html deployment package> and an <https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role execution role> . The deployment package contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
 --
---
 -- When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The @State@ , @StateReason@ , and @StateReasonCode@ fields in the response from 'GetFunctionConfiguration' indicate when the function is ready to invoke. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html Function States> .
---
 -- A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the @Publish@ parameter to create version @1@ of your function from its initial configuration.
---
 -- The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with 'UpdateFunctionConfiguration' . Function-level settings apply to both the unpublished and published versions of the function, and include tags ('TagResource' ) and per-function concurrency limits ('PutFunctionConcurrency' ).
---
 -- To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with 'UpdateFunctionCode' , Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
---
 -- If another account or an AWS service invokes your function, use 'AddPermission' to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.
---
 -- To invoke your function directly, use 'Invoke' . To invoke your function in response to events in other AWS services, create an event source mapping ('CreateEventSourceMapping' ), or configure a function trigger in the other service. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html Invoking Functions> .
 module Network.AWS.Lambda.CreateFunction
-  ( -- * Creating a Request
-    createFunction,
-    CreateFunction,
+  ( -- * Creating a request
+    CreateFunction (..),
+    mkCreateFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cfMemorySize,
     cfKMSKeyARN,
     cfFileSystemConfigs,
@@ -56,11 +45,11 @@ module Network.AWS.Lambda.CreateFunction
     cfHandler,
     cfCode,
 
-    -- * Destructuring the Response
-    functionConfiguration,
-    FunctionConfiguration,
+    -- * Destructuring the response
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fcMemorySize,
     fcRuntime,
     fcState,
@@ -94,219 +83,277 @@ module Network.AWS.Lambda.CreateFunction
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createFunction' smart constructor.
+-- | /See:/ 'mkCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { _cfMemorySize ::
-      !(Maybe Nat),
-    _cfKMSKeyARN :: !(Maybe Text),
-    _cfFileSystemConfigs :: !(Maybe [FileSystemConfig]),
-    _cfEnvironment :: !(Maybe Environment),
-    _cfDeadLetterConfig :: !(Maybe DeadLetterConfig),
-    _cfCodeSigningConfigARN :: !(Maybe Text),
-    _cfVPCConfig :: !(Maybe VPCConfig),
-    _cfLayers :: !(Maybe [Text]),
-    _cfTimeout :: !(Maybe Nat),
-    _cfTracingConfig :: !(Maybe TracingConfig),
-    _cfDescription :: !(Maybe Text),
-    _cfTags :: !(Maybe (Map Text (Text))),
-    _cfPublish :: !(Maybe Bool),
-    _cfFunctionName :: !Text,
-    _cfRuntime :: !Runtime,
-    _cfRole :: !Text,
-    _cfHandler :: !Text,
-    _cfCode :: !FunctionCode
+  { memorySize ::
+      Lude.Maybe Lude.Natural,
+    kmsKeyARN :: Lude.Maybe Lude.Text,
+    fileSystemConfigs :: Lude.Maybe [FileSystemConfig],
+    environment :: Lude.Maybe Environment,
+    deadLetterConfig :: Lude.Maybe DeadLetterConfig,
+    codeSigningConfigARN :: Lude.Maybe Lude.Text,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    layers :: Lude.Maybe [Lude.Text],
+    timeout :: Lude.Maybe Lude.Natural,
+    tracingConfig :: Lude.Maybe TracingConfig,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    publish :: Lude.Maybe Lude.Bool,
+    functionName :: Lude.Text,
+    runtime :: Runtime,
+    role' :: Lude.Text,
+    handler :: Lude.Text,
+    code :: FunctionCode
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'code' - The code for the function.
+-- * 'codeSigningConfigARN' - To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
+-- * 'deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
+-- * 'description' - A description of the function.
+-- * 'environment' - Environment variables that are accessible from function code during execution.
+-- * 'fileSystemConfigs' - Connection settings for an Amazon EFS file system.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'cfMemorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- __Name formats__
 --
--- * 'cfKMSKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+--     * __Function name__ - @my-function@ .
 --
--- * 'cfFileSystemConfigs' - Connection settings for an Amazon EFS file system.
 --
--- * 'cfEnvironment' - Environment variables that are accessible from function code during execution.
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
 --
--- * 'cfDeadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
 --
--- * 'cfCodeSigningConfigARN' - To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
 --
--- * 'cfVPCConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
 --
--- * 'cfLayers' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
---
--- * 'cfTimeout' - The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
---
--- * 'cfTracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
---
--- * 'cfDescription' - A description of the function.
---
--- * 'cfTags' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to apply to the function.
---
--- * 'cfPublish' - Set to true to publish the first version of the function during creation.
---
--- * 'cfFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
---
--- * 'cfRuntime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
---
--- * 'cfRole' - The Amazon Resource Name (ARN) of the function's execution role.
---
--- * 'cfHandler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
---
--- * 'cfCode' - The code for the function.
-createFunction ::
-  -- | 'cfFunctionName'
-  Text ->
-  -- | 'cfRuntime'
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'handler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
+-- * 'kmsKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+-- * 'layers' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
+-- * 'memorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- * 'publish' - Set to true to publish the first version of the function during creation.
+-- * 'role'' - The Amazon Resource Name (ARN) of the function's execution role.
+-- * 'runtime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
+-- * 'tags' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to apply to the function.
+-- * 'timeout' - The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- * 'tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
+-- * 'vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
+mkCreateFunction ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'runtime'
   Runtime ->
-  -- | 'cfRole'
-  Text ->
-  -- | 'cfHandler'
-  Text ->
-  -- | 'cfCode'
+  -- | 'role''
+  Lude.Text ->
+  -- | 'handler'
+  Lude.Text ->
+  -- | 'code'
   FunctionCode ->
   CreateFunction
-createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
+mkCreateFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
   CreateFunction'
-    { _cfMemorySize = Nothing,
-      _cfKMSKeyARN = Nothing,
-      _cfFileSystemConfigs = Nothing,
-      _cfEnvironment = Nothing,
-      _cfDeadLetterConfig = Nothing,
-      _cfCodeSigningConfigARN = Nothing,
-      _cfVPCConfig = Nothing,
-      _cfLayers = Nothing,
-      _cfTimeout = Nothing,
-      _cfTracingConfig = Nothing,
-      _cfDescription = Nothing,
-      _cfTags = Nothing,
-      _cfPublish = Nothing,
-      _cfFunctionName = pFunctionName_,
-      _cfRuntime = pRuntime_,
-      _cfRole = pRole_,
-      _cfHandler = pHandler_,
-      _cfCode = pCode_
+    { memorySize = Lude.Nothing,
+      kmsKeyARN = Lude.Nothing,
+      fileSystemConfigs = Lude.Nothing,
+      environment = Lude.Nothing,
+      deadLetterConfig = Lude.Nothing,
+      codeSigningConfigARN = Lude.Nothing,
+      vpcConfig = Lude.Nothing,
+      layers = Lude.Nothing,
+      timeout = Lude.Nothing,
+      tracingConfig = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      publish = Lude.Nothing,
+      functionName = pFunctionName_,
+      runtime = pRuntime_,
+      role' = pRole_,
+      handler = pHandler_,
+      code = pCode_
     }
 
 -- | The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
-cfMemorySize :: Lens' CreateFunction (Maybe Natural)
-cfMemorySize = lens _cfMemorySize (\s a -> s {_cfMemorySize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'memorySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfMemorySize :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Natural)
+cfMemorySize = Lens.lens (memorySize :: CreateFunction -> Lude.Maybe Lude.Natural) (\s a -> s {memorySize = a} :: CreateFunction)
+{-# DEPRECATED cfMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
 
 -- | The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-cfKMSKeyARN :: Lens' CreateFunction (Maybe Text)
-cfKMSKeyARN = lens _cfKMSKeyARN (\s a -> s {_cfKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfKMSKeyARN :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
+cfKMSKeyARN = Lens.lens (kmsKeyARN :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: CreateFunction)
+{-# DEPRECATED cfKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | Connection settings for an Amazon EFS file system.
-cfFileSystemConfigs :: Lens' CreateFunction [FileSystemConfig]
-cfFileSystemConfigs = lens _cfFileSystemConfigs (\s a -> s {_cfFileSystemConfigs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fileSystemConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfFileSystemConfigs :: Lens.Lens' CreateFunction (Lude.Maybe [FileSystemConfig])
+cfFileSystemConfigs = Lens.lens (fileSystemConfigs :: CreateFunction -> Lude.Maybe [FileSystemConfig]) (\s a -> s {fileSystemConfigs = a} :: CreateFunction)
+{-# DEPRECATED cfFileSystemConfigs "Use generic-lens or generic-optics with 'fileSystemConfigs' instead." #-}
 
 -- | Environment variables that are accessible from function code during execution.
-cfEnvironment :: Lens' CreateFunction (Maybe Environment)
-cfEnvironment = lens _cfEnvironment (\s a -> s {_cfEnvironment = a})
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfEnvironment :: Lens.Lens' CreateFunction (Lude.Maybe Environment)
+cfEnvironment = Lens.lens (environment :: CreateFunction -> Lude.Maybe Environment) (\s a -> s {environment = a} :: CreateFunction)
+{-# DEPRECATED cfEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
-cfDeadLetterConfig :: Lens' CreateFunction (Maybe DeadLetterConfig)
-cfDeadLetterConfig = lens _cfDeadLetterConfig (\s a -> s {_cfDeadLetterConfig = a})
+--
+-- /Note:/ Consider using 'deadLetterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfDeadLetterConfig :: Lens.Lens' CreateFunction (Lude.Maybe DeadLetterConfig)
+cfDeadLetterConfig = Lens.lens (deadLetterConfig :: CreateFunction -> Lude.Maybe DeadLetterConfig) (\s a -> s {deadLetterConfig = a} :: CreateFunction)
+{-# DEPRECATED cfDeadLetterConfig "Use generic-lens or generic-optics with 'deadLetterConfig' instead." #-}
 
 -- | To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
-cfCodeSigningConfigARN :: Lens' CreateFunction (Maybe Text)
-cfCodeSigningConfigARN = lens _cfCodeSigningConfigARN (\s a -> s {_cfCodeSigningConfigARN = a})
+--
+-- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfCodeSigningConfigARN :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
+cfCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: CreateFunction)
+{-# DEPRECATED cfCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
 -- | For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
-cfVPCConfig :: Lens' CreateFunction (Maybe VPCConfig)
-cfVPCConfig = lens _cfVPCConfig (\s a -> s {_cfVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfVPCConfig :: Lens.Lens' CreateFunction (Lude.Maybe VPCConfig)
+cfVPCConfig = Lens.lens (vpcConfig :: CreateFunction -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: CreateFunction)
+{-# DEPRECATED cfVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
-cfLayers :: Lens' CreateFunction [Text]
-cfLayers = lens _cfLayers (\s a -> s {_cfLayers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfLayers :: Lens.Lens' CreateFunction (Lude.Maybe [Lude.Text])
+cfLayers = Lens.lens (layers :: CreateFunction -> Lude.Maybe [Lude.Text]) (\s a -> s {layers = a} :: CreateFunction)
+{-# DEPRECATED cfLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
 
 -- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
-cfTimeout :: Lens' CreateFunction (Maybe Natural)
-cfTimeout = lens _cfTimeout (\s a -> s {_cfTimeout = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfTimeout :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Natural)
+cfTimeout = Lens.lens (timeout :: CreateFunction -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: CreateFunction)
+{-# DEPRECATED cfTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
 -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
-cfTracingConfig :: Lens' CreateFunction (Maybe TracingConfig)
-cfTracingConfig = lens _cfTracingConfig (\s a -> s {_cfTracingConfig = a})
+--
+-- /Note:/ Consider using 'tracingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfTracingConfig :: Lens.Lens' CreateFunction (Lude.Maybe TracingConfig)
+cfTracingConfig = Lens.lens (tracingConfig :: CreateFunction -> Lude.Maybe TracingConfig) (\s a -> s {tracingConfig = a} :: CreateFunction)
+{-# DEPRECATED cfTracingConfig "Use generic-lens or generic-optics with 'tracingConfig' instead." #-}
 
 -- | A description of the function.
-cfDescription :: Lens' CreateFunction (Maybe Text)
-cfDescription = lens _cfDescription (\s a -> s {_cfDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfDescription :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
+cfDescription = Lens.lens (description :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateFunction)
+{-# DEPRECATED cfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to apply to the function.
-cfTags :: Lens' CreateFunction (HashMap Text (Text))
-cfTags = lens _cfTags (\s a -> s {_cfTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfTags :: Lens.Lens' CreateFunction (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cfTags = Lens.lens (tags :: CreateFunction -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateFunction)
+{-# DEPRECATED cfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Set to true to publish the first version of the function during creation.
-cfPublish :: Lens' CreateFunction (Maybe Bool)
-cfPublish = lens _cfPublish (\s a -> s {_cfPublish = a})
+--
+-- /Note:/ Consider using 'publish' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfPublish :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Bool)
+cfPublish = Lens.lens (publish :: CreateFunction -> Lude.Maybe Lude.Bool) (\s a -> s {publish = a} :: CreateFunction)
+{-# DEPRECATED cfPublish "Use generic-lens or generic-optics with 'publish' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-cfFunctionName :: Lens' CreateFunction Text
-cfFunctionName = lens _cfFunctionName (\s a -> s {_cfFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfFunctionName :: Lens.Lens' CreateFunction Lude.Text
+cfFunctionName = Lens.lens (functionName :: CreateFunction -> Lude.Text) (\s a -> s {functionName = a} :: CreateFunction)
+{-# DEPRECATED cfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
-cfRuntime :: Lens' CreateFunction Runtime
-cfRuntime = lens _cfRuntime (\s a -> s {_cfRuntime = a})
+--
+-- /Note:/ Consider using 'runtime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfRuntime :: Lens.Lens' CreateFunction Runtime
+cfRuntime = Lens.lens (runtime :: CreateFunction -> Runtime) (\s a -> s {runtime = a} :: CreateFunction)
+{-# DEPRECATED cfRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the function's execution role.
-cfRole :: Lens' CreateFunction Text
-cfRole = lens _cfRole (\s a -> s {_cfRole = a})
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfRole :: Lens.Lens' CreateFunction Lude.Text
+cfRole = Lens.lens (role' :: CreateFunction -> Lude.Text) (\s a -> s {role' = a} :: CreateFunction)
+{-# DEPRECATED cfRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
-cfHandler :: Lens' CreateFunction Text
-cfHandler = lens _cfHandler (\s a -> s {_cfHandler = a})
+--
+-- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfHandler :: Lens.Lens' CreateFunction Lude.Text
+cfHandler = Lens.lens (handler :: CreateFunction -> Lude.Text) (\s a -> s {handler = a} :: CreateFunction)
+{-# DEPRECATED cfHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
 
 -- | The code for the function.
-cfCode :: Lens' CreateFunction FunctionCode
-cfCode = lens _cfCode (\s a -> s {_cfCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfCode :: Lens.Lens' CreateFunction FunctionCode
+cfCode = Lens.lens (code :: CreateFunction -> FunctionCode) (\s a -> s {code = a} :: CreateFunction)
+{-# DEPRECATED cfCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance AWSRequest CreateFunction where
+instance Lude.AWSRequest CreateFunction where
   type Rs CreateFunction = FunctionConfiguration
-  request = postJSON lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateFunction
+instance Lude.ToHeaders CreateFunction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateFunction
-
-instance ToHeaders CreateFunction where
-  toHeaders = const mempty
-
-instance ToJSON CreateFunction where
+instance Lude.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
-    object
-      ( catMaybes
-          [ ("MemorySize" .=) <$> _cfMemorySize,
-            ("KMSKeyArn" .=) <$> _cfKMSKeyARN,
-            ("FileSystemConfigs" .=) <$> _cfFileSystemConfigs,
-            ("Environment" .=) <$> _cfEnvironment,
-            ("DeadLetterConfig" .=) <$> _cfDeadLetterConfig,
-            ("CodeSigningConfigArn" .=) <$> _cfCodeSigningConfigARN,
-            ("VpcConfig" .=) <$> _cfVPCConfig,
-            ("Layers" .=) <$> _cfLayers,
-            ("Timeout" .=) <$> _cfTimeout,
-            ("TracingConfig" .=) <$> _cfTracingConfig,
-            ("Description" .=) <$> _cfDescription,
-            ("Tags" .=) <$> _cfTags,
-            ("Publish" .=) <$> _cfPublish,
-            Just ("FunctionName" .= _cfFunctionName),
-            Just ("Runtime" .= _cfRuntime),
-            Just ("Role" .= _cfRole),
-            Just ("Handler" .= _cfHandler),
-            Just ("Code" .= _cfCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MemorySize" Lude..=) Lude.<$> memorySize,
+            ("KMSKeyArn" Lude..=) Lude.<$> kmsKeyARN,
+            ("FileSystemConfigs" Lude..=) Lude.<$> fileSystemConfigs,
+            ("Environment" Lude..=) Lude.<$> environment,
+            ("DeadLetterConfig" Lude..=) Lude.<$> deadLetterConfig,
+            ("CodeSigningConfigArn" Lude..=) Lude.<$> codeSigningConfigARN,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("Layers" Lude..=) Lude.<$> layers,
+            ("Timeout" Lude..=) Lude.<$> timeout,
+            ("TracingConfig" Lude..=) Lude.<$> tracingConfig,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("Publish" Lude..=) Lude.<$> publish,
+            Lude.Just ("FunctionName" Lude..= functionName),
+            Lude.Just ("Runtime" Lude..= runtime),
+            Lude.Just ("Role" Lude..= role'),
+            Lude.Just ("Handler" Lude..= handler),
+            Lude.Just ("Code" Lude..= code)
           ]
       )
 
-instance ToPath CreateFunction where
-  toPath = const "/2015-03-31/functions"
+instance Lude.ToPath CreateFunction where
+  toPath = Lude.const "/2015-03-31/functions"
 
-instance ToQuery CreateFunction where
-  toQuery = const mempty
+instance Lude.ToQuery CreateFunction where
+  toQuery = Lude.const Lude.mempty

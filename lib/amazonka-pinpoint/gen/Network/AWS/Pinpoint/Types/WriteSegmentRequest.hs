@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.WriteSegmentRequest where
+module Network.AWS.Pinpoint.Types.WriteSegmentRequest
+  ( WriteSegmentRequest (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkWriteSegmentRequest,
+
+    -- * Lenses
+    wsrSegmentGroups,
+    wsrName,
+    wsrDimensions,
+    wsrTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.SegmentDimensions
 import Network.AWS.Pinpoint.Types.SegmentGroupList
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.
 --
---
---
--- /See:/ 'writeSegmentRequest' smart constructor.
+-- /See:/ 'mkWriteSegmentRequest' smart constructor.
 data WriteSegmentRequest = WriteSegmentRequest'
-  { _wsrSegmentGroups ::
-      !(Maybe SegmentGroupList),
-    _wsrName :: !(Maybe Text),
-    _wsrDimensions :: !(Maybe SegmentDimensions),
-    _wsrTags :: !(Maybe (Map Text (Text)))
+  { segmentGroups ::
+      Lude.Maybe SegmentGroupList,
+    name :: Lude.Maybe Lude.Text,
+    dimensions :: Lude.Maybe SegmentDimensions,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteSegmentRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wsrSegmentGroups' - The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.
---
--- * 'wsrName' - The name of the segment.
---
--- * 'wsrDimensions' - The criteria that define the dimensions for the segment.
---
--- * 'wsrTags' - A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.
-writeSegmentRequest ::
+-- * 'dimensions' - The criteria that define the dimensions for the segment.
+-- * 'name' - The name of the segment.
+-- * 'segmentGroups' - The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.
+-- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.
+mkWriteSegmentRequest ::
   WriteSegmentRequest
-writeSegmentRequest =
+mkWriteSegmentRequest =
   WriteSegmentRequest'
-    { _wsrSegmentGroups = Nothing,
-      _wsrName = Nothing,
-      _wsrDimensions = Nothing,
-      _wsrTags = Nothing
+    { segmentGroups = Lude.Nothing,
+      name = Lude.Nothing,
+      dimensions = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.
-wsrSegmentGroups :: Lens' WriteSegmentRequest (Maybe SegmentGroupList)
-wsrSegmentGroups = lens _wsrSegmentGroups (\s a -> s {_wsrSegmentGroups = a})
+--
+-- /Note:/ Consider using 'segmentGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsrSegmentGroups :: Lens.Lens' WriteSegmentRequest (Lude.Maybe SegmentGroupList)
+wsrSegmentGroups = Lens.lens (segmentGroups :: WriteSegmentRequest -> Lude.Maybe SegmentGroupList) (\s a -> s {segmentGroups = a} :: WriteSegmentRequest)
+{-# DEPRECATED wsrSegmentGroups "Use generic-lens or generic-optics with 'segmentGroups' instead." #-}
 
 -- | The name of the segment.
-wsrName :: Lens' WriteSegmentRequest (Maybe Text)
-wsrName = lens _wsrName (\s a -> s {_wsrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsrName :: Lens.Lens' WriteSegmentRequest (Lude.Maybe Lude.Text)
+wsrName = Lens.lens (name :: WriteSegmentRequest -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WriteSegmentRequest)
+{-# DEPRECATED wsrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The criteria that define the dimensions for the segment.
-wsrDimensions :: Lens' WriteSegmentRequest (Maybe SegmentDimensions)
-wsrDimensions = lens _wsrDimensions (\s a -> s {_wsrDimensions = a})
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsrDimensions :: Lens.Lens' WriteSegmentRequest (Lude.Maybe SegmentDimensions)
+wsrDimensions = Lens.lens (dimensions :: WriteSegmentRequest -> Lude.Maybe SegmentDimensions) (\s a -> s {dimensions = a} :: WriteSegmentRequest)
+{-# DEPRECATED wsrDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.
-wsrTags :: Lens' WriteSegmentRequest (HashMap Text (Text))
-wsrTags = lens _wsrTags (\s a -> s {_wsrTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsrTags :: Lens.Lens' WriteSegmentRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+wsrTags = Lens.lens (tags :: WriteSegmentRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: WriteSegmentRequest)
+{-# DEPRECATED wsrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Hashable WriteSegmentRequest
-
-instance NFData WriteSegmentRequest
-
-instance ToJSON WriteSegmentRequest where
+instance Lude.ToJSON WriteSegmentRequest where
   toJSON WriteSegmentRequest' {..} =
-    object
-      ( catMaybes
-          [ ("SegmentGroups" .=) <$> _wsrSegmentGroups,
-            ("Name" .=) <$> _wsrName,
-            ("Dimensions" .=) <$> _wsrDimensions,
-            ("tags" .=) <$> _wsrTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SegmentGroups" Lude..=) Lude.<$> segmentGroups,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Dimensions" Lude..=) Lude.<$> dimensions,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )

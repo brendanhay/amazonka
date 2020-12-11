@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn where
+module Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
+  ( UpdateRequireCheckIn (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUpdateRequireCheckIn,
+
+    -- * Lenses
+    urciEnabled,
+    urciReleaseAfterMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.
 --
---
---
--- /See:/ 'updateRequireCheckIn' smart constructor.
+-- /See:/ 'mkUpdateRequireCheckIn' smart constructor.
 data UpdateRequireCheckIn = UpdateRequireCheckIn'
-  { _urciEnabled ::
-      !(Maybe Bool),
-    _urciReleaseAfterMinutes :: !(Maybe Int)
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    releaseAfterMinutes :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRequireCheckIn' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urciEnabled' - Whether require check in is enabled or not.
---
--- * 'urciReleaseAfterMinutes' - Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
-updateRequireCheckIn ::
+-- * 'enabled' - Whether require check in is enabled or not.
+-- * 'releaseAfterMinutes' - Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
+mkUpdateRequireCheckIn ::
   UpdateRequireCheckIn
-updateRequireCheckIn =
+mkUpdateRequireCheckIn =
   UpdateRequireCheckIn'
-    { _urciEnabled = Nothing,
-      _urciReleaseAfterMinutes = Nothing
+    { enabled = Lude.Nothing,
+      releaseAfterMinutes = Lude.Nothing
     }
 
 -- | Whether require check in is enabled or not.
-urciEnabled :: Lens' UpdateRequireCheckIn (Maybe Bool)
-urciEnabled = lens _urciEnabled (\s a -> s {_urciEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urciEnabled :: Lens.Lens' UpdateRequireCheckIn (Lude.Maybe Lude.Bool)
+urciEnabled = Lens.lens (enabled :: UpdateRequireCheckIn -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateRequireCheckIn)
+{-# DEPRECATED urciEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
-urciReleaseAfterMinutes :: Lens' UpdateRequireCheckIn (Maybe Int)
-urciReleaseAfterMinutes = lens _urciReleaseAfterMinutes (\s a -> s {_urciReleaseAfterMinutes = a})
+--
+-- /Note:/ Consider using 'releaseAfterMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urciReleaseAfterMinutes :: Lens.Lens' UpdateRequireCheckIn (Lude.Maybe Lude.Int)
+urciReleaseAfterMinutes = Lens.lens (releaseAfterMinutes :: UpdateRequireCheckIn -> Lude.Maybe Lude.Int) (\s a -> s {releaseAfterMinutes = a} :: UpdateRequireCheckIn)
+{-# DEPRECATED urciReleaseAfterMinutes "Use generic-lens or generic-optics with 'releaseAfterMinutes' instead." #-}
 
-instance Hashable UpdateRequireCheckIn
-
-instance NFData UpdateRequireCheckIn
-
-instance ToJSON UpdateRequireCheckIn where
+instance Lude.ToJSON UpdateRequireCheckIn where
   toJSON UpdateRequireCheckIn' {..} =
-    object
-      ( catMaybes
-          [ ("Enabled" .=) <$> _urciEnabled,
-            ("ReleaseAfterMinutes" .=) <$> _urciReleaseAfterMinutes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Enabled" Lude..=) Lude.<$> enabled,
+            ("ReleaseAfterMinutes" Lude..=) Lude.<$> releaseAfterMinutes
           ]
       )

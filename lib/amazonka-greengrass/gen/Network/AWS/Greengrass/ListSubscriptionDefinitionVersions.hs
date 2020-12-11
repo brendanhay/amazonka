@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
-  ( -- * Creating a Request
-    listSubscriptionDefinitionVersions,
-    ListSubscriptionDefinitionVersions,
+  ( -- * Creating a request
+    ListSubscriptionDefinitionVersions (..),
+    mkListSubscriptionDefinitionVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsdvNextToken,
     lsdvMaxResults,
     lsdvSubscriptionDefinitionId,
 
-    -- * Destructuring the Response
-    listSubscriptionDefinitionVersionsResponse,
-    ListSubscriptionDefinitionVersionsResponse,
+    -- * Destructuring the response
+    ListSubscriptionDefinitionVersionsResponse (..),
+    mkListSubscriptionDefinitionVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsdvrsVersions,
     lsdvrsNextToken,
     lsdvrsResponseStatus,
@@ -42,152 +37,166 @@ module Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSubscriptionDefinitionVersions' smart constructor.
+-- | /See:/ 'mkListSubscriptionDefinitionVersions' smart constructor.
 data ListSubscriptionDefinitionVersions = ListSubscriptionDefinitionVersions'
-  { _lsdvNextToken ::
-      !(Maybe Text),
-    _lsdvMaxResults ::
-      !(Maybe Text),
-    _lsdvSubscriptionDefinitionId ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Text,
+    subscriptionDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionDefinitionVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lsdvMaxResults' - The maximum number of results to be returned per request.
---
--- * 'lsdvSubscriptionDefinitionId' - The ID of the subscription definition.
-listSubscriptionDefinitionVersions ::
-  -- | 'lsdvSubscriptionDefinitionId'
-  Text ->
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+mkListSubscriptionDefinitionVersions ::
+  -- | 'subscriptionDefinitionId'
+  Lude.Text ->
   ListSubscriptionDefinitionVersions
-listSubscriptionDefinitionVersions pSubscriptionDefinitionId_ =
+mkListSubscriptionDefinitionVersions pSubscriptionDefinitionId_ =
   ListSubscriptionDefinitionVersions'
-    { _lsdvNextToken = Nothing,
-      _lsdvMaxResults = Nothing,
-      _lsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      subscriptionDefinitionId = pSubscriptionDefinitionId_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lsdvNextToken :: Lens' ListSubscriptionDefinitionVersions (Maybe Text)
-lsdvNextToken = lens _lsdvNextToken (\s a -> s {_lsdvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvNextToken :: Lens.Lens' ListSubscriptionDefinitionVersions (Lude.Maybe Lude.Text)
+lsdvNextToken = Lens.lens (nextToken :: ListSubscriptionDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSubscriptionDefinitionVersions)
+{-# DEPRECATED lsdvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lsdvMaxResults :: Lens' ListSubscriptionDefinitionVersions (Maybe Text)
-lsdvMaxResults = lens _lsdvMaxResults (\s a -> s {_lsdvMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvMaxResults :: Lens.Lens' ListSubscriptionDefinitionVersions (Lude.Maybe Lude.Text)
+lsdvMaxResults = Lens.lens (maxResults :: ListSubscriptionDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListSubscriptionDefinitionVersions)
+{-# DEPRECATED lsdvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the subscription definition.
-lsdvSubscriptionDefinitionId :: Lens' ListSubscriptionDefinitionVersions Text
-lsdvSubscriptionDefinitionId = lens _lsdvSubscriptionDefinitionId (\s a -> s {_lsdvSubscriptionDefinitionId = a})
+--
+-- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvSubscriptionDefinitionId :: Lens.Lens' ListSubscriptionDefinitionVersions Lude.Text
+lsdvSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: ListSubscriptionDefinitionVersions -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: ListSubscriptionDefinitionVersions)
+{-# DEPRECATED lsdvSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
-instance AWSPager ListSubscriptionDefinitionVersions where
+instance Page.AWSPager ListSubscriptionDefinitionVersions where
   page rq rs
-    | stop (rs ^. lsdvrsNextToken) = Nothing
-    | stop (rs ^. lsdvrsVersions) = Nothing
-    | otherwise = Just $ rq & lsdvNextToken .~ rs ^. lsdvrsNextToken
+    | Page.stop (rs Lens.^. lsdvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsdvrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsdvNextToken Lens..~ rs Lens.^. lsdvrsNextToken
 
-instance AWSRequest ListSubscriptionDefinitionVersions where
+instance Lude.AWSRequest ListSubscriptionDefinitionVersions where
   type
     Rs ListSubscriptionDefinitionVersions =
       ListSubscriptionDefinitionVersionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSubscriptionDefinitionVersionsResponse'
-            <$> (x .?> "Versions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSubscriptionDefinitionVersions
-
-instance NFData ListSubscriptionDefinitionVersions
-
-instance ToHeaders ListSubscriptionDefinitionVersions where
+instance Lude.ToHeaders ListSubscriptionDefinitionVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListSubscriptionDefinitionVersions where
+instance Lude.ToPath ListSubscriptionDefinitionVersions where
   toPath ListSubscriptionDefinitionVersions' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        toBS _lsdvSubscriptionDefinitionId,
+        Lude.toBS subscriptionDefinitionId,
         "/versions"
       ]
 
-instance ToQuery ListSubscriptionDefinitionVersions where
+instance Lude.ToQuery ListSubscriptionDefinitionVersions where
   toQuery ListSubscriptionDefinitionVersions' {..} =
-    mconcat
-      ["NextToken" =: _lsdvNextToken, "MaxResults" =: _lsdvMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listSubscriptionDefinitionVersionsResponse' smart constructor.
+-- | /See:/ 'mkListSubscriptionDefinitionVersionsResponse' smart constructor.
 data ListSubscriptionDefinitionVersionsResponse = ListSubscriptionDefinitionVersionsResponse'
-  { _lsdvrsVersions ::
-      !( Maybe
-           [VersionInformation]
-       ),
-    _lsdvrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _lsdvrsResponseStatus ::
-      !Int
+  { versions ::
+      Lude.Maybe
+        [VersionInformation],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsdvrsVersions' - Information about a version.
---
--- * 'lsdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lsdvrsResponseStatus' - -- | The response status code.
-listSubscriptionDefinitionVersionsResponse ::
-  -- | 'lsdvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - Information about a version.
+mkListSubscriptionDefinitionVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSubscriptionDefinitionVersionsResponse
-listSubscriptionDefinitionVersionsResponse pResponseStatus_ =
+mkListSubscriptionDefinitionVersionsResponse pResponseStatus_ =
   ListSubscriptionDefinitionVersionsResponse'
-    { _lsdvrsVersions =
-        Nothing,
-      _lsdvrsNextToken = Nothing,
-      _lsdvrsResponseStatus = pResponseStatus_
+    { versions =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a version.
-lsdvrsVersions :: Lens' ListSubscriptionDefinitionVersionsResponse [VersionInformation]
-lsdvrsVersions = lens _lsdvrsVersions (\s a -> s {_lsdvrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvrsVersions :: Lens.Lens' ListSubscriptionDefinitionVersionsResponse (Lude.Maybe [VersionInformation])
+lsdvrsVersions = Lens.lens (versions :: ListSubscriptionDefinitionVersionsResponse -> Lude.Maybe [VersionInformation]) (\s a -> s {versions = a} :: ListSubscriptionDefinitionVersionsResponse)
+{-# DEPRECATED lsdvrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lsdvrsNextToken :: Lens' ListSubscriptionDefinitionVersionsResponse (Maybe Text)
-lsdvrsNextToken = lens _lsdvrsNextToken (\s a -> s {_lsdvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvrsNextToken :: Lens.Lens' ListSubscriptionDefinitionVersionsResponse (Lude.Maybe Lude.Text)
+lsdvrsNextToken = Lens.lens (nextToken :: ListSubscriptionDefinitionVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSubscriptionDefinitionVersionsResponse)
+{-# DEPRECATED lsdvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lsdvrsResponseStatus :: Lens' ListSubscriptionDefinitionVersionsResponse Int
-lsdvrsResponseStatus = lens _lsdvrsResponseStatus (\s a -> s {_lsdvrsResponseStatus = a})
-
-instance NFData ListSubscriptionDefinitionVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvrsResponseStatus :: Lens.Lens' ListSubscriptionDefinitionVersionsResponse Lude.Int
+lsdvrsResponseStatus = Lens.lens (responseStatus :: ListSubscriptionDefinitionVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSubscriptionDefinitionVersionsResponse)
+{-# DEPRECATED lsdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

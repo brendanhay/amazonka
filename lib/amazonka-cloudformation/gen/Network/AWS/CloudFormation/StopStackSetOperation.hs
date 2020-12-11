@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,127 @@
 --
 -- Stops an in-progress operation on a stack set and its associated stack instances.
 module Network.AWS.CloudFormation.StopStackSetOperation
-  ( -- * Creating a Request
-    stopStackSetOperation,
-    StopStackSetOperation,
+  ( -- * Creating a request
+    StopStackSetOperation (..),
+    mkStopStackSetOperation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sssoStackSetName,
     sssoOperationId,
 
-    -- * Destructuring the Response
-    stopStackSetOperationResponse,
-    StopStackSetOperationResponse,
+    -- * Destructuring the response
+    StopStackSetOperationResponse (..),
+    mkStopStackSetOperationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sssorsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopStackSetOperation' smart constructor.
+-- | /See:/ 'mkStopStackSetOperation' smart constructor.
 data StopStackSetOperation = StopStackSetOperation'
-  { _sssoStackSetName ::
-      !Text,
-    _sssoOperationId :: !Text
+  { stackSetName ::
+      Lude.Text,
+    operationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStackSetOperation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sssoStackSetName' - The name or unique ID of the stack set that you want to stop the operation for.
---
--- * 'sssoOperationId' - The ID of the stack operation.
-stopStackSetOperation ::
-  -- | 'sssoStackSetName'
-  Text ->
-  -- | 'sssoOperationId'
-  Text ->
+-- * 'operationId' - The ID of the stack operation.
+-- * 'stackSetName' - The name or unique ID of the stack set that you want to stop the operation for.
+mkStopStackSetOperation ::
+  -- | 'stackSetName'
+  Lude.Text ->
+  -- | 'operationId'
+  Lude.Text ->
   StopStackSetOperation
-stopStackSetOperation pStackSetName_ pOperationId_ =
+mkStopStackSetOperation pStackSetName_ pOperationId_ =
   StopStackSetOperation'
-    { _sssoStackSetName = pStackSetName_,
-      _sssoOperationId = pOperationId_
+    { stackSetName = pStackSetName_,
+      operationId = pOperationId_
     }
 
 -- | The name or unique ID of the stack set that you want to stop the operation for.
-sssoStackSetName :: Lens' StopStackSetOperation Text
-sssoStackSetName = lens _sssoStackSetName (\s a -> s {_sssoStackSetName = a})
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssoStackSetName :: Lens.Lens' StopStackSetOperation Lude.Text
+sssoStackSetName = Lens.lens (stackSetName :: StopStackSetOperation -> Lude.Text) (\s a -> s {stackSetName = a} :: StopStackSetOperation)
+{-# DEPRECATED sssoStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | The ID of the stack operation.
-sssoOperationId :: Lens' StopStackSetOperation Text
-sssoOperationId = lens _sssoOperationId (\s a -> s {_sssoOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssoOperationId :: Lens.Lens' StopStackSetOperation Lude.Text
+sssoOperationId = Lens.lens (operationId :: StopStackSetOperation -> Lude.Text) (\s a -> s {operationId = a} :: StopStackSetOperation)
+{-# DEPRECATED sssoOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
-instance AWSRequest StopStackSetOperation where
+instance Lude.AWSRequest StopStackSetOperation where
   type Rs StopStackSetOperation = StopStackSetOperationResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "StopStackSetOperationResult"
-      (\s h x -> StopStackSetOperationResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          StopStackSetOperationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StopStackSetOperation
+instance Lude.ToHeaders StopStackSetOperation where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StopStackSetOperation
+instance Lude.ToPath StopStackSetOperation where
+  toPath = Lude.const "/"
 
-instance ToHeaders StopStackSetOperation where
-  toHeaders = const mempty
-
-instance ToPath StopStackSetOperation where
-  toPath = const "/"
-
-instance ToQuery StopStackSetOperation where
+instance Lude.ToQuery StopStackSetOperation where
   toQuery StopStackSetOperation' {..} =
-    mconcat
-      [ "Action" =: ("StopStackSetOperation" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackSetName" =: _sssoStackSetName,
-        "OperationId" =: _sssoOperationId
+    Lude.mconcat
+      [ "Action" Lude.=: ("StopStackSetOperation" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackSetName" Lude.=: stackSetName,
+        "OperationId" Lude.=: operationId
       ]
 
--- | /See:/ 'stopStackSetOperationResponse' smart constructor.
+-- | /See:/ 'mkStopStackSetOperationResponse' smart constructor.
 newtype StopStackSetOperationResponse = StopStackSetOperationResponse'
-  { _sssorsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStackSetOperationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sssorsResponseStatus' - -- | The response status code.
-stopStackSetOperationResponse ::
-  -- | 'sssorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopStackSetOperationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopStackSetOperationResponse
-stopStackSetOperationResponse pResponseStatus_ =
-  StopStackSetOperationResponse'
-    { _sssorsResponseStatus =
-        pResponseStatus_
-    }
+mkStopStackSetOperationResponse pResponseStatus_ =
+  StopStackSetOperationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-sssorsResponseStatus :: Lens' StopStackSetOperationResponse Int
-sssorsResponseStatus = lens _sssorsResponseStatus (\s a -> s {_sssorsResponseStatus = a})
-
-instance NFData StopStackSetOperationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssorsResponseStatus :: Lens.Lens' StopStackSetOperationResponse Lude.Int
+sssorsResponseStatus = Lens.lens (responseStatus :: StopStackSetOperationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopStackSetOperationResponse)
+{-# DEPRECATED sssorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ByoipCidrState where
+module Network.AWS.EC2.Types.ByoipCidrState
+  ( ByoipCidrState
+      ( ByoipCidrState',
+        Advertised,
+        Deprovisioned,
+        FailedDeprovision,
+        FailedProvision,
+        PendingDeprovision,
+        PendingProvision,
+        Provisioned,
+        ProvisionedNotPubliclyAdvertisable
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ByoipCidrState
-  = Advertised
-  | Deprovisioned
-  | FailedDeprovision
-  | FailedProvision
-  | PendingDeprovision
-  | PendingProvision
-  | Provisioned
-  | ProvisionedNotPubliclyAdvertisable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ByoipCidrState = ByoipCidrState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ByoipCidrState where
-  parser =
-    takeLowerText >>= \case
-      "advertised" -> pure Advertised
-      "deprovisioned" -> pure Deprovisioned
-      "failed-deprovision" -> pure FailedDeprovision
-      "failed-provision" -> pure FailedProvision
-      "pending-deprovision" -> pure PendingDeprovision
-      "pending-provision" -> pure PendingProvision
-      "provisioned" -> pure Provisioned
-      "provisioned-not-publicly-advertisable" -> pure ProvisionedNotPubliclyAdvertisable
-      e ->
-        fromTextError $
-          "Failure parsing ByoipCidrState from value: '" <> e
-            <> "'. Accepted values: advertised, deprovisioned, failed-deprovision, failed-provision, pending-deprovision, pending-provision, provisioned, provisioned-not-publicly-advertisable"
+pattern Advertised :: ByoipCidrState
+pattern Advertised = ByoipCidrState' "advertised"
 
-instance ToText ByoipCidrState where
-  toText = \case
-    Advertised -> "advertised"
-    Deprovisioned -> "deprovisioned"
-    FailedDeprovision -> "failed-deprovision"
-    FailedProvision -> "failed-provision"
-    PendingDeprovision -> "pending-deprovision"
-    PendingProvision -> "pending-provision"
-    Provisioned -> "provisioned"
-    ProvisionedNotPubliclyAdvertisable -> "provisioned-not-publicly-advertisable"
+pattern Deprovisioned :: ByoipCidrState
+pattern Deprovisioned = ByoipCidrState' "deprovisioned"
 
-instance Hashable ByoipCidrState
+pattern FailedDeprovision :: ByoipCidrState
+pattern FailedDeprovision = ByoipCidrState' "failed-deprovision"
 
-instance NFData ByoipCidrState
+pattern FailedProvision :: ByoipCidrState
+pattern FailedProvision = ByoipCidrState' "failed-provision"
 
-instance ToByteString ByoipCidrState
+pattern PendingDeprovision :: ByoipCidrState
+pattern PendingDeprovision = ByoipCidrState' "pending-deprovision"
 
-instance ToQuery ByoipCidrState
+pattern PendingProvision :: ByoipCidrState
+pattern PendingProvision = ByoipCidrState' "pending-provision"
 
-instance ToHeader ByoipCidrState
+pattern Provisioned :: ByoipCidrState
+pattern Provisioned = ByoipCidrState' "provisioned"
 
-instance FromXML ByoipCidrState where
-  parseXML = parseXMLText "ByoipCidrState"
+pattern ProvisionedNotPubliclyAdvertisable :: ByoipCidrState
+pattern ProvisionedNotPubliclyAdvertisable = ByoipCidrState' "provisioned-not-publicly-advertisable"
+
+{-# COMPLETE
+  Advertised,
+  Deprovisioned,
+  FailedDeprovision,
+  FailedProvision,
+  PendingDeprovision,
+  PendingProvision,
+  Provisioned,
+  ProvisionedNotPubliclyAdvertisable,
+  ByoipCidrState'
+  #-}

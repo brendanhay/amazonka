@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a version of a device definition that has already been defined.
 module Network.AWS.Greengrass.CreateDeviceDefinitionVersion
-  ( -- * Creating a Request
-    createDeviceDefinitionVersion,
-    CreateDeviceDefinitionVersion,
+  ( -- * Creating a request
+    CreateDeviceDefinitionVersion (..),
+    mkCreateDeviceDefinitionVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cddvAmznClientToken,
     cddvDevices,
     cddvDeviceDefinitionId,
 
-    -- * Destructuring the Response
-    createDeviceDefinitionVersionResponse,
-    CreateDeviceDefinitionVersionResponse,
+    -- * Destructuring the response
+    CreateDeviceDefinitionVersionResponse (..),
+    mkCreateDeviceDefinitionVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cddvrsARN,
     cddvrsCreationTimestamp,
     cddvrsVersion,
@@ -42,155 +37,181 @@ module Network.AWS.Greengrass.CreateDeviceDefinitionVersion
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDeviceDefinitionVersion' smart constructor.
+-- | /See:/ 'mkCreateDeviceDefinitionVersion' smart constructor.
 data CreateDeviceDefinitionVersion = CreateDeviceDefinitionVersion'
-  { _cddvAmznClientToken ::
-      !(Maybe Text),
-    _cddvDevices ::
-      !(Maybe [Device]),
-    _cddvDeviceDefinitionId ::
-      !Text
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    devices :: Lude.Maybe [Device],
+    deviceDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeviceDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cddvAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'cddvDevices' - A list of devices in the definition version.
---
--- * 'cddvDeviceDefinitionId' - The ID of the device definition.
-createDeviceDefinitionVersion ::
-  -- | 'cddvDeviceDefinitionId'
-  Text ->
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'deviceDefinitionId' - The ID of the device definition.
+-- * 'devices' - A list of devices in the definition version.
+mkCreateDeviceDefinitionVersion ::
+  -- | 'deviceDefinitionId'
+  Lude.Text ->
   CreateDeviceDefinitionVersion
-createDeviceDefinitionVersion pDeviceDefinitionId_ =
+mkCreateDeviceDefinitionVersion pDeviceDefinitionId_ =
   CreateDeviceDefinitionVersion'
-    { _cddvAmznClientToken = Nothing,
-      _cddvDevices = Nothing,
-      _cddvDeviceDefinitionId = pDeviceDefinitionId_
+    { amznClientToken = Lude.Nothing,
+      devices = Lude.Nothing,
+      deviceDefinitionId = pDeviceDefinitionId_
     }
 
 -- | A client token used to correlate requests and responses.
-cddvAmznClientToken :: Lens' CreateDeviceDefinitionVersion (Maybe Text)
-cddvAmznClientToken = lens _cddvAmznClientToken (\s a -> s {_cddvAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvAmznClientToken :: Lens.Lens' CreateDeviceDefinitionVersion (Lude.Maybe Lude.Text)
+cddvAmznClientToken = Lens.lens (amznClientToken :: CreateDeviceDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateDeviceDefinitionVersion)
+{-# DEPRECATED cddvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | A list of devices in the definition version.
-cddvDevices :: Lens' CreateDeviceDefinitionVersion [Device]
-cddvDevices = lens _cddvDevices (\s a -> s {_cddvDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvDevices :: Lens.Lens' CreateDeviceDefinitionVersion (Lude.Maybe [Device])
+cddvDevices = Lens.lens (devices :: CreateDeviceDefinitionVersion -> Lude.Maybe [Device]) (\s a -> s {devices = a} :: CreateDeviceDefinitionVersion)
+{-# DEPRECATED cddvDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
 -- | The ID of the device definition.
-cddvDeviceDefinitionId :: Lens' CreateDeviceDefinitionVersion Text
-cddvDeviceDefinitionId = lens _cddvDeviceDefinitionId (\s a -> s {_cddvDeviceDefinitionId = a})
+--
+-- /Note:/ Consider using 'deviceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvDeviceDefinitionId :: Lens.Lens' CreateDeviceDefinitionVersion Lude.Text
+cddvDeviceDefinitionId = Lens.lens (deviceDefinitionId :: CreateDeviceDefinitionVersion -> Lude.Text) (\s a -> s {deviceDefinitionId = a} :: CreateDeviceDefinitionVersion)
+{-# DEPRECATED cddvDeviceDefinitionId "Use generic-lens or generic-optics with 'deviceDefinitionId' instead." #-}
 
-instance AWSRequest CreateDeviceDefinitionVersion where
+instance Lude.AWSRequest CreateDeviceDefinitionVersion where
   type
     Rs CreateDeviceDefinitionVersion =
       CreateDeviceDefinitionVersionResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDeviceDefinitionVersionResponse'
-            <$> (x .?> "Arn")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Version")
-            <*> (x .?> "Id")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Version")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDeviceDefinitionVersion
-
-instance NFData CreateDeviceDefinitionVersion
-
-instance ToHeaders CreateDeviceDefinitionVersion where
+instance Lude.ToHeaders CreateDeviceDefinitionVersion where
   toHeaders CreateDeviceDefinitionVersion' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _cddvAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateDeviceDefinitionVersion where
+instance Lude.ToJSON CreateDeviceDefinitionVersion where
   toJSON CreateDeviceDefinitionVersion' {..} =
-    object (catMaybes [("Devices" .=) <$> _cddvDevices])
+    Lude.object
+      (Lude.catMaybes [("Devices" Lude..=) Lude.<$> devices])
 
-instance ToPath CreateDeviceDefinitionVersion where
+instance Lude.ToPath CreateDeviceDefinitionVersion where
   toPath CreateDeviceDefinitionVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/devices/",
-        toBS _cddvDeviceDefinitionId,
+        Lude.toBS deviceDefinitionId,
         "/versions"
       ]
 
-instance ToQuery CreateDeviceDefinitionVersion where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDeviceDefinitionVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDeviceDefinitionVersionResponse' smart constructor.
+-- | /See:/ 'mkCreateDeviceDefinitionVersionResponse' smart constructor.
 data CreateDeviceDefinitionVersionResponse = CreateDeviceDefinitionVersionResponse'
-  { _cddvrsARN ::
-      !(Maybe Text),
-    _cddvrsCreationTimestamp ::
-      !(Maybe Text),
-    _cddvrsVersion ::
-      !(Maybe Text),
-    _cddvrsId ::
-      !(Maybe Text),
-    _cddvrsResponseStatus ::
-      !Int
+  { arn ::
+      Lude.Maybe
+        Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe
+        Lude.Text,
+    version ::
+      Lude.Maybe
+        Lude.Text,
+    id ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeviceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cddvrsARN' - The ARN of the version.
---
--- * 'cddvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
--- * 'cddvrsVersion' - The ID of the version.
---
--- * 'cddvrsId' - The ID of the parent definition that the version is associated with.
---
--- * 'cddvrsResponseStatus' - -- | The response status code.
-createDeviceDefinitionVersionResponse ::
-  -- | 'cddvrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the version.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'id' - The ID of the parent definition that the version is associated with.
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The ID of the version.
+mkCreateDeviceDefinitionVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDeviceDefinitionVersionResponse
-createDeviceDefinitionVersionResponse pResponseStatus_ =
+mkCreateDeviceDefinitionVersionResponse pResponseStatus_ =
   CreateDeviceDefinitionVersionResponse'
-    { _cddvrsARN = Nothing,
-      _cddvrsCreationTimestamp = Nothing,
-      _cddvrsVersion = Nothing,
-      _cddvrsId = Nothing,
-      _cddvrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the version.
-cddvrsARN :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsARN = lens _cddvrsARN (\s a -> s {_cddvrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvrsARN :: Lens.Lens' CreateDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+cddvrsARN = Lens.lens (arn :: CreateDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateDeviceDefinitionVersionResponse)
+{-# DEPRECATED cddvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the version was created.
-cddvrsCreationTimestamp :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsCreationTimestamp = lens _cddvrsCreationTimestamp (\s a -> s {_cddvrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvrsCreationTimestamp :: Lens.Lens' CreateDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+cddvrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateDeviceDefinitionVersionResponse)
+{-# DEPRECATED cddvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the version.
-cddvrsVersion :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsVersion = lens _cddvrsVersion (\s a -> s {_cddvrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvrsVersion :: Lens.Lens' CreateDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+cddvrsVersion = Lens.lens (version :: CreateDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateDeviceDefinitionVersionResponse)
+{-# DEPRECATED cddvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the parent definition that the version is associated with.
-cddvrsId :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsId = lens _cddvrsId (\s a -> s {_cddvrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvrsId :: Lens.Lens' CreateDeviceDefinitionVersionResponse (Lude.Maybe Lude.Text)
+cddvrsId = Lens.lens (id :: CreateDeviceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateDeviceDefinitionVersionResponse)
+{-# DEPRECATED cddvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | -- | The response status code.
-cddvrsResponseStatus :: Lens' CreateDeviceDefinitionVersionResponse Int
-cddvrsResponseStatus = lens _cddvrsResponseStatus (\s a -> s {_cddvrsResponseStatus = a})
-
-instance NFData CreateDeviceDefinitionVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvrsResponseStatus :: Lens.Lens' CreateDeviceDefinitionVersionResponse Lude.Int
+cddvrsResponseStatus = Lens.lens (responseStatus :: CreateDeviceDefinitionVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDeviceDefinitionVersionResponse)
+{-# DEPRECATED cddvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

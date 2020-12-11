@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,167 @@
 --
 -- Returns an array of @JobListEntry@ objects of the specified length. Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Snowball.ListJobs
-  ( -- * Creating a Request
-    listJobs,
-    ListJobs,
+  ( -- * Creating a request
+    ListJobs (..),
+    mkListJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ljNextToken,
     ljMaxResults,
 
-    -- * Destructuring the Response
-    listJobsResponse,
-    ListJobsResponse,
+    -- * Destructuring the response
+    ListJobsResponse (..),
+    mkListJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ljrsJobListEntries,
     ljrsNextToken,
     ljrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'listJobs' smart constructor.
+-- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { _ljNextToken :: !(Maybe Text),
-    _ljMaxResults :: !(Maybe Nat)
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljNextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
---
--- * 'ljMaxResults' - The number of @JobListEntry@ objects to return.
-listJobs ::
+-- * 'maxResults' - The number of @JobListEntry@ objects to return.
+-- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+mkListJobs ::
   ListJobs
-listJobs =
-  ListJobs' {_ljNextToken = Nothing, _ljMaxResults = Nothing}
+mkListJobs =
+  ListJobs' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
-ljNextToken :: Lens' ListJobs (Maybe Text)
-ljNextToken = lens _ljNextToken (\s a -> s {_ljNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
+{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of @JobListEntry@ objects to return.
-ljMaxResults :: Lens' ListJobs (Maybe Natural)
-ljMaxResults = lens _ljMaxResults (\s a -> s {_ljMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljMaxResults :: Lens.Lens' ListJobs (Lude.Maybe Lude.Natural)
+ljMaxResults = Lens.lens (maxResults :: ListJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobs)
+{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListJobs where
+instance Page.AWSPager ListJobs where
   page rq rs
-    | stop (rs ^. ljrsNextToken) = Nothing
-    | stop (rs ^. ljrsJobListEntries) = Nothing
-    | otherwise = Just $ rq & ljNextToken .~ rs ^. ljrsNextToken
+    | Page.stop (rs Lens.^. ljrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ljrsJobListEntries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ljNextToken Lens..~ rs Lens.^. ljrsNextToken
 
-instance AWSRequest ListJobs where
+instance Lude.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            <$> (x .?> "JobListEntries" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobListEntries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListJobs
-
-instance NFData ListJobs
-
-instance ToHeaders ListJobs where
+instance Lude.ToHeaders ListJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSIESnowballJobManagementService.ListJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSIESnowballJobManagementService.ListJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListJobs where
+instance Lude.ToJSON ListJobs where
   toJSON ListJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ljNextToken,
-            ("MaxResults" .=) <$> _ljMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListJobs where
-  toPath = const "/"
+instance Lude.ToPath ListJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listJobsResponse' smart constructor.
+-- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { _ljrsJobListEntries ::
-      !(Maybe [JobListEntry]),
-    _ljrsNextToken :: !(Maybe Text),
-    _ljrsResponseStatus :: !Int
+  { jobListEntries ::
+      Lude.Maybe [JobListEntry],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljrsJobListEntries' - Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
---
--- * 'ljrsNextToken' - HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
---
--- * 'ljrsResponseStatus' - -- | The response status code.
-listJobsResponse ::
-  -- | 'ljrsResponseStatus'
-  Int ->
+-- * 'jobListEntries' - Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
+-- * 'nextToken' - HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
+-- * 'responseStatus' - The response status code.
+mkListJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListJobsResponse
-listJobsResponse pResponseStatus_ =
+mkListJobsResponse pResponseStatus_ =
   ListJobsResponse'
-    { _ljrsJobListEntries = Nothing,
-      _ljrsNextToken = Nothing,
-      _ljrsResponseStatus = pResponseStatus_
+    { jobListEntries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
-ljrsJobListEntries :: Lens' ListJobsResponse [JobListEntry]
-ljrsJobListEntries = lens _ljrsJobListEntries (\s a -> s {_ljrsJobListEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobListEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsJobListEntries :: Lens.Lens' ListJobsResponse (Lude.Maybe [JobListEntry])
+ljrsJobListEntries = Lens.lens (jobListEntries :: ListJobsResponse -> Lude.Maybe [JobListEntry]) (\s a -> s {jobListEntries = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsJobListEntries "Use generic-lens or generic-optics with 'jobListEntries' instead." #-}
 
 -- | HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
-ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
-ljrsNextToken = lens _ljrsNextToken (\s a -> s {_ljrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsNextToken :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Text)
+ljrsNextToken = Lens.lens (nextToken :: ListJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\s a -> s {_ljrsResponseStatus = a})
-
-instance NFData ListJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
+ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

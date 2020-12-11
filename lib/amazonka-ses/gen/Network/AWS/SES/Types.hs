@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types
-  ( -- * Service Configuration
-    ses,
+  ( -- * Service configuration
+    sesService,
 
     -- * Errors
 
@@ -64,20 +62,20 @@ module Network.AWS.SES.Types
     VerificationStatus (..),
 
     -- * AddHeaderAction
-    AddHeaderAction,
-    addHeaderAction,
+    AddHeaderAction (..),
+    mkAddHeaderAction,
     ahaHeaderName,
     ahaHeaderValue,
 
     -- * Body
-    Body,
-    body,
+    Body (..),
+    mkBody,
     bText,
     bHTML,
 
     -- * BounceAction
-    BounceAction,
-    bounceAction,
+    BounceAction (..),
+    mkBounceAction,
     baTopicARN,
     baStatusCode,
     baSmtpReplyCode,
@@ -85,53 +83,53 @@ module Network.AWS.SES.Types
     baSender,
 
     -- * BouncedRecipientInfo
-    BouncedRecipientInfo,
-    bouncedRecipientInfo,
+    BouncedRecipientInfo (..),
+    mkBouncedRecipientInfo,
     briBounceType,
     briRecipientDsnFields,
     briRecipientARN,
     briRecipient,
 
     -- * BulkEmailDestination
-    BulkEmailDestination,
-    bulkEmailDestination,
+    BulkEmailDestination (..),
+    mkBulkEmailDestination,
     bedReplacementTemplateData,
     bedReplacementTags,
     bedDestination,
 
     -- * BulkEmailDestinationStatus
-    BulkEmailDestinationStatus,
-    bulkEmailDestinationStatus,
+    BulkEmailDestinationStatus (..),
+    mkBulkEmailDestinationStatus,
     bedsStatus,
     bedsError,
     bedsMessageId,
 
     -- * CloudWatchDestination
-    CloudWatchDestination,
-    cloudWatchDestination,
+    CloudWatchDestination (..),
+    mkCloudWatchDestination,
     cwdDimensionConfigurations,
 
     -- * CloudWatchDimensionConfiguration
-    CloudWatchDimensionConfiguration,
-    cloudWatchDimensionConfiguration,
+    CloudWatchDimensionConfiguration (..),
+    mkCloudWatchDimensionConfiguration,
     cwdcDimensionName,
     cwdcDimensionValueSource,
     cwdcDefaultDimensionValue,
 
     -- * ConfigurationSet
-    ConfigurationSet,
-    configurationSet,
+    ConfigurationSet (..),
+    mkConfigurationSet,
     csName,
 
     -- * Content
-    Content,
-    content,
+    Content (..),
+    mkContent,
     cCharset,
     cData,
 
     -- * CustomVerificationEmailTemplate
-    CustomVerificationEmailTemplate,
-    customVerificationEmailTemplate,
+    CustomVerificationEmailTemplate (..),
+    mkCustomVerificationEmailTemplate,
     cvetFromEmailAddress,
     cvetTemplateName,
     cvetFailureRedirectionURL,
@@ -139,20 +137,20 @@ module Network.AWS.SES.Types
     cvetSuccessRedirectionURL,
 
     -- * DeliveryOptions
-    DeliveryOptions,
-    deliveryOptions,
+    DeliveryOptions (..),
+    mkDeliveryOptions,
     doTLSPolicy,
 
     -- * Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dBCCAddresses,
     dCCAddresses,
     dToAddresses,
 
     -- * EventDestination
-    EventDestination,
-    eventDestination,
+    EventDestination (..),
+    mkEventDestination,
     edEnabled,
     edKinesisFirehoseDestination,
     edCloudWatchDestination,
@@ -161,28 +159,28 @@ module Network.AWS.SES.Types
     edMatchingEventTypes,
 
     -- * ExtensionField
-    ExtensionField,
-    extensionField,
+    ExtensionField (..),
+    mkExtensionField,
     efName,
     efValue,
 
     -- * IdentityDkimAttributes
-    IdentityDkimAttributes,
-    identityDkimAttributes,
+    IdentityDkimAttributes (..),
+    mkIdentityDkimAttributes,
     idaDkimTokens,
     idaDkimEnabled,
     idaDkimVerificationStatus,
 
     -- * IdentityMailFromDomainAttributes
-    IdentityMailFromDomainAttributes,
-    identityMailFromDomainAttributes,
+    IdentityMailFromDomainAttributes (..),
+    mkIdentityMailFromDomainAttributes,
     imfdaMailFromDomain,
     imfdaMailFromDomainStatus,
     imfdaBehaviorOnMXFailure,
 
     -- * IdentityNotificationAttributes
-    IdentityNotificationAttributes,
-    identityNotificationAttributes,
+    IdentityNotificationAttributes (..),
+    mkIdentityNotificationAttributes,
     inaHeadersInDeliveryNotificationsEnabled,
     inaHeadersInComplaintNotificationsEnabled,
     inaHeadersInBounceNotificationsEnabled,
@@ -192,51 +190,51 @@ module Network.AWS.SES.Types
     inaForwardingEnabled,
 
     -- * IdentityVerificationAttributes
-    IdentityVerificationAttributes,
-    identityVerificationAttributes,
+    IdentityVerificationAttributes (..),
+    mkIdentityVerificationAttributes,
     ivaVerificationToken,
     ivaVerificationStatus,
 
     -- * KinesisFirehoseDestination
-    KinesisFirehoseDestination,
-    kinesisFirehoseDestination,
+    KinesisFirehoseDestination (..),
+    mkKinesisFirehoseDestination,
     kfdIAMRoleARN,
     kfdDeliveryStreamARN,
 
     -- * LambdaAction
-    LambdaAction,
-    lambdaAction,
+    LambdaAction (..),
+    mkLambdaAction,
     laInvocationType,
     laTopicARN,
     laFunctionARN,
 
     -- * Message
-    Message,
-    message,
+    Message (..),
+    mkMessage,
     mSubject,
     mBody,
 
     -- * MessageDsn
-    MessageDsn,
-    messageDsn,
+    MessageDsn (..),
+    mkMessageDsn,
     mdArrivalDate,
     mdExtensionFields,
     mdReportingMta,
 
     -- * MessageTag
-    MessageTag,
-    messageTag,
+    MessageTag (..),
+    mkMessageTag,
     mtName,
     mtValue,
 
     -- * RawMessage
-    RawMessage,
-    rawMessage,
+    RawMessage (..),
+    mkRawMessage,
     rmData,
 
     -- * ReceiptAction
-    ReceiptAction,
-    receiptAction,
+    ReceiptAction (..),
+    mkReceiptAction,
     raAddHeaderAction,
     raSNSAction,
     raWorkmailAction,
@@ -246,20 +244,20 @@ module Network.AWS.SES.Types
     raS3Action,
 
     -- * ReceiptFilter
-    ReceiptFilter,
-    receiptFilter,
+    ReceiptFilter (..),
+    mkReceiptFilter,
     rfName,
     rfIPFilter,
 
     -- * ReceiptIPFilter
-    ReceiptIPFilter,
-    receiptIPFilter,
+    ReceiptIPFilter (..),
+    mkReceiptIPFilter,
     rifPolicy,
     rifCidr,
 
     -- * ReceiptRule
-    ReceiptRule,
-    receiptRule,
+    ReceiptRule (..),
+    mkReceiptRule,
     rrScanEnabled,
     rrEnabled,
     rrActions,
@@ -268,14 +266,14 @@ module Network.AWS.SES.Types
     rrName,
 
     -- * ReceiptRuleSetMetadata
-    ReceiptRuleSetMetadata,
-    receiptRuleSetMetadata,
+    ReceiptRuleSetMetadata (..),
+    mkReceiptRuleSetMetadata,
     rrsmName,
     rrsmCreatedTimestamp,
 
     -- * RecipientDsnFields
-    RecipientDsnFields,
-    recipientDsnFields,
+    RecipientDsnFields (..),
+    mkRecipientDsnFields,
     rdfDiagnosticCode,
     rdfRemoteMta,
     rdfFinalRecipient,
@@ -285,34 +283,34 @@ module Network.AWS.SES.Types
     rdfStatus,
 
     -- * ReputationOptions
-    ReputationOptions,
-    reputationOptions,
+    ReputationOptions (..),
+    mkReputationOptions,
     roLastFreshStart,
     roReputationMetricsEnabled,
     roSendingEnabled,
 
     -- * S3Action
-    S3Action,
-    s3Action,
+    S3Action (..),
+    mkS3Action,
     s3KMSKeyARN,
     s3TopicARN,
     s3ObjectKeyPrefix,
     s3BucketName,
 
     -- * SNSAction
-    SNSAction,
-    snsAction,
+    SNSAction (..),
+    mkSNSAction,
     saEncoding,
     saTopicARN,
 
     -- * SNSDestination
-    SNSDestination,
-    snsDestination,
+    SNSDestination (..),
+    mkSNSDestination,
     sdTopicARN,
 
     -- * SendDataPoint
-    SendDataPoint,
-    sendDataPoint,
+    SendDataPoint (..),
+    mkSendDataPoint,
     sdpRejects,
     sdpComplaints,
     sdpDeliveryAttempts,
@@ -320,40 +318,40 @@ module Network.AWS.SES.Types
     sdpTimestamp,
 
     -- * StopAction
-    StopAction,
-    stopAction,
+    StopAction (..),
+    mkStopAction,
     sTopicARN,
     sScope,
 
     -- * Template
-    Template,
-    template,
+    Template (..),
+    mkTemplate,
     tTextPart,
     tSubjectPart,
     tHTMLPart,
     tTemplateName,
 
     -- * TemplateMetadata
-    TemplateMetadata,
-    templateMetadata,
+    TemplateMetadata (..),
+    mkTemplateMetadata,
     tmName,
     tmCreatedTimestamp,
 
     -- * TrackingOptions
-    TrackingOptions,
-    trackingOptions,
+    TrackingOptions (..),
+    mkTrackingOptions,
     toCustomRedirectDomain,
 
     -- * WorkmailAction
-    WorkmailAction,
-    workmailAction,
+    WorkmailAction (..),
+    mkWorkmailAction,
     waTopicARN,
     waOrganizationARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.AddHeaderAction
 import Network.AWS.SES.Types.BehaviorOnMXFailure
 import Network.AWS.SES.Types.Body
@@ -411,46 +409,58 @@ import Network.AWS.SES.Types.TemplateMetadata
 import Network.AWS.SES.Types.TrackingOptions
 import Network.AWS.SES.Types.VerificationStatus
 import Network.AWS.SES.Types.WorkmailAction
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-12-01@ of the Amazon Simple Email Service SDK configuration.
-ses :: Service
-ses =
-  Service
-    { _svcAbbrev = "SES",
-      _svcSigner = v4,
-      _svcPrefix = "email",
-      _svcVersion = "2010-12-01",
-      _svcEndpoint = defaultEndpoint ses,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "SES",
-      _svcRetry = retry
+sesService :: Lude.Service
+sesService =
+  Lude.Service
+    { Lude._svcAbbrev = "SES",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "email",
+      Lude._svcVersion = "2010-12-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint sesService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "SES",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

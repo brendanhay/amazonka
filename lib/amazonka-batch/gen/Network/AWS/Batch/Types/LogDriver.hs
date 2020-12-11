@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.LogDriver where
+module Network.AWS.Batch.Types.LogDriver
+  ( LogDriver
+      ( LogDriver',
+        AWSlogs,
+        Fluentd,
+        Gelf,
+        JSONFile,
+        Journald,
+        Splunk,
+        Syslog
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogDriver
-  = AWSlogs
-  | Fluentd
-  | Gelf
-  | JSONFile
-  | Journald
-  | Splunk
-  | Syslog
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogDriver = LogDriver' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogDriver where
-  parser =
-    takeLowerText >>= \case
-      "awslogs" -> pure AWSlogs
-      "fluentd" -> pure Fluentd
-      "gelf" -> pure Gelf
-      "json-file" -> pure JSONFile
-      "journald" -> pure Journald
-      "splunk" -> pure Splunk
-      "syslog" -> pure Syslog
-      e ->
-        fromTextError $
-          "Failure parsing LogDriver from value: '" <> e
-            <> "'. Accepted values: awslogs, fluentd, gelf, json-file, journald, splunk, syslog"
+pattern AWSlogs :: LogDriver
+pattern AWSlogs = LogDriver' "awslogs"
 
-instance ToText LogDriver where
-  toText = \case
-    AWSlogs -> "awslogs"
-    Fluentd -> "fluentd"
-    Gelf -> "gelf"
-    JSONFile -> "json-file"
-    Journald -> "journald"
-    Splunk -> "splunk"
-    Syslog -> "syslog"
+pattern Fluentd :: LogDriver
+pattern Fluentd = LogDriver' "fluentd"
 
-instance Hashable LogDriver
+pattern Gelf :: LogDriver
+pattern Gelf = LogDriver' "gelf"
 
-instance NFData LogDriver
+pattern JSONFile :: LogDriver
+pattern JSONFile = LogDriver' "json-file"
 
-instance ToByteString LogDriver
+pattern Journald :: LogDriver
+pattern Journald = LogDriver' "journald"
 
-instance ToQuery LogDriver
+pattern Splunk :: LogDriver
+pattern Splunk = LogDriver' "splunk"
 
-instance ToHeader LogDriver
+pattern Syslog :: LogDriver
+pattern Syslog = LogDriver' "syslog"
 
-instance ToJSON LogDriver where
-  toJSON = toJSONText
-
-instance FromJSON LogDriver where
-  parseJSON = parseJSONText "LogDriver"
+{-# COMPLETE
+  AWSlogs,
+  Fluentd,
+  Gelf,
+  JSONFile,
+  Journald,
+  Splunk,
+  Syslog,
+  LogDriver'
+  #-}

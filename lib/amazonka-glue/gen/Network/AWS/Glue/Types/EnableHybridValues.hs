@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.EnableHybridValues where
+module Network.AWS.Glue.Types.EnableHybridValues
+  ( EnableHybridValues
+      ( EnableHybridValues',
+        False,
+        True
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnableHybridValues
-  = False'
-  | True'
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnableHybridValues = EnableHybridValues' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnableHybridValues where
-  parser =
-    takeLowerText >>= \case
-      "false" -> pure False'
-      "true" -> pure True'
-      e ->
-        fromTextError $
-          "Failure parsing EnableHybridValues from value: '" <> e
-            <> "'. Accepted values: false, true"
+pattern False :: EnableHybridValues
+pattern False = EnableHybridValues' "FALSE"
 
-instance ToText EnableHybridValues where
-  toText = \case
-    False' -> "FALSE"
-    True' -> "TRUE"
+pattern True :: EnableHybridValues
+pattern True = EnableHybridValues' "TRUE"
 
-instance Hashable EnableHybridValues
-
-instance NFData EnableHybridValues
-
-instance ToByteString EnableHybridValues
-
-instance ToQuery EnableHybridValues
-
-instance ToHeader EnableHybridValues
-
-instance ToJSON EnableHybridValues where
-  toJSON = toJSONText
+{-# COMPLETE
+  False,
+  True,
+  EnableHybridValues'
+  #-}

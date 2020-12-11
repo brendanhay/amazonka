@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,125 @@
 --
 -- Retrieves an @ApiCache@ object.
 module Network.AWS.AppSync.GetAPICache
-  ( -- * Creating a Request
-    getAPICache,
-    GetAPICache,
+  ( -- * Creating a request
+    GetAPICache (..),
+    mkGetAPICache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gacApiId,
 
-    -- * Destructuring the Response
-    getAPICacheResponse,
-    GetAPICacheResponse,
+    -- * Destructuring the response
+    GetAPICacheResponse (..),
+    mkGetAPICacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gacrsApiCache,
     gacrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetApiCache@ operation.
 --
---
---
--- /See:/ 'getAPICache' smart constructor.
-newtype GetAPICache = GetAPICache' {_gacApiId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetAPICache' smart constructor.
+newtype GetAPICache = GetAPICache' {apiId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPICache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacApiId' - The API ID.
-getAPICache ::
-  -- | 'gacApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+mkGetAPICache ::
+  -- | 'apiId'
+  Lude.Text ->
   GetAPICache
-getAPICache pApiId_ = GetAPICache' {_gacApiId = pApiId_}
+mkGetAPICache pApiId_ = GetAPICache' {apiId = pApiId_}
 
 -- | The API ID.
-gacApiId :: Lens' GetAPICache Text
-gacApiId = lens _gacApiId (\s a -> s {_gacApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacApiId :: Lens.Lens' GetAPICache Lude.Text
+gacApiId = Lens.lens (apiId :: GetAPICache -> Lude.Text) (\s a -> s {apiId = a} :: GetAPICache)
+{-# DEPRECATED gacApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest GetAPICache where
+instance Lude.AWSRequest GetAPICache where
   type Rs GetAPICache = GetAPICacheResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAPICacheResponse'
-            <$> (x .?> "apiCache") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "apiCache") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAPICache
-
-instance NFData GetAPICache
-
-instance ToHeaders GetAPICache where
+instance Lude.ToHeaders GetAPICache where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetAPICache where
+instance Lude.ToPath GetAPICache where
   toPath GetAPICache' {..} =
-    mconcat ["/v1/apis/", toBS _gacApiId, "/ApiCaches"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/ApiCaches"]
 
-instance ToQuery GetAPICache where
-  toQuery = const mempty
+instance Lude.ToQuery GetAPICache where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetApiCache@ operation.
 --
---
---
--- /See:/ 'getAPICacheResponse' smart constructor.
+-- /See:/ 'mkGetAPICacheResponse' smart constructor.
 data GetAPICacheResponse = GetAPICacheResponse'
-  { _gacrsApiCache ::
-      !(Maybe APICache),
-    _gacrsResponseStatus :: !Int
+  { apiCache ::
+      Lude.Maybe APICache,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPICacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacrsApiCache' - The @ApiCache@ object.
---
--- * 'gacrsResponseStatus' - -- | The response status code.
-getAPICacheResponse ::
-  -- | 'gacrsResponseStatus'
-  Int ->
+-- * 'apiCache' - The @ApiCache@ object.
+-- * 'responseStatus' - The response status code.
+mkGetAPICacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAPICacheResponse
-getAPICacheResponse pResponseStatus_ =
+mkGetAPICacheResponse pResponseStatus_ =
   GetAPICacheResponse'
-    { _gacrsApiCache = Nothing,
-      _gacrsResponseStatus = pResponseStatus_
+    { apiCache = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ApiCache@ object.
-gacrsApiCache :: Lens' GetAPICacheResponse (Maybe APICache)
-gacrsApiCache = lens _gacrsApiCache (\s a -> s {_gacrsApiCache = a})
+--
+-- /Note:/ Consider using 'apiCache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrsApiCache :: Lens.Lens' GetAPICacheResponse (Lude.Maybe APICache)
+gacrsApiCache = Lens.lens (apiCache :: GetAPICacheResponse -> Lude.Maybe APICache) (\s a -> s {apiCache = a} :: GetAPICacheResponse)
+{-# DEPRECATED gacrsApiCache "Use generic-lens or generic-optics with 'apiCache' instead." #-}
 
--- | -- | The response status code.
-gacrsResponseStatus :: Lens' GetAPICacheResponse Int
-gacrsResponseStatus = lens _gacrsResponseStatus (\s a -> s {_gacrsResponseStatus = a})
-
-instance NFData GetAPICacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrsResponseStatus :: Lens.Lens' GetAPICacheResponse Lude.Int
+gacrsResponseStatus = Lens.lens (responseStatus :: GetAPICacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAPICacheResponse)
+{-# DEPRECATED gacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

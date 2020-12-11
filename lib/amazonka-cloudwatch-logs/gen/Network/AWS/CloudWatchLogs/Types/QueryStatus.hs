@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.QueryStatus where
+module Network.AWS.CloudWatchLogs.Types.QueryStatus
+  ( QueryStatus
+      ( QueryStatus',
+        Cancelled,
+        Complete,
+        Failed,
+        Running,
+        Scheduled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QueryStatus
-  = Cancelled
-  | Complete
-  | Failed
-  | Running
-  | Scheduled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueryStatus = QueryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueryStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure Cancelled
-      "complete" -> pure Complete
-      "failed" -> pure Failed
-      "running" -> pure Running
-      "scheduled" -> pure Scheduled
-      e ->
-        fromTextError $
-          "Failure parsing QueryStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, complete, failed, running, scheduled"
+pattern Cancelled :: QueryStatus
+pattern Cancelled = QueryStatus' "Cancelled"
 
-instance ToText QueryStatus where
-  toText = \case
-    Cancelled -> "Cancelled"
-    Complete -> "Complete"
-    Failed -> "Failed"
-    Running -> "Running"
-    Scheduled -> "Scheduled"
+pattern Complete :: QueryStatus
+pattern Complete = QueryStatus' "Complete"
 
-instance Hashable QueryStatus
+pattern Failed :: QueryStatus
+pattern Failed = QueryStatus' "Failed"
 
-instance NFData QueryStatus
+pattern Running :: QueryStatus
+pattern Running = QueryStatus' "Running"
 
-instance ToByteString QueryStatus
+pattern Scheduled :: QueryStatus
+pattern Scheduled = QueryStatus' "Scheduled"
 
-instance ToQuery QueryStatus
-
-instance ToHeader QueryStatus
-
-instance ToJSON QueryStatus where
-  toJSON = toJSONText
-
-instance FromJSON QueryStatus where
-  parseJSON = parseJSONText "QueryStatus"
+{-# COMPLETE
+  Cancelled,
+  Complete,
+  Failed,
+  Running,
+  Scheduled,
+  QueryStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +14,15 @@
 --
 -- Returns a list of configuration items for the specified resource. The list contains details about each state of the resource during the specified time interval. If you specified a retention period to retain your @ConfigurationItems@ between a minimum of 30 days and a maximum of 7 years (2557 days), AWS Config returns the @ConfigurationItems@ for the specified retention period.
 --
---
 -- The response is paginated. By default, AWS Config returns a limit of 10 configuration items per page. You can customize this number with the @limit@ parameter. The response includes a @nextToken@ string. To get the next page of results, run the request again and specify the string for the @nextToken@ parameter.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.GetResourceConfigHistory
-  ( -- * Creating a Request
-    getResourceConfigHistory,
-    GetResourceConfigHistory,
+  ( -- * Creating a request
+    GetResourceConfigHistory (..),
+    mkGetResourceConfigHistory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grchChronologicalOrder,
     grchNextToken,
     grchLimit,
@@ -38,11 +31,11 @@ module Network.AWS.Config.GetResourceConfigHistory
     grchResourceType,
     grchResourceId,
 
-    -- * Destructuring the Response
-    getResourceConfigHistoryResponse,
-    GetResourceConfigHistoryResponse,
+    -- * Destructuring the response
+    GetResourceConfigHistoryResponse (..),
+    mkGetResourceConfigHistoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grchrsNextToken,
     grchrsConfigurationItems,
     grchrsResponseStatus,
@@ -50,190 +43,217 @@ module Network.AWS.Config.GetResourceConfigHistory
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'GetResourceConfigHistory' action.
 --
---
---
--- /See:/ 'getResourceConfigHistory' smart constructor.
+-- /See:/ 'mkGetResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
-  { _grchChronologicalOrder ::
-      !(Maybe ChronologicalOrder),
-    _grchNextToken :: !(Maybe Text),
-    _grchLimit :: !(Maybe Nat),
-    _grchLaterTime :: !(Maybe POSIX),
-    _grchEarlierTime :: !(Maybe POSIX),
-    _grchResourceType :: !ResourceType,
-    _grchResourceId :: !Text
+  { chronologicalOrder ::
+      Lude.Maybe ChronologicalOrder,
+    nextToken :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    laterTime :: Lude.Maybe Lude.Timestamp,
+    earlierTime :: Lude.Maybe Lude.Timestamp,
+    resourceType :: ResourceType,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourceConfigHistory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grchChronologicalOrder' - The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
---
--- * 'grchNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'grchLimit' - The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
---
--- * 'grchLaterTime' - The time stamp that indicates a later time. If not specified, current time is taken.
---
--- * 'grchEarlierTime' - The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
---
--- * 'grchResourceType' - The resource type.
---
--- * 'grchResourceId' - The ID of the resource (for example., @sg-xxxxxx@ ).
-getResourceConfigHistory ::
-  -- | 'grchResourceType'
+-- * 'chronologicalOrder' - The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
+-- * 'earlierTime' - The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
+-- * 'laterTime' - The time stamp that indicates a later time. If not specified, current time is taken.
+-- * 'limit' - The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'resourceId' - The ID of the resource (for example., @sg-xxxxxx@ ).
+-- * 'resourceType' - The resource type.
+mkGetResourceConfigHistory ::
+  -- | 'resourceType'
   ResourceType ->
-  -- | 'grchResourceId'
-  Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   GetResourceConfigHistory
-getResourceConfigHistory pResourceType_ pResourceId_ =
+mkGetResourceConfigHistory pResourceType_ pResourceId_ =
   GetResourceConfigHistory'
-    { _grchChronologicalOrder = Nothing,
-      _grchNextToken = Nothing,
-      _grchLimit = Nothing,
-      _grchLaterTime = Nothing,
-      _grchEarlierTime = Nothing,
-      _grchResourceType = pResourceType_,
-      _grchResourceId = pResourceId_
+    { chronologicalOrder = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      laterTime = Lude.Nothing,
+      earlierTime = Lude.Nothing,
+      resourceType = pResourceType_,
+      resourceId = pResourceId_
     }
 
 -- | The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
-grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
-grchChronologicalOrder = lens _grchChronologicalOrder (\s a -> s {_grchChronologicalOrder = a})
+--
+-- /Note:/ Consider using 'chronologicalOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchChronologicalOrder :: Lens.Lens' GetResourceConfigHistory (Lude.Maybe ChronologicalOrder)
+grchChronologicalOrder = Lens.lens (chronologicalOrder :: GetResourceConfigHistory -> Lude.Maybe ChronologicalOrder) (\s a -> s {chronologicalOrder = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchChronologicalOrder "Use generic-lens or generic-optics with 'chronologicalOrder' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
-grchNextToken = lens _grchNextToken (\s a -> s {_grchNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchNextToken :: Lens.Lens' GetResourceConfigHistory (Lude.Maybe Lude.Text)
+grchNextToken = Lens.lens (nextToken :: GetResourceConfigHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
-grchLimit = lens _grchLimit (\s a -> s {_grchLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchLimit :: Lens.Lens' GetResourceConfigHistory (Lude.Maybe Lude.Natural)
+grchLimit = Lens.lens (limit :: GetResourceConfigHistory -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The time stamp that indicates a later time. If not specified, current time is taken.
-grchLaterTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchLaterTime = lens _grchLaterTime (\s a -> s {_grchLaterTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'laterTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchLaterTime :: Lens.Lens' GetResourceConfigHistory (Lude.Maybe Lude.Timestamp)
+grchLaterTime = Lens.lens (laterTime :: GetResourceConfigHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {laterTime = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchLaterTime "Use generic-lens or generic-optics with 'laterTime' instead." #-}
 
 -- | The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
-grchEarlierTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchEarlierTime = lens _grchEarlierTime (\s a -> s {_grchEarlierTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'earlierTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchEarlierTime :: Lens.Lens' GetResourceConfigHistory (Lude.Maybe Lude.Timestamp)
+grchEarlierTime = Lens.lens (earlierTime :: GetResourceConfigHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {earlierTime = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchEarlierTime "Use generic-lens or generic-optics with 'earlierTime' instead." #-}
 
 -- | The resource type.
-grchResourceType :: Lens' GetResourceConfigHistory ResourceType
-grchResourceType = lens _grchResourceType (\s a -> s {_grchResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchResourceType :: Lens.Lens' GetResourceConfigHistory ResourceType
+grchResourceType = Lens.lens (resourceType :: GetResourceConfigHistory -> ResourceType) (\s a -> s {resourceType = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the resource (for example., @sg-xxxxxx@ ).
-grchResourceId :: Lens' GetResourceConfigHistory Text
-grchResourceId = lens _grchResourceId (\s a -> s {_grchResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchResourceId :: Lens.Lens' GetResourceConfigHistory Lude.Text
+grchResourceId = Lens.lens (resourceId :: GetResourceConfigHistory -> Lude.Text) (\s a -> s {resourceId = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSPager GetResourceConfigHistory where
+instance Page.AWSPager GetResourceConfigHistory where
   page rq rs
-    | stop (rs ^. grchrsNextToken) = Nothing
-    | stop (rs ^. grchrsConfigurationItems) = Nothing
-    | otherwise = Just $ rq & grchNextToken .~ rs ^. grchrsNextToken
+    | Page.stop (rs Lens.^. grchrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grchrsConfigurationItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grchNextToken Lens..~ rs Lens.^. grchrsNextToken
 
-instance AWSRequest GetResourceConfigHistory where
+instance Lude.AWSRequest GetResourceConfigHistory where
   type Rs GetResourceConfigHistory = GetResourceConfigHistoryResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetResourceConfigHistoryResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "configurationItems" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "configurationItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetResourceConfigHistory
-
-instance NFData GetResourceConfigHistory
-
-instance ToHeaders GetResourceConfigHistory where
+instance Lude.ToHeaders GetResourceConfigHistory where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.GetResourceConfigHistory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetResourceConfigHistory" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetResourceConfigHistory where
+instance Lude.ToJSON GetResourceConfigHistory where
   toJSON GetResourceConfigHistory' {..} =
-    object
-      ( catMaybes
-          [ ("chronologicalOrder" .=) <$> _grchChronologicalOrder,
-            ("nextToken" .=) <$> _grchNextToken,
-            ("limit" .=) <$> _grchLimit,
-            ("laterTime" .=) <$> _grchLaterTime,
-            ("earlierTime" .=) <$> _grchEarlierTime,
-            Just ("resourceType" .= _grchResourceType),
-            Just ("resourceId" .= _grchResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("chronologicalOrder" Lude..=) Lude.<$> chronologicalOrder,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("limit" Lude..=) Lude.<$> limit,
+            ("laterTime" Lude..=) Lude.<$> laterTime,
+            ("earlierTime" Lude..=) Lude.<$> earlierTime,
+            Lude.Just ("resourceType" Lude..= resourceType),
+            Lude.Just ("resourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath GetResourceConfigHistory where
-  toPath = const "/"
+instance Lude.ToPath GetResourceConfigHistory where
+  toPath = Lude.const "/"
 
-instance ToQuery GetResourceConfigHistory where
-  toQuery = const mempty
+instance Lude.ToQuery GetResourceConfigHistory where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the 'GetResourceConfigHistory' action.
 --
---
---
--- /See:/ 'getResourceConfigHistoryResponse' smart constructor.
+-- /See:/ 'mkGetResourceConfigHistoryResponse' smart constructor.
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
-  { _grchrsNextToken ::
-      !(Maybe Text),
-    _grchrsConfigurationItems ::
-      !( Maybe
-           [ConfigurationItem]
-       ),
-    _grchrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    configurationItems ::
+      Lude.Maybe
+        [ConfigurationItem],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourceConfigHistoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grchrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
---
--- * 'grchrsConfigurationItems' - A list that contains the configuration history of one or more resources.
---
--- * 'grchrsResponseStatus' - -- | The response status code.
-getResourceConfigHistoryResponse ::
-  -- | 'grchrsResponseStatus'
-  Int ->
+-- * 'configurationItems' - A list that contains the configuration history of one or more resources.
+-- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkGetResourceConfigHistoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse pResponseStatus_ =
+mkGetResourceConfigHistoryResponse pResponseStatus_ =
   GetResourceConfigHistoryResponse'
-    { _grchrsNextToken = Nothing,
-      _grchrsConfigurationItems = Nothing,
-      _grchrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      configurationItems = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-grchrsNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
-grchrsNextToken = lens _grchrsNextToken (\s a -> s {_grchrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchrsNextToken :: Lens.Lens' GetResourceConfigHistoryResponse (Lude.Maybe Lude.Text)
+grchrsNextToken = Lens.lens (nextToken :: GetResourceConfigHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetResourceConfigHistoryResponse)
+{-# DEPRECATED grchrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list that contains the configuration history of one or more resources.
-grchrsConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
-grchrsConfigurationItems = lens _grchrsConfigurationItems (\s a -> s {_grchrsConfigurationItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchrsConfigurationItems :: Lens.Lens' GetResourceConfigHistoryResponse (Lude.Maybe [ConfigurationItem])
+grchrsConfigurationItems = Lens.lens (configurationItems :: GetResourceConfigHistoryResponse -> Lude.Maybe [ConfigurationItem]) (\s a -> s {configurationItems = a} :: GetResourceConfigHistoryResponse)
+{-# DEPRECATED grchrsConfigurationItems "Use generic-lens or generic-optics with 'configurationItems' instead." #-}
 
--- | -- | The response status code.
-grchrsResponseStatus :: Lens' GetResourceConfigHistoryResponse Int
-grchrsResponseStatus = lens _grchrsResponseStatus (\s a -> s {_grchrsResponseStatus = a})
-
-instance NFData GetResourceConfigHistoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchrsResponseStatus :: Lens.Lens' GetResourceConfigHistoryResponse Lude.Int
+grchrsResponseStatus = Lens.lens (responseStatus :: GetResourceConfigHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourceConfigHistoryResponse)
+{-# DEPRECATED grchrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

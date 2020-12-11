@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AvailableCapacity where
+module Network.AWS.EC2.Types.AvailableCapacity
+  ( AvailableCapacity (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkAvailableCapacity,
+
+    -- * Lenses
+    acAvailableInstanceCapacity,
+    acAvailableVCPUs,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceCapacity
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The capacity information for instances that can be launched onto the Dedicated Host.
 --
---
---
--- /See:/ 'availableCapacity' smart constructor.
+-- /See:/ 'mkAvailableCapacity' smart constructor.
 data AvailableCapacity = AvailableCapacity'
-  { _acAvailableInstanceCapacity ::
-      !(Maybe [InstanceCapacity]),
-    _acAvailableVCPUs :: !(Maybe Int)
+  { availableInstanceCapacity ::
+      Lude.Maybe [InstanceCapacity],
+    availableVCPUs :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailableCapacity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acAvailableInstanceCapacity' - The number of instances that can be launched onto the Dedicated Host depending on the host's available capacity. For Dedicated Hosts that support multiple instance types, this parameter represents the number of instances for each instance size that is supported on the host.
---
--- * 'acAvailableVCPUs' - The number of vCPUs available for launching instances onto the Dedicated Host.
-availableCapacity ::
+-- * 'availableInstanceCapacity' - The number of instances that can be launched onto the Dedicated Host depending on the host's available capacity. For Dedicated Hosts that support multiple instance types, this parameter represents the number of instances for each instance size that is supported on the host.
+-- * 'availableVCPUs' - The number of vCPUs available for launching instances onto the Dedicated Host.
+mkAvailableCapacity ::
   AvailableCapacity
-availableCapacity =
+mkAvailableCapacity =
   AvailableCapacity'
-    { _acAvailableInstanceCapacity = Nothing,
-      _acAvailableVCPUs = Nothing
+    { availableInstanceCapacity = Lude.Nothing,
+      availableVCPUs = Lude.Nothing
     }
 
 -- | The number of instances that can be launched onto the Dedicated Host depending on the host's available capacity. For Dedicated Hosts that support multiple instance types, this parameter represents the number of instances for each instance size that is supported on the host.
-acAvailableInstanceCapacity :: Lens' AvailableCapacity [InstanceCapacity]
-acAvailableInstanceCapacity = lens _acAvailableInstanceCapacity (\s a -> s {_acAvailableInstanceCapacity = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availableInstanceCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAvailableInstanceCapacity :: Lens.Lens' AvailableCapacity (Lude.Maybe [InstanceCapacity])
+acAvailableInstanceCapacity = Lens.lens (availableInstanceCapacity :: AvailableCapacity -> Lude.Maybe [InstanceCapacity]) (\s a -> s {availableInstanceCapacity = a} :: AvailableCapacity)
+{-# DEPRECATED acAvailableInstanceCapacity "Use generic-lens or generic-optics with 'availableInstanceCapacity' instead." #-}
 
 -- | The number of vCPUs available for launching instances onto the Dedicated Host.
-acAvailableVCPUs :: Lens' AvailableCapacity (Maybe Int)
-acAvailableVCPUs = lens _acAvailableVCPUs (\s a -> s {_acAvailableVCPUs = a})
+--
+-- /Note:/ Consider using 'availableVCPUs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAvailableVCPUs :: Lens.Lens' AvailableCapacity (Lude.Maybe Lude.Int)
+acAvailableVCPUs = Lens.lens (availableVCPUs :: AvailableCapacity -> Lude.Maybe Lude.Int) (\s a -> s {availableVCPUs = a} :: AvailableCapacity)
+{-# DEPRECATED acAvailableVCPUs "Use generic-lens or generic-optics with 'availableVCPUs' instead." #-}
 
-instance FromXML AvailableCapacity where
+instance Lude.FromXML AvailableCapacity where
   parseXML x =
     AvailableCapacity'
-      <$> ( x .@? "availableInstanceCapacity" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "availableVCpus")
-
-instance Hashable AvailableCapacity
-
-instance NFData AvailableCapacity
+      Lude.<$> ( x Lude..@? "availableInstanceCapacity" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "availableVCpus")

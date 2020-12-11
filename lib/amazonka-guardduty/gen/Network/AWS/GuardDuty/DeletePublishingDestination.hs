@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,137 @@
 --
 -- Deletes the publishing definition with the specified @destinationId@ .
 module Network.AWS.GuardDuty.DeletePublishingDestination
-  ( -- * Creating a Request
-    deletePublishingDestination,
-    DeletePublishingDestination,
+  ( -- * Creating a request
+    DeletePublishingDestination (..),
+    mkDeletePublishingDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpdDetectorId,
     dpdDestinationId,
 
-    -- * Destructuring the Response
-    deletePublishingDestinationResponse,
-    DeletePublishingDestinationResponse,
+    -- * Destructuring the response
+    DeletePublishingDestinationResponse (..),
+    mkDeletePublishingDestinationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpdrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deletePublishingDestination' smart constructor.
+-- | /See:/ 'mkDeletePublishingDestination' smart constructor.
 data DeletePublishingDestination = DeletePublishingDestination'
-  { _dpdDetectorId ::
-      !Text,
-    _dpdDestinationId :: !Text
+  { detectorId ::
+      Lude.Text,
+    destinationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePublishingDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpdDetectorId' - The unique ID of the detector associated with the publishing destination to delete.
---
--- * 'dpdDestinationId' - The ID of the publishing destination to delete.
-deletePublishingDestination ::
-  -- | 'dpdDetectorId'
-  Text ->
-  -- | 'dpdDestinationId'
-  Text ->
+-- * 'destinationId' - The ID of the publishing destination to delete.
+-- * 'detectorId' - The unique ID of the detector associated with the publishing destination to delete.
+mkDeletePublishingDestination ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'destinationId'
+  Lude.Text ->
   DeletePublishingDestination
-deletePublishingDestination pDetectorId_ pDestinationId_ =
+mkDeletePublishingDestination pDetectorId_ pDestinationId_ =
   DeletePublishingDestination'
-    { _dpdDetectorId = pDetectorId_,
-      _dpdDestinationId = pDestinationId_
+    { detectorId = pDetectorId_,
+      destinationId = pDestinationId_
     }
 
 -- | The unique ID of the detector associated with the publishing destination to delete.
-dpdDetectorId :: Lens' DeletePublishingDestination Text
-dpdDetectorId = lens _dpdDetectorId (\s a -> s {_dpdDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdDetectorId :: Lens.Lens' DeletePublishingDestination Lude.Text
+dpdDetectorId = Lens.lens (detectorId :: DeletePublishingDestination -> Lude.Text) (\s a -> s {detectorId = a} :: DeletePublishingDestination)
+{-# DEPRECATED dpdDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The ID of the publishing destination to delete.
-dpdDestinationId :: Lens' DeletePublishingDestination Text
-dpdDestinationId = lens _dpdDestinationId (\s a -> s {_dpdDestinationId = a})
+--
+-- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdDestinationId :: Lens.Lens' DeletePublishingDestination Lude.Text
+dpdDestinationId = Lens.lens (destinationId :: DeletePublishingDestination -> Lude.Text) (\s a -> s {destinationId = a} :: DeletePublishingDestination)
+{-# DEPRECATED dpdDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
 
-instance AWSRequest DeletePublishingDestination where
+instance Lude.AWSRequest DeletePublishingDestination where
   type
     Rs DeletePublishingDestination =
       DeletePublishingDestinationResponse
-  request = delete guardDuty
+  request = Req.delete guardDutyService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeletePublishingDestinationResponse' <$> (pure (fromEnum s))
+          DeletePublishingDestinationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeletePublishingDestination
-
-instance NFData DeletePublishingDestination
-
-instance ToHeaders DeletePublishingDestination where
+instance Lude.ToHeaders DeletePublishingDestination where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeletePublishingDestination where
+instance Lude.ToPath DeletePublishingDestination where
   toPath DeletePublishingDestination' {..} =
-    mconcat
+    Lude.mconcat
       [ "/detector/",
-        toBS _dpdDetectorId,
+        Lude.toBS detectorId,
         "/publishingDestination/",
-        toBS _dpdDestinationId
+        Lude.toBS destinationId
       ]
 
-instance ToQuery DeletePublishingDestination where
-  toQuery = const mempty
+instance Lude.ToQuery DeletePublishingDestination where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deletePublishingDestinationResponse' smart constructor.
+-- | /See:/ 'mkDeletePublishingDestinationResponse' smart constructor.
 newtype DeletePublishingDestinationResponse = DeletePublishingDestinationResponse'
-  { _dpdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePublishingDestinationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpdrsResponseStatus' - -- | The response status code.
-deletePublishingDestinationResponse ::
-  -- | 'dpdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeletePublishingDestinationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeletePublishingDestinationResponse
-deletePublishingDestinationResponse pResponseStatus_ =
+mkDeletePublishingDestinationResponse pResponseStatus_ =
   DeletePublishingDestinationResponse'
-    { _dpdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dpdrsResponseStatus :: Lens' DeletePublishingDestinationResponse Int
-dpdrsResponseStatus = lens _dpdrsResponseStatus (\s a -> s {_dpdrsResponseStatus = a})
-
-instance NFData DeletePublishingDestinationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdrsResponseStatus :: Lens.Lens' DeletePublishingDestinationResponse Lude.Int
+dpdrsResponseStatus = Lens.lens (responseStatus :: DeletePublishingDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePublishingDestinationResponse)
+{-# DEPRECATED dpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

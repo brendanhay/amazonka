@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SortByOrder where
+module Network.AWS.Redshift.Types.SortByOrder
+  ( SortByOrder
+      ( SortByOrder',
+        Asc,
+        Desc
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data SortByOrder
-  = Asc
-  | Desc
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SortByOrder = SortByOrder' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SortByOrder where
-  parser =
-    takeLowerText >>= \case
-      "asc" -> pure Asc
-      "desc" -> pure Desc
-      e ->
-        fromTextError $
-          "Failure parsing SortByOrder from value: '" <> e
-            <> "'. Accepted values: asc, desc"
+pattern Asc :: SortByOrder
+pattern Asc = SortByOrder' "ASC"
 
-instance ToText SortByOrder where
-  toText = \case
-    Asc -> "ASC"
-    Desc -> "DESC"
+pattern Desc :: SortByOrder
+pattern Desc = SortByOrder' "DESC"
 
-instance Hashable SortByOrder
-
-instance NFData SortByOrder
-
-instance ToByteString SortByOrder
-
-instance ToQuery SortByOrder
-
-instance ToHeader SortByOrder
+{-# COMPLETE
+  Asc,
+  Desc,
+  SortByOrder'
+  #-}

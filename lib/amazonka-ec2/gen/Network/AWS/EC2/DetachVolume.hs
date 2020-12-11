@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,25 @@
 --
 -- Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so can result in the volume becoming stuck in the @busy@ state while detaching. If this happens, detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot the instance, or all three. If an EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.
 --
---
 -- When a volume with an AWS Marketplace product code is detached from an instance, the product code is no longer associated with the instance.
---
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS volume> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.DetachVolume
-  ( -- * Creating a Request
-    detachVolume,
-    DetachVolume,
+  ( -- * Creating a request
+    DetachVolume (..),
+    mkDetachVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvInstanceId,
     dvForce,
     dvDevice,
     dvDryRun,
     dvVolumeId,
 
-    -- * Destructuring the Response
-    volumeAttachment,
-    VolumeAttachment,
+    -- * Destructuring the response
+    VolumeAttachment (..),
+    mkVolumeAttachment,
 
-    -- * Response Lenses
+    -- ** Response lenses
     volInstanceId,
     volDeleteOnTermination,
     volState,
@@ -50,90 +43,103 @@ module Network.AWS.EC2.DetachVolume
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachVolume' smart constructor.
+-- | /See:/ 'mkDetachVolume' smart constructor.
 data DetachVolume = DetachVolume'
-  { _dvInstanceId :: !(Maybe Text),
-    _dvForce :: !(Maybe Bool),
-    _dvDevice :: !(Maybe Text),
-    _dvDryRun :: !(Maybe Bool),
-    _dvVolumeId :: !Text
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    force :: Lude.Maybe Lude.Bool,
+    device :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    volumeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvInstanceId' - The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.
---
--- * 'dvForce' - Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
---
--- * 'dvDevice' - The device name.
---
--- * 'dvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvVolumeId' - The ID of the volume.
-detachVolume ::
-  -- | 'dvVolumeId'
-  Text ->
+-- * 'device' - The device name.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'force' - Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
+-- * 'instanceId' - The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.
+-- * 'volumeId' - The ID of the volume.
+mkDetachVolume ::
+  -- | 'volumeId'
+  Lude.Text ->
   DetachVolume
-detachVolume pVolumeId_ =
+mkDetachVolume pVolumeId_ =
   DetachVolume'
-    { _dvInstanceId = Nothing,
-      _dvForce = Nothing,
-      _dvDevice = Nothing,
-      _dvDryRun = Nothing,
-      _dvVolumeId = pVolumeId_
+    { instanceId = Lude.Nothing,
+      force = Lude.Nothing,
+      device = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      volumeId = pVolumeId_
     }
 
 -- | The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.
-dvInstanceId :: Lens' DetachVolume (Maybe Text)
-dvInstanceId = lens _dvInstanceId (\s a -> s {_dvInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvInstanceId :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Text)
+dvInstanceId = Lens.lens (instanceId :: DetachVolume -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DetachVolume)
+{-# DEPRECATED dvInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
-dvForce :: Lens' DetachVolume (Maybe Bool)
-dvForce = lens _dvForce (\s a -> s {_dvForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvForce :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
+dvForce = Lens.lens (force :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DetachVolume)
+{-# DEPRECATED dvForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The device name.
-dvDevice :: Lens' DetachVolume (Maybe Text)
-dvDevice = lens _dvDevice (\s a -> s {_dvDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvDevice :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Text)
+dvDevice = Lens.lens (device :: DetachVolume -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: DetachVolume)
+{-# DEPRECATED dvDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvDryRun :: Lens' DetachVolume (Maybe Bool)
-dvDryRun = lens _dvDryRun (\s a -> s {_dvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvDryRun :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
+dvDryRun = Lens.lens (dryRun :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachVolume)
+{-# DEPRECATED dvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the volume.
-dvVolumeId :: Lens' DetachVolume Text
-dvVolumeId = lens _dvVolumeId (\s a -> s {_dvVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvVolumeId :: Lens.Lens' DetachVolume Lude.Text
+dvVolumeId = Lens.lens (volumeId :: DetachVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DetachVolume)
+{-# DEPRECATED dvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance AWSRequest DetachVolume where
+instance Lude.AWSRequest DetachVolume where
   type Rs DetachVolume = VolumeAttachment
-  request = postQuery ec2
-  response = receiveXML (\s h x -> parseXML x)
+  request = Req.postQuery ec2Service
+  response = Res.receiveXML (\s h x -> Lude.parseXML x)
 
-instance Hashable DetachVolume
+instance Lude.ToHeaders DetachVolume where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetachVolume
+instance Lude.ToPath DetachVolume where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetachVolume where
-  toHeaders = const mempty
-
-instance ToPath DetachVolume where
-  toPath = const "/"
-
-instance ToQuery DetachVolume where
+instance Lude.ToQuery DetachVolume where
   toQuery DetachVolume' {..} =
-    mconcat
-      [ "Action" =: ("DetachVolume" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "InstanceId" =: _dvInstanceId,
-        "Force" =: _dvForce,
-        "Device" =: _dvDevice,
-        "DryRun" =: _dvDryRun,
-        "VolumeId" =: _dvVolumeId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetachVolume" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
+        "Force" Lude.=: force,
+        "Device" Lude.=: device,
+        "DryRun" Lude.=: dryRun,
+        "VolumeId" Lude.=: volumeId
       ]

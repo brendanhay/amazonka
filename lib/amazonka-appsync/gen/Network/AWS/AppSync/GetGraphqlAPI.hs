@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,121 @@
 --
 -- Retrieves a @GraphqlApi@ object.
 module Network.AWS.AppSync.GetGraphqlAPI
-  ( -- * Creating a Request
-    getGraphqlAPI,
-    GetGraphqlAPI,
+  ( -- * Creating a request
+    GetGraphqlAPI (..),
+    mkGetGraphqlAPI,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggaApiId,
 
-    -- * Destructuring the Response
-    getGraphqlAPIResponse,
-    GetGraphqlAPIResponse,
+    -- * Destructuring the response
+    GetGraphqlAPIResponse (..),
+    mkGetGraphqlAPIResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggarsGraphqlAPI,
     ggarsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGraphqlAPI' smart constructor.
-newtype GetGraphqlAPI = GetGraphqlAPI' {_ggaApiId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetGraphqlAPI' smart constructor.
+newtype GetGraphqlAPI = GetGraphqlAPI' {apiId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGraphqlAPI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggaApiId' - The API ID for the GraphQL API.
-getGraphqlAPI ::
-  -- | 'ggaApiId'
-  Text ->
+-- * 'apiId' - The API ID for the GraphQL API.
+mkGetGraphqlAPI ::
+  -- | 'apiId'
+  Lude.Text ->
   GetGraphqlAPI
-getGraphqlAPI pApiId_ = GetGraphqlAPI' {_ggaApiId = pApiId_}
+mkGetGraphqlAPI pApiId_ = GetGraphqlAPI' {apiId = pApiId_}
 
 -- | The API ID for the GraphQL API.
-ggaApiId :: Lens' GetGraphqlAPI Text
-ggaApiId = lens _ggaApiId (\s a -> s {_ggaApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggaApiId :: Lens.Lens' GetGraphqlAPI Lude.Text
+ggaApiId = Lens.lens (apiId :: GetGraphqlAPI -> Lude.Text) (\s a -> s {apiId = a} :: GetGraphqlAPI)
+{-# DEPRECATED ggaApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest GetGraphqlAPI where
+instance Lude.AWSRequest GetGraphqlAPI where
   type Rs GetGraphqlAPI = GetGraphqlAPIResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGraphqlAPIResponse'
-            <$> (x .?> "graphqlApi") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "graphqlApi") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGraphqlAPI
-
-instance NFData GetGraphqlAPI
-
-instance ToHeaders GetGraphqlAPI where
+instance Lude.ToHeaders GetGraphqlAPI where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetGraphqlAPI where
-  toPath GetGraphqlAPI' {..} = mconcat ["/v1/apis/", toBS _ggaApiId]
+instance Lude.ToPath GetGraphqlAPI where
+  toPath GetGraphqlAPI' {..} =
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId]
 
-instance ToQuery GetGraphqlAPI where
-  toQuery = const mempty
+instance Lude.ToQuery GetGraphqlAPI where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGraphqlAPIResponse' smart constructor.
+-- | /See:/ 'mkGetGraphqlAPIResponse' smart constructor.
 data GetGraphqlAPIResponse = GetGraphqlAPIResponse'
-  { _ggarsGraphqlAPI ::
-      !(Maybe GraphqlAPI),
-    _ggarsResponseStatus :: !Int
+  { graphqlAPI ::
+      Lude.Maybe GraphqlAPI,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGraphqlAPIResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggarsGraphqlAPI' - The @GraphqlApi@ object.
---
--- * 'ggarsResponseStatus' - -- | The response status code.
-getGraphqlAPIResponse ::
-  -- | 'ggarsResponseStatus'
-  Int ->
+-- * 'graphqlAPI' - The @GraphqlApi@ object.
+-- * 'responseStatus' - The response status code.
+mkGetGraphqlAPIResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGraphqlAPIResponse
-getGraphqlAPIResponse pResponseStatus_ =
+mkGetGraphqlAPIResponse pResponseStatus_ =
   GetGraphqlAPIResponse'
-    { _ggarsGraphqlAPI = Nothing,
-      _ggarsResponseStatus = pResponseStatus_
+    { graphqlAPI = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @GraphqlApi@ object.
-ggarsGraphqlAPI :: Lens' GetGraphqlAPIResponse (Maybe GraphqlAPI)
-ggarsGraphqlAPI = lens _ggarsGraphqlAPI (\s a -> s {_ggarsGraphqlAPI = a})
+--
+-- /Note:/ Consider using 'graphqlAPI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggarsGraphqlAPI :: Lens.Lens' GetGraphqlAPIResponse (Lude.Maybe GraphqlAPI)
+ggarsGraphqlAPI = Lens.lens (graphqlAPI :: GetGraphqlAPIResponse -> Lude.Maybe GraphqlAPI) (\s a -> s {graphqlAPI = a} :: GetGraphqlAPIResponse)
+{-# DEPRECATED ggarsGraphqlAPI "Use generic-lens or generic-optics with 'graphqlAPI' instead." #-}
 
--- | -- | The response status code.
-ggarsResponseStatus :: Lens' GetGraphqlAPIResponse Int
-ggarsResponseStatus = lens _ggarsResponseStatus (\s a -> s {_ggarsResponseStatus = a})
-
-instance NFData GetGraphqlAPIResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggarsResponseStatus :: Lens.Lens' GetGraphqlAPIResponse Lude.Int
+ggarsResponseStatus = Lens.lens (responseStatus :: GetGraphqlAPIResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGraphqlAPIResponse)
+{-# DEPRECATED ggarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

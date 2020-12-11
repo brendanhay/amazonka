@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.TestReportSummary where
+module Network.AWS.CodeBuild.Types.TestReportSummary
+  ( TestReportSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTestReportSummary,
+
+    -- * Lenses
+    trsTotal,
+    trsStatusCounts,
+    trsDurationInNanoSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a test report.
 --
---
---
--- /See:/ 'testReportSummary' smart constructor.
+-- /See:/ 'mkTestReportSummary' smart constructor.
 data TestReportSummary = TestReportSummary'
-  { _trsTotal :: !Int,
-    _trsStatusCounts :: !(Map Text (Int)),
-    _trsDurationInNanoSeconds :: !Integer
+  { total :: Lude.Int,
+    statusCounts :: Lude.HashMap Lude.Text (Lude.Int),
+    durationInNanoSeconds :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestReportSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trsTotal' - The number of test cases in this @TestReportSummary@ . The total includes truncated test cases.
---
--- * 'trsStatusCounts' - A map that contains the number of each type of status returned by the test results in this @TestReportSummary@ .
---
--- * 'trsDurationInNanoSeconds' - The number of nanoseconds it took to run all of the test cases in this report.
-testReportSummary ::
-  -- | 'trsTotal'
-  Int ->
-  -- | 'trsDurationInNanoSeconds'
-  Integer ->
+-- * 'durationInNanoSeconds' - The number of nanoseconds it took to run all of the test cases in this report.
+-- * 'statusCounts' - A map that contains the number of each type of status returned by the test results in this @TestReportSummary@ .
+-- * 'total' - The number of test cases in this @TestReportSummary@ . The total includes truncated test cases.
+mkTestReportSummary ::
+  -- | 'total'
+  Lude.Int ->
+  -- | 'durationInNanoSeconds'
+  Lude.Integer ->
   TestReportSummary
-testReportSummary pTotal_ pDurationInNanoSeconds_ =
+mkTestReportSummary pTotal_ pDurationInNanoSeconds_ =
   TestReportSummary'
-    { _trsTotal = pTotal_,
-      _trsStatusCounts = mempty,
-      _trsDurationInNanoSeconds = pDurationInNanoSeconds_
+    { total = pTotal_,
+      statusCounts = Lude.mempty,
+      durationInNanoSeconds = pDurationInNanoSeconds_
     }
 
 -- | The number of test cases in this @TestReportSummary@ . The total includes truncated test cases.
-trsTotal :: Lens' TestReportSummary Int
-trsTotal = lens _trsTotal (\s a -> s {_trsTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trsTotal :: Lens.Lens' TestReportSummary Lude.Int
+trsTotal = Lens.lens (total :: TestReportSummary -> Lude.Int) (\s a -> s {total = a} :: TestReportSummary)
+{-# DEPRECATED trsTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | A map that contains the number of each type of status returned by the test results in this @TestReportSummary@ .
-trsStatusCounts :: Lens' TestReportSummary (HashMap Text (Int))
-trsStatusCounts = lens _trsStatusCounts (\s a -> s {_trsStatusCounts = a}) . _Map
+--
+-- /Note:/ Consider using 'statusCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trsStatusCounts :: Lens.Lens' TestReportSummary (Lude.HashMap Lude.Text (Lude.Int))
+trsStatusCounts = Lens.lens (statusCounts :: TestReportSummary -> Lude.HashMap Lude.Text (Lude.Int)) (\s a -> s {statusCounts = a} :: TestReportSummary)
+{-# DEPRECATED trsStatusCounts "Use generic-lens or generic-optics with 'statusCounts' instead." #-}
 
 -- | The number of nanoseconds it took to run all of the test cases in this report.
-trsDurationInNanoSeconds :: Lens' TestReportSummary Integer
-trsDurationInNanoSeconds = lens _trsDurationInNanoSeconds (\s a -> s {_trsDurationInNanoSeconds = a})
+--
+-- /Note:/ Consider using 'durationInNanoSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trsDurationInNanoSeconds :: Lens.Lens' TestReportSummary Lude.Integer
+trsDurationInNanoSeconds = Lens.lens (durationInNanoSeconds :: TestReportSummary -> Lude.Integer) (\s a -> s {durationInNanoSeconds = a} :: TestReportSummary)
+{-# DEPRECATED trsDurationInNanoSeconds "Use generic-lens or generic-optics with 'durationInNanoSeconds' instead." #-}
 
-instance FromJSON TestReportSummary where
+instance Lude.FromJSON TestReportSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TestReportSummary"
       ( \x ->
           TestReportSummary'
-            <$> (x .: "total")
-            <*> (x .:? "statusCounts" .!= mempty)
-            <*> (x .: "durationInNanoSeconds")
+            Lude.<$> (x Lude..: "total")
+            Lude.<*> (x Lude..:? "statusCounts" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "durationInNanoSeconds")
       )
-
-instance Hashable TestReportSummary
-
-instance NFData TestReportSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsScte35Source where
+module Network.AWS.MediaConvert.Types.M2tsScte35Source
+  ( M2tsScte35Source
+      ( M2tsScte35Source',
+        MSSNone,
+        MSSPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
-data M2tsScte35Source
-  = MSSNone
-  | MSSPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsScte35Source = M2tsScte35Source' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsScte35Source where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure MSSNone
-      "passthrough" -> pure MSSPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing M2tsScte35Source from value: '" <> e
-            <> "'. Accepted values: none, passthrough"
+pattern MSSNone :: M2tsScte35Source
+pattern MSSNone = M2tsScte35Source' "NONE"
 
-instance ToText M2tsScte35Source where
-  toText = \case
-    MSSNone -> "NONE"
-    MSSPassthrough -> "PASSTHROUGH"
+pattern MSSPassthrough :: M2tsScte35Source
+pattern MSSPassthrough = M2tsScte35Source' "PASSTHROUGH"
 
-instance Hashable M2tsScte35Source
-
-instance NFData M2tsScte35Source
-
-instance ToByteString M2tsScte35Source
-
-instance ToQuery M2tsScte35Source
-
-instance ToHeader M2tsScte35Source
-
-instance ToJSON M2tsScte35Source where
-  toJSON = toJSONText
-
-instance FromJSON M2tsScte35Source where
-  parseJSON = parseJSONText "M2tsScte35Source"
+{-# COMPLETE
+  MSSNone,
+  MSSPassthrough,
+  M2tsScte35Source'
+  #-}

@@ -13,8 +13,8 @@
 --
 -- Amazon Route 53 is a scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure that uses Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3). You can also use Amazon Route 53 to route users to your infrastructure outside of AWS.
 module Network.AWS.Route53
-  ( -- * Service Configuration
-    route53,
+  ( -- * Service configuration
+    route53Service,
 
     -- * Errors
     -- $errors
@@ -23,7 +23,7 @@ module Network.AWS.Route53
     -- $waiters
 
     -- ** ResourceRecordSetsChanged
-    resourceRecordSetsChanged,
+    mkResourceRecordSetsChanged,
 
     -- * Operations
     -- $operations
@@ -253,47 +253,47 @@ module Network.AWS.Route53
     VPCRegion (..),
 
     -- ** AccountLimit
-    AccountLimit,
-    accountLimit,
+    AccountLimit (..),
+    mkAccountLimit,
     alType,
     alValue,
 
     -- ** AlarmIdentifier
-    AlarmIdentifier,
-    alarmIdentifier,
+    AlarmIdentifier (..),
+    mkAlarmIdentifier,
     aiRegion,
     aiName,
 
     -- ** AliasTarget
-    AliasTarget,
-    aliasTarget,
+    AliasTarget (..),
+    mkAliasTarget,
     atHostedZoneId,
     atDNSName,
     atEvaluateTargetHealth,
 
     -- ** Change
-    Change,
-    change,
+    Change (..),
+    mkChange,
     cAction,
     cResourceRecordSet,
 
     -- ** ChangeBatch
-    ChangeBatch,
-    changeBatch,
+    ChangeBatch (..),
+    mkChangeBatch,
     cbComment,
     cbChanges,
 
     -- ** ChangeInfo
-    ChangeInfo,
-    changeInfo,
+    ChangeInfo (..),
+    mkChangeInfo,
     ciComment,
     ciId,
     ciStatus,
     ciSubmittedAt,
 
     -- ** CloudWatchAlarmConfiguration
-    CloudWatchAlarmConfiguration,
-    cloudWatchAlarmConfiguration,
+    CloudWatchAlarmConfiguration (..),
+    mkCloudWatchAlarmConfiguration,
     cwacDimensions,
     cwacEvaluationPeriods,
     cwacThreshold,
@@ -304,28 +304,28 @@ module Network.AWS.Route53
     cwacStatistic,
 
     -- ** DelegationSet
-    DelegationSet,
-    delegationSet,
+    DelegationSet (..),
+    mkDelegationSet,
     dsId,
     dsCallerReference,
     dsNameServers,
 
     -- ** Dimension
-    Dimension,
-    dimension,
+    Dimension (..),
+    mkDimension,
     dName,
     dValue,
 
     -- ** GeoLocation
-    GeoLocation,
-    geoLocation,
+    GeoLocation (..),
+    mkGeoLocation,
     glSubdivisionCode,
     glCountryCode,
     glContinentCode,
 
     -- ** GeoLocationDetails
-    GeoLocationDetails,
-    geoLocationDetails,
+    GeoLocationDetails (..),
+    mkGeoLocationDetails,
     gldSubdivisionName,
     gldSubdivisionCode,
     gldCountryName,
@@ -334,8 +334,8 @@ module Network.AWS.Route53
     gldContinentName,
 
     -- ** HealthCheck
-    HealthCheck,
-    healthCheck,
+    HealthCheck (..),
+    mkHealthCheck,
     hcLinkedService,
     hcCloudWatchAlarmConfiguration,
     hcId,
@@ -344,8 +344,8 @@ module Network.AWS.Route53
     hcHealthCheckVersion,
 
     -- ** HealthCheckConfig
-    HealthCheckConfig,
-    healthCheckConfig,
+    HealthCheckConfig (..),
+    mkHealthCheckConfig,
     hccFailureThreshold,
     hccIPAddress,
     hccEnableSNI,
@@ -365,15 +365,15 @@ module Network.AWS.Route53
     hccType,
 
     -- ** HealthCheckObservation
-    HealthCheckObservation,
-    healthCheckObservation,
+    HealthCheckObservation (..),
+    mkHealthCheckObservation,
     hcoIPAddress,
     hcoStatusReport,
     hcoRegion,
 
     -- ** HostedZone
-    HostedZone,
-    hostedZone,
+    HostedZone (..),
+    mkHostedZone,
     hzLinkedService,
     hzConfig,
     hzResourceRecordSetCount,
@@ -382,51 +382,51 @@ module Network.AWS.Route53
     hzCallerReference,
 
     -- ** HostedZoneConfig
-    HostedZoneConfig,
-    hostedZoneConfig,
+    HostedZoneConfig (..),
+    mkHostedZoneConfig,
     hzcPrivateZone,
     hzcComment,
 
     -- ** HostedZoneLimit
-    HostedZoneLimit,
-    hostedZoneLimit,
+    HostedZoneLimit (..),
+    mkHostedZoneLimit,
     hzlType,
     hzlValue,
 
     -- ** HostedZoneOwner
-    HostedZoneOwner,
-    hostedZoneOwner,
+    HostedZoneOwner (..),
+    mkHostedZoneOwner,
     hzoOwningAccount,
     hzoOwningService,
 
     -- ** HostedZoneSummary
-    HostedZoneSummary,
-    hostedZoneSummary,
+    HostedZoneSummary (..),
+    mkHostedZoneSummary,
     hzsHostedZoneId,
     hzsName,
     hzsOwner,
 
     -- ** LinkedService
-    LinkedService,
-    linkedService,
+    LinkedService (..),
+    mkLinkedService,
     lsServicePrincipal,
     lsDescription,
 
     -- ** QueryLoggingConfig
-    QueryLoggingConfig,
-    queryLoggingConfig,
+    QueryLoggingConfig (..),
+    mkQueryLoggingConfig,
     qlcId,
     qlcHostedZoneId,
     qlcCloudWatchLogsLogGroupARN,
 
     -- ** ResourceRecord
-    ResourceRecord,
-    resourceRecord,
+    ResourceRecord (..),
+    mkResourceRecord,
     rrValue,
 
     -- ** ResourceRecordSet
-    ResourceRecordSet,
-    resourceRecordSet,
+    ResourceRecordSet (..),
+    mkResourceRecordSet,
     rrsTTL,
     rrsResourceRecords,
     rrsAliasTarget,
@@ -442,33 +442,33 @@ module Network.AWS.Route53
     rrsType,
 
     -- ** ResourceTagSet
-    ResourceTagSet,
-    resourceTagSet,
+    ResourceTagSet (..),
+    mkResourceTagSet,
     rtsResourceId,
     rtsResourceType,
     rtsTags,
 
     -- ** ReusableDelegationSetLimit
-    ReusableDelegationSetLimit,
-    reusableDelegationSetLimit,
+    ReusableDelegationSetLimit (..),
+    mkReusableDelegationSetLimit,
     rdslType,
     rdslValue,
 
     -- ** StatusReport
-    StatusReport,
-    statusReport,
+    StatusReport (..),
+    mkStatusReport,
     srStatus,
     srCheckedTime,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TrafficPolicy
-    TrafficPolicy,
-    trafficPolicy,
+    TrafficPolicy (..),
+    mkTrafficPolicy,
     tpComment,
     tpId,
     tpVersion,
@@ -477,8 +477,8 @@ module Network.AWS.Route53
     tpDocument,
 
     -- ** TrafficPolicyInstance
-    TrafficPolicyInstance,
-    trafficPolicyInstance,
+    TrafficPolicyInstance (..),
+    mkTrafficPolicyInstance,
     tpiId,
     tpiHostedZoneId,
     tpiName,
@@ -490,8 +490,8 @@ module Network.AWS.Route53
     tpiTrafficPolicyType,
 
     -- ** TrafficPolicySummary
-    TrafficPolicySummary,
-    trafficPolicySummary,
+    TrafficPolicySummary (..),
+    mkTrafficPolicySummary,
     tpsId,
     tpsName,
     tpsType,
@@ -499,13 +499,25 @@ module Network.AWS.Route53
     tpsTrafficPolicyCount,
 
     -- ** VPC
-    VPC,
-    vpc,
+    VPC (..),
+    mkVPC,
     vpcVPCRegion,
     vpcVPCId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.AssociateVPCWithHostedZone
 import Network.AWS.Route53.ChangeResourceRecordSets
 import Network.AWS.Route53.ChangeTagsForResource

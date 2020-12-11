@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TopicRuleDestinationSummary where
+module Network.AWS.IoT.Types.TopicRuleDestinationSummary
+  ( TopicRuleDestinationSummary (..),
+
+    -- * Smart constructor
+    mkTopicRuleDestinationSummary,
+
+    -- * Lenses
+    trdsStatus,
+    trdsHttpURLSummary,
+    trdsArn,
+    trdsStatusReason,
+  )
+where
 
 import Network.AWS.IoT.Types.HTTPURLDestinationSummary
 import Network.AWS.IoT.Types.TopicRuleDestinationStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the topic rule destination.
 --
---
---
--- /See:/ 'topicRuleDestinationSummary' smart constructor.
+-- /See:/ 'mkTopicRuleDestinationSummary' smart constructor.
 data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
-  { _trdsStatus ::
-      !(Maybe TopicRuleDestinationStatus),
-    _trdsHttpURLSummary ::
-      !(Maybe HTTPURLDestinationSummary),
-    _trdsArn :: !(Maybe Text),
-    _trdsStatusReason :: !(Maybe Text)
+  { status ::
+      Lude.Maybe
+        TopicRuleDestinationStatus,
+    httpURLSummary ::
+      Lude.Maybe
+        HTTPURLDestinationSummary,
+    arn :: Lude.Maybe Lude.Text,
+    statusReason ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRuleDestinationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The topic rule destination ARN.
+-- * 'httpURLSummary' - Information about the HTTP URL.
+-- * 'status' - The status of the topic rule destination. Valid values are:
 --
--- * 'trdsStatus' - The status of the topic rule destination. Valid values are:     * IN_PROGRESS    * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.     * ENABLED    * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .     * DISABLED    * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .     * ERROR    * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
 --
--- * 'trdsHttpURLSummary' - Information about the HTTP URL.
+--     * IN_PROGRESS
 --
--- * 'trdsArn' - The topic rule destination ARN.
+--     * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
 --
--- * 'trdsStatusReason' - The reason the topic rule destination is in the current status.
-topicRuleDestinationSummary ::
+--
+--     * ENABLED
+--
+--     * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .
+--
+--
+--     * DISABLED
+--
+--     * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .
+--
+--
+--     * ERROR
+--
+--     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+--
+--
+-- * 'statusReason' - The reason the topic rule destination is in the current status.
+mkTopicRuleDestinationSummary ::
   TopicRuleDestinationSummary
-topicRuleDestinationSummary =
+mkTopicRuleDestinationSummary =
   TopicRuleDestinationSummary'
-    { _trdsStatus = Nothing,
-      _trdsHttpURLSummary = Nothing,
-      _trdsArn = Nothing,
-      _trdsStatusReason = Nothing
+    { status = Lude.Nothing,
+      httpURLSummary = Lude.Nothing,
+      arn = Lude.Nothing,
+      statusReason = Lude.Nothing
     }
 
--- | The status of the topic rule destination. Valid values are:     * IN_PROGRESS    * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.     * ENABLED    * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .     * DISABLED    * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .     * ERROR    * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
-trdsStatus :: Lens' TopicRuleDestinationSummary (Maybe TopicRuleDestinationStatus)
-trdsStatus = lens _trdsStatus (\s a -> s {_trdsStatus = a})
+-- | The status of the topic rule destination. Valid values are:
+--
+--
+--     * IN_PROGRESS
+--
+--     * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+--
+--
+--     * ENABLED
+--
+--     * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .
+--
+--
+--     * DISABLED
+--
+--     * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .
+--
+--
+--     * ERROR
+--
+--     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trdsStatus :: Lens.Lens' TopicRuleDestinationSummary (Lude.Maybe TopicRuleDestinationStatus)
+trdsStatus = Lens.lens (status :: TopicRuleDestinationSummary -> Lude.Maybe TopicRuleDestinationStatus) (\s a -> s {status = a} :: TopicRuleDestinationSummary)
+{-# DEPRECATED trdsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Information about the HTTP URL.
-trdsHttpURLSummary :: Lens' TopicRuleDestinationSummary (Maybe HTTPURLDestinationSummary)
-trdsHttpURLSummary = lens _trdsHttpURLSummary (\s a -> s {_trdsHttpURLSummary = a})
+--
+-- /Note:/ Consider using 'httpURLSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trdsHttpURLSummary :: Lens.Lens' TopicRuleDestinationSummary (Lude.Maybe HTTPURLDestinationSummary)
+trdsHttpURLSummary = Lens.lens (httpURLSummary :: TopicRuleDestinationSummary -> Lude.Maybe HTTPURLDestinationSummary) (\s a -> s {httpURLSummary = a} :: TopicRuleDestinationSummary)
+{-# DEPRECATED trdsHttpURLSummary "Use generic-lens or generic-optics with 'httpURLSummary' instead." #-}
 
 -- | The topic rule destination ARN.
-trdsArn :: Lens' TopicRuleDestinationSummary (Maybe Text)
-trdsArn = lens _trdsArn (\s a -> s {_trdsArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trdsArn :: Lens.Lens' TopicRuleDestinationSummary (Lude.Maybe Lude.Text)
+trdsArn = Lens.lens (arn :: TopicRuleDestinationSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TopicRuleDestinationSummary)
+{-# DEPRECATED trdsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The reason the topic rule destination is in the current status.
-trdsStatusReason :: Lens' TopicRuleDestinationSummary (Maybe Text)
-trdsStatusReason = lens _trdsStatusReason (\s a -> s {_trdsStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trdsStatusReason :: Lens.Lens' TopicRuleDestinationSummary (Lude.Maybe Lude.Text)
+trdsStatusReason = Lens.lens (statusReason :: TopicRuleDestinationSummary -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: TopicRuleDestinationSummary)
+{-# DEPRECATED trdsStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
-instance FromJSON TopicRuleDestinationSummary where
+instance Lude.FromJSON TopicRuleDestinationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TopicRuleDestinationSummary"
       ( \x ->
           TopicRuleDestinationSummary'
-            <$> (x .:? "status")
-            <*> (x .:? "httpUrlSummary")
-            <*> (x .:? "arn")
-            <*> (x .:? "statusReason")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "httpUrlSummary")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "statusReason")
       )
-
-instance Hashable TopicRuleDestinationSummary
-
-instance NFData TopicRuleDestinationSummary

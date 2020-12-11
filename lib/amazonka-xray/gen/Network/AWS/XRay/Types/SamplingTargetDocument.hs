@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.SamplingTargetDocument where
+module Network.AWS.XRay.Types.SamplingTargetDocument
+  ( SamplingTargetDocument (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSamplingTargetDocument,
+
+    -- * Lenses
+    stdReservoirQuota,
+    stdRuleName,
+    stdFixedRate,
+    stdInterval,
+    stdReservoirQuotaTTL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray calculates a new reservoir for each service based on the recent sampling results of all services that called 'GetSamplingTargets' .
 --
---
---
--- /See:/ 'samplingTargetDocument' smart constructor.
+-- /See:/ 'mkSamplingTargetDocument' smart constructor.
 data SamplingTargetDocument = SamplingTargetDocument'
-  { _stdReservoirQuota ::
-      !(Maybe Int),
-    _stdRuleName :: !(Maybe Text),
-    _stdFixedRate :: !(Maybe Double),
-    _stdInterval :: !(Maybe Int),
-    _stdReservoirQuotaTTL :: !(Maybe POSIX)
+  { reservoirQuota ::
+      Lude.Maybe Lude.Int,
+    ruleName :: Lude.Maybe Lude.Text,
+    fixedRate :: Lude.Maybe Lude.Double,
+    interval :: Lude.Maybe Lude.Int,
+    reservoirQuotaTTL ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingTargetDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stdReservoirQuota' - The number of requests per second that X-Ray allocated for this service.
---
--- * 'stdRuleName' - The name of the sampling rule.
---
--- * 'stdFixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
---
--- * 'stdInterval' - The number of seconds for the service to wait before getting sampling targets again.
---
--- * 'stdReservoirQuotaTTL' - When the reservoir quota expires.
-samplingTargetDocument ::
+-- * 'fixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
+-- * 'interval' - The number of seconds for the service to wait before getting sampling targets again.
+-- * 'reservoirQuota' - The number of requests per second that X-Ray allocated for this service.
+-- * 'reservoirQuotaTTL' - When the reservoir quota expires.
+-- * 'ruleName' - The name of the sampling rule.
+mkSamplingTargetDocument ::
   SamplingTargetDocument
-samplingTargetDocument =
+mkSamplingTargetDocument =
   SamplingTargetDocument'
-    { _stdReservoirQuota = Nothing,
-      _stdRuleName = Nothing,
-      _stdFixedRate = Nothing,
-      _stdInterval = Nothing,
-      _stdReservoirQuotaTTL = Nothing
+    { reservoirQuota = Lude.Nothing,
+      ruleName = Lude.Nothing,
+      fixedRate = Lude.Nothing,
+      interval = Lude.Nothing,
+      reservoirQuotaTTL = Lude.Nothing
     }
 
 -- | The number of requests per second that X-Ray allocated for this service.
-stdReservoirQuota :: Lens' SamplingTargetDocument (Maybe Int)
-stdReservoirQuota = lens _stdReservoirQuota (\s a -> s {_stdReservoirQuota = a})
+--
+-- /Note:/ Consider using 'reservoirQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdReservoirQuota :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Int)
+stdReservoirQuota = Lens.lens (reservoirQuota :: SamplingTargetDocument -> Lude.Maybe Lude.Int) (\s a -> s {reservoirQuota = a} :: SamplingTargetDocument)
+{-# DEPRECATED stdReservoirQuota "Use generic-lens or generic-optics with 'reservoirQuota' instead." #-}
 
 -- | The name of the sampling rule.
-stdRuleName :: Lens' SamplingTargetDocument (Maybe Text)
-stdRuleName = lens _stdRuleName (\s a -> s {_stdRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdRuleName :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Text)
+stdRuleName = Lens.lens (ruleName :: SamplingTargetDocument -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: SamplingTargetDocument)
+{-# DEPRECATED stdRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
-stdFixedRate :: Lens' SamplingTargetDocument (Maybe Double)
-stdFixedRate = lens _stdFixedRate (\s a -> s {_stdFixedRate = a})
+--
+-- /Note:/ Consider using 'fixedRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdFixedRate :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Double)
+stdFixedRate = Lens.lens (fixedRate :: SamplingTargetDocument -> Lude.Maybe Lude.Double) (\s a -> s {fixedRate = a} :: SamplingTargetDocument)
+{-# DEPRECATED stdFixedRate "Use generic-lens or generic-optics with 'fixedRate' instead." #-}
 
 -- | The number of seconds for the service to wait before getting sampling targets again.
-stdInterval :: Lens' SamplingTargetDocument (Maybe Int)
-stdInterval = lens _stdInterval (\s a -> s {_stdInterval = a})
+--
+-- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdInterval :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Int)
+stdInterval = Lens.lens (interval :: SamplingTargetDocument -> Lude.Maybe Lude.Int) (\s a -> s {interval = a} :: SamplingTargetDocument)
+{-# DEPRECATED stdInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
 
 -- | When the reservoir quota expires.
-stdReservoirQuotaTTL :: Lens' SamplingTargetDocument (Maybe UTCTime)
-stdReservoirQuotaTTL = lens _stdReservoirQuotaTTL (\s a -> s {_stdReservoirQuotaTTL = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'reservoirQuotaTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdReservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Timestamp)
+stdReservoirQuotaTTL = Lens.lens (reservoirQuotaTTL :: SamplingTargetDocument -> Lude.Maybe Lude.Timestamp) (\s a -> s {reservoirQuotaTTL = a} :: SamplingTargetDocument)
+{-# DEPRECATED stdReservoirQuotaTTL "Use generic-lens or generic-optics with 'reservoirQuotaTTL' instead." #-}
 
-instance FromJSON SamplingTargetDocument where
+instance Lude.FromJSON SamplingTargetDocument where
   parseJSON =
-    withObject
+    Lude.withObject
       "SamplingTargetDocument"
       ( \x ->
           SamplingTargetDocument'
-            <$> (x .:? "ReservoirQuota")
-            <*> (x .:? "RuleName")
-            <*> (x .:? "FixedRate")
-            <*> (x .:? "Interval")
-            <*> (x .:? "ReservoirQuotaTTL")
+            Lude.<$> (x Lude..:? "ReservoirQuota")
+            Lude.<*> (x Lude..:? "RuleName")
+            Lude.<*> (x Lude..:? "FixedRate")
+            Lude.<*> (x Lude..:? "Interval")
+            Lude.<*> (x Lude..:? "ReservoirQuotaTTL")
       )
-
-instance Hashable SamplingTargetDocument
-
-instance NFData SamplingTargetDocument

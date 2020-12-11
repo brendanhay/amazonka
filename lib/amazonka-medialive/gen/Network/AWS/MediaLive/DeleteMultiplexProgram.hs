@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Delete a program from a multiplex.
 module Network.AWS.MediaLive.DeleteMultiplexProgram
-  ( -- * Creating a Request
-    deleteMultiplexProgram,
-    DeleteMultiplexProgram,
+  ( -- * Creating a request
+    DeleteMultiplexProgram (..),
+    mkDeleteMultiplexProgram,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmpMultiplexId,
     dmpProgramName,
 
-    -- * Destructuring the Response
-    deleteMultiplexProgramResponse,
-    DeleteMultiplexProgramResponse,
+    -- * Destructuring the response
+    DeleteMultiplexProgramResponse (..),
+    mkDeleteMultiplexProgramResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmprsPacketIdentifiersMap,
     dmprsPipelineDetails,
     dmprsProgramName,
@@ -41,163 +36,184 @@ module Network.AWS.MediaLive.DeleteMultiplexProgram
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DeleteMultiplexProgramRequest
 --
--- /See:/ 'deleteMultiplexProgram' smart constructor.
+-- /See:/ 'mkDeleteMultiplexProgram' smart constructor.
 data DeleteMultiplexProgram = DeleteMultiplexProgram'
-  { _dmpMultiplexId ::
-      !Text,
-    _dmpProgramName :: !Text
+  { multiplexId ::
+      Lude.Text,
+    programName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMultiplexProgram' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmpMultiplexId' - The ID of the multiplex that the program belongs to.
---
--- * 'dmpProgramName' - The multiplex program name.
-deleteMultiplexProgram ::
-  -- | 'dmpMultiplexId'
-  Text ->
-  -- | 'dmpProgramName'
-  Text ->
+-- * 'multiplexId' - The ID of the multiplex that the program belongs to.
+-- * 'programName' - The multiplex program name.
+mkDeleteMultiplexProgram ::
+  -- | 'multiplexId'
+  Lude.Text ->
+  -- | 'programName'
+  Lude.Text ->
   DeleteMultiplexProgram
-deleteMultiplexProgram pMultiplexId_ pProgramName_ =
+mkDeleteMultiplexProgram pMultiplexId_ pProgramName_ =
   DeleteMultiplexProgram'
-    { _dmpMultiplexId = pMultiplexId_,
-      _dmpProgramName = pProgramName_
+    { multiplexId = pMultiplexId_,
+      programName = pProgramName_
     }
 
 -- | The ID of the multiplex that the program belongs to.
-dmpMultiplexId :: Lens' DeleteMultiplexProgram Text
-dmpMultiplexId = lens _dmpMultiplexId (\s a -> s {_dmpMultiplexId = a})
+--
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmpMultiplexId :: Lens.Lens' DeleteMultiplexProgram Lude.Text
+dmpMultiplexId = Lens.lens (multiplexId :: DeleteMultiplexProgram -> Lude.Text) (\s a -> s {multiplexId = a} :: DeleteMultiplexProgram)
+{-# DEPRECATED dmpMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | The multiplex program name.
-dmpProgramName :: Lens' DeleteMultiplexProgram Text
-dmpProgramName = lens _dmpProgramName (\s a -> s {_dmpProgramName = a})
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmpProgramName :: Lens.Lens' DeleteMultiplexProgram Lude.Text
+dmpProgramName = Lens.lens (programName :: DeleteMultiplexProgram -> Lude.Text) (\s a -> s {programName = a} :: DeleteMultiplexProgram)
+{-# DEPRECATED dmpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
-instance AWSRequest DeleteMultiplexProgram where
+instance Lude.AWSRequest DeleteMultiplexProgram where
   type Rs DeleteMultiplexProgram = DeleteMultiplexProgramResponse
-  request = delete mediaLive
+  request = Req.delete mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteMultiplexProgramResponse'
-            <$> (x .?> "packetIdentifiersMap")
-            <*> (x .?> "pipelineDetails" .!@ mempty)
-            <*> (x .?> "programName")
-            <*> (x .?> "channelId")
-            <*> (x .?> "multiplexProgramSettings")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "packetIdentifiersMap")
+            Lude.<*> (x Lude..?> "pipelineDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "programName")
+            Lude.<*> (x Lude..?> "channelId")
+            Lude.<*> (x Lude..?> "multiplexProgramSettings")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteMultiplexProgram
-
-instance NFData DeleteMultiplexProgram
-
-instance ToHeaders DeleteMultiplexProgram where
+instance Lude.ToHeaders DeleteMultiplexProgram where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteMultiplexProgram where
+instance Lude.ToPath DeleteMultiplexProgram where
   toPath DeleteMultiplexProgram' {..} =
-    mconcat
+    Lude.mconcat
       [ "/prod/multiplexes/",
-        toBS _dmpMultiplexId,
+        Lude.toBS multiplexId,
         "/programs/",
-        toBS _dmpProgramName
+        Lude.toBS programName
       ]
 
-instance ToQuery DeleteMultiplexProgram where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteMultiplexProgram where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DeleteMultiplexProgramResponse
 --
--- /See:/ 'deleteMultiplexProgramResponse' smart constructor.
+-- /See:/ 'mkDeleteMultiplexProgramResponse' smart constructor.
 data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
-  { _dmprsPacketIdentifiersMap ::
-      !( Maybe
-           MultiplexProgramPacketIdentifiersMap
-       ),
-    _dmprsPipelineDetails ::
-      !( Maybe
-           [MultiplexProgramPipelineDetail]
-       ),
-    _dmprsProgramName ::
-      !(Maybe Text),
-    _dmprsChannelId ::
-      !(Maybe Text),
-    _dmprsMultiplexProgramSettings ::
-      !( Maybe
-           MultiplexProgramSettings
-       ),
-    _dmprsResponseStatus :: !Int
+  { packetIdentifiersMap ::
+      Lude.Maybe
+        MultiplexProgramPacketIdentifiersMap,
+    pipelineDetails ::
+      Lude.Maybe
+        [MultiplexProgramPipelineDetail],
+    programName ::
+      Lude.Maybe Lude.Text,
+    channelId ::
+      Lude.Maybe Lude.Text,
+    multiplexProgramSettings ::
+      Lude.Maybe
+        MultiplexProgramSettings,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMultiplexProgramResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmprsPacketIdentifiersMap' - The packet identifier map for this multiplex program.
---
--- * 'dmprsPipelineDetails' - Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
---
--- * 'dmprsProgramName' - The name of the multiplex program.
---
--- * 'dmprsChannelId' - The MediaLive channel associated with the program.
---
--- * 'dmprsMultiplexProgramSettings' - The settings for this multiplex program.
---
--- * 'dmprsResponseStatus' - -- | The response status code.
-deleteMultiplexProgramResponse ::
-  -- | 'dmprsResponseStatus'
-  Int ->
+-- * 'channelId' - The MediaLive channel associated with the program.
+-- * 'multiplexProgramSettings' - The settings for this multiplex program.
+-- * 'packetIdentifiersMap' - The packet identifier map for this multiplex program.
+-- * 'pipelineDetails' - Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+-- * 'programName' - The name of the multiplex program.
+-- * 'responseStatus' - The response status code.
+mkDeleteMultiplexProgramResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteMultiplexProgramResponse
-deleteMultiplexProgramResponse pResponseStatus_ =
+mkDeleteMultiplexProgramResponse pResponseStatus_ =
   DeleteMultiplexProgramResponse'
-    { _dmprsPacketIdentifiersMap =
-        Nothing,
-      _dmprsPipelineDetails = Nothing,
-      _dmprsProgramName = Nothing,
-      _dmprsChannelId = Nothing,
-      _dmprsMultiplexProgramSettings = Nothing,
-      _dmprsResponseStatus = pResponseStatus_
+    { packetIdentifiersMap =
+        Lude.Nothing,
+      pipelineDetails = Lude.Nothing,
+      programName = Lude.Nothing,
+      channelId = Lude.Nothing,
+      multiplexProgramSettings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The packet identifier map for this multiplex program.
-dmprsPacketIdentifiersMap :: Lens' DeleteMultiplexProgramResponse (Maybe MultiplexProgramPacketIdentifiersMap)
-dmprsPacketIdentifiersMap = lens _dmprsPacketIdentifiersMap (\s a -> s {_dmprsPacketIdentifiersMap = a})
+--
+-- /Note:/ Consider using 'packetIdentifiersMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsPacketIdentifiersMap :: Lens.Lens' DeleteMultiplexProgramResponse (Lude.Maybe MultiplexProgramPacketIdentifiersMap)
+dmprsPacketIdentifiersMap = Lens.lens (packetIdentifiersMap :: DeleteMultiplexProgramResponse -> Lude.Maybe MultiplexProgramPacketIdentifiersMap) (\s a -> s {packetIdentifiersMap = a} :: DeleteMultiplexProgramResponse)
+{-# DEPRECATED dmprsPacketIdentifiersMap "Use generic-lens or generic-optics with 'packetIdentifiersMap' instead." #-}
 
 -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
-dmprsPipelineDetails :: Lens' DeleteMultiplexProgramResponse [MultiplexProgramPipelineDetail]
-dmprsPipelineDetails = lens _dmprsPipelineDetails (\s a -> s {_dmprsPipelineDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsPipelineDetails :: Lens.Lens' DeleteMultiplexProgramResponse (Lude.Maybe [MultiplexProgramPipelineDetail])
+dmprsPipelineDetails = Lens.lens (pipelineDetails :: DeleteMultiplexProgramResponse -> Lude.Maybe [MultiplexProgramPipelineDetail]) (\s a -> s {pipelineDetails = a} :: DeleteMultiplexProgramResponse)
+{-# DEPRECATED dmprsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
 
 -- | The name of the multiplex program.
-dmprsProgramName :: Lens' DeleteMultiplexProgramResponse (Maybe Text)
-dmprsProgramName = lens _dmprsProgramName (\s a -> s {_dmprsProgramName = a})
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsProgramName :: Lens.Lens' DeleteMultiplexProgramResponse (Lude.Maybe Lude.Text)
+dmprsProgramName = Lens.lens (programName :: DeleteMultiplexProgramResponse -> Lude.Maybe Lude.Text) (\s a -> s {programName = a} :: DeleteMultiplexProgramResponse)
+{-# DEPRECATED dmprsProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
 -- | The MediaLive channel associated with the program.
-dmprsChannelId :: Lens' DeleteMultiplexProgramResponse (Maybe Text)
-dmprsChannelId = lens _dmprsChannelId (\s a -> s {_dmprsChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsChannelId :: Lens.Lens' DeleteMultiplexProgramResponse (Lude.Maybe Lude.Text)
+dmprsChannelId = Lens.lens (channelId :: DeleteMultiplexProgramResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: DeleteMultiplexProgramResponse)
+{-# DEPRECATED dmprsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 -- | The settings for this multiplex program.
-dmprsMultiplexProgramSettings :: Lens' DeleteMultiplexProgramResponse (Maybe MultiplexProgramSettings)
-dmprsMultiplexProgramSettings = lens _dmprsMultiplexProgramSettings (\s a -> s {_dmprsMultiplexProgramSettings = a})
+--
+-- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsMultiplexProgramSettings :: Lens.Lens' DeleteMultiplexProgramResponse (Lude.Maybe MultiplexProgramSettings)
+dmprsMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: DeleteMultiplexProgramResponse -> Lude.Maybe MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: DeleteMultiplexProgramResponse)
+{-# DEPRECATED dmprsMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
--- | -- | The response status code.
-dmprsResponseStatus :: Lens' DeleteMultiplexProgramResponse Int
-dmprsResponseStatus = lens _dmprsResponseStatus (\s a -> s {_dmprsResponseStatus = a})
-
-instance NFData DeleteMultiplexProgramResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsResponseStatus :: Lens.Lens' DeleteMultiplexProgramResponse Lude.Int
+dmprsResponseStatus = Lens.lens (responseStatus :: DeleteMultiplexProgramResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMultiplexProgramResponse)
+{-# DEPRECATED dmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

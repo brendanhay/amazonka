@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ContributorInsightsAction where
+module Network.AWS.DynamoDB.Types.ContributorInsightsAction
+  ( ContributorInsightsAction
+      ( ContributorInsightsAction',
+        Disable,
+        Enable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContributorInsightsAction
-  = Disable
-  | Enable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContributorInsightsAction = ContributorInsightsAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContributorInsightsAction where
-  parser =
-    takeLowerText >>= \case
-      "disable" -> pure Disable
-      "enable" -> pure Enable
-      e ->
-        fromTextError $
-          "Failure parsing ContributorInsightsAction from value: '" <> e
-            <> "'. Accepted values: disable, enable"
+pattern Disable :: ContributorInsightsAction
+pattern Disable = ContributorInsightsAction' "DISABLE"
 
-instance ToText ContributorInsightsAction where
-  toText = \case
-    Disable -> "DISABLE"
-    Enable -> "ENABLE"
+pattern Enable :: ContributorInsightsAction
+pattern Enable = ContributorInsightsAction' "ENABLE"
 
-instance Hashable ContributorInsightsAction
-
-instance NFData ContributorInsightsAction
-
-instance ToByteString ContributorInsightsAction
-
-instance ToQuery ContributorInsightsAction
-
-instance ToHeader ContributorInsightsAction
-
-instance ToJSON ContributorInsightsAction where
-  toJSON = toJSONText
+{-# COMPLETE
+  Disable,
+  Enable,
+  ContributorInsightsAction'
+  #-}

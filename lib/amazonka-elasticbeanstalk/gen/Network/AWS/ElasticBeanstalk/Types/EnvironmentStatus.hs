@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
+  ( EnvironmentStatus
+      ( EnvironmentStatus',
+        ESAborting,
+        ESLaunching,
+        ESLinkingFrom,
+        ESLinkingTo,
+        ESReady,
+        ESTerminated,
+        ESTerminating,
+        ESUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentStatus
-  = ESAborting
-  | ESLaunching
-  | ESLinkingFrom
-  | ESLinkingTo
-  | ESReady
-  | ESTerminated
-  | ESTerminating
-  | ESUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentStatus = EnvironmentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentStatus where
-  parser =
-    takeLowerText >>= \case
-      "aborting" -> pure ESAborting
-      "launching" -> pure ESLaunching
-      "linkingfrom" -> pure ESLinkingFrom
-      "linkingto" -> pure ESLinkingTo
-      "ready" -> pure ESReady
-      "terminated" -> pure ESTerminated
-      "terminating" -> pure ESTerminating
-      "updating" -> pure ESUpdating
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentStatus from value: '" <> e
-            <> "'. Accepted values: aborting, launching, linkingfrom, linkingto, ready, terminated, terminating, updating"
+pattern ESAborting :: EnvironmentStatus
+pattern ESAborting = EnvironmentStatus' "Aborting"
 
-instance ToText EnvironmentStatus where
-  toText = \case
-    ESAborting -> "Aborting"
-    ESLaunching -> "Launching"
-    ESLinkingFrom -> "LinkingFrom"
-    ESLinkingTo -> "LinkingTo"
-    ESReady -> "Ready"
-    ESTerminated -> "Terminated"
-    ESTerminating -> "Terminating"
-    ESUpdating -> "Updating"
+pattern ESLaunching :: EnvironmentStatus
+pattern ESLaunching = EnvironmentStatus' "Launching"
 
-instance Hashable EnvironmentStatus
+pattern ESLinkingFrom :: EnvironmentStatus
+pattern ESLinkingFrom = EnvironmentStatus' "LinkingFrom"
 
-instance NFData EnvironmentStatus
+pattern ESLinkingTo :: EnvironmentStatus
+pattern ESLinkingTo = EnvironmentStatus' "LinkingTo"
 
-instance ToByteString EnvironmentStatus
+pattern ESReady :: EnvironmentStatus
+pattern ESReady = EnvironmentStatus' "Ready"
 
-instance ToQuery EnvironmentStatus
+pattern ESTerminated :: EnvironmentStatus
+pattern ESTerminated = EnvironmentStatus' "Terminated"
 
-instance ToHeader EnvironmentStatus
+pattern ESTerminating :: EnvironmentStatus
+pattern ESTerminating = EnvironmentStatus' "Terminating"
 
-instance FromXML EnvironmentStatus where
-  parseXML = parseXMLText "EnvironmentStatus"
+pattern ESUpdating :: EnvironmentStatus
+pattern ESUpdating = EnvironmentStatus' "Updating"
+
+{-# COMPLETE
+  ESAborting,
+  ESLaunching,
+  ESLinkingFrom,
+  ESLinkingTo,
+  ESReady,
+  ESTerminated,
+  ESTerminating,
+  ESUpdating,
+  EnvironmentStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.VaultAccessPolicy where
+module Network.AWS.Glacier.Types.VaultAccessPolicy
+  ( VaultAccessPolicy (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVaultAccessPolicy,
+
+    -- * Lenses
+    vapPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the vault access policy.
 --
---
---
--- /See:/ 'vaultAccessPolicy' smart constructor.
+-- /See:/ 'mkVaultAccessPolicy' smart constructor.
 newtype VaultAccessPolicy = VaultAccessPolicy'
-  { _vapPolicy ::
-      Maybe Text
+  { policy ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VaultAccessPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vapPolicy' - The vault access policy.
-vaultAccessPolicy ::
+-- * 'policy' - The vault access policy.
+mkVaultAccessPolicy ::
   VaultAccessPolicy
-vaultAccessPolicy = VaultAccessPolicy' {_vapPolicy = Nothing}
+mkVaultAccessPolicy = VaultAccessPolicy' {policy = Lude.Nothing}
 
 -- | The vault access policy.
-vapPolicy :: Lens' VaultAccessPolicy (Maybe Text)
-vapPolicy = lens _vapPolicy (\s a -> s {_vapPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vapPolicy :: Lens.Lens' VaultAccessPolicy (Lude.Maybe Lude.Text)
+vapPolicy = Lens.lens (policy :: VaultAccessPolicy -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: VaultAccessPolicy)
+{-# DEPRECATED vapPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance FromJSON VaultAccessPolicy where
+instance Lude.FromJSON VaultAccessPolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "VaultAccessPolicy"
-      (\x -> VaultAccessPolicy' <$> (x .:? "Policy"))
+      (\x -> VaultAccessPolicy' Lude.<$> (x Lude..:? "Policy"))
 
-instance Hashable VaultAccessPolicy
-
-instance NFData VaultAccessPolicy
-
-instance ToJSON VaultAccessPolicy where
+instance Lude.ToJSON VaultAccessPolicy where
   toJSON VaultAccessPolicy' {..} =
-    object (catMaybes [("Policy" .=) <$> _vapPolicy])
+    Lude.object (Lude.catMaybes [("Policy" Lude..=) Lude.<$> policy])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.Application where
+module Network.AWS.WorkSpaces.Types.Application
+  ( Application
+      ( Application',
+        MicrosoftOffice2016,
+        MicrosoftOffice2019
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Application
-  = MicrosoftOffice2016
-  | MicrosoftOffice2019
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Application = Application' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Application where
-  parser =
-    takeLowerText >>= \case
-      "microsoft_office_2016" -> pure MicrosoftOffice2016
-      "microsoft_office_2019" -> pure MicrosoftOffice2019
-      e ->
-        fromTextError $
-          "Failure parsing Application from value: '" <> e
-            <> "'. Accepted values: microsoft_office_2016, microsoft_office_2019"
+pattern MicrosoftOffice2016 :: Application
+pattern MicrosoftOffice2016 = Application' "Microsoft_Office_2016"
 
-instance ToText Application where
-  toText = \case
-    MicrosoftOffice2016 -> "Microsoft_Office_2016"
-    MicrosoftOffice2019 -> "Microsoft_Office_2019"
+pattern MicrosoftOffice2019 :: Application
+pattern MicrosoftOffice2019 = Application' "Microsoft_Office_2019"
 
-instance Hashable Application
-
-instance NFData Application
-
-instance ToByteString Application
-
-instance ToQuery Application
-
-instance ToHeader Application
-
-instance ToJSON Application where
-  toJSON = toJSONText
+{-# COMPLETE
+  MicrosoftOffice2016,
+  MicrosoftOffice2019,
+  Application'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetReplacementStrategy where
+module Network.AWS.EC2.Types.FleetReplacementStrategy
+  ( FleetReplacementStrategy
+      ( FleetReplacementStrategy',
+        Launch
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetReplacementStrategy = Launch
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetReplacementStrategy = FleetReplacementStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetReplacementStrategy where
-  parser =
-    takeLowerText >>= \case
-      "launch" -> pure Launch
-      e ->
-        fromTextError $
-          "Failure parsing FleetReplacementStrategy from value: '" <> e
-            <> "'. Accepted values: launch"
+pattern Launch :: FleetReplacementStrategy
+pattern Launch = FleetReplacementStrategy' "launch"
 
-instance ToText FleetReplacementStrategy where
-  toText = \case
-    Launch -> "launch"
-
-instance Hashable FleetReplacementStrategy
-
-instance NFData FleetReplacementStrategy
-
-instance ToByteString FleetReplacementStrategy
-
-instance ToQuery FleetReplacementStrategy
-
-instance ToHeader FleetReplacementStrategy
-
-instance FromXML FleetReplacementStrategy where
-  parseXML = parseXMLText "FleetReplacementStrategy"
+{-# COMPLETE
+  Launch,
+  FleetReplacementStrategy'
+  #-}

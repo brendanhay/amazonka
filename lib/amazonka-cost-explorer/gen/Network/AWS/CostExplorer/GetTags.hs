@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string.
 module Network.AWS.CostExplorer.GetTags
-  ( -- * Creating a Request
-    getTags,
-    GetTags,
+  ( -- * Creating a request
+    GetTags (..),
+    mkGetTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtNextPageToken,
     gtSearchString,
     gtTagKey,
     gtTimePeriod,
 
-    -- * Destructuring the Response
-    getTagsResponse,
-    GetTagsResponse,
+    -- * Destructuring the response
+    GetTagsResponse (..),
+    mkGetTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtrsNextPageToken,
     gtrsResponseStatus,
     gtrsTags,
@@ -43,163 +38,188 @@ module Network.AWS.CostExplorer.GetTags
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTags' smart constructor.
+-- | /See:/ 'mkGetTags' smart constructor.
 data GetTags = GetTags'
-  { _gtNextPageToken :: !(Maybe Text),
-    _gtSearchString :: !(Maybe Text),
-    _gtTagKey :: !(Maybe Text),
-    _gtTimePeriod :: !DateInterval
+  { nextPageToken :: Lude.Maybe Lude.Text,
+    searchString :: Lude.Maybe Lude.Text,
+    tagKey :: Lude.Maybe Lude.Text,
+    timePeriod :: DateInterval
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gtSearchString' - The value that you want to search for.
---
--- * 'gtTagKey' - The key of the tag that you want to return values for.
---
--- * 'gtTimePeriod' - The start and end dates for retrieving the dimension values. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-getTags ::
-  -- | 'gtTimePeriod'
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'searchString' - The value that you want to search for.
+-- * 'tagKey' - The key of the tag that you want to return values for.
+-- * 'timePeriod' - The start and end dates for retrieving the dimension values. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+mkGetTags ::
+  -- | 'timePeriod'
   DateInterval ->
   GetTags
-getTags pTimePeriod_ =
+mkGetTags pTimePeriod_ =
   GetTags'
-    { _gtNextPageToken = Nothing,
-      _gtSearchString = Nothing,
-      _gtTagKey = Nothing,
-      _gtTimePeriod = pTimePeriod_
+    { nextPageToken = Lude.Nothing,
+      searchString = Lude.Nothing,
+      tagKey = Lude.Nothing,
+      timePeriod = pTimePeriod_
     }
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gtNextPageToken :: Lens' GetTags (Maybe Text)
-gtNextPageToken = lens _gtNextPageToken (\s a -> s {_gtNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtNextPageToken :: Lens.Lens' GetTags (Lude.Maybe Lude.Text)
+gtNextPageToken = Lens.lens (nextPageToken :: GetTags -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetTags)
+{-# DEPRECATED gtNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The value that you want to search for.
-gtSearchString :: Lens' GetTags (Maybe Text)
-gtSearchString = lens _gtSearchString (\s a -> s {_gtSearchString = a})
+--
+-- /Note:/ Consider using 'searchString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtSearchString :: Lens.Lens' GetTags (Lude.Maybe Lude.Text)
+gtSearchString = Lens.lens (searchString :: GetTags -> Lude.Maybe Lude.Text) (\s a -> s {searchString = a} :: GetTags)
+{-# DEPRECATED gtSearchString "Use generic-lens or generic-optics with 'searchString' instead." #-}
 
 -- | The key of the tag that you want to return values for.
-gtTagKey :: Lens' GetTags (Maybe Text)
-gtTagKey = lens _gtTagKey (\s a -> s {_gtTagKey = a})
+--
+-- /Note:/ Consider using 'tagKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtTagKey :: Lens.Lens' GetTags (Lude.Maybe Lude.Text)
+gtTagKey = Lens.lens (tagKey :: GetTags -> Lude.Maybe Lude.Text) (\s a -> s {tagKey = a} :: GetTags)
+{-# DEPRECATED gtTagKey "Use generic-lens or generic-optics with 'tagKey' instead." #-}
 
 -- | The start and end dates for retrieving the dimension values. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-gtTimePeriod :: Lens' GetTags DateInterval
-gtTimePeriod = lens _gtTimePeriod (\s a -> s {_gtTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtTimePeriod :: Lens.Lens' GetTags DateInterval
+gtTimePeriod = Lens.lens (timePeriod :: GetTags -> DateInterval) (\s a -> s {timePeriod = a} :: GetTags)
+{-# DEPRECATED gtTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
-instance AWSRequest GetTags where
+instance Lude.AWSRequest GetTags where
   type Rs GetTags = GetTagsResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (x .:> "ReturnSize")
-            <*> (x .:> "TotalSize")
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "ReturnSize")
+            Lude.<*> (x Lude..:> "TotalSize")
       )
 
-instance Hashable GetTags
-
-instance NFData GetTags
-
-instance ToHeaders GetTags where
+instance Lude.ToHeaders GetTags where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.GetTags" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSInsightsIndexService.GetTags" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTags where
+instance Lude.ToJSON GetTags where
   toJSON GetTags' {..} =
-    object
-      ( catMaybes
-          [ ("NextPageToken" .=) <$> _gtNextPageToken,
-            ("SearchString" .=) <$> _gtSearchString,
-            ("TagKey" .=) <$> _gtTagKey,
-            Just ("TimePeriod" .= _gtTimePeriod)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("SearchString" Lude..=) Lude.<$> searchString,
+            ("TagKey" Lude..=) Lude.<$> tagKey,
+            Lude.Just ("TimePeriod" Lude..= timePeriod)
           ]
       )
 
-instance ToPath GetTags where
-  toPath = const "/"
+instance Lude.ToPath GetTags where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTags where
-  toQuery = const mempty
+instance Lude.ToQuery GetTags where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTagsResponse' smart constructor.
+-- | /See:/ 'mkGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
-  { _gtrsNextPageToken ::
-      !(Maybe Text),
-    _gtrsResponseStatus :: !Int,
-    _gtrsTags :: ![Text],
-    _gtrsReturnSize :: !Int,
-    _gtrsTotalSize :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    tags :: [Lude.Text],
+    returnSize :: Lude.Int,
+    totalSize :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtrsNextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gtrsResponseStatus' - -- | The response status code.
---
--- * 'gtrsTags' - The tags that match your request.
---
--- * 'gtrsReturnSize' - The number of query results that AWS returns at a time.
---
--- * 'gtrsTotalSize' - The total number of query results.
-getTagsResponse ::
-  -- | 'gtrsResponseStatus'
-  Int ->
-  -- | 'gtrsReturnSize'
-  Int ->
-  -- | 'gtrsTotalSize'
-  Int ->
+-- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'responseStatus' - The response status code.
+-- * 'returnSize' - The number of query results that AWS returns at a time.
+-- * 'tags' - The tags that match your request.
+-- * 'totalSize' - The total number of query results.
+mkGetTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'returnSize'
+  Lude.Int ->
+  -- | 'totalSize'
+  Lude.Int ->
   GetTagsResponse
-getTagsResponse pResponseStatus_ pReturnSize_ pTotalSize_ =
+mkGetTagsResponse pResponseStatus_ pReturnSize_ pTotalSize_ =
   GetTagsResponse'
-    { _gtrsNextPageToken = Nothing,
-      _gtrsResponseStatus = pResponseStatus_,
-      _gtrsTags = mempty,
-      _gtrsReturnSize = pReturnSize_,
-      _gtrsTotalSize = pTotalSize_
+    { nextPageToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      tags = Lude.mempty,
+      returnSize = pReturnSize_,
+      totalSize = pTotalSize_
     }
 
 -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gtrsNextPageToken :: Lens' GetTagsResponse (Maybe Text)
-gtrsNextPageToken = lens _gtrsNextPageToken (\s a -> s {_gtrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsNextPageToken :: Lens.Lens' GetTagsResponse (Lude.Maybe Lude.Text)
+gtrsNextPageToken = Lens.lens (nextPageToken :: GetTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetTagsResponse)
+{-# DEPRECATED gtrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | -- | The response status code.
-gtrsResponseStatus :: Lens' GetTagsResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\s a -> s {_gtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsResponseStatus :: Lens.Lens' GetTagsResponse Lude.Int
+gtrsResponseStatus = Lens.lens (responseStatus :: GetTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTagsResponse)
+{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The tags that match your request.
-gtrsTags :: Lens' GetTagsResponse [Text]
-gtrsTags = lens _gtrsTags (\s a -> s {_gtrsTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsTags :: Lens.Lens' GetTagsResponse [Lude.Text]
+gtrsTags = Lens.lens (tags :: GetTagsResponse -> [Lude.Text]) (\s a -> s {tags = a} :: GetTagsResponse)
+{-# DEPRECATED gtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The number of query results that AWS returns at a time.
-gtrsReturnSize :: Lens' GetTagsResponse Int
-gtrsReturnSize = lens _gtrsReturnSize (\s a -> s {_gtrsReturnSize = a})
+--
+-- /Note:/ Consider using 'returnSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsReturnSize :: Lens.Lens' GetTagsResponse Lude.Int
+gtrsReturnSize = Lens.lens (returnSize :: GetTagsResponse -> Lude.Int) (\s a -> s {returnSize = a} :: GetTagsResponse)
+{-# DEPRECATED gtrsReturnSize "Use generic-lens or generic-optics with 'returnSize' instead." #-}
 
 -- | The total number of query results.
-gtrsTotalSize :: Lens' GetTagsResponse Int
-gtrsTotalSize = lens _gtrsTotalSize (\s a -> s {_gtrsTotalSize = a})
-
-instance NFData GetTagsResponse
+--
+-- /Note:/ Consider using 'totalSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsTotalSize :: Lens.Lens' GetTagsResponse Lude.Int
+gtrsTotalSize = Lens.lens (totalSize :: GetTagsResponse -> Lude.Int) (\s a -> s {totalSize = a} :: GetTagsResponse)
+{-# DEPRECATED gtrsTotalSize "Use generic-lens or generic-optics with 'totalSize' instead." #-}

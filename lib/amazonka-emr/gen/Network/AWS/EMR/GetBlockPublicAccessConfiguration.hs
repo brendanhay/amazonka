@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Returns the Amazon EMR block public access configuration for your AWS account in the current Region. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html Configure Block Public Access for Amazon EMR> in the /Amazon EMR Management Guide/ .
 module Network.AWS.EMR.GetBlockPublicAccessConfiguration
-  ( -- * Creating a Request
-    getBlockPublicAccessConfiguration,
-    GetBlockPublicAccessConfiguration,
+  ( -- * Creating a request
+    GetBlockPublicAccessConfiguration (..),
+    mkGetBlockPublicAccessConfiguration,
 
-    -- * Destructuring the Response
-    getBlockPublicAccessConfigurationResponse,
-    GetBlockPublicAccessConfigurationResponse,
+    -- * Destructuring the response
+    GetBlockPublicAccessConfigurationResponse (..),
+    mkGetBlockPublicAccessConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbpacrsResponseStatus,
     gbpacrsBlockPublicAccessConfiguration,
     gbpacrsBlockPublicAccessConfigurationMetadata,
@@ -35,118 +30,125 @@ module Network.AWS.EMR.GetBlockPublicAccessConfiguration
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBlockPublicAccessConfiguration' smart constructor.
+-- | /See:/ 'mkGetBlockPublicAccessConfiguration' smart constructor.
 data GetBlockPublicAccessConfiguration = GetBlockPublicAccessConfiguration'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBlockPublicAccessConfiguration' with the minimum fields required to make a request.
-getBlockPublicAccessConfiguration ::
+mkGetBlockPublicAccessConfiguration ::
   GetBlockPublicAccessConfiguration
-getBlockPublicAccessConfiguration =
+mkGetBlockPublicAccessConfiguration =
   GetBlockPublicAccessConfiguration'
 
-instance AWSRequest GetBlockPublicAccessConfiguration where
+instance Lude.AWSRequest GetBlockPublicAccessConfiguration where
   type
     Rs GetBlockPublicAccessConfiguration =
       GetBlockPublicAccessConfigurationResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBlockPublicAccessConfigurationResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .:> "BlockPublicAccessConfiguration")
-            <*> (x .:> "BlockPublicAccessConfigurationMetadata")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "BlockPublicAccessConfiguration")
+            Lude.<*> (x Lude..:> "BlockPublicAccessConfigurationMetadata")
       )
 
-instance Hashable GetBlockPublicAccessConfiguration
-
-instance NFData GetBlockPublicAccessConfiguration
-
-instance ToHeaders GetBlockPublicAccessConfiguration where
+instance Lude.ToHeaders GetBlockPublicAccessConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetBlockPublicAccessConfiguration where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetBlockPublicAccessConfiguration where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetBlockPublicAccessConfiguration where
-  toPath = const "/"
+instance Lude.ToPath GetBlockPublicAccessConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetBlockPublicAccessConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetBlockPublicAccessConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getBlockPublicAccessConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetBlockPublicAccessConfigurationResponse' smart constructor.
 data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurationResponse'
-  { _gbpacrsResponseStatus ::
-      !Int,
-    _gbpacrsBlockPublicAccessConfiguration ::
-      !BlockPublicAccessConfiguration,
-    _gbpacrsBlockPublicAccessConfigurationMetadata ::
-      !BlockPublicAccessConfigurationMetadata
+  { responseStatus ::
+      Lude.Int,
+    blockPublicAccessConfiguration ::
+      BlockPublicAccessConfiguration,
+    blockPublicAccessConfigurationMetadata ::
+      BlockPublicAccessConfigurationMetadata
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBlockPublicAccessConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbpacrsResponseStatus' - -- | The response status code.
---
--- * 'gbpacrsBlockPublicAccessConfiguration' - A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
---
--- * 'gbpacrsBlockPublicAccessConfigurationMetadata' - Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
-getBlockPublicAccessConfigurationResponse ::
-  -- | 'gbpacrsResponseStatus'
-  Int ->
-  -- | 'gbpacrsBlockPublicAccessConfiguration'
+-- * 'blockPublicAccessConfiguration' - A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
+-- * 'blockPublicAccessConfigurationMetadata' - Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
+-- * 'responseStatus' - The response status code.
+mkGetBlockPublicAccessConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'blockPublicAccessConfiguration'
   BlockPublicAccessConfiguration ->
-  -- | 'gbpacrsBlockPublicAccessConfigurationMetadata'
+  -- | 'blockPublicAccessConfigurationMetadata'
   BlockPublicAccessConfigurationMetadata ->
   GetBlockPublicAccessConfigurationResponse
-getBlockPublicAccessConfigurationResponse
+mkGetBlockPublicAccessConfigurationResponse
   pResponseStatus_
   pBlockPublicAccessConfiguration_
   pBlockPublicAccessConfigurationMetadata_ =
     GetBlockPublicAccessConfigurationResponse'
-      { _gbpacrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gbpacrsBlockPublicAccessConfiguration =
+        blockPublicAccessConfiguration =
           pBlockPublicAccessConfiguration_,
-        _gbpacrsBlockPublicAccessConfigurationMetadata =
+        blockPublicAccessConfigurationMetadata =
           pBlockPublicAccessConfigurationMetadata_
       }
 
--- | -- | The response status code.
-gbpacrsResponseStatus :: Lens' GetBlockPublicAccessConfigurationResponse Int
-gbpacrsResponseStatus = lens _gbpacrsResponseStatus (\s a -> s {_gbpacrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpacrsResponseStatus :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Lude.Int
+gbpacrsResponseStatus = Lens.lens (responseStatus :: GetBlockPublicAccessConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBlockPublicAccessConfigurationResponse)
+{-# DEPRECATED gbpacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
-gbpacrsBlockPublicAccessConfiguration :: Lens' GetBlockPublicAccessConfigurationResponse BlockPublicAccessConfiguration
-gbpacrsBlockPublicAccessConfiguration = lens _gbpacrsBlockPublicAccessConfiguration (\s a -> s {_gbpacrsBlockPublicAccessConfiguration = a})
+--
+-- /Note:/ Consider using 'blockPublicAccessConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpacrsBlockPublicAccessConfiguration :: Lens.Lens' GetBlockPublicAccessConfigurationResponse BlockPublicAccessConfiguration
+gbpacrsBlockPublicAccessConfiguration = Lens.lens (blockPublicAccessConfiguration :: GetBlockPublicAccessConfigurationResponse -> BlockPublicAccessConfiguration) (\s a -> s {blockPublicAccessConfiguration = a} :: GetBlockPublicAccessConfigurationResponse)
+{-# DEPRECATED gbpacrsBlockPublicAccessConfiguration "Use generic-lens or generic-optics with 'blockPublicAccessConfiguration' instead." #-}
 
 -- | Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
-gbpacrsBlockPublicAccessConfigurationMetadata :: Lens' GetBlockPublicAccessConfigurationResponse BlockPublicAccessConfigurationMetadata
-gbpacrsBlockPublicAccessConfigurationMetadata = lens _gbpacrsBlockPublicAccessConfigurationMetadata (\s a -> s {_gbpacrsBlockPublicAccessConfigurationMetadata = a})
-
-instance NFData GetBlockPublicAccessConfigurationResponse
+--
+-- /Note:/ Consider using 'blockPublicAccessConfigurationMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpacrsBlockPublicAccessConfigurationMetadata :: Lens.Lens' GetBlockPublicAccessConfigurationResponse BlockPublicAccessConfigurationMetadata
+gbpacrsBlockPublicAccessConfigurationMetadata = Lens.lens (blockPublicAccessConfigurationMetadata :: GetBlockPublicAccessConfigurationResponse -> BlockPublicAccessConfigurationMetadata) (\s a -> s {blockPublicAccessConfigurationMetadata = a} :: GetBlockPublicAccessConfigurationResponse)
+{-# DEPRECATED gbpacrsBlockPublicAccessConfigurationMetadata "Use generic-lens or generic-optics with 'blockPublicAccessConfigurationMetadata' instead." #-}

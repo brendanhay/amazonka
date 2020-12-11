@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.ArrayJobDependency where
+module Network.AWS.Batch.Types.ArrayJobDependency
+  ( ArrayJobDependency
+      ( ArrayJobDependency',
+        NToN,
+        Sequential
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArrayJobDependency
-  = NToN
-  | Sequential
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArrayJobDependency = ArrayJobDependency' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArrayJobDependency where
-  parser =
-    takeLowerText >>= \case
-      "n_to_n" -> pure NToN
-      "sequential" -> pure Sequential
-      e ->
-        fromTextError $
-          "Failure parsing ArrayJobDependency from value: '" <> e
-            <> "'. Accepted values: n_to_n, sequential"
+pattern NToN :: ArrayJobDependency
+pattern NToN = ArrayJobDependency' "N_TO_N"
 
-instance ToText ArrayJobDependency where
-  toText = \case
-    NToN -> "N_TO_N"
-    Sequential -> "SEQUENTIAL"
+pattern Sequential :: ArrayJobDependency
+pattern Sequential = ArrayJobDependency' "SEQUENTIAL"
 
-instance Hashable ArrayJobDependency
-
-instance NFData ArrayJobDependency
-
-instance ToByteString ArrayJobDependency
-
-instance ToQuery ArrayJobDependency
-
-instance ToHeader ArrayJobDependency
-
-instance ToJSON ArrayJobDependency where
-  toJSON = toJSONText
-
-instance FromJSON ArrayJobDependency where
-  parseJSON = parseJSONText "ArrayJobDependency"
+{-# COMPLETE
+  NToN,
+  Sequential,
+  ArrayJobDependency'
+  #-}

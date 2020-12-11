@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Starts logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.EnableLogging
-  ( -- * Creating a Request
-    enableLogging,
-    EnableLogging,
+  ( -- * Creating a request
+    EnableLogging (..),
+    mkEnableLogging,
 
-    -- * Request Lenses
+    -- ** Request lenses
     elS3KeyPrefix,
     elClusterIdentifier,
     elBucketName,
 
-    -- * Destructuring the Response
-    loggingStatus,
-    LoggingStatus,
+    -- * Destructuring the response
+    LoggingStatus (..),
+    mkLoggingStatus,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsLastFailureTime,
     lsLastSuccessfulDeliveryTime,
     lsS3KeyPrefix,
@@ -42,81 +37,157 @@ module Network.AWS.Redshift.EnableLogging
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'enableLogging' smart constructor.
+-- /See:/ 'mkEnableLogging' smart constructor.
 data EnableLogging = EnableLogging'
-  { _elS3KeyPrefix ::
-      !(Maybe Text),
-    _elClusterIdentifier :: !Text,
-    _elBucketName :: !Text
+  { s3KeyPrefix ::
+      Lude.Maybe Lude.Text,
+    clusterIdentifier :: Lude.Text,
+    bucketName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableLogging' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucketName' - The name of an existing S3 bucket where the log files are to be stored.
 --
--- * 'elS3KeyPrefix' - The prefix applied to the log file names. Constraints:     * Cannot exceed 512 characters     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:      * x00 to x20     * x22     * x27     * x5c     * x7f or larger
+-- Constraints:
 --
--- * 'elClusterIdentifier' - The identifier of the cluster on which logging is to be started. Example: @examplecluster@
+--     * Must be in the same region as the cluster
 --
--- * 'elBucketName' - The name of an existing S3 bucket where the log files are to be stored. Constraints:     * Must be in the same region as the cluster     * The cluster must have read bucket and put object permissions
-enableLogging ::
-  -- | 'elClusterIdentifier'
-  Text ->
-  -- | 'elBucketName'
-  Text ->
+--
+--     * The cluster must have read bucket and put object permissions
+--
+--
+-- * 'clusterIdentifier' - The identifier of the cluster on which logging is to be started.
+--
+-- Example: @examplecluster@
+-- * 's3KeyPrefix' - The prefix applied to the log file names.
+--
+-- Constraints:
+--
+--     * Cannot exceed 512 characters
+--
+--
+--     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+--
+--     * x00 to x20
+--
+--
+--     * x22
+--
+--
+--     * x27
+--
+--
+--     * x5c
+--
+--
+--     * x7f or larger
+mkEnableLogging ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
+  -- | 'bucketName'
+  Lude.Text ->
   EnableLogging
-enableLogging pClusterIdentifier_ pBucketName_ =
+mkEnableLogging pClusterIdentifier_ pBucketName_ =
   EnableLogging'
-    { _elS3KeyPrefix = Nothing,
-      _elClusterIdentifier = pClusterIdentifier_,
-      _elBucketName = pBucketName_
+    { s3KeyPrefix = Lude.Nothing,
+      clusterIdentifier = pClusterIdentifier_,
+      bucketName = pBucketName_
     }
 
--- | The prefix applied to the log file names. Constraints:     * Cannot exceed 512 characters     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:      * x00 to x20     * x22     * x27     * x5c     * x7f or larger
-elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
-elS3KeyPrefix = lens _elS3KeyPrefix (\s a -> s {_elS3KeyPrefix = a})
+-- | The prefix applied to the log file names.
+--
+-- Constraints:
+--
+--     * Cannot exceed 512 characters
+--
+--
+--     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+--
+--     * x00 to x20
+--
+--
+--     * x22
+--
+--
+--     * x27
+--
+--
+--     * x5c
+--
+--
+--     * x7f or larger
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 's3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elS3KeyPrefix :: Lens.Lens' EnableLogging (Lude.Maybe Lude.Text)
+elS3KeyPrefix = Lens.lens (s3KeyPrefix :: EnableLogging -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: EnableLogging)
+{-# DEPRECATED elS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
 
--- | The identifier of the cluster on which logging is to be started. Example: @examplecluster@
-elClusterIdentifier :: Lens' EnableLogging Text
-elClusterIdentifier = lens _elClusterIdentifier (\s a -> s {_elClusterIdentifier = a})
+-- | The identifier of the cluster on which logging is to be started.
+--
+-- Example: @examplecluster@
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elClusterIdentifier :: Lens.Lens' EnableLogging Lude.Text
+elClusterIdentifier = Lens.lens (clusterIdentifier :: EnableLogging -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: EnableLogging)
+{-# DEPRECATED elClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
--- | The name of an existing S3 bucket where the log files are to be stored. Constraints:     * Must be in the same region as the cluster     * The cluster must have read bucket and put object permissions
-elBucketName :: Lens' EnableLogging Text
-elBucketName = lens _elBucketName (\s a -> s {_elBucketName = a})
+-- | The name of an existing S3 bucket where the log files are to be stored.
+--
+-- Constraints:
+--
+--     * Must be in the same region as the cluster
+--
+--
+--     * The cluster must have read bucket and put object permissions
+--
+--
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elBucketName :: Lens.Lens' EnableLogging Lude.Text
+elBucketName = Lens.lens (bucketName :: EnableLogging -> Lude.Text) (\s a -> s {bucketName = a} :: EnableLogging)
+{-# DEPRECATED elBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
-instance AWSRequest EnableLogging where
+instance Lude.AWSRequest EnableLogging where
   type Rs EnableLogging = LoggingStatus
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper "EnableLoggingResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "EnableLoggingResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable EnableLogging
+instance Lude.ToHeaders EnableLogging where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData EnableLogging
+instance Lude.ToPath EnableLogging where
+  toPath = Lude.const "/"
 
-instance ToHeaders EnableLogging where
-  toHeaders = const mempty
-
-instance ToPath EnableLogging where
-  toPath = const "/"
-
-instance ToQuery EnableLogging where
+instance Lude.ToQuery EnableLogging where
   toQuery EnableLogging' {..} =
-    mconcat
-      [ "Action" =: ("EnableLogging" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "S3KeyPrefix" =: _elS3KeyPrefix,
-        "ClusterIdentifier" =: _elClusterIdentifier,
-        "BucketName" =: _elBucketName
+    Lude.mconcat
+      [ "Action" Lude.=: ("EnableLogging" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "S3KeyPrefix" Lude.=: s3KeyPrefix,
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "BucketName" Lude.=: bucketName
       ]

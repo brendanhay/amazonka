@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLSortBy where
+module Network.AWS.SageMaker.Types.AutoMLSortBy
+  ( AutoMLSortBy
+      ( AutoMLSortBy',
+        AMLSBCreationTime,
+        AMLSBName,
+        AMLSBStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoMLSortBy
-  = AMLSBCreationTime
-  | AMLSBName
-  | AMLSBStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoMLSortBy = AutoMLSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoMLSortBy where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure AMLSBCreationTime
-      "name" -> pure AMLSBName
-      "status" -> pure AMLSBStatus
-      e ->
-        fromTextError $
-          "Failure parsing AutoMLSortBy from value: '" <> e
-            <> "'. Accepted values: creationtime, name, status"
+pattern AMLSBCreationTime :: AutoMLSortBy
+pattern AMLSBCreationTime = AutoMLSortBy' "CreationTime"
 
-instance ToText AutoMLSortBy where
-  toText = \case
-    AMLSBCreationTime -> "CreationTime"
-    AMLSBName -> "Name"
-    AMLSBStatus -> "Status"
+pattern AMLSBName :: AutoMLSortBy
+pattern AMLSBName = AutoMLSortBy' "Name"
 
-instance Hashable AutoMLSortBy
+pattern AMLSBStatus :: AutoMLSortBy
+pattern AMLSBStatus = AutoMLSortBy' "Status"
 
-instance NFData AutoMLSortBy
-
-instance ToByteString AutoMLSortBy
-
-instance ToQuery AutoMLSortBy
-
-instance ToHeader AutoMLSortBy
-
-instance ToJSON AutoMLSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  AMLSBCreationTime,
+  AMLSBName,
+  AMLSBStatus,
+  AutoMLSortBy'
+  #-}

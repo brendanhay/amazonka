@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,163 +14,183 @@
 --
 -- Returns all State Manager associations in the current AWS account and Region. You can limit the results to a specific State Manager association document or instance by specifying a filter.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociations
-  ( -- * Creating a Request
-    listAssociations,
-    ListAssociations,
+  ( -- * Creating a request
+    ListAssociations (..),
+    mkListAssociations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laAssociationFilterList,
     laNextToken,
     laMaxResults,
 
-    -- * Destructuring the Response
-    listAssociationsResponse,
-    ListAssociationsResponse,
+    -- * Destructuring the response
+    ListAssociationsResponse (..),
+    mkListAssociationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larsNextToken,
     larsAssociations,
     larsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'listAssociations' smart constructor.
+-- | /See:/ 'mkListAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-  { _laAssociationFilterList ::
-      !(Maybe (List1 AssociationFilter)),
-    _laNextToken :: !(Maybe Text),
-    _laMaxResults :: !(Maybe Nat)
+  { associationFilterList ::
+      Lude.Maybe (Lude.NonEmpty AssociationFilter),
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssociations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laAssociationFilterList' - One or more filters. Use a filter to return a more specific list of results.
---
--- * 'laNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'laMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-listAssociations ::
+-- * 'associationFilterList' - One or more filters. Use a filter to return a more specific list of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkListAssociations ::
   ListAssociations
-listAssociations =
+mkListAssociations =
   ListAssociations'
-    { _laAssociationFilterList = Nothing,
-      _laNextToken = Nothing,
-      _laMaxResults = Nothing
+    { associationFilterList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | One or more filters. Use a filter to return a more specific list of results.
-laAssociationFilterList :: Lens' ListAssociations (Maybe (NonEmpty AssociationFilter))
-laAssociationFilterList = lens _laAssociationFilterList (\s a -> s {_laAssociationFilterList = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'associationFilterList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laAssociationFilterList :: Lens.Lens' ListAssociations (Lude.Maybe (Lude.NonEmpty AssociationFilter))
+laAssociationFilterList = Lens.lens (associationFilterList :: ListAssociations -> Lude.Maybe (Lude.NonEmpty AssociationFilter)) (\s a -> s {associationFilterList = a} :: ListAssociations)
+{-# DEPRECATED laAssociationFilterList "Use generic-lens or generic-optics with 'associationFilterList' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-laNextToken :: Lens' ListAssociations (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s {_laNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListAssociations (Lude.Maybe Lude.Text)
+laNextToken = Lens.lens (nextToken :: ListAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociations)
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-laMaxResults :: Lens' ListAssociations (Maybe Natural)
-laMaxResults = lens _laMaxResults (\s a -> s {_laMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laMaxResults :: Lens.Lens' ListAssociations (Lude.Maybe Lude.Natural)
+laMaxResults = Lens.lens (maxResults :: ListAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAssociations)
+{-# DEPRECATED laMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListAssociations where
+instance Page.AWSPager ListAssociations where
   page rq rs
-    | stop (rs ^. larsNextToken) = Nothing
-    | stop (rs ^. larsAssociations) = Nothing
-    | otherwise = Just $ rq & laNextToken .~ rs ^. larsNextToken
+    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larsAssociations) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
 
-instance AWSRequest ListAssociations where
+instance Lude.AWSRequest ListAssociations where
   type Rs ListAssociations = ListAssociationsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAssociationsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Associations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Associations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAssociations
-
-instance NFData ListAssociations
-
-instance ToHeaders ListAssociations where
+instance Lude.ToHeaders ListAssociations where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.ListAssociations" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.ListAssociations" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAssociations where
+instance Lude.ToJSON ListAssociations where
   toJSON ListAssociations' {..} =
-    object
-      ( catMaybes
-          [ ("AssociationFilterList" .=) <$> _laAssociationFilterList,
-            ("NextToken" .=) <$> _laNextToken,
-            ("MaxResults" .=) <$> _laMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AssociationFilterList" Lude..=) Lude.<$> associationFilterList,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListAssociations where
-  toPath = const "/"
+instance Lude.ToPath ListAssociations where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAssociations where
-  toQuery = const mempty
+instance Lude.ToQuery ListAssociations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAssociationsResponse' smart constructor.
+-- | /See:/ 'mkListAssociationsResponse' smart constructor.
 data ListAssociationsResponse = ListAssociationsResponse'
-  { _larsNextToken ::
-      !(Maybe Text),
-    _larsAssociations ::
-      !(Maybe [Association]),
-    _larsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    associations :: Lude.Maybe [Association],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssociationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'larsAssociations' - The associations.
---
--- * 'larsResponseStatus' - -- | The response status code.
-listAssociationsResponse ::
-  -- | 'larsResponseStatus'
-  Int ->
+-- * 'associations' - The associations.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkListAssociationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAssociationsResponse
-listAssociationsResponse pResponseStatus_ =
+mkListAssociationsResponse pResponseStatus_ =
   ListAssociationsResponse'
-    { _larsNextToken = Nothing,
-      _larsAssociations = Nothing,
-      _larsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      associations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-larsNextToken :: Lens' ListAssociationsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\s a -> s {_larsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsNextToken :: Lens.Lens' ListAssociationsResponse (Lude.Maybe Lude.Text)
+larsNextToken = Lens.lens (nextToken :: ListAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociationsResponse)
+{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The associations.
-larsAssociations :: Lens' ListAssociationsResponse [Association]
-larsAssociations = lens _larsAssociations (\s a -> s {_larsAssociations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'associations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsAssociations :: Lens.Lens' ListAssociationsResponse (Lude.Maybe [Association])
+larsAssociations = Lens.lens (associations :: ListAssociationsResponse -> Lude.Maybe [Association]) (\s a -> s {associations = a} :: ListAssociationsResponse)
+{-# DEPRECATED larsAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListAssociationsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\s a -> s {_larsResponseStatus = a})
-
-instance NFData ListAssociationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsResponseStatus :: Lens.Lens' ListAssociationsResponse Lude.Int
+larsResponseStatus = Lens.lens (responseStatus :: ListAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssociationsResponse)
+{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

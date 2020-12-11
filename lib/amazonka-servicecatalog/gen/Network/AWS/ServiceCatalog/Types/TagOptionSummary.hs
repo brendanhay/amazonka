@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.TagOptionSummary where
+module Network.AWS.ServiceCatalog.Types.TagOptionSummary
+  ( TagOptionSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTagOptionSummary,
+
+    -- * Lenses
+    tosValues,
+    tosKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary information about a TagOption.
 --
---
---
--- /See:/ 'tagOptionSummary' smart constructor.
+-- /See:/ 'mkTagOptionSummary' smart constructor.
 data TagOptionSummary = TagOptionSummary'
-  { _tosValues ::
-      !(Maybe [Text]),
-    _tosKey :: !(Maybe Text)
+  { values ::
+      Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagOptionSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tosValues' - The TagOption value.
---
--- * 'tosKey' - The TagOption key.
-tagOptionSummary ::
+-- * 'key' - The TagOption key.
+-- * 'values' - The TagOption value.
+mkTagOptionSummary ::
   TagOptionSummary
-tagOptionSummary =
-  TagOptionSummary' {_tosValues = Nothing, _tosKey = Nothing}
+mkTagOptionSummary =
+  TagOptionSummary' {values = Lude.Nothing, key = Lude.Nothing}
 
 -- | The TagOption value.
-tosValues :: Lens' TagOptionSummary [Text]
-tosValues = lens _tosValues (\s a -> s {_tosValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tosValues :: Lens.Lens' TagOptionSummary (Lude.Maybe [Lude.Text])
+tosValues = Lens.lens (values :: TagOptionSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: TagOptionSummary)
+{-# DEPRECATED tosValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The TagOption key.
-tosKey :: Lens' TagOptionSummary (Maybe Text)
-tosKey = lens _tosKey (\s a -> s {_tosKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tosKey :: Lens.Lens' TagOptionSummary (Lude.Maybe Lude.Text)
+tosKey = Lens.lens (key :: TagOptionSummary -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagOptionSummary)
+{-# DEPRECATED tosKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON TagOptionSummary where
+instance Lude.FromJSON TagOptionSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TagOptionSummary"
       ( \x ->
           TagOptionSummary'
-            <$> (x .:? "Values" .!= mempty) <*> (x .:? "Key")
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Key")
       )
-
-instance Hashable TagOptionSummary
-
-instance NFData TagOptionSummary

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,25 @@
 --
 -- Retrieves the @IdentityID@ associated with a @DeveloperUserIdentifier@ or the list of @DeveloperUserIdentifier@ values associated with an @IdentityId@ for an existing identity. Either @IdentityID@ or @DeveloperUserIdentifier@ must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, @DeveloperUserIdentifier@ will be matched against @IdentityID@ . If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a @ResourceConflictException@ is thrown.
 --
---
 -- @LookupDeveloperIdentity@ is intended for low-throughput control plane operations: for example, to enable customer service to locate an identity ID by username. If you are using it for higher-volume operations such as user authentication, your requests are likely to be throttled. 'GetOpenIdTokenForDeveloperIdentity' is a better option for higher-volume operations for user authentication.
---
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
-  ( -- * Creating a Request
-    lookupDeveloperIdentity,
-    LookupDeveloperIdentity,
+  ( -- * Creating a request
+    LookupDeveloperIdentity (..),
+    mkLookupDeveloperIdentity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldiDeveloperUserIdentifier,
     ldiNextToken,
     ldiIdentityId,
     ldiMaxResults,
     ldiIdentityPoolId,
 
-    -- * Destructuring the Response
-    lookupDeveloperIdentityResponse,
-    LookupDeveloperIdentityResponse,
+    -- * Destructuring the response
+    LookupDeveloperIdentityResponse (..),
+    mkLookupDeveloperIdentityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldirsNextToken,
     ldirsIdentityId,
     ldirsDeveloperUserIdentifierList,
@@ -48,173 +41,194 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the @LookupDeveloperIdentityInput@ action.
 --
---
---
--- /See:/ 'lookupDeveloperIdentity' smart constructor.
+-- /See:/ 'mkLookupDeveloperIdentity' smart constructor.
 data LookupDeveloperIdentity = LookupDeveloperIdentity'
-  { _ldiDeveloperUserIdentifier ::
-      !(Maybe Text),
-    _ldiNextToken :: !(Maybe Text),
-    _ldiIdentityId :: !(Maybe Text),
-    _ldiMaxResults :: !(Maybe Nat),
-    _ldiIdentityPoolId :: !Text
+  { developerUserIdentifier ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    identityId :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    identityPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LookupDeveloperIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldiDeveloperUserIdentifier' - A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.
---
--- * 'ldiNextToken' - A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
---
--- * 'ldiIdentityId' - A unique identifier in the format REGION:GUID.
---
--- * 'ldiMaxResults' - The maximum number of identities to return.
---
--- * 'ldiIdentityPoolId' - An identity pool ID in the format REGION:GUID.
-lookupDeveloperIdentity ::
-  -- | 'ldiIdentityPoolId'
-  Text ->
+-- * 'developerUserIdentifier' - A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'maxResults' - The maximum number of identities to return.
+-- * 'nextToken' - A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
+mkLookupDeveloperIdentity ::
+  -- | 'identityPoolId'
+  Lude.Text ->
   LookupDeveloperIdentity
-lookupDeveloperIdentity pIdentityPoolId_ =
+mkLookupDeveloperIdentity pIdentityPoolId_ =
   LookupDeveloperIdentity'
-    { _ldiDeveloperUserIdentifier = Nothing,
-      _ldiNextToken = Nothing,
-      _ldiIdentityId = Nothing,
-      _ldiMaxResults = Nothing,
-      _ldiIdentityPoolId = pIdentityPoolId_
+    { developerUserIdentifier = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      identityId = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      identityPoolId = pIdentityPoolId_
     }
 
 -- | A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.
-ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
-ldiDeveloperUserIdentifier = lens _ldiDeveloperUserIdentifier (\s a -> s {_ldiDeveloperUserIdentifier = a})
+--
+-- /Note:/ Consider using 'developerUserIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiDeveloperUserIdentifier :: Lens.Lens' LookupDeveloperIdentity (Lude.Maybe Lude.Text)
+ldiDeveloperUserIdentifier = Lens.lens (developerUserIdentifier :: LookupDeveloperIdentity -> Lude.Maybe Lude.Text) (\s a -> s {developerUserIdentifier = a} :: LookupDeveloperIdentity)
+{-# DEPRECATED ldiDeveloperUserIdentifier "Use generic-lens or generic-optics with 'developerUserIdentifier' instead." #-}
 
 -- | A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
-ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
-ldiNextToken = lens _ldiNextToken (\s a -> s {_ldiNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiNextToken :: Lens.Lens' LookupDeveloperIdentity (Lude.Maybe Lude.Text)
+ldiNextToken = Lens.lens (nextToken :: LookupDeveloperIdentity -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: LookupDeveloperIdentity)
+{-# DEPRECATED ldiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A unique identifier in the format REGION:GUID.
-ldiIdentityId :: Lens' LookupDeveloperIdentity (Maybe Text)
-ldiIdentityId = lens _ldiIdentityId (\s a -> s {_ldiIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiIdentityId :: Lens.Lens' LookupDeveloperIdentity (Lude.Maybe Lude.Text)
+ldiIdentityId = Lens.lens (identityId :: LookupDeveloperIdentity -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: LookupDeveloperIdentity)
+{-# DEPRECATED ldiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The maximum number of identities to return.
-ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
-ldiMaxResults = lens _ldiMaxResults (\s a -> s {_ldiMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiMaxResults :: Lens.Lens' LookupDeveloperIdentity (Lude.Maybe Lude.Natural)
+ldiMaxResults = Lens.lens (maxResults :: LookupDeveloperIdentity -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: LookupDeveloperIdentity)
+{-# DEPRECATED ldiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
-ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
-ldiIdentityPoolId = lens _ldiIdentityPoolId (\s a -> s {_ldiIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiIdentityPoolId :: Lens.Lens' LookupDeveloperIdentity Lude.Text
+ldiIdentityPoolId = Lens.lens (identityPoolId :: LookupDeveloperIdentity -> Lude.Text) (\s a -> s {identityPoolId = a} :: LookupDeveloperIdentity)
+{-# DEPRECATED ldiIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance AWSRequest LookupDeveloperIdentity where
+instance Lude.AWSRequest LookupDeveloperIdentity where
   type Rs LookupDeveloperIdentity = LookupDeveloperIdentityResponse
-  request = postJSON cognitoIdentity
+  request = Req.postJSON cognitoIdentityService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           LookupDeveloperIdentityResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "IdentityId")
-            <*> (x .?> "DeveloperUserIdentifierList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "IdentityId")
+            Lude.<*> (x Lude..?> "DeveloperUserIdentifierList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable LookupDeveloperIdentity
-
-instance NFData LookupDeveloperIdentity
-
-instance ToHeaders LookupDeveloperIdentity where
+instance Lude.ToHeaders LookupDeveloperIdentity where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityService.LookupDeveloperIdentity" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityService.LookupDeveloperIdentity" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON LookupDeveloperIdentity where
+instance Lude.ToJSON LookupDeveloperIdentity where
   toJSON LookupDeveloperIdentity' {..} =
-    object
-      ( catMaybes
-          [ ("DeveloperUserIdentifier" .=) <$> _ldiDeveloperUserIdentifier,
-            ("NextToken" .=) <$> _ldiNextToken,
-            ("IdentityId" .=) <$> _ldiIdentityId,
-            ("MaxResults" .=) <$> _ldiMaxResults,
-            Just ("IdentityPoolId" .= _ldiIdentityPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeveloperUserIdentifier" Lude..=)
+              Lude.<$> developerUserIdentifier,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("IdentityId" Lude..=) Lude.<$> identityId,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("IdentityPoolId" Lude..= identityPoolId)
           ]
       )
 
-instance ToPath LookupDeveloperIdentity where
-  toPath = const "/"
+instance Lude.ToPath LookupDeveloperIdentity where
+  toPath = Lude.const "/"
 
-instance ToQuery LookupDeveloperIdentity where
-  toQuery = const mempty
+instance Lude.ToQuery LookupDeveloperIdentity where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returned in response to a successful @LookupDeveloperIdentity@ action.
 --
---
---
--- /See:/ 'lookupDeveloperIdentityResponse' smart constructor.
+-- /See:/ 'mkLookupDeveloperIdentityResponse' smart constructor.
 data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
-  { _ldirsNextToken ::
-      !(Maybe Text),
-    _ldirsIdentityId ::
-      !(Maybe Text),
-    _ldirsDeveloperUserIdentifierList ::
-      !(Maybe [Text]),
-    _ldirsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    identityId ::
+      Lude.Maybe Lude.Text,
+    developerUserIdentifierList ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LookupDeveloperIdentityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldirsNextToken' - A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
---
--- * 'ldirsIdentityId' - A unique identifier in the format REGION:GUID.
---
--- * 'ldirsDeveloperUserIdentifierList' - This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.
---
--- * 'ldirsResponseStatus' - -- | The response status code.
-lookupDeveloperIdentityResponse ::
-  -- | 'ldirsResponseStatus'
-  Int ->
+-- * 'developerUserIdentifierList' - This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- * 'nextToken' - A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
+-- * 'responseStatus' - The response status code.
+mkLookupDeveloperIdentityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse pResponseStatus_ =
+mkLookupDeveloperIdentityResponse pResponseStatus_ =
   LookupDeveloperIdentityResponse'
-    { _ldirsNextToken = Nothing,
-      _ldirsIdentityId = Nothing,
-      _ldirsDeveloperUserIdentifierList = Nothing,
-      _ldirsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      identityId = Lude.Nothing,
+      developerUserIdentifierList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
-ldirsNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
-ldirsNextToken = lens _ldirsNextToken (\s a -> s {_ldirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldirsNextToken :: Lens.Lens' LookupDeveloperIdentityResponse (Lude.Maybe Lude.Text)
+ldirsNextToken = Lens.lens (nextToken :: LookupDeveloperIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: LookupDeveloperIdentityResponse)
+{-# DEPRECATED ldirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A unique identifier in the format REGION:GUID.
-ldirsIdentityId :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
-ldirsIdentityId = lens _ldirsIdentityId (\s a -> s {_ldirsIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldirsIdentityId :: Lens.Lens' LookupDeveloperIdentityResponse (Lude.Maybe Lude.Text)
+ldirsIdentityId = Lens.lens (identityId :: LookupDeveloperIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: LookupDeveloperIdentityResponse)
+{-# DEPRECATED ldirsIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.
-ldirsDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
-ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\s a -> s {_ldirsDeveloperUserIdentifierList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'developerUserIdentifierList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldirsDeveloperUserIdentifierList :: Lens.Lens' LookupDeveloperIdentityResponse (Lude.Maybe [Lude.Text])
+ldirsDeveloperUserIdentifierList = Lens.lens (developerUserIdentifierList :: LookupDeveloperIdentityResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {developerUserIdentifierList = a} :: LookupDeveloperIdentityResponse)
+{-# DEPRECATED ldirsDeveloperUserIdentifierList "Use generic-lens or generic-optics with 'developerUserIdentifierList' instead." #-}
 
--- | -- | The response status code.
-ldirsResponseStatus :: Lens' LookupDeveloperIdentityResponse Int
-ldirsResponseStatus = lens _ldirsResponseStatus (\s a -> s {_ldirsResponseStatus = a})
-
-instance NFData LookupDeveloperIdentityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldirsResponseStatus :: Lens.Lens' LookupDeveloperIdentityResponse Lude.Int
+ldirsResponseStatus = Lens.lens (responseStatus :: LookupDeveloperIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: LookupDeveloperIdentityResponse)
+{-# DEPRECATED ldirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

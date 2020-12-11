@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.SystemStatus where
+module Network.AWS.ElasticBeanstalk.Types.SystemStatus
+  ( SystemStatus (..),
+
+    -- * Smart constructor
+    mkSystemStatus,
+
+    -- * Lenses
+    ssCPUUtilization,
+    ssLoadAverage,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.CPUUtilization
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | CPU utilization and load average metrics for an Amazon EC2 instance.
 --
---
---
--- /See:/ 'systemStatus' smart constructor.
+-- /See:/ 'mkSystemStatus' smart constructor.
 data SystemStatus = SystemStatus'
-  { _ssCPUUtilization ::
-      !(Maybe CPUUtilization),
-    _ssLoadAverage :: !(Maybe [Double])
+  { cpuUtilization ::
+      Lude.Maybe CPUUtilization,
+    loadAverage :: Lude.Maybe [Lude.Double]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SystemStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssCPUUtilization' - CPU utilization metrics for the instance.
---
--- * 'ssLoadAverage' - Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
-systemStatus ::
+-- * 'cpuUtilization' - CPU utilization metrics for the instance.
+-- * 'loadAverage' - Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
+mkSystemStatus ::
   SystemStatus
-systemStatus =
+mkSystemStatus =
   SystemStatus'
-    { _ssCPUUtilization = Nothing,
-      _ssLoadAverage = Nothing
+    { cpuUtilization = Lude.Nothing,
+      loadAverage = Lude.Nothing
     }
 
 -- | CPU utilization metrics for the instance.
-ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
-ssCPUUtilization = lens _ssCPUUtilization (\s a -> s {_ssCPUUtilization = a})
+--
+-- /Note:/ Consider using 'cpuUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssCPUUtilization :: Lens.Lens' SystemStatus (Lude.Maybe CPUUtilization)
+ssCPUUtilization = Lens.lens (cpuUtilization :: SystemStatus -> Lude.Maybe CPUUtilization) (\s a -> s {cpuUtilization = a} :: SystemStatus)
+{-# DEPRECATED ssCPUUtilization "Use generic-lens or generic-optics with 'cpuUtilization' instead." #-}
 
 -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
-ssLoadAverage :: Lens' SystemStatus [Double]
-ssLoadAverage = lens _ssLoadAverage (\s a -> s {_ssLoadAverage = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loadAverage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLoadAverage :: Lens.Lens' SystemStatus (Lude.Maybe [Lude.Double])
+ssLoadAverage = Lens.lens (loadAverage :: SystemStatus -> Lude.Maybe [Lude.Double]) (\s a -> s {loadAverage = a} :: SystemStatus)
+{-# DEPRECATED ssLoadAverage "Use generic-lens or generic-optics with 'loadAverage' instead." #-}
 
-instance FromXML SystemStatus where
+instance Lude.FromXML SystemStatus where
   parseXML x =
     SystemStatus'
-      <$> (x .@? "CPUUtilization")
-      <*> (x .@? "LoadAverage" .!@ mempty >>= may (parseXMLList "member"))
-
-instance Hashable SystemStatus
-
-instance NFData SystemStatus
+      Lude.<$> (x Lude..@? "CPUUtilization")
+      Lude.<*> ( x Lude..@? "LoadAverage" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

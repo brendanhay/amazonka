@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Metrics where
+module Network.AWS.S3.Types.Metrics
+  ( Metrics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetrics,
+
+    -- * Lenses
+    mEventThreshold,
+    mStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.MetricsStatus
 import Network.AWS.S3.Types.ReplicationTimeValue
 
 -- | A container specifying replication metrics-related settings enabling replication metrics and events.
 --
---
---
--- /See:/ 'metrics' smart constructor.
+-- /See:/ 'mkMetrics' smart constructor.
 data Metrics = Metrics'
-  { _mEventThreshold ::
-      !(Maybe ReplicationTimeValue),
-    _mStatus :: !MetricsStatus
+  { eventThreshold ::
+      Lude.Maybe ReplicationTimeValue,
+    status :: MetricsStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Metrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mEventThreshold' - A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
---
--- * 'mStatus' - Specifies whether the replication metrics are enabled.
-metrics ::
-  -- | 'mStatus'
+-- * 'eventThreshold' - A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
+-- * 'status' - Specifies whether the replication metrics are enabled.
+mkMetrics ::
+  -- | 'status'
   MetricsStatus ->
   Metrics
-metrics pStatus_ =
-  Metrics' {_mEventThreshold = Nothing, _mStatus = pStatus_}
+mkMetrics pStatus_ =
+  Metrics' {eventThreshold = Lude.Nothing, status = pStatus_}
 
 -- | A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
-mEventThreshold :: Lens' Metrics (Maybe ReplicationTimeValue)
-mEventThreshold = lens _mEventThreshold (\s a -> s {_mEventThreshold = a})
+--
+-- /Note:/ Consider using 'eventThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mEventThreshold :: Lens.Lens' Metrics (Lude.Maybe ReplicationTimeValue)
+mEventThreshold = Lens.lens (eventThreshold :: Metrics -> Lude.Maybe ReplicationTimeValue) (\s a -> s {eventThreshold = a} :: Metrics)
+{-# DEPRECATED mEventThreshold "Use generic-lens or generic-optics with 'eventThreshold' instead." #-}
 
 -- | Specifies whether the replication metrics are enabled.
-mStatus :: Lens' Metrics MetricsStatus
-mStatus = lens _mStatus (\s a -> s {_mStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mStatus :: Lens.Lens' Metrics MetricsStatus
+mStatus = Lens.lens (status :: Metrics -> MetricsStatus) (\s a -> s {status = a} :: Metrics)
+{-# DEPRECATED mStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML Metrics where
+instance Lude.FromXML Metrics where
   parseXML x =
-    Metrics' <$> (x .@? "EventThreshold") <*> (x .@ "Status")
+    Metrics'
+      Lude.<$> (x Lude..@? "EventThreshold") Lude.<*> (x Lude..@ "Status")
 
-instance Hashable Metrics
-
-instance NFData Metrics
-
-instance ToXML Metrics where
+instance Lude.ToXML Metrics where
   toXML Metrics' {..} =
-    mconcat
-      ["EventThreshold" @= _mEventThreshold, "Status" @= _mStatus]
+    Lude.mconcat
+      ["EventThreshold" Lude.@= eventThreshold, "Status" Lude.@= status]

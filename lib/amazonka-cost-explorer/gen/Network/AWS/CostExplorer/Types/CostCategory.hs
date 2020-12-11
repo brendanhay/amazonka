@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,148 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategory where
+module Network.AWS.CostExplorer.Types.CostCategory
+  ( CostCategory (..),
+
+    -- * Smart constructor
+    mkCostCategory,
+
+    -- * Lenses
+    ccProcessingStatus,
+    ccEffectiveEnd,
+    ccCostCategoryARN,
+    ccEffectiveStart,
+    ccName,
+    ccRuleVersion,
+    ccRules,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
 import Network.AWS.CostExplorer.Types.CostCategoryRule
 import Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The structure of Cost Categories. This includes detailed metadata and the set of rules for the @CostCategory@ object.
 --
---
---
--- /See:/ 'costCategory' smart constructor.
+-- /See:/ 'mkCostCategory' smart constructor.
 data CostCategory = CostCategory'
-  { _ccProcessingStatus ::
-      !(Maybe [CostCategoryProcessingStatus]),
-    _ccEffectiveEnd :: !(Maybe Text),
-    _ccCostCategoryARN :: !Text,
-    _ccEffectiveStart :: !Text,
-    _ccName :: !Text,
-    _ccRuleVersion :: !CostCategoryRuleVersion,
-    _ccRules :: !(List1 CostCategoryRule)
+  { processingStatus ::
+      Lude.Maybe [CostCategoryProcessingStatus],
+    effectiveEnd :: Lude.Maybe Lude.Text,
+    costCategoryARN :: Lude.Text,
+    effectiveStart :: Lude.Text,
+    name :: Lude.Text,
+    ruleVersion :: CostCategoryRuleVersion,
+    rules :: Lude.NonEmpty CostCategoryRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostCategory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccProcessingStatus' - The list of processing statuses for Cost Management products for a specific cost category.
---
--- * 'ccEffectiveEnd' - The Cost Category's effective end date.
---
--- * 'ccCostCategoryARN' - The unique identifier for your Cost Category.
---
--- * 'ccEffectiveStart' - The Cost Category's effective start date.
---
--- * 'ccName' - Undocumented member.
---
--- * 'ccRuleVersion' - Undocumented member.
---
--- * 'ccRules' - Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
-costCategory ::
-  -- | 'ccCostCategoryARN'
-  Text ->
-  -- | 'ccEffectiveStart'
-  Text ->
-  -- | 'ccName'
-  Text ->
-  -- | 'ccRuleVersion'
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
+-- * 'effectiveEnd' - The Cost Category's effective end date.
+-- * 'effectiveStart' - The Cost Category's effective start date.
+-- * 'name' - Undocumented field.
+-- * 'processingStatus' - The list of processing statuses for Cost Management products for a specific cost category.
+-- * 'ruleVersion' - Undocumented field.
+-- * 'rules' - Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
+mkCostCategory ::
+  -- | 'costCategoryARN'
+  Lude.Text ->
+  -- | 'effectiveStart'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'ruleVersion'
   CostCategoryRuleVersion ->
-  -- | 'ccRules'
-  NonEmpty CostCategoryRule ->
+  -- | 'rules'
+  Lude.NonEmpty CostCategoryRule ->
   CostCategory
-costCategory
+mkCostCategory
   pCostCategoryARN_
   pEffectiveStart_
   pName_
   pRuleVersion_
   pRules_ =
     CostCategory'
-      { _ccProcessingStatus = Nothing,
-        _ccEffectiveEnd = Nothing,
-        _ccCostCategoryARN = pCostCategoryARN_,
-        _ccEffectiveStart = pEffectiveStart_,
-        _ccName = pName_,
-        _ccRuleVersion = pRuleVersion_,
-        _ccRules = _List1 # pRules_
+      { processingStatus = Lude.Nothing,
+        effectiveEnd = Lude.Nothing,
+        costCategoryARN = pCostCategoryARN_,
+        effectiveStart = pEffectiveStart_,
+        name = pName_,
+        ruleVersion = pRuleVersion_,
+        rules = pRules_
       }
 
 -- | The list of processing statuses for Cost Management products for a specific cost category.
-ccProcessingStatus :: Lens' CostCategory [CostCategoryProcessingStatus]
-ccProcessingStatus = lens _ccProcessingStatus (\s a -> s {_ccProcessingStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccProcessingStatus :: Lens.Lens' CostCategory (Lude.Maybe [CostCategoryProcessingStatus])
+ccProcessingStatus = Lens.lens (processingStatus :: CostCategory -> Lude.Maybe [CostCategoryProcessingStatus]) (\s a -> s {processingStatus = a} :: CostCategory)
+{-# DEPRECATED ccProcessingStatus "Use generic-lens or generic-optics with 'processingStatus' instead." #-}
 
 -- | The Cost Category's effective end date.
-ccEffectiveEnd :: Lens' CostCategory (Maybe Text)
-ccEffectiveEnd = lens _ccEffectiveEnd (\s a -> s {_ccEffectiveEnd = a})
+--
+-- /Note:/ Consider using 'effectiveEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEffectiveEnd :: Lens.Lens' CostCategory (Lude.Maybe Lude.Text)
+ccEffectiveEnd = Lens.lens (effectiveEnd :: CostCategory -> Lude.Maybe Lude.Text) (\s a -> s {effectiveEnd = a} :: CostCategory)
+{-# DEPRECATED ccEffectiveEnd "Use generic-lens or generic-optics with 'effectiveEnd' instead." #-}
 
 -- | The unique identifier for your Cost Category.
-ccCostCategoryARN :: Lens' CostCategory Text
-ccCostCategoryARN = lens _ccCostCategoryARN (\s a -> s {_ccCostCategoryARN = a})
+--
+-- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCostCategoryARN :: Lens.Lens' CostCategory Lude.Text
+ccCostCategoryARN = Lens.lens (costCategoryARN :: CostCategory -> Lude.Text) (\s a -> s {costCategoryARN = a} :: CostCategory)
+{-# DEPRECATED ccCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
 -- | The Cost Category's effective start date.
-ccEffectiveStart :: Lens' CostCategory Text
-ccEffectiveStart = lens _ccEffectiveStart (\s a -> s {_ccEffectiveStart = a})
+--
+-- /Note:/ Consider using 'effectiveStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEffectiveStart :: Lens.Lens' CostCategory Lude.Text
+ccEffectiveStart = Lens.lens (effectiveStart :: CostCategory -> Lude.Text) (\s a -> s {effectiveStart = a} :: CostCategory)
+{-# DEPRECATED ccEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
 
--- | Undocumented member.
-ccName :: Lens' CostCategory Text
-ccName = lens _ccName (\s a -> s {_ccName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccName :: Lens.Lens' CostCategory Lude.Text
+ccName = Lens.lens (name :: CostCategory -> Lude.Text) (\s a -> s {name = a} :: CostCategory)
+{-# DEPRECATED ccName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-ccRuleVersion :: Lens' CostCategory CostCategoryRuleVersion
-ccRuleVersion = lens _ccRuleVersion (\s a -> s {_ccRuleVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ruleVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRuleVersion :: Lens.Lens' CostCategory CostCategoryRuleVersion
+ccRuleVersion = Lens.lens (ruleVersion :: CostCategory -> CostCategoryRuleVersion) (\s a -> s {ruleVersion = a} :: CostCategory)
+{-# DEPRECATED ccRuleVersion "Use generic-lens or generic-optics with 'ruleVersion' instead." #-}
 
 -- | Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
-ccRules :: Lens' CostCategory (NonEmpty CostCategoryRule)
-ccRules = lens _ccRules (\s a -> s {_ccRules = a}) . _List1
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRules :: Lens.Lens' CostCategory (Lude.NonEmpty CostCategoryRule)
+ccRules = Lens.lens (rules :: CostCategory -> Lude.NonEmpty CostCategoryRule) (\s a -> s {rules = a} :: CostCategory)
+{-# DEPRECATED ccRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance FromJSON CostCategory where
+instance Lude.FromJSON CostCategory where
   parseJSON =
-    withObject
+    Lude.withObject
       "CostCategory"
       ( \x ->
           CostCategory'
-            <$> (x .:? "ProcessingStatus" .!= mempty)
-            <*> (x .:? "EffectiveEnd")
-            <*> (x .: "CostCategoryArn")
-            <*> (x .: "EffectiveStart")
-            <*> (x .: "Name")
-            <*> (x .: "RuleVersion")
-            <*> (x .: "Rules")
+            Lude.<$> (x Lude..:? "ProcessingStatus" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EffectiveEnd")
+            Lude.<*> (x Lude..: "CostCategoryArn")
+            Lude.<*> (x Lude..: "EffectiveStart")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "RuleVersion")
+            Lude.<*> (x Lude..: "Rules")
       )
-
-instance Hashable CostCategory
-
-instance NFData CostCategory

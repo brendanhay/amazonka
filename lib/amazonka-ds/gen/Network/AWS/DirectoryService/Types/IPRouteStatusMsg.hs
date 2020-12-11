@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.IPRouteStatusMsg where
+module Network.AWS.DirectoryService.Types.IPRouteStatusMsg
+  ( IPRouteStatusMsg
+      ( IPRouteStatusMsg',
+        AddFailed,
+        Added,
+        Adding,
+        RemoveFailed,
+        Removed,
+        Removing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IPRouteStatusMsg
-  = AddFailed
-  | Added
-  | Adding
-  | RemoveFailed
-  | Removed
-  | Removing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IPRouteStatusMsg = IPRouteStatusMsg' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IPRouteStatusMsg where
-  parser =
-    takeLowerText >>= \case
-      "addfailed" -> pure AddFailed
-      "added" -> pure Added
-      "adding" -> pure Adding
-      "removefailed" -> pure RemoveFailed
-      "removed" -> pure Removed
-      "removing" -> pure Removing
-      e ->
-        fromTextError $
-          "Failure parsing IPRouteStatusMsg from value: '" <> e
-            <> "'. Accepted values: addfailed, added, adding, removefailed, removed, removing"
+pattern AddFailed :: IPRouteStatusMsg
+pattern AddFailed = IPRouteStatusMsg' "AddFailed"
 
-instance ToText IPRouteStatusMsg where
-  toText = \case
-    AddFailed -> "AddFailed"
-    Added -> "Added"
-    Adding -> "Adding"
-    RemoveFailed -> "RemoveFailed"
-    Removed -> "Removed"
-    Removing -> "Removing"
+pattern Added :: IPRouteStatusMsg
+pattern Added = IPRouteStatusMsg' "Added"
 
-instance Hashable IPRouteStatusMsg
+pattern Adding :: IPRouteStatusMsg
+pattern Adding = IPRouteStatusMsg' "Adding"
 
-instance NFData IPRouteStatusMsg
+pattern RemoveFailed :: IPRouteStatusMsg
+pattern RemoveFailed = IPRouteStatusMsg' "RemoveFailed"
 
-instance ToByteString IPRouteStatusMsg
+pattern Removed :: IPRouteStatusMsg
+pattern Removed = IPRouteStatusMsg' "Removed"
 
-instance ToQuery IPRouteStatusMsg
+pattern Removing :: IPRouteStatusMsg
+pattern Removing = IPRouteStatusMsg' "Removing"
 
-instance ToHeader IPRouteStatusMsg
-
-instance FromJSON IPRouteStatusMsg where
-  parseJSON = parseJSONText "IPRouteStatusMsg"
+{-# COMPLETE
+  AddFailed,
+  Added,
+  Adding,
+  RemoveFailed,
+  Removed,
+  Removing,
+  IPRouteStatusMsg'
+  #-}

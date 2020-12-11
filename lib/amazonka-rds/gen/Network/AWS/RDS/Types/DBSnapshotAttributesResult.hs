@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBSnapshotAttributesResult where
+module Network.AWS.RDS.Types.DBSnapshotAttributesResult
+  ( DBSnapshotAttributesResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBSnapshotAttributesResult,
+
+    -- * Lenses
+    dsarDBSnapshotIdentifier,
+    dsarDBSnapshotAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.DBSnapshotAttribute
 
 -- | Contains the results of a successful call to the @DescribeDBSnapshotAttributes@ API action.
 --
---
 -- Manual DB snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API action.
 --
---
--- /See:/ 'dbSnapshotAttributesResult' smart constructor.
+-- /See:/ 'mkDBSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
-  { _dsarDBSnapshotIdentifier ::
-      !(Maybe Text),
-    _dsarDBSnapshotAttributes ::
-      !(Maybe [DBSnapshotAttribute])
+  { dbSnapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    dbSnapshotAttributes ::
+      Lude.Maybe [DBSnapshotAttribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBSnapshotAttributesResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsarDBSnapshotIdentifier' - The identifier of the manual DB snapshot that the attributes apply to.
---
--- * 'dsarDBSnapshotAttributes' - The list of attributes and values for the manual DB snapshot.
-dbSnapshotAttributesResult ::
+-- * 'dbSnapshotAttributes' - The list of attributes and values for the manual DB snapshot.
+-- * 'dbSnapshotIdentifier' - The identifier of the manual DB snapshot that the attributes apply to.
+mkDBSnapshotAttributesResult ::
   DBSnapshotAttributesResult
-dbSnapshotAttributesResult =
+mkDBSnapshotAttributesResult =
   DBSnapshotAttributesResult'
-    { _dsarDBSnapshotIdentifier = Nothing,
-      _dsarDBSnapshotAttributes = Nothing
+    { dbSnapshotIdentifier = Lude.Nothing,
+      dbSnapshotAttributes = Lude.Nothing
     }
 
 -- | The identifier of the manual DB snapshot that the attributes apply to.
-dsarDBSnapshotIdentifier :: Lens' DBSnapshotAttributesResult (Maybe Text)
-dsarDBSnapshotIdentifier = lens _dsarDBSnapshotIdentifier (\s a -> s {_dsarDBSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarDBSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Lude.Maybe Lude.Text)
+dsarDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: DBSnapshotAttributesResult -> Lude.Maybe Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
+{-# DEPRECATED dsarDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
 
 -- | The list of attributes and values for the manual DB snapshot.
-dsarDBSnapshotAttributes :: Lens' DBSnapshotAttributesResult [DBSnapshotAttribute]
-dsarDBSnapshotAttributes = lens _dsarDBSnapshotAttributes (\s a -> s {_dsarDBSnapshotAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbSnapshotAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarDBSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Lude.Maybe [DBSnapshotAttribute])
+dsarDBSnapshotAttributes = Lens.lens (dbSnapshotAttributes :: DBSnapshotAttributesResult -> Lude.Maybe [DBSnapshotAttribute]) (\s a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult)
+{-# DEPRECATED dsarDBSnapshotAttributes "Use generic-lens or generic-optics with 'dbSnapshotAttributes' instead." #-}
 
-instance FromXML DBSnapshotAttributesResult where
+instance Lude.FromXML DBSnapshotAttributesResult where
   parseXML x =
     DBSnapshotAttributesResult'
-      <$> (x .@? "DBSnapshotIdentifier")
-      <*> ( x .@? "DBSnapshotAttributes" .!@ mempty
-              >>= may (parseXMLList "DBSnapshotAttribute")
-          )
-
-instance Hashable DBSnapshotAttributesResult
-
-instance NFData DBSnapshotAttributesResult
+      Lude.<$> (x Lude..@? "DBSnapshotIdentifier")
+      Lude.<*> ( x Lude..@? "DBSnapshotAttributes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBSnapshotAttribute")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest where
+module Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest
+  ( DirectoryServiceAuthenticationRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDirectoryServiceAuthenticationRequest,
+
+    -- * Lenses
+    dsarDirectoryId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Active Directory to be used for client authentication.
 --
---
---
--- /See:/ 'directoryServiceAuthenticationRequest' smart constructor.
+-- /See:/ 'mkDirectoryServiceAuthenticationRequest' smart constructor.
 newtype DirectoryServiceAuthenticationRequest = DirectoryServiceAuthenticationRequest'
-  { _dsarDirectoryId ::
-      Maybe Text
+  { directoryId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryServiceAuthenticationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsarDirectoryId' - The ID of the Active Directory to be used for authentication.
-directoryServiceAuthenticationRequest ::
+-- * 'directoryId' - The ID of the Active Directory to be used for authentication.
+mkDirectoryServiceAuthenticationRequest ::
   DirectoryServiceAuthenticationRequest
-directoryServiceAuthenticationRequest =
+mkDirectoryServiceAuthenticationRequest =
   DirectoryServiceAuthenticationRequest'
-    { _dsarDirectoryId =
-        Nothing
+    { directoryId =
+        Lude.Nothing
     }
 
 -- | The ID of the Active Directory to be used for authentication.
-dsarDirectoryId :: Lens' DirectoryServiceAuthenticationRequest (Maybe Text)
-dsarDirectoryId = lens _dsarDirectoryId (\s a -> s {_dsarDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarDirectoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Lude.Maybe Lude.Text)
+dsarDirectoryId = Lens.lens (directoryId :: DirectoryServiceAuthenticationRequest -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DirectoryServiceAuthenticationRequest)
+{-# DEPRECATED dsarDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Hashable DirectoryServiceAuthenticationRequest
-
-instance NFData DirectoryServiceAuthenticationRequest
-
-instance ToQuery DirectoryServiceAuthenticationRequest where
+instance Lude.ToQuery DirectoryServiceAuthenticationRequest where
   toQuery DirectoryServiceAuthenticationRequest' {..} =
-    mconcat ["DirectoryId" =: _dsarDirectoryId]
+    Lude.mconcat ["DirectoryId" Lude.=: directoryId]

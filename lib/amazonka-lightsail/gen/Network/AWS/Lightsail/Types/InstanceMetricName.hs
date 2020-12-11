@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.InstanceMetricName where
+module Network.AWS.Lightsail.Types.InstanceMetricName
+  ( InstanceMetricName
+      ( InstanceMetricName',
+        IMNBurstCapacityPercentage,
+        IMNBurstCapacityTime,
+        IMNCPUUtilization,
+        IMNNetworkIn,
+        IMNNetworkOut,
+        IMNStatusCheckFailed,
+        IMNStatusCheckFailedInstance,
+        IMNStatusCheckFailedSystem
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceMetricName
-  = IMNBurstCapacityPercentage
-  | IMNBurstCapacityTime
-  | IMNCPUUtilization
-  | IMNNetworkIn
-  | IMNNetworkOut
-  | IMNStatusCheckFailed
-  | IMNStatusCheckFailedInstance
-  | IMNStatusCheckFailedSystem
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceMetricName = InstanceMetricName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceMetricName where
-  parser =
-    takeLowerText >>= \case
-      "burstcapacitypercentage" -> pure IMNBurstCapacityPercentage
-      "burstcapacitytime" -> pure IMNBurstCapacityTime
-      "cpuutilization" -> pure IMNCPUUtilization
-      "networkin" -> pure IMNNetworkIn
-      "networkout" -> pure IMNNetworkOut
-      "statuscheckfailed" -> pure IMNStatusCheckFailed
-      "statuscheckfailed_instance" -> pure IMNStatusCheckFailedInstance
-      "statuscheckfailed_system" -> pure IMNStatusCheckFailedSystem
-      e ->
-        fromTextError $
-          "Failure parsing InstanceMetricName from value: '" <> e
-            <> "'. Accepted values: burstcapacitypercentage, burstcapacitytime, cpuutilization, networkin, networkout, statuscheckfailed, statuscheckfailed_instance, statuscheckfailed_system"
+pattern IMNBurstCapacityPercentage :: InstanceMetricName
+pattern IMNBurstCapacityPercentage = InstanceMetricName' "BurstCapacityPercentage"
 
-instance ToText InstanceMetricName where
-  toText = \case
-    IMNBurstCapacityPercentage -> "BurstCapacityPercentage"
-    IMNBurstCapacityTime -> "BurstCapacityTime"
-    IMNCPUUtilization -> "CPUUtilization"
-    IMNNetworkIn -> "NetworkIn"
-    IMNNetworkOut -> "NetworkOut"
-    IMNStatusCheckFailed -> "StatusCheckFailed"
-    IMNStatusCheckFailedInstance -> "StatusCheckFailed_Instance"
-    IMNStatusCheckFailedSystem -> "StatusCheckFailed_System"
+pattern IMNBurstCapacityTime :: InstanceMetricName
+pattern IMNBurstCapacityTime = InstanceMetricName' "BurstCapacityTime"
 
-instance Hashable InstanceMetricName
+pattern IMNCPUUtilization :: InstanceMetricName
+pattern IMNCPUUtilization = InstanceMetricName' "CPUUtilization"
 
-instance NFData InstanceMetricName
+pattern IMNNetworkIn :: InstanceMetricName
+pattern IMNNetworkIn = InstanceMetricName' "NetworkIn"
 
-instance ToByteString InstanceMetricName
+pattern IMNNetworkOut :: InstanceMetricName
+pattern IMNNetworkOut = InstanceMetricName' "NetworkOut"
 
-instance ToQuery InstanceMetricName
+pattern IMNStatusCheckFailed :: InstanceMetricName
+pattern IMNStatusCheckFailed = InstanceMetricName' "StatusCheckFailed"
 
-instance ToHeader InstanceMetricName
+pattern IMNStatusCheckFailedInstance :: InstanceMetricName
+pattern IMNStatusCheckFailedInstance = InstanceMetricName' "StatusCheckFailed_Instance"
 
-instance ToJSON InstanceMetricName where
-  toJSON = toJSONText
+pattern IMNStatusCheckFailedSystem :: InstanceMetricName
+pattern IMNStatusCheckFailedSystem = InstanceMetricName' "StatusCheckFailed_System"
 
-instance FromJSON InstanceMetricName where
-  parseJSON = parseJSONText "InstanceMetricName"
+{-# COMPLETE
+  IMNBurstCapacityPercentage,
+  IMNBurstCapacityTime,
+  IMNCPUUtilization,
+  IMNNetworkIn,
+  IMNNetworkOut,
+  IMNStatusCheckFailed,
+  IMNStatusCheckFailedInstance,
+  IMNStatusCheckFailedSystem,
+  InstanceMetricName'
+  #-}

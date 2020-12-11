@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ExportTaskState where
+module Network.AWS.EC2.Types.ExportTaskState
+  ( ExportTaskState
+      ( ExportTaskState',
+        ETSActive,
+        ETSCancelled,
+        ETSCancelling,
+        ETSCompleted
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportTaskState
-  = ETSActive
-  | ETSCancelled
-  | ETSCancelling
-  | ETSCompleted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportTaskState = ExportTaskState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportTaskState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure ETSActive
-      "cancelled" -> pure ETSCancelled
-      "cancelling" -> pure ETSCancelling
-      "completed" -> pure ETSCompleted
-      e ->
-        fromTextError $
-          "Failure parsing ExportTaskState from value: '" <> e
-            <> "'. Accepted values: active, cancelled, cancelling, completed"
+pattern ETSActive :: ExportTaskState
+pattern ETSActive = ExportTaskState' "active"
 
-instance ToText ExportTaskState where
-  toText = \case
-    ETSActive -> "active"
-    ETSCancelled -> "cancelled"
-    ETSCancelling -> "cancelling"
-    ETSCompleted -> "completed"
+pattern ETSCancelled :: ExportTaskState
+pattern ETSCancelled = ExportTaskState' "cancelled"
 
-instance Hashable ExportTaskState
+pattern ETSCancelling :: ExportTaskState
+pattern ETSCancelling = ExportTaskState' "cancelling"
 
-instance NFData ExportTaskState
+pattern ETSCompleted :: ExportTaskState
+pattern ETSCompleted = ExportTaskState' "completed"
 
-instance ToByteString ExportTaskState
-
-instance ToQuery ExportTaskState
-
-instance ToHeader ExportTaskState
-
-instance FromXML ExportTaskState where
-  parseXML = parseXMLText "ExportTaskState"
+{-# COMPLETE
+  ETSActive,
+  ETSCancelled,
+  ETSCancelling,
+  ETSCompleted,
+  ExportTaskState'
+  #-}

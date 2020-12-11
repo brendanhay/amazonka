@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,130 +7,412 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Upload where
+module Network.AWS.DeviceFarm.Types.Upload
+  ( Upload (..),
+
+    -- * Smart constructor
+    mkUpload,
+
+    -- * Lenses
+    uStatus,
+    uArn,
+    uCreated,
+    uCategory,
+    uUrl,
+    uName,
+    uMetadata,
+    uType,
+    uMessage,
+    uContentType,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.UploadCategory
 import Network.AWS.DeviceFarm.Types.UploadStatus
 import Network.AWS.DeviceFarm.Types.UploadType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An app or a set of one or more tests to upload or that have been uploaded.
 --
---
---
--- /See:/ 'upload' smart constructor.
+-- /See:/ 'mkUpload' smart constructor.
 data Upload = Upload'
-  { _uStatus :: !(Maybe UploadStatus),
-    _uArn :: !(Maybe Text),
-    _uCreated :: !(Maybe POSIX),
-    _uCategory :: !(Maybe UploadCategory),
-    _uUrl :: !(Maybe Text),
-    _uName :: !(Maybe Text),
-    _uMetadata :: !(Maybe Text),
-    _uType :: !(Maybe UploadType),
-    _uMessage :: !(Maybe Text),
-    _uContentType :: !(Maybe Text)
+  { status :: Lude.Maybe UploadStatus,
+    arn :: Lude.Maybe Lude.Text,
+    created :: Lude.Maybe Lude.Timestamp,
+    category :: Lude.Maybe UploadCategory,
+    url :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    metadata :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe UploadType,
+    message :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Upload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The upload's ARN.
+-- * 'category' - The upload's category. Allowed values include:
 --
--- * 'uStatus' - The upload's status. Must be one of the following values:     * FAILED     * INITIALIZED     * PROCESSING     * SUCCEEDED
 --
--- * 'uArn' - The upload's ARN.
+--     * CURATED: An upload managed by AWS Device Farm.
 --
--- * 'uCreated' - When the upload was created.
 --
--- * 'uCategory' - The upload's category. Allowed values include:     * CURATED: An upload managed by AWS Device Farm.     * PRIVATE: An upload managed by the AWS Device Farm customer.
+--     * PRIVATE: An upload managed by the AWS Device Farm customer.
 --
--- * 'uUrl' - The presigned Amazon S3 URL that was used to store a file using a PUT request.
 --
--- * 'uName' - The upload's file name.
+-- * 'contentType' - The upload's content type (for example, @application/octet-stream@ ).
+-- * 'created' - When the upload was created.
+-- * 'message' - A message about the upload's result.
+-- * 'metadata' - The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+-- * 'name' - The upload's file name.
+-- * 'status' - The upload's status.
 --
--- * 'uMetadata' - The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+-- Must be one of the following values:
 --
--- * 'uType' - The upload's type. Must be one of the following values:     * ANDROID_APP     * IOS_APP     * WEB_APP     * EXTERNAL_DATA     * APPIUM_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_PYTHON_TEST_PACKAGE     * APPIUM_NODE_TEST_PACKAGE     * APPIUM_RUBY_TEST_PACKAGE     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_WEB_PYTHON_TEST_PACKAGE     * APPIUM_WEB_NODE_TEST_PACKAGE     * APPIUM_WEB_RUBY_TEST_PACKAGE     * CALABASH_TEST_PACKAGE     * INSTRUMENTATION_TEST_PACKAGE     * UIAUTOMATION_TEST_PACKAGE     * UIAUTOMATOR_TEST_PACKAGE     * XCTEST_TEST_PACKAGE     * XCTEST_UI_TEST_PACKAGE     * APPIUM_JAVA_JUNIT_TEST_SPEC     * APPIUM_JAVA_TESTNG_TEST_SPEC     * APPIUM_PYTHON_TEST_SPEC     * APPIUM_NODE_TEST_SPEC     * APPIUM_RUBY_TEST_SPEC     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC     * APPIUM_WEB_PYTHON_TEST_SPEC     * APPIUM_WEB_NODE_TEST_SPEC     * APPIUM_WEB_RUBY_TEST_SPEC     * INSTRUMENTATION_TEST_SPEC     * XCTEST_UI_TEST_SPEC
+--     * FAILED
 --
--- * 'uMessage' - A message about the upload's result.
 --
--- * 'uContentType' - The upload's content type (for example, @application/octet-stream@ ).
-upload ::
+--     * INITIALIZED
+--
+--
+--     * PROCESSING
+--
+--
+--     * SUCCEEDED
+--
+--
+-- * 'type'' - The upload's type.
+--
+-- Must be one of the following values:
+--
+--     * ANDROID_APP
+--
+--
+--     * IOS_APP
+--
+--
+--     * WEB_APP
+--
+--
+--     * EXTERNAL_DATA
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_RUBY_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_PACKAGE
+--
+--
+--     * CALABASH_TEST_PACKAGE
+--
+--
+--     * INSTRUMENTATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATOR_TEST_PACKAGE
+--
+--
+--     * XCTEST_TEST_PACKAGE
+--
+--
+--     * XCTEST_UI_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_RUBY_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_SPEC
+--
+--
+--     * INSTRUMENTATION_TEST_SPEC
+--
+--
+--     * XCTEST_UI_TEST_SPEC
+--
+--
+-- * 'url' - The presigned Amazon S3 URL that was used to store a file using a PUT request.
+mkUpload ::
   Upload
-upload =
+mkUpload =
   Upload'
-    { _uStatus = Nothing,
-      _uArn = Nothing,
-      _uCreated = Nothing,
-      _uCategory = Nothing,
-      _uUrl = Nothing,
-      _uName = Nothing,
-      _uMetadata = Nothing,
-      _uType = Nothing,
-      _uMessage = Nothing,
-      _uContentType = Nothing
+    { status = Lude.Nothing,
+      arn = Lude.Nothing,
+      created = Lude.Nothing,
+      category = Lude.Nothing,
+      url = Lude.Nothing,
+      name = Lude.Nothing,
+      metadata = Lude.Nothing,
+      type' = Lude.Nothing,
+      message = Lude.Nothing,
+      contentType = Lude.Nothing
     }
 
--- | The upload's status. Must be one of the following values:     * FAILED     * INITIALIZED     * PROCESSING     * SUCCEEDED
-uStatus :: Lens' Upload (Maybe UploadStatus)
-uStatus = lens _uStatus (\s a -> s {_uStatus = a})
+-- | The upload's status.
+--
+-- Must be one of the following values:
+--
+--     * FAILED
+--
+--
+--     * INITIALIZED
+--
+--
+--     * PROCESSING
+--
+--
+--     * SUCCEEDED
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uStatus :: Lens.Lens' Upload (Lude.Maybe UploadStatus)
+uStatus = Lens.lens (status :: Upload -> Lude.Maybe UploadStatus) (\s a -> s {status = a} :: Upload)
+{-# DEPRECATED uStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The upload's ARN.
-uArn :: Lens' Upload (Maybe Text)
-uArn = lens _uArn (\s a -> s {_uArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uArn :: Lens.Lens' Upload (Lude.Maybe Lude.Text)
+uArn = Lens.lens (arn :: Upload -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Upload)
+{-# DEPRECATED uArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the upload was created.
-uCreated :: Lens' Upload (Maybe UTCTime)
-uCreated = lens _uCreated (\s a -> s {_uCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uCreated :: Lens.Lens' Upload (Lude.Maybe Lude.Timestamp)
+uCreated = Lens.lens (created :: Upload -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Upload)
+{-# DEPRECATED uCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
--- | The upload's category. Allowed values include:     * CURATED: An upload managed by AWS Device Farm.     * PRIVATE: An upload managed by the AWS Device Farm customer.
-uCategory :: Lens' Upload (Maybe UploadCategory)
-uCategory = lens _uCategory (\s a -> s {_uCategory = a})
+-- | The upload's category. Allowed values include:
+--
+--
+--     * CURATED: An upload managed by AWS Device Farm.
+--
+--
+--     * PRIVATE: An upload managed by the AWS Device Farm customer.
+--
+--
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uCategory :: Lens.Lens' Upload (Lude.Maybe UploadCategory)
+uCategory = Lens.lens (category :: Upload -> Lude.Maybe UploadCategory) (\s a -> s {category = a} :: Upload)
+{-# DEPRECATED uCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | The presigned Amazon S3 URL that was used to store a file using a PUT request.
-uUrl :: Lens' Upload (Maybe Text)
-uUrl = lens _uUrl (\s a -> s {_uUrl = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUrl :: Lens.Lens' Upload (Lude.Maybe Lude.Text)
+uUrl = Lens.lens (url :: Upload -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Upload)
+{-# DEPRECATED uUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The upload's file name.
-uName :: Lens' Upload (Maybe Text)
-uName = lens _uName (\s a -> s {_uName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uName :: Lens.Lens' Upload (Lude.Maybe Lude.Text)
+uName = Lens.lens (name :: Upload -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Upload)
+{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-uMetadata :: Lens' Upload (Maybe Text)
-uMetadata = lens _uMetadata (\s a -> s {_uMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uMetadata :: Lens.Lens' Upload (Lude.Maybe Lude.Text)
+uMetadata = Lens.lens (metadata :: Upload -> Lude.Maybe Lude.Text) (\s a -> s {metadata = a} :: Upload)
+{-# DEPRECATED uMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
--- | The upload's type. Must be one of the following values:     * ANDROID_APP     * IOS_APP     * WEB_APP     * EXTERNAL_DATA     * APPIUM_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_PYTHON_TEST_PACKAGE     * APPIUM_NODE_TEST_PACKAGE     * APPIUM_RUBY_TEST_PACKAGE     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_WEB_PYTHON_TEST_PACKAGE     * APPIUM_WEB_NODE_TEST_PACKAGE     * APPIUM_WEB_RUBY_TEST_PACKAGE     * CALABASH_TEST_PACKAGE     * INSTRUMENTATION_TEST_PACKAGE     * UIAUTOMATION_TEST_PACKAGE     * UIAUTOMATOR_TEST_PACKAGE     * XCTEST_TEST_PACKAGE     * XCTEST_UI_TEST_PACKAGE     * APPIUM_JAVA_JUNIT_TEST_SPEC     * APPIUM_JAVA_TESTNG_TEST_SPEC     * APPIUM_PYTHON_TEST_SPEC     * APPIUM_NODE_TEST_SPEC     * APPIUM_RUBY_TEST_SPEC     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC     * APPIUM_WEB_PYTHON_TEST_SPEC     * APPIUM_WEB_NODE_TEST_SPEC     * APPIUM_WEB_RUBY_TEST_SPEC     * INSTRUMENTATION_TEST_SPEC     * XCTEST_UI_TEST_SPEC
-uType :: Lens' Upload (Maybe UploadType)
-uType = lens _uType (\s a -> s {_uType = a})
+-- | The upload's type.
+--
+-- Must be one of the following values:
+--
+--     * ANDROID_APP
+--
+--
+--     * IOS_APP
+--
+--
+--     * WEB_APP
+--
+--
+--     * EXTERNAL_DATA
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_RUBY_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_PACKAGE
+--
+--
+--     * CALABASH_TEST_PACKAGE
+--
+--
+--     * INSTRUMENTATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATOR_TEST_PACKAGE
+--
+--
+--     * XCTEST_TEST_PACKAGE
+--
+--
+--     * XCTEST_UI_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_RUBY_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_SPEC
+--
+--
+--     * INSTRUMENTATION_TEST_SPEC
+--
+--
+--     * XCTEST_UI_TEST_SPEC
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uType :: Lens.Lens' Upload (Lude.Maybe UploadType)
+uType = Lens.lens (type' :: Upload -> Lude.Maybe UploadType) (\s a -> s {type' = a} :: Upload)
+{-# DEPRECATED uType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A message about the upload's result.
-uMessage :: Lens' Upload (Maybe Text)
-uMessage = lens _uMessage (\s a -> s {_uMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uMessage :: Lens.Lens' Upload (Lude.Maybe Lude.Text)
+uMessage = Lens.lens (message :: Upload -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Upload)
+{-# DEPRECATED uMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The upload's content type (for example, @application/octet-stream@ ).
-uContentType :: Lens' Upload (Maybe Text)
-uContentType = lens _uContentType (\s a -> s {_uContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uContentType :: Lens.Lens' Upload (Lude.Maybe Lude.Text)
+uContentType = Lens.lens (contentType :: Upload -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: Upload)
+{-# DEPRECATED uContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance FromJSON Upload where
+instance Lude.FromJSON Upload where
   parseJSON =
-    withObject
+    Lude.withObject
       "Upload"
       ( \x ->
           Upload'
-            <$> (x .:? "status")
-            <*> (x .:? "arn")
-            <*> (x .:? "created")
-            <*> (x .:? "category")
-            <*> (x .:? "url")
-            <*> (x .:? "name")
-            <*> (x .:? "metadata")
-            <*> (x .:? "type")
-            <*> (x .:? "message")
-            <*> (x .:? "contentType")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "category")
+            Lude.<*> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "metadata")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "message")
+            Lude.<*> (x Lude..:? "contentType")
       )
-
-instance Hashable Upload
-
-instance NFData Upload

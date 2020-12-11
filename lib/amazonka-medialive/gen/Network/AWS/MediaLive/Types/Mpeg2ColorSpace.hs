@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2ColorSpace where
+module Network.AWS.MediaLive.Types.Mpeg2ColorSpace
+  ( Mpeg2ColorSpace
+      ( Mpeg2ColorSpace',
+        MCSAuto,
+        MCSPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Color Space
-data Mpeg2ColorSpace
-  = MCSAuto
-  | MCSPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2ColorSpace = Mpeg2ColorSpace' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2ColorSpace where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure MCSAuto
-      "passthrough" -> pure MCSPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2ColorSpace from value: '" <> e
-            <> "'. Accepted values: auto, passthrough"
+pattern MCSAuto :: Mpeg2ColorSpace
+pattern MCSAuto = Mpeg2ColorSpace' "AUTO"
 
-instance ToText Mpeg2ColorSpace where
-  toText = \case
-    MCSAuto -> "AUTO"
-    MCSPassthrough -> "PASSTHROUGH"
+pattern MCSPassthrough :: Mpeg2ColorSpace
+pattern MCSPassthrough = Mpeg2ColorSpace' "PASSTHROUGH"
 
-instance Hashable Mpeg2ColorSpace
-
-instance NFData Mpeg2ColorSpace
-
-instance ToByteString Mpeg2ColorSpace
-
-instance ToQuery Mpeg2ColorSpace
-
-instance ToHeader Mpeg2ColorSpace
-
-instance ToJSON Mpeg2ColorSpace where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2ColorSpace where
-  parseJSON = parseJSONText "Mpeg2ColorSpace"
+{-# COMPLETE
+  MCSAuto,
+  MCSPassthrough,
+  Mpeg2ColorSpace'
+  #-}

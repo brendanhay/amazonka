@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConformancePackState where
+module Network.AWS.Config.Types.ConformancePackState
+  ( ConformancePackState
+      ( ConformancePackState',
+        CPSCreateComplete,
+        CPSCreateFailed,
+        CPSCreateInProgress,
+        CPSDeleteFailed,
+        CPSDeleteInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConformancePackState
-  = CPSCreateComplete
-  | CPSCreateFailed
-  | CPSCreateInProgress
-  | CPSDeleteFailed
-  | CPSDeleteInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConformancePackState = ConformancePackState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConformancePackState where
-  parser =
-    takeLowerText >>= \case
-      "create_complete" -> pure CPSCreateComplete
-      "create_failed" -> pure CPSCreateFailed
-      "create_in_progress" -> pure CPSCreateInProgress
-      "delete_failed" -> pure CPSDeleteFailed
-      "delete_in_progress" -> pure CPSDeleteInProgress
-      e ->
-        fromTextError $
-          "Failure parsing ConformancePackState from value: '" <> e
-            <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_failed, delete_in_progress"
+pattern CPSCreateComplete :: ConformancePackState
+pattern CPSCreateComplete = ConformancePackState' "CREATE_COMPLETE"
 
-instance ToText ConformancePackState where
-  toText = \case
-    CPSCreateComplete -> "CREATE_COMPLETE"
-    CPSCreateFailed -> "CREATE_FAILED"
-    CPSCreateInProgress -> "CREATE_IN_PROGRESS"
-    CPSDeleteFailed -> "DELETE_FAILED"
-    CPSDeleteInProgress -> "DELETE_IN_PROGRESS"
+pattern CPSCreateFailed :: ConformancePackState
+pattern CPSCreateFailed = ConformancePackState' "CREATE_FAILED"
 
-instance Hashable ConformancePackState
+pattern CPSCreateInProgress :: ConformancePackState
+pattern CPSCreateInProgress = ConformancePackState' "CREATE_IN_PROGRESS"
 
-instance NFData ConformancePackState
+pattern CPSDeleteFailed :: ConformancePackState
+pattern CPSDeleteFailed = ConformancePackState' "DELETE_FAILED"
 
-instance ToByteString ConformancePackState
+pattern CPSDeleteInProgress :: ConformancePackState
+pattern CPSDeleteInProgress = ConformancePackState' "DELETE_IN_PROGRESS"
 
-instance ToQuery ConformancePackState
-
-instance ToHeader ConformancePackState
-
-instance FromJSON ConformancePackState where
-  parseJSON = parseJSONText "ConformancePackState"
+{-# COMPLETE
+  CPSCreateComplete,
+  CPSCreateFailed,
+  CPSCreateInProgress,
+  CPSDeleteFailed,
+  CPSDeleteInProgress,
+  ConformancePackState'
+  #-}

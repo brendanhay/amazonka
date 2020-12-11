@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Describes the specified IPv4 address pools.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribePublicIPv4Pools
-  ( -- * Creating a Request
-    describePublicIPv4Pools,
-    DescribePublicIPv4Pools,
+  ( -- * Creating a request
+    DescribePublicIPv4Pools (..),
+    mkDescribePublicIPv4Pools,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpipPoolIds,
     dpipFilters,
     dpipNextToken,
     dpipMaxResults,
 
-    -- * Destructuring the Response
-    describePublicIPv4PoolsResponse,
-    DescribePublicIPv4PoolsResponse,
+    -- * Destructuring the response
+    DescribePublicIPv4PoolsResponse (..),
+    mkDescribePublicIPv4PoolsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpiprsPublicIPv4Pools,
     dpiprsNextToken,
     dpiprsResponseStatus,
@@ -45,142 +38,179 @@ module Network.AWS.EC2.DescribePublicIPv4Pools
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describePublicIPv4Pools' smart constructor.
+-- | /See:/ 'mkDescribePublicIPv4Pools' smart constructor.
 data DescribePublicIPv4Pools = DescribePublicIPv4Pools'
-  { _dpipPoolIds ::
-      !(Maybe [Text]),
-    _dpipFilters :: !(Maybe [Filter]),
-    _dpipNextToken :: !(Maybe Text),
-    _dpipMaxResults :: !(Maybe Nat)
+  { poolIds ::
+      Lude.Maybe [Lude.Text],
+    filters :: Lude.Maybe [Filter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePublicIPv4Pools' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - One or more filters.
 --
--- * 'dpipPoolIds' - The IDs of the address pools.
 --
--- * 'dpipFilters' - One or more filters.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
 --
--- * 'dpipNextToken' - The token for the next page of results.
 --
--- * 'dpipMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describePublicIPv4Pools ::
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'poolIds' - The IDs of the address pools.
+mkDescribePublicIPv4Pools ::
   DescribePublicIPv4Pools
-describePublicIPv4Pools =
+mkDescribePublicIPv4Pools =
   DescribePublicIPv4Pools'
-    { _dpipPoolIds = Nothing,
-      _dpipFilters = Nothing,
-      _dpipNextToken = Nothing,
-      _dpipMaxResults = Nothing
+    { poolIds = Lude.Nothing,
+      filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The IDs of the address pools.
-dpipPoolIds :: Lens' DescribePublicIPv4Pools [Text]
-dpipPoolIds = lens _dpipPoolIds (\s a -> s {_dpipPoolIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'poolIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpipPoolIds :: Lens.Lens' DescribePublicIPv4Pools (Lude.Maybe [Lude.Text])
+dpipPoolIds = Lens.lens (poolIds :: DescribePublicIPv4Pools -> Lude.Maybe [Lude.Text]) (\s a -> s {poolIds = a} :: DescribePublicIPv4Pools)
+{-# DEPRECATED dpipPoolIds "Use generic-lens or generic-optics with 'poolIds' instead." #-}
 
--- | One or more filters.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-dpipFilters :: Lens' DescribePublicIPv4Pools [Filter]
-dpipFilters = lens _dpipFilters (\s a -> s {_dpipFilters = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpipFilters :: Lens.Lens' DescribePublicIPv4Pools (Lude.Maybe [Filter])
+dpipFilters = Lens.lens (filters :: DescribePublicIPv4Pools -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribePublicIPv4Pools)
+{-# DEPRECATED dpipFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next page of results.
-dpipNextToken :: Lens' DescribePublicIPv4Pools (Maybe Text)
-dpipNextToken = lens _dpipNextToken (\s a -> s {_dpipNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpipNextToken :: Lens.Lens' DescribePublicIPv4Pools (Lude.Maybe Lude.Text)
+dpipNextToken = Lens.lens (nextToken :: DescribePublicIPv4Pools -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePublicIPv4Pools)
+{-# DEPRECATED dpipNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dpipMaxResults :: Lens' DescribePublicIPv4Pools (Maybe Natural)
-dpipMaxResults = lens _dpipMaxResults (\s a -> s {_dpipMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpipMaxResults :: Lens.Lens' DescribePublicIPv4Pools (Lude.Maybe Lude.Natural)
+dpipMaxResults = Lens.lens (maxResults :: DescribePublicIPv4Pools -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribePublicIPv4Pools)
+{-# DEPRECATED dpipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribePublicIPv4Pools where
+instance Page.AWSPager DescribePublicIPv4Pools where
   page rq rs
-    | stop (rs ^. dpiprsNextToken) = Nothing
-    | stop (rs ^. dpiprsPublicIPv4Pools) = Nothing
-    | otherwise = Just $ rq & dpipNextToken .~ rs ^. dpiprsNextToken
+    | Page.stop (rs Lens.^. dpiprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dpiprsPublicIPv4Pools) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dpipNextToken Lens..~ rs Lens.^. dpiprsNextToken
 
-instance AWSRequest DescribePublicIPv4Pools where
+instance Lude.AWSRequest DescribePublicIPv4Pools where
   type Rs DescribePublicIPv4Pools = DescribePublicIPv4PoolsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribePublicIPv4PoolsResponse'
-            <$> ( x .@? "publicIpv4PoolSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "publicIpv4PoolSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePublicIPv4Pools
+instance Lude.ToHeaders DescribePublicIPv4Pools where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribePublicIPv4Pools
+instance Lude.ToPath DescribePublicIPv4Pools where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribePublicIPv4Pools where
-  toHeaders = const mempty
-
-instance ToPath DescribePublicIPv4Pools where
-  toPath = const "/"
-
-instance ToQuery DescribePublicIPv4Pools where
+instance Lude.ToQuery DescribePublicIPv4Pools where
   toQuery DescribePublicIPv4Pools' {..} =
-    mconcat
-      [ "Action" =: ("DescribePublicIpv4Pools" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "PoolId" <$> _dpipPoolIds),
-        toQuery (toQueryList "Filter" <$> _dpipFilters),
-        "NextToken" =: _dpipNextToken,
-        "MaxResults" =: _dpipMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribePublicIpv4Pools" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "PoolId" Lude.<$> poolIds),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describePublicIPv4PoolsResponse' smart constructor.
+-- | /See:/ 'mkDescribePublicIPv4PoolsResponse' smart constructor.
 data DescribePublicIPv4PoolsResponse = DescribePublicIPv4PoolsResponse'
-  { _dpiprsPublicIPv4Pools ::
-      !(Maybe [PublicIPv4Pool]),
-    _dpiprsNextToken ::
-      !(Maybe Text),
-    _dpiprsResponseStatus ::
-      !Int
+  { publicIPv4Pools ::
+      Lude.Maybe [PublicIPv4Pool],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePublicIPv4PoolsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpiprsPublicIPv4Pools' - Information about the address pools.
---
--- * 'dpiprsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dpiprsResponseStatus' - -- | The response status code.
-describePublicIPv4PoolsResponse ::
-  -- | 'dpiprsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'publicIPv4Pools' - Information about the address pools.
+-- * 'responseStatus' - The response status code.
+mkDescribePublicIPv4PoolsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePublicIPv4PoolsResponse
-describePublicIPv4PoolsResponse pResponseStatus_ =
+mkDescribePublicIPv4PoolsResponse pResponseStatus_ =
   DescribePublicIPv4PoolsResponse'
-    { _dpiprsPublicIPv4Pools =
-        Nothing,
-      _dpiprsNextToken = Nothing,
-      _dpiprsResponseStatus = pResponseStatus_
+    { publicIPv4Pools = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the address pools.
-dpiprsPublicIPv4Pools :: Lens' DescribePublicIPv4PoolsResponse [PublicIPv4Pool]
-dpiprsPublicIPv4Pools = lens _dpiprsPublicIPv4Pools (\s a -> s {_dpiprsPublicIPv4Pools = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'publicIPv4Pools' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpiprsPublicIPv4Pools :: Lens.Lens' DescribePublicIPv4PoolsResponse (Lude.Maybe [PublicIPv4Pool])
+dpiprsPublicIPv4Pools = Lens.lens (publicIPv4Pools :: DescribePublicIPv4PoolsResponse -> Lude.Maybe [PublicIPv4Pool]) (\s a -> s {publicIPv4Pools = a} :: DescribePublicIPv4PoolsResponse)
+{-# DEPRECATED dpiprsPublicIPv4Pools "Use generic-lens or generic-optics with 'publicIPv4Pools' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dpiprsNextToken :: Lens' DescribePublicIPv4PoolsResponse (Maybe Text)
-dpiprsNextToken = lens _dpiprsNextToken (\s a -> s {_dpiprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpiprsNextToken :: Lens.Lens' DescribePublicIPv4PoolsResponse (Lude.Maybe Lude.Text)
+dpiprsNextToken = Lens.lens (nextToken :: DescribePublicIPv4PoolsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePublicIPv4PoolsResponse)
+{-# DEPRECATED dpiprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dpiprsResponseStatus :: Lens' DescribePublicIPv4PoolsResponse Int
-dpiprsResponseStatus = lens _dpiprsResponseStatus (\s a -> s {_dpiprsResponseStatus = a})
-
-instance NFData DescribePublicIPv4PoolsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpiprsResponseStatus :: Lens.Lens' DescribePublicIPv4PoolsResponse Lude.Int
+dpiprsResponseStatus = Lens.lens (responseStatus :: DescribePublicIPv4PoolsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePublicIPv4PoolsResponse)
+{-# DEPRECATED dpiprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

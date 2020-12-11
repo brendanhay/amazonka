@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputSourceEndBehavior where
+module Network.AWS.MediaLive.Types.InputSourceEndBehavior
+  ( InputSourceEndBehavior
+      ( InputSourceEndBehavior',
+        Continue,
+        Loop
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Source End Behavior
-data InputSourceEndBehavior
-  = Continue
-  | Loop
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputSourceEndBehavior = InputSourceEndBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputSourceEndBehavior where
-  parser =
-    takeLowerText >>= \case
-      "continue" -> pure Continue
-      "loop" -> pure Loop
-      e ->
-        fromTextError $
-          "Failure parsing InputSourceEndBehavior from value: '" <> e
-            <> "'. Accepted values: continue, loop"
+pattern Continue :: InputSourceEndBehavior
+pattern Continue = InputSourceEndBehavior' "CONTINUE"
 
-instance ToText InputSourceEndBehavior where
-  toText = \case
-    Continue -> "CONTINUE"
-    Loop -> "LOOP"
+pattern Loop :: InputSourceEndBehavior
+pattern Loop = InputSourceEndBehavior' "LOOP"
 
-instance Hashable InputSourceEndBehavior
-
-instance NFData InputSourceEndBehavior
-
-instance ToByteString InputSourceEndBehavior
-
-instance ToQuery InputSourceEndBehavior
-
-instance ToHeader InputSourceEndBehavior
-
-instance ToJSON InputSourceEndBehavior where
-  toJSON = toJSONText
-
-instance FromJSON InputSourceEndBehavior where
-  parseJSON = parseJSONText "InputSourceEndBehavior"
+{-# COMPLETE
+  Continue,
+  Loop,
+  InputSourceEndBehavior'
+  #-}

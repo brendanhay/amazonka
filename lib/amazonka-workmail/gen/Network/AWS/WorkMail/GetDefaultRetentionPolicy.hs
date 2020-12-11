@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets the default retention policy details for the specified organization.
 module Network.AWS.WorkMail.GetDefaultRetentionPolicy
-  ( -- * Creating a Request
-    getDefaultRetentionPolicy,
-    GetDefaultRetentionPolicy,
+  ( -- * Creating a request
+    GetDefaultRetentionPolicy (..),
+    mkGetDefaultRetentionPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdrpOrganizationId,
 
-    -- * Destructuring the Response
-    getDefaultRetentionPolicyResponse,
-    GetDefaultRetentionPolicyResponse,
+    -- * Destructuring the response
+    GetDefaultRetentionPolicyResponse (..),
+    mkGetDefaultRetentionPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdrprsName,
     gdrprsId,
     gdrprsFolderConfigurations,
@@ -39,140 +34,157 @@ module Network.AWS.WorkMail.GetDefaultRetentionPolicy
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'getDefaultRetentionPolicy' smart constructor.
+-- | /See:/ 'mkGetDefaultRetentionPolicy' smart constructor.
 newtype GetDefaultRetentionPolicy = GetDefaultRetentionPolicy'
-  { _gdrpOrganizationId ::
-      Text
+  { organizationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultRetentionPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdrpOrganizationId' - The organization ID.
-getDefaultRetentionPolicy ::
-  -- | 'gdrpOrganizationId'
-  Text ->
+-- * 'organizationId' - The organization ID.
+mkGetDefaultRetentionPolicy ::
+  -- | 'organizationId'
+  Lude.Text ->
   GetDefaultRetentionPolicy
-getDefaultRetentionPolicy pOrganizationId_ =
-  GetDefaultRetentionPolicy'
-    { _gdrpOrganizationId =
-        pOrganizationId_
-    }
+mkGetDefaultRetentionPolicy pOrganizationId_ =
+  GetDefaultRetentionPolicy' {organizationId = pOrganizationId_}
 
 -- | The organization ID.
-gdrpOrganizationId :: Lens' GetDefaultRetentionPolicy Text
-gdrpOrganizationId = lens _gdrpOrganizationId (\s a -> s {_gdrpOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrpOrganizationId :: Lens.Lens' GetDefaultRetentionPolicy Lude.Text
+gdrpOrganizationId = Lens.lens (organizationId :: GetDefaultRetentionPolicy -> Lude.Text) (\s a -> s {organizationId = a} :: GetDefaultRetentionPolicy)
+{-# DEPRECATED gdrpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest GetDefaultRetentionPolicy where
+instance Lude.AWSRequest GetDefaultRetentionPolicy where
   type
     Rs GetDefaultRetentionPolicy =
       GetDefaultRetentionPolicyResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDefaultRetentionPolicyResponse'
-            <$> (x .?> "Name")
-            <*> (x .?> "Id")
-            <*> (x .?> "FolderConfigurations" .!@ mempty)
-            <*> (x .?> "Description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (x Lude..?> "FolderConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDefaultRetentionPolicy
-
-instance NFData GetDefaultRetentionPolicy
-
-instance ToHeaders GetDefaultRetentionPolicy where
+instance Lude.ToHeaders GetDefaultRetentionPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.GetDefaultRetentionPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.GetDefaultRetentionPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDefaultRetentionPolicy where
+instance Lude.ToJSON GetDefaultRetentionPolicy where
   toJSON GetDefaultRetentionPolicy' {..} =
-    object
-      (catMaybes [Just ("OrganizationId" .= _gdrpOrganizationId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("OrganizationId" Lude..= organizationId)]
+      )
 
-instance ToPath GetDefaultRetentionPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetDefaultRetentionPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDefaultRetentionPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetDefaultRetentionPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDefaultRetentionPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetDefaultRetentionPolicyResponse' smart constructor.
 data GetDefaultRetentionPolicyResponse = GetDefaultRetentionPolicyResponse'
-  { _gdrprsName ::
-      !(Maybe Text),
-    _gdrprsId ::
-      !(Maybe Text),
-    _gdrprsFolderConfigurations ::
-      !( Maybe
-           [FolderConfiguration]
-       ),
-    _gdrprsDescription ::
-      !(Maybe Text),
-    _gdrprsResponseStatus ::
-      !Int
+  { name ::
+      Lude.Maybe Lude.Text,
+    id ::
+      Lude.Maybe Lude.Text,
+    folderConfigurations ::
+      Lude.Maybe
+        [FolderConfiguration],
+    description ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultRetentionPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdrprsName' - The retention policy name.
---
--- * 'gdrprsId' - The retention policy ID.
---
--- * 'gdrprsFolderConfigurations' - The retention policy folder configurations.
---
--- * 'gdrprsDescription' - The retention policy description.
---
--- * 'gdrprsResponseStatus' - -- | The response status code.
-getDefaultRetentionPolicyResponse ::
-  -- | 'gdrprsResponseStatus'
-  Int ->
+-- * 'description' - The retention policy description.
+-- * 'folderConfigurations' - The retention policy folder configurations.
+-- * 'id' - The retention policy ID.
+-- * 'name' - The retention policy name.
+-- * 'responseStatus' - The response status code.
+mkGetDefaultRetentionPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDefaultRetentionPolicyResponse
-getDefaultRetentionPolicyResponse pResponseStatus_ =
+mkGetDefaultRetentionPolicyResponse pResponseStatus_ =
   GetDefaultRetentionPolicyResponse'
-    { _gdrprsName = Nothing,
-      _gdrprsId = Nothing,
-      _gdrprsFolderConfigurations = Nothing,
-      _gdrprsDescription = Nothing,
-      _gdrprsResponseStatus = pResponseStatus_
+    { name = Lude.Nothing,
+      id = Lude.Nothing,
+      folderConfigurations = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The retention policy name.
-gdrprsName :: Lens' GetDefaultRetentionPolicyResponse (Maybe Text)
-gdrprsName = lens _gdrprsName (\s a -> s {_gdrprsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrprsName :: Lens.Lens' GetDefaultRetentionPolicyResponse (Lude.Maybe Lude.Text)
+gdrprsName = Lens.lens (name :: GetDefaultRetentionPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetDefaultRetentionPolicyResponse)
+{-# DEPRECATED gdrprsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The retention policy ID.
-gdrprsId :: Lens' GetDefaultRetentionPolicyResponse (Maybe Text)
-gdrprsId = lens _gdrprsId (\s a -> s {_gdrprsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrprsId :: Lens.Lens' GetDefaultRetentionPolicyResponse (Lude.Maybe Lude.Text)
+gdrprsId = Lens.lens (id :: GetDefaultRetentionPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetDefaultRetentionPolicyResponse)
+{-# DEPRECATED gdrprsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The retention policy folder configurations.
-gdrprsFolderConfigurations :: Lens' GetDefaultRetentionPolicyResponse [FolderConfiguration]
-gdrprsFolderConfigurations = lens _gdrprsFolderConfigurations (\s a -> s {_gdrprsFolderConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'folderConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrprsFolderConfigurations :: Lens.Lens' GetDefaultRetentionPolicyResponse (Lude.Maybe [FolderConfiguration])
+gdrprsFolderConfigurations = Lens.lens (folderConfigurations :: GetDefaultRetentionPolicyResponse -> Lude.Maybe [FolderConfiguration]) (\s a -> s {folderConfigurations = a} :: GetDefaultRetentionPolicyResponse)
+{-# DEPRECATED gdrprsFolderConfigurations "Use generic-lens or generic-optics with 'folderConfigurations' instead." #-}
 
 -- | The retention policy description.
-gdrprsDescription :: Lens' GetDefaultRetentionPolicyResponse (Maybe Text)
-gdrprsDescription = lens _gdrprsDescription (\s a -> s {_gdrprsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrprsDescription :: Lens.Lens' GetDefaultRetentionPolicyResponse (Lude.Maybe Lude.Text)
+gdrprsDescription = Lens.lens (description :: GetDefaultRetentionPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetDefaultRetentionPolicyResponse)
+{-# DEPRECATED gdrprsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-gdrprsResponseStatus :: Lens' GetDefaultRetentionPolicyResponse Int
-gdrprsResponseStatus = lens _gdrprsResponseStatus (\s a -> s {_gdrprsResponseStatus = a})
-
-instance NFData GetDefaultRetentionPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrprsResponseStatus :: Lens.Lens' GetDefaultRetentionPolicyResponse Lude.Int
+gdrprsResponseStatus = Lens.lens (responseStatus :: GetDefaultRetentionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDefaultRetentionPolicyResponse)
+{-# DEPRECATED gdrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.UserSummary where
+module Network.AWS.Connect.Types.UserSummary
+  ( UserSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserSummary,
+
+    -- * Lenses
+    usARN,
+    usUsername,
+    usId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary information about a user.
 --
---
---
--- /See:/ 'userSummary' smart constructor.
+-- /See:/ 'mkUserSummary' smart constructor.
 data UserSummary = UserSummary'
-  { _usARN :: !(Maybe Text),
-    _usUsername :: !(Maybe Text),
-    _usId :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    username :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usARN' - The Amazon Resource Name (ARN) of the user account.
---
--- * 'usUsername' - The Amazon Connect user name of the user account.
---
--- * 'usId' - The identifier of the user account.
-userSummary ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the user account.
+-- * 'id' - The identifier of the user account.
+-- * 'username' - The Amazon Connect user name of the user account.
+mkUserSummary ::
   UserSummary
-userSummary =
+mkUserSummary =
   UserSummary'
-    { _usARN = Nothing,
-      _usUsername = Nothing,
-      _usId = Nothing
+    { arn = Lude.Nothing,
+      username = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user account.
-usARN :: Lens' UserSummary (Maybe Text)
-usARN = lens _usARN (\s a -> s {_usARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usARN :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
+usARN = Lens.lens (arn :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UserSummary)
+{-# DEPRECATED usARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The Amazon Connect user name of the user account.
-usUsername :: Lens' UserSummary (Maybe Text)
-usUsername = lens _usUsername (\s a -> s {_usUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usUsername :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
+usUsername = Lens.lens (username :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: UserSummary)
+{-# DEPRECATED usUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The identifier of the user account.
-usId :: Lens' UserSummary (Maybe Text)
-usId = lens _usId (\s a -> s {_usId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usId :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
+usId = Lens.lens (id :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UserSummary)
+{-# DEPRECATED usId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON UserSummary where
+instance Lude.FromJSON UserSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserSummary"
       ( \x ->
           UserSummary'
-            <$> (x .:? "Arn") <*> (x .:? "Username") <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Username")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable UserSummary
-
-instance NFData UserSummary

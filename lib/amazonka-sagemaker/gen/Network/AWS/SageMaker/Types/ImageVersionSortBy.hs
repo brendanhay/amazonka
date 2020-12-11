@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ImageVersionSortBy where
+module Network.AWS.SageMaker.Types.ImageVersionSortBy
+  ( ImageVersionSortBy
+      ( ImageVersionSortBy',
+        IVSBCreationTime,
+        IVSBLastModifiedTime,
+        IVSBVersion
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageVersionSortBy
-  = IVSBCreationTime
-  | IVSBLastModifiedTime
-  | IVSBVersion
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageVersionSortBy = ImageVersionSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageVersionSortBy where
-  parser =
-    takeLowerText >>= \case
-      "creation_time" -> pure IVSBCreationTime
-      "last_modified_time" -> pure IVSBLastModifiedTime
-      "version" -> pure IVSBVersion
-      e ->
-        fromTextError $
-          "Failure parsing ImageVersionSortBy from value: '" <> e
-            <> "'. Accepted values: creation_time, last_modified_time, version"
+pattern IVSBCreationTime :: ImageVersionSortBy
+pattern IVSBCreationTime = ImageVersionSortBy' "CREATION_TIME"
 
-instance ToText ImageVersionSortBy where
-  toText = \case
-    IVSBCreationTime -> "CREATION_TIME"
-    IVSBLastModifiedTime -> "LAST_MODIFIED_TIME"
-    IVSBVersion -> "VERSION"
+pattern IVSBLastModifiedTime :: ImageVersionSortBy
+pattern IVSBLastModifiedTime = ImageVersionSortBy' "LAST_MODIFIED_TIME"
 
-instance Hashable ImageVersionSortBy
+pattern IVSBVersion :: ImageVersionSortBy
+pattern IVSBVersion = ImageVersionSortBy' "VERSION"
 
-instance NFData ImageVersionSortBy
-
-instance ToByteString ImageVersionSortBy
-
-instance ToQuery ImageVersionSortBy
-
-instance ToHeader ImageVersionSortBy
-
-instance ToJSON ImageVersionSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  IVSBCreationTime,
+  IVSBLastModifiedTime,
+  IVSBVersion,
+  ImageVersionSortBy'
+  #-}

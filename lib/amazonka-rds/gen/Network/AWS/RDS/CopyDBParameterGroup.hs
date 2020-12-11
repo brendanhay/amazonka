@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,228 @@
 --
 -- Copies the specified DB parameter group.
 module Network.AWS.RDS.CopyDBParameterGroup
-  ( -- * Creating a Request
-    copyDBParameterGroup,
-    CopyDBParameterGroup,
+  ( -- * Creating a request
+    CopyDBParameterGroup (..),
+    mkCopyDBParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdpgTags,
     cdpgSourceDBParameterGroupIdentifier,
     cdpgTargetDBParameterGroupIdentifier,
     cdpgTargetDBParameterGroupDescription,
 
-    -- * Destructuring the Response
-    copyDBParameterGroupResponse,
-    CopyDBParameterGroupResponse,
+    -- * Destructuring the response
+    CopyDBParameterGroupResponse (..),
+    mkCopyDBParameterGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdbpgrsDBParameterGroup,
     cdbpgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'copyDBParameterGroup' smart constructor.
+-- /See:/ 'mkCopyDBParameterGroup' smart constructor.
 data CopyDBParameterGroup = CopyDBParameterGroup'
-  { _cdpgTags ::
-      !(Maybe [Tag]),
-    _cdpgSourceDBParameterGroupIdentifier :: !Text,
-    _cdpgTargetDBParameterGroupIdentifier :: !Text,
-    _cdpgTargetDBParameterGroupDescription :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    sourceDBParameterGroupIdentifier :: Lude.Text,
+    targetDBParameterGroupIdentifier :: Lude.Text,
+    targetDBParameterGroupDescription :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyDBParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sourceDBParameterGroupIdentifier' - The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
 --
--- * 'cdpgTags' - Undocumented member.
+-- Constraints:
 --
--- * 'cdpgSourceDBParameterGroupIdentifier' - The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .  Constraints:     * Must specify a valid DB parameter group.     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
+--     * Must specify a valid DB parameter group.
 --
--- * 'cdpgTargetDBParameterGroupIdentifier' - The identifier for the copied DB parameter group. Constraints:     * Can't be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
 --
--- * 'cdpgTargetDBParameterGroupDescription' - A description for the copied DB parameter group.
-copyDBParameterGroup ::
-  -- | 'cdpgSourceDBParameterGroupIdentifier'
-  Text ->
-  -- | 'cdpgTargetDBParameterGroupIdentifier'
-  Text ->
-  -- | 'cdpgTargetDBParameterGroupDescription'
-  Text ->
+--     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
+--
+--
+-- * 'tags' - Undocumented field.
+-- * 'targetDBParameterGroupDescription' - A description for the copied DB parameter group.
+-- * 'targetDBParameterGroupIdentifier' - The identifier for the copied DB parameter group.
+--
+-- Constraints:
+--
+--     * Can't be null, empty, or blank
+--
+--
+--     * Must contain from 1 to 255 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @my-db-parameter-group@
+mkCopyDBParameterGroup ::
+  -- | 'sourceDBParameterGroupIdentifier'
+  Lude.Text ->
+  -- | 'targetDBParameterGroupIdentifier'
+  Lude.Text ->
+  -- | 'targetDBParameterGroupDescription'
+  Lude.Text ->
   CopyDBParameterGroup
-copyDBParameterGroup
+mkCopyDBParameterGroup
   pSourceDBParameterGroupIdentifier_
   pTargetDBParameterGroupIdentifier_
   pTargetDBParameterGroupDescription_ =
     CopyDBParameterGroup'
-      { _cdpgTags = Nothing,
-        _cdpgSourceDBParameterGroupIdentifier =
+      { tags = Lude.Nothing,
+        sourceDBParameterGroupIdentifier =
           pSourceDBParameterGroupIdentifier_,
-        _cdpgTargetDBParameterGroupIdentifier =
+        targetDBParameterGroupIdentifier =
           pTargetDBParameterGroupIdentifier_,
-        _cdpgTargetDBParameterGroupDescription =
+        targetDBParameterGroupDescription =
           pTargetDBParameterGroupDescription_
       }
 
--- | Undocumented member.
-cdpgTags :: Lens' CopyDBParameterGroup [Tag]
-cdpgTags = lens _cdpgTags (\s a -> s {_cdpgTags = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpgTags :: Lens.Lens' CopyDBParameterGroup (Lude.Maybe [Tag])
+cdpgTags = Lens.lens (tags :: CopyDBParameterGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CopyDBParameterGroup)
+{-# DEPRECATED cdpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .  Constraints:     * Must specify a valid DB parameter group.     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
-cdpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
-cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifier (\s a -> s {_cdpgSourceDBParameterGroupIdentifier = a})
+-- | The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
+--
+-- Constraints:
+--
+--     * Must specify a valid DB parameter group.
+--
+--
+--     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
+--
+--
+--
+-- /Note:/ Consider using 'sourceDBParameterGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpgSourceDBParameterGroupIdentifier :: Lens.Lens' CopyDBParameterGroup Lude.Text
+cdpgSourceDBParameterGroupIdentifier = Lens.lens (sourceDBParameterGroupIdentifier :: CopyDBParameterGroup -> Lude.Text) (\s a -> s {sourceDBParameterGroupIdentifier = a} :: CopyDBParameterGroup)
+{-# DEPRECATED cdpgSourceDBParameterGroupIdentifier "Use generic-lens or generic-optics with 'sourceDBParameterGroupIdentifier' instead." #-}
 
--- | The identifier for the copied DB parameter group. Constraints:     * Can't be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
-cdpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
-cdpgTargetDBParameterGroupIdentifier = lens _cdpgTargetDBParameterGroupIdentifier (\s a -> s {_cdpgTargetDBParameterGroupIdentifier = a})
+-- | The identifier for the copied DB parameter group.
+--
+-- Constraints:
+--
+--     * Can't be null, empty, or blank
+--
+--
+--     * Must contain from 1 to 255 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @my-db-parameter-group@
+--
+-- /Note:/ Consider using 'targetDBParameterGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpgTargetDBParameterGroupIdentifier :: Lens.Lens' CopyDBParameterGroup Lude.Text
+cdpgTargetDBParameterGroupIdentifier = Lens.lens (targetDBParameterGroupIdentifier :: CopyDBParameterGroup -> Lude.Text) (\s a -> s {targetDBParameterGroupIdentifier = a} :: CopyDBParameterGroup)
+{-# DEPRECATED cdpgTargetDBParameterGroupIdentifier "Use generic-lens or generic-optics with 'targetDBParameterGroupIdentifier' instead." #-}
 
 -- | A description for the copied DB parameter group.
-cdpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
-cdpgTargetDBParameterGroupDescription = lens _cdpgTargetDBParameterGroupDescription (\s a -> s {_cdpgTargetDBParameterGroupDescription = a})
+--
+-- /Note:/ Consider using 'targetDBParameterGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpgTargetDBParameterGroupDescription :: Lens.Lens' CopyDBParameterGroup Lude.Text
+cdpgTargetDBParameterGroupDescription = Lens.lens (targetDBParameterGroupDescription :: CopyDBParameterGroup -> Lude.Text) (\s a -> s {targetDBParameterGroupDescription = a} :: CopyDBParameterGroup)
+{-# DEPRECATED cdpgTargetDBParameterGroupDescription "Use generic-lens or generic-optics with 'targetDBParameterGroupDescription' instead." #-}
 
-instance AWSRequest CopyDBParameterGroup where
+instance Lude.AWSRequest CopyDBParameterGroup where
   type Rs CopyDBParameterGroup = CopyDBParameterGroupResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CopyDBParameterGroupResult"
       ( \s h x ->
           CopyDBParameterGroupResponse'
-            <$> (x .@? "DBParameterGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBParameterGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyDBParameterGroup
+instance Lude.ToHeaders CopyDBParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CopyDBParameterGroup
+instance Lude.ToPath CopyDBParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CopyDBParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath CopyDBParameterGroup where
-  toPath = const "/"
-
-instance ToQuery CopyDBParameterGroup where
+instance Lude.ToQuery CopyDBParameterGroup where
   toQuery CopyDBParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("CopyDBParameterGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _cdpgTags),
+    Lude.mconcat
+      [ "Action" Lude.=: ("CopyDBParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
         "SourceDBParameterGroupIdentifier"
-          =: _cdpgSourceDBParameterGroupIdentifier,
+          Lude.=: sourceDBParameterGroupIdentifier,
         "TargetDBParameterGroupIdentifier"
-          =: _cdpgTargetDBParameterGroupIdentifier,
+          Lude.=: targetDBParameterGroupIdentifier,
         "TargetDBParameterGroupDescription"
-          =: _cdpgTargetDBParameterGroupDescription
+          Lude.=: targetDBParameterGroupDescription
       ]
 
--- | /See:/ 'copyDBParameterGroupResponse' smart constructor.
+-- | /See:/ 'mkCopyDBParameterGroupResponse' smart constructor.
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
-  { _cdbpgrsDBParameterGroup ::
-      !(Maybe DBParameterGroup),
-    _cdbpgrsResponseStatus :: !Int
+  { dbParameterGroup ::
+      Lude.Maybe DBParameterGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyDBParameterGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdbpgrsDBParameterGroup' - Undocumented member.
---
--- * 'cdbpgrsResponseStatus' - -- | The response status code.
-copyDBParameterGroupResponse ::
-  -- | 'cdbpgrsResponseStatus'
-  Int ->
+-- * 'dbParameterGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCopyDBParameterGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyDBParameterGroupResponse
-copyDBParameterGroupResponse pResponseStatus_ =
+mkCopyDBParameterGroupResponse pResponseStatus_ =
   CopyDBParameterGroupResponse'
-    { _cdbpgrsDBParameterGroup = Nothing,
-      _cdbpgrsResponseStatus = pResponseStatus_
+    { dbParameterGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cdbpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
-cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\s a -> s {_cdbpgrsDBParameterGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbParameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbpgrsDBParameterGroup :: Lens.Lens' CopyDBParameterGroupResponse (Lude.Maybe DBParameterGroup)
+cdbpgrsDBParameterGroup = Lens.lens (dbParameterGroup :: CopyDBParameterGroupResponse -> Lude.Maybe DBParameterGroup) (\s a -> s {dbParameterGroup = a} :: CopyDBParameterGroupResponse)
+{-# DEPRECATED cdbpgrsDBParameterGroup "Use generic-lens or generic-optics with 'dbParameterGroup' instead." #-}
 
--- | -- | The response status code.
-cdbpgrsResponseStatus :: Lens' CopyDBParameterGroupResponse Int
-cdbpgrsResponseStatus = lens _cdbpgrsResponseStatus (\s a -> s {_cdbpgrsResponseStatus = a})
-
-instance NFData CopyDBParameterGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbpgrsResponseStatus :: Lens.Lens' CopyDBParameterGroupResponse Lude.Int
+cdbpgrsResponseStatus = Lens.lens (responseStatus :: CopyDBParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyDBParameterGroupResponse)
+{-# DEPRECATED cdbpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,137 @@
 --
 -- Deletes the specified listeners from the specified load balancer.
 module Network.AWS.ELB.DeleteLoadBalancerListeners
-  ( -- * Creating a Request
-    deleteLoadBalancerListeners,
-    DeleteLoadBalancerListeners,
+  ( -- * Creating a request
+    DeleteLoadBalancerListeners (..),
+    mkDeleteLoadBalancerListeners,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlblLoadBalancerName,
     dlblLoadBalancerPorts,
 
-    -- * Destructuring the Response
-    deleteLoadBalancerListenersResponse,
-    DeleteLoadBalancerListenersResponse,
+    -- * Destructuring the response
+    DeleteLoadBalancerListenersResponse (..),
+    mkDeleteLoadBalancerListenersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlblrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeleteLoadBalancerListeners.
 --
---
---
--- /See:/ 'deleteLoadBalancerListeners' smart constructor.
+-- /See:/ 'mkDeleteLoadBalancerListeners' smart constructor.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
-  { _dlblLoadBalancerName ::
-      !Text,
-    _dlblLoadBalancerPorts :: ![Int]
+  { loadBalancerName ::
+      Lude.Text,
+    loadBalancerPorts :: [Lude.Int]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerListeners' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlblLoadBalancerName' - The name of the load balancer.
---
--- * 'dlblLoadBalancerPorts' - The client port numbers of the listeners.
-deleteLoadBalancerListeners ::
-  -- | 'dlblLoadBalancerName'
-  Text ->
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'loadBalancerPorts' - The client port numbers of the listeners.
+mkDeleteLoadBalancerListeners ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
   DeleteLoadBalancerListeners
-deleteLoadBalancerListeners pLoadBalancerName_ =
+mkDeleteLoadBalancerListeners pLoadBalancerName_ =
   DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName =
+    { loadBalancerName =
         pLoadBalancerName_,
-      _dlblLoadBalancerPorts = mempty
+      loadBalancerPorts = Lude.mempty
     }
 
 -- | The name of the load balancer.
-dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
-dlblLoadBalancerName = lens _dlblLoadBalancerName (\s a -> s {_dlblLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlblLoadBalancerName :: Lens.Lens' DeleteLoadBalancerListeners Lude.Text
+dlblLoadBalancerName = Lens.lens (loadBalancerName :: DeleteLoadBalancerListeners -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeleteLoadBalancerListeners)
+{-# DEPRECATED dlblLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The client port numbers of the listeners.
-dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
-dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\s a -> s {_dlblLoadBalancerPorts = a}) . _Coerce
+--
+-- /Note:/ Consider using 'loadBalancerPorts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlblLoadBalancerPorts :: Lens.Lens' DeleteLoadBalancerListeners [Lude.Int]
+dlblLoadBalancerPorts = Lens.lens (loadBalancerPorts :: DeleteLoadBalancerListeners -> [Lude.Int]) (\s a -> s {loadBalancerPorts = a} :: DeleteLoadBalancerListeners)
+{-# DEPRECATED dlblLoadBalancerPorts "Use generic-lens or generic-optics with 'loadBalancerPorts' instead." #-}
 
-instance AWSRequest DeleteLoadBalancerListeners where
+instance Lude.AWSRequest DeleteLoadBalancerListeners where
   type
     Rs DeleteLoadBalancerListeners =
       DeleteLoadBalancerListenersResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteLoadBalancerListenersResult"
       ( \s h x ->
-          DeleteLoadBalancerListenersResponse' <$> (pure (fromEnum s))
+          DeleteLoadBalancerListenersResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteLoadBalancerListeners
+instance Lude.ToHeaders DeleteLoadBalancerListeners where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteLoadBalancerListeners
+instance Lude.ToPath DeleteLoadBalancerListeners where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteLoadBalancerListeners where
-  toHeaders = const mempty
-
-instance ToPath DeleteLoadBalancerListeners where
-  toPath = const "/"
-
-instance ToQuery DeleteLoadBalancerListeners where
+instance Lude.ToQuery DeleteLoadBalancerListeners where
   toQuery DeleteLoadBalancerListeners' {..} =
-    mconcat
-      [ "Action" =: ("DeleteLoadBalancerListeners" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _dlblLoadBalancerName,
-        "LoadBalancerPorts" =: toQueryList "member" _dlblLoadBalancerPorts
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteLoadBalancerListeners" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "LoadBalancerPorts"
+          Lude.=: Lude.toQueryList "member" loadBalancerPorts
       ]
 
 -- | Contains the output of DeleteLoadBalancerListeners.
 --
---
---
--- /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
+-- /See:/ 'mkDeleteLoadBalancerListenersResponse' smart constructor.
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
-  { _dlblrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerListenersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlblrsResponseStatus' - -- | The response status code.
-deleteLoadBalancerListenersResponse ::
-  -- | 'dlblrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteLoadBalancerListenersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLoadBalancerListenersResponse
-deleteLoadBalancerListenersResponse pResponseStatus_ =
+mkDeleteLoadBalancerListenersResponse pResponseStatus_ =
   DeleteLoadBalancerListenersResponse'
-    { _dlblrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dlblrsResponseStatus :: Lens' DeleteLoadBalancerListenersResponse Int
-dlblrsResponseStatus = lens _dlblrsResponseStatus (\s a -> s {_dlblrsResponseStatus = a})
-
-instance NFData DeleteLoadBalancerListenersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlblrsResponseStatus :: Lens.Lens' DeleteLoadBalancerListenersResponse Lude.Int
+dlblrsResponseStatus = Lens.lens (responseStatus :: DeleteLoadBalancerListenersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoadBalancerListenersResponse)
+{-# DEPRECATED dlblrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

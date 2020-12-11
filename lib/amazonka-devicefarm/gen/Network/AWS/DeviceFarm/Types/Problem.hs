@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,180 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Problem where
+module Network.AWS.DeviceFarm.Types.Problem
+  ( Problem (..),
+
+    -- * Smart constructor
+    mkProblem,
+
+    -- * Lenses
+    pDevice,
+    pTest,
+    pResult,
+    pRun,
+    pJob,
+    pMessage,
+    pSuite,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.Device
 import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ProblemDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a specific warning or failure.
 --
---
---
--- /See:/ 'problem' smart constructor.
+-- /See:/ 'mkProblem' smart constructor.
 data Problem = Problem'
-  { _pDevice :: !(Maybe Device),
-    _pTest :: !(Maybe ProblemDetail),
-    _pResult :: !(Maybe ExecutionResult),
-    _pRun :: !(Maybe ProblemDetail),
-    _pJob :: !(Maybe ProblemDetail),
-    _pMessage :: !(Maybe Text),
-    _pSuite :: !(Maybe ProblemDetail)
+  { device :: Lude.Maybe Device,
+    test :: Lude.Maybe ProblemDetail,
+    result :: Lude.Maybe ExecutionResult,
+    run :: Lude.Maybe ProblemDetail,
+    job :: Lude.Maybe ProblemDetail,
+    message :: Lude.Maybe Lude.Text,
+    suite :: Lude.Maybe ProblemDetail
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Problem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'device' - Information about the associated device.
+-- * 'job' - Information about the associated job.
+-- * 'message' - A message about the problem's result.
+-- * 'result' - The problem's result.
 --
--- * 'pDevice' - Information about the associated device.
+-- Allowed values include:
 --
--- * 'pTest' - Information about the associated test.
+--     * PENDING
 --
--- * 'pResult' - The problem's result. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
 --
--- * 'pRun' - Information about the associated run.
+--     * PASSED
 --
--- * 'pJob' - Information about the associated job.
 --
--- * 'pMessage' - A message about the problem's result.
+--     * WARNED
 --
--- * 'pSuite' - Information about the associated suite.
-problem ::
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+-- * 'run' - Information about the associated run.
+-- * 'suite' - Information about the associated suite.
+-- * 'test' - Information about the associated test.
+mkProblem ::
   Problem
-problem =
+mkProblem =
   Problem'
-    { _pDevice = Nothing,
-      _pTest = Nothing,
-      _pResult = Nothing,
-      _pRun = Nothing,
-      _pJob = Nothing,
-      _pMessage = Nothing,
-      _pSuite = Nothing
+    { device = Lude.Nothing,
+      test = Lude.Nothing,
+      result = Lude.Nothing,
+      run = Lude.Nothing,
+      job = Lude.Nothing,
+      message = Lude.Nothing,
+      suite = Lude.Nothing
     }
 
 -- | Information about the associated device.
-pDevice :: Lens' Problem (Maybe Device)
-pDevice = lens _pDevice (\s a -> s {_pDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDevice :: Lens.Lens' Problem (Lude.Maybe Device)
+pDevice = Lens.lens (device :: Problem -> Lude.Maybe Device) (\s a -> s {device = a} :: Problem)
+{-# DEPRECATED pDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | Information about the associated test.
-pTest :: Lens' Problem (Maybe ProblemDetail)
-pTest = lens _pTest (\s a -> s {_pTest = a})
+--
+-- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTest :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
+pTest = Lens.lens (test :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {test = a} :: Problem)
+{-# DEPRECATED pTest "Use generic-lens or generic-optics with 'test' instead." #-}
 
--- | The problem's result. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
-pResult :: Lens' Problem (Maybe ExecutionResult)
-pResult = lens _pResult (\s a -> s {_pResult = a})
+-- | The problem's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pResult :: Lens.Lens' Problem (Lude.Maybe ExecutionResult)
+pResult = Lens.lens (result :: Problem -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: Problem)
+{-# DEPRECATED pResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | Information about the associated run.
-pRun :: Lens' Problem (Maybe ProblemDetail)
-pRun = lens _pRun (\s a -> s {_pRun = a})
+--
+-- /Note:/ Consider using 'run' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pRun :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
+pRun = Lens.lens (run :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {run = a} :: Problem)
+{-# DEPRECATED pRun "Use generic-lens or generic-optics with 'run' instead." #-}
 
 -- | Information about the associated job.
-pJob :: Lens' Problem (Maybe ProblemDetail)
-pJob = lens _pJob (\s a -> s {_pJob = a})
+--
+-- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pJob :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
+pJob = Lens.lens (job :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {job = a} :: Problem)
+{-# DEPRECATED pJob "Use generic-lens or generic-optics with 'job' instead." #-}
 
 -- | A message about the problem's result.
-pMessage :: Lens' Problem (Maybe Text)
-pMessage = lens _pMessage (\s a -> s {_pMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMessage :: Lens.Lens' Problem (Lude.Maybe Lude.Text)
+pMessage = Lens.lens (message :: Problem -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Problem)
+{-# DEPRECATED pMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | Information about the associated suite.
-pSuite :: Lens' Problem (Maybe ProblemDetail)
-pSuite = lens _pSuite (\s a -> s {_pSuite = a})
+--
+-- /Note:/ Consider using 'suite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSuite :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
+pSuite = Lens.lens (suite :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {suite = a} :: Problem)
+{-# DEPRECATED pSuite "Use generic-lens or generic-optics with 'suite' instead." #-}
 
-instance FromJSON Problem where
+instance Lude.FromJSON Problem where
   parseJSON =
-    withObject
+    Lude.withObject
       "Problem"
       ( \x ->
           Problem'
-            <$> (x .:? "device")
-            <*> (x .:? "test")
-            <*> (x .:? "result")
-            <*> (x .:? "run")
-            <*> (x .:? "job")
-            <*> (x .:? "message")
-            <*> (x .:? "suite")
+            Lude.<$> (x Lude..:? "device")
+            Lude.<*> (x Lude..:? "test")
+            Lude.<*> (x Lude..:? "result")
+            Lude.<*> (x Lude..:? "run")
+            Lude.<*> (x Lude..:? "job")
+            Lude.<*> (x Lude..:? "message")
+            Lude.<*> (x Lude..:? "suite")
       )
-
-instance Hashable Problem
-
-instance NFData Problem

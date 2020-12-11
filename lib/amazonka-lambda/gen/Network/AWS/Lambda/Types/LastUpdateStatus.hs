@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.LastUpdateStatus where
+module Network.AWS.Lambda.Types.LastUpdateStatus
+  ( LastUpdateStatus
+      ( LastUpdateStatus',
+        LUSFailed,
+        LUSInProgress,
+        LUSSuccessful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LastUpdateStatus
-  = LUSFailed
-  | LUSInProgress
-  | LUSSuccessful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LastUpdateStatus = LastUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LastUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure LUSFailed
-      "inprogress" -> pure LUSInProgress
-      "successful" -> pure LUSSuccessful
-      e ->
-        fromTextError $
-          "Failure parsing LastUpdateStatus from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, successful"
+pattern LUSFailed :: LastUpdateStatus
+pattern LUSFailed = LastUpdateStatus' "Failed"
 
-instance ToText LastUpdateStatus where
-  toText = \case
-    LUSFailed -> "Failed"
-    LUSInProgress -> "InProgress"
-    LUSSuccessful -> "Successful"
+pattern LUSInProgress :: LastUpdateStatus
+pattern LUSInProgress = LastUpdateStatus' "InProgress"
 
-instance Hashable LastUpdateStatus
+pattern LUSSuccessful :: LastUpdateStatus
+pattern LUSSuccessful = LastUpdateStatus' "Successful"
 
-instance NFData LastUpdateStatus
-
-instance ToByteString LastUpdateStatus
-
-instance ToQuery LastUpdateStatus
-
-instance ToHeader LastUpdateStatus
-
-instance FromJSON LastUpdateStatus where
-  parseJSON = parseJSONText "LastUpdateStatus"
+{-# COMPLETE
+  LUSFailed,
+  LUSInProgress,
+  LUSSuccessful,
+  LastUpdateStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.ShareMethod where
+module Network.AWS.DirectoryService.Types.ShareMethod
+  ( ShareMethod
+      ( ShareMethod',
+        Handshake,
+        Organizations
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShareMethod
-  = Handshake
-  | Organizations
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShareMethod = ShareMethod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShareMethod where
-  parser =
-    takeLowerText >>= \case
-      "handshake" -> pure Handshake
-      "organizations" -> pure Organizations
-      e ->
-        fromTextError $
-          "Failure parsing ShareMethod from value: '" <> e
-            <> "'. Accepted values: handshake, organizations"
+pattern Handshake :: ShareMethod
+pattern Handshake = ShareMethod' "HANDSHAKE"
 
-instance ToText ShareMethod where
-  toText = \case
-    Handshake -> "HANDSHAKE"
-    Organizations -> "ORGANIZATIONS"
+pattern Organizations :: ShareMethod
+pattern Organizations = ShareMethod' "ORGANIZATIONS"
 
-instance Hashable ShareMethod
-
-instance NFData ShareMethod
-
-instance ToByteString ShareMethod
-
-instance ToQuery ShareMethod
-
-instance ToHeader ShareMethod
-
-instance ToJSON ShareMethod where
-  toJSON = toJSONText
-
-instance FromJSON ShareMethod where
-  parseJSON = parseJSONText "ShareMethod"
+{-# COMPLETE
+  Handshake,
+  Organizations,
+  ShareMethod'
+  #-}

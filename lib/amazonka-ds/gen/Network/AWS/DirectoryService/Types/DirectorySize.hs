@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DirectorySize where
+module Network.AWS.DirectoryService.Types.DirectorySize
+  ( DirectorySize
+      ( DirectorySize',
+        Large,
+        Small
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectorySize
-  = Large
-  | Small
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectorySize = DirectorySize' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectorySize where
-  parser =
-    takeLowerText >>= \case
-      "large" -> pure Large
-      "small" -> pure Small
-      e ->
-        fromTextError $
-          "Failure parsing DirectorySize from value: '" <> e
-            <> "'. Accepted values: large, small"
+pattern Large :: DirectorySize
+pattern Large = DirectorySize' "Large"
 
-instance ToText DirectorySize where
-  toText = \case
-    Large -> "Large"
-    Small -> "Small"
+pattern Small :: DirectorySize
+pattern Small = DirectorySize' "Small"
 
-instance Hashable DirectorySize
-
-instance NFData DirectorySize
-
-instance ToByteString DirectorySize
-
-instance ToQuery DirectorySize
-
-instance ToHeader DirectorySize
-
-instance ToJSON DirectorySize where
-  toJSON = toJSONText
-
-instance FromJSON DirectorySize where
-  parseJSON = parseJSONText "DirectorySize"
+{-# COMPLETE
+  Large,
+  Small,
+  DirectorySize'
+  #-}

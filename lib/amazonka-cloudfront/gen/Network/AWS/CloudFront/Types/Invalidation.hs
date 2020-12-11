@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Invalidation where
+module Network.AWS.CloudFront.Types.Invalidation
+  ( Invalidation (..),
+
+    -- * Smart constructor
+    mkInvalidation,
+
+    -- * Lenses
+    iId,
+    iStatus,
+    iCreateTime,
+    iInvalidationBatch,
+  )
+where
 
 import Network.AWS.CloudFront.Types.InvalidationBatch
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An invalidation.
 --
---
---
--- /See:/ 'invalidation' smart constructor.
+-- /See:/ 'mkInvalidation' smart constructor.
 data Invalidation = Invalidation'
-  { _iId :: !Text,
-    _iStatus :: !Text,
-    _iCreateTime :: !ISO8601,
-    _iInvalidationBatch :: !InvalidationBatch
+  { id :: Lude.Text,
+    status :: Lude.Text,
+    createTime :: Lude.ISO8601,
+    invalidationBatch :: InvalidationBatch
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Invalidation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iId' - The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
---
--- * 'iStatus' - The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
---
--- * 'iCreateTime' - The date and time the invalidation request was first made.
---
--- * 'iInvalidationBatch' - The current invalidation information for the batch request.
-invalidation ::
-  -- | 'iId'
-  Text ->
-  -- | 'iStatus'
-  Text ->
-  -- | 'iCreateTime'
-  UTCTime ->
-  -- | 'iInvalidationBatch'
+-- * 'createTime' - The date and time the invalidation request was first made.
+-- * 'id' - The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
+-- * 'invalidationBatch' - The current invalidation information for the batch request.
+-- * 'status' - The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
+mkInvalidation ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'status'
+  Lude.Text ->
+  -- | 'createTime'
+  Lude.ISO8601 ->
+  -- | 'invalidationBatch'
   InvalidationBatch ->
   Invalidation
-invalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ =
+mkInvalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ =
   Invalidation'
-    { _iId = pId_,
-      _iStatus = pStatus_,
-      _iCreateTime = _Time # pCreateTime_,
-      _iInvalidationBatch = pInvalidationBatch_
+    { id = pId_,
+      status = pStatus_,
+      createTime = pCreateTime_,
+      invalidationBatch = pInvalidationBatch_
     }
 
 -- | The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
-iId :: Lens' Invalidation Text
-iId = lens _iId (\s a -> s {_iId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iId :: Lens.Lens' Invalidation Lude.Text
+iId = Lens.lens (id :: Invalidation -> Lude.Text) (\s a -> s {id = a} :: Invalidation)
+{-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
-iStatus :: Lens' Invalidation Text
-iStatus = lens _iStatus (\s a -> s {_iStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStatus :: Lens.Lens' Invalidation Lude.Text
+iStatus = Lens.lens (status :: Invalidation -> Lude.Text) (\s a -> s {status = a} :: Invalidation)
+{-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date and time the invalidation request was first made.
-iCreateTime :: Lens' Invalidation UTCTime
-iCreateTime = lens _iCreateTime (\s a -> s {_iCreateTime = a}) . _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCreateTime :: Lens.Lens' Invalidation Lude.ISO8601
+iCreateTime = Lens.lens (createTime :: Invalidation -> Lude.ISO8601) (\s a -> s {createTime = a} :: Invalidation)
+{-# DEPRECATED iCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The current invalidation information for the batch request.
-iInvalidationBatch :: Lens' Invalidation InvalidationBatch
-iInvalidationBatch = lens _iInvalidationBatch (\s a -> s {_iInvalidationBatch = a})
+--
+-- /Note:/ Consider using 'invalidationBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInvalidationBatch :: Lens.Lens' Invalidation InvalidationBatch
+iInvalidationBatch = Lens.lens (invalidationBatch :: Invalidation -> InvalidationBatch) (\s a -> s {invalidationBatch = a} :: Invalidation)
+{-# DEPRECATED iInvalidationBatch "Use generic-lens or generic-optics with 'invalidationBatch' instead." #-}
 
-instance FromXML Invalidation where
+instance Lude.FromXML Invalidation where
   parseXML x =
     Invalidation'
-      <$> (x .@ "Id")
-      <*> (x .@ "Status")
-      <*> (x .@ "CreateTime")
-      <*> (x .@ "InvalidationBatch")
-
-instance Hashable Invalidation
-
-instance NFData Invalidation
+      Lude.<$> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "Status")
+      Lude.<*> (x Lude..@ "CreateTime")
+      Lude.<*> (x Lude..@ "InvalidationBatch")

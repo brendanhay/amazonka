@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,156 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexSummary where
+module Network.AWS.MediaLive.Types.MultiplexSummary
+  ( MultiplexSummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMultiplexSummary,
+
+    -- * Lenses
+    msState,
+    msARN,
+    msPipelinesRunningCount,
+    msAvailabilityZones,
+    msProgramCount,
+    msName,
+    msId,
+    msMultiplexSettings,
+    msTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexSettingsSummary
 import Network.AWS.MediaLive.Types.MultiplexState
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for MultiplexSummary
 --
--- /See:/ 'multiplexSummary' smart constructor.
+-- /See:/ 'mkMultiplexSummary' smart constructor.
 data MultiplexSummary = MultiplexSummary'
-  { _msState ::
-      !(Maybe MultiplexState),
-    _msARN :: !(Maybe Text),
-    _msPipelinesRunningCount :: !(Maybe Int),
-    _msAvailabilityZones :: !(Maybe [Text]),
-    _msProgramCount :: !(Maybe Int),
-    _msName :: !(Maybe Text),
-    _msId :: !(Maybe Text),
-    _msMultiplexSettings :: !(Maybe MultiplexSettingsSummary),
-    _msTags :: !(Maybe (Map Text (Text)))
+  { state ::
+      Lude.Maybe MultiplexState,
+    arn :: Lude.Maybe Lude.Text,
+    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    programCount :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    multiplexSettings :: Lude.Maybe MultiplexSettingsSummary,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msState' - The current state of the multiplex.
---
--- * 'msARN' - The unique arn of the multiplex.
---
--- * 'msPipelinesRunningCount' - The number of currently healthy pipelines.
---
--- * 'msAvailabilityZones' - A list of availability zones for the multiplex.
---
--- * 'msProgramCount' - The number of programs in the multiplex.
---
--- * 'msName' - The name of the multiplex.
---
--- * 'msId' - The unique id of the multiplex.
---
--- * 'msMultiplexSettings' - Configuration for a multiplex event.
---
--- * 'msTags' - A collection of key-value pairs.
-multiplexSummary ::
+-- * 'arn' - The unique arn of the multiplex.
+-- * 'availabilityZones' - A list of availability zones for the multiplex.
+-- * 'id' - The unique id of the multiplex.
+-- * 'multiplexSettings' - Configuration for a multiplex event.
+-- * 'name' - The name of the multiplex.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'programCount' - The number of programs in the multiplex.
+-- * 'state' - The current state of the multiplex.
+-- * 'tags' - A collection of key-value pairs.
+mkMultiplexSummary ::
   MultiplexSummary
-multiplexSummary =
+mkMultiplexSummary =
   MultiplexSummary'
-    { _msState = Nothing,
-      _msARN = Nothing,
-      _msPipelinesRunningCount = Nothing,
-      _msAvailabilityZones = Nothing,
-      _msProgramCount = Nothing,
-      _msName = Nothing,
-      _msId = Nothing,
-      _msMultiplexSettings = Nothing,
-      _msTags = Nothing
+    { state = Lude.Nothing,
+      arn = Lude.Nothing,
+      pipelinesRunningCount = Lude.Nothing,
+      availabilityZones = Lude.Nothing,
+      programCount = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      multiplexSettings = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The current state of the multiplex.
-msState :: Lens' MultiplexSummary (Maybe MultiplexState)
-msState = lens _msState (\s a -> s {_msState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msState :: Lens.Lens' MultiplexSummary (Lude.Maybe MultiplexState)
+msState = Lens.lens (state :: MultiplexSummary -> Lude.Maybe MultiplexState) (\s a -> s {state = a} :: MultiplexSummary)
+{-# DEPRECATED msState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The unique arn of the multiplex.
-msARN :: Lens' MultiplexSummary (Maybe Text)
-msARN = lens _msARN (\s a -> s {_msARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msARN :: Lens.Lens' MultiplexSummary (Lude.Maybe Lude.Text)
+msARN = Lens.lens (arn :: MultiplexSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: MultiplexSummary)
+{-# DEPRECATED msARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The number of currently healthy pipelines.
-msPipelinesRunningCount :: Lens' MultiplexSummary (Maybe Int)
-msPipelinesRunningCount = lens _msPipelinesRunningCount (\s a -> s {_msPipelinesRunningCount = a})
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPipelinesRunningCount :: Lens.Lens' MultiplexSummary (Lude.Maybe Lude.Int)
+msPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: MultiplexSummary -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: MultiplexSummary)
+{-# DEPRECATED msPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
 
 -- | A list of availability zones for the multiplex.
-msAvailabilityZones :: Lens' MultiplexSummary [Text]
-msAvailabilityZones = lens _msAvailabilityZones (\s a -> s {_msAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msAvailabilityZones :: Lens.Lens' MultiplexSummary (Lude.Maybe [Lude.Text])
+msAvailabilityZones = Lens.lens (availabilityZones :: MultiplexSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: MultiplexSummary)
+{-# DEPRECATED msAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The number of programs in the multiplex.
-msProgramCount :: Lens' MultiplexSummary (Maybe Int)
-msProgramCount = lens _msProgramCount (\s a -> s {_msProgramCount = a})
+--
+-- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msProgramCount :: Lens.Lens' MultiplexSummary (Lude.Maybe Lude.Int)
+msProgramCount = Lens.lens (programCount :: MultiplexSummary -> Lude.Maybe Lude.Int) (\s a -> s {programCount = a} :: MultiplexSummary)
+{-# DEPRECATED msProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
 
 -- | The name of the multiplex.
-msName :: Lens' MultiplexSummary (Maybe Text)
-msName = lens _msName (\s a -> s {_msName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msName :: Lens.Lens' MultiplexSummary (Lude.Maybe Lude.Text)
+msName = Lens.lens (name :: MultiplexSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MultiplexSummary)
+{-# DEPRECATED msName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique id of the multiplex.
-msId :: Lens' MultiplexSummary (Maybe Text)
-msId = lens _msId (\s a -> s {_msId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msId :: Lens.Lens' MultiplexSummary (Lude.Maybe Lude.Text)
+msId = Lens.lens (id :: MultiplexSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: MultiplexSummary)
+{-# DEPRECATED msId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Configuration for a multiplex event.
-msMultiplexSettings :: Lens' MultiplexSummary (Maybe MultiplexSettingsSummary)
-msMultiplexSettings = lens _msMultiplexSettings (\s a -> s {_msMultiplexSettings = a})
+--
+-- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msMultiplexSettings :: Lens.Lens' MultiplexSummary (Lude.Maybe MultiplexSettingsSummary)
+msMultiplexSettings = Lens.lens (multiplexSettings :: MultiplexSummary -> Lude.Maybe MultiplexSettingsSummary) (\s a -> s {multiplexSettings = a} :: MultiplexSummary)
+{-# DEPRECATED msMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
 
 -- | A collection of key-value pairs.
-msTags :: Lens' MultiplexSummary (HashMap Text (Text))
-msTags = lens _msTags (\s a -> s {_msTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTags :: Lens.Lens' MultiplexSummary (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+msTags = Lens.lens (tags :: MultiplexSummary -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: MultiplexSummary)
+{-# DEPRECATED msTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON MultiplexSummary where
+instance Lude.FromJSON MultiplexSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexSummary"
       ( \x ->
           MultiplexSummary'
-            <$> (x .:? "state")
-            <*> (x .:? "arn")
-            <*> (x .:? "pipelinesRunningCount")
-            <*> (x .:? "availabilityZones" .!= mempty)
-            <*> (x .:? "programCount")
-            <*> (x .:? "name")
-            <*> (x .:? "id")
-            <*> (x .:? "multiplexSettings")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "pipelinesRunningCount")
+            Lude.<*> (x Lude..:? "availabilityZones" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "programCount")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "multiplexSettings")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable MultiplexSummary
-
-instance NFData MultiplexSummary

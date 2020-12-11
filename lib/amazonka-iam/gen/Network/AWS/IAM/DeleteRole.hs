@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,77 +14,89 @@
 --
 -- Deletes the specified role. The role must not have any policies attached. For more information about roles, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> .
 --
---
 -- /Important:/ Make sure that you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
 module Network.AWS.IAM.DeleteRole
-  ( -- * Creating a Request
-    deleteRole,
-    DeleteRole,
+  ( -- * Creating a request
+    DeleteRole (..),
+    mkDeleteRole,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drRoleName,
 
-    -- * Destructuring the Response
-    deleteRoleResponse,
-    DeleteRoleResponse,
+    -- * Destructuring the response
+    DeleteRoleResponse (..),
+    mkDeleteRoleResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRole' smart constructor.
-newtype DeleteRole = DeleteRole' {_drRoleName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteRole' smart constructor.
+newtype DeleteRole = DeleteRole' {roleName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRole' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'roleName' - The name of the role to delete.
 --
--- * 'drRoleName' - The name of the role to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-deleteRole ::
-  -- | 'drRoleName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkDeleteRole ::
+  -- | 'roleName'
+  Lude.Text ->
   DeleteRole
-deleteRole pRoleName_ = DeleteRole' {_drRoleName = pRoleName_}
+mkDeleteRole pRoleName_ = DeleteRole' {roleName = pRoleName_}
 
--- | The name of the role to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-drRoleName :: Lens' DeleteRole Text
-drRoleName = lens _drRoleName (\s a -> s {_drRoleName = a})
+-- | The name of the role to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drRoleName :: Lens.Lens' DeleteRole Lude.Text
+drRoleName = Lens.lens (roleName :: DeleteRole -> Lude.Text) (\s a -> s {roleName = a} :: DeleteRole)
+{-# DEPRECATED drRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance AWSRequest DeleteRole where
+instance Lude.AWSRequest DeleteRole where
   type Rs DeleteRole = DeleteRoleResponse
-  request = postQuery iam
-  response = receiveNull DeleteRoleResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteRoleResponse'
 
-instance Hashable DeleteRole
+instance Lude.ToHeaders DeleteRole where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteRole
+instance Lude.ToPath DeleteRole where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteRole where
-  toHeaders = const mempty
-
-instance ToPath DeleteRole where
-  toPath = const "/"
-
-instance ToQuery DeleteRole where
+instance Lude.ToQuery DeleteRole where
   toQuery DeleteRole' {..} =
-    mconcat
-      [ "Action" =: ("DeleteRole" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "RoleName" =: _drRoleName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteRole" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "RoleName" Lude.=: roleName
       ]
 
--- | /See:/ 'deleteRoleResponse' smart constructor.
+-- | /See:/ 'mkDeleteRoleResponse' smart constructor.
 data DeleteRoleResponse = DeleteRoleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoleResponse' with the minimum fields required to make a request.
-deleteRoleResponse ::
+mkDeleteRoleResponse ::
   DeleteRoleResponse
-deleteRoleResponse = DeleteRoleResponse'
-
-instance NFData DeleteRoleResponse
+mkDeleteRoleResponse = DeleteRoleResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DiskImageFormat where
+module Network.AWS.EC2.Types.DiskImageFormat
+  ( DiskImageFormat
+      ( DiskImageFormat',
+        Raw,
+        VHD,
+        VMDK
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DiskImageFormat
-  = Raw
-  | VHD
-  | VMDK
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DiskImageFormat = DiskImageFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DiskImageFormat where
-  parser =
-    takeLowerText >>= \case
-      "raw" -> pure Raw
-      "vhd" -> pure VHD
-      "vmdk" -> pure VMDK
-      e ->
-        fromTextError $
-          "Failure parsing DiskImageFormat from value: '" <> e
-            <> "'. Accepted values: raw, vhd, vmdk"
+pattern Raw :: DiskImageFormat
+pattern Raw = DiskImageFormat' "RAW"
 
-instance ToText DiskImageFormat where
-  toText = \case
-    Raw -> "RAW"
-    VHD -> "VHD"
-    VMDK -> "VMDK"
+pattern VHD :: DiskImageFormat
+pattern VHD = DiskImageFormat' "VHD"
 
-instance Hashable DiskImageFormat
+pattern VMDK :: DiskImageFormat
+pattern VMDK = DiskImageFormat' "VMDK"
 
-instance NFData DiskImageFormat
-
-instance ToByteString DiskImageFormat
-
-instance ToQuery DiskImageFormat
-
-instance ToHeader DiskImageFormat
-
-instance FromXML DiskImageFormat where
-  parseXML = parseXMLText "DiskImageFormat"
+{-# COMPLETE
+  Raw,
+  VHD,
+  VMDK,
+  DiskImageFormat'
+  #-}

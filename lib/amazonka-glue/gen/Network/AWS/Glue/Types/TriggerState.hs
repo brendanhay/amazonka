@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TriggerState where
+module Network.AWS.Glue.Types.TriggerState
+  ( TriggerState
+      ( TriggerState',
+        TSActivated,
+        TSActivating,
+        TSCreated,
+        TSCreating,
+        TSDeactivated,
+        TSDeactivating,
+        TSDeleting,
+        TSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TriggerState
-  = TSActivated
-  | TSActivating
-  | TSCreated
-  | TSCreating
-  | TSDeactivated
-  | TSDeactivating
-  | TSDeleting
-  | TSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TriggerState = TriggerState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TriggerState where
-  parser =
-    takeLowerText >>= \case
-      "activated" -> pure TSActivated
-      "activating" -> pure TSActivating
-      "created" -> pure TSCreated
-      "creating" -> pure TSCreating
-      "deactivated" -> pure TSDeactivated
-      "deactivating" -> pure TSDeactivating
-      "deleting" -> pure TSDeleting
-      "updating" -> pure TSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing TriggerState from value: '" <> e
-            <> "'. Accepted values: activated, activating, created, creating, deactivated, deactivating, deleting, updating"
+pattern TSActivated :: TriggerState
+pattern TSActivated = TriggerState' "ACTIVATED"
 
-instance ToText TriggerState where
-  toText = \case
-    TSActivated -> "ACTIVATED"
-    TSActivating -> "ACTIVATING"
-    TSCreated -> "CREATED"
-    TSCreating -> "CREATING"
-    TSDeactivated -> "DEACTIVATED"
-    TSDeactivating -> "DEACTIVATING"
-    TSDeleting -> "DELETING"
-    TSUpdating -> "UPDATING"
+pattern TSActivating :: TriggerState
+pattern TSActivating = TriggerState' "ACTIVATING"
 
-instance Hashable TriggerState
+pattern TSCreated :: TriggerState
+pattern TSCreated = TriggerState' "CREATED"
 
-instance NFData TriggerState
+pattern TSCreating :: TriggerState
+pattern TSCreating = TriggerState' "CREATING"
 
-instance ToByteString TriggerState
+pattern TSDeactivated :: TriggerState
+pattern TSDeactivated = TriggerState' "DEACTIVATED"
 
-instance ToQuery TriggerState
+pattern TSDeactivating :: TriggerState
+pattern TSDeactivating = TriggerState' "DEACTIVATING"
 
-instance ToHeader TriggerState
+pattern TSDeleting :: TriggerState
+pattern TSDeleting = TriggerState' "DELETING"
 
-instance FromJSON TriggerState where
-  parseJSON = parseJSONText "TriggerState"
+pattern TSUpdating :: TriggerState
+pattern TSUpdating = TriggerState' "UPDATING"
+
+{-# COMPLETE
+  TSActivated,
+  TSActivating,
+  TSCreated,
+  TSCreating,
+  TSDeactivated,
+  TSDeactivating,
+  TSDeleting,
+  TSUpdating,
+  TriggerState'
+  #-}

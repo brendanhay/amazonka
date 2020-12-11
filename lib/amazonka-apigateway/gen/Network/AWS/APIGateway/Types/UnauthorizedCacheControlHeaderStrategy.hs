@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy where
+module Network.AWS.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy
+  ( UnauthorizedCacheControlHeaderStrategy
+      ( UnauthorizedCacheControlHeaderStrategy',
+        FailWith403,
+        SucceedWithResponseHeader,
+        SucceedWithoutResponseHeader
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UnauthorizedCacheControlHeaderStrategy
-  = FailWith403
-  | SucceedWithResponseHeader
-  | SucceedWithoutResponseHeader
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UnauthorizedCacheControlHeaderStrategy = UnauthorizedCacheControlHeaderStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UnauthorizedCacheControlHeaderStrategy where
-  parser =
-    takeLowerText >>= \case
-      "fail_with_403" -> pure FailWith403
-      "succeed_with_response_header" -> pure SucceedWithResponseHeader
-      "succeed_without_response_header" -> pure SucceedWithoutResponseHeader
-      e ->
-        fromTextError $
-          "Failure parsing UnauthorizedCacheControlHeaderStrategy from value: '" <> e
-            <> "'. Accepted values: fail_with_403, succeed_with_response_header, succeed_without_response_header"
+pattern FailWith403 :: UnauthorizedCacheControlHeaderStrategy
+pattern FailWith403 = UnauthorizedCacheControlHeaderStrategy' "FAIL_WITH_403"
 
-instance ToText UnauthorizedCacheControlHeaderStrategy where
-  toText = \case
-    FailWith403 -> "FAIL_WITH_403"
-    SucceedWithResponseHeader -> "SUCCEED_WITH_RESPONSE_HEADER"
-    SucceedWithoutResponseHeader -> "SUCCEED_WITHOUT_RESPONSE_HEADER"
+pattern SucceedWithResponseHeader :: UnauthorizedCacheControlHeaderStrategy
+pattern SucceedWithResponseHeader = UnauthorizedCacheControlHeaderStrategy' "SUCCEED_WITH_RESPONSE_HEADER"
 
-instance Hashable UnauthorizedCacheControlHeaderStrategy
+pattern SucceedWithoutResponseHeader :: UnauthorizedCacheControlHeaderStrategy
+pattern SucceedWithoutResponseHeader = UnauthorizedCacheControlHeaderStrategy' "SUCCEED_WITHOUT_RESPONSE_HEADER"
 
-instance NFData UnauthorizedCacheControlHeaderStrategy
-
-instance ToByteString UnauthorizedCacheControlHeaderStrategy
-
-instance ToQuery UnauthorizedCacheControlHeaderStrategy
-
-instance ToHeader UnauthorizedCacheControlHeaderStrategy
-
-instance FromJSON UnauthorizedCacheControlHeaderStrategy where
-  parseJSON = parseJSONText "UnauthorizedCacheControlHeaderStrategy"
+{-# COMPLETE
+  FailWith403,
+  SucceedWithResponseHeader,
+  SucceedWithoutResponseHeader,
+  UnauthorizedCacheControlHeaderStrategy'
+  #-}

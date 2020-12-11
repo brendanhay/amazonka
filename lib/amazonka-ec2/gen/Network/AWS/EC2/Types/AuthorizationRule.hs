@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AuthorizationRule where
+module Network.AWS.EC2.Types.AuthorizationRule
+  ( AuthorizationRule (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkAuthorizationRule,
+
+    -- * Lenses
+    arStatus,
+    arAccessAll,
+    arClientVPNEndpointId,
+    arGroupId,
+    arDestinationCidr,
+    arDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an authorization rule.
 --
---
---
--- /See:/ 'authorizationRule' smart constructor.
+-- /See:/ 'mkAuthorizationRule' smart constructor.
 data AuthorizationRule = AuthorizationRule'
-  { _arStatus ::
-      !(Maybe ClientVPNAuthorizationRuleStatus),
-    _arAccessAll :: !(Maybe Bool),
-    _arClientVPNEndpointId :: !(Maybe Text),
-    _arGroupId :: !(Maybe Text),
-    _arDestinationCidr :: !(Maybe Text),
-    _arDescription :: !(Maybe Text)
+  { status ::
+      Lude.Maybe ClientVPNAuthorizationRuleStatus,
+    accessAll :: Lude.Maybe Lude.Bool,
+    clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    groupId :: Lude.Maybe Lude.Text,
+    destinationCidr :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizationRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arStatus' - The current state of the authorization rule.
---
--- * 'arAccessAll' - Indicates whether the authorization rule grants access to all clients.
---
--- * 'arClientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
---
--- * 'arGroupId' - The ID of the Active Directory group to which the authorization rule grants access.
---
--- * 'arDestinationCidr' - The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
---
--- * 'arDescription' - A brief description of the authorization rule.
-authorizationRule ::
+-- * 'accessAll' - Indicates whether the authorization rule grants access to all clients.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
+-- * 'description' - A brief description of the authorization rule.
+-- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+-- * 'groupId' - The ID of the Active Directory group to which the authorization rule grants access.
+-- * 'status' - The current state of the authorization rule.
+mkAuthorizationRule ::
   AuthorizationRule
-authorizationRule =
+mkAuthorizationRule =
   AuthorizationRule'
-    { _arStatus = Nothing,
-      _arAccessAll = Nothing,
-      _arClientVPNEndpointId = Nothing,
-      _arGroupId = Nothing,
-      _arDestinationCidr = Nothing,
-      _arDescription = Nothing
+    { status = Lude.Nothing,
+      accessAll = Lude.Nothing,
+      clientVPNEndpointId = Lude.Nothing,
+      groupId = Lude.Nothing,
+      destinationCidr = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The current state of the authorization rule.
-arStatus :: Lens' AuthorizationRule (Maybe ClientVPNAuthorizationRuleStatus)
-arStatus = lens _arStatus (\s a -> s {_arStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arStatus :: Lens.Lens' AuthorizationRule (Lude.Maybe ClientVPNAuthorizationRuleStatus)
+arStatus = Lens.lens (status :: AuthorizationRule -> Lude.Maybe ClientVPNAuthorizationRuleStatus) (\s a -> s {status = a} :: AuthorizationRule)
+{-# DEPRECATED arStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Indicates whether the authorization rule grants access to all clients.
-arAccessAll :: Lens' AuthorizationRule (Maybe Bool)
-arAccessAll = lens _arAccessAll (\s a -> s {_arAccessAll = a})
+--
+-- /Note:/ Consider using 'accessAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAccessAll :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Bool)
+arAccessAll = Lens.lens (accessAll :: AuthorizationRule -> Lude.Maybe Lude.Bool) (\s a -> s {accessAll = a} :: AuthorizationRule)
+{-# DEPRECATED arAccessAll "Use generic-lens or generic-optics with 'accessAll' instead." #-}
 
 -- | The ID of the Client VPN endpoint with which the authorization rule is associated.
-arClientVPNEndpointId :: Lens' AuthorizationRule (Maybe Text)
-arClientVPNEndpointId = lens _arClientVPNEndpointId (\s a -> s {_arClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arClientVPNEndpointId :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
+arClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: AuthorizationRule)
+{-# DEPRECATED arClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The ID of the Active Directory group to which the authorization rule grants access.
-arGroupId :: Lens' AuthorizationRule (Maybe Text)
-arGroupId = lens _arGroupId (\s a -> s {_arGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arGroupId :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
+arGroupId = Lens.lens (groupId :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: AuthorizationRule)
+{-# DEPRECATED arGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-arDestinationCidr :: Lens' AuthorizationRule (Maybe Text)
-arDestinationCidr = lens _arDestinationCidr (\s a -> s {_arDestinationCidr = a})
+--
+-- /Note:/ Consider using 'destinationCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arDestinationCidr :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
+arDestinationCidr = Lens.lens (destinationCidr :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidr = a} :: AuthorizationRule)
+{-# DEPRECATED arDestinationCidr "Use generic-lens or generic-optics with 'destinationCidr' instead." #-}
 
 -- | A brief description of the authorization rule.
-arDescription :: Lens' AuthorizationRule (Maybe Text)
-arDescription = lens _arDescription (\s a -> s {_arDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arDescription :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
+arDescription = Lens.lens (description :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AuthorizationRule)
+{-# DEPRECATED arDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML AuthorizationRule where
+instance Lude.FromXML AuthorizationRule where
   parseXML x =
     AuthorizationRule'
-      <$> (x .@? "status")
-      <*> (x .@? "accessAll")
-      <*> (x .@? "clientVpnEndpointId")
-      <*> (x .@? "groupId")
-      <*> (x .@? "destinationCidr")
-      <*> (x .@? "description")
-
-instance Hashable AuthorizationRule
-
-instance NFData AuthorizationRule
+      Lude.<$> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "accessAll")
+      Lude.<*> (x Lude..@? "clientVpnEndpointId")
+      Lude.<*> (x Lude..@? "groupId")
+      Lude.<*> (x Lude..@? "destinationCidr")
+      Lude.<*> (x Lude..@? "description")

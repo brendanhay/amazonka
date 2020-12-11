@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentTarget where
+module Network.AWS.CodeDeploy.Types.DeploymentTarget
+  ( DeploymentTarget (..),
+
+    -- * Smart constructor
+    mkDeploymentTarget,
+
+    -- * Lenses
+    dtInstanceTarget,
+    dtCloudFormationTarget,
+    dtEcsTarget,
+    dtDeploymentTargetType,
+    dtLambdaTarget,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.CloudFormationTarget
 import Network.AWS.CodeDeploy.Types.DeploymentTargetType
 import Network.AWS.CodeDeploy.Types.ECSTarget
 import Network.AWS.CodeDeploy.Types.InstanceTarget
 import Network.AWS.CodeDeploy.Types.LambdaTarget
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the deployment target.
 --
---
---
--- /See:/ 'deploymentTarget' smart constructor.
+-- /See:/ 'mkDeploymentTarget' smart constructor.
 data DeploymentTarget = DeploymentTarget'
-  { _dtInstanceTarget ::
-      !(Maybe InstanceTarget),
-    _dtCloudFormationTarget :: !(Maybe CloudFormationTarget),
-    _dtEcsTarget :: !(Maybe ECSTarget),
-    _dtDeploymentTargetType :: !(Maybe DeploymentTargetType),
-    _dtLambdaTarget :: !(Maybe LambdaTarget)
+  { instanceTarget ::
+      Lude.Maybe InstanceTarget,
+    cloudFormationTarget :: Lude.Maybe CloudFormationTarget,
+    ecsTarget :: Lude.Maybe ECSTarget,
+    deploymentTargetType :: Lude.Maybe DeploymentTargetType,
+    lambdaTarget :: Lude.Maybe LambdaTarget
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtInstanceTarget' - Information about the target for a deployment that uses the EC2/On-premises compute platform.
---
--- * 'dtCloudFormationTarget' - Undocumented member.
---
--- * 'dtEcsTarget' - Information about the target for a deployment that uses the Amazon ECS compute platform.
---
--- * 'dtDeploymentTargetType' - The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.
---
--- * 'dtLambdaTarget' - Information about the target for a deployment that uses the AWS Lambda compute platform.
-deploymentTarget ::
+-- * 'cloudFormationTarget' - Undocumented field.
+-- * 'deploymentTargetType' - The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.
+-- * 'ecsTarget' - Information about the target for a deployment that uses the Amazon ECS compute platform.
+-- * 'instanceTarget' - Information about the target for a deployment that uses the EC2/On-premises compute platform.
+-- * 'lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda compute platform.
+mkDeploymentTarget ::
   DeploymentTarget
-deploymentTarget =
+mkDeploymentTarget =
   DeploymentTarget'
-    { _dtInstanceTarget = Nothing,
-      _dtCloudFormationTarget = Nothing,
-      _dtEcsTarget = Nothing,
-      _dtDeploymentTargetType = Nothing,
-      _dtLambdaTarget = Nothing
+    { instanceTarget = Lude.Nothing,
+      cloudFormationTarget = Lude.Nothing,
+      ecsTarget = Lude.Nothing,
+      deploymentTargetType = Lude.Nothing,
+      lambdaTarget = Lude.Nothing
     }
 
 -- | Information about the target for a deployment that uses the EC2/On-premises compute platform.
-dtInstanceTarget :: Lens' DeploymentTarget (Maybe InstanceTarget)
-dtInstanceTarget = lens _dtInstanceTarget (\s a -> s {_dtInstanceTarget = a})
+--
+-- /Note:/ Consider using 'instanceTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtInstanceTarget :: Lens.Lens' DeploymentTarget (Lude.Maybe InstanceTarget)
+dtInstanceTarget = Lens.lens (instanceTarget :: DeploymentTarget -> Lude.Maybe InstanceTarget) (\s a -> s {instanceTarget = a} :: DeploymentTarget)
+{-# DEPRECATED dtInstanceTarget "Use generic-lens or generic-optics with 'instanceTarget' instead." #-}
 
--- | Undocumented member.
-dtCloudFormationTarget :: Lens' DeploymentTarget (Maybe CloudFormationTarget)
-dtCloudFormationTarget = lens _dtCloudFormationTarget (\s a -> s {_dtCloudFormationTarget = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cloudFormationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtCloudFormationTarget :: Lens.Lens' DeploymentTarget (Lude.Maybe CloudFormationTarget)
+dtCloudFormationTarget = Lens.lens (cloudFormationTarget :: DeploymentTarget -> Lude.Maybe CloudFormationTarget) (\s a -> s {cloudFormationTarget = a} :: DeploymentTarget)
+{-# DEPRECATED dtCloudFormationTarget "Use generic-lens or generic-optics with 'cloudFormationTarget' instead." #-}
 
 -- | Information about the target for a deployment that uses the Amazon ECS compute platform.
-dtEcsTarget :: Lens' DeploymentTarget (Maybe ECSTarget)
-dtEcsTarget = lens _dtEcsTarget (\s a -> s {_dtEcsTarget = a})
+--
+-- /Note:/ Consider using 'ecsTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtEcsTarget :: Lens.Lens' DeploymentTarget (Lude.Maybe ECSTarget)
+dtEcsTarget = Lens.lens (ecsTarget :: DeploymentTarget -> Lude.Maybe ECSTarget) (\s a -> s {ecsTarget = a} :: DeploymentTarget)
+{-# DEPRECATED dtEcsTarget "Use generic-lens or generic-optics with 'ecsTarget' instead." #-}
 
 -- | The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.
-dtDeploymentTargetType :: Lens' DeploymentTarget (Maybe DeploymentTargetType)
-dtDeploymentTargetType = lens _dtDeploymentTargetType (\s a -> s {_dtDeploymentTargetType = a})
+--
+-- /Note:/ Consider using 'deploymentTargetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtDeploymentTargetType :: Lens.Lens' DeploymentTarget (Lude.Maybe DeploymentTargetType)
+dtDeploymentTargetType = Lens.lens (deploymentTargetType :: DeploymentTarget -> Lude.Maybe DeploymentTargetType) (\s a -> s {deploymentTargetType = a} :: DeploymentTarget)
+{-# DEPRECATED dtDeploymentTargetType "Use generic-lens or generic-optics with 'deploymentTargetType' instead." #-}
 
 -- | Information about the target for a deployment that uses the AWS Lambda compute platform.
-dtLambdaTarget :: Lens' DeploymentTarget (Maybe LambdaTarget)
-dtLambdaTarget = lens _dtLambdaTarget (\s a -> s {_dtLambdaTarget = a})
+--
+-- /Note:/ Consider using 'lambdaTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtLambdaTarget :: Lens.Lens' DeploymentTarget (Lude.Maybe LambdaTarget)
+dtLambdaTarget = Lens.lens (lambdaTarget :: DeploymentTarget -> Lude.Maybe LambdaTarget) (\s a -> s {lambdaTarget = a} :: DeploymentTarget)
+{-# DEPRECATED dtLambdaTarget "Use generic-lens or generic-optics with 'lambdaTarget' instead." #-}
 
-instance FromJSON DeploymentTarget where
+instance Lude.FromJSON DeploymentTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeploymentTarget"
       ( \x ->
           DeploymentTarget'
-            <$> (x .:? "instanceTarget")
-            <*> (x .:? "cloudFormationTarget")
-            <*> (x .:? "ecsTarget")
-            <*> (x .:? "deploymentTargetType")
-            <*> (x .:? "lambdaTarget")
+            Lude.<$> (x Lude..:? "instanceTarget")
+            Lude.<*> (x Lude..:? "cloudFormationTarget")
+            Lude.<*> (x Lude..:? "ecsTarget")
+            Lude.<*> (x Lude..:? "deploymentTargetType")
+            Lude.<*> (x Lude..:? "lambdaTarget")
       )
-
-instance Hashable DeploymentTarget
-
-instance NFData DeploymentTarget

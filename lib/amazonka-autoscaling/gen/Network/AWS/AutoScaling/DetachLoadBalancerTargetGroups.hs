@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,134 @@
 --
 -- Detaches one or more target groups from the specified Auto Scaling group.
 module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
-  ( -- * Creating a Request
-    detachLoadBalancerTargetGroups,
-    DetachLoadBalancerTargetGroups,
+  ( -- * Creating a request
+    DetachLoadBalancerTargetGroups (..),
+    mkDetachLoadBalancerTargetGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlbtgAutoScalingGroupName,
     dlbtgTargetGroupARNs,
 
-    -- * Destructuring the Response
-    detachLoadBalancerTargetGroupsResponse,
-    DetachLoadBalancerTargetGroupsResponse,
+    -- * Destructuring the response
+    DetachLoadBalancerTargetGroupsResponse (..),
+    mkDetachLoadBalancerTargetGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlbtgrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachLoadBalancerTargetGroups' smart constructor.
+-- | /See:/ 'mkDetachLoadBalancerTargetGroups' smart constructor.
 data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
-  { _dlbtgAutoScalingGroupName ::
-      !Text,
-    _dlbtgTargetGroupARNs ::
-      ![Text]
+  { autoScalingGroupName ::
+      Lude.Text,
+    targetGroupARNs ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbtgAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'dlbtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
-detachLoadBalancerTargetGroups ::
-  -- | 'dlbtgAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
+mkDetachLoadBalancerTargetGroups ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   DetachLoadBalancerTargetGroups
-detachLoadBalancerTargetGroups pAutoScalingGroupName_ =
+mkDetachLoadBalancerTargetGroups pAutoScalingGroupName_ =
   DetachLoadBalancerTargetGroups'
-    { _dlbtgAutoScalingGroupName =
+    { autoScalingGroupName =
         pAutoScalingGroupName_,
-      _dlbtgTargetGroupARNs = mempty
+      targetGroupARNs = Lude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-dlbtgAutoScalingGroupName :: Lens' DetachLoadBalancerTargetGroups Text
-dlbtgAutoScalingGroupName = lens _dlbtgAutoScalingGroupName (\s a -> s {_dlbtgAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgAutoScalingGroupName :: Lens.Lens' DetachLoadBalancerTargetGroups Lude.Text
+dlbtgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
-dlbtgTargetGroupARNs :: Lens' DetachLoadBalancerTargetGroups [Text]
-dlbtgTargetGroupARNs = lens _dlbtgTargetGroupARNs (\s a -> s {_dlbtgTargetGroupARNs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'targetGroupARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgTargetGroupARNs :: Lens.Lens' DetachLoadBalancerTargetGroups [Lude.Text]
+dlbtgTargetGroupARNs = Lens.lens (targetGroupARNs :: DetachLoadBalancerTargetGroups -> [Lude.Text]) (\s a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgTargetGroupARNs "Use generic-lens or generic-optics with 'targetGroupARNs' instead." #-}
 
-instance AWSRequest DetachLoadBalancerTargetGroups where
+instance Lude.AWSRequest DetachLoadBalancerTargetGroups where
   type
     Rs DetachLoadBalancerTargetGroups =
       DetachLoadBalancerTargetGroupsResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DetachLoadBalancerTargetGroupsResult"
       ( \s h x ->
-          DetachLoadBalancerTargetGroupsResponse' <$> (pure (fromEnum s))
+          DetachLoadBalancerTargetGroupsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetachLoadBalancerTargetGroups
+instance Lude.ToHeaders DetachLoadBalancerTargetGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetachLoadBalancerTargetGroups
+instance Lude.ToPath DetachLoadBalancerTargetGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetachLoadBalancerTargetGroups where
-  toHeaders = const mempty
-
-instance ToPath DetachLoadBalancerTargetGroups where
-  toPath = const "/"
-
-instance ToQuery DetachLoadBalancerTargetGroups where
+instance Lude.ToQuery DetachLoadBalancerTargetGroups where
   toQuery DetachLoadBalancerTargetGroups' {..} =
-    mconcat
-      [ "Action" =: ("DetachLoadBalancerTargetGroups" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _dlbtgAutoScalingGroupName,
-        "TargetGroupARNs" =: toQueryList "member" _dlbtgTargetGroupARNs
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DetachLoadBalancerTargetGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "TargetGroupARNs"
+          Lude.=: Lude.toQueryList "member" targetGroupARNs
       ]
 
--- | /See:/ 'detachLoadBalancerTargetGroupsResponse' smart constructor.
+-- | /See:/ 'mkDetachLoadBalancerTargetGroupsResponse' smart constructor.
 newtype DetachLoadBalancerTargetGroupsResponse = DetachLoadBalancerTargetGroupsResponse'
-  { _dlbtgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbtgrsResponseStatus' - -- | The response status code.
-detachLoadBalancerTargetGroupsResponse ::
-  -- | 'dlbtgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDetachLoadBalancerTargetGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetachLoadBalancerTargetGroupsResponse
-detachLoadBalancerTargetGroupsResponse pResponseStatus_ =
+mkDetachLoadBalancerTargetGroupsResponse pResponseStatus_ =
   DetachLoadBalancerTargetGroupsResponse'
-    { _dlbtgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dlbtgrsResponseStatus :: Lens' DetachLoadBalancerTargetGroupsResponse Int
-dlbtgrsResponseStatus = lens _dlbtgrsResponseStatus (\s a -> s {_dlbtgrsResponseStatus = a})
-
-instance NFData DetachLoadBalancerTargetGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgrsResponseStatus :: Lens.Lens' DetachLoadBalancerTargetGroupsResponse Lude.Int
+dlbtgrsResponseStatus = Lens.lens (responseStatus :: DetachLoadBalancerTargetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachLoadBalancerTargetGroupsResponse)
+{-# DEPRECATED dlbtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

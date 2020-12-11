@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,146 @@
 --
 -- Updates address book details by the address book ARN.
 module Network.AWS.AlexaBusiness.UpdateAddressBook
-  ( -- * Creating a Request
-    updateAddressBook,
-    UpdateAddressBook,
+  ( -- * Creating a request
+    UpdateAddressBook (..),
+    mkUpdateAddressBook,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uabName,
     uabDescription,
     uabAddressBookARN,
 
-    -- * Destructuring the Response
-    updateAddressBookResponse,
-    UpdateAddressBookResponse,
+    -- * Destructuring the response
+    UpdateAddressBookResponse (..),
+    mkUpdateAddressBookResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uabrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAddressBook' smart constructor.
+-- | /See:/ 'mkUpdateAddressBook' smart constructor.
 data UpdateAddressBook = UpdateAddressBook'
-  { _uabName ::
-      !(Maybe Text),
-    _uabDescription :: !(Maybe Text),
-    _uabAddressBookARN :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    addressBookARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAddressBook' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uabName' - The updated name of the room.
---
--- * 'uabDescription' - The updated description of the room.
---
--- * 'uabAddressBookARN' - The ARN of the room to update.
-updateAddressBook ::
-  -- | 'uabAddressBookARN'
-  Text ->
+-- * 'addressBookARN' - The ARN of the room to update.
+-- * 'description' - The updated description of the room.
+-- * 'name' - The updated name of the room.
+mkUpdateAddressBook ::
+  -- | 'addressBookARN'
+  Lude.Text ->
   UpdateAddressBook
-updateAddressBook pAddressBookARN_ =
+mkUpdateAddressBook pAddressBookARN_ =
   UpdateAddressBook'
-    { _uabName = Nothing,
-      _uabDescription = Nothing,
-      _uabAddressBookARN = pAddressBookARN_
+    { name = Lude.Nothing,
+      description = Lude.Nothing,
+      addressBookARN = pAddressBookARN_
     }
 
 -- | The updated name of the room.
-uabName :: Lens' UpdateAddressBook (Maybe Text)
-uabName = lens _uabName (\s a -> s {_uabName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uabName :: Lens.Lens' UpdateAddressBook (Lude.Maybe Lude.Text)
+uabName = Lens.lens (name :: UpdateAddressBook -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateAddressBook)
+{-# DEPRECATED uabName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The updated description of the room.
-uabDescription :: Lens' UpdateAddressBook (Maybe Text)
-uabDescription = lens _uabDescription (\s a -> s {_uabDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uabDescription :: Lens.Lens' UpdateAddressBook (Lude.Maybe Lude.Text)
+uabDescription = Lens.lens (description :: UpdateAddressBook -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAddressBook)
+{-# DEPRECATED uabDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of the room to update.
-uabAddressBookARN :: Lens' UpdateAddressBook Text
-uabAddressBookARN = lens _uabAddressBookARN (\s a -> s {_uabAddressBookARN = a})
+--
+-- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uabAddressBookARN :: Lens.Lens' UpdateAddressBook Lude.Text
+uabAddressBookARN = Lens.lens (addressBookARN :: UpdateAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: UpdateAddressBook)
+{-# DEPRECATED uabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
 
-instance AWSRequest UpdateAddressBook where
+instance Lude.AWSRequest UpdateAddressBook where
   type Rs UpdateAddressBook = UpdateAddressBookResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> UpdateAddressBookResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateAddressBookResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateAddressBook
-
-instance NFData UpdateAddressBook
-
-instance ToHeaders UpdateAddressBook where
+instance Lude.ToHeaders UpdateAddressBook where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.UpdateAddressBook" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.UpdateAddressBook" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateAddressBook where
+instance Lude.ToJSON UpdateAddressBook where
   toJSON UpdateAddressBook' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _uabName,
-            ("Description" .=) <$> _uabDescription,
-            Just ("AddressBookArn" .= _uabAddressBookARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("AddressBookArn" Lude..= addressBookARN)
           ]
       )
 
-instance ToPath UpdateAddressBook where
-  toPath = const "/"
+instance Lude.ToPath UpdateAddressBook where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateAddressBook where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAddressBook where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAddressBookResponse' smart constructor.
+-- | /See:/ 'mkUpdateAddressBookResponse' smart constructor.
 newtype UpdateAddressBookResponse = UpdateAddressBookResponse'
-  { _uabrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAddressBookResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uabrsResponseStatus' - -- | The response status code.
-updateAddressBookResponse ::
-  -- | 'uabrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateAddressBookResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAddressBookResponse
-updateAddressBookResponse pResponseStatus_ =
-  UpdateAddressBookResponse'
-    { _uabrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateAddressBookResponse pResponseStatus_ =
+  UpdateAddressBookResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uabrsResponseStatus :: Lens' UpdateAddressBookResponse Int
-uabrsResponseStatus = lens _uabrsResponseStatus (\s a -> s {_uabrsResponseStatus = a})
-
-instance NFData UpdateAddressBookResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uabrsResponseStatus :: Lens.Lens' UpdateAddressBookResponse Lude.Int
+uabrsResponseStatus = Lens.lens (responseStatus :: UpdateAddressBookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAddressBookResponse)
+{-# DEPRECATED uabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

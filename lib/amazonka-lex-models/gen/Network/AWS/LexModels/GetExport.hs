@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Exports the contents of a Amazon Lex resource in a specified format.
 module Network.AWS.LexModels.GetExport
-  ( -- * Creating a Request
-    getExport,
-    GetExport,
+  ( -- * Creating a request
+    GetExport (..),
+    mkGetExport,
 
-    -- * Request Lenses
+    -- ** Request lenses
     geName,
     geVersion,
     geResourceType,
     geExportType,
 
-    -- * Destructuring the Response
-    getExportResponse,
-    GetExportResponse,
+    -- * Destructuring the response
+    GetExportResponse (..),
+    mkGetExportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gersFailureReason,
     gersResourceType,
     gersExportStatus,
@@ -45,185 +40,239 @@ module Network.AWS.LexModels.GetExport
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getExport' smart constructor.
+-- | /See:/ 'mkGetExport' smart constructor.
 data GetExport = GetExport'
-  { _geName :: !Text,
-    _geVersion :: !Text,
-    _geResourceType :: !ResourceType,
-    _geExportType :: !ExportType
+  { name :: Lude.Text,
+    version :: Lude.Text,
+    resourceType :: ResourceType,
+    exportType :: ExportType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'geName' - The name of the bot to export.
---
--- * 'geVersion' - The version of the bot to export.
---
--- * 'geResourceType' - The type of resource to export.
---
--- * 'geExportType' - The format of the exported data.
-getExport ::
-  -- | 'geName'
-  Text ->
-  -- | 'geVersion'
-  Text ->
-  -- | 'geResourceType'
+-- * 'exportType' - The format of the exported data.
+-- * 'name' - The name of the bot to export.
+-- * 'resourceType' - The type of resource to export.
+-- * 'version' - The version of the bot to export.
+mkGetExport ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
+  -- | 'resourceType'
   ResourceType ->
-  -- | 'geExportType'
+  -- | 'exportType'
   ExportType ->
   GetExport
-getExport pName_ pVersion_ pResourceType_ pExportType_ =
+mkGetExport pName_ pVersion_ pResourceType_ pExportType_ =
   GetExport'
-    { _geName = pName_,
-      _geVersion = pVersion_,
-      _geResourceType = pResourceType_,
-      _geExportType = pExportType_
+    { name = pName_,
+      version = pVersion_,
+      resourceType = pResourceType_,
+      exportType = pExportType_
     }
 
 -- | The name of the bot to export.
-geName :: Lens' GetExport Text
-geName = lens _geName (\s a -> s {_geName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geName :: Lens.Lens' GetExport Lude.Text
+geName = Lens.lens (name :: GetExport -> Lude.Text) (\s a -> s {name = a} :: GetExport)
+{-# DEPRECATED geName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the bot to export.
-geVersion :: Lens' GetExport Text
-geVersion = lens _geVersion (\s a -> s {_geVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geVersion :: Lens.Lens' GetExport Lude.Text
+geVersion = Lens.lens (version :: GetExport -> Lude.Text) (\s a -> s {version = a} :: GetExport)
+{-# DEPRECATED geVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The type of resource to export.
-geResourceType :: Lens' GetExport ResourceType
-geResourceType = lens _geResourceType (\s a -> s {_geResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geResourceType :: Lens.Lens' GetExport ResourceType
+geResourceType = Lens.lens (resourceType :: GetExport -> ResourceType) (\s a -> s {resourceType = a} :: GetExport)
+{-# DEPRECATED geResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The format of the exported data.
-geExportType :: Lens' GetExport ExportType
-geExportType = lens _geExportType (\s a -> s {_geExportType = a})
+--
+-- /Note:/ Consider using 'exportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geExportType :: Lens.Lens' GetExport ExportType
+geExportType = Lens.lens (exportType :: GetExport -> ExportType) (\s a -> s {exportType = a} :: GetExport)
+{-# DEPRECATED geExportType "Use generic-lens or generic-optics with 'exportType' instead." #-}
 
-instance AWSRequest GetExport where
+instance Lude.AWSRequest GetExport where
   type Rs GetExport = GetExportResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetExportResponse'
-            <$> (x .?> "failureReason")
-            <*> (x .?> "resourceType")
-            <*> (x .?> "exportStatus")
-            <*> (x .?> "url")
-            <*> (x .?> "exportType")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "failureReason")
+            Lude.<*> (x Lude..?> "resourceType")
+            Lude.<*> (x Lude..?> "exportStatus")
+            Lude.<*> (x Lude..?> "url")
+            Lude.<*> (x Lude..?> "exportType")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetExport
-
-instance NFData GetExport
-
-instance ToHeaders GetExport where
+instance Lude.ToHeaders GetExport where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetExport where
-  toPath = const "/exports/"
+instance Lude.ToPath GetExport where
+  toPath = Lude.const "/exports/"
 
-instance ToQuery GetExport where
+instance Lude.ToQuery GetExport where
   toQuery GetExport' {..} =
-    mconcat
-      [ "name" =: _geName,
-        "version" =: _geVersion,
-        "resourceType" =: _geResourceType,
-        "exportType" =: _geExportType
+    Lude.mconcat
+      [ "name" Lude.=: name,
+        "version" Lude.=: version,
+        "resourceType" Lude.=: resourceType,
+        "exportType" Lude.=: exportType
       ]
 
--- | /See:/ 'getExportResponse' smart constructor.
+-- | /See:/ 'mkGetExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { _gersFailureReason ::
-      !(Maybe Text),
-    _gersResourceType :: !(Maybe ResourceType),
-    _gersExportStatus :: !(Maybe ExportStatus),
-    _gersUrl :: !(Maybe Text),
-    _gersExportType :: !(Maybe ExportType),
-    _gersName :: !(Maybe Text),
-    _gersVersion :: !(Maybe Text),
-    _gersResponseStatus :: !Int
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe ResourceType,
+    exportStatus :: Lude.Maybe ExportStatus,
+    url :: Lude.Maybe Lude.Text,
+    exportType :: Lude.Maybe ExportType,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'exportStatus' - The status of the export.
 --
--- * 'gersFailureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to export the resource.
 --
--- * 'gersResourceType' - The type of the exported resource.
+--     * @IN_PROGRESS@ - The export is in progress.
 --
--- * 'gersExportStatus' - The status of the export.      * @IN_PROGRESS@ - The export is in progress.     * @READY@ - The export is complete.     * @FAILED@ - The export could not be completed.
 --
--- * 'gersUrl' - An S3 pre-signed URL that provides the location of the exported resource. The exported resource is a ZIP archive that contains the exported resource in JSON format. The structure of the archive may change. Your code should not rely on the archive structure.
+--     * @READY@ - The export is complete.
 --
--- * 'gersExportType' - The format of the exported data.
 --
--- * 'gersName' - The name of the bot being exported.
+--     * @FAILED@ - The export could not be completed.
 --
--- * 'gersVersion' - The version of the bot being exported.
 --
--- * 'gersResponseStatus' - -- | The response status code.
-getExportResponse ::
-  -- | 'gersResponseStatus'
-  Int ->
+-- * 'exportType' - The format of the exported data.
+-- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to export the resource.
+-- * 'name' - The name of the bot being exported.
+-- * 'resourceType' - The type of the exported resource.
+-- * 'responseStatus' - The response status code.
+-- * 'url' - An S3 pre-signed URL that provides the location of the exported resource. The exported resource is a ZIP archive that contains the exported resource in JSON format. The structure of the archive may change. Your code should not rely on the archive structure.
+-- * 'version' - The version of the bot being exported.
+mkGetExportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetExportResponse
-getExportResponse pResponseStatus_ =
+mkGetExportResponse pResponseStatus_ =
   GetExportResponse'
-    { _gersFailureReason = Nothing,
-      _gersResourceType = Nothing,
-      _gersExportStatus = Nothing,
-      _gersUrl = Nothing,
-      _gersExportType = Nothing,
-      _gersName = Nothing,
-      _gersVersion = Nothing,
-      _gersResponseStatus = pResponseStatus_
+    { failureReason = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      exportStatus = Lude.Nothing,
+      url = Lude.Nothing,
+      exportType = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to export the resource.
-gersFailureReason :: Lens' GetExportResponse (Maybe Text)
-gersFailureReason = lens _gersFailureReason (\s a -> s {_gersFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersFailureReason :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.Text)
+gersFailureReason = Lens.lens (failureReason :: GetExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: GetExportResponse)
+{-# DEPRECATED gersFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The type of the exported resource.
-gersResourceType :: Lens' GetExportResponse (Maybe ResourceType)
-gersResourceType = lens _gersResourceType (\s a -> s {_gersResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersResourceType :: Lens.Lens' GetExportResponse (Lude.Maybe ResourceType)
+gersResourceType = Lens.lens (resourceType :: GetExportResponse -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: GetExportResponse)
+{-# DEPRECATED gersResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | The status of the export.      * @IN_PROGRESS@ - The export is in progress.     * @READY@ - The export is complete.     * @FAILED@ - The export could not be completed.
-gersExportStatus :: Lens' GetExportResponse (Maybe ExportStatus)
-gersExportStatus = lens _gersExportStatus (\s a -> s {_gersExportStatus = a})
+-- | The status of the export.
+--
+--
+--     * @IN_PROGRESS@ - The export is in progress.
+--
+--
+--     * @READY@ - The export is complete.
+--
+--
+--     * @FAILED@ - The export could not be completed.
+--
+--
+--
+-- /Note:/ Consider using 'exportStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersExportStatus :: Lens.Lens' GetExportResponse (Lude.Maybe ExportStatus)
+gersExportStatus = Lens.lens (exportStatus :: GetExportResponse -> Lude.Maybe ExportStatus) (\s a -> s {exportStatus = a} :: GetExportResponse)
+{-# DEPRECATED gersExportStatus "Use generic-lens or generic-optics with 'exportStatus' instead." #-}
 
 -- | An S3 pre-signed URL that provides the location of the exported resource. The exported resource is a ZIP archive that contains the exported resource in JSON format. The structure of the archive may change. Your code should not rely on the archive structure.
-gersUrl :: Lens' GetExportResponse (Maybe Text)
-gersUrl = lens _gersUrl (\s a -> s {_gersUrl = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersUrl :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.Text)
+gersUrl = Lens.lens (url :: GetExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: GetExportResponse)
+{-# DEPRECATED gersUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The format of the exported data.
-gersExportType :: Lens' GetExportResponse (Maybe ExportType)
-gersExportType = lens _gersExportType (\s a -> s {_gersExportType = a})
+--
+-- /Note:/ Consider using 'exportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersExportType :: Lens.Lens' GetExportResponse (Lude.Maybe ExportType)
+gersExportType = Lens.lens (exportType :: GetExportResponse -> Lude.Maybe ExportType) (\s a -> s {exportType = a} :: GetExportResponse)
+{-# DEPRECATED gersExportType "Use generic-lens or generic-optics with 'exportType' instead." #-}
 
 -- | The name of the bot being exported.
-gersName :: Lens' GetExportResponse (Maybe Text)
-gersName = lens _gersName (\s a -> s {_gersName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersName :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.Text)
+gersName = Lens.lens (name :: GetExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetExportResponse)
+{-# DEPRECATED gersName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the bot being exported.
-gersVersion :: Lens' GetExportResponse (Maybe Text)
-gersVersion = lens _gersVersion (\s a -> s {_gersVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersVersion :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.Text)
+gersVersion = Lens.lens (version :: GetExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetExportResponse)
+{-# DEPRECATED gersVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | -- | The response status code.
-gersResponseStatus :: Lens' GetExportResponse Int
-gersResponseStatus = lens _gersResponseStatus (\s a -> s {_gersResponseStatus = a})
-
-instance NFData GetExportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersResponseStatus :: Lens.Lens' GetExportResponse Lude.Int
+gersResponseStatus = Lens.lens (responseStatus :: GetExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExportResponse)
+{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

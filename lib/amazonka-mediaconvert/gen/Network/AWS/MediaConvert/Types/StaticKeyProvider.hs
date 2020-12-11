@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.StaticKeyProvider where
+module Network.AWS.MediaConvert.Types.StaticKeyProvider
+  ( StaticKeyProvider (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStaticKeyProvider,
+
+    -- * Lenses
+    skpStaticKeyValue,
+    skpURL,
+    skpKeyFormat,
+    skpKeyFormatVersions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use these settings to set up encryption with a static key provider.
 --
--- /See:/ 'staticKeyProvider' smart constructor.
+-- /See:/ 'mkStaticKeyProvider' smart constructor.
 data StaticKeyProvider = StaticKeyProvider'
-  { _skpStaticKeyValue ::
-      !(Maybe Text),
-    _skpURL :: !(Maybe Text),
-    _skpKeyFormat :: !(Maybe Text),
-    _skpKeyFormatVersions :: !(Maybe Text)
+  { staticKeyValue ::
+      Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    keyFormat :: Lude.Maybe Lude.Text,
+    keyFormatVersions :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticKeyProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'skpStaticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
---
--- * 'skpURL' - Relates to DRM implementation. The location of the license server used for protecting content.
---
--- * 'skpKeyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
---
--- * 'skpKeyFormatVersions' - Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
-staticKeyProvider ::
+-- * 'keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
+-- * 'keyFormatVersions' - Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
+-- * 'staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
+-- * 'url' - Relates to DRM implementation. The location of the license server used for protecting content.
+mkStaticKeyProvider ::
   StaticKeyProvider
-staticKeyProvider =
+mkStaticKeyProvider =
   StaticKeyProvider'
-    { _skpStaticKeyValue = Nothing,
-      _skpURL = Nothing,
-      _skpKeyFormat = Nothing,
-      _skpKeyFormatVersions = Nothing
+    { staticKeyValue = Lude.Nothing,
+      url = Lude.Nothing,
+      keyFormat = Lude.Nothing,
+      keyFormatVersions = Lude.Nothing
     }
 
 -- | Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
-skpStaticKeyValue :: Lens' StaticKeyProvider (Maybe Text)
-skpStaticKeyValue = lens _skpStaticKeyValue (\s a -> s {_skpStaticKeyValue = a})
+--
+-- /Note:/ Consider using 'staticKeyValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpStaticKeyValue :: Lens.Lens' StaticKeyProvider (Lude.Maybe Lude.Text)
+skpStaticKeyValue = Lens.lens (staticKeyValue :: StaticKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {staticKeyValue = a} :: StaticKeyProvider)
+{-# DEPRECATED skpStaticKeyValue "Use generic-lens or generic-optics with 'staticKeyValue' instead." #-}
 
 -- | Relates to DRM implementation. The location of the license server used for protecting content.
-skpURL :: Lens' StaticKeyProvider (Maybe Text)
-skpURL = lens _skpURL (\s a -> s {_skpURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpURL :: Lens.Lens' StaticKeyProvider (Lude.Maybe Lude.Text)
+skpURL = Lens.lens (url :: StaticKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: StaticKeyProvider)
+{-# DEPRECATED skpURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
-skpKeyFormat :: Lens' StaticKeyProvider (Maybe Text)
-skpKeyFormat = lens _skpKeyFormat (\s a -> s {_skpKeyFormat = a})
+--
+-- /Note:/ Consider using 'keyFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpKeyFormat :: Lens.Lens' StaticKeyProvider (Lude.Maybe Lude.Text)
+skpKeyFormat = Lens.lens (keyFormat :: StaticKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {keyFormat = a} :: StaticKeyProvider)
+{-# DEPRECATED skpKeyFormat "Use generic-lens or generic-optics with 'keyFormat' instead." #-}
 
 -- | Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
-skpKeyFormatVersions :: Lens' StaticKeyProvider (Maybe Text)
-skpKeyFormatVersions = lens _skpKeyFormatVersions (\s a -> s {_skpKeyFormatVersions = a})
+--
+-- /Note:/ Consider using 'keyFormatVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpKeyFormatVersions :: Lens.Lens' StaticKeyProvider (Lude.Maybe Lude.Text)
+skpKeyFormatVersions = Lens.lens (keyFormatVersions :: StaticKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {keyFormatVersions = a} :: StaticKeyProvider)
+{-# DEPRECATED skpKeyFormatVersions "Use generic-lens or generic-optics with 'keyFormatVersions' instead." #-}
 
-instance FromJSON StaticKeyProvider where
+instance Lude.FromJSON StaticKeyProvider where
   parseJSON =
-    withObject
+    Lude.withObject
       "StaticKeyProvider"
       ( \x ->
           StaticKeyProvider'
-            <$> (x .:? "staticKeyValue")
-            <*> (x .:? "url")
-            <*> (x .:? "keyFormat")
-            <*> (x .:? "keyFormatVersions")
+            Lude.<$> (x Lude..:? "staticKeyValue")
+            Lude.<*> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "keyFormat")
+            Lude.<*> (x Lude..:? "keyFormatVersions")
       )
 
-instance Hashable StaticKeyProvider
-
-instance NFData StaticKeyProvider
-
-instance ToJSON StaticKeyProvider where
+instance Lude.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =
-    object
-      ( catMaybes
-          [ ("staticKeyValue" .=) <$> _skpStaticKeyValue,
-            ("url" .=) <$> _skpURL,
-            ("keyFormat" .=) <$> _skpKeyFormat,
-            ("keyFormatVersions" .=) <$> _skpKeyFormatVersions
+    Lude.object
+      ( Lude.catMaybes
+          [ ("staticKeyValue" Lude..=) Lude.<$> staticKeyValue,
+            ("url" Lude..=) Lude.<$> url,
+            ("keyFormat" Lude..=) Lude.<$> keyFormat,
+            ("keyFormatVersions" Lude..=) Lude.<$> keyFormatVersions
           ]
       )

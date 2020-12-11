@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,184 @@
 --
 -- Creates a single Amazon GuardDuty detector. A detector is a resource that represents the GuardDuty service. To start using GuardDuty, you must create a detector in each Region where you enable the service. You can have only one detector per account per Region. All data sources are enabled in a new detector by default.
 module Network.AWS.GuardDuty.CreateDetector
-  ( -- * Creating a Request
-    createDetector,
-    CreateDetector,
+  ( -- * Creating a request
+    CreateDetector (..),
+    mkCreateDetector,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdClientToken,
     cdFindingPublishingFrequency,
     cdDataSources,
     cdTags,
     cdEnable,
 
-    -- * Destructuring the Response
-    createDetectorResponse,
-    CreateDetectorResponse,
+    -- * Destructuring the response
+    CreateDetectorResponse (..),
+    mkCreateDetectorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsDetectorId,
     cdrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDetector' smart constructor.
+-- | /See:/ 'mkCreateDetector' smart constructor.
 data CreateDetector = CreateDetector'
-  { _cdClientToken ::
-      !(Maybe Text),
-    _cdFindingPublishingFrequency ::
-      !(Maybe FindingPublishingFrequency),
-    _cdDataSources :: !(Maybe DataSourceConfigurations),
-    _cdTags :: !(Maybe (Map Text (Text))),
-    _cdEnable :: !Bool
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    findingPublishingFrequency ::
+      Lude.Maybe FindingPublishingFrequency,
+    dataSources :: Lude.Maybe DataSourceConfigurations,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    enable :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDetector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdClientToken' - The idempotency token for the create request.
---
--- * 'cdFindingPublishingFrequency' - An enum value that specifies how frequently updated findings are exported.
---
--- * 'cdDataSources' - An object that describes which data sources will be enabled for the detector.
---
--- * 'cdTags' - The tags to be added to a new detector resource.
---
--- * 'cdEnable' - A Boolean value that specifies whether the detector is to be enabled.
-createDetector ::
-  -- | 'cdEnable'
-  Bool ->
+-- * 'clientToken' - The idempotency token for the create request.
+-- * 'dataSources' - An object that describes which data sources will be enabled for the detector.
+-- * 'enable' - A Boolean value that specifies whether the detector is to be enabled.
+-- * 'findingPublishingFrequency' - An enum value that specifies how frequently updated findings are exported.
+-- * 'tags' - The tags to be added to a new detector resource.
+mkCreateDetector ::
+  -- | 'enable'
+  Lude.Bool ->
   CreateDetector
-createDetector pEnable_ =
+mkCreateDetector pEnable_ =
   CreateDetector'
-    { _cdClientToken = Nothing,
-      _cdFindingPublishingFrequency = Nothing,
-      _cdDataSources = Nothing,
-      _cdTags = Nothing,
-      _cdEnable = pEnable_
+    { clientToken = Lude.Nothing,
+      findingPublishingFrequency = Lude.Nothing,
+      dataSources = Lude.Nothing,
+      tags = Lude.Nothing,
+      enable = pEnable_
     }
 
 -- | The idempotency token for the create request.
-cdClientToken :: Lens' CreateDetector (Maybe Text)
-cdClientToken = lens _cdClientToken (\s a -> s {_cdClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdClientToken :: Lens.Lens' CreateDetector (Lude.Maybe Lude.Text)
+cdClientToken = Lens.lens (clientToken :: CreateDetector -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateDetector)
+{-# DEPRECATED cdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | An enum value that specifies how frequently updated findings are exported.
-cdFindingPublishingFrequency :: Lens' CreateDetector (Maybe FindingPublishingFrequency)
-cdFindingPublishingFrequency = lens _cdFindingPublishingFrequency (\s a -> s {_cdFindingPublishingFrequency = a})
+--
+-- /Note:/ Consider using 'findingPublishingFrequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdFindingPublishingFrequency :: Lens.Lens' CreateDetector (Lude.Maybe FindingPublishingFrequency)
+cdFindingPublishingFrequency = Lens.lens (findingPublishingFrequency :: CreateDetector -> Lude.Maybe FindingPublishingFrequency) (\s a -> s {findingPublishingFrequency = a} :: CreateDetector)
+{-# DEPRECATED cdFindingPublishingFrequency "Use generic-lens or generic-optics with 'findingPublishingFrequency' instead." #-}
 
 -- | An object that describes which data sources will be enabled for the detector.
-cdDataSources :: Lens' CreateDetector (Maybe DataSourceConfigurations)
-cdDataSources = lens _cdDataSources (\s a -> s {_cdDataSources = a})
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDataSources :: Lens.Lens' CreateDetector (Lude.Maybe DataSourceConfigurations)
+cdDataSources = Lens.lens (dataSources :: CreateDetector -> Lude.Maybe DataSourceConfigurations) (\s a -> s {dataSources = a} :: CreateDetector)
+{-# DEPRECATED cdDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | The tags to be added to a new detector resource.
-cdTags :: Lens' CreateDetector (HashMap Text (Text))
-cdTags = lens _cdTags (\s a -> s {_cdTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTags :: Lens.Lens' CreateDetector (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cdTags = Lens.lens (tags :: CreateDetector -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDetector)
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A Boolean value that specifies whether the detector is to be enabled.
-cdEnable :: Lens' CreateDetector Bool
-cdEnable = lens _cdEnable (\s a -> s {_cdEnable = a})
+--
+-- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdEnable :: Lens.Lens' CreateDetector Lude.Bool
+cdEnable = Lens.lens (enable :: CreateDetector -> Lude.Bool) (\s a -> s {enable = a} :: CreateDetector)
+{-# DEPRECATED cdEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
 
-instance AWSRequest CreateDetector where
+instance Lude.AWSRequest CreateDetector where
   type Rs CreateDetector = CreateDetectorResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDetectorResponse'
-            <$> (x .?> "detectorId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "detectorId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDetector
-
-instance NFData CreateDetector
-
-instance ToHeaders CreateDetector where
+instance Lude.ToHeaders CreateDetector where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateDetector where
-  toJSON CreateDetector' {..} =
-    object
-      ( catMaybes
-          [ ("clientToken" .=) <$> _cdClientToken,
-            ("findingPublishingFrequency" .=)
-              <$> _cdFindingPublishingFrequency,
-            ("dataSources" .=) <$> _cdDataSources,
-            ("tags" .=) <$> _cdTags,
-            Just ("enable" .= _cdEnable)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateDetector where
-  toPath = const "/detector"
+instance Lude.ToJSON CreateDetector where
+  toJSON CreateDetector' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("clientToken" Lude..=) Lude.<$> clientToken,
+            ("findingPublishingFrequency" Lude..=)
+              Lude.<$> findingPublishingFrequency,
+            ("dataSources" Lude..=) Lude.<$> dataSources,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("enable" Lude..= enable)
+          ]
+      )
 
-instance ToQuery CreateDetector where
-  toQuery = const mempty
+instance Lude.ToPath CreateDetector where
+  toPath = Lude.const "/detector"
 
--- | /See:/ 'createDetectorResponse' smart constructor.
+instance Lude.ToQuery CreateDetector where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreateDetectorResponse' smart constructor.
 data CreateDetectorResponse = CreateDetectorResponse'
-  { _cdrsDetectorId ::
-      !(Maybe Text),
-    _cdrsResponseStatus :: !Int
+  { detectorId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDetectorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsDetectorId' - The unique ID of the created detector.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDetectorResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
+-- * 'detectorId' - The unique ID of the created detector.
+-- * 'responseStatus' - The response status code.
+mkCreateDetectorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDetectorResponse
-createDetectorResponse pResponseStatus_ =
+mkCreateDetectorResponse pResponseStatus_ =
   CreateDetectorResponse'
-    { _cdrsDetectorId = Nothing,
-      _cdrsResponseStatus = pResponseStatus_
+    { detectorId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique ID of the created detector.
-cdrsDetectorId :: Lens' CreateDetectorResponse (Maybe Text)
-cdrsDetectorId = lens _cdrsDetectorId (\s a -> s {_cdrsDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsDetectorId :: Lens.Lens' CreateDetectorResponse (Lude.Maybe Lude.Text)
+cdrsDetectorId = Lens.lens (detectorId :: CreateDetectorResponse -> Lude.Maybe Lude.Text) (\s a -> s {detectorId = a} :: CreateDetectorResponse)
+{-# DEPRECATED cdrsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDetectorResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
-
-instance NFData CreateDetectorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' CreateDetectorResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDetectorResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

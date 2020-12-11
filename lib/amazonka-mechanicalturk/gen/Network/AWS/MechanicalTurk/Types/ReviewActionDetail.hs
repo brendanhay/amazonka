@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewActionDetail where
+module Network.AWS.MechanicalTurk.Types.ReviewActionDetail
+  ( ReviewActionDetail (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkReviewActionDetail,
+
+    -- * Lenses
+    radStatus,
+    radTargetId,
+    radActionId,
+    radTargetType,
+    radResult,
+    radActionName,
+    radCompleteTime,
+    radErrorCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.ReviewActionStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy.
 --
---
---
--- /See:/ 'reviewActionDetail' smart constructor.
+-- /See:/ 'mkReviewActionDetail' smart constructor.
 data ReviewActionDetail = ReviewActionDetail'
-  { _radStatus ::
-      !(Maybe ReviewActionStatus),
-    _radTargetId :: !(Maybe Text),
-    _radActionId :: !(Maybe Text),
-    _radTargetType :: !(Maybe Text),
-    _radResult :: !(Maybe Text),
-    _radActionName :: !(Maybe Text),
-    _radCompleteTime :: !(Maybe POSIX),
-    _radErrorCode :: !(Maybe Text)
+  { status ::
+      Lude.Maybe ReviewActionStatus,
+    targetId :: Lude.Maybe Lude.Text,
+    actionId :: Lude.Maybe Lude.Text,
+    targetType :: Lude.Maybe Lude.Text,
+    result :: Lude.Maybe Lude.Text,
+    actionName :: Lude.Maybe Lude.Text,
+    completeTime :: Lude.Maybe Lude.Timestamp,
+    errorCode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewActionDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'radStatus' - The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
---
--- * 'radTargetId' - The specific HITId or AssignmentID targeted by the action.
---
--- * 'radActionId' - The unique identifier for the action.
---
--- * 'radTargetType' - The type of object in TargetId.
---
--- * 'radResult' - A description of the outcome of the review.
---
--- * 'radActionName' - The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary.
---
--- * 'radCompleteTime' - The date when the action was completed.
---
--- * 'radErrorCode' - Present only when the Results have a FAILED Status.
-reviewActionDetail ::
+-- * 'actionId' - The unique identifier for the action.
+-- * 'actionName' - The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary.
+-- * 'completeTime' - The date when the action was completed.
+-- * 'errorCode' - Present only when the Results have a FAILED Status.
+-- * 'result' - A description of the outcome of the review.
+-- * 'status' - The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
+-- * 'targetId' - The specific HITId or AssignmentID targeted by the action.
+-- * 'targetType' - The type of object in TargetId.
+mkReviewActionDetail ::
   ReviewActionDetail
-reviewActionDetail =
+mkReviewActionDetail =
   ReviewActionDetail'
-    { _radStatus = Nothing,
-      _radTargetId = Nothing,
-      _radActionId = Nothing,
-      _radTargetType = Nothing,
-      _radResult = Nothing,
-      _radActionName = Nothing,
-      _radCompleteTime = Nothing,
-      _radErrorCode = Nothing
+    { status = Lude.Nothing,
+      targetId = Lude.Nothing,
+      actionId = Lude.Nothing,
+      targetType = Lude.Nothing,
+      result = Lude.Nothing,
+      actionName = Lude.Nothing,
+      completeTime = Lude.Nothing,
+      errorCode = Lude.Nothing
     }
 
 -- | The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
-radStatus :: Lens' ReviewActionDetail (Maybe ReviewActionStatus)
-radStatus = lens _radStatus (\s a -> s {_radStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radStatus :: Lens.Lens' ReviewActionDetail (Lude.Maybe ReviewActionStatus)
+radStatus = Lens.lens (status :: ReviewActionDetail -> Lude.Maybe ReviewActionStatus) (\s a -> s {status = a} :: ReviewActionDetail)
+{-# DEPRECATED radStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The specific HITId or AssignmentID targeted by the action.
-radTargetId :: Lens' ReviewActionDetail (Maybe Text)
-radTargetId = lens _radTargetId (\s a -> s {_radTargetId = a})
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radTargetId :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Text)
+radTargetId = Lens.lens (targetId :: ReviewActionDetail -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: ReviewActionDetail)
+{-# DEPRECATED radTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The unique identifier for the action.
-radActionId :: Lens' ReviewActionDetail (Maybe Text)
-radActionId = lens _radActionId (\s a -> s {_radActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radActionId :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Text)
+radActionId = Lens.lens (actionId :: ReviewActionDetail -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: ReviewActionDetail)
+{-# DEPRECATED radActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The type of object in TargetId.
-radTargetType :: Lens' ReviewActionDetail (Maybe Text)
-radTargetType = lens _radTargetType (\s a -> s {_radTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radTargetType :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Text)
+radTargetType = Lens.lens (targetType :: ReviewActionDetail -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: ReviewActionDetail)
+{-# DEPRECATED radTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | A description of the outcome of the review.
-radResult :: Lens' ReviewActionDetail (Maybe Text)
-radResult = lens _radResult (\s a -> s {_radResult = a})
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radResult :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Text)
+radResult = Lens.lens (result :: ReviewActionDetail -> Lude.Maybe Lude.Text) (\s a -> s {result = a} :: ReviewActionDetail)
+{-# DEPRECATED radResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary.
-radActionName :: Lens' ReviewActionDetail (Maybe Text)
-radActionName = lens _radActionName (\s a -> s {_radActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radActionName :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Text)
+radActionName = Lens.lens (actionName :: ReviewActionDetail -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: ReviewActionDetail)
+{-# DEPRECATED radActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The date when the action was completed.
-radCompleteTime :: Lens' ReviewActionDetail (Maybe UTCTime)
-radCompleteTime = lens _radCompleteTime (\s a -> s {_radCompleteTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radCompleteTime :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Timestamp)
+radCompleteTime = Lens.lens (completeTime :: ReviewActionDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {completeTime = a} :: ReviewActionDetail)
+{-# DEPRECATED radCompleteTime "Use generic-lens or generic-optics with 'completeTime' instead." #-}
 
 -- | Present only when the Results have a FAILED Status.
-radErrorCode :: Lens' ReviewActionDetail (Maybe Text)
-radErrorCode = lens _radErrorCode (\s a -> s {_radErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radErrorCode :: Lens.Lens' ReviewActionDetail (Lude.Maybe Lude.Text)
+radErrorCode = Lens.lens (errorCode :: ReviewActionDetail -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: ReviewActionDetail)
+{-# DEPRECATED radErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
-instance FromJSON ReviewActionDetail where
+instance Lude.FromJSON ReviewActionDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReviewActionDetail"
       ( \x ->
           ReviewActionDetail'
-            <$> (x .:? "Status")
-            <*> (x .:? "TargetId")
-            <*> (x .:? "ActionId")
-            <*> (x .:? "TargetType")
-            <*> (x .:? "Result")
-            <*> (x .:? "ActionName")
-            <*> (x .:? "CompleteTime")
-            <*> (x .:? "ErrorCode")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "TargetId")
+            Lude.<*> (x Lude..:? "ActionId")
+            Lude.<*> (x Lude..:? "TargetType")
+            Lude.<*> (x Lude..:? "Result")
+            Lude.<*> (x Lude..:? "ActionName")
+            Lude.<*> (x Lude..:? "CompleteTime")
+            Lude.<*> (x Lude..:? "ErrorCode")
       )
-
-instance Hashable ReviewActionDetail
-
-instance NFData ReviewActionDetail

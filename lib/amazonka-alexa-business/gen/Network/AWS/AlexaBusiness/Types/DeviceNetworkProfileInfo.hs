@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo where
+module Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo
+  ( DeviceNetworkProfileInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeviceNetworkProfileInfo,
+
+    -- * Lenses
+    dnpiCertificateARN,
+    dnpiNetworkProfileARN,
+    dnpiCertificateExpirationTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Detailed information about a device's network profile.
 --
---
---
--- /See:/ 'deviceNetworkProfileInfo' smart constructor.
+-- /See:/ 'mkDeviceNetworkProfileInfo' smart constructor.
 data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
-  { _dnpiCertificateARN ::
-      !(Maybe Text),
-    _dnpiNetworkProfileARN :: !(Maybe Text),
-    _dnpiCertificateExpirationTime ::
-      !(Maybe POSIX)
+  { certificateARN ::
+      Lude.Maybe Lude.Text,
+    networkProfileARN :: Lude.Maybe Lude.Text,
+    certificateExpirationTime ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceNetworkProfileInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnpiCertificateARN' - The ARN of the certificate associated with a device.
---
--- * 'dnpiNetworkProfileARN' - The ARN of the network profile associated with a device.
---
--- * 'dnpiCertificateExpirationTime' - The time (in epoch) when the certificate expires.
-deviceNetworkProfileInfo ::
+-- * 'certificateARN' - The ARN of the certificate associated with a device.
+-- * 'certificateExpirationTime' - The time (in epoch) when the certificate expires.
+-- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+mkDeviceNetworkProfileInfo ::
   DeviceNetworkProfileInfo
-deviceNetworkProfileInfo =
+mkDeviceNetworkProfileInfo =
   DeviceNetworkProfileInfo'
-    { _dnpiCertificateARN = Nothing,
-      _dnpiNetworkProfileARN = Nothing,
-      _dnpiCertificateExpirationTime = Nothing
+    { certificateARN = Lude.Nothing,
+      networkProfileARN = Lude.Nothing,
+      certificateExpirationTime = Lude.Nothing
     }
 
 -- | The ARN of the certificate associated with a device.
-dnpiCertificateARN :: Lens' DeviceNetworkProfileInfo (Maybe Text)
-dnpiCertificateARN = lens _dnpiCertificateARN (\s a -> s {_dnpiCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnpiCertificateARN :: Lens.Lens' DeviceNetworkProfileInfo (Lude.Maybe Lude.Text)
+dnpiCertificateARN = Lens.lens (certificateARN :: DeviceNetworkProfileInfo -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: DeviceNetworkProfileInfo)
+{-# DEPRECATED dnpiCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The ARN of the network profile associated with a device.
-dnpiNetworkProfileARN :: Lens' DeviceNetworkProfileInfo (Maybe Text)
-dnpiNetworkProfileARN = lens _dnpiNetworkProfileARN (\s a -> s {_dnpiNetworkProfileARN = a})
+--
+-- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnpiNetworkProfileARN :: Lens.Lens' DeviceNetworkProfileInfo (Lude.Maybe Lude.Text)
+dnpiNetworkProfileARN = Lens.lens (networkProfileARN :: DeviceNetworkProfileInfo -> Lude.Maybe Lude.Text) (\s a -> s {networkProfileARN = a} :: DeviceNetworkProfileInfo)
+{-# DEPRECATED dnpiNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
 
 -- | The time (in epoch) when the certificate expires.
-dnpiCertificateExpirationTime :: Lens' DeviceNetworkProfileInfo (Maybe UTCTime)
-dnpiCertificateExpirationTime = lens _dnpiCertificateExpirationTime (\s a -> s {_dnpiCertificateExpirationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'certificateExpirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnpiCertificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Lude.Maybe Lude.Timestamp)
+dnpiCertificateExpirationTime = Lens.lens (certificateExpirationTime :: DeviceNetworkProfileInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo)
+{-# DEPRECATED dnpiCertificateExpirationTime "Use generic-lens or generic-optics with 'certificateExpirationTime' instead." #-}
 
-instance FromJSON DeviceNetworkProfileInfo where
+instance Lude.FromJSON DeviceNetworkProfileInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceNetworkProfileInfo"
       ( \x ->
           DeviceNetworkProfileInfo'
-            <$> (x .:? "CertificateArn")
-            <*> (x .:? "NetworkProfileArn")
-            <*> (x .:? "CertificateExpirationTime")
+            Lude.<$> (x Lude..:? "CertificateArn")
+            Lude.<*> (x Lude..:? "NetworkProfileArn")
+            Lude.<*> (x Lude..:? "CertificateExpirationTime")
       )
-
-instance Hashable DeviceNetworkProfileInfo
-
-instance NFData DeviceNetworkProfileInfo

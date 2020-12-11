@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.ApplicationStatus where
+module Network.AWS.MigrationHub.Types.ApplicationStatus
+  ( ApplicationStatus
+      ( ApplicationStatus',
+        Completed,
+        InProgress,
+        NotStarted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApplicationStatus
-  = Completed
-  | InProgress
-  | NotStarted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApplicationStatus = ApplicationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApplicationStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "in_progress" -> pure InProgress
-      "not_started" -> pure NotStarted
-      e ->
-        fromTextError $
-          "Failure parsing ApplicationStatus from value: '" <> e
-            <> "'. Accepted values: completed, in_progress, not_started"
+pattern Completed :: ApplicationStatus
+pattern Completed = ApplicationStatus' "COMPLETED"
 
-instance ToText ApplicationStatus where
-  toText = \case
-    Completed -> "COMPLETED"
-    InProgress -> "IN_PROGRESS"
-    NotStarted -> "NOT_STARTED"
+pattern InProgress :: ApplicationStatus
+pattern InProgress = ApplicationStatus' "IN_PROGRESS"
 
-instance Hashable ApplicationStatus
+pattern NotStarted :: ApplicationStatus
+pattern NotStarted = ApplicationStatus' "NOT_STARTED"
 
-instance NFData ApplicationStatus
-
-instance ToByteString ApplicationStatus
-
-instance ToQuery ApplicationStatus
-
-instance ToHeader ApplicationStatus
-
-instance ToJSON ApplicationStatus where
-  toJSON = toJSONText
-
-instance FromJSON ApplicationStatus where
-  parseJSON = parseJSONText "ApplicationStatus"
+{-# COMPLETE
+  Completed,
+  InProgress,
+  NotStarted,
+  ApplicationStatus'
+  #-}

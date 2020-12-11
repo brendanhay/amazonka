@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,130 +7,168 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Device where
+module Network.AWS.AlexaBusiness.Types.Device
+  ( Device (..),
+
+    -- * Smart constructor
+    mkDevice,
+
+    -- * Lenses
+    dDeviceStatus,
+    dDeviceStatusInfo,
+    dDeviceARN,
+    dMACAddress,
+    dDeviceName,
+    dRoomARN,
+    dSoftwareVersion,
+    dDeviceType,
+    dNetworkProfileInfo,
+    dDeviceSerialNumber,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo
 import Network.AWS.AlexaBusiness.Types.DeviceStatus
 import Network.AWS.AlexaBusiness.Types.DeviceStatusInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A device with attributes.
 --
---
---
--- /See:/ 'device' smart constructor.
+-- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { _dDeviceStatus :: !(Maybe DeviceStatus),
-    _dDeviceStatusInfo :: !(Maybe DeviceStatusInfo),
-    _dDeviceARN :: !(Maybe Text),
-    _dMACAddress :: !(Maybe Text),
-    _dDeviceName :: !(Maybe Text),
-    _dRoomARN :: !(Maybe Text),
-    _dSoftwareVersion :: !(Maybe Text),
-    _dDeviceType :: !(Maybe Text),
-    _dNetworkProfileInfo :: !(Maybe DeviceNetworkProfileInfo),
-    _dDeviceSerialNumber :: !(Maybe Text)
+  { deviceStatus :: Lude.Maybe DeviceStatus,
+    deviceStatusInfo :: Lude.Maybe DeviceStatusInfo,
+    deviceARN :: Lude.Maybe Lude.Text,
+    mACAddress :: Lude.Maybe Lude.Text,
+    deviceName :: Lude.Maybe Lude.Text,
+    roomARN :: Lude.Maybe Lude.Text,
+    softwareVersion :: Lude.Maybe Lude.Text,
+    deviceType :: Lude.Maybe Lude.Text,
+    networkProfileInfo :: Lude.Maybe DeviceNetworkProfileInfo,
+    deviceSerialNumber :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDeviceStatus' - The status of a device. If the status is not READY, check the DeviceStatusInfo value for details.
---
--- * 'dDeviceStatusInfo' - Detailed information about a device's status.
---
--- * 'dDeviceARN' - The ARN of a device.
---
--- * 'dMACAddress' - The MAC address of a device.
---
--- * 'dDeviceName' - The name of a device.
---
--- * 'dRoomARN' - The room ARN of a device.
---
--- * 'dSoftwareVersion' - The software version of a device.
---
--- * 'dDeviceType' - The type of a device.
---
--- * 'dNetworkProfileInfo' - Detailed information about a device's network profile.
---
--- * 'dDeviceSerialNumber' - The serial number of a device.
-device ::
+-- * 'deviceARN' - The ARN of a device.
+-- * 'deviceName' - The name of a device.
+-- * 'deviceSerialNumber' - The serial number of a device.
+-- * 'deviceStatus' - The status of a device. If the status is not READY, check the DeviceStatusInfo value for details.
+-- * 'deviceStatusInfo' - Detailed information about a device's status.
+-- * 'deviceType' - The type of a device.
+-- * 'mACAddress' - The MAC address of a device.
+-- * 'networkProfileInfo' - Detailed information about a device's network profile.
+-- * 'roomARN' - The room ARN of a device.
+-- * 'softwareVersion' - The software version of a device.
+mkDevice ::
   Device
-device =
+mkDevice =
   Device'
-    { _dDeviceStatus = Nothing,
-      _dDeviceStatusInfo = Nothing,
-      _dDeviceARN = Nothing,
-      _dMACAddress = Nothing,
-      _dDeviceName = Nothing,
-      _dRoomARN = Nothing,
-      _dSoftwareVersion = Nothing,
-      _dDeviceType = Nothing,
-      _dNetworkProfileInfo = Nothing,
-      _dDeviceSerialNumber = Nothing
+    { deviceStatus = Lude.Nothing,
+      deviceStatusInfo = Lude.Nothing,
+      deviceARN = Lude.Nothing,
+      mACAddress = Lude.Nothing,
+      deviceName = Lude.Nothing,
+      roomARN = Lude.Nothing,
+      softwareVersion = Lude.Nothing,
+      deviceType = Lude.Nothing,
+      networkProfileInfo = Lude.Nothing,
+      deviceSerialNumber = Lude.Nothing
     }
 
 -- | The status of a device. If the status is not READY, check the DeviceStatusInfo value for details.
-dDeviceStatus :: Lens' Device (Maybe DeviceStatus)
-dDeviceStatus = lens _dDeviceStatus (\s a -> s {_dDeviceStatus = a})
+--
+-- /Note:/ Consider using 'deviceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeviceStatus :: Lens.Lens' Device (Lude.Maybe DeviceStatus)
+dDeviceStatus = Lens.lens (deviceStatus :: Device -> Lude.Maybe DeviceStatus) (\s a -> s {deviceStatus = a} :: Device)
+{-# DEPRECATED dDeviceStatus "Use generic-lens or generic-optics with 'deviceStatus' instead." #-}
 
 -- | Detailed information about a device's status.
-dDeviceStatusInfo :: Lens' Device (Maybe DeviceStatusInfo)
-dDeviceStatusInfo = lens _dDeviceStatusInfo (\s a -> s {_dDeviceStatusInfo = a})
+--
+-- /Note:/ Consider using 'deviceStatusInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeviceStatusInfo :: Lens.Lens' Device (Lude.Maybe DeviceStatusInfo)
+dDeviceStatusInfo = Lens.lens (deviceStatusInfo :: Device -> Lude.Maybe DeviceStatusInfo) (\s a -> s {deviceStatusInfo = a} :: Device)
+{-# DEPRECATED dDeviceStatusInfo "Use generic-lens or generic-optics with 'deviceStatusInfo' instead." #-}
 
 -- | The ARN of a device.
-dDeviceARN :: Lens' Device (Maybe Text)
-dDeviceARN = lens _dDeviceARN (\s a -> s {_dDeviceARN = a})
+--
+-- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeviceARN :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dDeviceARN = Lens.lens (deviceARN :: Device -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: Device)
+{-# DEPRECATED dDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 -- | The MAC address of a device.
-dMACAddress :: Lens' Device (Maybe Text)
-dMACAddress = lens _dMACAddress (\s a -> s {_dMACAddress = a})
+--
+-- /Note:/ Consider using 'mACAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMACAddress :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dMACAddress = Lens.lens (mACAddress :: Device -> Lude.Maybe Lude.Text) (\s a -> s {mACAddress = a} :: Device)
+{-# DEPRECATED dMACAddress "Use generic-lens or generic-optics with 'mACAddress' instead." #-}
 
 -- | The name of a device.
-dDeviceName :: Lens' Device (Maybe Text)
-dDeviceName = lens _dDeviceName (\s a -> s {_dDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeviceName :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dDeviceName = Lens.lens (deviceName :: Device -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: Device)
+{-# DEPRECATED dDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The room ARN of a device.
-dRoomARN :: Lens' Device (Maybe Text)
-dRoomARN = lens _dRoomARN (\s a -> s {_dRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRoomARN :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dRoomARN = Lens.lens (roomARN :: Device -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: Device)
+{-# DEPRECATED dRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The software version of a device.
-dSoftwareVersion :: Lens' Device (Maybe Text)
-dSoftwareVersion = lens _dSoftwareVersion (\s a -> s {_dSoftwareVersion = a})
+--
+-- /Note:/ Consider using 'softwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSoftwareVersion :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dSoftwareVersion = Lens.lens (softwareVersion :: Device -> Lude.Maybe Lude.Text) (\s a -> s {softwareVersion = a} :: Device)
+{-# DEPRECATED dSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
 
 -- | The type of a device.
-dDeviceType :: Lens' Device (Maybe Text)
-dDeviceType = lens _dDeviceType (\s a -> s {_dDeviceType = a})
+--
+-- /Note:/ Consider using 'deviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeviceType :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dDeviceType = Lens.lens (deviceType :: Device -> Lude.Maybe Lude.Text) (\s a -> s {deviceType = a} :: Device)
+{-# DEPRECATED dDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
 
 -- | Detailed information about a device's network profile.
-dNetworkProfileInfo :: Lens' Device (Maybe DeviceNetworkProfileInfo)
-dNetworkProfileInfo = lens _dNetworkProfileInfo (\s a -> s {_dNetworkProfileInfo = a})
+--
+-- /Note:/ Consider using 'networkProfileInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNetworkProfileInfo :: Lens.Lens' Device (Lude.Maybe DeviceNetworkProfileInfo)
+dNetworkProfileInfo = Lens.lens (networkProfileInfo :: Device -> Lude.Maybe DeviceNetworkProfileInfo) (\s a -> s {networkProfileInfo = a} :: Device)
+{-# DEPRECATED dNetworkProfileInfo "Use generic-lens or generic-optics with 'networkProfileInfo' instead." #-}
 
 -- | The serial number of a device.
-dDeviceSerialNumber :: Lens' Device (Maybe Text)
-dDeviceSerialNumber = lens _dDeviceSerialNumber (\s a -> s {_dDeviceSerialNumber = a})
+--
+-- /Note:/ Consider using 'deviceSerialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeviceSerialNumber :: Lens.Lens' Device (Lude.Maybe Lude.Text)
+dDeviceSerialNumber = Lens.lens (deviceSerialNumber :: Device -> Lude.Maybe Lude.Text) (\s a -> s {deviceSerialNumber = a} :: Device)
+{-# DEPRECATED dDeviceSerialNumber "Use generic-lens or generic-optics with 'deviceSerialNumber' instead." #-}
 
-instance FromJSON Device where
+instance Lude.FromJSON Device where
   parseJSON =
-    withObject
+    Lude.withObject
       "Device"
       ( \x ->
           Device'
-            <$> (x .:? "DeviceStatus")
-            <*> (x .:? "DeviceStatusInfo")
-            <*> (x .:? "DeviceArn")
-            <*> (x .:? "MacAddress")
-            <*> (x .:? "DeviceName")
-            <*> (x .:? "RoomArn")
-            <*> (x .:? "SoftwareVersion")
-            <*> (x .:? "DeviceType")
-            <*> (x .:? "NetworkProfileInfo")
-            <*> (x .:? "DeviceSerialNumber")
+            Lude.<$> (x Lude..:? "DeviceStatus")
+            Lude.<*> (x Lude..:? "DeviceStatusInfo")
+            Lude.<*> (x Lude..:? "DeviceArn")
+            Lude.<*> (x Lude..:? "MacAddress")
+            Lude.<*> (x Lude..:? "DeviceName")
+            Lude.<*> (x Lude..:? "RoomArn")
+            Lude.<*> (x Lude..:? "SoftwareVersion")
+            Lude.<*> (x Lude..:? "DeviceType")
+            Lude.<*> (x Lude..:? "NetworkProfileInfo")
+            Lude.<*> (x Lude..:? "DeviceSerialNumber")
       )
-
-instance Hashable Device
-
-instance NFData Device

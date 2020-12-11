@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.RepublishAction where
+module Network.AWS.IoT.Types.RepublishAction
+  ( RepublishAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRepublishAction,
+
+    -- * Lenses
+    raQos,
+    raRoleARN,
+    raTopic,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an action to republish to another topic.
 --
---
---
--- /See:/ 'republishAction' smart constructor.
+-- /See:/ 'mkRepublishAction' smart constructor.
 data RepublishAction = RepublishAction'
-  { _raQos :: !(Maybe Nat),
-    _raRoleARN :: !Text,
-    _raTopic :: !Text
+  { qos ::
+      Lude.Maybe Lude.Natural,
+    roleARN :: Lude.Text,
+    topic :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RepublishAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raQos' - The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
---
--- * 'raRoleARN' - The ARN of the IAM role that grants access.
---
--- * 'raTopic' - The name of the MQTT topic.
-republishAction ::
-  -- | 'raRoleARN'
-  Text ->
-  -- | 'raTopic'
-  Text ->
+-- * 'qos' - The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+-- * 'roleARN' - The ARN of the IAM role that grants access.
+-- * 'topic' - The name of the MQTT topic.
+mkRepublishAction ::
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'topic'
+  Lude.Text ->
   RepublishAction
-republishAction pRoleARN_ pTopic_ =
+mkRepublishAction pRoleARN_ pTopic_ =
   RepublishAction'
-    { _raQos = Nothing,
-      _raRoleARN = pRoleARN_,
-      _raTopic = pTopic_
+    { qos = Lude.Nothing,
+      roleARN = pRoleARN_,
+      topic = pTopic_
     }
 
 -- | The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
-raQos :: Lens' RepublishAction (Maybe Natural)
-raQos = lens _raQos (\s a -> s {_raQos = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'qos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raQos :: Lens.Lens' RepublishAction (Lude.Maybe Lude.Natural)
+raQos = Lens.lens (qos :: RepublishAction -> Lude.Maybe Lude.Natural) (\s a -> s {qos = a} :: RepublishAction)
+{-# DEPRECATED raQos "Use generic-lens or generic-optics with 'qos' instead." #-}
 
 -- | The ARN of the IAM role that grants access.
-raRoleARN :: Lens' RepublishAction Text
-raRoleARN = lens _raRoleARN (\s a -> s {_raRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raRoleARN :: Lens.Lens' RepublishAction Lude.Text
+raRoleARN = Lens.lens (roleARN :: RepublishAction -> Lude.Text) (\s a -> s {roleARN = a} :: RepublishAction)
+{-# DEPRECATED raRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The name of the MQTT topic.
-raTopic :: Lens' RepublishAction Text
-raTopic = lens _raTopic (\s a -> s {_raTopic = a})
+--
+-- /Note:/ Consider using 'topic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raTopic :: Lens.Lens' RepublishAction Lude.Text
+raTopic = Lens.lens (topic :: RepublishAction -> Lude.Text) (\s a -> s {topic = a} :: RepublishAction)
+{-# DEPRECATED raTopic "Use generic-lens or generic-optics with 'topic' instead." #-}
 
-instance FromJSON RepublishAction where
+instance Lude.FromJSON RepublishAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "RepublishAction"
       ( \x ->
           RepublishAction'
-            <$> (x .:? "qos") <*> (x .: "roleArn") <*> (x .: "topic")
+            Lude.<$> (x Lude..:? "qos")
+            Lude.<*> (x Lude..: "roleArn")
+            Lude.<*> (x Lude..: "topic")
       )
 
-instance Hashable RepublishAction
-
-instance NFData RepublishAction
-
-instance ToJSON RepublishAction where
+instance Lude.ToJSON RepublishAction where
   toJSON RepublishAction' {..} =
-    object
-      ( catMaybes
-          [ ("qos" .=) <$> _raQos,
-            Just ("roleArn" .= _raRoleARN),
-            Just ("topic" .= _raTopic)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("qos" Lude..=) Lude.<$> qos,
+            Lude.Just ("roleArn" Lude..= roleARN),
+            Lude.Just ("topic" Lude..= topic)
           ]
       )

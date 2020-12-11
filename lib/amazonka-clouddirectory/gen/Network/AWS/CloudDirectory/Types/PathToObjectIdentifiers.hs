@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers where
+module Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
+  ( PathToObjectIdentifiers (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPathToObjectIdentifiers,
+
+    -- * Lenses
+    ptoiObjectIdentifiers,
+    ptoiPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns the path to the @ObjectIdentifiers@ that is associated with the directory.
 --
---
---
--- /See:/ 'pathToObjectIdentifiers' smart constructor.
+-- /See:/ 'mkPathToObjectIdentifiers' smart constructor.
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
-  { _ptoiObjectIdentifiers ::
-      !(Maybe [Text]),
-    _ptoiPath :: !(Maybe Text)
+  { objectIdentifiers ::
+      Lude.Maybe [Lude.Text],
+    path :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PathToObjectIdentifiers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptoiObjectIdentifiers' - Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
---
--- * 'ptoiPath' - The path that is used to identify the object starting from directory root.
-pathToObjectIdentifiers ::
+-- * 'objectIdentifiers' - Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
+-- * 'path' - The path that is used to identify the object starting from directory root.
+mkPathToObjectIdentifiers ::
   PathToObjectIdentifiers
-pathToObjectIdentifiers =
+mkPathToObjectIdentifiers =
   PathToObjectIdentifiers'
-    { _ptoiObjectIdentifiers = Nothing,
-      _ptoiPath = Nothing
+    { objectIdentifiers = Lude.Nothing,
+      path = Lude.Nothing
     }
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
-ptoiObjectIdentifiers :: Lens' PathToObjectIdentifiers [Text]
-ptoiObjectIdentifiers = lens _ptoiObjectIdentifiers (\s a -> s {_ptoiObjectIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'objectIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptoiObjectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Lude.Maybe [Lude.Text])
+ptoiObjectIdentifiers = Lens.lens (objectIdentifiers :: PathToObjectIdentifiers -> Lude.Maybe [Lude.Text]) (\s a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers)
+{-# DEPRECATED ptoiObjectIdentifiers "Use generic-lens or generic-optics with 'objectIdentifiers' instead." #-}
 
 -- | The path that is used to identify the object starting from directory root.
-ptoiPath :: Lens' PathToObjectIdentifiers (Maybe Text)
-ptoiPath = lens _ptoiPath (\s a -> s {_ptoiPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptoiPath :: Lens.Lens' PathToObjectIdentifiers (Lude.Maybe Lude.Text)
+ptoiPath = Lens.lens (path :: PathToObjectIdentifiers -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: PathToObjectIdentifiers)
+{-# DEPRECATED ptoiPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance FromJSON PathToObjectIdentifiers where
+instance Lude.FromJSON PathToObjectIdentifiers where
   parseJSON =
-    withObject
+    Lude.withObject
       "PathToObjectIdentifiers"
       ( \x ->
           PathToObjectIdentifiers'
-            <$> (x .:? "ObjectIdentifiers" .!= mempty) <*> (x .:? "Path")
+            Lude.<$> (x Lude..:? "ObjectIdentifiers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Path")
       )
-
-instance Hashable PathToObjectIdentifiers
-
-instance NFData PathToObjectIdentifiers

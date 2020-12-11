@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.MetricValue where
+module Network.AWS.CostExplorer.Types.MetricValue
+  ( MetricValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricValue,
+
+    -- * Lenses
+    mvAmount,
+    mvUnit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The aggregated value for a metric.
 --
---
---
--- /See:/ 'metricValue' smart constructor.
+-- /See:/ 'mkMetricValue' smart constructor.
 data MetricValue = MetricValue'
-  { _mvAmount :: !(Maybe Text),
-    _mvUnit :: !(Maybe Text)
+  { amount :: Lude.Maybe Lude.Text,
+    unit :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvAmount' - The actual number that represents the metric.
---
--- * 'mvUnit' - The unit that the metric is given in.
-metricValue ::
+-- * 'amount' - The actual number that represents the metric.
+-- * 'unit' - The unit that the metric is given in.
+mkMetricValue ::
   MetricValue
-metricValue = MetricValue' {_mvAmount = Nothing, _mvUnit = Nothing}
+mkMetricValue =
+  MetricValue' {amount = Lude.Nothing, unit = Lude.Nothing}
 
 -- | The actual number that represents the metric.
-mvAmount :: Lens' MetricValue (Maybe Text)
-mvAmount = lens _mvAmount (\s a -> s {_mvAmount = a})
+--
+-- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvAmount :: Lens.Lens' MetricValue (Lude.Maybe Lude.Text)
+mvAmount = Lens.lens (amount :: MetricValue -> Lude.Maybe Lude.Text) (\s a -> s {amount = a} :: MetricValue)
+{-# DEPRECATED mvAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The unit that the metric is given in.
-mvUnit :: Lens' MetricValue (Maybe Text)
-mvUnit = lens _mvUnit (\s a -> s {_mvUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvUnit :: Lens.Lens' MetricValue (Lude.Maybe Lude.Text)
+mvUnit = Lens.lens (unit :: MetricValue -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: MetricValue)
+{-# DEPRECATED mvUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance FromJSON MetricValue where
+instance Lude.FromJSON MetricValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricValue"
-      (\x -> MetricValue' <$> (x .:? "Amount") <*> (x .:? "Unit"))
-
-instance Hashable MetricValue
-
-instance NFData MetricValue
+      ( \x ->
+          MetricValue'
+            Lude.<$> (x Lude..:? "Amount") Lude.<*> (x Lude..:? "Unit")
+      )

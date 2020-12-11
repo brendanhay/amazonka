@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Unit where
+module Network.AWS.Connect.Types.Unit
+  ( Unit
+      ( Unit',
+        Count,
+        Percent,
+        Seconds
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Unit
-  = Count
-  | Percent
-  | Seconds
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Unit = Unit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Unit where
-  parser =
-    takeLowerText >>= \case
-      "count" -> pure Count
-      "percent" -> pure Percent
-      "seconds" -> pure Seconds
-      e ->
-        fromTextError $
-          "Failure parsing Unit from value: '" <> e
-            <> "'. Accepted values: count, percent, seconds"
+pattern Count :: Unit
+pattern Count = Unit' "COUNT"
 
-instance ToText Unit where
-  toText = \case
-    Count -> "COUNT"
-    Percent -> "PERCENT"
-    Seconds -> "SECONDS"
+pattern Percent :: Unit
+pattern Percent = Unit' "PERCENT"
 
-instance Hashable Unit
+pattern Seconds :: Unit
+pattern Seconds = Unit' "SECONDS"
 
-instance NFData Unit
-
-instance ToByteString Unit
-
-instance ToQuery Unit
-
-instance ToHeader Unit
-
-instance ToJSON Unit where
-  toJSON = toJSONText
-
-instance FromJSON Unit where
-  parseJSON = parseJSONText "Unit"
+{-# COMPLETE
+  Count,
+  Percent,
+  Seconds,
+  Unit'
+  #-}

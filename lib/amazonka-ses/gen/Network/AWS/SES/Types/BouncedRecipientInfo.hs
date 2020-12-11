@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.BouncedRecipientInfo where
+module Network.AWS.SES.Types.BouncedRecipientInfo
+  ( BouncedRecipientInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBouncedRecipientInfo,
+
+    -- * Lenses
+    briBounceType,
+    briRecipientDsnFields,
+    briRecipientARN,
+    briRecipient,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.BounceType
 import Network.AWS.SES.Types.RecipientDsnFields
 
 -- | Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
---
 -- For information about receiving email through Amazon SES, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide> .
 --
---
--- /See:/ 'bouncedRecipientInfo' smart constructor.
+-- /See:/ 'mkBouncedRecipientInfo' smart constructor.
 data BouncedRecipientInfo = BouncedRecipientInfo'
-  { _briBounceType ::
-      !(Maybe BounceType),
-    _briRecipientDsnFields ::
-      !(Maybe RecipientDsnFields),
-    _briRecipientARN :: !(Maybe Text),
-    _briRecipient :: !Text
+  { bounceType ::
+      Lude.Maybe BounceType,
+    recipientDsnFields ::
+      Lude.Maybe RecipientDsnFields,
+    recipientARN :: Lude.Maybe Lude.Text,
+    recipient :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BouncedRecipientInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'briBounceType' - The reason for the bounce. You must provide either this parameter or @RecipientDsnFields@ .
---
--- * 'briRecipientDsnFields' - Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a @BounceType@ . You must provide either this parameter or @BounceType@ .
---
--- * 'briRecipientARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
--- * 'briRecipient' - The email address of the recipient of the bounced email.
-bouncedRecipientInfo ::
-  -- | 'briRecipient'
-  Text ->
+-- * 'bounceType' - The reason for the bounce. You must provide either this parameter or @RecipientDsnFields@ .
+-- * 'recipient' - The email address of the recipient of the bounced email.
+-- * 'recipientARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- * 'recipientDsnFields' - Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a @BounceType@ . You must provide either this parameter or @BounceType@ .
+mkBouncedRecipientInfo ::
+  -- | 'recipient'
+  Lude.Text ->
   BouncedRecipientInfo
-bouncedRecipientInfo pRecipient_ =
+mkBouncedRecipientInfo pRecipient_ =
   BouncedRecipientInfo'
-    { _briBounceType = Nothing,
-      _briRecipientDsnFields = Nothing,
-      _briRecipientARN = Nothing,
-      _briRecipient = pRecipient_
+    { bounceType = Lude.Nothing,
+      recipientDsnFields = Lude.Nothing,
+      recipientARN = Lude.Nothing,
+      recipient = pRecipient_
     }
 
 -- | The reason for the bounce. You must provide either this parameter or @RecipientDsnFields@ .
-briBounceType :: Lens' BouncedRecipientInfo (Maybe BounceType)
-briBounceType = lens _briBounceType (\s a -> s {_briBounceType = a})
+--
+-- /Note:/ Consider using 'bounceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+briBounceType :: Lens.Lens' BouncedRecipientInfo (Lude.Maybe BounceType)
+briBounceType = Lens.lens (bounceType :: BouncedRecipientInfo -> Lude.Maybe BounceType) (\s a -> s {bounceType = a} :: BouncedRecipientInfo)
+{-# DEPRECATED briBounceType "Use generic-lens or generic-optics with 'bounceType' instead." #-}
 
 -- | Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a @BounceType@ . You must provide either this parameter or @BounceType@ .
-briRecipientDsnFields :: Lens' BouncedRecipientInfo (Maybe RecipientDsnFields)
-briRecipientDsnFields = lens _briRecipientDsnFields (\s a -> s {_briRecipientDsnFields = a})
+--
+-- /Note:/ Consider using 'recipientDsnFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+briRecipientDsnFields :: Lens.Lens' BouncedRecipientInfo (Lude.Maybe RecipientDsnFields)
+briRecipientDsnFields = Lens.lens (recipientDsnFields :: BouncedRecipientInfo -> Lude.Maybe RecipientDsnFields) (\s a -> s {recipientDsnFields = a} :: BouncedRecipientInfo)
+{-# DEPRECATED briRecipientDsnFields "Use generic-lens or generic-optics with 'recipientDsnFields' instead." #-}
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-briRecipientARN :: Lens' BouncedRecipientInfo (Maybe Text)
-briRecipientARN = lens _briRecipientARN (\s a -> s {_briRecipientARN = a})
+--
+-- /Note:/ Consider using 'recipientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+briRecipientARN :: Lens.Lens' BouncedRecipientInfo (Lude.Maybe Lude.Text)
+briRecipientARN = Lens.lens (recipientARN :: BouncedRecipientInfo -> Lude.Maybe Lude.Text) (\s a -> s {recipientARN = a} :: BouncedRecipientInfo)
+{-# DEPRECATED briRecipientARN "Use generic-lens or generic-optics with 'recipientARN' instead." #-}
 
 -- | The email address of the recipient of the bounced email.
-briRecipient :: Lens' BouncedRecipientInfo Text
-briRecipient = lens _briRecipient (\s a -> s {_briRecipient = a})
+--
+-- /Note:/ Consider using 'recipient' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+briRecipient :: Lens.Lens' BouncedRecipientInfo Lude.Text
+briRecipient = Lens.lens (recipient :: BouncedRecipientInfo -> Lude.Text) (\s a -> s {recipient = a} :: BouncedRecipientInfo)
+{-# DEPRECATED briRecipient "Use generic-lens or generic-optics with 'recipient' instead." #-}
 
-instance Hashable BouncedRecipientInfo
-
-instance NFData BouncedRecipientInfo
-
-instance ToQuery BouncedRecipientInfo where
+instance Lude.ToQuery BouncedRecipientInfo where
   toQuery BouncedRecipientInfo' {..} =
-    mconcat
-      [ "BounceType" =: _briBounceType,
-        "RecipientDsnFields" =: _briRecipientDsnFields,
-        "RecipientArn" =: _briRecipientARN,
-        "Recipient" =: _briRecipient
+    Lude.mconcat
+      [ "BounceType" Lude.=: bounceType,
+        "RecipientDsnFields" Lude.=: recipientDsnFields,
+        "RecipientArn" Lude.=: recipientARN,
+        "Recipient" Lude.=: recipient
       ]

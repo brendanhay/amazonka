@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayRoute where
+module Network.AWS.EC2.Types.TransitGatewayRoute
+  ( TransitGatewayRoute (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTransitGatewayRoute,
+
+    -- * Lenses
+    tgrState,
+    tgrPrefixListId,
+    tgrTransitGatewayAttachments,
+    tgrType,
+    tgrDestinationCidrBlock,
+  )
+where
+
 import Network.AWS.EC2.Types.TransitGatewayRouteAttachment
 import Network.AWS.EC2.Types.TransitGatewayRouteState
 import Network.AWS.EC2.Types.TransitGatewayRouteType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a route for a transit gateway route table.
 --
---
---
--- /See:/ 'transitGatewayRoute' smart constructor.
+-- /See:/ 'mkTransitGatewayRoute' smart constructor.
 data TransitGatewayRoute = TransitGatewayRoute'
-  { _tgrState ::
-      !(Maybe TransitGatewayRouteState),
-    _tgrPrefixListId :: !(Maybe Text),
-    _tgrTransitGatewayAttachments ::
-      !(Maybe [TransitGatewayRouteAttachment]),
-    _tgrType :: !(Maybe TransitGatewayRouteType),
-    _tgrDestinationCidrBlock :: !(Maybe Text)
+  { state ::
+      Lude.Maybe TransitGatewayRouteState,
+    prefixListId :: Lude.Maybe Lude.Text,
+    transitGatewayAttachments ::
+      Lude.Maybe [TransitGatewayRouteAttachment],
+    type' :: Lude.Maybe TransitGatewayRouteType,
+    destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgrState' - The state of the route.
---
--- * 'tgrPrefixListId' - The ID of the prefix list used for destination matches.
---
--- * 'tgrTransitGatewayAttachments' - The attachments.
---
--- * 'tgrType' - The route type.
---
--- * 'tgrDestinationCidrBlock' - The CIDR block used for destination matches.
-transitGatewayRoute ::
+-- * 'destinationCidrBlock' - The CIDR block used for destination matches.
+-- * 'prefixListId' - The ID of the prefix list used for destination matches.
+-- * 'state' - The state of the route.
+-- * 'transitGatewayAttachments' - The attachments.
+-- * 'type'' - The route type.
+mkTransitGatewayRoute ::
   TransitGatewayRoute
-transitGatewayRoute =
+mkTransitGatewayRoute =
   TransitGatewayRoute'
-    { _tgrState = Nothing,
-      _tgrPrefixListId = Nothing,
-      _tgrTransitGatewayAttachments = Nothing,
-      _tgrType = Nothing,
-      _tgrDestinationCidrBlock = Nothing
+    { state = Lude.Nothing,
+      prefixListId = Lude.Nothing,
+      transitGatewayAttachments = Lude.Nothing,
+      type' = Lude.Nothing,
+      destinationCidrBlock = Lude.Nothing
     }
 
 -- | The state of the route.
-tgrState :: Lens' TransitGatewayRoute (Maybe TransitGatewayRouteState)
-tgrState = lens _tgrState (\s a -> s {_tgrState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrState :: Lens.Lens' TransitGatewayRoute (Lude.Maybe TransitGatewayRouteState)
+tgrState = Lens.lens (state :: TransitGatewayRoute -> Lude.Maybe TransitGatewayRouteState) (\s a -> s {state = a} :: TransitGatewayRoute)
+{-# DEPRECATED tgrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the prefix list used for destination matches.
-tgrPrefixListId :: Lens' TransitGatewayRoute (Maybe Text)
-tgrPrefixListId = lens _tgrPrefixListId (\s a -> s {_tgrPrefixListId = a})
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrPrefixListId :: Lens.Lens' TransitGatewayRoute (Lude.Maybe Lude.Text)
+tgrPrefixListId = Lens.lens (prefixListId :: TransitGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: TransitGatewayRoute)
+{-# DEPRECATED tgrPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | The attachments.
-tgrTransitGatewayAttachments :: Lens' TransitGatewayRoute [TransitGatewayRouteAttachment]
-tgrTransitGatewayAttachments = lens _tgrTransitGatewayAttachments (\s a -> s {_tgrTransitGatewayAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'transitGatewayAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrTransitGatewayAttachments :: Lens.Lens' TransitGatewayRoute (Lude.Maybe [TransitGatewayRouteAttachment])
+tgrTransitGatewayAttachments = Lens.lens (transitGatewayAttachments :: TransitGatewayRoute -> Lude.Maybe [TransitGatewayRouteAttachment]) (\s a -> s {transitGatewayAttachments = a} :: TransitGatewayRoute)
+{-# DEPRECATED tgrTransitGatewayAttachments "Use generic-lens or generic-optics with 'transitGatewayAttachments' instead." #-}
 
 -- | The route type.
-tgrType :: Lens' TransitGatewayRoute (Maybe TransitGatewayRouteType)
-tgrType = lens _tgrType (\s a -> s {_tgrType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrType :: Lens.Lens' TransitGatewayRoute (Lude.Maybe TransitGatewayRouteType)
+tgrType = Lens.lens (type' :: TransitGatewayRoute -> Lude.Maybe TransitGatewayRouteType) (\s a -> s {type' = a} :: TransitGatewayRoute)
+{-# DEPRECATED tgrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The CIDR block used for destination matches.
-tgrDestinationCidrBlock :: Lens' TransitGatewayRoute (Maybe Text)
-tgrDestinationCidrBlock = lens _tgrDestinationCidrBlock (\s a -> s {_tgrDestinationCidrBlock = a})
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrDestinationCidrBlock :: Lens.Lens' TransitGatewayRoute (Lude.Maybe Lude.Text)
+tgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: TransitGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: TransitGatewayRoute)
+{-# DEPRECATED tgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance FromXML TransitGatewayRoute where
+instance Lude.FromXML TransitGatewayRoute where
   parseXML x =
     TransitGatewayRoute'
-      <$> (x .@? "state")
-      <*> (x .@? "prefixListId")
-      <*> ( x .@? "transitGatewayAttachments" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "type")
-      <*> (x .@? "destinationCidrBlock")
-
-instance Hashable TransitGatewayRoute
-
-instance NFData TransitGatewayRoute
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "prefixListId")
+      Lude.<*> ( x Lude..@? "transitGatewayAttachments" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "type")
+      Lude.<*> (x Lude..@? "destinationCidrBlock")

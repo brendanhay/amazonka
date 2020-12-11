@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TargetInstances where
+module Network.AWS.CodeDeploy.Types.TargetInstances
+  ( TargetInstances (..),
+
+    -- * Smart constructor
+    mkTargetInstances,
+
+    -- * Lenses
+    tiEc2TagSet,
+    tiTagFilters,
+    tiAutoScalingGroups,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.EC2TagFilter
 import Network.AWS.CodeDeploy.Types.EC2TagSet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the instances to be used in the replacement environment in a blue/green deployment.
 --
---
---
--- /See:/ 'targetInstances' smart constructor.
+-- /See:/ 'mkTargetInstances' smart constructor.
 data TargetInstances = TargetInstances'
-  { _tiEc2TagSet ::
-      !(Maybe EC2TagSet),
-    _tiTagFilters :: !(Maybe [EC2TagFilter]),
-    _tiAutoScalingGroups :: !(Maybe [Text])
+  { ec2TagSet ::
+      Lude.Maybe EC2TagSet,
+    tagFilters :: Lude.Maybe [EC2TagFilter],
+    autoScalingGroups :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tiEc2TagSet' - Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as @tagFilters@ .
---
--- * 'tiTagFilters' - The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as @ec2TagSet@ .
---
--- * 'tiAutoScalingGroups' - The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
-targetInstances ::
+-- * 'autoScalingGroups' - The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
+-- * 'ec2TagSet' - Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as @tagFilters@ .
+-- * 'tagFilters' - The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as @ec2TagSet@ .
+mkTargetInstances ::
   TargetInstances
-targetInstances =
+mkTargetInstances =
   TargetInstances'
-    { _tiEc2TagSet = Nothing,
-      _tiTagFilters = Nothing,
-      _tiAutoScalingGroups = Nothing
+    { ec2TagSet = Lude.Nothing,
+      tagFilters = Lude.Nothing,
+      autoScalingGroups = Lude.Nothing
     }
 
 -- | Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as @tagFilters@ .
-tiEc2TagSet :: Lens' TargetInstances (Maybe EC2TagSet)
-tiEc2TagSet = lens _tiEc2TagSet (\s a -> s {_tiEc2TagSet = a})
+--
+-- /Note:/ Consider using 'ec2TagSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiEc2TagSet :: Lens.Lens' TargetInstances (Lude.Maybe EC2TagSet)
+tiEc2TagSet = Lens.lens (ec2TagSet :: TargetInstances -> Lude.Maybe EC2TagSet) (\s a -> s {ec2TagSet = a} :: TargetInstances)
+{-# DEPRECATED tiEc2TagSet "Use generic-lens or generic-optics with 'ec2TagSet' instead." #-}
 
 -- | The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as @ec2TagSet@ .
-tiTagFilters :: Lens' TargetInstances [EC2TagFilter]
-tiTagFilters = lens _tiTagFilters (\s a -> s {_tiTagFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiTagFilters :: Lens.Lens' TargetInstances (Lude.Maybe [EC2TagFilter])
+tiTagFilters = Lens.lens (tagFilters :: TargetInstances -> Lude.Maybe [EC2TagFilter]) (\s a -> s {tagFilters = a} :: TargetInstances)
+{-# DEPRECATED tiTagFilters "Use generic-lens or generic-optics with 'tagFilters' instead." #-}
 
 -- | The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
-tiAutoScalingGroups :: Lens' TargetInstances [Text]
-tiAutoScalingGroups = lens _tiAutoScalingGroups (\s a -> s {_tiAutoScalingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'autoScalingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiAutoScalingGroups :: Lens.Lens' TargetInstances (Lude.Maybe [Lude.Text])
+tiAutoScalingGroups = Lens.lens (autoScalingGroups :: TargetInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {autoScalingGroups = a} :: TargetInstances)
+{-# DEPRECATED tiAutoScalingGroups "Use generic-lens or generic-optics with 'autoScalingGroups' instead." #-}
 
-instance FromJSON TargetInstances where
+instance Lude.FromJSON TargetInstances where
   parseJSON =
-    withObject
+    Lude.withObject
       "TargetInstances"
       ( \x ->
           TargetInstances'
-            <$> (x .:? "ec2TagSet")
-            <*> (x .:? "tagFilters" .!= mempty)
-            <*> (x .:? "autoScalingGroups" .!= mempty)
+            Lude.<$> (x Lude..:? "ec2TagSet")
+            Lude.<*> (x Lude..:? "tagFilters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "autoScalingGroups" Lude..!= Lude.mempty)
       )
 
-instance Hashable TargetInstances
-
-instance NFData TargetInstances
-
-instance ToJSON TargetInstances where
+instance Lude.ToJSON TargetInstances where
   toJSON TargetInstances' {..} =
-    object
-      ( catMaybes
-          [ ("ec2TagSet" .=) <$> _tiEc2TagSet,
-            ("tagFilters" .=) <$> _tiTagFilters,
-            ("autoScalingGroups" .=) <$> _tiAutoScalingGroups
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ec2TagSet" Lude..=) Lude.<$> ec2TagSet,
+            ("tagFilters" Lude..=) Lude.<$> tagFilters,
+            ("autoScalingGroups" Lude..=) Lude.<$> autoScalingGroups
           ]
       )

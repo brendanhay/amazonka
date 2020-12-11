@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ScpActionDefinition where
+module Network.AWS.Budgets.Types.ScpActionDefinition
+  ( ScpActionDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScpActionDefinition,
+
+    -- * Lenses
+    sadPolicyId,
+    sadTargetIds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The service control policies (SCP) action definition details.
 --
---
---
--- /See:/ 'scpActionDefinition' smart constructor.
+-- /See:/ 'mkScpActionDefinition' smart constructor.
 data ScpActionDefinition = ScpActionDefinition'
-  { _sadPolicyId ::
-      !Text,
-    _sadTargetIds :: !(List1 Text)
+  { policyId ::
+      Lude.Text,
+    targetIds :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScpActionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sadPolicyId' - The policy ID attached.
---
--- * 'sadTargetIds' - A list of target IDs.
-scpActionDefinition ::
-  -- | 'sadPolicyId'
-  Text ->
-  -- | 'sadTargetIds'
-  NonEmpty Text ->
+-- * 'policyId' - The policy ID attached.
+-- * 'targetIds' - A list of target IDs.
+mkScpActionDefinition ::
+  -- | 'policyId'
+  Lude.Text ->
+  -- | 'targetIds'
+  Lude.NonEmpty Lude.Text ->
   ScpActionDefinition
-scpActionDefinition pPolicyId_ pTargetIds_ =
+mkScpActionDefinition pPolicyId_ pTargetIds_ =
   ScpActionDefinition'
-    { _sadPolicyId = pPolicyId_,
-      _sadTargetIds = _List1 # pTargetIds_
+    { policyId = pPolicyId_,
+      targetIds = pTargetIds_
     }
 
 -- | The policy ID attached.
-sadPolicyId :: Lens' ScpActionDefinition Text
-sadPolicyId = lens _sadPolicyId (\s a -> s {_sadPolicyId = a})
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadPolicyId :: Lens.Lens' ScpActionDefinition Lude.Text
+sadPolicyId = Lens.lens (policyId :: ScpActionDefinition -> Lude.Text) (\s a -> s {policyId = a} :: ScpActionDefinition)
+{-# DEPRECATED sadPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | A list of target IDs.
-sadTargetIds :: Lens' ScpActionDefinition (NonEmpty Text)
-sadTargetIds = lens _sadTargetIds (\s a -> s {_sadTargetIds = a}) . _List1
+--
+-- /Note:/ Consider using 'targetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadTargetIds :: Lens.Lens' ScpActionDefinition (Lude.NonEmpty Lude.Text)
+sadTargetIds = Lens.lens (targetIds :: ScpActionDefinition -> Lude.NonEmpty Lude.Text) (\s a -> s {targetIds = a} :: ScpActionDefinition)
+{-# DEPRECATED sadTargetIds "Use generic-lens or generic-optics with 'targetIds' instead." #-}
 
-instance FromJSON ScpActionDefinition where
+instance Lude.FromJSON ScpActionDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "ScpActionDefinition"
       ( \x ->
-          ScpActionDefinition' <$> (x .: "PolicyId") <*> (x .: "TargetIds")
+          ScpActionDefinition'
+            Lude.<$> (x Lude..: "PolicyId") Lude.<*> (x Lude..: "TargetIds")
       )
 
-instance Hashable ScpActionDefinition
-
-instance NFData ScpActionDefinition
-
-instance ToJSON ScpActionDefinition where
+instance Lude.ToJSON ScpActionDefinition where
   toJSON ScpActionDefinition' {..} =
-    object
-      ( catMaybes
-          [ Just ("PolicyId" .= _sadPolicyId),
-            Just ("TargetIds" .= _sadTargetIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("PolicyId" Lude..= policyId),
+            Lude.Just ("TargetIds" Lude..= targetIds)
           ]
       )

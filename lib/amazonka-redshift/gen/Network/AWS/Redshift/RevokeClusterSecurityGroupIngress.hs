@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,179 @@
 --
 -- Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group. To add an ingress rule, see 'AuthorizeClusterSecurityGroupIngress' . For information about managing security groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
-  ( -- * Creating a Request
-    revokeClusterSecurityGroupIngress,
-    RevokeClusterSecurityGroupIngress,
+  ( -- * Creating a request
+    RevokeClusterSecurityGroupIngress (..),
+    mkRevokeClusterSecurityGroupIngress,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcsgiEC2SecurityGroupOwnerId,
     rcsgiEC2SecurityGroupName,
     rcsgiCIdRIP,
     rcsgiClusterSecurityGroupName,
 
-    -- * Destructuring the Response
-    revokeClusterSecurityGroupIngressResponse,
-    RevokeClusterSecurityGroupIngressResponse,
+    -- * Destructuring the response
+    RevokeClusterSecurityGroupIngressResponse (..),
+    mkRevokeClusterSecurityGroupIngressResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcsgirsClusterSecurityGroup,
     rcsgirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'revokeClusterSecurityGroupIngress' smart constructor.
+-- /See:/ 'mkRevokeClusterSecurityGroupIngress' smart constructor.
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
-  { _rcsgiEC2SecurityGroupOwnerId ::
-      !(Maybe Text),
-    _rcsgiEC2SecurityGroupName ::
-      !(Maybe Text),
-    _rcsgiCIdRIP ::
-      !(Maybe Text),
-    _rcsgiClusterSecurityGroupName ::
-      !Text
+  { ec2SecurityGroupOwnerId ::
+      Lude.Maybe Lude.Text,
+    ec2SecurityGroupName ::
+      Lude.Maybe Lude.Text,
+    cIdRIP ::
+      Lude.Maybe Lude.Text,
+    clusterSecurityGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeClusterSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cIdRIP' - The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@ is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@ cannot be provided.
+-- * 'clusterSecurityGroupName' - The name of the security Group from which to revoke the ingress rule.
+-- * 'ec2SecurityGroupName' - The name of the EC2 Security Group whose access is to be revoked. If @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also be provided and @CIDRIP@ cannot be provided.
+-- * 'ec2SecurityGroupOwnerId' - The AWS account number of the owner of the security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an acceptable value. If @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be provided.
 --
--- * 'rcsgiEC2SecurityGroupOwnerId' - The AWS account number of the owner of the security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an acceptable value. If @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be provided.  Example: @111122223333@
---
--- * 'rcsgiEC2SecurityGroupName' - The name of the EC2 Security Group whose access is to be revoked. If @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also be provided and @CIDRIP@ cannot be provided.
---
--- * 'rcsgiCIdRIP' - The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@ is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@ cannot be provided.
---
--- * 'rcsgiClusterSecurityGroupName' - The name of the security Group from which to revoke the ingress rule.
-revokeClusterSecurityGroupIngress ::
-  -- | 'rcsgiClusterSecurityGroupName'
-  Text ->
+-- Example: @111122223333@
+mkRevokeClusterSecurityGroupIngress ::
+  -- | 'clusterSecurityGroupName'
+  Lude.Text ->
   RevokeClusterSecurityGroupIngress
-revokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
+mkRevokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
   RevokeClusterSecurityGroupIngress'
-    { _rcsgiEC2SecurityGroupOwnerId =
-        Nothing,
-      _rcsgiEC2SecurityGroupName = Nothing,
-      _rcsgiCIdRIP = Nothing,
-      _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName_
+    { ec2SecurityGroupOwnerId =
+        Lude.Nothing,
+      ec2SecurityGroupName = Lude.Nothing,
+      cIdRIP = Lude.Nothing,
+      clusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
--- | The AWS account number of the owner of the security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an acceptable value. If @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be provided.  Example: @111122223333@
-rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\s a -> s {_rcsgiEC2SecurityGroupOwnerId = a})
+-- | The AWS account number of the owner of the security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an acceptable value. If @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be provided.
+--
+-- Example: @111122223333@
+--
+-- /Note:/ Consider using 'ec2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsgiEC2SecurityGroupOwnerId :: Lens.Lens' RevokeClusterSecurityGroupIngress (Lude.Maybe Lude.Text)
+rcsgiEC2SecurityGroupOwnerId = Lens.lens (ec2SecurityGroupOwnerId :: RevokeClusterSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupOwnerId = a} :: RevokeClusterSecurityGroupIngress)
+{-# DEPRECATED rcsgiEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'ec2SecurityGroupOwnerId' instead." #-}
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also be provided and @CIDRIP@ cannot be provided.
-rcsgiEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\s a -> s {_rcsgiEC2SecurityGroupName = a})
+--
+-- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsgiEC2SecurityGroupName :: Lens.Lens' RevokeClusterSecurityGroupIngress (Lude.Maybe Lude.Text)
+rcsgiEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: RevokeClusterSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: RevokeClusterSecurityGroupIngress)
+{-# DEPRECATED rcsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
 
 -- | The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@ is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@ cannot be provided.
-rcsgiCIdRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiCIdRIP = lens _rcsgiCIdRIP (\s a -> s {_rcsgiCIdRIP = a})
+--
+-- /Note:/ Consider using 'cIdRIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsgiCIdRIP :: Lens.Lens' RevokeClusterSecurityGroupIngress (Lude.Maybe Lude.Text)
+rcsgiCIdRIP = Lens.lens (cIdRIP :: RevokeClusterSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {cIdRIP = a} :: RevokeClusterSecurityGroupIngress)
+{-# DEPRECATED rcsgiCIdRIP "Use generic-lens or generic-optics with 'cIdRIP' instead." #-}
 
 -- | The name of the security Group from which to revoke the ingress rule.
-rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
-rcsgiClusterSecurityGroupName = lens _rcsgiClusterSecurityGroupName (\s a -> s {_rcsgiClusterSecurityGroupName = a})
+--
+-- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsgiClusterSecurityGroupName :: Lens.Lens' RevokeClusterSecurityGroupIngress Lude.Text
+rcsgiClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: RevokeClusterSecurityGroupIngress -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: RevokeClusterSecurityGroupIngress)
+{-# DEPRECATED rcsgiClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
-instance AWSRequest RevokeClusterSecurityGroupIngress where
+instance Lude.AWSRequest RevokeClusterSecurityGroupIngress where
   type
     Rs RevokeClusterSecurityGroupIngress =
       RevokeClusterSecurityGroupIngressResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RevokeClusterSecurityGroupIngressResult"
       ( \s h x ->
           RevokeClusterSecurityGroupIngressResponse'
-            <$> (x .@? "ClusterSecurityGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ClusterSecurityGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RevokeClusterSecurityGroupIngress
+instance Lude.ToHeaders RevokeClusterSecurityGroupIngress where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RevokeClusterSecurityGroupIngress
+instance Lude.ToPath RevokeClusterSecurityGroupIngress where
+  toPath = Lude.const "/"
 
-instance ToHeaders RevokeClusterSecurityGroupIngress where
-  toHeaders = const mempty
-
-instance ToPath RevokeClusterSecurityGroupIngress where
-  toPath = const "/"
-
-instance ToQuery RevokeClusterSecurityGroupIngress where
+instance Lude.ToQuery RevokeClusterSecurityGroupIngress where
   toQuery RevokeClusterSecurityGroupIngress' {..} =
-    mconcat
-      [ "Action" =: ("RevokeClusterSecurityGroupIngress" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "EC2SecurityGroupOwnerId" =: _rcsgiEC2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" =: _rcsgiEC2SecurityGroupName,
-        "CIDRIP" =: _rcsgiCIdRIP,
-        "ClusterSecurityGroupName" =: _rcsgiClusterSecurityGroupName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("RevokeClusterSecurityGroupIngress" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "EC2SecurityGroupOwnerId" Lude.=: ec2SecurityGroupOwnerId,
+        "EC2SecurityGroupName" Lude.=: ec2SecurityGroupName,
+        "CIDRIP" Lude.=: cIdRIP,
+        "ClusterSecurityGroupName" Lude.=: clusterSecurityGroupName
       ]
 
--- | /See:/ 'revokeClusterSecurityGroupIngressResponse' smart constructor.
+-- | /See:/ 'mkRevokeClusterSecurityGroupIngressResponse' smart constructor.
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
-  { _rcsgirsClusterSecurityGroup ::
-      !( Maybe
-           ClusterSecurityGroup
-       ),
-    _rcsgirsResponseStatus ::
-      !Int
+  { clusterSecurityGroup ::
+      Lude.Maybe
+        ClusterSecurityGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcsgirsClusterSecurityGroup' - Undocumented member.
---
--- * 'rcsgirsResponseStatus' - -- | The response status code.
-revokeClusterSecurityGroupIngressResponse ::
-  -- | 'rcsgirsResponseStatus'
-  Int ->
+-- * 'clusterSecurityGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRevokeClusterSecurityGroupIngressResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RevokeClusterSecurityGroupIngressResponse
-revokeClusterSecurityGroupIngressResponse pResponseStatus_ =
+mkRevokeClusterSecurityGroupIngressResponse pResponseStatus_ =
   RevokeClusterSecurityGroupIngressResponse'
-    { _rcsgirsClusterSecurityGroup =
-        Nothing,
-      _rcsgirsResponseStatus = pResponseStatus_
+    { clusterSecurityGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-rcsgirsClusterSecurityGroup = lens _rcsgirsClusterSecurityGroup (\s a -> s {_rcsgirsClusterSecurityGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'clusterSecurityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsgirsClusterSecurityGroup :: Lens.Lens' RevokeClusterSecurityGroupIngressResponse (Lude.Maybe ClusterSecurityGroup)
+rcsgirsClusterSecurityGroup = Lens.lens (clusterSecurityGroup :: RevokeClusterSecurityGroupIngressResponse -> Lude.Maybe ClusterSecurityGroup) (\s a -> s {clusterSecurityGroup = a} :: RevokeClusterSecurityGroupIngressResponse)
+{-# DEPRECATED rcsgirsClusterSecurityGroup "Use generic-lens or generic-optics with 'clusterSecurityGroup' instead." #-}
 
--- | -- | The response status code.
-rcsgirsResponseStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
-rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\s a -> s {_rcsgirsResponseStatus = a})
-
-instance NFData RevokeClusterSecurityGroupIngressResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsgirsResponseStatus :: Lens.Lens' RevokeClusterSecurityGroupIngressResponse Lude.Int
+rcsgirsResponseStatus = Lens.lens (responseStatus :: RevokeClusterSecurityGroupIngressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RevokeClusterSecurityGroupIngressResponse)
+{-# DEPRECATED rcsgirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

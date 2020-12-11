@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,125 @@
 --
 -- Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.DeleteDomain
-  ( -- * Creating a Request
-    deleteDomain,
-    DeleteDomain,
+  ( -- * Creating a request
+    DeleteDomain (..),
+    mkDeleteDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dddDomainName,
 
-    -- * Destructuring the Response
-    deleteDomainResponse,
-    DeleteDomainResponse,
+    -- * Destructuring the response
+    DeleteDomainResponse (..),
+    mkDeleteDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsDomainStatus,
     ddrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DeleteDomain' @ operation. Specifies the name of the domain you want to delete.
 --
---
---
--- /See:/ 'deleteDomain' smart constructor.
-newtype DeleteDomain = DeleteDomain' {_dddDomainName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteDomain' smart constructor.
+newtype DeleteDomain = DeleteDomain' {domainName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dddDomainName' - The name of the domain you want to permanently delete.
-deleteDomain ::
-  -- | 'dddDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain you want to permanently delete.
+mkDeleteDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   DeleteDomain
-deleteDomain pDomainName_ =
-  DeleteDomain' {_dddDomainName = pDomainName_}
+mkDeleteDomain pDomainName_ =
+  DeleteDomain' {domainName = pDomainName_}
 
 -- | The name of the domain you want to permanently delete.
-dddDomainName :: Lens' DeleteDomain Text
-dddDomainName = lens _dddDomainName (\s a -> s {_dddDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dddDomainName :: Lens.Lens' DeleteDomain Lude.Text
+dddDomainName = Lens.lens (domainName :: DeleteDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomain)
+{-# DEPRECATED dddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DeleteDomain where
+instance Lude.AWSRequest DeleteDomain where
   type Rs DeleteDomain = DeleteDomainResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteDomainResult"
       ( \s h x ->
           DeleteDomainResponse'
-            <$> (x .@? "DomainStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DomainStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDomain
+instance Lude.ToHeaders DeleteDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDomain
+instance Lude.ToPath DeleteDomain where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteDomain where
-  toHeaders = const mempty
-
-instance ToPath DeleteDomain where
-  toPath = const "/"
-
-instance ToQuery DeleteDomain where
+instance Lude.ToQuery DeleteDomain where
   toQuery DeleteDomain' {..} =
-    mconcat
-      [ "Action" =: ("DeleteDomain" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "DomainName" =: _dddDomainName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteDomain" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @DeleteDomain@ request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.
 --
---
---
--- /See:/ 'deleteDomainResponse' smart constructor.
+-- /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { _ddrsDomainStatus ::
-      !(Maybe DomainStatus),
-    _ddrsResponseStatus :: !Int
+  { domainStatus ::
+      Lude.Maybe DomainStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsDomainStatus' - Undocumented member.
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteDomainResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- * 'domainStatus' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDomainResponse
-deleteDomainResponse pResponseStatus_ =
+mkDeleteDomainResponse pResponseStatus_ =
   DeleteDomainResponse'
-    { _ddrsDomainStatus = Nothing,
-      _ddrsResponseStatus = pResponseStatus_
+    { domainStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddrsDomainStatus = lens _ddrsDomainStatus (\s a -> s {_ddrsDomainStatus = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDomainStatus :: Lens.Lens' DeleteDomainResponse (Lude.Maybe DomainStatus)
+ddrsDomainStatus = Lens.lens (domainStatus :: DeleteDomainResponse -> Lude.Maybe DomainStatus) (\s a -> s {domainStatus = a} :: DeleteDomainResponse)
+{-# DEPRECATED ddrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DeleteDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DeleteDomainResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDomainResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

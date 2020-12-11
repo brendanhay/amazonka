@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.TimeRangeFilter where
+module Network.AWS.ElastiCache.Types.TimeRangeFilter
+  ( TimeRangeFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeRangeFilter,
+
+    -- * Lenses
+    trfStartTime,
+    trfEndTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Filters update actions from the service updates that are in available status during the time range.
 --
---
---
--- /See:/ 'timeRangeFilter' smart constructor.
+-- /See:/ 'mkTimeRangeFilter' smart constructor.
 data TimeRangeFilter = TimeRangeFilter'
-  { _trfStartTime ::
-      !(Maybe ISO8601),
-    _trfEndTime :: !(Maybe ISO8601)
+  { startTime ::
+      Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeRangeFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trfStartTime' - The start time of the time range filter
---
--- * 'trfEndTime' - The end time of the time range filter
-timeRangeFilter ::
+-- * 'endTime' - The end time of the time range filter
+-- * 'startTime' - The start time of the time range filter
+mkTimeRangeFilter ::
   TimeRangeFilter
-timeRangeFilter =
-  TimeRangeFilter' {_trfStartTime = Nothing, _trfEndTime = Nothing}
+mkTimeRangeFilter =
+  TimeRangeFilter'
+    { startTime = Lude.Nothing,
+      endTime = Lude.Nothing
+    }
 
 -- | The start time of the time range filter
-trfStartTime :: Lens' TimeRangeFilter (Maybe UTCTime)
-trfStartTime = lens _trfStartTime (\s a -> s {_trfStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trfStartTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.ISO8601)
+trfStartTime = Lens.lens (startTime :: TimeRangeFilter -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: TimeRangeFilter)
+{-# DEPRECATED trfStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time of the time range filter
-trfEndTime :: Lens' TimeRangeFilter (Maybe UTCTime)
-trfEndTime = lens _trfEndTime (\s a -> s {_trfEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trfEndTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.ISO8601)
+trfEndTime = Lens.lens (endTime :: TimeRangeFilter -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: TimeRangeFilter)
+{-# DEPRECATED trfEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Hashable TimeRangeFilter
-
-instance NFData TimeRangeFilter
-
-instance ToQuery TimeRangeFilter where
+instance Lude.ToQuery TimeRangeFilter where
   toQuery TimeRangeFilter' {..} =
-    mconcat ["StartTime" =: _trfStartTime, "EndTime" =: _trfEndTime]
+    Lude.mconcat
+      ["StartTime" Lude.=: startTime, "EndTime" Lude.=: endTime]

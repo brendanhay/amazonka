@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LoadBalancersConfig where
+module Network.AWS.EC2.Types.LoadBalancersConfig
+  ( LoadBalancersConfig (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLoadBalancersConfig,
+
+    -- * Lenses
+    lbcClassicLoadBalancersConfig,
+    lbcTargetGroupsConfig,
+  )
+where
+
 import Network.AWS.EC2.Types.ClassicLoadBalancersConfig
 import Network.AWS.EC2.Types.TargetGroupsConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 --
---
---
--- /See:/ 'loadBalancersConfig' smart constructor.
+-- /See:/ 'mkLoadBalancersConfig' smart constructor.
 data LoadBalancersConfig = LoadBalancersConfig'
-  { _lbcClassicLoadBalancersConfig ::
-      !(Maybe ClassicLoadBalancersConfig),
-    _lbcTargetGroupsConfig ::
-      !(Maybe TargetGroupsConfig)
+  { classicLoadBalancersConfig ::
+      Lude.Maybe ClassicLoadBalancersConfig,
+    targetGroupsConfig :: Lude.Maybe TargetGroupsConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancersConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbcClassicLoadBalancersConfig' - The Classic Load Balancers.
---
--- * 'lbcTargetGroupsConfig' - The target groups.
-loadBalancersConfig ::
+-- * 'classicLoadBalancersConfig' - The Classic Load Balancers.
+-- * 'targetGroupsConfig' - The target groups.
+mkLoadBalancersConfig ::
   LoadBalancersConfig
-loadBalancersConfig =
+mkLoadBalancersConfig =
   LoadBalancersConfig'
-    { _lbcClassicLoadBalancersConfig = Nothing,
-      _lbcTargetGroupsConfig = Nothing
+    { classicLoadBalancersConfig = Lude.Nothing,
+      targetGroupsConfig = Lude.Nothing
     }
 
 -- | The Classic Load Balancers.
-lbcClassicLoadBalancersConfig :: Lens' LoadBalancersConfig (Maybe ClassicLoadBalancersConfig)
-lbcClassicLoadBalancersConfig = lens _lbcClassicLoadBalancersConfig (\s a -> s {_lbcClassicLoadBalancersConfig = a})
+--
+-- /Note:/ Consider using 'classicLoadBalancersConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbcClassicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Lude.Maybe ClassicLoadBalancersConfig)
+lbcClassicLoadBalancersConfig = Lens.lens (classicLoadBalancersConfig :: LoadBalancersConfig -> Lude.Maybe ClassicLoadBalancersConfig) (\s a -> s {classicLoadBalancersConfig = a} :: LoadBalancersConfig)
+{-# DEPRECATED lbcClassicLoadBalancersConfig "Use generic-lens or generic-optics with 'classicLoadBalancersConfig' instead." #-}
 
 -- | The target groups.
-lbcTargetGroupsConfig :: Lens' LoadBalancersConfig (Maybe TargetGroupsConfig)
-lbcTargetGroupsConfig = lens _lbcTargetGroupsConfig (\s a -> s {_lbcTargetGroupsConfig = a})
+--
+-- /Note:/ Consider using 'targetGroupsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbcTargetGroupsConfig :: Lens.Lens' LoadBalancersConfig (Lude.Maybe TargetGroupsConfig)
+lbcTargetGroupsConfig = Lens.lens (targetGroupsConfig :: LoadBalancersConfig -> Lude.Maybe TargetGroupsConfig) (\s a -> s {targetGroupsConfig = a} :: LoadBalancersConfig)
+{-# DEPRECATED lbcTargetGroupsConfig "Use generic-lens or generic-optics with 'targetGroupsConfig' instead." #-}
 
-instance FromXML LoadBalancersConfig where
+instance Lude.FromXML LoadBalancersConfig where
   parseXML x =
     LoadBalancersConfig'
-      <$> (x .@? "classicLoadBalancersConfig")
-      <*> (x .@? "targetGroupsConfig")
+      Lude.<$> (x Lude..@? "classicLoadBalancersConfig")
+      Lude.<*> (x Lude..@? "targetGroupsConfig")
 
-instance Hashable LoadBalancersConfig
-
-instance NFData LoadBalancersConfig
-
-instance ToQuery LoadBalancersConfig where
+instance Lude.ToQuery LoadBalancersConfig where
   toQuery LoadBalancersConfig' {..} =
-    mconcat
-      [ "ClassicLoadBalancersConfig" =: _lbcClassicLoadBalancersConfig,
-        "TargetGroupsConfig" =: _lbcTargetGroupsConfig
+    Lude.mconcat
+      [ "ClassicLoadBalancersConfig" Lude.=: classicLoadBalancersConfig,
+        "TargetGroupsConfig" Lude.=: targetGroupsConfig
       ]

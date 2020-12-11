@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayMulticastDomainState where
+module Network.AWS.EC2.Types.TransitGatewayMulticastDomainState
+  ( TransitGatewayMulticastDomainState
+      ( TransitGatewayMulticastDomainState',
+        TGMDSAvailable,
+        TGMDSDeleted,
+        TGMDSDeleting,
+        TGMDSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayMulticastDomainState
-  = TGMDSAvailable
-  | TGMDSDeleted
-  | TGMDSDeleting
-  | TGMDSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayMulticastDomainState = TransitGatewayMulticastDomainState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayMulticastDomainState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure TGMDSAvailable
-      "deleted" -> pure TGMDSDeleted
-      "deleting" -> pure TGMDSDeleting
-      "pending" -> pure TGMDSPending
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayMulticastDomainState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, pending"
+pattern TGMDSAvailable :: TransitGatewayMulticastDomainState
+pattern TGMDSAvailable = TransitGatewayMulticastDomainState' "available"
 
-instance ToText TransitGatewayMulticastDomainState where
-  toText = \case
-    TGMDSAvailable -> "available"
-    TGMDSDeleted -> "deleted"
-    TGMDSDeleting -> "deleting"
-    TGMDSPending -> "pending"
+pattern TGMDSDeleted :: TransitGatewayMulticastDomainState
+pattern TGMDSDeleted = TransitGatewayMulticastDomainState' "deleted"
 
-instance Hashable TransitGatewayMulticastDomainState
+pattern TGMDSDeleting :: TransitGatewayMulticastDomainState
+pattern TGMDSDeleting = TransitGatewayMulticastDomainState' "deleting"
 
-instance NFData TransitGatewayMulticastDomainState
+pattern TGMDSPending :: TransitGatewayMulticastDomainState
+pattern TGMDSPending = TransitGatewayMulticastDomainState' "pending"
 
-instance ToByteString TransitGatewayMulticastDomainState
-
-instance ToQuery TransitGatewayMulticastDomainState
-
-instance ToHeader TransitGatewayMulticastDomainState
-
-instance FromXML TransitGatewayMulticastDomainState where
-  parseXML = parseXMLText "TransitGatewayMulticastDomainState"
+{-# COMPLETE
+  TGMDSAvailable,
+  TGMDSDeleted,
+  TGMDSDeleting,
+  TGMDSPending,
+  TransitGatewayMulticastDomainState'
+  #-}

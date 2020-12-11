@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- The @ListBonusPayments@ operation retrieves the amounts of bonuses you have paid to Workers for a given HIT or assignment.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListBonusPayments
-  ( -- * Creating a Request
-    listBonusPayments,
-    ListBonusPayments,
+  ( -- * Creating a request
+    ListBonusPayments (..),
+    mkListBonusPayments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbpNextToken,
     lbpHITId,
     lbpAssignmentId,
     lbpMaxResults,
 
-    -- * Destructuring the Response
-    listBonusPaymentsResponse,
-    ListBonusPaymentsResponse,
+    -- * Destructuring the response
+    ListBonusPaymentsResponse (..),
+    mkListBonusPaymentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbprsBonusPayments,
     lbprsNextToken,
     lbprsNumResults,
@@ -45,157 +38,185 @@ module Network.AWS.MechanicalTurk.ListBonusPayments
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listBonusPayments' smart constructor.
+-- | /See:/ 'mkListBonusPayments' smart constructor.
 data ListBonusPayments = ListBonusPayments'
-  { _lbpNextToken ::
-      !(Maybe Text),
-    _lbpHITId :: !(Maybe Text),
-    _lbpAssignmentId :: !(Maybe Text),
-    _lbpMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    hITId :: Lude.Maybe Lude.Text,
+    assignmentId :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBonusPayments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbpNextToken' - Pagination token
---
--- * 'lbpHITId' - The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
---
--- * 'lbpAssignmentId' - The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
---
--- * 'lbpMaxResults' - Undocumented member.
-listBonusPayments ::
+-- * 'assignmentId' - The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+-- * 'hITId' - The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+-- * 'maxResults' - Undocumented field.
+-- * 'nextToken' - Pagination token
+mkListBonusPayments ::
   ListBonusPayments
-listBonusPayments =
+mkListBonusPayments =
   ListBonusPayments'
-    { _lbpNextToken = Nothing,
-      _lbpHITId = Nothing,
-      _lbpAssignmentId = Nothing,
-      _lbpMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      hITId = Lude.Nothing,
+      assignmentId = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Pagination token
-lbpNextToken :: Lens' ListBonusPayments (Maybe Text)
-lbpNextToken = lens _lbpNextToken (\s a -> s {_lbpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbpNextToken :: Lens.Lens' ListBonusPayments (Lude.Maybe Lude.Text)
+lbpNextToken = Lens.lens (nextToken :: ListBonusPayments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBonusPayments)
+{-# DEPRECATED lbpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
-lbpHITId :: Lens' ListBonusPayments (Maybe Text)
-lbpHITId = lens _lbpHITId (\s a -> s {_lbpHITId = a})
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbpHITId :: Lens.Lens' ListBonusPayments (Lude.Maybe Lude.Text)
+lbpHITId = Lens.lens (hITId :: ListBonusPayments -> Lude.Maybe Lude.Text) (\s a -> s {hITId = a} :: ListBonusPayments)
+{-# DEPRECATED lbpHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 -- | The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
-lbpAssignmentId :: Lens' ListBonusPayments (Maybe Text)
-lbpAssignmentId = lens _lbpAssignmentId (\s a -> s {_lbpAssignmentId = a})
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbpAssignmentId :: Lens.Lens' ListBonusPayments (Lude.Maybe Lude.Text)
+lbpAssignmentId = Lens.lens (assignmentId :: ListBonusPayments -> Lude.Maybe Lude.Text) (\s a -> s {assignmentId = a} :: ListBonusPayments)
+{-# DEPRECATED lbpAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
--- | Undocumented member.
-lbpMaxResults :: Lens' ListBonusPayments (Maybe Natural)
-lbpMaxResults = lens _lbpMaxResults (\s a -> s {_lbpMaxResults = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbpMaxResults :: Lens.Lens' ListBonusPayments (Lude.Maybe Lude.Natural)
+lbpMaxResults = Lens.lens (maxResults :: ListBonusPayments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListBonusPayments)
+{-# DEPRECATED lbpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListBonusPayments where
+instance Page.AWSPager ListBonusPayments where
   page rq rs
-    | stop (rs ^. lbprsNextToken) = Nothing
-    | stop (rs ^. lbprsBonusPayments) = Nothing
-    | otherwise = Just $ rq & lbpNextToken .~ rs ^. lbprsNextToken
+    | Page.stop (rs Lens.^. lbprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lbprsBonusPayments) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lbpNextToken Lens..~ rs Lens.^. lbprsNextToken
 
-instance AWSRequest ListBonusPayments where
+instance Lude.AWSRequest ListBonusPayments where
   type Rs ListBonusPayments = ListBonusPaymentsResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListBonusPaymentsResponse'
-            <$> (x .?> "BonusPayments" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "NumResults")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BonusPayments" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "NumResults")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBonusPayments
-
-instance NFData ListBonusPayments
-
-instance ToHeaders ListBonusPayments where
+instance Lude.ToHeaders ListBonusPayments where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.ListBonusPayments" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.ListBonusPayments" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListBonusPayments where
+instance Lude.ToJSON ListBonusPayments where
   toJSON ListBonusPayments' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lbpNextToken,
-            ("HITId" .=) <$> _lbpHITId,
-            ("AssignmentId" .=) <$> _lbpAssignmentId,
-            ("MaxResults" .=) <$> _lbpMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("HITId" Lude..=) Lude.<$> hITId,
+            ("AssignmentId" Lude..=) Lude.<$> assignmentId,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListBonusPayments where
-  toPath = const "/"
+instance Lude.ToPath ListBonusPayments where
+  toPath = Lude.const "/"
 
-instance ToQuery ListBonusPayments where
-  toQuery = const mempty
+instance Lude.ToQuery ListBonusPayments where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listBonusPaymentsResponse' smart constructor.
+-- | /See:/ 'mkListBonusPaymentsResponse' smart constructor.
 data ListBonusPaymentsResponse = ListBonusPaymentsResponse'
-  { _lbprsBonusPayments ::
-      !(Maybe [BonusPayment]),
-    _lbprsNextToken :: !(Maybe Text),
-    _lbprsNumResults :: !(Maybe Int),
-    _lbprsResponseStatus :: !Int
+  { bonusPayments ::
+      Lude.Maybe [BonusPayment],
+    nextToken :: Lude.Maybe Lude.Text,
+    numResults :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBonusPaymentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbprsBonusPayments' - A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
---
--- * 'lbprsNextToken' - Undocumented member.
---
--- * 'lbprsNumResults' - The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call.
---
--- * 'lbprsResponseStatus' - -- | The response status code.
-listBonusPaymentsResponse ::
-  -- | 'lbprsResponseStatus'
-  Int ->
+-- * 'bonusPayments' - A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
+-- * 'nextToken' - Undocumented field.
+-- * 'numResults' - The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call.
+-- * 'responseStatus' - The response status code.
+mkListBonusPaymentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBonusPaymentsResponse
-listBonusPaymentsResponse pResponseStatus_ =
+mkListBonusPaymentsResponse pResponseStatus_ =
   ListBonusPaymentsResponse'
-    { _lbprsBonusPayments = Nothing,
-      _lbprsNextToken = Nothing,
-      _lbprsNumResults = Nothing,
-      _lbprsResponseStatus = pResponseStatus_
+    { bonusPayments = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      numResults = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
-lbprsBonusPayments :: Lens' ListBonusPaymentsResponse [BonusPayment]
-lbprsBonusPayments = lens _lbprsBonusPayments (\s a -> s {_lbprsBonusPayments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bonusPayments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbprsBonusPayments :: Lens.Lens' ListBonusPaymentsResponse (Lude.Maybe [BonusPayment])
+lbprsBonusPayments = Lens.lens (bonusPayments :: ListBonusPaymentsResponse -> Lude.Maybe [BonusPayment]) (\s a -> s {bonusPayments = a} :: ListBonusPaymentsResponse)
+{-# DEPRECATED lbprsBonusPayments "Use generic-lens or generic-optics with 'bonusPayments' instead." #-}
 
--- | Undocumented member.
-lbprsNextToken :: Lens' ListBonusPaymentsResponse (Maybe Text)
-lbprsNextToken = lens _lbprsNextToken (\s a -> s {_lbprsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbprsNextToken :: Lens.Lens' ListBonusPaymentsResponse (Lude.Maybe Lude.Text)
+lbprsNextToken = Lens.lens (nextToken :: ListBonusPaymentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBonusPaymentsResponse)
+{-# DEPRECATED lbprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call.
-lbprsNumResults :: Lens' ListBonusPaymentsResponse (Maybe Int)
-lbprsNumResults = lens _lbprsNumResults (\s a -> s {_lbprsNumResults = a})
+--
+-- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbprsNumResults :: Lens.Lens' ListBonusPaymentsResponse (Lude.Maybe Lude.Int)
+lbprsNumResults = Lens.lens (numResults :: ListBonusPaymentsResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListBonusPaymentsResponse)
+{-# DEPRECATED lbprsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
--- | -- | The response status code.
-lbprsResponseStatus :: Lens' ListBonusPaymentsResponse Int
-lbprsResponseStatus = lens _lbprsResponseStatus (\s a -> s {_lbprsResponseStatus = a})
-
-instance NFData ListBonusPaymentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbprsResponseStatus :: Lens.Lens' ListBonusPaymentsResponse Lude.Int
+lbprsResponseStatus = Lens.lens (responseStatus :: ListBonusPaymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBonusPaymentsResponse)
+{-# DEPRECATED lbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

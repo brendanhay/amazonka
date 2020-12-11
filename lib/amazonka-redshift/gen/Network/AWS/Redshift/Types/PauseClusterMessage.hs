@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.PauseClusterMessage where
+module Network.AWS.Redshift.Types.PauseClusterMessage
+  ( PauseClusterMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPauseClusterMessage,
+
+    -- * Lenses
+    pcmClusterIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a pause cluster operation. For example, a scheduled action to run the @PauseCluster@ API operation.
 --
---
---
--- /See:/ 'pauseClusterMessage' smart constructor.
+-- /See:/ 'mkPauseClusterMessage' smart constructor.
 newtype PauseClusterMessage = PauseClusterMessage'
-  { _pcmClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PauseClusterMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcmClusterIdentifier' - The identifier of the cluster to be paused.
-pauseClusterMessage ::
-  -- | 'pcmClusterIdentifier'
-  Text ->
+-- * 'clusterIdentifier' - The identifier of the cluster to be paused.
+mkPauseClusterMessage ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   PauseClusterMessage
-pauseClusterMessage pClusterIdentifier_ =
-  PauseClusterMessage' {_pcmClusterIdentifier = pClusterIdentifier_}
+mkPauseClusterMessage pClusterIdentifier_ =
+  PauseClusterMessage' {clusterIdentifier = pClusterIdentifier_}
 
 -- | The identifier of the cluster to be paused.
-pcmClusterIdentifier :: Lens' PauseClusterMessage Text
-pcmClusterIdentifier = lens _pcmClusterIdentifier (\s a -> s {_pcmClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcmClusterIdentifier :: Lens.Lens' PauseClusterMessage Lude.Text
+pcmClusterIdentifier = Lens.lens (clusterIdentifier :: PauseClusterMessage -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: PauseClusterMessage)
+{-# DEPRECATED pcmClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance FromXML PauseClusterMessage where
-  parseXML x = PauseClusterMessage' <$> (x .@ "ClusterIdentifier")
+instance Lude.FromXML PauseClusterMessage where
+  parseXML x =
+    PauseClusterMessage' Lude.<$> (x Lude..@ "ClusterIdentifier")
 
-instance Hashable PauseClusterMessage
-
-instance NFData PauseClusterMessage
-
-instance ToQuery PauseClusterMessage where
+instance Lude.ToQuery PauseClusterMessage where
   toQuery PauseClusterMessage' {..} =
-    mconcat ["ClusterIdentifier" =: _pcmClusterIdentifier]
+    Lude.mconcat ["ClusterIdentifier" Lude.=: clusterIdentifier]

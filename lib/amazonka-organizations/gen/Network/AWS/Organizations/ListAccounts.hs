@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,167 @@
 --
 -- Lists all the accounts in the organization. To request only the accounts in a specified root or organizational unit (OU), use the 'ListAccountsForParent' operation instead.
 --
---
 -- This operation can be called only from the organization's management account or by a member account that is a delegated administrator for an AWS service.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListAccounts
-  ( -- * Creating a Request
-    listAccounts,
-    ListAccounts,
+  ( -- * Creating a request
+    ListAccounts (..),
+    mkListAccounts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laNextToken,
     laMaxResults,
 
-    -- * Destructuring the Response
-    listAccountsResponse,
-    ListAccountsResponse,
+    -- * Destructuring the response
+    ListAccountsResponse (..),
+    mkListAccountsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larsAccounts,
     larsNextToken,
     larsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAccounts' smart constructor.
+-- | /See:/ 'mkListAccounts' smart constructor.
 data ListAccounts = ListAccounts'
-  { _laNextToken :: !(Maybe Text),
-    _laMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccounts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laNextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
---
--- * 'laMaxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-listAccounts ::
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+mkListAccounts ::
   ListAccounts
-listAccounts =
-  ListAccounts' {_laNextToken = Nothing, _laMaxResults = Nothing}
+mkListAccounts =
+  ListAccounts'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-laNextToken :: Lens' ListAccounts (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s {_laNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListAccounts (Lude.Maybe Lude.Text)
+laNextToken = Lens.lens (nextToken :: ListAccounts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAccounts)
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-laMaxResults :: Lens' ListAccounts (Maybe Natural)
-laMaxResults = lens _laMaxResults (\s a -> s {_laMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laMaxResults :: Lens.Lens' ListAccounts (Lude.Maybe Lude.Natural)
+laMaxResults = Lens.lens (maxResults :: ListAccounts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAccounts)
+{-# DEPRECATED laMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListAccounts where
+instance Page.AWSPager ListAccounts where
   page rq rs
-    | stop (rs ^. larsNextToken) = Nothing
-    | stop (rs ^. larsAccounts) = Nothing
-    | otherwise = Just $ rq & laNextToken .~ rs ^. larsNextToken
+    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larsAccounts) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
 
-instance AWSRequest ListAccounts where
+instance Lude.AWSRequest ListAccounts where
   type Rs ListAccounts = ListAccountsResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAccountsResponse'
-            <$> (x .?> "Accounts" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Accounts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAccounts
-
-instance NFData ListAccounts
-
-instance ToHeaders ListAccounts where
+instance Lude.ToHeaders ListAccounts where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.ListAccounts" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.ListAccounts" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAccounts where
+instance Lude.ToJSON ListAccounts where
   toJSON ListAccounts' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _laNextToken,
-            ("MaxResults" .=) <$> _laMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListAccounts where
-  toPath = const "/"
+instance Lude.ToPath ListAccounts where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAccounts where
-  toQuery = const mempty
+instance Lude.ToQuery ListAccounts where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAccountsResponse' smart constructor.
+-- | /See:/ 'mkListAccountsResponse' smart constructor.
 data ListAccountsResponse = ListAccountsResponse'
-  { _larsAccounts ::
-      !(Maybe [Account]),
-    _larsNextToken :: !(Maybe Text),
-    _larsResponseStatus :: !Int
+  { accounts ::
+      Lude.Maybe [Account],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccountsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larsAccounts' - A list of objects in the organization.
---
--- * 'larsNextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'larsResponseStatus' - -- | The response status code.
-listAccountsResponse ::
-  -- | 'larsResponseStatus'
-  Int ->
+-- * 'accounts' - A list of objects in the organization.
+-- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+-- * 'responseStatus' - The response status code.
+mkListAccountsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAccountsResponse
-listAccountsResponse pResponseStatus_ =
+mkListAccountsResponse pResponseStatus_ =
   ListAccountsResponse'
-    { _larsAccounts = Nothing,
-      _larsNextToken = Nothing,
-      _larsResponseStatus = pResponseStatus_
+    { accounts = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of objects in the organization.
-larsAccounts :: Lens' ListAccountsResponse [Account]
-larsAccounts = lens _larsAccounts (\s a -> s {_larsAccounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsAccounts :: Lens.Lens' ListAccountsResponse (Lude.Maybe [Account])
+larsAccounts = Lens.lens (accounts :: ListAccountsResponse -> Lude.Maybe [Account]) (\s a -> s {accounts = a} :: ListAccountsResponse)
+{-# DEPRECATED larsAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-larsNextToken :: Lens' ListAccountsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\s a -> s {_larsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsNextToken :: Lens.Lens' ListAccountsResponse (Lude.Maybe Lude.Text)
+larsNextToken = Lens.lens (nextToken :: ListAccountsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAccountsResponse)
+{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListAccountsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\s a -> s {_larsResponseStatus = a})
-
-instance NFData ListAccountsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsResponseStatus :: Lens.Lens' ListAccountsResponse Lude.Int
+larsResponseStatus = Lens.lens (responseStatus :: ListAccountsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccountsResponse)
+{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

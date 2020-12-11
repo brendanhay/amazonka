@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.BoundingBox where
+module Network.AWS.Rekognition.Types.BoundingBox
+  ( BoundingBox (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBoundingBox,
+
+    -- * Lenses
+    bbHeight,
+    bbLeft,
+    bbWidth,
+    bbTop,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifies the bounding box around the label, face, text or personal protective equipment. The @left@ (x-coordinate) and @top@ (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0).
 --
---
 -- The @top@ and @left@ values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a @left@ value of 0.5 (350/700) and a @top@ value of 0.25 (50/200).
---
 -- The @width@ and @height@ values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1.
 --
---
--- /See:/ 'boundingBox' smart constructor.
+-- /See:/ 'mkBoundingBox' smart constructor.
 data BoundingBox = BoundingBox'
-  { _bbHeight :: !(Maybe Double),
-    _bbLeft :: !(Maybe Double),
-    _bbWidth :: !(Maybe Double),
-    _bbTop :: !(Maybe Double)
+  { height :: Lude.Maybe Lude.Double,
+    left :: Lude.Maybe Lude.Double,
+    width :: Lude.Maybe Lude.Double,
+    top :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BoundingBox' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bbHeight' - Height of the bounding box as a ratio of the overall image height.
---
--- * 'bbLeft' - Left coordinate of the bounding box as a ratio of overall image width.
---
--- * 'bbWidth' - Width of the bounding box as a ratio of the overall image width.
---
--- * 'bbTop' - Top coordinate of the bounding box as a ratio of overall image height.
-boundingBox ::
+-- * 'height' - Height of the bounding box as a ratio of the overall image height.
+-- * 'left' - Left coordinate of the bounding box as a ratio of overall image width.
+-- * 'top' - Top coordinate of the bounding box as a ratio of overall image height.
+-- * 'width' - Width of the bounding box as a ratio of the overall image width.
+mkBoundingBox ::
   BoundingBox
-boundingBox =
+mkBoundingBox =
   BoundingBox'
-    { _bbHeight = Nothing,
-      _bbLeft = Nothing,
-      _bbWidth = Nothing,
-      _bbTop = Nothing
+    { height = Lude.Nothing,
+      left = Lude.Nothing,
+      width = Lude.Nothing,
+      top = Lude.Nothing
     }
 
 -- | Height of the bounding box as a ratio of the overall image height.
-bbHeight :: Lens' BoundingBox (Maybe Double)
-bbHeight = lens _bbHeight (\s a -> s {_bbHeight = a})
+--
+-- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bbHeight :: Lens.Lens' BoundingBox (Lude.Maybe Lude.Double)
+bbHeight = Lens.lens (height :: BoundingBox -> Lude.Maybe Lude.Double) (\s a -> s {height = a} :: BoundingBox)
+{-# DEPRECATED bbHeight "Use generic-lens or generic-optics with 'height' instead." #-}
 
 -- | Left coordinate of the bounding box as a ratio of overall image width.
-bbLeft :: Lens' BoundingBox (Maybe Double)
-bbLeft = lens _bbLeft (\s a -> s {_bbLeft = a})
+--
+-- /Note:/ Consider using 'left' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bbLeft :: Lens.Lens' BoundingBox (Lude.Maybe Lude.Double)
+bbLeft = Lens.lens (left :: BoundingBox -> Lude.Maybe Lude.Double) (\s a -> s {left = a} :: BoundingBox)
+{-# DEPRECATED bbLeft "Use generic-lens or generic-optics with 'left' instead." #-}
 
 -- | Width of the bounding box as a ratio of the overall image width.
-bbWidth :: Lens' BoundingBox (Maybe Double)
-bbWidth = lens _bbWidth (\s a -> s {_bbWidth = a})
+--
+-- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bbWidth :: Lens.Lens' BoundingBox (Lude.Maybe Lude.Double)
+bbWidth = Lens.lens (width :: BoundingBox -> Lude.Maybe Lude.Double) (\s a -> s {width = a} :: BoundingBox)
+{-# DEPRECATED bbWidth "Use generic-lens or generic-optics with 'width' instead." #-}
 
 -- | Top coordinate of the bounding box as a ratio of overall image height.
-bbTop :: Lens' BoundingBox (Maybe Double)
-bbTop = lens _bbTop (\s a -> s {_bbTop = a})
+--
+-- /Note:/ Consider using 'top' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bbTop :: Lens.Lens' BoundingBox (Lude.Maybe Lude.Double)
+bbTop = Lens.lens (top :: BoundingBox -> Lude.Maybe Lude.Double) (\s a -> s {top = a} :: BoundingBox)
+{-# DEPRECATED bbTop "Use generic-lens or generic-optics with 'top' instead." #-}
 
-instance FromJSON BoundingBox where
+instance Lude.FromJSON BoundingBox where
   parseJSON =
-    withObject
+    Lude.withObject
       "BoundingBox"
       ( \x ->
           BoundingBox'
-            <$> (x .:? "Height")
-            <*> (x .:? "Left")
-            <*> (x .:? "Width")
-            <*> (x .:? "Top")
+            Lude.<$> (x Lude..:? "Height")
+            Lude.<*> (x Lude..:? "Left")
+            Lude.<*> (x Lude..:? "Width")
+            Lude.<*> (x Lude..:? "Top")
       )
 
-instance Hashable BoundingBox
-
-instance NFData BoundingBox
-
-instance ToJSON BoundingBox where
+instance Lude.ToJSON BoundingBox where
   toJSON BoundingBox' {..} =
-    object
-      ( catMaybes
-          [ ("Height" .=) <$> _bbHeight,
-            ("Left" .=) <$> _bbLeft,
-            ("Width" .=) <$> _bbWidth,
-            ("Top" .=) <$> _bbTop
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Height" Lude..=) Lude.<$> height,
+            ("Left" Lude..=) Lude.<$> left,
+            ("Width" Lude..=) Lude.<$> width,
+            ("Top" Lude..=) Lude.<$> top
           ]
       )

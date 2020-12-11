@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
+  ( ProvisioningArtifactGuidance
+      ( ProvisioningArtifactGuidance',
+        Default,
+        Deprecated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisioningArtifactGuidance
-  = Default
-  | Deprecated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisioningArtifactGuidance = ProvisioningArtifactGuidance' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisioningArtifactGuidance where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure Default
-      "deprecated" -> pure Deprecated
-      e ->
-        fromTextError $
-          "Failure parsing ProvisioningArtifactGuidance from value: '" <> e
-            <> "'. Accepted values: default, deprecated"
+pattern Default :: ProvisioningArtifactGuidance
+pattern Default = ProvisioningArtifactGuidance' "DEFAULT"
 
-instance ToText ProvisioningArtifactGuidance where
-  toText = \case
-    Default -> "DEFAULT"
-    Deprecated -> "DEPRECATED"
+pattern Deprecated :: ProvisioningArtifactGuidance
+pattern Deprecated = ProvisioningArtifactGuidance' "DEPRECATED"
 
-instance Hashable ProvisioningArtifactGuidance
-
-instance NFData ProvisioningArtifactGuidance
-
-instance ToByteString ProvisioningArtifactGuidance
-
-instance ToQuery ProvisioningArtifactGuidance
-
-instance ToHeader ProvisioningArtifactGuidance
-
-instance ToJSON ProvisioningArtifactGuidance where
-  toJSON = toJSONText
-
-instance FromJSON ProvisioningArtifactGuidance where
-  parseJSON = parseJSONText "ProvisioningArtifactGuidance"
+{-# COMPLETE
+  Default,
+  Deprecated,
+  ProvisioningArtifactGuidance'
+  #-}

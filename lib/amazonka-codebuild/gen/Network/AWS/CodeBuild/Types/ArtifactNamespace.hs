@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ArtifactNamespace where
+module Network.AWS.CodeBuild.Types.ArtifactNamespace
+  ( ArtifactNamespace
+      ( ArtifactNamespace',
+        ANBuildId,
+        ANNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArtifactNamespace
-  = ANBuildId
-  | ANNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArtifactNamespace = ArtifactNamespace' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArtifactNamespace where
-  parser =
-    takeLowerText >>= \case
-      "build_id" -> pure ANBuildId
-      "none" -> pure ANNone
-      e ->
-        fromTextError $
-          "Failure parsing ArtifactNamespace from value: '" <> e
-            <> "'. Accepted values: build_id, none"
+pattern ANBuildId :: ArtifactNamespace
+pattern ANBuildId = ArtifactNamespace' "BUILD_ID"
 
-instance ToText ArtifactNamespace where
-  toText = \case
-    ANBuildId -> "BUILD_ID"
-    ANNone -> "NONE"
+pattern ANNone :: ArtifactNamespace
+pattern ANNone = ArtifactNamespace' "NONE"
 
-instance Hashable ArtifactNamespace
-
-instance NFData ArtifactNamespace
-
-instance ToByteString ArtifactNamespace
-
-instance ToQuery ArtifactNamespace
-
-instance ToHeader ArtifactNamespace
-
-instance ToJSON ArtifactNamespace where
-  toJSON = toJSONText
-
-instance FromJSON ArtifactNamespace where
-  parseJSON = parseJSONText "ArtifactNamespace"
+{-# COMPLETE
+  ANBuildId,
+  ANNone,
+  ArtifactNamespace'
+  #-}

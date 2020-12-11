@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,29 +14,26 @@
 --
 -- Describes the ID format settings for the root user and all IAM roles and IAM users that have explicitly specified a longer ID (17-character ID) preference.
 --
---
 -- By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they explicitly override the settings. This request is useful for identifying those IAM users and IAM roles that have overridden the default ID settings.
---
 -- The following resource types support longer IDs: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribePrincipalIdFormat
-  ( -- * Creating a Request
-    describePrincipalIdFormat,
-    DescribePrincipalIdFormat,
+  ( -- * Creating a request
+    DescribePrincipalIdFormat (..),
+    mkDescribePrincipalIdFormat,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpifResources,
     dpifNextToken,
     dpifDryRun,
     dpifMaxResults,
 
-    -- * Destructuring the Response
-    describePrincipalIdFormatResponse,
-    DescribePrincipalIdFormatResponse,
+    -- * Destructuring the response
+    DescribePrincipalIdFormatResponse (..),
+    mkDescribePrincipalIdFormatResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpifrsPrincipals,
     dpifrsNextToken,
     dpifrsResponseStatus,
@@ -49,143 +41,167 @@ module Network.AWS.EC2.DescribePrincipalIdFormat
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describePrincipalIdFormat' smart constructor.
+-- | /See:/ 'mkDescribePrincipalIdFormat' smart constructor.
 data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
-  { _dpifResources ::
-      !(Maybe [Text]),
-    _dpifNextToken :: !(Maybe Text),
-    _dpifDryRun :: !(Maybe Bool),
-    _dpifMaxResults :: !(Maybe Nat)
+  { resources ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePrincipalIdFormat' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpifResources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
---
--- * 'dpifNextToken' - The token to request the next page of results.
---
--- * 'dpifDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dpifMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
-describePrincipalIdFormat ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
+-- * 'nextToken' - The token to request the next page of results.
+-- * 'resources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
+mkDescribePrincipalIdFormat ::
   DescribePrincipalIdFormat
-describePrincipalIdFormat =
+mkDescribePrincipalIdFormat =
   DescribePrincipalIdFormat'
-    { _dpifResources = Nothing,
-      _dpifNextToken = Nothing,
-      _dpifDryRun = Nothing,
-      _dpifMaxResults = Nothing
+    { resources = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
-dpifResources :: Lens' DescribePrincipalIdFormat [Text]
-dpifResources = lens _dpifResources (\s a -> s {_dpifResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifResources :: Lens.Lens' DescribePrincipalIdFormat (Lude.Maybe [Lude.Text])
+dpifResources = Lens.lens (resources :: DescribePrincipalIdFormat -> Lude.Maybe [Lude.Text]) (\s a -> s {resources = a} :: DescribePrincipalIdFormat)
+{-# DEPRECATED dpifResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The token to request the next page of results.
-dpifNextToken :: Lens' DescribePrincipalIdFormat (Maybe Text)
-dpifNextToken = lens _dpifNextToken (\s a -> s {_dpifNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifNextToken :: Lens.Lens' DescribePrincipalIdFormat (Lude.Maybe Lude.Text)
+dpifNextToken = Lens.lens (nextToken :: DescribePrincipalIdFormat -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePrincipalIdFormat)
+{-# DEPRECATED dpifNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dpifDryRun :: Lens' DescribePrincipalIdFormat (Maybe Bool)
-dpifDryRun = lens _dpifDryRun (\s a -> s {_dpifDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifDryRun :: Lens.Lens' DescribePrincipalIdFormat (Lude.Maybe Lude.Bool)
+dpifDryRun = Lens.lens (dryRun :: DescribePrincipalIdFormat -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribePrincipalIdFormat)
+{-# DEPRECATED dpifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
-dpifMaxResults :: Lens' DescribePrincipalIdFormat (Maybe Natural)
-dpifMaxResults = lens _dpifMaxResults (\s a -> s {_dpifMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifMaxResults :: Lens.Lens' DescribePrincipalIdFormat (Lude.Maybe Lude.Natural)
+dpifMaxResults = Lens.lens (maxResults :: DescribePrincipalIdFormat -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribePrincipalIdFormat)
+{-# DEPRECATED dpifMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribePrincipalIdFormat where
+instance Page.AWSPager DescribePrincipalIdFormat where
   page rq rs
-    | stop (rs ^. dpifrsNextToken) = Nothing
-    | stop (rs ^. dpifrsPrincipals) = Nothing
-    | otherwise = Just $ rq & dpifNextToken .~ rs ^. dpifrsNextToken
+    | Page.stop (rs Lens.^. dpifrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dpifrsPrincipals) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dpifNextToken Lens..~ rs Lens.^. dpifrsNextToken
 
-instance AWSRequest DescribePrincipalIdFormat where
+instance Lude.AWSRequest DescribePrincipalIdFormat where
   type
     Rs DescribePrincipalIdFormat =
       DescribePrincipalIdFormatResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribePrincipalIdFormatResponse'
-            <$> (x .@? "principalSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "principalSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePrincipalIdFormat
+instance Lude.ToHeaders DescribePrincipalIdFormat where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribePrincipalIdFormat
+instance Lude.ToPath DescribePrincipalIdFormat where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribePrincipalIdFormat where
-  toHeaders = const mempty
-
-instance ToPath DescribePrincipalIdFormat where
-  toPath = const "/"
-
-instance ToQuery DescribePrincipalIdFormat where
+instance Lude.ToQuery DescribePrincipalIdFormat where
   toQuery DescribePrincipalIdFormat' {..} =
-    mconcat
-      [ "Action" =: ("DescribePrincipalIdFormat" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Resource" <$> _dpifResources),
-        "NextToken" =: _dpifNextToken,
-        "DryRun" =: _dpifDryRun,
-        "MaxResults" =: _dpifMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribePrincipalIdFormat" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Resource" Lude.<$> resources),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describePrincipalIdFormatResponse' smart constructor.
+-- | /See:/ 'mkDescribePrincipalIdFormatResponse' smart constructor.
 data DescribePrincipalIdFormatResponse = DescribePrincipalIdFormatResponse'
-  { _dpifrsPrincipals ::
-      !( Maybe
-           [PrincipalIdFormat]
-       ),
-    _dpifrsNextToken ::
-      !(Maybe Text),
-    _dpifrsResponseStatus ::
-      !Int
+  { principals ::
+      Lude.Maybe
+        [PrincipalIdFormat],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePrincipalIdFormatResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpifrsPrincipals' - Information about the ID format settings for the ARN.
---
--- * 'dpifrsNextToken' - The token to use to retrieve the next page of results. This value is null when there are no more results to return.
---
--- * 'dpifrsResponseStatus' - -- | The response status code.
-describePrincipalIdFormatResponse ::
-  -- | 'dpifrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+-- * 'principals' - Information about the ID format settings for the ARN.
+-- * 'responseStatus' - The response status code.
+mkDescribePrincipalIdFormatResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePrincipalIdFormatResponse
-describePrincipalIdFormatResponse pResponseStatus_ =
+mkDescribePrincipalIdFormatResponse pResponseStatus_ =
   DescribePrincipalIdFormatResponse'
-    { _dpifrsPrincipals = Nothing,
-      _dpifrsNextToken = Nothing,
-      _dpifrsResponseStatus = pResponseStatus_
+    { principals = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the ID format settings for the ARN.
-dpifrsPrincipals :: Lens' DescribePrincipalIdFormatResponse [PrincipalIdFormat]
-dpifrsPrincipals = lens _dpifrsPrincipals (\s a -> s {_dpifrsPrincipals = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'principals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifrsPrincipals :: Lens.Lens' DescribePrincipalIdFormatResponse (Lude.Maybe [PrincipalIdFormat])
+dpifrsPrincipals = Lens.lens (principals :: DescribePrincipalIdFormatResponse -> Lude.Maybe [PrincipalIdFormat]) (\s a -> s {principals = a} :: DescribePrincipalIdFormatResponse)
+{-# DEPRECATED dpifrsPrincipals "Use generic-lens or generic-optics with 'principals' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is null when there are no more results to return.
-dpifrsNextToken :: Lens' DescribePrincipalIdFormatResponse (Maybe Text)
-dpifrsNextToken = lens _dpifrsNextToken (\s a -> s {_dpifrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifrsNextToken :: Lens.Lens' DescribePrincipalIdFormatResponse (Lude.Maybe Lude.Text)
+dpifrsNextToken = Lens.lens (nextToken :: DescribePrincipalIdFormatResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePrincipalIdFormatResponse)
+{-# DEPRECATED dpifrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dpifrsResponseStatus :: Lens' DescribePrincipalIdFormatResponse Int
-dpifrsResponseStatus = lens _dpifrsResponseStatus (\s a -> s {_dpifrsResponseStatus = a})
-
-instance NFData DescribePrincipalIdFormatResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpifrsResponseStatus :: Lens.Lens' DescribePrincipalIdFormatResponse Lude.Int
+dpifrsResponseStatus = Lens.lens (responseStatus :: DescribePrincipalIdFormatResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePrincipalIdFormatResponse)
+{-# DEPRECATED dpifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

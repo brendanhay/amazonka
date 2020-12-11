@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the SAML provider metadocument that was uploaded when the IAM SAML provider resource object was created or updated.
 module Network.AWS.IAM.GetSAMLProvider
-  ( -- * Creating a Request
-    getSAMLProvider,
-    GetSAMLProvider,
+  ( -- * Creating a request
+    GetSAMLProvider (..),
+    mkGetSAMLProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsamlpSAMLProviderARN,
 
-    -- * Destructuring the Response
-    getSAMLProviderResponse,
-    GetSAMLProviderResponse,
+    -- * Destructuring the response
+    GetSAMLProviderResponse (..),
+    mkGetSAMLProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsamlprsCreateDate,
     gsamlprsValidUntil,
     gsamlprsSAMLMetadataDocument,
@@ -39,118 +34,136 @@ module Network.AWS.IAM.GetSAMLProvider
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSAMLProvider' smart constructor.
+-- | /See:/ 'mkGetSAMLProvider' smart constructor.
 newtype GetSAMLProvider = GetSAMLProvider'
-  { _gsamlpSAMLProviderARN ::
-      Text
+  { sAMLProviderARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSAMLProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sAMLProviderARN' - The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.
 --
--- * 'gsamlpSAMLProviderARN' - The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-getSAMLProvider ::
-  -- | 'gsamlpSAMLProviderARN'
-  Text ->
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+mkGetSAMLProvider ::
+  -- | 'sAMLProviderARN'
+  Lude.Text ->
   GetSAMLProvider
-getSAMLProvider pSAMLProviderARN_ =
-  GetSAMLProvider' {_gsamlpSAMLProviderARN = pSAMLProviderARN_}
+mkGetSAMLProvider pSAMLProviderARN_ =
+  GetSAMLProvider' {sAMLProviderARN = pSAMLProviderARN_}
 
--- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
-gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\s a -> s {_gsamlpSAMLProviderARN = a})
+-- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'sAMLProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsamlpSAMLProviderARN :: Lens.Lens' GetSAMLProvider Lude.Text
+gsamlpSAMLProviderARN = Lens.lens (sAMLProviderARN :: GetSAMLProvider -> Lude.Text) (\s a -> s {sAMLProviderARN = a} :: GetSAMLProvider)
+{-# DEPRECATED gsamlpSAMLProviderARN "Use generic-lens or generic-optics with 'sAMLProviderARN' instead." #-}
 
-instance AWSRequest GetSAMLProvider where
+instance Lude.AWSRequest GetSAMLProvider where
   type Rs GetSAMLProvider = GetSAMLProviderResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetSAMLProviderResult"
       ( \s h x ->
           GetSAMLProviderResponse'
-            <$> (x .@? "CreateDate")
-            <*> (x .@? "ValidUntil")
-            <*> (x .@? "SAMLMetadataDocument")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "CreateDate")
+            Lude.<*> (x Lude..@? "ValidUntil")
+            Lude.<*> (x Lude..@? "SAMLMetadataDocument")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSAMLProvider
+instance Lude.ToHeaders GetSAMLProvider where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetSAMLProvider
+instance Lude.ToPath GetSAMLProvider where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetSAMLProvider where
-  toHeaders = const mempty
-
-instance ToPath GetSAMLProvider where
-  toPath = const "/"
-
-instance ToQuery GetSAMLProvider where
+instance Lude.ToQuery GetSAMLProvider where
   toQuery GetSAMLProvider' {..} =
-    mconcat
-      [ "Action" =: ("GetSAMLProvider" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "SAMLProviderArn" =: _gsamlpSAMLProviderARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetSAMLProvider" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "SAMLProviderArn" Lude.=: sAMLProviderARN
       ]
 
 -- | Contains the response to a successful 'GetSAMLProvider' request.
 --
---
---
--- /See:/ 'getSAMLProviderResponse' smart constructor.
+-- /See:/ 'mkGetSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-  { _gsamlprsCreateDate ::
-      !(Maybe ISO8601),
-    _gsamlprsValidUntil :: !(Maybe ISO8601),
-    _gsamlprsSAMLMetadataDocument ::
-      !(Maybe Text),
-    _gsamlprsResponseStatus :: !Int
+  { createDate ::
+      Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.ISO8601,
+    sAMLMetadataDocument ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSAMLProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsamlprsCreateDate' - The date and time when the SAML provider was created.
---
--- * 'gsamlprsValidUntil' - The expiration date and time for the SAML provider.
---
--- * 'gsamlprsSAMLMetadataDocument' - The XML metadata document that includes information about an identity provider.
---
--- * 'gsamlprsResponseStatus' - -- | The response status code.
-getSAMLProviderResponse ::
-  -- | 'gsamlprsResponseStatus'
-  Int ->
+-- * 'createDate' - The date and time when the SAML provider was created.
+-- * 'responseStatus' - The response status code.
+-- * 'sAMLMetadataDocument' - The XML metadata document that includes information about an identity provider.
+-- * 'validUntil' - The expiration date and time for the SAML provider.
+mkGetSAMLProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSAMLProviderResponse
-getSAMLProviderResponse pResponseStatus_ =
+mkGetSAMLProviderResponse pResponseStatus_ =
   GetSAMLProviderResponse'
-    { _gsamlprsCreateDate = Nothing,
-      _gsamlprsValidUntil = Nothing,
-      _gsamlprsSAMLMetadataDocument = Nothing,
-      _gsamlprsResponseStatus = pResponseStatus_
+    { createDate = Lude.Nothing,
+      validUntil = Lude.Nothing,
+      sAMLMetadataDocument = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The date and time when the SAML provider was created.
-gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprsCreateDate = lens _gsamlprsCreateDate (\s a -> s {_gsamlprsCreateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsamlprsCreateDate :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.ISO8601)
+gsamlprsCreateDate = Lens.lens (createDate :: GetSAMLProviderResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: GetSAMLProviderResponse)
+{-# DEPRECATED gsamlprsCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The expiration date and time for the SAML provider.
-gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprsValidUntil = lens _gsamlprsValidUntil (\s a -> s {_gsamlprsValidUntil = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsamlprsValidUntil :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.ISO8601)
+gsamlprsValidUntil = Lens.lens (validUntil :: GetSAMLProviderResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: GetSAMLProviderResponse)
+{-# DEPRECATED gsamlprsValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The XML metadata document that includes information about an identity provider.
-gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
-gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\s a -> s {_gsamlprsSAMLMetadataDocument = a})
+--
+-- /Note:/ Consider using 'sAMLMetadataDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsamlprsSAMLMetadataDocument :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.Text)
+gsamlprsSAMLMetadataDocument = Lens.lens (sAMLMetadataDocument :: GetSAMLProviderResponse -> Lude.Maybe Lude.Text) (\s a -> s {sAMLMetadataDocument = a} :: GetSAMLProviderResponse)
+{-# DEPRECATED gsamlprsSAMLMetadataDocument "Use generic-lens or generic-optics with 'sAMLMetadataDocument' instead." #-}
 
--- | -- | The response status code.
-gsamlprsResponseStatus :: Lens' GetSAMLProviderResponse Int
-gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\s a -> s {_gsamlprsResponseStatus = a})
-
-instance NFData GetSAMLProviderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsamlprsResponseStatus :: Lens.Lens' GetSAMLProviderResponse Lude.Int
+gsamlprsResponseStatus = Lens.lens (responseStatus :: GetSAMLProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSAMLProviderResponse)
+{-# DEPRECATED gsamlprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

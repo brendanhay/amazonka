@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectLockRetention where
+module Network.AWS.S3.Types.ObjectLockRetention
+  ( ObjectLockRetention (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkObjectLockRetention,
+
+    -- * Lenses
+    olrMode,
+    olrRetainUntilDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectLockRetentionMode
 
 -- | A Retention configuration for an object.
 --
---
---
--- /See:/ 'objectLockRetention' smart constructor.
+-- /See:/ 'mkObjectLockRetention' smart constructor.
 data ObjectLockRetention = ObjectLockRetention'
-  { _olrMode ::
-      !(Maybe ObjectLockRetentionMode),
-    _olrRetainUntilDate :: !(Maybe ISO8601)
+  { mode ::
+      Lude.Maybe ObjectLockRetentionMode,
+    retainUntilDate :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectLockRetention' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'olrMode' - Indicates the Retention mode for the specified object.
---
--- * 'olrRetainUntilDate' - The date on which this Object Lock Retention will expire.
-objectLockRetention ::
+-- * 'mode' - Indicates the Retention mode for the specified object.
+-- * 'retainUntilDate' - The date on which this Object Lock Retention will expire.
+mkObjectLockRetention ::
   ObjectLockRetention
-objectLockRetention =
+mkObjectLockRetention =
   ObjectLockRetention'
-    { _olrMode = Nothing,
-      _olrRetainUntilDate = Nothing
+    { mode = Lude.Nothing,
+      retainUntilDate = Lude.Nothing
     }
 
 -- | Indicates the Retention mode for the specified object.
-olrMode :: Lens' ObjectLockRetention (Maybe ObjectLockRetentionMode)
-olrMode = lens _olrMode (\s a -> s {_olrMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+olrMode :: Lens.Lens' ObjectLockRetention (Lude.Maybe ObjectLockRetentionMode)
+olrMode = Lens.lens (mode :: ObjectLockRetention -> Lude.Maybe ObjectLockRetentionMode) (\s a -> s {mode = a} :: ObjectLockRetention)
+{-# DEPRECATED olrMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | The date on which this Object Lock Retention will expire.
-olrRetainUntilDate :: Lens' ObjectLockRetention (Maybe UTCTime)
-olrRetainUntilDate = lens _olrRetainUntilDate (\s a -> s {_olrRetainUntilDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'retainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+olrRetainUntilDate :: Lens.Lens' ObjectLockRetention (Lude.Maybe Lude.ISO8601)
+olrRetainUntilDate = Lens.lens (retainUntilDate :: ObjectLockRetention -> Lude.Maybe Lude.ISO8601) (\s a -> s {retainUntilDate = a} :: ObjectLockRetention)
+{-# DEPRECATED olrRetainUntilDate "Use generic-lens or generic-optics with 'retainUntilDate' instead." #-}
 
-instance FromXML ObjectLockRetention where
+instance Lude.FromXML ObjectLockRetention where
   parseXML x =
     ObjectLockRetention'
-      <$> (x .@? "Mode") <*> (x .@? "RetainUntilDate")
+      Lude.<$> (x Lude..@? "Mode") Lude.<*> (x Lude..@? "RetainUntilDate")
 
-instance Hashable ObjectLockRetention
-
-instance NFData ObjectLockRetention
-
-instance ToXML ObjectLockRetention where
+instance Lude.ToXML ObjectLockRetention where
   toXML ObjectLockRetention' {..} =
-    mconcat
-      ["Mode" @= _olrMode, "RetainUntilDate" @= _olrRetainUntilDate]
+    Lude.mconcat
+      ["Mode" Lude.@= mode, "RetainUntilDate" Lude.@= retainUntilDate]

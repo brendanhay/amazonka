@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the account selected as the delegated administrator for GuardDuty.
 module Network.AWS.GuardDuty.DescribeOrganizationConfiguration
-  ( -- * Creating a Request
-    describeOrganizationConfiguration,
-    DescribeOrganizationConfiguration,
+  ( -- * Creating a request
+    DescribeOrganizationConfiguration (..),
+    mkDescribeOrganizationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     docDetectorId,
 
-    -- * Destructuring the Response
-    describeOrganizationConfigurationResponse,
-    DescribeOrganizationConfigurationResponse,
+    -- * Destructuring the response
+    DescribeOrganizationConfigurationResponse (..),
+    mkDescribeOrganizationConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     docrsDataSources,
     docrsResponseStatus,
     docrsAutoEnable,
@@ -39,135 +34,145 @@ module Network.AWS.GuardDuty.DescribeOrganizationConfiguration
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeOrganizationConfiguration' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationConfiguration' smart constructor.
 newtype DescribeOrganizationConfiguration = DescribeOrganizationConfiguration'
-  { _docDetectorId ::
-      Text
+  { detectorId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'docDetectorId' - The ID of the detector to retrieve information about the delegated administrator from.
-describeOrganizationConfiguration ::
-  -- | 'docDetectorId'
-  Text ->
+-- * 'detectorId' - The ID of the detector to retrieve information about the delegated administrator from.
+mkDescribeOrganizationConfiguration ::
+  -- | 'detectorId'
+  Lude.Text ->
   DescribeOrganizationConfiguration
-describeOrganizationConfiguration pDetectorId_ =
-  DescribeOrganizationConfiguration' {_docDetectorId = pDetectorId_}
+mkDescribeOrganizationConfiguration pDetectorId_ =
+  DescribeOrganizationConfiguration' {detectorId = pDetectorId_}
 
 -- | The ID of the detector to retrieve information about the delegated administrator from.
-docDetectorId :: Lens' DescribeOrganizationConfiguration Text
-docDetectorId = lens _docDetectorId (\s a -> s {_docDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docDetectorId :: Lens.Lens' DescribeOrganizationConfiguration Lude.Text
+docDetectorId = Lens.lens (detectorId :: DescribeOrganizationConfiguration -> Lude.Text) (\s a -> s {detectorId = a} :: DescribeOrganizationConfiguration)
+{-# DEPRECATED docDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance AWSRequest DescribeOrganizationConfiguration where
+instance Lude.AWSRequest DescribeOrganizationConfiguration where
   type
     Rs DescribeOrganizationConfiguration =
       DescribeOrganizationConfigurationResponse
-  request = get guardDuty
+  request = Req.get guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
-            <$> (x .?> "dataSources")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "autoEnable")
-            <*> (x .:> "memberAccountLimitReached")
+            Lude.<$> (x Lude..?> "dataSources")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "autoEnable")
+            Lude.<*> (x Lude..:> "memberAccountLimitReached")
       )
 
-instance Hashable DescribeOrganizationConfiguration
-
-instance NFData DescribeOrganizationConfiguration
-
-instance ToHeaders DescribeOrganizationConfiguration where
+instance Lude.ToHeaders DescribeOrganizationConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeOrganizationConfiguration where
+instance Lude.ToPath DescribeOrganizationConfiguration where
   toPath DescribeOrganizationConfiguration' {..} =
-    mconcat ["/detector/", toBS _docDetectorId, "/admin"]
+    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/admin"]
 
-instance ToQuery DescribeOrganizationConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOrganizationConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeOrganizationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationConfigurationResponse' smart constructor.
 data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurationResponse'
-  { _docrsDataSources ::
-      !( Maybe
-           OrganizationDataSourceConfigurationsResult
-       ),
-    _docrsResponseStatus ::
-      !Int,
-    _docrsAutoEnable ::
-      !Bool,
-    _docrsMemberAccountLimitReached ::
-      !Bool
+  { dataSources ::
+      Lude.Maybe
+        OrganizationDataSourceConfigurationsResult,
+    responseStatus ::
+      Lude.Int,
+    autoEnable ::
+      Lude.Bool,
+    memberAccountLimitReached ::
+      Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'docrsDataSources' - An object that describes which data sources are enabled automatically for member accounts.
---
--- * 'docrsResponseStatus' - -- | The response status code.
---
--- * 'docrsAutoEnable' - Indicates whether GuardDuty is automatically enabled for accounts added to the organization.
---
--- * 'docrsMemberAccountLimitReached' - Indicates whether the maximum number of allowed member accounts are already associated with the delegated administrator master account.
-describeOrganizationConfigurationResponse ::
-  -- | 'docrsResponseStatus'
-  Int ->
-  -- | 'docrsAutoEnable'
-  Bool ->
-  -- | 'docrsMemberAccountLimitReached'
-  Bool ->
+-- * 'autoEnable' - Indicates whether GuardDuty is automatically enabled for accounts added to the organization.
+-- * 'dataSources' - An object that describes which data sources are enabled automatically for member accounts.
+-- * 'memberAccountLimitReached' - Indicates whether the maximum number of allowed member accounts are already associated with the delegated administrator master account.
+-- * 'responseStatus' - The response status code.
+mkDescribeOrganizationConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'autoEnable'
+  Lude.Bool ->
+  -- | 'memberAccountLimitReached'
+  Lude.Bool ->
   DescribeOrganizationConfigurationResponse
-describeOrganizationConfigurationResponse
+mkDescribeOrganizationConfigurationResponse
   pResponseStatus_
   pAutoEnable_
   pMemberAccountLimitReached_ =
     DescribeOrganizationConfigurationResponse'
-      { _docrsDataSources =
-          Nothing,
-        _docrsResponseStatus = pResponseStatus_,
-        _docrsAutoEnable = pAutoEnable_,
-        _docrsMemberAccountLimitReached =
+      { dataSources =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        autoEnable = pAutoEnable_,
+        memberAccountLimitReached =
           pMemberAccountLimitReached_
       }
 
 -- | An object that describes which data sources are enabled automatically for member accounts.
-docrsDataSources :: Lens' DescribeOrganizationConfigurationResponse (Maybe OrganizationDataSourceConfigurationsResult)
-docrsDataSources = lens _docrsDataSources (\s a -> s {_docrsDataSources = a})
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrsDataSources :: Lens.Lens' DescribeOrganizationConfigurationResponse (Lude.Maybe OrganizationDataSourceConfigurationsResult)
+docrsDataSources = Lens.lens (dataSources :: DescribeOrganizationConfigurationResponse -> Lude.Maybe OrganizationDataSourceConfigurationsResult) (\s a -> s {dataSources = a} :: DescribeOrganizationConfigurationResponse)
+{-# DEPRECATED docrsDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
--- | -- | The response status code.
-docrsResponseStatus :: Lens' DescribeOrganizationConfigurationResponse Int
-docrsResponseStatus = lens _docrsResponseStatus (\s a -> s {_docrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrsResponseStatus :: Lens.Lens' DescribeOrganizationConfigurationResponse Lude.Int
+docrsResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationConfigurationResponse)
+{-# DEPRECATED docrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Indicates whether GuardDuty is automatically enabled for accounts added to the organization.
-docrsAutoEnable :: Lens' DescribeOrganizationConfigurationResponse Bool
-docrsAutoEnable = lens _docrsAutoEnable (\s a -> s {_docrsAutoEnable = a})
+--
+-- /Note:/ Consider using 'autoEnable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrsAutoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse Lude.Bool
+docrsAutoEnable = Lens.lens (autoEnable :: DescribeOrganizationConfigurationResponse -> Lude.Bool) (\s a -> s {autoEnable = a} :: DescribeOrganizationConfigurationResponse)
+{-# DEPRECATED docrsAutoEnable "Use generic-lens or generic-optics with 'autoEnable' instead." #-}
 
 -- | Indicates whether the maximum number of allowed member accounts are already associated with the delegated administrator master account.
-docrsMemberAccountLimitReached :: Lens' DescribeOrganizationConfigurationResponse Bool
-docrsMemberAccountLimitReached = lens _docrsMemberAccountLimitReached (\s a -> s {_docrsMemberAccountLimitReached = a})
-
-instance NFData DescribeOrganizationConfigurationResponse
+--
+-- /Note:/ Consider using 'memberAccountLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrsMemberAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse Lude.Bool
+docrsMemberAccountLimitReached = Lens.lens (memberAccountLimitReached :: DescribeOrganizationConfigurationResponse -> Lude.Bool) (\s a -> s {memberAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
+{-# DEPRECATED docrsMemberAccountLimitReached "Use generic-lens or generic-optics with 'memberAccountLimitReached' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.ModelSettings where
+module Network.AWS.Transcribe.Types.ModelSettings
+  ( ModelSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkModelSettings,
+
+    -- * Lenses
+    msLanguageModelName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The object used to call your custom language model to your transcription job.
 --
---
---
--- /See:/ 'modelSettings' smart constructor.
+-- /See:/ 'mkModelSettings' smart constructor.
 newtype ModelSettings = ModelSettings'
-  { _msLanguageModelName ::
-      Maybe Text
+  { languageModelName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msLanguageModelName' - The name of your custom language model.
-modelSettings ::
+-- * 'languageModelName' - The name of your custom language model.
+mkModelSettings ::
   ModelSettings
-modelSettings = ModelSettings' {_msLanguageModelName = Nothing}
+mkModelSettings = ModelSettings' {languageModelName = Lude.Nothing}
 
 -- | The name of your custom language model.
-msLanguageModelName :: Lens' ModelSettings (Maybe Text)
-msLanguageModelName = lens _msLanguageModelName (\s a -> s {_msLanguageModelName = a})
+--
+-- /Note:/ Consider using 'languageModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msLanguageModelName :: Lens.Lens' ModelSettings (Lude.Maybe Lude.Text)
+msLanguageModelName = Lens.lens (languageModelName :: ModelSettings -> Lude.Maybe Lude.Text) (\s a -> s {languageModelName = a} :: ModelSettings)
+{-# DEPRECATED msLanguageModelName "Use generic-lens or generic-optics with 'languageModelName' instead." #-}
 
-instance FromJSON ModelSettings where
+instance Lude.FromJSON ModelSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ModelSettings"
-      (\x -> ModelSettings' <$> (x .:? "LanguageModelName"))
+      (\x -> ModelSettings' Lude.<$> (x Lude..:? "LanguageModelName"))
 
-instance Hashable ModelSettings
-
-instance NFData ModelSettings
-
-instance ToJSON ModelSettings where
+instance Lude.ToJSON ModelSettings where
   toJSON ModelSettings' {..} =
-    object
-      (catMaybes [("LanguageModelName" .=) <$> _msLanguageModelName])
+    Lude.object
+      ( Lude.catMaybes
+          [("LanguageModelName" Lude..=) Lude.<$> languageModelName]
+      )

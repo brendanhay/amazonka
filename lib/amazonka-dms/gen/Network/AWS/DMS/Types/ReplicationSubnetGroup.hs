@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.ReplicationSubnetGroup where
+module Network.AWS.DMS.Types.ReplicationSubnetGroup
+  ( ReplicationSubnetGroup (..),
+
+    -- * Smart constructor
+    mkReplicationSubnetGroup,
+
+    -- * Lenses
+    rsgVPCId,
+    rsgSubnets,
+    rsgReplicationSubnetGroupIdentifier,
+    rsgSubnetGroupStatus,
+    rsgReplicationSubnetGroupDescription,
+  )
+where
 
 import Network.AWS.DMS.Types.Subnet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a subnet group in response to a request by the @DescribeReplicationSubnetGroups@ operation.
 --
---
---
--- /See:/ 'replicationSubnetGroup' smart constructor.
+-- /See:/ 'mkReplicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
-  { _rsgVPCId ::
-      !(Maybe Text),
-    _rsgSubnets :: !(Maybe [Subnet]),
-    _rsgReplicationSubnetGroupIdentifier ::
-      !(Maybe Text),
-    _rsgSubnetGroupStatus :: !(Maybe Text),
-    _rsgReplicationSubnetGroupDescription ::
-      !(Maybe Text)
+  { vpcId ::
+      Lude.Maybe Lude.Text,
+    subnets :: Lude.Maybe [Subnet],
+    replicationSubnetGroupIdentifier ::
+      Lude.Maybe Lude.Text,
+    subnetGroupStatus :: Lude.Maybe Lude.Text,
+    replicationSubnetGroupDescription ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsgVPCId' - The ID of the VPC.
---
--- * 'rsgSubnets' - The subnets that are in the subnet group.
---
--- * 'rsgReplicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.
---
--- * 'rsgSubnetGroupStatus' - The status of the subnet group.
---
--- * 'rsgReplicationSubnetGroupDescription' - A description for the replication subnet group.
-replicationSubnetGroup ::
+-- * 'replicationSubnetGroupDescription' - A description for the replication subnet group.
+-- * 'replicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.
+-- * 'subnetGroupStatus' - The status of the subnet group.
+-- * 'subnets' - The subnets that are in the subnet group.
+-- * 'vpcId' - The ID of the VPC.
+mkReplicationSubnetGroup ::
   ReplicationSubnetGroup
-replicationSubnetGroup =
+mkReplicationSubnetGroup =
   ReplicationSubnetGroup'
-    { _rsgVPCId = Nothing,
-      _rsgSubnets = Nothing,
-      _rsgReplicationSubnetGroupIdentifier = Nothing,
-      _rsgSubnetGroupStatus = Nothing,
-      _rsgReplicationSubnetGroupDescription = Nothing
+    { vpcId = Lude.Nothing,
+      subnets = Lude.Nothing,
+      replicationSubnetGroupIdentifier = Lude.Nothing,
+      subnetGroupStatus = Lude.Nothing,
+      replicationSubnetGroupDescription = Lude.Nothing
     }
 
 -- | The ID of the VPC.
-rsgVPCId :: Lens' ReplicationSubnetGroup (Maybe Text)
-rsgVPCId = lens _rsgVPCId (\s a -> s {_rsgVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgVPCId :: Lens.Lens' ReplicationSubnetGroup (Lude.Maybe Lude.Text)
+rsgVPCId = Lens.lens (vpcId :: ReplicationSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: ReplicationSubnetGroup)
+{-# DEPRECATED rsgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The subnets that are in the subnet group.
-rsgSubnets :: Lens' ReplicationSubnetGroup [Subnet]
-rsgSubnets = lens _rsgSubnets (\s a -> s {_rsgSubnets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgSubnets :: Lens.Lens' ReplicationSubnetGroup (Lude.Maybe [Subnet])
+rsgSubnets = Lens.lens (subnets :: ReplicationSubnetGroup -> Lude.Maybe [Subnet]) (\s a -> s {subnets = a} :: ReplicationSubnetGroup)
+{-# DEPRECATED rsgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The identifier of the replication instance subnet group.
-rsgReplicationSubnetGroupIdentifier :: Lens' ReplicationSubnetGroup (Maybe Text)
-rsgReplicationSubnetGroupIdentifier = lens _rsgReplicationSubnetGroupIdentifier (\s a -> s {_rsgReplicationSubnetGroupIdentifier = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgReplicationSubnetGroupIdentifier :: Lens.Lens' ReplicationSubnetGroup (Lude.Maybe Lude.Text)
+rsgReplicationSubnetGroupIdentifier = Lens.lens (replicationSubnetGroupIdentifier :: ReplicationSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {replicationSubnetGroupIdentifier = a} :: ReplicationSubnetGroup)
+{-# DEPRECATED rsgReplicationSubnetGroupIdentifier "Use generic-lens or generic-optics with 'replicationSubnetGroupIdentifier' instead." #-}
 
 -- | The status of the subnet group.
-rsgSubnetGroupStatus :: Lens' ReplicationSubnetGroup (Maybe Text)
-rsgSubnetGroupStatus = lens _rsgSubnetGroupStatus (\s a -> s {_rsgSubnetGroupStatus = a})
+--
+-- /Note:/ Consider using 'subnetGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgSubnetGroupStatus :: Lens.Lens' ReplicationSubnetGroup (Lude.Maybe Lude.Text)
+rsgSubnetGroupStatus = Lens.lens (subnetGroupStatus :: ReplicationSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {subnetGroupStatus = a} :: ReplicationSubnetGroup)
+{-# DEPRECATED rsgSubnetGroupStatus "Use generic-lens or generic-optics with 'subnetGroupStatus' instead." #-}
 
 -- | A description for the replication subnet group.
-rsgReplicationSubnetGroupDescription :: Lens' ReplicationSubnetGroup (Maybe Text)
-rsgReplicationSubnetGroupDescription = lens _rsgReplicationSubnetGroupDescription (\s a -> s {_rsgReplicationSubnetGroupDescription = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgReplicationSubnetGroupDescription :: Lens.Lens' ReplicationSubnetGroup (Lude.Maybe Lude.Text)
+rsgReplicationSubnetGroupDescription = Lens.lens (replicationSubnetGroupDescription :: ReplicationSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {replicationSubnetGroupDescription = a} :: ReplicationSubnetGroup)
+{-# DEPRECATED rsgReplicationSubnetGroupDescription "Use generic-lens or generic-optics with 'replicationSubnetGroupDescription' instead." #-}
 
-instance FromJSON ReplicationSubnetGroup where
+instance Lude.FromJSON ReplicationSubnetGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicationSubnetGroup"
       ( \x ->
           ReplicationSubnetGroup'
-            <$> (x .:? "VpcId")
-            <*> (x .:? "Subnets" .!= mempty)
-            <*> (x .:? "ReplicationSubnetGroupIdentifier")
-            <*> (x .:? "SubnetGroupStatus")
-            <*> (x .:? "ReplicationSubnetGroupDescription")
+            Lude.<$> (x Lude..:? "VpcId")
+            Lude.<*> (x Lude..:? "Subnets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ReplicationSubnetGroupIdentifier")
+            Lude.<*> (x Lude..:? "SubnetGroupStatus")
+            Lude.<*> (x Lude..:? "ReplicationSubnetGroupDescription")
       )
-
-instance Hashable ReplicationSubnetGroup
-
-instance NFData ReplicationSubnetGroup

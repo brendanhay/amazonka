@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,180 +7,232 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.StorageDescriptor where
+module Network.AWS.Glue.Types.StorageDescriptor
+  ( StorageDescriptor (..),
+
+    -- * Smart constructor
+    mkStorageDescriptor,
+
+    -- * Lenses
+    sdSortColumns,
+    sdCompressed,
+    sdLocation,
+    sdBucketColumns,
+    sdSerdeInfo,
+    sdOutputFormat,
+    sdNumberOfBuckets,
+    sdSchemaReference,
+    sdStoredAsSubDirectories,
+    sdParameters,
+    sdInputFormat,
+    sdSkewedInfo,
+    sdColumns,
+  )
+where
 
 import Network.AWS.Glue.Types.Column
 import Network.AWS.Glue.Types.Order
 import Network.AWS.Glue.Types.SchemaReference
 import Network.AWS.Glue.Types.SerDeInfo
 import Network.AWS.Glue.Types.SkewedInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the physical storage of table data.
 --
---
---
--- /See:/ 'storageDescriptor' smart constructor.
+-- /See:/ 'mkStorageDescriptor' smart constructor.
 data StorageDescriptor = StorageDescriptor'
-  { _sdSortColumns ::
-      !(Maybe [Order]),
-    _sdCompressed :: !(Maybe Bool),
-    _sdLocation :: !(Maybe Text),
-    _sdBucketColumns :: !(Maybe [Text]),
-    _sdSerdeInfo :: !(Maybe SerDeInfo),
-    _sdOutputFormat :: !(Maybe Text),
-    _sdNumberOfBuckets :: !(Maybe Int),
-    _sdSchemaReference :: !(Maybe SchemaReference),
-    _sdStoredAsSubDirectories :: !(Maybe Bool),
-    _sdParameters :: !(Maybe (Map Text (Text))),
-    _sdInputFormat :: !(Maybe Text),
-    _sdSkewedInfo :: !(Maybe SkewedInfo),
-    _sdColumns :: !(Maybe [Column])
+  { sortColumns ::
+      Lude.Maybe [Order],
+    compressed :: Lude.Maybe Lude.Bool,
+    location :: Lude.Maybe Lude.Text,
+    bucketColumns :: Lude.Maybe [Lude.Text],
+    serdeInfo :: Lude.Maybe SerDeInfo,
+    outputFormat :: Lude.Maybe Lude.Text,
+    numberOfBuckets :: Lude.Maybe Lude.Int,
+    schemaReference :: Lude.Maybe SchemaReference,
+    storedAsSubDirectories :: Lude.Maybe Lude.Bool,
+    parameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    inputFormat :: Lude.Maybe Lude.Text,
+    skewedInfo :: Lude.Maybe SkewedInfo,
+    columns :: Lude.Maybe [Column]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageDescriptor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucketColumns' - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+-- * 'columns' - A list of the @Columns@ in the table.
+-- * 'compressed' - @True@ if the data in the table is compressed, or @False@ if not.
+-- * 'inputFormat' - The input format: @SequenceFileInputFormat@ (binary), or @TextInputFormat@ , or a custom format.
+-- * 'location' - The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+-- * 'numberOfBuckets' - Must be specified if the table contains any dimension columns.
+-- * 'outputFormat' - The output format: @SequenceFileOutputFormat@ (binary), or @IgnoreKeyTextOutputFormat@ , or a custom format.
+-- * 'parameters' - The user-supplied properties in key-value form.
+-- * 'schemaReference' - An object that references a schema stored in the AWS Glue Schema Registry.
 --
--- * 'sdSortColumns' - A list specifying the sort order of each bucket in the table.
---
--- * 'sdCompressed' - @True@ if the data in the table is compressed, or @False@ if not.
---
--- * 'sdLocation' - The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
---
--- * 'sdBucketColumns' - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
---
--- * 'sdSerdeInfo' - The serialization/deserialization (SerDe) information.
---
--- * 'sdOutputFormat' - The output format: @SequenceFileOutputFormat@ (binary), or @IgnoreKeyTextOutputFormat@ , or a custom format.
---
--- * 'sdNumberOfBuckets' - Must be specified if the table contains any dimension columns.
---
--- * 'sdSchemaReference' - An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
---
--- * 'sdStoredAsSubDirectories' - @True@ if the table data is stored in subdirectories, or @False@ if not.
---
--- * 'sdParameters' - The user-supplied properties in key-value form.
---
--- * 'sdInputFormat' - The input format: @SequenceFileInputFormat@ (binary), or @TextInputFormat@ , or a custom format.
---
--- * 'sdSkewedInfo' - The information about values that appear frequently in a column (skewed values).
---
--- * 'sdColumns' - A list of the @Columns@ in the table.
-storageDescriptor ::
+-- When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
+-- * 'serdeInfo' - The serialization/deserialization (SerDe) information.
+-- * 'skewedInfo' - The information about values that appear frequently in a column (skewed values).
+-- * 'sortColumns' - A list specifying the sort order of each bucket in the table.
+-- * 'storedAsSubDirectories' - @True@ if the table data is stored in subdirectories, or @False@ if not.
+mkStorageDescriptor ::
   StorageDescriptor
-storageDescriptor =
+mkStorageDescriptor =
   StorageDescriptor'
-    { _sdSortColumns = Nothing,
-      _sdCompressed = Nothing,
-      _sdLocation = Nothing,
-      _sdBucketColumns = Nothing,
-      _sdSerdeInfo = Nothing,
-      _sdOutputFormat = Nothing,
-      _sdNumberOfBuckets = Nothing,
-      _sdSchemaReference = Nothing,
-      _sdStoredAsSubDirectories = Nothing,
-      _sdParameters = Nothing,
-      _sdInputFormat = Nothing,
-      _sdSkewedInfo = Nothing,
-      _sdColumns = Nothing
+    { sortColumns = Lude.Nothing,
+      compressed = Lude.Nothing,
+      location = Lude.Nothing,
+      bucketColumns = Lude.Nothing,
+      serdeInfo = Lude.Nothing,
+      outputFormat = Lude.Nothing,
+      numberOfBuckets = Lude.Nothing,
+      schemaReference = Lude.Nothing,
+      storedAsSubDirectories = Lude.Nothing,
+      parameters = Lude.Nothing,
+      inputFormat = Lude.Nothing,
+      skewedInfo = Lude.Nothing,
+      columns = Lude.Nothing
     }
 
 -- | A list specifying the sort order of each bucket in the table.
-sdSortColumns :: Lens' StorageDescriptor [Order]
-sdSortColumns = lens _sdSortColumns (\s a -> s {_sdSortColumns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sortColumns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdSortColumns :: Lens.Lens' StorageDescriptor (Lude.Maybe [Order])
+sdSortColumns = Lens.lens (sortColumns :: StorageDescriptor -> Lude.Maybe [Order]) (\s a -> s {sortColumns = a} :: StorageDescriptor)
+{-# DEPRECATED sdSortColumns "Use generic-lens or generic-optics with 'sortColumns' instead." #-}
 
 -- | @True@ if the data in the table is compressed, or @False@ if not.
-sdCompressed :: Lens' StorageDescriptor (Maybe Bool)
-sdCompressed = lens _sdCompressed (\s a -> s {_sdCompressed = a})
+--
+-- /Note:/ Consider using 'compressed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdCompressed :: Lens.Lens' StorageDescriptor (Lude.Maybe Lude.Bool)
+sdCompressed = Lens.lens (compressed :: StorageDescriptor -> Lude.Maybe Lude.Bool) (\s a -> s {compressed = a} :: StorageDescriptor)
+{-# DEPRECATED sdCompressed "Use generic-lens or generic-optics with 'compressed' instead." #-}
 
 -- | The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-sdLocation :: Lens' StorageDescriptor (Maybe Text)
-sdLocation = lens _sdLocation (\s a -> s {_sdLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdLocation :: Lens.Lens' StorageDescriptor (Lude.Maybe Lude.Text)
+sdLocation = Lens.lens (location :: StorageDescriptor -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: StorageDescriptor)
+{-# DEPRECATED sdLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-sdBucketColumns :: Lens' StorageDescriptor [Text]
-sdBucketColumns = lens _sdBucketColumns (\s a -> s {_sdBucketColumns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bucketColumns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdBucketColumns :: Lens.Lens' StorageDescriptor (Lude.Maybe [Lude.Text])
+sdBucketColumns = Lens.lens (bucketColumns :: StorageDescriptor -> Lude.Maybe [Lude.Text]) (\s a -> s {bucketColumns = a} :: StorageDescriptor)
+{-# DEPRECATED sdBucketColumns "Use generic-lens or generic-optics with 'bucketColumns' instead." #-}
 
 -- | The serialization/deserialization (SerDe) information.
-sdSerdeInfo :: Lens' StorageDescriptor (Maybe SerDeInfo)
-sdSerdeInfo = lens _sdSerdeInfo (\s a -> s {_sdSerdeInfo = a})
+--
+-- /Note:/ Consider using 'serdeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdSerdeInfo :: Lens.Lens' StorageDescriptor (Lude.Maybe SerDeInfo)
+sdSerdeInfo = Lens.lens (serdeInfo :: StorageDescriptor -> Lude.Maybe SerDeInfo) (\s a -> s {serdeInfo = a} :: StorageDescriptor)
+{-# DEPRECATED sdSerdeInfo "Use generic-lens or generic-optics with 'serdeInfo' instead." #-}
 
 -- | The output format: @SequenceFileOutputFormat@ (binary), or @IgnoreKeyTextOutputFormat@ , or a custom format.
-sdOutputFormat :: Lens' StorageDescriptor (Maybe Text)
-sdOutputFormat = lens _sdOutputFormat (\s a -> s {_sdOutputFormat = a})
+--
+-- /Note:/ Consider using 'outputFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdOutputFormat :: Lens.Lens' StorageDescriptor (Lude.Maybe Lude.Text)
+sdOutputFormat = Lens.lens (outputFormat :: StorageDescriptor -> Lude.Maybe Lude.Text) (\s a -> s {outputFormat = a} :: StorageDescriptor)
+{-# DEPRECATED sdOutputFormat "Use generic-lens or generic-optics with 'outputFormat' instead." #-}
 
 -- | Must be specified if the table contains any dimension columns.
-sdNumberOfBuckets :: Lens' StorageDescriptor (Maybe Int)
-sdNumberOfBuckets = lens _sdNumberOfBuckets (\s a -> s {_sdNumberOfBuckets = a})
+--
+-- /Note:/ Consider using 'numberOfBuckets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdNumberOfBuckets :: Lens.Lens' StorageDescriptor (Lude.Maybe Lude.Int)
+sdNumberOfBuckets = Lens.lens (numberOfBuckets :: StorageDescriptor -> Lude.Maybe Lude.Int) (\s a -> s {numberOfBuckets = a} :: StorageDescriptor)
+{-# DEPRECATED sdNumberOfBuckets "Use generic-lens or generic-optics with 'numberOfBuckets' instead." #-}
 
--- | An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
-sdSchemaReference :: Lens' StorageDescriptor (Maybe SchemaReference)
-sdSchemaReference = lens _sdSchemaReference (\s a -> s {_sdSchemaReference = a})
+-- | An object that references a schema stored in the AWS Glue Schema Registry.
+--
+-- When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
+--
+-- /Note:/ Consider using 'schemaReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdSchemaReference :: Lens.Lens' StorageDescriptor (Lude.Maybe SchemaReference)
+sdSchemaReference = Lens.lens (schemaReference :: StorageDescriptor -> Lude.Maybe SchemaReference) (\s a -> s {schemaReference = a} :: StorageDescriptor)
+{-# DEPRECATED sdSchemaReference "Use generic-lens or generic-optics with 'schemaReference' instead." #-}
 
 -- | @True@ if the table data is stored in subdirectories, or @False@ if not.
-sdStoredAsSubDirectories :: Lens' StorageDescriptor (Maybe Bool)
-sdStoredAsSubDirectories = lens _sdStoredAsSubDirectories (\s a -> s {_sdStoredAsSubDirectories = a})
+--
+-- /Note:/ Consider using 'storedAsSubDirectories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdStoredAsSubDirectories :: Lens.Lens' StorageDescriptor (Lude.Maybe Lude.Bool)
+sdStoredAsSubDirectories = Lens.lens (storedAsSubDirectories :: StorageDescriptor -> Lude.Maybe Lude.Bool) (\s a -> s {storedAsSubDirectories = a} :: StorageDescriptor)
+{-# DEPRECATED sdStoredAsSubDirectories "Use generic-lens or generic-optics with 'storedAsSubDirectories' instead." #-}
 
 -- | The user-supplied properties in key-value form.
-sdParameters :: Lens' StorageDescriptor (HashMap Text (Text))
-sdParameters = lens _sdParameters (\s a -> s {_sdParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdParameters :: Lens.Lens' StorageDescriptor (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sdParameters = Lens.lens (parameters :: StorageDescriptor -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: StorageDescriptor)
+{-# DEPRECATED sdParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The input format: @SequenceFileInputFormat@ (binary), or @TextInputFormat@ , or a custom format.
-sdInputFormat :: Lens' StorageDescriptor (Maybe Text)
-sdInputFormat = lens _sdInputFormat (\s a -> s {_sdInputFormat = a})
+--
+-- /Note:/ Consider using 'inputFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdInputFormat :: Lens.Lens' StorageDescriptor (Lude.Maybe Lude.Text)
+sdInputFormat = Lens.lens (inputFormat :: StorageDescriptor -> Lude.Maybe Lude.Text) (\s a -> s {inputFormat = a} :: StorageDescriptor)
+{-# DEPRECATED sdInputFormat "Use generic-lens or generic-optics with 'inputFormat' instead." #-}
 
 -- | The information about values that appear frequently in a column (skewed values).
-sdSkewedInfo :: Lens' StorageDescriptor (Maybe SkewedInfo)
-sdSkewedInfo = lens _sdSkewedInfo (\s a -> s {_sdSkewedInfo = a})
+--
+-- /Note:/ Consider using 'skewedInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdSkewedInfo :: Lens.Lens' StorageDescriptor (Lude.Maybe SkewedInfo)
+sdSkewedInfo = Lens.lens (skewedInfo :: StorageDescriptor -> Lude.Maybe SkewedInfo) (\s a -> s {skewedInfo = a} :: StorageDescriptor)
+{-# DEPRECATED sdSkewedInfo "Use generic-lens or generic-optics with 'skewedInfo' instead." #-}
 
 -- | A list of the @Columns@ in the table.
-sdColumns :: Lens' StorageDescriptor [Column]
-sdColumns = lens _sdColumns (\s a -> s {_sdColumns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'columns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdColumns :: Lens.Lens' StorageDescriptor (Lude.Maybe [Column])
+sdColumns = Lens.lens (columns :: StorageDescriptor -> Lude.Maybe [Column]) (\s a -> s {columns = a} :: StorageDescriptor)
+{-# DEPRECATED sdColumns "Use generic-lens or generic-optics with 'columns' instead." #-}
 
-instance FromJSON StorageDescriptor where
+instance Lude.FromJSON StorageDescriptor where
   parseJSON =
-    withObject
+    Lude.withObject
       "StorageDescriptor"
       ( \x ->
           StorageDescriptor'
-            <$> (x .:? "SortColumns" .!= mempty)
-            <*> (x .:? "Compressed")
-            <*> (x .:? "Location")
-            <*> (x .:? "BucketColumns" .!= mempty)
-            <*> (x .:? "SerdeInfo")
-            <*> (x .:? "OutputFormat")
-            <*> (x .:? "NumberOfBuckets")
-            <*> (x .:? "SchemaReference")
-            <*> (x .:? "StoredAsSubDirectories")
-            <*> (x .:? "Parameters" .!= mempty)
-            <*> (x .:? "InputFormat")
-            <*> (x .:? "SkewedInfo")
-            <*> (x .:? "Columns" .!= mempty)
+            Lude.<$> (x Lude..:? "SortColumns" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Compressed")
+            Lude.<*> (x Lude..:? "Location")
+            Lude.<*> (x Lude..:? "BucketColumns" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "SerdeInfo")
+            Lude.<*> (x Lude..:? "OutputFormat")
+            Lude.<*> (x Lude..:? "NumberOfBuckets")
+            Lude.<*> (x Lude..:? "SchemaReference")
+            Lude.<*> (x Lude..:? "StoredAsSubDirectories")
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "InputFormat")
+            Lude.<*> (x Lude..:? "SkewedInfo")
+            Lude.<*> (x Lude..:? "Columns" Lude..!= Lude.mempty)
       )
 
-instance Hashable StorageDescriptor
-
-instance NFData StorageDescriptor
-
-instance ToJSON StorageDescriptor where
+instance Lude.ToJSON StorageDescriptor where
   toJSON StorageDescriptor' {..} =
-    object
-      ( catMaybes
-          [ ("SortColumns" .=) <$> _sdSortColumns,
-            ("Compressed" .=) <$> _sdCompressed,
-            ("Location" .=) <$> _sdLocation,
-            ("BucketColumns" .=) <$> _sdBucketColumns,
-            ("SerdeInfo" .=) <$> _sdSerdeInfo,
-            ("OutputFormat" .=) <$> _sdOutputFormat,
-            ("NumberOfBuckets" .=) <$> _sdNumberOfBuckets,
-            ("SchemaReference" .=) <$> _sdSchemaReference,
-            ("StoredAsSubDirectories" .=) <$> _sdStoredAsSubDirectories,
-            ("Parameters" .=) <$> _sdParameters,
-            ("InputFormat" .=) <$> _sdInputFormat,
-            ("SkewedInfo" .=) <$> _sdSkewedInfo,
-            ("Columns" .=) <$> _sdColumns
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SortColumns" Lude..=) Lude.<$> sortColumns,
+            ("Compressed" Lude..=) Lude.<$> compressed,
+            ("Location" Lude..=) Lude.<$> location,
+            ("BucketColumns" Lude..=) Lude.<$> bucketColumns,
+            ("SerdeInfo" Lude..=) Lude.<$> serdeInfo,
+            ("OutputFormat" Lude..=) Lude.<$> outputFormat,
+            ("NumberOfBuckets" Lude..=) Lude.<$> numberOfBuckets,
+            ("SchemaReference" Lude..=) Lude.<$> schemaReference,
+            ("StoredAsSubDirectories" Lude..=) Lude.<$> storedAsSubDirectories,
+            ("Parameters" Lude..=) Lude.<$> parameters,
+            ("InputFormat" Lude..=) Lude.<$> inputFormat,
+            ("SkewedInfo" Lude..=) Lude.<$> skewedInfo,
+            ("Columns" Lude..=) Lude.<$> columns
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Updates a usage plan of a given plan Id.
 module Network.AWS.APIGateway.UpdateUsagePlan
-  ( -- * Creating a Request
-    updateUsagePlan,
-    UpdateUsagePlan,
+  ( -- * Creating a request
+    UpdateUsagePlan (..),
+    mkUpdateUsagePlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uupPatchOperations,
     uupUsagePlanId,
 
-    -- * Destructuring the Response
-    usagePlan,
-    UsagePlan,
+    -- * Destructuring the response
+    UsagePlan (..),
+    mkUsagePlan,
 
-    -- * Response Lenses
+    -- ** Response lenses
     upApiStages,
     upName,
     upId,
@@ -44,69 +39,78 @@ module Network.AWS.APIGateway.UpdateUsagePlan
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The PATCH request to update a usage plan of a given plan Id.
 --
---
---
--- /See:/ 'updateUsagePlan' smart constructor.
+-- /See:/ 'mkUpdateUsagePlan' smart constructor.
 data UpdateUsagePlan = UpdateUsagePlan'
-  { _uupPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uupUsagePlanId :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    usagePlanId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUsagePlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uupPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uupUsagePlanId' - [Required] The Id of the to-be-updated usage plan.
-updateUsagePlan ::
-  -- | 'uupUsagePlanId'
-  Text ->
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'usagePlanId' - [Required] The Id of the to-be-updated usage plan.
+mkUpdateUsagePlan ::
+  -- | 'usagePlanId'
+  Lude.Text ->
   UpdateUsagePlan
-updateUsagePlan pUsagePlanId_ =
+mkUpdateUsagePlan pUsagePlanId_ =
   UpdateUsagePlan'
-    { _uupPatchOperations = Nothing,
-      _uupUsagePlanId = pUsagePlanId_
+    { patchOperations = Lude.Nothing,
+      usagePlanId = pUsagePlanId_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uupPatchOperations :: Lens' UpdateUsagePlan [PatchOperation]
-uupPatchOperations = lens _uupPatchOperations (\s a -> s {_uupPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupPatchOperations :: Lens.Lens' UpdateUsagePlan (Lude.Maybe [PatchOperation])
+uupPatchOperations = Lens.lens (patchOperations :: UpdateUsagePlan -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateUsagePlan)
+{-# DEPRECATED uupPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The Id of the to-be-updated usage plan.
-uupUsagePlanId :: Lens' UpdateUsagePlan Text
-uupUsagePlanId = lens _uupUsagePlanId (\s a -> s {_uupUsagePlanId = a})
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupUsagePlanId :: Lens.Lens' UpdateUsagePlan Lude.Text
+uupUsagePlanId = Lens.lens (usagePlanId :: UpdateUsagePlan -> Lude.Text) (\s a -> s {usagePlanId = a} :: UpdateUsagePlan)
+{-# DEPRECATED uupUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
-instance AWSRequest UpdateUsagePlan where
+instance Lude.AWSRequest UpdateUsagePlan where
   type Rs UpdateUsagePlan = UsagePlan
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateUsagePlan
-
-instance NFData UpdateUsagePlan
-
-instance ToHeaders UpdateUsagePlan where
+instance Lude.ToHeaders UpdateUsagePlan where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateUsagePlan where
+instance Lude.ToJSON UpdateUsagePlan where
   toJSON UpdateUsagePlan' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uupPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateUsagePlan where
+instance Lude.ToPath UpdateUsagePlan where
   toPath UpdateUsagePlan' {..} =
-    mconcat ["/usageplans/", toBS _uupUsagePlanId]
+    Lude.mconcat ["/usageplans/", Lude.toBS usagePlanId]
 
-instance ToQuery UpdateUsagePlan where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUsagePlan where
+  toQuery = Lude.const Lude.mempty

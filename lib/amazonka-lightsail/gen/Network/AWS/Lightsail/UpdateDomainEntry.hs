@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,153 @@
 --
 -- Updates a domain recordset after it is created.
 --
---
 -- The @update domain entry@ operation supports tag-based access control via resource tags applied to the resource identified by @domain name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.UpdateDomainEntry
-  ( -- * Creating a Request
-    updateDomainEntry,
-    UpdateDomainEntry,
+  ( -- * Creating a request
+    UpdateDomainEntry (..),
+    mkUpdateDomainEntry,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udeDomainName,
     udeDomainEntry,
 
-    -- * Destructuring the Response
-    updateDomainEntryResponse,
-    UpdateDomainEntryResponse,
+    -- * Destructuring the response
+    UpdateDomainEntryResponse (..),
+    mkUpdateDomainEntryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udersOperations,
     udersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDomainEntry' smart constructor.
+-- | /See:/ 'mkUpdateDomainEntry' smart constructor.
 data UpdateDomainEntry = UpdateDomainEntry'
-  { _udeDomainName ::
-      !Text,
-    _udeDomainEntry :: !DomainEntry
+  { domainName ::
+      Lude.Text,
+    domainEntry :: DomainEntry
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udeDomainName' - The name of the domain recordset to update.
---
--- * 'udeDomainEntry' - An array of key-value pairs containing information about the domain entry.
-updateDomainEntry ::
-  -- | 'udeDomainName'
-  Text ->
-  -- | 'udeDomainEntry'
+-- * 'domainEntry' - An array of key-value pairs containing information about the domain entry.
+-- * 'domainName' - The name of the domain recordset to update.
+mkUpdateDomainEntry ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'domainEntry'
   DomainEntry ->
   UpdateDomainEntry
-updateDomainEntry pDomainName_ pDomainEntry_ =
+mkUpdateDomainEntry pDomainName_ pDomainEntry_ =
   UpdateDomainEntry'
-    { _udeDomainName = pDomainName_,
-      _udeDomainEntry = pDomainEntry_
+    { domainName = pDomainName_,
+      domainEntry = pDomainEntry_
     }
 
 -- | The name of the domain recordset to update.
-udeDomainName :: Lens' UpdateDomainEntry Text
-udeDomainName = lens _udeDomainName (\s a -> s {_udeDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeDomainName :: Lens.Lens' UpdateDomainEntry Lude.Text
+udeDomainName = Lens.lens (domainName :: UpdateDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainEntry)
+{-# DEPRECATED udeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | An array of key-value pairs containing information about the domain entry.
-udeDomainEntry :: Lens' UpdateDomainEntry DomainEntry
-udeDomainEntry = lens _udeDomainEntry (\s a -> s {_udeDomainEntry = a})
+--
+-- /Note:/ Consider using 'domainEntry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeDomainEntry :: Lens.Lens' UpdateDomainEntry DomainEntry
+udeDomainEntry = Lens.lens (domainEntry :: UpdateDomainEntry -> DomainEntry) (\s a -> s {domainEntry = a} :: UpdateDomainEntry)
+{-# DEPRECATED udeDomainEntry "Use generic-lens or generic-optics with 'domainEntry' instead." #-}
 
-instance AWSRequest UpdateDomainEntry where
+instance Lude.AWSRequest UpdateDomainEntry where
   type Rs UpdateDomainEntry = UpdateDomainEntryResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDomainEntryResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDomainEntry
-
-instance NFData UpdateDomainEntry
-
-instance ToHeaders UpdateDomainEntry where
+instance Lude.ToHeaders UpdateDomainEntry where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.UpdateDomainEntry" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.UpdateDomainEntry" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDomainEntry where
+instance Lude.ToJSON UpdateDomainEntry where
   toJSON UpdateDomainEntry' {..} =
-    object
-      ( catMaybes
-          [ Just ("domainName" .= _udeDomainName),
-            Just ("domainEntry" .= _udeDomainEntry)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("domainName" Lude..= domainName),
+            Lude.Just ("domainEntry" Lude..= domainEntry)
           ]
       )
 
-instance ToPath UpdateDomainEntry where
-  toPath = const "/"
+instance Lude.ToPath UpdateDomainEntry where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDomainEntry where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDomainEntry where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDomainEntryResponse' smart constructor.
+-- | /See:/ 'mkUpdateDomainEntryResponse' smart constructor.
 data UpdateDomainEntryResponse = UpdateDomainEntryResponse'
-  { _udersOperations ::
-      !(Maybe [Operation]),
-    _udersResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainEntryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udersOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'udersResponseStatus' - -- | The response status code.
-updateDomainEntryResponse ::
-  -- | 'udersResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkUpdateDomainEntryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDomainEntryResponse
-updateDomainEntryResponse pResponseStatus_ =
+mkUpdateDomainEntryResponse pResponseStatus_ =
   UpdateDomainEntryResponse'
-    { _udersOperations = Nothing,
-      _udersResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-udersOperations :: Lens' UpdateDomainEntryResponse [Operation]
-udersOperations = lens _udersOperations (\s a -> s {_udersOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udersOperations :: Lens.Lens' UpdateDomainEntryResponse (Lude.Maybe [Operation])
+udersOperations = Lens.lens (operations :: UpdateDomainEntryResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: UpdateDomainEntryResponse)
+{-# DEPRECATED udersOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-udersResponseStatus :: Lens' UpdateDomainEntryResponse Int
-udersResponseStatus = lens _udersResponseStatus (\s a -> s {_udersResponseStatus = a})
-
-instance NFData UpdateDomainEntryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udersResponseStatus :: Lens.Lens' UpdateDomainEntryResponse Lude.Int
+udersResponseStatus = Lens.lens (responseStatus :: UpdateDomainEntryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainEntryResponse)
+{-# DEPRECATED udersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

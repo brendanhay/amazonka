@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,80 +14,92 @@
 --
 -- Deletes the specified log group and permanently deletes all the archived log events associated with the log group.
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
-  ( -- * Creating a Request
-    deleteLogGroup,
-    DeleteLogGroup,
+  ( -- * Creating a request
+    DeleteLogGroup (..),
+    mkDeleteLogGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlgLogGroupName,
 
-    -- * Destructuring the Response
-    deleteLogGroupResponse,
-    DeleteLogGroupResponse,
+    -- * Destructuring the response
+    DeleteLogGroupResponse (..),
+    mkDeleteLogGroupResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLogGroup' smart constructor.
-newtype DeleteLogGroup = DeleteLogGroup' {_dlgLogGroupName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteLogGroup' smart constructor.
+newtype DeleteLogGroup = DeleteLogGroup' {logGroupName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLogGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlgLogGroupName' - The name of the log group.
-deleteLogGroup ::
-  -- | 'dlgLogGroupName'
-  Text ->
+-- * 'logGroupName' - The name of the log group.
+mkDeleteLogGroup ::
+  -- | 'logGroupName'
+  Lude.Text ->
   DeleteLogGroup
-deleteLogGroup pLogGroupName_ =
-  DeleteLogGroup' {_dlgLogGroupName = pLogGroupName_}
+mkDeleteLogGroup pLogGroupName_ =
+  DeleteLogGroup' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-dlgLogGroupName :: Lens' DeleteLogGroup Text
-dlgLogGroupName = lens _dlgLogGroupName (\s a -> s {_dlgLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgLogGroupName :: Lens.Lens' DeleteLogGroup Lude.Text
+dlgLogGroupName = Lens.lens (logGroupName :: DeleteLogGroup -> Lude.Text) (\s a -> s {logGroupName = a} :: DeleteLogGroup)
+{-# DEPRECATED dlgLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance AWSRequest DeleteLogGroup where
+instance Lude.AWSRequest DeleteLogGroup where
   type Rs DeleteLogGroup = DeleteLogGroupResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull DeleteLogGroupResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull DeleteLogGroupResponse'
 
-instance Hashable DeleteLogGroup
-
-instance NFData DeleteLogGroup
-
-instance ToHeaders DeleteLogGroup where
+instance Lude.ToHeaders DeleteLogGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.DeleteLogGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.DeleteLogGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLogGroup where
+instance Lude.ToJSON DeleteLogGroup where
   toJSON DeleteLogGroup' {..} =
-    object (catMaybes [Just ("logGroupName" .= _dlgLogGroupName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("logGroupName" Lude..= logGroupName)])
 
-instance ToPath DeleteLogGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteLogGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLogGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLogGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLogGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteLogGroupResponse' smart constructor.
 data DeleteLogGroupResponse = DeleteLogGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLogGroupResponse' with the minimum fields required to make a request.
-deleteLogGroupResponse ::
+mkDeleteLogGroupResponse ::
   DeleteLogGroupResponse
-deleteLogGroupResponse = DeleteLogGroupResponse'
-
-instance NFData DeleteLogGroupResponse
+mkDeleteLogGroupResponse = DeleteLogGroupResponse'

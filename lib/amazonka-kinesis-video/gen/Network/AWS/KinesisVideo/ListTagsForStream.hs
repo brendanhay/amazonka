@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Returns a list of tags associated with the specified stream.
 --
---
 -- In the request, you must specify either the @StreamName@ or the @StreamARN@ .
 module Network.AWS.KinesisVideo.ListTagsForStream
-  ( -- * Creating a Request
-    listTagsForStream,
-    ListTagsForStream,
+  ( -- * Creating a request
+    ListTagsForStream (..),
+    mkListTagsForStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfsStreamARN,
     ltfsNextToken,
     ltfsStreamName,
 
-    -- * Destructuring the Response
-    listTagsForStreamResponse,
-    ListTagsForStreamResponse,
+    -- * Destructuring the response
+    ListTagsForStreamResponse (..),
+    mkListTagsForStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfsrsNextToken,
     ltfsrsTags,
     ltfsrsResponseStatus,
@@ -43,125 +37,144 @@ module Network.AWS.KinesisVideo.ListTagsForStream
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTagsForStream' smart constructor.
+-- | /See:/ 'mkListTagsForStream' smart constructor.
 data ListTagsForStream = ListTagsForStream'
-  { _ltfsStreamARN ::
-      !(Maybe Text),
-    _ltfsNextToken :: !(Maybe Text),
-    _ltfsStreamName :: !(Maybe Text)
+  { streamARN ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfsStreamARN' - The Amazon Resource Name (ARN) of the stream that you want to list tags for.
---
--- * 'ltfsNextToken' - If you specify this parameter and the result of a @ListTagsForStream@ call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
---
--- * 'ltfsStreamName' - The name of the stream that you want to list tags for.
-listTagsForStream ::
+-- * 'nextToken' - If you specify this parameter and the result of a @ListTagsForStream@ call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the stream that you want to list tags for.
+-- * 'streamName' - The name of the stream that you want to list tags for.
+mkListTagsForStream ::
   ListTagsForStream
-listTagsForStream =
+mkListTagsForStream =
   ListTagsForStream'
-    { _ltfsStreamARN = Nothing,
-      _ltfsNextToken = Nothing,
-      _ltfsStreamName = Nothing
+    { streamARN = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      streamName = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to list tags for.
-ltfsStreamARN :: Lens' ListTagsForStream (Maybe Text)
-ltfsStreamARN = lens _ltfsStreamARN (\s a -> s {_ltfsStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsStreamARN :: Lens.Lens' ListTagsForStream (Lude.Maybe Lude.Text)
+ltfsStreamARN = Lens.lens (streamARN :: ListTagsForStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: ListTagsForStream)
+{-# DEPRECATED ltfsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | If you specify this parameter and the result of a @ListTagsForStream@ call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
-ltfsNextToken :: Lens' ListTagsForStream (Maybe Text)
-ltfsNextToken = lens _ltfsNextToken (\s a -> s {_ltfsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsNextToken :: Lens.Lens' ListTagsForStream (Lude.Maybe Lude.Text)
+ltfsNextToken = Lens.lens (nextToken :: ListTagsForStream -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForStream)
+{-# DEPRECATED ltfsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the stream that you want to list tags for.
-ltfsStreamName :: Lens' ListTagsForStream (Maybe Text)
-ltfsStreamName = lens _ltfsStreamName (\s a -> s {_ltfsStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsStreamName :: Lens.Lens' ListTagsForStream (Lude.Maybe Lude.Text)
+ltfsStreamName = Lens.lens (streamName :: ListTagsForStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: ListTagsForStream)
+{-# DEPRECATED ltfsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance AWSRequest ListTagsForStream where
+instance Lude.AWSRequest ListTagsForStream where
   type Rs ListTagsForStream = ListTagsForStreamResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsForStreamResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForStream
+instance Lude.ToHeaders ListTagsForStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTagsForStream
-
-instance ToHeaders ListTagsForStream where
-  toHeaders = const mempty
-
-instance ToJSON ListTagsForStream where
+instance Lude.ToJSON ListTagsForStream where
   toJSON ListTagsForStream' {..} =
-    object
-      ( catMaybes
-          [ ("StreamARN" .=) <$> _ltfsStreamARN,
-            ("NextToken" .=) <$> _ltfsNextToken,
-            ("StreamName" .=) <$> _ltfsStreamName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("StreamName" Lude..=) Lude.<$> streamName
           ]
       )
 
-instance ToPath ListTagsForStream where
-  toPath = const "/listTagsForStream"
+instance Lude.ToPath ListTagsForStream where
+  toPath = Lude.const "/listTagsForStream"
 
-instance ToQuery ListTagsForStream where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsForStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsForStreamResponse' smart constructor.
+-- | /See:/ 'mkListTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-  { _ltfsrsNextToken ::
-      !(Maybe Text),
-    _ltfsrsTags ::
-      !(Maybe (Map Text (Text))),
-    _ltfsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfsrsNextToken' - If you specify this parameter and the result of a @ListTags@ call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
---
--- * 'ltfsrsTags' - A map of tag keys and values associated with the specified stream.
---
--- * 'ltfsrsResponseStatus' - -- | The response status code.
-listTagsForStreamResponse ::
-  -- | 'ltfsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If you specify this parameter and the result of a @ListTags@ call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - A map of tag keys and values associated with the specified stream.
+mkListTagsForStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForStreamResponse
-listTagsForStreamResponse pResponseStatus_ =
+mkListTagsForStreamResponse pResponseStatus_ =
   ListTagsForStreamResponse'
-    { _ltfsrsNextToken = Nothing,
-      _ltfsrsTags = Nothing,
-      _ltfsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If you specify this parameter and the result of a @ListTags@ call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
-ltfsrsNextToken :: Lens' ListTagsForStreamResponse (Maybe Text)
-ltfsrsNextToken = lens _ltfsrsNextToken (\s a -> s {_ltfsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsrsNextToken :: Lens.Lens' ListTagsForStreamResponse (Lude.Maybe Lude.Text)
+ltfsrsNextToken = Lens.lens (nextToken :: ListTagsForStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForStreamResponse)
+{-# DEPRECATED ltfsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A map of tag keys and values associated with the specified stream.
-ltfsrsTags :: Lens' ListTagsForStreamResponse (HashMap Text (Text))
-ltfsrsTags = lens _ltfsrsTags (\s a -> s {_ltfsrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsrsTags :: Lens.Lens' ListTagsForStreamResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltfsrsTags = Lens.lens (tags :: ListTagsForStreamResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsForStreamResponse)
+{-# DEPRECATED ltfsrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltfsrsResponseStatus :: Lens' ListTagsForStreamResponse Int
-ltfsrsResponseStatus = lens _ltfsrsResponseStatus (\s a -> s {_ltfsrsResponseStatus = a})
-
-instance NFData ListTagsForStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsrsResponseStatus :: Lens.Lens' ListTagsForStreamResponse Lude.Int
+ltfsrsResponseStatus = Lens.lens (responseStatus :: ListTagsForStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForStreamResponse)
+{-# DEPRECATED ltfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

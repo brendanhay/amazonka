@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Aliases where
+module Network.AWS.CloudFront.Types.Aliases
+  ( Aliases (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAliases,
+
+    -- * Lenses
+    aItems,
+    aQuantity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 --
---
---
--- /See:/ 'aliases' smart constructor.
+-- /See:/ 'mkAliases' smart constructor.
 data Aliases = Aliases'
-  { _aItems :: !(Maybe [Text]),
-    _aQuantity :: !Int
+  { items :: Lude.Maybe [Lude.Text],
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Aliases' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aItems' - A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
---
--- * 'aQuantity' - The number of CNAME aliases, if any, that you want to associate with this distribution.
-aliases ::
-  -- | 'aQuantity'
-  Int ->
+-- * 'items' - A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
+-- * 'quantity' - The number of CNAME aliases, if any, that you want to associate with this distribution.
+mkAliases ::
+  -- | 'quantity'
+  Lude.Int ->
   Aliases
-aliases pQuantity_ =
-  Aliases' {_aItems = Nothing, _aQuantity = pQuantity_}
+mkAliases pQuantity_ =
+  Aliases' {items = Lude.Nothing, quantity = pQuantity_}
 
 -- | A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
-aItems :: Lens' Aliases [Text]
-aItems = lens _aItems (\s a -> s {_aItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aItems :: Lens.Lens' Aliases (Lude.Maybe [Lude.Text])
+aItems = Lens.lens (items :: Aliases -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: Aliases)
+{-# DEPRECATED aItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of CNAME aliases, if any, that you want to associate with this distribution.
-aQuantity :: Lens' Aliases Int
-aQuantity = lens _aQuantity (\s a -> s {_aQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aQuantity :: Lens.Lens' Aliases Lude.Int
+aQuantity = Lens.lens (quantity :: Aliases -> Lude.Int) (\s a -> s {quantity = a} :: Aliases)
+{-# DEPRECATED aQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML Aliases where
+instance Lude.FromXML Aliases where
   parseXML x =
     Aliases'
-      <$> (x .@? "Items" .!@ mempty >>= may (parseXMLList "CNAME"))
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "CNAME")
+               )
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable Aliases
-
-instance NFData Aliases
-
-instance ToXML Aliases where
+instance Lude.ToXML Aliases where
   toXML Aliases' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "CNAME" <$> _aItems),
-        "Quantity" @= _aQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "CNAME" Lude.<$> items),
+        "Quantity" Lude.@= quantity
       ]

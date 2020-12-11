@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a layer. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html How to Create a Layer> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.CreateLayer
-  ( -- * Creating a Request
-    createLayer,
-    CreateLayer,
+  ( -- * Creating a request
+    CreateLayer (..),
+    mkCreateLayer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clCustomInstanceProfileARN,
     clCustomSecurityGroupIds,
     clInstallUpdatesOnBoot,
@@ -46,281 +40,339 @@ module Network.AWS.OpsWorks.CreateLayer
     clName,
     clShortname,
 
-    -- * Destructuring the Response
-    createLayerResponse,
-    CreateLayerResponse,
+    -- * Destructuring the response
+    CreateLayerResponse (..),
+    mkCreateLayerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clrsLayerId,
     clrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createLayer' smart constructor.
+-- | /See:/ 'mkCreateLayer' smart constructor.
 data CreateLayer = CreateLayer'
-  { _clCustomInstanceProfileARN ::
-      !(Maybe Text),
-    _clCustomSecurityGroupIds :: !(Maybe [Text]),
-    _clInstallUpdatesOnBoot :: !(Maybe Bool),
-    _clCloudWatchLogsConfiguration ::
-      !(Maybe CloudWatchLogsConfiguration),
-    _clLifecycleEventConfiguration ::
-      !(Maybe LifecycleEventConfiguration),
-    _clCustomRecipes :: !(Maybe Recipes),
-    _clCustomJSON :: !(Maybe Text),
-    _clVolumeConfigurations :: !(Maybe [VolumeConfiguration]),
-    _clEnableAutoHealing :: !(Maybe Bool),
-    _clPackages :: !(Maybe [Text]),
-    _clAttributes :: !(Maybe (Map LayerAttributesKeys (Maybe Text))),
-    _clAutoAssignPublicIPs :: !(Maybe Bool),
-    _clUseEBSOptimizedInstances :: !(Maybe Bool),
-    _clAutoAssignElasticIPs :: !(Maybe Bool),
-    _clStackId :: !Text,
-    _clType :: !LayerType,
-    _clName :: !Text,
-    _clShortname :: !Text
+  { customInstanceProfileARN ::
+      Lude.Maybe Lude.Text,
+    customSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    installUpdatesOnBoot :: Lude.Maybe Lude.Bool,
+    cloudWatchLogsConfiguration ::
+      Lude.Maybe CloudWatchLogsConfiguration,
+    lifecycleEventConfiguration ::
+      Lude.Maybe LifecycleEventConfiguration,
+    customRecipes :: Lude.Maybe Recipes,
+    customJSON :: Lude.Maybe Lude.Text,
+    volumeConfigurations :: Lude.Maybe [VolumeConfiguration],
+    enableAutoHealing :: Lude.Maybe Lude.Bool,
+    packages :: Lude.Maybe [Lude.Text],
+    attributes ::
+      Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text)),
+    autoAssignPublicIPs :: Lude.Maybe Lude.Bool,
+    useEBSOptimizedInstances :: Lude.Maybe Lude.Bool,
+    autoAssignElasticIPs :: Lude.Maybe Lude.Bool,
+    stackId :: Lude.Text,
+    type' :: LayerType,
+    name :: Lude.Text,
+    shortname :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLayer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - One or more user-defined key-value pairs to be added to the stack attributes.
 --
--- * 'clCustomInstanceProfileARN' - The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- To create a cluster layer, set the @EcsClusterArn@ attribute to the cluster's ARN.
+-- * 'autoAssignElasticIPs' - Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
+-- * 'autoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
+-- * 'cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
+-- * 'customInstanceProfileARN' - The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'customJSON' - A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> . This feature is supported as of version 1.7.42 of the AWS CLI.
+-- * 'customRecipes' - A @LayerCustomRecipes@ object that specifies the layer custom recipes.
+-- * 'customSecurityGroupIds' - An array containing the layer custom security group IDs.
+-- * 'enableAutoHealing' - Whether to disable auto healing for the layer.
+-- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+-- * 'lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
+-- * 'name' - The layer name, which is used by the console.
+-- * 'packages' - An array of @Package@ objects that describes the layer packages.
+-- * 'shortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
 --
--- * 'clCustomSecurityGroupIds' - An array containing the layer custom security group IDs.
---
--- * 'clInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
---
--- * 'clCloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
---
--- * 'clLifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
---
--- * 'clCustomRecipes' - A @LayerCustomRecipes@ object that specifies the layer custom recipes.
---
--- * 'clCustomJSON' - A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> . This feature is supported as of version 1.7.42 of the AWS CLI.
---
--- * 'clVolumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
---
--- * 'clEnableAutoHealing' - Whether to disable auto healing for the layer.
---
--- * 'clPackages' - An array of @Package@ objects that describes the layer packages.
---
--- * 'clAttributes' - One or more user-defined key-value pairs to be added to the stack attributes. To create a cluster layer, set the @EcsClusterArn@ attribute to the cluster's ARN.
---
--- * 'clAutoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
---
--- * 'clUseEBSOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
---
--- * 'clAutoAssignElasticIPs' - Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
---
--- * 'clStackId' - The layer stack ID.
---
--- * 'clType' - The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
---
--- * 'clName' - The layer name, which is used by the console.
---
--- * 'clShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
-createLayer ::
-  -- | 'clStackId'
-  Text ->
-  -- | 'clType'
+-- The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
+-- * 'stackId' - The layer stack ID.
+-- * 'type'' - The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
+-- * 'useEBSOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
+-- * 'volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
+mkCreateLayer ::
+  -- | 'stackId'
+  Lude.Text ->
+  -- | 'type''
   LayerType ->
-  -- | 'clName'
-  Text ->
-  -- | 'clShortname'
-  Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'shortname'
+  Lude.Text ->
   CreateLayer
-createLayer pStackId_ pType_ pName_ pShortname_ =
+mkCreateLayer pStackId_ pType_ pName_ pShortname_ =
   CreateLayer'
-    { _clCustomInstanceProfileARN = Nothing,
-      _clCustomSecurityGroupIds = Nothing,
-      _clInstallUpdatesOnBoot = Nothing,
-      _clCloudWatchLogsConfiguration = Nothing,
-      _clLifecycleEventConfiguration = Nothing,
-      _clCustomRecipes = Nothing,
-      _clCustomJSON = Nothing,
-      _clVolumeConfigurations = Nothing,
-      _clEnableAutoHealing = Nothing,
-      _clPackages = Nothing,
-      _clAttributes = Nothing,
-      _clAutoAssignPublicIPs = Nothing,
-      _clUseEBSOptimizedInstances = Nothing,
-      _clAutoAssignElasticIPs = Nothing,
-      _clStackId = pStackId_,
-      _clType = pType_,
-      _clName = pName_,
-      _clShortname = pShortname_
+    { customInstanceProfileARN = Lude.Nothing,
+      customSecurityGroupIds = Lude.Nothing,
+      installUpdatesOnBoot = Lude.Nothing,
+      cloudWatchLogsConfiguration = Lude.Nothing,
+      lifecycleEventConfiguration = Lude.Nothing,
+      customRecipes = Lude.Nothing,
+      customJSON = Lude.Nothing,
+      volumeConfigurations = Lude.Nothing,
+      enableAutoHealing = Lude.Nothing,
+      packages = Lude.Nothing,
+      attributes = Lude.Nothing,
+      autoAssignPublicIPs = Lude.Nothing,
+      useEBSOptimizedInstances = Lude.Nothing,
+      autoAssignElasticIPs = Lude.Nothing,
+      stackId = pStackId_,
+      type' = pType_,
+      name = pName_,
+      shortname = pShortname_
     }
 
 -- | The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
-clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\s a -> s {_clCustomInstanceProfileARN = a})
+--
+-- /Note:/ Consider using 'customInstanceProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clCustomInstanceProfileARN :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Text)
+clCustomInstanceProfileARN = Lens.lens (customInstanceProfileARN :: CreateLayer -> Lude.Maybe Lude.Text) (\s a -> s {customInstanceProfileARN = a} :: CreateLayer)
+{-# DEPRECATED clCustomInstanceProfileARN "Use generic-lens or generic-optics with 'customInstanceProfileARN' instead." #-}
 
 -- | An array containing the layer custom security group IDs.
-clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
-clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\s a -> s {_clCustomSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'customSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clCustomSecurityGroupIds :: Lens.Lens' CreateLayer (Lude.Maybe [Lude.Text])
+clCustomSecurityGroupIds = Lens.lens (customSecurityGroupIds :: CreateLayer -> Lude.Maybe [Lude.Text]) (\s a -> s {customSecurityGroupIds = a} :: CreateLayer)
+{-# DEPRECATED clCustomSecurityGroupIds "Use generic-lens or generic-optics with 'customSecurityGroupIds' instead." #-}
 
 -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
-clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
-clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\s a -> s {_clInstallUpdatesOnBoot = a})
+--
+-- /Note:/ Consider using 'installUpdatesOnBoot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clInstallUpdatesOnBoot :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Bool)
+clInstallUpdatesOnBoot = Lens.lens (installUpdatesOnBoot :: CreateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {installUpdatesOnBoot = a} :: CreateLayer)
+{-# DEPRECATED clInstallUpdatesOnBoot "Use generic-lens or generic-optics with 'installUpdatesOnBoot' instead." #-}
 
 -- | Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
-clCloudWatchLogsConfiguration :: Lens' CreateLayer (Maybe CloudWatchLogsConfiguration)
-clCloudWatchLogsConfiguration = lens _clCloudWatchLogsConfiguration (\s a -> s {_clCloudWatchLogsConfiguration = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clCloudWatchLogsConfiguration :: Lens.Lens' CreateLayer (Lude.Maybe CloudWatchLogsConfiguration)
+clCloudWatchLogsConfiguration = Lens.lens (cloudWatchLogsConfiguration :: CreateLayer -> Lude.Maybe CloudWatchLogsConfiguration) (\s a -> s {cloudWatchLogsConfiguration = a} :: CreateLayer)
+{-# DEPRECATED clCloudWatchLogsConfiguration "Use generic-lens or generic-optics with 'cloudWatchLogsConfiguration' instead." #-}
 
 -- | A @LifeCycleEventConfiguration@ object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
-clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
-clLifecycleEventConfiguration = lens _clLifecycleEventConfiguration (\s a -> s {_clLifecycleEventConfiguration = a})
+--
+-- /Note:/ Consider using 'lifecycleEventConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clLifecycleEventConfiguration :: Lens.Lens' CreateLayer (Lude.Maybe LifecycleEventConfiguration)
+clLifecycleEventConfiguration = Lens.lens (lifecycleEventConfiguration :: CreateLayer -> Lude.Maybe LifecycleEventConfiguration) (\s a -> s {lifecycleEventConfiguration = a} :: CreateLayer)
+{-# DEPRECATED clLifecycleEventConfiguration "Use generic-lens or generic-optics with 'lifecycleEventConfiguration' instead." #-}
 
 -- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
-clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
-clCustomRecipes = lens _clCustomRecipes (\s a -> s {_clCustomRecipes = a})
+--
+-- /Note:/ Consider using 'customRecipes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clCustomRecipes :: Lens.Lens' CreateLayer (Lude.Maybe Recipes)
+clCustomRecipes = Lens.lens (customRecipes :: CreateLayer -> Lude.Maybe Recipes) (\s a -> s {customRecipes = a} :: CreateLayer)
+{-# DEPRECATED clCustomRecipes "Use generic-lens or generic-optics with 'customRecipes' instead." #-}
 
 -- | A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> . This feature is supported as of version 1.7.42 of the AWS CLI.
-clCustomJSON :: Lens' CreateLayer (Maybe Text)
-clCustomJSON = lens _clCustomJSON (\s a -> s {_clCustomJSON = a})
+--
+-- /Note:/ Consider using 'customJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clCustomJSON :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Text)
+clCustomJSON = Lens.lens (customJSON :: CreateLayer -> Lude.Maybe Lude.Text) (\s a -> s {customJSON = a} :: CreateLayer)
+{-# DEPRECATED clCustomJSON "Use generic-lens or generic-optics with 'customJSON' instead." #-}
 
 -- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
-clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
-clVolumeConfigurations = lens _clVolumeConfigurations (\s a -> s {_clVolumeConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumeConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clVolumeConfigurations :: Lens.Lens' CreateLayer (Lude.Maybe [VolumeConfiguration])
+clVolumeConfigurations = Lens.lens (volumeConfigurations :: CreateLayer -> Lude.Maybe [VolumeConfiguration]) (\s a -> s {volumeConfigurations = a} :: CreateLayer)
+{-# DEPRECATED clVolumeConfigurations "Use generic-lens or generic-optics with 'volumeConfigurations' instead." #-}
 
 -- | Whether to disable auto healing for the layer.
-clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
-clEnableAutoHealing = lens _clEnableAutoHealing (\s a -> s {_clEnableAutoHealing = a})
+--
+-- /Note:/ Consider using 'enableAutoHealing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clEnableAutoHealing :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Bool)
+clEnableAutoHealing = Lens.lens (enableAutoHealing :: CreateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {enableAutoHealing = a} :: CreateLayer)
+{-# DEPRECATED clEnableAutoHealing "Use generic-lens or generic-optics with 'enableAutoHealing' instead." #-}
 
 -- | An array of @Package@ objects that describes the layer packages.
-clPackages :: Lens' CreateLayer [Text]
-clPackages = lens _clPackages (\s a -> s {_clPackages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'packages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clPackages :: Lens.Lens' CreateLayer (Lude.Maybe [Lude.Text])
+clPackages = Lens.lens (packages :: CreateLayer -> Lude.Maybe [Lude.Text]) (\s a -> s {packages = a} :: CreateLayer)
+{-# DEPRECATED clPackages "Use generic-lens or generic-optics with 'packages' instead." #-}
 
--- | One or more user-defined key-value pairs to be added to the stack attributes. To create a cluster layer, set the @EcsClusterArn@ attribute to the cluster's ARN.
-clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys (Maybe Text))
-clAttributes = lens _clAttributes (\s a -> s {_clAttributes = a}) . _Default . _Map
+-- | One or more user-defined key-value pairs to be added to the stack attributes.
+--
+-- To create a cluster layer, set the @EcsClusterArn@ attribute to the cluster's ARN.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clAttributes :: Lens.Lens' CreateLayer (Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text)))
+clAttributes = Lens.lens (attributes :: CreateLayer -> Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text))) (\s a -> s {attributes = a} :: CreateLayer)
+{-# DEPRECATED clAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
-clAutoAssignPublicIPs :: Lens' CreateLayer (Maybe Bool)
-clAutoAssignPublicIPs = lens _clAutoAssignPublicIPs (\s a -> s {_clAutoAssignPublicIPs = a})
+--
+-- /Note:/ Consider using 'autoAssignPublicIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clAutoAssignPublicIPs :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Bool)
+clAutoAssignPublicIPs = Lens.lens (autoAssignPublicIPs :: CreateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {autoAssignPublicIPs = a} :: CreateLayer)
+{-# DEPRECATED clAutoAssignPublicIPs "Use generic-lens or generic-optics with 'autoAssignPublicIPs' instead." #-}
 
 -- | Whether to use Amazon EBS-optimized instances.
-clUseEBSOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
-clUseEBSOptimizedInstances = lens _clUseEBSOptimizedInstances (\s a -> s {_clUseEBSOptimizedInstances = a})
+--
+-- /Note:/ Consider using 'useEBSOptimizedInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clUseEBSOptimizedInstances :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Bool)
+clUseEBSOptimizedInstances = Lens.lens (useEBSOptimizedInstances :: CreateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {useEBSOptimizedInstances = a} :: CreateLayer)
+{-# DEPRECATED clUseEBSOptimizedInstances "Use generic-lens or generic-optics with 'useEBSOptimizedInstances' instead." #-}
 
 -- | Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
-clAutoAssignElasticIPs :: Lens' CreateLayer (Maybe Bool)
-clAutoAssignElasticIPs = lens _clAutoAssignElasticIPs (\s a -> s {_clAutoAssignElasticIPs = a})
+--
+-- /Note:/ Consider using 'autoAssignElasticIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clAutoAssignElasticIPs :: Lens.Lens' CreateLayer (Lude.Maybe Lude.Bool)
+clAutoAssignElasticIPs = Lens.lens (autoAssignElasticIPs :: CreateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {autoAssignElasticIPs = a} :: CreateLayer)
+{-# DEPRECATED clAutoAssignElasticIPs "Use generic-lens or generic-optics with 'autoAssignElasticIPs' instead." #-}
 
 -- | The layer stack ID.
-clStackId :: Lens' CreateLayer Text
-clStackId = lens _clStackId (\s a -> s {_clStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clStackId :: Lens.Lens' CreateLayer Lude.Text
+clStackId = Lens.lens (stackId :: CreateLayer -> Lude.Text) (\s a -> s {stackId = a} :: CreateLayer)
+{-# DEPRECATED clStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
-clType :: Lens' CreateLayer LayerType
-clType = lens _clType (\s a -> s {_clType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clType :: Lens.Lens' CreateLayer LayerType
+clType = Lens.lens (type' :: CreateLayer -> LayerType) (\s a -> s {type' = a} :: CreateLayer)
+{-# DEPRECATED clType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The layer name, which is used by the console.
-clName :: Lens' CreateLayer Text
-clName = lens _clName (\s a -> s {_clName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clName :: Lens.Lens' CreateLayer Lude.Text
+clName = Lens.lens (name :: CreateLayer -> Lude.Text) (\s a -> s {name = a} :: CreateLayer)
+{-# DEPRECATED clName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
-clShortname :: Lens' CreateLayer Text
-clShortname = lens _clShortname (\s a -> s {_clShortname = a})
+-- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
+--
+-- The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
+--
+-- /Note:/ Consider using 'shortname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clShortname :: Lens.Lens' CreateLayer Lude.Text
+clShortname = Lens.lens (shortname :: CreateLayer -> Lude.Text) (\s a -> s {shortname = a} :: CreateLayer)
+{-# DEPRECATED clShortname "Use generic-lens or generic-optics with 'shortname' instead." #-}
 
-instance AWSRequest CreateLayer where
+instance Lude.AWSRequest CreateLayer where
   type Rs CreateLayer = CreateLayerResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateLayerResponse' <$> (x .?> "LayerId") <*> (pure (fromEnum s))
+          CreateLayerResponse'
+            Lude.<$> (x Lude..?> "LayerId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateLayer
-
-instance NFData CreateLayer
-
-instance ToHeaders CreateLayer where
+instance Lude.ToHeaders CreateLayer where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.CreateLayer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.CreateLayer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateLayer where
+instance Lude.ToJSON CreateLayer where
   toJSON CreateLayer' {..} =
-    object
-      ( catMaybes
-          [ ("CustomInstanceProfileArn" .=) <$> _clCustomInstanceProfileARN,
-            ("CustomSecurityGroupIds" .=) <$> _clCustomSecurityGroupIds,
-            ("InstallUpdatesOnBoot" .=) <$> _clInstallUpdatesOnBoot,
-            ("CloudWatchLogsConfiguration" .=)
-              <$> _clCloudWatchLogsConfiguration,
-            ("LifecycleEventConfiguration" .=)
-              <$> _clLifecycleEventConfiguration,
-            ("CustomRecipes" .=) <$> _clCustomRecipes,
-            ("CustomJson" .=) <$> _clCustomJSON,
-            ("VolumeConfigurations" .=) <$> _clVolumeConfigurations,
-            ("EnableAutoHealing" .=) <$> _clEnableAutoHealing,
-            ("Packages" .=) <$> _clPackages,
-            ("Attributes" .=) <$> _clAttributes,
-            ("AutoAssignPublicIps" .=) <$> _clAutoAssignPublicIPs,
-            ("UseEbsOptimizedInstances" .=) <$> _clUseEBSOptimizedInstances,
-            ("AutoAssignElasticIps" .=) <$> _clAutoAssignElasticIPs,
-            Just ("StackId" .= _clStackId),
-            Just ("Type" .= _clType),
-            Just ("Name" .= _clName),
-            Just ("Shortname" .= _clShortname)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CustomInstanceProfileArn" Lude..=)
+              Lude.<$> customInstanceProfileARN,
+            ("CustomSecurityGroupIds" Lude..=) Lude.<$> customSecurityGroupIds,
+            ("InstallUpdatesOnBoot" Lude..=) Lude.<$> installUpdatesOnBoot,
+            ("CloudWatchLogsConfiguration" Lude..=)
+              Lude.<$> cloudWatchLogsConfiguration,
+            ("LifecycleEventConfiguration" Lude..=)
+              Lude.<$> lifecycleEventConfiguration,
+            ("CustomRecipes" Lude..=) Lude.<$> customRecipes,
+            ("CustomJson" Lude..=) Lude.<$> customJSON,
+            ("VolumeConfigurations" Lude..=) Lude.<$> volumeConfigurations,
+            ("EnableAutoHealing" Lude..=) Lude.<$> enableAutoHealing,
+            ("Packages" Lude..=) Lude.<$> packages,
+            ("Attributes" Lude..=) Lude.<$> attributes,
+            ("AutoAssignPublicIps" Lude..=) Lude.<$> autoAssignPublicIPs,
+            ("UseEbsOptimizedInstances" Lude..=)
+              Lude.<$> useEBSOptimizedInstances,
+            ("AutoAssignElasticIps" Lude..=) Lude.<$> autoAssignElasticIPs,
+            Lude.Just ("StackId" Lude..= stackId),
+            Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Shortname" Lude..= shortname)
           ]
       )
 
-instance ToPath CreateLayer where
-  toPath = const "/"
+instance Lude.ToPath CreateLayer where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateLayer where
-  toQuery = const mempty
+instance Lude.ToQuery CreateLayer where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @CreateLayer@ request.
 --
---
---
--- /See:/ 'createLayerResponse' smart constructor.
+-- /See:/ 'mkCreateLayerResponse' smart constructor.
 data CreateLayerResponse = CreateLayerResponse'
-  { _clrsLayerId ::
-      !(Maybe Text),
-    _clrsResponseStatus :: !Int
+  { layerId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLayerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clrsLayerId' - The layer ID.
---
--- * 'clrsResponseStatus' - -- | The response status code.
-createLayerResponse ::
-  -- | 'clrsResponseStatus'
-  Int ->
+-- * 'layerId' - The layer ID.
+-- * 'responseStatus' - The response status code.
+mkCreateLayerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLayerResponse
-createLayerResponse pResponseStatus_ =
+mkCreateLayerResponse pResponseStatus_ =
   CreateLayerResponse'
-    { _clrsLayerId = Nothing,
-      _clrsResponseStatus = pResponseStatus_
+    { layerId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The layer ID.
-clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
-clrsLayerId = lens _clrsLayerId (\s a -> s {_clrsLayerId = a})
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsLayerId :: Lens.Lens' CreateLayerResponse (Lude.Maybe Lude.Text)
+clrsLayerId = Lens.lens (layerId :: CreateLayerResponse -> Lude.Maybe Lude.Text) (\s a -> s {layerId = a} :: CreateLayerResponse)
+{-# DEPRECATED clrsLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
--- | -- | The response status code.
-clrsResponseStatus :: Lens' CreateLayerResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\s a -> s {_clrsResponseStatus = a})
-
-instance NFData CreateLayerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsResponseStatus :: Lens.Lens' CreateLayerResponse Lude.Int
+clrsResponseStatus = Lens.lens (responseStatus :: CreateLayerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLayerResponse)
+{-# DEPRECATED clrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

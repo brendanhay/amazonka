@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager where
+module Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager
+  ( OperatingSystemConfigurationManager (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOperatingSystemConfigurationManager,
+
+    -- * Lenses
+    oscmName,
+    oscmVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A block that contains information about the configuration manager (Chef) and the versions of the configuration manager that are supported for an operating system.
 --
---
---
--- /See:/ 'operatingSystemConfigurationManager' smart constructor.
+-- /See:/ 'mkOperatingSystemConfigurationManager' smart constructor.
 data OperatingSystemConfigurationManager = OperatingSystemConfigurationManager'
-  { _oscmName ::
-      !(Maybe Text),
-    _oscmVersion ::
-      !(Maybe Text)
+  { name ::
+      Lude.Maybe
+        Lude.Text,
+    version ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperatingSystemConfigurationManager' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oscmName' - The name of the configuration manager, which is Chef.
---
--- * 'oscmVersion' - The versions of the configuration manager that are supported by an operating system.
-operatingSystemConfigurationManager ::
+-- * 'name' - The name of the configuration manager, which is Chef.
+-- * 'version' - The versions of the configuration manager that are supported by an operating system.
+mkOperatingSystemConfigurationManager ::
   OperatingSystemConfigurationManager
-operatingSystemConfigurationManager =
+mkOperatingSystemConfigurationManager =
   OperatingSystemConfigurationManager'
-    { _oscmName = Nothing,
-      _oscmVersion = Nothing
+    { name = Lude.Nothing,
+      version = Lude.Nothing
     }
 
 -- | The name of the configuration manager, which is Chef.
-oscmName :: Lens' OperatingSystemConfigurationManager (Maybe Text)
-oscmName = lens _oscmName (\s a -> s {_oscmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oscmName :: Lens.Lens' OperatingSystemConfigurationManager (Lude.Maybe Lude.Text)
+oscmName = Lens.lens (name :: OperatingSystemConfigurationManager -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OperatingSystemConfigurationManager)
+{-# DEPRECATED oscmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The versions of the configuration manager that are supported by an operating system.
-oscmVersion :: Lens' OperatingSystemConfigurationManager (Maybe Text)
-oscmVersion = lens _oscmVersion (\s a -> s {_oscmVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oscmVersion :: Lens.Lens' OperatingSystemConfigurationManager (Lude.Maybe Lude.Text)
+oscmVersion = Lens.lens (version :: OperatingSystemConfigurationManager -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: OperatingSystemConfigurationManager)
+{-# DEPRECATED oscmVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromJSON OperatingSystemConfigurationManager where
+instance Lude.FromJSON OperatingSystemConfigurationManager where
   parseJSON =
-    withObject
+    Lude.withObject
       "OperatingSystemConfigurationManager"
       ( \x ->
           OperatingSystemConfigurationManager'
-            <$> (x .:? "Name") <*> (x .:? "Version")
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Version")
       )
-
-instance Hashable OperatingSystemConfigurationManager
-
-instance NFData OperatingSystemConfigurationManager

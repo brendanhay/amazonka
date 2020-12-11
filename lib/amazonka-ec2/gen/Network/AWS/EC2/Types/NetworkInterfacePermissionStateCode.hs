@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode where
+module Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode
+  ( NetworkInterfacePermissionStateCode
+      ( NetworkInterfacePermissionStateCode',
+        NIPSCGranted,
+        NIPSCPending,
+        NIPSCRevoked,
+        NIPSCRevoking
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NetworkInterfacePermissionStateCode
-  = NIPSCGranted
-  | NIPSCPending
-  | NIPSCRevoked
-  | NIPSCRevoking
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NetworkInterfacePermissionStateCode = NetworkInterfacePermissionStateCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NetworkInterfacePermissionStateCode where
-  parser =
-    takeLowerText >>= \case
-      "granted" -> pure NIPSCGranted
-      "pending" -> pure NIPSCPending
-      "revoked" -> pure NIPSCRevoked
-      "revoking" -> pure NIPSCRevoking
-      e ->
-        fromTextError $
-          "Failure parsing NetworkInterfacePermissionStateCode from value: '" <> e
-            <> "'. Accepted values: granted, pending, revoked, revoking"
+pattern NIPSCGranted :: NetworkInterfacePermissionStateCode
+pattern NIPSCGranted = NetworkInterfacePermissionStateCode' "granted"
 
-instance ToText NetworkInterfacePermissionStateCode where
-  toText = \case
-    NIPSCGranted -> "granted"
-    NIPSCPending -> "pending"
-    NIPSCRevoked -> "revoked"
-    NIPSCRevoking -> "revoking"
+pattern NIPSCPending :: NetworkInterfacePermissionStateCode
+pattern NIPSCPending = NetworkInterfacePermissionStateCode' "pending"
 
-instance Hashable NetworkInterfacePermissionStateCode
+pattern NIPSCRevoked :: NetworkInterfacePermissionStateCode
+pattern NIPSCRevoked = NetworkInterfacePermissionStateCode' "revoked"
 
-instance NFData NetworkInterfacePermissionStateCode
+pattern NIPSCRevoking :: NetworkInterfacePermissionStateCode
+pattern NIPSCRevoking = NetworkInterfacePermissionStateCode' "revoking"
 
-instance ToByteString NetworkInterfacePermissionStateCode
-
-instance ToQuery NetworkInterfacePermissionStateCode
-
-instance ToHeader NetworkInterfacePermissionStateCode
-
-instance FromXML NetworkInterfacePermissionStateCode where
-  parseXML = parseXMLText "NetworkInterfacePermissionStateCode"
+{-# COMPLETE
+  NIPSCGranted,
+  NIPSCPending,
+  NIPSCRevoked,
+  NIPSCRevoking,
+  NetworkInterfacePermissionStateCode'
+  #-}

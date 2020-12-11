@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.FieldLogLevel where
+module Network.AWS.AppSync.Types.FieldLogLevel
+  ( FieldLogLevel
+      ( FieldLogLevel',
+        FLLAll,
+        FLLError,
+        FLLNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FieldLogLevel
-  = FLLAll
-  | FLLError'
-  | FLLNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FieldLogLevel = FieldLogLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FieldLogLevel where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure FLLAll
-      "error" -> pure FLLError'
-      "none" -> pure FLLNone
-      e ->
-        fromTextError $
-          "Failure parsing FieldLogLevel from value: '" <> e
-            <> "'. Accepted values: all, error, none"
+pattern FLLAll :: FieldLogLevel
+pattern FLLAll = FieldLogLevel' "ALL"
 
-instance ToText FieldLogLevel where
-  toText = \case
-    FLLAll -> "ALL"
-    FLLError' -> "ERROR"
-    FLLNone -> "NONE"
+pattern FLLError :: FieldLogLevel
+pattern FLLError = FieldLogLevel' "ERROR"
 
-instance Hashable FieldLogLevel
+pattern FLLNone :: FieldLogLevel
+pattern FLLNone = FieldLogLevel' "NONE"
 
-instance NFData FieldLogLevel
-
-instance ToByteString FieldLogLevel
-
-instance ToQuery FieldLogLevel
-
-instance ToHeader FieldLogLevel
-
-instance ToJSON FieldLogLevel where
-  toJSON = toJSONText
-
-instance FromJSON FieldLogLevel where
-  parseJSON = parseJSONText "FieldLogLevel"
+{-# COMPLETE
+  FLLAll,
+  FLLError,
+  FLLNone,
+  FieldLogLevel'
+  #-}

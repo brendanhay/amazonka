@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerState where
+module Network.AWS.Lightsail.Types.LoadBalancerState
+  ( LoadBalancerState
+      ( LoadBalancerState',
+        LBSActive,
+        LBSActiveImpaired,
+        LBSFailed,
+        LBSProvisioning,
+        LBSUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerState
-  = LBSActive
-  | LBSActiveImpaired
-  | LBSFailed
-  | LBSProvisioning
-  | LBSUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerState = LoadBalancerState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure LBSActive
-      "active_impaired" -> pure LBSActiveImpaired
-      "failed" -> pure LBSFailed
-      "provisioning" -> pure LBSProvisioning
-      "unknown" -> pure LBSUnknown
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerState from value: '" <> e
-            <> "'. Accepted values: active, active_impaired, failed, provisioning, unknown"
+pattern LBSActive :: LoadBalancerState
+pattern LBSActive = LoadBalancerState' "active"
 
-instance ToText LoadBalancerState where
-  toText = \case
-    LBSActive -> "active"
-    LBSActiveImpaired -> "active_impaired"
-    LBSFailed -> "failed"
-    LBSProvisioning -> "provisioning"
-    LBSUnknown -> "unknown"
+pattern LBSActiveImpaired :: LoadBalancerState
+pattern LBSActiveImpaired = LoadBalancerState' "active_impaired"
 
-instance Hashable LoadBalancerState
+pattern LBSFailed :: LoadBalancerState
+pattern LBSFailed = LoadBalancerState' "failed"
 
-instance NFData LoadBalancerState
+pattern LBSProvisioning :: LoadBalancerState
+pattern LBSProvisioning = LoadBalancerState' "provisioning"
 
-instance ToByteString LoadBalancerState
+pattern LBSUnknown :: LoadBalancerState
+pattern LBSUnknown = LoadBalancerState' "unknown"
 
-instance ToQuery LoadBalancerState
-
-instance ToHeader LoadBalancerState
-
-instance FromJSON LoadBalancerState where
-  parseJSON = parseJSONText "LoadBalancerState"
+{-# COMPLETE
+  LBSActive,
+  LBSActiveImpaired,
+  LBSFailed,
+  LBSProvisioning,
+  LBSUnknown,
+  LoadBalancerState'
+  #-}

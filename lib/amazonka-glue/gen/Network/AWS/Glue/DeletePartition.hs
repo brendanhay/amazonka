@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,160 @@
 --
 -- Deletes a specified partition.
 module Network.AWS.Glue.DeletePartition
-  ( -- * Creating a Request
-    deletePartition,
-    DeletePartition,
+  ( -- * Creating a request
+    DeletePartition (..),
+    mkDeletePartition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpCatalogId,
     dpDatabaseName,
     dpTableName,
     dpPartitionValues,
 
-    -- * Destructuring the Response
-    deletePartitionResponse,
-    DeletePartitionResponse,
+    -- * Destructuring the response
+    DeletePartitionResponse (..),
+    mkDeletePartitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dprsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deletePartition' smart constructor.
+-- | /See:/ 'mkDeletePartition' smart constructor.
 data DeletePartition = DeletePartition'
-  { _dpCatalogId ::
-      !(Maybe Text),
-    _dpDatabaseName :: !Text,
-    _dpTableName :: !Text,
-    _dpPartitionValues :: ![Text]
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text,
+    partitionValues :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpCatalogId' - The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
---
--- * 'dpDatabaseName' - The name of the catalog database in which the table in question resides.
---
--- * 'dpTableName' - The name of the table that contains the partition to be deleted.
---
--- * 'dpPartitionValues' - The values that define the partition.
-deletePartition ::
-  -- | 'dpDatabaseName'
-  Text ->
-  -- | 'dpTableName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the catalog database in which the table in question resides.
+-- * 'partitionValues' - The values that define the partition.
+-- * 'tableName' - The name of the table that contains the partition to be deleted.
+mkDeletePartition ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   DeletePartition
-deletePartition pDatabaseName_ pTableName_ =
+mkDeletePartition pDatabaseName_ pTableName_ =
   DeletePartition'
-    { _dpCatalogId = Nothing,
-      _dpDatabaseName = pDatabaseName_,
-      _dpTableName = pTableName_,
-      _dpPartitionValues = mempty
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      partitionValues = Lude.mempty
     }
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
-dpCatalogId :: Lens' DeletePartition (Maybe Text)
-dpCatalogId = lens _dpCatalogId (\s a -> s {_dpCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpCatalogId :: Lens.Lens' DeletePartition (Lude.Maybe Lude.Text)
+dpCatalogId = Lens.lens (catalogId :: DeletePartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeletePartition)
+{-# DEPRECATED dpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database in which the table in question resides.
-dpDatabaseName :: Lens' DeletePartition Text
-dpDatabaseName = lens _dpDatabaseName (\s a -> s {_dpDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDatabaseName :: Lens.Lens' DeletePartition Lude.Text
+dpDatabaseName = Lens.lens (databaseName :: DeletePartition -> Lude.Text) (\s a -> s {databaseName = a} :: DeletePartition)
+{-# DEPRECATED dpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table that contains the partition to be deleted.
-dpTableName :: Lens' DeletePartition Text
-dpTableName = lens _dpTableName (\s a -> s {_dpTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpTableName :: Lens.Lens' DeletePartition Lude.Text
+dpTableName = Lens.lens (tableName :: DeletePartition -> Lude.Text) (\s a -> s {tableName = a} :: DeletePartition)
+{-# DEPRECATED dpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The values that define the partition.
-dpPartitionValues :: Lens' DeletePartition [Text]
-dpPartitionValues = lens _dpPartitionValues (\s a -> s {_dpPartitionValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPartitionValues :: Lens.Lens' DeletePartition [Lude.Text]
+dpPartitionValues = Lens.lens (partitionValues :: DeletePartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: DeletePartition)
+{-# DEPRECATED dpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
 
-instance AWSRequest DeletePartition where
+instance Lude.AWSRequest DeletePartition where
   type Rs DeletePartition = DeletePartitionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> DeletePartitionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeletePartitionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeletePartition
-
-instance NFData DeletePartition
-
-instance ToHeaders DeletePartition where
+instance Lude.ToHeaders DeletePartition where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.DeletePartition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.DeletePartition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeletePartition where
+instance Lude.ToJSON DeletePartition where
   toJSON DeletePartition' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _dpCatalogId,
-            Just ("DatabaseName" .= _dpDatabaseName),
-            Just ("TableName" .= _dpTableName),
-            Just ("PartitionValues" .= _dpPartitionValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionValues" Lude..= partitionValues)
           ]
       )
 
-instance ToPath DeletePartition where
-  toPath = const "/"
+instance Lude.ToPath DeletePartition where
+  toPath = Lude.const "/"
 
-instance ToQuery DeletePartition where
-  toQuery = const mempty
+instance Lude.ToQuery DeletePartition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deletePartitionResponse' smart constructor.
+-- | /See:/ 'mkDeletePartitionResponse' smart constructor.
 newtype DeletePartitionResponse = DeletePartitionResponse'
-  { _dprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dprsResponseStatus' - -- | The response status code.
-deletePartitionResponse ::
-  -- | 'dprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeletePartitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeletePartitionResponse
-deletePartitionResponse pResponseStatus_ =
-  DeletePartitionResponse' {_dprsResponseStatus = pResponseStatus_}
+mkDeletePartitionResponse pResponseStatus_ =
+  DeletePartitionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DeletePartitionResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\s a -> s {_dprsResponseStatus = a})
-
-instance NFData DeletePartitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprsResponseStatus :: Lens.Lens' DeletePartitionResponse Lude.Int
+dprsResponseStatus = Lens.lens (responseStatus :: DeletePartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePartitionResponse)
+{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

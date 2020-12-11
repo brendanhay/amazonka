@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable where
+module Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
+  ( BatchPredictionFilterVariable
+      ( BatchPredictionFilterVariable',
+        BatchCreatedAt,
+        BatchDataSourceId,
+        BatchDataURI,
+        BatchIAMUser,
+        BatchLastUpdatedAt,
+        BatchMLModelId,
+        BatchName,
+        BatchStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of the variables to use in searching or filtering @BatchPrediction@ .
 --
 --
---     * @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation date.    * @Status@ - Sets the search criteria to @BatchPrediction@ status.    * @Name@ - Sets the search criteria to the contents of @BatchPrediction@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.    * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .    * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-data BatchPredictionFilterVariable
-  = BatchCreatedAt
-  | BatchDataSourceId
-  | BatchDataURI
-  | BatchIAMUser
-  | BatchLastUpdatedAt
-  | BatchMLModelId
-  | BatchName
-  | BatchStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+--     * @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation date.
+--
+--     * @Status@ - Sets the search criteria to @BatchPrediction@ status.
+--
+--     * @Name@ - Sets the search criteria to the contents of @BatchPrediction@ ____ @Name@ .
+--
+--     * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.
+--
+--     * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .
+--
+--     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .
+--
+--     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
+newtype BatchPredictionFilterVariable = BatchPredictionFilterVariable' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BatchPredictionFilterVariable where
-  parser =
-    takeLowerText >>= \case
-      "createdat" -> pure BatchCreatedAt
-      "datasourceid" -> pure BatchDataSourceId
-      "datauri" -> pure BatchDataURI
-      "iamuser" -> pure BatchIAMUser
-      "lastupdatedat" -> pure BatchLastUpdatedAt
-      "mlmodelid" -> pure BatchMLModelId
-      "name" -> pure BatchName
-      "status" -> pure BatchStatus
-      e ->
-        fromTextError $
-          "Failure parsing BatchPredictionFilterVariable from value: '" <> e
-            <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
+pattern BatchCreatedAt :: BatchPredictionFilterVariable
+pattern BatchCreatedAt = BatchPredictionFilterVariable' "CreatedAt"
 
-instance ToText BatchPredictionFilterVariable where
-  toText = \case
-    BatchCreatedAt -> "CreatedAt"
-    BatchDataSourceId -> "DataSourceId"
-    BatchDataURI -> "DataURI"
-    BatchIAMUser -> "IAMUser"
-    BatchLastUpdatedAt -> "LastUpdatedAt"
-    BatchMLModelId -> "MLModelId"
-    BatchName -> "Name"
-    BatchStatus -> "Status"
+pattern BatchDataSourceId :: BatchPredictionFilterVariable
+pattern BatchDataSourceId = BatchPredictionFilterVariable' "DataSourceId"
 
-instance Hashable BatchPredictionFilterVariable
+pattern BatchDataURI :: BatchPredictionFilterVariable
+pattern BatchDataURI = BatchPredictionFilterVariable' "DataURI"
 
-instance NFData BatchPredictionFilterVariable
+pattern BatchIAMUser :: BatchPredictionFilterVariable
+pattern BatchIAMUser = BatchPredictionFilterVariable' "IAMUser"
 
-instance ToByteString BatchPredictionFilterVariable
+pattern BatchLastUpdatedAt :: BatchPredictionFilterVariable
+pattern BatchLastUpdatedAt = BatchPredictionFilterVariable' "LastUpdatedAt"
 
-instance ToQuery BatchPredictionFilterVariable
+pattern BatchMLModelId :: BatchPredictionFilterVariable
+pattern BatchMLModelId = BatchPredictionFilterVariable' "MLModelId"
 
-instance ToHeader BatchPredictionFilterVariable
+pattern BatchName :: BatchPredictionFilterVariable
+pattern BatchName = BatchPredictionFilterVariable' "Name"
 
-instance ToJSON BatchPredictionFilterVariable where
-  toJSON = toJSONText
+pattern BatchStatus :: BatchPredictionFilterVariable
+pattern BatchStatus = BatchPredictionFilterVariable' "Status"
+
+{-# COMPLETE
+  BatchCreatedAt,
+  BatchDataSourceId,
+  BatchDataURI,
+  BatchIAMUser,
+  BatchLastUpdatedAt,
+  BatchMLModelId,
+  BatchName,
+  BatchStatus,
+  BatchPredictionFilterVariable'
+  #-}

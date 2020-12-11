@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceMetering.Types.UsageAllocation where
+module Network.AWS.MarketplaceMetering.Types.UsageAllocation
+  ( UsageAllocation (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkUsageAllocation,
+
+    -- * Lenses
+    uaTags,
+    uaAllocatedUsageQuantity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types.Tag
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Usage allocations allow you to split usage into buckets by tags.
 --
---
 -- Each UsageAllocation indicates the usage quantity for a specific set of tags.
 --
---
--- /See:/ 'usageAllocation' smart constructor.
+-- /See:/ 'mkUsageAllocation' smart constructor.
 data UsageAllocation = UsageAllocation'
-  { _uaTags ::
-      !(Maybe (List1 Tag)),
-    _uaAllocatedUsageQuantity :: !Nat
+  { tags ::
+      Lude.Maybe (Lude.NonEmpty Tag),
+    allocatedUsageQuantity :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageAllocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaTags' - The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.
---
--- * 'uaAllocatedUsageQuantity' - The total quantity allocated to this bucket of usage.
-usageAllocation ::
-  -- | 'uaAllocatedUsageQuantity'
-  Natural ->
+-- * 'allocatedUsageQuantity' - The total quantity allocated to this bucket of usage.
+-- * 'tags' - The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.
+mkUsageAllocation ::
+  -- | 'allocatedUsageQuantity'
+  Lude.Natural ->
   UsageAllocation
-usageAllocation pAllocatedUsageQuantity_ =
+mkUsageAllocation pAllocatedUsageQuantity_ =
   UsageAllocation'
-    { _uaTags = Nothing,
-      _uaAllocatedUsageQuantity = _Nat # pAllocatedUsageQuantity_
+    { tags = Lude.Nothing,
+      allocatedUsageQuantity = pAllocatedUsageQuantity_
     }
 
 -- | The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.
-uaTags :: Lens' UsageAllocation (Maybe (NonEmpty Tag))
-uaTags = lens _uaTags (\s a -> s {_uaTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaTags :: Lens.Lens' UsageAllocation (Lude.Maybe (Lude.NonEmpty Tag))
+uaTags = Lens.lens (tags :: UsageAllocation -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: UsageAllocation)
+{-# DEPRECATED uaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The total quantity allocated to this bucket of usage.
-uaAllocatedUsageQuantity :: Lens' UsageAllocation Natural
-uaAllocatedUsageQuantity = lens _uaAllocatedUsageQuantity (\s a -> s {_uaAllocatedUsageQuantity = a}) . _Nat
+--
+-- /Note:/ Consider using 'allocatedUsageQuantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAllocatedUsageQuantity :: Lens.Lens' UsageAllocation Lude.Natural
+uaAllocatedUsageQuantity = Lens.lens (allocatedUsageQuantity :: UsageAllocation -> Lude.Natural) (\s a -> s {allocatedUsageQuantity = a} :: UsageAllocation)
+{-# DEPRECATED uaAllocatedUsageQuantity "Use generic-lens or generic-optics with 'allocatedUsageQuantity' instead." #-}
 
-instance FromJSON UsageAllocation where
+instance Lude.FromJSON UsageAllocation where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageAllocation"
       ( \x ->
           UsageAllocation'
-            <$> (x .:? "Tags") <*> (x .: "AllocatedUsageQuantity")
+            Lude.<$> (x Lude..:? "Tags") Lude.<*> (x Lude..: "AllocatedUsageQuantity")
       )
 
-instance Hashable UsageAllocation
-
-instance NFData UsageAllocation
-
-instance ToJSON UsageAllocation where
+instance Lude.ToJSON UsageAllocation where
   toJSON UsageAllocation' {..} =
-    object
-      ( catMaybes
-          [ ("Tags" .=) <$> _uaTags,
-            Just ("AllocatedUsageQuantity" .= _uaAllocatedUsageQuantity)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just
+              ("AllocatedUsageQuantity" Lude..= allocatedUsageQuantity)
           ]
       )

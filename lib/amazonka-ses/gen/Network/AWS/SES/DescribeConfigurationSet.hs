@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Returns the details of the specified configuration set. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.DescribeConfigurationSet
-  ( -- * Creating a Request
-    describeConfigurationSet,
-    DescribeConfigurationSet,
+  ( -- * Creating a request
+    DescribeConfigurationSet (..),
+    mkDescribeConfigurationSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcsConfigurationSetAttributeNames,
     dcsConfigurationSetName,
 
-    -- * Destructuring the Response
-    describeConfigurationSetResponse,
-    DescribeConfigurationSetResponse,
+    -- * Destructuring the response
+    DescribeConfigurationSetResponse (..),
+    mkDescribeConfigurationSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcsrsDeliveryOptions,
     dcsrsTrackingOptions,
     dcsrsConfigurationSet,
@@ -44,166 +38,186 @@ module Network.AWS.SES.DescribeConfigurationSet
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to return the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'describeConfigurationSet' smart constructor.
+-- /See:/ 'mkDescribeConfigurationSet' smart constructor.
 data DescribeConfigurationSet = DescribeConfigurationSet'
-  { _dcsConfigurationSetAttributeNames ::
-      !(Maybe [ConfigurationSetAttribute]),
-    _dcsConfigurationSetName :: !Text
+  { configurationSetAttributeNames ::
+      Lude.Maybe [ConfigurationSetAttribute],
+    configurationSetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsConfigurationSetAttributeNames' - A list of configuration set attributes to return.
---
--- * 'dcsConfigurationSetName' - The name of the configuration set to describe.
-describeConfigurationSet ::
-  -- | 'dcsConfigurationSetName'
-  Text ->
+-- * 'configurationSetAttributeNames' - A list of configuration set attributes to return.
+-- * 'configurationSetName' - The name of the configuration set to describe.
+mkDescribeConfigurationSet ::
+  -- | 'configurationSetName'
+  Lude.Text ->
   DescribeConfigurationSet
-describeConfigurationSet pConfigurationSetName_ =
+mkDescribeConfigurationSet pConfigurationSetName_ =
   DescribeConfigurationSet'
-    { _dcsConfigurationSetAttributeNames =
-        Nothing,
-      _dcsConfigurationSetName = pConfigurationSetName_
+    { configurationSetAttributeNames =
+        Lude.Nothing,
+      configurationSetName = pConfigurationSetName_
     }
 
 -- | A list of configuration set attributes to return.
-dcsConfigurationSetAttributeNames :: Lens' DescribeConfigurationSet [ConfigurationSetAttribute]
-dcsConfigurationSetAttributeNames = lens _dcsConfigurationSetAttributeNames (\s a -> s {_dcsConfigurationSetAttributeNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationSetAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsConfigurationSetAttributeNames :: Lens.Lens' DescribeConfigurationSet (Lude.Maybe [ConfigurationSetAttribute])
+dcsConfigurationSetAttributeNames = Lens.lens (configurationSetAttributeNames :: DescribeConfigurationSet -> Lude.Maybe [ConfigurationSetAttribute]) (\s a -> s {configurationSetAttributeNames = a} :: DescribeConfigurationSet)
+{-# DEPRECATED dcsConfigurationSetAttributeNames "Use generic-lens or generic-optics with 'configurationSetAttributeNames' instead." #-}
 
 -- | The name of the configuration set to describe.
-dcsConfigurationSetName :: Lens' DescribeConfigurationSet Text
-dcsConfigurationSetName = lens _dcsConfigurationSetName (\s a -> s {_dcsConfigurationSetName = a})
+--
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsConfigurationSetName :: Lens.Lens' DescribeConfigurationSet Lude.Text
+dcsConfigurationSetName = Lens.lens (configurationSetName :: DescribeConfigurationSet -> Lude.Text) (\s a -> s {configurationSetName = a} :: DescribeConfigurationSet)
+{-# DEPRECATED dcsConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
-instance AWSRequest DescribeConfigurationSet where
+instance Lude.AWSRequest DescribeConfigurationSet where
   type Rs DescribeConfigurationSet = DescribeConfigurationSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeConfigurationSetResult"
       ( \s h x ->
           DescribeConfigurationSetResponse'
-            <$> (x .@? "DeliveryOptions")
-            <*> (x .@? "TrackingOptions")
-            <*> (x .@? "ConfigurationSet")
-            <*> (x .@? "ReputationOptions")
-            <*> ( x .@? "EventDestinations" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DeliveryOptions")
+            Lude.<*> (x Lude..@? "TrackingOptions")
+            Lude.<*> (x Lude..@? "ConfigurationSet")
+            Lude.<*> (x Lude..@? "ReputationOptions")
+            Lude.<*> ( x Lude..@? "EventDestinations" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfigurationSet
+instance Lude.ToHeaders DescribeConfigurationSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeConfigurationSet
+instance Lude.ToPath DescribeConfigurationSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeConfigurationSet where
-  toHeaders = const mempty
-
-instance ToPath DescribeConfigurationSet where
-  toPath = const "/"
-
-instance ToQuery DescribeConfigurationSet where
+instance Lude.ToQuery DescribeConfigurationSet where
   toQuery DescribeConfigurationSet' {..} =
-    mconcat
-      [ "Action" =: ("DescribeConfigurationSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeConfigurationSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
         "ConfigurationSetAttributeNames"
-          =: toQuery
-            (toQueryList "member" <$> _dcsConfigurationSetAttributeNames),
-        "ConfigurationSetName" =: _dcsConfigurationSetName
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "member"
+                Lude.<$> configurationSetAttributeNames
+            ),
+        "ConfigurationSetName" Lude.=: configurationSetName
       ]
 
 -- | Represents the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'describeConfigurationSetResponse' smart constructor.
+-- /See:/ 'mkDescribeConfigurationSetResponse' smart constructor.
 data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
-  { _dcsrsDeliveryOptions ::
-      !(Maybe DeliveryOptions),
-    _dcsrsTrackingOptions ::
-      !(Maybe TrackingOptions),
-    _dcsrsConfigurationSet ::
-      !(Maybe ConfigurationSet),
-    _dcsrsReputationOptions ::
-      !( Maybe
-           ReputationOptions
-       ),
-    _dcsrsEventDestinations ::
-      !( Maybe
-           [EventDestination]
-       ),
-    _dcsrsResponseStatus ::
-      !Int
+  { deliveryOptions ::
+      Lude.Maybe
+        DeliveryOptions,
+    trackingOptions ::
+      Lude.Maybe
+        TrackingOptions,
+    configurationSet ::
+      Lude.Maybe
+        ConfigurationSet,
+    reputationOptions ::
+      Lude.Maybe
+        ReputationOptions,
+    eventDestinations ::
+      Lude.Maybe
+        [EventDestination],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsrsDeliveryOptions' - Undocumented member.
---
--- * 'dcsrsTrackingOptions' - The name of the custom open and click tracking domain associated with the configuration set.
---
--- * 'dcsrsConfigurationSet' - The configuration set object associated with the specified configuration set.
---
--- * 'dcsrsReputationOptions' - An object that represents the reputation settings for the configuration set.
---
--- * 'dcsrsEventDestinations' - A list of event destinations associated with the configuration set.
---
--- * 'dcsrsResponseStatus' - -- | The response status code.
-describeConfigurationSetResponse ::
-  -- | 'dcsrsResponseStatus'
-  Int ->
+-- * 'configurationSet' - The configuration set object associated with the specified configuration set.
+-- * 'deliveryOptions' - Undocumented field.
+-- * 'eventDestinations' - A list of event destinations associated with the configuration set.
+-- * 'reputationOptions' - An object that represents the reputation settings for the configuration set.
+-- * 'responseStatus' - The response status code.
+-- * 'trackingOptions' - The name of the custom open and click tracking domain associated with the configuration set.
+mkDescribeConfigurationSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigurationSetResponse
-describeConfigurationSetResponse pResponseStatus_ =
+mkDescribeConfigurationSetResponse pResponseStatus_ =
   DescribeConfigurationSetResponse'
-    { _dcsrsDeliveryOptions =
-        Nothing,
-      _dcsrsTrackingOptions = Nothing,
-      _dcsrsConfigurationSet = Nothing,
-      _dcsrsReputationOptions = Nothing,
-      _dcsrsEventDestinations = Nothing,
-      _dcsrsResponseStatus = pResponseStatus_
+    { deliveryOptions = Lude.Nothing,
+      trackingOptions = Lude.Nothing,
+      configurationSet = Lude.Nothing,
+      reputationOptions = Lude.Nothing,
+      eventDestinations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dcsrsDeliveryOptions :: Lens' DescribeConfigurationSetResponse (Maybe DeliveryOptions)
-dcsrsDeliveryOptions = lens _dcsrsDeliveryOptions (\s a -> s {_dcsrsDeliveryOptions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'deliveryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsDeliveryOptions :: Lens.Lens' DescribeConfigurationSetResponse (Lude.Maybe DeliveryOptions)
+dcsrsDeliveryOptions = Lens.lens (deliveryOptions :: DescribeConfigurationSetResponse -> Lude.Maybe DeliveryOptions) (\s a -> s {deliveryOptions = a} :: DescribeConfigurationSetResponse)
+{-# DEPRECATED dcsrsDeliveryOptions "Use generic-lens or generic-optics with 'deliveryOptions' instead." #-}
 
 -- | The name of the custom open and click tracking domain associated with the configuration set.
-dcsrsTrackingOptions :: Lens' DescribeConfigurationSetResponse (Maybe TrackingOptions)
-dcsrsTrackingOptions = lens _dcsrsTrackingOptions (\s a -> s {_dcsrsTrackingOptions = a})
+--
+-- /Note:/ Consider using 'trackingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsTrackingOptions :: Lens.Lens' DescribeConfigurationSetResponse (Lude.Maybe TrackingOptions)
+dcsrsTrackingOptions = Lens.lens (trackingOptions :: DescribeConfigurationSetResponse -> Lude.Maybe TrackingOptions) (\s a -> s {trackingOptions = a} :: DescribeConfigurationSetResponse)
+{-# DEPRECATED dcsrsTrackingOptions "Use generic-lens or generic-optics with 'trackingOptions' instead." #-}
 
 -- | The configuration set object associated with the specified configuration set.
-dcsrsConfigurationSet :: Lens' DescribeConfigurationSetResponse (Maybe ConfigurationSet)
-dcsrsConfigurationSet = lens _dcsrsConfigurationSet (\s a -> s {_dcsrsConfigurationSet = a})
+--
+-- /Note:/ Consider using 'configurationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsConfigurationSet :: Lens.Lens' DescribeConfigurationSetResponse (Lude.Maybe ConfigurationSet)
+dcsrsConfigurationSet = Lens.lens (configurationSet :: DescribeConfigurationSetResponse -> Lude.Maybe ConfigurationSet) (\s a -> s {configurationSet = a} :: DescribeConfigurationSetResponse)
+{-# DEPRECATED dcsrsConfigurationSet "Use generic-lens or generic-optics with 'configurationSet' instead." #-}
 
 -- | An object that represents the reputation settings for the configuration set.
-dcsrsReputationOptions :: Lens' DescribeConfigurationSetResponse (Maybe ReputationOptions)
-dcsrsReputationOptions = lens _dcsrsReputationOptions (\s a -> s {_dcsrsReputationOptions = a})
+--
+-- /Note:/ Consider using 'reputationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsReputationOptions :: Lens.Lens' DescribeConfigurationSetResponse (Lude.Maybe ReputationOptions)
+dcsrsReputationOptions = Lens.lens (reputationOptions :: DescribeConfigurationSetResponse -> Lude.Maybe ReputationOptions) (\s a -> s {reputationOptions = a} :: DescribeConfigurationSetResponse)
+{-# DEPRECATED dcsrsReputationOptions "Use generic-lens or generic-optics with 'reputationOptions' instead." #-}
 
 -- | A list of event destinations associated with the configuration set.
-dcsrsEventDestinations :: Lens' DescribeConfigurationSetResponse [EventDestination]
-dcsrsEventDestinations = lens _dcsrsEventDestinations (\s a -> s {_dcsrsEventDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventDestinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsEventDestinations :: Lens.Lens' DescribeConfigurationSetResponse (Lude.Maybe [EventDestination])
+dcsrsEventDestinations = Lens.lens (eventDestinations :: DescribeConfigurationSetResponse -> Lude.Maybe [EventDestination]) (\s a -> s {eventDestinations = a} :: DescribeConfigurationSetResponse)
+{-# DEPRECATED dcsrsEventDestinations "Use generic-lens or generic-optics with 'eventDestinations' instead." #-}
 
--- | -- | The response status code.
-dcsrsResponseStatus :: Lens' DescribeConfigurationSetResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\s a -> s {_dcsrsResponseStatus = a})
-
-instance NFData DescribeConfigurationSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsResponseStatus :: Lens.Lens' DescribeConfigurationSetResponse Lude.Int
+dcsrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationSetResponse)
+{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

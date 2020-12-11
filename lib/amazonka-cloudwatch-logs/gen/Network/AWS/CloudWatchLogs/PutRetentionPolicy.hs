@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,114 @@
 --
 -- Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
-  ( -- * Creating a Request
-    putRetentionPolicy,
-    PutRetentionPolicy,
+  ( -- * Creating a request
+    PutRetentionPolicy (..),
+    mkPutRetentionPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     prpLogGroupName,
     prpRetentionInDays,
 
-    -- * Destructuring the Response
-    putRetentionPolicyResponse,
-    PutRetentionPolicyResponse,
+    -- * Destructuring the response
+    PutRetentionPolicyResponse (..),
+    mkPutRetentionPolicyResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putRetentionPolicy' smart constructor.
+-- | /See:/ 'mkPutRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
-  { _prpLogGroupName ::
-      !Text,
-    _prpRetentionInDays :: !Int
+  { logGroupName ::
+      Lude.Text,
+    retentionInDays :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRetentionPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prpLogGroupName' - The name of the log group.
---
--- * 'prpRetentionInDays' - Undocumented member.
-putRetentionPolicy ::
-  -- | 'prpLogGroupName'
-  Text ->
-  -- | 'prpRetentionInDays'
-  Int ->
+-- * 'logGroupName' - The name of the log group.
+-- * 'retentionInDays' - Undocumented field.
+mkPutRetentionPolicy ::
+  -- | 'logGroupName'
+  Lude.Text ->
+  -- | 'retentionInDays'
+  Lude.Int ->
   PutRetentionPolicy
-putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
+mkPutRetentionPolicy pLogGroupName_ pRetentionInDays_ =
   PutRetentionPolicy'
-    { _prpLogGroupName = pLogGroupName_,
-      _prpRetentionInDays = pRetentionInDays_
+    { logGroupName = pLogGroupName_,
+      retentionInDays = pRetentionInDays_
     }
 
 -- | The name of the log group.
-prpLogGroupName :: Lens' PutRetentionPolicy Text
-prpLogGroupName = lens _prpLogGroupName (\s a -> s {_prpLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpLogGroupName :: Lens.Lens' PutRetentionPolicy Lude.Text
+prpLogGroupName = Lens.lens (logGroupName :: PutRetentionPolicy -> Lude.Text) (\s a -> s {logGroupName = a} :: PutRetentionPolicy)
+{-# DEPRECATED prpLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | Undocumented member.
-prpRetentionInDays :: Lens' PutRetentionPolicy Int
-prpRetentionInDays = lens _prpRetentionInDays (\s a -> s {_prpRetentionInDays = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'retentionInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpRetentionInDays :: Lens.Lens' PutRetentionPolicy Lude.Int
+prpRetentionInDays = Lens.lens (retentionInDays :: PutRetentionPolicy -> Lude.Int) (\s a -> s {retentionInDays = a} :: PutRetentionPolicy)
+{-# DEPRECATED prpRetentionInDays "Use generic-lens or generic-optics with 'retentionInDays' instead." #-}
 
-instance AWSRequest PutRetentionPolicy where
+instance Lude.AWSRequest PutRetentionPolicy where
   type Rs PutRetentionPolicy = PutRetentionPolicyResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull PutRetentionPolicyResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull PutRetentionPolicyResponse'
 
-instance Hashable PutRetentionPolicy
-
-instance NFData PutRetentionPolicy
-
-instance ToHeaders PutRetentionPolicy where
+instance Lude.ToHeaders PutRetentionPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.PutRetentionPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.PutRetentionPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutRetentionPolicy where
+instance Lude.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("logGroupName" .= _prpLogGroupName),
-            Just ("retentionInDays" .= _prpRetentionInDays)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("logGroupName" Lude..= logGroupName),
+            Lude.Just ("retentionInDays" Lude..= retentionInDays)
           ]
       )
 
-instance ToPath PutRetentionPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutRetentionPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutRetentionPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutRetentionPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putRetentionPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutRetentionPolicyResponse' smart constructor.
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRetentionPolicyResponse' with the minimum fields required to make a request.
-putRetentionPolicyResponse ::
+mkPutRetentionPolicyResponse ::
   PutRetentionPolicyResponse
-putRetentionPolicyResponse = PutRetentionPolicyResponse'
-
-instance NFData PutRetentionPolicyResponse
+mkPutRetentionPolicyResponse = PutRetentionPolicyResponse'

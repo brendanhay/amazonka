@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDeviceConfigurableSettings where
+module Network.AWS.MediaLive.Types.InputDeviceConfigurableSettings
+  ( InputDeviceConfigurableSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputDeviceConfigurableSettings,
+
+    -- * Lenses
+    idcsConfiguredInput,
+    idcsMaxBitrate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputDeviceConfiguredInput
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configurable settings for the input device.
 --
--- /See:/ 'inputDeviceConfigurableSettings' smart constructor.
+-- /See:/ 'mkInputDeviceConfigurableSettings' smart constructor.
 data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
-  { _idcsConfiguredInput ::
-      !( Maybe
-           InputDeviceConfiguredInput
-       ),
-    _idcsMaxBitrate ::
-      !(Maybe Int)
+  { configuredInput ::
+      Lude.Maybe
+        InputDeviceConfiguredInput,
+    maxBitrate ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDeviceConfigurableSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idcsConfiguredInput' - The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
---
--- * 'idcsMaxBitrate' - The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
-inputDeviceConfigurableSettings ::
+-- * 'configuredInput' - The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
+-- * 'maxBitrate' - The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
+mkInputDeviceConfigurableSettings ::
   InputDeviceConfigurableSettings
-inputDeviceConfigurableSettings =
+mkInputDeviceConfigurableSettings =
   InputDeviceConfigurableSettings'
-    { _idcsConfiguredInput = Nothing,
-      _idcsMaxBitrate = Nothing
+    { configuredInput = Lude.Nothing,
+      maxBitrate = Lude.Nothing
     }
 
 -- | The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
-idcsConfiguredInput :: Lens' InputDeviceConfigurableSettings (Maybe InputDeviceConfiguredInput)
-idcsConfiguredInput = lens _idcsConfiguredInput (\s a -> s {_idcsConfiguredInput = a})
+--
+-- /Note:/ Consider using 'configuredInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idcsConfiguredInput :: Lens.Lens' InputDeviceConfigurableSettings (Lude.Maybe InputDeviceConfiguredInput)
+idcsConfiguredInput = Lens.lens (configuredInput :: InputDeviceConfigurableSettings -> Lude.Maybe InputDeviceConfiguredInput) (\s a -> s {configuredInput = a} :: InputDeviceConfigurableSettings)
+{-# DEPRECATED idcsConfiguredInput "Use generic-lens or generic-optics with 'configuredInput' instead." #-}
 
 -- | The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
-idcsMaxBitrate :: Lens' InputDeviceConfigurableSettings (Maybe Int)
-idcsMaxBitrate = lens _idcsMaxBitrate (\s a -> s {_idcsMaxBitrate = a})
+--
+-- /Note:/ Consider using 'maxBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idcsMaxBitrate :: Lens.Lens' InputDeviceConfigurableSettings (Lude.Maybe Lude.Int)
+idcsMaxBitrate = Lens.lens (maxBitrate :: InputDeviceConfigurableSettings -> Lude.Maybe Lude.Int) (\s a -> s {maxBitrate = a} :: InputDeviceConfigurableSettings)
+{-# DEPRECATED idcsMaxBitrate "Use generic-lens or generic-optics with 'maxBitrate' instead." #-}
 
-instance Hashable InputDeviceConfigurableSettings
-
-instance NFData InputDeviceConfigurableSettings
-
-instance ToJSON InputDeviceConfigurableSettings where
+instance Lude.ToJSON InputDeviceConfigurableSettings where
   toJSON InputDeviceConfigurableSettings' {..} =
-    object
-      ( catMaybes
-          [ ("configuredInput" .=) <$> _idcsConfiguredInput,
-            ("maxBitrate" .=) <$> _idcsMaxBitrate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("configuredInput" Lude..=) Lude.<$> configuredInput,
+            ("maxBitrate" Lude..=) Lude.<$> maxBitrate
           ]
       )

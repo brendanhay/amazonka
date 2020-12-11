@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.OriginProtocolPolicyEnum where
+module Network.AWS.Lightsail.Types.OriginProtocolPolicyEnum
+  ( OriginProtocolPolicyEnum
+      ( OriginProtocolPolicyEnum',
+        HTTPOnly,
+        HTTPSOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OriginProtocolPolicyEnum
-  = HTTPOnly
-  | HTTPSOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OriginProtocolPolicyEnum = OriginProtocolPolicyEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OriginProtocolPolicyEnum where
-  parser =
-    takeLowerText >>= \case
-      "http-only" -> pure HTTPOnly
-      "https-only" -> pure HTTPSOnly
-      e ->
-        fromTextError $
-          "Failure parsing OriginProtocolPolicyEnum from value: '" <> e
-            <> "'. Accepted values: http-only, https-only"
+pattern HTTPOnly :: OriginProtocolPolicyEnum
+pattern HTTPOnly = OriginProtocolPolicyEnum' "http-only"
 
-instance ToText OriginProtocolPolicyEnum where
-  toText = \case
-    HTTPOnly -> "http-only"
-    HTTPSOnly -> "https-only"
+pattern HTTPSOnly :: OriginProtocolPolicyEnum
+pattern HTTPSOnly = OriginProtocolPolicyEnum' "https-only"
 
-instance Hashable OriginProtocolPolicyEnum
-
-instance NFData OriginProtocolPolicyEnum
-
-instance ToByteString OriginProtocolPolicyEnum
-
-instance ToQuery OriginProtocolPolicyEnum
-
-instance ToHeader OriginProtocolPolicyEnum
-
-instance ToJSON OriginProtocolPolicyEnum where
-  toJSON = toJSONText
-
-instance FromJSON OriginProtocolPolicyEnum where
-  parseJSON = parseJSONText "OriginProtocolPolicyEnum"
+{-# COMPLETE
+  HTTPOnly,
+  HTTPSOnly,
+  OriginProtocolPolicyEnum'
+  #-}

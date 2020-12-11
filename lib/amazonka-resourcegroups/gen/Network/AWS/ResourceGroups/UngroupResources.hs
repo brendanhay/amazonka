@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,151 @@
 --
 -- Removes the specified resources from the specified group.
 module Network.AWS.ResourceGroups.UngroupResources
-  ( -- * Creating a Request
-    ungroupResources,
-    UngroupResources,
+  ( -- * Creating a request
+    UngroupResources (..),
+    mkUngroupResources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urGroup,
     urResourceARNs,
 
-    -- * Destructuring the Response
-    ungroupResourcesResponse,
-    UngroupResourcesResponse,
+    -- * Destructuring the response
+    UngroupResourcesResponse (..),
+    mkUngroupResourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsSucceeded,
     urrsFailed,
     urrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'ungroupResources' smart constructor.
+-- | /See:/ 'mkUngroupResources' smart constructor.
 data UngroupResources = UngroupResources'
-  { _urGroup :: !Text,
-    _urResourceARNs :: !(List1 Text)
+  { group :: Lude.Text,
+    resourceARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UngroupResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urGroup' - The name or the ARN of the resource group from which to remove the resources.
---
--- * 'urResourceARNs' - The ARNs of the resources to be removed from the group.
-ungroupResources ::
-  -- | 'urGroup'
-  Text ->
-  -- | 'urResourceARNs'
-  NonEmpty Text ->
+-- * 'group' - The name or the ARN of the resource group from which to remove the resources.
+-- * 'resourceARNs' - The ARNs of the resources to be removed from the group.
+mkUngroupResources ::
+  -- | 'group'
+  Lude.Text ->
+  -- | 'resourceARNs'
+  Lude.NonEmpty Lude.Text ->
   UngroupResources
-ungroupResources pGroup_ pResourceARNs_ =
-  UngroupResources'
-    { _urGroup = pGroup_,
-      _urResourceARNs = _List1 # pResourceARNs_
-    }
+mkUngroupResources pGroup_ pResourceARNs_ =
+  UngroupResources' {group = pGroup_, resourceARNs = pResourceARNs_}
 
 -- | The name or the ARN of the resource group from which to remove the resources.
-urGroup :: Lens' UngroupResources Text
-urGroup = lens _urGroup (\s a -> s {_urGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urGroup :: Lens.Lens' UngroupResources Lude.Text
+urGroup = Lens.lens (group :: UngroupResources -> Lude.Text) (\s a -> s {group = a} :: UngroupResources)
+{-# DEPRECATED urGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The ARNs of the resources to be removed from the group.
-urResourceARNs :: Lens' UngroupResources (NonEmpty Text)
-urResourceARNs = lens _urResourceARNs (\s a -> s {_urResourceARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARNs :: Lens.Lens' UngroupResources (Lude.NonEmpty Lude.Text)
+urResourceARNs = Lens.lens (resourceARNs :: UngroupResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNs = a} :: UngroupResources)
+{-# DEPRECATED urResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
-instance AWSRequest UngroupResources where
+instance Lude.AWSRequest UngroupResources where
   type Rs UngroupResources = UngroupResourcesResponse
-  request = postJSON resourceGroups
+  request = Req.postJSON resourceGroupsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UngroupResourcesResponse'
-            <$> (x .?> "Succeeded")
-            <*> (x .?> "Failed" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Succeeded")
+            Lude.<*> (x Lude..?> "Failed" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UngroupResources
+instance Lude.ToHeaders UngroupResources where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UngroupResources
-
-instance ToHeaders UngroupResources where
-  toHeaders = const mempty
-
-instance ToJSON UngroupResources where
+instance Lude.ToJSON UngroupResources where
   toJSON UngroupResources' {..} =
-    object
-      ( catMaybes
-          [ Just ("Group" .= _urGroup),
-            Just ("ResourceArns" .= _urResourceARNs)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Group" Lude..= group),
+            Lude.Just ("ResourceArns" Lude..= resourceARNs)
           ]
       )
 
-instance ToPath UngroupResources where
-  toPath = const "/ungroup-resources"
+instance Lude.ToPath UngroupResources where
+  toPath = Lude.const "/ungroup-resources"
 
-instance ToQuery UngroupResources where
-  toQuery = const mempty
+instance Lude.ToQuery UngroupResources where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'ungroupResourcesResponse' smart constructor.
+-- | /See:/ 'mkUngroupResourcesResponse' smart constructor.
 data UngroupResourcesResponse = UngroupResourcesResponse'
-  { _urrsSucceeded ::
-      !(Maybe (List1 Text)),
-    _urrsFailed :: !(Maybe [FailedResource]),
-    _urrsResponseStatus :: !Int
+  { succeeded ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    failed :: Lude.Maybe [FailedResource],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UngroupResourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsSucceeded' - The ARNs of the resources that were successfully removed from the group.
---
--- * 'urrsFailed' - The resources that failed to be removed from the group.
---
--- * 'urrsResponseStatus' - -- | The response status code.
-ungroupResourcesResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'failed' - The resources that failed to be removed from the group.
+-- * 'responseStatus' - The response status code.
+-- * 'succeeded' - The ARNs of the resources that were successfully removed from the group.
+mkUngroupResourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UngroupResourcesResponse
-ungroupResourcesResponse pResponseStatus_ =
+mkUngroupResourcesResponse pResponseStatus_ =
   UngroupResourcesResponse'
-    { _urrsSucceeded = Nothing,
-      _urrsFailed = Nothing,
-      _urrsResponseStatus = pResponseStatus_
+    { succeeded = Lude.Nothing,
+      failed = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARNs of the resources that were successfully removed from the group.
-urrsSucceeded :: Lens' UngroupResourcesResponse (Maybe (NonEmpty Text))
-urrsSucceeded = lens _urrsSucceeded (\s a -> s {_urrsSucceeded = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsSucceeded :: Lens.Lens' UngroupResourcesResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+urrsSucceeded = Lens.lens (succeeded :: UngroupResourcesResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {succeeded = a} :: UngroupResourcesResponse)
+{-# DEPRECATED urrsSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | The resources that failed to be removed from the group.
-urrsFailed :: Lens' UngroupResourcesResponse [FailedResource]
-urrsFailed = lens _urrsFailed (\s a -> s {_urrsFailed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsFailed :: Lens.Lens' UngroupResourcesResponse (Lude.Maybe [FailedResource])
+urrsFailed = Lens.lens (failed :: UngroupResourcesResponse -> Lude.Maybe [FailedResource]) (\s a -> s {failed = a} :: UngroupResourcesResponse)
+{-# DEPRECATED urrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UngroupResourcesResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UngroupResourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UngroupResourcesResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UngroupResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UngroupResourcesResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

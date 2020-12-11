@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.DistributionList where
+module Network.AWS.CloudFront.Types.DistributionList
+  ( DistributionList (..),
+
+    -- * Smart constructor
+    mkDistributionList,
+
+    -- * Lenses
+    dlItems,
+    dlNextMarker,
+    dlMarker,
+    dlMaxItems,
+    dlIsTruncated,
+    dlQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.DistributionSummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A distribution list.
 --
---
---
--- /See:/ 'distributionList' smart constructor.
+-- /See:/ 'mkDistributionList' smart constructor.
 data DistributionList = DistributionList'
-  { _dlItems ::
-      !(Maybe [DistributionSummary]),
-    _dlNextMarker :: !(Maybe Text),
-    _dlMarker :: !Text,
-    _dlMaxItems :: !Int,
-    _dlIsTruncated :: !Bool,
-    _dlQuantity :: !Int
+  { items ::
+      Lude.Maybe [DistributionSummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    marker :: Lude.Text,
+    maxItems :: Lude.Int,
+    isTruncated :: Lude.Bool,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DistributionList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlItems' - A complex type that contains one @DistributionSummary@ element for each distribution that was created by the current AWS account.
---
--- * 'dlNextMarker' - If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your distributions where they left off.
---
--- * 'dlMarker' - The value you provided for the @Marker@ request parameter.
---
--- * 'dlMaxItems' - The value you provided for the @MaxItems@ request parameter.
---
--- * 'dlIsTruncated' - A flag that indicates whether more distributions remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more distributions in the list.
---
--- * 'dlQuantity' - The number of distributions that were created by the current AWS account.
-distributionList ::
-  -- | 'dlMarker'
-  Text ->
-  -- | 'dlMaxItems'
-  Int ->
-  -- | 'dlIsTruncated'
-  Bool ->
-  -- | 'dlQuantity'
-  Int ->
+-- * 'isTruncated' - A flag that indicates whether more distributions remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more distributions in the list.
+-- * 'items' - A complex type that contains one @DistributionSummary@ element for each distribution that was created by the current AWS account.
+-- * 'marker' - The value you provided for the @Marker@ request parameter.
+-- * 'maxItems' - The value you provided for the @MaxItems@ request parameter.
+-- * 'nextMarker' - If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your distributions where they left off.
+-- * 'quantity' - The number of distributions that were created by the current AWS account.
+mkDistributionList ::
+  -- | 'marker'
+  Lude.Text ->
+  -- | 'maxItems'
+  Lude.Int ->
+  -- | 'isTruncated'
+  Lude.Bool ->
+  -- | 'quantity'
+  Lude.Int ->
   DistributionList
-distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
+mkDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
   DistributionList'
-    { _dlItems = Nothing,
-      _dlNextMarker = Nothing,
-      _dlMarker = pMarker_,
-      _dlMaxItems = pMaxItems_,
-      _dlIsTruncated = pIsTruncated_,
-      _dlQuantity = pQuantity_
+    { items = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      marker = pMarker_,
+      maxItems = pMaxItems_,
+      isTruncated = pIsTruncated_,
+      quantity = pQuantity_
     }
 
 -- | A complex type that contains one @DistributionSummary@ element for each distribution that was created by the current AWS account.
-dlItems :: Lens' DistributionList [DistributionSummary]
-dlItems = lens _dlItems (\s a -> s {_dlItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlItems :: Lens.Lens' DistributionList (Lude.Maybe [DistributionSummary])
+dlItems = Lens.lens (items :: DistributionList -> Lude.Maybe [DistributionSummary]) (\s a -> s {items = a} :: DistributionList)
+{-# DEPRECATED dlItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your distributions where they left off.
-dlNextMarker :: Lens' DistributionList (Maybe Text)
-dlNextMarker = lens _dlNextMarker (\s a -> s {_dlNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlNextMarker :: Lens.Lens' DistributionList (Lude.Maybe Lude.Text)
+dlNextMarker = Lens.lens (nextMarker :: DistributionList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DistributionList)
+{-# DEPRECATED dlNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The value you provided for the @Marker@ request parameter.
-dlMarker :: Lens' DistributionList Text
-dlMarker = lens _dlMarker (\s a -> s {_dlMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlMarker :: Lens.Lens' DistributionList Lude.Text
+dlMarker = Lens.lens (marker :: DistributionList -> Lude.Text) (\s a -> s {marker = a} :: DistributionList)
+{-# DEPRECATED dlMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The value you provided for the @MaxItems@ request parameter.
-dlMaxItems :: Lens' DistributionList Int
-dlMaxItems = lens _dlMaxItems (\s a -> s {_dlMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlMaxItems :: Lens.Lens' DistributionList Lude.Int
+dlMaxItems = Lens.lens (maxItems :: DistributionList -> Lude.Int) (\s a -> s {maxItems = a} :: DistributionList)
+{-# DEPRECATED dlMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | A flag that indicates whether more distributions remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more distributions in the list.
-dlIsTruncated :: Lens' DistributionList Bool
-dlIsTruncated = lens _dlIsTruncated (\s a -> s {_dlIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlIsTruncated :: Lens.Lens' DistributionList Lude.Bool
+dlIsTruncated = Lens.lens (isTruncated :: DistributionList -> Lude.Bool) (\s a -> s {isTruncated = a} :: DistributionList)
+{-# DEPRECATED dlIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | The number of distributions that were created by the current AWS account.
-dlQuantity :: Lens' DistributionList Int
-dlQuantity = lens _dlQuantity (\s a -> s {_dlQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlQuantity :: Lens.Lens' DistributionList Lude.Int
+dlQuantity = Lens.lens (quantity :: DistributionList -> Lude.Int) (\s a -> s {quantity = a} :: DistributionList)
+{-# DEPRECATED dlQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML DistributionList where
+instance Lude.FromXML DistributionList where
   parseXML x =
     DistributionList'
-      <$> ( x .@? "Items" .!@ mempty
-              >>= may (parseXMLList "DistributionSummary")
-          )
-      <*> (x .@? "NextMarker")
-      <*> (x .@ "Marker")
-      <*> (x .@ "MaxItems")
-      <*> (x .@ "IsTruncated")
-      <*> (x .@ "Quantity")
-
-instance Hashable DistributionList
-
-instance NFData DistributionList
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DistributionSummary")
+               )
+      Lude.<*> (x Lude..@? "NextMarker")
+      Lude.<*> (x Lude..@ "Marker")
+      Lude.<*> (x Lude..@ "MaxItems")
+      Lude.<*> (x Lude..@ "IsTruncated")
+      Lude.<*> (x Lude..@ "Quantity")

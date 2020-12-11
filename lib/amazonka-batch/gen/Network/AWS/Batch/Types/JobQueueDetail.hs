@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,153 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JobQueueDetail where
+module Network.AWS.Batch.Types.JobQueueDetail
+  ( JobQueueDetail (..),
+
+    -- * Smart constructor
+    mkJobQueueDetail,
+
+    -- * Lenses
+    jqdStatus,
+    jqdStatusReason,
+    jqdTags,
+    jqdJobQueueName,
+    jqdJobQueueARN,
+    jqdState,
+    jqdPriority,
+    jqdComputeEnvironmentOrder,
+  )
+where
 
 import Network.AWS.Batch.Types.ComputeEnvironmentOrder
 import Network.AWS.Batch.Types.JQState
 import Network.AWS.Batch.Types.JQStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the details of an AWS Batch job queue.
 --
---
---
--- /See:/ 'jobQueueDetail' smart constructor.
+-- /See:/ 'mkJobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
-  { _jqdStatus ::
-      !(Maybe JQStatus),
-    _jqdStatusReason :: !(Maybe Text),
-    _jqdTags :: !(Maybe (Map Text (Text))),
-    _jqdJobQueueName :: !Text,
-    _jqdJobQueueARN :: !Text,
-    _jqdState :: !JQState,
-    _jqdPriority :: !Int,
-    _jqdComputeEnvironmentOrder :: ![ComputeEnvironmentOrder]
+  { status ::
+      Lude.Maybe JQStatus,
+    statusReason :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    jobQueueName :: Lude.Text,
+    jobQueueARN :: Lude.Text,
+    state :: JQState,
+    priority :: Lude.Int,
+    computeEnvironmentOrder :: [ComputeEnvironmentOrder]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobQueueDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jqdStatus' - The status of the job queue (for example, @CREATING@ or @VALID@ ).
---
--- * 'jqdStatusReason' - A short, human-readable string to provide additional details about the current status of the job queue.
---
--- * 'jqdTags' - The tags applied to the job queue.
---
--- * 'jqdJobQueueName' - The name of the job queue.
---
--- * 'jqdJobQueueARN' - The Amazon Resource Name (ARN) of the job queue.
---
--- * 'jqdState' - Describes the ability of the queue to accept new jobs. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
---
--- * 'jqdPriority' - The priority of the job queue.
---
--- * 'jqdComputeEnvironmentOrder' - The compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
-jobQueueDetail ::
-  -- | 'jqdJobQueueName'
-  Text ->
-  -- | 'jqdJobQueueARN'
-  Text ->
-  -- | 'jqdState'
+-- * 'computeEnvironmentOrder' - The compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
+-- * 'jobQueueARN' - The Amazon Resource Name (ARN) of the job queue.
+-- * 'jobQueueName' - The name of the job queue.
+-- * 'priority' - The priority of the job queue.
+-- * 'state' - Describes the ability of the queue to accept new jobs. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
+-- * 'status' - The status of the job queue (for example, @CREATING@ or @VALID@ ).
+-- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the job queue.
+-- * 'tags' - The tags applied to the job queue.
+mkJobQueueDetail ::
+  -- | 'jobQueueName'
+  Lude.Text ->
+  -- | 'jobQueueARN'
+  Lude.Text ->
+  -- | 'state'
   JQState ->
-  -- | 'jqdPriority'
-  Int ->
+  -- | 'priority'
+  Lude.Int ->
   JobQueueDetail
-jobQueueDetail pJobQueueName_ pJobQueueARN_ pState_ pPriority_ =
+mkJobQueueDetail pJobQueueName_ pJobQueueARN_ pState_ pPriority_ =
   JobQueueDetail'
-    { _jqdStatus = Nothing,
-      _jqdStatusReason = Nothing,
-      _jqdTags = Nothing,
-      _jqdJobQueueName = pJobQueueName_,
-      _jqdJobQueueARN = pJobQueueARN_,
-      _jqdState = pState_,
-      _jqdPriority = pPriority_,
-      _jqdComputeEnvironmentOrder = mempty
+    { status = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      tags = Lude.Nothing,
+      jobQueueName = pJobQueueName_,
+      jobQueueARN = pJobQueueARN_,
+      state = pState_,
+      priority = pPriority_,
+      computeEnvironmentOrder = Lude.mempty
     }
 
 -- | The status of the job queue (for example, @CREATING@ or @VALID@ ).
-jqdStatus :: Lens' JobQueueDetail (Maybe JQStatus)
-jqdStatus = lens _jqdStatus (\s a -> s {_jqdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdStatus :: Lens.Lens' JobQueueDetail (Lude.Maybe JQStatus)
+jqdStatus = Lens.lens (status :: JobQueueDetail -> Lude.Maybe JQStatus) (\s a -> s {status = a} :: JobQueueDetail)
+{-# DEPRECATED jqdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A short, human-readable string to provide additional details about the current status of the job queue.
-jqdStatusReason :: Lens' JobQueueDetail (Maybe Text)
-jqdStatusReason = lens _jqdStatusReason (\s a -> s {_jqdStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdStatusReason :: Lens.Lens' JobQueueDetail (Lude.Maybe Lude.Text)
+jqdStatusReason = Lens.lens (statusReason :: JobQueueDetail -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: JobQueueDetail)
+{-# DEPRECATED jqdStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The tags applied to the job queue.
-jqdTags :: Lens' JobQueueDetail (HashMap Text (Text))
-jqdTags = lens _jqdTags (\s a -> s {_jqdTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdTags :: Lens.Lens' JobQueueDetail (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jqdTags = Lens.lens (tags :: JobQueueDetail -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: JobQueueDetail)
+{-# DEPRECATED jqdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the job queue.
-jqdJobQueueName :: Lens' JobQueueDetail Text
-jqdJobQueueName = lens _jqdJobQueueName (\s a -> s {_jqdJobQueueName = a})
+--
+-- /Note:/ Consider using 'jobQueueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdJobQueueName :: Lens.Lens' JobQueueDetail Lude.Text
+jqdJobQueueName = Lens.lens (jobQueueName :: JobQueueDetail -> Lude.Text) (\s a -> s {jobQueueName = a} :: JobQueueDetail)
+{-# DEPRECATED jqdJobQueueName "Use generic-lens or generic-optics with 'jobQueueName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the job queue.
-jqdJobQueueARN :: Lens' JobQueueDetail Text
-jqdJobQueueARN = lens _jqdJobQueueARN (\s a -> s {_jqdJobQueueARN = a})
+--
+-- /Note:/ Consider using 'jobQueueARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdJobQueueARN :: Lens.Lens' JobQueueDetail Lude.Text
+jqdJobQueueARN = Lens.lens (jobQueueARN :: JobQueueDetail -> Lude.Text) (\s a -> s {jobQueueARN = a} :: JobQueueDetail)
+{-# DEPRECATED jqdJobQueueARN "Use generic-lens or generic-optics with 'jobQueueARN' instead." #-}
 
 -- | Describes the ability of the queue to accept new jobs. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
-jqdState :: Lens' JobQueueDetail JQState
-jqdState = lens _jqdState (\s a -> s {_jqdState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdState :: Lens.Lens' JobQueueDetail JQState
+jqdState = Lens.lens (state :: JobQueueDetail -> JQState) (\s a -> s {state = a} :: JobQueueDetail)
+{-# DEPRECATED jqdState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The priority of the job queue.
-jqdPriority :: Lens' JobQueueDetail Int
-jqdPriority = lens _jqdPriority (\s a -> s {_jqdPriority = a})
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdPriority :: Lens.Lens' JobQueueDetail Lude.Int
+jqdPriority = Lens.lens (priority :: JobQueueDetail -> Lude.Int) (\s a -> s {priority = a} :: JobQueueDetail)
+{-# DEPRECATED jqdPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
-jqdComputeEnvironmentOrder :: Lens' JobQueueDetail [ComputeEnvironmentOrder]
-jqdComputeEnvironmentOrder = lens _jqdComputeEnvironmentOrder (\s a -> s {_jqdComputeEnvironmentOrder = a}) . _Coerce
+--
+-- /Note:/ Consider using 'computeEnvironmentOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jqdComputeEnvironmentOrder :: Lens.Lens' JobQueueDetail [ComputeEnvironmentOrder]
+jqdComputeEnvironmentOrder = Lens.lens (computeEnvironmentOrder :: JobQueueDetail -> [ComputeEnvironmentOrder]) (\s a -> s {computeEnvironmentOrder = a} :: JobQueueDetail)
+{-# DEPRECATED jqdComputeEnvironmentOrder "Use generic-lens or generic-optics with 'computeEnvironmentOrder' instead." #-}
 
-instance FromJSON JobQueueDetail where
+instance Lude.FromJSON JobQueueDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobQueueDetail"
       ( \x ->
           JobQueueDetail'
-            <$> (x .:? "status")
-            <*> (x .:? "statusReason")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .: "jobQueueName")
-            <*> (x .: "jobQueueArn")
-            <*> (x .: "state")
-            <*> (x .: "priority")
-            <*> (x .:? "computeEnvironmentOrder" .!= mempty)
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "statusReason")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "jobQueueName")
+            Lude.<*> (x Lude..: "jobQueueArn")
+            Lude.<*> (x Lude..: "state")
+            Lude.<*> (x Lude..: "priority")
+            Lude.<*> (x Lude..:? "computeEnvironmentOrder" Lude..!= Lude.mempty)
       )
-
-instance Hashable JobQueueDetail
-
-instance NFData JobQueueDetail

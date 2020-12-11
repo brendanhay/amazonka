@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,108 @@
 --
 -- Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization. Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the management account in the organization.
 --
---
 -- This API can't be invoked if there are active delegated administrators in the organization.
---
 -- Note that a delegated administrator is not authorized to invoke @DisableAWSOrganizationsAccess@ .
 module Network.AWS.ServiceCatalog.DisableAWSOrganizationsAccess
-  ( -- * Creating a Request
-    disableAWSOrganizationsAccess,
-    DisableAWSOrganizationsAccess,
+  ( -- * Creating a request
+    DisableAWSOrganizationsAccess (..),
+    mkDisableAWSOrganizationsAccess,
 
-    -- * Destructuring the Response
-    disableAWSOrganizationsAccessResponse,
-    DisableAWSOrganizationsAccessResponse,
+    -- * Destructuring the response
+    DisableAWSOrganizationsAccessResponse (..),
+    mkDisableAWSOrganizationsAccessResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daoarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'disableAWSOrganizationsAccess' smart constructor.
+-- | /See:/ 'mkDisableAWSOrganizationsAccess' smart constructor.
 data DisableAWSOrganizationsAccess = DisableAWSOrganizationsAccess'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAWSOrganizationsAccess' with the minimum fields required to make a request.
-disableAWSOrganizationsAccess ::
+mkDisableAWSOrganizationsAccess ::
   DisableAWSOrganizationsAccess
-disableAWSOrganizationsAccess = DisableAWSOrganizationsAccess'
+mkDisableAWSOrganizationsAccess = DisableAWSOrganizationsAccess'
 
-instance AWSRequest DisableAWSOrganizationsAccess where
+instance Lude.AWSRequest DisableAWSOrganizationsAccess where
   type
     Rs DisableAWSOrganizationsAccess =
       DisableAWSOrganizationsAccessResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisableAWSOrganizationsAccessResponse' <$> (pure (fromEnum s))
+          DisableAWSOrganizationsAccessResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableAWSOrganizationsAccess
-
-instance NFData DisableAWSOrganizationsAccess
-
-instance ToHeaders DisableAWSOrganizationsAccess where
+instance Lude.ToHeaders DisableAWSOrganizationsAccess where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableAWSOrganizationsAccess where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisableAWSOrganizationsAccess where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisableAWSOrganizationsAccess where
-  toPath = const "/"
+instance Lude.ToPath DisableAWSOrganizationsAccess where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableAWSOrganizationsAccess where
-  toQuery = const mempty
+instance Lude.ToQuery DisableAWSOrganizationsAccess where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableAWSOrganizationsAccessResponse' smart constructor.
+-- | /See:/ 'mkDisableAWSOrganizationsAccessResponse' smart constructor.
 newtype DisableAWSOrganizationsAccessResponse = DisableAWSOrganizationsAccessResponse'
-  { _daoarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAWSOrganizationsAccessResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daoarsResponseStatus' - -- | The response status code.
-disableAWSOrganizationsAccessResponse ::
-  -- | 'daoarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisableAWSOrganizationsAccessResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableAWSOrganizationsAccessResponse
-disableAWSOrganizationsAccessResponse pResponseStatus_ =
+mkDisableAWSOrganizationsAccessResponse pResponseStatus_ =
   DisableAWSOrganizationsAccessResponse'
-    { _daoarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-daoarsResponseStatus :: Lens' DisableAWSOrganizationsAccessResponse Int
-daoarsResponseStatus = lens _daoarsResponseStatus (\s a -> s {_daoarsResponseStatus = a})
-
-instance NFData DisableAWSOrganizationsAccessResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoarsResponseStatus :: Lens.Lens' DisableAWSOrganizationsAccessResponse Lude.Int
+daoarsResponseStatus = Lens.lens (responseStatus :: DisableAWSOrganizationsAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableAWSOrganizationsAccessResponse)
+{-# DEPRECATED daoarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

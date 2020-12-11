@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists all the user profiles configured for your AWS account in AWS CodeStar.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeStar.ListUserProfiles
-  ( -- * Creating a Request
-    listUserProfiles,
-    ListUserProfiles,
+  ( -- * Creating a request
+    ListUserProfiles (..),
+    mkListUserProfiles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lupNextToken,
     lupMaxResults,
 
-    -- * Destructuring the Response
-    listUserProfilesResponse,
-    ListUserProfilesResponse,
+    -- * Destructuring the response
+    ListUserProfilesResponse (..),
+    mkListUserProfilesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     luprsNextToken,
     luprsResponseStatus,
     luprsUserProfiles,
@@ -43,130 +36,143 @@ module Network.AWS.CodeStar.ListUserProfiles
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listUserProfiles' smart constructor.
+-- | /See:/ 'mkListUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
-  { _lupNextToken ::
-      !(Maybe Text),
-    _lupMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lupNextToken' - The continuation token for the next set of results, if the results cannot be returned in one response.
---
--- * 'lupMaxResults' - The maximum number of results to return in a response.
-listUserProfiles ::
+-- * 'maxResults' - The maximum number of results to return in a response.
+-- * 'nextToken' - The continuation token for the next set of results, if the results cannot be returned in one response.
+mkListUserProfiles ::
   ListUserProfiles
-listUserProfiles =
+mkListUserProfiles =
   ListUserProfiles'
-    { _lupNextToken = Nothing,
-      _lupMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
-lupNextToken :: Lens' ListUserProfiles (Maybe Text)
-lupNextToken = lens _lupNextToken (\s a -> s {_lupNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupNextToken :: Lens.Lens' ListUserProfiles (Lude.Maybe Lude.Text)
+lupNextToken = Lens.lens (nextToken :: ListUserProfiles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserProfiles)
+{-# DEPRECATED lupNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a response.
-lupMaxResults :: Lens' ListUserProfiles (Maybe Natural)
-lupMaxResults = lens _lupMaxResults (\s a -> s {_lupMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupMaxResults :: Lens.Lens' ListUserProfiles (Lude.Maybe Lude.Natural)
+lupMaxResults = Lens.lens (maxResults :: ListUserProfiles -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUserProfiles)
+{-# DEPRECATED lupMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListUserProfiles where
+instance Page.AWSPager ListUserProfiles where
   page rq rs
-    | stop (rs ^. luprsNextToken) = Nothing
-    | stop (rs ^. luprsUserProfiles) = Nothing
-    | otherwise = Just $ rq & lupNextToken .~ rs ^. luprsNextToken
+    | Page.stop (rs Lens.^. luprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. luprsUserProfiles) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lupNextToken Lens..~ rs Lens.^. luprsNextToken
 
-instance AWSRequest ListUserProfiles where
+instance Lude.AWSRequest ListUserProfiles where
   type Rs ListUserProfiles = ListUserProfilesResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListUserProfilesResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "userProfiles" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "userProfiles" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListUserProfiles
-
-instance NFData ListUserProfiles
-
-instance ToHeaders ListUserProfiles where
+instance Lude.ToHeaders ListUserProfiles where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.ListUserProfiles" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.ListUserProfiles" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListUserProfiles where
+instance Lude.ToJSON ListUserProfiles where
   toJSON ListUserProfiles' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lupNextToken,
-            ("maxResults" .=) <$> _lupMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListUserProfiles where
-  toPath = const "/"
+instance Lude.ToPath ListUserProfiles where
+  toPath = Lude.const "/"
 
-instance ToQuery ListUserProfiles where
-  toQuery = const mempty
+instance Lude.ToQuery ListUserProfiles where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listUserProfilesResponse' smart constructor.
+-- | /See:/ 'mkListUserProfilesResponse' smart constructor.
 data ListUserProfilesResponse = ListUserProfilesResponse'
-  { _luprsNextToken ::
-      !(Maybe Text),
-    _luprsResponseStatus :: !Int,
-    _luprsUserProfiles ::
-      ![UserProfileSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    userProfiles :: [UserProfileSummary]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserProfilesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luprsNextToken' - The continuation token to use when requesting the next set of results, if there are more results to be returned.
---
--- * 'luprsResponseStatus' - -- | The response status code.
---
--- * 'luprsUserProfiles' - All the user profiles configured in AWS CodeStar for an AWS account.
-listUserProfilesResponse ::
-  -- | 'luprsResponseStatus'
-  Int ->
+-- * 'nextToken' - The continuation token to use when requesting the next set of results, if there are more results to be returned.
+-- * 'responseStatus' - The response status code.
+-- * 'userProfiles' - All the user profiles configured in AWS CodeStar for an AWS account.
+mkListUserProfilesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListUserProfilesResponse
-listUserProfilesResponse pResponseStatus_ =
+mkListUserProfilesResponse pResponseStatus_ =
   ListUserProfilesResponse'
-    { _luprsNextToken = Nothing,
-      _luprsResponseStatus = pResponseStatus_,
-      _luprsUserProfiles = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      userProfiles = Lude.mempty
     }
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
-luprsNextToken :: Lens' ListUserProfilesResponse (Maybe Text)
-luprsNextToken = lens _luprsNextToken (\s a -> s {_luprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsNextToken :: Lens.Lens' ListUserProfilesResponse (Lude.Maybe Lude.Text)
+luprsNextToken = Lens.lens (nextToken :: ListUserProfilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserProfilesResponse)
+{-# DEPRECATED luprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-luprsResponseStatus :: Lens' ListUserProfilesResponse Int
-luprsResponseStatus = lens _luprsResponseStatus (\s a -> s {_luprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsResponseStatus :: Lens.Lens' ListUserProfilesResponse Lude.Int
+luprsResponseStatus = Lens.lens (responseStatus :: ListUserProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUserProfilesResponse)
+{-# DEPRECATED luprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | All the user profiles configured in AWS CodeStar for an AWS account.
-luprsUserProfiles :: Lens' ListUserProfilesResponse [UserProfileSummary]
-luprsUserProfiles = lens _luprsUserProfiles (\s a -> s {_luprsUserProfiles = a}) . _Coerce
-
-instance NFData ListUserProfilesResponse
+--
+-- /Note:/ Consider using 'userProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsUserProfiles :: Lens.Lens' ListUserProfilesResponse [UserProfileSummary]
+luprsUserProfiles = Lens.lens (userProfiles :: ListUserProfilesResponse -> [UserProfileSummary]) (\s a -> s {userProfiles = a} :: ListUserProfilesResponse)
+{-# DEPRECATED luprsUserProfiles "Use generic-lens or generic-optics with 'userProfiles' instead." #-}

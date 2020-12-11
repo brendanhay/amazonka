@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,149 @@
 --
 -- Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template.
 module Network.AWS.CodeCommit.DeleteApprovalRuleTemplate
-  ( -- * Creating a Request
-    deleteApprovalRuleTemplate,
-    DeleteApprovalRuleTemplate,
+  ( -- * Creating a request
+    DeleteApprovalRuleTemplate (..),
+    mkDeleteApprovalRuleTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dartApprovalRuleTemplateName,
 
-    -- * Destructuring the Response
-    deleteApprovalRuleTemplateResponse,
-    DeleteApprovalRuleTemplateResponse,
+    -- * Destructuring the response
+    DeleteApprovalRuleTemplateResponse (..),
+    mkDeleteApprovalRuleTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dartrsResponseStatus,
     dartrsApprovalRuleTemplateId,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteApprovalRuleTemplate' smart constructor.
+-- | /See:/ 'mkDeleteApprovalRuleTemplate' smart constructor.
 newtype DeleteApprovalRuleTemplate = DeleteApprovalRuleTemplate'
-  { _dartApprovalRuleTemplateName ::
-      Text
+  { approvalRuleTemplateName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApprovalRuleTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dartApprovalRuleTemplateName' - The name of the approval rule template to delete.
-deleteApprovalRuleTemplate ::
-  -- | 'dartApprovalRuleTemplateName'
-  Text ->
+-- * 'approvalRuleTemplateName' - The name of the approval rule template to delete.
+mkDeleteApprovalRuleTemplate ::
+  -- | 'approvalRuleTemplateName'
+  Lude.Text ->
   DeleteApprovalRuleTemplate
-deleteApprovalRuleTemplate pApprovalRuleTemplateName_ =
+mkDeleteApprovalRuleTemplate pApprovalRuleTemplateName_ =
   DeleteApprovalRuleTemplate'
-    { _dartApprovalRuleTemplateName =
+    { approvalRuleTemplateName =
         pApprovalRuleTemplateName_
     }
 
 -- | The name of the approval rule template to delete.
-dartApprovalRuleTemplateName :: Lens' DeleteApprovalRuleTemplate Text
-dartApprovalRuleTemplateName = lens _dartApprovalRuleTemplateName (\s a -> s {_dartApprovalRuleTemplateName = a})
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartApprovalRuleTemplateName :: Lens.Lens' DeleteApprovalRuleTemplate Lude.Text
+dartApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: DeleteApprovalRuleTemplate -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: DeleteApprovalRuleTemplate)
+{-# DEPRECATED dartApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
-instance AWSRequest DeleteApprovalRuleTemplate where
+instance Lude.AWSRequest DeleteApprovalRuleTemplate where
   type
     Rs DeleteApprovalRuleTemplate =
       DeleteApprovalRuleTemplateResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteApprovalRuleTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "approvalRuleTemplateId")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "approvalRuleTemplateId")
       )
 
-instance Hashable DeleteApprovalRuleTemplate
-
-instance NFData DeleteApprovalRuleTemplate
-
-instance ToHeaders DeleteApprovalRuleTemplate where
+instance Lude.ToHeaders DeleteApprovalRuleTemplate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.DeleteApprovalRuleTemplate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.DeleteApprovalRuleTemplate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteApprovalRuleTemplate where
+instance Lude.ToJSON DeleteApprovalRuleTemplate where
   toJSON DeleteApprovalRuleTemplate' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("approvalRuleTemplateName" .= _dartApprovalRuleTemplateName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
           ]
       )
 
-instance ToPath DeleteApprovalRuleTemplate where
-  toPath = const "/"
+instance Lude.ToPath DeleteApprovalRuleTemplate where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteApprovalRuleTemplate where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApprovalRuleTemplate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteApprovalRuleTemplateResponse' smart constructor.
+-- | /See:/ 'mkDeleteApprovalRuleTemplateResponse' smart constructor.
 data DeleteApprovalRuleTemplateResponse = DeleteApprovalRuleTemplateResponse'
-  { _dartrsResponseStatus ::
-      !Int,
-    _dartrsApprovalRuleTemplateId ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    approvalRuleTemplateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApprovalRuleTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dartrsResponseStatus' - -- | The response status code.
---
--- * 'dartrsApprovalRuleTemplateId' - The system-generated ID of the deleted approval rule template. If the template has been previously deleted, the only response is a 200 OK.
-deleteApprovalRuleTemplateResponse ::
-  -- | 'dartrsResponseStatus'
-  Int ->
-  -- | 'dartrsApprovalRuleTemplateId'
-  Text ->
+-- * 'approvalRuleTemplateId' - The system-generated ID of the deleted approval rule template. If the template has been previously deleted, the only response is a 200 OK.
+-- * 'responseStatus' - The response status code.
+mkDeleteApprovalRuleTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'approvalRuleTemplateId'
+  Lude.Text ->
   DeleteApprovalRuleTemplateResponse
-deleteApprovalRuleTemplateResponse
+mkDeleteApprovalRuleTemplateResponse
   pResponseStatus_
   pApprovalRuleTemplateId_ =
     DeleteApprovalRuleTemplateResponse'
-      { _dartrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _dartrsApprovalRuleTemplateId = pApprovalRuleTemplateId_
+        approvalRuleTemplateId = pApprovalRuleTemplateId_
       }
 
--- | -- | The response status code.
-dartrsResponseStatus :: Lens' DeleteApprovalRuleTemplateResponse Int
-dartrsResponseStatus = lens _dartrsResponseStatus (\s a -> s {_dartrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartrsResponseStatus :: Lens.Lens' DeleteApprovalRuleTemplateResponse Lude.Int
+dartrsResponseStatus = Lens.lens (responseStatus :: DeleteApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApprovalRuleTemplateResponse)
+{-# DEPRECATED dartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The system-generated ID of the deleted approval rule template. If the template has been previously deleted, the only response is a 200 OK.
-dartrsApprovalRuleTemplateId :: Lens' DeleteApprovalRuleTemplateResponse Text
-dartrsApprovalRuleTemplateId = lens _dartrsApprovalRuleTemplateId (\s a -> s {_dartrsApprovalRuleTemplateId = a})
-
-instance NFData DeleteApprovalRuleTemplateResponse
+--
+-- /Note:/ Consider using 'approvalRuleTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartrsApprovalRuleTemplateId :: Lens.Lens' DeleteApprovalRuleTemplateResponse Lude.Text
+dartrsApprovalRuleTemplateId = Lens.lens (approvalRuleTemplateId :: DeleteApprovalRuleTemplateResponse -> Lude.Text) (\s a -> s {approvalRuleTemplateId = a} :: DeleteApprovalRuleTemplateResponse)
+{-# DEPRECATED dartrsApprovalRuleTemplateId "Use generic-lens or generic-optics with 'approvalRuleTemplateId' instead." #-}

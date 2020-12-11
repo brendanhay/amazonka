@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,127 @@
 --
 -- Returns information about the workgroup with the specified name.
 module Network.AWS.Athena.GetWorkGroup
-  ( -- * Creating a Request
-    getWorkGroup,
-    GetWorkGroup,
+  ( -- * Creating a request
+    GetWorkGroup (..),
+    mkGetWorkGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gwgWorkGroup,
 
-    -- * Destructuring the Response
-    getWorkGroupResponse,
-    GetWorkGroupResponse,
+    -- * Destructuring the response
+    GetWorkGroupResponse (..),
+    mkGetWorkGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gwgrsWorkGroup,
     gwgrsResponseStatus,
   )
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getWorkGroup' smart constructor.
-newtype GetWorkGroup = GetWorkGroup' {_gwgWorkGroup :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetWorkGroup' smart constructor.
+newtype GetWorkGroup = GetWorkGroup' {workGroup :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gwgWorkGroup' - The name of the workgroup.
-getWorkGroup ::
-  -- | 'gwgWorkGroup'
-  Text ->
+-- * 'workGroup' - The name of the workgroup.
+mkGetWorkGroup ::
+  -- | 'workGroup'
+  Lude.Text ->
   GetWorkGroup
-getWorkGroup pWorkGroup_ =
-  GetWorkGroup' {_gwgWorkGroup = pWorkGroup_}
+mkGetWorkGroup pWorkGroup_ = GetWorkGroup' {workGroup = pWorkGroup_}
 
 -- | The name of the workgroup.
-gwgWorkGroup :: Lens' GetWorkGroup Text
-gwgWorkGroup = lens _gwgWorkGroup (\s a -> s {_gwgWorkGroup = a})
+--
+-- /Note:/ Consider using 'workGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwgWorkGroup :: Lens.Lens' GetWorkGroup Lude.Text
+gwgWorkGroup = Lens.lens (workGroup :: GetWorkGroup -> Lude.Text) (\s a -> s {workGroup = a} :: GetWorkGroup)
+{-# DEPRECATED gwgWorkGroup "Use generic-lens or generic-optics with 'workGroup' instead." #-}
 
-instance AWSRequest GetWorkGroup where
+instance Lude.AWSRequest GetWorkGroup where
   type Rs GetWorkGroup = GetWorkGroupResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetWorkGroupResponse'
-            <$> (x .?> "WorkGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "WorkGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetWorkGroup
-
-instance NFData GetWorkGroup
-
-instance ToHeaders GetWorkGroup where
+instance Lude.ToHeaders GetWorkGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonAthena.GetWorkGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonAthena.GetWorkGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetWorkGroup where
+instance Lude.ToJSON GetWorkGroup where
   toJSON GetWorkGroup' {..} =
-    object (catMaybes [Just ("WorkGroup" .= _gwgWorkGroup)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("WorkGroup" Lude..= workGroup)])
 
-instance ToPath GetWorkGroup where
-  toPath = const "/"
+instance Lude.ToPath GetWorkGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery GetWorkGroup where
-  toQuery = const mempty
+instance Lude.ToQuery GetWorkGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getWorkGroupResponse' smart constructor.
+-- | /See:/ 'mkGetWorkGroupResponse' smart constructor.
 data GetWorkGroupResponse = GetWorkGroupResponse'
-  { _gwgrsWorkGroup ::
-      !(Maybe WorkGroup),
-    _gwgrsResponseStatus :: !Int
+  { workGroup ::
+      Lude.Maybe WorkGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gwgrsWorkGroup' - Information about the workgroup.
---
--- * 'gwgrsResponseStatus' - -- | The response status code.
-getWorkGroupResponse ::
-  -- | 'gwgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'workGroup' - Information about the workgroup.
+mkGetWorkGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetWorkGroupResponse
-getWorkGroupResponse pResponseStatus_ =
+mkGetWorkGroupResponse pResponseStatus_ =
   GetWorkGroupResponse'
-    { _gwgrsWorkGroup = Nothing,
-      _gwgrsResponseStatus = pResponseStatus_
+    { workGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the workgroup.
-gwgrsWorkGroup :: Lens' GetWorkGroupResponse (Maybe WorkGroup)
-gwgrsWorkGroup = lens _gwgrsWorkGroup (\s a -> s {_gwgrsWorkGroup = a})
+--
+-- /Note:/ Consider using 'workGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwgrsWorkGroup :: Lens.Lens' GetWorkGroupResponse (Lude.Maybe WorkGroup)
+gwgrsWorkGroup = Lens.lens (workGroup :: GetWorkGroupResponse -> Lude.Maybe WorkGroup) (\s a -> s {workGroup = a} :: GetWorkGroupResponse)
+{-# DEPRECATED gwgrsWorkGroup "Use generic-lens or generic-optics with 'workGroup' instead." #-}
 
--- | -- | The response status code.
-gwgrsResponseStatus :: Lens' GetWorkGroupResponse Int
-gwgrsResponseStatus = lens _gwgrsResponseStatus (\s a -> s {_gwgrsResponseStatus = a})
-
-instance NFData GetWorkGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwgrsResponseStatus :: Lens.Lens' GetWorkGroupResponse Lude.Int
+gwgrsResponseStatus = Lens.lens (responseStatus :: GetWorkGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWorkGroupResponse)
+{-# DEPRECATED gwgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

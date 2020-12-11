@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,183 +14,209 @@
 --
 -- Returns information about the flow definitions in your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListFlowDefinitions
-  ( -- * Creating a Request
-    listFlowDefinitions,
-    ListFlowDefinitions,
+  ( -- * Creating a request
+    ListFlowDefinitions (..),
+    mkListFlowDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lfdCreationTimeAfter,
     lfdNextToken,
     lfdSortOrder,
     lfdCreationTimeBefore,
     lfdMaxResults,
 
-    -- * Destructuring the Response
-    listFlowDefinitionsResponse,
-    ListFlowDefinitionsResponse,
+    -- * Destructuring the response
+    ListFlowDefinitionsResponse (..),
+    mkListFlowDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lfdrsNextToken,
     lfdrsResponseStatus,
     lfdrsFlowDefinitionSummaries,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listFlowDefinitions' smart constructor.
+-- | /See:/ 'mkListFlowDefinitions' smart constructor.
 data ListFlowDefinitions = ListFlowDefinitions'
-  { _lfdCreationTimeAfter ::
-      !(Maybe POSIX),
-    _lfdNextToken :: !(Maybe Text),
-    _lfdSortOrder :: !(Maybe SortOrder),
-    _lfdCreationTimeBefore :: !(Maybe POSIX),
-    _lfdMaxResults :: !(Maybe Nat)
+  { creationTimeAfter ::
+      Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFlowDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfdCreationTimeAfter' - A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.
---
--- * 'lfdNextToken' - A token to resume pagination.
---
--- * 'lfdSortOrder' - An optional value that specifies whether you want the results sorted in @Ascending@ or @Descending@ order.
---
--- * 'lfdCreationTimeBefore' - A filter that returns only flow definitions that were created before the specified timestamp.
---
--- * 'lfdMaxResults' - The total number of items to return. If the total number of available items is more than the value specified in @MaxResults@ , then a @NextToken@ will be provided in the output that you can use to resume pagination.
-listFlowDefinitions ::
+-- * 'creationTimeAfter' - A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.
+-- * 'creationTimeBefore' - A filter that returns only flow definitions that were created before the specified timestamp.
+-- * 'maxResults' - The total number of items to return. If the total number of available items is more than the value specified in @MaxResults@ , then a @NextToken@ will be provided in the output that you can use to resume pagination.
+-- * 'nextToken' - A token to resume pagination.
+-- * 'sortOrder' - An optional value that specifies whether you want the results sorted in @Ascending@ or @Descending@ order.
+mkListFlowDefinitions ::
   ListFlowDefinitions
-listFlowDefinitions =
+mkListFlowDefinitions =
   ListFlowDefinitions'
-    { _lfdCreationTimeAfter = Nothing,
-      _lfdNextToken = Nothing,
-      _lfdSortOrder = Nothing,
-      _lfdCreationTimeBefore = Nothing,
-      _lfdMaxResults = Nothing
+    { creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.
-lfdCreationTimeAfter :: Lens' ListFlowDefinitions (Maybe UTCTime)
-lfdCreationTimeAfter = lens _lfdCreationTimeAfter (\s a -> s {_lfdCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdCreationTimeAfter :: Lens.Lens' ListFlowDefinitions (Lude.Maybe Lude.Timestamp)
+lfdCreationTimeAfter = Lens.lens (creationTimeAfter :: ListFlowDefinitions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListFlowDefinitions)
+{-# DEPRECATED lfdCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | A token to resume pagination.
-lfdNextToken :: Lens' ListFlowDefinitions (Maybe Text)
-lfdNextToken = lens _lfdNextToken (\s a -> s {_lfdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdNextToken :: Lens.Lens' ListFlowDefinitions (Lude.Maybe Lude.Text)
+lfdNextToken = Lens.lens (nextToken :: ListFlowDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFlowDefinitions)
+{-# DEPRECATED lfdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An optional value that specifies whether you want the results sorted in @Ascending@ or @Descending@ order.
-lfdSortOrder :: Lens' ListFlowDefinitions (Maybe SortOrder)
-lfdSortOrder = lens _lfdSortOrder (\s a -> s {_lfdSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdSortOrder :: Lens.Lens' ListFlowDefinitions (Lude.Maybe SortOrder)
+lfdSortOrder = Lens.lens (sortOrder :: ListFlowDefinitions -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListFlowDefinitions)
+{-# DEPRECATED lfdSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only flow definitions that were created before the specified timestamp.
-lfdCreationTimeBefore :: Lens' ListFlowDefinitions (Maybe UTCTime)
-lfdCreationTimeBefore = lens _lfdCreationTimeBefore (\s a -> s {_lfdCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdCreationTimeBefore :: Lens.Lens' ListFlowDefinitions (Lude.Maybe Lude.Timestamp)
+lfdCreationTimeBefore = Lens.lens (creationTimeBefore :: ListFlowDefinitions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListFlowDefinitions)
+{-# DEPRECATED lfdCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The total number of items to return. If the total number of available items is more than the value specified in @MaxResults@ , then a @NextToken@ will be provided in the output that you can use to resume pagination.
-lfdMaxResults :: Lens' ListFlowDefinitions (Maybe Natural)
-lfdMaxResults = lens _lfdMaxResults (\s a -> s {_lfdMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdMaxResults :: Lens.Lens' ListFlowDefinitions (Lude.Maybe Lude.Natural)
+lfdMaxResults = Lens.lens (maxResults :: ListFlowDefinitions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFlowDefinitions)
+{-# DEPRECATED lfdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListFlowDefinitions where
+instance Page.AWSPager ListFlowDefinitions where
   page rq rs
-    | stop (rs ^. lfdrsNextToken) = Nothing
-    | stop (rs ^. lfdrsFlowDefinitionSummaries) = Nothing
-    | otherwise = Just $ rq & lfdNextToken .~ rs ^. lfdrsNextToken
+    | Page.stop (rs Lens.^. lfdrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lfdrsFlowDefinitionSummaries) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lfdNextToken Lens..~ rs Lens.^. lfdrsNextToken
 
-instance AWSRequest ListFlowDefinitions where
+instance Lude.AWSRequest ListFlowDefinitions where
   type Rs ListFlowDefinitions = ListFlowDefinitionsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListFlowDefinitionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "FlowDefinitionSummaries" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "FlowDefinitionSummaries" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListFlowDefinitions
-
-instance NFData ListFlowDefinitions
-
-instance ToHeaders ListFlowDefinitions where
+instance Lude.ToHeaders ListFlowDefinitions where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListFlowDefinitions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListFlowDefinitions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListFlowDefinitions where
+instance Lude.ToJSON ListFlowDefinitions where
   toJSON ListFlowDefinitions' {..} =
-    object
-      ( catMaybes
-          [ ("CreationTimeAfter" .=) <$> _lfdCreationTimeAfter,
-            ("NextToken" .=) <$> _lfdNextToken,
-            ("SortOrder" .=) <$> _lfdSortOrder,
-            ("CreationTimeBefore" .=) <$> _lfdCreationTimeBefore,
-            ("MaxResults" .=) <$> _lfdMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListFlowDefinitions where
-  toPath = const "/"
+instance Lude.ToPath ListFlowDefinitions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListFlowDefinitions where
-  toQuery = const mempty
+instance Lude.ToQuery ListFlowDefinitions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listFlowDefinitionsResponse' smart constructor.
+-- | /See:/ 'mkListFlowDefinitionsResponse' smart constructor.
 data ListFlowDefinitionsResponse = ListFlowDefinitionsResponse'
-  { _lfdrsNextToken ::
-      !(Maybe Text),
-    _lfdrsResponseStatus :: !Int,
-    _lfdrsFlowDefinitionSummaries ::
-      ![FlowDefinitionSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    flowDefinitionSummaries ::
+      [FlowDefinitionSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFlowDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfdrsNextToken' - A token to resume pagination.
---
--- * 'lfdrsResponseStatus' - -- | The response status code.
---
--- * 'lfdrsFlowDefinitionSummaries' - An array of objects describing the flow definitions.
-listFlowDefinitionsResponse ::
-  -- | 'lfdrsResponseStatus'
-  Int ->
+-- * 'flowDefinitionSummaries' - An array of objects describing the flow definitions.
+-- * 'nextToken' - A token to resume pagination.
+-- * 'responseStatus' - The response status code.
+mkListFlowDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListFlowDefinitionsResponse
-listFlowDefinitionsResponse pResponseStatus_ =
+mkListFlowDefinitionsResponse pResponseStatus_ =
   ListFlowDefinitionsResponse'
-    { _lfdrsNextToken = Nothing,
-      _lfdrsResponseStatus = pResponseStatus_,
-      _lfdrsFlowDefinitionSummaries = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      flowDefinitionSummaries = Lude.mempty
     }
 
 -- | A token to resume pagination.
-lfdrsNextToken :: Lens' ListFlowDefinitionsResponse (Maybe Text)
-lfdrsNextToken = lens _lfdrsNextToken (\s a -> s {_lfdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdrsNextToken :: Lens.Lens' ListFlowDefinitionsResponse (Lude.Maybe Lude.Text)
+lfdrsNextToken = Lens.lens (nextToken :: ListFlowDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFlowDefinitionsResponse)
+{-# DEPRECATED lfdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lfdrsResponseStatus :: Lens' ListFlowDefinitionsResponse Int
-lfdrsResponseStatus = lens _lfdrsResponseStatus (\s a -> s {_lfdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdrsResponseStatus :: Lens.Lens' ListFlowDefinitionsResponse Lude.Int
+lfdrsResponseStatus = Lens.lens (responseStatus :: ListFlowDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFlowDefinitionsResponse)
+{-# DEPRECATED lfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array of objects describing the flow definitions.
-lfdrsFlowDefinitionSummaries :: Lens' ListFlowDefinitionsResponse [FlowDefinitionSummary]
-lfdrsFlowDefinitionSummaries = lens _lfdrsFlowDefinitionSummaries (\s a -> s {_lfdrsFlowDefinitionSummaries = a}) . _Coerce
-
-instance NFData ListFlowDefinitionsResponse
+--
+-- /Note:/ Consider using 'flowDefinitionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdrsFlowDefinitionSummaries :: Lens.Lens' ListFlowDefinitionsResponse [FlowDefinitionSummary]
+lfdrsFlowDefinitionSummaries = Lens.lens (flowDefinitionSummaries :: ListFlowDefinitionsResponse -> [FlowDefinitionSummary]) (\s a -> s {flowDefinitionSummaries = a} :: ListFlowDefinitionsResponse)
+{-# DEPRECATED lfdrsFlowDefinitionSummaries "Use generic-lens or generic-optics with 'flowDefinitionSummaries' instead." #-}

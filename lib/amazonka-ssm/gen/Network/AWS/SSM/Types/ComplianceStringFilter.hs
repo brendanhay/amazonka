@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ComplianceStringFilter where
+module Network.AWS.SSM.Types.ComplianceStringFilter
+  ( ComplianceStringFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComplianceStringFilter,
+
+    -- * Lenses
+    csfValues,
+    csfKey,
+    csfType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.ComplianceQueryOperatorType
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 --
---
---
--- /See:/ 'complianceStringFilter' smart constructor.
+-- /See:/ 'mkComplianceStringFilter' smart constructor.
 data ComplianceStringFilter = ComplianceStringFilter'
-  { _csfValues ::
-      !(Maybe (List1 Text)),
-    _csfKey :: !(Maybe Text),
-    _csfType ::
-      !(Maybe ComplianceQueryOperatorType)
+  { values ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    key :: Lude.Maybe Lude.Text,
+    type' ::
+      Lude.Maybe ComplianceQueryOperatorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceStringFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csfValues' - The value for which to search.
---
--- * 'csfKey' - The name of the filter.
---
--- * 'csfType' - The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
-complianceStringFilter ::
+-- * 'key' - The name of the filter.
+-- * 'type'' - The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
+-- * 'values' - The value for which to search.
+mkComplianceStringFilter ::
   ComplianceStringFilter
-complianceStringFilter =
+mkComplianceStringFilter =
   ComplianceStringFilter'
-    { _csfValues = Nothing,
-      _csfKey = Nothing,
-      _csfType = Nothing
+    { values = Lude.Nothing,
+      key = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The value for which to search.
-csfValues :: Lens' ComplianceStringFilter (Maybe (NonEmpty Text))
-csfValues = lens _csfValues (\s a -> s {_csfValues = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfValues :: Lens.Lens' ComplianceStringFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
+csfValues = Lens.lens (values :: ComplianceStringFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {values = a} :: ComplianceStringFilter)
+{-# DEPRECATED csfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The name of the filter.
-csfKey :: Lens' ComplianceStringFilter (Maybe Text)
-csfKey = lens _csfKey (\s a -> s {_csfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfKey :: Lens.Lens' ComplianceStringFilter (Lude.Maybe Lude.Text)
+csfKey = Lens.lens (key :: ComplianceStringFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ComplianceStringFilter)
+{-# DEPRECATED csfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
-csfType :: Lens' ComplianceStringFilter (Maybe ComplianceQueryOperatorType)
-csfType = lens _csfType (\s a -> s {_csfType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfType :: Lens.Lens' ComplianceStringFilter (Lude.Maybe ComplianceQueryOperatorType)
+csfType = Lens.lens (type' :: ComplianceStringFilter -> Lude.Maybe ComplianceQueryOperatorType) (\s a -> s {type' = a} :: ComplianceStringFilter)
+{-# DEPRECATED csfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable ComplianceStringFilter
-
-instance NFData ComplianceStringFilter
-
-instance ToJSON ComplianceStringFilter where
+instance Lude.ToJSON ComplianceStringFilter where
   toJSON ComplianceStringFilter' {..} =
-    object
-      ( catMaybes
-          [ ("Values" .=) <$> _csfValues,
-            ("Key" .=) <$> _csfKey,
-            ("Type" .=) <$> _csfType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Values" Lude..=) Lude.<$> values,
+            ("Key" Lude..=) Lude.<$> key,
+            ("Type" Lude..=) Lude.<$> type'
           ]
       )

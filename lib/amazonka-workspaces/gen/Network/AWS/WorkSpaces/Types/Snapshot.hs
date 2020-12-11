@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.Snapshot where
+module Network.AWS.WorkSpaces.Types.Snapshot
+  ( Snapshot (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSnapshot,
+
+    -- * Lenses
+    sSnapshotTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a snapshot.
 --
---
---
--- /See:/ 'snapshot' smart constructor.
-newtype Snapshot = Snapshot' {_sSnapshotTime :: Maybe POSIX}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkSnapshot' smart constructor.
+newtype Snapshot = Snapshot'
+  { snapshotTime ::
+      Lude.Maybe Lude.Timestamp
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sSnapshotTime' - The time when the snapshot was created.
-snapshot ::
+-- * 'snapshotTime' - The time when the snapshot was created.
+mkSnapshot ::
   Snapshot
-snapshot = Snapshot' {_sSnapshotTime = Nothing}
+mkSnapshot = Snapshot' {snapshotTime = Lude.Nothing}
 
 -- | The time when the snapshot was created.
-sSnapshotTime :: Lens' Snapshot (Maybe UTCTime)
-sSnapshotTime = lens _sSnapshotTime (\s a -> s {_sSnapshotTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'snapshotTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSnapshotTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.Timestamp)
+sSnapshotTime = Lens.lens (snapshotTime :: Snapshot -> Lude.Maybe Lude.Timestamp) (\s a -> s {snapshotTime = a} :: Snapshot)
+{-# DEPRECATED sSnapshotTime "Use generic-lens or generic-optics with 'snapshotTime' instead." #-}
 
-instance FromJSON Snapshot where
+instance Lude.FromJSON Snapshot where
   parseJSON =
-    withObject
+    Lude.withObject
       "Snapshot"
-      (\x -> Snapshot' <$> (x .:? "SnapshotTime"))
-
-instance Hashable Snapshot
-
-instance NFData Snapshot
+      (\x -> Snapshot' Lude.<$> (x Lude..:? "SnapshotTime"))

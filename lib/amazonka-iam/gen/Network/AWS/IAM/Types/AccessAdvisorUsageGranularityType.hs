@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType where
+module Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType
+  ( AccessAdvisorUsageGranularityType
+      ( AccessAdvisorUsageGranularityType',
+        ActionLevel,
+        ServiceLevel
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccessAdvisorUsageGranularityType
-  = ActionLevel
-  | ServiceLevel
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccessAdvisorUsageGranularityType = AccessAdvisorUsageGranularityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccessAdvisorUsageGranularityType where
-  parser =
-    takeLowerText >>= \case
-      "action_level" -> pure ActionLevel
-      "service_level" -> pure ServiceLevel
-      e ->
-        fromTextError $
-          "Failure parsing AccessAdvisorUsageGranularityType from value: '" <> e
-            <> "'. Accepted values: action_level, service_level"
+pattern ActionLevel :: AccessAdvisorUsageGranularityType
+pattern ActionLevel = AccessAdvisorUsageGranularityType' "ACTION_LEVEL"
 
-instance ToText AccessAdvisorUsageGranularityType where
-  toText = \case
-    ActionLevel -> "ACTION_LEVEL"
-    ServiceLevel -> "SERVICE_LEVEL"
+pattern ServiceLevel :: AccessAdvisorUsageGranularityType
+pattern ServiceLevel = AccessAdvisorUsageGranularityType' "SERVICE_LEVEL"
 
-instance Hashable AccessAdvisorUsageGranularityType
-
-instance NFData AccessAdvisorUsageGranularityType
-
-instance ToByteString AccessAdvisorUsageGranularityType
-
-instance ToQuery AccessAdvisorUsageGranularityType
-
-instance ToHeader AccessAdvisorUsageGranularityType
-
-instance FromXML AccessAdvisorUsageGranularityType where
-  parseXML = parseXMLText "AccessAdvisorUsageGranularityType"
+{-# COMPLETE
+  ActionLevel,
+  ServiceLevel,
+  AccessAdvisorUsageGranularityType'
+  #-}

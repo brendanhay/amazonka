@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.EventBus where
+module Network.AWS.CloudWatchEvents.Types.EventBus
+  ( EventBus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventBus,
+
+    -- * Lenses
+    ebARN,
+    ebName,
+    ebPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An event bus receives events from a source and routes them to rules associated with that event bus. Your account's default event bus receives rules from AWS services. A custom event bus can receive rules from AWS services as well as your custom applications and services. A partner event bus receives events from an event source created by an SaaS partner. These events come from the partners services or applications.
 --
---
---
--- /See:/ 'eventBus' smart constructor.
+-- /See:/ 'mkEventBus' smart constructor.
 data EventBus = EventBus'
-  { _ebARN :: !(Maybe Text),
-    _ebName :: !(Maybe Text),
-    _ebPolicy :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    policy :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventBus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ebARN' - The ARN of the event bus.
---
--- * 'ebName' - The name of the event bus.
---
--- * 'ebPolicy' - The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-eventBus ::
+-- * 'arn' - The ARN of the event bus.
+-- * 'name' - The name of the event bus.
+-- * 'policy' - The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
+mkEventBus ::
   EventBus
-eventBus =
+mkEventBus =
   EventBus'
-    { _ebARN = Nothing,
-      _ebName = Nothing,
-      _ebPolicy = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      policy = Lude.Nothing
     }
 
 -- | The ARN of the event bus.
-ebARN :: Lens' EventBus (Maybe Text)
-ebARN = lens _ebARN (\s a -> s {_ebARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebARN :: Lens.Lens' EventBus (Lude.Maybe Lude.Text)
+ebARN = Lens.lens (arn :: EventBus -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: EventBus)
+{-# DEPRECATED ebARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the event bus.
-ebName :: Lens' EventBus (Maybe Text)
-ebName = lens _ebName (\s a -> s {_ebName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebName :: Lens.Lens' EventBus (Lude.Maybe Lude.Text)
+ebName = Lens.lens (name :: EventBus -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: EventBus)
+{-# DEPRECATED ebName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-ebPolicy :: Lens' EventBus (Maybe Text)
-ebPolicy = lens _ebPolicy (\s a -> s {_ebPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebPolicy :: Lens.Lens' EventBus (Lude.Maybe Lude.Text)
+ebPolicy = Lens.lens (policy :: EventBus -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: EventBus)
+{-# DEPRECATED ebPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance FromJSON EventBus where
+instance Lude.FromJSON EventBus where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventBus"
       ( \x ->
           EventBus'
-            <$> (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Policy")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Policy")
       )
-
-instance Hashable EventBus
-
-instance NFData EventBus

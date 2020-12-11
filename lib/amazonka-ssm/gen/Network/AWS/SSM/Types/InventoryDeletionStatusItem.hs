@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,137 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryDeletionStatusItem where
+module Network.AWS.SSM.Types.InventoryDeletionStatusItem
+  ( InventoryDeletionStatusItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryDeletionStatusItem,
+
+    -- * Lenses
+    idsiTypeName,
+    idsiLastStatusUpdateTime,
+    idsiLastStatusMessage,
+    idsiDeletionSummary,
+    idsiLastStatus,
+    idsiDeletionStartTime,
+    idsiDeletionId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InventoryDeletionStatus
 import Network.AWS.SSM.Types.InventoryDeletionSummary
 
 -- | Status information returned by the @DeleteInventory@ action.
 --
---
---
--- /See:/ 'inventoryDeletionStatusItem' smart constructor.
+-- /See:/ 'mkInventoryDeletionStatusItem' smart constructor.
 data InventoryDeletionStatusItem = InventoryDeletionStatusItem'
-  { _idsiTypeName ::
-      !(Maybe Text),
-    _idsiLastStatusUpdateTime ::
-      !(Maybe POSIX),
-    _idsiLastStatusMessage ::
-      !(Maybe Text),
-    _idsiDeletionSummary ::
-      !(Maybe InventoryDeletionSummary),
-    _idsiLastStatus ::
-      !(Maybe InventoryDeletionStatus),
-    _idsiDeletionStartTime ::
-      !(Maybe POSIX),
-    _idsiDeletionId :: !(Maybe Text)
+  { typeName ::
+      Lude.Maybe Lude.Text,
+    lastStatusUpdateTime ::
+      Lude.Maybe Lude.Timestamp,
+    lastStatusMessage ::
+      Lude.Maybe Lude.Text,
+    deletionSummary ::
+      Lude.Maybe InventoryDeletionSummary,
+    lastStatus ::
+      Lude.Maybe InventoryDeletionStatus,
+    deletionStartTime ::
+      Lude.Maybe Lude.Timestamp,
+    deletionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryDeletionStatusItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idsiTypeName' - The name of the inventory data type.
---
--- * 'idsiLastStatusUpdateTime' - The UTC timestamp of when the last status report.
---
--- * 'idsiLastStatusMessage' - Information about the status.
---
--- * 'idsiDeletionSummary' - Information about the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete Understanding the delete inventory summary> in the /AWS Systems Manager User Guide/ .
---
--- * 'idsiLastStatus' - The status of the operation. Possible values are InProgress and Complete.
---
--- * 'idsiDeletionStartTime' - The UTC timestamp when the delete operation started.
---
--- * 'idsiDeletionId' - The deletion ID returned by the @DeleteInventory@ action.
-inventoryDeletionStatusItem ::
+-- * 'deletionId' - The deletion ID returned by the @DeleteInventory@ action.
+-- * 'deletionStartTime' - The UTC timestamp when the delete operation started.
+-- * 'deletionSummary' - Information about the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete Understanding the delete inventory summary> in the /AWS Systems Manager User Guide/ .
+-- * 'lastStatus' - The status of the operation. Possible values are InProgress and Complete.
+-- * 'lastStatusMessage' - Information about the status.
+-- * 'lastStatusUpdateTime' - The UTC timestamp of when the last status report.
+-- * 'typeName' - The name of the inventory data type.
+mkInventoryDeletionStatusItem ::
   InventoryDeletionStatusItem
-inventoryDeletionStatusItem =
+mkInventoryDeletionStatusItem =
   InventoryDeletionStatusItem'
-    { _idsiTypeName = Nothing,
-      _idsiLastStatusUpdateTime = Nothing,
-      _idsiLastStatusMessage = Nothing,
-      _idsiDeletionSummary = Nothing,
-      _idsiLastStatus = Nothing,
-      _idsiDeletionStartTime = Nothing,
-      _idsiDeletionId = Nothing
+    { typeName = Lude.Nothing,
+      lastStatusUpdateTime = Lude.Nothing,
+      lastStatusMessage = Lude.Nothing,
+      deletionSummary = Lude.Nothing,
+      lastStatus = Lude.Nothing,
+      deletionStartTime = Lude.Nothing,
+      deletionId = Lude.Nothing
     }
 
 -- | The name of the inventory data type.
-idsiTypeName :: Lens' InventoryDeletionStatusItem (Maybe Text)
-idsiTypeName = lens _idsiTypeName (\s a -> s {_idsiTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiTypeName :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe Lude.Text)
+idsiTypeName = Lens.lens (typeName :: InventoryDeletionStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The UTC timestamp of when the last status report.
-idsiLastStatusUpdateTime :: Lens' InventoryDeletionStatusItem (Maybe UTCTime)
-idsiLastStatusUpdateTime = lens _idsiLastStatusUpdateTime (\s a -> s {_idsiLastStatusUpdateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastStatusUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiLastStatusUpdateTime :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe Lude.Timestamp)
+idsiLastStatusUpdateTime = Lens.lens (lastStatusUpdateTime :: InventoryDeletionStatusItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStatusUpdateTime = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiLastStatusUpdateTime "Use generic-lens or generic-optics with 'lastStatusUpdateTime' instead." #-}
 
 -- | Information about the status.
-idsiLastStatusMessage :: Lens' InventoryDeletionStatusItem (Maybe Text)
-idsiLastStatusMessage = lens _idsiLastStatusMessage (\s a -> s {_idsiLastStatusMessage = a})
+--
+-- /Note:/ Consider using 'lastStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiLastStatusMessage :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe Lude.Text)
+idsiLastStatusMessage = Lens.lens (lastStatusMessage :: InventoryDeletionStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {lastStatusMessage = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiLastStatusMessage "Use generic-lens or generic-optics with 'lastStatusMessage' instead." #-}
 
 -- | Information about the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete Understanding the delete inventory summary> in the /AWS Systems Manager User Guide/ .
-idsiDeletionSummary :: Lens' InventoryDeletionStatusItem (Maybe InventoryDeletionSummary)
-idsiDeletionSummary = lens _idsiDeletionSummary (\s a -> s {_idsiDeletionSummary = a})
+--
+-- /Note:/ Consider using 'deletionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiDeletionSummary :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe InventoryDeletionSummary)
+idsiDeletionSummary = Lens.lens (deletionSummary :: InventoryDeletionStatusItem -> Lude.Maybe InventoryDeletionSummary) (\s a -> s {deletionSummary = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiDeletionSummary "Use generic-lens or generic-optics with 'deletionSummary' instead." #-}
 
 -- | The status of the operation. Possible values are InProgress and Complete.
-idsiLastStatus :: Lens' InventoryDeletionStatusItem (Maybe InventoryDeletionStatus)
-idsiLastStatus = lens _idsiLastStatus (\s a -> s {_idsiLastStatus = a})
+--
+-- /Note:/ Consider using 'lastStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiLastStatus :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe InventoryDeletionStatus)
+idsiLastStatus = Lens.lens (lastStatus :: InventoryDeletionStatusItem -> Lude.Maybe InventoryDeletionStatus) (\s a -> s {lastStatus = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiLastStatus "Use generic-lens or generic-optics with 'lastStatus' instead." #-}
 
 -- | The UTC timestamp when the delete operation started.
-idsiDeletionStartTime :: Lens' InventoryDeletionStatusItem (Maybe UTCTime)
-idsiDeletionStartTime = lens _idsiDeletionStartTime (\s a -> s {_idsiDeletionStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deletionStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiDeletionStartTime :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe Lude.Timestamp)
+idsiDeletionStartTime = Lens.lens (deletionStartTime :: InventoryDeletionStatusItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {deletionStartTime = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiDeletionStartTime "Use generic-lens or generic-optics with 'deletionStartTime' instead." #-}
 
 -- | The deletion ID returned by the @DeleteInventory@ action.
-idsiDeletionId :: Lens' InventoryDeletionStatusItem (Maybe Text)
-idsiDeletionId = lens _idsiDeletionId (\s a -> s {_idsiDeletionId = a})
+--
+-- /Note:/ Consider using 'deletionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiDeletionId :: Lens.Lens' InventoryDeletionStatusItem (Lude.Maybe Lude.Text)
+idsiDeletionId = Lens.lens (deletionId :: InventoryDeletionStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {deletionId = a} :: InventoryDeletionStatusItem)
+{-# DEPRECATED idsiDeletionId "Use generic-lens or generic-optics with 'deletionId' instead." #-}
 
-instance FromJSON InventoryDeletionStatusItem where
+instance Lude.FromJSON InventoryDeletionStatusItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "InventoryDeletionStatusItem"
       ( \x ->
           InventoryDeletionStatusItem'
-            <$> (x .:? "TypeName")
-            <*> (x .:? "LastStatusUpdateTime")
-            <*> (x .:? "LastStatusMessage")
-            <*> (x .:? "DeletionSummary")
-            <*> (x .:? "LastStatus")
-            <*> (x .:? "DeletionStartTime")
-            <*> (x .:? "DeletionId")
+            Lude.<$> (x Lude..:? "TypeName")
+            Lude.<*> (x Lude..:? "LastStatusUpdateTime")
+            Lude.<*> (x Lude..:? "LastStatusMessage")
+            Lude.<*> (x Lude..:? "DeletionSummary")
+            Lude.<*> (x Lude..:? "LastStatus")
+            Lude.<*> (x Lude..:? "DeletionStartTime")
+            Lude.<*> (x Lude..:? "DeletionId")
       )
-
-instance Hashable InventoryDeletionStatusItem
-
-instance NFData InventoryDeletionStatusItem

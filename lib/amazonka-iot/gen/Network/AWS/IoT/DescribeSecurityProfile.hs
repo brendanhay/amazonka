@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about a Device Defender security profile.
 module Network.AWS.IoT.DescribeSecurityProfile
-  ( -- * Creating a Request
-    describeSecurityProfile,
-    DescribeSecurityProfile,
+  ( -- * Creating a request
+    DescribeSecurityProfile (..),
+    mkDescribeSecurityProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dSecurityProfileName,
 
-    -- * Destructuring the Response
-    describeSecurityProfileResponse,
-    DescribeSecurityProfileResponse,
+    -- * Destructuring the response
+    DescribeSecurityProfileResponse (..),
+    mkDescribeSecurityProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dspsrsAlertTargets,
     dspsrsAdditionalMetricsToRetainV2,
     dspsrsBehaviors,
@@ -46,189 +41,222 @@ module Network.AWS.IoT.DescribeSecurityProfile
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeSecurityProfile' smart constructor.
+-- | /See:/ 'mkDescribeSecurityProfile' smart constructor.
 newtype DescribeSecurityProfile = DescribeSecurityProfile'
-  { _dSecurityProfileName ::
-      Text
+  { securityProfileName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dSecurityProfileName' - The name of the security profile whose information you want to get.
-describeSecurityProfile ::
-  -- | 'dSecurityProfileName'
-  Text ->
+-- * 'securityProfileName' - The name of the security profile whose information you want to get.
+mkDescribeSecurityProfile ::
+  -- | 'securityProfileName'
+  Lude.Text ->
   DescribeSecurityProfile
-describeSecurityProfile pSecurityProfileName_ =
+mkDescribeSecurityProfile pSecurityProfileName_ =
   DescribeSecurityProfile'
-    { _dSecurityProfileName =
+    { securityProfileName =
         pSecurityProfileName_
     }
 
 -- | The name of the security profile whose information you want to get.
-dSecurityProfileName :: Lens' DescribeSecurityProfile Text
-dSecurityProfileName = lens _dSecurityProfileName (\s a -> s {_dSecurityProfileName = a})
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSecurityProfileName :: Lens.Lens' DescribeSecurityProfile Lude.Text
+dSecurityProfileName = Lens.lens (securityProfileName :: DescribeSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: DescribeSecurityProfile)
+{-# DEPRECATED dSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
-instance AWSRequest DescribeSecurityProfile where
+instance Lude.AWSRequest DescribeSecurityProfile where
   type Rs DescribeSecurityProfile = DescribeSecurityProfileResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeSecurityProfileResponse'
-            <$> (x .?> "alertTargets" .!@ mempty)
-            <*> (x .?> "additionalMetricsToRetainV2" .!@ mempty)
-            <*> (x .?> "behaviors" .!@ mempty)
-            <*> (x .?> "lastModifiedDate")
-            <*> (x .?> "version")
-            <*> (x .?> "securityProfileName")
-            <*> (x .?> "creationDate")
-            <*> (x .?> "additionalMetricsToRetain" .!@ mempty)
-            <*> (x .?> "securityProfileArn")
-            <*> (x .?> "securityProfileDescription")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "alertTargets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "additionalMetricsToRetainV2" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "behaviors" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "lastModifiedDate")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "securityProfileName")
+            Lude.<*> (x Lude..?> "creationDate")
+            Lude.<*> (x Lude..?> "additionalMetricsToRetain" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "securityProfileArn")
+            Lude.<*> (x Lude..?> "securityProfileDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSecurityProfile
+instance Lude.ToHeaders DescribeSecurityProfile where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeSecurityProfile
-
-instance ToHeaders DescribeSecurityProfile where
-  toHeaders = const mempty
-
-instance ToPath DescribeSecurityProfile where
+instance Lude.ToPath DescribeSecurityProfile where
   toPath DescribeSecurityProfile' {..} =
-    mconcat ["/security-profiles/", toBS _dSecurityProfileName]
+    Lude.mconcat
+      ["/security-profiles/", Lude.toBS securityProfileName]
 
-instance ToQuery DescribeSecurityProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeSecurityProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeSecurityProfileResponse' smart constructor.
+-- | /See:/ 'mkDescribeSecurityProfileResponse' smart constructor.
 data DescribeSecurityProfileResponse = DescribeSecurityProfileResponse'
-  { _dspsrsAlertTargets ::
-      !( Maybe
-           ( Map
-               AlertTargetType
-               (AlertTarget)
-           )
-       ),
-    _dspsrsAdditionalMetricsToRetainV2 ::
-      !(Maybe [MetricToRetain]),
-    _dspsrsBehaviors ::
-      !(Maybe [Behavior]),
-    _dspsrsLastModifiedDate ::
-      !(Maybe POSIX),
-    _dspsrsVersion ::
-      !(Maybe Integer),
-    _dspsrsSecurityProfileName ::
-      !(Maybe Text),
-    _dspsrsCreationDate ::
-      !(Maybe POSIX),
-    _dspsrsAdditionalMetricsToRetain ::
-      !(Maybe [Text]),
-    _dspsrsSecurityProfileARN ::
-      !(Maybe Text),
-    _dspsrsSecurityProfileDescription ::
-      !(Maybe Text),
-    _dspsrsResponseStatus ::
-      !Int
+  { alertTargets ::
+      Lude.Maybe
+        ( Lude.HashMap
+            AlertTargetType
+            (AlertTarget)
+        ),
+    additionalMetricsToRetainV2 ::
+      Lude.Maybe [MetricToRetain],
+    behaviors ::
+      Lude.Maybe [Behavior],
+    lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    version ::
+      Lude.Maybe Lude.Integer,
+    securityProfileName ::
+      Lude.Maybe Lude.Text,
+    creationDate ::
+      Lude.Maybe Lude.Timestamp,
+    additionalMetricsToRetain ::
+      Lude.Maybe [Lude.Text],
+    securityProfileARN ::
+      Lude.Maybe Lude.Text,
+    securityProfileDescription ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'additionalMetricsToRetain' - /Please use 'DescribeSecurityProfileResponse$additionalMetricsToRetainV2' instead./
 --
--- * 'dspsrsAlertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
---
--- * 'dspsrsAdditionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
---
--- * 'dspsrsBehaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
---
--- * 'dspsrsLastModifiedDate' - The time the security profile was last modified.
---
--- * 'dspsrsVersion' - The version of the security profile. A new version is generated whenever the security profile is updated.
---
--- * 'dspsrsSecurityProfileName' - The name of the security profile.
---
--- * 'dspsrsCreationDate' - The time the security profile was created.
---
--- * 'dspsrsAdditionalMetricsToRetain' - /Please use 'DescribeSecurityProfileResponse$additionalMetricsToRetainV2' instead./  A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
---
--- * 'dspsrsSecurityProfileARN' - The ARN of the security profile.
---
--- * 'dspsrsSecurityProfileDescription' - A description of the security profile (associated with the security profile when it was created or updated).
---
--- * 'dspsrsResponseStatus' - -- | The response status code.
-describeSecurityProfileResponse ::
-  -- | 'dspsrsResponseStatus'
-  Int ->
+-- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+-- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+-- * 'alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
+-- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
+-- * 'creationDate' - The time the security profile was created.
+-- * 'lastModifiedDate' - The time the security profile was last modified.
+-- * 'responseStatus' - The response status code.
+-- * 'securityProfileARN' - The ARN of the security profile.
+-- * 'securityProfileDescription' - A description of the security profile (associated with the security profile when it was created or updated).
+-- * 'securityProfileName' - The name of the security profile.
+-- * 'version' - The version of the security profile. A new version is generated whenever the security profile is updated.
+mkDescribeSecurityProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSecurityProfileResponse
-describeSecurityProfileResponse pResponseStatus_ =
+mkDescribeSecurityProfileResponse pResponseStatus_ =
   DescribeSecurityProfileResponse'
-    { _dspsrsAlertTargets = Nothing,
-      _dspsrsAdditionalMetricsToRetainV2 = Nothing,
-      _dspsrsBehaviors = Nothing,
-      _dspsrsLastModifiedDate = Nothing,
-      _dspsrsVersion = Nothing,
-      _dspsrsSecurityProfileName = Nothing,
-      _dspsrsCreationDate = Nothing,
-      _dspsrsAdditionalMetricsToRetain = Nothing,
-      _dspsrsSecurityProfileARN = Nothing,
-      _dspsrsSecurityProfileDescription = Nothing,
-      _dspsrsResponseStatus = pResponseStatus_
+    { alertTargets = Lude.Nothing,
+      additionalMetricsToRetainV2 = Lude.Nothing,
+      behaviors = Lude.Nothing,
+      lastModifiedDate = Lude.Nothing,
+      version = Lude.Nothing,
+      securityProfileName = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      additionalMetricsToRetain = Lude.Nothing,
+      securityProfileARN = Lude.Nothing,
+      securityProfileDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Where the alerts are sent. (Alerts are always sent to the console.)
-dspsrsAlertTargets :: Lens' DescribeSecurityProfileResponse (HashMap AlertTargetType (AlertTarget))
-dspsrsAlertTargets = lens _dspsrsAlertTargets (\s a -> s {_dspsrsAlertTargets = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'alertTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsAlertTargets :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget)))
+dspsrsAlertTargets = Lens.lens (alertTargets :: DescribeSecurityProfileResponse -> Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget))) (\s a -> s {alertTargets = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsAlertTargets "Use generic-lens or generic-optics with 'alertTargets' instead." #-}
 
 -- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
-dspsrsAdditionalMetricsToRetainV2 :: Lens' DescribeSecurityProfileResponse [MetricToRetain]
-dspsrsAdditionalMetricsToRetainV2 = lens _dspsrsAdditionalMetricsToRetainV2 (\s a -> s {_dspsrsAdditionalMetricsToRetainV2 = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'additionalMetricsToRetainV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsAdditionalMetricsToRetainV2 :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe [MetricToRetain])
+dspsrsAdditionalMetricsToRetainV2 = Lens.lens (additionalMetricsToRetainV2 :: DescribeSecurityProfileResponse -> Lude.Maybe [MetricToRetain]) (\s a -> s {additionalMetricsToRetainV2 = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsAdditionalMetricsToRetainV2 "Use generic-lens or generic-optics with 'additionalMetricsToRetainV2' instead." #-}
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
-dspsrsBehaviors :: Lens' DescribeSecurityProfileResponse [Behavior]
-dspsrsBehaviors = lens _dspsrsBehaviors (\s a -> s {_dspsrsBehaviors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'behaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsBehaviors :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe [Behavior])
+dspsrsBehaviors = Lens.lens (behaviors :: DescribeSecurityProfileResponse -> Lude.Maybe [Behavior]) (\s a -> s {behaviors = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsBehaviors "Use generic-lens or generic-optics with 'behaviors' instead." #-}
 
 -- | The time the security profile was last modified.
-dspsrsLastModifiedDate :: Lens' DescribeSecurityProfileResponse (Maybe UTCTime)
-dspsrsLastModifiedDate = lens _dspsrsLastModifiedDate (\s a -> s {_dspsrsLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsLastModifiedDate :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe Lude.Timestamp)
+dspsrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeSecurityProfileResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The version of the security profile. A new version is generated whenever the security profile is updated.
-dspsrsVersion :: Lens' DescribeSecurityProfileResponse (Maybe Integer)
-dspsrsVersion = lens _dspsrsVersion (\s a -> s {_dspsrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsVersion :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe Lude.Integer)
+dspsrsVersion = Lens.lens (version :: DescribeSecurityProfileResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the security profile.
-dspsrsSecurityProfileName :: Lens' DescribeSecurityProfileResponse (Maybe Text)
-dspsrsSecurityProfileName = lens _dspsrsSecurityProfileName (\s a -> s {_dspsrsSecurityProfileName = a})
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsSecurityProfileName :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe Lude.Text)
+dspsrsSecurityProfileName = Lens.lens (securityProfileName :: DescribeSecurityProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileName = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The time the security profile was created.
-dspsrsCreationDate :: Lens' DescribeSecurityProfileResponse (Maybe UTCTime)
-dspsrsCreationDate = lens _dspsrsCreationDate (\s a -> s {_dspsrsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsCreationDate :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe Lude.Timestamp)
+dspsrsCreationDate = Lens.lens (creationDate :: DescribeSecurityProfileResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | /Please use 'DescribeSecurityProfileResponse$additionalMetricsToRetainV2' instead./  A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
-dspsrsAdditionalMetricsToRetain :: Lens' DescribeSecurityProfileResponse [Text]
-dspsrsAdditionalMetricsToRetain = lens _dspsrsAdditionalMetricsToRetain (\s a -> s {_dspsrsAdditionalMetricsToRetain = a}) . _Default . _Coerce
+-- | /Please use 'DescribeSecurityProfileResponse$additionalMetricsToRetainV2' instead./
+--
+-- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+--
+-- /Note:/ Consider using 'additionalMetricsToRetain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsAdditionalMetricsToRetain :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe [Lude.Text])
+dspsrsAdditionalMetricsToRetain = Lens.lens (additionalMetricsToRetain :: DescribeSecurityProfileResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {additionalMetricsToRetain = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsAdditionalMetricsToRetain "Use generic-lens or generic-optics with 'additionalMetricsToRetain' instead." #-}
 
 -- | The ARN of the security profile.
-dspsrsSecurityProfileARN :: Lens' DescribeSecurityProfileResponse (Maybe Text)
-dspsrsSecurityProfileARN = lens _dspsrsSecurityProfileARN (\s a -> s {_dspsrsSecurityProfileARN = a})
+--
+-- /Note:/ Consider using 'securityProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsSecurityProfileARN :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe Lude.Text)
+dspsrsSecurityProfileARN = Lens.lens (securityProfileARN :: DescribeSecurityProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileARN = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsSecurityProfileARN "Use generic-lens or generic-optics with 'securityProfileARN' instead." #-}
 
 -- | A description of the security profile (associated with the security profile when it was created or updated).
-dspsrsSecurityProfileDescription :: Lens' DescribeSecurityProfileResponse (Maybe Text)
-dspsrsSecurityProfileDescription = lens _dspsrsSecurityProfileDescription (\s a -> s {_dspsrsSecurityProfileDescription = a})
+--
+-- /Note:/ Consider using 'securityProfileDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsSecurityProfileDescription :: Lens.Lens' DescribeSecurityProfileResponse (Lude.Maybe Lude.Text)
+dspsrsSecurityProfileDescription = Lens.lens (securityProfileDescription :: DescribeSecurityProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileDescription = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsSecurityProfileDescription "Use generic-lens or generic-optics with 'securityProfileDescription' instead." #-}
 
--- | -- | The response status code.
-dspsrsResponseStatus :: Lens' DescribeSecurityProfileResponse Int
-dspsrsResponseStatus = lens _dspsrsResponseStatus (\s a -> s {_dspsrsResponseStatus = a})
-
-instance NFData DescribeSecurityProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspsrsResponseStatus :: Lens.Lens' DescribeSecurityProfileResponse Lude.Int
+dspsrsResponseStatus = Lens.lens (responseStatus :: DescribeSecurityProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSecurityProfileResponse)
+{-# DEPRECATED dspsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

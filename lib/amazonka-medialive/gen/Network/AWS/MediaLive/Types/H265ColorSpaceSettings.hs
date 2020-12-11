@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265ColorSpaceSettings where
+module Network.AWS.MediaLive.Types.H265ColorSpaceSettings
+  ( H265ColorSpaceSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkH265ColorSpaceSettings,
+
+    -- * Lenses
+    hcssHdr10Settings,
+    hcssRec709Settings,
+    hcssRec601Settings,
+    hcssColorSpacePassthroughSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
 import Network.AWS.MediaLive.Types.Hdr10Settings
 import Network.AWS.MediaLive.Types.Rec601Settings
 import Network.AWS.MediaLive.Types.Rec709Settings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H265 Color Space Settings
 --
--- /See:/ 'h265ColorSpaceSettings' smart constructor.
+-- /See:/ 'mkH265ColorSpaceSettings' smart constructor.
 data H265ColorSpaceSettings = H265ColorSpaceSettings'
-  { _hcssHdr10Settings ::
-      !(Maybe Hdr10Settings),
-    _hcssRec709Settings ::
-      !(Maybe Rec709Settings),
-    _hcssRec601Settings ::
-      !(Maybe Rec601Settings),
-    _hcssColorSpacePassthroughSettings ::
-      !(Maybe ColorSpacePassthroughSettings)
+  { hdr10Settings ::
+      Lude.Maybe Hdr10Settings,
+    rec709Settings :: Lude.Maybe Rec709Settings,
+    rec601Settings :: Lude.Maybe Rec601Settings,
+    colorSpacePassthroughSettings ::
+      Lude.Maybe ColorSpacePassthroughSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H265ColorSpaceSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hcssHdr10Settings' - Undocumented member.
---
--- * 'hcssRec709Settings' - Undocumented member.
---
--- * 'hcssRec601Settings' - Undocumented member.
---
--- * 'hcssColorSpacePassthroughSettings' - Undocumented member.
-h265ColorSpaceSettings ::
+-- * 'colorSpacePassthroughSettings' - Undocumented field.
+-- * 'hdr10Settings' - Undocumented field.
+-- * 'rec601Settings' - Undocumented field.
+-- * 'rec709Settings' - Undocumented field.
+mkH265ColorSpaceSettings ::
   H265ColorSpaceSettings
-h265ColorSpaceSettings =
+mkH265ColorSpaceSettings =
   H265ColorSpaceSettings'
-    { _hcssHdr10Settings = Nothing,
-      _hcssRec709Settings = Nothing,
-      _hcssRec601Settings = Nothing,
-      _hcssColorSpacePassthroughSettings = Nothing
+    { hdr10Settings = Lude.Nothing,
+      rec709Settings = Lude.Nothing,
+      rec601Settings = Lude.Nothing,
+      colorSpacePassthroughSettings = Lude.Nothing
     }
 
--- | Undocumented member.
-hcssHdr10Settings :: Lens' H265ColorSpaceSettings (Maybe Hdr10Settings)
-hcssHdr10Settings = lens _hcssHdr10Settings (\s a -> s {_hcssHdr10Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hdr10Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcssHdr10Settings :: Lens.Lens' H265ColorSpaceSettings (Lude.Maybe Hdr10Settings)
+hcssHdr10Settings = Lens.lens (hdr10Settings :: H265ColorSpaceSettings -> Lude.Maybe Hdr10Settings) (\s a -> s {hdr10Settings = a} :: H265ColorSpaceSettings)
+{-# DEPRECATED hcssHdr10Settings "Use generic-lens or generic-optics with 'hdr10Settings' instead." #-}
 
--- | Undocumented member.
-hcssRec709Settings :: Lens' H265ColorSpaceSettings (Maybe Rec709Settings)
-hcssRec709Settings = lens _hcssRec709Settings (\s a -> s {_hcssRec709Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rec709Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcssRec709Settings :: Lens.Lens' H265ColorSpaceSettings (Lude.Maybe Rec709Settings)
+hcssRec709Settings = Lens.lens (rec709Settings :: H265ColorSpaceSettings -> Lude.Maybe Rec709Settings) (\s a -> s {rec709Settings = a} :: H265ColorSpaceSettings)
+{-# DEPRECATED hcssRec709Settings "Use generic-lens or generic-optics with 'rec709Settings' instead." #-}
 
--- | Undocumented member.
-hcssRec601Settings :: Lens' H265ColorSpaceSettings (Maybe Rec601Settings)
-hcssRec601Settings = lens _hcssRec601Settings (\s a -> s {_hcssRec601Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rec601Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcssRec601Settings :: Lens.Lens' H265ColorSpaceSettings (Lude.Maybe Rec601Settings)
+hcssRec601Settings = Lens.lens (rec601Settings :: H265ColorSpaceSettings -> Lude.Maybe Rec601Settings) (\s a -> s {rec601Settings = a} :: H265ColorSpaceSettings)
+{-# DEPRECATED hcssRec601Settings "Use generic-lens or generic-optics with 'rec601Settings' instead." #-}
 
--- | Undocumented member.
-hcssColorSpacePassthroughSettings :: Lens' H265ColorSpaceSettings (Maybe ColorSpacePassthroughSettings)
-hcssColorSpacePassthroughSettings = lens _hcssColorSpacePassthroughSettings (\s a -> s {_hcssColorSpacePassthroughSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'colorSpacePassthroughSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcssColorSpacePassthroughSettings :: Lens.Lens' H265ColorSpaceSettings (Lude.Maybe ColorSpacePassthroughSettings)
+hcssColorSpacePassthroughSettings = Lens.lens (colorSpacePassthroughSettings :: H265ColorSpaceSettings -> Lude.Maybe ColorSpacePassthroughSettings) (\s a -> s {colorSpacePassthroughSettings = a} :: H265ColorSpaceSettings)
+{-# DEPRECATED hcssColorSpacePassthroughSettings "Use generic-lens or generic-optics with 'colorSpacePassthroughSettings' instead." #-}
 
-instance FromJSON H265ColorSpaceSettings where
+instance Lude.FromJSON H265ColorSpaceSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "H265ColorSpaceSettings"
       ( \x ->
           H265ColorSpaceSettings'
-            <$> (x .:? "hdr10Settings")
-            <*> (x .:? "rec709Settings")
-            <*> (x .:? "rec601Settings")
-            <*> (x .:? "colorSpacePassthroughSettings")
+            Lude.<$> (x Lude..:? "hdr10Settings")
+            Lude.<*> (x Lude..:? "rec709Settings")
+            Lude.<*> (x Lude..:? "rec601Settings")
+            Lude.<*> (x Lude..:? "colorSpacePassthroughSettings")
       )
 
-instance Hashable H265ColorSpaceSettings
-
-instance NFData H265ColorSpaceSettings
-
-instance ToJSON H265ColorSpaceSettings where
+instance Lude.ToJSON H265ColorSpaceSettings where
   toJSON H265ColorSpaceSettings' {..} =
-    object
-      ( catMaybes
-          [ ("hdr10Settings" .=) <$> _hcssHdr10Settings,
-            ("rec709Settings" .=) <$> _hcssRec709Settings,
-            ("rec601Settings" .=) <$> _hcssRec601Settings,
-            ("colorSpacePassthroughSettings" .=)
-              <$> _hcssColorSpacePassthroughSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("hdr10Settings" Lude..=) Lude.<$> hdr10Settings,
+            ("rec709Settings" Lude..=) Lude.<$> rec709Settings,
+            ("rec601Settings" Lude..=) Lude.<$> rec601Settings,
+            ("colorSpacePassthroughSettings" Lude..=)
+              Lude.<$> colorSpacePassthroughSettings
           ]
       )

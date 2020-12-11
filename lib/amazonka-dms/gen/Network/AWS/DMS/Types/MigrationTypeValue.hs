@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.MigrationTypeValue where
+module Network.AWS.DMS.Types.MigrationTypeValue
+  ( MigrationTypeValue
+      ( MigrationTypeValue',
+        Cdc,
+        FullLoad,
+        FullLoadAndCdc
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MigrationTypeValue
-  = Cdc
-  | FullLoad
-  | FullLoadAndCdc
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MigrationTypeValue = MigrationTypeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MigrationTypeValue where
-  parser =
-    takeLowerText >>= \case
-      "cdc" -> pure Cdc
-      "full-load" -> pure FullLoad
-      "full-load-and-cdc" -> pure FullLoadAndCdc
-      e ->
-        fromTextError $
-          "Failure parsing MigrationTypeValue from value: '" <> e
-            <> "'. Accepted values: cdc, full-load, full-load-and-cdc"
+pattern Cdc :: MigrationTypeValue
+pattern Cdc = MigrationTypeValue' "cdc"
 
-instance ToText MigrationTypeValue where
-  toText = \case
-    Cdc -> "cdc"
-    FullLoad -> "full-load"
-    FullLoadAndCdc -> "full-load-and-cdc"
+pattern FullLoad :: MigrationTypeValue
+pattern FullLoad = MigrationTypeValue' "full-load"
 
-instance Hashable MigrationTypeValue
+pattern FullLoadAndCdc :: MigrationTypeValue
+pattern FullLoadAndCdc = MigrationTypeValue' "full-load-and-cdc"
 
-instance NFData MigrationTypeValue
-
-instance ToByteString MigrationTypeValue
-
-instance ToQuery MigrationTypeValue
-
-instance ToHeader MigrationTypeValue
-
-instance ToJSON MigrationTypeValue where
-  toJSON = toJSONText
-
-instance FromJSON MigrationTypeValue where
-  parseJSON = parseJSONText "MigrationTypeValue"
+{-# COMPLETE
+  Cdc,
+  FullLoad,
+  FullLoadAndCdc,
+  MigrationTypeValue'
+  #-}

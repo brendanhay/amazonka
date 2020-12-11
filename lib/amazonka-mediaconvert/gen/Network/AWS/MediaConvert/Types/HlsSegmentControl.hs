@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsSegmentControl where
+module Network.AWS.MediaConvert.Types.HlsSegmentControl
+  ( HlsSegmentControl
+      ( HlsSegmentControl',
+        HSCSegmentedFiles,
+        HSCSingleFile
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
-data HlsSegmentControl
-  = HSCSegmentedFiles
-  | HSCSingleFile
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsSegmentControl = HlsSegmentControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsSegmentControl where
-  parser =
-    takeLowerText >>= \case
-      "segmented_files" -> pure HSCSegmentedFiles
-      "single_file" -> pure HSCSingleFile
-      e ->
-        fromTextError $
-          "Failure parsing HlsSegmentControl from value: '" <> e
-            <> "'. Accepted values: segmented_files, single_file"
+pattern HSCSegmentedFiles :: HlsSegmentControl
+pattern HSCSegmentedFiles = HlsSegmentControl' "SEGMENTED_FILES"
 
-instance ToText HlsSegmentControl where
-  toText = \case
-    HSCSegmentedFiles -> "SEGMENTED_FILES"
-    HSCSingleFile -> "SINGLE_FILE"
+pattern HSCSingleFile :: HlsSegmentControl
+pattern HSCSingleFile = HlsSegmentControl' "SINGLE_FILE"
 
-instance Hashable HlsSegmentControl
-
-instance NFData HlsSegmentControl
-
-instance ToByteString HlsSegmentControl
-
-instance ToQuery HlsSegmentControl
-
-instance ToHeader HlsSegmentControl
-
-instance ToJSON HlsSegmentControl where
-  toJSON = toJSONText
-
-instance FromJSON HlsSegmentControl where
-  parseJSON = parseJSONText "HlsSegmentControl"
+{-# COMPLETE
+  HSCSegmentedFiles,
+  HSCSingleFile,
+  HlsSegmentControl'
+  #-}

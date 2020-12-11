@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.IngressAccessLogs where
+module Network.AWS.MediaPackage.Types.IngressAccessLogs
+  ( IngressAccessLogs (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIngressAccessLogs,
+
+    -- * Lenses
+    ialLogGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configure ingress access logging.
 --
--- /See:/ 'ingressAccessLogs' smart constructor.
+-- /See:/ 'mkIngressAccessLogs' smart constructor.
 newtype IngressAccessLogs = IngressAccessLogs'
-  { _ialLogGroupName ::
-      Maybe Text
+  { logGroupName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IngressAccessLogs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ialLogGroupName' - Customize the log group name.
-ingressAccessLogs ::
+-- * 'logGroupName' - Customize the log group name.
+mkIngressAccessLogs ::
   IngressAccessLogs
-ingressAccessLogs = IngressAccessLogs' {_ialLogGroupName = Nothing}
+mkIngressAccessLogs =
+  IngressAccessLogs' {logGroupName = Lude.Nothing}
 
 -- | Customize the log group name.
-ialLogGroupName :: Lens' IngressAccessLogs (Maybe Text)
-ialLogGroupName = lens _ialLogGroupName (\s a -> s {_ialLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ialLogGroupName :: Lens.Lens' IngressAccessLogs (Lude.Maybe Lude.Text)
+ialLogGroupName = Lens.lens (logGroupName :: IngressAccessLogs -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: IngressAccessLogs)
+{-# DEPRECATED ialLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance FromJSON IngressAccessLogs where
+instance Lude.FromJSON IngressAccessLogs where
   parseJSON =
-    withObject
+    Lude.withObject
       "IngressAccessLogs"
-      (\x -> IngressAccessLogs' <$> (x .:? "logGroupName"))
+      (\x -> IngressAccessLogs' Lude.<$> (x Lude..:? "logGroupName"))
 
-instance Hashable IngressAccessLogs
-
-instance NFData IngressAccessLogs
-
-instance ToJSON IngressAccessLogs where
+instance Lude.ToJSON IngressAccessLogs where
   toJSON IngressAccessLogs' {..} =
-    object (catMaybes [("logGroupName" .=) <$> _ialLogGroupName])
+    Lude.object
+      (Lude.catMaybes [("logGroupName" Lude..=) Lude.<$> logGroupName])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserContextDataType where
+module Network.AWS.CognitoIdentityProvider.Types.UserContextDataType
+  ( UserContextDataType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserContextDataType,
+
+    -- * Lenses
+    ucdtEncodedData,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
---
---
--- /See:/ 'userContextDataType' smart constructor.
+-- /See:/ 'mkUserContextDataType' smart constructor.
 newtype UserContextDataType = UserContextDataType'
-  { _ucdtEncodedData ::
-      Maybe Text
+  { encodedData ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserContextDataType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucdtEncodedData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-userContextDataType ::
+-- * 'encodedData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+mkUserContextDataType ::
   UserContextDataType
-userContextDataType =
-  UserContextDataType' {_ucdtEncodedData = Nothing}
+mkUserContextDataType =
+  UserContextDataType' {encodedData = Lude.Nothing}
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-ucdtEncodedData :: Lens' UserContextDataType (Maybe Text)
-ucdtEncodedData = lens _ucdtEncodedData (\s a -> s {_ucdtEncodedData = a})
+--
+-- /Note:/ Consider using 'encodedData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucdtEncodedData :: Lens.Lens' UserContextDataType (Lude.Maybe Lude.Text)
+ucdtEncodedData = Lens.lens (encodedData :: UserContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {encodedData = a} :: UserContextDataType)
+{-# DEPRECATED ucdtEncodedData "Use generic-lens or generic-optics with 'encodedData' instead." #-}
 
-instance Hashable UserContextDataType
-
-instance NFData UserContextDataType
-
-instance ToJSON UserContextDataType where
+instance Lude.ToJSON UserContextDataType where
   toJSON UserContextDataType' {..} =
-    object (catMaybes [("EncodedData" .=) <$> _ucdtEncodedData])
+    Lude.object
+      (Lude.catMaybes [("EncodedData" Lude..=) Lude.<$> encodedData])

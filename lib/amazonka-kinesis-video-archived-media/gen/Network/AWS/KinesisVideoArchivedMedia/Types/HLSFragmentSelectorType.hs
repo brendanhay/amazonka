@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType where
+module Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
+  ( HLSFragmentSelectorType
+      ( HLSFragmentSelectorType',
+        ProducerTimestamp,
+        ServerTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HLSFragmentSelectorType
-  = ProducerTimestamp
-  | ServerTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HLSFragmentSelectorType = HLSFragmentSelectorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HLSFragmentSelectorType where
-  parser =
-    takeLowerText >>= \case
-      "producer_timestamp" -> pure ProducerTimestamp
-      "server_timestamp" -> pure ServerTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing HLSFragmentSelectorType from value: '" <> e
-            <> "'. Accepted values: producer_timestamp, server_timestamp"
+pattern ProducerTimestamp :: HLSFragmentSelectorType
+pattern ProducerTimestamp = HLSFragmentSelectorType' "PRODUCER_TIMESTAMP"
 
-instance ToText HLSFragmentSelectorType where
-  toText = \case
-    ProducerTimestamp -> "PRODUCER_TIMESTAMP"
-    ServerTimestamp -> "SERVER_TIMESTAMP"
+pattern ServerTimestamp :: HLSFragmentSelectorType
+pattern ServerTimestamp = HLSFragmentSelectorType' "SERVER_TIMESTAMP"
 
-instance Hashable HLSFragmentSelectorType
-
-instance NFData HLSFragmentSelectorType
-
-instance ToByteString HLSFragmentSelectorType
-
-instance ToQuery HLSFragmentSelectorType
-
-instance ToHeader HLSFragmentSelectorType
-
-instance ToJSON HLSFragmentSelectorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  ProducerTimestamp,
+  ServerTimestamp,
+  HLSFragmentSelectorType'
+  #-}

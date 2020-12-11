@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,165 @@
 --
 -- Creates a @Type@ object.
 module Network.AWS.AppSync.CreateType
-  ( -- * Creating a Request
-    createType,
-    CreateType,
+  ( -- * Creating a request
+    CreateType (..),
+    mkCreateType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctApiId,
     ctDefinition,
     ctFormat,
 
-    -- * Destructuring the Response
-    createTypeResponse,
-    CreateTypeResponse,
+    -- * Destructuring the response
+    CreateTypeResponse (..),
+    mkCreateTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctrsType,
     ctrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createType' smart constructor.
+-- | /See:/ 'mkCreateType' smart constructor.
 data CreateType = CreateType'
-  { _ctApiId :: !Text,
-    _ctDefinition :: !Text,
-    _ctFormat :: !TypeDefinitionFormat
+  { apiId :: Lude.Text,
+    definition :: Lude.Text,
+    format :: TypeDefinitionFormat
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'apiId' - The API ID.
+-- * 'definition' - The type definition, in GraphQL Schema Definition Language (SDL) format.
 --
--- * 'ctApiId' - The API ID.
---
--- * 'ctDefinition' - The type definition, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
---
--- * 'ctFormat' - The type format: SDL or JSON.
-createType ::
-  -- | 'ctApiId'
-  Text ->
-  -- | 'ctDefinition'
-  Text ->
-  -- | 'ctFormat'
+-- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+-- * 'format' - The type format: SDL or JSON.
+mkCreateType ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'definition'
+  Lude.Text ->
+  -- | 'format'
   TypeDefinitionFormat ->
   CreateType
-createType pApiId_ pDefinition_ pFormat_ =
+mkCreateType pApiId_ pDefinition_ pFormat_ =
   CreateType'
-    { _ctApiId = pApiId_,
-      _ctDefinition = pDefinition_,
-      _ctFormat = pFormat_
+    { apiId = pApiId_,
+      definition = pDefinition_,
+      format = pFormat_
     }
 
 -- | The API ID.
-ctApiId :: Lens' CreateType Text
-ctApiId = lens _ctApiId (\s a -> s {_ctApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctApiId :: Lens.Lens' CreateType Lude.Text
+ctApiId = Lens.lens (apiId :: CreateType -> Lude.Text) (\s a -> s {apiId = a} :: CreateType)
+{-# DEPRECATED ctApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | The type definition, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
-ctDefinition :: Lens' CreateType Text
-ctDefinition = lens _ctDefinition (\s a -> s {_ctDefinition = a})
+-- | The type definition, in GraphQL Schema Definition Language (SDL) format.
+--
+-- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctDefinition :: Lens.Lens' CreateType Lude.Text
+ctDefinition = Lens.lens (definition :: CreateType -> Lude.Text) (\s a -> s {definition = a} :: CreateType)
+{-# DEPRECATED ctDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The type format: SDL or JSON.
-ctFormat :: Lens' CreateType TypeDefinitionFormat
-ctFormat = lens _ctFormat (\s a -> s {_ctFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctFormat :: Lens.Lens' CreateType TypeDefinitionFormat
+ctFormat = Lens.lens (format :: CreateType -> TypeDefinitionFormat) (\s a -> s {format = a} :: CreateType)
+{-# DEPRECATED ctFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
-instance AWSRequest CreateType where
+instance Lude.AWSRequest CreateType where
   type Rs CreateType = CreateTypeResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateTypeResponse' <$> (x .?> "type") <*> (pure (fromEnum s))
+          CreateTypeResponse'
+            Lude.<$> (x Lude..?> "type") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateType
-
-instance NFData CreateType
-
-instance ToHeaders CreateType where
+instance Lude.ToHeaders CreateType where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateType where
-  toJSON CreateType' {..} =
-    object
-      ( catMaybes
-          [ Just ("definition" .= _ctDefinition),
-            Just ("format" .= _ctFormat)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateType where
+instance Lude.ToJSON CreateType where
+  toJSON CreateType' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("definition" Lude..= definition),
+            Lude.Just ("format" Lude..= format)
+          ]
+      )
+
+instance Lude.ToPath CreateType where
   toPath CreateType' {..} =
-    mconcat ["/v1/apis/", toBS _ctApiId, "/types"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/types"]
 
-instance ToQuery CreateType where
-  toQuery = const mempty
+instance Lude.ToQuery CreateType where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTypeResponse' smart constructor.
+-- | /See:/ 'mkCreateTypeResponse' smart constructor.
 data CreateTypeResponse = CreateTypeResponse'
-  { _ctrsType ::
-      !(Maybe Type),
-    _ctrsResponseStatus :: !Int
+  { type' ::
+      Lude.Maybe Type,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctrsType' - The @Type@ object.
---
--- * 'ctrsResponseStatus' - -- | The response status code.
-createTypeResponse ::
-  -- | 'ctrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'type'' - The @Type@ object.
+mkCreateTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTypeResponse
-createTypeResponse pResponseStatus_ =
+mkCreateTypeResponse pResponseStatus_ =
   CreateTypeResponse'
-    { _ctrsType = Nothing,
-      _ctrsResponseStatus = pResponseStatus_
+    { type' = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @Type@ object.
-ctrsType :: Lens' CreateTypeResponse (Maybe Type)
-ctrsType = lens _ctrsType (\s a -> s {_ctrsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsType :: Lens.Lens' CreateTypeResponse (Lude.Maybe Type)
+ctrsType = Lens.lens (type' :: CreateTypeResponse -> Lude.Maybe Type) (\s a -> s {type' = a} :: CreateTypeResponse)
+{-# DEPRECATED ctrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateTypeResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\s a -> s {_ctrsResponseStatus = a})
-
-instance NFData CreateTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsResponseStatus :: Lens.Lens' CreateTypeResponse Lude.Int
+ctrsResponseStatus = Lens.lens (responseStatus :: CreateTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTypeResponse)
+{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

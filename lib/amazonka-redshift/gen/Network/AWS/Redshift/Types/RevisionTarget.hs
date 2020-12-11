@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.RevisionTarget where
+module Network.AWS.Redshift.Types.RevisionTarget
+  ( RevisionTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRevisionTarget,
+
+    -- * Lenses
+    rtDatabaseRevisionReleaseDate,
+    rtDatabaseRevision,
+    rtDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a @RevisionTarget@ .
 --
---
---
--- /See:/ 'revisionTarget' smart constructor.
+-- /See:/ 'mkRevisionTarget' smart constructor.
 data RevisionTarget = RevisionTarget'
-  { _rtDatabaseRevisionReleaseDate ::
-      !(Maybe ISO8601),
-    _rtDatabaseRevision :: !(Maybe Text),
-    _rtDescription :: !(Maybe Text)
+  { databaseRevisionReleaseDate ::
+      Lude.Maybe Lude.ISO8601,
+    databaseRevision :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevisionTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtDatabaseRevisionReleaseDate' - The date on which the database revision was released.
---
--- * 'rtDatabaseRevision' - A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
---
--- * 'rtDescription' - A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
-revisionTarget ::
+-- * 'databaseRevision' - A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
+-- * 'databaseRevisionReleaseDate' - The date on which the database revision was released.
+-- * 'description' - A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
+mkRevisionTarget ::
   RevisionTarget
-revisionTarget =
+mkRevisionTarget =
   RevisionTarget'
-    { _rtDatabaseRevisionReleaseDate = Nothing,
-      _rtDatabaseRevision = Nothing,
-      _rtDescription = Nothing
+    { databaseRevisionReleaseDate = Lude.Nothing,
+      databaseRevision = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The date on which the database revision was released.
-rtDatabaseRevisionReleaseDate :: Lens' RevisionTarget (Maybe UTCTime)
-rtDatabaseRevisionReleaseDate = lens _rtDatabaseRevisionReleaseDate (\s a -> s {_rtDatabaseRevisionReleaseDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'databaseRevisionReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtDatabaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Lude.Maybe Lude.ISO8601)
+rtDatabaseRevisionReleaseDate = Lens.lens (databaseRevisionReleaseDate :: RevisionTarget -> Lude.Maybe Lude.ISO8601) (\s a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget)
+{-# DEPRECATED rtDatabaseRevisionReleaseDate "Use generic-lens or generic-optics with 'databaseRevisionReleaseDate' instead." #-}
 
 -- | A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
-rtDatabaseRevision :: Lens' RevisionTarget (Maybe Text)
-rtDatabaseRevision = lens _rtDatabaseRevision (\s a -> s {_rtDatabaseRevision = a})
+--
+-- /Note:/ Consider using 'databaseRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtDatabaseRevision :: Lens.Lens' RevisionTarget (Lude.Maybe Lude.Text)
+rtDatabaseRevision = Lens.lens (databaseRevision :: RevisionTarget -> Lude.Maybe Lude.Text) (\s a -> s {databaseRevision = a} :: RevisionTarget)
+{-# DEPRECATED rtDatabaseRevision "Use generic-lens or generic-optics with 'databaseRevision' instead." #-}
 
 -- | A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
-rtDescription :: Lens' RevisionTarget (Maybe Text)
-rtDescription = lens _rtDescription (\s a -> s {_rtDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtDescription :: Lens.Lens' RevisionTarget (Lude.Maybe Lude.Text)
+rtDescription = Lens.lens (description :: RevisionTarget -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RevisionTarget)
+{-# DEPRECATED rtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML RevisionTarget where
+instance Lude.FromXML RevisionTarget where
   parseXML x =
     RevisionTarget'
-      <$> (x .@? "DatabaseRevisionReleaseDate")
-      <*> (x .@? "DatabaseRevision")
-      <*> (x .@? "Description")
-
-instance Hashable RevisionTarget
-
-instance NFData RevisionTarget
+      Lude.<$> (x Lude..@? "DatabaseRevisionReleaseDate")
+      Lude.<*> (x Lude..@? "DatabaseRevision")
+      Lude.<*> (x Lude..@? "Description")

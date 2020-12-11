@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,211 +14,240 @@
 --
 -- Lists all provisioning artifacts (also known as versions) for the specified self-service action.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction
-  ( -- * Creating a Request
-    listProvisioningArtifactsForServiceAction,
-    ListProvisioningArtifactsForServiceAction,
+  ( -- * Creating a request
+    ListProvisioningArtifactsForServiceAction (..),
+    mkListProvisioningArtifactsForServiceAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpafsaAcceptLanguage,
     lpafsaPageToken,
     lpafsaPageSize,
     lpafsaServiceActionId,
 
-    -- * Destructuring the Response
-    listProvisioningArtifactsForServiceActionResponse,
-    ListProvisioningArtifactsForServiceActionResponse,
+    -- * Destructuring the response
+    ListProvisioningArtifactsForServiceActionResponse (..),
+    mkListProvisioningArtifactsForServiceActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpafsarsNextPageToken,
     lpafsarsProvisioningArtifactViews,
     lpafsarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'listProvisioningArtifactsForServiceAction' smart constructor.
+-- | /See:/ 'mkListProvisioningArtifactsForServiceAction' smart constructor.
 data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForServiceAction'
-  { _lpafsaAcceptLanguage ::
-      !( Maybe
-           Text
-       ),
-    _lpafsaPageToken ::
-      !( Maybe
-           Text
-       ),
-    _lpafsaPageSize ::
-      !( Maybe
-           Nat
-       ),
-    _lpafsaServiceActionId ::
-      !Text
+  { acceptLanguage ::
+      Lude.Maybe
+        Lude.Text,
+    pageToken ::
+      Lude.Maybe
+        Lude.Text,
+    pageSize ::
+      Lude.Maybe
+        Lude.Natural,
+    serviceActionId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisioningArtifactsForServiceAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'lpafsaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lpafsaPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @en@ - English (default)
 --
--- * 'lpafsaPageSize' - The maximum number of items to return with this call.
 --
--- * 'lpafsaServiceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-listProvisioningArtifactsForServiceAction ::
-  -- | 'lpafsaServiceActionId'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+mkListProvisioningArtifactsForServiceAction ::
+  -- | 'serviceActionId'
+  Lude.Text ->
   ListProvisioningArtifactsForServiceAction
-listProvisioningArtifactsForServiceAction pServiceActionId_ =
+mkListProvisioningArtifactsForServiceAction pServiceActionId_ =
   ListProvisioningArtifactsForServiceAction'
-    { _lpafsaAcceptLanguage =
-        Nothing,
-      _lpafsaPageToken = Nothing,
-      _lpafsaPageSize = Nothing,
-      _lpafsaServiceActionId = pServiceActionId_
+    { acceptLanguage =
+        Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      serviceActionId = pServiceActionId_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lpafsaAcceptLanguage :: Lens' ListProvisioningArtifactsForServiceAction (Maybe Text)
-lpafsaAcceptLanguage = lens _lpafsaAcceptLanguage (\s a -> s {_lpafsaAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsaAcceptLanguage :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Lude.Maybe Lude.Text)
+lpafsaAcceptLanguage = Lens.lens (acceptLanguage :: ListProvisioningArtifactsForServiceAction -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListProvisioningArtifactsForServiceAction)
+{-# DEPRECATED lpafsaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-lpafsaPageToken :: Lens' ListProvisioningArtifactsForServiceAction (Maybe Text)
-lpafsaPageToken = lens _lpafsaPageToken (\s a -> s {_lpafsaPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsaPageToken :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Lude.Maybe Lude.Text)
+lpafsaPageToken = Lens.lens (pageToken :: ListProvisioningArtifactsForServiceAction -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListProvisioningArtifactsForServiceAction)
+{-# DEPRECATED lpafsaPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-lpafsaPageSize :: Lens' ListProvisioningArtifactsForServiceAction (Maybe Natural)
-lpafsaPageSize = lens _lpafsaPageSize (\s a -> s {_lpafsaPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsaPageSize :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Lude.Maybe Lude.Natural)
+lpafsaPageSize = Lens.lens (pageSize :: ListProvisioningArtifactsForServiceAction -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListProvisioningArtifactsForServiceAction)
+{-# DEPRECATED lpafsaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-lpafsaServiceActionId :: Lens' ListProvisioningArtifactsForServiceAction Text
-lpafsaServiceActionId = lens _lpafsaServiceActionId (\s a -> s {_lpafsaServiceActionId = a})
+--
+-- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsaServiceActionId :: Lens.Lens' ListProvisioningArtifactsForServiceAction Lude.Text
+lpafsaServiceActionId = Lens.lens (serviceActionId :: ListProvisioningArtifactsForServiceAction -> Lude.Text) (\s a -> s {serviceActionId = a} :: ListProvisioningArtifactsForServiceAction)
+{-# DEPRECATED lpafsaServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
 
-instance AWSPager ListProvisioningArtifactsForServiceAction where
+instance Page.AWSPager ListProvisioningArtifactsForServiceAction where
   page rq rs
-    | stop (rs ^. lpafsarsNextPageToken) = Nothing
-    | stop (rs ^. lpafsarsProvisioningArtifactViews) = Nothing
-    | otherwise =
-      Just $ rq & lpafsaPageToken .~ rs ^. lpafsarsNextPageToken
+    | Page.stop (rs Lens.^. lpafsarsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lpafsarsProvisioningArtifactViews) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpafsaPageToken Lens..~ rs Lens.^. lpafsarsNextPageToken
 
-instance AWSRequest ListProvisioningArtifactsForServiceAction where
+instance Lude.AWSRequest ListProvisioningArtifactsForServiceAction where
   type
     Rs ListProvisioningArtifactsForServiceAction =
       ListProvisioningArtifactsForServiceActionResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListProvisioningArtifactsForServiceActionResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "ProvisioningArtifactViews" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "ProvisioningArtifactViews" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListProvisioningArtifactsForServiceAction
-
-instance NFData ListProvisioningArtifactsForServiceAction
-
-instance ToHeaders ListProvisioningArtifactsForServiceAction where
+instance Lude.ToHeaders ListProvisioningArtifactsForServiceAction where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListProvisioningArtifactsForServiceAction where
+instance Lude.ToJSON ListProvisioningArtifactsForServiceAction where
   toJSON ListProvisioningArtifactsForServiceAction' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _lpafsaAcceptLanguage,
-            ("PageToken" .=) <$> _lpafsaPageToken,
-            ("PageSize" .=) <$> _lpafsaPageSize,
-            Just ("ServiceActionId" .= _lpafsaServiceActionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            Lude.Just ("ServiceActionId" Lude..= serviceActionId)
           ]
       )
 
-instance ToPath ListProvisioningArtifactsForServiceAction where
-  toPath = const "/"
+instance Lude.ToPath ListProvisioningArtifactsForServiceAction where
+  toPath = Lude.const "/"
 
-instance ToQuery ListProvisioningArtifactsForServiceAction where
-  toQuery = const mempty
+instance Lude.ToQuery ListProvisioningArtifactsForServiceAction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listProvisioningArtifactsForServiceActionResponse' smart constructor.
+-- | /See:/ 'mkListProvisioningArtifactsForServiceActionResponse' smart constructor.
 data ListProvisioningArtifactsForServiceActionResponse = ListProvisioningArtifactsForServiceActionResponse'
-  { _lpafsarsNextPageToken ::
-      !( Maybe
-           Text
-       ),
-    _lpafsarsProvisioningArtifactViews ::
-      !( Maybe
-           [ProvisioningArtifactView]
-       ),
-    _lpafsarsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe
+        Lude.Text,
+    provisioningArtifactViews ::
+      Lude.Maybe
+        [ProvisioningArtifactView],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ListProvisioningArtifactsForServiceActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpafsarsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'lpafsarsProvisioningArtifactViews' - An array of objects with information about product views and provisioning artifacts.
---
--- * 'lpafsarsResponseStatus' - -- | The response status code.
-listProvisioningArtifactsForServiceActionResponse ::
-  -- | 'lpafsarsResponseStatus'
-  Int ->
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'provisioningArtifactViews' - An array of objects with information about product views and provisioning artifacts.
+-- * 'responseStatus' - The response status code.
+mkListProvisioningArtifactsForServiceActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListProvisioningArtifactsForServiceActionResponse
-listProvisioningArtifactsForServiceActionResponse pResponseStatus_ =
-  ListProvisioningArtifactsForServiceActionResponse'
-    { _lpafsarsNextPageToken =
-        Nothing,
-      _lpafsarsProvisioningArtifactViews = Nothing,
-      _lpafsarsResponseStatus = pResponseStatus_
-    }
+mkListProvisioningArtifactsForServiceActionResponse
+  pResponseStatus_ =
+    ListProvisioningArtifactsForServiceActionResponse'
+      { nextPageToken =
+          Lude.Nothing,
+        provisioningArtifactViews = Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lpafsarsNextPageToken :: Lens' ListProvisioningArtifactsForServiceActionResponse (Maybe Text)
-lpafsarsNextPageToken = lens _lpafsarsNextPageToken (\s a -> s {_lpafsarsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsarsNextPageToken :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse (Lude.Maybe Lude.Text)
+lpafsarsNextPageToken = Lens.lens (nextPageToken :: ListProvisioningArtifactsForServiceActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListProvisioningArtifactsForServiceActionResponse)
+{-# DEPRECATED lpafsarsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of objects with information about product views and provisioning artifacts.
-lpafsarsProvisioningArtifactViews :: Lens' ListProvisioningArtifactsForServiceActionResponse [ProvisioningArtifactView]
-lpafsarsProvisioningArtifactViews = lens _lpafsarsProvisioningArtifactViews (\s a -> s {_lpafsarsProvisioningArtifactViews = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'provisioningArtifactViews' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsarsProvisioningArtifactViews :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse (Lude.Maybe [ProvisioningArtifactView])
+lpafsarsProvisioningArtifactViews = Lens.lens (provisioningArtifactViews :: ListProvisioningArtifactsForServiceActionResponse -> Lude.Maybe [ProvisioningArtifactView]) (\s a -> s {provisioningArtifactViews = a} :: ListProvisioningArtifactsForServiceActionResponse)
+{-# DEPRECATED lpafsarsProvisioningArtifactViews "Use generic-lens or generic-optics with 'provisioningArtifactViews' instead." #-}
 
--- | -- | The response status code.
-lpafsarsResponseStatus :: Lens' ListProvisioningArtifactsForServiceActionResponse Int
-lpafsarsResponseStatus = lens _lpafsarsResponseStatus (\s a -> s {_lpafsarsResponseStatus = a})
-
-instance NFData ListProvisioningArtifactsForServiceActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpafsarsResponseStatus :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse Lude.Int
+lpafsarsResponseStatus = Lens.lens (responseStatus :: ListProvisioningArtifactsForServiceActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProvisioningArtifactsForServiceActionResponse)
+{-# DEPRECATED lpafsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

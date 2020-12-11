@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,148 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.Script where
+module Network.AWS.GameLift.Types.Script
+  ( Script (..),
+
+    -- * Smart constructor
+    mkScript,
+
+    -- * Lenses
+    sCreationTime,
+    sStorageLocation,
+    sName,
+    sScriptId,
+    sVersion,
+    sScriptARN,
+    sSizeOnDisk,
+  )
+where
 
 import Network.AWS.GameLift.Types.S3Location
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Properties describing a Realtime script.
---
 --
 -- __Related operations__
 --
 --     * 'CreateScript'
 --
+--
 --     * 'ListScripts'
+--
 --
 --     * 'DescribeScript'
 --
+--
 --     * 'UpdateScript'
+--
 --
 --     * 'DeleteScript'
 --
 --
 --
---
--- /See:/ 'script' smart constructor.
+-- /See:/ 'mkScript' smart constructor.
 data Script = Script'
-  { _sCreationTime :: !(Maybe POSIX),
-    _sStorageLocation :: !(Maybe S3Location),
-    _sName :: !(Maybe Text),
-    _sScriptId :: !(Maybe Text),
-    _sVersion :: !(Maybe Text),
-    _sScriptARN :: !(Maybe Text),
-    _sSizeOnDisk :: !(Maybe Nat)
+  { creationTime :: Lude.Maybe Lude.Timestamp,
+    storageLocation :: Lude.Maybe S3Location,
+    name :: Lude.Maybe Lude.Text,
+    scriptId :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    scriptARN :: Lude.Maybe Lude.Text,
+    sizeOnDisk :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Script' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sCreationTime' - A time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
---
--- * 'sStorageLocation' - Undocumented member.
---
--- * 'sName' - A descriptive label that is associated with a script. Script names do not need to be unique.
---
--- * 'sScriptId' - A unique identifier for a Realtime script
---
--- * 'sVersion' - The version that is associated with a build or script. Version strings do not need to be unique.
---
--- * 'sScriptARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
---
--- * 'sSizeOnDisk' - The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
-script ::
+-- * 'creationTime' - A time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'name' - A descriptive label that is associated with a script. Script names do not need to be unique.
+-- * 'scriptARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
+-- * 'scriptId' - A unique identifier for a Realtime script
+-- * 'sizeOnDisk' - The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+-- * 'storageLocation' - Undocumented field.
+-- * 'version' - The version that is associated with a build or script. Version strings do not need to be unique.
+mkScript ::
   Script
-script =
+mkScript =
   Script'
-    { _sCreationTime = Nothing,
-      _sStorageLocation = Nothing,
-      _sName = Nothing,
-      _sScriptId = Nothing,
-      _sVersion = Nothing,
-      _sScriptARN = Nothing,
-      _sSizeOnDisk = Nothing
+    { creationTime = Lude.Nothing,
+      storageLocation = Lude.Nothing,
+      name = Lude.Nothing,
+      scriptId = Lude.Nothing,
+      version = Lude.Nothing,
+      scriptARN = Lude.Nothing,
+      sizeOnDisk = Lude.Nothing
     }
 
 -- | A time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-sCreationTime :: Lens' Script (Maybe UTCTime)
-sCreationTime = lens _sCreationTime (\s a -> s {_sCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCreationTime :: Lens.Lens' Script (Lude.Maybe Lude.Timestamp)
+sCreationTime = Lens.lens (creationTime :: Script -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Script)
+{-# DEPRECATED sCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | Undocumented member.
-sStorageLocation :: Lens' Script (Maybe S3Location)
-sStorageLocation = lens _sStorageLocation (\s a -> s {_sStorageLocation = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'storageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStorageLocation :: Lens.Lens' Script (Lude.Maybe S3Location)
+sStorageLocation = Lens.lens (storageLocation :: Script -> Lude.Maybe S3Location) (\s a -> s {storageLocation = a} :: Script)
+{-# DEPRECATED sStorageLocation "Use generic-lens or generic-optics with 'storageLocation' instead." #-}
 
 -- | A descriptive label that is associated with a script. Script names do not need to be unique.
-sName :: Lens' Script (Maybe Text)
-sName = lens _sName (\s a -> s {_sName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' Script (Lude.Maybe Lude.Text)
+sName = Lens.lens (name :: Script -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Script)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a Realtime script
-sScriptId :: Lens' Script (Maybe Text)
-sScriptId = lens _sScriptId (\s a -> s {_sScriptId = a})
+--
+-- /Note:/ Consider using 'scriptId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sScriptId :: Lens.Lens' Script (Lude.Maybe Lude.Text)
+sScriptId = Lens.lens (scriptId :: Script -> Lude.Maybe Lude.Text) (\s a -> s {scriptId = a} :: Script)
+{-# DEPRECATED sScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
 
 -- | The version that is associated with a build or script. Version strings do not need to be unique.
-sVersion :: Lens' Script (Maybe Text)
-sVersion = lens _sVersion (\s a -> s {_sVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVersion :: Lens.Lens' Script (Lude.Maybe Lude.Text)
+sVersion = Lens.lens (version :: Script -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: Script)
+{-# DEPRECATED sVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
-sScriptARN :: Lens' Script (Maybe Text)
-sScriptARN = lens _sScriptARN (\s a -> s {_sScriptARN = a})
+--
+-- /Note:/ Consider using 'scriptARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sScriptARN :: Lens.Lens' Script (Lude.Maybe Lude.Text)
+sScriptARN = Lens.lens (scriptARN :: Script -> Lude.Maybe Lude.Text) (\s a -> s {scriptARN = a} :: Script)
+{-# DEPRECATED sScriptARN "Use generic-lens or generic-optics with 'scriptARN' instead." #-}
 
 -- | The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
-sSizeOnDisk :: Lens' Script (Maybe Natural)
-sSizeOnDisk = lens _sSizeOnDisk (\s a -> s {_sSizeOnDisk = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sizeOnDisk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSizeOnDisk :: Lens.Lens' Script (Lude.Maybe Lude.Natural)
+sSizeOnDisk = Lens.lens (sizeOnDisk :: Script -> Lude.Maybe Lude.Natural) (\s a -> s {sizeOnDisk = a} :: Script)
+{-# DEPRECATED sSizeOnDisk "Use generic-lens or generic-optics with 'sizeOnDisk' instead." #-}
 
-instance FromJSON Script where
+instance Lude.FromJSON Script where
   parseJSON =
-    withObject
+    Lude.withObject
       "Script"
       ( \x ->
           Script'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "StorageLocation")
-            <*> (x .:? "Name")
-            <*> (x .:? "ScriptId")
-            <*> (x .:? "Version")
-            <*> (x .:? "ScriptArn")
-            <*> (x .:? "SizeOnDisk")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "StorageLocation")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "ScriptId")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "ScriptArn")
+            Lude.<*> (x Lude..:? "SizeOnDisk")
       )
-
-instance Hashable Script
-
-instance NFData Script

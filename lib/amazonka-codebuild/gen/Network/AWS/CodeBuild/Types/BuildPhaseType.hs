@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.BuildPhaseType where
+module Network.AWS.CodeBuild.Types.BuildPhaseType
+  ( BuildPhaseType
+      ( BuildPhaseType',
+        BPTBuild,
+        BPTCompleted,
+        BPTDownloadSource,
+        BPTFinalizing,
+        BPTInstall,
+        BPTPostBuild,
+        BPTPreBuild,
+        BPTProvisioning,
+        BPTQueued,
+        BPTSubmitted,
+        BPTUploadArtifacts
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BuildPhaseType
-  = BPTBuild
-  | BPTCompleted
-  | BPTDownloadSource
-  | BPTFinalizing
-  | BPTInstall
-  | BPTPostBuild
-  | BPTPreBuild
-  | BPTProvisioning
-  | BPTQueued
-  | BPTSubmitted
-  | BPTUploadArtifacts
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BuildPhaseType = BuildPhaseType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BuildPhaseType where
-  parser =
-    takeLowerText >>= \case
-      "build" -> pure BPTBuild
-      "completed" -> pure BPTCompleted
-      "download_source" -> pure BPTDownloadSource
-      "finalizing" -> pure BPTFinalizing
-      "install" -> pure BPTInstall
-      "post_build" -> pure BPTPostBuild
-      "pre_build" -> pure BPTPreBuild
-      "provisioning" -> pure BPTProvisioning
-      "queued" -> pure BPTQueued
-      "submitted" -> pure BPTSubmitted
-      "upload_artifacts" -> pure BPTUploadArtifacts
-      e ->
-        fromTextError $
-          "Failure parsing BuildPhaseType from value: '" <> e
-            <> "'. Accepted values: build, completed, download_source, finalizing, install, post_build, pre_build, provisioning, queued, submitted, upload_artifacts"
+pattern BPTBuild :: BuildPhaseType
+pattern BPTBuild = BuildPhaseType' "BUILD"
 
-instance ToText BuildPhaseType where
-  toText = \case
-    BPTBuild -> "BUILD"
-    BPTCompleted -> "COMPLETED"
-    BPTDownloadSource -> "DOWNLOAD_SOURCE"
-    BPTFinalizing -> "FINALIZING"
-    BPTInstall -> "INSTALL"
-    BPTPostBuild -> "POST_BUILD"
-    BPTPreBuild -> "PRE_BUILD"
-    BPTProvisioning -> "PROVISIONING"
-    BPTQueued -> "QUEUED"
-    BPTSubmitted -> "SUBMITTED"
-    BPTUploadArtifacts -> "UPLOAD_ARTIFACTS"
+pattern BPTCompleted :: BuildPhaseType
+pattern BPTCompleted = BuildPhaseType' "COMPLETED"
 
-instance Hashable BuildPhaseType
+pattern BPTDownloadSource :: BuildPhaseType
+pattern BPTDownloadSource = BuildPhaseType' "DOWNLOAD_SOURCE"
 
-instance NFData BuildPhaseType
+pattern BPTFinalizing :: BuildPhaseType
+pattern BPTFinalizing = BuildPhaseType' "FINALIZING"
 
-instance ToByteString BuildPhaseType
+pattern BPTInstall :: BuildPhaseType
+pattern BPTInstall = BuildPhaseType' "INSTALL"
 
-instance ToQuery BuildPhaseType
+pattern BPTPostBuild :: BuildPhaseType
+pattern BPTPostBuild = BuildPhaseType' "POST_BUILD"
 
-instance ToHeader BuildPhaseType
+pattern BPTPreBuild :: BuildPhaseType
+pattern BPTPreBuild = BuildPhaseType' "PRE_BUILD"
 
-instance FromJSON BuildPhaseType where
-  parseJSON = parseJSONText "BuildPhaseType"
+pattern BPTProvisioning :: BuildPhaseType
+pattern BPTProvisioning = BuildPhaseType' "PROVISIONING"
+
+pattern BPTQueued :: BuildPhaseType
+pattern BPTQueued = BuildPhaseType' "QUEUED"
+
+pattern BPTSubmitted :: BuildPhaseType
+pattern BPTSubmitted = BuildPhaseType' "SUBMITTED"
+
+pattern BPTUploadArtifacts :: BuildPhaseType
+pattern BPTUploadArtifacts = BuildPhaseType' "UPLOAD_ARTIFACTS"
+
+{-# COMPLETE
+  BPTBuild,
+  BPTCompleted,
+  BPTDownloadSource,
+  BPTFinalizing,
+  BPTInstall,
+  BPTPostBuild,
+  BPTPreBuild,
+  BPTProvisioning,
+  BPTQueued,
+  BPTSubmitted,
+  BPTUploadArtifacts,
+  BuildPhaseType'
+  #-}

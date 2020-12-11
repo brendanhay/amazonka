@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobS3DataSource where
+module Network.AWS.SageMaker.Types.LabelingJobS3DataSource
+  ( LabelingJobS3DataSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobS3DataSource,
+
+    -- * Lenses
+    ljsdsManifestS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon S3 location of the input data objects.
 --
---
---
--- /See:/ 'labelingJobS3DataSource' smart constructor.
+-- /See:/ 'mkLabelingJobS3DataSource' smart constructor.
 newtype LabelingJobS3DataSource = LabelingJobS3DataSource'
-  { _ljsdsManifestS3URI ::
-      Text
+  { manifestS3URI ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobS3DataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljsdsManifestS3URI' - The Amazon S3 location of the manifest file that describes the input data objects.
-labelingJobS3DataSource ::
-  -- | 'ljsdsManifestS3URI'
-  Text ->
+-- * 'manifestS3URI' - The Amazon S3 location of the manifest file that describes the input data objects.
+mkLabelingJobS3DataSource ::
+  -- | 'manifestS3URI'
+  Lude.Text ->
   LabelingJobS3DataSource
-labelingJobS3DataSource pManifestS3URI_ =
-  LabelingJobS3DataSource' {_ljsdsManifestS3URI = pManifestS3URI_}
+mkLabelingJobS3DataSource pManifestS3URI_ =
+  LabelingJobS3DataSource' {manifestS3URI = pManifestS3URI_}
 
 -- | The Amazon S3 location of the manifest file that describes the input data objects.
-ljsdsManifestS3URI :: Lens' LabelingJobS3DataSource Text
-ljsdsManifestS3URI = lens _ljsdsManifestS3URI (\s a -> s {_ljsdsManifestS3URI = a})
+--
+-- /Note:/ Consider using 'manifestS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsdsManifestS3URI :: Lens.Lens' LabelingJobS3DataSource Lude.Text
+ljsdsManifestS3URI = Lens.lens (manifestS3URI :: LabelingJobS3DataSource -> Lude.Text) (\s a -> s {manifestS3URI = a} :: LabelingJobS3DataSource)
+{-# DEPRECATED ljsdsManifestS3URI "Use generic-lens or generic-optics with 'manifestS3URI' instead." #-}
 
-instance FromJSON LabelingJobS3DataSource where
+instance Lude.FromJSON LabelingJobS3DataSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobS3DataSource"
-      (\x -> LabelingJobS3DataSource' <$> (x .: "ManifestS3Uri"))
+      ( \x ->
+          LabelingJobS3DataSource' Lude.<$> (x Lude..: "ManifestS3Uri")
+      )
 
-instance Hashable LabelingJobS3DataSource
-
-instance NFData LabelingJobS3DataSource
-
-instance ToJSON LabelingJobS3DataSource where
+instance Lude.ToJSON LabelingJobS3DataSource where
   toJSON LabelingJobS3DataSource' {..} =
-    object
-      (catMaybes [Just ("ManifestS3Uri" .= _ljsdsManifestS3URI)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ManifestS3Uri" Lude..= manifestS3URI)]
+      )

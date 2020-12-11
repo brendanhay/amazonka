@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.FieldLevelEncryptionList where
+module Network.AWS.CloudFront.Types.FieldLevelEncryptionList
+  ( FieldLevelEncryptionList (..),
+
+    -- * Smart constructor
+    mkFieldLevelEncryptionList,
+
+    -- * Lenses
+    flelItems,
+    flelNextMarker,
+    flelMaxItems,
+    flelQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.FieldLevelEncryptionSummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | List of field-level encrpytion configurations.
 --
---
---
--- /See:/ 'fieldLevelEncryptionList' smart constructor.
+-- /See:/ 'mkFieldLevelEncryptionList' smart constructor.
 data FieldLevelEncryptionList = FieldLevelEncryptionList'
-  { _flelItems ::
-      !(Maybe [FieldLevelEncryptionSummary]),
-    _flelNextMarker :: !(Maybe Text),
-    _flelMaxItems :: !Int,
-    _flelQuantity :: !Int
+  { items ::
+      Lude.Maybe [FieldLevelEncryptionSummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Int,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldLevelEncryptionList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'flelItems' - An array of field-level encryption items.
---
--- * 'flelNextMarker' - If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your configurations where you left off.
---
--- * 'flelMaxItems' - The maximum number of elements you want in the response body.
---
--- * 'flelQuantity' - The number of field-level encryption items.
-fieldLevelEncryptionList ::
-  -- | 'flelMaxItems'
-  Int ->
-  -- | 'flelQuantity'
-  Int ->
+-- * 'items' - An array of field-level encryption items.
+-- * 'maxItems' - The maximum number of elements you want in the response body.
+-- * 'nextMarker' - If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your configurations where you left off.
+-- * 'quantity' - The number of field-level encryption items.
+mkFieldLevelEncryptionList ::
+  -- | 'maxItems'
+  Lude.Int ->
+  -- | 'quantity'
+  Lude.Int ->
   FieldLevelEncryptionList
-fieldLevelEncryptionList pMaxItems_ pQuantity_ =
+mkFieldLevelEncryptionList pMaxItems_ pQuantity_ =
   FieldLevelEncryptionList'
-    { _flelItems = Nothing,
-      _flelNextMarker = Nothing,
-      _flelMaxItems = pMaxItems_,
-      _flelQuantity = pQuantity_
+    { items = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      maxItems = pMaxItems_,
+      quantity = pQuantity_
     }
 
 -- | An array of field-level encryption items.
-flelItems :: Lens' FieldLevelEncryptionList [FieldLevelEncryptionSummary]
-flelItems = lens _flelItems (\s a -> s {_flelItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flelItems :: Lens.Lens' FieldLevelEncryptionList (Lude.Maybe [FieldLevelEncryptionSummary])
+flelItems = Lens.lens (items :: FieldLevelEncryptionList -> Lude.Maybe [FieldLevelEncryptionSummary]) (\s a -> s {items = a} :: FieldLevelEncryptionList)
+{-# DEPRECATED flelItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your configurations where you left off.
-flelNextMarker :: Lens' FieldLevelEncryptionList (Maybe Text)
-flelNextMarker = lens _flelNextMarker (\s a -> s {_flelNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flelNextMarker :: Lens.Lens' FieldLevelEncryptionList (Lude.Maybe Lude.Text)
+flelNextMarker = Lens.lens (nextMarker :: FieldLevelEncryptionList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: FieldLevelEncryptionList)
+{-# DEPRECATED flelNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The maximum number of elements you want in the response body.
-flelMaxItems :: Lens' FieldLevelEncryptionList Int
-flelMaxItems = lens _flelMaxItems (\s a -> s {_flelMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flelMaxItems :: Lens.Lens' FieldLevelEncryptionList Lude.Int
+flelMaxItems = Lens.lens (maxItems :: FieldLevelEncryptionList -> Lude.Int) (\s a -> s {maxItems = a} :: FieldLevelEncryptionList)
+{-# DEPRECATED flelMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The number of field-level encryption items.
-flelQuantity :: Lens' FieldLevelEncryptionList Int
-flelQuantity = lens _flelQuantity (\s a -> s {_flelQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flelQuantity :: Lens.Lens' FieldLevelEncryptionList Lude.Int
+flelQuantity = Lens.lens (quantity :: FieldLevelEncryptionList -> Lude.Int) (\s a -> s {quantity = a} :: FieldLevelEncryptionList)
+{-# DEPRECATED flelQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML FieldLevelEncryptionList where
+instance Lude.FromXML FieldLevelEncryptionList where
   parseXML x =
     FieldLevelEncryptionList'
-      <$> ( x .@? "Items" .!@ mempty
-              >>= may (parseXMLList "FieldLevelEncryptionSummary")
-          )
-      <*> (x .@? "NextMarker")
-      <*> (x .@ "MaxItems")
-      <*> (x .@ "Quantity")
-
-instance Hashable FieldLevelEncryptionList
-
-instance NFData FieldLevelEncryptionList
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "FieldLevelEncryptionSummary")
+               )
+      Lude.<*> (x Lude..@? "NextMarker")
+      Lude.<*> (x Lude..@ "MaxItems")
+      Lude.<*> (x Lude..@ "Quantity")

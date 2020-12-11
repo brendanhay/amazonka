@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,163 @@
 --
 -- Updates a previously created schedule.
 module Network.AWS.SageMaker.UpdateMonitoringSchedule
-  ( -- * Creating a Request
-    updateMonitoringSchedule,
-    UpdateMonitoringSchedule,
+  ( -- * Creating a request
+    UpdateMonitoringSchedule (..),
+    mkUpdateMonitoringSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umsMonitoringScheduleName,
     umsMonitoringScheduleConfig,
 
-    -- * Destructuring the Response
-    updateMonitoringScheduleResponse,
-    UpdateMonitoringScheduleResponse,
+    -- * Destructuring the response
+    UpdateMonitoringScheduleResponse (..),
+    mkUpdateMonitoringScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     umsrsResponseStatus,
     umsrsMonitoringScheduleARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'updateMonitoringSchedule' smart constructor.
+-- | /See:/ 'mkUpdateMonitoringSchedule' smart constructor.
 data UpdateMonitoringSchedule = UpdateMonitoringSchedule'
-  { _umsMonitoringScheduleName ::
-      !Text,
-    _umsMonitoringScheduleConfig ::
-      !MonitoringScheduleConfig
+  { monitoringScheduleName ::
+      Lude.Text,
+    monitoringScheduleConfig ::
+      MonitoringScheduleConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMonitoringSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umsMonitoringScheduleName' - The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
---
--- * 'umsMonitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and defines the monitoring job.
-updateMonitoringSchedule ::
-  -- | 'umsMonitoringScheduleName'
-  Text ->
-  -- | 'umsMonitoringScheduleConfig'
+-- * 'monitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and defines the monitoring job.
+-- * 'monitoringScheduleName' - The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
+mkUpdateMonitoringSchedule ::
+  -- | 'monitoringScheduleName'
+  Lude.Text ->
+  -- | 'monitoringScheduleConfig'
   MonitoringScheduleConfig ->
   UpdateMonitoringSchedule
-updateMonitoringSchedule
+mkUpdateMonitoringSchedule
   pMonitoringScheduleName_
   pMonitoringScheduleConfig_ =
     UpdateMonitoringSchedule'
-      { _umsMonitoringScheduleName =
+      { monitoringScheduleName =
           pMonitoringScheduleName_,
-        _umsMonitoringScheduleConfig = pMonitoringScheduleConfig_
+        monitoringScheduleConfig = pMonitoringScheduleConfig_
       }
 
 -- | The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
-umsMonitoringScheduleName :: Lens' UpdateMonitoringSchedule Text
-umsMonitoringScheduleName = lens _umsMonitoringScheduleName (\s a -> s {_umsMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umsMonitoringScheduleName :: Lens.Lens' UpdateMonitoringSchedule Lude.Text
+umsMonitoringScheduleName = Lens.lens (monitoringScheduleName :: UpdateMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: UpdateMonitoringSchedule)
+{-# DEPRECATED umsMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
 -- | The configuration object that specifies the monitoring schedule and defines the monitoring job.
-umsMonitoringScheduleConfig :: Lens' UpdateMonitoringSchedule MonitoringScheduleConfig
-umsMonitoringScheduleConfig = lens _umsMonitoringScheduleConfig (\s a -> s {_umsMonitoringScheduleConfig = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umsMonitoringScheduleConfig :: Lens.Lens' UpdateMonitoringSchedule MonitoringScheduleConfig
+umsMonitoringScheduleConfig = Lens.lens (monitoringScheduleConfig :: UpdateMonitoringSchedule -> MonitoringScheduleConfig) (\s a -> s {monitoringScheduleConfig = a} :: UpdateMonitoringSchedule)
+{-# DEPRECATED umsMonitoringScheduleConfig "Use generic-lens or generic-optics with 'monitoringScheduleConfig' instead." #-}
 
-instance AWSRequest UpdateMonitoringSchedule where
+instance Lude.AWSRequest UpdateMonitoringSchedule where
   type Rs UpdateMonitoringSchedule = UpdateMonitoringScheduleResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateMonitoringScheduleResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "MonitoringScheduleArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "MonitoringScheduleArn")
       )
 
-instance Hashable UpdateMonitoringSchedule
-
-instance NFData UpdateMonitoringSchedule
-
-instance ToHeaders UpdateMonitoringSchedule where
+instance Lude.ToHeaders UpdateMonitoringSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.UpdateMonitoringSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.UpdateMonitoringSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateMonitoringSchedule where
+instance Lude.ToJSON UpdateMonitoringSchedule where
   toJSON UpdateMonitoringSchedule' {..} =
-    object
-      ( catMaybes
-          [ Just ("MonitoringScheduleName" .= _umsMonitoringScheduleName),
-            Just ("MonitoringScheduleConfig" .= _umsMonitoringScheduleConfig)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("MonitoringScheduleName" Lude..= monitoringScheduleName),
+            Lude.Just
+              ("MonitoringScheduleConfig" Lude..= monitoringScheduleConfig)
           ]
       )
 
-instance ToPath UpdateMonitoringSchedule where
-  toPath = const "/"
+instance Lude.ToPath UpdateMonitoringSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateMonitoringSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMonitoringSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateMonitoringScheduleResponse' smart constructor.
+-- | /See:/ 'mkUpdateMonitoringScheduleResponse' smart constructor.
 data UpdateMonitoringScheduleResponse = UpdateMonitoringScheduleResponse'
-  { _umsrsResponseStatus ::
-      !Int,
-    _umsrsMonitoringScheduleARN ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    monitoringScheduleARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMonitoringScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umsrsResponseStatus' - -- | The response status code.
---
--- * 'umsrsMonitoringScheduleARN' - The Amazon Resource Name (ARN) of the monitoring schedule.
-updateMonitoringScheduleResponse ::
-  -- | 'umsrsResponseStatus'
-  Int ->
-  -- | 'umsrsMonitoringScheduleARN'
-  Text ->
+-- * 'monitoringScheduleARN' - The Amazon Resource Name (ARN) of the monitoring schedule.
+-- * 'responseStatus' - The response status code.
+mkUpdateMonitoringScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'monitoringScheduleARN'
+  Lude.Text ->
   UpdateMonitoringScheduleResponse
-updateMonitoringScheduleResponse
+mkUpdateMonitoringScheduleResponse
   pResponseStatus_
   pMonitoringScheduleARN_ =
     UpdateMonitoringScheduleResponse'
-      { _umsrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _umsrsMonitoringScheduleARN = pMonitoringScheduleARN_
+        monitoringScheduleARN = pMonitoringScheduleARN_
       }
 
--- | -- | The response status code.
-umsrsResponseStatus :: Lens' UpdateMonitoringScheduleResponse Int
-umsrsResponseStatus = lens _umsrsResponseStatus (\s a -> s {_umsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umsrsResponseStatus :: Lens.Lens' UpdateMonitoringScheduleResponse Lude.Int
+umsrsResponseStatus = Lens.lens (responseStatus :: UpdateMonitoringScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMonitoringScheduleResponse)
+{-# DEPRECATED umsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the monitoring schedule.
-umsrsMonitoringScheduleARN :: Lens' UpdateMonitoringScheduleResponse Text
-umsrsMonitoringScheduleARN = lens _umsrsMonitoringScheduleARN (\s a -> s {_umsrsMonitoringScheduleARN = a})
-
-instance NFData UpdateMonitoringScheduleResponse
+--
+-- /Note:/ Consider using 'monitoringScheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umsrsMonitoringScheduleARN :: Lens.Lens' UpdateMonitoringScheduleResponse Lude.Text
+umsrsMonitoringScheduleARN = Lens.lens (monitoringScheduleARN :: UpdateMonitoringScheduleResponse -> Lude.Text) (\s a -> s {monitoringScheduleARN = a} :: UpdateMonitoringScheduleResponse)
+{-# DEPRECATED umsrsMonitoringScheduleARN "Use generic-lens or generic-optics with 'monitoringScheduleARN' instead." #-}

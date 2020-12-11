@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,156 @@
 --
 -- Starts the specified pipeline. Specifically, it begins processing the latest commit to the source location specified as part of the pipeline.
 module Network.AWS.CodePipeline.StartPipelineExecution
-  ( -- * Creating a Request
-    startPipelineExecution,
-    StartPipelineExecution,
+  ( -- * Creating a request
+    StartPipelineExecution (..),
+    mkStartPipelineExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     speClientRequestToken,
     speName,
 
-    -- * Destructuring the Response
-    startPipelineExecutionResponse,
-    StartPipelineExecutionResponse,
+    -- * Destructuring the response
+    StartPipelineExecutionResponse (..),
+    mkStartPipelineExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     spersPipelineExecutionId,
     spersResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @StartPipelineExecution@ action.
 --
---
---
--- /See:/ 'startPipelineExecution' smart constructor.
+-- /See:/ 'mkStartPipelineExecution' smart constructor.
 data StartPipelineExecution = StartPipelineExecution'
-  { _speClientRequestToken ::
-      !(Maybe Text),
-    _speName :: !Text
+  { clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'speClientRequestToken' - The system-generated unique ID used to identify a unique execution request.
---
--- * 'speName' - The name of the pipeline to start.
-startPipelineExecution ::
-  -- | 'speName'
-  Text ->
+-- * 'clientRequestToken' - The system-generated unique ID used to identify a unique execution request.
+-- * 'name' - The name of the pipeline to start.
+mkStartPipelineExecution ::
+  -- | 'name'
+  Lude.Text ->
   StartPipelineExecution
-startPipelineExecution pName_ =
+mkStartPipelineExecution pName_ =
   StartPipelineExecution'
-    { _speClientRequestToken = Nothing,
-      _speName = pName_
+    { clientRequestToken = Lude.Nothing,
+      name = pName_
     }
 
 -- | The system-generated unique ID used to identify a unique execution request.
-speClientRequestToken :: Lens' StartPipelineExecution (Maybe Text)
-speClientRequestToken = lens _speClientRequestToken (\s a -> s {_speClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+speClientRequestToken :: Lens.Lens' StartPipelineExecution (Lude.Maybe Lude.Text)
+speClientRequestToken = Lens.lens (clientRequestToken :: StartPipelineExecution -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartPipelineExecution)
+{-# DEPRECATED speClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The name of the pipeline to start.
-speName :: Lens' StartPipelineExecution Text
-speName = lens _speName (\s a -> s {_speName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+speName :: Lens.Lens' StartPipelineExecution Lude.Text
+speName = Lens.lens (name :: StartPipelineExecution -> Lude.Text) (\s a -> s {name = a} :: StartPipelineExecution)
+{-# DEPRECATED speName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest StartPipelineExecution where
+instance Lude.AWSRequest StartPipelineExecution where
   type Rs StartPipelineExecution = StartPipelineExecutionResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartPipelineExecutionResponse'
-            <$> (x .?> "pipelineExecutionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "pipelineExecutionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartPipelineExecution
-
-instance NFData StartPipelineExecution
-
-instance ToHeaders StartPipelineExecution where
+instance Lude.ToHeaders StartPipelineExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.StartPipelineExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodePipeline_20150709.StartPipelineExecution" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartPipelineExecution where
+instance Lude.ToJSON StartPipelineExecution where
   toJSON StartPipelineExecution' {..} =
-    object
-      ( catMaybes
-          [ ("clientRequestToken" .=) <$> _speClientRequestToken,
-            Just ("name" .= _speName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
-instance ToPath StartPipelineExecution where
-  toPath = const "/"
+instance Lude.ToPath StartPipelineExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery StartPipelineExecution where
-  toQuery = const mempty
+instance Lude.ToQuery StartPipelineExecution where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @StartPipelineExecution@ action.
 --
---
---
--- /See:/ 'startPipelineExecutionResponse' smart constructor.
+-- /See:/ 'mkStartPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
-  { _spersPipelineExecutionId ::
-      !(Maybe Text),
-    _spersResponseStatus :: !Int
+  { pipelineExecutionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spersPipelineExecutionId' - The unique system-generated ID of the pipeline execution that was started.
---
--- * 'spersResponseStatus' - -- | The response status code.
-startPipelineExecutionResponse ::
-  -- | 'spersResponseStatus'
-  Int ->
+-- * 'pipelineExecutionId' - The unique system-generated ID of the pipeline execution that was started.
+-- * 'responseStatus' - The response status code.
+mkStartPipelineExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartPipelineExecutionResponse
-startPipelineExecutionResponse pResponseStatus_ =
+mkStartPipelineExecutionResponse pResponseStatus_ =
   StartPipelineExecutionResponse'
-    { _spersPipelineExecutionId =
-        Nothing,
-      _spersResponseStatus = pResponseStatus_
+    { pipelineExecutionId =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique system-generated ID of the pipeline execution that was started.
-spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
-spersPipelineExecutionId = lens _spersPipelineExecutionId (\s a -> s {_spersPipelineExecutionId = a})
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spersPipelineExecutionId :: Lens.Lens' StartPipelineExecutionResponse (Lude.Maybe Lude.Text)
+spersPipelineExecutionId = Lens.lens (pipelineExecutionId :: StartPipelineExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StartPipelineExecutionResponse)
+{-# DEPRECATED spersPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
--- | -- | The response status code.
-spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
-spersResponseStatus = lens _spersResponseStatus (\s a -> s {_spersResponseStatus = a})
-
-instance NFData StartPipelineExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spersResponseStatus :: Lens.Lens' StartPipelineExecutionResponse Lude.Int
+spersResponseStatus = Lens.lens (responseStatus :: StartPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartPipelineExecutionResponse)
+{-# DEPRECATED spersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

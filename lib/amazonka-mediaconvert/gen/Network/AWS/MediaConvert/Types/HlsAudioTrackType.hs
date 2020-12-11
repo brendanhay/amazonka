@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsAudioTrackType where
+module Network.AWS.MediaConvert.Types.HlsAudioTrackType
+  ( HlsAudioTrackType
+      ( HlsAudioTrackType',
+        AlternateAudioAutoSelect,
+        AlternateAudioAutoSelectDefault,
+        AlternateAudioNotAutoSelect,
+        AudioOnlyVariantStream
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-data HlsAudioTrackType
-  = AlternateAudioAutoSelect
-  | AlternateAudioAutoSelectDefault
-  | AlternateAudioNotAutoSelect
-  | AudioOnlyVariantStream
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsAudioTrackType = HlsAudioTrackType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsAudioTrackType where
-  parser =
-    takeLowerText >>= \case
-      "alternate_audio_auto_select" -> pure AlternateAudioAutoSelect
-      "alternate_audio_auto_select_default" -> pure AlternateAudioAutoSelectDefault
-      "alternate_audio_not_auto_select" -> pure AlternateAudioNotAutoSelect
-      "audio_only_variant_stream" -> pure AudioOnlyVariantStream
-      e ->
-        fromTextError $
-          "Failure parsing HlsAudioTrackType from value: '" <> e
-            <> "'. Accepted values: alternate_audio_auto_select, alternate_audio_auto_select_default, alternate_audio_not_auto_select, audio_only_variant_stream"
+pattern AlternateAudioAutoSelect :: HlsAudioTrackType
+pattern AlternateAudioAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
 
-instance ToText HlsAudioTrackType where
-  toText = \case
-    AlternateAudioAutoSelect -> "ALTERNATE_AUDIO_AUTO_SELECT"
-    AlternateAudioAutoSelectDefault -> "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
-    AlternateAudioNotAutoSelect -> "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
-    AudioOnlyVariantStream -> "AUDIO_ONLY_VARIANT_STREAM"
+pattern AlternateAudioAutoSelectDefault :: HlsAudioTrackType
+pattern AlternateAudioAutoSelectDefault = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
 
-instance Hashable HlsAudioTrackType
+pattern AlternateAudioNotAutoSelect :: HlsAudioTrackType
+pattern AlternateAudioNotAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
 
-instance NFData HlsAudioTrackType
+pattern AudioOnlyVariantStream :: HlsAudioTrackType
+pattern AudioOnlyVariantStream = HlsAudioTrackType' "AUDIO_ONLY_VARIANT_STREAM"
 
-instance ToByteString HlsAudioTrackType
-
-instance ToQuery HlsAudioTrackType
-
-instance ToHeader HlsAudioTrackType
-
-instance ToJSON HlsAudioTrackType where
-  toJSON = toJSONText
-
-instance FromJSON HlsAudioTrackType where
-  parseJSON = parseJSONText "HlsAudioTrackType"
+{-# COMPLETE
+  AlternateAudioAutoSelect,
+  AlternateAudioAutoSelectDefault,
+  AlternateAudioNotAutoSelect,
+  AudioOnlyVariantStream,
+  HlsAudioTrackType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,156 @@
 --
 -- Deletes a file share from a file gateway. This operation is only supported for file gateways.
 module Network.AWS.StorageGateway.DeleteFileShare
-  ( -- * Creating a Request
-    deleteFileShare,
-    DeleteFileShare,
+  ( -- * Creating a request
+    DeleteFileShare (..),
+    mkDeleteFileShare,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfsForceDelete,
     dfsFileShareARN,
 
-    -- * Destructuring the Response
-    deleteFileShareResponse,
-    DeleteFileShareResponse,
+    -- * Destructuring the response
+    DeleteFileShareResponse (..),
+    mkDeleteFileShareResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfsrsFileShareARN,
     dfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | DeleteFileShareInput
 --
---
---
--- /See:/ 'deleteFileShare' smart constructor.
+-- /See:/ 'mkDeleteFileShare' smart constructor.
 data DeleteFileShare = DeleteFileShare'
-  { _dfsForceDelete ::
-      !(Maybe Bool),
-    _dfsFileShareARN :: !Text
+  { forceDelete ::
+      Lude.Maybe Lude.Bool,
+    fileShareARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileShare' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the file share to be deleted.
+-- * 'forceDelete' - If this value is set to @true@ , the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the @FORCE_DELETING@ status.
 --
--- * 'dfsForceDelete' - If this value is set to @true@ , the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the @FORCE_DELETING@ status. Valid Values: @true@ | @false@
---
--- * 'dfsFileShareARN' - The Amazon Resource Name (ARN) of the file share to be deleted.
-deleteFileShare ::
-  -- | 'dfsFileShareARN'
-  Text ->
+-- Valid Values: @true@ | @false@
+mkDeleteFileShare ::
+  -- | 'fileShareARN'
+  Lude.Text ->
   DeleteFileShare
-deleteFileShare pFileShareARN_ =
+mkDeleteFileShare pFileShareARN_ =
   DeleteFileShare'
-    { _dfsForceDelete = Nothing,
-      _dfsFileShareARN = pFileShareARN_
+    { forceDelete = Lude.Nothing,
+      fileShareARN = pFileShareARN_
     }
 
--- | If this value is set to @true@ , the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the @FORCE_DELETING@ status. Valid Values: @true@ | @false@
-dfsForceDelete :: Lens' DeleteFileShare (Maybe Bool)
-dfsForceDelete = lens _dfsForceDelete (\s a -> s {_dfsForceDelete = a})
+-- | If this value is set to @true@ , the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the @FORCE_DELETING@ status.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'forceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsForceDelete :: Lens.Lens' DeleteFileShare (Lude.Maybe Lude.Bool)
+dfsForceDelete = Lens.lens (forceDelete :: DeleteFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {forceDelete = a} :: DeleteFileShare)
+{-# DEPRECATED dfsForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the file share to be deleted.
-dfsFileShareARN :: Lens' DeleteFileShare Text
-dfsFileShareARN = lens _dfsFileShareARN (\s a -> s {_dfsFileShareARN = a})
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsFileShareARN :: Lens.Lens' DeleteFileShare Lude.Text
+dfsFileShareARN = Lens.lens (fileShareARN :: DeleteFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: DeleteFileShare)
+{-# DEPRECATED dfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
-instance AWSRequest DeleteFileShare where
+instance Lude.AWSRequest DeleteFileShare where
   type Rs DeleteFileShare = DeleteFileShareResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteFileShareResponse'
-            <$> (x .?> "FileShareARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FileShareARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteFileShare
-
-instance NFData DeleteFileShare
-
-instance ToHeaders DeleteFileShare where
+instance Lude.ToHeaders DeleteFileShare where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DeleteFileShare" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.DeleteFileShare" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteFileShare where
+instance Lude.ToJSON DeleteFileShare where
   toJSON DeleteFileShare' {..} =
-    object
-      ( catMaybes
-          [ ("ForceDelete" .=) <$> _dfsForceDelete,
-            Just ("FileShareARN" .= _dfsFileShareARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ForceDelete" Lude..=) Lude.<$> forceDelete,
+            Lude.Just ("FileShareARN" Lude..= fileShareARN)
           ]
       )
 
-instance ToPath DeleteFileShare where
-  toPath = const "/"
+instance Lude.ToPath DeleteFileShare where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteFileShare where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFileShare where
+  toQuery = Lude.const Lude.mempty
 
 -- | DeleteFileShareOutput
 --
---
---
--- /See:/ 'deleteFileShareResponse' smart constructor.
+-- /See:/ 'mkDeleteFileShareResponse' smart constructor.
 data DeleteFileShareResponse = DeleteFileShareResponse'
-  { _dfsrsFileShareARN ::
-      !(Maybe Text),
-    _dfsrsResponseStatus :: !Int
+  { fileShareARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileShareResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfsrsFileShareARN' - The Amazon Resource Name (ARN) of the deleted file share.
---
--- * 'dfsrsResponseStatus' - -- | The response status code.
-deleteFileShareResponse ::
-  -- | 'dfsrsResponseStatus'
-  Int ->
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the deleted file share.
+-- * 'responseStatus' - The response status code.
+mkDeleteFileShareResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteFileShareResponse
-deleteFileShareResponse pResponseStatus_ =
+mkDeleteFileShareResponse pResponseStatus_ =
   DeleteFileShareResponse'
-    { _dfsrsFileShareARN = Nothing,
-      _dfsrsResponseStatus = pResponseStatus_
+    { fileShareARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted file share.
-dfsrsFileShareARN :: Lens' DeleteFileShareResponse (Maybe Text)
-dfsrsFileShareARN = lens _dfsrsFileShareARN (\s a -> s {_dfsrsFileShareARN = a})
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsFileShareARN :: Lens.Lens' DeleteFileShareResponse (Lude.Maybe Lude.Text)
+dfsrsFileShareARN = Lens.lens (fileShareARN :: DeleteFileShareResponse -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: DeleteFileShareResponse)
+{-# DEPRECATED dfsrsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
--- | -- | The response status code.
-dfsrsResponseStatus :: Lens' DeleteFileShareResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\s a -> s {_dfsrsResponseStatus = a})
-
-instance NFData DeleteFileShareResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsResponseStatus :: Lens.Lens' DeleteFileShareResponse Lude.Int
+dfsrsResponseStatus = Lens.lens (responseStatus :: DeleteFileShareResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFileShareResponse)
+{-# DEPRECATED dfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

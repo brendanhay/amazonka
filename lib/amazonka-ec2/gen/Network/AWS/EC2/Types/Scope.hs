@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Scope where
+module Network.AWS.EC2.Types.Scope
+  ( Scope
+      ( Scope',
+        SAvailabilityZone,
+        SRegion
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Scope
-  = SAvailabilityZone
-  | SRegion
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scope = Scope' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scope where
-  parser =
-    takeLowerText >>= \case
-      "availability zone" -> pure SAvailabilityZone
-      "region" -> pure SRegion
-      e ->
-        fromTextError $
-          "Failure parsing Scope from value: '" <> e
-            <> "'. Accepted values: availability zone, region"
+pattern SAvailabilityZone :: Scope
+pattern SAvailabilityZone = Scope' "Availability Zone"
 
-instance ToText Scope where
-  toText = \case
-    SAvailabilityZone -> "Availability Zone"
-    SRegion -> "Region"
+pattern SRegion :: Scope
+pattern SRegion = Scope' "Region"
 
-instance Hashable Scope
-
-instance NFData Scope
-
-instance ToByteString Scope
-
-instance ToQuery Scope
-
-instance ToHeader Scope
-
-instance FromXML Scope where
-  parseXML = parseXMLText "Scope"
+{-# COMPLETE
+  SAvailabilityZone,
+  SRegion,
+  Scope'
+  #-}

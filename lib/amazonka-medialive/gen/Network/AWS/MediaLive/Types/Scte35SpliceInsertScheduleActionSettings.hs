@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings where
+module Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
+  ( Scte35SpliceInsertScheduleActionSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScte35SpliceInsertScheduleActionSettings,
+
+    -- * Lenses
+    ssisasDuration,
+    ssisasSpliceEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for a SCTE-35 splice_insert message.
 --
--- /See:/ 'scte35SpliceInsertScheduleActionSettings' smart constructor.
+-- /See:/ 'mkScte35SpliceInsertScheduleActionSettings' smart constructor.
 data Scte35SpliceInsertScheduleActionSettings = Scte35SpliceInsertScheduleActionSettings'
-  { _ssisasDuration ::
-      !( Maybe
-           Nat
-       ),
-    _ssisasSpliceEventId ::
-      !Nat
+  { duration ::
+      Lude.Maybe
+        Lude.Natural,
+    spliceEventId ::
+      Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35SpliceInsertScheduleActionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssisasDuration' - Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
---
--- * 'ssisasSpliceEventId' - The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-scte35SpliceInsertScheduleActionSettings ::
-  -- | 'ssisasSpliceEventId'
-  Natural ->
+-- * 'duration' - Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
+-- * 'spliceEventId' - The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+mkScte35SpliceInsertScheduleActionSettings ::
+  -- | 'spliceEventId'
+  Lude.Natural ->
   Scte35SpliceInsertScheduleActionSettings
-scte35SpliceInsertScheduleActionSettings pSpliceEventId_ =
+mkScte35SpliceInsertScheduleActionSettings pSpliceEventId_ =
   Scte35SpliceInsertScheduleActionSettings'
-    { _ssisasDuration =
-        Nothing,
-      _ssisasSpliceEventId = _Nat # pSpliceEventId_
+    { duration =
+        Lude.Nothing,
+      spliceEventId = pSpliceEventId_
     }
 
 -- | Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
-ssisasDuration :: Lens' Scte35SpliceInsertScheduleActionSettings (Maybe Natural)
-ssisasDuration = lens _ssisasDuration (\s a -> s {_ssisasDuration = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssisasDuration :: Lens.Lens' Scte35SpliceInsertScheduleActionSettings (Lude.Maybe Lude.Natural)
+ssisasDuration = Lens.lens (duration :: Scte35SpliceInsertScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {duration = a} :: Scte35SpliceInsertScheduleActionSettings)
+{-# DEPRECATED ssisasDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-ssisasSpliceEventId :: Lens' Scte35SpliceInsertScheduleActionSettings Natural
-ssisasSpliceEventId = lens _ssisasSpliceEventId (\s a -> s {_ssisasSpliceEventId = a}) . _Nat
+--
+-- /Note:/ Consider using 'spliceEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssisasSpliceEventId :: Lens.Lens' Scte35SpliceInsertScheduleActionSettings Lude.Natural
+ssisasSpliceEventId = Lens.lens (spliceEventId :: Scte35SpliceInsertScheduleActionSettings -> Lude.Natural) (\s a -> s {spliceEventId = a} :: Scte35SpliceInsertScheduleActionSettings)
+{-# DEPRECATED ssisasSpliceEventId "Use generic-lens or generic-optics with 'spliceEventId' instead." #-}
 
-instance FromJSON Scte35SpliceInsertScheduleActionSettings where
+instance Lude.FromJSON Scte35SpliceInsertScheduleActionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scte35SpliceInsertScheduleActionSettings"
       ( \x ->
           Scte35SpliceInsertScheduleActionSettings'
-            <$> (x .:? "duration") <*> (x .: "spliceEventId")
+            Lude.<$> (x Lude..:? "duration") Lude.<*> (x Lude..: "spliceEventId")
       )
 
-instance Hashable Scte35SpliceInsertScheduleActionSettings
-
-instance NFData Scte35SpliceInsertScheduleActionSettings
-
-instance ToJSON Scte35SpliceInsertScheduleActionSettings where
+instance Lude.ToJSON Scte35SpliceInsertScheduleActionSettings where
   toJSON Scte35SpliceInsertScheduleActionSettings' {..} =
-    object
-      ( catMaybes
-          [ ("duration" .=) <$> _ssisasDuration,
-            Just ("spliceEventId" .= _ssisasSpliceEventId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("duration" Lude..=) Lude.<$> duration,
+            Lude.Just ("spliceEventId" Lude..= spliceEventId)
           ]
       )

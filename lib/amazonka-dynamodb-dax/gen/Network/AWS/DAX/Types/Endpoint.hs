@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Endpoint where
+module Network.AWS.DAX.Types.Endpoint
+  ( Endpoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEndpoint,
+
+    -- * Lenses
+    eAddress,
+    ePort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the information required for client programs to connect to the configuration endpoint for a DAX cluster, or to an individual node within the cluster.
 --
---
---
--- /See:/ 'endpoint' smart constructor.
+-- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { _eAddress :: !(Maybe Text),
-    _ePort :: !(Maybe Int)
+  { address :: Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eAddress' - The DNS hostname of the endpoint.
---
--- * 'ePort' - The port number that applications should use to connect to the endpoint.
-endpoint ::
+-- * 'address' - The DNS hostname of the endpoint.
+-- * 'port' - The port number that applications should use to connect to the endpoint.
+mkEndpoint ::
   Endpoint
-endpoint = Endpoint' {_eAddress = Nothing, _ePort = Nothing}
+mkEndpoint = Endpoint' {address = Lude.Nothing, port = Lude.Nothing}
 
 -- | The DNS hostname of the endpoint.
-eAddress :: Lens' Endpoint (Maybe Text)
-eAddress = lens _eAddress (\s a -> s {_eAddress = a})
+--
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAddress :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
+eAddress = Lens.lens (address :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: Endpoint)
+{-# DEPRECATED eAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The port number that applications should use to connect to the endpoint.
-ePort :: Lens' Endpoint (Maybe Int)
-ePort = lens _ePort (\s a -> s {_ePort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ePort :: Lens.Lens' Endpoint (Lude.Maybe Lude.Int)
+ePort = Lens.lens (port :: Endpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: Endpoint)
+{-# DEPRECATED ePort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON Endpoint where
+instance Lude.FromJSON Endpoint where
   parseJSON =
-    withObject
+    Lude.withObject
       "Endpoint"
-      (\x -> Endpoint' <$> (x .:? "Address") <*> (x .:? "Port"))
-
-instance Hashable Endpoint
-
-instance NFData Endpoint
+      ( \x ->
+          Endpoint'
+            Lude.<$> (x Lude..:? "Address") Lude.<*> (x Lude..:? "Port")
+      )

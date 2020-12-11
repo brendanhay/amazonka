@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,154 @@
 --
 -- Describes Amazon RDS instances.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
 -- This call accepts only one resource-identifying parameter.
 module Network.AWS.OpsWorks.DescribeRDSDBInstances
-  ( -- * Creating a Request
-    describeRDSDBInstances,
-    DescribeRDSDBInstances,
+  ( -- * Creating a request
+    DescribeRDSDBInstances (..),
+    mkDescribeRDSDBInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drdiRDSDBInstanceARNs,
     drdiStackId,
 
-    -- * Destructuring the Response
-    describeRDSDBInstancesResponse,
-    DescribeRDSDBInstancesResponse,
+    -- * Destructuring the response
+    DescribeRDSDBInstancesResponse (..),
+    mkDescribeRDSDBInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drdirsRDSDBInstances,
     drdirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRDSDBInstances' smart constructor.
+-- | /See:/ 'mkDescribeRDSDBInstances' smart constructor.
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
-  { _drdiRDSDBInstanceARNs ::
-      !(Maybe [Text]),
-    _drdiStackId :: !Text
+  { rdsDBInstanceARNs ::
+      Lude.Maybe [Lude.Text],
+    stackId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRDSDBInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdiRDSDBInstanceARNs' - An array containing the ARNs of the instances to be described.
---
--- * 'drdiStackId' - The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.
-describeRDSDBInstances ::
-  -- | 'drdiStackId'
-  Text ->
+-- * 'rdsDBInstanceARNs' - An array containing the ARNs of the instances to be described.
+-- * 'stackId' - The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.
+mkDescribeRDSDBInstances ::
+  -- | 'stackId'
+  Lude.Text ->
   DescribeRDSDBInstances
-describeRDSDBInstances pStackId_ =
+mkDescribeRDSDBInstances pStackId_ =
   DescribeRDSDBInstances'
-    { _drdiRDSDBInstanceARNs = Nothing,
-      _drdiStackId = pStackId_
+    { rdsDBInstanceARNs = Lude.Nothing,
+      stackId = pStackId_
     }
 
 -- | An array containing the ARNs of the instances to be described.
-drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
-drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\s a -> s {_drdiRDSDBInstanceARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rdsDBInstanceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdiRDSDBInstanceARNs :: Lens.Lens' DescribeRDSDBInstances (Lude.Maybe [Lude.Text])
+drdiRDSDBInstanceARNs = Lens.lens (rdsDBInstanceARNs :: DescribeRDSDBInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {rdsDBInstanceARNs = a} :: DescribeRDSDBInstances)
+{-# DEPRECATED drdiRDSDBInstanceARNs "Use generic-lens or generic-optics with 'rdsDBInstanceARNs' instead." #-}
 
 -- | The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.
-drdiStackId :: Lens' DescribeRDSDBInstances Text
-drdiStackId = lens _drdiStackId (\s a -> s {_drdiStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdiStackId :: Lens.Lens' DescribeRDSDBInstances Lude.Text
+drdiStackId = Lens.lens (stackId :: DescribeRDSDBInstances -> Lude.Text) (\s a -> s {stackId = a} :: DescribeRDSDBInstances)
+{-# DEPRECATED drdiStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DescribeRDSDBInstances where
+instance Lude.AWSRequest DescribeRDSDBInstances where
   type Rs DescribeRDSDBInstances = DescribeRDSDBInstancesResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRDSDBInstancesResponse'
-            <$> (x .?> "RdsDbInstances" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RdsDbInstances" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRDSDBInstances
-
-instance NFData DescribeRDSDBInstances
-
-instance ToHeaders DescribeRDSDBInstances where
+instance Lude.ToHeaders DescribeRDSDBInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeRdsDbInstances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeRdsDbInstances" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRDSDBInstances where
+instance Lude.ToJSON DescribeRDSDBInstances where
   toJSON DescribeRDSDBInstances' {..} =
-    object
-      ( catMaybes
-          [ ("RdsDbInstanceArns" .=) <$> _drdiRDSDBInstanceARNs,
-            Just ("StackId" .= _drdiStackId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RdsDbInstanceArns" Lude..=) Lude.<$> rdsDBInstanceARNs,
+            Lude.Just ("StackId" Lude..= stackId)
           ]
       )
 
-instance ToPath DescribeRDSDBInstances where
-  toPath = const "/"
+instance Lude.ToPath DescribeRDSDBInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRDSDBInstances where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRDSDBInstances where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeRdsDbInstances@ request.
 --
---
---
--- /See:/ 'describeRDSDBInstancesResponse' smart constructor.
+-- /See:/ 'mkDescribeRDSDBInstancesResponse' smart constructor.
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
-  { _drdirsRDSDBInstances ::
-      !(Maybe [RDSDBInstance]),
-    _drdirsResponseStatus :: !Int
+  { rdsDBInstances ::
+      Lude.Maybe [RDSDBInstance],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRDSDBInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdirsRDSDBInstances' - An a array of @RdsDbInstance@ objects that describe the instances.
---
--- * 'drdirsResponseStatus' - -- | The response status code.
-describeRDSDBInstancesResponse ::
-  -- | 'drdirsResponseStatus'
-  Int ->
+-- * 'rdsDBInstances' - An a array of @RdsDbInstance@ objects that describe the instances.
+-- * 'responseStatus' - The response status code.
+mkDescribeRDSDBInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse pResponseStatus_ =
+mkDescribeRDSDBInstancesResponse pResponseStatus_ =
   DescribeRDSDBInstancesResponse'
-    { _drdirsRDSDBInstances = Nothing,
-      _drdirsResponseStatus = pResponseStatus_
+    { rdsDBInstances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
-drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
-drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\s a -> s {_drdirsRDSDBInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rdsDBInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdirsRDSDBInstances :: Lens.Lens' DescribeRDSDBInstancesResponse (Lude.Maybe [RDSDBInstance])
+drdirsRDSDBInstances = Lens.lens (rdsDBInstances :: DescribeRDSDBInstancesResponse -> Lude.Maybe [RDSDBInstance]) (\s a -> s {rdsDBInstances = a} :: DescribeRDSDBInstancesResponse)
+{-# DEPRECATED drdirsRDSDBInstances "Use generic-lens or generic-optics with 'rdsDBInstances' instead." #-}
 
--- | -- | The response status code.
-drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
-drdirsResponseStatus = lens _drdirsResponseStatus (\s a -> s {_drdirsResponseStatus = a})
-
-instance NFData DescribeRDSDBInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdirsResponseStatus :: Lens.Lens' DescribeRDSDBInstancesResponse Lude.Int
+drdirsResponseStatus = Lens.lens (responseStatus :: DescribeRDSDBInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRDSDBInstancesResponse)
+{-# DEPRECATED drdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

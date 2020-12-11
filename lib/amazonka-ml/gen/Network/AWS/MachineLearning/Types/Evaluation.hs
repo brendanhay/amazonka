@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,167 +7,264 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.Evaluation where
+module Network.AWS.MachineLearning.Types.Evaluation
+  ( Evaluation (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEvaluation,
+
+    -- * Lenses
+    eStatus,
+    ePerformanceMetrics,
+    eLastUpdatedAt,
+    eCreatedAt,
+    eComputeTime,
+    eInputDataLocationS3,
+    eMLModelId,
+    eStartedAt,
+    eFinishedAt,
+    eCreatedByIAMUser,
+    eName,
+    eEvaluationId,
+    eMessage,
+    eEvaluationDataSourceId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.EntityStatus
 import Network.AWS.MachineLearning.Types.PerformanceMetrics
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of @GetEvaluation@ operation.
 --
---
 -- The content consists of the detailed metadata and data file information and the current status of the @Evaluation@ .
 --
---
--- /See:/ 'evaluation' smart constructor.
+-- /See:/ 'mkEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { _eStatus :: !(Maybe EntityStatus),
-    _ePerformanceMetrics :: !(Maybe PerformanceMetrics),
-    _eLastUpdatedAt :: !(Maybe POSIX),
-    _eCreatedAt :: !(Maybe POSIX),
-    _eComputeTime :: !(Maybe Integer),
-    _eInputDataLocationS3 :: !(Maybe Text),
-    _eMLModelId :: !(Maybe Text),
-    _eStartedAt :: !(Maybe POSIX),
-    _eFinishedAt :: !(Maybe POSIX),
-    _eCreatedByIAMUser :: !(Maybe Text),
-    _eName :: !(Maybe Text),
-    _eEvaluationId :: !(Maybe Text),
-    _eMessage :: !(Maybe Text),
-    _eEvaluationDataSourceId :: !(Maybe Text)
+  { status :: Lude.Maybe EntityStatus,
+    performanceMetrics :: Lude.Maybe PerformanceMetrics,
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    computeTime :: Lude.Maybe Lude.Integer,
+    inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    mLModelId :: Lude.Maybe Lude.Text,
+    startedAt :: Lude.Maybe Lude.Timestamp,
+    finishedAt :: Lude.Maybe Lude.Timestamp,
+    createdByIAMUser :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    evaluationId :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text,
+    evaluationDataSourceId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'computeTime' - Undocumented field.
+-- * 'createdAt' - The time that the @Evaluation@ was created. The time is expressed in epoch time.
+-- * 'createdByIAMUser' - The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'evaluationDataSourceId' - The ID of the @DataSource@ that is used to evaluate the @MLModel@ .
+-- * 'evaluationId' - The ID that is assigned to the @Evaluation@ at creation.
+-- * 'finishedAt' - Undocumented field.
+-- * 'inputDataLocationS3' - The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
+-- * 'mLModelId' - The ID of the @MLModel@ that is the focus of the evaluation.
+-- * 'message' - A description of the most recent details about evaluating the @MLModel@ .
+-- * 'name' - A user-supplied name or description of the @Evaluation@ .
+-- * 'performanceMetrics' - Measurements of how well the @MLModel@ performed, using observations referenced by the @DataSource@ . One of the following metrics is returned, based on the type of the @MLModel@ :
 --
--- * 'eStatus' - The status of the evaluation. This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .    * @INPROGRESS@ - The evaluation is underway.    * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.    * @COMPLETED@ - The evaluation process completed successfully.    * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 --
--- * 'ePerformanceMetrics' - Measurements of how well the @MLModel@ performed, using observations referenced by the @DataSource@ . One of the following metrics is returned, based on the type of the @MLModel@ :      * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.      * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.  For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
+--     * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.
 --
--- * 'eLastUpdatedAt' - The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
 --
--- * 'eCreatedAt' - The time that the @Evaluation@ was created. The time is expressed in epoch time.
+--     * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.
 --
--- * 'eComputeTime' - Undocumented member.
 --
--- * 'eInputDataLocationS3' - The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
+--     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.
 --
--- * 'eMLModelId' - The ID of the @MLModel@ that is the focus of the evaluation.
 --
--- * 'eStartedAt' - Undocumented member.
+-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
+-- * 'startedAt' - Undocumented field.
+-- * 'status' - The status of the evaluation. This element can have one of the following values:
 --
--- * 'eFinishedAt' - Undocumented member.
 --
--- * 'eCreatedByIAMUser' - The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+--     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .
 --
--- * 'eName' - A user-supplied name or description of the @Evaluation@ .
+--     * @INPROGRESS@ - The evaluation is underway.
 --
--- * 'eEvaluationId' - The ID that is assigned to the @Evaluation@ at creation.
+--     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
 --
--- * 'eMessage' - A description of the most recent details about evaluating the @MLModel@ .
+--     * @COMPLETED@ - The evaluation process completed successfully.
 --
--- * 'eEvaluationDataSourceId' - The ID of the @DataSource@ that is used to evaluate the @MLModel@ .
-evaluation ::
+--     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+mkEvaluation ::
   Evaluation
-evaluation =
+mkEvaluation =
   Evaluation'
-    { _eStatus = Nothing,
-      _ePerformanceMetrics = Nothing,
-      _eLastUpdatedAt = Nothing,
-      _eCreatedAt = Nothing,
-      _eComputeTime = Nothing,
-      _eInputDataLocationS3 = Nothing,
-      _eMLModelId = Nothing,
-      _eStartedAt = Nothing,
-      _eFinishedAt = Nothing,
-      _eCreatedByIAMUser = Nothing,
-      _eName = Nothing,
-      _eEvaluationId = Nothing,
-      _eMessage = Nothing,
-      _eEvaluationDataSourceId = Nothing
+    { status = Lude.Nothing,
+      performanceMetrics = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      computeTime = Lude.Nothing,
+      inputDataLocationS3 = Lude.Nothing,
+      mLModelId = Lude.Nothing,
+      startedAt = Lude.Nothing,
+      finishedAt = Lude.Nothing,
+      createdByIAMUser = Lude.Nothing,
+      name = Lude.Nothing,
+      evaluationId = Lude.Nothing,
+      message = Lude.Nothing,
+      evaluationDataSourceId = Lude.Nothing
     }
 
--- | The status of the evaluation. This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .    * @INPROGRESS@ - The evaluation is underway.    * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.    * @COMPLETED@ - The evaluation process completed successfully.    * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
-eStatus :: Lens' Evaluation (Maybe EntityStatus)
-eStatus = lens _eStatus (\s a -> s {_eStatus = a})
+-- | The status of the evaluation. This element can have one of the following values:
+--
+--
+--     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .
+--
+--     * @INPROGRESS@ - The evaluation is underway.
+--
+--     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
+--
+--     * @COMPLETED@ - The evaluation process completed successfully.
+--
+--     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eStatus :: Lens.Lens' Evaluation (Lude.Maybe EntityStatus)
+eStatus = Lens.lens (status :: Evaluation -> Lude.Maybe EntityStatus) (\s a -> s {status = a} :: Evaluation)
+{-# DEPRECATED eStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Measurements of how well the @MLModel@ performed, using observations referenced by the @DataSource@ . One of the following metrics is returned, based on the type of the @MLModel@ :      * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.      * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.  For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
-ePerformanceMetrics :: Lens' Evaluation (Maybe PerformanceMetrics)
-ePerformanceMetrics = lens _ePerformanceMetrics (\s a -> s {_ePerformanceMetrics = a})
+-- | Measurements of how well the @MLModel@ performed, using observations referenced by the @DataSource@ . One of the following metrics is returned, based on the type of the @MLModel@ :
+--
+--
+--     * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.
+--
+--
+--     * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.
+--
+--
+--     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.
+--
+--
+-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
+--
+-- /Note:/ Consider using 'performanceMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ePerformanceMetrics :: Lens.Lens' Evaluation (Lude.Maybe PerformanceMetrics)
+ePerformanceMetrics = Lens.lens (performanceMetrics :: Evaluation -> Lude.Maybe PerformanceMetrics) (\s a -> s {performanceMetrics = a} :: Evaluation)
+{-# DEPRECATED ePerformanceMetrics "Use generic-lens or generic-optics with 'performanceMetrics' instead." #-}
 
 -- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
-eLastUpdatedAt :: Lens' Evaluation (Maybe UTCTime)
-eLastUpdatedAt = lens _eLastUpdatedAt (\s a -> s {_eLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eLastUpdatedAt :: Lens.Lens' Evaluation (Lude.Maybe Lude.Timestamp)
+eLastUpdatedAt = Lens.lens (lastUpdatedAt :: Evaluation -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: Evaluation)
+{-# DEPRECATED eLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
-eCreatedAt :: Lens' Evaluation (Maybe UTCTime)
-eCreatedAt = lens _eCreatedAt (\s a -> s {_eCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCreatedAt :: Lens.Lens' Evaluation (Lude.Maybe Lude.Timestamp)
+eCreatedAt = Lens.lens (createdAt :: Evaluation -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Evaluation)
+{-# DEPRECATED eCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
--- | Undocumented member.
-eComputeTime :: Lens' Evaluation (Maybe Integer)
-eComputeTime = lens _eComputeTime (\s a -> s {_eComputeTime = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eComputeTime :: Lens.Lens' Evaluation (Lude.Maybe Lude.Integer)
+eComputeTime = Lens.lens (computeTime :: Evaluation -> Lude.Maybe Lude.Integer) (\s a -> s {computeTime = a} :: Evaluation)
+{-# DEPRECATED eComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
 
 -- | The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
-eInputDataLocationS3 :: Lens' Evaluation (Maybe Text)
-eInputDataLocationS3 = lens _eInputDataLocationS3 (\s a -> s {_eInputDataLocationS3 = a})
+--
+-- /Note:/ Consider using 'inputDataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eInputDataLocationS3 :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eInputDataLocationS3 = Lens.lens (inputDataLocationS3 :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {inputDataLocationS3 = a} :: Evaluation)
+{-# DEPRECATED eInputDataLocationS3 "Use generic-lens or generic-optics with 'inputDataLocationS3' instead." #-}
 
 -- | The ID of the @MLModel@ that is the focus of the evaluation.
-eMLModelId :: Lens' Evaluation (Maybe Text)
-eMLModelId = lens _eMLModelId (\s a -> s {_eMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMLModelId :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eMLModelId = Lens.lens (mLModelId :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: Evaluation)
+{-# DEPRECATED eMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
--- | Undocumented member.
-eStartedAt :: Lens' Evaluation (Maybe UTCTime)
-eStartedAt = lens _eStartedAt (\s a -> s {_eStartedAt = a}) . mapping _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eStartedAt :: Lens.Lens' Evaluation (Lude.Maybe Lude.Timestamp)
+eStartedAt = Lens.lens (startedAt :: Evaluation -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: Evaluation)
+{-# DEPRECATED eStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
--- | Undocumented member.
-eFinishedAt :: Lens' Evaluation (Maybe UTCTime)
-eFinishedAt = lens _eFinishedAt (\s a -> s {_eFinishedAt = a}) . mapping _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eFinishedAt :: Lens.Lens' Evaluation (Lude.Maybe Lude.Timestamp)
+eFinishedAt = Lens.lens (finishedAt :: Evaluation -> Lude.Maybe Lude.Timestamp) (\s a -> s {finishedAt = a} :: Evaluation)
+{-# DEPRECATED eFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
 
 -- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
-eCreatedByIAMUser :: Lens' Evaluation (Maybe Text)
-eCreatedByIAMUser = lens _eCreatedByIAMUser (\s a -> s {_eCreatedByIAMUser = a})
+--
+-- /Note:/ Consider using 'createdByIAMUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCreatedByIAMUser :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eCreatedByIAMUser = Lens.lens (createdByIAMUser :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {createdByIAMUser = a} :: Evaluation)
+{-# DEPRECATED eCreatedByIAMUser "Use generic-lens or generic-optics with 'createdByIAMUser' instead." #-}
 
 -- | A user-supplied name or description of the @Evaluation@ .
-eName :: Lens' Evaluation (Maybe Text)
-eName = lens _eName (\s a -> s {_eName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eName :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eName = Lens.lens (name :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Evaluation)
+{-# DEPRECATED eName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID that is assigned to the @Evaluation@ at creation.
-eEvaluationId :: Lens' Evaluation (Maybe Text)
-eEvaluationId = lens _eEvaluationId (\s a -> s {_eEvaluationId = a})
+--
+-- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEvaluationId :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eEvaluationId = Lens.lens (evaluationId :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: Evaluation)
+{-# DEPRECATED eEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | A description of the most recent details about evaluating the @MLModel@ .
-eMessage :: Lens' Evaluation (Maybe Text)
-eMessage = lens _eMessage (\s a -> s {_eMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMessage :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eMessage = Lens.lens (message :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Evaluation)
+{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The ID of the @DataSource@ that is used to evaluate the @MLModel@ .
-eEvaluationDataSourceId :: Lens' Evaluation (Maybe Text)
-eEvaluationDataSourceId = lens _eEvaluationDataSourceId (\s a -> s {_eEvaluationDataSourceId = a})
+--
+-- /Note:/ Consider using 'evaluationDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEvaluationDataSourceId :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
+eEvaluationDataSourceId = Lens.lens (evaluationDataSourceId :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {evaluationDataSourceId = a} :: Evaluation)
+{-# DEPRECATED eEvaluationDataSourceId "Use generic-lens or generic-optics with 'evaluationDataSourceId' instead." #-}
 
-instance FromJSON Evaluation where
+instance Lude.FromJSON Evaluation where
   parseJSON =
-    withObject
+    Lude.withObject
       "Evaluation"
       ( \x ->
           Evaluation'
-            <$> (x .:? "Status")
-            <*> (x .:? "PerformanceMetrics")
-            <*> (x .:? "LastUpdatedAt")
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "ComputeTime")
-            <*> (x .:? "InputDataLocationS3")
-            <*> (x .:? "MLModelId")
-            <*> (x .:? "StartedAt")
-            <*> (x .:? "FinishedAt")
-            <*> (x .:? "CreatedByIamUser")
-            <*> (x .:? "Name")
-            <*> (x .:? "EvaluationId")
-            <*> (x .:? "Message")
-            <*> (x .:? "EvaluationDataSourceId")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "PerformanceMetrics")
+            Lude.<*> (x Lude..:? "LastUpdatedAt")
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "ComputeTime")
+            Lude.<*> (x Lude..:? "InputDataLocationS3")
+            Lude.<*> (x Lude..:? "MLModelId")
+            Lude.<*> (x Lude..:? "StartedAt")
+            Lude.<*> (x Lude..:? "FinishedAt")
+            Lude.<*> (x Lude..:? "CreatedByIamUser")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "EvaluationId")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "EvaluationDataSourceId")
       )
-
-instance Hashable Evaluation
-
-instance NFData Evaluation

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior where
+module Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
+  ( CachePolicyHeaderBehavior
+      ( CachePolicyHeaderBehavior',
+        CPHBNone,
+        CPHBWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CachePolicyHeaderBehavior
-  = CPHBNone
-  | CPHBWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CachePolicyHeaderBehavior = CachePolicyHeaderBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CachePolicyHeaderBehavior where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure CPHBNone
-      "whitelist" -> pure CPHBWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing CachePolicyHeaderBehavior from value: '" <> e
-            <> "'. Accepted values: none, whitelist"
+pattern CPHBNone :: CachePolicyHeaderBehavior
+pattern CPHBNone = CachePolicyHeaderBehavior' "none"
 
-instance ToText CachePolicyHeaderBehavior where
-  toText = \case
-    CPHBNone -> "none"
-    CPHBWhitelist -> "whitelist"
+pattern CPHBWhitelist :: CachePolicyHeaderBehavior
+pattern CPHBWhitelist = CachePolicyHeaderBehavior' "whitelist"
 
-instance Hashable CachePolicyHeaderBehavior
-
-instance NFData CachePolicyHeaderBehavior
-
-instance ToByteString CachePolicyHeaderBehavior
-
-instance ToQuery CachePolicyHeaderBehavior
-
-instance ToHeader CachePolicyHeaderBehavior
-
-instance FromXML CachePolicyHeaderBehavior where
-  parseXML = parseXMLText "CachePolicyHeaderBehavior"
-
-instance ToXML CachePolicyHeaderBehavior where
-  toXML = toXMLText
+{-# COMPLETE
+  CPHBNone,
+  CPHBWhitelist,
+  CachePolicyHeaderBehavior'
+  #-}

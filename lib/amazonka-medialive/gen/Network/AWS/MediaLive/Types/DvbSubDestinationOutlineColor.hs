@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbSubDestinationOutlineColor where
+module Network.AWS.MediaLive.Types.DvbSubDestinationOutlineColor
+  ( DvbSubDestinationOutlineColor
+      ( DvbSubDestinationOutlineColor',
+        Black,
+        Blue,
+        Green,
+        Red,
+        White,
+        Yellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Dvb Sub Destination Outline Color
-data DvbSubDestinationOutlineColor
-  = Black
-  | Blue
-  | Green
-  | Red
-  | White
-  | Yellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DvbSubDestinationOutlineColor = DvbSubDestinationOutlineColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DvbSubDestinationOutlineColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure Black
-      "blue" -> pure Blue
-      "green" -> pure Green
-      "red" -> pure Red
-      "white" -> pure White
-      "yellow" -> pure Yellow
-      e ->
-        fromTextError $
-          "Failure parsing DvbSubDestinationOutlineColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern Black :: DvbSubDestinationOutlineColor
+pattern Black = DvbSubDestinationOutlineColor' "BLACK"
 
-instance ToText DvbSubDestinationOutlineColor where
-  toText = \case
-    Black -> "BLACK"
-    Blue -> "BLUE"
-    Green -> "GREEN"
-    Red -> "RED"
-    White -> "WHITE"
-    Yellow -> "YELLOW"
+pattern Blue :: DvbSubDestinationOutlineColor
+pattern Blue = DvbSubDestinationOutlineColor' "BLUE"
 
-instance Hashable DvbSubDestinationOutlineColor
+pattern Green :: DvbSubDestinationOutlineColor
+pattern Green = DvbSubDestinationOutlineColor' "GREEN"
 
-instance NFData DvbSubDestinationOutlineColor
+pattern Red :: DvbSubDestinationOutlineColor
+pattern Red = DvbSubDestinationOutlineColor' "RED"
 
-instance ToByteString DvbSubDestinationOutlineColor
+pattern White :: DvbSubDestinationOutlineColor
+pattern White = DvbSubDestinationOutlineColor' "WHITE"
 
-instance ToQuery DvbSubDestinationOutlineColor
+pattern Yellow :: DvbSubDestinationOutlineColor
+pattern Yellow = DvbSubDestinationOutlineColor' "YELLOW"
 
-instance ToHeader DvbSubDestinationOutlineColor
-
-instance ToJSON DvbSubDestinationOutlineColor where
-  toJSON = toJSONText
-
-instance FromJSON DvbSubDestinationOutlineColor where
-  parseJSON = parseJSONText "DvbSubDestinationOutlineColor"
+{-# COMPLETE
+  Black,
+  Blue,
+  Green,
+  Red,
+  White,
+  Yellow,
+  DvbSubDestinationOutlineColor'
+  #-}

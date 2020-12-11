@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,93 +17,108 @@
 --
 --     * 'CreateAlias'
 --
+--
 --     * 'ListAliases'
+--
 --
 --     * 'DescribeAlias'
 --
+--
 --     * 'UpdateAlias'
+--
 --
 --     * 'DeleteAlias'
 --
+--
 --     * 'ResolveAlias'
 module Network.AWS.GameLift.DeleteAlias
-  ( -- * Creating a Request
-    deleteAlias,
-    DeleteAlias,
+  ( -- * Creating a request
+    DeleteAlias (..),
+    mkDeleteAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daAliasId,
 
-    -- * Destructuring the Response
-    deleteAliasResponse,
-    DeleteAliasResponse,
+    -- * Destructuring the response
+    DeleteAliasResponse (..),
+    mkDeleteAliasResponse,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'deleteAlias' smart constructor.
-newtype DeleteAlias = DeleteAlias' {_daAliasId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteAlias' smart constructor.
+newtype DeleteAlias = DeleteAlias' {aliasId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daAliasId' - A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
-deleteAlias ::
-  -- | 'daAliasId'
-  Text ->
+-- * 'aliasId' - A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
+mkDeleteAlias ::
+  -- | 'aliasId'
+  Lude.Text ->
   DeleteAlias
-deleteAlias pAliasId_ = DeleteAlias' {_daAliasId = pAliasId_}
+mkDeleteAlias pAliasId_ = DeleteAlias' {aliasId = pAliasId_}
 
 -- | A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
-daAliasId :: Lens' DeleteAlias Text
-daAliasId = lens _daAliasId (\s a -> s {_daAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAliasId :: Lens.Lens' DeleteAlias Lude.Text
+daAliasId = Lens.lens (aliasId :: DeleteAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteAlias)
+{-# DEPRECATED daAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance AWSRequest DeleteAlias where
+instance Lude.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
-  request = postJSON gameLift
-  response = receiveNull DeleteAliasResponse'
+  request = Req.postJSON gameLiftService
+  response = Res.receiveNull DeleteAliasResponse'
 
-instance Hashable DeleteAlias
-
-instance NFData DeleteAlias
-
-instance ToHeaders DeleteAlias where
+instance Lude.ToHeaders DeleteAlias where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DeleteAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DeleteAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAlias where
+instance Lude.ToJSON DeleteAlias where
   toJSON DeleteAlias' {..} =
-    object (catMaybes [Just ("AliasId" .= _daAliasId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
 
-instance ToPath DeleteAlias where
-  toPath = const "/"
+instance Lude.ToPath DeleteAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
-deleteAliasResponse ::
+mkDeleteAliasResponse ::
   DeleteAliasResponse
-deleteAliasResponse = DeleteAliasResponse'
-
-instance NFData DeleteAliasResponse
+mkDeleteAliasResponse = DeleteAliasResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,130 @@
 --
 -- Unarchives GuardDuty findings specified by the @findingIds@ .
 module Network.AWS.GuardDuty.UnarchiveFindings
-  ( -- * Creating a Request
-    unarchiveFindings,
-    UnarchiveFindings,
+  ( -- * Creating a request
+    UnarchiveFindings (..),
+    mkUnarchiveFindings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uDetectorId,
     uFindingIds,
 
-    -- * Destructuring the Response
-    unarchiveFindingsResponse,
-    UnarchiveFindingsResponse,
+    -- * Destructuring the response
+    UnarchiveFindingsResponse (..),
+    mkUnarchiveFindingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'unarchiveFindings' smart constructor.
+-- | /See:/ 'mkUnarchiveFindings' smart constructor.
 data UnarchiveFindings = UnarchiveFindings'
-  { _uDetectorId :: !Text,
-    _uFindingIds :: ![Text]
+  { detectorId ::
+      Lude.Text,
+    findingIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnarchiveFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uDetectorId' - The ID of the detector associated with the findings to unarchive.
---
--- * 'uFindingIds' - The IDs of the findings to unarchive.
-unarchiveFindings ::
-  -- | 'uDetectorId'
-  Text ->
+-- * 'detectorId' - The ID of the detector associated with the findings to unarchive.
+-- * 'findingIds' - The IDs of the findings to unarchive.
+mkUnarchiveFindings ::
+  -- | 'detectorId'
+  Lude.Text ->
   UnarchiveFindings
-unarchiveFindings pDetectorId_ =
+mkUnarchiveFindings pDetectorId_ =
   UnarchiveFindings'
-    { _uDetectorId = pDetectorId_,
-      _uFindingIds = mempty
+    { detectorId = pDetectorId_,
+      findingIds = Lude.mempty
     }
 
 -- | The ID of the detector associated with the findings to unarchive.
-uDetectorId :: Lens' UnarchiveFindings Text
-uDetectorId = lens _uDetectorId (\s a -> s {_uDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDetectorId :: Lens.Lens' UnarchiveFindings Lude.Text
+uDetectorId = Lens.lens (detectorId :: UnarchiveFindings -> Lude.Text) (\s a -> s {detectorId = a} :: UnarchiveFindings)
+{-# DEPRECATED uDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The IDs of the findings to unarchive.
-uFindingIds :: Lens' UnarchiveFindings [Text]
-uFindingIds = lens _uFindingIds (\s a -> s {_uFindingIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uFindingIds :: Lens.Lens' UnarchiveFindings [Lude.Text]
+uFindingIds = Lens.lens (findingIds :: UnarchiveFindings -> [Lude.Text]) (\s a -> s {findingIds = a} :: UnarchiveFindings)
+{-# DEPRECATED uFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
 
-instance AWSRequest UnarchiveFindings where
+instance Lude.AWSRequest UnarchiveFindings where
   type Rs UnarchiveFindings = UnarchiveFindingsResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
-      (\s h x -> UnarchiveFindingsResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UnarchiveFindings
-
-instance NFData UnarchiveFindings
-
-instance ToHeaders UnarchiveFindings where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UnarchiveFindingsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON UnarchiveFindings where
+instance Lude.ToHeaders UnarchiveFindings where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToJSON UnarchiveFindings where
   toJSON UnarchiveFindings' {..} =
-    object (catMaybes [Just ("findingIds" .= _uFindingIds)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("findingIds" Lude..= findingIds)])
 
-instance ToPath UnarchiveFindings where
+instance Lude.ToPath UnarchiveFindings where
   toPath UnarchiveFindings' {..} =
-    mconcat ["/detector/", toBS _uDetectorId, "/findings/unarchive"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/findings/unarchive"]
 
-instance ToQuery UnarchiveFindings where
-  toQuery = const mempty
+instance Lude.ToQuery UnarchiveFindings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'unarchiveFindingsResponse' smart constructor.
+-- | /See:/ 'mkUnarchiveFindingsResponse' smart constructor.
 newtype UnarchiveFindingsResponse = UnarchiveFindingsResponse'
-  { _ursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnarchiveFindingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursResponseStatus' - -- | The response status code.
-unarchiveFindingsResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUnarchiveFindingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UnarchiveFindingsResponse
-unarchiveFindingsResponse pResponseStatus_ =
-  UnarchiveFindingsResponse' {_ursResponseStatus = pResponseStatus_}
+mkUnarchiveFindingsResponse pResponseStatus_ =
+  UnarchiveFindingsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UnarchiveFindingsResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UnarchiveFindingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UnarchiveFindingsResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UnarchiveFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UnarchiveFindingsResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

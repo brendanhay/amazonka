@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Types.Record where
+module Network.AWS.CognitoSync.Types.Record
+  ( Record (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecord,
+
+    -- * Lenses
+    rSyncCount,
+    rDeviceLastModifiedDate,
+    rLastModifiedDate,
+    rValue,
+    rKey,
+    rLastModifiedBy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The basic data structure of a dataset.
 --
--- /See:/ 'record' smart constructor.
+-- /See:/ 'mkRecord' smart constructor.
 data Record = Record'
-  { _rSyncCount :: !(Maybe Integer),
-    _rDeviceLastModifiedDate :: !(Maybe POSIX),
-    _rLastModifiedDate :: !(Maybe POSIX),
-    _rValue :: !(Maybe Text),
-    _rKey :: !(Maybe Text),
-    _rLastModifiedBy :: !(Maybe Text)
+  { syncCount :: Lude.Maybe Lude.Integer,
+    deviceLastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    value :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text,
+    lastModifiedBy :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rSyncCount' - The server sync count for this record.
---
--- * 'rDeviceLastModifiedDate' - The last modified date of the client device.
---
--- * 'rLastModifiedDate' - The date on which the record was last modified.
---
--- * 'rValue' - The value for the record.
---
--- * 'rKey' - The key for the record.
---
--- * 'rLastModifiedBy' - The user/device that made the last change to this record.
-record ::
+-- * 'deviceLastModifiedDate' - The last modified date of the client device.
+-- * 'key' - The key for the record.
+-- * 'lastModifiedBy' - The user/device that made the last change to this record.
+-- * 'lastModifiedDate' - The date on which the record was last modified.
+-- * 'syncCount' - The server sync count for this record.
+-- * 'value' - The value for the record.
+mkRecord ::
   Record
-record =
+mkRecord =
   Record'
-    { _rSyncCount = Nothing,
-      _rDeviceLastModifiedDate = Nothing,
-      _rLastModifiedDate = Nothing,
-      _rValue = Nothing,
-      _rKey = Nothing,
-      _rLastModifiedBy = Nothing
+    { syncCount = Lude.Nothing,
+      deviceLastModifiedDate = Lude.Nothing,
+      lastModifiedDate = Lude.Nothing,
+      value = Lude.Nothing,
+      key = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing
     }
 
 -- | The server sync count for this record.
-rSyncCount :: Lens' Record (Maybe Integer)
-rSyncCount = lens _rSyncCount (\s a -> s {_rSyncCount = a})
+--
+-- /Note:/ Consider using 'syncCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSyncCount :: Lens.Lens' Record (Lude.Maybe Lude.Integer)
+rSyncCount = Lens.lens (syncCount :: Record -> Lude.Maybe Lude.Integer) (\s a -> s {syncCount = a} :: Record)
+{-# DEPRECATED rSyncCount "Use generic-lens or generic-optics with 'syncCount' instead." #-}
 
 -- | The last modified date of the client device.
-rDeviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rDeviceLastModifiedDate = lens _rDeviceLastModifiedDate (\s a -> s {_rDeviceLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deviceLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDeviceLastModifiedDate :: Lens.Lens' Record (Lude.Maybe Lude.Timestamp)
+rDeviceLastModifiedDate = Lens.lens (deviceLastModifiedDate :: Record -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceLastModifiedDate = a} :: Record)
+{-# DEPRECATED rDeviceLastModifiedDate "Use generic-lens or generic-optics with 'deviceLastModifiedDate' instead." #-}
 
 -- | The date on which the record was last modified.
-rLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rLastModifiedDate = lens _rLastModifiedDate (\s a -> s {_rLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLastModifiedDate :: Lens.Lens' Record (Lude.Maybe Lude.Timestamp)
+rLastModifiedDate = Lens.lens (lastModifiedDate :: Record -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: Record)
+{-# DEPRECATED rLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The value for the record.
-rValue :: Lens' Record (Maybe Text)
-rValue = lens _rValue (\s a -> s {_rValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rValue :: Lens.Lens' Record (Lude.Maybe Lude.Text)
+rValue = Lens.lens (value :: Record -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Record)
+{-# DEPRECATED rValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key for the record.
-rKey :: Lens' Record (Maybe Text)
-rKey = lens _rKey (\s a -> s {_rKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rKey :: Lens.Lens' Record (Lude.Maybe Lude.Text)
+rKey = Lens.lens (key :: Record -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: Record)
+{-# DEPRECATED rKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The user/device that made the last change to this record.
-rLastModifiedBy :: Lens' Record (Maybe Text)
-rLastModifiedBy = lens _rLastModifiedBy (\s a -> s {_rLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLastModifiedBy :: Lens.Lens' Record (Lude.Maybe Lude.Text)
+rLastModifiedBy = Lens.lens (lastModifiedBy :: Record -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: Record)
+{-# DEPRECATED rLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
-instance FromJSON Record where
+instance Lude.FromJSON Record where
   parseJSON =
-    withObject
+    Lude.withObject
       "Record"
       ( \x ->
           Record'
-            <$> (x .:? "SyncCount")
-            <*> (x .:? "DeviceLastModifiedDate")
-            <*> (x .:? "LastModifiedDate")
-            <*> (x .:? "Value")
-            <*> (x .:? "Key")
-            <*> (x .:? "LastModifiedBy")
+            Lude.<$> (x Lude..:? "SyncCount")
+            Lude.<*> (x Lude..:? "DeviceLastModifiedDate")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "LastModifiedBy")
       )
-
-instance Hashable Record
-
-instance NFData Record

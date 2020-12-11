@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,76 +14,82 @@
 --
 -- Lists the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG).
 module Network.AWS.DirectConnect.DescribeHostedConnections
-  ( -- * Creating a Request
-    describeHostedConnections,
-    DescribeHostedConnections,
+  ( -- * Creating a request
+    DescribeHostedConnections (..),
+    mkDescribeHostedConnections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhcConnectionId,
 
-    -- * Destructuring the Response
-    connections,
-    Connections,
+    -- * Destructuring the response
+    Connections (..),
+    mkConnections,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cConnections,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeHostedConnections' smart constructor.
+-- | /See:/ 'mkDescribeHostedConnections' smart constructor.
 newtype DescribeHostedConnections = DescribeHostedConnections'
-  { _dhcConnectionId ::
-      Text
+  { connectionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostedConnections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhcConnectionId' - The ID of the interconnect or LAG.
-describeHostedConnections ::
-  -- | 'dhcConnectionId'
-  Text ->
+-- * 'connectionId' - The ID of the interconnect or LAG.
+mkDescribeHostedConnections ::
+  -- | 'connectionId'
+  Lude.Text ->
   DescribeHostedConnections
-describeHostedConnections pConnectionId_ =
-  DescribeHostedConnections' {_dhcConnectionId = pConnectionId_}
+mkDescribeHostedConnections pConnectionId_ =
+  DescribeHostedConnections' {connectionId = pConnectionId_}
 
 -- | The ID of the interconnect or LAG.
-dhcConnectionId :: Lens' DescribeHostedConnections Text
-dhcConnectionId = lens _dhcConnectionId (\s a -> s {_dhcConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcConnectionId :: Lens.Lens' DescribeHostedConnections Lude.Text
+dhcConnectionId = Lens.lens (connectionId :: DescribeHostedConnections -> Lude.Text) (\s a -> s {connectionId = a} :: DescribeHostedConnections)
+{-# DEPRECATED dhcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance AWSRequest DescribeHostedConnections where
+instance Lude.AWSRequest DescribeHostedConnections where
   type Rs DescribeHostedConnections = Connections
-  request = postJSON directConnect
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON directConnectService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DescribeHostedConnections
-
-instance NFData DescribeHostedConnections
-
-instance ToHeaders DescribeHostedConnections where
+instance Lude.ToHeaders DescribeHostedConnections where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.DescribeHostedConnections" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.DescribeHostedConnections" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeHostedConnections where
+instance Lude.ToJSON DescribeHostedConnections where
   toJSON DescribeHostedConnections' {..} =
-    object (catMaybes [Just ("connectionId" .= _dhcConnectionId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("connectionId" Lude..= connectionId)])
 
-instance ToPath DescribeHostedConnections where
-  toPath = const "/"
+instance Lude.ToPath DescribeHostedConnections where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeHostedConnections where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeHostedConnections where
+  toQuery = Lude.const Lude.mempty

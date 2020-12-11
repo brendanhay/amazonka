@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationSyncCompliance where
+module Network.AWS.SSM.Types.AssociationSyncCompliance
+  ( AssociationSyncCompliance
+      ( AssociationSyncCompliance',
+        Auto,
+        Manual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationSyncCompliance
-  = Auto
-  | Manual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationSyncCompliance = AssociationSyncCompliance' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationSyncCompliance where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure Auto
-      "manual" -> pure Manual
-      e ->
-        fromTextError $
-          "Failure parsing AssociationSyncCompliance from value: '" <> e
-            <> "'. Accepted values: auto, manual"
+pattern Auto :: AssociationSyncCompliance
+pattern Auto = AssociationSyncCompliance' "AUTO"
 
-instance ToText AssociationSyncCompliance where
-  toText = \case
-    Auto -> "AUTO"
-    Manual -> "MANUAL"
+pattern Manual :: AssociationSyncCompliance
+pattern Manual = AssociationSyncCompliance' "MANUAL"
 
-instance Hashable AssociationSyncCompliance
-
-instance NFData AssociationSyncCompliance
-
-instance ToByteString AssociationSyncCompliance
-
-instance ToQuery AssociationSyncCompliance
-
-instance ToHeader AssociationSyncCompliance
-
-instance ToJSON AssociationSyncCompliance where
-  toJSON = toJSONText
-
-instance FromJSON AssociationSyncCompliance where
-  parseJSON = parseJSONText "AssociationSyncCompliance"
+{-# COMPLETE
+  Auto,
+  Manual,
+  AssociationSyncCompliance'
+  #-}

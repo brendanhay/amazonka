@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,161 @@
 --
 -- Returns the estimated monthly cost of a template. The return value is an AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
 module Network.AWS.CloudFormation.EstimateTemplateCost
-  ( -- * Creating a Request
-    estimateTemplateCost,
-    EstimateTemplateCost,
+  ( -- * Creating a request
+    EstimateTemplateCost (..),
+    mkEstimateTemplateCost,
 
-    -- * Request Lenses
+    -- ** Request lenses
     etcParameters,
     etcTemplateBody,
     etcTemplateURL,
 
-    -- * Destructuring the Response
-    estimateTemplateCostResponse,
-    EstimateTemplateCostResponse,
+    -- * Destructuring the response
+    EstimateTemplateCostResponse (..),
+    mkEstimateTemplateCostResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     etcrsURL,
     etcrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for an 'EstimateTemplateCost' action.
 --
---
---
--- /See:/ 'estimateTemplateCost' smart constructor.
+-- /See:/ 'mkEstimateTemplateCost' smart constructor.
 data EstimateTemplateCost = EstimateTemplateCost'
-  { _etcParameters ::
-      !(Maybe [Parameter]),
-    _etcTemplateBody :: !(Maybe Text),
-    _etcTemplateURL :: !(Maybe Text)
+  { parameters ::
+      Lude.Maybe [Parameter],
+    templateBody :: Lude.Maybe Lude.Text,
+    templateURL :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EstimateTemplateCost' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'parameters' - A list of @Parameter@ structures that specify input parameters.
+-- * 'templateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
 --
--- * 'etcParameters' - A list of @Parameter@ structures that specify input parameters.
+-- Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
+-- * 'templateURL' - Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
 --
--- * 'etcTemplateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
---
--- * 'etcTemplateURL' - Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
-estimateTemplateCost ::
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
+mkEstimateTemplateCost ::
   EstimateTemplateCost
-estimateTemplateCost =
+mkEstimateTemplateCost =
   EstimateTemplateCost'
-    { _etcParameters = Nothing,
-      _etcTemplateBody = Nothing,
-      _etcTemplateURL = Nothing
+    { parameters = Lude.Nothing,
+      templateBody = Lude.Nothing,
+      templateURL = Lude.Nothing
     }
 
 -- | A list of @Parameter@ structures that specify input parameters.
-etcParameters :: Lens' EstimateTemplateCost [Parameter]
-etcParameters = lens _etcParameters (\s a -> s {_etcParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etcParameters :: Lens.Lens' EstimateTemplateCost (Lude.Maybe [Parameter])
+etcParameters = Lens.lens (parameters :: EstimateTemplateCost -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: EstimateTemplateCost)
+{-# DEPRECATED etcParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
-etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
-etcTemplateBody = lens _etcTemplateBody (\s a -> s {_etcTemplateBody = a})
+-- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
+--
+-- Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etcTemplateBody :: Lens.Lens' EstimateTemplateCost (Lude.Maybe Lude.Text)
+etcTemplateBody = Lens.lens (templateBody :: EstimateTemplateCost -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: EstimateTemplateCost)
+{-# DEPRECATED etcTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
--- | Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
-etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
-etcTemplateURL = lens _etcTemplateURL (\s a -> s {_etcTemplateURL = a})
+-- | Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+--
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
+--
+-- /Note:/ Consider using 'templateURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etcTemplateURL :: Lens.Lens' EstimateTemplateCost (Lude.Maybe Lude.Text)
+etcTemplateURL = Lens.lens (templateURL :: EstimateTemplateCost -> Lude.Maybe Lude.Text) (\s a -> s {templateURL = a} :: EstimateTemplateCost)
+{-# DEPRECATED etcTemplateURL "Use generic-lens or generic-optics with 'templateURL' instead." #-}
 
-instance AWSRequest EstimateTemplateCost where
+instance Lude.AWSRequest EstimateTemplateCost where
   type Rs EstimateTemplateCost = EstimateTemplateCostResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "EstimateTemplateCostResult"
       ( \s h x ->
           EstimateTemplateCostResponse'
-            <$> (x .@? "Url") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Url") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EstimateTemplateCost
+instance Lude.ToHeaders EstimateTemplateCost where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData EstimateTemplateCost
+instance Lude.ToPath EstimateTemplateCost where
+  toPath = Lude.const "/"
 
-instance ToHeaders EstimateTemplateCost where
-  toHeaders = const mempty
-
-instance ToPath EstimateTemplateCost where
-  toPath = const "/"
-
-instance ToQuery EstimateTemplateCost where
+instance Lude.ToQuery EstimateTemplateCost where
   toQuery EstimateTemplateCost' {..} =
-    mconcat
-      [ "Action" =: ("EstimateTemplateCost" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "Parameters" =: toQuery (toQueryList "member" <$> _etcParameters),
-        "TemplateBody" =: _etcTemplateBody,
-        "TemplateURL" =: _etcTemplateURL
+    Lude.mconcat
+      [ "Action" Lude.=: ("EstimateTemplateCost" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "Parameters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> parameters),
+        "TemplateBody" Lude.=: templateBody,
+        "TemplateURL" Lude.=: templateURL
       ]
 
 -- | The output for a 'EstimateTemplateCost' action.
 --
---
---
--- /See:/ 'estimateTemplateCostResponse' smart constructor.
+-- /See:/ 'mkEstimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-  { _etcrsURL ::
-      !(Maybe Text),
-    _etcrsResponseStatus :: !Int
+  { url ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EstimateTemplateCostResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etcrsURL' - An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
---
--- * 'etcrsResponseStatus' - -- | The response status code.
-estimateTemplateCostResponse ::
-  -- | 'etcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'url' - An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
+mkEstimateTemplateCostResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EstimateTemplateCostResponse
-estimateTemplateCostResponse pResponseStatus_ =
+mkEstimateTemplateCostResponse pResponseStatus_ =
   EstimateTemplateCostResponse'
-    { _etcrsURL = Nothing,
-      _etcrsResponseStatus = pResponseStatus_
+    { url = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
-etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
-etcrsURL = lens _etcrsURL (\s a -> s {_etcrsURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etcrsURL :: Lens.Lens' EstimateTemplateCostResponse (Lude.Maybe Lude.Text)
+etcrsURL = Lens.lens (url :: EstimateTemplateCostResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: EstimateTemplateCostResponse)
+{-# DEPRECATED etcrsURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | -- | The response status code.
-etcrsResponseStatus :: Lens' EstimateTemplateCostResponse Int
-etcrsResponseStatus = lens _etcrsResponseStatus (\s a -> s {_etcrsResponseStatus = a})
-
-instance NFData EstimateTemplateCostResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etcrsResponseStatus :: Lens.Lens' EstimateTemplateCostResponse Lude.Int
+etcrsResponseStatus = Lens.lens (responseStatus :: EstimateTemplateCostResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EstimateTemplateCostResponse)
+{-# DEPRECATED etcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

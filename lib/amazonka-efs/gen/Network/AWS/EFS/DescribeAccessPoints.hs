@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Returns the description of a specific Amazon EFS access point if the @AccessPointId@ is provided. If you provide an EFS @FileSystemId@ , it returns descriptions of all access points for that file system. You can provide either an @AccessPointId@ or a @FileSystemId@ in the request, but not both.
 --
---
 -- This operation requires permissions for the @elasticfilesystem:DescribeAccessPoints@ action.
 module Network.AWS.EFS.DescribeAccessPoints
-  ( -- * Creating a Request
-    describeAccessPoints,
-    DescribeAccessPoints,
+  ( -- * Creating a request
+    DescribeAccessPoints (..),
+    mkDescribeAccessPoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dapAccessPointId,
     dapFileSystemId,
     dapNextToken,
     dapMaxResults,
 
-    -- * Destructuring the Response
-    describeAccessPointsResponse,
-    DescribeAccessPointsResponse,
+    -- * Destructuring the response
+    DescribeAccessPointsResponse (..),
+    mkDescribeAccessPointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daprsAccessPoints,
     daprsNextToken,
     daprsResponseStatus,
@@ -44,128 +38,149 @@ module Network.AWS.EFS.DescribeAccessPoints
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAccessPoints' smart constructor.
+-- | /See:/ 'mkDescribeAccessPoints' smart constructor.
 data DescribeAccessPoints = DescribeAccessPoints'
-  { _dapAccessPointId ::
-      !(Maybe Text),
-    _dapFileSystemId :: !(Maybe Text),
-    _dapNextToken :: !(Maybe Text),
-    _dapMaxResults :: !(Maybe Nat)
+  { accessPointId ::
+      Lude.Maybe Lude.Text,
+    fileSystemId :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccessPoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dapAccessPointId' - (Optional) Specifies an EFS access point to describe in the response; mutually exclusive with @FileSystemId@ .
---
--- * 'dapFileSystemId' - (Optional) If you provide a @FileSystemId@ , EFS returns all access points for that file system; mutually exclusive with @AccessPointId@ .
---
--- * 'dapNextToken' - @NextToken@ is present if the response is paginated. You can use @NextMarker@ in the subsequent request to fetch the next page of access point descriptions.
---
--- * 'dapMaxResults' - (Optional) When retrieving all access points for a file system, you can optionally specify the @MaxItems@ parameter to limit the number of objects returned in a response. The default value is 100.
-describeAccessPoints ::
+-- * 'accessPointId' - (Optional) Specifies an EFS access point to describe in the response; mutually exclusive with @FileSystemId@ .
+-- * 'fileSystemId' - (Optional) If you provide a @FileSystemId@ , EFS returns all access points for that file system; mutually exclusive with @AccessPointId@ .
+-- * 'maxResults' - (Optional) When retrieving all access points for a file system, you can optionally specify the @MaxItems@ parameter to limit the number of objects returned in a response. The default value is 100.
+-- * 'nextToken' - @NextToken@ is present if the response is paginated. You can use @NextMarker@ in the subsequent request to fetch the next page of access point descriptions.
+mkDescribeAccessPoints ::
   DescribeAccessPoints
-describeAccessPoints =
+mkDescribeAccessPoints =
   DescribeAccessPoints'
-    { _dapAccessPointId = Nothing,
-      _dapFileSystemId = Nothing,
-      _dapNextToken = Nothing,
-      _dapMaxResults = Nothing
+    { accessPointId = Lude.Nothing,
+      fileSystemId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | (Optional) Specifies an EFS access point to describe in the response; mutually exclusive with @FileSystemId@ .
-dapAccessPointId :: Lens' DescribeAccessPoints (Maybe Text)
-dapAccessPointId = lens _dapAccessPointId (\s a -> s {_dapAccessPointId = a})
+--
+-- /Note:/ Consider using 'accessPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dapAccessPointId :: Lens.Lens' DescribeAccessPoints (Lude.Maybe Lude.Text)
+dapAccessPointId = Lens.lens (accessPointId :: DescribeAccessPoints -> Lude.Maybe Lude.Text) (\s a -> s {accessPointId = a} :: DescribeAccessPoints)
+{-# DEPRECATED dapAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
 
 -- | (Optional) If you provide a @FileSystemId@ , EFS returns all access points for that file system; mutually exclusive with @AccessPointId@ .
-dapFileSystemId :: Lens' DescribeAccessPoints (Maybe Text)
-dapFileSystemId = lens _dapFileSystemId (\s a -> s {_dapFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dapFileSystemId :: Lens.Lens' DescribeAccessPoints (Lude.Maybe Lude.Text)
+dapFileSystemId = Lens.lens (fileSystemId :: DescribeAccessPoints -> Lude.Maybe Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeAccessPoints)
+{-# DEPRECATED dapFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | @NextToken@ is present if the response is paginated. You can use @NextMarker@ in the subsequent request to fetch the next page of access point descriptions.
-dapNextToken :: Lens' DescribeAccessPoints (Maybe Text)
-dapNextToken = lens _dapNextToken (\s a -> s {_dapNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dapNextToken :: Lens.Lens' DescribeAccessPoints (Lude.Maybe Lude.Text)
+dapNextToken = Lens.lens (nextToken :: DescribeAccessPoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAccessPoints)
+{-# DEPRECATED dapNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | (Optional) When retrieving all access points for a file system, you can optionally specify the @MaxItems@ parameter to limit the number of objects returned in a response. The default value is 100.
-dapMaxResults :: Lens' DescribeAccessPoints (Maybe Natural)
-dapMaxResults = lens _dapMaxResults (\s a -> s {_dapMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dapMaxResults :: Lens.Lens' DescribeAccessPoints (Lude.Maybe Lude.Natural)
+dapMaxResults = Lens.lens (maxResults :: DescribeAccessPoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAccessPoints)
+{-# DEPRECATED dapMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest DescribeAccessPoints where
+instance Lude.AWSRequest DescribeAccessPoints where
   type Rs DescribeAccessPoints = DescribeAccessPointsResponse
-  request = get efs
+  request = Req.get efsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAccessPointsResponse'
-            <$> (x .?> "AccessPoints" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AccessPoints" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccessPoints
+instance Lude.ToHeaders DescribeAccessPoints where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeAccessPoints
+instance Lude.ToPath DescribeAccessPoints where
+  toPath = Lude.const "/2015-02-01/access-points"
 
-instance ToHeaders DescribeAccessPoints where
-  toHeaders = const mempty
-
-instance ToPath DescribeAccessPoints where
-  toPath = const "/2015-02-01/access-points"
-
-instance ToQuery DescribeAccessPoints where
+instance Lude.ToQuery DescribeAccessPoints where
   toQuery DescribeAccessPoints' {..} =
-    mconcat
-      [ "AccessPointId" =: _dapAccessPointId,
-        "FileSystemId" =: _dapFileSystemId,
-        "NextToken" =: _dapNextToken,
-        "MaxResults" =: _dapMaxResults
+    Lude.mconcat
+      [ "AccessPointId" Lude.=: accessPointId,
+        "FileSystemId" Lude.=: fileSystemId,
+        "NextToken" Lude.=: nextToken,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeAccessPointsResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccessPointsResponse' smart constructor.
 data DescribeAccessPointsResponse = DescribeAccessPointsResponse'
-  { _daprsAccessPoints ::
-      !(Maybe [AccessPointDescription]),
-    _daprsNextToken :: !(Maybe Text),
-    _daprsResponseStatus :: !Int
+  { accessPoints ::
+      Lude.Maybe
+        [AccessPointDescription],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccessPointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daprsAccessPoints' - An array of access point descriptions.
---
--- * 'daprsNextToken' - Present if there are more access points than returned in the response. You can use the NextMarker in the subsequent request to fetch the additional descriptions.
---
--- * 'daprsResponseStatus' - -- | The response status code.
-describeAccessPointsResponse ::
-  -- | 'daprsResponseStatus'
-  Int ->
+-- * 'accessPoints' - An array of access point descriptions.
+-- * 'nextToken' - Present if there are more access points than returned in the response. You can use the NextMarker in the subsequent request to fetch the additional descriptions.
+-- * 'responseStatus' - The response status code.
+mkDescribeAccessPointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccessPointsResponse
-describeAccessPointsResponse pResponseStatus_ =
+mkDescribeAccessPointsResponse pResponseStatus_ =
   DescribeAccessPointsResponse'
-    { _daprsAccessPoints = Nothing,
-      _daprsNextToken = Nothing,
-      _daprsResponseStatus = pResponseStatus_
+    { accessPoints = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of access point descriptions.
-daprsAccessPoints :: Lens' DescribeAccessPointsResponse [AccessPointDescription]
-daprsAccessPoints = lens _daprsAccessPoints (\s a -> s {_daprsAccessPoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accessPoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daprsAccessPoints :: Lens.Lens' DescribeAccessPointsResponse (Lude.Maybe [AccessPointDescription])
+daprsAccessPoints = Lens.lens (accessPoints :: DescribeAccessPointsResponse -> Lude.Maybe [AccessPointDescription]) (\s a -> s {accessPoints = a} :: DescribeAccessPointsResponse)
+{-# DEPRECATED daprsAccessPoints "Use generic-lens or generic-optics with 'accessPoints' instead." #-}
 
 -- | Present if there are more access points than returned in the response. You can use the NextMarker in the subsequent request to fetch the additional descriptions.
-daprsNextToken :: Lens' DescribeAccessPointsResponse (Maybe Text)
-daprsNextToken = lens _daprsNextToken (\s a -> s {_daprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daprsNextToken :: Lens.Lens' DescribeAccessPointsResponse (Lude.Maybe Lude.Text)
+daprsNextToken = Lens.lens (nextToken :: DescribeAccessPointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAccessPointsResponse)
+{-# DEPRECATED daprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-daprsResponseStatus :: Lens' DescribeAccessPointsResponse Int
-daprsResponseStatus = lens _daprsResponseStatus (\s a -> s {_daprsResponseStatus = a})
-
-instance NFData DescribeAccessPointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daprsResponseStatus :: Lens.Lens' DescribeAccessPointsResponse Lude.Int
+daprsResponseStatus = Lens.lens (responseStatus :: DescribeAccessPointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccessPointsResponse)
+{-# DEPRECATED daprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.PlatformType where
+module Network.AWS.CodeBuild.Types.PlatformType
+  ( PlatformType
+      ( PlatformType',
+        AmazonLinux,
+        Debian,
+        Ubuntu,
+        WindowsServer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlatformType
-  = AmazonLinux
-  | Debian
-  | Ubuntu
-  | WindowsServer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlatformType = PlatformType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlatformType where
-  parser =
-    takeLowerText >>= \case
-      "amazon_linux" -> pure AmazonLinux
-      "debian" -> pure Debian
-      "ubuntu" -> pure Ubuntu
-      "windows_server" -> pure WindowsServer
-      e ->
-        fromTextError $
-          "Failure parsing PlatformType from value: '" <> e
-            <> "'. Accepted values: amazon_linux, debian, ubuntu, windows_server"
+pattern AmazonLinux :: PlatformType
+pattern AmazonLinux = PlatformType' "AMAZON_LINUX"
 
-instance ToText PlatformType where
-  toText = \case
-    AmazonLinux -> "AMAZON_LINUX"
-    Debian -> "DEBIAN"
-    Ubuntu -> "UBUNTU"
-    WindowsServer -> "WINDOWS_SERVER"
+pattern Debian :: PlatformType
+pattern Debian = PlatformType' "DEBIAN"
 
-instance Hashable PlatformType
+pattern Ubuntu :: PlatformType
+pattern Ubuntu = PlatformType' "UBUNTU"
 
-instance NFData PlatformType
+pattern WindowsServer :: PlatformType
+pattern WindowsServer = PlatformType' "WINDOWS_SERVER"
 
-instance ToByteString PlatformType
-
-instance ToQuery PlatformType
-
-instance ToHeader PlatformType
-
-instance FromJSON PlatformType where
-  parseJSON = parseJSONText "PlatformType"
+{-# COMPLETE
+  AmazonLinux,
+  Debian,
+  Ubuntu,
+  WindowsServer,
+  PlatformType'
+  #-}

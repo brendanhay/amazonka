@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.Configurations where
+module Network.AWS.MQ.Types.Configurations
+  ( Configurations (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkConfigurations,
+
+    -- * Lenses
+    cPending,
+    cHistory,
+    cCurrent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.ConfigurationId
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Broker configuration information
 --
--- /See:/ 'configurations' smart constructor.
+-- /See:/ 'mkConfigurations' smart constructor.
 data Configurations = Configurations'
-  { _cPending ::
-      !(Maybe ConfigurationId),
-    _cHistory :: !(Maybe [ConfigurationId]),
-    _cCurrent :: !(Maybe ConfigurationId)
+  { pending ::
+      Lude.Maybe ConfigurationId,
+    history :: Lude.Maybe [ConfigurationId],
+    current :: Lude.Maybe ConfigurationId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Configurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cPending' - The pending configuration of the broker.
---
--- * 'cHistory' - The history of configurations applied to the broker.
---
--- * 'cCurrent' - The current configuration of the broker.
-configurations ::
+-- * 'current' - The current configuration of the broker.
+-- * 'history' - The history of configurations applied to the broker.
+-- * 'pending' - The pending configuration of the broker.
+mkConfigurations ::
   Configurations
-configurations =
+mkConfigurations =
   Configurations'
-    { _cPending = Nothing,
-      _cHistory = Nothing,
-      _cCurrent = Nothing
+    { pending = Lude.Nothing,
+      history = Lude.Nothing,
+      current = Lude.Nothing
     }
 
 -- | The pending configuration of the broker.
-cPending :: Lens' Configurations (Maybe ConfigurationId)
-cPending = lens _cPending (\s a -> s {_cPending = a})
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPending :: Lens.Lens' Configurations (Lude.Maybe ConfigurationId)
+cPending = Lens.lens (pending :: Configurations -> Lude.Maybe ConfigurationId) (\s a -> s {pending = a} :: Configurations)
+{-# DEPRECATED cPending "Use generic-lens or generic-optics with 'pending' instead." #-}
 
 -- | The history of configurations applied to the broker.
-cHistory :: Lens' Configurations [ConfigurationId]
-cHistory = lens _cHistory (\s a -> s {_cHistory = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'history' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHistory :: Lens.Lens' Configurations (Lude.Maybe [ConfigurationId])
+cHistory = Lens.lens (history :: Configurations -> Lude.Maybe [ConfigurationId]) (\s a -> s {history = a} :: Configurations)
+{-# DEPRECATED cHistory "Use generic-lens or generic-optics with 'history' instead." #-}
 
 -- | The current configuration of the broker.
-cCurrent :: Lens' Configurations (Maybe ConfigurationId)
-cCurrent = lens _cCurrent (\s a -> s {_cCurrent = a})
+--
+-- /Note:/ Consider using 'current' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCurrent :: Lens.Lens' Configurations (Lude.Maybe ConfigurationId)
+cCurrent = Lens.lens (current :: Configurations -> Lude.Maybe ConfigurationId) (\s a -> s {current = a} :: Configurations)
+{-# DEPRECATED cCurrent "Use generic-lens or generic-optics with 'current' instead." #-}
 
-instance FromJSON Configurations where
+instance Lude.FromJSON Configurations where
   parseJSON =
-    withObject
+    Lude.withObject
       "Configurations"
       ( \x ->
           Configurations'
-            <$> (x .:? "pending")
-            <*> (x .:? "history" .!= mempty)
-            <*> (x .:? "current")
+            Lude.<$> (x Lude..:? "pending")
+            Lude.<*> (x Lude..:? "history" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "current")
       )
-
-instance Hashable Configurations
-
-instance NFData Configurations

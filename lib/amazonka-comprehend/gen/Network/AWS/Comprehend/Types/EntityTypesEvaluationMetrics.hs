@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics where
+module Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
+  ( EntityTypesEvaluationMetrics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntityTypesEvaluationMetrics,
+
+    -- * Lenses
+    etemRecall,
+    etemPrecision,
+    etemF1Score,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Detailed information about the accuracy of an entity recognizer for a specific entity type.
 --
---
---
--- /See:/ 'entityTypesEvaluationMetrics' smart constructor.
+-- /See:/ 'mkEntityTypesEvaluationMetrics' smart constructor.
 data EntityTypesEvaluationMetrics = EntityTypesEvaluationMetrics'
-  { _etemRecall ::
-      !(Maybe Double),
-    _etemPrecision :: !(Maybe Double),
-    _etemF1Score :: !(Maybe Double)
+  { recall ::
+      Lude.Maybe Lude.Double,
+    precision ::
+      Lude.Maybe Lude.Double,
+    f1Score :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityTypesEvaluationMetrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etemRecall' - A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer returned most of the relevant results.
---
--- * 'etemPrecision' - A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones.
---
--- * 'etemF1Score' - A measure of how accurate the recognizer results are for a specific entity type in the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
-entityTypesEvaluationMetrics ::
+-- * 'f1Score' - A measure of how accurate the recognizer results are for a specific entity type in the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
+-- * 'precision' - A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones.
+-- * 'recall' - A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer returned most of the relevant results.
+mkEntityTypesEvaluationMetrics ::
   EntityTypesEvaluationMetrics
-entityTypesEvaluationMetrics =
+mkEntityTypesEvaluationMetrics =
   EntityTypesEvaluationMetrics'
-    { _etemRecall = Nothing,
-      _etemPrecision = Nothing,
-      _etemF1Score = Nothing
+    { recall = Lude.Nothing,
+      precision = Lude.Nothing,
+      f1Score = Lude.Nothing
     }
 
 -- | A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer returned most of the relevant results.
-etemRecall :: Lens' EntityTypesEvaluationMetrics (Maybe Double)
-etemRecall = lens _etemRecall (\s a -> s {_etemRecall = a})
+--
+-- /Note:/ Consider using 'recall' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etemRecall :: Lens.Lens' EntityTypesEvaluationMetrics (Lude.Maybe Lude.Double)
+etemRecall = Lens.lens (recall :: EntityTypesEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {recall = a} :: EntityTypesEvaluationMetrics)
+{-# DEPRECATED etemRecall "Use generic-lens or generic-optics with 'recall' instead." #-}
 
 -- | A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones.
-etemPrecision :: Lens' EntityTypesEvaluationMetrics (Maybe Double)
-etemPrecision = lens _etemPrecision (\s a -> s {_etemPrecision = a})
+--
+-- /Note:/ Consider using 'precision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etemPrecision :: Lens.Lens' EntityTypesEvaluationMetrics (Lude.Maybe Lude.Double)
+etemPrecision = Lens.lens (precision :: EntityTypesEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {precision = a} :: EntityTypesEvaluationMetrics)
+{-# DEPRECATED etemPrecision "Use generic-lens or generic-optics with 'precision' instead." #-}
 
 -- | A measure of how accurate the recognizer results are for a specific entity type in the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
-etemF1Score :: Lens' EntityTypesEvaluationMetrics (Maybe Double)
-etemF1Score = lens _etemF1Score (\s a -> s {_etemF1Score = a})
+--
+-- /Note:/ Consider using 'f1Score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etemF1Score :: Lens.Lens' EntityTypesEvaluationMetrics (Lude.Maybe Lude.Double)
+etemF1Score = Lens.lens (f1Score :: EntityTypesEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {f1Score = a} :: EntityTypesEvaluationMetrics)
+{-# DEPRECATED etemF1Score "Use generic-lens or generic-optics with 'f1Score' instead." #-}
 
-instance FromJSON EntityTypesEvaluationMetrics where
+instance Lude.FromJSON EntityTypesEvaluationMetrics where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityTypesEvaluationMetrics"
       ( \x ->
           EntityTypesEvaluationMetrics'
-            <$> (x .:? "Recall") <*> (x .:? "Precision") <*> (x .:? "F1Score")
+            Lude.<$> (x Lude..:? "Recall")
+            Lude.<*> (x Lude..:? "Precision")
+            Lude.<*> (x Lude..:? "F1Score")
       )
-
-instance Hashable EntityTypesEvaluationMetrics
-
-instance NFData EntityTypesEvaluationMetrics

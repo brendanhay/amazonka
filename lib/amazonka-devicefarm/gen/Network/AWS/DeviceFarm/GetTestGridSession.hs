@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,143 +17,162 @@
 --
 --     * The session ARN ('GetTestGridSessionRequest$sessionArn' ).
 --
+--
 --     * The project ARN and a session ID ('GetTestGridSessionRequest$projectArn' and 'GetTestGridSessionRequest$sessionId' ).
 module Network.AWS.DeviceFarm.GetTestGridSession
-  ( -- * Creating a Request
-    getTestGridSession,
-    GetTestGridSession,
+  ( -- * Creating a request
+    GetTestGridSession (..),
+    mkGetTestGridSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtgsSessionARN,
     gtgsProjectARN,
     gtgsSessionId,
 
-    -- * Destructuring the Response
-    getTestGridSessionResponse,
-    GetTestGridSessionResponse,
+    -- * Destructuring the response
+    GetTestGridSessionResponse (..),
+    mkGetTestGridSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtgsrsTestGridSession,
     gtgsrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTestGridSession' smart constructor.
+-- | /See:/ 'mkGetTestGridSession' smart constructor.
 data GetTestGridSession = GetTestGridSession'
-  { _gtgsSessionARN ::
-      !(Maybe Text),
-    _gtgsProjectARN :: !(Maybe Text),
-    _gtgsSessionId :: !(Maybe Text)
+  { sessionARN ::
+      Lude.Maybe Lude.Text,
+    projectARN :: Lude.Maybe Lude.Text,
+    sessionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTestGridSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtgsSessionARN' - An ARN that uniquely identifies a 'TestGridSession' .
---
--- * 'gtgsProjectARN' - The ARN for the project that this session belongs to. See 'CreateTestGridProject' and 'ListTestGridProjects' .
---
--- * 'gtgsSessionId' - An ID associated with this session.
-getTestGridSession ::
+-- * 'projectARN' - The ARN for the project that this session belongs to. See 'CreateTestGridProject' and 'ListTestGridProjects' .
+-- * 'sessionARN' - An ARN that uniquely identifies a 'TestGridSession' .
+-- * 'sessionId' - An ID associated with this session.
+mkGetTestGridSession ::
   GetTestGridSession
-getTestGridSession =
+mkGetTestGridSession =
   GetTestGridSession'
-    { _gtgsSessionARN = Nothing,
-      _gtgsProjectARN = Nothing,
-      _gtgsSessionId = Nothing
+    { sessionARN = Lude.Nothing,
+      projectARN = Lude.Nothing,
+      sessionId = Lude.Nothing
     }
 
 -- | An ARN that uniquely identifies a 'TestGridSession' .
-gtgsSessionARN :: Lens' GetTestGridSession (Maybe Text)
-gtgsSessionARN = lens _gtgsSessionARN (\s a -> s {_gtgsSessionARN = a})
+--
+-- /Note:/ Consider using 'sessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsSessionARN :: Lens.Lens' GetTestGridSession (Lude.Maybe Lude.Text)
+gtgsSessionARN = Lens.lens (sessionARN :: GetTestGridSession -> Lude.Maybe Lude.Text) (\s a -> s {sessionARN = a} :: GetTestGridSession)
+{-# DEPRECATED gtgsSessionARN "Use generic-lens or generic-optics with 'sessionARN' instead." #-}
 
 -- | The ARN for the project that this session belongs to. See 'CreateTestGridProject' and 'ListTestGridProjects' .
-gtgsProjectARN :: Lens' GetTestGridSession (Maybe Text)
-gtgsProjectARN = lens _gtgsProjectARN (\s a -> s {_gtgsProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsProjectARN :: Lens.Lens' GetTestGridSession (Lude.Maybe Lude.Text)
+gtgsProjectARN = Lens.lens (projectARN :: GetTestGridSession -> Lude.Maybe Lude.Text) (\s a -> s {projectARN = a} :: GetTestGridSession)
+{-# DEPRECATED gtgsProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | An ID associated with this session.
-gtgsSessionId :: Lens' GetTestGridSession (Maybe Text)
-gtgsSessionId = lens _gtgsSessionId (\s a -> s {_gtgsSessionId = a})
+--
+-- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsSessionId :: Lens.Lens' GetTestGridSession (Lude.Maybe Lude.Text)
+gtgsSessionId = Lens.lens (sessionId :: GetTestGridSession -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: GetTestGridSession)
+{-# DEPRECATED gtgsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
-instance AWSRequest GetTestGridSession where
+instance Lude.AWSRequest GetTestGridSession where
   type Rs GetTestGridSession = GetTestGridSessionResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTestGridSessionResponse'
-            <$> (x .?> "testGridSession") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "testGridSession")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTestGridSession
-
-instance NFData GetTestGridSession
-
-instance ToHeaders GetTestGridSession where
+instance Lude.ToHeaders GetTestGridSession where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.GetTestGridSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.GetTestGridSession" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTestGridSession where
+instance Lude.ToJSON GetTestGridSession where
   toJSON GetTestGridSession' {..} =
-    object
-      ( catMaybes
-          [ ("sessionArn" .=) <$> _gtgsSessionARN,
-            ("projectArn" .=) <$> _gtgsProjectARN,
-            ("sessionId" .=) <$> _gtgsSessionId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sessionArn" Lude..=) Lude.<$> sessionARN,
+            ("projectArn" Lude..=) Lude.<$> projectARN,
+            ("sessionId" Lude..=) Lude.<$> sessionId
           ]
       )
 
-instance ToPath GetTestGridSession where
-  toPath = const "/"
+instance Lude.ToPath GetTestGridSession where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTestGridSession where
-  toQuery = const mempty
+instance Lude.ToQuery GetTestGridSession where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTestGridSessionResponse' smart constructor.
+-- | /See:/ 'mkGetTestGridSessionResponse' smart constructor.
 data GetTestGridSessionResponse = GetTestGridSessionResponse'
-  { _gtgsrsTestGridSession ::
-      !(Maybe TestGridSession),
-    _gtgsrsResponseStatus :: !Int
+  { testGridSession ::
+      Lude.Maybe TestGridSession,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTestGridSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtgsrsTestGridSession' - The 'TestGridSession' that was requested.
---
--- * 'gtgsrsResponseStatus' - -- | The response status code.
-getTestGridSessionResponse ::
-  -- | 'gtgsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'testGridSession' - The 'TestGridSession' that was requested.
+mkGetTestGridSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTestGridSessionResponse
-getTestGridSessionResponse pResponseStatus_ =
+mkGetTestGridSessionResponse pResponseStatus_ =
   GetTestGridSessionResponse'
-    { _gtgsrsTestGridSession = Nothing,
-      _gtgsrsResponseStatus = pResponseStatus_
+    { testGridSession = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The 'TestGridSession' that was requested.
-gtgsrsTestGridSession :: Lens' GetTestGridSessionResponse (Maybe TestGridSession)
-gtgsrsTestGridSession = lens _gtgsrsTestGridSession (\s a -> s {_gtgsrsTestGridSession = a})
+--
+-- /Note:/ Consider using 'testGridSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsrsTestGridSession :: Lens.Lens' GetTestGridSessionResponse (Lude.Maybe TestGridSession)
+gtgsrsTestGridSession = Lens.lens (testGridSession :: GetTestGridSessionResponse -> Lude.Maybe TestGridSession) (\s a -> s {testGridSession = a} :: GetTestGridSessionResponse)
+{-# DEPRECATED gtgsrsTestGridSession "Use generic-lens or generic-optics with 'testGridSession' instead." #-}
 
--- | -- | The response status code.
-gtgsrsResponseStatus :: Lens' GetTestGridSessionResponse Int
-gtgsrsResponseStatus = lens _gtgsrsResponseStatus (\s a -> s {_gtgsrsResponseStatus = a})
-
-instance NFData GetTestGridSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsrsResponseStatus :: Lens.Lens' GetTestGridSessionResponse Lude.Int
+gtgsrsResponseStatus = Lens.lens (responseStatus :: GetTestGridSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTestGridSessionResponse)
+{-# DEPRECATED gtgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,118 @@
 --
 -- Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the AWS account.
 module Network.AWS.IAM.ListOpenIdConnectProviders
-  ( -- * Creating a Request
-    listOpenIdConnectProviders,
-    ListOpenIdConnectProviders,
+  ( -- * Creating a request
+    ListOpenIdConnectProviders (..),
+    mkListOpenIdConnectProviders,
 
-    -- * Destructuring the Response
-    listOpenIdConnectProvidersResponse,
-    ListOpenIdConnectProvidersResponse,
+    -- * Destructuring the response
+    ListOpenIdConnectProvidersResponse (..),
+    mkListOpenIdConnectProvidersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     loicprsOpenIdConnectProviderList,
     loicprsResponseStatus,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listOpenIdConnectProviders' smart constructor.
+-- | /See:/ 'mkListOpenIdConnectProviders' smart constructor.
 data ListOpenIdConnectProviders = ListOpenIdConnectProviders'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOpenIdConnectProviders' with the minimum fields required to make a request.
-listOpenIdConnectProviders ::
+mkListOpenIdConnectProviders ::
   ListOpenIdConnectProviders
-listOpenIdConnectProviders = ListOpenIdConnectProviders'
+mkListOpenIdConnectProviders = ListOpenIdConnectProviders'
 
-instance AWSRequest ListOpenIdConnectProviders where
+instance Lude.AWSRequest ListOpenIdConnectProviders where
   type
     Rs ListOpenIdConnectProviders =
       ListOpenIdConnectProvidersResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListOpenIDConnectProvidersResult"
       ( \s h x ->
           ListOpenIdConnectProvidersResponse'
-            <$> ( x .@? "OpenIDConnectProviderList" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "OpenIDConnectProviderList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOpenIdConnectProviders
+instance Lude.ToHeaders ListOpenIdConnectProviders where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListOpenIdConnectProviders
+instance Lude.ToPath ListOpenIdConnectProviders where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListOpenIdConnectProviders where
-  toHeaders = const mempty
-
-instance ToPath ListOpenIdConnectProviders where
-  toPath = const "/"
-
-instance ToQuery ListOpenIdConnectProviders where
+instance Lude.ToQuery ListOpenIdConnectProviders where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("ListOpenIDConnectProviders" :: ByteString),
-            "Version" =: ("2010-05-08" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action"
+              Lude.=: ("ListOpenIDConnectProviders" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
           ]
       )
 
 -- | Contains the response to a successful 'ListOpenIDConnectProviders' request.
 --
---
---
--- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.
+-- /See:/ 'mkListOpenIdConnectProvidersResponse' smart constructor.
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
-  { _loicprsOpenIdConnectProviderList ::
-      !( Maybe
-           [OpenIdConnectProviderListEntry]
-       ),
-    _loicprsResponseStatus ::
-      !Int
+  { openIdConnectProviderList ::
+      Lude.Maybe
+        [OpenIdConnectProviderListEntry],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOpenIdConnectProvidersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loicprsOpenIdConnectProviderList' - The list of IAM OIDC provider resource objects defined in the AWS account.
---
--- * 'loicprsResponseStatus' - -- | The response status code.
-listOpenIdConnectProvidersResponse ::
-  -- | 'loicprsResponseStatus'
-  Int ->
+-- * 'openIdConnectProviderList' - The list of IAM OIDC provider resource objects defined in the AWS account.
+-- * 'responseStatus' - The response status code.
+mkListOpenIdConnectProvidersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOpenIdConnectProvidersResponse
-listOpenIdConnectProvidersResponse pResponseStatus_ =
+mkListOpenIdConnectProvidersResponse pResponseStatus_ =
   ListOpenIdConnectProvidersResponse'
-    { _loicprsOpenIdConnectProviderList =
-        Nothing,
-      _loicprsResponseStatus = pResponseStatus_
+    { openIdConnectProviderList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of IAM OIDC provider resource objects defined in the AWS account.
-loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
-loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\s a -> s {_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'openIdConnectProviderList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loicprsOpenIdConnectProviderList :: Lens.Lens' ListOpenIdConnectProvidersResponse (Lude.Maybe [OpenIdConnectProviderListEntry])
+loicprsOpenIdConnectProviderList = Lens.lens (openIdConnectProviderList :: ListOpenIdConnectProvidersResponse -> Lude.Maybe [OpenIdConnectProviderListEntry]) (\s a -> s {openIdConnectProviderList = a} :: ListOpenIdConnectProvidersResponse)
+{-# DEPRECATED loicprsOpenIdConnectProviderList "Use generic-lens or generic-optics with 'openIdConnectProviderList' instead." #-}
 
--- | -- | The response status code.
-loicprsResponseStatus :: Lens' ListOpenIdConnectProvidersResponse Int
-loicprsResponseStatus = lens _loicprsResponseStatus (\s a -> s {_loicprsResponseStatus = a})
-
-instance NFData ListOpenIdConnectProvidersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loicprsResponseStatus :: Lens.Lens' ListOpenIdConnectProvidersResponse Lude.Int
+loicprsResponseStatus = Lens.lens (responseStatus :: ListOpenIdConnectProvidersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOpenIdConnectProvidersResponse)
+{-# DEPRECATED loicprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

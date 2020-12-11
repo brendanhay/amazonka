@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,142 @@
 --
 -- Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes the endpoint routes in the route tables that were associated with the endpoint. Deleting an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that are associated with the endpoint are deleted.
 module Network.AWS.EC2.DeleteVPCEndpoints
-  ( -- * Creating a Request
-    deleteVPCEndpoints,
-    DeleteVPCEndpoints,
+  ( -- * Creating a request
+    DeleteVPCEndpoints (..),
+    mkDeleteVPCEndpoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dveDryRun,
     dveVPCEndpointIds,
 
-    -- * Destructuring the Response
-    deleteVPCEndpointsResponse,
-    DeleteVPCEndpointsResponse,
+    -- * Destructuring the response
+    DeleteVPCEndpointsResponse (..),
+    mkDeleteVPCEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dversUnsuccessful,
     dversResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeleteVpcEndpoints.
 --
---
---
--- /See:/ 'deleteVPCEndpoints' smart constructor.
+-- /See:/ 'mkDeleteVPCEndpoints' smart constructor.
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-  { _dveDryRun ::
-      !(Maybe Bool),
-    _dveVPCEndpointIds :: ![Text]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcEndpointIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dveVPCEndpointIds' - One or more VPC endpoint IDs.
-deleteVPCEndpoints ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpcEndpointIds' - One or more VPC endpoint IDs.
+mkDeleteVPCEndpoints ::
   DeleteVPCEndpoints
-deleteVPCEndpoints =
+mkDeleteVPCEndpoints =
   DeleteVPCEndpoints'
-    { _dveDryRun = Nothing,
-      _dveVPCEndpointIds = mempty
+    { dryRun = Lude.Nothing,
+      vpcEndpointIds = Lude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
-dveDryRun = lens _dveDryRun (\s a -> s {_dveDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dveDryRun :: Lens.Lens' DeleteVPCEndpoints (Lude.Maybe Lude.Bool)
+dveDryRun = Lens.lens (dryRun :: DeleteVPCEndpoints -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpoints)
+{-# DEPRECATED dveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more VPC endpoint IDs.
-dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
-dveVPCEndpointIds = lens _dveVPCEndpointIds (\s a -> s {_dveVPCEndpointIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'vpcEndpointIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dveVPCEndpointIds :: Lens.Lens' DeleteVPCEndpoints [Lude.Text]
+dveVPCEndpointIds = Lens.lens (vpcEndpointIds :: DeleteVPCEndpoints -> [Lude.Text]) (\s a -> s {vpcEndpointIds = a} :: DeleteVPCEndpoints)
+{-# DEPRECATED dveVPCEndpointIds "Use generic-lens or generic-optics with 'vpcEndpointIds' instead." #-}
 
-instance AWSRequest DeleteVPCEndpoints where
+instance Lude.AWSRequest DeleteVPCEndpoints where
   type Rs DeleteVPCEndpoints = DeleteVPCEndpointsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteVPCEndpointsResponse'
-            <$> (x .@? "unsuccessful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteVPCEndpoints
+instance Lude.ToHeaders DeleteVPCEndpoints where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVPCEndpoints
+instance Lude.ToPath DeleteVPCEndpoints where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVPCEndpoints where
-  toHeaders = const mempty
-
-instance ToPath DeleteVPCEndpoints where
-  toPath = const "/"
-
-instance ToQuery DeleteVPCEndpoints where
+instance Lude.ToQuery DeleteVPCEndpoints where
   toQuery DeleteVPCEndpoints' {..} =
-    mconcat
-      [ "Action" =: ("DeleteVpcEndpoints" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dveDryRun,
-        toQueryList "VpcEndpointId" _dveVPCEndpointIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteVpcEndpoints" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "VpcEndpointId" vpcEndpointIds
       ]
 
 -- | Contains the output of DeleteVpcEndpoints.
 --
---
---
--- /See:/ 'deleteVPCEndpointsResponse' smart constructor.
+-- /See:/ 'mkDeleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
-  { _dversUnsuccessful ::
-      !(Maybe [UnsuccessfulItem]),
-    _dversResponseStatus :: !Int
+  { unsuccessful ::
+      Lude.Maybe [UnsuccessfulItem],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dversUnsuccessful' - Information about the VPC endpoints that were not successfully deleted.
---
--- * 'dversResponseStatus' - -- | The response status code.
-deleteVPCEndpointsResponse ::
-  -- | 'dversResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unsuccessful' - Information about the VPC endpoints that were not successfully deleted.
+mkDeleteVPCEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse pResponseStatus_ =
+mkDeleteVPCEndpointsResponse pResponseStatus_ =
   DeleteVPCEndpointsResponse'
-    { _dversUnsuccessful = Nothing,
-      _dversResponseStatus = pResponseStatus_
+    { unsuccessful = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC endpoints that were not successfully deleted.
-dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
-dversUnsuccessful = lens _dversUnsuccessful (\s a -> s {_dversUnsuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dversUnsuccessful :: Lens.Lens' DeleteVPCEndpointsResponse (Lude.Maybe [UnsuccessfulItem])
+dversUnsuccessful = Lens.lens (unsuccessful :: DeleteVPCEndpointsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: DeleteVPCEndpointsResponse)
+{-# DEPRECATED dversUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
--- | -- | The response status code.
-dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
-dversResponseStatus = lens _dversResponseStatus (\s a -> s {_dversResponseStatus = a})
-
-instance NFData DeleteVPCEndpointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dversResponseStatus :: Lens.Lens' DeleteVPCEndpointsResponse Lude.Int
+dversResponseStatus = Lens.lens (responseStatus :: DeleteVPCEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCEndpointsResponse)
+{-# DEPRECATED dversResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

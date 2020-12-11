@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceMetadataEndpointState where
+module Network.AWS.EC2.Types.InstanceMetadataEndpointState
+  ( InstanceMetadataEndpointState
+      ( InstanceMetadataEndpointState',
+        IMESDisabled,
+        IMESEnabled
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceMetadataEndpointState
-  = IMESDisabled
-  | IMESEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceMetadataEndpointState = InstanceMetadataEndpointState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceMetadataEndpointState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure IMESDisabled
-      "enabled" -> pure IMESEnabled
-      e ->
-        fromTextError $
-          "Failure parsing InstanceMetadataEndpointState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern IMESDisabled :: InstanceMetadataEndpointState
+pattern IMESDisabled = InstanceMetadataEndpointState' "disabled"
 
-instance ToText InstanceMetadataEndpointState where
-  toText = \case
-    IMESDisabled -> "disabled"
-    IMESEnabled -> "enabled"
+pattern IMESEnabled :: InstanceMetadataEndpointState
+pattern IMESEnabled = InstanceMetadataEndpointState' "enabled"
 
-instance Hashable InstanceMetadataEndpointState
-
-instance NFData InstanceMetadataEndpointState
-
-instance ToByteString InstanceMetadataEndpointState
-
-instance ToQuery InstanceMetadataEndpointState
-
-instance ToHeader InstanceMetadataEndpointState
-
-instance FromXML InstanceMetadataEndpointState where
-  parseXML = parseXMLText "InstanceMetadataEndpointState"
+{-# COMPLETE
+  IMESDisabled,
+  IMESEnabled,
+  InstanceMetadataEndpointState'
+  #-}

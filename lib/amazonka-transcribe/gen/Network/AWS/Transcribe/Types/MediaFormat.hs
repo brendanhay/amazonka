@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.MediaFormat where
+module Network.AWS.Transcribe.Types.MediaFormat
+  ( MediaFormat
+      ( MediaFormat',
+        Amr,
+        Flac,
+        MP3,
+        MP4,
+        Ogg,
+        Wav,
+        Webm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MediaFormat
-  = Amr
-  | Flac
-  | MP3
-  | MP4
-  | Ogg
-  | Wav
-  | Webm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MediaFormat = MediaFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MediaFormat where
-  parser =
-    takeLowerText >>= \case
-      "amr" -> pure Amr
-      "flac" -> pure Flac
-      "mp3" -> pure MP3
-      "mp4" -> pure MP4
-      "ogg" -> pure Ogg
-      "wav" -> pure Wav
-      "webm" -> pure Webm
-      e ->
-        fromTextError $
-          "Failure parsing MediaFormat from value: '" <> e
-            <> "'. Accepted values: amr, flac, mp3, mp4, ogg, wav, webm"
+pattern Amr :: MediaFormat
+pattern Amr = MediaFormat' "amr"
 
-instance ToText MediaFormat where
-  toText = \case
-    Amr -> "amr"
-    Flac -> "flac"
-    MP3 -> "mp3"
-    MP4 -> "mp4"
-    Ogg -> "ogg"
-    Wav -> "wav"
-    Webm -> "webm"
+pattern Flac :: MediaFormat
+pattern Flac = MediaFormat' "flac"
 
-instance Hashable MediaFormat
+pattern MP3 :: MediaFormat
+pattern MP3 = MediaFormat' "mp3"
 
-instance NFData MediaFormat
+pattern MP4 :: MediaFormat
+pattern MP4 = MediaFormat' "mp4"
 
-instance ToByteString MediaFormat
+pattern Ogg :: MediaFormat
+pattern Ogg = MediaFormat' "ogg"
 
-instance ToQuery MediaFormat
+pattern Wav :: MediaFormat
+pattern Wav = MediaFormat' "wav"
 
-instance ToHeader MediaFormat
+pattern Webm :: MediaFormat
+pattern Webm = MediaFormat' "webm"
 
-instance ToJSON MediaFormat where
-  toJSON = toJSONText
-
-instance FromJSON MediaFormat where
-  parseJSON = parseJSONText "MediaFormat"
+{-# COMPLETE
+  Amr,
+  Flac,
+  MP3,
+  MP4,
+  Ogg,
+  Wav,
+  Webm,
+  MediaFormat'
+  #-}

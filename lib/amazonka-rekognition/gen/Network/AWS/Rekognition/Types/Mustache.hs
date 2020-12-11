@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Mustache where
+module Network.AWS.Rekognition.Types.Mustache
+  ( Mustache (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMustache,
+
+    -- * Lenses
+    mValue,
+    mConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether or not the face has a mustache, and the confidence level in the determination.
 --
---
---
--- /See:/ 'mustache' smart constructor.
+-- /See:/ 'mkMustache' smart constructor.
 data Mustache = Mustache'
-  { _mValue :: !(Maybe Bool),
-    _mConfidence :: !(Maybe Double)
+  { value :: Lude.Maybe Lude.Bool,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mustache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mValue' - Boolean value that indicates whether the face has mustache or not.
---
--- * 'mConfidence' - Level of confidence in the determination.
-mustache ::
+-- * 'confidence' - Level of confidence in the determination.
+-- * 'value' - Boolean value that indicates whether the face has mustache or not.
+mkMustache ::
   Mustache
-mustache = Mustache' {_mValue = Nothing, _mConfidence = Nothing}
+mkMustache =
+  Mustache' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | Boolean value that indicates whether the face has mustache or not.
-mValue :: Lens' Mustache (Maybe Bool)
-mValue = lens _mValue (\s a -> s {_mValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mValue :: Lens.Lens' Mustache (Lude.Maybe Lude.Bool)
+mValue = Lens.lens (value :: Mustache -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Mustache)
+{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the determination.
-mConfidence :: Lens' Mustache (Maybe Double)
-mConfidence = lens _mConfidence (\s a -> s {_mConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mConfidence :: Lens.Lens' Mustache (Lude.Maybe Lude.Double)
+mConfidence = Lens.lens (confidence :: Mustache -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Mustache)
+{-# DEPRECATED mConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON Mustache where
+instance Lude.FromJSON Mustache where
   parseJSON =
-    withObject
+    Lude.withObject
       "Mustache"
-      (\x -> Mustache' <$> (x .:? "Value") <*> (x .:? "Confidence"))
-
-instance Hashable Mustache
-
-instance NFData Mustache
+      ( \x ->
+          Mustache'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
+      )

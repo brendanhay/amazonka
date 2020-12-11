@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AttributePayload where
+module Network.AWS.IoT.Types.AttributePayload
+  ( AttributePayload (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributePayload,
+
+    -- * Lenses
+    apAttributes,
+    apMerge,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The attribute payload.
 --
---
---
--- /See:/ 'attributePayload' smart constructor.
+-- /See:/ 'mkAttributePayload' smart constructor.
 data AttributePayload = AttributePayload'
-  { _apAttributes ::
-      !(Maybe (Map Text (Text))),
-    _apMerge :: !(Maybe Bool)
+  { attributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    merge :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributePayload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - A JSON string containing up to three key-value pair in JSON format. For example:
 --
--- * 'apAttributes' - A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
+-- @{\"attributes\":{\"string1\":\"string2\"}}@
+-- * 'merge' - Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them.
 --
--- * 'apMerge' - Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them. To remove an attribute, call @UpdateThing@ with an empty attribute value.
-attributePayload ::
+-- To remove an attribute, call @UpdateThing@ with an empty attribute value.
+mkAttributePayload ::
   AttributePayload
-attributePayload =
-  AttributePayload' {_apAttributes = Nothing, _apMerge = Nothing}
+mkAttributePayload =
+  AttributePayload'
+    { attributes = Lude.Nothing,
+      merge = Lude.Nothing
+    }
 
--- | A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
-apAttributes :: Lens' AttributePayload (HashMap Text (Text))
-apAttributes = lens _apAttributes (\s a -> s {_apAttributes = a}) . _Default . _Map
+-- | A JSON string containing up to three key-value pair in JSON format. For example:
+--
+-- @{\"attributes\":{\"string1\":\"string2\"}}@
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apAttributes :: Lens.Lens' AttributePayload (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+apAttributes = Lens.lens (attributes :: AttributePayload -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: AttributePayload)
+{-# DEPRECATED apAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them. To remove an attribute, call @UpdateThing@ with an empty attribute value.
-apMerge :: Lens' AttributePayload (Maybe Bool)
-apMerge = lens _apMerge (\s a -> s {_apMerge = a})
+-- | Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them.
+--
+-- To remove an attribute, call @UpdateThing@ with an empty attribute value.
+--
+-- /Note:/ Consider using 'merge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apMerge :: Lens.Lens' AttributePayload (Lude.Maybe Lude.Bool)
+apMerge = Lens.lens (merge :: AttributePayload -> Lude.Maybe Lude.Bool) (\s a -> s {merge = a} :: AttributePayload)
+{-# DEPRECATED apMerge "Use generic-lens or generic-optics with 'merge' instead." #-}
 
-instance FromJSON AttributePayload where
+instance Lude.FromJSON AttributePayload where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttributePayload"
       ( \x ->
           AttributePayload'
-            <$> (x .:? "attributes" .!= mempty) <*> (x .:? "merge")
+            Lude.<$> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "merge")
       )
 
-instance Hashable AttributePayload
-
-instance NFData AttributePayload
-
-instance ToJSON AttributePayload where
+instance Lude.ToJSON AttributePayload where
   toJSON AttributePayload' {..} =
-    object
-      ( catMaybes
-          [("attributes" .=) <$> _apAttributes, ("merge" .=) <$> _apMerge]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("attributes" Lude..=) Lude.<$> attributes,
+            ("merge" Lude..=) Lude.<$> merge
+          ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Lists the tags that are attached to the specified role. The returned list of tags is sorted by tag key. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 module Network.AWS.IAM.ListRoleTags
-  ( -- * Creating a Request
-    listRoleTags,
-    ListRoleTags,
+  ( -- * Creating a request
+    ListRoleTags (..),
+    mkListRoleTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrtMarker,
     lrtMaxItems,
     lrtRoleName,
 
-    -- * Destructuring the Response
-    listRoleTagsResponse,
-    ListRoleTagsResponse,
+    -- * Destructuring the response
+    ListRoleTagsResponse (..),
+    mkListRoleTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrtrsMarker,
     lrtrsIsTruncated,
     lrtrsResponseStatus,
@@ -41,132 +36,162 @@ module Network.AWS.IAM.ListRoleTags
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRoleTags' smart constructor.
+-- | /See:/ 'mkListRoleTags' smart constructor.
 data ListRoleTags = ListRoleTags'
-  { _lrtMarker :: !(Maybe Text),
-    _lrtMaxItems :: !(Maybe Nat),
-    _lrtRoleName :: !Text
+  { marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    roleName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoleTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'lrtMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'roleName' - The name of the IAM role for which you want to see the list of tags.
 --
--- * 'lrtMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
---
--- * 'lrtRoleName' - The name of the IAM role for which you want to see the list of tags. This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-listRoleTags ::
-  -- | 'lrtRoleName'
-  Text ->
+-- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkListRoleTags ::
+  -- | 'roleName'
+  Lude.Text ->
   ListRoleTags
-listRoleTags pRoleName_ =
+mkListRoleTags pRoleName_ =
   ListRoleTags'
-    { _lrtMarker = Nothing,
-      _lrtMaxItems = Nothing,
-      _lrtRoleName = pRoleName_
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      roleName = pRoleName_
     }
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lrtMarker :: Lens' ListRoleTags (Maybe Text)
-lrtMarker = lens _lrtMarker (\s a -> s {_lrtMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtMarker :: Lens.Lens' ListRoleTags (Lude.Maybe Lude.Text)
+lrtMarker = Lens.lens (marker :: ListRoleTags -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRoleTags)
+{-# DEPRECATED lrtMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lrtMaxItems :: Lens' ListRoleTags (Maybe Natural)
-lrtMaxItems = lens _lrtMaxItems (\s a -> s {_lrtMaxItems = a}) . mapping _Nat
+-- | (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtMaxItems :: Lens.Lens' ListRoleTags (Lude.Maybe Lude.Natural)
+lrtMaxItems = Lens.lens (maxItems :: ListRoleTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListRoleTags)
+{-# DEPRECATED lrtMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The name of the IAM role for which you want to see the list of tags. This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-lrtRoleName :: Lens' ListRoleTags Text
-lrtRoleName = lens _lrtRoleName (\s a -> s {_lrtRoleName = a})
+-- | The name of the IAM role for which you want to see the list of tags.
+--
+-- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtRoleName :: Lens.Lens' ListRoleTags Lude.Text
+lrtRoleName = Lens.lens (roleName :: ListRoleTags -> Lude.Text) (\s a -> s {roleName = a} :: ListRoleTags)
+{-# DEPRECATED lrtRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance AWSRequest ListRoleTags where
+instance Lude.AWSRequest ListRoleTags where
   type Rs ListRoleTags = ListRoleTagsResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListRoleTagsResult"
       ( \s h x ->
           ListRoleTagsResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
-            <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable ListRoleTags
+instance Lude.ToHeaders ListRoleTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListRoleTags
+instance Lude.ToPath ListRoleTags where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListRoleTags where
-  toHeaders = const mempty
-
-instance ToPath ListRoleTags where
-  toPath = const "/"
-
-instance ToQuery ListRoleTags where
+instance Lude.ToQuery ListRoleTags where
   toQuery ListRoleTags' {..} =
-    mconcat
-      [ "Action" =: ("ListRoleTags" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "Marker" =: _lrtMarker,
-        "MaxItems" =: _lrtMaxItems,
-        "RoleName" =: _lrtRoleName
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListRoleTags" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "RoleName" Lude.=: roleName
       ]
 
--- | /See:/ 'listRoleTagsResponse' smart constructor.
+-- | /See:/ 'mkListRoleTagsResponse' smart constructor.
 data ListRoleTagsResponse = ListRoleTagsResponse'
-  { _lrtrsMarker ::
-      !(Maybe Text),
-    _lrtrsIsTruncated :: !(Maybe Bool),
-    _lrtrsResponseStatus :: !Int,
-    _lrtrsTags :: ![Tag]
+  { marker ::
+      Lude.Maybe Lude.Text,
+    isTruncated :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int,
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoleTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrtrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'lrtrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
---
--- * 'lrtrsResponseStatus' - -- | The response status code.
---
--- * 'lrtrsTags' - The list of tags currently that is attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified role, the response contains an empty list.
-listRoleTagsResponse ::
-  -- | 'lrtrsResponseStatus'
-  Int ->
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The list of tags currently that is attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified role, the response contains an empty list.
+mkListRoleTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRoleTagsResponse
-listRoleTagsResponse pResponseStatus_ =
+mkListRoleTagsResponse pResponseStatus_ =
   ListRoleTagsResponse'
-    { _lrtrsMarker = Nothing,
-      _lrtrsIsTruncated = Nothing,
-      _lrtrsResponseStatus = pResponseStatus_,
-      _lrtrsTags = mempty
+    { marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      tags = Lude.mempty
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lrtrsMarker :: Lens' ListRoleTagsResponse (Maybe Text)
-lrtrsMarker = lens _lrtrsMarker (\s a -> s {_lrtrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtrsMarker :: Lens.Lens' ListRoleTagsResponse (Lude.Maybe Lude.Text)
+lrtrsMarker = Lens.lens (marker :: ListRoleTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRoleTagsResponse)
+{-# DEPRECATED lrtrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
-lrtrsIsTruncated :: Lens' ListRoleTagsResponse (Maybe Bool)
-lrtrsIsTruncated = lens _lrtrsIsTruncated (\s a -> s {_lrtrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtrsIsTruncated :: Lens.Lens' ListRoleTagsResponse (Lude.Maybe Lude.Bool)
+lrtrsIsTruncated = Lens.lens (isTruncated :: ListRoleTagsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListRoleTagsResponse)
+{-# DEPRECATED lrtrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-lrtrsResponseStatus :: Lens' ListRoleTagsResponse Int
-lrtrsResponseStatus = lens _lrtrsResponseStatus (\s a -> s {_lrtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtrsResponseStatus :: Lens.Lens' ListRoleTagsResponse Lude.Int
+lrtrsResponseStatus = Lens.lens (responseStatus :: ListRoleTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRoleTagsResponse)
+{-# DEPRECATED lrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The list of tags currently that is attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified role, the response contains an empty list.
-lrtrsTags :: Lens' ListRoleTagsResponse [Tag]
-lrtrsTags = lens _lrtrsTags (\s a -> s {_lrtrsTags = a}) . _Coerce
-
-instance NFData ListRoleTagsResponse
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtrsTags :: Lens.Lens' ListRoleTagsResponse [Tag]
+lrtrsTags = Lens.lens (tags :: ListRoleTagsResponse -> [Tag]) (\s a -> s {tags = a} :: ListRoleTagsResponse)
+{-# DEPRECATED lrtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata where
+module Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
+  ( PullRequestCreatedEventMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPullRequestCreatedEventMetadata,
+
+    -- * Lenses
+    prcemDestinationCommitId,
+    prcemMergeBase,
+    prcemRepositoryName,
+    prcemSourceCommitId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metadata about the pull request that is used when comparing the pull request source with its destination.
 --
---
---
--- /See:/ 'pullRequestCreatedEventMetadata' smart constructor.
+-- /See:/ 'mkPullRequestCreatedEventMetadata' smart constructor.
 data PullRequestCreatedEventMetadata = PullRequestCreatedEventMetadata'
-  { _prcemDestinationCommitId ::
-      !(Maybe Text),
-    _prcemMergeBase ::
-      !(Maybe Text),
-    _prcemRepositoryName ::
-      !(Maybe Text),
-    _prcemSourceCommitId ::
-      !(Maybe Text)
+  { destinationCommitId ::
+      Lude.Maybe Lude.Text,
+    mergeBase ::
+      Lude.Maybe Lude.Text,
+    repositoryName ::
+      Lude.Maybe Lude.Text,
+    sourceCommitId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestCreatedEventMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prcemDestinationCommitId' - The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
---
--- * 'prcemMergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
---
--- * 'prcemRepositoryName' - The name of the repository where the pull request was created.
---
--- * 'prcemSourceCommitId' - The commit ID on the source branch used when the pull request was created.
-pullRequestCreatedEventMetadata ::
+-- * 'destinationCommitId' - The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
+-- * 'mergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
+-- * 'repositoryName' - The name of the repository where the pull request was created.
+-- * 'sourceCommitId' - The commit ID on the source branch used when the pull request was created.
+mkPullRequestCreatedEventMetadata ::
   PullRequestCreatedEventMetadata
-pullRequestCreatedEventMetadata =
+mkPullRequestCreatedEventMetadata =
   PullRequestCreatedEventMetadata'
-    { _prcemDestinationCommitId =
-        Nothing,
-      _prcemMergeBase = Nothing,
-      _prcemRepositoryName = Nothing,
-      _prcemSourceCommitId = Nothing
+    { destinationCommitId =
+        Lude.Nothing,
+      mergeBase = Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      sourceCommitId = Lude.Nothing
     }
 
 -- | The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
-prcemDestinationCommitId :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
-prcemDestinationCommitId = lens _prcemDestinationCommitId (\s a -> s {_prcemDestinationCommitId = a})
+--
+-- /Note:/ Consider using 'destinationCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcemDestinationCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
+prcemDestinationCommitId = Lens.lens (destinationCommitId :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {destinationCommitId = a} :: PullRequestCreatedEventMetadata)
+{-# DEPRECATED prcemDestinationCommitId "Use generic-lens or generic-optics with 'destinationCommitId' instead." #-}
 
 -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
-prcemMergeBase :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
-prcemMergeBase = lens _prcemMergeBase (\s a -> s {_prcemMergeBase = a})
+--
+-- /Note:/ Consider using 'mergeBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcemMergeBase :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
+prcemMergeBase = Lens.lens (mergeBase :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {mergeBase = a} :: PullRequestCreatedEventMetadata)
+{-# DEPRECATED prcemMergeBase "Use generic-lens or generic-optics with 'mergeBase' instead." #-}
 
 -- | The name of the repository where the pull request was created.
-prcemRepositoryName :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
-prcemRepositoryName = lens _prcemRepositoryName (\s a -> s {_prcemRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcemRepositoryName :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
+prcemRepositoryName = Lens.lens (repositoryName :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: PullRequestCreatedEventMetadata)
+{-# DEPRECATED prcemRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The commit ID on the source branch used when the pull request was created.
-prcemSourceCommitId :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
-prcemSourceCommitId = lens _prcemSourceCommitId (\s a -> s {_prcemSourceCommitId = a})
+--
+-- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcemSourceCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
+prcemSourceCommitId = Lens.lens (sourceCommitId :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: PullRequestCreatedEventMetadata)
+{-# DEPRECATED prcemSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
-instance FromJSON PullRequestCreatedEventMetadata where
+instance Lude.FromJSON PullRequestCreatedEventMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "PullRequestCreatedEventMetadata"
       ( \x ->
           PullRequestCreatedEventMetadata'
-            <$> (x .:? "destinationCommitId")
-            <*> (x .:? "mergeBase")
-            <*> (x .:? "repositoryName")
-            <*> (x .:? "sourceCommitId")
+            Lude.<$> (x Lude..:? "destinationCommitId")
+            Lude.<*> (x Lude..:? "mergeBase")
+            Lude.<*> (x Lude..:? "repositoryName")
+            Lude.<*> (x Lude..:? "sourceCommitId")
       )
-
-instance Hashable PullRequestCreatedEventMetadata
-
-instance NFData PullRequestCreatedEventMetadata

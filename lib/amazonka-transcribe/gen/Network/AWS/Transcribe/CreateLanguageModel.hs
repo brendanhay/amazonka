@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your input files. The time it takes to create your model depends on the size of your training data.
 module Network.AWS.Transcribe.CreateLanguageModel
-  ( -- * Creating a Request
-    createLanguageModel,
-    CreateLanguageModel,
+  ( -- * Creating a request
+    CreateLanguageModel (..),
+    mkCreateLanguageModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clmLanguageCode,
     clmBaseModelName,
     clmModelName,
     clmInputDataConfig,
 
-    -- * Destructuring the Response
-    createLanguageModelResponse,
-    CreateLanguageModelResponse,
+    -- * Destructuring the response
+    CreateLanguageModelResponse (..),
+    mkCreateLanguageModelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clmrsLanguageCode,
     clmrsModelName,
     clmrsInputDataConfig,
@@ -43,183 +38,216 @@ module Network.AWS.Transcribe.CreateLanguageModel
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'createLanguageModel' smart constructor.
+-- | /See:/ 'mkCreateLanguageModel' smart constructor.
 data CreateLanguageModel = CreateLanguageModel'
-  { _clmLanguageCode ::
-      !CLMLanguageCode,
-    _clmBaseModelName :: !BaseModelName,
-    _clmModelName :: !Text,
-    _clmInputDataConfig :: !InputDataConfig
+  { languageCode ::
+      CLMLanguageCode,
+    baseModelName :: BaseModelName,
+    modelName :: Lude.Text,
+    inputDataConfig :: InputDataConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLanguageModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'baseModelName' - The Amazon Transcribe standard language model, or base model used to create your custom language model.
 --
--- * 'clmLanguageCode' - The language of the input text you're using to train your custom language model.
---
--- * 'clmBaseModelName' - The Amazon Transcribe standard language model, or base model used to create your custom language model. If you want to use your custom language model to transcribe audio with a sample rate of 16 kHz or greater, choose @Wideband@ . If you want to use your custom language model to transcribe audio with a sample rate that is less than 16 kHz, choose @Narrowband@ .
---
--- * 'clmModelName' - The name you choose for your custom language model when you create it.
---
--- * 'clmInputDataConfig' - Contains the data access role and the Amazon S3 prefixes to read the required input files to create a custom language model.
-createLanguageModel ::
-  -- | 'clmLanguageCode'
+-- If you want to use your custom language model to transcribe audio with a sample rate of 16 kHz or greater, choose @Wideband@ .
+-- If you want to use your custom language model to transcribe audio with a sample rate that is less than 16 kHz, choose @Narrowband@ .
+-- * 'inputDataConfig' - Contains the data access role and the Amazon S3 prefixes to read the required input files to create a custom language model.
+-- * 'languageCode' - The language of the input text you're using to train your custom language model.
+-- * 'modelName' - The name you choose for your custom language model when you create it.
+mkCreateLanguageModel ::
+  -- | 'languageCode'
   CLMLanguageCode ->
-  -- | 'clmBaseModelName'
+  -- | 'baseModelName'
   BaseModelName ->
-  -- | 'clmModelName'
-  Text ->
-  -- | 'clmInputDataConfig'
+  -- | 'modelName'
+  Lude.Text ->
+  -- | 'inputDataConfig'
   InputDataConfig ->
   CreateLanguageModel
-createLanguageModel
+mkCreateLanguageModel
   pLanguageCode_
   pBaseModelName_
   pModelName_
   pInputDataConfig_ =
     CreateLanguageModel'
-      { _clmLanguageCode = pLanguageCode_,
-        _clmBaseModelName = pBaseModelName_,
-        _clmModelName = pModelName_,
-        _clmInputDataConfig = pInputDataConfig_
+      { languageCode = pLanguageCode_,
+        baseModelName = pBaseModelName_,
+        modelName = pModelName_,
+        inputDataConfig = pInputDataConfig_
       }
 
 -- | The language of the input text you're using to train your custom language model.
-clmLanguageCode :: Lens' CreateLanguageModel CLMLanguageCode
-clmLanguageCode = lens _clmLanguageCode (\s a -> s {_clmLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmLanguageCode :: Lens.Lens' CreateLanguageModel CLMLanguageCode
+clmLanguageCode = Lens.lens (languageCode :: CreateLanguageModel -> CLMLanguageCode) (\s a -> s {languageCode = a} :: CreateLanguageModel)
+{-# DEPRECATED clmLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
--- | The Amazon Transcribe standard language model, or base model used to create your custom language model. If you want to use your custom language model to transcribe audio with a sample rate of 16 kHz or greater, choose @Wideband@ . If you want to use your custom language model to transcribe audio with a sample rate that is less than 16 kHz, choose @Narrowband@ .
-clmBaseModelName :: Lens' CreateLanguageModel BaseModelName
-clmBaseModelName = lens _clmBaseModelName (\s a -> s {_clmBaseModelName = a})
+-- | The Amazon Transcribe standard language model, or base model used to create your custom language model.
+--
+-- If you want to use your custom language model to transcribe audio with a sample rate of 16 kHz or greater, choose @Wideband@ .
+-- If you want to use your custom language model to transcribe audio with a sample rate that is less than 16 kHz, choose @Narrowband@ .
+--
+-- /Note:/ Consider using 'baseModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmBaseModelName :: Lens.Lens' CreateLanguageModel BaseModelName
+clmBaseModelName = Lens.lens (baseModelName :: CreateLanguageModel -> BaseModelName) (\s a -> s {baseModelName = a} :: CreateLanguageModel)
+{-# DEPRECATED clmBaseModelName "Use generic-lens or generic-optics with 'baseModelName' instead." #-}
 
 -- | The name you choose for your custom language model when you create it.
-clmModelName :: Lens' CreateLanguageModel Text
-clmModelName = lens _clmModelName (\s a -> s {_clmModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmModelName :: Lens.Lens' CreateLanguageModel Lude.Text
+clmModelName = Lens.lens (modelName :: CreateLanguageModel -> Lude.Text) (\s a -> s {modelName = a} :: CreateLanguageModel)
+{-# DEPRECATED clmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 -- | Contains the data access role and the Amazon S3 prefixes to read the required input files to create a custom language model.
-clmInputDataConfig :: Lens' CreateLanguageModel InputDataConfig
-clmInputDataConfig = lens _clmInputDataConfig (\s a -> s {_clmInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmInputDataConfig :: Lens.Lens' CreateLanguageModel InputDataConfig
+clmInputDataConfig = Lens.lens (inputDataConfig :: CreateLanguageModel -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: CreateLanguageModel)
+{-# DEPRECATED clmInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
-instance AWSRequest CreateLanguageModel where
+instance Lude.AWSRequest CreateLanguageModel where
   type Rs CreateLanguageModel = CreateLanguageModelResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateLanguageModelResponse'
-            <$> (x .?> "LanguageCode")
-            <*> (x .?> "ModelName")
-            <*> (x .?> "InputDataConfig")
-            <*> (x .?> "BaseModelName")
-            <*> (x .?> "ModelStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LanguageCode")
+            Lude.<*> (x Lude..?> "ModelName")
+            Lude.<*> (x Lude..?> "InputDataConfig")
+            Lude.<*> (x Lude..?> "BaseModelName")
+            Lude.<*> (x Lude..?> "ModelStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateLanguageModel
-
-instance NFData CreateLanguageModel
-
-instance ToHeaders CreateLanguageModel where
+instance Lude.ToHeaders CreateLanguageModel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.CreateLanguageModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.CreateLanguageModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateLanguageModel where
+instance Lude.ToJSON CreateLanguageModel where
   toJSON CreateLanguageModel' {..} =
-    object
-      ( catMaybes
-          [ Just ("LanguageCode" .= _clmLanguageCode),
-            Just ("BaseModelName" .= _clmBaseModelName),
-            Just ("ModelName" .= _clmModelName),
-            Just ("InputDataConfig" .= _clmInputDataConfig)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            Lude.Just ("BaseModelName" Lude..= baseModelName),
+            Lude.Just ("ModelName" Lude..= modelName),
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig)
           ]
       )
 
-instance ToPath CreateLanguageModel where
-  toPath = const "/"
+instance Lude.ToPath CreateLanguageModel where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateLanguageModel where
-  toQuery = const mempty
+instance Lude.ToQuery CreateLanguageModel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createLanguageModelResponse' smart constructor.
+-- | /See:/ 'mkCreateLanguageModelResponse' smart constructor.
 data CreateLanguageModelResponse = CreateLanguageModelResponse'
-  { _clmrsLanguageCode ::
-      !(Maybe CLMLanguageCode),
-    _clmrsModelName :: !(Maybe Text),
-    _clmrsInputDataConfig ::
-      !(Maybe InputDataConfig),
-    _clmrsBaseModelName ::
-      !(Maybe BaseModelName),
-    _clmrsModelStatus ::
-      !(Maybe ModelStatus),
-    _clmrsResponseStatus :: !Int
+  { languageCode ::
+      Lude.Maybe CLMLanguageCode,
+    modelName :: Lude.Maybe Lude.Text,
+    inputDataConfig ::
+      Lude.Maybe InputDataConfig,
+    baseModelName ::
+      Lude.Maybe BaseModelName,
+    modelStatus ::
+      Lude.Maybe ModelStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLanguageModelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clmrsLanguageCode' - The language code of the text you've used to create a custom language model.
---
--- * 'clmrsModelName' - The name you've chosen for your custom language model.
---
--- * 'clmrsInputDataConfig' - The data access role and Amazon S3 prefixes you've chosen to create your custom language model.
---
--- * 'clmrsBaseModelName' - The Amazon Transcribe standard language model, or base model you've used to create a custom language model.
---
--- * 'clmrsModelStatus' - The status of the custom language model. When the status is @COMPLETED@ the model is ready to use.
---
--- * 'clmrsResponseStatus' - -- | The response status code.
-createLanguageModelResponse ::
-  -- | 'clmrsResponseStatus'
-  Int ->
+-- * 'baseModelName' - The Amazon Transcribe standard language model, or base model you've used to create a custom language model.
+-- * 'inputDataConfig' - The data access role and Amazon S3 prefixes you've chosen to create your custom language model.
+-- * 'languageCode' - The language code of the text you've used to create a custom language model.
+-- * 'modelName' - The name you've chosen for your custom language model.
+-- * 'modelStatus' - The status of the custom language model. When the status is @COMPLETED@ the model is ready to use.
+-- * 'responseStatus' - The response status code.
+mkCreateLanguageModelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLanguageModelResponse
-createLanguageModelResponse pResponseStatus_ =
+mkCreateLanguageModelResponse pResponseStatus_ =
   CreateLanguageModelResponse'
-    { _clmrsLanguageCode = Nothing,
-      _clmrsModelName = Nothing,
-      _clmrsInputDataConfig = Nothing,
-      _clmrsBaseModelName = Nothing,
-      _clmrsModelStatus = Nothing,
-      _clmrsResponseStatus = pResponseStatus_
+    { languageCode = Lude.Nothing,
+      modelName = Lude.Nothing,
+      inputDataConfig = Lude.Nothing,
+      baseModelName = Lude.Nothing,
+      modelStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The language code of the text you've used to create a custom language model.
-clmrsLanguageCode :: Lens' CreateLanguageModelResponse (Maybe CLMLanguageCode)
-clmrsLanguageCode = lens _clmrsLanguageCode (\s a -> s {_clmrsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmrsLanguageCode :: Lens.Lens' CreateLanguageModelResponse (Lude.Maybe CLMLanguageCode)
+clmrsLanguageCode = Lens.lens (languageCode :: CreateLanguageModelResponse -> Lude.Maybe CLMLanguageCode) (\s a -> s {languageCode = a} :: CreateLanguageModelResponse)
+{-# DEPRECATED clmrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The name you've chosen for your custom language model.
-clmrsModelName :: Lens' CreateLanguageModelResponse (Maybe Text)
-clmrsModelName = lens _clmrsModelName (\s a -> s {_clmrsModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmrsModelName :: Lens.Lens' CreateLanguageModelResponse (Lude.Maybe Lude.Text)
+clmrsModelName = Lens.lens (modelName :: CreateLanguageModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {modelName = a} :: CreateLanguageModelResponse)
+{-# DEPRECATED clmrsModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 -- | The data access role and Amazon S3 prefixes you've chosen to create your custom language model.
-clmrsInputDataConfig :: Lens' CreateLanguageModelResponse (Maybe InputDataConfig)
-clmrsInputDataConfig = lens _clmrsInputDataConfig (\s a -> s {_clmrsInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmrsInputDataConfig :: Lens.Lens' CreateLanguageModelResponse (Lude.Maybe InputDataConfig)
+clmrsInputDataConfig = Lens.lens (inputDataConfig :: CreateLanguageModelResponse -> Lude.Maybe InputDataConfig) (\s a -> s {inputDataConfig = a} :: CreateLanguageModelResponse)
+{-# DEPRECATED clmrsInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | The Amazon Transcribe standard language model, or base model you've used to create a custom language model.
-clmrsBaseModelName :: Lens' CreateLanguageModelResponse (Maybe BaseModelName)
-clmrsBaseModelName = lens _clmrsBaseModelName (\s a -> s {_clmrsBaseModelName = a})
+--
+-- /Note:/ Consider using 'baseModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmrsBaseModelName :: Lens.Lens' CreateLanguageModelResponse (Lude.Maybe BaseModelName)
+clmrsBaseModelName = Lens.lens (baseModelName :: CreateLanguageModelResponse -> Lude.Maybe BaseModelName) (\s a -> s {baseModelName = a} :: CreateLanguageModelResponse)
+{-# DEPRECATED clmrsBaseModelName "Use generic-lens or generic-optics with 'baseModelName' instead." #-}
 
 -- | The status of the custom language model. When the status is @COMPLETED@ the model is ready to use.
-clmrsModelStatus :: Lens' CreateLanguageModelResponse (Maybe ModelStatus)
-clmrsModelStatus = lens _clmrsModelStatus (\s a -> s {_clmrsModelStatus = a})
+--
+-- /Note:/ Consider using 'modelStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmrsModelStatus :: Lens.Lens' CreateLanguageModelResponse (Lude.Maybe ModelStatus)
+clmrsModelStatus = Lens.lens (modelStatus :: CreateLanguageModelResponse -> Lude.Maybe ModelStatus) (\s a -> s {modelStatus = a} :: CreateLanguageModelResponse)
+{-# DEPRECATED clmrsModelStatus "Use generic-lens or generic-optics with 'modelStatus' instead." #-}
 
--- | -- | The response status code.
-clmrsResponseStatus :: Lens' CreateLanguageModelResponse Int
-clmrsResponseStatus = lens _clmrsResponseStatus (\s a -> s {_clmrsResponseStatus = a})
-
-instance NFData CreateLanguageModelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmrsResponseStatus :: Lens.Lens' CreateLanguageModelResponse Lude.Int
+clmrsResponseStatus = Lens.lens (responseStatus :: CreateLanguageModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLanguageModelResponse)
+{-# DEPRECATED clmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

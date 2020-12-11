@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,157 +17,178 @@
 --
 --     * Using the path
 --
+--
 --     * Using @ObjectIdentifier@
 module Network.AWS.CloudDirectory.AttachObject
-  ( -- * Creating a Request
-    attachObject,
-    AttachObject,
+  ( -- * Creating a request
+    AttachObject (..),
+    mkAttachObject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aoDirectoryARN,
     aoParentReference,
     aoChildReference,
     aoLinkName,
 
-    -- * Destructuring the Response
-    attachObjectResponse,
-    AttachObjectResponse,
+    -- * Destructuring the response
+    AttachObjectResponse (..),
+    mkAttachObjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aorsAttachedObjectIdentifier,
     aorsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachObject' smart constructor.
+-- | /See:/ 'mkAttachObject' smart constructor.
 data AttachObject = AttachObject'
-  { _aoDirectoryARN :: !Text,
-    _aoParentReference :: !ObjectReference,
-    _aoChildReference :: !ObjectReference,
-    _aoLinkName :: !Text
+  { directoryARN :: Lude.Text,
+    parentReference :: ObjectReference,
+    childReference :: ObjectReference,
+    linkName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aoDirectoryARN' - Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
---
--- * 'aoParentReference' - The parent object reference.
---
--- * 'aoChildReference' - The child object reference to be attached to the object.
---
--- * 'aoLinkName' - The link name with which the child object is attached to the parent.
-attachObject ::
-  -- | 'aoDirectoryARN'
-  Text ->
-  -- | 'aoParentReference'
+-- * 'childReference' - The child object reference to be attached to the object.
+-- * 'directoryARN' - Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- * 'linkName' - The link name with which the child object is attached to the parent.
+-- * 'parentReference' - The parent object reference.
+mkAttachObject ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'parentReference'
   ObjectReference ->
-  -- | 'aoChildReference'
+  -- | 'childReference'
   ObjectReference ->
-  -- | 'aoLinkName'
-  Text ->
+  -- | 'linkName'
+  Lude.Text ->
   AttachObject
-attachObject
+mkAttachObject
   pDirectoryARN_
   pParentReference_
   pChildReference_
   pLinkName_ =
     AttachObject'
-      { _aoDirectoryARN = pDirectoryARN_,
-        _aoParentReference = pParentReference_,
-        _aoChildReference = pChildReference_,
-        _aoLinkName = pLinkName_
+      { directoryARN = pDirectoryARN_,
+        parentReference = pParentReference_,
+        childReference = pChildReference_,
+        linkName = pLinkName_
       }
 
 -- | Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
-aoDirectoryARN :: Lens' AttachObject Text
-aoDirectoryARN = lens _aoDirectoryARN (\s a -> s {_aoDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoDirectoryARN :: Lens.Lens' AttachObject Lude.Text
+aoDirectoryARN = Lens.lens (directoryARN :: AttachObject -> Lude.Text) (\s a -> s {directoryARN = a} :: AttachObject)
+{-# DEPRECATED aoDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The parent object reference.
-aoParentReference :: Lens' AttachObject ObjectReference
-aoParentReference = lens _aoParentReference (\s a -> s {_aoParentReference = a})
+--
+-- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoParentReference :: Lens.Lens' AttachObject ObjectReference
+aoParentReference = Lens.lens (parentReference :: AttachObject -> ObjectReference) (\s a -> s {parentReference = a} :: AttachObject)
+{-# DEPRECATED aoParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
 -- | The child object reference to be attached to the object.
-aoChildReference :: Lens' AttachObject ObjectReference
-aoChildReference = lens _aoChildReference (\s a -> s {_aoChildReference = a})
+--
+-- /Note:/ Consider using 'childReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoChildReference :: Lens.Lens' AttachObject ObjectReference
+aoChildReference = Lens.lens (childReference :: AttachObject -> ObjectReference) (\s a -> s {childReference = a} :: AttachObject)
+{-# DEPRECATED aoChildReference "Use generic-lens or generic-optics with 'childReference' instead." #-}
 
 -- | The link name with which the child object is attached to the parent.
-aoLinkName :: Lens' AttachObject Text
-aoLinkName = lens _aoLinkName (\s a -> s {_aoLinkName = a})
+--
+-- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoLinkName :: Lens.Lens' AttachObject Lude.Text
+aoLinkName = Lens.lens (linkName :: AttachObject -> Lude.Text) (\s a -> s {linkName = a} :: AttachObject)
+{-# DEPRECATED aoLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
-instance AWSRequest AttachObject where
+instance Lude.AWSRequest AttachObject where
   type Rs AttachObject = AttachObjectResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AttachObjectResponse'
-            <$> (x .?> "AttachedObjectIdentifier") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AttachedObjectIdentifier")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachObject
-
-instance NFData AttachObject
-
-instance ToHeaders AttachObject where
+instance Lude.ToHeaders AttachObject where
   toHeaders AttachObject' {..} =
-    mconcat ["x-amz-data-partition" =# _aoDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON AttachObject where
+instance Lude.ToJSON AttachObject where
   toJSON AttachObject' {..} =
-    object
-      ( catMaybes
-          [ Just ("ParentReference" .= _aoParentReference),
-            Just ("ChildReference" .= _aoChildReference),
-            Just ("LinkName" .= _aoLinkName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ParentReference" Lude..= parentReference),
+            Lude.Just ("ChildReference" Lude..= childReference),
+            Lude.Just ("LinkName" Lude..= linkName)
           ]
       )
 
-instance ToPath AttachObject where
-  toPath = const "/amazonclouddirectory/2017-01-11/object/attach"
+instance Lude.ToPath AttachObject where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/object/attach"
 
-instance ToQuery AttachObject where
-  toQuery = const mempty
+instance Lude.ToQuery AttachObject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachObjectResponse' smart constructor.
+-- | /See:/ 'mkAttachObjectResponse' smart constructor.
 data AttachObjectResponse = AttachObjectResponse'
-  { _aorsAttachedObjectIdentifier ::
-      !(Maybe Text),
-    _aorsResponseStatus :: !Int
+  { attachedObjectIdentifier ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aorsAttachedObjectIdentifier' - The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
---
--- * 'aorsResponseStatus' - -- | The response status code.
-attachObjectResponse ::
-  -- | 'aorsResponseStatus'
-  Int ->
+-- * 'attachedObjectIdentifier' - The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
+-- * 'responseStatus' - The response status code.
+mkAttachObjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachObjectResponse
-attachObjectResponse pResponseStatus_ =
+mkAttachObjectResponse pResponseStatus_ =
   AttachObjectResponse'
-    { _aorsAttachedObjectIdentifier = Nothing,
-      _aorsResponseStatus = pResponseStatus_
+    { attachedObjectIdentifier = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
-aorsAttachedObjectIdentifier :: Lens' AttachObjectResponse (Maybe Text)
-aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\s a -> s {_aorsAttachedObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'attachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aorsAttachedObjectIdentifier :: Lens.Lens' AttachObjectResponse (Lude.Maybe Lude.Text)
+aorsAttachedObjectIdentifier = Lens.lens (attachedObjectIdentifier :: AttachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {attachedObjectIdentifier = a} :: AttachObjectResponse)
+{-# DEPRECATED aorsAttachedObjectIdentifier "Use generic-lens or generic-optics with 'attachedObjectIdentifier' instead." #-}
 
--- | -- | The response status code.
-aorsResponseStatus :: Lens' AttachObjectResponse Int
-aorsResponseStatus = lens _aorsResponseStatus (\s a -> s {_aorsResponseStatus = a})
-
-instance NFData AttachObjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aorsResponseStatus :: Lens.Lens' AttachObjectResponse Lude.Int
+aorsResponseStatus = Lens.lens (responseStatus :: AttachObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachObjectResponse)
+{-# DEPRECATED aorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

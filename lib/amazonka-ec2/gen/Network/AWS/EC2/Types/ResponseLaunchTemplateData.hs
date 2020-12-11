@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ResponseLaunchTemplateData where
+module Network.AWS.EC2.Types.ResponseLaunchTemplateData
+  ( ResponseLaunchTemplateData (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkResponseLaunchTemplateData,
+
+    -- * Lenses
+    rSecurityGroupIds,
+    rSecurityGroups,
+    rElasticInferenceAccelerators,
+    rInstanceMarketOptions,
+    rLicenseSpecifications,
+    rDisableAPITermination,
+    rKeyName,
+    rNetworkInterfaces,
+    rEnclaveOptions,
+    rCPUOptions,
+    rRamDiskId,
+    rKernelId,
+    rElasticGpuSpecifications,
+    rInstanceType,
+    rCapacityReservationSpecification,
+    rEBSOptimized,
+    rUserData,
+    rMonitoring,
+    rTagSpecifications,
+    rHibernationOptions,
+    rIAMInstanceProfile,
+    rImageId,
+    rInstanceInitiatedShutdownBehavior,
+    rMetadataOptions,
+    rCreditSpecification,
+    rBlockDeviceMappings,
+    rPlacement,
+  )
+where
+
 import Network.AWS.EC2.Types.CreditSpecification
 import Network.AWS.EC2.Types.ElasticGpuSpecificationResponse
 import Network.AWS.EC2.Types.InstanceType
@@ -34,328 +62,377 @@ import Network.AWS.EC2.Types.LaunchTemplatePlacement
 import Network.AWS.EC2.Types.LaunchTemplateTagSpecification
 import Network.AWS.EC2.Types.LaunchTemplatesMonitoring
 import Network.AWS.EC2.Types.ShutdownBehavior
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The information for a launch template.
 --
---
---
--- /See:/ 'responseLaunchTemplateData' smart constructor.
+-- /See:/ 'mkResponseLaunchTemplateData' smart constructor.
 data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
-  { _rSecurityGroupIds ::
-      !(Maybe [Text]),
-    _rSecurityGroups :: !(Maybe [Text]),
-    _rElasticInferenceAccelerators ::
-      !( Maybe
-           [LaunchTemplateElasticInferenceAcceleratorResponse]
-       ),
-    _rInstanceMarketOptions ::
-      !( Maybe
-           LaunchTemplateInstanceMarketOptions
-       ),
-    _rLicenseSpecifications ::
-      !( Maybe
-           [LaunchTemplateLicenseConfiguration]
-       ),
-    _rDisableAPITermination ::
-      !(Maybe Bool),
-    _rKeyName :: !(Maybe Text),
-    _rNetworkInterfaces ::
-      !( Maybe
-           [LaunchTemplateInstanceNetworkInterfaceSpecification]
-       ),
-    _rEnclaveOptions ::
-      !(Maybe LaunchTemplateEnclaveOptions),
-    _rCPUOptions ::
-      !(Maybe LaunchTemplateCPUOptions),
-    _rRamDiskId :: !(Maybe Text),
-    _rKernelId :: !(Maybe Text),
-    _rElasticGpuSpecifications ::
-      !( Maybe
-           [ElasticGpuSpecificationResponse]
-       ),
-    _rInstanceType ::
-      !(Maybe InstanceType),
-    _rCapacityReservationSpecification ::
-      !( Maybe
-           LaunchTemplateCapacityReservationSpecificationResponse
-       ),
-    _rEBSOptimized :: !(Maybe Bool),
-    _rUserData :: !(Maybe Text),
-    _rMonitoring ::
-      !(Maybe LaunchTemplatesMonitoring),
-    _rTagSpecifications ::
-      !( Maybe
-           [LaunchTemplateTagSpecification]
-       ),
-    _rHibernationOptions ::
-      !( Maybe
-           LaunchTemplateHibernationOptions
-       ),
-    _rIAMInstanceProfile ::
-      !( Maybe
-           LaunchTemplateIAMInstanceProfileSpecification
-       ),
-    _rImageId :: !(Maybe Text),
-    _rInstanceInitiatedShutdownBehavior ::
-      !(Maybe ShutdownBehavior),
-    _rMetadataOptions ::
-      !( Maybe
-           LaunchTemplateInstanceMetadataOptions
-       ),
-    _rCreditSpecification ::
-      !(Maybe CreditSpecification),
-    _rBlockDeviceMappings ::
-      !( Maybe
-           [LaunchTemplateBlockDeviceMapping]
-       ),
-    _rPlacement ::
-      !(Maybe LaunchTemplatePlacement)
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    securityGroups ::
+      Lude.Maybe [Lude.Text],
+    elasticInferenceAccelerators ::
+      Lude.Maybe
+        [LaunchTemplateElasticInferenceAcceleratorResponse],
+    instanceMarketOptions ::
+      Lude.Maybe
+        LaunchTemplateInstanceMarketOptions,
+    licenseSpecifications ::
+      Lude.Maybe
+        [LaunchTemplateLicenseConfiguration],
+    disableAPITermination ::
+      Lude.Maybe Lude.Bool,
+    keyName :: Lude.Maybe Lude.Text,
+    networkInterfaces ::
+      Lude.Maybe
+        [LaunchTemplateInstanceNetworkInterfaceSpecification],
+    enclaveOptions ::
+      Lude.Maybe
+        LaunchTemplateEnclaveOptions,
+    cpuOptions ::
+      Lude.Maybe LaunchTemplateCPUOptions,
+    ramDiskId :: Lude.Maybe Lude.Text,
+    kernelId :: Lude.Maybe Lude.Text,
+    elasticGpuSpecifications ::
+      Lude.Maybe
+        [ElasticGpuSpecificationResponse],
+    instanceType ::
+      Lude.Maybe InstanceType,
+    capacityReservationSpecification ::
+      Lude.Maybe
+        LaunchTemplateCapacityReservationSpecificationResponse,
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    userData :: Lude.Maybe Lude.Text,
+    monitoring ::
+      Lude.Maybe LaunchTemplatesMonitoring,
+    tagSpecifications ::
+      Lude.Maybe
+        [LaunchTemplateTagSpecification],
+    hibernationOptions ::
+      Lude.Maybe
+        LaunchTemplateHibernationOptions,
+    iamInstanceProfile ::
+      Lude.Maybe
+        LaunchTemplateIAMInstanceProfileSpecification,
+    imageId :: Lude.Maybe Lude.Text,
+    instanceInitiatedShutdownBehavior ::
+      Lude.Maybe ShutdownBehavior,
+    metadataOptions ::
+      Lude.Maybe
+        LaunchTemplateInstanceMetadataOptions,
+    creditSpecification ::
+      Lude.Maybe CreditSpecification,
+    blockDeviceMappings ::
+      Lude.Maybe
+        [LaunchTemplateBlockDeviceMapping],
+    placement ::
+      Lude.Maybe LaunchTemplatePlacement
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseLaunchTemplateData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rSecurityGroupIds' - The security group IDs.
---
--- * 'rSecurityGroups' - The security group names.
---
--- * 'rElasticInferenceAccelerators' - The elastic inference accelerator for the instance.
---
--- * 'rInstanceMarketOptions' - The market (purchasing) option for the instances.
---
--- * 'rLicenseSpecifications' - The license configurations.
---
--- * 'rDisableAPITermination' - If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
---
--- * 'rKeyName' - The name of the key pair.
---
--- * 'rNetworkInterfaces' - The network interfaces.
---
--- * 'rEnclaveOptions' - Indicates whether the instance is enabled for AWS Nitro Enclaves.
---
--- * 'rCPUOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- * 'rRamDiskId' - The ID of the RAM disk, if applicable.
---
--- * 'rKernelId' - The ID of the kernel, if applicable.
---
--- * 'rElasticGpuSpecifications' - The elastic GPU specification.
---
--- * 'rInstanceType' - The instance type.
---
--- * 'rCapacityReservationSpecification' - Information about the Capacity Reservation targeting option.
---
--- * 'rEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
---
--- * 'rUserData' - The user data for the instance.
---
--- * 'rMonitoring' - The monitoring for the instance.
---
--- * 'rTagSpecifications' - The tags.
---
--- * 'rHibernationOptions' - Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- * 'rIAMInstanceProfile' - The IAM instance profile.
---
--- * 'rImageId' - The ID of the AMI that was used to launch the instance.
---
--- * 'rInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
---
--- * 'rMetadataOptions' - The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- * 'rCreditSpecification' - The credit option for CPU usage of the instance.
---
--- * 'rBlockDeviceMappings' - The block device mappings.
---
--- * 'rPlacement' - The placement of the instance.
-responseLaunchTemplateData ::
+-- * 'blockDeviceMappings' - The block device mappings.
+-- * 'capacityReservationSpecification' - Information about the Capacity Reservation targeting option.
+-- * 'cpuOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'creditSpecification' - The credit option for CPU usage of the instance.
+-- * 'disableAPITermination' - If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
+-- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
+-- * 'elasticGpuSpecifications' - The elastic GPU specification.
+-- * 'elasticInferenceAccelerators' - The elastic inference accelerator for the instance.
+-- * 'enclaveOptions' - Indicates whether the instance is enabled for AWS Nitro Enclaves.
+-- * 'hibernationOptions' - Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'iamInstanceProfile' - The IAM instance profile.
+-- * 'imageId' - The ID of the AMI that was used to launch the instance.
+-- * 'instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+-- * 'instanceMarketOptions' - The market (purchasing) option for the instances.
+-- * 'instanceType' - The instance type.
+-- * 'kernelId' - The ID of the kernel, if applicable.
+-- * 'keyName' - The name of the key pair.
+-- * 'licenseSpecifications' - The license configurations.
+-- * 'metadataOptions' - The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'monitoring' - The monitoring for the instance.
+-- * 'networkInterfaces' - The network interfaces.
+-- * 'placement' - The placement of the instance.
+-- * 'ramDiskId' - The ID of the RAM disk, if applicable.
+-- * 'securityGroupIds' - The security group IDs.
+-- * 'securityGroups' - The security group names.
+-- * 'tagSpecifications' - The tags.
+-- * 'userData' - The user data for the instance.
+mkResponseLaunchTemplateData ::
   ResponseLaunchTemplateData
-responseLaunchTemplateData =
+mkResponseLaunchTemplateData =
   ResponseLaunchTemplateData'
-    { _rSecurityGroupIds = Nothing,
-      _rSecurityGroups = Nothing,
-      _rElasticInferenceAccelerators = Nothing,
-      _rInstanceMarketOptions = Nothing,
-      _rLicenseSpecifications = Nothing,
-      _rDisableAPITermination = Nothing,
-      _rKeyName = Nothing,
-      _rNetworkInterfaces = Nothing,
-      _rEnclaveOptions = Nothing,
-      _rCPUOptions = Nothing,
-      _rRamDiskId = Nothing,
-      _rKernelId = Nothing,
-      _rElasticGpuSpecifications = Nothing,
-      _rInstanceType = Nothing,
-      _rCapacityReservationSpecification = Nothing,
-      _rEBSOptimized = Nothing,
-      _rUserData = Nothing,
-      _rMonitoring = Nothing,
-      _rTagSpecifications = Nothing,
-      _rHibernationOptions = Nothing,
-      _rIAMInstanceProfile = Nothing,
-      _rImageId = Nothing,
-      _rInstanceInitiatedShutdownBehavior = Nothing,
-      _rMetadataOptions = Nothing,
-      _rCreditSpecification = Nothing,
-      _rBlockDeviceMappings = Nothing,
-      _rPlacement = Nothing
+    { securityGroupIds = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      elasticInferenceAccelerators = Lude.Nothing,
+      instanceMarketOptions = Lude.Nothing,
+      licenseSpecifications = Lude.Nothing,
+      disableAPITermination = Lude.Nothing,
+      keyName = Lude.Nothing,
+      networkInterfaces = Lude.Nothing,
+      enclaveOptions = Lude.Nothing,
+      cpuOptions = Lude.Nothing,
+      ramDiskId = Lude.Nothing,
+      kernelId = Lude.Nothing,
+      elasticGpuSpecifications = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      capacityReservationSpecification = Lude.Nothing,
+      ebsOptimized = Lude.Nothing,
+      userData = Lude.Nothing,
+      monitoring = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      hibernationOptions = Lude.Nothing,
+      iamInstanceProfile = Lude.Nothing,
+      imageId = Lude.Nothing,
+      instanceInitiatedShutdownBehavior = Lude.Nothing,
+      metadataOptions = Lude.Nothing,
+      creditSpecification = Lude.Nothing,
+      blockDeviceMappings = Lude.Nothing,
+      placement = Lude.Nothing
     }
 
 -- | The security group IDs.
-rSecurityGroupIds :: Lens' ResponseLaunchTemplateData [Text]
-rSecurityGroupIds = lens _rSecurityGroupIds (\s a -> s {_rSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSecurityGroupIds :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [Lude.Text])
+rSecurityGroupIds = Lens.lens (securityGroupIds :: ResponseLaunchTemplateData -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | The security group names.
-rSecurityGroups :: Lens' ResponseLaunchTemplateData [Text]
-rSecurityGroups = lens _rSecurityGroups (\s a -> s {_rSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSecurityGroups :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [Lude.Text])
+rSecurityGroups = Lens.lens (securityGroups :: ResponseLaunchTemplateData -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The elastic inference accelerator for the instance.
-rElasticInferenceAccelerators :: Lens' ResponseLaunchTemplateData [LaunchTemplateElasticInferenceAcceleratorResponse]
-rElasticInferenceAccelerators = lens _rElasticInferenceAccelerators (\s a -> s {_rElasticInferenceAccelerators = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elasticInferenceAccelerators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rElasticInferenceAccelerators :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [LaunchTemplateElasticInferenceAcceleratorResponse])
+rElasticInferenceAccelerators = Lens.lens (elasticInferenceAccelerators :: ResponseLaunchTemplateData -> Lude.Maybe [LaunchTemplateElasticInferenceAcceleratorResponse]) (\s a -> s {elasticInferenceAccelerators = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rElasticInferenceAccelerators "Use generic-lens or generic-optics with 'elasticInferenceAccelerators' instead." #-}
 
 -- | The market (purchasing) option for the instances.
-rInstanceMarketOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateInstanceMarketOptions)
-rInstanceMarketOptions = lens _rInstanceMarketOptions (\s a -> s {_rInstanceMarketOptions = a})
+--
+-- /Note:/ Consider using 'instanceMarketOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInstanceMarketOptions :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateInstanceMarketOptions)
+rInstanceMarketOptions = Lens.lens (instanceMarketOptions :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateInstanceMarketOptions) (\s a -> s {instanceMarketOptions = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rInstanceMarketOptions "Use generic-lens or generic-optics with 'instanceMarketOptions' instead." #-}
 
 -- | The license configurations.
-rLicenseSpecifications :: Lens' ResponseLaunchTemplateData [LaunchTemplateLicenseConfiguration]
-rLicenseSpecifications = lens _rLicenseSpecifications (\s a -> s {_rLicenseSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'licenseSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLicenseSpecifications :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [LaunchTemplateLicenseConfiguration])
+rLicenseSpecifications = Lens.lens (licenseSpecifications :: ResponseLaunchTemplateData -> Lude.Maybe [LaunchTemplateLicenseConfiguration]) (\s a -> s {licenseSpecifications = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rLicenseSpecifications "Use generic-lens or generic-optics with 'licenseSpecifications' instead." #-}
 
 -- | If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
-rDisableAPITermination :: Lens' ResponseLaunchTemplateData (Maybe Bool)
-rDisableAPITermination = lens _rDisableAPITermination (\s a -> s {_rDisableAPITermination = a})
+--
+-- /Note:/ Consider using 'disableAPITermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDisableAPITermination :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Bool)
+rDisableAPITermination = Lens.lens (disableAPITermination :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Bool) (\s a -> s {disableAPITermination = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rDisableAPITermination "Use generic-lens or generic-optics with 'disableAPITermination' instead." #-}
 
 -- | The name of the key pair.
-rKeyName :: Lens' ResponseLaunchTemplateData (Maybe Text)
-rKeyName = lens _rKeyName (\s a -> s {_rKeyName = a})
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rKeyName :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Text)
+rKeyName = Lens.lens (keyName :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | The network interfaces.
-rNetworkInterfaces :: Lens' ResponseLaunchTemplateData [LaunchTemplateInstanceNetworkInterfaceSpecification]
-rNetworkInterfaces = lens _rNetworkInterfaces (\s a -> s {_rNetworkInterfaces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rNetworkInterfaces :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [LaunchTemplateInstanceNetworkInterfaceSpecification])
+rNetworkInterfaces = Lens.lens (networkInterfaces :: ResponseLaunchTemplateData -> Lude.Maybe [LaunchTemplateInstanceNetworkInterfaceSpecification]) (\s a -> s {networkInterfaces = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
-rEnclaveOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateEnclaveOptions)
-rEnclaveOptions = lens _rEnclaveOptions (\s a -> s {_rEnclaveOptions = a})
+--
+-- /Note:/ Consider using 'enclaveOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEnclaveOptions :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateEnclaveOptions)
+rEnclaveOptions = Lens.lens (enclaveOptions :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateEnclaveOptions) (\s a -> s {enclaveOptions = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rEnclaveOptions "Use generic-lens or generic-optics with 'enclaveOptions' instead." #-}
 
 -- | The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
-rCPUOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateCPUOptions)
-rCPUOptions = lens _rCPUOptions (\s a -> s {_rCPUOptions = a})
+--
+-- /Note:/ Consider using 'cpuOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCPUOptions :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateCPUOptions)
+rCPUOptions = Lens.lens (cpuOptions :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateCPUOptions) (\s a -> s {cpuOptions = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rCPUOptions "Use generic-lens or generic-optics with 'cpuOptions' instead." #-}
 
 -- | The ID of the RAM disk, if applicable.
-rRamDiskId :: Lens' ResponseLaunchTemplateData (Maybe Text)
-rRamDiskId = lens _rRamDiskId (\s a -> s {_rRamDiskId = a})
+--
+-- /Note:/ Consider using 'ramDiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRamDiskId :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Text)
+rRamDiskId = Lens.lens (ramDiskId :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Text) (\s a -> s {ramDiskId = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rRamDiskId "Use generic-lens or generic-optics with 'ramDiskId' instead." #-}
 
 -- | The ID of the kernel, if applicable.
-rKernelId :: Lens' ResponseLaunchTemplateData (Maybe Text)
-rKernelId = lens _rKernelId (\s a -> s {_rKernelId = a})
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rKernelId :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Text)
+rKernelId = Lens.lens (kernelId :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Text) (\s a -> s {kernelId = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
 
 -- | The elastic GPU specification.
-rElasticGpuSpecifications :: Lens' ResponseLaunchTemplateData [ElasticGpuSpecificationResponse]
-rElasticGpuSpecifications = lens _rElasticGpuSpecifications (\s a -> s {_rElasticGpuSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elasticGpuSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rElasticGpuSpecifications :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [ElasticGpuSpecificationResponse])
+rElasticGpuSpecifications = Lens.lens (elasticGpuSpecifications :: ResponseLaunchTemplateData -> Lude.Maybe [ElasticGpuSpecificationResponse]) (\s a -> s {elasticGpuSpecifications = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rElasticGpuSpecifications "Use generic-lens or generic-optics with 'elasticGpuSpecifications' instead." #-}
 
 -- | The instance type.
-rInstanceType :: Lens' ResponseLaunchTemplateData (Maybe InstanceType)
-rInstanceType = lens _rInstanceType (\s a -> s {_rInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInstanceType :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe InstanceType)
+rInstanceType = Lens.lens (instanceType :: ResponseLaunchTemplateData -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | Information about the Capacity Reservation targeting option.
-rCapacityReservationSpecification :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateCapacityReservationSpecificationResponse)
-rCapacityReservationSpecification = lens _rCapacityReservationSpecification (\s a -> s {_rCapacityReservationSpecification = a})
+--
+-- /Note:/ Consider using 'capacityReservationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCapacityReservationSpecification :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateCapacityReservationSpecificationResponse)
+rCapacityReservationSpecification = Lens.lens (capacityReservationSpecification :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateCapacityReservationSpecificationResponse) (\s a -> s {capacityReservationSpecification = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rCapacityReservationSpecification "Use generic-lens or generic-optics with 'capacityReservationSpecification' instead." #-}
 
 -- | Indicates whether the instance is optimized for Amazon EBS I/O.
-rEBSOptimized :: Lens' ResponseLaunchTemplateData (Maybe Bool)
-rEBSOptimized = lens _rEBSOptimized (\s a -> s {_rEBSOptimized = a})
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEBSOptimized :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Bool)
+rEBSOptimized = Lens.lens (ebsOptimized :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | The user data for the instance.
-rUserData :: Lens' ResponseLaunchTemplateData (Maybe Text)
-rUserData = lens _rUserData (\s a -> s {_rUserData = a})
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rUserData :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Text)
+rUserData = Lens.lens (userData :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Text) (\s a -> s {userData = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
 -- | The monitoring for the instance.
-rMonitoring :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplatesMonitoring)
-rMonitoring = lens _rMonitoring (\s a -> s {_rMonitoring = a})
+--
+-- /Note:/ Consider using 'monitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rMonitoring :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplatesMonitoring)
+rMonitoring = Lens.lens (monitoring :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplatesMonitoring) (\s a -> s {monitoring = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rMonitoring "Use generic-lens or generic-optics with 'monitoring' instead." #-}
 
 -- | The tags.
-rTagSpecifications :: Lens' ResponseLaunchTemplateData [LaunchTemplateTagSpecification]
-rTagSpecifications = lens _rTagSpecifications (\s a -> s {_rTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTagSpecifications :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [LaunchTemplateTagSpecification])
+rTagSpecifications = Lens.lens (tagSpecifications :: ResponseLaunchTemplateData -> Lude.Maybe [LaunchTemplateTagSpecification]) (\s a -> s {tagSpecifications = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
-rHibernationOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateHibernationOptions)
-rHibernationOptions = lens _rHibernationOptions (\s a -> s {_rHibernationOptions = a})
+--
+-- /Note:/ Consider using 'hibernationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rHibernationOptions :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateHibernationOptions)
+rHibernationOptions = Lens.lens (hibernationOptions :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateHibernationOptions) (\s a -> s {hibernationOptions = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rHibernationOptions "Use generic-lens or generic-optics with 'hibernationOptions' instead." #-}
 
 -- | The IAM instance profile.
-rIAMInstanceProfile :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateIAMInstanceProfileSpecification)
-rIAMInstanceProfile = lens _rIAMInstanceProfile (\s a -> s {_rIAMInstanceProfile = a})
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rIAMInstanceProfile :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateIAMInstanceProfileSpecification)
+rIAMInstanceProfile = Lens.lens (iamInstanceProfile :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateIAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The ID of the AMI that was used to launch the instance.
-rImageId :: Lens' ResponseLaunchTemplateData (Maybe Text)
-rImageId = lens _rImageId (\s a -> s {_rImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rImageId :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe Lude.Text)
+rImageId = Lens.lens (imageId :: ResponseLaunchTemplateData -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-rInstanceInitiatedShutdownBehavior :: Lens' ResponseLaunchTemplateData (Maybe ShutdownBehavior)
-rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\s a -> s {_rInstanceInitiatedShutdownBehavior = a})
+--
+-- /Note:/ Consider using 'instanceInitiatedShutdownBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInstanceInitiatedShutdownBehavior :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe ShutdownBehavior)
+rInstanceInitiatedShutdownBehavior = Lens.lens (instanceInitiatedShutdownBehavior :: ResponseLaunchTemplateData -> Lude.Maybe ShutdownBehavior) (\s a -> s {instanceInitiatedShutdownBehavior = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rInstanceInitiatedShutdownBehavior "Use generic-lens or generic-optics with 'instanceInitiatedShutdownBehavior' instead." #-}
 
 -- | The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
-rMetadataOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateInstanceMetadataOptions)
-rMetadataOptions = lens _rMetadataOptions (\s a -> s {_rMetadataOptions = a})
+--
+-- /Note:/ Consider using 'metadataOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rMetadataOptions :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplateInstanceMetadataOptions)
+rMetadataOptions = Lens.lens (metadataOptions :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplateInstanceMetadataOptions) (\s a -> s {metadataOptions = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rMetadataOptions "Use generic-lens or generic-optics with 'metadataOptions' instead." #-}
 
 -- | The credit option for CPU usage of the instance.
-rCreditSpecification :: Lens' ResponseLaunchTemplateData (Maybe CreditSpecification)
-rCreditSpecification = lens _rCreditSpecification (\s a -> s {_rCreditSpecification = a})
+--
+-- /Note:/ Consider using 'creditSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCreditSpecification :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe CreditSpecification)
+rCreditSpecification = Lens.lens (creditSpecification :: ResponseLaunchTemplateData -> Lude.Maybe CreditSpecification) (\s a -> s {creditSpecification = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rCreditSpecification "Use generic-lens or generic-optics with 'creditSpecification' instead." #-}
 
 -- | The block device mappings.
-rBlockDeviceMappings :: Lens' ResponseLaunchTemplateData [LaunchTemplateBlockDeviceMapping]
-rBlockDeviceMappings = lens _rBlockDeviceMappings (\s a -> s {_rBlockDeviceMappings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rBlockDeviceMappings :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe [LaunchTemplateBlockDeviceMapping])
+rBlockDeviceMappings = Lens.lens (blockDeviceMappings :: ResponseLaunchTemplateData -> Lude.Maybe [LaunchTemplateBlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
 
 -- | The placement of the instance.
-rPlacement :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplatePlacement)
-rPlacement = lens _rPlacement (\s a -> s {_rPlacement = a})
+--
+-- /Note:/ Consider using 'placement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPlacement :: Lens.Lens' ResponseLaunchTemplateData (Lude.Maybe LaunchTemplatePlacement)
+rPlacement = Lens.lens (placement :: ResponseLaunchTemplateData -> Lude.Maybe LaunchTemplatePlacement) (\s a -> s {placement = a} :: ResponseLaunchTemplateData)
+{-# DEPRECATED rPlacement "Use generic-lens or generic-optics with 'placement' instead." #-}
 
-instance FromXML ResponseLaunchTemplateData where
+instance Lude.FromXML ResponseLaunchTemplateData where
   parseXML x =
     ResponseLaunchTemplateData'
-      <$> ( x .@? "securityGroupIdSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "securityGroupSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> ( x .@? "elasticInferenceAcceleratorSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "instanceMarketOptions")
-      <*> (x .@? "licenseSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "disableApiTermination")
-      <*> (x .@? "keyName")
-      <*> ( x .@? "networkInterfaceSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "enclaveOptions")
-      <*> (x .@? "cpuOptions")
-      <*> (x .@? "ramDiskId")
-      <*> (x .@? "kernelId")
-      <*> ( x .@? "elasticGpuSpecificationSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "instanceType")
-      <*> (x .@? "capacityReservationSpecification")
-      <*> (x .@? "ebsOptimized")
-      <*> (x .@? "userData")
-      <*> (x .@? "monitoring")
-      <*> ( x .@? "tagSpecificationSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "hibernationOptions")
-      <*> (x .@? "iamInstanceProfile")
-      <*> (x .@? "imageId")
-      <*> (x .@? "instanceInitiatedShutdownBehavior")
-      <*> (x .@? "metadataOptions")
-      <*> (x .@? "creditSpecification")
-      <*> ( x .@? "blockDeviceMappingSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "placement")
-
-instance Hashable ResponseLaunchTemplateData
-
-instance NFData ResponseLaunchTemplateData
+      Lude.<$> ( x Lude..@? "securityGroupIdSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> ( x Lude..@? "securityGroupSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> ( x Lude..@? "elasticInferenceAcceleratorSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "instanceMarketOptions")
+      Lude.<*> ( x Lude..@? "licenseSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "disableApiTermination")
+      Lude.<*> (x Lude..@? "keyName")
+      Lude.<*> ( x Lude..@? "networkInterfaceSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "enclaveOptions")
+      Lude.<*> (x Lude..@? "cpuOptions")
+      Lude.<*> (x Lude..@? "ramDiskId")
+      Lude.<*> (x Lude..@? "kernelId")
+      Lude.<*> ( x Lude..@? "elasticGpuSpecificationSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "capacityReservationSpecification")
+      Lude.<*> (x Lude..@? "ebsOptimized")
+      Lude.<*> (x Lude..@? "userData")
+      Lude.<*> (x Lude..@? "monitoring")
+      Lude.<*> ( x Lude..@? "tagSpecificationSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "hibernationOptions")
+      Lude.<*> (x Lude..@? "iamInstanceProfile")
+      Lude.<*> (x Lude..@? "imageId")
+      Lude.<*> (x Lude..@? "instanceInitiatedShutdownBehavior")
+      Lude.<*> (x Lude..@? "metadataOptions")
+      Lude.<*> (x Lude..@? "creditSpecification")
+      Lude.<*> ( x Lude..@? "blockDeviceMappingSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "placement")

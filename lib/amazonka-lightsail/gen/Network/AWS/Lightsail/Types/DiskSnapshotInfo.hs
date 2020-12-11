@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.DiskSnapshotInfo where
+module Network.AWS.Lightsail.Types.DiskSnapshotInfo
+  ( DiskSnapshotInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDiskSnapshotInfo,
+
+    -- * Lenses
+    dsiSizeInGb,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a disk snapshot.
 --
---
---
--- /See:/ 'diskSnapshotInfo' smart constructor.
+-- /See:/ 'mkDiskSnapshotInfo' smart constructor.
 newtype DiskSnapshotInfo = DiskSnapshotInfo'
-  { _dsiSizeInGb ::
-      Maybe Int
+  { sizeInGb ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskSnapshotInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsiSizeInGb' - The size of the disk in GB (e.g., @32@ ).
-diskSnapshotInfo ::
+-- * 'sizeInGb' - The size of the disk in GB (e.g., @32@ ).
+mkDiskSnapshotInfo ::
   DiskSnapshotInfo
-diskSnapshotInfo = DiskSnapshotInfo' {_dsiSizeInGb = Nothing}
+mkDiskSnapshotInfo = DiskSnapshotInfo' {sizeInGb = Lude.Nothing}
 
 -- | The size of the disk in GB (e.g., @32@ ).
-dsiSizeInGb :: Lens' DiskSnapshotInfo (Maybe Int)
-dsiSizeInGb = lens _dsiSizeInGb (\s a -> s {_dsiSizeInGb = a})
+--
+-- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiSizeInGb :: Lens.Lens' DiskSnapshotInfo (Lude.Maybe Lude.Int)
+dsiSizeInGb = Lens.lens (sizeInGb :: DiskSnapshotInfo -> Lude.Maybe Lude.Int) (\s a -> s {sizeInGb = a} :: DiskSnapshotInfo)
+{-# DEPRECATED dsiSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
 
-instance FromJSON DiskSnapshotInfo where
+instance Lude.FromJSON DiskSnapshotInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "DiskSnapshotInfo"
-      (\x -> DiskSnapshotInfo' <$> (x .:? "sizeInGb"))
-
-instance Hashable DiskSnapshotInfo
-
-instance NFData DiskSnapshotInfo
+      (\x -> DiskSnapshotInfo' Lude.<$> (x Lude..:? "sizeInGb"))

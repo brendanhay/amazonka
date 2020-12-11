@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.AccessLog where
+module Network.AWS.ELB.Types.AccessLog
+  ( AccessLog (..),
+
+    -- * Smart constructor
+    mkAccessLog,
+
+    -- * Lenses
+    alEmitInterval,
+    alS3BucketPrefix,
+    alS3BucketName,
+    alEnabled,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the @AccessLog@ attribute.
 --
---
---
--- /See:/ 'accessLog' smart constructor.
+-- /See:/ 'mkAccessLog' smart constructor.
 data AccessLog = AccessLog'
-  { _alEmitInterval :: !(Maybe Int),
-    _alS3BucketPrefix :: !(Maybe Text),
-    _alS3BucketName :: !(Maybe Text),
-    _alEnabled :: !Bool
+  { emitInterval :: Lude.Maybe Lude.Int,
+    s3BucketPrefix :: Lude.Maybe Lude.Text,
+    s3BucketName :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessLog' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'emitInterval' - The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 --
--- * 'alEmitInterval' - The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes. Default: 60 minutes
---
--- * 'alS3BucketPrefix' - The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
---
--- * 'alS3BucketName' - The name of the Amazon S3 bucket where the access logs are stored.
---
--- * 'alEnabled' - Specifies whether access logs are enabled for the load balancer.
-accessLog ::
-  -- | 'alEnabled'
-  Bool ->
+-- Default: 60 minutes
+-- * 'enabled' - Specifies whether access logs are enabled for the load balancer.
+-- * 's3BucketName' - The name of the Amazon S3 bucket where the access logs are stored.
+-- * 's3BucketPrefix' - The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
+mkAccessLog ::
+  -- | 'enabled'
+  Lude.Bool ->
   AccessLog
-accessLog pEnabled_ =
+mkAccessLog pEnabled_ =
   AccessLog'
-    { _alEmitInterval = Nothing,
-      _alS3BucketPrefix = Nothing,
-      _alS3BucketName = Nothing,
-      _alEnabled = pEnabled_
+    { emitInterval = Lude.Nothing,
+      s3BucketPrefix = Lude.Nothing,
+      s3BucketName = Lude.Nothing,
+      enabled = pEnabled_
     }
 
--- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes. Default: 60 minutes
-alEmitInterval :: Lens' AccessLog (Maybe Int)
-alEmitInterval = lens _alEmitInterval (\s a -> s {_alEmitInterval = a})
+-- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
+--
+-- Default: 60 minutes
+--
+-- /Note:/ Consider using 'emitInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alEmitInterval :: Lens.Lens' AccessLog (Lude.Maybe Lude.Int)
+alEmitInterval = Lens.lens (emitInterval :: AccessLog -> Lude.Maybe Lude.Int) (\s a -> s {emitInterval = a} :: AccessLog)
+{-# DEPRECATED alEmitInterval "Use generic-lens or generic-optics with 'emitInterval' instead." #-}
 
 -- | The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
-alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
-alS3BucketPrefix = lens _alS3BucketPrefix (\s a -> s {_alS3BucketPrefix = a})
+--
+-- /Note:/ Consider using 's3BucketPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alS3BucketPrefix :: Lens.Lens' AccessLog (Lude.Maybe Lude.Text)
+alS3BucketPrefix = Lens.lens (s3BucketPrefix :: AccessLog -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketPrefix = a} :: AccessLog)
+{-# DEPRECATED alS3BucketPrefix "Use generic-lens or generic-optics with 's3BucketPrefix' instead." #-}
 
 -- | The name of the Amazon S3 bucket where the access logs are stored.
-alS3BucketName :: Lens' AccessLog (Maybe Text)
-alS3BucketName = lens _alS3BucketName (\s a -> s {_alS3BucketName = a})
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alS3BucketName :: Lens.Lens' AccessLog (Lude.Maybe Lude.Text)
+alS3BucketName = Lens.lens (s3BucketName :: AccessLog -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: AccessLog)
+{-# DEPRECATED alS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
 -- | Specifies whether access logs are enabled for the load balancer.
-alEnabled :: Lens' AccessLog Bool
-alEnabled = lens _alEnabled (\s a -> s {_alEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alEnabled :: Lens.Lens' AccessLog Lude.Bool
+alEnabled = Lens.lens (enabled :: AccessLog -> Lude.Bool) (\s a -> s {enabled = a} :: AccessLog)
+{-# DEPRECATED alEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromXML AccessLog where
+instance Lude.FromXML AccessLog where
   parseXML x =
     AccessLog'
-      <$> (x .@? "EmitInterval")
-      <*> (x .@? "S3BucketPrefix")
-      <*> (x .@? "S3BucketName")
-      <*> (x .@ "Enabled")
+      Lude.<$> (x Lude..@? "EmitInterval")
+      Lude.<*> (x Lude..@? "S3BucketPrefix")
+      Lude.<*> (x Lude..@? "S3BucketName")
+      Lude.<*> (x Lude..@ "Enabled")
 
-instance Hashable AccessLog
-
-instance NFData AccessLog
-
-instance ToQuery AccessLog where
+instance Lude.ToQuery AccessLog where
   toQuery AccessLog' {..} =
-    mconcat
-      [ "EmitInterval" =: _alEmitInterval,
-        "S3BucketPrefix" =: _alS3BucketPrefix,
-        "S3BucketName" =: _alS3BucketName,
-        "Enabled" =: _alEnabled
+    Lude.mconcat
+      [ "EmitInterval" Lude.=: emitInterval,
+        "S3BucketPrefix" Lude.=: s3BucketPrefix,
+        "S3BucketName" Lude.=: s3BucketName,
+        "Enabled" Lude.=: enabled
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.OptionGroupMembership where
+module Network.AWS.RDS.Types.OptionGroupMembership
+  ( OptionGroupMembership (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOptionGroupMembership,
+
+    -- * Lenses
+    ogmStatus,
+    ogmOptionGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information on the option groups the DB instance is a member of.
 --
---
---
--- /See:/ 'optionGroupMembership' smart constructor.
+-- /See:/ 'mkOptionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
-  { _ogmStatus ::
-      !(Maybe Text),
-    _ogmOptionGroupName :: !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    optionGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionGroupMembership' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogmStatus' - The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
---
--- * 'ogmOptionGroupName' - The name of the option group that the instance belongs to.
-optionGroupMembership ::
+-- * 'optionGroupName' - The name of the option group that the instance belongs to.
+-- * 'status' - The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
+mkOptionGroupMembership ::
   OptionGroupMembership
-optionGroupMembership =
+mkOptionGroupMembership =
   OptionGroupMembership'
-    { _ogmStatus = Nothing,
-      _ogmOptionGroupName = Nothing
+    { status = Lude.Nothing,
+      optionGroupName = Lude.Nothing
     }
 
 -- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
-ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
-ogmStatus = lens _ogmStatus (\s a -> s {_ogmStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogmStatus :: Lens.Lens' OptionGroupMembership (Lude.Maybe Lude.Text)
+ogmStatus = Lens.lens (status :: OptionGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: OptionGroupMembership)
+{-# DEPRECATED ogmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the option group that the instance belongs to.
-ogmOptionGroupName :: Lens' OptionGroupMembership (Maybe Text)
-ogmOptionGroupName = lens _ogmOptionGroupName (\s a -> s {_ogmOptionGroupName = a})
+--
+-- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogmOptionGroupName :: Lens.Lens' OptionGroupMembership (Lude.Maybe Lude.Text)
+ogmOptionGroupName = Lens.lens (optionGroupName :: OptionGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupName = a} :: OptionGroupMembership)
+{-# DEPRECATED ogmOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance FromXML OptionGroupMembership where
+instance Lude.FromXML OptionGroupMembership where
   parseXML x =
     OptionGroupMembership'
-      <$> (x .@? "Status") <*> (x .@? "OptionGroupName")
-
-instance Hashable OptionGroupMembership
-
-instance NFData OptionGroupMembership
+      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "OptionGroupName")

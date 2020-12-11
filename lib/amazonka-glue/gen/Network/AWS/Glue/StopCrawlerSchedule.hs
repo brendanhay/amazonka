@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,118 @@
 --
 -- Sets the schedule state of the specified crawler to @NOT_SCHEDULED@ , but does not stop the crawler if it is already running.
 module Network.AWS.Glue.StopCrawlerSchedule
-  ( -- * Creating a Request
-    stopCrawlerSchedule,
-    StopCrawlerSchedule,
+  ( -- * Creating a request
+    StopCrawlerSchedule (..),
+    mkStopCrawlerSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sCrawlerName,
 
-    -- * Destructuring the Response
-    stopCrawlerScheduleResponse,
-    StopCrawlerScheduleResponse,
+    -- * Destructuring the response
+    StopCrawlerScheduleResponse (..),
+    mkStopCrawlerScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     storsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopCrawlerSchedule' smart constructor.
+-- | /See:/ 'mkStopCrawlerSchedule' smart constructor.
 newtype StopCrawlerSchedule = StopCrawlerSchedule'
-  { _sCrawlerName ::
-      Text
+  { crawlerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopCrawlerSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sCrawlerName' - Name of the crawler whose schedule state to set.
-stopCrawlerSchedule ::
-  -- | 'sCrawlerName'
-  Text ->
+-- * 'crawlerName' - Name of the crawler whose schedule state to set.
+mkStopCrawlerSchedule ::
+  -- | 'crawlerName'
+  Lude.Text ->
   StopCrawlerSchedule
-stopCrawlerSchedule pCrawlerName_ =
-  StopCrawlerSchedule' {_sCrawlerName = pCrawlerName_}
+mkStopCrawlerSchedule pCrawlerName_ =
+  StopCrawlerSchedule' {crawlerName = pCrawlerName_}
 
 -- | Name of the crawler whose schedule state to set.
-sCrawlerName :: Lens' StopCrawlerSchedule Text
-sCrawlerName = lens _sCrawlerName (\s a -> s {_sCrawlerName = a})
+--
+-- /Note:/ Consider using 'crawlerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCrawlerName :: Lens.Lens' StopCrawlerSchedule Lude.Text
+sCrawlerName = Lens.lens (crawlerName :: StopCrawlerSchedule -> Lude.Text) (\s a -> s {crawlerName = a} :: StopCrawlerSchedule)
+{-# DEPRECATED sCrawlerName "Use generic-lens or generic-optics with 'crawlerName' instead." #-}
 
-instance AWSRequest StopCrawlerSchedule where
+instance Lude.AWSRequest StopCrawlerSchedule where
   type Rs StopCrawlerSchedule = StopCrawlerScheduleResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> StopCrawlerScheduleResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StopCrawlerScheduleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StopCrawlerSchedule
-
-instance NFData StopCrawlerSchedule
-
-instance ToHeaders StopCrawlerSchedule where
+instance Lude.ToHeaders StopCrawlerSchedule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.StopCrawlerSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.StopCrawlerSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopCrawlerSchedule where
+instance Lude.ToJSON StopCrawlerSchedule where
   toJSON StopCrawlerSchedule' {..} =
-    object (catMaybes [Just ("CrawlerName" .= _sCrawlerName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("CrawlerName" Lude..= crawlerName)])
 
-instance ToPath StopCrawlerSchedule where
-  toPath = const "/"
+instance Lude.ToPath StopCrawlerSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery StopCrawlerSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery StopCrawlerSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopCrawlerScheduleResponse' smart constructor.
+-- | /See:/ 'mkStopCrawlerScheduleResponse' smart constructor.
 newtype StopCrawlerScheduleResponse = StopCrawlerScheduleResponse'
-  { _storsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopCrawlerScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'storsResponseStatus' - -- | The response status code.
-stopCrawlerScheduleResponse ::
-  -- | 'storsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopCrawlerScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopCrawlerScheduleResponse
-stopCrawlerScheduleResponse pResponseStatus_ =
-  StopCrawlerScheduleResponse'
-    { _storsResponseStatus =
-        pResponseStatus_
-    }
+mkStopCrawlerScheduleResponse pResponseStatus_ =
+  StopCrawlerScheduleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-storsResponseStatus :: Lens' StopCrawlerScheduleResponse Int
-storsResponseStatus = lens _storsResponseStatus (\s a -> s {_storsResponseStatus = a})
-
-instance NFData StopCrawlerScheduleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+storsResponseStatus :: Lens.Lens' StopCrawlerScheduleResponse Lude.Int
+storsResponseStatus = Lens.lens (responseStatus :: StopCrawlerScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopCrawlerScheduleResponse)
+{-# DEPRECATED storsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

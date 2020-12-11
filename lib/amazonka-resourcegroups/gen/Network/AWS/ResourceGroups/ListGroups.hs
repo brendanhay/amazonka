@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a list of existing resource groups in your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ResourceGroups.ListGroups
-  ( -- * Creating a Request
-    listGroups,
-    ListGroups,
+  ( -- * Creating a request
+    ListGroups (..),
+    mkListGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgFilters,
     lgNextToken,
     lgMaxResults,
 
-    -- * Destructuring the Response
-    listGroupsResponse,
-    ListGroupsResponse,
+    -- * Destructuring the response
+    ListGroupsResponse (..),
+    mkListGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgrsGroups,
     lgrsNextToken,
     lgrsGroupIdentifiers,
@@ -44,137 +37,185 @@ module Network.AWS.ResourceGroups.ListGroups
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGroups' smart constructor.
+-- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { _lgFilters :: !(Maybe [GroupFilter]),
-    _lgNextToken :: !(Maybe Text),
-    _lgMaxResults :: !(Maybe Nat)
+  { filters :: Lude.Maybe [GroupFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - Filters, formatted as 'GroupFilter' objects, that you want to apply to a @ListGroups@ operation.
 --
--- * 'lgFilters' - Filters, formatted as 'GroupFilter' objects, that you want to apply to a @ListGroups@ operation.     * @resource-type@ - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format @AWS::/ServiceCode/ ::/ResourceType/ @ . For example, @AWS::EC2::Instance@ , or @AWS::S3::Bucket@ .     * @configuration-type@ - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:     * AWS:EC2::CapacityReservationPool
 --
--- * 'lgNextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+--     * @resource-type@ - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format @AWS::/ServiceCode/ ::/ResourceType/ @ . For example, @AWS::EC2::Instance@ , or @AWS::S3::Bucket@ .
 --
--- * 'lgMaxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-listGroups ::
+--
+--     * @configuration-type@ - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:
+--
+--     * AWS:EC2::CapacityReservationPool
+--
+--
+--
+--
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+mkListGroups ::
   ListGroups
-listGroups =
+mkListGroups =
   ListGroups'
-    { _lgFilters = Nothing,
-      _lgNextToken = Nothing,
-      _lgMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | Filters, formatted as 'GroupFilter' objects, that you want to apply to a @ListGroups@ operation.     * @resource-type@ - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format @AWS::/ServiceCode/ ::/ResourceType/ @ . For example, @AWS::EC2::Instance@ , or @AWS::S3::Bucket@ .     * @configuration-type@ - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:     * AWS:EC2::CapacityReservationPool
-lgFilters :: Lens' ListGroups [GroupFilter]
-lgFilters = lens _lgFilters (\s a -> s {_lgFilters = a}) . _Default . _Coerce
+-- | Filters, formatted as 'GroupFilter' objects, that you want to apply to a @ListGroups@ operation.
+--
+--
+--     * @resource-type@ - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format @AWS::/ServiceCode/ ::/ResourceType/ @ . For example, @AWS::EC2::Instance@ , or @AWS::S3::Bucket@ .
+--
+--
+--     * @configuration-type@ - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:
+--
+--     * AWS:EC2::CapacityReservationPool
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgFilters :: Lens.Lens' ListGroups (Lude.Maybe [GroupFilter])
+lgFilters = Lens.lens (filters :: ListGroups -> Lude.Maybe [GroupFilter]) (\s a -> s {filters = a} :: ListGroups)
+{-# DEPRECATED lgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
-lgNextToken :: Lens' ListGroups (Maybe Text)
-lgNextToken = lens _lgNextToken (\s a -> s {_lgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgNextToken :: Lens.Lens' ListGroups (Lude.Maybe Lude.Text)
+lgNextToken = Lens.lens (nextToken :: ListGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroups)
+{-# DEPRECATED lgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-lgMaxResults :: Lens' ListGroups (Maybe Natural)
-lgMaxResults = lens _lgMaxResults (\s a -> s {_lgMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMaxResults :: Lens.Lens' ListGroups (Lude.Maybe Lude.Natural)
+lgMaxResults = Lens.lens (maxResults :: ListGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListGroups)
+{-# DEPRECATED lgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListGroups where
+instance Page.AWSPager ListGroups where
   page rq rs
-    | stop (rs ^. lgrsNextToken) = Nothing
-    | stop (rs ^. lgrsGroupIdentifiers) = Nothing
-    | stop (rs ^. lgrsGroups) = Nothing
-    | otherwise = Just $ rq & lgNextToken .~ rs ^. lgrsNextToken
+    | Page.stop (rs Lens.^. lgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgrsGroupIdentifiers) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgrsGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgNextToken Lens..~ rs Lens.^. lgrsNextToken
 
-instance AWSRequest ListGroups where
+instance Lude.AWSRequest ListGroups where
   type Rs ListGroups = ListGroupsResponse
-  request = postJSON resourceGroups
+  request = Req.postJSON resourceGroupsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            <$> (x .?> "Groups" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "GroupIdentifiers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Groups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "GroupIdentifiers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGroups
+instance Lude.ToHeaders ListGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListGroups
-
-instance ToHeaders ListGroups where
-  toHeaders = const mempty
-
-instance ToJSON ListGroups where
+instance Lude.ToJSON ListGroups where
   toJSON ListGroups' {..} =
-    object (catMaybes [("Filters" .=) <$> _lgFilters])
+    Lude.object
+      (Lude.catMaybes [("Filters" Lude..=) Lude.<$> filters])
 
-instance ToPath ListGroups where
-  toPath = const "/groups-list"
+instance Lude.ToPath ListGroups where
+  toPath = Lude.const "/groups-list"
 
-instance ToQuery ListGroups where
+instance Lude.ToQuery ListGroups where
   toQuery ListGroups' {..} =
-    mconcat
-      ["nextToken" =: _lgNextToken, "maxResults" =: _lgMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listGroupsResponse' smart constructor.
+-- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { _lgrsGroups ::
-      !(Maybe [Group]),
-    _lgrsNextToken :: !(Maybe Text),
-    _lgrsGroupIdentifiers :: !(Maybe [GroupIdentifier]),
-    _lgrsResponseStatus :: !Int
+  { groups ::
+      Lude.Maybe [Group],
+    nextToken :: Lude.Maybe Lude.Text,
+    groupIdentifiers :: Lude.Maybe [GroupIdentifier],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsGroups' - This output element is deprecated and shouldn't be used. Refer to @GroupIdentifiers@ instead.
---
--- * 'lgrsNextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'lgrsGroupIdentifiers' - A list of 'GroupIdentifier' objects. Each identifier is an object that contains both the @Name@ and the @GroupArn@ .
---
--- * 'lgrsResponseStatus' - -- | The response status code.
-listGroupsResponse ::
-  -- | 'lgrsResponseStatus'
-  Int ->
+-- * 'groupIdentifiers' - A list of 'GroupIdentifier' objects. Each identifier is an object that contains both the @Name@ and the @GroupArn@ .
+-- * 'groups' - This output element is deprecated and shouldn't be used. Refer to @GroupIdentifiers@ instead.
+-- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+-- * 'responseStatus' - The response status code.
+mkListGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupsResponse
-listGroupsResponse pResponseStatus_ =
+mkListGroupsResponse pResponseStatus_ =
   ListGroupsResponse'
-    { _lgrsGroups = Nothing,
-      _lgrsNextToken = Nothing,
-      _lgrsGroupIdentifiers = Nothing,
-      _lgrsResponseStatus = pResponseStatus_
+    { groups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      groupIdentifiers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | This output element is deprecated and shouldn't be used. Refer to @GroupIdentifiers@ instead.
-lgrsGroups :: Lens' ListGroupsResponse [Group]
-lgrsGroups = lens _lgrsGroups (\s a -> s {_lgrsGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGroups :: Lens.Lens' ListGroupsResponse (Lude.Maybe [Group])
+lgrsGroups = Lens.lens (groups :: ListGroupsResponse -> Lude.Maybe [Group]) (\s a -> s {groups = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-lgrsNextToken :: Lens' ListGroupsResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\s a -> s {_lgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsNextToken :: Lens.Lens' ListGroupsResponse (Lude.Maybe Lude.Text)
+lgrsNextToken = Lens.lens (nextToken :: ListGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of 'GroupIdentifier' objects. Each identifier is an object that contains both the @Name@ and the @GroupArn@ .
-lgrsGroupIdentifiers :: Lens' ListGroupsResponse [GroupIdentifier]
-lgrsGroupIdentifiers = lens _lgrsGroupIdentifiers (\s a -> s {_lgrsGroupIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGroupIdentifiers :: Lens.Lens' ListGroupsResponse (Lude.Maybe [GroupIdentifier])
+lgrsGroupIdentifiers = Lens.lens (groupIdentifiers :: ListGroupsResponse -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groupIdentifiers = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsGroupIdentifiers "Use generic-lens or generic-optics with 'groupIdentifiers' instead." #-}
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\s a -> s {_lgrsResponseStatus = a})
-
-instance NFData ListGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsResponseStatus :: Lens.Lens' ListGroupsResponse Lude.Int
+lgrsResponseStatus = Lens.lens (responseStatus :: ListGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

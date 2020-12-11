@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.StageRetryMode where
+module Network.AWS.CodePipeline.Types.StageRetryMode
+  ( StageRetryMode
+      ( StageRetryMode',
+        FailedActions
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StageRetryMode = FailedActions
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StageRetryMode = StageRetryMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StageRetryMode where
-  parser =
-    takeLowerText >>= \case
-      "failed_actions" -> pure FailedActions
-      e ->
-        fromTextError $
-          "Failure parsing StageRetryMode from value: '" <> e
-            <> "'. Accepted values: failed_actions"
+pattern FailedActions :: StageRetryMode
+pattern FailedActions = StageRetryMode' "FAILED_ACTIONS"
 
-instance ToText StageRetryMode where
-  toText = \case
-    FailedActions -> "FAILED_ACTIONS"
-
-instance Hashable StageRetryMode
-
-instance NFData StageRetryMode
-
-instance ToByteString StageRetryMode
-
-instance ToQuery StageRetryMode
-
-instance ToHeader StageRetryMode
-
-instance ToJSON StageRetryMode where
-  toJSON = toJSONText
+{-# COMPLETE
+  FailedActions,
+  StageRetryMode'
+  #-}

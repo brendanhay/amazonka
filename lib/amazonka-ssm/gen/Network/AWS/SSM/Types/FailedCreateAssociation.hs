@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.FailedCreateAssociation where
+module Network.AWS.SSM.Types.FailedCreateAssociation
+  ( FailedCreateAssociation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFailedCreateAssociation,
+
+    -- * Lenses
+    fcaEntry,
+    fcaFault,
+    fcaMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
 import Network.AWS.SSM.Types.Fault
 
 -- | Describes a failed association.
 --
---
---
--- /See:/ 'failedCreateAssociation' smart constructor.
+-- /See:/ 'mkFailedCreateAssociation' smart constructor.
 data FailedCreateAssociation = FailedCreateAssociation'
-  { _fcaEntry ::
-      !(Maybe CreateAssociationBatchRequestEntry),
-    _fcaFault :: !(Maybe Fault),
-    _fcaMessage :: !(Maybe Text)
+  { entry ::
+      Lude.Maybe
+        CreateAssociationBatchRequestEntry,
+    fault :: Lude.Maybe Fault,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedCreateAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcaEntry' - The association.
---
--- * 'fcaFault' - The source of the failure.
---
--- * 'fcaMessage' - A description of the failure.
-failedCreateAssociation ::
+-- * 'entry' - The association.
+-- * 'fault' - The source of the failure.
+-- * 'message' - A description of the failure.
+mkFailedCreateAssociation ::
   FailedCreateAssociation
-failedCreateAssociation =
+mkFailedCreateAssociation =
   FailedCreateAssociation'
-    { _fcaEntry = Nothing,
-      _fcaFault = Nothing,
-      _fcaMessage = Nothing
+    { entry = Lude.Nothing,
+      fault = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The association.
-fcaEntry :: Lens' FailedCreateAssociation (Maybe CreateAssociationBatchRequestEntry)
-fcaEntry = lens _fcaEntry (\s a -> s {_fcaEntry = a})
+--
+-- /Note:/ Consider using 'entry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcaEntry :: Lens.Lens' FailedCreateAssociation (Lude.Maybe CreateAssociationBatchRequestEntry)
+fcaEntry = Lens.lens (entry :: FailedCreateAssociation -> Lude.Maybe CreateAssociationBatchRequestEntry) (\s a -> s {entry = a} :: FailedCreateAssociation)
+{-# DEPRECATED fcaEntry "Use generic-lens or generic-optics with 'entry' instead." #-}
 
 -- | The source of the failure.
-fcaFault :: Lens' FailedCreateAssociation (Maybe Fault)
-fcaFault = lens _fcaFault (\s a -> s {_fcaFault = a})
+--
+-- /Note:/ Consider using 'fault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcaFault :: Lens.Lens' FailedCreateAssociation (Lude.Maybe Fault)
+fcaFault = Lens.lens (fault :: FailedCreateAssociation -> Lude.Maybe Fault) (\s a -> s {fault = a} :: FailedCreateAssociation)
+{-# DEPRECATED fcaFault "Use generic-lens or generic-optics with 'fault' instead." #-}
 
 -- | A description of the failure.
-fcaMessage :: Lens' FailedCreateAssociation (Maybe Text)
-fcaMessage = lens _fcaMessage (\s a -> s {_fcaMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcaMessage :: Lens.Lens' FailedCreateAssociation (Lude.Maybe Lude.Text)
+fcaMessage = Lens.lens (message :: FailedCreateAssociation -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: FailedCreateAssociation)
+{-# DEPRECATED fcaMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON FailedCreateAssociation where
+instance Lude.FromJSON FailedCreateAssociation where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailedCreateAssociation"
       ( \x ->
           FailedCreateAssociation'
-            <$> (x .:? "Entry") <*> (x .:? "Fault") <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "Entry")
+            Lude.<*> (x Lude..:? "Fault")
+            Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable FailedCreateAssociation
-
-instance NFData FailedCreateAssociation

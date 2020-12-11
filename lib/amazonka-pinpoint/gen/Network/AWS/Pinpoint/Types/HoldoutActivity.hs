@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.HoldoutActivity where
+module Network.AWS.Pinpoint.Types.HoldoutActivity
+  ( HoldoutActivity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHoldoutActivity,
+
+    -- * Lenses
+    haNextActivity,
+    haPercentage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a holdout activity in a journey. This type of activity stops a journey for a specified percentage of participants.
 --
---
---
--- /See:/ 'holdoutActivity' smart constructor.
+-- /See:/ 'mkHoldoutActivity' smart constructor.
 data HoldoutActivity = HoldoutActivity'
-  { _haNextActivity ::
-      !(Maybe Text),
-    _haPercentage :: !Int
+  { nextActivity ::
+      Lude.Maybe Lude.Text,
+    percentage :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HoldoutActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextActivity' - The unique identifier for the next activity to perform, after performing the holdout activity.
+-- * 'percentage' - The percentage of participants who shouldn't continue the journey.
 --
--- * 'haNextActivity' - The unique identifier for the next activity to perform, after performing the holdout activity.
---
--- * 'haPercentage' - The percentage of participants who shouldn't continue the journey. To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.
-holdoutActivity ::
-  -- | 'haPercentage'
-  Int ->
+-- To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.
+mkHoldoutActivity ::
+  -- | 'percentage'
+  Lude.Int ->
   HoldoutActivity
-holdoutActivity pPercentage_ =
+mkHoldoutActivity pPercentage_ =
   HoldoutActivity'
-    { _haNextActivity = Nothing,
-      _haPercentage = pPercentage_
+    { nextActivity = Lude.Nothing,
+      percentage = pPercentage_
     }
 
 -- | The unique identifier for the next activity to perform, after performing the holdout activity.
-haNextActivity :: Lens' HoldoutActivity (Maybe Text)
-haNextActivity = lens _haNextActivity (\s a -> s {_haNextActivity = a})
+--
+-- /Note:/ Consider using 'nextActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+haNextActivity :: Lens.Lens' HoldoutActivity (Lude.Maybe Lude.Text)
+haNextActivity = Lens.lens (nextActivity :: HoldoutActivity -> Lude.Maybe Lude.Text) (\s a -> s {nextActivity = a} :: HoldoutActivity)
+{-# DEPRECATED haNextActivity "Use generic-lens or generic-optics with 'nextActivity' instead." #-}
 
--- | The percentage of participants who shouldn't continue the journey. To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.
-haPercentage :: Lens' HoldoutActivity Int
-haPercentage = lens _haPercentage (\s a -> s {_haPercentage = a})
+-- | The percentage of participants who shouldn't continue the journey.
+--
+-- To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.
+--
+-- /Note:/ Consider using 'percentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+haPercentage :: Lens.Lens' HoldoutActivity Lude.Int
+haPercentage = Lens.lens (percentage :: HoldoutActivity -> Lude.Int) (\s a -> s {percentage = a} :: HoldoutActivity)
+{-# DEPRECATED haPercentage "Use generic-lens or generic-optics with 'percentage' instead." #-}
 
-instance FromJSON HoldoutActivity where
+instance Lude.FromJSON HoldoutActivity where
   parseJSON =
-    withObject
+    Lude.withObject
       "HoldoutActivity"
       ( \x ->
           HoldoutActivity'
-            <$> (x .:? "NextActivity") <*> (x .: "Percentage")
+            Lude.<$> (x Lude..:? "NextActivity") Lude.<*> (x Lude..: "Percentage")
       )
 
-instance Hashable HoldoutActivity
-
-instance NFData HoldoutActivity
-
-instance ToJSON HoldoutActivity where
+instance Lude.ToJSON HoldoutActivity where
   toJSON HoldoutActivity' {..} =
-    object
-      ( catMaybes
-          [ ("NextActivity" .=) <$> _haNextActivity,
-            Just ("Percentage" .= _haPercentage)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextActivity" Lude..=) Lude.<$> nextActivity,
+            Lude.Just ("Percentage" Lude..= percentage)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.Framework where
+module Network.AWS.SageMaker.Types.Framework
+  ( Framework
+      ( Framework',
+        Darknet,
+        Keras,
+        Mxnet,
+        Onnx,
+        Pytorch,
+        Tensorflow,
+        Tflite,
+        Xgboost
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Framework
-  = Darknet
-  | Keras
-  | Mxnet
-  | Onnx
-  | Pytorch
-  | Tensorflow
-  | Tflite
-  | Xgboost
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Framework = Framework' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Framework where
-  parser =
-    takeLowerText >>= \case
-      "darknet" -> pure Darknet
-      "keras" -> pure Keras
-      "mxnet" -> pure Mxnet
-      "onnx" -> pure Onnx
-      "pytorch" -> pure Pytorch
-      "tensorflow" -> pure Tensorflow
-      "tflite" -> pure Tflite
-      "xgboost" -> pure Xgboost
-      e ->
-        fromTextError $
-          "Failure parsing Framework from value: '" <> e
-            <> "'. Accepted values: darknet, keras, mxnet, onnx, pytorch, tensorflow, tflite, xgboost"
+pattern Darknet :: Framework
+pattern Darknet = Framework' "DARKNET"
 
-instance ToText Framework where
-  toText = \case
-    Darknet -> "DARKNET"
-    Keras -> "KERAS"
-    Mxnet -> "MXNET"
-    Onnx -> "ONNX"
-    Pytorch -> "PYTORCH"
-    Tensorflow -> "TENSORFLOW"
-    Tflite -> "TFLITE"
-    Xgboost -> "XGBOOST"
+pattern Keras :: Framework
+pattern Keras = Framework' "KERAS"
 
-instance Hashable Framework
+pattern Mxnet :: Framework
+pattern Mxnet = Framework' "MXNET"
 
-instance NFData Framework
+pattern Onnx :: Framework
+pattern Onnx = Framework' "ONNX"
 
-instance ToByteString Framework
+pattern Pytorch :: Framework
+pattern Pytorch = Framework' "PYTORCH"
 
-instance ToQuery Framework
+pattern Tensorflow :: Framework
+pattern Tensorflow = Framework' "TENSORFLOW"
 
-instance ToHeader Framework
+pattern Tflite :: Framework
+pattern Tflite = Framework' "TFLITE"
 
-instance ToJSON Framework where
-  toJSON = toJSONText
+pattern Xgboost :: Framework
+pattern Xgboost = Framework' "XGBOOST"
 
-instance FromJSON Framework where
-  parseJSON = parseJSONText "Framework"
+{-# COMPLETE
+  Darknet,
+  Keras,
+  Mxnet,
+  Onnx,
+  Pytorch,
+  Tensorflow,
+  Tflite,
+  Xgboost,
+  Framework'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns a list of versions of the package, along with their creation time and commit message.
 module Network.AWS.ElasticSearch.GetPackageVersionHistory
-  ( -- * Creating a Request
-    getPackageVersionHistory,
-    GetPackageVersionHistory,
+  ( -- * Creating a request
+    GetPackageVersionHistory (..),
+    mkGetPackageVersionHistory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpvhNextToken,
     gpvhMaxResults,
     gpvhPackageId,
 
-    -- * Destructuring the Response
-    getPackageVersionHistoryResponse,
-    GetPackageVersionHistoryResponse,
+    -- * Destructuring the response
+    GetPackageVersionHistoryResponse (..),
+    mkGetPackageVersionHistoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpvhrsPackageId,
     gpvhrsPackageVersionHistoryList,
     gpvhrsNextToken,
@@ -41,142 +36,157 @@ module Network.AWS.ElasticSearch.GetPackageVersionHistory
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for request parameters to @'GetPackageVersionHistory' @ operation.
 --
---
---
--- /See:/ 'getPackageVersionHistory' smart constructor.
+-- /See:/ 'mkGetPackageVersionHistory' smart constructor.
 data GetPackageVersionHistory = GetPackageVersionHistory'
-  { _gpvhNextToken ::
-      !(Maybe Text),
-    _gpvhMaxResults :: !(Maybe Int),
-    _gpvhPackageId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    packageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPackageVersionHistory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpvhNextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
---
--- * 'gpvhMaxResults' - Limits results to a maximum number of versions.
---
--- * 'gpvhPackageId' - Returns an audit history of versions of the package.
-getPackageVersionHistory ::
-  -- | 'gpvhPackageId'
-  Text ->
+-- * 'maxResults' - Limits results to a maximum number of versions.
+-- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+-- * 'packageId' - Returns an audit history of versions of the package.
+mkGetPackageVersionHistory ::
+  -- | 'packageId'
+  Lude.Text ->
   GetPackageVersionHistory
-getPackageVersionHistory pPackageId_ =
+mkGetPackageVersionHistory pPackageId_ =
   GetPackageVersionHistory'
-    { _gpvhNextToken = Nothing,
-      _gpvhMaxResults = Nothing,
-      _gpvhPackageId = pPackageId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      packageId = pPackageId_
     }
 
 -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
-gpvhNextToken :: Lens' GetPackageVersionHistory (Maybe Text)
-gpvhNextToken = lens _gpvhNextToken (\s a -> s {_gpvhNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhNextToken :: Lens.Lens' GetPackageVersionHistory (Lude.Maybe Lude.Text)
+gpvhNextToken = Lens.lens (nextToken :: GetPackageVersionHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPackageVersionHistory)
+{-# DEPRECATED gpvhNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limits results to a maximum number of versions.
-gpvhMaxResults :: Lens' GetPackageVersionHistory (Maybe Int)
-gpvhMaxResults = lens _gpvhMaxResults (\s a -> s {_gpvhMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhMaxResults :: Lens.Lens' GetPackageVersionHistory (Lude.Maybe Lude.Int)
+gpvhMaxResults = Lens.lens (maxResults :: GetPackageVersionHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetPackageVersionHistory)
+{-# DEPRECATED gpvhMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Returns an audit history of versions of the package.
-gpvhPackageId :: Lens' GetPackageVersionHistory Text
-gpvhPackageId = lens _gpvhPackageId (\s a -> s {_gpvhPackageId = a})
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhPackageId :: Lens.Lens' GetPackageVersionHistory Lude.Text
+gpvhPackageId = Lens.lens (packageId :: GetPackageVersionHistory -> Lude.Text) (\s a -> s {packageId = a} :: GetPackageVersionHistory)
+{-# DEPRECATED gpvhPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
-instance AWSRequest GetPackageVersionHistory where
+instance Lude.AWSRequest GetPackageVersionHistory where
   type Rs GetPackageVersionHistory = GetPackageVersionHistoryResponse
-  request = get elasticSearch
+  request = Req.get elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPackageVersionHistoryResponse'
-            <$> (x .?> "PackageID")
-            <*> (x .?> "PackageVersionHistoryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PackageID")
+            Lude.<*> (x Lude..?> "PackageVersionHistoryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPackageVersionHistory
+instance Lude.ToHeaders GetPackageVersionHistory where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetPackageVersionHistory
-
-instance ToHeaders GetPackageVersionHistory where
-  toHeaders = const mempty
-
-instance ToPath GetPackageVersionHistory where
+instance Lude.ToPath GetPackageVersionHistory where
   toPath GetPackageVersionHistory' {..} =
-    mconcat
-      ["/2015-01-01/packages/", toBS _gpvhPackageId, "/history"]
+    Lude.mconcat
+      ["/2015-01-01/packages/", Lude.toBS packageId, "/history"]
 
-instance ToQuery GetPackageVersionHistory where
+instance Lude.ToQuery GetPackageVersionHistory where
   toQuery GetPackageVersionHistory' {..} =
-    mconcat
-      ["nextToken" =: _gpvhNextToken, "maxResults" =: _gpvhMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Container for response returned by @'GetPackageVersionHistory' @ operation.
 --
---
---
--- /See:/ 'getPackageVersionHistoryResponse' smart constructor.
+-- /See:/ 'mkGetPackageVersionHistoryResponse' smart constructor.
 data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
-  { _gpvhrsPackageId ::
-      !(Maybe Text),
-    _gpvhrsPackageVersionHistoryList ::
-      !( Maybe
-           [PackageVersionHistory]
-       ),
-    _gpvhrsNextToken ::
-      !(Maybe Text),
-    _gpvhrsResponseStatus ::
-      !Int
+  { packageId ::
+      Lude.Maybe Lude.Text,
+    packageVersionHistoryList ::
+      Lude.Maybe
+        [PackageVersionHistory],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPackageVersionHistoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpvhrsPackageId' - Undocumented member.
---
--- * 'gpvhrsPackageVersionHistoryList' - List of @PackageVersionHistory@ objects.
---
--- * 'gpvhrsNextToken' - Undocumented member.
---
--- * 'gpvhrsResponseStatus' - -- | The response status code.
-getPackageVersionHistoryResponse ::
-  -- | 'gpvhrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Undocumented field.
+-- * 'packageId' - Undocumented field.
+-- * 'packageVersionHistoryList' - List of @PackageVersionHistory@ objects.
+-- * 'responseStatus' - The response status code.
+mkGetPackageVersionHistoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPackageVersionHistoryResponse
-getPackageVersionHistoryResponse pResponseStatus_ =
+mkGetPackageVersionHistoryResponse pResponseStatus_ =
   GetPackageVersionHistoryResponse'
-    { _gpvhrsPackageId = Nothing,
-      _gpvhrsPackageVersionHistoryList = Nothing,
-      _gpvhrsNextToken = Nothing,
-      _gpvhrsResponseStatus = pResponseStatus_
+    { packageId = Lude.Nothing,
+      packageVersionHistoryList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-gpvhrsPackageId :: Lens' GetPackageVersionHistoryResponse (Maybe Text)
-gpvhrsPackageId = lens _gpvhrsPackageId (\s a -> s {_gpvhrsPackageId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhrsPackageId :: Lens.Lens' GetPackageVersionHistoryResponse (Lude.Maybe Lude.Text)
+gpvhrsPackageId = Lens.lens (packageId :: GetPackageVersionHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {packageId = a} :: GetPackageVersionHistoryResponse)
+{-# DEPRECATED gpvhrsPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
 -- | List of @PackageVersionHistory@ objects.
-gpvhrsPackageVersionHistoryList :: Lens' GetPackageVersionHistoryResponse [PackageVersionHistory]
-gpvhrsPackageVersionHistoryList = lens _gpvhrsPackageVersionHistoryList (\s a -> s {_gpvhrsPackageVersionHistoryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'packageVersionHistoryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhrsPackageVersionHistoryList :: Lens.Lens' GetPackageVersionHistoryResponse (Lude.Maybe [PackageVersionHistory])
+gpvhrsPackageVersionHistoryList = Lens.lens (packageVersionHistoryList :: GetPackageVersionHistoryResponse -> Lude.Maybe [PackageVersionHistory]) (\s a -> s {packageVersionHistoryList = a} :: GetPackageVersionHistoryResponse)
+{-# DEPRECATED gpvhrsPackageVersionHistoryList "Use generic-lens or generic-optics with 'packageVersionHistoryList' instead." #-}
 
--- | Undocumented member.
-gpvhrsNextToken :: Lens' GetPackageVersionHistoryResponse (Maybe Text)
-gpvhrsNextToken = lens _gpvhrsNextToken (\s a -> s {_gpvhrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhrsNextToken :: Lens.Lens' GetPackageVersionHistoryResponse (Lude.Maybe Lude.Text)
+gpvhrsNextToken = Lens.lens (nextToken :: GetPackageVersionHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPackageVersionHistoryResponse)
+{-# DEPRECATED gpvhrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gpvhrsResponseStatus :: Lens' GetPackageVersionHistoryResponse Int
-gpvhrsResponseStatus = lens _gpvhrsResponseStatus (\s a -> s {_gpvhrsResponseStatus = a})
-
-instance NFData GetPackageVersionHistoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhrsResponseStatus :: Lens.Lens' GetPackageVersionHistoryResponse Lude.Int
+gpvhrsResponseStatus = Lens.lens (responseStatus :: GetPackageVersionHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPackageVersionHistoryResponse)
+{-# DEPRECATED gpvhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

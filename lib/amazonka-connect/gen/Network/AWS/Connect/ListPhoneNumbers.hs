@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,26 @@
 --
 -- Provides information about the phone numbers for the specified Amazon Connect instance.
 --
---
 -- For more information about phone numbers, see <https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html Set Up Phone Numbers for Your Contact Center> in the /Amazon Connect Administrator Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListPhoneNumbers
-  ( -- * Creating a Request
-    listPhoneNumbers,
-    ListPhoneNumbers,
+  ( -- * Creating a request
+    ListPhoneNumbers (..),
+    mkListPhoneNumbers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpnPhoneNumberTypes,
     lpnPhoneNumberCountryCodes,
     lpnNextToken,
     lpnMaxResults,
     lpnInstanceId,
 
-    -- * Destructuring the Response
-    listPhoneNumbersResponse,
-    ListPhoneNumbersResponse,
+    -- * Destructuring the response
+    ListPhoneNumbersResponse (..),
+    mkListPhoneNumbersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpnrsPhoneNumberSummaryList,
     lpnrsNextToken,
     lpnrsResponseStatus,
@@ -48,153 +41,181 @@ module Network.AWS.Connect.ListPhoneNumbers
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPhoneNumbers' smart constructor.
+-- | /See:/ 'mkListPhoneNumbers' smart constructor.
 data ListPhoneNumbers = ListPhoneNumbers'
-  { _lpnPhoneNumberTypes ::
-      !(Maybe [PhoneNumberType]),
-    _lpnPhoneNumberCountryCodes ::
-      !(Maybe [PhoneNumberCountryCode]),
-    _lpnNextToken :: !(Maybe Text),
-    _lpnMaxResults :: !(Maybe Nat),
-    _lpnInstanceId :: !Text
+  { phoneNumberTypes ::
+      Lude.Maybe [PhoneNumberType],
+    phoneNumberCountryCodes ::
+      Lude.Maybe [PhoneNumberCountryCode],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPhoneNumbers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpnPhoneNumberTypes' - The type of phone number.
---
--- * 'lpnPhoneNumberCountryCodes' - The ISO country code.
---
--- * 'lpnNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'lpnMaxResults' - The maximimum number of results to return per page.
---
--- * 'lpnInstanceId' - The identifier of the Amazon Connect instance.
-listPhoneNumbers ::
-  -- | 'lpnInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'maxResults' - The maximimum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'phoneNumberCountryCodes' - The ISO country code.
+-- * 'phoneNumberTypes' - The type of phone number.
+mkListPhoneNumbers ::
+  -- | 'instanceId'
+  Lude.Text ->
   ListPhoneNumbers
-listPhoneNumbers pInstanceId_ =
+mkListPhoneNumbers pInstanceId_ =
   ListPhoneNumbers'
-    { _lpnPhoneNumberTypes = Nothing,
-      _lpnPhoneNumberCountryCodes = Nothing,
-      _lpnNextToken = Nothing,
-      _lpnMaxResults = Nothing,
-      _lpnInstanceId = pInstanceId_
+    { phoneNumberTypes = Lude.Nothing,
+      phoneNumberCountryCodes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The type of phone number.
-lpnPhoneNumberTypes :: Lens' ListPhoneNumbers [PhoneNumberType]
-lpnPhoneNumberTypes = lens _lpnPhoneNumberTypes (\s a -> s {_lpnPhoneNumberTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phoneNumberTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnPhoneNumberTypes :: Lens.Lens' ListPhoneNumbers (Lude.Maybe [PhoneNumberType])
+lpnPhoneNumberTypes = Lens.lens (phoneNumberTypes :: ListPhoneNumbers -> Lude.Maybe [PhoneNumberType]) (\s a -> s {phoneNumberTypes = a} :: ListPhoneNumbers)
+{-# DEPRECATED lpnPhoneNumberTypes "Use generic-lens or generic-optics with 'phoneNumberTypes' instead." #-}
 
 -- | The ISO country code.
-lpnPhoneNumberCountryCodes :: Lens' ListPhoneNumbers [PhoneNumberCountryCode]
-lpnPhoneNumberCountryCodes = lens _lpnPhoneNumberCountryCodes (\s a -> s {_lpnPhoneNumberCountryCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phoneNumberCountryCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnPhoneNumberCountryCodes :: Lens.Lens' ListPhoneNumbers (Lude.Maybe [PhoneNumberCountryCode])
+lpnPhoneNumberCountryCodes = Lens.lens (phoneNumberCountryCodes :: ListPhoneNumbers -> Lude.Maybe [PhoneNumberCountryCode]) (\s a -> s {phoneNumberCountryCodes = a} :: ListPhoneNumbers)
+{-# DEPRECATED lpnPhoneNumberCountryCodes "Use generic-lens or generic-optics with 'phoneNumberCountryCodes' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-lpnNextToken :: Lens' ListPhoneNumbers (Maybe Text)
-lpnNextToken = lens _lpnNextToken (\s a -> s {_lpnNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnNextToken :: Lens.Lens' ListPhoneNumbers (Lude.Maybe Lude.Text)
+lpnNextToken = Lens.lens (nextToken :: ListPhoneNumbers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPhoneNumbers)
+{-# DEPRECATED lpnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
-lpnMaxResults :: Lens' ListPhoneNumbers (Maybe Natural)
-lpnMaxResults = lens _lpnMaxResults (\s a -> s {_lpnMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnMaxResults :: Lens.Lens' ListPhoneNumbers (Lude.Maybe Lude.Natural)
+lpnMaxResults = Lens.lens (maxResults :: ListPhoneNumbers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPhoneNumbers)
+{-# DEPRECATED lpnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-lpnInstanceId :: Lens' ListPhoneNumbers Text
-lpnInstanceId = lens _lpnInstanceId (\s a -> s {_lpnInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnInstanceId :: Lens.Lens' ListPhoneNumbers Lude.Text
+lpnInstanceId = Lens.lens (instanceId :: ListPhoneNumbers -> Lude.Text) (\s a -> s {instanceId = a} :: ListPhoneNumbers)
+{-# DEPRECATED lpnInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager ListPhoneNumbers where
+instance Page.AWSPager ListPhoneNumbers where
   page rq rs
-    | stop (rs ^. lpnrsNextToken) = Nothing
-    | stop (rs ^. lpnrsPhoneNumberSummaryList) = Nothing
-    | otherwise = Just $ rq & lpnNextToken .~ rs ^. lpnrsNextToken
+    | Page.stop (rs Lens.^. lpnrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lpnrsPhoneNumberSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpnNextToken Lens..~ rs Lens.^. lpnrsNextToken
 
-instance AWSRequest ListPhoneNumbers where
+instance Lude.AWSRequest ListPhoneNumbers where
   type Rs ListPhoneNumbers = ListPhoneNumbersResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPhoneNumbersResponse'
-            <$> (x .?> "PhoneNumberSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PhoneNumberSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPhoneNumbers
-
-instance NFData ListPhoneNumbers
-
-instance ToHeaders ListPhoneNumbers where
+instance Lude.ToHeaders ListPhoneNumbers where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListPhoneNumbers where
+instance Lude.ToPath ListPhoneNumbers where
   toPath ListPhoneNumbers' {..} =
-    mconcat ["/phone-numbers-summary/", toBS _lpnInstanceId]
+    Lude.mconcat ["/phone-numbers-summary/", Lude.toBS instanceId]
 
-instance ToQuery ListPhoneNumbers where
+instance Lude.ToQuery ListPhoneNumbers where
   toQuery ListPhoneNumbers' {..} =
-    mconcat
+    Lude.mconcat
       [ "phoneNumberTypes"
-          =: toQuery (toQueryList "member" <$> _lpnPhoneNumberTypes),
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> phoneNumberTypes),
         "phoneNumberCountryCodes"
-          =: toQuery (toQueryList "member" <$> _lpnPhoneNumberCountryCodes),
-        "nextToken" =: _lpnNextToken,
-        "maxResults" =: _lpnMaxResults
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> phoneNumberCountryCodes),
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listPhoneNumbersResponse' smart constructor.
+-- | /See:/ 'mkListPhoneNumbersResponse' smart constructor.
 data ListPhoneNumbersResponse = ListPhoneNumbersResponse'
-  { _lpnrsPhoneNumberSummaryList ::
-      !(Maybe [PhoneNumberSummary]),
-    _lpnrsNextToken :: !(Maybe Text),
-    _lpnrsResponseStatus :: !Int
+  { phoneNumberSummaryList ::
+      Lude.Maybe [PhoneNumberSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPhoneNumbersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpnrsPhoneNumberSummaryList' - Information about the phone numbers.
---
--- * 'lpnrsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'lpnrsResponseStatus' - -- | The response status code.
-listPhoneNumbersResponse ::
-  -- | 'lpnrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'phoneNumberSummaryList' - Information about the phone numbers.
+-- * 'responseStatus' - The response status code.
+mkListPhoneNumbersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPhoneNumbersResponse
-listPhoneNumbersResponse pResponseStatus_ =
+mkListPhoneNumbersResponse pResponseStatus_ =
   ListPhoneNumbersResponse'
-    { _lpnrsPhoneNumberSummaryList = Nothing,
-      _lpnrsNextToken = Nothing,
-      _lpnrsResponseStatus = pResponseStatus_
+    { phoneNumberSummaryList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the phone numbers.
-lpnrsPhoneNumberSummaryList :: Lens' ListPhoneNumbersResponse [PhoneNumberSummary]
-lpnrsPhoneNumberSummaryList = lens _lpnrsPhoneNumberSummaryList (\s a -> s {_lpnrsPhoneNumberSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phoneNumberSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnrsPhoneNumberSummaryList :: Lens.Lens' ListPhoneNumbersResponse (Lude.Maybe [PhoneNumberSummary])
+lpnrsPhoneNumberSummaryList = Lens.lens (phoneNumberSummaryList :: ListPhoneNumbersResponse -> Lude.Maybe [PhoneNumberSummary]) (\s a -> s {phoneNumberSummaryList = a} :: ListPhoneNumbersResponse)
+{-# DEPRECATED lpnrsPhoneNumberSummaryList "Use generic-lens or generic-optics with 'phoneNumberSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
-lpnrsNextToken :: Lens' ListPhoneNumbersResponse (Maybe Text)
-lpnrsNextToken = lens _lpnrsNextToken (\s a -> s {_lpnrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnrsNextToken :: Lens.Lens' ListPhoneNumbersResponse (Lude.Maybe Lude.Text)
+lpnrsNextToken = Lens.lens (nextToken :: ListPhoneNumbersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPhoneNumbersResponse)
+{-# DEPRECATED lpnrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lpnrsResponseStatus :: Lens' ListPhoneNumbersResponse Int
-lpnrsResponseStatus = lens _lpnrsResponseStatus (\s a -> s {_lpnrsResponseStatus = a})
-
-instance NFData ListPhoneNumbersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnrsResponseStatus :: Lens.Lens' ListPhoneNumbersResponse Lude.Int
+lpnrsResponseStatus = Lens.lens (responseStatus :: ListPhoneNumbersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPhoneNumbersResponse)
+{-# DEPRECATED lpnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

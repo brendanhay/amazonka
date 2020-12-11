@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,148 @@
 --
 -- Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a function, use 'PutFunctionConcurrency' .
 module Network.AWS.Lambda.GetFunctionConcurrency
-  ( -- * Creating a Request
-    getFunctionConcurrency,
-    GetFunctionConcurrency,
+  ( -- * Creating a request
+    GetFunctionConcurrency (..),
+    mkGetFunctionConcurrency,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gFunctionName,
 
-    -- * Destructuring the Response
-    getFunctionConcurrencyResponse,
-    GetFunctionConcurrencyResponse,
+    -- * Destructuring the response
+    GetFunctionConcurrencyResponse (..),
+    mkGetFunctionConcurrencyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfcrsReservedConcurrentExecutions,
     gfcrsResponseStatus,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFunctionConcurrency' smart constructor.
+-- | /See:/ 'mkGetFunctionConcurrency' smart constructor.
 newtype GetFunctionConcurrency = GetFunctionConcurrency'
-  { _gFunctionName ::
-      Text
+  { functionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionConcurrency' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'gFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-getFunctionConcurrency ::
-  -- | 'gFunctionName'
-  Text ->
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+mkGetFunctionConcurrency ::
+  -- | 'functionName'
+  Lude.Text ->
   GetFunctionConcurrency
-getFunctionConcurrency pFunctionName_ =
-  GetFunctionConcurrency' {_gFunctionName = pFunctionName_}
+mkGetFunctionConcurrency pFunctionName_ =
+  GetFunctionConcurrency' {functionName = pFunctionName_}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-gFunctionName :: Lens' GetFunctionConcurrency Text
-gFunctionName = lens _gFunctionName (\s a -> s {_gFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gFunctionName :: Lens.Lens' GetFunctionConcurrency Lude.Text
+gFunctionName = Lens.lens (functionName :: GetFunctionConcurrency -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConcurrency)
+{-# DEPRECATED gFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest GetFunctionConcurrency where
+instance Lude.AWSRequest GetFunctionConcurrency where
   type Rs GetFunctionConcurrency = GetFunctionConcurrencyResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFunctionConcurrencyResponse'
-            <$> (x .?> "ReservedConcurrentExecutions") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReservedConcurrentExecutions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFunctionConcurrency
+instance Lude.ToHeaders GetFunctionConcurrency where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetFunctionConcurrency
-
-instance ToHeaders GetFunctionConcurrency where
-  toHeaders = const mempty
-
-instance ToPath GetFunctionConcurrency where
+instance Lude.ToPath GetFunctionConcurrency where
   toPath GetFunctionConcurrency' {..} =
-    mconcat
-      ["/2019-09-30/functions/", toBS _gFunctionName, "/concurrency"]
+    Lude.mconcat
+      ["/2019-09-30/functions/", Lude.toBS functionName, "/concurrency"]
 
-instance ToQuery GetFunctionConcurrency where
-  toQuery = const mempty
+instance Lude.ToQuery GetFunctionConcurrency where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFunctionConcurrencyResponse' smart constructor.
+-- | /See:/ 'mkGetFunctionConcurrencyResponse' smart constructor.
 data GetFunctionConcurrencyResponse = GetFunctionConcurrencyResponse'
-  { _gfcrsReservedConcurrentExecutions ::
-      !(Maybe Nat),
-    _gfcrsResponseStatus :: !Int
+  { reservedConcurrentExecutions ::
+      Lude.Maybe Lude.Natural,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionConcurrencyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfcrsReservedConcurrentExecutions' - The number of simultaneous executions that are reserved for the function.
---
--- * 'gfcrsResponseStatus' - -- | The response status code.
-getFunctionConcurrencyResponse ::
-  -- | 'gfcrsResponseStatus'
-  Int ->
+-- * 'reservedConcurrentExecutions' - The number of simultaneous executions that are reserved for the function.
+-- * 'responseStatus' - The response status code.
+mkGetFunctionConcurrencyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFunctionConcurrencyResponse
-getFunctionConcurrencyResponse pResponseStatus_ =
+mkGetFunctionConcurrencyResponse pResponseStatus_ =
   GetFunctionConcurrencyResponse'
-    { _gfcrsReservedConcurrentExecutions =
-        Nothing,
-      _gfcrsResponseStatus = pResponseStatus_
+    { reservedConcurrentExecutions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The number of simultaneous executions that are reserved for the function.
-gfcrsReservedConcurrentExecutions :: Lens' GetFunctionConcurrencyResponse (Maybe Natural)
-gfcrsReservedConcurrentExecutions = lens _gfcrsReservedConcurrentExecutions (\s a -> s {_gfcrsReservedConcurrentExecutions = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'reservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfcrsReservedConcurrentExecutions :: Lens.Lens' GetFunctionConcurrencyResponse (Lude.Maybe Lude.Natural)
+gfcrsReservedConcurrentExecutions = Lens.lens (reservedConcurrentExecutions :: GetFunctionConcurrencyResponse -> Lude.Maybe Lude.Natural) (\s a -> s {reservedConcurrentExecutions = a} :: GetFunctionConcurrencyResponse)
+{-# DEPRECATED gfcrsReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
 
--- | -- | The response status code.
-gfcrsResponseStatus :: Lens' GetFunctionConcurrencyResponse Int
-gfcrsResponseStatus = lens _gfcrsResponseStatus (\s a -> s {_gfcrsResponseStatus = a})
-
-instance NFData GetFunctionConcurrencyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfcrsResponseStatus :: Lens.Lens' GetFunctionConcurrencyResponse Lude.Int
+gfcrsResponseStatus = Lens.lens (responseStatus :: GetFunctionConcurrencyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionConcurrencyResponse)
+{-# DEPRECATED gfcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

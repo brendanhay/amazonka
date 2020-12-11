@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,150 @@
 --
 -- Deletes the specified replication instance.
 module Network.AWS.DMS.DeleteReplicationInstance
-  ( -- * Creating a Request
-    deleteReplicationInstance,
-    DeleteReplicationInstance,
+  ( -- * Creating a request
+    DeleteReplicationInstance (..),
+    mkDeleteReplicationInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     driReplicationInstanceARN,
 
-    -- * Destructuring the Response
-    deleteReplicationInstanceResponse,
-    DeleteReplicationInstanceResponse,
+    -- * Destructuring the response
+    DeleteReplicationInstanceResponse (..),
+    mkDeleteReplicationInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drirsReplicationInstance,
     drirsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteReplicationInstance' smart constructor.
+-- /See:/ 'mkDeleteReplicationInstance' smart constructor.
 newtype DeleteReplicationInstance = DeleteReplicationInstance'
-  { _driReplicationInstanceARN ::
-      Text
+  { replicationInstanceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'driReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance to be deleted.
-deleteReplicationInstance ::
-  -- | 'driReplicationInstanceARN'
-  Text ->
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance to be deleted.
+mkDeleteReplicationInstance ::
+  -- | 'replicationInstanceARN'
+  Lude.Text ->
   DeleteReplicationInstance
-deleteReplicationInstance pReplicationInstanceARN_ =
+mkDeleteReplicationInstance pReplicationInstanceARN_ =
   DeleteReplicationInstance'
-    { _driReplicationInstanceARN =
+    { replicationInstanceARN =
         pReplicationInstanceARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the replication instance to be deleted.
-driReplicationInstanceARN :: Lens' DeleteReplicationInstance Text
-driReplicationInstanceARN = lens _driReplicationInstanceARN (\s a -> s {_driReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+driReplicationInstanceARN :: Lens.Lens' DeleteReplicationInstance Lude.Text
+driReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DeleteReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DeleteReplicationInstance)
+{-# DEPRECATED driReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
-instance AWSRequest DeleteReplicationInstance where
+instance Lude.AWSRequest DeleteReplicationInstance where
   type
     Rs DeleteReplicationInstance =
       DeleteReplicationInstanceResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteReplicationInstanceResponse'
-            <$> (x .?> "ReplicationInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationInstance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteReplicationInstance
-
-instance NFData DeleteReplicationInstance
-
-instance ToHeaders DeleteReplicationInstance where
+instance Lude.ToHeaders DeleteReplicationInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DeleteReplicationInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DeleteReplicationInstance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteReplicationInstance where
+instance Lude.ToJSON DeleteReplicationInstance where
   toJSON DeleteReplicationInstance' {..} =
-    object
-      ( catMaybes
-          [Just ("ReplicationInstanceArn" .= _driReplicationInstanceARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
+          ]
       )
 
-instance ToPath DeleteReplicationInstance where
-  toPath = const "/"
+instance Lude.ToPath DeleteReplicationInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteReplicationInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteReplicationInstance where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'deleteReplicationInstanceResponse' smart constructor.
+-- /See:/ 'mkDeleteReplicationInstanceResponse' smart constructor.
 data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
-  { _drirsReplicationInstance ::
-      !( Maybe
-           ReplicationInstance
-       ),
-    _drirsResponseStatus ::
-      !Int
+  { replicationInstance ::
+      Lude.Maybe
+        ReplicationInstance,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drirsReplicationInstance' - The replication instance that was deleted.
---
--- * 'drirsResponseStatus' - -- | The response status code.
-deleteReplicationInstanceResponse ::
-  -- | 'drirsResponseStatus'
-  Int ->
+-- * 'replicationInstance' - The replication instance that was deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteReplicationInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReplicationInstanceResponse
-deleteReplicationInstanceResponse pResponseStatus_ =
+mkDeleteReplicationInstanceResponse pResponseStatus_ =
   DeleteReplicationInstanceResponse'
-    { _drirsReplicationInstance =
-        Nothing,
-      _drirsResponseStatus = pResponseStatus_
+    { replicationInstance =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The replication instance that was deleted.
-drirsReplicationInstance :: Lens' DeleteReplicationInstanceResponse (Maybe ReplicationInstance)
-drirsReplicationInstance = lens _drirsReplicationInstance (\s a -> s {_drirsReplicationInstance = a})
+--
+-- /Note:/ Consider using 'replicationInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drirsReplicationInstance :: Lens.Lens' DeleteReplicationInstanceResponse (Lude.Maybe ReplicationInstance)
+drirsReplicationInstance = Lens.lens (replicationInstance :: DeleteReplicationInstanceResponse -> Lude.Maybe ReplicationInstance) (\s a -> s {replicationInstance = a} :: DeleteReplicationInstanceResponse)
+{-# DEPRECATED drirsReplicationInstance "Use generic-lens or generic-optics with 'replicationInstance' instead." #-}
 
--- | -- | The response status code.
-drirsResponseStatus :: Lens' DeleteReplicationInstanceResponse Int
-drirsResponseStatus = lens _drirsResponseStatus (\s a -> s {_drirsResponseStatus = a})
-
-instance NFData DeleteReplicationInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drirsResponseStatus :: Lens.Lens' DeleteReplicationInstanceResponse Lude.Int
+drirsResponseStatus = Lens.lens (responseStatus :: DeleteReplicationInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReplicationInstanceResponse)
+{-# DEPRECATED drirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The response includes only the volume ARNs. If you want additional volume information, use the 'DescribeStorediSCSIVolumes' or the 'DescribeCachediSCSIVolumes' API.
 --
---
 -- The operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the @Limit@ field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes. This operation is only supported in the cached volume and stored volume gateway types.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListVolumes
-  ( -- * Creating a Request
-    listVolumes,
-    ListVolumes,
+  ( -- * Creating a request
+    ListVolumes (..),
+    mkListVolumes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvGatewayARN,
     lvMarker,
     lvLimit,
 
-    -- * Destructuring the Response
-    listVolumesResponse,
-    ListVolumesResponse,
+    -- * Destructuring the response
+    ListVolumesResponse (..),
+    mkListVolumesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvrsGatewayARN,
     lvrsMarker,
     lvrsVolumeInfos,
@@ -46,11 +39,11 @@ module Network.AWS.StorageGateway.ListVolumes
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object that contains one or more of the following fields:
@@ -58,155 +51,177 @@ import Network.AWS.StorageGateway.Types
 --
 --     * 'ListVolumesInput$Limit'
 --
+--
 --     * 'ListVolumesInput$Marker'
 --
 --
 --
---
--- /See:/ 'listVolumes' smart constructor.
+-- /See:/ 'mkListVolumes' smart constructor.
 data ListVolumes = ListVolumes'
-  { _lvGatewayARN :: !(Maybe Text),
-    _lvMarker :: !(Maybe Text),
-    _lvLimit :: !(Maybe Nat)
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVolumes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvGatewayARN' - Undocumented member.
---
--- * 'lvMarker' - A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
---
--- * 'lvLimit' - Specifies that the list of volumes returned be limited to the specified number of items.
-listVolumes ::
+-- * 'gatewayARN' - Undocumented field.
+-- * 'limit' - Specifies that the list of volumes returned be limited to the specified number of items.
+-- * 'marker' - A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
+mkListVolumes ::
   ListVolumes
-listVolumes =
+mkListVolumes =
   ListVolumes'
-    { _lvGatewayARN = Nothing,
-      _lvMarker = Nothing,
-      _lvLimit = Nothing
+    { gatewayARN = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
--- | Undocumented member.
-lvGatewayARN :: Lens' ListVolumes (Maybe Text)
-lvGatewayARN = lens _lvGatewayARN (\s a -> s {_lvGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvGatewayARN :: Lens.Lens' ListVolumes (Lude.Maybe Lude.Text)
+lvGatewayARN = Lens.lens (gatewayARN :: ListVolumes -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ListVolumes)
+{-# DEPRECATED lvGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
-lvMarker :: Lens' ListVolumes (Maybe Text)
-lvMarker = lens _lvMarker (\s a -> s {_lvMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvMarker :: Lens.Lens' ListVolumes (Lude.Maybe Lude.Text)
+lvMarker = Lens.lens (marker :: ListVolumes -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListVolumes)
+{-# DEPRECATED lvMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies that the list of volumes returned be limited to the specified number of items.
-lvLimit :: Lens' ListVolumes (Maybe Natural)
-lvLimit = lens _lvLimit (\s a -> s {_lvLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvLimit :: Lens.Lens' ListVolumes (Lude.Maybe Lude.Natural)
+lvLimit = Lens.lens (limit :: ListVolumes -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListVolumes)
+{-# DEPRECATED lvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListVolumes where
+instance Page.AWSPager ListVolumes where
   page rq rs
-    | stop (rs ^. lvrsMarker) = Nothing
-    | stop (rs ^. lvrsVolumeInfos) = Nothing
-    | otherwise = Just $ rq & lvMarker .~ rs ^. lvrsMarker
+    | Page.stop (rs Lens.^. lvrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lvrsVolumeInfos) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lvMarker Lens..~ rs Lens.^. lvrsMarker
 
-instance AWSRequest ListVolumes where
+instance Lude.AWSRequest ListVolumes where
   type Rs ListVolumes = ListVolumesResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVolumesResponse'
-            <$> (x .?> "GatewayARN")
-            <*> (x .?> "Marker")
-            <*> (x .?> "VolumeInfos" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN")
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "VolumeInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVolumes
-
-instance NFData ListVolumes
-
-instance ToHeaders ListVolumes where
+instance Lude.ToHeaders ListVolumes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.ListVolumes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.ListVolumes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListVolumes where
+instance Lude.ToJSON ListVolumes where
   toJSON ListVolumes' {..} =
-    object
-      ( catMaybes
-          [ ("GatewayARN" .=) <$> _lvGatewayARN,
-            ("Marker" .=) <$> _lvMarker,
-            ("Limit" .=) <$> _lvLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GatewayARN" Lude..=) Lude.<$> gatewayARN,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListVolumes where
-  toPath = const "/"
+instance Lude.ToPath ListVolumes where
+  toPath = Lude.const "/"
 
-instance ToQuery ListVolumes where
-  toQuery = const mempty
+instance Lude.ToQuery ListVolumes where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
 --
 --     * 'ListVolumesOutput$Marker'
 --
+--
 --     * 'ListVolumesOutput$VolumeInfos'
 --
 --
 --
---
--- /See:/ 'listVolumesResponse' smart constructor.
+-- /See:/ 'mkListVolumesResponse' smart constructor.
 data ListVolumesResponse = ListVolumesResponse'
-  { _lvrsGatewayARN ::
-      !(Maybe Text),
-    _lvrsMarker :: !(Maybe Text),
-    _lvrsVolumeInfos :: !(Maybe [VolumeInfo]),
-    _lvrsResponseStatus :: !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    volumeInfos :: Lude.Maybe [VolumeInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVolumesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvrsGatewayARN' - Undocumented member.
---
--- * 'lvrsMarker' - Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
---
--- * 'lvrsVolumeInfos' - An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
---
--- * 'lvrsResponseStatus' - -- | The response status code.
-listVolumesResponse ::
-  -- | 'lvrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'marker' - Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
+-- * 'responseStatus' - The response status code.
+-- * 'volumeInfos' - An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
+mkListVolumesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVolumesResponse
-listVolumesResponse pResponseStatus_ =
+mkListVolumesResponse pResponseStatus_ =
   ListVolumesResponse'
-    { _lvrsGatewayARN = Nothing,
-      _lvrsMarker = Nothing,
-      _lvrsVolumeInfos = Nothing,
-      _lvrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      marker = Lude.Nothing,
+      volumeInfos = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
-lvrsGatewayARN = lens _lvrsGatewayARN (\s a -> s {_lvrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsGatewayARN :: Lens.Lens' ListVolumesResponse (Lude.Maybe Lude.Text)
+lvrsGatewayARN = Lens.lens (gatewayARN :: ListVolumesResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ListVolumesResponse)
+{-# DEPRECATED lvrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
-lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
-lvrsMarker = lens _lvrsMarker (\s a -> s {_lvrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsMarker :: Lens.Lens' ListVolumesResponse (Lude.Maybe Lude.Text)
+lvrsMarker = Lens.lens (marker :: ListVolumesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListVolumesResponse)
+{-# DEPRECATED lvrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
-lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
-lvrsVolumeInfos = lens _lvrsVolumeInfos (\s a -> s {_lvrsVolumeInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumeInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsVolumeInfos :: Lens.Lens' ListVolumesResponse (Lude.Maybe [VolumeInfo])
+lvrsVolumeInfos = Lens.lens (volumeInfos :: ListVolumesResponse -> Lude.Maybe [VolumeInfo]) (\s a -> s {volumeInfos = a} :: ListVolumesResponse)
+{-# DEPRECATED lvrsVolumeInfos "Use generic-lens or generic-optics with 'volumeInfos' instead." #-}
 
--- | -- | The response status code.
-lvrsResponseStatus :: Lens' ListVolumesResponse Int
-lvrsResponseStatus = lens _lvrsResponseStatus (\s a -> s {_lvrsResponseStatus = a})
-
-instance NFData ListVolumesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsResponseStatus :: Lens.Lens' ListVolumesResponse Lude.Int
+lvrsResponseStatus = Lens.lens (responseStatus :: ListVolumesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVolumesResponse)
+{-# DEPRECATED lvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

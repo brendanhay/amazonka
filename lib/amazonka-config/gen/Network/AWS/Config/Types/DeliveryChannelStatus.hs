@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.DeliveryChannelStatus where
+module Network.AWS.Config.Types.DeliveryChannelStatus
+  ( DeliveryChannelStatus (..),
+
+    -- * Smart constructor
+    mkDeliveryChannelStatus,
+
+    -- * Lenses
+    dcsConfigSnapshotDeliveryInfo,
+    dcsConfigStreamDeliveryInfo,
+    dcsConfigHistoryDeliveryInfo,
+    dcsName,
+  )
+where
 
 import Network.AWS.Config.Types.ConfigExportDeliveryInfo
 import Network.AWS.Config.Types.ConfigStreamDeliveryInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of a specified delivery channel.
 --
---
 -- Valid values: @Success@ | @Failure@
 --
---
--- /See:/ 'deliveryChannelStatus' smart constructor.
+-- /See:/ 'mkDeliveryChannelStatus' smart constructor.
 data DeliveryChannelStatus = DeliveryChannelStatus'
-  { _dcsConfigSnapshotDeliveryInfo ::
-      !(Maybe ConfigExportDeliveryInfo),
-    _dcsConfigStreamDeliveryInfo ::
-      !(Maybe ConfigStreamDeliveryInfo),
-    _dcsConfigHistoryDeliveryInfo ::
-      !(Maybe ConfigExportDeliveryInfo),
-    _dcsName :: !(Maybe Text)
+  { configSnapshotDeliveryInfo ::
+      Lude.Maybe ConfigExportDeliveryInfo,
+    configStreamDeliveryInfo ::
+      Lude.Maybe ConfigStreamDeliveryInfo,
+    configHistoryDeliveryInfo ::
+      Lude.Maybe ConfigExportDeliveryInfo,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryChannelStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsConfigSnapshotDeliveryInfo' - A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
---
--- * 'dcsConfigStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
---
--- * 'dcsConfigHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
---
--- * 'dcsName' - The name of the delivery channel.
-deliveryChannelStatus ::
+-- * 'configHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
+-- * 'configSnapshotDeliveryInfo' - A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
+-- * 'configStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
+-- * 'name' - The name of the delivery channel.
+mkDeliveryChannelStatus ::
   DeliveryChannelStatus
-deliveryChannelStatus =
+mkDeliveryChannelStatus =
   DeliveryChannelStatus'
-    { _dcsConfigSnapshotDeliveryInfo = Nothing,
-      _dcsConfigStreamDeliveryInfo = Nothing,
-      _dcsConfigHistoryDeliveryInfo = Nothing,
-      _dcsName = Nothing
+    { configSnapshotDeliveryInfo = Lude.Nothing,
+      configStreamDeliveryInfo = Lude.Nothing,
+      configHistoryDeliveryInfo = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
-dcsConfigSnapshotDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
-dcsConfigSnapshotDeliveryInfo = lens _dcsConfigSnapshotDeliveryInfo (\s a -> s {_dcsConfigSnapshotDeliveryInfo = a})
+--
+-- /Note:/ Consider using 'configSnapshotDeliveryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsConfigSnapshotDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Lude.Maybe ConfigExportDeliveryInfo)
+dcsConfigSnapshotDeliveryInfo = Lens.lens (configSnapshotDeliveryInfo :: DeliveryChannelStatus -> Lude.Maybe ConfigExportDeliveryInfo) (\s a -> s {configSnapshotDeliveryInfo = a} :: DeliveryChannelStatus)
+{-# DEPRECATED dcsConfigSnapshotDeliveryInfo "Use generic-lens or generic-optics with 'configSnapshotDeliveryInfo' instead." #-}
 
 -- | A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
-dcsConfigStreamDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigStreamDeliveryInfo)
-dcsConfigStreamDeliveryInfo = lens _dcsConfigStreamDeliveryInfo (\s a -> s {_dcsConfigStreamDeliveryInfo = a})
+--
+-- /Note:/ Consider using 'configStreamDeliveryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsConfigStreamDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Lude.Maybe ConfigStreamDeliveryInfo)
+dcsConfigStreamDeliveryInfo = Lens.lens (configStreamDeliveryInfo :: DeliveryChannelStatus -> Lude.Maybe ConfigStreamDeliveryInfo) (\s a -> s {configStreamDeliveryInfo = a} :: DeliveryChannelStatus)
+{-# DEPRECATED dcsConfigStreamDeliveryInfo "Use generic-lens or generic-optics with 'configStreamDeliveryInfo' instead." #-}
 
 -- | A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
-dcsConfigHistoryDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
-dcsConfigHistoryDeliveryInfo = lens _dcsConfigHistoryDeliveryInfo (\s a -> s {_dcsConfigHistoryDeliveryInfo = a})
+--
+-- /Note:/ Consider using 'configHistoryDeliveryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsConfigHistoryDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Lude.Maybe ConfigExportDeliveryInfo)
+dcsConfigHistoryDeliveryInfo = Lens.lens (configHistoryDeliveryInfo :: DeliveryChannelStatus -> Lude.Maybe ConfigExportDeliveryInfo) (\s a -> s {configHistoryDeliveryInfo = a} :: DeliveryChannelStatus)
+{-# DEPRECATED dcsConfigHistoryDeliveryInfo "Use generic-lens or generic-optics with 'configHistoryDeliveryInfo' instead." #-}
 
 -- | The name of the delivery channel.
-dcsName :: Lens' DeliveryChannelStatus (Maybe Text)
-dcsName = lens _dcsName (\s a -> s {_dcsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsName :: Lens.Lens' DeliveryChannelStatus (Lude.Maybe Lude.Text)
+dcsName = Lens.lens (name :: DeliveryChannelStatus -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeliveryChannelStatus)
+{-# DEPRECATED dcsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON DeliveryChannelStatus where
+instance Lude.FromJSON DeliveryChannelStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeliveryChannelStatus"
       ( \x ->
           DeliveryChannelStatus'
-            <$> (x .:? "configSnapshotDeliveryInfo")
-            <*> (x .:? "configStreamDeliveryInfo")
-            <*> (x .:? "configHistoryDeliveryInfo")
-            <*> (x .:? "name")
+            Lude.<$> (x Lude..:? "configSnapshotDeliveryInfo")
+            Lude.<*> (x Lude..:? "configStreamDeliveryInfo")
+            Lude.<*> (x Lude..:? "configHistoryDeliveryInfo")
+            Lude.<*> (x Lude..:? "name")
       )
-
-instance Hashable DeliveryChannelStatus
-
-instance NFData DeliveryChannelStatus

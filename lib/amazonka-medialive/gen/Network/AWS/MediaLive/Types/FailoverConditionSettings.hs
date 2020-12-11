@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.FailoverConditionSettings where
+module Network.AWS.MediaLive.Types.FailoverConditionSettings
+  ( FailoverConditionSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkFailoverConditionSettings,
+
+    -- * Lenses
+    fcsInputLossSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputLossFailoverSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for one failover condition.
 --
--- /See:/ 'failoverConditionSettings' smart constructor.
+-- /See:/ 'mkFailoverConditionSettings' smart constructor.
 newtype FailoverConditionSettings = FailoverConditionSettings'
-  { _fcsInputLossSettings ::
-      Maybe InputLossFailoverSettings
+  { inputLossSettings ::
+      Lude.Maybe InputLossFailoverSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailoverConditionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcsInputLossSettings' - MediaLive will perform a failover if content is not detected in this input for the specified period.
-failoverConditionSettings ::
+-- * 'inputLossSettings' - MediaLive will perform a failover if content is not detected in this input for the specified period.
+mkFailoverConditionSettings ::
   FailoverConditionSettings
-failoverConditionSettings =
-  FailoverConditionSettings' {_fcsInputLossSettings = Nothing}
+mkFailoverConditionSettings =
+  FailoverConditionSettings' {inputLossSettings = Lude.Nothing}
 
 -- | MediaLive will perform a failover if content is not detected in this input for the specified period.
-fcsInputLossSettings :: Lens' FailoverConditionSettings (Maybe InputLossFailoverSettings)
-fcsInputLossSettings = lens _fcsInputLossSettings (\s a -> s {_fcsInputLossSettings = a})
+--
+-- /Note:/ Consider using 'inputLossSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcsInputLossSettings :: Lens.Lens' FailoverConditionSettings (Lude.Maybe InputLossFailoverSettings)
+fcsInputLossSettings = Lens.lens (inputLossSettings :: FailoverConditionSettings -> Lude.Maybe InputLossFailoverSettings) (\s a -> s {inputLossSettings = a} :: FailoverConditionSettings)
+{-# DEPRECATED fcsInputLossSettings "Use generic-lens or generic-optics with 'inputLossSettings' instead." #-}
 
-instance FromJSON FailoverConditionSettings where
+instance Lude.FromJSON FailoverConditionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailoverConditionSettings"
-      (\x -> FailoverConditionSettings' <$> (x .:? "inputLossSettings"))
+      ( \x ->
+          FailoverConditionSettings'
+            Lude.<$> (x Lude..:? "inputLossSettings")
+      )
 
-instance Hashable FailoverConditionSettings
-
-instance NFData FailoverConditionSettings
-
-instance ToJSON FailoverConditionSettings where
+instance Lude.ToJSON FailoverConditionSettings where
   toJSON FailoverConditionSettings' {..} =
-    object
-      (catMaybes [("inputLossSettings" .=) <$> _fcsInputLossSettings])
+    Lude.object
+      ( Lude.catMaybes
+          [("inputLossSettings" Lude..=) Lude.<$> inputLossSettings]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.StackSetOperationType where
+module Network.AWS.ServiceCatalog.Types.StackSetOperationType
+  ( StackSetOperationType
+      ( StackSetOperationType',
+        Create,
+        Delete,
+        Update
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackSetOperationType
-  = Create
-  | Delete
-  | Update
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackSetOperationType = StackSetOperationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackSetOperationType where
-  parser =
-    takeLowerText >>= \case
-      "create" -> pure Create
-      "delete" -> pure Delete
-      "update" -> pure Update
-      e ->
-        fromTextError $
-          "Failure parsing StackSetOperationType from value: '" <> e
-            <> "'. Accepted values: create, delete, update"
+pattern Create :: StackSetOperationType
+pattern Create = StackSetOperationType' "CREATE"
 
-instance ToText StackSetOperationType where
-  toText = \case
-    Create -> "CREATE"
-    Delete -> "DELETE"
-    Update -> "UPDATE"
+pattern Delete :: StackSetOperationType
+pattern Delete = StackSetOperationType' "DELETE"
 
-instance Hashable StackSetOperationType
+pattern Update :: StackSetOperationType
+pattern Update = StackSetOperationType' "UPDATE"
 
-instance NFData StackSetOperationType
-
-instance ToByteString StackSetOperationType
-
-instance ToQuery StackSetOperationType
-
-instance ToHeader StackSetOperationType
-
-instance ToJSON StackSetOperationType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Create,
+  Delete,
+  Update,
+  StackSetOperationType'
+  #-}

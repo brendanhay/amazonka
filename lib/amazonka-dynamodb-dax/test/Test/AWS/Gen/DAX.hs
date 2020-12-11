@@ -28,133 +28,133 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeClusters $
---             describeClusters
+--             mkDescribeClusters
 --
 --         , requestDescribeParameters $
---             describeParameters
+--             mkDescribeParameters
 --
 --         , requestDescribeEvents $
---             describeEvents
+--             mkDescribeEvents
 --
 --         , requestIncreaseReplicationFactor $
---             increaseReplicationFactor
+--             mkIncreaseReplicationFactor
 --
 --         , requestCreateSubnetGroup $
---             createSubnetGroup
+--             mkCreateSubnetGroup
 --
 --         , requestDeleteCluster $
---             deleteCluster
+--             mkDeleteCluster
 --
 --         , requestUpdateCluster $
---             updateCluster
+--             mkUpdateCluster
 --
 --         , requestCreateCluster $
---             createCluster
+--             mkCreateCluster
 --
 --         , requestDescribeDefaultParameters $
---             describeDefaultParameters
+--             mkDescribeDefaultParameters
 --
 --         , requestDeleteParameterGroup $
---             deleteParameterGroup
+--             mkDeleteParameterGroup
 --
 --         , requestUpdateParameterGroup $
---             updateParameterGroup
+--             mkUpdateParameterGroup
 --
 --         , requestDescribeSubnetGroups $
---             describeSubnetGroups
+--             mkDescribeSubnetGroups
 --
 --         , requestCreateParameterGroup $
---             createParameterGroup
+--             mkCreateParameterGroup
 --
 --         , requestUpdateSubnetGroup $
---             updateSubnetGroup
+--             mkUpdateSubnetGroup
 --
 --         , requestDeleteSubnetGroup $
---             deleteSubnetGroup
+--             mkDeleteSubnetGroup
 --
 --         , requestDescribeParameterGroups $
---             describeParameterGroups
+--             mkDescribeParameterGroups
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestListTags $
---             listTags
+--             mkListTags
 --
 --         , requestDecreaseReplicationFactor $
---             decreaseReplicationFactor
+--             mkDecreaseReplicationFactor
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestRebootNode $
---             rebootNode
+--             mkRebootNode
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeClusters $
---             describeClustersResponse
+--             mkDescribeClustersResponse
 --
 --         , responseDescribeParameters $
---             describeParametersResponse
+--             mkDescribeParametersResponse
 --
 --         , responseDescribeEvents $
---             describeEventsResponse
+--             mkDescribeEventsResponse
 --
 --         , responseIncreaseReplicationFactor $
---             increaseReplicationFactorResponse
+--             mkIncreaseReplicationFactorResponse
 --
 --         , responseCreateSubnetGroup $
---             createSubnetGroupResponse
+--             mkCreateSubnetGroupResponse
 --
 --         , responseDeleteCluster $
---             deleteClusterResponse
+--             mkDeleteClusterResponse
 --
 --         , responseUpdateCluster $
---             updateClusterResponse
+--             mkUpdateClusterResponse
 --
 --         , responseCreateCluster $
---             createClusterResponse
+--             mkCreateClusterResponse
 --
 --         , responseDescribeDefaultParameters $
---             describeDefaultParametersResponse
+--             mkDescribeDefaultParametersResponse
 --
 --         , responseDeleteParameterGroup $
---             deleteParameterGroupResponse
+--             mkDeleteParameterGroupResponse
 --
 --         , responseUpdateParameterGroup $
---             updateParameterGroupResponse
+--             mkUpdateParameterGroupResponse
 --
 --         , responseDescribeSubnetGroups $
---             describeSubnetGroupsResponse
+--             mkDescribeSubnetGroupsResponse
 --
 --         , responseCreateParameterGroup $
---             createParameterGroupResponse
+--             mkCreateParameterGroupResponse
 --
 --         , responseUpdateSubnetGroup $
---             updateSubnetGroupResponse
+--             mkUpdateSubnetGroupResponse
 --
 --         , responseDeleteSubnetGroup $
---             deleteSubnetGroupResponse
+--             mkDeleteSubnetGroupResponse
 --
 --         , responseDescribeParameterGroups $
---             describeParameterGroupsResponse
+--             mkDescribeParameterGroupsResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseListTags $
---             listTagsResponse
+--             mkListTagsResponse
 --
 --         , responseDecreaseReplicationFactor $
---             decreaseReplicationFactorResponse
+--             mkDecreaseReplicationFactorResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseRebootNode $
---             rebootNodeResponse
+--             mkRebootNodeResponse
 --
 --           ]
 --     ]
@@ -294,7 +294,7 @@ responseDescribeClusters =
   res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DescribeClusters)
 
 responseDescribeParameters :: DescribeParametersResponse -> TestTree
@@ -302,7 +302,7 @@ responseDescribeParameters =
   res
     "DescribeParametersResponse"
     "fixture/DescribeParametersResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DescribeParameters)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -310,7 +310,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DescribeEvents)
 
 responseIncreaseReplicationFactor :: IncreaseReplicationFactorResponse -> TestTree
@@ -318,7 +318,7 @@ responseIncreaseReplicationFactor =
   res
     "IncreaseReplicationFactorResponse"
     "fixture/IncreaseReplicationFactorResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy IncreaseReplicationFactor)
 
 responseCreateSubnetGroup :: CreateSubnetGroupResponse -> TestTree
@@ -326,7 +326,7 @@ responseCreateSubnetGroup =
   res
     "CreateSubnetGroupResponse"
     "fixture/CreateSubnetGroupResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy CreateSubnetGroup)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
@@ -334,7 +334,7 @@ responseDeleteCluster =
   res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DeleteCluster)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
@@ -342,7 +342,7 @@ responseUpdateCluster =
   res
     "UpdateClusterResponse"
     "fixture/UpdateClusterResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy UpdateCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
@@ -350,7 +350,7 @@ responseCreateCluster =
   res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy CreateCluster)
 
 responseDescribeDefaultParameters :: DescribeDefaultParametersResponse -> TestTree
@@ -358,7 +358,7 @@ responseDescribeDefaultParameters =
   res
     "DescribeDefaultParametersResponse"
     "fixture/DescribeDefaultParametersResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DescribeDefaultParameters)
 
 responseDeleteParameterGroup :: DeleteParameterGroupResponse -> TestTree
@@ -366,7 +366,7 @@ responseDeleteParameterGroup =
   res
     "DeleteParameterGroupResponse"
     "fixture/DeleteParameterGroupResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DeleteParameterGroup)
 
 responseUpdateParameterGroup :: UpdateParameterGroupResponse -> TestTree
@@ -374,7 +374,7 @@ responseUpdateParameterGroup =
   res
     "UpdateParameterGroupResponse"
     "fixture/UpdateParameterGroupResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy UpdateParameterGroup)
 
 responseDescribeSubnetGroups :: DescribeSubnetGroupsResponse -> TestTree
@@ -382,7 +382,7 @@ responseDescribeSubnetGroups =
   res
     "DescribeSubnetGroupsResponse"
     "fixture/DescribeSubnetGroupsResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DescribeSubnetGroups)
 
 responseCreateParameterGroup :: CreateParameterGroupResponse -> TestTree
@@ -390,7 +390,7 @@ responseCreateParameterGroup =
   res
     "CreateParameterGroupResponse"
     "fixture/CreateParameterGroupResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy CreateParameterGroup)
 
 responseUpdateSubnetGroup :: UpdateSubnetGroupResponse -> TestTree
@@ -398,7 +398,7 @@ responseUpdateSubnetGroup =
   res
     "UpdateSubnetGroupResponse"
     "fixture/UpdateSubnetGroupResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy UpdateSubnetGroup)
 
 responseDeleteSubnetGroup :: DeleteSubnetGroupResponse -> TestTree
@@ -406,7 +406,7 @@ responseDeleteSubnetGroup =
   res
     "DeleteSubnetGroupResponse"
     "fixture/DeleteSubnetGroupResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DeleteSubnetGroup)
 
 responseDescribeParameterGroups :: DescribeParameterGroupsResponse -> TestTree
@@ -414,7 +414,7 @@ responseDescribeParameterGroups =
   res
     "DescribeParameterGroupsResponse"
     "fixture/DescribeParameterGroupsResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DescribeParameterGroups)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -422,7 +422,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -430,7 +430,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy ListTags)
 
 responseDecreaseReplicationFactor :: DecreaseReplicationFactorResponse -> TestTree
@@ -438,7 +438,7 @@ responseDecreaseReplicationFactor =
   res
     "DecreaseReplicationFactorResponse"
     "fixture/DecreaseReplicationFactorResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy DecreaseReplicationFactor)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -446,7 +446,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy UntagResource)
 
 responseRebootNode :: RebootNodeResponse -> TestTree
@@ -454,5 +454,5 @@ responseRebootNode =
   res
     "RebootNodeResponse"
     "fixture/RebootNodeResponse.proto"
-    dax
+    daxService
     (Proxy :: Proxy RebootNode)

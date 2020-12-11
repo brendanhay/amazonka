@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ActivityStatus where
+module Network.AWS.EC2.Types.ActivityStatus
+  ( ActivityStatus
+      ( ActivityStatus',
+        ASError,
+        ASFulfilled,
+        ASPendingFulfillment,
+        ASPendingTermination
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActivityStatus
-  = ASError'
-  | ASFulfilled
-  | ASPendingFulfillment
-  | ASPendingTermination
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActivityStatus = ActivityStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActivityStatus where
-  parser =
-    takeLowerText >>= \case
-      "error" -> pure ASError'
-      "fulfilled" -> pure ASFulfilled
-      "pending_fulfillment" -> pure ASPendingFulfillment
-      "pending_termination" -> pure ASPendingTermination
-      e ->
-        fromTextError $
-          "Failure parsing ActivityStatus from value: '" <> e
-            <> "'. Accepted values: error, fulfilled, pending_fulfillment, pending_termination"
+pattern ASError :: ActivityStatus
+pattern ASError = ActivityStatus' "error"
 
-instance ToText ActivityStatus where
-  toText = \case
-    ASError' -> "error"
-    ASFulfilled -> "fulfilled"
-    ASPendingFulfillment -> "pending_fulfillment"
-    ASPendingTermination -> "pending_termination"
+pattern ASFulfilled :: ActivityStatus
+pattern ASFulfilled = ActivityStatus' "fulfilled"
 
-instance Hashable ActivityStatus
+pattern ASPendingFulfillment :: ActivityStatus
+pattern ASPendingFulfillment = ActivityStatus' "pending_fulfillment"
 
-instance NFData ActivityStatus
+pattern ASPendingTermination :: ActivityStatus
+pattern ASPendingTermination = ActivityStatus' "pending_termination"
 
-instance ToByteString ActivityStatus
-
-instance ToQuery ActivityStatus
-
-instance ToHeader ActivityStatus
-
-instance FromXML ActivityStatus where
-  parseXML = parseXMLText "ActivityStatus"
+{-# COMPLETE
+  ASError,
+  ASFulfilled,
+  ASPendingFulfillment,
+  ASPendingTermination,
+  ActivityStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.CodeSigningPolicies where
+module Network.AWS.Lambda.Types.CodeSigningPolicies
+  ( CodeSigningPolicies (..),
+
+    -- * Smart constructor
+    mkCodeSigningPolicies,
+
+    -- * Lenses
+    cspUntrustedArtifactOnDeployment,
+  )
+where
 
 import Network.AWS.Lambda.Types.CodeSigningPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Code signing configuration policies specifies the validation failure action for signature mismatch or expiry.
 --
---
---
--- /See:/ 'codeSigningPolicies' smart constructor.
+-- /See:/ 'mkCodeSigningPolicies' smart constructor.
 newtype CodeSigningPolicies = CodeSigningPolicies'
-  { _cspUntrustedArtifactOnDeployment ::
-      Maybe CodeSigningPolicy
+  { untrustedArtifactOnDeployment ::
+      Lude.Maybe CodeSigningPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'untrustedArtifactOnDeployment' - Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.
 --
--- * 'cspUntrustedArtifactOnDeployment' - Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.  Default value: @Warn@
-codeSigningPolicies ::
+-- Default value: @Warn@
+mkCodeSigningPolicies ::
   CodeSigningPolicies
-codeSigningPolicies =
-  CodeSigningPolicies' {_cspUntrustedArtifactOnDeployment = Nothing}
+mkCodeSigningPolicies =
+  CodeSigningPolicies'
+    { untrustedArtifactOnDeployment =
+        Lude.Nothing
+    }
 
--- | Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.  Default value: @Warn@
-cspUntrustedArtifactOnDeployment :: Lens' CodeSigningPolicies (Maybe CodeSigningPolicy)
-cspUntrustedArtifactOnDeployment = lens _cspUntrustedArtifactOnDeployment (\s a -> s {_cspUntrustedArtifactOnDeployment = a})
+-- | Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.
+--
+-- Default value: @Warn@
+--
+-- /Note:/ Consider using 'untrustedArtifactOnDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspUntrustedArtifactOnDeployment :: Lens.Lens' CodeSigningPolicies (Lude.Maybe CodeSigningPolicy)
+cspUntrustedArtifactOnDeployment = Lens.lens (untrustedArtifactOnDeployment :: CodeSigningPolicies -> Lude.Maybe CodeSigningPolicy) (\s a -> s {untrustedArtifactOnDeployment = a} :: CodeSigningPolicies)
+{-# DEPRECATED cspUntrustedArtifactOnDeployment "Use generic-lens or generic-optics with 'untrustedArtifactOnDeployment' instead." #-}
 
-instance FromJSON CodeSigningPolicies where
+instance Lude.FromJSON CodeSigningPolicies where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeSigningPolicies"
       ( \x ->
-          CodeSigningPolicies' <$> (x .:? "UntrustedArtifactOnDeployment")
+          CodeSigningPolicies'
+            Lude.<$> (x Lude..:? "UntrustedArtifactOnDeployment")
       )
 
-instance Hashable CodeSigningPolicies
-
-instance NFData CodeSigningPolicies
-
-instance ToJSON CodeSigningPolicies where
+instance Lude.ToJSON CodeSigningPolicies where
   toJSON CodeSigningPolicies' {..} =
-    object
-      ( catMaybes
-          [ ("UntrustedArtifactOnDeployment" .=)
-              <$> _cspUntrustedArtifactOnDeployment
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UntrustedArtifactOnDeployment" Lude..=)
+              Lude.<$> untrustedArtifactOnDeployment
           ]
       )

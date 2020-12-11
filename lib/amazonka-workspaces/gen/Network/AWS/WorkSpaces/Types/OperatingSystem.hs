@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.OperatingSystem where
+module Network.AWS.WorkSpaces.Types.OperatingSystem
+  ( OperatingSystem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOperatingSystem,
+
+    -- * Lenses
+    osType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.OperatingSystemType
 
 -- | The operating system that the image is running.
 --
---
---
--- /See:/ 'operatingSystem' smart constructor.
+-- /See:/ 'mkOperatingSystem' smart constructor.
 newtype OperatingSystem = OperatingSystem'
-  { _osType ::
-      Maybe OperatingSystemType
+  { type' ::
+      Lude.Maybe OperatingSystemType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperatingSystem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osType' - The operating system.
-operatingSystem ::
+-- * 'type'' - The operating system.
+mkOperatingSystem ::
   OperatingSystem
-operatingSystem = OperatingSystem' {_osType = Nothing}
+mkOperatingSystem = OperatingSystem' {type' = Lude.Nothing}
 
 -- | The operating system.
-osType :: Lens' OperatingSystem (Maybe OperatingSystemType)
-osType = lens _osType (\s a -> s {_osType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osType :: Lens.Lens' OperatingSystem (Lude.Maybe OperatingSystemType)
+osType = Lens.lens (type' :: OperatingSystem -> Lude.Maybe OperatingSystemType) (\s a -> s {type' = a} :: OperatingSystem)
+{-# DEPRECATED osType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON OperatingSystem where
+instance Lude.FromJSON OperatingSystem where
   parseJSON =
-    withObject
+    Lude.withObject
       "OperatingSystem"
-      (\x -> OperatingSystem' <$> (x .:? "Type"))
-
-instance Hashable OperatingSystem
-
-instance NFData OperatingSystem
+      (\x -> OperatingSystem' Lude.<$> (x Lude..:? "Type"))

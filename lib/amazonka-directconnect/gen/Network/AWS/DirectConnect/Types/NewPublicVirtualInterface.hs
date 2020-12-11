@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,167 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.NewPublicVirtualInterface where
+module Network.AWS.DirectConnect.Types.NewPublicVirtualInterface
+  ( NewPublicVirtualInterface (..),
+
+    -- * Smart constructor
+    mkNewPublicVirtualInterface,
+
+    -- * Lenses
+    npviRouteFilterPrefixes,
+    npviCustomerAddress,
+    npviAmazonAddress,
+    npviAddressFamily,
+    npviAuthKey,
+    npviTags,
+    npviVirtualInterfaceName,
+    npviVlan,
+    npviAsn,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
 import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a public virtual interface.
 --
---
---
--- /See:/ 'newPublicVirtualInterface' smart constructor.
+-- /See:/ 'mkNewPublicVirtualInterface' smart constructor.
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
-  { _npviRouteFilterPrefixes ::
-      !(Maybe [RouteFilterPrefix]),
-    _npviCustomerAddress :: !(Maybe Text),
-    _npviAmazonAddress :: !(Maybe Text),
-    _npviAddressFamily ::
-      !(Maybe AddressFamily),
-    _npviAuthKey :: !(Maybe Text),
-    _npviTags :: !(Maybe (List1 Tag)),
-    _npviVirtualInterfaceName :: !Text,
-    _npviVlan :: !Int,
-    _npviAsn :: !Int
+  { routeFilterPrefixes ::
+      Lude.Maybe [RouteFilterPrefix],
+    customerAddress :: Lude.Maybe Lude.Text,
+    amazonAddress :: Lude.Maybe Lude.Text,
+    addressFamily ::
+      Lude.Maybe AddressFamily,
+    authKey :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    virtualInterfaceName :: Lude.Text,
+    vlan :: Lude.Int,
+    asn :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NewPublicVirtualInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addressFamily' - The address family for the BGP peer.
+-- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'npviRouteFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
---
--- * 'npviCustomerAddress' - The IP address assigned to the customer interface.
---
--- * 'npviAmazonAddress' - The IP address assigned to the Amazon interface.
---
--- * 'npviAddressFamily' - The address family for the BGP peer.
---
--- * 'npviAuthKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
---
--- * 'npviTags' - The tags associated with the public virtual interface.
---
--- * 'npviVirtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
---
--- * 'npviVlan' - The ID of the VLAN.
---
--- * 'npviAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
-newPublicVirtualInterface ::
-  -- | 'npviVirtualInterfaceName'
-  Text ->
-  -- | 'npviVlan'
-  Int ->
-  -- | 'npviAsn'
-  Int ->
+-- The valid values are 1-2147483647.
+-- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'routeFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+-- * 'tags' - The tags associated with the public virtual interface.
+-- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+-- * 'vlan' - The ID of the VLAN.
+mkNewPublicVirtualInterface ::
+  -- | 'virtualInterfaceName'
+  Lude.Text ->
+  -- | 'vlan'
+  Lude.Int ->
+  -- | 'asn'
+  Lude.Int ->
   NewPublicVirtualInterface
-newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
+mkNewPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPublicVirtualInterface'
-    { _npviRouteFilterPrefixes = Nothing,
-      _npviCustomerAddress = Nothing,
-      _npviAmazonAddress = Nothing,
-      _npviAddressFamily = Nothing,
-      _npviAuthKey = Nothing,
-      _npviTags = Nothing,
-      _npviVirtualInterfaceName = pVirtualInterfaceName_,
-      _npviVlan = pVlan_,
-      _npviAsn = pAsn_
+    { routeFilterPrefixes = Lude.Nothing,
+      customerAddress = Lude.Nothing,
+      amazonAddress = Lude.Nothing,
+      addressFamily = Lude.Nothing,
+      authKey = Lude.Nothing,
+      tags = Lude.Nothing,
+      virtualInterfaceName = pVirtualInterfaceName_,
+      vlan = pVlan_,
+      asn = pAsn_
     }
 
 -- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
-npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\s a -> s {_npviRouteFilterPrefixes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routeFilterPrefixes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviRouteFilterPrefixes :: Lens.Lens' NewPublicVirtualInterface (Lude.Maybe [RouteFilterPrefix])
+npviRouteFilterPrefixes = Lens.lens (routeFilterPrefixes :: NewPublicVirtualInterface -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {routeFilterPrefixes = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviRouteFilterPrefixes "Use generic-lens or generic-optics with 'routeFilterPrefixes' instead." #-}
 
 -- | The IP address assigned to the customer interface.
-npviCustomerAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
-npviCustomerAddress = lens _npviCustomerAddress (\s a -> s {_npviCustomerAddress = a})
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviCustomerAddress :: Lens.Lens' NewPublicVirtualInterface (Lude.Maybe Lude.Text)
+npviCustomerAddress = Lens.lens (customerAddress :: NewPublicVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
 
 -- | The IP address assigned to the Amazon interface.
-npviAmazonAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
-npviAmazonAddress = lens _npviAmazonAddress (\s a -> s {_npviAmazonAddress = a})
+--
+-- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviAmazonAddress :: Lens.Lens' NewPublicVirtualInterface (Lude.Maybe Lude.Text)
+npviAmazonAddress = Lens.lens (amazonAddress :: NewPublicVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {amazonAddress = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The address family for the BGP peer.
-npviAddressFamily :: Lens' NewPublicVirtualInterface (Maybe AddressFamily)
-npviAddressFamily = lens _npviAddressFamily (\s a -> s {_npviAddressFamily = a})
+--
+-- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviAddressFamily :: Lens.Lens' NewPublicVirtualInterface (Lude.Maybe AddressFamily)
+npviAddressFamily = Lens.lens (addressFamily :: NewPublicVirtualInterface -> Lude.Maybe AddressFamily) (\s a -> s {addressFamily = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
 
 -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
-npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
-npviAuthKey = lens _npviAuthKey (\s a -> s {_npviAuthKey = a})
+--
+-- /Note:/ Consider using 'authKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviAuthKey :: Lens.Lens' NewPublicVirtualInterface (Lude.Maybe Lude.Text)
+npviAuthKey = Lens.lens (authKey :: NewPublicVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {authKey = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
 
 -- | The tags associated with the public virtual interface.
-npviTags :: Lens' NewPublicVirtualInterface (Maybe (NonEmpty Tag))
-npviTags = lens _npviTags (\s a -> s {_npviTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviTags :: Lens.Lens' NewPublicVirtualInterface (Lude.Maybe (Lude.NonEmpty Tag))
+npviTags = Lens.lens (tags :: NewPublicVirtualInterface -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
-npviVirtualInterfaceName :: Lens' NewPublicVirtualInterface Text
-npviVirtualInterfaceName = lens _npviVirtualInterfaceName (\s a -> s {_npviVirtualInterfaceName = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviVirtualInterfaceName :: Lens.Lens' NewPublicVirtualInterface Lude.Text
+npviVirtualInterfaceName = Lens.lens (virtualInterfaceName :: NewPublicVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceName = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviVirtualInterfaceName "Use generic-lens or generic-optics with 'virtualInterfaceName' instead." #-}
 
 -- | The ID of the VLAN.
-npviVlan :: Lens' NewPublicVirtualInterface Int
-npviVlan = lens _npviVlan (\s a -> s {_npviVlan = a})
+--
+-- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviVlan :: Lens.Lens' NewPublicVirtualInterface Lude.Int
+npviVlan = Lens.lens (vlan :: NewPublicVirtualInterface -> Lude.Int) (\s a -> s {vlan = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
 
--- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
-npviAsn :: Lens' NewPublicVirtualInterface Int
-npviAsn = lens _npviAsn (\s a -> s {_npviAsn = a})
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+--
+-- The valid values are 1-2147483647.
+--
+-- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npviAsn :: Lens.Lens' NewPublicVirtualInterface Lude.Int
+npviAsn = Lens.lens (asn :: NewPublicVirtualInterface -> Lude.Int) (\s a -> s {asn = a} :: NewPublicVirtualInterface)
+{-# DEPRECATED npviAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
-instance Hashable NewPublicVirtualInterface
-
-instance NFData NewPublicVirtualInterface
-
-instance ToJSON NewPublicVirtualInterface where
+instance Lude.ToJSON NewPublicVirtualInterface where
   toJSON NewPublicVirtualInterface' {..} =
-    object
-      ( catMaybes
-          [ ("routeFilterPrefixes" .=) <$> _npviRouteFilterPrefixes,
-            ("customerAddress" .=) <$> _npviCustomerAddress,
-            ("amazonAddress" .=) <$> _npviAmazonAddress,
-            ("addressFamily" .=) <$> _npviAddressFamily,
-            ("authKey" .=) <$> _npviAuthKey,
-            ("tags" .=) <$> _npviTags,
-            Just ("virtualInterfaceName" .= _npviVirtualInterfaceName),
-            Just ("vlan" .= _npviVlan),
-            Just ("asn" .= _npviAsn)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("routeFilterPrefixes" Lude..=) Lude.<$> routeFilterPrefixes,
+            ("customerAddress" Lude..=) Lude.<$> customerAddress,
+            ("amazonAddress" Lude..=) Lude.<$> amazonAddress,
+            ("addressFamily" Lude..=) Lude.<$> addressFamily,
+            ("authKey" Lude..=) Lude.<$> authKey,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("virtualInterfaceName" Lude..= virtualInterfaceName),
+            Lude.Just ("vlan" Lude..= vlan),
+            Lude.Just ("asn" Lude..= asn)
           ]
       )

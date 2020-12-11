@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,125 @@
 --
 -- Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do not incur costs.
 module Network.AWS.CloudWatch.DisableInsightRules
-  ( -- * Creating a Request
-    disableInsightRules,
-    DisableInsightRules,
+  ( -- * Creating a request
+    DisableInsightRules (..),
+    mkDisableInsightRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dirRuleNames,
 
-    -- * Destructuring the Response
-    disableInsightRulesResponse,
-    DisableInsightRulesResponse,
+    -- * Destructuring the response
+    DisableInsightRulesResponse (..),
+    mkDisableInsightRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirrsFailures,
     dirrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableInsightRules' smart constructor.
+-- | /See:/ 'mkDisableInsightRules' smart constructor.
 newtype DisableInsightRules = DisableInsightRules'
-  { _dirRuleNames ::
-      [Text]
+  { ruleNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableInsightRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirRuleNames' - An array of the rule names to disable. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-disableInsightRules ::
+-- * 'ruleNames' - An array of the rule names to disable. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
+mkDisableInsightRules ::
   DisableInsightRules
-disableInsightRules = DisableInsightRules' {_dirRuleNames = mempty}
+mkDisableInsightRules =
+  DisableInsightRules' {ruleNames = Lude.mempty}
 
 -- | An array of the rule names to disable. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-dirRuleNames :: Lens' DisableInsightRules [Text]
-dirRuleNames = lens _dirRuleNames (\s a -> s {_dirRuleNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirRuleNames :: Lens.Lens' DisableInsightRules [Lude.Text]
+dirRuleNames = Lens.lens (ruleNames :: DisableInsightRules -> [Lude.Text]) (\s a -> s {ruleNames = a} :: DisableInsightRules)
+{-# DEPRECATED dirRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
-instance AWSRequest DisableInsightRules where
+instance Lude.AWSRequest DisableInsightRules where
   type Rs DisableInsightRules = DisableInsightRulesResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DisableInsightRulesResult"
       ( \s h x ->
           DisableInsightRulesResponse'
-            <$> (x .@? "Failures" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Failures" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableInsightRules
+instance Lude.ToHeaders DisableInsightRules where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisableInsightRules
+instance Lude.ToPath DisableInsightRules where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisableInsightRules where
-  toHeaders = const mempty
-
-instance ToPath DisableInsightRules where
-  toPath = const "/"
-
-instance ToQuery DisableInsightRules where
+instance Lude.ToQuery DisableInsightRules where
   toQuery DisableInsightRules' {..} =
-    mconcat
-      [ "Action" =: ("DisableInsightRules" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "RuleNames" =: toQueryList "member" _dirRuleNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("DisableInsightRules" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames
       ]
 
--- | /See:/ 'disableInsightRulesResponse' smart constructor.
+-- | /See:/ 'mkDisableInsightRulesResponse' smart constructor.
 data DisableInsightRulesResponse = DisableInsightRulesResponse'
-  { _dirrsFailures ::
-      !(Maybe [PartialFailure]),
-    _dirrsResponseStatus :: !Int
+  { failures ::
+      Lude.Maybe [PartialFailure],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableInsightRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirrsFailures' - An array listing the rules that could not be disabled. You cannot disable built-in rules.
---
--- * 'dirrsResponseStatus' - -- | The response status code.
-disableInsightRulesResponse ::
-  -- | 'dirrsResponseStatus'
-  Int ->
+-- * 'failures' - An array listing the rules that could not be disabled. You cannot disable built-in rules.
+-- * 'responseStatus' - The response status code.
+mkDisableInsightRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableInsightRulesResponse
-disableInsightRulesResponse pResponseStatus_ =
+mkDisableInsightRulesResponse pResponseStatus_ =
   DisableInsightRulesResponse'
-    { _dirrsFailures = Nothing,
-      _dirrsResponseStatus = pResponseStatus_
+    { failures = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array listing the rules that could not be disabled. You cannot disable built-in rules.
-dirrsFailures :: Lens' DisableInsightRulesResponse [PartialFailure]
-dirrsFailures = lens _dirrsFailures (\s a -> s {_dirrsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirrsFailures :: Lens.Lens' DisableInsightRulesResponse (Lude.Maybe [PartialFailure])
+dirrsFailures = Lens.lens (failures :: DisableInsightRulesResponse -> Lude.Maybe [PartialFailure]) (\s a -> s {failures = a} :: DisableInsightRulesResponse)
+{-# DEPRECATED dirrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
--- | -- | The response status code.
-dirrsResponseStatus :: Lens' DisableInsightRulesResponse Int
-dirrsResponseStatus = lens _dirrsResponseStatus (\s a -> s {_dirrsResponseStatus = a})
-
-instance NFData DisableInsightRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirrsResponseStatus :: Lens.Lens' DisableInsightRulesResponse Lude.Int
+dirrsResponseStatus = Lens.lens (responseStatus :: DisableInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableInsightRulesResponse)
+{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

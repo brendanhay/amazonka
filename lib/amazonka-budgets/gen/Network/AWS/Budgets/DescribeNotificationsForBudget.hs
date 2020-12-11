@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the notifications that are associated with a budget.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Budgets.DescribeNotificationsForBudget
-  ( -- * Creating a Request
-    describeNotificationsForBudget,
-    DescribeNotificationsForBudget,
+  ( -- * Creating a request
+    DescribeNotificationsForBudget (..),
+    mkDescribeNotificationsForBudget,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dnfbNextToken,
     dnfbMaxResults,
     dnfbAccountId,
     dnfbBudgetName,
 
-    -- * Destructuring the Response
-    describeNotificationsForBudgetResponse,
-    DescribeNotificationsForBudgetResponse,
+    -- * Destructuring the response
+    DescribeNotificationsForBudgetResponse (..),
+    mkDescribeNotificationsForBudgetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dnfbrsNextToken,
     dnfbrsNotifications,
     dnfbrsResponseStatus,
@@ -45,169 +38,188 @@ module Network.AWS.Budgets.DescribeNotificationsForBudget
 where
 
 import Network.AWS.Budgets.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request of DescribeNotificationsForBudget
 --
---
---
--- /See:/ 'describeNotificationsForBudget' smart constructor.
+-- /See:/ 'mkDescribeNotificationsForBudget' smart constructor.
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
-  { _dnfbNextToken ::
-      !(Maybe Text),
-    _dnfbMaxResults ::
-      !(Maybe Nat),
-    _dnfbAccountId :: !Text,
-    _dnfbBudgetName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    accountId :: Lude.Text,
+    budgetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationsForBudget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnfbNextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
---
--- * 'dnfbMaxResults' - An optional integer that represents how many entries a paginated response contains. The maximum is 100.
---
--- * 'dnfbAccountId' - The @accountId@ that is associated with the budget whose notifications you want descriptions of.
---
--- * 'dnfbBudgetName' - The name of the budget whose notifications you want descriptions of.
-describeNotificationsForBudget ::
-  -- | 'dnfbAccountId'
-  Text ->
-  -- | 'dnfbBudgetName'
-  Text ->
+-- * 'accountId' - The @accountId@ that is associated with the budget whose notifications you want descriptions of.
+-- * 'budgetName' - The name of the budget whose notifications you want descriptions of.
+-- * 'maxResults' - An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+-- * 'nextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+mkDescribeNotificationsForBudget ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
   DescribeNotificationsForBudget
-describeNotificationsForBudget pAccountId_ pBudgetName_ =
+mkDescribeNotificationsForBudget pAccountId_ pBudgetName_ =
   DescribeNotificationsForBudget'
-    { _dnfbNextToken = Nothing,
-      _dnfbMaxResults = Nothing,
-      _dnfbAccountId = pAccountId_,
-      _dnfbBudgetName = pBudgetName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      accountId = pAccountId_,
+      budgetName = pBudgetName_
     }
 
 -- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
-dnfbNextToken :: Lens' DescribeNotificationsForBudget (Maybe Text)
-dnfbNextToken = lens _dnfbNextToken (\s a -> s {_dnfbNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbNextToken :: Lens.Lens' DescribeNotificationsForBudget (Lude.Maybe Lude.Text)
+dnfbNextToken = Lens.lens (nextToken :: DescribeNotificationsForBudget -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationsForBudget)
+{-# DEPRECATED dnfbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
-dnfbMaxResults :: Lens' DescribeNotificationsForBudget (Maybe Natural)
-dnfbMaxResults = lens _dnfbMaxResults (\s a -> s {_dnfbMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbMaxResults :: Lens.Lens' DescribeNotificationsForBudget (Lude.Maybe Lude.Natural)
+dnfbMaxResults = Lens.lens (maxResults :: DescribeNotificationsForBudget -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeNotificationsForBudget)
+{-# DEPRECATED dnfbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The @accountId@ that is associated with the budget whose notifications you want descriptions of.
-dnfbAccountId :: Lens' DescribeNotificationsForBudget Text
-dnfbAccountId = lens _dnfbAccountId (\s a -> s {_dnfbAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbAccountId :: Lens.Lens' DescribeNotificationsForBudget Lude.Text
+dnfbAccountId = Lens.lens (accountId :: DescribeNotificationsForBudget -> Lude.Text) (\s a -> s {accountId = a} :: DescribeNotificationsForBudget)
+{-# DEPRECATED dnfbAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the budget whose notifications you want descriptions of.
-dnfbBudgetName :: Lens' DescribeNotificationsForBudget Text
-dnfbBudgetName = lens _dnfbBudgetName (\s a -> s {_dnfbBudgetName = a})
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbBudgetName :: Lens.Lens' DescribeNotificationsForBudget Lude.Text
+dnfbBudgetName = Lens.lens (budgetName :: DescribeNotificationsForBudget -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeNotificationsForBudget)
+{-# DEPRECATED dnfbBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance AWSPager DescribeNotificationsForBudget where
+instance Page.AWSPager DescribeNotificationsForBudget where
   page rq rs
-    | stop (rs ^. dnfbrsNextToken) = Nothing
-    | stop (rs ^. dnfbrsNotifications) = Nothing
-    | otherwise = Just $ rq & dnfbNextToken .~ rs ^. dnfbrsNextToken
+    | Page.stop (rs Lens.^. dnfbrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dnfbrsNotifications) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dnfbNextToken Lens..~ rs Lens.^. dnfbrsNextToken
 
-instance AWSRequest DescribeNotificationsForBudget where
+instance Lude.AWSRequest DescribeNotificationsForBudget where
   type
     Rs DescribeNotificationsForBudget =
       DescribeNotificationsForBudgetResponse
-  request = postJSON budgets
+  request = Req.postJSON budgetsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeNotificationsForBudgetResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Notifications" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Notifications" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeNotificationsForBudget
-
-instance NFData DescribeNotificationsForBudget
-
-instance ToHeaders DescribeNotificationsForBudget where
+instance Lude.ToHeaders DescribeNotificationsForBudget where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSBudgetServiceGateway.DescribeNotificationsForBudget" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSBudgetServiceGateway.DescribeNotificationsForBudget" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeNotificationsForBudget where
+instance Lude.ToJSON DescribeNotificationsForBudget where
   toJSON DescribeNotificationsForBudget' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dnfbNextToken,
-            ("MaxResults" .=) <$> _dnfbMaxResults,
-            Just ("AccountId" .= _dnfbAccountId),
-            Just ("BudgetName" .= _dnfbBudgetName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
-instance ToPath DescribeNotificationsForBudget where
-  toPath = const "/"
+instance Lude.ToPath DescribeNotificationsForBudget where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeNotificationsForBudget where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeNotificationsForBudget where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response of GetNotificationsForBudget
 --
---
---
--- /See:/ 'describeNotificationsForBudgetResponse' smart constructor.
+-- /See:/ 'mkDescribeNotificationsForBudgetResponse' smart constructor.
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
-  { _dnfbrsNextToken ::
-      !(Maybe Text),
-    _dnfbrsNotifications ::
-      !( Maybe
-           [Notification]
-       ),
-    _dnfbrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    notifications ::
+      Lude.Maybe
+        [Notification],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationsForBudgetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnfbrsNextToken' - The pagination token in the service response that indicates the next set of results that you can retrieve.
---
--- * 'dnfbrsNotifications' - A list of notifications that are associated with a budget.
---
--- * 'dnfbrsResponseStatus' - -- | The response status code.
-describeNotificationsForBudgetResponse ::
-  -- | 'dnfbrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token in the service response that indicates the next set of results that you can retrieve.
+-- * 'notifications' - A list of notifications that are associated with a budget.
+-- * 'responseStatus' - The response status code.
+mkDescribeNotificationsForBudgetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNotificationsForBudgetResponse
-describeNotificationsForBudgetResponse pResponseStatus_ =
+mkDescribeNotificationsForBudgetResponse pResponseStatus_ =
   DescribeNotificationsForBudgetResponse'
-    { _dnfbrsNextToken =
-        Nothing,
-      _dnfbrsNotifications = Nothing,
-      _dnfbrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      notifications = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token in the service response that indicates the next set of results that you can retrieve.
-dnfbrsNextToken :: Lens' DescribeNotificationsForBudgetResponse (Maybe Text)
-dnfbrsNextToken = lens _dnfbrsNextToken (\s a -> s {_dnfbrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbrsNextToken :: Lens.Lens' DescribeNotificationsForBudgetResponse (Lude.Maybe Lude.Text)
+dnfbrsNextToken = Lens.lens (nextToken :: DescribeNotificationsForBudgetResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationsForBudgetResponse)
+{-# DEPRECATED dnfbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of notifications that are associated with a budget.
-dnfbrsNotifications :: Lens' DescribeNotificationsForBudgetResponse [Notification]
-dnfbrsNotifications = lens _dnfbrsNotifications (\s a -> s {_dnfbrsNotifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbrsNotifications :: Lens.Lens' DescribeNotificationsForBudgetResponse (Lude.Maybe [Notification])
+dnfbrsNotifications = Lens.lens (notifications :: DescribeNotificationsForBudgetResponse -> Lude.Maybe [Notification]) (\s a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse)
+{-# DEPRECATED dnfbrsNotifications "Use generic-lens or generic-optics with 'notifications' instead." #-}
 
--- | -- | The response status code.
-dnfbrsResponseStatus :: Lens' DescribeNotificationsForBudgetResponse Int
-dnfbrsResponseStatus = lens _dnfbrsResponseStatus (\s a -> s {_dnfbrsResponseStatus = a})
-
-instance NFData DescribeNotificationsForBudgetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbrsResponseStatus :: Lens.Lens' DescribeNotificationsForBudgetResponse Lude.Int
+dnfbrsResponseStatus = Lens.lens (responseStatus :: DescribeNotificationsForBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotificationsForBudgetResponse)
+{-# DEPRECATED dnfbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns the details of one or more configuration aggregators. If the configuration aggregator is not specified, this action returns the details for all the configuration aggregators associated with the account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigurationAggregators
-  ( -- * Creating a Request
-    describeConfigurationAggregators,
-    DescribeConfigurationAggregators,
+  ( -- * Creating a request
+    DescribeConfigurationAggregators (..),
+    mkDescribeConfigurationAggregators,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcaNextToken,
     dcaLimit,
     dcaConfigurationAggregatorNames,
 
-    -- * Destructuring the Response
-    describeConfigurationAggregatorsResponse,
-    DescribeConfigurationAggregatorsResponse,
+    -- * Destructuring the response
+    DescribeConfigurationAggregatorsResponse (..),
+    mkDescribeConfigurationAggregatorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcarsNextToken,
     dcarsConfigurationAggregators,
     dcarsResponseStatus,
@@ -44,151 +37,173 @@ module Network.AWS.Config.DescribeConfigurationAggregators
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeConfigurationAggregators' smart constructor.
+-- | /See:/ 'mkDescribeConfigurationAggregators' smart constructor.
 data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
-  { _dcaNextToken ::
-      !(Maybe Text),
-    _dcaLimit :: !(Maybe Nat),
-    _dcaConfigurationAggregatorNames ::
-      !(Maybe [Text])
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit ::
+      Lude.Maybe Lude.Natural,
+    configurationAggregatorNames ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationAggregators' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcaNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dcaLimit' - The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
---
--- * 'dcaConfigurationAggregatorNames' - The name of the configuration aggregators.
-describeConfigurationAggregators ::
+-- * 'configurationAggregatorNames' - The name of the configuration aggregators.
+-- * 'limit' - The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkDescribeConfigurationAggregators ::
   DescribeConfigurationAggregators
-describeConfigurationAggregators =
+mkDescribeConfigurationAggregators =
   DescribeConfigurationAggregators'
-    { _dcaNextToken = Nothing,
-      _dcaLimit = Nothing,
-      _dcaConfigurationAggregatorNames = Nothing
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      configurationAggregatorNames = Lude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcaNextToken :: Lens' DescribeConfigurationAggregators (Maybe Text)
-dcaNextToken = lens _dcaNextToken (\s a -> s {_dcaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaNextToken :: Lens.Lens' DescribeConfigurationAggregators (Lude.Maybe Lude.Text)
+dcaNextToken = Lens.lens (nextToken :: DescribeConfigurationAggregators -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigurationAggregators)
+{-# DEPRECATED dcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-dcaLimit :: Lens' DescribeConfigurationAggregators (Maybe Natural)
-dcaLimit = lens _dcaLimit (\s a -> s {_dcaLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaLimit :: Lens.Lens' DescribeConfigurationAggregators (Lude.Maybe Lude.Natural)
+dcaLimit = Lens.lens (limit :: DescribeConfigurationAggregators -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeConfigurationAggregators)
+{-# DEPRECATED dcaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the configuration aggregators.
-dcaConfigurationAggregatorNames :: Lens' DescribeConfigurationAggregators [Text]
-dcaConfigurationAggregatorNames = lens _dcaConfigurationAggregatorNames (\s a -> s {_dcaConfigurationAggregatorNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationAggregatorNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaConfigurationAggregatorNames :: Lens.Lens' DescribeConfigurationAggregators (Lude.Maybe [Lude.Text])
+dcaConfigurationAggregatorNames = Lens.lens (configurationAggregatorNames :: DescribeConfigurationAggregators -> Lude.Maybe [Lude.Text]) (\s a -> s {configurationAggregatorNames = a} :: DescribeConfigurationAggregators)
+{-# DEPRECATED dcaConfigurationAggregatorNames "Use generic-lens or generic-optics with 'configurationAggregatorNames' instead." #-}
 
-instance AWSPager DescribeConfigurationAggregators where
+instance Page.AWSPager DescribeConfigurationAggregators where
   page rq rs
-    | stop (rs ^. dcarsNextToken) = Nothing
-    | stop (rs ^. dcarsConfigurationAggregators) = Nothing
-    | otherwise = Just $ rq & dcaNextToken .~ rs ^. dcarsNextToken
+    | Page.stop (rs Lens.^. dcarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcarsConfigurationAggregators) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcaNextToken Lens..~ rs Lens.^. dcarsNextToken
 
-instance AWSRequest DescribeConfigurationAggregators where
+instance Lude.AWSRequest DescribeConfigurationAggregators where
   type
     Rs DescribeConfigurationAggregators =
       DescribeConfigurationAggregatorsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConfigurationAggregatorsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "ConfigurationAggregators" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "ConfigurationAggregators" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfigurationAggregators
-
-instance NFData DescribeConfigurationAggregators
-
-instance ToHeaders DescribeConfigurationAggregators where
+instance Lude.ToHeaders DescribeConfigurationAggregators where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeConfigurationAggregators" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeConfigurationAggregators" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeConfigurationAggregators where
+instance Lude.ToJSON DescribeConfigurationAggregators where
   toJSON DescribeConfigurationAggregators' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dcaNextToken,
-            ("Limit" .=) <$> _dcaLimit,
-            ("ConfigurationAggregatorNames" .=)
-              <$> _dcaConfigurationAggregatorNames
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("ConfigurationAggregatorNames" Lude..=)
+              Lude.<$> configurationAggregatorNames
           ]
       )
 
-instance ToPath DescribeConfigurationAggregators where
-  toPath = const "/"
+instance Lude.ToPath DescribeConfigurationAggregators where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeConfigurationAggregators where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConfigurationAggregators where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeConfigurationAggregatorsResponse' smart constructor.
+-- | /See:/ 'mkDescribeConfigurationAggregatorsResponse' smart constructor.
 data DescribeConfigurationAggregatorsResponse = DescribeConfigurationAggregatorsResponse'
-  { _dcarsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dcarsConfigurationAggregators ::
-      !( Maybe
-           [ConfigurationAggregator]
-       ),
-    _dcarsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    configurationAggregators ::
+      Lude.Maybe
+        [ConfigurationAggregator],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationAggregatorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcarsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dcarsConfigurationAggregators' - Returns a ConfigurationAggregators object.
---
--- * 'dcarsResponseStatus' - -- | The response status code.
-describeConfigurationAggregatorsResponse ::
-  -- | 'dcarsResponseStatus'
-  Int ->
+-- * 'configurationAggregators' - Returns a ConfigurationAggregators object.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkDescribeConfigurationAggregatorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigurationAggregatorsResponse
-describeConfigurationAggregatorsResponse pResponseStatus_ =
+mkDescribeConfigurationAggregatorsResponse pResponseStatus_ =
   DescribeConfigurationAggregatorsResponse'
-    { _dcarsNextToken =
-        Nothing,
-      _dcarsConfigurationAggregators = Nothing,
-      _dcarsResponseStatus = pResponseStatus_
+    { nextToken =
+        Lude.Nothing,
+      configurationAggregators = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcarsNextToken :: Lens' DescribeConfigurationAggregatorsResponse (Maybe Text)
-dcarsNextToken = lens _dcarsNextToken (\s a -> s {_dcarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarsNextToken :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Lude.Maybe Lude.Text)
+dcarsNextToken = Lens.lens (nextToken :: DescribeConfigurationAggregatorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigurationAggregatorsResponse)
+{-# DEPRECATED dcarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns a ConfigurationAggregators object.
-dcarsConfigurationAggregators :: Lens' DescribeConfigurationAggregatorsResponse [ConfigurationAggregator]
-dcarsConfigurationAggregators = lens _dcarsConfigurationAggregators (\s a -> s {_dcarsConfigurationAggregators = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationAggregators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarsConfigurationAggregators :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Lude.Maybe [ConfigurationAggregator])
+dcarsConfigurationAggregators = Lens.lens (configurationAggregators :: DescribeConfigurationAggregatorsResponse -> Lude.Maybe [ConfigurationAggregator]) (\s a -> s {configurationAggregators = a} :: DescribeConfigurationAggregatorsResponse)
+{-# DEPRECATED dcarsConfigurationAggregators "Use generic-lens or generic-optics with 'configurationAggregators' instead." #-}
 
--- | -- | The response status code.
-dcarsResponseStatus :: Lens' DescribeConfigurationAggregatorsResponse Int
-dcarsResponseStatus = lens _dcarsResponseStatus (\s a -> s {_dcarsResponseStatus = a})
-
-instance NFData DescribeConfigurationAggregatorsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarsResponseStatus :: Lens.Lens' DescribeConfigurationAggregatorsResponse Lude.Int
+dcarsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationAggregatorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationAggregatorsResponse)
+{-# DEPRECATED dcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

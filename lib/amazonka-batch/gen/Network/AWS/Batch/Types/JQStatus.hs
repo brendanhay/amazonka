@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JQStatus where
+module Network.AWS.Batch.Types.JQStatus
+  ( JQStatus
+      ( JQStatus',
+        Creating,
+        Deleted,
+        Deleting,
+        Invalid,
+        Updating,
+        Valid
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JQStatus
-  = Creating
-  | Deleted
-  | Deleting
-  | Invalid
-  | Updating
-  | Valid
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JQStatus = JQStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JQStatus where
-  parser =
-    takeLowerText >>= \case
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "invalid" -> pure Invalid
-      "updating" -> pure Updating
-      "valid" -> pure Valid
-      e ->
-        fromTextError $
-          "Failure parsing JQStatus from value: '" <> e
-            <> "'. Accepted values: creating, deleted, deleting, invalid, updating, valid"
+pattern Creating :: JQStatus
+pattern Creating = JQStatus' "CREATING"
 
-instance ToText JQStatus where
-  toText = \case
-    Creating -> "CREATING"
-    Deleted -> "DELETED"
-    Deleting -> "DELETING"
-    Invalid -> "INVALID"
-    Updating -> "UPDATING"
-    Valid -> "VALID"
+pattern Deleted :: JQStatus
+pattern Deleted = JQStatus' "DELETED"
 
-instance Hashable JQStatus
+pattern Deleting :: JQStatus
+pattern Deleting = JQStatus' "DELETING"
 
-instance NFData JQStatus
+pattern Invalid :: JQStatus
+pattern Invalid = JQStatus' "INVALID"
 
-instance ToByteString JQStatus
+pattern Updating :: JQStatus
+pattern Updating = JQStatus' "UPDATING"
 
-instance ToQuery JQStatus
+pattern Valid :: JQStatus
+pattern Valid = JQStatus' "VALID"
 
-instance ToHeader JQStatus
-
-instance FromJSON JQStatus where
-  parseJSON = parseJSONText "JQStatus"
+{-# COMPLETE
+  Creating,
+  Deleted,
+  Deleting,
+  Invalid,
+  Updating,
+  Valid,
+  JQStatus'
+  #-}

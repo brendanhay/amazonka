@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.ParticipantDetails where
+module Network.AWS.Connect.Types.ParticipantDetails
+  ( ParticipantDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParticipantDetails,
+
+    -- * Lenses
+    pdDisplayName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The customer's details.
 --
---
---
--- /See:/ 'participantDetails' smart constructor.
+-- /See:/ 'mkParticipantDetails' smart constructor.
 newtype ParticipantDetails = ParticipantDetails'
-  { _pdDisplayName ::
-      Text
+  { displayName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParticipantDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdDisplayName' - Display name of the participant.
-participantDetails ::
-  -- | 'pdDisplayName'
-  Text ->
+-- * 'displayName' - Display name of the participant.
+mkParticipantDetails ::
+  -- | 'displayName'
+  Lude.Text ->
   ParticipantDetails
-participantDetails pDisplayName_ =
-  ParticipantDetails' {_pdDisplayName = pDisplayName_}
+mkParticipantDetails pDisplayName_ =
+  ParticipantDetails' {displayName = pDisplayName_}
 
 -- | Display name of the participant.
-pdDisplayName :: Lens' ParticipantDetails Text
-pdDisplayName = lens _pdDisplayName (\s a -> s {_pdDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDisplayName :: Lens.Lens' ParticipantDetails Lude.Text
+pdDisplayName = Lens.lens (displayName :: ParticipantDetails -> Lude.Text) (\s a -> s {displayName = a} :: ParticipantDetails)
+{-# DEPRECATED pdDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance Hashable ParticipantDetails
-
-instance NFData ParticipantDetails
-
-instance ToJSON ParticipantDetails where
+instance Lude.ToJSON ParticipantDetails where
   toJSON ParticipantDetails' {..} =
-    object (catMaybes [Just ("DisplayName" .= _pdDisplayName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DisplayName" Lude..= displayName)])

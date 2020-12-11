@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,136 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Deletes a high-availability partition group.
 module Network.AWS.CloudHSM.DeleteHAPG
-  ( -- * Creating a Request
-    deleteHAPG,
-    DeleteHAPG,
+  ( -- * Creating a request
+    DeleteHAPG (..),
+    mkDeleteHAPG,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhHAPGARN,
 
-    -- * Destructuring the Response
-    deleteHAPGResponse,
-    DeleteHAPGResponse,
+    -- * Destructuring the response
+    DeleteHAPGResponse (..),
+    mkDeleteHAPGResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dhrsResponseStatus,
     dhrsStatus,
   )
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'DeleteHapg' action.
 --
---
---
--- /See:/ 'deleteHAPG' smart constructor.
-newtype DeleteHAPG = DeleteHAPG' {_dhHAPGARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteHAPG' smart constructor.
+newtype DeleteHAPG = DeleteHAPG' {hapgARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHAPG' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhHAPGARN' - The ARN of the high-availability partition group to delete.
-deleteHAPG ::
-  -- | 'dhHAPGARN'
-  Text ->
+-- * 'hapgARN' - The ARN of the high-availability partition group to delete.
+mkDeleteHAPG ::
+  -- | 'hapgARN'
+  Lude.Text ->
   DeleteHAPG
-deleteHAPG pHAPGARN_ = DeleteHAPG' {_dhHAPGARN = pHAPGARN_}
+mkDeleteHAPG pHAPGARN_ = DeleteHAPG' {hapgARN = pHAPGARN_}
 
 -- | The ARN of the high-availability partition group to delete.
-dhHAPGARN :: Lens' DeleteHAPG Text
-dhHAPGARN = lens _dhHAPGARN (\s a -> s {_dhHAPGARN = a})
+--
+-- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhHAPGARN :: Lens.Lens' DeleteHAPG Lude.Text
+dhHAPGARN = Lens.lens (hapgARN :: DeleteHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: DeleteHAPG)
+{-# DEPRECATED dhHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
-instance AWSRequest DeleteHAPG where
+instance Lude.AWSRequest DeleteHAPG where
   type Rs DeleteHAPG = DeleteHAPGResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DeleteHAPGResponse' <$> (pure (fromEnum s)) <*> (x .:> "Status")
+          DeleteHAPGResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
       )
 
-instance Hashable DeleteHAPG
-
-instance NFData DeleteHAPG
-
-instance ToHeaders DeleteHAPG where
+instance Lude.ToHeaders DeleteHAPG where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.DeleteHapg" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.DeleteHapg" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteHAPG where
+instance Lude.ToJSON DeleteHAPG where
   toJSON DeleteHAPG' {..} =
-    object (catMaybes [Just ("HapgArn" .= _dhHAPGARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("HapgArn" Lude..= hapgARN)])
 
-instance ToPath DeleteHAPG where
-  toPath = const "/"
+instance Lude.ToPath DeleteHAPG where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteHAPG where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteHAPG where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of the 'DeleteHapg' action.
 --
---
---
--- /See:/ 'deleteHAPGResponse' smart constructor.
+-- /See:/ 'mkDeleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'
-  { _dhrsResponseStatus ::
-      !Int,
-    _dhrsStatus :: !Text
+  { responseStatus ::
+      Lude.Int,
+    status :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHAPGResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhrsResponseStatus' - -- | The response status code.
---
--- * 'dhrsStatus' - The status of the action.
-deleteHAPGResponse ::
-  -- | 'dhrsResponseStatus'
-  Int ->
-  -- | 'dhrsStatus'
-  Text ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the action.
+mkDeleteHAPGResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'status'
+  Lude.Text ->
   DeleteHAPGResponse
-deleteHAPGResponse pResponseStatus_ pStatus_ =
+mkDeleteHAPGResponse pResponseStatus_ pStatus_ =
   DeleteHAPGResponse'
-    { _dhrsResponseStatus = pResponseStatus_,
-      _dhrsStatus = pStatus_
+    { responseStatus = pResponseStatus_,
+      status = pStatus_
     }
 
--- | -- | The response status code.
-dhrsResponseStatus :: Lens' DeleteHAPGResponse Int
-dhrsResponseStatus = lens _dhrsResponseStatus (\s a -> s {_dhrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrsResponseStatus :: Lens.Lens' DeleteHAPGResponse Lude.Int
+dhrsResponseStatus = Lens.lens (responseStatus :: DeleteHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHAPGResponse)
+{-# DEPRECATED dhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the action.
-dhrsStatus :: Lens' DeleteHAPGResponse Text
-dhrsStatus = lens _dhrsStatus (\s a -> s {_dhrsStatus = a})
-
-instance NFData DeleteHAPGResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrsStatus :: Lens.Lens' DeleteHAPGResponse Lude.Text
+dhrsStatus = Lens.lens (status :: DeleteHAPGResponse -> Lude.Text) (\s a -> s {status = a} :: DeleteHAPGResponse)
+{-# DEPRECATED dhrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

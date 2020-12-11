@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.IKEVersionsListValue where
+module Network.AWS.EC2.Types.IKEVersionsListValue
+  ( IKEVersionsListValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIKEVersionsListValue,
+
+    -- * Lenses
+    ikevlvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The internet key exchange (IKE) version permitted for the VPN tunnel.
 --
---
---
--- /See:/ 'iKEVersionsListValue' smart constructor.
+-- /See:/ 'mkIKEVersionsListValue' smart constructor.
 newtype IKEVersionsListValue = IKEVersionsListValue'
-  { _ikevlvValue ::
-      Maybe Text
+  { value ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IKEVersionsListValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ikevlvValue' - The IKE version.
-iKEVersionsListValue ::
+-- * 'value' - The IKE version.
+mkIKEVersionsListValue ::
   IKEVersionsListValue
-iKEVersionsListValue =
-  IKEVersionsListValue' {_ikevlvValue = Nothing}
+mkIKEVersionsListValue =
+  IKEVersionsListValue' {value = Lude.Nothing}
 
 -- | The IKE version.
-ikevlvValue :: Lens' IKEVersionsListValue (Maybe Text)
-ikevlvValue = lens _ikevlvValue (\s a -> s {_ikevlvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikevlvValue :: Lens.Lens' IKEVersionsListValue (Lude.Maybe Lude.Text)
+ikevlvValue = Lens.lens (value :: IKEVersionsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: IKEVersionsListValue)
+{-# DEPRECATED ikevlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML IKEVersionsListValue where
-  parseXML x = IKEVersionsListValue' <$> (x .@? "value")
-
-instance Hashable IKEVersionsListValue
-
-instance NFData IKEVersionsListValue
+instance Lude.FromXML IKEVersionsListValue where
+  parseXML x = IKEVersionsListValue' Lude.<$> (x Lude..@? "value")

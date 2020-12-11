@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.ResourceType where
+module Network.AWS.WAFRegional.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        APIGateway,
+        ApplicationLoadBalancer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = APIGateway
-  | ApplicationLoadBalancer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "api_gateway" -> pure APIGateway
-      "application_load_balancer" -> pure ApplicationLoadBalancer
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: api_gateway, application_load_balancer"
+pattern APIGateway :: ResourceType
+pattern APIGateway = ResourceType' "API_GATEWAY"
 
-instance ToText ResourceType where
-  toText = \case
-    APIGateway -> "API_GATEWAY"
-    ApplicationLoadBalancer -> "APPLICATION_LOAD_BALANCER"
+pattern ApplicationLoadBalancer :: ResourceType
+pattern ApplicationLoadBalancer = ResourceType' "APPLICATION_LOAD_BALANCER"
 
-instance Hashable ResourceType
-
-instance NFData ResourceType
-
-instance ToByteString ResourceType
-
-instance ToQuery ResourceType
-
-instance ToHeader ResourceType
-
-instance ToJSON ResourceType where
-  toJSON = toJSONText
+{-# COMPLETE
+  APIGateway,
+  ApplicationLoadBalancer,
+  ResourceType'
+  #-}

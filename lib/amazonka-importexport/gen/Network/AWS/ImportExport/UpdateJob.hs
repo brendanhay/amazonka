@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.
 module Network.AWS.ImportExport.UpdateJob
-  ( -- * Creating a Request
-    updateJob,
-    UpdateJob,
+  ( -- * Creating a request
+    UpdateJob (..),
+    mkUpdateJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ujAPIVersion,
     ujJobId,
     ujManifest,
     ujJobType,
     ujValidateOnly,
 
-    -- * Destructuring the Response
-    updateJobResponse,
-    UpdateJobResponse,
+    -- * Destructuring the response
+    UpdateJobResponse (..),
+    mkUpdateJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ujrsSuccess,
     ujrsWarningMessage,
     ujrsArtifactList,
@@ -43,161 +38,187 @@ module Network.AWS.ImportExport.UpdateJob
 where
 
 import Network.AWS.ImportExport.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input structure for the UpateJob operation.
 --
--- /See:/ 'updateJob' smart constructor.
+-- /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujAPIVersion :: !(Maybe Text),
-    _ujJobId :: !Text,
-    _ujManifest :: !Text,
-    _ujJobType :: !JobType,
-    _ujValidateOnly :: !Bool
+  { apiVersion :: Lude.Maybe Lude.Text,
+    jobId :: Lude.Text,
+    manifest :: Lude.Text,
+    jobType :: JobType,
+    validateOnly :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ujAPIVersion' - Undocumented member.
---
--- * 'ujJobId' - Undocumented member.
---
--- * 'ujManifest' - Undocumented member.
---
--- * 'ujJobType' - Undocumented member.
---
--- * 'ujValidateOnly' - Undocumented member.
-updateJob ::
-  -- | 'ujJobId'
-  Text ->
-  -- | 'ujManifest'
-  Text ->
-  -- | 'ujJobType'
+-- * 'apiVersion' - Undocumented field.
+-- * 'jobId' - Undocumented field.
+-- * 'jobType' - Undocumented field.
+-- * 'manifest' - Undocumented field.
+-- * 'validateOnly' - Undocumented field.
+mkUpdateJob ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'manifest'
+  Lude.Text ->
+  -- | 'jobType'
   JobType ->
-  -- | 'ujValidateOnly'
-  Bool ->
+  -- | 'validateOnly'
+  Lude.Bool ->
   UpdateJob
-updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
+mkUpdateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
   UpdateJob'
-    { _ujAPIVersion = Nothing,
-      _ujJobId = pJobId_,
-      _ujManifest = pManifest_,
-      _ujJobType = pJobType_,
-      _ujValidateOnly = pValidateOnly_
+    { apiVersion = Lude.Nothing,
+      jobId = pJobId_,
+      manifest = pManifest_,
+      jobType = pJobType_,
+      validateOnly = pValidateOnly_
     }
 
--- | Undocumented member.
-ujAPIVersion :: Lens' UpdateJob (Maybe Text)
-ujAPIVersion = lens _ujAPIVersion (\s a -> s {_ujAPIVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujAPIVersion :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
+ujAPIVersion = Lens.lens (apiVersion :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: UpdateJob)
+{-# DEPRECATED ujAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
 
--- | Undocumented member.
-ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\s a -> s {_ujJobId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobId :: Lens.Lens' UpdateJob Lude.Text
+ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
+{-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | Undocumented member.
-ujManifest :: Lens' UpdateJob Text
-ujManifest = lens _ujManifest (\s a -> s {_ujManifest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'manifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujManifest :: Lens.Lens' UpdateJob Lude.Text
+ujManifest = Lens.lens (manifest :: UpdateJob -> Lude.Text) (\s a -> s {manifest = a} :: UpdateJob)
+{-# DEPRECATED ujManifest "Use generic-lens or generic-optics with 'manifest' instead." #-}
 
--- | Undocumented member.
-ujJobType :: Lens' UpdateJob JobType
-ujJobType = lens _ujJobType (\s a -> s {_ujJobType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobType :: Lens.Lens' UpdateJob JobType
+ujJobType = Lens.lens (jobType :: UpdateJob -> JobType) (\s a -> s {jobType = a} :: UpdateJob)
+{-# DEPRECATED ujJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
 
--- | Undocumented member.
-ujValidateOnly :: Lens' UpdateJob Bool
-ujValidateOnly = lens _ujValidateOnly (\s a -> s {_ujValidateOnly = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujValidateOnly :: Lens.Lens' UpdateJob Lude.Bool
+ujValidateOnly = Lens.lens (validateOnly :: UpdateJob -> Lude.Bool) (\s a -> s {validateOnly = a} :: UpdateJob)
+{-# DEPRECATED ujValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
 
-instance AWSRequest UpdateJob where
+instance Lude.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
-  request = postQuery importExport
+  request = Req.postQuery importExportService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateJobResult"
       ( \s h x ->
           UpdateJobResponse'
-            <$> (x .@? "Success")
-            <*> (x .@? "WarningMessage")
-            <*> (x .@? "ArtifactList" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Success")
+            Lude.<*> (x Lude..@? "WarningMessage")
+            Lude.<*> ( x Lude..@? "ArtifactList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateJob
+instance Lude.ToHeaders UpdateJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateJob
+instance Lude.ToPath UpdateJob where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateJob where
-  toHeaders = const mempty
-
-instance ToPath UpdateJob where
-  toPath = const "/"
-
-instance ToQuery UpdateJob where
+instance Lude.ToQuery UpdateJob where
   toQuery UpdateJob' {..} =
-    mconcat
+    Lude.mconcat
       [ "Operation=UpdateJob",
-        "Action" =: ("UpdateJob" :: ByteString),
-        "Version" =: ("2010-06-01" :: ByteString),
-        "APIVersion" =: _ujAPIVersion,
-        "JobId" =: _ujJobId,
-        "Manifest" =: _ujManifest,
-        "JobType" =: _ujJobType,
-        "ValidateOnly" =: _ujValidateOnly
+        "Action" Lude.=: ("UpdateJob" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
+        "APIVersion" Lude.=: apiVersion,
+        "JobId" Lude.=: jobId,
+        "Manifest" Lude.=: manifest,
+        "JobType" Lude.=: jobType,
+        "ValidateOnly" Lude.=: validateOnly
       ]
 
 -- | Output structure for the UpateJob operation.
 --
--- /See:/ 'updateJobResponse' smart constructor.
+-- /See:/ 'mkUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { _ujrsSuccess ::
-      !(Maybe Bool),
-    _ujrsWarningMessage :: !(Maybe Text),
-    _ujrsArtifactList :: !(Maybe [Artifact]),
-    _ujrsResponseStatus :: !Int
+  { success ::
+      Lude.Maybe Lude.Bool,
+    warningMessage :: Lude.Maybe Lude.Text,
+    artifactList :: Lude.Maybe [Artifact],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ujrsSuccess' - Undocumented member.
---
--- * 'ujrsWarningMessage' - Undocumented member.
---
--- * 'ujrsArtifactList' - Undocumented member.
---
--- * 'ujrsResponseStatus' - -- | The response status code.
-updateJobResponse ::
-  -- | 'ujrsResponseStatus'
-  Int ->
+-- * 'artifactList' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'success' - Undocumented field.
+-- * 'warningMessage' - Undocumented field.
+mkUpdateJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateJobResponse
-updateJobResponse pResponseStatus_ =
+mkUpdateJobResponse pResponseStatus_ =
   UpdateJobResponse'
-    { _ujrsSuccess = Nothing,
-      _ujrsWarningMessage = Nothing,
-      _ujrsArtifactList = Nothing,
-      _ujrsResponseStatus = pResponseStatus_
+    { success = Lude.Nothing,
+      warningMessage = Lude.Nothing,
+      artifactList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujrsSuccess = lens _ujrsSuccess (\s a -> s {_ujrsSuccess = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'success' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujrsSuccess :: Lens.Lens' UpdateJobResponse (Lude.Maybe Lude.Bool)
+ujrsSuccess = Lens.lens (success :: UpdateJobResponse -> Lude.Maybe Lude.Bool) (\s a -> s {success = a} :: UpdateJobResponse)
+{-# DEPRECATED ujrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
 
--- | Undocumented member.
-ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujrsWarningMessage = lens _ujrsWarningMessage (\s a -> s {_ujrsWarningMessage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'warningMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujrsWarningMessage :: Lens.Lens' UpdateJobResponse (Lude.Maybe Lude.Text)
+ujrsWarningMessage = Lens.lens (warningMessage :: UpdateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {warningMessage = a} :: UpdateJobResponse)
+{-# DEPRECATED ujrsWarningMessage "Use generic-lens or generic-optics with 'warningMessage' instead." #-}
 
--- | Undocumented member.
-ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
-ujrsArtifactList = lens _ujrsArtifactList (\s a -> s {_ujrsArtifactList = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'artifactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujrsArtifactList :: Lens.Lens' UpdateJobResponse (Lude.Maybe [Artifact])
+ujrsArtifactList = Lens.lens (artifactList :: UpdateJobResponse -> Lude.Maybe [Artifact]) (\s a -> s {artifactList = a} :: UpdateJobResponse)
+{-# DEPRECATED ujrsArtifactList "Use generic-lens or generic-optics with 'artifactList' instead." #-}
 
--- | -- | The response status code.
-ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\s a -> s {_ujrsResponseStatus = a})
-
-instance NFData UpdateJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujrsResponseStatus :: Lens.Lens' UpdateJobResponse Lude.Int
+ujrsResponseStatus = Lens.lens (responseStatus :: UpdateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJobResponse)
+{-# DEPRECATED ujrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

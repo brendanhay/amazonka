@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.ParameterGroup where
+module Network.AWS.DAX.Types.ParameterGroup
+  ( ParameterGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterGroup,
+
+    -- * Lenses
+    pgDescription,
+    pgParameterGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A named set of parameters that are applied to all of the nodes in a DAX cluster.
 --
---
---
--- /See:/ 'parameterGroup' smart constructor.
+-- /See:/ 'mkParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
-  { _pgDescription ::
-      !(Maybe Text),
-    _pgParameterGroupName :: !(Maybe Text)
+  { description ::
+      Lude.Maybe Lude.Text,
+    parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pgDescription' - A description of the parameter group.
---
--- * 'pgParameterGroupName' - The name of the parameter group.
-parameterGroup ::
+-- * 'description' - A description of the parameter group.
+-- * 'parameterGroupName' - The name of the parameter group.
+mkParameterGroup ::
   ParameterGroup
-parameterGroup =
+mkParameterGroup =
   ParameterGroup'
-    { _pgDescription = Nothing,
-      _pgParameterGroupName = Nothing
+    { description = Lude.Nothing,
+      parameterGroupName = Lude.Nothing
     }
 
 -- | A description of the parameter group.
-pgDescription :: Lens' ParameterGroup (Maybe Text)
-pgDescription = lens _pgDescription (\s a -> s {_pgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgDescription :: Lens.Lens' ParameterGroup (Lude.Maybe Lude.Text)
+pgDescription = Lens.lens (description :: ParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ParameterGroup)
+{-# DEPRECATED pgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the parameter group.
-pgParameterGroupName :: Lens' ParameterGroup (Maybe Text)
-pgParameterGroupName = lens _pgParameterGroupName (\s a -> s {_pgParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgParameterGroupName :: Lens.Lens' ParameterGroup (Lude.Maybe Lude.Text)
+pgParameterGroupName = Lens.lens (parameterGroupName :: ParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ParameterGroup)
+{-# DEPRECATED pgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance FromJSON ParameterGroup where
+instance Lude.FromJSON ParameterGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            <$> (x .:? "Description") <*> (x .:? "ParameterGroupName")
+            Lude.<$> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "ParameterGroupName")
       )
-
-instance Hashable ParameterGroup
-
-instance NFData ParameterGroup

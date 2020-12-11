@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,163 +14,183 @@
 --
 -- Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional @QueueNamePrefix@ parameter, only queues with a name that begins with the specified value are returned.
 --
---
 -- The @listQueues@ methods supports pagination. Set parameter @MaxResults@ in the request to specify the maximum number of results to be returned in the response. If you do not set @MaxResults@ , the response includes a maximum of 1,000 results. If you set @MaxResults@ and there are additional results to display, the response includes a value for @NextToken@ . Use @NextToken@ as a parameter in your next request to @listQueues@ to receive the next page of results.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SQS.ListQueues
-  ( -- * Creating a Request
-    listQueues,
-    ListQueues,
+  ( -- * Creating a request
+    ListQueues (..),
+    mkListQueues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lqQueueNamePrefix,
     lqNextToken,
     lqMaxResults,
 
-    -- * Destructuring the Response
-    listQueuesResponse,
-    ListQueuesResponse,
+    -- * Destructuring the response
+    ListQueuesResponse (..),
+    mkListQueuesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lqrsQueueURLs,
     lqrsNextToken,
     lqrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
 -- |
 --
---
---
--- /See:/ 'listQueues' smart constructor.
+-- /See:/ 'mkListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { _lqQueueNamePrefix :: !(Maybe Text),
-    _lqNextToken :: !(Maybe Text),
-    _lqMaxResults :: !(Maybe Int)
+  { queueNamePrefix ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
+-- * 'nextToken' - Pagination token to request the next set of results.
+-- * 'queueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
 --
--- * 'lqQueueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
---
--- * 'lqNextToken' - Pagination token to request the next set of results.
---
--- * 'lqMaxResults' - Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
-listQueues ::
+-- Queue URLs and names are case-sensitive.
+mkListQueues ::
   ListQueues
-listQueues =
+mkListQueues =
   ListQueues'
-    { _lqQueueNamePrefix = Nothing,
-      _lqNextToken = Nothing,
-      _lqMaxResults = Nothing
+    { queueNamePrefix = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
-lqQueueNamePrefix = lens _lqQueueNamePrefix (\s a -> s {_lqQueueNamePrefix = a})
+-- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
+--
+-- Queue URLs and names are case-sensitive.
+--
+-- /Note:/ Consider using 'queueNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqQueueNamePrefix :: Lens.Lens' ListQueues (Lude.Maybe Lude.Text)
+lqQueueNamePrefix = Lens.lens (queueNamePrefix :: ListQueues -> Lude.Maybe Lude.Text) (\s a -> s {queueNamePrefix = a} :: ListQueues)
+{-# DEPRECATED lqQueueNamePrefix "Use generic-lens or generic-optics with 'queueNamePrefix' instead." #-}
 
 -- | Pagination token to request the next set of results.
-lqNextToken :: Lens' ListQueues (Maybe Text)
-lqNextToken = lens _lqNextToken (\s a -> s {_lqNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqNextToken :: Lens.Lens' ListQueues (Lude.Maybe Lude.Text)
+lqNextToken = Lens.lens (nextToken :: ListQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueues)
+{-# DEPRECATED lqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
-lqMaxResults :: Lens' ListQueues (Maybe Int)
-lqMaxResults = lens _lqMaxResults (\s a -> s {_lqMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqMaxResults :: Lens.Lens' ListQueues (Lude.Maybe Lude.Int)
+lqMaxResults = Lens.lens (maxResults :: ListQueues -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListQueues)
+{-# DEPRECATED lqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListQueues where
+instance Page.AWSPager ListQueues where
   page rq rs
-    | stop (rs ^. lqrsNextToken) = Nothing
-    | stop (rs ^. lqrsQueueURLs) = Nothing
-    | otherwise = Just $ rq & lqNextToken .~ rs ^. lqrsNextToken
+    | Page.stop (rs Lens.^. lqrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lqrsQueueURLs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lqNextToken Lens..~ rs Lens.^. lqrsNextToken
 
-instance AWSRequest ListQueues where
+instance Lude.AWSRequest ListQueues where
   type Rs ListQueues = ListQueuesResponse
-  request = postQuery sqs
+  request = Req.postQuery sqsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListQueuesResult"
       ( \s h x ->
           ListQueuesResponse'
-            <$> (may (parseXMLList "QueueUrl") x)
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "QueueUrl") x)
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListQueues
+instance Lude.ToHeaders ListQueues where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListQueues
+instance Lude.ToPath ListQueues where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListQueues where
-  toHeaders = const mempty
-
-instance ToPath ListQueues where
-  toPath = const "/"
-
-instance ToQuery ListQueues where
+instance Lude.ToQuery ListQueues where
   toQuery ListQueues' {..} =
-    mconcat
-      [ "Action" =: ("ListQueues" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueNamePrefix" =: _lqQueueNamePrefix,
-        "NextToken" =: _lqNextToken,
-        "MaxResults" =: _lqMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListQueues" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueNamePrefix" Lude.=: queueNamePrefix,
+        "NextToken" Lude.=: nextToken,
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | A list of your queues.
 --
---
---
--- /See:/ 'listQueuesResponse' smart constructor.
+-- /See:/ 'mkListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { _lqrsQueueURLs ::
-      !(Maybe [Text]),
-    _lqrsNextToken :: !(Maybe Text),
-    _lqrsResponseStatus :: !Int
+  { queueURLs ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqrsQueueURLs' - A list of queue URLs, up to 1,000 entries, or the value of MaxResults that you sent in the request.
---
--- * 'lqrsNextToken' - Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
---
--- * 'lqrsResponseStatus' - -- | The response status code.
-listQueuesResponse ::
-  -- | 'lqrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
+-- * 'queueURLs' - A list of queue URLs, up to 1,000 entries, or the value of MaxResults that you sent in the request.
+-- * 'responseStatus' - The response status code.
+mkListQueuesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListQueuesResponse
-listQueuesResponse pResponseStatus_ =
+mkListQueuesResponse pResponseStatus_ =
   ListQueuesResponse'
-    { _lqrsQueueURLs = Nothing,
-      _lqrsNextToken = Nothing,
-      _lqrsResponseStatus = pResponseStatus_
+    { queueURLs = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of queue URLs, up to 1,000 entries, or the value of MaxResults that you sent in the request.
-lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
-lqrsQueueURLs = lens _lqrsQueueURLs (\s a -> s {_lqrsQueueURLs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queueURLs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrsQueueURLs :: Lens.Lens' ListQueuesResponse (Lude.Maybe [Lude.Text])
+lqrsQueueURLs = Lens.lens (queueURLs :: ListQueuesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {queueURLs = a} :: ListQueuesResponse)
+{-# DEPRECATED lqrsQueueURLs "Use generic-lens or generic-optics with 'queueURLs' instead." #-}
 
 -- | Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
-lqrsNextToken :: Lens' ListQueuesResponse (Maybe Text)
-lqrsNextToken = lens _lqrsNextToken (\s a -> s {_lqrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrsNextToken :: Lens.Lens' ListQueuesResponse (Lude.Maybe Lude.Text)
+lqrsNextToken = Lens.lens (nextToken :: ListQueuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueuesResponse)
+{-# DEPRECATED lqrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lqrsResponseStatus :: Lens' ListQueuesResponse Int
-lqrsResponseStatus = lens _lqrsResponseStatus (\s a -> s {_lqrsResponseStatus = a})
-
-instance NFData ListQueuesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrsResponseStatus :: Lens.Lens' ListQueuesResponse Lude.Int
+lqrsResponseStatus = Lens.lens (responseStatus :: ListQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListQueuesResponse)
+{-# DEPRECATED lqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

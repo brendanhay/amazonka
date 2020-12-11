@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting where
+module Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting
+  ( HlsCaptionLanguageSetting
+      ( HlsCaptionLanguageSetting',
+        HCLSInsert,
+        HCLSNone,
+        HCLSOmit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Caption Language Setting
-data HlsCaptionLanguageSetting
-  = HCLSInsert
-  | HCLSNone
-  | HCLSOmit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsCaptionLanguageSetting where
-  parser =
-    takeLowerText >>= \case
-      "insert" -> pure HCLSInsert
-      "none" -> pure HCLSNone
-      "omit" -> pure HCLSOmit
-      e ->
-        fromTextError $
-          "Failure parsing HlsCaptionLanguageSetting from value: '" <> e
-            <> "'. Accepted values: insert, none, omit"
+pattern HCLSInsert :: HlsCaptionLanguageSetting
+pattern HCLSInsert = HlsCaptionLanguageSetting' "INSERT"
 
-instance ToText HlsCaptionLanguageSetting where
-  toText = \case
-    HCLSInsert -> "INSERT"
-    HCLSNone -> "NONE"
-    HCLSOmit -> "OMIT"
+pattern HCLSNone :: HlsCaptionLanguageSetting
+pattern HCLSNone = HlsCaptionLanguageSetting' "NONE"
 
-instance Hashable HlsCaptionLanguageSetting
+pattern HCLSOmit :: HlsCaptionLanguageSetting
+pattern HCLSOmit = HlsCaptionLanguageSetting' "OMIT"
 
-instance NFData HlsCaptionLanguageSetting
-
-instance ToByteString HlsCaptionLanguageSetting
-
-instance ToQuery HlsCaptionLanguageSetting
-
-instance ToHeader HlsCaptionLanguageSetting
-
-instance ToJSON HlsCaptionLanguageSetting where
-  toJSON = toJSONText
-
-instance FromJSON HlsCaptionLanguageSetting where
-  parseJSON = parseJSONText "HlsCaptionLanguageSetting"
+{-# COMPLETE
+  HCLSInsert,
+  HCLSNone,
+  HCLSOmit,
+  HlsCaptionLanguageSetting'
+  #-}

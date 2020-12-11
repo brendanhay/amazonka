@@ -11,8 +11,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia
-  ( -- * Service Configuration
-    kinesisVideoArchivedMedia,
+  ( -- * Service configuration
+    kinesisVideoArchivedMediaService,
 
     -- * Errors
     -- $errors
@@ -74,32 +74,32 @@ module Network.AWS.KinesisVideoArchivedMedia
     HLSPlaybackMode (..),
 
     -- ** ClipFragmentSelector
-    ClipFragmentSelector,
-    clipFragmentSelector,
+    ClipFragmentSelector (..),
+    mkClipFragmentSelector,
     cfsFragmentSelectorType,
     cfsTimestampRange,
 
     -- ** ClipTimestampRange
-    ClipTimestampRange,
-    clipTimestampRange,
+    ClipTimestampRange (..),
+    mkClipTimestampRange,
     ctrStartTimestamp,
     ctrEndTimestamp,
 
     -- ** DASHFragmentSelector
-    DASHFragmentSelector,
-    dASHFragmentSelector,
+    DASHFragmentSelector (..),
+    mkDASHFragmentSelector,
     dashfsFragmentSelectorType,
     dashfsTimestampRange,
 
     -- ** DASHTimestampRange
-    DASHTimestampRange,
-    dASHTimestampRange,
+    DASHTimestampRange (..),
+    mkDASHTimestampRange,
     dashtrEndTimestamp,
     dashtrStartTimestamp,
 
     -- ** Fragment
-    Fragment,
-    fragment,
+    Fragment (..),
+    mkFragment,
     fFragmentLengthInMilliseconds,
     fServerTimestamp,
     fFragmentSizeInBytes,
@@ -107,28 +107,39 @@ module Network.AWS.KinesisVideoArchivedMedia
     fProducerTimestamp,
 
     -- ** FragmentSelector
-    FragmentSelector,
-    fragmentSelector,
+    FragmentSelector (..),
+    mkFragmentSelector,
     fsFragmentSelectorType,
     fsTimestampRange,
 
     -- ** HLSFragmentSelector
-    HLSFragmentSelector,
-    hLSFragmentSelector,
+    HLSFragmentSelector (..),
+    mkHLSFragmentSelector,
     hlsfsFragmentSelectorType,
     hlsfsTimestampRange,
 
     -- ** HLSTimestampRange
-    HLSTimestampRange,
-    hLSTimestampRange,
+    HLSTimestampRange (..),
+    mkHLSTimestampRange,
     hlstrEndTimestamp,
     hlstrStartTimestamp,
 
     -- ** TimestampRange
-    TimestampRange,
-    timestampRange,
+    TimestampRange (..),
+    mkTimestampRange,
     trStartTimestamp,
     trEndTimestamp,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -139,6 +150,7 @@ import Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
 import Network.AWS.KinesisVideoArchivedMedia.ListFragments
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import Network.AWS.KinesisVideoArchivedMedia.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

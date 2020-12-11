@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem where
+module Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem
+  ( CancelSpotFleetRequestsErrorItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkCancelSpotFleetRequestsErrorItem,
+
+    -- * Lenses
+    csfreiError,
+    csfreiSpotFleetRequestId,
+  )
+where
+
 import Network.AWS.EC2.Types.CancelSpotFleetRequestsError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Spot Fleet request that was not successfully canceled.
 --
---
---
--- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
+-- /See:/ 'mkCancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
-  { _csfreiError ::
-      !( Maybe
-           CancelSpotFleetRequestsError
-       ),
-    _csfreiSpotFleetRequestId ::
-      !(Maybe Text)
+  { error ::
+      Lude.Maybe
+        CancelSpotFleetRequestsError,
+    spotFleetRequestId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotFleetRequestsErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csfreiError' - The error.
---
--- * 'csfreiSpotFleetRequestId' - The ID of the Spot Fleet request.
-cancelSpotFleetRequestsErrorItem ::
+-- * 'error' - The error.
+-- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
+mkCancelSpotFleetRequestsErrorItem ::
   CancelSpotFleetRequestsErrorItem
-cancelSpotFleetRequestsErrorItem =
+mkCancelSpotFleetRequestsErrorItem =
   CancelSpotFleetRequestsErrorItem'
-    { _csfreiError = Nothing,
-      _csfreiSpotFleetRequestId = Nothing
+    { error = Lude.Nothing,
+      spotFleetRequestId = Lude.Nothing
     }
 
 -- | The error.
-csfreiError :: Lens' CancelSpotFleetRequestsErrorItem (Maybe CancelSpotFleetRequestsError)
-csfreiError = lens _csfreiError (\s a -> s {_csfreiError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfreiError :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Lude.Maybe CancelSpotFleetRequestsError)
+csfreiError = Lens.lens (error :: CancelSpotFleetRequestsErrorItem -> Lude.Maybe CancelSpotFleetRequestsError) (\s a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
+{-# DEPRECATED csfreiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The ID of the Spot Fleet request.
-csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem (Maybe Text)
-csfreiSpotFleetRequestId = lens _csfreiSpotFleetRequestId (\s a -> s {_csfreiSpotFleetRequestId = a})
+--
+-- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfreiSpotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Lude.Maybe Lude.Text)
+csfreiSpotFleetRequestId = Lens.lens (spotFleetRequestId :: CancelSpotFleetRequestsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsErrorItem)
+{-# DEPRECATED csfreiSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
 
-instance FromXML CancelSpotFleetRequestsErrorItem where
+instance Lude.FromXML CancelSpotFleetRequestsErrorItem where
   parseXML x =
     CancelSpotFleetRequestsErrorItem'
-      <$> (x .@? "error") <*> (x .@? "spotFleetRequestId")
-
-instance Hashable CancelSpotFleetRequestsErrorItem
-
-instance NFData CancelSpotFleetRequestsErrorItem
+      Lude.<$> (x Lude..@? "error") Lude.<*> (x Lude..@? "spotFleetRequestId")

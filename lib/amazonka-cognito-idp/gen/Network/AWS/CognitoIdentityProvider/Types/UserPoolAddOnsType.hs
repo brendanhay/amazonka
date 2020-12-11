@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType where
+module Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType
+  ( UserPoolAddOnsType (..),
+
+    -- * Smart constructor
+    mkUserPoolAddOnsType,
+
+    -- * Lenses
+    upaotAdvancedSecurityMode,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The user pool add-ons type.
 --
---
---
--- /See:/ 'userPoolAddOnsType' smart constructor.
+-- /See:/ 'mkUserPoolAddOnsType' smart constructor.
 newtype UserPoolAddOnsType = UserPoolAddOnsType'
-  { _upaotAdvancedSecurityMode ::
+  { advancedSecurityMode ::
       AdvancedSecurityModeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolAddOnsType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upaotAdvancedSecurityMode' - The advanced security mode.
-userPoolAddOnsType ::
-  -- | 'upaotAdvancedSecurityMode'
+-- * 'advancedSecurityMode' - The advanced security mode.
+mkUserPoolAddOnsType ::
+  -- | 'advancedSecurityMode'
   AdvancedSecurityModeType ->
   UserPoolAddOnsType
-userPoolAddOnsType pAdvancedSecurityMode_ =
+mkUserPoolAddOnsType pAdvancedSecurityMode_ =
   UserPoolAddOnsType'
-    { _upaotAdvancedSecurityMode =
+    { advancedSecurityMode =
         pAdvancedSecurityMode_
     }
 
 -- | The advanced security mode.
-upaotAdvancedSecurityMode :: Lens' UserPoolAddOnsType AdvancedSecurityModeType
-upaotAdvancedSecurityMode = lens _upaotAdvancedSecurityMode (\s a -> s {_upaotAdvancedSecurityMode = a})
+--
+-- /Note:/ Consider using 'advancedSecurityMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upaotAdvancedSecurityMode :: Lens.Lens' UserPoolAddOnsType AdvancedSecurityModeType
+upaotAdvancedSecurityMode = Lens.lens (advancedSecurityMode :: UserPoolAddOnsType -> AdvancedSecurityModeType) (\s a -> s {advancedSecurityMode = a} :: UserPoolAddOnsType)
+{-# DEPRECATED upaotAdvancedSecurityMode "Use generic-lens or generic-optics with 'advancedSecurityMode' instead." #-}
 
-instance FromJSON UserPoolAddOnsType where
+instance Lude.FromJSON UserPoolAddOnsType where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPoolAddOnsType"
-      (\x -> UserPoolAddOnsType' <$> (x .: "AdvancedSecurityMode"))
+      ( \x ->
+          UserPoolAddOnsType' Lude.<$> (x Lude..: "AdvancedSecurityMode")
+      )
 
-instance Hashable UserPoolAddOnsType
-
-instance NFData UserPoolAddOnsType
-
-instance ToJSON UserPoolAddOnsType where
+instance Lude.ToJSON UserPoolAddOnsType where
   toJSON UserPoolAddOnsType' {..} =
-    object
-      ( catMaybes
-          [Just ("AdvancedSecurityMode" .= _upaotAdvancedSecurityMode)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("AdvancedSecurityMode" Lude..= advancedSecurityMode)]
       )

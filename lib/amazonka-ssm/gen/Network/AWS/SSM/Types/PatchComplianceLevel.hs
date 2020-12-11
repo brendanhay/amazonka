@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchComplianceLevel where
+module Network.AWS.SSM.Types.PatchComplianceLevel
+  ( PatchComplianceLevel
+      ( PatchComplianceLevel',
+        Critical,
+        High,
+        Informational,
+        Low,
+        Medium,
+        Unspecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PatchComplianceLevel
-  = Critical
-  | High
-  | Informational
-  | Low
-  | Medium
-  | Unspecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PatchComplianceLevel = PatchComplianceLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PatchComplianceLevel where
-  parser =
-    takeLowerText >>= \case
-      "critical" -> pure Critical
-      "high" -> pure High
-      "informational" -> pure Informational
-      "low" -> pure Low
-      "medium" -> pure Medium
-      "unspecified" -> pure Unspecified
-      e ->
-        fromTextError $
-          "Failure parsing PatchComplianceLevel from value: '" <> e
-            <> "'. Accepted values: critical, high, informational, low, medium, unspecified"
+pattern Critical :: PatchComplianceLevel
+pattern Critical = PatchComplianceLevel' "CRITICAL"
 
-instance ToText PatchComplianceLevel where
-  toText = \case
-    Critical -> "CRITICAL"
-    High -> "HIGH"
-    Informational -> "INFORMATIONAL"
-    Low -> "LOW"
-    Medium -> "MEDIUM"
-    Unspecified -> "UNSPECIFIED"
+pattern High :: PatchComplianceLevel
+pattern High = PatchComplianceLevel' "HIGH"
 
-instance Hashable PatchComplianceLevel
+pattern Informational :: PatchComplianceLevel
+pattern Informational = PatchComplianceLevel' "INFORMATIONAL"
 
-instance NFData PatchComplianceLevel
+pattern Low :: PatchComplianceLevel
+pattern Low = PatchComplianceLevel' "LOW"
 
-instance ToByteString PatchComplianceLevel
+pattern Medium :: PatchComplianceLevel
+pattern Medium = PatchComplianceLevel' "MEDIUM"
 
-instance ToQuery PatchComplianceLevel
+pattern Unspecified :: PatchComplianceLevel
+pattern Unspecified = PatchComplianceLevel' "UNSPECIFIED"
 
-instance ToHeader PatchComplianceLevel
-
-instance ToJSON PatchComplianceLevel where
-  toJSON = toJSONText
-
-instance FromJSON PatchComplianceLevel where
-  parseJSON = parseJSONText "PatchComplianceLevel"
+{-# COMPLETE
+  Critical,
+  High,
+  Informational,
+  Low,
+  Medium,
+  Unspecified,
+  PatchComplianceLevel'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,113 @@
 --
 -- Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues> in the /Amazon Simple Queue Service Developer Guide/ .
 --
---
 -- When you use queue tags, keep the following guidelines in mind:
 --
 --     * Adding more than 50 tags to a queue isn't recommended.
 --
+--
 --     * Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.
 --
+--
 --     * Tags are case-sensitive.
+--
 --
 --     * A new tag with a key identical to that of an existing tag overwrites the existing tag.
 --
 --
---
 -- For a full list of tag restrictions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Limits Related to Queues> in the /Amazon Simple Queue Service Developer Guide/ .
 module Network.AWS.SQS.TagQueue
-  ( -- * Creating a Request
-    tagQueue,
-    TagQueue,
+  ( -- * Creating a request
+    TagQueue (..),
+    mkTagQueue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tqQueueURL,
     tqTags,
 
-    -- * Destructuring the Response
-    tagQueueResponse,
-    TagQueueResponse,
+    -- * Destructuring the response
+    TagQueueResponse (..),
+    mkTagQueueResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
--- | /See:/ 'tagQueue' smart constructor.
+-- | /See:/ 'mkTagQueue' smart constructor.
 data TagQueue = TagQueue'
-  { _tqQueueURL :: !Text,
-    _tqTags :: !(Map Text (Text))
+  { queueURL :: Lude.Text,
+    tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagQueue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tqQueueURL' - The URL of the queue.
---
--- * 'tqTags' - The list of tags to be added to the specified queue.
-tagQueue ::
-  -- | 'tqQueueURL'
-  Text ->
+-- * 'queueURL' - The URL of the queue.
+-- * 'tags' - The list of tags to be added to the specified queue.
+mkTagQueue ::
+  -- | 'queueURL'
+  Lude.Text ->
   TagQueue
-tagQueue pQueueURL_ =
-  TagQueue' {_tqQueueURL = pQueueURL_, _tqTags = mempty}
+mkTagQueue pQueueURL_ =
+  TagQueue' {queueURL = pQueueURL_, tags = Lude.mempty}
 
 -- | The URL of the queue.
-tqQueueURL :: Lens' TagQueue Text
-tqQueueURL = lens _tqQueueURL (\s a -> s {_tqQueueURL = a})
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tqQueueURL :: Lens.Lens' TagQueue Lude.Text
+tqQueueURL = Lens.lens (queueURL :: TagQueue -> Lude.Text) (\s a -> s {queueURL = a} :: TagQueue)
+{-# DEPRECATED tqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
 -- | The list of tags to be added to the specified queue.
-tqTags :: Lens' TagQueue (HashMap Text (Text))
-tqTags = lens _tqTags (\s a -> s {_tqTags = a}) . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tqTags :: Lens.Lens' TagQueue (Lude.HashMap Lude.Text (Lude.Text))
+tqTags = Lens.lens (tags :: TagQueue -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagQueue)
+{-# DEPRECATED tqTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagQueue where
+instance Lude.AWSRequest TagQueue where
   type Rs TagQueue = TagQueueResponse
-  request = postQuery sqs
-  response = receiveNull TagQueueResponse'
+  request = Req.postQuery sqsService
+  response = Res.receiveNull TagQueueResponse'
 
-instance Hashable TagQueue
+instance Lude.ToHeaders TagQueue where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TagQueue
+instance Lude.ToPath TagQueue where
+  toPath = Lude.const "/"
 
-instance ToHeaders TagQueue where
-  toHeaders = const mempty
-
-instance ToPath TagQueue where
-  toPath = const "/"
-
-instance ToQuery TagQueue where
+instance Lude.ToQuery TagQueue where
   toQuery TagQueue' {..} =
-    mconcat
-      [ "Action" =: ("TagQueue" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _tqQueueURL,
-        toQueryMap "Tags" "Key" "Value" _tqTags
+    Lude.mconcat
+      [ "Action" Lude.=: ("TagQueue" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL,
+        Lude.toQueryMap "Tags" "Key" "Value" tags
       ]
 
--- | /See:/ 'tagQueueResponse' smart constructor.
+-- | /See:/ 'mkTagQueueResponse' smart constructor.
 data TagQueueResponse = TagQueueResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagQueueResponse' with the minimum fields required to make a request.
-tagQueueResponse ::
+mkTagQueueResponse ::
   TagQueueResponse
-tagQueueResponse = TagQueueResponse'
-
-instance NFData TagQueueResponse
+mkTagQueueResponse = TagQueueResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,190 @@
 --
 -- Creates an organizational unit (OU) within a root or parent OU. An OU is a container for accounts that enables you to organize your accounts to apply policies according to your business requirements. The number of levels deep that you can nest OUs is dependent upon the policy types enabled for that root. For service control policies, the limit is five.
 --
---
 -- For more information about OUs, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html Managing Organizational Units> in the /AWS Organizations User Guide./
---
 -- If the request includes tags, then the requester must have the @organizations:TagResource@ permission.
---
 -- This operation can be called only from the organization's management account.
 module Network.AWS.Organizations.CreateOrganizationalUnit
-  ( -- * Creating a Request
-    createOrganizationalUnit,
-    CreateOrganizationalUnit,
+  ( -- * Creating a request
+    CreateOrganizationalUnit (..),
+    mkCreateOrganizationalUnit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     couTags,
     couParentId,
     couName,
 
-    -- * Destructuring the Response
-    createOrganizationalUnitResponse,
-    CreateOrganizationalUnitResponse,
+    -- * Destructuring the response
+    CreateOrganizationalUnitResponse (..),
+    mkCreateOrganizationalUnitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     coursOrganizationalUnit,
     coursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createOrganizationalUnit' smart constructor.
+-- | /See:/ 'mkCreateOrganizationalUnit' smart constructor.
 data CreateOrganizationalUnit = CreateOrganizationalUnit'
-  { _couTags ::
-      !(Maybe [Tag]),
-    _couParentId :: !Text,
-    _couName :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    parentId :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrganizationalUnit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The friendly name to assign to the new OU.
+-- * 'parentId' - The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 --
--- * 'couTags' - A list of tags that you want to attach to the newly created OU. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
 --
--- * 'couParentId' - The unique identifier (ID) of the parent root or OU that you want to create the new OU in. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+--     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
 --
--- * 'couName' - The friendly name to assign to the new OU.
-createOrganizationalUnit ::
-  -- | 'couParentId'
-  Text ->
-  -- | 'couName'
-  Text ->
+--
+--     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+--
+--
+-- * 'tags' - A list of tags that you want to attach to the newly created OU. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+mkCreateOrganizationalUnit ::
+  -- | 'parentId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateOrganizationalUnit
-createOrganizationalUnit pParentId_ pName_ =
+mkCreateOrganizationalUnit pParentId_ pName_ =
   CreateOrganizationalUnit'
-    { _couTags = Nothing,
-      _couParentId = pParentId_,
-      _couName = pName_
+    { tags = Lude.Nothing,
+      parentId = pParentId_,
+      name = pName_
     }
 
 -- | A list of tags that you want to attach to the newly created OU. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
-couTags :: Lens' CreateOrganizationalUnit [Tag]
-couTags = lens _couTags (\s a -> s {_couTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+couTags :: Lens.Lens' CreateOrganizationalUnit (Lude.Maybe [Tag])
+couTags = Lens.lens (tags :: CreateOrganizationalUnit -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateOrganizationalUnit)
+{-# DEPRECATED couTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The unique identifier (ID) of the parent root or OU that you want to create the new OU in. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-couParentId :: Lens' CreateOrganizationalUnit Text
-couParentId = lens _couParentId (\s a -> s {_couParentId = a})
+-- | The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
+--
+--     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+--
+--
+--     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+--
+--
+--
+-- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+couParentId :: Lens.Lens' CreateOrganizationalUnit Lude.Text
+couParentId = Lens.lens (parentId :: CreateOrganizationalUnit -> Lude.Text) (\s a -> s {parentId = a} :: CreateOrganizationalUnit)
+{-# DEPRECATED couParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
 -- | The friendly name to assign to the new OU.
-couName :: Lens' CreateOrganizationalUnit Text
-couName = lens _couName (\s a -> s {_couName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+couName :: Lens.Lens' CreateOrganizationalUnit Lude.Text
+couName = Lens.lens (name :: CreateOrganizationalUnit -> Lude.Text) (\s a -> s {name = a} :: CreateOrganizationalUnit)
+{-# DEPRECATED couName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateOrganizationalUnit where
+instance Lude.AWSRequest CreateOrganizationalUnit where
   type Rs CreateOrganizationalUnit = CreateOrganizationalUnitResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateOrganizationalUnitResponse'
-            <$> (x .?> "OrganizationalUnit") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OrganizationalUnit")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateOrganizationalUnit
-
-instance NFData CreateOrganizationalUnit
-
-instance ToHeaders CreateOrganizationalUnit where
+instance Lude.ToHeaders CreateOrganizationalUnit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSOrganizationsV20161128.CreateOrganizationalUnit" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.CreateOrganizationalUnit" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateOrganizationalUnit where
+instance Lude.ToJSON CreateOrganizationalUnit where
   toJSON CreateOrganizationalUnit' {..} =
-    object
-      ( catMaybes
-          [ ("Tags" .=) <$> _couTags,
-            Just ("ParentId" .= _couParentId),
-            Just ("Name" .= _couName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("ParentId" Lude..= parentId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreateOrganizationalUnit where
-  toPath = const "/"
+instance Lude.ToPath CreateOrganizationalUnit where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateOrganizationalUnit where
-  toQuery = const mempty
+instance Lude.ToQuery CreateOrganizationalUnit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createOrganizationalUnitResponse' smart constructor.
+-- | /See:/ 'mkCreateOrganizationalUnitResponse' smart constructor.
 data CreateOrganizationalUnitResponse = CreateOrganizationalUnitResponse'
-  { _coursOrganizationalUnit ::
-      !( Maybe
-           OrganizationalUnit
-       ),
-    _coursResponseStatus ::
-      !Int
+  { organizationalUnit ::
+      Lude.Maybe
+        OrganizationalUnit,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coursOrganizationalUnit' - A structure that contains details about the newly created OU.
---
--- * 'coursResponseStatus' - -- | The response status code.
-createOrganizationalUnitResponse ::
-  -- | 'coursResponseStatus'
-  Int ->
+-- * 'organizationalUnit' - A structure that contains details about the newly created OU.
+-- * 'responseStatus' - The response status code.
+mkCreateOrganizationalUnitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateOrganizationalUnitResponse
-createOrganizationalUnitResponse pResponseStatus_ =
+mkCreateOrganizationalUnitResponse pResponseStatus_ =
   CreateOrganizationalUnitResponse'
-    { _coursOrganizationalUnit =
-        Nothing,
-      _coursResponseStatus = pResponseStatus_
+    { organizationalUnit =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains details about the newly created OU.
-coursOrganizationalUnit :: Lens' CreateOrganizationalUnitResponse (Maybe OrganizationalUnit)
-coursOrganizationalUnit = lens _coursOrganizationalUnit (\s a -> s {_coursOrganizationalUnit = a})
+--
+-- /Note:/ Consider using 'organizationalUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coursOrganizationalUnit :: Lens.Lens' CreateOrganizationalUnitResponse (Lude.Maybe OrganizationalUnit)
+coursOrganizationalUnit = Lens.lens (organizationalUnit :: CreateOrganizationalUnitResponse -> Lude.Maybe OrganizationalUnit) (\s a -> s {organizationalUnit = a} :: CreateOrganizationalUnitResponse)
+{-# DEPRECATED coursOrganizationalUnit "Use generic-lens or generic-optics with 'organizationalUnit' instead." #-}
 
--- | -- | The response status code.
-coursResponseStatus :: Lens' CreateOrganizationalUnitResponse Int
-coursResponseStatus = lens _coursResponseStatus (\s a -> s {_coursResponseStatus = a})
-
-instance NFData CreateOrganizationalUnitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coursResponseStatus :: Lens.Lens' CreateOrganizationalUnitResponse Lude.Int
+coursResponseStatus = Lens.lens (responseStatus :: CreateOrganizationalUnitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateOrganizationalUnitResponse)
+{-# DEPRECATED coursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

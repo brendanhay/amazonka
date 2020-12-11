@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Returns summary information about the versions of a type.
 module Network.AWS.CloudFormation.ListTypeVersions
-  ( -- * Creating a Request
-    listTypeVersions,
-    ListTypeVersions,
+  ( -- * Creating a request
+    ListTypeVersions (..),
+    mkListTypeVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltvTypeName,
     ltvARN,
     ltvNextToken,
@@ -31,11 +26,11 @@ module Network.AWS.CloudFormation.ListTypeVersions
     ltvType,
     ltvMaxResults,
 
-    -- * Destructuring the Response
-    listTypeVersionsResponse,
-    ListTypeVersionsResponse,
+    -- * Destructuring the response
+    ListTypeVersionsResponse (..),
+    mkListTypeVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltvrsNextToken,
     ltvrsTypeVersionSummaries,
     ltvrsResponseStatus,
@@ -43,152 +38,210 @@ module Network.AWS.CloudFormation.ListTypeVersions
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTypeVersions' smart constructor.
+-- | /See:/ 'mkListTypeVersions' smart constructor.
 data ListTypeVersions = ListTypeVersions'
-  { _ltvTypeName ::
-      !(Maybe Text),
-    _ltvARN :: !(Maybe Text),
-    _ltvNextToken :: !(Maybe Text),
-    _ltvDeprecatedStatus :: !(Maybe DeprecatedStatus),
-    _ltvType :: !(Maybe RegistryType),
-    _ltvMaxResults :: !(Maybe Nat)
+  { typeName ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    deprecatedStatus :: Lude.Maybe DeprecatedStatus,
+    type' :: Lude.Maybe RegistryType,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypeVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the type for which you want version summary information.
 --
--- * 'ltvTypeName' - The name of the type for which you want version summary information. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'deprecatedStatus' - The deprecation status of the type versions that you want to get summary information about.
 --
--- * 'ltvARN' - The Amazon Resource Name (ARN) of the type for which you want version summary information. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- Valid values include:
 --
--- * 'ltvNextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+--     * @LIVE@ : The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.
 --
--- * 'ltvDeprecatedStatus' - The deprecation status of the type versions that you want to get summary information about. Valid values include:     * @LIVE@ : The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.     * @DEPRECATED@ : The type version has been deregistered and can no longer be used in CloudFormation operations.  The default is @LIVE@ .
 --
--- * 'ltvType' - The kind of the type. Currently the only valid value is @RESOURCE@ . Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--     * @DEPRECATED@ : The type version has been deregistered and can no longer be used in CloudFormation operations.
 --
--- * 'ltvMaxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-listTypeVersions ::
+--
+-- The default is @LIVE@ .
+-- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+-- * 'type'' - The kind of the type.
+--
+-- Currently the only valid value is @RESOURCE@ .
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'typeName' - The name of the type for which you want version summary information.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+mkListTypeVersions ::
   ListTypeVersions
-listTypeVersions =
+mkListTypeVersions =
   ListTypeVersions'
-    { _ltvTypeName = Nothing,
-      _ltvARN = Nothing,
-      _ltvNextToken = Nothing,
-      _ltvDeprecatedStatus = Nothing,
-      _ltvType = Nothing,
-      _ltvMaxResults = Nothing
+    { typeName = Lude.Nothing,
+      arn = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      deprecatedStatus = Lude.Nothing,
+      type' = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | The name of the type for which you want version summary information. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-ltvTypeName :: Lens' ListTypeVersions (Maybe Text)
-ltvTypeName = lens _ltvTypeName (\s a -> s {_ltvTypeName = a})
+-- | The name of the type for which you want version summary information.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvTypeName :: Lens.Lens' ListTypeVersions (Lude.Maybe Lude.Text)
+ltvTypeName = Lens.lens (typeName :: ListTypeVersions -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: ListTypeVersions)
+{-# DEPRECATED ltvTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the type for which you want version summary information. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-ltvARN :: Lens' ListTypeVersions (Maybe Text)
-ltvARN = lens _ltvARN (\s a -> s {_ltvARN = a})
+-- | The Amazon Resource Name (ARN) of the type for which you want version summary information.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvARN :: Lens.Lens' ListTypeVersions (Lude.Maybe Lude.Text)
+ltvARN = Lens.lens (arn :: ListTypeVersions -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ListTypeVersions)
+{-# DEPRECATED ltvARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
-ltvNextToken :: Lens' ListTypeVersions (Maybe Text)
-ltvNextToken = lens _ltvNextToken (\s a -> s {_ltvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvNextToken :: Lens.Lens' ListTypeVersions (Lude.Maybe Lude.Text)
+ltvNextToken = Lens.lens (nextToken :: ListTypeVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypeVersions)
+{-# DEPRECATED ltvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The deprecation status of the type versions that you want to get summary information about. Valid values include:     * @LIVE@ : The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.     * @DEPRECATED@ : The type version has been deregistered and can no longer be used in CloudFormation operations.  The default is @LIVE@ .
-ltvDeprecatedStatus :: Lens' ListTypeVersions (Maybe DeprecatedStatus)
-ltvDeprecatedStatus = lens _ltvDeprecatedStatus (\s a -> s {_ltvDeprecatedStatus = a})
+-- | The deprecation status of the type versions that you want to get summary information about.
+--
+-- Valid values include:
+--
+--     * @LIVE@ : The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.
+--
+--
+--     * @DEPRECATED@ : The type version has been deregistered and can no longer be used in CloudFormation operations.
+--
+--
+-- The default is @LIVE@ .
+--
+-- /Note:/ Consider using 'deprecatedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvDeprecatedStatus :: Lens.Lens' ListTypeVersions (Lude.Maybe DeprecatedStatus)
+ltvDeprecatedStatus = Lens.lens (deprecatedStatus :: ListTypeVersions -> Lude.Maybe DeprecatedStatus) (\s a -> s {deprecatedStatus = a} :: ListTypeVersions)
+{-# DEPRECATED ltvDeprecatedStatus "Use generic-lens or generic-optics with 'deprecatedStatus' instead." #-}
 
--- | The kind of the type. Currently the only valid value is @RESOURCE@ . Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-ltvType :: Lens' ListTypeVersions (Maybe RegistryType)
-ltvType = lens _ltvType (\s a -> s {_ltvType = a})
+-- | The kind of the type.
+--
+-- Currently the only valid value is @RESOURCE@ .
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvType :: Lens.Lens' ListTypeVersions (Lude.Maybe RegistryType)
+ltvType = Lens.lens (type' :: ListTypeVersions -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: ListTypeVersions)
+{-# DEPRECATED ltvType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-ltvMaxResults :: Lens' ListTypeVersions (Maybe Natural)
-ltvMaxResults = lens _ltvMaxResults (\s a -> s {_ltvMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvMaxResults :: Lens.Lens' ListTypeVersions (Lude.Maybe Lude.Natural)
+ltvMaxResults = Lens.lens (maxResults :: ListTypeVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypeVersions)
+{-# DEPRECATED ltvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListTypeVersions where
+instance Lude.AWSRequest ListTypeVersions where
   type Rs ListTypeVersions = ListTypeVersionsResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTypeVersionsResult"
       ( \s h x ->
           ListTypeVersionsResponse'
-            <$> (x .@? "NextToken")
-            <*> ( x .@? "TypeVersionSummaries" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> ( x Lude..@? "TypeVersionSummaries" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTypeVersions
+instance Lude.ToHeaders ListTypeVersions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTypeVersions
+instance Lude.ToPath ListTypeVersions where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTypeVersions where
-  toHeaders = const mempty
-
-instance ToPath ListTypeVersions where
-  toPath = const "/"
-
-instance ToQuery ListTypeVersions where
+instance Lude.ToQuery ListTypeVersions where
   toQuery ListTypeVersions' {..} =
-    mconcat
-      [ "Action" =: ("ListTypeVersions" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "TypeName" =: _ltvTypeName,
-        "Arn" =: _ltvARN,
-        "NextToken" =: _ltvNextToken,
-        "DeprecatedStatus" =: _ltvDeprecatedStatus,
-        "Type" =: _ltvType,
-        "MaxResults" =: _ltvMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTypeVersions" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "TypeName" Lude.=: typeName,
+        "Arn" Lude.=: arn,
+        "NextToken" Lude.=: nextToken,
+        "DeprecatedStatus" Lude.=: deprecatedStatus,
+        "Type" Lude.=: type',
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listTypeVersionsResponse' smart constructor.
+-- | /See:/ 'mkListTypeVersionsResponse' smart constructor.
 data ListTypeVersionsResponse = ListTypeVersionsResponse'
-  { _ltvrsNextToken ::
-      !(Maybe Text),
-    _ltvrsTypeVersionSummaries ::
-      !(Maybe [TypeVersionSummary]),
-    _ltvrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    typeVersionSummaries ::
+      Lude.Maybe [TypeVersionSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypeVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltvrsNextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
---
--- * 'ltvrsTypeVersionSummaries' - A list of @TypeVersionSummary@ structures that contain information about the specified type's versions.
---
--- * 'ltvrsResponseStatus' - -- | The response status code.
-listTypeVersionsResponse ::
-  -- | 'ltvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+-- * 'responseStatus' - The response status code.
+-- * 'typeVersionSummaries' - A list of @TypeVersionSummary@ structures that contain information about the specified type's versions.
+mkListTypeVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTypeVersionsResponse
-listTypeVersionsResponse pResponseStatus_ =
+mkListTypeVersionsResponse pResponseStatus_ =
   ListTypeVersionsResponse'
-    { _ltvrsNextToken = Nothing,
-      _ltvrsTypeVersionSummaries = Nothing,
-      _ltvrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      typeVersionSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
-ltvrsNextToken :: Lens' ListTypeVersionsResponse (Maybe Text)
-ltvrsNextToken = lens _ltvrsNextToken (\s a -> s {_ltvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvrsNextToken :: Lens.Lens' ListTypeVersionsResponse (Lude.Maybe Lude.Text)
+ltvrsNextToken = Lens.lens (nextToken :: ListTypeVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypeVersionsResponse)
+{-# DEPRECATED ltvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @TypeVersionSummary@ structures that contain information about the specified type's versions.
-ltvrsTypeVersionSummaries :: Lens' ListTypeVersionsResponse [TypeVersionSummary]
-ltvrsTypeVersionSummaries = lens _ltvrsTypeVersionSummaries (\s a -> s {_ltvrsTypeVersionSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'typeVersionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvrsTypeVersionSummaries :: Lens.Lens' ListTypeVersionsResponse (Lude.Maybe [TypeVersionSummary])
+ltvrsTypeVersionSummaries = Lens.lens (typeVersionSummaries :: ListTypeVersionsResponse -> Lude.Maybe [TypeVersionSummary]) (\s a -> s {typeVersionSummaries = a} :: ListTypeVersionsResponse)
+{-# DEPRECATED ltvrsTypeVersionSummaries "Use generic-lens or generic-optics with 'typeVersionSummaries' instead." #-}
 
--- | -- | The response status code.
-ltvrsResponseStatus :: Lens' ListTypeVersionsResponse Int
-ltvrsResponseStatus = lens _ltvrsResponseStatus (\s a -> s {_ltvrsResponseStatus = a})
-
-instance NFData ListTypeVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvrsResponseStatus :: Lens.Lens' ListTypeVersionsResponse Lude.Int
+ltvrsResponseStatus = Lens.lens (responseStatus :: ListTypeVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTypeVersionsResponse)
+{-# DEPRECATED ltvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

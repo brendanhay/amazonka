@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,138 @@
 --
 -- Stop an Automation that is currently running.
 module Network.AWS.SSM.StopAutomationExecution
-  ( -- * Creating a Request
-    stopAutomationExecution,
-    StopAutomationExecution,
+  ( -- * Creating a request
+    StopAutomationExecution (..),
+    mkStopAutomationExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     saeType,
     saeAutomationExecutionId,
 
-    -- * Destructuring the Response
-    stopAutomationExecutionResponse,
-    StopAutomationExecutionResponse,
+    -- * Destructuring the response
+    StopAutomationExecutionResponse (..),
+    mkStopAutomationExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     saersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'stopAutomationExecution' smart constructor.
+-- | /See:/ 'mkStopAutomationExecution' smart constructor.
 data StopAutomationExecution = StopAutomationExecution'
-  { _saeType ::
-      !(Maybe StopType),
-    _saeAutomationExecutionId :: !Text
+  { type' ::
+      Lude.Maybe StopType,
+    automationExecutionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAutomationExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saeType' - The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
---
--- * 'saeAutomationExecutionId' - The execution ID of the Automation to stop.
-stopAutomationExecution ::
-  -- | 'saeAutomationExecutionId'
-  Text ->
+-- * 'automationExecutionId' - The execution ID of the Automation to stop.
+-- * 'type'' - The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
+mkStopAutomationExecution ::
+  -- | 'automationExecutionId'
+  Lude.Text ->
   StopAutomationExecution
-stopAutomationExecution pAutomationExecutionId_ =
+mkStopAutomationExecution pAutomationExecutionId_ =
   StopAutomationExecution'
-    { _saeType = Nothing,
-      _saeAutomationExecutionId = pAutomationExecutionId_
+    { type' = Lude.Nothing,
+      automationExecutionId = pAutomationExecutionId_
     }
 
 -- | The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
-saeType :: Lens' StopAutomationExecution (Maybe StopType)
-saeType = lens _saeType (\s a -> s {_saeType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saeType :: Lens.Lens' StopAutomationExecution (Lude.Maybe StopType)
+saeType = Lens.lens (type' :: StopAutomationExecution -> Lude.Maybe StopType) (\s a -> s {type' = a} :: StopAutomationExecution)
+{-# DEPRECATED saeType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The execution ID of the Automation to stop.
-saeAutomationExecutionId :: Lens' StopAutomationExecution Text
-saeAutomationExecutionId = lens _saeAutomationExecutionId (\s a -> s {_saeAutomationExecutionId = a})
+--
+-- /Note:/ Consider using 'automationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saeAutomationExecutionId :: Lens.Lens' StopAutomationExecution Lude.Text
+saeAutomationExecutionId = Lens.lens (automationExecutionId :: StopAutomationExecution -> Lude.Text) (\s a -> s {automationExecutionId = a} :: StopAutomationExecution)
+{-# DEPRECATED saeAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
 
-instance AWSRequest StopAutomationExecution where
+instance Lude.AWSRequest StopAutomationExecution where
   type Rs StopAutomationExecution = StopAutomationExecutionResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StopAutomationExecutionResponse' <$> (pure (fromEnum s))
+          StopAutomationExecutionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopAutomationExecution
-
-instance NFData StopAutomationExecution
-
-instance ToHeaders StopAutomationExecution where
+instance Lude.ToHeaders StopAutomationExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.StopAutomationExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.StopAutomationExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopAutomationExecution where
+instance Lude.ToJSON StopAutomationExecution where
   toJSON StopAutomationExecution' {..} =
-    object
-      ( catMaybes
-          [ ("Type" .=) <$> _saeType,
-            Just ("AutomationExecutionId" .= _saeAutomationExecutionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Type" Lude..=) Lude.<$> type',
+            Lude.Just ("AutomationExecutionId" Lude..= automationExecutionId)
           ]
       )
 
-instance ToPath StopAutomationExecution where
-  toPath = const "/"
+instance Lude.ToPath StopAutomationExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery StopAutomationExecution where
-  toQuery = const mempty
+instance Lude.ToQuery StopAutomationExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopAutomationExecutionResponse' smart constructor.
+-- | /See:/ 'mkStopAutomationExecutionResponse' smart constructor.
 newtype StopAutomationExecutionResponse = StopAutomationExecutionResponse'
-  { _saersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAutomationExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saersResponseStatus' - -- | The response status code.
-stopAutomationExecutionResponse ::
-  -- | 'saersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopAutomationExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopAutomationExecutionResponse
-stopAutomationExecutionResponse pResponseStatus_ =
+mkStopAutomationExecutionResponse pResponseStatus_ =
   StopAutomationExecutionResponse'
-    { _saersResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-saersResponseStatus :: Lens' StopAutomationExecutionResponse Int
-saersResponseStatus = lens _saersResponseStatus (\s a -> s {_saersResponseStatus = a})
-
-instance NFData StopAutomationExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saersResponseStatus :: Lens.Lens' StopAutomationExecutionResponse Lude.Int
+saersResponseStatus = Lens.lens (responseStatus :: StopAutomationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAutomationExecutionResponse)
+{-# DEPRECATED saersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

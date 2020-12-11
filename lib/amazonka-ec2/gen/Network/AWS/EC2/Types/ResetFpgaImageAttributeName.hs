@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ResetFpgaImageAttributeName where
+module Network.AWS.EC2.Types.ResetFpgaImageAttributeName
+  ( ResetFpgaImageAttributeName
+      ( ResetFpgaImageAttributeName',
+        LoadPermission
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResetFpgaImageAttributeName = LoadPermission
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResetFpgaImageAttributeName = ResetFpgaImageAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResetFpgaImageAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "loadpermission" -> pure LoadPermission
-      e ->
-        fromTextError $
-          "Failure parsing ResetFpgaImageAttributeName from value: '" <> e
-            <> "'. Accepted values: loadpermission"
+pattern LoadPermission :: ResetFpgaImageAttributeName
+pattern LoadPermission = ResetFpgaImageAttributeName' "loadPermission"
 
-instance ToText ResetFpgaImageAttributeName where
-  toText = \case
-    LoadPermission -> "loadPermission"
-
-instance Hashable ResetFpgaImageAttributeName
-
-instance NFData ResetFpgaImageAttributeName
-
-instance ToByteString ResetFpgaImageAttributeName
-
-instance ToQuery ResetFpgaImageAttributeName
-
-instance ToHeader ResetFpgaImageAttributeName
+{-# COMPLETE
+  LoadPermission,
+  ResetFpgaImageAttributeName'
+  #-}

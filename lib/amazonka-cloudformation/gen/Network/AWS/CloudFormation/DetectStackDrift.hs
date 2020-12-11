@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,152 @@
 --
 -- Detects whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For each resource in the stack that supports drift detection, AWS CloudFormation compares the actual configuration of the resource with its expected template configuration. Only resource properties explicitly defined in the stack template are checked for drift. A stack is considered to have drifted if one or more of its resources differ from their expected template configurations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
 --
---
 -- Use @DetectStackDrift@ to detect drift on all supported resources for a given stack, or 'DetectStackResourceDrift' to detect drift on individual resources.
---
 -- For a list of stack resources that currently support drift detection, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .
---
 -- @DetectStackDrift@ can take up to several minutes, depending on the number of resources contained within the stack. Use 'DescribeStackDriftDetectionStatus' to monitor the progress of a detect stack drift operation. Once the drift detection operation has completed, use 'DescribeStackResourceDrifts' to return drift information about the stack and its resources.
---
 -- When detecting drift on a stack, AWS CloudFormation does not detect drift on any nested stacks belonging to that stack. Perform @DetectStackDrift@ directly on the nested stack itself.
 module Network.AWS.CloudFormation.DetectStackDrift
-  ( -- * Creating a Request
-    detectStackDrift,
-    DetectStackDrift,
+  ( -- * Creating a request
+    DetectStackDrift (..),
+    mkDetectStackDrift,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsdLogicalResourceIds,
     dsdStackName,
 
-    -- * Destructuring the Response
-    detectStackDriftResponse,
-    DetectStackDriftResponse,
+    -- * Destructuring the response
+    DetectStackDriftResponse (..),
+    mkDetectStackDriftResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsdrsResponseStatus,
     dsdrsStackDriftDetectionId,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detectStackDrift' smart constructor.
+-- | /See:/ 'mkDetectStackDrift' smart constructor.
 data DetectStackDrift = DetectStackDrift'
-  { _dsdLogicalResourceIds ::
-      !(Maybe (List1 Text)),
-    _dsdStackName :: !Text
+  { logicalResourceIds ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    stackName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackDrift' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdLogicalResourceIds' - The logical names of any resources you want to use as filters.
---
--- * 'dsdStackName' - The name of the stack for which you want to detect drift.
-detectStackDrift ::
-  -- | 'dsdStackName'
-  Text ->
+-- * 'logicalResourceIds' - The logical names of any resources you want to use as filters.
+-- * 'stackName' - The name of the stack for which you want to detect drift.
+mkDetectStackDrift ::
+  -- | 'stackName'
+  Lude.Text ->
   DetectStackDrift
-detectStackDrift pStackName_ =
+mkDetectStackDrift pStackName_ =
   DetectStackDrift'
-    { _dsdLogicalResourceIds = Nothing,
-      _dsdStackName = pStackName_
+    { logicalResourceIds = Lude.Nothing,
+      stackName = pStackName_
     }
 
 -- | The logical names of any resources you want to use as filters.
-dsdLogicalResourceIds :: Lens' DetectStackDrift (Maybe (NonEmpty Text))
-dsdLogicalResourceIds = lens _dsdLogicalResourceIds (\s a -> s {_dsdLogicalResourceIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'logicalResourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdLogicalResourceIds :: Lens.Lens' DetectStackDrift (Lude.Maybe (Lude.NonEmpty Lude.Text))
+dsdLogicalResourceIds = Lens.lens (logicalResourceIds :: DetectStackDrift -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {logicalResourceIds = a} :: DetectStackDrift)
+{-# DEPRECATED dsdLogicalResourceIds "Use generic-lens or generic-optics with 'logicalResourceIds' instead." #-}
 
 -- | The name of the stack for which you want to detect drift.
-dsdStackName :: Lens' DetectStackDrift Text
-dsdStackName = lens _dsdStackName (\s a -> s {_dsdStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdStackName :: Lens.Lens' DetectStackDrift Lude.Text
+dsdStackName = Lens.lens (stackName :: DetectStackDrift -> Lude.Text) (\s a -> s {stackName = a} :: DetectStackDrift)
+{-# DEPRECATED dsdStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance AWSRequest DetectStackDrift where
+instance Lude.AWSRequest DetectStackDrift where
   type Rs DetectStackDrift = DetectStackDriftResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DetectStackDriftResult"
       ( \s h x ->
           DetectStackDriftResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "StackDriftDetectionId")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "StackDriftDetectionId")
       )
 
-instance Hashable DetectStackDrift
+instance Lude.ToHeaders DetectStackDrift where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetectStackDrift
+instance Lude.ToPath DetectStackDrift where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetectStackDrift where
-  toHeaders = const mempty
-
-instance ToPath DetectStackDrift where
-  toPath = const "/"
-
-instance ToQuery DetectStackDrift where
+instance Lude.ToQuery DetectStackDrift where
   toQuery DetectStackDrift' {..} =
-    mconcat
-      [ "Action" =: ("DetectStackDrift" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetectStackDrift" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
         "LogicalResourceIds"
-          =: toQuery (toQueryList "member" <$> _dsdLogicalResourceIds),
-        "StackName" =: _dsdStackName
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> logicalResourceIds),
+        "StackName" Lude.=: stackName
       ]
 
--- | /See:/ 'detectStackDriftResponse' smart constructor.
+-- | /See:/ 'mkDetectStackDriftResponse' smart constructor.
 data DetectStackDriftResponse = DetectStackDriftResponse'
-  { _dsdrsResponseStatus ::
-      !Int,
-    _dsdrsStackDriftDetectionId :: !Text
+  { responseStatus ::
+      Lude.Int,
+    stackDriftDetectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackDriftResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'stackDriftDetectionId' - The ID of the drift detection results of this operation.
 --
--- * 'dsdrsResponseStatus' - -- | The response status code.
---
--- * 'dsdrsStackDriftDetectionId' - The ID of the drift detection results of this operation.  AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
-detectStackDriftResponse ::
-  -- | 'dsdrsResponseStatus'
-  Int ->
-  -- | 'dsdrsStackDriftDetectionId'
-  Text ->
+-- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
+mkDetectStackDriftResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'stackDriftDetectionId'
+  Lude.Text ->
   DetectStackDriftResponse
-detectStackDriftResponse pResponseStatus_ pStackDriftDetectionId_ =
+mkDetectStackDriftResponse pResponseStatus_ pStackDriftDetectionId_ =
   DetectStackDriftResponse'
-    { _dsdrsResponseStatus =
-        pResponseStatus_,
-      _dsdrsStackDriftDetectionId = pStackDriftDetectionId_
+    { responseStatus = pResponseStatus_,
+      stackDriftDetectionId = pStackDriftDetectionId_
     }
 
--- | -- | The response status code.
-dsdrsResponseStatus :: Lens' DetectStackDriftResponse Int
-dsdrsResponseStatus = lens _dsdrsResponseStatus (\s a -> s {_dsdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdrsResponseStatus :: Lens.Lens' DetectStackDriftResponse Lude.Int
+dsdrsResponseStatus = Lens.lens (responseStatus :: DetectStackDriftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectStackDriftResponse)
+{-# DEPRECATED dsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | The ID of the drift detection results of this operation.  AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
-dsdrsStackDriftDetectionId :: Lens' DetectStackDriftResponse Text
-dsdrsStackDriftDetectionId = lens _dsdrsStackDriftDetectionId (\s a -> s {_dsdrsStackDriftDetectionId = a})
-
-instance NFData DetectStackDriftResponse
+-- | The ID of the drift detection results of this operation.
+--
+-- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
+--
+-- /Note:/ Consider using 'stackDriftDetectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdrsStackDriftDetectionId :: Lens.Lens' DetectStackDriftResponse Lude.Text
+dsdrsStackDriftDetectionId = Lens.lens (stackDriftDetectionId :: DetectStackDriftResponse -> Lude.Text) (\s a -> s {stackDriftDetectionId = a} :: DetectStackDriftResponse)
+{-# DEPRECATED dsdrsStackDriftDetectionId "Use generic-lens or generic-optics with 'stackDriftDetectionId' instead." #-}

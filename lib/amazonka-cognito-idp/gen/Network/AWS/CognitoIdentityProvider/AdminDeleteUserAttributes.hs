@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,160 @@
 --
 -- Deletes the user attributes in a user pool as an administrator. Works on any user.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
-  ( -- * Creating a Request
-    adminDeleteUserAttributes,
-    AdminDeleteUserAttributes,
+  ( -- * Creating a request
+    AdminDeleteUserAttributes (..),
+    mkAdminDeleteUserAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aduaUserPoolId,
     aduaUsername,
     aduaUserAttributeNames,
 
-    -- * Destructuring the Response
-    adminDeleteUserAttributesResponse,
-    AdminDeleteUserAttributesResponse,
+    -- * Destructuring the response
+    AdminDeleteUserAttributesResponse (..),
+    mkAdminDeleteUserAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aduarsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to delete user attributes as an administrator.
 --
---
---
--- /See:/ 'adminDeleteUserAttributes' smart constructor.
+-- /See:/ 'mkAdminDeleteUserAttributes' smart constructor.
 data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
-  { _aduaUserPoolId ::
-      !Text,
-    _aduaUsername :: !(Sensitive Text),
-    _aduaUserAttributeNames :: ![Text]
+  { userPoolId ::
+      Lude.Text,
+    username :: Lude.Sensitive Lude.Text,
+    userAttributeNames :: [Lude.Text]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDeleteUserAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'userAttributeNames' - An array of strings representing the user attribute names you wish to delete.
 --
--- * 'aduaUserPoolId' - The user pool ID for the user pool where you want to delete user attributes.
---
--- * 'aduaUsername' - The user name of the user from which you would like to delete attributes.
---
--- * 'aduaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-adminDeleteUserAttributes ::
-  -- | 'aduaUserPoolId'
-  Text ->
-  -- | 'aduaUsername'
-  Text ->
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+-- * 'userPoolId' - The user pool ID for the user pool where you want to delete user attributes.
+-- * 'username' - The user name of the user from which you would like to delete attributes.
+mkAdminDeleteUserAttributes ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminDeleteUserAttributes
-adminDeleteUserAttributes pUserPoolId_ pUsername_ =
+mkAdminDeleteUserAttributes pUserPoolId_ pUsername_ =
   AdminDeleteUserAttributes'
-    { _aduaUserPoolId = pUserPoolId_,
-      _aduaUsername = _Sensitive # pUsername_,
-      _aduaUserAttributeNames = mempty
+    { userPoolId = pUserPoolId_,
+      username = pUsername_,
+      userAttributeNames = Lude.mempty
     }
 
 -- | The user pool ID for the user pool where you want to delete user attributes.
-aduaUserPoolId :: Lens' AdminDeleteUserAttributes Text
-aduaUserPoolId = lens _aduaUserPoolId (\s a -> s {_aduaUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aduaUserPoolId :: Lens.Lens' AdminDeleteUserAttributes Lude.Text
+aduaUserPoolId = Lens.lens (userPoolId :: AdminDeleteUserAttributes -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDeleteUserAttributes)
+{-# DEPRECATED aduaUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user from which you would like to delete attributes.
-aduaUsername :: Lens' AdminDeleteUserAttributes Text
-aduaUsername = lens _aduaUsername (\s a -> s {_aduaUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aduaUsername :: Lens.Lens' AdminDeleteUserAttributes (Lude.Sensitive Lude.Text)
+aduaUsername = Lens.lens (username :: AdminDeleteUserAttributes -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDeleteUserAttributes)
+{-# DEPRECATED aduaUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-aduaUserAttributeNames :: Lens' AdminDeleteUserAttributes [Text]
-aduaUserAttributeNames = lens _aduaUserAttributeNames (\s a -> s {_aduaUserAttributeNames = a}) . _Coerce
+-- | An array of strings representing the user attribute names you wish to delete.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- /Note:/ Consider using 'userAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aduaUserAttributeNames :: Lens.Lens' AdminDeleteUserAttributes [Lude.Text]
+aduaUserAttributeNames = Lens.lens (userAttributeNames :: AdminDeleteUserAttributes -> [Lude.Text]) (\s a -> s {userAttributeNames = a} :: AdminDeleteUserAttributes)
+{-# DEPRECATED aduaUserAttributeNames "Use generic-lens or generic-optics with 'userAttributeNames' instead." #-}
 
-instance AWSRequest AdminDeleteUserAttributes where
+instance Lude.AWSRequest AdminDeleteUserAttributes where
   type
     Rs AdminDeleteUserAttributes =
       AdminDeleteUserAttributesResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AdminDeleteUserAttributesResponse' <$> (pure (fromEnum s))
+          AdminDeleteUserAttributesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AdminDeleteUserAttributes
-
-instance NFData AdminDeleteUserAttributes
-
-instance ToHeaders AdminDeleteUserAttributes where
+instance Lude.ToHeaders AdminDeleteUserAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminDeleteUserAttributes where
+instance Lude.ToJSON AdminDeleteUserAttributes where
   toJSON AdminDeleteUserAttributes' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _aduaUserPoolId),
-            Just ("Username" .= _aduaUsername),
-            Just ("UserAttributeNames" .= _aduaUserAttributeNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username),
+            Lude.Just ("UserAttributeNames" Lude..= userAttributeNames)
           ]
       )
 
-instance ToPath AdminDeleteUserAttributes where
-  toPath = const "/"
+instance Lude.ToPath AdminDeleteUserAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminDeleteUserAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery AdminDeleteUserAttributes where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response received from the server for a request to delete user attributes.
 --
---
---
--- /See:/ 'adminDeleteUserAttributesResponse' smart constructor.
+-- /See:/ 'mkAdminDeleteUserAttributesResponse' smart constructor.
 newtype AdminDeleteUserAttributesResponse = AdminDeleteUserAttributesResponse'
-  { _aduarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDeleteUserAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aduarsResponseStatus' - -- | The response status code.
-adminDeleteUserAttributesResponse ::
-  -- | 'aduarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAdminDeleteUserAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AdminDeleteUserAttributesResponse
-adminDeleteUserAttributesResponse pResponseStatus_ =
+mkAdminDeleteUserAttributesResponse pResponseStatus_ =
   AdminDeleteUserAttributesResponse'
-    { _aduarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-aduarsResponseStatus :: Lens' AdminDeleteUserAttributesResponse Int
-aduarsResponseStatus = lens _aduarsResponseStatus (\s a -> s {_aduarsResponseStatus = a})
-
-instance NFData AdminDeleteUserAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aduarsResponseStatus :: Lens.Lens' AdminDeleteUserAttributesResponse Lude.Int
+aduarsResponseStatus = Lens.lens (responseStatus :: AdminDeleteUserAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminDeleteUserAttributesResponse)
+{-# DEPRECATED aduarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,164 @@
 --
 -- Returns information about all block storage disk snapshots in your AWS account and region.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDiskSnapshots
-  ( -- * Creating a Request
-    getDiskSnapshots,
-    GetDiskSnapshots,
+  ( -- * Creating a request
+    GetDiskSnapshots (..),
+    mkGetDiskSnapshots,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdsPageToken,
 
-    -- * Destructuring the Response
-    getDiskSnapshotsResponse,
-    GetDiskSnapshotsResponse,
+    -- * Destructuring the response
+    GetDiskSnapshotsResponse (..),
+    mkGetDiskSnapshotsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdssrsNextPageToken,
     gdssrsDiskSnapshots,
     gdssrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDiskSnapshots' smart constructor.
+-- | /See:/ 'mkGetDiskSnapshots' smart constructor.
 newtype GetDiskSnapshots = GetDiskSnapshots'
-  { _gdsPageToken ::
-      Maybe Text
+  { pageToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiskSnapshots' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gdsPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetDiskSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getDiskSnapshots ::
+-- To get a page token, perform an initial @GetDiskSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetDiskSnapshots ::
   GetDiskSnapshots
-getDiskSnapshots = GetDiskSnapshots' {_gdsPageToken = Nothing}
+mkGetDiskSnapshots = GetDiskSnapshots' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetDiskSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-gdsPageToken :: Lens' GetDiskSnapshots (Maybe Text)
-gdsPageToken = lens _gdsPageToken (\s a -> s {_gdsPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDiskSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsPageToken :: Lens.Lens' GetDiskSnapshots (Lude.Maybe Lude.Text)
+gdsPageToken = Lens.lens (pageToken :: GetDiskSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetDiskSnapshots)
+{-# DEPRECATED gdsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetDiskSnapshots where
+instance Page.AWSPager GetDiskSnapshots where
   page rq rs
-    | stop (rs ^. gdssrsNextPageToken) = Nothing
-    | stop (rs ^. gdssrsDiskSnapshots) = Nothing
-    | otherwise = Just $ rq & gdsPageToken .~ rs ^. gdssrsNextPageToken
+    | Page.stop (rs Lens.^. gdssrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gdssrsDiskSnapshots) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gdsPageToken Lens..~ rs Lens.^. gdssrsNextPageToken
 
-instance AWSRequest GetDiskSnapshots where
+instance Lude.AWSRequest GetDiskSnapshots where
   type Rs GetDiskSnapshots = GetDiskSnapshotsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDiskSnapshotsResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "diskSnapshots" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "diskSnapshots" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDiskSnapshots
-
-instance NFData GetDiskSnapshots
-
-instance ToHeaders GetDiskSnapshots where
+instance Lude.ToHeaders GetDiskSnapshots where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetDiskSnapshots" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetDiskSnapshots" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDiskSnapshots where
+instance Lude.ToJSON GetDiskSnapshots where
   toJSON GetDiskSnapshots' {..} =
-    object (catMaybes [("pageToken" .=) <$> _gdsPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetDiskSnapshots where
-  toPath = const "/"
+instance Lude.ToPath GetDiskSnapshots where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDiskSnapshots where
-  toQuery = const mempty
+instance Lude.ToQuery GetDiskSnapshots where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDiskSnapshotsResponse' smart constructor.
+-- | /See:/ 'mkGetDiskSnapshotsResponse' smart constructor.
 data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
-  { _gdssrsNextPageToken ::
-      !(Maybe Text),
-    _gdssrsDiskSnapshots ::
-      !(Maybe [DiskSnapshot]),
-    _gdssrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    diskSnapshots ::
+      Lude.Maybe [DiskSnapshot],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiskSnapshotsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'diskSnapshots' - An array of objects containing information about all block storage disk snapshots.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gdssrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetDiskSnapshots@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'gdssrsDiskSnapshots' - An array of objects containing information about all block storage disk snapshots.
---
--- * 'gdssrsResponseStatus' - -- | The response status code.
-getDiskSnapshotsResponse ::
-  -- | 'gdssrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetDiskSnapshots@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetDiskSnapshotsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDiskSnapshotsResponse
-getDiskSnapshotsResponse pResponseStatus_ =
+mkGetDiskSnapshotsResponse pResponseStatus_ =
   GetDiskSnapshotsResponse'
-    { _gdssrsNextPageToken = Nothing,
-      _gdssrsDiskSnapshots = Nothing,
-      _gdssrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      diskSnapshots = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetDiskSnapshots@ request and specify the next page token using the @pageToken@ parameter.
-gdssrsNextPageToken :: Lens' GetDiskSnapshotsResponse (Maybe Text)
-gdssrsNextPageToken = lens _gdssrsNextPageToken (\s a -> s {_gdssrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetDiskSnapshots@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdssrsNextPageToken :: Lens.Lens' GetDiskSnapshotsResponse (Lude.Maybe Lude.Text)
+gdssrsNextPageToken = Lens.lens (nextPageToken :: GetDiskSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetDiskSnapshotsResponse)
+{-# DEPRECATED gdssrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of objects containing information about all block storage disk snapshots.
-gdssrsDiskSnapshots :: Lens' GetDiskSnapshotsResponse [DiskSnapshot]
-gdssrsDiskSnapshots = lens _gdssrsDiskSnapshots (\s a -> s {_gdssrsDiskSnapshots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'diskSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdssrsDiskSnapshots :: Lens.Lens' GetDiskSnapshotsResponse (Lude.Maybe [DiskSnapshot])
+gdssrsDiskSnapshots = Lens.lens (diskSnapshots :: GetDiskSnapshotsResponse -> Lude.Maybe [DiskSnapshot]) (\s a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse)
+{-# DEPRECATED gdssrsDiskSnapshots "Use generic-lens or generic-optics with 'diskSnapshots' instead." #-}
 
--- | -- | The response status code.
-gdssrsResponseStatus :: Lens' GetDiskSnapshotsResponse Int
-gdssrsResponseStatus = lens _gdssrsResponseStatus (\s a -> s {_gdssrsResponseStatus = a})
-
-instance NFData GetDiskSnapshotsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdssrsResponseStatus :: Lens.Lens' GetDiskSnapshotsResponse Lude.Int
+gdssrsResponseStatus = Lens.lens (responseStatus :: GetDiskSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDiskSnapshotsResponse)
+{-# DEPRECATED gdssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

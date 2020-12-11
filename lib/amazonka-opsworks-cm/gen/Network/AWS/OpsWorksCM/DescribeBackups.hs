@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,177 +14,198 @@
 --
 -- Describes backups. The results are ordered by time, with newest backups first. If you do not specify a BackupId or ServerName, the command returns all backups.
 --
---
 -- This operation is synchronous.
---
 -- A @ResourceNotFoundException@ is thrown when the backup does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.OpsWorksCM.DescribeBackups
-  ( -- * Creating a Request
-    describeBackups,
-    DescribeBackups,
+  ( -- * Creating a request
+    DescribeBackups (..),
+    mkDescribeBackups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dServerName,
     dBackupId,
     dNextToken,
     dMaxResults,
 
-    -- * Destructuring the Response
-    describeBackupsResponse,
-    DescribeBackupsResponse,
+    -- * Destructuring the response
+    DescribeBackupsResponse (..),
+    mkDescribeBackupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsBackups,
     drsNextToken,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeBackups' smart constructor.
+-- | /See:/ 'mkDescribeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-  { _dServerName ::
-      !(Maybe Text),
-    _dBackupId :: !(Maybe Text),
-    _dNextToken :: !(Maybe Text),
-    _dMaxResults :: !(Maybe Nat)
+  { serverName ::
+      Lude.Maybe Lude.Text,
+    backupId :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dServerName' - Returns backups for the server with the specified ServerName.
---
--- * 'dBackupId' - Describes a single backup.
---
--- * 'dNextToken' - This is not currently implemented for @DescribeBackups@ requests.
---
--- * 'dMaxResults' - This is not currently implemented for @DescribeBackups@ requests.
-describeBackups ::
+-- * 'backupId' - Describes a single backup.
+-- * 'maxResults' - This is not currently implemented for @DescribeBackups@ requests.
+-- * 'nextToken' - This is not currently implemented for @DescribeBackups@ requests.
+-- * 'serverName' - Returns backups for the server with the specified ServerName.
+mkDescribeBackups ::
   DescribeBackups
-describeBackups =
+mkDescribeBackups =
   DescribeBackups'
-    { _dServerName = Nothing,
-      _dBackupId = Nothing,
-      _dNextToken = Nothing,
-      _dMaxResults = Nothing
+    { serverName = Lude.Nothing,
+      backupId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Returns backups for the server with the specified ServerName.
-dServerName :: Lens' DescribeBackups (Maybe Text)
-dServerName = lens _dServerName (\s a -> s {_dServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dServerName :: Lens.Lens' DescribeBackups (Lude.Maybe Lude.Text)
+dServerName = Lens.lens (serverName :: DescribeBackups -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: DescribeBackups)
+{-# DEPRECATED dServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | Describes a single backup.
-dBackupId :: Lens' DescribeBackups (Maybe Text)
-dBackupId = lens _dBackupId (\s a -> s {_dBackupId = a})
+--
+-- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dBackupId :: Lens.Lens' DescribeBackups (Lude.Maybe Lude.Text)
+dBackupId = Lens.lens (backupId :: DescribeBackups -> Lude.Maybe Lude.Text) (\s a -> s {backupId = a} :: DescribeBackups)
+{-# DEPRECATED dBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
 
 -- | This is not currently implemented for @DescribeBackups@ requests.
-dNextToken :: Lens' DescribeBackups (Maybe Text)
-dNextToken = lens _dNextToken (\s a -> s {_dNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNextToken :: Lens.Lens' DescribeBackups (Lude.Maybe Lude.Text)
+dNextToken = Lens.lens (nextToken :: DescribeBackups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBackups)
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | This is not currently implemented for @DescribeBackups@ requests.
-dMaxResults :: Lens' DescribeBackups (Maybe Natural)
-dMaxResults = lens _dMaxResults (\s a -> s {_dMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMaxResults :: Lens.Lens' DescribeBackups (Lude.Maybe Lude.Natural)
+dMaxResults = Lens.lens (maxResults :: DescribeBackups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBackups)
+{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeBackups where
+instance Page.AWSPager DescribeBackups where
   page rq rs
-    | stop (rs ^. drsNextToken) = Nothing
-    | stop (rs ^. drsBackups) = Nothing
-    | otherwise = Just $ rq & dNextToken .~ rs ^. drsNextToken
+    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsBackups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dNextToken Lens..~ rs Lens.^. drsNextToken
 
-instance AWSRequest DescribeBackups where
+instance Lude.AWSRequest DescribeBackups where
   type Rs DescribeBackups = DescribeBackupsResponse
-  request = postJSON opsWorksCM
+  request = Req.postJSON opsWorksCMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBackupsResponse'
-            <$> (x .?> "Backups" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Backups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBackups
-
-instance NFData DescribeBackups
-
-instance ToHeaders DescribeBackups where
+instance Lude.ToHeaders DescribeBackups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorksCM_V2016_11_01.DescribeBackups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorksCM_V2016_11_01.DescribeBackups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeBackups where
+instance Lude.ToJSON DescribeBackups where
   toJSON DescribeBackups' {..} =
-    object
-      ( catMaybes
-          [ ("ServerName" .=) <$> _dServerName,
-            ("BackupId" .=) <$> _dBackupId,
-            ("NextToken" .=) <$> _dNextToken,
-            ("MaxResults" .=) <$> _dMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ServerName" Lude..=) Lude.<$> serverName,
+            ("BackupId" Lude..=) Lude.<$> backupId,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeBackups where
-  toPath = const "/"
+instance Lude.ToPath DescribeBackups where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeBackups where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBackups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeBackupsResponse' smart constructor.
+-- | /See:/ 'mkDescribeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-  { _drsBackups ::
-      !(Maybe [Backup]),
-    _drsNextToken :: !(Maybe Text),
-    _drsResponseStatus :: !Int
+  { backups ::
+      Lude.Maybe [Backup],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsBackups' - Contains the response to a @DescribeBackups@ request.
---
--- * 'drsNextToken' - This is not currently implemented for @DescribeBackups@ requests.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeBackupsResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'backups' - Contains the response to a @DescribeBackups@ request.
+-- * 'nextToken' - This is not currently implemented for @DescribeBackups@ requests.
+-- * 'responseStatus' - The response status code.
+mkDescribeBackupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBackupsResponse
-describeBackupsResponse pResponseStatus_ =
+mkDescribeBackupsResponse pResponseStatus_ =
   DescribeBackupsResponse'
-    { _drsBackups = Nothing,
-      _drsNextToken = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { backups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains the response to a @DescribeBackups@ request.
-drsBackups :: Lens' DescribeBackupsResponse [Backup]
-drsBackups = lens _drsBackups (\s a -> s {_drsBackups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'backups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsBackups :: Lens.Lens' DescribeBackupsResponse (Lude.Maybe [Backup])
+drsBackups = Lens.lens (backups :: DescribeBackupsResponse -> Lude.Maybe [Backup]) (\s a -> s {backups = a} :: DescribeBackupsResponse)
+{-# DEPRECATED drsBackups "Use generic-lens or generic-optics with 'backups' instead." #-}
 
 -- | This is not currently implemented for @DescribeBackups@ requests.
-drsNextToken :: Lens' DescribeBackupsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\s a -> s {_drsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsNextToken :: Lens.Lens' DescribeBackupsResponse (Lude.Maybe Lude.Text)
+drsNextToken = Lens.lens (nextToken :: DescribeBackupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBackupsResponse)
+{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeBackupsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeBackupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeBackupsResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeBackupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBackupsResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

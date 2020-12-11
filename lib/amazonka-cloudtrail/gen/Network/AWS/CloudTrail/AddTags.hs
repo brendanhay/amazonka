@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,140 @@
 --
 -- Adds one or more tags to a trail, up to a limit of 50. Overwrites an existing tag's value when a new value is specified for an existing tag key. Tag key names must be unique for a trail; you cannot have two keys with the same name but different values. If you specify a key without a value, the tag will be created with the specified key and a value of null. You can tag a trail that applies to all AWS Regions only from the Region in which the trail was created (also known as its home region).
 module Network.AWS.CloudTrail.AddTags
-  ( -- * Creating a Request
-    addTags,
-    AddTags,
+  ( -- * Creating a request
+    AddTags (..),
+    mkAddTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atTagsList,
     atResourceId,
 
-    -- * Destructuring the Response
-    addTagsResponse,
-    AddTagsResponse,
+    -- * Destructuring the response
+    AddTagsResponse (..),
+    mkAddTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudTrail.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Specifies the tags to add to a trail.
 --
---
---
--- /See:/ 'addTags' smart constructor.
+-- /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
-  { _atTagsList :: !(Maybe [Tag]),
-    _atResourceId :: !Text
+  { tagsList :: Lude.Maybe [Tag],
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceId' - Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:
 --
--- * 'atTagsList' - Contains a list of CloudTrail tags, up to a limit of 50
---
--- * 'atResourceId' - Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-addTags ::
-  -- | 'atResourceId'
-  Text ->
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- * 'tagsList' - Contains a list of CloudTrail tags, up to a limit of 50
+mkAddTags ::
+  -- | 'resourceId'
+  Lude.Text ->
   AddTags
-addTags pResourceId_ =
-  AddTags' {_atTagsList = Nothing, _atResourceId = pResourceId_}
+mkAddTags pResourceId_ =
+  AddTags' {tagsList = Lude.Nothing, resourceId = pResourceId_}
 
 -- | Contains a list of CloudTrail tags, up to a limit of 50
-atTagsList :: Lens' AddTags [Tag]
-atTagsList = lens _atTagsList (\s a -> s {_atTagsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTagsList :: Lens.Lens' AddTags (Lude.Maybe [Tag])
+atTagsList = Lens.lens (tagsList :: AddTags -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: AddTags)
+{-# DEPRECATED atTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
 
--- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-atResourceId :: Lens' AddTags Text
-atResourceId = lens _atResourceId (\s a -> s {_atResourceId = a})
+-- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:
+--
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atResourceId :: Lens.Lens' AddTags Lude.Text
+atResourceId = Lens.lens (resourceId :: AddTags -> Lude.Text) (\s a -> s {resourceId = a} :: AddTags)
+{-# DEPRECATED atResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest AddTags where
+instance Lude.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = postJSON cloudTrail
+  request = Req.postJSON cloudTrailService
   response =
-    receiveEmpty
-      (\s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AddTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AddTags
-
-instance NFData AddTags
-
-instance ToHeaders AddTags where
+instance Lude.ToHeaders AddTags where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddTags where
+instance Lude.ToJSON AddTags where
   toJSON AddTags' {..} =
-    object
-      ( catMaybes
-          [ ("TagsList" .=) <$> _atTagsList,
-            Just ("ResourceId" .= _atResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TagsList" Lude..=) Lude.<$> tagsList,
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath AddTags where
-  toPath = const "/"
+instance Lude.ToPath AddTags where
+  toPath = Lude.const "/"
 
-instance ToQuery AddTags where
-  toQuery = const mempty
+instance Lude.ToQuery AddTags where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
---
---
--- /See:/ 'addTagsResponse' smart constructor.
+-- /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-  { _atrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atrsResponseStatus' - -- | The response status code.
-addTagsResponse ::
-  -- | 'atrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAddTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddTagsResponse
-addTagsResponse pResponseStatus_ =
-  AddTagsResponse' {_atrsResponseStatus = pResponseStatus_}
+mkAddTagsResponse pResponseStatus_ =
+  AddTagsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\s a -> s {_atrsResponseStatus = a})
-
-instance NFData AddTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
+atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
+{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

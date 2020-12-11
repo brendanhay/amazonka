@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NoiseReducerSpatialFilterSettings where
+module Network.AWS.MediaConvert.Types.NoiseReducerSpatialFilterSettings
+  ( NoiseReducerSpatialFilterSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNoiseReducerSpatialFilterSettings,
+
+    -- * Lenses
+    nrsfsStrength,
+    nrsfsPostFilterSharpenStrength,
+    nrsfsSpeed,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Noise reducer filter settings for spatial filter.
 --
--- /See:/ 'noiseReducerSpatialFilterSettings' smart constructor.
+-- /See:/ 'mkNoiseReducerSpatialFilterSettings' smart constructor.
 data NoiseReducerSpatialFilterSettings = NoiseReducerSpatialFilterSettings'
-  { _nrsfsStrength ::
-      !(Maybe Nat),
-    _nrsfsPostFilterSharpenStrength ::
-      !(Maybe Nat),
-    _nrsfsSpeed ::
-      !(Maybe Int)
+  { strength ::
+      Lude.Maybe Lude.Natural,
+    postFilterSharpenStrength ::
+      Lude.Maybe Lude.Natural,
+    speed ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducerSpatialFilterSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nrsfsStrength' - Relative strength of noise reducing filter. Higher values produce stronger filtering.
---
--- * 'nrsfsPostFilterSharpenStrength' - Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
---
--- * 'nrsfsSpeed' - The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value.
-noiseReducerSpatialFilterSettings ::
+-- * 'postFilterSharpenStrength' - Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
+-- * 'speed' - The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value.
+-- * 'strength' - Relative strength of noise reducing filter. Higher values produce stronger filtering.
+mkNoiseReducerSpatialFilterSettings ::
   NoiseReducerSpatialFilterSettings
-noiseReducerSpatialFilterSettings =
+mkNoiseReducerSpatialFilterSettings =
   NoiseReducerSpatialFilterSettings'
-    { _nrsfsStrength = Nothing,
-      _nrsfsPostFilterSharpenStrength = Nothing,
-      _nrsfsSpeed = Nothing
+    { strength = Lude.Nothing,
+      postFilterSharpenStrength = Lude.Nothing,
+      speed = Lude.Nothing
     }
 
 -- | Relative strength of noise reducing filter. Higher values produce stronger filtering.
-nrsfsStrength :: Lens' NoiseReducerSpatialFilterSettings (Maybe Natural)
-nrsfsStrength = lens _nrsfsStrength (\s a -> s {_nrsfsStrength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'strength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrsfsStrength :: Lens.Lens' NoiseReducerSpatialFilterSettings (Lude.Maybe Lude.Natural)
+nrsfsStrength = Lens.lens (strength :: NoiseReducerSpatialFilterSettings -> Lude.Maybe Lude.Natural) (\s a -> s {strength = a} :: NoiseReducerSpatialFilterSettings)
+{-# DEPRECATED nrsfsStrength "Use generic-lens or generic-optics with 'strength' instead." #-}
 
 -- | Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
-nrsfsPostFilterSharpenStrength :: Lens' NoiseReducerSpatialFilterSettings (Maybe Natural)
-nrsfsPostFilterSharpenStrength = lens _nrsfsPostFilterSharpenStrength (\s a -> s {_nrsfsPostFilterSharpenStrength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'postFilterSharpenStrength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrsfsPostFilterSharpenStrength :: Lens.Lens' NoiseReducerSpatialFilterSettings (Lude.Maybe Lude.Natural)
+nrsfsPostFilterSharpenStrength = Lens.lens (postFilterSharpenStrength :: NoiseReducerSpatialFilterSettings -> Lude.Maybe Lude.Natural) (\s a -> s {postFilterSharpenStrength = a} :: NoiseReducerSpatialFilterSettings)
+{-# DEPRECATED nrsfsPostFilterSharpenStrength "Use generic-lens or generic-optics with 'postFilterSharpenStrength' instead." #-}
 
 -- | The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value.
-nrsfsSpeed :: Lens' NoiseReducerSpatialFilterSettings (Maybe Int)
-nrsfsSpeed = lens _nrsfsSpeed (\s a -> s {_nrsfsSpeed = a})
+--
+-- /Note:/ Consider using 'speed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrsfsSpeed :: Lens.Lens' NoiseReducerSpatialFilterSettings (Lude.Maybe Lude.Int)
+nrsfsSpeed = Lens.lens (speed :: NoiseReducerSpatialFilterSettings -> Lude.Maybe Lude.Int) (\s a -> s {speed = a} :: NoiseReducerSpatialFilterSettings)
+{-# DEPRECATED nrsfsSpeed "Use generic-lens or generic-optics with 'speed' instead." #-}
 
-instance FromJSON NoiseReducerSpatialFilterSettings where
+instance Lude.FromJSON NoiseReducerSpatialFilterSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "NoiseReducerSpatialFilterSettings"
       ( \x ->
           NoiseReducerSpatialFilterSettings'
-            <$> (x .:? "strength")
-            <*> (x .:? "postFilterSharpenStrength")
-            <*> (x .:? "speed")
+            Lude.<$> (x Lude..:? "strength")
+            Lude.<*> (x Lude..:? "postFilterSharpenStrength")
+            Lude.<*> (x Lude..:? "speed")
       )
 
-instance Hashable NoiseReducerSpatialFilterSettings
-
-instance NFData NoiseReducerSpatialFilterSettings
-
-instance ToJSON NoiseReducerSpatialFilterSettings where
+instance Lude.ToJSON NoiseReducerSpatialFilterSettings where
   toJSON NoiseReducerSpatialFilterSettings' {..} =
-    object
-      ( catMaybes
-          [ ("strength" .=) <$> _nrsfsStrength,
-            ("postFilterSharpenStrength" .=)
-              <$> _nrsfsPostFilterSharpenStrength,
-            ("speed" .=) <$> _nrsfsSpeed
+    Lude.object
+      ( Lude.catMaybes
+          [ ("strength" Lude..=) Lude.<$> strength,
+            ("postFilterSharpenStrength" Lude..=)
+              Lude.<$> postFilterSharpenStrength,
+            ("speed" Lude..=) Lude.<$> speed
           ]
       )

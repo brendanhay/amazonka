@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,136 @@
 --
 -- Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.
 module Network.AWS.CodeDeploy.BatchGetDeployments
-  ( -- * Creating a Request
-    batchGetDeployments,
-    BatchGetDeployments,
+  ( -- * Creating a request
+    BatchGetDeployments (..),
+    mkBatchGetDeployments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgdDeploymentIds,
 
-    -- * Destructuring the Response
-    batchGetDeploymentsResponse,
-    BatchGetDeploymentsResponse,
+    -- * Destructuring the response
+    BatchGetDeploymentsResponse (..),
+    mkBatchGetDeploymentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgdrsDeploymentsInfo,
     bgdrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @BatchGetDeployments@ operation.
 --
---
---
--- /See:/ 'batchGetDeployments' smart constructor.
+-- /See:/ 'mkBatchGetDeployments' smart constructor.
 newtype BatchGetDeployments = BatchGetDeployments'
-  { _bgdDeploymentIds ::
-      [Text]
+  { deploymentIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeployments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgdDeploymentIds' - A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.
-batchGetDeployments ::
+-- * 'deploymentIds' - A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.
+mkBatchGetDeployments ::
   BatchGetDeployments
-batchGetDeployments =
-  BatchGetDeployments' {_bgdDeploymentIds = mempty}
+mkBatchGetDeployments =
+  BatchGetDeployments' {deploymentIds = Lude.mempty}
 
 -- | A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.
-bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s {_bgdDeploymentIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'deploymentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdDeploymentIds :: Lens.Lens' BatchGetDeployments [Lude.Text]
+bgdDeploymentIds = Lens.lens (deploymentIds :: BatchGetDeployments -> [Lude.Text]) (\s a -> s {deploymentIds = a} :: BatchGetDeployments)
+{-# DEPRECATED bgdDeploymentIds "Use generic-lens or generic-optics with 'deploymentIds' instead." #-}
 
-instance AWSRequest BatchGetDeployments where
+instance Lude.AWSRequest BatchGetDeployments where
   type Rs BatchGetDeployments = BatchGetDeploymentsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetDeploymentsResponse'
-            <$> (x .?> "deploymentsInfo" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deploymentsInfo" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetDeployments
-
-instance NFData BatchGetDeployments
-
-instance ToHeaders BatchGetDeployments where
+instance Lude.ToHeaders BatchGetDeployments where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.BatchGetDeployments" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.BatchGetDeployments" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetDeployments where
+instance Lude.ToJSON BatchGetDeployments where
   toJSON BatchGetDeployments' {..} =
-    object (catMaybes [Just ("deploymentIds" .= _bgdDeploymentIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("deploymentIds" Lude..= deploymentIds)]
+      )
 
-instance ToPath BatchGetDeployments where
-  toPath = const "/"
+instance Lude.ToPath BatchGetDeployments where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetDeployments where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetDeployments where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchGetDeployments@ operation.
 --
---
---
--- /See:/ 'batchGetDeploymentsResponse' smart constructor.
+-- /See:/ 'mkBatchGetDeploymentsResponse' smart constructor.
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
-  { _bgdrsDeploymentsInfo ::
-      !(Maybe [DeploymentInfo]),
-    _bgdrsResponseStatus :: !Int
+  { deploymentsInfo ::
+      Lude.Maybe [DeploymentInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgdrsDeploymentsInfo' - Information about the deployments.
---
--- * 'bgdrsResponseStatus' - -- | The response status code.
-batchGetDeploymentsResponse ::
-  -- | 'bgdrsResponseStatus'
-  Int ->
+-- * 'deploymentsInfo' - Information about the deployments.
+-- * 'responseStatus' - The response status code.
+mkBatchGetDeploymentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetDeploymentsResponse
-batchGetDeploymentsResponse pResponseStatus_ =
+mkBatchGetDeploymentsResponse pResponseStatus_ =
   BatchGetDeploymentsResponse'
-    { _bgdrsDeploymentsInfo = Nothing,
-      _bgdrsResponseStatus = pResponseStatus_
+    { deploymentsInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the deployments.
-bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
-bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\s a -> s {_bgdrsDeploymentsInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deploymentsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdrsDeploymentsInfo :: Lens.Lens' BatchGetDeploymentsResponse (Lude.Maybe [DeploymentInfo])
+bgdrsDeploymentsInfo = Lens.lens (deploymentsInfo :: BatchGetDeploymentsResponse -> Lude.Maybe [DeploymentInfo]) (\s a -> s {deploymentsInfo = a} :: BatchGetDeploymentsResponse)
+{-# DEPRECATED bgdrsDeploymentsInfo "Use generic-lens or generic-optics with 'deploymentsInfo' instead." #-}
 
--- | -- | The response status code.
-bgdrsResponseStatus :: Lens' BatchGetDeploymentsResponse Int
-bgdrsResponseStatus = lens _bgdrsResponseStatus (\s a -> s {_bgdrsResponseStatus = a})
-
-instance NFData BatchGetDeploymentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdrsResponseStatus :: Lens.Lens' BatchGetDeploymentsResponse Lude.Int
+bgdrsResponseStatus = Lens.lens (responseStatus :: BatchGetDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetDeploymentsResponse)
+{-# DEPRECATED bgdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

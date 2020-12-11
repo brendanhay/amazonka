@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.DimensionValues where
+module Network.AWS.CostExplorer.Types.DimensionValues
+  ( DimensionValues (..),
+
+    -- * Smart constructor
+    mkDimensionValues,
+
+    -- * Lenses
+    dvValues,
+    dvKey,
+    dvMatchOptions,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.Dimension
 import Network.AWS.CostExplorer.Types.MatchOption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
 --
---
---
--- /See:/ 'dimensionValues' smart constructor.
+-- /See:/ 'mkDimensionValues' smart constructor.
 data DimensionValues = DimensionValues'
-  { _dvValues ::
-      !(Maybe [Text]),
-    _dvKey :: !(Maybe Dimension),
-    _dvMatchOptions :: !(Maybe [MatchOption])
+  { values ::
+      Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Dimension,
+    matchOptions :: Lude.Maybe [MatchOption]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DimensionValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvValues' - The metadata values that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
---
--- * 'dvKey' - The names of the metadata types that you can use to filter and group your results. For example, @AZ@ returns a list of Availability Zones.
---
--- * 'dvMatchOptions' - The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
-dimensionValues ::
+-- * 'key' - The names of the metadata types that you can use to filter and group your results. For example, @AZ@ returns a list of Availability Zones.
+-- * 'matchOptions' - The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
+-- * 'values' - The metadata values that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
+mkDimensionValues ::
   DimensionValues
-dimensionValues =
+mkDimensionValues =
   DimensionValues'
-    { _dvValues = Nothing,
-      _dvKey = Nothing,
-      _dvMatchOptions = Nothing
+    { values = Lude.Nothing,
+      key = Lude.Nothing,
+      matchOptions = Lude.Nothing
     }
 
 -- | The metadata values that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
-dvValues :: Lens' DimensionValues [Text]
-dvValues = lens _dvValues (\s a -> s {_dvValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvValues :: Lens.Lens' DimensionValues (Lude.Maybe [Lude.Text])
+dvValues = Lens.lens (values :: DimensionValues -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: DimensionValues)
+{-# DEPRECATED dvValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The names of the metadata types that you can use to filter and group your results. For example, @AZ@ returns a list of Availability Zones.
-dvKey :: Lens' DimensionValues (Maybe Dimension)
-dvKey = lens _dvKey (\s a -> s {_dvKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvKey :: Lens.Lens' DimensionValues (Lude.Maybe Dimension)
+dvKey = Lens.lens (key :: DimensionValues -> Lude.Maybe Dimension) (\s a -> s {key = a} :: DimensionValues)
+{-# DEPRECATED dvKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
-dvMatchOptions :: Lens' DimensionValues [MatchOption]
-dvMatchOptions = lens _dvMatchOptions (\s a -> s {_dvMatchOptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'matchOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvMatchOptions :: Lens.Lens' DimensionValues (Lude.Maybe [MatchOption])
+dvMatchOptions = Lens.lens (matchOptions :: DimensionValues -> Lude.Maybe [MatchOption]) (\s a -> s {matchOptions = a} :: DimensionValues)
+{-# DEPRECATED dvMatchOptions "Use generic-lens or generic-optics with 'matchOptions' instead." #-}
 
-instance FromJSON DimensionValues where
+instance Lude.FromJSON DimensionValues where
   parseJSON =
-    withObject
+    Lude.withObject
       "DimensionValues"
       ( \x ->
           DimensionValues'
-            <$> (x .:? "Values" .!= mempty)
-            <*> (x .:? "Key")
-            <*> (x .:? "MatchOptions" .!= mempty)
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "MatchOptions" Lude..!= Lude.mempty)
       )
 
-instance Hashable DimensionValues
-
-instance NFData DimensionValues
-
-instance ToJSON DimensionValues where
+instance Lude.ToJSON DimensionValues where
   toJSON DimensionValues' {..} =
-    object
-      ( catMaybes
-          [ ("Values" .=) <$> _dvValues,
-            ("Key" .=) <$> _dvKey,
-            ("MatchOptions" .=) <$> _dvMatchOptions
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Values" Lude..=) Lude.<$> values,
+            ("Key" Lude..=) Lude.<$> key,
+            ("MatchOptions" Lude..=) Lude.<$> matchOptions
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.IPAddressType where
+module Network.AWS.ELBv2.Types.IPAddressType
+  ( IPAddressType
+      ( IPAddressType',
+        Dualstack,
+        IPV4
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IPAddressType
-  = Dualstack
-  | IPV4
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IPAddressType = IPAddressType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IPAddressType where
-  parser =
-    takeLowerText >>= \case
-      "dualstack" -> pure Dualstack
-      "ipv4" -> pure IPV4
-      e ->
-        fromTextError $
-          "Failure parsing IPAddressType from value: '" <> e
-            <> "'. Accepted values: dualstack, ipv4"
+pattern Dualstack :: IPAddressType
+pattern Dualstack = IPAddressType' "dualstack"
 
-instance ToText IPAddressType where
-  toText = \case
-    Dualstack -> "dualstack"
-    IPV4 -> "ipv4"
+pattern IPV4 :: IPAddressType
+pattern IPV4 = IPAddressType' "ipv4"
 
-instance Hashable IPAddressType
-
-instance NFData IPAddressType
-
-instance ToByteString IPAddressType
-
-instance ToQuery IPAddressType
-
-instance ToHeader IPAddressType
-
-instance FromXML IPAddressType where
-  parseXML = parseXMLText "IPAddressType"
+{-# COMPLETE
+  Dualstack,
+  IPV4,
+  IPAddressType'
+  #-}

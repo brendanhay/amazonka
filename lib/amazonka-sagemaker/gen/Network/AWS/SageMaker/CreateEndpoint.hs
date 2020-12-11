@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,170 @@
 --
 -- Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker uses the endpoint to provision resources and deploy models. You create the endpoint configuration with the 'CreateEndpointConfig' API.
 --
---
 -- Use this API to deploy models using Amazon SageMaker hosting services.
---
 -- For an example that calls this method when deploying a model to Amazon SageMaker hosting services, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto Deploy the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).>
---
 -- The endpoint name must be unique within an AWS Region in your AWS account.
---
 -- When it receives the request, Amazon SageMaker creates the endpoint, launches the resources (ML compute instances), and deploys the model(s) on them.
---
 -- When Amazon SageMaker receives the request, it sets the endpoint status to @Creating@ . After it creates the endpoint, it sets the status to @InService@ . Amazon SageMaker can then process incoming requests for inferences. To check the status of an endpoint, use the 'DescribeEndpoint' API.
---
 -- If any of the models hosted at this endpoint get model data from an Amazon S3 location, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provided. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region> in the /AWS Identity and Access Management User Guide/ .
 module Network.AWS.SageMaker.CreateEndpoint
-  ( -- * Creating a Request
-    createEndpoint,
-    CreateEndpoint,
+  ( -- * Creating a request
+    CreateEndpoint (..),
+    mkCreateEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ceTags,
     ceEndpointName,
     ceEndpointConfigName,
 
-    -- * Destructuring the Response
-    createEndpointResponse,
-    CreateEndpointResponse,
+    -- * Destructuring the response
+    CreateEndpointResponse (..),
+    mkCreateEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cersResponseStatus,
     cersEndpointARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createEndpoint' smart constructor.
+-- | /See:/ 'mkCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { _ceTags :: !(Maybe [Tag]),
-    _ceEndpointName :: !Text,
-    _ceEndpointConfigName :: !Text
+  { tags :: Lude.Maybe [Tag],
+    endpointName :: Lude.Text,
+    endpointConfigName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ceTags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
---
--- * 'ceEndpointName' - The name of the endpoint.The name must be unique within an AWS Region in your AWS account. The name is case-insensitive in @CreateEndpoint@ , but the case is preserved and must be matched in .
---
--- * 'ceEndpointConfigName' - The name of an endpoint configuration. For more information, see 'CreateEndpointConfig' .
-createEndpoint ::
-  -- | 'ceEndpointName'
-  Text ->
-  -- | 'ceEndpointConfigName'
-  Text ->
+-- * 'endpointConfigName' - The name of an endpoint configuration. For more information, see 'CreateEndpointConfig' .
+-- * 'endpointName' - The name of the endpoint.The name must be unique within an AWS Region in your AWS account. The name is case-insensitive in @CreateEndpoint@ , but the case is preserved and must be matched in .
+-- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+mkCreateEndpoint ::
+  -- | 'endpointName'
+  Lude.Text ->
+  -- | 'endpointConfigName'
+  Lude.Text ->
   CreateEndpoint
-createEndpoint pEndpointName_ pEndpointConfigName_ =
+mkCreateEndpoint pEndpointName_ pEndpointConfigName_ =
   CreateEndpoint'
-    { _ceTags = Nothing,
-      _ceEndpointName = pEndpointName_,
-      _ceEndpointConfigName = pEndpointConfigName_
+    { tags = Lude.Nothing,
+      endpointName = pEndpointName_,
+      endpointConfigName = pEndpointConfigName_
     }
 
 -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-ceTags :: Lens' CreateEndpoint [Tag]
-ceTags = lens _ceTags (\s a -> s {_ceTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceTags :: Lens.Lens' CreateEndpoint (Lude.Maybe [Tag])
+ceTags = Lens.lens (tags :: CreateEndpoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEndpoint)
+{-# DEPRECATED ceTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the endpoint.The name must be unique within an AWS Region in your AWS account. The name is case-insensitive in @CreateEndpoint@ , but the case is preserved and must be matched in .
-ceEndpointName :: Lens' CreateEndpoint Text
-ceEndpointName = lens _ceEndpointName (\s a -> s {_ceEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceEndpointName :: Lens.Lens' CreateEndpoint Lude.Text
+ceEndpointName = Lens.lens (endpointName :: CreateEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: CreateEndpoint)
+{-# DEPRECATED ceEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | The name of an endpoint configuration. For more information, see 'CreateEndpointConfig' .
-ceEndpointConfigName :: Lens' CreateEndpoint Text
-ceEndpointConfigName = lens _ceEndpointConfigName (\s a -> s {_ceEndpointConfigName = a})
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceEndpointConfigName :: Lens.Lens' CreateEndpoint Lude.Text
+ceEndpointConfigName = Lens.lens (endpointConfigName :: CreateEndpoint -> Lude.Text) (\s a -> s {endpointConfigName = a} :: CreateEndpoint)
+{-# DEPRECATED ceEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
-instance AWSRequest CreateEndpoint where
+instance Lude.AWSRequest CreateEndpoint where
   type Rs CreateEndpoint = CreateEndpointResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateEndpointResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "EndpointArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "EndpointArn")
       )
 
-instance Hashable CreateEndpoint
-
-instance NFData CreateEndpoint
-
-instance ToHeaders CreateEndpoint where
+instance Lude.ToHeaders CreateEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.CreateEndpoint" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.CreateEndpoint" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateEndpoint where
+instance Lude.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
-    object
-      ( catMaybes
-          [ ("Tags" .=) <$> _ceTags,
-            Just ("EndpointName" .= _ceEndpointName),
-            Just ("EndpointConfigName" .= _ceEndpointConfigName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("EndpointName" Lude..= endpointName),
+            Lude.Just ("EndpointConfigName" Lude..= endpointConfigName)
           ]
       )
 
-instance ToPath CreateEndpoint where
-  toPath = const "/"
+instance Lude.ToPath CreateEndpoint where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery CreateEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createEndpointResponse' smart constructor.
+-- | /See:/ 'mkCreateEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
-  { _cersResponseStatus ::
-      !Int,
-    _cersEndpointARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    endpointARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cersResponseStatus' - -- | The response status code.
---
--- * 'cersEndpointARN' - The Amazon Resource Name (ARN) of the endpoint.
-createEndpointResponse ::
-  -- | 'cersResponseStatus'
-  Int ->
-  -- | 'cersEndpointARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Name (ARN) of the endpoint.
+-- * 'responseStatus' - The response status code.
+mkCreateEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointARN'
+  Lude.Text ->
   CreateEndpointResponse
-createEndpointResponse pResponseStatus_ pEndpointARN_ =
+mkCreateEndpointResponse pResponseStatus_ pEndpointARN_ =
   CreateEndpointResponse'
-    { _cersResponseStatus = pResponseStatus_,
-      _cersEndpointARN = pEndpointARN_
+    { responseStatus = pResponseStatus_,
+      endpointARN = pEndpointARN_
     }
 
--- | -- | The response status code.
-cersResponseStatus :: Lens' CreateEndpointResponse Int
-cersResponseStatus = lens _cersResponseStatus (\s a -> s {_cersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cersResponseStatus :: Lens.Lens' CreateEndpointResponse Lude.Int
+cersResponseStatus = Lens.lens (responseStatus :: CreateEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEndpointResponse)
+{-# DEPRECATED cersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-cersEndpointARN :: Lens' CreateEndpointResponse Text
-cersEndpointARN = lens _cersEndpointARN (\s a -> s {_cersEndpointARN = a})
-
-instance NFData CreateEndpointResponse
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cersEndpointARN :: Lens.Lens' CreateEndpointResponse Lude.Text
+cersEndpointARN = Lens.lens (endpointARN :: CreateEndpointResponse -> Lude.Text) (\s a -> s {endpointARN = a} :: CreateEndpointResponse)
+{-# DEPRECATED cersEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}

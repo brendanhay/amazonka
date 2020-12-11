@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DescribeActivationsFilter where
+module Network.AWS.SSM.Types.DescribeActivationsFilter
+  ( DescribeActivationsFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDescribeActivationsFilter,
+
+    -- * Lenses
+    dafFilterKey,
+    dafFilterValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.DescribeActivationsFilterKeys
 
 -- | Filter for the DescribeActivation API.
 --
---
---
--- /See:/ 'describeActivationsFilter' smart constructor.
+-- /See:/ 'mkDescribeActivationsFilter' smart constructor.
 data DescribeActivationsFilter = DescribeActivationsFilter'
-  { _dafFilterKey ::
-      !(Maybe DescribeActivationsFilterKeys),
-    _dafFilterValues :: !(Maybe [Text])
+  { filterKey ::
+      Lude.Maybe
+        DescribeActivationsFilterKeys,
+    filterValues :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivationsFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dafFilterKey' - The name of the filter.
---
--- * 'dafFilterValues' - The filter values.
-describeActivationsFilter ::
+-- * 'filterKey' - The name of the filter.
+-- * 'filterValues' - The filter values.
+mkDescribeActivationsFilter ::
   DescribeActivationsFilter
-describeActivationsFilter =
+mkDescribeActivationsFilter =
   DescribeActivationsFilter'
-    { _dafFilterKey = Nothing,
-      _dafFilterValues = Nothing
+    { filterKey = Lude.Nothing,
+      filterValues = Lude.Nothing
     }
 
 -- | The name of the filter.
-dafFilterKey :: Lens' DescribeActivationsFilter (Maybe DescribeActivationsFilterKeys)
-dafFilterKey = lens _dafFilterKey (\s a -> s {_dafFilterKey = a})
+--
+-- /Note:/ Consider using 'filterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafFilterKey :: Lens.Lens' DescribeActivationsFilter (Lude.Maybe DescribeActivationsFilterKeys)
+dafFilterKey = Lens.lens (filterKey :: DescribeActivationsFilter -> Lude.Maybe DescribeActivationsFilterKeys) (\s a -> s {filterKey = a} :: DescribeActivationsFilter)
+{-# DEPRECATED dafFilterKey "Use generic-lens or generic-optics with 'filterKey' instead." #-}
 
 -- | The filter values.
-dafFilterValues :: Lens' DescribeActivationsFilter [Text]
-dafFilterValues = lens _dafFilterValues (\s a -> s {_dafFilterValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafFilterValues :: Lens.Lens' DescribeActivationsFilter (Lude.Maybe [Lude.Text])
+dafFilterValues = Lens.lens (filterValues :: DescribeActivationsFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {filterValues = a} :: DescribeActivationsFilter)
+{-# DEPRECATED dafFilterValues "Use generic-lens or generic-optics with 'filterValues' instead." #-}
 
-instance Hashable DescribeActivationsFilter
-
-instance NFData DescribeActivationsFilter
-
-instance ToJSON DescribeActivationsFilter where
+instance Lude.ToJSON DescribeActivationsFilter where
   toJSON DescribeActivationsFilter' {..} =
-    object
-      ( catMaybes
-          [ ("FilterKey" .=) <$> _dafFilterKey,
-            ("FilterValues" .=) <$> _dafFilterValues
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FilterKey" Lude..=) Lude.<$> filterKey,
+            ("FilterValues" Lude..=) Lude.<$> filterValues
           ]
       )

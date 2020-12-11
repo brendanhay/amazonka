@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,119 @@
 --
 -- Deletes the billing group.
 module Network.AWS.IoT.DeleteBillingGroup
-  ( -- * Creating a Request
-    deleteBillingGroup,
-    DeleteBillingGroup,
+  ( -- * Creating a request
+    DeleteBillingGroup (..),
+    mkDeleteBillingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbgExpectedVersion,
     dbgBillingGroupName,
 
-    -- * Destructuring the Response
-    deleteBillingGroupResponse,
-    DeleteBillingGroupResponse,
+    -- * Destructuring the response
+    DeleteBillingGroupResponse (..),
+    mkDeleteBillingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBillingGroup' smart constructor.
+-- | /See:/ 'mkDeleteBillingGroup' smart constructor.
 data DeleteBillingGroup = DeleteBillingGroup'
-  { _dbgExpectedVersion ::
-      !(Maybe Integer),
-    _dbgBillingGroupName :: !Text
+  { expectedVersion ::
+      Lude.Maybe Lude.Integer,
+    billingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBillingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbgExpectedVersion' - The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
---
--- * 'dbgBillingGroupName' - The name of the billing group.
-deleteBillingGroup ::
-  -- | 'dbgBillingGroupName'
-  Text ->
+-- * 'billingGroupName' - The name of the billing group.
+-- * 'expectedVersion' - The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
+mkDeleteBillingGroup ::
+  -- | 'billingGroupName'
+  Lude.Text ->
   DeleteBillingGroup
-deleteBillingGroup pBillingGroupName_ =
+mkDeleteBillingGroup pBillingGroupName_ =
   DeleteBillingGroup'
-    { _dbgExpectedVersion = Nothing,
-      _dbgBillingGroupName = pBillingGroupName_
+    { expectedVersion = Lude.Nothing,
+      billingGroupName = pBillingGroupName_
     }
 
 -- | The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
-dbgExpectedVersion :: Lens' DeleteBillingGroup (Maybe Integer)
-dbgExpectedVersion = lens _dbgExpectedVersion (\s a -> s {_dbgExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbgExpectedVersion :: Lens.Lens' DeleteBillingGroup (Lude.Maybe Lude.Integer)
+dbgExpectedVersion = Lens.lens (expectedVersion :: DeleteBillingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: DeleteBillingGroup)
+{-# DEPRECATED dbgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The name of the billing group.
-dbgBillingGroupName :: Lens' DeleteBillingGroup Text
-dbgBillingGroupName = lens _dbgBillingGroupName (\s a -> s {_dbgBillingGroupName = a})
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbgBillingGroupName :: Lens.Lens' DeleteBillingGroup Lude.Text
+dbgBillingGroupName = Lens.lens (billingGroupName :: DeleteBillingGroup -> Lude.Text) (\s a -> s {billingGroupName = a} :: DeleteBillingGroup)
+{-# DEPRECATED dbgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
-instance AWSRequest DeleteBillingGroup where
+instance Lude.AWSRequest DeleteBillingGroup where
   type Rs DeleteBillingGroup = DeleteBillingGroupResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteBillingGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteBillingGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteBillingGroup
+instance Lude.ToHeaders DeleteBillingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteBillingGroup
-
-instance ToHeaders DeleteBillingGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteBillingGroup where
+instance Lude.ToPath DeleteBillingGroup where
   toPath DeleteBillingGroup' {..} =
-    mconcat ["/billing-groups/", toBS _dbgBillingGroupName]
+    Lude.mconcat ["/billing-groups/", Lude.toBS billingGroupName]
 
-instance ToQuery DeleteBillingGroup where
+instance Lude.ToQuery DeleteBillingGroup where
   toQuery DeleteBillingGroup' {..} =
-    mconcat ["expectedVersion" =: _dbgExpectedVersion]
+    Lude.mconcat ["expectedVersion" Lude.=: expectedVersion]
 
--- | /See:/ 'deleteBillingGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteBillingGroupResponse' smart constructor.
 newtype DeleteBillingGroupResponse = DeleteBillingGroupResponse'
-  { _dbgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBillingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbgrsResponseStatus' - -- | The response status code.
-deleteBillingGroupResponse ::
-  -- | 'dbgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteBillingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBillingGroupResponse
-deleteBillingGroupResponse pResponseStatus_ =
-  DeleteBillingGroupResponse'
-    { _dbgrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteBillingGroupResponse pResponseStatus_ =
+  DeleteBillingGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dbgrsResponseStatus :: Lens' DeleteBillingGroupResponse Int
-dbgrsResponseStatus = lens _dbgrsResponseStatus (\s a -> s {_dbgrsResponseStatus = a})
-
-instance NFData DeleteBillingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbgrsResponseStatus :: Lens.Lens' DeleteBillingGroupResponse Lude.Int
+dbgrsResponseStatus = Lens.lens (responseStatus :: DeleteBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBillingGroupResponse)
+{-# DEPRECATED dbgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

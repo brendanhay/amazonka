@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.
 module Network.AWS.AppStream.DeleteStack
-  ( -- * Creating a Request
-    deleteStack,
-    DeleteStack,
+  ( -- * Creating a request
+    DeleteStack (..),
+    mkDeleteStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsName,
 
-    -- * Destructuring the Response
-    deleteStackResponse,
-    DeleteStackResponse,
+    -- * Destructuring the response
+    DeleteStackResponse (..),
+    mkDeleteStackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteStack' smart constructor.
-newtype DeleteStack = DeleteStack' {_dsName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteStack' smart constructor.
+newtype DeleteStack = DeleteStack' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsName' - The name of the stack.
-deleteStack ::
-  -- | 'dsName'
-  Text ->
+-- * 'name' - The name of the stack.
+mkDeleteStack ::
+  -- | 'name'
+  Lude.Text ->
   DeleteStack
-deleteStack pName_ = DeleteStack' {_dsName = pName_}
+mkDeleteStack pName_ = DeleteStack' {name = pName_}
 
 -- | The name of the stack.
-dsName :: Lens' DeleteStack Text
-dsName = lens _dsName (\s a -> s {_dsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsName :: Lens.Lens' DeleteStack Lude.Text
+dsName = Lens.lens (name :: DeleteStack -> Lude.Text) (\s a -> s {name = a} :: DeleteStack)
+{-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteStack where
+instance Lude.AWSRequest DeleteStack where
   type Rs DeleteStack = DeleteStackResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveEmpty
-      (\s h x -> DeleteStackResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteStackResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteStack
-
-instance NFData DeleteStack
-
-instance ToHeaders DeleteStack where
+instance Lude.ToHeaders DeleteStack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DeleteStack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DeleteStack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteStack where
+instance Lude.ToJSON DeleteStack where
   toJSON DeleteStack' {..} =
-    object (catMaybes [Just ("Name" .= _dsName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteStack where
-  toPath = const "/"
+instance Lude.ToPath DeleteStack where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteStack where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteStack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteStackResponse' smart constructor.
+-- | /See:/ 'mkDeleteStackResponse' smart constructor.
 newtype DeleteStackResponse = DeleteStackResponse'
-  { _dsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteStackResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteStackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteStackResponse
-deleteStackResponse pResponseStatus_ =
-  DeleteStackResponse' {_dsrsResponseStatus = pResponseStatus_}
+mkDeleteStackResponse pResponseStatus_ =
+  DeleteStackResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteStackResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteStackResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteStackResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStackResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

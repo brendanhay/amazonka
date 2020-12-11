@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.QuoteFields where
+module Network.AWS.Glacier.Types.QuoteFields
+  ( QuoteFields
+      ( QuoteFields',
+        ASNeeded,
+        Always
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QuoteFields
-  = ASNeeded
-  | Always
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QuoteFields = QuoteFields' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QuoteFields where
-  parser =
-    takeLowerText >>= \case
-      "asneeded" -> pure ASNeeded
-      "always" -> pure Always
-      e ->
-        fromTextError $
-          "Failure parsing QuoteFields from value: '" <> e
-            <> "'. Accepted values: asneeded, always"
+pattern ASNeeded :: QuoteFields
+pattern ASNeeded = QuoteFields' "ASNEEDED"
 
-instance ToText QuoteFields where
-  toText = \case
-    ASNeeded -> "ASNEEDED"
-    Always -> "ALWAYS"
+pattern Always :: QuoteFields
+pattern Always = QuoteFields' "ALWAYS"
 
-instance Hashable QuoteFields
-
-instance NFData QuoteFields
-
-instance ToByteString QuoteFields
-
-instance ToQuery QuoteFields
-
-instance ToHeader QuoteFields
-
-instance ToJSON QuoteFields where
-  toJSON = toJSONText
-
-instance FromJSON QuoteFields where
-  parseJSON = parseJSONText "QuoteFields"
+{-# COMPLETE
+  ASNeeded,
+  Always,
+  QuoteFields'
+  #-}

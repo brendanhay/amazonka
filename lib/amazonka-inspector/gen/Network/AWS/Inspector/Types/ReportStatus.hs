@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.ReportStatus where
+module Network.AWS.Inspector.Types.ReportStatus
+  ( ReportStatus
+      ( ReportStatus',
+        RSCompleted,
+        RSFailed,
+        RSWorkInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportStatus
-  = RSCompleted
-  | RSFailed
-  | RSWorkInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportStatus = ReportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure RSCompleted
-      "failed" -> pure RSFailed
-      "work_in_progress" -> pure RSWorkInProgress
-      e ->
-        fromTextError $
-          "Failure parsing ReportStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, work_in_progress"
+pattern RSCompleted :: ReportStatus
+pattern RSCompleted = ReportStatus' "COMPLETED"
 
-instance ToText ReportStatus where
-  toText = \case
-    RSCompleted -> "COMPLETED"
-    RSFailed -> "FAILED"
-    RSWorkInProgress -> "WORK_IN_PROGRESS"
+pattern RSFailed :: ReportStatus
+pattern RSFailed = ReportStatus' "FAILED"
 
-instance Hashable ReportStatus
+pattern RSWorkInProgress :: ReportStatus
+pattern RSWorkInProgress = ReportStatus' "WORK_IN_PROGRESS"
 
-instance NFData ReportStatus
-
-instance ToByteString ReportStatus
-
-instance ToQuery ReportStatus
-
-instance ToHeader ReportStatus
-
-instance FromJSON ReportStatus where
-  parseJSON = parseJSONText "ReportStatus"
+{-# COMPLETE
+  RSCompleted,
+  RSFailed,
+  RSWorkInProgress,
+  ReportStatus'
+  #-}

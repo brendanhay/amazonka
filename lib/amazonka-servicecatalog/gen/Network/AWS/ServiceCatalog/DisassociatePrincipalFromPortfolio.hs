@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,181 @@
 --
 -- Disassociates a previously associated principal ARN from a specified portfolio.
 module Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
-  ( -- * Creating a Request
-    disassociatePrincipalFromPortfolio,
-    DisassociatePrincipalFromPortfolio,
+  ( -- * Creating a request
+    DisassociatePrincipalFromPortfolio (..),
+    mkDisassociatePrincipalFromPortfolio,
 
-    -- * Request Lenses
+    -- ** Request lenses
     disAcceptLanguage,
     disPortfolioId,
     disPrincipalARN,
 
-    -- * Destructuring the Response
-    disassociatePrincipalFromPortfolioResponse,
-    DisassociatePrincipalFromPortfolioResponse,
+    -- * Destructuring the response
+    DisassociatePrincipalFromPortfolioResponse (..),
+    mkDisassociatePrincipalFromPortfolioResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpfprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'disassociatePrincipalFromPortfolio' smart constructor.
+-- | /See:/ 'mkDisassociatePrincipalFromPortfolio' smart constructor.
 data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
-  { _disAcceptLanguage ::
-      !(Maybe Text),
-    _disPortfolioId ::
-      !Text,
-    _disPrincipalARN ::
-      !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    portfolioId ::
+      Lude.Text,
+    principalARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociatePrincipalFromPortfolio' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'disAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'disPortfolioId' - The portfolio identifier.
+--     * @en@ - English (default)
 --
--- * 'disPrincipalARN' - The ARN of the principal (IAM user, role, or group).
-disassociatePrincipalFromPortfolio ::
-  -- | 'disPortfolioId'
-  Text ->
-  -- | 'disPrincipalARN'
-  Text ->
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
+mkDisassociatePrincipalFromPortfolio ::
+  -- | 'portfolioId'
+  Lude.Text ->
+  -- | 'principalARN'
+  Lude.Text ->
   DisassociatePrincipalFromPortfolio
-disassociatePrincipalFromPortfolio pPortfolioId_ pPrincipalARN_ =
+mkDisassociatePrincipalFromPortfolio pPortfolioId_ pPrincipalARN_ =
   DisassociatePrincipalFromPortfolio'
-    { _disAcceptLanguage = Nothing,
-      _disPortfolioId = pPortfolioId_,
-      _disPrincipalARN = pPrincipalARN_
+    { acceptLanguage =
+        Lude.Nothing,
+      portfolioId = pPortfolioId_,
+      principalARN = pPrincipalARN_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-disAcceptLanguage :: Lens' DisassociatePrincipalFromPortfolio (Maybe Text)
-disAcceptLanguage = lens _disAcceptLanguage (\s a -> s {_disAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disAcceptLanguage :: Lens.Lens' DisassociatePrincipalFromPortfolio (Lude.Maybe Lude.Text)
+disAcceptLanguage = Lens.lens (acceptLanguage :: DisassociatePrincipalFromPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DisassociatePrincipalFromPortfolio)
+{-# DEPRECATED disAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The portfolio identifier.
-disPortfolioId :: Lens' DisassociatePrincipalFromPortfolio Text
-disPortfolioId = lens _disPortfolioId (\s a -> s {_disPortfolioId = a})
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disPortfolioId :: Lens.Lens' DisassociatePrincipalFromPortfolio Lude.Text
+disPortfolioId = Lens.lens (portfolioId :: DisassociatePrincipalFromPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: DisassociatePrincipalFromPortfolio)
+{-# DEPRECATED disPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The ARN of the principal (IAM user, role, or group).
-disPrincipalARN :: Lens' DisassociatePrincipalFromPortfolio Text
-disPrincipalARN = lens _disPrincipalARN (\s a -> s {_disPrincipalARN = a})
+--
+-- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disPrincipalARN :: Lens.Lens' DisassociatePrincipalFromPortfolio Lude.Text
+disPrincipalARN = Lens.lens (principalARN :: DisassociatePrincipalFromPortfolio -> Lude.Text) (\s a -> s {principalARN = a} :: DisassociatePrincipalFromPortfolio)
+{-# DEPRECATED disPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
-instance AWSRequest DisassociatePrincipalFromPortfolio where
+instance Lude.AWSRequest DisassociatePrincipalFromPortfolio where
   type
     Rs DisassociatePrincipalFromPortfolio =
       DisassociatePrincipalFromPortfolioResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           DisassociatePrincipalFromPortfolioResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociatePrincipalFromPortfolio
-
-instance NFData DisassociatePrincipalFromPortfolio
-
-instance ToHeaders DisassociatePrincipalFromPortfolio where
+instance Lude.ToHeaders DisassociatePrincipalFromPortfolio where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociatePrincipalFromPortfolio where
+instance Lude.ToJSON DisassociatePrincipalFromPortfolio where
   toJSON DisassociatePrincipalFromPortfolio' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _disAcceptLanguage,
-            Just ("PortfolioId" .= _disPortfolioId),
-            Just ("PrincipalARN" .= _disPrincipalARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("PortfolioId" Lude..= portfolioId),
+            Lude.Just ("PrincipalARN" Lude..= principalARN)
           ]
       )
 
-instance ToPath DisassociatePrincipalFromPortfolio where
-  toPath = const "/"
+instance Lude.ToPath DisassociatePrincipalFromPortfolio where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociatePrincipalFromPortfolio where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociatePrincipalFromPortfolio where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociatePrincipalFromPortfolioResponse' smart constructor.
+-- | /See:/ 'mkDisassociatePrincipalFromPortfolioResponse' smart constructor.
 newtype DisassociatePrincipalFromPortfolioResponse = DisassociatePrincipalFromPortfolioResponse'
-  { _dpfprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociatePrincipalFromPortfolioResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpfprsResponseStatus' - -- | The response status code.
-disassociatePrincipalFromPortfolioResponse ::
-  -- | 'dpfprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociatePrincipalFromPortfolioResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociatePrincipalFromPortfolioResponse
-disassociatePrincipalFromPortfolioResponse pResponseStatus_ =
+mkDisassociatePrincipalFromPortfolioResponse pResponseStatus_ =
   DisassociatePrincipalFromPortfolioResponse'
-    { _dpfprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dpfprsResponseStatus :: Lens' DisassociatePrincipalFromPortfolioResponse Int
-dpfprsResponseStatus = lens _dpfprsResponseStatus (\s a -> s {_dpfprsResponseStatus = a})
-
-instance NFData DisassociatePrincipalFromPortfolioResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfprsResponseStatus :: Lens.Lens' DisassociatePrincipalFromPortfolioResponse Lude.Int
+dpfprsResponseStatus = Lens.lens (responseStatus :: DisassociatePrincipalFromPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociatePrincipalFromPortfolioResponse)
+{-# DEPRECATED dpfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

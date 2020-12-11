@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,173 +10,201 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Waiters where
+module Network.AWS.SageMaker.Waiters
+  ( -- * NotebookInstanceDeleted
+    mkNotebookInstanceDeleted,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * EndpointDeleted
+    mkEndpointDeleted,
+
+    -- * EndpointInService
+    mkEndpointInService,
+
+    -- * TransformJobCompletedOrStopped
+    mkTransformJobCompletedOrStopped,
+
+    -- * NotebookInstanceInService
+    mkNotebookInstanceInService,
+
+    -- * ProcessingJobCompletedOrStopped
+    mkProcessingJobCompletedOrStopped,
+
+    -- * TrainingJobCompletedOrStopped
+    mkTrainingJobCompletedOrStopped,
+
+    -- * NotebookInstanceStopped
+    mkNotebookInstanceStopped,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.DescribeEndpoint
 import Network.AWS.SageMaker.DescribeNotebookInstance
 import Network.AWS.SageMaker.DescribeProcessingJob
 import Network.AWS.SageMaker.DescribeTrainingJob
 import Network.AWS.SageMaker.DescribeTransformJob
 import Network.AWS.SageMaker.Types
-import Network.AWS.Waiter
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-notebookInstanceDeleted :: Wait DescribeNotebookInstance
-notebookInstanceDeleted =
-  Wait
-    { _waitName = "NotebookInstanceDeleted",
-      _waitAttempts = 60,
-      _waitDelay = 30,
-      _waitAcceptors =
-        [ matchError "ValidationException" AcceptSuccess,
-          matchAll
+mkNotebookInstanceDeleted :: Wait.Wait DescribeNotebookInstance
+mkNotebookInstanceDeleted =
+  Wait.Wait
+    { Wait._waitName = "NotebookInstanceDeleted",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 30,
+      Wait._waitAcceptors =
+        [ Wait.matchError "ValidationException" Wait.AcceptSuccess,
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dnirsNotebookInstanceStatus . to toTextCI)
+            Wait.AcceptFailure
+            (dnirsNotebookInstanceStatus Lude.. Lens.to Lude.toText)
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-endpointDeleted :: Wait DescribeEndpoint
-endpointDeleted =
-  Wait
-    { _waitName = "EndpointDeleted",
-      _waitAttempts = 60,
-      _waitDelay = 30,
-      _waitAcceptors =
-        [ matchError "ValidationException" AcceptSuccess,
-          matchAll
+mkEndpointDeleted :: Wait.Wait DescribeEndpoint
+mkEndpointDeleted =
+  Wait.Wait
+    { Wait._waitName = "EndpointDeleted",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 30,
+      Wait._waitAcceptors =
+        [ Wait.matchError "ValidationException" Wait.AcceptSuccess,
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dersEndpointStatus . to toTextCI)
+            Wait.AcceptFailure
+            (dersEndpointStatus Lude.. Lens.to Lude.toText)
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-endpointInService :: Wait DescribeEndpoint
-endpointInService =
-  Wait
-    { _waitName = "EndpointInService",
-      _waitAttempts = 120,
-      _waitDelay = 30,
-      _waitAcceptors =
-        [ matchAll
+mkEndpointInService :: Wait.Wait DescribeEndpoint
+mkEndpointInService =
+  Wait.Wait
+    { Wait._waitName = "EndpointInService",
+      Wait._waitAttempts = 120,
+      Wait._waitDelay = 30,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "InService"
-            AcceptSuccess
-            (dersEndpointStatus . to toTextCI),
-          matchAll "Failed" AcceptFailure (dersEndpointStatus . to toTextCI),
-          matchError "ValidationException" AcceptFailure
+            Wait.AcceptSuccess
+            (dersEndpointStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
+            "Failed"
+            Wait.AcceptFailure
+            (dersEndpointStatus Lude.. Lens.to Lude.toText),
+          Wait.matchError "ValidationException" Wait.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-transformJobCompletedOrStopped :: Wait DescribeTransformJob
-transformJobCompletedOrStopped =
-  Wait
-    { _waitName = "TransformJobCompletedOrStopped",
-      _waitAttempts = 60,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchAll
+mkTransformJobCompletedOrStopped :: Wait.Wait DescribeTransformJob
+mkTransformJobCompletedOrStopped =
+  Wait.Wait
+    { Wait._waitName = "TransformJobCompletedOrStopped",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Completed"
-            AcceptSuccess
-            (dtjrsTransformJobStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dtjrsTransformJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Stopped"
-            AcceptSuccess
-            (dtjrsTransformJobStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dtjrsTransformJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dtjrsTransformJobStatus . to toTextCI),
-          matchError "ValidationException" AcceptFailure
+            Wait.AcceptFailure
+            (dtjrsTransformJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchError "ValidationException" Wait.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-notebookInstanceInService :: Wait DescribeNotebookInstance
-notebookInstanceInService =
-  Wait
-    { _waitName = "NotebookInstanceInService",
-      _waitAttempts = 60,
-      _waitDelay = 30,
-      _waitAcceptors =
-        [ matchAll
+mkNotebookInstanceInService :: Wait.Wait DescribeNotebookInstance
+mkNotebookInstanceInService =
+  Wait.Wait
+    { Wait._waitName = "NotebookInstanceInService",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 30,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "InService"
-            AcceptSuccess
-            (dnirsNotebookInstanceStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dnirsNotebookInstanceStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dnirsNotebookInstanceStatus . to toTextCI)
+            Wait.AcceptFailure
+            (dnirsNotebookInstanceStatus Lude.. Lens.to Lude.toText)
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-processingJobCompletedOrStopped :: Wait DescribeProcessingJob
-processingJobCompletedOrStopped =
-  Wait
-    { _waitName = "ProcessingJobCompletedOrStopped",
-      _waitAttempts = 60,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchAll
+mkProcessingJobCompletedOrStopped :: Wait.Wait DescribeProcessingJob
+mkProcessingJobCompletedOrStopped =
+  Wait.Wait
+    { Wait._waitName = "ProcessingJobCompletedOrStopped",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Completed"
-            AcceptSuccess
-            (dpjrsProcessingJobStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dpjrsProcessingJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Stopped"
-            AcceptSuccess
-            (dpjrsProcessingJobStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dpjrsProcessingJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dpjrsProcessingJobStatus . to toTextCI),
-          matchError "ValidationException" AcceptFailure
+            Wait.AcceptFailure
+            (dpjrsProcessingJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchError "ValidationException" Wait.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
-trainingJobCompletedOrStopped :: Wait DescribeTrainingJob
-trainingJobCompletedOrStopped =
-  Wait
-    { _waitName = "TrainingJobCompletedOrStopped",
-      _waitAttempts = 180,
-      _waitDelay = 120,
-      _waitAcceptors =
-        [ matchAll
+mkTrainingJobCompletedOrStopped :: Wait.Wait DescribeTrainingJob
+mkTrainingJobCompletedOrStopped =
+  Wait.Wait
+    { Wait._waitName = "TrainingJobCompletedOrStopped",
+      Wait._waitAttempts = 180,
+      Wait._waitDelay = 120,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Completed"
-            AcceptSuccess
-            (dtjtrsTrainingJobStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dtjtrsTrainingJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Stopped"
-            AcceptSuccess
-            (dtjtrsTrainingJobStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dtjtrsTrainingJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dtjtrsTrainingJobStatus . to toTextCI),
-          matchError "ValidationException" AcceptFailure
+            Wait.AcceptFailure
+            (dtjtrsTrainingJobStatus Lude.. Lens.to Lude.toText),
+          Wait.matchError "ValidationException" Wait.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-notebookInstanceStopped :: Wait DescribeNotebookInstance
-notebookInstanceStopped =
-  Wait
-    { _waitName = "NotebookInstanceStopped",
-      _waitAttempts = 60,
-      _waitDelay = 30,
-      _waitAcceptors =
-        [ matchAll
+mkNotebookInstanceStopped :: Wait.Wait DescribeNotebookInstance
+mkNotebookInstanceStopped =
+  Wait.Wait
+    { Wait._waitName = "NotebookInstanceStopped",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 30,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Stopped"
-            AcceptSuccess
-            (dnirsNotebookInstanceStatus . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            (dnirsNotebookInstanceStatus Lude.. Lens.to Lude.toText),
+          Wait.matchAll
             "Failed"
-            AcceptFailure
-            (dnirsNotebookInstanceStatus . to toTextCI)
+            Wait.AcceptFailure
+            (dnirsNotebookInstanceStatus Lude.. Lens.to Lude.toText)
         ]
     }

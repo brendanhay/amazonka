@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaImageAttributeName where
+module Network.AWS.EC2.Types.FpgaImageAttributeName
+  ( FpgaImageAttributeName
+      ( FpgaImageAttributeName',
+        FIANDescription,
+        FIANLoadPermission,
+        FIANName,
+        FIANProductCodes
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FpgaImageAttributeName
-  = FIANDescription
-  | FIANLoadPermission
-  | FIANName
-  | FIANProductCodes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FpgaImageAttributeName = FpgaImageAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FpgaImageAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "description" -> pure FIANDescription
-      "loadpermission" -> pure FIANLoadPermission
-      "name" -> pure FIANName
-      "productcodes" -> pure FIANProductCodes
-      e ->
-        fromTextError $
-          "Failure parsing FpgaImageAttributeName from value: '" <> e
-            <> "'. Accepted values: description, loadpermission, name, productcodes"
+pattern FIANDescription :: FpgaImageAttributeName
+pattern FIANDescription = FpgaImageAttributeName' "description"
 
-instance ToText FpgaImageAttributeName where
-  toText = \case
-    FIANDescription -> "description"
-    FIANLoadPermission -> "loadPermission"
-    FIANName -> "name"
-    FIANProductCodes -> "productCodes"
+pattern FIANLoadPermission :: FpgaImageAttributeName
+pattern FIANLoadPermission = FpgaImageAttributeName' "loadPermission"
 
-instance Hashable FpgaImageAttributeName
+pattern FIANName :: FpgaImageAttributeName
+pattern FIANName = FpgaImageAttributeName' "name"
 
-instance NFData FpgaImageAttributeName
+pattern FIANProductCodes :: FpgaImageAttributeName
+pattern FIANProductCodes = FpgaImageAttributeName' "productCodes"
 
-instance ToByteString FpgaImageAttributeName
-
-instance ToQuery FpgaImageAttributeName
-
-instance ToHeader FpgaImageAttributeName
+{-# COMPLETE
+  FIANDescription,
+  FIANLoadPermission,
+  FIANName,
+  FIANProductCodes,
+  FpgaImageAttributeName'
+  #-}

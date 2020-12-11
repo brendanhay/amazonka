@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsSegmentationStyle where
+module Network.AWS.MediaLive.Types.M2tsSegmentationStyle
+  ( M2tsSegmentationStyle
+      ( M2tsSegmentationStyle',
+        MaintainCadence,
+        ResetCadence
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Segmentation Style
-data M2tsSegmentationStyle
-  = MaintainCadence
-  | ResetCadence
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsSegmentationStyle = M2tsSegmentationStyle' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsSegmentationStyle where
-  parser =
-    takeLowerText >>= \case
-      "maintain_cadence" -> pure MaintainCadence
-      "reset_cadence" -> pure ResetCadence
-      e ->
-        fromTextError $
-          "Failure parsing M2tsSegmentationStyle from value: '" <> e
-            <> "'. Accepted values: maintain_cadence, reset_cadence"
+pattern MaintainCadence :: M2tsSegmentationStyle
+pattern MaintainCadence = M2tsSegmentationStyle' "MAINTAIN_CADENCE"
 
-instance ToText M2tsSegmentationStyle where
-  toText = \case
-    MaintainCadence -> "MAINTAIN_CADENCE"
-    ResetCadence -> "RESET_CADENCE"
+pattern ResetCadence :: M2tsSegmentationStyle
+pattern ResetCadence = M2tsSegmentationStyle' "RESET_CADENCE"
 
-instance Hashable M2tsSegmentationStyle
-
-instance NFData M2tsSegmentationStyle
-
-instance ToByteString M2tsSegmentationStyle
-
-instance ToQuery M2tsSegmentationStyle
-
-instance ToHeader M2tsSegmentationStyle
-
-instance ToJSON M2tsSegmentationStyle where
-  toJSON = toJSONText
-
-instance FromJSON M2tsSegmentationStyle where
-  parseJSON = parseJSONText "M2tsSegmentationStyle"
+{-# COMPLETE
+  MaintainCadence,
+  ResetCadence,
+  M2tsSegmentationStyle'
+  #-}

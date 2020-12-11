@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.LambdaAction where
+module Network.AWS.SES.Types.LambdaAction
+  ( LambdaAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaAction,
+
+    -- * Lenses
+    laInvocationType,
+    laTopicARN,
+    laFunctionARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.InvocationType
 
 -- | When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
---
 -- To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
---
 -- For information about using AWS Lambda actions in receipt rules, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda.html Amazon SES Developer Guide> .
 --
---
--- /See:/ 'lambdaAction' smart constructor.
+-- /See:/ 'mkLambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
-  { _laInvocationType ::
-      !(Maybe InvocationType),
-    _laTopicARN :: !(Maybe Text),
-    _laFunctionARN :: !Text
+  { invocationType ::
+      Lude.Maybe InvocationType,
+    topicARN :: Lude.Maybe Lude.Text,
+    functionARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
+-- * 'invocationType' - The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> .
 --
--- * 'laInvocationType' - The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> . /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
---
--- * 'laTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
---
--- * 'laFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
-lambdaAction ::
-  -- | 'laFunctionARN'
-  Text ->
+-- /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+-- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+mkLambdaAction ::
+  -- | 'functionARN'
+  Lude.Text ->
   LambdaAction
-lambdaAction pFunctionARN_ =
+mkLambdaAction pFunctionARN_ =
   LambdaAction'
-    { _laInvocationType = Nothing,
-      _laTopicARN = Nothing,
-      _laFunctionARN = pFunctionARN_
+    { invocationType = Lude.Nothing,
+      topicARN = Lude.Nothing,
+      functionARN = pFunctionARN_
     }
 
--- | The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> . /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
-laInvocationType :: Lens' LambdaAction (Maybe InvocationType)
-laInvocationType = lens _laInvocationType (\s a -> s {_laInvocationType = a})
+-- | The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> .
+--
+-- /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+--
+-- /Note:/ Consider using 'invocationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laInvocationType :: Lens.Lens' LambdaAction (Lude.Maybe InvocationType)
+laInvocationType = Lens.lens (invocationType :: LambdaAction -> Lude.Maybe InvocationType) (\s a -> s {invocationType = a} :: LambdaAction)
+{-# DEPRECATED laInvocationType "Use generic-lens or generic-optics with 'invocationType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-laTopicARN :: Lens' LambdaAction (Maybe Text)
-laTopicARN = lens _laTopicARN (\s a -> s {_laTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laTopicARN :: Lens.Lens' LambdaAction (Lude.Maybe Lude.Text)
+laTopicARN = Lens.lens (topicARN :: LambdaAction -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: LambdaAction)
+{-# DEPRECATED laTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
-laFunctionARN :: Lens' LambdaAction Text
-laFunctionARN = lens _laFunctionARN (\s a -> s {_laFunctionARN = a})
+--
+-- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laFunctionARN :: Lens.Lens' LambdaAction Lude.Text
+laFunctionARN = Lens.lens (functionARN :: LambdaAction -> Lude.Text) (\s a -> s {functionARN = a} :: LambdaAction)
+{-# DEPRECATED laFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
 
-instance FromXML LambdaAction where
+instance Lude.FromXML LambdaAction where
   parseXML x =
     LambdaAction'
-      <$> (x .@? "InvocationType")
-      <*> (x .@? "TopicArn")
-      <*> (x .@ "FunctionArn")
+      Lude.<$> (x Lude..@? "InvocationType")
+      Lude.<*> (x Lude..@? "TopicArn")
+      Lude.<*> (x Lude..@ "FunctionArn")
 
-instance Hashable LambdaAction
-
-instance NFData LambdaAction
-
-instance ToQuery LambdaAction where
+instance Lude.ToQuery LambdaAction where
   toQuery LambdaAction' {..} =
-    mconcat
-      [ "InvocationType" =: _laInvocationType,
-        "TopicArn" =: _laTopicARN,
-        "FunctionArn" =: _laFunctionARN
+    Lude.mconcat
+      [ "InvocationType" Lude.=: invocationType,
+        "TopicArn" Lude.=: topicARN,
+        "FunctionArn" Lude.=: functionARN
       ]

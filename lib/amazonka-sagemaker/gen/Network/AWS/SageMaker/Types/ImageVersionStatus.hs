@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ImageVersionStatus where
+module Network.AWS.SageMaker.Types.ImageVersionStatus
+  ( ImageVersionStatus
+      ( ImageVersionStatus',
+        IVSCreateFailed,
+        IVSCreated,
+        IVSCreating,
+        IVSDeleteFailed,
+        IVSDeleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageVersionStatus
-  = IVSCreateFailed
-  | IVSCreated
-  | IVSCreating
-  | IVSDeleteFailed
-  | IVSDeleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageVersionStatus = ImageVersionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageVersionStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure IVSCreateFailed
-      "created" -> pure IVSCreated
-      "creating" -> pure IVSCreating
-      "delete_failed" -> pure IVSDeleteFailed
-      "deleting" -> pure IVSDeleting
-      e ->
-        fromTextError $
-          "Failure parsing ImageVersionStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, created, creating, delete_failed, deleting"
+pattern IVSCreateFailed :: ImageVersionStatus
+pattern IVSCreateFailed = ImageVersionStatus' "CREATE_FAILED"
 
-instance ToText ImageVersionStatus where
-  toText = \case
-    IVSCreateFailed -> "CREATE_FAILED"
-    IVSCreated -> "CREATED"
-    IVSCreating -> "CREATING"
-    IVSDeleteFailed -> "DELETE_FAILED"
-    IVSDeleting -> "DELETING"
+pattern IVSCreated :: ImageVersionStatus
+pattern IVSCreated = ImageVersionStatus' "CREATED"
 
-instance Hashable ImageVersionStatus
+pattern IVSCreating :: ImageVersionStatus
+pattern IVSCreating = ImageVersionStatus' "CREATING"
 
-instance NFData ImageVersionStatus
+pattern IVSDeleteFailed :: ImageVersionStatus
+pattern IVSDeleteFailed = ImageVersionStatus' "DELETE_FAILED"
 
-instance ToByteString ImageVersionStatus
+pattern IVSDeleting :: ImageVersionStatus
+pattern IVSDeleting = ImageVersionStatus' "DELETING"
 
-instance ToQuery ImageVersionStatus
-
-instance ToHeader ImageVersionStatus
-
-instance FromJSON ImageVersionStatus where
-  parseJSON = parseJSONText "ImageVersionStatus"
+{-# COMPLETE
+  IVSCreateFailed,
+  IVSCreated,
+  IVSCreating,
+  IVSDeleteFailed,
+  IVSDeleting,
+  ImageVersionStatus'
+  #-}

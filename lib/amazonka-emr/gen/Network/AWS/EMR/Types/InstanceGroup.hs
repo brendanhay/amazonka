@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceGroup where
+module Network.AWS.EMR.Types.InstanceGroup
+  ( InstanceGroup (..),
+
+    -- * Smart constructor
+    mkInstanceGroup,
+
+    -- * Lenses
+    igStatus,
+    igLastSuccessfullyAppliedConfigurationsVersion,
+    igBidPrice,
+    igRequestedInstanceCount,
+    igRunningInstanceCount,
+    igLastSuccessfullyAppliedConfigurations,
+    igConfigurations,
+    igInstanceGroupType,
+    igEBSBlockDevices,
+    igInstanceType,
+    igConfigurationsVersion,
+    igEBSOptimized,
+    igMarket,
+    igName,
+    igAutoScalingPolicy,
+    igShrinkPolicy,
+    igId,
+  )
+where
 
 import Network.AWS.EMR.Types.AutoScalingPolicyDescription
 import Network.AWS.EMR.Types.Configuration
@@ -22,191 +41,227 @@ import Network.AWS.EMR.Types.InstanceGroupStatus
 import Network.AWS.EMR.Types.InstanceGroupType
 import Network.AWS.EMR.Types.MarketType
 import Network.AWS.EMR.Types.ShrinkPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.
 --
---
---
--- /See:/ 'instanceGroup' smart constructor.
+-- /See:/ 'mkInstanceGroup' smart constructor.
 data InstanceGroup = InstanceGroup'
-  { _igStatus ::
-      !(Maybe InstanceGroupStatus),
-    _igLastSuccessfullyAppliedConfigurationsVersion ::
-      !(Maybe Integer),
-    _igBidPrice :: !(Maybe Text),
-    _igRequestedInstanceCount :: !(Maybe Int),
-    _igRunningInstanceCount :: !(Maybe Int),
-    _igLastSuccessfullyAppliedConfigurations ::
-      !(Maybe [Configuration]),
-    _igConfigurations :: !(Maybe [Configuration]),
-    _igInstanceGroupType :: !(Maybe InstanceGroupType),
-    _igEBSBlockDevices :: !(Maybe [EBSBlockDevice]),
-    _igInstanceType :: !(Maybe Text),
-    _igConfigurationsVersion :: !(Maybe Integer),
-    _igEBSOptimized :: !(Maybe Bool),
-    _igMarket :: !(Maybe MarketType),
-    _igName :: !(Maybe Text),
-    _igAutoScalingPolicy :: !(Maybe AutoScalingPolicyDescription),
-    _igShrinkPolicy :: !(Maybe ShrinkPolicy),
-    _igId :: !(Maybe Text)
+  { status ::
+      Lude.Maybe InstanceGroupStatus,
+    lastSuccessfullyAppliedConfigurationsVersion ::
+      Lude.Maybe Lude.Integer,
+    bidPrice :: Lude.Maybe Lude.Text,
+    requestedInstanceCount :: Lude.Maybe Lude.Int,
+    runningInstanceCount :: Lude.Maybe Lude.Int,
+    lastSuccessfullyAppliedConfigurations ::
+      Lude.Maybe [Configuration],
+    configurations :: Lude.Maybe [Configuration],
+    instanceGroupType :: Lude.Maybe InstanceGroupType,
+    ebsBlockDevices :: Lude.Maybe [EBSBlockDevice],
+    instanceType :: Lude.Maybe Lude.Text,
+    configurationsVersion :: Lude.Maybe Lude.Integer,
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    market :: Lude.Maybe MarketType,
+    name :: Lude.Maybe Lude.Text,
+    autoScalingPolicy :: Lude.Maybe AutoScalingPolicyDescription,
+    shrinkPolicy :: Lude.Maybe ShrinkPolicy,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'igStatus' - The current status of the instance group.
---
--- * 'igLastSuccessfullyAppliedConfigurationsVersion' - The version number of a configuration specification that was successfully applied for an instance group last time.
---
--- * 'igBidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
---
--- * 'igRequestedInstanceCount' - The target number of instances for the instance group.
---
--- * 'igRunningInstanceCount' - The number of instances currently running in this instance group.
---
--- * 'igLastSuccessfullyAppliedConfigurations' - A list of configurations that were successfully applied for an instance group last time.
---
--- * 'igConfigurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
---
--- * 'igInstanceGroupType' - The type of the instance group. Valid values are MASTER, CORE or TASK.
---
--- * 'igEBSBlockDevices' - The EBS block devices that are mapped to this instance group.
---
--- * 'igInstanceType' - The EC2 instance type for all instances in the instance group.
---
--- * 'igConfigurationsVersion' - The version number of the requested configuration specification for this instance group.
---
--- * 'igEBSOptimized' - If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
---
--- * 'igMarket' - The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
---
--- * 'igName' - The name of the instance group.
---
--- * 'igAutoScalingPolicy' - An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
---
--- * 'igShrinkPolicy' - Policy for customizing shrink operations.
---
--- * 'igId' - The identifier of the instance group.
-instanceGroup ::
+-- * 'autoScalingPolicy' - An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+-- * 'bidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+-- * 'configurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+-- * 'configurationsVersion' - The version number of the requested configuration specification for this instance group.
+-- * 'ebsBlockDevices' - The EBS block devices that are mapped to this instance group.
+-- * 'ebsOptimized' - If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
+-- * 'id' - The identifier of the instance group.
+-- * 'instanceGroupType' - The type of the instance group. Valid values are MASTER, CORE or TASK.
+-- * 'instanceType' - The EC2 instance type for all instances in the instance group.
+-- * 'lastSuccessfullyAppliedConfigurations' - A list of configurations that were successfully applied for an instance group last time.
+-- * 'lastSuccessfullyAppliedConfigurationsVersion' - The version number of a configuration specification that was successfully applied for an instance group last time.
+-- * 'market' - The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
+-- * 'name' - The name of the instance group.
+-- * 'requestedInstanceCount' - The target number of instances for the instance group.
+-- * 'runningInstanceCount' - The number of instances currently running in this instance group.
+-- * 'shrinkPolicy' - Policy for customizing shrink operations.
+-- * 'status' - The current status of the instance group.
+mkInstanceGroup ::
   InstanceGroup
-instanceGroup =
+mkInstanceGroup =
   InstanceGroup'
-    { _igStatus = Nothing,
-      _igLastSuccessfullyAppliedConfigurationsVersion = Nothing,
-      _igBidPrice = Nothing,
-      _igRequestedInstanceCount = Nothing,
-      _igRunningInstanceCount = Nothing,
-      _igLastSuccessfullyAppliedConfigurations = Nothing,
-      _igConfigurations = Nothing,
-      _igInstanceGroupType = Nothing,
-      _igEBSBlockDevices = Nothing,
-      _igInstanceType = Nothing,
-      _igConfigurationsVersion = Nothing,
-      _igEBSOptimized = Nothing,
-      _igMarket = Nothing,
-      _igName = Nothing,
-      _igAutoScalingPolicy = Nothing,
-      _igShrinkPolicy = Nothing,
-      _igId = Nothing
+    { status = Lude.Nothing,
+      lastSuccessfullyAppliedConfigurationsVersion = Lude.Nothing,
+      bidPrice = Lude.Nothing,
+      requestedInstanceCount = Lude.Nothing,
+      runningInstanceCount = Lude.Nothing,
+      lastSuccessfullyAppliedConfigurations = Lude.Nothing,
+      configurations = Lude.Nothing,
+      instanceGroupType = Lude.Nothing,
+      ebsBlockDevices = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      configurationsVersion = Lude.Nothing,
+      ebsOptimized = Lude.Nothing,
+      market = Lude.Nothing,
+      name = Lude.Nothing,
+      autoScalingPolicy = Lude.Nothing,
+      shrinkPolicy = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The current status of the instance group.
-igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
-igStatus = lens _igStatus (\s a -> s {_igStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igStatus :: Lens.Lens' InstanceGroup (Lude.Maybe InstanceGroupStatus)
+igStatus = Lens.lens (status :: InstanceGroup -> Lude.Maybe InstanceGroupStatus) (\s a -> s {status = a} :: InstanceGroup)
+{-# DEPRECATED igStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The version number of a configuration specification that was successfully applied for an instance group last time.
-igLastSuccessfullyAppliedConfigurationsVersion :: Lens' InstanceGroup (Maybe Integer)
-igLastSuccessfullyAppliedConfigurationsVersion = lens _igLastSuccessfullyAppliedConfigurationsVersion (\s a -> s {_igLastSuccessfullyAppliedConfigurationsVersion = a})
+--
+-- /Note:/ Consider using 'lastSuccessfullyAppliedConfigurationsVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igLastSuccessfullyAppliedConfigurationsVersion :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Integer)
+igLastSuccessfullyAppliedConfigurationsVersion = Lens.lens (lastSuccessfullyAppliedConfigurationsVersion :: InstanceGroup -> Lude.Maybe Lude.Integer) (\s a -> s {lastSuccessfullyAppliedConfigurationsVersion = a} :: InstanceGroup)
+{-# DEPRECATED igLastSuccessfullyAppliedConfigurationsVersion "Use generic-lens or generic-optics with 'lastSuccessfullyAppliedConfigurationsVersion' instead." #-}
 
 -- | The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-igBidPrice :: Lens' InstanceGroup (Maybe Text)
-igBidPrice = lens _igBidPrice (\s a -> s {_igBidPrice = a})
+--
+-- /Note:/ Consider using 'bidPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igBidPrice :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Text)
+igBidPrice = Lens.lens (bidPrice :: InstanceGroup -> Lude.Maybe Lude.Text) (\s a -> s {bidPrice = a} :: InstanceGroup)
+{-# DEPRECATED igBidPrice "Use generic-lens or generic-optics with 'bidPrice' instead." #-}
 
 -- | The target number of instances for the instance group.
-igRequestedInstanceCount :: Lens' InstanceGroup (Maybe Int)
-igRequestedInstanceCount = lens _igRequestedInstanceCount (\s a -> s {_igRequestedInstanceCount = a})
+--
+-- /Note:/ Consider using 'requestedInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igRequestedInstanceCount :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Int)
+igRequestedInstanceCount = Lens.lens (requestedInstanceCount :: InstanceGroup -> Lude.Maybe Lude.Int) (\s a -> s {requestedInstanceCount = a} :: InstanceGroup)
+{-# DEPRECATED igRequestedInstanceCount "Use generic-lens or generic-optics with 'requestedInstanceCount' instead." #-}
 
 -- | The number of instances currently running in this instance group.
-igRunningInstanceCount :: Lens' InstanceGroup (Maybe Int)
-igRunningInstanceCount = lens _igRunningInstanceCount (\s a -> s {_igRunningInstanceCount = a})
+--
+-- /Note:/ Consider using 'runningInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igRunningInstanceCount :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Int)
+igRunningInstanceCount = Lens.lens (runningInstanceCount :: InstanceGroup -> Lude.Maybe Lude.Int) (\s a -> s {runningInstanceCount = a} :: InstanceGroup)
+{-# DEPRECATED igRunningInstanceCount "Use generic-lens or generic-optics with 'runningInstanceCount' instead." #-}
 
 -- | A list of configurations that were successfully applied for an instance group last time.
-igLastSuccessfullyAppliedConfigurations :: Lens' InstanceGroup [Configuration]
-igLastSuccessfullyAppliedConfigurations = lens _igLastSuccessfullyAppliedConfigurations (\s a -> s {_igLastSuccessfullyAppliedConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lastSuccessfullyAppliedConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igLastSuccessfullyAppliedConfigurations :: Lens.Lens' InstanceGroup (Lude.Maybe [Configuration])
+igLastSuccessfullyAppliedConfigurations = Lens.lens (lastSuccessfullyAppliedConfigurations :: InstanceGroup -> Lude.Maybe [Configuration]) (\s a -> s {lastSuccessfullyAppliedConfigurations = a} :: InstanceGroup)
+{-# DEPRECATED igLastSuccessfullyAppliedConfigurations "Use generic-lens or generic-optics with 'lastSuccessfullyAppliedConfigurations' instead." #-}
 
 -- | The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
-igConfigurations :: Lens' InstanceGroup [Configuration]
-igConfigurations = lens _igConfigurations (\s a -> s {_igConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igConfigurations :: Lens.Lens' InstanceGroup (Lude.Maybe [Configuration])
+igConfigurations = Lens.lens (configurations :: InstanceGroup -> Lude.Maybe [Configuration]) (\s a -> s {configurations = a} :: InstanceGroup)
+{-# DEPRECATED igConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
-igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
-igInstanceGroupType = lens _igInstanceGroupType (\s a -> s {_igInstanceGroupType = a})
+--
+-- /Note:/ Consider using 'instanceGroupType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igInstanceGroupType :: Lens.Lens' InstanceGroup (Lude.Maybe InstanceGroupType)
+igInstanceGroupType = Lens.lens (instanceGroupType :: InstanceGroup -> Lude.Maybe InstanceGroupType) (\s a -> s {instanceGroupType = a} :: InstanceGroup)
+{-# DEPRECATED igInstanceGroupType "Use generic-lens or generic-optics with 'instanceGroupType' instead." #-}
 
 -- | The EBS block devices that are mapped to this instance group.
-igEBSBlockDevices :: Lens' InstanceGroup [EBSBlockDevice]
-igEBSBlockDevices = lens _igEBSBlockDevices (\s a -> s {_igEBSBlockDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ebsBlockDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igEBSBlockDevices :: Lens.Lens' InstanceGroup (Lude.Maybe [EBSBlockDevice])
+igEBSBlockDevices = Lens.lens (ebsBlockDevices :: InstanceGroup -> Lude.Maybe [EBSBlockDevice]) (\s a -> s {ebsBlockDevices = a} :: InstanceGroup)
+{-# DEPRECATED igEBSBlockDevices "Use generic-lens or generic-optics with 'ebsBlockDevices' instead." #-}
 
 -- | The EC2 instance type for all instances in the instance group.
-igInstanceType :: Lens' InstanceGroup (Maybe Text)
-igInstanceType = lens _igInstanceType (\s a -> s {_igInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igInstanceType :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Text)
+igInstanceType = Lens.lens (instanceType :: InstanceGroup -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: InstanceGroup)
+{-# DEPRECATED igInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The version number of the requested configuration specification for this instance group.
-igConfigurationsVersion :: Lens' InstanceGroup (Maybe Integer)
-igConfigurationsVersion = lens _igConfigurationsVersion (\s a -> s {_igConfigurationsVersion = a})
+--
+-- /Note:/ Consider using 'configurationsVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igConfigurationsVersion :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Integer)
+igConfigurationsVersion = Lens.lens (configurationsVersion :: InstanceGroup -> Lude.Maybe Lude.Integer) (\s a -> s {configurationsVersion = a} :: InstanceGroup)
+{-# DEPRECATED igConfigurationsVersion "Use generic-lens or generic-optics with 'configurationsVersion' instead." #-}
 
 -- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
-igEBSOptimized :: Lens' InstanceGroup (Maybe Bool)
-igEBSOptimized = lens _igEBSOptimized (\s a -> s {_igEBSOptimized = a})
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igEBSOptimized :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Bool)
+igEBSOptimized = Lens.lens (ebsOptimized :: InstanceGroup -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: InstanceGroup)
+{-# DEPRECATED igEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
-igMarket :: Lens' InstanceGroup (Maybe MarketType)
-igMarket = lens _igMarket (\s a -> s {_igMarket = a})
+--
+-- /Note:/ Consider using 'market' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igMarket :: Lens.Lens' InstanceGroup (Lude.Maybe MarketType)
+igMarket = Lens.lens (market :: InstanceGroup -> Lude.Maybe MarketType) (\s a -> s {market = a} :: InstanceGroup)
+{-# DEPRECATED igMarket "Use generic-lens or generic-optics with 'market' instead." #-}
 
 -- | The name of the instance group.
-igName :: Lens' InstanceGroup (Maybe Text)
-igName = lens _igName (\s a -> s {_igName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igName :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Text)
+igName = Lens.lens (name :: InstanceGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InstanceGroup)
+{-# DEPRECATED igName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
-igAutoScalingPolicy :: Lens' InstanceGroup (Maybe AutoScalingPolicyDescription)
-igAutoScalingPolicy = lens _igAutoScalingPolicy (\s a -> s {_igAutoScalingPolicy = a})
+--
+-- /Note:/ Consider using 'autoScalingPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igAutoScalingPolicy :: Lens.Lens' InstanceGroup (Lude.Maybe AutoScalingPolicyDescription)
+igAutoScalingPolicy = Lens.lens (autoScalingPolicy :: InstanceGroup -> Lude.Maybe AutoScalingPolicyDescription) (\s a -> s {autoScalingPolicy = a} :: InstanceGroup)
+{-# DEPRECATED igAutoScalingPolicy "Use generic-lens or generic-optics with 'autoScalingPolicy' instead." #-}
 
 -- | Policy for customizing shrink operations.
-igShrinkPolicy :: Lens' InstanceGroup (Maybe ShrinkPolicy)
-igShrinkPolicy = lens _igShrinkPolicy (\s a -> s {_igShrinkPolicy = a})
+--
+-- /Note:/ Consider using 'shrinkPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igShrinkPolicy :: Lens.Lens' InstanceGroup (Lude.Maybe ShrinkPolicy)
+igShrinkPolicy = Lens.lens (shrinkPolicy :: InstanceGroup -> Lude.Maybe ShrinkPolicy) (\s a -> s {shrinkPolicy = a} :: InstanceGroup)
+{-# DEPRECATED igShrinkPolicy "Use generic-lens or generic-optics with 'shrinkPolicy' instead." #-}
 
 -- | The identifier of the instance group.
-igId :: Lens' InstanceGroup (Maybe Text)
-igId = lens _igId (\s a -> s {_igId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igId :: Lens.Lens' InstanceGroup (Lude.Maybe Lude.Text)
+igId = Lens.lens (id :: InstanceGroup -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InstanceGroup)
+{-# DEPRECATED igId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON InstanceGroup where
+instance Lude.FromJSON InstanceGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceGroup"
       ( \x ->
           InstanceGroup'
-            <$> (x .:? "Status")
-            <*> (x .:? "LastSuccessfullyAppliedConfigurationsVersion")
-            <*> (x .:? "BidPrice")
-            <*> (x .:? "RequestedInstanceCount")
-            <*> (x .:? "RunningInstanceCount")
-            <*> (x .:? "LastSuccessfullyAppliedConfigurations" .!= mempty)
-            <*> (x .:? "Configurations" .!= mempty)
-            <*> (x .:? "InstanceGroupType")
-            <*> (x .:? "EbsBlockDevices" .!= mempty)
-            <*> (x .:? "InstanceType")
-            <*> (x .:? "ConfigurationsVersion")
-            <*> (x .:? "EbsOptimized")
-            <*> (x .:? "Market")
-            <*> (x .:? "Name")
-            <*> (x .:? "AutoScalingPolicy")
-            <*> (x .:? "ShrinkPolicy")
-            <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "LastSuccessfullyAppliedConfigurationsVersion")
+            Lude.<*> (x Lude..:? "BidPrice")
+            Lude.<*> (x Lude..:? "RequestedInstanceCount")
+            Lude.<*> (x Lude..:? "RunningInstanceCount")
+            Lude.<*> ( x Lude..:? "LastSuccessfullyAppliedConfigurations"
+                         Lude..!= Lude.mempty
+                     )
+            Lude.<*> (x Lude..:? "Configurations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "InstanceGroupType")
+            Lude.<*> (x Lude..:? "EbsBlockDevices" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "InstanceType")
+            Lude.<*> (x Lude..:? "ConfigurationsVersion")
+            Lude.<*> (x Lude..:? "EbsOptimized")
+            Lude.<*> (x Lude..:? "Market")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "AutoScalingPolicy")
+            Lude.<*> (x Lude..:? "ShrinkPolicy")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable InstanceGroup
-
-instance NFData InstanceGroup

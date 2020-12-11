@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceFleetType where
+module Network.AWS.EMR.Types.InstanceFleetType
+  ( InstanceFleetType
+      ( InstanceFleetType',
+        IFTCore,
+        IFTMaster,
+        IFTTask
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceFleetType
-  = IFTCore
-  | IFTMaster
-  | IFTTask
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceFleetType = InstanceFleetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceFleetType where
-  parser =
-    takeLowerText >>= \case
-      "core" -> pure IFTCore
-      "master" -> pure IFTMaster
-      "task" -> pure IFTTask
-      e ->
-        fromTextError $
-          "Failure parsing InstanceFleetType from value: '" <> e
-            <> "'. Accepted values: core, master, task"
+pattern IFTCore :: InstanceFleetType
+pattern IFTCore = InstanceFleetType' "CORE"
 
-instance ToText InstanceFleetType where
-  toText = \case
-    IFTCore -> "CORE"
-    IFTMaster -> "MASTER"
-    IFTTask -> "TASK"
+pattern IFTMaster :: InstanceFleetType
+pattern IFTMaster = InstanceFleetType' "MASTER"
 
-instance Hashable InstanceFleetType
+pattern IFTTask :: InstanceFleetType
+pattern IFTTask = InstanceFleetType' "TASK"
 
-instance NFData InstanceFleetType
-
-instance ToByteString InstanceFleetType
-
-instance ToQuery InstanceFleetType
-
-instance ToHeader InstanceFleetType
-
-instance ToJSON InstanceFleetType where
-  toJSON = toJSONText
-
-instance FromJSON InstanceFleetType where
-  parseJSON = parseJSONText "InstanceFleetType"
+{-# COMPLETE
+  IFTCore,
+  IFTMaster,
+  IFTTask,
+  InstanceFleetType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ScheduledInstancesIPv6Address where
+module Network.AWS.EC2.Types.ScheduledInstancesIPv6Address
+  ( ScheduledInstancesIPv6Address (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScheduledInstancesIPv6Address,
+
+    -- * Lenses
+    siiaIPv6Address,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv6 address.
 --
---
---
--- /See:/ 'scheduledInstancesIPv6Address' smart constructor.
+-- /See:/ 'mkScheduledInstancesIPv6Address' smart constructor.
 newtype ScheduledInstancesIPv6Address = ScheduledInstancesIPv6Address'
-  { _siiaIPv6Address ::
-      Maybe Text
+  { ipv6Address ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesIPv6Address' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siiaIPv6Address' - The IPv6 address.
-scheduledInstancesIPv6Address ::
+-- * 'ipv6Address' - The IPv6 address.
+mkScheduledInstancesIPv6Address ::
   ScheduledInstancesIPv6Address
-scheduledInstancesIPv6Address =
-  ScheduledInstancesIPv6Address' {_siiaIPv6Address = Nothing}
+mkScheduledInstancesIPv6Address =
+  ScheduledInstancesIPv6Address' {ipv6Address = Lude.Nothing}
 
 -- | The IPv6 address.
-siiaIPv6Address :: Lens' ScheduledInstancesIPv6Address (Maybe Text)
-siiaIPv6Address = lens _siiaIPv6Address (\s a -> s {_siiaIPv6Address = a})
+--
+-- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siiaIPv6Address :: Lens.Lens' ScheduledInstancesIPv6Address (Lude.Maybe Lude.Text)
+siiaIPv6Address = Lens.lens (ipv6Address :: ScheduledInstancesIPv6Address -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Address = a} :: ScheduledInstancesIPv6Address)
+{-# DEPRECATED siiaIPv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
 
-instance Hashable ScheduledInstancesIPv6Address
-
-instance NFData ScheduledInstancesIPv6Address
-
-instance ToQuery ScheduledInstancesIPv6Address where
+instance Lude.ToQuery ScheduledInstancesIPv6Address where
   toQuery ScheduledInstancesIPv6Address' {..} =
-    mconcat ["Ipv6Address" =: _siiaIPv6Address]
+    Lude.mconcat ["Ipv6Address" Lude.=: ipv6Address]

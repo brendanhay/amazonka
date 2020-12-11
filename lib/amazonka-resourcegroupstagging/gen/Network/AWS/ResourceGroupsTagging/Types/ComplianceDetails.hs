@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails where
+module Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
+  ( ComplianceDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComplianceDetails,
+
+    -- * Lenses
+    cdKeysWithNoncompliantValues,
+    cdComplianceStatus,
+    cdNoncompliantKeys,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
 --
---
---
--- /See:/ 'complianceDetails' smart constructor.
+-- /See:/ 'mkComplianceDetails' smart constructor.
 data ComplianceDetails = ComplianceDetails'
-  { _cdKeysWithNoncompliantValues ::
-      !(Maybe [Text]),
-    _cdComplianceStatus :: !(Maybe Bool),
-    _cdNoncompliantKeys :: !(Maybe [Text])
+  { keysWithNoncompliantValues ::
+      Lude.Maybe [Lude.Text],
+    complianceStatus :: Lude.Maybe Lude.Bool,
+    noncompliantKeys :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdKeysWithNoncompliantValues' - These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values.
---
--- * 'cdComplianceStatus' - Whether a resource is compliant with the effective tag policy.
---
--- * 'cdNoncompliantKeys' - These tag keys on the resource are noncompliant with the effective tag policy.
-complianceDetails ::
+-- * 'complianceStatus' - Whether a resource is compliant with the effective tag policy.
+-- * 'keysWithNoncompliantValues' - These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values.
+-- * 'noncompliantKeys' - These tag keys on the resource are noncompliant with the effective tag policy.
+mkComplianceDetails ::
   ComplianceDetails
-complianceDetails =
+mkComplianceDetails =
   ComplianceDetails'
-    { _cdKeysWithNoncompliantValues = Nothing,
-      _cdComplianceStatus = Nothing,
-      _cdNoncompliantKeys = Nothing
+    { keysWithNoncompliantValues = Lude.Nothing,
+      complianceStatus = Lude.Nothing,
+      noncompliantKeys = Lude.Nothing
     }
 
 -- | These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values.
-cdKeysWithNoncompliantValues :: Lens' ComplianceDetails [Text]
-cdKeysWithNoncompliantValues = lens _cdKeysWithNoncompliantValues (\s a -> s {_cdKeysWithNoncompliantValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'keysWithNoncompliantValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdKeysWithNoncompliantValues :: Lens.Lens' ComplianceDetails (Lude.Maybe [Lude.Text])
+cdKeysWithNoncompliantValues = Lens.lens (keysWithNoncompliantValues :: ComplianceDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {keysWithNoncompliantValues = a} :: ComplianceDetails)
+{-# DEPRECATED cdKeysWithNoncompliantValues "Use generic-lens or generic-optics with 'keysWithNoncompliantValues' instead." #-}
 
 -- | Whether a resource is compliant with the effective tag policy.
-cdComplianceStatus :: Lens' ComplianceDetails (Maybe Bool)
-cdComplianceStatus = lens _cdComplianceStatus (\s a -> s {_cdComplianceStatus = a})
+--
+-- /Note:/ Consider using 'complianceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdComplianceStatus :: Lens.Lens' ComplianceDetails (Lude.Maybe Lude.Bool)
+cdComplianceStatus = Lens.lens (complianceStatus :: ComplianceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {complianceStatus = a} :: ComplianceDetails)
+{-# DEPRECATED cdComplianceStatus "Use generic-lens or generic-optics with 'complianceStatus' instead." #-}
 
 -- | These tag keys on the resource are noncompliant with the effective tag policy.
-cdNoncompliantKeys :: Lens' ComplianceDetails [Text]
-cdNoncompliantKeys = lens _cdNoncompliantKeys (\s a -> s {_cdNoncompliantKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'noncompliantKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdNoncompliantKeys :: Lens.Lens' ComplianceDetails (Lude.Maybe [Lude.Text])
+cdNoncompliantKeys = Lens.lens (noncompliantKeys :: ComplianceDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {noncompliantKeys = a} :: ComplianceDetails)
+{-# DEPRECATED cdNoncompliantKeys "Use generic-lens or generic-optics with 'noncompliantKeys' instead." #-}
 
-instance FromJSON ComplianceDetails where
+instance Lude.FromJSON ComplianceDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ComplianceDetails"
       ( \x ->
           ComplianceDetails'
-            <$> (x .:? "KeysWithNoncompliantValues" .!= mempty)
-            <*> (x .:? "ComplianceStatus")
-            <*> (x .:? "NoncompliantKeys" .!= mempty)
+            Lude.<$> (x Lude..:? "KeysWithNoncompliantValues" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ComplianceStatus")
+            Lude.<*> (x Lude..:? "NoncompliantKeys" Lude..!= Lude.mempty)
       )
-
-instance Hashable ComplianceDetails
-
-instance NFData ComplianceDetails

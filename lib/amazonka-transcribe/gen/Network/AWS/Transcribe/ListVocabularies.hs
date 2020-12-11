@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list of vocabularies.
 module Network.AWS.Transcribe.ListVocabularies
-  ( -- * Creating a Request
-    listVocabularies,
-    ListVocabularies,
+  ( -- * Creating a request
+    ListVocabularies (..),
+    mkListVocabularies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvNameContains,
     lvNextToken,
     lvStateEquals,
     lvMaxResults,
 
-    -- * Destructuring the Response
-    listVocabulariesResponse,
-    ListVocabulariesResponse,
+    -- * Destructuring the response
+    ListVocabulariesResponse (..),
+    mkListVocabulariesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvrsVocabularies,
     lvrsStatus,
     lvrsNextToken,
@@ -41,149 +36,173 @@ module Network.AWS.Transcribe.ListVocabularies
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'listVocabularies' smart constructor.
+-- | /See:/ 'mkListVocabularies' smart constructor.
 data ListVocabularies = ListVocabularies'
-  { _lvNameContains ::
-      !(Maybe Text),
-    _lvNextToken :: !(Maybe Text),
-    _lvStateEquals :: !(Maybe VocabularyState),
-    _lvMaxResults :: !(Maybe Nat)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    stateEquals :: Lude.Maybe VocabularyState,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabularies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvNameContains' - When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is not case sensitive, @ListVocabularies@ returns both "vocabularyname" and "VocabularyName" in the response list.
---
--- * 'lvNextToken' - If the result of the previous request to @ListVocabularies@ was truncated, include the @NextToken@ to fetch the next set of jobs.
---
--- * 'lvStateEquals' - When specified, only returns vocabularies with the @VocabularyState@ field equal to the specified state.
---
--- * 'lvMaxResults' - The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results.
-listVocabularies ::
+-- * 'maxResults' - The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results.
+-- * 'nameContains' - When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is not case sensitive, @ListVocabularies@ returns both "vocabularyname" and "VocabularyName" in the response list.
+-- * 'nextToken' - If the result of the previous request to @ListVocabularies@ was truncated, include the @NextToken@ to fetch the next set of jobs.
+-- * 'stateEquals' - When specified, only returns vocabularies with the @VocabularyState@ field equal to the specified state.
+mkListVocabularies ::
   ListVocabularies
-listVocabularies =
+mkListVocabularies =
   ListVocabularies'
-    { _lvNameContains = Nothing,
-      _lvNextToken = Nothing,
-      _lvStateEquals = Nothing,
-      _lvMaxResults = Nothing
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      stateEquals = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is not case sensitive, @ListVocabularies@ returns both "vocabularyname" and "VocabularyName" in the response list.
-lvNameContains :: Lens' ListVocabularies (Maybe Text)
-lvNameContains = lens _lvNameContains (\s a -> s {_lvNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvNameContains :: Lens.Lens' ListVocabularies (Lude.Maybe Lude.Text)
+lvNameContains = Lens.lens (nameContains :: ListVocabularies -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListVocabularies)
+{-# DEPRECATED lvNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | If the result of the previous request to @ListVocabularies@ was truncated, include the @NextToken@ to fetch the next set of jobs.
-lvNextToken :: Lens' ListVocabularies (Maybe Text)
-lvNextToken = lens _lvNextToken (\s a -> s {_lvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvNextToken :: Lens.Lens' ListVocabularies (Lude.Maybe Lude.Text)
+lvNextToken = Lens.lens (nextToken :: ListVocabularies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVocabularies)
+{-# DEPRECATED lvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | When specified, only returns vocabularies with the @VocabularyState@ field equal to the specified state.
-lvStateEquals :: Lens' ListVocabularies (Maybe VocabularyState)
-lvStateEquals = lens _lvStateEquals (\s a -> s {_lvStateEquals = a})
+--
+-- /Note:/ Consider using 'stateEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvStateEquals :: Lens.Lens' ListVocabularies (Lude.Maybe VocabularyState)
+lvStateEquals = Lens.lens (stateEquals :: ListVocabularies -> Lude.Maybe VocabularyState) (\s a -> s {stateEquals = a} :: ListVocabularies)
+{-# DEPRECATED lvStateEquals "Use generic-lens or generic-optics with 'stateEquals' instead." #-}
 
 -- | The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results.
-lvMaxResults :: Lens' ListVocabularies (Maybe Natural)
-lvMaxResults = lens _lvMaxResults (\s a -> s {_lvMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvMaxResults :: Lens.Lens' ListVocabularies (Lude.Maybe Lude.Natural)
+lvMaxResults = Lens.lens (maxResults :: ListVocabularies -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListVocabularies)
+{-# DEPRECATED lvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListVocabularies where
+instance Lude.AWSRequest ListVocabularies where
   type Rs ListVocabularies = ListVocabulariesResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVocabulariesResponse'
-            <$> (x .?> "Vocabularies" .!@ mempty)
-            <*> (x .?> "Status")
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Vocabularies" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVocabularies
-
-instance NFData ListVocabularies
-
-instance ToHeaders ListVocabularies where
+instance Lude.ToHeaders ListVocabularies where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Transcribe.ListVocabularies" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Transcribe.ListVocabularies" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListVocabularies where
+instance Lude.ToJSON ListVocabularies where
   toJSON ListVocabularies' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _lvNameContains,
-            ("NextToken" .=) <$> _lvNextToken,
-            ("StateEquals" .=) <$> _lvStateEquals,
-            ("MaxResults" .=) <$> _lvMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("StateEquals" Lude..=) Lude.<$> stateEquals,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListVocabularies where
-  toPath = const "/"
+instance Lude.ToPath ListVocabularies where
+  toPath = Lude.const "/"
 
-instance ToQuery ListVocabularies where
-  toQuery = const mempty
+instance Lude.ToQuery ListVocabularies where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listVocabulariesResponse' smart constructor.
+-- | /See:/ 'mkListVocabulariesResponse' smart constructor.
 data ListVocabulariesResponse = ListVocabulariesResponse'
-  { _lvrsVocabularies ::
-      !(Maybe [VocabularyInfo]),
-    _lvrsStatus :: !(Maybe VocabularyState),
-    _lvrsNextToken :: !(Maybe Text),
-    _lvrsResponseStatus :: !Int
+  { vocabularies ::
+      Lude.Maybe [VocabularyInfo],
+    status :: Lude.Maybe VocabularyState,
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabulariesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvrsVocabularies' - A list of objects that describe the vocabularies that match the search criteria in the request.
---
--- * 'lvrsStatus' - The requested vocabulary state.
---
--- * 'lvrsNextToken' - The @ListVocabularies@ operation returns a page of vocabularies at a time. The maximum size of the page is set in the @MaxResults@ parameter. If there are more jobs in the list than will fit on the page, Amazon Transcribe returns the @NextPage@ token. To return in the next page of jobs, include the token in the next request to the @ListVocabularies@ operation.
---
--- * 'lvrsResponseStatus' - -- | The response status code.
-listVocabulariesResponse ::
-  -- | 'lvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @ListVocabularies@ operation returns a page of vocabularies at a time. The maximum size of the page is set in the @MaxResults@ parameter. If there are more jobs in the list than will fit on the page, Amazon Transcribe returns the @NextPage@ token. To return in the next page of jobs, include the token in the next request to the @ListVocabularies@ operation.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The requested vocabulary state.
+-- * 'vocabularies' - A list of objects that describe the vocabularies that match the search criteria in the request.
+mkListVocabulariesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVocabulariesResponse
-listVocabulariesResponse pResponseStatus_ =
+mkListVocabulariesResponse pResponseStatus_ =
   ListVocabulariesResponse'
-    { _lvrsVocabularies = Nothing,
-      _lvrsStatus = Nothing,
-      _lvrsNextToken = Nothing,
-      _lvrsResponseStatus = pResponseStatus_
+    { vocabularies = Lude.Nothing,
+      status = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of objects that describe the vocabularies that match the search criteria in the request.
-lvrsVocabularies :: Lens' ListVocabulariesResponse [VocabularyInfo]
-lvrsVocabularies = lens _lvrsVocabularies (\s a -> s {_lvrsVocabularies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vocabularies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsVocabularies :: Lens.Lens' ListVocabulariesResponse (Lude.Maybe [VocabularyInfo])
+lvrsVocabularies = Lens.lens (vocabularies :: ListVocabulariesResponse -> Lude.Maybe [VocabularyInfo]) (\s a -> s {vocabularies = a} :: ListVocabulariesResponse)
+{-# DEPRECATED lvrsVocabularies "Use generic-lens or generic-optics with 'vocabularies' instead." #-}
 
 -- | The requested vocabulary state.
-lvrsStatus :: Lens' ListVocabulariesResponse (Maybe VocabularyState)
-lvrsStatus = lens _lvrsStatus (\s a -> s {_lvrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsStatus :: Lens.Lens' ListVocabulariesResponse (Lude.Maybe VocabularyState)
+lvrsStatus = Lens.lens (status :: ListVocabulariesResponse -> Lude.Maybe VocabularyState) (\s a -> s {status = a} :: ListVocabulariesResponse)
+{-# DEPRECATED lvrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The @ListVocabularies@ operation returns a page of vocabularies at a time. The maximum size of the page is set in the @MaxResults@ parameter. If there are more jobs in the list than will fit on the page, Amazon Transcribe returns the @NextPage@ token. To return in the next page of jobs, include the token in the next request to the @ListVocabularies@ operation.
-lvrsNextToken :: Lens' ListVocabulariesResponse (Maybe Text)
-lvrsNextToken = lens _lvrsNextToken (\s a -> s {_lvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsNextToken :: Lens.Lens' ListVocabulariesResponse (Lude.Maybe Lude.Text)
+lvrsNextToken = Lens.lens (nextToken :: ListVocabulariesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVocabulariesResponse)
+{-# DEPRECATED lvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lvrsResponseStatus :: Lens' ListVocabulariesResponse Int
-lvrsResponseStatus = lens _lvrsResponseStatus (\s a -> s {_lvrsResponseStatus = a})
-
-instance NFData ListVocabulariesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsResponseStatus :: Lens.Lens' ListVocabulariesResponse Lude.Int
+lvrsResponseStatus = Lens.lens (responseStatus :: ListVocabulariesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVocabulariesResponse)
+{-# DEPRECATED lvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

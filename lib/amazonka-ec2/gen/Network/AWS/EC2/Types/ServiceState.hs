@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ServiceState where
+module Network.AWS.EC2.Types.ServiceState
+  ( ServiceState
+      ( ServiceState',
+        SerAvailable,
+        SerDeleted,
+        SerDeleting,
+        SerFailed,
+        SerPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceState
-  = SerAvailable
-  | SerDeleted
-  | SerDeleting
-  | SerFailed
-  | SerPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceState = ServiceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure SerAvailable
-      "deleted" -> pure SerDeleted
-      "deleting" -> pure SerDeleting
-      "failed" -> pure SerFailed
-      "pending" -> pure SerPending
-      e ->
-        fromTextError $
-          "Failure parsing ServiceState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, failed, pending"
+pattern SerAvailable :: ServiceState
+pattern SerAvailable = ServiceState' "Available"
 
-instance ToText ServiceState where
-  toText = \case
-    SerAvailable -> "Available"
-    SerDeleted -> "Deleted"
-    SerDeleting -> "Deleting"
-    SerFailed -> "Failed"
-    SerPending -> "Pending"
+pattern SerDeleted :: ServiceState
+pattern SerDeleted = ServiceState' "Deleted"
 
-instance Hashable ServiceState
+pattern SerDeleting :: ServiceState
+pattern SerDeleting = ServiceState' "Deleting"
 
-instance NFData ServiceState
+pattern SerFailed :: ServiceState
+pattern SerFailed = ServiceState' "Failed"
 
-instance ToByteString ServiceState
+pattern SerPending :: ServiceState
+pattern SerPending = ServiceState' "Pending"
 
-instance ToQuery ServiceState
-
-instance ToHeader ServiceState
-
-instance FromXML ServiceState where
-  parseXML = parseXMLText "ServiceState"
+{-# COMPLETE
+  SerAvailable,
+  SerDeleted,
+  SerDeleting,
+  SerFailed,
+  SerPending,
+  ServiceState'
+  #-}

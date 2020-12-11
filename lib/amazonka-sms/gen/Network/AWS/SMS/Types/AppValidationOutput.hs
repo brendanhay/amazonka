@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.AppValidationOutput where
+module Network.AWS.SMS.Types.AppValidationOutput
+  ( AppValidationOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAppValidationOutput,
+
+    -- * Lenses
+    avoSsmOutput,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.SSMOutput
 
 -- | Output from validating an application.
 --
---
---
--- /See:/ 'appValidationOutput' smart constructor.
+-- /See:/ 'mkAppValidationOutput' smart constructor.
 newtype AppValidationOutput = AppValidationOutput'
-  { _avoSsmOutput ::
-      Maybe SSMOutput
+  { ssmOutput ::
+      Lude.Maybe SSMOutput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppValidationOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avoSsmOutput' - Output from using SSM to validate the application.
-appValidationOutput ::
+-- * 'ssmOutput' - Output from using SSM to validate the application.
+mkAppValidationOutput ::
   AppValidationOutput
-appValidationOutput = AppValidationOutput' {_avoSsmOutput = Nothing}
+mkAppValidationOutput =
+  AppValidationOutput' {ssmOutput = Lude.Nothing}
 
 -- | Output from using SSM to validate the application.
-avoSsmOutput :: Lens' AppValidationOutput (Maybe SSMOutput)
-avoSsmOutput = lens _avoSsmOutput (\s a -> s {_avoSsmOutput = a})
+--
+-- /Note:/ Consider using 'ssmOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avoSsmOutput :: Lens.Lens' AppValidationOutput (Lude.Maybe SSMOutput)
+avoSsmOutput = Lens.lens (ssmOutput :: AppValidationOutput -> Lude.Maybe SSMOutput) (\s a -> s {ssmOutput = a} :: AppValidationOutput)
+{-# DEPRECATED avoSsmOutput "Use generic-lens or generic-optics with 'ssmOutput' instead." #-}
 
-instance FromJSON AppValidationOutput where
+instance Lude.FromJSON AppValidationOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "AppValidationOutput"
-      (\x -> AppValidationOutput' <$> (x .:? "ssmOutput"))
-
-instance Hashable AppValidationOutput
-
-instance NFData AppValidationOutput
+      (\x -> AppValidationOutput' Lude.<$> (x Lude..:? "ssmOutput"))

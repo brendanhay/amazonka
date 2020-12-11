@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.TargetGrant where
+module Network.AWS.S3.Types.TargetGrant
+  ( TargetGrant (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTargetGrant,
+
+    -- * Lenses
+    tgPermission,
+    tgGrantee,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.BucketLogsPermission
 import Network.AWS.S3.Types.Grantee
 
 -- | Container for granting information.
 --
---
---
--- /See:/ 'targetGrant' smart constructor.
+-- /See:/ 'mkTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-  { _tgPermission ::
-      !(Maybe BucketLogsPermission),
-    _tgGrantee :: !(Maybe Grantee)
+  { permission ::
+      Lude.Maybe BucketLogsPermission,
+    grantee :: Lude.Maybe Grantee
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGrant' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgPermission' - Logging permissions assigned to the grantee for the bucket.
---
--- * 'tgGrantee' - Container for the person being granted permissions.
-targetGrant ::
+-- * 'grantee' - Container for the person being granted permissions.
+-- * 'permission' - Logging permissions assigned to the grantee for the bucket.
+mkTargetGrant ::
   TargetGrant
-targetGrant =
-  TargetGrant' {_tgPermission = Nothing, _tgGrantee = Nothing}
+mkTargetGrant =
+  TargetGrant' {permission = Lude.Nothing, grantee = Lude.Nothing}
 
 -- | Logging permissions assigned to the grantee for the bucket.
-tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
-tgPermission = lens _tgPermission (\s a -> s {_tgPermission = a})
+--
+-- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgPermission :: Lens.Lens' TargetGrant (Lude.Maybe BucketLogsPermission)
+tgPermission = Lens.lens (permission :: TargetGrant -> Lude.Maybe BucketLogsPermission) (\s a -> s {permission = a} :: TargetGrant)
+{-# DEPRECATED tgPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
 
 -- | Container for the person being granted permissions.
-tgGrantee :: Lens' TargetGrant (Maybe Grantee)
-tgGrantee = lens _tgGrantee (\s a -> s {_tgGrantee = a})
+--
+-- /Note:/ Consider using 'grantee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgGrantee :: Lens.Lens' TargetGrant (Lude.Maybe Grantee)
+tgGrantee = Lens.lens (grantee :: TargetGrant -> Lude.Maybe Grantee) (\s a -> s {grantee = a} :: TargetGrant)
+{-# DEPRECATED tgGrantee "Use generic-lens or generic-optics with 'grantee' instead." #-}
 
-instance FromXML TargetGrant where
+instance Lude.FromXML TargetGrant where
   parseXML x =
-    TargetGrant' <$> (x .@? "Permission") <*> (x .@? "Grantee")
+    TargetGrant'
+      Lude.<$> (x Lude..@? "Permission") Lude.<*> (x Lude..@? "Grantee")
 
-instance Hashable TargetGrant
-
-instance NFData TargetGrant
-
-instance ToXML TargetGrant where
+instance Lude.ToXML TargetGrant where
   toXML TargetGrant' {..} =
-    mconcat ["Permission" @= _tgPermission, "Grantee" @= _tgGrantee]
+    Lude.mconcat
+      ["Permission" Lude.@= permission, "Grantee" Lude.@= grantee]

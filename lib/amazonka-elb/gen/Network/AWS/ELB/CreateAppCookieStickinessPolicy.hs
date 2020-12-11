@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,159 @@
 --
 -- Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.
 --
---
 -- This policy is similar to the policy created by 'CreateLBCookieStickinessPolicy' , except that the lifetime of the special Elastic Load Balancing cookie, @AWSELB@ , follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer only inserts a new stickiness cookie when the application response includes a new application cookie.
---
 -- If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.
---
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
-  ( -- * Creating a Request
-    createAppCookieStickinessPolicy,
-    CreateAppCookieStickinessPolicy,
+  ( -- * Creating a request
+    CreateAppCookieStickinessPolicy (..),
+    mkCreateAppCookieStickinessPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cacspLoadBalancerName,
     cacspPolicyName,
     cacspCookieName,
 
-    -- * Destructuring the Response
-    createAppCookieStickinessPolicyResponse,
-    CreateAppCookieStickinessPolicyResponse,
+    -- * Destructuring the response
+    CreateAppCookieStickinessPolicyResponse (..),
+    mkCreateAppCookieStickinessPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cacsprsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for CreateAppCookieStickinessPolicy.
 --
---
---
--- /See:/ 'createAppCookieStickinessPolicy' smart constructor.
+-- /See:/ 'mkCreateAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
-  { _cacspLoadBalancerName ::
-      !Text,
-    _cacspPolicyName :: !Text,
-    _cacspCookieName :: !Text
+  { loadBalancerName ::
+      Lude.Text,
+    policyName :: Lude.Text,
+    cookieName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cacspLoadBalancerName' - The name of the load balancer.
---
--- * 'cacspPolicyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
---
--- * 'cacspCookieName' - The name of the application cookie used for stickiness.
-createAppCookieStickinessPolicy ::
-  -- | 'cacspLoadBalancerName'
-  Text ->
-  -- | 'cacspPolicyName'
-  Text ->
-  -- | 'cacspCookieName'
-  Text ->
+-- * 'cookieName' - The name of the application cookie used for stickiness.
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'policyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
+mkCreateAppCookieStickinessPolicy ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'cookieName'
+  Lude.Text ->
   CreateAppCookieStickinessPolicy
-createAppCookieStickinessPolicy
+mkCreateAppCookieStickinessPolicy
   pLoadBalancerName_
   pPolicyName_
   pCookieName_ =
     CreateAppCookieStickinessPolicy'
-      { _cacspLoadBalancerName =
+      { loadBalancerName =
           pLoadBalancerName_,
-        _cacspPolicyName = pPolicyName_,
-        _cacspCookieName = pCookieName_
+        policyName = pPolicyName_,
+        cookieName = pCookieName_
       }
 
 -- | The name of the load balancer.
-cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspLoadBalancerName = lens _cacspLoadBalancerName (\s a -> s {_cacspLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacspLoadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
+cacspLoadBalancerName = Lens.lens (loadBalancerName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateAppCookieStickinessPolicy)
+{-# DEPRECATED cacspLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
-cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspPolicyName = lens _cacspPolicyName (\s a -> s {_cacspPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacspPolicyName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
+cacspPolicyName = Lens.lens (policyName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreateAppCookieStickinessPolicy)
+{-# DEPRECATED cacspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The name of the application cookie used for stickiness.
-cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspCookieName = lens _cacspCookieName (\s a -> s {_cacspCookieName = a})
+--
+-- /Note:/ Consider using 'cookieName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacspCookieName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
+cacspCookieName = Lens.lens (cookieName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {cookieName = a} :: CreateAppCookieStickinessPolicy)
+{-# DEPRECATED cacspCookieName "Use generic-lens or generic-optics with 'cookieName' instead." #-}
 
-instance AWSRequest CreateAppCookieStickinessPolicy where
+instance Lude.AWSRequest CreateAppCookieStickinessPolicy where
   type
     Rs CreateAppCookieStickinessPolicy =
       CreateAppCookieStickinessPolicyResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateAppCookieStickinessPolicyResult"
       ( \s h x ->
-          CreateAppCookieStickinessPolicyResponse' <$> (pure (fromEnum s))
+          CreateAppCookieStickinessPolicyResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAppCookieStickinessPolicy
+instance Lude.ToHeaders CreateAppCookieStickinessPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateAppCookieStickinessPolicy
+instance Lude.ToPath CreateAppCookieStickinessPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateAppCookieStickinessPolicy where
-  toHeaders = const mempty
-
-instance ToPath CreateAppCookieStickinessPolicy where
-  toPath = const "/"
-
-instance ToQuery CreateAppCookieStickinessPolicy where
+instance Lude.ToQuery CreateAppCookieStickinessPolicy where
   toQuery CreateAppCookieStickinessPolicy' {..} =
-    mconcat
-      [ "Action" =: ("CreateAppCookieStickinessPolicy" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _cacspLoadBalancerName,
-        "PolicyName" =: _cacspPolicyName,
-        "CookieName" =: _cacspCookieName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateAppCookieStickinessPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "PolicyName" Lude.=: policyName,
+        "CookieName" Lude.=: cookieName
       ]
 
 -- | Contains the output for CreateAppCookieStickinessPolicy.
 --
---
---
--- /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
+-- /See:/ 'mkCreateAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
-  { _cacsprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cacsprsResponseStatus' - -- | The response status code.
-createAppCookieStickinessPolicyResponse ::
-  -- | 'cacsprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateAppCookieStickinessPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAppCookieStickinessPolicyResponse
-createAppCookieStickinessPolicyResponse pResponseStatus_ =
+mkCreateAppCookieStickinessPolicyResponse pResponseStatus_ =
   CreateAppCookieStickinessPolicyResponse'
-    { _cacsprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-cacsprsResponseStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
-cacsprsResponseStatus = lens _cacsprsResponseStatus (\s a -> s {_cacsprsResponseStatus = a})
-
-instance NFData CreateAppCookieStickinessPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacsprsResponseStatus :: Lens.Lens' CreateAppCookieStickinessPolicyResponse Lude.Int
+cacsprsResponseStatus = Lens.lens (responseStatus :: CreateAppCookieStickinessPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppCookieStickinessPolicyResponse)
+{-# DEPRECATED cacsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

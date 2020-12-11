@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.FaceAttributes where
+module Network.AWS.Rekognition.Types.FaceAttributes
+  ( FaceAttributes
+      ( FaceAttributes',
+        FAAll,
+        FADefault
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FaceAttributes
-  = FAAll
-  | FADefault
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FaceAttributes = FaceAttributes' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FaceAttributes where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure FAAll
-      "default" -> pure FADefault
-      e ->
-        fromTextError $
-          "Failure parsing FaceAttributes from value: '" <> e
-            <> "'. Accepted values: all, default"
+pattern FAAll :: FaceAttributes
+pattern FAAll = FaceAttributes' "ALL"
 
-instance ToText FaceAttributes where
-  toText = \case
-    FAAll -> "ALL"
-    FADefault -> "DEFAULT"
+pattern FADefault :: FaceAttributes
+pattern FADefault = FaceAttributes' "DEFAULT"
 
-instance Hashable FaceAttributes
-
-instance NFData FaceAttributes
-
-instance ToByteString FaceAttributes
-
-instance ToQuery FaceAttributes
-
-instance ToHeader FaceAttributes
-
-instance ToJSON FaceAttributes where
-  toJSON = toJSONText
+{-# COMPLETE
+  FAAll,
+  FADefault,
+  FaceAttributes'
+  #-}

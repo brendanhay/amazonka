@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,152 @@
 --
 -- This implementation of the @GET@ operation uses the @acl@ subresource to return the access control list (ACL) of a bucket. To use @GET@ to return the ACL of the bucket, you must have @READ_ACP@ access to the bucket. If @READ_ACP@ permission is granted to the anonymous user, you can return the ACL of the bucket without using an authorization header.
 --
---
 -- __Related Resources__
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html ListObjects>
 module Network.AWS.S3.GetBucketACL
-  ( -- * Creating a Request
-    getBucketACL,
-    GetBucketACL,
+  ( -- * Creating a request
+    GetBucketACL (..),
+    mkGetBucketACL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbaExpectedBucketOwner,
     gbaBucket,
 
-    -- * Destructuring the Response
-    getBucketACLResponse,
-    GetBucketACLResponse,
+    -- * Destructuring the response
+    GetBucketACLResponse (..),
+    mkGetBucketACLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbarsGrants,
     gbarsOwner,
     gbarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getBucketACL' smart constructor.
+-- | /See:/ 'mkGetBucketACL' smart constructor.
 data GetBucketACL = GetBucketACL'
-  { _gbaExpectedBucketOwner ::
-      !(Maybe Text),
-    _gbaBucket :: !BucketName
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketACL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbaExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'gbaBucket' - Specifies the S3 bucket whose ACL is being requested.
-getBucketACL ::
-  -- | 'gbaBucket'
+-- * 'bucket' - Specifies the S3 bucket whose ACL is being requested.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkGetBucketACL ::
+  -- | 'bucket'
   BucketName ->
   GetBucketACL
-getBucketACL pBucket_ =
+mkGetBucketACL pBucket_ =
   GetBucketACL'
-    { _gbaExpectedBucketOwner = Nothing,
-      _gbaBucket = pBucket_
+    { expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-gbaExpectedBucketOwner :: Lens' GetBucketACL (Maybe Text)
-gbaExpectedBucketOwner = lens _gbaExpectedBucketOwner (\s a -> s {_gbaExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbaExpectedBucketOwner :: Lens.Lens' GetBucketACL (Lude.Maybe Lude.Text)
+gbaExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketACL -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketACL)
+{-# DEPRECATED gbaExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Specifies the S3 bucket whose ACL is being requested.
-gbaBucket :: Lens' GetBucketACL BucketName
-gbaBucket = lens _gbaBucket (\s a -> s {_gbaBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbaBucket :: Lens.Lens' GetBucketACL BucketName
+gbaBucket = Lens.lens (bucket :: GetBucketACL -> BucketName) (\s a -> s {bucket = a} :: GetBucketACL)
+{-# DEPRECATED gbaBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest GetBucketACL where
+instance Lude.AWSRequest GetBucketACL where
   type Rs GetBucketACL = GetBucketACLResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetBucketACLResponse'
-            <$> ( x .@? "AccessControlList" .!@ mempty
-                    >>= may (parseXMLList "Grant")
-                )
-            <*> (x .@? "Owner")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "AccessControlList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "Grant")
+                     )
+            Lude.<*> (x Lude..@? "Owner")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBucketACL
-
-instance NFData GetBucketACL
-
-instance ToHeaders GetBucketACL where
+instance Lude.ToHeaders GetBucketACL where
   toHeaders GetBucketACL' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _gbaExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath GetBucketACL where
-  toPath GetBucketACL' {..} = mconcat ["/", toBS _gbaBucket]
+instance Lude.ToPath GetBucketACL where
+  toPath GetBucketACL' {..} = Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery GetBucketACL where
-  toQuery = const (mconcat ["acl"])
+instance Lude.ToQuery GetBucketACL where
+  toQuery = Lude.const (Lude.mconcat ["acl"])
 
--- | /See:/ 'getBucketACLResponse' smart constructor.
+-- | /See:/ 'mkGetBucketACLResponse' smart constructor.
 data GetBucketACLResponse = GetBucketACLResponse'
-  { _gbarsGrants ::
-      !(Maybe [Grant]),
-    _gbarsOwner :: !(Maybe Owner),
-    _gbarsResponseStatus :: !Int
+  { grants ::
+      Lude.Maybe [Grant],
+    owner :: Lude.Maybe Owner,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketACLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbarsGrants' - A list of grants.
---
--- * 'gbarsOwner' - Container for the bucket owner's display name and ID.
---
--- * 'gbarsResponseStatus' - -- | The response status code.
-getBucketACLResponse ::
-  -- | 'gbarsResponseStatus'
-  Int ->
+-- * 'grants' - A list of grants.
+-- * 'owner' - Container for the bucket owner's display name and ID.
+-- * 'responseStatus' - The response status code.
+mkGetBucketACLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBucketACLResponse
-getBucketACLResponse pResponseStatus_ =
+mkGetBucketACLResponse pResponseStatus_ =
   GetBucketACLResponse'
-    { _gbarsGrants = Nothing,
-      _gbarsOwner = Nothing,
-      _gbarsResponseStatus = pResponseStatus_
+    { grants = Lude.Nothing,
+      owner = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of grants.
-gbarsGrants :: Lens' GetBucketACLResponse [Grant]
-gbarsGrants = lens _gbarsGrants (\s a -> s {_gbarsGrants = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'grants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbarsGrants :: Lens.Lens' GetBucketACLResponse (Lude.Maybe [Grant])
+gbarsGrants = Lens.lens (grants :: GetBucketACLResponse -> Lude.Maybe [Grant]) (\s a -> s {grants = a} :: GetBucketACLResponse)
+{-# DEPRECATED gbarsGrants "Use generic-lens or generic-optics with 'grants' instead." #-}
 
 -- | Container for the bucket owner's display name and ID.
-gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
-gbarsOwner = lens _gbarsOwner (\s a -> s {_gbarsOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbarsOwner :: Lens.Lens' GetBucketACLResponse (Lude.Maybe Owner)
+gbarsOwner = Lens.lens (owner :: GetBucketACLResponse -> Lude.Maybe Owner) (\s a -> s {owner = a} :: GetBucketACLResponse)
+{-# DEPRECATED gbarsOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
--- | -- | The response status code.
-gbarsResponseStatus :: Lens' GetBucketACLResponse Int
-gbarsResponseStatus = lens _gbarsResponseStatus (\s a -> s {_gbarsResponseStatus = a})
-
-instance NFData GetBucketACLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbarsResponseStatus :: Lens.Lens' GetBucketACLResponse Lude.Int
+gbarsResponseStatus = Lens.lens (responseStatus :: GetBucketACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketACLResponse)
+{-# DEPRECATED gbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

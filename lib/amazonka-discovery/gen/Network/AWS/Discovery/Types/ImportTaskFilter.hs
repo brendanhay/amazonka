@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ImportTaskFilter where
+module Network.AWS.Discovery.Types.ImportTaskFilter
+  ( ImportTaskFilter (..),
+
+    -- * Smart constructor
+    mkImportTaskFilter,
+
+    -- * Lenses
+    itfValues,
+    itfName,
+  )
+where
 
 import Network.AWS.Discovery.Types.ImportTaskFilterName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A name-values pair of elements you can use to filter the results when querying your import tasks. Currently, wildcards are not supported for filters.
 --
---
---
--- /See:/ 'importTaskFilter' smart constructor.
+-- /See:/ 'mkImportTaskFilter' smart constructor.
 data ImportTaskFilter = ImportTaskFilter'
-  { _itfValues ::
-      !(Maybe (List1 Text)),
-    _itfName :: !(Maybe ImportTaskFilterName)
+  { values ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    name :: Lude.Maybe ImportTaskFilterName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportTaskFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'itfValues' - An array of strings that you can provide to match against a specific name, status, or import task ID to filter the results for your import task queries.
---
--- * 'itfName' - The name, status, or import task ID for a specific import task.
-importTaskFilter ::
+-- * 'name' - The name, status, or import task ID for a specific import task.
+-- * 'values' - An array of strings that you can provide to match against a specific name, status, or import task ID to filter the results for your import task queries.
+mkImportTaskFilter ::
   ImportTaskFilter
-importTaskFilter =
-  ImportTaskFilter' {_itfValues = Nothing, _itfName = Nothing}
+mkImportTaskFilter =
+  ImportTaskFilter' {values = Lude.Nothing, name = Lude.Nothing}
 
 -- | An array of strings that you can provide to match against a specific name, status, or import task ID to filter the results for your import task queries.
-itfValues :: Lens' ImportTaskFilter (Maybe (NonEmpty Text))
-itfValues = lens _itfValues (\s a -> s {_itfValues = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itfValues :: Lens.Lens' ImportTaskFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
+itfValues = Lens.lens (values :: ImportTaskFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {values = a} :: ImportTaskFilter)
+{-# DEPRECATED itfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The name, status, or import task ID for a specific import task.
-itfName :: Lens' ImportTaskFilter (Maybe ImportTaskFilterName)
-itfName = lens _itfName (\s a -> s {_itfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itfName :: Lens.Lens' ImportTaskFilter (Lude.Maybe ImportTaskFilterName)
+itfName = Lens.lens (name :: ImportTaskFilter -> Lude.Maybe ImportTaskFilterName) (\s a -> s {name = a} :: ImportTaskFilter)
+{-# DEPRECATED itfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable ImportTaskFilter
-
-instance NFData ImportTaskFilter
-
-instance ToJSON ImportTaskFilter where
+instance Lude.ToJSON ImportTaskFilter where
   toJSON ImportTaskFilter' {..} =
-    object
-      ( catMaybes
-          [("values" .=) <$> _itfValues, ("name" .=) <$> _itfName]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("values" Lude..=) Lude.<$> values,
+            ("name" Lude..=) Lude.<$> name
+          ]
       )

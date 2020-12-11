@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about a fleet provisioning template.
 module Network.AWS.IoT.DescribeProvisioningTemplate
-  ( -- * Creating a Request
-    describeProvisioningTemplate,
-    DescribeProvisioningTemplate,
+  ( -- * Creating a request
+    DescribeProvisioningTemplate (..),
+    mkDescribeProvisioningTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dptTemplateName,
 
-    -- * Destructuring the Response
-    describeProvisioningTemplateResponse,
-    DescribeProvisioningTemplateResponse,
+    -- * Destructuring the response
+    DescribeProvisioningTemplateResponse (..),
+    mkDescribeProvisioningTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dptrsLastModifiedDate,
     dptrsTemplateName,
     dptrsPreProvisioningHook,
@@ -46,186 +41,224 @@ module Network.AWS.IoT.DescribeProvisioningTemplate
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeProvisioningTemplate' smart constructor.
+-- | /See:/ 'mkDescribeProvisioningTemplate' smart constructor.
 newtype DescribeProvisioningTemplate = DescribeProvisioningTemplate'
-  { _dptTemplateName ::
-      Text
+  { templateName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dptTemplateName' - The name of the fleet provisioning template.
-describeProvisioningTemplate ::
-  -- | 'dptTemplateName'
-  Text ->
+-- * 'templateName' - The name of the fleet provisioning template.
+mkDescribeProvisioningTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
   DescribeProvisioningTemplate
-describeProvisioningTemplate pTemplateName_ =
-  DescribeProvisioningTemplate' {_dptTemplateName = pTemplateName_}
+mkDescribeProvisioningTemplate pTemplateName_ =
+  DescribeProvisioningTemplate' {templateName = pTemplateName_}
 
 -- | The name of the fleet provisioning template.
-dptTemplateName :: Lens' DescribeProvisioningTemplate Text
-dptTemplateName = lens _dptTemplateName (\s a -> s {_dptTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptTemplateName :: Lens.Lens' DescribeProvisioningTemplate Lude.Text
+dptTemplateName = Lens.lens (templateName :: DescribeProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DescribeProvisioningTemplate)
+{-# DEPRECATED dptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest DescribeProvisioningTemplate where
+instance Lude.AWSRequest DescribeProvisioningTemplate where
   type
     Rs DescribeProvisioningTemplate =
       DescribeProvisioningTemplateResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeProvisioningTemplateResponse'
-            <$> (x .?> "lastModifiedDate")
-            <*> (x .?> "templateName")
-            <*> (x .?> "preProvisioningHook")
-            <*> (x .?> "enabled")
-            <*> (x .?> "provisioningRoleArn")
-            <*> (x .?> "defaultVersionId")
-            <*> (x .?> "creationDate")
-            <*> (x .?> "templateArn")
-            <*> (x .?> "templateBody")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "lastModifiedDate")
+            Lude.<*> (x Lude..?> "templateName")
+            Lude.<*> (x Lude..?> "preProvisioningHook")
+            Lude.<*> (x Lude..?> "enabled")
+            Lude.<*> (x Lude..?> "provisioningRoleArn")
+            Lude.<*> (x Lude..?> "defaultVersionId")
+            Lude.<*> (x Lude..?> "creationDate")
+            Lude.<*> (x Lude..?> "templateArn")
+            Lude.<*> (x Lude..?> "templateBody")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeProvisioningTemplate
+instance Lude.ToHeaders DescribeProvisioningTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeProvisioningTemplate
-
-instance ToHeaders DescribeProvisioningTemplate where
-  toHeaders = const mempty
-
-instance ToPath DescribeProvisioningTemplate where
+instance Lude.ToPath DescribeProvisioningTemplate where
   toPath DescribeProvisioningTemplate' {..} =
-    mconcat ["/provisioning-templates/", toBS _dptTemplateName]
+    Lude.mconcat ["/provisioning-templates/", Lude.toBS templateName]
 
-instance ToQuery DescribeProvisioningTemplate where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeProvisioningTemplate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeProvisioningTemplateResponse' smart constructor.
+-- | /See:/ 'mkDescribeProvisioningTemplateResponse' smart constructor.
 data DescribeProvisioningTemplateResponse = DescribeProvisioningTemplateResponse'
-  { _dptrsLastModifiedDate ::
-      !(Maybe POSIX),
-    _dptrsTemplateName ::
-      !(Maybe Text),
-    _dptrsPreProvisioningHook ::
-      !( Maybe
-           ProvisioningHook
-       ),
-    _dptrsEnabled ::
-      !(Maybe Bool),
-    _dptrsProvisioningRoleARN ::
-      !(Maybe Text),
-    _dptrsDefaultVersionId ::
-      !(Maybe Int),
-    _dptrsCreationDate ::
-      !(Maybe POSIX),
-    _dptrsTemplateARN ::
-      !(Maybe Text),
-    _dptrsTemplateBody ::
-      !(Maybe Text),
-    _dptrsDescription ::
-      !(Maybe Text),
-    _dptrsResponseStatus ::
-      !Int
+  { lastModifiedDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    templateName ::
+      Lude.Maybe
+        Lude.Text,
+    preProvisioningHook ::
+      Lude.Maybe
+        ProvisioningHook,
+    enabled ::
+      Lude.Maybe
+        Lude.Bool,
+    provisioningRoleARN ::
+      Lude.Maybe
+        Lude.Text,
+    defaultVersionId ::
+      Lude.Maybe
+        Lude.Int,
+    creationDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    templateARN ::
+      Lude.Maybe
+        Lude.Text,
+    templateBody ::
+      Lude.Maybe
+        Lude.Text,
+    description ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dptrsLastModifiedDate' - The date when the fleet provisioning template was last modified.
---
--- * 'dptrsTemplateName' - The name of the fleet provisioning template.
---
--- * 'dptrsPreProvisioningHook' - Gets information about a pre-provisioned hook.
---
--- * 'dptrsEnabled' - True if the fleet provisioning template is enabled, otherwise false.
---
--- * 'dptrsProvisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
---
--- * 'dptrsDefaultVersionId' - The default fleet template version ID.
---
--- * 'dptrsCreationDate' - The date when the fleet provisioning template was created.
---
--- * 'dptrsTemplateARN' - The ARN of the fleet provisioning template.
---
--- * 'dptrsTemplateBody' - The JSON formatted contents of the fleet provisioning template.
---
--- * 'dptrsDescription' - The description of the fleet provisioning template.
---
--- * 'dptrsResponseStatus' - -- | The response status code.
-describeProvisioningTemplateResponse ::
-  -- | 'dptrsResponseStatus'
-  Int ->
+-- * 'creationDate' - The date when the fleet provisioning template was created.
+-- * 'defaultVersionId' - The default fleet template version ID.
+-- * 'description' - The description of the fleet provisioning template.
+-- * 'enabled' - True if the fleet provisioning template is enabled, otherwise false.
+-- * 'lastModifiedDate' - The date when the fleet provisioning template was last modified.
+-- * 'preProvisioningHook' - Gets information about a pre-provisioned hook.
+-- * 'provisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
+-- * 'responseStatus' - The response status code.
+-- * 'templateARN' - The ARN of the fleet provisioning template.
+-- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
+-- * 'templateName' - The name of the fleet provisioning template.
+mkDescribeProvisioningTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeProvisioningTemplateResponse
-describeProvisioningTemplateResponse pResponseStatus_ =
+mkDescribeProvisioningTemplateResponse pResponseStatus_ =
   DescribeProvisioningTemplateResponse'
-    { _dptrsLastModifiedDate =
-        Nothing,
-      _dptrsTemplateName = Nothing,
-      _dptrsPreProvisioningHook = Nothing,
-      _dptrsEnabled = Nothing,
-      _dptrsProvisioningRoleARN = Nothing,
-      _dptrsDefaultVersionId = Nothing,
-      _dptrsCreationDate = Nothing,
-      _dptrsTemplateARN = Nothing,
-      _dptrsTemplateBody = Nothing,
-      _dptrsDescription = Nothing,
-      _dptrsResponseStatus = pResponseStatus_
+    { lastModifiedDate =
+        Lude.Nothing,
+      templateName = Lude.Nothing,
+      preProvisioningHook = Lude.Nothing,
+      enabled = Lude.Nothing,
+      provisioningRoleARN = Lude.Nothing,
+      defaultVersionId = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      templateARN = Lude.Nothing,
+      templateBody = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The date when the fleet provisioning template was last modified.
-dptrsLastModifiedDate :: Lens' DescribeProvisioningTemplateResponse (Maybe UTCTime)
-dptrsLastModifiedDate = lens _dptrsLastModifiedDate (\s a -> s {_dptrsLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsLastModifiedDate :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Timestamp)
+dptrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The name of the fleet provisioning template.
-dptrsTemplateName :: Lens' DescribeProvisioningTemplateResponse (Maybe Text)
-dptrsTemplateName = lens _dptrsTemplateName (\s a -> s {_dptrsTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsTemplateName :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+dptrsTemplateName = Lens.lens (templateName :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Gets information about a pre-provisioned hook.
-dptrsPreProvisioningHook :: Lens' DescribeProvisioningTemplateResponse (Maybe ProvisioningHook)
-dptrsPreProvisioningHook = lens _dptrsPreProvisioningHook (\s a -> s {_dptrsPreProvisioningHook = a})
+--
+-- /Note:/ Consider using 'preProvisioningHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsPreProvisioningHook :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe ProvisioningHook)
+dptrsPreProvisioningHook = Lens.lens (preProvisioningHook :: DescribeProvisioningTemplateResponse -> Lude.Maybe ProvisioningHook) (\s a -> s {preProvisioningHook = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsPreProvisioningHook "Use generic-lens or generic-optics with 'preProvisioningHook' instead." #-}
 
 -- | True if the fleet provisioning template is enabled, otherwise false.
-dptrsEnabled :: Lens' DescribeProvisioningTemplateResponse (Maybe Bool)
-dptrsEnabled = lens _dptrsEnabled (\s a -> s {_dptrsEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsEnabled :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Bool)
+dptrsEnabled = Lens.lens (enabled :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
-dptrsProvisioningRoleARN :: Lens' DescribeProvisioningTemplateResponse (Maybe Text)
-dptrsProvisioningRoleARN = lens _dptrsProvisioningRoleARN (\s a -> s {_dptrsProvisioningRoleARN = a})
+--
+-- /Note:/ Consider using 'provisioningRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsProvisioningRoleARN :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+dptrsProvisioningRoleARN = Lens.lens (provisioningRoleARN :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {provisioningRoleARN = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsProvisioningRoleARN "Use generic-lens or generic-optics with 'provisioningRoleARN' instead." #-}
 
 -- | The default fleet template version ID.
-dptrsDefaultVersionId :: Lens' DescribeProvisioningTemplateResponse (Maybe Int)
-dptrsDefaultVersionId = lens _dptrsDefaultVersionId (\s a -> s {_dptrsDefaultVersionId = a})
+--
+-- /Note:/ Consider using 'defaultVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsDefaultVersionId :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Int)
+dptrsDefaultVersionId = Lens.lens (defaultVersionId :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Int) (\s a -> s {defaultVersionId = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsDefaultVersionId "Use generic-lens or generic-optics with 'defaultVersionId' instead." #-}
 
 -- | The date when the fleet provisioning template was created.
-dptrsCreationDate :: Lens' DescribeProvisioningTemplateResponse (Maybe UTCTime)
-dptrsCreationDate = lens _dptrsCreationDate (\s a -> s {_dptrsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsCreationDate :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Timestamp)
+dptrsCreationDate = Lens.lens (creationDate :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The ARN of the fleet provisioning template.
-dptrsTemplateARN :: Lens' DescribeProvisioningTemplateResponse (Maybe Text)
-dptrsTemplateARN = lens _dptrsTemplateARN (\s a -> s {_dptrsTemplateARN = a})
+--
+-- /Note:/ Consider using 'templateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsTemplateARN :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+dptrsTemplateARN = Lens.lens (templateARN :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateARN = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsTemplateARN "Use generic-lens or generic-optics with 'templateARN' instead." #-}
 
 -- | The JSON formatted contents of the fleet provisioning template.
-dptrsTemplateBody :: Lens' DescribeProvisioningTemplateResponse (Maybe Text)
-dptrsTemplateBody = lens _dptrsTemplateBody (\s a -> s {_dptrsTemplateBody = a})
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsTemplateBody :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+dptrsTemplateBody = Lens.lens (templateBody :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | The description of the fleet provisioning template.
-dptrsDescription :: Lens' DescribeProvisioningTemplateResponse (Maybe Text)
-dptrsDescription = lens _dptrsDescription (\s a -> s {_dptrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsDescription :: Lens.Lens' DescribeProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+dptrsDescription = Lens.lens (description :: DescribeProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-dptrsResponseStatus :: Lens' DescribeProvisioningTemplateResponse Int
-dptrsResponseStatus = lens _dptrsResponseStatus (\s a -> s {_dptrsResponseStatus = a})
-
-instance NFData DescribeProvisioningTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsResponseStatus :: Lens.Lens' DescribeProvisioningTemplateResponse Lude.Int
+dptrsResponseStatus = Lens.lens (responseStatus :: DescribeProvisioningTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProvisioningTemplateResponse)
+{-# DEPRECATED dptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ListCompilationJobsSortBy where
+module Network.AWS.SageMaker.Types.ListCompilationJobsSortBy
+  ( ListCompilationJobsSortBy
+      ( ListCompilationJobsSortBy',
+        LCJSBCreationTime,
+        LCJSBName,
+        LCJSBStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ListCompilationJobsSortBy
-  = LCJSBCreationTime
-  | LCJSBName
-  | LCJSBStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ListCompilationJobsSortBy = ListCompilationJobsSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ListCompilationJobsSortBy where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure LCJSBCreationTime
-      "name" -> pure LCJSBName
-      "status" -> pure LCJSBStatus
-      e ->
-        fromTextError $
-          "Failure parsing ListCompilationJobsSortBy from value: '" <> e
-            <> "'. Accepted values: creationtime, name, status"
+pattern LCJSBCreationTime :: ListCompilationJobsSortBy
+pattern LCJSBCreationTime = ListCompilationJobsSortBy' "CreationTime"
 
-instance ToText ListCompilationJobsSortBy where
-  toText = \case
-    LCJSBCreationTime -> "CreationTime"
-    LCJSBName -> "Name"
-    LCJSBStatus -> "Status"
+pattern LCJSBName :: ListCompilationJobsSortBy
+pattern LCJSBName = ListCompilationJobsSortBy' "Name"
 
-instance Hashable ListCompilationJobsSortBy
+pattern LCJSBStatus :: ListCompilationJobsSortBy
+pattern LCJSBStatus = ListCompilationJobsSortBy' "Status"
 
-instance NFData ListCompilationJobsSortBy
-
-instance ToByteString ListCompilationJobsSortBy
-
-instance ToQuery ListCompilationJobsSortBy
-
-instance ToHeader ListCompilationJobsSortBy
-
-instance ToJSON ListCompilationJobsSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  LCJSBCreationTime,
+  LCJSBName,
+  LCJSBStatus,
+  ListCompilationJobsSortBy'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,203 @@
 --
 -- Creates an email or SMS text message contact method.
 --
---
 -- A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each AWS Region. However, SMS text messaging is not supported in some AWS Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
 module Network.AWS.Lightsail.CreateContactMethod
-  ( -- * Creating a Request
-    createContactMethod,
-    CreateContactMethod,
+  ( -- * Creating a request
+    CreateContactMethod (..),
+    mkCreateContactMethod,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccmProtocol,
     ccmContactEndpoint,
 
-    -- * Destructuring the Response
-    createContactMethodResponse,
-    CreateContactMethodResponse,
+    -- * Destructuring the response
+    CreateContactMethodResponse (..),
+    mkCreateContactMethodResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccmrsOperations,
     ccmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createContactMethod' smart constructor.
+-- | /See:/ 'mkCreateContactMethod' smart constructor.
 data CreateContactMethod = CreateContactMethod'
-  { _ccmProtocol ::
-      !ContactProtocol,
-    _ccmContactEndpoint :: !Text
+  { protocol ::
+      ContactProtocol,
+    contactEndpoint :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactMethod' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'contactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number.
 --
--- * 'ccmProtocol' - The protocol of the contact method, such as @Email@ or @SMS@ (text messaging). The @SMS@ protocol is supported only in the following AWS Regions.     * US East (N. Virginia) (@us-east-1@ )     * US West (Oregon) (@us-west-2@ )     * Europe (Ireland) (@eu-west-1@ )     * Asia Pacific (Tokyo) (@ap-northeast-1@ )     * Asia Pacific (Singapore) (@ap-southeast-1@ )     * Asia Pacific (Sydney) (@ap-southeast-2@ ) For a list of countries/regions where SMS text messages can be sent, and the latest AWS Regions where SMS text messaging is supported, see <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries> in the /Amazon SNS Developer Guide/ . For more information about notifications in Amazon Lightsail, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
+-- Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
+-- * 'protocol' - The protocol of the contact method, such as @Email@ or @SMS@ (text messaging).
 --
--- * 'ccmContactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number. Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
-createContactMethod ::
-  -- | 'ccmProtocol'
+-- The @SMS@ protocol is supported only in the following AWS Regions.
+--
+--     * US East (N. Virginia) (@us-east-1@ )
+--
+--
+--     * US West (Oregon) (@us-west-2@ )
+--
+--
+--     * Europe (Ireland) (@eu-west-1@ )
+--
+--
+--     * Asia Pacific (Tokyo) (@ap-northeast-1@ )
+--
+--
+--     * Asia Pacific (Singapore) (@ap-southeast-1@ )
+--
+--
+--     * Asia Pacific (Sydney) (@ap-southeast-2@ )
+--
+--
+-- For a list of countries/regions where SMS text messages can be sent, and the latest AWS Regions where SMS text messaging is supported, see <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries> in the /Amazon SNS Developer Guide/ .
+-- For more information about notifications in Amazon Lightsail, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
+mkCreateContactMethod ::
+  -- | 'protocol'
   ContactProtocol ->
-  -- | 'ccmContactEndpoint'
-  Text ->
+  -- | 'contactEndpoint'
+  Lude.Text ->
   CreateContactMethod
-createContactMethod pProtocol_ pContactEndpoint_ =
+mkCreateContactMethod pProtocol_ pContactEndpoint_ =
   CreateContactMethod'
-    { _ccmProtocol = pProtocol_,
-      _ccmContactEndpoint = pContactEndpoint_
+    { protocol = pProtocol_,
+      contactEndpoint = pContactEndpoint_
     }
 
--- | The protocol of the contact method, such as @Email@ or @SMS@ (text messaging). The @SMS@ protocol is supported only in the following AWS Regions.     * US East (N. Virginia) (@us-east-1@ )     * US West (Oregon) (@us-west-2@ )     * Europe (Ireland) (@eu-west-1@ )     * Asia Pacific (Tokyo) (@ap-northeast-1@ )     * Asia Pacific (Singapore) (@ap-southeast-1@ )     * Asia Pacific (Sydney) (@ap-southeast-2@ ) For a list of countries/regions where SMS text messages can be sent, and the latest AWS Regions where SMS text messaging is supported, see <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries> in the /Amazon SNS Developer Guide/ . For more information about notifications in Amazon Lightsail, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
-ccmProtocol :: Lens' CreateContactMethod ContactProtocol
-ccmProtocol = lens _ccmProtocol (\s a -> s {_ccmProtocol = a})
+-- | The protocol of the contact method, such as @Email@ or @SMS@ (text messaging).
+--
+-- The @SMS@ protocol is supported only in the following AWS Regions.
+--
+--     * US East (N. Virginia) (@us-east-1@ )
+--
+--
+--     * US West (Oregon) (@us-west-2@ )
+--
+--
+--     * Europe (Ireland) (@eu-west-1@ )
+--
+--
+--     * Asia Pacific (Tokyo) (@ap-northeast-1@ )
+--
+--
+--     * Asia Pacific (Singapore) (@ap-southeast-1@ )
+--
+--
+--     * Asia Pacific (Sydney) (@ap-southeast-2@ )
+--
+--
+-- For a list of countries/regions where SMS text messages can be sent, and the latest AWS Regions where SMS text messaging is supported, see <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries> in the /Amazon SNS Developer Guide/ .
+-- For more information about notifications in Amazon Lightsail, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmProtocol :: Lens.Lens' CreateContactMethod ContactProtocol
+ccmProtocol = Lens.lens (protocol :: CreateContactMethod -> ContactProtocol) (\s a -> s {protocol = a} :: CreateContactMethod)
+{-# DEPRECATED ccmProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
--- | The destination of the contact method, such as an email address or a mobile phone number. Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
-ccmContactEndpoint :: Lens' CreateContactMethod Text
-ccmContactEndpoint = lens _ccmContactEndpoint (\s a -> s {_ccmContactEndpoint = a})
+-- | The destination of the contact method, such as an email address or a mobile phone number.
+--
+-- Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
+--
+-- /Note:/ Consider using 'contactEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmContactEndpoint :: Lens.Lens' CreateContactMethod Lude.Text
+ccmContactEndpoint = Lens.lens (contactEndpoint :: CreateContactMethod -> Lude.Text) (\s a -> s {contactEndpoint = a} :: CreateContactMethod)
+{-# DEPRECATED ccmContactEndpoint "Use generic-lens or generic-optics with 'contactEndpoint' instead." #-}
 
-instance AWSRequest CreateContactMethod where
+instance Lude.AWSRequest CreateContactMethod where
   type Rs CreateContactMethod = CreateContactMethodResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateContactMethodResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateContactMethod
-
-instance NFData CreateContactMethod
-
-instance ToHeaders CreateContactMethod where
+instance Lude.ToHeaders CreateContactMethod where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.CreateContactMethod" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.CreateContactMethod" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateContactMethod where
+instance Lude.ToJSON CreateContactMethod where
   toJSON CreateContactMethod' {..} =
-    object
-      ( catMaybes
-          [ Just ("protocol" .= _ccmProtocol),
-            Just ("contactEndpoint" .= _ccmContactEndpoint)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("protocol" Lude..= protocol),
+            Lude.Just ("contactEndpoint" Lude..= contactEndpoint)
           ]
       )
 
-instance ToPath CreateContactMethod where
-  toPath = const "/"
+instance Lude.ToPath CreateContactMethod where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateContactMethod where
-  toQuery = const mempty
+instance Lude.ToQuery CreateContactMethod where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createContactMethodResponse' smart constructor.
+-- | /See:/ 'mkCreateContactMethodResponse' smart constructor.
 data CreateContactMethodResponse = CreateContactMethodResponse'
-  { _ccmrsOperations ::
-      !(Maybe [Operation]),
-    _ccmrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactMethodResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccmrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'ccmrsResponseStatus' - -- | The response status code.
-createContactMethodResponse ::
-  -- | 'ccmrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkCreateContactMethodResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateContactMethodResponse
-createContactMethodResponse pResponseStatus_ =
+mkCreateContactMethodResponse pResponseStatus_ =
   CreateContactMethodResponse'
-    { _ccmrsOperations = Nothing,
-      _ccmrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-ccmrsOperations :: Lens' CreateContactMethodResponse [Operation]
-ccmrsOperations = lens _ccmrsOperations (\s a -> s {_ccmrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmrsOperations :: Lens.Lens' CreateContactMethodResponse (Lude.Maybe [Operation])
+ccmrsOperations = Lens.lens (operations :: CreateContactMethodResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: CreateContactMethodResponse)
+{-# DEPRECATED ccmrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-ccmrsResponseStatus :: Lens' CreateContactMethodResponse Int
-ccmrsResponseStatus = lens _ccmrsResponseStatus (\s a -> s {_ccmrsResponseStatus = a})
-
-instance NFData CreateContactMethodResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmrsResponseStatus :: Lens.Lens' CreateContactMethodResponse Lude.Int
+ccmrsResponseStatus = Lens.lens (responseStatus :: CreateContactMethodResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateContactMethodResponse)
+{-# DEPRECATED ccmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.IPSetDescriptorType where
+module Network.AWS.WAFRegional.Types.IPSetDescriptorType
+  ( IPSetDescriptorType
+      ( IPSetDescriptorType',
+        IPV4,
+        IPV6
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IPSetDescriptorType
-  = IPV4
-  | IPV6
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IPSetDescriptorType = IPSetDescriptorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IPSetDescriptorType where
-  parser =
-    takeLowerText >>= \case
-      "ipv4" -> pure IPV4
-      "ipv6" -> pure IPV6
-      e ->
-        fromTextError $
-          "Failure parsing IPSetDescriptorType from value: '" <> e
-            <> "'. Accepted values: ipv4, ipv6"
+pattern IPV4 :: IPSetDescriptorType
+pattern IPV4 = IPSetDescriptorType' "IPV4"
 
-instance ToText IPSetDescriptorType where
-  toText = \case
-    IPV4 -> "IPV4"
-    IPV6 -> "IPV6"
+pattern IPV6 :: IPSetDescriptorType
+pattern IPV6 = IPSetDescriptorType' "IPV6"
 
-instance Hashable IPSetDescriptorType
-
-instance NFData IPSetDescriptorType
-
-instance ToByteString IPSetDescriptorType
-
-instance ToQuery IPSetDescriptorType
-
-instance ToHeader IPSetDescriptorType
-
-instance ToJSON IPSetDescriptorType where
-  toJSON = toJSONText
-
-instance FromJSON IPSetDescriptorType where
-  parseJSON = parseJSONText "IPSetDescriptorType"
+{-# COMPLETE
+  IPV4,
+  IPV6,
+  IPSetDescriptorType'
+  #-}

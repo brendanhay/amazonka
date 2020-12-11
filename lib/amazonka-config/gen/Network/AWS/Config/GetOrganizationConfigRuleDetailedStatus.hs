@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Returns detailed status for each member account within an organization for a given organization config rule.
 --
---
 -- Only a master account and a delegated administrator account can call this API. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
 module Network.AWS.Config.GetOrganizationConfigRuleDetailedStatus
-  ( -- * Creating a Request
-    getOrganizationConfigRuleDetailedStatus,
-    GetOrganizationConfigRuleDetailedStatus,
+  ( -- * Creating a request
+    GetOrganizationConfigRuleDetailedStatus (..),
+    mkGetOrganizationConfigRuleDetailedStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gocrdsFilters,
     gocrdsNextToken,
     gocrdsLimit,
     gocrdsOrganizationConfigRuleName,
 
-    -- * Destructuring the Response
-    getOrganizationConfigRuleDetailedStatusResponse,
-    GetOrganizationConfigRuleDetailedStatusResponse,
+    -- * Destructuring the response
+    GetOrganizationConfigRuleDetailedStatusResponse (..),
+    mkGetOrganizationConfigRuleDetailedStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gocrdsrsOrganizationConfigRuleDetailedStatus,
     gocrdsrsNextToken,
     gocrdsrsResponseStatus,
@@ -44,175 +38,186 @@ module Network.AWS.Config.GetOrganizationConfigRuleDetailedStatus
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getOrganizationConfigRuleDetailedStatus' smart constructor.
+-- | /See:/ 'mkGetOrganizationConfigRuleDetailedStatus' smart constructor.
 data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailedStatus'
-  { _gocrdsFilters ::
-      !( Maybe
-           StatusDetailFilters
-       ),
-    _gocrdsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gocrdsLimit ::
-      !( Maybe
-           Nat
-       ),
-    _gocrdsOrganizationConfigRuleName ::
-      !Text
+  { filters ::
+      Lude.Maybe
+        StatusDetailFilters,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    organizationConfigRuleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOrganizationConfigRuleDetailedStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gocrdsFilters' - A @StatusDetailFilters@ object.
---
--- * 'gocrdsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gocrdsLimit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
---
--- * 'gocrdsOrganizationConfigRuleName' - The name of organization config rule for which you want status details for member accounts.
-getOrganizationConfigRuleDetailedStatus ::
-  -- | 'gocrdsOrganizationConfigRuleName'
-  Text ->
+-- * 'filters' - A @StatusDetailFilters@ object.
+-- * 'limit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'organizationConfigRuleName' - The name of organization config rule for which you want status details for member accounts.
+mkGetOrganizationConfigRuleDetailedStatus ::
+  -- | 'organizationConfigRuleName'
+  Lude.Text ->
   GetOrganizationConfigRuleDetailedStatus
-getOrganizationConfigRuleDetailedStatus
+mkGetOrganizationConfigRuleDetailedStatus
   pOrganizationConfigRuleName_ =
     GetOrganizationConfigRuleDetailedStatus'
-      { _gocrdsFilters =
-          Nothing,
-        _gocrdsNextToken = Nothing,
-        _gocrdsLimit = Nothing,
-        _gocrdsOrganizationConfigRuleName =
+      { filters = Lude.Nothing,
+        nextToken = Lude.Nothing,
+        limit = Lude.Nothing,
+        organizationConfigRuleName =
           pOrganizationConfigRuleName_
       }
 
 -- | A @StatusDetailFilters@ object.
-gocrdsFilters :: Lens' GetOrganizationConfigRuleDetailedStatus (Maybe StatusDetailFilters)
-gocrdsFilters = lens _gocrdsFilters (\s a -> s {_gocrdsFilters = a})
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsFilters :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Lude.Maybe StatusDetailFilters)
+gocrdsFilters = Lens.lens (filters :: GetOrganizationConfigRuleDetailedStatus -> Lude.Maybe StatusDetailFilters) (\s a -> s {filters = a} :: GetOrganizationConfigRuleDetailedStatus)
+{-# DEPRECATED gocrdsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gocrdsNextToken :: Lens' GetOrganizationConfigRuleDetailedStatus (Maybe Text)
-gocrdsNextToken = lens _gocrdsNextToken (\s a -> s {_gocrdsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsNextToken :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Lude.Maybe Lude.Text)
+gocrdsNextToken = Lens.lens (nextToken :: GetOrganizationConfigRuleDetailedStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOrganizationConfigRuleDetailedStatus)
+{-# DEPRECATED gocrdsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
-gocrdsLimit :: Lens' GetOrganizationConfigRuleDetailedStatus (Maybe Natural)
-gocrdsLimit = lens _gocrdsLimit (\s a -> s {_gocrdsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsLimit :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Lude.Maybe Lude.Natural)
+gocrdsLimit = Lens.lens (limit :: GetOrganizationConfigRuleDetailedStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetOrganizationConfigRuleDetailedStatus)
+{-# DEPRECATED gocrdsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of organization config rule for which you want status details for member accounts.
-gocrdsOrganizationConfigRuleName :: Lens' GetOrganizationConfigRuleDetailedStatus Text
-gocrdsOrganizationConfigRuleName = lens _gocrdsOrganizationConfigRuleName (\s a -> s {_gocrdsOrganizationConfigRuleName = a})
+--
+-- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsOrganizationConfigRuleName :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus Lude.Text
+gocrdsOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: GetOrganizationConfigRuleDetailedStatus -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: GetOrganizationConfigRuleDetailedStatus)
+{-# DEPRECATED gocrdsOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
-instance AWSRequest GetOrganizationConfigRuleDetailedStatus where
+instance Lude.AWSRequest GetOrganizationConfigRuleDetailedStatus where
   type
     Rs GetOrganizationConfigRuleDetailedStatus =
       GetOrganizationConfigRuleDetailedStatusResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOrganizationConfigRuleDetailedStatusResponse'
-            <$> (x .?> "OrganizationConfigRuleDetailedStatus" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "OrganizationConfigRuleDetailedStatus"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOrganizationConfigRuleDetailedStatus
-
-instance NFData GetOrganizationConfigRuleDetailedStatus
-
-instance ToHeaders GetOrganizationConfigRuleDetailedStatus where
+instance Lude.ToHeaders GetOrganizationConfigRuleDetailedStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetOrganizationConfigRuleDetailedStatus where
+instance Lude.ToJSON GetOrganizationConfigRuleDetailedStatus where
   toJSON GetOrganizationConfigRuleDetailedStatus' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _gocrdsFilters,
-            ("NextToken" .=) <$> _gocrdsNextToken,
-            ("Limit" .=) <$> _gocrdsLimit,
-            Just
-              ( "OrganizationConfigRuleName"
-                  .= _gocrdsOrganizationConfigRuleName
-              )
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just
+              ("OrganizationConfigRuleName" Lude..= organizationConfigRuleName)
           ]
       )
 
-instance ToPath GetOrganizationConfigRuleDetailedStatus where
-  toPath = const "/"
+instance Lude.ToPath GetOrganizationConfigRuleDetailedStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetOrganizationConfigRuleDetailedStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetOrganizationConfigRuleDetailedStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getOrganizationConfigRuleDetailedStatusResponse' smart constructor.
+-- | /See:/ 'mkGetOrganizationConfigRuleDetailedStatusResponse' smart constructor.
 data GetOrganizationConfigRuleDetailedStatusResponse = GetOrganizationConfigRuleDetailedStatusResponse'
-  { _gocrdsrsOrganizationConfigRuleDetailedStatus ::
-      !( Maybe
-           [MemberAccountStatus]
-       ),
-    _gocrdsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gocrdsrsResponseStatus ::
-      !Int
+  { organizationConfigRuleDetailedStatus ::
+      Lude.Maybe
+        [MemberAccountStatus],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetOrganizationConfigRuleDetailedStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gocrdsrsOrganizationConfigRuleDetailedStatus' - A list of @MemberAccountStatus@ objects.
---
--- * 'gocrdsrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gocrdsrsResponseStatus' - -- | The response status code.
-getOrganizationConfigRuleDetailedStatusResponse ::
-  -- | 'gocrdsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'organizationConfigRuleDetailedStatus' - A list of @MemberAccountStatus@ objects.
+-- * 'responseStatus' - The response status code.
+mkGetOrganizationConfigRuleDetailedStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOrganizationConfigRuleDetailedStatusResponse
-getOrganizationConfigRuleDetailedStatusResponse pResponseStatus_ =
+mkGetOrganizationConfigRuleDetailedStatusResponse pResponseStatus_ =
   GetOrganizationConfigRuleDetailedStatusResponse'
-    { _gocrdsrsOrganizationConfigRuleDetailedStatus =
-        Nothing,
-      _gocrdsrsNextToken = Nothing,
-      _gocrdsrsResponseStatus = pResponseStatus_
+    { organizationConfigRuleDetailedStatus =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @MemberAccountStatus@ objects.
-gocrdsrsOrganizationConfigRuleDetailedStatus :: Lens' GetOrganizationConfigRuleDetailedStatusResponse [MemberAccountStatus]
-gocrdsrsOrganizationConfigRuleDetailedStatus = lens _gocrdsrsOrganizationConfigRuleDetailedStatus (\s a -> s {_gocrdsrsOrganizationConfigRuleDetailedStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'organizationConfigRuleDetailedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsrsOrganizationConfigRuleDetailedStatus :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse (Lude.Maybe [MemberAccountStatus])
+gocrdsrsOrganizationConfigRuleDetailedStatus = Lens.lens (organizationConfigRuleDetailedStatus :: GetOrganizationConfigRuleDetailedStatusResponse -> Lude.Maybe [MemberAccountStatus]) (\s a -> s {organizationConfigRuleDetailedStatus = a} :: GetOrganizationConfigRuleDetailedStatusResponse)
+{-# DEPRECATED gocrdsrsOrganizationConfigRuleDetailedStatus "Use generic-lens or generic-optics with 'organizationConfigRuleDetailedStatus' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gocrdsrsNextToken :: Lens' GetOrganizationConfigRuleDetailedStatusResponse (Maybe Text)
-gocrdsrsNextToken = lens _gocrdsrsNextToken (\s a -> s {_gocrdsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsrsNextToken :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse (Lude.Maybe Lude.Text)
+gocrdsrsNextToken = Lens.lens (nextToken :: GetOrganizationConfigRuleDetailedStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOrganizationConfigRuleDetailedStatusResponse)
+{-# DEPRECATED gocrdsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gocrdsrsResponseStatus :: Lens' GetOrganizationConfigRuleDetailedStatusResponse Int
-gocrdsrsResponseStatus = lens _gocrdsrsResponseStatus (\s a -> s {_gocrdsrsResponseStatus = a})
-
-instance NFData GetOrganizationConfigRuleDetailedStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocrdsrsResponseStatus :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse Lude.Int
+gocrdsrsResponseStatus = Lens.lens (responseStatus :: GetOrganizationConfigRuleDetailedStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOrganizationConfigRuleDetailedStatusResponse)
+{-# DEPRECATED gocrdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

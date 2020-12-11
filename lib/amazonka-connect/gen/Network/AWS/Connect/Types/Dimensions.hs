@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Dimensions where
+module Network.AWS.Connect.Types.Dimensions
+  ( Dimensions (..),
+
+    -- * Smart constructor
+    mkDimensions,
+
+    -- * Lenses
+    dChannel,
+    dQueue,
+  )
+where
 
 import Network.AWS.Connect.Types.Channel
 import Network.AWS.Connect.Types.QueueReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the dimensions for a set of metrics.
 --
---
---
--- /See:/ 'dimensions' smart constructor.
+-- /See:/ 'mkDimensions' smart constructor.
 data Dimensions = Dimensions'
-  { _dChannel :: !(Maybe Channel),
-    _dQueue :: !(Maybe QueueReference)
+  { channel :: Lude.Maybe Channel,
+    queue :: Lude.Maybe QueueReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Dimensions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dChannel' - The channel used for grouping and filters.
---
--- * 'dQueue' - Information about the queue for which metrics are returned.
-dimensions ::
+-- * 'channel' - The channel used for grouping and filters.
+-- * 'queue' - Information about the queue for which metrics are returned.
+mkDimensions ::
   Dimensions
-dimensions = Dimensions' {_dChannel = Nothing, _dQueue = Nothing}
+mkDimensions =
+  Dimensions' {channel = Lude.Nothing, queue = Lude.Nothing}
 
 -- | The channel used for grouping and filters.
-dChannel :: Lens' Dimensions (Maybe Channel)
-dChannel = lens _dChannel (\s a -> s {_dChannel = a})
+--
+-- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dChannel :: Lens.Lens' Dimensions (Lude.Maybe Channel)
+dChannel = Lens.lens (channel :: Dimensions -> Lude.Maybe Channel) (\s a -> s {channel = a} :: Dimensions)
+{-# DEPRECATED dChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
 -- | Information about the queue for which metrics are returned.
-dQueue :: Lens' Dimensions (Maybe QueueReference)
-dQueue = lens _dQueue (\s a -> s {_dQueue = a})
+--
+-- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dQueue :: Lens.Lens' Dimensions (Lude.Maybe QueueReference)
+dQueue = Lens.lens (queue :: Dimensions -> Lude.Maybe QueueReference) (\s a -> s {queue = a} :: Dimensions)
+{-# DEPRECATED dQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
-instance FromJSON Dimensions where
+instance Lude.FromJSON Dimensions where
   parseJSON =
-    withObject
+    Lude.withObject
       "Dimensions"
-      (\x -> Dimensions' <$> (x .:? "Channel") <*> (x .:? "Queue"))
-
-instance Hashable Dimensions
-
-instance NFData Dimensions
+      ( \x ->
+          Dimensions'
+            Lude.<$> (x Lude..:? "Channel") Lude.<*> (x Lude..:? "Queue")
+      )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates a specified development endpoint.
 module Network.AWS.Glue.UpdateDevEndpoint
-  ( -- * Creating a Request
-    updateDevEndpoint,
-    UpdateDevEndpoint,
+  ( -- * Creating a request
+    UpdateDevEndpoint (..),
+    mkUpdateDevEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udeAddPublicKeys,
     udeCustomLibraries,
     udePublicKey,
@@ -33,168 +28,220 @@ module Network.AWS.Glue.UpdateDevEndpoint
     udeAddArguments,
     udeEndpointName,
 
-    -- * Destructuring the Response
-    updateDevEndpointResponse,
-    UpdateDevEndpointResponse,
+    -- * Destructuring the response
+    UpdateDevEndpointResponse (..),
+    mkUpdateDevEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udersResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDevEndpoint' smart constructor.
+-- | /See:/ 'mkUpdateDevEndpoint' smart constructor.
 data UpdateDevEndpoint = UpdateDevEndpoint'
-  { _udeAddPublicKeys ::
-      !(Maybe [Text]),
-    _udeCustomLibraries ::
-      !(Maybe DevEndpointCustomLibraries),
-    _udePublicKey :: !(Maybe Text),
-    _udeDeleteArguments :: !(Maybe [Text]),
-    _udeDeletePublicKeys :: !(Maybe [Text]),
-    _udeUpdateEtlLibraries :: !(Maybe Bool),
-    _udeAddArguments :: !(Maybe (Map Text (Text))),
-    _udeEndpointName :: !Text
+  { addPublicKeys ::
+      Lude.Maybe [Lude.Text],
+    customLibraries ::
+      Lude.Maybe DevEndpointCustomLibraries,
+    publicKey :: Lude.Maybe Lude.Text,
+    deleteArguments :: Lude.Maybe [Lude.Text],
+    deletePublicKeys :: Lude.Maybe [Lude.Text],
+    updateEtlLibraries :: Lude.Maybe Lude.Bool,
+    addArguments ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    endpointName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDevEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addArguments' - The map of arguments to add the map of arguments used to configure the @DevEndpoint@ .
 --
--- * 'udeAddPublicKeys' - The list of public keys for the @DevEndpoint@ to use.
+-- Valid arguments are:
 --
--- * 'udeCustomLibraries' - Custom Python or Java libraries to be loaded in the @DevEndpoint@ .
+--     * @"--enable-glue-datacatalog": ""@
 --
--- * 'udePublicKey' - The public key for the @DevEndpoint@ to use.
 --
--- * 'udeDeleteArguments' - The list of argument keys to be deleted from the map of arguments used to configure the @DevEndpoint@ .
+--     * @"GLUE_PYTHON_VERSION": "3"@
 --
--- * 'udeDeletePublicKeys' - The list of public keys to be deleted from the @DevEndpoint@ .
 --
--- * 'udeUpdateEtlLibraries' - @True@ if the list of custom libraries to be loaded in the development endpoint needs to be updated, or @False@ if otherwise.
+--     * @"GLUE_PYTHON_VERSION": "2"@
 --
--- * 'udeAddArguments' - The map of arguments to add the map of arguments used to configure the @DevEndpoint@ . Valid arguments are:     * @"--enable-glue-datacatalog": ""@      * @"GLUE_PYTHON_VERSION": "3"@      * @"GLUE_PYTHON_VERSION": "2"@  You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
 --
--- * 'udeEndpointName' - The name of the @DevEndpoint@ to be updated.
-updateDevEndpoint ::
-  -- | 'udeEndpointName'
-  Text ->
+-- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+-- * 'addPublicKeys' - The list of public keys for the @DevEndpoint@ to use.
+-- * 'customLibraries' - Custom Python or Java libraries to be loaded in the @DevEndpoint@ .
+-- * 'deleteArguments' - The list of argument keys to be deleted from the map of arguments used to configure the @DevEndpoint@ .
+-- * 'deletePublicKeys' - The list of public keys to be deleted from the @DevEndpoint@ .
+-- * 'endpointName' - The name of the @DevEndpoint@ to be updated.
+-- * 'publicKey' - The public key for the @DevEndpoint@ to use.
+-- * 'updateEtlLibraries' - @True@ if the list of custom libraries to be loaded in the development endpoint needs to be updated, or @False@ if otherwise.
+mkUpdateDevEndpoint ::
+  -- | 'endpointName'
+  Lude.Text ->
   UpdateDevEndpoint
-updateDevEndpoint pEndpointName_ =
+mkUpdateDevEndpoint pEndpointName_ =
   UpdateDevEndpoint'
-    { _udeAddPublicKeys = Nothing,
-      _udeCustomLibraries = Nothing,
-      _udePublicKey = Nothing,
-      _udeDeleteArguments = Nothing,
-      _udeDeletePublicKeys = Nothing,
-      _udeUpdateEtlLibraries = Nothing,
-      _udeAddArguments = Nothing,
-      _udeEndpointName = pEndpointName_
+    { addPublicKeys = Lude.Nothing,
+      customLibraries = Lude.Nothing,
+      publicKey = Lude.Nothing,
+      deleteArguments = Lude.Nothing,
+      deletePublicKeys = Lude.Nothing,
+      updateEtlLibraries = Lude.Nothing,
+      addArguments = Lude.Nothing,
+      endpointName = pEndpointName_
     }
 
 -- | The list of public keys for the @DevEndpoint@ to use.
-udeAddPublicKeys :: Lens' UpdateDevEndpoint [Text]
-udeAddPublicKeys = lens _udeAddPublicKeys (\s a -> s {_udeAddPublicKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addPublicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeAddPublicKeys :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe [Lude.Text])
+udeAddPublicKeys = Lens.lens (addPublicKeys :: UpdateDevEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {addPublicKeys = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeAddPublicKeys "Use generic-lens or generic-optics with 'addPublicKeys' instead." #-}
 
 -- | Custom Python or Java libraries to be loaded in the @DevEndpoint@ .
-udeCustomLibraries :: Lens' UpdateDevEndpoint (Maybe DevEndpointCustomLibraries)
-udeCustomLibraries = lens _udeCustomLibraries (\s a -> s {_udeCustomLibraries = a})
+--
+-- /Note:/ Consider using 'customLibraries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeCustomLibraries :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe DevEndpointCustomLibraries)
+udeCustomLibraries = Lens.lens (customLibraries :: UpdateDevEndpoint -> Lude.Maybe DevEndpointCustomLibraries) (\s a -> s {customLibraries = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeCustomLibraries "Use generic-lens or generic-optics with 'customLibraries' instead." #-}
 
 -- | The public key for the @DevEndpoint@ to use.
-udePublicKey :: Lens' UpdateDevEndpoint (Maybe Text)
-udePublicKey = lens _udePublicKey (\s a -> s {_udePublicKey = a})
+--
+-- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udePublicKey :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe Lude.Text)
+udePublicKey = Lens.lens (publicKey :: UpdateDevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {publicKey = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udePublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
 -- | The list of argument keys to be deleted from the map of arguments used to configure the @DevEndpoint@ .
-udeDeleteArguments :: Lens' UpdateDevEndpoint [Text]
-udeDeleteArguments = lens _udeDeleteArguments (\s a -> s {_udeDeleteArguments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deleteArguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeDeleteArguments :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe [Lude.Text])
+udeDeleteArguments = Lens.lens (deleteArguments :: UpdateDevEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {deleteArguments = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeDeleteArguments "Use generic-lens or generic-optics with 'deleteArguments' instead." #-}
 
 -- | The list of public keys to be deleted from the @DevEndpoint@ .
-udeDeletePublicKeys :: Lens' UpdateDevEndpoint [Text]
-udeDeletePublicKeys = lens _udeDeletePublicKeys (\s a -> s {_udeDeletePublicKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deletePublicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeDeletePublicKeys :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe [Lude.Text])
+udeDeletePublicKeys = Lens.lens (deletePublicKeys :: UpdateDevEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {deletePublicKeys = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeDeletePublicKeys "Use generic-lens or generic-optics with 'deletePublicKeys' instead." #-}
 
 -- | @True@ if the list of custom libraries to be loaded in the development endpoint needs to be updated, or @False@ if otherwise.
-udeUpdateEtlLibraries :: Lens' UpdateDevEndpoint (Maybe Bool)
-udeUpdateEtlLibraries = lens _udeUpdateEtlLibraries (\s a -> s {_udeUpdateEtlLibraries = a})
+--
+-- /Note:/ Consider using 'updateEtlLibraries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeUpdateEtlLibraries :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe Lude.Bool)
+udeUpdateEtlLibraries = Lens.lens (updateEtlLibraries :: UpdateDevEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {updateEtlLibraries = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeUpdateEtlLibraries "Use generic-lens or generic-optics with 'updateEtlLibraries' instead." #-}
 
--- | The map of arguments to add the map of arguments used to configure the @DevEndpoint@ . Valid arguments are:     * @"--enable-glue-datacatalog": ""@      * @"GLUE_PYTHON_VERSION": "3"@      * @"GLUE_PYTHON_VERSION": "2"@  You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
-udeAddArguments :: Lens' UpdateDevEndpoint (HashMap Text (Text))
-udeAddArguments = lens _udeAddArguments (\s a -> s {_udeAddArguments = a}) . _Default . _Map
+-- | The map of arguments to add the map of arguments used to configure the @DevEndpoint@ .
+--
+-- Valid arguments are:
+--
+--     * @"--enable-glue-datacatalog": ""@
+--
+--
+--     * @"GLUE_PYTHON_VERSION": "3"@
+--
+--
+--     * @"GLUE_PYTHON_VERSION": "2"@
+--
+--
+-- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+--
+-- /Note:/ Consider using 'addArguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeAddArguments :: Lens.Lens' UpdateDevEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+udeAddArguments = Lens.lens (addArguments :: UpdateDevEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {addArguments = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeAddArguments "Use generic-lens or generic-optics with 'addArguments' instead." #-}
 
 -- | The name of the @DevEndpoint@ to be updated.
-udeEndpointName :: Lens' UpdateDevEndpoint Text
-udeEndpointName = lens _udeEndpointName (\s a -> s {_udeEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeEndpointName :: Lens.Lens' UpdateDevEndpoint Lude.Text
+udeEndpointName = Lens.lens (endpointName :: UpdateDevEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: UpdateDevEndpoint)
+{-# DEPRECATED udeEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
-instance AWSRequest UpdateDevEndpoint where
+instance Lude.AWSRequest UpdateDevEndpoint where
   type Rs UpdateDevEndpoint = UpdateDevEndpointResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> UpdateDevEndpointResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateDevEndpointResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateDevEndpoint
-
-instance NFData UpdateDevEndpoint
-
-instance ToHeaders UpdateDevEndpoint where
+instance Lude.ToHeaders UpdateDevEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdateDevEndpoint" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.UpdateDevEndpoint" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDevEndpoint where
+instance Lude.ToJSON UpdateDevEndpoint where
   toJSON UpdateDevEndpoint' {..} =
-    object
-      ( catMaybes
-          [ ("AddPublicKeys" .=) <$> _udeAddPublicKeys,
-            ("CustomLibraries" .=) <$> _udeCustomLibraries,
-            ("PublicKey" .=) <$> _udePublicKey,
-            ("DeleteArguments" .=) <$> _udeDeleteArguments,
-            ("DeletePublicKeys" .=) <$> _udeDeletePublicKeys,
-            ("UpdateEtlLibraries" .=) <$> _udeUpdateEtlLibraries,
-            ("AddArguments" .=) <$> _udeAddArguments,
-            Just ("EndpointName" .= _udeEndpointName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AddPublicKeys" Lude..=) Lude.<$> addPublicKeys,
+            ("CustomLibraries" Lude..=) Lude.<$> customLibraries,
+            ("PublicKey" Lude..=) Lude.<$> publicKey,
+            ("DeleteArguments" Lude..=) Lude.<$> deleteArguments,
+            ("DeletePublicKeys" Lude..=) Lude.<$> deletePublicKeys,
+            ("UpdateEtlLibraries" Lude..=) Lude.<$> updateEtlLibraries,
+            ("AddArguments" Lude..=) Lude.<$> addArguments,
+            Lude.Just ("EndpointName" Lude..= endpointName)
           ]
       )
 
-instance ToPath UpdateDevEndpoint where
-  toPath = const "/"
+instance Lude.ToPath UpdateDevEndpoint where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDevEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDevEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDevEndpointResponse' smart constructor.
+-- | /See:/ 'mkUpdateDevEndpointResponse' smart constructor.
 newtype UpdateDevEndpointResponse = UpdateDevEndpointResponse'
-  { _udersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDevEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udersResponseStatus' - -- | The response status code.
-updateDevEndpointResponse ::
-  -- | 'udersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateDevEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDevEndpointResponse
-updateDevEndpointResponse pResponseStatus_ =
-  UpdateDevEndpointResponse'
-    { _udersResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateDevEndpointResponse pResponseStatus_ =
+  UpdateDevEndpointResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-udersResponseStatus :: Lens' UpdateDevEndpointResponse Int
-udersResponseStatus = lens _udersResponseStatus (\s a -> s {_udersResponseStatus = a})
-
-instance NFData UpdateDevEndpointResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udersResponseStatus :: Lens.Lens' UpdateDevEndpointResponse Lude.Int
+udersResponseStatus = Lens.lens (responseStatus :: UpdateDevEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDevEndpointResponse)
+{-# DEPRECATED udersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

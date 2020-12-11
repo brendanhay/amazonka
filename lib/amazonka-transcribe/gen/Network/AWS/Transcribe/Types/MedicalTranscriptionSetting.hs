@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,146 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.MedicalTranscriptionSetting where
+module Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
+  ( MedicalTranscriptionSetting (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMedicalTranscriptionSetting,
+
+    -- * Lenses
+    mtsVocabularyName,
+    mtsMaxAlternatives,
+    mtsChannelIdentification,
+    mtsShowAlternatives,
+    mtsMaxSpeakerLabels,
+    mtsShowSpeakerLabels,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional settings for the 'StartMedicalTranscriptionJob' operation.
 --
---
---
--- /See:/ 'medicalTranscriptionSetting' smart constructor.
+-- /See:/ 'mkMedicalTranscriptionSetting' smart constructor.
 data MedicalTranscriptionSetting = MedicalTranscriptionSetting'
-  { _mtsVocabularyName ::
-      !(Maybe Text),
-    _mtsMaxAlternatives :: !(Maybe Nat),
-    _mtsChannelIdentification ::
-      !(Maybe Bool),
-    _mtsShowAlternatives ::
-      !(Maybe Bool),
-    _mtsMaxSpeakerLabels ::
-      !(Maybe Nat),
-    _mtsShowSpeakerLabels ::
-      !(Maybe Bool)
+  { vocabularyName ::
+      Lude.Maybe Lude.Text,
+    maxAlternatives ::
+      Lude.Maybe Lude.Natural,
+    channelIdentification ::
+      Lude.Maybe Lude.Bool,
+    showAlternatives ::
+      Lude.Maybe Lude.Bool,
+    maxSpeakerLabels ::
+      Lude.Maybe Lude.Natural,
+    showSpeakerLabels ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MedicalTranscriptionSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'channelIdentification' - Instructs Amazon Transcribe Medical to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
 --
--- * 'mtsVocabularyName' - The name of the vocabulary to use when processing a medical transcription job.
+-- Amazon Transcribe Medical also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of item. The alternative transcriptions also come with confidence scores provided by Amazon Transcribe Medical.
+-- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@
+-- * 'maxAlternatives' - The maximum number of alternatives that you tell the service to return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
+-- * 'maxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
+-- * 'showAlternatives' - Determines whether alternative transcripts are generated along with the transcript that has the highest confidence. If you set @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
+-- * 'showSpeakerLabels' - Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels in the @MaxSpeakerLabels@ field.
 --
--- * 'mtsMaxAlternatives' - The maximum number of alternatives that you tell the service to return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
---
--- * 'mtsChannelIdentification' - Instructs Amazon Transcribe Medical to process each audio channel separately and then merge the transcription output of each channel into a single transcription. Amazon Transcribe Medical also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of item. The alternative transcriptions also come with confidence scores provided by Amazon Transcribe Medical. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@
---
--- * 'mtsShowAlternatives' - Determines whether alternative transcripts are generated along with the transcript that has the highest confidence. If you set @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
---
--- * 'mtsMaxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
---
--- * 'mtsShowSpeakerLabels' - Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels in the @MaxSpeakerLabels@ field. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
-medicalTranscriptionSetting ::
+-- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
+-- * 'vocabularyName' - The name of the vocabulary to use when processing a medical transcription job.
+mkMedicalTranscriptionSetting ::
   MedicalTranscriptionSetting
-medicalTranscriptionSetting =
+mkMedicalTranscriptionSetting =
   MedicalTranscriptionSetting'
-    { _mtsVocabularyName = Nothing,
-      _mtsMaxAlternatives = Nothing,
-      _mtsChannelIdentification = Nothing,
-      _mtsShowAlternatives = Nothing,
-      _mtsMaxSpeakerLabels = Nothing,
-      _mtsShowSpeakerLabels = Nothing
+    { vocabularyName = Lude.Nothing,
+      maxAlternatives = Lude.Nothing,
+      channelIdentification = Lude.Nothing,
+      showAlternatives = Lude.Nothing,
+      maxSpeakerLabels = Lude.Nothing,
+      showSpeakerLabels = Lude.Nothing
     }
 
 -- | The name of the vocabulary to use when processing a medical transcription job.
-mtsVocabularyName :: Lens' MedicalTranscriptionSetting (Maybe Text)
-mtsVocabularyName = lens _mtsVocabularyName (\s a -> s {_mtsVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsVocabularyName :: Lens.Lens' MedicalTranscriptionSetting (Lude.Maybe Lude.Text)
+mtsVocabularyName = Lens.lens (vocabularyName :: MedicalTranscriptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: MedicalTranscriptionSetting)
+{-# DEPRECATED mtsVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The maximum number of alternatives that you tell the service to return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
-mtsMaxAlternatives :: Lens' MedicalTranscriptionSetting (Maybe Natural)
-mtsMaxAlternatives = lens _mtsMaxAlternatives (\s a -> s {_mtsMaxAlternatives = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxAlternatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsMaxAlternatives :: Lens.Lens' MedicalTranscriptionSetting (Lude.Maybe Lude.Natural)
+mtsMaxAlternatives = Lens.lens (maxAlternatives :: MedicalTranscriptionSetting -> Lude.Maybe Lude.Natural) (\s a -> s {maxAlternatives = a} :: MedicalTranscriptionSetting)
+{-# DEPRECATED mtsMaxAlternatives "Use generic-lens or generic-optics with 'maxAlternatives' instead." #-}
 
--- | Instructs Amazon Transcribe Medical to process each audio channel separately and then merge the transcription output of each channel into a single transcription. Amazon Transcribe Medical also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of item. The alternative transcriptions also come with confidence scores provided by Amazon Transcribe Medical. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@
-mtsChannelIdentification :: Lens' MedicalTranscriptionSetting (Maybe Bool)
-mtsChannelIdentification = lens _mtsChannelIdentification (\s a -> s {_mtsChannelIdentification = a})
+-- | Instructs Amazon Transcribe Medical to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
+--
+-- Amazon Transcribe Medical also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of item. The alternative transcriptions also come with confidence scores provided by Amazon Transcribe Medical.
+-- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@
+--
+-- /Note:/ Consider using 'channelIdentification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsChannelIdentification :: Lens.Lens' MedicalTranscriptionSetting (Lude.Maybe Lude.Bool)
+mtsChannelIdentification = Lens.lens (channelIdentification :: MedicalTranscriptionSetting -> Lude.Maybe Lude.Bool) (\s a -> s {channelIdentification = a} :: MedicalTranscriptionSetting)
+{-# DEPRECATED mtsChannelIdentification "Use generic-lens or generic-optics with 'channelIdentification' instead." #-}
 
 -- | Determines whether alternative transcripts are generated along with the transcript that has the highest confidence. If you set @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
-mtsShowAlternatives :: Lens' MedicalTranscriptionSetting (Maybe Bool)
-mtsShowAlternatives = lens _mtsShowAlternatives (\s a -> s {_mtsShowAlternatives = a})
+--
+-- /Note:/ Consider using 'showAlternatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsShowAlternatives :: Lens.Lens' MedicalTranscriptionSetting (Lude.Maybe Lude.Bool)
+mtsShowAlternatives = Lens.lens (showAlternatives :: MedicalTranscriptionSetting -> Lude.Maybe Lude.Bool) (\s a -> s {showAlternatives = a} :: MedicalTranscriptionSetting)
+{-# DEPRECATED mtsShowAlternatives "Use generic-lens or generic-optics with 'showAlternatives' instead." #-}
 
 -- | The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
-mtsMaxSpeakerLabels :: Lens' MedicalTranscriptionSetting (Maybe Natural)
-mtsMaxSpeakerLabels = lens _mtsMaxSpeakerLabels (\s a -> s {_mtsMaxSpeakerLabels = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxSpeakerLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsMaxSpeakerLabels :: Lens.Lens' MedicalTranscriptionSetting (Lude.Maybe Lude.Natural)
+mtsMaxSpeakerLabels = Lens.lens (maxSpeakerLabels :: MedicalTranscriptionSetting -> Lude.Maybe Lude.Natural) (\s a -> s {maxSpeakerLabels = a} :: MedicalTranscriptionSetting)
+{-# DEPRECATED mtsMaxSpeakerLabels "Use generic-lens or generic-optics with 'maxSpeakerLabels' instead." #-}
 
--- | Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels in the @MaxSpeakerLabels@ field. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
-mtsShowSpeakerLabels :: Lens' MedicalTranscriptionSetting (Maybe Bool)
-mtsShowSpeakerLabels = lens _mtsShowSpeakerLabels (\s a -> s {_mtsShowSpeakerLabels = a})
+-- | Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels in the @MaxSpeakerLabels@ field.
+--
+-- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
+--
+-- /Note:/ Consider using 'showSpeakerLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtsShowSpeakerLabels :: Lens.Lens' MedicalTranscriptionSetting (Lude.Maybe Lude.Bool)
+mtsShowSpeakerLabels = Lens.lens (showSpeakerLabels :: MedicalTranscriptionSetting -> Lude.Maybe Lude.Bool) (\s a -> s {showSpeakerLabels = a} :: MedicalTranscriptionSetting)
+{-# DEPRECATED mtsShowSpeakerLabels "Use generic-lens or generic-optics with 'showSpeakerLabels' instead." #-}
 
-instance FromJSON MedicalTranscriptionSetting where
+instance Lude.FromJSON MedicalTranscriptionSetting where
   parseJSON =
-    withObject
+    Lude.withObject
       "MedicalTranscriptionSetting"
       ( \x ->
           MedicalTranscriptionSetting'
-            <$> (x .:? "VocabularyName")
-            <*> (x .:? "MaxAlternatives")
-            <*> (x .:? "ChannelIdentification")
-            <*> (x .:? "ShowAlternatives")
-            <*> (x .:? "MaxSpeakerLabels")
-            <*> (x .:? "ShowSpeakerLabels")
+            Lude.<$> (x Lude..:? "VocabularyName")
+            Lude.<*> (x Lude..:? "MaxAlternatives")
+            Lude.<*> (x Lude..:? "ChannelIdentification")
+            Lude.<*> (x Lude..:? "ShowAlternatives")
+            Lude.<*> (x Lude..:? "MaxSpeakerLabels")
+            Lude.<*> (x Lude..:? "ShowSpeakerLabels")
       )
 
-instance Hashable MedicalTranscriptionSetting
-
-instance NFData MedicalTranscriptionSetting
-
-instance ToJSON MedicalTranscriptionSetting where
+instance Lude.ToJSON MedicalTranscriptionSetting where
   toJSON MedicalTranscriptionSetting' {..} =
-    object
-      ( catMaybes
-          [ ("VocabularyName" .=) <$> _mtsVocabularyName,
-            ("MaxAlternatives" .=) <$> _mtsMaxAlternatives,
-            ("ChannelIdentification" .=) <$> _mtsChannelIdentification,
-            ("ShowAlternatives" .=) <$> _mtsShowAlternatives,
-            ("MaxSpeakerLabels" .=) <$> _mtsMaxSpeakerLabels,
-            ("ShowSpeakerLabels" .=) <$> _mtsShowSpeakerLabels
+    Lude.object
+      ( Lude.catMaybes
+          [ ("VocabularyName" Lude..=) Lude.<$> vocabularyName,
+            ("MaxAlternatives" Lude..=) Lude.<$> maxAlternatives,
+            ("ChannelIdentification" Lude..=) Lude.<$> channelIdentification,
+            ("ShowAlternatives" Lude..=) Lude.<$> showAlternatives,
+            ("MaxSpeakerLabels" Lude..=) Lude.<$> maxSpeakerLabels,
+            ("ShowSpeakerLabels" Lude..=) Lude.<$> showSpeakerLabels
           ]
       )

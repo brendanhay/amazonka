@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.FileGroupSettings where
+module Network.AWS.MediaConvert.Types.FileGroupSettings
+  ( FileGroupSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkFileGroupSettings,
+
+    -- * Lenses
+    fgsDestination,
+    fgsDestinationSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DestinationSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
 --
--- /See:/ 'fileGroupSettings' smart constructor.
+-- /See:/ 'mkFileGroupSettings' smart constructor.
 data FileGroupSettings = FileGroupSettings'
-  { _fgsDestination ::
-      !(Maybe Text),
-    _fgsDestinationSettings :: !(Maybe DestinationSettings)
+  { destination ::
+      Lude.Maybe Lude.Text,
+    destinationSettings :: Lude.Maybe DestinationSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileGroupSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fgsDestination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
---
--- * 'fgsDestinationSettings' - Settings associated with the destination. Will vary based on the type of destination
-fileGroupSettings ::
+-- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+-- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
+mkFileGroupSettings ::
   FileGroupSettings
-fileGroupSettings =
+mkFileGroupSettings =
   FileGroupSettings'
-    { _fgsDestination = Nothing,
-      _fgsDestinationSettings = Nothing
+    { destination = Lude.Nothing,
+      destinationSettings = Lude.Nothing
     }
 
 -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-fgsDestination :: Lens' FileGroupSettings (Maybe Text)
-fgsDestination = lens _fgsDestination (\s a -> s {_fgsDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgsDestination :: Lens.Lens' FileGroupSettings (Lude.Maybe Lude.Text)
+fgsDestination = Lens.lens (destination :: FileGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: FileGroupSettings)
+{-# DEPRECATED fgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Settings associated with the destination. Will vary based on the type of destination
-fgsDestinationSettings :: Lens' FileGroupSettings (Maybe DestinationSettings)
-fgsDestinationSettings = lens _fgsDestinationSettings (\s a -> s {_fgsDestinationSettings = a})
+--
+-- /Note:/ Consider using 'destinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgsDestinationSettings :: Lens.Lens' FileGroupSettings (Lude.Maybe DestinationSettings)
+fgsDestinationSettings = Lens.lens (destinationSettings :: FileGroupSettings -> Lude.Maybe DestinationSettings) (\s a -> s {destinationSettings = a} :: FileGroupSettings)
+{-# DEPRECATED fgsDestinationSettings "Use generic-lens or generic-optics with 'destinationSettings' instead." #-}
 
-instance FromJSON FileGroupSettings where
+instance Lude.FromJSON FileGroupSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileGroupSettings"
       ( \x ->
           FileGroupSettings'
-            <$> (x .:? "destination") <*> (x .:? "destinationSettings")
+            Lude.<$> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "destinationSettings")
       )
 
-instance Hashable FileGroupSettings
-
-instance NFData FileGroupSettings
-
-instance ToJSON FileGroupSettings where
+instance Lude.ToJSON FileGroupSettings where
   toJSON FileGroupSettings' {..} =
-    object
-      ( catMaybes
-          [ ("destination" .=) <$> _fgsDestination,
-            ("destinationSettings" .=) <$> _fgsDestinationSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("destination" Lude..=) Lude.<$> destination,
+            ("destinationSettings" Lude..=) Lude.<$> destinationSettings
           ]
       )

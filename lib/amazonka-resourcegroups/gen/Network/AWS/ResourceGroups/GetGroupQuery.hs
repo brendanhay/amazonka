@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,134 @@
 --
 -- Retrieves the resource query associated with the specified resource group.
 module Network.AWS.ResourceGroups.GetGroupQuery
-  ( -- * Creating a Request
-    getGroupQuery,
-    GetGroupQuery,
+  ( -- * Creating a request
+    GetGroupQuery (..),
+    mkGetGroupQuery,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggqGroup,
     ggqGroupName,
 
-    -- * Destructuring the Response
-    getGroupQueryResponse,
-    GetGroupQueryResponse,
+    -- * Destructuring the response
+    GetGroupQueryResponse (..),
+    mkGetGroupQueryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggqrsGroupQuery,
     ggqrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGroupQuery' smart constructor.
+-- | /See:/ 'mkGetGroupQuery' smart constructor.
 data GetGroupQuery = GetGroupQuery'
-  { _ggqGroup :: !(Maybe Text),
-    _ggqGroupName :: !(Maybe Text)
+  { group :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupQuery' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggqGroup' - The name or the ARN of the resource group to query.
---
--- * 'ggqGroupName' - Don't use this parameter. Use @Group@ instead.
-getGroupQuery ::
+-- * 'group' - The name or the ARN of the resource group to query.
+-- * 'groupName' - Don't use this parameter. Use @Group@ instead.
+mkGetGroupQuery ::
   GetGroupQuery
-getGroupQuery =
-  GetGroupQuery' {_ggqGroup = Nothing, _ggqGroupName = Nothing}
+mkGetGroupQuery =
+  GetGroupQuery' {group = Lude.Nothing, groupName = Lude.Nothing}
 
 -- | The name or the ARN of the resource group to query.
-ggqGroup :: Lens' GetGroupQuery (Maybe Text)
-ggqGroup = lens _ggqGroup (\s a -> s {_ggqGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggqGroup :: Lens.Lens' GetGroupQuery (Lude.Maybe Lude.Text)
+ggqGroup = Lens.lens (group :: GetGroupQuery -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: GetGroupQuery)
+{-# DEPRECATED ggqGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | Don't use this parameter. Use @Group@ instead.
-ggqGroupName :: Lens' GetGroupQuery (Maybe Text)
-ggqGroupName = lens _ggqGroupName (\s a -> s {_ggqGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggqGroupName :: Lens.Lens' GetGroupQuery (Lude.Maybe Lude.Text)
+ggqGroupName = Lens.lens (groupName :: GetGroupQuery -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetGroupQuery)
+{-# DEPRECATED ggqGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSRequest GetGroupQuery where
+instance Lude.AWSRequest GetGroupQuery where
   type Rs GetGroupQuery = GetGroupQueryResponse
-  request = postJSON resourceGroups
+  request = Req.postJSON resourceGroupsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGroupQueryResponse'
-            <$> (x .?> "GroupQuery") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GroupQuery") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGroupQuery
+instance Lude.ToHeaders GetGroupQuery where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetGroupQuery
-
-instance ToHeaders GetGroupQuery where
-  toHeaders = const mempty
-
-instance ToJSON GetGroupQuery where
+instance Lude.ToJSON GetGroupQuery where
   toJSON GetGroupQuery' {..} =
-    object
-      ( catMaybes
-          [("Group" .=) <$> _ggqGroup, ("GroupName" .=) <$> _ggqGroupName]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Group" Lude..=) Lude.<$> group,
+            ("GroupName" Lude..=) Lude.<$> groupName
+          ]
       )
 
-instance ToPath GetGroupQuery where
-  toPath = const "/get-group-query"
+instance Lude.ToPath GetGroupQuery where
+  toPath = Lude.const "/get-group-query"
 
-instance ToQuery GetGroupQuery where
-  toQuery = const mempty
+instance Lude.ToQuery GetGroupQuery where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGroupQueryResponse' smart constructor.
+-- | /See:/ 'mkGetGroupQueryResponse' smart constructor.
 data GetGroupQueryResponse = GetGroupQueryResponse'
-  { _ggqrsGroupQuery ::
-      !(Maybe GroupQuery),
-    _ggqrsResponseStatus :: !Int
+  { groupQuery ::
+      Lude.Maybe GroupQuery,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupQueryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggqrsGroupQuery' - The resource query associated with the specified group.
---
--- * 'ggqrsResponseStatus' - -- | The response status code.
-getGroupQueryResponse ::
-  -- | 'ggqrsResponseStatus'
-  Int ->
+-- * 'groupQuery' - The resource query associated with the specified group.
+-- * 'responseStatus' - The response status code.
+mkGetGroupQueryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGroupQueryResponse
-getGroupQueryResponse pResponseStatus_ =
+mkGetGroupQueryResponse pResponseStatus_ =
   GetGroupQueryResponse'
-    { _ggqrsGroupQuery = Nothing,
-      _ggqrsResponseStatus = pResponseStatus_
+    { groupQuery = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The resource query associated with the specified group.
-ggqrsGroupQuery :: Lens' GetGroupQueryResponse (Maybe GroupQuery)
-ggqrsGroupQuery = lens _ggqrsGroupQuery (\s a -> s {_ggqrsGroupQuery = a})
+--
+-- /Note:/ Consider using 'groupQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggqrsGroupQuery :: Lens.Lens' GetGroupQueryResponse (Lude.Maybe GroupQuery)
+ggqrsGroupQuery = Lens.lens (groupQuery :: GetGroupQueryResponse -> Lude.Maybe GroupQuery) (\s a -> s {groupQuery = a} :: GetGroupQueryResponse)
+{-# DEPRECATED ggqrsGroupQuery "Use generic-lens or generic-optics with 'groupQuery' instead." #-}
 
--- | -- | The response status code.
-ggqrsResponseStatus :: Lens' GetGroupQueryResponse Int
-ggqrsResponseStatus = lens _ggqrsResponseStatus (\s a -> s {_ggqrsResponseStatus = a})
-
-instance NFData GetGroupQueryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggqrsResponseStatus :: Lens.Lens' GetGroupQueryResponse Lude.Int
+ggqrsResponseStatus = Lens.lens (responseStatus :: GetGroupQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupQueryResponse)
+{-# DEPRECATED ggqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

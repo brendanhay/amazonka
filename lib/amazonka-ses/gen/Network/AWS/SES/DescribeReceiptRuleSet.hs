@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,148 @@
 --
 -- Returns the details of the specified receipt rule set.
 --
---
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.DescribeReceiptRuleSet
-  ( -- * Creating a Request
-    describeReceiptRuleSet,
-    DescribeReceiptRuleSet,
+  ( -- * Creating a request
+    DescribeReceiptRuleSet (..),
+    mkDescribeReceiptRuleSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drrsRuleSetName,
 
-    -- * Destructuring the Response
-    describeReceiptRuleSetResponse,
-    DescribeReceiptRuleSetResponse,
+    -- * Destructuring the response
+    DescribeReceiptRuleSetResponse (..),
+    mkDescribeReceiptRuleSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsRules,
     desrsMetadata,
     desrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'describeReceiptRuleSet' smart constructor.
+-- /See:/ 'mkDescribeReceiptRuleSet' smart constructor.
 newtype DescribeReceiptRuleSet = DescribeReceiptRuleSet'
-  { _drrsRuleSetName ::
-      Text
+  { ruleSetName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReceiptRuleSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsRuleSetName' - The name of the receipt rule set to describe.
-describeReceiptRuleSet ::
-  -- | 'drrsRuleSetName'
-  Text ->
+-- * 'ruleSetName' - The name of the receipt rule set to describe.
+mkDescribeReceiptRuleSet ::
+  -- | 'ruleSetName'
+  Lude.Text ->
   DescribeReceiptRuleSet
-describeReceiptRuleSet pRuleSetName_ =
-  DescribeReceiptRuleSet' {_drrsRuleSetName = pRuleSetName_}
+mkDescribeReceiptRuleSet pRuleSetName_ =
+  DescribeReceiptRuleSet' {ruleSetName = pRuleSetName_}
 
 -- | The name of the receipt rule set to describe.
-drrsRuleSetName :: Lens' DescribeReceiptRuleSet Text
-drrsRuleSetName = lens _drrsRuleSetName (\s a -> s {_drrsRuleSetName = a})
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsRuleSetName :: Lens.Lens' DescribeReceiptRuleSet Lude.Text
+drrsRuleSetName = Lens.lens (ruleSetName :: DescribeReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: DescribeReceiptRuleSet)
+{-# DEPRECATED drrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance AWSRequest DescribeReceiptRuleSet where
+instance Lude.AWSRequest DescribeReceiptRuleSet where
   type Rs DescribeReceiptRuleSet = DescribeReceiptRuleSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeReceiptRuleSetResult"
       ( \s h x ->
           DescribeReceiptRuleSetResponse'
-            <$> (x .@? "Rules" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "Metadata")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Rules" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "Metadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReceiptRuleSet
+instance Lude.ToHeaders DescribeReceiptRuleSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeReceiptRuleSet
+instance Lude.ToPath DescribeReceiptRuleSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeReceiptRuleSet where
-  toHeaders = const mempty
-
-instance ToPath DescribeReceiptRuleSet where
-  toPath = const "/"
-
-instance ToQuery DescribeReceiptRuleSet where
+instance Lude.ToQuery DescribeReceiptRuleSet where
   toQuery DescribeReceiptRuleSet' {..} =
-    mconcat
-      [ "Action" =: ("DescribeReceiptRuleSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "RuleSetName" =: _drrsRuleSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeReceiptRuleSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "RuleSetName" Lude.=: ruleSetName
       ]
 
 -- | Represents the details of the specified receipt rule set.
 --
---
---
--- /See:/ 'describeReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'mkDescribeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
-  { _desrsRules ::
-      !(Maybe [ReceiptRule]),
-    _desrsMetadata ::
-      !( Maybe
-           ReceiptRuleSetMetadata
-       ),
-    _desrsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe [ReceiptRule],
+    metadata ::
+      Lude.Maybe
+        ReceiptRuleSetMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsRules' - A list of the receipt rules that belong to the specified receipt rule set.
---
--- * 'desrsMetadata' - The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeReceiptRuleSetResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'metadata' - The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - A list of the receipt rules that belong to the specified receipt rule set.
+mkDescribeReceiptRuleSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReceiptRuleSetResponse
-describeReceiptRuleSetResponse pResponseStatus_ =
+mkDescribeReceiptRuleSetResponse pResponseStatus_ =
   DescribeReceiptRuleSetResponse'
-    { _desrsRules = Nothing,
-      _desrsMetadata = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      metadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the receipt rules that belong to the specified receipt rule set.
-desrsRules :: Lens' DescribeReceiptRuleSetResponse [ReceiptRule]
-desrsRules = lens _desrsRules (\s a -> s {_desrsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsRules :: Lens.Lens' DescribeReceiptRuleSetResponse (Lude.Maybe [ReceiptRule])
+desrsRules = Lens.lens (rules :: DescribeReceiptRuleSetResponse -> Lude.Maybe [ReceiptRule]) (\s a -> s {rules = a} :: DescribeReceiptRuleSetResponse)
+{-# DEPRECATED desrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
-desrsMetadata :: Lens' DescribeReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
-desrsMetadata = lens _desrsMetadata (\s a -> s {_desrsMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsMetadata :: Lens.Lens' DescribeReceiptRuleSetResponse (Lude.Maybe ReceiptRuleSetMetadata)
+desrsMetadata = Lens.lens (metadata :: DescribeReceiptRuleSetResponse -> Lude.Maybe ReceiptRuleSetMetadata) (\s a -> s {metadata = a} :: DescribeReceiptRuleSetResponse)
+{-# DEPRECATED desrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeReceiptRuleSetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeReceiptRuleSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeReceiptRuleSetResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReceiptRuleSetResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

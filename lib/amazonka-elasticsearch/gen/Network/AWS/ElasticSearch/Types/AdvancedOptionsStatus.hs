@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus where
+module Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
+  ( AdvancedOptionsStatus (..),
+
+    -- * Smart constructor
+    mkAdvancedOptionsStatus,
+
+    -- * Lenses
+    aosOptions,
+    aosStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:
 --
 --
---     * Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.    * Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.
+--     * Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+--
+--     * Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.
 --
 -- For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> .
 --
---
--- /See:/ 'advancedOptionsStatus' smart constructor.
+-- /See:/ 'mkAdvancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
-  { _aosOptions ::
-      !(Map Text (Text)),
-    _aosStatus :: !OptionStatus
+  { options ::
+      Lude.HashMap Lude.Text (Lude.Text),
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvancedOptionsStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aosOptions' - Specifies the status of advanced options for the specified Elasticsearch domain.
---
--- * 'aosStatus' - Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
-advancedOptionsStatus ::
-  -- | 'aosStatus'
+-- * 'options' - Specifies the status of advanced options for the specified Elasticsearch domain.
+-- * 'status' - Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
+mkAdvancedOptionsStatus ::
+  -- | 'status'
   OptionStatus ->
   AdvancedOptionsStatus
-advancedOptionsStatus pStatus_ =
-  AdvancedOptionsStatus'
-    { _aosOptions = mempty,
-      _aosStatus = pStatus_
-    }
+mkAdvancedOptionsStatus pStatus_ =
+  AdvancedOptionsStatus' {options = Lude.mempty, status = pStatus_}
 
 -- | Specifies the status of advanced options for the specified Elasticsearch domain.
-aosOptions :: Lens' AdvancedOptionsStatus (HashMap Text (Text))
-aosOptions = lens _aosOptions (\s a -> s {_aosOptions = a}) . _Map
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosOptions :: Lens.Lens' AdvancedOptionsStatus (Lude.HashMap Lude.Text (Lude.Text))
+aosOptions = Lens.lens (options :: AdvancedOptionsStatus -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {options = a} :: AdvancedOptionsStatus)
+{-# DEPRECATED aosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
-aosStatus :: Lens' AdvancedOptionsStatus OptionStatus
-aosStatus = lens _aosStatus (\s a -> s {_aosStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosStatus :: Lens.Lens' AdvancedOptionsStatus OptionStatus
+aosStatus = Lens.lens (status :: AdvancedOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: AdvancedOptionsStatus)
+{-# DEPRECATED aosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON AdvancedOptionsStatus where
+instance Lude.FromJSON AdvancedOptionsStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "AdvancedOptionsStatus"
       ( \x ->
           AdvancedOptionsStatus'
-            <$> (x .:? "Options" .!= mempty) <*> (x .: "Status")
+            Lude.<$> (x Lude..:? "Options" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable AdvancedOptionsStatus
-
-instance NFData AdvancedOptionsStatus

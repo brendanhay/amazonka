@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,131 @@
 --
 -- Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance, use the @reboot instance@ operation.
 --
---
 -- The @start instance@ operation supports tag-based access control via resource tags applied to the resource identified by @instance name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.StartInstance
-  ( -- * Creating a Request
-    startInstance,
-    StartInstance,
+  ( -- * Creating a request
+    StartInstance (..),
+    mkStartInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sInstanceName,
 
-    -- * Destructuring the Response
-    startInstanceResponse,
-    StartInstanceResponse,
+    -- * Destructuring the response
+    StartInstanceResponse (..),
+    mkStartInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsOperations,
     srsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startInstance' smart constructor.
-newtype StartInstance = StartInstance' {_sInstanceName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStartInstance' smart constructor.
+newtype StartInstance = StartInstance' {instanceName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sInstanceName' - The name of the instance (a virtual private server) to start.
-startInstance ::
-  -- | 'sInstanceName'
-  Text ->
+-- * 'instanceName' - The name of the instance (a virtual private server) to start.
+mkStartInstance ::
+  -- | 'instanceName'
+  Lude.Text ->
   StartInstance
-startInstance pInstanceName_ =
-  StartInstance' {_sInstanceName = pInstanceName_}
+mkStartInstance pInstanceName_ =
+  StartInstance' {instanceName = pInstanceName_}
 
 -- | The name of the instance (a virtual private server) to start.
-sInstanceName :: Lens' StartInstance Text
-sInstanceName = lens _sInstanceName (\s a -> s {_sInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInstanceName :: Lens.Lens' StartInstance Lude.Text
+sInstanceName = Lens.lens (instanceName :: StartInstance -> Lude.Text) (\s a -> s {instanceName = a} :: StartInstance)
+{-# DEPRECATED sInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest StartInstance where
+instance Lude.AWSRequest StartInstance where
   type Rs StartInstance = StartInstanceResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartInstanceResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartInstance
-
-instance NFData StartInstance
-
-instance ToHeaders StartInstance where
+instance Lude.ToHeaders StartInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.StartInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.StartInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartInstance where
+instance Lude.ToJSON StartInstance where
   toJSON StartInstance' {..} =
-    object (catMaybes [Just ("instanceName" .= _sInstanceName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
 
-instance ToPath StartInstance where
-  toPath = const "/"
+instance Lude.ToPath StartInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery StartInstance where
-  toQuery = const mempty
+instance Lude.ToQuery StartInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startInstanceResponse' smart constructor.
+-- | /See:/ 'mkStartInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
-  { _srsOperations ::
-      !(Maybe [Operation]),
-    _srsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'srsResponseStatus' - -- | The response status code.
-startInstanceResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkStartInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartInstanceResponse
-startInstanceResponse pResponseStatus_ =
+mkStartInstanceResponse pResponseStatus_ =
   StartInstanceResponse'
-    { _srsOperations = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-srsOperations :: Lens' StartInstanceResponse [Operation]
-srsOperations = lens _srsOperations (\s a -> s {_srsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsOperations :: Lens.Lens' StartInstanceResponse (Lude.Maybe [Operation])
+srsOperations = Lens.lens (operations :: StartInstanceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StartInstanceResponse)
+{-# DEPRECATED srsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartInstanceResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StartInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StartInstanceResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartInstanceResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

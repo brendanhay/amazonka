@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialSummary where
+module Network.AWS.SageMaker.Types.TrialSummary
+  ( TrialSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrialSummary,
+
+    -- * Lenses
+    tsCreationTime,
+    tsTrialARN,
+    tsLastModifiedTime,
+    tsTrialSource,
+    tsDisplayName,
+    tsTrialName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.TrialSource
 
 -- | A summary of the properties of a trial. To get the complete set of properties, call the 'DescribeTrial' API and provide the @TrialName@ .
 --
---
---
--- /See:/ 'trialSummary' smart constructor.
+-- /See:/ 'mkTrialSummary' smart constructor.
 data TrialSummary = TrialSummary'
-  { _tsCreationTime ::
-      !(Maybe POSIX),
-    _tsTrialARN :: !(Maybe Text),
-    _tsLastModifiedTime :: !(Maybe POSIX),
-    _tsTrialSource :: !(Maybe TrialSource),
-    _tsDisplayName :: !(Maybe Text),
-    _tsTrialName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    trialARN :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    trialSource :: Lude.Maybe TrialSource,
+    displayName :: Lude.Maybe Lude.Text,
+    trialName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsCreationTime' - When the trial was created.
---
--- * 'tsTrialARN' - The Amazon Resource Name (ARN) of the trial.
---
--- * 'tsLastModifiedTime' - When the trial was last modified.
---
--- * 'tsTrialSource' - Undocumented member.
---
--- * 'tsDisplayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
---
--- * 'tsTrialName' - The name of the trial.
-trialSummary ::
+-- * 'creationTime' - When the trial was created.
+-- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
+-- * 'lastModifiedTime' - When the trial was last modified.
+-- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
+-- * 'trialName' - The name of the trial.
+-- * 'trialSource' - Undocumented field.
+mkTrialSummary ::
   TrialSummary
-trialSummary =
+mkTrialSummary =
   TrialSummary'
-    { _tsCreationTime = Nothing,
-      _tsTrialARN = Nothing,
-      _tsLastModifiedTime = Nothing,
-      _tsTrialSource = Nothing,
-      _tsDisplayName = Nothing,
-      _tsTrialName = Nothing
+    { creationTime = Lude.Nothing,
+      trialARN = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      trialSource = Lude.Nothing,
+      displayName = Lude.Nothing,
+      trialName = Lude.Nothing
     }
 
 -- | When the trial was created.
-tsCreationTime :: Lens' TrialSummary (Maybe UTCTime)
-tsCreationTime = lens _tsCreationTime (\s a -> s {_tsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsCreationTime :: Lens.Lens' TrialSummary (Lude.Maybe Lude.Timestamp)
+tsCreationTime = Lens.lens (creationTime :: TrialSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: TrialSummary)
+{-# DEPRECATED tsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the trial.
-tsTrialARN :: Lens' TrialSummary (Maybe Text)
-tsTrialARN = lens _tsTrialARN (\s a -> s {_tsTrialARN = a})
+--
+-- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTrialARN :: Lens.Lens' TrialSummary (Lude.Maybe Lude.Text)
+tsTrialARN = Lens.lens (trialARN :: TrialSummary -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: TrialSummary)
+{-# DEPRECATED tsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
 
 -- | When the trial was last modified.
-tsLastModifiedTime :: Lens' TrialSummary (Maybe UTCTime)
-tsLastModifiedTime = lens _tsLastModifiedTime (\s a -> s {_tsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsLastModifiedTime :: Lens.Lens' TrialSummary (Lude.Maybe Lude.Timestamp)
+tsLastModifiedTime = Lens.lens (lastModifiedTime :: TrialSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: TrialSummary)
+{-# DEPRECATED tsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
--- | Undocumented member.
-tsTrialSource :: Lens' TrialSummary (Maybe TrialSource)
-tsTrialSource = lens _tsTrialSource (\s a -> s {_tsTrialSource = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'trialSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTrialSource :: Lens.Lens' TrialSummary (Lude.Maybe TrialSource)
+tsTrialSource = Lens.lens (trialSource :: TrialSummary -> Lude.Maybe TrialSource) (\s a -> s {trialSource = a} :: TrialSummary)
+{-# DEPRECATED tsTrialSource "Use generic-lens or generic-optics with 'trialSource' instead." #-}
 
 -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
-tsDisplayName :: Lens' TrialSummary (Maybe Text)
-tsDisplayName = lens _tsDisplayName (\s a -> s {_tsDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsDisplayName :: Lens.Lens' TrialSummary (Lude.Maybe Lude.Text)
+tsDisplayName = Lens.lens (displayName :: TrialSummary -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: TrialSummary)
+{-# DEPRECATED tsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The name of the trial.
-tsTrialName :: Lens' TrialSummary (Maybe Text)
-tsTrialName = lens _tsTrialName (\s a -> s {_tsTrialName = a})
+--
+-- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTrialName :: Lens.Lens' TrialSummary (Lude.Maybe Lude.Text)
+tsTrialName = Lens.lens (trialName :: TrialSummary -> Lude.Maybe Lude.Text) (\s a -> s {trialName = a} :: TrialSummary)
+{-# DEPRECATED tsTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance FromJSON TrialSummary where
+instance Lude.FromJSON TrialSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrialSummary"
       ( \x ->
           TrialSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "TrialArn")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "TrialSource")
-            <*> (x .:? "DisplayName")
-            <*> (x .:? "TrialName")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "TrialArn")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "TrialSource")
+            Lude.<*> (x Lude..:? "DisplayName")
+            Lude.<*> (x Lude..:? "TrialName")
       )
-
-instance Hashable TrialSummary
-
-instance NFData TrialSummary

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Gets the configuration settings of an identity pool.
 --
---
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
-  ( -- * Creating a Request
-    getIdentityPoolConfiguration,
-    GetIdentityPoolConfiguration,
+  ( -- * Creating a request
+    GetIdentityPoolConfiguration (..),
+    mkGetIdentityPoolConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gipcIdentityPoolId,
 
-    -- * Destructuring the Response
-    getIdentityPoolConfigurationResponse,
-    GetIdentityPoolConfigurationResponse,
+    -- * Destructuring the response
+    GetIdentityPoolConfigurationResponse (..),
+    mkGetIdentityPoolConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gipcrsIdentityPoolId,
     gipcrsCognitoStreams,
     gipcrsPushSync,
@@ -42,132 +36,144 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the GetIdentityPoolConfiguration operation.
 --
---
---
--- /See:/ 'getIdentityPoolConfiguration' smart constructor.
+-- /See:/ 'mkGetIdentityPoolConfiguration' smart constructor.
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
-  { _gipcIdentityPoolId ::
-      Text
+  { identityPoolId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoolConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipcIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
-getIdentityPoolConfiguration ::
-  -- | 'gipcIdentityPoolId'
-  Text ->
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
+mkGetIdentityPoolConfiguration ::
+  -- | 'identityPoolId'
+  Lude.Text ->
   GetIdentityPoolConfiguration
-getIdentityPoolConfiguration pIdentityPoolId_ =
-  GetIdentityPoolConfiguration'
-    { _gipcIdentityPoolId =
-        pIdentityPoolId_
-    }
+mkGetIdentityPoolConfiguration pIdentityPoolId_ =
+  GetIdentityPoolConfiguration' {identityPoolId = pIdentityPoolId_}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
-gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
-gipcIdentityPoolId = lens _gipcIdentityPoolId (\s a -> s {_gipcIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipcIdentityPoolId :: Lens.Lens' GetIdentityPoolConfiguration Lude.Text
+gipcIdentityPoolId = Lens.lens (identityPoolId :: GetIdentityPoolConfiguration -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetIdentityPoolConfiguration)
+{-# DEPRECATED gipcIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance AWSRequest GetIdentityPoolConfiguration where
+instance Lude.AWSRequest GetIdentityPoolConfiguration where
   type
     Rs GetIdentityPoolConfiguration =
       GetIdentityPoolConfigurationResponse
-  request = get cognitoSync
+  request = Req.get cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetIdentityPoolConfigurationResponse'
-            <$> (x .?> "IdentityPoolId")
-            <*> (x .?> "CognitoStreams")
-            <*> (x .?> "PushSync")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "IdentityPoolId")
+            Lude.<*> (x Lude..?> "CognitoStreams")
+            Lude.<*> (x Lude..?> "PushSync")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetIdentityPoolConfiguration
-
-instance NFData GetIdentityPoolConfiguration
-
-instance ToHeaders GetIdentityPoolConfiguration where
+instance Lude.ToHeaders GetIdentityPoolConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetIdentityPoolConfiguration where
+instance Lude.ToPath GetIdentityPoolConfiguration where
   toPath GetIdentityPoolConfiguration' {..} =
-    mconcat
-      ["/identitypools/", toBS _gipcIdentityPoolId, "/configuration"]
+    Lude.mconcat
+      ["/identitypools/", Lude.toBS identityPoolId, "/configuration"]
 
-instance ToQuery GetIdentityPoolConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetIdentityPoolConfiguration where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the GetIdentityPoolConfiguration operation.
 --
---
---
--- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
+-- /See:/ 'mkGetIdentityPoolConfigurationResponse' smart constructor.
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
-  { _gipcrsIdentityPoolId ::
-      !(Maybe Text),
-    _gipcrsCognitoStreams ::
-      !( Maybe
-           CognitoStreams
-       ),
-    _gipcrsPushSync ::
-      !(Maybe PushSync),
-    _gipcrsResponseStatus ::
-      !Int
+  { identityPoolId ::
+      Lude.Maybe
+        Lude.Text,
+    cognitoStreams ::
+      Lude.Maybe
+        CognitoStreams,
+    pushSync ::
+      Lude.Maybe
+        PushSync,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipcrsIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
---
--- * 'gipcrsCognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
---
--- * 'gipcrsPushSync' - Options to apply to this identity pool for push synchronization.
---
--- * 'gipcrsResponseStatus' - -- | The response status code.
-getIdentityPoolConfigurationResponse ::
-  -- | 'gipcrsResponseStatus'
-  Int ->
+-- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- * 'pushSync' - Options to apply to this identity pool for push synchronization.
+-- * 'responseStatus' - The response status code.
+mkGetIdentityPoolConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIdentityPoolConfigurationResponse
-getIdentityPoolConfigurationResponse pResponseStatus_ =
+mkGetIdentityPoolConfigurationResponse pResponseStatus_ =
   GetIdentityPoolConfigurationResponse'
-    { _gipcrsIdentityPoolId =
-        Nothing,
-      _gipcrsCognitoStreams = Nothing,
-      _gipcrsPushSync = Nothing,
-      _gipcrsResponseStatus = pResponseStatus_
+    { identityPoolId =
+        Lude.Nothing,
+      cognitoStreams = Lude.Nothing,
+      pushSync = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-gipcrsIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
-gipcrsIdentityPoolId = lens _gipcrsIdentityPoolId (\s a -> s {_gipcrsIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipcrsIdentityPoolId :: Lens.Lens' GetIdentityPoolConfigurationResponse (Lude.Maybe Lude.Text)
+gipcrsIdentityPoolId = Lens.lens (identityPoolId :: GetIdentityPoolConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolId = a} :: GetIdentityPoolConfigurationResponse)
+{-# DEPRECATED gipcrsIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-gipcrsCognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\s a -> s {_gipcrsCognitoStreams = a})
+--
+-- /Note:/ Consider using 'cognitoStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipcrsCognitoStreams :: Lens.Lens' GetIdentityPoolConfigurationResponse (Lude.Maybe CognitoStreams)
+gipcrsCognitoStreams = Lens.lens (cognitoStreams :: GetIdentityPoolConfigurationResponse -> Lude.Maybe CognitoStreams) (\s a -> s {cognitoStreams = a} :: GetIdentityPoolConfigurationResponse)
+{-# DEPRECATED gipcrsCognitoStreams "Use generic-lens or generic-optics with 'cognitoStreams' instead." #-}
 
 -- | Options to apply to this identity pool for push synchronization.
-gipcrsPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
-gipcrsPushSync = lens _gipcrsPushSync (\s a -> s {_gipcrsPushSync = a})
+--
+-- /Note:/ Consider using 'pushSync' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipcrsPushSync :: Lens.Lens' GetIdentityPoolConfigurationResponse (Lude.Maybe PushSync)
+gipcrsPushSync = Lens.lens (pushSync :: GetIdentityPoolConfigurationResponse -> Lude.Maybe PushSync) (\s a -> s {pushSync = a} :: GetIdentityPoolConfigurationResponse)
+{-# DEPRECATED gipcrsPushSync "Use generic-lens or generic-optics with 'pushSync' instead." #-}
 
--- | -- | The response status code.
-gipcrsResponseStatus :: Lens' GetIdentityPoolConfigurationResponse Int
-gipcrsResponseStatus = lens _gipcrsResponseStatus (\s a -> s {_gipcrsResponseStatus = a})
-
-instance NFData GetIdentityPoolConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipcrsResponseStatus :: Lens.Lens' GetIdentityPoolConfigurationResponse Lude.Int
+gipcrsResponseStatus = Lens.lens (responseStatus :: GetIdentityPoolConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityPoolConfigurationResponse)
+{-# DEPRECATED gipcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

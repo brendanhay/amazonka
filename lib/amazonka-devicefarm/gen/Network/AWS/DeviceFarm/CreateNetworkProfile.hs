@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a network profile.
 module Network.AWS.DeviceFarm.CreateNetworkProfile
-  ( -- * Creating a Request
-    createNetworkProfile,
-    CreateNetworkProfile,
+  ( -- * Creating a request
+    CreateNetworkProfile (..),
+    mkCreateNetworkProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cnpUplinkJitterMs,
     cnpUplinkLossPercent,
     cnpDownlinkJitterMs,
@@ -37,217 +32,253 @@ module Network.AWS.DeviceFarm.CreateNetworkProfile
     cnpProjectARN,
     cnpName,
 
-    -- * Destructuring the Response
-    createNetworkProfileResponse,
-    CreateNetworkProfileResponse,
+    -- * Destructuring the response
+    CreateNetworkProfileResponse (..),
+    mkCreateNetworkProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cnprsNetworkProfile,
     cnprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createNetworkProfile' smart constructor.
+-- | /See:/ 'mkCreateNetworkProfile' smart constructor.
 data CreateNetworkProfile = CreateNetworkProfile'
-  { _cnpUplinkJitterMs ::
-      !(Maybe Integer),
-    _cnpUplinkLossPercent :: !(Maybe Nat),
-    _cnpDownlinkJitterMs :: !(Maybe Integer),
-    _cnpDownlinkLossPercent :: !(Maybe Nat),
-    _cnpType :: !(Maybe NetworkProfileType),
-    _cnpUplinkDelayMs :: !(Maybe Integer),
-    _cnpUplinkBandwidthBits :: !(Maybe Integer),
-    _cnpDescription :: !(Maybe Text),
-    _cnpDownlinkDelayMs :: !(Maybe Integer),
-    _cnpDownlinkBandwidthBits :: !(Maybe Integer),
-    _cnpProjectARN :: !Text,
-    _cnpName :: !Text
+  { uplinkJitterMs ::
+      Lude.Maybe Lude.Integer,
+    uplinkLossPercent :: Lude.Maybe Lude.Natural,
+    downlinkJitterMs :: Lude.Maybe Lude.Integer,
+    downlinkLossPercent :: Lude.Maybe Lude.Natural,
+    type' :: Lude.Maybe NetworkProfileType,
+    uplinkDelayMs :: Lude.Maybe Lude.Integer,
+    uplinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    description :: Lude.Maybe Lude.Text,
+    downlinkDelayMs :: Lude.Maybe Lude.Integer,
+    downlinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    projectARN :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cnpUplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
---
--- * 'cnpUplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
---
--- * 'cnpDownlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
---
--- * 'cnpDownlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
---
--- * 'cnpType' - The type of network profile to create. Valid values are listed here.
---
--- * 'cnpUplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
---
--- * 'cnpUplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
---
--- * 'cnpDescription' - The description of the network profile.
---
--- * 'cnpDownlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
---
--- * 'cnpDownlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
---
--- * 'cnpProjectARN' - The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
---
--- * 'cnpName' - The name for the new network profile.
-createNetworkProfile ::
-  -- | 'cnpProjectARN'
-  Text ->
-  -- | 'cnpName'
-  Text ->
+-- * 'description' - The description of the network profile.
+-- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
+-- * 'name' - The name for the new network profile.
+-- * 'projectARN' - The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
+-- * 'type'' - The type of network profile to create. Valid values are listed here.
+-- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+mkCreateNetworkProfile ::
+  -- | 'projectARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateNetworkProfile
-createNetworkProfile pProjectARN_ pName_ =
+mkCreateNetworkProfile pProjectARN_ pName_ =
   CreateNetworkProfile'
-    { _cnpUplinkJitterMs = Nothing,
-      _cnpUplinkLossPercent = Nothing,
-      _cnpDownlinkJitterMs = Nothing,
-      _cnpDownlinkLossPercent = Nothing,
-      _cnpType = Nothing,
-      _cnpUplinkDelayMs = Nothing,
-      _cnpUplinkBandwidthBits = Nothing,
-      _cnpDescription = Nothing,
-      _cnpDownlinkDelayMs = Nothing,
-      _cnpDownlinkBandwidthBits = Nothing,
-      _cnpProjectARN = pProjectARN_,
-      _cnpName = pName_
+    { uplinkJitterMs = Lude.Nothing,
+      uplinkLossPercent = Lude.Nothing,
+      downlinkJitterMs = Lude.Nothing,
+      downlinkLossPercent = Lude.Nothing,
+      type' = Lude.Nothing,
+      uplinkDelayMs = Lude.Nothing,
+      uplinkBandwidthBits = Lude.Nothing,
+      description = Lude.Nothing,
+      downlinkDelayMs = Lude.Nothing,
+      downlinkBandwidthBits = Lude.Nothing,
+      projectARN = pProjectARN_,
+      name = pName_
     }
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
-cnpUplinkJitterMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpUplinkJitterMs = lens _cnpUplinkJitterMs (\s a -> s {_cnpUplinkJitterMs = a})
+--
+-- /Note:/ Consider using 'uplinkJitterMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpUplinkJitterMs :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
+cnpUplinkJitterMs = Lens.lens (uplinkJitterMs :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkJitterMs = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpUplinkJitterMs "Use generic-lens or generic-optics with 'uplinkJitterMs' instead." #-}
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
-cnpUplinkLossPercent :: Lens' CreateNetworkProfile (Maybe Natural)
-cnpUplinkLossPercent = lens _cnpUplinkLossPercent (\s a -> s {_cnpUplinkLossPercent = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'uplinkLossPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpUplinkLossPercent :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Natural)
+cnpUplinkLossPercent = Lens.lens (uplinkLossPercent :: CreateNetworkProfile -> Lude.Maybe Lude.Natural) (\s a -> s {uplinkLossPercent = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpUplinkLossPercent "Use generic-lens or generic-optics with 'uplinkLossPercent' instead." #-}
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
-cnpDownlinkJitterMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpDownlinkJitterMs = lens _cnpDownlinkJitterMs (\s a -> s {_cnpDownlinkJitterMs = a})
+--
+-- /Note:/ Consider using 'downlinkJitterMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpDownlinkJitterMs :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
+cnpDownlinkJitterMs = Lens.lens (downlinkJitterMs :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkJitterMs = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpDownlinkJitterMs "Use generic-lens or generic-optics with 'downlinkJitterMs' instead." #-}
 
 -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
-cnpDownlinkLossPercent :: Lens' CreateNetworkProfile (Maybe Natural)
-cnpDownlinkLossPercent = lens _cnpDownlinkLossPercent (\s a -> s {_cnpDownlinkLossPercent = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'downlinkLossPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpDownlinkLossPercent :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Natural)
+cnpDownlinkLossPercent = Lens.lens (downlinkLossPercent :: CreateNetworkProfile -> Lude.Maybe Lude.Natural) (\s a -> s {downlinkLossPercent = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpDownlinkLossPercent "Use generic-lens or generic-optics with 'downlinkLossPercent' instead." #-}
 
 -- | The type of network profile to create. Valid values are listed here.
-cnpType :: Lens' CreateNetworkProfile (Maybe NetworkProfileType)
-cnpType = lens _cnpType (\s a -> s {_cnpType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpType :: Lens.Lens' CreateNetworkProfile (Lude.Maybe NetworkProfileType)
+cnpType = Lens.lens (type' :: CreateNetworkProfile -> Lude.Maybe NetworkProfileType) (\s a -> s {type' = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
-cnpUplinkDelayMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpUplinkDelayMs = lens _cnpUplinkDelayMs (\s a -> s {_cnpUplinkDelayMs = a})
+--
+-- /Note:/ Consider using 'uplinkDelayMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpUplinkDelayMs :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
+cnpUplinkDelayMs = Lens.lens (uplinkDelayMs :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkDelayMs = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpUplinkDelayMs "Use generic-lens or generic-optics with 'uplinkDelayMs' instead." #-}
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
-cnpUplinkBandwidthBits :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpUplinkBandwidthBits = lens _cnpUplinkBandwidthBits (\s a -> s {_cnpUplinkBandwidthBits = a})
+--
+-- /Note:/ Consider using 'uplinkBandwidthBits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpUplinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
+cnpUplinkBandwidthBits = Lens.lens (uplinkBandwidthBits :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkBandwidthBits = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpUplinkBandwidthBits "Use generic-lens or generic-optics with 'uplinkBandwidthBits' instead." #-}
 
 -- | The description of the network profile.
-cnpDescription :: Lens' CreateNetworkProfile (Maybe Text)
-cnpDescription = lens _cnpDescription (\s a -> s {_cnpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpDescription :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Text)
+cnpDescription = Lens.lens (description :: CreateNetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
-cnpDownlinkDelayMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpDownlinkDelayMs = lens _cnpDownlinkDelayMs (\s a -> s {_cnpDownlinkDelayMs = a})
+--
+-- /Note:/ Consider using 'downlinkDelayMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpDownlinkDelayMs :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
+cnpDownlinkDelayMs = Lens.lens (downlinkDelayMs :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkDelayMs = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpDownlinkDelayMs "Use generic-lens or generic-optics with 'downlinkDelayMs' instead." #-}
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
-cnpDownlinkBandwidthBits :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpDownlinkBandwidthBits = lens _cnpDownlinkBandwidthBits (\s a -> s {_cnpDownlinkBandwidthBits = a})
+--
+-- /Note:/ Consider using 'downlinkBandwidthBits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpDownlinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
+cnpDownlinkBandwidthBits = Lens.lens (downlinkBandwidthBits :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkBandwidthBits = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpDownlinkBandwidthBits "Use generic-lens or generic-optics with 'downlinkBandwidthBits' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
-cnpProjectARN :: Lens' CreateNetworkProfile Text
-cnpProjectARN = lens _cnpProjectARN (\s a -> s {_cnpProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpProjectARN :: Lens.Lens' CreateNetworkProfile Lude.Text
+cnpProjectARN = Lens.lens (projectARN :: CreateNetworkProfile -> Lude.Text) (\s a -> s {projectARN = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | The name for the new network profile.
-cnpName :: Lens' CreateNetworkProfile Text
-cnpName = lens _cnpName (\s a -> s {_cnpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpName :: Lens.Lens' CreateNetworkProfile Lude.Text
+cnpName = Lens.lens (name :: CreateNetworkProfile -> Lude.Text) (\s a -> s {name = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateNetworkProfile where
+instance Lude.AWSRequest CreateNetworkProfile where
   type Rs CreateNetworkProfile = CreateNetworkProfileResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateNetworkProfileResponse'
-            <$> (x .?> "networkProfile") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "networkProfile")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateNetworkProfile
-
-instance NFData CreateNetworkProfile
-
-instance ToHeaders CreateNetworkProfile where
+instance Lude.ToHeaders CreateNetworkProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.CreateNetworkProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.CreateNetworkProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateNetworkProfile where
+instance Lude.ToJSON CreateNetworkProfile where
   toJSON CreateNetworkProfile' {..} =
-    object
-      ( catMaybes
-          [ ("uplinkJitterMs" .=) <$> _cnpUplinkJitterMs,
-            ("uplinkLossPercent" .=) <$> _cnpUplinkLossPercent,
-            ("downlinkJitterMs" .=) <$> _cnpDownlinkJitterMs,
-            ("downlinkLossPercent" .=) <$> _cnpDownlinkLossPercent,
-            ("type" .=) <$> _cnpType,
-            ("uplinkDelayMs" .=) <$> _cnpUplinkDelayMs,
-            ("uplinkBandwidthBits" .=) <$> _cnpUplinkBandwidthBits,
-            ("description" .=) <$> _cnpDescription,
-            ("downlinkDelayMs" .=) <$> _cnpDownlinkDelayMs,
-            ("downlinkBandwidthBits" .=) <$> _cnpDownlinkBandwidthBits,
-            Just ("projectArn" .= _cnpProjectARN),
-            Just ("name" .= _cnpName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("uplinkJitterMs" Lude..=) Lude.<$> uplinkJitterMs,
+            ("uplinkLossPercent" Lude..=) Lude.<$> uplinkLossPercent,
+            ("downlinkJitterMs" Lude..=) Lude.<$> downlinkJitterMs,
+            ("downlinkLossPercent" Lude..=) Lude.<$> downlinkLossPercent,
+            ("type" Lude..=) Lude.<$> type',
+            ("uplinkDelayMs" Lude..=) Lude.<$> uplinkDelayMs,
+            ("uplinkBandwidthBits" Lude..=) Lude.<$> uplinkBandwidthBits,
+            ("description" Lude..=) Lude.<$> description,
+            ("downlinkDelayMs" Lude..=) Lude.<$> downlinkDelayMs,
+            ("downlinkBandwidthBits" Lude..=) Lude.<$> downlinkBandwidthBits,
+            Lude.Just ("projectArn" Lude..= projectARN),
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
-instance ToPath CreateNetworkProfile where
-  toPath = const "/"
+instance Lude.ToPath CreateNetworkProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateNetworkProfile where
-  toQuery = const mempty
+instance Lude.ToQuery CreateNetworkProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createNetworkProfileResponse' smart constructor.
+-- | /See:/ 'mkCreateNetworkProfileResponse' smart constructor.
 data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
-  { _cnprsNetworkProfile ::
-      !(Maybe NetworkProfile),
-    _cnprsResponseStatus :: !Int
+  { networkProfile ::
+      Lude.Maybe NetworkProfile,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cnprsNetworkProfile' - The network profile that is returned by the create network profile request.
---
--- * 'cnprsResponseStatus' - -- | The response status code.
-createNetworkProfileResponse ::
-  -- | 'cnprsResponseStatus'
-  Int ->
+-- * 'networkProfile' - The network profile that is returned by the create network profile request.
+-- * 'responseStatus' - The response status code.
+mkCreateNetworkProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateNetworkProfileResponse
-createNetworkProfileResponse pResponseStatus_ =
+mkCreateNetworkProfileResponse pResponseStatus_ =
   CreateNetworkProfileResponse'
-    { _cnprsNetworkProfile = Nothing,
-      _cnprsResponseStatus = pResponseStatus_
+    { networkProfile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The network profile that is returned by the create network profile request.
-cnprsNetworkProfile :: Lens' CreateNetworkProfileResponse (Maybe NetworkProfile)
-cnprsNetworkProfile = lens _cnprsNetworkProfile (\s a -> s {_cnprsNetworkProfile = a})
+--
+-- /Note:/ Consider using 'networkProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnprsNetworkProfile :: Lens.Lens' CreateNetworkProfileResponse (Lude.Maybe NetworkProfile)
+cnprsNetworkProfile = Lens.lens (networkProfile :: CreateNetworkProfileResponse -> Lude.Maybe NetworkProfile) (\s a -> s {networkProfile = a} :: CreateNetworkProfileResponse)
+{-# DEPRECATED cnprsNetworkProfile "Use generic-lens or generic-optics with 'networkProfile' instead." #-}
 
--- | -- | The response status code.
-cnprsResponseStatus :: Lens' CreateNetworkProfileResponse Int
-cnprsResponseStatus = lens _cnprsResponseStatus (\s a -> s {_cnprsResponseStatus = a})
-
-instance NFData CreateNetworkProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnprsResponseStatus :: Lens.Lens' CreateNetworkProfileResponse Lude.Int
+cnprsResponseStatus = Lens.lens (responseStatus :: CreateNetworkProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNetworkProfileResponse)
+{-# DEPRECATED cnprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

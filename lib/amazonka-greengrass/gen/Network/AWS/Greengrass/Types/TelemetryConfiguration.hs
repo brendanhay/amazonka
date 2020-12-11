@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.TelemetryConfiguration where
+module Network.AWS.Greengrass.Types.TelemetryConfiguration
+  ( TelemetryConfiguration (..),
+
+    -- * Smart constructor
+    mkTelemetryConfiguration,
+
+    -- * Lenses
+    tcConfigurationSyncStatus,
+    tcTelemetry,
+  )
+where
 
 import Network.AWS.Greengrass.Types.ConfigurationSyncStatus
 import Network.AWS.Greengrass.Types.Telemetry
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration settings for running telemetry.
 --
--- /See:/ 'telemetryConfiguration' smart constructor.
+-- /See:/ 'mkTelemetryConfiguration' smart constructor.
 data TelemetryConfiguration = TelemetryConfiguration'
-  { _tcConfigurationSyncStatus ::
-      !(Maybe ConfigurationSyncStatus),
-    _tcTelemetry :: !Telemetry
+  { configurationSyncStatus ::
+      Lude.Maybe ConfigurationSyncStatus,
+    telemetry :: Telemetry
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TelemetryConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcConfigurationSyncStatus' - Synchronization status of the device reported configuration with the desired configuration.
---
--- * 'tcTelemetry' - Configure telemetry to be on or off.
-telemetryConfiguration ::
-  -- | 'tcTelemetry'
+-- * 'configurationSyncStatus' - Synchronization status of the device reported configuration with the desired configuration.
+-- * 'telemetry' - Configure telemetry to be on or off.
+mkTelemetryConfiguration ::
+  -- | 'telemetry'
   Telemetry ->
   TelemetryConfiguration
-telemetryConfiguration pTelemetry_ =
+mkTelemetryConfiguration pTelemetry_ =
   TelemetryConfiguration'
-    { _tcConfigurationSyncStatus = Nothing,
-      _tcTelemetry = pTelemetry_
+    { configurationSyncStatus = Lude.Nothing,
+      telemetry = pTelemetry_
     }
 
 -- | Synchronization status of the device reported configuration with the desired configuration.
-tcConfigurationSyncStatus :: Lens' TelemetryConfiguration (Maybe ConfigurationSyncStatus)
-tcConfigurationSyncStatus = lens _tcConfigurationSyncStatus (\s a -> s {_tcConfigurationSyncStatus = a})
+--
+-- /Note:/ Consider using 'configurationSyncStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcConfigurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Lude.Maybe ConfigurationSyncStatus)
+tcConfigurationSyncStatus = Lens.lens (configurationSyncStatus :: TelemetryConfiguration -> Lude.Maybe ConfigurationSyncStatus) (\s a -> s {configurationSyncStatus = a} :: TelemetryConfiguration)
+{-# DEPRECATED tcConfigurationSyncStatus "Use generic-lens or generic-optics with 'configurationSyncStatus' instead." #-}
 
 -- | Configure telemetry to be on or off.
-tcTelemetry :: Lens' TelemetryConfiguration Telemetry
-tcTelemetry = lens _tcTelemetry (\s a -> s {_tcTelemetry = a})
+--
+-- /Note:/ Consider using 'telemetry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcTelemetry :: Lens.Lens' TelemetryConfiguration Telemetry
+tcTelemetry = Lens.lens (telemetry :: TelemetryConfiguration -> Telemetry) (\s a -> s {telemetry = a} :: TelemetryConfiguration)
+{-# DEPRECATED tcTelemetry "Use generic-lens or generic-optics with 'telemetry' instead." #-}
 
-instance FromJSON TelemetryConfiguration where
+instance Lude.FromJSON TelemetryConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "TelemetryConfiguration"
       ( \x ->
           TelemetryConfiguration'
-            <$> (x .:? "ConfigurationSyncStatus") <*> (x .: "Telemetry")
+            Lude.<$> (x Lude..:? "ConfigurationSyncStatus")
+            Lude.<*> (x Lude..: "Telemetry")
       )
-
-instance Hashable TelemetryConfiguration
-
-instance NFData TelemetryConfiguration

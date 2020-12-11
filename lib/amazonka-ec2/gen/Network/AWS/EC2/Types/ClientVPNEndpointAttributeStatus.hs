@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNEndpointAttributeStatus where
+module Network.AWS.EC2.Types.ClientVPNEndpointAttributeStatus
+  ( ClientVPNEndpointAttributeStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNEndpointAttributeStatus,
+
+    -- * Lenses
+    cveasCode,
+    cveasMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNEndpointAttributeStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the status of the Client VPN endpoint attribute.
 --
---
---
--- /See:/ 'clientVPNEndpointAttributeStatus' smart constructor.
+-- /See:/ 'mkClientVPNEndpointAttributeStatus' smart constructor.
 data ClientVPNEndpointAttributeStatus = ClientVPNEndpointAttributeStatus'
-  { _cveasCode ::
-      !( Maybe
-           ClientVPNEndpointAttributeStatusCode
-       ),
-    _cveasMessage ::
-      !(Maybe Text)
+  { code ::
+      Lude.Maybe
+        ClientVPNEndpointAttributeStatusCode,
+    message ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNEndpointAttributeStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cveasCode' - The status code.
---
--- * 'cveasMessage' - The status message.
-clientVPNEndpointAttributeStatus ::
+-- * 'code' - The status code.
+-- * 'message' - The status message.
+mkClientVPNEndpointAttributeStatus ::
   ClientVPNEndpointAttributeStatus
-clientVPNEndpointAttributeStatus =
+mkClientVPNEndpointAttributeStatus =
   ClientVPNEndpointAttributeStatus'
-    { _cveasCode = Nothing,
-      _cveasMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The status code.
-cveasCode :: Lens' ClientVPNEndpointAttributeStatus (Maybe ClientVPNEndpointAttributeStatusCode)
-cveasCode = lens _cveasCode (\s a -> s {_cveasCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cveasCode :: Lens.Lens' ClientVPNEndpointAttributeStatus (Lude.Maybe ClientVPNEndpointAttributeStatusCode)
+cveasCode = Lens.lens (code :: ClientVPNEndpointAttributeStatus -> Lude.Maybe ClientVPNEndpointAttributeStatusCode) (\s a -> s {code = a} :: ClientVPNEndpointAttributeStatus)
+{-# DEPRECATED cveasCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The status message.
-cveasMessage :: Lens' ClientVPNEndpointAttributeStatus (Maybe Text)
-cveasMessage = lens _cveasMessage (\s a -> s {_cveasMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cveasMessage :: Lens.Lens' ClientVPNEndpointAttributeStatus (Lude.Maybe Lude.Text)
+cveasMessage = Lens.lens (message :: ClientVPNEndpointAttributeStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ClientVPNEndpointAttributeStatus)
+{-# DEPRECATED cveasMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML ClientVPNEndpointAttributeStatus where
+instance Lude.FromXML ClientVPNEndpointAttributeStatus where
   parseXML x =
     ClientVPNEndpointAttributeStatus'
-      <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable ClientVPNEndpointAttributeStatus
-
-instance NFData ClientVPNEndpointAttributeStatus
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

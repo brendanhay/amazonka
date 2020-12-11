@@ -28,97 +28,97 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeClusters $
---             describeClusters
+--             mkDescribeClusters
 --
 --         , requestDeleteBackup $
---             deleteBackup
+--             mkDeleteBackup
 --
 --         , requestInitializeCluster $
---             initializeCluster
+--             mkInitializeCluster
 --
 --         , requestCreateHSM $
---             createHSM
+--             mkCreateHSM
 --
 --         , requestDescribeBackups $
---             describeBackups
+--             mkDescribeBackups
 --
 --         , requestCopyBackupToRegion $
---             copyBackupToRegion
+--             mkCopyBackupToRegion
 --
 --         , requestDeleteCluster $
---             deleteCluster
+--             mkDeleteCluster
 --
 --         , requestCreateCluster $
---             createCluster
+--             mkCreateCluster
 --
 --         , requestRestoreBackup $
---             restoreBackup
+--             mkRestoreBackup
 --
 --         , requestDeleteHSM $
---             deleteHSM
+--             mkDeleteHSM
 --
 --         , requestModifyCluster $
---             modifyCluster
+--             mkModifyCluster
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestListTags $
---             listTags
+--             mkListTags
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestModifyBackupAttributes $
---             modifyBackupAttributes
+--             mkModifyBackupAttributes
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeClusters $
---             describeClustersResponse
+--             mkDescribeClustersResponse
 --
 --         , responseDeleteBackup $
---             deleteBackupResponse
+--             mkDeleteBackupResponse
 --
 --         , responseInitializeCluster $
---             initializeClusterResponse
+--             mkInitializeClusterResponse
 --
 --         , responseCreateHSM $
---             createHSMResponse
+--             mkCreateHSMResponse
 --
 --         , responseDescribeBackups $
---             describeBackupsResponse
+--             mkDescribeBackupsResponse
 --
 --         , responseCopyBackupToRegion $
---             copyBackupToRegionResponse
+--             mkCopyBackupToRegionResponse
 --
 --         , responseDeleteCluster $
---             deleteClusterResponse
+--             mkDeleteClusterResponse
 --
 --         , responseCreateCluster $
---             createClusterResponse
+--             mkCreateClusterResponse
 --
 --         , responseRestoreBackup $
---             restoreBackupResponse
+--             mkRestoreBackupResponse
 --
 --         , responseDeleteHSM $
---             deleteHSMResponse
+--             mkDeleteHSMResponse
 --
 --         , responseModifyCluster $
---             modifyClusterResponse
+--             mkModifyClusterResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseListTags $
---             listTagsResponse
+--             mkListTagsResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseModifyBackupAttributes $
---             modifyBackupAttributesResponse
+--             mkModifyBackupAttributesResponse
 --
 --           ]
 --     ]
@@ -222,7 +222,7 @@ responseDescribeClusters =
   res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy DescribeClusters)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
@@ -230,7 +230,7 @@ responseDeleteBackup =
   res
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy DeleteBackup)
 
 responseInitializeCluster :: InitializeClusterResponse -> TestTree
@@ -238,7 +238,7 @@ responseInitializeCluster =
   res
     "InitializeClusterResponse"
     "fixture/InitializeClusterResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy InitializeCluster)
 
 responseCreateHSM :: CreateHSMResponse -> TestTree
@@ -246,7 +246,7 @@ responseCreateHSM =
   res
     "CreateHSMResponse"
     "fixture/CreateHSMResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy CreateHSM)
 
 responseDescribeBackups :: DescribeBackupsResponse -> TestTree
@@ -254,7 +254,7 @@ responseDescribeBackups =
   res
     "DescribeBackupsResponse"
     "fixture/DescribeBackupsResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy DescribeBackups)
 
 responseCopyBackupToRegion :: CopyBackupToRegionResponse -> TestTree
@@ -262,7 +262,7 @@ responseCopyBackupToRegion =
   res
     "CopyBackupToRegionResponse"
     "fixture/CopyBackupToRegionResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy CopyBackupToRegion)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
@@ -270,7 +270,7 @@ responseDeleteCluster =
   res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy DeleteCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
@@ -278,7 +278,7 @@ responseCreateCluster =
   res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy CreateCluster)
 
 responseRestoreBackup :: RestoreBackupResponse -> TestTree
@@ -286,7 +286,7 @@ responseRestoreBackup =
   res
     "RestoreBackupResponse"
     "fixture/RestoreBackupResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy RestoreBackup)
 
 responseDeleteHSM :: DeleteHSMResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeleteHSM =
   res
     "DeleteHSMResponse"
     "fixture/DeleteHSMResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy DeleteHSM)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
@@ -302,7 +302,7 @@ responseModifyCluster =
   res
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy ModifyCluster)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -310,7 +310,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy ListTags)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -326,7 +326,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy UntagResource)
 
 responseModifyBackupAttributes :: ModifyBackupAttributesResponse -> TestTree
@@ -334,5 +334,5 @@ responseModifyBackupAttributes =
   res
     "ModifyBackupAttributesResponse"
     "fixture/ModifyBackupAttributesResponse.proto"
-    cloudHSMv2
+    cloudHSMv2Service
     (Proxy :: Proxy ModifyBackupAttributes)

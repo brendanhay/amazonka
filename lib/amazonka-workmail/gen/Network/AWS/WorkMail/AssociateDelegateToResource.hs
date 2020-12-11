@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,159 @@
 --
 -- Adds a member (user or group) to the resource's set of delegates.
 module Network.AWS.WorkMail.AssociateDelegateToResource
-  ( -- * Creating a Request
-    associateDelegateToResource,
-    AssociateDelegateToResource,
+  ( -- * Creating a request
+    AssociateDelegateToResource (..),
+    mkAssociateDelegateToResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     adtrOrganizationId,
     adtrResourceId,
     adtrEntityId,
 
-    -- * Destructuring the Response
-    associateDelegateToResourceResponse,
-    AssociateDelegateToResourceResponse,
+    -- * Destructuring the response
+    AssociateDelegateToResourceResponse (..),
+    mkAssociateDelegateToResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     adtrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'associateDelegateToResource' smart constructor.
+-- | /See:/ 'mkAssociateDelegateToResource' smart constructor.
 data AssociateDelegateToResource = AssociateDelegateToResource'
-  { _adtrOrganizationId ::
-      !Text,
-    _adtrResourceId :: !Text,
-    _adtrEntityId :: !Text
+  { organizationId ::
+      Lude.Text,
+    resourceId :: Lude.Text,
+    entityId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDelegateToResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adtrOrganizationId' - The organization under which the resource exists.
---
--- * 'adtrResourceId' - The resource for which members (users or groups) are associated.
---
--- * 'adtrEntityId' - The member (user or group) to associate to the resource.
-associateDelegateToResource ::
-  -- | 'adtrOrganizationId'
-  Text ->
-  -- | 'adtrResourceId'
-  Text ->
-  -- | 'adtrEntityId'
-  Text ->
+-- * 'entityId' - The member (user or group) to associate to the resource.
+-- * 'organizationId' - The organization under which the resource exists.
+-- * 'resourceId' - The resource for which members (users or groups) are associated.
+mkAssociateDelegateToResource ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
   AssociateDelegateToResource
-associateDelegateToResource
+mkAssociateDelegateToResource
   pOrganizationId_
   pResourceId_
   pEntityId_ =
     AssociateDelegateToResource'
-      { _adtrOrganizationId =
-          pOrganizationId_,
-        _adtrResourceId = pResourceId_,
-        _adtrEntityId = pEntityId_
+      { organizationId = pOrganizationId_,
+        resourceId = pResourceId_,
+        entityId = pEntityId_
       }
 
 -- | The organization under which the resource exists.
-adtrOrganizationId :: Lens' AssociateDelegateToResource Text
-adtrOrganizationId = lens _adtrOrganizationId (\s a -> s {_adtrOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtrOrganizationId :: Lens.Lens' AssociateDelegateToResource Lude.Text
+adtrOrganizationId = Lens.lens (organizationId :: AssociateDelegateToResource -> Lude.Text) (\s a -> s {organizationId = a} :: AssociateDelegateToResource)
+{-# DEPRECATED adtrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The resource for which members (users or groups) are associated.
-adtrResourceId :: Lens' AssociateDelegateToResource Text
-adtrResourceId = lens _adtrResourceId (\s a -> s {_adtrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtrResourceId :: Lens.Lens' AssociateDelegateToResource Lude.Text
+adtrResourceId = Lens.lens (resourceId :: AssociateDelegateToResource -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateDelegateToResource)
+{-# DEPRECATED adtrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The member (user or group) to associate to the resource.
-adtrEntityId :: Lens' AssociateDelegateToResource Text
-adtrEntityId = lens _adtrEntityId (\s a -> s {_adtrEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtrEntityId :: Lens.Lens' AssociateDelegateToResource Lude.Text
+adtrEntityId = Lens.lens (entityId :: AssociateDelegateToResource -> Lude.Text) (\s a -> s {entityId = a} :: AssociateDelegateToResource)
+{-# DEPRECATED adtrEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
-instance AWSRequest AssociateDelegateToResource where
+instance Lude.AWSRequest AssociateDelegateToResource where
   type
     Rs AssociateDelegateToResource =
       AssociateDelegateToResourceResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AssociateDelegateToResourceResponse' <$> (pure (fromEnum s))
+          AssociateDelegateToResourceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateDelegateToResource
-
-instance NFData AssociateDelegateToResource
-
-instance ToHeaders AssociateDelegateToResource where
+instance Lude.ToHeaders AssociateDelegateToResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.AssociateDelegateToResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.AssociateDelegateToResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateDelegateToResource where
+instance Lude.ToJSON AssociateDelegateToResource where
   toJSON AssociateDelegateToResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _adtrOrganizationId),
-            Just ("ResourceId" .= _adtrResourceId),
-            Just ("EntityId" .= _adtrEntityId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("EntityId" Lude..= entityId)
           ]
       )
 
-instance ToPath AssociateDelegateToResource where
-  toPath = const "/"
+instance Lude.ToPath AssociateDelegateToResource where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateDelegateToResource where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateDelegateToResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateDelegateToResourceResponse' smart constructor.
+-- | /See:/ 'mkAssociateDelegateToResourceResponse' smart constructor.
 newtype AssociateDelegateToResourceResponse = AssociateDelegateToResourceResponse'
-  { _adtrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDelegateToResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adtrrsResponseStatus' - -- | The response status code.
-associateDelegateToResourceResponse ::
-  -- | 'adtrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateDelegateToResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateDelegateToResourceResponse
-associateDelegateToResourceResponse pResponseStatus_ =
+mkAssociateDelegateToResourceResponse pResponseStatus_ =
   AssociateDelegateToResourceResponse'
-    { _adtrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-adtrrsResponseStatus :: Lens' AssociateDelegateToResourceResponse Int
-adtrrsResponseStatus = lens _adtrrsResponseStatus (\s a -> s {_adtrrsResponseStatus = a})
-
-instance NFData AssociateDelegateToResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtrrsResponseStatus :: Lens.Lens' AssociateDelegateToResourceResponse Lude.Int
+adtrrsResponseStatus = Lens.lens (responseStatus :: AssociateDelegateToResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateDelegateToResourceResponse)
+{-# DEPRECATED adtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

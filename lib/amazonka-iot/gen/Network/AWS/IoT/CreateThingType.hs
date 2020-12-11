@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a new thing type.
 module Network.AWS.IoT.CreateThingType
-  ( -- * Creating a Request
-    createThingType,
-    CreateThingType,
+  ( -- * Creating a request
+    CreateThingType (..),
+    mkCreateThingType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cttThingTypeProperties,
     cttTags,
     cttThingTypeName,
 
-    -- * Destructuring the Response
-    createThingTypeResponse,
-    CreateThingTypeResponse,
+    -- * Destructuring the response
+    CreateThingTypeResponse (..),
+    mkCreateThingTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cttrsThingTypeName,
     cttrsThingTypeId,
     cttrsThingTypeARN,
@@ -41,143 +36,159 @@ module Network.AWS.IoT.CreateThingType
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the CreateThingType operation.
 --
---
---
--- /See:/ 'createThingType' smart constructor.
+-- /See:/ 'mkCreateThingType' smart constructor.
 data CreateThingType = CreateThingType'
-  { _cttThingTypeProperties ::
-      !(Maybe ThingTypeProperties),
-    _cttTags :: !(Maybe [Tag]),
-    _cttThingTypeName :: !Text
+  { thingTypeProperties ::
+      Lude.Maybe ThingTypeProperties,
+    tags :: Lude.Maybe [Tag],
+    thingTypeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cttThingTypeProperties' - The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
---
--- * 'cttTags' - Metadata which can be used to manage the thing type.
---
--- * 'cttThingTypeName' - The name of the thing type.
-createThingType ::
-  -- | 'cttThingTypeName'
-  Text ->
+-- * 'tags' - Metadata which can be used to manage the thing type.
+-- * 'thingTypeName' - The name of the thing type.
+-- * 'thingTypeProperties' - The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
+mkCreateThingType ::
+  -- | 'thingTypeName'
+  Lude.Text ->
   CreateThingType
-createThingType pThingTypeName_ =
+mkCreateThingType pThingTypeName_ =
   CreateThingType'
-    { _cttThingTypeProperties = Nothing,
-      _cttTags = Nothing,
-      _cttThingTypeName = pThingTypeName_
+    { thingTypeProperties = Lude.Nothing,
+      tags = Lude.Nothing,
+      thingTypeName = pThingTypeName_
     }
 
 -- | The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
-cttThingTypeProperties :: Lens' CreateThingType (Maybe ThingTypeProperties)
-cttThingTypeProperties = lens _cttThingTypeProperties (\s a -> s {_cttThingTypeProperties = a})
+--
+-- /Note:/ Consider using 'thingTypeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttThingTypeProperties :: Lens.Lens' CreateThingType (Lude.Maybe ThingTypeProperties)
+cttThingTypeProperties = Lens.lens (thingTypeProperties :: CreateThingType -> Lude.Maybe ThingTypeProperties) (\s a -> s {thingTypeProperties = a} :: CreateThingType)
+{-# DEPRECATED cttThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
 
 -- | Metadata which can be used to manage the thing type.
-cttTags :: Lens' CreateThingType [Tag]
-cttTags = lens _cttTags (\s a -> s {_cttTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttTags :: Lens.Lens' CreateThingType (Lude.Maybe [Tag])
+cttTags = Lens.lens (tags :: CreateThingType -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateThingType)
+{-# DEPRECATED cttTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the thing type.
-cttThingTypeName :: Lens' CreateThingType Text
-cttThingTypeName = lens _cttThingTypeName (\s a -> s {_cttThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttThingTypeName :: Lens.Lens' CreateThingType Lude.Text
+cttThingTypeName = Lens.lens (thingTypeName :: CreateThingType -> Lude.Text) (\s a -> s {thingTypeName = a} :: CreateThingType)
+{-# DEPRECATED cttThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
-instance AWSRequest CreateThingType where
+instance Lude.AWSRequest CreateThingType where
   type Rs CreateThingType = CreateThingTypeResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateThingTypeResponse'
-            <$> (x .?> "thingTypeName")
-            <*> (x .?> "thingTypeId")
-            <*> (x .?> "thingTypeArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "thingTypeName")
+            Lude.<*> (x Lude..?> "thingTypeId")
+            Lude.<*> (x Lude..?> "thingTypeArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateThingType
+instance Lude.ToHeaders CreateThingType where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateThingType
-
-instance ToHeaders CreateThingType where
-  toHeaders = const mempty
-
-instance ToJSON CreateThingType where
+instance Lude.ToJSON CreateThingType where
   toJSON CreateThingType' {..} =
-    object
-      ( catMaybes
-          [ ("thingTypeProperties" .=) <$> _cttThingTypeProperties,
-            ("tags" .=) <$> _cttTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thingTypeProperties" Lude..=) Lude.<$> thingTypeProperties,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateThingType where
+instance Lude.ToPath CreateThingType where
   toPath CreateThingType' {..} =
-    mconcat ["/thing-types/", toBS _cttThingTypeName]
+    Lude.mconcat ["/thing-types/", Lude.toBS thingTypeName]
 
-instance ToQuery CreateThingType where
-  toQuery = const mempty
+instance Lude.ToQuery CreateThingType where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output of the CreateThingType operation.
 --
---
---
--- /See:/ 'createThingTypeResponse' smart constructor.
+-- /See:/ 'mkCreateThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
-  { _cttrsThingTypeName ::
-      !(Maybe Text),
-    _cttrsThingTypeId :: !(Maybe Text),
-    _cttrsThingTypeARN :: !(Maybe Text),
-    _cttrsResponseStatus :: !Int
+  { thingTypeName ::
+      Lude.Maybe Lude.Text,
+    thingTypeId :: Lude.Maybe Lude.Text,
+    thingTypeARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cttrsThingTypeName' - The name of the thing type.
---
--- * 'cttrsThingTypeId' - The thing type ID.
---
--- * 'cttrsThingTypeARN' - The Amazon Resource Name (ARN) of the thing type.
---
--- * 'cttrsResponseStatus' - -- | The response status code.
-createThingTypeResponse ::
-  -- | 'cttrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'thingTypeARN' - The Amazon Resource Name (ARN) of the thing type.
+-- * 'thingTypeId' - The thing type ID.
+-- * 'thingTypeName' - The name of the thing type.
+mkCreateThingTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateThingTypeResponse
-createThingTypeResponse pResponseStatus_ =
+mkCreateThingTypeResponse pResponseStatus_ =
   CreateThingTypeResponse'
-    { _cttrsThingTypeName = Nothing,
-      _cttrsThingTypeId = Nothing,
-      _cttrsThingTypeARN = Nothing,
-      _cttrsResponseStatus = pResponseStatus_
+    { thingTypeName = Lude.Nothing,
+      thingTypeId = Lude.Nothing,
+      thingTypeARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the thing type.
-cttrsThingTypeName :: Lens' CreateThingTypeResponse (Maybe Text)
-cttrsThingTypeName = lens _cttrsThingTypeName (\s a -> s {_cttrsThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttrsThingTypeName :: Lens.Lens' CreateThingTypeResponse (Lude.Maybe Lude.Text)
+cttrsThingTypeName = Lens.lens (thingTypeName :: CreateThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: CreateThingTypeResponse)
+{-# DEPRECATED cttrsThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
 -- | The thing type ID.
-cttrsThingTypeId :: Lens' CreateThingTypeResponse (Maybe Text)
-cttrsThingTypeId = lens _cttrsThingTypeId (\s a -> s {_cttrsThingTypeId = a})
+--
+-- /Note:/ Consider using 'thingTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttrsThingTypeId :: Lens.Lens' CreateThingTypeResponse (Lude.Maybe Lude.Text)
+cttrsThingTypeId = Lens.lens (thingTypeId :: CreateThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeId = a} :: CreateThingTypeResponse)
+{-# DEPRECATED cttrsThingTypeId "Use generic-lens or generic-optics with 'thingTypeId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the thing type.
-cttrsThingTypeARN :: Lens' CreateThingTypeResponse (Maybe Text)
-cttrsThingTypeARN = lens _cttrsThingTypeARN (\s a -> s {_cttrsThingTypeARN = a})
+--
+-- /Note:/ Consider using 'thingTypeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttrsThingTypeARN :: Lens.Lens' CreateThingTypeResponse (Lude.Maybe Lude.Text)
+cttrsThingTypeARN = Lens.lens (thingTypeARN :: CreateThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeARN = a} :: CreateThingTypeResponse)
+{-# DEPRECATED cttrsThingTypeARN "Use generic-lens or generic-optics with 'thingTypeARN' instead." #-}
 
--- | -- | The response status code.
-cttrsResponseStatus :: Lens' CreateThingTypeResponse Int
-cttrsResponseStatus = lens _cttrsResponseStatus (\s a -> s {_cttrsResponseStatus = a})
-
-instance NFData CreateThingTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttrsResponseStatus :: Lens.Lens' CreateThingTypeResponse Lude.Int
+cttrsResponseStatus = Lens.lens (responseStatus :: CreateThingTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateThingTypeResponse)
+{-# DEPRECATED cttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

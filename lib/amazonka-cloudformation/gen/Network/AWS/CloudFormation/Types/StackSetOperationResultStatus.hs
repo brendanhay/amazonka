@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetOperationResultStatus where
+module Network.AWS.CloudFormation.Types.StackSetOperationResultStatus
+  ( StackSetOperationResultStatus
+      ( StackSetOperationResultStatus',
+        Cancelled,
+        Failed,
+        Pending,
+        Running,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackSetOperationResultStatus
-  = Cancelled
-  | Failed
-  | Pending
-  | Running
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackSetOperationResultStatus = StackSetOperationResultStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackSetOperationResultStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure Cancelled
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      "running" -> pure Running
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing StackSetOperationResultStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, failed, pending, running, succeeded"
+pattern Cancelled :: StackSetOperationResultStatus
+pattern Cancelled = StackSetOperationResultStatus' "CANCELLED"
 
-instance ToText StackSetOperationResultStatus where
-  toText = \case
-    Cancelled -> "CANCELLED"
-    Failed -> "FAILED"
-    Pending -> "PENDING"
-    Running -> "RUNNING"
-    Succeeded -> "SUCCEEDED"
+pattern Failed :: StackSetOperationResultStatus
+pattern Failed = StackSetOperationResultStatus' "FAILED"
 
-instance Hashable StackSetOperationResultStatus
+pattern Pending :: StackSetOperationResultStatus
+pattern Pending = StackSetOperationResultStatus' "PENDING"
 
-instance NFData StackSetOperationResultStatus
+pattern Running :: StackSetOperationResultStatus
+pattern Running = StackSetOperationResultStatus' "RUNNING"
 
-instance ToByteString StackSetOperationResultStatus
+pattern Succeeded :: StackSetOperationResultStatus
+pattern Succeeded = StackSetOperationResultStatus' "SUCCEEDED"
 
-instance ToQuery StackSetOperationResultStatus
-
-instance ToHeader StackSetOperationResultStatus
-
-instance FromXML StackSetOperationResultStatus where
-  parseXML = parseXMLText "StackSetOperationResultStatus"
+{-# COMPLETE
+  Cancelled,
+  Failed,
+  Pending,
+  Running,
+  Succeeded,
+  StackSetOperationResultStatus'
+  #-}

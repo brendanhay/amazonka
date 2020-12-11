@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,106 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainValidationRecord where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainValidationRecord
+  ( LoadBalancerTLSCertificateDomainValidationRecord (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkLoadBalancerTLSCertificateDomainValidationRecord,
+
+    -- * Lenses
+    lbtcdvrValue,
+    lbtcdvrDomainName,
+    lbtcdvrName,
+    lbtcdvrValidationStatus,
+    lbtcdvrType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the validation record of each domain name in the SSL/TLS certificate.
 --
---
---
--- /See:/ 'loadBalancerTLSCertificateDomainValidationRecord' smart constructor.
+-- /See:/ 'mkLoadBalancerTLSCertificateDomainValidationRecord' smart constructor.
 data LoadBalancerTLSCertificateDomainValidationRecord = LoadBalancerTLSCertificateDomainValidationRecord'
-  { _lbtcdvrValue ::
-      !( Maybe
-           Text
-       ),
-    _lbtcdvrDomainName ::
-      !( Maybe
-           Text
-       ),
-    _lbtcdvrName ::
-      !( Maybe
-           Text
-       ),
-    _lbtcdvrValidationStatus ::
-      !( Maybe
-           LoadBalancerTLSCertificateDomainStatus
-       ),
-    _lbtcdvrType ::
-      !( Maybe
-           Text
-       )
+  { value ::
+      Lude.Maybe
+        Lude.Text,
+    domainName ::
+      Lude.Maybe
+        Lude.Text,
+    name ::
+      Lude.Maybe
+        Lude.Text,
+    validationStatus ::
+      Lude.Maybe
+        LoadBalancerTLSCertificateDomainStatus,
+    type' ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'LoadBalancerTLSCertificateDomainValidationRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcdvrValue' - The value for that type.
---
--- * 'lbtcdvrDomainName' - The domain name against which your SSL/TLS certificate was validated.
---
--- * 'lbtcdvrName' - A fully qualified domain name in the certificate. For example, @example.com@ .
---
--- * 'lbtcdvrValidationStatus' - The validation status. Valid values are listed below.
---
--- * 'lbtcdvrType' - The type of validation record. For example, @CNAME@ for domain validation.
-loadBalancerTLSCertificateDomainValidationRecord ::
+-- * 'domainName' - The domain name against which your SSL/TLS certificate was validated.
+-- * 'name' - A fully qualified domain name in the certificate. For example, @example.com@ .
+-- * 'type'' - The type of validation record. For example, @CNAME@ for domain validation.
+-- * 'validationStatus' - The validation status. Valid values are listed below.
+-- * 'value' - The value for that type.
+mkLoadBalancerTLSCertificateDomainValidationRecord ::
   LoadBalancerTLSCertificateDomainValidationRecord
-loadBalancerTLSCertificateDomainValidationRecord =
+mkLoadBalancerTLSCertificateDomainValidationRecord =
   LoadBalancerTLSCertificateDomainValidationRecord'
-    { _lbtcdvrValue =
-        Nothing,
-      _lbtcdvrDomainName = Nothing,
-      _lbtcdvrName = Nothing,
-      _lbtcdvrValidationStatus = Nothing,
-      _lbtcdvrType = Nothing
+    { value =
+        Lude.Nothing,
+      domainName = Lude.Nothing,
+      name = Lude.Nothing,
+      validationStatus = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The value for that type.
-lbtcdvrValue :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrValue = lens _lbtcdvrValue (\s a -> s {_lbtcdvrValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvrValue :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationRecord (Lude.Maybe Lude.Text)
+lbtcdvrValue = Lens.lens (value :: LoadBalancerTLSCertificateDomainValidationRecord -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: LoadBalancerTLSCertificateDomainValidationRecord)
+{-# DEPRECATED lbtcdvrValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The domain name against which your SSL/TLS certificate was validated.
-lbtcdvrDomainName :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrDomainName = lens _lbtcdvrDomainName (\s a -> s {_lbtcdvrDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvrDomainName :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationRecord (Lude.Maybe Lude.Text)
+lbtcdvrDomainName = Lens.lens (domainName :: LoadBalancerTLSCertificateDomainValidationRecord -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: LoadBalancerTLSCertificateDomainValidationRecord)
+{-# DEPRECATED lbtcdvrDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | A fully qualified domain name in the certificate. For example, @example.com@ .
-lbtcdvrName :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrName = lens _lbtcdvrName (\s a -> s {_lbtcdvrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvrName :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationRecord (Lude.Maybe Lude.Text)
+lbtcdvrName = Lens.lens (name :: LoadBalancerTLSCertificateDomainValidationRecord -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LoadBalancerTLSCertificateDomainValidationRecord)
+{-# DEPRECATED lbtcdvrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The validation status. Valid values are listed below.
-lbtcdvrValidationStatus :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe LoadBalancerTLSCertificateDomainStatus)
-lbtcdvrValidationStatus = lens _lbtcdvrValidationStatus (\s a -> s {_lbtcdvrValidationStatus = a})
+--
+-- /Note:/ Consider using 'validationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvrValidationStatus :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationRecord (Lude.Maybe LoadBalancerTLSCertificateDomainStatus)
+lbtcdvrValidationStatus = Lens.lens (validationStatus :: LoadBalancerTLSCertificateDomainValidationRecord -> Lude.Maybe LoadBalancerTLSCertificateDomainStatus) (\s a -> s {validationStatus = a} :: LoadBalancerTLSCertificateDomainValidationRecord)
+{-# DEPRECATED lbtcdvrValidationStatus "Use generic-lens or generic-optics with 'validationStatus' instead." #-}
 
 -- | The type of validation record. For example, @CNAME@ for domain validation.
-lbtcdvrType :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrType = lens _lbtcdvrType (\s a -> s {_lbtcdvrType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvrType :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationRecord (Lude.Maybe Lude.Text)
+lbtcdvrType = Lens.lens (type' :: LoadBalancerTLSCertificateDomainValidationRecord -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: LoadBalancerTLSCertificateDomainValidationRecord)
+{-# DEPRECATED lbtcdvrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON LoadBalancerTLSCertificateDomainValidationRecord where
+instance
+  Lude.FromJSON
+    LoadBalancerTLSCertificateDomainValidationRecord
+  where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoadBalancerTLSCertificateDomainValidationRecord"
       ( \x ->
           LoadBalancerTLSCertificateDomainValidationRecord'
-            <$> (x .:? "value")
-            <*> (x .:? "domainName")
-            <*> (x .:? "name")
-            <*> (x .:? "validationStatus")
-            <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "value")
+            Lude.<*> (x Lude..:? "domainName")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "validationStatus")
+            Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable LoadBalancerTLSCertificateDomainValidationRecord
-
-instance NFData LoadBalancerTLSCertificateDomainValidationRecord

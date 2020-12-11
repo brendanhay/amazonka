@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the description of an endpoint configuration created using the @CreateEndpointConfig@ API.
 module Network.AWS.SageMaker.DescribeEndpointConfig
-  ( -- * Creating a Request
-    describeEndpointConfig,
-    DescribeEndpointConfig,
+  ( -- * Creating a request
+    DescribeEndpointConfig (..),
+    mkDescribeEndpointConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     decEndpointConfigName,
 
-    -- * Destructuring the Response
-    describeEndpointConfigResponse,
-    DescribeEndpointConfigResponse,
+    -- * Destructuring the response
+    DescribeEndpointConfigResponse (..),
+    mkDescribeEndpointConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     decrsKMSKeyId,
     decrsDataCaptureConfig,
     decrsResponseStatus,
@@ -41,167 +36,194 @@ module Network.AWS.SageMaker.DescribeEndpointConfig
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeEndpointConfig' smart constructor.
+-- | /See:/ 'mkDescribeEndpointConfig' smart constructor.
 newtype DescribeEndpointConfig = DescribeEndpointConfig'
-  { _decEndpointConfigName ::
-      Text
+  { endpointConfigName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decEndpointConfigName' - The name of the endpoint configuration.
-describeEndpointConfig ::
-  -- | 'decEndpointConfigName'
-  Text ->
+-- * 'endpointConfigName' - The name of the endpoint configuration.
+mkDescribeEndpointConfig ::
+  -- | 'endpointConfigName'
+  Lude.Text ->
   DescribeEndpointConfig
-describeEndpointConfig pEndpointConfigName_ =
+mkDescribeEndpointConfig pEndpointConfigName_ =
   DescribeEndpointConfig'
-    { _decEndpointConfigName =
+    { endpointConfigName =
         pEndpointConfigName_
     }
 
 -- | The name of the endpoint configuration.
-decEndpointConfigName :: Lens' DescribeEndpointConfig Text
-decEndpointConfigName = lens _decEndpointConfigName (\s a -> s {_decEndpointConfigName = a})
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decEndpointConfigName :: Lens.Lens' DescribeEndpointConfig Lude.Text
+decEndpointConfigName = Lens.lens (endpointConfigName :: DescribeEndpointConfig -> Lude.Text) (\s a -> s {endpointConfigName = a} :: DescribeEndpointConfig)
+{-# DEPRECATED decEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
-instance AWSRequest DescribeEndpointConfig where
+instance Lude.AWSRequest DescribeEndpointConfig where
   type Rs DescribeEndpointConfig = DescribeEndpointConfigResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEndpointConfigResponse'
-            <$> (x .?> "KmsKeyId")
-            <*> (x .?> "DataCaptureConfig")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "EndpointConfigName")
-            <*> (x .:> "EndpointConfigArn")
-            <*> (x .:> "ProductionVariants")
-            <*> (x .:> "CreationTime")
+            Lude.<$> (x Lude..?> "KmsKeyId")
+            Lude.<*> (x Lude..?> "DataCaptureConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "EndpointConfigName")
+            Lude.<*> (x Lude..:> "EndpointConfigArn")
+            Lude.<*> (x Lude..:> "ProductionVariants")
+            Lude.<*> (x Lude..:> "CreationTime")
       )
 
-instance Hashable DescribeEndpointConfig
-
-instance NFData DescribeEndpointConfig
-
-instance ToHeaders DescribeEndpointConfig where
+instance Lude.ToHeaders DescribeEndpointConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeEndpointConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeEndpointConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEndpointConfig where
+instance Lude.ToJSON DescribeEndpointConfig where
   toJSON DescribeEndpointConfig' {..} =
-    object
-      (catMaybes [Just ("EndpointConfigName" .= _decEndpointConfigName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EndpointConfigName" Lude..= endpointConfigName)]
+      )
 
-instance ToPath DescribeEndpointConfig where
-  toPath = const "/"
+instance Lude.ToPath DescribeEndpointConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEndpointConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEndpointConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEndpointConfigResponse' smart constructor.
+-- | /See:/ 'mkDescribeEndpointConfigResponse' smart constructor.
 data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
-  { _decrsKMSKeyId ::
-      !(Maybe Text),
-    _decrsDataCaptureConfig ::
-      !(Maybe DataCaptureConfig),
-    _decrsResponseStatus :: !Int,
-    _decrsEndpointConfigName ::
-      !Text,
-    _decrsEndpointConfigARN ::
-      !Text,
-    _decrsProductionVariants ::
-      !(List1 ProductionVariant),
-    _decrsCreationTime :: !POSIX
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    dataCaptureConfig ::
+      Lude.Maybe DataCaptureConfig,
+    responseStatus :: Lude.Int,
+    endpointConfigName ::
+      Lude.Text,
+    endpointConfigARN ::
+      Lude.Text,
+    productionVariants ::
+      Lude.NonEmpty
+        ProductionVariant,
+    creationTime ::
+      Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decrsKMSKeyId' - AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
---
--- * 'decrsDataCaptureConfig' - Undocumented member.
---
--- * 'decrsResponseStatus' - -- | The response status code.
---
--- * 'decrsEndpointConfigName' - Name of the Amazon SageMaker endpoint configuration.
---
--- * 'decrsEndpointConfigARN' - The Amazon Resource Name (ARN) of the endpoint configuration.
---
--- * 'decrsProductionVariants' - An array of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
---
--- * 'decrsCreationTime' - A timestamp that shows when the endpoint configuration was created.
-describeEndpointConfigResponse ::
-  -- | 'decrsResponseStatus'
-  Int ->
-  -- | 'decrsEndpointConfigName'
-  Text ->
-  -- | 'decrsEndpointConfigARN'
-  Text ->
-  -- | 'decrsProductionVariants'
-  NonEmpty ProductionVariant ->
-  -- | 'decrsCreationTime'
-  UTCTime ->
+-- * 'creationTime' - A timestamp that shows when the endpoint configuration was created.
+-- * 'dataCaptureConfig' - Undocumented field.
+-- * 'endpointConfigARN' - The Amazon Resource Name (ARN) of the endpoint configuration.
+-- * 'endpointConfigName' - Name of the Amazon SageMaker endpoint configuration.
+-- * 'kmsKeyId' - AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
+-- * 'productionVariants' - An array of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
+-- * 'responseStatus' - The response status code.
+mkDescribeEndpointConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointConfigName'
+  Lude.Text ->
+  -- | 'endpointConfigARN'
+  Lude.Text ->
+  -- | 'productionVariants'
+  Lude.NonEmpty ProductionVariant ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
   DescribeEndpointConfigResponse
-describeEndpointConfigResponse
+mkDescribeEndpointConfigResponse
   pResponseStatus_
   pEndpointConfigName_
   pEndpointConfigARN_
   pProductionVariants_
   pCreationTime_ =
     DescribeEndpointConfigResponse'
-      { _decrsKMSKeyId = Nothing,
-        _decrsDataCaptureConfig = Nothing,
-        _decrsResponseStatus = pResponseStatus_,
-        _decrsEndpointConfigName = pEndpointConfigName_,
-        _decrsEndpointConfigARN = pEndpointConfigARN_,
-        _decrsProductionVariants = _List1 # pProductionVariants_,
-        _decrsCreationTime = _Time # pCreationTime_
+      { kmsKeyId = Lude.Nothing,
+        dataCaptureConfig = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        endpointConfigName = pEndpointConfigName_,
+        endpointConfigARN = pEndpointConfigARN_,
+        productionVariants = pProductionVariants_,
+        creationTime = pCreationTime_
       }
 
 -- | AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
-decrsKMSKeyId :: Lens' DescribeEndpointConfigResponse (Maybe Text)
-decrsKMSKeyId = lens _decrsKMSKeyId (\s a -> s {_decrsKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsKMSKeyId :: Lens.Lens' DescribeEndpointConfigResponse (Lude.Maybe Lude.Text)
+decrsKMSKeyId = Lens.lens (kmsKeyId :: DescribeEndpointConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | Undocumented member.
-decrsDataCaptureConfig :: Lens' DescribeEndpointConfigResponse (Maybe DataCaptureConfig)
-decrsDataCaptureConfig = lens _decrsDataCaptureConfig (\s a -> s {_decrsDataCaptureConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dataCaptureConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsDataCaptureConfig :: Lens.Lens' DescribeEndpointConfigResponse (Lude.Maybe DataCaptureConfig)
+decrsDataCaptureConfig = Lens.lens (dataCaptureConfig :: DescribeEndpointConfigResponse -> Lude.Maybe DataCaptureConfig) (\s a -> s {dataCaptureConfig = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsDataCaptureConfig "Use generic-lens or generic-optics with 'dataCaptureConfig' instead." #-}
 
--- | -- | The response status code.
-decrsResponseStatus :: Lens' DescribeEndpointConfigResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\s a -> s {_decrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsResponseStatus :: Lens.Lens' DescribeEndpointConfigResponse Lude.Int
+decrsResponseStatus = Lens.lens (responseStatus :: DescribeEndpointConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Name of the Amazon SageMaker endpoint configuration.
-decrsEndpointConfigName :: Lens' DescribeEndpointConfigResponse Text
-decrsEndpointConfigName = lens _decrsEndpointConfigName (\s a -> s {_decrsEndpointConfigName = a})
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsEndpointConfigName :: Lens.Lens' DescribeEndpointConfigResponse Lude.Text
+decrsEndpointConfigName = Lens.lens (endpointConfigName :: DescribeEndpointConfigResponse -> Lude.Text) (\s a -> s {endpointConfigName = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-decrsEndpointConfigARN :: Lens' DescribeEndpointConfigResponse Text
-decrsEndpointConfigARN = lens _decrsEndpointConfigARN (\s a -> s {_decrsEndpointConfigARN = a})
+--
+-- /Note:/ Consider using 'endpointConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsEndpointConfigARN :: Lens.Lens' DescribeEndpointConfigResponse Lude.Text
+decrsEndpointConfigARN = Lens.lens (endpointConfigARN :: DescribeEndpointConfigResponse -> Lude.Text) (\s a -> s {endpointConfigARN = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsEndpointConfigARN "Use generic-lens or generic-optics with 'endpointConfigARN' instead." #-}
 
 -- | An array of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
-decrsProductionVariants :: Lens' DescribeEndpointConfigResponse (NonEmpty ProductionVariant)
-decrsProductionVariants = lens _decrsProductionVariants (\s a -> s {_decrsProductionVariants = a}) . _List1
+--
+-- /Note:/ Consider using 'productionVariants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsProductionVariants :: Lens.Lens' DescribeEndpointConfigResponse (Lude.NonEmpty ProductionVariant)
+decrsProductionVariants = Lens.lens (productionVariants :: DescribeEndpointConfigResponse -> Lude.NonEmpty ProductionVariant) (\s a -> s {productionVariants = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsProductionVariants "Use generic-lens or generic-optics with 'productionVariants' instead." #-}
 
 -- | A timestamp that shows when the endpoint configuration was created.
-decrsCreationTime :: Lens' DescribeEndpointConfigResponse UTCTime
-decrsCreationTime = lens _decrsCreationTime (\s a -> s {_decrsCreationTime = a}) . _Time
-
-instance NFData DescribeEndpointConfigResponse
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsCreationTime :: Lens.Lens' DescribeEndpointConfigResponse Lude.Timestamp
+decrsCreationTime = Lens.lens (creationTime :: DescribeEndpointConfigResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeEndpointConfigResponse)
+{-# DEPRECATED decrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}

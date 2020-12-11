@@ -15,8 +15,8 @@
 --
 -- Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.
 module Network.AWS.Firehose
-  ( -- * Service Configuration
-    firehose,
+  ( -- * Service configuration
+    firehoseService,
 
     -- * Errors
     -- $errors
@@ -129,36 +129,36 @@ module Network.AWS.Firehose
     SplunkS3BackupMode (..),
 
     -- ** BufferingHints
-    BufferingHints,
-    bufferingHints,
+    BufferingHints (..),
+    mkBufferingHints,
     bhSizeInMBs,
     bhIntervalInSeconds,
 
     -- ** CloudWatchLoggingOptions
-    CloudWatchLoggingOptions,
-    cloudWatchLoggingOptions,
+    CloudWatchLoggingOptions (..),
+    mkCloudWatchLoggingOptions,
     cwloEnabled,
     cwloLogGroupName,
     cwloLogStreamName,
 
     -- ** CopyCommand
-    CopyCommand,
-    copyCommand,
+    CopyCommand (..),
+    mkCopyCommand,
     ccCopyOptions,
     ccDataTableColumns,
     ccDataTableName,
 
     -- ** DataFormatConversionConfiguration
-    DataFormatConversionConfiguration,
-    dataFormatConversionConfiguration,
+    DataFormatConversionConfiguration (..),
+    mkDataFormatConversionConfiguration,
     dfccOutputFormatConfiguration,
     dfccEnabled,
     dfccSchemaConfiguration,
     dfccInputFormatConfiguration,
 
     -- ** DeliveryStreamDescription
-    DeliveryStreamDescription,
-    deliveryStreamDescription,
+    DeliveryStreamDescription (..),
+    mkDeliveryStreamDescription,
     dsdFailureDescription,
     dsdDeliveryStreamEncryptionConfiguration,
     dsdCreateTimestamp,
@@ -173,28 +173,28 @@ module Network.AWS.Firehose
     dsdHasMoreDestinations,
 
     -- ** DeliveryStreamEncryptionConfiguration
-    DeliveryStreamEncryptionConfiguration,
-    deliveryStreamEncryptionConfiguration,
+    DeliveryStreamEncryptionConfiguration (..),
+    mkDeliveryStreamEncryptionConfiguration,
     dsecStatus,
     dsecKeyType,
     dsecKeyARN,
     dsecFailureDescription,
 
     -- ** DeliveryStreamEncryptionConfigurationInput
-    DeliveryStreamEncryptionConfigurationInput,
-    deliveryStreamEncryptionConfigurationInput,
+    DeliveryStreamEncryptionConfigurationInput (..),
+    mkDeliveryStreamEncryptionConfigurationInput,
     dseciKeyARN,
     dseciKeyType,
 
     -- ** Deserializer
-    Deserializer,
-    deserializer,
+    Deserializer (..),
+    mkDeserializer,
     dOpenXJSONSerDe,
     dHiveJSONSerDe,
 
     -- ** DestinationDescription
-    DestinationDescription,
-    destinationDescription,
+    DestinationDescription (..),
+    mkDestinationDescription,
     ddSplunkDestinationDescription,
     ddHTTPEndpointDestinationDescription,
     ddS3DestinationDescription,
@@ -204,14 +204,14 @@ module Network.AWS.Firehose
     ddDestinationId,
 
     -- ** ElasticsearchBufferingHints
-    ElasticsearchBufferingHints,
-    elasticsearchBufferingHints,
+    ElasticsearchBufferingHints (..),
+    mkElasticsearchBufferingHints,
     ebhSizeInMBs,
     ebhIntervalInSeconds,
 
     -- ** ElasticsearchDestinationConfiguration
-    ElasticsearchDestinationConfiguration,
-    elasticsearchDestinationConfiguration,
+    ElasticsearchDestinationConfiguration (..),
+    mkElasticsearchDestinationConfiguration,
     edcIndexRotationPeriod,
     edcTypeName,
     edcS3BackupMode,
@@ -227,8 +227,8 @@ module Network.AWS.Firehose
     edcS3Configuration,
 
     -- ** ElasticsearchDestinationDescription
-    ElasticsearchDestinationDescription,
-    elasticsearchDestinationDescription,
+    ElasticsearchDestinationDescription (..),
+    mkElasticsearchDestinationDescription,
     eddIndexRotationPeriod,
     eddTypeName,
     eddS3BackupMode,
@@ -244,8 +244,8 @@ module Network.AWS.Firehose
     eddIndexName,
 
     -- ** ElasticsearchDestinationUpdate
-    ElasticsearchDestinationUpdate,
-    elasticsearchDestinationUpdate,
+    ElasticsearchDestinationUpdate (..),
+    mkElasticsearchDestinationUpdate,
     eduIndexRotationPeriod,
     eduTypeName,
     eduDomainARN,
@@ -259,19 +259,19 @@ module Network.AWS.Firehose
     eduIndexName,
 
     -- ** ElasticsearchRetryOptions
-    ElasticsearchRetryOptions,
-    elasticsearchRetryOptions,
+    ElasticsearchRetryOptions (..),
+    mkElasticsearchRetryOptions,
     eroDurationInSeconds,
 
     -- ** EncryptionConfiguration
-    EncryptionConfiguration,
-    encryptionConfiguration,
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
     ecNoEncryptionConfig,
     ecKMSEncryptionConfig,
 
     -- ** ExtendedS3DestinationConfiguration
-    ExtendedS3DestinationConfiguration,
-    extendedS3DestinationConfiguration,
+    ExtendedS3DestinationConfiguration (..),
+    mkExtendedS3DestinationConfiguration,
     esdcS3BackupMode,
     esdcPrefix,
     esdcCloudWatchLoggingOptions,
@@ -286,8 +286,8 @@ module Network.AWS.Firehose
     esdcBucketARN,
 
     -- ** ExtendedS3DestinationDescription
-    ExtendedS3DestinationDescription,
-    extendedS3DestinationDescription,
+    ExtendedS3DestinationDescription (..),
+    mkExtendedS3DestinationDescription,
     esddS3BackupMode,
     esddS3BackupDescription,
     esddPrefix,
@@ -302,8 +302,8 @@ module Network.AWS.Firehose
     esddEncryptionConfiguration,
 
     -- ** ExtendedS3DestinationUpdate
-    ExtendedS3DestinationUpdate,
-    extendedS3DestinationUpdate,
+    ExtendedS3DestinationUpdate (..),
+    mkExtendedS3DestinationUpdate,
     esduS3BackupMode,
     esduPrefix,
     esduCloudWatchLoggingOptions,
@@ -318,39 +318,39 @@ module Network.AWS.Firehose
     esduRoleARN,
 
     -- ** FailureDescription
-    FailureDescription,
-    failureDescription,
+    FailureDescription (..),
+    mkFailureDescription,
     fdType,
     fdDetails,
 
     -- ** HTTPEndpointBufferingHints
-    HTTPEndpointBufferingHints,
-    hTTPEndpointBufferingHints,
+    HTTPEndpointBufferingHints (..),
+    mkHTTPEndpointBufferingHints,
     httpebhSizeInMBs,
     httpebhIntervalInSeconds,
 
     -- ** HTTPEndpointCommonAttribute
-    HTTPEndpointCommonAttribute,
-    hTTPEndpointCommonAttribute,
+    HTTPEndpointCommonAttribute (..),
+    mkHTTPEndpointCommonAttribute,
     httpecaAttributeName,
     httpecaAttributeValue,
 
     -- ** HTTPEndpointConfiguration
-    HTTPEndpointConfiguration,
-    hTTPEndpointConfiguration,
+    HTTPEndpointConfiguration (..),
+    mkHTTPEndpointConfiguration,
     httpecName,
     httpecAccessKey,
     httpecURL,
 
     -- ** HTTPEndpointDescription
-    HTTPEndpointDescription,
-    hTTPEndpointDescription,
+    HTTPEndpointDescription (..),
+    mkHTTPEndpointDescription,
     httpedURL,
     httpedName,
 
     -- ** HTTPEndpointDestinationConfiguration
-    HTTPEndpointDestinationConfiguration,
-    hTTPEndpointDestinationConfiguration,
+    HTTPEndpointDestinationConfiguration (..),
+    mkHTTPEndpointDestinationConfiguration,
     httpedcS3BackupMode,
     httpedcCloudWatchLoggingOptions,
     httpedcBufferingHints,
@@ -362,8 +362,8 @@ module Network.AWS.Firehose
     httpedcS3Configuration,
 
     -- ** HTTPEndpointDestinationDescription
-    HTTPEndpointDestinationDescription,
-    hTTPEndpointDestinationDescription,
+    HTTPEndpointDestinationDescription (..),
+    mkHTTPEndpointDestinationDescription,
     httpeddS3BackupMode,
     httpeddCloudWatchLoggingOptions,
     httpeddS3DestinationDescription,
@@ -375,8 +375,8 @@ module Network.AWS.Firehose
     httpeddRoleARN,
 
     -- ** HTTPEndpointDestinationUpdate
-    HTTPEndpointDestinationUpdate,
-    hTTPEndpointDestinationUpdate,
+    HTTPEndpointDestinationUpdate (..),
+    mkHTTPEndpointDestinationUpdate,
     httpeduS3BackupMode,
     httpeduCloudWatchLoggingOptions,
     httpeduS3Update,
@@ -388,54 +388,54 @@ module Network.AWS.Firehose
     httpeduRoleARN,
 
     -- ** HTTPEndpointRequestConfiguration
-    HTTPEndpointRequestConfiguration,
-    hTTPEndpointRequestConfiguration,
+    HTTPEndpointRequestConfiguration (..),
+    mkHTTPEndpointRequestConfiguration,
     httpercCommonAttributes,
     httpercContentEncoding,
 
     -- ** HTTPEndpointRetryOptions
-    HTTPEndpointRetryOptions,
-    hTTPEndpointRetryOptions,
+    HTTPEndpointRetryOptions (..),
+    mkHTTPEndpointRetryOptions,
     httperoDurationInSeconds,
 
     -- ** HiveJSONSerDe
-    HiveJSONSerDe,
-    hiveJSONSerDe,
+    HiveJSONSerDe (..),
+    mkHiveJSONSerDe,
     hjsdTimestampFormats,
 
     -- ** InputFormatConfiguration
-    InputFormatConfiguration,
-    inputFormatConfiguration,
+    InputFormatConfiguration (..),
+    mkInputFormatConfiguration,
     ifcDeserializer,
 
     -- ** KMSEncryptionConfig
-    KMSEncryptionConfig,
-    kmsEncryptionConfig,
+    KMSEncryptionConfig (..),
+    mkKMSEncryptionConfig,
     kecAWSKMSKeyARN,
 
     -- ** KinesisStreamSourceConfiguration
-    KinesisStreamSourceConfiguration,
-    kinesisStreamSourceConfiguration,
+    KinesisStreamSourceConfiguration (..),
+    mkKinesisStreamSourceConfiguration,
     ksscKinesisStreamARN,
     ksscRoleARN,
 
     -- ** KinesisStreamSourceDescription
-    KinesisStreamSourceDescription,
-    kinesisStreamSourceDescription,
+    KinesisStreamSourceDescription (..),
+    mkKinesisStreamSourceDescription,
     kssdDeliveryStartTimestamp,
     kssdKinesisStreamARN,
     kssdRoleARN,
 
     -- ** OpenXJSONSerDe
-    OpenXJSONSerDe,
-    openXJSONSerDe,
+    OpenXJSONSerDe (..),
+    mkOpenXJSONSerDe,
     oxjsdColumnToJSONKeyMappings,
     oxjsdCaseInsensitive,
     oxjsdConvertDotsInJSONKeysToUnderscores,
 
     -- ** OrcSerDe
-    OrcSerDe,
-    orcSerDe,
+    OrcSerDe (..),
+    mkOrcSerDe,
     osdBloomFilterFalsePositiveProbability,
     osdDictionaryKeyThreshold,
     osdEnablePadding,
@@ -448,13 +448,13 @@ module Network.AWS.Firehose
     osdPaddingTolerance,
 
     -- ** OutputFormatConfiguration
-    OutputFormatConfiguration,
-    outputFormatConfiguration,
+    OutputFormatConfiguration (..),
+    mkOutputFormatConfiguration,
     ofcSerializer,
 
     -- ** ParquetSerDe
-    ParquetSerDe,
-    parquetSerDe,
+    ParquetSerDe (..),
+    mkParquetSerDe,
     psdWriterVersion,
     psdCompression,
     psdMaxPaddingBytes,
@@ -463,38 +463,38 @@ module Network.AWS.Firehose
     psdBlockSizeBytes,
 
     -- ** ProcessingConfiguration
-    ProcessingConfiguration,
-    processingConfiguration,
+    ProcessingConfiguration (..),
+    mkProcessingConfiguration,
     pcEnabled,
     pcProcessors,
 
     -- ** Processor
-    Processor,
-    processor,
+    Processor (..),
+    mkProcessor,
     pParameters,
     pType,
 
     -- ** ProcessorParameter
-    ProcessorParameter,
-    processorParameter,
+    ProcessorParameter (..),
+    mkProcessorParameter,
     ppParameterName,
     ppParameterValue,
 
     -- ** PutRecordBatchResponseEntry
-    PutRecordBatchResponseEntry,
-    putRecordBatchResponseEntry,
+    PutRecordBatchResponseEntry (..),
+    mkPutRecordBatchResponseEntry,
     prbreRecordId,
     prbreErrorCode,
     prbreErrorMessage,
 
     -- ** Record
-    Record,
-    record,
+    Record (..),
+    mkRecord,
     rData,
 
     -- ** RedshiftDestinationConfiguration
-    RedshiftDestinationConfiguration,
-    redshiftDestinationConfiguration,
+    RedshiftDestinationConfiguration (..),
+    mkRedshiftDestinationConfiguration,
     rdcS3BackupMode,
     rdcCloudWatchLoggingOptions,
     rdcS3BackupConfiguration,
@@ -508,8 +508,8 @@ module Network.AWS.Firehose
     rdcS3Configuration,
 
     -- ** RedshiftDestinationDescription
-    RedshiftDestinationDescription,
-    redshiftDestinationDescription,
+    RedshiftDestinationDescription (..),
+    mkRedshiftDestinationDescription,
     rddS3BackupMode,
     rddS3BackupDescription,
     rddCloudWatchLoggingOptions,
@@ -522,8 +522,8 @@ module Network.AWS.Firehose
     rddS3DestinationDescription,
 
     -- ** RedshiftDestinationUpdate
-    RedshiftDestinationUpdate,
-    redshiftDestinationUpdate,
+    RedshiftDestinationUpdate (..),
+    mkRedshiftDestinationUpdate,
     rduS3BackupMode,
     rduCloudWatchLoggingOptions,
     rduUsername,
@@ -537,13 +537,13 @@ module Network.AWS.Firehose
     rduRoleARN,
 
     -- ** RedshiftRetryOptions
-    RedshiftRetryOptions,
-    redshiftRetryOptions,
+    RedshiftRetryOptions (..),
+    mkRedshiftRetryOptions,
     rroDurationInSeconds,
 
     -- ** S3DestinationConfiguration
-    S3DestinationConfiguration,
-    s3DestinationConfiguration,
+    S3DestinationConfiguration (..),
+    mkS3DestinationConfiguration,
     sdcPrefix,
     sdcCloudWatchLoggingOptions,
     sdcErrorOutputPrefix,
@@ -554,8 +554,8 @@ module Network.AWS.Firehose
     sdcBucketARN,
 
     -- ** S3DestinationDescription
-    S3DestinationDescription,
-    s3DestinationDescription,
+    S3DestinationDescription (..),
+    mkS3DestinationDescription,
     s3Prefix,
     s3CloudWatchLoggingOptions,
     s3ErrorOutputPrefix,
@@ -566,8 +566,8 @@ module Network.AWS.Firehose
     s3EncryptionConfiguration,
 
     -- ** S3DestinationUpdate
-    S3DestinationUpdate,
-    s3DestinationUpdate,
+    S3DestinationUpdate (..),
+    mkS3DestinationUpdate,
     sPrefix,
     sCloudWatchLoggingOptions,
     sErrorOutputPrefix,
@@ -578,8 +578,8 @@ module Network.AWS.Firehose
     sRoleARN,
 
     -- ** SchemaConfiguration
-    SchemaConfiguration,
-    schemaConfiguration,
+    SchemaConfiguration (..),
+    mkSchemaConfiguration,
     scVersionId,
     scCatalogId,
     scDatabaseName,
@@ -588,19 +588,19 @@ module Network.AWS.Firehose
     scRoleARN,
 
     -- ** Serializer
-    Serializer,
-    serializer,
+    Serializer (..),
+    mkSerializer,
     sOrcSerDe,
     sParquetSerDe,
 
     -- ** SourceDescription
-    SourceDescription,
-    sourceDescription,
+    SourceDescription (..),
+    mkSourceDescription,
     sdKinesisStreamSourceDescription,
 
     -- ** SplunkDestinationConfiguration
-    SplunkDestinationConfiguration,
-    splunkDestinationConfiguration,
+    SplunkDestinationConfiguration (..),
+    mkSplunkDestinationConfiguration,
     splS3BackupMode,
     splCloudWatchLoggingOptions,
     splHECAcknowledgmentTimeoutInSeconds,
@@ -612,8 +612,8 @@ module Network.AWS.Firehose
     splS3Configuration,
 
     -- ** SplunkDestinationDescription
-    SplunkDestinationDescription,
-    splunkDestinationDescription,
+    SplunkDestinationDescription (..),
+    mkSplunkDestinationDescription,
     sddS3BackupMode,
     sddHECToken,
     sddHECEndpointType,
@@ -625,8 +625,8 @@ module Network.AWS.Firehose
     sddProcessingConfiguration,
 
     -- ** SplunkDestinationUpdate
-    SplunkDestinationUpdate,
-    splunkDestinationUpdate,
+    SplunkDestinationUpdate (..),
+    mkSplunkDestinationUpdate,
     sduS3BackupMode,
     sduHECToken,
     sduHECEndpointType,
@@ -638,30 +638,41 @@ module Network.AWS.Firehose
     sduProcessingConfiguration,
 
     -- ** SplunkRetryOptions
-    SplunkRetryOptions,
-    splunkRetryOptions,
+    SplunkRetryOptions (..),
+    mkSplunkRetryOptions,
     sroDurationInSeconds,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** VPCConfiguration
-    VPCConfiguration,
-    vpcConfiguration,
+    VPCConfiguration (..),
+    mkVPCConfiguration,
     vcSubnetIds,
     vcRoleARN,
     vcSecurityGroupIds,
 
     -- ** VPCConfigurationDescription
-    VPCConfigurationDescription,
-    vpcConfigurationDescription,
+    VPCConfigurationDescription (..),
+    mkVPCConfigurationDescription,
     vcdSubnetIds,
     vcdRoleARN,
     vcdSecurityGroupIds,
     vcdVPCId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -679,6 +690,7 @@ import Network.AWS.Firehose.Types
 import Network.AWS.Firehose.UntagDeliveryStream
 import Network.AWS.Firehose.UpdateDestination
 import Network.AWS.Firehose.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

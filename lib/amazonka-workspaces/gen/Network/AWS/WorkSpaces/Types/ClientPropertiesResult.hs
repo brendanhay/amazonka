@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ClientPropertiesResult where
+module Network.AWS.WorkSpaces.Types.ClientPropertiesResult
+  ( ClientPropertiesResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClientPropertiesResult,
+
+    -- * Lenses
+    cprResourceId,
+    cprClientProperties,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.ClientProperties
 
 -- | Information about the Amazon WorkSpaces client.
 --
---
---
--- /See:/ 'clientPropertiesResult' smart constructor.
+-- /See:/ 'mkClientPropertiesResult' smart constructor.
 data ClientPropertiesResult = ClientPropertiesResult'
-  { _cprResourceId ::
-      !(Maybe Text),
-    _cprClientProperties ::
-      !(Maybe ClientProperties)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    clientProperties ::
+      Lude.Maybe ClientProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientPropertiesResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprResourceId' - The resource identifier, in the form of a directory ID.
---
--- * 'cprClientProperties' - Information about the Amazon WorkSpaces client.
-clientPropertiesResult ::
+-- * 'clientProperties' - Information about the Amazon WorkSpaces client.
+-- * 'resourceId' - The resource identifier, in the form of a directory ID.
+mkClientPropertiesResult ::
   ClientPropertiesResult
-clientPropertiesResult =
+mkClientPropertiesResult =
   ClientPropertiesResult'
-    { _cprResourceId = Nothing,
-      _cprClientProperties = Nothing
+    { resourceId = Lude.Nothing,
+      clientProperties = Lude.Nothing
     }
 
 -- | The resource identifier, in the form of a directory ID.
-cprResourceId :: Lens' ClientPropertiesResult (Maybe Text)
-cprResourceId = lens _cprResourceId (\s a -> s {_cprResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprResourceId :: Lens.Lens' ClientPropertiesResult (Lude.Maybe Lude.Text)
+cprResourceId = Lens.lens (resourceId :: ClientPropertiesResult -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ClientPropertiesResult)
+{-# DEPRECATED cprResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Information about the Amazon WorkSpaces client.
-cprClientProperties :: Lens' ClientPropertiesResult (Maybe ClientProperties)
-cprClientProperties = lens _cprClientProperties (\s a -> s {_cprClientProperties = a})
+--
+-- /Note:/ Consider using 'clientProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprClientProperties :: Lens.Lens' ClientPropertiesResult (Lude.Maybe ClientProperties)
+cprClientProperties = Lens.lens (clientProperties :: ClientPropertiesResult -> Lude.Maybe ClientProperties) (\s a -> s {clientProperties = a} :: ClientPropertiesResult)
+{-# DEPRECATED cprClientProperties "Use generic-lens or generic-optics with 'clientProperties' instead." #-}
 
-instance FromJSON ClientPropertiesResult where
+instance Lude.FromJSON ClientPropertiesResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "ClientPropertiesResult"
       ( \x ->
           ClientPropertiesResult'
-            <$> (x .:? "ResourceId") <*> (x .:? "ClientProperties")
+            Lude.<$> (x Lude..:? "ResourceId") Lude.<*> (x Lude..:? "ClientProperties")
       )
-
-instance Hashable ClientPropertiesResult
-
-instance NFData ClientPropertiesResult

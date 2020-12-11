@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Destination where
+module Network.AWS.IoT.Types.Destination
+  ( Destination (..),
+
+    -- * Smart constructor
+    mkDestination,
+
+    -- * Lenses
+    dS3Destination,
+  )
+where
 
 import Network.AWS.IoT.Types.S3Destination
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the location of the updated firmware.
 --
---
---
--- /See:/ 'destination' smart constructor.
+-- /See:/ 'mkDestination' smart constructor.
 newtype Destination = Destination'
-  { _dS3Destination ::
-      Maybe S3Destination
+  { s3Destination ::
+      Lude.Maybe S3Destination
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dS3Destination' - Describes the location in S3 of the updated firmware.
-destination ::
+-- * 's3Destination' - Describes the location in S3 of the updated firmware.
+mkDestination ::
   Destination
-destination = Destination' {_dS3Destination = Nothing}
+mkDestination = Destination' {s3Destination = Lude.Nothing}
 
 -- | Describes the location in S3 of the updated firmware.
-dS3Destination :: Lens' Destination (Maybe S3Destination)
-dS3Destination = lens _dS3Destination (\s a -> s {_dS3Destination = a})
+--
+-- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dS3Destination :: Lens.Lens' Destination (Lude.Maybe S3Destination)
+dS3Destination = Lens.lens (s3Destination :: Destination -> Lude.Maybe S3Destination) (\s a -> s {s3Destination = a} :: Destination)
+{-# DEPRECATED dS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
 
-instance FromJSON Destination where
+instance Lude.FromJSON Destination where
   parseJSON =
-    withObject
+    Lude.withObject
       "Destination"
-      (\x -> Destination' <$> (x .:? "s3Destination"))
+      (\x -> Destination' Lude.<$> (x Lude..:? "s3Destination"))
 
-instance Hashable Destination
-
-instance NFData Destination
-
-instance ToJSON Destination where
+instance Lude.ToJSON Destination where
   toJSON Destination' {..} =
-    object (catMaybes [("s3Destination" .=) <$> _dS3Destination])
+    Lude.object
+      (Lude.catMaybes [("s3Destination" Lude..=) Lude.<$> s3Destination])

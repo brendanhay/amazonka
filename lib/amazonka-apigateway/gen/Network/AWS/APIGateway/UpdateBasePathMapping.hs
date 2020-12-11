@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Changes information about the 'BasePathMapping' resource.
 module Network.AWS.APIGateway.UpdateBasePathMapping
-  ( -- * Creating a Request
-    updateBasePathMapping,
-    UpdateBasePathMapping,
+  ( -- * Creating a request
+    UpdateBasePathMapping (..),
+    mkUpdateBasePathMapping,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ubpmPatchOperations,
     ubpmDomainName,
     ubpmBasePath,
 
-    -- * Destructuring the Response
-    basePathMapping,
-    BasePathMapping,
+    -- * Destructuring the response
+    BasePathMapping (..),
+    mkBasePathMapping,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bpmStage,
     bpmBasePath,
     bpmRestAPIId,
@@ -40,84 +35,99 @@ module Network.AWS.APIGateway.UpdateBasePathMapping
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to change information about the 'BasePathMapping' resource.
 --
---
---
--- /See:/ 'updateBasePathMapping' smart constructor.
+-- /See:/ 'mkUpdateBasePathMapping' smart constructor.
 data UpdateBasePathMapping = UpdateBasePathMapping'
-  { _ubpmPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _ubpmDomainName :: !Text,
-    _ubpmBasePath :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    domainName :: Lude.Text,
+    basePath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBasePathMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'basePath' - [Required] The base path of the 'BasePathMapping' resource to change.
 --
--- * 'ubpmPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'ubpmDomainName' - [Required] The domain name of the 'BasePathMapping' resource to change.
---
--- * 'ubpmBasePath' - [Required] The base path of the 'BasePathMapping' resource to change. To specify an empty base path, set this parameter to @'(none)'@ .
-updateBasePathMapping ::
-  -- | 'ubpmDomainName'
-  Text ->
-  -- | 'ubpmBasePath'
-  Text ->
+-- To specify an empty base path, set this parameter to @'(none)'@ .
+-- * 'domainName' - [Required] The domain name of the 'BasePathMapping' resource to change.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+mkUpdateBasePathMapping ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'basePath'
+  Lude.Text ->
   UpdateBasePathMapping
-updateBasePathMapping pDomainName_ pBasePath_ =
+mkUpdateBasePathMapping pDomainName_ pBasePath_ =
   UpdateBasePathMapping'
-    { _ubpmPatchOperations = Nothing,
-      _ubpmDomainName = pDomainName_,
-      _ubpmBasePath = pBasePath_
+    { patchOperations = Lude.Nothing,
+      domainName = pDomainName_,
+      basePath = pBasePath_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-ubpmPatchOperations :: Lens' UpdateBasePathMapping [PatchOperation]
-ubpmPatchOperations = lens _ubpmPatchOperations (\s a -> s {_ubpmPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpmPatchOperations :: Lens.Lens' UpdateBasePathMapping (Lude.Maybe [PatchOperation])
+ubpmPatchOperations = Lens.lens (patchOperations :: UpdateBasePathMapping -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateBasePathMapping)
+{-# DEPRECATED ubpmPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The domain name of the 'BasePathMapping' resource to change.
-ubpmDomainName :: Lens' UpdateBasePathMapping Text
-ubpmDomainName = lens _ubpmDomainName (\s a -> s {_ubpmDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpmDomainName :: Lens.Lens' UpdateBasePathMapping Lude.Text
+ubpmDomainName = Lens.lens (domainName :: UpdateBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: UpdateBasePathMapping)
+{-# DEPRECATED ubpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
--- | [Required] The base path of the 'BasePathMapping' resource to change. To specify an empty base path, set this parameter to @'(none)'@ .
-ubpmBasePath :: Lens' UpdateBasePathMapping Text
-ubpmBasePath = lens _ubpmBasePath (\s a -> s {_ubpmBasePath = a})
+-- | [Required] The base path of the 'BasePathMapping' resource to change.
+--
+-- To specify an empty base path, set this parameter to @'(none)'@ .
+--
+-- /Note:/ Consider using 'basePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpmBasePath :: Lens.Lens' UpdateBasePathMapping Lude.Text
+ubpmBasePath = Lens.lens (basePath :: UpdateBasePathMapping -> Lude.Text) (\s a -> s {basePath = a} :: UpdateBasePathMapping)
+{-# DEPRECATED ubpmBasePath "Use generic-lens or generic-optics with 'basePath' instead." #-}
 
-instance AWSRequest UpdateBasePathMapping where
+instance Lude.AWSRequest UpdateBasePathMapping where
   type Rs UpdateBasePathMapping = BasePathMapping
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateBasePathMapping
-
-instance NFData UpdateBasePathMapping
-
-instance ToHeaders UpdateBasePathMapping where
+instance Lude.ToHeaders UpdateBasePathMapping where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateBasePathMapping where
+instance Lude.ToJSON UpdateBasePathMapping where
   toJSON UpdateBasePathMapping' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _ubpmPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateBasePathMapping where
+instance Lude.ToPath UpdateBasePathMapping where
   toPath UpdateBasePathMapping' {..} =
-    mconcat
+    Lude.mconcat
       [ "/domainnames/",
-        toBS _ubpmDomainName,
+        Lude.toBS domainName,
         "/basepathmappings/",
-        toBS _ubpmBasePath
+        Lude.toBS basePath
       ]
 
-instance ToQuery UpdateBasePathMapping where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateBasePathMapping where
+  toQuery = Lude.const Lude.mempty

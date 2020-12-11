@@ -19,6 +19,7 @@
 --
 --     * Agentless discovery gathers server information regardless of the operating systems, which minimizes the time required for initial on-premises infrastructure assessment.
 --
+--
 --     * Agentless discovery doesn't collect information about network dependencies, only agent-based discovery collects that information.
 --
 --
@@ -28,6 +29,7 @@
 --     * __Agent-based discovery__ collects a richer set of data than agentless discovery by using the AWS Application Discovery Agent, which you install on one or more hosts in your data center.
 --
 --     * The agent captures infrastructure and application information, including an inventory of running processes, system performance information, resource utilization, and network dependencies.
+--
 --
 --     * The information collected by agents is secured at rest and in transit to the Application Discovery Service database in the cloud.
 --
@@ -39,26 +41,21 @@
 --
 --     * Third-party application discovery tools can query AWS Application Discovery Service, and they can write to the Application Discovery Service database using the public API.
 --
+--
 --     * In this way, you can import data into Migration Hub and view it, so that you can associate applications with servers and track migrations.
 --
 --
 --
 --
---
 -- __Recommendations__
---
 -- We recommend that you use agent-based discovery for non-VMware environments, and whenever you want to collect information about network dependencies. You can run agent-based and agentless discovery simultaneously. Use agentless discovery to complete the initial infrastructure assessment quickly, and then install agents on select hosts to collect additional information.
---
 -- __Working With This Guide__
---
 -- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
---
 -- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/ AWS Application Discovery Service User Guide> .
---
 -- /Important:/ All data is handled according to the <http://aws.amazon.com/privacy/ AWS Privacy Policy> . You can operate Application Discovery Service offline to inspect collected data before it is shared with the service.
 module Network.AWS.Discovery
-  ( -- * Service Configuration
-    discovery,
+  ( -- * Service configuration
+    discoveryService,
 
     -- * Errors
     -- $errors
@@ -171,15 +168,15 @@ module Network.AWS.Discovery
     OrderString (..),
 
     -- ** AgentConfigurationStatus
-    AgentConfigurationStatus,
-    agentConfigurationStatus,
+    AgentConfigurationStatus (..),
+    mkAgentConfigurationStatus,
     acsAgentId,
     acsOperationSucceeded,
     acsDescription,
 
     -- ** AgentInfo
-    AgentInfo,
-    agentInfo,
+    AgentInfo (..),
+    mkAgentInfo,
     aiHostName,
     aiLastHealthPingTime,
     aiAgentNetworkInfoList,
@@ -192,21 +189,21 @@ module Network.AWS.Discovery
     aiAgentType,
 
     -- ** AgentNetworkInfo
-    AgentNetworkInfo,
-    agentNetworkInfo,
+    AgentNetworkInfo (..),
+    mkAgentNetworkInfo,
     aniIpAddress,
     aniMacAddress,
 
     -- ** BatchDeleteImportDataError
-    BatchDeleteImportDataError,
-    batchDeleteImportDataError,
+    BatchDeleteImportDataError (..),
+    mkBatchDeleteImportDataError,
     bdideImportTaskId,
     bdideErrorCode,
     bdideErrorDescription,
 
     -- ** ConfigurationTag
-    ConfigurationTag,
-    configurationTag,
+    ConfigurationTag (..),
+    mkConfigurationTag,
     ctTimeOfCreation,
     ctConfigurationId,
     ctConfigurationType,
@@ -214,8 +211,8 @@ module Network.AWS.Discovery
     ctKey,
 
     -- ** ContinuousExportDescription
-    ContinuousExportDescription,
-    continuousExportDescription,
+    ContinuousExportDescription (..),
+    mkContinuousExportDescription,
     cedStatus,
     cedStartTime,
     cedSchemaStorageConfig,
@@ -226,8 +223,8 @@ module Network.AWS.Discovery
     cedExportId,
 
     -- ** CustomerAgentInfo
-    CustomerAgentInfo,
-    customerAgentInfo,
+    CustomerAgentInfo (..),
+    mkCustomerAgentInfo,
     caiActiveAgents,
     caiHealthyAgents,
     caiBlackListedAgents,
@@ -237,8 +234,8 @@ module Network.AWS.Discovery
     caiUnknownAgents,
 
     -- ** CustomerConnectorInfo
-    CustomerConnectorInfo,
-    customerConnectorInfo,
+    CustomerConnectorInfo (..),
+    mkCustomerConnectorInfo,
     cciActiveConnectors,
     cciHealthyConnectors,
     cciBlackListedConnectors,
@@ -248,15 +245,15 @@ module Network.AWS.Discovery
     cciUnknownConnectors,
 
     -- ** ExportFilter
-    ExportFilter,
-    exportFilter,
+    ExportFilter (..),
+    mkExportFilter,
     efName,
     efValues,
     efCondition,
 
     -- ** ExportInfo
-    ExportInfo,
-    exportInfo,
+    ExportInfo (..),
+    mkExportInfo,
     eiConfigurationsDownloadURL,
     eiRequestedStartTime,
     eiRequestedEndTime,
@@ -267,15 +264,15 @@ module Network.AWS.Discovery
     eiExportRequestTime,
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fName,
     fValues,
     fCondition,
 
     -- ** ImportTask
-    ImportTask,
-    importTask,
+    ImportTask (..),
+    mkImportTask,
     itApplicationImportSuccess,
     itStatus,
     itServerImportSuccess,
@@ -291,14 +288,14 @@ module Network.AWS.Discovery
     itImportRequestTime,
 
     -- ** ImportTaskFilter
-    ImportTaskFilter,
-    importTaskFilter,
+    ImportTaskFilter (..),
+    mkImportTaskFilter,
     itfValues,
     itfName,
 
     -- ** NeighborConnectionDetail
-    NeighborConnectionDetail,
-    neighborConnectionDetail,
+    NeighborConnectionDetail (..),
+    mkNeighborConnectionDetail,
     ncdTransportProtocol,
     ncdDestinationPort,
     ncdSourceServerId,
@@ -306,22 +303,33 @@ module Network.AWS.Discovery
     ncdConnectionsCount,
 
     -- ** OrderByElement
-    OrderByElement,
-    orderByElement,
+    OrderByElement (..),
+    mkOrderByElement,
     obeSortOrder,
     obeFieldName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TagFilter
-    TagFilter,
-    tagFilter,
+    TagFilter (..),
+    mkTagFilter,
     tfName,
     tfValues,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -350,6 +358,7 @@ import Network.AWS.Discovery.StopDataCollectionByAgentIds
 import Network.AWS.Discovery.Types
 import Network.AWS.Discovery.UpdateApplication
 import Network.AWS.Discovery.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

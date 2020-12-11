@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,135 @@
 --
 -- Replaces the current rules of the specified IP access control group with the specified rules.
 module Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
-  ( -- * Creating a Request
-    updateRulesOfIPGroup,
-    UpdateRulesOfIPGroup,
+  ( -- * Creating a request
+    UpdateRulesOfIPGroup (..),
+    mkUpdateRulesOfIPGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uroigGroupId,
     uroigUserRules,
 
-    -- * Destructuring the Response
-    updateRulesOfIPGroupResponse,
-    UpdateRulesOfIPGroupResponse,
+    -- * Destructuring the response
+    UpdateRulesOfIPGroupResponse (..),
+    mkUpdateRulesOfIPGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uroigrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'updateRulesOfIPGroup' smart constructor.
+-- | /See:/ 'mkUpdateRulesOfIPGroup' smart constructor.
 data UpdateRulesOfIPGroup = UpdateRulesOfIPGroup'
-  { _uroigGroupId ::
-      !Text,
-    _uroigUserRules :: ![IPRuleItem]
+  { groupId ::
+      Lude.Text,
+    userRules :: [IPRuleItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRulesOfIPGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uroigGroupId' - The identifier of the group.
---
--- * 'uroigUserRules' - One or more rules.
-updateRulesOfIPGroup ::
-  -- | 'uroigGroupId'
-  Text ->
+-- * 'groupId' - The identifier of the group.
+-- * 'userRules' - One or more rules.
+mkUpdateRulesOfIPGroup ::
+  -- | 'groupId'
+  Lude.Text ->
   UpdateRulesOfIPGroup
-updateRulesOfIPGroup pGroupId_ =
+mkUpdateRulesOfIPGroup pGroupId_ =
   UpdateRulesOfIPGroup'
-    { _uroigGroupId = pGroupId_,
-      _uroigUserRules = mempty
+    { groupId = pGroupId_,
+      userRules = Lude.mempty
     }
 
 -- | The identifier of the group.
-uroigGroupId :: Lens' UpdateRulesOfIPGroup Text
-uroigGroupId = lens _uroigGroupId (\s a -> s {_uroigGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uroigGroupId :: Lens.Lens' UpdateRulesOfIPGroup Lude.Text
+uroigGroupId = Lens.lens (groupId :: UpdateRulesOfIPGroup -> Lude.Text) (\s a -> s {groupId = a} :: UpdateRulesOfIPGroup)
+{-# DEPRECATED uroigGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | One or more rules.
-uroigUserRules :: Lens' UpdateRulesOfIPGroup [IPRuleItem]
-uroigUserRules = lens _uroigUserRules (\s a -> s {_uroigUserRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'userRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uroigUserRules :: Lens.Lens' UpdateRulesOfIPGroup [IPRuleItem]
+uroigUserRules = Lens.lens (userRules :: UpdateRulesOfIPGroup -> [IPRuleItem]) (\s a -> s {userRules = a} :: UpdateRulesOfIPGroup)
+{-# DEPRECATED uroigUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
 
-instance AWSRequest UpdateRulesOfIPGroup where
+instance Lude.AWSRequest UpdateRulesOfIPGroup where
   type Rs UpdateRulesOfIPGroup = UpdateRulesOfIPGroupResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> UpdateRulesOfIPGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateRulesOfIPGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateRulesOfIPGroup
-
-instance NFData UpdateRulesOfIPGroup
-
-instance ToHeaders UpdateRulesOfIPGroup where
+instance Lude.ToHeaders UpdateRulesOfIPGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.UpdateRulesOfIpGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.UpdateRulesOfIpGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRulesOfIPGroup where
+instance Lude.ToJSON UpdateRulesOfIPGroup where
   toJSON UpdateRulesOfIPGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("GroupId" .= _uroigGroupId),
-            Just ("UserRules" .= _uroigUserRules)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GroupId" Lude..= groupId),
+            Lude.Just ("UserRules" Lude..= userRules)
           ]
       )
 
-instance ToPath UpdateRulesOfIPGroup where
-  toPath = const "/"
+instance Lude.ToPath UpdateRulesOfIPGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRulesOfIPGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRulesOfIPGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRulesOfIPGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateRulesOfIPGroupResponse' smart constructor.
 newtype UpdateRulesOfIPGroupResponse = UpdateRulesOfIPGroupResponse'
-  { _uroigrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRulesOfIPGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uroigrsResponseStatus' - -- | The response status code.
-updateRulesOfIPGroupResponse ::
-  -- | 'uroigrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateRulesOfIPGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRulesOfIPGroupResponse
-updateRulesOfIPGroupResponse pResponseStatus_ =
-  UpdateRulesOfIPGroupResponse'
-    { _uroigrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateRulesOfIPGroupResponse pResponseStatus_ =
+  UpdateRulesOfIPGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uroigrsResponseStatus :: Lens' UpdateRulesOfIPGroupResponse Int
-uroigrsResponseStatus = lens _uroigrsResponseStatus (\s a -> s {_uroigrsResponseStatus = a})
-
-instance NFData UpdateRulesOfIPGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uroigrsResponseStatus :: Lens.Lens' UpdateRulesOfIPGroupResponse Lude.Int
+uroigrsResponseStatus = Lens.lens (responseStatus :: UpdateRulesOfIPGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRulesOfIPGroupResponse)
+{-# DEPRECATED uroigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

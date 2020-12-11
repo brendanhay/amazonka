@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.
 module Network.AWS.CloudWatchEvents.CreateArchive
-  ( -- * Creating a Request
-    createArchive,
-    CreateArchive,
+  ( -- * Creating a request
+    CreateArchive (..),
+    mkCreateArchive,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caEventPattern,
     caRetentionDays,
     caDescription,
     caArchiveName,
     caEventSourceARN,
 
-    -- * Destructuring the Response
-    createArchiveResponse,
-    CreateArchiveResponse,
+    -- * Destructuring the response
+    CreateArchiveResponse (..),
+    mkCreateArchiveResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsCreationTime,
     carsState,
     carsArchiveARN,
@@ -44,170 +39,198 @@ module Network.AWS.CloudWatchEvents.CreateArchive
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createArchive' smart constructor.
+-- | /See:/ 'mkCreateArchive' smart constructor.
 data CreateArchive = CreateArchive'
-  { _caEventPattern ::
-      !(Maybe Text),
-    _caRetentionDays :: !(Maybe Nat),
-    _caDescription :: !(Maybe Text),
-    _caArchiveName :: !Text,
-    _caEventSourceARN :: !Text
+  { eventPattern ::
+      Lude.Maybe Lude.Text,
+    retentionDays :: Lude.Maybe Lude.Natural,
+    description :: Lude.Maybe Lude.Text,
+    archiveName :: Lude.Text,
+    eventSourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateArchive' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caEventPattern' - An event pattern to use to filter events sent to the archive.
---
--- * 'caRetentionDays' - The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
---
--- * 'caDescription' - A description for the archive.
---
--- * 'caArchiveName' - The name for the archive to create.
---
--- * 'caEventSourceARN' - The ARN of the event source associated with the archive.
-createArchive ::
-  -- | 'caArchiveName'
-  Text ->
-  -- | 'caEventSourceARN'
-  Text ->
+-- * 'archiveName' - The name for the archive to create.
+-- * 'description' - A description for the archive.
+-- * 'eventPattern' - An event pattern to use to filter events sent to the archive.
+-- * 'eventSourceARN' - The ARN of the event source associated with the archive.
+-- * 'retentionDays' - The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+mkCreateArchive ::
+  -- | 'archiveName'
+  Lude.Text ->
+  -- | 'eventSourceARN'
+  Lude.Text ->
   CreateArchive
-createArchive pArchiveName_ pEventSourceARN_ =
+mkCreateArchive pArchiveName_ pEventSourceARN_ =
   CreateArchive'
-    { _caEventPattern = Nothing,
-      _caRetentionDays = Nothing,
-      _caDescription = Nothing,
-      _caArchiveName = pArchiveName_,
-      _caEventSourceARN = pEventSourceARN_
+    { eventPattern = Lude.Nothing,
+      retentionDays = Lude.Nothing,
+      description = Lude.Nothing,
+      archiveName = pArchiveName_,
+      eventSourceARN = pEventSourceARN_
     }
 
 -- | An event pattern to use to filter events sent to the archive.
-caEventPattern :: Lens' CreateArchive (Maybe Text)
-caEventPattern = lens _caEventPattern (\s a -> s {_caEventPattern = a})
+--
+-- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caEventPattern :: Lens.Lens' CreateArchive (Lude.Maybe Lude.Text)
+caEventPattern = Lens.lens (eventPattern :: CreateArchive -> Lude.Maybe Lude.Text) (\s a -> s {eventPattern = a} :: CreateArchive)
+{-# DEPRECATED caEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
 
 -- | The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
-caRetentionDays :: Lens' CreateArchive (Maybe Natural)
-caRetentionDays = lens _caRetentionDays (\s a -> s {_caRetentionDays = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'retentionDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRetentionDays :: Lens.Lens' CreateArchive (Lude.Maybe Lude.Natural)
+caRetentionDays = Lens.lens (retentionDays :: CreateArchive -> Lude.Maybe Lude.Natural) (\s a -> s {retentionDays = a} :: CreateArchive)
+{-# DEPRECATED caRetentionDays "Use generic-lens or generic-optics with 'retentionDays' instead." #-}
 
 -- | A description for the archive.
-caDescription :: Lens' CreateArchive (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateArchive (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateArchive -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateArchive)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name for the archive to create.
-caArchiveName :: Lens' CreateArchive Text
-caArchiveName = lens _caArchiveName (\s a -> s {_caArchiveName = a})
+--
+-- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caArchiveName :: Lens.Lens' CreateArchive Lude.Text
+caArchiveName = Lens.lens (archiveName :: CreateArchive -> Lude.Text) (\s a -> s {archiveName = a} :: CreateArchive)
+{-# DEPRECATED caArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
 -- | The ARN of the event source associated with the archive.
-caEventSourceARN :: Lens' CreateArchive Text
-caEventSourceARN = lens _caEventSourceARN (\s a -> s {_caEventSourceARN = a})
+--
+-- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caEventSourceARN :: Lens.Lens' CreateArchive Lude.Text
+caEventSourceARN = Lens.lens (eventSourceARN :: CreateArchive -> Lude.Text) (\s a -> s {eventSourceARN = a} :: CreateArchive)
+{-# DEPRECATED caEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
 
-instance AWSRequest CreateArchive where
+instance Lude.AWSRequest CreateArchive where
   type Rs CreateArchive = CreateArchiveResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateArchiveResponse'
-            <$> (x .?> "CreationTime")
-            <*> (x .?> "State")
-            <*> (x .?> "ArchiveArn")
-            <*> (x .?> "StateReason")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreationTime")
+            Lude.<*> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "ArchiveArn")
+            Lude.<*> (x Lude..?> "StateReason")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateArchive
-
-instance NFData CreateArchive
-
-instance ToHeaders CreateArchive where
+instance Lude.ToHeaders CreateArchive where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.CreateArchive" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.CreateArchive" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateArchive where
+instance Lude.ToJSON CreateArchive where
   toJSON CreateArchive' {..} =
-    object
-      ( catMaybes
-          [ ("EventPattern" .=) <$> _caEventPattern,
-            ("RetentionDays" .=) <$> _caRetentionDays,
-            ("Description" .=) <$> _caDescription,
-            Just ("ArchiveName" .= _caArchiveName),
-            Just ("EventSourceArn" .= _caEventSourceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventPattern" Lude..=) Lude.<$> eventPattern,
+            ("RetentionDays" Lude..=) Lude.<$> retentionDays,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("ArchiveName" Lude..= archiveName),
+            Lude.Just ("EventSourceArn" Lude..= eventSourceARN)
           ]
       )
 
-instance ToPath CreateArchive where
-  toPath = const "/"
+instance Lude.ToPath CreateArchive where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateArchive where
-  toQuery = const mempty
+instance Lude.ToQuery CreateArchive where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createArchiveResponse' smart constructor.
+-- | /See:/ 'mkCreateArchiveResponse' smart constructor.
 data CreateArchiveResponse = CreateArchiveResponse'
-  { _carsCreationTime ::
-      !(Maybe POSIX),
-    _carsState :: !(Maybe ArchiveState),
-    _carsArchiveARN :: !(Maybe Text),
-    _carsStateReason :: !(Maybe Text),
-    _carsResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    state :: Lude.Maybe ArchiveState,
+    archiveARN :: Lude.Maybe Lude.Text,
+    stateReason :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateArchiveResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsCreationTime' - The time at which the archive was created.
---
--- * 'carsState' - The state of the archive that was created.
---
--- * 'carsArchiveARN' - The ARN of the archive that was created.
---
--- * 'carsStateReason' - The reason that the archive is in the state.
---
--- * 'carsResponseStatus' - -- | The response status code.
-createArchiveResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'archiveARN' - The ARN of the archive that was created.
+-- * 'creationTime' - The time at which the archive was created.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The state of the archive that was created.
+-- * 'stateReason' - The reason that the archive is in the state.
+mkCreateArchiveResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateArchiveResponse
-createArchiveResponse pResponseStatus_ =
+mkCreateArchiveResponse pResponseStatus_ =
   CreateArchiveResponse'
-    { _carsCreationTime = Nothing,
-      _carsState = Nothing,
-      _carsArchiveARN = Nothing,
-      _carsStateReason = Nothing,
-      _carsResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      state = Lude.Nothing,
+      archiveARN = Lude.Nothing,
+      stateReason = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time at which the archive was created.
-carsCreationTime :: Lens' CreateArchiveResponse (Maybe UTCTime)
-carsCreationTime = lens _carsCreationTime (\s a -> s {_carsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsCreationTime :: Lens.Lens' CreateArchiveResponse (Lude.Maybe Lude.Timestamp)
+carsCreationTime = Lens.lens (creationTime :: CreateArchiveResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: CreateArchiveResponse)
+{-# DEPRECATED carsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the archive that was created.
-carsState :: Lens' CreateArchiveResponse (Maybe ArchiveState)
-carsState = lens _carsState (\s a -> s {_carsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsState :: Lens.Lens' CreateArchiveResponse (Lude.Maybe ArchiveState)
+carsState = Lens.lens (state :: CreateArchiveResponse -> Lude.Maybe ArchiveState) (\s a -> s {state = a} :: CreateArchiveResponse)
+{-# DEPRECATED carsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ARN of the archive that was created.
-carsArchiveARN :: Lens' CreateArchiveResponse (Maybe Text)
-carsArchiveARN = lens _carsArchiveARN (\s a -> s {_carsArchiveARN = a})
+--
+-- /Note:/ Consider using 'archiveARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsArchiveARN :: Lens.Lens' CreateArchiveResponse (Lude.Maybe Lude.Text)
+carsArchiveARN = Lens.lens (archiveARN :: CreateArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {archiveARN = a} :: CreateArchiveResponse)
+{-# DEPRECATED carsArchiveARN "Use generic-lens or generic-optics with 'archiveARN' instead." #-}
 
 -- | The reason that the archive is in the state.
-carsStateReason :: Lens' CreateArchiveResponse (Maybe Text)
-carsStateReason = lens _carsStateReason (\s a -> s {_carsStateReason = a})
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsStateReason :: Lens.Lens' CreateArchiveResponse (Lude.Maybe Lude.Text)
+carsStateReason = Lens.lens (stateReason :: CreateArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: CreateArchiveResponse)
+{-# DEPRECATED carsStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateArchiveResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateArchiveResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateArchiveResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateArchiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateArchiveResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

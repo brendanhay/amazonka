@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types
-  ( -- * Service Configuration
-    deviceFarm,
+  ( -- * Service configuration
+    deviceFarmService,
 
     -- * Errors
 
@@ -100,8 +98,8 @@ module Network.AWS.DeviceFarm.Types
     UploadType (..),
 
     -- * AccountSettings
-    AccountSettings,
-    accountSettings,
+    AccountSettings (..),
+    mkAccountSettings,
     asSkipAppResign,
     asAwsAccountNumber,
     asMaxJobTimeoutMinutes,
@@ -112,8 +110,8 @@ module Network.AWS.DeviceFarm.Types
     asDefaultJobTimeoutMinutes,
 
     -- * Artifact
-    Artifact,
-    artifact,
+    Artifact (..),
+    mkArtifact,
     aArn,
     aUrl,
     aExtension,
@@ -121,15 +119,15 @@ module Network.AWS.DeviceFarm.Types
     aType,
 
     -- * CPU
-    CPU,
-    cpu,
+    CPU (..),
+    mkCPU,
     cpuFrequency,
     cpuClock,
     cpuArchitecture,
 
     -- * Counters
-    Counters,
-    counters,
+    Counters (..),
+    mkCounters,
     cPassed,
     cSkipped,
     cWarned,
@@ -139,21 +137,21 @@ module Network.AWS.DeviceFarm.Types
     cErrored,
 
     -- * CreateRemoteAccessSessionConfiguration
-    CreateRemoteAccessSessionConfiguration,
-    createRemoteAccessSessionConfiguration,
+    CreateRemoteAccessSessionConfiguration (..),
+    mkCreateRemoteAccessSessionConfiguration,
     crascBillingMethod,
     crascVpceConfigurationARNs,
 
     -- * CustomerArtifactPaths
-    CustomerArtifactPaths,
-    customerArtifactPaths,
+    CustomerArtifactPaths (..),
+    mkCustomerArtifactPaths,
     capAndroidPaths,
     capDeviceHostPaths,
     capIosPaths,
 
     -- * Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dCarrier,
     dImage,
     dManufacturer,
@@ -177,15 +175,15 @@ module Network.AWS.DeviceFarm.Types
     dFleetName,
 
     -- * DeviceFilter
-    DeviceFilter,
-    deviceFilter,
+    DeviceFilter (..),
+    mkDeviceFilter,
     dfAttribute,
     dfOperator,
     dfValues,
 
     -- * DeviceInstance
-    DeviceInstance,
-    deviceInstance,
+    DeviceInstance (..),
+    mkDeviceInstance,
     diStatus,
     diUdid,
     diInstanceProfile,
@@ -194,15 +192,15 @@ module Network.AWS.DeviceFarm.Types
     diLabels,
 
     -- * DeviceMinutes
-    DeviceMinutes,
-    deviceMinutes,
+    DeviceMinutes (..),
+    mkDeviceMinutes,
     dmMetered,
     dmTotal,
     dmUnmetered,
 
     -- * DevicePool
-    DevicePool,
-    devicePool,
+    DevicePool (..),
+    mkDevicePool,
     devArn,
     devRules,
     devName,
@@ -211,28 +209,28 @@ module Network.AWS.DeviceFarm.Types
     devDescription,
 
     -- * DevicePoolCompatibilityResult
-    DevicePoolCompatibilityResult,
-    devicePoolCompatibilityResult,
+    DevicePoolCompatibilityResult (..),
+    mkDevicePoolCompatibilityResult,
     dpcrDevice,
     dpcrCompatible,
     dpcrIncompatibilityMessages,
 
     -- * DeviceSelectionConfiguration
-    DeviceSelectionConfiguration,
-    deviceSelectionConfiguration,
+    DeviceSelectionConfiguration (..),
+    mkDeviceSelectionConfiguration,
     dscFilters,
     dscMaxDevices,
 
     -- * DeviceSelectionResult
-    DeviceSelectionResult,
-    deviceSelectionResult,
+    DeviceSelectionResult (..),
+    mkDeviceSelectionResult,
     dsrMatchedDevicesCount,
     dsrFilters,
     dsrMaxDevices,
 
     -- * ExecutionConfiguration
-    ExecutionConfiguration,
-    executionConfiguration,
+    ExecutionConfiguration (..),
+    mkExecutionConfiguration,
     ecSkipAppResign,
     ecAccountsCleanup,
     ecAppPackagesCleanup,
@@ -240,14 +238,14 @@ module Network.AWS.DeviceFarm.Types
     ecVideoCapture,
 
     -- * IncompatibilityMessage
-    IncompatibilityMessage,
-    incompatibilityMessage,
+    IncompatibilityMessage (..),
+    mkIncompatibilityMessage,
     imType,
     imMessage,
 
     -- * InstanceProfile
-    InstanceProfile,
-    instanceProfile,
+    InstanceProfile (..),
+    mkInstanceProfile,
     ipArn,
     ipRebootAfterUse,
     ipName,
@@ -256,39 +254,39 @@ module Network.AWS.DeviceFarm.Types
     ipDescription,
 
     -- * Job
-    Job,
-    job,
-    jobInstanceARN,
-    jobStatus,
-    jobCounters,
-    jobArn,
-    jobCreated,
-    jobDevice,
-    jobStopped,
-    jobResult,
-    jobName,
-    jobVideoEndpoint,
-    jobDeviceMinutes,
-    jobVideoCapture,
-    jobType,
-    jobMessage,
-    jobStarted,
+    Job (..),
+    mkJob,
+    jInstanceARN,
+    jStatus,
+    jCounters,
+    jArn,
+    jCreated,
+    jDevice,
+    jStopped,
+    jResult,
+    jName,
+    jVideoEndpoint,
+    jDeviceMinutes,
+    jVideoCapture,
+    jType,
+    jMessage,
+    jStarted,
 
     -- * Location
-    Location,
-    location,
+    Location (..),
+    mkLocation,
     lLatitude,
     lLongitude,
 
     -- * MonetaryAmount
-    MonetaryAmount,
-    monetaryAmount,
+    MonetaryAmount (..),
+    mkMonetaryAmount,
     maAmount,
     maCurrencyCode,
 
     -- * NetworkProfile
-    NetworkProfile,
-    networkProfile,
+    NetworkProfile (..),
+    mkNetworkProfile,
     npUplinkJitterMs,
     npArn,
     npUplinkLossPercent,
@@ -303,8 +301,8 @@ module Network.AWS.DeviceFarm.Types
     npDownlinkBandwidthBits,
 
     -- * Offering
-    Offering,
-    offering,
+    Offering (..),
+    mkOffering,
     oPlatform,
     oId,
     oRecurringCharges,
@@ -312,22 +310,22 @@ module Network.AWS.DeviceFarm.Types
     oDescription,
 
     -- * OfferingPromotion
-    OfferingPromotion,
-    offeringPromotion,
+    OfferingPromotion (..),
+    mkOfferingPromotion,
     opId,
     opDescription,
 
     -- * OfferingStatus
-    OfferingStatus,
-    offeringStatus,
+    OfferingStatus (..),
+    mkOfferingStatus,
     osEffectiveOn,
     osOffering,
     osQuantity,
     osType,
 
     -- * OfferingTransaction
-    OfferingTransaction,
-    offeringTransaction,
+    OfferingTransaction (..),
+    mkOfferingTransaction,
     otOfferingStatus,
     otCost,
     otTransactionId,
@@ -335,8 +333,8 @@ module Network.AWS.DeviceFarm.Types
     otCreatedOn,
 
     -- * Problem
-    Problem,
-    problem,
+    Problem (..),
+    mkProblem,
     pDevice,
     pTest,
     pResult,
@@ -346,36 +344,36 @@ module Network.AWS.DeviceFarm.Types
     pSuite,
 
     -- * ProblemDetail
-    ProblemDetail,
-    problemDetail,
+    ProblemDetail (..),
+    mkProblemDetail,
     pdArn,
     pdName,
 
     -- * Project
-    Project,
-    project,
+    Project (..),
+    mkProject,
     pArn,
     pCreated,
     pName,
     pDefaultJobTimeoutMinutes,
 
     -- * Radios
-    Radios,
-    radios,
+    Radios (..),
+    mkRadios,
     rNfc,
     rGps,
     rBluetooth,
     rWifi,
 
     -- * RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcFrequency,
     rcCost,
 
     -- * RemoteAccessSession
-    RemoteAccessSession,
-    remoteAccessSession,
+    RemoteAccessSession (..),
+    mkRemoteAccessSession,
     rasBillingMethod,
     rasClientId,
     rasDeviceUdid,
@@ -399,63 +397,63 @@ module Network.AWS.DeviceFarm.Types
     rasStarted,
 
     -- * Resolution
-    Resolution,
-    resolution,
+    Resolution (..),
+    mkResolution,
     rHeight,
     rWidth,
 
     -- * Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rAttribute,
     rOperator,
     rValue,
 
     -- * Run
-    Run,
-    run,
-    runBillingMethod,
-    runSkipAppResign,
-    runStatus,
-    runCustomerArtifactPaths,
-    runEventCount,
-    runCounters,
-    runPlatform,
-    runSeed,
-    runRadios,
-    runArn,
-    runLocation,
-    runCreated,
-    runLocale,
-    runTestSpecARN,
-    runStopped,
-    runResult,
-    runJobTimeoutMinutes,
-    runCompletedJobs,
-    runResultCode,
-    runName,
-    runAppUpload,
-    runParsingResultURL,
-    runNetworkProfile,
-    runDeviceMinutes,
-    runType,
-    runMessage,
-    runWebURL,
-    runTotalJobs,
-    runDevicePoolARN,
-    runStarted,
-    runDeviceSelectionResult,
+    Run (..),
+    mkRun,
+    rBillingMethod,
+    rSkipAppResign,
+    rStatus,
+    rCustomerArtifactPaths,
+    rEventCount,
+    rCounters,
+    rPlatform,
+    rSeed,
+    rRadios,
+    rArn,
+    rLocation,
+    rCreated,
+    rLocale,
+    rTestSpecARN,
+    rStopped,
+    rResult,
+    rJobTimeoutMinutes,
+    rCompletedJobs,
+    rResultCode,
+    rName,
+    rAppUpload,
+    rParsingResultURL,
+    rNetworkProfile,
+    rDeviceMinutes,
+    rType,
+    rMessage,
+    rWebURL,
+    rTotalJobs,
+    rDevicePoolARN,
+    rStarted,
+    rDeviceSelectionResult,
 
     -- * Sample
-    Sample,
-    sample,
+    Sample (..),
+    mkSample,
     samArn,
     samUrl,
     samType,
 
     -- * ScheduleRunConfiguration
-    ScheduleRunConfiguration,
-    scheduleRunConfiguration,
+    ScheduleRunConfiguration (..),
+    mkScheduleRunConfiguration,
     srcBillingMethod,
     srcCustomerArtifactPaths,
     srcRadios,
@@ -467,8 +465,8 @@ module Network.AWS.DeviceFarm.Types
     srcVpceConfigurationARNs,
 
     -- * ScheduleRunTest
-    ScheduleRunTest,
-    scheduleRunTest,
+    ScheduleRunTest (..),
+    mkScheduleRunTest,
     srtTestSpecARN,
     srtTestPackageARN,
     srtParameters,
@@ -476,8 +474,8 @@ module Network.AWS.DeviceFarm.Types
     srtType,
 
     -- * Suite
-    Suite,
-    suite,
+    Suite (..),
+    mkSuite,
     sStatus,
     sCounters,
     sArn,
@@ -491,14 +489,14 @@ module Network.AWS.DeviceFarm.Types
     sStarted,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * Test
-    Test,
-    test,
+    Test (..),
+    mkTest,
     tStatus,
     tCounters,
     tArn,
@@ -512,16 +510,16 @@ module Network.AWS.DeviceFarm.Types
     tStarted,
 
     -- * TestGridProject
-    TestGridProject,
-    testGridProject,
+    TestGridProject (..),
+    mkTestGridProject,
     tgpArn,
     tgpCreated,
     tgpName,
     tgpDescription,
 
     -- * TestGridSession
-    TestGridSession,
-    testGridSession,
+    TestGridSession (..),
+    mkTestGridSession,
     tgsStatus,
     tgsArn,
     tgsCreated,
@@ -530,8 +528,8 @@ module Network.AWS.DeviceFarm.Types
     tgsSeleniumProperties,
 
     -- * TestGridSessionAction
-    TestGridSessionAction,
-    testGridSessionAction,
+    TestGridSessionAction (..),
+    mkTestGridSessionAction,
     tgsaAction,
     tgsaDuration,
     tgsaRequestMethod,
@@ -539,27 +537,27 @@ module Network.AWS.DeviceFarm.Types
     tgsaStatusCode,
 
     -- * TestGridSessionArtifact
-    TestGridSessionArtifact,
-    testGridSessionArtifact,
+    TestGridSessionArtifact (..),
+    mkTestGridSessionArtifact,
     tgsaUrl,
     tgsaType,
     tgsaFilename,
 
     -- * TrialMinutes
-    TrialMinutes,
-    trialMinutes,
+    TrialMinutes (..),
+    mkTrialMinutes,
     tmRemaining,
     tmTotal,
 
     -- * UniqueProblem
-    UniqueProblem,
-    uniqueProblem,
+    UniqueProblem (..),
+    mkUniqueProblem,
     upProblems,
     upMessage,
 
     -- * Upload
-    Upload,
-    upload,
+    Upload (..),
+    mkUpload,
     uStatus,
     uArn,
     uCreated,
@@ -572,8 +570,8 @@ module Network.AWS.DeviceFarm.Types
     uContentType,
 
     -- * VPCEConfiguration
-    VPCEConfiguration,
-    vpcEConfiguration,
+    VPCEConfiguration (..),
+    mkVPCEConfiguration,
     vecVpceServiceName,
     vecArn,
     vecVpceConfigurationName,
@@ -658,48 +656,60 @@ import Network.AWS.DeviceFarm.Types.UploadCategory
 import Network.AWS.DeviceFarm.Types.UploadStatus
 import Network.AWS.DeviceFarm.Types.UploadType
 import Network.AWS.DeviceFarm.Types.VPCEConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-06-23@ of the Amazon Device Farm SDK configuration.
-deviceFarm :: Service
-deviceFarm =
-  Service
-    { _svcAbbrev = "DeviceFarm",
-      _svcSigner = v4,
-      _svcPrefix = "devicefarm",
-      _svcVersion = "2015-06-23",
-      _svcEndpoint = defaultEndpoint deviceFarm,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "DeviceFarm",
-      _svcRetry = retry
+deviceFarmService :: Lude.Service
+deviceFarmService =
+  Lude.Service
+    { Lude._svcAbbrev = "DeviceFarm",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "devicefarm",
+      Lude._svcVersion = "2015-06-23",
+      Lude._svcEndpoint = Lude.defaultEndpoint deviceFarmService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "DeviceFarm",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

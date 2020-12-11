@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,174 @@
 --
 -- Retrieves the compiled information from a 'RequestEnvironmentInfo' request.
 --
---
 -- Related Topics
 --
 --     * 'RequestEnvironmentInfo'
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-  ( -- * Creating a Request
-    retrieveEnvironmentInfo,
-    RetrieveEnvironmentInfo,
+  ( -- * Creating a request
+    RetrieveEnvironmentInfo (..),
+    mkRetrieveEnvironmentInfo,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rEnvironmentName,
     rEnvironmentId,
     rInfoType,
 
-    -- * Destructuring the Response
-    retrieveEnvironmentInfoResponse,
-    RetrieveEnvironmentInfoResponse,
+    -- * Destructuring the response
+    RetrieveEnvironmentInfoResponse (..),
+    mkRetrieveEnvironmentInfoResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     reirsEnvironmentInfo,
     reirsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to download logs retrieved with 'RequestEnvironmentInfo' .
 --
---
---
--- /See:/ 'retrieveEnvironmentInfo' smart constructor.
+-- /See:/ 'mkRetrieveEnvironmentInfo' smart constructor.
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
-  { _rEnvironmentName ::
-      !(Maybe Text),
-    _rEnvironmentId :: !(Maybe Text),
-    _rInfoType :: !EnvironmentInfoType
+  { environmentName ::
+      Lude.Maybe Lude.Text,
+    environmentId :: Lude.Maybe Lude.Text,
+    infoType :: EnvironmentInfoType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetrieveEnvironmentInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'environmentId' - The ID of the data's environment.
 --
--- * 'rEnvironmentName' - The name of the data's environment. If no such environment is found, returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- If no such environment is found, returns an @InvalidParameterValue@ error.
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'environmentName' - The name of the data's environment.
 --
--- * 'rEnvironmentId' - The ID of the data's environment. If no such environment is found, returns an @InvalidParameterValue@ error. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- * 'rInfoType' - The type of information to retrieve.
-retrieveEnvironmentInfo ::
-  -- | 'rInfoType'
+-- If no such environment is found, returns an @InvalidParameterValue@ error.
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'infoType' - The type of information to retrieve.
+mkRetrieveEnvironmentInfo ::
+  -- | 'infoType'
   EnvironmentInfoType ->
   RetrieveEnvironmentInfo
-retrieveEnvironmentInfo pInfoType_ =
+mkRetrieveEnvironmentInfo pInfoType_ =
   RetrieveEnvironmentInfo'
-    { _rEnvironmentName = Nothing,
-      _rEnvironmentId = Nothing,
-      _rInfoType = pInfoType_
+    { environmentName = Lude.Nothing,
+      environmentId = Lude.Nothing,
+      infoType = pInfoType_
     }
 
--- | The name of the data's environment. If no such environment is found, returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-rEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-rEnvironmentName = lens _rEnvironmentName (\s a -> s {_rEnvironmentName = a})
+-- | The name of the data's environment.
+--
+-- If no such environment is found, returns an @InvalidParameterValue@ error.
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEnvironmentName :: Lens.Lens' RetrieveEnvironmentInfo (Lude.Maybe Lude.Text)
+rEnvironmentName = Lens.lens (environmentName :: RetrieveEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: RetrieveEnvironmentInfo)
+{-# DEPRECATED rEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
--- | The ID of the data's environment. If no such environment is found, returns an @InvalidParameterValue@ error. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-rEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-rEnvironmentId = lens _rEnvironmentId (\s a -> s {_rEnvironmentId = a})
+-- | The ID of the data's environment.
+--
+-- If no such environment is found, returns an @InvalidParameterValue@ error.
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEnvironmentId :: Lens.Lens' RetrieveEnvironmentInfo (Lude.Maybe Lude.Text)
+rEnvironmentId = Lens.lens (environmentId :: RetrieveEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: RetrieveEnvironmentInfo)
+{-# DEPRECATED rEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The type of information to retrieve.
-rInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
-rInfoType = lens _rInfoType (\s a -> s {_rInfoType = a})
+--
+-- /Note:/ Consider using 'infoType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInfoType :: Lens.Lens' RetrieveEnvironmentInfo EnvironmentInfoType
+rInfoType = Lens.lens (infoType :: RetrieveEnvironmentInfo -> EnvironmentInfoType) (\s a -> s {infoType = a} :: RetrieveEnvironmentInfo)
+{-# DEPRECATED rInfoType "Use generic-lens or generic-optics with 'infoType' instead." #-}
 
-instance AWSRequest RetrieveEnvironmentInfo where
+instance Lude.AWSRequest RetrieveEnvironmentInfo where
   type Rs RetrieveEnvironmentInfo = RetrieveEnvironmentInfoResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RetrieveEnvironmentInfoResult"
       ( \s h x ->
           RetrieveEnvironmentInfoResponse'
-            <$> ( x .@? "EnvironmentInfo" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "EnvironmentInfo" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RetrieveEnvironmentInfo
+instance Lude.ToHeaders RetrieveEnvironmentInfo where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RetrieveEnvironmentInfo
+instance Lude.ToPath RetrieveEnvironmentInfo where
+  toPath = Lude.const "/"
 
-instance ToHeaders RetrieveEnvironmentInfo where
-  toHeaders = const mempty
-
-instance ToPath RetrieveEnvironmentInfo where
-  toPath = const "/"
-
-instance ToQuery RetrieveEnvironmentInfo where
+instance Lude.ToQuery RetrieveEnvironmentInfo where
   toQuery RetrieveEnvironmentInfo' {..} =
-    mconcat
-      [ "Action" =: ("RetrieveEnvironmentInfo" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "EnvironmentName" =: _rEnvironmentName,
-        "EnvironmentId" =: _rEnvironmentId,
-        "InfoType" =: _rInfoType
+    Lude.mconcat
+      [ "Action" Lude.=: ("RetrieveEnvironmentInfo" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "EnvironmentName" Lude.=: environmentName,
+        "EnvironmentId" Lude.=: environmentId,
+        "InfoType" Lude.=: infoType
       ]
 
 -- | Result message containing a description of the requested environment info.
 --
---
---
--- /See:/ 'retrieveEnvironmentInfoResponse' smart constructor.
+-- /See:/ 'mkRetrieveEnvironmentInfoResponse' smart constructor.
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
-  { _reirsEnvironmentInfo ::
-      !( Maybe
-           [EnvironmentInfoDescription]
-       ),
-    _reirsResponseStatus ::
-      !Int
+  { environmentInfo ::
+      Lude.Maybe
+        [EnvironmentInfoDescription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetrieveEnvironmentInfoResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reirsEnvironmentInfo' - The 'EnvironmentInfoDescription' of the environment.
---
--- * 'reirsResponseStatus' - -- | The response status code.
-retrieveEnvironmentInfoResponse ::
-  -- | 'reirsResponseStatus'
-  Int ->
+-- * 'environmentInfo' - The 'EnvironmentInfoDescription' of the environment.
+-- * 'responseStatus' - The response status code.
+mkRetrieveEnvironmentInfoResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RetrieveEnvironmentInfoResponse
-retrieveEnvironmentInfoResponse pResponseStatus_ =
+mkRetrieveEnvironmentInfoResponse pResponseStatus_ =
   RetrieveEnvironmentInfoResponse'
-    { _reirsEnvironmentInfo = Nothing,
-      _reirsResponseStatus = pResponseStatus_
+    { environmentInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The 'EnvironmentInfoDescription' of the environment.
-reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
-reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\s a -> s {_reirsEnvironmentInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environmentInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reirsEnvironmentInfo :: Lens.Lens' RetrieveEnvironmentInfoResponse (Lude.Maybe [EnvironmentInfoDescription])
+reirsEnvironmentInfo = Lens.lens (environmentInfo :: RetrieveEnvironmentInfoResponse -> Lude.Maybe [EnvironmentInfoDescription]) (\s a -> s {environmentInfo = a} :: RetrieveEnvironmentInfoResponse)
+{-# DEPRECATED reirsEnvironmentInfo "Use generic-lens or generic-optics with 'environmentInfo' instead." #-}
 
--- | -- | The response status code.
-reirsResponseStatus :: Lens' RetrieveEnvironmentInfoResponse Int
-reirsResponseStatus = lens _reirsResponseStatus (\s a -> s {_reirsResponseStatus = a})
-
-instance NFData RetrieveEnvironmentInfoResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reirsResponseStatus :: Lens.Lens' RetrieveEnvironmentInfoResponse Lude.Int
+reirsResponseStatus = Lens.lens (responseStatus :: RetrieveEnvironmentInfoResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetrieveEnvironmentInfoResponse)
+{-# DEPRECATED reirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

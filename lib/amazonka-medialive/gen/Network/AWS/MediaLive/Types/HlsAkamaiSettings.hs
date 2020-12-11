@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,114 +7,146 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsAkamaiSettings where
+module Network.AWS.MediaLive.Types.HlsAkamaiSettings
+  ( HlsAkamaiSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHlsAkamaiSettings,
+
+    -- * Lenses
+    hasHTTPTransferMode,
+    hasNumRetries,
+    hasToken,
+    hasConnectionRetryInterval,
+    hasFilecacheDuration,
+    hasRestartDelay,
+    hasSalt,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.HlsAkamaiHTTPTransferMode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Akamai Settings
 --
--- /See:/ 'hlsAkamaiSettings' smart constructor.
+-- /See:/ 'mkHlsAkamaiSettings' smart constructor.
 data HlsAkamaiSettings = HlsAkamaiSettings'
-  { _hasHTTPTransferMode ::
-      !(Maybe HlsAkamaiHTTPTransferMode),
-    _hasNumRetries :: !(Maybe Nat),
-    _hasToken :: !(Maybe Text),
-    _hasConnectionRetryInterval :: !(Maybe Nat),
-    _hasFilecacheDuration :: !(Maybe Nat),
-    _hasRestartDelay :: !(Maybe Nat),
-    _hasSalt :: !(Maybe Text)
+  { hTTPTransferMode ::
+      Lude.Maybe HlsAkamaiHTTPTransferMode,
+    numRetries :: Lude.Maybe Lude.Natural,
+    token :: Lude.Maybe Lude.Text,
+    connectionRetryInterval :: Lude.Maybe Lude.Natural,
+    filecacheDuration :: Lude.Maybe Lude.Natural,
+    restartDelay :: Lude.Maybe Lude.Natural,
+    salt :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsAkamaiSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hasHTTPTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
---
--- * 'hasNumRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
---
--- * 'hasToken' - Token parameter for authenticated akamai. If not specified, _gda_ is used.
---
--- * 'hasConnectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
---
--- * 'hasFilecacheDuration' - Size in seconds of file cache for streaming outputs.
---
--- * 'hasRestartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
---
--- * 'hasSalt' - Salt for authenticated Akamai.
-hlsAkamaiSettings ::
+-- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+-- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
+-- * 'hTTPTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
+-- * 'numRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
+-- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+-- * 'salt' - Salt for authenticated Akamai.
+-- * 'token' - Token parameter for authenticated akamai. If not specified, _gda_ is used.
+mkHlsAkamaiSettings ::
   HlsAkamaiSettings
-hlsAkamaiSettings =
+mkHlsAkamaiSettings =
   HlsAkamaiSettings'
-    { _hasHTTPTransferMode = Nothing,
-      _hasNumRetries = Nothing,
-      _hasToken = Nothing,
-      _hasConnectionRetryInterval = Nothing,
-      _hasFilecacheDuration = Nothing,
-      _hasRestartDelay = Nothing,
-      _hasSalt = Nothing
+    { hTTPTransferMode = Lude.Nothing,
+      numRetries = Lude.Nothing,
+      token = Lude.Nothing,
+      connectionRetryInterval = Lude.Nothing,
+      filecacheDuration = Lude.Nothing,
+      restartDelay = Lude.Nothing,
+      salt = Lude.Nothing
     }
 
 -- | Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
-hasHTTPTransferMode :: Lens' HlsAkamaiSettings (Maybe HlsAkamaiHTTPTransferMode)
-hasHTTPTransferMode = lens _hasHTTPTransferMode (\s a -> s {_hasHTTPTransferMode = a})
+--
+-- /Note:/ Consider using 'hTTPTransferMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasHTTPTransferMode :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe HlsAkamaiHTTPTransferMode)
+hasHTTPTransferMode = Lens.lens (hTTPTransferMode :: HlsAkamaiSettings -> Lude.Maybe HlsAkamaiHTTPTransferMode) (\s a -> s {hTTPTransferMode = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasHTTPTransferMode "Use generic-lens or generic-optics with 'hTTPTransferMode' instead." #-}
 
 -- | Number of retry attempts that will be made before the Live Event is put into an error state.
-hasNumRetries :: Lens' HlsAkamaiSettings (Maybe Natural)
-hasNumRetries = lens _hasNumRetries (\s a -> s {_hasNumRetries = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasNumRetries :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe Lude.Natural)
+hasNumRetries = Lens.lens (numRetries :: HlsAkamaiSettings -> Lude.Maybe Lude.Natural) (\s a -> s {numRetries = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasNumRetries "Use generic-lens or generic-optics with 'numRetries' instead." #-}
 
 -- | Token parameter for authenticated akamai. If not specified, _gda_ is used.
-hasToken :: Lens' HlsAkamaiSettings (Maybe Text)
-hasToken = lens _hasToken (\s a -> s {_hasToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasToken :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe Lude.Text)
+hasToken = Lens.lens (token :: HlsAkamaiSettings -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-hasConnectionRetryInterval :: Lens' HlsAkamaiSettings (Maybe Natural)
-hasConnectionRetryInterval = lens _hasConnectionRetryInterval (\s a -> s {_hasConnectionRetryInterval = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'connectionRetryInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasConnectionRetryInterval :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe Lude.Natural)
+hasConnectionRetryInterval = Lens.lens (connectionRetryInterval :: HlsAkamaiSettings -> Lude.Maybe Lude.Natural) (\s a -> s {connectionRetryInterval = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasConnectionRetryInterval "Use generic-lens or generic-optics with 'connectionRetryInterval' instead." #-}
 
 -- | Size in seconds of file cache for streaming outputs.
-hasFilecacheDuration :: Lens' HlsAkamaiSettings (Maybe Natural)
-hasFilecacheDuration = lens _hasFilecacheDuration (\s a -> s {_hasFilecacheDuration = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'filecacheDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasFilecacheDuration :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe Lude.Natural)
+hasFilecacheDuration = Lens.lens (filecacheDuration :: HlsAkamaiSettings -> Lude.Maybe Lude.Natural) (\s a -> s {filecacheDuration = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasFilecacheDuration "Use generic-lens or generic-optics with 'filecacheDuration' instead." #-}
 
 -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-hasRestartDelay :: Lens' HlsAkamaiSettings (Maybe Natural)
-hasRestartDelay = lens _hasRestartDelay (\s a -> s {_hasRestartDelay = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'restartDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasRestartDelay :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe Lude.Natural)
+hasRestartDelay = Lens.lens (restartDelay :: HlsAkamaiSettings -> Lude.Maybe Lude.Natural) (\s a -> s {restartDelay = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasRestartDelay "Use generic-lens or generic-optics with 'restartDelay' instead." #-}
 
 -- | Salt for authenticated Akamai.
-hasSalt :: Lens' HlsAkamaiSettings (Maybe Text)
-hasSalt = lens _hasSalt (\s a -> s {_hasSalt = a})
+--
+-- /Note:/ Consider using 'salt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hasSalt :: Lens.Lens' HlsAkamaiSettings (Lude.Maybe Lude.Text)
+hasSalt = Lens.lens (salt :: HlsAkamaiSettings -> Lude.Maybe Lude.Text) (\s a -> s {salt = a} :: HlsAkamaiSettings)
+{-# DEPRECATED hasSalt "Use generic-lens or generic-optics with 'salt' instead." #-}
 
-instance FromJSON HlsAkamaiSettings where
+instance Lude.FromJSON HlsAkamaiSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "HlsAkamaiSettings"
       ( \x ->
           HlsAkamaiSettings'
-            <$> (x .:? "httpTransferMode")
-            <*> (x .:? "numRetries")
-            <*> (x .:? "token")
-            <*> (x .:? "connectionRetryInterval")
-            <*> (x .:? "filecacheDuration")
-            <*> (x .:? "restartDelay")
-            <*> (x .:? "salt")
+            Lude.<$> (x Lude..:? "httpTransferMode")
+            Lude.<*> (x Lude..:? "numRetries")
+            Lude.<*> (x Lude..:? "token")
+            Lude.<*> (x Lude..:? "connectionRetryInterval")
+            Lude.<*> (x Lude..:? "filecacheDuration")
+            Lude.<*> (x Lude..:? "restartDelay")
+            Lude.<*> (x Lude..:? "salt")
       )
 
-instance Hashable HlsAkamaiSettings
-
-instance NFData HlsAkamaiSettings
-
-instance ToJSON HlsAkamaiSettings where
+instance Lude.ToJSON HlsAkamaiSettings where
   toJSON HlsAkamaiSettings' {..} =
-    object
-      ( catMaybes
-          [ ("httpTransferMode" .=) <$> _hasHTTPTransferMode,
-            ("numRetries" .=) <$> _hasNumRetries,
-            ("token" .=) <$> _hasToken,
-            ("connectionRetryInterval" .=) <$> _hasConnectionRetryInterval,
-            ("filecacheDuration" .=) <$> _hasFilecacheDuration,
-            ("restartDelay" .=) <$> _hasRestartDelay,
-            ("salt" .=) <$> _hasSalt
+    Lude.object
+      ( Lude.catMaybes
+          [ ("httpTransferMode" Lude..=) Lude.<$> hTTPTransferMode,
+            ("numRetries" Lude..=) Lude.<$> numRetries,
+            ("token" Lude..=) Lude.<$> token,
+            ("connectionRetryInterval" Lude..=)
+              Lude.<$> connectionRetryInterval,
+            ("filecacheDuration" Lude..=) Lude.<$> filecacheDuration,
+            ("restartDelay" Lude..=) Lude.<$> restartDelay,
+            ("salt" Lude..=) Lude.<$> salt
           ]
       )

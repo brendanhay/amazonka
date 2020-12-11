@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm where
+module Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
+  ( SigningAlgorithm
+      ( SigningAlgorithm',
+        SHA256WITHECDSA,
+        SHA256WITHRSA,
+        SHA384WITHECDSA,
+        SHA384WITHRSA,
+        SHA512WITHECDSA,
+        SHA512WITHRSA
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SigningAlgorithm
-  = SHA256WITHECDSA
-  | SHA256WITHRSA
-  | SHA384WITHECDSA
-  | SHA384WITHRSA
-  | SHA512WITHECDSA
-  | SHA512WITHRSA
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SigningAlgorithm = SigningAlgorithm' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SigningAlgorithm where
-  parser =
-    takeLowerText >>= \case
-      "sha256withecdsa" -> pure SHA256WITHECDSA
-      "sha256withrsa" -> pure SHA256WITHRSA
-      "sha384withecdsa" -> pure SHA384WITHECDSA
-      "sha384withrsa" -> pure SHA384WITHRSA
-      "sha512withecdsa" -> pure SHA512WITHECDSA
-      "sha512withrsa" -> pure SHA512WITHRSA
-      e ->
-        fromTextError $
-          "Failure parsing SigningAlgorithm from value: '" <> e
-            <> "'. Accepted values: sha256withecdsa, sha256withrsa, sha384withecdsa, sha384withrsa, sha512withecdsa, sha512withrsa"
+pattern SHA256WITHECDSA :: SigningAlgorithm
+pattern SHA256WITHECDSA = SigningAlgorithm' "SHA256WITHECDSA"
 
-instance ToText SigningAlgorithm where
-  toText = \case
-    SHA256WITHECDSA -> "SHA256WITHECDSA"
-    SHA256WITHRSA -> "SHA256WITHRSA"
-    SHA384WITHECDSA -> "SHA384WITHECDSA"
-    SHA384WITHRSA -> "SHA384WITHRSA"
-    SHA512WITHECDSA -> "SHA512WITHECDSA"
-    SHA512WITHRSA -> "SHA512WITHRSA"
+pattern SHA256WITHRSA :: SigningAlgorithm
+pattern SHA256WITHRSA = SigningAlgorithm' "SHA256WITHRSA"
 
-instance Hashable SigningAlgorithm
+pattern SHA384WITHECDSA :: SigningAlgorithm
+pattern SHA384WITHECDSA = SigningAlgorithm' "SHA384WITHECDSA"
 
-instance NFData SigningAlgorithm
+pattern SHA384WITHRSA :: SigningAlgorithm
+pattern SHA384WITHRSA = SigningAlgorithm' "SHA384WITHRSA"
 
-instance ToByteString SigningAlgorithm
+pattern SHA512WITHECDSA :: SigningAlgorithm
+pattern SHA512WITHECDSA = SigningAlgorithm' "SHA512WITHECDSA"
 
-instance ToQuery SigningAlgorithm
+pattern SHA512WITHRSA :: SigningAlgorithm
+pattern SHA512WITHRSA = SigningAlgorithm' "SHA512WITHRSA"
 
-instance ToHeader SigningAlgorithm
-
-instance ToJSON SigningAlgorithm where
-  toJSON = toJSONText
-
-instance FromJSON SigningAlgorithm where
-  parseJSON = parseJSONText "SigningAlgorithm"
+{-# COMPLETE
+  SHA256WITHECDSA,
+  SHA256WITHRSA,
+  SHA384WITHECDSA,
+  SHA384WITHRSA,
+  SHA512WITHECDSA,
+  SHA512WITHRSA,
+  SigningAlgorithm'
+  #-}

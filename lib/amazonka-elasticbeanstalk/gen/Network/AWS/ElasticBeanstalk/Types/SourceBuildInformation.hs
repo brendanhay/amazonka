@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation where
+module Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation
+  ( SourceBuildInformation (..),
+
+    -- * Smart constructor
+    mkSourceBuildInformation,
+
+    -- * Lenses
+    sbiSourceType,
+    sbiSourceRepository,
+    sbiSourceLocation,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.SourceRepository
 import Network.AWS.ElasticBeanstalk.Types.SourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Location of the source code for an application version.
 --
---
---
--- /See:/ 'sourceBuildInformation' smart constructor.
+-- /See:/ 'mkSourceBuildInformation' smart constructor.
 data SourceBuildInformation = SourceBuildInformation'
-  { _sbiSourceType ::
-      !SourceType,
-    _sbiSourceRepository :: !SourceRepository,
-    _sbiSourceLocation :: !Text
+  { sourceType ::
+      SourceType,
+    sourceRepository :: SourceRepository,
+    sourceLocation :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceBuildInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sourceLocation' - The location of the source code, as a formatted string, depending on the value of @SourceRepository@
 --
--- * 'sbiSourceType' - The type of repository.     * @Git@      * @Zip@
 --
--- * 'sbiSourceRepository' - Location where the repository is stored.     * @CodeCommit@      * @S3@
+--     * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
 --
--- * 'sbiSourceLocation' - The location of the source code, as a formatted string, depending on the value of @SourceRepository@      * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
-sourceBuildInformation ::
-  -- | 'sbiSourceType'
+--
+--     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
+--
+--
+-- * 'sourceRepository' - Location where the repository is stored.
+--
+--
+--     * @CodeCommit@
+--
+--
+--     * @S3@
+--
+--
+-- * 'sourceType' - The type of repository.
+--
+--
+--     * @Git@
+--
+--
+--     * @Zip@
+mkSourceBuildInformation ::
+  -- | 'sourceType'
   SourceType ->
-  -- | 'sbiSourceRepository'
+  -- | 'sourceRepository'
   SourceRepository ->
-  -- | 'sbiSourceLocation'
-  Text ->
+  -- | 'sourceLocation'
+  Lude.Text ->
   SourceBuildInformation
-sourceBuildInformation
+mkSourceBuildInformation
   pSourceType_
   pSourceRepository_
   pSourceLocation_ =
     SourceBuildInformation'
-      { _sbiSourceType = pSourceType_,
-        _sbiSourceRepository = pSourceRepository_,
-        _sbiSourceLocation = pSourceLocation_
+      { sourceType = pSourceType_,
+        sourceRepository = pSourceRepository_,
+        sourceLocation = pSourceLocation_
       }
 
--- | The type of repository.     * @Git@      * @Zip@
-sbiSourceType :: Lens' SourceBuildInformation SourceType
-sbiSourceType = lens _sbiSourceType (\s a -> s {_sbiSourceType = a})
+-- | The type of repository.
+--
+--
+--     * @Git@
+--
+--
+--     * @Zip@
+--
+--
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbiSourceType :: Lens.Lens' SourceBuildInformation SourceType
+sbiSourceType = Lens.lens (sourceType :: SourceBuildInformation -> SourceType) (\s a -> s {sourceType = a} :: SourceBuildInformation)
+{-# DEPRECATED sbiSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
--- | Location where the repository is stored.     * @CodeCommit@      * @S3@
-sbiSourceRepository :: Lens' SourceBuildInformation SourceRepository
-sbiSourceRepository = lens _sbiSourceRepository (\s a -> s {_sbiSourceRepository = a})
+-- | Location where the repository is stored.
+--
+--
+--     * @CodeCommit@
+--
+--
+--     * @S3@
+--
+--
+--
+-- /Note:/ Consider using 'sourceRepository' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbiSourceRepository :: Lens.Lens' SourceBuildInformation SourceRepository
+sbiSourceRepository = Lens.lens (sourceRepository :: SourceBuildInformation -> SourceRepository) (\s a -> s {sourceRepository = a} :: SourceBuildInformation)
+{-# DEPRECATED sbiSourceRepository "Use generic-lens or generic-optics with 'sourceRepository' instead." #-}
 
--- | The location of the source code, as a formatted string, depending on the value of @SourceRepository@      * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
-sbiSourceLocation :: Lens' SourceBuildInformation Text
-sbiSourceLocation = lens _sbiSourceLocation (\s a -> s {_sbiSourceLocation = a})
+-- | The location of the source code, as a formatted string, depending on the value of @SourceRepository@
+--
+--
+--     * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
+--
+--
+--     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
+--
+--
+--
+-- /Note:/ Consider using 'sourceLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbiSourceLocation :: Lens.Lens' SourceBuildInformation Lude.Text
+sbiSourceLocation = Lens.lens (sourceLocation :: SourceBuildInformation -> Lude.Text) (\s a -> s {sourceLocation = a} :: SourceBuildInformation)
+{-# DEPRECATED sbiSourceLocation "Use generic-lens or generic-optics with 'sourceLocation' instead." #-}
 
-instance FromXML SourceBuildInformation where
+instance Lude.FromXML SourceBuildInformation where
   parseXML x =
     SourceBuildInformation'
-      <$> (x .@ "SourceType")
-      <*> (x .@ "SourceRepository")
-      <*> (x .@ "SourceLocation")
+      Lude.<$> (x Lude..@ "SourceType")
+      Lude.<*> (x Lude..@ "SourceRepository")
+      Lude.<*> (x Lude..@ "SourceLocation")
 
-instance Hashable SourceBuildInformation
-
-instance NFData SourceBuildInformation
-
-instance ToQuery SourceBuildInformation where
+instance Lude.ToQuery SourceBuildInformation where
   toQuery SourceBuildInformation' {..} =
-    mconcat
-      [ "SourceType" =: _sbiSourceType,
-        "SourceRepository" =: _sbiSourceRepository,
-        "SourceLocation" =: _sbiSourceLocation
+    Lude.mconcat
+      [ "SourceType" Lude.=: sourceType,
+        "SourceRepository" Lude.=: sourceRepository,
+        "SourceLocation" Lude.=: sourceLocation
       ]

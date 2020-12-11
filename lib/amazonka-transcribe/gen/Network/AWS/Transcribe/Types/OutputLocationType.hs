@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.OutputLocationType where
+module Network.AWS.Transcribe.Types.OutputLocationType
+  ( OutputLocationType
+      ( OutputLocationType',
+        CustomerBucket,
+        ServiceBucket
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OutputLocationType
-  = CustomerBucket
-  | ServiceBucket
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutputLocationType = OutputLocationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutputLocationType where
-  parser =
-    takeLowerText >>= \case
-      "customer_bucket" -> pure CustomerBucket
-      "service_bucket" -> pure ServiceBucket
-      e ->
-        fromTextError $
-          "Failure parsing OutputLocationType from value: '" <> e
-            <> "'. Accepted values: customer_bucket, service_bucket"
+pattern CustomerBucket :: OutputLocationType
+pattern CustomerBucket = OutputLocationType' "CUSTOMER_BUCKET"
 
-instance ToText OutputLocationType where
-  toText = \case
-    CustomerBucket -> "CUSTOMER_BUCKET"
-    ServiceBucket -> "SERVICE_BUCKET"
+pattern ServiceBucket :: OutputLocationType
+pattern ServiceBucket = OutputLocationType' "SERVICE_BUCKET"
 
-instance Hashable OutputLocationType
-
-instance NFData OutputLocationType
-
-instance ToByteString OutputLocationType
-
-instance ToQuery OutputLocationType
-
-instance ToHeader OutputLocationType
-
-instance FromJSON OutputLocationType where
-  parseJSON = parseJSONText "OutputLocationType"
+{-# COMPLETE
+  CustomerBucket,
+  ServiceBucket,
+  OutputLocationType'
+  #-}

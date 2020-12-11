@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the configuration of a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 module Network.AWS.Lambda.UpdateAlias
-  ( -- * Creating a Request
-    updateAlias,
-    UpdateAlias,
+  ( -- * Creating a request
+    UpdateAlias (..),
+    mkUpdateAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaRoutingConfig,
     uaFunctionVersion,
     uaDescription,
@@ -31,11 +26,11 @@ module Network.AWS.Lambda.UpdateAlias
     uaFunctionName,
     uaName,
 
-    -- * Destructuring the Response
-    aliasConfiguration,
-    AliasConfiguration,
+    -- * Destructuring the response
+    AliasConfiguration (..),
+    mkAliasConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acRoutingConfig,
     acName,
     acFunctionVersion,
@@ -46,109 +41,149 @@ module Network.AWS.Lambda.UpdateAlias
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAlias' smart constructor.
+-- | /See:/ 'mkUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { _uaRoutingConfig ::
-      !(Maybe AliasRoutingConfiguration),
-    _uaFunctionVersion :: !(Maybe Text),
-    _uaDescription :: !(Maybe Text),
-    _uaRevisionId :: !(Maybe Text),
-    _uaFunctionName :: !Text,
-    _uaName :: !Text
+  { routingConfig ::
+      Lude.Maybe AliasRoutingConfiguration,
+    functionVersion :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    revisionId :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A description of the alias.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'uaRoutingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+-- __Name formats__
 --
--- * 'uaFunctionVersion' - The function version that the alias invokes.
+--     * __Function name__ - @MyFunction@ .
 --
--- * 'uaDescription' - A description of the alias.
 --
--- * 'uaRevisionId' - Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
 --
--- * 'uaFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'uaName' - The name of the alias.
-updateAlias ::
-  -- | 'uaFunctionName'
-  Text ->
-  -- | 'uaName'
-  Text ->
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'functionVersion' - The function version that the alias invokes.
+-- * 'name' - The name of the alias.
+-- * 'revisionId' - Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.
+-- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+mkUpdateAlias ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   UpdateAlias
-updateAlias pFunctionName_ pName_ =
+mkUpdateAlias pFunctionName_ pName_ =
   UpdateAlias'
-    { _uaRoutingConfig = Nothing,
-      _uaFunctionVersion = Nothing,
-      _uaDescription = Nothing,
-      _uaRevisionId = Nothing,
-      _uaFunctionName = pFunctionName_,
-      _uaName = pName_
+    { routingConfig = Lude.Nothing,
+      functionVersion = Lude.Nothing,
+      description = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      functionName = pFunctionName_,
+      name = pName_
     }
 
 -- | The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
-uaRoutingConfig :: Lens' UpdateAlias (Maybe AliasRoutingConfiguration)
-uaRoutingConfig = lens _uaRoutingConfig (\s a -> s {_uaRoutingConfig = a})
+--
+-- /Note:/ Consider using 'routingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaRoutingConfig :: Lens.Lens' UpdateAlias (Lude.Maybe AliasRoutingConfiguration)
+uaRoutingConfig = Lens.lens (routingConfig :: UpdateAlias -> Lude.Maybe AliasRoutingConfiguration) (\s a -> s {routingConfig = a} :: UpdateAlias)
+{-# DEPRECATED uaRoutingConfig "Use generic-lens or generic-optics with 'routingConfig' instead." #-}
 
 -- | The function version that the alias invokes.
-uaFunctionVersion :: Lens' UpdateAlias (Maybe Text)
-uaFunctionVersion = lens _uaFunctionVersion (\s a -> s {_uaFunctionVersion = a})
+--
+-- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaFunctionVersion :: Lens.Lens' UpdateAlias (Lude.Maybe Lude.Text)
+uaFunctionVersion = Lens.lens (functionVersion :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {functionVersion = a} :: UpdateAlias)
+{-# DEPRECATED uaFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
 -- | A description of the alias.
-uaDescription :: Lens' UpdateAlias (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s {_uaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDescription :: Lens.Lens' UpdateAlias (Lude.Maybe Lude.Text)
+uaDescription = Lens.lens (description :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAlias)
+{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.
-uaRevisionId :: Lens' UpdateAlias (Maybe Text)
-uaRevisionId = lens _uaRevisionId (\s a -> s {_uaRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaRevisionId :: Lens.Lens' UpdateAlias (Lude.Maybe Lude.Text)
+uaRevisionId = Lens.lens (revisionId :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: UpdateAlias)
+{-# DEPRECATED uaRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-uaFunctionName :: Lens' UpdateAlias Text
-uaFunctionName = lens _uaFunctionName (\s a -> s {_uaFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaFunctionName :: Lens.Lens' UpdateAlias Lude.Text
+uaFunctionName = Lens.lens (functionName :: UpdateAlias -> Lude.Text) (\s a -> s {functionName = a} :: UpdateAlias)
+{-# DEPRECATED uaFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The name of the alias.
-uaName :: Lens' UpdateAlias Text
-uaName = lens _uaName (\s a -> s {_uaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaName :: Lens.Lens' UpdateAlias Lude.Text
+uaName = Lens.lens (name :: UpdateAlias -> Lude.Text) (\s a -> s {name = a} :: UpdateAlias)
+{-# DEPRECATED uaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest UpdateAlias where
+instance Lude.AWSRequest UpdateAlias where
   type Rs UpdateAlias = AliasConfiguration
-  request = putJSON lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.putJSON lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateAlias
+instance Lude.ToHeaders UpdateAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateAlias
-
-instance ToHeaders UpdateAlias where
-  toHeaders = const mempty
-
-instance ToJSON UpdateAlias where
+instance Lude.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    object
-      ( catMaybes
-          [ ("RoutingConfig" .=) <$> _uaRoutingConfig,
-            ("FunctionVersion" .=) <$> _uaFunctionVersion,
-            ("Description" .=) <$> _uaDescription,
-            ("RevisionId" .=) <$> _uaRevisionId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoutingConfig" Lude..=) Lude.<$> routingConfig,
+            ("FunctionVersion" Lude..=) Lude.<$> functionVersion,
+            ("Description" Lude..=) Lude.<$> description,
+            ("RevisionId" Lude..=) Lude.<$> revisionId
           ]
       )
 
-instance ToPath UpdateAlias where
+instance Lude.ToPath UpdateAlias where
   toPath UpdateAlias' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-03-31/functions/",
-        toBS _uaFunctionName,
+        Lude.toBS functionName,
         "/aliases/",
-        toBS _uaName
+        Lude.toBS name
       ]
 
-instance ToQuery UpdateAlias where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAlias where
+  toQuery = Lude.const Lude.mempty

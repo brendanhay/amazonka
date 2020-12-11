@@ -28,61 +28,61 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListProjects $
---             listProjects
+--             mkListProjects
 --
 --         , requestDeleteProject $
---             deleteProject
+--             mkDeleteProject
 --
 --         , requestUpdateProject $
---             updateProject
+--             mkUpdateProject
 --
 --         , requestListBundles $
---             listBundles
+--             mkListBundles
 --
 --         , requestDescribeProject $
---             describeProject
+--             mkDescribeProject
 --
 --         , requestExportProject $
---             exportProject
+--             mkExportProject
 --
 --         , requestDescribeBundle $
---             describeBundle
+--             mkDescribeBundle
 --
 --         , requestExportBundle $
---             exportBundle
+--             mkExportBundle
 --
 --         , requestCreateProject $
---             createProject
+--             mkCreateProject
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListProjects $
---             listProjectsResponse
+--             mkListProjectsResponse
 --
 --         , responseDeleteProject $
---             deleteProjectResponse
+--             mkDeleteProjectResponse
 --
 --         , responseUpdateProject $
---             updateProjectResponse
+--             mkUpdateProjectResponse
 --
 --         , responseListBundles $
---             listBundlesResponse
+--             mkListBundlesResponse
 --
 --         , responseDescribeProject $
---             describeProjectResponse
+--             mkDescribeProjectResponse
 --
 --         , responseExportProject $
---             exportProjectResponse
+--             mkExportProjectResponse
 --
 --         , responseDescribeBundle $
---             describeBundleResponse
+--             mkDescribeBundleResponse
 --
 --         , responseExportBundle $
---             exportBundleResponse
+--             mkExportBundleResponse
 --
 --         , responseCreateProject $
---             createProjectResponse
+--             mkCreateProjectResponse
 --
 --           ]
 --     ]
@@ -150,7 +150,7 @@ responseListProjects =
   res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
@@ -158,7 +158,7 @@ responseDeleteProject =
   res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
@@ -166,7 +166,7 @@ responseUpdateProject =
   res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy UpdateProject)
 
 responseListBundles :: ListBundlesResponse -> TestTree
@@ -174,7 +174,7 @@ responseListBundles =
   res
     "ListBundlesResponse"
     "fixture/ListBundlesResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy ListBundles)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
@@ -182,7 +182,7 @@ responseDescribeProject =
   res
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy DescribeProject)
 
 responseExportProject :: ExportProjectResponse -> TestTree
@@ -190,7 +190,7 @@ responseExportProject =
   res
     "ExportProjectResponse"
     "fixture/ExportProjectResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy ExportProject)
 
 responseDescribeBundle :: DescribeBundleResponse -> TestTree
@@ -198,7 +198,7 @@ responseDescribeBundle =
   res
     "DescribeBundleResponse"
     "fixture/DescribeBundleResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy DescribeBundle)
 
 responseExportBundle :: ExportBundleResponse -> TestTree
@@ -206,7 +206,7 @@ responseExportBundle =
   res
     "ExportBundleResponse"
     "fixture/ExportBundleResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy ExportBundle)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
@@ -214,5 +214,5 @@ responseCreateProject =
   res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    mobile
+    mobileService
     (Proxy :: Proxy CreateProject)

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Run where
+module Network.AWS.DeviceFarm.Types.Run
+  ( Run (..),
+
+    -- * Smart constructor
+    mkRun,
+
+    -- * Lenses
+    rBillingMethod,
+    rSkipAppResign,
+    rStatus,
+    rCustomerArtifactPaths,
+    rEventCount,
+    rCounters,
+    rPlatform,
+    rSeed,
+    rRadios,
+    rArn,
+    rLocation,
+    rCreated,
+    rLocale,
+    rTestSpecARN,
+    rStopped,
+    rResult,
+    rJobTimeoutMinutes,
+    rCompletedJobs,
+    rResultCode,
+    rName,
+    rAppUpload,
+    rParsingResultURL,
+    rNetworkProfile,
+    rDeviceMinutes,
+    rType,
+    rMessage,
+    rWebURL,
+    rTotalJobs,
+    rDevicePoolARN,
+    rStarted,
+    rDeviceSelectionResult,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.BillingMethod
 import Network.AWS.DeviceFarm.Types.Counters
@@ -28,314 +61,620 @@ import Network.AWS.DeviceFarm.Types.Location
 import Network.AWS.DeviceFarm.Types.NetworkProfile
 import Network.AWS.DeviceFarm.Types.Radios
 import Network.AWS.DeviceFarm.Types.TestType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a test run on a set of devices with a given app package, test parameters, and so on.
 --
---
---
--- /See:/ 'run' smart constructor.
+-- /See:/ 'mkRun' smart constructor.
 data Run = Run'
-  { _runBillingMethod :: !(Maybe BillingMethod),
-    _runSkipAppResign :: !(Maybe Bool),
-    _runStatus :: !(Maybe ExecutionStatus),
-    _runCustomerArtifactPaths :: !(Maybe CustomerArtifactPaths),
-    _runEventCount :: !(Maybe Int),
-    _runCounters :: !(Maybe Counters),
-    _runPlatform :: !(Maybe DevicePlatform),
-    _runSeed :: !(Maybe Int),
-    _runRadios :: !(Maybe Radios),
-    _runArn :: !(Maybe Text),
-    _runLocation :: !(Maybe Location),
-    _runCreated :: !(Maybe POSIX),
-    _runLocale :: !(Maybe Text),
-    _runTestSpecARN :: !(Maybe Text),
-    _runStopped :: !(Maybe POSIX),
-    _runResult :: !(Maybe ExecutionResult),
-    _runJobTimeoutMinutes :: !(Maybe Int),
-    _runCompletedJobs :: !(Maybe Int),
-    _runResultCode :: !(Maybe ExecutionResultCode),
-    _runName :: !(Maybe Text),
-    _runAppUpload :: !(Maybe Text),
-    _runParsingResultURL :: !(Maybe Text),
-    _runNetworkProfile :: !(Maybe NetworkProfile),
-    _runDeviceMinutes :: !(Maybe DeviceMinutes),
-    _runType :: !(Maybe TestType),
-    _runMessage :: !(Maybe Text),
-    _runWebURL :: !(Maybe Text),
-    _runTotalJobs :: !(Maybe Int),
-    _runDevicePoolARN :: !(Maybe Text),
-    _runStarted :: !(Maybe POSIX),
-    _runDeviceSelectionResult :: !(Maybe DeviceSelectionResult)
+  { billingMethod :: Lude.Maybe BillingMethod,
+    skipAppResign :: Lude.Maybe Lude.Bool,
+    status :: Lude.Maybe ExecutionStatus,
+    customerArtifactPaths :: Lude.Maybe CustomerArtifactPaths,
+    eventCount :: Lude.Maybe Lude.Int,
+    counters :: Lude.Maybe Counters,
+    platform :: Lude.Maybe DevicePlatform,
+    seed :: Lude.Maybe Lude.Int,
+    radios :: Lude.Maybe Radios,
+    arn :: Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Location,
+    created :: Lude.Maybe Lude.Timestamp,
+    locale :: Lude.Maybe Lude.Text,
+    testSpecARN :: Lude.Maybe Lude.Text,
+    stopped :: Lude.Maybe Lude.Timestamp,
+    result :: Lude.Maybe ExecutionResult,
+    jobTimeoutMinutes :: Lude.Maybe Lude.Int,
+    completedJobs :: Lude.Maybe Lude.Int,
+    resultCode :: Lude.Maybe ExecutionResultCode,
+    name :: Lude.Maybe Lude.Text,
+    appUpload :: Lude.Maybe Lude.Text,
+    parsingResultURL :: Lude.Maybe Lude.Text,
+    networkProfile :: Lude.Maybe NetworkProfile,
+    deviceMinutes :: Lude.Maybe DeviceMinutes,
+    type' :: Lude.Maybe TestType,
+    message :: Lude.Maybe Lude.Text,
+    webURL :: Lude.Maybe Lude.Text,
+    totalJobs :: Lude.Maybe Lude.Int,
+    devicePoolARN :: Lude.Maybe Lude.Text,
+    started :: Lude.Maybe Lude.Timestamp,
+    deviceSelectionResult :: Lude.Maybe DeviceSelectionResult
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Run' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'appUpload' - An app to upload or that has been uploaded.
+-- * 'arn' - The run's ARN.
+-- * 'billingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
+-- * 'completedJobs' - The total number of completed jobs.
+-- * 'counters' - The run's result counters.
+-- * 'created' - When the run was created.
+-- * 'customerArtifactPaths' - Output @CustomerArtifactPaths@ object for the test run.
+-- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test run.
+-- * 'devicePoolARN' - The ARN of the device pool for the run.
+-- * 'deviceSelectionResult' - The results of a device filter used to select the devices for a test run.
+-- * 'eventCount' - For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
+-- * 'jobTimeoutMinutes' - The number of minutes the job executes before it times out.
+-- * 'locale' - Information about the locale that is used for the run.
+-- * 'location' - Information about the location that is used for the run.
+-- * 'message' - A message about the run's result.
+-- * 'name' - The run's name.
+-- * 'networkProfile' - The network profile being used for a test run.
+-- * 'parsingResultURL' - Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+-- * 'platform' - The run's platform.
 --
--- * 'runBillingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
+-- Allowed values include:
 --
--- * 'runSkipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again. For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+--     * ANDROID
 --
--- * 'runStatus' - The run's status. Allowed values include:     * PENDING     * PENDING_CONCURRENCY     * PENDING_DEVICE     * PROCESSING     * SCHEDULING     * PREPARING     * RUNNING     * COMPLETED     * STOPPING
 --
--- * 'runCustomerArtifactPaths' - Output @CustomerArtifactPaths@ object for the test run.
+--     * IOS
 --
--- * 'runEventCount' - For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
 --
--- * 'runCounters' - The run's result counters.
+-- * 'radios' - Information about the radio states for the run.
+-- * 'result' - The run's result.
 --
--- * 'runPlatform' - The run's platform. Allowed values include:     * ANDROID     * IOS
+-- Allowed values include:
 --
--- * 'runSeed' - For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
+--     * PENDING
 --
--- * 'runRadios' - Information about the radio states for the run.
 --
--- * 'runArn' - The run's ARN.
+--     * PASSED
 --
--- * 'runLocation' - Information about the location that is used for the run.
 --
--- * 'runCreated' - When the run was created.
+--     * WARNED
 --
--- * 'runLocale' - Information about the locale that is used for the run.
 --
--- * 'runTestSpecARN' - The ARN of the YAML-formatted test specification for the run.
+--     * FAILED
 --
--- * 'runStopped' - The run's stop time.
 --
--- * 'runResult' - The run's result. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
+--     * SKIPPED
 --
--- * 'runJobTimeoutMinutes' - The number of minutes the job executes before it times out.
 --
--- * 'runCompletedJobs' - The total number of completed jobs.
+--     * ERRORED
 --
--- * 'runResultCode' - Supporting field for the result field. Set only if @result@ is @SKIPPED@ . @PARSING_FAILED@ if the result is skipped because of test package parsing failure.
 --
--- * 'runName' - The run's name.
+--     * STOPPED
 --
--- * 'runAppUpload' - An app to upload or that has been uploaded.
 --
--- * 'runParsingResultURL' - Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+-- * 'resultCode' - Supporting field for the result field. Set only if @result@ is @SKIPPED@ . @PARSING_FAILED@ if the result is skipped because of test package parsing failure.
+-- * 'seed' - For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
+-- * 'skipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
 --
--- * 'runNetworkProfile' - The network profile being used for a test run.
+-- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+-- * 'started' - The run's start time.
+-- * 'status' - The run's status.
 --
--- * 'runDeviceMinutes' - Represents the total (metered or unmetered) minutes used by the test run.
+-- Allowed values include:
 --
--- * 'runType' - The run's type. Must be one of the following values:     * BUILTIN_FUZZ     * BUILTIN_EXPLORER     * APPIUM_JAVA_JUNIT     * APPIUM_JAVA_TESTNG     * APPIUM_PYTHON     * APPIUM_NODE     * APPIUM_RUBY     * APPIUM_WEB_JAVA_JUNIT     * APPIUM_WEB_JAVA_TESTNG     * APPIUM_WEB_PYTHON     * APPIUM_WEB_NODE     * APPIUM_WEB_RUBY     * CALABASH     * INSTRUMENTATION     * UIAUTOMATION     * UIAUTOMATOR     * XCTEST     * XCTEST_UI
+--     * PENDING
 --
--- * 'runMessage' - A message about the run's result.
 --
--- * 'runWebURL' - The Device Farm console URL for the recording of the run.
+--     * PENDING_CONCURRENCY
 --
--- * 'runTotalJobs' - The total number of jobs for the run.
 --
--- * 'runDevicePoolARN' - The ARN of the device pool for the run.
+--     * PENDING_DEVICE
 --
--- * 'runStarted' - The run's start time.
 --
--- * 'runDeviceSelectionResult' - The results of a device filter used to select the devices for a test run.
-run ::
+--     * PROCESSING
+--
+--
+--     * SCHEDULING
+--
+--
+--     * PREPARING
+--
+--
+--     * RUNNING
+--
+--
+--     * COMPLETED
+--
+--
+--     * STOPPING
+--
+--
+-- * 'stopped' - The run's stop time.
+-- * 'testSpecARN' - The ARN of the YAML-formatted test specification for the run.
+-- * 'totalJobs' - The total number of jobs for the run.
+-- * 'type'' - The run's type.
+--
+-- Must be one of the following values:
+--
+--     * BUILTIN_FUZZ
+--
+--
+--     * BUILTIN_EXPLORER
+--
+--
+--     * APPIUM_JAVA_JUNIT
+--
+--
+--     * APPIUM_JAVA_TESTNG
+--
+--
+--     * APPIUM_PYTHON
+--
+--
+--     * APPIUM_NODE
+--
+--
+--     * APPIUM_RUBY
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG
+--
+--
+--     * APPIUM_WEB_PYTHON
+--
+--
+--     * APPIUM_WEB_NODE
+--
+--
+--     * APPIUM_WEB_RUBY
+--
+--
+--     * CALABASH
+--
+--
+--     * INSTRUMENTATION
+--
+--
+--     * UIAUTOMATION
+--
+--
+--     * UIAUTOMATOR
+--
+--
+--     * XCTEST
+--
+--
+--     * XCTEST_UI
+--
+--
+-- * 'webURL' - The Device Farm console URL for the recording of the run.
+mkRun ::
   Run
-run =
+mkRun =
   Run'
-    { _runBillingMethod = Nothing,
-      _runSkipAppResign = Nothing,
-      _runStatus = Nothing,
-      _runCustomerArtifactPaths = Nothing,
-      _runEventCount = Nothing,
-      _runCounters = Nothing,
-      _runPlatform = Nothing,
-      _runSeed = Nothing,
-      _runRadios = Nothing,
-      _runArn = Nothing,
-      _runLocation = Nothing,
-      _runCreated = Nothing,
-      _runLocale = Nothing,
-      _runTestSpecARN = Nothing,
-      _runStopped = Nothing,
-      _runResult = Nothing,
-      _runJobTimeoutMinutes = Nothing,
-      _runCompletedJobs = Nothing,
-      _runResultCode = Nothing,
-      _runName = Nothing,
-      _runAppUpload = Nothing,
-      _runParsingResultURL = Nothing,
-      _runNetworkProfile = Nothing,
-      _runDeviceMinutes = Nothing,
-      _runType = Nothing,
-      _runMessage = Nothing,
-      _runWebURL = Nothing,
-      _runTotalJobs = Nothing,
-      _runDevicePoolARN = Nothing,
-      _runStarted = Nothing,
-      _runDeviceSelectionResult = Nothing
+    { billingMethod = Lude.Nothing,
+      skipAppResign = Lude.Nothing,
+      status = Lude.Nothing,
+      customerArtifactPaths = Lude.Nothing,
+      eventCount = Lude.Nothing,
+      counters = Lude.Nothing,
+      platform = Lude.Nothing,
+      seed = Lude.Nothing,
+      radios = Lude.Nothing,
+      arn = Lude.Nothing,
+      location = Lude.Nothing,
+      created = Lude.Nothing,
+      locale = Lude.Nothing,
+      testSpecARN = Lude.Nothing,
+      stopped = Lude.Nothing,
+      result = Lude.Nothing,
+      jobTimeoutMinutes = Lude.Nothing,
+      completedJobs = Lude.Nothing,
+      resultCode = Lude.Nothing,
+      name = Lude.Nothing,
+      appUpload = Lude.Nothing,
+      parsingResultURL = Lude.Nothing,
+      networkProfile = Lude.Nothing,
+      deviceMinutes = Lude.Nothing,
+      type' = Lude.Nothing,
+      message = Lude.Nothing,
+      webURL = Lude.Nothing,
+      totalJobs = Lude.Nothing,
+      devicePoolARN = Lude.Nothing,
+      started = Lude.Nothing,
+      deviceSelectionResult = Lude.Nothing
     }
 
 -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
-runBillingMethod :: Lens' Run (Maybe BillingMethod)
-runBillingMethod = lens _runBillingMethod (\s a -> s {_runBillingMethod = a})
+--
+-- /Note:/ Consider using 'billingMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rBillingMethod :: Lens.Lens' Run (Lude.Maybe BillingMethod)
+rBillingMethod = Lens.lens (billingMethod :: Run -> Lude.Maybe BillingMethod) (\s a -> s {billingMethod = a} :: Run)
+{-# DEPRECATED rBillingMethod "Use generic-lens or generic-optics with 'billingMethod' instead." #-}
 
--- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again. For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
-runSkipAppResign :: Lens' Run (Maybe Bool)
-runSkipAppResign = lens _runSkipAppResign (\s a -> s {_runSkipAppResign = a})
+-- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+--
+-- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+--
+-- /Note:/ Consider using 'skipAppResign' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSkipAppResign :: Lens.Lens' Run (Lude.Maybe Lude.Bool)
+rSkipAppResign = Lens.lens (skipAppResign :: Run -> Lude.Maybe Lude.Bool) (\s a -> s {skipAppResign = a} :: Run)
+{-# DEPRECATED rSkipAppResign "Use generic-lens or generic-optics with 'skipAppResign' instead." #-}
 
--- | The run's status. Allowed values include:     * PENDING     * PENDING_CONCURRENCY     * PENDING_DEVICE     * PROCESSING     * SCHEDULING     * PREPARING     * RUNNING     * COMPLETED     * STOPPING
-runStatus :: Lens' Run (Maybe ExecutionStatus)
-runStatus = lens _runStatus (\s a -> s {_runStatus = a})
+-- | The run's status.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PENDING_CONCURRENCY
+--
+--
+--     * PENDING_DEVICE
+--
+--
+--     * PROCESSING
+--
+--
+--     * SCHEDULING
+--
+--
+--     * PREPARING
+--
+--
+--     * RUNNING
+--
+--
+--     * COMPLETED
+--
+--
+--     * STOPPING
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rStatus :: Lens.Lens' Run (Lude.Maybe ExecutionStatus)
+rStatus = Lens.lens (status :: Run -> Lude.Maybe ExecutionStatus) (\s a -> s {status = a} :: Run)
+{-# DEPRECATED rStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Output @CustomerArtifactPaths@ object for the test run.
-runCustomerArtifactPaths :: Lens' Run (Maybe CustomerArtifactPaths)
-runCustomerArtifactPaths = lens _runCustomerArtifactPaths (\s a -> s {_runCustomerArtifactPaths = a})
+--
+-- /Note:/ Consider using 'customerArtifactPaths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCustomerArtifactPaths :: Lens.Lens' Run (Lude.Maybe CustomerArtifactPaths)
+rCustomerArtifactPaths = Lens.lens (customerArtifactPaths :: Run -> Lude.Maybe CustomerArtifactPaths) (\s a -> s {customerArtifactPaths = a} :: Run)
+{-# DEPRECATED rCustomerArtifactPaths "Use generic-lens or generic-optics with 'customerArtifactPaths' instead." #-}
 
 -- | For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
-runEventCount :: Lens' Run (Maybe Int)
-runEventCount = lens _runEventCount (\s a -> s {_runEventCount = a})
+--
+-- /Note:/ Consider using 'eventCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEventCount :: Lens.Lens' Run (Lude.Maybe Lude.Int)
+rEventCount = Lens.lens (eventCount :: Run -> Lude.Maybe Lude.Int) (\s a -> s {eventCount = a} :: Run)
+{-# DEPRECATED rEventCount "Use generic-lens or generic-optics with 'eventCount' instead." #-}
 
 -- | The run's result counters.
-runCounters :: Lens' Run (Maybe Counters)
-runCounters = lens _runCounters (\s a -> s {_runCounters = a})
+--
+-- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCounters :: Lens.Lens' Run (Lude.Maybe Counters)
+rCounters = Lens.lens (counters :: Run -> Lude.Maybe Counters) (\s a -> s {counters = a} :: Run)
+{-# DEPRECATED rCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
 
--- | The run's platform. Allowed values include:     * ANDROID     * IOS
-runPlatform :: Lens' Run (Maybe DevicePlatform)
-runPlatform = lens _runPlatform (\s a -> s {_runPlatform = a})
+-- | The run's platform.
+--
+-- Allowed values include:
+--
+--     * ANDROID
+--
+--
+--     * IOS
+--
+--
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPlatform :: Lens.Lens' Run (Lude.Maybe DevicePlatform)
+rPlatform = Lens.lens (platform :: Run -> Lude.Maybe DevicePlatform) (\s a -> s {platform = a} :: Run)
+{-# DEPRECATED rPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
-runSeed :: Lens' Run (Maybe Int)
-runSeed = lens _runSeed (\s a -> s {_runSeed = a})
+--
+-- /Note:/ Consider using 'seed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSeed :: Lens.Lens' Run (Lude.Maybe Lude.Int)
+rSeed = Lens.lens (seed :: Run -> Lude.Maybe Lude.Int) (\s a -> s {seed = a} :: Run)
+{-# DEPRECATED rSeed "Use generic-lens or generic-optics with 'seed' instead." #-}
 
 -- | Information about the radio states for the run.
-runRadios :: Lens' Run (Maybe Radios)
-runRadios = lens _runRadios (\s a -> s {_runRadios = a})
+--
+-- /Note:/ Consider using 'radios' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRadios :: Lens.Lens' Run (Lude.Maybe Radios)
+rRadios = Lens.lens (radios :: Run -> Lude.Maybe Radios) (\s a -> s {radios = a} :: Run)
+{-# DEPRECATED rRadios "Use generic-lens or generic-optics with 'radios' instead." #-}
 
 -- | The run's ARN.
-runArn :: Lens' Run (Maybe Text)
-runArn = lens _runArn (\s a -> s {_runArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rArn :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rArn = Lens.lens (arn :: Run -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Run)
+{-# DEPRECATED rArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Information about the location that is used for the run.
-runLocation :: Lens' Run (Maybe Location)
-runLocation = lens _runLocation (\s a -> s {_runLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLocation :: Lens.Lens' Run (Lude.Maybe Location)
+rLocation = Lens.lens (location :: Run -> Lude.Maybe Location) (\s a -> s {location = a} :: Run)
+{-# DEPRECATED rLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | When the run was created.
-runCreated :: Lens' Run (Maybe UTCTime)
-runCreated = lens _runCreated (\s a -> s {_runCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCreated :: Lens.Lens' Run (Lude.Maybe Lude.Timestamp)
+rCreated = Lens.lens (created :: Run -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Run)
+{-# DEPRECATED rCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | Information about the locale that is used for the run.
-runLocale :: Lens' Run (Maybe Text)
-runLocale = lens _runLocale (\s a -> s {_runLocale = a})
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLocale :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rLocale = Lens.lens (locale :: Run -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: Run)
+{-# DEPRECATED rLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The ARN of the YAML-formatted test specification for the run.
-runTestSpecARN :: Lens' Run (Maybe Text)
-runTestSpecARN = lens _runTestSpecARN (\s a -> s {_runTestSpecARN = a})
+--
+-- /Note:/ Consider using 'testSpecARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTestSpecARN :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rTestSpecARN = Lens.lens (testSpecARN :: Run -> Lude.Maybe Lude.Text) (\s a -> s {testSpecARN = a} :: Run)
+{-# DEPRECATED rTestSpecARN "Use generic-lens or generic-optics with 'testSpecARN' instead." #-}
 
 -- | The run's stop time.
-runStopped :: Lens' Run (Maybe UTCTime)
-runStopped = lens _runStopped (\s a -> s {_runStopped = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rStopped :: Lens.Lens' Run (Lude.Maybe Lude.Timestamp)
+rStopped = Lens.lens (stopped :: Run -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopped = a} :: Run)
+{-# DEPRECATED rStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
 
--- | The run's result. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
-runResult :: Lens' Run (Maybe ExecutionResult)
-runResult = lens _runResult (\s a -> s {_runResult = a})
+-- | The run's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResult :: Lens.Lens' Run (Lude.Maybe ExecutionResult)
+rResult = Lens.lens (result :: Run -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: Run)
+{-# DEPRECATED rResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The number of minutes the job executes before it times out.
-runJobTimeoutMinutes :: Lens' Run (Maybe Int)
-runJobTimeoutMinutes = lens _runJobTimeoutMinutes (\s a -> s {_runJobTimeoutMinutes = a})
+--
+-- /Note:/ Consider using 'jobTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rJobTimeoutMinutes :: Lens.Lens' Run (Lude.Maybe Lude.Int)
+rJobTimeoutMinutes = Lens.lens (jobTimeoutMinutes :: Run -> Lude.Maybe Lude.Int) (\s a -> s {jobTimeoutMinutes = a} :: Run)
+{-# DEPRECATED rJobTimeoutMinutes "Use generic-lens or generic-optics with 'jobTimeoutMinutes' instead." #-}
 
 -- | The total number of completed jobs.
-runCompletedJobs :: Lens' Run (Maybe Int)
-runCompletedJobs = lens _runCompletedJobs (\s a -> s {_runCompletedJobs = a})
+--
+-- /Note:/ Consider using 'completedJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCompletedJobs :: Lens.Lens' Run (Lude.Maybe Lude.Int)
+rCompletedJobs = Lens.lens (completedJobs :: Run -> Lude.Maybe Lude.Int) (\s a -> s {completedJobs = a} :: Run)
+{-# DEPRECATED rCompletedJobs "Use generic-lens or generic-optics with 'completedJobs' instead." #-}
 
 -- | Supporting field for the result field. Set only if @result@ is @SKIPPED@ . @PARSING_FAILED@ if the result is skipped because of test package parsing failure.
-runResultCode :: Lens' Run (Maybe ExecutionResultCode)
-runResultCode = lens _runResultCode (\s a -> s {_runResultCode = a})
+--
+-- /Note:/ Consider using 'resultCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResultCode :: Lens.Lens' Run (Lude.Maybe ExecutionResultCode)
+rResultCode = Lens.lens (resultCode :: Run -> Lude.Maybe ExecutionResultCode) (\s a -> s {resultCode = a} :: Run)
+{-# DEPRECATED rResultCode "Use generic-lens or generic-optics with 'resultCode' instead." #-}
 
 -- | The run's name.
-runName :: Lens' Run (Maybe Text)
-runName = lens _runName (\s a -> s {_runName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rName = Lens.lens (name :: Run -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Run)
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An app to upload or that has been uploaded.
-runAppUpload :: Lens' Run (Maybe Text)
-runAppUpload = lens _runAppUpload (\s a -> s {_runAppUpload = a})
+--
+-- /Note:/ Consider using 'appUpload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAppUpload :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rAppUpload = Lens.lens (appUpload :: Run -> Lude.Maybe Lude.Text) (\s a -> s {appUpload = a} :: Run)
+{-# DEPRECATED rAppUpload "Use generic-lens or generic-optics with 'appUpload' instead." #-}
 
 -- | Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
-runParsingResultURL :: Lens' Run (Maybe Text)
-runParsingResultURL = lens _runParsingResultURL (\s a -> s {_runParsingResultURL = a})
+--
+-- /Note:/ Consider using 'parsingResultURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rParsingResultURL :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rParsingResultURL = Lens.lens (parsingResultURL :: Run -> Lude.Maybe Lude.Text) (\s a -> s {parsingResultURL = a} :: Run)
+{-# DEPRECATED rParsingResultURL "Use generic-lens or generic-optics with 'parsingResultURL' instead." #-}
 
 -- | The network profile being used for a test run.
-runNetworkProfile :: Lens' Run (Maybe NetworkProfile)
-runNetworkProfile = lens _runNetworkProfile (\s a -> s {_runNetworkProfile = a})
+--
+-- /Note:/ Consider using 'networkProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rNetworkProfile :: Lens.Lens' Run (Lude.Maybe NetworkProfile)
+rNetworkProfile = Lens.lens (networkProfile :: Run -> Lude.Maybe NetworkProfile) (\s a -> s {networkProfile = a} :: Run)
+{-# DEPRECATED rNetworkProfile "Use generic-lens or generic-optics with 'networkProfile' instead." #-}
 
 -- | Represents the total (metered or unmetered) minutes used by the test run.
-runDeviceMinutes :: Lens' Run (Maybe DeviceMinutes)
-runDeviceMinutes = lens _runDeviceMinutes (\s a -> s {_runDeviceMinutes = a})
+--
+-- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDeviceMinutes :: Lens.Lens' Run (Lude.Maybe DeviceMinutes)
+rDeviceMinutes = Lens.lens (deviceMinutes :: Run -> Lude.Maybe DeviceMinutes) (\s a -> s {deviceMinutes = a} :: Run)
+{-# DEPRECATED rDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
 
--- | The run's type. Must be one of the following values:     * BUILTIN_FUZZ     * BUILTIN_EXPLORER     * APPIUM_JAVA_JUNIT     * APPIUM_JAVA_TESTNG     * APPIUM_PYTHON     * APPIUM_NODE     * APPIUM_RUBY     * APPIUM_WEB_JAVA_JUNIT     * APPIUM_WEB_JAVA_TESTNG     * APPIUM_WEB_PYTHON     * APPIUM_WEB_NODE     * APPIUM_WEB_RUBY     * CALABASH     * INSTRUMENTATION     * UIAUTOMATION     * UIAUTOMATOR     * XCTEST     * XCTEST_UI
-runType :: Lens' Run (Maybe TestType)
-runType = lens _runType (\s a -> s {_runType = a})
+-- | The run's type.
+--
+-- Must be one of the following values:
+--
+--     * BUILTIN_FUZZ
+--
+--
+--     * BUILTIN_EXPLORER
+--
+--
+--     * APPIUM_JAVA_JUNIT
+--
+--
+--     * APPIUM_JAVA_TESTNG
+--
+--
+--     * APPIUM_PYTHON
+--
+--
+--     * APPIUM_NODE
+--
+--
+--     * APPIUM_RUBY
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG
+--
+--
+--     * APPIUM_WEB_PYTHON
+--
+--
+--     * APPIUM_WEB_NODE
+--
+--
+--     * APPIUM_WEB_RUBY
+--
+--
+--     * CALABASH
+--
+--
+--     * INSTRUMENTATION
+--
+--
+--     * UIAUTOMATION
+--
+--
+--     * UIAUTOMATOR
+--
+--
+--     * XCTEST
+--
+--
+--     * XCTEST_UI
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rType :: Lens.Lens' Run (Lude.Maybe TestType)
+rType = Lens.lens (type' :: Run -> Lude.Maybe TestType) (\s a -> s {type' = a} :: Run)
+{-# DEPRECATED rType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A message about the run's result.
-runMessage :: Lens' Run (Maybe Text)
-runMessage = lens _runMessage (\s a -> s {_runMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rMessage :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rMessage = Lens.lens (message :: Run -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Run)
+{-# DEPRECATED rMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The Device Farm console URL for the recording of the run.
-runWebURL :: Lens' Run (Maybe Text)
-runWebURL = lens _runWebURL (\s a -> s {_runWebURL = a})
+--
+-- /Note:/ Consider using 'webURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rWebURL :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rWebURL = Lens.lens (webURL :: Run -> Lude.Maybe Lude.Text) (\s a -> s {webURL = a} :: Run)
+{-# DEPRECATED rWebURL "Use generic-lens or generic-optics with 'webURL' instead." #-}
 
 -- | The total number of jobs for the run.
-runTotalJobs :: Lens' Run (Maybe Int)
-runTotalJobs = lens _runTotalJobs (\s a -> s {_runTotalJobs = a})
+--
+-- /Note:/ Consider using 'totalJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTotalJobs :: Lens.Lens' Run (Lude.Maybe Lude.Int)
+rTotalJobs = Lens.lens (totalJobs :: Run -> Lude.Maybe Lude.Int) (\s a -> s {totalJobs = a} :: Run)
+{-# DEPRECATED rTotalJobs "Use generic-lens or generic-optics with 'totalJobs' instead." #-}
 
 -- | The ARN of the device pool for the run.
-runDevicePoolARN :: Lens' Run (Maybe Text)
-runDevicePoolARN = lens _runDevicePoolARN (\s a -> s {_runDevicePoolARN = a})
+--
+-- /Note:/ Consider using 'devicePoolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDevicePoolARN :: Lens.Lens' Run (Lude.Maybe Lude.Text)
+rDevicePoolARN = Lens.lens (devicePoolARN :: Run -> Lude.Maybe Lude.Text) (\s a -> s {devicePoolARN = a} :: Run)
+{-# DEPRECATED rDevicePoolARN "Use generic-lens or generic-optics with 'devicePoolARN' instead." #-}
 
 -- | The run's start time.
-runStarted :: Lens' Run (Maybe UTCTime)
-runStarted = lens _runStarted (\s a -> s {_runStarted = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rStarted :: Lens.Lens' Run (Lude.Maybe Lude.Timestamp)
+rStarted = Lens.lens (started :: Run -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: Run)
+{-# DEPRECATED rStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
 -- | The results of a device filter used to select the devices for a test run.
-runDeviceSelectionResult :: Lens' Run (Maybe DeviceSelectionResult)
-runDeviceSelectionResult = lens _runDeviceSelectionResult (\s a -> s {_runDeviceSelectionResult = a})
+--
+-- /Note:/ Consider using 'deviceSelectionResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDeviceSelectionResult :: Lens.Lens' Run (Lude.Maybe DeviceSelectionResult)
+rDeviceSelectionResult = Lens.lens (deviceSelectionResult :: Run -> Lude.Maybe DeviceSelectionResult) (\s a -> s {deviceSelectionResult = a} :: Run)
+{-# DEPRECATED rDeviceSelectionResult "Use generic-lens or generic-optics with 'deviceSelectionResult' instead." #-}
 
-instance FromJSON Run where
+instance Lude.FromJSON Run where
   parseJSON =
-    withObject
+    Lude.withObject
       "Run"
       ( \x ->
           Run'
-            <$> (x .:? "billingMethod")
-            <*> (x .:? "skipAppResign")
-            <*> (x .:? "status")
-            <*> (x .:? "customerArtifactPaths")
-            <*> (x .:? "eventCount")
-            <*> (x .:? "counters")
-            <*> (x .:? "platform")
-            <*> (x .:? "seed")
-            <*> (x .:? "radios")
-            <*> (x .:? "arn")
-            <*> (x .:? "location")
-            <*> (x .:? "created")
-            <*> (x .:? "locale")
-            <*> (x .:? "testSpecArn")
-            <*> (x .:? "stopped")
-            <*> (x .:? "result")
-            <*> (x .:? "jobTimeoutMinutes")
-            <*> (x .:? "completedJobs")
-            <*> (x .:? "resultCode")
-            <*> (x .:? "name")
-            <*> (x .:? "appUpload")
-            <*> (x .:? "parsingResultUrl")
-            <*> (x .:? "networkProfile")
-            <*> (x .:? "deviceMinutes")
-            <*> (x .:? "type")
-            <*> (x .:? "message")
-            <*> (x .:? "webUrl")
-            <*> (x .:? "totalJobs")
-            <*> (x .:? "devicePoolArn")
-            <*> (x .:? "started")
-            <*> (x .:? "deviceSelectionResult")
+            Lude.<$> (x Lude..:? "billingMethod")
+            Lude.<*> (x Lude..:? "skipAppResign")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "customerArtifactPaths")
+            Lude.<*> (x Lude..:? "eventCount")
+            Lude.<*> (x Lude..:? "counters")
+            Lude.<*> (x Lude..:? "platform")
+            Lude.<*> (x Lude..:? "seed")
+            Lude.<*> (x Lude..:? "radios")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "locale")
+            Lude.<*> (x Lude..:? "testSpecArn")
+            Lude.<*> (x Lude..:? "stopped")
+            Lude.<*> (x Lude..:? "result")
+            Lude.<*> (x Lude..:? "jobTimeoutMinutes")
+            Lude.<*> (x Lude..:? "completedJobs")
+            Lude.<*> (x Lude..:? "resultCode")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "appUpload")
+            Lude.<*> (x Lude..:? "parsingResultUrl")
+            Lude.<*> (x Lude..:? "networkProfile")
+            Lude.<*> (x Lude..:? "deviceMinutes")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "message")
+            Lude.<*> (x Lude..:? "webUrl")
+            Lude.<*> (x Lude..:? "totalJobs")
+            Lude.<*> (x Lude..:? "devicePoolArn")
+            Lude.<*> (x Lude..:? "started")
+            Lude.<*> (x Lude..:? "deviceSelectionResult")
       )
-
-instance Hashable Run
-
-instance NFData Run

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,86 +14,101 @@
 --
 -- Removes the specified tags from the user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 module Network.AWS.IAM.UntagUser
-  ( -- * Creating a Request
-    untagUser,
-    UntagUser,
+  ( -- * Creating a request
+    UntagUser (..),
+    mkUntagUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuUserName,
     uuTagKeys,
 
-    -- * Destructuring the Response
-    untagUserResponse,
-    UntagUserResponse,
+    -- * Destructuring the response
+    UntagUserResponse (..),
+    mkUntagUserResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagUser' smart constructor.
+-- | /See:/ 'mkUntagUser' smart constructor.
 data UntagUser = UntagUser'
-  { _uuUserName :: !Text,
-    _uuTagKeys :: ![Text]
+  { userName :: Lude.Text,
+    tagKeys :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'tagKeys' - A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.
+-- * 'userName' - The name of the IAM user from which you want to remove tags.
 --
--- * 'uuUserName' - The name of the IAM user from which you want to remove tags. This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
---
--- * 'uuTagKeys' - A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.
-untagUser ::
-  -- | 'uuUserName'
-  Text ->
+-- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+mkUntagUser ::
+  -- | 'userName'
+  Lude.Text ->
   UntagUser
-untagUser pUserName_ =
-  UntagUser' {_uuUserName = pUserName_, _uuTagKeys = mempty}
+mkUntagUser pUserName_ =
+  UntagUser' {userName = pUserName_, tagKeys = Lude.mempty}
 
--- | The name of the IAM user from which you want to remove tags. This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
-uuUserName :: Lens' UntagUser Text
-uuUserName = lens _uuUserName (\s a -> s {_uuUserName = a})
+-- | The name of the IAM user from which you want to remove tags.
+--
+-- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuUserName :: Lens.Lens' UntagUser Lude.Text
+uuUserName = Lens.lens (userName :: UntagUser -> Lude.Text) (\s a -> s {userName = a} :: UntagUser)
+{-# DEPRECATED uuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.
-uuTagKeys :: Lens' UntagUser [Text]
-uuTagKeys = lens _uuTagKeys (\s a -> s {_uuTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuTagKeys :: Lens.Lens' UntagUser [Lude.Text]
+uuTagKeys = Lens.lens (tagKeys :: UntagUser -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagUser)
+{-# DEPRECATED uuTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest UntagUser where
+instance Lude.AWSRequest UntagUser where
   type Rs UntagUser = UntagUserResponse
-  request = postQuery iam
-  response = receiveNull UntagUserResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull UntagUserResponse'
 
-instance Hashable UntagUser
+instance Lude.ToHeaders UntagUser where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UntagUser
+instance Lude.ToPath UntagUser where
+  toPath = Lude.const "/"
 
-instance ToHeaders UntagUser where
-  toHeaders = const mempty
-
-instance ToPath UntagUser where
-  toPath = const "/"
-
-instance ToQuery UntagUser where
+instance Lude.ToQuery UntagUser where
   toQuery UntagUser' {..} =
-    mconcat
-      [ "Action" =: ("UntagUser" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _uuUserName,
-        "TagKeys" =: toQueryList "member" _uuTagKeys
+    Lude.mconcat
+      [ "Action" Lude.=: ("UntagUser" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys
       ]
 
--- | /See:/ 'untagUserResponse' smart constructor.
+-- | /See:/ 'mkUntagUserResponse' smart constructor.
 data UntagUserResponse = UntagUserResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagUserResponse' with the minimum fields required to make a request.
-untagUserResponse ::
+mkUntagUserResponse ::
   UntagUserResponse
-untagUserResponse = UntagUserResponse'
-
-instance NFData UntagUserResponse
+mkUntagUserResponse = UntagUserResponse'

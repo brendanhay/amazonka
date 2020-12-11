@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.JobStatus where
+module Network.AWS.MediaConvert.Types.JobStatus
+  ( JobStatus
+      ( JobStatus',
+        Canceled,
+        Complete,
+        Error,
+        Progressing,
+        Submitted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-data JobStatus
-  = Canceled
-  | Complete
-  | Error'
-  | Progressing
-  | Submitted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatus = JobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure Canceled
-      "complete" -> pure Complete
-      "error" -> pure Error'
-      "progressing" -> pure Progressing
-      "submitted" -> pure Submitted
-      e ->
-        fromTextError $
-          "Failure parsing JobStatus from value: '" <> e
-            <> "'. Accepted values: canceled, complete, error, progressing, submitted"
+pattern Canceled :: JobStatus
+pattern Canceled = JobStatus' "CANCELED"
 
-instance ToText JobStatus where
-  toText = \case
-    Canceled -> "CANCELED"
-    Complete -> "COMPLETE"
-    Error' -> "ERROR"
-    Progressing -> "PROGRESSING"
-    Submitted -> "SUBMITTED"
+pattern Complete :: JobStatus
+pattern Complete = JobStatus' "COMPLETE"
 
-instance Hashable JobStatus
+pattern Error :: JobStatus
+pattern Error = JobStatus' "ERROR"
 
-instance NFData JobStatus
+pattern Progressing :: JobStatus
+pattern Progressing = JobStatus' "PROGRESSING"
 
-instance ToByteString JobStatus
+pattern Submitted :: JobStatus
+pattern Submitted = JobStatus' "SUBMITTED"
 
-instance ToQuery JobStatus
-
-instance ToHeader JobStatus
-
-instance ToJSON JobStatus where
-  toJSON = toJSONText
-
-instance FromJSON JobStatus where
-  parseJSON = parseJSONText "JobStatus"
+{-# COMPLETE
+  Canceled,
+  Complete,
+  Error,
+  Progressing,
+  Submitted,
+  JobStatus'
+  #-}

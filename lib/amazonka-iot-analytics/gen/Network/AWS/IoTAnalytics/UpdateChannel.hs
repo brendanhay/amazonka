@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,116 @@
 --
 -- Updates the settings of a channel.
 module Network.AWS.IoTAnalytics.UpdateChannel
-  ( -- * Creating a Request
-    updateChannel,
-    UpdateChannel,
+  ( -- * Creating a request
+    UpdateChannel (..),
+    mkUpdateChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucRetentionPeriod,
     ucChannelStorage,
     ucChannelName,
 
-    -- * Destructuring the Response
-    updateChannelResponse,
-    UpdateChannelResponse,
+    -- * Destructuring the response
+    UpdateChannelResponse (..),
+    mkUpdateChannelResponse,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateChannel' smart constructor.
+-- | /See:/ 'mkUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { _ucRetentionPeriod ::
-      !(Maybe RetentionPeriod),
-    _ucChannelStorage :: !(Maybe ChannelStorage),
-    _ucChannelName :: !Text
+  { retentionPeriod ::
+      Lude.Maybe RetentionPeriod,
+    channelStorage :: Lude.Maybe ChannelStorage,
+    channelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucRetentionPeriod' - How long, in days, message data is kept for the channel. The retention period cannot be updated if the channel's S3 storage is customer-managed.
---
--- * 'ucChannelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
---
--- * 'ucChannelName' - The name of the channel to be updated.
-updateChannel ::
-  -- | 'ucChannelName'
-  Text ->
+-- * 'channelName' - The name of the channel to be updated.
+-- * 'channelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
+-- * 'retentionPeriod' - How long, in days, message data is kept for the channel. The retention period cannot be updated if the channel's S3 storage is customer-managed.
+mkUpdateChannel ::
+  -- | 'channelName'
+  Lude.Text ->
   UpdateChannel
-updateChannel pChannelName_ =
+mkUpdateChannel pChannelName_ =
   UpdateChannel'
-    { _ucRetentionPeriod = Nothing,
-      _ucChannelStorage = Nothing,
-      _ucChannelName = pChannelName_
+    { retentionPeriod = Lude.Nothing,
+      channelStorage = Lude.Nothing,
+      channelName = pChannelName_
     }
 
 -- | How long, in days, message data is kept for the channel. The retention period cannot be updated if the channel's S3 storage is customer-managed.
-ucRetentionPeriod :: Lens' UpdateChannel (Maybe RetentionPeriod)
-ucRetentionPeriod = lens _ucRetentionPeriod (\s a -> s {_ucRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucRetentionPeriod :: Lens.Lens' UpdateChannel (Lude.Maybe RetentionPeriod)
+ucRetentionPeriod = Lens.lens (retentionPeriod :: UpdateChannel -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: UpdateChannel)
+{-# DEPRECATED ucRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
-ucChannelStorage :: Lens' UpdateChannel (Maybe ChannelStorage)
-ucChannelStorage = lens _ucChannelStorage (\s a -> s {_ucChannelStorage = a})
+--
+-- /Note:/ Consider using 'channelStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucChannelStorage :: Lens.Lens' UpdateChannel (Lude.Maybe ChannelStorage)
+ucChannelStorage = Lens.lens (channelStorage :: UpdateChannel -> Lude.Maybe ChannelStorage) (\s a -> s {channelStorage = a} :: UpdateChannel)
+{-# DEPRECATED ucChannelStorage "Use generic-lens or generic-optics with 'channelStorage' instead." #-}
 
 -- | The name of the channel to be updated.
-ucChannelName :: Lens' UpdateChannel Text
-ucChannelName = lens _ucChannelName (\s a -> s {_ucChannelName = a})
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucChannelName :: Lens.Lens' UpdateChannel Lude.Text
+ucChannelName = Lens.lens (channelName :: UpdateChannel -> Lude.Text) (\s a -> s {channelName = a} :: UpdateChannel)
+{-# DEPRECATED ucChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
-instance AWSRequest UpdateChannel where
+instance Lude.AWSRequest UpdateChannel where
   type Rs UpdateChannel = UpdateChannelResponse
-  request = putJSON ioTAnalytics
-  response = receiveNull UpdateChannelResponse'
+  request = Req.putJSON ioTAnalyticsService
+  response = Res.receiveNull UpdateChannelResponse'
 
-instance Hashable UpdateChannel
+instance Lude.ToHeaders UpdateChannel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateChannel
-
-instance ToHeaders UpdateChannel where
-  toHeaders = const mempty
-
-instance ToJSON UpdateChannel where
+instance Lude.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
-    object
-      ( catMaybes
-          [ ("retentionPeriod" .=) <$> _ucRetentionPeriod,
-            ("channelStorage" .=) <$> _ucChannelStorage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
+            ("channelStorage" Lude..=) Lude.<$> channelStorage
           ]
       )
 
-instance ToPath UpdateChannel where
+instance Lude.ToPath UpdateChannel where
   toPath UpdateChannel' {..} =
-    mconcat ["/channels/", toBS _ucChannelName]
+    Lude.mconcat ["/channels/", Lude.toBS channelName]
 
-instance ToQuery UpdateChannel where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateChannelResponse' smart constructor.
+-- | /See:/ 'mkUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannelResponse' with the minimum fields required to make a request.
-updateChannelResponse ::
+mkUpdateChannelResponse ::
   UpdateChannelResponse
-updateChannelResponse = UpdateChannelResponse'
-
-instance NFData UpdateChannelResponse
+mkUpdateChannelResponse = UpdateChannelResponse'

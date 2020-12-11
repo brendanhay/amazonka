@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.BatchStopJobRunSuccessfulSubmission where
+module Network.AWS.Glue.Types.BatchStopJobRunSuccessfulSubmission
+  ( BatchStopJobRunSuccessfulSubmission (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchStopJobRunSuccessfulSubmission,
+
+    -- * Lenses
+    bsjrssJobName,
+    bsjrssJobRunId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Records a successful request to stop a specified @JobRun@ .
 --
---
---
--- /See:/ 'batchStopJobRunSuccessfulSubmission' smart constructor.
+-- /See:/ 'mkBatchStopJobRunSuccessfulSubmission' smart constructor.
 data BatchStopJobRunSuccessfulSubmission = BatchStopJobRunSuccessfulSubmission'
-  { _bsjrssJobName ::
-      !(Maybe Text),
-    _bsjrssJobRunId ::
-      !(Maybe Text)
+  { jobName ::
+      Lude.Maybe
+        Lude.Text,
+    jobRunId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStopJobRunSuccessfulSubmission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsjrssJobName' - The name of the job definition used in the job run that was stopped.
---
--- * 'bsjrssJobRunId' - The @JobRunId@ of the job run that was stopped.
-batchStopJobRunSuccessfulSubmission ::
+-- * 'jobName' - The name of the job definition used in the job run that was stopped.
+-- * 'jobRunId' - The @JobRunId@ of the job run that was stopped.
+mkBatchStopJobRunSuccessfulSubmission ::
   BatchStopJobRunSuccessfulSubmission
-batchStopJobRunSuccessfulSubmission =
+mkBatchStopJobRunSuccessfulSubmission =
   BatchStopJobRunSuccessfulSubmission'
-    { _bsjrssJobName = Nothing,
-      _bsjrssJobRunId = Nothing
+    { jobName = Lude.Nothing,
+      jobRunId = Lude.Nothing
     }
 
 -- | The name of the job definition used in the job run that was stopped.
-bsjrssJobName :: Lens' BatchStopJobRunSuccessfulSubmission (Maybe Text)
-bsjrssJobName = lens _bsjrssJobName (\s a -> s {_bsjrssJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsjrssJobName :: Lens.Lens' BatchStopJobRunSuccessfulSubmission (Lude.Maybe Lude.Text)
+bsjrssJobName = Lens.lens (jobName :: BatchStopJobRunSuccessfulSubmission -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: BatchStopJobRunSuccessfulSubmission)
+{-# DEPRECATED bsjrssJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The @JobRunId@ of the job run that was stopped.
-bsjrssJobRunId :: Lens' BatchStopJobRunSuccessfulSubmission (Maybe Text)
-bsjrssJobRunId = lens _bsjrssJobRunId (\s a -> s {_bsjrssJobRunId = a})
+--
+-- /Note:/ Consider using 'jobRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsjrssJobRunId :: Lens.Lens' BatchStopJobRunSuccessfulSubmission (Lude.Maybe Lude.Text)
+bsjrssJobRunId = Lens.lens (jobRunId :: BatchStopJobRunSuccessfulSubmission -> Lude.Maybe Lude.Text) (\s a -> s {jobRunId = a} :: BatchStopJobRunSuccessfulSubmission)
+{-# DEPRECATED bsjrssJobRunId "Use generic-lens or generic-optics with 'jobRunId' instead." #-}
 
-instance FromJSON BatchStopJobRunSuccessfulSubmission where
+instance Lude.FromJSON BatchStopJobRunSuccessfulSubmission where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchStopJobRunSuccessfulSubmission"
       ( \x ->
           BatchStopJobRunSuccessfulSubmission'
-            <$> (x .:? "JobName") <*> (x .:? "JobRunId")
+            Lude.<$> (x Lude..:? "JobName") Lude.<*> (x Lude..:? "JobRunId")
       )
-
-instance Hashable BatchStopJobRunSuccessfulSubmission
-
-instance NFData BatchStopJobRunSuccessfulSubmission

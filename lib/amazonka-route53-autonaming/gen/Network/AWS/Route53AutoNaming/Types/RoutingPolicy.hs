@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.RoutingPolicy where
+module Network.AWS.Route53AutoNaming.Types.RoutingPolicy
+  ( RoutingPolicy
+      ( RoutingPolicy',
+        Multivalue,
+        Weighted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RoutingPolicy
-  = Multivalue
-  | Weighted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RoutingPolicy = RoutingPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RoutingPolicy where
-  parser =
-    takeLowerText >>= \case
-      "multivalue" -> pure Multivalue
-      "weighted" -> pure Weighted
-      e ->
-        fromTextError $
-          "Failure parsing RoutingPolicy from value: '" <> e
-            <> "'. Accepted values: multivalue, weighted"
+pattern Multivalue :: RoutingPolicy
+pattern Multivalue = RoutingPolicy' "MULTIVALUE"
 
-instance ToText RoutingPolicy where
-  toText = \case
-    Multivalue -> "MULTIVALUE"
-    Weighted -> "WEIGHTED"
+pattern Weighted :: RoutingPolicy
+pattern Weighted = RoutingPolicy' "WEIGHTED"
 
-instance Hashable RoutingPolicy
-
-instance NFData RoutingPolicy
-
-instance ToByteString RoutingPolicy
-
-instance ToQuery RoutingPolicy
-
-instance ToHeader RoutingPolicy
-
-instance ToJSON RoutingPolicy where
-  toJSON = toJSONText
-
-instance FromJSON RoutingPolicy where
-  parseJSON = parseJSONText "RoutingPolicy"
+{-# COMPLETE
+  Multivalue,
+  Weighted,
+  RoutingPolicy'
+  #-}

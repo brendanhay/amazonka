@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ReactionForComment where
+module Network.AWS.CodeCommit.Types.ReactionForComment
+  ( ReactionForComment (..),
+
+    -- * Smart constructor
+    mkReactionForComment,
+
+    -- * Lenses
+    rfcReactionUsers,
+    rfcReactionsFromDeletedUsersCount,
+    rfcReaction,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.ReactionValueFormats
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the reaction values provided by users on a comment.
 --
---
---
--- /See:/ 'reactionForComment' smart constructor.
+-- /See:/ 'mkReactionForComment' smart constructor.
 data ReactionForComment = ReactionForComment'
-  { _rfcReactionUsers ::
-      !(Maybe [Text]),
-    _rfcReactionsFromDeletedUsersCount :: !(Maybe Int),
-    _rfcReaction :: !(Maybe ReactionValueFormats)
+  { reactionUsers ::
+      Lude.Maybe [Lude.Text],
+    reactionsFromDeletedUsersCount :: Lude.Maybe Lude.Int,
+    reaction :: Lude.Maybe ReactionValueFormats
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReactionForComment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rfcReactionUsers' - The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.
---
--- * 'rfcReactionsFromDeletedUsersCount' - A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.
---
--- * 'rfcReaction' - The reaction for a specified comment.
-reactionForComment ::
+-- * 'reaction' - The reaction for a specified comment.
+-- * 'reactionUsers' - The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.
+-- * 'reactionsFromDeletedUsersCount' - A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.
+mkReactionForComment ::
   ReactionForComment
-reactionForComment =
+mkReactionForComment =
   ReactionForComment'
-    { _rfcReactionUsers = Nothing,
-      _rfcReactionsFromDeletedUsersCount = Nothing,
-      _rfcReaction = Nothing
+    { reactionUsers = Lude.Nothing,
+      reactionsFromDeletedUsersCount = Lude.Nothing,
+      reaction = Lude.Nothing
     }
 
 -- | The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.
-rfcReactionUsers :: Lens' ReactionForComment [Text]
-rfcReactionUsers = lens _rfcReactionUsers (\s a -> s {_rfcReactionUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reactionUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfcReactionUsers :: Lens.Lens' ReactionForComment (Lude.Maybe [Lude.Text])
+rfcReactionUsers = Lens.lens (reactionUsers :: ReactionForComment -> Lude.Maybe [Lude.Text]) (\s a -> s {reactionUsers = a} :: ReactionForComment)
+{-# DEPRECATED rfcReactionUsers "Use generic-lens or generic-optics with 'reactionUsers' instead." #-}
 
 -- | A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.
-rfcReactionsFromDeletedUsersCount :: Lens' ReactionForComment (Maybe Int)
-rfcReactionsFromDeletedUsersCount = lens _rfcReactionsFromDeletedUsersCount (\s a -> s {_rfcReactionsFromDeletedUsersCount = a})
+--
+-- /Note:/ Consider using 'reactionsFromDeletedUsersCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfcReactionsFromDeletedUsersCount :: Lens.Lens' ReactionForComment (Lude.Maybe Lude.Int)
+rfcReactionsFromDeletedUsersCount = Lens.lens (reactionsFromDeletedUsersCount :: ReactionForComment -> Lude.Maybe Lude.Int) (\s a -> s {reactionsFromDeletedUsersCount = a} :: ReactionForComment)
+{-# DEPRECATED rfcReactionsFromDeletedUsersCount "Use generic-lens or generic-optics with 'reactionsFromDeletedUsersCount' instead." #-}
 
 -- | The reaction for a specified comment.
-rfcReaction :: Lens' ReactionForComment (Maybe ReactionValueFormats)
-rfcReaction = lens _rfcReaction (\s a -> s {_rfcReaction = a})
+--
+-- /Note:/ Consider using 'reaction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfcReaction :: Lens.Lens' ReactionForComment (Lude.Maybe ReactionValueFormats)
+rfcReaction = Lens.lens (reaction :: ReactionForComment -> Lude.Maybe ReactionValueFormats) (\s a -> s {reaction = a} :: ReactionForComment)
+{-# DEPRECATED rfcReaction "Use generic-lens or generic-optics with 'reaction' instead." #-}
 
-instance FromJSON ReactionForComment where
+instance Lude.FromJSON ReactionForComment where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReactionForComment"
       ( \x ->
           ReactionForComment'
-            <$> (x .:? "reactionUsers" .!= mempty)
-            <*> (x .:? "reactionsFromDeletedUsersCount")
-            <*> (x .:? "reaction")
+            Lude.<$> (x Lude..:? "reactionUsers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "reactionsFromDeletedUsersCount")
+            Lude.<*> (x Lude..:? "reaction")
       )
-
-instance Hashable ReactionForComment
-
-instance NFData ReactionForComment

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Starts table data replication to the specified Kinesis data stream at a timestamp chosen during the enable workflow. If this operation doesn't return results immediately, use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is ACTIVE.
 module Network.AWS.DynamoDB.EnableKinesisStreamingDestination
-  ( -- * Creating a Request
-    enableKinesisStreamingDestination,
-    EnableKinesisStreamingDestination,
+  ( -- * Creating a request
+    EnableKinesisStreamingDestination (..),
+    mkEnableKinesisStreamingDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eksdTableName,
     eksdStreamARN,
 
-    -- * Destructuring the Response
-    kinesisStreamingDestinationOutput,
-    KinesisStreamingDestinationOutput,
+    -- * Destructuring the response
+    KinesisStreamingDestinationOutput (..),
+    mkKinesisStreamingDestinationOutput,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ksdoDestinationStatus,
     ksdoStreamARN,
     ksdoTableName,
@@ -39,80 +34,87 @@ module Network.AWS.DynamoDB.EnableKinesisStreamingDestination
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableKinesisStreamingDestination' smart constructor.
+-- | /See:/ 'mkEnableKinesisStreamingDestination' smart constructor.
 data EnableKinesisStreamingDestination = EnableKinesisStreamingDestination'
-  { _eksdTableName ::
-      !Text,
-    _eksdStreamARN :: !Text
+  { tableName ::
+      Lude.Text,
+    streamARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableKinesisStreamingDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eksdTableName' - The name of the DynamoDB table.
---
--- * 'eksdStreamARN' - The ARN for a Kinesis data stream.
-enableKinesisStreamingDestination ::
-  -- | 'eksdTableName'
-  Text ->
-  -- | 'eksdStreamARN'
-  Text ->
+-- * 'streamARN' - The ARN for a Kinesis data stream.
+-- * 'tableName' - The name of the DynamoDB table.
+mkEnableKinesisStreamingDestination ::
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'streamARN'
+  Lude.Text ->
   EnableKinesisStreamingDestination
-enableKinesisStreamingDestination pTableName_ pStreamARN_ =
+mkEnableKinesisStreamingDestination pTableName_ pStreamARN_ =
   EnableKinesisStreamingDestination'
-    { _eksdTableName = pTableName_,
-      _eksdStreamARN = pStreamARN_
+    { tableName = pTableName_,
+      streamARN = pStreamARN_
     }
 
 -- | The name of the DynamoDB table.
-eksdTableName :: Lens' EnableKinesisStreamingDestination Text
-eksdTableName = lens _eksdTableName (\s a -> s {_eksdTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eksdTableName :: Lens.Lens' EnableKinesisStreamingDestination Lude.Text
+eksdTableName = Lens.lens (tableName :: EnableKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: EnableKinesisStreamingDestination)
+{-# DEPRECATED eksdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The ARN for a Kinesis data stream.
-eksdStreamARN :: Lens' EnableKinesisStreamingDestination Text
-eksdStreamARN = lens _eksdStreamARN (\s a -> s {_eksdStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eksdStreamARN :: Lens.Lens' EnableKinesisStreamingDestination Lude.Text
+eksdStreamARN = Lens.lens (streamARN :: EnableKinesisStreamingDestination -> Lude.Text) (\s a -> s {streamARN = a} :: EnableKinesisStreamingDestination)
+{-# DEPRECATED eksdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
-instance AWSRequest EnableKinesisStreamingDestination where
+instance Lude.AWSRequest EnableKinesisStreamingDestination where
   type
     Rs EnableKinesisStreamingDestination =
       KinesisStreamingDestinationOutput
-  request = postJSON dynamoDB
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON dynamoDBService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable EnableKinesisStreamingDestination
-
-instance NFData EnableKinesisStreamingDestination
-
-instance ToHeaders EnableKinesisStreamingDestination where
+instance Lude.ToHeaders EnableKinesisStreamingDestination where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "DynamoDB_20120810.EnableKinesisStreamingDestination" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ( "DynamoDB_20120810.EnableKinesisStreamingDestination" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableKinesisStreamingDestination where
+instance Lude.ToJSON EnableKinesisStreamingDestination where
   toJSON EnableKinesisStreamingDestination' {..} =
-    object
-      ( catMaybes
-          [ Just ("TableName" .= _eksdTableName),
-            Just ("StreamArn" .= _eksdStreamARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("StreamArn" Lude..= streamARN)
           ]
       )
 
-instance ToPath EnableKinesisStreamingDestination where
-  toPath = const "/"
+instance Lude.ToPath EnableKinesisStreamingDestination where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableKinesisStreamingDestination where
-  toQuery = const mempty
+instance Lude.ToQuery EnableKinesisStreamingDestination where
+  toQuery = Lude.const Lude.mempty

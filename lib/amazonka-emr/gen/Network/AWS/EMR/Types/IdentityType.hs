@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.IdentityType where
+module Network.AWS.EMR.Types.IdentityType
+  ( IdentityType
+      ( IdentityType',
+        Group,
+        User
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IdentityType
-  = Group
-  | User
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IdentityType = IdentityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IdentityType where
-  parser =
-    takeLowerText >>= \case
-      "group" -> pure Group
-      "user" -> pure User
-      e ->
-        fromTextError $
-          "Failure parsing IdentityType from value: '" <> e
-            <> "'. Accepted values: group, user"
+pattern Group :: IdentityType
+pattern Group = IdentityType' "GROUP"
 
-instance ToText IdentityType where
-  toText = \case
-    Group -> "GROUP"
-    User -> "USER"
+pattern User :: IdentityType
+pattern User = IdentityType' "USER"
 
-instance Hashable IdentityType
-
-instance NFData IdentityType
-
-instance ToByteString IdentityType
-
-instance ToQuery IdentityType
-
-instance ToHeader IdentityType
-
-instance ToJSON IdentityType where
-  toJSON = toJSONText
-
-instance FromJSON IdentityType where
-  parseJSON = parseJSONText "IdentityType"
+{-# COMPLETE
+  Group,
+  User,
+  IdentityType'
+  #-}

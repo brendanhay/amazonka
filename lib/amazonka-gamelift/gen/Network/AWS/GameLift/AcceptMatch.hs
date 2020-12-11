@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,171 @@
 --
 -- Registers a player's acceptance or rejection of a proposed FlexMatch match. A matchmaking configuration may require player acceptance; if so, then matches built with that configuration cannot be completed unless all players accept the proposed match within a specified time limit.
 --
---
 -- When FlexMatch builds a match, all the matchmaking tickets involved in the proposed match are placed into status @REQUIRES_ACCEPTANCE@ . This is a trigger for your game to get acceptance from all players in the ticket. Acceptances are only valid for tickets when they are in this status; all other acceptances result in an error.
---
 -- To register acceptance, specify the ticket ID, a response, and one or more players. Once all players have registered acceptance, the matchmaking tickets advance to status @PLACING@ , where a new game session is created for the match.
---
 -- If any player rejects the match, or if acceptances are not received before a specified timeout, the proposed match is dropped. The matchmaking tickets are then handled in one of two ways: For tickets where one or more players rejected the match, the ticket status is returned to @SEARCHING@ to find a new match. For tickets where one or more players failed to respond, the ticket status is set to @CANCELLED@ , and processing is terminated. A new matchmaking request for these players can be submitted as needed.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a Game Client>
---
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html FlexMatch Events Reference>
---
 -- __Related operations__
 --
 --     * 'StartMatchmaking'
 --
+--
 --     * 'DescribeMatchmaking'
+--
 --
 --     * 'StopMatchmaking'
 --
+--
 --     * 'AcceptMatch'
+--
 --
 --     * 'StartMatchBackfill'
 module Network.AWS.GameLift.AcceptMatch
-  ( -- * Creating a Request
-    acceptMatch,
-    AcceptMatch,
+  ( -- * Creating a request
+    AcceptMatch (..),
+    mkAcceptMatch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     amTicketId,
     amPlayerIds,
     amAcceptanceType,
 
-    -- * Destructuring the Response
-    acceptMatchResponse,
-    AcceptMatchResponse,
+    -- * Destructuring the response
+    AcceptMatchResponse (..),
+    mkAcceptMatchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     amrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'acceptMatch' smart constructor.
+-- /See:/ 'mkAcceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
-  { _amTicketId :: !Text,
-    _amPlayerIds :: ![Text],
-    _amAcceptanceType :: !AcceptanceType
+  { ticketId :: Lude.Text,
+    playerIds :: [Lude.Text],
+    acceptanceType :: AcceptanceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptMatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amTicketId' - A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
---
--- * 'amPlayerIds' - A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
---
--- * 'amAcceptanceType' - Player response to the proposed match.
-acceptMatch ::
-  -- | 'amTicketId'
-  Text ->
-  -- | 'amAcceptanceType'
+-- * 'acceptanceType' - Player response to the proposed match.
+-- * 'playerIds' - A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
+-- * 'ticketId' - A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
+mkAcceptMatch ::
+  -- | 'ticketId'
+  Lude.Text ->
+  -- | 'acceptanceType'
   AcceptanceType ->
   AcceptMatch
-acceptMatch pTicketId_ pAcceptanceType_ =
+mkAcceptMatch pTicketId_ pAcceptanceType_ =
   AcceptMatch'
-    { _amTicketId = pTicketId_,
-      _amPlayerIds = mempty,
-      _amAcceptanceType = pAcceptanceType_
+    { ticketId = pTicketId_,
+      playerIds = Lude.mempty,
+      acceptanceType = pAcceptanceType_
     }
 
 -- | A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
-amTicketId :: Lens' AcceptMatch Text
-amTicketId = lens _amTicketId (\s a -> s {_amTicketId = a})
+--
+-- /Note:/ Consider using 'ticketId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amTicketId :: Lens.Lens' AcceptMatch Lude.Text
+amTicketId = Lens.lens (ticketId :: AcceptMatch -> Lude.Text) (\s a -> s {ticketId = a} :: AcceptMatch)
+{-# DEPRECATED amTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
 
 -- | A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
-amPlayerIds :: Lens' AcceptMatch [Text]
-amPlayerIds = lens _amPlayerIds (\s a -> s {_amPlayerIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'playerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amPlayerIds :: Lens.Lens' AcceptMatch [Lude.Text]
+amPlayerIds = Lens.lens (playerIds :: AcceptMatch -> [Lude.Text]) (\s a -> s {playerIds = a} :: AcceptMatch)
+{-# DEPRECATED amPlayerIds "Use generic-lens or generic-optics with 'playerIds' instead." #-}
 
 -- | Player response to the proposed match.
-amAcceptanceType :: Lens' AcceptMatch AcceptanceType
-amAcceptanceType = lens _amAcceptanceType (\s a -> s {_amAcceptanceType = a})
+--
+-- /Note:/ Consider using 'acceptanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amAcceptanceType :: Lens.Lens' AcceptMatch AcceptanceType
+amAcceptanceType = Lens.lens (acceptanceType :: AcceptMatch -> AcceptanceType) (\s a -> s {acceptanceType = a} :: AcceptMatch)
+{-# DEPRECATED amAcceptanceType "Use generic-lens or generic-optics with 'acceptanceType' instead." #-}
 
-instance AWSRequest AcceptMatch where
+instance Lude.AWSRequest AcceptMatch where
   type Rs AcceptMatch = AcceptMatchResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveEmpty
-      (\s h x -> AcceptMatchResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AcceptMatchResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AcceptMatch
-
-instance NFData AcceptMatch
-
-instance ToHeaders AcceptMatch where
+instance Lude.ToHeaders AcceptMatch where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.AcceptMatch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.AcceptMatch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AcceptMatch where
+instance Lude.ToJSON AcceptMatch where
   toJSON AcceptMatch' {..} =
-    object
-      ( catMaybes
-          [ Just ("TicketId" .= _amTicketId),
-            Just ("PlayerIds" .= _amPlayerIds),
-            Just ("AcceptanceType" .= _amAcceptanceType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TicketId" Lude..= ticketId),
+            Lude.Just ("PlayerIds" Lude..= playerIds),
+            Lude.Just ("AcceptanceType" Lude..= acceptanceType)
           ]
       )
 
-instance ToPath AcceptMatch where
-  toPath = const "/"
+instance Lude.ToPath AcceptMatch where
+  toPath = Lude.const "/"
 
-instance ToQuery AcceptMatch where
-  toQuery = const mempty
+instance Lude.ToQuery AcceptMatch where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'acceptMatchResponse' smart constructor.
+-- | /See:/ 'mkAcceptMatchResponse' smart constructor.
 newtype AcceptMatchResponse = AcceptMatchResponse'
-  { _amrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptMatchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amrsResponseStatus' - -- | The response status code.
-acceptMatchResponse ::
-  -- | 'amrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAcceptMatchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AcceptMatchResponse
-acceptMatchResponse pResponseStatus_ =
-  AcceptMatchResponse' {_amrsResponseStatus = pResponseStatus_}
+mkAcceptMatchResponse pResponseStatus_ =
+  AcceptMatchResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-amrsResponseStatus :: Lens' AcceptMatchResponse Int
-amrsResponseStatus = lens _amrsResponseStatus (\s a -> s {_amrsResponseStatus = a})
-
-instance NFData AcceptMatchResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amrsResponseStatus :: Lens.Lens' AcceptMatchResponse Lude.Int
+amrsResponseStatus = Lens.lens (responseStatus :: AcceptMatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptMatchResponse)
+{-# DEPRECATED amrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the specified AWS Firewall Manager policy.
 module Network.AWS.FMS.GetPolicy
-  ( -- * Creating a Request
-    getPolicy,
-    GetPolicy,
+  ( -- * Creating a request
+    GetPolicy (..),
+    mkGetPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpPolicyId,
 
-    -- * Destructuring the Response
-    getPolicyResponse,
-    GetPolicyResponse,
+    -- * Destructuring the response
+    GetPolicyResponse (..),
+    mkGetPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gprsPolicyARN,
     gprsPolicy,
     gprsResponseStatus,
@@ -38,102 +33,121 @@ module Network.AWS.FMS.GetPolicy
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPolicy' smart constructor.
-newtype GetPolicy = GetPolicy' {_gpPolicyId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetPolicy' smart constructor.
+newtype GetPolicy = GetPolicy' {policyId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpPolicyId' - The ID of the AWS Firewall Manager policy that you want the details for.
-getPolicy ::
-  -- | 'gpPolicyId'
-  Text ->
+-- * 'policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
+mkGetPolicy ::
+  -- | 'policyId'
+  Lude.Text ->
   GetPolicy
-getPolicy pPolicyId_ = GetPolicy' {_gpPolicyId = pPolicyId_}
+mkGetPolicy pPolicyId_ = GetPolicy' {policyId = pPolicyId_}
 
 -- | The ID of the AWS Firewall Manager policy that you want the details for.
-gpPolicyId :: Lens' GetPolicy Text
-gpPolicyId = lens _gpPolicyId (\s a -> s {_gpPolicyId = a})
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpPolicyId :: Lens.Lens' GetPolicy Lude.Text
+gpPolicyId = Lens.lens (policyId :: GetPolicy -> Lude.Text) (\s a -> s {policyId = a} :: GetPolicy)
+{-# DEPRECATED gpPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
-instance AWSRequest GetPolicy where
+instance Lude.AWSRequest GetPolicy where
   type Rs GetPolicy = GetPolicyResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            <$> (x .?> "PolicyArn") <*> (x .?> "Policy") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PolicyArn")
+            Lude.<*> (x Lude..?> "Policy")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPolicy
-
-instance NFData GetPolicy
-
-instance ToHeaders GetPolicy where
+instance Lude.ToHeaders GetPolicy where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSFMS_20180101.GetPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSFMS_20180101.GetPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetPolicy where
+instance Lude.ToJSON GetPolicy where
   toJSON GetPolicy' {..} =
-    object (catMaybes [Just ("PolicyId" .= _gpPolicyId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PolicyId" Lude..= policyId)])
 
-instance ToPath GetPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicyARN ::
-      !(Maybe Text),
-    _gprsPolicy :: !(Maybe Policy),
-    _gprsResponseStatus :: !Int
+  { policyARN ::
+      Lude.Maybe Lude.Text,
+    policy :: Lude.Maybe Policy,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gprsPolicyARN' - The Amazon Resource Name (ARN) of the specified policy.
---
--- * 'gprsPolicy' - Information about the specified AWS Firewall Manager policy.
---
--- * 'gprsResponseStatus' - -- | The response status code.
-getPolicyResponse ::
-  -- | 'gprsResponseStatus'
-  Int ->
+-- * 'policy' - Information about the specified AWS Firewall Manager policy.
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the specified policy.
+-- * 'responseStatus' - The response status code.
+mkGetPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPolicyResponse
-getPolicyResponse pResponseStatus_ =
+mkGetPolicyResponse pResponseStatus_ =
   GetPolicyResponse'
-    { _gprsPolicyARN = Nothing,
-      _gprsPolicy = Nothing,
-      _gprsResponseStatus = pResponseStatus_
+    { policyARN = Lude.Nothing,
+      policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the specified policy.
-gprsPolicyARN :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicyARN = lens _gprsPolicyARN (\s a -> s {_gprsPolicyARN = a})
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsPolicyARN :: Lens.Lens' GetPolicyResponse (Lude.Maybe Lude.Text)
+gprsPolicyARN = Lens.lens (policyARN :: GetPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: GetPolicyResponse)
+{-# DEPRECATED gprsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 -- | Information about the specified AWS Firewall Manager policy.
-gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
-gprsPolicy = lens _gprsPolicy (\s a -> s {_gprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsPolicy :: Lens.Lens' GetPolicyResponse (Lude.Maybe Policy)
+gprsPolicy = Lens.lens (policy :: GetPolicyResponse -> Lude.Maybe Policy) (\s a -> s {policy = a} :: GetPolicyResponse)
+{-# DEPRECATED gprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\s a -> s {_gprsResponseStatus = a})
-
-instance NFData GetPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsResponseStatus :: Lens.Lens' GetPolicyResponse Lude.Int
+gprsResponseStatus = Lens.lens (responseStatus :: GetPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPolicyResponse)
+{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

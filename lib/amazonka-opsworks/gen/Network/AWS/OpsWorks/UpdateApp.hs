@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Updates a specified app.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.UpdateApp
-  ( -- * Creating a Request
-    updateApp,
-    UpdateApp,
+  ( -- * Creating a request
+    UpdateApp (..),
+    mkUpdateApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaSSLConfiguration,
     uaEnvironment,
     uaEnableSSL,
@@ -39,172 +33,208 @@ module Network.AWS.OpsWorks.UpdateApp
     uaDescription,
     uaAppId,
 
-    -- * Destructuring the Response
-    updateAppResponse,
-    UpdateAppResponse,
+    -- * Destructuring the response
+    UpdateAppResponse (..),
+    mkUpdateAppResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateApp' smart constructor.
+-- | /See:/ 'mkUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { _uaSSLConfiguration ::
-      !(Maybe SSLConfiguration),
-    _uaEnvironment :: !(Maybe [EnvironmentVariable]),
-    _uaEnableSSL :: !(Maybe Bool),
-    _uaDataSources :: !(Maybe [DataSource]),
-    _uaAppSource :: !(Maybe Source),
-    _uaAttributes :: !(Maybe (Map AppAttributesKeys (Text))),
-    _uaName :: !(Maybe Text),
-    _uaType :: !(Maybe AppType),
-    _uaDomains :: !(Maybe [Text]),
-    _uaDescription :: !(Maybe Text),
-    _uaAppId :: !Text
+  { sslConfiguration ::
+      Lude.Maybe SSLConfiguration,
+    environment :: Lude.Maybe [EnvironmentVariable],
+    enableSSL :: Lude.Maybe Lude.Bool,
+    dataSources :: Lude.Maybe [DataSource],
+    appSource :: Lude.Maybe Source,
+    attributes ::
+      Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe AppType,
+    domains :: Lude.Maybe [Lude.Text],
+    description :: Lude.Maybe Lude.Text,
+    appId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'appId' - The app ID.
+-- * 'appSource' - A @Source@ object that specifies the app repository.
+-- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
+-- * 'dataSources' - The app's data sources.
+-- * 'description' - A description of the app.
+-- * 'domains' - The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- * 'enableSSL' - Whether SSL is enabled for the app.
+-- * 'environment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
 --
--- * 'uaSSLConfiguration' - An @SslConfiguration@ object with the SSL configuration.
---
--- * 'uaEnvironment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20 KB)."
---
--- * 'uaEnableSSL' - Whether SSL is enabled for the app.
---
--- * 'uaDataSources' - The app's data sources.
---
--- * 'uaAppSource' - A @Source@ object that specifies the app repository.
---
--- * 'uaAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
---
--- * 'uaName' - The app name.
---
--- * 'uaType' - The app type.
---
--- * 'uaDomains' - The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
---
--- * 'uaDescription' - A description of the app.
---
--- * 'uaAppId' - The app ID.
-updateApp ::
-  -- | 'uaAppId'
-  Text ->
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20 KB)."
+-- * 'name' - The app name.
+-- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
+-- * 'type'' - The app type.
+mkUpdateApp ::
+  -- | 'appId'
+  Lude.Text ->
   UpdateApp
-updateApp pAppId_ =
+mkUpdateApp pAppId_ =
   UpdateApp'
-    { _uaSSLConfiguration = Nothing,
-      _uaEnvironment = Nothing,
-      _uaEnableSSL = Nothing,
-      _uaDataSources = Nothing,
-      _uaAppSource = Nothing,
-      _uaAttributes = Nothing,
-      _uaName = Nothing,
-      _uaType = Nothing,
-      _uaDomains = Nothing,
-      _uaDescription = Nothing,
-      _uaAppId = pAppId_
+    { sslConfiguration = Lude.Nothing,
+      environment = Lude.Nothing,
+      enableSSL = Lude.Nothing,
+      dataSources = Lude.Nothing,
+      appSource = Lude.Nothing,
+      attributes = Lude.Nothing,
+      name = Lude.Nothing,
+      type' = Lude.Nothing,
+      domains = Lude.Nothing,
+      description = Lude.Nothing,
+      appId = pAppId_
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
-uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
-uaSSLConfiguration = lens _uaSSLConfiguration (\s a -> s {_uaSSLConfiguration = a})
+--
+-- /Note:/ Consider using 'sslConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaSSLConfiguration :: Lens.Lens' UpdateApp (Lude.Maybe SSLConfiguration)
+uaSSLConfiguration = Lens.lens (sslConfiguration :: UpdateApp -> Lude.Maybe SSLConfiguration) (\s a -> s {sslConfiguration = a} :: UpdateApp)
+{-# DEPRECATED uaSSLConfiguration "Use generic-lens or generic-optics with 'sslConfiguration' instead." #-}
 
--- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20 KB)."
-uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
-uaEnvironment = lens _uaEnvironment (\s a -> s {_uaEnvironment = a}) . _Default . _Coerce
+-- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
+--
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20 KB)."
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaEnvironment :: Lens.Lens' UpdateApp (Lude.Maybe [EnvironmentVariable])
+uaEnvironment = Lens.lens (environment :: UpdateApp -> Lude.Maybe [EnvironmentVariable]) (\s a -> s {environment = a} :: UpdateApp)
+{-# DEPRECATED uaEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | Whether SSL is enabled for the app.
-uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
-uaEnableSSL = lens _uaEnableSSL (\s a -> s {_uaEnableSSL = a})
+--
+-- /Note:/ Consider using 'enableSSL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaEnableSSL :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Bool)
+uaEnableSSL = Lens.lens (enableSSL :: UpdateApp -> Lude.Maybe Lude.Bool) (\s a -> s {enableSSL = a} :: UpdateApp)
+{-# DEPRECATED uaEnableSSL "Use generic-lens or generic-optics with 'enableSSL' instead." #-}
 
 -- | The app's data sources.
-uaDataSources :: Lens' UpdateApp [DataSource]
-uaDataSources = lens _uaDataSources (\s a -> s {_uaDataSources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDataSources :: Lens.Lens' UpdateApp (Lude.Maybe [DataSource])
+uaDataSources = Lens.lens (dataSources :: UpdateApp -> Lude.Maybe [DataSource]) (\s a -> s {dataSources = a} :: UpdateApp)
+{-# DEPRECATED uaDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | A @Source@ object that specifies the app repository.
-uaAppSource :: Lens' UpdateApp (Maybe Source)
-uaAppSource = lens _uaAppSource (\s a -> s {_uaAppSource = a})
+--
+-- /Note:/ Consider using 'appSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAppSource :: Lens.Lens' UpdateApp (Lude.Maybe Source)
+uaAppSource = Lens.lens (appSource :: UpdateApp -> Lude.Maybe Source) (\s a -> s {appSource = a} :: UpdateApp)
+{-# DEPRECATED uaAppSource "Use generic-lens or generic-optics with 'appSource' instead." #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
-uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys (Text))
-uaAttributes = lens _uaAttributes (\s a -> s {_uaAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAttributes :: Lens.Lens' UpdateApp (Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)))
+uaAttributes = Lens.lens (attributes :: UpdateApp -> Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text))) (\s a -> s {attributes = a} :: UpdateApp)
+{-# DEPRECATED uaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The app name.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\s a -> s {_uaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaName :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
+uaName = Lens.lens (name :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateApp)
+{-# DEPRECATED uaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The app type.
-uaType :: Lens' UpdateApp (Maybe AppType)
-uaType = lens _uaType (\s a -> s {_uaType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaType :: Lens.Lens' UpdateApp (Lude.Maybe AppType)
+uaType = Lens.lens (type' :: UpdateApp -> Lude.Maybe AppType) (\s a -> s {type' = a} :: UpdateApp)
+{-# DEPRECATED uaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
-uaDomains :: Lens' UpdateApp [Text]
-uaDomains = lens _uaDomains (\s a -> s {_uaDomains = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDomains :: Lens.Lens' UpdateApp (Lude.Maybe [Lude.Text])
+uaDomains = Lens.lens (domains :: UpdateApp -> Lude.Maybe [Lude.Text]) (\s a -> s {domains = a} :: UpdateApp)
+{-# DEPRECATED uaDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
 -- | A description of the app.
-uaDescription :: Lens' UpdateApp (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s {_uaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDescription :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
+uaDescription = Lens.lens (description :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApp)
+{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The app ID.
-uaAppId :: Lens' UpdateApp Text
-uaAppId = lens _uaAppId (\s a -> s {_uaAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAppId :: Lens.Lens' UpdateApp Lude.Text
+uaAppId = Lens.lens (appId :: UpdateApp -> Lude.Text) (\s a -> s {appId = a} :: UpdateApp)
+{-# DEPRECATED uaAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest UpdateApp where
+instance Lude.AWSRequest UpdateApp where
   type Rs UpdateApp = UpdateAppResponse
-  request = postJSON opsWorks
-  response = receiveNull UpdateAppResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull UpdateAppResponse'
 
-instance Hashable UpdateApp
-
-instance NFData UpdateApp
-
-instance ToHeaders UpdateApp where
+instance Lude.ToHeaders UpdateApp where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.UpdateApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.UpdateApp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateApp where
+instance Lude.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
-    object
-      ( catMaybes
-          [ ("SslConfiguration" .=) <$> _uaSSLConfiguration,
-            ("Environment" .=) <$> _uaEnvironment,
-            ("EnableSsl" .=) <$> _uaEnableSSL,
-            ("DataSources" .=) <$> _uaDataSources,
-            ("AppSource" .=) <$> _uaAppSource,
-            ("Attributes" .=) <$> _uaAttributes,
-            ("Name" .=) <$> _uaName,
-            ("Type" .=) <$> _uaType,
-            ("Domains" .=) <$> _uaDomains,
-            ("Description" .=) <$> _uaDescription,
-            Just ("AppId" .= _uaAppId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SslConfiguration" Lude..=) Lude.<$> sslConfiguration,
+            ("Environment" Lude..=) Lude.<$> environment,
+            ("EnableSsl" Lude..=) Lude.<$> enableSSL,
+            ("DataSources" Lude..=) Lude.<$> dataSources,
+            ("AppSource" Lude..=) Lude.<$> appSource,
+            ("Attributes" Lude..=) Lude.<$> attributes,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Type" Lude..=) Lude.<$> type',
+            ("Domains" Lude..=) Lude.<$> domains,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("AppId" Lude..= appId)
           ]
       )
 
-instance ToPath UpdateApp where
-  toPath = const "/"
+instance Lude.ToPath UpdateApp where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateApp where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAppResponse' smart constructor.
+-- | /See:/ 'mkUpdateAppResponse' smart constructor.
 data UpdateAppResponse = UpdateAppResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
-updateAppResponse ::
+mkUpdateAppResponse ::
   UpdateAppResponse
-updateAppResponse = UpdateAppResponse'
-
-instance NFData UpdateAppResponse
+mkUpdateAppResponse = UpdateAppResponse'

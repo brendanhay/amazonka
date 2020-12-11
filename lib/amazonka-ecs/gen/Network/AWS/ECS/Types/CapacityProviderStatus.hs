@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.CapacityProviderStatus where
+module Network.AWS.ECS.Types.CapacityProviderStatus
+  ( CapacityProviderStatus
+      ( CapacityProviderStatus',
+        CPSActive,
+        CPSInactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CapacityProviderStatus
-  = CPSActive
-  | CPSInactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CapacityProviderStatus = CapacityProviderStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CapacityProviderStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CPSActive
-      "inactive" -> pure CPSInactive
-      e ->
-        fromTextError $
-          "Failure parsing CapacityProviderStatus from value: '" <> e
-            <> "'. Accepted values: active, inactive"
+pattern CPSActive :: CapacityProviderStatus
+pattern CPSActive = CapacityProviderStatus' "ACTIVE"
 
-instance ToText CapacityProviderStatus where
-  toText = \case
-    CPSActive -> "ACTIVE"
-    CPSInactive -> "INACTIVE"
+pattern CPSInactive :: CapacityProviderStatus
+pattern CPSInactive = CapacityProviderStatus' "INACTIVE"
 
-instance Hashable CapacityProviderStatus
-
-instance NFData CapacityProviderStatus
-
-instance ToByteString CapacityProviderStatus
-
-instance ToQuery CapacityProviderStatus
-
-instance ToHeader CapacityProviderStatus
-
-instance FromJSON CapacityProviderStatus where
-  parseJSON = parseJSONText "CapacityProviderStatus"
+{-# COMPLETE
+  CPSActive,
+  CPSInactive,
+  CapacityProviderStatus'
+  #-}

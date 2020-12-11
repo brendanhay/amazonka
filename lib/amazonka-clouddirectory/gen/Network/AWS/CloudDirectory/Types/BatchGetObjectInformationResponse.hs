@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse where
+module Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
+  ( BatchGetObjectInformationResponse (..),
+
+    -- * Smart constructor
+    mkBatchGetObjectInformationResponse,
+
+    -- * Lenses
+    bgoiObjectIdentifier,
+    bgoiSchemaFacets,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.SchemaFacet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'GetObjectInformation' response operation.
 --
---
---
--- /See:/ 'batchGetObjectInformationResponse' smart constructor.
+-- /See:/ 'mkBatchGetObjectInformationResponse' smart constructor.
 data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
-  { _bgoiObjectIdentifier ::
-      !(Maybe Text),
-    _bgoiSchemaFacets ::
-      !(Maybe [SchemaFacet])
+  { objectIdentifier ::
+      Lude.Maybe Lude.Text,
+    schemaFacets ::
+      Lude.Maybe
+        [SchemaFacet]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetObjectInformationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgoiObjectIdentifier' - The @ObjectIdentifier@ of the specified object.
---
--- * 'bgoiSchemaFacets' - The facets attached to the specified object.
-batchGetObjectInformationResponse ::
+-- * 'objectIdentifier' - The @ObjectIdentifier@ of the specified object.
+-- * 'schemaFacets' - The facets attached to the specified object.
+mkBatchGetObjectInformationResponse ::
   BatchGetObjectInformationResponse
-batchGetObjectInformationResponse =
+mkBatchGetObjectInformationResponse =
   BatchGetObjectInformationResponse'
-    { _bgoiObjectIdentifier =
-        Nothing,
-      _bgoiSchemaFacets = Nothing
+    { objectIdentifier =
+        Lude.Nothing,
+      schemaFacets = Lude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the specified object.
-bgoiObjectIdentifier :: Lens' BatchGetObjectInformationResponse (Maybe Text)
-bgoiObjectIdentifier = lens _bgoiObjectIdentifier (\s a -> s {_bgoiObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgoiObjectIdentifier :: Lens.Lens' BatchGetObjectInformationResponse (Lude.Maybe Lude.Text)
+bgoiObjectIdentifier = Lens.lens (objectIdentifier :: BatchGetObjectInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: BatchGetObjectInformationResponse)
+{-# DEPRECATED bgoiObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
 -- | The facets attached to the specified object.
-bgoiSchemaFacets :: Lens' BatchGetObjectInformationResponse [SchemaFacet]
-bgoiSchemaFacets = lens _bgoiSchemaFacets (\s a -> s {_bgoiSchemaFacets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'schemaFacets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgoiSchemaFacets :: Lens.Lens' BatchGetObjectInformationResponse (Lude.Maybe [SchemaFacet])
+bgoiSchemaFacets = Lens.lens (schemaFacets :: BatchGetObjectInformationResponse -> Lude.Maybe [SchemaFacet]) (\s a -> s {schemaFacets = a} :: BatchGetObjectInformationResponse)
+{-# DEPRECATED bgoiSchemaFacets "Use generic-lens or generic-optics with 'schemaFacets' instead." #-}
 
-instance FromJSON BatchGetObjectInformationResponse where
+instance Lude.FromJSON BatchGetObjectInformationResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchGetObjectInformationResponse"
       ( \x ->
           BatchGetObjectInformationResponse'
-            <$> (x .:? "ObjectIdentifier") <*> (x .:? "SchemaFacets" .!= mempty)
+            Lude.<$> (x Lude..:? "ObjectIdentifier")
+            Lude.<*> (x Lude..:? "SchemaFacets" Lude..!= Lude.mempty)
       )
-
-instance Hashable BatchGetObjectInformationResponse
-
-instance NFData BatchGetObjectInformationResponse

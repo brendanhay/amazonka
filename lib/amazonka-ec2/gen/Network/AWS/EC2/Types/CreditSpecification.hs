@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CreditSpecification where
+module Network.AWS.EC2.Types.CreditSpecification
+  ( CreditSpecification (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCreditSpecification,
+
+    -- * Lenses
+    csCPUCredits,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the credit option for CPU usage of a T2, T3, or T3a instance.
 --
---
---
--- /See:/ 'creditSpecification' smart constructor.
+-- /See:/ 'mkCreditSpecification' smart constructor.
 newtype CreditSpecification = CreditSpecification'
-  { _csCPUCredits ::
-      Maybe Text
+  { cpuCredits ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreditSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csCPUCredits' - The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are @standard@ and @unlimited@ .
-creditSpecification ::
+-- * 'cpuCredits' - The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are @standard@ and @unlimited@ .
+mkCreditSpecification ::
   CreditSpecification
-creditSpecification = CreditSpecification' {_csCPUCredits = Nothing}
+mkCreditSpecification =
+  CreditSpecification' {cpuCredits = Lude.Nothing}
 
 -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are @standard@ and @unlimited@ .
-csCPUCredits :: Lens' CreditSpecification (Maybe Text)
-csCPUCredits = lens _csCPUCredits (\s a -> s {_csCPUCredits = a})
+--
+-- /Note:/ Consider using 'cpuCredits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCPUCredits :: Lens.Lens' CreditSpecification (Lude.Maybe Lude.Text)
+csCPUCredits = Lens.lens (cpuCredits :: CreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {cpuCredits = a} :: CreditSpecification)
+{-# DEPRECATED csCPUCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
 
-instance FromXML CreditSpecification where
-  parseXML x = CreditSpecification' <$> (x .@? "cpuCredits")
-
-instance Hashable CreditSpecification
-
-instance NFData CreditSpecification
+instance Lude.FromXML CreditSpecification where
+  parseXML x =
+    CreditSpecification' Lude.<$> (x Lude..@? "cpuCredits")

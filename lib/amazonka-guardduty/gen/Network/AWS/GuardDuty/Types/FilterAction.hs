@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.FilterAction where
+module Network.AWS.GuardDuty.Types.FilterAction
+  ( FilterAction
+      ( FilterAction',
+        Archive,
+        Noop
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FilterAction
-  = Archive
-  | Noop
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FilterAction = FilterAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FilterAction where
-  parser =
-    takeLowerText >>= \case
-      "archive" -> pure Archive
-      "noop" -> pure Noop
-      e ->
-        fromTextError $
-          "Failure parsing FilterAction from value: '" <> e
-            <> "'. Accepted values: archive, noop"
+pattern Archive :: FilterAction
+pattern Archive = FilterAction' "ARCHIVE"
 
-instance ToText FilterAction where
-  toText = \case
-    Archive -> "ARCHIVE"
-    Noop -> "NOOP"
+pattern Noop :: FilterAction
+pattern Noop = FilterAction' "NOOP"
 
-instance Hashable FilterAction
-
-instance NFData FilterAction
-
-instance ToByteString FilterAction
-
-instance ToQuery FilterAction
-
-instance ToHeader FilterAction
-
-instance ToJSON FilterAction where
-  toJSON = toJSONText
-
-instance FromJSON FilterAction where
-  parseJSON = parseJSONText "FilterAction"
+{-# COMPLETE
+  Archive,
+  Noop,
+  FilterAction'
+  #-}

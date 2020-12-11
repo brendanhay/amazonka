@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchAction where
+module Network.AWS.SSM.Types.PatchAction
+  ( PatchAction
+      ( PatchAction',
+        AllowAsDependency,
+        Block
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PatchAction
-  = AllowAsDependency
-  | Block
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PatchAction = PatchAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PatchAction where
-  parser =
-    takeLowerText >>= \case
-      "allow_as_dependency" -> pure AllowAsDependency
-      "block" -> pure Block
-      e ->
-        fromTextError $
-          "Failure parsing PatchAction from value: '" <> e
-            <> "'. Accepted values: allow_as_dependency, block"
+pattern AllowAsDependency :: PatchAction
+pattern AllowAsDependency = PatchAction' "ALLOW_AS_DEPENDENCY"
 
-instance ToText PatchAction where
-  toText = \case
-    AllowAsDependency -> "ALLOW_AS_DEPENDENCY"
-    Block -> "BLOCK"
+pattern Block :: PatchAction
+pattern Block = PatchAction' "BLOCK"
 
-instance Hashable PatchAction
-
-instance NFData PatchAction
-
-instance ToByteString PatchAction
-
-instance ToQuery PatchAction
-
-instance ToHeader PatchAction
-
-instance ToJSON PatchAction where
-  toJSON = toJSONText
-
-instance FromJSON PatchAction where
-  parseJSON = parseJSONText "PatchAction"
+{-# COMPLETE
+  AllowAsDependency,
+  Block,
+  PatchAction'
+  #-}

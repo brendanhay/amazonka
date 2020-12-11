@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the targets assigned to the specified rule.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListTargetsByRule
-  ( -- * Creating a Request
-    listTargetsByRule,
-    ListTargetsByRule,
+  ( -- * Creating a request
+    ListTargetsByRule (..),
+    mkListTargetsByRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltbrNextToken,
     ltbrEventBusName,
     ltbrLimit,
     ltbrRule,
 
-    -- * Destructuring the Response
-    listTargetsByRuleResponse,
-    ListTargetsByRuleResponse,
+    -- * Destructuring the response
+    ListTargetsByRuleResponse (..),
+    mkListTargetsByRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltbrrsNextToken,
     ltbrrsTargets,
     ltbrrsResponseStatus,
@@ -45,147 +38,174 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTargetsByRule' smart constructor.
+-- | /See:/ 'mkListTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
-  { _ltbrNextToken ::
-      !(Maybe Text),
-    _ltbrEventBusName :: !(Maybe Text),
-    _ltbrLimit :: !(Maybe Nat),
-    _ltbrRule :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    eventBusName :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    rule :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsByRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltbrNextToken' - The token returned by a previous call to retrieve the next set of results.
---
--- * 'ltbrEventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- * 'ltbrLimit' - The maximum number of results to return.
---
--- * 'ltbrRule' - The name of the rule.
-listTargetsByRule ::
-  -- | 'ltbrRule'
-  Text ->
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'limit' - The maximum number of results to return.
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
+-- * 'rule' - The name of the rule.
+mkListTargetsByRule ::
+  -- | 'rule'
+  Lude.Text ->
   ListTargetsByRule
-listTargetsByRule pRule_ =
+mkListTargetsByRule pRule_ =
   ListTargetsByRule'
-    { _ltbrNextToken = Nothing,
-      _ltbrEventBusName = Nothing,
-      _ltbrLimit = Nothing,
-      _ltbrRule = pRule_
+    { nextToken = Lude.Nothing,
+      eventBusName = Lude.Nothing,
+      limit = Lude.Nothing,
+      rule = pRule_
     }
 
 -- | The token returned by a previous call to retrieve the next set of results.
-ltbrNextToken :: Lens' ListTargetsByRule (Maybe Text)
-ltbrNextToken = lens _ltbrNextToken (\s a -> s {_ltbrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrNextToken :: Lens.Lens' ListTargetsByRule (Lude.Maybe Lude.Text)
+ltbrNextToken = Lens.lens (nextToken :: ListTargetsByRule -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTargetsByRule)
+{-# DEPRECATED ltbrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-ltbrEventBusName :: Lens' ListTargetsByRule (Maybe Text)
-ltbrEventBusName = lens _ltbrEventBusName (\s a -> s {_ltbrEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrEventBusName :: Lens.Lens' ListTargetsByRule (Lude.Maybe Lude.Text)
+ltbrEventBusName = Lens.lens (eventBusName :: ListTargetsByRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: ListTargetsByRule)
+{-# DEPRECATED ltbrEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The maximum number of results to return.
-ltbrLimit :: Lens' ListTargetsByRule (Maybe Natural)
-ltbrLimit = lens _ltbrLimit (\s a -> s {_ltbrLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrLimit :: Lens.Lens' ListTargetsByRule (Lude.Maybe Lude.Natural)
+ltbrLimit = Lens.lens (limit :: ListTargetsByRule -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTargetsByRule)
+{-# DEPRECATED ltbrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the rule.
-ltbrRule :: Lens' ListTargetsByRule Text
-ltbrRule = lens _ltbrRule (\s a -> s {_ltbrRule = a})
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrRule :: Lens.Lens' ListTargetsByRule Lude.Text
+ltbrRule = Lens.lens (rule :: ListTargetsByRule -> Lude.Text) (\s a -> s {rule = a} :: ListTargetsByRule)
+{-# DEPRECATED ltbrRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
-instance AWSPager ListTargetsByRule where
+instance Page.AWSPager ListTargetsByRule where
   page rq rs
-    | stop (rs ^. ltbrrsNextToken) = Nothing
-    | stop (rs ^. ltbrrsTargets) = Nothing
-    | otherwise = Just $ rq & ltbrNextToken .~ rs ^. ltbrrsNextToken
+    | Page.stop (rs Lens.^. ltbrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltbrrsTargets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltbrNextToken Lens..~ rs Lens.^. ltbrrsNextToken
 
-instance AWSRequest ListTargetsByRule where
+instance Lude.AWSRequest ListTargetsByRule where
   type Rs ListTargetsByRule = ListTargetsByRuleResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTargetsByRuleResponse'
-            <$> (x .?> "NextToken") <*> (x .?> "Targets") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Targets")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTargetsByRule
-
-instance NFData ListTargetsByRule
-
-instance ToHeaders ListTargetsByRule where
+instance Lude.ToHeaders ListTargetsByRule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.ListTargetsByRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.ListTargetsByRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTargetsByRule where
+instance Lude.ToJSON ListTargetsByRule where
   toJSON ListTargetsByRule' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltbrNextToken,
-            ("EventBusName" .=) <$> _ltbrEventBusName,
-            ("Limit" .=) <$> _ltbrLimit,
-            Just ("Rule" .= _ltbrRule)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("Rule" Lude..= rule)
           ]
       )
 
-instance ToPath ListTargetsByRule where
-  toPath = const "/"
+instance Lude.ToPath ListTargetsByRule where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTargetsByRule where
-  toQuery = const mempty
+instance Lude.ToQuery ListTargetsByRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTargetsByRuleResponse' smart constructor.
+-- | /See:/ 'mkListTargetsByRuleResponse' smart constructor.
 data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
-  { _ltbrrsNextToken ::
-      !(Maybe Text),
-    _ltbrrsTargets ::
-      !(Maybe (List1 Target)),
-    _ltbrrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    targets ::
+      Lude.Maybe (Lude.NonEmpty Target),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsByRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltbrrsNextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
---
--- * 'ltbrrsTargets' - The targets assigned to the rule.
---
--- * 'ltbrrsResponseStatus' - -- | The response status code.
-listTargetsByRuleResponse ::
-  -- | 'ltbrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
+-- * 'responseStatus' - The response status code.
+-- * 'targets' - The targets assigned to the rule.
+mkListTargetsByRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTargetsByRuleResponse
-listTargetsByRuleResponse pResponseStatus_ =
+mkListTargetsByRuleResponse pResponseStatus_ =
   ListTargetsByRuleResponse'
-    { _ltbrrsNextToken = Nothing,
-      _ltbrrsTargets = Nothing,
-      _ltbrrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      targets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
-ltbrrsNextToken :: Lens' ListTargetsByRuleResponse (Maybe Text)
-ltbrrsNextToken = lens _ltbrrsNextToken (\s a -> s {_ltbrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrrsNextToken :: Lens.Lens' ListTargetsByRuleResponse (Lude.Maybe Lude.Text)
+ltbrrsNextToken = Lens.lens (nextToken :: ListTargetsByRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTargetsByRuleResponse)
+{-# DEPRECATED ltbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The targets assigned to the rule.
-ltbrrsTargets :: Lens' ListTargetsByRuleResponse (Maybe (NonEmpty Target))
-ltbrrsTargets = lens _ltbrrsTargets (\s a -> s {_ltbrrsTargets = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrrsTargets :: Lens.Lens' ListTargetsByRuleResponse (Lude.Maybe (Lude.NonEmpty Target))
+ltbrrsTargets = Lens.lens (targets :: ListTargetsByRuleResponse -> Lude.Maybe (Lude.NonEmpty Target)) (\s a -> s {targets = a} :: ListTargetsByRuleResponse)
+{-# DEPRECATED ltbrrsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
--- | -- | The response status code.
-ltbrrsResponseStatus :: Lens' ListTargetsByRuleResponse Int
-ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\s a -> s {_ltbrrsResponseStatus = a})
-
-instance NFData ListTargetsByRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrrsResponseStatus :: Lens.Lens' ListTargetsByRuleResponse Lude.Int
+ltbrrsResponseStatus = Lens.lens (responseStatus :: ListTargetsByRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTargetsByRuleResponse)
+{-# DEPRECATED ltbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

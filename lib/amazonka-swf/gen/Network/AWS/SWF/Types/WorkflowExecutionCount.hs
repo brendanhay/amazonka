@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionCount where
+module Network.AWS.SWF.Types.WorkflowExecutionCount
+  ( WorkflowExecutionCount (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowExecutionCount,
+
+    -- * Lenses
+    wecTruncated,
+    wecCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the count of workflow executions returned from 'CountOpenWorkflowExecutions' or 'CountClosedWorkflowExecutions'
 --
---
---
--- /See:/ 'workflowExecutionCount' smart constructor.
+-- /See:/ 'mkWorkflowExecutionCount' smart constructor.
 data WorkflowExecutionCount = WorkflowExecutionCount'
-  { _wecTruncated ::
-      !(Maybe Bool),
-    _wecCount :: !Nat
+  { truncated ::
+      Lude.Maybe Lude.Bool,
+    count :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionCount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wecTruncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
---
--- * 'wecCount' - The number of workflow executions.
-workflowExecutionCount ::
-  -- | 'wecCount'
-  Natural ->
+-- * 'count' - The number of workflow executions.
+-- * 'truncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
+mkWorkflowExecutionCount ::
+  -- | 'count'
+  Lude.Natural ->
   WorkflowExecutionCount
-workflowExecutionCount pCount_ =
+mkWorkflowExecutionCount pCount_ =
   WorkflowExecutionCount'
-    { _wecTruncated = Nothing,
-      _wecCount = _Nat # pCount_
+    { truncated = Lude.Nothing,
+      count = pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
-wecTruncated :: Lens' WorkflowExecutionCount (Maybe Bool)
-wecTruncated = lens _wecTruncated (\s a -> s {_wecTruncated = a})
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecTruncated :: Lens.Lens' WorkflowExecutionCount (Lude.Maybe Lude.Bool)
+wecTruncated = Lens.lens (truncated :: WorkflowExecutionCount -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: WorkflowExecutionCount)
+{-# DEPRECATED wecTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | The number of workflow executions.
-wecCount :: Lens' WorkflowExecutionCount Natural
-wecCount = lens _wecCount (\s a -> s {_wecCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecCount :: Lens.Lens' WorkflowExecutionCount Lude.Natural
+wecCount = Lens.lens (count :: WorkflowExecutionCount -> Lude.Natural) (\s a -> s {count = a} :: WorkflowExecutionCount)
+{-# DEPRECATED wecCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
-instance FromJSON WorkflowExecutionCount where
+instance Lude.FromJSON WorkflowExecutionCount where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowExecutionCount"
       ( \x ->
-          WorkflowExecutionCount' <$> (x .:? "truncated") <*> (x .: "count")
+          WorkflowExecutionCount'
+            Lude.<$> (x Lude..:? "truncated") Lude.<*> (x Lude..: "count")
       )
-
-instance Hashable WorkflowExecutionCount
-
-instance NFData WorkflowExecutionCount

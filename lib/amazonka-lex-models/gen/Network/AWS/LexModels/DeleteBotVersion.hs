@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,103 @@
 --
 -- Deletes a specific version of a bot. To delete all versions of a bot, use the 'DeleteBot' operation.
 --
---
 -- This operation requires permissions for the @lex:DeleteBotVersion@ action.
 module Network.AWS.LexModels.DeleteBotVersion
-  ( -- * Creating a Request
-    deleteBotVersion,
-    DeleteBotVersion,
+  ( -- * Creating a request
+    DeleteBotVersion (..),
+    mkDeleteBotVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbvName,
     dbvVersion,
 
-    -- * Destructuring the Response
-    deleteBotVersionResponse,
-    DeleteBotVersionResponse,
+    -- * Destructuring the response
+    DeleteBotVersionResponse (..),
+    mkDeleteBotVersionResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBotVersion' smart constructor.
+-- | /See:/ 'mkDeleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
-  { _dbvName :: !Text,
-    _dbvVersion :: !Text
+  { name :: Lude.Text,
+    version :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbvName' - The name of the bot.
---
--- * 'dbvVersion' - The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
-deleteBotVersion ::
-  -- | 'dbvName'
-  Text ->
-  -- | 'dbvVersion'
-  Text ->
+-- * 'name' - The name of the bot.
+-- * 'version' - The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
+mkDeleteBotVersion ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   DeleteBotVersion
-deleteBotVersion pName_ pVersion_ =
-  DeleteBotVersion' {_dbvName = pName_, _dbvVersion = pVersion_}
+mkDeleteBotVersion pName_ pVersion_ =
+  DeleteBotVersion' {name = pName_, version = pVersion_}
 
 -- | The name of the bot.
-dbvName :: Lens' DeleteBotVersion Text
-dbvName = lens _dbvName (\s a -> s {_dbvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbvName :: Lens.Lens' DeleteBotVersion Lude.Text
+dbvName = Lens.lens (name :: DeleteBotVersion -> Lude.Text) (\s a -> s {name = a} :: DeleteBotVersion)
+{-# DEPRECATED dbvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
-dbvVersion :: Lens' DeleteBotVersion Text
-dbvVersion = lens _dbvVersion (\s a -> s {_dbvVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbvVersion :: Lens.Lens' DeleteBotVersion Lude.Text
+dbvVersion = Lens.lens (version :: DeleteBotVersion -> Lude.Text) (\s a -> s {version = a} :: DeleteBotVersion)
+{-# DEPRECATED dbvVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance AWSRequest DeleteBotVersion where
+instance Lude.AWSRequest DeleteBotVersion where
   type Rs DeleteBotVersion = DeleteBotVersionResponse
-  request = delete lexModels
-  response = receiveNull DeleteBotVersionResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteBotVersionResponse'
 
-instance Hashable DeleteBotVersion
-
-instance NFData DeleteBotVersion
-
-instance ToHeaders DeleteBotVersion where
+instance Lude.ToHeaders DeleteBotVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteBotVersion where
+instance Lude.ToPath DeleteBotVersion where
   toPath DeleteBotVersion' {..} =
-    mconcat ["/bots/", toBS _dbvName, "/versions/", toBS _dbvVersion]
+    Lude.mconcat
+      ["/bots/", Lude.toBS name, "/versions/", Lude.toBS version]
 
-instance ToQuery DeleteBotVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBotVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBotVersionResponse' smart constructor.
+-- | /See:/ 'mkDeleteBotVersionResponse' smart constructor.
 data DeleteBotVersionResponse = DeleteBotVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotVersionResponse' with the minimum fields required to make a request.
-deleteBotVersionResponse ::
+mkDeleteBotVersionResponse ::
   DeleteBotVersionResponse
-deleteBotVersionResponse = DeleteBotVersionResponse'
-
-instance NFData DeleteBotVersionResponse
+mkDeleteBotVersionResponse = DeleteBotVersionResponse'

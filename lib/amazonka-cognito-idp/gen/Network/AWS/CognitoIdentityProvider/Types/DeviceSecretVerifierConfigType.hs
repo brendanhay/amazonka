@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType where
+module Network.AWS.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType
+  ( DeviceSecretVerifierConfigType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeviceSecretVerifierConfigType,
+
+    -- * Lenses
+    dsvctPasswordVerifier,
+    dsvctSalt,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The device verifier against which it will be authenticated.
 --
---
---
--- /See:/ 'deviceSecretVerifierConfigType' smart constructor.
+-- /See:/ 'mkDeviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
-  { _dsvctPasswordVerifier ::
-      !(Maybe Text),
-    _dsvctSalt :: !(Maybe Text)
+  { passwordVerifier ::
+      Lude.Maybe Lude.Text,
+    salt :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceSecretVerifierConfigType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsvctPasswordVerifier' - The password verifier.
---
--- * 'dsvctSalt' - The salt.
-deviceSecretVerifierConfigType ::
+-- * 'passwordVerifier' - The password verifier.
+-- * 'salt' - The salt.
+mkDeviceSecretVerifierConfigType ::
   DeviceSecretVerifierConfigType
-deviceSecretVerifierConfigType =
+mkDeviceSecretVerifierConfigType =
   DeviceSecretVerifierConfigType'
-    { _dsvctPasswordVerifier = Nothing,
-      _dsvctSalt = Nothing
+    { passwordVerifier = Lude.Nothing,
+      salt = Lude.Nothing
     }
 
 -- | The password verifier.
-dsvctPasswordVerifier :: Lens' DeviceSecretVerifierConfigType (Maybe Text)
-dsvctPasswordVerifier = lens _dsvctPasswordVerifier (\s a -> s {_dsvctPasswordVerifier = a})
+--
+-- /Note:/ Consider using 'passwordVerifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsvctPasswordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Lude.Maybe Lude.Text)
+dsvctPasswordVerifier = Lens.lens (passwordVerifier :: DeviceSecretVerifierConfigType -> Lude.Maybe Lude.Text) (\s a -> s {passwordVerifier = a} :: DeviceSecretVerifierConfigType)
+{-# DEPRECATED dsvctPasswordVerifier "Use generic-lens or generic-optics with 'passwordVerifier' instead." #-}
 
 -- | The salt.
-dsvctSalt :: Lens' DeviceSecretVerifierConfigType (Maybe Text)
-dsvctSalt = lens _dsvctSalt (\s a -> s {_dsvctSalt = a})
+--
+-- /Note:/ Consider using 'salt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsvctSalt :: Lens.Lens' DeviceSecretVerifierConfigType (Lude.Maybe Lude.Text)
+dsvctSalt = Lens.lens (salt :: DeviceSecretVerifierConfigType -> Lude.Maybe Lude.Text) (\s a -> s {salt = a} :: DeviceSecretVerifierConfigType)
+{-# DEPRECATED dsvctSalt "Use generic-lens or generic-optics with 'salt' instead." #-}
 
-instance Hashable DeviceSecretVerifierConfigType
-
-instance NFData DeviceSecretVerifierConfigType
-
-instance ToJSON DeviceSecretVerifierConfigType where
+instance Lude.ToJSON DeviceSecretVerifierConfigType where
   toJSON DeviceSecretVerifierConfigType' {..} =
-    object
-      ( catMaybes
-          [ ("PasswordVerifier" .=) <$> _dsvctPasswordVerifier,
-            ("Salt" .=) <$> _dsvctSalt
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PasswordVerifier" Lude..=) Lude.<$> passwordVerifier,
+            ("Salt" Lude..=) Lude.<$> salt
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Retrieves partitions in a batch request.
 module Network.AWS.Glue.BatchGetPartition
-  ( -- * Creating a Request
-    batchGetPartition,
-    BatchGetPartition,
+  ( -- * Creating a request
+    BatchGetPartition (..),
+    mkBatchGetPartition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgpCatalogId,
     bgpDatabaseName,
     bgpTableName,
     bgpPartitionsToGet,
 
-    -- * Destructuring the Response
-    batchGetPartitionResponse,
-    BatchGetPartitionResponse,
+    -- * Destructuring the response
+    BatchGetPartitionResponse (..),
+    mkBatchGetPartitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgprsUnprocessedKeys,
     bgprsPartitions,
     bgprsResponseStatus,
@@ -41,144 +36,165 @@ module Network.AWS.Glue.BatchGetPartition
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetPartition' smart constructor.
+-- | /See:/ 'mkBatchGetPartition' smart constructor.
 data BatchGetPartition = BatchGetPartition'
-  { _bgpCatalogId ::
-      !(Maybe Text),
-    _bgpDatabaseName :: !Text,
-    _bgpTableName :: !Text,
-    _bgpPartitionsToGet :: ![PartitionValueList]
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text,
+    partitionsToGet :: [PartitionValueList]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetPartition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgpCatalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
---
--- * 'bgpDatabaseName' - The name of the catalog database where the partitions reside.
---
--- * 'bgpTableName' - The name of the partitions' table.
---
--- * 'bgpPartitionsToGet' - A list of partition values identifying the partitions to retrieve.
-batchGetPartition ::
-  -- | 'bgpDatabaseName'
-  Text ->
-  -- | 'bgpTableName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the catalog database where the partitions reside.
+-- * 'partitionsToGet' - A list of partition values identifying the partitions to retrieve.
+-- * 'tableName' - The name of the partitions' table.
+mkBatchGetPartition ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   BatchGetPartition
-batchGetPartition pDatabaseName_ pTableName_ =
+mkBatchGetPartition pDatabaseName_ pTableName_ =
   BatchGetPartition'
-    { _bgpCatalogId = Nothing,
-      _bgpDatabaseName = pDatabaseName_,
-      _bgpTableName = pTableName_,
-      _bgpPartitionsToGet = mempty
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      partitionsToGet = Lude.mempty
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
-bgpCatalogId :: Lens' BatchGetPartition (Maybe Text)
-bgpCatalogId = lens _bgpCatalogId (\s a -> s {_bgpCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgpCatalogId :: Lens.Lens' BatchGetPartition (Lude.Maybe Lude.Text)
+bgpCatalogId = Lens.lens (catalogId :: BatchGetPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchGetPartition)
+{-# DEPRECATED bgpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the partitions reside.
-bgpDatabaseName :: Lens' BatchGetPartition Text
-bgpDatabaseName = lens _bgpDatabaseName (\s a -> s {_bgpDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgpDatabaseName :: Lens.Lens' BatchGetPartition Lude.Text
+bgpDatabaseName = Lens.lens (databaseName :: BatchGetPartition -> Lude.Text) (\s a -> s {databaseName = a} :: BatchGetPartition)
+{-# DEPRECATED bgpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partitions' table.
-bgpTableName :: Lens' BatchGetPartition Text
-bgpTableName = lens _bgpTableName (\s a -> s {_bgpTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgpTableName :: Lens.Lens' BatchGetPartition Lude.Text
+bgpTableName = Lens.lens (tableName :: BatchGetPartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchGetPartition)
+{-# DEPRECATED bgpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | A list of partition values identifying the partitions to retrieve.
-bgpPartitionsToGet :: Lens' BatchGetPartition [PartitionValueList]
-bgpPartitionsToGet = lens _bgpPartitionsToGet (\s a -> s {_bgpPartitionsToGet = a}) . _Coerce
+--
+-- /Note:/ Consider using 'partitionsToGet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgpPartitionsToGet :: Lens.Lens' BatchGetPartition [PartitionValueList]
+bgpPartitionsToGet = Lens.lens (partitionsToGet :: BatchGetPartition -> [PartitionValueList]) (\s a -> s {partitionsToGet = a} :: BatchGetPartition)
+{-# DEPRECATED bgpPartitionsToGet "Use generic-lens or generic-optics with 'partitionsToGet' instead." #-}
 
-instance AWSRequest BatchGetPartition where
+instance Lude.AWSRequest BatchGetPartition where
   type Rs BatchGetPartition = BatchGetPartitionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetPartitionResponse'
-            <$> (x .?> "UnprocessedKeys" .!@ mempty)
-            <*> (x .?> "Partitions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UnprocessedKeys" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Partitions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetPartition
-
-instance NFData BatchGetPartition
-
-instance ToHeaders BatchGetPartition where
+instance Lude.ToHeaders BatchGetPartition where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.BatchGetPartition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.BatchGetPartition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetPartition where
+instance Lude.ToJSON BatchGetPartition where
   toJSON BatchGetPartition' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _bgpCatalogId,
-            Just ("DatabaseName" .= _bgpDatabaseName),
-            Just ("TableName" .= _bgpTableName),
-            Just ("PartitionsToGet" .= _bgpPartitionsToGet)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionsToGet" Lude..= partitionsToGet)
           ]
       )
 
-instance ToPath BatchGetPartition where
-  toPath = const "/"
+instance Lude.ToPath BatchGetPartition where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetPartition where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetPartition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetPartitionResponse' smart constructor.
+-- | /See:/ 'mkBatchGetPartitionResponse' smart constructor.
 data BatchGetPartitionResponse = BatchGetPartitionResponse'
-  { _bgprsUnprocessedKeys ::
-      !(Maybe [PartitionValueList]),
-    _bgprsPartitions ::
-      !(Maybe [Partition]),
-    _bgprsResponseStatus :: !Int
+  { unprocessedKeys ::
+      Lude.Maybe [PartitionValueList],
+    partitions :: Lude.Maybe [Partition],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetPartitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgprsUnprocessedKeys' - A list of the partition values in the request for which partitions were not returned.
---
--- * 'bgprsPartitions' - A list of the requested partitions.
---
--- * 'bgprsResponseStatus' - -- | The response status code.
-batchGetPartitionResponse ::
-  -- | 'bgprsResponseStatus'
-  Int ->
+-- * 'partitions' - A list of the requested partitions.
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedKeys' - A list of the partition values in the request for which partitions were not returned.
+mkBatchGetPartitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetPartitionResponse
-batchGetPartitionResponse pResponseStatus_ =
+mkBatchGetPartitionResponse pResponseStatus_ =
   BatchGetPartitionResponse'
-    { _bgprsUnprocessedKeys = Nothing,
-      _bgprsPartitions = Nothing,
-      _bgprsResponseStatus = pResponseStatus_
+    { unprocessedKeys = Lude.Nothing,
+      partitions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the partition values in the request for which partitions were not returned.
-bgprsUnprocessedKeys :: Lens' BatchGetPartitionResponse [PartitionValueList]
-bgprsUnprocessedKeys = lens _bgprsUnprocessedKeys (\s a -> s {_bgprsUnprocessedKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgprsUnprocessedKeys :: Lens.Lens' BatchGetPartitionResponse (Lude.Maybe [PartitionValueList])
+bgprsUnprocessedKeys = Lens.lens (unprocessedKeys :: BatchGetPartitionResponse -> Lude.Maybe [PartitionValueList]) (\s a -> s {unprocessedKeys = a} :: BatchGetPartitionResponse)
+{-# DEPRECATED bgprsUnprocessedKeys "Use generic-lens or generic-optics with 'unprocessedKeys' instead." #-}
 
 -- | A list of the requested partitions.
-bgprsPartitions :: Lens' BatchGetPartitionResponse [Partition]
-bgprsPartitions = lens _bgprsPartitions (\s a -> s {_bgprsPartitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgprsPartitions :: Lens.Lens' BatchGetPartitionResponse (Lude.Maybe [Partition])
+bgprsPartitions = Lens.lens (partitions :: BatchGetPartitionResponse -> Lude.Maybe [Partition]) (\s a -> s {partitions = a} :: BatchGetPartitionResponse)
+{-# DEPRECATED bgprsPartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
 
--- | -- | The response status code.
-bgprsResponseStatus :: Lens' BatchGetPartitionResponse Int
-bgprsResponseStatus = lens _bgprsResponseStatus (\s a -> s {_bgprsResponseStatus = a})
-
-instance NFData BatchGetPartitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgprsResponseStatus :: Lens.Lens' BatchGetPartitionResponse Lude.Int
+bgprsResponseStatus = Lens.lens (responseStatus :: BatchGetPartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetPartitionResponse)
+{-# DEPRECATED bgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

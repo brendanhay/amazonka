@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.EC2TagFilterType where
+module Network.AWS.CodeDeploy.Types.EC2TagFilterType
+  ( EC2TagFilterType
+      ( EC2TagFilterType',
+        KeyAndValue,
+        KeyOnly,
+        ValueOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EC2TagFilterType
-  = KeyAndValue
-  | KeyOnly
-  | ValueOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EC2TagFilterType = EC2TagFilterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EC2TagFilterType where
-  parser =
-    takeLowerText >>= \case
-      "key_and_value" -> pure KeyAndValue
-      "key_only" -> pure KeyOnly
-      "value_only" -> pure ValueOnly
-      e ->
-        fromTextError $
-          "Failure parsing EC2TagFilterType from value: '" <> e
-            <> "'. Accepted values: key_and_value, key_only, value_only"
+pattern KeyAndValue :: EC2TagFilterType
+pattern KeyAndValue = EC2TagFilterType' "KEY_AND_VALUE"
 
-instance ToText EC2TagFilterType where
-  toText = \case
-    KeyAndValue -> "KEY_AND_VALUE"
-    KeyOnly -> "KEY_ONLY"
-    ValueOnly -> "VALUE_ONLY"
+pattern KeyOnly :: EC2TagFilterType
+pattern KeyOnly = EC2TagFilterType' "KEY_ONLY"
 
-instance Hashable EC2TagFilterType
+pattern ValueOnly :: EC2TagFilterType
+pattern ValueOnly = EC2TagFilterType' "VALUE_ONLY"
 
-instance NFData EC2TagFilterType
-
-instance ToByteString EC2TagFilterType
-
-instance ToQuery EC2TagFilterType
-
-instance ToHeader EC2TagFilterType
-
-instance ToJSON EC2TagFilterType where
-  toJSON = toJSONText
-
-instance FromJSON EC2TagFilterType where
-  parseJSON = parseJSONText "EC2TagFilterType"
+{-# COMPLETE
+  KeyAndValue,
+  KeyOnly,
+  ValueOnly,
+  EC2TagFilterType'
+  #-}

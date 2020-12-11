@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,97 @@
 --
 -- Deletes an OpenID Connect identity provider (IdP) resource object in IAM.
 --
---
 -- Deleting an IAM OIDC provider resource does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a deleted provider fails.
---
 -- This operation is idempotent; it does not fail or return an error if you call the operation for a provider that does not exist.
 module Network.AWS.IAM.DeleteOpenIdConnectProvider
-  ( -- * Creating a Request
-    deleteOpenIdConnectProvider,
-    DeleteOpenIdConnectProvider,
+  ( -- * Creating a request
+    DeleteOpenIdConnectProvider (..),
+    mkDeleteOpenIdConnectProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doicpOpenIdConnectProviderARN,
 
-    -- * Destructuring the Response
-    deleteOpenIdConnectProviderResponse,
-    DeleteOpenIdConnectProviderResponse,
+    -- * Destructuring the response
+    DeleteOpenIdConnectProviderResponse (..),
+    mkDeleteOpenIdConnectProviderResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteOpenIdConnectProvider' smart constructor.
+-- | /See:/ 'mkDeleteOpenIdConnectProvider' smart constructor.
 newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
-  { _doicpOpenIdConnectProviderARN ::
-      Text
+  { openIdConnectProviderARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOpenIdConnectProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' operation.
-deleteOpenIdConnectProvider ::
-  -- | 'doicpOpenIdConnectProviderARN'
-  Text ->
+-- * 'openIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' operation.
+mkDeleteOpenIdConnectProvider ::
+  -- | 'openIdConnectProviderARN'
+  Lude.Text ->
   DeleteOpenIdConnectProvider
-deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
+mkDeleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
   DeleteOpenIdConnectProvider'
-    { _doicpOpenIdConnectProviderARN =
+    { openIdConnectProviderARN =
         pOpenIdConnectProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' operation.
-doicpOpenIdConnectProviderARN :: Lens' DeleteOpenIdConnectProvider Text
-doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\s a -> s {_doicpOpenIdConnectProviderARN = a})
+--
+-- /Note:/ Consider using 'openIdConnectProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doicpOpenIdConnectProviderARN :: Lens.Lens' DeleteOpenIdConnectProvider Lude.Text
+doicpOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: DeleteOpenIdConnectProvider -> Lude.Text) (\s a -> s {openIdConnectProviderARN = a} :: DeleteOpenIdConnectProvider)
+{-# DEPRECATED doicpOpenIdConnectProviderARN "Use generic-lens or generic-optics with 'openIdConnectProviderARN' instead." #-}
 
-instance AWSRequest DeleteOpenIdConnectProvider where
+instance Lude.AWSRequest DeleteOpenIdConnectProvider where
   type
     Rs DeleteOpenIdConnectProvider =
       DeleteOpenIdConnectProviderResponse
-  request = postQuery iam
-  response = receiveNull DeleteOpenIdConnectProviderResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteOpenIdConnectProviderResponse'
 
-instance Hashable DeleteOpenIdConnectProvider
+instance Lude.ToHeaders DeleteOpenIdConnectProvider where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteOpenIdConnectProvider
+instance Lude.ToPath DeleteOpenIdConnectProvider where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteOpenIdConnectProvider where
-  toHeaders = const mempty
-
-instance ToPath DeleteOpenIdConnectProvider where
-  toPath = const "/"
-
-instance ToQuery DeleteOpenIdConnectProvider where
+instance Lude.ToQuery DeleteOpenIdConnectProvider where
   toQuery DeleteOpenIdConnectProvider' {..} =
-    mconcat
-      [ "Action" =: ("DeleteOpenIDConnectProvider" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "OpenIDConnectProviderArn" =: _doicpOpenIdConnectProviderARN
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteOpenIDConnectProvider" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "OpenIDConnectProviderArn" Lude.=: openIdConnectProviderARN
       ]
 
--- | /See:/ 'deleteOpenIdConnectProviderResponse' smart constructor.
+-- | /See:/ 'mkDeleteOpenIdConnectProviderResponse' smart constructor.
 data DeleteOpenIdConnectProviderResponse = DeleteOpenIdConnectProviderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOpenIdConnectProviderResponse' with the minimum fields required to make a request.
-deleteOpenIdConnectProviderResponse ::
+mkDeleteOpenIdConnectProviderResponse ::
   DeleteOpenIdConnectProviderResponse
-deleteOpenIdConnectProviderResponse =
+mkDeleteOpenIdConnectProviderResponse =
   DeleteOpenIdConnectProviderResponse'
-
-instance NFData DeleteOpenIdConnectProviderResponse

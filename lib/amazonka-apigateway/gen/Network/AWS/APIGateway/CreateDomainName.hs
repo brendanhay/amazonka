@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new domain name.
 module Network.AWS.APIGateway.CreateDomainName
-  ( -- * Creating a Request
-    createDomainName,
-    CreateDomainName,
+  ( -- * Creating a request
+    CreateDomainName (..),
+    mkCreateDomainName,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdnCertificateName,
     cdnRegionalCertificateARN,
     cdnCertificateARN,
@@ -37,11 +32,11 @@ module Network.AWS.APIGateway.CreateDomainName
     cdnTags,
     cdnDomainName,
 
-    -- * Destructuring the Response
-    domainName,
-    DomainName,
+    -- * Destructuring the response
+    DomainName (..),
+    mkDomainName,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dnRegionalHostedZoneId,
     dnCertificateName,
     dnRegionalCertificateARN,
@@ -62,164 +57,192 @@ module Network.AWS.APIGateway.CreateDomainName
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to create a new domain name.
 --
---
---
--- /See:/ 'createDomainName' smart constructor.
+-- /See:/ 'mkCreateDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
-  { _cdnCertificateName ::
-      !(Maybe Text),
-    _cdnRegionalCertificateARN :: !(Maybe Text),
-    _cdnCertificateARN :: !(Maybe Text),
-    _cdnSecurityPolicy :: !(Maybe SecurityPolicy),
-    _cdnMutualTLSAuthentication ::
-      !(Maybe MutualTLSAuthenticationInput),
-    _cdnCertificatePrivateKey :: !(Maybe Text),
-    _cdnRegionalCertificateName :: !(Maybe Text),
-    _cdnCertificateBody :: !(Maybe Text),
-    _cdnCertificateChain :: !(Maybe Text),
-    _cdnEndpointConfiguration ::
-      !(Maybe EndpointConfiguration),
-    _cdnTags :: !(Maybe (Map Text (Text))),
-    _cdnDomainName :: !Text
+  { certificateName ::
+      Lude.Maybe Lude.Text,
+    regionalCertificateARN :: Lude.Maybe Lude.Text,
+    certificateARN :: Lude.Maybe Lude.Text,
+    securityPolicy :: Lude.Maybe SecurityPolicy,
+    mutualTLSAuthentication ::
+      Lude.Maybe MutualTLSAuthenticationInput,
+    certificatePrivateKey :: Lude.Maybe Lude.Text,
+    regionalCertificateName :: Lude.Maybe Lude.Text,
+    certificateBody :: Lude.Maybe Lude.Text,
+    certificateChain :: Lude.Maybe Lude.Text,
+    endpointConfiguration :: Lude.Maybe EndpointConfiguration,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainName' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdnCertificateName' - The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
---
--- * 'cdnRegionalCertificateARN' - The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
---
--- * 'cdnCertificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
---
--- * 'cdnSecurityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
---
--- * 'cdnMutualTLSAuthentication' - Undocumented member.
---
--- * 'cdnCertificatePrivateKey' - [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
---
--- * 'cdnRegionalCertificateName' - The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
---
--- * 'cdnCertificateBody' - [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
---
--- * 'cdnCertificateChain' - [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
---
--- * 'cdnEndpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
---
--- * 'cdnTags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
---
--- * 'cdnDomainName' - [Required] The name of the 'DomainName' resource.
-createDomainName ::
-  -- | 'cdnDomainName'
-  Text ->
+-- * 'certificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+-- * 'certificateBody' - [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
+-- * 'certificateChain' - [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
+-- * 'certificateName' - The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
+-- * 'certificatePrivateKey' - [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
+-- * 'domainName' - [Required] The name of the 'DomainName' resource.
+-- * 'endpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
+-- * 'mutualTLSAuthentication' - Undocumented field.
+-- * 'regionalCertificateARN' - The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
+-- * 'regionalCertificateName' - The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
+-- * 'securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+mkCreateDomainName ::
+  -- | 'domainName'
+  Lude.Text ->
   CreateDomainName
-createDomainName pDomainName_ =
+mkCreateDomainName pDomainName_ =
   CreateDomainName'
-    { _cdnCertificateName = Nothing,
-      _cdnRegionalCertificateARN = Nothing,
-      _cdnCertificateARN = Nothing,
-      _cdnSecurityPolicy = Nothing,
-      _cdnMutualTLSAuthentication = Nothing,
-      _cdnCertificatePrivateKey = Nothing,
-      _cdnRegionalCertificateName = Nothing,
-      _cdnCertificateBody = Nothing,
-      _cdnCertificateChain = Nothing,
-      _cdnEndpointConfiguration = Nothing,
-      _cdnTags = Nothing,
-      _cdnDomainName = pDomainName_
+    { certificateName = Lude.Nothing,
+      regionalCertificateARN = Lude.Nothing,
+      certificateARN = Lude.Nothing,
+      securityPolicy = Lude.Nothing,
+      mutualTLSAuthentication = Lude.Nothing,
+      certificatePrivateKey = Lude.Nothing,
+      regionalCertificateName = Lude.Nothing,
+      certificateBody = Lude.Nothing,
+      certificateChain = Lude.Nothing,
+      endpointConfiguration = Lude.Nothing,
+      tags = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
-cdnCertificateName :: Lens' CreateDomainName (Maybe Text)
-cdnCertificateName = lens _cdnCertificateName (\s a -> s {_cdnCertificateName = a})
+--
+-- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnCertificateName :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnCertificateName = Lens.lens (certificateName :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: CreateDomainName)
+{-# DEPRECATED cdnCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
 -- | The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
-cdnRegionalCertificateARN :: Lens' CreateDomainName (Maybe Text)
-cdnRegionalCertificateARN = lens _cdnRegionalCertificateARN (\s a -> s {_cdnRegionalCertificateARN = a})
+--
+-- /Note:/ Consider using 'regionalCertificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnRegionalCertificateARN :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnRegionalCertificateARN = Lens.lens (regionalCertificateARN :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {regionalCertificateARN = a} :: CreateDomainName)
+{-# DEPRECATED cdnRegionalCertificateARN "Use generic-lens or generic-optics with 'regionalCertificateARN' instead." #-}
 
 -- | The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
-cdnCertificateARN :: Lens' CreateDomainName (Maybe Text)
-cdnCertificateARN = lens _cdnCertificateARN (\s a -> s {_cdnCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnCertificateARN :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnCertificateARN = Lens.lens (certificateARN :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CreateDomainName)
+{-# DEPRECATED cdnCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
-cdnSecurityPolicy :: Lens' CreateDomainName (Maybe SecurityPolicy)
-cdnSecurityPolicy = lens _cdnSecurityPolicy (\s a -> s {_cdnSecurityPolicy = a})
+--
+-- /Note:/ Consider using 'securityPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnSecurityPolicy :: Lens.Lens' CreateDomainName (Lude.Maybe SecurityPolicy)
+cdnSecurityPolicy = Lens.lens (securityPolicy :: CreateDomainName -> Lude.Maybe SecurityPolicy) (\s a -> s {securityPolicy = a} :: CreateDomainName)
+{-# DEPRECATED cdnSecurityPolicy "Use generic-lens or generic-optics with 'securityPolicy' instead." #-}
 
--- | Undocumented member.
-cdnMutualTLSAuthentication :: Lens' CreateDomainName (Maybe MutualTLSAuthenticationInput)
-cdnMutualTLSAuthentication = lens _cdnMutualTLSAuthentication (\s a -> s {_cdnMutualTLSAuthentication = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mutualTLSAuthentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnMutualTLSAuthentication :: Lens.Lens' CreateDomainName (Lude.Maybe MutualTLSAuthenticationInput)
+cdnMutualTLSAuthentication = Lens.lens (mutualTLSAuthentication :: CreateDomainName -> Lude.Maybe MutualTLSAuthenticationInput) (\s a -> s {mutualTLSAuthentication = a} :: CreateDomainName)
+{-# DEPRECATED cdnMutualTLSAuthentication "Use generic-lens or generic-optics with 'mutualTLSAuthentication' instead." #-}
 
 -- | [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
-cdnCertificatePrivateKey :: Lens' CreateDomainName (Maybe Text)
-cdnCertificatePrivateKey = lens _cdnCertificatePrivateKey (\s a -> s {_cdnCertificatePrivateKey = a})
+--
+-- /Note:/ Consider using 'certificatePrivateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnCertificatePrivateKey :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnCertificatePrivateKey = Lens.lens (certificatePrivateKey :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {certificatePrivateKey = a} :: CreateDomainName)
+{-# DEPRECATED cdnCertificatePrivateKey "Use generic-lens or generic-optics with 'certificatePrivateKey' instead." #-}
 
 -- | The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
-cdnRegionalCertificateName :: Lens' CreateDomainName (Maybe Text)
-cdnRegionalCertificateName = lens _cdnRegionalCertificateName (\s a -> s {_cdnRegionalCertificateName = a})
+--
+-- /Note:/ Consider using 'regionalCertificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnRegionalCertificateName :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnRegionalCertificateName = Lens.lens (regionalCertificateName :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {regionalCertificateName = a} :: CreateDomainName)
+{-# DEPRECATED cdnRegionalCertificateName "Use generic-lens or generic-optics with 'regionalCertificateName' instead." #-}
 
 -- | [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
-cdnCertificateBody :: Lens' CreateDomainName (Maybe Text)
-cdnCertificateBody = lens _cdnCertificateBody (\s a -> s {_cdnCertificateBody = a})
+--
+-- /Note:/ Consider using 'certificateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnCertificateBody :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnCertificateBody = Lens.lens (certificateBody :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {certificateBody = a} :: CreateDomainName)
+{-# DEPRECATED cdnCertificateBody "Use generic-lens or generic-optics with 'certificateBody' instead." #-}
 
 -- | [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
-cdnCertificateChain :: Lens' CreateDomainName (Maybe Text)
-cdnCertificateChain = lens _cdnCertificateChain (\s a -> s {_cdnCertificateChain = a})
+--
+-- /Note:/ Consider using 'certificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnCertificateChain :: Lens.Lens' CreateDomainName (Lude.Maybe Lude.Text)
+cdnCertificateChain = Lens.lens (certificateChain :: CreateDomainName -> Lude.Maybe Lude.Text) (\s a -> s {certificateChain = a} :: CreateDomainName)
+{-# DEPRECATED cdnCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
 
 -- | The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
-cdnEndpointConfiguration :: Lens' CreateDomainName (Maybe EndpointConfiguration)
-cdnEndpointConfiguration = lens _cdnEndpointConfiguration (\s a -> s {_cdnEndpointConfiguration = a})
+--
+-- /Note:/ Consider using 'endpointConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnEndpointConfiguration :: Lens.Lens' CreateDomainName (Lude.Maybe EndpointConfiguration)
+cdnEndpointConfiguration = Lens.lens (endpointConfiguration :: CreateDomainName -> Lude.Maybe EndpointConfiguration) (\s a -> s {endpointConfiguration = a} :: CreateDomainName)
+{-# DEPRECATED cdnEndpointConfiguration "Use generic-lens or generic-optics with 'endpointConfiguration' instead." #-}
 
 -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-cdnTags :: Lens' CreateDomainName (HashMap Text (Text))
-cdnTags = lens _cdnTags (\s a -> s {_cdnTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnTags :: Lens.Lens' CreateDomainName (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cdnTags = Lens.lens (tags :: CreateDomainName -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDomainName)
+{-# DEPRECATED cdnTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | [Required] The name of the 'DomainName' resource.
-cdnDomainName :: Lens' CreateDomainName Text
-cdnDomainName = lens _cdnDomainName (\s a -> s {_cdnDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnDomainName :: Lens.Lens' CreateDomainName Lude.Text
+cdnDomainName = Lens.lens (domainName :: CreateDomainName -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomainName)
+{-# DEPRECATED cdnDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest CreateDomainName where
+instance Lude.AWSRequest CreateDomainName where
   type Rs CreateDomainName = DomainName
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateDomainName
-
-instance NFData CreateDomainName
-
-instance ToHeaders CreateDomainName where
+instance Lude.ToHeaders CreateDomainName where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateDomainName where
+instance Lude.ToJSON CreateDomainName where
   toJSON CreateDomainName' {..} =
-    object
-      ( catMaybes
-          [ ("certificateName" .=) <$> _cdnCertificateName,
-            ("regionalCertificateArn" .=) <$> _cdnRegionalCertificateARN,
-            ("certificateArn" .=) <$> _cdnCertificateARN,
-            ("securityPolicy" .=) <$> _cdnSecurityPolicy,
-            ("mutualTlsAuthentication" .=) <$> _cdnMutualTLSAuthentication,
-            ("certificatePrivateKey" .=) <$> _cdnCertificatePrivateKey,
-            ("regionalCertificateName" .=) <$> _cdnRegionalCertificateName,
-            ("certificateBody" .=) <$> _cdnCertificateBody,
-            ("certificateChain" .=) <$> _cdnCertificateChain,
-            ("endpointConfiguration" .=) <$> _cdnEndpointConfiguration,
-            ("tags" .=) <$> _cdnTags,
-            Just ("domainName" .= _cdnDomainName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("certificateName" Lude..=) Lude.<$> certificateName,
+            ("regionalCertificateArn" Lude..=) Lude.<$> regionalCertificateARN,
+            ("certificateArn" Lude..=) Lude.<$> certificateARN,
+            ("securityPolicy" Lude..=) Lude.<$> securityPolicy,
+            ("mutualTlsAuthentication" Lude..=)
+              Lude.<$> mutualTLSAuthentication,
+            ("certificatePrivateKey" Lude..=) Lude.<$> certificatePrivateKey,
+            ("regionalCertificateName" Lude..=)
+              Lude.<$> regionalCertificateName,
+            ("certificateBody" Lude..=) Lude.<$> certificateBody,
+            ("certificateChain" Lude..=) Lude.<$> certificateChain,
+            ("endpointConfiguration" Lude..=) Lude.<$> endpointConfiguration,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("domainName" Lude..= domainName)
           ]
       )
 
-instance ToPath CreateDomainName where
-  toPath = const "/domainnames"
+instance Lude.ToPath CreateDomainName where
+  toPath = Lude.const "/domainnames"
 
-instance ToQuery CreateDomainName where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDomainName where
+  toQuery = Lude.const Lude.mempty

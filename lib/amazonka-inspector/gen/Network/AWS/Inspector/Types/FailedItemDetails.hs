@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.FailedItemDetails where
+module Network.AWS.Inspector.Types.FailedItemDetails
+  ( FailedItemDetails (..),
+
+    -- * Smart constructor
+    mkFailedItemDetails,
+
+    -- * Lenses
+    fidFailureCode,
+    fidRetryable,
+  )
+where
 
 import Network.AWS.Inspector.Types.FailedItemErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Includes details about the failed items.
 --
---
---
--- /See:/ 'failedItemDetails' smart constructor.
+-- /See:/ 'mkFailedItemDetails' smart constructor.
 data FailedItemDetails = FailedItemDetails'
-  { _fidFailureCode ::
-      !FailedItemErrorCode,
-    _fidRetryable :: !Bool
+  { failureCode ::
+      FailedItemErrorCode,
+    retryable :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedItemDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fidFailureCode' - The status code of a failed item.
---
--- * 'fidRetryable' - Indicates whether you can immediately retry a request for this item for a specified resource.
-failedItemDetails ::
-  -- | 'fidFailureCode'
+-- * 'failureCode' - The status code of a failed item.
+-- * 'retryable' - Indicates whether you can immediately retry a request for this item for a specified resource.
+mkFailedItemDetails ::
+  -- | 'failureCode'
   FailedItemErrorCode ->
-  -- | 'fidRetryable'
-  Bool ->
+  -- | 'retryable'
+  Lude.Bool ->
   FailedItemDetails
-failedItemDetails pFailureCode_ pRetryable_ =
+mkFailedItemDetails pFailureCode_ pRetryable_ =
   FailedItemDetails'
-    { _fidFailureCode = pFailureCode_,
-      _fidRetryable = pRetryable_
+    { failureCode = pFailureCode_,
+      retryable = pRetryable_
     }
 
 -- | The status code of a failed item.
-fidFailureCode :: Lens' FailedItemDetails FailedItemErrorCode
-fidFailureCode = lens _fidFailureCode (\s a -> s {_fidFailureCode = a})
+--
+-- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fidFailureCode :: Lens.Lens' FailedItemDetails FailedItemErrorCode
+fidFailureCode = Lens.lens (failureCode :: FailedItemDetails -> FailedItemErrorCode) (\s a -> s {failureCode = a} :: FailedItemDetails)
+{-# DEPRECATED fidFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
 -- | Indicates whether you can immediately retry a request for this item for a specified resource.
-fidRetryable :: Lens' FailedItemDetails Bool
-fidRetryable = lens _fidRetryable (\s a -> s {_fidRetryable = a})
+--
+-- /Note:/ Consider using 'retryable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fidRetryable :: Lens.Lens' FailedItemDetails Lude.Bool
+fidRetryable = Lens.lens (retryable :: FailedItemDetails -> Lude.Bool) (\s a -> s {retryable = a} :: FailedItemDetails)
+{-# DEPRECATED fidRetryable "Use generic-lens or generic-optics with 'retryable' instead." #-}
 
-instance FromJSON FailedItemDetails where
+instance Lude.FromJSON FailedItemDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailedItemDetails"
       ( \x ->
-          FailedItemDetails' <$> (x .: "failureCode") <*> (x .: "retryable")
+          FailedItemDetails'
+            Lude.<$> (x Lude..: "failureCode") Lude.<*> (x Lude..: "retryable")
       )
-
-instance Hashable FailedItemDetails
-
-instance NFData FailedItemDetails

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.LastCrawlInfo where
+module Network.AWS.Glue.Types.LastCrawlInfo
+  ( LastCrawlInfo (..),
+
+    -- * Smart constructor
+    mkLastCrawlInfo,
+
+    -- * Lenses
+    lciStatus,
+    lciStartTime,
+    lciLogStream,
+    lciLogGroup,
+    lciMessagePrefix,
+    lciErrorMessage,
+  )
+where
 
 import Network.AWS.Glue.Types.LastCrawlStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status and error information about the most recent crawl.
 --
---
---
--- /See:/ 'lastCrawlInfo' smart constructor.
+-- /See:/ 'mkLastCrawlInfo' smart constructor.
 data LastCrawlInfo = LastCrawlInfo'
-  { _lciStatus ::
-      !(Maybe LastCrawlStatus),
-    _lciStartTime :: !(Maybe POSIX),
-    _lciLogStream :: !(Maybe Text),
-    _lciLogGroup :: !(Maybe Text),
-    _lciMessagePrefix :: !(Maybe Text),
-    _lciErrorMessage :: !(Maybe Text)
+  { status ::
+      Lude.Maybe LastCrawlStatus,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    logStream :: Lude.Maybe Lude.Text,
+    logGroup :: Lude.Maybe Lude.Text,
+    messagePrefix :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LastCrawlInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lciStatus' - Status of the last crawl.
---
--- * 'lciStartTime' - The time at which the crawl started.
---
--- * 'lciLogStream' - The log stream for the last crawl.
---
--- * 'lciLogGroup' - The log group for the last crawl.
---
--- * 'lciMessagePrefix' - The prefix for a message about this crawl.
---
--- * 'lciErrorMessage' - If an error occurred, the error information about the last crawl.
-lastCrawlInfo ::
+-- * 'errorMessage' - If an error occurred, the error information about the last crawl.
+-- * 'logGroup' - The log group for the last crawl.
+-- * 'logStream' - The log stream for the last crawl.
+-- * 'messagePrefix' - The prefix for a message about this crawl.
+-- * 'startTime' - The time at which the crawl started.
+-- * 'status' - Status of the last crawl.
+mkLastCrawlInfo ::
   LastCrawlInfo
-lastCrawlInfo =
+mkLastCrawlInfo =
   LastCrawlInfo'
-    { _lciStatus = Nothing,
-      _lciStartTime = Nothing,
-      _lciLogStream = Nothing,
-      _lciLogGroup = Nothing,
-      _lciMessagePrefix = Nothing,
-      _lciErrorMessage = Nothing
+    { status = Lude.Nothing,
+      startTime = Lude.Nothing,
+      logStream = Lude.Nothing,
+      logGroup = Lude.Nothing,
+      messagePrefix = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | Status of the last crawl.
-lciStatus :: Lens' LastCrawlInfo (Maybe LastCrawlStatus)
-lciStatus = lens _lciStatus (\s a -> s {_lciStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciStatus :: Lens.Lens' LastCrawlInfo (Lude.Maybe LastCrawlStatus)
+lciStatus = Lens.lens (status :: LastCrawlInfo -> Lude.Maybe LastCrawlStatus) (\s a -> s {status = a} :: LastCrawlInfo)
+{-# DEPRECATED lciStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The time at which the crawl started.
-lciStartTime :: Lens' LastCrawlInfo (Maybe UTCTime)
-lciStartTime = lens _lciStartTime (\s a -> s {_lciStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciStartTime :: Lens.Lens' LastCrawlInfo (Lude.Maybe Lude.Timestamp)
+lciStartTime = Lens.lens (startTime :: LastCrawlInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: LastCrawlInfo)
+{-# DEPRECATED lciStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The log stream for the last crawl.
-lciLogStream :: Lens' LastCrawlInfo (Maybe Text)
-lciLogStream = lens _lciLogStream (\s a -> s {_lciLogStream = a})
+--
+-- /Note:/ Consider using 'logStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciLogStream :: Lens.Lens' LastCrawlInfo (Lude.Maybe Lude.Text)
+lciLogStream = Lens.lens (logStream :: LastCrawlInfo -> Lude.Maybe Lude.Text) (\s a -> s {logStream = a} :: LastCrawlInfo)
+{-# DEPRECATED lciLogStream "Use generic-lens or generic-optics with 'logStream' instead." #-}
 
 -- | The log group for the last crawl.
-lciLogGroup :: Lens' LastCrawlInfo (Maybe Text)
-lciLogGroup = lens _lciLogGroup (\s a -> s {_lciLogGroup = a})
+--
+-- /Note:/ Consider using 'logGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciLogGroup :: Lens.Lens' LastCrawlInfo (Lude.Maybe Lude.Text)
+lciLogGroup = Lens.lens (logGroup :: LastCrawlInfo -> Lude.Maybe Lude.Text) (\s a -> s {logGroup = a} :: LastCrawlInfo)
+{-# DEPRECATED lciLogGroup "Use generic-lens or generic-optics with 'logGroup' instead." #-}
 
 -- | The prefix for a message about this crawl.
-lciMessagePrefix :: Lens' LastCrawlInfo (Maybe Text)
-lciMessagePrefix = lens _lciMessagePrefix (\s a -> s {_lciMessagePrefix = a})
+--
+-- /Note:/ Consider using 'messagePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciMessagePrefix :: Lens.Lens' LastCrawlInfo (Lude.Maybe Lude.Text)
+lciMessagePrefix = Lens.lens (messagePrefix :: LastCrawlInfo -> Lude.Maybe Lude.Text) (\s a -> s {messagePrefix = a} :: LastCrawlInfo)
+{-# DEPRECATED lciMessagePrefix "Use generic-lens or generic-optics with 'messagePrefix' instead." #-}
 
 -- | If an error occurred, the error information about the last crawl.
-lciErrorMessage :: Lens' LastCrawlInfo (Maybe Text)
-lciErrorMessage = lens _lciErrorMessage (\s a -> s {_lciErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciErrorMessage :: Lens.Lens' LastCrawlInfo (Lude.Maybe Lude.Text)
+lciErrorMessage = Lens.lens (errorMessage :: LastCrawlInfo -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: LastCrawlInfo)
+{-# DEPRECATED lciErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON LastCrawlInfo where
+instance Lude.FromJSON LastCrawlInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "LastCrawlInfo"
       ( \x ->
           LastCrawlInfo'
-            <$> (x .:? "Status")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "LogStream")
-            <*> (x .:? "LogGroup")
-            <*> (x .:? "MessagePrefix")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "LogStream")
+            Lude.<*> (x Lude..:? "LogGroup")
+            Lude.<*> (x Lude..:? "MessagePrefix")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable LastCrawlInfo
-
-instance NFData LastCrawlInfo

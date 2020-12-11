@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,28 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.PlayerSession where
+module Network.AWS.GameLift.Types.PlayerSession
+  ( PlayerSession (..),
+
+    -- * Smart constructor
+    mkPlayerSession,
+
+    -- * Lenses
+    psCreationTime,
+    psStatus,
+    psIPAddress,
+    psGameSessionId,
+    psFleetARN,
+    psTerminationTime,
+    psPlayerSessionId,
+    psFleetId,
+    psPlayerData,
+    psPlayerId,
+    psDNSName,
+    psPort,
+  )
+where
 
 import Network.AWS.GameLift.Types.PlayerSessionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Properties describing a player session. Player session objects are created either by creating a player session for a specific game session, or as part of a game session placement. A player session represents either a player reservation for a game session (status @RESERVED@ ) or actual player activity in a game session (status @ACTIVE@ ). A player session object (including player data) is automatically passed to a game session when the player connects to the game session and is validated.
---
 --
 -- When a player disconnects, the player session status changes to @COMPLETED@ . Once the session ends, the player session object is retained for 30 days and then removed.
 --
 --     * 'CreatePlayerSession'
 --
+--
 --     * 'CreatePlayerSessions'
 --
+--
 --     * 'DescribePlayerSessions'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 --
@@ -42,138 +60,211 @@ import Network.AWS.Prelude
 --
 --
 --
---
--- /See:/ 'playerSession' smart constructor.
+-- /See:/ 'mkPlayerSession' smart constructor.
 data PlayerSession = PlayerSession'
-  { _psCreationTime ::
-      !(Maybe POSIX),
-    _psStatus :: !(Maybe PlayerSessionStatus),
-    _psIPAddress :: !(Maybe Text),
-    _psGameSessionId :: !(Maybe Text),
-    _psFleetARN :: !(Maybe Text),
-    _psTerminationTime :: !(Maybe POSIX),
-    _psPlayerSessionId :: !(Maybe Text),
-    _psFleetId :: !(Maybe Text),
-    _psPlayerData :: !(Maybe Text),
-    _psPlayerId :: !(Maybe Text),
-    _psDNSName :: !(Maybe Text),
-    _psPort :: !(Maybe Nat)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe PlayerSessionStatus,
+    ipAddress :: Lude.Maybe Lude.Text,
+    gameSessionId :: Lude.Maybe Lude.Text,
+    fleetARN :: Lude.Maybe Lude.Text,
+    terminationTime :: Lude.Maybe Lude.Timestamp,
+    playerSessionId :: Lude.Maybe Lude.Text,
+    fleetId :: Lude.Maybe Lude.Text,
+    playerData :: Lude.Maybe Lude.Text,
+    playerId :: Lude.Maybe Lude.Text,
+    dnsName :: Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlayerSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
 --
--- * 'psCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'psStatus' - Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
 --
--- * 'psIPAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
 --
--- * 'psGameSessionId' - A unique identifier for the game session that the player session is connected to.
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
 --
--- * 'psFleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that the player's game session is running on.
 --
--- * 'psTerminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that the player's game session is running on.
+-- * 'fleetId' - A unique identifier for a fleet that the player's game session is running on.
+-- * 'gameSessionId' - A unique identifier for the game session that the player session is connected to.
+-- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
+-- * 'playerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
+-- * 'playerId' - A unique identifier for a player that is associated with this player session.
+-- * 'playerSessionId' - A unique identifier for a player session.
+-- * 'port' - Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
+-- * 'status' - Current status of the player session.
 --
--- * 'psPlayerSessionId' - A unique identifier for a player session.
+-- Possible player session statuses include the following:
 --
--- * 'psFleetId' - A unique identifier for a fleet that the player's game session is running on.
+--     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.
 --
--- * 'psPlayerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
 --
--- * 'psPlayerId' - A unique identifier for a player that is associated with this player session.
+--     * __ACTIVE__ -- The player has been validated by the server process and is currently connected.
 --
--- * 'psDNSName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .) When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
 --
--- * 'psPort' - Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
-playerSession ::
+--     * __COMPLETED__ -- The player connection has been dropped.
+--
+--
+--     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
+--
+--
+-- * 'terminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+mkPlayerSession ::
   PlayerSession
-playerSession =
+mkPlayerSession =
   PlayerSession'
-    { _psCreationTime = Nothing,
-      _psStatus = Nothing,
-      _psIPAddress = Nothing,
-      _psGameSessionId = Nothing,
-      _psFleetARN = Nothing,
-      _psTerminationTime = Nothing,
-      _psPlayerSessionId = Nothing,
-      _psFleetId = Nothing,
-      _psPlayerData = Nothing,
-      _psPlayerId = Nothing,
-      _psDNSName = Nothing,
-      _psPort = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      ipAddress = Lude.Nothing,
+      gameSessionId = Lude.Nothing,
+      fleetARN = Lude.Nothing,
+      terminationTime = Lude.Nothing,
+      playerSessionId = Lude.Nothing,
+      fleetId = Lude.Nothing,
+      playerData = Lude.Nothing,
+      playerId = Lude.Nothing,
+      dnsName = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-psCreationTime :: Lens' PlayerSession (Maybe UTCTime)
-psCreationTime = lens _psCreationTime (\s a -> s {_psCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psCreationTime :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Timestamp)
+psCreationTime = Lens.lens (creationTime :: PlayerSession -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: PlayerSession)
+{-# DEPRECATED psCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
-psStatus :: Lens' PlayerSession (Maybe PlayerSessionStatus)
-psStatus = lens _psStatus (\s a -> s {_psStatus = a})
+-- | Current status of the player session.
+--
+-- Possible player session statuses include the following:
+--
+--     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.
+--
+--
+--     * __ACTIVE__ -- The player has been validated by the server process and is currently connected.
+--
+--
+--     * __COMPLETED__ -- The player connection has been dropped.
+--
+--
+--     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psStatus :: Lens.Lens' PlayerSession (Lude.Maybe PlayerSessionStatus)
+psStatus = Lens.lens (status :: PlayerSession -> Lude.Maybe PlayerSessionStatus) (\s a -> s {status = a} :: PlayerSession)
+{-# DEPRECATED psStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
-psIPAddress :: Lens' PlayerSession (Maybe Text)
-psIPAddress = lens _psIPAddress (\s a -> s {_psIPAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psIPAddress :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psIPAddress = Lens.lens (ipAddress :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: PlayerSession)
+{-# DEPRECATED psIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | A unique identifier for the game session that the player session is connected to.
-psGameSessionId :: Lens' PlayerSession (Maybe Text)
-psGameSessionId = lens _psGameSessionId (\s a -> s {_psGameSessionId = a})
+--
+-- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psGameSessionId :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psGameSessionId = Lens.lens (gameSessionId :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionId = a} :: PlayerSession)
+{-# DEPRECATED psGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that the player's game session is running on.
-psFleetARN :: Lens' PlayerSession (Maybe Text)
-psFleetARN = lens _psFleetARN (\s a -> s {_psFleetARN = a})
+--
+-- /Note:/ Consider using 'fleetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psFleetARN :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psFleetARN = Lens.lens (fleetARN :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {fleetARN = a} :: PlayerSession)
+{-# DEPRECATED psFleetARN "Use generic-lens or generic-optics with 'fleetARN' instead." #-}
 
 -- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-psTerminationTime :: Lens' PlayerSession (Maybe UTCTime)
-psTerminationTime = lens _psTerminationTime (\s a -> s {_psTerminationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'terminationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psTerminationTime :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Timestamp)
+psTerminationTime = Lens.lens (terminationTime :: PlayerSession -> Lude.Maybe Lude.Timestamp) (\s a -> s {terminationTime = a} :: PlayerSession)
+{-# DEPRECATED psTerminationTime "Use generic-lens or generic-optics with 'terminationTime' instead." #-}
 
 -- | A unique identifier for a player session.
-psPlayerSessionId :: Lens' PlayerSession (Maybe Text)
-psPlayerSessionId = lens _psPlayerSessionId (\s a -> s {_psPlayerSessionId = a})
+--
+-- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psPlayerSessionId :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psPlayerSessionId = Lens.lens (playerSessionId :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerSessionId = a} :: PlayerSession)
+{-# DEPRECATED psPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
 
 -- | A unique identifier for a fleet that the player's game session is running on.
-psFleetId :: Lens' PlayerSession (Maybe Text)
-psFleetId = lens _psFleetId (\s a -> s {_psFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psFleetId :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psFleetId = Lens.lens (fleetId :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: PlayerSession)
+{-# DEPRECATED psFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
-psPlayerData :: Lens' PlayerSession (Maybe Text)
-psPlayerData = lens _psPlayerData (\s a -> s {_psPlayerData = a})
+--
+-- /Note:/ Consider using 'playerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psPlayerData :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psPlayerData = Lens.lens (playerData :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerData = a} :: PlayerSession)
+{-# DEPRECATED psPlayerData "Use generic-lens or generic-optics with 'playerData' instead." #-}
 
 -- | A unique identifier for a player that is associated with this player session.
-psPlayerId :: Lens' PlayerSession (Maybe Text)
-psPlayerId = lens _psPlayerId (\s a -> s {_psPlayerId = a})
+--
+-- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psPlayerId :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psPlayerId = Lens.lens (playerId :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: PlayerSession)
+{-# DEPRECATED psPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
--- | DNS identifier assigned to the instance that is running the game session. Values have the following format:     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .) When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
-psDNSName :: Lens' PlayerSession (Maybe Text)
-psDNSName = lens _psDNSName (\s a -> s {_psDNSName = a})
+-- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+--
+--
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+--
+--
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+--
+--
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+--
+-- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psDNSName :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Text)
+psDNSName = Lens.lens (dnsName :: PlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: PlayerSession)
+{-# DEPRECATED psDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
 
 -- | Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
-psPort :: Lens' PlayerSession (Maybe Natural)
-psPort = lens _psPort (\s a -> s {_psPort = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psPort :: Lens.Lens' PlayerSession (Lude.Maybe Lude.Natural)
+psPort = Lens.lens (port :: PlayerSession -> Lude.Maybe Lude.Natural) (\s a -> s {port = a} :: PlayerSession)
+{-# DEPRECATED psPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON PlayerSession where
+instance Lude.FromJSON PlayerSession where
   parseJSON =
-    withObject
+    Lude.withObject
       "PlayerSession"
       ( \x ->
           PlayerSession'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Status")
-            <*> (x .:? "IpAddress")
-            <*> (x .:? "GameSessionId")
-            <*> (x .:? "FleetArn")
-            <*> (x .:? "TerminationTime")
-            <*> (x .:? "PlayerSessionId")
-            <*> (x .:? "FleetId")
-            <*> (x .:? "PlayerData")
-            <*> (x .:? "PlayerId")
-            <*> (x .:? "DnsName")
-            <*> (x .:? "Port")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "IpAddress")
+            Lude.<*> (x Lude..:? "GameSessionId")
+            Lude.<*> (x Lude..:? "FleetArn")
+            Lude.<*> (x Lude..:? "TerminationTime")
+            Lude.<*> (x Lude..:? "PlayerSessionId")
+            Lude.<*> (x Lude..:? "FleetId")
+            Lude.<*> (x Lude..:? "PlayerData")
+            Lude.<*> (x Lude..:? "PlayerId")
+            Lude.<*> (x Lude..:? "DnsName")
+            Lude.<*> (x Lude..:? "Port")
       )
-
-instance Hashable PlayerSession
-
-instance NFData PlayerSession

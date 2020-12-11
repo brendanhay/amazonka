@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,129 +7,164 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter where
+module Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter
+  ( CacheNodeTypeSpecificParameter (..),
+
+    -- * Smart constructor
+    mkCacheNodeTypeSpecificParameter,
+
+    -- * Lenses
+    cntspCacheNodeTypeSpecificValues,
+    cntspMinimumEngineVersion,
+    cntspSource,
+    cntspIsModifiable,
+    cntspDataType,
+    cntspAllowedValues,
+    cntspParameterName,
+    cntspDescription,
+    cntspChangeType,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue
 import Network.AWS.ElastiCache.Types.ChangeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A parameter that has a different value for each cache node type it is applied to. For example, in a Redis cluster, a @cache.m1.large@ cache node type would have a larger @maxmemory@ value than a @cache.m1.small@ type.
 --
---
---
--- /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
+-- /See:/ 'mkCacheNodeTypeSpecificParameter' smart constructor.
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
-  { _cntspCacheNodeTypeSpecificValues ::
-      !( Maybe
-           [CacheNodeTypeSpecificValue]
-       ),
-    _cntspMinimumEngineVersion ::
-      !(Maybe Text),
-    _cntspSource :: !(Maybe Text),
-    _cntspIsModifiable ::
-      !(Maybe Bool),
-    _cntspDataType ::
-      !(Maybe Text),
-    _cntspAllowedValues ::
-      !(Maybe Text),
-    _cntspParameterName ::
-      !(Maybe Text),
-    _cntspDescription ::
-      !(Maybe Text),
-    _cntspChangeType ::
-      !(Maybe ChangeType)
+  { cacheNodeTypeSpecificValues ::
+      Lude.Maybe
+        [CacheNodeTypeSpecificValue],
+    minimumEngineVersion ::
+      Lude.Maybe Lude.Text,
+    source ::
+      Lude.Maybe Lude.Text,
+    isModifiable ::
+      Lude.Maybe Lude.Bool,
+    dataType ::
+      Lude.Maybe Lude.Text,
+    allowedValues ::
+      Lude.Maybe Lude.Text,
+    parameterName ::
+      Lude.Maybe Lude.Text,
+    description ::
+      Lude.Maybe Lude.Text,
+    changeType ::
+      Lude.Maybe ChangeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheNodeTypeSpecificParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cntspCacheNodeTypeSpecificValues' - A list of cache node types and their corresponding values for this parameter.
---
--- * 'cntspMinimumEngineVersion' - The earliest cache engine version to which the parameter can apply.
---
--- * 'cntspSource' - The source of the parameter value.
---
--- * 'cntspIsModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
---
--- * 'cntspDataType' - The valid data type for the parameter.
---
--- * 'cntspAllowedValues' - The valid range of values for the parameter.
---
--- * 'cntspParameterName' - The name of the parameter.
---
--- * 'cntspDescription' - A description of the parameter.
---
--- * 'cntspChangeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
-cacheNodeTypeSpecificParameter ::
+-- * 'allowedValues' - The valid range of values for the parameter.
+-- * 'cacheNodeTypeSpecificValues' - A list of cache node types and their corresponding values for this parameter.
+-- * 'changeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
+-- * 'dataType' - The valid data type for the parameter.
+-- * 'description' - A description of the parameter.
+-- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- * 'minimumEngineVersion' - The earliest cache engine version to which the parameter can apply.
+-- * 'parameterName' - The name of the parameter.
+-- * 'source' - The source of the parameter value.
+mkCacheNodeTypeSpecificParameter ::
   CacheNodeTypeSpecificParameter
-cacheNodeTypeSpecificParameter =
+mkCacheNodeTypeSpecificParameter =
   CacheNodeTypeSpecificParameter'
-    { _cntspCacheNodeTypeSpecificValues =
-        Nothing,
-      _cntspMinimumEngineVersion = Nothing,
-      _cntspSource = Nothing,
-      _cntspIsModifiable = Nothing,
-      _cntspDataType = Nothing,
-      _cntspAllowedValues = Nothing,
-      _cntspParameterName = Nothing,
-      _cntspDescription = Nothing,
-      _cntspChangeType = Nothing
+    { cacheNodeTypeSpecificValues =
+        Lude.Nothing,
+      minimumEngineVersion = Lude.Nothing,
+      source = Lude.Nothing,
+      isModifiable = Lude.Nothing,
+      dataType = Lude.Nothing,
+      allowedValues = Lude.Nothing,
+      parameterName = Lude.Nothing,
+      description = Lude.Nothing,
+      changeType = Lude.Nothing
     }
 
 -- | A list of cache node types and their corresponding values for this parameter.
-cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheNodeTypeSpecificValue]
-cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\s a -> s {_cntspCacheNodeTypeSpecificValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheNodeTypeSpecificValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspCacheNodeTypeSpecificValues :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe [CacheNodeTypeSpecificValue])
+cntspCacheNodeTypeSpecificValues = Lens.lens (cacheNodeTypeSpecificValues :: CacheNodeTypeSpecificParameter -> Lude.Maybe [CacheNodeTypeSpecificValue]) (\s a -> s {cacheNodeTypeSpecificValues = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspCacheNodeTypeSpecificValues "Use generic-lens or generic-optics with 'cacheNodeTypeSpecificValues' instead." #-}
 
 -- | The earliest cache engine version to which the parameter can apply.
-cntspMinimumEngineVersion :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspMinimumEngineVersion = lens _cntspMinimumEngineVersion (\s a -> s {_cntspMinimumEngineVersion = a})
+--
+-- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspMinimumEngineVersion :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Text)
+cntspMinimumEngineVersion = Lens.lens (minimumEngineVersion :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Text) (\s a -> s {minimumEngineVersion = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
 
 -- | The source of the parameter value.
-cntspSource :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspSource = lens _cntspSource (\s a -> s {_cntspSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspSource :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Text)
+cntspSource = Lens.lens (source :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
-cntspIsModifiable :: Lens' CacheNodeTypeSpecificParameter (Maybe Bool)
-cntspIsModifiable = lens _cntspIsModifiable (\s a -> s {_cntspIsModifiable = a})
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspIsModifiable :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Bool)
+cntspIsModifiable = Lens.lens (isModifiable :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
 
 -- | The valid data type for the parameter.
-cntspDataType :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspDataType = lens _cntspDataType (\s a -> s {_cntspDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspDataType :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Text)
+cntspDataType = Lens.lens (dataType :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | The valid range of values for the parameter.
-cntspAllowedValues :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspAllowedValues = lens _cntspAllowedValues (\s a -> s {_cntspAllowedValues = a})
+--
+-- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspAllowedValues :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Text)
+cntspAllowedValues = Lens.lens (allowedValues :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
 -- | The name of the parameter.
-cntspParameterName :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspParameterName = lens _cntspParameterName (\s a -> s {_cntspParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspParameterName :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Text)
+cntspParameterName = Lens.lens (parameterName :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | A description of the parameter.
-cntspDescription :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspDescription = lens _cntspDescription (\s a -> s {_cntspDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspDescription :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe Lude.Text)
+cntspDescription = Lens.lens (description :: CacheNodeTypeSpecificParameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
-cntspChangeType :: Lens' CacheNodeTypeSpecificParameter (Maybe ChangeType)
-cntspChangeType = lens _cntspChangeType (\s a -> s {_cntspChangeType = a})
+--
+-- /Note:/ Consider using 'changeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntspChangeType :: Lens.Lens' CacheNodeTypeSpecificParameter (Lude.Maybe ChangeType)
+cntspChangeType = Lens.lens (changeType :: CacheNodeTypeSpecificParameter -> Lude.Maybe ChangeType) (\s a -> s {changeType = a} :: CacheNodeTypeSpecificParameter)
+{-# DEPRECATED cntspChangeType "Use generic-lens or generic-optics with 'changeType' instead." #-}
 
-instance FromXML CacheNodeTypeSpecificParameter where
+instance Lude.FromXML CacheNodeTypeSpecificParameter where
   parseXML x =
     CacheNodeTypeSpecificParameter'
-      <$> ( x .@? "CacheNodeTypeSpecificValues" .!@ mempty
-              >>= may (parseXMLList "CacheNodeTypeSpecificValue")
-          )
-      <*> (x .@? "MinimumEngineVersion")
-      <*> (x .@? "Source")
-      <*> (x .@? "IsModifiable")
-      <*> (x .@? "DataType")
-      <*> (x .@? "AllowedValues")
-      <*> (x .@? "ParameterName")
-      <*> (x .@? "Description")
-      <*> (x .@? "ChangeType")
-
-instance Hashable CacheNodeTypeSpecificParameter
-
-instance NFData CacheNodeTypeSpecificParameter
+      Lude.<$> ( x Lude..@? "CacheNodeTypeSpecificValues" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "CacheNodeTypeSpecificValue")
+               )
+      Lude.<*> (x Lude..@? "MinimumEngineVersion")
+      Lude.<*> (x Lude..@? "Source")
+      Lude.<*> (x Lude..@? "IsModifiable")
+      Lude.<*> (x Lude..@? "DataType")
+      Lude.<*> (x Lude..@? "AllowedValues")
+      Lude.<*> (x Lude..@? "ParameterName")
+      Lude.<*> (x Lude..@? "Description")
+      Lude.<*> (x Lude..@? "ChangeType")

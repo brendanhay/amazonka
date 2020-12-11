@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types
-  ( -- * Service Configuration
-    directoryService,
+  ( -- * Service configuration
+    directoryServiceService,
 
     -- * Errors
 
@@ -88,14 +86,14 @@ module Network.AWS.DirectoryService.Types
     TrustType (..),
 
     -- * Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aName,
 
     -- * Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cState,
     cCommonName,
     cCertificateId,
@@ -104,38 +102,38 @@ module Network.AWS.DirectoryService.Types
     cStateReason,
 
     -- * CertificateInfo
-    CertificateInfo,
-    certificateInfo,
+    CertificateInfo (..),
+    mkCertificateInfo,
     ciState,
     ciCommonName,
     ciCertificateId,
     ciExpiryDateTime,
 
     -- * Computer
-    Computer,
-    computer,
+    Computer (..),
+    mkComputer,
     cComputerId,
     cComputerAttributes,
     cComputerName,
 
     -- * ConditionalForwarder
-    ConditionalForwarder,
-    conditionalForwarder,
+    ConditionalForwarder (..),
+    mkConditionalForwarder,
     cfDNSIPAddrs,
     cfRemoteDomainName,
     cfReplicationScope,
 
     -- * DirectoryConnectSettings
-    DirectoryConnectSettings,
-    directoryConnectSettings,
+    DirectoryConnectSettings (..),
+    mkDirectoryConnectSettings,
     dcsVPCId,
     dcsSubnetIds,
     dcsCustomerDNSIPs,
     dcsCustomerUserName,
 
     -- * DirectoryConnectSettingsDescription
-    DirectoryConnectSettingsDescription,
-    directoryConnectSettingsDescription,
+    DirectoryConnectSettingsDescription (..),
+    mkDirectoryConnectSettingsDescription,
     dcsdCustomerUserName,
     dcsdSubnetIds,
     dcsdVPCId,
@@ -144,8 +142,8 @@ module Network.AWS.DirectoryService.Types
     dcsdAvailabilityZones,
 
     -- * DirectoryDescription
-    DirectoryDescription,
-    directoryDescription,
+    DirectoryDescription (..),
+    mkDirectoryDescription,
     ddEdition,
     ddRadiusStatus,
     ddStage,
@@ -173,8 +171,8 @@ module Network.AWS.DirectoryService.Types
     ddShareNotes,
 
     -- * DirectoryLimits
-    DirectoryLimits,
-    directoryLimits,
+    DirectoryLimits (..),
+    mkDirectoryLimits,
     dlConnectedDirectoriesCurrentCount,
     dlCloudOnlyMicrosoftADLimitReached,
     dlConnectedDirectoriesLimit,
@@ -186,22 +184,22 @@ module Network.AWS.DirectoryService.Types
     dlCloudOnlyMicrosoftADCurrentCount,
 
     -- * DirectoryVPCSettings
-    DirectoryVPCSettings,
-    directoryVPCSettings,
+    DirectoryVPCSettings (..),
+    mkDirectoryVPCSettings,
     dvsVPCId,
     dvsSubnetIds,
 
     -- * DirectoryVPCSettingsDescription
-    DirectoryVPCSettingsDescription,
-    directoryVPCSettingsDescription,
+    DirectoryVPCSettingsDescription (..),
+    mkDirectoryVPCSettingsDescription,
     dvsdSubnetIds,
     dvsdVPCId,
     dvsdSecurityGroupId,
     dvsdAvailabilityZones,
 
     -- * DomainController
-    DomainController,
-    domainController,
+    DomainController (..),
+    mkDomainController,
     dcStatus,
     dcDirectoryId,
     dcVPCId,
@@ -214,8 +212,8 @@ module Network.AWS.DirectoryService.Types
     dcDomainControllerId,
 
     -- * EventTopic
-    EventTopic,
-    eventTopic,
+    EventTopic (..),
+    mkEventTopic,
     etStatus,
     etDirectoryId,
     etTopicName,
@@ -223,14 +221,14 @@ module Network.AWS.DirectoryService.Types
     etCreatedDateTime,
 
     -- * IPRoute
-    IPRoute,
-    ipRoute,
+    IPRoute (..),
+    mkIPRoute,
     irCidrIP,
     irDescription,
 
     -- * IPRouteInfo
-    IPRouteInfo,
-    ipRouteInfo,
+    IPRouteInfo (..),
+    mkIPRouteInfo,
     iriDirectoryId,
     iriIPRouteStatusReason,
     iriAddedDateTime,
@@ -239,22 +237,22 @@ module Network.AWS.DirectoryService.Types
     iriDescription,
 
     -- * LDAPSSettingInfo
-    LDAPSSettingInfo,
-    lDAPSSettingInfo,
+    LDAPSSettingInfo (..),
+    mkLDAPSSettingInfo,
     ldapssiLastUpdatedDateTime,
     ldapssiLDAPSStatusReason,
     ldapssiLDAPSStatus,
 
     -- * LogSubscription
-    LogSubscription,
-    logSubscription,
+    LogSubscription (..),
+    mkLogSubscription,
     lsDirectoryId,
     lsLogGroupName,
     lsSubscriptionCreatedDateTime,
 
     -- * OwnerDirectoryDescription
-    OwnerDirectoryDescription,
-    ownerDirectoryDescription,
+    OwnerDirectoryDescription (..),
+    mkOwnerDirectoryDescription,
     oddRadiusStatus,
     oddDirectoryId,
     oddRadiusSettings,
@@ -263,8 +261,8 @@ module Network.AWS.DirectoryService.Types
     oddVPCSettings,
 
     -- * RadiusSettings
-    RadiusSettings,
-    radiusSettings,
+    RadiusSettings (..),
+    mkRadiusSettings,
     rsDisplayLabel,
     rsRadiusRetries,
     rsAuthenticationProtocol,
@@ -275,8 +273,8 @@ module Network.AWS.DirectoryService.Types
     rsRadiusPort,
 
     -- * RegionDescription
-    RegionDescription,
-    regionDescription,
+    RegionDescription (..),
+    mkRegionDescription,
     rdStatus,
     rdDirectoryId,
     rdRegionName,
@@ -288,14 +286,14 @@ module Network.AWS.DirectoryService.Types
     rdVPCSettings,
 
     -- * RegionsInfo
-    RegionsInfo,
-    regionsInfo,
+    RegionsInfo (..),
+    mkRegionsInfo,
     riPrimaryRegion,
     riAdditionalRegions,
 
     -- * SchemaExtensionInfo
-    SchemaExtensionInfo,
-    schemaExtensionInfo,
+    SchemaExtensionInfo (..),
+    mkSchemaExtensionInfo,
     seiDirectoryId,
     seiSchemaExtensionId,
     seiSchemaExtensionStatusReason,
@@ -305,14 +303,14 @@ module Network.AWS.DirectoryService.Types
     seiStartDateTime,
 
     -- * ShareTarget
-    ShareTarget,
-    shareTarget,
+    ShareTarget (..),
+    mkShareTarget,
     stId,
     stType,
 
     -- * SharedDirectory
-    SharedDirectory,
-    sharedDirectory,
+    SharedDirectory (..),
+    mkSharedDirectory,
     sSharedAccountId,
     sOwnerAccountId,
     sLastUpdatedDateTime,
@@ -324,8 +322,8 @@ module Network.AWS.DirectoryService.Types
     sCreatedDateTime,
 
     -- * Snapshot
-    Snapshot,
-    snapshot,
+    Snapshot (..),
+    mkSnapshot,
     sStatus,
     sDirectoryId,
     sStartTime,
@@ -334,21 +332,21 @@ module Network.AWS.DirectoryService.Types
     sSnapshotId,
 
     -- * SnapshotLimits
-    SnapshotLimits,
-    snapshotLimits,
+    SnapshotLimits (..),
+    mkSnapshotLimits,
     slManualSnapshotsLimitReached,
     slManualSnapshotsCurrentCount,
     slManualSnapshotsLimit,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * Trust
-    Trust,
-    trust,
+    Trust (..),
+    mkTrust,
     tDirectoryId,
     tTrustState,
     tLastUpdatedDateTime,
@@ -362,8 +360,8 @@ module Network.AWS.DirectoryService.Types
     tCreatedDateTime,
 
     -- * UnshareTarget
-    UnshareTarget,
-    unshareTarget,
+    UnshareTarget (..),
+    mkUnshareTarget,
     utId,
     utType,
   )
@@ -422,48 +420,60 @@ import Network.AWS.DirectoryService.Types.TrustDirection
 import Network.AWS.DirectoryService.Types.TrustState
 import Network.AWS.DirectoryService.Types.TrustType
 import Network.AWS.DirectoryService.Types.UnshareTarget
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-04-16@ of the Amazon Directory Service SDK configuration.
-directoryService :: Service
-directoryService =
-  Service
-    { _svcAbbrev = "DirectoryService",
-      _svcSigner = v4,
-      _svcPrefix = "ds",
-      _svcVersion = "2015-04-16",
-      _svcEndpoint = defaultEndpoint directoryService,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "DirectoryService",
-      _svcRetry = retry
+directoryServiceService :: Lude.Service
+directoryServiceService =
+  Lude.Service
+    { Lude._svcAbbrev = "DirectoryService",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "ds",
+      Lude._svcVersion = "2015-04-16",
+      Lude._svcEndpoint = Lude.defaultEndpoint directoryServiceService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "DirectoryService",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

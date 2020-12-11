@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.Context where
+module Network.AWS.CostExplorer.Types.Context
+  ( Context
+      ( Context',
+        CostAndUsage,
+        Reservations,
+        SavingsPlans
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Context
-  = CostAndUsage
-  | Reservations
-  | SavingsPlans
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Context = Context' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Context where
-  parser =
-    takeLowerText >>= \case
-      "cost_and_usage" -> pure CostAndUsage
-      "reservations" -> pure Reservations
-      "savings_plans" -> pure SavingsPlans
-      e ->
-        fromTextError $
-          "Failure parsing Context from value: '" <> e
-            <> "'. Accepted values: cost_and_usage, reservations, savings_plans"
+pattern CostAndUsage :: Context
+pattern CostAndUsage = Context' "COST_AND_USAGE"
 
-instance ToText Context where
-  toText = \case
-    CostAndUsage -> "COST_AND_USAGE"
-    Reservations -> "RESERVATIONS"
-    SavingsPlans -> "SAVINGS_PLANS"
+pattern Reservations :: Context
+pattern Reservations = Context' "RESERVATIONS"
 
-instance Hashable Context
+pattern SavingsPlans :: Context
+pattern SavingsPlans = Context' "SAVINGS_PLANS"
 
-instance NFData Context
-
-instance ToByteString Context
-
-instance ToQuery Context
-
-instance ToHeader Context
-
-instance ToJSON Context where
-  toJSON = toJSONText
+{-# COMPLETE
+  CostAndUsage,
+  Reservations,
+  SavingsPlans,
+  Context'
+  #-}

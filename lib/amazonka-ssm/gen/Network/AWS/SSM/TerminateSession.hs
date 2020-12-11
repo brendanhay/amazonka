@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,131 @@
 --
 -- Permanently ends a session and closes the data connection between the Session Manager client and SSM Agent on the instance. A terminated session cannot be resumed.
 module Network.AWS.SSM.TerminateSession
-  ( -- * Creating a Request
-    terminateSession,
-    TerminateSession,
+  ( -- * Creating a request
+    TerminateSession (..),
+    mkTerminateSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tsSessionId,
 
-    -- * Destructuring the Response
-    terminateSessionResponse,
-    TerminateSessionResponse,
+    -- * Destructuring the response
+    TerminateSessionResponse (..),
+    mkTerminateSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tsrsSessionId,
     tsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'terminateSession' smart constructor.
-newtype TerminateSession = TerminateSession' {_tsSessionId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkTerminateSession' smart constructor.
+newtype TerminateSession = TerminateSession'
+  { sessionId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsSessionId' - The ID of the session to terminate.
-terminateSession ::
-  -- | 'tsSessionId'
-  Text ->
+-- * 'sessionId' - The ID of the session to terminate.
+mkTerminateSession ::
+  -- | 'sessionId'
+  Lude.Text ->
   TerminateSession
-terminateSession pSessionId_ =
-  TerminateSession' {_tsSessionId = pSessionId_}
+mkTerminateSession pSessionId_ =
+  TerminateSession' {sessionId = pSessionId_}
 
 -- | The ID of the session to terminate.
-tsSessionId :: Lens' TerminateSession Text
-tsSessionId = lens _tsSessionId (\s a -> s {_tsSessionId = a})
+--
+-- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsSessionId :: Lens.Lens' TerminateSession Lude.Text
+tsSessionId = Lens.lens (sessionId :: TerminateSession -> Lude.Text) (\s a -> s {sessionId = a} :: TerminateSession)
+{-# DEPRECATED tsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
-instance AWSRequest TerminateSession where
+instance Lude.AWSRequest TerminateSession where
   type Rs TerminateSession = TerminateSessionResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           TerminateSessionResponse'
-            <$> (x .?> "SessionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SessionId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TerminateSession
-
-instance NFData TerminateSession
-
-instance ToHeaders TerminateSession where
+instance Lude.ToHeaders TerminateSession where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.TerminateSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.TerminateSession" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TerminateSession where
+instance Lude.ToJSON TerminateSession where
   toJSON TerminateSession' {..} =
-    object (catMaybes [Just ("SessionId" .= _tsSessionId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SessionId" Lude..= sessionId)])
 
-instance ToPath TerminateSession where
-  toPath = const "/"
+instance Lude.ToPath TerminateSession where
+  toPath = Lude.const "/"
 
-instance ToQuery TerminateSession where
-  toQuery = const mempty
+instance Lude.ToQuery TerminateSession where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'terminateSessionResponse' smart constructor.
+-- | /See:/ 'mkTerminateSessionResponse' smart constructor.
 data TerminateSessionResponse = TerminateSessionResponse'
-  { _tsrsSessionId ::
-      !(Maybe Text),
-    _tsrsResponseStatus :: !Int
+  { sessionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsrsSessionId' - The ID of the session that has been terminated.
---
--- * 'tsrsResponseStatus' - -- | The response status code.
-terminateSessionResponse ::
-  -- | 'tsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sessionId' - The ID of the session that has been terminated.
+mkTerminateSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TerminateSessionResponse
-terminateSessionResponse pResponseStatus_ =
+mkTerminateSessionResponse pResponseStatus_ =
   TerminateSessionResponse'
-    { _tsrsSessionId = Nothing,
-      _tsrsResponseStatus = pResponseStatus_
+    { sessionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the session that has been terminated.
-tsrsSessionId :: Lens' TerminateSessionResponse (Maybe Text)
-tsrsSessionId = lens _tsrsSessionId (\s a -> s {_tsrsSessionId = a})
+--
+-- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsrsSessionId :: Lens.Lens' TerminateSessionResponse (Lude.Maybe Lude.Text)
+tsrsSessionId = Lens.lens (sessionId :: TerminateSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: TerminateSessionResponse)
+{-# DEPRECATED tsrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
--- | -- | The response status code.
-tsrsResponseStatus :: Lens' TerminateSessionResponse Int
-tsrsResponseStatus = lens _tsrsResponseStatus (\s a -> s {_tsrsResponseStatus = a})
-
-instance NFData TerminateSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsrsResponseStatus :: Lens.Lens' TerminateSessionResponse Lude.Int
+tsrsResponseStatus = Lens.lens (responseStatus :: TerminateSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateSessionResponse)
+{-# DEPRECATED tsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

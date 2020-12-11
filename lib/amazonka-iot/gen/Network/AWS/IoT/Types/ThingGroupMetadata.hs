@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingGroupMetadata where
+module Network.AWS.IoT.Types.ThingGroupMetadata
+  ( ThingGroupMetadata (..),
+
+    -- * Smart constructor
+    mkThingGroupMetadata,
+
+    -- * Lenses
+    tgmRootToParentThingGroups,
+    tgmParentGroupName,
+    tgmCreationDate,
+  )
+where
 
 import Network.AWS.IoT.Types.GroupNameAndARN
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Thing group metadata.
 --
---
---
--- /See:/ 'thingGroupMetadata' smart constructor.
+-- /See:/ 'mkThingGroupMetadata' smart constructor.
 data ThingGroupMetadata = ThingGroupMetadata'
-  { _tgmRootToParentThingGroups ::
-      !(Maybe [GroupNameAndARN]),
-    _tgmParentGroupName :: !(Maybe Text),
-    _tgmCreationDate :: !(Maybe POSIX)
+  { rootToParentThingGroups ::
+      Lude.Maybe [GroupNameAndARN],
+    parentGroupName :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgmRootToParentThingGroups' - The root parent thing group.
---
--- * 'tgmParentGroupName' - The parent thing group name.
---
--- * 'tgmCreationDate' - The UNIX timestamp of when the thing group was created.
-thingGroupMetadata ::
+-- * 'creationDate' - The UNIX timestamp of when the thing group was created.
+-- * 'parentGroupName' - The parent thing group name.
+-- * 'rootToParentThingGroups' - The root parent thing group.
+mkThingGroupMetadata ::
   ThingGroupMetadata
-thingGroupMetadata =
+mkThingGroupMetadata =
   ThingGroupMetadata'
-    { _tgmRootToParentThingGroups = Nothing,
-      _tgmParentGroupName = Nothing,
-      _tgmCreationDate = Nothing
+    { rootToParentThingGroups = Lude.Nothing,
+      parentGroupName = Lude.Nothing,
+      creationDate = Lude.Nothing
     }
 
 -- | The root parent thing group.
-tgmRootToParentThingGroups :: Lens' ThingGroupMetadata [GroupNameAndARN]
-tgmRootToParentThingGroups = lens _tgmRootToParentThingGroups (\s a -> s {_tgmRootToParentThingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rootToParentThingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmRootToParentThingGroups :: Lens.Lens' ThingGroupMetadata (Lude.Maybe [GroupNameAndARN])
+tgmRootToParentThingGroups = Lens.lens (rootToParentThingGroups :: ThingGroupMetadata -> Lude.Maybe [GroupNameAndARN]) (\s a -> s {rootToParentThingGroups = a} :: ThingGroupMetadata)
+{-# DEPRECATED tgmRootToParentThingGroups "Use generic-lens or generic-optics with 'rootToParentThingGroups' instead." #-}
 
 -- | The parent thing group name.
-tgmParentGroupName :: Lens' ThingGroupMetadata (Maybe Text)
-tgmParentGroupName = lens _tgmParentGroupName (\s a -> s {_tgmParentGroupName = a})
+--
+-- /Note:/ Consider using 'parentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmParentGroupName :: Lens.Lens' ThingGroupMetadata (Lude.Maybe Lude.Text)
+tgmParentGroupName = Lens.lens (parentGroupName :: ThingGroupMetadata -> Lude.Maybe Lude.Text) (\s a -> s {parentGroupName = a} :: ThingGroupMetadata)
+{-# DEPRECATED tgmParentGroupName "Use generic-lens or generic-optics with 'parentGroupName' instead." #-}
 
 -- | The UNIX timestamp of when the thing group was created.
-tgmCreationDate :: Lens' ThingGroupMetadata (Maybe UTCTime)
-tgmCreationDate = lens _tgmCreationDate (\s a -> s {_tgmCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmCreationDate :: Lens.Lens' ThingGroupMetadata (Lude.Maybe Lude.Timestamp)
+tgmCreationDate = Lens.lens (creationDate :: ThingGroupMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: ThingGroupMetadata)
+{-# DEPRECATED tgmCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
-instance FromJSON ThingGroupMetadata where
+instance Lude.FromJSON ThingGroupMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThingGroupMetadata"
       ( \x ->
           ThingGroupMetadata'
-            <$> (x .:? "rootToParentThingGroups" .!= mempty)
-            <*> (x .:? "parentGroupName")
-            <*> (x .:? "creationDate")
+            Lude.<$> (x Lude..:? "rootToParentThingGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "parentGroupName")
+            Lude.<*> (x Lude..:? "creationDate")
       )
-
-instance Hashable ThingGroupMetadata
-
-instance NFData ThingGroupMetadata

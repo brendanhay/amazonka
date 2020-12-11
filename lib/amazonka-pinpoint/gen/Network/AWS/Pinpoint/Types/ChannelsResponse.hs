@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ChannelsResponse where
+module Network.AWS.Pinpoint.Types.ChannelsResponse
+  ( ChannelsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkChannelsResponse,
+
+    -- * Lenses
+    cChannels,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ChannelResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.
 --
---
---
--- /See:/ 'channelsResponse' smart constructor.
+-- /See:/ 'mkChannelsResponse' smart constructor.
 newtype ChannelsResponse = ChannelsResponse'
-  { _cChannels ::
-      Map Text (ChannelResponse)
+  { channels ::
+      Lude.HashMap Lude.Text (ChannelResponse)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cChannels' - A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.
-channelsResponse ::
+-- * 'channels' - A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.
+mkChannelsResponse ::
   ChannelsResponse
-channelsResponse = ChannelsResponse' {_cChannels = mempty}
+mkChannelsResponse = ChannelsResponse' {channels = Lude.mempty}
 
 -- | A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.
-cChannels :: Lens' ChannelsResponse (HashMap Text (ChannelResponse))
-cChannels = lens _cChannels (\s a -> s {_cChannels = a}) . _Map
+--
+-- /Note:/ Consider using 'channels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cChannels :: Lens.Lens' ChannelsResponse (Lude.HashMap Lude.Text (ChannelResponse))
+cChannels = Lens.lens (channels :: ChannelsResponse -> Lude.HashMap Lude.Text (ChannelResponse)) (\s a -> s {channels = a} :: ChannelsResponse)
+{-# DEPRECATED cChannels "Use generic-lens or generic-optics with 'channels' instead." #-}
 
-instance FromJSON ChannelsResponse where
+instance Lude.FromJSON ChannelsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ChannelsResponse"
-      (\x -> ChannelsResponse' <$> (x .:? "Channels" .!= mempty))
-
-instance Hashable ChannelsResponse
-
-instance NFData ChannelsResponse
+      ( \x ->
+          ChannelsResponse'
+            Lude.<$> (x Lude..:? "Channels" Lude..!= Lude.mempty)
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.Fault where
+module Network.AWS.SSM.Types.Fault
+  ( Fault
+      ( Fault',
+        Client,
+        Server,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Fault
-  = Client
-  | Server
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Fault = Fault' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Fault where
-  parser =
-    takeLowerText >>= \case
-      "client" -> pure Client
-      "server" -> pure Server
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing Fault from value: '" <> e
-            <> "'. Accepted values: client, server, unknown"
+pattern Client :: Fault
+pattern Client = Fault' "Client"
 
-instance ToText Fault where
-  toText = \case
-    Client -> "Client"
-    Server -> "Server"
-    Unknown -> "Unknown"
+pattern Server :: Fault
+pattern Server = Fault' "Server"
 
-instance Hashable Fault
+pattern Unknown :: Fault
+pattern Unknown = Fault' "Unknown"
 
-instance NFData Fault
-
-instance ToByteString Fault
-
-instance ToQuery Fault
-
-instance ToHeader Fault
-
-instance FromJSON Fault where
-  parseJSON = parseJSONText "Fault"
+{-# COMPLETE
+  Client,
+  Server,
+  Unknown,
+  Fault'
+  #-}

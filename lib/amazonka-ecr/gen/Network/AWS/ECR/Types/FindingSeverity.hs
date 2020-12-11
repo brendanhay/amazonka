@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.FindingSeverity where
+module Network.AWS.ECR.Types.FindingSeverity
+  ( FindingSeverity
+      ( FindingSeverity',
+        Critical,
+        High,
+        Informational,
+        Low,
+        Medium,
+        Undefined
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FindingSeverity
-  = Critical
-  | High
-  | Informational
-  | Low
-  | Medium
-  | Undefined
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FindingSeverity = FindingSeverity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FindingSeverity where
-  parser =
-    takeLowerText >>= \case
-      "critical" -> pure Critical
-      "high" -> pure High
-      "informational" -> pure Informational
-      "low" -> pure Low
-      "medium" -> pure Medium
-      "undefined" -> pure Undefined
-      e ->
-        fromTextError $
-          "Failure parsing FindingSeverity from value: '" <> e
-            <> "'. Accepted values: critical, high, informational, low, medium, undefined"
+pattern Critical :: FindingSeverity
+pattern Critical = FindingSeverity' "CRITICAL"
 
-instance ToText FindingSeverity where
-  toText = \case
-    Critical -> "CRITICAL"
-    High -> "HIGH"
-    Informational -> "INFORMATIONAL"
-    Low -> "LOW"
-    Medium -> "MEDIUM"
-    Undefined -> "UNDEFINED"
+pattern High :: FindingSeverity
+pattern High = FindingSeverity' "HIGH"
 
-instance Hashable FindingSeverity
+pattern Informational :: FindingSeverity
+pattern Informational = FindingSeverity' "INFORMATIONAL"
 
-instance NFData FindingSeverity
+pattern Low :: FindingSeverity
+pattern Low = FindingSeverity' "LOW"
 
-instance ToByteString FindingSeverity
+pattern Medium :: FindingSeverity
+pattern Medium = FindingSeverity' "MEDIUM"
 
-instance ToQuery FindingSeverity
+pattern Undefined :: FindingSeverity
+pattern Undefined = FindingSeverity' "UNDEFINED"
 
-instance ToHeader FindingSeverity
-
-instance FromJSON FindingSeverity where
-  parseJSON = parseJSONText "FindingSeverity"
+{-# COMPLETE
+  Critical,
+  High,
+  Informational,
+  Low,
+  Medium,
+  Undefined,
+  FindingSeverity'
+  #-}

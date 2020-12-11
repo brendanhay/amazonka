@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.OrderType where
+module Network.AWS.WorkDocs.Types.OrderType
+  ( OrderType
+      ( OrderType',
+        Ascending,
+        Descending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrderType
-  = Ascending
-  | Descending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrderType = OrderType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrderType where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure Ascending
-      "descending" -> pure Descending
-      e ->
-        fromTextError $
-          "Failure parsing OrderType from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern Ascending :: OrderType
+pattern Ascending = OrderType' "ASCENDING"
 
-instance ToText OrderType where
-  toText = \case
-    Ascending -> "ASCENDING"
-    Descending -> "DESCENDING"
+pattern Descending :: OrderType
+pattern Descending = OrderType' "DESCENDING"
 
-instance Hashable OrderType
-
-instance NFData OrderType
-
-instance ToByteString OrderType
-
-instance ToQuery OrderType
-
-instance ToHeader OrderType
-
-instance ToJSON OrderType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Ascending,
+  Descending,
+  OrderType'
+  #-}

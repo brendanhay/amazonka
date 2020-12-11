@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,127 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DatabaseInput where
+module Network.AWS.Glue.Types.DatabaseInput
+  ( DatabaseInput (..),
+
+    -- * Smart constructor
+    mkDatabaseInput,
+
+    -- * Lenses
+    diLocationURI,
+    diTargetDatabase,
+    diParameters,
+    diDescription,
+    diCreateTableDefaultPermissions,
+    diName,
+  )
+where
 
 import Network.AWS.Glue.Types.DatabaseIdentifier
 import Network.AWS.Glue.Types.PrincipalPermissions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The structure used to create or update a database.
 --
---
---
--- /See:/ 'databaseInput' smart constructor.
+-- /See:/ 'mkDatabaseInput' smart constructor.
 data DatabaseInput = DatabaseInput'
-  { _diLocationURI ::
-      !(Maybe Text),
-    _diTargetDatabase :: !(Maybe DatabaseIdentifier),
-    _diParameters :: !(Maybe (Map Text (Text))),
-    _diDescription :: !(Maybe Text),
-    _diCreateTableDefaultPermissions ::
-      !(Maybe [PrincipalPermissions]),
-    _diName :: !Text
+  { locationURI ::
+      Lude.Maybe Lude.Text,
+    targetDatabase :: Lude.Maybe DatabaseIdentifier,
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    description :: Lude.Maybe Lude.Text,
+    createTableDefaultPermissions ::
+      Lude.Maybe [PrincipalPermissions],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatabaseInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
+-- * 'description' - A description of the database.
+-- * 'locationURI' - The location of the database (for example, an HDFS path).
+-- * 'name' - The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
+-- * 'parameters' - These key-value pairs define parameters and properties of the database.
 --
--- * 'diLocationURI' - The location of the database (for example, an HDFS path).
---
--- * 'diTargetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for resource linking.
---
--- * 'diParameters' - These key-value pairs define parameters and properties of the database. These key-value pairs define parameters and properties of the database.
---
--- * 'diDescription' - A description of the database.
---
--- * 'diCreateTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
---
--- * 'diName' - The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
-databaseInput ::
-  -- | 'diName'
-  Text ->
+-- These key-value pairs define parameters and properties of the database.
+-- * 'targetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for resource linking.
+mkDatabaseInput ::
+  -- | 'name'
+  Lude.Text ->
   DatabaseInput
-databaseInput pName_ =
+mkDatabaseInput pName_ =
   DatabaseInput'
-    { _diLocationURI = Nothing,
-      _diTargetDatabase = Nothing,
-      _diParameters = Nothing,
-      _diDescription = Nothing,
-      _diCreateTableDefaultPermissions = Nothing,
-      _diName = pName_
+    { locationURI = Lude.Nothing,
+      targetDatabase = Lude.Nothing,
+      parameters = Lude.Nothing,
+      description = Lude.Nothing,
+      createTableDefaultPermissions = Lude.Nothing,
+      name = pName_
     }
 
 -- | The location of the database (for example, an HDFS path).
-diLocationURI :: Lens' DatabaseInput (Maybe Text)
-diLocationURI = lens _diLocationURI (\s a -> s {_diLocationURI = a})
+--
+-- /Note:/ Consider using 'locationURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLocationURI :: Lens.Lens' DatabaseInput (Lude.Maybe Lude.Text)
+diLocationURI = Lens.lens (locationURI :: DatabaseInput -> Lude.Maybe Lude.Text) (\s a -> s {locationURI = a} :: DatabaseInput)
+{-# DEPRECATED diLocationURI "Use generic-lens or generic-optics with 'locationURI' instead." #-}
 
 -- | A @DatabaseIdentifier@ structure that describes a target database for resource linking.
-diTargetDatabase :: Lens' DatabaseInput (Maybe DatabaseIdentifier)
-diTargetDatabase = lens _diTargetDatabase (\s a -> s {_diTargetDatabase = a})
+--
+-- /Note:/ Consider using 'targetDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTargetDatabase :: Lens.Lens' DatabaseInput (Lude.Maybe DatabaseIdentifier)
+diTargetDatabase = Lens.lens (targetDatabase :: DatabaseInput -> Lude.Maybe DatabaseIdentifier) (\s a -> s {targetDatabase = a} :: DatabaseInput)
+{-# DEPRECATED diTargetDatabase "Use generic-lens or generic-optics with 'targetDatabase' instead." #-}
 
--- | These key-value pairs define parameters and properties of the database. These key-value pairs define parameters and properties of the database.
-diParameters :: Lens' DatabaseInput (HashMap Text (Text))
-diParameters = lens _diParameters (\s a -> s {_diParameters = a}) . _Default . _Map
+-- | These key-value pairs define parameters and properties of the database.
+--
+-- These key-value pairs define parameters and properties of the database.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diParameters :: Lens.Lens' DatabaseInput (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+diParameters = Lens.lens (parameters :: DatabaseInput -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: DatabaseInput)
+{-# DEPRECATED diParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | A description of the database.
-diDescription :: Lens' DatabaseInput (Maybe Text)
-diDescription = lens _diDescription (\s a -> s {_diDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDescription :: Lens.Lens' DatabaseInput (Lude.Maybe Lude.Text)
+diDescription = Lens.lens (description :: DatabaseInput -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DatabaseInput)
+{-# DEPRECATED diDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Creates a set of default permissions on the table for principals.
-diCreateTableDefaultPermissions :: Lens' DatabaseInput [PrincipalPermissions]
-diCreateTableDefaultPermissions = lens _diCreateTableDefaultPermissions (\s a -> s {_diCreateTableDefaultPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'createTableDefaultPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diCreateTableDefaultPermissions :: Lens.Lens' DatabaseInput (Lude.Maybe [PrincipalPermissions])
+diCreateTableDefaultPermissions = Lens.lens (createTableDefaultPermissions :: DatabaseInput -> Lude.Maybe [PrincipalPermissions]) (\s a -> s {createTableDefaultPermissions = a} :: DatabaseInput)
+{-# DEPRECATED diCreateTableDefaultPermissions "Use generic-lens or generic-optics with 'createTableDefaultPermissions' instead." #-}
 
 -- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
-diName :: Lens' DatabaseInput Text
-diName = lens _diName (\s a -> s {_diName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DatabaseInput Lude.Text
+diName = Lens.lens (name :: DatabaseInput -> Lude.Text) (\s a -> s {name = a} :: DatabaseInput)
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable DatabaseInput
-
-instance NFData DatabaseInput
-
-instance ToJSON DatabaseInput where
+instance Lude.ToJSON DatabaseInput where
   toJSON DatabaseInput' {..} =
-    object
-      ( catMaybes
-          [ ("LocationUri" .=) <$> _diLocationURI,
-            ("TargetDatabase" .=) <$> _diTargetDatabase,
-            ("Parameters" .=) <$> _diParameters,
-            ("Description" .=) <$> _diDescription,
-            ("CreateTableDefaultPermissions" .=)
-              <$> _diCreateTableDefaultPermissions,
-            Just ("Name" .= _diName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LocationUri" Lude..=) Lude.<$> locationURI,
+            ("TargetDatabase" Lude..=) Lude.<$> targetDatabase,
+            ("Parameters" Lude..=) Lude.<$> parameters,
+            ("Description" Lude..=) Lude.<$> description,
+            ("CreateTableDefaultPermissions" Lude..=)
+              Lude.<$> createTableDefaultPermissions,
+            Lude.Just ("Name" Lude..= name)
           ]
       )

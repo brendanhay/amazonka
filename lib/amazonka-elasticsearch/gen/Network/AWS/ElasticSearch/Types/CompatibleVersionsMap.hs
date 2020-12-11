@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.CompatibleVersionsMap where
+module Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
+  ( CompatibleVersionsMap (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCompatibleVersionsMap,
+
+    -- * Lenses
+    cvmSourceVersion,
+    cvmTargetVersions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A map from an @'ElasticsearchVersion' @ to a list of compatible @'ElasticsearchVersion' @ s to which the domain can be upgraded.
 --
---
---
--- /See:/ 'compatibleVersionsMap' smart constructor.
+-- /See:/ 'mkCompatibleVersionsMap' smart constructor.
 data CompatibleVersionsMap = CompatibleVersionsMap'
-  { _cvmSourceVersion ::
-      !(Maybe Text),
-    _cvmTargetVersions :: !(Maybe [Text])
+  { sourceVersion ::
+      Lude.Maybe Lude.Text,
+    targetVersions :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompatibleVersionsMap' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvmSourceVersion' - The current version of Elasticsearch on which a domain is.
---
--- * 'cvmTargetVersions' - Undocumented member.
-compatibleVersionsMap ::
+-- * 'sourceVersion' - The current version of Elasticsearch on which a domain is.
+-- * 'targetVersions' - Undocumented field.
+mkCompatibleVersionsMap ::
   CompatibleVersionsMap
-compatibleVersionsMap =
+mkCompatibleVersionsMap =
   CompatibleVersionsMap'
-    { _cvmSourceVersion = Nothing,
-      _cvmTargetVersions = Nothing
+    { sourceVersion = Lude.Nothing,
+      targetVersions = Lude.Nothing
     }
 
 -- | The current version of Elasticsearch on which a domain is.
-cvmSourceVersion :: Lens' CompatibleVersionsMap (Maybe Text)
-cvmSourceVersion = lens _cvmSourceVersion (\s a -> s {_cvmSourceVersion = a})
+--
+-- /Note:/ Consider using 'sourceVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvmSourceVersion :: Lens.Lens' CompatibleVersionsMap (Lude.Maybe Lude.Text)
+cvmSourceVersion = Lens.lens (sourceVersion :: CompatibleVersionsMap -> Lude.Maybe Lude.Text) (\s a -> s {sourceVersion = a} :: CompatibleVersionsMap)
+{-# DEPRECATED cvmSourceVersion "Use generic-lens or generic-optics with 'sourceVersion' instead." #-}
 
--- | Undocumented member.
-cvmTargetVersions :: Lens' CompatibleVersionsMap [Text]
-cvmTargetVersions = lens _cvmTargetVersions (\s a -> s {_cvmTargetVersions = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'targetVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvmTargetVersions :: Lens.Lens' CompatibleVersionsMap (Lude.Maybe [Lude.Text])
+cvmTargetVersions = Lens.lens (targetVersions :: CompatibleVersionsMap -> Lude.Maybe [Lude.Text]) (\s a -> s {targetVersions = a} :: CompatibleVersionsMap)
+{-# DEPRECATED cvmTargetVersions "Use generic-lens or generic-optics with 'targetVersions' instead." #-}
 
-instance FromJSON CompatibleVersionsMap where
+instance Lude.FromJSON CompatibleVersionsMap where
   parseJSON =
-    withObject
+    Lude.withObject
       "CompatibleVersionsMap"
       ( \x ->
           CompatibleVersionsMap'
-            <$> (x .:? "SourceVersion") <*> (x .:? "TargetVersions" .!= mempty)
+            Lude.<$> (x Lude..:? "SourceVersion")
+            Lude.<*> (x Lude..:? "TargetVersions" Lude..!= Lude.mempty)
       )
-
-instance Hashable CompatibleVersionsMap
-
-instance NFData CompatibleVersionsMap

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,149 @@
 --
 -- Sets the password for your VM local console. When you log in to the local console for the first time, you log in to the VM with the default credentials. We recommend that you set a new password. You don't need to know the default password to set a new password.
 module Network.AWS.StorageGateway.SetLocalConsolePassword
-  ( -- * Creating a Request
-    setLocalConsolePassword,
-    SetLocalConsolePassword,
+  ( -- * Creating a request
+    SetLocalConsolePassword (..),
+    mkSetLocalConsolePassword,
 
-    -- * Request Lenses
+    -- ** Request lenses
     slcpGatewayARN,
     slcpLocalConsolePassword,
 
-    -- * Destructuring the Response
-    setLocalConsolePasswordResponse,
-    SetLocalConsolePasswordResponse,
+    -- * Destructuring the response
+    SetLocalConsolePasswordResponse (..),
+    mkSetLocalConsolePasswordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     slcprsGatewayARN,
     slcprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | SetLocalConsolePasswordInput
 --
---
---
--- /See:/ 'setLocalConsolePassword' smart constructor.
+-- /See:/ 'mkSetLocalConsolePassword' smart constructor.
 data SetLocalConsolePassword = SetLocalConsolePassword'
-  { _slcpGatewayARN ::
-      !Text,
-    _slcpLocalConsolePassword ::
-      !(Sensitive Text)
+  { gatewayARN ::
+      Lude.Text,
+    localConsolePassword ::
+      Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLocalConsolePassword' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slcpGatewayARN' - Undocumented member.
---
--- * 'slcpLocalConsolePassword' - The password you want to set for your VM local console.
-setLocalConsolePassword ::
-  -- | 'slcpGatewayARN'
-  Text ->
-  -- | 'slcpLocalConsolePassword'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'localConsolePassword' - The password you want to set for your VM local console.
+mkSetLocalConsolePassword ::
+  -- | 'gatewayARN'
+  Lude.Text ->
+  -- | 'localConsolePassword'
+  Lude.Sensitive Lude.Text ->
   SetLocalConsolePassword
-setLocalConsolePassword pGatewayARN_ pLocalConsolePassword_ =
+mkSetLocalConsolePassword pGatewayARN_ pLocalConsolePassword_ =
   SetLocalConsolePassword'
-    { _slcpGatewayARN = pGatewayARN_,
-      _slcpLocalConsolePassword = _Sensitive # pLocalConsolePassword_
+    { gatewayARN = pGatewayARN_,
+      localConsolePassword = pLocalConsolePassword_
     }
 
--- | Undocumented member.
-slcpGatewayARN :: Lens' SetLocalConsolePassword Text
-slcpGatewayARN = lens _slcpGatewayARN (\s a -> s {_slcpGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcpGatewayARN :: Lens.Lens' SetLocalConsolePassword Lude.Text
+slcpGatewayARN = Lens.lens (gatewayARN :: SetLocalConsolePassword -> Lude.Text) (\s a -> s {gatewayARN = a} :: SetLocalConsolePassword)
+{-# DEPRECATED slcpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The password you want to set for your VM local console.
-slcpLocalConsolePassword :: Lens' SetLocalConsolePassword Text
-slcpLocalConsolePassword = lens _slcpLocalConsolePassword (\s a -> s {_slcpLocalConsolePassword = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'localConsolePassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcpLocalConsolePassword :: Lens.Lens' SetLocalConsolePassword (Lude.Sensitive Lude.Text)
+slcpLocalConsolePassword = Lens.lens (localConsolePassword :: SetLocalConsolePassword -> Lude.Sensitive Lude.Text) (\s a -> s {localConsolePassword = a} :: SetLocalConsolePassword)
+{-# DEPRECATED slcpLocalConsolePassword "Use generic-lens or generic-optics with 'localConsolePassword' instead." #-}
 
-instance AWSRequest SetLocalConsolePassword where
+instance Lude.AWSRequest SetLocalConsolePassword where
   type Rs SetLocalConsolePassword = SetLocalConsolePasswordResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SetLocalConsolePasswordResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetLocalConsolePassword
-
-instance NFData SetLocalConsolePassword
-
-instance ToHeaders SetLocalConsolePassword where
+instance Lude.ToHeaders SetLocalConsolePassword where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.SetLocalConsolePassword" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.SetLocalConsolePassword" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SetLocalConsolePassword where
+instance Lude.ToJSON SetLocalConsolePassword where
   toJSON SetLocalConsolePassword' {..} =
-    object
-      ( catMaybes
-          [ Just ("GatewayARN" .= _slcpGatewayARN),
-            Just ("LocalConsolePassword" .= _slcpLocalConsolePassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just ("LocalConsolePassword" Lude..= localConsolePassword)
           ]
       )
 
-instance ToPath SetLocalConsolePassword where
-  toPath = const "/"
+instance Lude.ToPath SetLocalConsolePassword where
+  toPath = Lude.const "/"
 
-instance ToQuery SetLocalConsolePassword where
-  toQuery = const mempty
+instance Lude.ToQuery SetLocalConsolePassword where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setLocalConsolePasswordResponse' smart constructor.
+-- | /See:/ 'mkSetLocalConsolePasswordResponse' smart constructor.
 data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
-  { _slcprsGatewayARN ::
-      !(Maybe Text),
-    _slcprsResponseStatus ::
-      !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLocalConsolePasswordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slcprsGatewayARN' - Undocumented member.
---
--- * 'slcprsResponseStatus' - -- | The response status code.
-setLocalConsolePasswordResponse ::
-  -- | 'slcprsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkSetLocalConsolePasswordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetLocalConsolePasswordResponse
-setLocalConsolePasswordResponse pResponseStatus_ =
+mkSetLocalConsolePasswordResponse pResponseStatus_ =
   SetLocalConsolePasswordResponse'
-    { _slcprsGatewayARN = Nothing,
-      _slcprsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-slcprsGatewayARN :: Lens' SetLocalConsolePasswordResponse (Maybe Text)
-slcprsGatewayARN = lens _slcprsGatewayARN (\s a -> s {_slcprsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcprsGatewayARN :: Lens.Lens' SetLocalConsolePasswordResponse (Lude.Maybe Lude.Text)
+slcprsGatewayARN = Lens.lens (gatewayARN :: SetLocalConsolePasswordResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: SetLocalConsolePasswordResponse)
+{-# DEPRECATED slcprsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-slcprsResponseStatus :: Lens' SetLocalConsolePasswordResponse Int
-slcprsResponseStatus = lens _slcprsResponseStatus (\s a -> s {_slcprsResponseStatus = a})
-
-instance NFData SetLocalConsolePasswordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcprsResponseStatus :: Lens.Lens' SetLocalConsolePasswordResponse Lude.Int
+slcprsResponseStatus = Lens.lens (responseStatus :: SetLocalConsolePasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetLocalConsolePasswordResponse)
+{-# DEPRECATED slcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

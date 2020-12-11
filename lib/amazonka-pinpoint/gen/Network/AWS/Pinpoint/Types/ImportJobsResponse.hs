@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ImportJobsResponse where
+module Network.AWS.Pinpoint.Types.ImportJobsResponse
+  ( ImportJobsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkImportJobsResponse,
+
+    -- * Lenses
+    ijNextToken,
+    ijItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ImportJobResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.
 --
---
---
--- /See:/ 'importJobsResponse' smart constructor.
+-- /See:/ 'mkImportJobsResponse' smart constructor.
 data ImportJobsResponse = ImportJobsResponse'
-  { _ijNextToken ::
-      !(Maybe Text),
-    _ijItem :: ![ImportJobResponse]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    item :: [ImportJobResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ijNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'ijItem' - An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
-importJobsResponse ::
+-- * 'item' - An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkImportJobsResponse ::
   ImportJobsResponse
-importJobsResponse =
-  ImportJobsResponse' {_ijNextToken = Nothing, _ijItem = mempty}
+mkImportJobsResponse =
+  ImportJobsResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-ijNextToken :: Lens' ImportJobsResponse (Maybe Text)
-ijNextToken = lens _ijNextToken (\s a -> s {_ijNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijNextToken :: Lens.Lens' ImportJobsResponse (Lude.Maybe Lude.Text)
+ijNextToken = Lens.lens (nextToken :: ImportJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ImportJobsResponse)
+{-# DEPRECATED ijNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
-ijItem :: Lens' ImportJobsResponse [ImportJobResponse]
-ijItem = lens _ijItem (\s a -> s {_ijItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijItem :: Lens.Lens' ImportJobsResponse [ImportJobResponse]
+ijItem = Lens.lens (item :: ImportJobsResponse -> [ImportJobResponse]) (\s a -> s {item = a} :: ImportJobsResponse)
+{-# DEPRECATED ijItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON ImportJobsResponse where
+instance Lude.FromJSON ImportJobsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImportJobsResponse"
       ( \x ->
           ImportJobsResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable ImportJobsResponse
-
-instance NFData ImportJobsResponse

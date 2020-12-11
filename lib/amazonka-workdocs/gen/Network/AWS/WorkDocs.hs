@@ -16,16 +16,17 @@
 --
 --     * File Migration: File migration applications are supported for users who want to migrate their files from an on-premises or off-premises file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.
 --
+--
 --     * Security: Support security applications are supported for users who have additional security needs, such as antivirus or data loss prevention. The API actions, along with AWS CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs. Then, the application can take the necessary actions and replace the target file. If the target file violates the policy, the application can also choose to email the user.
+--
 --
 --     * eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic or record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to replicate data for eDiscovery, backup, or analytical applications.
 --
 --
---
 -- All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.
 module Network.AWS.WorkDocs
-  ( -- * Service Configuration
-    workDocs,
+  ( -- * Service configuration
+    workDocsService,
 
     -- * Errors
     -- $errors
@@ -240,8 +241,8 @@ module Network.AWS.WorkDocs
     UserType (..),
 
     -- ** Activity
-    Activity,
-    activity,
+    Activity (..),
+    mkActivity,
     aResourceMetadata,
     aIsIndirectActivity,
     aInitiator,
@@ -253,8 +254,8 @@ module Network.AWS.WorkDocs
     aOrganizationId,
 
     -- ** Comment
-    Comment,
-    comment,
+    Comment (..),
+    mkComment,
     cStatus,
     cText,
     cVisibility,
@@ -266,8 +267,8 @@ module Network.AWS.WorkDocs
     cCommentId,
 
     -- ** CommentMetadata
-    CommentMetadata,
-    commentMetadata,
+    CommentMetadata (..),
+    mkCommentMetadata,
     cmCommentStatus,
     cmContributor,
     cmCommentId,
@@ -275,8 +276,8 @@ module Network.AWS.WorkDocs
     cmRecipientId,
 
     -- ** DocumentMetadata
-    DocumentMetadata,
-    documentMetadata,
+    DocumentMetadata (..),
+    mkDocumentMetadata,
     dmLatestVersionMetadata,
     dmParentFolderId,
     dmModifiedTimestamp,
@@ -287,8 +288,8 @@ module Network.AWS.WorkDocs
     dmCreatorId,
 
     -- ** DocumentVersionMetadata
-    DocumentVersionMetadata,
-    documentVersionMetadata,
+    DocumentVersionMetadata (..),
+    mkDocumentVersionMetadata,
     dvmThumbnail,
     dvmStatus,
     dvmSignature,
@@ -304,8 +305,8 @@ module Network.AWS.WorkDocs
     dvmContentType,
 
     -- ** FolderMetadata
-    FolderMetadata,
-    folderMetadata,
+    FolderMetadata (..),
+    mkFolderMetadata,
     fmSignature,
     fmParentFolderId,
     fmSize,
@@ -319,39 +320,39 @@ module Network.AWS.WorkDocs
     fmCreatorId,
 
     -- ** GroupMetadata
-    GroupMetadata,
-    groupMetadata,
+    GroupMetadata (..),
+    mkGroupMetadata,
     gmName,
     gmId,
 
     -- ** NotificationOptions
-    NotificationOptions,
-    notificationOptions,
+    NotificationOptions (..),
+    mkNotificationOptions,
     noEmailMessage,
     noSendEmail,
 
     -- ** Participants
-    Participants,
-    participants,
+    Participants (..),
+    mkParticipants,
     pGroups,
     pUsers,
 
     -- ** PermissionInfo
-    PermissionInfo,
-    permissionInfo,
+    PermissionInfo (..),
+    mkPermissionInfo,
     piRole,
     piType,
 
     -- ** Principal
-    Principal,
-    principal,
+    Principal (..),
+    mkPrincipal,
     pRoles,
     pId,
     pType,
 
     -- ** ResourceMetadata
-    ResourceMetadata,
-    resourceMetadata,
+    ResourceMetadata (..),
+    mkResourceMetadata,
     rmVersionId,
     rmOwner,
     rmName,
@@ -361,26 +362,26 @@ module Network.AWS.WorkDocs
     rmParentId,
 
     -- ** ResourcePath
-    ResourcePath,
-    resourcePath,
+    ResourcePath (..),
+    mkResourcePath,
     rpComponents,
 
     -- ** ResourcePathComponent
-    ResourcePathComponent,
-    resourcePathComponent,
+    ResourcePathComponent (..),
+    mkResourcePathComponent,
     rpcName,
     rpcId,
 
     -- ** SharePrincipal
-    SharePrincipal,
-    sharePrincipal,
+    SharePrincipal (..),
+    mkSharePrincipal,
     spId,
     spType,
     spRole,
 
     -- ** ShareResult
-    ShareResult,
-    shareResult,
+    ShareResult (..),
+    mkShareResult,
     srStatus,
     srPrincipalId,
     srInviteePrincipalId,
@@ -389,27 +390,27 @@ module Network.AWS.WorkDocs
     srShareId,
 
     -- ** StorageRuleType
-    StorageRuleType,
-    storageRuleType,
+    StorageRuleType (..),
+    mkStorageRuleType,
     srtStorageAllocatedInBytes,
     srtStorageType,
 
     -- ** Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sProtocol,
     sEndPoint,
     sSubscriptionId,
 
     -- ** UploadMetadata
-    UploadMetadata,
-    uploadMetadata,
+    UploadMetadata (..),
+    mkUploadMetadata,
     umUploadURL,
     umSignedHeaders,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uGivenName,
     uStatus,
     uLocale,
@@ -427,8 +428,8 @@ module Network.AWS.WorkDocs
     uRecycleBinFolderId,
 
     -- ** UserMetadata
-    UserMetadata,
-    userMetadata,
+    UserMetadata (..),
+    mkUserMetadata,
     umGivenName,
     umUsername,
     umEmailAddress,
@@ -436,13 +437,25 @@ module Network.AWS.WorkDocs
     umSurname,
 
     -- ** UserStorageMetadata
-    UserStorageMetadata,
-    userStorageMetadata,
+    UserStorageMetadata (..),
+    mkUserStorageMetadata,
     usmStorageUtilizedInBytes,
     usmStorageRule,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkDocs.AbortDocumentVersionUpload
 import Network.AWS.WorkDocs.ActivateUser
 import Network.AWS.WorkDocs.AddResourcePermissions

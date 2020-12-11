@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,132 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ECSTarget where
+module Network.AWS.CodeDeploy.Types.ECSTarget
+  ( ECSTarget (..),
+
+    -- * Smart constructor
+    mkECSTarget,
+
+    -- * Lenses
+    ecstTargetARN,
+    ecstTargetId,
+    ecstStatus,
+    ecstDeploymentId,
+    ecstLastUpdatedAt,
+    ecstTaskSetsInfo,
+    ecstLifecycleEvents,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.ECSTaskSet
 import Network.AWS.CodeDeploy.Types.LifecycleEvent
 import Network.AWS.CodeDeploy.Types.TargetStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the target of an Amazon ECS deployment.
 --
---
---
--- /See:/ 'eCSTarget' smart constructor.
+-- /See:/ 'mkECSTarget' smart constructor.
 data ECSTarget = ECSTarget'
-  { _ecstTargetARN :: !(Maybe Text),
-    _ecstTargetId :: !(Maybe Text),
-    _ecstStatus :: !(Maybe TargetStatus),
-    _ecstDeploymentId :: !(Maybe Text),
-    _ecstLastUpdatedAt :: !(Maybe POSIX),
-    _ecstTaskSetsInfo :: !(Maybe [ECSTaskSet]),
-    _ecstLifecycleEvents :: !(Maybe [LifecycleEvent])
+  { targetARN :: Lude.Maybe Lude.Text,
+    targetId :: Lude.Maybe Lude.Text,
+    status :: Lude.Maybe TargetStatus,
+    deploymentId :: Lude.Maybe Lude.Text,
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    taskSetsInfo :: Lude.Maybe [ECSTaskSet],
+    lifecycleEvents :: Lude.Maybe [LifecycleEvent]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ECSTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecstTargetARN' - The Amazon Resource Name (ARN) of the target.
---
--- * 'ecstTargetId' - The unique ID of a deployment target that has a type of @ecsTarget@ .
---
--- * 'ecstStatus' - The status an Amazon ECS deployment's target ECS application.
---
--- * 'ecstDeploymentId' - The unique ID of a deployment.
---
--- * 'ecstLastUpdatedAt' - The date and time when the target Amazon ECS application was updated by a deployment.
---
--- * 'ecstTaskSetsInfo' - The @ECSTaskSet@ objects associated with the ECS target.
---
--- * 'ecstLifecycleEvents' - The lifecycle events of the deployment to this target Amazon ECS application.
-eCSTarget ::
+-- * 'deploymentId' - The unique ID of a deployment.
+-- * 'lastUpdatedAt' - The date and time when the target Amazon ECS application was updated by a deployment.
+-- * 'lifecycleEvents' - The lifecycle events of the deployment to this target Amazon ECS application.
+-- * 'status' - The status an Amazon ECS deployment's target ECS application.
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
+-- * 'targetId' - The unique ID of a deployment target that has a type of @ecsTarget@ .
+-- * 'taskSetsInfo' - The @ECSTaskSet@ objects associated with the ECS target.
+mkECSTarget ::
   ECSTarget
-eCSTarget =
+mkECSTarget =
   ECSTarget'
-    { _ecstTargetARN = Nothing,
-      _ecstTargetId = Nothing,
-      _ecstStatus = Nothing,
-      _ecstDeploymentId = Nothing,
-      _ecstLastUpdatedAt = Nothing,
-      _ecstTaskSetsInfo = Nothing,
-      _ecstLifecycleEvents = Nothing
+    { targetARN = Lude.Nothing,
+      targetId = Lude.Nothing,
+      status = Lude.Nothing,
+      deploymentId = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      taskSetsInfo = Lude.Nothing,
+      lifecycleEvents = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the target.
-ecstTargetARN :: Lens' ECSTarget (Maybe Text)
-ecstTargetARN = lens _ecstTargetARN (\s a -> s {_ecstTargetARN = a})
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstTargetARN :: Lens.Lens' ECSTarget (Lude.Maybe Lude.Text)
+ecstTargetARN = Lens.lens (targetARN :: ECSTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: ECSTarget)
+{-# DEPRECATED ecstTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The unique ID of a deployment target that has a type of @ecsTarget@ .
-ecstTargetId :: Lens' ECSTarget (Maybe Text)
-ecstTargetId = lens _ecstTargetId (\s a -> s {_ecstTargetId = a})
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstTargetId :: Lens.Lens' ECSTarget (Lude.Maybe Lude.Text)
+ecstTargetId = Lens.lens (targetId :: ECSTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: ECSTarget)
+{-# DEPRECATED ecstTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The status an Amazon ECS deployment's target ECS application.
-ecstStatus :: Lens' ECSTarget (Maybe TargetStatus)
-ecstStatus = lens _ecstStatus (\s a -> s {_ecstStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstStatus :: Lens.Lens' ECSTarget (Lude.Maybe TargetStatus)
+ecstStatus = Lens.lens (status :: ECSTarget -> Lude.Maybe TargetStatus) (\s a -> s {status = a} :: ECSTarget)
+{-# DEPRECATED ecstStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID of a deployment.
-ecstDeploymentId :: Lens' ECSTarget (Maybe Text)
-ecstDeploymentId = lens _ecstDeploymentId (\s a -> s {_ecstDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstDeploymentId :: Lens.Lens' ECSTarget (Lude.Maybe Lude.Text)
+ecstDeploymentId = Lens.lens (deploymentId :: ECSTarget -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: ECSTarget)
+{-# DEPRECATED ecstDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The date and time when the target Amazon ECS application was updated by a deployment.
-ecstLastUpdatedAt :: Lens' ECSTarget (Maybe UTCTime)
-ecstLastUpdatedAt = lens _ecstLastUpdatedAt (\s a -> s {_ecstLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstLastUpdatedAt :: Lens.Lens' ECSTarget (Lude.Maybe Lude.Timestamp)
+ecstLastUpdatedAt = Lens.lens (lastUpdatedAt :: ECSTarget -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: ECSTarget)
+{-# DEPRECATED ecstLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The @ECSTaskSet@ objects associated with the ECS target.
-ecstTaskSetsInfo :: Lens' ECSTarget [ECSTaskSet]
-ecstTaskSetsInfo = lens _ecstTaskSetsInfo (\s a -> s {_ecstTaskSetsInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskSetsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstTaskSetsInfo :: Lens.Lens' ECSTarget (Lude.Maybe [ECSTaskSet])
+ecstTaskSetsInfo = Lens.lens (taskSetsInfo :: ECSTarget -> Lude.Maybe [ECSTaskSet]) (\s a -> s {taskSetsInfo = a} :: ECSTarget)
+{-# DEPRECATED ecstTaskSetsInfo "Use generic-lens or generic-optics with 'taskSetsInfo' instead." #-}
 
 -- | The lifecycle events of the deployment to this target Amazon ECS application.
-ecstLifecycleEvents :: Lens' ECSTarget [LifecycleEvent]
-ecstLifecycleEvents = lens _ecstLifecycleEvents (\s a -> s {_ecstLifecycleEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lifecycleEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecstLifecycleEvents :: Lens.Lens' ECSTarget (Lude.Maybe [LifecycleEvent])
+ecstLifecycleEvents = Lens.lens (lifecycleEvents :: ECSTarget -> Lude.Maybe [LifecycleEvent]) (\s a -> s {lifecycleEvents = a} :: ECSTarget)
+{-# DEPRECATED ecstLifecycleEvents "Use generic-lens or generic-optics with 'lifecycleEvents' instead." #-}
 
-instance FromJSON ECSTarget where
+instance Lude.FromJSON ECSTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "ECSTarget"
       ( \x ->
           ECSTarget'
-            <$> (x .:? "targetArn")
-            <*> (x .:? "targetId")
-            <*> (x .:? "status")
-            <*> (x .:? "deploymentId")
-            <*> (x .:? "lastUpdatedAt")
-            <*> (x .:? "taskSetsInfo" .!= mempty)
-            <*> (x .:? "lifecycleEvents" .!= mempty)
+            Lude.<$> (x Lude..:? "targetArn")
+            Lude.<*> (x Lude..:? "targetId")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "deploymentId")
+            Lude.<*> (x Lude..:? "lastUpdatedAt")
+            Lude.<*> (x Lude..:? "taskSetsInfo" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "lifecycleEvents" Lude..!= Lude.mempty)
       )
-
-instance Hashable ECSTarget
-
-instance NFData ECSTarget

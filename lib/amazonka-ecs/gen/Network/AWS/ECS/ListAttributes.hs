@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the attributes for Amazon ECS resources within a specified target type and cluster. When you specify a target type and cluster, @ListAttributes@ returns a list of attribute objects, one for each attribute on each resource. You can filter the list of results to a single attribute name to only return results that have that name. You can also filter the results by attribute name and value, for example, to see which container instances in a cluster are running a Linux AMI (@ecs.os-type=linux@ ).
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListAttributes
-  ( -- * Creating a Request
-    listAttributes,
-    ListAttributes,
+  ( -- * Creating a request
+    ListAttributes (..),
+    mkListAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laAttributeValue,
     laCluster,
     laNextToken,
@@ -35,11 +28,11 @@ module Network.AWS.ECS.ListAttributes
     laMaxResults,
     laTargetType,
 
-    -- * Destructuring the Response
-    listAttributesResponse,
-    ListAttributesResponse,
+    -- * Destructuring the response
+    ListAttributesResponse (..),
+    mkListAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larsNextToken,
     larsAttributes,
     larsResponseStatus,
@@ -47,169 +40,197 @@ module Network.AWS.ECS.ListAttributes
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAttributes' smart constructor.
+-- | /See:/ 'mkListAttributes' smart constructor.
 data ListAttributes = ListAttributes'
-  { _laAttributeValue ::
-      !(Maybe Text),
-    _laCluster :: !(Maybe Text),
-    _laNextToken :: !(Maybe Text),
-    _laAttributeName :: !(Maybe Text),
-    _laMaxResults :: !(Maybe Int),
-    _laTargetType :: !TargetType
+  { attributeValue ::
+      Lude.Maybe Lude.Text,
+    cluster :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    attributeName :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    targetType :: TargetType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laAttributeValue' - The value of the attribute with which to filter results. You must also specify an attribute name to use this parameter.
---
--- * 'laCluster' - The short name or full Amazon Resource Name (ARN) of the cluster to list attributes. If you do not specify a cluster, the default cluster is assumed.
---
--- * 'laNextToken' - The @nextToken@ value returned from a @ListAttributes@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
---
--- * 'laAttributeName' - The name of the attribute with which to filter the results.
---
--- * 'laMaxResults' - The maximum number of cluster results returned by @ListAttributes@ in paginated output. When this parameter is used, @ListAttributes@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAttributes@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListAttributes@ returns up to 100 results and a @nextToken@ value if applicable.
---
--- * 'laTargetType' - The type of the target with which to list attributes.
-listAttributes ::
-  -- | 'laTargetType'
+-- * 'attributeName' - The name of the attribute with which to filter the results.
+-- * 'attributeValue' - The value of the attribute with which to filter results. You must also specify an attribute name to use this parameter.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to list attributes. If you do not specify a cluster, the default cluster is assumed.
+-- * 'maxResults' - The maximum number of cluster results returned by @ListAttributes@ in paginated output. When this parameter is used, @ListAttributes@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAttributes@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListAttributes@ returns up to 100 results and a @nextToken@ value if applicable.
+-- * 'nextToken' - The @nextToken@ value returned from a @ListAttributes@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+-- * 'targetType' - The type of the target with which to list attributes.
+mkListAttributes ::
+  -- | 'targetType'
   TargetType ->
   ListAttributes
-listAttributes pTargetType_ =
+mkListAttributes pTargetType_ =
   ListAttributes'
-    { _laAttributeValue = Nothing,
-      _laCluster = Nothing,
-      _laNextToken = Nothing,
-      _laAttributeName = Nothing,
-      _laMaxResults = Nothing,
-      _laTargetType = pTargetType_
+    { attributeValue = Lude.Nothing,
+      cluster = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      attributeName = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      targetType = pTargetType_
     }
 
 -- | The value of the attribute with which to filter results. You must also specify an attribute name to use this parameter.
-laAttributeValue :: Lens' ListAttributes (Maybe Text)
-laAttributeValue = lens _laAttributeValue (\s a -> s {_laAttributeValue = a})
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laAttributeValue :: Lens.Lens' ListAttributes (Lude.Maybe Lude.Text)
+laAttributeValue = Lens.lens (attributeValue :: ListAttributes -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: ListAttributes)
+{-# DEPRECATED laAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to list attributes. If you do not specify a cluster, the default cluster is assumed.
-laCluster :: Lens' ListAttributes (Maybe Text)
-laCluster = lens _laCluster (\s a -> s {_laCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laCluster :: Lens.Lens' ListAttributes (Lude.Maybe Lude.Text)
+laCluster = Lens.lens (cluster :: ListAttributes -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: ListAttributes)
+{-# DEPRECATED laCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The @nextToken@ value returned from a @ListAttributes@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
-laNextToken :: Lens' ListAttributes (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s {_laNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListAttributes (Lude.Maybe Lude.Text)
+laNextToken = Lens.lens (nextToken :: ListAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAttributes)
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the attribute with which to filter the results.
-laAttributeName :: Lens' ListAttributes (Maybe Text)
-laAttributeName = lens _laAttributeName (\s a -> s {_laAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laAttributeName :: Lens.Lens' ListAttributes (Lude.Maybe Lude.Text)
+laAttributeName = Lens.lens (attributeName :: ListAttributes -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: ListAttributes)
+{-# DEPRECATED laAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The maximum number of cluster results returned by @ListAttributes@ in paginated output. When this parameter is used, @ListAttributes@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAttributes@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListAttributes@ returns up to 100 results and a @nextToken@ value if applicable.
-laMaxResults :: Lens' ListAttributes (Maybe Int)
-laMaxResults = lens _laMaxResults (\s a -> s {_laMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laMaxResults :: Lens.Lens' ListAttributes (Lude.Maybe Lude.Int)
+laMaxResults = Lens.lens (maxResults :: ListAttributes -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAttributes)
+{-# DEPRECATED laMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The type of the target with which to list attributes.
-laTargetType :: Lens' ListAttributes TargetType
-laTargetType = lens _laTargetType (\s a -> s {_laTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laTargetType :: Lens.Lens' ListAttributes TargetType
+laTargetType = Lens.lens (targetType :: ListAttributes -> TargetType) (\s a -> s {targetType = a} :: ListAttributes)
+{-# DEPRECATED laTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
-instance AWSPager ListAttributes where
+instance Page.AWSPager ListAttributes where
   page rq rs
-    | stop (rs ^. larsNextToken) = Nothing
-    | stop (rs ^. larsAttributes) = Nothing
-    | otherwise = Just $ rq & laNextToken .~ rs ^. larsNextToken
+    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larsAttributes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
 
-instance AWSRequest ListAttributes where
+instance Lude.AWSRequest ListAttributes where
   type Rs ListAttributes = ListAttributesResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAttributesResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "attributes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAttributes
-
-instance NFData ListAttributes
-
-instance ToHeaders ListAttributes where
+instance Lude.ToHeaders ListAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.ListAttributes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.ListAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAttributes where
+instance Lude.ToJSON ListAttributes where
   toJSON ListAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("attributeValue" .=) <$> _laAttributeValue,
-            ("cluster" .=) <$> _laCluster,
-            ("nextToken" .=) <$> _laNextToken,
-            ("attributeName" .=) <$> _laAttributeName,
-            ("maxResults" .=) <$> _laMaxResults,
-            Just ("targetType" .= _laTargetType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("attributeValue" Lude..=) Lude.<$> attributeValue,
+            ("cluster" Lude..=) Lude.<$> cluster,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("attributeName" Lude..=) Lude.<$> attributeName,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("targetType" Lude..= targetType)
           ]
       )
 
-instance ToPath ListAttributes where
-  toPath = const "/"
+instance Lude.ToPath ListAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery ListAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAttributesResponse' smart constructor.
+-- | /See:/ 'mkListAttributesResponse' smart constructor.
 data ListAttributesResponse = ListAttributesResponse'
-  { _larsNextToken ::
-      !(Maybe Text),
-    _larsAttributes :: !(Maybe [Attribute]),
-    _larsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    attributes :: Lude.Maybe [Attribute],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larsNextToken' - The @nextToken@ value to include in a future @ListAttributes@ request. When the results of a @ListAttributes@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'larsAttributes' - A list of attribute objects that meet the criteria of the request.
---
--- * 'larsResponseStatus' - -- | The response status code.
-listAttributesResponse ::
-  -- | 'larsResponseStatus'
-  Int ->
+-- * 'attributes' - A list of attribute objects that meet the criteria of the request.
+-- * 'nextToken' - The @nextToken@ value to include in a future @ListAttributes@ request. When the results of a @ListAttributes@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkListAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAttributesResponse
-listAttributesResponse pResponseStatus_ =
+mkListAttributesResponse pResponseStatus_ =
   ListAttributesResponse'
-    { _larsNextToken = Nothing,
-      _larsAttributes = Nothing,
-      _larsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @nextToken@ value to include in a future @ListAttributes@ request. When the results of a @ListAttributes@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-larsNextToken :: Lens' ListAttributesResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\s a -> s {_larsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsNextToken :: Lens.Lens' ListAttributesResponse (Lude.Maybe Lude.Text)
+larsNextToken = Lens.lens (nextToken :: ListAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAttributesResponse)
+{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of attribute objects that meet the criteria of the request.
-larsAttributes :: Lens' ListAttributesResponse [Attribute]
-larsAttributes = lens _larsAttributes (\s a -> s {_larsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsAttributes :: Lens.Lens' ListAttributesResponse (Lude.Maybe [Attribute])
+larsAttributes = Lens.lens (attributes :: ListAttributesResponse -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: ListAttributesResponse)
+{-# DEPRECATED larsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListAttributesResponse Int
-larsResponseStatus = lens _larsResponseStatus (\s a -> s {_larsResponseStatus = a})
-
-instance NFData ListAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsResponseStatus :: Lens.Lens' ListAttributesResponse Lude.Int
+larsResponseStatus = Lens.lens (responseStatus :: ListAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAttributesResponse)
+{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

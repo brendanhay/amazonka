@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describes a network interface attribute. You can specify only one attribute at a time.
 module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
-  ( -- * Creating a Request
-    describeNetworkInterfaceAttribute,
-    DescribeNetworkInterfaceAttribute,
+  ( -- * Creating a request
+    DescribeNetworkInterfaceAttribute (..),
+    mkDescribeNetworkInterfaceAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dniaAttribute,
     dniaDryRun,
     dniaNetworkInterfaceId,
 
-    -- * Destructuring the Response
-    describeNetworkInterfaceAttributeResponse,
-    DescribeNetworkInterfaceAttributeResponse,
+    -- * Destructuring the response
+    DescribeNetworkInterfaceAttributeResponse (..),
+    mkDescribeNetworkInterfaceAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dniarsGroups,
     dniarsSourceDestCheck,
     dniarsNetworkInterfaceId,
@@ -43,187 +38,196 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeNetworkInterfaceAttribute.
 --
---
---
--- /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
+-- /See:/ 'mkDescribeNetworkInterfaceAttribute' smart constructor.
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
-  { _dniaAttribute ::
-      !( Maybe
-           NetworkInterfaceAttribute
-       ),
-    _dniaDryRun ::
-      !(Maybe Bool),
-    _dniaNetworkInterfaceId ::
-      !Text
+  { attribute ::
+      Lude.Maybe
+        NetworkInterfaceAttribute,
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    networkInterfaceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNetworkInterfaceAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dniaAttribute' - The attribute of the network interface. This parameter is required.
---
--- * 'dniaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dniaNetworkInterfaceId' - The ID of the network interface.
-describeNetworkInterfaceAttribute ::
-  -- | 'dniaNetworkInterfaceId'
-  Text ->
+-- * 'attribute' - The attribute of the network interface. This parameter is required.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'networkInterfaceId' - The ID of the network interface.
+mkDescribeNetworkInterfaceAttribute ::
+  -- | 'networkInterfaceId'
+  Lude.Text ->
   DescribeNetworkInterfaceAttribute
-describeNetworkInterfaceAttribute pNetworkInterfaceId_ =
+mkDescribeNetworkInterfaceAttribute pNetworkInterfaceId_ =
   DescribeNetworkInterfaceAttribute'
-    { _dniaAttribute = Nothing,
-      _dniaDryRun = Nothing,
-      _dniaNetworkInterfaceId = pNetworkInterfaceId_
+    { attribute = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      networkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The attribute of the network interface. This parameter is required.
-dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
-dniaAttribute = lens _dniaAttribute (\s a -> s {_dniaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniaAttribute :: Lens.Lens' DescribeNetworkInterfaceAttribute (Lude.Maybe NetworkInterfaceAttribute)
+dniaAttribute = Lens.lens (attribute :: DescribeNetworkInterfaceAttribute -> Lude.Maybe NetworkInterfaceAttribute) (\s a -> s {attribute = a} :: DescribeNetworkInterfaceAttribute)
+{-# DEPRECATED dniaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
-dniaDryRun = lens _dniaDryRun (\s a -> s {_dniaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniaDryRun :: Lens.Lens' DescribeNetworkInterfaceAttribute (Lude.Maybe Lude.Bool)
+dniaDryRun = Lens.lens (dryRun :: DescribeNetworkInterfaceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeNetworkInterfaceAttribute)
+{-# DEPRECATED dniaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the network interface.
-dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
-dniaNetworkInterfaceId = lens _dniaNetworkInterfaceId (\s a -> s {_dniaNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniaNetworkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttribute Lude.Text
+dniaNetworkInterfaceId = Lens.lens (networkInterfaceId :: DescribeNetworkInterfaceAttribute -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttribute)
+{-# DEPRECATED dniaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
-instance AWSRequest DescribeNetworkInterfaceAttribute where
+instance Lude.AWSRequest DescribeNetworkInterfaceAttribute where
   type
     Rs DescribeNetworkInterfaceAttribute =
       DescribeNetworkInterfaceAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeNetworkInterfaceAttributeResponse'
-            <$> (x .@? "groupSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "sourceDestCheck")
-            <*> (x .@? "networkInterfaceId")
-            <*> (x .@? "attachment")
-            <*> (x .@? "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "sourceDestCheck")
+            Lude.<*> (x Lude..@? "networkInterfaceId")
+            Lude.<*> (x Lude..@? "attachment")
+            Lude.<*> (x Lude..@? "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeNetworkInterfaceAttribute
+instance Lude.ToHeaders DescribeNetworkInterfaceAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeNetworkInterfaceAttribute
+instance Lude.ToPath DescribeNetworkInterfaceAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeNetworkInterfaceAttribute where
-  toHeaders = const mempty
-
-instance ToPath DescribeNetworkInterfaceAttribute where
-  toPath = const "/"
-
-instance ToQuery DescribeNetworkInterfaceAttribute where
+instance Lude.ToQuery DescribeNetworkInterfaceAttribute where
   toQuery DescribeNetworkInterfaceAttribute' {..} =
-    mconcat
-      [ "Action" =: ("DescribeNetworkInterfaceAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Attribute" =: _dniaAttribute,
-        "DryRun" =: _dniaDryRun,
-        "NetworkInterfaceId" =: _dniaNetworkInterfaceId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeNetworkInterfaceAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Attribute" Lude.=: attribute,
+        "DryRun" Lude.=: dryRun,
+        "NetworkInterfaceId" Lude.=: networkInterfaceId
       ]
 
 -- | Contains the output of DescribeNetworkInterfaceAttribute.
 --
---
---
--- /See:/ 'describeNetworkInterfaceAttributeResponse' smart constructor.
+-- /See:/ 'mkDescribeNetworkInterfaceAttributeResponse' smart constructor.
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
-  { _dniarsGroups ::
-      !( Maybe
-           [GroupIdentifier]
-       ),
-    _dniarsSourceDestCheck ::
-      !( Maybe
-           AttributeBooleanValue
-       ),
-    _dniarsNetworkInterfaceId ::
-      !( Maybe
-           Text
-       ),
-    _dniarsAttachment ::
-      !( Maybe
-           NetworkInterfaceAttachment
-       ),
-    _dniarsDescription ::
-      !( Maybe
-           AttributeValue
-       ),
-    _dniarsResponseStatus ::
-      !Int
+  { groups ::
+      Lude.Maybe
+        [GroupIdentifier],
+    sourceDestCheck ::
+      Lude.Maybe
+        AttributeBooleanValue,
+    networkInterfaceId ::
+      Lude.Maybe
+        Lude.Text,
+    attachment ::
+      Lude.Maybe
+        NetworkInterfaceAttachment,
+    description ::
+      Lude.Maybe
+        AttributeValue,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dniarsGroups' - The security groups associated with the network interface.
---
--- * 'dniarsSourceDestCheck' - Indicates whether source/destination checking is enabled.
---
--- * 'dniarsNetworkInterfaceId' - The ID of the network interface.
---
--- * 'dniarsAttachment' - The attachment (if any) of the network interface.
---
--- * 'dniarsDescription' - The description of the network interface.
---
--- * 'dniarsResponseStatus' - -- | The response status code.
-describeNetworkInterfaceAttributeResponse ::
-  -- | 'dniarsResponseStatus'
-  Int ->
+-- * 'attachment' - The attachment (if any) of the network interface.
+-- * 'description' - The description of the network interface.
+-- * 'groups' - The security groups associated with the network interface.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'responseStatus' - The response status code.
+-- * 'sourceDestCheck' - Indicates whether source/destination checking is enabled.
+mkDescribeNetworkInterfaceAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse pResponseStatus_ =
+mkDescribeNetworkInterfaceAttributeResponse pResponseStatus_ =
   DescribeNetworkInterfaceAttributeResponse'
-    { _dniarsGroups =
-        Nothing,
-      _dniarsSourceDestCheck = Nothing,
-      _dniarsNetworkInterfaceId = Nothing,
-      _dniarsAttachment = Nothing,
-      _dniarsDescription = Nothing,
-      _dniarsResponseStatus = pResponseStatus_
+    { groups = Lude.Nothing,
+      sourceDestCheck = Lude.Nothing,
+      networkInterfaceId = Lude.Nothing,
+      attachment = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The security groups associated with the network interface.
-dniarsGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
-dniarsGroups = lens _dniarsGroups (\s a -> s {_dniarsGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniarsGroups :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Lude.Maybe [GroupIdentifier])
+dniarsGroups = Lens.lens (groups :: DescribeNetworkInterfaceAttributeResponse -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groups = a} :: DescribeNetworkInterfaceAttributeResponse)
+{-# DEPRECATED dniarsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Indicates whether source/destination checking is enabled.
-dniarsSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
-dniarsSourceDestCheck = lens _dniarsSourceDestCheck (\s a -> s {_dniarsSourceDestCheck = a})
+--
+-- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniarsSourceDestCheck :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Lude.Maybe AttributeBooleanValue)
+dniarsSourceDestCheck = Lens.lens (sourceDestCheck :: DescribeNetworkInterfaceAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {sourceDestCheck = a} :: DescribeNetworkInterfaceAttributeResponse)
+{-# DEPRECATED dniarsSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
 
 -- | The ID of the network interface.
-dniarsNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
-dniarsNetworkInterfaceId = lens _dniarsNetworkInterfaceId (\s a -> s {_dniarsNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniarsNetworkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Lude.Maybe Lude.Text)
+dniarsNetworkInterfaceId = Lens.lens (networkInterfaceId :: DescribeNetworkInterfaceAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttributeResponse)
+{-# DEPRECATED dniarsNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The attachment (if any) of the network interface.
-dniarsAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
-dniarsAttachment = lens _dniarsAttachment (\s a -> s {_dniarsAttachment = a})
+--
+-- /Note:/ Consider using 'attachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniarsAttachment :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Lude.Maybe NetworkInterfaceAttachment)
+dniarsAttachment = Lens.lens (attachment :: DescribeNetworkInterfaceAttributeResponse -> Lude.Maybe NetworkInterfaceAttachment) (\s a -> s {attachment = a} :: DescribeNetworkInterfaceAttributeResponse)
+{-# DEPRECATED dniarsAttachment "Use generic-lens or generic-optics with 'attachment' instead." #-}
 
 -- | The description of the network interface.
-dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
-dniarsDescription = lens _dniarsDescription (\s a -> s {_dniarsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniarsDescription :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Lude.Maybe AttributeValue)
+dniarsDescription = Lens.lens (description :: DescribeNetworkInterfaceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {description = a} :: DescribeNetworkInterfaceAttributeResponse)
+{-# DEPRECATED dniarsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-dniarsResponseStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
-dniarsResponseStatus = lens _dniarsResponseStatus (\s a -> s {_dniarsResponseStatus = a})
-
-instance NFData DescribeNetworkInterfaceAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniarsResponseStatus :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse Lude.Int
+dniarsResponseStatus = Lens.lens (responseStatus :: DescribeNetworkInterfaceAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNetworkInterfaceAttributeResponse)
+{-# DEPRECATED dniarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

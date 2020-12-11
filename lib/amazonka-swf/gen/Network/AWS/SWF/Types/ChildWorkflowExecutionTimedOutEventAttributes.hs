@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,113 +7,135 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes where
+module Network.AWS.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes
+  ( ChildWorkflowExecutionTimedOutEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChildWorkflowExecutionTimedOutEventAttributes,
+
+    -- * Lenses
+    cwetoeaWorkflowExecution,
+    cwetoeaWorkflowType,
+    cwetoeaTimeoutType,
+    cwetoeaInitiatedEventId,
+    cwetoeaStartedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.WorkflowExecution
 import Network.AWS.SWF.Types.WorkflowExecutionTimeoutType
 import Network.AWS.SWF.Types.WorkflowType
 
 -- | Provides the details of the @ChildWorkflowExecutionTimedOut@ event.
 --
---
---
--- /See:/ 'childWorkflowExecutionTimedOutEventAttributes' smart constructor.
+-- /See:/ 'mkChildWorkflowExecutionTimedOutEventAttributes' smart constructor.
 data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes'
-  { _cwetoeaWorkflowExecution ::
-      !WorkflowExecution,
-    _cwetoeaWorkflowType ::
-      !WorkflowType,
-    _cwetoeaTimeoutType ::
-      !WorkflowExecutionTimeoutType,
-    _cwetoeaInitiatedEventId ::
-      !Integer,
-    _cwetoeaStartedEventId ::
-      !Integer
+  { workflowExecution ::
+      WorkflowExecution,
+    workflowType ::
+      WorkflowType,
+    timeoutType ::
+      WorkflowExecutionTimeoutType,
+    initiatedEventId ::
+      Lude.Integer,
+    startedEventId ::
+      Lude.Integer
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ChildWorkflowExecutionTimedOutEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwetoeaWorkflowExecution' - The child workflow execution that timed out.
---
--- * 'cwetoeaWorkflowType' - The type of the child workflow execution.
---
--- * 'cwetoeaTimeoutType' - The type of the timeout that caused the child workflow execution to time out.
---
--- * 'cwetoeaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- * 'cwetoeaStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-childWorkflowExecutionTimedOutEventAttributes ::
-  -- | 'cwetoeaWorkflowExecution'
+-- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'timeoutType' - The type of the timeout that caused the child workflow execution to time out.
+-- * 'workflowExecution' - The child workflow execution that timed out.
+-- * 'workflowType' - The type of the child workflow execution.
+mkChildWorkflowExecutionTimedOutEventAttributes ::
+  -- | 'workflowExecution'
   WorkflowExecution ->
-  -- | 'cwetoeaWorkflowType'
+  -- | 'workflowType'
   WorkflowType ->
-  -- | 'cwetoeaTimeoutType'
+  -- | 'timeoutType'
   WorkflowExecutionTimeoutType ->
-  -- | 'cwetoeaInitiatedEventId'
-  Integer ->
-  -- | 'cwetoeaStartedEventId'
-  Integer ->
+  -- | 'initiatedEventId'
+  Lude.Integer ->
+  -- | 'startedEventId'
+  Lude.Integer ->
   ChildWorkflowExecutionTimedOutEventAttributes
-childWorkflowExecutionTimedOutEventAttributes
+mkChildWorkflowExecutionTimedOutEventAttributes
   pWorkflowExecution_
   pWorkflowType_
   pTimeoutType_
   pInitiatedEventId_
   pStartedEventId_ =
     ChildWorkflowExecutionTimedOutEventAttributes'
-      { _cwetoeaWorkflowExecution =
+      { workflowExecution =
           pWorkflowExecution_,
-        _cwetoeaWorkflowType = pWorkflowType_,
-        _cwetoeaTimeoutType = pTimeoutType_,
-        _cwetoeaInitiatedEventId = pInitiatedEventId_,
-        _cwetoeaStartedEventId = pStartedEventId_
+        workflowType = pWorkflowType_,
+        timeoutType = pTimeoutType_,
+        initiatedEventId = pInitiatedEventId_,
+        startedEventId = pStartedEventId_
       }
 
 -- | The child workflow execution that timed out.
-cwetoeaWorkflowExecution :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecution
-cwetoeaWorkflowExecution = lens _cwetoeaWorkflowExecution (\s a -> s {_cwetoeaWorkflowExecution = a})
+--
+-- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwetoeaWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecution
+cwetoeaWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionTimedOutEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED cwetoeaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 -- | The type of the child workflow execution.
-cwetoeaWorkflowType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowType
-cwetoeaWorkflowType = lens _cwetoeaWorkflowType (\s a -> s {_cwetoeaWorkflowType = a})
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwetoeaWorkflowType :: Lens.Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowType
+cwetoeaWorkflowType = Lens.lens (workflowType :: ChildWorkflowExecutionTimedOutEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: ChildWorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED cwetoeaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 -- | The type of the timeout that caused the child workflow execution to time out.
-cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
-cwetoeaTimeoutType = lens _cwetoeaTimeoutType (\s a -> s {_cwetoeaTimeoutType = a})
+--
+-- /Note:/ Consider using 'timeoutType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwetoeaTimeoutType :: Lens.Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
+cwetoeaTimeoutType = Lens.lens (timeoutType :: ChildWorkflowExecutionTimedOutEventAttributes -> WorkflowExecutionTimeoutType) (\s a -> s {timeoutType = a} :: ChildWorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED cwetoeaTimeoutType "Use generic-lens or generic-optics with 'timeoutType' instead." #-}
 
 -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
-cwetoeaInitiatedEventId = lens _cwetoeaInitiatedEventId (\s a -> s {_cwetoeaInitiatedEventId = a})
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwetoeaInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionTimedOutEventAttributes Lude.Integer
+cwetoeaInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionTimedOutEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED cwetoeaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-cwetoeaStartedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
-cwetoeaStartedEventId = lens _cwetoeaStartedEventId (\s a -> s {_cwetoeaStartedEventId = a})
+--
+-- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwetoeaStartedEventId :: Lens.Lens' ChildWorkflowExecutionTimedOutEventAttributes Lude.Integer
+cwetoeaStartedEventId = Lens.lens (startedEventId :: ChildWorkflowExecutionTimedOutEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ChildWorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED cwetoeaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
-instance FromJSON ChildWorkflowExecutionTimedOutEventAttributes where
+instance
+  Lude.FromJSON
+    ChildWorkflowExecutionTimedOutEventAttributes
+  where
   parseJSON =
-    withObject
+    Lude.withObject
       "ChildWorkflowExecutionTimedOutEventAttributes"
       ( \x ->
           ChildWorkflowExecutionTimedOutEventAttributes'
-            <$> (x .: "workflowExecution")
-            <*> (x .: "workflowType")
-            <*> (x .: "timeoutType")
-            <*> (x .: "initiatedEventId")
-            <*> (x .: "startedEventId")
+            Lude.<$> (x Lude..: "workflowExecution")
+            Lude.<*> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..: "timeoutType")
+            Lude.<*> (x Lude..: "initiatedEventId")
+            Lude.<*> (x Lude..: "startedEventId")
       )
-
-instance Hashable ChildWorkflowExecutionTimedOutEventAttributes
-
-instance NFData ChildWorkflowExecutionTimedOutEventAttributes

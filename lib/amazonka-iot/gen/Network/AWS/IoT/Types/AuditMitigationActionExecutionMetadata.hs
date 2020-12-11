@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,134 +7,172 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditMitigationActionExecutionMetadata where
+module Network.AWS.IoT.Types.AuditMitigationActionExecutionMetadata
+  ( AuditMitigationActionExecutionMetadata (..),
+
+    -- * Smart constructor
+    mkAuditMitigationActionExecutionMetadata,
+
+    -- * Lenses
+    amaemStatus,
+    amaemStartTime,
+    amaemTaskId,
+    amaemActionId,
+    amaemActionName,
+    amaemEndTime,
+    amaemErrorCode,
+    amaemFindingId,
+    amaemMessage,
+  )
+where
 
 import Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.
 --
---
---
--- /See:/ 'auditMitigationActionExecutionMetadata' smart constructor.
+-- /See:/ 'mkAuditMitigationActionExecutionMetadata' smart constructor.
 data AuditMitigationActionExecutionMetadata = AuditMitigationActionExecutionMetadata'
-  { _amaemStatus ::
-      !( Maybe
-           AuditMitigationActionsExecutionStatus
-       ),
-    _amaemStartTime ::
-      !( Maybe
-           POSIX
-       ),
-    _amaemTaskId ::
-      !(Maybe Text),
-    _amaemActionId ::
-      !(Maybe Text),
-    _amaemActionName ::
-      !(Maybe Text),
-    _amaemEndTime ::
-      !( Maybe
-           POSIX
-       ),
-    _amaemErrorCode ::
-      !(Maybe Text),
-    _amaemFindingId ::
-      !(Maybe Text),
-    _amaemMessage ::
-      !(Maybe Text)
+  { status ::
+      Lude.Maybe
+        AuditMitigationActionsExecutionStatus,
+    startTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    taskId ::
+      Lude.Maybe
+        Lude.Text,
+    actionId ::
+      Lude.Maybe
+        Lude.Text,
+    actionName ::
+      Lude.Maybe
+        Lude.Text,
+    endTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    errorCode ::
+      Lude.Maybe
+        Lude.Text,
+    findingId ::
+      Lude.Maybe
+        Lude.Text,
+    message ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditMitigationActionExecutionMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amaemStatus' - The current status of the task being executed.
---
--- * 'amaemStartTime' - The date and time when the task was started.
---
--- * 'amaemTaskId' - The unique identifier for the task that applies the mitigation action.
---
--- * 'amaemActionId' - The unique identifier for the mitigation action being applied by the task.
---
--- * 'amaemActionName' - The friendly name of the mitigation action being applied by the task.
---
--- * 'amaemEndTime' - The date and time when the task was completed or canceled. Blank if the task is still running.
---
--- * 'amaemErrorCode' - If an error occurred, the code that indicates which type of error occurred.
---
--- * 'amaemFindingId' - The unique identifier for the findings to which the task and associated mitigation action are applied.
---
--- * 'amaemMessage' - If an error occurred, a message that describes the error.
-auditMitigationActionExecutionMetadata ::
+-- * 'actionId' - The unique identifier for the mitigation action being applied by the task.
+-- * 'actionName' - The friendly name of the mitigation action being applied by the task.
+-- * 'endTime' - The date and time when the task was completed or canceled. Blank if the task is still running.
+-- * 'errorCode' - If an error occurred, the code that indicates which type of error occurred.
+-- * 'findingId' - The unique identifier for the findings to which the task and associated mitigation action are applied.
+-- * 'message' - If an error occurred, a message that describes the error.
+-- * 'startTime' - The date and time when the task was started.
+-- * 'status' - The current status of the task being executed.
+-- * 'taskId' - The unique identifier for the task that applies the mitigation action.
+mkAuditMitigationActionExecutionMetadata ::
   AuditMitigationActionExecutionMetadata
-auditMitigationActionExecutionMetadata =
+mkAuditMitigationActionExecutionMetadata =
   AuditMitigationActionExecutionMetadata'
-    { _amaemStatus = Nothing,
-      _amaemStartTime = Nothing,
-      _amaemTaskId = Nothing,
-      _amaemActionId = Nothing,
-      _amaemActionName = Nothing,
-      _amaemEndTime = Nothing,
-      _amaemErrorCode = Nothing,
-      _amaemFindingId = Nothing,
-      _amaemMessage = Nothing
+    { status = Lude.Nothing,
+      startTime = Lude.Nothing,
+      taskId = Lude.Nothing,
+      actionId = Lude.Nothing,
+      actionName = Lude.Nothing,
+      endTime = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      findingId = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The current status of the task being executed.
-amaemStatus :: Lens' AuditMitigationActionExecutionMetadata (Maybe AuditMitigationActionsExecutionStatus)
-amaemStatus = lens _amaemStatus (\s a -> s {_amaemStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemStatus :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe AuditMitigationActionsExecutionStatus)
+amaemStatus = Lens.lens (status :: AuditMitigationActionExecutionMetadata -> Lude.Maybe AuditMitigationActionsExecutionStatus) (\s a -> s {status = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date and time when the task was started.
-amaemStartTime :: Lens' AuditMitigationActionExecutionMetadata (Maybe UTCTime)
-amaemStartTime = lens _amaemStartTime (\s a -> s {_amaemStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemStartTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Timestamp)
+amaemStartTime = Lens.lens (startTime :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The unique identifier for the task that applies the mitigation action.
-amaemTaskId :: Lens' AuditMitigationActionExecutionMetadata (Maybe Text)
-amaemTaskId = lens _amaemTaskId (\s a -> s {_amaemTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemTaskId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Text)
+amaemTaskId = Lens.lens (taskId :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The unique identifier for the mitigation action being applied by the task.
-amaemActionId :: Lens' AuditMitigationActionExecutionMetadata (Maybe Text)
-amaemActionId = lens _amaemActionId (\s a -> s {_amaemActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemActionId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Text)
+amaemActionId = Lens.lens (actionId :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The friendly name of the mitigation action being applied by the task.
-amaemActionName :: Lens' AuditMitigationActionExecutionMetadata (Maybe Text)
-amaemActionName = lens _amaemActionName (\s a -> s {_amaemActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemActionName :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Text)
+amaemActionName = Lens.lens (actionName :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The date and time when the task was completed or canceled. Blank if the task is still running.
-amaemEndTime :: Lens' AuditMitigationActionExecutionMetadata (Maybe UTCTime)
-amaemEndTime = lens _amaemEndTime (\s a -> s {_amaemEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemEndTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Timestamp)
+amaemEndTime = Lens.lens (endTime :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | If an error occurred, the code that indicates which type of error occurred.
-amaemErrorCode :: Lens' AuditMitigationActionExecutionMetadata (Maybe Text)
-amaemErrorCode = lens _amaemErrorCode (\s a -> s {_amaemErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemErrorCode :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Text)
+amaemErrorCode = Lens.lens (errorCode :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The unique identifier for the findings to which the task and associated mitigation action are applied.
-amaemFindingId :: Lens' AuditMitigationActionExecutionMetadata (Maybe Text)
-amaemFindingId = lens _amaemFindingId (\s a -> s {_amaemFindingId = a})
+--
+-- /Note:/ Consider using 'findingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemFindingId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Text)
+amaemFindingId = Lens.lens (findingId :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {findingId = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemFindingId "Use generic-lens or generic-optics with 'findingId' instead." #-}
 
 -- | If an error occurred, a message that describes the error.
-amaemMessage :: Lens' AuditMitigationActionExecutionMetadata (Maybe Text)
-amaemMessage = lens _amaemMessage (\s a -> s {_amaemMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amaemMessage :: Lens.Lens' AuditMitigationActionExecutionMetadata (Lude.Maybe Lude.Text)
+amaemMessage = Lens.lens (message :: AuditMitigationActionExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: AuditMitigationActionExecutionMetadata)
+{-# DEPRECATED amaemMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON AuditMitigationActionExecutionMetadata where
+instance Lude.FromJSON AuditMitigationActionExecutionMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuditMitigationActionExecutionMetadata"
       ( \x ->
           AuditMitigationActionExecutionMetadata'
-            <$> (x .:? "status")
-            <*> (x .:? "startTime")
-            <*> (x .:? "taskId")
-            <*> (x .:? "actionId")
-            <*> (x .:? "actionName")
-            <*> (x .:? "endTime")
-            <*> (x .:? "errorCode")
-            <*> (x .:? "findingId")
-            <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "startTime")
+            Lude.<*> (x Lude..:? "taskId")
+            Lude.<*> (x Lude..:? "actionId")
+            Lude.<*> (x Lude..:? "actionName")
+            Lude.<*> (x Lude..:? "endTime")
+            Lude.<*> (x Lude..:? "errorCode")
+            Lude.<*> (x Lude..:? "findingId")
+            Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable AuditMitigationActionExecutionMetadata
-
-instance NFData AuditMitigationActionExecutionMetadata

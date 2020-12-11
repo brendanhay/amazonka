@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol where
+module Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
+  ( RadiusAuthenticationProtocol
+      ( RadiusAuthenticationProtocol',
+        Chap,
+        MsCHAPV1,
+        MsCHAPV2,
+        Pap
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RadiusAuthenticationProtocol
-  = Chap
-  | MsCHAPV1
-  | MsCHAPV2
-  | Pap
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RadiusAuthenticationProtocol = RadiusAuthenticationProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RadiusAuthenticationProtocol where
-  parser =
-    takeLowerText >>= \case
-      "chap" -> pure Chap
-      "ms-chapv1" -> pure MsCHAPV1
-      "ms-chapv2" -> pure MsCHAPV2
-      "pap" -> pure Pap
-      e ->
-        fromTextError $
-          "Failure parsing RadiusAuthenticationProtocol from value: '" <> e
-            <> "'. Accepted values: chap, ms-chapv1, ms-chapv2, pap"
+pattern Chap :: RadiusAuthenticationProtocol
+pattern Chap = RadiusAuthenticationProtocol' "CHAP"
 
-instance ToText RadiusAuthenticationProtocol where
-  toText = \case
-    Chap -> "CHAP"
-    MsCHAPV1 -> "MS-CHAPv1"
-    MsCHAPV2 -> "MS-CHAPv2"
-    Pap -> "PAP"
+pattern MsCHAPV1 :: RadiusAuthenticationProtocol
+pattern MsCHAPV1 = RadiusAuthenticationProtocol' "MS-CHAPv1"
 
-instance Hashable RadiusAuthenticationProtocol
+pattern MsCHAPV2 :: RadiusAuthenticationProtocol
+pattern MsCHAPV2 = RadiusAuthenticationProtocol' "MS-CHAPv2"
 
-instance NFData RadiusAuthenticationProtocol
+pattern Pap :: RadiusAuthenticationProtocol
+pattern Pap = RadiusAuthenticationProtocol' "PAP"
 
-instance ToByteString RadiusAuthenticationProtocol
-
-instance ToQuery RadiusAuthenticationProtocol
-
-instance ToHeader RadiusAuthenticationProtocol
-
-instance ToJSON RadiusAuthenticationProtocol where
-  toJSON = toJSONText
-
-instance FromJSON RadiusAuthenticationProtocol where
-  parseJSON = parseJSONText "RadiusAuthenticationProtocol"
+{-# COMPLETE
+  Chap,
+  MsCHAPV1,
+  MsCHAPV2,
+  Pap,
+  RadiusAuthenticationProtocol'
+  #-}

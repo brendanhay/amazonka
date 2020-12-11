@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,59 +8,59 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types
-  ( -- * Service Configuration
-    elb,
+  ( -- * Service configuration
+    elbService,
 
     -- * Errors
 
-    -- * Re-exported Types
+    -- * Re-exported types
     module Network.AWS.ELB.Internal,
 
     -- * AccessLog
-    AccessLog,
-    accessLog,
+    AccessLog (..),
+    mkAccessLog,
     alEmitInterval,
     alS3BucketPrefix,
     alS3BucketName,
     alEnabled,
 
     -- * AdditionalAttribute
-    AdditionalAttribute,
-    additionalAttribute,
+    AdditionalAttribute (..),
+    mkAdditionalAttribute,
     aaValue,
     aaKey,
 
     -- * AppCookieStickinessPolicy
-    AppCookieStickinessPolicy,
-    appCookieStickinessPolicy,
+    AppCookieStickinessPolicy (..),
+    mkAppCookieStickinessPolicy,
     acspPolicyName,
     acspCookieName,
 
     -- * BackendServerDescription
-    BackendServerDescription,
-    backendServerDescription,
+    BackendServerDescription (..),
+    mkBackendServerDescription,
     bsdPolicyNames,
     bsdInstancePort,
 
     -- * ConnectionDraining
-    ConnectionDraining,
-    connectionDraining,
+    ConnectionDraining (..),
+    mkConnectionDraining,
     cdTimeout,
     cdEnabled,
 
     -- * ConnectionSettings
-    ConnectionSettings,
-    connectionSettings,
+    ConnectionSettings (..),
+    mkConnectionSettings,
     csIdleTimeout,
 
     -- * CrossZoneLoadBalancing
-    CrossZoneLoadBalancing,
-    crossZoneLoadBalancing,
+    CrossZoneLoadBalancing (..),
+    mkCrossZoneLoadBalancing,
     czlbEnabled,
 
     -- * HealthCheck
-    HealthCheck,
-    healthCheck,
+    HealthCheck (..),
+    mkHealthCheck,
     hcTarget,
     hcInterval,
     hcTimeout,
@@ -70,33 +68,33 @@ module Network.AWS.ELB.Types
     hcHealthyThreshold,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iInstanceId,
 
     -- * InstanceState
-    InstanceState,
-    instanceState,
+    InstanceState (..),
+    mkInstanceState,
     isInstanceId,
     isState,
     isReasonCode,
     isDescription,
 
     -- * LBCookieStickinessPolicy
-    LBCookieStickinessPolicy,
-    lBCookieStickinessPolicy,
+    LBCookieStickinessPolicy (..),
+    mkLBCookieStickinessPolicy,
     lbcspPolicyName,
     lbcspCookieExpirationPeriod,
 
     -- * Limit
-    Limit,
-    limit,
+    Limit (..),
+    mkLimit,
     lMax,
     lName,
 
     -- * Listener
-    Listener,
-    listener,
+    Listener (..),
+    mkListener,
     lInstanceProtocol,
     lSSLCertificateId,
     lProtocol,
@@ -104,14 +102,14 @@ module Network.AWS.ELB.Types
     lInstancePort,
 
     -- * ListenerDescription
-    ListenerDescription,
-    listenerDescription,
+    ListenerDescription (..),
+    mkListenerDescription,
     ldPolicyNames,
     ldListener,
 
     -- * LoadBalancerAttributes
-    LoadBalancerAttributes,
-    loadBalancerAttributes,
+    LoadBalancerAttributes (..),
+    mkLoadBalancerAttributes,
     lbaCrossZoneLoadBalancing,
     lbaAccessLog,
     lbaAdditionalAttributes,
@@ -119,8 +117,8 @@ module Network.AWS.ELB.Types
     lbaConnectionDraining,
 
     -- * LoadBalancerDescription
-    LoadBalancerDescription,
-    loadBalancerDescription,
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
     lbdSourceSecurityGroup,
     lbdCanonicalHostedZoneName,
     lbdSecurityGroups,
@@ -139,27 +137,27 @@ module Network.AWS.ELB.Types
     lbdPolicies,
 
     -- * Policies
-    Policies,
-    policies,
+    Policies (..),
+    mkPolicies,
     pOtherPolicies,
     pLBCookieStickinessPolicies,
     pAppCookieStickinessPolicies,
 
     -- * PolicyAttribute
-    PolicyAttribute,
-    policyAttribute,
+    PolicyAttribute (..),
+    mkPolicyAttribute,
     paAttributeValue,
     paAttributeName,
 
     -- * PolicyAttributeDescription
-    PolicyAttributeDescription,
-    policyAttributeDescription,
+    PolicyAttributeDescription (..),
+    mkPolicyAttributeDescription,
     padAttributeValue,
     padAttributeName,
 
     -- * PolicyAttributeTypeDescription
-    PolicyAttributeTypeDescription,
-    policyAttributeTypeDescription,
+    PolicyAttributeTypeDescription (..),
+    mkPolicyAttributeTypeDescription,
     patdAttributeType,
     patdCardinality,
     patdDefaultValue,
@@ -167,40 +165,40 @@ module Network.AWS.ELB.Types
     patdDescription,
 
     -- * PolicyDescription
-    PolicyDescription,
-    policyDescription,
+    PolicyDescription (..),
+    mkPolicyDescription,
     pdPolicyName,
     pdPolicyAttributeDescriptions,
     pdPolicyTypeName,
 
     -- * PolicyTypeDescription
-    PolicyTypeDescription,
-    policyTypeDescription,
+    PolicyTypeDescription (..),
+    mkPolicyTypeDescription,
     ptdPolicyTypeName,
     ptdDescription,
     ptdPolicyAttributeTypeDescriptions,
 
     -- * SourceSecurityGroup
-    SourceSecurityGroup,
-    sourceSecurityGroup,
+    SourceSecurityGroup (..),
+    mkSourceSecurityGroup,
     ssgOwnerAlias,
     ssgGroupName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TagDescription
-    TagDescription,
-    tagDescription,
+    TagDescription (..),
+    mkTagDescription,
     tdLoadBalancerName,
     tdTags,
 
     -- * TagKeyOnly
-    TagKeyOnly,
-    tagKeyOnly,
+    TagKeyOnly (..),
+    mkTagKeyOnly,
     tkoKey,
   )
 where
@@ -232,48 +230,60 @@ import Network.AWS.ELB.Types.SourceSecurityGroup
 import Network.AWS.ELB.Types.Tag
 import Network.AWS.ELB.Types.TagDescription
 import Network.AWS.ELB.Types.TagKeyOnly
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-06-01@ of the Amazon Elastic Load Balancing SDK configuration.
-elb :: Service
-elb =
-  Service
-    { _svcAbbrev = "ELB",
-      _svcSigner = v4,
-      _svcPrefix = "elasticloadbalancing",
-      _svcVersion = "2012-06-01",
-      _svcEndpoint = defaultEndpoint elb,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "ELB",
-      _svcRetry = retry
+elbService :: Lude.Service
+elbService =
+  Lude.Service
+    { Lude._svcAbbrev = "ELB",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "elasticloadbalancing",
+      Lude._svcVersion = "2012-06-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint elbService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "ELB",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

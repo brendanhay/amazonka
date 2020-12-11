@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,196 @@
 --
 -- Creates an application-level backup of a server. While the server is in the @BACKING_UP@ state, the server cannot be changed, and no additional backup can be created.
 --
---
 -- Backups can be created for servers in @RUNNING@ , @HEALTHY@ , and @UNHEALTHY@ states. By default, you can create a maximum of 50 manual backups.
---
 -- This operation is asynchronous.
---
 -- A @LimitExceededException@ is thrown when the maximum number of manual backups is reached. An @InvalidStateException@ is thrown when the server is not in any of the following states: RUNNING, HEALTHY, or UNHEALTHY. A @ResourceNotFoundException@ is thrown when the server is not found. A @ValidationException@ is thrown when parameters of the request are not valid.
 module Network.AWS.OpsWorksCM.CreateBackup
-  ( -- * Creating a Request
-    createBackup,
-    CreateBackup,
+  ( -- * Creating a request
+    CreateBackup (..),
+    mkCreateBackup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbDescription,
     cbTags,
     cbServerName,
 
-    -- * Destructuring the Response
-    createBackupResponse,
-    CreateBackupResponse,
+    -- * Destructuring the response
+    CreateBackupResponse (..),
+    mkCreateBackupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cbrsBackup,
     cbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createBackup' smart constructor.
+-- | /See:/ 'mkCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { _cbDescription :: !(Maybe Text),
-    _cbTags :: !(Maybe [Tag]),
-    _cbServerName :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    serverName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBackup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A user-defined description of the backup.
+-- * 'serverName' - The name of the server that you want to back up.
+-- * 'tags' - A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.
 --
--- * 'cbDescription' - A user-defined description of the backup.
 --
--- * 'cbTags' - A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.     * The key cannot be empty.     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@      * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@      * Leading and trailing white spaces are trimmed from both the key and value.     * A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.
+--     * The key cannot be empty.
 --
--- * 'cbServerName' - The name of the server that you want to back up.
-createBackup ::
-  -- | 'cbServerName'
-  Text ->
+--
+--     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
+--
+--
+--     * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
+--
+--
+--     * Leading and trailing white spaces are trimmed from both the key and value.
+--
+--
+--     * A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.
+mkCreateBackup ::
+  -- | 'serverName'
+  Lude.Text ->
   CreateBackup
-createBackup pServerName_ =
+mkCreateBackup pServerName_ =
   CreateBackup'
-    { _cbDescription = Nothing,
-      _cbTags = Nothing,
-      _cbServerName = pServerName_
+    { description = Lude.Nothing,
+      tags = Lude.Nothing,
+      serverName = pServerName_
     }
 
 -- | A user-defined description of the backup.
-cbDescription :: Lens' CreateBackup (Maybe Text)
-cbDescription = lens _cbDescription (\s a -> s {_cbDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbDescription :: Lens.Lens' CreateBackup (Lude.Maybe Lude.Text)
+cbDescription = Lens.lens (description :: CreateBackup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateBackup)
+{-# DEPRECATED cbDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.     * The key cannot be empty.     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@      * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@      * Leading and trailing white spaces are trimmed from both the key and value.     * A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.
-cbTags :: Lens' CreateBackup [Tag]
-cbTags = lens _cbTags (\s a -> s {_cbTags = a}) . _Default . _Coerce
+-- | A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.
+--
+--
+--     * The key cannot be empty.
+--
+--
+--     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
+--
+--
+--     * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
+--
+--
+--     * Leading and trailing white spaces are trimmed from both the key and value.
+--
+--
+--     * A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbTags :: Lens.Lens' CreateBackup (Lude.Maybe [Tag])
+cbTags = Lens.lens (tags :: CreateBackup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateBackup)
+{-# DEPRECATED cbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the server that you want to back up.
-cbServerName :: Lens' CreateBackup Text
-cbServerName = lens _cbServerName (\s a -> s {_cbServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbServerName :: Lens.Lens' CreateBackup Lude.Text
+cbServerName = Lens.lens (serverName :: CreateBackup -> Lude.Text) (\s a -> s {serverName = a} :: CreateBackup)
+{-# DEPRECATED cbServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
-instance AWSRequest CreateBackup where
+instance Lude.AWSRequest CreateBackup where
   type Rs CreateBackup = CreateBackupResponse
-  request = postJSON opsWorksCM
+  request = Req.postJSON opsWorksCMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateBackupResponse' <$> (x .?> "Backup") <*> (pure (fromEnum s))
+          CreateBackupResponse'
+            Lude.<$> (x Lude..?> "Backup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateBackup
-
-instance NFData CreateBackup
-
-instance ToHeaders CreateBackup where
+instance Lude.ToHeaders CreateBackup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorksCM_V2016_11_01.CreateBackup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorksCM_V2016_11_01.CreateBackup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateBackup where
+instance Lude.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
-    object
-      ( catMaybes
-          [ ("Description" .=) <$> _cbDescription,
-            ("Tags" .=) <$> _cbTags,
-            Just ("ServerName" .= _cbServerName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("ServerName" Lude..= serverName)
           ]
       )
 
-instance ToPath CreateBackup where
-  toPath = const "/"
+instance Lude.ToPath CreateBackup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateBackup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateBackup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createBackupResponse' smart constructor.
+-- | /See:/ 'mkCreateBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
-  { _cbrsBackup ::
-      !(Maybe Backup),
-    _cbrsResponseStatus :: !Int
+  { backup ::
+      Lude.Maybe Backup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBackupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbrsBackup' - Backup created by request.
---
--- * 'cbrsResponseStatus' - -- | The response status code.
-createBackupResponse ::
-  -- | 'cbrsResponseStatus'
-  Int ->
+-- * 'backup' - Backup created by request.
+-- * 'responseStatus' - The response status code.
+mkCreateBackupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateBackupResponse
-createBackupResponse pResponseStatus_ =
+mkCreateBackupResponse pResponseStatus_ =
   CreateBackupResponse'
-    { _cbrsBackup = Nothing,
-      _cbrsResponseStatus = pResponseStatus_
+    { backup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Backup created by request.
-cbrsBackup :: Lens' CreateBackupResponse (Maybe Backup)
-cbrsBackup = lens _cbrsBackup (\s a -> s {_cbrsBackup = a})
+--
+-- /Note:/ Consider using 'backup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsBackup :: Lens.Lens' CreateBackupResponse (Lude.Maybe Backup)
+cbrsBackup = Lens.lens (backup :: CreateBackupResponse -> Lude.Maybe Backup) (\s a -> s {backup = a} :: CreateBackupResponse)
+{-# DEPRECATED cbrsBackup "Use generic-lens or generic-optics with 'backup' instead." #-}
 
--- | -- | The response status code.
-cbrsResponseStatus :: Lens' CreateBackupResponse Int
-cbrsResponseStatus = lens _cbrsResponseStatus (\s a -> s {_cbrsResponseStatus = a})
-
-instance NFData CreateBackupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsResponseStatus :: Lens.Lens' CreateBackupResponse Lude.Int
+cbrsResponseStatus = Lens.lens (responseStatus :: CreateBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBackupResponse)
+{-# DEPRECATED cbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves the certificate and certificate chain for your private certificate authority (CA) or one that has been shared with you. Both the certificate and the chain are base64 PEM-encoded. The chain does not include the CA certificate. Each certificate in the chain signs the one before it.
 module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
-  ( -- * Creating a Request
-    getCertificateAuthorityCertificate,
-    GetCertificateAuthorityCertificate,
+  ( -- * Creating a request
+    GetCertificateAuthorityCertificate (..),
+    mkGetCertificateAuthorityCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcacCertificateAuthorityARN,
 
-    -- * Destructuring the Response
-    getCertificateAuthorityCertificateResponse,
-    GetCertificateAuthorityCertificateResponse,
+    -- * Destructuring the response
+    GetCertificateAuthorityCertificateResponse (..),
+    mkGetCertificateAuthorityCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcacrsCertificate,
     gcacrsCertificateChain,
     gcacrsResponseStatus,
@@ -38,131 +33,145 @@ module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCertificateAuthorityCertificate' smart constructor.
+-- | /See:/ 'mkGetCertificateAuthorityCertificate' smart constructor.
 newtype GetCertificateAuthorityCertificate = GetCertificateAuthorityCertificate'
-  { _gcacCertificateAuthorityARN ::
-      Text
+  { certificateAuthorityARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateAuthorityCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) of your private CA. This is of the form:
 --
--- * 'gcacCertificateAuthorityARN' - The Amazon Resource Name (ARN) of your private CA. This is of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-getCertificateAuthorityCertificate ::
-  -- | 'gcacCertificateAuthorityARN'
-  Text ->
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+mkGetCertificateAuthorityCertificate ::
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
   GetCertificateAuthorityCertificate
-getCertificateAuthorityCertificate pCertificateAuthorityARN_ =
+mkGetCertificateAuthorityCertificate pCertificateAuthorityARN_ =
   GetCertificateAuthorityCertificate'
-    { _gcacCertificateAuthorityARN =
+    { certificateAuthorityARN =
         pCertificateAuthorityARN_
     }
 
--- | The Amazon Resource Name (ARN) of your private CA. This is of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-gcacCertificateAuthorityARN :: Lens' GetCertificateAuthorityCertificate Text
-gcacCertificateAuthorityARN = lens _gcacCertificateAuthorityARN (\s a -> s {_gcacCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) of your private CA. This is of the form:
+--
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+--
+-- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcacCertificateAuthorityARN :: Lens.Lens' GetCertificateAuthorityCertificate Lude.Text
+gcacCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: GetCertificateAuthorityCertificate -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: GetCertificateAuthorityCertificate)
+{-# DEPRECATED gcacCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
-instance AWSRequest GetCertificateAuthorityCertificate where
+instance Lude.AWSRequest GetCertificateAuthorityCertificate where
   type
     Rs GetCertificateAuthorityCertificate =
       GetCertificateAuthorityCertificateResponse
-  request = postJSON certificateManagerPCA
+  request = Req.postJSON certificateManagerPCAService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCertificateAuthorityCertificateResponse'
-            <$> (x .?> "Certificate")
-            <*> (x .?> "CertificateChain")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Certificate")
+            Lude.<*> (x Lude..?> "CertificateChain")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCertificateAuthorityCertificate
-
-instance NFData GetCertificateAuthorityCertificate
-
-instance ToHeaders GetCertificateAuthorityCertificate where
+instance Lude.ToHeaders GetCertificateAuthorityCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ACMPrivateCA.GetCertificateAuthorityCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ACMPrivateCA.GetCertificateAuthorityCertificate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCertificateAuthorityCertificate where
+instance Lude.ToJSON GetCertificateAuthorityCertificate where
   toJSON GetCertificateAuthorityCertificate' {..} =
-    object
-      ( catMaybes
-          [Just ("CertificateAuthorityArn" .= _gcacCertificateAuthorityARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
+          ]
       )
 
-instance ToPath GetCertificateAuthorityCertificate where
-  toPath = const "/"
+instance Lude.ToPath GetCertificateAuthorityCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCertificateAuthorityCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery GetCertificateAuthorityCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCertificateAuthorityCertificateResponse' smart constructor.
+-- | /See:/ 'mkGetCertificateAuthorityCertificateResponse' smart constructor.
 data GetCertificateAuthorityCertificateResponse = GetCertificateAuthorityCertificateResponse'
-  { _gcacrsCertificate ::
-      !( Maybe
-           Text
-       ),
-    _gcacrsCertificateChain ::
-      !( Maybe
-           Text
-       ),
-    _gcacrsResponseStatus ::
-      !Int
+  { certificate ::
+      Lude.Maybe
+        Lude.Text,
+    certificateChain ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateAuthorityCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcacrsCertificate' - Base64-encoded certificate authority (CA) certificate.
---
--- * 'gcacrsCertificateChain' - Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. If this is a root CA, the value will be null.
---
--- * 'gcacrsResponseStatus' - -- | The response status code.
-getCertificateAuthorityCertificateResponse ::
-  -- | 'gcacrsResponseStatus'
-  Int ->
+-- * 'certificate' - Base64-encoded certificate authority (CA) certificate.
+-- * 'certificateChain' - Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. If this is a root CA, the value will be null.
+-- * 'responseStatus' - The response status code.
+mkGetCertificateAuthorityCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCertificateAuthorityCertificateResponse
-getCertificateAuthorityCertificateResponse pResponseStatus_ =
+mkGetCertificateAuthorityCertificateResponse pResponseStatus_ =
   GetCertificateAuthorityCertificateResponse'
-    { _gcacrsCertificate =
-        Nothing,
-      _gcacrsCertificateChain = Nothing,
-      _gcacrsResponseStatus = pResponseStatus_
+    { certificate =
+        Lude.Nothing,
+      certificateChain = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Base64-encoded certificate authority (CA) certificate.
-gcacrsCertificate :: Lens' GetCertificateAuthorityCertificateResponse (Maybe Text)
-gcacrsCertificate = lens _gcacrsCertificate (\s a -> s {_gcacrsCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcacrsCertificate :: Lens.Lens' GetCertificateAuthorityCertificateResponse (Lude.Maybe Lude.Text)
+gcacrsCertificate = Lens.lens (certificate :: GetCertificateAuthorityCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: GetCertificateAuthorityCertificateResponse)
+{-# DEPRECATED gcacrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. If this is a root CA, the value will be null.
-gcacrsCertificateChain :: Lens' GetCertificateAuthorityCertificateResponse (Maybe Text)
-gcacrsCertificateChain = lens _gcacrsCertificateChain (\s a -> s {_gcacrsCertificateChain = a})
+--
+-- /Note:/ Consider using 'certificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcacrsCertificateChain :: Lens.Lens' GetCertificateAuthorityCertificateResponse (Lude.Maybe Lude.Text)
+gcacrsCertificateChain = Lens.lens (certificateChain :: GetCertificateAuthorityCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateChain = a} :: GetCertificateAuthorityCertificateResponse)
+{-# DEPRECATED gcacrsCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
 
--- | -- | The response status code.
-gcacrsResponseStatus :: Lens' GetCertificateAuthorityCertificateResponse Int
-gcacrsResponseStatus = lens _gcacrsResponseStatus (\s a -> s {_gcacrsResponseStatus = a})
-
-instance NFData GetCertificateAuthorityCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcacrsResponseStatus :: Lens.Lens' GetCertificateAuthorityCertificateResponse Lude.Int
+gcacrsResponseStatus = Lens.lens (responseStatus :: GetCertificateAuthorityCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCertificateAuthorityCertificateResponse)
+{-# DEPRECATED gcacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

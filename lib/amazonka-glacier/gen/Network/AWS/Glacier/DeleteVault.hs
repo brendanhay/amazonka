@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,101 @@
 --
 -- This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are no archives in the vault as of the last inventory and there have been no writes to the vault since the last inventory. If either of these conditions is not satisfied, the vault deletion fails (that is, the vault is not removed) and Amazon S3 Glacier returns an error. You can use 'DescribeVault' to return the number of archives in a vault, and you can use <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html Initiate a Job (POST jobs)> to initiate a new inventory retrieval for a vault. The inventory contains the archive IDs you use to delete archives using <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html Delete Archive (DELETE archive)> .
 --
---
 -- This operation is idempotent.
---
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
---
 -- For conceptual information and underlying REST API, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html Deleting a Vault in Amazon Glacier> and <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault > in the /Amazon S3 Glacier Developer Guide/ .
 module Network.AWS.Glacier.DeleteVault
-  ( -- * Creating a Request
-    deleteVault,
-    DeleteVault,
+  ( -- * Creating a request
+    DeleteVault (..),
+    mkDeleteVault,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dAccountId,
     dVaultName,
 
-    -- * Destructuring the Response
-    deleteVaultResponse,
-    DeleteVaultResponse,
+    -- * Destructuring the response
+    DeleteVaultResponse (..),
+    mkDeleteVaultResponse,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Provides options for deleting a vault from Amazon S3 Glacier.
 --
---
---
--- /See:/ 'deleteVault' smart constructor.
+-- /See:/ 'mkDeleteVault' smart constructor.
 data DeleteVault = DeleteVault'
-  { _dAccountId :: !Text,
-    _dVaultName :: !Text
+  { accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'dVaultName' - The name of the vault.
-deleteVault ::
-  -- | 'dAccountId'
-  Text ->
-  -- | 'dVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'vaultName' - The name of the vault.
+mkDeleteVault ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   DeleteVault
-deleteVault pAccountId_ pVaultName_ =
-  DeleteVault'
-    { _dAccountId = pAccountId_,
-      _dVaultName = pVaultName_
-    }
+mkDeleteVault pAccountId_ pVaultName_ =
+  DeleteVault' {accountId = pAccountId_, vaultName = pVaultName_}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-dAccountId :: Lens' DeleteVault Text
-dAccountId = lens _dAccountId (\s a -> s {_dAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAccountId :: Lens.Lens' DeleteVault Lude.Text
+dAccountId = Lens.lens (accountId :: DeleteVault -> Lude.Text) (\s a -> s {accountId = a} :: DeleteVault)
+{-# DEPRECATED dAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-dVaultName :: Lens' DeleteVault Text
-dVaultName = lens _dVaultName (\s a -> s {_dVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVaultName :: Lens.Lens' DeleteVault Lude.Text
+dVaultName = Lens.lens (vaultName :: DeleteVault -> Lude.Text) (\s a -> s {vaultName = a} :: DeleteVault)
+{-# DEPRECATED dVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest DeleteVault where
+instance Lude.AWSRequest DeleteVault where
   type Rs DeleteVault = DeleteVaultResponse
-  request = delete glacier
-  response = receiveNull DeleteVaultResponse'
+  request = Req.delete glacierService
+  response = Res.receiveNull DeleteVaultResponse'
 
-instance Hashable DeleteVault
+instance Lude.ToHeaders DeleteVault where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVault
-
-instance ToHeaders DeleteVault where
-  toHeaders = const mempty
-
-instance ToPath DeleteVault where
+instance Lude.ToPath DeleteVault where
   toPath DeleteVault' {..} =
-    mconcat ["/", toBS _dAccountId, "/vaults/", toBS _dVaultName]
+    Lude.mconcat
+      ["/", Lude.toBS accountId, "/vaults/", Lude.toBS vaultName]
 
-instance ToQuery DeleteVault where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteVault where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteVaultResponse' smart constructor.
+-- | /See:/ 'mkDeleteVaultResponse' smart constructor.
 data DeleteVaultResponse = DeleteVaultResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVaultResponse' with the minimum fields required to make a request.
-deleteVaultResponse ::
+mkDeleteVaultResponse ::
   DeleteVaultResponse
-deleteVaultResponse = DeleteVaultResponse'
-
-instance NFData DeleteVaultResponse
+mkDeleteVaultResponse = DeleteVaultResponse'

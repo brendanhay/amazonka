@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.InterconnectState where
+module Network.AWS.DirectConnect.Types.InterconnectState
+  ( InterconnectState
+      ( InterconnectState',
+        ISAvailable,
+        ISDeleted,
+        ISDeleting,
+        ISDown,
+        ISPending,
+        ISRequested,
+        ISUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InterconnectState
-  = ISAvailable
-  | ISDeleted
-  | ISDeleting
-  | ISDown
-  | ISPending
-  | ISRequested
-  | ISUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InterconnectState = InterconnectState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InterconnectState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure ISAvailable
-      "deleted" -> pure ISDeleted
-      "deleting" -> pure ISDeleting
-      "down" -> pure ISDown
-      "pending" -> pure ISPending
-      "requested" -> pure ISRequested
-      "unknown" -> pure ISUnknown
-      e ->
-        fromTextError $
-          "Failure parsing InterconnectState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, down, pending, requested, unknown"
+pattern ISAvailable :: InterconnectState
+pattern ISAvailable = InterconnectState' "available"
 
-instance ToText InterconnectState where
-  toText = \case
-    ISAvailable -> "available"
-    ISDeleted -> "deleted"
-    ISDeleting -> "deleting"
-    ISDown -> "down"
-    ISPending -> "pending"
-    ISRequested -> "requested"
-    ISUnknown -> "unknown"
+pattern ISDeleted :: InterconnectState
+pattern ISDeleted = InterconnectState' "deleted"
 
-instance Hashable InterconnectState
+pattern ISDeleting :: InterconnectState
+pattern ISDeleting = InterconnectState' "deleting"
 
-instance NFData InterconnectState
+pattern ISDown :: InterconnectState
+pattern ISDown = InterconnectState' "down"
 
-instance ToByteString InterconnectState
+pattern ISPending :: InterconnectState
+pattern ISPending = InterconnectState' "pending"
 
-instance ToQuery InterconnectState
+pattern ISRequested :: InterconnectState
+pattern ISRequested = InterconnectState' "requested"
 
-instance ToHeader InterconnectState
+pattern ISUnknown :: InterconnectState
+pattern ISUnknown = InterconnectState' "unknown"
 
-instance FromJSON InterconnectState where
-  parseJSON = parseJSONText "InterconnectState"
+{-# COMPLETE
+  ISAvailable,
+  ISDeleted,
+  ISDeleting,
+  ISDown,
+  ISPending,
+  ISRequested,
+  ISUnknown,
+  InterconnectState'
+  #-}

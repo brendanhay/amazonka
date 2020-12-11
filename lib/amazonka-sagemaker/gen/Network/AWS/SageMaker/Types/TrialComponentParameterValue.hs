@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialComponentParameterValue where
+module Network.AWS.SageMaker.Types.TrialComponentParameterValue
+  ( TrialComponentParameterValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrialComponentParameterValue,
+
+    -- * Lenses
+    tcpvNumberValue,
+    tcpvStringValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The value of a hyperparameter. Only one of @NumberValue@ or @StringValue@ can be specified.
 --
---
 -- This object is specified in the 'CreateTrialComponent' request.
 --
---
--- /See:/ 'trialComponentParameterValue' smart constructor.
+-- /See:/ 'mkTrialComponentParameterValue' smart constructor.
 data TrialComponentParameterValue = TrialComponentParameterValue'
-  { _tcpvNumberValue ::
-      !(Maybe Double),
-    _tcpvStringValue :: !(Maybe Text)
+  { numberValue ::
+      Lude.Maybe Lude.Double,
+    stringValue ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentParameterValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcpvNumberValue' - The numeric value of a numeric hyperparameter. If you specify a value for this parameter, you can't specify the @StringValue@ parameter.
---
--- * 'tcpvStringValue' - The string value of a categorical hyperparameter. If you specify a value for this parameter, you can't specify the @NumberValue@ parameter.
-trialComponentParameterValue ::
+-- * 'numberValue' - The numeric value of a numeric hyperparameter. If you specify a value for this parameter, you can't specify the @StringValue@ parameter.
+-- * 'stringValue' - The string value of a categorical hyperparameter. If you specify a value for this parameter, you can't specify the @NumberValue@ parameter.
+mkTrialComponentParameterValue ::
   TrialComponentParameterValue
-trialComponentParameterValue =
+mkTrialComponentParameterValue =
   TrialComponentParameterValue'
-    { _tcpvNumberValue = Nothing,
-      _tcpvStringValue = Nothing
+    { numberValue = Lude.Nothing,
+      stringValue = Lude.Nothing
     }
 
 -- | The numeric value of a numeric hyperparameter. If you specify a value for this parameter, you can't specify the @StringValue@ parameter.
-tcpvNumberValue :: Lens' TrialComponentParameterValue (Maybe Double)
-tcpvNumberValue = lens _tcpvNumberValue (\s a -> s {_tcpvNumberValue = a})
+--
+-- /Note:/ Consider using 'numberValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcpvNumberValue :: Lens.Lens' TrialComponentParameterValue (Lude.Maybe Lude.Double)
+tcpvNumberValue = Lens.lens (numberValue :: TrialComponentParameterValue -> Lude.Maybe Lude.Double) (\s a -> s {numberValue = a} :: TrialComponentParameterValue)
+{-# DEPRECATED tcpvNumberValue "Use generic-lens or generic-optics with 'numberValue' instead." #-}
 
 -- | The string value of a categorical hyperparameter. If you specify a value for this parameter, you can't specify the @NumberValue@ parameter.
-tcpvStringValue :: Lens' TrialComponentParameterValue (Maybe Text)
-tcpvStringValue = lens _tcpvStringValue (\s a -> s {_tcpvStringValue = a})
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcpvStringValue :: Lens.Lens' TrialComponentParameterValue (Lude.Maybe Lude.Text)
+tcpvStringValue = Lens.lens (stringValue :: TrialComponentParameterValue -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: TrialComponentParameterValue)
+{-# DEPRECATED tcpvStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
-instance FromJSON TrialComponentParameterValue where
+instance Lude.FromJSON TrialComponentParameterValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrialComponentParameterValue"
       ( \x ->
           TrialComponentParameterValue'
-            <$> (x .:? "NumberValue") <*> (x .:? "StringValue")
+            Lude.<$> (x Lude..:? "NumberValue") Lude.<*> (x Lude..:? "StringValue")
       )
 
-instance Hashable TrialComponentParameterValue
-
-instance NFData TrialComponentParameterValue
-
-instance ToJSON TrialComponentParameterValue where
+instance Lude.ToJSON TrialComponentParameterValue where
   toJSON TrialComponentParameterValue' {..} =
-    object
-      ( catMaybes
-          [ ("NumberValue" .=) <$> _tcpvNumberValue,
-            ("StringValue" .=) <$> _tcpvStringValue
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NumberValue" Lude..=) Lude.<$> numberValue,
+            ("StringValue" Lude..=) Lude.<$> stringValue
           ]
       )

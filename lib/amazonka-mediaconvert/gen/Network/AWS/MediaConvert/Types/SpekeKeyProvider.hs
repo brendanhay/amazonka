@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.SpekeKeyProvider where
+module Network.AWS.MediaConvert.Types.SpekeKeyProvider
+  ( SpekeKeyProvider (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSpekeKeyProvider,
+
+    -- * Lenses
+    sResourceId,
+    sCertificateARN,
+    sURL,
+    sSystemIds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
 --
--- /See:/ 'spekeKeyProvider' smart constructor.
+-- /See:/ 'mkSpekeKeyProvider' smart constructor.
 data SpekeKeyProvider = SpekeKeyProvider'
-  { _sResourceId ::
-      !(Maybe Text),
-    _sCertificateARN :: !(Maybe Text),
-    _sURL :: !(Maybe Text),
-    _sSystemIds :: !(Maybe [Text])
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    certificateARN :: Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    systemIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpekeKeyProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateARN' - If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
+-- * 'resourceId' - Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
+-- * 'systemIds' - Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See
 --
--- * 'sResourceId' - Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
---
--- * 'sCertificateARN' - If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
---
--- * 'sURL' - Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
---
--- * 'sSystemIds' - Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See  https://dashif.org/identifiers/content_protection/ for more details.
-spekeKeyProvider ::
+--  https://dashif.org/identifiers/content_protection/ for more details.
+-- * 'url' - Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
+mkSpekeKeyProvider ::
   SpekeKeyProvider
-spekeKeyProvider =
+mkSpekeKeyProvider =
   SpekeKeyProvider'
-    { _sResourceId = Nothing,
-      _sCertificateARN = Nothing,
-      _sURL = Nothing,
-      _sSystemIds = Nothing
+    { resourceId = Lude.Nothing,
+      certificateARN = Lude.Nothing,
+      url = Lude.Nothing,
+      systemIds = Lude.Nothing
     }
 
 -- | Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
-sResourceId :: Lens' SpekeKeyProvider (Maybe Text)
-sResourceId = lens _sResourceId (\s a -> s {_sResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResourceId :: Lens.Lens' SpekeKeyProvider (Lude.Maybe Lude.Text)
+sResourceId = Lens.lens (resourceId :: SpekeKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: SpekeKeyProvider)
+{-# DEPRECATED sResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
-sCertificateARN :: Lens' SpekeKeyProvider (Maybe Text)
-sCertificateARN = lens _sCertificateARN (\s a -> s {_sCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCertificateARN :: Lens.Lens' SpekeKeyProvider (Lude.Maybe Lude.Text)
+sCertificateARN = Lens.lens (certificateARN :: SpekeKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: SpekeKeyProvider)
+{-# DEPRECATED sCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
-sURL :: Lens' SpekeKeyProvider (Maybe Text)
-sURL = lens _sURL (\s a -> s {_sURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sURL :: Lens.Lens' SpekeKeyProvider (Lude.Maybe Lude.Text)
+sURL = Lens.lens (url :: SpekeKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: SpekeKeyProvider)
+{-# DEPRECATED sURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See  https://dashif.org/identifiers/content_protection/ for more details.
-sSystemIds :: Lens' SpekeKeyProvider [Text]
-sSystemIds = lens _sSystemIds (\s a -> s {_sSystemIds = a}) . _Default . _Coerce
+-- | Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See
+--
+--  https://dashif.org/identifiers/content_protection/ for more details.
+--
+-- /Note:/ Consider using 'systemIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSystemIds :: Lens.Lens' SpekeKeyProvider (Lude.Maybe [Lude.Text])
+sSystemIds = Lens.lens (systemIds :: SpekeKeyProvider -> Lude.Maybe [Lude.Text]) (\s a -> s {systemIds = a} :: SpekeKeyProvider)
+{-# DEPRECATED sSystemIds "Use generic-lens or generic-optics with 'systemIds' instead." #-}
 
-instance FromJSON SpekeKeyProvider where
+instance Lude.FromJSON SpekeKeyProvider where
   parseJSON =
-    withObject
+    Lude.withObject
       "SpekeKeyProvider"
       ( \x ->
           SpekeKeyProvider'
-            <$> (x .:? "resourceId")
-            <*> (x .:? "certificateArn")
-            <*> (x .:? "url")
-            <*> (x .:? "systemIds" .!= mempty)
+            Lude.<$> (x Lude..:? "resourceId")
+            Lude.<*> (x Lude..:? "certificateArn")
+            Lude.<*> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "systemIds" Lude..!= Lude.mempty)
       )
 
-instance Hashable SpekeKeyProvider
-
-instance NFData SpekeKeyProvider
-
-instance ToJSON SpekeKeyProvider where
+instance Lude.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =
-    object
-      ( catMaybes
-          [ ("resourceId" .=) <$> _sResourceId,
-            ("certificateArn" .=) <$> _sCertificateARN,
-            ("url" .=) <$> _sURL,
-            ("systemIds" .=) <$> _sSystemIds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("resourceId" Lude..=) Lude.<$> resourceId,
+            ("certificateArn" Lude..=) Lude.<$> certificateARN,
+            ("url" Lude..=) Lude.<$> url,
+            ("systemIds" Lude..=) Lude.<$> systemIds
           ]
       )

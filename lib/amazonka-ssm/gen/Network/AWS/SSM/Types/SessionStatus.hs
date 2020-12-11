@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.SessionStatus where
+module Network.AWS.SSM.Types.SessionStatus
+  ( SessionStatus
+      ( SessionStatus',
+        SSConnected,
+        SSConnecting,
+        SSDisconnected,
+        SSFailed,
+        SSTerminated,
+        SSTerminating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SessionStatus
-  = SSConnected
-  | SSConnecting
-  | SSDisconnected
-  | SSFailed
-  | SSTerminated
-  | SSTerminating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SessionStatus = SessionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SessionStatus where
-  parser =
-    takeLowerText >>= \case
-      "connected" -> pure SSConnected
-      "connecting" -> pure SSConnecting
-      "disconnected" -> pure SSDisconnected
-      "failed" -> pure SSFailed
-      "terminated" -> pure SSTerminated
-      "terminating" -> pure SSTerminating
-      e ->
-        fromTextError $
-          "Failure parsing SessionStatus from value: '" <> e
-            <> "'. Accepted values: connected, connecting, disconnected, failed, terminated, terminating"
+pattern SSConnected :: SessionStatus
+pattern SSConnected = SessionStatus' "Connected"
 
-instance ToText SessionStatus where
-  toText = \case
-    SSConnected -> "Connected"
-    SSConnecting -> "Connecting"
-    SSDisconnected -> "Disconnected"
-    SSFailed -> "Failed"
-    SSTerminated -> "Terminated"
-    SSTerminating -> "Terminating"
+pattern SSConnecting :: SessionStatus
+pattern SSConnecting = SessionStatus' "Connecting"
 
-instance Hashable SessionStatus
+pattern SSDisconnected :: SessionStatus
+pattern SSDisconnected = SessionStatus' "Disconnected"
 
-instance NFData SessionStatus
+pattern SSFailed :: SessionStatus
+pattern SSFailed = SessionStatus' "Failed"
 
-instance ToByteString SessionStatus
+pattern SSTerminated :: SessionStatus
+pattern SSTerminated = SessionStatus' "Terminated"
 
-instance ToQuery SessionStatus
+pattern SSTerminating :: SessionStatus
+pattern SSTerminating = SessionStatus' "Terminating"
 
-instance ToHeader SessionStatus
-
-instance FromJSON SessionStatus where
-  parseJSON = parseJSONText "SessionStatus"
+{-# COMPLETE
+  SSConnected,
+  SSConnecting,
+  SSDisconnected,
+  SSFailed,
+  SSTerminated,
+  SSTerminating,
+  SessionStatus'
+  #-}

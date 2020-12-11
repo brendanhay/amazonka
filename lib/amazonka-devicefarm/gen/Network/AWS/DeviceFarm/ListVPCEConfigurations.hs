@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns information about all Amazon Virtual Private Cloud (VPC) endpoint configurations in the AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListVPCEConfigurations
-  ( -- * Creating a Request
-    listVPCEConfigurations,
-    ListVPCEConfigurations,
+  ( -- * Creating a request
+    ListVPCEConfigurations (..),
+    mkListVPCEConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvecNextToken,
     lvecMaxResults,
 
-    -- * Destructuring the Response
-    listVPCEConfigurationsResponse,
-    ListVPCEConfigurationsResponse,
+    -- * Destructuring the response
+    ListVPCEConfigurationsResponse (..),
+    mkListVPCEConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvecrsNextToken,
     lvecrsVpceConfigurations,
     lvecrsResponseStatus,
@@ -43,130 +36,151 @@ module Network.AWS.DeviceFarm.ListVPCEConfigurations
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listVPCEConfigurations' smart constructor.
+-- | /See:/ 'mkListVPCEConfigurations' smart constructor.
 data ListVPCEConfigurations = ListVPCEConfigurations'
-  { _lvecNextToken ::
-      !(Maybe Text),
-    _lvecMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVPCEConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvecNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lvecMaxResults' - An integer that specifies the maximum number of items you want to return in the API response.
-listVPCEConfigurations ::
+-- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListVPCEConfigurations ::
   ListVPCEConfigurations
-listVPCEConfigurations =
+mkListVPCEConfigurations =
   ListVPCEConfigurations'
-    { _lvecNextToken = Nothing,
-      _lvecMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lvecNextToken :: Lens' ListVPCEConfigurations (Maybe Text)
-lvecNextToken = lens _lvecNextToken (\s a -> s {_lvecNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvecNextToken :: Lens.Lens' ListVPCEConfigurations (Lude.Maybe Lude.Text)
+lvecNextToken = Lens.lens (nextToken :: ListVPCEConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVPCEConfigurations)
+{-# DEPRECATED lvecNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An integer that specifies the maximum number of items you want to return in the API response.
-lvecMaxResults :: Lens' ListVPCEConfigurations (Maybe Int)
-lvecMaxResults = lens _lvecMaxResults (\s a -> s {_lvecMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvecMaxResults :: Lens.Lens' ListVPCEConfigurations (Lude.Maybe Lude.Int)
+lvecMaxResults = Lens.lens (maxResults :: ListVPCEConfigurations -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListVPCEConfigurations)
+{-# DEPRECATED lvecMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListVPCEConfigurations where
+instance Page.AWSPager ListVPCEConfigurations where
   page rq rs
-    | stop (rs ^. lvecrsNextToken) = Nothing
-    | stop (rs ^. lvecrsVpceConfigurations) = Nothing
-    | otherwise = Just $ rq & lvecNextToken .~ rs ^. lvecrsNextToken
+    | Page.stop (rs Lens.^. lvecrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lvecrsVpceConfigurations) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lvecNextToken Lens..~ rs Lens.^. lvecrsNextToken
 
-instance AWSRequest ListVPCEConfigurations where
+instance Lude.AWSRequest ListVPCEConfigurations where
   type Rs ListVPCEConfigurations = ListVPCEConfigurationsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVPCEConfigurationsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "vpceConfigurations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "vpceConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVPCEConfigurations
-
-instance NFData ListVPCEConfigurations
-
-instance ToHeaders ListVPCEConfigurations where
+instance Lude.ToHeaders ListVPCEConfigurations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListVPCEConfigurations" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListVPCEConfigurations" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListVPCEConfigurations where
+instance Lude.ToJSON ListVPCEConfigurations where
   toJSON ListVPCEConfigurations' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lvecNextToken,
-            ("maxResults" .=) <$> _lvecMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListVPCEConfigurations where
-  toPath = const "/"
+instance Lude.ToPath ListVPCEConfigurations where
+  toPath = Lude.const "/"
 
-instance ToQuery ListVPCEConfigurations where
-  toQuery = const mempty
+instance Lude.ToQuery ListVPCEConfigurations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listVPCEConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkListVPCEConfigurationsResponse' smart constructor.
 data ListVPCEConfigurationsResponse = ListVPCEConfigurationsResponse'
-  { _lvecrsNextToken ::
-      !(Maybe Text),
-    _lvecrsVpceConfigurations ::
-      !(Maybe [VPCEConfiguration]),
-    _lvecrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    vpceConfigurations ::
+      Lude.Maybe
+        [VPCEConfiguration],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVPCEConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvecrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lvecrsVpceConfigurations' - An array of @VPCEConfiguration@ objects that contain information about your VPC endpoint configuration.
---
--- * 'lvecrsResponseStatus' - -- | The response status code.
-listVPCEConfigurationsResponse ::
-  -- | 'lvecrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'vpceConfigurations' - An array of @VPCEConfiguration@ objects that contain information about your VPC endpoint configuration.
+mkListVPCEConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVPCEConfigurationsResponse
-listVPCEConfigurationsResponse pResponseStatus_ =
+mkListVPCEConfigurationsResponse pResponseStatus_ =
   ListVPCEConfigurationsResponse'
-    { _lvecrsNextToken = Nothing,
-      _lvecrsVpceConfigurations = Nothing,
-      _lvecrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      vpceConfigurations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lvecrsNextToken :: Lens' ListVPCEConfigurationsResponse (Maybe Text)
-lvecrsNextToken = lens _lvecrsNextToken (\s a -> s {_lvecrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvecrsNextToken :: Lens.Lens' ListVPCEConfigurationsResponse (Lude.Maybe Lude.Text)
+lvecrsNextToken = Lens.lens (nextToken :: ListVPCEConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVPCEConfigurationsResponse)
+{-# DEPRECATED lvecrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @VPCEConfiguration@ objects that contain information about your VPC endpoint configuration.
-lvecrsVpceConfigurations :: Lens' ListVPCEConfigurationsResponse [VPCEConfiguration]
-lvecrsVpceConfigurations = lens _lvecrsVpceConfigurations (\s a -> s {_lvecrsVpceConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpceConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvecrsVpceConfigurations :: Lens.Lens' ListVPCEConfigurationsResponse (Lude.Maybe [VPCEConfiguration])
+lvecrsVpceConfigurations = Lens.lens (vpceConfigurations :: ListVPCEConfigurationsResponse -> Lude.Maybe [VPCEConfiguration]) (\s a -> s {vpceConfigurations = a} :: ListVPCEConfigurationsResponse)
+{-# DEPRECATED lvecrsVpceConfigurations "Use generic-lens or generic-optics with 'vpceConfigurations' instead." #-}
 
--- | -- | The response status code.
-lvecrsResponseStatus :: Lens' ListVPCEConfigurationsResponse Int
-lvecrsResponseStatus = lens _lvecrsResponseStatus (\s a -> s {_lvecrsResponseStatus = a})
-
-instance NFData ListVPCEConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvecrsResponseStatus :: Lens.Lens' ListVPCEConfigurationsResponse Lude.Int
+lvecrsResponseStatus = Lens.lens (responseStatus :: ListVPCEConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVPCEConfigurationsResponse)
+{-# DEPRECATED lvecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

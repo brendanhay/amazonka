@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.UpgradeStep where
+module Network.AWS.ElasticSearch.Types.UpgradeStep
+  ( UpgradeStep
+      ( UpgradeStep',
+        PreUpgradeCheck,
+        Snapshot,
+        Upgrade
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UpgradeStep
-  = PreUpgradeCheck
-  | Snapshot
-  | Upgrade
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UpgradeStep = UpgradeStep' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UpgradeStep where
-  parser =
-    takeLowerText >>= \case
-      "pre_upgrade_check" -> pure PreUpgradeCheck
-      "snapshot" -> pure Snapshot
-      "upgrade" -> pure Upgrade
-      e ->
-        fromTextError $
-          "Failure parsing UpgradeStep from value: '" <> e
-            <> "'. Accepted values: pre_upgrade_check, snapshot, upgrade"
+pattern PreUpgradeCheck :: UpgradeStep
+pattern PreUpgradeCheck = UpgradeStep' "PRE_UPGRADE_CHECK"
 
-instance ToText UpgradeStep where
-  toText = \case
-    PreUpgradeCheck -> "PRE_UPGRADE_CHECK"
-    Snapshot -> "SNAPSHOT"
-    Upgrade -> "UPGRADE"
+pattern Snapshot :: UpgradeStep
+pattern Snapshot = UpgradeStep' "SNAPSHOT"
 
-instance Hashable UpgradeStep
+pattern Upgrade :: UpgradeStep
+pattern Upgrade = UpgradeStep' "UPGRADE"
 
-instance NFData UpgradeStep
-
-instance ToByteString UpgradeStep
-
-instance ToQuery UpgradeStep
-
-instance ToHeader UpgradeStep
-
-instance FromJSON UpgradeStep where
-  parseJSON = parseJSONText "UpgradeStep"
+{-# COMPLETE
+  PreUpgradeCheck,
+  Snapshot,
+  Upgrade,
+  UpgradeStep'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServiceLogEvent where
+module Network.AWS.Lightsail.Types.ContainerServiceLogEvent
+  ( ContainerServiceLogEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkContainerServiceLogEvent,
+
+    -- * Lenses
+    csleCreatedAt,
+    csleMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the log events of a container of an Amazon Lightsail container service.
 --
---
---
--- /See:/ 'containerServiceLogEvent' smart constructor.
+-- /See:/ 'mkContainerServiceLogEvent' smart constructor.
 data ContainerServiceLogEvent = ContainerServiceLogEvent'
-  { _csleCreatedAt ::
-      !(Maybe POSIX),
-    _csleMessage :: !(Maybe Text)
+  { createdAt ::
+      Lude.Maybe Lude.Timestamp,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceLogEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csleCreatedAt' - The timestamp when the container service log event was created.
---
--- * 'csleMessage' - The message of the container service log event.
-containerServiceLogEvent ::
+-- * 'createdAt' - The timestamp when the container service log event was created.
+-- * 'message' - The message of the container service log event.
+mkContainerServiceLogEvent ::
   ContainerServiceLogEvent
-containerServiceLogEvent =
+mkContainerServiceLogEvent =
   ContainerServiceLogEvent'
-    { _csleCreatedAt = Nothing,
-      _csleMessage = Nothing
+    { createdAt = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The timestamp when the container service log event was created.
-csleCreatedAt :: Lens' ContainerServiceLogEvent (Maybe UTCTime)
-csleCreatedAt = lens _csleCreatedAt (\s a -> s {_csleCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csleCreatedAt :: Lens.Lens' ContainerServiceLogEvent (Lude.Maybe Lude.Timestamp)
+csleCreatedAt = Lens.lens (createdAt :: ContainerServiceLogEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContainerServiceLogEvent)
+{-# DEPRECATED csleCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The message of the container service log event.
-csleMessage :: Lens' ContainerServiceLogEvent (Maybe Text)
-csleMessage = lens _csleMessage (\s a -> s {_csleMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csleMessage :: Lens.Lens' ContainerServiceLogEvent (Lude.Maybe Lude.Text)
+csleMessage = Lens.lens (message :: ContainerServiceLogEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ContainerServiceLogEvent)
+{-# DEPRECATED csleMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON ContainerServiceLogEvent where
+instance Lude.FromJSON ContainerServiceLogEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContainerServiceLogEvent"
       ( \x ->
           ContainerServiceLogEvent'
-            <$> (x .:? "createdAt") <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "createdAt") Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable ContainerServiceLogEvent
-
-instance NFData ContainerServiceLogEvent

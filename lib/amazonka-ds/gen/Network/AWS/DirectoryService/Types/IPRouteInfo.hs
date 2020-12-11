@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.IPRouteInfo where
+module Network.AWS.DirectoryService.Types.IPRouteInfo
+  ( IPRouteInfo (..),
+
+    -- * Smart constructor
+    mkIPRouteInfo,
+
+    -- * Lenses
+    iriDirectoryId,
+    iriIPRouteStatusReason,
+    iriAddedDateTime,
+    iriCidrIP,
+    iriIPRouteStatusMsg,
+    iriDescription,
+  )
+where
 
 import Network.AWS.DirectoryService.Types.IPRouteStatusMsg
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about one or more IP address blocks.
 --
---
---
--- /See:/ 'ipRouteInfo' smart constructor.
+-- /See:/ 'mkIPRouteInfo' smart constructor.
 data IPRouteInfo = IPRouteInfo'
-  { _iriDirectoryId :: !(Maybe Text),
-    _iriIPRouteStatusReason :: !(Maybe Text),
-    _iriAddedDateTime :: !(Maybe POSIX),
-    _iriCidrIP :: !(Maybe Text),
-    _iriIPRouteStatusMsg :: !(Maybe IPRouteStatusMsg),
-    _iriDescription :: !(Maybe Text)
+  { directoryId ::
+      Lude.Maybe Lude.Text,
+    ipRouteStatusReason :: Lude.Maybe Lude.Text,
+    addedDateTime :: Lude.Maybe Lude.Timestamp,
+    cidrIP :: Lude.Maybe Lude.Text,
+    ipRouteStatusMsg :: Lude.Maybe IPRouteStatusMsg,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRouteInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iriDirectoryId' - Identifier (ID) of the directory associated with the IP addresses.
---
--- * 'iriIPRouteStatusReason' - The reason for the IpRouteStatusMsg.
---
--- * 'iriAddedDateTime' - The date and time the address block was added to the directory.
---
--- * 'iriCidrIP' - IP address block in the 'IpRoute' .
---
--- * 'iriIPRouteStatusMsg' - The status of the IP address block.
---
--- * 'iriDescription' - Description of the 'IpRouteInfo' .
-ipRouteInfo ::
+-- * 'addedDateTime' - The date and time the address block was added to the directory.
+-- * 'cidrIP' - IP address block in the 'IpRoute' .
+-- * 'description' - Description of the 'IpRouteInfo' .
+-- * 'directoryId' - Identifier (ID) of the directory associated with the IP addresses.
+-- * 'ipRouteStatusMsg' - The status of the IP address block.
+-- * 'ipRouteStatusReason' - The reason for the IpRouteStatusMsg.
+mkIPRouteInfo ::
   IPRouteInfo
-ipRouteInfo =
+mkIPRouteInfo =
   IPRouteInfo'
-    { _iriDirectoryId = Nothing,
-      _iriIPRouteStatusReason = Nothing,
-      _iriAddedDateTime = Nothing,
-      _iriCidrIP = Nothing,
-      _iriIPRouteStatusMsg = Nothing,
-      _iriDescription = Nothing
+    { directoryId = Lude.Nothing,
+      ipRouteStatusReason = Lude.Nothing,
+      addedDateTime = Lude.Nothing,
+      cidrIP = Lude.Nothing,
+      ipRouteStatusMsg = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | Identifier (ID) of the directory associated with the IP addresses.
-iriDirectoryId :: Lens' IPRouteInfo (Maybe Text)
-iriDirectoryId = lens _iriDirectoryId (\s a -> s {_iriDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriDirectoryId :: Lens.Lens' IPRouteInfo (Lude.Maybe Lude.Text)
+iriDirectoryId = Lens.lens (directoryId :: IPRouteInfo -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: IPRouteInfo)
+{-# DEPRECATED iriDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The reason for the IpRouteStatusMsg.
-iriIPRouteStatusReason :: Lens' IPRouteInfo (Maybe Text)
-iriIPRouteStatusReason = lens _iriIPRouteStatusReason (\s a -> s {_iriIPRouteStatusReason = a})
+--
+-- /Note:/ Consider using 'ipRouteStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriIPRouteStatusReason :: Lens.Lens' IPRouteInfo (Lude.Maybe Lude.Text)
+iriIPRouteStatusReason = Lens.lens (ipRouteStatusReason :: IPRouteInfo -> Lude.Maybe Lude.Text) (\s a -> s {ipRouteStatusReason = a} :: IPRouteInfo)
+{-# DEPRECATED iriIPRouteStatusReason "Use generic-lens or generic-optics with 'ipRouteStatusReason' instead." #-}
 
 -- | The date and time the address block was added to the directory.
-iriAddedDateTime :: Lens' IPRouteInfo (Maybe UTCTime)
-iriAddedDateTime = lens _iriAddedDateTime (\s a -> s {_iriAddedDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'addedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriAddedDateTime :: Lens.Lens' IPRouteInfo (Lude.Maybe Lude.Timestamp)
+iriAddedDateTime = Lens.lens (addedDateTime :: IPRouteInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {addedDateTime = a} :: IPRouteInfo)
+{-# DEPRECATED iriAddedDateTime "Use generic-lens or generic-optics with 'addedDateTime' instead." #-}
 
 -- | IP address block in the 'IpRoute' .
-iriCidrIP :: Lens' IPRouteInfo (Maybe Text)
-iriCidrIP = lens _iriCidrIP (\s a -> s {_iriCidrIP = a})
+--
+-- /Note:/ Consider using 'cidrIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriCidrIP :: Lens.Lens' IPRouteInfo (Lude.Maybe Lude.Text)
+iriCidrIP = Lens.lens (cidrIP :: IPRouteInfo -> Lude.Maybe Lude.Text) (\s a -> s {cidrIP = a} :: IPRouteInfo)
+{-# DEPRECATED iriCidrIP "Use generic-lens or generic-optics with 'cidrIP' instead." #-}
 
 -- | The status of the IP address block.
-iriIPRouteStatusMsg :: Lens' IPRouteInfo (Maybe IPRouteStatusMsg)
-iriIPRouteStatusMsg = lens _iriIPRouteStatusMsg (\s a -> s {_iriIPRouteStatusMsg = a})
+--
+-- /Note:/ Consider using 'ipRouteStatusMsg' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriIPRouteStatusMsg :: Lens.Lens' IPRouteInfo (Lude.Maybe IPRouteStatusMsg)
+iriIPRouteStatusMsg = Lens.lens (ipRouteStatusMsg :: IPRouteInfo -> Lude.Maybe IPRouteStatusMsg) (\s a -> s {ipRouteStatusMsg = a} :: IPRouteInfo)
+{-# DEPRECATED iriIPRouteStatusMsg "Use generic-lens or generic-optics with 'ipRouteStatusMsg' instead." #-}
 
 -- | Description of the 'IpRouteInfo' .
-iriDescription :: Lens' IPRouteInfo (Maybe Text)
-iriDescription = lens _iriDescription (\s a -> s {_iriDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriDescription :: Lens.Lens' IPRouteInfo (Lude.Maybe Lude.Text)
+iriDescription = Lens.lens (description :: IPRouteInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: IPRouteInfo)
+{-# DEPRECATED iriDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON IPRouteInfo where
+instance Lude.FromJSON IPRouteInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "IPRouteInfo"
       ( \x ->
           IPRouteInfo'
-            <$> (x .:? "DirectoryId")
-            <*> (x .:? "IpRouteStatusReason")
-            <*> (x .:? "AddedDateTime")
-            <*> (x .:? "CidrIp")
-            <*> (x .:? "IpRouteStatusMsg")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "DirectoryId")
+            Lude.<*> (x Lude..:? "IpRouteStatusReason")
+            Lude.<*> (x Lude..:? "AddedDateTime")
+            Lude.<*> (x Lude..:? "CidrIp")
+            Lude.<*> (x Lude..:? "IpRouteStatusMsg")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable IPRouteInfo
-
-instance NFData IPRouteInfo

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputLossActionForMsSmoothOut where
+module Network.AWS.MediaLive.Types.InputLossActionForMsSmoothOut
+  ( InputLossActionForMsSmoothOut
+      ( InputLossActionForMsSmoothOut',
+        EmitOutput,
+        PauseOutput
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Loss Action For Ms Smooth Out
-data InputLossActionForMsSmoothOut
-  = EmitOutput
-  | PauseOutput
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputLossActionForMsSmoothOut = InputLossActionForMsSmoothOut' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputLossActionForMsSmoothOut where
-  parser =
-    takeLowerText >>= \case
-      "emit_output" -> pure EmitOutput
-      "pause_output" -> pure PauseOutput
-      e ->
-        fromTextError $
-          "Failure parsing InputLossActionForMsSmoothOut from value: '" <> e
-            <> "'. Accepted values: emit_output, pause_output"
+pattern EmitOutput :: InputLossActionForMsSmoothOut
+pattern EmitOutput = InputLossActionForMsSmoothOut' "EMIT_OUTPUT"
 
-instance ToText InputLossActionForMsSmoothOut where
-  toText = \case
-    EmitOutput -> "EMIT_OUTPUT"
-    PauseOutput -> "PAUSE_OUTPUT"
+pattern PauseOutput :: InputLossActionForMsSmoothOut
+pattern PauseOutput = InputLossActionForMsSmoothOut' "PAUSE_OUTPUT"
 
-instance Hashable InputLossActionForMsSmoothOut
-
-instance NFData InputLossActionForMsSmoothOut
-
-instance ToByteString InputLossActionForMsSmoothOut
-
-instance ToQuery InputLossActionForMsSmoothOut
-
-instance ToHeader InputLossActionForMsSmoothOut
-
-instance ToJSON InputLossActionForMsSmoothOut where
-  toJSON = toJSONText
-
-instance FromJSON InputLossActionForMsSmoothOut where
-  parseJSON = parseJSONText "InputLossActionForMsSmoothOut"
+{-# COMPLETE
+  EmitOutput,
+  PauseOutput,
+  InputLossActionForMsSmoothOut'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.Datapoint where
+module Network.AWS.AutoScalingPlans.Types.Datapoint
+  ( Datapoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDatapoint,
+
+    -- * Lenses
+    dValue,
+    dTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a single value in the forecast data used for predictive scaling.
 --
---
---
--- /See:/ 'datapoint' smart constructor.
+-- /See:/ 'mkDatapoint' smart constructor.
 data Datapoint = Datapoint'
-  { _dValue :: !(Maybe Double),
-    _dTimestamp :: !(Maybe POSIX)
+  { value :: Lude.Maybe Lude.Double,
+    timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dValue' - The value of the data point.
---
--- * 'dTimestamp' - The time stamp for the data point in UTC format.
-datapoint ::
+-- * 'timestamp' - The time stamp for the data point in UTC format.
+-- * 'value' - The value of the data point.
+mkDatapoint ::
   Datapoint
-datapoint = Datapoint' {_dValue = Nothing, _dTimestamp = Nothing}
+mkDatapoint =
+  Datapoint' {value = Lude.Nothing, timestamp = Lude.Nothing}
 
 -- | The value of the data point.
-dValue :: Lens' Datapoint (Maybe Double)
-dValue = lens _dValue (\s a -> s {_dValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dValue :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
+dValue = Lens.lens (value :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: Datapoint)
+{-# DEPRECATED dValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The time stamp for the data point in UTC format.
-dTimestamp :: Lens' Datapoint (Maybe UTCTime)
-dTimestamp = lens _dTimestamp (\s a -> s {_dTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTimestamp :: Lens.Lens' Datapoint (Lude.Maybe Lude.Timestamp)
+dTimestamp = Lens.lens (timestamp :: Datapoint -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: Datapoint)
+{-# DEPRECATED dTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON Datapoint where
+instance Lude.FromJSON Datapoint where
   parseJSON =
-    withObject
+    Lude.withObject
       "Datapoint"
-      (\x -> Datapoint' <$> (x .:? "Value") <*> (x .:? "Timestamp"))
-
-instance Hashable Datapoint
-
-instance NFData Datapoint
+      ( \x ->
+          Datapoint'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Timestamp")
+      )

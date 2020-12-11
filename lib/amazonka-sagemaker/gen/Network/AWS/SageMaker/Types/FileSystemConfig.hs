@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.FileSystemConfig where
+module Network.AWS.SageMaker.Types.FileSystemConfig
+  ( FileSystemConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFileSystemConfig,
+
+    -- * Lenses
+    fscDefaultGid,
+    fscMountPath,
+    fscDefaultUid,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 --
---
---
--- /See:/ 'fileSystemConfig' smart constructor.
+-- /See:/ 'mkFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'
-  { _fscDefaultGid ::
-      !(Maybe Nat),
-    _fscMountPath :: !(Maybe Text),
-    _fscDefaultUid :: !(Maybe Nat)
+  { defaultGid ::
+      Lude.Maybe Lude.Natural,
+    mountPath :: Lude.Maybe Lude.Text,
+    defaultUid :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSystemConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fscDefaultGid' - The default POSIX group ID (GID). If not specified, defaults to @100@ .
---
--- * 'fscMountPath' - The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
---
--- * 'fscDefaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@ .
-fileSystemConfig ::
+-- * 'defaultGid' - The default POSIX group ID (GID). If not specified, defaults to @100@ .
+-- * 'defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@ .
+-- * 'mountPath' - The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
+mkFileSystemConfig ::
   FileSystemConfig
-fileSystemConfig =
+mkFileSystemConfig =
   FileSystemConfig'
-    { _fscDefaultGid = Nothing,
-      _fscMountPath = Nothing,
-      _fscDefaultUid = Nothing
+    { defaultGid = Lude.Nothing,
+      mountPath = Lude.Nothing,
+      defaultUid = Lude.Nothing
     }
 
 -- | The default POSIX group ID (GID). If not specified, defaults to @100@ .
-fscDefaultGid :: Lens' FileSystemConfig (Maybe Natural)
-fscDefaultGid = lens _fscDefaultGid (\s a -> s {_fscDefaultGid = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'defaultGid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscDefaultGid :: Lens.Lens' FileSystemConfig (Lude.Maybe Lude.Natural)
+fscDefaultGid = Lens.lens (defaultGid :: FileSystemConfig -> Lude.Maybe Lude.Natural) (\s a -> s {defaultGid = a} :: FileSystemConfig)
+{-# DEPRECATED fscDefaultGid "Use generic-lens or generic-optics with 'defaultGid' instead." #-}
 
 -- | The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
-fscMountPath :: Lens' FileSystemConfig (Maybe Text)
-fscMountPath = lens _fscMountPath (\s a -> s {_fscMountPath = a})
+--
+-- /Note:/ Consider using 'mountPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscMountPath :: Lens.Lens' FileSystemConfig (Lude.Maybe Lude.Text)
+fscMountPath = Lens.lens (mountPath :: FileSystemConfig -> Lude.Maybe Lude.Text) (\s a -> s {mountPath = a} :: FileSystemConfig)
+{-# DEPRECATED fscMountPath "Use generic-lens or generic-optics with 'mountPath' instead." #-}
 
 -- | The default POSIX user ID (UID). If not specified, defaults to @1000@ .
-fscDefaultUid :: Lens' FileSystemConfig (Maybe Natural)
-fscDefaultUid = lens _fscDefaultUid (\s a -> s {_fscDefaultUid = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'defaultUid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscDefaultUid :: Lens.Lens' FileSystemConfig (Lude.Maybe Lude.Natural)
+fscDefaultUid = Lens.lens (defaultUid :: FileSystemConfig -> Lude.Maybe Lude.Natural) (\s a -> s {defaultUid = a} :: FileSystemConfig)
+{-# DEPRECATED fscDefaultUid "Use generic-lens or generic-optics with 'defaultUid' instead." #-}
 
-instance FromJSON FileSystemConfig where
+instance Lude.FromJSON FileSystemConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileSystemConfig"
       ( \x ->
           FileSystemConfig'
-            <$> (x .:? "DefaultGid")
-            <*> (x .:? "MountPath")
-            <*> (x .:? "DefaultUid")
+            Lude.<$> (x Lude..:? "DefaultGid")
+            Lude.<*> (x Lude..:? "MountPath")
+            Lude.<*> (x Lude..:? "DefaultUid")
       )
 
-instance Hashable FileSystemConfig
-
-instance NFData FileSystemConfig
-
-instance ToJSON FileSystemConfig where
+instance Lude.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultGid" .=) <$> _fscDefaultGid,
-            ("MountPath" .=) <$> _fscMountPath,
-            ("DefaultUid" .=) <$> _fscDefaultUid
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultGid" Lude..=) Lude.<$> defaultGid,
+            ("MountPath" Lude..=) Lude.<$> mountPath,
+            ("DefaultUid" Lude..=) Lude.<$> defaultUid
           ]
       )

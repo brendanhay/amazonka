@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,155 @@
 --
 -- Creates and sends a message to a list of users.
 module Network.AWS.Pinpoint.SendUsersMessages
-  ( -- * Creating a Request
-    sendUsersMessages,
-    SendUsersMessages,
+  ( -- * Creating a request
+    SendUsersMessages (..),
+    mkSendUsersMessages,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sumsApplicationId,
     sumsSendUsersMessageRequest,
 
-    -- * Destructuring the Response
-    sendUsersMessagesResponse,
-    SendUsersMessagesResponse,
+    -- * Destructuring the response
+    SendUsersMessagesResponse (..),
+    mkSendUsersMessagesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sumrsResponseStatus,
     sumrsSendUsersMessageResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'sendUsersMessages' smart constructor.
+-- | /See:/ 'mkSendUsersMessages' smart constructor.
 data SendUsersMessages = SendUsersMessages'
-  { _sumsApplicationId ::
-      !Text,
-    _sumsSendUsersMessageRequest ::
-      !SendUsersMessageRequest
+  { applicationId ::
+      Lude.Text,
+    sendUsersMessageRequest :: SendUsersMessageRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessages' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sumsApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'sumsSendUsersMessageRequest' - Undocumented member.
-sendUsersMessages ::
-  -- | 'sumsApplicationId'
-  Text ->
-  -- | 'sumsSendUsersMessageRequest'
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'sendUsersMessageRequest' - Undocumented field.
+mkSendUsersMessages ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'sendUsersMessageRequest'
   SendUsersMessageRequest ->
   SendUsersMessages
-sendUsersMessages pApplicationId_ pSendUsersMessageRequest_ =
+mkSendUsersMessages pApplicationId_ pSendUsersMessageRequest_ =
   SendUsersMessages'
-    { _sumsApplicationId = pApplicationId_,
-      _sumsSendUsersMessageRequest = pSendUsersMessageRequest_
+    { applicationId = pApplicationId_,
+      sendUsersMessageRequest = pSendUsersMessageRequest_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-sumsApplicationId :: Lens' SendUsersMessages Text
-sumsApplicationId = lens _sumsApplicationId (\s a -> s {_sumsApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumsApplicationId :: Lens.Lens' SendUsersMessages Lude.Text
+sumsApplicationId = Lens.lens (applicationId :: SendUsersMessages -> Lude.Text) (\s a -> s {applicationId = a} :: SendUsersMessages)
+{-# DEPRECATED sumsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-sumsSendUsersMessageRequest :: Lens' SendUsersMessages SendUsersMessageRequest
-sumsSendUsersMessageRequest = lens _sumsSendUsersMessageRequest (\s a -> s {_sumsSendUsersMessageRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sendUsersMessageRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumsSendUsersMessageRequest :: Lens.Lens' SendUsersMessages SendUsersMessageRequest
+sumsSendUsersMessageRequest = Lens.lens (sendUsersMessageRequest :: SendUsersMessages -> SendUsersMessageRequest) (\s a -> s {sendUsersMessageRequest = a} :: SendUsersMessages)
+{-# DEPRECATED sumsSendUsersMessageRequest "Use generic-lens or generic-optics with 'sendUsersMessageRequest' instead." #-}
 
-instance AWSRequest SendUsersMessages where
+instance Lude.AWSRequest SendUsersMessages where
   type Rs SendUsersMessages = SendUsersMessagesResponse
-  request = postJSON pinpoint
+  request = Req.postJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SendUsersMessagesResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable SendUsersMessages
-
-instance NFData SendUsersMessages
-
-instance ToHeaders SendUsersMessages where
+instance Lude.ToHeaders SendUsersMessages where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON SendUsersMessages where
+instance Lude.ToJSON SendUsersMessages where
   toJSON SendUsersMessages' {..} =
-    object
-      ( catMaybes
-          [Just ("SendUsersMessageRequest" .= _sumsSendUsersMessageRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("SendUsersMessageRequest" Lude..= sendUsersMessageRequest)
+          ]
       )
 
-instance ToPath SendUsersMessages where
+instance Lude.ToPath SendUsersMessages where
   toPath SendUsersMessages' {..} =
-    mconcat ["/v1/apps/", toBS _sumsApplicationId, "/users-messages"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/users-messages"]
 
-instance ToQuery SendUsersMessages where
-  toQuery = const mempty
+instance Lude.ToQuery SendUsersMessages where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'sendUsersMessagesResponse' smart constructor.
+-- | /See:/ 'mkSendUsersMessagesResponse' smart constructor.
 data SendUsersMessagesResponse = SendUsersMessagesResponse'
-  { _sumrsResponseStatus ::
-      !Int,
-    _sumrsSendUsersMessageResponse ::
-      !SendUsersMessageResponse
+  { responseStatus ::
+      Lude.Int,
+    sendUsersMessageResponse ::
+      SendUsersMessageResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessagesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sumrsResponseStatus' - -- | The response status code.
---
--- * 'sumrsSendUsersMessageResponse' - Undocumented member.
-sendUsersMessagesResponse ::
-  -- | 'sumrsResponseStatus'
-  Int ->
-  -- | 'sumrsSendUsersMessageResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'sendUsersMessageResponse' - Undocumented field.
+mkSendUsersMessagesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'sendUsersMessageResponse'
   SendUsersMessageResponse ->
   SendUsersMessagesResponse
-sendUsersMessagesResponse
+mkSendUsersMessagesResponse
   pResponseStatus_
   pSendUsersMessageResponse_ =
     SendUsersMessagesResponse'
-      { _sumrsResponseStatus =
-          pResponseStatus_,
-        _sumrsSendUsersMessageResponse = pSendUsersMessageResponse_
+      { responseStatus = pResponseStatus_,
+        sendUsersMessageResponse = pSendUsersMessageResponse_
       }
 
--- | -- | The response status code.
-sumrsResponseStatus :: Lens' SendUsersMessagesResponse Int
-sumrsResponseStatus = lens _sumrsResponseStatus (\s a -> s {_sumrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrsResponseStatus :: Lens.Lens' SendUsersMessagesResponse Lude.Int
+sumrsResponseStatus = Lens.lens (responseStatus :: SendUsersMessagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendUsersMessagesResponse)
+{-# DEPRECATED sumrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-sumrsSendUsersMessageResponse :: Lens' SendUsersMessagesResponse SendUsersMessageResponse
-sumrsSendUsersMessageResponse = lens _sumrsSendUsersMessageResponse (\s a -> s {_sumrsSendUsersMessageResponse = a})
-
-instance NFData SendUsersMessagesResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sendUsersMessageResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrsSendUsersMessageResponse :: Lens.Lens' SendUsersMessagesResponse SendUsersMessageResponse
+sumrsSendUsersMessageResponse = Lens.lens (sendUsersMessageResponse :: SendUsersMessagesResponse -> SendUsersMessageResponse) (\s a -> s {sendUsersMessageResponse = a} :: SendUsersMessagesResponse)
+{-# DEPRECATED sumrsSendUsersMessageResponse "Use generic-lens or generic-optics with 'sendUsersMessageResponse' instead." #-}

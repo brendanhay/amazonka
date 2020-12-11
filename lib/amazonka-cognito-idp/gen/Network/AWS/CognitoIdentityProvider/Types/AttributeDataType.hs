@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AttributeDataType where
+module Network.AWS.CognitoIdentityProvider.Types.AttributeDataType
+  ( AttributeDataType
+      ( AttributeDataType',
+        Boolean,
+        DateTime,
+        Number,
+        String
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AttributeDataType
-  = Boolean
-  | DateTime
-  | Number
-  | String
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AttributeDataType = AttributeDataType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AttributeDataType where
-  parser =
-    takeLowerText >>= \case
-      "boolean" -> pure Boolean
-      "datetime" -> pure DateTime
-      "number" -> pure Number
-      "string" -> pure String
-      e ->
-        fromTextError $
-          "Failure parsing AttributeDataType from value: '" <> e
-            <> "'. Accepted values: boolean, datetime, number, string"
+pattern Boolean :: AttributeDataType
+pattern Boolean = AttributeDataType' "Boolean"
 
-instance ToText AttributeDataType where
-  toText = \case
-    Boolean -> "Boolean"
-    DateTime -> "DateTime"
-    Number -> "Number"
-    String -> "String"
+pattern DateTime :: AttributeDataType
+pattern DateTime = AttributeDataType' "DateTime"
 
-instance Hashable AttributeDataType
+pattern Number :: AttributeDataType
+pattern Number = AttributeDataType' "Number"
 
-instance NFData AttributeDataType
+pattern String :: AttributeDataType
+pattern String = AttributeDataType' "String"
 
-instance ToByteString AttributeDataType
-
-instance ToQuery AttributeDataType
-
-instance ToHeader AttributeDataType
-
-instance ToJSON AttributeDataType where
-  toJSON = toJSONText
-
-instance FromJSON AttributeDataType where
-  parseJSON = parseJSONText "AttributeDataType"
+{-# COMPLETE
+  Boolean,
+  DateTime,
+  Number,
+  String,
+  AttributeDataType'
+  #-}

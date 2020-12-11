@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.EyeOpen where
+module Network.AWS.Rekognition.Types.EyeOpen
+  ( EyeOpen (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEyeOpen,
+
+    -- * Lenses
+    eoValue,
+    eoConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
 --
---
---
--- /See:/ 'eyeOpen' smart constructor.
+-- /See:/ 'mkEyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
-  { _eoValue :: !(Maybe Bool),
-    _eoConfidence :: !(Maybe Double)
+  { value :: Lude.Maybe Lude.Bool,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EyeOpen' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eoValue' - Boolean value that indicates whether the eyes on the face are open.
---
--- * 'eoConfidence' - Level of confidence in the determination.
-eyeOpen ::
+-- * 'confidence' - Level of confidence in the determination.
+-- * 'value' - Boolean value that indicates whether the eyes on the face are open.
+mkEyeOpen ::
   EyeOpen
-eyeOpen = EyeOpen' {_eoValue = Nothing, _eoConfidence = Nothing}
+mkEyeOpen =
+  EyeOpen' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | Boolean value that indicates whether the eyes on the face are open.
-eoValue :: Lens' EyeOpen (Maybe Bool)
-eoValue = lens _eoValue (\s a -> s {_eoValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoValue :: Lens.Lens' EyeOpen (Lude.Maybe Lude.Bool)
+eoValue = Lens.lens (value :: EyeOpen -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: EyeOpen)
+{-# DEPRECATED eoValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the determination.
-eoConfidence :: Lens' EyeOpen (Maybe Double)
-eoConfidence = lens _eoConfidence (\s a -> s {_eoConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoConfidence :: Lens.Lens' EyeOpen (Lude.Maybe Lude.Double)
+eoConfidence = Lens.lens (confidence :: EyeOpen -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: EyeOpen)
+{-# DEPRECATED eoConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON EyeOpen where
+instance Lude.FromJSON EyeOpen where
   parseJSON =
-    withObject
+    Lude.withObject
       "EyeOpen"
-      (\x -> EyeOpen' <$> (x .:? "Value") <*> (x .:? "Confidence"))
-
-instance Hashable EyeOpen
-
-instance NFData EyeOpen
+      ( \x ->
+          EyeOpen'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
+      )

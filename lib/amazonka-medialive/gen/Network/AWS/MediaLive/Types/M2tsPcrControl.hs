@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsPcrControl where
+module Network.AWS.MediaLive.Types.M2tsPcrControl
+  ( M2tsPcrControl
+      ( M2tsPcrControl',
+        ConfiguredPcrPeriod,
+        PcrEveryPesPacket
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Pcr Control
-data M2tsPcrControl
-  = ConfiguredPcrPeriod
-  | PcrEveryPesPacket
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsPcrControl = M2tsPcrControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsPcrControl where
-  parser =
-    takeLowerText >>= \case
-      "configured_pcr_period" -> pure ConfiguredPcrPeriod
-      "pcr_every_pes_packet" -> pure PcrEveryPesPacket
-      e ->
-        fromTextError $
-          "Failure parsing M2tsPcrControl from value: '" <> e
-            <> "'. Accepted values: configured_pcr_period, pcr_every_pes_packet"
+pattern ConfiguredPcrPeriod :: M2tsPcrControl
+pattern ConfiguredPcrPeriod = M2tsPcrControl' "CONFIGURED_PCR_PERIOD"
 
-instance ToText M2tsPcrControl where
-  toText = \case
-    ConfiguredPcrPeriod -> "CONFIGURED_PCR_PERIOD"
-    PcrEveryPesPacket -> "PCR_EVERY_PES_PACKET"
+pattern PcrEveryPesPacket :: M2tsPcrControl
+pattern PcrEveryPesPacket = M2tsPcrControl' "PCR_EVERY_PES_PACKET"
 
-instance Hashable M2tsPcrControl
-
-instance NFData M2tsPcrControl
-
-instance ToByteString M2tsPcrControl
-
-instance ToQuery M2tsPcrControl
-
-instance ToHeader M2tsPcrControl
-
-instance ToJSON M2tsPcrControl where
-  toJSON = toJSONText
-
-instance FromJSON M2tsPcrControl where
-  parseJSON = parseJSONText "M2tsPcrControl"
+{-# COMPLETE
+  ConfiguredPcrPeriod,
+  PcrEveryPesPacket,
+  M2tsPcrControl'
+  #-}

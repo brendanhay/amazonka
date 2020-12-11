@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaColumn where
+module Network.AWS.Glue.Types.SchemaColumn
+  ( SchemaColumn (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSchemaColumn,
+
+    -- * Lenses
+    sName,
+    sDataType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A key-value pair representing a column and data type that this transform can run against. The @Schema@ parameter of the @MLTransform@ may contain up to 100 of these structures.
 --
---
---
--- /See:/ 'schemaColumn' smart constructor.
+-- /See:/ 'mkSchemaColumn' smart constructor.
 data SchemaColumn = SchemaColumn'
-  { _sName :: !(Maybe Text),
-    _sDataType :: !(Maybe Text)
+  { name :: Lude.Maybe Lude.Text,
+    dataType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaColumn' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sName' - The name of the column.
---
--- * 'sDataType' - The type of data in the column.
-schemaColumn ::
+-- * 'dataType' - The type of data in the column.
+-- * 'name' - The name of the column.
+mkSchemaColumn ::
   SchemaColumn
-schemaColumn =
-  SchemaColumn' {_sName = Nothing, _sDataType = Nothing}
+mkSchemaColumn =
+  SchemaColumn' {name = Lude.Nothing, dataType = Lude.Nothing}
 
 -- | The name of the column.
-sName :: Lens' SchemaColumn (Maybe Text)
-sName = lens _sName (\s a -> s {_sName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' SchemaColumn (Lude.Maybe Lude.Text)
+sName = Lens.lens (name :: SchemaColumn -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SchemaColumn)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of data in the column.
-sDataType :: Lens' SchemaColumn (Maybe Text)
-sDataType = lens _sDataType (\s a -> s {_sDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDataType :: Lens.Lens' SchemaColumn (Lude.Maybe Lude.Text)
+sDataType = Lens.lens (dataType :: SchemaColumn -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: SchemaColumn)
+{-# DEPRECATED sDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
-instance FromJSON SchemaColumn where
+instance Lude.FromJSON SchemaColumn where
   parseJSON =
-    withObject
+    Lude.withObject
       "SchemaColumn"
-      (\x -> SchemaColumn' <$> (x .:? "Name") <*> (x .:? "DataType"))
+      ( \x ->
+          SchemaColumn'
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "DataType")
+      )
 
-instance Hashable SchemaColumn
-
-instance NFData SchemaColumn
-
-instance ToJSON SchemaColumn where
+instance Lude.ToJSON SchemaColumn where
   toJSON SchemaColumn' {..} =
-    object
-      ( catMaybes
-          [("Name" .=) <$> _sName, ("DataType" .=) <$> _sDataType]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("DataType" Lude..=) Lude.<$> dataType
+          ]
       )

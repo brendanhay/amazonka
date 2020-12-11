@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,107 @@
 --
 -- Deletes a @GraphqlApi@ object.
 module Network.AWS.AppSync.DeleteGraphqlAPI
-  ( -- * Creating a Request
-    deleteGraphqlAPI,
-    DeleteGraphqlAPI,
+  ( -- * Creating a request
+    DeleteGraphqlAPI (..),
+    mkDeleteGraphqlAPI,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgaApiId,
 
-    -- * Destructuring the Response
-    deleteGraphqlAPIResponse,
-    DeleteGraphqlAPIResponse,
+    -- * Destructuring the response
+    DeleteGraphqlAPIResponse (..),
+    mkDeleteGraphqlAPIResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dgarsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteGraphqlAPI' smart constructor.
-newtype DeleteGraphqlAPI = DeleteGraphqlAPI' {_dgaApiId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteGraphqlAPI' smart constructor.
+newtype DeleteGraphqlAPI = DeleteGraphqlAPI' {apiId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGraphqlAPI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgaApiId' - The API ID.
-deleteGraphqlAPI ::
-  -- | 'dgaApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+mkDeleteGraphqlAPI ::
+  -- | 'apiId'
+  Lude.Text ->
   DeleteGraphqlAPI
-deleteGraphqlAPI pApiId_ = DeleteGraphqlAPI' {_dgaApiId = pApiId_}
+mkDeleteGraphqlAPI pApiId_ = DeleteGraphqlAPI' {apiId = pApiId_}
 
 -- | The API ID.
-dgaApiId :: Lens' DeleteGraphqlAPI Text
-dgaApiId = lens _dgaApiId (\s a -> s {_dgaApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgaApiId :: Lens.Lens' DeleteGraphqlAPI Lude.Text
+dgaApiId = Lens.lens (apiId :: DeleteGraphqlAPI -> Lude.Text) (\s a -> s {apiId = a} :: DeleteGraphqlAPI)
+{-# DEPRECATED dgaApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest DeleteGraphqlAPI where
+instance Lude.AWSRequest DeleteGraphqlAPI where
   type Rs DeleteGraphqlAPI = DeleteGraphqlAPIResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> DeleteGraphqlAPIResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteGraphqlAPI
-
-instance NFData DeleteGraphqlAPI
-
-instance ToHeaders DeleteGraphqlAPI where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteGraphqlAPIResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteGraphqlAPI where
+instance Lude.ToHeaders DeleteGraphqlAPI where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath DeleteGraphqlAPI where
   toPath DeleteGraphqlAPI' {..} =
-    mconcat ["/v1/apis/", toBS _dgaApiId]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId]
 
-instance ToQuery DeleteGraphqlAPI where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteGraphqlAPI where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteGraphqlAPIResponse' smart constructor.
+-- | /See:/ 'mkDeleteGraphqlAPIResponse' smart constructor.
 newtype DeleteGraphqlAPIResponse = DeleteGraphqlAPIResponse'
-  { _dgarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGraphqlAPIResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgarsResponseStatus' - -- | The response status code.
-deleteGraphqlAPIResponse ::
-  -- | 'dgarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteGraphqlAPIResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteGraphqlAPIResponse
-deleteGraphqlAPIResponse pResponseStatus_ =
-  DeleteGraphqlAPIResponse'
-    { _dgarsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteGraphqlAPIResponse pResponseStatus_ =
+  DeleteGraphqlAPIResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dgarsResponseStatus :: Lens' DeleteGraphqlAPIResponse Int
-dgarsResponseStatus = lens _dgarsResponseStatus (\s a -> s {_dgarsResponseStatus = a})
-
-instance NFData DeleteGraphqlAPIResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgarsResponseStatus :: Lens.Lens' DeleteGraphqlAPIResponse Lude.Int
+dgarsResponseStatus = Lens.lens (responseStatus :: DeleteGraphqlAPIResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGraphqlAPIResponse)
+{-# DEPRECATED dgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

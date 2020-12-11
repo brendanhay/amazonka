@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates or updates an automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
 module Network.AWS.EMR.PutAutoScalingPolicy
-  ( -- * Creating a Request
-    putAutoScalingPolicy,
-    PutAutoScalingPolicy,
+  ( -- * Creating a request
+    PutAutoScalingPolicy (..),
+    mkPutAutoScalingPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     paspClusterId,
     paspInstanceGroupId,
     paspAutoScalingPolicy,
 
-    -- * Destructuring the Response
-    putAutoScalingPolicyResponse,
-    PutAutoScalingPolicyResponse,
+    -- * Destructuring the response
+    PutAutoScalingPolicyResponse (..),
+    mkPutAutoScalingPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pasprsClusterARN,
     pasprsClusterId,
     pasprsAutoScalingPolicy,
@@ -42,162 +37,184 @@ module Network.AWS.EMR.PutAutoScalingPolicy
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putAutoScalingPolicy' smart constructor.
+-- | /See:/ 'mkPutAutoScalingPolicy' smart constructor.
 data PutAutoScalingPolicy = PutAutoScalingPolicy'
-  { _paspClusterId ::
-      !Text,
-    _paspInstanceGroupId :: !Text,
-    _paspAutoScalingPolicy :: !AutoScalingPolicy
+  { clusterId ::
+      Lude.Text,
+    instanceGroupId :: Lude.Text,
+    autoScalingPolicy :: AutoScalingPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAutoScalingPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paspClusterId' - Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
---
--- * 'paspInstanceGroupId' - Specifies the ID of the instance group to which the automatic scaling policy is applied.
---
--- * 'paspAutoScalingPolicy' - Specifies the definition of the automatic scaling policy.
-putAutoScalingPolicy ::
-  -- | 'paspClusterId'
-  Text ->
-  -- | 'paspInstanceGroupId'
-  Text ->
-  -- | 'paspAutoScalingPolicy'
+-- * 'autoScalingPolicy' - Specifies the definition of the automatic scaling policy.
+-- * 'clusterId' - Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
+-- * 'instanceGroupId' - Specifies the ID of the instance group to which the automatic scaling policy is applied.
+mkPutAutoScalingPolicy ::
+  -- | 'clusterId'
+  Lude.Text ->
+  -- | 'instanceGroupId'
+  Lude.Text ->
+  -- | 'autoScalingPolicy'
   AutoScalingPolicy ->
   PutAutoScalingPolicy
-putAutoScalingPolicy
+mkPutAutoScalingPolicy
   pClusterId_
   pInstanceGroupId_
   pAutoScalingPolicy_ =
     PutAutoScalingPolicy'
-      { _paspClusterId = pClusterId_,
-        _paspInstanceGroupId = pInstanceGroupId_,
-        _paspAutoScalingPolicy = pAutoScalingPolicy_
+      { clusterId = pClusterId_,
+        instanceGroupId = pInstanceGroupId_,
+        autoScalingPolicy = pAutoScalingPolicy_
       }
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
-paspClusterId :: Lens' PutAutoScalingPolicy Text
-paspClusterId = lens _paspClusterId (\s a -> s {_paspClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paspClusterId :: Lens.Lens' PutAutoScalingPolicy Lude.Text
+paspClusterId = Lens.lens (clusterId :: PutAutoScalingPolicy -> Lude.Text) (\s a -> s {clusterId = a} :: PutAutoScalingPolicy)
+{-# DEPRECATED paspClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | Specifies the ID of the instance group to which the automatic scaling policy is applied.
-paspInstanceGroupId :: Lens' PutAutoScalingPolicy Text
-paspInstanceGroupId = lens _paspInstanceGroupId (\s a -> s {_paspInstanceGroupId = a})
+--
+-- /Note:/ Consider using 'instanceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paspInstanceGroupId :: Lens.Lens' PutAutoScalingPolicy Lude.Text
+paspInstanceGroupId = Lens.lens (instanceGroupId :: PutAutoScalingPolicy -> Lude.Text) (\s a -> s {instanceGroupId = a} :: PutAutoScalingPolicy)
+{-# DEPRECATED paspInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
 
 -- | Specifies the definition of the automatic scaling policy.
-paspAutoScalingPolicy :: Lens' PutAutoScalingPolicy AutoScalingPolicy
-paspAutoScalingPolicy = lens _paspAutoScalingPolicy (\s a -> s {_paspAutoScalingPolicy = a})
+--
+-- /Note:/ Consider using 'autoScalingPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paspAutoScalingPolicy :: Lens.Lens' PutAutoScalingPolicy AutoScalingPolicy
+paspAutoScalingPolicy = Lens.lens (autoScalingPolicy :: PutAutoScalingPolicy -> AutoScalingPolicy) (\s a -> s {autoScalingPolicy = a} :: PutAutoScalingPolicy)
+{-# DEPRECATED paspAutoScalingPolicy "Use generic-lens or generic-optics with 'autoScalingPolicy' instead." #-}
 
-instance AWSRequest PutAutoScalingPolicy where
+instance Lude.AWSRequest PutAutoScalingPolicy where
   type Rs PutAutoScalingPolicy = PutAutoScalingPolicyResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutAutoScalingPolicyResponse'
-            <$> (x .?> "ClusterArn")
-            <*> (x .?> "ClusterId")
-            <*> (x .?> "AutoScalingPolicy")
-            <*> (x .?> "InstanceGroupId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ClusterArn")
+            Lude.<*> (x Lude..?> "ClusterId")
+            Lude.<*> (x Lude..?> "AutoScalingPolicy")
+            Lude.<*> (x Lude..?> "InstanceGroupId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutAutoScalingPolicy
-
-instance NFData PutAutoScalingPolicy
-
-instance ToHeaders PutAutoScalingPolicy where
+instance Lude.ToHeaders PutAutoScalingPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.PutAutoScalingPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.PutAutoScalingPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutAutoScalingPolicy where
+instance Lude.ToJSON PutAutoScalingPolicy where
   toJSON PutAutoScalingPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("ClusterId" .= _paspClusterId),
-            Just ("InstanceGroupId" .= _paspInstanceGroupId),
-            Just ("AutoScalingPolicy" .= _paspAutoScalingPolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            Lude.Just ("InstanceGroupId" Lude..= instanceGroupId),
+            Lude.Just ("AutoScalingPolicy" Lude..= autoScalingPolicy)
           ]
       )
 
-instance ToPath PutAutoScalingPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutAutoScalingPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutAutoScalingPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutAutoScalingPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putAutoScalingPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutAutoScalingPolicyResponse' smart constructor.
 data PutAutoScalingPolicyResponse = PutAutoScalingPolicyResponse'
-  { _pasprsClusterARN ::
-      !(Maybe Text),
-    _pasprsClusterId :: !(Maybe Text),
-    _pasprsAutoScalingPolicy ::
-      !( Maybe
-           AutoScalingPolicyDescription
-       ),
-    _pasprsInstanceGroupId ::
-      !(Maybe Text),
-    _pasprsResponseStatus :: !Int
+  { clusterARN ::
+      Lude.Maybe Lude.Text,
+    clusterId :: Lude.Maybe Lude.Text,
+    autoScalingPolicy ::
+      Lude.Maybe
+        AutoScalingPolicyDescription,
+    instanceGroupId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAutoScalingPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pasprsClusterARN' - The Amazon Resource Name of the cluster.
---
--- * 'pasprsClusterId' - Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
---
--- * 'pasprsAutoScalingPolicy' - The automatic scaling policy definition.
---
--- * 'pasprsInstanceGroupId' - Specifies the ID of the instance group to which the scaling policy is applied.
---
--- * 'pasprsResponseStatus' - -- | The response status code.
-putAutoScalingPolicyResponse ::
-  -- | 'pasprsResponseStatus'
-  Int ->
+-- * 'autoScalingPolicy' - The automatic scaling policy definition.
+-- * 'clusterARN' - The Amazon Resource Name of the cluster.
+-- * 'clusterId' - Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
+-- * 'instanceGroupId' - Specifies the ID of the instance group to which the scaling policy is applied.
+-- * 'responseStatus' - The response status code.
+mkPutAutoScalingPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAutoScalingPolicyResponse
-putAutoScalingPolicyResponse pResponseStatus_ =
+mkPutAutoScalingPolicyResponse pResponseStatus_ =
   PutAutoScalingPolicyResponse'
-    { _pasprsClusterARN = Nothing,
-      _pasprsClusterId = Nothing,
-      _pasprsAutoScalingPolicy = Nothing,
-      _pasprsInstanceGroupId = Nothing,
-      _pasprsResponseStatus = pResponseStatus_
+    { clusterARN = Lude.Nothing,
+      clusterId = Lude.Nothing,
+      autoScalingPolicy = Lude.Nothing,
+      instanceGroupId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name of the cluster.
-pasprsClusterARN :: Lens' PutAutoScalingPolicyResponse (Maybe Text)
-pasprsClusterARN = lens _pasprsClusterARN (\s a -> s {_pasprsClusterARN = a})
+--
+-- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasprsClusterARN :: Lens.Lens' PutAutoScalingPolicyResponse (Lude.Maybe Lude.Text)
+pasprsClusterARN = Lens.lens (clusterARN :: PutAutoScalingPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: PutAutoScalingPolicyResponse)
+{-# DEPRECATED pasprsClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
-pasprsClusterId :: Lens' PutAutoScalingPolicyResponse (Maybe Text)
-pasprsClusterId = lens _pasprsClusterId (\s a -> s {_pasprsClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasprsClusterId :: Lens.Lens' PutAutoScalingPolicyResponse (Lude.Maybe Lude.Text)
+pasprsClusterId = Lens.lens (clusterId :: PutAutoScalingPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: PutAutoScalingPolicyResponse)
+{-# DEPRECATED pasprsClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The automatic scaling policy definition.
-pasprsAutoScalingPolicy :: Lens' PutAutoScalingPolicyResponse (Maybe AutoScalingPolicyDescription)
-pasprsAutoScalingPolicy = lens _pasprsAutoScalingPolicy (\s a -> s {_pasprsAutoScalingPolicy = a})
+--
+-- /Note:/ Consider using 'autoScalingPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasprsAutoScalingPolicy :: Lens.Lens' PutAutoScalingPolicyResponse (Lude.Maybe AutoScalingPolicyDescription)
+pasprsAutoScalingPolicy = Lens.lens (autoScalingPolicy :: PutAutoScalingPolicyResponse -> Lude.Maybe AutoScalingPolicyDescription) (\s a -> s {autoScalingPolicy = a} :: PutAutoScalingPolicyResponse)
+{-# DEPRECATED pasprsAutoScalingPolicy "Use generic-lens or generic-optics with 'autoScalingPolicy' instead." #-}
 
 -- | Specifies the ID of the instance group to which the scaling policy is applied.
-pasprsInstanceGroupId :: Lens' PutAutoScalingPolicyResponse (Maybe Text)
-pasprsInstanceGroupId = lens _pasprsInstanceGroupId (\s a -> s {_pasprsInstanceGroupId = a})
+--
+-- /Note:/ Consider using 'instanceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasprsInstanceGroupId :: Lens.Lens' PutAutoScalingPolicyResponse (Lude.Maybe Lude.Text)
+pasprsInstanceGroupId = Lens.lens (instanceGroupId :: PutAutoScalingPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceGroupId = a} :: PutAutoScalingPolicyResponse)
+{-# DEPRECATED pasprsInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
 
--- | -- | The response status code.
-pasprsResponseStatus :: Lens' PutAutoScalingPolicyResponse Int
-pasprsResponseStatus = lens _pasprsResponseStatus (\s a -> s {_pasprsResponseStatus = a})
-
-instance NFData PutAutoScalingPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasprsResponseStatus :: Lens.Lens' PutAutoScalingPolicyResponse Lude.Int
+pasprsResponseStatus = Lens.lens (responseStatus :: PutAutoScalingPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAutoScalingPolicyResponse)
+{-# DEPRECATED pasprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

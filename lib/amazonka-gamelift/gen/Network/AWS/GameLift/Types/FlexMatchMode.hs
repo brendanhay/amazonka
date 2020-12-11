@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.FlexMatchMode where
+module Network.AWS.GameLift.Types.FlexMatchMode
+  ( FlexMatchMode
+      ( FlexMatchMode',
+        Standalone,
+        WithQueue
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FlexMatchMode
-  = Standalone
-  | WithQueue
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FlexMatchMode = FlexMatchMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FlexMatchMode where
-  parser =
-    takeLowerText >>= \case
-      "standalone" -> pure Standalone
-      "with_queue" -> pure WithQueue
-      e ->
-        fromTextError $
-          "Failure parsing FlexMatchMode from value: '" <> e
-            <> "'. Accepted values: standalone, with_queue"
+pattern Standalone :: FlexMatchMode
+pattern Standalone = FlexMatchMode' "STANDALONE"
 
-instance ToText FlexMatchMode where
-  toText = \case
-    Standalone -> "STANDALONE"
-    WithQueue -> "WITH_QUEUE"
+pattern WithQueue :: FlexMatchMode
+pattern WithQueue = FlexMatchMode' "WITH_QUEUE"
 
-instance Hashable FlexMatchMode
-
-instance NFData FlexMatchMode
-
-instance ToByteString FlexMatchMode
-
-instance ToQuery FlexMatchMode
-
-instance ToHeader FlexMatchMode
-
-instance ToJSON FlexMatchMode where
-  toJSON = toJSONText
-
-instance FromJSON FlexMatchMode where
-  parseJSON = parseJSONText "FlexMatchMode"
+{-# COMPLETE
+  Standalone,
+  WithQueue,
+  FlexMatchMode'
+  #-}

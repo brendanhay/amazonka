@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,161 @@
 --
 -- Gets the device, as an administrator.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminGetDevice
-  ( -- * Creating a Request
-    adminGetDevice,
-    AdminGetDevice,
+  ( -- * Creating a request
+    AdminGetDevice (..),
+    mkAdminGetDevice,
 
-    -- * Request Lenses
+    -- ** Request lenses
     agdDeviceKey,
     agdUserPoolId,
     agdUsername,
 
-    -- * Destructuring the Response
-    adminGetDeviceResponse,
-    AdminGetDeviceResponse,
+    -- * Destructuring the response
+    AdminGetDeviceResponse (..),
+    mkAdminGetDeviceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     agdrsResponseStatus,
     agdrsDevice,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to get the device, as an administrator.
 --
---
---
--- /See:/ 'adminGetDevice' smart constructor.
+-- /See:/ 'mkAdminGetDevice' smart constructor.
 data AdminGetDevice = AdminGetDevice'
-  { _agdDeviceKey :: !Text,
-    _agdUserPoolId :: !Text,
-    _agdUsername :: !(Sensitive Text)
+  { deviceKey :: Lude.Text,
+    userPoolId :: Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminGetDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'agdDeviceKey' - The device key.
---
--- * 'agdUserPoolId' - The user pool ID.
---
--- * 'agdUsername' - The user name.
-adminGetDevice ::
-  -- | 'agdDeviceKey'
-  Text ->
-  -- | 'agdUserPoolId'
-  Text ->
-  -- | 'agdUsername'
-  Text ->
+-- * 'deviceKey' - The device key.
+-- * 'userPoolId' - The user pool ID.
+-- * 'username' - The user name.
+mkAdminGetDevice ::
+  -- | 'deviceKey'
+  Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminGetDevice
-adminGetDevice pDeviceKey_ pUserPoolId_ pUsername_ =
+mkAdminGetDevice pDeviceKey_ pUserPoolId_ pUsername_ =
   AdminGetDevice'
-    { _agdDeviceKey = pDeviceKey_,
-      _agdUserPoolId = pUserPoolId_,
-      _agdUsername = _Sensitive # pUsername_
+    { deviceKey = pDeviceKey_,
+      userPoolId = pUserPoolId_,
+      username = pUsername_
     }
 
 -- | The device key.
-agdDeviceKey :: Lens' AdminGetDevice Text
-agdDeviceKey = lens _agdDeviceKey (\s a -> s {_agdDeviceKey = a})
+--
+-- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agdDeviceKey :: Lens.Lens' AdminGetDevice Lude.Text
+agdDeviceKey = Lens.lens (deviceKey :: AdminGetDevice -> Lude.Text) (\s a -> s {deviceKey = a} :: AdminGetDevice)
+{-# DEPRECATED agdDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
 -- | The user pool ID.
-agdUserPoolId :: Lens' AdminGetDevice Text
-agdUserPoolId = lens _agdUserPoolId (\s a -> s {_agdUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agdUserPoolId :: Lens.Lens' AdminGetDevice Lude.Text
+agdUserPoolId = Lens.lens (userPoolId :: AdminGetDevice -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminGetDevice)
+{-# DEPRECATED agdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name.
-agdUsername :: Lens' AdminGetDevice Text
-agdUsername = lens _agdUsername (\s a -> s {_agdUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agdUsername :: Lens.Lens' AdminGetDevice (Lude.Sensitive Lude.Text)
+agdUsername = Lens.lens (username :: AdminGetDevice -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminGetDevice)
+{-# DEPRECATED agdUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest AdminGetDevice where
+instance Lude.AWSRequest AdminGetDevice where
   type Rs AdminGetDevice = AdminGetDeviceResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AdminGetDeviceResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "Device")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Device")
       )
 
-instance Hashable AdminGetDevice
-
-instance NFData AdminGetDevice
-
-instance ToHeaders AdminGetDevice where
+instance Lude.ToHeaders AdminGetDevice where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.AdminGetDevice" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminGetDevice" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminGetDevice where
+instance Lude.ToJSON AdminGetDevice where
   toJSON AdminGetDevice' {..} =
-    object
-      ( catMaybes
-          [ Just ("DeviceKey" .= _agdDeviceKey),
-            Just ("UserPoolId" .= _agdUserPoolId),
-            Just ("Username" .= _agdUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DeviceKey" Lude..= deviceKey),
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath AdminGetDevice where
-  toPath = const "/"
+instance Lude.ToPath AdminGetDevice where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminGetDevice where
-  toQuery = const mempty
+instance Lude.ToQuery AdminGetDevice where
+  toQuery = Lude.const Lude.mempty
 
 -- | Gets the device response, as an administrator.
 --
---
---
--- /See:/ 'adminGetDeviceResponse' smart constructor.
+-- /See:/ 'mkAdminGetDeviceResponse' smart constructor.
 data AdminGetDeviceResponse = AdminGetDeviceResponse'
-  { _agdrsResponseStatus ::
-      !Int,
-    _agdrsDevice :: !DeviceType
+  { responseStatus ::
+      Lude.Int,
+    device :: DeviceType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminGetDeviceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'agdrsResponseStatus' - -- | The response status code.
---
--- * 'agdrsDevice' - The device.
-adminGetDeviceResponse ::
-  -- | 'agdrsResponseStatus'
-  Int ->
-  -- | 'agdrsDevice'
+-- * 'device' - The device.
+-- * 'responseStatus' - The response status code.
+mkAdminGetDeviceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'device'
   DeviceType ->
   AdminGetDeviceResponse
-adminGetDeviceResponse pResponseStatus_ pDevice_ =
+mkAdminGetDeviceResponse pResponseStatus_ pDevice_ =
   AdminGetDeviceResponse'
-    { _agdrsResponseStatus = pResponseStatus_,
-      _agdrsDevice = pDevice_
+    { responseStatus = pResponseStatus_,
+      device = pDevice_
     }
 
--- | -- | The response status code.
-agdrsResponseStatus :: Lens' AdminGetDeviceResponse Int
-agdrsResponseStatus = lens _agdrsResponseStatus (\s a -> s {_agdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agdrsResponseStatus :: Lens.Lens' AdminGetDeviceResponse Lude.Int
+agdrsResponseStatus = Lens.lens (responseStatus :: AdminGetDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminGetDeviceResponse)
+{-# DEPRECATED agdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The device.
-agdrsDevice :: Lens' AdminGetDeviceResponse DeviceType
-agdrsDevice = lens _agdrsDevice (\s a -> s {_agdrsDevice = a})
-
-instance NFData AdminGetDeviceResponse
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agdrsDevice :: Lens.Lens' AdminGetDeviceResponse DeviceType
+agdrsDevice = Lens.lens (device :: AdminGetDeviceResponse -> DeviceType) (\s a -> s {device = a} :: AdminGetDeviceResponse)
+{-# DEPRECATED agdrsDevice "Use generic-lens or generic-optics with 'device' instead." #-}

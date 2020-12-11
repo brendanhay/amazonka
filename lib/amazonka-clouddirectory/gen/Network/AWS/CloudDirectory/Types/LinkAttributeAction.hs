@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.LinkAttributeAction where
+module Network.AWS.CloudDirectory.Types.LinkAttributeAction
+  ( LinkAttributeAction (..),
+
+    -- * Smart constructor
+    mkLinkAttributeAction,
+
+    -- * Lenses
+    laaAttributeActionType,
+    laaAttributeUpdateValue,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import Network.AWS.CloudDirectory.Types.UpdateActionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The action to take on a typed link attribute value. Updates are only supported for attributes which don’t contribute to link identity.
 --
---
---
--- /See:/ 'linkAttributeAction' smart constructor.
+-- /See:/ 'mkLinkAttributeAction' smart constructor.
 data LinkAttributeAction = LinkAttributeAction'
-  { _laaAttributeActionType ::
-      !(Maybe UpdateActionType),
-    _laaAttributeUpdateValue ::
-      !(Maybe TypedAttributeValue)
+  { attributeActionType ::
+      Lude.Maybe UpdateActionType,
+    attributeUpdateValue ::
+      Lude.Maybe TypedAttributeValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LinkAttributeAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laaAttributeActionType' - A type that can be either @UPDATE_OR_CREATE@ or @DELETE@ .
---
--- * 'laaAttributeUpdateValue' - The value that you want to update to.
-linkAttributeAction ::
+-- * 'attributeActionType' - A type that can be either @UPDATE_OR_CREATE@ or @DELETE@ .
+-- * 'attributeUpdateValue' - The value that you want to update to.
+mkLinkAttributeAction ::
   LinkAttributeAction
-linkAttributeAction =
+mkLinkAttributeAction =
   LinkAttributeAction'
-    { _laaAttributeActionType = Nothing,
-      _laaAttributeUpdateValue = Nothing
+    { attributeActionType = Lude.Nothing,
+      attributeUpdateValue = Lude.Nothing
     }
 
 -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@ .
-laaAttributeActionType :: Lens' LinkAttributeAction (Maybe UpdateActionType)
-laaAttributeActionType = lens _laaAttributeActionType (\s a -> s {_laaAttributeActionType = a})
+--
+-- /Note:/ Consider using 'attributeActionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laaAttributeActionType :: Lens.Lens' LinkAttributeAction (Lude.Maybe UpdateActionType)
+laaAttributeActionType = Lens.lens (attributeActionType :: LinkAttributeAction -> Lude.Maybe UpdateActionType) (\s a -> s {attributeActionType = a} :: LinkAttributeAction)
+{-# DEPRECATED laaAttributeActionType "Use generic-lens or generic-optics with 'attributeActionType' instead." #-}
 
 -- | The value that you want to update to.
-laaAttributeUpdateValue :: Lens' LinkAttributeAction (Maybe TypedAttributeValue)
-laaAttributeUpdateValue = lens _laaAttributeUpdateValue (\s a -> s {_laaAttributeUpdateValue = a})
+--
+-- /Note:/ Consider using 'attributeUpdateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laaAttributeUpdateValue :: Lens.Lens' LinkAttributeAction (Lude.Maybe TypedAttributeValue)
+laaAttributeUpdateValue = Lens.lens (attributeUpdateValue :: LinkAttributeAction -> Lude.Maybe TypedAttributeValue) (\s a -> s {attributeUpdateValue = a} :: LinkAttributeAction)
+{-# DEPRECATED laaAttributeUpdateValue "Use generic-lens or generic-optics with 'attributeUpdateValue' instead." #-}
 
-instance Hashable LinkAttributeAction
-
-instance NFData LinkAttributeAction
-
-instance ToJSON LinkAttributeAction where
+instance Lude.ToJSON LinkAttributeAction where
   toJSON LinkAttributeAction' {..} =
-    object
-      ( catMaybes
-          [ ("AttributeActionType" .=) <$> _laaAttributeActionType,
-            ("AttributeUpdateValue" .=) <$> _laaAttributeUpdateValue
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AttributeActionType" Lude..=) Lude.<$> attributeActionType,
+            ("AttributeUpdateValue" Lude..=) Lude.<$> attributeUpdateValue
           ]
       )

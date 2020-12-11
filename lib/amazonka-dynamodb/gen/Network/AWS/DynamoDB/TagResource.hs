@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,110 @@
 --
 -- Associate a set of tags with an Amazon DynamoDB resource. You can then activate these user-defined tags so that they appear on the Billing and Cost Management console for cost allocation tracking. You can call TagResource up to five times per second, per account.
 --
---
 -- For an overview on tagging DynamoDB resources, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB> in the /Amazon DynamoDB Developer Guide/ .
 module Network.AWS.DynamoDB.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trResourceARN,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceARN :: !Text,
-    _trTags :: ![Tag]
+  { resourceARN :: Lude.Text,
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trResourceARN' - Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).
---
--- * 'trTags' - The tags to be assigned to the Amazon DynamoDB resource.
-tagResource ::
-  -- | 'trResourceARN'
-  Text ->
+-- * 'resourceARN' - Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).
+-- * 'tags' - The tags to be assigned to the Amazon DynamoDB resource.
+mkTagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   TagResource
-tagResource pResourceARN_ =
-  TagResource' {_trResourceARN = pResourceARN_, _trTags = mempty}
+mkTagResource pResourceARN_ =
+  TagResource' {resourceARN = pResourceARN_, tags = Lude.mempty}
 
 -- | Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).
-trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\s a -> s {_trResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceARN :: Lens.Lens' TagResource Lude.Text
+trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
+{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The tags to be assigned to the Amazon DynamoDB resource.
-trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource [Tag]
+trTags = Lens.lens (tags :: TagResource -> [Tag]) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postJSON dynamoDB
-  response = receiveNull TagResourceResponse'
+  request = Req.postJSON dynamoDBService
+  response = Res.receiveNull TagResourceResponse'
 
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToHeaders TagResource where
+instance Lude.ToHeaders TagResource where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DynamoDB_20120810.TagResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DynamoDB_20120810.TagResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TagResource where
+instance Lude.ToJSON TagResource where
   toJSON TagResource' {..} =
-    object
-      ( catMaybes
-          [Just ("ResourceArn" .= _trResourceARN), Just ("Tags" .= _trTags)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
+            Lude.Just ("Tags" Lude..= tags)
+          ]
       )
 
-instance ToPath TagResource where
-  toPath = const "/"
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/"
 
-instance ToQuery TagResource where
-  toQuery = const mempty
+instance Lude.ToQuery TagResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
-tagResourceResponse ::
+mkTagResourceResponse ::
   TagResourceResponse
-tagResourceResponse = TagResourceResponse'
-
-instance NFData TagResourceResponse
+mkTagResourceResponse = TagResourceResponse'

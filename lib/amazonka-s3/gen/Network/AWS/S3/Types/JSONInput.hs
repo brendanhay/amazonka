@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,37 +7,48 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.JSONInput where
+module Network.AWS.S3.Types.JSONInput
+  ( JSONInput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJSONInput,
+
+    -- * Lenses
+    jiType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.JSONType
 
 -- | Specifies JSON as object's input serialization format.
 --
---
---
--- /See:/ 'jsonInput' smart constructor.
-newtype JSONInput = JSONInput' {_jiType :: Maybe JSONType}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkJSONInput' smart constructor.
+newtype JSONInput = JSONInput' {type' :: Lude.Maybe JSONType}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JSONInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jiType' - The type of JSON. Valid values: Document, Lines.
-jsonInput ::
+-- * 'type'' - The type of JSON. Valid values: Document, Lines.
+mkJSONInput ::
   JSONInput
-jsonInput = JSONInput' {_jiType = Nothing}
+mkJSONInput = JSONInput' {type' = Lude.Nothing}
 
 -- | The type of JSON. Valid values: Document, Lines.
-jiType :: Lens' JSONInput (Maybe JSONType)
-jiType = lens _jiType (\s a -> s {_jiType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jiType :: Lens.Lens' JSONInput (Lude.Maybe JSONType)
+jiType = Lens.lens (type' :: JSONInput -> Lude.Maybe JSONType) (\s a -> s {type' = a} :: JSONInput)
+{-# DEPRECATED jiType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable JSONInput
-
-instance NFData JSONInput
-
-instance ToXML JSONInput where
-  toXML JSONInput' {..} = mconcat ["Type" @= _jiType]
+instance Lude.ToXML JSONInput where
+  toXML JSONInput' {..} = Lude.mconcat ["Type" Lude.@= type']

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionConfiguration where
+module Network.AWS.CodePipeline.Types.ActionConfiguration
+  ( ActionConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActionConfiguration,
+
+    -- * Lenses
+    acConfiguration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about an action configuration.
 --
---
---
--- /See:/ 'actionConfiguration' smart constructor.
+-- /See:/ 'mkActionConfiguration' smart constructor.
 newtype ActionConfiguration = ActionConfiguration'
-  { _acConfiguration ::
-      Maybe (Map Text (Text))
+  { configuration ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acConfiguration' - The configuration data for the action.
-actionConfiguration ::
+-- * 'configuration' - The configuration data for the action.
+mkActionConfiguration ::
   ActionConfiguration
-actionConfiguration =
-  ActionConfiguration' {_acConfiguration = Nothing}
+mkActionConfiguration =
+  ActionConfiguration' {configuration = Lude.Nothing}
 
 -- | The configuration data for the action.
-acConfiguration :: Lens' ActionConfiguration (HashMap Text (Text))
-acConfiguration = lens _acConfiguration (\s a -> s {_acConfiguration = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acConfiguration :: Lens.Lens' ActionConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+acConfiguration = Lens.lens (configuration :: ActionConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {configuration = a} :: ActionConfiguration)
+{-# DEPRECATED acConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
-instance FromJSON ActionConfiguration where
+instance Lude.FromJSON ActionConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionConfiguration"
       ( \x ->
-          ActionConfiguration' <$> (x .:? "configuration" .!= mempty)
+          ActionConfiguration'
+            Lude.<$> (x Lude..:? "configuration" Lude..!= Lude.mempty)
       )
-
-instance Hashable ActionConfiguration
-
-instance NFData ActionConfiguration

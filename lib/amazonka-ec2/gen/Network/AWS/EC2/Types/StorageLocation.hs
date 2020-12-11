@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.StorageLocation where
+module Network.AWS.EC2.Types.StorageLocation
+  ( StorageLocation (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStorageLocation,
+
+    -- * Lenses
+    slBucket,
+    slKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a storage location in Amazon S3.
 --
---
---
--- /See:/ 'storageLocation' smart constructor.
+-- /See:/ 'mkStorageLocation' smart constructor.
 data StorageLocation = StorageLocation'
-  { _slBucket :: !(Maybe Text),
-    _slKey :: !(Maybe Text)
+  { bucket ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageLocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slBucket' - The name of the S3 bucket.
---
--- * 'slKey' - The key.
-storageLocation ::
+-- * 'bucket' - The name of the S3 bucket.
+-- * 'key' - The key.
+mkStorageLocation ::
   StorageLocation
-storageLocation =
-  StorageLocation' {_slBucket = Nothing, _slKey = Nothing}
+mkStorageLocation =
+  StorageLocation' {bucket = Lude.Nothing, key = Lude.Nothing}
 
 -- | The name of the S3 bucket.
-slBucket :: Lens' StorageLocation (Maybe Text)
-slBucket = lens _slBucket (\s a -> s {_slBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slBucket :: Lens.Lens' StorageLocation (Lude.Maybe Lude.Text)
+slBucket = Lens.lens (bucket :: StorageLocation -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: StorageLocation)
+{-# DEPRECATED slBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The key.
-slKey :: Lens' StorageLocation (Maybe Text)
-slKey = lens _slKey (\s a -> s {_slKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slKey :: Lens.Lens' StorageLocation (Lude.Maybe Lude.Text)
+slKey = Lens.lens (key :: StorageLocation -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: StorageLocation)
+{-# DEPRECATED slKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable StorageLocation
-
-instance NFData StorageLocation
-
-instance ToQuery StorageLocation where
+instance Lude.ToQuery StorageLocation where
   toQuery StorageLocation' {..} =
-    mconcat ["Bucket" =: _slBucket, "Key" =: _slKey]
+    Lude.mconcat ["Bucket" Lude.=: bucket, "Key" Lude.=: key]

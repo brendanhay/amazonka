@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.DNSConfigChange where
+module Network.AWS.Route53AutoNaming.Types.DNSConfigChange
+  ( DNSConfigChange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDNSConfigChange,
+
+    -- * Lenses
+    dccDNSRecords,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.DNSRecord
 
 -- | A complex type that contains information about changes to the Route 53 DNS records that AWS Cloud Map creates when you register an instance.
 --
---
---
--- /See:/ 'dnsConfigChange' smart constructor.
+-- /See:/ 'mkDNSConfigChange' smart constructor.
 newtype DNSConfigChange = DNSConfigChange'
-  { _dccDNSRecords ::
+  { dnsRecords ::
       [DNSRecord]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DNSConfigChange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccDNSRecords' - An array that contains one @DnsRecord@ object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.
-dnsConfigChange ::
+-- * 'dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.
+mkDNSConfigChange ::
   DNSConfigChange
-dnsConfigChange = DNSConfigChange' {_dccDNSRecords = mempty}
+mkDNSConfigChange = DNSConfigChange' {dnsRecords = Lude.mempty}
 
 -- | An array that contains one @DnsRecord@ object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.
-dccDNSRecords :: Lens' DNSConfigChange [DNSRecord]
-dccDNSRecords = lens _dccDNSRecords (\s a -> s {_dccDNSRecords = a}) . _Coerce
+--
+-- /Note:/ Consider using 'dnsRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccDNSRecords :: Lens.Lens' DNSConfigChange [DNSRecord]
+dccDNSRecords = Lens.lens (dnsRecords :: DNSConfigChange -> [DNSRecord]) (\s a -> s {dnsRecords = a} :: DNSConfigChange)
+{-# DEPRECATED dccDNSRecords "Use generic-lens or generic-optics with 'dnsRecords' instead." #-}
 
-instance Hashable DNSConfigChange
-
-instance NFData DNSConfigChange
-
-instance ToJSON DNSConfigChange where
+instance Lude.ToJSON DNSConfigChange where
   toJSON DNSConfigChange' {..} =
-    object (catMaybes [Just ("DnsRecords" .= _dccDNSRecords)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DnsRecords" Lude..= dnsRecords)])

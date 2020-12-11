@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,136 @@
 --
 -- Associates a set of queues with a routing profile.
 module Network.AWS.Connect.AssociateRoutingProfileQueues
-  ( -- * Creating a Request
-    associateRoutingProfileQueues,
-    AssociateRoutingProfileQueues,
+  ( -- * Creating a request
+    AssociateRoutingProfileQueues (..),
+    mkAssociateRoutingProfileQueues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     arpqInstanceId,
     arpqRoutingProfileId,
     arpqQueueConfigs,
 
-    -- * Destructuring the Response
-    associateRoutingProfileQueuesResponse,
-    AssociateRoutingProfileQueuesResponse,
+    -- * Destructuring the response
+    AssociateRoutingProfileQueuesResponse (..),
+    mkAssociateRoutingProfileQueuesResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateRoutingProfileQueues' smart constructor.
+-- | /See:/ 'mkAssociateRoutingProfileQueues' smart constructor.
 data AssociateRoutingProfileQueues = AssociateRoutingProfileQueues'
-  { _arpqInstanceId ::
-      !Text,
-    _arpqRoutingProfileId :: !Text,
-    _arpqQueueConfigs ::
-      !( List1
-           RoutingProfileQueueConfig
-       )
+  { instanceId ::
+      Lude.Text,
+    routingProfileId :: Lude.Text,
+    queueConfigs ::
+      Lude.NonEmpty
+        RoutingProfileQueueConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateRoutingProfileQueues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arpqInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'arpqRoutingProfileId' - The identifier of the routing profile.
---
--- * 'arpqQueueConfigs' - The queues to associate with this routing profile.
-associateRoutingProfileQueues ::
-  -- | 'arpqInstanceId'
-  Text ->
-  -- | 'arpqRoutingProfileId'
-  Text ->
-  -- | 'arpqQueueConfigs'
-  NonEmpty RoutingProfileQueueConfig ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'queueConfigs' - The queues to associate with this routing profile.
+-- * 'routingProfileId' - The identifier of the routing profile.
+mkAssociateRoutingProfileQueues ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'routingProfileId'
+  Lude.Text ->
+  -- | 'queueConfigs'
+  Lude.NonEmpty RoutingProfileQueueConfig ->
   AssociateRoutingProfileQueues
-associateRoutingProfileQueues
+mkAssociateRoutingProfileQueues
   pInstanceId_
   pRoutingProfileId_
   pQueueConfigs_ =
     AssociateRoutingProfileQueues'
-      { _arpqInstanceId = pInstanceId_,
-        _arpqRoutingProfileId = pRoutingProfileId_,
-        _arpqQueueConfigs = _List1 # pQueueConfigs_
+      { instanceId = pInstanceId_,
+        routingProfileId = pRoutingProfileId_,
+        queueConfigs = pQueueConfigs_
       }
 
 -- | The identifier of the Amazon Connect instance.
-arpqInstanceId :: Lens' AssociateRoutingProfileQueues Text
-arpqInstanceId = lens _arpqInstanceId (\s a -> s {_arpqInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arpqInstanceId :: Lens.Lens' AssociateRoutingProfileQueues Lude.Text
+arpqInstanceId = Lens.lens (instanceId :: AssociateRoutingProfileQueues -> Lude.Text) (\s a -> s {instanceId = a} :: AssociateRoutingProfileQueues)
+{-# DEPRECATED arpqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
-arpqRoutingProfileId :: Lens' AssociateRoutingProfileQueues Text
-arpqRoutingProfileId = lens _arpqRoutingProfileId (\s a -> s {_arpqRoutingProfileId = a})
+--
+-- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arpqRoutingProfileId :: Lens.Lens' AssociateRoutingProfileQueues Lude.Text
+arpqRoutingProfileId = Lens.lens (routingProfileId :: AssociateRoutingProfileQueues -> Lude.Text) (\s a -> s {routingProfileId = a} :: AssociateRoutingProfileQueues)
+{-# DEPRECATED arpqRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | The queues to associate with this routing profile.
-arpqQueueConfigs :: Lens' AssociateRoutingProfileQueues (NonEmpty RoutingProfileQueueConfig)
-arpqQueueConfigs = lens _arpqQueueConfigs (\s a -> s {_arpqQueueConfigs = a}) . _List1
+--
+-- /Note:/ Consider using 'queueConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arpqQueueConfigs :: Lens.Lens' AssociateRoutingProfileQueues (Lude.NonEmpty RoutingProfileQueueConfig)
+arpqQueueConfigs = Lens.lens (queueConfigs :: AssociateRoutingProfileQueues -> Lude.NonEmpty RoutingProfileQueueConfig) (\s a -> s {queueConfigs = a} :: AssociateRoutingProfileQueues)
+{-# DEPRECATED arpqQueueConfigs "Use generic-lens or generic-optics with 'queueConfigs' instead." #-}
 
-instance AWSRequest AssociateRoutingProfileQueues where
+instance Lude.AWSRequest AssociateRoutingProfileQueues where
   type
     Rs AssociateRoutingProfileQueues =
       AssociateRoutingProfileQueuesResponse
-  request = postJSON connect
-  response = receiveNull AssociateRoutingProfileQueuesResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull AssociateRoutingProfileQueuesResponse'
 
-instance Hashable AssociateRoutingProfileQueues
-
-instance NFData AssociateRoutingProfileQueues
-
-instance ToHeaders AssociateRoutingProfileQueues where
+instance Lude.ToHeaders AssociateRoutingProfileQueues where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON AssociateRoutingProfileQueues where
+instance Lude.ToJSON AssociateRoutingProfileQueues where
   toJSON AssociateRoutingProfileQueues' {..} =
-    object (catMaybes [Just ("QueueConfigs" .= _arpqQueueConfigs)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("QueueConfigs" Lude..= queueConfigs)])
 
-instance ToPath AssociateRoutingProfileQueues where
+instance Lude.ToPath AssociateRoutingProfileQueues where
   toPath AssociateRoutingProfileQueues' {..} =
-    mconcat
+    Lude.mconcat
       [ "/routing-profiles/",
-        toBS _arpqInstanceId,
+        Lude.toBS instanceId,
         "/",
-        toBS _arpqRoutingProfileId,
+        Lude.toBS routingProfileId,
         "/associate-queues"
       ]
 
-instance ToQuery AssociateRoutingProfileQueues where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateRoutingProfileQueues where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateRoutingProfileQueuesResponse' smart constructor.
+-- | /See:/ 'mkAssociateRoutingProfileQueuesResponse' smart constructor.
 data AssociateRoutingProfileQueuesResponse = AssociateRoutingProfileQueuesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateRoutingProfileQueuesResponse' with the minimum fields required to make a request.
-associateRoutingProfileQueuesResponse ::
+mkAssociateRoutingProfileQueuesResponse ::
   AssociateRoutingProfileQueuesResponse
-associateRoutingProfileQueuesResponse =
+mkAssociateRoutingProfileQueuesResponse =
   AssociateRoutingProfileQueuesResponse'
-
-instance NFData AssociateRoutingProfileQueuesResponse

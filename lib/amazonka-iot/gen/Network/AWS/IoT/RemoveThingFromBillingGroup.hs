@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,156 @@
 --
 -- Removes the given thing from the billing group.
 module Network.AWS.IoT.RemoveThingFromBillingGroup
-  ( -- * Creating a Request
-    removeThingFromBillingGroup,
-    RemoveThingFromBillingGroup,
+  ( -- * Creating a request
+    RemoveThingFromBillingGroup (..),
+    mkRemoveThingFromBillingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtfbgThingARN,
     rtfbgBillingGroupARN,
     rtfbgThingName,
     rtfbgBillingGroupName,
 
-    -- * Destructuring the Response
-    removeThingFromBillingGroupResponse,
-    RemoveThingFromBillingGroupResponse,
+    -- * Destructuring the response
+    RemoveThingFromBillingGroupResponse (..),
+    mkRemoveThingFromBillingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtfbgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removeThingFromBillingGroup' smart constructor.
+-- | /See:/ 'mkRemoveThingFromBillingGroup' smart constructor.
 data RemoveThingFromBillingGroup = RemoveThingFromBillingGroup'
-  { _rtfbgThingARN ::
-      !(Maybe Text),
-    _rtfbgBillingGroupARN ::
-      !(Maybe Text),
-    _rtfbgThingName :: !(Maybe Text),
-    _rtfbgBillingGroupName ::
-      !(Maybe Text)
+  { thingARN ::
+      Lude.Maybe Lude.Text,
+    billingGroupARN ::
+      Lude.Maybe Lude.Text,
+    thingName :: Lude.Maybe Lude.Text,
+    billingGroupName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveThingFromBillingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfbgThingARN' - The ARN of the thing to be removed from the billing group.
---
--- * 'rtfbgBillingGroupARN' - The ARN of the billing group.
---
--- * 'rtfbgThingName' - The name of the thing to be removed from the billing group.
---
--- * 'rtfbgBillingGroupName' - The name of the billing group.
-removeThingFromBillingGroup ::
+-- * 'billingGroupARN' - The ARN of the billing group.
+-- * 'billingGroupName' - The name of the billing group.
+-- * 'thingARN' - The ARN of the thing to be removed from the billing group.
+-- * 'thingName' - The name of the thing to be removed from the billing group.
+mkRemoveThingFromBillingGroup ::
   RemoveThingFromBillingGroup
-removeThingFromBillingGroup =
+mkRemoveThingFromBillingGroup =
   RemoveThingFromBillingGroup'
-    { _rtfbgThingARN = Nothing,
-      _rtfbgBillingGroupARN = Nothing,
-      _rtfbgThingName = Nothing,
-      _rtfbgBillingGroupName = Nothing
+    { thingARN = Lude.Nothing,
+      billingGroupARN = Lude.Nothing,
+      thingName = Lude.Nothing,
+      billingGroupName = Lude.Nothing
     }
 
 -- | The ARN of the thing to be removed from the billing group.
-rtfbgThingARN :: Lens' RemoveThingFromBillingGroup (Maybe Text)
-rtfbgThingARN = lens _rtfbgThingARN (\s a -> s {_rtfbgThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbgThingARN :: Lens.Lens' RemoveThingFromBillingGroup (Lude.Maybe Lude.Text)
+rtfbgThingARN = Lens.lens (thingARN :: RemoveThingFromBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: RemoveThingFromBillingGroup)
+{-# DEPRECATED rtfbgThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | The ARN of the billing group.
-rtfbgBillingGroupARN :: Lens' RemoveThingFromBillingGroup (Maybe Text)
-rtfbgBillingGroupARN = lens _rtfbgBillingGroupARN (\s a -> s {_rtfbgBillingGroupARN = a})
+--
+-- /Note:/ Consider using 'billingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbgBillingGroupARN :: Lens.Lens' RemoveThingFromBillingGroup (Lude.Maybe Lude.Text)
+rtfbgBillingGroupARN = Lens.lens (billingGroupARN :: RemoveThingFromBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupARN = a} :: RemoveThingFromBillingGroup)
+{-# DEPRECATED rtfbgBillingGroupARN "Use generic-lens or generic-optics with 'billingGroupARN' instead." #-}
 
 -- | The name of the thing to be removed from the billing group.
-rtfbgThingName :: Lens' RemoveThingFromBillingGroup (Maybe Text)
-rtfbgThingName = lens _rtfbgThingName (\s a -> s {_rtfbgThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbgThingName :: Lens.Lens' RemoveThingFromBillingGroup (Lude.Maybe Lude.Text)
+rtfbgThingName = Lens.lens (thingName :: RemoveThingFromBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: RemoveThingFromBillingGroup)
+{-# DEPRECATED rtfbgThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The name of the billing group.
-rtfbgBillingGroupName :: Lens' RemoveThingFromBillingGroup (Maybe Text)
-rtfbgBillingGroupName = lens _rtfbgBillingGroupName (\s a -> s {_rtfbgBillingGroupName = a})
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbgBillingGroupName :: Lens.Lens' RemoveThingFromBillingGroup (Lude.Maybe Lude.Text)
+rtfbgBillingGroupName = Lens.lens (billingGroupName :: RemoveThingFromBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: RemoveThingFromBillingGroup)
+{-# DEPRECATED rtfbgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
-instance AWSRequest RemoveThingFromBillingGroup where
+instance Lude.AWSRequest RemoveThingFromBillingGroup where
   type
     Rs RemoveThingFromBillingGroup =
       RemoveThingFromBillingGroupResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          RemoveThingFromBillingGroupResponse' <$> (pure (fromEnum s))
+          RemoveThingFromBillingGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RemoveThingFromBillingGroup
+instance Lude.ToHeaders RemoveThingFromBillingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemoveThingFromBillingGroup
-
-instance ToHeaders RemoveThingFromBillingGroup where
-  toHeaders = const mempty
-
-instance ToJSON RemoveThingFromBillingGroup where
+instance Lude.ToJSON RemoveThingFromBillingGroup where
   toJSON RemoveThingFromBillingGroup' {..} =
-    object
-      ( catMaybes
-          [ ("thingArn" .=) <$> _rtfbgThingARN,
-            ("billingGroupArn" .=) <$> _rtfbgBillingGroupARN,
-            ("thingName" .=) <$> _rtfbgThingName,
-            ("billingGroupName" .=) <$> _rtfbgBillingGroupName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thingArn" Lude..=) Lude.<$> thingARN,
+            ("billingGroupArn" Lude..=) Lude.<$> billingGroupARN,
+            ("thingName" Lude..=) Lude.<$> thingName,
+            ("billingGroupName" Lude..=) Lude.<$> billingGroupName
           ]
       )
 
-instance ToPath RemoveThingFromBillingGroup where
-  toPath = const "/billing-groups/removeThingFromBillingGroup"
+instance Lude.ToPath RemoveThingFromBillingGroup where
+  toPath = Lude.const "/billing-groups/removeThingFromBillingGroup"
 
-instance ToQuery RemoveThingFromBillingGroup where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveThingFromBillingGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removeThingFromBillingGroupResponse' smart constructor.
+-- | /See:/ 'mkRemoveThingFromBillingGroupResponse' smart constructor.
 newtype RemoveThingFromBillingGroupResponse = RemoveThingFromBillingGroupResponse'
-  { _rtfbgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveThingFromBillingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfbgrsResponseStatus' - -- | The response status code.
-removeThingFromBillingGroupResponse ::
-  -- | 'rtfbgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRemoveThingFromBillingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RemoveThingFromBillingGroupResponse
-removeThingFromBillingGroupResponse pResponseStatus_ =
+mkRemoveThingFromBillingGroupResponse pResponseStatus_ =
   RemoveThingFromBillingGroupResponse'
-    { _rtfbgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-rtfbgrsResponseStatus :: Lens' RemoveThingFromBillingGroupResponse Int
-rtfbgrsResponseStatus = lens _rtfbgrsResponseStatus (\s a -> s {_rtfbgrsResponseStatus = a})
-
-instance NFData RemoveThingFromBillingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbgrsResponseStatus :: Lens.Lens' RemoveThingFromBillingGroupResponse Lude.Int
+rtfbgrsResponseStatus = Lens.lens (responseStatus :: RemoveThingFromBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveThingFromBillingGroupResponse)
+{-# DEPRECATED rtfbgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

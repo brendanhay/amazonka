@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.KeyManagerType where
+module Network.AWS.KMS.Types.KeyManagerType
+  ( KeyManagerType
+      ( KeyManagerType',
+        AWS,
+        Customer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data KeyManagerType
-  = AWS
-  | Customer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype KeyManagerType = KeyManagerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText KeyManagerType where
-  parser =
-    takeLowerText >>= \case
-      "aws" -> pure AWS
-      "customer" -> pure Customer
-      e ->
-        fromTextError $
-          "Failure parsing KeyManagerType from value: '" <> e
-            <> "'. Accepted values: aws, customer"
+pattern AWS :: KeyManagerType
+pattern AWS = KeyManagerType' "AWS"
 
-instance ToText KeyManagerType where
-  toText = \case
-    AWS -> "AWS"
-    Customer -> "CUSTOMER"
+pattern Customer :: KeyManagerType
+pattern Customer = KeyManagerType' "CUSTOMER"
 
-instance Hashable KeyManagerType
-
-instance NFData KeyManagerType
-
-instance ToByteString KeyManagerType
-
-instance ToQuery KeyManagerType
-
-instance ToHeader KeyManagerType
-
-instance FromJSON KeyManagerType where
-  parseJSON = parseJSONText "KeyManagerType"
+{-# COMPLETE
+  AWS,
+  Customer,
+  KeyManagerType'
+  #-}

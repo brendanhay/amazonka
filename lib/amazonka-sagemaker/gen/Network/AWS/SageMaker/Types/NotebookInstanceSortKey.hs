@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotebookInstanceSortKey where
+module Network.AWS.SageMaker.Types.NotebookInstanceSortKey
+  ( NotebookInstanceSortKey
+      ( NotebookInstanceSortKey',
+        NISKCreationTime,
+        NISKName,
+        NISKStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotebookInstanceSortKey
-  = NISKCreationTime
-  | NISKName
-  | NISKStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotebookInstanceSortKey = NotebookInstanceSortKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotebookInstanceSortKey where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure NISKCreationTime
-      "name" -> pure NISKName
-      "status" -> pure NISKStatus
-      e ->
-        fromTextError $
-          "Failure parsing NotebookInstanceSortKey from value: '" <> e
-            <> "'. Accepted values: creationtime, name, status"
+pattern NISKCreationTime :: NotebookInstanceSortKey
+pattern NISKCreationTime = NotebookInstanceSortKey' "CreationTime"
 
-instance ToText NotebookInstanceSortKey where
-  toText = \case
-    NISKCreationTime -> "CreationTime"
-    NISKName -> "Name"
-    NISKStatus -> "Status"
+pattern NISKName :: NotebookInstanceSortKey
+pattern NISKName = NotebookInstanceSortKey' "Name"
 
-instance Hashable NotebookInstanceSortKey
+pattern NISKStatus :: NotebookInstanceSortKey
+pattern NISKStatus = NotebookInstanceSortKey' "Status"
 
-instance NFData NotebookInstanceSortKey
-
-instance ToByteString NotebookInstanceSortKey
-
-instance ToQuery NotebookInstanceSortKey
-
-instance ToHeader NotebookInstanceSortKey
-
-instance ToJSON NotebookInstanceSortKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  NISKCreationTime,
+  NISKName,
+  NISKStatus,
+  NotebookInstanceSortKey'
+  #-}

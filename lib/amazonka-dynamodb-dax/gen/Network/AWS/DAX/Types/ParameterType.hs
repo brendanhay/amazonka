@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.ParameterType where
+module Network.AWS.DAX.Types.ParameterType
+  ( ParameterType
+      ( ParameterType',
+        Default,
+        NodeTypeSpecific
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParameterType
-  = Default
-  | NodeTypeSpecific
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParameterType = ParameterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParameterType where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure Default
-      "node_type_specific" -> pure NodeTypeSpecific
-      e ->
-        fromTextError $
-          "Failure parsing ParameterType from value: '" <> e
-            <> "'. Accepted values: default, node_type_specific"
+pattern Default :: ParameterType
+pattern Default = ParameterType' "DEFAULT"
 
-instance ToText ParameterType where
-  toText = \case
-    Default -> "DEFAULT"
-    NodeTypeSpecific -> "NODE_TYPE_SPECIFIC"
+pattern NodeTypeSpecific :: ParameterType
+pattern NodeTypeSpecific = ParameterType' "NODE_TYPE_SPECIFIC"
 
-instance Hashable ParameterType
-
-instance NFData ParameterType
-
-instance ToByteString ParameterType
-
-instance ToQuery ParameterType
-
-instance ToHeader ParameterType
-
-instance FromJSON ParameterType where
-  parseJSON = parseJSONText "ParameterType"
+{-# COMPLETE
+  Default,
+  NodeTypeSpecific,
+  ParameterType'
+  #-}

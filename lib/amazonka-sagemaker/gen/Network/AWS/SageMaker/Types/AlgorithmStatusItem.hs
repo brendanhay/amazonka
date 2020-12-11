@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AlgorithmStatusItem where
+module Network.AWS.SageMaker.Types.AlgorithmStatusItem
+  ( AlgorithmStatusItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAlgorithmStatusItem,
+
+    -- * Lenses
+    asiFailureReason,
+    asiName,
+    asiStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.DetailedAlgorithmStatus
 
 -- | Represents the overall status of an algorithm.
 --
---
---
--- /See:/ 'algorithmStatusItem' smart constructor.
+-- /See:/ 'mkAlgorithmStatusItem' smart constructor.
 data AlgorithmStatusItem = AlgorithmStatusItem'
-  { _asiFailureReason ::
-      !(Maybe Text),
-    _asiName :: !Text,
-    _asiStatus :: !DetailedAlgorithmStatus
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    status :: DetailedAlgorithmStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlgorithmStatusItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asiFailureReason' - if the overall status is @Failed@ , the reason for the failure.
---
--- * 'asiName' - The name of the algorithm for which the overall status is being reported.
---
--- * 'asiStatus' - The current status.
-algorithmStatusItem ::
-  -- | 'asiName'
-  Text ->
-  -- | 'asiStatus'
+-- * 'failureReason' - if the overall status is @Failed@ , the reason for the failure.
+-- * 'name' - The name of the algorithm for which the overall status is being reported.
+-- * 'status' - The current status.
+mkAlgorithmStatusItem ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'status'
   DetailedAlgorithmStatus ->
   AlgorithmStatusItem
-algorithmStatusItem pName_ pStatus_ =
+mkAlgorithmStatusItem pName_ pStatus_ =
   AlgorithmStatusItem'
-    { _asiFailureReason = Nothing,
-      _asiName = pName_,
-      _asiStatus = pStatus_
+    { failureReason = Lude.Nothing,
+      name = pName_,
+      status = pStatus_
     }
 
 -- | if the overall status is @Failed@ , the reason for the failure.
-asiFailureReason :: Lens' AlgorithmStatusItem (Maybe Text)
-asiFailureReason = lens _asiFailureReason (\s a -> s {_asiFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiFailureReason :: Lens.Lens' AlgorithmStatusItem (Lude.Maybe Lude.Text)
+asiFailureReason = Lens.lens (failureReason :: AlgorithmStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: AlgorithmStatusItem)
+{-# DEPRECATED asiFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The name of the algorithm for which the overall status is being reported.
-asiName :: Lens' AlgorithmStatusItem Text
-asiName = lens _asiName (\s a -> s {_asiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiName :: Lens.Lens' AlgorithmStatusItem Lude.Text
+asiName = Lens.lens (name :: AlgorithmStatusItem -> Lude.Text) (\s a -> s {name = a} :: AlgorithmStatusItem)
+{-# DEPRECATED asiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The current status.
-asiStatus :: Lens' AlgorithmStatusItem DetailedAlgorithmStatus
-asiStatus = lens _asiStatus (\s a -> s {_asiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiStatus :: Lens.Lens' AlgorithmStatusItem DetailedAlgorithmStatus
+asiStatus = Lens.lens (status :: AlgorithmStatusItem -> DetailedAlgorithmStatus) (\s a -> s {status = a} :: AlgorithmStatusItem)
+{-# DEPRECATED asiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON AlgorithmStatusItem where
+instance Lude.FromJSON AlgorithmStatusItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "AlgorithmStatusItem"
       ( \x ->
           AlgorithmStatusItem'
-            <$> (x .:? "FailureReason") <*> (x .: "Name") <*> (x .: "Status")
+            Lude.<$> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable AlgorithmStatusItem
-
-instance NFData AlgorithmStatusItem

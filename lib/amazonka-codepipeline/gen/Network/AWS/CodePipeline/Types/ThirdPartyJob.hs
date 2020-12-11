@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ThirdPartyJob where
+module Network.AWS.CodePipeline.Types.ThirdPartyJob
+  ( ThirdPartyJob (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkThirdPartyJob,
+
+    -- * Lenses
+    tpjClientId,
+    tpjJobId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A response to a @PollForThirdPartyJobs@ request returned by AWS CodePipeline when there is a job to be worked on by a partner action.
 --
---
---
--- /See:/ 'thirdPartyJob' smart constructor.
+-- /See:/ 'mkThirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
-  { _tpjClientId :: !(Maybe Text),
-    _tpjJobId :: !(Maybe Text)
+  { clientId ::
+      Lude.Maybe Lude.Text,
+    jobId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThirdPartyJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tpjClientId' - The @clientToken@ portion of the @clientId@ and @clientToken@ pair used to verify that the calling entity is allowed access to the job and its details.
---
--- * 'tpjJobId' - The identifier used to identify the job in AWS CodePipeline.
-thirdPartyJob ::
+-- * 'clientId' - The @clientToken@ portion of the @clientId@ and @clientToken@ pair used to verify that the calling entity is allowed access to the job and its details.
+-- * 'jobId' - The identifier used to identify the job in AWS CodePipeline.
+mkThirdPartyJob ::
   ThirdPartyJob
-thirdPartyJob =
-  ThirdPartyJob' {_tpjClientId = Nothing, _tpjJobId = Nothing}
+mkThirdPartyJob =
+  ThirdPartyJob' {clientId = Lude.Nothing, jobId = Lude.Nothing}
 
 -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used to verify that the calling entity is allowed access to the job and its details.
-tpjClientId :: Lens' ThirdPartyJob (Maybe Text)
-tpjClientId = lens _tpjClientId (\s a -> s {_tpjClientId = a})
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpjClientId :: Lens.Lens' ThirdPartyJob (Lude.Maybe Lude.Text)
+tpjClientId = Lens.lens (clientId :: ThirdPartyJob -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: ThirdPartyJob)
+{-# DEPRECATED tpjClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The identifier used to identify the job in AWS CodePipeline.
-tpjJobId :: Lens' ThirdPartyJob (Maybe Text)
-tpjJobId = lens _tpjJobId (\s a -> s {_tpjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpjJobId :: Lens.Lens' ThirdPartyJob (Lude.Maybe Lude.Text)
+tpjJobId = Lens.lens (jobId :: ThirdPartyJob -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: ThirdPartyJob)
+{-# DEPRECATED tpjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance FromJSON ThirdPartyJob where
+instance Lude.FromJSON ThirdPartyJob where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThirdPartyJob"
-      (\x -> ThirdPartyJob' <$> (x .:? "clientId") <*> (x .:? "jobId"))
-
-instance Hashable ThirdPartyJob
-
-instance NFData ThirdPartyJob
+      ( \x ->
+          ThirdPartyJob'
+            Lude.<$> (x Lude..:? "clientId") Lude.<*> (x Lude..:? "jobId")
+      )

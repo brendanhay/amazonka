@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,108 @@
 --
 -- Deletes the replication configuration from the bucket.
 --
---
 -- To use this operation, you must have permissions to perform the @s3:PutReplicationConfiguration@ action. The bucket owner has these permissions by default and can grant it to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> .
---
 -- For information about replication configuration, see < https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication> in the /Amazon S3 Developer Guide/ .
---
 -- The following operations are related to @DeleteBucketReplication@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html PutBucketReplication>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html GetBucketReplication>
 module Network.AWS.S3.DeleteBucketReplication
-  ( -- * Creating a Request
-    deleteBucketReplication,
-    DeleteBucketReplication,
+  ( -- * Creating a request
+    DeleteBucketReplication (..),
+    mkDeleteBucketReplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbrExpectedBucketOwner,
     dbrBucket,
 
-    -- * Destructuring the Response
-    deleteBucketReplicationResponse,
-    DeleteBucketReplicationResponse,
+    -- * Destructuring the response
+    DeleteBucketReplicationResponse (..),
+    mkDeleteBucketReplicationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'deleteBucketReplication' smart constructor.
+-- | /See:/ 'mkDeleteBucketReplication' smart constructor.
 data DeleteBucketReplication = DeleteBucketReplication'
-  { _dbrExpectedBucketOwner ::
-      !(Maybe Text),
-    _dbrBucket :: !BucketName
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketReplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'dbrBucket' - The bucket name.
-deleteBucketReplication ::
-  -- | 'dbrBucket'
+-- * 'bucket' - The bucket name.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkDeleteBucketReplication ::
+  -- | 'bucket'
   BucketName ->
   DeleteBucketReplication
-deleteBucketReplication pBucket_ =
+mkDeleteBucketReplication pBucket_ =
   DeleteBucketReplication'
-    { _dbrExpectedBucketOwner = Nothing,
-      _dbrBucket = pBucket_
+    { expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-dbrExpectedBucketOwner :: Lens' DeleteBucketReplication (Maybe Text)
-dbrExpectedBucketOwner = lens _dbrExpectedBucketOwner (\s a -> s {_dbrExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrExpectedBucketOwner :: Lens.Lens' DeleteBucketReplication (Lude.Maybe Lude.Text)
+dbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketReplication)
+{-# DEPRECATED dbrExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name.
-dbrBucket :: Lens' DeleteBucketReplication BucketName
-dbrBucket = lens _dbrBucket (\s a -> s {_dbrBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrBucket :: Lens.Lens' DeleteBucketReplication BucketName
+dbrBucket = Lens.lens (bucket :: DeleteBucketReplication -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketReplication)
+{-# DEPRECATED dbrBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest DeleteBucketReplication where
+instance Lude.AWSRequest DeleteBucketReplication where
   type Rs DeleteBucketReplication = DeleteBucketReplicationResponse
-  request = delete s3
-  response = receiveNull DeleteBucketReplicationResponse'
+  request = Req.delete s3Service
+  response = Res.receiveNull DeleteBucketReplicationResponse'
 
-instance Hashable DeleteBucketReplication
-
-instance NFData DeleteBucketReplication
-
-instance ToHeaders DeleteBucketReplication where
+instance Lude.ToHeaders DeleteBucketReplication where
   toHeaders DeleteBucketReplication' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _dbrExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath DeleteBucketReplication where
+instance Lude.ToPath DeleteBucketReplication where
   toPath DeleteBucketReplication' {..} =
-    mconcat ["/", toBS _dbrBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery DeleteBucketReplication where
-  toQuery = const (mconcat ["replication"])
+instance Lude.ToQuery DeleteBucketReplication where
+  toQuery = Lude.const (Lude.mconcat ["replication"])
 
--- | /See:/ 'deleteBucketReplicationResponse' smart constructor.
+-- | /See:/ 'mkDeleteBucketReplicationResponse' smart constructor.
 data DeleteBucketReplicationResponse = DeleteBucketReplicationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketReplicationResponse' with the minimum fields required to make a request.
-deleteBucketReplicationResponse ::
+mkDeleteBucketReplicationResponse ::
   DeleteBucketReplicationResponse
-deleteBucketReplicationResponse = DeleteBucketReplicationResponse'
-
-instance NFData DeleteBucketReplicationResponse
+mkDeleteBucketReplicationResponse =
+  DeleteBucketReplicationResponse'

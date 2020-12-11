@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,155 @@
 --
 -- Describes a budget.
 --
---
 -- /Important:/ The Request Syntax section shows the @BudgetLimit@ syntax. For @PlannedBudgetLimits@ , see the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples Examples> section.
 module Network.AWS.Budgets.DescribeBudget
-  ( -- * Creating a Request
-    describeBudget,
-    DescribeBudget,
+  ( -- * Creating a request
+    DescribeBudget (..),
+    mkDescribeBudget,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desAccountId,
     desBudgetName,
 
-    -- * Destructuring the Response
-    describeBudgetResponse,
-    DescribeBudgetResponse,
+    -- * Destructuring the response
+    DescribeBudgetResponse (..),
+    mkDescribeBudgetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsBudget,
     desrsResponseStatus,
   )
 where
 
 import Network.AWS.Budgets.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request of DescribeBudget
 --
---
---
--- /See:/ 'describeBudget' smart constructor.
+-- /See:/ 'mkDescribeBudget' smart constructor.
 data DescribeBudget = DescribeBudget'
-  { _desAccountId :: !Text,
-    _desBudgetName :: !Text
+  { accountId :: Lude.Text,
+    budgetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desAccountId' - The @accountId@ that is associated with the budget that you want a description of.
---
--- * 'desBudgetName' - The name of the budget that you want a description of.
-describeBudget ::
-  -- | 'desAccountId'
-  Text ->
-  -- | 'desBudgetName'
-  Text ->
+-- * 'accountId' - The @accountId@ that is associated with the budget that you want a description of.
+-- * 'budgetName' - The name of the budget that you want a description of.
+mkDescribeBudget ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
   DescribeBudget
-describeBudget pAccountId_ pBudgetName_ =
+mkDescribeBudget pAccountId_ pBudgetName_ =
   DescribeBudget'
-    { _desAccountId = pAccountId_,
-      _desBudgetName = pBudgetName_
+    { accountId = pAccountId_,
+      budgetName = pBudgetName_
     }
 
 -- | The @accountId@ that is associated with the budget that you want a description of.
-desAccountId :: Lens' DescribeBudget Text
-desAccountId = lens _desAccountId (\s a -> s {_desAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desAccountId :: Lens.Lens' DescribeBudget Lude.Text
+desAccountId = Lens.lens (accountId :: DescribeBudget -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudget)
+{-# DEPRECATED desAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the budget that you want a description of.
-desBudgetName :: Lens' DescribeBudget Text
-desBudgetName = lens _desBudgetName (\s a -> s {_desBudgetName = a})
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desBudgetName :: Lens.Lens' DescribeBudget Lude.Text
+desBudgetName = Lens.lens (budgetName :: DescribeBudget -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudget)
+{-# DEPRECATED desBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance AWSRequest DescribeBudget where
+instance Lude.AWSRequest DescribeBudget where
   type Rs DescribeBudget = DescribeBudgetResponse
-  request = postJSON budgets
+  request = Req.postJSON budgetsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBudgetResponse'
-            <$> (x .?> "Budget") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Budget") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBudget
-
-instance NFData DescribeBudget
-
-instance ToHeaders DescribeBudget where
+instance Lude.ToHeaders DescribeBudget where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSBudgetServiceGateway.DescribeBudget" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSBudgetServiceGateway.DescribeBudget" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeBudget where
+instance Lude.ToJSON DescribeBudget where
   toJSON DescribeBudget' {..} =
-    object
-      ( catMaybes
-          [ Just ("AccountId" .= _desAccountId),
-            Just ("BudgetName" .= _desBudgetName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
-instance ToPath DescribeBudget where
-  toPath = const "/"
+instance Lude.ToPath DescribeBudget where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeBudget where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBudget where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response of DescribeBudget
 --
---
---
--- /See:/ 'describeBudgetResponse' smart constructor.
+-- /See:/ 'mkDescribeBudgetResponse' smart constructor.
 data DescribeBudgetResponse = DescribeBudgetResponse'
-  { _desrsBudget ::
-      !(Maybe Budget),
-    _desrsResponseStatus :: !Int
+  { budget ::
+      Lude.Maybe Budget,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsBudget' - The description of the budget.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeBudgetResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'budget' - The description of the budget.
+-- * 'responseStatus' - The response status code.
+mkDescribeBudgetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBudgetResponse
-describeBudgetResponse pResponseStatus_ =
+mkDescribeBudgetResponse pResponseStatus_ =
   DescribeBudgetResponse'
-    { _desrsBudget = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { budget = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The description of the budget.
-desrsBudget :: Lens' DescribeBudgetResponse (Maybe Budget)
-desrsBudget = lens _desrsBudget (\s a -> s {_desrsBudget = a})
+--
+-- /Note:/ Consider using 'budget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsBudget :: Lens.Lens' DescribeBudgetResponse (Lude.Maybe Budget)
+desrsBudget = Lens.lens (budget :: DescribeBudgetResponse -> Lude.Maybe Budget) (\s a -> s {budget = a} :: DescribeBudgetResponse)
+{-# DEPRECATED desrsBudget "Use generic-lens or generic-optics with 'budget' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeBudgetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeBudgetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeBudgetResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

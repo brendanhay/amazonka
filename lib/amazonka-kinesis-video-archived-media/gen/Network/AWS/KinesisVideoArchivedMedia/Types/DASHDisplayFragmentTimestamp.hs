@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp where
+module Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
+  ( DASHDisplayFragmentTimestamp
+      ( DASHDisplayFragmentTimestamp',
+        DASHDFTAlways,
+        DASHDFTNever
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DASHDisplayFragmentTimestamp
-  = DASHDFTAlways
-  | DASHDFTNever
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DASHDisplayFragmentTimestamp = DASHDisplayFragmentTimestamp' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DASHDisplayFragmentTimestamp where
-  parser =
-    takeLowerText >>= \case
-      "always" -> pure DASHDFTAlways
-      "never" -> pure DASHDFTNever
-      e ->
-        fromTextError $
-          "Failure parsing DASHDisplayFragmentTimestamp from value: '" <> e
-            <> "'. Accepted values: always, never"
+pattern DASHDFTAlways :: DASHDisplayFragmentTimestamp
+pattern DASHDFTAlways = DASHDisplayFragmentTimestamp' "ALWAYS"
 
-instance ToText DASHDisplayFragmentTimestamp where
-  toText = \case
-    DASHDFTAlways -> "ALWAYS"
-    DASHDFTNever -> "NEVER"
+pattern DASHDFTNever :: DASHDisplayFragmentTimestamp
+pattern DASHDFTNever = DASHDisplayFragmentTimestamp' "NEVER"
 
-instance Hashable DASHDisplayFragmentTimestamp
-
-instance NFData DASHDisplayFragmentTimestamp
-
-instance ToByteString DASHDisplayFragmentTimestamp
-
-instance ToQuery DASHDisplayFragmentTimestamp
-
-instance ToHeader DASHDisplayFragmentTimestamp
-
-instance ToJSON DASHDisplayFragmentTimestamp where
-  toJSON = toJSONText
+{-# COMPLETE
+  DASHDFTAlways,
+  DASHDFTNever,
+  DASHDisplayFragmentTimestamp'
+  #-}

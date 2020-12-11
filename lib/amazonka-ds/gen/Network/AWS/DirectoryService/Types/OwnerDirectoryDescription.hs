@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.OwnerDirectoryDescription where
+module Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
+  ( OwnerDirectoryDescription (..),
+
+    -- * Smart constructor
+    mkOwnerDirectoryDescription,
+
+    -- * Lenses
+    oddRadiusStatus,
+    oddDirectoryId,
+    oddRadiusSettings,
+    oddAccountId,
+    oddDNSIPAddrs,
+    oddVPCSettings,
+  )
+where
 
 import Network.AWS.DirectoryService.Types.DirectoryVPCSettingsDescription
 import Network.AWS.DirectoryService.Types.RadiusSettings
 import Network.AWS.DirectoryService.Types.RadiusStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the directory owner account details that have been shared to the directory consumer account.
 --
---
---
--- /See:/ 'ownerDirectoryDescription' smart constructor.
+-- /See:/ 'mkOwnerDirectoryDescription' smart constructor.
 data OwnerDirectoryDescription = OwnerDirectoryDescription'
-  { _oddRadiusStatus ::
-      !(Maybe RadiusStatus),
-    _oddDirectoryId :: !(Maybe Text),
-    _oddRadiusSettings ::
-      !(Maybe RadiusSettings),
-    _oddAccountId :: !(Maybe Text),
-    _oddDNSIPAddrs :: !(Maybe [Text]),
-    _oddVPCSettings ::
-      !( Maybe
-           DirectoryVPCSettingsDescription
-       )
+  { radiusStatus ::
+      Lude.Maybe RadiusStatus,
+    directoryId :: Lude.Maybe Lude.Text,
+    radiusSettings ::
+      Lude.Maybe RadiusSettings,
+    accountId :: Lude.Maybe Lude.Text,
+    dnsIPAddrs :: Lude.Maybe [Lude.Text],
+    vpcSettings ::
+      Lude.Maybe
+        DirectoryVPCSettingsDescription
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OwnerDirectoryDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oddRadiusStatus' - Information about the status of the RADIUS server.
---
--- * 'oddDirectoryId' - Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
---
--- * 'oddRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
---
--- * 'oddAccountId' - Identifier of the directory owner account.
---
--- * 'oddDNSIPAddrs' - IP address of the directory’s domain controllers.
---
--- * 'oddVPCSettings' - Information about the VPC settings for the directory.
-ownerDirectoryDescription ::
+-- * 'accountId' - Identifier of the directory owner account.
+-- * 'directoryId' - Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
+-- * 'dnsIPAddrs' - IP address of the directory’s domain controllers.
+-- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
+-- * 'radiusStatus' - Information about the status of the RADIUS server.
+-- * 'vpcSettings' - Information about the VPC settings for the directory.
+mkOwnerDirectoryDescription ::
   OwnerDirectoryDescription
-ownerDirectoryDescription =
+mkOwnerDirectoryDescription =
   OwnerDirectoryDescription'
-    { _oddRadiusStatus = Nothing,
-      _oddDirectoryId = Nothing,
-      _oddRadiusSettings = Nothing,
-      _oddAccountId = Nothing,
-      _oddDNSIPAddrs = Nothing,
-      _oddVPCSettings = Nothing
+    { radiusStatus = Lude.Nothing,
+      directoryId = Lude.Nothing,
+      radiusSettings = Lude.Nothing,
+      accountId = Lude.Nothing,
+      dnsIPAddrs = Lude.Nothing,
+      vpcSettings = Lude.Nothing
     }
 
 -- | Information about the status of the RADIUS server.
-oddRadiusStatus :: Lens' OwnerDirectoryDescription (Maybe RadiusStatus)
-oddRadiusStatus = lens _oddRadiusStatus (\s a -> s {_oddRadiusStatus = a})
+--
+-- /Note:/ Consider using 'radiusStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddRadiusStatus :: Lens.Lens' OwnerDirectoryDescription (Lude.Maybe RadiusStatus)
+oddRadiusStatus = Lens.lens (radiusStatus :: OwnerDirectoryDescription -> Lude.Maybe RadiusStatus) (\s a -> s {radiusStatus = a} :: OwnerDirectoryDescription)
+{-# DEPRECATED oddRadiusStatus "Use generic-lens or generic-optics with 'radiusStatus' instead." #-}
 
 -- | Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
-oddDirectoryId :: Lens' OwnerDirectoryDescription (Maybe Text)
-oddDirectoryId = lens _oddDirectoryId (\s a -> s {_oddDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddDirectoryId :: Lens.Lens' OwnerDirectoryDescription (Lude.Maybe Lude.Text)
+oddDirectoryId = Lens.lens (directoryId :: OwnerDirectoryDescription -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: OwnerDirectoryDescription)
+{-# DEPRECATED oddDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | A 'RadiusSettings' object that contains information about the RADIUS server.
-oddRadiusSettings :: Lens' OwnerDirectoryDescription (Maybe RadiusSettings)
-oddRadiusSettings = lens _oddRadiusSettings (\s a -> s {_oddRadiusSettings = a})
+--
+-- /Note:/ Consider using 'radiusSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddRadiusSettings :: Lens.Lens' OwnerDirectoryDescription (Lude.Maybe RadiusSettings)
+oddRadiusSettings = Lens.lens (radiusSettings :: OwnerDirectoryDescription -> Lude.Maybe RadiusSettings) (\s a -> s {radiusSettings = a} :: OwnerDirectoryDescription)
+{-# DEPRECATED oddRadiusSettings "Use generic-lens or generic-optics with 'radiusSettings' instead." #-}
 
 -- | Identifier of the directory owner account.
-oddAccountId :: Lens' OwnerDirectoryDescription (Maybe Text)
-oddAccountId = lens _oddAccountId (\s a -> s {_oddAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddAccountId :: Lens.Lens' OwnerDirectoryDescription (Lude.Maybe Lude.Text)
+oddAccountId = Lens.lens (accountId :: OwnerDirectoryDescription -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: OwnerDirectoryDescription)
+{-# DEPRECATED oddAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | IP address of the directory’s domain controllers.
-oddDNSIPAddrs :: Lens' OwnerDirectoryDescription [Text]
-oddDNSIPAddrs = lens _oddDNSIPAddrs (\s a -> s {_oddDNSIPAddrs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dnsIPAddrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddDNSIPAddrs :: Lens.Lens' OwnerDirectoryDescription (Lude.Maybe [Lude.Text])
+oddDNSIPAddrs = Lens.lens (dnsIPAddrs :: OwnerDirectoryDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {dnsIPAddrs = a} :: OwnerDirectoryDescription)
+{-# DEPRECATED oddDNSIPAddrs "Use generic-lens or generic-optics with 'dnsIPAddrs' instead." #-}
 
 -- | Information about the VPC settings for the directory.
-oddVPCSettings :: Lens' OwnerDirectoryDescription (Maybe DirectoryVPCSettingsDescription)
-oddVPCSettings = lens _oddVPCSettings (\s a -> s {_oddVPCSettings = a})
+--
+-- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddVPCSettings :: Lens.Lens' OwnerDirectoryDescription (Lude.Maybe DirectoryVPCSettingsDescription)
+oddVPCSettings = Lens.lens (vpcSettings :: OwnerDirectoryDescription -> Lude.Maybe DirectoryVPCSettingsDescription) (\s a -> s {vpcSettings = a} :: OwnerDirectoryDescription)
+{-# DEPRECATED oddVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
 
-instance FromJSON OwnerDirectoryDescription where
+instance Lude.FromJSON OwnerDirectoryDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "OwnerDirectoryDescription"
       ( \x ->
           OwnerDirectoryDescription'
-            <$> (x .:? "RadiusStatus")
-            <*> (x .:? "DirectoryId")
-            <*> (x .:? "RadiusSettings")
-            <*> (x .:? "AccountId")
-            <*> (x .:? "DnsIpAddrs" .!= mempty)
-            <*> (x .:? "VpcSettings")
+            Lude.<$> (x Lude..:? "RadiusStatus")
+            Lude.<*> (x Lude..:? "DirectoryId")
+            Lude.<*> (x Lude..:? "RadiusSettings")
+            Lude.<*> (x Lude..:? "AccountId")
+            Lude.<*> (x Lude..:? "DnsIpAddrs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "VpcSettings")
       )
-
-instance Hashable OwnerDirectoryDescription
-
-instance NFData OwnerDirectoryDescription

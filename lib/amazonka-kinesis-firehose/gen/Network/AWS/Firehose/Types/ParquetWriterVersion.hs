@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ParquetWriterVersion where
+module Network.AWS.Firehose.Types.ParquetWriterVersion
+  ( ParquetWriterVersion
+      ( ParquetWriterVersion',
+        V1,
+        V2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParquetWriterVersion
-  = V1
-  | V2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParquetWriterVersion = ParquetWriterVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParquetWriterVersion where
-  parser =
-    takeLowerText >>= \case
-      "v1" -> pure V1
-      "v2" -> pure V2
-      e ->
-        fromTextError $
-          "Failure parsing ParquetWriterVersion from value: '" <> e
-            <> "'. Accepted values: v1, v2"
+pattern V1 :: ParquetWriterVersion
+pattern V1 = ParquetWriterVersion' "V1"
 
-instance ToText ParquetWriterVersion where
-  toText = \case
-    V1 -> "V1"
-    V2 -> "V2"
+pattern V2 :: ParquetWriterVersion
+pattern V2 = ParquetWriterVersion' "V2"
 
-instance Hashable ParquetWriterVersion
-
-instance NFData ParquetWriterVersion
-
-instance ToByteString ParquetWriterVersion
-
-instance ToQuery ParquetWriterVersion
-
-instance ToHeader ParquetWriterVersion
-
-instance ToJSON ParquetWriterVersion where
-  toJSON = toJSONText
-
-instance FromJSON ParquetWriterVersion where
-  parseJSON = parseJSONText "ParquetWriterVersion"
+{-# COMPLETE
+  V1,
+  V2,
+  ParquetWriterVersion'
+  #-}

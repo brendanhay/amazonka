@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Represents an update integration response.
 module Network.AWS.APIGateway.UpdateIntegrationResponse
-  ( -- * Creating a Request
-    updateIntegrationResponse,
-    UpdateIntegrationResponse,
+  ( -- * Creating a request
+    UpdateIntegrationResponse (..),
+    mkUpdateIntegrationResponse,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uiPatchOperations,
     uiRestAPIId,
     uiResourceId,
     uiHttpMethod,
     uiStatusCode,
 
-    -- * Destructuring the Response
-    integrationResponse,
-    IntegrationResponse,
+    -- * Destructuring the response
+    IntegrationResponse (..),
+    mkIntegrationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     intContentHandling,
     intResponseTemplates,
     intSelectionPattern,
@@ -44,112 +39,127 @@ module Network.AWS.APIGateway.UpdateIntegrationResponse
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents an update integration response request.
 --
---
---
--- /See:/ 'updateIntegrationResponse' smart constructor.
+-- /See:/ 'mkUpdateIntegrationResponse' smart constructor.
 data UpdateIntegrationResponse = UpdateIntegrationResponse'
-  { _uiPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uiRestAPIId :: !Text,
-    _uiResourceId :: !Text,
-    _uiHttpMethod :: !Text,
-    _uiStatusCode :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text,
+    statusCode :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateIntegrationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uiRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'uiResourceId' - [Required] Specifies an update integration response request's resource identifier.
---
--- * 'uiHttpMethod' - [Required] Specifies an update integration response request's HTTP method.
---
--- * 'uiStatusCode' - [Required] Specifies an update integration response request's status code.
-updateIntegrationResponse ::
-  -- | 'uiRestAPIId'
-  Text ->
-  -- | 'uiResourceId'
-  Text ->
-  -- | 'uiHttpMethod'
-  Text ->
-  -- | 'uiStatusCode'
-  Text ->
+-- * 'httpMethod' - [Required] Specifies an update integration response request's HTTP method.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'resourceId' - [Required] Specifies an update integration response request's resource identifier.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'statusCode' - [Required] Specifies an update integration response request's status code.
+mkUpdateIntegrationResponse ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'statusCode'
+  Lude.Text ->
   UpdateIntegrationResponse
-updateIntegrationResponse
+mkUpdateIntegrationResponse
   pRestAPIId_
   pResourceId_
   pHttpMethod_
   pStatusCode_ =
     UpdateIntegrationResponse'
-      { _uiPatchOperations = Nothing,
-        _uiRestAPIId = pRestAPIId_,
-        _uiResourceId = pResourceId_,
-        _uiHttpMethod = pHttpMethod_,
-        _uiStatusCode = pStatusCode_
+      { patchOperations = Lude.Nothing,
+        restAPIId = pRestAPIId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_,
+        statusCode = pStatusCode_
       }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uiPatchOperations :: Lens' UpdateIntegrationResponse [PatchOperation]
-uiPatchOperations = lens _uiPatchOperations (\s a -> s {_uiPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiPatchOperations :: Lens.Lens' UpdateIntegrationResponse (Lude.Maybe [PatchOperation])
+uiPatchOperations = Lens.lens (patchOperations :: UpdateIntegrationResponse -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateIntegrationResponse)
+{-# DEPRECATED uiPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-uiRestAPIId :: Lens' UpdateIntegrationResponse Text
-uiRestAPIId = lens _uiRestAPIId (\s a -> s {_uiRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiRestAPIId :: Lens.Lens' UpdateIntegrationResponse Lude.Text
+uiRestAPIId = Lens.lens (restAPIId :: UpdateIntegrationResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateIntegrationResponse)
+{-# DEPRECATED uiRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies an update integration response request's resource identifier.
-uiResourceId :: Lens' UpdateIntegrationResponse Text
-uiResourceId = lens _uiResourceId (\s a -> s {_uiResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiResourceId :: Lens.Lens' UpdateIntegrationResponse Lude.Text
+uiResourceId = Lens.lens (resourceId :: UpdateIntegrationResponse -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateIntegrationResponse)
+{-# DEPRECATED uiResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies an update integration response request's HTTP method.
-uiHttpMethod :: Lens' UpdateIntegrationResponse Text
-uiHttpMethod = lens _uiHttpMethod (\s a -> s {_uiHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiHttpMethod :: Lens.Lens' UpdateIntegrationResponse Lude.Text
+uiHttpMethod = Lens.lens (httpMethod :: UpdateIntegrationResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: UpdateIntegrationResponse)
+{-# DEPRECATED uiHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
 -- | [Required] Specifies an update integration response request's status code.
-uiStatusCode :: Lens' UpdateIntegrationResponse Text
-uiStatusCode = lens _uiStatusCode (\s a -> s {_uiStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiStatusCode :: Lens.Lens' UpdateIntegrationResponse Lude.Text
+uiStatusCode = Lens.lens (statusCode :: UpdateIntegrationResponse -> Lude.Text) (\s a -> s {statusCode = a} :: UpdateIntegrationResponse)
+{-# DEPRECATED uiStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance AWSRequest UpdateIntegrationResponse where
+instance Lude.AWSRequest UpdateIntegrationResponse where
   type Rs UpdateIntegrationResponse = IntegrationResponse
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateIntegrationResponse
-
-instance NFData UpdateIntegrationResponse
-
-instance ToHeaders UpdateIntegrationResponse where
+instance Lude.ToHeaders UpdateIntegrationResponse where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateIntegrationResponse where
+instance Lude.ToJSON UpdateIntegrationResponse where
   toJSON UpdateIntegrationResponse' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uiPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateIntegrationResponse where
+instance Lude.ToPath UpdateIntegrationResponse where
   toPath UpdateIntegrationResponse' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _uiRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _uiResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _uiHttpMethod,
+        Lude.toBS httpMethod,
         "/integration/responses/",
-        toBS _uiStatusCode
+        Lude.toBS statusCode
       ]
 
-instance ToQuery UpdateIntegrationResponse where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateIntegrationResponse where
+  toQuery = Lude.const Lude.mempty

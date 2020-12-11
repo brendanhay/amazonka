@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.ValidationError where
+module Network.AWS.DataPipeline.Types.ValidationError
+  ( ValidationError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkValidationError,
+
+    -- * Lenses
+    veId,
+    veErrors,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.
 --
---
---
--- /See:/ 'validationError' smart constructor.
+-- /See:/ 'mkValidationError' smart constructor.
 data ValidationError = ValidationError'
-  { _veId :: !(Maybe Text),
-    _veErrors :: !(Maybe [Text])
+  { id :: Lude.Maybe Lude.Text,
+    errors :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'veId' - The identifier of the object that contains the validation error.
---
--- * 'veErrors' - A description of the validation error.
-validationError ::
+-- * 'errors' - A description of the validation error.
+-- * 'id' - The identifier of the object that contains the validation error.
+mkValidationError ::
   ValidationError
-validationError =
-  ValidationError' {_veId = Nothing, _veErrors = Nothing}
+mkValidationError =
+  ValidationError' {id = Lude.Nothing, errors = Lude.Nothing}
 
 -- | The identifier of the object that contains the validation error.
-veId :: Lens' ValidationError (Maybe Text)
-veId = lens _veId (\s a -> s {_veId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veId :: Lens.Lens' ValidationError (Lude.Maybe Lude.Text)
+veId = Lens.lens (id :: ValidationError -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ValidationError)
+{-# DEPRECATED veId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A description of the validation error.
-veErrors :: Lens' ValidationError [Text]
-veErrors = lens _veErrors (\s a -> s {_veErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veErrors :: Lens.Lens' ValidationError (Lude.Maybe [Lude.Text])
+veErrors = Lens.lens (errors :: ValidationError -> Lude.Maybe [Lude.Text]) (\s a -> s {errors = a} :: ValidationError)
+{-# DEPRECATED veErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
-instance FromJSON ValidationError where
+instance Lude.FromJSON ValidationError where
   parseJSON =
-    withObject
+    Lude.withObject
       "ValidationError"
       ( \x ->
-          ValidationError' <$> (x .:? "id") <*> (x .:? "errors" .!= mempty)
+          ValidationError'
+            Lude.<$> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "errors" Lude..!= Lude.mempty)
       )
-
-instance Hashable ValidationError
-
-instance NFData ValidationError

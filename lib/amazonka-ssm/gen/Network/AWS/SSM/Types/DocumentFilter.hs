@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentFilter where
+module Network.AWS.SSM.Types.DocumentFilter
+  ( DocumentFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDocumentFilter,
+
+    -- * Lenses
+    dfKey,
+    dfValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.DocumentFilterKey
 
 -- | This data type is deprecated. Instead, use 'DocumentKeyValuesFilter' .
 --
---
---
--- /See:/ 'documentFilter' smart constructor.
+-- /See:/ 'mkDocumentFilter' smart constructor.
 data DocumentFilter = DocumentFilter'
-  { _dfKey :: !DocumentFilterKey,
-    _dfValue :: !Text
+  { key :: DocumentFilterKey,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfKey' - The name of the filter.
---
--- * 'dfValue' - The value of the filter.
-documentFilter ::
-  -- | 'dfKey'
+-- * 'key' - The name of the filter.
+-- * 'value' - The value of the filter.
+mkDocumentFilter ::
+  -- | 'key'
   DocumentFilterKey ->
-  -- | 'dfValue'
-  Text ->
+  -- | 'value'
+  Lude.Text ->
   DocumentFilter
-documentFilter pKey_ pValue_ =
-  DocumentFilter' {_dfKey = pKey_, _dfValue = pValue_}
+mkDocumentFilter pKey_ pValue_ =
+  DocumentFilter' {key = pKey_, value = pValue_}
 
 -- | The name of the filter.
-dfKey :: Lens' DocumentFilter DocumentFilterKey
-dfKey = lens _dfKey (\s a -> s {_dfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfKey :: Lens.Lens' DocumentFilter DocumentFilterKey
+dfKey = Lens.lens (key :: DocumentFilter -> DocumentFilterKey) (\s a -> s {key = a} :: DocumentFilter)
+{-# DEPRECATED dfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The value of the filter.
-dfValue :: Lens' DocumentFilter Text
-dfValue = lens _dfValue (\s a -> s {_dfValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfValue :: Lens.Lens' DocumentFilter Lude.Text
+dfValue = Lens.lens (value :: DocumentFilter -> Lude.Text) (\s a -> s {value = a} :: DocumentFilter)
+{-# DEPRECATED dfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable DocumentFilter
-
-instance NFData DocumentFilter
-
-instance ToJSON DocumentFilter where
+instance Lude.ToJSON DocumentFilter where
   toJSON DocumentFilter' {..} =
-    object
-      (catMaybes [Just ("key" .= _dfKey), Just ("value" .= _dfValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("key" Lude..= key), Lude.Just ("value" Lude..= value)]
+      )

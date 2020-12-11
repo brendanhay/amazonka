@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CreateGrokClassifierRequest where
+module Network.AWS.Glue.Types.CreateGrokClassifierRequest
+  ( CreateGrokClassifierRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCreateGrokClassifierRequest,
+
+    -- * Lenses
+    cgcrCustomPatterns,
+    cgcrClassification,
+    cgcrName,
+    cgcrGrokPattern,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a @grok@ classifier for @CreateClassifier@ to create.
 --
---
---
--- /See:/ 'createGrokClassifierRequest' smart constructor.
+-- /See:/ 'mkCreateGrokClassifierRequest' smart constructor.
 data CreateGrokClassifierRequest = CreateGrokClassifierRequest'
-  { _cgcrCustomPatterns ::
-      !(Maybe Text),
-    _cgcrClassification :: !Text,
-    _cgcrName :: !Text,
-    _cgcrGrokPattern :: !Text
+  { customPatterns ::
+      Lude.Maybe Lude.Text,
+    classification :: Lude.Text,
+    name :: Lude.Text,
+    grokPattern :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGrokClassifierRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgcrCustomPatterns' - Optional custom grok patterns used by this classifier.
---
--- * 'cgcrClassification' - An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
---
--- * 'cgcrName' - The name of the new classifier.
---
--- * 'cgcrGrokPattern' - The grok pattern used by this classifier.
-createGrokClassifierRequest ::
-  -- | 'cgcrClassification'
-  Text ->
-  -- | 'cgcrName'
-  Text ->
-  -- | 'cgcrGrokPattern'
-  Text ->
+-- * 'classification' - An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+-- * 'customPatterns' - Optional custom grok patterns used by this classifier.
+-- * 'grokPattern' - The grok pattern used by this classifier.
+-- * 'name' - The name of the new classifier.
+mkCreateGrokClassifierRequest ::
+  -- | 'classification'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'grokPattern'
+  Lude.Text ->
   CreateGrokClassifierRequest
-createGrokClassifierRequest pClassification_ pName_ pGrokPattern_ =
+mkCreateGrokClassifierRequest pClassification_ pName_ pGrokPattern_ =
   CreateGrokClassifierRequest'
-    { _cgcrCustomPatterns = Nothing,
-      _cgcrClassification = pClassification_,
-      _cgcrName = pName_,
-      _cgcrGrokPattern = pGrokPattern_
+    { customPatterns = Lude.Nothing,
+      classification = pClassification_,
+      name = pName_,
+      grokPattern = pGrokPattern_
     }
 
 -- | Optional custom grok patterns used by this classifier.
-cgcrCustomPatterns :: Lens' CreateGrokClassifierRequest (Maybe Text)
-cgcrCustomPatterns = lens _cgcrCustomPatterns (\s a -> s {_cgcrCustomPatterns = a})
+--
+-- /Note:/ Consider using 'customPatterns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcrCustomPatterns :: Lens.Lens' CreateGrokClassifierRequest (Lude.Maybe Lude.Text)
+cgcrCustomPatterns = Lens.lens (customPatterns :: CreateGrokClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {customPatterns = a} :: CreateGrokClassifierRequest)
+{-# DEPRECATED cgcrCustomPatterns "Use generic-lens or generic-optics with 'customPatterns' instead." #-}
 
 -- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-cgcrClassification :: Lens' CreateGrokClassifierRequest Text
-cgcrClassification = lens _cgcrClassification (\s a -> s {_cgcrClassification = a})
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcrClassification :: Lens.Lens' CreateGrokClassifierRequest Lude.Text
+cgcrClassification = Lens.lens (classification :: CreateGrokClassifierRequest -> Lude.Text) (\s a -> s {classification = a} :: CreateGrokClassifierRequest)
+{-# DEPRECATED cgcrClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The name of the new classifier.
-cgcrName :: Lens' CreateGrokClassifierRequest Text
-cgcrName = lens _cgcrName (\s a -> s {_cgcrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcrName :: Lens.Lens' CreateGrokClassifierRequest Lude.Text
+cgcrName = Lens.lens (name :: CreateGrokClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: CreateGrokClassifierRequest)
+{-# DEPRECATED cgcrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The grok pattern used by this classifier.
-cgcrGrokPattern :: Lens' CreateGrokClassifierRequest Text
-cgcrGrokPattern = lens _cgcrGrokPattern (\s a -> s {_cgcrGrokPattern = a})
+--
+-- /Note:/ Consider using 'grokPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcrGrokPattern :: Lens.Lens' CreateGrokClassifierRequest Lude.Text
+cgcrGrokPattern = Lens.lens (grokPattern :: CreateGrokClassifierRequest -> Lude.Text) (\s a -> s {grokPattern = a} :: CreateGrokClassifierRequest)
+{-# DEPRECATED cgcrGrokPattern "Use generic-lens or generic-optics with 'grokPattern' instead." #-}
 
-instance Hashable CreateGrokClassifierRequest
-
-instance NFData CreateGrokClassifierRequest
-
-instance ToJSON CreateGrokClassifierRequest where
+instance Lude.ToJSON CreateGrokClassifierRequest where
   toJSON CreateGrokClassifierRequest' {..} =
-    object
-      ( catMaybes
-          [ ("CustomPatterns" .=) <$> _cgcrCustomPatterns,
-            Just ("Classification" .= _cgcrClassification),
-            Just ("Name" .= _cgcrName),
-            Just ("GrokPattern" .= _cgcrGrokPattern)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CustomPatterns" Lude..=) Lude.<$> customPatterns,
+            Lude.Just ("Classification" Lude..= classification),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("GrokPattern" Lude..= grokPattern)
           ]
       )

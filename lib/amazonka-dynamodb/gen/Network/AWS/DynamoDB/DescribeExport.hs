@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,129 @@
 --
 -- Describes an existing table export.
 module Network.AWS.DynamoDB.DescribeExport
-  ( -- * Creating a Request
-    describeExport,
-    DescribeExport,
+  ( -- * Creating a request
+    DescribeExport (..),
+    mkDescribeExport,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deExportARN,
 
-    -- * Destructuring the Response
-    describeExportResponse,
-    DescribeExportResponse,
+    -- * Destructuring the response
+    DescribeExportResponse (..),
+    mkDescribeExportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     deersExportDescription,
     deersResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeExport' smart constructor.
-newtype DescribeExport = DescribeExport' {_deExportARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeExport' smart constructor.
+newtype DescribeExport = DescribeExport' {exportARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deExportARN' - The Amazon Resource Name (ARN) associated with the export.
-describeExport ::
-  -- | 'deExportARN'
-  Text ->
+-- * 'exportARN' - The Amazon Resource Name (ARN) associated with the export.
+mkDescribeExport ::
+  -- | 'exportARN'
+  Lude.Text ->
   DescribeExport
-describeExport pExportARN_ =
-  DescribeExport' {_deExportARN = pExportARN_}
+mkDescribeExport pExportARN_ =
+  DescribeExport' {exportARN = pExportARN_}
 
 -- | The Amazon Resource Name (ARN) associated with the export.
-deExportARN :: Lens' DescribeExport Text
-deExportARN = lens _deExportARN (\s a -> s {_deExportARN = a})
+--
+-- /Note:/ Consider using 'exportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deExportARN :: Lens.Lens' DescribeExport Lude.Text
+deExportARN = Lens.lens (exportARN :: DescribeExport -> Lude.Text) (\s a -> s {exportARN = a} :: DescribeExport)
+{-# DEPRECATED deExportARN "Use generic-lens or generic-optics with 'exportARN' instead." #-}
 
-instance AWSRequest DescribeExport where
+instance Lude.AWSRequest DescribeExport where
   type Rs DescribeExport = DescribeExportResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeExportResponse'
-            <$> (x .?> "ExportDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ExportDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeExport
-
-instance NFData DescribeExport
-
-instance ToHeaders DescribeExport where
+instance Lude.ToHeaders DescribeExport where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.DescribeExport" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.DescribeExport" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeExport where
+instance Lude.ToJSON DescribeExport where
   toJSON DescribeExport' {..} =
-    object (catMaybes [Just ("ExportArn" .= _deExportARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ExportArn" Lude..= exportARN)])
 
-instance ToPath DescribeExport where
-  toPath = const "/"
+instance Lude.ToPath DescribeExport where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeExport where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeExport where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeExportResponse' smart constructor.
+-- | /See:/ 'mkDescribeExportResponse' smart constructor.
 data DescribeExportResponse = DescribeExportResponse'
-  { _deersExportDescription ::
-      !(Maybe ExportDescription),
-    _deersResponseStatus :: !Int
+  { exportDescription ::
+      Lude.Maybe ExportDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deersExportDescription' - Represents the properties of the export.
---
--- * 'deersResponseStatus' - -- | The response status code.
-describeExportResponse ::
-  -- | 'deersResponseStatus'
-  Int ->
+-- * 'exportDescription' - Represents the properties of the export.
+-- * 'responseStatus' - The response status code.
+mkDescribeExportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeExportResponse
-describeExportResponse pResponseStatus_ =
+mkDescribeExportResponse pResponseStatus_ =
   DescribeExportResponse'
-    { _deersExportDescription = Nothing,
-      _deersResponseStatus = pResponseStatus_
+    { exportDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Represents the properties of the export.
-deersExportDescription :: Lens' DescribeExportResponse (Maybe ExportDescription)
-deersExportDescription = lens _deersExportDescription (\s a -> s {_deersExportDescription = a})
+--
+-- /Note:/ Consider using 'exportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersExportDescription :: Lens.Lens' DescribeExportResponse (Lude.Maybe ExportDescription)
+deersExportDescription = Lens.lens (exportDescription :: DescribeExportResponse -> Lude.Maybe ExportDescription) (\s a -> s {exportDescription = a} :: DescribeExportResponse)
+{-# DEPRECATED deersExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
 
--- | -- | The response status code.
-deersResponseStatus :: Lens' DescribeExportResponse Int
-deersResponseStatus = lens _deersResponseStatus (\s a -> s {_deersResponseStatus = a})
-
-instance NFData DescribeExportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersResponseStatus :: Lens.Lens' DescribeExportResponse Lude.Int
+deersResponseStatus = Lens.lens (responseStatus :: DescribeExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportResponse)
+{-# DEPRECATED deersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

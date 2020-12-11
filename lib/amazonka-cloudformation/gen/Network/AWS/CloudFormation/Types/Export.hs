@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.Export where
+module Network.AWS.CloudFormation.Types.Export
+  ( Export (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExport,
+
+    -- * Lenses
+    eValue,
+    eExportingStackId,
+    eName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @Export@ structure describes the exported output values for a stack.
 --
---
---
--- /See:/ 'export'' smart constructor.
+-- /See:/ 'mkExport' smart constructor.
 data Export = Export'
-  { _eValue :: !(Maybe Text),
-    _eExportingStackId :: !(Maybe Text),
-    _eName :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    exportingStackId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Export' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eValue' - The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
---
--- * 'eExportingStackId' - The stack that contains the exported output name and value.
---
--- * 'eName' - The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
-export' ::
+-- * 'exportingStackId' - The stack that contains the exported output name and value.
+-- * 'name' - The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
+-- * 'value' - The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
+mkExport ::
   Export
-export' =
+mkExport =
   Export'
-    { _eValue = Nothing,
-      _eExportingStackId = Nothing,
-      _eName = Nothing
+    { value = Lude.Nothing,
+      exportingStackId = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
-eValue :: Lens' Export (Maybe Text)
-eValue = lens _eValue (\s a -> s {_eValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eValue :: Lens.Lens' Export (Lude.Maybe Lude.Text)
+eValue = Lens.lens (value :: Export -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Export)
+{-# DEPRECATED eValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The stack that contains the exported output name and value.
-eExportingStackId :: Lens' Export (Maybe Text)
-eExportingStackId = lens _eExportingStackId (\s a -> s {_eExportingStackId = a})
+--
+-- /Note:/ Consider using 'exportingStackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eExportingStackId :: Lens.Lens' Export (Lude.Maybe Lude.Text)
+eExportingStackId = Lens.lens (exportingStackId :: Export -> Lude.Maybe Lude.Text) (\s a -> s {exportingStackId = a} :: Export)
+{-# DEPRECATED eExportingStackId "Use generic-lens or generic-optics with 'exportingStackId' instead." #-}
 
 -- | The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
-eName :: Lens' Export (Maybe Text)
-eName = lens _eName (\s a -> s {_eName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eName :: Lens.Lens' Export (Lude.Maybe Lude.Text)
+eName = Lens.lens (name :: Export -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Export)
+{-# DEPRECATED eName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML Export where
+instance Lude.FromXML Export where
   parseXML x =
     Export'
-      <$> (x .@? "Value") <*> (x .@? "ExportingStackId") <*> (x .@? "Name")
-
-instance Hashable Export
-
-instance NFData Export
+      Lude.<$> (x Lude..@? "Value")
+      Lude.<*> (x Lude..@? "ExportingStackId")
+      Lude.<*> (x Lude..@? "Name")

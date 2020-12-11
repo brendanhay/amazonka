@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity where
+module Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity
+  ( RemoveAttributesActivity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRemoveAttributesActivity,
+
+    -- * Lenses
+    raaNext,
+    raaName,
+    raaAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An activity that removes attributes from a message.
 --
---
---
--- /See:/ 'removeAttributesActivity' smart constructor.
+-- /See:/ 'mkRemoveAttributesActivity' smart constructor.
 data RemoveAttributesActivity = RemoveAttributesActivity'
-  { _raaNext ::
-      !(Maybe Text),
-    _raaName :: !Text,
-    _raaAttributes :: !(List1 Text)
+  { next ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    attributes :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAttributesActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raaNext' - The next activity in the pipeline.
---
--- * 'raaName' - The name of the @removeAttributes@ activity.
---
--- * 'raaAttributes' - A list of 1-50 attributes to remove from the message.
-removeAttributesActivity ::
-  -- | 'raaName'
-  Text ->
-  -- | 'raaAttributes'
-  NonEmpty Text ->
+-- * 'attributes' - A list of 1-50 attributes to remove from the message.
+-- * 'name' - The name of the @removeAttributes@ activity.
+-- * 'next' - The next activity in the pipeline.
+mkRemoveAttributesActivity ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'attributes'
+  Lude.NonEmpty Lude.Text ->
   RemoveAttributesActivity
-removeAttributesActivity pName_ pAttributes_ =
+mkRemoveAttributesActivity pName_ pAttributes_ =
   RemoveAttributesActivity'
-    { _raaNext = Nothing,
-      _raaName = pName_,
-      _raaAttributes = _List1 # pAttributes_
+    { next = Lude.Nothing,
+      name = pName_,
+      attributes = pAttributes_
     }
 
 -- | The next activity in the pipeline.
-raaNext :: Lens' RemoveAttributesActivity (Maybe Text)
-raaNext = lens _raaNext (\s a -> s {_raaNext = a})
+--
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raaNext :: Lens.Lens' RemoveAttributesActivity (Lude.Maybe Lude.Text)
+raaNext = Lens.lens (next :: RemoveAttributesActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: RemoveAttributesActivity)
+{-# DEPRECATED raaNext "Use generic-lens or generic-optics with 'next' instead." #-}
 
 -- | The name of the @removeAttributes@ activity.
-raaName :: Lens' RemoveAttributesActivity Text
-raaName = lens _raaName (\s a -> s {_raaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raaName :: Lens.Lens' RemoveAttributesActivity Lude.Text
+raaName = Lens.lens (name :: RemoveAttributesActivity -> Lude.Text) (\s a -> s {name = a} :: RemoveAttributesActivity)
+{-# DEPRECATED raaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of 1-50 attributes to remove from the message.
-raaAttributes :: Lens' RemoveAttributesActivity (NonEmpty Text)
-raaAttributes = lens _raaAttributes (\s a -> s {_raaAttributes = a}) . _List1
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raaAttributes :: Lens.Lens' RemoveAttributesActivity (Lude.NonEmpty Lude.Text)
+raaAttributes = Lens.lens (attributes :: RemoveAttributesActivity -> Lude.NonEmpty Lude.Text) (\s a -> s {attributes = a} :: RemoveAttributesActivity)
+{-# DEPRECATED raaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromJSON RemoveAttributesActivity where
+instance Lude.FromJSON RemoveAttributesActivity where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemoveAttributesActivity"
       ( \x ->
           RemoveAttributesActivity'
-            <$> (x .:? "next") <*> (x .: "name") <*> (x .: "attributes")
+            Lude.<$> (x Lude..:? "next")
+            Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..: "attributes")
       )
 
-instance Hashable RemoveAttributesActivity
-
-instance NFData RemoveAttributesActivity
-
-instance ToJSON RemoveAttributesActivity where
+instance Lude.ToJSON RemoveAttributesActivity where
   toJSON RemoveAttributesActivity' {..} =
-    object
-      ( catMaybes
-          [ ("next" .=) <$> _raaNext,
-            Just ("name" .= _raaName),
-            Just ("attributes" .= _raaAttributes)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("next" Lude..=) Lude.<$> next,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("attributes" Lude..= attributes)
           ]
       )

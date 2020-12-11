@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.MetricDimension where
+module Network.AWS.EMR.Types.MetricDimension
+  ( MetricDimension (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricDimension,
+
+    -- * Lenses
+    mdValue,
+    mdKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A CloudWatch dimension, which is specified using a @Key@ (known as a @Name@ in CloudWatch), @Value@ pair. By default, Amazon EMR uses one dimension whose @Key@ is @JobFlowID@ and @Value@ is a variable representing the cluster ID, which is @> {emr.clusterId}@ . This enables the rule to bootstrap when the cluster ID becomes available.
 --
---
---
--- /See:/ 'metricDimension' smart constructor.
+-- /See:/ 'mkMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { _mdValue :: !(Maybe Text),
-    _mdKey :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdValue' - The dimension value.
---
--- * 'mdKey' - The dimension name.
-metricDimension ::
+-- * 'key' - The dimension name.
+-- * 'value' - The dimension value.
+mkMetricDimension ::
   MetricDimension
-metricDimension =
-  MetricDimension' {_mdValue = Nothing, _mdKey = Nothing}
+mkMetricDimension =
+  MetricDimension' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | The dimension value.
-mdValue :: Lens' MetricDimension (Maybe Text)
-mdValue = lens _mdValue (\s a -> s {_mdValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdValue :: Lens.Lens' MetricDimension (Lude.Maybe Lude.Text)
+mdValue = Lens.lens (value :: MetricDimension -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: MetricDimension)
+{-# DEPRECATED mdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The dimension name.
-mdKey :: Lens' MetricDimension (Maybe Text)
-mdKey = lens _mdKey (\s a -> s {_mdKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdKey :: Lens.Lens' MetricDimension (Lude.Maybe Lude.Text)
+mdKey = Lens.lens (key :: MetricDimension -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: MetricDimension)
+{-# DEPRECATED mdKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON MetricDimension where
+instance Lude.FromJSON MetricDimension where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricDimension"
-      (\x -> MetricDimension' <$> (x .:? "Value") <*> (x .:? "Key"))
+      ( \x ->
+          MetricDimension'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Key")
+      )
 
-instance Hashable MetricDimension
-
-instance NFData MetricDimension
-
-instance ToJSON MetricDimension where
+instance Lude.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _mdValue, ("Key" .=) <$> _mdKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.DashPackage where
+module Network.AWS.MediaPackage.Types.DashPackage
+  ( DashPackage (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkDashPackage,
+
+    -- * Lenses
+    dpAdsOnDeliveryRestrictions,
+    dpMinBufferTimeSeconds,
+    dpUtcTiming,
+    dpSegmentTemplateFormat,
+    dpProfile,
+    dpSegmentDurationSeconds,
+    dpUtcTimingURI,
+    dpStreamSelection,
+    dpEncryption,
+    dpMinUpdatePeriodSeconds,
+    dpManifestLayout,
+    dpSuggestedPresentationDelaySeconds,
+    dpManifestWindowSeconds,
+    dpAdTriggers,
+    dpPeriodTriggers,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.AdTriggersElement
 import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
 import Network.AWS.MediaPackage.Types.DashEncryption
@@ -25,191 +42,236 @@ import Network.AWS.MediaPackage.Types.Profile
 import Network.AWS.MediaPackage.Types.SegmentTemplateFormat
 import Network.AWS.MediaPackage.Types.StreamSelection
 import Network.AWS.MediaPackage.Types.UtcTiming
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 --
--- /See:/ 'dashPackage' smart constructor.
+-- /See:/ 'mkDashPackage' smart constructor.
 data DashPackage = DashPackage'
-  { _dpAdsOnDeliveryRestrictions ::
-      !(Maybe AdsOnDeliveryRestrictions),
-    _dpMinBufferTimeSeconds :: !(Maybe Int),
-    _dpUtcTiming :: !(Maybe UtcTiming),
-    _dpSegmentTemplateFormat :: !(Maybe SegmentTemplateFormat),
-    _dpProfile :: !(Maybe Profile),
-    _dpSegmentDurationSeconds :: !(Maybe Int),
-    _dpUtcTimingURI :: !(Maybe Text),
-    _dpStreamSelection :: !(Maybe StreamSelection),
-    _dpEncryption :: !(Maybe DashEncryption),
-    _dpMinUpdatePeriodSeconds :: !(Maybe Int),
-    _dpManifestLayout :: !(Maybe ManifestLayout),
-    _dpSuggestedPresentationDelaySeconds :: !(Maybe Int),
-    _dpManifestWindowSeconds :: !(Maybe Int),
-    _dpAdTriggers :: !(Maybe [AdTriggersElement]),
-    _dpPeriodTriggers :: !(Maybe [PeriodTriggersElement])
+  { adsOnDeliveryRestrictions ::
+      Lude.Maybe AdsOnDeliveryRestrictions,
+    minBufferTimeSeconds :: Lude.Maybe Lude.Int,
+    utcTiming :: Lude.Maybe UtcTiming,
+    segmentTemplateFormat :: Lude.Maybe SegmentTemplateFormat,
+    profile :: Lude.Maybe Profile,
+    segmentDurationSeconds :: Lude.Maybe Lude.Int,
+    utcTimingURI :: Lude.Maybe Lude.Text,
+    streamSelection :: Lude.Maybe StreamSelection,
+    encryption :: Lude.Maybe DashEncryption,
+    minUpdatePeriodSeconds :: Lude.Maybe Lude.Int,
+    manifestLayout :: Lude.Maybe ManifestLayout,
+    suggestedPresentationDelaySeconds :: Lude.Maybe Lude.Int,
+    manifestWindowSeconds :: Lude.Maybe Lude.Int,
+    adTriggers :: Lude.Maybe [AdTriggersElement],
+    periodTriggers :: Lude.Maybe [PeriodTriggersElement]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DashPackage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'adTriggers' - Undocumented field.
+-- * 'adsOnDeliveryRestrictions' - Undocumented field.
+-- * 'encryption' - Undocumented field.
+-- * 'manifestLayout' - Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+-- * 'manifestWindowSeconds' - Time window (in seconds) contained in each manifest.
+-- * 'minBufferTimeSeconds' - Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+-- * 'minUpdatePeriodSeconds' - Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
+-- * 'periodTriggers' - A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
 --
--- * 'dpAdsOnDeliveryRestrictions' - Undocumented member.
+-- Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
+-- be partitioned into more than one period. If the list contains "ADS", new periods will be created where
+-- the Channel source contains SCTE-35 ad markers.
+-- * 'profile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+-- * 'segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be
 --
--- * 'dpMinBufferTimeSeconds' - Minimum duration (in seconds) that a player will buffer media before starting the presentation.
---
--- * 'dpUtcTiming' - Determines the type of UTCTiming included in the Media Presentation Description (MPD)
---
--- * 'dpSegmentTemplateFormat' - Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
---
--- * 'dpProfile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
---
--- * 'dpSegmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
---
--- * 'dpUtcTimingURI' - Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
---
--- * 'dpStreamSelection' - Undocumented member.
---
--- * 'dpEncryption' - Undocumented member.
---
--- * 'dpMinUpdatePeriodSeconds' - Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
---
--- * 'dpManifestLayout' - Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
---
--- * 'dpSuggestedPresentationDelaySeconds' - Duration (in seconds) to delay live content before presentation.
---
--- * 'dpManifestWindowSeconds' - Time window (in seconds) contained in each manifest.
---
--- * 'dpAdTriggers' - Undocumented member.
---
--- * 'dpPeriodTriggers' - A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-dashPackage ::
+-- rounded to the nearest multiple of the source segment duration.
+-- * 'segmentTemplateFormat' - Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+-- * 'streamSelection' - Undocumented field.
+-- * 'suggestedPresentationDelaySeconds' - Duration (in seconds) to delay live content before presentation.
+-- * 'utcTiming' - Determines the type of UTCTiming included in the Media Presentation Description (MPD)
+-- * 'utcTimingURI' - Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+mkDashPackage ::
   DashPackage
-dashPackage =
+mkDashPackage =
   DashPackage'
-    { _dpAdsOnDeliveryRestrictions = Nothing,
-      _dpMinBufferTimeSeconds = Nothing,
-      _dpUtcTiming = Nothing,
-      _dpSegmentTemplateFormat = Nothing,
-      _dpProfile = Nothing,
-      _dpSegmentDurationSeconds = Nothing,
-      _dpUtcTimingURI = Nothing,
-      _dpStreamSelection = Nothing,
-      _dpEncryption = Nothing,
-      _dpMinUpdatePeriodSeconds = Nothing,
-      _dpManifestLayout = Nothing,
-      _dpSuggestedPresentationDelaySeconds = Nothing,
-      _dpManifestWindowSeconds = Nothing,
-      _dpAdTriggers = Nothing,
-      _dpPeriodTriggers = Nothing
+    { adsOnDeliveryRestrictions = Lude.Nothing,
+      minBufferTimeSeconds = Lude.Nothing,
+      utcTiming = Lude.Nothing,
+      segmentTemplateFormat = Lude.Nothing,
+      profile = Lude.Nothing,
+      segmentDurationSeconds = Lude.Nothing,
+      utcTimingURI = Lude.Nothing,
+      streamSelection = Lude.Nothing,
+      encryption = Lude.Nothing,
+      minUpdatePeriodSeconds = Lude.Nothing,
+      manifestLayout = Lude.Nothing,
+      suggestedPresentationDelaySeconds = Lude.Nothing,
+      manifestWindowSeconds = Lude.Nothing,
+      adTriggers = Lude.Nothing,
+      periodTriggers = Lude.Nothing
     }
 
--- | Undocumented member.
-dpAdsOnDeliveryRestrictions :: Lens' DashPackage (Maybe AdsOnDeliveryRestrictions)
-dpAdsOnDeliveryRestrictions = lens _dpAdsOnDeliveryRestrictions (\s a -> s {_dpAdsOnDeliveryRestrictions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'adsOnDeliveryRestrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpAdsOnDeliveryRestrictions :: Lens.Lens' DashPackage (Lude.Maybe AdsOnDeliveryRestrictions)
+dpAdsOnDeliveryRestrictions = Lens.lens (adsOnDeliveryRestrictions :: DashPackage -> Lude.Maybe AdsOnDeliveryRestrictions) (\s a -> s {adsOnDeliveryRestrictions = a} :: DashPackage)
+{-# DEPRECATED dpAdsOnDeliveryRestrictions "Use generic-lens or generic-optics with 'adsOnDeliveryRestrictions' instead." #-}
 
 -- | Minimum duration (in seconds) that a player will buffer media before starting the presentation.
-dpMinBufferTimeSeconds :: Lens' DashPackage (Maybe Int)
-dpMinBufferTimeSeconds = lens _dpMinBufferTimeSeconds (\s a -> s {_dpMinBufferTimeSeconds = a})
+--
+-- /Note:/ Consider using 'minBufferTimeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpMinBufferTimeSeconds :: Lens.Lens' DashPackage (Lude.Maybe Lude.Int)
+dpMinBufferTimeSeconds = Lens.lens (minBufferTimeSeconds :: DashPackage -> Lude.Maybe Lude.Int) (\s a -> s {minBufferTimeSeconds = a} :: DashPackage)
+{-# DEPRECATED dpMinBufferTimeSeconds "Use generic-lens or generic-optics with 'minBufferTimeSeconds' instead." #-}
 
 -- | Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-dpUtcTiming :: Lens' DashPackage (Maybe UtcTiming)
-dpUtcTiming = lens _dpUtcTiming (\s a -> s {_dpUtcTiming = a})
+--
+-- /Note:/ Consider using 'utcTiming' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpUtcTiming :: Lens.Lens' DashPackage (Lude.Maybe UtcTiming)
+dpUtcTiming = Lens.lens (utcTiming :: DashPackage -> Lude.Maybe UtcTiming) (\s a -> s {utcTiming = a} :: DashPackage)
+{-# DEPRECATED dpUtcTiming "Use generic-lens or generic-optics with 'utcTiming' instead." #-}
 
 -- | Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-dpSegmentTemplateFormat :: Lens' DashPackage (Maybe SegmentTemplateFormat)
-dpSegmentTemplateFormat = lens _dpSegmentTemplateFormat (\s a -> s {_dpSegmentTemplateFormat = a})
+--
+-- /Note:/ Consider using 'segmentTemplateFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpSegmentTemplateFormat :: Lens.Lens' DashPackage (Lude.Maybe SegmentTemplateFormat)
+dpSegmentTemplateFormat = Lens.lens (segmentTemplateFormat :: DashPackage -> Lude.Maybe SegmentTemplateFormat) (\s a -> s {segmentTemplateFormat = a} :: DashPackage)
+{-# DEPRECATED dpSegmentTemplateFormat "Use generic-lens or generic-optics with 'segmentTemplateFormat' instead." #-}
 
 -- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-dpProfile :: Lens' DashPackage (Maybe Profile)
-dpProfile = lens _dpProfile (\s a -> s {_dpProfile = a})
+--
+-- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpProfile :: Lens.Lens' DashPackage (Lude.Maybe Profile)
+dpProfile = Lens.lens (profile :: DashPackage -> Lude.Maybe Profile) (\s a -> s {profile = a} :: DashPackage)
+{-# DEPRECATED dpProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
 
--- | Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
-dpSegmentDurationSeconds :: Lens' DashPackage (Maybe Int)
-dpSegmentDurationSeconds = lens _dpSegmentDurationSeconds (\s a -> s {_dpSegmentDurationSeconds = a})
+-- | Duration (in seconds) of each segment. Actual segments will be
+--
+-- rounded to the nearest multiple of the source segment duration.
+--
+-- /Note:/ Consider using 'segmentDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpSegmentDurationSeconds :: Lens.Lens' DashPackage (Lude.Maybe Lude.Int)
+dpSegmentDurationSeconds = Lens.lens (segmentDurationSeconds :: DashPackage -> Lude.Maybe Lude.Int) (\s a -> s {segmentDurationSeconds = a} :: DashPackage)
+{-# DEPRECATED dpSegmentDurationSeconds "Use generic-lens or generic-optics with 'segmentDurationSeconds' instead." #-}
 
 -- | Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
-dpUtcTimingURI :: Lens' DashPackage (Maybe Text)
-dpUtcTimingURI = lens _dpUtcTimingURI (\s a -> s {_dpUtcTimingURI = a})
+--
+-- /Note:/ Consider using 'utcTimingURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpUtcTimingURI :: Lens.Lens' DashPackage (Lude.Maybe Lude.Text)
+dpUtcTimingURI = Lens.lens (utcTimingURI :: DashPackage -> Lude.Maybe Lude.Text) (\s a -> s {utcTimingURI = a} :: DashPackage)
+{-# DEPRECATED dpUtcTimingURI "Use generic-lens or generic-optics with 'utcTimingURI' instead." #-}
 
--- | Undocumented member.
-dpStreamSelection :: Lens' DashPackage (Maybe StreamSelection)
-dpStreamSelection = lens _dpStreamSelection (\s a -> s {_dpStreamSelection = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'streamSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpStreamSelection :: Lens.Lens' DashPackage (Lude.Maybe StreamSelection)
+dpStreamSelection = Lens.lens (streamSelection :: DashPackage -> Lude.Maybe StreamSelection) (\s a -> s {streamSelection = a} :: DashPackage)
+{-# DEPRECATED dpStreamSelection "Use generic-lens or generic-optics with 'streamSelection' instead." #-}
 
--- | Undocumented member.
-dpEncryption :: Lens' DashPackage (Maybe DashEncryption)
-dpEncryption = lens _dpEncryption (\s a -> s {_dpEncryption = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpEncryption :: Lens.Lens' DashPackage (Lude.Maybe DashEncryption)
+dpEncryption = Lens.lens (encryption :: DashPackage -> Lude.Maybe DashEncryption) (\s a -> s {encryption = a} :: DashPackage)
+{-# DEPRECATED dpEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
-dpMinUpdatePeriodSeconds :: Lens' DashPackage (Maybe Int)
-dpMinUpdatePeriodSeconds = lens _dpMinUpdatePeriodSeconds (\s a -> s {_dpMinUpdatePeriodSeconds = a})
+--
+-- /Note:/ Consider using 'minUpdatePeriodSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpMinUpdatePeriodSeconds :: Lens.Lens' DashPackage (Lude.Maybe Lude.Int)
+dpMinUpdatePeriodSeconds = Lens.lens (minUpdatePeriodSeconds :: DashPackage -> Lude.Maybe Lude.Int) (\s a -> s {minUpdatePeriodSeconds = a} :: DashPackage)
+{-# DEPRECATED dpMinUpdatePeriodSeconds "Use generic-lens or generic-optics with 'minUpdatePeriodSeconds' instead." #-}
 
 -- | Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-dpManifestLayout :: Lens' DashPackage (Maybe ManifestLayout)
-dpManifestLayout = lens _dpManifestLayout (\s a -> s {_dpManifestLayout = a})
+--
+-- /Note:/ Consider using 'manifestLayout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpManifestLayout :: Lens.Lens' DashPackage (Lude.Maybe ManifestLayout)
+dpManifestLayout = Lens.lens (manifestLayout :: DashPackage -> Lude.Maybe ManifestLayout) (\s a -> s {manifestLayout = a} :: DashPackage)
+{-# DEPRECATED dpManifestLayout "Use generic-lens or generic-optics with 'manifestLayout' instead." #-}
 
 -- | Duration (in seconds) to delay live content before presentation.
-dpSuggestedPresentationDelaySeconds :: Lens' DashPackage (Maybe Int)
-dpSuggestedPresentationDelaySeconds = lens _dpSuggestedPresentationDelaySeconds (\s a -> s {_dpSuggestedPresentationDelaySeconds = a})
+--
+-- /Note:/ Consider using 'suggestedPresentationDelaySeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpSuggestedPresentationDelaySeconds :: Lens.Lens' DashPackage (Lude.Maybe Lude.Int)
+dpSuggestedPresentationDelaySeconds = Lens.lens (suggestedPresentationDelaySeconds :: DashPackage -> Lude.Maybe Lude.Int) (\s a -> s {suggestedPresentationDelaySeconds = a} :: DashPackage)
+{-# DEPRECATED dpSuggestedPresentationDelaySeconds "Use generic-lens or generic-optics with 'suggestedPresentationDelaySeconds' instead." #-}
 
 -- | Time window (in seconds) contained in each manifest.
-dpManifestWindowSeconds :: Lens' DashPackage (Maybe Int)
-dpManifestWindowSeconds = lens _dpManifestWindowSeconds (\s a -> s {_dpManifestWindowSeconds = a})
+--
+-- /Note:/ Consider using 'manifestWindowSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpManifestWindowSeconds :: Lens.Lens' DashPackage (Lude.Maybe Lude.Int)
+dpManifestWindowSeconds = Lens.lens (manifestWindowSeconds :: DashPackage -> Lude.Maybe Lude.Int) (\s a -> s {manifestWindowSeconds = a} :: DashPackage)
+{-# DEPRECATED dpManifestWindowSeconds "Use generic-lens or generic-optics with 'manifestWindowSeconds' instead." #-}
 
--- | Undocumented member.
-dpAdTriggers :: Lens' DashPackage [AdTriggersElement]
-dpAdTriggers = lens _dpAdTriggers (\s a -> s {_dpAdTriggers = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'adTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpAdTriggers :: Lens.Lens' DashPackage (Lude.Maybe [AdTriggersElement])
+dpAdTriggers = Lens.lens (adTriggers :: DashPackage -> Lude.Maybe [AdTriggersElement]) (\s a -> s {adTriggers = a} :: DashPackage)
+{-# DEPRECATED dpAdTriggers "Use generic-lens or generic-optics with 'adTriggers' instead." #-}
 
--- | A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-dpPeriodTriggers :: Lens' DashPackage [PeriodTriggersElement]
-dpPeriodTriggers = lens _dpPeriodTriggers (\s a -> s {_dpPeriodTriggers = a}) . _Default . _Coerce
+-- | A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
+--
+-- Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
+-- be partitioned into more than one period. If the list contains "ADS", new periods will be created where
+-- the Channel source contains SCTE-35 ad markers.
+--
+-- /Note:/ Consider using 'periodTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPeriodTriggers :: Lens.Lens' DashPackage (Lude.Maybe [PeriodTriggersElement])
+dpPeriodTriggers = Lens.lens (periodTriggers :: DashPackage -> Lude.Maybe [PeriodTriggersElement]) (\s a -> s {periodTriggers = a} :: DashPackage)
+{-# DEPRECATED dpPeriodTriggers "Use generic-lens or generic-optics with 'periodTriggers' instead." #-}
 
-instance FromJSON DashPackage where
+instance Lude.FromJSON DashPackage where
   parseJSON =
-    withObject
+    Lude.withObject
       "DashPackage"
       ( \x ->
           DashPackage'
-            <$> (x .:? "adsOnDeliveryRestrictions")
-            <*> (x .:? "minBufferTimeSeconds")
-            <*> (x .:? "utcTiming")
-            <*> (x .:? "segmentTemplateFormat")
-            <*> (x .:? "profile")
-            <*> (x .:? "segmentDurationSeconds")
-            <*> (x .:? "utcTimingUri")
-            <*> (x .:? "streamSelection")
-            <*> (x .:? "encryption")
-            <*> (x .:? "minUpdatePeriodSeconds")
-            <*> (x .:? "manifestLayout")
-            <*> (x .:? "suggestedPresentationDelaySeconds")
-            <*> (x .:? "manifestWindowSeconds")
-            <*> (x .:? "adTriggers" .!= mempty)
-            <*> (x .:? "periodTriggers" .!= mempty)
+            Lude.<$> (x Lude..:? "adsOnDeliveryRestrictions")
+            Lude.<*> (x Lude..:? "minBufferTimeSeconds")
+            Lude.<*> (x Lude..:? "utcTiming")
+            Lude.<*> (x Lude..:? "segmentTemplateFormat")
+            Lude.<*> (x Lude..:? "profile")
+            Lude.<*> (x Lude..:? "segmentDurationSeconds")
+            Lude.<*> (x Lude..:? "utcTimingUri")
+            Lude.<*> (x Lude..:? "streamSelection")
+            Lude.<*> (x Lude..:? "encryption")
+            Lude.<*> (x Lude..:? "minUpdatePeriodSeconds")
+            Lude.<*> (x Lude..:? "manifestLayout")
+            Lude.<*> (x Lude..:? "suggestedPresentationDelaySeconds")
+            Lude.<*> (x Lude..:? "manifestWindowSeconds")
+            Lude.<*> (x Lude..:? "adTriggers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "periodTriggers" Lude..!= Lude.mempty)
       )
 
-instance Hashable DashPackage
-
-instance NFData DashPackage
-
-instance ToJSON DashPackage where
+instance Lude.ToJSON DashPackage where
   toJSON DashPackage' {..} =
-    object
-      ( catMaybes
-          [ ("adsOnDeliveryRestrictions" .=) <$> _dpAdsOnDeliveryRestrictions,
-            ("minBufferTimeSeconds" .=) <$> _dpMinBufferTimeSeconds,
-            ("utcTiming" .=) <$> _dpUtcTiming,
-            ("segmentTemplateFormat" .=) <$> _dpSegmentTemplateFormat,
-            ("profile" .=) <$> _dpProfile,
-            ("segmentDurationSeconds" .=) <$> _dpSegmentDurationSeconds,
-            ("utcTimingUri" .=) <$> _dpUtcTimingURI,
-            ("streamSelection" .=) <$> _dpStreamSelection,
-            ("encryption" .=) <$> _dpEncryption,
-            ("minUpdatePeriodSeconds" .=) <$> _dpMinUpdatePeriodSeconds,
-            ("manifestLayout" .=) <$> _dpManifestLayout,
-            ("suggestedPresentationDelaySeconds" .=)
-              <$> _dpSuggestedPresentationDelaySeconds,
-            ("manifestWindowSeconds" .=) <$> _dpManifestWindowSeconds,
-            ("adTriggers" .=) <$> _dpAdTriggers,
-            ("periodTriggers" .=) <$> _dpPeriodTriggers
+    Lude.object
+      ( Lude.catMaybes
+          [ ("adsOnDeliveryRestrictions" Lude..=)
+              Lude.<$> adsOnDeliveryRestrictions,
+            ("minBufferTimeSeconds" Lude..=) Lude.<$> minBufferTimeSeconds,
+            ("utcTiming" Lude..=) Lude.<$> utcTiming,
+            ("segmentTemplateFormat" Lude..=) Lude.<$> segmentTemplateFormat,
+            ("profile" Lude..=) Lude.<$> profile,
+            ("segmentDurationSeconds" Lude..=) Lude.<$> segmentDurationSeconds,
+            ("utcTimingUri" Lude..=) Lude.<$> utcTimingURI,
+            ("streamSelection" Lude..=) Lude.<$> streamSelection,
+            ("encryption" Lude..=) Lude.<$> encryption,
+            ("minUpdatePeriodSeconds" Lude..=) Lude.<$> minUpdatePeriodSeconds,
+            ("manifestLayout" Lude..=) Lude.<$> manifestLayout,
+            ("suggestedPresentationDelaySeconds" Lude..=)
+              Lude.<$> suggestedPresentationDelaySeconds,
+            ("manifestWindowSeconds" Lude..=) Lude.<$> manifestWindowSeconds,
+            ("adTriggers" Lude..=) Lude.<$> adTriggers,
+            ("periodTriggers" Lude..=) Lude.<$> periodTriggers
           ]
       )

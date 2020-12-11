@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Provides information to AWS CodePipeline about new revisions to a source.
 module Network.AWS.CodePipeline.PutActionRevision
-  ( -- * Creating a Request
-    putActionRevision,
-    PutActionRevision,
+  ( -- * Creating a request
+    PutActionRevision (..),
+    mkPutActionRevision,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pPipelineName,
     pStageName,
     pActionName,
     pActionRevision,
 
-    -- * Destructuring the Response
-    putActionRevisionResponse,
-    PutActionRevisionResponse,
+    -- * Destructuring the response
+    PutActionRevisionResponse (..),
+    mkPutActionRevisionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     prsNewRevision,
     prsPipelineExecutionId,
     prsResponseStatus,
@@ -41,161 +36,178 @@ module Network.AWS.CodePipeline.PutActionRevision
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @PutActionRevision@ action.
 --
---
---
--- /See:/ 'putActionRevision' smart constructor.
+-- /See:/ 'mkPutActionRevision' smart constructor.
 data PutActionRevision = PutActionRevision'
-  { _pPipelineName ::
-      !Text,
-    _pStageName :: !Text,
-    _pActionName :: !Text,
-    _pActionRevision :: !ActionRevision
+  { pipelineName ::
+      Lude.Text,
+    stageName :: Lude.Text,
+    actionName :: Lude.Text,
+    actionRevision :: ActionRevision
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutActionRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pPipelineName' - The name of the pipeline that starts processing the revision to the source.
---
--- * 'pStageName' - The name of the stage that contains the action that acts on the revision.
---
--- * 'pActionName' - The name of the action that processes the revision.
---
--- * 'pActionRevision' - Represents information about the version (or revision) of an action.
-putActionRevision ::
-  -- | 'pPipelineName'
-  Text ->
-  -- | 'pStageName'
-  Text ->
-  -- | 'pActionName'
-  Text ->
-  -- | 'pActionRevision'
+-- * 'actionName' - The name of the action that processes the revision.
+-- * 'actionRevision' - Represents information about the version (or revision) of an action.
+-- * 'pipelineName' - The name of the pipeline that starts processing the revision to the source.
+-- * 'stageName' - The name of the stage that contains the action that acts on the revision.
+mkPutActionRevision ::
+  -- | 'pipelineName'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'actionName'
+  Lude.Text ->
+  -- | 'actionRevision'
   ActionRevision ->
   PutActionRevision
-putActionRevision
+mkPutActionRevision
   pPipelineName_
   pStageName_
   pActionName_
   pActionRevision_ =
     PutActionRevision'
-      { _pPipelineName = pPipelineName_,
-        _pStageName = pStageName_,
-        _pActionName = pActionName_,
-        _pActionRevision = pActionRevision_
+      { pipelineName = pPipelineName_,
+        stageName = pStageName_,
+        actionName = pActionName_,
+        actionRevision = pActionRevision_
       }
 
 -- | The name of the pipeline that starts processing the revision to the source.
-pPipelineName :: Lens' PutActionRevision Text
-pPipelineName = lens _pPipelineName (\s a -> s {_pPipelineName = a})
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPipelineName :: Lens.Lens' PutActionRevision Lude.Text
+pPipelineName = Lens.lens (pipelineName :: PutActionRevision -> Lude.Text) (\s a -> s {pipelineName = a} :: PutActionRevision)
+{-# DEPRECATED pPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The name of the stage that contains the action that acts on the revision.
-pStageName :: Lens' PutActionRevision Text
-pStageName = lens _pStageName (\s a -> s {_pStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pStageName :: Lens.Lens' PutActionRevision Lude.Text
+pStageName = Lens.lens (stageName :: PutActionRevision -> Lude.Text) (\s a -> s {stageName = a} :: PutActionRevision)
+{-# DEPRECATED pStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | The name of the action that processes the revision.
-pActionName :: Lens' PutActionRevision Text
-pActionName = lens _pActionName (\s a -> s {_pActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pActionName :: Lens.Lens' PutActionRevision Lude.Text
+pActionName = Lens.lens (actionName :: PutActionRevision -> Lude.Text) (\s a -> s {actionName = a} :: PutActionRevision)
+{-# DEPRECATED pActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | Represents information about the version (or revision) of an action.
-pActionRevision :: Lens' PutActionRevision ActionRevision
-pActionRevision = lens _pActionRevision (\s a -> s {_pActionRevision = a})
+--
+-- /Note:/ Consider using 'actionRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pActionRevision :: Lens.Lens' PutActionRevision ActionRevision
+pActionRevision = Lens.lens (actionRevision :: PutActionRevision -> ActionRevision) (\s a -> s {actionRevision = a} :: PutActionRevision)
+{-# DEPRECATED pActionRevision "Use generic-lens or generic-optics with 'actionRevision' instead." #-}
 
-instance AWSRequest PutActionRevision where
+instance Lude.AWSRequest PutActionRevision where
   type Rs PutActionRevision = PutActionRevisionResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutActionRevisionResponse'
-            <$> (x .?> "newRevision")
-            <*> (x .?> "pipelineExecutionId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "newRevision")
+            Lude.<*> (x Lude..?> "pipelineExecutionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutActionRevision
-
-instance NFData PutActionRevision
-
-instance ToHeaders PutActionRevision where
+instance Lude.ToHeaders PutActionRevision where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.PutActionRevision" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.PutActionRevision" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutActionRevision where
+instance Lude.ToJSON PutActionRevision where
   toJSON PutActionRevision' {..} =
-    object
-      ( catMaybes
-          [ Just ("pipelineName" .= _pPipelineName),
-            Just ("stageName" .= _pStageName),
-            Just ("actionName" .= _pActionName),
-            Just ("actionRevision" .= _pActionRevision)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            Lude.Just ("stageName" Lude..= stageName),
+            Lude.Just ("actionName" Lude..= actionName),
+            Lude.Just ("actionRevision" Lude..= actionRevision)
           ]
       )
 
-instance ToPath PutActionRevision where
-  toPath = const "/"
+instance Lude.ToPath PutActionRevision where
+  toPath = Lude.const "/"
 
-instance ToQuery PutActionRevision where
-  toQuery = const mempty
+instance Lude.ToQuery PutActionRevision where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @PutActionRevision@ action.
 --
---
---
--- /See:/ 'putActionRevisionResponse' smart constructor.
+-- /See:/ 'mkPutActionRevisionResponse' smart constructor.
 data PutActionRevisionResponse = PutActionRevisionResponse'
-  { _prsNewRevision ::
-      !(Maybe Bool),
-    _prsPipelineExecutionId ::
-      !(Maybe Text),
-    _prsResponseStatus :: !Int
+  { newRevision ::
+      Lude.Maybe Lude.Bool,
+    pipelineExecutionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutActionRevisionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prsNewRevision' - Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
---
--- * 'prsPipelineExecutionId' - The ID of the current workflow state of the pipeline.
---
--- * 'prsResponseStatus' - -- | The response status code.
-putActionRevisionResponse ::
-  -- | 'prsResponseStatus'
-  Int ->
+-- * 'newRevision' - Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
+-- * 'pipelineExecutionId' - The ID of the current workflow state of the pipeline.
+-- * 'responseStatus' - The response status code.
+mkPutActionRevisionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutActionRevisionResponse
-putActionRevisionResponse pResponseStatus_ =
+mkPutActionRevisionResponse pResponseStatus_ =
   PutActionRevisionResponse'
-    { _prsNewRevision = Nothing,
-      _prsPipelineExecutionId = Nothing,
-      _prsResponseStatus = pResponseStatus_
+    { newRevision = Lude.Nothing,
+      pipelineExecutionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
-prsNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
-prsNewRevision = lens _prsNewRevision (\s a -> s {_prsNewRevision = a})
+--
+-- /Note:/ Consider using 'newRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsNewRevision :: Lens.Lens' PutActionRevisionResponse (Lude.Maybe Lude.Bool)
+prsNewRevision = Lens.lens (newRevision :: PutActionRevisionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {newRevision = a} :: PutActionRevisionResponse)
+{-# DEPRECATED prsNewRevision "Use generic-lens or generic-optics with 'newRevision' instead." #-}
 
 -- | The ID of the current workflow state of the pipeline.
-prsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
-prsPipelineExecutionId = lens _prsPipelineExecutionId (\s a -> s {_prsPipelineExecutionId = a})
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsPipelineExecutionId :: Lens.Lens' PutActionRevisionResponse (Lude.Maybe Lude.Text)
+prsPipelineExecutionId = Lens.lens (pipelineExecutionId :: PutActionRevisionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: PutActionRevisionResponse)
+{-# DEPRECATED prsPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
--- | -- | The response status code.
-prsResponseStatus :: Lens' PutActionRevisionResponse Int
-prsResponseStatus = lens _prsResponseStatus (\s a -> s {_prsResponseStatus = a})
-
-instance NFData PutActionRevisionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsResponseStatus :: Lens.Lens' PutActionRevisionResponse Lude.Int
+prsResponseStatus = Lens.lens (responseStatus :: PutActionRevisionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutActionRevisionResponse)
+{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

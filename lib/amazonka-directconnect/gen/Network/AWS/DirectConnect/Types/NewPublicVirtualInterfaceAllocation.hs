@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,143 +7,184 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation where
+module Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
+  ( NewPublicVirtualInterfaceAllocation (..),
+
+    -- * Smart constructor
+    mkNewPublicVirtualInterfaceAllocation,
+
+    -- * Lenses
+    newRouteFilterPrefixes,
+    newCustomerAddress,
+    newAmazonAddress,
+    newAddressFamily,
+    newAuthKey,
+    newTags,
+    newVirtualInterfaceName,
+    newVlan,
+    newAsn,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
 import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a public virtual interface to be provisioned on a connection.
 --
---
---
--- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
+-- /See:/ 'mkNewPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-  { _newRouteFilterPrefixes ::
-      !( Maybe
-           [RouteFilterPrefix]
-       ),
-    _newCustomerAddress ::
-      !(Maybe Text),
-    _newAmazonAddress ::
-      !(Maybe Text),
-    _newAddressFamily ::
-      !( Maybe
-           AddressFamily
-       ),
-    _newAuthKey ::
-      !(Maybe Text),
-    _newTags ::
-      !( Maybe
-           (List1 Tag)
-       ),
-    _newVirtualInterfaceName ::
-      !Text,
-    _newVlan :: !Int,
-    _newAsn :: !Int
+  { routeFilterPrefixes ::
+      Lude.Maybe
+        [RouteFilterPrefix],
+    customerAddress ::
+      Lude.Maybe
+        Lude.Text,
+    amazonAddress ::
+      Lude.Maybe
+        Lude.Text,
+    addressFamily ::
+      Lude.Maybe
+        AddressFamily,
+    authKey ::
+      Lude.Maybe
+        Lude.Text,
+    tags ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            Tag
+        ),
+    virtualInterfaceName ::
+      Lude.Text,
+    vlan :: Lude.Int,
+    asn :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NewPublicVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addressFamily' - The address family for the BGP peer.
+-- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'newRouteFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
---
--- * 'newCustomerAddress' - The IP address assigned to the customer interface.
---
--- * 'newAmazonAddress' - The IP address assigned to the Amazon interface.
---
--- * 'newAddressFamily' - The address family for the BGP peer.
---
--- * 'newAuthKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
---
--- * 'newTags' - The tags associated with the public virtual interface.
---
--- * 'newVirtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
---
--- * 'newVlan' - The ID of the VLAN.
---
--- * 'newAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
-newPublicVirtualInterfaceAllocation ::
-  -- | 'newVirtualInterfaceName'
-  Text ->
-  -- | 'newVlan'
-  Int ->
-  -- | 'newAsn'
-  Int ->
+-- The valid values are 1-2147483647.
+-- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'routeFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+-- * 'tags' - The tags associated with the public virtual interface.
+-- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+-- * 'vlan' - The ID of the VLAN.
+mkNewPublicVirtualInterfaceAllocation ::
+  -- | 'virtualInterfaceName'
+  Lude.Text ->
+  -- | 'vlan'
+  Lude.Int ->
+  -- | 'asn'
+  Lude.Int ->
   NewPublicVirtualInterfaceAllocation
-newPublicVirtualInterfaceAllocation
+mkNewPublicVirtualInterfaceAllocation
   pVirtualInterfaceName_
   pVlan_
   pAsn_ =
     NewPublicVirtualInterfaceAllocation'
-      { _newRouteFilterPrefixes =
-          Nothing,
-        _newCustomerAddress = Nothing,
-        _newAmazonAddress = Nothing,
-        _newAddressFamily = Nothing,
-        _newAuthKey = Nothing,
-        _newTags = Nothing,
-        _newVirtualInterfaceName = pVirtualInterfaceName_,
-        _newVlan = pVlan_,
-        _newAsn = pAsn_
+      { routeFilterPrefixes =
+          Lude.Nothing,
+        customerAddress = Lude.Nothing,
+        amazonAddress = Lude.Nothing,
+        addressFamily = Lude.Nothing,
+        authKey = Lude.Nothing,
+        tags = Lude.Nothing,
+        virtualInterfaceName = pVirtualInterfaceName_,
+        vlan = pVlan_,
+        asn = pAsn_
       }
 
 -- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
-newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\s a -> s {_newRouteFilterPrefixes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routeFilterPrefixes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newRouteFilterPrefixes :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Lude.Maybe [RouteFilterPrefix])
+newRouteFilterPrefixes = Lens.lens (routeFilterPrefixes :: NewPublicVirtualInterfaceAllocation -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {routeFilterPrefixes = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newRouteFilterPrefixes "Use generic-lens or generic-optics with 'routeFilterPrefixes' instead." #-}
 
 -- | The IP address assigned to the customer interface.
-newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-newCustomerAddress = lens _newCustomerAddress (\s a -> s {_newCustomerAddress = a})
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newCustomerAddress :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Lude.Maybe Lude.Text)
+newCustomerAddress = Lens.lens (customerAddress :: NewPublicVirtualInterfaceAllocation -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
 
 -- | The IP address assigned to the Amazon interface.
-newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-newAmazonAddress = lens _newAmazonAddress (\s a -> s {_newAmazonAddress = a})
+--
+-- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newAmazonAddress :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Lude.Maybe Lude.Text)
+newAmazonAddress = Lens.lens (amazonAddress :: NewPublicVirtualInterfaceAllocation -> Lude.Maybe Lude.Text) (\s a -> s {amazonAddress = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The address family for the BGP peer.
-newAddressFamily :: Lens' NewPublicVirtualInterfaceAllocation (Maybe AddressFamily)
-newAddressFamily = lens _newAddressFamily (\s a -> s {_newAddressFamily = a})
+--
+-- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newAddressFamily :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Lude.Maybe AddressFamily)
+newAddressFamily = Lens.lens (addressFamily :: NewPublicVirtualInterfaceAllocation -> Lude.Maybe AddressFamily) (\s a -> s {addressFamily = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
 
 -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
-newAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-newAuthKey = lens _newAuthKey (\s a -> s {_newAuthKey = a})
+--
+-- /Note:/ Consider using 'authKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newAuthKey :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Lude.Maybe Lude.Text)
+newAuthKey = Lens.lens (authKey :: NewPublicVirtualInterfaceAllocation -> Lude.Maybe Lude.Text) (\s a -> s {authKey = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
 
 -- | The tags associated with the public virtual interface.
-newTags :: Lens' NewPublicVirtualInterfaceAllocation (Maybe (NonEmpty Tag))
-newTags = lens _newTags (\s a -> s {_newTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newTags :: Lens.Lens' NewPublicVirtualInterfaceAllocation (Lude.Maybe (Lude.NonEmpty Tag))
+newTags = Lens.lens (tags :: NewPublicVirtualInterfaceAllocation -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
-newVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
-newVirtualInterfaceName = lens _newVirtualInterfaceName (\s a -> s {_newVirtualInterfaceName = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newVirtualInterfaceName :: Lens.Lens' NewPublicVirtualInterfaceAllocation Lude.Text
+newVirtualInterfaceName = Lens.lens (virtualInterfaceName :: NewPublicVirtualInterfaceAllocation -> Lude.Text) (\s a -> s {virtualInterfaceName = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newVirtualInterfaceName "Use generic-lens or generic-optics with 'virtualInterfaceName' instead." #-}
 
 -- | The ID of the VLAN.
-newVlan :: Lens' NewPublicVirtualInterfaceAllocation Int
-newVlan = lens _newVlan (\s a -> s {_newVlan = a})
+--
+-- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newVlan :: Lens.Lens' NewPublicVirtualInterfaceAllocation Lude.Int
+newVlan = Lens.lens (vlan :: NewPublicVirtualInterfaceAllocation -> Lude.Int) (\s a -> s {vlan = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
 
--- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
-newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
-newAsn = lens _newAsn (\s a -> s {_newAsn = a})
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+--
+-- The valid values are 1-2147483647.
+--
+-- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+newAsn :: Lens.Lens' NewPublicVirtualInterfaceAllocation Lude.Int
+newAsn = Lens.lens (asn :: NewPublicVirtualInterfaceAllocation -> Lude.Int) (\s a -> s {asn = a} :: NewPublicVirtualInterfaceAllocation)
+{-# DEPRECATED newAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
-instance Hashable NewPublicVirtualInterfaceAllocation
-
-instance NFData NewPublicVirtualInterfaceAllocation
-
-instance ToJSON NewPublicVirtualInterfaceAllocation where
+instance Lude.ToJSON NewPublicVirtualInterfaceAllocation where
   toJSON NewPublicVirtualInterfaceAllocation' {..} =
-    object
-      ( catMaybes
-          [ ("routeFilterPrefixes" .=) <$> _newRouteFilterPrefixes,
-            ("customerAddress" .=) <$> _newCustomerAddress,
-            ("amazonAddress" .=) <$> _newAmazonAddress,
-            ("addressFamily" .=) <$> _newAddressFamily,
-            ("authKey" .=) <$> _newAuthKey,
-            ("tags" .=) <$> _newTags,
-            Just ("virtualInterfaceName" .= _newVirtualInterfaceName),
-            Just ("vlan" .= _newVlan),
-            Just ("asn" .= _newAsn)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("routeFilterPrefixes" Lude..=) Lude.<$> routeFilterPrefixes,
+            ("customerAddress" Lude..=) Lude.<$> customerAddress,
+            ("amazonAddress" Lude..=) Lude.<$> amazonAddress,
+            ("addressFamily" Lude..=) Lude.<$> addressFamily,
+            ("authKey" Lude..=) Lude.<$> authKey,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("virtualInterfaceName" Lude..= virtualInterfaceName),
+            Lude.Just ("vlan" Lude..= vlan),
+            Lude.Just ("asn" Lude..= asn)
           ]
       )

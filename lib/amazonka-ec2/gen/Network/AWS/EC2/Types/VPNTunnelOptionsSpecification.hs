@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,34 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNTunnelOptionsSpecification where
+module Network.AWS.EC2.Types.VPNTunnelOptionsSpecification
+  ( VPNTunnelOptionsSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPNTunnelOptionsSpecification,
+
+    -- * Lenses
+    vtosReplayWindowSize,
+    vtosDPDTimeoutAction,
+    vtosRekeyFuzzPercentage,
+    vtosPhase1LifetimeSeconds,
+    vtosIKEVersions,
+    vtosPhase2IntegrityAlgorithms,
+    vtosPhase2LifetimeSeconds,
+    vtosPhase1EncryptionAlgorithms,
+    vtosPhase1DHGroupNumbers,
+    vtosPhase1IntegrityAlgorithms,
+    vtosRekeyMarginTimeSeconds,
+    vtosDPDTimeoutSeconds,
+    vtosTunnelInsideCidr,
+    vtosStartupAction,
+    vtosPhase2EncryptionAlgorithms,
+    vtosPhase2DHGroupNumbers,
+    vtosPreSharedKey,
+    vtosTunnelInsideIPv6Cidr,
+  )
+where
+
 import Network.AWS.EC2.Types.IKEVersionsRequestListValue
 import Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue
 import Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsRequestListValue
@@ -23,240 +42,405 @@ import Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsRequestListValue
 import Network.AWS.EC2.Types.Phase2DHGroupNumbersRequestListValue
 import Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
 import Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The tunnel options for a single VPN tunnel.
 --
---
---
--- /See:/ 'vpnTunnelOptionsSpecification' smart constructor.
+-- /See:/ 'mkVPNTunnelOptionsSpecification' smart constructor.
 data VPNTunnelOptionsSpecification = VPNTunnelOptionsSpecification'
-  { _vtosReplayWindowSize ::
-      !(Maybe Int),
-    _vtosDPDTimeoutAction ::
-      !(Maybe Text),
-    _vtosRekeyFuzzPercentage ::
-      !(Maybe Int),
-    _vtosPhase1LifetimeSeconds ::
-      !(Maybe Int),
-    _vtosIKEVersions ::
-      !( Maybe
-           [IKEVersionsRequestListValue]
-       ),
-    _vtosPhase2IntegrityAlgorithms ::
-      !( Maybe
-           [Phase2IntegrityAlgorithmsRequestListValue]
-       ),
-    _vtosPhase2LifetimeSeconds ::
-      !(Maybe Int),
-    _vtosPhase1EncryptionAlgorithms ::
-      !( Maybe
-           [Phase1EncryptionAlgorithmsRequestListValue]
-       ),
-    _vtosPhase1DHGroupNumbers ::
-      !( Maybe
-           [Phase1DHGroupNumbersRequestListValue]
-       ),
-    _vtosPhase1IntegrityAlgorithms ::
-      !( Maybe
-           [Phase1IntegrityAlgorithmsRequestListValue]
-       ),
-    _vtosRekeyMarginTimeSeconds ::
-      !(Maybe Int),
-    _vtosDPDTimeoutSeconds ::
-      !(Maybe Int),
-    _vtosTunnelInsideCidr ::
-      !(Maybe Text),
-    _vtosStartupAction ::
-      !(Maybe Text),
-    _vtosPhase2EncryptionAlgorithms ::
-      !( Maybe
-           [Phase2EncryptionAlgorithmsRequestListValue]
-       ),
-    _vtosPhase2DHGroupNumbers ::
-      !( Maybe
-           [Phase2DHGroupNumbersRequestListValue]
-       ),
-    _vtosPreSharedKey ::
-      !(Maybe Text),
-    _vtosTunnelInsideIPv6Cidr ::
-      !(Maybe Text)
+  { replayWindowSize ::
+      Lude.Maybe Lude.Int,
+    dPDTimeoutAction ::
+      Lude.Maybe Lude.Text,
+    rekeyFuzzPercentage ::
+      Lude.Maybe Lude.Int,
+    phase1LifetimeSeconds ::
+      Lude.Maybe Lude.Int,
+    iKEVersions ::
+      Lude.Maybe
+        [IKEVersionsRequestListValue],
+    phase2IntegrityAlgorithms ::
+      Lude.Maybe
+        [Phase2IntegrityAlgorithmsRequestListValue],
+    phase2LifetimeSeconds ::
+      Lude.Maybe Lude.Int,
+    phase1EncryptionAlgorithms ::
+      Lude.Maybe
+        [Phase1EncryptionAlgorithmsRequestListValue],
+    phase1DHGroupNumbers ::
+      Lude.Maybe
+        [Phase1DHGroupNumbersRequestListValue],
+    phase1IntegrityAlgorithms ::
+      Lude.Maybe
+        [Phase1IntegrityAlgorithmsRequestListValue],
+    rekeyMarginTimeSeconds ::
+      Lude.Maybe Lude.Int,
+    dPDTimeoutSeconds ::
+      Lude.Maybe Lude.Int,
+    tunnelInsideCidr ::
+      Lude.Maybe Lude.Text,
+    startupAction ::
+      Lude.Maybe Lude.Text,
+    phase2EncryptionAlgorithms ::
+      Lude.Maybe
+        [Phase2EncryptionAlgorithmsRequestListValue],
+    phase2DHGroupNumbers ::
+      Lude.Maybe
+        [Phase2DHGroupNumbersRequestListValue],
+    preSharedKey ::
+      Lude.Maybe Lude.Text,
+    tunnelInsideIPv6Cidr ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNTunnelOptionsSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dPDTimeoutAction' - The action to take after DPD timeout occurs. Specify @restart@ to restart the IKE initiation. Specify @clear@ to end the IKE session.
 --
--- * 'vtosReplayWindowSize' - The number of packets in an IKE replay window. Constraints: A value between 64 and 2048. Default: @1024@
+-- Valid Values: @clear@ | @none@ | @restart@
+-- Default: @clear@
+-- * 'dPDTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
 --
--- * 'vtosDPDTimeoutAction' - The action to take after DPD timeout occurs. Specify @restart@ to restart the IKE initiation. Specify @clear@ to end the IKE session. Valid Values: @clear@ | @none@ | @restart@  Default: @clear@
+-- Constraints: A value between 0 and 30.
+-- Default: @30@
+-- * 'iKEVersions' - The IKE versions that are permitted for the VPN tunnel.
 --
--- * 'vtosRekeyFuzzPercentage' - The percentage of the rekey window (determined by @RekeyMarginTimeSeconds@ ) during which the rekey time is randomly selected. Constraints: A value between 0 and 100. Default: @100@
+-- Valid values: @ikev1@ | @ikev2@
+-- * 'phase1DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 --
--- * 'vtosPhase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds. Constraints: A value between 900 and 28,800. Default: @28800@
+-- Valid values: @2@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
+-- * 'phase1EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 --
--- * 'vtosIKEVersions' - The IKE versions that are permitted for the VPN tunnel. Valid values: @ikev1@ | @ikev2@
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+-- * 'phase1IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 --
--- * 'vtosPhase2IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations. Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+-- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+-- * 'phase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds.
 --
--- * 'vtosPhase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds. Constraints: A value between 900 and 3,600. The value must be less than the value for @Phase1LifetimeSeconds@ . Default: @3600@
+-- Constraints: A value between 900 and 28,800.
+-- Default: @28800@
+-- * 'phase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
 --
--- * 'vtosPhase1EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations. Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+-- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
+-- * 'phase2EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
 --
--- * 'vtosPhase1DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations. Valid values: @2@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+-- * 'phase2IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
 --
--- * 'vtosPhase1IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations. Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+-- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+-- * 'phase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds.
 --
--- * 'vtosRekeyMarginTimeSeconds' - The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for @RekeyFuzzPercentage@ . Constraints: A value between 60 and half of @Phase2LifetimeSeconds@ . Default: @540@
+-- Constraints: A value between 900 and 3,600. The value must be less than the value for @Phase1LifetimeSeconds@ .
+-- Default: @3600@
+-- * 'preSharedKey' - The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 --
--- * 'vtosDPDTimeoutSeconds' - The number of seconds after which a DPD timeout occurs. Constraints: A value between 0 and 30. Default: @30@
+-- Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+-- * 'rekeyFuzzPercentage' - The percentage of the rekey window (determined by @RekeyMarginTimeSeconds@ ) during which the rekey time is randomly selected.
 --
--- * 'vtosTunnelInsideCidr' - The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.  Constraints: A size /30 CIDR block from the @169.254.0.0/16@ range. The following CIDR blocks are reserved and cannot be used:     * @169.254.0.0/30@      * @169.254.1.0/30@      * @169.254.2.0/30@      * @169.254.3.0/30@      * @169.254.4.0/30@      * @169.254.5.0/30@      * @169.254.169.252/30@
+-- Constraints: A value between 0 and 100.
+-- Default: @100@
+-- * 'rekeyMarginTimeSeconds' - The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for @RekeyFuzzPercentage@ .
 --
--- * 'vtosStartupAction' - The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify @start@ for AWS to initiate the IKE negotiation. Valid Values: @add@ | @start@  Default: @add@
+-- Constraints: A value between 60 and half of @Phase2LifetimeSeconds@ .
+-- Default: @540@
+-- * 'replayWindowSize' - The number of packets in an IKE replay window.
 --
--- * 'vtosPhase2EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations. Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+-- Constraints: A value between 64 and 2048.
+-- Default: @1024@
+-- * 'startupAction' - The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify @start@ for AWS to initiate the IKE negotiation.
 --
--- * 'vtosPhase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations. Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
+-- Valid Values: @add@ | @start@
+-- Default: @add@
+-- * 'tunnelInsideCidr' - The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
 --
--- * 'vtosPreSharedKey' - The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway. Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+-- Constraints: A size /30 CIDR block from the @169.254.0.0/16@ range. The following CIDR blocks are reserved and cannot be used:
 --
--- * 'vtosTunnelInsideIPv6Cidr' - The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway. Constraints: A size /126 CIDR block from the local @fd00::/8@ range.
-vpnTunnelOptionsSpecification ::
+--     * @169.254.0.0/30@
+--
+--
+--     * @169.254.1.0/30@
+--
+--
+--     * @169.254.2.0/30@
+--
+--
+--     * @169.254.3.0/30@
+--
+--
+--     * @169.254.4.0/30@
+--
+--
+--     * @169.254.5.0/30@
+--
+--
+--     * @169.254.169.252/30@
+--
+--
+-- * 'tunnelInsideIPv6Cidr' - The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+--
+-- Constraints: A size /126 CIDR block from the local @fd00::/8@ range.
+mkVPNTunnelOptionsSpecification ::
   VPNTunnelOptionsSpecification
-vpnTunnelOptionsSpecification =
+mkVPNTunnelOptionsSpecification =
   VPNTunnelOptionsSpecification'
-    { _vtosReplayWindowSize = Nothing,
-      _vtosDPDTimeoutAction = Nothing,
-      _vtosRekeyFuzzPercentage = Nothing,
-      _vtosPhase1LifetimeSeconds = Nothing,
-      _vtosIKEVersions = Nothing,
-      _vtosPhase2IntegrityAlgorithms = Nothing,
-      _vtosPhase2LifetimeSeconds = Nothing,
-      _vtosPhase1EncryptionAlgorithms = Nothing,
-      _vtosPhase1DHGroupNumbers = Nothing,
-      _vtosPhase1IntegrityAlgorithms = Nothing,
-      _vtosRekeyMarginTimeSeconds = Nothing,
-      _vtosDPDTimeoutSeconds = Nothing,
-      _vtosTunnelInsideCidr = Nothing,
-      _vtosStartupAction = Nothing,
-      _vtosPhase2EncryptionAlgorithms = Nothing,
-      _vtosPhase2DHGroupNumbers = Nothing,
-      _vtosPreSharedKey = Nothing,
-      _vtosTunnelInsideIPv6Cidr = Nothing
+    { replayWindowSize = Lude.Nothing,
+      dPDTimeoutAction = Lude.Nothing,
+      rekeyFuzzPercentage = Lude.Nothing,
+      phase1LifetimeSeconds = Lude.Nothing,
+      iKEVersions = Lude.Nothing,
+      phase2IntegrityAlgorithms = Lude.Nothing,
+      phase2LifetimeSeconds = Lude.Nothing,
+      phase1EncryptionAlgorithms = Lude.Nothing,
+      phase1DHGroupNumbers = Lude.Nothing,
+      phase1IntegrityAlgorithms = Lude.Nothing,
+      rekeyMarginTimeSeconds = Lude.Nothing,
+      dPDTimeoutSeconds = Lude.Nothing,
+      tunnelInsideCidr = Lude.Nothing,
+      startupAction = Lude.Nothing,
+      phase2EncryptionAlgorithms = Lude.Nothing,
+      phase2DHGroupNumbers = Lude.Nothing,
+      preSharedKey = Lude.Nothing,
+      tunnelInsideIPv6Cidr = Lude.Nothing
     }
 
--- | The number of packets in an IKE replay window. Constraints: A value between 64 and 2048. Default: @1024@
-vtosReplayWindowSize :: Lens' VPNTunnelOptionsSpecification (Maybe Int)
-vtosReplayWindowSize = lens _vtosReplayWindowSize (\s a -> s {_vtosReplayWindowSize = a})
+-- | The number of packets in an IKE replay window.
+--
+-- Constraints: A value between 64 and 2048.
+-- Default: @1024@
+--
+-- /Note:/ Consider using 'replayWindowSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosReplayWindowSize :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Int)
+vtosReplayWindowSize = Lens.lens (replayWindowSize :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Int) (\s a -> s {replayWindowSize = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosReplayWindowSize "Use generic-lens or generic-optics with 'replayWindowSize' instead." #-}
 
--- | The action to take after DPD timeout occurs. Specify @restart@ to restart the IKE initiation. Specify @clear@ to end the IKE session. Valid Values: @clear@ | @none@ | @restart@  Default: @clear@
-vtosDPDTimeoutAction :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
-vtosDPDTimeoutAction = lens _vtosDPDTimeoutAction (\s a -> s {_vtosDPDTimeoutAction = a})
+-- | The action to take after DPD timeout occurs. Specify @restart@ to restart the IKE initiation. Specify @clear@ to end the IKE session.
+--
+-- Valid Values: @clear@ | @none@ | @restart@
+-- Default: @clear@
+--
+-- /Note:/ Consider using 'dPDTimeoutAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosDPDTimeoutAction :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Text)
+vtosDPDTimeoutAction = Lens.lens (dPDTimeoutAction :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {dPDTimeoutAction = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosDPDTimeoutAction "Use generic-lens or generic-optics with 'dPDTimeoutAction' instead." #-}
 
--- | The percentage of the rekey window (determined by @RekeyMarginTimeSeconds@ ) during which the rekey time is randomly selected. Constraints: A value between 0 and 100. Default: @100@
-vtosRekeyFuzzPercentage :: Lens' VPNTunnelOptionsSpecification (Maybe Int)
-vtosRekeyFuzzPercentage = lens _vtosRekeyFuzzPercentage (\s a -> s {_vtosRekeyFuzzPercentage = a})
+-- | The percentage of the rekey window (determined by @RekeyMarginTimeSeconds@ ) during which the rekey time is randomly selected.
+--
+-- Constraints: A value between 0 and 100.
+-- Default: @100@
+--
+-- /Note:/ Consider using 'rekeyFuzzPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosRekeyFuzzPercentage :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Int)
+vtosRekeyFuzzPercentage = Lens.lens (rekeyFuzzPercentage :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Int) (\s a -> s {rekeyFuzzPercentage = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosRekeyFuzzPercentage "Use generic-lens or generic-optics with 'rekeyFuzzPercentage' instead." #-}
 
--- | The lifetime for phase 1 of the IKE negotiation, in seconds. Constraints: A value between 900 and 28,800. Default: @28800@
-vtosPhase1LifetimeSeconds :: Lens' VPNTunnelOptionsSpecification (Maybe Int)
-vtosPhase1LifetimeSeconds = lens _vtosPhase1LifetimeSeconds (\s a -> s {_vtosPhase1LifetimeSeconds = a})
+-- | The lifetime for phase 1 of the IKE negotiation, in seconds.
+--
+-- Constraints: A value between 900 and 28,800.
+-- Default: @28800@
+--
+-- /Note:/ Consider using 'phase1LifetimeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase1LifetimeSeconds :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Int)
+vtosPhase1LifetimeSeconds = Lens.lens (phase1LifetimeSeconds :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Int) (\s a -> s {phase1LifetimeSeconds = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase1LifetimeSeconds "Use generic-lens or generic-optics with 'phase1LifetimeSeconds' instead." #-}
 
--- | The IKE versions that are permitted for the VPN tunnel. Valid values: @ikev1@ | @ikev2@
-vtosIKEVersions :: Lens' VPNTunnelOptionsSpecification [IKEVersionsRequestListValue]
-vtosIKEVersions = lens _vtosIKEVersions (\s a -> s {_vtosIKEVersions = a}) . _Default . _Coerce
+-- | The IKE versions that are permitted for the VPN tunnel.
+--
+-- Valid values: @ikev1@ | @ikev2@
+--
+-- /Note:/ Consider using 'iKEVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosIKEVersions :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [IKEVersionsRequestListValue])
+vtosIKEVersions = Lens.lens (iKEVersions :: VPNTunnelOptionsSpecification -> Lude.Maybe [IKEVersionsRequestListValue]) (\s a -> s {iKEVersions = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosIKEVersions "Use generic-lens or generic-optics with 'iKEVersions' instead." #-}
 
--- | One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations. Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
-vtosPhase2IntegrityAlgorithms :: Lens' VPNTunnelOptionsSpecification [Phase2IntegrityAlgorithmsRequestListValue]
-vtosPhase2IntegrityAlgorithms = lens _vtosPhase2IntegrityAlgorithms (\s a -> s {_vtosPhase2IntegrityAlgorithms = a}) . _Default . _Coerce
+-- | One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+--
+-- /Note:/ Consider using 'phase2IntegrityAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase2IntegrityAlgorithms :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [Phase2IntegrityAlgorithmsRequestListValue])
+vtosPhase2IntegrityAlgorithms = Lens.lens (phase2IntegrityAlgorithms :: VPNTunnelOptionsSpecification -> Lude.Maybe [Phase2IntegrityAlgorithmsRequestListValue]) (\s a -> s {phase2IntegrityAlgorithms = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase2IntegrityAlgorithms "Use generic-lens or generic-optics with 'phase2IntegrityAlgorithms' instead." #-}
 
--- | The lifetime for phase 2 of the IKE negotiation, in seconds. Constraints: A value between 900 and 3,600. The value must be less than the value for @Phase1LifetimeSeconds@ . Default: @3600@
-vtosPhase2LifetimeSeconds :: Lens' VPNTunnelOptionsSpecification (Maybe Int)
-vtosPhase2LifetimeSeconds = lens _vtosPhase2LifetimeSeconds (\s a -> s {_vtosPhase2LifetimeSeconds = a})
+-- | The lifetime for phase 2 of the IKE negotiation, in seconds.
+--
+-- Constraints: A value between 900 and 3,600. The value must be less than the value for @Phase1LifetimeSeconds@ .
+-- Default: @3600@
+--
+-- /Note:/ Consider using 'phase2LifetimeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase2LifetimeSeconds :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Int)
+vtosPhase2LifetimeSeconds = Lens.lens (phase2LifetimeSeconds :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Int) (\s a -> s {phase2LifetimeSeconds = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase2LifetimeSeconds "Use generic-lens or generic-optics with 'phase2LifetimeSeconds' instead." #-}
 
--- | One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations. Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-vtosPhase1EncryptionAlgorithms :: Lens' VPNTunnelOptionsSpecification [Phase1EncryptionAlgorithmsRequestListValue]
-vtosPhase1EncryptionAlgorithms = lens _vtosPhase1EncryptionAlgorithms (\s a -> s {_vtosPhase1EncryptionAlgorithms = a}) . _Default . _Coerce
+-- | One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+--
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+--
+-- /Note:/ Consider using 'phase1EncryptionAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase1EncryptionAlgorithms :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [Phase1EncryptionAlgorithmsRequestListValue])
+vtosPhase1EncryptionAlgorithms = Lens.lens (phase1EncryptionAlgorithms :: VPNTunnelOptionsSpecification -> Lude.Maybe [Phase1EncryptionAlgorithmsRequestListValue]) (\s a -> s {phase1EncryptionAlgorithms = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase1EncryptionAlgorithms "Use generic-lens or generic-optics with 'phase1EncryptionAlgorithms' instead." #-}
 
--- | One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations. Valid values: @2@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
-vtosPhase1DHGroupNumbers :: Lens' VPNTunnelOptionsSpecification [Phase1DHGroupNumbersRequestListValue]
-vtosPhase1DHGroupNumbers = lens _vtosPhase1DHGroupNumbers (\s a -> s {_vtosPhase1DHGroupNumbers = a}) . _Default . _Coerce
+-- | One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+--
+-- Valid values: @2@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
+--
+-- /Note:/ Consider using 'phase1DHGroupNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase1DHGroupNumbers :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [Phase1DHGroupNumbersRequestListValue])
+vtosPhase1DHGroupNumbers = Lens.lens (phase1DHGroupNumbers :: VPNTunnelOptionsSpecification -> Lude.Maybe [Phase1DHGroupNumbersRequestListValue]) (\s a -> s {phase1DHGroupNumbers = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase1DHGroupNumbers "Use generic-lens or generic-optics with 'phase1DHGroupNumbers' instead." #-}
 
--- | One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations. Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
-vtosPhase1IntegrityAlgorithms :: Lens' VPNTunnelOptionsSpecification [Phase1IntegrityAlgorithmsRequestListValue]
-vtosPhase1IntegrityAlgorithms = lens _vtosPhase1IntegrityAlgorithms (\s a -> s {_vtosPhase1IntegrityAlgorithms = a}) . _Default . _Coerce
+-- | One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+--
+-- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+--
+-- /Note:/ Consider using 'phase1IntegrityAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase1IntegrityAlgorithms :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [Phase1IntegrityAlgorithmsRequestListValue])
+vtosPhase1IntegrityAlgorithms = Lens.lens (phase1IntegrityAlgorithms :: VPNTunnelOptionsSpecification -> Lude.Maybe [Phase1IntegrityAlgorithmsRequestListValue]) (\s a -> s {phase1IntegrityAlgorithms = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase1IntegrityAlgorithms "Use generic-lens or generic-optics with 'phase1IntegrityAlgorithms' instead." #-}
 
--- | The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for @RekeyFuzzPercentage@ . Constraints: A value between 60 and half of @Phase2LifetimeSeconds@ . Default: @540@
-vtosRekeyMarginTimeSeconds :: Lens' VPNTunnelOptionsSpecification (Maybe Int)
-vtosRekeyMarginTimeSeconds = lens _vtosRekeyMarginTimeSeconds (\s a -> s {_vtosRekeyMarginTimeSeconds = a})
+-- | The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for @RekeyFuzzPercentage@ .
+--
+-- Constraints: A value between 60 and half of @Phase2LifetimeSeconds@ .
+-- Default: @540@
+--
+-- /Note:/ Consider using 'rekeyMarginTimeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosRekeyMarginTimeSeconds :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Int)
+vtosRekeyMarginTimeSeconds = Lens.lens (rekeyMarginTimeSeconds :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Int) (\s a -> s {rekeyMarginTimeSeconds = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosRekeyMarginTimeSeconds "Use generic-lens or generic-optics with 'rekeyMarginTimeSeconds' instead." #-}
 
--- | The number of seconds after which a DPD timeout occurs. Constraints: A value between 0 and 30. Default: @30@
-vtosDPDTimeoutSeconds :: Lens' VPNTunnelOptionsSpecification (Maybe Int)
-vtosDPDTimeoutSeconds = lens _vtosDPDTimeoutSeconds (\s a -> s {_vtosDPDTimeoutSeconds = a})
+-- | The number of seconds after which a DPD timeout occurs.
+--
+-- Constraints: A value between 0 and 30.
+-- Default: @30@
+--
+-- /Note:/ Consider using 'dPDTimeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosDPDTimeoutSeconds :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Int)
+vtosDPDTimeoutSeconds = Lens.lens (dPDTimeoutSeconds :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Int) (\s a -> s {dPDTimeoutSeconds = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosDPDTimeoutSeconds "Use generic-lens or generic-optics with 'dPDTimeoutSeconds' instead." #-}
 
--- | The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.  Constraints: A size /30 CIDR block from the @169.254.0.0/16@ range. The following CIDR blocks are reserved and cannot be used:     * @169.254.0.0/30@      * @169.254.1.0/30@      * @169.254.2.0/30@      * @169.254.3.0/30@      * @169.254.4.0/30@      * @169.254.5.0/30@      * @169.254.169.252/30@
-vtosTunnelInsideCidr :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
-vtosTunnelInsideCidr = lens _vtosTunnelInsideCidr (\s a -> s {_vtosTunnelInsideCidr = a})
+-- | The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
+--
+-- Constraints: A size /30 CIDR block from the @169.254.0.0/16@ range. The following CIDR blocks are reserved and cannot be used:
+--
+--     * @169.254.0.0/30@
+--
+--
+--     * @169.254.1.0/30@
+--
+--
+--     * @169.254.2.0/30@
+--
+--
+--     * @169.254.3.0/30@
+--
+--
+--     * @169.254.4.0/30@
+--
+--
+--     * @169.254.5.0/30@
+--
+--
+--     * @169.254.169.252/30@
+--
+--
+--
+-- /Note:/ Consider using 'tunnelInsideCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosTunnelInsideCidr :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Text)
+vtosTunnelInsideCidr = Lens.lens (tunnelInsideCidr :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {tunnelInsideCidr = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosTunnelInsideCidr "Use generic-lens or generic-optics with 'tunnelInsideCidr' instead." #-}
 
--- | The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify @start@ for AWS to initiate the IKE negotiation. Valid Values: @add@ | @start@  Default: @add@
-vtosStartupAction :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
-vtosStartupAction = lens _vtosStartupAction (\s a -> s {_vtosStartupAction = a})
+-- | The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify @start@ for AWS to initiate the IKE negotiation.
+--
+-- Valid Values: @add@ | @start@
+-- Default: @add@
+--
+-- /Note:/ Consider using 'startupAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosStartupAction :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Text)
+vtosStartupAction = Lens.lens (startupAction :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {startupAction = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosStartupAction "Use generic-lens or generic-optics with 'startupAction' instead." #-}
 
--- | One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations. Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-vtosPhase2EncryptionAlgorithms :: Lens' VPNTunnelOptionsSpecification [Phase2EncryptionAlgorithmsRequestListValue]
-vtosPhase2EncryptionAlgorithms = lens _vtosPhase2EncryptionAlgorithms (\s a -> s {_vtosPhase2EncryptionAlgorithms = a}) . _Default . _Coerce
+-- | One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+--
+-- /Note:/ Consider using 'phase2EncryptionAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase2EncryptionAlgorithms :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [Phase2EncryptionAlgorithmsRequestListValue])
+vtosPhase2EncryptionAlgorithms = Lens.lens (phase2EncryptionAlgorithms :: VPNTunnelOptionsSpecification -> Lude.Maybe [Phase2EncryptionAlgorithmsRequestListValue]) (\s a -> s {phase2EncryptionAlgorithms = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase2EncryptionAlgorithms "Use generic-lens or generic-optics with 'phase2EncryptionAlgorithms' instead." #-}
 
--- | One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations. Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
-vtosPhase2DHGroupNumbers :: Lens' VPNTunnelOptionsSpecification [Phase2DHGroupNumbersRequestListValue]
-vtosPhase2DHGroupNumbers = lens _vtosPhase2DHGroupNumbers (\s a -> s {_vtosPhase2DHGroupNumbers = a}) . _Default . _Coerce
+-- | One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@ | @21@ | @22@ | @23@ | @24@
+--
+-- /Note:/ Consider using 'phase2DHGroupNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPhase2DHGroupNumbers :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe [Phase2DHGroupNumbersRequestListValue])
+vtosPhase2DHGroupNumbers = Lens.lens (phase2DHGroupNumbers :: VPNTunnelOptionsSpecification -> Lude.Maybe [Phase2DHGroupNumbersRequestListValue]) (\s a -> s {phase2DHGroupNumbers = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPhase2DHGroupNumbers "Use generic-lens or generic-optics with 'phase2DHGroupNumbers' instead." #-}
 
--- | The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway. Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
-vtosPreSharedKey :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
-vtosPreSharedKey = lens _vtosPreSharedKey (\s a -> s {_vtosPreSharedKey = a})
+-- | The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
+--
+-- Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+--
+-- /Note:/ Consider using 'preSharedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosPreSharedKey :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Text)
+vtosPreSharedKey = Lens.lens (preSharedKey :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {preSharedKey = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosPreSharedKey "Use generic-lens or generic-optics with 'preSharedKey' instead." #-}
 
--- | The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway. Constraints: A size /126 CIDR block from the local @fd00::/8@ range.
-vtosTunnelInsideIPv6Cidr :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
-vtosTunnelInsideIPv6Cidr = lens _vtosTunnelInsideIPv6Cidr (\s a -> s {_vtosTunnelInsideIPv6Cidr = a})
+-- | The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+--
+-- Constraints: A size /126 CIDR block from the local @fd00::/8@ range.
+--
+-- /Note:/ Consider using 'tunnelInsideIPv6Cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtosTunnelInsideIPv6Cidr :: Lens.Lens' VPNTunnelOptionsSpecification (Lude.Maybe Lude.Text)
+vtosTunnelInsideIPv6Cidr = Lens.lens (tunnelInsideIPv6Cidr :: VPNTunnelOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {tunnelInsideIPv6Cidr = a} :: VPNTunnelOptionsSpecification)
+{-# DEPRECATED vtosTunnelInsideIPv6Cidr "Use generic-lens or generic-optics with 'tunnelInsideIPv6Cidr' instead." #-}
 
-instance Hashable VPNTunnelOptionsSpecification
-
-instance NFData VPNTunnelOptionsSpecification
-
-instance ToQuery VPNTunnelOptionsSpecification where
+instance Lude.ToQuery VPNTunnelOptionsSpecification where
   toQuery VPNTunnelOptionsSpecification' {..} =
-    mconcat
-      [ "ReplayWindowSize" =: _vtosReplayWindowSize,
-        "DPDTimeoutAction" =: _vtosDPDTimeoutAction,
-        "RekeyFuzzPercentage" =: _vtosRekeyFuzzPercentage,
-        "Phase1LifetimeSeconds" =: _vtosPhase1LifetimeSeconds,
-        toQuery (toQueryList "IKEVersion" <$> _vtosIKEVersions),
-        toQuery
-          ( toQueryList "Phase2IntegrityAlgorithm"
-              <$> _vtosPhase2IntegrityAlgorithms
+    Lude.mconcat
+      [ "ReplayWindowSize" Lude.=: replayWindowSize,
+        "DPDTimeoutAction" Lude.=: dPDTimeoutAction,
+        "RekeyFuzzPercentage" Lude.=: rekeyFuzzPercentage,
+        "Phase1LifetimeSeconds" Lude.=: phase1LifetimeSeconds,
+        Lude.toQuery (Lude.toQueryList "IKEVersion" Lude.<$> iKEVersions),
+        Lude.toQuery
+          ( Lude.toQueryList "Phase2IntegrityAlgorithm"
+              Lude.<$> phase2IntegrityAlgorithms
           ),
-        "Phase2LifetimeSeconds" =: _vtosPhase2LifetimeSeconds,
-        toQuery
-          ( toQueryList "Phase1EncryptionAlgorithm"
-              <$> _vtosPhase1EncryptionAlgorithms
+        "Phase2LifetimeSeconds" Lude.=: phase2LifetimeSeconds,
+        Lude.toQuery
+          ( Lude.toQueryList "Phase1EncryptionAlgorithm"
+              Lude.<$> phase1EncryptionAlgorithms
           ),
-        toQuery
-          (toQueryList "Phase1DHGroupNumber" <$> _vtosPhase1DHGroupNumbers),
-        toQuery
-          ( toQueryList "Phase1IntegrityAlgorithm"
-              <$> _vtosPhase1IntegrityAlgorithms
+        Lude.toQuery
+          ( Lude.toQueryList "Phase1DHGroupNumber"
+              Lude.<$> phase1DHGroupNumbers
           ),
-        "RekeyMarginTimeSeconds" =: _vtosRekeyMarginTimeSeconds,
-        "DPDTimeoutSeconds" =: _vtosDPDTimeoutSeconds,
-        "TunnelInsideCidr" =: _vtosTunnelInsideCidr,
-        "StartupAction" =: _vtosStartupAction,
-        toQuery
-          ( toQueryList "Phase2EncryptionAlgorithm"
-              <$> _vtosPhase2EncryptionAlgorithms
+        Lude.toQuery
+          ( Lude.toQueryList "Phase1IntegrityAlgorithm"
+              Lude.<$> phase1IntegrityAlgorithms
           ),
-        toQuery
-          (toQueryList "Phase2DHGroupNumber" <$> _vtosPhase2DHGroupNumbers),
-        "PreSharedKey" =: _vtosPreSharedKey,
-        "TunnelInsideIpv6Cidr" =: _vtosTunnelInsideIPv6Cidr
+        "RekeyMarginTimeSeconds" Lude.=: rekeyMarginTimeSeconds,
+        "DPDTimeoutSeconds" Lude.=: dPDTimeoutSeconds,
+        "TunnelInsideCidr" Lude.=: tunnelInsideCidr,
+        "StartupAction" Lude.=: startupAction,
+        Lude.toQuery
+          ( Lude.toQueryList "Phase2EncryptionAlgorithm"
+              Lude.<$> phase2EncryptionAlgorithms
+          ),
+        Lude.toQuery
+          ( Lude.toQueryList "Phase2DHGroupNumber"
+              Lude.<$> phase2DHGroupNumbers
+          ),
+        "PreSharedKey" Lude.=: preSharedKey,
+        "TunnelInsideIpv6Cidr" Lude.=: tunnelInsideIPv6Cidr
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,166 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.Comment where
+module Network.AWS.CodeCommit.Types.Comment
+  ( Comment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComment,
+
+    -- * Lenses
+    cLastModifiedDate,
+    cAuthorARN,
+    cContent,
+    cCallerReactions,
+    cCreationDate,
+    cDeleted,
+    cClientRequestToken,
+    cCommentId,
+    cInReplyTo,
+    cReactionCounts,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about a specific comment.
 --
---
---
--- /See:/ 'comment' smart constructor.
+-- /See:/ 'mkComment' smart constructor.
 data Comment = Comment'
-  { _cLastModifiedDate :: !(Maybe POSIX),
-    _cAuthorARN :: !(Maybe Text),
-    _cContent :: !(Maybe Text),
-    _cCallerReactions :: !(Maybe [Text]),
-    _cCreationDate :: !(Maybe POSIX),
-    _cDeleted :: !(Maybe Bool),
-    _cClientRequestToken :: !(Maybe Text),
-    _cCommentId :: !(Maybe Text),
-    _cInReplyTo :: !(Maybe Text),
-    _cReactionCounts :: !(Maybe (Map Text (Int)))
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    authorARN :: Lude.Maybe Lude.Text,
+    content :: Lude.Maybe Lude.Text,
+    callerReactions :: Lude.Maybe [Lude.Text],
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    deleted :: Lude.Maybe Lude.Bool,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    commentId :: Lude.Maybe Lude.Text,
+    inReplyTo :: Lude.Maybe Lude.Text,
+    reactionCounts :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Comment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cLastModifiedDate' - The date and time the comment was most recently modified, in timestamp format.
---
--- * 'cAuthorARN' - The Amazon Resource Name (ARN) of the person who posted the comment.
---
--- * 'cContent' - The content of the comment.
---
--- * 'cCallerReactions' - The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.
---
--- * 'cCreationDate' - The date and time the comment was created, in timestamp format.
---
--- * 'cDeleted' - A Boolean value indicating whether the comment has been deleted.
---
--- * 'cClientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
---
--- * 'cCommentId' - The system-generated comment ID.
---
--- * 'cInReplyTo' - The ID of the comment for which this comment is a reply, if any.
---
--- * 'cReactionCounts' - A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.
-comment ::
+-- * 'authorARN' - The Amazon Resource Name (ARN) of the person who posted the comment.
+-- * 'callerReactions' - The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+-- * 'commentId' - The system-generated comment ID.
+-- * 'content' - The content of the comment.
+-- * 'creationDate' - The date and time the comment was created, in timestamp format.
+-- * 'deleted' - A Boolean value indicating whether the comment has been deleted.
+-- * 'inReplyTo' - The ID of the comment for which this comment is a reply, if any.
+-- * 'lastModifiedDate' - The date and time the comment was most recently modified, in timestamp format.
+-- * 'reactionCounts' - A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.
+mkComment ::
   Comment
-comment =
+mkComment =
   Comment'
-    { _cLastModifiedDate = Nothing,
-      _cAuthorARN = Nothing,
-      _cContent = Nothing,
-      _cCallerReactions = Nothing,
-      _cCreationDate = Nothing,
-      _cDeleted = Nothing,
-      _cClientRequestToken = Nothing,
-      _cCommentId = Nothing,
-      _cInReplyTo = Nothing,
-      _cReactionCounts = Nothing
+    { lastModifiedDate = Lude.Nothing,
+      authorARN = Lude.Nothing,
+      content = Lude.Nothing,
+      callerReactions = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      deleted = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      commentId = Lude.Nothing,
+      inReplyTo = Lude.Nothing,
+      reactionCounts = Lude.Nothing
     }
 
 -- | The date and time the comment was most recently modified, in timestamp format.
-cLastModifiedDate :: Lens' Comment (Maybe UTCTime)
-cLastModifiedDate = lens _cLastModifiedDate (\s a -> s {_cLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLastModifiedDate :: Lens.Lens' Comment (Lude.Maybe Lude.Timestamp)
+cLastModifiedDate = Lens.lens (lastModifiedDate :: Comment -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: Comment)
+{-# DEPRECATED cLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the person who posted the comment.
-cAuthorARN :: Lens' Comment (Maybe Text)
-cAuthorARN = lens _cAuthorARN (\s a -> s {_cAuthorARN = a})
+--
+-- /Note:/ Consider using 'authorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAuthorARN :: Lens.Lens' Comment (Lude.Maybe Lude.Text)
+cAuthorARN = Lens.lens (authorARN :: Comment -> Lude.Maybe Lude.Text) (\s a -> s {authorARN = a} :: Comment)
+{-# DEPRECATED cAuthorARN "Use generic-lens or generic-optics with 'authorARN' instead." #-}
 
 -- | The content of the comment.
-cContent :: Lens' Comment (Maybe Text)
-cContent = lens _cContent (\s a -> s {_cContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cContent :: Lens.Lens' Comment (Lude.Maybe Lude.Text)
+cContent = Lens.lens (content :: Comment -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: Comment)
+{-# DEPRECATED cContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.
-cCallerReactions :: Lens' Comment [Text]
-cCallerReactions = lens _cCallerReactions (\s a -> s {_cCallerReactions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'callerReactions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCallerReactions :: Lens.Lens' Comment (Lude.Maybe [Lude.Text])
+cCallerReactions = Lens.lens (callerReactions :: Comment -> Lude.Maybe [Lude.Text]) (\s a -> s {callerReactions = a} :: Comment)
+{-# DEPRECATED cCallerReactions "Use generic-lens or generic-optics with 'callerReactions' instead." #-}
 
 -- | The date and time the comment was created, in timestamp format.
-cCreationDate :: Lens' Comment (Maybe UTCTime)
-cCreationDate = lens _cCreationDate (\s a -> s {_cCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreationDate :: Lens.Lens' Comment (Lude.Maybe Lude.Timestamp)
+cCreationDate = Lens.lens (creationDate :: Comment -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: Comment)
+{-# DEPRECATED cCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A Boolean value indicating whether the comment has been deleted.
-cDeleted :: Lens' Comment (Maybe Bool)
-cDeleted = lens _cDeleted (\s a -> s {_cDeleted = a})
+--
+-- /Note:/ Consider using 'deleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDeleted :: Lens.Lens' Comment (Lude.Maybe Lude.Bool)
+cDeleted = Lens.lens (deleted :: Comment -> Lude.Maybe Lude.Bool) (\s a -> s {deleted = a} :: Comment)
+{-# DEPRECATED cDeleted "Use generic-lens or generic-optics with 'deleted' instead." #-}
 
 -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
-cClientRequestToken :: Lens' Comment (Maybe Text)
-cClientRequestToken = lens _cClientRequestToken (\s a -> s {_cClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClientRequestToken :: Lens.Lens' Comment (Lude.Maybe Lude.Text)
+cClientRequestToken = Lens.lens (clientRequestToken :: Comment -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: Comment)
+{-# DEPRECATED cClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The system-generated comment ID.
-cCommentId :: Lens' Comment (Maybe Text)
-cCommentId = lens _cCommentId (\s a -> s {_cCommentId = a})
+--
+-- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCommentId :: Lens.Lens' Comment (Lude.Maybe Lude.Text)
+cCommentId = Lens.lens (commentId :: Comment -> Lude.Maybe Lude.Text) (\s a -> s {commentId = a} :: Comment)
+{-# DEPRECATED cCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
 -- | The ID of the comment for which this comment is a reply, if any.
-cInReplyTo :: Lens' Comment (Maybe Text)
-cInReplyTo = lens _cInReplyTo (\s a -> s {_cInReplyTo = a})
+--
+-- /Note:/ Consider using 'inReplyTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cInReplyTo :: Lens.Lens' Comment (Lude.Maybe Lude.Text)
+cInReplyTo = Lens.lens (inReplyTo :: Comment -> Lude.Maybe Lude.Text) (\s a -> s {inReplyTo = a} :: Comment)
+{-# DEPRECATED cInReplyTo "Use generic-lens or generic-optics with 'inReplyTo' instead." #-}
 
 -- | A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.
-cReactionCounts :: Lens' Comment (HashMap Text (Int))
-cReactionCounts = lens _cReactionCounts (\s a -> s {_cReactionCounts = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'reactionCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cReactionCounts :: Lens.Lens' Comment (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)))
+cReactionCounts = Lens.lens (reactionCounts :: Comment -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))) (\s a -> s {reactionCounts = a} :: Comment)
+{-# DEPRECATED cReactionCounts "Use generic-lens or generic-optics with 'reactionCounts' instead." #-}
 
-instance FromJSON Comment where
+instance Lude.FromJSON Comment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Comment"
       ( \x ->
           Comment'
-            <$> (x .:? "lastModifiedDate")
-            <*> (x .:? "authorArn")
-            <*> (x .:? "content")
-            <*> (x .:? "callerReactions" .!= mempty)
-            <*> (x .:? "creationDate")
-            <*> (x .:? "deleted")
-            <*> (x .:? "clientRequestToken")
-            <*> (x .:? "commentId")
-            <*> (x .:? "inReplyTo")
-            <*> (x .:? "reactionCounts" .!= mempty)
+            Lude.<$> (x Lude..:? "lastModifiedDate")
+            Lude.<*> (x Lude..:? "authorArn")
+            Lude.<*> (x Lude..:? "content")
+            Lude.<*> (x Lude..:? "callerReactions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "creationDate")
+            Lude.<*> (x Lude..:? "deleted")
+            Lude.<*> (x Lude..:? "clientRequestToken")
+            Lude.<*> (x Lude..:? "commentId")
+            Lude.<*> (x Lude..:? "inReplyTo")
+            Lude.<*> (x Lude..:? "reactionCounts" Lude..!= Lude.mempty)
       )
-
-instance Hashable Comment
-
-instance NFData Comment

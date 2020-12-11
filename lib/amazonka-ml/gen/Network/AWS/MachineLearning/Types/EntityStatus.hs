@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.EntityStatus where
+module Network.AWS.MachineLearning.Types.EntityStatus
+  ( EntityStatus
+      ( EntityStatus',
+        ESCompleted,
+        ESDeleted,
+        ESFailed,
+        ESInprogress,
+        ESPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Object status with the following possible values:
 --
 --
---     * @PENDING@     * @INPROGRESS@     * @FAILED@     * @COMPLETED@     * @DELETED@
-data EntityStatus
-  = ESCompleted
-  | ESDeleted
-  | ESFailed
-  | ESInprogress
-  | ESPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+--     * @PENDING@
+--
+--     * @INPROGRESS@
+--
+--     * @FAILED@
+--
+--     * @COMPLETED@
+--
+--     * @DELETED@
+newtype EntityStatus = EntityStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EntityStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure ESCompleted
-      "deleted" -> pure ESDeleted
-      "failed" -> pure ESFailed
-      "inprogress" -> pure ESInprogress
-      "pending" -> pure ESPending
-      e ->
-        fromTextError $
-          "Failure parsing EntityStatus from value: '" <> e
-            <> "'. Accepted values: completed, deleted, failed, inprogress, pending"
+pattern ESCompleted :: EntityStatus
+pattern ESCompleted = EntityStatus' "COMPLETED"
 
-instance ToText EntityStatus where
-  toText = \case
-    ESCompleted -> "COMPLETED"
-    ESDeleted -> "DELETED"
-    ESFailed -> "FAILED"
-    ESInprogress -> "INPROGRESS"
-    ESPending -> "PENDING"
+pattern ESDeleted :: EntityStatus
+pattern ESDeleted = EntityStatus' "DELETED"
 
-instance Hashable EntityStatus
+pattern ESFailed :: EntityStatus
+pattern ESFailed = EntityStatus' "FAILED"
 
-instance NFData EntityStatus
+pattern ESInprogress :: EntityStatus
+pattern ESInprogress = EntityStatus' "INPROGRESS"
 
-instance ToByteString EntityStatus
+pattern ESPending :: EntityStatus
+pattern ESPending = EntityStatus' "PENDING"
 
-instance ToQuery EntityStatus
-
-instance ToHeader EntityStatus
-
-instance FromJSON EntityStatus where
-  parseJSON = parseJSONText "EntityStatus"
+{-# COMPLETE
+  ESCompleted,
+  ESDeleted,
+  ESFailed,
+  ESInprogress,
+  ESPending,
+  EntityStatus'
+  #-}

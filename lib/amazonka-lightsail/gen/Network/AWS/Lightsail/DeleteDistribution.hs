@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,135 @@
 --
 -- Deletes your Amazon Lightsail content delivery network (CDN) distribution.
 module Network.AWS.Lightsail.DeleteDistribution
-  ( -- * Creating a Request
-    deleteDistribution,
-    DeleteDistribution,
+  ( -- * Creating a request
+    DeleteDistribution (..),
+    mkDeleteDistribution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDistributionName,
 
-    -- * Destructuring the Response
-    deleteDistributionResponse,
-    DeleteDistributionResponse,
+    -- * Destructuring the response
+    DeleteDistributionResponse (..),
+    mkDeleteDistributionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dddrsOperation,
     dddrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDistribution' smart constructor.
+-- | /See:/ 'mkDeleteDistribution' smart constructor.
 newtype DeleteDistribution = DeleteDistribution'
-  { _ddDistributionName ::
-      Maybe Text
+  { distributionName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'distributionName' - The name of the distribution to delete.
 --
--- * 'ddDistributionName' - The name of the distribution to delete. Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-deleteDistribution ::
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+mkDeleteDistribution ::
   DeleteDistribution
-deleteDistribution =
-  DeleteDistribution' {_ddDistributionName = Nothing}
+mkDeleteDistribution =
+  DeleteDistribution' {distributionName = Lude.Nothing}
 
--- | The name of the distribution to delete. Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-ddDistributionName :: Lens' DeleteDistribution (Maybe Text)
-ddDistributionName = lens _ddDistributionName (\s a -> s {_ddDistributionName = a})
+-- | The name of the distribution to delete.
+--
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDistributionName :: Lens.Lens' DeleteDistribution (Lude.Maybe Lude.Text)
+ddDistributionName = Lens.lens (distributionName :: DeleteDistribution -> Lude.Maybe Lude.Text) (\s a -> s {distributionName = a} :: DeleteDistribution)
+{-# DEPRECATED ddDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
-instance AWSRequest DeleteDistribution where
+instance Lude.AWSRequest DeleteDistribution where
   type Rs DeleteDistribution = DeleteDistributionResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteDistributionResponse'
-            <$> (x .?> "operation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDistribution
-
-instance NFData DeleteDistribution
-
-instance ToHeaders DeleteDistribution where
+instance Lude.ToHeaders DeleteDistribution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DeleteDistribution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DeleteDistribution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDistribution where
+instance Lude.ToJSON DeleteDistribution where
   toJSON DeleteDistribution' {..} =
-    object
-      (catMaybes [("distributionName" .=) <$> _ddDistributionName])
+    Lude.object
+      ( Lude.catMaybes
+          [("distributionName" Lude..=) Lude.<$> distributionName]
+      )
 
-instance ToPath DeleteDistribution where
-  toPath = const "/"
+instance Lude.ToPath DeleteDistribution where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDistribution where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDistribution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDistributionResponse' smart constructor.
+-- | /See:/ 'mkDeleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse = DeleteDistributionResponse'
-  { _dddrsOperation ::
-      !(Maybe Operation),
-    _dddrsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDistributionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dddrsOperation' - An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'dddrsResponseStatus' - -- | The response status code.
-deleteDistributionResponse ::
-  -- | 'dddrsResponseStatus'
-  Int ->
+-- * 'operation' - An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteDistributionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDistributionResponse
-deleteDistributionResponse pResponseStatus_ =
+mkDeleteDistributionResponse pResponseStatus_ =
   DeleteDistributionResponse'
-    { _dddrsOperation = Nothing,
-      _dddrsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-dddrsOperation :: Lens' DeleteDistributionResponse (Maybe Operation)
-dddrsOperation = lens _dddrsOperation (\s a -> s {_dddrsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dddrsOperation :: Lens.Lens' DeleteDistributionResponse (Lude.Maybe Operation)
+dddrsOperation = Lens.lens (operation :: DeleteDistributionResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: DeleteDistributionResponse)
+{-# DEPRECATED dddrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-dddrsResponseStatus :: Lens' DeleteDistributionResponse Int
-dddrsResponseStatus = lens _dddrsResponseStatus (\s a -> s {_dddrsResponseStatus = a})
-
-instance NFData DeleteDistributionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dddrsResponseStatus :: Lens.Lens' DeleteDistributionResponse Lude.Int
+dddrsResponseStatus = Lens.lens (responseStatus :: DeleteDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDistributionResponse)
+{-# DEPRECATED dddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

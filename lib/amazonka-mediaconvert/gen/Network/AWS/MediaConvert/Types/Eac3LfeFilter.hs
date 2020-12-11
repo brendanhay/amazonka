@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3LfeFilter where
+module Network.AWS.MediaConvert.Types.Eac3LfeFilter
+  ( Eac3LfeFilter
+      ( Eac3LfeFilter',
+        ELFDisabled,
+        ELFEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
-data Eac3LfeFilter
-  = ELFDisabled
-  | ELFEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3LfeFilter = Eac3LfeFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3LfeFilter where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ELFDisabled
-      "enabled" -> pure ELFEnabled
-      e ->
-        fromTextError $
-          "Failure parsing Eac3LfeFilter from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern ELFDisabled :: Eac3LfeFilter
+pattern ELFDisabled = Eac3LfeFilter' "DISABLED"
 
-instance ToText Eac3LfeFilter where
-  toText = \case
-    ELFDisabled -> "DISABLED"
-    ELFEnabled -> "ENABLED"
+pattern ELFEnabled :: Eac3LfeFilter
+pattern ELFEnabled = Eac3LfeFilter' "ENABLED"
 
-instance Hashable Eac3LfeFilter
-
-instance NFData Eac3LfeFilter
-
-instance ToByteString Eac3LfeFilter
-
-instance ToQuery Eac3LfeFilter
-
-instance ToHeader Eac3LfeFilter
-
-instance ToJSON Eac3LfeFilter where
-  toJSON = toJSONText
-
-instance FromJSON Eac3LfeFilter where
-  parseJSON = parseJSONText "Eac3LfeFilter"
+{-# COMPLETE
+  ELFDisabled,
+  ELFEnabled,
+  Eac3LfeFilter'
+  #-}

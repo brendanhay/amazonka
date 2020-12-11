@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,95 @@
 --
 -- Cancels a pending transfer for the specified certificate.
 --
---
 -- __Note__ Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use 'RejectCertificateTransfer' instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.
---
 -- After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.
 module Network.AWS.IoT.CancelCertificateTransfer
-  ( -- * Creating a Request
-    cancelCertificateTransfer,
-    CancelCertificateTransfer,
+  ( -- * Creating a request
+    CancelCertificateTransfer (..),
+    mkCancelCertificateTransfer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cctCertificateId,
 
-    -- * Destructuring the Response
-    cancelCertificateTransferResponse,
-    CancelCertificateTransferResponse,
+    -- * Destructuring the response
+    CancelCertificateTransferResponse (..),
+    mkCancelCertificateTransferResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the CancelCertificateTransfer operation.
 --
---
---
--- /See:/ 'cancelCertificateTransfer' smart constructor.
+-- /See:/ 'mkCancelCertificateTransfer' smart constructor.
 newtype CancelCertificateTransfer = CancelCertificateTransfer'
-  { _cctCertificateId ::
-      Text
+  { certificateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelCertificateTransfer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cctCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-cancelCertificateTransfer ::
-  -- | 'cctCertificateId'
-  Text ->
+-- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+mkCancelCertificateTransfer ::
+  -- | 'certificateId'
+  Lude.Text ->
   CancelCertificateTransfer
-cancelCertificateTransfer pCertificateId_ =
-  CancelCertificateTransfer' {_cctCertificateId = pCertificateId_}
+mkCancelCertificateTransfer pCertificateId_ =
+  CancelCertificateTransfer' {certificateId = pCertificateId_}
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-cctCertificateId :: Lens' CancelCertificateTransfer Text
-cctCertificateId = lens _cctCertificateId (\s a -> s {_cctCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cctCertificateId :: Lens.Lens' CancelCertificateTransfer Lude.Text
+cctCertificateId = Lens.lens (certificateId :: CancelCertificateTransfer -> Lude.Text) (\s a -> s {certificateId = a} :: CancelCertificateTransfer)
+{-# DEPRECATED cctCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest CancelCertificateTransfer where
+instance Lude.AWSRequest CancelCertificateTransfer where
   type
     Rs CancelCertificateTransfer =
       CancelCertificateTransferResponse
-  request = patchJSON ioT
-  response = receiveNull CancelCertificateTransferResponse'
+  request = Req.patchJSON ioTService
+  response = Res.receiveNull CancelCertificateTransferResponse'
 
-instance Hashable CancelCertificateTransfer
+instance Lude.ToHeaders CancelCertificateTransfer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelCertificateTransfer
+instance Lude.ToJSON CancelCertificateTransfer where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders CancelCertificateTransfer where
-  toHeaders = const mempty
-
-instance ToJSON CancelCertificateTransfer where
-  toJSON = const (Object mempty)
-
-instance ToPath CancelCertificateTransfer where
+instance Lude.ToPath CancelCertificateTransfer where
   toPath CancelCertificateTransfer' {..} =
-    mconcat ["/cancel-certificate-transfer/", toBS _cctCertificateId]
+    Lude.mconcat
+      ["/cancel-certificate-transfer/", Lude.toBS certificateId]
 
-instance ToQuery CancelCertificateTransfer where
-  toQuery = const mempty
+instance Lude.ToQuery CancelCertificateTransfer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelCertificateTransferResponse' smart constructor.
+-- | /See:/ 'mkCancelCertificateTransferResponse' smart constructor.
 data CancelCertificateTransferResponse = CancelCertificateTransferResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelCertificateTransferResponse' with the minimum fields required to make a request.
-cancelCertificateTransferResponse ::
+mkCancelCertificateTransferResponse ::
   CancelCertificateTransferResponse
-cancelCertificateTransferResponse =
+mkCancelCertificateTransferResponse =
   CancelCertificateTransferResponse'
-
-instance NFData CancelCertificateTransferResponse

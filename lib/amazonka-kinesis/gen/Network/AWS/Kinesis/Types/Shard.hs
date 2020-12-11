@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,113 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.Shard where
+module Network.AWS.Kinesis.Types.Shard
+  ( Shard (..),
+
+    -- * Smart constructor
+    mkShard,
+
+    -- * Lenses
+    sAdjacentParentShardId,
+    sParentShardId,
+    sShardId,
+    sHashKeyRange,
+    sSequenceNumberRange,
+  )
+where
 
 import Network.AWS.Kinesis.Types.HashKeyRange
 import Network.AWS.Kinesis.Types.SequenceNumberRange
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A uniquely identified group of data records in a Kinesis data stream.
 --
---
---
--- /See:/ 'shard' smart constructor.
+-- /See:/ 'mkShard' smart constructor.
 data Shard = Shard'
-  { _sAdjacentParentShardId :: !(Maybe Text),
-    _sParentShardId :: !(Maybe Text),
-    _sShardId :: !Text,
-    _sHashKeyRange :: !HashKeyRange,
-    _sSequenceNumberRange :: !SequenceNumberRange
+  { adjacentParentShardId :: Lude.Maybe Lude.Text,
+    parentShardId :: Lude.Maybe Lude.Text,
+    shardId :: Lude.Text,
+    hashKeyRange :: HashKeyRange,
+    sequenceNumberRange :: SequenceNumberRange
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Shard' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sAdjacentParentShardId' - The shard ID of the shard adjacent to the shard's parent.
---
--- * 'sParentShardId' - The shard ID of the shard's parent.
---
--- * 'sShardId' - The unique identifier of the shard within the stream.
---
--- * 'sHashKeyRange' - The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
---
--- * 'sSequenceNumberRange' - The range of possible sequence numbers for the shard.
-shard ::
-  -- | 'sShardId'
-  Text ->
-  -- | 'sHashKeyRange'
+-- * 'adjacentParentShardId' - The shard ID of the shard adjacent to the shard's parent.
+-- * 'hashKeyRange' - The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+-- * 'parentShardId' - The shard ID of the shard's parent.
+-- * 'sequenceNumberRange' - The range of possible sequence numbers for the shard.
+-- * 'shardId' - The unique identifier of the shard within the stream.
+mkShard ::
+  -- | 'shardId'
+  Lude.Text ->
+  -- | 'hashKeyRange'
   HashKeyRange ->
-  -- | 'sSequenceNumberRange'
+  -- | 'sequenceNumberRange'
   SequenceNumberRange ->
   Shard
-shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
+mkShard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
   Shard'
-    { _sAdjacentParentShardId = Nothing,
-      _sParentShardId = Nothing,
-      _sShardId = pShardId_,
-      _sHashKeyRange = pHashKeyRange_,
-      _sSequenceNumberRange = pSequenceNumberRange_
+    { adjacentParentShardId = Lude.Nothing,
+      parentShardId = Lude.Nothing,
+      shardId = pShardId_,
+      hashKeyRange = pHashKeyRange_,
+      sequenceNumberRange = pSequenceNumberRange_
     }
 
 -- | The shard ID of the shard adjacent to the shard's parent.
-sAdjacentParentShardId :: Lens' Shard (Maybe Text)
-sAdjacentParentShardId = lens _sAdjacentParentShardId (\s a -> s {_sAdjacentParentShardId = a})
+--
+-- /Note:/ Consider using 'adjacentParentShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAdjacentParentShardId :: Lens.Lens' Shard (Lude.Maybe Lude.Text)
+sAdjacentParentShardId = Lens.lens (adjacentParentShardId :: Shard -> Lude.Maybe Lude.Text) (\s a -> s {adjacentParentShardId = a} :: Shard)
+{-# DEPRECATED sAdjacentParentShardId "Use generic-lens or generic-optics with 'adjacentParentShardId' instead." #-}
 
 -- | The shard ID of the shard's parent.
-sParentShardId :: Lens' Shard (Maybe Text)
-sParentShardId = lens _sParentShardId (\s a -> s {_sParentShardId = a})
+--
+-- /Note:/ Consider using 'parentShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sParentShardId :: Lens.Lens' Shard (Lude.Maybe Lude.Text)
+sParentShardId = Lens.lens (parentShardId :: Shard -> Lude.Maybe Lude.Text) (\s a -> s {parentShardId = a} :: Shard)
+{-# DEPRECATED sParentShardId "Use generic-lens or generic-optics with 'parentShardId' instead." #-}
 
 -- | The unique identifier of the shard within the stream.
-sShardId :: Lens' Shard Text
-sShardId = lens _sShardId (\s a -> s {_sShardId = a})
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sShardId :: Lens.Lens' Shard Lude.Text
+sShardId = Lens.lens (shardId :: Shard -> Lude.Text) (\s a -> s {shardId = a} :: Shard)
+{-# DEPRECATED sShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
 -- | The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-sHashKeyRange :: Lens' Shard HashKeyRange
-sHashKeyRange = lens _sHashKeyRange (\s a -> s {_sHashKeyRange = a})
+--
+-- /Note:/ Consider using 'hashKeyRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sHashKeyRange :: Lens.Lens' Shard HashKeyRange
+sHashKeyRange = Lens.lens (hashKeyRange :: Shard -> HashKeyRange) (\s a -> s {hashKeyRange = a} :: Shard)
+{-# DEPRECATED sHashKeyRange "Use generic-lens or generic-optics with 'hashKeyRange' instead." #-}
 
 -- | The range of possible sequence numbers for the shard.
-sSequenceNumberRange :: Lens' Shard SequenceNumberRange
-sSequenceNumberRange = lens _sSequenceNumberRange (\s a -> s {_sSequenceNumberRange = a})
+--
+-- /Note:/ Consider using 'sequenceNumberRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSequenceNumberRange :: Lens.Lens' Shard SequenceNumberRange
+sSequenceNumberRange = Lens.lens (sequenceNumberRange :: Shard -> SequenceNumberRange) (\s a -> s {sequenceNumberRange = a} :: Shard)
+{-# DEPRECATED sSequenceNumberRange "Use generic-lens or generic-optics with 'sequenceNumberRange' instead." #-}
 
-instance FromJSON Shard where
+instance Lude.FromJSON Shard where
   parseJSON =
-    withObject
+    Lude.withObject
       "Shard"
       ( \x ->
           Shard'
-            <$> (x .:? "AdjacentParentShardId")
-            <*> (x .:? "ParentShardId")
-            <*> (x .: "ShardId")
-            <*> (x .: "HashKeyRange")
-            <*> (x .: "SequenceNumberRange")
+            Lude.<$> (x Lude..:? "AdjacentParentShardId")
+            Lude.<*> (x Lude..:? "ParentShardId")
+            Lude.<*> (x Lude..: "ShardId")
+            Lude.<*> (x Lude..: "HashKeyRange")
+            Lude.<*> (x Lude..: "SequenceNumberRange")
       )
-
-instance Hashable Shard
-
-instance NFData Shard

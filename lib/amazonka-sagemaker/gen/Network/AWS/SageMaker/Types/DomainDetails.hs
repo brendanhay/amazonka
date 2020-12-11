@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,131 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DomainDetails where
+module Network.AWS.SageMaker.Types.DomainDetails
+  ( DomainDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainDetails,
+
+    -- * Lenses
+    ddCreationTime,
+    ddStatus,
+    ddDomainARN,
+    ddURL,
+    ddLastModifiedTime,
+    ddDomainName,
+    ddDomainId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.DomainStatus
 
 -- | The domain's details.
 --
---
---
--- /See:/ 'domainDetails' smart constructor.
+-- /See:/ 'mkDomainDetails' smart constructor.
 data DomainDetails = DomainDetails'
-  { _ddCreationTime ::
-      !(Maybe POSIX),
-    _ddStatus :: !(Maybe DomainStatus),
-    _ddDomainARN :: !(Maybe Text),
-    _ddURL :: !(Maybe Text),
-    _ddLastModifiedTime :: !(Maybe POSIX),
-    _ddDomainName :: !(Maybe Text),
-    _ddDomainId :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe DomainStatus,
+    domainARN :: Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    domainName :: Lude.Maybe Lude.Text,
+    domainId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddCreationTime' - The creation time.
---
--- * 'ddStatus' - The status.
---
--- * 'ddDomainARN' - The domain's Amazon Resource Name (ARN).
---
--- * 'ddURL' - The domain's URL.
---
--- * 'ddLastModifiedTime' - The last modified time.
---
--- * 'ddDomainName' - The domain name.
---
--- * 'ddDomainId' - The domain ID.
-domainDetails ::
+-- * 'creationTime' - The creation time.
+-- * 'domainARN' - The domain's Amazon Resource Name (ARN).
+-- * 'domainId' - The domain ID.
+-- * 'domainName' - The domain name.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'status' - The status.
+-- * 'url' - The domain's URL.
+mkDomainDetails ::
   DomainDetails
-domainDetails =
+mkDomainDetails =
   DomainDetails'
-    { _ddCreationTime = Nothing,
-      _ddStatus = Nothing,
-      _ddDomainARN = Nothing,
-      _ddURL = Nothing,
-      _ddLastModifiedTime = Nothing,
-      _ddDomainName = Nothing,
-      _ddDomainId = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      domainARN = Lude.Nothing,
+      url = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      domainName = Lude.Nothing,
+      domainId = Lude.Nothing
     }
 
 -- | The creation time.
-ddCreationTime :: Lens' DomainDetails (Maybe UTCTime)
-ddCreationTime = lens _ddCreationTime (\s a -> s {_ddCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddCreationTime :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Timestamp)
+ddCreationTime = Lens.lens (creationTime :: DomainDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DomainDetails)
+{-# DEPRECATED ddCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status.
-ddStatus :: Lens' DomainDetails (Maybe DomainStatus)
-ddStatus = lens _ddStatus (\s a -> s {_ddStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddStatus :: Lens.Lens' DomainDetails (Lude.Maybe DomainStatus)
+ddStatus = Lens.lens (status :: DomainDetails -> Lude.Maybe DomainStatus) (\s a -> s {status = a} :: DomainDetails)
+{-# DEPRECATED ddStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The domain's Amazon Resource Name (ARN).
-ddDomainARN :: Lens' DomainDetails (Maybe Text)
-ddDomainARN = lens _ddDomainARN (\s a -> s {_ddDomainARN = a})
+--
+-- /Note:/ Consider using 'domainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomainARN :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Text)
+ddDomainARN = Lens.lens (domainARN :: DomainDetails -> Lude.Maybe Lude.Text) (\s a -> s {domainARN = a} :: DomainDetails)
+{-# DEPRECATED ddDomainARN "Use generic-lens or generic-optics with 'domainARN' instead." #-}
 
 -- | The domain's URL.
-ddURL :: Lens' DomainDetails (Maybe Text)
-ddURL = lens _ddURL (\s a -> s {_ddURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddURL :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Text)
+ddURL = Lens.lens (url :: DomainDetails -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: DomainDetails)
+{-# DEPRECATED ddURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The last modified time.
-ddLastModifiedTime :: Lens' DomainDetails (Maybe UTCTime)
-ddLastModifiedTime = lens _ddLastModifiedTime (\s a -> s {_ddLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddLastModifiedTime :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Timestamp)
+ddLastModifiedTime = Lens.lens (lastModifiedTime :: DomainDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DomainDetails)
+{-# DEPRECATED ddLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The domain name.
-ddDomainName :: Lens' DomainDetails (Maybe Text)
-ddDomainName = lens _ddDomainName (\s a -> s {_ddDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomainName :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Text)
+ddDomainName = Lens.lens (domainName :: DomainDetails -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainDetails)
+{-# DEPRECATED ddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The domain ID.
-ddDomainId :: Lens' DomainDetails (Maybe Text)
-ddDomainId = lens _ddDomainId (\s a -> s {_ddDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomainId :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Text)
+ddDomainId = Lens.lens (domainId :: DomainDetails -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: DomainDetails)
+{-# DEPRECATED ddDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance FromJSON DomainDetails where
+instance Lude.FromJSON DomainDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainDetails"
       ( \x ->
           DomainDetails'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Status")
-            <*> (x .:? "DomainArn")
-            <*> (x .:? "Url")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "DomainName")
-            <*> (x .:? "DomainId")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "DomainArn")
+            Lude.<*> (x Lude..:? "Url")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "DomainName")
+            Lude.<*> (x Lude..:? "DomainId")
       )
-
-instance Hashable DomainDetails
-
-instance NFData DomainDetails

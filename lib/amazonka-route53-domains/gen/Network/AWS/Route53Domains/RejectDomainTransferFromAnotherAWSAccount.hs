@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,151 @@
 --
 -- Rejects the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> .
 --
---
 -- Use either <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html ListOperations> or <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> to determine whether the operation succeeded. <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> provides additional information, for example, @Domain Transfer from Aws Account 111122223333 has been cancelled@ .
 module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAWSAccount
-  ( -- * Creating a Request
-    rejectDomainTransferFromAnotherAWSAccount,
-    RejectDomainTransferFromAnotherAWSAccount,
+  ( -- * Creating a request
+    RejectDomainTransferFromAnotherAWSAccount (..),
+    mkRejectDomainTransferFromAnotherAWSAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rdtfaaaDomainName,
 
-    -- * Destructuring the Response
-    rejectDomainTransferFromAnotherAWSAccountResponse,
-    RejectDomainTransferFromAnotherAWSAccountResponse,
+    -- * Destructuring the response
+    RejectDomainTransferFromAnotherAWSAccountResponse (..),
+    mkRejectDomainTransferFromAnotherAWSAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rdtfaaarsOperationId,
     rdtfaaarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The RejectDomainTransferFromAnotherAwsAccount request includes the following element.
 --
---
---
--- /See:/ 'rejectDomainTransferFromAnotherAWSAccount' smart constructor.
+-- /See:/ 'mkRejectDomainTransferFromAnotherAWSAccount' smart constructor.
 newtype RejectDomainTransferFromAnotherAWSAccount = RejectDomainTransferFromAnotherAWSAccount'
-  { _rdtfaaaDomainName ::
-      Text
+  { domainName ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectDomainTransferFromAnotherAWSAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdtfaaaDomainName' - The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
-rejectDomainTransferFromAnotherAWSAccount ::
-  -- | 'rdtfaaaDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
+mkRejectDomainTransferFromAnotherAWSAccount ::
+  -- | 'domainName'
+  Lude.Text ->
   RejectDomainTransferFromAnotherAWSAccount
-rejectDomainTransferFromAnotherAWSAccount pDomainName_ =
+mkRejectDomainTransferFromAnotherAWSAccount pDomainName_ =
   RejectDomainTransferFromAnotherAWSAccount'
-    { _rdtfaaaDomainName =
+    { domainName =
         pDomainName_
     }
 
 -- | The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
-rdtfaaaDomainName :: Lens' RejectDomainTransferFromAnotherAWSAccount Text
-rdtfaaaDomainName = lens _rdtfaaaDomainName (\s a -> s {_rdtfaaaDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdtfaaaDomainName :: Lens.Lens' RejectDomainTransferFromAnotherAWSAccount Lude.Text
+rdtfaaaDomainName = Lens.lens (domainName :: RejectDomainTransferFromAnotherAWSAccount -> Lude.Text) (\s a -> s {domainName = a} :: RejectDomainTransferFromAnotherAWSAccount)
+{-# DEPRECATED rdtfaaaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest RejectDomainTransferFromAnotherAWSAccount where
+instance Lude.AWSRequest RejectDomainTransferFromAnotherAWSAccount where
   type
     Rs RejectDomainTransferFromAnotherAWSAccount =
       RejectDomainTransferFromAnotherAWSAccountResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RejectDomainTransferFromAnotherAWSAccountResponse'
-            <$> (x .?> "OperationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RejectDomainTransferFromAnotherAWSAccount
-
-instance NFData RejectDomainTransferFromAnotherAWSAccount
-
-instance ToHeaders RejectDomainTransferFromAnotherAWSAccount where
+instance Lude.ToHeaders RejectDomainTransferFromAnotherAWSAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RejectDomainTransferFromAnotherAWSAccount where
+instance Lude.ToJSON RejectDomainTransferFromAnotherAWSAccount where
   toJSON RejectDomainTransferFromAnotherAWSAccount' {..} =
-    object (catMaybes [Just ("DomainName" .= _rdtfaaaDomainName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
 
-instance ToPath RejectDomainTransferFromAnotherAWSAccount where
-  toPath = const "/"
+instance Lude.ToPath RejectDomainTransferFromAnotherAWSAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery RejectDomainTransferFromAnotherAWSAccount where
-  toQuery = const mempty
+instance Lude.ToQuery RejectDomainTransferFromAnotherAWSAccount where
+  toQuery = Lude.const Lude.mempty
 
 -- | The RejectDomainTransferFromAnotherAwsAccount response includes the following element.
 --
---
---
--- /See:/ 'rejectDomainTransferFromAnotherAWSAccountResponse' smart constructor.
+-- /See:/ 'mkRejectDomainTransferFromAnotherAWSAccountResponse' smart constructor.
 data RejectDomainTransferFromAnotherAWSAccountResponse = RejectDomainTransferFromAnotherAWSAccountResponse'
-  { _rdtfaaarsOperationId ::
-      !( Maybe
-           Text
-       ),
-    _rdtfaaarsResponseStatus ::
-      !Int
+  { operationId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'RejectDomainTransferFromAnotherAWSAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdtfaaarsOperationId' - The identifier that @TransferDomainToAnotherAwsAccount@ returned to track the progress of the request. Because the transfer request was rejected, the value is no longer valid, and you can't use @GetOperationDetail@ to query the operation status.
---
--- * 'rdtfaaarsResponseStatus' - -- | The response status code.
-rejectDomainTransferFromAnotherAWSAccountResponse ::
-  -- | 'rdtfaaarsResponseStatus'
-  Int ->
+-- * 'operationId' - The identifier that @TransferDomainToAnotherAwsAccount@ returned to track the progress of the request. Because the transfer request was rejected, the value is no longer valid, and you can't use @GetOperationDetail@ to query the operation status.
+-- * 'responseStatus' - The response status code.
+mkRejectDomainTransferFromAnotherAWSAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectDomainTransferFromAnotherAWSAccountResponse
-rejectDomainTransferFromAnotherAWSAccountResponse pResponseStatus_ =
-  RejectDomainTransferFromAnotherAWSAccountResponse'
-    { _rdtfaaarsOperationId =
-        Nothing,
-      _rdtfaaarsResponseStatus = pResponseStatus_
-    }
+mkRejectDomainTransferFromAnotherAWSAccountResponse
+  pResponseStatus_ =
+    RejectDomainTransferFromAnotherAWSAccountResponse'
+      { operationId =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | The identifier that @TransferDomainToAnotherAwsAccount@ returned to track the progress of the request. Because the transfer request was rejected, the value is no longer valid, and you can't use @GetOperationDetail@ to query the operation status.
-rdtfaaarsOperationId :: Lens' RejectDomainTransferFromAnotherAWSAccountResponse (Maybe Text)
-rdtfaaarsOperationId = lens _rdtfaaarsOperationId (\s a -> s {_rdtfaaarsOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdtfaaarsOperationId :: Lens.Lens' RejectDomainTransferFromAnotherAWSAccountResponse (Lude.Maybe Lude.Text)
+rdtfaaarsOperationId = Lens.lens (operationId :: RejectDomainTransferFromAnotherAWSAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: RejectDomainTransferFromAnotherAWSAccountResponse)
+{-# DEPRECATED rdtfaaarsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | -- | The response status code.
-rdtfaaarsResponseStatus :: Lens' RejectDomainTransferFromAnotherAWSAccountResponse Int
-rdtfaaarsResponseStatus = lens _rdtfaaarsResponseStatus (\s a -> s {_rdtfaaarsResponseStatus = a})
-
-instance NFData RejectDomainTransferFromAnotherAWSAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdtfaaarsResponseStatus :: Lens.Lens' RejectDomainTransferFromAnotherAWSAccountResponse Lude.Int
+rdtfaaarsResponseStatus = Lens.lens (responseStatus :: RejectDomainTransferFromAnotherAWSAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectDomainTransferFromAnotherAWSAccountResponse)
+{-# DEPRECATED rdtfaaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

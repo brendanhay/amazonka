@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.InstanceCountLimits where
+module Network.AWS.ElasticSearch.Types.InstanceCountLimits
+  ( InstanceCountLimits (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceCountLimits,
+
+    -- * Lenses
+    iclMaximumInstanceCount,
+    iclMinimumInstanceCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType.
 --
---
---
--- /See:/ 'instanceCountLimits' smart constructor.
+-- /See:/ 'mkInstanceCountLimits' smart constructor.
 data InstanceCountLimits = InstanceCountLimits'
-  { _iclMaximumInstanceCount ::
-      !(Maybe Int),
-    _iclMinimumInstanceCount :: !(Maybe Int)
+  { maximumInstanceCount ::
+      Lude.Maybe Lude.Int,
+    minimumInstanceCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceCountLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iclMaximumInstanceCount' - Undocumented member.
---
--- * 'iclMinimumInstanceCount' - Undocumented member.
-instanceCountLimits ::
+-- * 'maximumInstanceCount' - Undocumented field.
+-- * 'minimumInstanceCount' - Undocumented field.
+mkInstanceCountLimits ::
   InstanceCountLimits
-instanceCountLimits =
+mkInstanceCountLimits =
   InstanceCountLimits'
-    { _iclMaximumInstanceCount = Nothing,
-      _iclMinimumInstanceCount = Nothing
+    { maximumInstanceCount = Lude.Nothing,
+      minimumInstanceCount = Lude.Nothing
     }
 
--- | Undocumented member.
-iclMaximumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
-iclMaximumInstanceCount = lens _iclMaximumInstanceCount (\s a -> s {_iclMaximumInstanceCount = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maximumInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iclMaximumInstanceCount :: Lens.Lens' InstanceCountLimits (Lude.Maybe Lude.Int)
+iclMaximumInstanceCount = Lens.lens (maximumInstanceCount :: InstanceCountLimits -> Lude.Maybe Lude.Int) (\s a -> s {maximumInstanceCount = a} :: InstanceCountLimits)
+{-# DEPRECATED iclMaximumInstanceCount "Use generic-lens or generic-optics with 'maximumInstanceCount' instead." #-}
 
--- | Undocumented member.
-iclMinimumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
-iclMinimumInstanceCount = lens _iclMinimumInstanceCount (\s a -> s {_iclMinimumInstanceCount = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'minimumInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iclMinimumInstanceCount :: Lens.Lens' InstanceCountLimits (Lude.Maybe Lude.Int)
+iclMinimumInstanceCount = Lens.lens (minimumInstanceCount :: InstanceCountLimits -> Lude.Maybe Lude.Int) (\s a -> s {minimumInstanceCount = a} :: InstanceCountLimits)
+{-# DEPRECATED iclMinimumInstanceCount "Use generic-lens or generic-optics with 'minimumInstanceCount' instead." #-}
 
-instance FromJSON InstanceCountLimits where
+instance Lude.FromJSON InstanceCountLimits where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceCountLimits"
       ( \x ->
           InstanceCountLimits'
-            <$> (x .:? "MaximumInstanceCount") <*> (x .:? "MinimumInstanceCount")
+            Lude.<$> (x Lude..:? "MaximumInstanceCount")
+            Lude.<*> (x Lude..:? "MinimumInstanceCount")
       )
-
-instance Hashable InstanceCountLimits
-
-instance NFData InstanceCountLimits

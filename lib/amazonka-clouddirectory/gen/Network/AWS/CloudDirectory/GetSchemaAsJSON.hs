@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves a JSON representation of the schema. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json JSON Schema Format> for more information.
 module Network.AWS.CloudDirectory.GetSchemaAsJSON
-  ( -- * Creating a Request
-    getSchemaAsJSON,
-    GetSchemaAsJSON,
+  ( -- * Creating a request
+    GetSchemaAsJSON (..),
+    mkGetSchemaAsJSON,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsajSchemaARN,
 
-    -- * Destructuring the Response
-    getSchemaAsJSONResponse,
-    GetSchemaAsJSONResponse,
+    -- * Destructuring the response
+    GetSchemaAsJSONResponse (..),
+    mkGetSchemaAsJSONResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsajrsDocument,
     gsajrsName,
     gsajrsResponseStatus,
@@ -38,97 +33,113 @@ module Network.AWS.CloudDirectory.GetSchemaAsJSON
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSchemaAsJSON' smart constructor.
-newtype GetSchemaAsJSON = GetSchemaAsJSON' {_gsajSchemaARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetSchemaAsJSON' smart constructor.
+newtype GetSchemaAsJSON = GetSchemaAsJSON' {schemaARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaAsJSON' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsajSchemaARN' - The ARN of the schema to retrieve.
-getSchemaAsJSON ::
-  -- | 'gsajSchemaARN'
-  Text ->
+-- * 'schemaARN' - The ARN of the schema to retrieve.
+mkGetSchemaAsJSON ::
+  -- | 'schemaARN'
+  Lude.Text ->
   GetSchemaAsJSON
-getSchemaAsJSON pSchemaARN_ =
-  GetSchemaAsJSON' {_gsajSchemaARN = pSchemaARN_}
+mkGetSchemaAsJSON pSchemaARN_ =
+  GetSchemaAsJSON' {schemaARN = pSchemaARN_}
 
 -- | The ARN of the schema to retrieve.
-gsajSchemaARN :: Lens' GetSchemaAsJSON Text
-gsajSchemaARN = lens _gsajSchemaARN (\s a -> s {_gsajSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsajSchemaARN :: Lens.Lens' GetSchemaAsJSON Lude.Text
+gsajSchemaARN = Lens.lens (schemaARN :: GetSchemaAsJSON -> Lude.Text) (\s a -> s {schemaARN = a} :: GetSchemaAsJSON)
+{-# DEPRECATED gsajSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance AWSRequest GetSchemaAsJSON where
+instance Lude.AWSRequest GetSchemaAsJSON where
   type Rs GetSchemaAsJSON = GetSchemaAsJSONResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSchemaAsJSONResponse'
-            <$> (x .?> "Document") <*> (x .?> "Name") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Document")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSchemaAsJSON
-
-instance NFData GetSchemaAsJSON
-
-instance ToHeaders GetSchemaAsJSON where
+instance Lude.ToHeaders GetSchemaAsJSON where
   toHeaders GetSchemaAsJSON' {..} =
-    mconcat ["x-amz-data-partition" =# _gsajSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON GetSchemaAsJSON where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetSchemaAsJSON where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetSchemaAsJSON where
-  toPath = const "/amazonclouddirectory/2017-01-11/schema/json"
+instance Lude.ToPath GetSchemaAsJSON where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/schema/json"
 
-instance ToQuery GetSchemaAsJSON where
-  toQuery = const mempty
+instance Lude.ToQuery GetSchemaAsJSON where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSchemaAsJSONResponse' smart constructor.
+-- | /See:/ 'mkGetSchemaAsJSONResponse' smart constructor.
 data GetSchemaAsJSONResponse = GetSchemaAsJSONResponse'
-  { _gsajrsDocument ::
-      !(Maybe Text),
-    _gsajrsName :: !(Maybe Text),
-    _gsajrsResponseStatus :: !Int
+  { document ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaAsJSONResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsajrsDocument' - The JSON representation of the schema document.
---
--- * 'gsajrsName' - The name of the retrieved schema.
---
--- * 'gsajrsResponseStatus' - -- | The response status code.
-getSchemaAsJSONResponse ::
-  -- | 'gsajrsResponseStatus'
-  Int ->
+-- * 'document' - The JSON representation of the schema document.
+-- * 'name' - The name of the retrieved schema.
+-- * 'responseStatus' - The response status code.
+mkGetSchemaAsJSONResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSchemaAsJSONResponse
-getSchemaAsJSONResponse pResponseStatus_ =
+mkGetSchemaAsJSONResponse pResponseStatus_ =
   GetSchemaAsJSONResponse'
-    { _gsajrsDocument = Nothing,
-      _gsajrsName = Nothing,
-      _gsajrsResponseStatus = pResponseStatus_
+    { document = Lude.Nothing,
+      name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The JSON representation of the schema document.
-gsajrsDocument :: Lens' GetSchemaAsJSONResponse (Maybe Text)
-gsajrsDocument = lens _gsajrsDocument (\s a -> s {_gsajrsDocument = a})
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsajrsDocument :: Lens.Lens' GetSchemaAsJSONResponse (Lude.Maybe Lude.Text)
+gsajrsDocument = Lens.lens (document :: GetSchemaAsJSONResponse -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: GetSchemaAsJSONResponse)
+{-# DEPRECATED gsajrsDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | The name of the retrieved schema.
-gsajrsName :: Lens' GetSchemaAsJSONResponse (Maybe Text)
-gsajrsName = lens _gsajrsName (\s a -> s {_gsajrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsajrsName :: Lens.Lens' GetSchemaAsJSONResponse (Lude.Maybe Lude.Text)
+gsajrsName = Lens.lens (name :: GetSchemaAsJSONResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetSchemaAsJSONResponse)
+{-# DEPRECATED gsajrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-gsajrsResponseStatus :: Lens' GetSchemaAsJSONResponse Int
-gsajrsResponseStatus = lens _gsajrsResponseStatus (\s a -> s {_gsajrsResponseStatus = a})
-
-instance NFData GetSchemaAsJSONResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsajrsResponseStatus :: Lens.Lens' GetSchemaAsJSONResponse Lude.Int
+gsajrsResponseStatus = Lens.lens (responseStatus :: GetSchemaAsJSONResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSchemaAsJSONResponse)
+{-# DEPRECATED gsajrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

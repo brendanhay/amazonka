@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264Profile where
+module Network.AWS.MediaLive.Types.H264Profile
+  ( H264Profile
+      ( H264Profile',
+        HPBaseline,
+        HPHigh,
+        HPHigh10BIT,
+        HPHigh422,
+        HPHigh42210BIT,
+        HPMain
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Profile
-data H264Profile
-  = HPBaseline
-  | HPHigh
-  | HPHigh10BIT
-  | HPHigh422
-  | HPHigh42210BIT
-  | HPMain
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264Profile = H264Profile' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264Profile where
-  parser =
-    takeLowerText >>= \case
-      "baseline" -> pure HPBaseline
-      "high" -> pure HPHigh
-      "high_10bit" -> pure HPHigh10BIT
-      "high_422" -> pure HPHigh422
-      "high_422_10bit" -> pure HPHigh42210BIT
-      "main" -> pure HPMain
-      e ->
-        fromTextError $
-          "Failure parsing H264Profile from value: '" <> e
-            <> "'. Accepted values: baseline, high, high_10bit, high_422, high_422_10bit, main"
+pattern HPBaseline :: H264Profile
+pattern HPBaseline = H264Profile' "BASELINE"
 
-instance ToText H264Profile where
-  toText = \case
-    HPBaseline -> "BASELINE"
-    HPHigh -> "HIGH"
-    HPHigh10BIT -> "HIGH_10BIT"
-    HPHigh422 -> "HIGH_422"
-    HPHigh42210BIT -> "HIGH_422_10BIT"
-    HPMain -> "MAIN"
+pattern HPHigh :: H264Profile
+pattern HPHigh = H264Profile' "HIGH"
 
-instance Hashable H264Profile
+pattern HPHigh10BIT :: H264Profile
+pattern HPHigh10BIT = H264Profile' "HIGH_10BIT"
 
-instance NFData H264Profile
+pattern HPHigh422 :: H264Profile
+pattern HPHigh422 = H264Profile' "HIGH_422"
 
-instance ToByteString H264Profile
+pattern HPHigh42210BIT :: H264Profile
+pattern HPHigh42210BIT = H264Profile' "HIGH_422_10BIT"
 
-instance ToQuery H264Profile
+pattern HPMain :: H264Profile
+pattern HPMain = H264Profile' "MAIN"
 
-instance ToHeader H264Profile
-
-instance ToJSON H264Profile where
-  toJSON = toJSONText
-
-instance FromJSON H264Profile where
-  parseJSON = parseJSONText "H264Profile"
+{-# COMPLETE
+  HPBaseline,
+  HPHigh,
+  HPHigh10BIT,
+  HPHigh422,
+  HPHigh42210BIT,
+  HPMain,
+  H264Profile'
+  #-}

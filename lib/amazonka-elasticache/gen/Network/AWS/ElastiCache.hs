@@ -14,13 +14,11 @@
 -- __Amazon ElastiCache__
 --
 -- Amazon ElastiCache is a web service that makes it easier to set up, operate, and scale a distributed cache in the cloud.
---
 -- With ElastiCache, customers get all of the benefits of a high-performance, in-memory cache with less of the administrative burden involved in launching and managing a distributed cache. The service makes setup, scaling, and cluster failure handling much simpler than in a self-managed cache deployment.
---
 -- In addition, through integration with Amazon CloudWatch, customers get enhanced visibility into the key performance statistics associated with their cache and can receive alarms if a part of their cache runs hot.
 module Network.AWS.ElastiCache
-  ( -- * Service Configuration
-    elastiCache,
+  ( -- * Service configuration
+    elastiCacheService,
 
     -- * Errors
     -- $errors
@@ -29,16 +27,16 @@ module Network.AWS.ElastiCache
     -- $waiters
 
     -- ** CacheClusterAvailable
-    cacheClusterAvailable,
+    mkCacheClusterAvailable,
 
     -- ** CacheClusterDeleted
-    cacheClusterDeleted,
+    mkCacheClusterDeleted,
 
     -- ** ReplicationGroupDeleted
-    replicationGroupDeleted,
+    mkReplicationGroupDeleted,
 
     -- ** ReplicationGroupAvailable
-    replicationGroupAvailable,
+    mkReplicationGroupAvailable,
 
     -- * Operations
     -- $operations
@@ -292,19 +290,19 @@ module Network.AWS.ElastiCache
     UpdateActionStatus (..),
 
     -- ** Authentication
-    Authentication,
-    authentication,
+    Authentication (..),
+    mkAuthentication,
     aPasswordCount,
     aType,
 
     -- ** AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
 
     -- ** CacheCluster
-    CacheCluster,
-    cacheCluster,
+    CacheCluster (..),
+    mkCacheCluster,
     ccAuthTokenLastModifiedDate,
     ccEngineVersion,
     ccCacheNodeType,
@@ -335,8 +333,8 @@ module Network.AWS.ElastiCache
     ccNumCacheNodes,
 
     -- ** CacheEngineVersion
-    CacheEngineVersion,
-    cacheEngineVersion,
+    CacheEngineVersion (..),
+    mkCacheEngineVersion,
     cevEngineVersion,
     cevCacheParameterGroupFamily,
     cevCacheEngineDescription,
@@ -344,8 +342,8 @@ module Network.AWS.ElastiCache
     cevCacheEngineVersionDescription,
 
     -- ** CacheNode
-    CacheNode,
-    cacheNode,
+    CacheNode (..),
+    mkCacheNode,
     cnSourceCacheNodeId,
     cnParameterGroupStatus,
     cnCacheNodeCreateTime,
@@ -356,8 +354,8 @@ module Network.AWS.ElastiCache
     cnEndpoint,
 
     -- ** CacheNodeTypeSpecificParameter
-    CacheNodeTypeSpecificParameter,
-    cacheNodeTypeSpecificParameter,
+    CacheNodeTypeSpecificParameter (..),
+    mkCacheNodeTypeSpecificParameter,
     cntspCacheNodeTypeSpecificValues,
     cntspMinimumEngineVersion,
     cntspSource,
@@ -369,14 +367,14 @@ module Network.AWS.ElastiCache
     cntspChangeType,
 
     -- ** CacheNodeTypeSpecificValue
-    CacheNodeTypeSpecificValue,
-    cacheNodeTypeSpecificValue,
+    CacheNodeTypeSpecificValue (..),
+    mkCacheNodeTypeSpecificValue,
     cntsvCacheNodeType,
     cntsvValue,
 
     -- ** CacheNodeUpdateStatus
-    CacheNodeUpdateStatus,
-    cacheNodeUpdateStatus,
+    CacheNodeUpdateStatus (..),
+    mkCacheNodeUpdateStatus,
     cnusNodeUpdateEndDate,
     cnusNodeUpdateInitiatedBy,
     cnusNodeUpdateStatusModifiedDate,
@@ -387,8 +385,8 @@ module Network.AWS.ElastiCache
     cnusNodeDeletionDate,
 
     -- ** CacheParameterGroup
-    CacheParameterGroup,
-    cacheParameterGroup,
+    CacheParameterGroup (..),
+    mkCacheParameterGroup,
     cpgCacheParameterGroupFamily,
     cpgARN,
     cpgCacheParameterGroupName,
@@ -396,20 +394,20 @@ module Network.AWS.ElastiCache
     cpgDescription,
 
     -- ** CacheParameterGroupNameMessage
-    CacheParameterGroupNameMessage,
-    cacheParameterGroupNameMessage,
+    CacheParameterGroupNameMessage (..),
+    mkCacheParameterGroupNameMessage,
     cpgnmCacheParameterGroupName,
 
     -- ** CacheParameterGroupStatus
-    CacheParameterGroupStatus,
-    cacheParameterGroupStatus,
+    CacheParameterGroupStatus (..),
+    mkCacheParameterGroupStatus,
     cpgsCacheParameterGroupName,
     cpgsCacheNodeIdsToReboot,
     cpgsParameterApplyStatus,
 
     -- ** CacheSecurityGroup
-    CacheSecurityGroup,
-    cacheSecurityGroup,
+    CacheSecurityGroup (..),
+    mkCacheSecurityGroup,
     csgCacheSecurityGroupName,
     csgARN,
     csgOwnerId,
@@ -417,14 +415,14 @@ module Network.AWS.ElastiCache
     csgDescription,
 
     -- ** CacheSecurityGroupMembership
-    CacheSecurityGroupMembership,
-    cacheSecurityGroupMembership,
+    CacheSecurityGroupMembership (..),
+    mkCacheSecurityGroupMembership,
     csgmStatus,
     csgmCacheSecurityGroupName,
 
     -- ** CacheSubnetGroup
-    CacheSubnetGroup,
-    cacheSubnetGroup,
+    CacheSubnetGroup (..),
+    mkCacheSubnetGroup,
     cARN,
     cVPCId,
     cSubnets,
@@ -432,63 +430,63 @@ module Network.AWS.ElastiCache
     cCacheSubnetGroupDescription,
 
     -- ** ConfigureShard
-    ConfigureShard,
-    configureShard,
+    ConfigureShard (..),
+    mkConfigureShard,
     csPreferredAvailabilityZones,
     csPreferredOutpostARNs,
     csNodeGroupId,
     csNewReplicaCount,
 
     -- ** CustomerNodeEndpoint
-    CustomerNodeEndpoint,
-    customerNodeEndpoint,
+    CustomerNodeEndpoint (..),
+    mkCustomerNodeEndpoint,
     cneAddress,
     cnePort,
 
     -- ** EC2SecurityGroup
-    EC2SecurityGroup,
-    ec2SecurityGroup,
+    EC2SecurityGroup (..),
+    mkEC2SecurityGroup,
     esgStatus,
     esgEC2SecurityGroupOwnerId,
     esgEC2SecurityGroupName,
 
     -- ** Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eAddress,
     ePort,
 
     -- ** EngineDefaults
-    EngineDefaults,
-    engineDefaults,
+    EngineDefaults (..),
+    mkEngineDefaults,
     edCacheParameterGroupFamily,
     edCacheNodeTypeSpecificParameters,
     edMarker,
     edParameters,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eSourceType,
     eSourceIdentifier,
     eDate,
     eMessage,
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fName,
     fValues,
 
     -- ** GlobalNodeGroup
-    GlobalNodeGroup,
-    globalNodeGroup,
+    GlobalNodeGroup (..),
+    mkGlobalNodeGroup,
     gngSlots,
     gngGlobalNodeGroupId,
 
     -- ** GlobalReplicationGroup
-    GlobalReplicationGroup,
-    globalReplicationGroup,
+    GlobalReplicationGroup (..),
+    mkGlobalReplicationGroup,
     grgEngineVersion,
     grgStatus,
     grgCacheNodeType,
@@ -504,14 +502,14 @@ module Network.AWS.ElastiCache
     grgGlobalReplicationGroupDescription,
 
     -- ** GlobalReplicationGroupInfo
-    GlobalReplicationGroupInfo,
-    globalReplicationGroupInfo,
+    GlobalReplicationGroupInfo (..),
+    mkGlobalReplicationGroupInfo,
     grgiGlobalReplicationGroupMemberRole,
     grgiGlobalReplicationGroupId,
 
     -- ** GlobalReplicationGroupMember
-    GlobalReplicationGroupMember,
-    globalReplicationGroupMember,
+    GlobalReplicationGroupMember (..),
+    mkGlobalReplicationGroupMember,
     grgmStatus,
     grgmReplicationGroupRegion,
     grgmRole,
@@ -519,8 +517,8 @@ module Network.AWS.ElastiCache
     grgmAutomaticFailover,
 
     -- ** NodeGroup
-    NodeGroup,
-    nodeGroup,
+    NodeGroup (..),
+    mkNodeGroup,
     ngStatus,
     ngPrimaryEndpoint,
     ngSlots,
@@ -529,8 +527,8 @@ module Network.AWS.ElastiCache
     ngReaderEndpoint,
 
     -- ** NodeGroupConfiguration
-    NodeGroupConfiguration,
-    nodeGroupConfiguration,
+    NodeGroupConfiguration (..),
+    mkNodeGroupConfiguration,
     ngcSlots,
     ngcReplicaOutpostARNs,
     ngcReplicaCount,
@@ -540,8 +538,8 @@ module Network.AWS.ElastiCache
     ngcNodeGroupId,
 
     -- ** NodeGroupMember
-    NodeGroupMember,
-    nodeGroupMember,
+    NodeGroupMember (..),
+    mkNodeGroupMember,
     ngmCacheClusterId,
     ngmCacheNodeId,
     ngmPreferredAvailabilityZone,
@@ -550,8 +548,8 @@ module Network.AWS.ElastiCache
     ngmReadEndpoint,
 
     -- ** NodeGroupMemberUpdateStatus
-    NodeGroupMemberUpdateStatus,
-    nodeGroupMemberUpdateStatus,
+    NodeGroupMemberUpdateStatus (..),
+    mkNodeGroupMemberUpdateStatus,
     ngmusNodeUpdateEndDate,
     ngmusNodeUpdateInitiatedBy,
     ngmusNodeUpdateStatusModifiedDate,
@@ -563,14 +561,14 @@ module Network.AWS.ElastiCache
     ngmusNodeDeletionDate,
 
     -- ** NodeGroupUpdateStatus
-    NodeGroupUpdateStatus,
-    nodeGroupUpdateStatus,
+    NodeGroupUpdateStatus (..),
+    mkNodeGroupUpdateStatus,
     ngusNodeGroupMemberUpdateStatus,
     ngusNodeGroupId,
 
     -- ** NodeSnapshot
-    NodeSnapshot,
-    nodeSnapshot,
+    NodeSnapshot (..),
+    mkNodeSnapshot,
     nsNodeGroupConfiguration,
     nsCacheNodeCreateTime,
     nsCacheClusterId,
@@ -580,14 +578,14 @@ module Network.AWS.ElastiCache
     nsCacheSize,
 
     -- ** NotificationConfiguration
-    NotificationConfiguration,
-    notificationConfiguration,
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
     ncTopicStatus,
     ncTopicARN,
 
     -- ** Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pParameterValue,
     pMinimumEngineVersion,
     pSource,
@@ -599,14 +597,14 @@ module Network.AWS.ElastiCache
     pChangeType,
 
     -- ** ParameterNameValue
-    ParameterNameValue,
-    parameterNameValue,
+    ParameterNameValue (..),
+    mkParameterNameValue,
     pnvParameterValue,
     pnvParameterName,
 
     -- ** PendingModifiedValues
-    PendingModifiedValues,
-    pendingModifiedValues,
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
     pmvEngineVersion,
     pmvCacheNodeType,
     pmvAuthTokenStatus,
@@ -614,29 +612,29 @@ module Network.AWS.ElastiCache
     pmvNumCacheNodes,
 
     -- ** ProcessedUpdateAction
-    ProcessedUpdateAction,
-    processedUpdateAction,
+    ProcessedUpdateAction (..),
+    mkProcessedUpdateAction,
     puaCacheClusterId,
     puaServiceUpdateName,
     puaUpdateActionStatus,
     puaReplicationGroupId,
 
     -- ** RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcRecurringChargeFrequency,
     rcRecurringChargeAmount,
 
     -- ** RegionalConfiguration
-    RegionalConfiguration,
-    regionalConfiguration,
+    RegionalConfiguration (..),
+    mkRegionalConfiguration,
     rcReplicationGroupId,
     rcReplicationGroupRegion,
     rcReshardingConfiguration,
 
     -- ** ReplicationGroup
-    ReplicationGroup,
-    replicationGroup,
+    ReplicationGroup (..),
+    mkReplicationGroup,
     rgAuthTokenLastModifiedDate,
     rgStatus,
     rgCacheNodeType,
@@ -662,8 +660,8 @@ module Network.AWS.ElastiCache
     rgAutomaticFailover,
 
     -- ** ReplicationGroupPendingModifiedValues
-    ReplicationGroupPendingModifiedValues,
-    replicationGroupPendingModifiedValues,
+    ReplicationGroupPendingModifiedValues (..),
+    mkReplicationGroupPendingModifiedValues,
     rgpmvAuthTokenStatus,
     rgpmvUserGroups,
     rgpmvResharding,
@@ -671,8 +669,8 @@ module Network.AWS.ElastiCache
     rgpmvAutomaticFailoverStatus,
 
     -- ** ReservedCacheNode
-    ReservedCacheNode,
-    reservedCacheNode,
+    ReservedCacheNode (..),
+    mkReservedCacheNode,
     rcnCacheNodeType,
     rcnState,
     rcnStartTime,
@@ -688,8 +686,8 @@ module Network.AWS.ElastiCache
     rcnReservedCacheNodesOfferingId,
 
     -- ** ReservedCacheNodesOffering
-    ReservedCacheNodesOffering,
-    reservedCacheNodesOffering,
+    ReservedCacheNodesOffering (..),
+    mkReservedCacheNodesOffering,
     rcnoCacheNodeType,
     rcnoProductDescription,
     rcnoRecurringCharges,
@@ -700,25 +698,25 @@ module Network.AWS.ElastiCache
     rcnoReservedCacheNodesOfferingId,
 
     -- ** ReshardingConfiguration
-    ReshardingConfiguration,
-    reshardingConfiguration,
+    ReshardingConfiguration (..),
+    mkReshardingConfiguration,
     rcPreferredAvailabilityZones,
     rcNodeGroupId,
 
     -- ** ReshardingStatus
-    ReshardingStatus,
-    reshardingStatus,
+    ReshardingStatus (..),
+    mkReshardingStatus,
     rsSlotMigration,
 
     -- ** SecurityGroupMembership
-    SecurityGroupMembership,
-    securityGroupMembership,
+    SecurityGroupMembership (..),
+    mkSecurityGroupMembership,
     sgmStatus,
     sgmSecurityGroupId,
 
     -- ** ServiceUpdate
-    ServiceUpdate,
-    serviceUpdate,
+    ServiceUpdate (..),
+    mkServiceUpdate,
     suEngineVersion,
     suServiceUpdateType,
     suServiceUpdateName,
@@ -733,13 +731,13 @@ module Network.AWS.ElastiCache
     suEstimatedUpdateTime,
 
     -- ** SlotMigration
-    SlotMigration,
-    slotMigration,
+    SlotMigration (..),
+    mkSlotMigration,
     smProgressPercentage,
 
     -- ** Snapshot
-    Snapshot,
-    snapshot,
+    Snapshot (..),
+    mkSnapshot,
     sEngineVersion,
     sCacheNodeType,
     sCacheClusterCreateTime,
@@ -769,37 +767,37 @@ module Network.AWS.ElastiCache
     sSnapshotSource,
 
     -- ** Subnet
-    Subnet,
-    subnet,
+    Subnet (..),
+    mkSubnet,
     sSubnetIdentifier,
     sSubnetAvailabilityZone,
     sSubnetOutpost,
 
     -- ** SubnetOutpost
-    SubnetOutpost,
-    subnetOutpost,
+    SubnetOutpost (..),
+    mkSubnetOutpost,
     soSubnetOutpostARN,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TagListMessage
-    TagListMessage,
-    tagListMessage,
+    TagListMessage (..),
+    mkTagListMessage,
     tlmTagList,
 
     -- ** TimeRangeFilter
-    TimeRangeFilter,
-    timeRangeFilter,
+    TimeRangeFilter (..),
+    mkTimeRangeFilter,
     trfStartTime,
     trfEndTime,
 
     -- ** UnprocessedUpdateAction
-    UnprocessedUpdateAction,
-    unprocessedUpdateAction,
+    UnprocessedUpdateAction (..),
+    mkUnprocessedUpdateAction,
     uuaCacheClusterId,
     uuaServiceUpdateName,
     uuaErrorType,
@@ -807,8 +805,8 @@ module Network.AWS.ElastiCache
     uuaReplicationGroupId,
 
     -- ** UpdateAction
-    UpdateAction,
-    updateAction,
+    UpdateAction (..),
+    mkUpdateAction,
     uaServiceUpdateType,
     uaSlaMet,
     uaCacheClusterId,
@@ -828,14 +826,14 @@ module Network.AWS.ElastiCache
     uaReplicationGroupId,
 
     -- ** UpdateActionResultsMessage
-    UpdateActionResultsMessage,
-    updateActionResultsMessage,
+    UpdateActionResultsMessage (..),
+    mkUpdateActionResultsMessage,
     uarmUnprocessedUpdateActions,
     uarmProcessedUpdateActions,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uStatus,
     uARN,
     uUserGroupIds,
@@ -846,8 +844,8 @@ module Network.AWS.ElastiCache
     uUserId,
 
     -- ** UserGroup
-    UserGroup,
-    userGroup,
+    UserGroup (..),
+    mkUserGroup,
     ugStatus,
     ugUserIds,
     ugARN,
@@ -857,16 +855,27 @@ module Network.AWS.ElastiCache
     ugReplicationGroups,
 
     -- ** UserGroupPendingChanges
-    UserGroupPendingChanges,
-    userGroupPendingChanges,
+    UserGroupPendingChanges (..),
+    mkUserGroupPendingChanges,
     ugpcUserIdsToAdd,
     ugpcUserIdsToRemove,
 
     -- ** UserGroupsUpdateStatus
-    UserGroupsUpdateStatus,
-    userGroupsUpdateStatus,
+    UserGroupsUpdateStatus (..),
+    mkUserGroupsUpdateStatus,
     ugusUserGroupIdsToAdd,
     ugusUserGroupIdsToRemove,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -937,6 +946,7 @@ import Network.AWS.ElastiCache.StartMigration
 import Network.AWS.ElastiCache.TestFailover
 import Network.AWS.ElastiCache.Types
 import Network.AWS.ElastiCache.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

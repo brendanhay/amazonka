@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,185 @@
 --
 -- Creates a new workflow.
 module Network.AWS.Glue.CreateWorkflow
-  ( -- * Creating a Request
-    createWorkflow,
-    CreateWorkflow,
+  ( -- * Creating a request
+    CreateWorkflow (..),
+    mkCreateWorkflow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cwMaxConcurrentRuns,
     cwDefaultRunProperties,
     cwDescription,
     cwTags,
     cwName,
 
-    -- * Destructuring the Response
-    createWorkflowResponse,
-    CreateWorkflowResponse,
+    -- * Destructuring the response
+    CreateWorkflowResponse (..),
+    mkCreateWorkflowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cwrsName,
     cwrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createWorkflow' smart constructor.
+-- | /See:/ 'mkCreateWorkflow' smart constructor.
 data CreateWorkflow = CreateWorkflow'
-  { _cwMaxConcurrentRuns ::
-      !(Maybe Int),
-    _cwDefaultRunProperties :: !(Maybe (Map Text (Text))),
-    _cwDescription :: !(Maybe Text),
-    _cwTags :: !(Maybe (Map Text (Text))),
-    _cwName :: !Text
+  { maxConcurrentRuns ::
+      Lude.Maybe Lude.Int,
+    defaultRunProperties ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkflow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwMaxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
---
--- * 'cwDefaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
---
--- * 'cwDescription' - A description of the workflow.
---
--- * 'cwTags' - The tags to be used with this workflow.
---
--- * 'cwName' - The name to be assigned to the workflow. It should be unique within your account.
-createWorkflow ::
-  -- | 'cwName'
-  Text ->
+-- * 'defaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
+-- * 'description' - A description of the workflow.
+-- * 'maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+-- * 'name' - The name to be assigned to the workflow. It should be unique within your account.
+-- * 'tags' - The tags to be used with this workflow.
+mkCreateWorkflow ::
+  -- | 'name'
+  Lude.Text ->
   CreateWorkflow
-createWorkflow pName_ =
+mkCreateWorkflow pName_ =
   CreateWorkflow'
-    { _cwMaxConcurrentRuns = Nothing,
-      _cwDefaultRunProperties = Nothing,
-      _cwDescription = Nothing,
-      _cwTags = Nothing,
-      _cwName = pName_
+    { maxConcurrentRuns = Lude.Nothing,
+      defaultRunProperties = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_
     }
 
 -- | You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-cwMaxConcurrentRuns :: Lens' CreateWorkflow (Maybe Int)
-cwMaxConcurrentRuns = lens _cwMaxConcurrentRuns (\s a -> s {_cwMaxConcurrentRuns = a})
+--
+-- /Note:/ Consider using 'maxConcurrentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwMaxConcurrentRuns :: Lens.Lens' CreateWorkflow (Lude.Maybe Lude.Int)
+cwMaxConcurrentRuns = Lens.lens (maxConcurrentRuns :: CreateWorkflow -> Lude.Maybe Lude.Int) (\s a -> s {maxConcurrentRuns = a} :: CreateWorkflow)
+{-# DEPRECATED cwMaxConcurrentRuns "Use generic-lens or generic-optics with 'maxConcurrentRuns' instead." #-}
 
 -- | A collection of properties to be used as part of each execution of the workflow.
-cwDefaultRunProperties :: Lens' CreateWorkflow (HashMap Text (Text))
-cwDefaultRunProperties = lens _cwDefaultRunProperties (\s a -> s {_cwDefaultRunProperties = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'defaultRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwDefaultRunProperties :: Lens.Lens' CreateWorkflow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cwDefaultRunProperties = Lens.lens (defaultRunProperties :: CreateWorkflow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {defaultRunProperties = a} :: CreateWorkflow)
+{-# DEPRECATED cwDefaultRunProperties "Use generic-lens or generic-optics with 'defaultRunProperties' instead." #-}
 
 -- | A description of the workflow.
-cwDescription :: Lens' CreateWorkflow (Maybe Text)
-cwDescription = lens _cwDescription (\s a -> s {_cwDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwDescription :: Lens.Lens' CreateWorkflow (Lude.Maybe Lude.Text)
+cwDescription = Lens.lens (description :: CreateWorkflow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateWorkflow)
+{-# DEPRECATED cwDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags to be used with this workflow.
-cwTags :: Lens' CreateWorkflow (HashMap Text (Text))
-cwTags = lens _cwTags (\s a -> s {_cwTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwTags :: Lens.Lens' CreateWorkflow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cwTags = Lens.lens (tags :: CreateWorkflow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateWorkflow)
+{-# DEPRECATED cwTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name to be assigned to the workflow. It should be unique within your account.
-cwName :: Lens' CreateWorkflow Text
-cwName = lens _cwName (\s a -> s {_cwName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwName :: Lens.Lens' CreateWorkflow Lude.Text
+cwName = Lens.lens (name :: CreateWorkflow -> Lude.Text) (\s a -> s {name = a} :: CreateWorkflow)
+{-# DEPRECATED cwName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateWorkflow where
+instance Lude.AWSRequest CreateWorkflow where
   type Rs CreateWorkflow = CreateWorkflowResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateWorkflowResponse' <$> (x .?> "Name") <*> (pure (fromEnum s))
+          CreateWorkflowResponse'
+            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateWorkflow
-
-instance NFData CreateWorkflow
-
-instance ToHeaders CreateWorkflow where
+instance Lude.ToHeaders CreateWorkflow where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateWorkflow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateWorkflow" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateWorkflow where
+instance Lude.ToJSON CreateWorkflow where
   toJSON CreateWorkflow' {..} =
-    object
-      ( catMaybes
-          [ ("MaxConcurrentRuns" .=) <$> _cwMaxConcurrentRuns,
-            ("DefaultRunProperties" .=) <$> _cwDefaultRunProperties,
-            ("Description" .=) <$> _cwDescription,
-            ("Tags" .=) <$> _cwTags,
-            Just ("Name" .= _cwName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaxConcurrentRuns" Lude..=) Lude.<$> maxConcurrentRuns,
+            ("DefaultRunProperties" Lude..=) Lude.<$> defaultRunProperties,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreateWorkflow where
-  toPath = const "/"
+instance Lude.ToPath CreateWorkflow where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateWorkflow where
-  toQuery = const mempty
+instance Lude.ToQuery CreateWorkflow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createWorkflowResponse' smart constructor.
+-- | /See:/ 'mkCreateWorkflowResponse' smart constructor.
 data CreateWorkflowResponse = CreateWorkflowResponse'
-  { _cwrsName ::
-      !(Maybe Text),
-    _cwrsResponseStatus :: !Int
+  { name ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkflowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwrsName' - The name of the workflow which was provided as part of the request.
---
--- * 'cwrsResponseStatus' - -- | The response status code.
-createWorkflowResponse ::
-  -- | 'cwrsResponseStatus'
-  Int ->
+-- * 'name' - The name of the workflow which was provided as part of the request.
+-- * 'responseStatus' - The response status code.
+mkCreateWorkflowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateWorkflowResponse
-createWorkflowResponse pResponseStatus_ =
+mkCreateWorkflowResponse pResponseStatus_ =
   CreateWorkflowResponse'
-    { _cwrsName = Nothing,
-      _cwrsResponseStatus = pResponseStatus_
+    { name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the workflow which was provided as part of the request.
-cwrsName :: Lens' CreateWorkflowResponse (Maybe Text)
-cwrsName = lens _cwrsName (\s a -> s {_cwrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwrsName :: Lens.Lens' CreateWorkflowResponse (Lude.Maybe Lude.Text)
+cwrsName = Lens.lens (name :: CreateWorkflowResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateWorkflowResponse)
+{-# DEPRECATED cwrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-cwrsResponseStatus :: Lens' CreateWorkflowResponse Int
-cwrsResponseStatus = lens _cwrsResponseStatus (\s a -> s {_cwrsResponseStatus = a})
-
-instance NFData CreateWorkflowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwrsResponseStatus :: Lens.Lens' CreateWorkflowResponse Lude.Int
+cwrsResponseStatus = Lens.lens (responseStatus :: CreateWorkflowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWorkflowResponse)
+{-# DEPRECATED cwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

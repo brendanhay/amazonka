@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ScheduledActionFilterName where
+module Network.AWS.Redshift.Types.ScheduledActionFilterName
+  ( ScheduledActionFilterName
+      ( ScheduledActionFilterName',
+        ClusterIdentifier,
+        IAMRole
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data ScheduledActionFilterName
-  = ClusterIdentifier
-  | IAMRole
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScheduledActionFilterName = ScheduledActionFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScheduledActionFilterName where
-  parser =
-    takeLowerText >>= \case
-      "cluster-identifier" -> pure ClusterIdentifier
-      "iam-role" -> pure IAMRole
-      e ->
-        fromTextError $
-          "Failure parsing ScheduledActionFilterName from value: '" <> e
-            <> "'. Accepted values: cluster-identifier, iam-role"
+pattern ClusterIdentifier :: ScheduledActionFilterName
+pattern ClusterIdentifier = ScheduledActionFilterName' "cluster-identifier"
 
-instance ToText ScheduledActionFilterName where
-  toText = \case
-    ClusterIdentifier -> "cluster-identifier"
-    IAMRole -> "iam-role"
+pattern IAMRole :: ScheduledActionFilterName
+pattern IAMRole = ScheduledActionFilterName' "iam-role"
 
-instance Hashable ScheduledActionFilterName
-
-instance NFData ScheduledActionFilterName
-
-instance ToByteString ScheduledActionFilterName
-
-instance ToQuery ScheduledActionFilterName
-
-instance ToHeader ScheduledActionFilterName
+{-# COMPLETE
+  ClusterIdentifier,
+  IAMRole,
+  ScheduledActionFilterName'
+  #-}

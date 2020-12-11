@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsEncryptionType where
+module Network.AWS.MediaConvert.Types.HlsEncryptionType
+  ( HlsEncryptionType
+      ( HlsEncryptionType',
+        HETAES128,
+        HETSampleAES
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
-data HlsEncryptionType
-  = HETAES128
-  | HETSampleAES
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsEncryptionType = HlsEncryptionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsEncryptionType where
-  parser =
-    takeLowerText >>= \case
-      "aes128" -> pure HETAES128
-      "sample_aes" -> pure HETSampleAES
-      e ->
-        fromTextError $
-          "Failure parsing HlsEncryptionType from value: '" <> e
-            <> "'. Accepted values: aes128, sample_aes"
+pattern HETAES128 :: HlsEncryptionType
+pattern HETAES128 = HlsEncryptionType' "AES128"
 
-instance ToText HlsEncryptionType where
-  toText = \case
-    HETAES128 -> "AES128"
-    HETSampleAES -> "SAMPLE_AES"
+pattern HETSampleAES :: HlsEncryptionType
+pattern HETSampleAES = HlsEncryptionType' "SAMPLE_AES"
 
-instance Hashable HlsEncryptionType
-
-instance NFData HlsEncryptionType
-
-instance ToByteString HlsEncryptionType
-
-instance ToQuery HlsEncryptionType
-
-instance ToHeader HlsEncryptionType
-
-instance ToJSON HlsEncryptionType where
-  toJSON = toJSONText
-
-instance FromJSON HlsEncryptionType where
-  parseJSON = parseJSONText "HlsEncryptionType"
+{-# COMPLETE
+  HETAES128,
+  HETSampleAES,
+  HlsEncryptionType'
+  #-}

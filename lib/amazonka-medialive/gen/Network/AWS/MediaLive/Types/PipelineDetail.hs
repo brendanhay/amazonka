@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.PipelineDetail where
+module Network.AWS.MediaLive.Types.PipelineDetail
+  ( PipelineDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPipelineDetail,
+
+    -- * Lenses
+    pdPipelineId,
+    pdActiveInputSwitchActionName,
+    pdActiveInputAttachmentName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Runtime details of a pipeline when a channel is running.
 --
--- /See:/ 'pipelineDetail' smart constructor.
+-- /See:/ 'mkPipelineDetail' smart constructor.
 data PipelineDetail = PipelineDetail'
-  { _pdPipelineId ::
-      !(Maybe Text),
-    _pdActiveInputSwitchActionName :: !(Maybe Text),
-    _pdActiveInputAttachmentName :: !(Maybe Text)
+  { pipelineId ::
+      Lude.Maybe Lude.Text,
+    activeInputSwitchActionName :: Lude.Maybe Lude.Text,
+    activeInputAttachmentName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdPipelineId' - Pipeline ID
---
--- * 'pdActiveInputSwitchActionName' - The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
---
--- * 'pdActiveInputAttachmentName' - The name of the active input attachment currently being ingested by this pipeline.
-pipelineDetail ::
+-- * 'activeInputAttachmentName' - The name of the active input attachment currently being ingested by this pipeline.
+-- * 'activeInputSwitchActionName' - The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
+-- * 'pipelineId' - Pipeline ID
+mkPipelineDetail ::
   PipelineDetail
-pipelineDetail =
+mkPipelineDetail =
   PipelineDetail'
-    { _pdPipelineId = Nothing,
-      _pdActiveInputSwitchActionName = Nothing,
-      _pdActiveInputAttachmentName = Nothing
+    { pipelineId = Lude.Nothing,
+      activeInputSwitchActionName = Lude.Nothing,
+      activeInputAttachmentName = Lude.Nothing
     }
 
 -- | Pipeline ID
-pdPipelineId :: Lens' PipelineDetail (Maybe Text)
-pdPipelineId = lens _pdPipelineId (\s a -> s {_pdPipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPipelineId :: Lens.Lens' PipelineDetail (Lude.Maybe Lude.Text)
+pdPipelineId = Lens.lens (pipelineId :: PipelineDetail -> Lude.Maybe Lude.Text) (\s a -> s {pipelineId = a} :: PipelineDetail)
+{-# DEPRECATED pdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
-pdActiveInputSwitchActionName :: Lens' PipelineDetail (Maybe Text)
-pdActiveInputSwitchActionName = lens _pdActiveInputSwitchActionName (\s a -> s {_pdActiveInputSwitchActionName = a})
+--
+-- /Note:/ Consider using 'activeInputSwitchActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdActiveInputSwitchActionName :: Lens.Lens' PipelineDetail (Lude.Maybe Lude.Text)
+pdActiveInputSwitchActionName = Lens.lens (activeInputSwitchActionName :: PipelineDetail -> Lude.Maybe Lude.Text) (\s a -> s {activeInputSwitchActionName = a} :: PipelineDetail)
+{-# DEPRECATED pdActiveInputSwitchActionName "Use generic-lens or generic-optics with 'activeInputSwitchActionName' instead." #-}
 
 -- | The name of the active input attachment currently being ingested by this pipeline.
-pdActiveInputAttachmentName :: Lens' PipelineDetail (Maybe Text)
-pdActiveInputAttachmentName = lens _pdActiveInputAttachmentName (\s a -> s {_pdActiveInputAttachmentName = a})
+--
+-- /Note:/ Consider using 'activeInputAttachmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdActiveInputAttachmentName :: Lens.Lens' PipelineDetail (Lude.Maybe Lude.Text)
+pdActiveInputAttachmentName = Lens.lens (activeInputAttachmentName :: PipelineDetail -> Lude.Maybe Lude.Text) (\s a -> s {activeInputAttachmentName = a} :: PipelineDetail)
+{-# DEPRECATED pdActiveInputAttachmentName "Use generic-lens or generic-optics with 'activeInputAttachmentName' instead." #-}
 
-instance FromJSON PipelineDetail where
+instance Lude.FromJSON PipelineDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "PipelineDetail"
       ( \x ->
           PipelineDetail'
-            <$> (x .:? "pipelineId")
-            <*> (x .:? "activeInputSwitchActionName")
-            <*> (x .:? "activeInputAttachmentName")
+            Lude.<$> (x Lude..:? "pipelineId")
+            Lude.<*> (x Lude..:? "activeInputSwitchActionName")
+            Lude.<*> (x Lude..:? "activeInputAttachmentName")
       )
-
-instance Hashable PipelineDetail
-
-instance NFData PipelineDetail

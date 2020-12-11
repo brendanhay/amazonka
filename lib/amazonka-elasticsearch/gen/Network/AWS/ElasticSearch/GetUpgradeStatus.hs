@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.
 module Network.AWS.ElasticSearch.GetUpgradeStatus
-  ( -- * Creating a Request
-    getUpgradeStatus,
-    GetUpgradeStatus,
+  ( -- * Creating a request
+    GetUpgradeStatus (..),
+    mkGetUpgradeStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gusDomainName,
 
-    -- * Destructuring the Response
-    getUpgradeStatusResponse,
-    GetUpgradeStatusResponse,
+    -- * Destructuring the response
+    GetUpgradeStatusResponse (..),
+    mkGetUpgradeStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gusrsStepStatus,
     gusrsUpgradeName,
     gusrsUpgradeStep,
@@ -39,117 +34,163 @@ module Network.AWS.ElasticSearch.GetUpgradeStatus
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for request parameters to @'GetUpgradeStatus' @ operation.
 --
---
---
--- /See:/ 'getUpgradeStatus' smart constructor.
+-- /See:/ 'mkGetUpgradeStatus' smart constructor.
 newtype GetUpgradeStatus = GetUpgradeStatus'
-  { _gusDomainName ::
-      Text
+  { domainName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUpgradeStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gusDomainName' - Undocumented member.
-getUpgradeStatus ::
-  -- | 'gusDomainName'
-  Text ->
+-- * 'domainName' - Undocumented field.
+mkGetUpgradeStatus ::
+  -- | 'domainName'
+  Lude.Text ->
   GetUpgradeStatus
-getUpgradeStatus pDomainName_ =
-  GetUpgradeStatus' {_gusDomainName = pDomainName_}
+mkGetUpgradeStatus pDomainName_ =
+  GetUpgradeStatus' {domainName = pDomainName_}
 
--- | Undocumented member.
-gusDomainName :: Lens' GetUpgradeStatus Text
-gusDomainName = lens _gusDomainName (\s a -> s {_gusDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusDomainName :: Lens.Lens' GetUpgradeStatus Lude.Text
+gusDomainName = Lens.lens (domainName :: GetUpgradeStatus -> Lude.Text) (\s a -> s {domainName = a} :: GetUpgradeStatus)
+{-# DEPRECATED gusDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest GetUpgradeStatus where
+instance Lude.AWSRequest GetUpgradeStatus where
   type Rs GetUpgradeStatus = GetUpgradeStatusResponse
-  request = get elasticSearch
+  request = Req.get elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetUpgradeStatusResponse'
-            <$> (x .?> "StepStatus")
-            <*> (x .?> "UpgradeName")
-            <*> (x .?> "UpgradeStep")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StepStatus")
+            Lude.<*> (x Lude..?> "UpgradeName")
+            Lude.<*> (x Lude..?> "UpgradeStep")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetUpgradeStatus
+instance Lude.ToHeaders GetUpgradeStatus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetUpgradeStatus
-
-instance ToHeaders GetUpgradeStatus where
-  toHeaders = const mempty
-
-instance ToPath GetUpgradeStatus where
+instance Lude.ToPath GetUpgradeStatus where
   toPath GetUpgradeStatus' {..} =
-    mconcat
-      ["/2015-01-01/es/upgradeDomain/", toBS _gusDomainName, "/status"]
+    Lude.mconcat
+      ["/2015-01-01/es/upgradeDomain/", Lude.toBS domainName, "/status"]
 
-instance ToQuery GetUpgradeStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetUpgradeStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- | Container for response returned by @'GetUpgradeStatus' @ operation.
 --
---
---
--- /See:/ 'getUpgradeStatusResponse' smart constructor.
+-- /See:/ 'mkGetUpgradeStatusResponse' smart constructor.
 data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
-  { _gusrsStepStatus ::
-      !(Maybe UpgradeStatus),
-    _gusrsUpgradeName :: !(Maybe Text),
-    _gusrsUpgradeStep :: !(Maybe UpgradeStep),
-    _gusrsResponseStatus :: !Int
+  { stepStatus ::
+      Lude.Maybe UpgradeStatus,
+    upgradeName :: Lude.Maybe Lude.Text,
+    upgradeStep :: Lude.Maybe UpgradeStep,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUpgradeStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'stepStatus' - One of 4 statuses that a step can go through returned as part of the @'GetUpgradeStatusResponse' @ object. The status can take one of the following values:
 --
--- * 'gusrsStepStatus' - One of 4 statuses that a step can go through returned as part of the @'GetUpgradeStatusResponse' @ object. The status can take one of the following values:     * In Progress    * Succeeded    * Succeeded with Issues    * Failed
+--     * In Progress
 --
--- * 'gusrsUpgradeName' - A string that describes the update briefly
+--     * Succeeded
 --
--- * 'gusrsUpgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:     * PreUpgradeCheck    * Snapshot    * Upgrade
+--     * Succeeded with Issues
 --
--- * 'gusrsResponseStatus' - -- | The response status code.
-getUpgradeStatusResponse ::
-  -- | 'gusrsResponseStatus'
-  Int ->
+--     * Failed
+--
+--
+-- * 'upgradeName' - A string that describes the update briefly
+-- * 'upgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
+--
+--     * PreUpgradeCheck
+--
+--     * Snapshot
+--
+--     * Upgrade
+mkGetUpgradeStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUpgradeStatusResponse
-getUpgradeStatusResponse pResponseStatus_ =
+mkGetUpgradeStatusResponse pResponseStatus_ =
   GetUpgradeStatusResponse'
-    { _gusrsStepStatus = Nothing,
-      _gusrsUpgradeName = Nothing,
-      _gusrsUpgradeStep = Nothing,
-      _gusrsResponseStatus = pResponseStatus_
+    { stepStatus = Lude.Nothing,
+      upgradeName = Lude.Nothing,
+      upgradeStep = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | One of 4 statuses that a step can go through returned as part of the @'GetUpgradeStatusResponse' @ object. The status can take one of the following values:     * In Progress    * Succeeded    * Succeeded with Issues    * Failed
-gusrsStepStatus :: Lens' GetUpgradeStatusResponse (Maybe UpgradeStatus)
-gusrsStepStatus = lens _gusrsStepStatus (\s a -> s {_gusrsStepStatus = a})
+-- | One of 4 statuses that a step can go through returned as part of the @'GetUpgradeStatusResponse' @ object. The status can take one of the following values:
+--
+--     * In Progress
+--
+--     * Succeeded
+--
+--     * Succeeded with Issues
+--
+--     * Failed
+--
+--
+--
+-- /Note:/ Consider using 'stepStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusrsStepStatus :: Lens.Lens' GetUpgradeStatusResponse (Lude.Maybe UpgradeStatus)
+gusrsStepStatus = Lens.lens (stepStatus :: GetUpgradeStatusResponse -> Lude.Maybe UpgradeStatus) (\s a -> s {stepStatus = a} :: GetUpgradeStatusResponse)
+{-# DEPRECATED gusrsStepStatus "Use generic-lens or generic-optics with 'stepStatus' instead." #-}
 
 -- | A string that describes the update briefly
-gusrsUpgradeName :: Lens' GetUpgradeStatusResponse (Maybe Text)
-gusrsUpgradeName = lens _gusrsUpgradeName (\s a -> s {_gusrsUpgradeName = a})
+--
+-- /Note:/ Consider using 'upgradeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusrsUpgradeName :: Lens.Lens' GetUpgradeStatusResponse (Lude.Maybe Lude.Text)
+gusrsUpgradeName = Lens.lens (upgradeName :: GetUpgradeStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {upgradeName = a} :: GetUpgradeStatusResponse)
+{-# DEPRECATED gusrsUpgradeName "Use generic-lens or generic-optics with 'upgradeName' instead." #-}
 
--- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:     * PreUpgradeCheck    * Snapshot    * Upgrade
-gusrsUpgradeStep :: Lens' GetUpgradeStatusResponse (Maybe UpgradeStep)
-gusrsUpgradeStep = lens _gusrsUpgradeStep (\s a -> s {_gusrsUpgradeStep = a})
+-- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
+--
+--     * PreUpgradeCheck
+--
+--     * Snapshot
+--
+--     * Upgrade
+--
+--
+--
+-- /Note:/ Consider using 'upgradeStep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusrsUpgradeStep :: Lens.Lens' GetUpgradeStatusResponse (Lude.Maybe UpgradeStep)
+gusrsUpgradeStep = Lens.lens (upgradeStep :: GetUpgradeStatusResponse -> Lude.Maybe UpgradeStep) (\s a -> s {upgradeStep = a} :: GetUpgradeStatusResponse)
+{-# DEPRECATED gusrsUpgradeStep "Use generic-lens or generic-optics with 'upgradeStep' instead." #-}
 
--- | -- | The response status code.
-gusrsResponseStatus :: Lens' GetUpgradeStatusResponse Int
-gusrsResponseStatus = lens _gusrsResponseStatus (\s a -> s {_gusrsResponseStatus = a})
-
-instance NFData GetUpgradeStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusrsResponseStatus :: Lens.Lens' GetUpgradeStatusResponse Lude.Int
+gusrsResponseStatus = Lens.lens (responseStatus :: GetUpgradeStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUpgradeStatusResponse)
+{-# DEPRECATED gusrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

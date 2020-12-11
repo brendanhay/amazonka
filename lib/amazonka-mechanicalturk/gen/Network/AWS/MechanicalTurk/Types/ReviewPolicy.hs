@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewPolicy where
+module Network.AWS.MechanicalTurk.Types.ReviewPolicy
+  ( ReviewPolicy (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkReviewPolicy,
+
+    -- * Lenses
+    rpParameters,
+    rpPolicyName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.PolicyParameter
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT.
 --
---
---
--- /See:/ 'reviewPolicy' smart constructor.
+-- /See:/ 'mkReviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
-  { _rpParameters ::
-      !(Maybe [PolicyParameter]),
-    _rpPolicyName :: !Text
+  { parameters ::
+      Lude.Maybe [PolicyParameter],
+    policyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpParameters' - Name of the parameter from the Review policy.
---
--- * 'rpPolicyName' - Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
-reviewPolicy ::
-  -- | 'rpPolicyName'
-  Text ->
+-- * 'parameters' - Name of the parameter from the Review policy.
+-- * 'policyName' - Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
+mkReviewPolicy ::
+  -- | 'policyName'
+  Lude.Text ->
   ReviewPolicy
-reviewPolicy pPolicyName_ =
+mkReviewPolicy pPolicyName_ =
   ReviewPolicy'
-    { _rpParameters = Nothing,
-      _rpPolicyName = pPolicyName_
+    { parameters = Lude.Nothing,
+      policyName = pPolicyName_
     }
 
 -- | Name of the parameter from the Review policy.
-rpParameters :: Lens' ReviewPolicy [PolicyParameter]
-rpParameters = lens _rpParameters (\s a -> s {_rpParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpParameters :: Lens.Lens' ReviewPolicy (Lude.Maybe [PolicyParameter])
+rpParameters = Lens.lens (parameters :: ReviewPolicy -> Lude.Maybe [PolicyParameter]) (\s a -> s {parameters = a} :: ReviewPolicy)
+{-# DEPRECATED rpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
-rpPolicyName :: Lens' ReviewPolicy Text
-rpPolicyName = lens _rpPolicyName (\s a -> s {_rpPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpPolicyName :: Lens.Lens' ReviewPolicy Lude.Text
+rpPolicyName = Lens.lens (policyName :: ReviewPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ReviewPolicy)
+{-# DEPRECATED rpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance FromJSON ReviewPolicy where
+instance Lude.FromJSON ReviewPolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReviewPolicy"
       ( \x ->
           ReviewPolicy'
-            <$> (x .:? "Parameters" .!= mempty) <*> (x .: "PolicyName")
+            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "PolicyName")
       )
 
-instance Hashable ReviewPolicy
-
-instance NFData ReviewPolicy
-
-instance ToJSON ReviewPolicy where
+instance Lude.ToJSON ReviewPolicy where
   toJSON ReviewPolicy' {..} =
-    object
-      ( catMaybes
-          [ ("Parameters" .=) <$> _rpParameters,
-            Just ("PolicyName" .= _rpPolicyName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Parameters" Lude..=) Lude.<$> parameters,
+            Lude.Just ("PolicyName" Lude..= policyName)
           ]
       )

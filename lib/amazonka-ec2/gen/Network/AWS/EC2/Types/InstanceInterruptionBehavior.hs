@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceInterruptionBehavior where
+module Network.AWS.EC2.Types.InstanceInterruptionBehavior
+  ( InstanceInterruptionBehavior
+      ( InstanceInterruptionBehavior',
+        Hibernate,
+        Stop,
+        Terminate
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceInterruptionBehavior
-  = Hibernate
-  | Stop
-  | Terminate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceInterruptionBehavior = InstanceInterruptionBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceInterruptionBehavior where
-  parser =
-    takeLowerText >>= \case
-      "hibernate" -> pure Hibernate
-      "stop" -> pure Stop
-      "terminate" -> pure Terminate
-      e ->
-        fromTextError $
-          "Failure parsing InstanceInterruptionBehavior from value: '" <> e
-            <> "'. Accepted values: hibernate, stop, terminate"
+pattern Hibernate :: InstanceInterruptionBehavior
+pattern Hibernate = InstanceInterruptionBehavior' "hibernate"
 
-instance ToText InstanceInterruptionBehavior where
-  toText = \case
-    Hibernate -> "hibernate"
-    Stop -> "stop"
-    Terminate -> "terminate"
+pattern Stop :: InstanceInterruptionBehavior
+pattern Stop = InstanceInterruptionBehavior' "stop"
 
-instance Hashable InstanceInterruptionBehavior
+pattern Terminate :: InstanceInterruptionBehavior
+pattern Terminate = InstanceInterruptionBehavior' "terminate"
 
-instance NFData InstanceInterruptionBehavior
-
-instance ToByteString InstanceInterruptionBehavior
-
-instance ToQuery InstanceInterruptionBehavior
-
-instance ToHeader InstanceInterruptionBehavior
-
-instance FromXML InstanceInterruptionBehavior where
-  parseXML = parseXMLText "InstanceInterruptionBehavior"
+{-# COMPLETE
+  Hibernate,
+  Stop,
+  Terminate,
+  InstanceInterruptionBehavior'
+  #-}

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53Domains.Types
-  ( -- * Service Configuration
-    route53Domains,
+  ( -- * Service configuration
+    route53DomainsService,
 
     -- * Errors
 
@@ -40,8 +38,8 @@ module Network.AWS.Route53Domains.Types
     Transferable (..),
 
     -- * BillingRecord
-    BillingRecord,
-    billingRecord,
+    BillingRecord (..),
+    mkBillingRecord,
     brOperation,
     brInvoiceId,
     brDomainName,
@@ -49,8 +47,8 @@ module Network.AWS.Route53Domains.Types
     brPrice,
 
     -- * ContactDetail
-    ContactDetail,
-    contactDetail,
+    ContactDetail (..),
+    mkContactDetail,
     cdOrganizationName,
     cdEmail,
     cdState,
@@ -67,54 +65,54 @@ module Network.AWS.Route53Domains.Types
     cdContactType,
 
     -- * DomainSuggestion
-    DomainSuggestion,
-    domainSuggestion,
+    DomainSuggestion (..),
+    mkDomainSuggestion,
     dAvailability,
     dDomainName,
 
     -- * DomainSummary
-    DomainSummary,
-    domainSummary,
+    DomainSummary (..),
+    mkDomainSummary,
     dsExpiry,
     dsTransferLock,
     dsAutoRenew,
     dsDomainName,
 
     -- * DomainTransferability
-    DomainTransferability,
-    domainTransferability,
+    DomainTransferability (..),
+    mkDomainTransferability,
     dtTransferable,
 
     -- * ExtraParam
-    ExtraParam,
-    extraParam,
+    ExtraParam (..),
+    mkExtraParam,
     epName,
     epValue,
 
     -- * Nameserver
-    Nameserver,
-    nameserver,
+    Nameserver (..),
+    mkNameserver,
     nGlueIPs,
     nName,
 
     -- * OperationSummary
-    OperationSummary,
-    operationSummary,
+    OperationSummary (..),
+    mkOperationSummary,
     osOperationId,
     osStatus,
     osType,
     osSubmittedDate,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53Domains.Types.BillingRecord
 import Network.AWS.Route53Domains.Types.ContactDetail
 import Network.AWS.Route53Domains.Types.ContactType
@@ -132,46 +130,58 @@ import Network.AWS.Route53Domains.Types.OperationType
 import Network.AWS.Route53Domains.Types.ReachabilityStatus
 import Network.AWS.Route53Domains.Types.Tag
 import Network.AWS.Route53Domains.Types.Transferable
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-05-15@ of the Amazon Route 53 Domains SDK configuration.
-route53Domains :: Service
-route53Domains =
-  Service
-    { _svcAbbrev = "Route53Domains",
-      _svcSigner = v4,
-      _svcPrefix = "route53domains",
-      _svcVersion = "2014-05-15",
-      _svcEndpoint = defaultEndpoint route53Domains,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Route53Domains",
-      _svcRetry = retry
+route53DomainsService :: Lude.Service
+route53DomainsService =
+  Lude.Service
+    { Lude._svcAbbrev = "Route53Domains",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "route53domains",
+      Lude._svcVersion = "2014-05-15",
+      Lude._svcEndpoint = Lude.defaultEndpoint route53DomainsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Route53Domains",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

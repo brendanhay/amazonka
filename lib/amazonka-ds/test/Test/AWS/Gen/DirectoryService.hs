@@ -28,367 +28,367 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestShareDirectory $
---             shareDirectory
+--             mkShareDirectory
 --
 --         , requestUpdateNumberOfDomainControllers $
---             updateNumberOfDomainControllers
+--             mkUpdateNumberOfDomainControllers
 --
 --         , requestDescribeConditionalForwarders $
---             describeConditionalForwarders
+--             mkDescribeConditionalForwarders
 --
 --         , requestGetSnapshotLimits $
---             getSnapshotLimits
+--             mkGetSnapshotLimits
 --
 --         , requestRegisterEventTopic $
---             registerEventTopic
+--             mkRegisterEventTopic
 --
 --         , requestRegisterCertificate $
---             registerCertificate
+--             mkRegisterCertificate
 --
 --         , requestConnectDirectory $
---             connectDirectory
+--             mkConnectDirectory
 --
 --         , requestDescribeLDAPSSettings $
---             describeLDAPSSettings
+--             mkDescribeLDAPSSettings
 --
 --         , requestCreateAlias $
---             createAlias
+--             mkCreateAlias
 --
 --         , requestDescribeDirectories $
---             describeDirectories
+--             mkDescribeDirectories
 --
 --         , requestAddIPRoutes $
---             addIPRoutes
+--             mkAddIPRoutes
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestDescribeTrusts $
---             describeTrusts
+--             mkDescribeTrusts
 --
 --         , requestDeleteTrust $
---             deleteTrust
+--             mkDeleteTrust
 --
 --         , requestUpdateTrust $
---             updateTrust
+--             mkUpdateTrust
 --
 --         , requestCreateMicrosoftAD $
---             createMicrosoftAD
+--             mkCreateMicrosoftAD
 --
 --         , requestDeregisterEventTopic $
---             deregisterEventTopic
+--             mkDeregisterEventTopic
 --
 --         , requestCreateDirectory $
---             createDirectory
+--             mkCreateDirectory
 --
 --         , requestAcceptSharedDirectory $
---             acceptSharedDirectory
+--             mkAcceptSharedDirectory
 --
 --         , requestCreateLogSubscription $
---             createLogSubscription
+--             mkCreateLogSubscription
 --
 --         , requestRemoveTagsFromResource $
---             removeTagsFromResource
+--             mkRemoveTagsFromResource
 --
 --         , requestDescribeEventTopics $
---             describeEventTopics
+--             mkDescribeEventTopics
 --
 --         , requestResetUserPassword $
---             resetUserPassword
+--             mkResetUserPassword
 --
 --         , requestUpdateConditionalForwarder $
---             updateConditionalForwarder
+--             mkUpdateConditionalForwarder
 --
 --         , requestDeleteConditionalForwarder $
---             deleteConditionalForwarder
+--             mkDeleteConditionalForwarder
 --
 --         , requestDisableLDAPS $
---             disableLDAPS
+--             mkDisableLDAPS
 --
 --         , requestDeleteLogSubscription $
---             deleteLogSubscription
+--             mkDeleteLogSubscription
 --
 --         , requestEnableSSO $
---             enableSSO
+--             mkEnableSSO
 --
 --         , requestCancelSchemaExtension $
---             cancelSchemaExtension
+--             mkCancelSchemaExtension
 --
 --         , requestListLogSubscriptions $
---             listLogSubscriptions
+--             mkListLogSubscriptions
 --
 --         , requestEnableRadius $
---             enableRadius
+--             mkEnableRadius
 --
 --         , requestListIPRoutes $
---             listIPRoutes
+--             mkListIPRoutes
 --
 --         , requestAddTagsToResource $
---             addTagsToResource
+--             mkAddTagsToResource
 --
 --         , requestListSchemaExtensions $
---             listSchemaExtensions
+--             mkListSchemaExtensions
 --
 --         , requestDisableRadius $
---             disableRadius
+--             mkDisableRadius
 --
 --         , requestListCertificates $
---             listCertificates
+--             mkListCertificates
 --
 --         , requestRejectSharedDirectory $
---             rejectSharedDirectory
+--             mkRejectSharedDirectory
 --
 --         , requestUnshareDirectory $
---             unshareDirectory
+--             mkUnshareDirectory
 --
 --         , requestRestoreFromSnapshot $
---             restoreFromSnapshot
+--             mkRestoreFromSnapshot
 --
 --         , requestDescribeDomainControllers $
---             describeDomainControllers
+--             mkDescribeDomainControllers
 --
 --         , requestDescribeSnapshots $
---             describeSnapshots
+--             mkDescribeSnapshots
 --
 --         , requestRemoveIPRoutes $
---             removeIPRoutes
+--             mkRemoveIPRoutes
 --
 --         , requestDeleteSnapshot $
---             deleteSnapshot
+--             mkDeleteSnapshot
 --
 --         , requestDeregisterCertificate $
---             deregisterCertificate
+--             mkDeregisterCertificate
 --
 --         , requestStartSchemaExtension $
---             startSchemaExtension
+--             mkStartSchemaExtension
 --
 --         , requestCreateTrust $
---             createTrust
+--             mkCreateTrust
 --
 --         , requestDeleteDirectory $
---             deleteDirectory
+--             mkDeleteDirectory
 --
 --         , requestCreateSnapshot $
---             createSnapshot
+--             mkCreateSnapshot
 --
 --         , requestDescribeCertificate $
---             describeCertificate
+--             mkDescribeCertificate
 --
 --         , requestCreateComputer $
---             createComputer
+--             mkCreateComputer
 --
 --         , requestDescribeSharedDirectories $
---             describeSharedDirectories
+--             mkDescribeSharedDirectories
 --
 --         , requestEnableLDAPS $
---             enableLDAPS
+--             mkEnableLDAPS
 --
 --         , requestDisableSSO $
---             disableSSO
+--             mkDisableSSO
 --
 --         , requestVerifyTrust $
---             verifyTrust
+--             mkVerifyTrust
 --
 --         , requestRemoveRegion $
---             removeRegion
+--             mkRemoveRegion
 --
 --         , requestCreateConditionalForwarder $
---             createConditionalForwarder
+--             mkCreateConditionalForwarder
 --
 --         , requestDescribeRegions $
---             describeRegions
+--             mkDescribeRegions
 --
 --         , requestAddRegion $
---             addRegion
+--             mkAddRegion
 --
 --         , requestGetDirectoryLimits $
---             getDirectoryLimits
+--             mkGetDirectoryLimits
 --
 --         , requestUpdateRadius $
---             updateRadius
+--             mkUpdateRadius
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseShareDirectory $
---             shareDirectoryResponse
+--             mkShareDirectoryResponse
 --
 --         , responseUpdateNumberOfDomainControllers $
---             updateNumberOfDomainControllersResponse
+--             mkUpdateNumberOfDomainControllersResponse
 --
 --         , responseDescribeConditionalForwarders $
---             describeConditionalForwardersResponse
+--             mkDescribeConditionalForwardersResponse
 --
 --         , responseGetSnapshotLimits $
---             getSnapshotLimitsResponse
+--             mkGetSnapshotLimitsResponse
 --
 --         , responseRegisterEventTopic $
---             registerEventTopicResponse
+--             mkRegisterEventTopicResponse
 --
 --         , responseRegisterCertificate $
---             registerCertificateResponse
+--             mkRegisterCertificateResponse
 --
 --         , responseConnectDirectory $
---             connectDirectoryResponse
+--             mkConnectDirectoryResponse
 --
 --         , responseDescribeLDAPSSettings $
---             describeLDAPSSettingsResponse
+--             mkDescribeLDAPSSettingsResponse
 --
 --         , responseCreateAlias $
---             createAliasResponse
+--             mkCreateAliasResponse
 --
 --         , responseDescribeDirectories $
---             describeDirectoriesResponse
+--             mkDescribeDirectoriesResponse
 --
 --         , responseAddIPRoutes $
---             addIPRoutesResponse
+--             mkAddIPRoutesResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseDescribeTrusts $
---             describeTrustsResponse
+--             mkDescribeTrustsResponse
 --
 --         , responseDeleteTrust $
---             deleteTrustResponse
+--             mkDeleteTrustResponse
 --
 --         , responseUpdateTrust $
---             updateTrustResponse
+--             mkUpdateTrustResponse
 --
 --         , responseCreateMicrosoftAD $
---             createMicrosoftADResponse
+--             mkCreateMicrosoftADResponse
 --
 --         , responseDeregisterEventTopic $
---             deregisterEventTopicResponse
+--             mkDeregisterEventTopicResponse
 --
 --         , responseCreateDirectory $
---             createDirectoryResponse
+--             mkCreateDirectoryResponse
 --
 --         , responseAcceptSharedDirectory $
---             acceptSharedDirectoryResponse
+--             mkAcceptSharedDirectoryResponse
 --
 --         , responseCreateLogSubscription $
---             createLogSubscriptionResponse
+--             mkCreateLogSubscriptionResponse
 --
 --         , responseRemoveTagsFromResource $
---             removeTagsFromResourceResponse
+--             mkRemoveTagsFromResourceResponse
 --
 --         , responseDescribeEventTopics $
---             describeEventTopicsResponse
+--             mkDescribeEventTopicsResponse
 --
 --         , responseResetUserPassword $
---             resetUserPasswordResponse
+--             mkResetUserPasswordResponse
 --
 --         , responseUpdateConditionalForwarder $
---             updateConditionalForwarderResponse
+--             mkUpdateConditionalForwarderResponse
 --
 --         , responseDeleteConditionalForwarder $
---             deleteConditionalForwarderResponse
+--             mkDeleteConditionalForwarderResponse
 --
 --         , responseDisableLDAPS $
---             disableLDAPSResponse
+--             mkDisableLDAPSResponse
 --
 --         , responseDeleteLogSubscription $
---             deleteLogSubscriptionResponse
+--             mkDeleteLogSubscriptionResponse
 --
 --         , responseEnableSSO $
---             enableSSOResponse
+--             mkEnableSSOResponse
 --
 --         , responseCancelSchemaExtension $
---             cancelSchemaExtensionResponse
+--             mkCancelSchemaExtensionResponse
 --
 --         , responseListLogSubscriptions $
---             listLogSubscriptionsResponse
+--             mkListLogSubscriptionsResponse
 --
 --         , responseEnableRadius $
---             enableRadiusResponse
+--             mkEnableRadiusResponse
 --
 --         , responseListIPRoutes $
---             listIPRoutesResponse
+--             mkListIPRoutesResponse
 --
 --         , responseAddTagsToResource $
---             addTagsToResourceResponse
+--             mkAddTagsToResourceResponse
 --
 --         , responseListSchemaExtensions $
---             listSchemaExtensionsResponse
+--             mkListSchemaExtensionsResponse
 --
 --         , responseDisableRadius $
---             disableRadiusResponse
+--             mkDisableRadiusResponse
 --
 --         , responseListCertificates $
---             listCertificatesResponse
+--             mkListCertificatesResponse
 --
 --         , responseRejectSharedDirectory $
---             rejectSharedDirectoryResponse
+--             mkRejectSharedDirectoryResponse
 --
 --         , responseUnshareDirectory $
---             unshareDirectoryResponse
+--             mkUnshareDirectoryResponse
 --
 --         , responseRestoreFromSnapshot $
---             restoreFromSnapshotResponse
+--             mkRestoreFromSnapshotResponse
 --
 --         , responseDescribeDomainControllers $
---             describeDomainControllersResponse
+--             mkDescribeDomainControllersResponse
 --
 --         , responseDescribeSnapshots $
---             describeSnapshotsResponse
+--             mkDescribeSnapshotsResponse
 --
 --         , responseRemoveIPRoutes $
---             removeIPRoutesResponse
+--             mkRemoveIPRoutesResponse
 --
 --         , responseDeleteSnapshot $
---             deleteSnapshotResponse
+--             mkDeleteSnapshotResponse
 --
 --         , responseDeregisterCertificate $
---             deregisterCertificateResponse
+--             mkDeregisterCertificateResponse
 --
 --         , responseStartSchemaExtension $
---             startSchemaExtensionResponse
+--             mkStartSchemaExtensionResponse
 --
 --         , responseCreateTrust $
---             createTrustResponse
+--             mkCreateTrustResponse
 --
 --         , responseDeleteDirectory $
---             deleteDirectoryResponse
+--             mkDeleteDirectoryResponse
 --
 --         , responseCreateSnapshot $
---             createSnapshotResponse
+--             mkCreateSnapshotResponse
 --
 --         , responseDescribeCertificate $
---             describeCertificateResponse
+--             mkDescribeCertificateResponse
 --
 --         , responseCreateComputer $
---             createComputerResponse
+--             mkCreateComputerResponse
 --
 --         , responseDescribeSharedDirectories $
---             describeSharedDirectoriesResponse
+--             mkDescribeSharedDirectoriesResponse
 --
 --         , responseEnableLDAPS $
---             enableLDAPSResponse
+--             mkEnableLDAPSResponse
 --
 --         , responseDisableSSO $
---             disableSSOResponse
+--             mkDisableSSOResponse
 --
 --         , responseVerifyTrust $
---             verifyTrustResponse
+--             mkVerifyTrustResponse
 --
 --         , responseRemoveRegion $
---             removeRegionResponse
+--             mkRemoveRegionResponse
 --
 --         , responseCreateConditionalForwarder $
---             createConditionalForwarderResponse
+--             mkCreateConditionalForwarderResponse
 --
 --         , responseDescribeRegions $
---             describeRegionsResponse
+--             mkDescribeRegionsResponse
 --
 --         , responseAddRegion $
---             addRegionResponse
+--             mkAddRegionResponse
 --
 --         , responseGetDirectoryLimits $
---             getDirectoryLimitsResponse
+--             mkGetDirectoryLimitsResponse
 --
 --         , responseUpdateRadius $
---             updateRadiusResponse
+--             mkUpdateRadiusResponse
 --
 --           ]
 --     ]
@@ -762,7 +762,7 @@ responseShareDirectory =
   res
     "ShareDirectoryResponse"
     "fixture/ShareDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ShareDirectory)
 
 responseUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllersResponse -> TestTree
@@ -770,7 +770,7 @@ responseUpdateNumberOfDomainControllers =
   res
     "UpdateNumberOfDomainControllersResponse"
     "fixture/UpdateNumberOfDomainControllersResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy UpdateNumberOfDomainControllers)
 
 responseDescribeConditionalForwarders :: DescribeConditionalForwardersResponse -> TestTree
@@ -778,7 +778,7 @@ responseDescribeConditionalForwarders =
   res
     "DescribeConditionalForwardersResponse"
     "fixture/DescribeConditionalForwardersResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeConditionalForwarders)
 
 responseGetSnapshotLimits :: GetSnapshotLimitsResponse -> TestTree
@@ -786,7 +786,7 @@ responseGetSnapshotLimits =
   res
     "GetSnapshotLimitsResponse"
     "fixture/GetSnapshotLimitsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy GetSnapshotLimits)
 
 responseRegisterEventTopic :: RegisterEventTopicResponse -> TestTree
@@ -794,7 +794,7 @@ responseRegisterEventTopic =
   res
     "RegisterEventTopicResponse"
     "fixture/RegisterEventTopicResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RegisterEventTopic)
 
 responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
@@ -802,7 +802,7 @@ responseRegisterCertificate =
   res
     "RegisterCertificateResponse"
     "fixture/RegisterCertificateResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RegisterCertificate)
 
 responseConnectDirectory :: ConnectDirectoryResponse -> TestTree
@@ -810,7 +810,7 @@ responseConnectDirectory =
   res
     "ConnectDirectoryResponse"
     "fixture/ConnectDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ConnectDirectory)
 
 responseDescribeLDAPSSettings :: DescribeLDAPSSettingsResponse -> TestTree
@@ -818,7 +818,7 @@ responseDescribeLDAPSSettings =
   res
     "DescribeLDAPSSettingsResponse"
     "fixture/DescribeLDAPSSettingsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeLDAPSSettings)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
@@ -826,7 +826,7 @@ responseCreateAlias =
   res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateAlias)
 
 responseDescribeDirectories :: DescribeDirectoriesResponse -> TestTree
@@ -834,7 +834,7 @@ responseDescribeDirectories =
   res
     "DescribeDirectoriesResponse"
     "fixture/DescribeDirectoriesResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeDirectories)
 
 responseAddIPRoutes :: AddIPRoutesResponse -> TestTree
@@ -842,7 +842,7 @@ responseAddIPRoutes =
   res
     "AddIPRoutesResponse"
     "fixture/AddIPRoutesResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy AddIPRoutes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -850,7 +850,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeTrusts :: DescribeTrustsResponse -> TestTree
@@ -858,7 +858,7 @@ responseDescribeTrusts =
   res
     "DescribeTrustsResponse"
     "fixture/DescribeTrustsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeTrusts)
 
 responseDeleteTrust :: DeleteTrustResponse -> TestTree
@@ -866,7 +866,7 @@ responseDeleteTrust =
   res
     "DeleteTrustResponse"
     "fixture/DeleteTrustResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeleteTrust)
 
 responseUpdateTrust :: UpdateTrustResponse -> TestTree
@@ -874,7 +874,7 @@ responseUpdateTrust =
   res
     "UpdateTrustResponse"
     "fixture/UpdateTrustResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy UpdateTrust)
 
 responseCreateMicrosoftAD :: CreateMicrosoftADResponse -> TestTree
@@ -882,7 +882,7 @@ responseCreateMicrosoftAD =
   res
     "CreateMicrosoftADResponse"
     "fixture/CreateMicrosoftADResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateMicrosoftAD)
 
 responseDeregisterEventTopic :: DeregisterEventTopicResponse -> TestTree
@@ -890,7 +890,7 @@ responseDeregisterEventTopic =
   res
     "DeregisterEventTopicResponse"
     "fixture/DeregisterEventTopicResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeregisterEventTopic)
 
 responseCreateDirectory :: CreateDirectoryResponse -> TestTree
@@ -898,7 +898,7 @@ responseCreateDirectory =
   res
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateDirectory)
 
 responseAcceptSharedDirectory :: AcceptSharedDirectoryResponse -> TestTree
@@ -906,7 +906,7 @@ responseAcceptSharedDirectory =
   res
     "AcceptSharedDirectoryResponse"
     "fixture/AcceptSharedDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy AcceptSharedDirectory)
 
 responseCreateLogSubscription :: CreateLogSubscriptionResponse -> TestTree
@@ -914,7 +914,7 @@ responseCreateLogSubscription =
   res
     "CreateLogSubscriptionResponse"
     "fixture/CreateLogSubscriptionResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateLogSubscription)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
@@ -922,7 +922,7 @@ responseRemoveTagsFromResource =
   res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RemoveTagsFromResource)
 
 responseDescribeEventTopics :: DescribeEventTopicsResponse -> TestTree
@@ -930,7 +930,7 @@ responseDescribeEventTopics =
   res
     "DescribeEventTopicsResponse"
     "fixture/DescribeEventTopicsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeEventTopics)
 
 responseResetUserPassword :: ResetUserPasswordResponse -> TestTree
@@ -938,7 +938,7 @@ responseResetUserPassword =
   res
     "ResetUserPasswordResponse"
     "fixture/ResetUserPasswordResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ResetUserPassword)
 
 responseUpdateConditionalForwarder :: UpdateConditionalForwarderResponse -> TestTree
@@ -946,7 +946,7 @@ responseUpdateConditionalForwarder =
   res
     "UpdateConditionalForwarderResponse"
     "fixture/UpdateConditionalForwarderResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy UpdateConditionalForwarder)
 
 responseDeleteConditionalForwarder :: DeleteConditionalForwarderResponse -> TestTree
@@ -954,7 +954,7 @@ responseDeleteConditionalForwarder =
   res
     "DeleteConditionalForwarderResponse"
     "fixture/DeleteConditionalForwarderResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeleteConditionalForwarder)
 
 responseDisableLDAPS :: DisableLDAPSResponse -> TestTree
@@ -962,7 +962,7 @@ responseDisableLDAPS =
   res
     "DisableLDAPSResponse"
     "fixture/DisableLDAPSResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DisableLDAPS)
 
 responseDeleteLogSubscription :: DeleteLogSubscriptionResponse -> TestTree
@@ -970,7 +970,7 @@ responseDeleteLogSubscription =
   res
     "DeleteLogSubscriptionResponse"
     "fixture/DeleteLogSubscriptionResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeleteLogSubscription)
 
 responseEnableSSO :: EnableSSOResponse -> TestTree
@@ -978,7 +978,7 @@ responseEnableSSO =
   res
     "EnableSSOResponse"
     "fixture/EnableSSOResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy EnableSSO)
 
 responseCancelSchemaExtension :: CancelSchemaExtensionResponse -> TestTree
@@ -986,7 +986,7 @@ responseCancelSchemaExtension =
   res
     "CancelSchemaExtensionResponse"
     "fixture/CancelSchemaExtensionResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CancelSchemaExtension)
 
 responseListLogSubscriptions :: ListLogSubscriptionsResponse -> TestTree
@@ -994,7 +994,7 @@ responseListLogSubscriptions =
   res
     "ListLogSubscriptionsResponse"
     "fixture/ListLogSubscriptionsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ListLogSubscriptions)
 
 responseEnableRadius :: EnableRadiusResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseEnableRadius =
   res
     "EnableRadiusResponse"
     "fixture/EnableRadiusResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy EnableRadius)
 
 responseListIPRoutes :: ListIPRoutesResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseListIPRoutes =
   res
     "ListIPRoutesResponse"
     "fixture/ListIPRoutesResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ListIPRoutes)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseAddTagsToResource =
   res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy AddTagsToResource)
 
 responseListSchemaExtensions :: ListSchemaExtensionsResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseListSchemaExtensions =
   res
     "ListSchemaExtensionsResponse"
     "fixture/ListSchemaExtensionsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ListSchemaExtensions)
 
 responseDisableRadius :: DisableRadiusResponse -> TestTree
@@ -1034,7 +1034,7 @@ responseDisableRadius =
   res
     "DisableRadiusResponse"
     "fixture/DisableRadiusResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DisableRadius)
 
 responseListCertificates :: ListCertificatesResponse -> TestTree
@@ -1042,7 +1042,7 @@ responseListCertificates =
   res
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy ListCertificates)
 
 responseRejectSharedDirectory :: RejectSharedDirectoryResponse -> TestTree
@@ -1050,7 +1050,7 @@ responseRejectSharedDirectory =
   res
     "RejectSharedDirectoryResponse"
     "fixture/RejectSharedDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RejectSharedDirectory)
 
 responseUnshareDirectory :: UnshareDirectoryResponse -> TestTree
@@ -1058,7 +1058,7 @@ responseUnshareDirectory =
   res
     "UnshareDirectoryResponse"
     "fixture/UnshareDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy UnshareDirectory)
 
 responseRestoreFromSnapshot :: RestoreFromSnapshotResponse -> TestTree
@@ -1066,7 +1066,7 @@ responseRestoreFromSnapshot =
   res
     "RestoreFromSnapshotResponse"
     "fixture/RestoreFromSnapshotResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RestoreFromSnapshot)
 
 responseDescribeDomainControllers :: DescribeDomainControllersResponse -> TestTree
@@ -1074,7 +1074,7 @@ responseDescribeDomainControllers =
   res
     "DescribeDomainControllersResponse"
     "fixture/DescribeDomainControllersResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeDomainControllers)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
@@ -1082,7 +1082,7 @@ responseDescribeSnapshots =
   res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeSnapshots)
 
 responseRemoveIPRoutes :: RemoveIPRoutesResponse -> TestTree
@@ -1090,7 +1090,7 @@ responseRemoveIPRoutes =
   res
     "RemoveIPRoutesResponse"
     "fixture/RemoveIPRoutesResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RemoveIPRoutes)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
@@ -1098,7 +1098,7 @@ responseDeleteSnapshot =
   res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeleteSnapshot)
 
 responseDeregisterCertificate :: DeregisterCertificateResponse -> TestTree
@@ -1106,7 +1106,7 @@ responseDeregisterCertificate =
   res
     "DeregisterCertificateResponse"
     "fixture/DeregisterCertificateResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeregisterCertificate)
 
 responseStartSchemaExtension :: StartSchemaExtensionResponse -> TestTree
@@ -1114,7 +1114,7 @@ responseStartSchemaExtension =
   res
     "StartSchemaExtensionResponse"
     "fixture/StartSchemaExtensionResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy StartSchemaExtension)
 
 responseCreateTrust :: CreateTrustResponse -> TestTree
@@ -1122,7 +1122,7 @@ responseCreateTrust =
   res
     "CreateTrustResponse"
     "fixture/CreateTrustResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateTrust)
 
 responseDeleteDirectory :: DeleteDirectoryResponse -> TestTree
@@ -1130,7 +1130,7 @@ responseDeleteDirectory =
   res
     "DeleteDirectoryResponse"
     "fixture/DeleteDirectoryResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DeleteDirectory)
 
 responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
@@ -1138,7 +1138,7 @@ responseCreateSnapshot =
   res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateSnapshot)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
@@ -1146,7 +1146,7 @@ responseDescribeCertificate =
   res
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeCertificate)
 
 responseCreateComputer :: CreateComputerResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseCreateComputer =
   res
     "CreateComputerResponse"
     "fixture/CreateComputerResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateComputer)
 
 responseDescribeSharedDirectories :: DescribeSharedDirectoriesResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseDescribeSharedDirectories =
   res
     "DescribeSharedDirectoriesResponse"
     "fixture/DescribeSharedDirectoriesResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeSharedDirectories)
 
 responseEnableLDAPS :: EnableLDAPSResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseEnableLDAPS =
   res
     "EnableLDAPSResponse"
     "fixture/EnableLDAPSResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy EnableLDAPS)
 
 responseDisableSSO :: DisableSSOResponse -> TestTree
@@ -1178,7 +1178,7 @@ responseDisableSSO =
   res
     "DisableSSOResponse"
     "fixture/DisableSSOResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DisableSSO)
 
 responseVerifyTrust :: VerifyTrustResponse -> TestTree
@@ -1186,7 +1186,7 @@ responseVerifyTrust =
   res
     "VerifyTrustResponse"
     "fixture/VerifyTrustResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy VerifyTrust)
 
 responseRemoveRegion :: RemoveRegionResponse -> TestTree
@@ -1194,7 +1194,7 @@ responseRemoveRegion =
   res
     "RemoveRegionResponse"
     "fixture/RemoveRegionResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy RemoveRegion)
 
 responseCreateConditionalForwarder :: CreateConditionalForwarderResponse -> TestTree
@@ -1202,7 +1202,7 @@ responseCreateConditionalForwarder =
   res
     "CreateConditionalForwarderResponse"
     "fixture/CreateConditionalForwarderResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy CreateConditionalForwarder)
 
 responseDescribeRegions :: DescribeRegionsResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseDescribeRegions =
   res
     "DescribeRegionsResponse"
     "fixture/DescribeRegionsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy DescribeRegions)
 
 responseAddRegion :: AddRegionResponse -> TestTree
@@ -1218,7 +1218,7 @@ responseAddRegion =
   res
     "AddRegionResponse"
     "fixture/AddRegionResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy AddRegion)
 
 responseGetDirectoryLimits :: GetDirectoryLimitsResponse -> TestTree
@@ -1226,7 +1226,7 @@ responseGetDirectoryLimits =
   res
     "GetDirectoryLimitsResponse"
     "fixture/GetDirectoryLimitsResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy GetDirectoryLimits)
 
 responseUpdateRadius :: UpdateRadiusResponse -> TestTree
@@ -1234,5 +1234,5 @@ responseUpdateRadius =
   res
     "UpdateRadiusResponse"
     "fixture/UpdateRadiusResponse.proto"
-    directoryService
+    directoryServiceService
     (Proxy :: Proxy UpdateRadius)

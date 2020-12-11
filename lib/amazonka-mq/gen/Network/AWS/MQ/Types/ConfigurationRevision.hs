@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.ConfigurationRevision where
+module Network.AWS.MQ.Types.ConfigurationRevision
+  ( ConfigurationRevision (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConfigurationRevision,
+
+    -- * Lenses
+    crCreated,
+    crRevision,
+    crDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the specified configuration revision.
 --
--- /See:/ 'configurationRevision' smart constructor.
+-- /See:/ 'mkConfigurationRevision' smart constructor.
 data ConfigurationRevision = ConfigurationRevision'
-  { _crCreated ::
-      !(Maybe POSIX),
-    _crRevision :: !(Maybe Int),
-    _crDescription :: !(Maybe Text)
+  { created ::
+      Lude.Maybe Lude.Timestamp,
+    revision :: Lude.Maybe Lude.Int,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crCreated' - Required. The date and time of the configuration revision.
---
--- * 'crRevision' - Required. The revision number of the configuration.
---
--- * 'crDescription' - The description of the configuration revision.
-configurationRevision ::
+-- * 'created' - Required. The date and time of the configuration revision.
+-- * 'description' - The description of the configuration revision.
+-- * 'revision' - Required. The revision number of the configuration.
+mkConfigurationRevision ::
   ConfigurationRevision
-configurationRevision =
+mkConfigurationRevision =
   ConfigurationRevision'
-    { _crCreated = Nothing,
-      _crRevision = Nothing,
-      _crDescription = Nothing
+    { created = Lude.Nothing,
+      revision = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | Required. The date and time of the configuration revision.
-crCreated :: Lens' ConfigurationRevision (Maybe UTCTime)
-crCreated = lens _crCreated (\s a -> s {_crCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crCreated :: Lens.Lens' ConfigurationRevision (Lude.Maybe Lude.Timestamp)
+crCreated = Lens.lens (created :: ConfigurationRevision -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: ConfigurationRevision)
+{-# DEPRECATED crCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | Required. The revision number of the configuration.
-crRevision :: Lens' ConfigurationRevision (Maybe Int)
-crRevision = lens _crRevision (\s a -> s {_crRevision = a})
+--
+-- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRevision :: Lens.Lens' ConfigurationRevision (Lude.Maybe Lude.Int)
+crRevision = Lens.lens (revision :: ConfigurationRevision -> Lude.Maybe Lude.Int) (\s a -> s {revision = a} :: ConfigurationRevision)
+{-# DEPRECATED crRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
 -- | The description of the configuration revision.
-crDescription :: Lens' ConfigurationRevision (Maybe Text)
-crDescription = lens _crDescription (\s a -> s {_crDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crDescription :: Lens.Lens' ConfigurationRevision (Lude.Maybe Lude.Text)
+crDescription = Lens.lens (description :: ConfigurationRevision -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConfigurationRevision)
+{-# DEPRECATED crDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ConfigurationRevision where
+instance Lude.FromJSON ConfigurationRevision where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConfigurationRevision"
       ( \x ->
           ConfigurationRevision'
-            <$> (x .:? "created") <*> (x .:? "revision") <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "revision")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable ConfigurationRevision
-
-instance NFData ConfigurationRevision

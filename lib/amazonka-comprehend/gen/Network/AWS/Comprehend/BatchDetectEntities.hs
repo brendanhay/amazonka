@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see 'how-entities'
 module Network.AWS.Comprehend.BatchDetectEntities
-  ( -- * Creating a Request
-    batchDetectEntities,
-    BatchDetectEntities,
+  ( -- * Creating a request
+    BatchDetectEntities (..),
+    mkBatchDetectEntities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdeTextList,
     bdeLanguageCode,
 
-    -- * Destructuring the Response
-    batchDetectEntitiesResponse,
-    BatchDetectEntitiesResponse,
+    -- * Destructuring the response
+    BatchDetectEntitiesResponse (..),
+    mkBatchDetectEntitiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bdersResponseStatus,
     bdersResultList,
     bdersErrorList,
@@ -39,127 +34,136 @@ module Network.AWS.Comprehend.BatchDetectEntities
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchDetectEntities' smart constructor.
+-- | /See:/ 'mkBatchDetectEntities' smart constructor.
 data BatchDetectEntities = BatchDetectEntities'
-  { _bdeTextList ::
-      !(Sensitive [Sensitive Text]),
-    _bdeLanguageCode :: !LanguageCode
+  { textList ::
+      [Lude.Sensitive Lude.Text],
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectEntities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdeTextList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.
---
--- * 'bdeLanguageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-batchDetectEntities ::
-  -- | 'bdeLanguageCode'
+-- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+-- * 'textList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.
+mkBatchDetectEntities ::
+  -- | 'languageCode'
   LanguageCode ->
   BatchDetectEntities
-batchDetectEntities pLanguageCode_ =
+mkBatchDetectEntities pLanguageCode_ =
   BatchDetectEntities'
-    { _bdeTextList = mempty,
-      _bdeLanguageCode = pLanguageCode_
+    { textList = Lude.mempty,
+      languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.
-bdeTextList :: Lens' BatchDetectEntities [Text]
-bdeTextList = lens _bdeTextList (\s a -> s {_bdeTextList = a}) . _Sensitive . _Coerce
+--
+-- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdeTextList :: Lens.Lens' BatchDetectEntities [Lude.Sensitive Lude.Text]
+bdeTextList = Lens.lens (textList :: BatchDetectEntities -> [Lude.Sensitive Lude.Text]) (\s a -> s {textList = a} :: BatchDetectEntities)
+{-# DEPRECATED bdeTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
 
 -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-bdeLanguageCode :: Lens' BatchDetectEntities LanguageCode
-bdeLanguageCode = lens _bdeLanguageCode (\s a -> s {_bdeLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdeLanguageCode :: Lens.Lens' BatchDetectEntities LanguageCode
+bdeLanguageCode = Lens.lens (languageCode :: BatchDetectEntities -> LanguageCode) (\s a -> s {languageCode = a} :: BatchDetectEntities)
+{-# DEPRECATED bdeLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest BatchDetectEntities where
+instance Lude.AWSRequest BatchDetectEntities where
   type Rs BatchDetectEntities = BatchDetectEntitiesResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDetectEntitiesResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .?> "ResultList" .!@ mempty)
-            <*> (x .?> "ErrorList" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "ResultList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ErrorList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable BatchDetectEntities
-
-instance NFData BatchDetectEntities
-
-instance ToHeaders BatchDetectEntities where
+instance Lude.ToHeaders BatchDetectEntities where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.BatchDetectEntities" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.BatchDetectEntities" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchDetectEntities where
+instance Lude.ToJSON BatchDetectEntities where
   toJSON BatchDetectEntities' {..} =
-    object
-      ( catMaybes
-          [ Just ("TextList" .= _bdeTextList),
-            Just ("LanguageCode" .= _bdeLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TextList" Lude..= textList),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath BatchDetectEntities where
-  toPath = const "/"
+instance Lude.ToPath BatchDetectEntities where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchDetectEntities where
-  toQuery = const mempty
+instance Lude.ToQuery BatchDetectEntities where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchDetectEntitiesResponse' smart constructor.
+-- | /See:/ 'mkBatchDetectEntitiesResponse' smart constructor.
 data BatchDetectEntitiesResponse = BatchDetectEntitiesResponse'
-  { _bdersResponseStatus ::
-      !Int,
-    _bdersResultList ::
-      ![BatchDetectEntitiesItemResult],
-    _bdersErrorList ::
-      ![BatchItemError]
+  { responseStatus ::
+      Lude.Int,
+    resultList ::
+      [BatchDetectEntitiesItemResult],
+    errorList :: [BatchItemError]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectEntitiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdersResponseStatus' - -- | The response status code.
---
--- * 'bdersResultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
---
--- * 'bdersErrorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-batchDetectEntitiesResponse ::
-  -- | 'bdersResponseStatus'
-  Int ->
+-- * 'errorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
+-- * 'responseStatus' - The response status code.
+-- * 'resultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
+mkBatchDetectEntitiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDetectEntitiesResponse
-batchDetectEntitiesResponse pResponseStatus_ =
+mkBatchDetectEntitiesResponse pResponseStatus_ =
   BatchDetectEntitiesResponse'
-    { _bdersResponseStatus =
-        pResponseStatus_,
-      _bdersResultList = mempty,
-      _bdersErrorList = mempty
+    { responseStatus = pResponseStatus_,
+      resultList = Lude.mempty,
+      errorList = Lude.mempty
     }
 
--- | -- | The response status code.
-bdersResponseStatus :: Lens' BatchDetectEntitiesResponse Int
-bdersResponseStatus = lens _bdersResponseStatus (\s a -> s {_bdersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdersResponseStatus :: Lens.Lens' BatchDetectEntitiesResponse Lude.Int
+bdersResponseStatus = Lens.lens (responseStatus :: BatchDetectEntitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDetectEntitiesResponse)
+{-# DEPRECATED bdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
-bdersResultList :: Lens' BatchDetectEntitiesResponse [BatchDetectEntitiesItemResult]
-bdersResultList = lens _bdersResultList (\s a -> s {_bdersResultList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'resultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdersResultList :: Lens.Lens' BatchDetectEntitiesResponse [BatchDetectEntitiesItemResult]
+bdersResultList = Lens.lens (resultList :: BatchDetectEntitiesResponse -> [BatchDetectEntitiesItemResult]) (\s a -> s {resultList = a} :: BatchDetectEntitiesResponse)
+{-# DEPRECATED bdersResultList "Use generic-lens or generic-optics with 'resultList' instead." #-}
 
 -- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-bdersErrorList :: Lens' BatchDetectEntitiesResponse [BatchItemError]
-bdersErrorList = lens _bdersErrorList (\s a -> s {_bdersErrorList = a}) . _Coerce
-
-instance NFData BatchDetectEntitiesResponse
+--
+-- /Note:/ Consider using 'errorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdersErrorList :: Lens.Lens' BatchDetectEntitiesResponse [BatchItemError]
+bdersErrorList = Lens.lens (errorList :: BatchDetectEntitiesResponse -> [BatchItemError]) (\s a -> s {errorList = a} :: BatchDetectEntitiesResponse)
+{-# DEPRECATED bdersErrorList "Use generic-lens or generic-optics with 'errorList' instead." #-}

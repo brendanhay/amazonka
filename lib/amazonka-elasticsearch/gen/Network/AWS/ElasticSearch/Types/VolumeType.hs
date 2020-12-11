@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.VolumeType where
+module Network.AWS.ElasticSearch.Types.VolumeType
+  ( VolumeType
+      ( VolumeType',
+        GP2,
+        IO1,
+        Standard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of EBS volume, standard, gp2, or io1. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
-data VolumeType
-  = GP2
-  | IO1
-  | Standard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeType = VolumeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeType where
-  parser =
-    takeLowerText >>= \case
-      "gp2" -> pure GP2
-      "io1" -> pure IO1
-      "standard" -> pure Standard
-      e ->
-        fromTextError $
-          "Failure parsing VolumeType from value: '" <> e
-            <> "'. Accepted values: gp2, io1, standard"
+pattern GP2 :: VolumeType
+pattern GP2 = VolumeType' "gp2"
 
-instance ToText VolumeType where
-  toText = \case
-    GP2 -> "gp2"
-    IO1 -> "io1"
-    Standard -> "standard"
+pattern IO1 :: VolumeType
+pattern IO1 = VolumeType' "io1"
 
-instance Hashable VolumeType
+pattern Standard :: VolumeType
+pattern Standard = VolumeType' "standard"
 
-instance NFData VolumeType
-
-instance ToByteString VolumeType
-
-instance ToQuery VolumeType
-
-instance ToHeader VolumeType
-
-instance ToJSON VolumeType where
-  toJSON = toJSONText
-
-instance FromJSON VolumeType where
-  parseJSON = parseJSONText "VolumeType"
+{-# COMPLETE
+  GP2,
+  IO1,
+  Standard,
+  VolumeType'
+  #-}

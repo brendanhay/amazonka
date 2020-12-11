@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the rules for the specified target. You can see which of the rules in Amazon EventBridge can invoke a specific target in your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
-  ( -- * Creating a Request
-    listRuleNamesByTarget,
-    ListRuleNamesByTarget,
+  ( -- * Creating a request
+    ListRuleNamesByTarget (..),
+    mkListRuleNamesByTarget,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrnbtNextToken,
     lrnbtEventBusName,
     lrnbtLimit,
     lrnbtTargetARN,
 
-    -- * Destructuring the Response
-    listRuleNamesByTargetResponse,
-    ListRuleNamesByTargetResponse,
+    -- * Destructuring the response
+    ListRuleNamesByTargetResponse (..),
+    mkListRuleNamesByTargetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrnbtrsRuleNames,
     lrnbtrsNextToken,
     lrnbtrsResponseStatus,
@@ -45,150 +38,174 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRuleNamesByTarget' smart constructor.
+-- | /See:/ 'mkListRuleNamesByTarget' smart constructor.
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
-  { _lrnbtNextToken ::
-      !(Maybe Text),
-    _lrnbtEventBusName :: !(Maybe Text),
-    _lrnbtLimit :: !(Maybe Nat),
-    _lrnbtTargetARN :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    eventBusName :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    targetARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRuleNamesByTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrnbtNextToken' - The token returned by a previous call to retrieve the next set of results.
---
--- * 'lrnbtEventBusName' - The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.
---
--- * 'lrnbtLimit' - The maximum number of results to return.
---
--- * 'lrnbtTargetARN' - The Amazon Resource Name (ARN) of the target resource.
-listRuleNamesByTarget ::
-  -- | 'lrnbtTargetARN'
-  Text ->
+-- * 'eventBusName' - The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.
+-- * 'limit' - The maximum number of results to return.
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the target resource.
+mkListRuleNamesByTarget ::
+  -- | 'targetARN'
+  Lude.Text ->
   ListRuleNamesByTarget
-listRuleNamesByTarget pTargetARN_ =
+mkListRuleNamesByTarget pTargetARN_ =
   ListRuleNamesByTarget'
-    { _lrnbtNextToken = Nothing,
-      _lrnbtEventBusName = Nothing,
-      _lrnbtLimit = Nothing,
-      _lrnbtTargetARN = pTargetARN_
+    { nextToken = Lude.Nothing,
+      eventBusName = Lude.Nothing,
+      limit = Lude.Nothing,
+      targetARN = pTargetARN_
     }
 
 -- | The token returned by a previous call to retrieve the next set of results.
-lrnbtNextToken :: Lens' ListRuleNamesByTarget (Maybe Text)
-lrnbtNextToken = lens _lrnbtNextToken (\s a -> s {_lrnbtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtNextToken :: Lens.Lens' ListRuleNamesByTarget (Lude.Maybe Lude.Text)
+lrnbtNextToken = Lens.lens (nextToken :: ListRuleNamesByTarget -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRuleNamesByTarget)
+{-# DEPRECATED lrnbtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.
-lrnbtEventBusName :: Lens' ListRuleNamesByTarget (Maybe Text)
-lrnbtEventBusName = lens _lrnbtEventBusName (\s a -> s {_lrnbtEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtEventBusName :: Lens.Lens' ListRuleNamesByTarget (Lude.Maybe Lude.Text)
+lrnbtEventBusName = Lens.lens (eventBusName :: ListRuleNamesByTarget -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: ListRuleNamesByTarget)
+{-# DEPRECATED lrnbtEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The maximum number of results to return.
-lrnbtLimit :: Lens' ListRuleNamesByTarget (Maybe Natural)
-lrnbtLimit = lens _lrnbtLimit (\s a -> s {_lrnbtLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtLimit :: Lens.Lens' ListRuleNamesByTarget (Lude.Maybe Lude.Natural)
+lrnbtLimit = Lens.lens (limit :: ListRuleNamesByTarget -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRuleNamesByTarget)
+{-# DEPRECATED lrnbtLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the target resource.
-lrnbtTargetARN :: Lens' ListRuleNamesByTarget Text
-lrnbtTargetARN = lens _lrnbtTargetARN (\s a -> s {_lrnbtTargetARN = a})
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtTargetARN :: Lens.Lens' ListRuleNamesByTarget Lude.Text
+lrnbtTargetARN = Lens.lens (targetARN :: ListRuleNamesByTarget -> Lude.Text) (\s a -> s {targetARN = a} :: ListRuleNamesByTarget)
+{-# DEPRECATED lrnbtTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
-instance AWSPager ListRuleNamesByTarget where
+instance Page.AWSPager ListRuleNamesByTarget where
   page rq rs
-    | stop (rs ^. lrnbtrsNextToken) = Nothing
-    | stop (rs ^. lrnbtrsRuleNames) = Nothing
-    | otherwise = Just $ rq & lrnbtNextToken .~ rs ^. lrnbtrsNextToken
+    | Page.stop (rs Lens.^. lrnbtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrnbtrsRuleNames) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrnbtNextToken Lens..~ rs Lens.^. lrnbtrsNextToken
 
-instance AWSRequest ListRuleNamesByTarget where
+instance Lude.AWSRequest ListRuleNamesByTarget where
   type Rs ListRuleNamesByTarget = ListRuleNamesByTargetResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRuleNamesByTargetResponse'
-            <$> (x .?> "RuleNames" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RuleNames" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRuleNamesByTarget
-
-instance NFData ListRuleNamesByTarget
-
-instance ToHeaders ListRuleNamesByTarget where
+instance Lude.ToHeaders ListRuleNamesByTarget where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSEvents.ListRuleNamesByTarget" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSEvents.ListRuleNamesByTarget" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRuleNamesByTarget where
+instance Lude.ToJSON ListRuleNamesByTarget where
   toJSON ListRuleNamesByTarget' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lrnbtNextToken,
-            ("EventBusName" .=) <$> _lrnbtEventBusName,
-            ("Limit" .=) <$> _lrnbtLimit,
-            Just ("TargetArn" .= _lrnbtTargetARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("TargetArn" Lude..= targetARN)
           ]
       )
 
-instance ToPath ListRuleNamesByTarget where
-  toPath = const "/"
+instance Lude.ToPath ListRuleNamesByTarget where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRuleNamesByTarget where
-  toQuery = const mempty
+instance Lude.ToQuery ListRuleNamesByTarget where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listRuleNamesByTargetResponse' smart constructor.
+-- | /See:/ 'mkListRuleNamesByTargetResponse' smart constructor.
 data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
-  { _lrnbtrsRuleNames ::
-      !(Maybe [Text]),
-    _lrnbtrsNextToken ::
-      !(Maybe Text),
-    _lrnbtrsResponseStatus :: !Int
+  { ruleNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRuleNamesByTargetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrnbtrsRuleNames' - The names of the rules that can invoke the given target.
---
--- * 'lrnbtrsNextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
---
--- * 'lrnbtrsResponseStatus' - -- | The response status code.
-listRuleNamesByTargetResponse ::
-  -- | 'lrnbtrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
+-- * 'responseStatus' - The response status code.
+-- * 'ruleNames' - The names of the rules that can invoke the given target.
+mkListRuleNamesByTargetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRuleNamesByTargetResponse
-listRuleNamesByTargetResponse pResponseStatus_ =
+mkListRuleNamesByTargetResponse pResponseStatus_ =
   ListRuleNamesByTargetResponse'
-    { _lrnbtrsRuleNames = Nothing,
-      _lrnbtrsNextToken = Nothing,
-      _lrnbtrsResponseStatus = pResponseStatus_
+    { ruleNames = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of the rules that can invoke the given target.
-lrnbtrsRuleNames :: Lens' ListRuleNamesByTargetResponse [Text]
-lrnbtrsRuleNames = lens _lrnbtrsRuleNames (\s a -> s {_lrnbtrsRuleNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtrsRuleNames :: Lens.Lens' ListRuleNamesByTargetResponse (Lude.Maybe [Lude.Text])
+lrnbtrsRuleNames = Lens.lens (ruleNames :: ListRuleNamesByTargetResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {ruleNames = a} :: ListRuleNamesByTargetResponse)
+{-# DEPRECATED lrnbtrsRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
-lrnbtrsNextToken :: Lens' ListRuleNamesByTargetResponse (Maybe Text)
-lrnbtrsNextToken = lens _lrnbtrsNextToken (\s a -> s {_lrnbtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtrsNextToken :: Lens.Lens' ListRuleNamesByTargetResponse (Lude.Maybe Lude.Text)
+lrnbtrsNextToken = Lens.lens (nextToken :: ListRuleNamesByTargetResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRuleNamesByTargetResponse)
+{-# DEPRECATED lrnbtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrnbtrsResponseStatus :: Lens' ListRuleNamesByTargetResponse Int
-lrnbtrsResponseStatus = lens _lrnbtrsResponseStatus (\s a -> s {_lrnbtrsResponseStatus = a})
-
-instance NFData ListRuleNamesByTargetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtrsResponseStatus :: Lens.Lens' ListRuleNamesByTargetResponse Lude.Int
+lrnbtrsResponseStatus = Lens.lens (responseStatus :: ListRuleNamesByTargetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRuleNamesByTargetResponse)
+{-# DEPRECATED lrnbtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

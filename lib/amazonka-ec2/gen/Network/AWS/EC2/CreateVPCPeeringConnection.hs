@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
 --
---
 -- The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.
---
 -- If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of @failed@ .
 module Network.AWS.EC2.CreateVPCPeeringConnection
-  ( -- * Creating a Request
-    createVPCPeeringConnection,
-    CreateVPCPeeringConnection,
+  ( -- * Creating a request
+    CreateVPCPeeringConnection (..),
+    mkCreateVPCPeeringConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvpcPeerVPCId,
     cvpcVPCId,
     cvpcPeerOwnerId,
@@ -36,157 +29,188 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     cvpcPeerRegion,
     cvpcDryRun,
 
-    -- * Destructuring the Response
-    createVPCPeeringConnectionResponse,
-    CreateVPCPeeringConnectionResponse,
+    -- * Destructuring the response
+    CreateVPCPeeringConnectionResponse (..),
+    mkCreateVPCPeeringConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvpcrsVPCPeeringConnection,
     cvpcrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createVPCPeeringConnection' smart constructor.
+-- | /See:/ 'mkCreateVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-  { _cvpcPeerVPCId ::
-      !(Maybe Text),
-    _cvpcVPCId :: !(Maybe Text),
-    _cvpcPeerOwnerId :: !(Maybe Text),
-    _cvpcTagSpecifications ::
-      !(Maybe [TagSpecification]),
-    _cvpcPeerRegion :: !(Maybe Text),
-    _cvpcDryRun :: !(Maybe Bool)
+  { peerVPCId ::
+      Lude.Maybe Lude.Text,
+    vpcId :: Lude.Maybe Lude.Text,
+    peerOwnerId :: Lude.Maybe Lude.Text,
+    tagSpecifications ::
+      Lude.Maybe [TagSpecification],
+    peerRegion :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'peerOwnerId' - The AWS account ID of the owner of the accepter VPC.
 --
--- * 'cvpcPeerVPCId' - The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+-- Default: Your AWS account ID
+-- * 'peerRegion' - The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 --
--- * 'cvpcVPCId' - The ID of the requester VPC. You must specify this parameter in the request.
---
--- * 'cvpcPeerOwnerId' - The AWS account ID of the owner of the accepter VPC. Default: Your AWS account ID
---
--- * 'cvpcTagSpecifications' - The tags to assign to the peering connection.
---
--- * 'cvpcPeerRegion' - The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request. Default: The Region in which you make the request.
---
--- * 'cvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-createVPCPeeringConnection ::
+-- Default: The Region in which you make the request.
+-- * 'peerVPCId' - The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+-- * 'tagSpecifications' - The tags to assign to the peering connection.
+-- * 'vpcId' - The ID of the requester VPC. You must specify this parameter in the request.
+mkCreateVPCPeeringConnection ::
   CreateVPCPeeringConnection
-createVPCPeeringConnection =
+mkCreateVPCPeeringConnection =
   CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId = Nothing,
-      _cvpcVPCId = Nothing,
-      _cvpcPeerOwnerId = Nothing,
-      _cvpcTagSpecifications = Nothing,
-      _cvpcPeerRegion = Nothing,
-      _cvpcDryRun = Nothing
+    { peerVPCId = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      peerOwnerId = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      peerRegion = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
-cvpcPeerVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcPeerVPCId = lens _cvpcPeerVPCId (\s a -> s {_cvpcPeerVPCId = a})
+--
+-- /Note:/ Consider using 'peerVPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcPeerVPCId :: Lens.Lens' CreateVPCPeeringConnection (Lude.Maybe Lude.Text)
+cvpcPeerVPCId = Lens.lens (peerVPCId :: CreateVPCPeeringConnection -> Lude.Maybe Lude.Text) (\s a -> s {peerVPCId = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcPeerVPCId "Use generic-lens or generic-optics with 'peerVPCId' instead." #-}
 
 -- | The ID of the requester VPC. You must specify this parameter in the request.
-cvpcVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcVPCId = lens _cvpcVPCId (\s a -> s {_cvpcVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcVPCId :: Lens.Lens' CreateVPCPeeringConnection (Lude.Maybe Lude.Text)
+cvpcVPCId = Lens.lens (vpcId :: CreateVPCPeeringConnection -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | The AWS account ID of the owner of the accepter VPC. Default: Your AWS account ID
-cvpcPeerOwnerId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s {_cvpcPeerOwnerId = a})
+-- | The AWS account ID of the owner of the accepter VPC.
+--
+-- Default: Your AWS account ID
+--
+-- /Note:/ Consider using 'peerOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcPeerOwnerId :: Lens.Lens' CreateVPCPeeringConnection (Lude.Maybe Lude.Text)
+cvpcPeerOwnerId = Lens.lens (peerOwnerId :: CreateVPCPeeringConnection -> Lude.Maybe Lude.Text) (\s a -> s {peerOwnerId = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcPeerOwnerId "Use generic-lens or generic-optics with 'peerOwnerId' instead." #-}
 
 -- | The tags to assign to the peering connection.
-cvpcTagSpecifications :: Lens' CreateVPCPeeringConnection [TagSpecification]
-cvpcTagSpecifications = lens _cvpcTagSpecifications (\s a -> s {_cvpcTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcTagSpecifications :: Lens.Lens' CreateVPCPeeringConnection (Lude.Maybe [TagSpecification])
+cvpcTagSpecifications = Lens.lens (tagSpecifications :: CreateVPCPeeringConnection -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
--- | The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request. Default: The Region in which you make the request.
-cvpcPeerRegion :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcPeerRegion = lens _cvpcPeerRegion (\s a -> s {_cvpcPeerRegion = a})
+-- | The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+--
+-- Default: The Region in which you make the request.
+--
+-- /Note:/ Consider using 'peerRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcPeerRegion :: Lens.Lens' CreateVPCPeeringConnection (Lude.Maybe Lude.Text)
+cvpcPeerRegion = Lens.lens (peerRegion :: CreateVPCPeeringConnection -> Lude.Maybe Lude.Text) (\s a -> s {peerRegion = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcPeerRegion "Use generic-lens or generic-optics with 'peerRegion' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
-cvpcDryRun = lens _cvpcDryRun (\s a -> s {_cvpcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcDryRun :: Lens.Lens' CreateVPCPeeringConnection (Lude.Maybe Lude.Bool)
+cvpcDryRun = Lens.lens (dryRun :: CreateVPCPeeringConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest CreateVPCPeeringConnection where
+instance Lude.AWSRequest CreateVPCPeeringConnection where
   type
     Rs CreateVPCPeeringConnection =
       CreateVPCPeeringConnectionResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateVPCPeeringConnectionResponse'
-            <$> (x .@? "vpcPeeringConnection") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "vpcPeeringConnection")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVPCPeeringConnection
+instance Lude.ToHeaders CreateVPCPeeringConnection where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateVPCPeeringConnection
+instance Lude.ToPath CreateVPCPeeringConnection where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateVPCPeeringConnection where
-  toHeaders = const mempty
-
-instance ToPath CreateVPCPeeringConnection where
-  toPath = const "/"
-
-instance ToQuery CreateVPCPeeringConnection where
+instance Lude.ToQuery CreateVPCPeeringConnection where
   toQuery CreateVPCPeeringConnection' {..} =
-    mconcat
-      [ "Action" =: ("CreateVpcPeeringConnection" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "PeerVpcId" =: _cvpcPeerVPCId,
-        "VpcId" =: _cvpcVPCId,
-        "PeerOwnerId" =: _cvpcPeerOwnerId,
-        toQuery
-          (toQueryList "TagSpecification" <$> _cvpcTagSpecifications),
-        "PeerRegion" =: _cvpcPeerRegion,
-        "DryRun" =: _cvpcDryRun
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateVpcPeeringConnection" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "PeerVpcId" Lude.=: peerVPCId,
+        "VpcId" Lude.=: vpcId,
+        "PeerOwnerId" Lude.=: peerOwnerId,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "PeerRegion" Lude.=: peerRegion,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'mkCreateVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
-  { _cvpcrsVPCPeeringConnection ::
-      !( Maybe
-           VPCPeeringConnection
-       ),
-    _cvpcrsResponseStatus ::
-      !Int
+  { vpcPeeringConnection ::
+      Lude.Maybe
+        VPCPeeringConnection,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvpcrsVPCPeeringConnection' - Information about the VPC peering connection.
---
--- * 'cvpcrsResponseStatus' - -- | The response status code.
-createVPCPeeringConnectionResponse ::
-  -- | 'cvpcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpcPeeringConnection' - Information about the VPC peering connection.
+mkCreateVPCPeeringConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVPCPeeringConnectionResponse
-createVPCPeeringConnectionResponse pResponseStatus_ =
+mkCreateVPCPeeringConnectionResponse pResponseStatus_ =
   CreateVPCPeeringConnectionResponse'
-    { _cvpcrsVPCPeeringConnection =
-        Nothing,
-      _cvpcrsResponseStatus = pResponseStatus_
+    { vpcPeeringConnection =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC peering connection.
-cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
-cvpcrsVPCPeeringConnection = lens _cvpcrsVPCPeeringConnection (\s a -> s {_cvpcrsVPCPeeringConnection = a})
+--
+-- /Note:/ Consider using 'vpcPeeringConnection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcrsVPCPeeringConnection :: Lens.Lens' CreateVPCPeeringConnectionResponse (Lude.Maybe VPCPeeringConnection)
+cvpcrsVPCPeeringConnection = Lens.lens (vpcPeeringConnection :: CreateVPCPeeringConnectionResponse -> Lude.Maybe VPCPeeringConnection) (\s a -> s {vpcPeeringConnection = a} :: CreateVPCPeeringConnectionResponse)
+{-# DEPRECATED cvpcrsVPCPeeringConnection "Use generic-lens or generic-optics with 'vpcPeeringConnection' instead." #-}
 
--- | -- | The response status code.
-cvpcrsResponseStatus :: Lens' CreateVPCPeeringConnectionResponse Int
-cvpcrsResponseStatus = lens _cvpcrsResponseStatus (\s a -> s {_cvpcrsResponseStatus = a})
-
-instance NFData CreateVPCPeeringConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcrsResponseStatus :: Lens.Lens' CreateVPCPeeringConnectionResponse Lude.Int
+cvpcrsResponseStatus = Lens.lens (responseStatus :: CreateVPCPeeringConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVPCPeeringConnectionResponse)
+{-# DEPRECATED cvpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ServiceStatistics where
+module Network.AWS.XRay.Types.ServiceStatistics
+  ( ServiceStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceStatistics,
+
+    -- * Lenses
+    ssFaultStatistics,
+    ssOKCount,
+    ssTotalResponseTime,
+    ssErrorStatistics,
+    ssTotalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ErrorStatistics
 import Network.AWS.XRay.Types.FaultStatistics
 
 -- | Response statistics for a service.
 --
---
---
--- /See:/ 'serviceStatistics' smart constructor.
+-- /See:/ 'mkServiceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-  { _ssFaultStatistics ::
-      !(Maybe FaultStatistics),
-    _ssOKCount :: !(Maybe Integer),
-    _ssTotalResponseTime :: !(Maybe Double),
-    _ssErrorStatistics :: !(Maybe ErrorStatistics),
-    _ssTotalCount :: !(Maybe Integer)
+  { faultStatistics ::
+      Lude.Maybe FaultStatistics,
+    okCount :: Lude.Maybe Lude.Integer,
+    totalResponseTime :: Lude.Maybe Lude.Double,
+    errorStatistics :: Lude.Maybe ErrorStatistics,
+    totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssFaultStatistics' - Information about requests that failed with a 5xx Server Error status code.
---
--- * 'ssOKCount' - The number of requests that completed with a 2xx Success status code.
---
--- * 'ssTotalResponseTime' - The aggregate response time of completed requests.
---
--- * 'ssErrorStatistics' - Information about requests that failed with a 4xx Client Error status code.
---
--- * 'ssTotalCount' - The total number of completed requests.
-serviceStatistics ::
+-- * 'errorStatistics' - Information about requests that failed with a 4xx Client Error status code.
+-- * 'faultStatistics' - Information about requests that failed with a 5xx Server Error status code.
+-- * 'okCount' - The number of requests that completed with a 2xx Success status code.
+-- * 'totalCount' - The total number of completed requests.
+-- * 'totalResponseTime' - The aggregate response time of completed requests.
+mkServiceStatistics ::
   ServiceStatistics
-serviceStatistics =
+mkServiceStatistics =
   ServiceStatistics'
-    { _ssFaultStatistics = Nothing,
-      _ssOKCount = Nothing,
-      _ssTotalResponseTime = Nothing,
-      _ssErrorStatistics = Nothing,
-      _ssTotalCount = Nothing
+    { faultStatistics = Lude.Nothing,
+      okCount = Lude.Nothing,
+      totalResponseTime = Lude.Nothing,
+      errorStatistics = Lude.Nothing,
+      totalCount = Lude.Nothing
     }
 
 -- | Information about requests that failed with a 5xx Server Error status code.
-ssFaultStatistics :: Lens' ServiceStatistics (Maybe FaultStatistics)
-ssFaultStatistics = lens _ssFaultStatistics (\s a -> s {_ssFaultStatistics = a})
+--
+-- /Note:/ Consider using 'faultStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssFaultStatistics :: Lens.Lens' ServiceStatistics (Lude.Maybe FaultStatistics)
+ssFaultStatistics = Lens.lens (faultStatistics :: ServiceStatistics -> Lude.Maybe FaultStatistics) (\s a -> s {faultStatistics = a} :: ServiceStatistics)
+{-# DEPRECATED ssFaultStatistics "Use generic-lens or generic-optics with 'faultStatistics' instead." #-}
 
 -- | The number of requests that completed with a 2xx Success status code.
-ssOKCount :: Lens' ServiceStatistics (Maybe Integer)
-ssOKCount = lens _ssOKCount (\s a -> s {_ssOKCount = a})
+--
+-- /Note:/ Consider using 'okCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssOKCount :: Lens.Lens' ServiceStatistics (Lude.Maybe Lude.Integer)
+ssOKCount = Lens.lens (okCount :: ServiceStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {okCount = a} :: ServiceStatistics)
+{-# DEPRECATED ssOKCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
 
 -- | The aggregate response time of completed requests.
-ssTotalResponseTime :: Lens' ServiceStatistics (Maybe Double)
-ssTotalResponseTime = lens _ssTotalResponseTime (\s a -> s {_ssTotalResponseTime = a})
+--
+-- /Note:/ Consider using 'totalResponseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssTotalResponseTime :: Lens.Lens' ServiceStatistics (Lude.Maybe Lude.Double)
+ssTotalResponseTime = Lens.lens (totalResponseTime :: ServiceStatistics -> Lude.Maybe Lude.Double) (\s a -> s {totalResponseTime = a} :: ServiceStatistics)
+{-# DEPRECATED ssTotalResponseTime "Use generic-lens or generic-optics with 'totalResponseTime' instead." #-}
 
 -- | Information about requests that failed with a 4xx Client Error status code.
-ssErrorStatistics :: Lens' ServiceStatistics (Maybe ErrorStatistics)
-ssErrorStatistics = lens _ssErrorStatistics (\s a -> s {_ssErrorStatistics = a})
+--
+-- /Note:/ Consider using 'errorStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssErrorStatistics :: Lens.Lens' ServiceStatistics (Lude.Maybe ErrorStatistics)
+ssErrorStatistics = Lens.lens (errorStatistics :: ServiceStatistics -> Lude.Maybe ErrorStatistics) (\s a -> s {errorStatistics = a} :: ServiceStatistics)
+{-# DEPRECATED ssErrorStatistics "Use generic-lens or generic-optics with 'errorStatistics' instead." #-}
 
 -- | The total number of completed requests.
-ssTotalCount :: Lens' ServiceStatistics (Maybe Integer)
-ssTotalCount = lens _ssTotalCount (\s a -> s {_ssTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssTotalCount :: Lens.Lens' ServiceStatistics (Lude.Maybe Lude.Integer)
+ssTotalCount = Lens.lens (totalCount :: ServiceStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: ServiceStatistics)
+{-# DEPRECATED ssTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance FromJSON ServiceStatistics where
+instance Lude.FromJSON ServiceStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceStatistics"
       ( \x ->
           ServiceStatistics'
-            <$> (x .:? "FaultStatistics")
-            <*> (x .:? "OkCount")
-            <*> (x .:? "TotalResponseTime")
-            <*> (x .:? "ErrorStatistics")
-            <*> (x .:? "TotalCount")
+            Lude.<$> (x Lude..:? "FaultStatistics")
+            Lude.<*> (x Lude..:? "OkCount")
+            Lude.<*> (x Lude..:? "TotalResponseTime")
+            Lude.<*> (x Lude..:? "ErrorStatistics")
+            Lude.<*> (x Lude..:? "TotalCount")
       )
-
-instance Hashable ServiceStatistics
-
-instance NFData ServiceStatistics

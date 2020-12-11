@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JobDefinitionType where
+module Network.AWS.Batch.Types.JobDefinitionType
+  ( JobDefinitionType
+      ( JobDefinitionType',
+        Container,
+        Multinode
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobDefinitionType
-  = Container
-  | Multinode
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobDefinitionType = JobDefinitionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobDefinitionType where
-  parser =
-    takeLowerText >>= \case
-      "container" -> pure Container
-      "multinode" -> pure Multinode
-      e ->
-        fromTextError $
-          "Failure parsing JobDefinitionType from value: '" <> e
-            <> "'. Accepted values: container, multinode"
+pattern Container :: JobDefinitionType
+pattern Container = JobDefinitionType' "container"
 
-instance ToText JobDefinitionType where
-  toText = \case
-    Container -> "container"
-    Multinode -> "multinode"
+pattern Multinode :: JobDefinitionType
+pattern Multinode = JobDefinitionType' "multinode"
 
-instance Hashable JobDefinitionType
-
-instance NFData JobDefinitionType
-
-instance ToByteString JobDefinitionType
-
-instance ToQuery JobDefinitionType
-
-instance ToHeader JobDefinitionType
-
-instance ToJSON JobDefinitionType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Container,
+  Multinode,
+  JobDefinitionType'
+  #-}

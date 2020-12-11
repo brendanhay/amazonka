@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReplicaStatus where
+module Network.AWS.DynamoDB.Types.ReplicaStatus
+  ( ReplicaStatus
+      ( ReplicaStatus',
+        RSActive,
+        RSCreating,
+        RSCreationFailed,
+        RSDeleting,
+        RSInaccessibleEncryptionCredentials,
+        RSRegionDisabled,
+        RSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReplicaStatus
-  = RSActive
-  | RSCreating
-  | RSCreationFailed
-  | RSDeleting
-  | RSInaccessibleEncryptionCredentials
-  | RSRegionDisabled
-  | RSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplicaStatus = ReplicaStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplicaStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure RSActive
-      "creating" -> pure RSCreating
-      "creation_failed" -> pure RSCreationFailed
-      "deleting" -> pure RSDeleting
-      "inaccessible_encryption_credentials" -> pure RSInaccessibleEncryptionCredentials
-      "region_disabled" -> pure RSRegionDisabled
-      "updating" -> pure RSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing ReplicaStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, creation_failed, deleting, inaccessible_encryption_credentials, region_disabled, updating"
+pattern RSActive :: ReplicaStatus
+pattern RSActive = ReplicaStatus' "ACTIVE"
 
-instance ToText ReplicaStatus where
-  toText = \case
-    RSActive -> "ACTIVE"
-    RSCreating -> "CREATING"
-    RSCreationFailed -> "CREATION_FAILED"
-    RSDeleting -> "DELETING"
-    RSInaccessibleEncryptionCredentials -> "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-    RSRegionDisabled -> "REGION_DISABLED"
-    RSUpdating -> "UPDATING"
+pattern RSCreating :: ReplicaStatus
+pattern RSCreating = ReplicaStatus' "CREATING"
 
-instance Hashable ReplicaStatus
+pattern RSCreationFailed :: ReplicaStatus
+pattern RSCreationFailed = ReplicaStatus' "CREATION_FAILED"
 
-instance NFData ReplicaStatus
+pattern RSDeleting :: ReplicaStatus
+pattern RSDeleting = ReplicaStatus' "DELETING"
 
-instance ToByteString ReplicaStatus
+pattern RSInaccessibleEncryptionCredentials :: ReplicaStatus
+pattern RSInaccessibleEncryptionCredentials = ReplicaStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
-instance ToQuery ReplicaStatus
+pattern RSRegionDisabled :: ReplicaStatus
+pattern RSRegionDisabled = ReplicaStatus' "REGION_DISABLED"
 
-instance ToHeader ReplicaStatus
+pattern RSUpdating :: ReplicaStatus
+pattern RSUpdating = ReplicaStatus' "UPDATING"
 
-instance FromJSON ReplicaStatus where
-  parseJSON = parseJSONText "ReplicaStatus"
+{-# COMPLETE
+  RSActive,
+  RSCreating,
+  RSCreationFailed,
+  RSDeleting,
+  RSInaccessibleEncryptionCredentials,
+  RSRegionDisabled,
+  RSUpdating,
+  ReplicaStatus'
+  #-}

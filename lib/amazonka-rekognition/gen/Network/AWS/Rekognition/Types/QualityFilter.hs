@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.QualityFilter where
+module Network.AWS.Rekognition.Types.QualityFilter
+  ( QualityFilter
+      ( QualityFilter',
+        Auto,
+        High,
+        Low,
+        Medium,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QualityFilter
-  = Auto
-  | High
-  | Low
-  | Medium
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QualityFilter = QualityFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QualityFilter where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure Auto
-      "high" -> pure High
-      "low" -> pure Low
-      "medium" -> pure Medium
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing QualityFilter from value: '" <> e
-            <> "'. Accepted values: auto, high, low, medium, none"
+pattern Auto :: QualityFilter
+pattern Auto = QualityFilter' "AUTO"
 
-instance ToText QualityFilter where
-  toText = \case
-    Auto -> "AUTO"
-    High -> "HIGH"
-    Low -> "LOW"
-    Medium -> "MEDIUM"
-    None -> "NONE"
+pattern High :: QualityFilter
+pattern High = QualityFilter' "HIGH"
 
-instance Hashable QualityFilter
+pattern Low :: QualityFilter
+pattern Low = QualityFilter' "LOW"
 
-instance NFData QualityFilter
+pattern Medium :: QualityFilter
+pattern Medium = QualityFilter' "MEDIUM"
 
-instance ToByteString QualityFilter
+pattern None :: QualityFilter
+pattern None = QualityFilter' "NONE"
 
-instance ToQuery QualityFilter
-
-instance ToHeader QualityFilter
-
-instance ToJSON QualityFilter where
-  toJSON = toJSONText
+{-# COMPLETE
+  Auto,
+  High,
+  Low,
+  Medium,
+  None,
+  QualityFilter'
+  #-}

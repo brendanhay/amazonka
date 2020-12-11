@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns metadata related to the given identity, including when the identity was created and any associated linked logins.
 --
---
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.DescribeIdentity
-  ( -- * Creating a Request
-    describeIdentity,
-    DescribeIdentity,
+  ( -- * Creating a request
+    DescribeIdentity (..),
+    mkDescribeIdentity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diIdentityId,
 
-    -- * Destructuring the Response
-    identityDescription,
-    IdentityDescription,
+    -- * Destructuring the response
+    IdentityDescription (..),
+    mkIdentityDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     idLastModifiedDate,
     idCreationDate,
     idLogins,
@@ -42,60 +36,67 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the @DescribeIdentity@ action.
 --
---
---
--- /See:/ 'describeIdentity' smart constructor.
-newtype DescribeIdentity = DescribeIdentity' {_diIdentityId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeIdentity' smart constructor.
+newtype DescribeIdentity = DescribeIdentity'
+  { identityId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diIdentityId' - A unique identifier in the format REGION:GUID.
-describeIdentity ::
-  -- | 'diIdentityId'
-  Text ->
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
+mkDescribeIdentity ::
+  -- | 'identityId'
+  Lude.Text ->
   DescribeIdentity
-describeIdentity pIdentityId_ =
-  DescribeIdentity' {_diIdentityId = pIdentityId_}
+mkDescribeIdentity pIdentityId_ =
+  DescribeIdentity' {identityId = pIdentityId_}
 
 -- | A unique identifier in the format REGION:GUID.
-diIdentityId :: Lens' DescribeIdentity Text
-diIdentityId = lens _diIdentityId (\s a -> s {_diIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diIdentityId :: Lens.Lens' DescribeIdentity Lude.Text
+diIdentityId = Lens.lens (identityId :: DescribeIdentity -> Lude.Text) (\s a -> s {identityId = a} :: DescribeIdentity)
+{-# DEPRECATED diIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance AWSRequest DescribeIdentity where
+instance Lude.AWSRequest DescribeIdentity where
   type Rs DescribeIdentity = IdentityDescription
-  request = postJSON cognitoIdentity
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON cognitoIdentityService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DescribeIdentity
-
-instance NFData DescribeIdentity
-
-instance ToHeaders DescribeIdentity where
+instance Lude.ToHeaders DescribeIdentity where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.DescribeIdentity" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityService.DescribeIdentity" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeIdentity where
+instance Lude.ToJSON DescribeIdentity where
   toJSON DescribeIdentity' {..} =
-    object (catMaybes [Just ("IdentityId" .= _diIdentityId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("IdentityId" Lude..= identityId)])
 
-instance ToPath DescribeIdentity where
-  toPath = const "/"
+instance Lude.ToPath DescribeIdentity where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeIdentity where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeIdentity where
+  toQuery = Lude.const Lude.mempty

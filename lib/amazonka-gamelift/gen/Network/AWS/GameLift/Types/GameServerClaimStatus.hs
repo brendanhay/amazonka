@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServerClaimStatus where
+module Network.AWS.GameLift.Types.GameServerClaimStatus
+  ( GameServerClaimStatus
+      ( GameServerClaimStatus',
+        Claimed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameServerClaimStatus = Claimed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameServerClaimStatus = GameServerClaimStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameServerClaimStatus where
-  parser =
-    takeLowerText >>= \case
-      "claimed" -> pure Claimed
-      e ->
-        fromTextError $
-          "Failure parsing GameServerClaimStatus from value: '" <> e
-            <> "'. Accepted values: claimed"
+pattern Claimed :: GameServerClaimStatus
+pattern Claimed = GameServerClaimStatus' "CLAIMED"
 
-instance ToText GameServerClaimStatus where
-  toText = \case
-    Claimed -> "CLAIMED"
-
-instance Hashable GameServerClaimStatus
-
-instance NFData GameServerClaimStatus
-
-instance ToByteString GameServerClaimStatus
-
-instance ToQuery GameServerClaimStatus
-
-instance ToHeader GameServerClaimStatus
-
-instance FromJSON GameServerClaimStatus where
-  parseJSON = parseJSONText "GameServerClaimStatus"
+{-# COMPLETE
+  Claimed,
+  GameServerClaimStatus'
+  #-}

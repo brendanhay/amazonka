@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInterfaceType where
+module Network.AWS.EC2.Types.NetworkInterfaceType
+  ( NetworkInterfaceType
+      ( NetworkInterfaceType',
+        NITEfa,
+        NITInterface,
+        NITNatGateway
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NetworkInterfaceType
-  = NITEfa
-  | NITInterface
-  | NITNatGateway
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NetworkInterfaceType = NetworkInterfaceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NetworkInterfaceType where
-  parser =
-    takeLowerText >>= \case
-      "efa" -> pure NITEfa
-      "interface" -> pure NITInterface
-      "natgateway" -> pure NITNatGateway
-      e ->
-        fromTextError $
-          "Failure parsing NetworkInterfaceType from value: '" <> e
-            <> "'. Accepted values: efa, interface, natgateway"
+pattern NITEfa :: NetworkInterfaceType
+pattern NITEfa = NetworkInterfaceType' "efa"
 
-instance ToText NetworkInterfaceType where
-  toText = \case
-    NITEfa -> "efa"
-    NITInterface -> "interface"
-    NITNatGateway -> "natGateway"
+pattern NITInterface :: NetworkInterfaceType
+pattern NITInterface = NetworkInterfaceType' "interface"
 
-instance Hashable NetworkInterfaceType
+pattern NITNatGateway :: NetworkInterfaceType
+pattern NITNatGateway = NetworkInterfaceType' "natGateway"
 
-instance NFData NetworkInterfaceType
-
-instance ToByteString NetworkInterfaceType
-
-instance ToQuery NetworkInterfaceType
-
-instance ToHeader NetworkInterfaceType
-
-instance FromXML NetworkInterfaceType where
-  parseXML = parseXMLText "NetworkInterfaceType"
+{-# COMPLETE
+  NITEfa,
+  NITInterface,
+  NITNatGateway,
+  NetworkInterfaceType'
+  #-}

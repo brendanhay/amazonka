@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute
+  ( EnvironmentHealthAttribute
+      ( EnvironmentHealthAttribute',
+        EHAAll,
+        EHAApplicationMetrics,
+        EHACauses,
+        EHAColor,
+        EHAHealthStatus,
+        EHAInstancesHealth,
+        EHARefreshedAt,
+        EHAStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentHealthAttribute
-  = EHAAll
-  | EHAApplicationMetrics
-  | EHACauses
-  | EHAColor
-  | EHAHealthStatus
-  | EHAInstancesHealth
-  | EHARefreshedAt
-  | EHAStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentHealthAttribute = EnvironmentHealthAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentHealthAttribute where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure EHAAll
-      "applicationmetrics" -> pure EHAApplicationMetrics
-      "causes" -> pure EHACauses
-      "color" -> pure EHAColor
-      "healthstatus" -> pure EHAHealthStatus
-      "instanceshealth" -> pure EHAInstancesHealth
-      "refreshedat" -> pure EHARefreshedAt
-      "status" -> pure EHAStatus
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentHealthAttribute from value: '" <> e
-            <> "'. Accepted values: all, applicationmetrics, causes, color, healthstatus, instanceshealth, refreshedat, status"
+pattern EHAAll :: EnvironmentHealthAttribute
+pattern EHAAll = EnvironmentHealthAttribute' "All"
 
-instance ToText EnvironmentHealthAttribute where
-  toText = \case
-    EHAAll -> "All"
-    EHAApplicationMetrics -> "ApplicationMetrics"
-    EHACauses -> "Causes"
-    EHAColor -> "Color"
-    EHAHealthStatus -> "HealthStatus"
-    EHAInstancesHealth -> "InstancesHealth"
-    EHARefreshedAt -> "RefreshedAt"
-    EHAStatus -> "Status"
+pattern EHAApplicationMetrics :: EnvironmentHealthAttribute
+pattern EHAApplicationMetrics = EnvironmentHealthAttribute' "ApplicationMetrics"
 
-instance Hashable EnvironmentHealthAttribute
+pattern EHACauses :: EnvironmentHealthAttribute
+pattern EHACauses = EnvironmentHealthAttribute' "Causes"
 
-instance NFData EnvironmentHealthAttribute
+pattern EHAColor :: EnvironmentHealthAttribute
+pattern EHAColor = EnvironmentHealthAttribute' "Color"
 
-instance ToByteString EnvironmentHealthAttribute
+pattern EHAHealthStatus :: EnvironmentHealthAttribute
+pattern EHAHealthStatus = EnvironmentHealthAttribute' "HealthStatus"
 
-instance ToQuery EnvironmentHealthAttribute
+pattern EHAInstancesHealth :: EnvironmentHealthAttribute
+pattern EHAInstancesHealth = EnvironmentHealthAttribute' "InstancesHealth"
 
-instance ToHeader EnvironmentHealthAttribute
+pattern EHARefreshedAt :: EnvironmentHealthAttribute
+pattern EHARefreshedAt = EnvironmentHealthAttribute' "RefreshedAt"
+
+pattern EHAStatus :: EnvironmentHealthAttribute
+pattern EHAStatus = EnvironmentHealthAttribute' "Status"
+
+{-# COMPLETE
+  EHAAll,
+  EHAApplicationMetrics,
+  EHACauses,
+  EHAColor,
+  EHAHealthStatus,
+  EHAInstancesHealth,
+  EHARefreshedAt,
+  EHAStatus,
+  EnvironmentHealthAttribute'
+  #-}

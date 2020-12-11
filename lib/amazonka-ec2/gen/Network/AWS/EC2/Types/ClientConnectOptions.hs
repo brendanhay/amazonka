@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientConnectOptions where
+module Network.AWS.EC2.Types.ClientConnectOptions
+  ( ClientConnectOptions (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClientConnectOptions,
+
+    -- * Lenses
+    ccoEnabled,
+    ccoLambdaFunctionARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The options for managing connection authorization for new client connections.
 --
---
---
--- /See:/ 'clientConnectOptions' smart constructor.
+-- /See:/ 'mkClientConnectOptions' smart constructor.
 data ClientConnectOptions = ClientConnectOptions'
-  { _ccoEnabled ::
-      !(Maybe Bool),
-    _ccoLambdaFunctionARN :: !(Maybe Text)
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    lambdaFunctionARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientConnectOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccoEnabled' - Indicates whether client connect options are enabled. The default is @false@ (not enabled).
---
--- * 'ccoLambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
-clientConnectOptions ::
+-- * 'enabled' - Indicates whether client connect options are enabled. The default is @false@ (not enabled).
+-- * 'lambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+mkClientConnectOptions ::
   ClientConnectOptions
-clientConnectOptions =
+mkClientConnectOptions =
   ClientConnectOptions'
-    { _ccoEnabled = Nothing,
-      _ccoLambdaFunctionARN = Nothing
+    { enabled = Lude.Nothing,
+      lambdaFunctionARN = Lude.Nothing
     }
 
 -- | Indicates whether client connect options are enabled. The default is @false@ (not enabled).
-ccoEnabled :: Lens' ClientConnectOptions (Maybe Bool)
-ccoEnabled = lens _ccoEnabled (\s a -> s {_ccoEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccoEnabled :: Lens.Lens' ClientConnectOptions (Lude.Maybe Lude.Bool)
+ccoEnabled = Lens.lens (enabled :: ClientConnectOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ClientConnectOptions)
+{-# DEPRECATED ccoEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
-ccoLambdaFunctionARN :: Lens' ClientConnectOptions (Maybe Text)
-ccoLambdaFunctionARN = lens _ccoLambdaFunctionARN (\s a -> s {_ccoLambdaFunctionARN = a})
+--
+-- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccoLambdaFunctionARN :: Lens.Lens' ClientConnectOptions (Lude.Maybe Lude.Text)
+ccoLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: ClientConnectOptions -> Lude.Maybe Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: ClientConnectOptions)
+{-# DEPRECATED ccoLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
 
-instance Hashable ClientConnectOptions
-
-instance NFData ClientConnectOptions
-
-instance ToQuery ClientConnectOptions where
+instance Lude.ToQuery ClientConnectOptions where
   toQuery ClientConnectOptions' {..} =
-    mconcat
-      [ "Enabled" =: _ccoEnabled,
-        "LambdaFunctionArn" =: _ccoLambdaFunctionARN
+    Lude.mconcat
+      [ "Enabled" Lude.=: enabled,
+        "LambdaFunctionArn" Lude.=: lambdaFunctionARN
       ]

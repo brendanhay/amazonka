@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,164 @@
 --
 -- Starts a new instance refresh operation, which triggers a rolling replacement of all previously launched instances in the Auto Scaling group with a new group of instances.
 --
---
 -- If successful, this call creates a new instance refresh request with a unique ID that you can use to track its progress. To query its status, call the 'DescribeInstanceRefreshes' API. To describe the instance refreshes that have already run, call the 'DescribeInstanceRefreshes' API. To cancel an instance refresh operation in progress, use the 'CancelInstanceRefresh' API.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html Replacing Auto Scaling Instances Based on an Instance Refresh> .
 module Network.AWS.AutoScaling.StartInstanceRefresh
-  ( -- * Creating a Request
-    startInstanceRefresh,
-    StartInstanceRefresh,
+  ( -- * Creating a request
+    StartInstanceRefresh (..),
+    mkStartInstanceRefresh,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sirPreferences,
     sirStrategy,
     sirAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    startInstanceRefreshResponse,
-    StartInstanceRefreshResponse,
+    -- * Destructuring the response
+    StartInstanceRefreshResponse (..),
+    mkStartInstanceRefreshResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sirrsInstanceRefreshId,
     sirrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startInstanceRefresh' smart constructor.
+-- | /See:/ 'mkStartInstanceRefresh' smart constructor.
 data StartInstanceRefresh = StartInstanceRefresh'
-  { _sirPreferences ::
-      !(Maybe RefreshPreferences),
-    _sirStrategy :: !(Maybe RefreshStrategy),
-    _sirAutoScalingGroupName :: !Text
+  { preferences ::
+      Lude.Maybe RefreshPreferences,
+    strategy :: Lude.Maybe RefreshStrategy,
+    autoScalingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceRefresh' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'preferences' - Set of preferences associated with the instance refresh request.
 --
--- * 'sirPreferences' - Set of preferences associated with the instance refresh request. If not provided, the default values are used. For @MinHealthyPercentage@ , the default value is @90@ . For @InstanceWarmup@ , the default is to use the value specified for the health check grace period for the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences> in the /Amazon EC2 Auto Scaling API Reference/ .
+-- If not provided, the default values are used. For @MinHealthyPercentage@ , the default value is @90@ . For @InstanceWarmup@ , the default is to use the value specified for the health check grace period for the Auto Scaling group.
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences> in the /Amazon EC2 Auto Scaling API Reference/ .
+-- * 'strategy' - The strategy to use for the instance refresh. The only valid value is @Rolling@ .
 --
--- * 'sirStrategy' - The strategy to use for the instance refresh. The only valid value is @Rolling@ . A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated. A rolling update can fail due to failed health checks or if instances are on standby or are protected from scale in. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration.
---
--- * 'sirAutoScalingGroupName' - The name of the Auto Scaling group.
-startInstanceRefresh ::
-  -- | 'sirAutoScalingGroupName'
-  Text ->
+-- A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated. A rolling update can fail due to failed health checks or if instances are on standby or are protected from scale in. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration.
+mkStartInstanceRefresh ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   StartInstanceRefresh
-startInstanceRefresh pAutoScalingGroupName_ =
+mkStartInstanceRefresh pAutoScalingGroupName_ =
   StartInstanceRefresh'
-    { _sirPreferences = Nothing,
-      _sirStrategy = Nothing,
-      _sirAutoScalingGroupName = pAutoScalingGroupName_
+    { preferences = Lude.Nothing,
+      strategy = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | Set of preferences associated with the instance refresh request. If not provided, the default values are used. For @MinHealthyPercentage@ , the default value is @90@ . For @InstanceWarmup@ , the default is to use the value specified for the health check grace period for the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences> in the /Amazon EC2 Auto Scaling API Reference/ .
-sirPreferences :: Lens' StartInstanceRefresh (Maybe RefreshPreferences)
-sirPreferences = lens _sirPreferences (\s a -> s {_sirPreferences = a})
+-- | Set of preferences associated with the instance refresh request.
+--
+-- If not provided, the default values are used. For @MinHealthyPercentage@ , the default value is @90@ . For @InstanceWarmup@ , the default is to use the value specified for the health check grace period for the Auto Scaling group.
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences> in the /Amazon EC2 Auto Scaling API Reference/ .
+--
+-- /Note:/ Consider using 'preferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirPreferences :: Lens.Lens' StartInstanceRefresh (Lude.Maybe RefreshPreferences)
+sirPreferences = Lens.lens (preferences :: StartInstanceRefresh -> Lude.Maybe RefreshPreferences) (\s a -> s {preferences = a} :: StartInstanceRefresh)
+{-# DEPRECATED sirPreferences "Use generic-lens or generic-optics with 'preferences' instead." #-}
 
--- | The strategy to use for the instance refresh. The only valid value is @Rolling@ . A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated. A rolling update can fail due to failed health checks or if instances are on standby or are protected from scale in. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration.
-sirStrategy :: Lens' StartInstanceRefresh (Maybe RefreshStrategy)
-sirStrategy = lens _sirStrategy (\s a -> s {_sirStrategy = a})
+-- | The strategy to use for the instance refresh. The only valid value is @Rolling@ .
+--
+-- A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated. A rolling update can fail due to failed health checks or if instances are on standby or are protected from scale in. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration.
+--
+-- /Note:/ Consider using 'strategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirStrategy :: Lens.Lens' StartInstanceRefresh (Lude.Maybe RefreshStrategy)
+sirStrategy = Lens.lens (strategy :: StartInstanceRefresh -> Lude.Maybe RefreshStrategy) (\s a -> s {strategy = a} :: StartInstanceRefresh)
+{-# DEPRECATED sirStrategy "Use generic-lens or generic-optics with 'strategy' instead." #-}
 
 -- | The name of the Auto Scaling group.
-sirAutoScalingGroupName :: Lens' StartInstanceRefresh Text
-sirAutoScalingGroupName = lens _sirAutoScalingGroupName (\s a -> s {_sirAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirAutoScalingGroupName :: Lens.Lens' StartInstanceRefresh Lude.Text
+sirAutoScalingGroupName = Lens.lens (autoScalingGroupName :: StartInstanceRefresh -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: StartInstanceRefresh)
+{-# DEPRECATED sirAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSRequest StartInstanceRefresh where
+instance Lude.AWSRequest StartInstanceRefresh where
   type Rs StartInstanceRefresh = StartInstanceRefreshResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "StartInstanceRefreshResult"
       ( \s h x ->
           StartInstanceRefreshResponse'
-            <$> (x .@? "InstanceRefreshId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "InstanceRefreshId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartInstanceRefresh
+instance Lude.ToHeaders StartInstanceRefresh where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StartInstanceRefresh
+instance Lude.ToPath StartInstanceRefresh where
+  toPath = Lude.const "/"
 
-instance ToHeaders StartInstanceRefresh where
-  toHeaders = const mempty
-
-instance ToPath StartInstanceRefresh where
-  toPath = const "/"
-
-instance ToQuery StartInstanceRefresh where
+instance Lude.ToQuery StartInstanceRefresh where
   toQuery StartInstanceRefresh' {..} =
-    mconcat
-      [ "Action" =: ("StartInstanceRefresh" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "Preferences" =: _sirPreferences,
-        "Strategy" =: _sirStrategy,
-        "AutoScalingGroupName" =: _sirAutoScalingGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("StartInstanceRefresh" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "Preferences" Lude.=: preferences,
+        "Strategy" Lude.=: strategy,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'startInstanceRefreshResponse' smart constructor.
+-- | /See:/ 'mkStartInstanceRefreshResponse' smart constructor.
 data StartInstanceRefreshResponse = StartInstanceRefreshResponse'
-  { _sirrsInstanceRefreshId ::
-      !(Maybe Text),
-    _sirrsResponseStatus :: !Int
+  { instanceRefreshId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceRefreshResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sirrsInstanceRefreshId' - A unique ID for tracking the progress of the request.
---
--- * 'sirrsResponseStatus' - -- | The response status code.
-startInstanceRefreshResponse ::
-  -- | 'sirrsResponseStatus'
-  Int ->
+-- * 'instanceRefreshId' - A unique ID for tracking the progress of the request.
+-- * 'responseStatus' - The response status code.
+mkStartInstanceRefreshResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartInstanceRefreshResponse
-startInstanceRefreshResponse pResponseStatus_ =
+mkStartInstanceRefreshResponse pResponseStatus_ =
   StartInstanceRefreshResponse'
-    { _sirrsInstanceRefreshId = Nothing,
-      _sirrsResponseStatus = pResponseStatus_
+    { instanceRefreshId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique ID for tracking the progress of the request.
-sirrsInstanceRefreshId :: Lens' StartInstanceRefreshResponse (Maybe Text)
-sirrsInstanceRefreshId = lens _sirrsInstanceRefreshId (\s a -> s {_sirrsInstanceRefreshId = a})
+--
+-- /Note:/ Consider using 'instanceRefreshId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirrsInstanceRefreshId :: Lens.Lens' StartInstanceRefreshResponse (Lude.Maybe Lude.Text)
+sirrsInstanceRefreshId = Lens.lens (instanceRefreshId :: StartInstanceRefreshResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceRefreshId = a} :: StartInstanceRefreshResponse)
+{-# DEPRECATED sirrsInstanceRefreshId "Use generic-lens or generic-optics with 'instanceRefreshId' instead." #-}
 
--- | -- | The response status code.
-sirrsResponseStatus :: Lens' StartInstanceRefreshResponse Int
-sirrsResponseStatus = lens _sirrsResponseStatus (\s a -> s {_sirrsResponseStatus = a})
-
-instance NFData StartInstanceRefreshResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirrsResponseStatus :: Lens.Lens' StartInstanceRefreshResponse Lude.Int
+sirrsResponseStatus = Lens.lens (responseStatus :: StartInstanceRefreshResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartInstanceRefreshResponse)
+{-# DEPRECATED sirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

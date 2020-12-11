@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,154 @@
 --
 -- Deletes permissions granted to a member (user or group).
 module Network.AWS.WorkMail.DeleteMailboxPermissions
-  ( -- * Creating a Request
-    deleteMailboxPermissions,
-    DeleteMailboxPermissions,
+  ( -- * Creating a request
+    DeleteMailboxPermissions (..),
+    mkDeleteMailboxPermissions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmpOrganizationId,
     dmpEntityId,
     dmpGranteeId,
 
-    -- * Destructuring the Response
-    deleteMailboxPermissionsResponse,
-    DeleteMailboxPermissionsResponse,
+    -- * Destructuring the response
+    DeleteMailboxPermissionsResponse (..),
+    mkDeleteMailboxPermissionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'deleteMailboxPermissions' smart constructor.
+-- | /See:/ 'mkDeleteMailboxPermissions' smart constructor.
 data DeleteMailboxPermissions = DeleteMailboxPermissions'
-  { _dmpOrganizationId ::
-      !Text,
-    _dmpEntityId :: !Text,
-    _dmpGranteeId :: !Text
+  { organizationId ::
+      Lude.Text,
+    entityId :: Lude.Text,
+    granteeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMailboxPermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmpOrganizationId' - The identifier of the organization under which the member (user or group) exists.
---
--- * 'dmpEntityId' - The identifier of the member (user or group) that owns the mailbox.
---
--- * 'dmpGranteeId' - The identifier of the member (user or group) for which to delete granted permissions.
-deleteMailboxPermissions ::
-  -- | 'dmpOrganizationId'
-  Text ->
-  -- | 'dmpEntityId'
-  Text ->
-  -- | 'dmpGranteeId'
-  Text ->
+-- * 'entityId' - The identifier of the member (user or group) that owns the mailbox.
+-- * 'granteeId' - The identifier of the member (user or group) for which to delete granted permissions.
+-- * 'organizationId' - The identifier of the organization under which the member (user or group) exists.
+mkDeleteMailboxPermissions ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
+  -- | 'granteeId'
+  Lude.Text ->
   DeleteMailboxPermissions
-deleteMailboxPermissions pOrganizationId_ pEntityId_ pGranteeId_ =
+mkDeleteMailboxPermissions pOrganizationId_ pEntityId_ pGranteeId_ =
   DeleteMailboxPermissions'
-    { _dmpOrganizationId = pOrganizationId_,
-      _dmpEntityId = pEntityId_,
-      _dmpGranteeId = pGranteeId_
+    { organizationId = pOrganizationId_,
+      entityId = pEntityId_,
+      granteeId = pGranteeId_
     }
 
 -- | The identifier of the organization under which the member (user or group) exists.
-dmpOrganizationId :: Lens' DeleteMailboxPermissions Text
-dmpOrganizationId = lens _dmpOrganizationId (\s a -> s {_dmpOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmpOrganizationId :: Lens.Lens' DeleteMailboxPermissions Lude.Text
+dmpOrganizationId = Lens.lens (organizationId :: DeleteMailboxPermissions -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteMailboxPermissions)
+{-# DEPRECATED dmpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the member (user or group) that owns the mailbox.
-dmpEntityId :: Lens' DeleteMailboxPermissions Text
-dmpEntityId = lens _dmpEntityId (\s a -> s {_dmpEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmpEntityId :: Lens.Lens' DeleteMailboxPermissions Lude.Text
+dmpEntityId = Lens.lens (entityId :: DeleteMailboxPermissions -> Lude.Text) (\s a -> s {entityId = a} :: DeleteMailboxPermissions)
+{-# DEPRECATED dmpEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The identifier of the member (user or group) for which to delete granted permissions.
-dmpGranteeId :: Lens' DeleteMailboxPermissions Text
-dmpGranteeId = lens _dmpGranteeId (\s a -> s {_dmpGranteeId = a})
+--
+-- /Note:/ Consider using 'granteeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmpGranteeId :: Lens.Lens' DeleteMailboxPermissions Lude.Text
+dmpGranteeId = Lens.lens (granteeId :: DeleteMailboxPermissions -> Lude.Text) (\s a -> s {granteeId = a} :: DeleteMailboxPermissions)
+{-# DEPRECATED dmpGranteeId "Use generic-lens or generic-optics with 'granteeId' instead." #-}
 
-instance AWSRequest DeleteMailboxPermissions where
+instance Lude.AWSRequest DeleteMailboxPermissions where
   type Rs DeleteMailboxPermissions = DeleteMailboxPermissionsResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteMailboxPermissionsResponse' <$> (pure (fromEnum s))
+          DeleteMailboxPermissionsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteMailboxPermissions
-
-instance NFData DeleteMailboxPermissions
-
-instance ToHeaders DeleteMailboxPermissions where
+instance Lude.ToHeaders DeleteMailboxPermissions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DeleteMailboxPermissions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.DeleteMailboxPermissions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteMailboxPermissions where
+instance Lude.ToJSON DeleteMailboxPermissions where
   toJSON DeleteMailboxPermissions' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _dmpOrganizationId),
-            Just ("EntityId" .= _dmpEntityId),
-            Just ("GranteeId" .= _dmpGranteeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("EntityId" Lude..= entityId),
+            Lude.Just ("GranteeId" Lude..= granteeId)
           ]
       )
 
-instance ToPath DeleteMailboxPermissions where
-  toPath = const "/"
+instance Lude.ToPath DeleteMailboxPermissions where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteMailboxPermissions where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteMailboxPermissions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteMailboxPermissionsResponse' smart constructor.
+-- | /See:/ 'mkDeleteMailboxPermissionsResponse' smart constructor.
 newtype DeleteMailboxPermissionsResponse = DeleteMailboxPermissionsResponse'
-  { _dmprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMailboxPermissionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmprsResponseStatus' - -- | The response status code.
-deleteMailboxPermissionsResponse ::
-  -- | 'dmprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteMailboxPermissionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteMailboxPermissionsResponse
-deleteMailboxPermissionsResponse pResponseStatus_ =
+mkDeleteMailboxPermissionsResponse pResponseStatus_ =
   DeleteMailboxPermissionsResponse'
-    { _dmprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dmprsResponseStatus :: Lens' DeleteMailboxPermissionsResponse Int
-dmprsResponseStatus = lens _dmprsResponseStatus (\s a -> s {_dmprsResponseStatus = a})
-
-instance NFData DeleteMailboxPermissionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsResponseStatus :: Lens.Lens' DeleteMailboxPermissionsResponse Lude.Int
+dmprsResponseStatus = Lens.lens (responseStatus :: DeleteMailboxPermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMailboxPermissionsResponse)
+{-# DEPRECATED dmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

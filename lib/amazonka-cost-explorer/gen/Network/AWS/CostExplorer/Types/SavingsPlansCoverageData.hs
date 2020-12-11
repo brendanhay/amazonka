@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SavingsPlansCoverageData where
+module Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
+  ( SavingsPlansCoverageData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSavingsPlansCoverageData,
+
+    -- * Lenses
+    spcdOnDemandCost,
+    spcdSpendCoveredBySavingsPlans,
+    spcdCoveragePercentage,
+    spcdTotalCost,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specific coverage percentage, On-Demand costs, and spend covered by Savings Plans, and total Savings Plans costs for an account.
 --
---
---
--- /See:/ 'savingsPlansCoverageData' smart constructor.
+-- /See:/ 'mkSavingsPlansCoverageData' smart constructor.
 data SavingsPlansCoverageData = SavingsPlansCoverageData'
-  { _spcdOnDemandCost ::
-      !(Maybe Text),
-    _spcdSpendCoveredBySavingsPlans ::
-      !(Maybe Text),
-    _spcdCoveragePercentage :: !(Maybe Text),
-    _spcdTotalCost :: !(Maybe Text)
+  { onDemandCost ::
+      Lude.Maybe Lude.Text,
+    spendCoveredBySavingsPlans ::
+      Lude.Maybe Lude.Text,
+    coveragePercentage ::
+      Lude.Maybe Lude.Text,
+    totalCost :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansCoverageData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spcdOnDemandCost' - The cost of your AWS usage at the public On-Demand rate.
---
--- * 'spcdSpendCoveredBySavingsPlans' - The amount of your AWS usage that is covered by a Savings Plans.
---
--- * 'spcdCoveragePercentage' - The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).
---
--- * 'spcdTotalCost' - The total cost of your AWS usage, regardless of your purchase option.
-savingsPlansCoverageData ::
+-- * 'coveragePercentage' - The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).
+-- * 'onDemandCost' - The cost of your AWS usage at the public On-Demand rate.
+-- * 'spendCoveredBySavingsPlans' - The amount of your AWS usage that is covered by a Savings Plans.
+-- * 'totalCost' - The total cost of your AWS usage, regardless of your purchase option.
+mkSavingsPlansCoverageData ::
   SavingsPlansCoverageData
-savingsPlansCoverageData =
+mkSavingsPlansCoverageData =
   SavingsPlansCoverageData'
-    { _spcdOnDemandCost = Nothing,
-      _spcdSpendCoveredBySavingsPlans = Nothing,
-      _spcdCoveragePercentage = Nothing,
-      _spcdTotalCost = Nothing
+    { onDemandCost = Lude.Nothing,
+      spendCoveredBySavingsPlans = Lude.Nothing,
+      coveragePercentage = Lude.Nothing,
+      totalCost = Lude.Nothing
     }
 
 -- | The cost of your AWS usage at the public On-Demand rate.
-spcdOnDemandCost :: Lens' SavingsPlansCoverageData (Maybe Text)
-spcdOnDemandCost = lens _spcdOnDemandCost (\s a -> s {_spcdOnDemandCost = a})
+--
+-- /Note:/ Consider using 'onDemandCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spcdOnDemandCost :: Lens.Lens' SavingsPlansCoverageData (Lude.Maybe Lude.Text)
+spcdOnDemandCost = Lens.lens (onDemandCost :: SavingsPlansCoverageData -> Lude.Maybe Lude.Text) (\s a -> s {onDemandCost = a} :: SavingsPlansCoverageData)
+{-# DEPRECATED spcdOnDemandCost "Use generic-lens or generic-optics with 'onDemandCost' instead." #-}
 
 -- | The amount of your AWS usage that is covered by a Savings Plans.
-spcdSpendCoveredBySavingsPlans :: Lens' SavingsPlansCoverageData (Maybe Text)
-spcdSpendCoveredBySavingsPlans = lens _spcdSpendCoveredBySavingsPlans (\s a -> s {_spcdSpendCoveredBySavingsPlans = a})
+--
+-- /Note:/ Consider using 'spendCoveredBySavingsPlans' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spcdSpendCoveredBySavingsPlans :: Lens.Lens' SavingsPlansCoverageData (Lude.Maybe Lude.Text)
+spcdSpendCoveredBySavingsPlans = Lens.lens (spendCoveredBySavingsPlans :: SavingsPlansCoverageData -> Lude.Maybe Lude.Text) (\s a -> s {spendCoveredBySavingsPlans = a} :: SavingsPlansCoverageData)
+{-# DEPRECATED spcdSpendCoveredBySavingsPlans "Use generic-lens or generic-optics with 'spendCoveredBySavingsPlans' instead." #-}
 
 -- | The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).
-spcdCoveragePercentage :: Lens' SavingsPlansCoverageData (Maybe Text)
-spcdCoveragePercentage = lens _spcdCoveragePercentage (\s a -> s {_spcdCoveragePercentage = a})
+--
+-- /Note:/ Consider using 'coveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spcdCoveragePercentage :: Lens.Lens' SavingsPlansCoverageData (Lude.Maybe Lude.Text)
+spcdCoveragePercentage = Lens.lens (coveragePercentage :: SavingsPlansCoverageData -> Lude.Maybe Lude.Text) (\s a -> s {coveragePercentage = a} :: SavingsPlansCoverageData)
+{-# DEPRECATED spcdCoveragePercentage "Use generic-lens or generic-optics with 'coveragePercentage' instead." #-}
 
 -- | The total cost of your AWS usage, regardless of your purchase option.
-spcdTotalCost :: Lens' SavingsPlansCoverageData (Maybe Text)
-spcdTotalCost = lens _spcdTotalCost (\s a -> s {_spcdTotalCost = a})
+--
+-- /Note:/ Consider using 'totalCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spcdTotalCost :: Lens.Lens' SavingsPlansCoverageData (Lude.Maybe Lude.Text)
+spcdTotalCost = Lens.lens (totalCost :: SavingsPlansCoverageData -> Lude.Maybe Lude.Text) (\s a -> s {totalCost = a} :: SavingsPlansCoverageData)
+{-# DEPRECATED spcdTotalCost "Use generic-lens or generic-optics with 'totalCost' instead." #-}
 
-instance FromJSON SavingsPlansCoverageData where
+instance Lude.FromJSON SavingsPlansCoverageData where
   parseJSON =
-    withObject
+    Lude.withObject
       "SavingsPlansCoverageData"
       ( \x ->
           SavingsPlansCoverageData'
-            <$> (x .:? "OnDemandCost")
-            <*> (x .:? "SpendCoveredBySavingsPlans")
-            <*> (x .:? "CoveragePercentage")
-            <*> (x .:? "TotalCost")
+            Lude.<$> (x Lude..:? "OnDemandCost")
+            Lude.<*> (x Lude..:? "SpendCoveredBySavingsPlans")
+            Lude.<*> (x Lude..:? "CoveragePercentage")
+            Lude.<*> (x Lude..:? "TotalCost")
       )
-
-instance Hashable SavingsPlansCoverageData
-
-instance NFData SavingsPlansCoverageData

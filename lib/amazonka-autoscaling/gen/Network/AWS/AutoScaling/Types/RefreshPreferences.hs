@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.RefreshPreferences where
+module Network.AWS.AutoScaling.Types.RefreshPreferences
+  ( RefreshPreferences (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRefreshPreferences,
+
+    -- * Lenses
+    rpMinHealthyPercentage,
+    rpInstanceWarmup,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes information used to start an instance refresh.
 --
---
---
--- /See:/ 'refreshPreferences' smart constructor.
+-- /See:/ 'mkRefreshPreferences' smart constructor.
 data RefreshPreferences = RefreshPreferences'
-  { _rpMinHealthyPercentage ::
-      !(Maybe Nat),
-    _rpInstanceWarmup :: !(Maybe Nat)
+  { minHealthyPercentage ::
+      Lude.Maybe Lude.Natural,
+    instanceWarmup :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshPreferences' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpMinHealthyPercentage' - The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is @90@ .
---
--- * 'rpInstanceWarmup' - The number of seconds until a newly launched instance is configured and ready to use. During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The default is to use the value for the health check grace period defined for the group.
-refreshPreferences ::
+-- * 'instanceWarmup' - The number of seconds until a newly launched instance is configured and ready to use. During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The default is to use the value for the health check grace period defined for the group.
+-- * 'minHealthyPercentage' - The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is @90@ .
+mkRefreshPreferences ::
   RefreshPreferences
-refreshPreferences =
+mkRefreshPreferences =
   RefreshPreferences'
-    { _rpMinHealthyPercentage = Nothing,
-      _rpInstanceWarmup = Nothing
+    { minHealthyPercentage = Lude.Nothing,
+      instanceWarmup = Lude.Nothing
     }
 
 -- | The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is @90@ .
-rpMinHealthyPercentage :: Lens' RefreshPreferences (Maybe Natural)
-rpMinHealthyPercentage = lens _rpMinHealthyPercentage (\s a -> s {_rpMinHealthyPercentage = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'minHealthyPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpMinHealthyPercentage :: Lens.Lens' RefreshPreferences (Lude.Maybe Lude.Natural)
+rpMinHealthyPercentage = Lens.lens (minHealthyPercentage :: RefreshPreferences -> Lude.Maybe Lude.Natural) (\s a -> s {minHealthyPercentage = a} :: RefreshPreferences)
+{-# DEPRECATED rpMinHealthyPercentage "Use generic-lens or generic-optics with 'minHealthyPercentage' instead." #-}
 
 -- | The number of seconds until a newly launched instance is configured and ready to use. During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The default is to use the value for the health check grace period defined for the group.
-rpInstanceWarmup :: Lens' RefreshPreferences (Maybe Natural)
-rpInstanceWarmup = lens _rpInstanceWarmup (\s a -> s {_rpInstanceWarmup = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'instanceWarmup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpInstanceWarmup :: Lens.Lens' RefreshPreferences (Lude.Maybe Lude.Natural)
+rpInstanceWarmup = Lens.lens (instanceWarmup :: RefreshPreferences -> Lude.Maybe Lude.Natural) (\s a -> s {instanceWarmup = a} :: RefreshPreferences)
+{-# DEPRECATED rpInstanceWarmup "Use generic-lens or generic-optics with 'instanceWarmup' instead." #-}
 
-instance Hashable RefreshPreferences
-
-instance NFData RefreshPreferences
-
-instance ToQuery RefreshPreferences where
+instance Lude.ToQuery RefreshPreferences where
   toQuery RefreshPreferences' {..} =
-    mconcat
-      [ "MinHealthyPercentage" =: _rpMinHealthyPercentage,
-        "InstanceWarmup" =: _rpInstanceWarmup
+    Lude.mconcat
+      [ "MinHealthyPercentage" Lude.=: minHealthyPercentage,
+        "InstanceWarmup" Lude.=: instanceWarmup
       ]

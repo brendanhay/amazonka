@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.ChangeType where
+module Network.AWS.DAX.Types.ChangeType
+  ( ChangeType
+      ( ChangeType',
+        Immediate,
+        RequiresReboot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeType
-  = Immediate
-  | RequiresReboot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeType = ChangeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeType where
-  parser =
-    takeLowerText >>= \case
-      "immediate" -> pure Immediate
-      "requires_reboot" -> pure RequiresReboot
-      e ->
-        fromTextError $
-          "Failure parsing ChangeType from value: '" <> e
-            <> "'. Accepted values: immediate, requires_reboot"
+pattern Immediate :: ChangeType
+pattern Immediate = ChangeType' "IMMEDIATE"
 
-instance ToText ChangeType where
-  toText = \case
-    Immediate -> "IMMEDIATE"
-    RequiresReboot -> "REQUIRES_REBOOT"
+pattern RequiresReboot :: ChangeType
+pattern RequiresReboot = ChangeType' "REQUIRES_REBOOT"
 
-instance Hashable ChangeType
-
-instance NFData ChangeType
-
-instance ToByteString ChangeType
-
-instance ToQuery ChangeType
-
-instance ToHeader ChangeType
-
-instance FromJSON ChangeType where
-  parseJSON = parseJSONText "ChangeType"
+{-# COMPLETE
+  Immediate,
+  RequiresReboot,
+  ChangeType'
+  #-}

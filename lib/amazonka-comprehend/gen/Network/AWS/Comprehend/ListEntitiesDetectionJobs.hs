@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of the entity detection jobs that you have submitted.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Comprehend.ListEntitiesDetectionJobs
-  ( -- * Creating a Request
-    listEntitiesDetectionJobs,
-    ListEntitiesDetectionJobs,
+  ( -- * Creating a request
+    ListEntitiesDetectionJobs (..),
+    mkListEntitiesDetectionJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ledjNextToken,
     ledjFilter,
     ledjMaxResults,
 
-    -- * Destructuring the Response
-    listEntitiesDetectionJobsResponse,
-    ListEntitiesDetectionJobsResponse,
+    -- * Destructuring the response
+    ListEntitiesDetectionJobsResponse (..),
+    mkListEntitiesDetectionJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ledjrsEntitiesDetectionJobPropertiesList,
     ledjrsNextToken,
     ledjrsResponseStatus,
@@ -44,146 +37,172 @@ module Network.AWS.Comprehend.ListEntitiesDetectionJobs
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listEntitiesDetectionJobs' smart constructor.
+-- | /See:/ 'mkListEntitiesDetectionJobs' smart constructor.
 data ListEntitiesDetectionJobs = ListEntitiesDetectionJobs'
-  { _ledjNextToken ::
-      !(Maybe Text),
-    _ledjFilter ::
-      !(Maybe EntitiesDetectionJobFilter),
-    _ledjMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe EntitiesDetectionJobFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEntitiesDetectionJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ledjNextToken' - Identifies the next page of results to return.
---
--- * 'ledjFilter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
---
--- * 'ledjMaxResults' - The maximum number of results to return in each page. The default is 100.
-listEntitiesDetectionJobs ::
+-- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListEntitiesDetectionJobs ::
   ListEntitiesDetectionJobs
-listEntitiesDetectionJobs =
+mkListEntitiesDetectionJobs =
   ListEntitiesDetectionJobs'
-    { _ledjNextToken = Nothing,
-      _ledjFilter = Nothing,
-      _ledjMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-ledjNextToken :: Lens' ListEntitiesDetectionJobs (Maybe Text)
-ledjNextToken = lens _ledjNextToken (\s a -> s {_ledjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ledjNextToken :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe Lude.Text)
+ledjNextToken = Lens.lens (nextToken :: ListEntitiesDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEntitiesDetectionJobs)
+{-# DEPRECATED ledjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
-ledjFilter :: Lens' ListEntitiesDetectionJobs (Maybe EntitiesDetectionJobFilter)
-ledjFilter = lens _ledjFilter (\s a -> s {_ledjFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ledjFilter :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe EntitiesDetectionJobFilter)
+ledjFilter = Lens.lens (filter :: ListEntitiesDetectionJobs -> Lude.Maybe EntitiesDetectionJobFilter) (\s a -> s {filter = a} :: ListEntitiesDetectionJobs)
+{-# DEPRECATED ledjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
-ledjMaxResults :: Lens' ListEntitiesDetectionJobs (Maybe Natural)
-ledjMaxResults = lens _ledjMaxResults (\s a -> s {_ledjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ledjMaxResults :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe Lude.Natural)
+ledjMaxResults = Lens.lens (maxResults :: ListEntitiesDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEntitiesDetectionJobs)
+{-# DEPRECATED ledjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListEntitiesDetectionJobs where
+instance Page.AWSPager ListEntitiesDetectionJobs where
   page rq rs
-    | stop (rs ^. ledjrsNextToken) = Nothing
-    | stop (rs ^. ledjrsEntitiesDetectionJobPropertiesList) = Nothing
-    | otherwise = Just $ rq & ledjNextToken .~ rs ^. ledjrsNextToken
+    | Page.stop (rs Lens.^. ledjrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ledjrsEntitiesDetectionJobPropertiesList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ledjNextToken Lens..~ rs Lens.^. ledjrsNextToken
 
-instance AWSRequest ListEntitiesDetectionJobs where
+instance Lude.AWSRequest ListEntitiesDetectionJobs where
   type
     Rs ListEntitiesDetectionJobs =
       ListEntitiesDetectionJobsResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListEntitiesDetectionJobsResponse'
-            <$> (x .?> "EntitiesDetectionJobPropertiesList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "EntitiesDetectionJobPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListEntitiesDetectionJobs
-
-instance NFData ListEntitiesDetectionJobs
-
-instance ToHeaders ListEntitiesDetectionJobs where
+instance Lude.ToHeaders ListEntitiesDetectionJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListEntitiesDetectionJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.ListEntitiesDetectionJobs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListEntitiesDetectionJobs where
+instance Lude.ToJSON ListEntitiesDetectionJobs where
   toJSON ListEntitiesDetectionJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ledjNextToken,
-            ("Filter" .=) <$> _ledjFilter,
-            ("MaxResults" .=) <$> _ledjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListEntitiesDetectionJobs where
-  toPath = const "/"
+instance Lude.ToPath ListEntitiesDetectionJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListEntitiesDetectionJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListEntitiesDetectionJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listEntitiesDetectionJobsResponse' smart constructor.
+-- | /See:/ 'mkListEntitiesDetectionJobsResponse' smart constructor.
 data ListEntitiesDetectionJobsResponse = ListEntitiesDetectionJobsResponse'
-  { _ledjrsEntitiesDetectionJobPropertiesList ::
-      !( Maybe
-           [EntitiesDetectionJobProperties]
-       ),
-    _ledjrsNextToken ::
-      !(Maybe Text),
-    _ledjrsResponseStatus ::
-      !Int
+  { entitiesDetectionJobPropertiesList ::
+      Lude.Maybe
+        [EntitiesDetectionJobProperties],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEntitiesDetectionJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ledjrsEntitiesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
--- * 'ledjrsNextToken' - Identifies the next page of results to return.
---
--- * 'ledjrsResponseStatus' - -- | The response status code.
-listEntitiesDetectionJobsResponse ::
-  -- | 'ledjrsResponseStatus'
-  Int ->
+-- * 'entitiesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+mkListEntitiesDetectionJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListEntitiesDetectionJobsResponse
-listEntitiesDetectionJobsResponse pResponseStatus_ =
+mkListEntitiesDetectionJobsResponse pResponseStatus_ =
   ListEntitiesDetectionJobsResponse'
-    { _ledjrsEntitiesDetectionJobPropertiesList =
-        Nothing,
-      _ledjrsNextToken = Nothing,
-      _ledjrsResponseStatus = pResponseStatus_
+    { entitiesDetectionJobPropertiesList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list containing the properties of each job that is returned.
-ledjrsEntitiesDetectionJobPropertiesList :: Lens' ListEntitiesDetectionJobsResponse [EntitiesDetectionJobProperties]
-ledjrsEntitiesDetectionJobPropertiesList = lens _ledjrsEntitiesDetectionJobPropertiesList (\s a -> s {_ledjrsEntitiesDetectionJobPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entitiesDetectionJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ledjrsEntitiesDetectionJobPropertiesList :: Lens.Lens' ListEntitiesDetectionJobsResponse (Lude.Maybe [EntitiesDetectionJobProperties])
+ledjrsEntitiesDetectionJobPropertiesList = Lens.lens (entitiesDetectionJobPropertiesList :: ListEntitiesDetectionJobsResponse -> Lude.Maybe [EntitiesDetectionJobProperties]) (\s a -> s {entitiesDetectionJobPropertiesList = a} :: ListEntitiesDetectionJobsResponse)
+{-# DEPRECATED ledjrsEntitiesDetectionJobPropertiesList "Use generic-lens or generic-optics with 'entitiesDetectionJobPropertiesList' instead." #-}
 
 -- | Identifies the next page of results to return.
-ledjrsNextToken :: Lens' ListEntitiesDetectionJobsResponse (Maybe Text)
-ledjrsNextToken = lens _ledjrsNextToken (\s a -> s {_ledjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ledjrsNextToken :: Lens.Lens' ListEntitiesDetectionJobsResponse (Lude.Maybe Lude.Text)
+ledjrsNextToken = Lens.lens (nextToken :: ListEntitiesDetectionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEntitiesDetectionJobsResponse)
+{-# DEPRECATED ledjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ledjrsResponseStatus :: Lens' ListEntitiesDetectionJobsResponse Int
-ledjrsResponseStatus = lens _ledjrsResponseStatus (\s a -> s {_ledjrsResponseStatus = a})
-
-instance NFData ListEntitiesDetectionJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ledjrsResponseStatus :: Lens.Lens' ListEntitiesDetectionJobsResponse Lude.Int
+ledjrsResponseStatus = Lens.lens (responseStatus :: ListEntitiesDetectionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEntitiesDetectionJobsResponse)
+{-# DEPRECATED ledjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

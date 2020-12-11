@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchFilter where
+module Network.AWS.SSM.Types.PatchFilter
+  ( PatchFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPatchFilter,
+
+    -- * Lenses
+    pfKey,
+    pfValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.PatchFilterKey
 
 -- | Defines which patches should be included in a patch baseline.
 --
---
 -- A patch filter consists of a key and a set of values. The filter key is a patch property. For example, the available filter keys for WINDOWS are PATCH_SET, PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, and MSRC_SEVERITY. The filter values define a matching criterion for the patch property indicated by the key. For example, if the filter key is PRODUCT and the filter values are ["Office 2013", "Office 2016"], then the filter accepts all patches where product name is either "Office 2013" or "Office 2016". The filter values can be exact values for the patch property given as a key, or a wildcard (*), which matches all values.
---
 -- You can view lists of valid values for the patch properties by running the @DescribePatchProperties@ command. For information about which patch properties can be used with each major operating system, see 'DescribePatchProperties' .
 --
---
--- /See:/ 'patchFilter' smart constructor.
+-- /See:/ 'mkPatchFilter' smart constructor.
 data PatchFilter = PatchFilter'
-  { _pfKey :: !PatchFilterKey,
-    _pfValues :: !(List1 Text)
+  { key :: PatchFilterKey,
+    values :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The key for the filter.
 --
--- * 'pfKey' - The key for the filter. Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+-- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+-- * 'values' - The value for the filter key.
 --
--- * 'pfValues' - The value for the filter key. Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
-patchFilter ::
-  -- | 'pfKey'
+-- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
+mkPatchFilter ::
+  -- | 'key'
   PatchFilterKey ->
-  -- | 'pfValues'
-  NonEmpty Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   PatchFilter
-patchFilter pKey_ pValues_ =
-  PatchFilter' {_pfKey = pKey_, _pfValues = _List1 # pValues_}
+mkPatchFilter pKey_ pValues_ =
+  PatchFilter' {key = pKey_, values = pValues_}
 
--- | The key for the filter. Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
-pfKey :: Lens' PatchFilter PatchFilterKey
-pfKey = lens _pfKey (\s a -> s {_pfKey = a})
+-- | The key for the filter.
+--
+-- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfKey :: Lens.Lens' PatchFilter PatchFilterKey
+pfKey = Lens.lens (key :: PatchFilter -> PatchFilterKey) (\s a -> s {key = a} :: PatchFilter)
+{-# DEPRECATED pfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | The value for the filter key. Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
-pfValues :: Lens' PatchFilter (NonEmpty Text)
-pfValues = lens _pfValues (\s a -> s {_pfValues = a}) . _List1
+-- | The value for the filter key.
+--
+-- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfValues :: Lens.Lens' PatchFilter (Lude.NonEmpty Lude.Text)
+pfValues = Lens.lens (values :: PatchFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: PatchFilter)
+{-# DEPRECATED pfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromJSON PatchFilter where
+instance Lude.FromJSON PatchFilter where
   parseJSON =
-    withObject
+    Lude.withObject
       "PatchFilter"
-      (\x -> PatchFilter' <$> (x .: "Key") <*> (x .: "Values"))
+      ( \x ->
+          PatchFilter'
+            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Values")
+      )
 
-instance Hashable PatchFilter
-
-instance NFData PatchFilter
-
-instance ToJSON PatchFilter where
+instance Lude.ToJSON PatchFilter where
   toJSON PatchFilter' {..} =
-    object
-      (catMaybes [Just ("Key" .= _pfKey), Just ("Values" .= _pfValues)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values)
+          ]
+      )

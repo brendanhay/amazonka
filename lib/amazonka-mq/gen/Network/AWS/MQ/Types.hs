@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types
-  ( -- * Service Configuration
-    mq,
+  ( -- * Service configuration
+    mqService,
 
     -- * Errors
 
@@ -40,26 +38,26 @@ module Network.AWS.MQ.Types
     SanitizationWarningReason (..),
 
     -- * AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
 
     -- * BrokerEngineType
-    BrokerEngineType,
-    brokerEngineType,
+    BrokerEngineType (..),
+    mkBrokerEngineType,
     betEngineVersions,
     betEngineType,
 
     -- * BrokerInstance
-    BrokerInstance,
-    brokerInstance,
+    BrokerInstance (..),
+    mkBrokerInstance,
     biIPAddress,
     biConsoleURL,
     biEndpoints,
 
     -- * BrokerInstanceOption
-    BrokerInstanceOption,
-    brokerInstanceOption,
+    BrokerInstanceOption (..),
+    mkBrokerInstanceOption,
     bioSupportedEngineVersions,
     bioAvailabilityZones,
     bioSupportedDeploymentModes,
@@ -68,8 +66,8 @@ module Network.AWS.MQ.Types
     bioStorageType,
 
     -- * BrokerSummary
-    BrokerSummary,
-    brokerSummary,
+    BrokerSummary (..),
+    mkBrokerSummary,
     bsBrokerName,
     bsBrokerState,
     bsCreated,
@@ -80,8 +78,8 @@ module Network.AWS.MQ.Types
     bsHostInstanceType,
 
     -- * Configuration
-    Configuration,
-    configuration,
+    Configuration (..),
+    mkConfiguration,
     cEngineVersion,
     cARN,
     cLatestRevision,
@@ -94,39 +92,39 @@ module Network.AWS.MQ.Types
     cTags,
 
     -- * ConfigurationId
-    ConfigurationId,
-    configurationId,
+    ConfigurationId (..),
+    mkConfigurationId,
     ciId,
     ciRevision,
 
     -- * ConfigurationRevision
-    ConfigurationRevision,
-    configurationRevision,
+    ConfigurationRevision (..),
+    mkConfigurationRevision,
     crCreated,
     crRevision,
     crDescription,
 
     -- * Configurations
-    Configurations,
-    configurations,
+    Configurations (..),
+    mkConfigurations,
     cPending,
     cHistory,
     cCurrent,
 
     -- * EncryptionOptions
-    EncryptionOptions,
-    encryptionOptions,
+    EncryptionOptions (..),
+    mkEncryptionOptions,
     eoKMSKeyId,
     eoUseAWSOwnedKey,
 
     -- * EngineVersion
-    EngineVersion,
-    engineVersion,
+    EngineVersion (..),
+    mkEngineVersion,
     evName,
 
     -- * LdapServerMetadataInput
-    LdapServerMetadataInput,
-    ldapServerMetadataInput,
+    LdapServerMetadataInput (..),
+    mkLdapServerMetadataInput,
     lsmiUserBase,
     lsmiUserSearchMatching,
     lsmiUserRoleName,
@@ -140,8 +138,8 @@ module Network.AWS.MQ.Types
     lsmiRoleBase,
 
     -- * LdapServerMetadataOutput
-    LdapServerMetadataOutput,
-    ldapServerMetadataOutput,
+    LdapServerMetadataOutput (..),
+    mkLdapServerMetadataOutput,
     lsmoUserBase,
     lsmoUserSearchMatching,
     lsmoUserRoleName,
@@ -154,14 +152,14 @@ module Network.AWS.MQ.Types
     lsmoRoleBase,
 
     -- * Logs
-    Logs,
-    logs,
+    Logs (..),
+    mkLogs,
     lAudit,
     lGeneral,
 
     -- * LogsSummary
-    LogsSummary,
-    logsSummary,
+    LogsSummary (..),
+    mkLogsSummary,
     lsPending,
     lsAudit,
     lsGeneral,
@@ -169,49 +167,49 @@ module Network.AWS.MQ.Types
     lsAuditLogGroup,
 
     -- * PendingLogs
-    PendingLogs,
-    pendingLogs,
+    PendingLogs (..),
+    mkPendingLogs,
     plAudit,
     plGeneral,
 
     -- * SanitizationWarning
-    SanitizationWarning,
-    sanitizationWarning,
+    SanitizationWarning (..),
+    mkSanitizationWarning,
     swReason,
     swAttributeName,
     swElementName,
 
     -- * User
-    User,
-    user,
+    User (..),
+    mkUser,
     uGroups,
     uConsoleAccess,
     uUsername,
     uPassword,
 
     -- * UserPendingChanges
-    UserPendingChanges,
-    userPendingChanges,
+    UserPendingChanges (..),
+    mkUserPendingChanges,
     upcGroups,
     upcConsoleAccess,
     upcPendingChange,
 
     -- * UserSummary
-    UserSummary,
-    userSummary,
+    UserSummary (..),
+    mkUserSummary,
     usUsername,
     usPendingChange,
 
     -- * WeeklyStartTime
-    WeeklyStartTime,
-    weeklyStartTime,
+    WeeklyStartTime (..),
+    mkWeeklyStartTime,
     wstTimeOfDay,
     wstTimeZone,
     wstDayOfWeek,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.AuthenticationStrategy
 import Network.AWS.MQ.Types.AvailabilityZone
 import Network.AWS.MQ.Types.BrokerEngineType
@@ -241,47 +239,59 @@ import Network.AWS.MQ.Types.User
 import Network.AWS.MQ.Types.UserPendingChanges
 import Network.AWS.MQ.Types.UserSummary
 import Network.AWS.MQ.Types.WeeklyStartTime
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon MQ SDK configuration.
-mq :: Service
-mq =
-  Service
-    { _svcAbbrev = "MQ",
-      _svcSigner = v4,
-      _svcPrefix = "mq",
-      _svcVersion = "2017-11-27",
-      _svcEndpoint = defaultEndpoint mq,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "MQ",
-      _svcRetry = retry
+mqService :: Lude.Service
+mqService =
+  Lude.Service
+    { Lude._svcAbbrev = "MQ",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "mq",
+      Lude._svcVersion = "2017-11-27",
+      Lude._svcEndpoint = Lude.defaultEndpoint mqService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "MQ",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

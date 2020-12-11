@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.InputPsiControl where
+module Network.AWS.MediaConvert.Types.InputPsiControl
+  ( InputPsiControl
+      ( InputPsiControl',
+        IgnorePsi,
+        UsePsi
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
-data InputPsiControl
-  = IgnorePsi
-  | UsePsi
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputPsiControl = InputPsiControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputPsiControl where
-  parser =
-    takeLowerText >>= \case
-      "ignore_psi" -> pure IgnorePsi
-      "use_psi" -> pure UsePsi
-      e ->
-        fromTextError $
-          "Failure parsing InputPsiControl from value: '" <> e
-            <> "'. Accepted values: ignore_psi, use_psi"
+pattern IgnorePsi :: InputPsiControl
+pattern IgnorePsi = InputPsiControl' "IGNORE_PSI"
 
-instance ToText InputPsiControl where
-  toText = \case
-    IgnorePsi -> "IGNORE_PSI"
-    UsePsi -> "USE_PSI"
+pattern UsePsi :: InputPsiControl
+pattern UsePsi = InputPsiControl' "USE_PSI"
 
-instance Hashable InputPsiControl
-
-instance NFData InputPsiControl
-
-instance ToByteString InputPsiControl
-
-instance ToQuery InputPsiControl
-
-instance ToHeader InputPsiControl
-
-instance ToJSON InputPsiControl where
-  toJSON = toJSONText
-
-instance FromJSON InputPsiControl where
-  parseJSON = parseJSONText "InputPsiControl"
+{-# COMPLETE
+  IgnorePsi,
+  UsePsi,
+  InputPsiControl'
+  #-}

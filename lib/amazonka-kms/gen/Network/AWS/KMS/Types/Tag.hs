@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.Tag where
+module Network.AWS.KMS.Types.Tag
+  ( Tag (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTag,
+
+    -- * Lenses
+    tTagKey,
+    tTagValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
 --
---
 -- For information about the rules that apply to tag keys and tag values, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions> in the /AWS Billing and Cost Management User Guide/ .
 --
---
--- /See:/ 'tag' smart constructor.
-data Tag = Tag' {_tagTagKey :: !Text, _tagTagValue :: !Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTag' smart constructor.
+data Tag = Tag' {tagKey :: Lude.Text, tagValue :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagTagKey' - The key of the tag.
---
--- * 'tagTagValue' - The value of the tag.
-tag ::
-  -- | 'tagTagKey'
-  Text ->
-  -- | 'tagTagValue'
-  Text ->
+-- * 'tagKey' - The key of the tag.
+-- * 'tagValue' - The value of the tag.
+mkTag ::
+  -- | 'tagKey'
+  Lude.Text ->
+  -- | 'tagValue'
+  Lude.Text ->
   Tag
-tag pTagKey_ pTagValue_ =
-  Tag' {_tagTagKey = pTagKey_, _tagTagValue = pTagValue_}
+mkTag pTagKey_ pTagValue_ =
+  Tag' {tagKey = pTagKey_, tagValue = pTagValue_}
 
 -- | The key of the tag.
-tagTagKey :: Lens' Tag Text
-tagTagKey = lens _tagTagKey (\s a -> s {_tagTagKey = a})
+--
+-- /Note:/ Consider using 'tagKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTagKey :: Lens.Lens' Tag Lude.Text
+tTagKey = Lens.lens (tagKey :: Tag -> Lude.Text) (\s a -> s {tagKey = a} :: Tag)
+{-# DEPRECATED tTagKey "Use generic-lens or generic-optics with 'tagKey' instead." #-}
 
 -- | The value of the tag.
-tagTagValue :: Lens' Tag Text
-tagTagValue = lens _tagTagValue (\s a -> s {_tagTagValue = a})
+--
+-- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTagValue :: Lens.Lens' Tag Lude.Text
+tTagValue = Lens.lens (tagValue :: Tag -> Lude.Text) (\s a -> s {tagValue = a} :: Tag)
+{-# DEPRECATED tTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
 
-instance FromJSON Tag where
+instance Lude.FromJSON Tag where
   parseJSON =
-    withObject
+    Lude.withObject
       "Tag"
-      (\x -> Tag' <$> (x .: "TagKey") <*> (x .: "TagValue"))
+      ( \x ->
+          Tag' Lude.<$> (x Lude..: "TagKey") Lude.<*> (x Lude..: "TagValue")
+      )
 
-instance Hashable Tag
-
-instance NFData Tag
-
-instance ToJSON Tag where
+instance Lude.ToJSON Tag where
   toJSON Tag' {..} =
-    object
-      ( catMaybes
-          [Just ("TagKey" .= _tagTagKey), Just ("TagValue" .= _tagTagValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TagKey" Lude..= tagKey),
+            Lude.Just ("TagValue" Lude..= tagValue)
+          ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification where
+module Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification
+  ( ContinuousParameterRangeSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkContinuousParameterRangeSpecification,
+
+    -- * Lenses
+    cprsMinValue,
+    cprsMaxValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines the possible values for a continuous hyperparameter.
 --
---
---
--- /See:/ 'continuousParameterRangeSpecification' smart constructor.
+-- /See:/ 'mkContinuousParameterRangeSpecification' smart constructor.
 data ContinuousParameterRangeSpecification = ContinuousParameterRangeSpecification'
-  { _cprsMinValue ::
-      !Text,
-    _cprsMaxValue ::
-      !Text
+  { minValue ::
+      Lude.Text,
+    maxValue ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContinuousParameterRangeSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsMinValue' - The minimum floating-point value allowed.
---
--- * 'cprsMaxValue' - The maximum floating-point value allowed.
-continuousParameterRangeSpecification ::
-  -- | 'cprsMinValue'
-  Text ->
-  -- | 'cprsMaxValue'
-  Text ->
+-- * 'maxValue' - The maximum floating-point value allowed.
+-- * 'minValue' - The minimum floating-point value allowed.
+mkContinuousParameterRangeSpecification ::
+  -- | 'minValue'
+  Lude.Text ->
+  -- | 'maxValue'
+  Lude.Text ->
   ContinuousParameterRangeSpecification
-continuousParameterRangeSpecification pMinValue_ pMaxValue_ =
+mkContinuousParameterRangeSpecification pMinValue_ pMaxValue_ =
   ContinuousParameterRangeSpecification'
-    { _cprsMinValue =
-        pMinValue_,
-      _cprsMaxValue = pMaxValue_
+    { minValue = pMinValue_,
+      maxValue = pMaxValue_
     }
 
 -- | The minimum floating-point value allowed.
-cprsMinValue :: Lens' ContinuousParameterRangeSpecification Text
-cprsMinValue = lens _cprsMinValue (\s a -> s {_cprsMinValue = a})
+--
+-- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsMinValue :: Lens.Lens' ContinuousParameterRangeSpecification Lude.Text
+cprsMinValue = Lens.lens (minValue :: ContinuousParameterRangeSpecification -> Lude.Text) (\s a -> s {minValue = a} :: ContinuousParameterRangeSpecification)
+{-# DEPRECATED cprsMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
 
 -- | The maximum floating-point value allowed.
-cprsMaxValue :: Lens' ContinuousParameterRangeSpecification Text
-cprsMaxValue = lens _cprsMaxValue (\s a -> s {_cprsMaxValue = a})
+--
+-- /Note:/ Consider using 'maxValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsMaxValue :: Lens.Lens' ContinuousParameterRangeSpecification Lude.Text
+cprsMaxValue = Lens.lens (maxValue :: ContinuousParameterRangeSpecification -> Lude.Text) (\s a -> s {maxValue = a} :: ContinuousParameterRangeSpecification)
+{-# DEPRECATED cprsMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
 
-instance FromJSON ContinuousParameterRangeSpecification where
+instance Lude.FromJSON ContinuousParameterRangeSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContinuousParameterRangeSpecification"
       ( \x ->
           ContinuousParameterRangeSpecification'
-            <$> (x .: "MinValue") <*> (x .: "MaxValue")
+            Lude.<$> (x Lude..: "MinValue") Lude.<*> (x Lude..: "MaxValue")
       )
 
-instance Hashable ContinuousParameterRangeSpecification
-
-instance NFData ContinuousParameterRangeSpecification
-
-instance ToJSON ContinuousParameterRangeSpecification where
+instance Lude.ToJSON ContinuousParameterRangeSpecification where
   toJSON ContinuousParameterRangeSpecification' {..} =
-    object
-      ( catMaybes
-          [ Just ("MinValue" .= _cprsMinValue),
-            Just ("MaxValue" .= _cprsMaxValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("MinValue" Lude..= minValue),
+            Lude.Just ("MaxValue" Lude..= maxValue)
           ]
       )

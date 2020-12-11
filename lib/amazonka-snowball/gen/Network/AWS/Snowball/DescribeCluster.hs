@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,131 @@
 --
 -- Returns information about a specific cluster including shipping information, cluster status, and other important metadata.
 module Network.AWS.Snowball.DescribeCluster
-  ( -- * Creating a Request
-    describeCluster,
-    DescribeCluster,
+  ( -- * Creating a request
+    DescribeCluster (..),
+    mkDescribeCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcClusterId,
 
-    -- * Destructuring the Response
-    describeClusterResponse,
-    DescribeClusterResponse,
+    -- * Destructuring the response
+    DescribeClusterResponse (..),
+    mkDescribeClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsClusterMetadata,
     dcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'describeCluster' smart constructor.
-newtype DescribeCluster = DescribeCluster' {_dcClusterId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeCluster' smart constructor.
+newtype DescribeCluster = DescribeCluster' {clusterId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcClusterId' - The automatically generated ID for a cluster.
-describeCluster ::
-  -- | 'dcClusterId'
-  Text ->
+-- * 'clusterId' - The automatically generated ID for a cluster.
+mkDescribeCluster ::
+  -- | 'clusterId'
+  Lude.Text ->
   DescribeCluster
-describeCluster pClusterId_ =
-  DescribeCluster' {_dcClusterId = pClusterId_}
+mkDescribeCluster pClusterId_ =
+  DescribeCluster' {clusterId = pClusterId_}
 
 -- | The automatically generated ID for a cluster.
-dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\s a -> s {_dcClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcClusterId :: Lens.Lens' DescribeCluster Lude.Text
+dcClusterId = Lens.lens (clusterId :: DescribeCluster -> Lude.Text) (\s a -> s {clusterId = a} :: DescribeCluster)
+{-# DEPRECATED dcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSRequest DescribeCluster where
+instance Lude.AWSRequest DescribeCluster where
   type Rs DescribeCluster = DescribeClusterResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            <$> (x .?> "ClusterMetadata") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ClusterMetadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCluster
-
-instance NFData DescribeCluster
-
-instance ToHeaders DescribeCluster where
+instance Lude.ToHeaders DescribeCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSIESnowballJobManagementService.DescribeCluster" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.DescribeCluster" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCluster where
+instance Lude.ToJSON DescribeCluster where
   toJSON DescribeCluster' {..} =
-    object (catMaybes [Just ("ClusterId" .= _dcClusterId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ClusterId" Lude..= clusterId)])
 
-instance ToPath DescribeCluster where
-  toPath = const "/"
+instance Lude.ToPath DescribeCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCluster where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeClusterResponse' smart constructor.
+-- | /See:/ 'mkDescribeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
-  { _dcrsClusterMetadata ::
-      !(Maybe ClusterMetadata),
-    _dcrsResponseStatus :: !Int
+  { clusterMetadata ::
+      Lude.Maybe ClusterMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsClusterMetadata' - Information about a specific cluster, including shipping information, cluster status, and other important metadata.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeClusterResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'clusterMetadata' - Information about a specific cluster, including shipping information, cluster status, and other important metadata.
+-- * 'responseStatus' - The response status code.
+mkDescribeClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeClusterResponse
-describeClusterResponse pResponseStatus_ =
+mkDescribeClusterResponse pResponseStatus_ =
   DescribeClusterResponse'
-    { _dcrsClusterMetadata = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { clusterMetadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a specific cluster, including shipping information, cluster status, and other important metadata.
-dcrsClusterMetadata :: Lens' DescribeClusterResponse (Maybe ClusterMetadata)
-dcrsClusterMetadata = lens _dcrsClusterMetadata (\s a -> s {_dcrsClusterMetadata = a})
+--
+-- /Note:/ Consider using 'clusterMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsClusterMetadata :: Lens.Lens' DescribeClusterResponse (Lude.Maybe ClusterMetadata)
+dcrsClusterMetadata = Lens.lens (clusterMetadata :: DescribeClusterResponse -> Lude.Maybe ClusterMetadata) (\s a -> s {clusterMetadata = a} :: DescribeClusterResponse)
+{-# DEPRECATED dcrsClusterMetadata "Use generic-lens or generic-optics with 'clusterMetadata' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeClusterResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeClusterResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

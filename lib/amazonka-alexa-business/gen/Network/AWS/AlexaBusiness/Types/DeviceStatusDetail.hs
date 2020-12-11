@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceStatusDetail where
+module Network.AWS.AlexaBusiness.Types.DeviceStatusDetail
+  ( DeviceStatusDetail (..),
+
+    -- * Smart constructor
+    mkDeviceStatusDetail,
+
+    -- * Lenses
+    dsdFeature,
+    dsdCode,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode
 import Network.AWS.AlexaBusiness.Types.Feature
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of a device’s status.
 --
---
---
--- /See:/ 'deviceStatusDetail' smart constructor.
+-- /See:/ 'mkDeviceStatusDetail' smart constructor.
 data DeviceStatusDetail = DeviceStatusDetail'
-  { _dsdFeature ::
-      !(Maybe Feature),
-    _dsdCode :: !(Maybe DeviceStatusDetailCode)
+  { feature ::
+      Lude.Maybe Feature,
+    code :: Lude.Maybe DeviceStatusDetailCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceStatusDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdFeature' - The list of available features on the device.
---
--- * 'dsdCode' - The device status detail code.
-deviceStatusDetail ::
+-- * 'code' - The device status detail code.
+-- * 'feature' - The list of available features on the device.
+mkDeviceStatusDetail ::
   DeviceStatusDetail
-deviceStatusDetail =
-  DeviceStatusDetail' {_dsdFeature = Nothing, _dsdCode = Nothing}
+mkDeviceStatusDetail =
+  DeviceStatusDetail' {feature = Lude.Nothing, code = Lude.Nothing}
 
 -- | The list of available features on the device.
-dsdFeature :: Lens' DeviceStatusDetail (Maybe Feature)
-dsdFeature = lens _dsdFeature (\s a -> s {_dsdFeature = a})
+--
+-- /Note:/ Consider using 'feature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdFeature :: Lens.Lens' DeviceStatusDetail (Lude.Maybe Feature)
+dsdFeature = Lens.lens (feature :: DeviceStatusDetail -> Lude.Maybe Feature) (\s a -> s {feature = a} :: DeviceStatusDetail)
+{-# DEPRECATED dsdFeature "Use generic-lens or generic-optics with 'feature' instead." #-}
 
 -- | The device status detail code.
-dsdCode :: Lens' DeviceStatusDetail (Maybe DeviceStatusDetailCode)
-dsdCode = lens _dsdCode (\s a -> s {_dsdCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdCode :: Lens.Lens' DeviceStatusDetail (Lude.Maybe DeviceStatusDetailCode)
+dsdCode = Lens.lens (code :: DeviceStatusDetail -> Lude.Maybe DeviceStatusDetailCode) (\s a -> s {code = a} :: DeviceStatusDetail)
+{-# DEPRECATED dsdCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance FromJSON DeviceStatusDetail where
+instance Lude.FromJSON DeviceStatusDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceStatusDetail"
       ( \x ->
-          DeviceStatusDetail' <$> (x .:? "Feature") <*> (x .:? "Code")
+          DeviceStatusDetail'
+            Lude.<$> (x Lude..:? "Feature") Lude.<*> (x Lude..:? "Code")
       )
-
-instance Hashable DeviceStatusDetail
-
-instance NFData DeviceStatusDetail

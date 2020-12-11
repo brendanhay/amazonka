@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.Status where
+module Network.AWS.EFS.Types.Status
+  ( Status
+      ( Status',
+        Disabled,
+        Disabling,
+        Enabled,
+        Enabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Status
-  = Disabled
-  | Disabling
-  | Enabled
-  | Enabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Status = Status' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Status where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "disabling" -> pure Disabling
-      "enabled" -> pure Enabled
-      "enabling" -> pure Enabling
-      e ->
-        fromTextError $
-          "Failure parsing Status from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling"
+pattern Disabled :: Status
+pattern Disabled = Status' "DISABLED"
 
-instance ToText Status where
-  toText = \case
-    Disabled -> "DISABLED"
-    Disabling -> "DISABLING"
-    Enabled -> "ENABLED"
-    Enabling -> "ENABLING"
+pattern Disabling :: Status
+pattern Disabling = Status' "DISABLING"
 
-instance Hashable Status
+pattern Enabled :: Status
+pattern Enabled = Status' "ENABLED"
 
-instance NFData Status
+pattern Enabling :: Status
+pattern Enabling = Status' "ENABLING"
 
-instance ToByteString Status
-
-instance ToQuery Status
-
-instance ToHeader Status
-
-instance ToJSON Status where
-  toJSON = toJSONText
-
-instance FromJSON Status where
-  parseJSON = parseJSONText "Status"
+{-# COMPLETE
+  Disabled,
+  Disabling,
+  Enabled,
+  Enabling,
+  Status'
+  #-}

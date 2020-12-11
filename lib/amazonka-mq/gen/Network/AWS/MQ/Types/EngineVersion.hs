@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.EngineVersion where
+module Network.AWS.MQ.Types.EngineVersion
+  ( EngineVersion (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEngineVersion,
+
+    -- * Lenses
+    evName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Id of the engine version.
 --
--- /See:/ 'engineVersion' smart constructor.
-newtype EngineVersion = EngineVersion' {_evName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkEngineVersion' smart constructor.
+newtype EngineVersion = EngineVersion'
+  { name ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EngineVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evName' - Id for the version.
-engineVersion ::
+-- * 'name' - Id for the version.
+mkEngineVersion ::
   EngineVersion
-engineVersion = EngineVersion' {_evName = Nothing}
+mkEngineVersion = EngineVersion' {name = Lude.Nothing}
 
 -- | Id for the version.
-evName :: Lens' EngineVersion (Maybe Text)
-evName = lens _evName (\s a -> s {_evName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evName :: Lens.Lens' EngineVersion (Lude.Maybe Lude.Text)
+evName = Lens.lens (name :: EngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: EngineVersion)
+{-# DEPRECATED evName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON EngineVersion where
+instance Lude.FromJSON EngineVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "EngineVersion"
-      (\x -> EngineVersion' <$> (x .:? "name"))
-
-instance Hashable EngineVersion
-
-instance NFData EngineVersion
+      (\x -> EngineVersion' Lude.<$> (x Lude..:? "name"))

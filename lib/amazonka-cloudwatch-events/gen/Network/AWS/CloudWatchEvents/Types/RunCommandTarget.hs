@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.RunCommandTarget where
+module Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+  ( RunCommandTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRunCommandTarget,
+
+    -- * Lenses
+    rctKey,
+    rctValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each @RunCommandTarget@ block can include only one key, but this key may specify multiple values.
 --
---
---
--- /See:/ 'runCommandTarget' smart constructor.
+-- /See:/ 'mkRunCommandTarget' smart constructor.
 data RunCommandTarget = RunCommandTarget'
-  { _rctKey :: !Text,
-    _rctValues :: !(List1 Text)
+  { key :: Lude.Text,
+    values :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunCommandTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rctKey' - Can be either @tag:@ /tag-key/ or @InstanceIds@ .
---
--- * 'rctValues' - If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
-runCommandTarget ::
-  -- | 'rctKey'
-  Text ->
-  -- | 'rctValues'
-  NonEmpty Text ->
+-- * 'key' - Can be either @tag:@ /tag-key/ or @InstanceIds@ .
+-- * 'values' - If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
+mkRunCommandTarget ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   RunCommandTarget
-runCommandTarget pKey_ pValues_ =
-  RunCommandTarget'
-    { _rctKey = pKey_,
-      _rctValues = _List1 # pValues_
-    }
+mkRunCommandTarget pKey_ pValues_ =
+  RunCommandTarget' {key = pKey_, values = pValues_}
 
 -- | Can be either @tag:@ /tag-key/ or @InstanceIds@ .
-rctKey :: Lens' RunCommandTarget Text
-rctKey = lens _rctKey (\s a -> s {_rctKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctKey :: Lens.Lens' RunCommandTarget Lude.Text
+rctKey = Lens.lens (key :: RunCommandTarget -> Lude.Text) (\s a -> s {key = a} :: RunCommandTarget)
+{-# DEPRECATED rctKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
-rctValues :: Lens' RunCommandTarget (NonEmpty Text)
-rctValues = lens _rctValues (\s a -> s {_rctValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctValues :: Lens.Lens' RunCommandTarget (Lude.NonEmpty Lude.Text)
+rctValues = Lens.lens (values :: RunCommandTarget -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: RunCommandTarget)
+{-# DEPRECATED rctValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromJSON RunCommandTarget where
+instance Lude.FromJSON RunCommandTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "RunCommandTarget"
-      (\x -> RunCommandTarget' <$> (x .: "Key") <*> (x .: "Values"))
+      ( \x ->
+          RunCommandTarget'
+            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Values")
+      )
 
-instance Hashable RunCommandTarget
-
-instance NFData RunCommandTarget
-
-instance ToJSON RunCommandTarget where
+instance Lude.ToJSON RunCommandTarget where
   toJSON RunCommandTarget' {..} =
-    object
-      ( catMaybes
-          [Just ("Key" .= _rctKey), Just ("Values" .= _rctValues)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values)
+          ]
       )

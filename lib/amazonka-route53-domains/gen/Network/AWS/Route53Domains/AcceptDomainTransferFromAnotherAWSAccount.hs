@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,170 +14,169 @@
 --
 -- Accepts the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> .
 --
---
 -- Use either <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html ListOperations> or <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> to determine whether the operation succeeded. <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> provides additional information, for example, @Domain Transfer from Aws Account 111122223333 has been cancelled@ .
 module Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAWSAccount
-  ( -- * Creating a Request
-    acceptDomainTransferFromAnotherAWSAccount,
-    AcceptDomainTransferFromAnotherAWSAccount,
+  ( -- * Creating a request
+    AcceptDomainTransferFromAnotherAWSAccount (..),
+    mkAcceptDomainTransferFromAnotherAWSAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     adtfaaaDomainName,
     adtfaaaPassword,
 
-    -- * Destructuring the Response
-    acceptDomainTransferFromAnotherAWSAccountResponse,
-    AcceptDomainTransferFromAnotherAWSAccountResponse,
+    -- * Destructuring the response
+    AcceptDomainTransferFromAnotherAWSAccountResponse (..),
+    mkAcceptDomainTransferFromAnotherAWSAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     adtfaaarsOperationId,
     adtfaaarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The AcceptDomainTransferFromAnotherAwsAccount request includes the following elements.
 --
---
---
--- /See:/ 'acceptDomainTransferFromAnotherAWSAccount' smart constructor.
+-- /See:/ 'mkAcceptDomainTransferFromAnotherAWSAccount' smart constructor.
 data AcceptDomainTransferFromAnotherAWSAccount = AcceptDomainTransferFromAnotherAWSAccount'
-  { _adtfaaaDomainName ::
-      !Text,
-    _adtfaaaPassword ::
-      !Text
+  { domainName ::
+      Lude.Text,
+    password ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptDomainTransferFromAnotherAWSAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adtfaaaDomainName' - The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
---
--- * 'adtfaaaPassword' - The password that was returned by the <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
-acceptDomainTransferFromAnotherAWSAccount ::
-  -- | 'adtfaaaDomainName'
-  Text ->
-  -- | 'adtfaaaPassword'
-  Text ->
+-- * 'domainName' - The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
+-- * 'password' - The password that was returned by the <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
+mkAcceptDomainTransferFromAnotherAWSAccount ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'password'
+  Lude.Text ->
   AcceptDomainTransferFromAnotherAWSAccount
-acceptDomainTransferFromAnotherAWSAccount pDomainName_ pPassword_ =
+mkAcceptDomainTransferFromAnotherAWSAccount pDomainName_ pPassword_ =
   AcceptDomainTransferFromAnotherAWSAccount'
-    { _adtfaaaDomainName =
+    { domainName =
         pDomainName_,
-      _adtfaaaPassword = pPassword_
+      password = pPassword_
     }
 
 -- | The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
-adtfaaaDomainName :: Lens' AcceptDomainTransferFromAnotherAWSAccount Text
-adtfaaaDomainName = lens _adtfaaaDomainName (\s a -> s {_adtfaaaDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtfaaaDomainName :: Lens.Lens' AcceptDomainTransferFromAnotherAWSAccount Lude.Text
+adtfaaaDomainName = Lens.lens (domainName :: AcceptDomainTransferFromAnotherAWSAccount -> Lude.Text) (\s a -> s {domainName = a} :: AcceptDomainTransferFromAnotherAWSAccount)
+{-# DEPRECATED adtfaaaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The password that was returned by the <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
-adtfaaaPassword :: Lens' AcceptDomainTransferFromAnotherAWSAccount Text
-adtfaaaPassword = lens _adtfaaaPassword (\s a -> s {_adtfaaaPassword = a})
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtfaaaPassword :: Lens.Lens' AcceptDomainTransferFromAnotherAWSAccount Lude.Text
+adtfaaaPassword = Lens.lens (password :: AcceptDomainTransferFromAnotherAWSAccount -> Lude.Text) (\s a -> s {password = a} :: AcceptDomainTransferFromAnotherAWSAccount)
+{-# DEPRECATED adtfaaaPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance AWSRequest AcceptDomainTransferFromAnotherAWSAccount where
+instance Lude.AWSRequest AcceptDomainTransferFromAnotherAWSAccount where
   type
     Rs AcceptDomainTransferFromAnotherAWSAccount =
       AcceptDomainTransferFromAnotherAWSAccountResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AcceptDomainTransferFromAnotherAWSAccountResponse'
-            <$> (x .?> "OperationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AcceptDomainTransferFromAnotherAWSAccount
-
-instance NFData AcceptDomainTransferFromAnotherAWSAccount
-
-instance ToHeaders AcceptDomainTransferFromAnotherAWSAccount where
+instance Lude.ToHeaders AcceptDomainTransferFromAnotherAWSAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AcceptDomainTransferFromAnotherAWSAccount where
+instance Lude.ToJSON AcceptDomainTransferFromAnotherAWSAccount where
   toJSON AcceptDomainTransferFromAnotherAWSAccount' {..} =
-    object
-      ( catMaybes
-          [ Just ("DomainName" .= _adtfaaaDomainName),
-            Just ("Password" .= _adtfaaaPassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("Password" Lude..= password)
           ]
       )
 
-instance ToPath AcceptDomainTransferFromAnotherAWSAccount where
-  toPath = const "/"
+instance Lude.ToPath AcceptDomainTransferFromAnotherAWSAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery AcceptDomainTransferFromAnotherAWSAccount where
-  toQuery = const mempty
+instance Lude.ToQuery AcceptDomainTransferFromAnotherAWSAccount where
+  toQuery = Lude.const Lude.mempty
 
 -- | The AcceptDomainTransferFromAnotherAwsAccount response includes the following element.
 --
---
---
--- /See:/ 'acceptDomainTransferFromAnotherAWSAccountResponse' smart constructor.
+-- /See:/ 'mkAcceptDomainTransferFromAnotherAWSAccountResponse' smart constructor.
 data AcceptDomainTransferFromAnotherAWSAccountResponse = AcceptDomainTransferFromAnotherAWSAccountResponse'
-  { _adtfaaarsOperationId ::
-      !( Maybe
-           Text
-       ),
-    _adtfaaarsResponseStatus ::
-      !Int
+  { operationId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'AcceptDomainTransferFromAnotherAWSAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adtfaaarsOperationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
---
--- * 'adtfaaarsResponseStatus' - -- | The response status code.
-acceptDomainTransferFromAnotherAWSAccountResponse ::
-  -- | 'adtfaaarsResponseStatus'
-  Int ->
+-- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+-- * 'responseStatus' - The response status code.
+mkAcceptDomainTransferFromAnotherAWSAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AcceptDomainTransferFromAnotherAWSAccountResponse
-acceptDomainTransferFromAnotherAWSAccountResponse pResponseStatus_ =
-  AcceptDomainTransferFromAnotherAWSAccountResponse'
-    { _adtfaaarsOperationId =
-        Nothing,
-      _adtfaaarsResponseStatus = pResponseStatus_
-    }
+mkAcceptDomainTransferFromAnotherAWSAccountResponse
+  pResponseStatus_ =
+    AcceptDomainTransferFromAnotherAWSAccountResponse'
+      { operationId =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
-adtfaaarsOperationId :: Lens' AcceptDomainTransferFromAnotherAWSAccountResponse (Maybe Text)
-adtfaaarsOperationId = lens _adtfaaarsOperationId (\s a -> s {_adtfaaarsOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtfaaarsOperationId :: Lens.Lens' AcceptDomainTransferFromAnotherAWSAccountResponse (Lude.Maybe Lude.Text)
+adtfaaarsOperationId = Lens.lens (operationId :: AcceptDomainTransferFromAnotherAWSAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: AcceptDomainTransferFromAnotherAWSAccountResponse)
+{-# DEPRECATED adtfaaarsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | -- | The response status code.
-adtfaaarsResponseStatus :: Lens' AcceptDomainTransferFromAnotherAWSAccountResponse Int
-adtfaaarsResponseStatus = lens _adtfaaarsResponseStatus (\s a -> s {_adtfaaarsResponseStatus = a})
-
-instance NFData AcceptDomainTransferFromAnotherAWSAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtfaaarsResponseStatus :: Lens.Lens' AcceptDomainTransferFromAnotherAWSAccountResponse Lude.Int
+adtfaaarsResponseStatus = Lens.lens (responseStatus :: AcceptDomainTransferFromAnotherAWSAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptDomainTransferFromAnotherAWSAccountResponse)
+{-# DEPRECATED adtfaaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

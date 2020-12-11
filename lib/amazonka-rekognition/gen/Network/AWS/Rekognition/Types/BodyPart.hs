@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.BodyPart where
+module Network.AWS.Rekognition.Types.BodyPart
+  ( BodyPart
+      ( BodyPart',
+        Face,
+        Head,
+        LeftHand,
+        RightHand
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BodyPart
-  = Face
-  | Head
-  | LeftHand
-  | RightHand
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BodyPart = BodyPart' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BodyPart where
-  parser =
-    takeLowerText >>= \case
-      "face" -> pure Face
-      "head" -> pure Head
-      "left_hand" -> pure LeftHand
-      "right_hand" -> pure RightHand
-      e ->
-        fromTextError $
-          "Failure parsing BodyPart from value: '" <> e
-            <> "'. Accepted values: face, head, left_hand, right_hand"
+pattern Face :: BodyPart
+pattern Face = BodyPart' "FACE"
 
-instance ToText BodyPart where
-  toText = \case
-    Face -> "FACE"
-    Head -> "HEAD"
-    LeftHand -> "LEFT_HAND"
-    RightHand -> "RIGHT_HAND"
+pattern Head :: BodyPart
+pattern Head = BodyPart' "HEAD"
 
-instance Hashable BodyPart
+pattern LeftHand :: BodyPart
+pattern LeftHand = BodyPart' "LEFT_HAND"
 
-instance NFData BodyPart
+pattern RightHand :: BodyPart
+pattern RightHand = BodyPart' "RIGHT_HAND"
 
-instance ToByteString BodyPart
-
-instance ToQuery BodyPart
-
-instance ToHeader BodyPart
-
-instance FromJSON BodyPart where
-  parseJSON = parseJSONText "BodyPart"
+{-# COMPLETE
+  Face,
+  Head,
+  LeftHand,
+  RightHand,
+  BodyPart'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AbortCriteria where
+module Network.AWS.IoT.Types.AbortCriteria
+  ( AbortCriteria (..),
+
+    -- * Smart constructor
+    mkAbortCriteria,
+
+    -- * Lenses
+    acFailureType,
+    acAction,
+    acThresholdPercentage,
+    acMinNumberOfExecutedThings,
+  )
+where
 
 import Network.AWS.IoT.Types.AbortAction
 import Network.AWS.IoT.Types.JobExecutionFailureType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
---
---
--- /See:/ 'abortCriteria' smart constructor.
+-- /See:/ 'mkAbortCriteria' smart constructor.
 data AbortCriteria = AbortCriteria'
-  { _acFailureType ::
-      !JobExecutionFailureType,
-    _acAction :: !AbortAction,
-    _acThresholdPercentage :: !Double,
-    _acMinNumberOfExecutedThings :: !Nat
+  { failureType ::
+      JobExecutionFailureType,
+    action :: AbortAction,
+    thresholdPercentage :: Lude.Double,
+    minNumberOfExecutedThings :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortCriteria' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - The type of job action to take to initiate the job abort.
+-- * 'failureType' - The type of job execution failures that can initiate a job abort.
+-- * 'minNumberOfExecutedThings' - The minimum number of things which must receive job execution notifications before the job can be aborted.
+-- * 'thresholdPercentage' - The minimum percentage of job execution failures that must occur to initiate the job abort.
 --
--- * 'acFailureType' - The type of job execution failures that can initiate a job abort.
---
--- * 'acAction' - The type of job action to take to initiate the job abort.
---
--- * 'acThresholdPercentage' - The minimum percentage of job execution failures that must occur to initiate the job abort. AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
---
--- * 'acMinNumberOfExecutedThings' - The minimum number of things which must receive job execution notifications before the job can be aborted.
-abortCriteria ::
-  -- | 'acFailureType'
+-- AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
+mkAbortCriteria ::
+  -- | 'failureType'
   JobExecutionFailureType ->
-  -- | 'acAction'
+  -- | 'action'
   AbortAction ->
-  -- | 'acThresholdPercentage'
-  Double ->
-  -- | 'acMinNumberOfExecutedThings'
-  Natural ->
+  -- | 'thresholdPercentage'
+  Lude.Double ->
+  -- | 'minNumberOfExecutedThings'
+  Lude.Natural ->
   AbortCriteria
-abortCriteria
+mkAbortCriteria
   pFailureType_
   pAction_
   pThresholdPercentage_
   pMinNumberOfExecutedThings_ =
     AbortCriteria'
-      { _acFailureType = pFailureType_,
-        _acAction = pAction_,
-        _acThresholdPercentage = pThresholdPercentage_,
-        _acMinNumberOfExecutedThings = _Nat # pMinNumberOfExecutedThings_
+      { failureType = pFailureType_,
+        action = pAction_,
+        thresholdPercentage = pThresholdPercentage_,
+        minNumberOfExecutedThings = pMinNumberOfExecutedThings_
       }
 
 -- | The type of job execution failures that can initiate a job abort.
-acFailureType :: Lens' AbortCriteria JobExecutionFailureType
-acFailureType = lens _acFailureType (\s a -> s {_acFailureType = a})
+--
+-- /Note:/ Consider using 'failureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acFailureType :: Lens.Lens' AbortCriteria JobExecutionFailureType
+acFailureType = Lens.lens (failureType :: AbortCriteria -> JobExecutionFailureType) (\s a -> s {failureType = a} :: AbortCriteria)
+{-# DEPRECATED acFailureType "Use generic-lens or generic-optics with 'failureType' instead." #-}
 
 -- | The type of job action to take to initiate the job abort.
-acAction :: Lens' AbortCriteria AbortAction
-acAction = lens _acAction (\s a -> s {_acAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAction :: Lens.Lens' AbortCriteria AbortAction
+acAction = Lens.lens (action :: AbortCriteria -> AbortAction) (\s a -> s {action = a} :: AbortCriteria)
+{-# DEPRECATED acAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
--- | The minimum percentage of job execution failures that must occur to initiate the job abort. AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
-acThresholdPercentage :: Lens' AbortCriteria Double
-acThresholdPercentage = lens _acThresholdPercentage (\s a -> s {_acThresholdPercentage = a})
+-- | The minimum percentage of job execution failures that must occur to initiate the job abort.
+--
+-- AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
+--
+-- /Note:/ Consider using 'thresholdPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acThresholdPercentage :: Lens.Lens' AbortCriteria Lude.Double
+acThresholdPercentage = Lens.lens (thresholdPercentage :: AbortCriteria -> Lude.Double) (\s a -> s {thresholdPercentage = a} :: AbortCriteria)
+{-# DEPRECATED acThresholdPercentage "Use generic-lens or generic-optics with 'thresholdPercentage' instead." #-}
 
 -- | The minimum number of things which must receive job execution notifications before the job can be aborted.
-acMinNumberOfExecutedThings :: Lens' AbortCriteria Natural
-acMinNumberOfExecutedThings = lens _acMinNumberOfExecutedThings (\s a -> s {_acMinNumberOfExecutedThings = a}) . _Nat
+--
+-- /Note:/ Consider using 'minNumberOfExecutedThings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acMinNumberOfExecutedThings :: Lens.Lens' AbortCriteria Lude.Natural
+acMinNumberOfExecutedThings = Lens.lens (minNumberOfExecutedThings :: AbortCriteria -> Lude.Natural) (\s a -> s {minNumberOfExecutedThings = a} :: AbortCriteria)
+{-# DEPRECATED acMinNumberOfExecutedThings "Use generic-lens or generic-optics with 'minNumberOfExecutedThings' instead." #-}
 
-instance FromJSON AbortCriteria where
+instance Lude.FromJSON AbortCriteria where
   parseJSON =
-    withObject
+    Lude.withObject
       "AbortCriteria"
       ( \x ->
           AbortCriteria'
-            <$> (x .: "failureType")
-            <*> (x .: "action")
-            <*> (x .: "thresholdPercentage")
-            <*> (x .: "minNumberOfExecutedThings")
+            Lude.<$> (x Lude..: "failureType")
+            Lude.<*> (x Lude..: "action")
+            Lude.<*> (x Lude..: "thresholdPercentage")
+            Lude.<*> (x Lude..: "minNumberOfExecutedThings")
       )
 
-instance Hashable AbortCriteria
-
-instance NFData AbortCriteria
-
-instance ToJSON AbortCriteria where
+instance Lude.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =
-    object
-      ( catMaybes
-          [ Just ("failureType" .= _acFailureType),
-            Just ("action" .= _acAction),
-            Just ("thresholdPercentage" .= _acThresholdPercentage),
-            Just
-              ("minNumberOfExecutedThings" .= _acMinNumberOfExecutedThings)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("failureType" Lude..= failureType),
+            Lude.Just ("action" Lude..= action),
+            Lude.Just ("thresholdPercentage" Lude..= thresholdPercentage),
+            Lude.Just
+              ("minNumberOfExecutedThings" Lude..= minNumberOfExecutedThings)
           ]
       )

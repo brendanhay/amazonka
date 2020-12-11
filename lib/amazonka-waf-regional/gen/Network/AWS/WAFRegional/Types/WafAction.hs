@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.WafAction where
+module Network.AWS.WAFRegional.Types.WafAction
+  ( WafAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWafAction,
+
+    -- * Lenses
+    waType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAFRegional.Types.WafActionType
 
 -- | For the action that is associated with a rule in a @WebACL@ , specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a @WebACL@ , specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a @WebACL@ .
 --
---
---
--- /See:/ 'wafAction' smart constructor.
-newtype WafAction = WafAction' {_waType :: WafActionType}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkWafAction' smart constructor.
+newtype WafAction = WafAction' {type' :: WafActionType}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WafAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'type'' - Specifies how you want AWS WAF to respond to requests that match the settings in a @Rule@ . Valid settings include the following:
 --
--- * 'waType' - Specifies how you want AWS WAF to respond to requests that match the settings in a @Rule@ . Valid settings include the following:     * @ALLOW@ : AWS WAF allows requests     * @BLOCK@ : AWS WAF blocks requests     * @COUNT@ : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify @COUNT@ for the default action for a @WebACL@ .
-wafAction ::
-  -- | 'waType'
+--
+--     * @ALLOW@ : AWS WAF allows requests
+--
+--
+--     * @BLOCK@ : AWS WAF blocks requests
+--
+--
+--     * @COUNT@ : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify @COUNT@ for the default action for a @WebACL@ .
+mkWafAction ::
+  -- | 'type''
   WafActionType ->
   WafAction
-wafAction pType_ = WafAction' {_waType = pType_}
+mkWafAction pType_ = WafAction' {type' = pType_}
 
--- | Specifies how you want AWS WAF to respond to requests that match the settings in a @Rule@ . Valid settings include the following:     * @ALLOW@ : AWS WAF allows requests     * @BLOCK@ : AWS WAF blocks requests     * @COUNT@ : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify @COUNT@ for the default action for a @WebACL@ .
-waType :: Lens' WafAction WafActionType
-waType = lens _waType (\s a -> s {_waType = a})
+-- | Specifies how you want AWS WAF to respond to requests that match the settings in a @Rule@ . Valid settings include the following:
+--
+--
+--     * @ALLOW@ : AWS WAF allows requests
+--
+--
+--     * @BLOCK@ : AWS WAF blocks requests
+--
+--
+--     * @COUNT@ : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify @COUNT@ for the default action for a @WebACL@ .
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+waType :: Lens.Lens' WafAction WafActionType
+waType = Lens.lens (type' :: WafAction -> WafActionType) (\s a -> s {type' = a} :: WafAction)
+{-# DEPRECATED waType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON WafAction where
+instance Lude.FromJSON WafAction where
   parseJSON =
-    withObject "WafAction" (\x -> WafAction' <$> (x .: "Type"))
+    Lude.withObject
+      "WafAction"
+      (\x -> WafAction' Lude.<$> (x Lude..: "Type"))
 
-instance Hashable WafAction
-
-instance NFData WafAction
-
-instance ToJSON WafAction where
+instance Lude.ToJSON WafAction where
   toJSON WafAction' {..} =
-    object (catMaybes [Just ("Type" .= _waType)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Type" Lude..= type')])

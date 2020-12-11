@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
 module Network.AWS.EC2.CreateEgressOnlyInternetGateway
-  ( -- * Creating a Request
-    createEgressOnlyInternetGateway,
-    CreateEgressOnlyInternetGateway,
+  ( -- * Creating a request
+    CreateEgressOnlyInternetGateway (..),
+    mkCreateEgressOnlyInternetGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ceoigClientToken,
     ceoigTagSpecifications,
     ceoigDryRun,
     ceoigVPCId,
 
-    -- * Destructuring the Response
-    createEgressOnlyInternetGatewayResponse,
-    CreateEgressOnlyInternetGatewayResponse,
+    -- * Destructuring the response
+    CreateEgressOnlyInternetGatewayResponse (..),
+    mkCreateEgressOnlyInternetGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ceoigrsClientToken,
     ceoigrsEgressOnlyInternetGateway,
     ceoigrsResponseStatus,
@@ -41,144 +36,164 @@ module Network.AWS.EC2.CreateEgressOnlyInternetGateway
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createEgressOnlyInternetGateway' smart constructor.
+-- | /See:/ 'mkCreateEgressOnlyInternetGateway' smart constructor.
 data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
-  { _ceoigClientToken ::
-      !(Maybe Text),
-    _ceoigTagSpecifications ::
-      !(Maybe [TagSpecification]),
-    _ceoigDryRun ::
-      !(Maybe Bool),
-    _ceoigVPCId :: !Text
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    tagSpecifications ::
+      Lude.Maybe
+        [TagSpecification],
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEgressOnlyInternetGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ceoigClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'ceoigTagSpecifications' - The tags to assign to the egress-only internet gateway.
---
--- * 'ceoigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'ceoigVPCId' - The ID of the VPC for which to create the egress-only internet gateway.
-createEgressOnlyInternetGateway ::
-  -- | 'ceoigVPCId'
-  Text ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'tagSpecifications' - The tags to assign to the egress-only internet gateway.
+-- * 'vpcId' - The ID of the VPC for which to create the egress-only internet gateway.
+mkCreateEgressOnlyInternetGateway ::
+  -- | 'vpcId'
+  Lude.Text ->
   CreateEgressOnlyInternetGateway
-createEgressOnlyInternetGateway pVPCId_ =
+mkCreateEgressOnlyInternetGateway pVPCId_ =
   CreateEgressOnlyInternetGateway'
-    { _ceoigClientToken = Nothing,
-      _ceoigTagSpecifications = Nothing,
-      _ceoigDryRun = Nothing,
-      _ceoigVPCId = pVPCId_
+    { clientToken = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      vpcId = pVPCId_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-ceoigClientToken :: Lens' CreateEgressOnlyInternetGateway (Maybe Text)
-ceoigClientToken = lens _ceoigClientToken (\s a -> s {_ceoigClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigClientToken :: Lens.Lens' CreateEgressOnlyInternetGateway (Lude.Maybe Lude.Text)
+ceoigClientToken = Lens.lens (clientToken :: CreateEgressOnlyInternetGateway -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateEgressOnlyInternetGateway)
+{-# DEPRECATED ceoigClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The tags to assign to the egress-only internet gateway.
-ceoigTagSpecifications :: Lens' CreateEgressOnlyInternetGateway [TagSpecification]
-ceoigTagSpecifications = lens _ceoigTagSpecifications (\s a -> s {_ceoigTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigTagSpecifications :: Lens.Lens' CreateEgressOnlyInternetGateway (Lude.Maybe [TagSpecification])
+ceoigTagSpecifications = Lens.lens (tagSpecifications :: CreateEgressOnlyInternetGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateEgressOnlyInternetGateway)
+{-# DEPRECATED ceoigTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-ceoigDryRun :: Lens' CreateEgressOnlyInternetGateway (Maybe Bool)
-ceoigDryRun = lens _ceoigDryRun (\s a -> s {_ceoigDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigDryRun :: Lens.Lens' CreateEgressOnlyInternetGateway (Lude.Maybe Lude.Bool)
+ceoigDryRun = Lens.lens (dryRun :: CreateEgressOnlyInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateEgressOnlyInternetGateway)
+{-# DEPRECATED ceoigDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC for which to create the egress-only internet gateway.
-ceoigVPCId :: Lens' CreateEgressOnlyInternetGateway Text
-ceoigVPCId = lens _ceoigVPCId (\s a -> s {_ceoigVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigVPCId :: Lens.Lens' CreateEgressOnlyInternetGateway Lude.Text
+ceoigVPCId = Lens.lens (vpcId :: CreateEgressOnlyInternetGateway -> Lude.Text) (\s a -> s {vpcId = a} :: CreateEgressOnlyInternetGateway)
+{-# DEPRECATED ceoigVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest CreateEgressOnlyInternetGateway where
+instance Lude.AWSRequest CreateEgressOnlyInternetGateway where
   type
     Rs CreateEgressOnlyInternetGateway =
       CreateEgressOnlyInternetGatewayResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateEgressOnlyInternetGatewayResponse'
-            <$> (x .@? "clientToken")
-            <*> (x .@? "egressOnlyInternetGateway")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "clientToken")
+            Lude.<*> (x Lude..@? "egressOnlyInternetGateway")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateEgressOnlyInternetGateway
+instance Lude.ToHeaders CreateEgressOnlyInternetGateway where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateEgressOnlyInternetGateway
+instance Lude.ToPath CreateEgressOnlyInternetGateway where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateEgressOnlyInternetGateway where
-  toHeaders = const mempty
-
-instance ToPath CreateEgressOnlyInternetGateway where
-  toPath = const "/"
-
-instance ToQuery CreateEgressOnlyInternetGateway where
+instance Lude.ToQuery CreateEgressOnlyInternetGateway where
   toQuery CreateEgressOnlyInternetGateway' {..} =
-    mconcat
-      [ "Action" =: ("CreateEgressOnlyInternetGateway" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _ceoigClientToken,
-        toQuery
-          (toQueryList "TagSpecification" <$> _ceoigTagSpecifications),
-        "DryRun" =: _ceoigDryRun,
-        "VpcId" =: _ceoigVPCId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateEgressOnlyInternetGateway" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "DryRun" Lude.=: dryRun,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'createEgressOnlyInternetGatewayResponse' smart constructor.
+-- | /See:/ 'mkCreateEgressOnlyInternetGatewayResponse' smart constructor.
 data CreateEgressOnlyInternetGatewayResponse = CreateEgressOnlyInternetGatewayResponse'
-  { _ceoigrsClientToken ::
-      !( Maybe
-           Text
-       ),
-    _ceoigrsEgressOnlyInternetGateway ::
-      !( Maybe
-           EgressOnlyInternetGateway
-       ),
-    _ceoigrsResponseStatus ::
-      !Int
+  { clientToken ::
+      Lude.Maybe
+        Lude.Text,
+    egressOnlyInternetGateway ::
+      Lude.Maybe
+        EgressOnlyInternetGateway,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEgressOnlyInternetGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ceoigrsClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
---
--- * 'ceoigrsEgressOnlyInternetGateway' - Information about the egress-only internet gateway.
---
--- * 'ceoigrsResponseStatus' - -- | The response status code.
-createEgressOnlyInternetGatewayResponse ::
-  -- | 'ceoigrsResponseStatus'
-  Int ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+-- * 'egressOnlyInternetGateway' - Information about the egress-only internet gateway.
+-- * 'responseStatus' - The response status code.
+mkCreateEgressOnlyInternetGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateEgressOnlyInternetGatewayResponse
-createEgressOnlyInternetGatewayResponse pResponseStatus_ =
+mkCreateEgressOnlyInternetGatewayResponse pResponseStatus_ =
   CreateEgressOnlyInternetGatewayResponse'
-    { _ceoigrsClientToken =
-        Nothing,
-      _ceoigrsEgressOnlyInternetGateway = Nothing,
-      _ceoigrsResponseStatus = pResponseStatus_
+    { clientToken =
+        Lude.Nothing,
+      egressOnlyInternetGateway = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-ceoigrsClientToken :: Lens' CreateEgressOnlyInternetGatewayResponse (Maybe Text)
-ceoigrsClientToken = lens _ceoigrsClientToken (\s a -> s {_ceoigrsClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigrsClientToken :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse (Lude.Maybe Lude.Text)
+ceoigrsClientToken = Lens.lens (clientToken :: CreateEgressOnlyInternetGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateEgressOnlyInternetGatewayResponse)
+{-# DEPRECATED ceoigrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Information about the egress-only internet gateway.
-ceoigrsEgressOnlyInternetGateway :: Lens' CreateEgressOnlyInternetGatewayResponse (Maybe EgressOnlyInternetGateway)
-ceoigrsEgressOnlyInternetGateway = lens _ceoigrsEgressOnlyInternetGateway (\s a -> s {_ceoigrsEgressOnlyInternetGateway = a})
+--
+-- /Note:/ Consider using 'egressOnlyInternetGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigrsEgressOnlyInternetGateway :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse (Lude.Maybe EgressOnlyInternetGateway)
+ceoigrsEgressOnlyInternetGateway = Lens.lens (egressOnlyInternetGateway :: CreateEgressOnlyInternetGatewayResponse -> Lude.Maybe EgressOnlyInternetGateway) (\s a -> s {egressOnlyInternetGateway = a} :: CreateEgressOnlyInternetGatewayResponse)
+{-# DEPRECATED ceoigrsEgressOnlyInternetGateway "Use generic-lens or generic-optics with 'egressOnlyInternetGateway' instead." #-}
 
--- | -- | The response status code.
-ceoigrsResponseStatus :: Lens' CreateEgressOnlyInternetGatewayResponse Int
-ceoigrsResponseStatus = lens _ceoigrsResponseStatus (\s a -> s {_ceoigrsResponseStatus = a})
-
-instance NFData CreateEgressOnlyInternetGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigrsResponseStatus :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse Lude.Int
+ceoigrsResponseStatus = Lens.lens (responseStatus :: CreateEgressOnlyInternetGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEgressOnlyInternetGatewayResponse)
+{-# DEPRECATED ceoigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

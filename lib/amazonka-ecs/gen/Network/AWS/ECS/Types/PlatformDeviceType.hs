@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.PlatformDeviceType where
+module Network.AWS.ECS.Types.PlatformDeviceType
+  ( PlatformDeviceType
+      ( PlatformDeviceType',
+        Gpu
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlatformDeviceType = Gpu
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlatformDeviceType = PlatformDeviceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlatformDeviceType where
-  parser =
-    takeLowerText >>= \case
-      "gpu" -> pure Gpu
-      e ->
-        fromTextError $
-          "Failure parsing PlatformDeviceType from value: '" <> e
-            <> "'. Accepted values: gpu"
+pattern Gpu :: PlatformDeviceType
+pattern Gpu = PlatformDeviceType' "GPU"
 
-instance ToText PlatformDeviceType where
-  toText = \case
-    Gpu -> "GPU"
-
-instance Hashable PlatformDeviceType
-
-instance NFData PlatformDeviceType
-
-instance ToByteString PlatformDeviceType
-
-instance ToQuery PlatformDeviceType
-
-instance ToHeader PlatformDeviceType
-
-instance ToJSON PlatformDeviceType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Gpu,
+  PlatformDeviceType'
+  #-}

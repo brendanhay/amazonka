@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.OperationStatus where
+module Network.AWS.Route53AutoNaming.Types.OperationStatus
+  ( OperationStatus
+      ( OperationStatus',
+        Fail,
+        Pending,
+        Submitted,
+        Success
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationStatus
-  = Fail
-  | Pending
-  | Submitted
-  | Success
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationStatus = OperationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationStatus where
-  parser =
-    takeLowerText >>= \case
-      "fail" -> pure Fail
-      "pending" -> pure Pending
-      "submitted" -> pure Submitted
-      "success" -> pure Success
-      e ->
-        fromTextError $
-          "Failure parsing OperationStatus from value: '" <> e
-            <> "'. Accepted values: fail, pending, submitted, success"
+pattern Fail :: OperationStatus
+pattern Fail = OperationStatus' "FAIL"
 
-instance ToText OperationStatus where
-  toText = \case
-    Fail -> "FAIL"
-    Pending -> "PENDING"
-    Submitted -> "SUBMITTED"
-    Success -> "SUCCESS"
+pattern Pending :: OperationStatus
+pattern Pending = OperationStatus' "PENDING"
 
-instance Hashable OperationStatus
+pattern Submitted :: OperationStatus
+pattern Submitted = OperationStatus' "SUBMITTED"
 
-instance NFData OperationStatus
+pattern Success :: OperationStatus
+pattern Success = OperationStatus' "SUCCESS"
 
-instance ToByteString OperationStatus
-
-instance ToQuery OperationStatus
-
-instance ToHeader OperationStatus
-
-instance FromJSON OperationStatus where
-  parseJSON = parseJSONText "OperationStatus"
+{-# COMPLETE
+  Fail,
+  Pending,
+  Submitted,
+  Success,
+  OperationStatus'
+  #-}

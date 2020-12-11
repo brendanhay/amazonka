@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MovSettings where
+module Network.AWS.MediaConvert.Types.MovSettings
+  ( MovSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMovSettings,
+
+    -- * Lenses
+    msReference,
+    msCslgAtom,
+    msMpeg2FourCCControl,
+    msPaddingControl,
+    msClapAtom,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MovClapAtom
 import Network.AWS.MediaConvert.Types.MovCslgAtom
 import Network.AWS.MediaConvert.Types.MovMpeg2FourCCControl
 import Network.AWS.MediaConvert.Types.MovPaddingControl
 import Network.AWS.MediaConvert.Types.MovReference
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for MOV Container.
 --
--- /See:/ 'movSettings' smart constructor.
+-- /See:/ 'mkMovSettings' smart constructor.
 data MovSettings = MovSettings'
-  { _msReference ::
-      !(Maybe MovReference),
-    _msCslgAtom :: !(Maybe MovCslgAtom),
-    _msMpeg2FourCCControl :: !(Maybe MovMpeg2FourCCControl),
-    _msPaddingControl :: !(Maybe MovPaddingControl),
-    _msClapAtom :: !(Maybe MovClapAtom)
+  { reference ::
+      Lude.Maybe MovReference,
+    cslgAtom :: Lude.Maybe MovCslgAtom,
+    mpeg2FourCCControl :: Lude.Maybe MovMpeg2FourCCControl,
+    paddingControl :: Lude.Maybe MovPaddingControl,
+    clapAtom :: Lude.Maybe MovClapAtom
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MovSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msReference' - Always keep the default value (SELF_CONTAINED) for this setting.
---
--- * 'msCslgAtom' - When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
---
--- * 'msMpeg2FourCCControl' - When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
---
--- * 'msPaddingControl' - To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
---
--- * 'msClapAtom' - When enabled, include 'clap' atom if appropriate for the video output settings.
-movSettings ::
+-- * 'clapAtom' - When enabled, include 'clap' atom if appropriate for the video output settings.
+-- * 'cslgAtom' - When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+-- * 'mpeg2FourCCControl' - When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
+-- * 'paddingControl' - To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
+-- * 'reference' - Always keep the default value (SELF_CONTAINED) for this setting.
+mkMovSettings ::
   MovSettings
-movSettings =
+mkMovSettings =
   MovSettings'
-    { _msReference = Nothing,
-      _msCslgAtom = Nothing,
-      _msMpeg2FourCCControl = Nothing,
-      _msPaddingControl = Nothing,
-      _msClapAtom = Nothing
+    { reference = Lude.Nothing,
+      cslgAtom = Lude.Nothing,
+      mpeg2FourCCControl = Lude.Nothing,
+      paddingControl = Lude.Nothing,
+      clapAtom = Lude.Nothing
     }
 
 -- | Always keep the default value (SELF_CONTAINED) for this setting.
-msReference :: Lens' MovSettings (Maybe MovReference)
-msReference = lens _msReference (\s a -> s {_msReference = a})
+--
+-- /Note:/ Consider using 'reference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msReference :: Lens.Lens' MovSettings (Lude.Maybe MovReference)
+msReference = Lens.lens (reference :: MovSettings -> Lude.Maybe MovReference) (\s a -> s {reference = a} :: MovSettings)
+{-# DEPRECATED msReference "Use generic-lens or generic-optics with 'reference' instead." #-}
 
 -- | When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-msCslgAtom :: Lens' MovSettings (Maybe MovCslgAtom)
-msCslgAtom = lens _msCslgAtom (\s a -> s {_msCslgAtom = a})
+--
+-- /Note:/ Consider using 'cslgAtom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msCslgAtom :: Lens.Lens' MovSettings (Lude.Maybe MovCslgAtom)
+msCslgAtom = Lens.lens (cslgAtom :: MovSettings -> Lude.Maybe MovCslgAtom) (\s a -> s {cslgAtom = a} :: MovSettings)
+{-# DEPRECATED msCslgAtom "Use generic-lens or generic-optics with 'cslgAtom' instead." #-}
 
 -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
-msMpeg2FourCCControl :: Lens' MovSettings (Maybe MovMpeg2FourCCControl)
-msMpeg2FourCCControl = lens _msMpeg2FourCCControl (\s a -> s {_msMpeg2FourCCControl = a})
+--
+-- /Note:/ Consider using 'mpeg2FourCCControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msMpeg2FourCCControl :: Lens.Lens' MovSettings (Lude.Maybe MovMpeg2FourCCControl)
+msMpeg2FourCCControl = Lens.lens (mpeg2FourCCControl :: MovSettings -> Lude.Maybe MovMpeg2FourCCControl) (\s a -> s {mpeg2FourCCControl = a} :: MovSettings)
+{-# DEPRECATED msMpeg2FourCCControl "Use generic-lens or generic-optics with 'mpeg2FourCCControl' instead." #-}
 
 -- | To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
-msPaddingControl :: Lens' MovSettings (Maybe MovPaddingControl)
-msPaddingControl = lens _msPaddingControl (\s a -> s {_msPaddingControl = a})
+--
+-- /Note:/ Consider using 'paddingControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPaddingControl :: Lens.Lens' MovSettings (Lude.Maybe MovPaddingControl)
+msPaddingControl = Lens.lens (paddingControl :: MovSettings -> Lude.Maybe MovPaddingControl) (\s a -> s {paddingControl = a} :: MovSettings)
+{-# DEPRECATED msPaddingControl "Use generic-lens or generic-optics with 'paddingControl' instead." #-}
 
 -- | When enabled, include 'clap' atom if appropriate for the video output settings.
-msClapAtom :: Lens' MovSettings (Maybe MovClapAtom)
-msClapAtom = lens _msClapAtom (\s a -> s {_msClapAtom = a})
+--
+-- /Note:/ Consider using 'clapAtom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msClapAtom :: Lens.Lens' MovSettings (Lude.Maybe MovClapAtom)
+msClapAtom = Lens.lens (clapAtom :: MovSettings -> Lude.Maybe MovClapAtom) (\s a -> s {clapAtom = a} :: MovSettings)
+{-# DEPRECATED msClapAtom "Use generic-lens or generic-optics with 'clapAtom' instead." #-}
 
-instance FromJSON MovSettings where
+instance Lude.FromJSON MovSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MovSettings"
       ( \x ->
           MovSettings'
-            <$> (x .:? "reference")
-            <*> (x .:? "cslgAtom")
-            <*> (x .:? "mpeg2FourCCControl")
-            <*> (x .:? "paddingControl")
-            <*> (x .:? "clapAtom")
+            Lude.<$> (x Lude..:? "reference")
+            Lude.<*> (x Lude..:? "cslgAtom")
+            Lude.<*> (x Lude..:? "mpeg2FourCCControl")
+            Lude.<*> (x Lude..:? "paddingControl")
+            Lude.<*> (x Lude..:? "clapAtom")
       )
 
-instance Hashable MovSettings
-
-instance NFData MovSettings
-
-instance ToJSON MovSettings where
+instance Lude.ToJSON MovSettings where
   toJSON MovSettings' {..} =
-    object
-      ( catMaybes
-          [ ("reference" .=) <$> _msReference,
-            ("cslgAtom" .=) <$> _msCslgAtom,
-            ("mpeg2FourCCControl" .=) <$> _msMpeg2FourCCControl,
-            ("paddingControl" .=) <$> _msPaddingControl,
-            ("clapAtom" .=) <$> _msClapAtom
+    Lude.object
+      ( Lude.catMaybes
+          [ ("reference" Lude..=) Lude.<$> reference,
+            ("cslgAtom" Lude..=) Lude.<$> cslgAtom,
+            ("mpeg2FourCCControl" Lude..=) Lude.<$> mpeg2FourCCControl,
+            ("paddingControl" Lude..=) Lude.<$> paddingControl,
+            ("clapAtom" Lude..=) Lude.<$> clapAtom
           ]
       )

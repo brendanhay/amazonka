@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,161 @@
 --
 -- Permanently deletes a 'RateBasedRule' . You can't delete a rule if it's still used in any @WebACL@ objects or if it still includes any predicates, such as @ByteMatchSet@ objects.
 --
---
 -- If you just want to remove a rule from a @WebACL@ , use 'UpdateWebACL' .
---
 -- To permanently delete a @RateBasedRule@ from AWS WAF, perform the following steps:
 --
 --     * Update the @RateBasedRule@ to remove predicates, if any. For more information, see 'UpdateRateBasedRule' .
 --
+--
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRateBasedRule@ request.
+--
 --
 --     * Submit a @DeleteRateBasedRule@ request.
 module Network.AWS.WAF.DeleteRateBasedRule
-  ( -- * Creating a Request
-    deleteRateBasedRule,
-    DeleteRateBasedRule,
+  ( -- * Creating a request
+    DeleteRateBasedRule (..),
+    mkDeleteRateBasedRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drbrRuleId,
     drbrChangeToken,
 
-    -- * Destructuring the Response
-    deleteRateBasedRuleResponse,
-    DeleteRateBasedRuleResponse,
+    -- * Destructuring the response
+    DeleteRateBasedRuleResponse (..),
+    mkDeleteRateBasedRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drbrrsChangeToken,
     drbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'deleteRateBasedRule' smart constructor.
+-- | /See:/ 'mkDeleteRateBasedRule' smart constructor.
 data DeleteRateBasedRule = DeleteRateBasedRule'
-  { _drbrRuleId ::
-      !Text,
-    _drbrChangeToken :: !Text
+  { ruleId ::
+      Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRateBasedRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drbrRuleId' - The @RuleId@ of the 'RateBasedRule' that you want to delete. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
---
--- * 'drbrChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteRateBasedRule ::
-  -- | 'drbrRuleId'
-  Text ->
-  -- | 'drbrChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'ruleId' - The @RuleId@ of the 'RateBasedRule' that you want to delete. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
+mkDeleteRateBasedRule ::
+  -- | 'ruleId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   DeleteRateBasedRule
-deleteRateBasedRule pRuleId_ pChangeToken_ =
+mkDeleteRateBasedRule pRuleId_ pChangeToken_ =
   DeleteRateBasedRule'
-    { _drbrRuleId = pRuleId_,
-      _drbrChangeToken = pChangeToken_
+    { ruleId = pRuleId_,
+      changeToken = pChangeToken_
     }
 
 -- | The @RuleId@ of the 'RateBasedRule' that you want to delete. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
-drbrRuleId :: Lens' DeleteRateBasedRule Text
-drbrRuleId = lens _drbrRuleId (\s a -> s {_drbrRuleId = a})
+--
+-- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drbrRuleId :: Lens.Lens' DeleteRateBasedRule Lude.Text
+drbrRuleId = Lens.lens (ruleId :: DeleteRateBasedRule -> Lude.Text) (\s a -> s {ruleId = a} :: DeleteRateBasedRule)
+{-# DEPRECATED drbrRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-drbrChangeToken :: Lens' DeleteRateBasedRule Text
-drbrChangeToken = lens _drbrChangeToken (\s a -> s {_drbrChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drbrChangeToken :: Lens.Lens' DeleteRateBasedRule Lude.Text
+drbrChangeToken = Lens.lens (changeToken :: DeleteRateBasedRule -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteRateBasedRule)
+{-# DEPRECATED drbrChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest DeleteRateBasedRule where
+instance Lude.AWSRequest DeleteRateBasedRule where
   type Rs DeleteRateBasedRule = DeleteRateBasedRuleResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteRateBasedRuleResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRateBasedRule
-
-instance NFData DeleteRateBasedRule
-
-instance ToHeaders DeleteRateBasedRule where
+instance Lude.ToHeaders DeleteRateBasedRule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.DeleteRateBasedRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.DeleteRateBasedRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRateBasedRule where
+instance Lude.ToJSON DeleteRateBasedRule where
   toJSON DeleteRateBasedRule' {..} =
-    object
-      ( catMaybes
-          [ Just ("RuleId" .= _drbrRuleId),
-            Just ("ChangeToken" .= _drbrChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RuleId" Lude..= ruleId),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath DeleteRateBasedRule where
-  toPath = const "/"
+instance Lude.ToPath DeleteRateBasedRule where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRateBasedRule where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRateBasedRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRateBasedRuleResponse' smart constructor.
+-- | /See:/ 'mkDeleteRateBasedRuleResponse' smart constructor.
 data DeleteRateBasedRuleResponse = DeleteRateBasedRuleResponse'
-  { _drbrrsChangeToken ::
-      !(Maybe Text),
-    _drbrrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRateBasedRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drbrrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'drbrrsResponseStatus' - -- | The response status code.
-deleteRateBasedRuleResponse ::
-  -- | 'drbrrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkDeleteRateBasedRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRateBasedRuleResponse
-deleteRateBasedRuleResponse pResponseStatus_ =
+mkDeleteRateBasedRuleResponse pResponseStatus_ =
   DeleteRateBasedRuleResponse'
-    { _drbrrsChangeToken = Nothing,
-      _drbrrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-drbrrsChangeToken :: Lens' DeleteRateBasedRuleResponse (Maybe Text)
-drbrrsChangeToken = lens _drbrrsChangeToken (\s a -> s {_drbrrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drbrrsChangeToken :: Lens.Lens' DeleteRateBasedRuleResponse (Lude.Maybe Lude.Text)
+drbrrsChangeToken = Lens.lens (changeToken :: DeleteRateBasedRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteRateBasedRuleResponse)
+{-# DEPRECATED drbrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-drbrrsResponseStatus :: Lens' DeleteRateBasedRuleResponse Int
-drbrrsResponseStatus = lens _drbrrsResponseStatus (\s a -> s {_drbrrsResponseStatus = a})
-
-instance NFData DeleteRateBasedRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drbrrsResponseStatus :: Lens.Lens' DeleteRateBasedRuleResponse Lude.Int
+drbrrsResponseStatus = Lens.lens (responseStatus :: DeleteRateBasedRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRateBasedRuleResponse)
+{-# DEPRECATED drbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

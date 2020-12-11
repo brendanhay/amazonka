@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.SourceAuthType where
+module Network.AWS.CodeBuild.Types.SourceAuthType
+  ( SourceAuthType
+      ( SourceAuthType',
+        Oauth
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SourceAuthType = Oauth
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SourceAuthType = SourceAuthType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SourceAuthType where
-  parser =
-    takeLowerText >>= \case
-      "oauth" -> pure Oauth
-      e ->
-        fromTextError $
-          "Failure parsing SourceAuthType from value: '" <> e
-            <> "'. Accepted values: oauth"
+pattern Oauth :: SourceAuthType
+pattern Oauth = SourceAuthType' "OAUTH"
 
-instance ToText SourceAuthType where
-  toText = \case
-    Oauth -> "OAUTH"
-
-instance Hashable SourceAuthType
-
-instance NFData SourceAuthType
-
-instance ToByteString SourceAuthType
-
-instance ToQuery SourceAuthType
-
-instance ToHeader SourceAuthType
-
-instance ToJSON SourceAuthType where
-  toJSON = toJSONText
-
-instance FromJSON SourceAuthType where
-  parseJSON = parseJSONText "SourceAuthType"
+{-# COMPLETE
+  Oauth,
+  SourceAuthType'
+  #-}

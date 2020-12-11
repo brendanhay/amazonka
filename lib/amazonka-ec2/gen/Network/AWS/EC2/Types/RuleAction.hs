@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RuleAction where
+module Network.AWS.EC2.Types.RuleAction
+  ( RuleAction
+      ( RuleAction',
+        Allow,
+        Deny
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RuleAction
-  = Allow
-  | Deny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RuleAction = RuleAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RuleAction where
-  parser =
-    takeLowerText >>= \case
-      "allow" -> pure Allow
-      "deny" -> pure Deny
-      e ->
-        fromTextError $
-          "Failure parsing RuleAction from value: '" <> e
-            <> "'. Accepted values: allow, deny"
+pattern Allow :: RuleAction
+pattern Allow = RuleAction' "allow"
 
-instance ToText RuleAction where
-  toText = \case
-    Allow -> "allow"
-    Deny -> "deny"
+pattern Deny :: RuleAction
+pattern Deny = RuleAction' "deny"
 
-instance Hashable RuleAction
-
-instance NFData RuleAction
-
-instance ToByteString RuleAction
-
-instance ToQuery RuleAction
-
-instance ToHeader RuleAction
-
-instance FromXML RuleAction where
-  parseXML = parseXMLText "RuleAction"
+{-# COMPLETE
+  Allow,
+  Deny,
+  RuleAction'
+  #-}

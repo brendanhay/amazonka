@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.SourceFileSpecifier where
+module Network.AWS.CodeCommit.Types.SourceFileSpecifier
+  ( SourceFileSpecifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSourceFileSpecifier,
+
+    -- * Lenses
+    sfsIsMove,
+    sfsFilePath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a source file that is part of changes made in a commit.
 --
---
---
--- /See:/ 'sourceFileSpecifier' smart constructor.
+-- /See:/ 'mkSourceFileSpecifier' smart constructor.
 data SourceFileSpecifier = SourceFileSpecifier'
-  { _sfsIsMove ::
-      !(Maybe Bool),
-    _sfsFilePath :: !Text
+  { isMove ::
+      Lude.Maybe Lude.Bool,
+    filePath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceFileSpecifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfsIsMove' - Whether to remove the source file from the parent commit.
---
--- * 'sfsFilePath' - The full path to the file, including the name of the file.
-sourceFileSpecifier ::
-  -- | 'sfsFilePath'
-  Text ->
+-- * 'filePath' - The full path to the file, including the name of the file.
+-- * 'isMove' - Whether to remove the source file from the parent commit.
+mkSourceFileSpecifier ::
+  -- | 'filePath'
+  Lude.Text ->
   SourceFileSpecifier
-sourceFileSpecifier pFilePath_ =
+mkSourceFileSpecifier pFilePath_ =
   SourceFileSpecifier'
-    { _sfsIsMove = Nothing,
-      _sfsFilePath = pFilePath_
+    { isMove = Lude.Nothing,
+      filePath = pFilePath_
     }
 
 -- | Whether to remove the source file from the parent commit.
-sfsIsMove :: Lens' SourceFileSpecifier (Maybe Bool)
-sfsIsMove = lens _sfsIsMove (\s a -> s {_sfsIsMove = a})
+--
+-- /Note:/ Consider using 'isMove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfsIsMove :: Lens.Lens' SourceFileSpecifier (Lude.Maybe Lude.Bool)
+sfsIsMove = Lens.lens (isMove :: SourceFileSpecifier -> Lude.Maybe Lude.Bool) (\s a -> s {isMove = a} :: SourceFileSpecifier)
+{-# DEPRECATED sfsIsMove "Use generic-lens or generic-optics with 'isMove' instead." #-}
 
 -- | The full path to the file, including the name of the file.
-sfsFilePath :: Lens' SourceFileSpecifier Text
-sfsFilePath = lens _sfsFilePath (\s a -> s {_sfsFilePath = a})
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfsFilePath :: Lens.Lens' SourceFileSpecifier Lude.Text
+sfsFilePath = Lens.lens (filePath :: SourceFileSpecifier -> Lude.Text) (\s a -> s {filePath = a} :: SourceFileSpecifier)
+{-# DEPRECATED sfsFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
-instance Hashable SourceFileSpecifier
-
-instance NFData SourceFileSpecifier
-
-instance ToJSON SourceFileSpecifier where
+instance Lude.ToJSON SourceFileSpecifier where
   toJSON SourceFileSpecifier' {..} =
-    object
-      ( catMaybes
-          [("isMove" .=) <$> _sfsIsMove, Just ("filePath" .= _sfsFilePath)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("isMove" Lude..=) Lude.<$> isMove,
+            Lude.Just ("filePath" Lude..= filePath)
+          ]
       )

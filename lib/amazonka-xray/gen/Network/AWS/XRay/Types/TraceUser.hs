@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.TraceUser where
+module Network.AWS.XRay.Types.TraceUser
+  ( TraceUser (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTraceUser,
+
+    -- * Lenses
+    tuServiceIds,
+    tuUserName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ServiceId
 
 -- | Information about a user recorded in segment documents.
 --
---
---
--- /See:/ 'traceUser' smart constructor.
+-- /See:/ 'mkTraceUser' smart constructor.
 data TraceUser = TraceUser'
-  { _tuServiceIds :: !(Maybe [ServiceId]),
-    _tuUserName :: !(Maybe Text)
+  { serviceIds :: Lude.Maybe [ServiceId],
+    userName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TraceUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tuServiceIds' - Services that the user's request hit.
---
--- * 'tuUserName' - The user's name.
-traceUser ::
+-- * 'serviceIds' - Services that the user's request hit.
+-- * 'userName' - The user's name.
+mkTraceUser ::
   TraceUser
-traceUser =
-  TraceUser' {_tuServiceIds = Nothing, _tuUserName = Nothing}
+mkTraceUser =
+  TraceUser' {serviceIds = Lude.Nothing, userName = Lude.Nothing}
 
 -- | Services that the user's request hit.
-tuServiceIds :: Lens' TraceUser [ServiceId]
-tuServiceIds = lens _tuServiceIds (\s a -> s {_tuServiceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tuServiceIds :: Lens.Lens' TraceUser (Lude.Maybe [ServiceId])
+tuServiceIds = Lens.lens (serviceIds :: TraceUser -> Lude.Maybe [ServiceId]) (\s a -> s {serviceIds = a} :: TraceUser)
+{-# DEPRECATED tuServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
 
 -- | The user's name.
-tuUserName :: Lens' TraceUser (Maybe Text)
-tuUserName = lens _tuUserName (\s a -> s {_tuUserName = a})
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tuUserName :: Lens.Lens' TraceUser (Lude.Maybe Lude.Text)
+tuUserName = Lens.lens (userName :: TraceUser -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: TraceUser)
+{-# DEPRECATED tuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance FromJSON TraceUser where
+instance Lude.FromJSON TraceUser where
   parseJSON =
-    withObject
+    Lude.withObject
       "TraceUser"
       ( \x ->
           TraceUser'
-            <$> (x .:? "ServiceIds" .!= mempty) <*> (x .:? "UserName")
+            Lude.<$> (x Lude..:? "ServiceIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "UserName")
       )
-
-instance Hashable TraceUser
-
-instance NFData TraceUser

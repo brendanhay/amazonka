@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType where
+module Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType
+  ( AnalyticsMetadataType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAnalyticsMetadataType,
+
+    -- * Lenses
+    amtAnalyticsEndpointId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An Amazon Pinpoint analytics endpoint.
 --
---
 -- An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.
 --
---
--- /See:/ 'analyticsMetadataType' smart constructor.
+-- /See:/ 'mkAnalyticsMetadataType' smart constructor.
 newtype AnalyticsMetadataType = AnalyticsMetadataType'
-  { _amtAnalyticsEndpointId ::
-      Maybe Text
+  { analyticsEndpointId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalyticsMetadataType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amtAnalyticsEndpointId' - The endpoint ID.
-analyticsMetadataType ::
+-- * 'analyticsEndpointId' - The endpoint ID.
+mkAnalyticsMetadataType ::
   AnalyticsMetadataType
-analyticsMetadataType =
-  AnalyticsMetadataType' {_amtAnalyticsEndpointId = Nothing}
+mkAnalyticsMetadataType =
+  AnalyticsMetadataType' {analyticsEndpointId = Lude.Nothing}
 
 -- | The endpoint ID.
-amtAnalyticsEndpointId :: Lens' AnalyticsMetadataType (Maybe Text)
-amtAnalyticsEndpointId = lens _amtAnalyticsEndpointId (\s a -> s {_amtAnalyticsEndpointId = a})
+--
+-- /Note:/ Consider using 'analyticsEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtAnalyticsEndpointId :: Lens.Lens' AnalyticsMetadataType (Lude.Maybe Lude.Text)
+amtAnalyticsEndpointId = Lens.lens (analyticsEndpointId :: AnalyticsMetadataType -> Lude.Maybe Lude.Text) (\s a -> s {analyticsEndpointId = a} :: AnalyticsMetadataType)
+{-# DEPRECATED amtAnalyticsEndpointId "Use generic-lens or generic-optics with 'analyticsEndpointId' instead." #-}
 
-instance Hashable AnalyticsMetadataType
-
-instance NFData AnalyticsMetadataType
-
-instance ToJSON AnalyticsMetadataType where
+instance Lude.ToJSON AnalyticsMetadataType where
   toJSON AnalyticsMetadataType' {..} =
-    object
-      ( catMaybes
-          [("AnalyticsEndpointId" .=) <$> _amtAnalyticsEndpointId]
+    Lude.object
+      ( Lude.catMaybes
+          [("AnalyticsEndpointId" Lude..=) Lude.<$> analyticsEndpointId]
       )

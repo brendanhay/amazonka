@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus where
+module Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
+  ( StackInstanceDetailedStatus
+      ( StackInstanceDetailedStatus',
+        SIDSCancelled,
+        SIDSFailed,
+        SIDSInoperable,
+        SIDSPending,
+        SIDSRunning,
+        SIDSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackInstanceDetailedStatus
-  = SIDSCancelled
-  | SIDSFailed
-  | SIDSInoperable
-  | SIDSPending
-  | SIDSRunning
-  | SIDSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackInstanceDetailedStatus = StackInstanceDetailedStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackInstanceDetailedStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure SIDSCancelled
-      "failed" -> pure SIDSFailed
-      "inoperable" -> pure SIDSInoperable
-      "pending" -> pure SIDSPending
-      "running" -> pure SIDSRunning
-      "succeeded" -> pure SIDSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing StackInstanceDetailedStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, failed, inoperable, pending, running, succeeded"
+pattern SIDSCancelled :: StackInstanceDetailedStatus
+pattern SIDSCancelled = StackInstanceDetailedStatus' "CANCELLED"
 
-instance ToText StackInstanceDetailedStatus where
-  toText = \case
-    SIDSCancelled -> "CANCELLED"
-    SIDSFailed -> "FAILED"
-    SIDSInoperable -> "INOPERABLE"
-    SIDSPending -> "PENDING"
-    SIDSRunning -> "RUNNING"
-    SIDSSucceeded -> "SUCCEEDED"
+pattern SIDSFailed :: StackInstanceDetailedStatus
+pattern SIDSFailed = StackInstanceDetailedStatus' "FAILED"
 
-instance Hashable StackInstanceDetailedStatus
+pattern SIDSInoperable :: StackInstanceDetailedStatus
+pattern SIDSInoperable = StackInstanceDetailedStatus' "INOPERABLE"
 
-instance NFData StackInstanceDetailedStatus
+pattern SIDSPending :: StackInstanceDetailedStatus
+pattern SIDSPending = StackInstanceDetailedStatus' "PENDING"
 
-instance ToByteString StackInstanceDetailedStatus
+pattern SIDSRunning :: StackInstanceDetailedStatus
+pattern SIDSRunning = StackInstanceDetailedStatus' "RUNNING"
 
-instance ToQuery StackInstanceDetailedStatus
+pattern SIDSSucceeded :: StackInstanceDetailedStatus
+pattern SIDSSucceeded = StackInstanceDetailedStatus' "SUCCEEDED"
 
-instance ToHeader StackInstanceDetailedStatus
-
-instance FromXML StackInstanceDetailedStatus where
-  parseXML = parseXMLText "StackInstanceDetailedStatus"
+{-# COMPLETE
+  SIDSCancelled,
+  SIDSFailed,
+  SIDSInoperable,
+  SIDSPending,
+  SIDSRunning,
+  SIDSSucceeded,
+  StackInstanceDetailedStatus'
+  #-}

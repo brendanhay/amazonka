@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Gets a list of tags for the specified AWS CloudHSM cluster.
 --
---
 -- This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a @NextToken@ value. Use this value in a subsequent @ListTags@ request to get more tags. When you receive a response with no @NextToken@ (or an empty or null value), that means there are no more tags to get.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudHSMv2.ListTags
-  ( -- * Creating a Request
-    listTags,
-    ListTags,
+  ( -- * Creating a request
+    ListTags (..),
+    mkListTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltMaxResults,
     ltResourceId,
 
-    -- * Destructuring the Response
-    listTagsResponse,
-    ListTagsResponse,
+    -- * Destructuring the response
+    ListTagsResponse (..),
+    mkListTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsNextToken,
     ltrsResponseStatus,
     ltrsTagList,
@@ -46,138 +39,161 @@ module Network.AWS.CloudHSMv2.ListTags
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTags' smart constructor.
+-- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { _ltNextToken :: !(Maybe Text),
-    _ltMaxResults :: !(Maybe Nat),
-    _ltResourceId :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - The @NextToken@ value that you received in the previous response. Use this value to get more tags.
---
--- * 'ltMaxResults' - The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a @NextToken@ value.
---
--- * 'ltResourceId' - The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use 'DescribeClusters' .
-listTags ::
-  -- | 'ltResourceId'
-  Text ->
+-- * 'maxResults' - The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a @NextToken@ value.
+-- * 'nextToken' - The @NextToken@ value that you received in the previous response. Use this value to get more tags.
+-- * 'resourceId' - The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use 'DescribeClusters' .
+mkListTags ::
+  -- | 'resourceId'
+  Lude.Text ->
   ListTags
-listTags pResourceId_ =
+mkListTags pResourceId_ =
   ListTags'
-    { _ltNextToken = Nothing,
-      _ltMaxResults = Nothing,
-      _ltResourceId = pResourceId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      resourceId = pResourceId_
     }
 
 -- | The @NextToken@ value that you received in the previous response. Use this value to get more tags.
-ltNextToken :: Lens' ListTags (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a @NextToken@ value.
-ltMaxResults :: Lens' ListTags (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTags)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use 'DescribeClusters' .
-ltResourceId :: Lens' ListTags Text
-ltResourceId = lens _ltResourceId (\s a -> s {_ltResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltResourceId :: Lens.Lens' ListTags Lude.Text
+ltResourceId = Lens.lens (resourceId :: ListTags -> Lude.Text) (\s a -> s {resourceId = a} :: ListTags)
+{-# DEPRECATED ltResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSPager ListTags where
+instance Page.AWSPager ListTags where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsTagList) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTagList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListTags where
+instance Lude.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "TagList" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "TagList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListTags
-
-instance NFData ListTags
-
-instance ToHeaders ListTags where
+instance Lude.ToHeaders ListTags where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("BaldrApiService.ListTags" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("BaldrApiService.ListTags" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTags where
+instance Lude.ToJSON ListTags where
   toJSON ListTags' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltNextToken,
-            ("MaxResults" .=) <$> _ltMaxResults,
-            Just ("ResourceId" .= _ltResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath ListTags where
-  toPath = const "/"
+instance Lude.ToPath ListTags where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTags where
-  toQuery = const mempty
+instance Lude.ToQuery ListTags where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsResponse' smart constructor.
+-- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { _ltrsNextToken ::
-      !(Maybe Text),
-    _ltrsResponseStatus :: !Int,
-    _ltrsTagList :: ![Tag]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    tagList :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsNextToken' - An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
---
--- * 'ltrsTagList' - A list of tags.
-listTagsResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
+-- * 'responseStatus' - The response status code.
+-- * 'tagList' - A list of tags.
+mkListTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsResponse
-listTagsResponse pResponseStatus_ =
+mkListTagsResponse pResponseStatus_ =
   ListTagsResponse'
-    { _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_,
-      _ltrsTagList = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      tagList = Lude.mempty
     }
 
 -- | An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
-ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTagsResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTagsResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of tags.
-ltrsTagList :: Lens' ListTagsResponse [Tag]
-ltrsTagList = lens _ltrsTagList (\s a -> s {_ltrsTagList = a}) . _Coerce
-
-instance NFData ListTagsResponse
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTagList :: Lens.Lens' ListTagsResponse [Tag]
+ltrsTagList = Lens.lens (tagList :: ListTagsResponse -> [Tag]) (\s a -> s {tagList = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists logging levels.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListV2LoggingLevels
-  ( -- * Creating a Request
-    listV2LoggingLevels,
-    ListV2LoggingLevels,
+  ( -- * Creating a request
+    ListV2LoggingLevels (..),
+    mkListV2LoggingLevels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvllTargetType,
     lvllNextToken,
     lvllMaxResults,
 
-    -- * Destructuring the Response
-    listV2LoggingLevelsResponse,
-    ListV2LoggingLevelsResponse,
+    -- * Destructuring the response
+    ListV2LoggingLevelsResponse (..),
+    mkListV2LoggingLevelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvllrsLogTargetConfigurations,
     lvllrsNextToken,
     lvllrsResponseStatus,
@@ -44,127 +37,149 @@ module Network.AWS.IoT.ListV2LoggingLevels
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listV2LoggingLevels' smart constructor.
+-- | /See:/ 'mkListV2LoggingLevels' smart constructor.
 data ListV2LoggingLevels = ListV2LoggingLevels'
-  { _lvllTargetType ::
-      !(Maybe LogTargetType),
-    _lvllNextToken :: !(Maybe Text),
-    _lvllMaxResults :: !(Maybe Nat)
+  { targetType ::
+      Lude.Maybe LogTargetType,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListV2LoggingLevels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvllTargetType' - The type of resource for which you are configuring logging. Must be @THING_Group@ .
---
--- * 'lvllNextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- * 'lvllMaxResults' - The maximum number of results to return at one time.
-listV2LoggingLevels ::
+-- * 'maxResults' - The maximum number of results to return at one time.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'targetType' - The type of resource for which you are configuring logging. Must be @THING_Group@ .
+mkListV2LoggingLevels ::
   ListV2LoggingLevels
-listV2LoggingLevels =
+mkListV2LoggingLevels =
   ListV2LoggingLevels'
-    { _lvllTargetType = Nothing,
-      _lvllNextToken = Nothing,
-      _lvllMaxResults = Nothing
+    { targetType = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The type of resource for which you are configuring logging. Must be @THING_Group@ .
-lvllTargetType :: Lens' ListV2LoggingLevels (Maybe LogTargetType)
-lvllTargetType = lens _lvllTargetType (\s a -> s {_lvllTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvllTargetType :: Lens.Lens' ListV2LoggingLevels (Lude.Maybe LogTargetType)
+lvllTargetType = Lens.lens (targetType :: ListV2LoggingLevels -> Lude.Maybe LogTargetType) (\s a -> s {targetType = a} :: ListV2LoggingLevels)
+{-# DEPRECATED lvllTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-lvllNextToken :: Lens' ListV2LoggingLevels (Maybe Text)
-lvllNextToken = lens _lvllNextToken (\s a -> s {_lvllNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvllNextToken :: Lens.Lens' ListV2LoggingLevels (Lude.Maybe Lude.Text)
+lvllNextToken = Lens.lens (nextToken :: ListV2LoggingLevels -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListV2LoggingLevels)
+{-# DEPRECATED lvllNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
-lvllMaxResults :: Lens' ListV2LoggingLevels (Maybe Natural)
-lvllMaxResults = lens _lvllMaxResults (\s a -> s {_lvllMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvllMaxResults :: Lens.Lens' ListV2LoggingLevels (Lude.Maybe Lude.Natural)
+lvllMaxResults = Lens.lens (maxResults :: ListV2LoggingLevels -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListV2LoggingLevels)
+{-# DEPRECATED lvllMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListV2LoggingLevels where
+instance Page.AWSPager ListV2LoggingLevels where
   page rq rs
-    | stop (rs ^. lvllrsNextToken) = Nothing
-    | stop (rs ^. lvllrsLogTargetConfigurations) = Nothing
-    | otherwise = Just $ rq & lvllNextToken .~ rs ^. lvllrsNextToken
+    | Page.stop (rs Lens.^. lvllrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lvllrsLogTargetConfigurations) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lvllNextToken Lens..~ rs Lens.^. lvllrsNextToken
 
-instance AWSRequest ListV2LoggingLevels where
+instance Lude.AWSRequest ListV2LoggingLevels where
   type Rs ListV2LoggingLevels = ListV2LoggingLevelsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListV2LoggingLevelsResponse'
-            <$> (x .?> "logTargetConfigurations" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "logTargetConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListV2LoggingLevels
+instance Lude.ToHeaders ListV2LoggingLevels where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListV2LoggingLevels
+instance Lude.ToPath ListV2LoggingLevels where
+  toPath = Lude.const "/v2LoggingLevel"
 
-instance ToHeaders ListV2LoggingLevels where
-  toHeaders = const mempty
-
-instance ToPath ListV2LoggingLevels where
-  toPath = const "/v2LoggingLevel"
-
-instance ToQuery ListV2LoggingLevels where
+instance Lude.ToQuery ListV2LoggingLevels where
   toQuery ListV2LoggingLevels' {..} =
-    mconcat
-      [ "targetType" =: _lvllTargetType,
-        "nextToken" =: _lvllNextToken,
-        "maxResults" =: _lvllMaxResults
+    Lude.mconcat
+      [ "targetType" Lude.=: targetType,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listV2LoggingLevelsResponse' smart constructor.
+-- | /See:/ 'mkListV2LoggingLevelsResponse' smart constructor.
 data ListV2LoggingLevelsResponse = ListV2LoggingLevelsResponse'
-  { _lvllrsLogTargetConfigurations ::
-      !(Maybe [LogTargetConfiguration]),
-    _lvllrsNextToken :: !(Maybe Text),
-    _lvllrsResponseStatus :: !Int
+  { logTargetConfigurations ::
+      Lude.Maybe [LogTargetConfiguration],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListV2LoggingLevelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvllrsLogTargetConfigurations' - The logging configuration for a target.
---
--- * 'lvllrsNextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
---
--- * 'lvllrsResponseStatus' - -- | The response status code.
-listV2LoggingLevelsResponse ::
-  -- | 'lvllrsResponseStatus'
-  Int ->
+-- * 'logTargetConfigurations' - The logging configuration for a target.
+-- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListV2LoggingLevelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListV2LoggingLevelsResponse
-listV2LoggingLevelsResponse pResponseStatus_ =
+mkListV2LoggingLevelsResponse pResponseStatus_ =
   ListV2LoggingLevelsResponse'
-    { _lvllrsLogTargetConfigurations =
-        Nothing,
-      _lvllrsNextToken = Nothing,
-      _lvllrsResponseStatus = pResponseStatus_
+    { logTargetConfigurations =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The logging configuration for a target.
-lvllrsLogTargetConfigurations :: Lens' ListV2LoggingLevelsResponse [LogTargetConfiguration]
-lvllrsLogTargetConfigurations = lens _lvllrsLogTargetConfigurations (\s a -> s {_lvllrsLogTargetConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logTargetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvllrsLogTargetConfigurations :: Lens.Lens' ListV2LoggingLevelsResponse (Lude.Maybe [LogTargetConfiguration])
+lvllrsLogTargetConfigurations = Lens.lens (logTargetConfigurations :: ListV2LoggingLevelsResponse -> Lude.Maybe [LogTargetConfiguration]) (\s a -> s {logTargetConfigurations = a} :: ListV2LoggingLevelsResponse)
+{-# DEPRECATED lvllrsLogTargetConfigurations "Use generic-lens or generic-optics with 'logTargetConfigurations' instead." #-}
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-lvllrsNextToken :: Lens' ListV2LoggingLevelsResponse (Maybe Text)
-lvllrsNextToken = lens _lvllrsNextToken (\s a -> s {_lvllrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvllrsNextToken :: Lens.Lens' ListV2LoggingLevelsResponse (Lude.Maybe Lude.Text)
+lvllrsNextToken = Lens.lens (nextToken :: ListV2LoggingLevelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListV2LoggingLevelsResponse)
+{-# DEPRECATED lvllrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lvllrsResponseStatus :: Lens' ListV2LoggingLevelsResponse Int
-lvllrsResponseStatus = lens _lvllrsResponseStatus (\s a -> s {_lvllrsResponseStatus = a})
-
-instance NFData ListV2LoggingLevelsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvllrsResponseStatus :: Lens.Lens' ListV2LoggingLevelsResponse Lude.Int
+lvllrsResponseStatus = Lens.lens (responseStatus :: ListV2LoggingLevelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListV2LoggingLevelsResponse)
+{-# DEPRECATED lvllrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

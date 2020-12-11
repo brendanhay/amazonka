@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,126 @@
 --
 -- Changes the status of the specified user signing certificate from active to disabled, or vice versa. This operation can be used to disable an IAM user's signing certificate as part of a certificate rotation work flow.
 --
---
 -- If the @UserName@ field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 module Network.AWS.IAM.UpdateSigningCertificate
-  ( -- * Creating a Request
-    updateSigningCertificate,
-    UpdateSigningCertificate,
+  ( -- * Creating a request
+    UpdateSigningCertificate (..),
+    mkUpdateSigningCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uscUserName,
     uscCertificateId,
     uscStatus,
 
-    -- * Destructuring the Response
-    updateSigningCertificateResponse,
-    UpdateSigningCertificateResponse,
+    -- * Destructuring the response
+    UpdateSigningCertificateResponse (..),
+    mkUpdateSigningCertificateResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSigningCertificate' smart constructor.
+-- | /See:/ 'mkUpdateSigningCertificate' smart constructor.
 data UpdateSigningCertificate = UpdateSigningCertificate'
-  { _uscUserName ::
-      !(Maybe Text),
-    _uscCertificateId :: !Text,
-    _uscStatus :: !StatusType
+  { userName ::
+      Lude.Maybe Lude.Text,
+    certificateId :: Lude.Text,
+    status :: StatusType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSigningCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateId' - The ID of the signing certificate you want to update.
 --
--- * 'uscUserName' - The name of the IAM user the signing certificate belongs to. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'status' - The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
+-- * 'userName' - The name of the IAM user the signing certificate belongs to.
 --
--- * 'uscCertificateId' - The ID of the signing certificate you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
---
--- * 'uscStatus' - The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
-updateSigningCertificate ::
-  -- | 'uscCertificateId'
-  Text ->
-  -- | 'uscStatus'
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkUpdateSigningCertificate ::
+  -- | 'certificateId'
+  Lude.Text ->
+  -- | 'status'
   StatusType ->
   UpdateSigningCertificate
-updateSigningCertificate pCertificateId_ pStatus_ =
+mkUpdateSigningCertificate pCertificateId_ pStatus_ =
   UpdateSigningCertificate'
-    { _uscUserName = Nothing,
-      _uscCertificateId = pCertificateId_,
-      _uscStatus = pStatus_
+    { userName = Lude.Nothing,
+      certificateId = pCertificateId_,
+      status = pStatus_
     }
 
--- | The name of the IAM user the signing certificate belongs to. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
-uscUserName = lens _uscUserName (\s a -> s {_uscUserName = a})
+-- | The name of the IAM user the signing certificate belongs to.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscUserName :: Lens.Lens' UpdateSigningCertificate (Lude.Maybe Lude.Text)
+uscUserName = Lens.lens (userName :: UpdateSigningCertificate -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: UpdateSigningCertificate)
+{-# DEPRECATED uscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The ID of the signing certificate you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-uscCertificateId :: Lens' UpdateSigningCertificate Text
-uscCertificateId = lens _uscCertificateId (\s a -> s {_uscCertificateId = a})
+-- | The ID of the signing certificate you want to update.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscCertificateId :: Lens.Lens' UpdateSigningCertificate Lude.Text
+uscCertificateId = Lens.lens (certificateId :: UpdateSigningCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: UpdateSigningCertificate)
+{-# DEPRECATED uscCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 -- | The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
-uscStatus :: Lens' UpdateSigningCertificate StatusType
-uscStatus = lens _uscStatus (\s a -> s {_uscStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscStatus :: Lens.Lens' UpdateSigningCertificate StatusType
+uscStatus = Lens.lens (status :: UpdateSigningCertificate -> StatusType) (\s a -> s {status = a} :: UpdateSigningCertificate)
+{-# DEPRECATED uscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance AWSRequest UpdateSigningCertificate where
+instance Lude.AWSRequest UpdateSigningCertificate where
   type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
-  request = postQuery iam
-  response = receiveNull UpdateSigningCertificateResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull UpdateSigningCertificateResponse'
 
-instance Hashable UpdateSigningCertificate
+instance Lude.ToHeaders UpdateSigningCertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateSigningCertificate
+instance Lude.ToPath UpdateSigningCertificate where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateSigningCertificate where
-  toHeaders = const mempty
-
-instance ToPath UpdateSigningCertificate where
-  toPath = const "/"
-
-instance ToQuery UpdateSigningCertificate where
+instance Lude.ToQuery UpdateSigningCertificate where
   toQuery UpdateSigningCertificate' {..} =
-    mconcat
-      [ "Action" =: ("UpdateSigningCertificate" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _uscUserName,
-        "CertificateId" =: _uscCertificateId,
-        "Status" =: _uscStatus
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateSigningCertificate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "CertificateId" Lude.=: certificateId,
+        "Status" Lude.=: status
       ]
 
--- | /See:/ 'updateSigningCertificateResponse' smart constructor.
+-- | /See:/ 'mkUpdateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSigningCertificateResponse' with the minimum fields required to make a request.
-updateSigningCertificateResponse ::
+mkUpdateSigningCertificateResponse ::
   UpdateSigningCertificateResponse
-updateSigningCertificateResponse =
+mkUpdateSigningCertificateResponse =
   UpdateSigningCertificateResponse'
-
-instance NFData UpdateSigningCertificateResponse

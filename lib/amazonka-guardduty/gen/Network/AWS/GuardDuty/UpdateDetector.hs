@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,157 @@
 --
 -- Updates the Amazon GuardDuty detector specified by the detectorId.
 module Network.AWS.GuardDuty.UpdateDetector
-  ( -- * Creating a Request
-    updateDetector,
-    UpdateDetector,
+  ( -- * Creating a request
+    UpdateDetector (..),
+    mkUpdateDetector,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udFindingPublishingFrequency,
     udDataSources,
     udEnable,
     udDetectorId,
 
-    -- * Destructuring the Response
-    updateDetectorResponse,
-    UpdateDetectorResponse,
+    -- * Destructuring the response
+    UpdateDetectorResponse (..),
+    mkUpdateDetectorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDetector' smart constructor.
+-- | /See:/ 'mkUpdateDetector' smart constructor.
 data UpdateDetector = UpdateDetector'
-  { _udFindingPublishingFrequency ::
-      !(Maybe FindingPublishingFrequency),
-    _udDataSources :: !(Maybe DataSourceConfigurations),
-    _udEnable :: !(Maybe Bool),
-    _udDetectorId :: !Text
+  { findingPublishingFrequency ::
+      Lude.Maybe FindingPublishingFrequency,
+    dataSources :: Lude.Maybe DataSourceConfigurations,
+    enable :: Lude.Maybe Lude.Bool,
+    detectorId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDetector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udFindingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such as to CloudWatch Events.
---
--- * 'udDataSources' - An object that describes which data sources will be updated.
---
--- * 'udEnable' - Specifies whether the detector is enabled or not enabled.
---
--- * 'udDetectorId' - The unique ID of the detector to update.
-updateDetector ::
-  -- | 'udDetectorId'
-  Text ->
+-- * 'dataSources' - An object that describes which data sources will be updated.
+-- * 'detectorId' - The unique ID of the detector to update.
+-- * 'enable' - Specifies whether the detector is enabled or not enabled.
+-- * 'findingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such as to CloudWatch Events.
+mkUpdateDetector ::
+  -- | 'detectorId'
+  Lude.Text ->
   UpdateDetector
-updateDetector pDetectorId_ =
+mkUpdateDetector pDetectorId_ =
   UpdateDetector'
-    { _udFindingPublishingFrequency = Nothing,
-      _udDataSources = Nothing,
-      _udEnable = Nothing,
-      _udDetectorId = pDetectorId_
+    { findingPublishingFrequency = Lude.Nothing,
+      dataSources = Lude.Nothing,
+      enable = Lude.Nothing,
+      detectorId = pDetectorId_
     }
 
 -- | An enum value that specifies how frequently findings are exported, such as to CloudWatch Events.
-udFindingPublishingFrequency :: Lens' UpdateDetector (Maybe FindingPublishingFrequency)
-udFindingPublishingFrequency = lens _udFindingPublishingFrequency (\s a -> s {_udFindingPublishingFrequency = a})
+--
+-- /Note:/ Consider using 'findingPublishingFrequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udFindingPublishingFrequency :: Lens.Lens' UpdateDetector (Lude.Maybe FindingPublishingFrequency)
+udFindingPublishingFrequency = Lens.lens (findingPublishingFrequency :: UpdateDetector -> Lude.Maybe FindingPublishingFrequency) (\s a -> s {findingPublishingFrequency = a} :: UpdateDetector)
+{-# DEPRECATED udFindingPublishingFrequency "Use generic-lens or generic-optics with 'findingPublishingFrequency' instead." #-}
 
 -- | An object that describes which data sources will be updated.
-udDataSources :: Lens' UpdateDetector (Maybe DataSourceConfigurations)
-udDataSources = lens _udDataSources (\s a -> s {_udDataSources = a})
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDataSources :: Lens.Lens' UpdateDetector (Lude.Maybe DataSourceConfigurations)
+udDataSources = Lens.lens (dataSources :: UpdateDetector -> Lude.Maybe DataSourceConfigurations) (\s a -> s {dataSources = a} :: UpdateDetector)
+{-# DEPRECATED udDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | Specifies whether the detector is enabled or not enabled.
-udEnable :: Lens' UpdateDetector (Maybe Bool)
-udEnable = lens _udEnable (\s a -> s {_udEnable = a})
+--
+-- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udEnable :: Lens.Lens' UpdateDetector (Lude.Maybe Lude.Bool)
+udEnable = Lens.lens (enable :: UpdateDetector -> Lude.Maybe Lude.Bool) (\s a -> s {enable = a} :: UpdateDetector)
+{-# DEPRECATED udEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
 
 -- | The unique ID of the detector to update.
-udDetectorId :: Lens' UpdateDetector Text
-udDetectorId = lens _udDetectorId (\s a -> s {_udDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDetectorId :: Lens.Lens' UpdateDetector Lude.Text
+udDetectorId = Lens.lens (detectorId :: UpdateDetector -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateDetector)
+{-# DEPRECATED udDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance AWSRequest UpdateDetector where
+instance Lude.AWSRequest UpdateDetector where
   type Rs UpdateDetector = UpdateDetectorResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
-      (\s h x -> UpdateDetectorResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UpdateDetector
-
-instance NFData UpdateDetector
-
-instance ToHeaders UpdateDetector where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateDetectorResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON UpdateDetector where
-  toJSON UpdateDetector' {..} =
-    object
-      ( catMaybes
-          [ ("findingPublishingFrequency" .=)
-              <$> _udFindingPublishingFrequency,
-            ("dataSources" .=) <$> _udDataSources,
-            ("enable" .=) <$> _udEnable
+instance Lude.ToHeaders UpdateDetector where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateDetector where
+instance Lude.ToJSON UpdateDetector where
+  toJSON UpdateDetector' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("findingPublishingFrequency" Lude..=)
+              Lude.<$> findingPublishingFrequency,
+            ("dataSources" Lude..=) Lude.<$> dataSources,
+            ("enable" Lude..=) Lude.<$> enable
+          ]
+      )
+
+instance Lude.ToPath UpdateDetector where
   toPath UpdateDetector' {..} =
-    mconcat ["/detector/", toBS _udDetectorId]
+    Lude.mconcat ["/detector/", Lude.toBS detectorId]
 
-instance ToQuery UpdateDetector where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDetector where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDetectorResponse' smart constructor.
+-- | /See:/ 'mkUpdateDetectorResponse' smart constructor.
 newtype UpdateDetectorResponse = UpdateDetectorResponse'
-  { _udrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDetectorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udrsResponseStatus' - -- | The response status code.
-updateDetectorResponse ::
-  -- | 'udrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateDetectorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDetectorResponse
-updateDetectorResponse pResponseStatus_ =
-  UpdateDetectorResponse' {_udrsResponseStatus = pResponseStatus_}
+mkUpdateDetectorResponse pResponseStatus_ =
+  UpdateDetectorResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UpdateDetectorResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\s a -> s {_udrsResponseStatus = a})
-
-instance NFData UpdateDetectorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsResponseStatus :: Lens.Lens' UpdateDetectorResponse Lude.Int
+udrsResponseStatus = Lens.lens (responseStatus :: UpdateDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDetectorResponse)
+{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

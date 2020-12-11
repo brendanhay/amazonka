@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,108 @@
 --
 -- Deletes a 'Deployment' resource. Deleting a deployment will only succeed if there are no 'Stage' resources associated with it.
 module Network.AWS.APIGateway.DeleteDeployment
-  ( -- * Creating a Request
-    deleteDeployment,
-    DeleteDeployment,
+  ( -- * Creating a request
+    DeleteDeployment (..),
+    mkDeleteDeployment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddRestAPIId,
     ddDeploymentId,
 
-    -- * Destructuring the Response
-    deleteDeploymentResponse,
-    DeleteDeploymentResponse,
+    -- * Destructuring the response
+    DeleteDeploymentResponse (..),
+    mkDeleteDeploymentResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to delete a 'Deployment' resource.
 --
---
---
--- /See:/ 'deleteDeployment' smart constructor.
+-- /See:/ 'mkDeleteDeployment' smart constructor.
 data DeleteDeployment = DeleteDeployment'
-  { _ddRestAPIId :: !Text,
-    _ddDeploymentId :: !Text
+  { restAPIId :: Lude.Text,
+    deploymentId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeployment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'ddDeploymentId' - [Required] The identifier of the 'Deployment' resource to delete.
-deleteDeployment ::
-  -- | 'ddRestAPIId'
-  Text ->
-  -- | 'ddDeploymentId'
-  Text ->
+-- * 'deploymentId' - [Required] The identifier of the 'Deployment' resource to delete.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkDeleteDeployment ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'deploymentId'
+  Lude.Text ->
   DeleteDeployment
-deleteDeployment pRestAPIId_ pDeploymentId_ =
+mkDeleteDeployment pRestAPIId_ pDeploymentId_ =
   DeleteDeployment'
-    { _ddRestAPIId = pRestAPIId_,
-      _ddDeploymentId = pDeploymentId_
+    { restAPIId = pRestAPIId_,
+      deploymentId = pDeploymentId_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-ddRestAPIId :: Lens' DeleteDeployment Text
-ddRestAPIId = lens _ddRestAPIId (\s a -> s {_ddRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddRestAPIId :: Lens.Lens' DeleteDeployment Lude.Text
+ddRestAPIId = Lens.lens (restAPIId :: DeleteDeployment -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteDeployment)
+{-# DEPRECATED ddRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Deployment' resource to delete.
-ddDeploymentId :: Lens' DeleteDeployment Text
-ddDeploymentId = lens _ddDeploymentId (\s a -> s {_ddDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDeploymentId :: Lens.Lens' DeleteDeployment Lude.Text
+ddDeploymentId = Lens.lens (deploymentId :: DeleteDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: DeleteDeployment)
+{-# DEPRECATED ddDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
-instance AWSRequest DeleteDeployment where
+instance Lude.AWSRequest DeleteDeployment where
   type Rs DeleteDeployment = DeleteDeploymentResponse
-  request = delete apiGateway
-  response = receiveNull DeleteDeploymentResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteDeploymentResponse'
 
-instance Hashable DeleteDeployment
-
-instance NFData DeleteDeployment
-
-instance ToHeaders DeleteDeployment where
+instance Lude.ToHeaders DeleteDeployment where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteDeployment where
+instance Lude.ToPath DeleteDeployment where
   toPath DeleteDeployment' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _ddRestAPIId,
+        Lude.toBS restAPIId,
         "/deployments/",
-        toBS _ddDeploymentId
+        Lude.toBS deploymentId
       ]
 
-instance ToQuery DeleteDeployment where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDeployment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDeploymentResponse' smart constructor.
+-- | /See:/ 'mkDeleteDeploymentResponse' smart constructor.
 data DeleteDeploymentResponse = DeleteDeploymentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeploymentResponse' with the minimum fields required to make a request.
-deleteDeploymentResponse ::
+mkDeleteDeploymentResponse ::
   DeleteDeploymentResponse
-deleteDeploymentResponse = DeleteDeploymentResponse'
-
-instance NFData DeleteDeploymentResponse
+mkDeleteDeploymentResponse = DeleteDeploymentResponse'

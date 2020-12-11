@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateConfig where
+module Network.AWS.EC2.Types.LaunchTemplateConfig
+  ( LaunchTemplateConfig (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateConfig,
+
+    -- * Lenses
+    ltcOverrides,
+    ltcLaunchTemplateSpecification,
+  )
+where
+
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
 import Network.AWS.EC2.Types.LaunchTemplateOverrides
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch template and overrides.
 --
---
---
--- /See:/ 'launchTemplateConfig' smart constructor.
+-- /See:/ 'mkLaunchTemplateConfig' smart constructor.
 data LaunchTemplateConfig = LaunchTemplateConfig'
-  { _ltcOverrides ::
-      !(Maybe [LaunchTemplateOverrides]),
-    _ltcLaunchTemplateSpecification ::
-      !(Maybe FleetLaunchTemplateSpecification)
+  { overrides ::
+      Lude.Maybe [LaunchTemplateOverrides],
+    launchTemplateSpecification ::
+      Lude.Maybe FleetLaunchTemplateSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltcOverrides' - Any parameters that you specify override the same parameters in the launch template.
---
--- * 'ltcLaunchTemplateSpecification' - The launch template.
-launchTemplateConfig ::
+-- * 'launchTemplateSpecification' - The launch template.
+-- * 'overrides' - Any parameters that you specify override the same parameters in the launch template.
+mkLaunchTemplateConfig ::
   LaunchTemplateConfig
-launchTemplateConfig =
+mkLaunchTemplateConfig =
   LaunchTemplateConfig'
-    { _ltcOverrides = Nothing,
-      _ltcLaunchTemplateSpecification = Nothing
+    { overrides = Lude.Nothing,
+      launchTemplateSpecification = Lude.Nothing
     }
 
 -- | Any parameters that you specify override the same parameters in the launch template.
-ltcOverrides :: Lens' LaunchTemplateConfig [LaunchTemplateOverrides]
-ltcOverrides = lens _ltcOverrides (\s a -> s {_ltcOverrides = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcOverrides :: Lens.Lens' LaunchTemplateConfig (Lude.Maybe [LaunchTemplateOverrides])
+ltcOverrides = Lens.lens (overrides :: LaunchTemplateConfig -> Lude.Maybe [LaunchTemplateOverrides]) (\s a -> s {overrides = a} :: LaunchTemplateConfig)
+{-# DEPRECATED ltcOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The launch template.
-ltcLaunchTemplateSpecification :: Lens' LaunchTemplateConfig (Maybe FleetLaunchTemplateSpecification)
-ltcLaunchTemplateSpecification = lens _ltcLaunchTemplateSpecification (\s a -> s {_ltcLaunchTemplateSpecification = a})
+--
+-- /Note:/ Consider using 'launchTemplateSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcLaunchTemplateSpecification :: Lens.Lens' LaunchTemplateConfig (Lude.Maybe FleetLaunchTemplateSpecification)
+ltcLaunchTemplateSpecification = Lens.lens (launchTemplateSpecification :: LaunchTemplateConfig -> Lude.Maybe FleetLaunchTemplateSpecification) (\s a -> s {launchTemplateSpecification = a} :: LaunchTemplateConfig)
+{-# DEPRECATED ltcLaunchTemplateSpecification "Use generic-lens or generic-optics with 'launchTemplateSpecification' instead." #-}
 
-instance FromXML LaunchTemplateConfig where
+instance Lude.FromXML LaunchTemplateConfig where
   parseXML x =
     LaunchTemplateConfig'
-      <$> (x .@? "overrides" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "launchTemplateSpecification")
+      Lude.<$> ( x Lude..@? "overrides" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "launchTemplateSpecification")
 
-instance Hashable LaunchTemplateConfig
-
-instance NFData LaunchTemplateConfig
-
-instance ToQuery LaunchTemplateConfig where
+instance Lude.ToQuery LaunchTemplateConfig where
   toQuery LaunchTemplateConfig' {..} =
-    mconcat
-      [ toQuery (toQueryList "Overrides" <$> _ltcOverrides),
-        "LaunchTemplateSpecification" =: _ltcLaunchTemplateSpecification
+    Lude.mconcat
+      [ Lude.toQuery (Lude.toQueryList "Overrides" Lude.<$> overrides),
+        "LaunchTemplateSpecification" Lude.=: launchTemplateSpecification
       ]

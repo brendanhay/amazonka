@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryRule where
+module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryRule
+  ( DatasetContentDeliveryRule (..),
+
+    -- * Smart constructor
+    mkDatasetContentDeliveryRule,
+
+    -- * Lenses
+    dcdrEntryName,
+    dcdrDestination,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | When dataset contents are created, they are delivered to destination specified here.
 --
---
---
--- /See:/ 'datasetContentDeliveryRule' smart constructor.
+-- /See:/ 'mkDatasetContentDeliveryRule' smart constructor.
 data DatasetContentDeliveryRule = DatasetContentDeliveryRule'
-  { _dcdrEntryName ::
-      !(Maybe Text),
-    _dcdrDestination ::
-      !DatasetContentDeliveryDestination
+  { entryName ::
+      Lude.Maybe Lude.Text,
+    destination ::
+      DatasetContentDeliveryDestination
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetContentDeliveryRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcdrEntryName' - The name of the dataset content delivery rules entry.
---
--- * 'dcdrDestination' - The destination to which dataset contents are delivered.
-datasetContentDeliveryRule ::
-  -- | 'dcdrDestination'
+-- * 'destination' - The destination to which dataset contents are delivered.
+-- * 'entryName' - The name of the dataset content delivery rules entry.
+mkDatasetContentDeliveryRule ::
+  -- | 'destination'
   DatasetContentDeliveryDestination ->
   DatasetContentDeliveryRule
-datasetContentDeliveryRule pDestination_ =
+mkDatasetContentDeliveryRule pDestination_ =
   DatasetContentDeliveryRule'
-    { _dcdrEntryName = Nothing,
-      _dcdrDestination = pDestination_
+    { entryName = Lude.Nothing,
+      destination = pDestination_
     }
 
 -- | The name of the dataset content delivery rules entry.
-dcdrEntryName :: Lens' DatasetContentDeliveryRule (Maybe Text)
-dcdrEntryName = lens _dcdrEntryName (\s a -> s {_dcdrEntryName = a})
+--
+-- /Note:/ Consider using 'entryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcdrEntryName :: Lens.Lens' DatasetContentDeliveryRule (Lude.Maybe Lude.Text)
+dcdrEntryName = Lens.lens (entryName :: DatasetContentDeliveryRule -> Lude.Maybe Lude.Text) (\s a -> s {entryName = a} :: DatasetContentDeliveryRule)
+{-# DEPRECATED dcdrEntryName "Use generic-lens or generic-optics with 'entryName' instead." #-}
 
 -- | The destination to which dataset contents are delivered.
-dcdrDestination :: Lens' DatasetContentDeliveryRule DatasetContentDeliveryDestination
-dcdrDestination = lens _dcdrDestination (\s a -> s {_dcdrDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcdrDestination :: Lens.Lens' DatasetContentDeliveryRule DatasetContentDeliveryDestination
+dcdrDestination = Lens.lens (destination :: DatasetContentDeliveryRule -> DatasetContentDeliveryDestination) (\s a -> s {destination = a} :: DatasetContentDeliveryRule)
+{-# DEPRECATED dcdrDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance FromJSON DatasetContentDeliveryRule where
+instance Lude.FromJSON DatasetContentDeliveryRule where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatasetContentDeliveryRule"
       ( \x ->
           DatasetContentDeliveryRule'
-            <$> (x .:? "entryName") <*> (x .: "destination")
+            Lude.<$> (x Lude..:? "entryName") Lude.<*> (x Lude..: "destination")
       )
 
-instance Hashable DatasetContentDeliveryRule
-
-instance NFData DatasetContentDeliveryRule
-
-instance ToJSON DatasetContentDeliveryRule where
+instance Lude.ToJSON DatasetContentDeliveryRule where
   toJSON DatasetContentDeliveryRule' {..} =
-    object
-      ( catMaybes
-          [ ("entryName" .=) <$> _dcdrEntryName,
-            Just ("destination" .= _dcdrDestination)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("entryName" Lude..=) Lude.<$> entryName,
+            Lude.Just ("destination" Lude..= destination)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,138 @@
 --
 -- Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.
 module Network.AWS.Pinpoint.DeleteAPNSVoipSandboxChannel
-  ( -- * Creating a Request
-    deleteAPNSVoipSandboxChannel,
-    DeleteAPNSVoipSandboxChannel,
+  ( -- * Creating a request
+    DeleteAPNSVoipSandboxChannel (..),
+    mkDeleteAPNSVoipSandboxChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     davscApplicationId,
 
-    -- * Destructuring the Response
-    deleteAPNSVoipSandboxChannelResponse,
-    DeleteAPNSVoipSandboxChannelResponse,
+    -- * Destructuring the response
+    DeleteAPNSVoipSandboxChannelResponse (..),
+    mkDeleteAPNSVoipSandboxChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     davscrsResponseStatus,
     davscrsAPNSVoipSandboxChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAPNSVoipSandboxChannel' smart constructor.
+-- | /See:/ 'mkDeleteAPNSVoipSandboxChannel' smart constructor.
 newtype DeleteAPNSVoipSandboxChannel = DeleteAPNSVoipSandboxChannel'
-  { _davscApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPNSVoipSandboxChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'davscApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deleteAPNSVoipSandboxChannel ::
-  -- | 'davscApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkDeleteAPNSVoipSandboxChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteAPNSVoipSandboxChannel
-deleteAPNSVoipSandboxChannel pApplicationId_ =
-  DeleteAPNSVoipSandboxChannel'
-    { _davscApplicationId =
-        pApplicationId_
-    }
+mkDeleteAPNSVoipSandboxChannel pApplicationId_ =
+  DeleteAPNSVoipSandboxChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-davscApplicationId :: Lens' DeleteAPNSVoipSandboxChannel Text
-davscApplicationId = lens _davscApplicationId (\s a -> s {_davscApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davscApplicationId :: Lens.Lens' DeleteAPNSVoipSandboxChannel Lude.Text
+davscApplicationId = Lens.lens (applicationId :: DeleteAPNSVoipSandboxChannel -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteAPNSVoipSandboxChannel)
+{-# DEPRECATED davscApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteAPNSVoipSandboxChannel where
+instance Lude.AWSRequest DeleteAPNSVoipSandboxChannel where
   type
     Rs DeleteAPNSVoipSandboxChannel =
       DeleteAPNSVoipSandboxChannelResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteAPNSVoipSandboxChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteAPNSVoipSandboxChannel
-
-instance NFData DeleteAPNSVoipSandboxChannel
-
-instance ToHeaders DeleteAPNSVoipSandboxChannel where
+instance Lude.ToHeaders DeleteAPNSVoipSandboxChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteAPNSVoipSandboxChannel where
+instance Lude.ToPath DeleteAPNSVoipSandboxChannel where
   toPath DeleteAPNSVoipSandboxChannel' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _davscApplicationId,
+        Lude.toBS applicationId,
         "/channels/apns_voip_sandbox"
       ]
 
-instance ToQuery DeleteAPNSVoipSandboxChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAPNSVoipSandboxChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAPNSVoipSandboxChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteAPNSVoipSandboxChannelResponse' smart constructor.
 data DeleteAPNSVoipSandboxChannelResponse = DeleteAPNSVoipSandboxChannelResponse'
-  { _davscrsResponseStatus ::
-      !Int,
-    _davscrsAPNSVoipSandboxChannelResponse ::
-      !APNSVoipSandboxChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    apnsVoipSandboxChannelResponse ::
+      APNSVoipSandboxChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPNSVoipSandboxChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'davscrsResponseStatus' - -- | The response status code.
---
--- * 'davscrsAPNSVoipSandboxChannelResponse' - Undocumented member.
-deleteAPNSVoipSandboxChannelResponse ::
-  -- | 'davscrsResponseStatus'
-  Int ->
-  -- | 'davscrsAPNSVoipSandboxChannelResponse'
+-- * 'apnsVoipSandboxChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteAPNSVoipSandboxChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'apnsVoipSandboxChannelResponse'
   APNSVoipSandboxChannelResponse ->
   DeleteAPNSVoipSandboxChannelResponse
-deleteAPNSVoipSandboxChannelResponse
+mkDeleteAPNSVoipSandboxChannelResponse
   pResponseStatus_
   pAPNSVoipSandboxChannelResponse_ =
     DeleteAPNSVoipSandboxChannelResponse'
-      { _davscrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _davscrsAPNSVoipSandboxChannelResponse =
+        apnsVoipSandboxChannelResponse =
           pAPNSVoipSandboxChannelResponse_
       }
 
--- | -- | The response status code.
-davscrsResponseStatus :: Lens' DeleteAPNSVoipSandboxChannelResponse Int
-davscrsResponseStatus = lens _davscrsResponseStatus (\s a -> s {_davscrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davscrsResponseStatus :: Lens.Lens' DeleteAPNSVoipSandboxChannelResponse Lude.Int
+davscrsResponseStatus = Lens.lens (responseStatus :: DeleteAPNSVoipSandboxChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAPNSVoipSandboxChannelResponse)
+{-# DEPRECATED davscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-davscrsAPNSVoipSandboxChannelResponse :: Lens' DeleteAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
-davscrsAPNSVoipSandboxChannelResponse = lens _davscrsAPNSVoipSandboxChannelResponse (\s a -> s {_davscrsAPNSVoipSandboxChannelResponse = a})
-
-instance NFData DeleteAPNSVoipSandboxChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apnsVoipSandboxChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davscrsAPNSVoipSandboxChannelResponse :: Lens.Lens' DeleteAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
+davscrsAPNSVoipSandboxChannelResponse = Lens.lens (apnsVoipSandboxChannelResponse :: DeleteAPNSVoipSandboxChannelResponse -> APNSVoipSandboxChannelResponse) (\s a -> s {apnsVoipSandboxChannelResponse = a} :: DeleteAPNSVoipSandboxChannelResponse)
+{-# DEPRECATED davscrsAPNSVoipSandboxChannelResponse "Use generic-lens or generic-optics with 'apnsVoipSandboxChannelResponse' instead." #-}

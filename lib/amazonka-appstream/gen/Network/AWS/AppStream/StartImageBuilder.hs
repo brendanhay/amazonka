@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,148 @@
 --
 -- Starts the specified image builder.
 module Network.AWS.AppStream.StartImageBuilder
-  ( -- * Creating a Request
-    startImageBuilder,
-    StartImageBuilder,
+  ( -- * Creating a request
+    StartImageBuilder (..),
+    mkStartImageBuilder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sibAppstreamAgentVersion,
     sibName,
 
-    -- * Destructuring the Response
-    startImageBuilderResponse,
-    StartImageBuilderResponse,
+    -- * Destructuring the response
+    StartImageBuilderResponse (..),
+    mkStartImageBuilderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsImageBuilder,
     srsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startImageBuilder' smart constructor.
+-- | /See:/ 'mkStartImageBuilder' smart constructor.
 data StartImageBuilder = StartImageBuilder'
-  { _sibAppstreamAgentVersion ::
-      !(Maybe Text),
-    _sibName :: !Text
+  { appstreamAgentVersion ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImageBuilder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sibAppstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
---
--- * 'sibName' - The name of the image builder.
-startImageBuilder ::
-  -- | 'sibName'
-  Text ->
+-- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+-- * 'name' - The name of the image builder.
+mkStartImageBuilder ::
+  -- | 'name'
+  Lude.Text ->
   StartImageBuilder
-startImageBuilder pName_ =
+mkStartImageBuilder pName_ =
   StartImageBuilder'
-    { _sibAppstreamAgentVersion = Nothing,
-      _sibName = pName_
+    { appstreamAgentVersion = Lude.Nothing,
+      name = pName_
     }
 
 -- | The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
-sibAppstreamAgentVersion :: Lens' StartImageBuilder (Maybe Text)
-sibAppstreamAgentVersion = lens _sibAppstreamAgentVersion (\s a -> s {_sibAppstreamAgentVersion = a})
+--
+-- /Note:/ Consider using 'appstreamAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibAppstreamAgentVersion :: Lens.Lens' StartImageBuilder (Lude.Maybe Lude.Text)
+sibAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: StartImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {appstreamAgentVersion = a} :: StartImageBuilder)
+{-# DEPRECATED sibAppstreamAgentVersion "Use generic-lens or generic-optics with 'appstreamAgentVersion' instead." #-}
 
 -- | The name of the image builder.
-sibName :: Lens' StartImageBuilder Text
-sibName = lens _sibName (\s a -> s {_sibName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibName :: Lens.Lens' StartImageBuilder Lude.Text
+sibName = Lens.lens (name :: StartImageBuilder -> Lude.Text) (\s a -> s {name = a} :: StartImageBuilder)
+{-# DEPRECATED sibName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest StartImageBuilder where
+instance Lude.AWSRequest StartImageBuilder where
   type Rs StartImageBuilder = StartImageBuilderResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartImageBuilderResponse'
-            <$> (x .?> "ImageBuilder") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImageBuilder") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartImageBuilder
-
-instance NFData StartImageBuilder
-
-instance ToHeaders StartImageBuilder where
+instance Lude.ToHeaders StartImageBuilder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.StartImageBuilder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.StartImageBuilder" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartImageBuilder where
+instance Lude.ToJSON StartImageBuilder where
   toJSON StartImageBuilder' {..} =
-    object
-      ( catMaybes
-          [ ("AppstreamAgentVersion" .=) <$> _sibAppstreamAgentVersion,
-            Just ("Name" .= _sibName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AppstreamAgentVersion" Lude..=) Lude.<$> appstreamAgentVersion,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath StartImageBuilder where
-  toPath = const "/"
+instance Lude.ToPath StartImageBuilder where
+  toPath = Lude.const "/"
 
-instance ToQuery StartImageBuilder where
-  toQuery = const mempty
+instance Lude.ToQuery StartImageBuilder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startImageBuilderResponse' smart constructor.
+-- | /See:/ 'mkStartImageBuilderResponse' smart constructor.
 data StartImageBuilderResponse = StartImageBuilderResponse'
-  { _srsImageBuilder ::
-      !(Maybe ImageBuilder),
-    _srsResponseStatus :: !Int
+  { imageBuilder ::
+      Lude.Maybe ImageBuilder,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImageBuilderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsImageBuilder' - Information about the image builder.
---
--- * 'srsResponseStatus' - -- | The response status code.
-startImageBuilderResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'imageBuilder' - Information about the image builder.
+-- * 'responseStatus' - The response status code.
+mkStartImageBuilderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartImageBuilderResponse
-startImageBuilderResponse pResponseStatus_ =
+mkStartImageBuilderResponse pResponseStatus_ =
   StartImageBuilderResponse'
-    { _srsImageBuilder = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { imageBuilder = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the image builder.
-srsImageBuilder :: Lens' StartImageBuilderResponse (Maybe ImageBuilder)
-srsImageBuilder = lens _srsImageBuilder (\s a -> s {_srsImageBuilder = a})
+--
+-- /Note:/ Consider using 'imageBuilder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsImageBuilder :: Lens.Lens' StartImageBuilderResponse (Lude.Maybe ImageBuilder)
+srsImageBuilder = Lens.lens (imageBuilder :: StartImageBuilderResponse -> Lude.Maybe ImageBuilder) (\s a -> s {imageBuilder = a} :: StartImageBuilderResponse)
+{-# DEPRECATED srsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartImageBuilderResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StartImageBuilderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StartImageBuilderResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartImageBuilderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartImageBuilderResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

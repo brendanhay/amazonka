@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.DistributionConfigWithTags where
+module Network.AWS.CloudFront.Types.DistributionConfigWithTags
+  ( DistributionConfigWithTags (..),
+
+    -- * Smart constructor
+    mkDistributionConfigWithTags,
+
+    -- * Lenses
+    dcwtDistributionConfig,
+    dcwtTags,
+  )
+where
 
 import Network.AWS.CloudFront.Types.DistributionConfig
 import Network.AWS.CloudFront.Types.Tags
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A distribution Configuration and a list of tags to be associated with the distribution.
 --
---
---
--- /See:/ 'distributionConfigWithTags' smart constructor.
+-- /See:/ 'mkDistributionConfigWithTags' smart constructor.
 data DistributionConfigWithTags = DistributionConfigWithTags'
-  { _dcwtDistributionConfig ::
-      !DistributionConfig,
-    _dcwtTags :: !Tags
+  { distributionConfig ::
+      DistributionConfig,
+    tags :: Tags
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DistributionConfigWithTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcwtDistributionConfig' - A distribution configuration.
---
--- * 'dcwtTags' - A complex type that contains zero or more @Tag@ elements.
-distributionConfigWithTags ::
-  -- | 'dcwtDistributionConfig'
+-- * 'distributionConfig' - A distribution configuration.
+-- * 'tags' - A complex type that contains zero or more @Tag@ elements.
+mkDistributionConfigWithTags ::
+  -- | 'distributionConfig'
   DistributionConfig ->
-  -- | 'dcwtTags'
+  -- | 'tags'
   Tags ->
   DistributionConfigWithTags
-distributionConfigWithTags pDistributionConfig_ pTags_ =
+mkDistributionConfigWithTags pDistributionConfig_ pTags_ =
   DistributionConfigWithTags'
-    { _dcwtDistributionConfig =
+    { distributionConfig =
         pDistributionConfig_,
-      _dcwtTags = pTags_
+      tags = pTags_
     }
 
 -- | A distribution configuration.
-dcwtDistributionConfig :: Lens' DistributionConfigWithTags DistributionConfig
-dcwtDistributionConfig = lens _dcwtDistributionConfig (\s a -> s {_dcwtDistributionConfig = a})
+--
+-- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcwtDistributionConfig :: Lens.Lens' DistributionConfigWithTags DistributionConfig
+dcwtDistributionConfig = Lens.lens (distributionConfig :: DistributionConfigWithTags -> DistributionConfig) (\s a -> s {distributionConfig = a} :: DistributionConfigWithTags)
+{-# DEPRECATED dcwtDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
 
 -- | A complex type that contains zero or more @Tag@ elements.
-dcwtTags :: Lens' DistributionConfigWithTags Tags
-dcwtTags = lens _dcwtTags (\s a -> s {_dcwtTags = a})
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcwtTags :: Lens.Lens' DistributionConfigWithTags Tags
+dcwtTags = Lens.lens (tags :: DistributionConfigWithTags -> Tags) (\s a -> s {tags = a} :: DistributionConfigWithTags)
+{-# DEPRECATED dcwtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Hashable DistributionConfigWithTags
-
-instance NFData DistributionConfigWithTags
-
-instance ToXML DistributionConfigWithTags where
+instance Lude.ToXML DistributionConfigWithTags where
   toXML DistributionConfigWithTags' {..} =
-    mconcat
-      [ "DistributionConfig" @= _dcwtDistributionConfig,
-        "Tags" @= _dcwtTags
+    Lude.mconcat
+      [ "DistributionConfig" Lude.@= distributionConfig,
+        "Tags" Lude.@= tags
       ]

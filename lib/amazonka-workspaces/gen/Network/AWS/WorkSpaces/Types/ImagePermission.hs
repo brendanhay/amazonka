@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ImagePermission where
+module Network.AWS.WorkSpaces.Types.ImagePermission
+  ( ImagePermission (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImagePermission,
+
+    -- * Lenses
+    ipSharedAccountId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the AWS accounts that have been granted permission to use a shared image. For more information about sharing images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html Share or Unshare a Custom WorkSpaces Image> .
 --
---
---
--- /See:/ 'imagePermission' smart constructor.
+-- /See:/ 'mkImagePermission' smart constructor.
 newtype ImagePermission = ImagePermission'
-  { _ipSharedAccountId ::
-      Maybe Text
+  { sharedAccountId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImagePermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipSharedAccountId' - The identifier of the AWS account that an image has been shared with.
-imagePermission ::
+-- * 'sharedAccountId' - The identifier of the AWS account that an image has been shared with.
+mkImagePermission ::
   ImagePermission
-imagePermission = ImagePermission' {_ipSharedAccountId = Nothing}
+mkImagePermission =
+  ImagePermission' {sharedAccountId = Lude.Nothing}
 
 -- | The identifier of the AWS account that an image has been shared with.
-ipSharedAccountId :: Lens' ImagePermission (Maybe Text)
-ipSharedAccountId = lens _ipSharedAccountId (\s a -> s {_ipSharedAccountId = a})
+--
+-- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipSharedAccountId :: Lens.Lens' ImagePermission (Lude.Maybe Lude.Text)
+ipSharedAccountId = Lens.lens (sharedAccountId :: ImagePermission -> Lude.Maybe Lude.Text) (\s a -> s {sharedAccountId = a} :: ImagePermission)
+{-# DEPRECATED ipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
 
-instance FromJSON ImagePermission where
+instance Lude.FromJSON ImagePermission where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImagePermission"
-      (\x -> ImagePermission' <$> (x .:? "SharedAccountId"))
-
-instance Hashable ImagePermission
-
-instance NFData ImagePermission
+      (\x -> ImagePermission' Lude.<$> (x Lude..:? "SharedAccountId"))

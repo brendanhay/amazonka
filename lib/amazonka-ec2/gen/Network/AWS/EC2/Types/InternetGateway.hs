@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InternetGateway where
+module Network.AWS.EC2.Types.InternetGateway
+  ( InternetGateway (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInternetGateway,
+
+    -- * Lenses
+    igAttachments,
+    igOwnerId,
+    igTags,
+    igInternetGatewayId,
+  )
+where
+
 import Network.AWS.EC2.Types.InternetGatewayAttachment
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an internet gateway.
 --
---
---
--- /See:/ 'internetGateway' smart constructor.
+-- /See:/ 'mkInternetGateway' smart constructor.
 data InternetGateway = InternetGateway'
-  { _igAttachments ::
-      !(Maybe [InternetGatewayAttachment]),
-    _igOwnerId :: !(Maybe Text),
-    _igTags :: !(Maybe [Tag]),
-    _igInternetGatewayId :: !Text
+  { attachments ::
+      Lude.Maybe [InternetGatewayAttachment],
+    ownerId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    internetGatewayId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InternetGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'igAttachments' - Any VPCs attached to the internet gateway.
---
--- * 'igOwnerId' - The ID of the AWS account that owns the internet gateway.
---
--- * 'igTags' - Any tags assigned to the internet gateway.
---
--- * 'igInternetGatewayId' - The ID of the internet gateway.
-internetGateway ::
-  -- | 'igInternetGatewayId'
-  Text ->
+-- * 'attachments' - Any VPCs attached to the internet gateway.
+-- * 'internetGatewayId' - The ID of the internet gateway.
+-- * 'ownerId' - The ID of the AWS account that owns the internet gateway.
+-- * 'tags' - Any tags assigned to the internet gateway.
+mkInternetGateway ::
+  -- | 'internetGatewayId'
+  Lude.Text ->
   InternetGateway
-internetGateway pInternetGatewayId_ =
+mkInternetGateway pInternetGatewayId_ =
   InternetGateway'
-    { _igAttachments = Nothing,
-      _igOwnerId = Nothing,
-      _igTags = Nothing,
-      _igInternetGatewayId = pInternetGatewayId_
+    { attachments = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      tags = Lude.Nothing,
+      internetGatewayId = pInternetGatewayId_
     }
 
 -- | Any VPCs attached to the internet gateway.
-igAttachments :: Lens' InternetGateway [InternetGatewayAttachment]
-igAttachments = lens _igAttachments (\s a -> s {_igAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igAttachments :: Lens.Lens' InternetGateway (Lude.Maybe [InternetGatewayAttachment])
+igAttachments = Lens.lens (attachments :: InternetGateway -> Lude.Maybe [InternetGatewayAttachment]) (\s a -> s {attachments = a} :: InternetGateway)
+{-# DEPRECATED igAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
 
 -- | The ID of the AWS account that owns the internet gateway.
-igOwnerId :: Lens' InternetGateway (Maybe Text)
-igOwnerId = lens _igOwnerId (\s a -> s {_igOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igOwnerId :: Lens.Lens' InternetGateway (Lude.Maybe Lude.Text)
+igOwnerId = Lens.lens (ownerId :: InternetGateway -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: InternetGateway)
+{-# DEPRECATED igOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | Any tags assigned to the internet gateway.
-igTags :: Lens' InternetGateway [Tag]
-igTags = lens _igTags (\s a -> s {_igTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igTags :: Lens.Lens' InternetGateway (Lude.Maybe [Tag])
+igTags = Lens.lens (tags :: InternetGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: InternetGateway)
+{-# DEPRECATED igTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the internet gateway.
-igInternetGatewayId :: Lens' InternetGateway Text
-igInternetGatewayId = lens _igInternetGatewayId (\s a -> s {_igInternetGatewayId = a})
+--
+-- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igInternetGatewayId :: Lens.Lens' InternetGateway Lude.Text
+igInternetGatewayId = Lens.lens (internetGatewayId :: InternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: InternetGateway)
+{-# DEPRECATED igInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
 
-instance FromXML InternetGateway where
+instance Lude.FromXML InternetGateway where
   parseXML x =
     InternetGateway'
-      <$> (x .@? "attachmentSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "ownerId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@ "internetGatewayId")
-
-instance Hashable InternetGateway
-
-instance NFData InternetGateway
+      Lude.<$> ( x Lude..@? "attachmentSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@ "internetGatewayId")

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types
-  ( -- * Service Configuration
-    workDocs,
+  ( -- * Service configuration
+    workDocsService,
 
     -- * Errors
 
@@ -94,8 +92,8 @@ module Network.AWS.WorkDocs.Types
     UserType (..),
 
     -- * Activity
-    Activity,
-    activity,
+    Activity (..),
+    mkActivity,
     aResourceMetadata,
     aIsIndirectActivity,
     aInitiator,
@@ -107,8 +105,8 @@ module Network.AWS.WorkDocs.Types
     aOrganizationId,
 
     -- * Comment
-    Comment,
-    comment,
+    Comment (..),
+    mkComment,
     cStatus,
     cText,
     cVisibility,
@@ -120,8 +118,8 @@ module Network.AWS.WorkDocs.Types
     cCommentId,
 
     -- * CommentMetadata
-    CommentMetadata,
-    commentMetadata,
+    CommentMetadata (..),
+    mkCommentMetadata,
     cmCommentStatus,
     cmContributor,
     cmCommentId,
@@ -129,8 +127,8 @@ module Network.AWS.WorkDocs.Types
     cmRecipientId,
 
     -- * DocumentMetadata
-    DocumentMetadata,
-    documentMetadata,
+    DocumentMetadata (..),
+    mkDocumentMetadata,
     dmLatestVersionMetadata,
     dmParentFolderId,
     dmModifiedTimestamp,
@@ -141,8 +139,8 @@ module Network.AWS.WorkDocs.Types
     dmCreatorId,
 
     -- * DocumentVersionMetadata
-    DocumentVersionMetadata,
-    documentVersionMetadata,
+    DocumentVersionMetadata (..),
+    mkDocumentVersionMetadata,
     dvmThumbnail,
     dvmStatus,
     dvmSignature,
@@ -158,8 +156,8 @@ module Network.AWS.WorkDocs.Types
     dvmContentType,
 
     -- * FolderMetadata
-    FolderMetadata,
-    folderMetadata,
+    FolderMetadata (..),
+    mkFolderMetadata,
     fmSignature,
     fmParentFolderId,
     fmSize,
@@ -173,39 +171,39 @@ module Network.AWS.WorkDocs.Types
     fmCreatorId,
 
     -- * GroupMetadata
-    GroupMetadata,
-    groupMetadata,
+    GroupMetadata (..),
+    mkGroupMetadata,
     gmName,
     gmId,
 
     -- * NotificationOptions
-    NotificationOptions,
-    notificationOptions,
+    NotificationOptions (..),
+    mkNotificationOptions,
     noEmailMessage,
     noSendEmail,
 
     -- * Participants
-    Participants,
-    participants,
+    Participants (..),
+    mkParticipants,
     pGroups,
     pUsers,
 
     -- * PermissionInfo
-    PermissionInfo,
-    permissionInfo,
+    PermissionInfo (..),
+    mkPermissionInfo,
     piRole,
     piType,
 
     -- * Principal
-    Principal,
-    principal,
+    Principal (..),
+    mkPrincipal,
     pRoles,
     pId,
     pType,
 
     -- * ResourceMetadata
-    ResourceMetadata,
-    resourceMetadata,
+    ResourceMetadata (..),
+    mkResourceMetadata,
     rmVersionId,
     rmOwner,
     rmName,
@@ -215,26 +213,26 @@ module Network.AWS.WorkDocs.Types
     rmParentId,
 
     -- * ResourcePath
-    ResourcePath,
-    resourcePath,
+    ResourcePath (..),
+    mkResourcePath,
     rpComponents,
 
     -- * ResourcePathComponent
-    ResourcePathComponent,
-    resourcePathComponent,
+    ResourcePathComponent (..),
+    mkResourcePathComponent,
     rpcName,
     rpcId,
 
     -- * SharePrincipal
-    SharePrincipal,
-    sharePrincipal,
+    SharePrincipal (..),
+    mkSharePrincipal,
     spId,
     spType,
     spRole,
 
     -- * ShareResult
-    ShareResult,
-    shareResult,
+    ShareResult (..),
+    mkShareResult,
     srStatus,
     srPrincipalId,
     srInviteePrincipalId,
@@ -243,27 +241,27 @@ module Network.AWS.WorkDocs.Types
     srShareId,
 
     -- * StorageRuleType
-    StorageRuleType,
-    storageRuleType,
+    StorageRuleType (..),
+    mkStorageRuleType,
     srtStorageAllocatedInBytes,
     srtStorageType,
 
     -- * Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sProtocol,
     sEndPoint,
     sSubscriptionId,
 
     -- * UploadMetadata
-    UploadMetadata,
-    uploadMetadata,
+    UploadMetadata (..),
+    mkUploadMetadata,
     umUploadURL,
     umSignedHeaders,
 
     -- * User
-    User,
-    user,
+    User (..),
+    mkUser,
     uGivenName,
     uStatus,
     uLocale,
@@ -281,8 +279,8 @@ module Network.AWS.WorkDocs.Types
     uRecycleBinFolderId,
 
     -- * UserMetadata
-    UserMetadata,
-    userMetadata,
+    UserMetadata (..),
+    mkUserMetadata,
     umGivenName,
     umUsername,
     umEmailAddress,
@@ -290,16 +288,16 @@ module Network.AWS.WorkDocs.Types
     umSurname,
 
     -- * UserStorageMetadata
-    UserStorageMetadata,
-    userStorageMetadata,
+    UserStorageMetadata (..),
+    mkUserStorageMetadata,
     usmStorageUtilizedInBytes,
     usmStorageRule,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.WorkDocs.Types.Activity
 import Network.AWS.WorkDocs.Types.ActivityType
 import Network.AWS.WorkDocs.Types.BooleanEnumType
@@ -350,43 +348,55 @@ import Network.AWS.WorkDocs.Types.UserStorageMetadata
 import Network.AWS.WorkDocs.Types.UserType
 
 -- | API version @2016-05-01@ of the Amazon WorkDocs SDK configuration.
-workDocs :: Service
-workDocs =
-  Service
-    { _svcAbbrev = "WorkDocs",
-      _svcSigner = v4,
-      _svcPrefix = "workdocs",
-      _svcVersion = "2016-05-01",
-      _svcEndpoint = defaultEndpoint workDocs,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "WorkDocs",
-      _svcRetry = retry
+workDocsService :: Lude.Service
+workDocsService =
+  Lude.Service
+    { Lude._svcAbbrev = "WorkDocs",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "workdocs",
+      Lude._svcVersion = "2016-05-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint workDocsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "WorkDocs",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

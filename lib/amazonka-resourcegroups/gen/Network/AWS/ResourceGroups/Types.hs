@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types
-  ( -- * Service Configuration
-    resourceGroups,
+  ( -- * Service configuration
+    resourceGroupsService,
 
     -- * Errors
 
@@ -31,85 +29,85 @@ module Network.AWS.ResourceGroups.Types
     ResourceFilterName (..),
 
     -- * FailedResource
-    FailedResource,
-    failedResource,
+    FailedResource (..),
+    mkFailedResource,
     frResourceARN,
     frErrorCode,
     frErrorMessage,
 
     -- * Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gDescription,
     gGroupARN,
     gName,
 
     -- * GroupConfiguration
-    GroupConfiguration,
-    groupConfiguration,
+    GroupConfiguration (..),
+    mkGroupConfiguration,
     gcStatus,
     gcFailureReason,
     gcProposedConfiguration,
     gcConfiguration,
 
     -- * GroupConfigurationItem
-    GroupConfigurationItem,
-    groupConfigurationItem,
+    GroupConfigurationItem (..),
+    mkGroupConfigurationItem,
     gciParameters,
     gciType,
 
     -- * GroupConfigurationParameter
-    GroupConfigurationParameter,
-    groupConfigurationParameter,
+    GroupConfigurationParameter (..),
+    mkGroupConfigurationParameter,
     gcpValues,
     gcpName,
 
     -- * GroupFilter
-    GroupFilter,
-    groupFilter,
+    GroupFilter (..),
+    mkGroupFilter,
     gfName,
     gfValues,
 
     -- * GroupIdentifier
-    GroupIdentifier,
-    groupIdentifier,
+    GroupIdentifier (..),
+    mkGroupIdentifier,
     giGroupARN,
     giGroupName,
 
     -- * GroupQuery
-    GroupQuery,
-    groupQuery,
+    GroupQuery (..),
+    mkGroupQuery,
     gqGroupName,
     gqResourceQuery,
 
     -- * QueryError
-    QueryError,
-    queryError,
+    QueryError (..),
+    mkQueryError,
     qeErrorCode,
     qeMessage,
 
     -- * ResourceFilter
-    ResourceFilter,
-    resourceFilter,
+    ResourceFilter (..),
+    mkResourceFilter,
     rfName,
     rfValues,
 
     -- * ResourceIdentifier
-    ResourceIdentifier,
-    resourceIdentifier,
+    ResourceIdentifier (..),
+    mkResourceIdentifier,
     riResourceType,
     riResourceARN,
 
     -- * ResourceQuery
-    ResourceQuery,
-    resourceQuery,
+    ResourceQuery (..),
+    mkResourceQuery,
     rqType,
     rqSearchQuery,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ResourceGroups.Types.FailedResource
 import Network.AWS.ResourceGroups.Types.Group
 import Network.AWS.ResourceGroups.Types.GroupConfiguration
@@ -127,46 +125,58 @@ import Network.AWS.ResourceGroups.Types.ResourceFilter
 import Network.AWS.ResourceGroups.Types.ResourceFilterName
 import Network.AWS.ResourceGroups.Types.ResourceIdentifier
 import Network.AWS.ResourceGroups.Types.ResourceQuery
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon Resource Groups SDK configuration.
-resourceGroups :: Service
-resourceGroups =
-  Service
-    { _svcAbbrev = "ResourceGroups",
-      _svcSigner = v4,
-      _svcPrefix = "resource-groups",
-      _svcVersion = "2017-11-27",
-      _svcEndpoint = defaultEndpoint resourceGroups,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "ResourceGroups",
-      _svcRetry = retry
+resourceGroupsService :: Lude.Service
+resourceGroupsService =
+  Lude.Service
+    { Lude._svcAbbrev = "ResourceGroups",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "resource-groups",
+      Lude._svcVersion = "2017-11-27",
+      Lude._svcEndpoint = Lude.defaultEndpoint resourceGroupsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "ResourceGroups",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

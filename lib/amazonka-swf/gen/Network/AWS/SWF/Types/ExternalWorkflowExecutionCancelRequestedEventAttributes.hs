@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes where
+module Network.AWS.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes
+  ( ExternalWorkflowExecutionCancelRequestedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExternalWorkflowExecutionCancelRequestedEventAttributes,
+
+    -- * Lenses
+    ewecreaWorkflowExecution,
+    ewecreaInitiatedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.WorkflowExecution
 
 -- | Provides the details of the @ExternalWorkflowExecutionCancelRequested@ event.
 --
---
---
--- /See:/ 'externalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
+-- /See:/ 'mkExternalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
 data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowExecutionCancelRequestedEventAttributes'
-  { _ewecreaWorkflowExecution ::
-      !WorkflowExecution,
-    _ewecreaInitiatedEventId ::
-      !Integer
+  { workflowExecution ::
+      WorkflowExecution,
+    initiatedEventId ::
+      Lude.Integer
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ExternalWorkflowExecutionCancelRequestedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ewecreaWorkflowExecution' - The external workflow execution to which the cancellation request was delivered.
---
--- * 'ewecreaInitiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-externalWorkflowExecutionCancelRequestedEventAttributes ::
-  -- | 'ewecreaWorkflowExecution'
+-- * 'initiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'workflowExecution' - The external workflow execution to which the cancellation request was delivered.
+mkExternalWorkflowExecutionCancelRequestedEventAttributes ::
+  -- | 'workflowExecution'
   WorkflowExecution ->
-  -- | 'ewecreaInitiatedEventId'
-  Integer ->
+  -- | 'initiatedEventId'
+  Lude.Integer ->
   ExternalWorkflowExecutionCancelRequestedEventAttributes
-externalWorkflowExecutionCancelRequestedEventAttributes
+mkExternalWorkflowExecutionCancelRequestedEventAttributes
   pWorkflowExecution_
   pInitiatedEventId_ =
     ExternalWorkflowExecutionCancelRequestedEventAttributes'
-      { _ewecreaWorkflowExecution =
+      { workflowExecution =
           pWorkflowExecution_,
-        _ewecreaInitiatedEventId =
-          pInitiatedEventId_
+        initiatedEventId = pInitiatedEventId_
       }
 
 -- | The external workflow execution to which the cancellation request was delivered.
-ewecreaWorkflowExecution :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes WorkflowExecution
-ewecreaWorkflowExecution = lens _ewecreaWorkflowExecution (\s a -> s {_ewecreaWorkflowExecution = a})
+--
+-- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ewecreaWorkflowExecution :: Lens.Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes WorkflowExecution
+ewecreaWorkflowExecution = Lens.lens (workflowExecution :: ExternalWorkflowExecutionCancelRequestedEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ExternalWorkflowExecutionCancelRequestedEventAttributes)
+{-# DEPRECATED ewecreaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 -- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-ewecreaInitiatedEventId :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes Integer
-ewecreaInitiatedEventId = lens _ewecreaInitiatedEventId (\s a -> s {_ewecreaInitiatedEventId = a})
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ewecreaInitiatedEventId :: Lens.Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes Lude.Integer
+ewecreaInitiatedEventId = Lens.lens (initiatedEventId :: ExternalWorkflowExecutionCancelRequestedEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ExternalWorkflowExecutionCancelRequestedEventAttributes)
+{-# DEPRECATED ewecreaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
 
 instance
-  FromJSON
+  Lude.FromJSON
     ExternalWorkflowExecutionCancelRequestedEventAttributes
   where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExternalWorkflowExecutionCancelRequestedEventAttributes"
       ( \x ->
           ExternalWorkflowExecutionCancelRequestedEventAttributes'
-            <$> (x .: "workflowExecution") <*> (x .: "initiatedEventId")
+            Lude.<$> (x Lude..: "workflowExecution")
+            Lude.<*> (x Lude..: "initiatedEventId")
       )
-
-instance
-  Hashable
-    ExternalWorkflowExecutionCancelRequestedEventAttributes
-
-instance
-  NFData
-    ExternalWorkflowExecutionCancelRequestedEventAttributes

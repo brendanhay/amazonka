@@ -15,8 +15,8 @@
 --
 -- This is the /AWS Shield Advanced API Reference/ . This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF and AWS Shield Developer Guide> .
 module Network.AWS.Shield
-  ( -- * Service Configuration
-    shield,
+  ( -- * Service configuration
+    shieldService,
 
     -- * Errors
     -- $errors
@@ -147,8 +147,8 @@ module Network.AWS.Shield
     Unit (..),
 
     -- ** AttackDetail
-    AttackDetail,
-    attackDetail,
+    AttackDetail (..),
+    mkAttackDetail,
     adAttackId,
     adStartTime,
     adSubResources,
@@ -159,8 +159,8 @@ module Network.AWS.Shield
     adEndTime,
 
     -- ** AttackProperty
-    AttackProperty,
-    attackProperty,
+    AttackProperty (..),
+    mkAttackProperty,
     apAttackLayer,
     apTopContributors,
     apAttackPropertyIdentifier,
@@ -168,14 +168,14 @@ module Network.AWS.Shield
     apUnit,
 
     -- ** AttackStatisticsDataItem
-    AttackStatisticsDataItem,
-    attackStatisticsDataItem,
+    AttackStatisticsDataItem (..),
+    mkAttackStatisticsDataItem,
     asdiAttackVolume,
     asdiAttackCount,
 
     -- ** AttackSummary
-    AttackSummary,
-    attackSummary,
+    AttackSummary (..),
+    mkAttackSummary,
     asAttackVectors,
     asAttackId,
     asStartTime,
@@ -183,57 +183,57 @@ module Network.AWS.Shield
     asEndTime,
 
     -- ** AttackVectorDescription
-    AttackVectorDescription,
-    attackVectorDescription,
+    AttackVectorDescription (..),
+    mkAttackVectorDescription,
     avdVectorType,
 
     -- ** AttackVolume
-    AttackVolume,
-    attackVolume,
+    AttackVolume (..),
+    mkAttackVolume,
     avPacketsPerSecond,
     avRequestsPerSecond,
     avBitsPerSecond,
 
     -- ** AttackVolumeStatistics
-    AttackVolumeStatistics,
-    attackVolumeStatistics,
+    AttackVolumeStatistics (..),
+    mkAttackVolumeStatistics,
     avsMax,
 
     -- ** Contributor
-    Contributor,
-    contributor,
+    Contributor (..),
+    mkContributor,
     cValue,
     cName,
 
     -- ** EmergencyContact
-    EmergencyContact,
-    emergencyContact,
+    EmergencyContact (..),
+    mkEmergencyContact,
     ecPhoneNumber,
     ecContactNotes,
     ecEmailAddress,
 
     -- ** Limit
-    Limit,
-    limit,
+    Limit (..),
+    mkLimit,
     lMax,
     lType,
 
     -- ** Mitigation
-    Mitigation,
-    mitigation,
+    Mitigation (..),
+    mkMitigation,
     mMitigationName,
 
     -- ** Protection
-    Protection,
-    protection,
+    Protection (..),
+    mkProtection,
     pHealthCheckIds,
     pResourceARN,
     pName,
     pId,
 
     -- ** ProtectionGroup
-    ProtectionGroup,
-    protectionGroup,
+    ProtectionGroup (..),
+    mkProtectionGroup,
     pgResourceType,
     pgProtectionGroupId,
     pgAggregation,
@@ -241,37 +241,37 @@ module Network.AWS.Shield
     pgMembers,
 
     -- ** ProtectionGroupArbitraryPatternLimits
-    ProtectionGroupArbitraryPatternLimits,
-    protectionGroupArbitraryPatternLimits,
+    ProtectionGroupArbitraryPatternLimits (..),
+    mkProtectionGroupArbitraryPatternLimits,
     pgaplMaxMembers,
 
     -- ** ProtectionGroupLimits
-    ProtectionGroupLimits,
-    protectionGroupLimits,
+    ProtectionGroupLimits (..),
+    mkProtectionGroupLimits,
     pglMaxProtectionGroups,
     pglPatternTypeLimits,
 
     -- ** ProtectionGroupPatternTypeLimits
-    ProtectionGroupPatternTypeLimits,
-    protectionGroupPatternTypeLimits,
+    ProtectionGroupPatternTypeLimits (..),
+    mkProtectionGroupPatternTypeLimits,
     pgptlArbitraryPatternLimits,
 
     -- ** ProtectionLimits
-    ProtectionLimits,
-    protectionLimits,
+    ProtectionLimits (..),
+    mkProtectionLimits,
     plProtectedResourceTypeLimits,
 
     -- ** SubResourceSummary
-    SubResourceSummary,
-    subResourceSummary,
+    SubResourceSummary (..),
+    mkSubResourceSummary,
     srsCounters,
     srsAttackVectors,
     srsId,
     srsType,
 
     -- ** Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sTimeCommitmentInSeconds,
     sStartTime,
     sLimits,
@@ -281,20 +281,20 @@ module Network.AWS.Shield
     sSubscriptionLimits,
 
     -- ** SubscriptionLimits
-    SubscriptionLimits,
-    subscriptionLimits,
+    SubscriptionLimits (..),
+    mkSubscriptionLimits,
     slProtectionLimits,
     slProtectionGroupLimits,
 
     -- ** SummarizedAttackVector
-    SummarizedAttackVector,
-    summarizedAttackVector,
+    SummarizedAttackVector (..),
+    mkSummarizedAttackVector,
     savVectorCounters,
     savVectorType,
 
     -- ** SummarizedCounter
-    SummarizedCounter,
-    summarizedCounter,
+    SummarizedCounter (..),
+    mkSummarizedCounter,
     scMax,
     scAverage,
     scN,
@@ -303,13 +303,25 @@ module Network.AWS.Shield
     scUnit,
 
     -- ** TimeRange
-    TimeRange,
-    timeRange,
+    TimeRange (..),
+    mkTimeRange,
     trFromInclusive,
     trToExclusive,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.AssociateDRTLogBucket
 import Network.AWS.Shield.AssociateDRTRole
 import Network.AWS.Shield.AssociateHealthCheck

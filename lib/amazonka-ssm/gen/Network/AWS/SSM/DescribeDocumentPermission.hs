@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,170 @@
 --
 -- Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user's AWS account ID) or publicly (/All/ ).
 module Network.AWS.SSM.DescribeDocumentPermission
-  ( -- * Creating a Request
-    describeDocumentPermission,
-    DescribeDocumentPermission,
+  ( -- * Creating a request
+    DescribeDocumentPermission (..),
+    mkDescribeDocumentPermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddpName,
     ddpPermissionType,
 
-    -- * Destructuring the Response
-    describeDocumentPermissionResponse,
-    DescribeDocumentPermissionResponse,
+    -- * Destructuring the response
+    DescribeDocumentPermissionResponse (..),
+    mkDescribeDocumentPermissionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddprsAccountIds,
     ddprsAccountSharingInfoList,
     ddprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeDocumentPermission' smart constructor.
+-- | /See:/ 'mkDescribeDocumentPermission' smart constructor.
 data DescribeDocumentPermission = DescribeDocumentPermission'
-  { _ddpName ::
-      !Text,
-    _ddpPermissionType ::
-      !DocumentPermissionType
+  { name ::
+      Lude.Text,
+    permissionType ::
+      DocumentPermissionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddpName' - The name of the document for which you are the owner.
---
--- * 'ddpPermissionType' - The permission type for the document. The permission type can be /Share/ .
-describeDocumentPermission ::
-  -- | 'ddpName'
-  Text ->
-  -- | 'ddpPermissionType'
+-- * 'name' - The name of the document for which you are the owner.
+-- * 'permissionType' - The permission type for the document. The permission type can be /Share/ .
+mkDescribeDocumentPermission ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'permissionType'
   DocumentPermissionType ->
   DescribeDocumentPermission
-describeDocumentPermission pName_ pPermissionType_ =
+mkDescribeDocumentPermission pName_ pPermissionType_ =
   DescribeDocumentPermission'
-    { _ddpName = pName_,
-      _ddpPermissionType = pPermissionType_
+    { name = pName_,
+      permissionType = pPermissionType_
     }
 
 -- | The name of the document for which you are the owner.
-ddpName :: Lens' DescribeDocumentPermission Text
-ddpName = lens _ddpName (\s a -> s {_ddpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpName :: Lens.Lens' DescribeDocumentPermission Lude.Text
+ddpName = Lens.lens (name :: DescribeDocumentPermission -> Lude.Text) (\s a -> s {name = a} :: DescribeDocumentPermission)
+{-# DEPRECATED ddpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The permission type for the document. The permission type can be /Share/ .
-ddpPermissionType :: Lens' DescribeDocumentPermission DocumentPermissionType
-ddpPermissionType = lens _ddpPermissionType (\s a -> s {_ddpPermissionType = a})
+--
+-- /Note:/ Consider using 'permissionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpPermissionType :: Lens.Lens' DescribeDocumentPermission DocumentPermissionType
+ddpPermissionType = Lens.lens (permissionType :: DescribeDocumentPermission -> DocumentPermissionType) (\s a -> s {permissionType = a} :: DescribeDocumentPermission)
+{-# DEPRECATED ddpPermissionType "Use generic-lens or generic-optics with 'permissionType' instead." #-}
 
-instance AWSRequest DescribeDocumentPermission where
+instance Lude.AWSRequest DescribeDocumentPermission where
   type
     Rs DescribeDocumentPermission =
       DescribeDocumentPermissionResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDocumentPermissionResponse'
-            <$> (x .?> "AccountIds" .!@ mempty)
-            <*> (x .?> "AccountSharingInfoList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AccountIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "AccountSharingInfoList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDocumentPermission
-
-instance NFData DescribeDocumentPermission
-
-instance ToHeaders DescribeDocumentPermission where
+instance Lude.ToHeaders DescribeDocumentPermission where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DescribeDocumentPermission" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DescribeDocumentPermission" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDocumentPermission where
+instance Lude.ToJSON DescribeDocumentPermission where
   toJSON DescribeDocumentPermission' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _ddpName),
-            Just ("PermissionType" .= _ddpPermissionType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("PermissionType" Lude..= permissionType)
           ]
       )
 
-instance ToPath DescribeDocumentPermission where
-  toPath = const "/"
+instance Lude.ToPath DescribeDocumentPermission where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDocumentPermission where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDocumentPermission where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDocumentPermissionResponse' smart constructor.
+-- | /See:/ 'mkDescribeDocumentPermissionResponse' smart constructor.
 data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
-  { _ddprsAccountIds ::
-      !(Maybe [Text]),
-    _ddprsAccountSharingInfoList ::
-      !( Maybe
-           [AccountSharingInfo]
-       ),
-    _ddprsResponseStatus ::
-      !Int
+  { accountIds ::
+      Lude.Maybe
+        [Lude.Text],
+    accountSharingInfoList ::
+      Lude.Maybe
+        [AccountSharingInfo],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentPermissionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddprsAccountIds' - The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
---
--- * 'ddprsAccountSharingInfoList' - A list of AWS accounts where the current document is shared and the version shared with each account.
---
--- * 'ddprsResponseStatus' - -- | The response status code.
-describeDocumentPermissionResponse ::
-  -- | 'ddprsResponseStatus'
-  Int ->
+-- * 'accountIds' - The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
+-- * 'accountSharingInfoList' - A list of AWS accounts where the current document is shared and the version shared with each account.
+-- * 'responseStatus' - The response status code.
+mkDescribeDocumentPermissionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDocumentPermissionResponse
-describeDocumentPermissionResponse pResponseStatus_ =
+mkDescribeDocumentPermissionResponse pResponseStatus_ =
   DescribeDocumentPermissionResponse'
-    { _ddprsAccountIds = Nothing,
-      _ddprsAccountSharingInfoList = Nothing,
-      _ddprsResponseStatus = pResponseStatus_
+    { accountIds = Lude.Nothing,
+      accountSharingInfoList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
-ddprsAccountIds :: Lens' DescribeDocumentPermissionResponse [Text]
-ddprsAccountIds = lens _ddprsAccountIds (\s a -> s {_ddprsAccountIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsAccountIds :: Lens.Lens' DescribeDocumentPermissionResponse (Lude.Maybe [Lude.Text])
+ddprsAccountIds = Lens.lens (accountIds :: DescribeDocumentPermissionResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {accountIds = a} :: DescribeDocumentPermissionResponse)
+{-# DEPRECATED ddprsAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 -- | A list of AWS accounts where the current document is shared and the version shared with each account.
-ddprsAccountSharingInfoList :: Lens' DescribeDocumentPermissionResponse [AccountSharingInfo]
-ddprsAccountSharingInfoList = lens _ddprsAccountSharingInfoList (\s a -> s {_ddprsAccountSharingInfoList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accountSharingInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsAccountSharingInfoList :: Lens.Lens' DescribeDocumentPermissionResponse (Lude.Maybe [AccountSharingInfo])
+ddprsAccountSharingInfoList = Lens.lens (accountSharingInfoList :: DescribeDocumentPermissionResponse -> Lude.Maybe [AccountSharingInfo]) (\s a -> s {accountSharingInfoList = a} :: DescribeDocumentPermissionResponse)
+{-# DEPRECATED ddprsAccountSharingInfoList "Use generic-lens or generic-optics with 'accountSharingInfoList' instead." #-}
 
--- | -- | The response status code.
-ddprsResponseStatus :: Lens' DescribeDocumentPermissionResponse Int
-ddprsResponseStatus = lens _ddprsResponseStatus (\s a -> s {_ddprsResponseStatus = a})
-
-instance NFData DescribeDocumentPermissionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsResponseStatus :: Lens.Lens' DescribeDocumentPermissionResponse Lude.Int
+ddprsResponseStatus = Lens.lens (responseStatus :: DescribeDocumentPermissionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDocumentPermissionResponse)
+{-# DEPRECATED ddprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

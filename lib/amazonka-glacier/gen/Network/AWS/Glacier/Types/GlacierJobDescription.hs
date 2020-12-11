@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,234 +7,342 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.GlacierJobDescription where
+module Network.AWS.Glacier.Types.GlacierJobDescription
+  ( GlacierJobDescription (..),
+
+    -- * Smart constructor
+    mkGlacierJobDescription,
+
+    -- * Lenses
+    gjdSHA256TreeHash,
+    gjdArchiveId,
+    gjdSelectParameters,
+    gjdJobId,
+    gjdJobOutputPath,
+    gjdRetrievalByteRange,
+    gjdInventoryRetrievalParameters,
+    gjdAction,
+    gjdJobDescription,
+    gjdSNSTopic,
+    gjdStatusMessage,
+    gjdVaultARN,
+    gjdOutputLocation,
+    gjdTier,
+    gjdArchiveSHA256TreeHash,
+    gjdCreationDate,
+    gjdCompleted,
+    gjdCompletionDate,
+    gjdInventorySizeInBytes,
+    gjdArchiveSizeInBytes,
+    gjdStatusCode,
+  )
+where
 
 import Network.AWS.Glacier.Types.ActionCode
 import Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
 import Network.AWS.Glacier.Types.OutputLocation
 import Network.AWS.Glacier.Types.SelectParameters
 import Network.AWS.Glacier.Types.StatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the description of an Amazon S3 Glacier job.
 --
---
---
--- /See:/ 'glacierJobDescription' smart constructor.
+-- /See:/ 'mkGlacierJobDescription' smart constructor.
 data GlacierJobDescription = GlacierJobDescription'
-  { _gjdSHA256TreeHash ::
-      !(Maybe Text),
-    _gjdArchiveId :: !(Maybe Text),
-    _gjdSelectParameters ::
-      !(Maybe SelectParameters),
-    _gjdJobId :: !(Maybe Text),
-    _gjdJobOutputPath :: !(Maybe Text),
-    _gjdRetrievalByteRange :: !(Maybe Text),
-    _gjdInventoryRetrievalParameters ::
-      !(Maybe InventoryRetrievalJobDescription),
-    _gjdAction :: !(Maybe ActionCode),
-    _gjdJobDescription :: !(Maybe Text),
-    _gjdSNSTopic :: !(Maybe Text),
-    _gjdStatusMessage :: !(Maybe Text),
-    _gjdVaultARN :: !(Maybe Text),
-    _gjdOutputLocation :: !(Maybe OutputLocation),
-    _gjdTier :: !(Maybe Text),
-    _gjdArchiveSHA256TreeHash :: !(Maybe Text),
-    _gjdCreationDate :: !(Maybe Text),
-    _gjdCompleted :: !(Maybe Bool),
-    _gjdCompletionDate :: !(Maybe Text),
-    _gjdInventorySizeInBytes :: !(Maybe Integer),
-    _gjdArchiveSizeInBytes :: !(Maybe Integer),
-    _gjdStatusCode :: !(Maybe StatusCode)
+  { sHA256TreeHash ::
+      Lude.Maybe Lude.Text,
+    archiveId :: Lude.Maybe Lude.Text,
+    selectParameters :: Lude.Maybe SelectParameters,
+    jobId :: Lude.Maybe Lude.Text,
+    jobOutputPath :: Lude.Maybe Lude.Text,
+    retrievalByteRange :: Lude.Maybe Lude.Text,
+    inventoryRetrievalParameters ::
+      Lude.Maybe InventoryRetrievalJobDescription,
+    action :: Lude.Maybe ActionCode,
+    jobDescription :: Lude.Maybe Lude.Text,
+    snsTopic :: Lude.Maybe Lude.Text,
+    statusMessage :: Lude.Maybe Lude.Text,
+    vaultARN :: Lude.Maybe Lude.Text,
+    outputLocation :: Lude.Maybe OutputLocation,
+    tier :: Lude.Maybe Lude.Text,
+    archiveSHA256TreeHash :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text,
+    completed :: Lude.Maybe Lude.Bool,
+    completionDate :: Lude.Maybe Lude.Text,
+    inventorySizeInBytes :: Lude.Maybe Lude.Integer,
+    archiveSizeInBytes :: Lude.Maybe Lude.Integer,
+    statusCode :: Lude.Maybe StatusCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlacierJobDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - The job type. This value is either @ArchiveRetrieval@ , @InventoryRetrieval@ , or @Select@ .
+-- * 'archiveId' - The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.
+-- * 'archiveSHA256TreeHash' - The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.
+-- * 'archiveSizeInBytes' - For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.
+-- * 'completed' - The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
+-- * 'completionDate' - The UTC time that the job request completed. While the job is in progress, the value is null.
+-- * 'creationDate' - The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example @"2012-03-20T17:03:43.221Z"@ .
+-- * 'inventoryRetrievalParameters' - Parameters used for range inventory retrieval.
+-- * 'inventorySizeInBytes' - For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.
+-- * 'jobDescription' - The job description provided when initiating the job.
+-- * 'jobId' - An opaque string that identifies an Amazon S3 Glacier job.
+-- * 'jobOutputPath' - Contains the job output location.
+-- * 'outputLocation' - Contains the location where the data from the select job is stored.
+-- * 'retrievalByteRange' - The retrieved byte range for archive retrieval jobs in the form /StartByteValue/ -/EndByteValue/ . If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null.
+-- * 'sHA256TreeHash' - For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null.
 --
--- * 'gjdSHA256TreeHash' - For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null. The SHA256 tree hash value for the requested range of an archive. If the __InitiateJob__ request for an archive specified a tree-hash aligned range, then this field returns a value. If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value. This field is null for the following:     * Archive retrieval jobs that specify a range that is not tree-hash aligned     * Archival jobs that specify a range that is equal to the whole archive, when the job status is @InProgress@      * Inventory jobs     * Select jobs
+-- The SHA256 tree hash value for the requested range of an archive. If the __InitiateJob__ request for an archive specified a tree-hash aligned range, then this field returns a value.
+-- If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.
+-- This field is null for the following:
 --
--- * 'gjdArchiveId' - The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.
+--     * Archive retrieval jobs that specify a range that is not tree-hash aligned
 --
--- * 'gjdSelectParameters' - Contains the parameters used for a select.
 --
--- * 'gjdJobId' - An opaque string that identifies an Amazon S3 Glacier job.
 --
--- * 'gjdJobOutputPath' - Contains the job output location.
+--     * Archival jobs that specify a range that is equal to the whole archive, when the job status is @InProgress@
 --
--- * 'gjdRetrievalByteRange' - The retrieved byte range for archive retrieval jobs in the form /StartByteValue/ -/EndByteValue/ . If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null.
 --
--- * 'gjdInventoryRetrievalParameters' - Parameters used for range inventory retrieval.
 --
--- * 'gjdAction' - The job type. This value is either @ArchiveRetrieval@ , @InventoryRetrieval@ , or @Select@ .
+--     * Inventory jobs
 --
--- * 'gjdJobDescription' - The job description provided when initiating the job.
 --
--- * 'gjdSNSTopic' - An Amazon SNS topic that receives notification.
+--     * Select jobs
 --
--- * 'gjdStatusMessage' - A friendly message that describes the job status.
 --
--- * 'gjdVaultARN' - The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.
---
--- * 'gjdOutputLocation' - Contains the location where the data from the select job is stored.
---
--- * 'gjdTier' - The tier to use for a select or an archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
---
--- * 'gjdArchiveSHA256TreeHash' - The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.
---
--- * 'gjdCreationDate' - The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example @"2012-03-20T17:03:43.221Z"@ .
---
--- * 'gjdCompleted' - The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
---
--- * 'gjdCompletionDate' - The UTC time that the job request completed. While the job is in progress, the value is null.
---
--- * 'gjdInventorySizeInBytes' - For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.
---
--- * 'gjdArchiveSizeInBytes' - For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.
---
--- * 'gjdStatusCode' - The status code can be @InProgress@ , @Succeeded@ , or @Failed@ , and indicates the status of the job.
-glacierJobDescription ::
+-- * 'selectParameters' - Contains the parameters used for a select.
+-- * 'snsTopic' - An Amazon SNS topic that receives notification.
+-- * 'statusCode' - The status code can be @InProgress@ , @Succeeded@ , or @Failed@ , and indicates the status of the job.
+-- * 'statusMessage' - A friendly message that describes the job status.
+-- * 'tier' - The tier to use for a select or an archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
+-- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.
+mkGlacierJobDescription ::
   GlacierJobDescription
-glacierJobDescription =
+mkGlacierJobDescription =
   GlacierJobDescription'
-    { _gjdSHA256TreeHash = Nothing,
-      _gjdArchiveId = Nothing,
-      _gjdSelectParameters = Nothing,
-      _gjdJobId = Nothing,
-      _gjdJobOutputPath = Nothing,
-      _gjdRetrievalByteRange = Nothing,
-      _gjdInventoryRetrievalParameters = Nothing,
-      _gjdAction = Nothing,
-      _gjdJobDescription = Nothing,
-      _gjdSNSTopic = Nothing,
-      _gjdStatusMessage = Nothing,
-      _gjdVaultARN = Nothing,
-      _gjdOutputLocation = Nothing,
-      _gjdTier = Nothing,
-      _gjdArchiveSHA256TreeHash = Nothing,
-      _gjdCreationDate = Nothing,
-      _gjdCompleted = Nothing,
-      _gjdCompletionDate = Nothing,
-      _gjdInventorySizeInBytes = Nothing,
-      _gjdArchiveSizeInBytes = Nothing,
-      _gjdStatusCode = Nothing
+    { sHA256TreeHash = Lude.Nothing,
+      archiveId = Lude.Nothing,
+      selectParameters = Lude.Nothing,
+      jobId = Lude.Nothing,
+      jobOutputPath = Lude.Nothing,
+      retrievalByteRange = Lude.Nothing,
+      inventoryRetrievalParameters = Lude.Nothing,
+      action = Lude.Nothing,
+      jobDescription = Lude.Nothing,
+      snsTopic = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      vaultARN = Lude.Nothing,
+      outputLocation = Lude.Nothing,
+      tier = Lude.Nothing,
+      archiveSHA256TreeHash = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      completed = Lude.Nothing,
+      completionDate = Lude.Nothing,
+      inventorySizeInBytes = Lude.Nothing,
+      archiveSizeInBytes = Lude.Nothing,
+      statusCode = Lude.Nothing
     }
 
--- | For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null. The SHA256 tree hash value for the requested range of an archive. If the __InitiateJob__ request for an archive specified a tree-hash aligned range, then this field returns a value. If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value. This field is null for the following:     * Archive retrieval jobs that specify a range that is not tree-hash aligned     * Archival jobs that specify a range that is equal to the whole archive, when the job status is @InProgress@      * Inventory jobs     * Select jobs
-gjdSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
-gjdSHA256TreeHash = lens _gjdSHA256TreeHash (\s a -> s {_gjdSHA256TreeHash = a})
+-- | For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null.
+--
+-- The SHA256 tree hash value for the requested range of an archive. If the __InitiateJob__ request for an archive specified a tree-hash aligned range, then this field returns a value.
+-- If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.
+-- This field is null for the following:
+--
+--     * Archive retrieval jobs that specify a range that is not tree-hash aligned
+--
+--
+--
+--     * Archival jobs that specify a range that is equal to the whole archive, when the job status is @InProgress@
+--
+--
+--
+--     * Inventory jobs
+--
+--
+--     * Select jobs
+--
+--
+--
+-- /Note:/ Consider using 'sHA256TreeHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdSHA256TreeHash :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdSHA256TreeHash = Lens.lens (sHA256TreeHash :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {sHA256TreeHash = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdSHA256TreeHash "Use generic-lens or generic-optics with 'sHA256TreeHash' instead." #-}
 
 -- | The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.
-gjdArchiveId :: Lens' GlacierJobDescription (Maybe Text)
-gjdArchiveId = lens _gjdArchiveId (\s a -> s {_gjdArchiveId = a})
+--
+-- /Note:/ Consider using 'archiveId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdArchiveId :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdArchiveId = Lens.lens (archiveId :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {archiveId = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdArchiveId "Use generic-lens or generic-optics with 'archiveId' instead." #-}
 
 -- | Contains the parameters used for a select.
-gjdSelectParameters :: Lens' GlacierJobDescription (Maybe SelectParameters)
-gjdSelectParameters = lens _gjdSelectParameters (\s a -> s {_gjdSelectParameters = a})
+--
+-- /Note:/ Consider using 'selectParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdSelectParameters :: Lens.Lens' GlacierJobDescription (Lude.Maybe SelectParameters)
+gjdSelectParameters = Lens.lens (selectParameters :: GlacierJobDescription -> Lude.Maybe SelectParameters) (\s a -> s {selectParameters = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdSelectParameters "Use generic-lens or generic-optics with 'selectParameters' instead." #-}
 
 -- | An opaque string that identifies an Amazon S3 Glacier job.
-gjdJobId :: Lens' GlacierJobDescription (Maybe Text)
-gjdJobId = lens _gjdJobId (\s a -> s {_gjdJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdJobId :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdJobId = Lens.lens (jobId :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Contains the job output location.
-gjdJobOutputPath :: Lens' GlacierJobDescription (Maybe Text)
-gjdJobOutputPath = lens _gjdJobOutputPath (\s a -> s {_gjdJobOutputPath = a})
+--
+-- /Note:/ Consider using 'jobOutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdJobOutputPath :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdJobOutputPath = Lens.lens (jobOutputPath :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {jobOutputPath = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdJobOutputPath "Use generic-lens or generic-optics with 'jobOutputPath' instead." #-}
 
 -- | The retrieved byte range for archive retrieval jobs in the form /StartByteValue/ -/EndByteValue/ . If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null.
-gjdRetrievalByteRange :: Lens' GlacierJobDescription (Maybe Text)
-gjdRetrievalByteRange = lens _gjdRetrievalByteRange (\s a -> s {_gjdRetrievalByteRange = a})
+--
+-- /Note:/ Consider using 'retrievalByteRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdRetrievalByteRange :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdRetrievalByteRange = Lens.lens (retrievalByteRange :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {retrievalByteRange = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdRetrievalByteRange "Use generic-lens or generic-optics with 'retrievalByteRange' instead." #-}
 
 -- | Parameters used for range inventory retrieval.
-gjdInventoryRetrievalParameters :: Lens' GlacierJobDescription (Maybe InventoryRetrievalJobDescription)
-gjdInventoryRetrievalParameters = lens _gjdInventoryRetrievalParameters (\s a -> s {_gjdInventoryRetrievalParameters = a})
+--
+-- /Note:/ Consider using 'inventoryRetrievalParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdInventoryRetrievalParameters :: Lens.Lens' GlacierJobDescription (Lude.Maybe InventoryRetrievalJobDescription)
+gjdInventoryRetrievalParameters = Lens.lens (inventoryRetrievalParameters :: GlacierJobDescription -> Lude.Maybe InventoryRetrievalJobDescription) (\s a -> s {inventoryRetrievalParameters = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdInventoryRetrievalParameters "Use generic-lens or generic-optics with 'inventoryRetrievalParameters' instead." #-}
 
 -- | The job type. This value is either @ArchiveRetrieval@ , @InventoryRetrieval@ , or @Select@ .
-gjdAction :: Lens' GlacierJobDescription (Maybe ActionCode)
-gjdAction = lens _gjdAction (\s a -> s {_gjdAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdAction :: Lens.Lens' GlacierJobDescription (Lude.Maybe ActionCode)
+gjdAction = Lens.lens (action :: GlacierJobDescription -> Lude.Maybe ActionCode) (\s a -> s {action = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The job description provided when initiating the job.
-gjdJobDescription :: Lens' GlacierJobDescription (Maybe Text)
-gjdJobDescription = lens _gjdJobDescription (\s a -> s {_gjdJobDescription = a})
+--
+-- /Note:/ Consider using 'jobDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdJobDescription :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdJobDescription = Lens.lens (jobDescription :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {jobDescription = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdJobDescription "Use generic-lens or generic-optics with 'jobDescription' instead." #-}
 
 -- | An Amazon SNS topic that receives notification.
-gjdSNSTopic :: Lens' GlacierJobDescription (Maybe Text)
-gjdSNSTopic = lens _gjdSNSTopic (\s a -> s {_gjdSNSTopic = a})
+--
+-- /Note:/ Consider using 'snsTopic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdSNSTopic :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdSNSTopic = Lens.lens (snsTopic :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {snsTopic = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdSNSTopic "Use generic-lens or generic-optics with 'snsTopic' instead." #-}
 
 -- | A friendly message that describes the job status.
-gjdStatusMessage :: Lens' GlacierJobDescription (Maybe Text)
-gjdStatusMessage = lens _gjdStatusMessage (\s a -> s {_gjdStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdStatusMessage :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdStatusMessage = Lens.lens (statusMessage :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.
-gjdVaultARN :: Lens' GlacierJobDescription (Maybe Text)
-gjdVaultARN = lens _gjdVaultARN (\s a -> s {_gjdVaultARN = a})
+--
+-- /Note:/ Consider using 'vaultARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdVaultARN :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdVaultARN = Lens.lens (vaultARN :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {vaultARN = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdVaultARN "Use generic-lens or generic-optics with 'vaultARN' instead." #-}
 
 -- | Contains the location where the data from the select job is stored.
-gjdOutputLocation :: Lens' GlacierJobDescription (Maybe OutputLocation)
-gjdOutputLocation = lens _gjdOutputLocation (\s a -> s {_gjdOutputLocation = a})
+--
+-- /Note:/ Consider using 'outputLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdOutputLocation :: Lens.Lens' GlacierJobDescription (Lude.Maybe OutputLocation)
+gjdOutputLocation = Lens.lens (outputLocation :: GlacierJobDescription -> Lude.Maybe OutputLocation) (\s a -> s {outputLocation = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdOutputLocation "Use generic-lens or generic-optics with 'outputLocation' instead." #-}
 
 -- | The tier to use for a select or an archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
-gjdTier :: Lens' GlacierJobDescription (Maybe Text)
-gjdTier = lens _gjdTier (\s a -> s {_gjdTier = a})
+--
+-- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdTier :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdTier = Lens.lens (tier :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {tier = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdTier "Use generic-lens or generic-optics with 'tier' instead." #-}
 
 -- | The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.
-gjdArchiveSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
-gjdArchiveSHA256TreeHash = lens _gjdArchiveSHA256TreeHash (\s a -> s {_gjdArchiveSHA256TreeHash = a})
+--
+-- /Note:/ Consider using 'archiveSHA256TreeHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdArchiveSHA256TreeHash :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdArchiveSHA256TreeHash = Lens.lens (archiveSHA256TreeHash :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {archiveSHA256TreeHash = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdArchiveSHA256TreeHash "Use generic-lens or generic-optics with 'archiveSHA256TreeHash' instead." #-}
 
 -- | The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example @"2012-03-20T17:03:43.221Z"@ .
-gjdCreationDate :: Lens' GlacierJobDescription (Maybe Text)
-gjdCreationDate = lens _gjdCreationDate (\s a -> s {_gjdCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdCreationDate :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdCreationDate = Lens.lens (creationDate :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
-gjdCompleted :: Lens' GlacierJobDescription (Maybe Bool)
-gjdCompleted = lens _gjdCompleted (\s a -> s {_gjdCompleted = a})
+--
+-- /Note:/ Consider using 'completed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdCompleted :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Bool)
+gjdCompleted = Lens.lens (completed :: GlacierJobDescription -> Lude.Maybe Lude.Bool) (\s a -> s {completed = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdCompleted "Use generic-lens or generic-optics with 'completed' instead." #-}
 
 -- | The UTC time that the job request completed. While the job is in progress, the value is null.
-gjdCompletionDate :: Lens' GlacierJobDescription (Maybe Text)
-gjdCompletionDate = lens _gjdCompletionDate (\s a -> s {_gjdCompletionDate = a})
+--
+-- /Note:/ Consider using 'completionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdCompletionDate :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Text)
+gjdCompletionDate = Lens.lens (completionDate :: GlacierJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {completionDate = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdCompletionDate "Use generic-lens or generic-optics with 'completionDate' instead." #-}
 
 -- | For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.
-gjdInventorySizeInBytes :: Lens' GlacierJobDescription (Maybe Integer)
-gjdInventorySizeInBytes = lens _gjdInventorySizeInBytes (\s a -> s {_gjdInventorySizeInBytes = a})
+--
+-- /Note:/ Consider using 'inventorySizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdInventorySizeInBytes :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Integer)
+gjdInventorySizeInBytes = Lens.lens (inventorySizeInBytes :: GlacierJobDescription -> Lude.Maybe Lude.Integer) (\s a -> s {inventorySizeInBytes = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdInventorySizeInBytes "Use generic-lens or generic-optics with 'inventorySizeInBytes' instead." #-}
 
 -- | For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.
-gjdArchiveSizeInBytes :: Lens' GlacierJobDescription (Maybe Integer)
-gjdArchiveSizeInBytes = lens _gjdArchiveSizeInBytes (\s a -> s {_gjdArchiveSizeInBytes = a})
+--
+-- /Note:/ Consider using 'archiveSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdArchiveSizeInBytes :: Lens.Lens' GlacierJobDescription (Lude.Maybe Lude.Integer)
+gjdArchiveSizeInBytes = Lens.lens (archiveSizeInBytes :: GlacierJobDescription -> Lude.Maybe Lude.Integer) (\s a -> s {archiveSizeInBytes = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdArchiveSizeInBytes "Use generic-lens or generic-optics with 'archiveSizeInBytes' instead." #-}
 
 -- | The status code can be @InProgress@ , @Succeeded@ , or @Failed@ , and indicates the status of the job.
-gjdStatusCode :: Lens' GlacierJobDescription (Maybe StatusCode)
-gjdStatusCode = lens _gjdStatusCode (\s a -> s {_gjdStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdStatusCode :: Lens.Lens' GlacierJobDescription (Lude.Maybe StatusCode)
+gjdStatusCode = Lens.lens (statusCode :: GlacierJobDescription -> Lude.Maybe StatusCode) (\s a -> s {statusCode = a} :: GlacierJobDescription)
+{-# DEPRECATED gjdStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON GlacierJobDescription where
+instance Lude.FromJSON GlacierJobDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "GlacierJobDescription"
       ( \x ->
           GlacierJobDescription'
-            <$> (x .:? "SHA256TreeHash")
-            <*> (x .:? "ArchiveId")
-            <*> (x .:? "SelectParameters")
-            <*> (x .:? "JobId")
-            <*> (x .:? "JobOutputPath")
-            <*> (x .:? "RetrievalByteRange")
-            <*> (x .:? "InventoryRetrievalParameters")
-            <*> (x .:? "Action")
-            <*> (x .:? "JobDescription")
-            <*> (x .:? "SNSTopic")
-            <*> (x .:? "StatusMessage")
-            <*> (x .:? "VaultARN")
-            <*> (x .:? "OutputLocation")
-            <*> (x .:? "Tier")
-            <*> (x .:? "ArchiveSHA256TreeHash")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "Completed")
-            <*> (x .:? "CompletionDate")
-            <*> (x .:? "InventorySizeInBytes")
-            <*> (x .:? "ArchiveSizeInBytes")
-            <*> (x .:? "StatusCode")
+            Lude.<$> (x Lude..:? "SHA256TreeHash")
+            Lude.<*> (x Lude..:? "ArchiveId")
+            Lude.<*> (x Lude..:? "SelectParameters")
+            Lude.<*> (x Lude..:? "JobId")
+            Lude.<*> (x Lude..:? "JobOutputPath")
+            Lude.<*> (x Lude..:? "RetrievalByteRange")
+            Lude.<*> (x Lude..:? "InventoryRetrievalParameters")
+            Lude.<*> (x Lude..:? "Action")
+            Lude.<*> (x Lude..:? "JobDescription")
+            Lude.<*> (x Lude..:? "SNSTopic")
+            Lude.<*> (x Lude..:? "StatusMessage")
+            Lude.<*> (x Lude..:? "VaultARN")
+            Lude.<*> (x Lude..:? "OutputLocation")
+            Lude.<*> (x Lude..:? "Tier")
+            Lude.<*> (x Lude..:? "ArchiveSHA256TreeHash")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "Completed")
+            Lude.<*> (x Lude..:? "CompletionDate")
+            Lude.<*> (x Lude..:? "InventorySizeInBytes")
+            Lude.<*> (x Lude..:? "ArchiveSizeInBytes")
+            Lude.<*> (x Lude..:? "StatusCode")
       )
-
-instance Hashable GlacierJobDescription
-
-instance NFData GlacierJobDescription

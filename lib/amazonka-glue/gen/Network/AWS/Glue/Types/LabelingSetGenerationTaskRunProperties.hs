@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties where
+module Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
+  ( LabelingSetGenerationTaskRunProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingSetGenerationTaskRunProperties,
+
+    -- * Lenses
+    lsgtrpOutputS3Path,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies configuration properties for a labeling set generation task run.
 --
---
---
--- /See:/ 'labelingSetGenerationTaskRunProperties' smart constructor.
+-- /See:/ 'mkLabelingSetGenerationTaskRunProperties' smart constructor.
 newtype LabelingSetGenerationTaskRunProperties = LabelingSetGenerationTaskRunProperties'
-  { _lsgtrpOutputS3Path ::
-      Maybe Text
+  { outputS3Path ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingSetGenerationTaskRunProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsgtrpOutputS3Path' - The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling set.
-labelingSetGenerationTaskRunProperties ::
+-- * 'outputS3Path' - The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling set.
+mkLabelingSetGenerationTaskRunProperties ::
   LabelingSetGenerationTaskRunProperties
-labelingSetGenerationTaskRunProperties =
+mkLabelingSetGenerationTaskRunProperties =
   LabelingSetGenerationTaskRunProperties'
-    { _lsgtrpOutputS3Path =
-        Nothing
+    { outputS3Path =
+        Lude.Nothing
     }
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling set.
-lsgtrpOutputS3Path :: Lens' LabelingSetGenerationTaskRunProperties (Maybe Text)
-lsgtrpOutputS3Path = lens _lsgtrpOutputS3Path (\s a -> s {_lsgtrpOutputS3Path = a})
+--
+-- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsgtrpOutputS3Path :: Lens.Lens' LabelingSetGenerationTaskRunProperties (Lude.Maybe Lude.Text)
+lsgtrpOutputS3Path = Lens.lens (outputS3Path :: LabelingSetGenerationTaskRunProperties -> Lude.Maybe Lude.Text) (\s a -> s {outputS3Path = a} :: LabelingSetGenerationTaskRunProperties)
+{-# DEPRECATED lsgtrpOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
 
-instance FromJSON LabelingSetGenerationTaskRunProperties where
+instance Lude.FromJSON LabelingSetGenerationTaskRunProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingSetGenerationTaskRunProperties"
       ( \x ->
-          LabelingSetGenerationTaskRunProperties' <$> (x .:? "OutputS3Path")
+          LabelingSetGenerationTaskRunProperties'
+            Lude.<$> (x Lude..:? "OutputS3Path")
       )
-
-instance Hashable LabelingSetGenerationTaskRunProperties
-
-instance NFData LabelingSetGenerationTaskRunProperties

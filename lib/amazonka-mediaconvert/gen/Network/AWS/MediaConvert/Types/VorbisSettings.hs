@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VorbisSettings where
+module Network.AWS.MediaConvert.Types.VorbisSettings
+  ( VorbisSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVorbisSettings,
+
+    -- * Lenses
+    vsChannels,
+    vsSampleRate,
+    vsVbrQuality,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
 --
--- /See:/ 'vorbisSettings' smart constructor.
+-- /See:/ 'mkVorbisSettings' smart constructor.
 data VorbisSettings = VorbisSettings'
-  { _vsChannels :: !(Maybe Nat),
-    _vsSampleRate :: !(Maybe Nat),
-    _vsVbrQuality :: !(Maybe Int)
+  { channels ::
+      Lude.Maybe Lude.Natural,
+    sampleRate :: Lude.Maybe Lude.Natural,
+    vbrQuality :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VorbisSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsChannels' - Optional. Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2. The default value is 2.
---
--- * 'vsSampleRate' - Optional. Specify the audio sample rate in Hz. Valid values are 22050, 32000, 44100, and 48000. The default value is 48000.
---
--- * 'vsVbrQuality' - Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
-vorbisSettings ::
+-- * 'channels' - Optional. Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2. The default value is 2.
+-- * 'sampleRate' - Optional. Specify the audio sample rate in Hz. Valid values are 22050, 32000, 44100, and 48000. The default value is 48000.
+-- * 'vbrQuality' - Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
+mkVorbisSettings ::
   VorbisSettings
-vorbisSettings =
+mkVorbisSettings =
   VorbisSettings'
-    { _vsChannels = Nothing,
-      _vsSampleRate = Nothing,
-      _vsVbrQuality = Nothing
+    { channels = Lude.Nothing,
+      sampleRate = Lude.Nothing,
+      vbrQuality = Lude.Nothing
     }
 
 -- | Optional. Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2. The default value is 2.
-vsChannels :: Lens' VorbisSettings (Maybe Natural)
-vsChannels = lens _vsChannels (\s a -> s {_vsChannels = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'channels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsChannels :: Lens.Lens' VorbisSettings (Lude.Maybe Lude.Natural)
+vsChannels = Lens.lens (channels :: VorbisSettings -> Lude.Maybe Lude.Natural) (\s a -> s {channels = a} :: VorbisSettings)
+{-# DEPRECATED vsChannels "Use generic-lens or generic-optics with 'channels' instead." #-}
 
 -- | Optional. Specify the audio sample rate in Hz. Valid values are 22050, 32000, 44100, and 48000. The default value is 48000.
-vsSampleRate :: Lens' VorbisSettings (Maybe Natural)
-vsSampleRate = lens _vsSampleRate (\s a -> s {_vsSampleRate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsSampleRate :: Lens.Lens' VorbisSettings (Lude.Maybe Lude.Natural)
+vsSampleRate = Lens.lens (sampleRate :: VorbisSettings -> Lude.Maybe Lude.Natural) (\s a -> s {sampleRate = a} :: VorbisSettings)
+{-# DEPRECATED vsSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
 -- | Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
-vsVbrQuality :: Lens' VorbisSettings (Maybe Int)
-vsVbrQuality = lens _vsVbrQuality (\s a -> s {_vsVbrQuality = a})
+--
+-- /Note:/ Consider using 'vbrQuality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsVbrQuality :: Lens.Lens' VorbisSettings (Lude.Maybe Lude.Int)
+vsVbrQuality = Lens.lens (vbrQuality :: VorbisSettings -> Lude.Maybe Lude.Int) (\s a -> s {vbrQuality = a} :: VorbisSettings)
+{-# DEPRECATED vsVbrQuality "Use generic-lens or generic-optics with 'vbrQuality' instead." #-}
 
-instance FromJSON VorbisSettings where
+instance Lude.FromJSON VorbisSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "VorbisSettings"
       ( \x ->
           VorbisSettings'
-            <$> (x .:? "channels")
-            <*> (x .:? "sampleRate")
-            <*> (x .:? "vbrQuality")
+            Lude.<$> (x Lude..:? "channels")
+            Lude.<*> (x Lude..:? "sampleRate")
+            Lude.<*> (x Lude..:? "vbrQuality")
       )
 
-instance Hashable VorbisSettings
-
-instance NFData VorbisSettings
-
-instance ToJSON VorbisSettings where
+instance Lude.ToJSON VorbisSettings where
   toJSON VorbisSettings' {..} =
-    object
-      ( catMaybes
-          [ ("channels" .=) <$> _vsChannels,
-            ("sampleRate" .=) <$> _vsSampleRate,
-            ("vbrQuality" .=) <$> _vsVbrQuality
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channels" Lude..=) Lude.<$> channels,
+            ("sampleRate" Lude..=) Lude.<$> sampleRate,
+            ("vbrQuality" Lude..=) Lude.<$> vbrQuality
           ]
       )

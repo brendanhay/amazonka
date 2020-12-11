@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,120 +7,145 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ModifyTransitGatewayOptions where
+module Network.AWS.EC2.Types.ModifyTransitGatewayOptions
+  ( ModifyTransitGatewayOptions (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkModifyTransitGatewayOptions,
+
+    -- * Lenses
+    mtgoVPNEcmpSupport,
+    mtgoAutoAcceptSharedAttachments,
+    mtgoPropagationDefaultRouteTableId,
+    mtgoDefaultRouteTableAssociation,
+    mtgoAssociationDefaultRouteTableId,
+    mtgoDefaultRouteTablePropagation,
+    mtgoDNSSupport,
+  )
+where
+
 import Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Network.AWS.EC2.Types.DNSSupportValue
 import Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
 import Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
 import Network.AWS.EC2.Types.VPNEcmpSupportValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The transit gateway options.
 --
---
---
--- /See:/ 'modifyTransitGatewayOptions' smart constructor.
+-- /See:/ 'mkModifyTransitGatewayOptions' smart constructor.
 data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
-  { _mtgoVPNEcmpSupport ::
-      !(Maybe VPNEcmpSupportValue),
-    _mtgoAutoAcceptSharedAttachments ::
-      !( Maybe
-           AutoAcceptSharedAttachmentsValue
-       ),
-    _mtgoPropagationDefaultRouteTableId ::
-      !(Maybe Text),
-    _mtgoDefaultRouteTableAssociation ::
-      !( Maybe
-           DefaultRouteTableAssociationValue
-       ),
-    _mtgoAssociationDefaultRouteTableId ::
-      !(Maybe Text),
-    _mtgoDefaultRouteTablePropagation ::
-      !( Maybe
-           DefaultRouteTablePropagationValue
-       ),
-    _mtgoDNSSupport ::
-      !(Maybe DNSSupportValue)
+  { vpnEcmpSupport ::
+      Lude.Maybe VPNEcmpSupportValue,
+    autoAcceptSharedAttachments ::
+      Lude.Maybe
+        AutoAcceptSharedAttachmentsValue,
+    propagationDefaultRouteTableId ::
+      Lude.Maybe Lude.Text,
+    defaultRouteTableAssociation ::
+      Lude.Maybe
+        DefaultRouteTableAssociationValue,
+    associationDefaultRouteTableId ::
+      Lude.Maybe Lude.Text,
+    defaultRouteTablePropagation ::
+      Lude.Maybe
+        DefaultRouteTablePropagationValue,
+    dnsSupport ::
+      Lude.Maybe DNSSupportValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGatewayOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtgoVPNEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
---
--- * 'mtgoAutoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests.
---
--- * 'mtgoPropagationDefaultRouteTableId' - The ID of the default propagation route table.
---
--- * 'mtgoDefaultRouteTableAssociation' - Enable or disable automatic association with the default association route table.
---
--- * 'mtgoAssociationDefaultRouteTableId' - The ID of the default association route table.
---
--- * 'mtgoDefaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table.
---
--- * 'mtgoDNSSupport' - Enable or disable DNS support.
-modifyTransitGatewayOptions ::
+-- * 'associationDefaultRouteTableId' - The ID of the default association route table.
+-- * 'autoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests.
+-- * 'defaultRouteTableAssociation' - Enable or disable automatic association with the default association route table.
+-- * 'defaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table.
+-- * 'dnsSupport' - Enable or disable DNS support.
+-- * 'propagationDefaultRouteTableId' - The ID of the default propagation route table.
+-- * 'vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
+mkModifyTransitGatewayOptions ::
   ModifyTransitGatewayOptions
-modifyTransitGatewayOptions =
+mkModifyTransitGatewayOptions =
   ModifyTransitGatewayOptions'
-    { _mtgoVPNEcmpSupport = Nothing,
-      _mtgoAutoAcceptSharedAttachments = Nothing,
-      _mtgoPropagationDefaultRouteTableId = Nothing,
-      _mtgoDefaultRouteTableAssociation = Nothing,
-      _mtgoAssociationDefaultRouteTableId = Nothing,
-      _mtgoDefaultRouteTablePropagation = Nothing,
-      _mtgoDNSSupport = Nothing
+    { vpnEcmpSupport = Lude.Nothing,
+      autoAcceptSharedAttachments = Lude.Nothing,
+      propagationDefaultRouteTableId = Lude.Nothing,
+      defaultRouteTableAssociation = Lude.Nothing,
+      associationDefaultRouteTableId = Lude.Nothing,
+      defaultRouteTablePropagation = Lude.Nothing,
+      dnsSupport = Lude.Nothing
     }
 
 -- | Enable or disable Equal Cost Multipath Protocol support.
-mtgoVPNEcmpSupport :: Lens' ModifyTransitGatewayOptions (Maybe VPNEcmpSupportValue)
-mtgoVPNEcmpSupport = lens _mtgoVPNEcmpSupport (\s a -> s {_mtgoVPNEcmpSupport = a})
+--
+-- /Note:/ Consider using 'vpnEcmpSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoVPNEcmpSupport :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe VPNEcmpSupportValue)
+mtgoVPNEcmpSupport = Lens.lens (vpnEcmpSupport :: ModifyTransitGatewayOptions -> Lude.Maybe VPNEcmpSupportValue) (\s a -> s {vpnEcmpSupport = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoVPNEcmpSupport "Use generic-lens or generic-optics with 'vpnEcmpSupport' instead." #-}
 
 -- | Enable or disable automatic acceptance of attachment requests.
-mtgoAutoAcceptSharedAttachments :: Lens' ModifyTransitGatewayOptions (Maybe AutoAcceptSharedAttachmentsValue)
-mtgoAutoAcceptSharedAttachments = lens _mtgoAutoAcceptSharedAttachments (\s a -> s {_mtgoAutoAcceptSharedAttachments = a})
+--
+-- /Note:/ Consider using 'autoAcceptSharedAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoAutoAcceptSharedAttachments :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe AutoAcceptSharedAttachmentsValue)
+mtgoAutoAcceptSharedAttachments = Lens.lens (autoAcceptSharedAttachments :: ModifyTransitGatewayOptions -> Lude.Maybe AutoAcceptSharedAttachmentsValue) (\s a -> s {autoAcceptSharedAttachments = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoAutoAcceptSharedAttachments "Use generic-lens or generic-optics with 'autoAcceptSharedAttachments' instead." #-}
 
 -- | The ID of the default propagation route table.
-mtgoPropagationDefaultRouteTableId :: Lens' ModifyTransitGatewayOptions (Maybe Text)
-mtgoPropagationDefaultRouteTableId = lens _mtgoPropagationDefaultRouteTableId (\s a -> s {_mtgoPropagationDefaultRouteTableId = a})
+--
+-- /Note:/ Consider using 'propagationDefaultRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoPropagationDefaultRouteTableId :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe Lude.Text)
+mtgoPropagationDefaultRouteTableId = Lens.lens (propagationDefaultRouteTableId :: ModifyTransitGatewayOptions -> Lude.Maybe Lude.Text) (\s a -> s {propagationDefaultRouteTableId = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoPropagationDefaultRouteTableId "Use generic-lens or generic-optics with 'propagationDefaultRouteTableId' instead." #-}
 
 -- | Enable or disable automatic association with the default association route table.
-mtgoDefaultRouteTableAssociation :: Lens' ModifyTransitGatewayOptions (Maybe DefaultRouteTableAssociationValue)
-mtgoDefaultRouteTableAssociation = lens _mtgoDefaultRouteTableAssociation (\s a -> s {_mtgoDefaultRouteTableAssociation = a})
+--
+-- /Note:/ Consider using 'defaultRouteTableAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoDefaultRouteTableAssociation :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe DefaultRouteTableAssociationValue)
+mtgoDefaultRouteTableAssociation = Lens.lens (defaultRouteTableAssociation :: ModifyTransitGatewayOptions -> Lude.Maybe DefaultRouteTableAssociationValue) (\s a -> s {defaultRouteTableAssociation = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoDefaultRouteTableAssociation "Use generic-lens or generic-optics with 'defaultRouteTableAssociation' instead." #-}
 
 -- | The ID of the default association route table.
-mtgoAssociationDefaultRouteTableId :: Lens' ModifyTransitGatewayOptions (Maybe Text)
-mtgoAssociationDefaultRouteTableId = lens _mtgoAssociationDefaultRouteTableId (\s a -> s {_mtgoAssociationDefaultRouteTableId = a})
+--
+-- /Note:/ Consider using 'associationDefaultRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoAssociationDefaultRouteTableId :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe Lude.Text)
+mtgoAssociationDefaultRouteTableId = Lens.lens (associationDefaultRouteTableId :: ModifyTransitGatewayOptions -> Lude.Maybe Lude.Text) (\s a -> s {associationDefaultRouteTableId = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoAssociationDefaultRouteTableId "Use generic-lens or generic-optics with 'associationDefaultRouteTableId' instead." #-}
 
 -- | Enable or disable automatic propagation of routes to the default propagation route table.
-mtgoDefaultRouteTablePropagation :: Lens' ModifyTransitGatewayOptions (Maybe DefaultRouteTablePropagationValue)
-mtgoDefaultRouteTablePropagation = lens _mtgoDefaultRouteTablePropagation (\s a -> s {_mtgoDefaultRouteTablePropagation = a})
+--
+-- /Note:/ Consider using 'defaultRouteTablePropagation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoDefaultRouteTablePropagation :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe DefaultRouteTablePropagationValue)
+mtgoDefaultRouteTablePropagation = Lens.lens (defaultRouteTablePropagation :: ModifyTransitGatewayOptions -> Lude.Maybe DefaultRouteTablePropagationValue) (\s a -> s {defaultRouteTablePropagation = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoDefaultRouteTablePropagation "Use generic-lens or generic-optics with 'defaultRouteTablePropagation' instead." #-}
 
 -- | Enable or disable DNS support.
-mtgoDNSSupport :: Lens' ModifyTransitGatewayOptions (Maybe DNSSupportValue)
-mtgoDNSSupport = lens _mtgoDNSSupport (\s a -> s {_mtgoDNSSupport = a})
+--
+-- /Note:/ Consider using 'dnsSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgoDNSSupport :: Lens.Lens' ModifyTransitGatewayOptions (Lude.Maybe DNSSupportValue)
+mtgoDNSSupport = Lens.lens (dnsSupport :: ModifyTransitGatewayOptions -> Lude.Maybe DNSSupportValue) (\s a -> s {dnsSupport = a} :: ModifyTransitGatewayOptions)
+{-# DEPRECATED mtgoDNSSupport "Use generic-lens or generic-optics with 'dnsSupport' instead." #-}
 
-instance Hashable ModifyTransitGatewayOptions
-
-instance NFData ModifyTransitGatewayOptions
-
-instance ToQuery ModifyTransitGatewayOptions where
+instance Lude.ToQuery ModifyTransitGatewayOptions where
   toQuery ModifyTransitGatewayOptions' {..} =
-    mconcat
-      [ "VpnEcmpSupport" =: _mtgoVPNEcmpSupport,
-        "AutoAcceptSharedAttachments" =: _mtgoAutoAcceptSharedAttachments,
+    Lude.mconcat
+      [ "VpnEcmpSupport" Lude.=: vpnEcmpSupport,
+        "AutoAcceptSharedAttachments" Lude.=: autoAcceptSharedAttachments,
         "PropagationDefaultRouteTableId"
-          =: _mtgoPropagationDefaultRouteTableId,
+          Lude.=: propagationDefaultRouteTableId,
         "DefaultRouteTableAssociation"
-          =: _mtgoDefaultRouteTableAssociation,
+          Lude.=: defaultRouteTableAssociation,
         "AssociationDefaultRouteTableId"
-          =: _mtgoAssociationDefaultRouteTableId,
+          Lude.=: associationDefaultRouteTableId,
         "DefaultRouteTablePropagation"
-          =: _mtgoDefaultRouteTablePropagation,
-        "DnsSupport" =: _mtgoDNSSupport
+          Lude.=: defaultRouteTablePropagation,
+        "DnsSupport" Lude.=: dnsSupport
       ]

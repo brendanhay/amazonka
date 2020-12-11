@@ -13,8 +13,8 @@
 --
 -- AWS Snow Family is a petabyte-scale data transport solution that uses secure devices to transfer large amounts of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). The Snow commands described here provide access to the same functionality that is available in the AWS Snow Family Management Console, which enables you to create and manage jobs for a Snow device. To transfer data locally with a Snow device, you'll need to use the Snowball Edge client or the Amazon S3 API Interface for Snowball or AWS OpsHub for Snow Family. For more information, see the <https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide> .
 module Network.AWS.Snowball
-  ( -- * Service Configuration
-    snowball,
+  ( -- * Service configuration
+    snowballService,
 
     -- * Errors
     -- $errors
@@ -118,8 +118,8 @@ module Network.AWS.Snowball
     SnowballType (..),
 
     -- ** Address
-    Address,
-    address,
+    Address (..),
+    mkAddress,
     aIsRestricted,
     aStreet3,
     aLandmark,
@@ -136,16 +136,16 @@ module Network.AWS.Snowball
     aStreet1,
 
     -- ** ClusterListEntry
-    ClusterListEntry,
-    clusterListEntry,
+    ClusterListEntry (..),
+    mkClusterListEntry,
     cleClusterState,
     cleClusterId,
     cleCreationDate,
     cleDescription,
 
     -- ** ClusterMetadata
-    ClusterMetadata,
-    clusterMetadata,
+    ClusterMetadata (..),
+    mkClusterMetadata,
     cmJobType,
     cmKMSKeyARN,
     cmClusterState,
@@ -162,43 +162,43 @@ module Network.AWS.Snowball
     cmRoleARN,
 
     -- ** CompatibleImage
-    CompatibleImage,
-    compatibleImage,
+    CompatibleImage (..),
+    mkCompatibleImage,
     ciName,
     ciAMIId,
 
     -- ** DataTransfer
-    DataTransfer,
-    dataTransfer,
+    DataTransfer (..),
+    mkDataTransfer,
     dtTotalObjects,
     dtTotalBytes,
     dtObjectsTransferred,
     dtBytesTransferred,
 
     -- ** DeviceConfiguration
-    DeviceConfiguration,
-    deviceConfiguration,
+    DeviceConfiguration (..),
+    mkDeviceConfiguration,
     dcSnowconeDeviceConfiguration,
 
     -- ** EC2AMIResource
-    EC2AMIResource,
-    ec2AMIResource,
+    EC2AMIResource (..),
+    mkEC2AMIResource,
     earSnowballAMIId,
     earAMIId,
 
     -- ** EventTriggerDefinition
-    EventTriggerDefinition,
-    eventTriggerDefinition,
+    EventTriggerDefinition (..),
+    mkEventTriggerDefinition,
     etdEventResourceARN,
 
     -- ** INDTaxDocuments
-    INDTaxDocuments,
-    iNDTaxDocuments,
+    INDTaxDocuments (..),
+    mkINDTaxDocuments,
     indtdGSTIN,
 
     -- ** JobListEntry
-    JobListEntry,
-    jobListEntry,
+    JobListEntry (..),
+    mkJobListEntry,
     jleJobType,
     jleJobId,
     jleJobState,
@@ -208,15 +208,15 @@ module Network.AWS.Snowball
     jleIsMaster,
 
     -- ** JobLogs
-    JobLogs,
-    jobLogs,
+    JobLogs (..),
+    mkJobLogs,
     jlJobFailureLogURI,
     jlJobCompletionReportURI,
     jlJobSuccessLogURI,
 
     -- ** JobMetadata
-    JobMetadata,
-    jobMetadata,
+    JobMetadata (..),
+    mkJobMetadata,
     jmJobType,
     jmKMSKeyARN,
     jmJobId,
@@ -238,67 +238,79 @@ module Network.AWS.Snowball
     jmSnowballCapacityPreference,
 
     -- ** JobResource
-    JobResource,
-    jobResource,
+    JobResource (..),
+    mkJobResource,
     jrEC2AMIResources,
     jrLambdaResources,
     jrS3Resources,
 
     -- ** KeyRange
-    KeyRange,
-    keyRange,
+    KeyRange (..),
+    mkKeyRange,
     krEndMarker,
     krBeginMarker,
 
     -- ** LambdaResource
-    LambdaResource,
-    lambdaResource,
+    LambdaResource (..),
+    mkLambdaResource,
     lrEventTriggers,
     lrLambdaARN,
 
     -- ** Notification
-    Notification,
-    notification,
+    Notification (..),
+    mkNotification,
     nNotifyAll,
     nSNSTopicARN,
     nJobStatesToNotify,
 
     -- ** S3Resource
-    S3Resource,
-    s3Resource,
+    S3Resource (..),
+    mkS3Resource,
     srKeyRange,
     srBucketARN,
 
     -- ** Shipment
-    Shipment,
-    shipment,
+    Shipment (..),
+    mkShipment,
     sStatus,
     sTrackingNumber,
 
     -- ** ShippingDetails
-    ShippingDetails,
-    shippingDetails,
+    ShippingDetails (..),
+    mkShippingDetails,
     sdShippingOption,
     sdOutboundShipment,
     sdInboundShipment,
 
     -- ** SnowconeDeviceConfiguration
-    SnowconeDeviceConfiguration,
-    snowconeDeviceConfiguration,
+    SnowconeDeviceConfiguration (..),
+    mkSnowconeDeviceConfiguration,
     sdcWirelessConnection,
 
     -- ** TaxDocuments
-    TaxDocuments,
-    taxDocuments,
+    TaxDocuments (..),
+    mkTaxDocuments,
     tdIND,
 
     -- ** WirelessConnection
-    WirelessConnection,
-    wirelessConnection,
+    WirelessConnection (..),
+    mkWirelessConnection,
     wcIsWifiEnabled,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Snowball.CancelCluster
 import Network.AWS.Snowball.CancelJob
 import Network.AWS.Snowball.CreateAddress

@@ -13,11 +13,10 @@
 --
 -- This is the /ACM Private CA API Reference/ . It provides descriptions, syntax, and usage examples for each of the actions and data types involved in creating and managing private certificate authorities (CA) for your organization.
 --
---
 -- The documentation for each action shows the Query API request parameters and the XML response. Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see <https://aws.amazon.com/tools/#SDKs AWS SDKs> .
 module Network.AWS.CertificateManagerPCA
-  ( -- * Service Configuration
-    certificateManagerPCA,
+  ( -- * Service configuration
+    certificateManagerPCAService,
 
     -- * Errors
     -- $errors
@@ -26,13 +25,13 @@ module Network.AWS.CertificateManagerPCA
     -- $waiters
 
     -- ** CertificateIssued
-    certificateIssued,
+    mkCertificateIssued,
 
     -- ** AuditReportCreated
-    auditReportCreated,
+    mkAuditReportCreated,
 
     -- ** CertificateAuthorityCSRCreated
-    certificateAuthorityCSRCreated,
+    mkCertificateAuthorityCSRCreated,
 
     -- * Operations
     -- $operations
@@ -142,8 +141,8 @@ module Network.AWS.CertificateManagerPCA
     ValidityPeriodType (..),
 
     -- ** ASN1Subject
-    ASN1Subject,
-    asn1Subject,
+    ASN1Subject (..),
+    mkASN1Subject,
     asGivenName,
     asState,
     asCommonName,
@@ -160,8 +159,8 @@ module Network.AWS.CertificateManagerPCA
     asDistinguishedNameQualifier,
 
     -- ** CertificateAuthority
-    CertificateAuthority,
-    certificateAuthority,
+    CertificateAuthority (..),
+    mkCertificateAuthority,
     caStatus,
     caFailureReason,
     caCertificateAuthorityConfiguration,
@@ -177,23 +176,23 @@ module Network.AWS.CertificateManagerPCA
     caNotAfter,
 
     -- ** CertificateAuthorityConfiguration
-    CertificateAuthorityConfiguration,
-    certificateAuthorityConfiguration,
+    CertificateAuthorityConfiguration (..),
+    mkCertificateAuthorityConfiguration,
     cacKeyAlgorithm,
     cacSigningAlgorithm,
     cacSubject,
 
     -- ** CrlConfiguration
-    CrlConfiguration,
-    crlConfiguration,
+    CrlConfiguration (..),
+    mkCrlConfiguration,
     ccCustomCname,
     ccExpirationInDays,
     ccS3BucketName,
     ccEnabled,
 
     -- ** Permission
-    Permission,
-    permission,
+    Permission (..),
+    mkPermission,
     pSourceAccount,
     pActions,
     pCreatedAt,
@@ -202,21 +201,32 @@ module Network.AWS.CertificateManagerPCA
     pCertificateAuthorityARN,
 
     -- ** RevocationConfiguration
-    RevocationConfiguration,
-    revocationConfiguration,
+    RevocationConfiguration (..),
+    mkRevocationConfiguration,
     rcCrlConfiguration,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** Validity
-    Validity,
-    validity,
+    Validity (..),
+    mkValidity,
     vValue,
     vType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -245,6 +255,7 @@ import Network.AWS.CertificateManagerPCA.Types
 import Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
 import Network.AWS.CertificateManagerPCA.UpdateCertificateAuthority
 import Network.AWS.CertificateManagerPCA.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

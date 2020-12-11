@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DHCPConfiguration where
+module Network.AWS.EC2.Types.DHCPConfiguration
+  ( DHCPConfiguration (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDHCPConfiguration,
+
+    -- * Lenses
+    dcValues,
+    dcKey,
+  )
+where
+
 import Network.AWS.EC2.Types.AttributeValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a DHCP configuration option.
 --
---
---
--- /See:/ 'dhcpConfiguration' smart constructor.
+-- /See:/ 'mkDHCPConfiguration' smart constructor.
 data DHCPConfiguration = DHCPConfiguration'
-  { _dcValues ::
-      !(Maybe [AttributeValue]),
-    _dcKey :: !(Maybe Text)
+  { values ::
+      Lude.Maybe [AttributeValue],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DHCPConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcValues' - One or more values for the DHCP option.
---
--- * 'dcKey' - The name of a DHCP option.
-dhcpConfiguration ::
+-- * 'key' - The name of a DHCP option.
+-- * 'values' - One or more values for the DHCP option.
+mkDHCPConfiguration ::
   DHCPConfiguration
-dhcpConfiguration =
-  DHCPConfiguration' {_dcValues = Nothing, _dcKey = Nothing}
+mkDHCPConfiguration =
+  DHCPConfiguration' {values = Lude.Nothing, key = Lude.Nothing}
 
 -- | One or more values for the DHCP option.
-dcValues :: Lens' DHCPConfiguration [AttributeValue]
-dcValues = lens _dcValues (\s a -> s {_dcValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcValues :: Lens.Lens' DHCPConfiguration (Lude.Maybe [AttributeValue])
+dcValues = Lens.lens (values :: DHCPConfiguration -> Lude.Maybe [AttributeValue]) (\s a -> s {values = a} :: DHCPConfiguration)
+{-# DEPRECATED dcValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The name of a DHCP option.
-dcKey :: Lens' DHCPConfiguration (Maybe Text)
-dcKey = lens _dcKey (\s a -> s {_dcKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcKey :: Lens.Lens' DHCPConfiguration (Lude.Maybe Lude.Text)
+dcKey = Lens.lens (key :: DHCPConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: DHCPConfiguration)
+{-# DEPRECATED dcKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromXML DHCPConfiguration where
+instance Lude.FromXML DHCPConfiguration where
   parseXML x =
     DHCPConfiguration'
-      <$> (x .@? "valueSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "key")
-
-instance Hashable DHCPConfiguration
-
-instance NFData DHCPConfiguration
+      Lude.<$> ( x Lude..@? "valueSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "key")

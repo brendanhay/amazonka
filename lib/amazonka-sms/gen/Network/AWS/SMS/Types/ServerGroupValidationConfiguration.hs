@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerGroupValidationConfiguration where
+module Network.AWS.SMS.Types.ServerGroupValidationConfiguration
+  ( ServerGroupValidationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerGroupValidationConfiguration,
+
+    -- * Lenses
+    sgvcServerValidationConfigurations,
+    sgvcServerGroupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.ServerValidationConfiguration
 
 -- | Configuration for validating an instance.
 --
---
---
--- /See:/ 'serverGroupValidationConfiguration' smart constructor.
+-- /See:/ 'mkServerGroupValidationConfiguration' smart constructor.
 data ServerGroupValidationConfiguration = ServerGroupValidationConfiguration'
-  { _sgvcServerValidationConfigurations ::
-      !( Maybe
-           [ServerValidationConfiguration]
-       ),
-    _sgvcServerGroupId ::
-      !(Maybe Text)
+  { serverValidationConfigurations ::
+      Lude.Maybe
+        [ServerValidationConfiguration],
+    serverGroupId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerGroupValidationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgvcServerValidationConfigurations' - The validation configuration.
---
--- * 'sgvcServerGroupId' - The ID of the server group.
-serverGroupValidationConfiguration ::
+-- * 'serverGroupId' - The ID of the server group.
+-- * 'serverValidationConfigurations' - The validation configuration.
+mkServerGroupValidationConfiguration ::
   ServerGroupValidationConfiguration
-serverGroupValidationConfiguration =
+mkServerGroupValidationConfiguration =
   ServerGroupValidationConfiguration'
-    { _sgvcServerValidationConfigurations =
-        Nothing,
-      _sgvcServerGroupId = Nothing
+    { serverValidationConfigurations =
+        Lude.Nothing,
+      serverGroupId = Lude.Nothing
     }
 
 -- | The validation configuration.
-sgvcServerValidationConfigurations :: Lens' ServerGroupValidationConfiguration [ServerValidationConfiguration]
-sgvcServerValidationConfigurations = lens _sgvcServerValidationConfigurations (\s a -> s {_sgvcServerValidationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverValidationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgvcServerValidationConfigurations :: Lens.Lens' ServerGroupValidationConfiguration (Lude.Maybe [ServerValidationConfiguration])
+sgvcServerValidationConfigurations = Lens.lens (serverValidationConfigurations :: ServerGroupValidationConfiguration -> Lude.Maybe [ServerValidationConfiguration]) (\s a -> s {serverValidationConfigurations = a} :: ServerGroupValidationConfiguration)
+{-# DEPRECATED sgvcServerValidationConfigurations "Use generic-lens or generic-optics with 'serverValidationConfigurations' instead." #-}
 
 -- | The ID of the server group.
-sgvcServerGroupId :: Lens' ServerGroupValidationConfiguration (Maybe Text)
-sgvcServerGroupId = lens _sgvcServerGroupId (\s a -> s {_sgvcServerGroupId = a})
+--
+-- /Note:/ Consider using 'serverGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgvcServerGroupId :: Lens.Lens' ServerGroupValidationConfiguration (Lude.Maybe Lude.Text)
+sgvcServerGroupId = Lens.lens (serverGroupId :: ServerGroupValidationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {serverGroupId = a} :: ServerGroupValidationConfiguration)
+{-# DEPRECATED sgvcServerGroupId "Use generic-lens or generic-optics with 'serverGroupId' instead." #-}
 
-instance FromJSON ServerGroupValidationConfiguration where
+instance Lude.FromJSON ServerGroupValidationConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerGroupValidationConfiguration"
       ( \x ->
           ServerGroupValidationConfiguration'
-            <$> (x .:? "serverValidationConfigurations" .!= mempty)
-            <*> (x .:? "serverGroupId")
+            Lude.<$> (x Lude..:? "serverValidationConfigurations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "serverGroupId")
       )
 
-instance Hashable ServerGroupValidationConfiguration
-
-instance NFData ServerGroupValidationConfiguration
-
-instance ToJSON ServerGroupValidationConfiguration where
+instance Lude.ToJSON ServerGroupValidationConfiguration where
   toJSON ServerGroupValidationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("serverValidationConfigurations" .=)
-              <$> _sgvcServerValidationConfigurations,
-            ("serverGroupId" .=) <$> _sgvcServerGroupId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serverValidationConfigurations" Lude..=)
+              Lude.<$> serverValidationConfigurations,
+            ("serverGroupId" Lude..=) Lude.<$> serverGroupId
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.DeviceType where
+module Network.AWS.CognitoIdentityProvider.Types.DeviceType
+  ( DeviceType (..),
+
+    -- * Smart constructor
+    mkDeviceType,
+
+    -- * Lenses
+    dtDeviceLastModifiedDate,
+    dtDeviceCreateDate,
+    dtDeviceAttributes,
+    dtDeviceKey,
+    dtDeviceLastAuthenticatedDate,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.AttributeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The device type.
 --
---
---
--- /See:/ 'deviceType' smart constructor.
+-- /See:/ 'mkDeviceType' smart constructor.
 data DeviceType = DeviceType'
-  { _dtDeviceLastModifiedDate ::
-      !(Maybe POSIX),
-    _dtDeviceCreateDate :: !(Maybe POSIX),
-    _dtDeviceAttributes :: !(Maybe [AttributeType]),
-    _dtDeviceKey :: !(Maybe Text),
-    _dtDeviceLastAuthenticatedDate :: !(Maybe POSIX)
+  { deviceLastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    deviceCreateDate :: Lude.Maybe Lude.Timestamp,
+    deviceAttributes :: Lude.Maybe [AttributeType],
+    deviceKey :: Lude.Maybe Lude.Text,
+    deviceLastAuthenticatedDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtDeviceLastModifiedDate' - The last modified date of the device.
---
--- * 'dtDeviceCreateDate' - The creation date of the device.
---
--- * 'dtDeviceAttributes' - The device attributes.
---
--- * 'dtDeviceKey' - The device key.
---
--- * 'dtDeviceLastAuthenticatedDate' - The date in which the device was last authenticated.
-deviceType ::
+-- * 'deviceAttributes' - The device attributes.
+-- * 'deviceCreateDate' - The creation date of the device.
+-- * 'deviceKey' - The device key.
+-- * 'deviceLastAuthenticatedDate' - The date in which the device was last authenticated.
+-- * 'deviceLastModifiedDate' - The last modified date of the device.
+mkDeviceType ::
   DeviceType
-deviceType =
+mkDeviceType =
   DeviceType'
-    { _dtDeviceLastModifiedDate = Nothing,
-      _dtDeviceCreateDate = Nothing,
-      _dtDeviceAttributes = Nothing,
-      _dtDeviceKey = Nothing,
-      _dtDeviceLastAuthenticatedDate = Nothing
+    { deviceLastModifiedDate = Lude.Nothing,
+      deviceCreateDate = Lude.Nothing,
+      deviceAttributes = Lude.Nothing,
+      deviceKey = Lude.Nothing,
+      deviceLastAuthenticatedDate = Lude.Nothing
     }
 
 -- | The last modified date of the device.
-dtDeviceLastModifiedDate :: Lens' DeviceType (Maybe UTCTime)
-dtDeviceLastModifiedDate = lens _dtDeviceLastModifiedDate (\s a -> s {_dtDeviceLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deviceLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtDeviceLastModifiedDate :: Lens.Lens' DeviceType (Lude.Maybe Lude.Timestamp)
+dtDeviceLastModifiedDate = Lens.lens (deviceLastModifiedDate :: DeviceType -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceLastModifiedDate = a} :: DeviceType)
+{-# DEPRECATED dtDeviceLastModifiedDate "Use generic-lens or generic-optics with 'deviceLastModifiedDate' instead." #-}
 
 -- | The creation date of the device.
-dtDeviceCreateDate :: Lens' DeviceType (Maybe UTCTime)
-dtDeviceCreateDate = lens _dtDeviceCreateDate (\s a -> s {_dtDeviceCreateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deviceCreateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtDeviceCreateDate :: Lens.Lens' DeviceType (Lude.Maybe Lude.Timestamp)
+dtDeviceCreateDate = Lens.lens (deviceCreateDate :: DeviceType -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceCreateDate = a} :: DeviceType)
+{-# DEPRECATED dtDeviceCreateDate "Use generic-lens or generic-optics with 'deviceCreateDate' instead." #-}
 
 -- | The device attributes.
-dtDeviceAttributes :: Lens' DeviceType [AttributeType]
-dtDeviceAttributes = lens _dtDeviceAttributes (\s a -> s {_dtDeviceAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deviceAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtDeviceAttributes :: Lens.Lens' DeviceType (Lude.Maybe [AttributeType])
+dtDeviceAttributes = Lens.lens (deviceAttributes :: DeviceType -> Lude.Maybe [AttributeType]) (\s a -> s {deviceAttributes = a} :: DeviceType)
+{-# DEPRECATED dtDeviceAttributes "Use generic-lens or generic-optics with 'deviceAttributes' instead." #-}
 
 -- | The device key.
-dtDeviceKey :: Lens' DeviceType (Maybe Text)
-dtDeviceKey = lens _dtDeviceKey (\s a -> s {_dtDeviceKey = a})
+--
+-- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtDeviceKey :: Lens.Lens' DeviceType (Lude.Maybe Lude.Text)
+dtDeviceKey = Lens.lens (deviceKey :: DeviceType -> Lude.Maybe Lude.Text) (\s a -> s {deviceKey = a} :: DeviceType)
+{-# DEPRECATED dtDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
 -- | The date in which the device was last authenticated.
-dtDeviceLastAuthenticatedDate :: Lens' DeviceType (Maybe UTCTime)
-dtDeviceLastAuthenticatedDate = lens _dtDeviceLastAuthenticatedDate (\s a -> s {_dtDeviceLastAuthenticatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deviceLastAuthenticatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtDeviceLastAuthenticatedDate :: Lens.Lens' DeviceType (Lude.Maybe Lude.Timestamp)
+dtDeviceLastAuthenticatedDate = Lens.lens (deviceLastAuthenticatedDate :: DeviceType -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceLastAuthenticatedDate = a} :: DeviceType)
+{-# DEPRECATED dtDeviceLastAuthenticatedDate "Use generic-lens or generic-optics with 'deviceLastAuthenticatedDate' instead." #-}
 
-instance FromJSON DeviceType where
+instance Lude.FromJSON DeviceType where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceType"
       ( \x ->
           DeviceType'
-            <$> (x .:? "DeviceLastModifiedDate")
-            <*> (x .:? "DeviceCreateDate")
-            <*> (x .:? "DeviceAttributes" .!= mempty)
-            <*> (x .:? "DeviceKey")
-            <*> (x .:? "DeviceLastAuthenticatedDate")
+            Lude.<$> (x Lude..:? "DeviceLastModifiedDate")
+            Lude.<*> (x Lude..:? "DeviceCreateDate")
+            Lude.<*> (x Lude..:? "DeviceAttributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DeviceKey")
+            Lude.<*> (x Lude..:? "DeviceLastAuthenticatedDate")
       )
-
-instance Hashable DeviceType
-
-instance NFData DeviceType

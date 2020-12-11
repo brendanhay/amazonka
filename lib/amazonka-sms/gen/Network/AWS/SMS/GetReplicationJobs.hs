@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,185 @@
 --
 -- Describes the specified replication job or all of your replication jobs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SMS.GetReplicationJobs
-  ( -- * Creating a Request
-    getReplicationJobs,
-    GetReplicationJobs,
+  ( -- * Creating a request
+    GetReplicationJobs (..),
+    mkGetReplicationJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grjReplicationJobId,
     grjNextToken,
     grjMaxResults,
 
-    -- * Destructuring the Response
-    getReplicationJobsResponse,
-    GetReplicationJobsResponse,
+    -- * Destructuring the response
+    GetReplicationJobsResponse (..),
+    mkGetReplicationJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grjrsReplicationJobList,
     grjrsNextToken,
     grjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'getReplicationJobs' smart constructor.
+-- | /See:/ 'mkGetReplicationJobs' smart constructor.
 data GetReplicationJobs = GetReplicationJobs'
-  { _grjReplicationJobId ::
-      !(Maybe Text),
-    _grjNextToken :: !(Maybe Text),
-    _grjMaxResults :: !(Maybe Int)
+  { replicationJobId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReplicationJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grjReplicationJobId' - The ID of the replication job.
---
--- * 'grjNextToken' - The token for the next set of results.
---
--- * 'grjMaxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-getReplicationJobs ::
+-- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'replicationJobId' - The ID of the replication job.
+mkGetReplicationJobs ::
   GetReplicationJobs
-getReplicationJobs =
+mkGetReplicationJobs =
   GetReplicationJobs'
-    { _grjReplicationJobId = Nothing,
-      _grjNextToken = Nothing,
-      _grjMaxResults = Nothing
+    { replicationJobId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The ID of the replication job.
-grjReplicationJobId :: Lens' GetReplicationJobs (Maybe Text)
-grjReplicationJobId = lens _grjReplicationJobId (\s a -> s {_grjReplicationJobId = a})
+--
+-- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grjReplicationJobId :: Lens.Lens' GetReplicationJobs (Lude.Maybe Lude.Text)
+grjReplicationJobId = Lens.lens (replicationJobId :: GetReplicationJobs -> Lude.Maybe Lude.Text) (\s a -> s {replicationJobId = a} :: GetReplicationJobs)
+{-# DEPRECATED grjReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
 -- | The token for the next set of results.
-grjNextToken :: Lens' GetReplicationJobs (Maybe Text)
-grjNextToken = lens _grjNextToken (\s a -> s {_grjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grjNextToken :: Lens.Lens' GetReplicationJobs (Lude.Maybe Lude.Text)
+grjNextToken = Lens.lens (nextToken :: GetReplicationJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetReplicationJobs)
+{-# DEPRECATED grjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-grjMaxResults :: Lens' GetReplicationJobs (Maybe Int)
-grjMaxResults = lens _grjMaxResults (\s a -> s {_grjMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grjMaxResults :: Lens.Lens' GetReplicationJobs (Lude.Maybe Lude.Int)
+grjMaxResults = Lens.lens (maxResults :: GetReplicationJobs -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetReplicationJobs)
+{-# DEPRECATED grjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetReplicationJobs where
+instance Page.AWSPager GetReplicationJobs where
   page rq rs
-    | stop (rs ^. grjrsNextToken) = Nothing
-    | stop (rs ^. grjrsReplicationJobList) = Nothing
-    | otherwise = Just $ rq & grjNextToken .~ rs ^. grjrsNextToken
+    | Page.stop (rs Lens.^. grjrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grjrsReplicationJobList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grjNextToken Lens..~ rs Lens.^. grjrsNextToken
 
-instance AWSRequest GetReplicationJobs where
+instance Lude.AWSRequest GetReplicationJobs where
   type Rs GetReplicationJobs = GetReplicationJobsResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetReplicationJobsResponse'
-            <$> (x .?> "replicationJobList" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "replicationJobList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetReplicationJobs
-
-instance NFData GetReplicationJobs
-
-instance ToHeaders GetReplicationJobs where
+instance Lude.ToHeaders GetReplicationJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.GetReplicationJobs" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetReplicationJobs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetReplicationJobs where
+instance Lude.ToJSON GetReplicationJobs where
   toJSON GetReplicationJobs' {..} =
-    object
-      ( catMaybes
-          [ ("replicationJobId" .=) <$> _grjReplicationJobId,
-            ("nextToken" .=) <$> _grjNextToken,
-            ("maxResults" .=) <$> _grjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("replicationJobId" Lude..=) Lude.<$> replicationJobId,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetReplicationJobs where
-  toPath = const "/"
+instance Lude.ToPath GetReplicationJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery GetReplicationJobs where
-  toQuery = const mempty
+instance Lude.ToQuery GetReplicationJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getReplicationJobsResponse' smart constructor.
+-- | /See:/ 'mkGetReplicationJobsResponse' smart constructor.
 data GetReplicationJobsResponse = GetReplicationJobsResponse'
-  { _grjrsReplicationJobList ::
-      !(Maybe [ReplicationJob]),
-    _grjrsNextToken :: !(Maybe Text),
-    _grjrsResponseStatus :: !Int
+  { replicationJobList ::
+      Lude.Maybe [ReplicationJob],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReplicationJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grjrsReplicationJobList' - Information about the replication jobs.
---
--- * 'grjrsNextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
---
--- * 'grjrsResponseStatus' - -- | The response status code.
-getReplicationJobsResponse ::
-  -- | 'grjrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
+-- * 'replicationJobList' - Information about the replication jobs.
+-- * 'responseStatus' - The response status code.
+mkGetReplicationJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetReplicationJobsResponse
-getReplicationJobsResponse pResponseStatus_ =
+mkGetReplicationJobsResponse pResponseStatus_ =
   GetReplicationJobsResponse'
-    { _grjrsReplicationJobList = Nothing,
-      _grjrsNextToken = Nothing,
-      _grjrsResponseStatus = pResponseStatus_
+    { replicationJobList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the replication jobs.
-grjrsReplicationJobList :: Lens' GetReplicationJobsResponse [ReplicationJob]
-grjrsReplicationJobList = lens _grjrsReplicationJobList (\s a -> s {_grjrsReplicationJobList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationJobList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grjrsReplicationJobList :: Lens.Lens' GetReplicationJobsResponse (Lude.Maybe [ReplicationJob])
+grjrsReplicationJobList = Lens.lens (replicationJobList :: GetReplicationJobsResponse -> Lude.Maybe [ReplicationJob]) (\s a -> s {replicationJobList = a} :: GetReplicationJobsResponse)
+{-# DEPRECATED grjrsReplicationJobList "Use generic-lens or generic-optics with 'replicationJobList' instead." #-}
 
 -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
-grjrsNextToken :: Lens' GetReplicationJobsResponse (Maybe Text)
-grjrsNextToken = lens _grjrsNextToken (\s a -> s {_grjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grjrsNextToken :: Lens.Lens' GetReplicationJobsResponse (Lude.Maybe Lude.Text)
+grjrsNextToken = Lens.lens (nextToken :: GetReplicationJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetReplicationJobsResponse)
+{-# DEPRECATED grjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-grjrsResponseStatus :: Lens' GetReplicationJobsResponse Int
-grjrsResponseStatus = lens _grjrsResponseStatus (\s a -> s {_grjrsResponseStatus = a})
-
-instance NFData GetReplicationJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grjrsResponseStatus :: Lens.Lens' GetReplicationJobsResponse Lude.Int
+grjrsResponseStatus = Lens.lens (responseStatus :: GetReplicationJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReplicationJobsResponse)
+{-# DEPRECATED grjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

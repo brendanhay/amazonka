@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.TelemetryMetadata where
+module Network.AWS.Inspector.Types.TelemetryMetadata
+  ( TelemetryMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTelemetryMetadata,
+
+    -- * Lenses
+    tmDataSize,
+    tmMessageType,
+    tmCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the 'GetTelemetryMetadata' action.
 --
---
---
--- /See:/ 'telemetryMetadata' smart constructor.
+-- /See:/ 'mkTelemetryMetadata' smart constructor.
 data TelemetryMetadata = TelemetryMetadata'
-  { _tmDataSize ::
-      !(Maybe Integer),
-    _tmMessageType :: !Text,
-    _tmCount :: !Integer
+  { dataSize ::
+      Lude.Maybe Lude.Integer,
+    messageType :: Lude.Text,
+    count :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TelemetryMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tmDataSize' - The data size of messages that the agent sends to the Amazon Inspector service.
---
--- * 'tmMessageType' - A specific type of behavioral data that is collected by the agent.
---
--- * 'tmCount' - The count of messages that the agent sends to the Amazon Inspector service.
-telemetryMetadata ::
-  -- | 'tmMessageType'
-  Text ->
-  -- | 'tmCount'
-  Integer ->
+-- * 'count' - The count of messages that the agent sends to the Amazon Inspector service.
+-- * 'dataSize' - The data size of messages that the agent sends to the Amazon Inspector service.
+-- * 'messageType' - A specific type of behavioral data that is collected by the agent.
+mkTelemetryMetadata ::
+  -- | 'messageType'
+  Lude.Text ->
+  -- | 'count'
+  Lude.Integer ->
   TelemetryMetadata
-telemetryMetadata pMessageType_ pCount_ =
+mkTelemetryMetadata pMessageType_ pCount_ =
   TelemetryMetadata'
-    { _tmDataSize = Nothing,
-      _tmMessageType = pMessageType_,
-      _tmCount = pCount_
+    { dataSize = Lude.Nothing,
+      messageType = pMessageType_,
+      count = pCount_
     }
 
 -- | The data size of messages that the agent sends to the Amazon Inspector service.
-tmDataSize :: Lens' TelemetryMetadata (Maybe Integer)
-tmDataSize = lens _tmDataSize (\s a -> s {_tmDataSize = a})
+--
+-- /Note:/ Consider using 'dataSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmDataSize :: Lens.Lens' TelemetryMetadata (Lude.Maybe Lude.Integer)
+tmDataSize = Lens.lens (dataSize :: TelemetryMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {dataSize = a} :: TelemetryMetadata)
+{-# DEPRECATED tmDataSize "Use generic-lens or generic-optics with 'dataSize' instead." #-}
 
 -- | A specific type of behavioral data that is collected by the agent.
-tmMessageType :: Lens' TelemetryMetadata Text
-tmMessageType = lens _tmMessageType (\s a -> s {_tmMessageType = a})
+--
+-- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmMessageType :: Lens.Lens' TelemetryMetadata Lude.Text
+tmMessageType = Lens.lens (messageType :: TelemetryMetadata -> Lude.Text) (\s a -> s {messageType = a} :: TelemetryMetadata)
+{-# DEPRECATED tmMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
 
 -- | The count of messages that the agent sends to the Amazon Inspector service.
-tmCount :: Lens' TelemetryMetadata Integer
-tmCount = lens _tmCount (\s a -> s {_tmCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmCount :: Lens.Lens' TelemetryMetadata Lude.Integer
+tmCount = Lens.lens (count :: TelemetryMetadata -> Lude.Integer) (\s a -> s {count = a} :: TelemetryMetadata)
+{-# DEPRECATED tmCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
-instance FromJSON TelemetryMetadata where
+instance Lude.FromJSON TelemetryMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "TelemetryMetadata"
       ( \x ->
           TelemetryMetadata'
-            <$> (x .:? "dataSize") <*> (x .: "messageType") <*> (x .: "count")
+            Lude.<$> (x Lude..:? "dataSize")
+            Lude.<*> (x Lude..: "messageType")
+            Lude.<*> (x Lude..: "count")
       )
-
-instance Hashable TelemetryMetadata
-
-instance NFData TelemetryMetadata

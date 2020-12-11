@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry where
+module Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry
+  ( RemoveTargetsResultEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRemoveTargetsResultEntry,
+
+    -- * Lenses
+    rtreTargetId,
+    rtreErrorCode,
+    rtreErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a target that failed to be removed from a rule.
 --
---
---
--- /See:/ 'removeTargetsResultEntry' smart constructor.
+-- /See:/ 'mkRemoveTargetsResultEntry' smart constructor.
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
-  { _rtreTargetId ::
-      !(Maybe Text),
-    _rtreErrorCode :: !(Maybe Text),
-    _rtreErrorMessage :: !(Maybe Text)
+  { targetId ::
+      Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTargetsResultEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtreTargetId' - The ID of the target.
---
--- * 'rtreErrorCode' - The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
---
--- * 'rtreErrorMessage' - The error message that explains why the target removal failed.
-removeTargetsResultEntry ::
+-- * 'errorCode' - The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
+-- * 'errorMessage' - The error message that explains why the target removal failed.
+-- * 'targetId' - The ID of the target.
+mkRemoveTargetsResultEntry ::
   RemoveTargetsResultEntry
-removeTargetsResultEntry =
+mkRemoveTargetsResultEntry =
   RemoveTargetsResultEntry'
-    { _rtreTargetId = Nothing,
-      _rtreErrorCode = Nothing,
-      _rtreErrorMessage = Nothing
+    { targetId = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The ID of the target.
-rtreTargetId :: Lens' RemoveTargetsResultEntry (Maybe Text)
-rtreTargetId = lens _rtreTargetId (\s a -> s {_rtreTargetId = a})
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtreTargetId :: Lens.Lens' RemoveTargetsResultEntry (Lude.Maybe Lude.Text)
+rtreTargetId = Lens.lens (targetId :: RemoveTargetsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: RemoveTargetsResultEntry)
+{-# DEPRECATED rtreTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
-rtreErrorCode :: Lens' RemoveTargetsResultEntry (Maybe Text)
-rtreErrorCode = lens _rtreErrorCode (\s a -> s {_rtreErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtreErrorCode :: Lens.Lens' RemoveTargetsResultEntry (Lude.Maybe Lude.Text)
+rtreErrorCode = Lens.lens (errorCode :: RemoveTargetsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: RemoveTargetsResultEntry)
+{-# DEPRECATED rtreErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message that explains why the target removal failed.
-rtreErrorMessage :: Lens' RemoveTargetsResultEntry (Maybe Text)
-rtreErrorMessage = lens _rtreErrorMessage (\s a -> s {_rtreErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtreErrorMessage :: Lens.Lens' RemoveTargetsResultEntry (Lude.Maybe Lude.Text)
+rtreErrorMessage = Lens.lens (errorMessage :: RemoveTargetsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: RemoveTargetsResultEntry)
+{-# DEPRECATED rtreErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON RemoveTargetsResultEntry where
+instance Lude.FromJSON RemoveTargetsResultEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemoveTargetsResultEntry"
       ( \x ->
           RemoveTargetsResultEntry'
-            <$> (x .:? "TargetId")
-            <*> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "TargetId")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable RemoveTargetsResultEntry
-
-instance NFData RemoveTargetsResultEntry

@@ -28,229 +28,229 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetPipeline $
---             getPipeline
+--             mkGetPipeline
 --
 --         , requestPutJobFailureResult $
---             putJobFailureResult
+--             mkPutJobFailureResult
 --
 --         , requestPutApprovalResult $
---             putApprovalResult
+--             mkPutApprovalResult
 --
 --         , requestAcknowledgeThirdPartyJob $
---             acknowledgeThirdPartyJob
+--             mkAcknowledgeThirdPartyJob
 --
 --         , requestPutThirdPartyJobFailureResult $
---             putThirdPartyJobFailureResult
+--             mkPutThirdPartyJobFailureResult
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestRegisterWebhookWithThirdParty $
---             registerWebhookWithThirdParty
+--             mkRegisterWebhookWithThirdParty
 --
 --         , requestPollForThirdPartyJobs $
---             pollForThirdPartyJobs
+--             mkPollForThirdPartyJobs
 --
 --         , requestPollForJobs $
---             pollForJobs
+--             mkPollForJobs
 --
 --         , requestStartPipelineExecution $
---             startPipelineExecution
+--             mkStartPipelineExecution
 --
 --         , requestUpdatePipeline $
---             updatePipeline
+--             mkUpdatePipeline
 --
 --         , requestDeletePipeline $
---             deletePipeline
+--             mkDeletePipeline
 --
 --         , requestGetPipelineState $
---             getPipelineState
+--             mkGetPipelineState
 --
 --         , requestGetJobDetails $
---             getJobDetails
+--             mkGetJobDetails
 --
 --         , requestListPipelines $
---             listPipelines
+--             mkListPipelines
 --
 --         , requestRetryStageExecution $
---             retryStageExecution
+--             mkRetryStageExecution
 --
 --         , requestGetPipelineExecution $
---             getPipelineExecution
+--             mkGetPipelineExecution
 --
 --         , requestPutJobSuccessResult $
---             putJobSuccessResult
+--             mkPutJobSuccessResult
 --
 --         , requestDeregisterWebhookWithThirdParty $
---             deregisterWebhookWithThirdParty
+--             mkDeregisterWebhookWithThirdParty
 --
 --         , requestDeleteCustomActionType $
---             deleteCustomActionType
+--             mkDeleteCustomActionType
 --
 --         , requestPutActionRevision $
---             putActionRevision
+--             mkPutActionRevision
 --
 --         , requestDisableStageTransition $
---             disableStageTransition
+--             mkDisableStageTransition
 --
 --         , requestListActionTypes $
---             listActionTypes
+--             mkListActionTypes
 --
 --         , requestAcknowledgeJob $
---             acknowledgeJob
+--             mkAcknowledgeJob
 --
 --         , requestEnableStageTransition $
---             enableStageTransition
+--             mkEnableStageTransition
 --
 --         , requestDeleteWebhook $
---             deleteWebhook
+--             mkDeleteWebhook
 --
 --         , requestPutWebhook $
---             putWebhook
+--             mkPutWebhook
 --
 --         , requestListWebhooks $
---             listWebhooks
+--             mkListWebhooks
 --
 --         , requestListActionExecutions $
---             listActionExecutions
+--             mkListActionExecutions
 --
 --         , requestStopPipelineExecution $
---             stopPipelineExecution
+--             mkStopPipelineExecution
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestCreatePipeline $
---             createPipeline
+--             mkCreatePipeline
 --
 --         , requestGetThirdPartyJobDetails $
---             getThirdPartyJobDetails
+--             mkGetThirdPartyJobDetails
 --
 --         , requestPutThirdPartyJobSuccessResult $
---             putThirdPartyJobSuccessResult
+--             mkPutThirdPartyJobSuccessResult
 --
 --         , requestCreateCustomActionType $
---             createCustomActionType
+--             mkCreateCustomActionType
 --
 --         , requestListPipelineExecutions $
---             listPipelineExecutions
+--             mkListPipelineExecutions
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetPipeline $
---             getPipelineResponse
+--             mkGetPipelineResponse
 --
 --         , responsePutJobFailureResult $
---             putJobFailureResultResponse
+--             mkPutJobFailureResultResponse
 --
 --         , responsePutApprovalResult $
---             putApprovalResultResponse
+--             mkPutApprovalResultResponse
 --
 --         , responseAcknowledgeThirdPartyJob $
---             acknowledgeThirdPartyJobResponse
+--             mkAcknowledgeThirdPartyJobResponse
 --
 --         , responsePutThirdPartyJobFailureResult $
---             putThirdPartyJobFailureResultResponse
+--             mkPutThirdPartyJobFailureResultResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseRegisterWebhookWithThirdParty $
---             registerWebhookWithThirdPartyResponse
+--             mkRegisterWebhookWithThirdPartyResponse
 --
 --         , responsePollForThirdPartyJobs $
---             pollForThirdPartyJobsResponse
+--             mkPollForThirdPartyJobsResponse
 --
 --         , responsePollForJobs $
---             pollForJobsResponse
+--             mkPollForJobsResponse
 --
 --         , responseStartPipelineExecution $
---             startPipelineExecutionResponse
+--             mkStartPipelineExecutionResponse
 --
 --         , responseUpdatePipeline $
---             updatePipelineResponse
+--             mkUpdatePipelineResponse
 --
 --         , responseDeletePipeline $
---             deletePipelineResponse
+--             mkDeletePipelineResponse
 --
 --         , responseGetPipelineState $
---             getPipelineStateResponse
+--             mkGetPipelineStateResponse
 --
 --         , responseGetJobDetails $
---             getJobDetailsResponse
+--             mkGetJobDetailsResponse
 --
 --         , responseListPipelines $
---             listPipelinesResponse
+--             mkListPipelinesResponse
 --
 --         , responseRetryStageExecution $
---             retryStageExecutionResponse
+--             mkRetryStageExecutionResponse
 --
 --         , responseGetPipelineExecution $
---             getPipelineExecutionResponse
+--             mkGetPipelineExecutionResponse
 --
 --         , responsePutJobSuccessResult $
---             putJobSuccessResultResponse
+--             mkPutJobSuccessResultResponse
 --
 --         , responseDeregisterWebhookWithThirdParty $
---             deregisterWebhookWithThirdPartyResponse
+--             mkDeregisterWebhookWithThirdPartyResponse
 --
 --         , responseDeleteCustomActionType $
---             deleteCustomActionTypeResponse
+--             mkDeleteCustomActionTypeResponse
 --
 --         , responsePutActionRevision $
---             putActionRevisionResponse
+--             mkPutActionRevisionResponse
 --
 --         , responseDisableStageTransition $
---             disableStageTransitionResponse
+--             mkDisableStageTransitionResponse
 --
 --         , responseListActionTypes $
---             listActionTypesResponse
+--             mkListActionTypesResponse
 --
 --         , responseAcknowledgeJob $
---             acknowledgeJobResponse
+--             mkAcknowledgeJobResponse
 --
 --         , responseEnableStageTransition $
---             enableStageTransitionResponse
+--             mkEnableStageTransitionResponse
 --
 --         , responseDeleteWebhook $
---             deleteWebhookResponse
+--             mkDeleteWebhookResponse
 --
 --         , responsePutWebhook $
---             putWebhookResponse
+--             mkPutWebhookResponse
 --
 --         , responseListWebhooks $
---             listWebhooksResponse
+--             mkListWebhooksResponse
 --
 --         , responseListActionExecutions $
---             listActionExecutionsResponse
+--             mkListActionExecutionsResponse
 --
 --         , responseStopPipelineExecution $
---             stopPipelineExecutionResponse
+--             mkStopPipelineExecutionResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseCreatePipeline $
---             createPipelineResponse
+--             mkCreatePipelineResponse
 --
 --         , responseGetThirdPartyJobDetails $
---             getThirdPartyJobDetailsResponse
+--             mkGetThirdPartyJobDetailsResponse
 --
 --         , responsePutThirdPartyJobSuccessResult $
---             putThirdPartyJobSuccessResultResponse
+--             mkPutThirdPartyJobSuccessResultResponse
 --
 --         , responseCreateCustomActionType $
---             createCustomActionTypeResponse
+--             mkCreateCustomActionTypeResponse
 --
 --         , responseListPipelineExecutions $
---             listPipelineExecutionsResponse
+--             mkListPipelineExecutionsResponse
 --
 --           ]
 --     ]
@@ -486,7 +486,7 @@ responseGetPipeline =
   res
     "GetPipelineResponse"
     "fixture/GetPipelineResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy GetPipeline)
 
 responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
@@ -494,7 +494,7 @@ responsePutJobFailureResult =
   res
     "PutJobFailureResultResponse"
     "fixture/PutJobFailureResultResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutJobFailureResult)
 
 responsePutApprovalResult :: PutApprovalResultResponse -> TestTree
@@ -502,7 +502,7 @@ responsePutApprovalResult =
   res
     "PutApprovalResultResponse"
     "fixture/PutApprovalResultResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutApprovalResult)
 
 responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
@@ -510,7 +510,7 @@ responseAcknowledgeThirdPartyJob =
   res
     "AcknowledgeThirdPartyJobResponse"
     "fixture/AcknowledgeThirdPartyJobResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy AcknowledgeThirdPartyJob)
 
 responsePutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResultResponse -> TestTree
@@ -518,7 +518,7 @@ responsePutThirdPartyJobFailureResult =
   res
     "PutThirdPartyJobFailureResultResponse"
     "fixture/PutThirdPartyJobFailureResultResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -526,7 +526,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
@@ -534,7 +534,7 @@ responseRegisterWebhookWithThirdParty =
   res
     "RegisterWebhookWithThirdPartyResponse"
     "fixture/RegisterWebhookWithThirdPartyResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy RegisterWebhookWithThirdParty)
 
 responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
@@ -542,7 +542,7 @@ responsePollForThirdPartyJobs =
   res
     "PollForThirdPartyJobsResponse"
     "fixture/PollForThirdPartyJobsResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PollForThirdPartyJobs)
 
 responsePollForJobs :: PollForJobsResponse -> TestTree
@@ -550,7 +550,7 @@ responsePollForJobs =
   res
     "PollForJobsResponse"
     "fixture/PollForJobsResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PollForJobs)
 
 responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
@@ -558,7 +558,7 @@ responseStartPipelineExecution =
   res
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy StartPipelineExecution)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
@@ -566,7 +566,7 @@ responseUpdatePipeline =
   res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeletePipeline =
   res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy DeletePipeline)
 
 responseGetPipelineState :: GetPipelineStateResponse -> TestTree
@@ -582,7 +582,7 @@ responseGetPipelineState =
   res
     "GetPipelineStateResponse"
     "fixture/GetPipelineStateResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy GetPipelineState)
 
 responseGetJobDetails :: GetJobDetailsResponse -> TestTree
@@ -590,7 +590,7 @@ responseGetJobDetails =
   res
     "GetJobDetailsResponse"
     "fixture/GetJobDetailsResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy GetJobDetails)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
@@ -598,7 +598,7 @@ responseListPipelines =
   res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy ListPipelines)
 
 responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
@@ -606,7 +606,7 @@ responseRetryStageExecution =
   res
     "RetryStageExecutionResponse"
     "fixture/RetryStageExecutionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy RetryStageExecution)
 
 responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetPipelineExecution =
   res
     "GetPipelineExecutionResponse"
     "fixture/GetPipelineExecutionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy GetPipelineExecution)
 
 responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
@@ -622,7 +622,7 @@ responsePutJobSuccessResult =
   res
     "PutJobSuccessResultResponse"
     "fixture/PutJobSuccessResultResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutJobSuccessResult)
 
 responseDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdPartyResponse -> TestTree
@@ -630,7 +630,7 @@ responseDeregisterWebhookWithThirdParty =
   res
     "DeregisterWebhookWithThirdPartyResponse"
     "fixture/DeregisterWebhookWithThirdPartyResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy DeregisterWebhookWithThirdParty)
 
 responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
@@ -638,7 +638,7 @@ responseDeleteCustomActionType =
   res
     "DeleteCustomActionTypeResponse"
     "fixture/DeleteCustomActionTypeResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy DeleteCustomActionType)
 
 responsePutActionRevision :: PutActionRevisionResponse -> TestTree
@@ -646,7 +646,7 @@ responsePutActionRevision =
   res
     "PutActionRevisionResponse"
     "fixture/PutActionRevisionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutActionRevision)
 
 responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
@@ -654,7 +654,7 @@ responseDisableStageTransition =
   res
     "DisableStageTransitionResponse"
     "fixture/DisableStageTransitionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy DisableStageTransition)
 
 responseListActionTypes :: ListActionTypesResponse -> TestTree
@@ -662,7 +662,7 @@ responseListActionTypes =
   res
     "ListActionTypesResponse"
     "fixture/ListActionTypesResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy ListActionTypes)
 
 responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
@@ -670,7 +670,7 @@ responseAcknowledgeJob =
   res
     "AcknowledgeJobResponse"
     "fixture/AcknowledgeJobResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy AcknowledgeJob)
 
 responseEnableStageTransition :: EnableStageTransitionResponse -> TestTree
@@ -678,7 +678,7 @@ responseEnableStageTransition =
   res
     "EnableStageTransitionResponse"
     "fixture/EnableStageTransitionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy EnableStageTransition)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
@@ -686,7 +686,7 @@ responseDeleteWebhook =
   res
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy DeleteWebhook)
 
 responsePutWebhook :: PutWebhookResponse -> TestTree
@@ -694,7 +694,7 @@ responsePutWebhook =
   res
     "PutWebhookResponse"
     "fixture/PutWebhookResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutWebhook)
 
 responseListWebhooks :: ListWebhooksResponse -> TestTree
@@ -702,7 +702,7 @@ responseListWebhooks =
   res
     "ListWebhooksResponse"
     "fixture/ListWebhooksResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy ListWebhooks)
 
 responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
@@ -710,7 +710,7 @@ responseListActionExecutions =
   res
     "ListActionExecutionsResponse"
     "fixture/ListActionExecutionsResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy ListActionExecutions)
 
 responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
@@ -718,7 +718,7 @@ responseStopPipelineExecution =
   res
     "StopPipelineExecutionResponse"
     "fixture/StopPipelineExecutionResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy StopPipelineExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -726,7 +726,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -734,7 +734,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy UntagResource)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
@@ -742,7 +742,7 @@ responseCreatePipeline =
   res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy CreatePipeline)
 
 responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
@@ -750,7 +750,7 @@ responseGetThirdPartyJobDetails =
   res
     "GetThirdPartyJobDetailsResponse"
     "fixture/GetThirdPartyJobDetailsResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy GetThirdPartyJobDetails)
 
 responsePutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResultResponse -> TestTree
@@ -758,7 +758,7 @@ responsePutThirdPartyJobSuccessResult =
   res
     "PutThirdPartyJobSuccessResultResponse"
     "fixture/PutThirdPartyJobSuccessResultResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy PutThirdPartyJobSuccessResult)
 
 responseCreateCustomActionType :: CreateCustomActionTypeResponse -> TestTree
@@ -766,7 +766,7 @@ responseCreateCustomActionType =
   res
     "CreateCustomActionTypeResponse"
     "fixture/CreateCustomActionTypeResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy CreateCustomActionType)
 
 responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
@@ -774,5 +774,5 @@ responseListPipelineExecutions =
   res
     "ListPipelineExecutionsResponse"
     "fixture/ListPipelineExecutionsResponse.proto"
-    codePipeline
+    codePipelineService
     (Proxy :: Proxy ListPipelineExecutions)

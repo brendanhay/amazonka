@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a replication task using the specified parameters.
 module Network.AWS.DMS.CreateReplicationTask
-  ( -- * Creating a Request
-    createReplicationTask,
-    CreateReplicationTask,
+  ( -- * Creating a request
+    CreateReplicationTask (..),
+    mkCreateReplicationTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crtReplicationTaskSettings,
     crtCdcStartPosition,
     crtTaskData,
@@ -38,89 +33,102 @@ module Network.AWS.DMS.CreateReplicationTask
     crtMigrationType,
     crtTableMappings,
 
-    -- * Destructuring the Response
-    createReplicationTaskResponse,
-    CreateReplicationTaskResponse,
+    -- * Destructuring the response
+    CreateReplicationTaskResponse (..),
+    mkCreateReplicationTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crtrsReplicationTask,
     crtrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createReplicationTask' smart constructor.
+-- /See:/ 'mkCreateReplicationTask' smart constructor.
 data CreateReplicationTask = CreateReplicationTask'
-  { _crtReplicationTaskSettings ::
-      !(Maybe Text),
-    _crtCdcStartPosition :: !(Maybe Text),
-    _crtTaskData :: !(Maybe Text),
-    _crtCdcStopPosition :: !(Maybe Text),
-    _crtResourceIdentifier :: !(Maybe Text),
-    _crtTags :: !(Maybe [Tag]),
-    _crtCdcStartTime :: !(Maybe POSIX),
-    _crtReplicationTaskIdentifier :: !Text,
-    _crtSourceEndpointARN :: !Text,
-    _crtTargetEndpointARN :: !Text,
-    _crtReplicationInstanceARN :: !Text,
-    _crtMigrationType :: !MigrationTypeValue,
-    _crtTableMappings :: !Text
+  { replicationTaskSettings ::
+      Lude.Maybe Lude.Text,
+    cdcStartPosition :: Lude.Maybe Lude.Text,
+    taskData :: Lude.Maybe Lude.Text,
+    cdcStopPosition :: Lude.Maybe Lude.Text,
+    resourceIdentifier :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    cdcStartTime :: Lude.Maybe Lude.Timestamp,
+    replicationTaskIdentifier :: Lude.Text,
+    sourceEndpointARN :: Lude.Text,
+    targetEndpointARN :: Lude.Text,
+    replicationInstanceARN :: Lude.Text,
+    migrationType :: MigrationTypeValue,
+    tableMappings :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
 --
--- * 'crtReplicationTaskSettings' - Overall settings for the task, in JSON format. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for AWS Database Migration Service Tasks> in the /AWS Database Migration User Guide./
+-- The value can be in date, checkpoint, or LSN/SCN format.
+-- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+-- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+-- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+-- * 'cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
 --
--- * 'crtCdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error. The value can be in date, checkpoint, or LSN/SCN format. Date Example: --cdc-start-position “2018-03-08T12:12:12” Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93" LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+-- * 'cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
 --
--- * 'crtTaskData' - Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings> in the /AWS Database Migration Service User Guide./
+-- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
+-- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
+-- * 'migrationType' - The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of a replication instance.
+-- * 'replicationTaskIdentifier' - An identifier for the replication task.
 --
--- * 'crtCdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time. Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12” Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
+-- Constraints:
 --
--- * 'crtResourceIdentifier' - A friendly name for the resource identifier at the end of the @EndpointArn@ response parameter that is returned in the created @Endpoint@ object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as @Example-App-ARN1@ . For example, this value might result in the @EndpointArn@ value @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@ . If you don't specify a @ResourceIdentifier@ value, AWS DMS generates a default identifier value for the end of @EndpointArn@ .
+--     * Must contain 1-255 alphanumeric characters or hyphens.
 --
--- * 'crtTags' - One or more tags to be assigned to the replication task.
 --
--- * 'crtCdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error. Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+--     * First character must be a letter.
 --
--- * 'crtReplicationTaskIdentifier' - An identifier for the replication task. Constraints:     * Must contain 1-255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'crtSourceEndpointARN' - An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'crtTargetEndpointARN' - An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
 --
--- * 'crtReplicationInstanceARN' - The Amazon Resource Name (ARN) of a replication instance.
---
--- * 'crtMigrationType' - The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
---
--- * 'crtTableMappings' - The table mappings for the task, in JSON format. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html Using Table Mapping to Specify Task Settings> in the /AWS Database Migration Service User Guide./
-createReplicationTask ::
-  -- | 'crtReplicationTaskIdentifier'
-  Text ->
-  -- | 'crtSourceEndpointARN'
-  Text ->
-  -- | 'crtTargetEndpointARN'
-  Text ->
-  -- | 'crtReplicationInstanceARN'
-  Text ->
-  -- | 'crtMigrationType'
+-- * 'replicationTaskSettings' - Overall settings for the task, in JSON format. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for AWS Database Migration Service Tasks> in the /AWS Database Migration User Guide./
+-- * 'resourceIdentifier' - A friendly name for the resource identifier at the end of the @EndpointArn@ response parameter that is returned in the created @Endpoint@ object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as @Example-App-ARN1@ . For example, this value might result in the @EndpointArn@ value @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@ . If you don't specify a @ResourceIdentifier@ value, AWS DMS generates a default identifier value for the end of @EndpointArn@ .
+-- * 'sourceEndpointARN' - An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
+-- * 'tableMappings' - The table mappings for the task, in JSON format. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html Using Table Mapping to Specify Task Settings> in the /AWS Database Migration Service User Guide./
+-- * 'tags' - One or more tags to be assigned to the replication task.
+-- * 'targetEndpointARN' - An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
+-- * 'taskData' - Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings> in the /AWS Database Migration Service User Guide./
+mkCreateReplicationTask ::
+  -- | 'replicationTaskIdentifier'
+  Lude.Text ->
+  -- | 'sourceEndpointARN'
+  Lude.Text ->
+  -- | 'targetEndpointARN'
+  Lude.Text ->
+  -- | 'replicationInstanceARN'
+  Lude.Text ->
+  -- | 'migrationType'
   MigrationTypeValue ->
-  -- | 'crtTableMappings'
-  Text ->
+  -- | 'tableMappings'
+  Lude.Text ->
   CreateReplicationTask
-createReplicationTask
+mkCreateReplicationTask
   pReplicationTaskIdentifier_
   pSourceEndpointARN_
   pTargetEndpointARN_
@@ -128,159 +136,226 @@ createReplicationTask
   pMigrationType_
   pTableMappings_ =
     CreateReplicationTask'
-      { _crtReplicationTaskSettings = Nothing,
-        _crtCdcStartPosition = Nothing,
-        _crtTaskData = Nothing,
-        _crtCdcStopPosition = Nothing,
-        _crtResourceIdentifier = Nothing,
-        _crtTags = Nothing,
-        _crtCdcStartTime = Nothing,
-        _crtReplicationTaskIdentifier = pReplicationTaskIdentifier_,
-        _crtSourceEndpointARN = pSourceEndpointARN_,
-        _crtTargetEndpointARN = pTargetEndpointARN_,
-        _crtReplicationInstanceARN = pReplicationInstanceARN_,
-        _crtMigrationType = pMigrationType_,
-        _crtTableMappings = pTableMappings_
+      { replicationTaskSettings = Lude.Nothing,
+        cdcStartPosition = Lude.Nothing,
+        taskData = Lude.Nothing,
+        cdcStopPosition = Lude.Nothing,
+        resourceIdentifier = Lude.Nothing,
+        tags = Lude.Nothing,
+        cdcStartTime = Lude.Nothing,
+        replicationTaskIdentifier = pReplicationTaskIdentifier_,
+        sourceEndpointARN = pSourceEndpointARN_,
+        targetEndpointARN = pTargetEndpointARN_,
+        replicationInstanceARN = pReplicationInstanceARN_,
+        migrationType = pMigrationType_,
+        tableMappings = pTableMappings_
       }
 
 -- | Overall settings for the task, in JSON format. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for AWS Database Migration Service Tasks> in the /AWS Database Migration User Guide./
-crtReplicationTaskSettings :: Lens' CreateReplicationTask (Maybe Text)
-crtReplicationTaskSettings = lens _crtReplicationTaskSettings (\s a -> s {_crtReplicationTaskSettings = a})
+--
+-- /Note:/ Consider using 'replicationTaskSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtReplicationTaskSettings :: Lens.Lens' CreateReplicationTask (Lude.Maybe Lude.Text)
+crtReplicationTaskSettings = Lens.lens (replicationTaskSettings :: CreateReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskSettings = a} :: CreateReplicationTask)
+{-# DEPRECATED crtReplicationTaskSettings "Use generic-lens or generic-optics with 'replicationTaskSettings' instead." #-}
 
--- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error. The value can be in date, checkpoint, or LSN/SCN format. Date Example: --cdc-start-position “2018-03-08T12:12:12” Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93" LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
-crtCdcStartPosition :: Lens' CreateReplicationTask (Maybe Text)
-crtCdcStartPosition = lens _crtCdcStartPosition (\s a -> s {_crtCdcStartPosition = a})
+-- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
+--
+-- The value can be in date, checkpoint, or LSN/SCN format.
+-- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+-- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+-- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+--
+-- /Note:/ Consider using 'cdcStartPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtCdcStartPosition :: Lens.Lens' CreateReplicationTask (Lude.Maybe Lude.Text)
+crtCdcStartPosition = Lens.lens (cdcStartPosition :: CreateReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStartPosition = a} :: CreateReplicationTask)
+{-# DEPRECATED crtCdcStartPosition "Use generic-lens or generic-optics with 'cdcStartPosition' instead." #-}
 
 -- | Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings> in the /AWS Database Migration Service User Guide./
-crtTaskData :: Lens' CreateReplicationTask (Maybe Text)
-crtTaskData = lens _crtTaskData (\s a -> s {_crtTaskData = a})
+--
+-- /Note:/ Consider using 'taskData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtTaskData :: Lens.Lens' CreateReplicationTask (Lude.Maybe Lude.Text)
+crtTaskData = Lens.lens (taskData :: CreateReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {taskData = a} :: CreateReplicationTask)
+{-# DEPRECATED crtTaskData "Use generic-lens or generic-optics with 'taskData' instead." #-}
 
--- | Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time. Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12” Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
-crtCdcStopPosition :: Lens' CreateReplicationTask (Maybe Text)
-crtCdcStopPosition = lens _crtCdcStopPosition (\s a -> s {_crtCdcStopPosition = a})
+-- | Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
+-- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
+--
+-- /Note:/ Consider using 'cdcStopPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtCdcStopPosition :: Lens.Lens' CreateReplicationTask (Lude.Maybe Lude.Text)
+crtCdcStopPosition = Lens.lens (cdcStopPosition :: CreateReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStopPosition = a} :: CreateReplicationTask)
+{-# DEPRECATED crtCdcStopPosition "Use generic-lens or generic-optics with 'cdcStopPosition' instead." #-}
 
 -- | A friendly name for the resource identifier at the end of the @EndpointArn@ response parameter that is returned in the created @Endpoint@ object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as @Example-App-ARN1@ . For example, this value might result in the @EndpointArn@ value @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@ . If you don't specify a @ResourceIdentifier@ value, AWS DMS generates a default identifier value for the end of @EndpointArn@ .
-crtResourceIdentifier :: Lens' CreateReplicationTask (Maybe Text)
-crtResourceIdentifier = lens _crtResourceIdentifier (\s a -> s {_crtResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtResourceIdentifier :: Lens.Lens' CreateReplicationTask (Lude.Maybe Lude.Text)
+crtResourceIdentifier = Lens.lens (resourceIdentifier :: CreateReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {resourceIdentifier = a} :: CreateReplicationTask)
+{-# DEPRECATED crtResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
 -- | One or more tags to be assigned to the replication task.
-crtTags :: Lens' CreateReplicationTask [Tag]
-crtTags = lens _crtTags (\s a -> s {_crtTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtTags :: Lens.Lens' CreateReplicationTask (Lude.Maybe [Tag])
+crtTags = Lens.lens (tags :: CreateReplicationTask -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReplicationTask)
+{-# DEPRECATED crtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error. Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-crtCdcStartTime :: Lens' CreateReplicationTask (Maybe UTCTime)
-crtCdcStartTime = lens _crtCdcStartTime (\s a -> s {_crtCdcStartTime = a}) . mapping _Time
+-- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+--
+-- /Note:/ Consider using 'cdcStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtCdcStartTime :: Lens.Lens' CreateReplicationTask (Lude.Maybe Lude.Timestamp)
+crtCdcStartTime = Lens.lens (cdcStartTime :: CreateReplicationTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {cdcStartTime = a} :: CreateReplicationTask)
+{-# DEPRECATED crtCdcStartTime "Use generic-lens or generic-optics with 'cdcStartTime' instead." #-}
 
--- | An identifier for the replication task. Constraints:     * Must contain 1-255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-crtReplicationTaskIdentifier :: Lens' CreateReplicationTask Text
-crtReplicationTaskIdentifier = lens _crtReplicationTaskIdentifier (\s a -> s {_crtReplicationTaskIdentifier = a})
+-- | An identifier for the replication task.
+--
+-- Constraints:
+--
+--     * Must contain 1-255 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'replicationTaskIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtReplicationTaskIdentifier :: Lens.Lens' CreateReplicationTask Lude.Text
+crtReplicationTaskIdentifier = Lens.lens (replicationTaskIdentifier :: CreateReplicationTask -> Lude.Text) (\s a -> s {replicationTaskIdentifier = a} :: CreateReplicationTask)
+{-# DEPRECATED crtReplicationTaskIdentifier "Use generic-lens or generic-optics with 'replicationTaskIdentifier' instead." #-}
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
-crtSourceEndpointARN :: Lens' CreateReplicationTask Text
-crtSourceEndpointARN = lens _crtSourceEndpointARN (\s a -> s {_crtSourceEndpointARN = a})
+--
+-- /Note:/ Consider using 'sourceEndpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtSourceEndpointARN :: Lens.Lens' CreateReplicationTask Lude.Text
+crtSourceEndpointARN = Lens.lens (sourceEndpointARN :: CreateReplicationTask -> Lude.Text) (\s a -> s {sourceEndpointARN = a} :: CreateReplicationTask)
+{-# DEPRECATED crtSourceEndpointARN "Use generic-lens or generic-optics with 'sourceEndpointARN' instead." #-}
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
-crtTargetEndpointARN :: Lens' CreateReplicationTask Text
-crtTargetEndpointARN = lens _crtTargetEndpointARN (\s a -> s {_crtTargetEndpointARN = a})
+--
+-- /Note:/ Consider using 'targetEndpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtTargetEndpointARN :: Lens.Lens' CreateReplicationTask Lude.Text
+crtTargetEndpointARN = Lens.lens (targetEndpointARN :: CreateReplicationTask -> Lude.Text) (\s a -> s {targetEndpointARN = a} :: CreateReplicationTask)
+{-# DEPRECATED crtTargetEndpointARN "Use generic-lens or generic-optics with 'targetEndpointARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a replication instance.
-crtReplicationInstanceARN :: Lens' CreateReplicationTask Text
-crtReplicationInstanceARN = lens _crtReplicationInstanceARN (\s a -> s {_crtReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtReplicationInstanceARN :: Lens.Lens' CreateReplicationTask Lude.Text
+crtReplicationInstanceARN = Lens.lens (replicationInstanceARN :: CreateReplicationTask -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: CreateReplicationTask)
+{-# DEPRECATED crtReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
 -- | The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
-crtMigrationType :: Lens' CreateReplicationTask MigrationTypeValue
-crtMigrationType = lens _crtMigrationType (\s a -> s {_crtMigrationType = a})
+--
+-- /Note:/ Consider using 'migrationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtMigrationType :: Lens.Lens' CreateReplicationTask MigrationTypeValue
+crtMigrationType = Lens.lens (migrationType :: CreateReplicationTask -> MigrationTypeValue) (\s a -> s {migrationType = a} :: CreateReplicationTask)
+{-# DEPRECATED crtMigrationType "Use generic-lens or generic-optics with 'migrationType' instead." #-}
 
 -- | The table mappings for the task, in JSON format. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html Using Table Mapping to Specify Task Settings> in the /AWS Database Migration Service User Guide./
-crtTableMappings :: Lens' CreateReplicationTask Text
-crtTableMappings = lens _crtTableMappings (\s a -> s {_crtTableMappings = a})
+--
+-- /Note:/ Consider using 'tableMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtTableMappings :: Lens.Lens' CreateReplicationTask Lude.Text
+crtTableMappings = Lens.lens (tableMappings :: CreateReplicationTask -> Lude.Text) (\s a -> s {tableMappings = a} :: CreateReplicationTask)
+{-# DEPRECATED crtTableMappings "Use generic-lens or generic-optics with 'tableMappings' instead." #-}
 
-instance AWSRequest CreateReplicationTask where
+instance Lude.AWSRequest CreateReplicationTask where
   type Rs CreateReplicationTask = CreateReplicationTaskResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateReplicationTaskResponse'
-            <$> (x .?> "ReplicationTask") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTask")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateReplicationTask
-
-instance NFData CreateReplicationTask
-
-instance ToHeaders CreateReplicationTask where
+instance Lude.ToHeaders CreateReplicationTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.CreateReplicationTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.CreateReplicationTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateReplicationTask where
+instance Lude.ToJSON CreateReplicationTask where
   toJSON CreateReplicationTask' {..} =
-    object
-      ( catMaybes
-          [ ("ReplicationTaskSettings" .=) <$> _crtReplicationTaskSettings,
-            ("CdcStartPosition" .=) <$> _crtCdcStartPosition,
-            ("TaskData" .=) <$> _crtTaskData,
-            ("CdcStopPosition" .=) <$> _crtCdcStopPosition,
-            ("ResourceIdentifier" .=) <$> _crtResourceIdentifier,
-            ("Tags" .=) <$> _crtTags,
-            ("CdcStartTime" .=) <$> _crtCdcStartTime,
-            Just
-              ("ReplicationTaskIdentifier" .= _crtReplicationTaskIdentifier),
-            Just ("SourceEndpointArn" .= _crtSourceEndpointARN),
-            Just ("TargetEndpointArn" .= _crtTargetEndpointARN),
-            Just ("ReplicationInstanceArn" .= _crtReplicationInstanceARN),
-            Just ("MigrationType" .= _crtMigrationType),
-            Just ("TableMappings" .= _crtTableMappings)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ReplicationTaskSettings" Lude..=)
+              Lude.<$> replicationTaskSettings,
+            ("CdcStartPosition" Lude..=) Lude.<$> cdcStartPosition,
+            ("TaskData" Lude..=) Lude.<$> taskData,
+            ("CdcStopPosition" Lude..=) Lude.<$> cdcStopPosition,
+            ("ResourceIdentifier" Lude..=) Lude.<$> resourceIdentifier,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("CdcStartTime" Lude..=) Lude.<$> cdcStartTime,
+            Lude.Just
+              ("ReplicationTaskIdentifier" Lude..= replicationTaskIdentifier),
+            Lude.Just ("SourceEndpointArn" Lude..= sourceEndpointARN),
+            Lude.Just ("TargetEndpointArn" Lude..= targetEndpointARN),
+            Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
+            Lude.Just ("MigrationType" Lude..= migrationType),
+            Lude.Just ("TableMappings" Lude..= tableMappings)
           ]
       )
 
-instance ToPath CreateReplicationTask where
-  toPath = const "/"
+instance Lude.ToPath CreateReplicationTask where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateReplicationTask where
-  toQuery = const mempty
+instance Lude.ToQuery CreateReplicationTask where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'createReplicationTaskResponse' smart constructor.
+-- /See:/ 'mkCreateReplicationTaskResponse' smart constructor.
 data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
-  { _crtrsReplicationTask ::
-      !(Maybe ReplicationTask),
-    _crtrsResponseStatus :: !Int
+  { replicationTask ::
+      Lude.Maybe ReplicationTask,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crtrsReplicationTask' - The replication task that was created.
---
--- * 'crtrsResponseStatus' - -- | The response status code.
-createReplicationTaskResponse ::
-  -- | 'crtrsResponseStatus'
-  Int ->
+-- * 'replicationTask' - The replication task that was created.
+-- * 'responseStatus' - The response status code.
+mkCreateReplicationTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateReplicationTaskResponse
-createReplicationTaskResponse pResponseStatus_ =
+mkCreateReplicationTaskResponse pResponseStatus_ =
   CreateReplicationTaskResponse'
-    { _crtrsReplicationTask = Nothing,
-      _crtrsResponseStatus = pResponseStatus_
+    { replicationTask = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The replication task that was created.
-crtrsReplicationTask :: Lens' CreateReplicationTaskResponse (Maybe ReplicationTask)
-crtrsReplicationTask = lens _crtrsReplicationTask (\s a -> s {_crtrsReplicationTask = a})
+--
+-- /Note:/ Consider using 'replicationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtrsReplicationTask :: Lens.Lens' CreateReplicationTaskResponse (Lude.Maybe ReplicationTask)
+crtrsReplicationTask = Lens.lens (replicationTask :: CreateReplicationTaskResponse -> Lude.Maybe ReplicationTask) (\s a -> s {replicationTask = a} :: CreateReplicationTaskResponse)
+{-# DEPRECATED crtrsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
 
--- | -- | The response status code.
-crtrsResponseStatus :: Lens' CreateReplicationTaskResponse Int
-crtrsResponseStatus = lens _crtrsResponseStatus (\s a -> s {_crtrsResponseStatus = a})
-
-instance NFData CreateReplicationTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtrsResponseStatus :: Lens.Lens' CreateReplicationTaskResponse Lude.Int
+crtrsResponseStatus = Lens.lens (responseStatus :: CreateReplicationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReplicationTaskResponse)
+{-# DEPRECATED crtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

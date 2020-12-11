@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings where
+module Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
+  ( Scte35TimeSignalScheduleActionSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkScte35TimeSignalScheduleActionSettings,
+
+    -- * Lenses
+    stssasScte35Descriptors,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35Descriptor
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for a SCTE-35 time_signal.
 --
--- /See:/ 'scte35TimeSignalScheduleActionSettings' smart constructor.
+-- /See:/ 'mkScte35TimeSignalScheduleActionSettings' smart constructor.
 newtype Scte35TimeSignalScheduleActionSettings = Scte35TimeSignalScheduleActionSettings'
-  { _stssasScte35Descriptors ::
+  { scte35Descriptors ::
       [Scte35Descriptor]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35TimeSignalScheduleActionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stssasScte35Descriptors' - The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
-scte35TimeSignalScheduleActionSettings ::
+-- * 'scte35Descriptors' - The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
+mkScte35TimeSignalScheduleActionSettings ::
   Scte35TimeSignalScheduleActionSettings
-scte35TimeSignalScheduleActionSettings =
+mkScte35TimeSignalScheduleActionSettings =
   Scte35TimeSignalScheduleActionSettings'
-    { _stssasScte35Descriptors =
-        mempty
+    { scte35Descriptors =
+        Lude.mempty
     }
 
 -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
-stssasScte35Descriptors :: Lens' Scte35TimeSignalScheduleActionSettings [Scte35Descriptor]
-stssasScte35Descriptors = lens _stssasScte35Descriptors (\s a -> s {_stssasScte35Descriptors = a}) . _Coerce
+--
+-- /Note:/ Consider using 'scte35Descriptors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stssasScte35Descriptors :: Lens.Lens' Scte35TimeSignalScheduleActionSettings [Scte35Descriptor]
+stssasScte35Descriptors = Lens.lens (scte35Descriptors :: Scte35TimeSignalScheduleActionSettings -> [Scte35Descriptor]) (\s a -> s {scte35Descriptors = a} :: Scte35TimeSignalScheduleActionSettings)
+{-# DEPRECATED stssasScte35Descriptors "Use generic-lens or generic-optics with 'scte35Descriptors' instead." #-}
 
-instance FromJSON Scte35TimeSignalScheduleActionSettings where
+instance Lude.FromJSON Scte35TimeSignalScheduleActionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scte35TimeSignalScheduleActionSettings"
       ( \x ->
           Scte35TimeSignalScheduleActionSettings'
-            <$> (x .:? "scte35Descriptors" .!= mempty)
+            Lude.<$> (x Lude..:? "scte35Descriptors" Lude..!= Lude.mempty)
       )
 
-instance Hashable Scte35TimeSignalScheduleActionSettings
-
-instance NFData Scte35TimeSignalScheduleActionSettings
-
-instance ToJSON Scte35TimeSignalScheduleActionSettings where
+instance Lude.ToJSON Scte35TimeSignalScheduleActionSettings where
   toJSON Scte35TimeSignalScheduleActionSettings' {..} =
-    object
-      ( catMaybes
-          [Just ("scte35Descriptors" .= _stssasScte35Descriptors)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("scte35Descriptors" Lude..= scte35Descriptors)]
       )

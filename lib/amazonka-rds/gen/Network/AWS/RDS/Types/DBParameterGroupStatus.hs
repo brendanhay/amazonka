@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBParameterGroupStatus where
+module Network.AWS.RDS.Types.DBParameterGroupStatus
+  ( DBParameterGroupStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBParameterGroupStatus,
+
+    -- * Lenses
+    dpgsDBParameterGroupName,
+    dpgsParameterApplyStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the DB parameter group.
---
 --
 -- This data type is used as a response element in the following actions:
 --
 --     * @CreateDBInstance@
 --
+--
 --     * @CreateDBInstanceReadReplica@
+--
 --
 --     * @DeleteDBInstance@
 --
+--
 --     * @ModifyDBInstance@
 --
+--
 --     * @RebootDBInstance@
+--
 --
 --     * @RestoreDBInstanceFromDBSnapshot@
 --
 --
 --
---
--- /See:/ 'dbParameterGroupStatus' smart constructor.
+-- /See:/ 'mkDBParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
-  { _dpgsDBParameterGroupName ::
-      !(Maybe Text),
-    _dpgsParameterApplyStatus :: !(Maybe Text)
+  { dbParameterGroupName ::
+      Lude.Maybe Lude.Text,
+    parameterApplyStatus :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBParameterGroupStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgsDBParameterGroupName' - The name of the DB parameter group.
---
--- * 'dpgsParameterApplyStatus' - The status of parameter updates.
-dbParameterGroupStatus ::
+-- * 'dbParameterGroupName' - The name of the DB parameter group.
+-- * 'parameterApplyStatus' - The status of parameter updates.
+mkDBParameterGroupStatus ::
   DBParameterGroupStatus
-dbParameterGroupStatus =
+mkDBParameterGroupStatus =
   DBParameterGroupStatus'
-    { _dpgsDBParameterGroupName = Nothing,
-      _dpgsParameterApplyStatus = Nothing
+    { dbParameterGroupName = Lude.Nothing,
+      parameterApplyStatus = Lude.Nothing
     }
 
 -- | The name of the DB parameter group.
-dpgsDBParameterGroupName :: Lens' DBParameterGroupStatus (Maybe Text)
-dpgsDBParameterGroupName = lens _dpgsDBParameterGroupName (\s a -> s {_dpgsDBParameterGroupName = a})
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsDBParameterGroupName :: Lens.Lens' DBParameterGroupStatus (Lude.Maybe Lude.Text)
+dpgsDBParameterGroupName = Lens.lens (dbParameterGroupName :: DBParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DBParameterGroupStatus)
+{-# DEPRECATED dpgsDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
 -- | The status of parameter updates.
-dpgsParameterApplyStatus :: Lens' DBParameterGroupStatus (Maybe Text)
-dpgsParameterApplyStatus = lens _dpgsParameterApplyStatus (\s a -> s {_dpgsParameterApplyStatus = a})
+--
+-- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsParameterApplyStatus :: Lens.Lens' DBParameterGroupStatus (Lude.Maybe Lude.Text)
+dpgsParameterApplyStatus = Lens.lens (parameterApplyStatus :: DBParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: DBParameterGroupStatus)
+{-# DEPRECATED dpgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
-instance FromXML DBParameterGroupStatus where
+instance Lude.FromXML DBParameterGroupStatus where
   parseXML x =
     DBParameterGroupStatus'
-      <$> (x .@? "DBParameterGroupName") <*> (x .@? "ParameterApplyStatus")
-
-instance Hashable DBParameterGroupStatus
-
-instance NFData DBParameterGroupStatus
+      Lude.<$> (x Lude..@? "DBParameterGroupName")
+      Lude.<*> (x Lude..@? "ParameterApplyStatus")

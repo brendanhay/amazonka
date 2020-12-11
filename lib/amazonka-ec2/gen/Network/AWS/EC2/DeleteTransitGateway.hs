@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,138 @@
 --
 -- Deletes the specified transit gateway.
 module Network.AWS.EC2.DeleteTransitGateway
-  ( -- * Creating a Request
-    deleteTransitGateway,
-    DeleteTransitGateway,
+  ( -- * Creating a request
+    DeleteTransitGateway (..),
+    mkDeleteTransitGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgDryRun,
     dtgTransitGatewayId,
 
-    -- * Destructuring the Response
-    deleteTransitGatewayResponse,
-    DeleteTransitGatewayResponse,
+    -- * Destructuring the response
+    DeleteTransitGatewayResponse (..),
+    mkDeleteTransitGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgtrsTransitGateway,
     dtgtrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTransitGateway' smart constructor.
+-- | /See:/ 'mkDeleteTransitGateway' smart constructor.
 data DeleteTransitGateway = DeleteTransitGateway'
-  { _dtgDryRun ::
-      !(Maybe Bool),
-    _dtgTransitGatewayId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    transitGatewayId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dtgTransitGatewayId' - The ID of the transit gateway.
-deleteTransitGateway ::
-  -- | 'dtgTransitGatewayId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayId' - The ID of the transit gateway.
+mkDeleteTransitGateway ::
+  -- | 'transitGatewayId'
+  Lude.Text ->
   DeleteTransitGateway
-deleteTransitGateway pTransitGatewayId_ =
+mkDeleteTransitGateway pTransitGatewayId_ =
   DeleteTransitGateway'
-    { _dtgDryRun = Nothing,
-      _dtgTransitGatewayId = pTransitGatewayId_
+    { dryRun = Lude.Nothing,
+      transitGatewayId = pTransitGatewayId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtgDryRun :: Lens' DeleteTransitGateway (Maybe Bool)
-dtgDryRun = lens _dtgDryRun (\s a -> s {_dtgDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgDryRun :: Lens.Lens' DeleteTransitGateway (Lude.Maybe Lude.Bool)
+dtgDryRun = Lens.lens (dryRun :: DeleteTransitGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGateway)
+{-# DEPRECATED dtgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the transit gateway.
-dtgTransitGatewayId :: Lens' DeleteTransitGateway Text
-dtgTransitGatewayId = lens _dtgTransitGatewayId (\s a -> s {_dtgTransitGatewayId = a})
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgTransitGatewayId :: Lens.Lens' DeleteTransitGateway Lude.Text
+dtgTransitGatewayId = Lens.lens (transitGatewayId :: DeleteTransitGateway -> Lude.Text) (\s a -> s {transitGatewayId = a} :: DeleteTransitGateway)
+{-# DEPRECATED dtgTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
-instance AWSRequest DeleteTransitGateway where
+instance Lude.AWSRequest DeleteTransitGateway where
   type Rs DeleteTransitGateway = DeleteTransitGatewayResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteTransitGatewayResponse'
-            <$> (x .@? "transitGateway") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "transitGateway")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTransitGateway
+instance Lude.ToHeaders DeleteTransitGateway where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTransitGateway
+instance Lude.ToPath DeleteTransitGateway where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteTransitGateway where
-  toHeaders = const mempty
-
-instance ToPath DeleteTransitGateway where
-  toPath = const "/"
-
-instance ToQuery DeleteTransitGateway where
+instance Lude.ToQuery DeleteTransitGateway where
   toQuery DeleteTransitGateway' {..} =
-    mconcat
-      [ "Action" =: ("DeleteTransitGateway" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dtgDryRun,
-        "TransitGatewayId" =: _dtgTransitGatewayId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteTransitGateway" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "TransitGatewayId" Lude.=: transitGatewayId
       ]
 
--- | /See:/ 'deleteTransitGatewayResponse' smart constructor.
+-- | /See:/ 'mkDeleteTransitGatewayResponse' smart constructor.
 data DeleteTransitGatewayResponse = DeleteTransitGatewayResponse'
-  { _dtgtrsTransitGateway ::
-      !(Maybe TransitGateway),
-    _dtgtrsResponseStatus :: !Int
+  { transitGateway ::
+      Lude.Maybe TransitGateway,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgtrsTransitGateway' - Information about the deleted transit gateway.
---
--- * 'dtgtrsResponseStatus' - -- | The response status code.
-deleteTransitGatewayResponse ::
-  -- | 'dtgtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'transitGateway' - Information about the deleted transit gateway.
+mkDeleteTransitGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTransitGatewayResponse
-deleteTransitGatewayResponse pResponseStatus_ =
+mkDeleteTransitGatewayResponse pResponseStatus_ =
   DeleteTransitGatewayResponse'
-    { _dtgtrsTransitGateway = Nothing,
-      _dtgtrsResponseStatus = pResponseStatus_
+    { transitGateway = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the deleted transit gateway.
-dtgtrsTransitGateway :: Lens' DeleteTransitGatewayResponse (Maybe TransitGateway)
-dtgtrsTransitGateway = lens _dtgtrsTransitGateway (\s a -> s {_dtgtrsTransitGateway = a})
+--
+-- /Note:/ Consider using 'transitGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgtrsTransitGateway :: Lens.Lens' DeleteTransitGatewayResponse (Lude.Maybe TransitGateway)
+dtgtrsTransitGateway = Lens.lens (transitGateway :: DeleteTransitGatewayResponse -> Lude.Maybe TransitGateway) (\s a -> s {transitGateway = a} :: DeleteTransitGatewayResponse)
+{-# DEPRECATED dtgtrsTransitGateway "Use generic-lens or generic-optics with 'transitGateway' instead." #-}
 
--- | -- | The response status code.
-dtgtrsResponseStatus :: Lens' DeleteTransitGatewayResponse Int
-dtgtrsResponseStatus = lens _dtgtrsResponseStatus (\s a -> s {_dtgtrsResponseStatus = a})
-
-instance NFData DeleteTransitGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgtrsResponseStatus :: Lens.Lens' DeleteTransitGatewayResponse Lude.Int
+dtgtrsResponseStatus = Lens.lens (responseStatus :: DeleteTransitGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTransitGatewayResponse)
+{-# DEPRECATED dtgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

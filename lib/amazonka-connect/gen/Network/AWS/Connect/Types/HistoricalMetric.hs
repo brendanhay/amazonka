@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.HistoricalMetric where
+module Network.AWS.Connect.Types.HistoricalMetric
+  ( HistoricalMetric (..),
+
+    -- * Smart constructor
+    mkHistoricalMetric,
+
+    -- * Lenses
+    hmName,
+    hmThreshold,
+    hmUnit,
+    hmStatistic,
+  )
+where
 
 import Network.AWS.Connect.Types.HistoricalMetricName
 import Network.AWS.Connect.Types.Statistic
 import Network.AWS.Connect.Types.Threshold
 import Network.AWS.Connect.Types.Unit
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a historical metric. For a description of each metric, see <https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html Historical Metrics Definitions> in the /Amazon Connect Administrator Guide/ .
 --
---
---
--- /See:/ 'historicalMetric' smart constructor.
+-- /See:/ 'mkHistoricalMetric' smart constructor.
 data HistoricalMetric = HistoricalMetric'
-  { _hmName ::
-      !(Maybe HistoricalMetricName),
-    _hmThreshold :: !(Maybe Threshold),
-    _hmUnit :: !(Maybe Unit),
-    _hmStatistic :: !(Maybe Statistic)
+  { name ::
+      Lude.Maybe HistoricalMetricName,
+    threshold :: Lude.Maybe Threshold,
+    unit :: Lude.Maybe Unit,
+    statistic :: Lude.Maybe Statistic
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoricalMetric' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hmName' - The name of the metric.
---
--- * 'hmThreshold' - The threshold for the metric, used with service level metrics.
---
--- * 'hmUnit' - The unit for the metric.
---
--- * 'hmStatistic' - The statistic for the metric.
-historicalMetric ::
+-- * 'name' - The name of the metric.
+-- * 'statistic' - The statistic for the metric.
+-- * 'threshold' - The threshold for the metric, used with service level metrics.
+-- * 'unit' - The unit for the metric.
+mkHistoricalMetric ::
   HistoricalMetric
-historicalMetric =
+mkHistoricalMetric =
   HistoricalMetric'
-    { _hmName = Nothing,
-      _hmThreshold = Nothing,
-      _hmUnit = Nothing,
-      _hmStatistic = Nothing
+    { name = Lude.Nothing,
+      threshold = Lude.Nothing,
+      unit = Lude.Nothing,
+      statistic = Lude.Nothing
     }
 
 -- | The name of the metric.
-hmName :: Lens' HistoricalMetric (Maybe HistoricalMetricName)
-hmName = lens _hmName (\s a -> s {_hmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmName :: Lens.Lens' HistoricalMetric (Lude.Maybe HistoricalMetricName)
+hmName = Lens.lens (name :: HistoricalMetric -> Lude.Maybe HistoricalMetricName) (\s a -> s {name = a} :: HistoricalMetric)
+{-# DEPRECATED hmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The threshold for the metric, used with service level metrics.
-hmThreshold :: Lens' HistoricalMetric (Maybe Threshold)
-hmThreshold = lens _hmThreshold (\s a -> s {_hmThreshold = a})
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmThreshold :: Lens.Lens' HistoricalMetric (Lude.Maybe Threshold)
+hmThreshold = Lens.lens (threshold :: HistoricalMetric -> Lude.Maybe Threshold) (\s a -> s {threshold = a} :: HistoricalMetric)
+{-# DEPRECATED hmThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
 -- | The unit for the metric.
-hmUnit :: Lens' HistoricalMetric (Maybe Unit)
-hmUnit = lens _hmUnit (\s a -> s {_hmUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmUnit :: Lens.Lens' HistoricalMetric (Lude.Maybe Unit)
+hmUnit = Lens.lens (unit :: HistoricalMetric -> Lude.Maybe Unit) (\s a -> s {unit = a} :: HistoricalMetric)
+{-# DEPRECATED hmUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The statistic for the metric.
-hmStatistic :: Lens' HistoricalMetric (Maybe Statistic)
-hmStatistic = lens _hmStatistic (\s a -> s {_hmStatistic = a})
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmStatistic :: Lens.Lens' HistoricalMetric (Lude.Maybe Statistic)
+hmStatistic = Lens.lens (statistic :: HistoricalMetric -> Lude.Maybe Statistic) (\s a -> s {statistic = a} :: HistoricalMetric)
+{-# DEPRECATED hmStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
-instance FromJSON HistoricalMetric where
+instance Lude.FromJSON HistoricalMetric where
   parseJSON =
-    withObject
+    Lude.withObject
       "HistoricalMetric"
       ( \x ->
           HistoricalMetric'
-            <$> (x .:? "Name")
-            <*> (x .:? "Threshold")
-            <*> (x .:? "Unit")
-            <*> (x .:? "Statistic")
+            Lude.<$> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Threshold")
+            Lude.<*> (x Lude..:? "Unit")
+            Lude.<*> (x Lude..:? "Statistic")
       )
 
-instance Hashable HistoricalMetric
-
-instance NFData HistoricalMetric
-
-instance ToJSON HistoricalMetric where
+instance Lude.ToJSON HistoricalMetric where
   toJSON HistoricalMetric' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _hmName,
-            ("Threshold" .=) <$> _hmThreshold,
-            ("Unit" .=) <$> _hmUnit,
-            ("Statistic" .=) <$> _hmStatistic
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("Threshold" Lude..=) Lude.<$> threshold,
+            ("Unit" Lude..=) Lude.<$> unit,
+            ("Statistic" Lude..=) Lude.<$> statistic
           ]
       )

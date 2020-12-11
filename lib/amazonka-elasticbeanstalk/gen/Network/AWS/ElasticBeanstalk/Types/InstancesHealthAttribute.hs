@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute where
+module Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute
+  ( InstancesHealthAttribute
+      ( InstancesHealthAttribute',
+        All,
+        ApplicationMetrics,
+        AvailabilityZone,
+        Causes,
+        Color,
+        Deployment,
+        HealthStatus,
+        InstanceType,
+        LaunchedAt,
+        RefreshedAt,
+        System
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstancesHealthAttribute
-  = All
-  | ApplicationMetrics
-  | AvailabilityZone
-  | Causes
-  | Color
-  | Deployment
-  | HealthStatus
-  | InstanceType
-  | LaunchedAt
-  | RefreshedAt
-  | System
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstancesHealthAttribute = InstancesHealthAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstancesHealthAttribute where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "applicationmetrics" -> pure ApplicationMetrics
-      "availabilityzone" -> pure AvailabilityZone
-      "causes" -> pure Causes
-      "color" -> pure Color
-      "deployment" -> pure Deployment
-      "healthstatus" -> pure HealthStatus
-      "instancetype" -> pure InstanceType
-      "launchedat" -> pure LaunchedAt
-      "refreshedat" -> pure RefreshedAt
-      "system" -> pure System
-      e ->
-        fromTextError $
-          "Failure parsing InstancesHealthAttribute from value: '" <> e
-            <> "'. Accepted values: all, applicationmetrics, availabilityzone, causes, color, deployment, healthstatus, instancetype, launchedat, refreshedat, system"
+pattern All :: InstancesHealthAttribute
+pattern All = InstancesHealthAttribute' "All"
 
-instance ToText InstancesHealthAttribute where
-  toText = \case
-    All -> "All"
-    ApplicationMetrics -> "ApplicationMetrics"
-    AvailabilityZone -> "AvailabilityZone"
-    Causes -> "Causes"
-    Color -> "Color"
-    Deployment -> "Deployment"
-    HealthStatus -> "HealthStatus"
-    InstanceType -> "InstanceType"
-    LaunchedAt -> "LaunchedAt"
-    RefreshedAt -> "RefreshedAt"
-    System -> "System"
+pattern ApplicationMetrics :: InstancesHealthAttribute
+pattern ApplicationMetrics = InstancesHealthAttribute' "ApplicationMetrics"
 
-instance Hashable InstancesHealthAttribute
+pattern AvailabilityZone :: InstancesHealthAttribute
+pattern AvailabilityZone = InstancesHealthAttribute' "AvailabilityZone"
 
-instance NFData InstancesHealthAttribute
+pattern Causes :: InstancesHealthAttribute
+pattern Causes = InstancesHealthAttribute' "Causes"
 
-instance ToByteString InstancesHealthAttribute
+pattern Color :: InstancesHealthAttribute
+pattern Color = InstancesHealthAttribute' "Color"
 
-instance ToQuery InstancesHealthAttribute
+pattern Deployment :: InstancesHealthAttribute
+pattern Deployment = InstancesHealthAttribute' "Deployment"
 
-instance ToHeader InstancesHealthAttribute
+pattern HealthStatus :: InstancesHealthAttribute
+pattern HealthStatus = InstancesHealthAttribute' "HealthStatus"
+
+pattern InstanceType :: InstancesHealthAttribute
+pattern InstanceType = InstancesHealthAttribute' "InstanceType"
+
+pattern LaunchedAt :: InstancesHealthAttribute
+pattern LaunchedAt = InstancesHealthAttribute' "LaunchedAt"
+
+pattern RefreshedAt :: InstancesHealthAttribute
+pattern RefreshedAt = InstancesHealthAttribute' "RefreshedAt"
+
+pattern System :: InstancesHealthAttribute
+pattern System = InstancesHealthAttribute' "System"
+
+{-# COMPLETE
+  All,
+  ApplicationMetrics,
+  AvailabilityZone,
+  Causes,
+  Color,
+  Deployment,
+  HealthStatus,
+  InstanceType,
+  LaunchedAt,
+  RefreshedAt,
+  System,
+  InstancesHealthAttribute'
+  #-}

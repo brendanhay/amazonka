@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,156 @@
 --
 -- Remove the specified thing from the specified group.
 --
---
 -- You must specify either a @thingGroupArn@ or a @thingGroupName@ to identify the thing group and either a @thingArn@ or a @thingName@ to identify the thing to remove from the thing group.
 module Network.AWS.IoT.RemoveThingFromThingGroup
-  ( -- * Creating a Request
-    removeThingFromThingGroup,
-    RemoveThingFromThingGroup,
+  ( -- * Creating a request
+    RemoveThingFromThingGroup (..),
+    mkRemoveThingFromThingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtftgThingGroupARN,
     rtftgThingARN,
     rtftgThingGroupName,
     rtftgThingName,
 
-    -- * Destructuring the Response
-    removeThingFromThingGroupResponse,
-    RemoveThingFromThingGroupResponse,
+    -- * Destructuring the response
+    RemoveThingFromThingGroupResponse (..),
+    mkRemoveThingFromThingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtftgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removeThingFromThingGroup' smart constructor.
+-- | /See:/ 'mkRemoveThingFromThingGroup' smart constructor.
 data RemoveThingFromThingGroup = RemoveThingFromThingGroup'
-  { _rtftgThingGroupARN ::
-      !(Maybe Text),
-    _rtftgThingARN :: !(Maybe Text),
-    _rtftgThingGroupName :: !(Maybe Text),
-    _rtftgThingName :: !(Maybe Text)
+  { thingGroupARN ::
+      Lude.Maybe Lude.Text,
+    thingARN :: Lude.Maybe Lude.Text,
+    thingGroupName :: Lude.Maybe Lude.Text,
+    thingName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveThingFromThingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtftgThingGroupARN' - The group ARN.
---
--- * 'rtftgThingARN' - The ARN of the thing to remove from the group.
---
--- * 'rtftgThingGroupName' - The group name.
---
--- * 'rtftgThingName' - The name of the thing to remove from the group.
-removeThingFromThingGroup ::
+-- * 'thingARN' - The ARN of the thing to remove from the group.
+-- * 'thingGroupARN' - The group ARN.
+-- * 'thingGroupName' - The group name.
+-- * 'thingName' - The name of the thing to remove from the group.
+mkRemoveThingFromThingGroup ::
   RemoveThingFromThingGroup
-removeThingFromThingGroup =
+mkRemoveThingFromThingGroup =
   RemoveThingFromThingGroup'
-    { _rtftgThingGroupARN = Nothing,
-      _rtftgThingARN = Nothing,
-      _rtftgThingGroupName = Nothing,
-      _rtftgThingName = Nothing
+    { thingGroupARN = Lude.Nothing,
+      thingARN = Lude.Nothing,
+      thingGroupName = Lude.Nothing,
+      thingName = Lude.Nothing
     }
 
 -- | The group ARN.
-rtftgThingGroupARN :: Lens' RemoveThingFromThingGroup (Maybe Text)
-rtftgThingGroupARN = lens _rtftgThingGroupARN (\s a -> s {_rtftgThingGroupARN = a})
+--
+-- /Note:/ Consider using 'thingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtftgThingGroupARN :: Lens.Lens' RemoveThingFromThingGroup (Lude.Maybe Lude.Text)
+rtftgThingGroupARN = Lens.lens (thingGroupARN :: RemoveThingFromThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupARN = a} :: RemoveThingFromThingGroup)
+{-# DEPRECATED rtftgThingGroupARN "Use generic-lens or generic-optics with 'thingGroupARN' instead." #-}
 
 -- | The ARN of the thing to remove from the group.
-rtftgThingARN :: Lens' RemoveThingFromThingGroup (Maybe Text)
-rtftgThingARN = lens _rtftgThingARN (\s a -> s {_rtftgThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtftgThingARN :: Lens.Lens' RemoveThingFromThingGroup (Lude.Maybe Lude.Text)
+rtftgThingARN = Lens.lens (thingARN :: RemoveThingFromThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: RemoveThingFromThingGroup)
+{-# DEPRECATED rtftgThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | The group name.
-rtftgThingGroupName :: Lens' RemoveThingFromThingGroup (Maybe Text)
-rtftgThingGroupName = lens _rtftgThingGroupName (\s a -> s {_rtftgThingGroupName = a})
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtftgThingGroupName :: Lens.Lens' RemoveThingFromThingGroup (Lude.Maybe Lude.Text)
+rtftgThingGroupName = Lens.lens (thingGroupName :: RemoveThingFromThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: RemoveThingFromThingGroup)
+{-# DEPRECATED rtftgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The name of the thing to remove from the group.
-rtftgThingName :: Lens' RemoveThingFromThingGroup (Maybe Text)
-rtftgThingName = lens _rtftgThingName (\s a -> s {_rtftgThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtftgThingName :: Lens.Lens' RemoveThingFromThingGroup (Lude.Maybe Lude.Text)
+rtftgThingName = Lens.lens (thingName :: RemoveThingFromThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: RemoveThingFromThingGroup)
+{-# DEPRECATED rtftgThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest RemoveThingFromThingGroup where
+instance Lude.AWSRequest RemoveThingFromThingGroup where
   type
     Rs RemoveThingFromThingGroup =
       RemoveThingFromThingGroupResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          RemoveThingFromThingGroupResponse' <$> (pure (fromEnum s))
+          RemoveThingFromThingGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RemoveThingFromThingGroup
+instance Lude.ToHeaders RemoveThingFromThingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemoveThingFromThingGroup
-
-instance ToHeaders RemoveThingFromThingGroup where
-  toHeaders = const mempty
-
-instance ToJSON RemoveThingFromThingGroup where
+instance Lude.ToJSON RemoveThingFromThingGroup where
   toJSON RemoveThingFromThingGroup' {..} =
-    object
-      ( catMaybes
-          [ ("thingGroupArn" .=) <$> _rtftgThingGroupARN,
-            ("thingArn" .=) <$> _rtftgThingARN,
-            ("thingGroupName" .=) <$> _rtftgThingGroupName,
-            ("thingName" .=) <$> _rtftgThingName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thingGroupArn" Lude..=) Lude.<$> thingGroupARN,
+            ("thingArn" Lude..=) Lude.<$> thingARN,
+            ("thingGroupName" Lude..=) Lude.<$> thingGroupName,
+            ("thingName" Lude..=) Lude.<$> thingName
           ]
       )
 
-instance ToPath RemoveThingFromThingGroup where
-  toPath = const "/thing-groups/removeThingFromThingGroup"
+instance Lude.ToPath RemoveThingFromThingGroup where
+  toPath = Lude.const "/thing-groups/removeThingFromThingGroup"
 
-instance ToQuery RemoveThingFromThingGroup where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveThingFromThingGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removeThingFromThingGroupResponse' smart constructor.
+-- | /See:/ 'mkRemoveThingFromThingGroupResponse' smart constructor.
 newtype RemoveThingFromThingGroupResponse = RemoveThingFromThingGroupResponse'
-  { _rtftgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveThingFromThingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtftgrsResponseStatus' - -- | The response status code.
-removeThingFromThingGroupResponse ::
-  -- | 'rtftgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRemoveThingFromThingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RemoveThingFromThingGroupResponse
-removeThingFromThingGroupResponse pResponseStatus_ =
+mkRemoveThingFromThingGroupResponse pResponseStatus_ =
   RemoveThingFromThingGroupResponse'
-    { _rtftgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-rtftgrsResponseStatus :: Lens' RemoveThingFromThingGroupResponse Int
-rtftgrsResponseStatus = lens _rtftgrsResponseStatus (\s a -> s {_rtftgrsResponseStatus = a})
-
-instance NFData RemoveThingFromThingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtftgrsResponseStatus :: Lens.Lens' RemoveThingFromThingGroupResponse Lude.Int
+rtftgrsResponseStatus = Lens.lens (responseStatus :: RemoveThingFromThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveThingFromThingGroupResponse)
+{-# DEPRECATED rtftgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

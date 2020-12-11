@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,103 @@
 --
 -- Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update and reverts to the previous stack configuration.
 module Network.AWS.CloudFormation.CancelUpdateStack
-  ( -- * Creating a Request
-    cancelUpdateStack,
-    CancelUpdateStack,
+  ( -- * Creating a request
+    CancelUpdateStack (..),
+    mkCancelUpdateStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cusClientRequestToken,
     cusStackName,
 
-    -- * Destructuring the Response
-    cancelUpdateStackResponse,
-    CancelUpdateStackResponse,
+    -- * Destructuring the response
+    CancelUpdateStackResponse (..),
+    mkCancelUpdateStackResponse,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'CancelUpdateStack' action.
 --
---
---
--- /See:/ 'cancelUpdateStack' smart constructor.
+-- /See:/ 'mkCancelUpdateStack' smart constructor.
 data CancelUpdateStack = CancelUpdateStack'
-  { _cusClientRequestToken ::
-      !(Maybe Text),
-    _cusStackName :: !Text
+  { clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    stackName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cusClientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
---
--- * 'cusStackName' - The name or the unique stack ID that is associated with the stack.
-cancelUpdateStack ::
-  -- | 'cusStackName'
-  Text ->
+-- * 'clientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+-- * 'stackName' - The name or the unique stack ID that is associated with the stack.
+mkCancelUpdateStack ::
+  -- | 'stackName'
+  Lude.Text ->
   CancelUpdateStack
-cancelUpdateStack pStackName_ =
+mkCancelUpdateStack pStackName_ =
   CancelUpdateStack'
-    { _cusClientRequestToken = Nothing,
-      _cusStackName = pStackName_
+    { clientRequestToken = Lude.Nothing,
+      stackName = pStackName_
     }
 
 -- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
-cusClientRequestToken :: Lens' CancelUpdateStack (Maybe Text)
-cusClientRequestToken = lens _cusClientRequestToken (\s a -> s {_cusClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cusClientRequestToken :: Lens.Lens' CancelUpdateStack (Lude.Maybe Lude.Text)
+cusClientRequestToken = Lens.lens (clientRequestToken :: CancelUpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CancelUpdateStack)
+{-# DEPRECATED cusClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The name or the unique stack ID that is associated with the stack.
-cusStackName :: Lens' CancelUpdateStack Text
-cusStackName = lens _cusStackName (\s a -> s {_cusStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cusStackName :: Lens.Lens' CancelUpdateStack Lude.Text
+cusStackName = Lens.lens (stackName :: CancelUpdateStack -> Lude.Text) (\s a -> s {stackName = a} :: CancelUpdateStack)
+{-# DEPRECATED cusStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance AWSRequest CancelUpdateStack where
+instance Lude.AWSRequest CancelUpdateStack where
   type Rs CancelUpdateStack = CancelUpdateStackResponse
-  request = postQuery cloudFormation
-  response = receiveNull CancelUpdateStackResponse'
+  request = Req.postQuery cloudFormationService
+  response = Res.receiveNull CancelUpdateStackResponse'
 
-instance Hashable CancelUpdateStack
+instance Lude.ToHeaders CancelUpdateStack where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelUpdateStack
+instance Lude.ToPath CancelUpdateStack where
+  toPath = Lude.const "/"
 
-instance ToHeaders CancelUpdateStack where
-  toHeaders = const mempty
-
-instance ToPath CancelUpdateStack where
-  toPath = const "/"
-
-instance ToQuery CancelUpdateStack where
+instance Lude.ToQuery CancelUpdateStack where
   toQuery CancelUpdateStack' {..} =
-    mconcat
-      [ "Action" =: ("CancelUpdateStack" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "ClientRequestToken" =: _cusClientRequestToken,
-        "StackName" =: _cusStackName
+    Lude.mconcat
+      [ "Action" Lude.=: ("CancelUpdateStack" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "ClientRequestToken" Lude.=: clientRequestToken,
+        "StackName" Lude.=: stackName
       ]
 
--- | /See:/ 'cancelUpdateStackResponse' smart constructor.
+-- | /See:/ 'mkCancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse = CancelUpdateStackResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelUpdateStackResponse' with the minimum fields required to make a request.
-cancelUpdateStackResponse ::
+mkCancelUpdateStackResponse ::
   CancelUpdateStackResponse
-cancelUpdateStackResponse = CancelUpdateStackResponse'
-
-instance NFData CancelUpdateStackResponse
+mkCancelUpdateStackResponse = CancelUpdateStackResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Represents a collection of 'BasePathMapping' resources.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetBasePathMappings
-  ( -- * Creating a Request
-    getBasePathMappings,
-    GetBasePathMappings,
+  ( -- * Creating a request
+    GetBasePathMappings (..),
+    mkGetBasePathMappings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gLimit,
     gPosition,
     gDomainName,
 
-    -- * Destructuring the Response
-    getBasePathMappingsResponse,
-    GetBasePathMappingsResponse,
+    -- * Destructuring the response
+    GetBasePathMappingsResponse (..),
+    mkGetBasePathMappingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbpmrsItems,
     gbpmrsPosition,
     gbpmrsResponseStatus,
@@ -44,135 +37,157 @@ module Network.AWS.APIGateway.GetBasePathMappings
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to get information about a collection of 'BasePathMapping' resources.
 --
---
---
--- /See:/ 'getBasePathMappings' smart constructor.
+-- /See:/ 'mkGetBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
-  { _gLimit ::
-      !(Maybe Int),
-    _gPosition :: !(Maybe Text),
-    _gDomainName :: !Text
+  { limit ::
+      Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBasePathMappings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gPosition' - The current pagination position in the paged result set.
---
--- * 'gDomainName' - [Required] The domain name of a 'BasePathMapping' resource.
-getBasePathMappings ::
-  -- | 'gDomainName'
-  Text ->
+-- * 'domainName' - [Required] The domain name of a 'BasePathMapping' resource.
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+mkGetBasePathMappings ::
+  -- | 'domainName'
+  Lude.Text ->
   GetBasePathMappings
-getBasePathMappings pDomainName_ =
+mkGetBasePathMappings pDomainName_ =
   GetBasePathMappings'
-    { _gLimit = Nothing,
-      _gPosition = Nothing,
-      _gDomainName = pDomainName_
+    { limit = Lude.Nothing,
+      position = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gLimit :: Lens' GetBasePathMappings (Maybe Int)
-gLimit = lens _gLimit (\s a -> s {_gLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gLimit :: Lens.Lens' GetBasePathMappings (Lude.Maybe Lude.Int)
+gLimit = Lens.lens (limit :: GetBasePathMappings -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetBasePathMappings)
+{-# DEPRECATED gLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gPosition :: Lens' GetBasePathMappings (Maybe Text)
-gPosition = lens _gPosition (\s a -> s {_gPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gPosition :: Lens.Lens' GetBasePathMappings (Lude.Maybe Lude.Text)
+gPosition = Lens.lens (position :: GetBasePathMappings -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetBasePathMappings)
+{-# DEPRECATED gPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The domain name of a 'BasePathMapping' resource.
-gDomainName :: Lens' GetBasePathMappings Text
-gDomainName = lens _gDomainName (\s a -> s {_gDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDomainName :: Lens.Lens' GetBasePathMappings Lude.Text
+gDomainName = Lens.lens (domainName :: GetBasePathMappings -> Lude.Text) (\s a -> s {domainName = a} :: GetBasePathMappings)
+{-# DEPRECATED gDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSPager GetBasePathMappings where
+instance Page.AWSPager GetBasePathMappings where
   page rq rs
-    | stop (rs ^. gbpmrsPosition) = Nothing
-    | stop (rs ^. gbpmrsItems) = Nothing
-    | otherwise = Just $ rq & gPosition .~ rs ^. gbpmrsPosition
+    | Page.stop (rs Lens.^. gbpmrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gbpmrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gPosition Lens..~ rs Lens.^. gbpmrsPosition
 
-instance AWSRequest GetBasePathMappings where
+instance Lude.AWSRequest GetBasePathMappings where
   type Rs GetBasePathMappings = GetBasePathMappingsResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBasePathMappingsResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBasePathMappings
-
-instance NFData GetBasePathMappings
-
-instance ToHeaders GetBasePathMappings where
+instance Lude.ToHeaders GetBasePathMappings where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetBasePathMappings where
+instance Lude.ToPath GetBasePathMappings where
   toPath GetBasePathMappings' {..} =
-    mconcat ["/domainnames/", toBS _gDomainName, "/basepathmappings"]
+    Lude.mconcat
+      ["/domainnames/", Lude.toBS domainName, "/basepathmappings"]
 
-instance ToQuery GetBasePathMappings where
+instance Lude.ToQuery GetBasePathMappings where
   toQuery GetBasePathMappings' {..} =
-    mconcat ["limit" =: _gLimit, "position" =: _gPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | Represents a collection of 'BasePathMapping' resources.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
 --
--- /See:/ 'getBasePathMappingsResponse' smart constructor.
+-- /See:/ 'mkGetBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
-  { _gbpmrsItems ::
-      !(Maybe [BasePathMapping]),
-    _gbpmrsPosition :: !(Maybe Text),
-    _gbpmrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [BasePathMapping],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBasePathMappingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbpmrsItems' - The current page of elements from this collection.
---
--- * 'gbpmrsPosition' - Undocumented member.
---
--- * 'gbpmrsResponseStatus' - -- | The response status code.
-getBasePathMappingsResponse ::
-  -- | 'gbpmrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetBasePathMappingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBasePathMappingsResponse
-getBasePathMappingsResponse pResponseStatus_ =
+mkGetBasePathMappingsResponse pResponseStatus_ =
   GetBasePathMappingsResponse'
-    { _gbpmrsItems = Nothing,
-      _gbpmrsPosition = Nothing,
-      _gbpmrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gbpmrsItems :: Lens' GetBasePathMappingsResponse [BasePathMapping]
-gbpmrsItems = lens _gbpmrsItems (\s a -> s {_gbpmrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmrsItems :: Lens.Lens' GetBasePathMappingsResponse (Lude.Maybe [BasePathMapping])
+gbpmrsItems = Lens.lens (items :: GetBasePathMappingsResponse -> Lude.Maybe [BasePathMapping]) (\s a -> s {items = a} :: GetBasePathMappingsResponse)
+{-# DEPRECATED gbpmrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gbpmrsPosition :: Lens' GetBasePathMappingsResponse (Maybe Text)
-gbpmrsPosition = lens _gbpmrsPosition (\s a -> s {_gbpmrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmrsPosition :: Lens.Lens' GetBasePathMappingsResponse (Lude.Maybe Lude.Text)
+gbpmrsPosition = Lens.lens (position :: GetBasePathMappingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetBasePathMappingsResponse)
+{-# DEPRECATED gbpmrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gbpmrsResponseStatus :: Lens' GetBasePathMappingsResponse Int
-gbpmrsResponseStatus = lens _gbpmrsResponseStatus (\s a -> s {_gbpmrsResponseStatus = a})
-
-instance NFData GetBasePathMappingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmrsResponseStatus :: Lens.Lens' GetBasePathMappingsResponse Lude.Int
+gbpmrsResponseStatus = Lens.lens (responseStatus :: GetBasePathMappingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBasePathMappingsResponse)
+{-# DEPRECATED gbpmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

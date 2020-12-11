@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,107 @@
 --
 -- Apply the service update. For more information on service updates and applying them, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html Applying Service Updates> .
 module Network.AWS.ElastiCache.BatchApplyUpdateAction
-  ( -- * Creating a Request
-    batchApplyUpdateAction,
-    BatchApplyUpdateAction,
+  ( -- * Creating a request
+    BatchApplyUpdateAction (..),
+    mkBatchApplyUpdateAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bauaCacheClusterIds,
     bauaReplicationGroupIds,
     bauaServiceUpdateName,
 
-    -- * Destructuring the Response
-    updateActionResultsMessage,
-    UpdateActionResultsMessage,
+    -- * Destructuring the response
+    UpdateActionResultsMessage (..),
+    mkUpdateActionResultsMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uarmUnprocessedUpdateActions,
     uarmProcessedUpdateActions,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchApplyUpdateAction' smart constructor.
+-- | /See:/ 'mkBatchApplyUpdateAction' smart constructor.
 data BatchApplyUpdateAction = BatchApplyUpdateAction'
-  { _bauaCacheClusterIds ::
-      !(Maybe [Text]),
-    _bauaReplicationGroupIds :: !(Maybe [Text]),
-    _bauaServiceUpdateName :: !Text
+  { cacheClusterIds ::
+      Lude.Maybe [Lude.Text],
+    replicationGroupIds :: Lude.Maybe [Lude.Text],
+    serviceUpdateName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchApplyUpdateAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bauaCacheClusterIds' - The cache cluster IDs
---
--- * 'bauaReplicationGroupIds' - The replication group IDs
---
--- * 'bauaServiceUpdateName' - The unique ID of the service update
-batchApplyUpdateAction ::
-  -- | 'bauaServiceUpdateName'
-  Text ->
+-- * 'cacheClusterIds' - The cache cluster IDs
+-- * 'replicationGroupIds' - The replication group IDs
+-- * 'serviceUpdateName' - The unique ID of the service update
+mkBatchApplyUpdateAction ::
+  -- | 'serviceUpdateName'
+  Lude.Text ->
   BatchApplyUpdateAction
-batchApplyUpdateAction pServiceUpdateName_ =
+mkBatchApplyUpdateAction pServiceUpdateName_ =
   BatchApplyUpdateAction'
-    { _bauaCacheClusterIds = Nothing,
-      _bauaReplicationGroupIds = Nothing,
-      _bauaServiceUpdateName = pServiceUpdateName_
+    { cacheClusterIds = Lude.Nothing,
+      replicationGroupIds = Lude.Nothing,
+      serviceUpdateName = pServiceUpdateName_
     }
 
 -- | The cache cluster IDs
-bauaCacheClusterIds :: Lens' BatchApplyUpdateAction [Text]
-bauaCacheClusterIds = lens _bauaCacheClusterIds (\s a -> s {_bauaCacheClusterIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheClusterIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bauaCacheClusterIds :: Lens.Lens' BatchApplyUpdateAction (Lude.Maybe [Lude.Text])
+bauaCacheClusterIds = Lens.lens (cacheClusterIds :: BatchApplyUpdateAction -> Lude.Maybe [Lude.Text]) (\s a -> s {cacheClusterIds = a} :: BatchApplyUpdateAction)
+{-# DEPRECATED bauaCacheClusterIds "Use generic-lens or generic-optics with 'cacheClusterIds' instead." #-}
 
 -- | The replication group IDs
-bauaReplicationGroupIds :: Lens' BatchApplyUpdateAction [Text]
-bauaReplicationGroupIds = lens _bauaReplicationGroupIds (\s a -> s {_bauaReplicationGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bauaReplicationGroupIds :: Lens.Lens' BatchApplyUpdateAction (Lude.Maybe [Lude.Text])
+bauaReplicationGroupIds = Lens.lens (replicationGroupIds :: BatchApplyUpdateAction -> Lude.Maybe [Lude.Text]) (\s a -> s {replicationGroupIds = a} :: BatchApplyUpdateAction)
+{-# DEPRECATED bauaReplicationGroupIds "Use generic-lens or generic-optics with 'replicationGroupIds' instead." #-}
 
 -- | The unique ID of the service update
-bauaServiceUpdateName :: Lens' BatchApplyUpdateAction Text
-bauaServiceUpdateName = lens _bauaServiceUpdateName (\s a -> s {_bauaServiceUpdateName = a})
+--
+-- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bauaServiceUpdateName :: Lens.Lens' BatchApplyUpdateAction Lude.Text
+bauaServiceUpdateName = Lens.lens (serviceUpdateName :: BatchApplyUpdateAction -> Lude.Text) (\s a -> s {serviceUpdateName = a} :: BatchApplyUpdateAction)
+{-# DEPRECATED bauaServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
 
-instance AWSRequest BatchApplyUpdateAction where
+instance Lude.AWSRequest BatchApplyUpdateAction where
   type Rs BatchApplyUpdateAction = UpdateActionResultsMessage
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "BatchApplyUpdateActionResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable BatchApplyUpdateAction
+instance Lude.ToHeaders BatchApplyUpdateAction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BatchApplyUpdateAction
+instance Lude.ToPath BatchApplyUpdateAction where
+  toPath = Lude.const "/"
 
-instance ToHeaders BatchApplyUpdateAction where
-  toHeaders = const mempty
-
-instance ToPath BatchApplyUpdateAction where
-  toPath = const "/"
-
-instance ToQuery BatchApplyUpdateAction where
+instance Lude.ToQuery BatchApplyUpdateAction where
   toQuery BatchApplyUpdateAction' {..} =
-    mconcat
-      [ "Action" =: ("BatchApplyUpdateAction" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("BatchApplyUpdateAction" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "CacheClusterIds"
-          =: toQuery (toQueryList "member" <$> _bauaCacheClusterIds),
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> cacheClusterIds),
         "ReplicationGroupIds"
-          =: toQuery (toQueryList "member" <$> _bauaReplicationGroupIds),
-        "ServiceUpdateName" =: _bauaServiceUpdateName
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> replicationGroupIds),
+        "ServiceUpdateName" Lude.=: serviceUpdateName
       ]

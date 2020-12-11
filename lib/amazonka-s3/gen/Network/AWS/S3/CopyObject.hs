@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,72 @@
 --
 -- Creates a copy of an object that is already stored in Amazon S3.
 --
---
 -- All copy requests must be authenticated. Additionally, you must have /read/ access to the source object and /write/ access to the destination bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> . Both the Region that you want to copy the object from and the Region that you want to copy the object to must be enabled for your account.
---
 -- A copy request might return an error when Amazon S3 receives the copy request or while Amazon S3 is copying the files. If the error occurs before the copy operation starts, you receive a standard Amazon S3 error. If the error occurs during the copy operation, the error response is embedded in the @200 OK@ response. This means that a @200 OK@ response can contain either a success or an error. Design your application to parse the contents of the response and handle it appropriately.
---
 -- If the copy is successful, you receive a response with information about the copied object.
---
 -- The copy request charge is based on the storage class and Region that you specify for the destination object. For pricing information, see <https://aws.amazon.com/s3/pricing/ Amazon S3 pricing> .
---
 -- /Important:/ Amazon S3 transfer acceleration does not support cross-Region copies. If you request a cross-Region copy using a transfer acceleration endpoint, you get a 400 @Bad Request@ error. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Transfer Acceleration> .
---
 -- __Metadata__
---
 -- When copying an object, you can preserve all metadata (default) or specify new metadata. However, the ACL is not preserved and is set to private for the user making the request. To override the default ACL setting, specify a new ACL when generating a copy request. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html Using ACLs> .
---
 -- To specify whether you want the object metadata copied from the source object or replaced with metadata provided in the request, you can optionally add the @x-amz-metadata-directive@ header. When you grant permissions, you can use the @s3:x-amz-metadata-directive@ condition key to enforce certain metadata behavior when objects are uploaded. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html Specifying Conditions in a Policy> in the /Amazon S3 Developer Guide/ . For a complete list of Amazon S3-specific condition keys, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3> .
---
 -- __@x-amz-copy-source-if@ Headers__
---
 -- To only copy an object under certain conditions, such as whether the @Etag@ matches or whether the object was modified before or after a specified date, use the following request parameters:
 --
 --     * @x-amz-copy-source-if-match@
 --
+--
 --     * @x-amz-copy-source-if-none-match@
+--
 --
 --     * @x-amz-copy-source-if-unmodified-since@
 --
---     * @x-amz-copy-source-if-modified-since@
 --
+--     * @x-amz-copy-source-if-modified-since@
 --
 --
 -- If both the @x-amz-copy-source-if-match@ and @x-amz-copy-source-if-unmodified-since@ headers are present in the request and evaluate as follows, Amazon S3 returns @200 OK@ and copies the data:
 --
 --     * @x-amz-copy-source-if-match@ condition evaluates to true
 --
---     * @x-amz-copy-source-if-unmodified-since@ condition evaluates to false
 --
+--     * @x-amz-copy-source-if-unmodified-since@ condition evaluates to false
 --
 --
 -- If both the @x-amz-copy-source-if-none-match@ and @x-amz-copy-source-if-modified-since@ headers are present in the request and evaluate as follows, Amazon S3 returns the @412 Precondition Failed@ response code:
 --
 --     * @x-amz-copy-source-if-none-match@ condition evaluates to false
 --
+--
 --     * @x-amz-copy-source-if-modified-since@ condition evaluates to true
 --
 --
---
 -- __Encryption__
---
 -- The source object that you are copying can be encrypted or unencrypted. The source object can be encrypted with server-side encryption using AWS managed encryption keys (SSE-S3 or SSE-KMS) or by using a customer-provided encryption key. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data when you access it.
---
 -- You can optionally use the appropriate encryption-related headers to request server-side encryption for the target object. You have the option to provide your own encryption key or use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that was used to encrypt the source object. You can even request encryption if the source object was not encrypted. For more information about server-side encryption, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Using Server-Side Encryption> .
---
 -- __Access Control List (ACL)-Specific Request Headers__
---
 -- When copying an object, you can optionally use headers to grant ACL-based permissions. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These permissions are then added to the ACL on the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html Managing ACLs Using the REST API> .
---
 -- __Storage Class Options__
---
 -- You can use the @CopyObject@ operation to change the storage class of an object that is already stored in Amazon S3 using the @StorageClass@ parameter. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
---
 -- __Versioning__
---
 -- By default, @x-amz-copy-source@ identifies the current version of an object to copy. If the current version is a delete marker, Amazon S3 behaves as if the object was deleted. To copy a different version, use the @versionId@ subresource.
---
 -- If you enable versioning on the target bucket, Amazon S3 generates a unique version ID for the object being copied. This version ID is different from the version ID of the source object. Amazon S3 returns the version ID of the copied object in the @x-amz-version-id@ response header in the response.
---
 -- If you do not enable versioning or suspend it on the target bucket, the version ID that Amazon S3 generates is always null.
---
 -- If the source object's storage class is GLACIER, you must restore a copy of this object before you can use it as a source object for the copy operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject> .
---
 -- The following operations are related to @CopyObject@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject>
 --
---     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 --
+--     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 --
 --
 -- For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html Copying Objects> .
 module Network.AWS.S3.CopyObject
-  ( -- * Creating a Request
-    copyObject,
-    CopyObject,
+  ( -- * Creating a request
+    CopyObject (..),
+    mkCopyObject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     coCopySourceIfModifiedSince,
     coCopySourceIfUnmodifiedSince,
     coCopySourceSSECustomerKeyMD5,
@@ -145,11 +120,11 @@ module Network.AWS.S3.CopyObject
     coCopySource,
     coKey,
 
-    -- * Destructuring the Response
-    copyObjectResponse,
-    CopyObjectResponse,
+    -- * Destructuring the response
+    CopyObjectResponse (..),
+    mkCopyObjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     corsRequestCharged,
     corsVersionId,
     corsExpiration,
@@ -164,533 +139,673 @@ module Network.AWS.S3.CopyObject
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'copyObject' smart constructor.
+-- | /See:/ 'mkCopyObject' smart constructor.
 data CopyObject = CopyObject'
-  { _coCopySourceIfModifiedSince ::
-      !(Maybe ISO8601),
-    _coCopySourceIfUnmodifiedSince :: !(Maybe ISO8601),
-    _coCopySourceSSECustomerKeyMD5 :: !(Maybe Text),
-    _coTaggingDirective :: !(Maybe TaggingDirective),
-    _coMetadataDirective :: !(Maybe MetadataDirective),
-    _coObjectLockMode :: !(Maybe ObjectLockMode),
-    _coExpires :: !(Maybe ISO8601),
-    _coGrantReadACP :: !(Maybe Text),
-    _coCopySourceIfNoneMatch :: !(Maybe Text),
-    _coSSECustomerAlgorithm :: !(Maybe Text),
-    _coSSECustomerKey :: !(Maybe (Sensitive Text)),
-    _coRequestPayer :: !(Maybe RequestPayer),
-    _coGrantWriteACP :: !(Maybe Text),
-    _coCopySourceIfMatch :: !(Maybe Text),
-    _coWebsiteRedirectLocation :: !(Maybe Text),
-    _coGrantRead :: !(Maybe Text),
-    _coExpectedSourceBucketOwner :: !(Maybe Text),
-    _coStorageClass :: !(Maybe StorageClass),
-    _coSSECustomerKeyMD5 :: !(Maybe Text),
-    _coSSEKMSKeyId :: !(Maybe (Sensitive Text)),
-    _coGrantFullControl :: !(Maybe Text),
-    _coContentEncoding :: !(Maybe Text),
-    _coTagging :: !(Maybe Text),
-    _coObjectLockRetainUntilDate :: !(Maybe ISO8601),
-    _coMetadata :: !(Map Text (Text)),
-    _coSSEKMSEncryptionContext :: !(Maybe (Sensitive Text)),
-    _coCacheControl :: !(Maybe Text),
-    _coContentLanguage :: !(Maybe Text),
-    _coCopySourceSSECustomerKey :: !(Maybe (Sensitive Text)),
-    _coObjectLockLegalHoldStatus :: !(Maybe ObjectLockLegalHoldStatus),
-    _coCopySourceSSECustomerAlgorithm :: !(Maybe Text),
-    _coACL :: !(Maybe ObjectCannedACL),
-    _coContentDisposition :: !(Maybe Text),
-    _coExpectedBucketOwner :: !(Maybe Text),
-    _coServerSideEncryption :: !(Maybe ServerSideEncryption),
-    _coContentType :: !(Maybe Text),
-    _coBucket :: !BucketName,
-    _coCopySource :: !Text,
-    _coKey :: !ObjectKey
+  { copySourceIfModifiedSince ::
+      Lude.Maybe Lude.ISO8601,
+    copySourceIfUnmodifiedSince :: Lude.Maybe Lude.ISO8601,
+    copySourceSSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    taggingDirective :: Lude.Maybe TaggingDirective,
+    metadataDirective :: Lude.Maybe MetadataDirective,
+    objectLockMode :: Lude.Maybe ObjectLockMode,
+    expires :: Lude.Maybe Lude.ISO8601,
+    grantReadACP :: Lude.Maybe Lude.Text,
+    copySourceIfNoneMatch :: Lude.Maybe Lude.Text,
+    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    requestPayer :: Lude.Maybe RequestPayer,
+    grantWriteACP :: Lude.Maybe Lude.Text,
+    copySourceIfMatch :: Lude.Maybe Lude.Text,
+    websiteRedirectLocation :: Lude.Maybe Lude.Text,
+    grantRead :: Lude.Maybe Lude.Text,
+    expectedSourceBucketOwner :: Lude.Maybe Lude.Text,
+    storageClass :: Lude.Maybe StorageClass,
+    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    grantFullControl :: Lude.Maybe Lude.Text,
+    contentEncoding :: Lude.Maybe Lude.Text,
+    tagging :: Lude.Maybe Lude.Text,
+    objectLockRetainUntilDate :: Lude.Maybe Lude.ISO8601,
+    metadata :: Lude.HashMap Lude.Text (Lude.Text),
+    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    cacheControl :: Lude.Maybe Lude.Text,
+    contentLanguage :: Lude.Maybe Lude.Text,
+    copySourceSSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
+    copySourceSSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    acl :: Lude.Maybe ObjectCannedACL,
+    contentDisposition :: Lude.Maybe Lude.Text,
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    contentType :: Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    copySource :: Lude.Text,
+    key :: ObjectKey
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acl' - The canned ACL to apply to the object.
 --
--- * 'coCopySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'bucket' - The name of the destination bucket.
 --
--- * 'coCopySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
+-- * 'contentDisposition' - Specifies presentational information for the object.
+-- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+-- * 'contentLanguage' - The language the content is in.
+-- * 'contentType' - A standard MIME type describing the format of the object data.
+-- * 'copySource' - Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
 --
--- * 'coCopySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 --
--- * 'coTaggingDirective' - Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+--     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.
 --
--- * 'coMetadataDirective' - Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
 --
--- * 'coObjectLockMode' - The Object Lock mode that you want to apply to the copied object.
+--     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded.
+-- Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.
 --
--- * 'coExpires' - The date and time at which the object is no longer cacheable.
 --
--- * 'coGrantReadACP' - Allows grantee to read the object ACL. This action is not supported by Amazon S3 on Outposts.
+-- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
+-- * 'copySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
+-- * 'copySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
+-- * 'copySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
+-- * 'copySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
+-- * 'copySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (for example, AES256).
+-- * 'copySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+-- * 'copySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+-- * 'expectedBucketOwner' - The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'expectedSourceBucketOwner' - The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'expires' - The date and time at which the object is no longer cacheable.
+-- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 --
--- * 'coCopySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'grantRead' - Allows grantee to read the object data and its metadata.
 --
--- * 'coSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'grantReadACP' - Allows grantee to read the object ACL.
 --
--- * 'coSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable object.
 --
--- * 'coRequestPayer' - Undocumented member.
---
--- * 'coGrantWriteACP' - Allows grantee to write the ACL for the applicable object. This action is not supported by Amazon S3 on Outposts.
---
--- * 'coCopySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
---
--- * 'coWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
---
--- * 'coGrantRead' - Allows grantee to read the object data and its metadata. This action is not supported by Amazon S3 on Outposts.
---
--- * 'coExpectedSourceBucketOwner' - The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'coStorageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
---
--- * 'coSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
---
--- * 'coSSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
---
--- * 'coGrantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object. This action is not supported by Amazon S3 on Outposts.
---
--- * 'coContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
---
--- * 'coTagging' - The tag-set for the object destination object this value must be used in conjunction with the @TaggingDirective@ . The tag-set must be encoded as URL Query parameters.
---
--- * 'coObjectLockRetainUntilDate' - The date and time when you want the copied object's Object Lock to expire.
---
--- * 'coMetadata' - A map of metadata to store with the object in S3.
---
--- * 'coSSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
---
--- * 'coCacheControl' - Specifies caching behavior along the request/reply chain.
---
--- * 'coContentLanguage' - The language the content is in.
---
--- * 'coCopySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
---
--- * 'coObjectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the copied object.
---
--- * 'coCopySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (for example, AES256).
---
--- * 'coACL' - The canned ACL to apply to the object. This action is not supported by Amazon S3 on Outposts.
---
--- * 'coContentDisposition' - Specifies presentational information for the object.
---
--- * 'coExpectedBucketOwner' - The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'coServerSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
---
--- * 'coContentType' - A standard MIME type describing the format of the object data.
---
--- * 'coBucket' - The name of the destination bucket. When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ . When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- * 'coCopySource' - Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded. Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.  To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
---
--- * 'coKey' - The key of the destination object.
-copyObject ::
-  -- | 'coBucket'
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'key' - The key of the destination object.
+-- * 'metadata' - A map of metadata to store with the object in S3.
+-- * 'metadataDirective' - Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
+-- * 'objectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the copied object.
+-- * 'objectLockMode' - The Object Lock mode that you want to apply to the copied object.
+-- * 'objectLockRetainUntilDate' - The date and time when you want the copied object's Object Lock to expire.
+-- * 'requestPayer' - Undocumented field.
+-- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+-- * 'sSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+-- * 'sSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
+-- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+-- * 'tagging' - The tag-set for the object destination object this value must be used in conjunction with the @TaggingDirective@ . The tag-set must be encoded as URL Query parameters.
+-- * 'taggingDirective' - Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+-- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+mkCopyObject ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'coCopySource'
-  Text ->
-  -- | 'coKey'
+  -- | 'copySource'
+  Lude.Text ->
+  -- | 'key'
   ObjectKey ->
   CopyObject
-copyObject pBucket_ pCopySource_ pKey_ =
+mkCopyObject pBucket_ pCopySource_ pKey_ =
   CopyObject'
-    { _coCopySourceIfModifiedSince = Nothing,
-      _coCopySourceIfUnmodifiedSince = Nothing,
-      _coCopySourceSSECustomerKeyMD5 = Nothing,
-      _coTaggingDirective = Nothing,
-      _coMetadataDirective = Nothing,
-      _coObjectLockMode = Nothing,
-      _coExpires = Nothing,
-      _coGrantReadACP = Nothing,
-      _coCopySourceIfNoneMatch = Nothing,
-      _coSSECustomerAlgorithm = Nothing,
-      _coSSECustomerKey = Nothing,
-      _coRequestPayer = Nothing,
-      _coGrantWriteACP = Nothing,
-      _coCopySourceIfMatch = Nothing,
-      _coWebsiteRedirectLocation = Nothing,
-      _coGrantRead = Nothing,
-      _coExpectedSourceBucketOwner = Nothing,
-      _coStorageClass = Nothing,
-      _coSSECustomerKeyMD5 = Nothing,
-      _coSSEKMSKeyId = Nothing,
-      _coGrantFullControl = Nothing,
-      _coContentEncoding = Nothing,
-      _coTagging = Nothing,
-      _coObjectLockRetainUntilDate = Nothing,
-      _coMetadata = mempty,
-      _coSSEKMSEncryptionContext = Nothing,
-      _coCacheControl = Nothing,
-      _coContentLanguage = Nothing,
-      _coCopySourceSSECustomerKey = Nothing,
-      _coObjectLockLegalHoldStatus = Nothing,
-      _coCopySourceSSECustomerAlgorithm = Nothing,
-      _coACL = Nothing,
-      _coContentDisposition = Nothing,
-      _coExpectedBucketOwner = Nothing,
-      _coServerSideEncryption = Nothing,
-      _coContentType = Nothing,
-      _coBucket = pBucket_,
-      _coCopySource = pCopySource_,
-      _coKey = pKey_
+    { copySourceIfModifiedSince = Lude.Nothing,
+      copySourceIfUnmodifiedSince = Lude.Nothing,
+      copySourceSSECustomerKeyMD5 = Lude.Nothing,
+      taggingDirective = Lude.Nothing,
+      metadataDirective = Lude.Nothing,
+      objectLockMode = Lude.Nothing,
+      expires = Lude.Nothing,
+      grantReadACP = Lude.Nothing,
+      copySourceIfNoneMatch = Lude.Nothing,
+      sSECustomerAlgorithm = Lude.Nothing,
+      sSECustomerKey = Lude.Nothing,
+      requestPayer = Lude.Nothing,
+      grantWriteACP = Lude.Nothing,
+      copySourceIfMatch = Lude.Nothing,
+      websiteRedirectLocation = Lude.Nothing,
+      grantRead = Lude.Nothing,
+      expectedSourceBucketOwner = Lude.Nothing,
+      storageClass = Lude.Nothing,
+      sSECustomerKeyMD5 = Lude.Nothing,
+      sSEKMSKeyId = Lude.Nothing,
+      grantFullControl = Lude.Nothing,
+      contentEncoding = Lude.Nothing,
+      tagging = Lude.Nothing,
+      objectLockRetainUntilDate = Lude.Nothing,
+      metadata = Lude.mempty,
+      sSEKMSEncryptionContext = Lude.Nothing,
+      cacheControl = Lude.Nothing,
+      contentLanguage = Lude.Nothing,
+      copySourceSSECustomerKey = Lude.Nothing,
+      objectLockLegalHoldStatus = Lude.Nothing,
+      copySourceSSECustomerAlgorithm = Lude.Nothing,
+      acl = Lude.Nothing,
+      contentDisposition = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      serverSideEncryption = Lude.Nothing,
+      contentType = Lude.Nothing,
+      bucket = pBucket_,
+      copySource = pCopySource_,
+      key = pKey_
     }
 
 -- | Copies the object if it has been modified since the specified time.
-coCopySourceIfModifiedSince :: Lens' CopyObject (Maybe UTCTime)
-coCopySourceIfModifiedSince = lens _coCopySourceIfModifiedSince (\s a -> s {_coCopySourceIfModifiedSince = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'copySourceIfModifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceIfModifiedSince :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
+coCopySourceIfModifiedSince = Lens.lens (copySourceIfModifiedSince :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {copySourceIfModifiedSince = a} :: CopyObject)
+{-# DEPRECATED coCopySourceIfModifiedSince "Use generic-lens or generic-optics with 'copySourceIfModifiedSince' instead." #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
-coCopySourceIfUnmodifiedSince :: Lens' CopyObject (Maybe UTCTime)
-coCopySourceIfUnmodifiedSince = lens _coCopySourceIfUnmodifiedSince (\s a -> s {_coCopySourceIfUnmodifiedSince = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'copySourceIfUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceIfUnmodifiedSince :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
+coCopySourceIfUnmodifiedSince = Lens.lens (copySourceIfUnmodifiedSince :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {copySourceIfUnmodifiedSince = a} :: CopyObject)
+{-# DEPRECATED coCopySourceIfUnmodifiedSince "Use generic-lens or generic-optics with 'copySourceIfUnmodifiedSince' instead." #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-coCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
-coCopySourceSSECustomerKeyMD5 = lens _coCopySourceSSECustomerKeyMD5 (\s a -> s {_coCopySourceSSECustomerKeyMD5 = a})
+--
+-- /Note:/ Consider using 'copySourceSSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceSSECustomerKeyMD5 :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coCopySourceSSECustomerKeyMD5 = Lens.lens (copySourceSSECustomerKeyMD5 :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {copySourceSSECustomerKeyMD5 = a} :: CopyObject)
+{-# DEPRECATED coCopySourceSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'copySourceSSECustomerKeyMD5' instead." #-}
 
 -- | Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
-coTaggingDirective :: Lens' CopyObject (Maybe TaggingDirective)
-coTaggingDirective = lens _coTaggingDirective (\s a -> s {_coTaggingDirective = a})
+--
+-- /Note:/ Consider using 'taggingDirective' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coTaggingDirective :: Lens.Lens' CopyObject (Lude.Maybe TaggingDirective)
+coTaggingDirective = Lens.lens (taggingDirective :: CopyObject -> Lude.Maybe TaggingDirective) (\s a -> s {taggingDirective = a} :: CopyObject)
+{-# DEPRECATED coTaggingDirective "Use generic-lens or generic-optics with 'taggingDirective' instead." #-}
 
 -- | Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
-coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
-coMetadataDirective = lens _coMetadataDirective (\s a -> s {_coMetadataDirective = a})
+--
+-- /Note:/ Consider using 'metadataDirective' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coMetadataDirective :: Lens.Lens' CopyObject (Lude.Maybe MetadataDirective)
+coMetadataDirective = Lens.lens (metadataDirective :: CopyObject -> Lude.Maybe MetadataDirective) (\s a -> s {metadataDirective = a} :: CopyObject)
+{-# DEPRECATED coMetadataDirective "Use generic-lens or generic-optics with 'metadataDirective' instead." #-}
 
 -- | The Object Lock mode that you want to apply to the copied object.
-coObjectLockMode :: Lens' CopyObject (Maybe ObjectLockMode)
-coObjectLockMode = lens _coObjectLockMode (\s a -> s {_coObjectLockMode = a})
+--
+-- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coObjectLockMode :: Lens.Lens' CopyObject (Lude.Maybe ObjectLockMode)
+coObjectLockMode = Lens.lens (objectLockMode :: CopyObject -> Lude.Maybe ObjectLockMode) (\s a -> s {objectLockMode = a} :: CopyObject)
+{-# DEPRECATED coObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
 
 -- | The date and time at which the object is no longer cacheable.
-coExpires :: Lens' CopyObject (Maybe UTCTime)
-coExpires = lens _coExpires (\s a -> s {_coExpires = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coExpires :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
+coExpires = Lens.lens (expires :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {expires = a} :: CopyObject)
+{-# DEPRECATED coExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
--- | Allows grantee to read the object ACL. This action is not supported by Amazon S3 on Outposts.
-coGrantReadACP :: Lens' CopyObject (Maybe Text)
-coGrantReadACP = lens _coGrantReadACP (\s a -> s {_coGrantReadACP = a})
+-- | Allows grantee to read the object ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coGrantReadACP :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coGrantReadACP = Lens.lens (grantReadACP :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: CopyObject)
+{-# DEPRECATED coGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
 
 -- | Copies the object if its entity tag (ETag) is different than the specified ETag.
-coCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
-coCopySourceIfNoneMatch = lens _coCopySourceIfNoneMatch (\s a -> s {_coCopySourceIfNoneMatch = a})
+--
+-- /Note:/ Consider using 'copySourceIfNoneMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceIfNoneMatch :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coCopySourceIfNoneMatch = Lens.lens (copySourceIfNoneMatch :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {copySourceIfNoneMatch = a} :: CopyObject)
+{-# DEPRECATED coCopySourceIfNoneMatch "Use generic-lens or generic-optics with 'copySourceIfNoneMatch' instead." #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
-coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
-coSSECustomerAlgorithm = lens _coSSECustomerAlgorithm (\s a -> s {_coSSECustomerAlgorithm = a})
+--
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coSSECustomerAlgorithm :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: CopyObject)
+{-# DEPRECATED coSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
-coSSECustomerKey :: Lens' CopyObject (Maybe Text)
-coSSECustomerKey = lens _coSSECustomerKey (\s a -> s {_coSSECustomerKey = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coSSECustomerKey :: Lens.Lens' CopyObject (Lude.Maybe (Lude.Sensitive Lude.Text))
+coSSECustomerKey = Lens.lens (sSECustomerKey :: CopyObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSECustomerKey = a} :: CopyObject)
+{-# DEPRECATED coSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
 
--- | Undocumented member.
-coRequestPayer :: Lens' CopyObject (Maybe RequestPayer)
-coRequestPayer = lens _coRequestPayer (\s a -> s {_coRequestPayer = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coRequestPayer :: Lens.Lens' CopyObject (Lude.Maybe RequestPayer)
+coRequestPayer = Lens.lens (requestPayer :: CopyObject -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: CopyObject)
+{-# DEPRECATED coRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
--- | Allows grantee to write the ACL for the applicable object. This action is not supported by Amazon S3 on Outposts.
-coGrantWriteACP :: Lens' CopyObject (Maybe Text)
-coGrantWriteACP = lens _coGrantWriteACP (\s a -> s {_coGrantWriteACP = a})
+-- | Allows grantee to write the ACL for the applicable object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantWriteACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coGrantWriteACP :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coGrantWriteACP = Lens.lens (grantWriteACP :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {grantWriteACP = a} :: CopyObject)
+{-# DEPRECATED coGrantWriteACP "Use generic-lens or generic-optics with 'grantWriteACP' instead." #-}
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
-coCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
-coCopySourceIfMatch = lens _coCopySourceIfMatch (\s a -> s {_coCopySourceIfMatch = a})
+--
+-- /Note:/ Consider using 'copySourceIfMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceIfMatch :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coCopySourceIfMatch = Lens.lens (copySourceIfMatch :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {copySourceIfMatch = a} :: CopyObject)
+{-# DEPRECATED coCopySourceIfMatch "Use generic-lens or generic-optics with 'copySourceIfMatch' instead." #-}
 
 -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
-coWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
-coWebsiteRedirectLocation = lens _coWebsiteRedirectLocation (\s a -> s {_coWebsiteRedirectLocation = a})
+--
+-- /Note:/ Consider using 'websiteRedirectLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coWebsiteRedirectLocation :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coWebsiteRedirectLocation = Lens.lens (websiteRedirectLocation :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {websiteRedirectLocation = a} :: CopyObject)
+{-# DEPRECATED coWebsiteRedirectLocation "Use generic-lens or generic-optics with 'websiteRedirectLocation' instead." #-}
 
--- | Allows grantee to read the object data and its metadata. This action is not supported by Amazon S3 on Outposts.
-coGrantRead :: Lens' CopyObject (Maybe Text)
-coGrantRead = lens _coGrantRead (\s a -> s {_coGrantRead = a})
+-- | Allows grantee to read the object data and its metadata.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coGrantRead :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coGrantRead = Lens.lens (grantRead :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {grantRead = a} :: CopyObject)
+{-# DEPRECATED coGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
 
 -- | The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-coExpectedSourceBucketOwner :: Lens' CopyObject (Maybe Text)
-coExpectedSourceBucketOwner = lens _coExpectedSourceBucketOwner (\s a -> s {_coExpectedSourceBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedSourceBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coExpectedSourceBucketOwner :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coExpectedSourceBucketOwner = Lens.lens (expectedSourceBucketOwner :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedSourceBucketOwner = a} :: CopyObject)
+{-# DEPRECATED coExpectedSourceBucketOwner "Use generic-lens or generic-optics with 'expectedSourceBucketOwner' instead." #-}
 
 -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
-coStorageClass :: Lens' CopyObject (Maybe StorageClass)
-coStorageClass = lens _coStorageClass (\s a -> s {_coStorageClass = a})
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coStorageClass :: Lens.Lens' CopyObject (Lude.Maybe StorageClass)
+coStorageClass = Lens.lens (storageClass :: CopyObject -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: CopyObject)
+{-# DEPRECATED coStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
-coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\s a -> s {_coSSECustomerKeyMD5 = a})
+--
+-- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coSSECustomerKeyMD5 :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: CopyObject)
+{-# DEPRECATED coSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
 
 -- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
-coSSEKMSKeyId :: Lens' CopyObject (Maybe Text)
-coSSEKMSKeyId = lens _coSSEKMSKeyId (\s a -> s {_coSSEKMSKeyId = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coSSEKMSKeyId :: Lens.Lens' CopyObject (Lude.Maybe (Lude.Sensitive Lude.Text))
+coSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: CopyObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: CopyObject)
+{-# DEPRECATED coSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object. This action is not supported by Amazon S3 on Outposts.
-coGrantFullControl :: Lens' CopyObject (Maybe Text)
-coGrantFullControl = lens _coGrantFullControl (\s a -> s {_coGrantFullControl = a})
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coGrantFullControl :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coGrantFullControl = Lens.lens (grantFullControl :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {grantFullControl = a} :: CopyObject)
+{-# DEPRECATED coGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
 
 -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
-coContentEncoding :: Lens' CopyObject (Maybe Text)
-coContentEncoding = lens _coContentEncoding (\s a -> s {_coContentEncoding = a})
+--
+-- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coContentEncoding :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coContentEncoding = Lens.lens (contentEncoding :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {contentEncoding = a} :: CopyObject)
+{-# DEPRECATED coContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
 
 -- | The tag-set for the object destination object this value must be used in conjunction with the @TaggingDirective@ . The tag-set must be encoded as URL Query parameters.
-coTagging :: Lens' CopyObject (Maybe Text)
-coTagging = lens _coTagging (\s a -> s {_coTagging = a})
+--
+-- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coTagging :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coTagging = Lens.lens (tagging :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {tagging = a} :: CopyObject)
+{-# DEPRECATED coTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
 -- | The date and time when you want the copied object's Object Lock to expire.
-coObjectLockRetainUntilDate :: Lens' CopyObject (Maybe UTCTime)
-coObjectLockRetainUntilDate = lens _coObjectLockRetainUntilDate (\s a -> s {_coObjectLockRetainUntilDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coObjectLockRetainUntilDate :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
+coObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {objectLockRetainUntilDate = a} :: CopyObject)
+{-# DEPRECATED coObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
 
 -- | A map of metadata to store with the object in S3.
-coMetadata :: Lens' CopyObject (HashMap Text (Text))
-coMetadata = lens _coMetadata (\s a -> s {_coMetadata = a}) . _Map
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coMetadata :: Lens.Lens' CopyObject (Lude.HashMap Lude.Text (Lude.Text))
+coMetadata = Lens.lens (metadata :: CopyObject -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metadata = a} :: CopyObject)
+{-# DEPRECATED coMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
 -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-coSSEKMSEncryptionContext :: Lens' CopyObject (Maybe Text)
-coSSEKMSEncryptionContext = lens _coSSEKMSEncryptionContext (\s a -> s {_coSSEKMSEncryptionContext = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coSSEKMSEncryptionContext :: Lens.Lens' CopyObject (Lude.Maybe (Lude.Sensitive Lude.Text))
+coSSEKMSEncryptionContext = Lens.lens (sSEKMSEncryptionContext :: CopyObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSEncryptionContext = a} :: CopyObject)
+{-# DEPRECATED coSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-coCacheControl :: Lens' CopyObject (Maybe Text)
-coCacheControl = lens _coCacheControl (\s a -> s {_coCacheControl = a})
+--
+-- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCacheControl :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coCacheControl = Lens.lens (cacheControl :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {cacheControl = a} :: CopyObject)
+{-# DEPRECATED coCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
 
 -- | The language the content is in.
-coContentLanguage :: Lens' CopyObject (Maybe Text)
-coContentLanguage = lens _coContentLanguage (\s a -> s {_coContentLanguage = a})
+--
+-- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coContentLanguage :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coContentLanguage = Lens.lens (contentLanguage :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {contentLanguage = a} :: CopyObject)
+{-# DEPRECATED coContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
-coCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
-coCopySourceSSECustomerKey = lens _coCopySourceSSECustomerKey (\s a -> s {_coCopySourceSSECustomerKey = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'copySourceSSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceSSECustomerKey :: Lens.Lens' CopyObject (Lude.Maybe (Lude.Sensitive Lude.Text))
+coCopySourceSSECustomerKey = Lens.lens (copySourceSSECustomerKey :: CopyObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {copySourceSSECustomerKey = a} :: CopyObject)
+{-# DEPRECATED coCopySourceSSECustomerKey "Use generic-lens or generic-optics with 'copySourceSSECustomerKey' instead." #-}
 
 -- | Specifies whether you want to apply a Legal Hold to the copied object.
-coObjectLockLegalHoldStatus :: Lens' CopyObject (Maybe ObjectLockLegalHoldStatus)
-coObjectLockLegalHoldStatus = lens _coObjectLockLegalHoldStatus (\s a -> s {_coObjectLockLegalHoldStatus = a})
+--
+-- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coObjectLockLegalHoldStatus :: Lens.Lens' CopyObject (Lude.Maybe ObjectLockLegalHoldStatus)
+coObjectLockLegalHoldStatus = Lens.lens (objectLockLegalHoldStatus :: CopyObject -> Lude.Maybe ObjectLockLegalHoldStatus) (\s a -> s {objectLockLegalHoldStatus = a} :: CopyObject)
+{-# DEPRECATED coObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
 
 -- | Specifies the algorithm to use when decrypting the source object (for example, AES256).
-coCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
-coCopySourceSSECustomerAlgorithm = lens _coCopySourceSSECustomerAlgorithm (\s a -> s {_coCopySourceSSECustomerAlgorithm = a})
+--
+-- /Note:/ Consider using 'copySourceSSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySourceSSECustomerAlgorithm :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coCopySourceSSECustomerAlgorithm = Lens.lens (copySourceSSECustomerAlgorithm :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {copySourceSSECustomerAlgorithm = a} :: CopyObject)
+{-# DEPRECATED coCopySourceSSECustomerAlgorithm "Use generic-lens or generic-optics with 'copySourceSSECustomerAlgorithm' instead." #-}
 
--- | The canned ACL to apply to the object. This action is not supported by Amazon S3 on Outposts.
-coACL :: Lens' CopyObject (Maybe ObjectCannedACL)
-coACL = lens _coACL (\s a -> s {_coACL = a})
+-- | The canned ACL to apply to the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'acl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coACL :: Lens.Lens' CopyObject (Lude.Maybe ObjectCannedACL)
+coACL = Lens.lens (acl :: CopyObject -> Lude.Maybe ObjectCannedACL) (\s a -> s {acl = a} :: CopyObject)
+{-# DEPRECATED coACL "Use generic-lens or generic-optics with 'acl' instead." #-}
 
 -- | Specifies presentational information for the object.
-coContentDisposition :: Lens' CopyObject (Maybe Text)
-coContentDisposition = lens _coContentDisposition (\s a -> s {_coContentDisposition = a})
+--
+-- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coContentDisposition :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coContentDisposition = Lens.lens (contentDisposition :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {contentDisposition = a} :: CopyObject)
+{-# DEPRECATED coContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
 
 -- | The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-coExpectedBucketOwner :: Lens' CopyObject (Maybe Text)
-coExpectedBucketOwner = lens _coExpectedBucketOwner (\s a -> s {_coExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coExpectedBucketOwner :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coExpectedBucketOwner = Lens.lens (expectedBucketOwner :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: CopyObject)
+{-# DEPRECATED coExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-coServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
-coServerSideEncryption = lens _coServerSideEncryption (\s a -> s {_coServerSideEncryption = a})
+--
+-- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coServerSideEncryption :: Lens.Lens' CopyObject (Lude.Maybe ServerSideEncryption)
+coServerSideEncryption = Lens.lens (serverSideEncryption :: CopyObject -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: CopyObject)
+{-# DEPRECATED coServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
 
 -- | A standard MIME type describing the format of the object data.
-coContentType :: Lens' CopyObject (Maybe Text)
-coContentType = lens _coContentType (\s a -> s {_coContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coContentType :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
+coContentType = Lens.lens (contentType :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: CopyObject)
+{-# DEPRECATED coContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | The name of the destination bucket. When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ . When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-coBucket :: Lens' CopyObject BucketName
-coBucket = lens _coBucket (\s a -> s {_coBucket = a})
+-- | The name of the destination bucket.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coBucket :: Lens.Lens' CopyObject BucketName
+coBucket = Lens.lens (bucket :: CopyObject -> BucketName) (\s a -> s {bucket = a} :: CopyObject)
+{-# DEPRECATED coBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
--- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded. Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.  To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
-coCopySource :: Lens' CopyObject Text
-coCopySource = lens _coCopySource (\s a -> s {_coCopySource = a})
+-- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
+--
+--
+--     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.
+--
+--
+--     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded.
+-- Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.
+--
+--
+-- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
+--
+-- /Note:/ Consider using 'copySource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySource :: Lens.Lens' CopyObject Lude.Text
+coCopySource = Lens.lens (copySource :: CopyObject -> Lude.Text) (\s a -> s {copySource = a} :: CopyObject)
+{-# DEPRECATED coCopySource "Use generic-lens or generic-optics with 'copySource' instead." #-}
 
 -- | The key of the destination object.
-coKey :: Lens' CopyObject ObjectKey
-coKey = lens _coKey (\s a -> s {_coKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coKey :: Lens.Lens' CopyObject ObjectKey
+coKey = Lens.lens (key :: CopyObject -> ObjectKey) (\s a -> s {key = a} :: CopyObject)
+{-# DEPRECATED coKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSRequest CopyObject where
+instance Lude.AWSRequest CopyObject where
   type Rs CopyObject = CopyObjectResponse
-  request = put s3
+  request = Req.put s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CopyObjectResponse'
-            <$> (h .#? "x-amz-request-charged")
-            <*> (h .#? "x-amz-version-id")
-            <*> (h .#? "x-amz-expiration")
-            <*> (h .#? "x-amz-server-side-encryption-customer-algorithm")
-            <*> (h .#? "x-amz-copy-source-version-id")
-            <*> (h .#? "x-amz-server-side-encryption-customer-key-MD5")
-            <*> (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
-            <*> (h .#? "x-amz-server-side-encryption-context")
-            <*> (h .#? "x-amz-server-side-encryption")
-            <*> (parseXML x)
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "x-amz-request-charged")
+            Lude.<*> (h Lude..#? "x-amz-version-id")
+            Lude.<*> (h Lude..#? "x-amz-expiration")
+            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-algorithm")
+            Lude.<*> (h Lude..#? "x-amz-copy-source-version-id")
+            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-key-MD5")
+            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-aws-kms-key-id")
+            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-context")
+            Lude.<*> (h Lude..#? "x-amz-server-side-encryption")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyObject
-
-instance NFData CopyObject
-
-instance ToHeaders CopyObject where
+instance Lude.ToHeaders CopyObject where
   toHeaders CopyObject' {..} =
-    mconcat
+    Lude.mconcat
       [ "x-amz-copy-source-if-modified-since"
-          =# _coCopySourceIfModifiedSince,
+          Lude.=# copySourceIfModifiedSince,
         "x-amz-copy-source-if-unmodified-since"
-          =# _coCopySourceIfUnmodifiedSince,
+          Lude.=# copySourceIfUnmodifiedSince,
         "x-amz-copy-source-server-side-encryption-customer-key-MD5"
-          =# _coCopySourceSSECustomerKeyMD5,
-        "x-amz-tagging-directive" =# _coTaggingDirective,
-        "x-amz-metadata-directive" =# _coMetadataDirective,
-        "x-amz-object-lock-mode" =# _coObjectLockMode,
-        "Expires" =# _coExpires,
-        "x-amz-grant-read-acp" =# _coGrantReadACP,
-        "x-amz-copy-source-if-none-match" =# _coCopySourceIfNoneMatch,
+          Lude.=# copySourceSSECustomerKeyMD5,
+        "x-amz-tagging-directive" Lude.=# taggingDirective,
+        "x-amz-metadata-directive" Lude.=# metadataDirective,
+        "x-amz-object-lock-mode" Lude.=# objectLockMode,
+        "Expires" Lude.=# expires,
+        "x-amz-grant-read-acp" Lude.=# grantReadACP,
+        "x-amz-copy-source-if-none-match" Lude.=# copySourceIfNoneMatch,
         "x-amz-server-side-encryption-customer-algorithm"
-          =# _coSSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key" =# _coSSECustomerKey,
-        "x-amz-request-payer" =# _coRequestPayer,
-        "x-amz-grant-write-acp" =# _coGrantWriteACP,
-        "x-amz-copy-source-if-match" =# _coCopySourceIfMatch,
-        "x-amz-website-redirect-location" =# _coWebsiteRedirectLocation,
-        "x-amz-grant-read" =# _coGrantRead,
+          Lude.=# sSECustomerAlgorithm,
+        "x-amz-server-side-encryption-customer-key" Lude.=# sSECustomerKey,
+        "x-amz-request-payer" Lude.=# requestPayer,
+        "x-amz-grant-write-acp" Lude.=# grantWriteACP,
+        "x-amz-copy-source-if-match" Lude.=# copySourceIfMatch,
+        "x-amz-website-redirect-location" Lude.=# websiteRedirectLocation,
+        "x-amz-grant-read" Lude.=# grantRead,
         "x-amz-source-expected-bucket-owner"
-          =# _coExpectedSourceBucketOwner,
-        "x-amz-storage-class" =# _coStorageClass,
+          Lude.=# expectedSourceBucketOwner,
+        "x-amz-storage-class" Lude.=# storageClass,
         "x-amz-server-side-encryption-customer-key-MD5"
-          =# _coSSECustomerKeyMD5,
-        "x-amz-server-side-encryption-aws-kms-key-id" =# _coSSEKMSKeyId,
-        "x-amz-grant-full-control" =# _coGrantFullControl,
-        "Content-Encoding" =# _coContentEncoding,
-        "x-amz-tagging" =# _coTagging,
+          Lude.=# sSECustomerKeyMD5,
+        "x-amz-server-side-encryption-aws-kms-key-id" Lude.=# sSEKMSKeyId,
+        "x-amz-grant-full-control" Lude.=# grantFullControl,
+        "Content-Encoding" Lude.=# contentEncoding,
+        "x-amz-tagging" Lude.=# tagging,
         "x-amz-object-lock-retain-until-date"
-          =# _coObjectLockRetainUntilDate,
-        "x-amz-meta-" =# _coMetadata,
+          Lude.=# objectLockRetainUntilDate,
+        "x-amz-meta-" Lude.=# metadata,
         "x-amz-server-side-encryption-context"
-          =# _coSSEKMSEncryptionContext,
-        "Cache-Control" =# _coCacheControl,
-        "Content-Language" =# _coContentLanguage,
+          Lude.=# sSEKMSEncryptionContext,
+        "Cache-Control" Lude.=# cacheControl,
+        "Content-Language" Lude.=# contentLanguage,
         "x-amz-copy-source-server-side-encryption-customer-key"
-          =# _coCopySourceSSECustomerKey,
-        "x-amz-object-lock-legal-hold" =# _coObjectLockLegalHoldStatus,
+          Lude.=# copySourceSSECustomerKey,
+        "x-amz-object-lock-legal-hold" Lude.=# objectLockLegalHoldStatus,
         "x-amz-copy-source-server-side-encryption-customer-algorithm"
-          =# _coCopySourceSSECustomerAlgorithm,
-        "x-amz-acl" =# _coACL,
-        "Content-Disposition" =# _coContentDisposition,
-        "x-amz-expected-bucket-owner" =# _coExpectedBucketOwner,
-        "x-amz-server-side-encryption" =# _coServerSideEncryption,
-        "Content-Type" =# _coContentType,
-        "x-amz-copy-source" =# _coCopySource
+          Lude.=# copySourceSSECustomerAlgorithm,
+        "x-amz-acl" Lude.=# acl,
+        "Content-Disposition" Lude.=# contentDisposition,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner,
+        "x-amz-server-side-encryption" Lude.=# serverSideEncryption,
+        "Content-Type" Lude.=# contentType,
+        "x-amz-copy-source" Lude.=# copySource
       ]
 
-instance ToPath CopyObject where
+instance Lude.ToPath CopyObject where
   toPath CopyObject' {..} =
-    mconcat ["/", toBS _coBucket, "/", toBS _coKey]
+    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
 
-instance ToQuery CopyObject where
-  toQuery = const mempty
+instance Lude.ToQuery CopyObject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'copyObjectResponse' smart constructor.
+-- | /See:/ 'mkCopyObjectResponse' smart constructor.
 data CopyObjectResponse = CopyObjectResponse'
-  { _corsRequestCharged ::
-      !(Maybe RequestCharged),
-    _corsVersionId :: !(Maybe ObjectVersionId),
-    _corsExpiration :: !(Maybe Text),
-    _corsSSECustomerAlgorithm :: !(Maybe Text),
-    _corsCopySourceVersionId :: !(Maybe Text),
-    _corsSSECustomerKeyMD5 :: !(Maybe Text),
-    _corsSSEKMSKeyId :: !(Maybe (Sensitive Text)),
-    _corsSSEKMSEncryptionContext ::
-      !(Maybe (Sensitive Text)),
-    _corsServerSideEncryption ::
-      !(Maybe ServerSideEncryption),
-    _corsCopyObjectResult :: !(Maybe CopyObjectResult),
-    _corsResponseStatus :: !Int
+  { requestCharged ::
+      Lude.Maybe RequestCharged,
+    versionId :: Lude.Maybe ObjectVersionId,
+    expiration :: Lude.Maybe Lude.Text,
+    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    copySourceVersionId :: Lude.Maybe Lude.Text,
+    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sSEKMSEncryptionContext ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    serverSideEncryption ::
+      Lude.Maybe ServerSideEncryption,
+    copyObjectResult :: Lude.Maybe CopyObjectResult,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'corsRequestCharged' - Undocumented member.
---
--- * 'corsVersionId' - Version ID of the newly created copy.
---
--- * 'corsExpiration' - If the object expiration is configured, the response includes this header.
---
--- * 'corsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
---
--- * 'corsCopySourceVersionId' - Version of the copied object in the destination bucket.
---
--- * 'corsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
---
--- * 'corsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
---
--- * 'corsSSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
---
--- * 'corsServerSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
---
--- * 'corsCopyObjectResult' - Container for all response elements.
---
--- * 'corsResponseStatus' - -- | The response status code.
-copyObjectResponse ::
-  -- | 'corsResponseStatus'
-  Int ->
+-- * 'copyObjectResult' - Container for all response elements.
+-- * 'copySourceVersionId' - Version of the copied object in the destination bucket.
+-- * 'expiration' - If the object expiration is configured, the response includes this header.
+-- * 'requestCharged' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+-- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
+-- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+-- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+-- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- * 'versionId' - Version ID of the newly created copy.
+mkCopyObjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyObjectResponse
-copyObjectResponse pResponseStatus_ =
+mkCopyObjectResponse pResponseStatus_ =
   CopyObjectResponse'
-    { _corsRequestCharged = Nothing,
-      _corsVersionId = Nothing,
-      _corsExpiration = Nothing,
-      _corsSSECustomerAlgorithm = Nothing,
-      _corsCopySourceVersionId = Nothing,
-      _corsSSECustomerKeyMD5 = Nothing,
-      _corsSSEKMSKeyId = Nothing,
-      _corsSSEKMSEncryptionContext = Nothing,
-      _corsServerSideEncryption = Nothing,
-      _corsCopyObjectResult = Nothing,
-      _corsResponseStatus = pResponseStatus_
+    { requestCharged = Lude.Nothing,
+      versionId = Lude.Nothing,
+      expiration = Lude.Nothing,
+      sSECustomerAlgorithm = Lude.Nothing,
+      copySourceVersionId = Lude.Nothing,
+      sSECustomerKeyMD5 = Lude.Nothing,
+      sSEKMSKeyId = Lude.Nothing,
+      sSEKMSEncryptionContext = Lude.Nothing,
+      serverSideEncryption = Lude.Nothing,
+      copyObjectResult = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-corsRequestCharged :: Lens' CopyObjectResponse (Maybe RequestCharged)
-corsRequestCharged = lens _corsRequestCharged (\s a -> s {_corsRequestCharged = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsRequestCharged :: Lens.Lens' CopyObjectResponse (Lude.Maybe RequestCharged)
+corsRequestCharged = Lens.lens (requestCharged :: CopyObjectResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: CopyObjectResponse)
+{-# DEPRECATED corsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | Version ID of the newly created copy.
-corsVersionId :: Lens' CopyObjectResponse (Maybe ObjectVersionId)
-corsVersionId = lens _corsVersionId (\s a -> s {_corsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsVersionId :: Lens.Lens' CopyObjectResponse (Lude.Maybe ObjectVersionId)
+corsVersionId = Lens.lens (versionId :: CopyObjectResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: CopyObjectResponse)
+{-# DEPRECATED corsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | If the object expiration is configured, the response includes this header.
-corsExpiration :: Lens' CopyObjectResponse (Maybe Text)
-corsExpiration = lens _corsExpiration (\s a -> s {_corsExpiration = a})
+--
+-- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsExpiration :: Lens.Lens' CopyObjectResponse (Lude.Maybe Lude.Text)
+corsExpiration = Lens.lens (expiration :: CopyObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {expiration = a} :: CopyObjectResponse)
+{-# DEPRECATED corsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
-corsSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
-corsSSECustomerAlgorithm = lens _corsSSECustomerAlgorithm (\s a -> s {_corsSSECustomerAlgorithm = a})
+--
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsSSECustomerAlgorithm :: Lens.Lens' CopyObjectResponse (Lude.Maybe Lude.Text)
+corsSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: CopyObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: CopyObjectResponse)
+{-# DEPRECATED corsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | Version of the copied object in the destination bucket.
-corsCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
-corsCopySourceVersionId = lens _corsCopySourceVersionId (\s a -> s {_corsCopySourceVersionId = a})
+--
+-- /Note:/ Consider using 'copySourceVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsCopySourceVersionId :: Lens.Lens' CopyObjectResponse (Lude.Maybe Lude.Text)
+corsCopySourceVersionId = Lens.lens (copySourceVersionId :: CopyObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {copySourceVersionId = a} :: CopyObjectResponse)
+{-# DEPRECATED corsCopySourceVersionId "Use generic-lens or generic-optics with 'copySourceVersionId' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
-corsSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
-corsSSECustomerKeyMD5 = lens _corsSSECustomerKeyMD5 (\s a -> s {_corsSSECustomerKeyMD5 = a})
+--
+-- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsSSECustomerKeyMD5 :: Lens.Lens' CopyObjectResponse (Lude.Maybe Lude.Text)
+corsSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: CopyObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: CopyObjectResponse)
+{-# DEPRECATED corsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
 
 -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
-corsSSEKMSKeyId :: Lens' CopyObjectResponse (Maybe Text)
-corsSSEKMSKeyId = lens _corsSSEKMSKeyId (\s a -> s {_corsSSEKMSKeyId = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsSSEKMSKeyId :: Lens.Lens' CopyObjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+corsSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: CopyObjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: CopyObjectResponse)
+{-# DEPRECATED corsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
 
 -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-corsSSEKMSEncryptionContext :: Lens' CopyObjectResponse (Maybe Text)
-corsSSEKMSEncryptionContext = lens _corsSSEKMSEncryptionContext (\s a -> s {_corsSSEKMSEncryptionContext = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsSSEKMSEncryptionContext :: Lens.Lens' CopyObjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+corsSSEKMSEncryptionContext = Lens.lens (sSEKMSEncryptionContext :: CopyObjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSEncryptionContext = a} :: CopyObjectResponse)
+{-# DEPRECATED corsSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
 
 -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-corsServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
-corsServerSideEncryption = lens _corsServerSideEncryption (\s a -> s {_corsServerSideEncryption = a})
+--
+-- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsServerSideEncryption :: Lens.Lens' CopyObjectResponse (Lude.Maybe ServerSideEncryption)
+corsServerSideEncryption = Lens.lens (serverSideEncryption :: CopyObjectResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: CopyObjectResponse)
+{-# DEPRECATED corsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
 
 -- | Container for all response elements.
-corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
-corsCopyObjectResult = lens _corsCopyObjectResult (\s a -> s {_corsCopyObjectResult = a})
+--
+-- /Note:/ Consider using 'copyObjectResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsCopyObjectResult :: Lens.Lens' CopyObjectResponse (Lude.Maybe CopyObjectResult)
+corsCopyObjectResult = Lens.lens (copyObjectResult :: CopyObjectResponse -> Lude.Maybe CopyObjectResult) (\s a -> s {copyObjectResult = a} :: CopyObjectResponse)
+{-# DEPRECATED corsCopyObjectResult "Use generic-lens or generic-optics with 'copyObjectResult' instead." #-}
 
--- | -- | The response status code.
-corsResponseStatus :: Lens' CopyObjectResponse Int
-corsResponseStatus = lens _corsResponseStatus (\s a -> s {_corsResponseStatus = a})
-
-instance NFData CopyObjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corsResponseStatus :: Lens.Lens' CopyObjectResponse Lude.Int
+corsResponseStatus = Lens.lens (responseStatus :: CopyObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyObjectResponse)
+{-# DEPRECATED corsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

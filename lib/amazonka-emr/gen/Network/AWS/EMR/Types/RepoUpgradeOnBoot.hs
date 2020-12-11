@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.RepoUpgradeOnBoot where
+module Network.AWS.EMR.Types.RepoUpgradeOnBoot
+  ( RepoUpgradeOnBoot
+      ( RepoUpgradeOnBoot',
+        RUOBNone,
+        RUOBSecurity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RepoUpgradeOnBoot
-  = RUOBNone
-  | RUOBSecurity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RepoUpgradeOnBoot = RepoUpgradeOnBoot' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RepoUpgradeOnBoot where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure RUOBNone
-      "security" -> pure RUOBSecurity
-      e ->
-        fromTextError $
-          "Failure parsing RepoUpgradeOnBoot from value: '" <> e
-            <> "'. Accepted values: none, security"
+pattern RUOBNone :: RepoUpgradeOnBoot
+pattern RUOBNone = RepoUpgradeOnBoot' "NONE"
 
-instance ToText RepoUpgradeOnBoot where
-  toText = \case
-    RUOBNone -> "NONE"
-    RUOBSecurity -> "SECURITY"
+pattern RUOBSecurity :: RepoUpgradeOnBoot
+pattern RUOBSecurity = RepoUpgradeOnBoot' "SECURITY"
 
-instance Hashable RepoUpgradeOnBoot
-
-instance NFData RepoUpgradeOnBoot
-
-instance ToByteString RepoUpgradeOnBoot
-
-instance ToQuery RepoUpgradeOnBoot
-
-instance ToHeader RepoUpgradeOnBoot
-
-instance ToJSON RepoUpgradeOnBoot where
-  toJSON = toJSONText
-
-instance FromJSON RepoUpgradeOnBoot where
-  parseJSON = parseJSONText "RepoUpgradeOnBoot"
+{-# COMPLETE
+  RUOBNone,
+  RUOBSecurity,
+  RepoUpgradeOnBoot'
+  #-}

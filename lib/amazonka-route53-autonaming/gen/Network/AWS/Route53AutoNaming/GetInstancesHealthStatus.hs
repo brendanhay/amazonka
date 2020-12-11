@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,173 +14,202 @@
 --
 -- Gets the current health status (@Healthy@ , @Unhealthy@ , or @Unknown@ ) of one or more instances that are associated with a specified service.
 module Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
-  ( -- * Creating a Request
-    getInstancesHealthStatus,
-    GetInstancesHealthStatus,
+  ( -- * Creating a request
+    GetInstancesHealthStatus (..),
+    mkGetInstancesHealthStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gihsNextToken,
     gihsInstances,
     gihsMaxResults,
     gihsServiceId,
 
-    -- * Destructuring the Response
-    getInstancesHealthStatusResponse,
-    GetInstancesHealthStatusResponse,
+    -- * Destructuring the response
+    GetInstancesHealthStatusResponse (..),
+    mkGetInstancesHealthStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gihsrsStatus,
     gihsrsNextToken,
     gihsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'getInstancesHealthStatus' smart constructor.
+-- | /See:/ 'mkGetInstancesHealthStatus' smart constructor.
 data GetInstancesHealthStatus = GetInstancesHealthStatus'
-  { _gihsNextToken ::
-      !(Maybe Text),
-    _gihsInstances :: !(Maybe (List1 Text)),
-    _gihsMaxResults :: !(Maybe Nat),
-    _gihsServiceId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    instances ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    maxResults :: Lude.Maybe Lude.Natural,
+    serviceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancesHealthStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instances' - An array that contains the IDs of all the instances that you want to get the health status for.
 --
--- * 'gihsNextToken' - For the first @GetInstancesHealthStatus@ request, omit this value. If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
+-- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+-- * 'nextToken' - For the first @GetInstancesHealthStatus@ request, omit this value.
 --
--- * 'gihsInstances' - An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
---
--- * 'gihsMaxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
---
--- * 'gihsServiceId' - The ID of the service that the instance is associated with.
-getInstancesHealthStatus ::
-  -- | 'gihsServiceId'
-  Text ->
+-- If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'serviceId' - The ID of the service that the instance is associated with.
+mkGetInstancesHealthStatus ::
+  -- | 'serviceId'
+  Lude.Text ->
   GetInstancesHealthStatus
-getInstancesHealthStatus pServiceId_ =
+mkGetInstancesHealthStatus pServiceId_ =
   GetInstancesHealthStatus'
-    { _gihsNextToken = Nothing,
-      _gihsInstances = Nothing,
-      _gihsMaxResults = Nothing,
-      _gihsServiceId = pServiceId_
+    { nextToken = Lude.Nothing,
+      instances = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      serviceId = pServiceId_
     }
 
--- | For the first @GetInstancesHealthStatus@ request, omit this value. If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-gihsNextToken :: Lens' GetInstancesHealthStatus (Maybe Text)
-gihsNextToken = lens _gihsNextToken (\s a -> s {_gihsNextToken = a})
+-- | For the first @GetInstancesHealthStatus@ request, omit this value.
+--
+-- If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsNextToken :: Lens.Lens' GetInstancesHealthStatus (Lude.Maybe Lude.Text)
+gihsNextToken = Lens.lens (nextToken :: GetInstancesHealthStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInstancesHealthStatus)
+{-# DEPRECATED gihsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
-gihsInstances :: Lens' GetInstancesHealthStatus (Maybe (NonEmpty Text))
-gihsInstances = lens _gihsInstances (\s a -> s {_gihsInstances = a}) . mapping _List1
+-- | An array that contains the IDs of all the instances that you want to get the health status for.
+--
+-- If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsInstances :: Lens.Lens' GetInstancesHealthStatus (Lude.Maybe (Lude.NonEmpty Lude.Text))
+gihsInstances = Lens.lens (instances :: GetInstancesHealthStatus -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {instances = a} :: GetInstancesHealthStatus)
+{-# DEPRECATED gihsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
-gihsMaxResults :: Lens' GetInstancesHealthStatus (Maybe Natural)
-gihsMaxResults = lens _gihsMaxResults (\s a -> s {_gihsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsMaxResults :: Lens.Lens' GetInstancesHealthStatus (Lude.Maybe Lude.Natural)
+gihsMaxResults = Lens.lens (maxResults :: GetInstancesHealthStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInstancesHealthStatus)
+{-# DEPRECATED gihsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the service that the instance is associated with.
-gihsServiceId :: Lens' GetInstancesHealthStatus Text
-gihsServiceId = lens _gihsServiceId (\s a -> s {_gihsServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsServiceId :: Lens.Lens' GetInstancesHealthStatus Lude.Text
+gihsServiceId = Lens.lens (serviceId :: GetInstancesHealthStatus -> Lude.Text) (\s a -> s {serviceId = a} :: GetInstancesHealthStatus)
+{-# DEPRECATED gihsServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance AWSRequest GetInstancesHealthStatus where
+instance Lude.AWSRequest GetInstancesHealthStatus where
   type Rs GetInstancesHealthStatus = GetInstancesHealthStatusResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetInstancesHealthStatusResponse'
-            <$> (x .?> "Status" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInstancesHealthStatus
-
-instance NFData GetInstancesHealthStatus
-
-instance ToHeaders GetInstancesHealthStatus where
+instance Lude.ToHeaders GetInstancesHealthStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53AutoNaming_v20170314.GetInstancesHealthStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53AutoNaming_v20170314.GetInstancesHealthStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetInstancesHealthStatus where
+instance Lude.ToJSON GetInstancesHealthStatus where
   toJSON GetInstancesHealthStatus' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gihsNextToken,
-            ("Instances" .=) <$> _gihsInstances,
-            ("MaxResults" .=) <$> _gihsMaxResults,
-            Just ("ServiceId" .= _gihsServiceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Instances" Lude..=) Lude.<$> instances,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ServiceId" Lude..= serviceId)
           ]
       )
 
-instance ToPath GetInstancesHealthStatus where
-  toPath = const "/"
+instance Lude.ToPath GetInstancesHealthStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetInstancesHealthStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetInstancesHealthStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getInstancesHealthStatusResponse' smart constructor.
+-- | /See:/ 'mkGetInstancesHealthStatusResponse' smart constructor.
 data GetInstancesHealthStatusResponse = GetInstancesHealthStatusResponse'
-  { _gihsrsStatus ::
-      !( Maybe
-           ( Map
-               Text
-               (HealthStatus)
-           )
-       ),
-    _gihsrsNextToken ::
-      !(Maybe Text),
-    _gihsrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (HealthStatus)
+        ),
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancesHealthStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gihsrsStatus' - A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
---
--- * 'gihsrsNextToken' - If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
---
--- * 'gihsrsResponseStatus' - -- | The response status code.
-getInstancesHealthStatusResponse ::
-  -- | 'gihsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
+mkGetInstancesHealthStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInstancesHealthStatusResponse
-getInstancesHealthStatusResponse pResponseStatus_ =
+mkGetInstancesHealthStatusResponse pResponseStatus_ =
   GetInstancesHealthStatusResponse'
-    { _gihsrsStatus = Nothing,
-      _gihsrsNextToken = Nothing,
-      _gihsrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
-gihsrsStatus :: Lens' GetInstancesHealthStatusResponse (HashMap Text (HealthStatus))
-gihsrsStatus = lens _gihsrsStatus (\s a -> s {_gihsrsStatus = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsrsStatus :: Lens.Lens' GetInstancesHealthStatusResponse (Lude.Maybe (Lude.HashMap Lude.Text (HealthStatus)))
+gihsrsStatus = Lens.lens (status :: GetInstancesHealthStatusResponse -> Lude.Maybe (Lude.HashMap Lude.Text (HealthStatus))) (\s a -> s {status = a} :: GetInstancesHealthStatusResponse)
+{-# DEPRECATED gihsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-gihsrsNextToken :: Lens' GetInstancesHealthStatusResponse (Maybe Text)
-gihsrsNextToken = lens _gihsrsNextToken (\s a -> s {_gihsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsrsNextToken :: Lens.Lens' GetInstancesHealthStatusResponse (Lude.Maybe Lude.Text)
+gihsrsNextToken = Lens.lens (nextToken :: GetInstancesHealthStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInstancesHealthStatusResponse)
+{-# DEPRECATED gihsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gihsrsResponseStatus :: Lens' GetInstancesHealthStatusResponse Int
-gihsrsResponseStatus = lens _gihsrsResponseStatus (\s a -> s {_gihsrsResponseStatus = a})
-
-instance NFData GetInstancesHealthStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsrsResponseStatus :: Lens.Lens' GetInstancesHealthStatusResponse Lude.Int
+gihsrsResponseStatus = Lens.lens (responseStatus :: GetInstancesHealthStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstancesHealthStatusResponse)
+{-# DEPRECATED gihsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

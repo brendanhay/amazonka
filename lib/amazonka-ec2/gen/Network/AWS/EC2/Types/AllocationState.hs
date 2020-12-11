@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AllocationState where
+module Network.AWS.EC2.Types.AllocationState
+  ( AllocationState
+      ( AllocationState',
+        ASAvailable,
+        ASPending,
+        ASPermanentFailure,
+        ASReleased,
+        ASReleasedPermanentFailure,
+        ASUnderAssessment
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AllocationState
-  = ASAvailable
-  | ASPending
-  | ASPermanentFailure
-  | ASReleased
-  | ASReleasedPermanentFailure
-  | ASUnderAssessment
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AllocationState = AllocationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AllocationState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure ASAvailable
-      "pending" -> pure ASPending
-      "permanent-failure" -> pure ASPermanentFailure
-      "released" -> pure ASReleased
-      "released-permanent-failure" -> pure ASReleasedPermanentFailure
-      "under-assessment" -> pure ASUnderAssessment
-      e ->
-        fromTextError $
-          "Failure parsing AllocationState from value: '" <> e
-            <> "'. Accepted values: available, pending, permanent-failure, released, released-permanent-failure, under-assessment"
+pattern ASAvailable :: AllocationState
+pattern ASAvailable = AllocationState' "available"
 
-instance ToText AllocationState where
-  toText = \case
-    ASAvailable -> "available"
-    ASPending -> "pending"
-    ASPermanentFailure -> "permanent-failure"
-    ASReleased -> "released"
-    ASReleasedPermanentFailure -> "released-permanent-failure"
-    ASUnderAssessment -> "under-assessment"
+pattern ASPending :: AllocationState
+pattern ASPending = AllocationState' "pending"
 
-instance Hashable AllocationState
+pattern ASPermanentFailure :: AllocationState
+pattern ASPermanentFailure = AllocationState' "permanent-failure"
 
-instance NFData AllocationState
+pattern ASReleased :: AllocationState
+pattern ASReleased = AllocationState' "released"
 
-instance ToByteString AllocationState
+pattern ASReleasedPermanentFailure :: AllocationState
+pattern ASReleasedPermanentFailure = AllocationState' "released-permanent-failure"
 
-instance ToQuery AllocationState
+pattern ASUnderAssessment :: AllocationState
+pattern ASUnderAssessment = AllocationState' "under-assessment"
 
-instance ToHeader AllocationState
-
-instance FromXML AllocationState where
-  parseXML = parseXMLText "AllocationState"
+{-# COMPLETE
+  ASAvailable,
+  ASPending,
+  ASPermanentFailure,
+  ASReleased,
+  ASReleasedPermanentFailure,
+  ASUnderAssessment,
+  AllocationState'
+  #-}

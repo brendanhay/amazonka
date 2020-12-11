@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.EnvironmentResponse where
+module Network.AWS.Lambda.Types.EnvironmentResponse
+  ( EnvironmentResponse (..),
+
+    -- * Smart constructor
+    mkEnvironmentResponse,
+
+    -- * Lenses
+    envVariables,
+    envError,
+  )
+where
 
 import Network.AWS.Lambda.Types.EnvironmentError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The results of an operation to update or read environment variables. If the operation is successful, the response contains the environment variables. If it failed, the response contains details about the error.
 --
---
---
--- /See:/ 'environmentResponse' smart constructor.
+-- /See:/ 'mkEnvironmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-  { _envVariables ::
-      !(Maybe (Sensitive (Map Text (Sensitive Text)))),
-    _envError :: !(Maybe EnvironmentError)
+  { variables ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Sensitive Lude.Text)
+        ),
+    error :: Lude.Maybe EnvironmentError
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'envVariables' - Environment variable key-value pairs.
---
--- * 'envError' - Error messages for environment variables that couldn't be applied.
-environmentResponse ::
+-- * 'error' - Error messages for environment variables that couldn't be applied.
+-- * 'variables' - Environment variable key-value pairs.
+mkEnvironmentResponse ::
   EnvironmentResponse
-environmentResponse =
+mkEnvironmentResponse =
   EnvironmentResponse'
-    { _envVariables = Nothing,
-      _envError = Nothing
+    { variables = Lude.Nothing,
+      error = Lude.Nothing
     }
 
 -- | Environment variable key-value pairs.
-envVariables :: Lens' EnvironmentResponse (Maybe (HashMap Text (Text)))
-envVariables = lens _envVariables (\s a -> s {_envVariables = a}) . mapping (_Sensitive . _Map)
+--
+-- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+envVariables :: Lens.Lens' EnvironmentResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)))
+envVariables = Lens.lens (variables :: EnvironmentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))) (\s a -> s {variables = a} :: EnvironmentResponse)
+{-# DEPRECATED envVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | Error messages for environment variables that couldn't be applied.
-envError :: Lens' EnvironmentResponse (Maybe EnvironmentError)
-envError = lens _envError (\s a -> s {_envError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+envError :: Lens.Lens' EnvironmentResponse (Lude.Maybe EnvironmentError)
+envError = Lens.lens (error :: EnvironmentResponse -> Lude.Maybe EnvironmentError) (\s a -> s {error = a} :: EnvironmentResponse)
+{-# DEPRECATED envError "Use generic-lens or generic-optics with 'error' instead." #-}
 
-instance FromJSON EnvironmentResponse where
+instance Lude.FromJSON EnvironmentResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "EnvironmentResponse"
       ( \x ->
           EnvironmentResponse'
-            <$> (x .:? "Variables" .!= mempty) <*> (x .:? "Error")
+            Lude.<$> (x Lude..:? "Variables" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Error")
       )
-
-instance Hashable EnvironmentResponse
-
-instance NFData EnvironmentResponse

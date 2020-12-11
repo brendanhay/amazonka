@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,125 @@
 --
 -- Deletes a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 module Network.AWS.Lambda.DeleteAlias
-  ( -- * Creating a Request
-    deleteAlias,
-    DeleteAlias,
+  ( -- * Creating a request
+    DeleteAlias (..),
+    mkDeleteAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daFunctionName,
     daName,
 
-    -- * Destructuring the Response
-    deleteAliasResponse,
-    DeleteAliasResponse,
+    -- * Destructuring the response
+    DeleteAliasResponse (..),
+    mkDeleteAliasResponse,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAlias' smart constructor.
+-- | /See:/ 'mkDeleteAlias' smart constructor.
 data DeleteAlias = DeleteAlias'
-  { _daFunctionName :: !Text,
-    _daName :: !Text
+  { functionName :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'daFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- __Name formats__
 --
--- * 'daName' - The name of the alias.
-deleteAlias ::
-  -- | 'daFunctionName'
-  Text ->
-  -- | 'daName'
-  Text ->
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'name' - The name of the alias.
+mkDeleteAlias ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeleteAlias
-deleteAlias pFunctionName_ pName_ =
-  DeleteAlias' {_daFunctionName = pFunctionName_, _daName = pName_}
+mkDeleteAlias pFunctionName_ pName_ =
+  DeleteAlias' {functionName = pFunctionName_, name = pName_}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-daFunctionName :: Lens' DeleteAlias Text
-daFunctionName = lens _daFunctionName (\s a -> s {_daFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daFunctionName :: Lens.Lens' DeleteAlias Lude.Text
+daFunctionName = Lens.lens (functionName :: DeleteAlias -> Lude.Text) (\s a -> s {functionName = a} :: DeleteAlias)
+{-# DEPRECATED daFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The name of the alias.
-daName :: Lens' DeleteAlias Text
-daName = lens _daName (\s a -> s {_daName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daName :: Lens.Lens' DeleteAlias Lude.Text
+daName = Lens.lens (name :: DeleteAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteAlias)
+{-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteAlias where
+instance Lude.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
-  request = delete lambda
-  response = receiveNull DeleteAliasResponse'
+  request = Req.delete lambdaService
+  response = Res.receiveNull DeleteAliasResponse'
 
-instance Hashable DeleteAlias
+instance Lude.ToHeaders DeleteAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAlias
-
-instance ToHeaders DeleteAlias where
-  toHeaders = const mempty
-
-instance ToPath DeleteAlias where
+instance Lude.ToPath DeleteAlias where
   toPath DeleteAlias' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-03-31/functions/",
-        toBS _daFunctionName,
+        Lude.toBS functionName,
         "/aliases/",
-        toBS _daName
+        Lude.toBS name
       ]
 
-instance ToQuery DeleteAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
-deleteAliasResponse ::
+mkDeleteAliasResponse ::
   DeleteAliasResponse
-deleteAliasResponse = DeleteAliasResponse'
-
-instance NFData DeleteAliasResponse
+mkDeleteAliasResponse = DeleteAliasResponse'

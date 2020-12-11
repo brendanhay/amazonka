@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure where
+module Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
+  ( ReturnValuesOnConditionCheckFailure
+      ( ReturnValuesOnConditionCheckFailure',
+        AllOld,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReturnValuesOnConditionCheckFailure
-  = AllOld
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReturnValuesOnConditionCheckFailure = ReturnValuesOnConditionCheckFailure' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReturnValuesOnConditionCheckFailure where
-  parser =
-    takeLowerText >>= \case
-      "all_old" -> pure AllOld
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing ReturnValuesOnConditionCheckFailure from value: '" <> e
-            <> "'. Accepted values: all_old, none"
+pattern AllOld :: ReturnValuesOnConditionCheckFailure
+pattern AllOld = ReturnValuesOnConditionCheckFailure' "ALL_OLD"
 
-instance ToText ReturnValuesOnConditionCheckFailure where
-  toText = \case
-    AllOld -> "ALL_OLD"
-    None -> "NONE"
+pattern None :: ReturnValuesOnConditionCheckFailure
+pattern None = ReturnValuesOnConditionCheckFailure' "NONE"
 
-instance Hashable ReturnValuesOnConditionCheckFailure
-
-instance NFData ReturnValuesOnConditionCheckFailure
-
-instance ToByteString ReturnValuesOnConditionCheckFailure
-
-instance ToQuery ReturnValuesOnConditionCheckFailure
-
-instance ToHeader ReturnValuesOnConditionCheckFailure
-
-instance ToJSON ReturnValuesOnConditionCheckFailure where
-  toJSON = toJSONText
+{-# COMPLETE
+  AllOld,
+  None,
+  ReturnValuesOnConditionCheckFailure'
+  #-}

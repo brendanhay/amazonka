@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,34 +14,32 @@
 --
 -- Updates the bandwidth rate limits of a gateway. You can update both the upload and download bandwidth rate limit or specify only one of the two. If you don't set a bandwidth rate limit, the existing rate limit remains. This operation is supported for the stored volume, cached volume, and tape gateway types.
 --
---
 -- By default, a gateway's bandwidth rate limits are not set. If you don't set any limit, the gateway does not have any limitations on its bandwidth usage and could potentially use the maximum available bandwidth.
---
 -- To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
-  ( -- * Creating a Request
-    updateBandwidthRateLimit,
-    UpdateBandwidthRateLimit,
+  ( -- * Creating a request
+    UpdateBandwidthRateLimit (..),
+    mkUpdateBandwidthRateLimit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ubrlAverageUploadRateLimitInBitsPerSec,
     ubrlAverageDownloadRateLimitInBitsPerSec,
     ubrlGatewayARN,
 
-    -- * Destructuring the Response
-    updateBandwidthRateLimitResponse,
-    UpdateBandwidthRateLimitResponse,
+    -- * Destructuring the response
+    UpdateBandwidthRateLimitResponse (..),
+    mkUpdateBandwidthRateLimitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ubrlrsGatewayARN,
     ubrlrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
@@ -54,132 +47,149 @@ import Network.AWS.StorageGateway.Types
 --
 --     * 'UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec'
 --
+--
 --     * 'UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec'
 --
 --
 --
---
--- /See:/ 'updateBandwidthRateLimit' smart constructor.
+-- /See:/ 'mkUpdateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-  { _ubrlAverageUploadRateLimitInBitsPerSec ::
-      !(Maybe Nat),
-    _ubrlAverageDownloadRateLimitInBitsPerSec ::
-      !(Maybe Nat),
-    _ubrlGatewayARN :: !Text
+  { averageUploadRateLimitInBitsPerSec ::
+      Lude.Maybe Lude.Natural,
+    averageDownloadRateLimitInBitsPerSec ::
+      Lude.Maybe Lude.Natural,
+    gatewayARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBandwidthRateLimit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubrlAverageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second.
---
--- * 'ubrlAverageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second.
---
--- * 'ubrlGatewayARN' - Undocumented member.
-updateBandwidthRateLimit ::
-  -- | 'ubrlGatewayARN'
-  Text ->
+-- * 'averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second.
+-- * 'averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second.
+-- * 'gatewayARN' - Undocumented field.
+mkUpdateBandwidthRateLimit ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   UpdateBandwidthRateLimit
-updateBandwidthRateLimit pGatewayARN_ =
+mkUpdateBandwidthRateLimit pGatewayARN_ =
   UpdateBandwidthRateLimit'
-    { _ubrlAverageUploadRateLimitInBitsPerSec =
-        Nothing,
-      _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing,
-      _ubrlGatewayARN = pGatewayARN_
+    { averageUploadRateLimitInBitsPerSec =
+        Lude.Nothing,
+      averageDownloadRateLimitInBitsPerSec = Lude.Nothing,
+      gatewayARN = pGatewayARN_
     }
 
 -- | The average upload bandwidth rate limit in bits per second.
-ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlAverageUploadRateLimitInBitsPerSec = lens _ubrlAverageUploadRateLimitInBitsPerSec (\s a -> s {_ubrlAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'averageUploadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrlAverageUploadRateLimitInBitsPerSec :: Lens.Lens' UpdateBandwidthRateLimit (Lude.Maybe Lude.Natural)
+ubrlAverageUploadRateLimitInBitsPerSec = Lens.lens (averageUploadRateLimitInBitsPerSec :: UpdateBandwidthRateLimit -> Lude.Maybe Lude.Natural) (\s a -> s {averageUploadRateLimitInBitsPerSec = a} :: UpdateBandwidthRateLimit)
+{-# DEPRECATED ubrlAverageUploadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageUploadRateLimitInBitsPerSec' instead." #-}
 
 -- | The average download bandwidth rate limit in bits per second.
-ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInBitsPerSec (\s a -> s {_ubrlAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'averageDownloadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrlAverageDownloadRateLimitInBitsPerSec :: Lens.Lens' UpdateBandwidthRateLimit (Lude.Maybe Lude.Natural)
+ubrlAverageDownloadRateLimitInBitsPerSec = Lens.lens (averageDownloadRateLimitInBitsPerSec :: UpdateBandwidthRateLimit -> Lude.Maybe Lude.Natural) (\s a -> s {averageDownloadRateLimitInBitsPerSec = a} :: UpdateBandwidthRateLimit)
+{-# DEPRECATED ubrlAverageDownloadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageDownloadRateLimitInBitsPerSec' instead." #-}
 
--- | Undocumented member.
-ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
-ubrlGatewayARN = lens _ubrlGatewayARN (\s a -> s {_ubrlGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrlGatewayARN :: Lens.Lens' UpdateBandwidthRateLimit Lude.Text
+ubrlGatewayARN = Lens.lens (gatewayARN :: UpdateBandwidthRateLimit -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateBandwidthRateLimit)
+{-# DEPRECATED ubrlGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest UpdateBandwidthRateLimit where
+instance Lude.AWSRequest UpdateBandwidthRateLimit where
   type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateBandwidthRateLimitResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateBandwidthRateLimit
-
-instance NFData UpdateBandwidthRateLimit
-
-instance ToHeaders UpdateBandwidthRateLimit where
+instance Lude.ToHeaders UpdateBandwidthRateLimit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.UpdateBandwidthRateLimit" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimit" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateBandwidthRateLimit where
+instance Lude.ToJSON UpdateBandwidthRateLimit where
   toJSON UpdateBandwidthRateLimit' {..} =
-    object
-      ( catMaybes
-          [ ("AverageUploadRateLimitInBitsPerSec" .=)
-              <$> _ubrlAverageUploadRateLimitInBitsPerSec,
-            ("AverageDownloadRateLimitInBitsPerSec" .=)
-              <$> _ubrlAverageDownloadRateLimitInBitsPerSec,
-            Just ("GatewayARN" .= _ubrlGatewayARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AverageUploadRateLimitInBitsPerSec" Lude..=)
+              Lude.<$> averageUploadRateLimitInBitsPerSec,
+            ("AverageDownloadRateLimitInBitsPerSec" Lude..=)
+              Lude.<$> averageDownloadRateLimitInBitsPerSec,
+            Lude.Just ("GatewayARN" Lude..= gatewayARN)
           ]
       )
 
-instance ToPath UpdateBandwidthRateLimit where
-  toPath = const "/"
+instance Lude.ToPath UpdateBandwidthRateLimit where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateBandwidthRateLimit where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateBandwidthRateLimit where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway whose throttle information was updated.
 --
---
---
--- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
+-- /See:/ 'mkUpdateBandwidthRateLimitResponse' smart constructor.
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
-  { _ubrlrsGatewayARN ::
-      !(Maybe Text),
-    _ubrlrsResponseStatus ::
-      !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBandwidthRateLimitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubrlrsGatewayARN' - Undocumented member.
---
--- * 'ubrlrsResponseStatus' - -- | The response status code.
-updateBandwidthRateLimitResponse ::
-  -- | 'ubrlrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateBandwidthRateLimitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateBandwidthRateLimitResponse
-updateBandwidthRateLimitResponse pResponseStatus_ =
+mkUpdateBandwidthRateLimitResponse pResponseStatus_ =
   UpdateBandwidthRateLimitResponse'
-    { _ubrlrsGatewayARN = Nothing,
-      _ubrlrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
-ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\s a -> s {_ubrlrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrlrsGatewayARN :: Lens.Lens' UpdateBandwidthRateLimitResponse (Lude.Maybe Lude.Text)
+ubrlrsGatewayARN = Lens.lens (gatewayARN :: UpdateBandwidthRateLimitResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateBandwidthRateLimitResponse)
+{-# DEPRECATED ubrlrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-ubrlrsResponseStatus :: Lens' UpdateBandwidthRateLimitResponse Int
-ubrlrsResponseStatus = lens _ubrlrsResponseStatus (\s a -> s {_ubrlrsResponseStatus = a})
-
-instance NFData UpdateBandwidthRateLimitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrlrsResponseStatus :: Lens.Lens' UpdateBandwidthRateLimitResponse Lude.Int
+ubrlrsResponseStatus = Lens.lens (responseStatus :: UpdateBandwidthRateLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBandwidthRateLimitResponse)
+{-# DEPRECATED ubrlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

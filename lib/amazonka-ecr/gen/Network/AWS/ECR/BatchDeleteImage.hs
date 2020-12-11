@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Deletes a list of specified images within a repository. Images are specified with either an @imageTag@ or @imageDigest@ .
 --
---
 -- You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.
---
 -- You can completely delete an image (and all of its tags) by specifying the image's digest in your request.
 module Network.AWS.ECR.BatchDeleteImage
-  ( -- * Creating a Request
-    batchDeleteImage,
-    BatchDeleteImage,
+  ( -- * Creating a request
+    BatchDeleteImage (..),
+    mkBatchDeleteImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdiRegistryId,
     bdiRepositoryName,
     bdiImageIds,
 
-    -- * Destructuring the Response
-    batchDeleteImageResponse,
-    BatchDeleteImageResponse,
+    -- * Destructuring the response
+    BatchDeleteImageResponse (..),
+    mkBatchDeleteImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bdirsFailures,
     bdirsImageIds,
     bdirsResponseStatus,
@@ -45,140 +38,156 @@ module Network.AWS.ECR.BatchDeleteImage
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Deletes specified images within a specified repository. Images are specified with either the @imageTag@ or @imageDigest@ .
 --
---
---
--- /See:/ 'batchDeleteImage' smart constructor.
+-- /See:/ 'mkBatchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
-  { _bdiRegistryId ::
-      !(Maybe Text),
-    _bdiRepositoryName :: !Text,
-    _bdiImageIds :: ![ImageIdentifier]
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text,
+    imageIds :: [ImageIdentifier]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdiRegistryId' - The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
---
--- * 'bdiRepositoryName' - The repository that contains the image to delete.
---
--- * 'bdiImageIds' - A list of image ID references that correspond to images to delete. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
-batchDeleteImage ::
-  -- | 'bdiRepositoryName'
-  Text ->
+-- * 'imageIds' - A list of image ID references that correspond to images to delete. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
+-- * 'registryId' - The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The repository that contains the image to delete.
+mkBatchDeleteImage ::
+  -- | 'repositoryName'
+  Lude.Text ->
   BatchDeleteImage
-batchDeleteImage pRepositoryName_ =
+mkBatchDeleteImage pRepositoryName_ =
   BatchDeleteImage'
-    { _bdiRegistryId = Nothing,
-      _bdiRepositoryName = pRepositoryName_,
-      _bdiImageIds = mempty
+    { registryId = Lude.Nothing,
+      repositoryName = pRepositoryName_,
+      imageIds = Lude.mempty
     }
 
 -- | The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
-bdiRegistryId :: Lens' BatchDeleteImage (Maybe Text)
-bdiRegistryId = lens _bdiRegistryId (\s a -> s {_bdiRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdiRegistryId :: Lens.Lens' BatchDeleteImage (Lude.Maybe Lude.Text)
+bdiRegistryId = Lens.lens (registryId :: BatchDeleteImage -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: BatchDeleteImage)
+{-# DEPRECATED bdiRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The repository that contains the image to delete.
-bdiRepositoryName :: Lens' BatchDeleteImage Text
-bdiRepositoryName = lens _bdiRepositoryName (\s a -> s {_bdiRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdiRepositoryName :: Lens.Lens' BatchDeleteImage Lude.Text
+bdiRepositoryName = Lens.lens (repositoryName :: BatchDeleteImage -> Lude.Text) (\s a -> s {repositoryName = a} :: BatchDeleteImage)
+{-# DEPRECATED bdiRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | A list of image ID references that correspond to images to delete. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
-bdiImageIds :: Lens' BatchDeleteImage [ImageIdentifier]
-bdiImageIds = lens _bdiImageIds (\s a -> s {_bdiImageIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdiImageIds :: Lens.Lens' BatchDeleteImage [ImageIdentifier]
+bdiImageIds = Lens.lens (imageIds :: BatchDeleteImage -> [ImageIdentifier]) (\s a -> s {imageIds = a} :: BatchDeleteImage)
+{-# DEPRECATED bdiImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
 
-instance AWSRequest BatchDeleteImage where
+instance Lude.AWSRequest BatchDeleteImage where
   type Rs BatchDeleteImage = BatchDeleteImageResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDeleteImageResponse'
-            <$> (x .?> "failures" .!@ mempty)
-            <*> (x .?> "imageIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "imageIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchDeleteImage
-
-instance NFData BatchDeleteImage
-
-instance ToHeaders BatchDeleteImage where
+instance Lude.ToHeaders BatchDeleteImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchDeleteImage where
+instance Lude.ToJSON BatchDeleteImage where
   toJSON BatchDeleteImage' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _bdiRegistryId,
-            Just ("repositoryName" .= _bdiRepositoryName),
-            Just ("imageIds" .= _bdiImageIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("imageIds" Lude..= imageIds)
           ]
       )
 
-instance ToPath BatchDeleteImage where
-  toPath = const "/"
+instance Lude.ToPath BatchDeleteImage where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchDeleteImage where
-  toQuery = const mempty
+instance Lude.ToQuery BatchDeleteImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchDeleteImageResponse' smart constructor.
+-- | /See:/ 'mkBatchDeleteImageResponse' smart constructor.
 data BatchDeleteImageResponse = BatchDeleteImageResponse'
-  { _bdirsFailures ::
-      !(Maybe [ImageFailure]),
-    _bdirsImageIds ::
-      !(Maybe [ImageIdentifier]),
-    _bdirsResponseStatus :: !Int
+  { failures ::
+      Lude.Maybe [ImageFailure],
+    imageIds :: Lude.Maybe [ImageIdentifier],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdirsFailures' - Any failures associated with the call.
---
--- * 'bdirsImageIds' - The image IDs of the deleted images.
---
--- * 'bdirsResponseStatus' - -- | The response status code.
-batchDeleteImageResponse ::
-  -- | 'bdirsResponseStatus'
-  Int ->
+-- * 'failures' - Any failures associated with the call.
+-- * 'imageIds' - The image IDs of the deleted images.
+-- * 'responseStatus' - The response status code.
+mkBatchDeleteImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDeleteImageResponse
-batchDeleteImageResponse pResponseStatus_ =
+mkBatchDeleteImageResponse pResponseStatus_ =
   BatchDeleteImageResponse'
-    { _bdirsFailures = Nothing,
-      _bdirsImageIds = Nothing,
-      _bdirsResponseStatus = pResponseStatus_
+    { failures = Lude.Nothing,
+      imageIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Any failures associated with the call.
-bdirsFailures :: Lens' BatchDeleteImageResponse [ImageFailure]
-bdirsFailures = lens _bdirsFailures (\s a -> s {_bdirsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdirsFailures :: Lens.Lens' BatchDeleteImageResponse (Lude.Maybe [ImageFailure])
+bdirsFailures = Lens.lens (failures :: BatchDeleteImageResponse -> Lude.Maybe [ImageFailure]) (\s a -> s {failures = a} :: BatchDeleteImageResponse)
+{-# DEPRECATED bdirsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The image IDs of the deleted images.
-bdirsImageIds :: Lens' BatchDeleteImageResponse [ImageIdentifier]
-bdirsImageIds = lens _bdirsImageIds (\s a -> s {_bdirsImageIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdirsImageIds :: Lens.Lens' BatchDeleteImageResponse (Lude.Maybe [ImageIdentifier])
+bdirsImageIds = Lens.lens (imageIds :: BatchDeleteImageResponse -> Lude.Maybe [ImageIdentifier]) (\s a -> s {imageIds = a} :: BatchDeleteImageResponse)
+{-# DEPRECATED bdirsImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
 
--- | -- | The response status code.
-bdirsResponseStatus :: Lens' BatchDeleteImageResponse Int
-bdirsResponseStatus = lens _bdirsResponseStatus (\s a -> s {_bdirsResponseStatus = a})
-
-instance NFData BatchDeleteImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdirsResponseStatus :: Lens.Lens' BatchDeleteImageResponse Lude.Int
+bdirsResponseStatus = Lens.lens (responseStatus :: BatchDeleteImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteImageResponse)
+{-# DEPRECATED bdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

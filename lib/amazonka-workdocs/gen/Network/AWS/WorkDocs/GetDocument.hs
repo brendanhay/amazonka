@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,151 @@
 --
 -- Retrieves details of a document.
 module Network.AWS.WorkDocs.GetDocument
-  ( -- * Creating a Request
-    getDocument,
-    GetDocument,
+  ( -- * Creating a request
+    GetDocument (..),
+    mkGetDocument,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdAuthenticationToken,
     gdIncludeCustomMetadata,
     gdDocumentId,
 
-    -- * Destructuring the Response
-    getDocumentResponse,
-    GetDocumentResponse,
+    -- * Destructuring the response
+    GetDocumentResponse (..),
+    mkGetDocumentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdrsCustomMetadata,
     gdrsMetadata,
     gdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'getDocument' smart constructor.
+-- | /See:/ 'mkGetDocument' smart constructor.
 data GetDocument = GetDocument'
-  { _gdAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _gdIncludeCustomMetadata :: !(Maybe Bool),
-    _gdDocumentId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    includeCustomMetadata :: Lude.Maybe Lude.Bool,
+    documentId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'gdIncludeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
---
--- * 'gdDocumentId' - The ID of the document.
-getDocument ::
-  -- | 'gdDocumentId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'documentId' - The ID of the document.
+-- * 'includeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
+mkGetDocument ::
+  -- | 'documentId'
+  Lude.Text ->
   GetDocument
-getDocument pDocumentId_ =
+mkGetDocument pDocumentId_ =
   GetDocument'
-    { _gdAuthenticationToken = Nothing,
-      _gdIncludeCustomMetadata = Nothing,
-      _gdDocumentId = pDocumentId_
+    { authenticationToken = Lude.Nothing,
+      includeCustomMetadata = Lude.Nothing,
+      documentId = pDocumentId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-gdAuthenticationToken :: Lens' GetDocument (Maybe Text)
-gdAuthenticationToken = lens _gdAuthenticationToken (\s a -> s {_gdAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdAuthenticationToken :: Lens.Lens' GetDocument (Lude.Maybe (Lude.Sensitive Lude.Text))
+gdAuthenticationToken = Lens.lens (authenticationToken :: GetDocument -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: GetDocument)
+{-# DEPRECATED gdAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | Set this to @TRUE@ to include custom metadata in the response.
-gdIncludeCustomMetadata :: Lens' GetDocument (Maybe Bool)
-gdIncludeCustomMetadata = lens _gdIncludeCustomMetadata (\s a -> s {_gdIncludeCustomMetadata = a})
+--
+-- /Note:/ Consider using 'includeCustomMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdIncludeCustomMetadata :: Lens.Lens' GetDocument (Lude.Maybe Lude.Bool)
+gdIncludeCustomMetadata = Lens.lens (includeCustomMetadata :: GetDocument -> Lude.Maybe Lude.Bool) (\s a -> s {includeCustomMetadata = a} :: GetDocument)
+{-# DEPRECATED gdIncludeCustomMetadata "Use generic-lens or generic-optics with 'includeCustomMetadata' instead." #-}
 
 -- | The ID of the document.
-gdDocumentId :: Lens' GetDocument Text
-gdDocumentId = lens _gdDocumentId (\s a -> s {_gdDocumentId = a})
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDocumentId :: Lens.Lens' GetDocument Lude.Text
+gdDocumentId = Lens.lens (documentId :: GetDocument -> Lude.Text) (\s a -> s {documentId = a} :: GetDocument)
+{-# DEPRECATED gdDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
-instance AWSRequest GetDocument where
+instance Lude.AWSRequest GetDocument where
   type Rs GetDocument = GetDocumentResponse
-  request = get workDocs
+  request = Req.get workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDocumentResponse'
-            <$> (x .?> "CustomMetadata" .!@ mempty)
-            <*> (x .?> "Metadata")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CustomMetadata" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Metadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDocument
-
-instance NFData GetDocument
-
-instance ToHeaders GetDocument where
+instance Lude.ToHeaders GetDocument where
   toHeaders GetDocument' {..} =
-    mconcat
-      [ "Authentication" =# _gdAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath GetDocument where
+instance Lude.ToPath GetDocument where
   toPath GetDocument' {..} =
-    mconcat ["/api/v1/documents/", toBS _gdDocumentId]
+    Lude.mconcat ["/api/v1/documents/", Lude.toBS documentId]
 
-instance ToQuery GetDocument where
+instance Lude.ToQuery GetDocument where
   toQuery GetDocument' {..} =
-    mconcat ["includeCustomMetadata" =: _gdIncludeCustomMetadata]
+    Lude.mconcat
+      ["includeCustomMetadata" Lude.=: includeCustomMetadata]
 
--- | /See:/ 'getDocumentResponse' smart constructor.
+-- | /See:/ 'mkGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { _gdrsCustomMetadata ::
-      !(Maybe (Map Text (Text))),
-    _gdrsMetadata :: !(Maybe DocumentMetadata),
-    _gdrsResponseStatus :: !Int
+  { customMetadata ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    metadata :: Lude.Maybe DocumentMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdrsCustomMetadata' - The custom metadata on the document.
---
--- * 'gdrsMetadata' - The metadata details of the document.
---
--- * 'gdrsResponseStatus' - -- | The response status code.
-getDocumentResponse ::
-  -- | 'gdrsResponseStatus'
-  Int ->
+-- * 'customMetadata' - The custom metadata on the document.
+-- * 'metadata' - The metadata details of the document.
+-- * 'responseStatus' - The response status code.
+mkGetDocumentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDocumentResponse
-getDocumentResponse pResponseStatus_ =
+mkGetDocumentResponse pResponseStatus_ =
   GetDocumentResponse'
-    { _gdrsCustomMetadata = Nothing,
-      _gdrsMetadata = Nothing,
-      _gdrsResponseStatus = pResponseStatus_
+    { customMetadata = Lude.Nothing,
+      metadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The custom metadata on the document.
-gdrsCustomMetadata :: Lens' GetDocumentResponse (HashMap Text (Text))
-gdrsCustomMetadata = lens _gdrsCustomMetadata (\s a -> s {_gdrsCustomMetadata = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'customMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsCustomMetadata :: Lens.Lens' GetDocumentResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gdrsCustomMetadata = Lens.lens (customMetadata :: GetDocumentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {customMetadata = a} :: GetDocumentResponse)
+{-# DEPRECATED gdrsCustomMetadata "Use generic-lens or generic-optics with 'customMetadata' instead." #-}
 
 -- | The metadata details of the document.
-gdrsMetadata :: Lens' GetDocumentResponse (Maybe DocumentMetadata)
-gdrsMetadata = lens _gdrsMetadata (\s a -> s {_gdrsMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsMetadata :: Lens.Lens' GetDocumentResponse (Lude.Maybe DocumentMetadata)
+gdrsMetadata = Lens.lens (metadata :: GetDocumentResponse -> Lude.Maybe DocumentMetadata) (\s a -> s {metadata = a} :: GetDocumentResponse)
+{-# DEPRECATED gdrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDocumentResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\s a -> s {_gdrsResponseStatus = a})
-
-instance NFData GetDocumentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDocumentResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDocumentResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

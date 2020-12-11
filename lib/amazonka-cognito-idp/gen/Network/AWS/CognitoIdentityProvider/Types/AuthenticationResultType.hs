@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AuthenticationResultType where
+module Network.AWS.CognitoIdentityProvider.Types.AuthenticationResultType
+  ( AuthenticationResultType (..),
+
+    -- * Smart constructor
+    mkAuthenticationResultType,
+
+    -- * Lenses
+    artAccessToken,
+    artRefreshToken,
+    artNewDeviceMetadata,
+    artExpiresIn,
+    artTokenType,
+    artIdToken,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.NewDeviceMetadataType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authentication result.
 --
---
---
--- /See:/ 'authenticationResultType' smart constructor.
+-- /See:/ 'mkAuthenticationResultType' smart constructor.
 data AuthenticationResultType = AuthenticationResultType'
-  { _artAccessToken ::
-      !(Maybe (Sensitive Text)),
-    _artRefreshToken ::
-      !(Maybe (Sensitive Text)),
-    _artNewDeviceMetadata ::
-      !(Maybe NewDeviceMetadataType),
-    _artExpiresIn :: !(Maybe Int),
-    _artTokenType :: !(Maybe Text),
-    _artIdToken :: !(Maybe (Sensitive Text))
+  { accessToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    refreshToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    newDeviceMetadata ::
+      Lude.Maybe NewDeviceMetadataType,
+    expiresIn :: Lude.Maybe Lude.Int,
+    tokenType :: Lude.Maybe Lude.Text,
+    idToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text)
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthenticationResultType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'artAccessToken' - The access token.
---
--- * 'artRefreshToken' - The refresh token.
---
--- * 'artNewDeviceMetadata' - The new device metadata from an authentication result.
---
--- * 'artExpiresIn' - The expiration period of the authentication result in seconds.
---
--- * 'artTokenType' - The token type.
---
--- * 'artIdToken' - The ID token.
-authenticationResultType ::
+-- * 'accessToken' - The access token.
+-- * 'expiresIn' - The expiration period of the authentication result in seconds.
+-- * 'idToken' - The ID token.
+-- * 'newDeviceMetadata' - The new device metadata from an authentication result.
+-- * 'refreshToken' - The refresh token.
+-- * 'tokenType' - The token type.
+mkAuthenticationResultType ::
   AuthenticationResultType
-authenticationResultType =
+mkAuthenticationResultType =
   AuthenticationResultType'
-    { _artAccessToken = Nothing,
-      _artRefreshToken = Nothing,
-      _artNewDeviceMetadata = Nothing,
-      _artExpiresIn = Nothing,
-      _artTokenType = Nothing,
-      _artIdToken = Nothing
+    { accessToken = Lude.Nothing,
+      refreshToken = Lude.Nothing,
+      newDeviceMetadata = Lude.Nothing,
+      expiresIn = Lude.Nothing,
+      tokenType = Lude.Nothing,
+      idToken = Lude.Nothing
     }
 
 -- | The access token.
-artAccessToken :: Lens' AuthenticationResultType (Maybe Text)
-artAccessToken = lens _artAccessToken (\s a -> s {_artAccessToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artAccessToken :: Lens.Lens' AuthenticationResultType (Lude.Maybe (Lude.Sensitive Lude.Text))
+artAccessToken = Lens.lens (accessToken :: AuthenticationResultType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessToken = a} :: AuthenticationResultType)
+{-# DEPRECATED artAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The refresh token.
-artRefreshToken :: Lens' AuthenticationResultType (Maybe Text)
-artRefreshToken = lens _artRefreshToken (\s a -> s {_artRefreshToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'refreshToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artRefreshToken :: Lens.Lens' AuthenticationResultType (Lude.Maybe (Lude.Sensitive Lude.Text))
+artRefreshToken = Lens.lens (refreshToken :: AuthenticationResultType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {refreshToken = a} :: AuthenticationResultType)
+{-# DEPRECATED artRefreshToken "Use generic-lens or generic-optics with 'refreshToken' instead." #-}
 
 -- | The new device metadata from an authentication result.
-artNewDeviceMetadata :: Lens' AuthenticationResultType (Maybe NewDeviceMetadataType)
-artNewDeviceMetadata = lens _artNewDeviceMetadata (\s a -> s {_artNewDeviceMetadata = a})
+--
+-- /Note:/ Consider using 'newDeviceMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artNewDeviceMetadata :: Lens.Lens' AuthenticationResultType (Lude.Maybe NewDeviceMetadataType)
+artNewDeviceMetadata = Lens.lens (newDeviceMetadata :: AuthenticationResultType -> Lude.Maybe NewDeviceMetadataType) (\s a -> s {newDeviceMetadata = a} :: AuthenticationResultType)
+{-# DEPRECATED artNewDeviceMetadata "Use generic-lens or generic-optics with 'newDeviceMetadata' instead." #-}
 
 -- | The expiration period of the authentication result in seconds.
-artExpiresIn :: Lens' AuthenticationResultType (Maybe Int)
-artExpiresIn = lens _artExpiresIn (\s a -> s {_artExpiresIn = a})
+--
+-- /Note:/ Consider using 'expiresIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artExpiresIn :: Lens.Lens' AuthenticationResultType (Lude.Maybe Lude.Int)
+artExpiresIn = Lens.lens (expiresIn :: AuthenticationResultType -> Lude.Maybe Lude.Int) (\s a -> s {expiresIn = a} :: AuthenticationResultType)
+{-# DEPRECATED artExpiresIn "Use generic-lens or generic-optics with 'expiresIn' instead." #-}
 
 -- | The token type.
-artTokenType :: Lens' AuthenticationResultType (Maybe Text)
-artTokenType = lens _artTokenType (\s a -> s {_artTokenType = a})
+--
+-- /Note:/ Consider using 'tokenType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artTokenType :: Lens.Lens' AuthenticationResultType (Lude.Maybe Lude.Text)
+artTokenType = Lens.lens (tokenType :: AuthenticationResultType -> Lude.Maybe Lude.Text) (\s a -> s {tokenType = a} :: AuthenticationResultType)
+{-# DEPRECATED artTokenType "Use generic-lens or generic-optics with 'tokenType' instead." #-}
 
 -- | The ID token.
-artIdToken :: Lens' AuthenticationResultType (Maybe Text)
-artIdToken = lens _artIdToken (\s a -> s {_artIdToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'idToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artIdToken :: Lens.Lens' AuthenticationResultType (Lude.Maybe (Lude.Sensitive Lude.Text))
+artIdToken = Lens.lens (idToken :: AuthenticationResultType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {idToken = a} :: AuthenticationResultType)
+{-# DEPRECATED artIdToken "Use generic-lens or generic-optics with 'idToken' instead." #-}
 
-instance FromJSON AuthenticationResultType where
+instance Lude.FromJSON AuthenticationResultType where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthenticationResultType"
       ( \x ->
           AuthenticationResultType'
-            <$> (x .:? "AccessToken")
-            <*> (x .:? "RefreshToken")
-            <*> (x .:? "NewDeviceMetadata")
-            <*> (x .:? "ExpiresIn")
-            <*> (x .:? "TokenType")
-            <*> (x .:? "IdToken")
+            Lude.<$> (x Lude..:? "AccessToken")
+            Lude.<*> (x Lude..:? "RefreshToken")
+            Lude.<*> (x Lude..:? "NewDeviceMetadata")
+            Lude.<*> (x Lude..:? "ExpiresIn")
+            Lude.<*> (x Lude..:? "TokenType")
+            Lude.<*> (x Lude..:? "IdToken")
       )
-
-instance Hashable AuthenticationResultType
-
-instance NFData AuthenticationResultType

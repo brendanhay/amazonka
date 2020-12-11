@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,166 @@
 --
 -- __This operation is used with the Amazon GameLift FleetIQ solution and game server groups.__
 --
---
 -- Retrieves information on a game server group. This operation returns only properties related to GameLift FleetIQ. To view or update properties for the corresponding Auto Scaling group, such as launch template, auto scaling policies, and maximum/minimum group size, access the Auto Scaling group directly.
---
 -- To get attributes for a game server group, provide a group name or ARN value. If successful, a 'GameServerGroup' object is returned.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
 -- __Related operations__
 --
 --     * 'CreateGameServerGroup'
 --
+--
 --     * 'ListGameServerGroups'
+--
 --
 --     * 'DescribeGameServerGroup'
 --
+--
 --     * 'UpdateGameServerGroup'
+--
 --
 --     * 'DeleteGameServerGroup'
 --
+--
 --     * 'ResumeGameServerGroup'
+--
 --
 --     * 'SuspendGameServerGroup'
 --
+--
 --     * 'DescribeGameServerInstances'
 module Network.AWS.GameLift.DescribeGameServerGroup
-  ( -- * Creating a Request
-    describeGameServerGroup,
-    DescribeGameServerGroup,
+  ( -- * Creating a request
+    DescribeGameServerGroup (..),
+    mkDescribeGameServerGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desGameServerGroupName,
 
-    -- * Destructuring the Response
-    describeGameServerGroupResponse,
-    DescribeGameServerGroupResponse,
+    -- * Destructuring the response
+    DescribeGameServerGroupResponse (..),
+    mkDescribeGameServerGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsGameServerGroup,
     desrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeGameServerGroup' smart constructor.
+-- | /See:/ 'mkDescribeGameServerGroup' smart constructor.
 newtype DescribeGameServerGroup = DescribeGameServerGroup'
-  { _desGameServerGroupName ::
-      Text
+  { gameServerGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desGameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-describeGameServerGroup ::
-  -- | 'desGameServerGroupName'
-  Text ->
+-- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+mkDescribeGameServerGroup ::
+  -- | 'gameServerGroupName'
+  Lude.Text ->
   DescribeGameServerGroup
-describeGameServerGroup pGameServerGroupName_ =
+mkDescribeGameServerGroup pGameServerGroupName_ =
   DescribeGameServerGroup'
-    { _desGameServerGroupName =
+    { gameServerGroupName =
         pGameServerGroupName_
     }
 
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-desGameServerGroupName :: Lens' DescribeGameServerGroup Text
-desGameServerGroupName = lens _desGameServerGroupName (\s a -> s {_desGameServerGroupName = a})
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desGameServerGroupName :: Lens.Lens' DescribeGameServerGroup Lude.Text
+desGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServerGroup)
+{-# DEPRECATED desGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
-instance AWSRequest DescribeGameServerGroup where
+instance Lude.AWSRequest DescribeGameServerGroup where
   type Rs DescribeGameServerGroup = DescribeGameServerGroupResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeGameServerGroupResponse'
-            <$> (x .?> "GameServerGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameServerGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeGameServerGroup
-
-instance NFData DescribeGameServerGroup
-
-instance ToHeaders DescribeGameServerGroup where
+instance Lude.ToHeaders DescribeGameServerGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DescribeGameServerGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DescribeGameServerGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeGameServerGroup where
+instance Lude.ToJSON DescribeGameServerGroup where
   toJSON DescribeGameServerGroup' {..} =
-    object
-      ( catMaybes
-          [Just ("GameServerGroupName" .= _desGameServerGroupName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName)]
       )
 
-instance ToPath DescribeGameServerGroup where
-  toPath = const "/"
+instance Lude.ToPath DescribeGameServerGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeGameServerGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeGameServerGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeGameServerGroupResponse' smart constructor.
+-- | /See:/ 'mkDescribeGameServerGroupResponse' smart constructor.
 data DescribeGameServerGroupResponse = DescribeGameServerGroupResponse'
-  { _desrsGameServerGroup ::
-      !(Maybe GameServerGroup),
-    _desrsResponseStatus ::
-      !Int
+  { gameServerGroup ::
+      Lude.Maybe GameServerGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsGameServerGroup' - An object with the property settings for the requested game server group resource.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeGameServerGroupResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'gameServerGroup' - An object with the property settings for the requested game server group resource.
+-- * 'responseStatus' - The response status code.
+mkDescribeGameServerGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeGameServerGroupResponse
-describeGameServerGroupResponse pResponseStatus_ =
+mkDescribeGameServerGroupResponse pResponseStatus_ =
   DescribeGameServerGroupResponse'
-    { _desrsGameServerGroup = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { gameServerGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object with the property settings for the requested game server group resource.
-desrsGameServerGroup :: Lens' DescribeGameServerGroupResponse (Maybe GameServerGroup)
-desrsGameServerGroup = lens _desrsGameServerGroup (\s a -> s {_desrsGameServerGroup = a})
+--
+-- /Note:/ Consider using 'gameServerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsGameServerGroup :: Lens.Lens' DescribeGameServerGroupResponse (Lude.Maybe GameServerGroup)
+desrsGameServerGroup = Lens.lens (gameServerGroup :: DescribeGameServerGroupResponse -> Lude.Maybe GameServerGroup) (\s a -> s {gameServerGroup = a} :: DescribeGameServerGroupResponse)
+{-# DEPRECATED desrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeGameServerGroupResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeGameServerGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeGameServerGroupResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerGroupResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

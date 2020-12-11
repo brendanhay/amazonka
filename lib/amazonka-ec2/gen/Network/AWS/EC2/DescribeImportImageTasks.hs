@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Displays details about an import virtual machine or import snapshot tasks that are already created.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeImportImageTasks
-  ( -- * Creating a Request
-    describeImportImageTasks,
-    DescribeImportImageTasks,
+  ( -- * Creating a request
+    DescribeImportImageTasks (..),
+    mkDescribeImportImageTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diitFilters,
     diitImportTaskIds,
     diitNextToken,
     diitDryRun,
     diitMaxResults,
 
-    -- * Destructuring the Response
-    describeImportImageTasksResponse,
-    DescribeImportImageTasksResponse,
+    -- * Destructuring the response
+    DescribeImportImageTasksResponse (..),
+    mkDescribeImportImageTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diitrsNextToken,
     diitrsImportImageTasks,
     diitrsResponseStatus,
@@ -46,152 +39,177 @@ module Network.AWS.EC2.DescribeImportImageTasks
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeImportImageTasks' smart constructor.
+-- | /See:/ 'mkDescribeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
-  { _diitFilters ::
-      !(Maybe [Filter]),
-    _diitImportTaskIds :: !(Maybe [Text]),
-    _diitNextToken :: !(Maybe Text),
-    _diitDryRun :: !(Maybe Bool),
-    _diitMaxResults :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    importTaskIds :: Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportImageTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diitFilters' - Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
---
--- * 'diitImportTaskIds' - The IDs of the import image tasks.
---
--- * 'diitNextToken' - A token that indicates the next page of results.
---
--- * 'diitDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'diitMaxResults' - The maximum number of results to return in a single call.
-describeImportImageTasks ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
+-- * 'importTaskIds' - The IDs of the import image tasks.
+-- * 'maxResults' - The maximum number of results to return in a single call.
+-- * 'nextToken' - A token that indicates the next page of results.
+mkDescribeImportImageTasks ::
   DescribeImportImageTasks
-describeImportImageTasks =
+mkDescribeImportImageTasks =
   DescribeImportImageTasks'
-    { _diitFilters = Nothing,
-      _diitImportTaskIds = Nothing,
-      _diitNextToken = Nothing,
-      _diitDryRun = Nothing,
-      _diitMaxResults = Nothing
+    { filters = Lude.Nothing,
+      importTaskIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
-diitFilters :: Lens' DescribeImportImageTasks [Filter]
-diitFilters = lens _diitFilters (\s a -> s {_diitFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitFilters :: Lens.Lens' DescribeImportImageTasks (Lude.Maybe [Filter])
+diitFilters = Lens.lens (filters :: DescribeImportImageTasks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeImportImageTasks)
+{-# DEPRECATED diitFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The IDs of the import image tasks.
-diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
-diitImportTaskIds = lens _diitImportTaskIds (\s a -> s {_diitImportTaskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'importTaskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitImportTaskIds :: Lens.Lens' DescribeImportImageTasks (Lude.Maybe [Lude.Text])
+diitImportTaskIds = Lens.lens (importTaskIds :: DescribeImportImageTasks -> Lude.Maybe [Lude.Text]) (\s a -> s {importTaskIds = a} :: DescribeImportImageTasks)
+{-# DEPRECATED diitImportTaskIds "Use generic-lens or generic-optics with 'importTaskIds' instead." #-}
 
 -- | A token that indicates the next page of results.
-diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
-diitNextToken = lens _diitNextToken (\s a -> s {_diitNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitNextToken :: Lens.Lens' DescribeImportImageTasks (Lude.Maybe Lude.Text)
+diitNextToken = Lens.lens (nextToken :: DescribeImportImageTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImportImageTasks)
+{-# DEPRECATED diitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
-diitDryRun = lens _diitDryRun (\s a -> s {_diitDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitDryRun :: Lens.Lens' DescribeImportImageTasks (Lude.Maybe Lude.Bool)
+diitDryRun = Lens.lens (dryRun :: DescribeImportImageTasks -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeImportImageTasks)
+{-# DEPRECATED diitDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call.
-diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
-diitMaxResults = lens _diitMaxResults (\s a -> s {_diitMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitMaxResults :: Lens.Lens' DescribeImportImageTasks (Lude.Maybe Lude.Int)
+diitMaxResults = Lens.lens (maxResults :: DescribeImportImageTasks -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeImportImageTasks)
+{-# DEPRECATED diitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeImportImageTasks where
+instance Page.AWSPager DescribeImportImageTasks where
   page rq rs
-    | stop (rs ^. diitrsNextToken) = Nothing
-    | stop (rs ^. diitrsImportImageTasks) = Nothing
-    | otherwise = Just $ rq & diitNextToken .~ rs ^. diitrsNextToken
+    | Page.stop (rs Lens.^. diitrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. diitrsImportImageTasks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& diitNextToken Lens..~ rs Lens.^. diitrsNextToken
 
-instance AWSRequest DescribeImportImageTasks where
+instance Lude.AWSRequest DescribeImportImageTasks where
   type Rs DescribeImportImageTasks = DescribeImportImageTasksResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeImportImageTasksResponse'
-            <$> (x .@? "nextToken")
-            <*> ( x .@? "importImageTaskSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "importImageTaskSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeImportImageTasks
+instance Lude.ToHeaders DescribeImportImageTasks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeImportImageTasks
+instance Lude.ToPath DescribeImportImageTasks where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeImportImageTasks where
-  toHeaders = const mempty
-
-instance ToPath DescribeImportImageTasks where
-  toPath = const "/"
-
-instance ToQuery DescribeImportImageTasks where
+instance Lude.ToQuery DescribeImportImageTasks where
   toQuery DescribeImportImageTasks' {..} =
-    mconcat
-      [ "Action" =: ("DescribeImportImageTasks" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filters" <$> _diitFilters),
-        toQuery (toQueryList "ImportTaskId" <$> _diitImportTaskIds),
-        "NextToken" =: _diitNextToken,
-        "DryRun" =: _diitDryRun,
-        "MaxResults" =: _diitMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeImportImageTasks" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filters" Lude.<$> filters),
+        Lude.toQuery
+          (Lude.toQueryList "ImportTaskId" Lude.<$> importTaskIds),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeImportImageTasksResponse' smart constructor.
+-- | /See:/ 'mkDescribeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-  { _diitrsNextToken ::
-      !(Maybe Text),
-    _diitrsImportImageTasks ::
-      !( Maybe
-           [ImportImageTask]
-       ),
-    _diitrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    importImageTasks ::
+      Lude.Maybe
+        [ImportImageTask],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportImageTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diitrsNextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'diitrsImportImageTasks' - A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
---
--- * 'diitrsResponseStatus' - -- | The response status code.
-describeImportImageTasksResponse ::
-  -- | 'diitrsResponseStatus'
-  Int ->
+-- * 'importImageTasks' - A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
+-- * 'nextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeImportImageTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeImportImageTasksResponse
-describeImportImageTasksResponse pResponseStatus_ =
+mkDescribeImportImageTasksResponse pResponseStatus_ =
   DescribeImportImageTasksResponse'
-    { _diitrsNextToken = Nothing,
-      _diitrsImportImageTasks = Nothing,
-      _diitrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      importImageTasks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
-diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
-diitrsNextToken = lens _diitrsNextToken (\s a -> s {_diitrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitrsNextToken :: Lens.Lens' DescribeImportImageTasksResponse (Lude.Maybe Lude.Text)
+diitrsNextToken = Lens.lens (nextToken :: DescribeImportImageTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImportImageTasksResponse)
+{-# DEPRECATED diitrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
-diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
-diitrsImportImageTasks = lens _diitrsImportImageTasks (\s a -> s {_diitrsImportImageTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'importImageTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitrsImportImageTasks :: Lens.Lens' DescribeImportImageTasksResponse (Lude.Maybe [ImportImageTask])
+diitrsImportImageTasks = Lens.lens (importImageTasks :: DescribeImportImageTasksResponse -> Lude.Maybe [ImportImageTask]) (\s a -> s {importImageTasks = a} :: DescribeImportImageTasksResponse)
+{-# DEPRECATED diitrsImportImageTasks "Use generic-lens or generic-optics with 'importImageTasks' instead." #-}
 
--- | -- | The response status code.
-diitrsResponseStatus :: Lens' DescribeImportImageTasksResponse Int
-diitrsResponseStatus = lens _diitrsResponseStatus (\s a -> s {_diitrsResponseStatus = a})
-
-instance NFData DescribeImportImageTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diitrsResponseStatus :: Lens.Lens' DescribeImportImageTasksResponse Lude.Int
+diitrsResponseStatus = Lens.lens (responseStatus :: DescribeImportImageTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImportImageTasksResponse)
+{-# DEPRECATED diitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

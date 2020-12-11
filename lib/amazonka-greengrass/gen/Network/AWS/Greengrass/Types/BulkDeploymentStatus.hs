@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.BulkDeploymentStatus where
+module Network.AWS.Greengrass.Types.BulkDeploymentStatus
+  ( BulkDeploymentStatus
+      ( BulkDeploymentStatus',
+        Completed,
+        Failed,
+        Initializing,
+        Running,
+        Stopped,
+        Stopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The current status of the bulk deployment.
-data BulkDeploymentStatus
-  = Completed
-  | Failed
-  | Initializing
-  | Running
-  | Stopped
-  | Stopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BulkDeploymentStatus = BulkDeploymentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BulkDeploymentStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "initializing" -> pure Initializing
-      "running" -> pure Running
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      e ->
-        fromTextError $
-          "Failure parsing BulkDeploymentStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, initializing, running, stopped, stopping"
+pattern Completed :: BulkDeploymentStatus
+pattern Completed = BulkDeploymentStatus' "Completed"
 
-instance ToText BulkDeploymentStatus where
-  toText = \case
-    Completed -> "Completed"
-    Failed -> "Failed"
-    Initializing -> "Initializing"
-    Running -> "Running"
-    Stopped -> "Stopped"
-    Stopping -> "Stopping"
+pattern Failed :: BulkDeploymentStatus
+pattern Failed = BulkDeploymentStatus' "Failed"
 
-instance Hashable BulkDeploymentStatus
+pattern Initializing :: BulkDeploymentStatus
+pattern Initializing = BulkDeploymentStatus' "Initializing"
 
-instance NFData BulkDeploymentStatus
+pattern Running :: BulkDeploymentStatus
+pattern Running = BulkDeploymentStatus' "Running"
 
-instance ToByteString BulkDeploymentStatus
+pattern Stopped :: BulkDeploymentStatus
+pattern Stopped = BulkDeploymentStatus' "Stopped"
 
-instance ToQuery BulkDeploymentStatus
+pattern Stopping :: BulkDeploymentStatus
+pattern Stopping = BulkDeploymentStatus' "Stopping"
 
-instance ToHeader BulkDeploymentStatus
-
-instance FromJSON BulkDeploymentStatus where
-  parseJSON = parseJSONText "BulkDeploymentStatus"
+{-# COMPLETE
+  Completed,
+  Failed,
+  Initializing,
+  Running,
+  Stopped,
+  Stopping,
+  BulkDeploymentStatus'
+  #-}

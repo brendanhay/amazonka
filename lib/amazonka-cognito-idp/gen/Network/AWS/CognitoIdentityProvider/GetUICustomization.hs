@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,142 @@
 --
 -- Gets the UI Customization information for a particular app client's app UI, if there is something set. If nothing is set for the particular client, but there is an existing pool level customization (app @clientId@ will be @ALL@ ), then that is returned. If nothing is present, then an empty shape is returned.
 module Network.AWS.CognitoIdentityProvider.GetUICustomization
-  ( -- * Creating a Request
-    getUICustomization,
-    GetUICustomization,
+  ( -- * Creating a request
+    GetUICustomization (..),
+    mkGetUICustomization,
 
-    -- * Request Lenses
+    -- ** Request lenses
     guicClientId,
     guicUserPoolId,
 
-    -- * Destructuring the Response
-    getUICustomizationResponse,
-    GetUICustomizationResponse,
+    -- * Destructuring the response
+    GetUICustomizationResponse (..),
+    mkGetUICustomizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     guicrsResponseStatus,
     guicrsUICustomization,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getUICustomization' smart constructor.
+-- | /See:/ 'mkGetUICustomization' smart constructor.
 data GetUICustomization = GetUICustomization'
-  { _guicClientId ::
-      !(Maybe (Sensitive Text)),
-    _guicUserPoolId :: !Text
+  { clientId ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUICustomization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'guicClientId' - The client ID for the client app.
---
--- * 'guicUserPoolId' - The user pool ID for the user pool.
-getUICustomization ::
-  -- | 'guicUserPoolId'
-  Text ->
+-- * 'clientId' - The client ID for the client app.
+-- * 'userPoolId' - The user pool ID for the user pool.
+mkGetUICustomization ::
+  -- | 'userPoolId'
+  Lude.Text ->
   GetUICustomization
-getUICustomization pUserPoolId_ =
+mkGetUICustomization pUserPoolId_ =
   GetUICustomization'
-    { _guicClientId = Nothing,
-      _guicUserPoolId = pUserPoolId_
+    { clientId = Lude.Nothing,
+      userPoolId = pUserPoolId_
     }
 
 -- | The client ID for the client app.
-guicClientId :: Lens' GetUICustomization (Maybe Text)
-guicClientId = lens _guicClientId (\s a -> s {_guicClientId = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guicClientId :: Lens.Lens' GetUICustomization (Lude.Maybe (Lude.Sensitive Lude.Text))
+guicClientId = Lens.lens (clientId :: GetUICustomization -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {clientId = a} :: GetUICustomization)
+{-# DEPRECATED guicClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The user pool ID for the user pool.
-guicUserPoolId :: Lens' GetUICustomization Text
-guicUserPoolId = lens _guicUserPoolId (\s a -> s {_guicUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guicUserPoolId :: Lens.Lens' GetUICustomization Lude.Text
+guicUserPoolId = Lens.lens (userPoolId :: GetUICustomization -> Lude.Text) (\s a -> s {userPoolId = a} :: GetUICustomization)
+{-# DEPRECATED guicUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest GetUICustomization where
+instance Lude.AWSRequest GetUICustomization where
   type Rs GetUICustomization = GetUICustomizationResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetUICustomizationResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "UICustomization")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "UICustomization")
       )
 
-instance Hashable GetUICustomization
-
-instance NFData GetUICustomization
-
-instance ToHeaders GetUICustomization where
+instance Lude.ToHeaders GetUICustomization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.GetUICustomization" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.GetUICustomization" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetUICustomization where
+instance Lude.ToJSON GetUICustomization where
   toJSON GetUICustomization' {..} =
-    object
-      ( catMaybes
-          [ ("ClientId" .=) <$> _guicClientId,
-            Just ("UserPoolId" .= _guicUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientId" Lude..=) Lude.<$> clientId,
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath GetUICustomization where
-  toPath = const "/"
+instance Lude.ToPath GetUICustomization where
+  toPath = Lude.const "/"
 
-instance ToQuery GetUICustomization where
-  toQuery = const mempty
+instance Lude.ToQuery GetUICustomization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getUICustomizationResponse' smart constructor.
+-- | /See:/ 'mkGetUICustomizationResponse' smart constructor.
 data GetUICustomizationResponse = GetUICustomizationResponse'
-  { _guicrsResponseStatus ::
-      !Int,
-    _guicrsUICustomization ::
-      !UICustomizationType
+  { responseStatus ::
+      Lude.Int,
+    uICustomization ::
+      UICustomizationType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUICustomizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'guicrsResponseStatus' - -- | The response status code.
---
--- * 'guicrsUICustomization' - The UI customization information.
-getUICustomizationResponse ::
-  -- | 'guicrsResponseStatus'
-  Int ->
-  -- | 'guicrsUICustomization'
+-- * 'responseStatus' - The response status code.
+-- * 'uICustomization' - The UI customization information.
+mkGetUICustomizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'uICustomization'
   UICustomizationType ->
   GetUICustomizationResponse
-getUICustomizationResponse pResponseStatus_ pUICustomization_ =
+mkGetUICustomizationResponse pResponseStatus_ pUICustomization_ =
   GetUICustomizationResponse'
-    { _guicrsResponseStatus =
-        pResponseStatus_,
-      _guicrsUICustomization = pUICustomization_
+    { responseStatus = pResponseStatus_,
+      uICustomization = pUICustomization_
     }
 
--- | -- | The response status code.
-guicrsResponseStatus :: Lens' GetUICustomizationResponse Int
-guicrsResponseStatus = lens _guicrsResponseStatus (\s a -> s {_guicrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guicrsResponseStatus :: Lens.Lens' GetUICustomizationResponse Lude.Int
+guicrsResponseStatus = Lens.lens (responseStatus :: GetUICustomizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUICustomizationResponse)
+{-# DEPRECATED guicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The UI customization information.
-guicrsUICustomization :: Lens' GetUICustomizationResponse UICustomizationType
-guicrsUICustomization = lens _guicrsUICustomization (\s a -> s {_guicrsUICustomization = a})
-
-instance NFData GetUICustomizationResponse
+--
+-- /Note:/ Consider using 'uICustomization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guicrsUICustomization :: Lens.Lens' GetUICustomizationResponse UICustomizationType
+guicrsUICustomization = Lens.lens (uICustomization :: GetUICustomizationResponse -> UICustomizationType) (\s a -> s {uICustomization = a} :: GetUICustomizationResponse)
+{-# DEPRECATED guicrsUICustomization "Use generic-lens or generic-optics with 'uICustomization' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DebugHookConfig where
+module Network.AWS.SageMaker.Types.DebugHookConfig
+  ( DebugHookConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDebugHookConfig,
+
+    -- * Lenses
+    dhcLocalPath,
+    dhcCollectionConfigurations,
+    dhcHookParameters,
+    dhcS3OutputPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.CollectionConfiguration
 
 -- | Configuration information for the debug hook parameters, collection configuration, and storage paths.
 --
---
---
--- /See:/ 'debugHookConfig' smart constructor.
+-- /See:/ 'mkDebugHookConfig' smart constructor.
 data DebugHookConfig = DebugHookConfig'
-  { _dhcLocalPath ::
-      !(Maybe Text),
-    _dhcCollectionConfigurations ::
-      !(Maybe [CollectionConfiguration]),
-    _dhcHookParameters :: !(Maybe (Map Text (Text))),
-    _dhcS3OutputPath :: !Text
+  { localPath ::
+      Lude.Maybe Lude.Text,
+    collectionConfigurations ::
+      Lude.Maybe [CollectionConfiguration],
+    hookParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    s3OutputPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DebugHookConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhcLocalPath' - Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
---
--- * 'dhcCollectionConfigurations' - Configuration information for tensor collections.
---
--- * 'dhcHookParameters' - Configuration information for the debug hook parameters.
---
--- * 'dhcS3OutputPath' - Path to Amazon S3 storage location for tensors.
-debugHookConfig ::
-  -- | 'dhcS3OutputPath'
-  Text ->
+-- * 'collectionConfigurations' - Configuration information for tensor collections.
+-- * 'hookParameters' - Configuration information for the debug hook parameters.
+-- * 'localPath' - Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
+-- * 's3OutputPath' - Path to Amazon S3 storage location for tensors.
+mkDebugHookConfig ::
+  -- | 's3OutputPath'
+  Lude.Text ->
   DebugHookConfig
-debugHookConfig pS3OutputPath_ =
+mkDebugHookConfig pS3OutputPath_ =
   DebugHookConfig'
-    { _dhcLocalPath = Nothing,
-      _dhcCollectionConfigurations = Nothing,
-      _dhcHookParameters = Nothing,
-      _dhcS3OutputPath = pS3OutputPath_
+    { localPath = Lude.Nothing,
+      collectionConfigurations = Lude.Nothing,
+      hookParameters = Lude.Nothing,
+      s3OutputPath = pS3OutputPath_
     }
 
 -- | Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
-dhcLocalPath :: Lens' DebugHookConfig (Maybe Text)
-dhcLocalPath = lens _dhcLocalPath (\s a -> s {_dhcLocalPath = a})
+--
+-- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcLocalPath :: Lens.Lens' DebugHookConfig (Lude.Maybe Lude.Text)
+dhcLocalPath = Lens.lens (localPath :: DebugHookConfig -> Lude.Maybe Lude.Text) (\s a -> s {localPath = a} :: DebugHookConfig)
+{-# DEPRECATED dhcLocalPath "Use generic-lens or generic-optics with 'localPath' instead." #-}
 
 -- | Configuration information for tensor collections.
-dhcCollectionConfigurations :: Lens' DebugHookConfig [CollectionConfiguration]
-dhcCollectionConfigurations = lens _dhcCollectionConfigurations (\s a -> s {_dhcCollectionConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'collectionConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcCollectionConfigurations :: Lens.Lens' DebugHookConfig (Lude.Maybe [CollectionConfiguration])
+dhcCollectionConfigurations = Lens.lens (collectionConfigurations :: DebugHookConfig -> Lude.Maybe [CollectionConfiguration]) (\s a -> s {collectionConfigurations = a} :: DebugHookConfig)
+{-# DEPRECATED dhcCollectionConfigurations "Use generic-lens or generic-optics with 'collectionConfigurations' instead." #-}
 
 -- | Configuration information for the debug hook parameters.
-dhcHookParameters :: Lens' DebugHookConfig (HashMap Text (Text))
-dhcHookParameters = lens _dhcHookParameters (\s a -> s {_dhcHookParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'hookParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcHookParameters :: Lens.Lens' DebugHookConfig (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dhcHookParameters = Lens.lens (hookParameters :: DebugHookConfig -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {hookParameters = a} :: DebugHookConfig)
+{-# DEPRECATED dhcHookParameters "Use generic-lens or generic-optics with 'hookParameters' instead." #-}
 
 -- | Path to Amazon S3 storage location for tensors.
-dhcS3OutputPath :: Lens' DebugHookConfig Text
-dhcS3OutputPath = lens _dhcS3OutputPath (\s a -> s {_dhcS3OutputPath = a})
+--
+-- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcS3OutputPath :: Lens.Lens' DebugHookConfig Lude.Text
+dhcS3OutputPath = Lens.lens (s3OutputPath :: DebugHookConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: DebugHookConfig)
+{-# DEPRECATED dhcS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
-instance FromJSON DebugHookConfig where
+instance Lude.FromJSON DebugHookConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "DebugHookConfig"
       ( \x ->
           DebugHookConfig'
-            <$> (x .:? "LocalPath")
-            <*> (x .:? "CollectionConfigurations" .!= mempty)
-            <*> (x .:? "HookParameters" .!= mempty)
-            <*> (x .: "S3OutputPath")
+            Lude.<$> (x Lude..:? "LocalPath")
+            Lude.<*> (x Lude..:? "CollectionConfigurations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "HookParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "S3OutputPath")
       )
 
-instance Hashable DebugHookConfig
-
-instance NFData DebugHookConfig
-
-instance ToJSON DebugHookConfig where
+instance Lude.ToJSON DebugHookConfig where
   toJSON DebugHookConfig' {..} =
-    object
-      ( catMaybes
-          [ ("LocalPath" .=) <$> _dhcLocalPath,
-            ("CollectionConfigurations" .=) <$> _dhcCollectionConfigurations,
-            ("HookParameters" .=) <$> _dhcHookParameters,
-            Just ("S3OutputPath" .= _dhcS3OutputPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LocalPath" Lude..=) Lude.<$> localPath,
+            ("CollectionConfigurations" Lude..=)
+              Lude.<$> collectionConfigurations,
+            ("HookParameters" Lude..=) Lude.<$> hookParameters,
+            Lude.Just ("S3OutputPath" Lude..= s3OutputPath)
           ]
       )

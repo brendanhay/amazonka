@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves all the development endpoints in this AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetDevEndpoints
-  ( -- * Creating a Request
-    getDevEndpoints,
-    GetDevEndpoints,
+  ( -- * Creating a request
+    GetDevEndpoints (..),
+    mkGetDevEndpoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdeNextToken,
     gdeMaxResults,
 
-    -- * Destructuring the Response
-    getDevEndpointsResponse,
-    GetDevEndpointsResponse,
+    -- * Destructuring the response
+    GetDevEndpointsResponse (..),
+    mkGetDevEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdersNextToken,
     gdersDevEndpoints,
     gdersResponseStatus,
@@ -43,129 +36,149 @@ module Network.AWS.Glue.GetDevEndpoints
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDevEndpoints' smart constructor.
+-- | /See:/ 'mkGetDevEndpoints' smart constructor.
 data GetDevEndpoints = GetDevEndpoints'
-  { _gdeNextToken ::
-      !(Maybe Text),
-    _gdeMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevEndpoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdeNextToken' - A continuation token, if this is a continuation call.
---
--- * 'gdeMaxResults' - The maximum size of information to return.
-getDevEndpoints ::
+-- * 'maxResults' - The maximum size of information to return.
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+mkGetDevEndpoints ::
   GetDevEndpoints
-getDevEndpoints =
+mkGetDevEndpoints =
   GetDevEndpoints'
-    { _gdeNextToken = Nothing,
-      _gdeMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | A continuation token, if this is a continuation call.
-gdeNextToken :: Lens' GetDevEndpoints (Maybe Text)
-gdeNextToken = lens _gdeNextToken (\s a -> s {_gdeNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdeNextToken :: Lens.Lens' GetDevEndpoints (Lude.Maybe Lude.Text)
+gdeNextToken = Lens.lens (nextToken :: GetDevEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetDevEndpoints)
+{-# DEPRECATED gdeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of information to return.
-gdeMaxResults :: Lens' GetDevEndpoints (Maybe Natural)
-gdeMaxResults = lens _gdeMaxResults (\s a -> s {_gdeMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdeMaxResults :: Lens.Lens' GetDevEndpoints (Lude.Maybe Lude.Natural)
+gdeMaxResults = Lens.lens (maxResults :: GetDevEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetDevEndpoints)
+{-# DEPRECATED gdeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetDevEndpoints where
+instance Page.AWSPager GetDevEndpoints where
   page rq rs
-    | stop (rs ^. gdersNextToken) = Nothing
-    | stop (rs ^. gdersDevEndpoints) = Nothing
-    | otherwise = Just $ rq & gdeNextToken .~ rs ^. gdersNextToken
+    | Page.stop (rs Lens.^. gdersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gdersDevEndpoints) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gdeNextToken Lens..~ rs Lens.^. gdersNextToken
 
-instance AWSRequest GetDevEndpoints where
+instance Lude.AWSRequest GetDevEndpoints where
   type Rs GetDevEndpoints = GetDevEndpointsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDevEndpointsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "DevEndpoints" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "DevEndpoints" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDevEndpoints
-
-instance NFData GetDevEndpoints
-
-instance ToHeaders GetDevEndpoints where
+instance Lude.ToHeaders GetDevEndpoints where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetDevEndpoints" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetDevEndpoints" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDevEndpoints where
+instance Lude.ToJSON GetDevEndpoints where
   toJSON GetDevEndpoints' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gdeNextToken,
-            ("MaxResults" .=) <$> _gdeMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetDevEndpoints where
-  toPath = const "/"
+instance Lude.ToPath GetDevEndpoints where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDevEndpoints where
-  toQuery = const mempty
+instance Lude.ToQuery GetDevEndpoints where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDevEndpointsResponse' smart constructor.
+-- | /See:/ 'mkGetDevEndpointsResponse' smart constructor.
 data GetDevEndpointsResponse = GetDevEndpointsResponse'
-  { _gdersNextToken ::
-      !(Maybe Text),
-    _gdersDevEndpoints ::
-      !(Maybe [DevEndpoint]),
-    _gdersResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    devEndpoints :: Lude.Maybe [DevEndpoint],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdersNextToken' - A continuation token, if not all @DevEndpoint@ definitions have yet been returned.
---
--- * 'gdersDevEndpoints' - A list of @DevEndpoint@ definitions.
---
--- * 'gdersResponseStatus' - -- | The response status code.
-getDevEndpointsResponse ::
-  -- | 'gdersResponseStatus'
-  Int ->
+-- * 'devEndpoints' - A list of @DevEndpoint@ definitions.
+-- * 'nextToken' - A continuation token, if not all @DevEndpoint@ definitions have yet been returned.
+-- * 'responseStatus' - The response status code.
+mkGetDevEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDevEndpointsResponse
-getDevEndpointsResponse pResponseStatus_ =
+mkGetDevEndpointsResponse pResponseStatus_ =
   GetDevEndpointsResponse'
-    { _gdersNextToken = Nothing,
-      _gdersDevEndpoints = Nothing,
-      _gdersResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      devEndpoints = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if not all @DevEndpoint@ definitions have yet been returned.
-gdersNextToken :: Lens' GetDevEndpointsResponse (Maybe Text)
-gdersNextToken = lens _gdersNextToken (\s a -> s {_gdersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdersNextToken :: Lens.Lens' GetDevEndpointsResponse (Lude.Maybe Lude.Text)
+gdersNextToken = Lens.lens (nextToken :: GetDevEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetDevEndpointsResponse)
+{-# DEPRECATED gdersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @DevEndpoint@ definitions.
-gdersDevEndpoints :: Lens' GetDevEndpointsResponse [DevEndpoint]
-gdersDevEndpoints = lens _gdersDevEndpoints (\s a -> s {_gdersDevEndpoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdersDevEndpoints :: Lens.Lens' GetDevEndpointsResponse (Lude.Maybe [DevEndpoint])
+gdersDevEndpoints = Lens.lens (devEndpoints :: GetDevEndpointsResponse -> Lude.Maybe [DevEndpoint]) (\s a -> s {devEndpoints = a} :: GetDevEndpointsResponse)
+{-# DEPRECATED gdersDevEndpoints "Use generic-lens or generic-optics with 'devEndpoints' instead." #-}
 
--- | -- | The response status code.
-gdersResponseStatus :: Lens' GetDevEndpointsResponse Int
-gdersResponseStatus = lens _gdersResponseStatus (\s a -> s {_gdersResponseStatus = a})
-
-instance NFData GetDevEndpointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdersResponseStatus :: Lens.Lens' GetDevEndpointsResponse Lude.Int
+gdersResponseStatus = Lens.lens (responseStatus :: GetDevEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDevEndpointsResponse)
+{-# DEPRECATED gdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.DeliveryStatus where
+module Network.AWS.Pinpoint.Types.DeliveryStatus
+  ( DeliveryStatus
+      ( DeliveryStatus',
+        Duplicate,
+        OptOut,
+        PermanentFailure,
+        Successful,
+        TemporaryFailure,
+        Throttled,
+        UnknownFailure
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryStatus
-  = Duplicate
-  | OptOut
-  | PermanentFailure
-  | Successful
-  | TemporaryFailure
-  | Throttled
-  | UnknownFailure
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryStatus = DeliveryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryStatus where
-  parser =
-    takeLowerText >>= \case
-      "duplicate" -> pure Duplicate
-      "opt_out" -> pure OptOut
-      "permanent_failure" -> pure PermanentFailure
-      "successful" -> pure Successful
-      "temporary_failure" -> pure TemporaryFailure
-      "throttled" -> pure Throttled
-      "unknown_failure" -> pure UnknownFailure
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryStatus from value: '" <> e
-            <> "'. Accepted values: duplicate, opt_out, permanent_failure, successful, temporary_failure, throttled, unknown_failure"
+pattern Duplicate :: DeliveryStatus
+pattern Duplicate = DeliveryStatus' "DUPLICATE"
 
-instance ToText DeliveryStatus where
-  toText = \case
-    Duplicate -> "DUPLICATE"
-    OptOut -> "OPT_OUT"
-    PermanentFailure -> "PERMANENT_FAILURE"
-    Successful -> "SUCCESSFUL"
-    TemporaryFailure -> "TEMPORARY_FAILURE"
-    Throttled -> "THROTTLED"
-    UnknownFailure -> "UNKNOWN_FAILURE"
+pattern OptOut :: DeliveryStatus
+pattern OptOut = DeliveryStatus' "OPT_OUT"
 
-instance Hashable DeliveryStatus
+pattern PermanentFailure :: DeliveryStatus
+pattern PermanentFailure = DeliveryStatus' "PERMANENT_FAILURE"
 
-instance NFData DeliveryStatus
+pattern Successful :: DeliveryStatus
+pattern Successful = DeliveryStatus' "SUCCESSFUL"
 
-instance ToByteString DeliveryStatus
+pattern TemporaryFailure :: DeliveryStatus
+pattern TemporaryFailure = DeliveryStatus' "TEMPORARY_FAILURE"
 
-instance ToQuery DeliveryStatus
+pattern Throttled :: DeliveryStatus
+pattern Throttled = DeliveryStatus' "THROTTLED"
 
-instance ToHeader DeliveryStatus
+pattern UnknownFailure :: DeliveryStatus
+pattern UnknownFailure = DeliveryStatus' "UNKNOWN_FAILURE"
 
-instance FromJSON DeliveryStatus where
-  parseJSON = parseJSONText "DeliveryStatus"
+{-# COMPLETE
+  Duplicate,
+  OptOut,
+  PermanentFailure,
+  Successful,
+  TemporaryFailure,
+  Throttled,
+  UnknownFailure,
+  DeliveryStatus'
+  #-}

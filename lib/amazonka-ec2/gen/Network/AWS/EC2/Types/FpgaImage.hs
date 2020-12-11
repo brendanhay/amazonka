@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,173 +7,229 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaImage where
+module Network.AWS.EC2.Types.FpgaImage
+  ( FpgaImage (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkFpgaImage,
+
+    -- * Lenses
+    fiShellVersion,
+    fiPciId,
+    fiState,
+    fiOwnerAlias,
+    fiFpgaImageId,
+    fiDataRetentionSupport,
+    fiOwnerId,
+    fiUpdateTime,
+    fiName,
+    fiProductCodes,
+    fiDescription,
+    fiCreateTime,
+    fiTags,
+    fiPublic,
+    fiFpgaImageGlobalId,
+  )
+where
+
 import Network.AWS.EC2.Types.FpgaImageState
 import Network.AWS.EC2.Types.PciId
 import Network.AWS.EC2.Types.ProductCode
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon FPGA image (AFI).
 --
---
---
--- /See:/ 'fpgaImage' smart constructor.
+-- /See:/ 'mkFpgaImage' smart constructor.
 data FpgaImage = FpgaImage'
-  { _fiShellVersion :: !(Maybe Text),
-    _fiPciId :: !(Maybe PciId),
-    _fiState :: !(Maybe FpgaImageState),
-    _fiOwnerAlias :: !(Maybe Text),
-    _fiFpgaImageId :: !(Maybe Text),
-    _fiDataRetentionSupport :: !(Maybe Bool),
-    _fiOwnerId :: !(Maybe Text),
-    _fiUpdateTime :: !(Maybe ISO8601),
-    _fiName :: !(Maybe Text),
-    _fiProductCodes :: !(Maybe [ProductCode]),
-    _fiDescription :: !(Maybe Text),
-    _fiCreateTime :: !(Maybe ISO8601),
-    _fiTags :: !(Maybe [Tag]),
-    _fiPublic :: !(Maybe Bool),
-    _fiFpgaImageGlobalId :: !(Maybe Text)
+  { shellVersion :: Lude.Maybe Lude.Text,
+    pciId :: Lude.Maybe PciId,
+    state :: Lude.Maybe FpgaImageState,
+    ownerAlias :: Lude.Maybe Lude.Text,
+    fpgaImageId :: Lude.Maybe Lude.Text,
+    dataRetentionSupport :: Lude.Maybe Lude.Bool,
+    ownerId :: Lude.Maybe Lude.Text,
+    updateTime :: Lude.Maybe Lude.ISO8601,
+    name :: Lude.Maybe Lude.Text,
+    productCodes :: Lude.Maybe [ProductCode],
+    description :: Lude.Maybe Lude.Text,
+    createTime :: Lude.Maybe Lude.ISO8601,
+    tags :: Lude.Maybe [Tag],
+    public :: Lude.Maybe Lude.Bool,
+    fpgaImageGlobalId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fiShellVersion' - The version of the AWS Shell that was used to create the bitstream.
---
--- * 'fiPciId' - Information about the PCI bus.
---
--- * 'fiState' - Information about the state of the AFI.
---
--- * 'fiOwnerAlias' - The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
---
--- * 'fiFpgaImageId' - The FPGA image identifier (AFI ID).
---
--- * 'fiDataRetentionSupport' - Indicates whether data retention support is enabled for the AFI.
---
--- * 'fiOwnerId' - The AWS account ID of the AFI owner.
---
--- * 'fiUpdateTime' - The time of the most recent update to the AFI.
---
--- * 'fiName' - The name of the AFI.
---
--- * 'fiProductCodes' - The product codes for the AFI.
---
--- * 'fiDescription' - The description of the AFI.
---
--- * 'fiCreateTime' - The date and time the AFI was created.
---
--- * 'fiTags' - Any tags assigned to the AFI.
---
--- * 'fiPublic' - Indicates whether the AFI is public.
---
--- * 'fiFpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
-fpgaImage ::
+-- * 'createTime' - The date and time the AFI was created.
+-- * 'dataRetentionSupport' - Indicates whether data retention support is enabled for the AFI.
+-- * 'description' - The description of the AFI.
+-- * 'fpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
+-- * 'fpgaImageId' - The FPGA image identifier (AFI ID).
+-- * 'name' - The name of the AFI.
+-- * 'ownerAlias' - The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
+-- * 'ownerId' - The AWS account ID of the AFI owner.
+-- * 'pciId' - Information about the PCI bus.
+-- * 'productCodes' - The product codes for the AFI.
+-- * 'public' - Indicates whether the AFI is public.
+-- * 'shellVersion' - The version of the AWS Shell that was used to create the bitstream.
+-- * 'state' - Information about the state of the AFI.
+-- * 'tags' - Any tags assigned to the AFI.
+-- * 'updateTime' - The time of the most recent update to the AFI.
+mkFpgaImage ::
   FpgaImage
-fpgaImage =
+mkFpgaImage =
   FpgaImage'
-    { _fiShellVersion = Nothing,
-      _fiPciId = Nothing,
-      _fiState = Nothing,
-      _fiOwnerAlias = Nothing,
-      _fiFpgaImageId = Nothing,
-      _fiDataRetentionSupport = Nothing,
-      _fiOwnerId = Nothing,
-      _fiUpdateTime = Nothing,
-      _fiName = Nothing,
-      _fiProductCodes = Nothing,
-      _fiDescription = Nothing,
-      _fiCreateTime = Nothing,
-      _fiTags = Nothing,
-      _fiPublic = Nothing,
-      _fiFpgaImageGlobalId = Nothing
+    { shellVersion = Lude.Nothing,
+      pciId = Lude.Nothing,
+      state = Lude.Nothing,
+      ownerAlias = Lude.Nothing,
+      fpgaImageId = Lude.Nothing,
+      dataRetentionSupport = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      updateTime = Lude.Nothing,
+      name = Lude.Nothing,
+      productCodes = Lude.Nothing,
+      description = Lude.Nothing,
+      createTime = Lude.Nothing,
+      tags = Lude.Nothing,
+      public = Lude.Nothing,
+      fpgaImageGlobalId = Lude.Nothing
     }
 
 -- | The version of the AWS Shell that was used to create the bitstream.
-fiShellVersion :: Lens' FpgaImage (Maybe Text)
-fiShellVersion = lens _fiShellVersion (\s a -> s {_fiShellVersion = a})
+--
+-- /Note:/ Consider using 'shellVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiShellVersion :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiShellVersion = Lens.lens (shellVersion :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {shellVersion = a} :: FpgaImage)
+{-# DEPRECATED fiShellVersion "Use generic-lens or generic-optics with 'shellVersion' instead." #-}
 
 -- | Information about the PCI bus.
-fiPciId :: Lens' FpgaImage (Maybe PciId)
-fiPciId = lens _fiPciId (\s a -> s {_fiPciId = a})
+--
+-- /Note:/ Consider using 'pciId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiPciId :: Lens.Lens' FpgaImage (Lude.Maybe PciId)
+fiPciId = Lens.lens (pciId :: FpgaImage -> Lude.Maybe PciId) (\s a -> s {pciId = a} :: FpgaImage)
+{-# DEPRECATED fiPciId "Use generic-lens or generic-optics with 'pciId' instead." #-}
 
 -- | Information about the state of the AFI.
-fiState :: Lens' FpgaImage (Maybe FpgaImageState)
-fiState = lens _fiState (\s a -> s {_fiState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiState :: Lens.Lens' FpgaImage (Lude.Maybe FpgaImageState)
+fiState = Lens.lens (state :: FpgaImage -> Lude.Maybe FpgaImageState) (\s a -> s {state = a} :: FpgaImage)
+{-# DEPRECATED fiState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
-fiOwnerAlias :: Lens' FpgaImage (Maybe Text)
-fiOwnerAlias = lens _fiOwnerAlias (\s a -> s {_fiOwnerAlias = a})
+--
+-- /Note:/ Consider using 'ownerAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiOwnerAlias :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiOwnerAlias = Lens.lens (ownerAlias :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {ownerAlias = a} :: FpgaImage)
+{-# DEPRECATED fiOwnerAlias "Use generic-lens or generic-optics with 'ownerAlias' instead." #-}
 
 -- | The FPGA image identifier (AFI ID).
-fiFpgaImageId :: Lens' FpgaImage (Maybe Text)
-fiFpgaImageId = lens _fiFpgaImageId (\s a -> s {_fiFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiFpgaImageId :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiFpgaImageId = Lens.lens (fpgaImageId :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageId = a} :: FpgaImage)
+{-# DEPRECATED fiFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | Indicates whether data retention support is enabled for the AFI.
-fiDataRetentionSupport :: Lens' FpgaImage (Maybe Bool)
-fiDataRetentionSupport = lens _fiDataRetentionSupport (\s a -> s {_fiDataRetentionSupport = a})
+--
+-- /Note:/ Consider using 'dataRetentionSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiDataRetentionSupport :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Bool)
+fiDataRetentionSupport = Lens.lens (dataRetentionSupport :: FpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dataRetentionSupport = a} :: FpgaImage)
+{-# DEPRECATED fiDataRetentionSupport "Use generic-lens or generic-optics with 'dataRetentionSupport' instead." #-}
 
 -- | The AWS account ID of the AFI owner.
-fiOwnerId :: Lens' FpgaImage (Maybe Text)
-fiOwnerId = lens _fiOwnerId (\s a -> s {_fiOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiOwnerId :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiOwnerId = Lens.lens (ownerId :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: FpgaImage)
+{-# DEPRECATED fiOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The time of the most recent update to the AFI.
-fiUpdateTime :: Lens' FpgaImage (Maybe UTCTime)
-fiUpdateTime = lens _fiUpdateTime (\s a -> s {_fiUpdateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiUpdateTime :: Lens.Lens' FpgaImage (Lude.Maybe Lude.ISO8601)
+fiUpdateTime = Lens.lens (updateTime :: FpgaImage -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateTime = a} :: FpgaImage)
+{-# DEPRECATED fiUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
 
 -- | The name of the AFI.
-fiName :: Lens' FpgaImage (Maybe Text)
-fiName = lens _fiName (\s a -> s {_fiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiName :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiName = Lens.lens (name :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FpgaImage)
+{-# DEPRECATED fiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The product codes for the AFI.
-fiProductCodes :: Lens' FpgaImage [ProductCode]
-fiProductCodes = lens _fiProductCodes (\s a -> s {_fiProductCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiProductCodes :: Lens.Lens' FpgaImage (Lude.Maybe [ProductCode])
+fiProductCodes = Lens.lens (productCodes :: FpgaImage -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: FpgaImage)
+{-# DEPRECATED fiProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | The description of the AFI.
-fiDescription :: Lens' FpgaImage (Maybe Text)
-fiDescription = lens _fiDescription (\s a -> s {_fiDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiDescription :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiDescription = Lens.lens (description :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: FpgaImage)
+{-# DEPRECATED fiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The date and time the AFI was created.
-fiCreateTime :: Lens' FpgaImage (Maybe UTCTime)
-fiCreateTime = lens _fiCreateTime (\s a -> s {_fiCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiCreateTime :: Lens.Lens' FpgaImage (Lude.Maybe Lude.ISO8601)
+fiCreateTime = Lens.lens (createTime :: FpgaImage -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: FpgaImage)
+{-# DEPRECATED fiCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | Any tags assigned to the AFI.
-fiTags :: Lens' FpgaImage [Tag]
-fiTags = lens _fiTags (\s a -> s {_fiTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiTags :: Lens.Lens' FpgaImage (Lude.Maybe [Tag])
+fiTags = Lens.lens (tags :: FpgaImage -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: FpgaImage)
+{-# DEPRECATED fiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Indicates whether the AFI is public.
-fiPublic :: Lens' FpgaImage (Maybe Bool)
-fiPublic = lens _fiPublic (\s a -> s {_fiPublic = a})
+--
+-- /Note:/ Consider using 'public' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiPublic :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Bool)
+fiPublic = Lens.lens (public :: FpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {public = a} :: FpgaImage)
+{-# DEPRECATED fiPublic "Use generic-lens or generic-optics with 'public' instead." #-}
 
 -- | The global FPGA image identifier (AGFI ID).
-fiFpgaImageGlobalId :: Lens' FpgaImage (Maybe Text)
-fiFpgaImageGlobalId = lens _fiFpgaImageGlobalId (\s a -> s {_fiFpgaImageGlobalId = a})
+--
+-- /Note:/ Consider using 'fpgaImageGlobalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiFpgaImageGlobalId :: Lens.Lens' FpgaImage (Lude.Maybe Lude.Text)
+fiFpgaImageGlobalId = Lens.lens (fpgaImageGlobalId :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageGlobalId = a} :: FpgaImage)
+{-# DEPRECATED fiFpgaImageGlobalId "Use generic-lens or generic-optics with 'fpgaImageGlobalId' instead." #-}
 
-instance FromXML FpgaImage where
+instance Lude.FromXML FpgaImage where
   parseXML x =
     FpgaImage'
-      <$> (x .@? "shellVersion")
-      <*> (x .@? "pciId")
-      <*> (x .@? "state")
-      <*> (x .@? "ownerAlias")
-      <*> (x .@? "fpgaImageId")
-      <*> (x .@? "dataRetentionSupport")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "updateTime")
-      <*> (x .@? "name")
-      <*> (x .@? "productCodes" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "description")
-      <*> (x .@? "createTime")
-      <*> (x .@? "tags" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "public")
-      <*> (x .@? "fpgaImageGlobalId")
-
-instance Hashable FpgaImage
-
-instance NFData FpgaImage
+      Lude.<$> (x Lude..@? "shellVersion")
+      Lude.<*> (x Lude..@? "pciId")
+      Lude.<*> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "ownerAlias")
+      Lude.<*> (x Lude..@? "fpgaImageId")
+      Lude.<*> (x Lude..@? "dataRetentionSupport")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "updateTime")
+      Lude.<*> (x Lude..@? "name")
+      Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> (x Lude..@? "createTime")
+      Lude.<*> ( x Lude..@? "tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "public")
+      Lude.<*> (x Lude..@? "fpgaImageGlobalId")

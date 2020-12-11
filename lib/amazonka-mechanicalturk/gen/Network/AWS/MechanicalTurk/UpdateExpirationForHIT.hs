@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,139 @@
 --
 -- The @UpdateExpirationForHIT@ operation allows you update the expiration time of a HIT. If you update it to a time in the past, the HIT will be immediately expired.
 module Network.AWS.MechanicalTurk.UpdateExpirationForHIT
-  ( -- * Creating a Request
-    updateExpirationForHIT,
-    UpdateExpirationForHIT,
+  ( -- * Creating a request
+    UpdateExpirationForHIT (..),
+    mkUpdateExpirationForHIT,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uefhitHITId,
     uefhitExpireAt,
 
-    -- * Destructuring the Response
-    updateExpirationForHITResponse,
-    UpdateExpirationForHITResponse,
+    -- * Destructuring the response
+    UpdateExpirationForHITResponse (..),
+    mkUpdateExpirationForHITResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uefhitrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateExpirationForHIT' smart constructor.
+-- | /See:/ 'mkUpdateExpirationForHIT' smart constructor.
 data UpdateExpirationForHIT = UpdateExpirationForHIT'
-  { _uefhitHITId ::
-      !Text,
-    _uefhitExpireAt :: !POSIX
+  { hITId ::
+      Lude.Text,
+    expireAt :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateExpirationForHIT' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uefhitHITId' - The HIT to update.
---
--- * 'uefhitExpireAt' - The date and time at which you want the HIT to expire
-updateExpirationForHIT ::
-  -- | 'uefhitHITId'
-  Text ->
-  -- | 'uefhitExpireAt'
-  UTCTime ->
+-- * 'expireAt' - The date and time at which you want the HIT to expire
+-- * 'hITId' - The HIT to update.
+mkUpdateExpirationForHIT ::
+  -- | 'hITId'
+  Lude.Text ->
+  -- | 'expireAt'
+  Lude.Timestamp ->
   UpdateExpirationForHIT
-updateExpirationForHIT pHITId_ pExpireAt_ =
-  UpdateExpirationForHIT'
-    { _uefhitHITId = pHITId_,
-      _uefhitExpireAt = _Time # pExpireAt_
-    }
+mkUpdateExpirationForHIT pHITId_ pExpireAt_ =
+  UpdateExpirationForHIT' {hITId = pHITId_, expireAt = pExpireAt_}
 
 -- | The HIT to update.
-uefhitHITId :: Lens' UpdateExpirationForHIT Text
-uefhitHITId = lens _uefhitHITId (\s a -> s {_uefhitHITId = a})
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uefhitHITId :: Lens.Lens' UpdateExpirationForHIT Lude.Text
+uefhitHITId = Lens.lens (hITId :: UpdateExpirationForHIT -> Lude.Text) (\s a -> s {hITId = a} :: UpdateExpirationForHIT)
+{-# DEPRECATED uefhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 -- | The date and time at which you want the HIT to expire
-uefhitExpireAt :: Lens' UpdateExpirationForHIT UTCTime
-uefhitExpireAt = lens _uefhitExpireAt (\s a -> s {_uefhitExpireAt = a}) . _Time
+--
+-- /Note:/ Consider using 'expireAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uefhitExpireAt :: Lens.Lens' UpdateExpirationForHIT Lude.Timestamp
+uefhitExpireAt = Lens.lens (expireAt :: UpdateExpirationForHIT -> Lude.Timestamp) (\s a -> s {expireAt = a} :: UpdateExpirationForHIT)
+{-# DEPRECATED uefhitExpireAt "Use generic-lens or generic-optics with 'expireAt' instead." #-}
 
-instance AWSRequest UpdateExpirationForHIT where
+instance Lude.AWSRequest UpdateExpirationForHIT where
   type Rs UpdateExpirationForHIT = UpdateExpirationForHITResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateExpirationForHITResponse' <$> (pure (fromEnum s))
+          UpdateExpirationForHITResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateExpirationForHIT
-
-instance NFData UpdateExpirationForHIT
-
-instance ToHeaders UpdateExpirationForHIT where
+instance Lude.ToHeaders UpdateExpirationForHIT where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateExpirationForHIT where
+instance Lude.ToJSON UpdateExpirationForHIT where
   toJSON UpdateExpirationForHIT' {..} =
-    object
-      ( catMaybes
-          [ Just ("HITId" .= _uefhitHITId),
-            Just ("ExpireAt" .= _uefhitExpireAt)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("HITId" Lude..= hITId),
+            Lude.Just ("ExpireAt" Lude..= expireAt)
           ]
       )
 
-instance ToPath UpdateExpirationForHIT where
-  toPath = const "/"
+instance Lude.ToPath UpdateExpirationForHIT where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateExpirationForHIT where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateExpirationForHIT where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateExpirationForHITResponse' smart constructor.
+-- | /See:/ 'mkUpdateExpirationForHITResponse' smart constructor.
 newtype UpdateExpirationForHITResponse = UpdateExpirationForHITResponse'
-  { _uefhitrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateExpirationForHITResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uefhitrsResponseStatus' - -- | The response status code.
-updateExpirationForHITResponse ::
-  -- | 'uefhitrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateExpirationForHITResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateExpirationForHITResponse
-updateExpirationForHITResponse pResponseStatus_ =
+mkUpdateExpirationForHITResponse pResponseStatus_ =
   UpdateExpirationForHITResponse'
-    { _uefhitrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uefhitrsResponseStatus :: Lens' UpdateExpirationForHITResponse Int
-uefhitrsResponseStatus = lens _uefhitrsResponseStatus (\s a -> s {_uefhitrsResponseStatus = a})
-
-instance NFData UpdateExpirationForHITResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uefhitrsResponseStatus :: Lens.Lens' UpdateExpirationForHITResponse Lude.Int
+uefhitrsResponseStatus = Lens.lens (responseStatus :: UpdateExpirationForHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateExpirationForHITResponse)
+{-# DEPRECATED uefhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

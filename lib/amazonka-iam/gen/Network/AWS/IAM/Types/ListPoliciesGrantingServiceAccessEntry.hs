@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.ListPoliciesGrantingServiceAccessEntry where
+module Network.AWS.IAM.Types.ListPoliciesGrantingServiceAccessEntry
+  ( ListPoliciesGrantingServiceAccessEntry (..),
+
+    -- * Smart constructor
+    mkListPoliciesGrantingServiceAccessEntry,
+
+    -- * Lenses
+    lpgsaeServiceNamespace,
+    lpgsaePolicies,
+  )
+where
 
 import Network.AWS.IAM.Types.PolicyGrantingServiceAccess
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the permissions policies that are attached to the specified identity (user, group, or role).
 --
---
 -- This data type is used as a response element in the 'ListPoliciesGrantingServiceAccess' operation.
 --
---
--- /See:/ 'listPoliciesGrantingServiceAccessEntry' smart constructor.
+-- /See:/ 'mkListPoliciesGrantingServiceAccessEntry' smart constructor.
 data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessEntry'
-  { _lpgsaeServiceNamespace ::
-      !(Maybe Text),
-    _lpgsaePolicies ::
-      !( Maybe
-           [PolicyGrantingServiceAccess]
-       )
+  { serviceNamespace ::
+      Lude.Maybe
+        Lude.Text,
+    policies ::
+      Lude.Maybe
+        [PolicyGrantingServiceAccess]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPoliciesGrantingServiceAccessEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policies' - The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
+-- * 'serviceNamespace' - The namespace of the service that was accessed.
 --
--- * 'lpgsaeServiceNamespace' - The namespace of the service that was accessed. To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
---
--- * 'lpgsaePolicies' - The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
-listPoliciesGrantingServiceAccessEntry ::
+-- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+mkListPoliciesGrantingServiceAccessEntry ::
   ListPoliciesGrantingServiceAccessEntry
-listPoliciesGrantingServiceAccessEntry =
+mkListPoliciesGrantingServiceAccessEntry =
   ListPoliciesGrantingServiceAccessEntry'
-    { _lpgsaeServiceNamespace =
-        Nothing,
-      _lpgsaePolicies = Nothing
+    { serviceNamespace =
+        Lude.Nothing,
+      policies = Lude.Nothing
     }
 
--- | The namespace of the service that was accessed. To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
-lpgsaeServiceNamespace :: Lens' ListPoliciesGrantingServiceAccessEntry (Maybe Text)
-lpgsaeServiceNamespace = lens _lpgsaeServiceNamespace (\s a -> s {_lpgsaeServiceNamespace = a})
+-- | The namespace of the service that was accessed.
+--
+-- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpgsaeServiceNamespace :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Lude.Maybe Lude.Text)
+lpgsaeServiceNamespace = Lens.lens (serviceNamespace :: ListPoliciesGrantingServiceAccessEntry -> Lude.Maybe Lude.Text) (\s a -> s {serviceNamespace = a} :: ListPoliciesGrantingServiceAccessEntry)
+{-# DEPRECATED lpgsaeServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
 
 -- | The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
-lpgsaePolicies :: Lens' ListPoliciesGrantingServiceAccessEntry [PolicyGrantingServiceAccess]
-lpgsaePolicies = lens _lpgsaePolicies (\s a -> s {_lpgsaePolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpgsaePolicies :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Lude.Maybe [PolicyGrantingServiceAccess])
+lpgsaePolicies = Lens.lens (policies :: ListPoliciesGrantingServiceAccessEntry -> Lude.Maybe [PolicyGrantingServiceAccess]) (\s a -> s {policies = a} :: ListPoliciesGrantingServiceAccessEntry)
+{-# DEPRECATED lpgsaePolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance FromXML ListPoliciesGrantingServiceAccessEntry where
+instance Lude.FromXML ListPoliciesGrantingServiceAccessEntry where
   parseXML x =
     ListPoliciesGrantingServiceAccessEntry'
-      <$> (x .@? "ServiceNamespace")
-      <*> (x .@? "Policies" .!@ mempty >>= may (parseXMLList "member"))
-
-instance Hashable ListPoliciesGrantingServiceAccessEntry
-
-instance NFData ListPoliciesGrantingServiceAccessEntry
+      Lude.<$> (x Lude..@? "ServiceNamespace")
+      Lude.<*> ( x Lude..@? "Policies" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.TagFilter where
+module Network.AWS.Discovery.Types.TagFilter
+  ( TagFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTagFilter,
+
+    -- * Lenses
+    tfName,
+    tfValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The tag filter. Valid names are: @tagKey@ , @tagValue@ , @configurationId@ .
 --
---
---
--- /See:/ 'tagFilter' smart constructor.
-data TagFilter = TagFilter' {_tfName :: !Text, _tfValues :: ![Text]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTagFilter' smart constructor.
+data TagFilter = TagFilter'
+  { name :: Lude.Text,
+    values :: [Lude.Text]
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tfName' - A name of the tag filter.
---
--- * 'tfValues' - Values for the tag filter.
-tagFilter ::
-  -- | 'tfName'
-  Text ->
+-- * 'name' - A name of the tag filter.
+-- * 'values' - Values for the tag filter.
+mkTagFilter ::
+  -- | 'name'
+  Lude.Text ->
   TagFilter
-tagFilter pName_ = TagFilter' {_tfName = pName_, _tfValues = mempty}
+mkTagFilter pName_ =
+  TagFilter' {name = pName_, values = Lude.mempty}
 
 -- | A name of the tag filter.
-tfName :: Lens' TagFilter Text
-tfName = lens _tfName (\s a -> s {_tfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfName :: Lens.Lens' TagFilter Lude.Text
+tfName = Lens.lens (name :: TagFilter -> Lude.Text) (\s a -> s {name = a} :: TagFilter)
+{-# DEPRECATED tfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Values for the tag filter.
-tfValues :: Lens' TagFilter [Text]
-tfValues = lens _tfValues (\s a -> s {_tfValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfValues :: Lens.Lens' TagFilter [Lude.Text]
+tfValues = Lens.lens (values :: TagFilter -> [Lude.Text]) (\s a -> s {values = a} :: TagFilter)
+{-# DEPRECATED tfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable TagFilter
-
-instance NFData TagFilter
-
-instance ToJSON TagFilter where
+instance Lude.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("name" .= _tfName), Just ("values" .= _tfValues)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("values" Lude..= values)
+          ]
       )

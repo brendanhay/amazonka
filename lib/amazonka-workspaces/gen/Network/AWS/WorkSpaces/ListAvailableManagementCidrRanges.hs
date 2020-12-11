@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,193 +14,203 @@
 --
 -- Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use for the network management interface when you enable Bring Your Own License (BYOL).
 --
---
 -- This operation can be run only by AWS accounts that are enabled for BYOL. If your account isn't enabled for BYOL, you'll receive an @AccessDeniedException@ error.
---
 -- The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
-  ( -- * Creating a Request
-    listAvailableManagementCidrRanges,
-    ListAvailableManagementCidrRanges,
+  ( -- * Creating a request
+    ListAvailableManagementCidrRanges (..),
+    mkListAvailableManagementCidrRanges,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lamcrNextToken,
     lamcrMaxResults,
     lamcrManagementCidrRangeConstraint,
 
-    -- * Destructuring the Response
-    listAvailableManagementCidrRangesResponse,
-    ListAvailableManagementCidrRangesResponse,
+    -- * Destructuring the response
+    ListAvailableManagementCidrRangesResponse (..),
+    mkListAvailableManagementCidrRangesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lamcrrsManagementCidrRanges,
     lamcrrsNextToken,
     lamcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'listAvailableManagementCidrRanges' smart constructor.
+-- | /See:/ 'mkListAvailableManagementCidrRanges' smart constructor.
 data ListAvailableManagementCidrRanges = ListAvailableManagementCidrRanges'
-  { _lamcrNextToken ::
-      !(Maybe Text),
-    _lamcrMaxResults ::
-      !(Maybe Nat),
-    _lamcrManagementCidrRangeConstraint ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    managementCidrRangeConstraint ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableManagementCidrRanges' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lamcrNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- * 'lamcrMaxResults' - The maximum number of items to return.
---
--- * 'lamcrManagementCidrRangeConstraint' - The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
-listAvailableManagementCidrRanges ::
-  -- | 'lamcrManagementCidrRangeConstraint'
-  Text ->
+-- * 'managementCidrRangeConstraint' - The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
+-- * 'maxResults' - The maximum number of items to return.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+mkListAvailableManagementCidrRanges ::
+  -- | 'managementCidrRangeConstraint'
+  Lude.Text ->
   ListAvailableManagementCidrRanges
-listAvailableManagementCidrRanges pManagementCidrRangeConstraint_ =
+mkListAvailableManagementCidrRanges pManagementCidrRangeConstraint_ =
   ListAvailableManagementCidrRanges'
-    { _lamcrNextToken = Nothing,
-      _lamcrMaxResults = Nothing,
-      _lamcrManagementCidrRangeConstraint =
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      managementCidrRangeConstraint =
         pManagementCidrRangeConstraint_
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-lamcrNextToken :: Lens' ListAvailableManagementCidrRanges (Maybe Text)
-lamcrNextToken = lens _lamcrNextToken (\s a -> s {_lamcrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrNextToken :: Lens.Lens' ListAvailableManagementCidrRanges (Lude.Maybe Lude.Text)
+lamcrNextToken = Lens.lens (nextToken :: ListAvailableManagementCidrRanges -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAvailableManagementCidrRanges)
+{-# DEPRECATED lamcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
-lamcrMaxResults :: Lens' ListAvailableManagementCidrRanges (Maybe Natural)
-lamcrMaxResults = lens _lamcrMaxResults (\s a -> s {_lamcrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrMaxResults :: Lens.Lens' ListAvailableManagementCidrRanges (Lude.Maybe Lude.Natural)
+lamcrMaxResults = Lens.lens (maxResults :: ListAvailableManagementCidrRanges -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAvailableManagementCidrRanges)
+{-# DEPRECATED lamcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
-lamcrManagementCidrRangeConstraint :: Lens' ListAvailableManagementCidrRanges Text
-lamcrManagementCidrRangeConstraint = lens _lamcrManagementCidrRangeConstraint (\s a -> s {_lamcrManagementCidrRangeConstraint = a})
+--
+-- /Note:/ Consider using 'managementCidrRangeConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrManagementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Lude.Text
+lamcrManagementCidrRangeConstraint = Lens.lens (managementCidrRangeConstraint :: ListAvailableManagementCidrRanges -> Lude.Text) (\s a -> s {managementCidrRangeConstraint = a} :: ListAvailableManagementCidrRanges)
+{-# DEPRECATED lamcrManagementCidrRangeConstraint "Use generic-lens or generic-optics with 'managementCidrRangeConstraint' instead." #-}
 
-instance AWSPager ListAvailableManagementCidrRanges where
+instance Page.AWSPager ListAvailableManagementCidrRanges where
   page rq rs
-    | stop (rs ^. lamcrrsNextToken) = Nothing
-    | stop (rs ^. lamcrrsManagementCidrRanges) = Nothing
-    | otherwise = Just $ rq & lamcrNextToken .~ rs ^. lamcrrsNextToken
+    | Page.stop (rs Lens.^. lamcrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lamcrrsManagementCidrRanges) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lamcrNextToken Lens..~ rs Lens.^. lamcrrsNextToken
 
-instance AWSRequest ListAvailableManagementCidrRanges where
+instance Lude.AWSRequest ListAvailableManagementCidrRanges where
   type
     Rs ListAvailableManagementCidrRanges =
       ListAvailableManagementCidrRangesResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAvailableManagementCidrRangesResponse'
-            <$> (x .?> "ManagementCidrRanges" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ManagementCidrRanges" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAvailableManagementCidrRanges
-
-instance NFData ListAvailableManagementCidrRanges
-
-instance ToHeaders ListAvailableManagementCidrRanges where
+instance Lude.ToHeaders ListAvailableManagementCidrRanges where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "WorkspacesService.ListAvailableManagementCidrRanges" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.ListAvailableManagementCidrRanges" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAvailableManagementCidrRanges where
+instance Lude.ToJSON ListAvailableManagementCidrRanges where
   toJSON ListAvailableManagementCidrRanges' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lamcrNextToken,
-            ("MaxResults" .=) <$> _lamcrMaxResults,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just
               ( "ManagementCidrRangeConstraint"
-                  .= _lamcrManagementCidrRangeConstraint
+                  Lude..= managementCidrRangeConstraint
               )
           ]
       )
 
-instance ToPath ListAvailableManagementCidrRanges where
-  toPath = const "/"
+instance Lude.ToPath ListAvailableManagementCidrRanges where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAvailableManagementCidrRanges where
-  toQuery = const mempty
+instance Lude.ToQuery ListAvailableManagementCidrRanges where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAvailableManagementCidrRangesResponse' smart constructor.
+-- | /See:/ 'mkListAvailableManagementCidrRangesResponse' smart constructor.
 data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRangesResponse'
-  { _lamcrrsManagementCidrRanges ::
-      !( Maybe
-           [Text]
-       ),
-    _lamcrrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _lamcrrsResponseStatus ::
-      !Int
+  { managementCidrRanges ::
+      Lude.Maybe
+        [Lude.Text],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableManagementCidrRangesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lamcrrsManagementCidrRanges' - The list of available IP address ranges, specified as IPv4 CIDR blocks.
---
--- * 'lamcrrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
---
--- * 'lamcrrsResponseStatus' - -- | The response status code.
-listAvailableManagementCidrRangesResponse ::
-  -- | 'lamcrrsResponseStatus'
-  Int ->
+-- * 'managementCidrRanges' - The list of available IP address ranges, specified as IPv4 CIDR blocks.
+-- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'responseStatus' - The response status code.
+mkListAvailableManagementCidrRangesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAvailableManagementCidrRangesResponse
-listAvailableManagementCidrRangesResponse pResponseStatus_ =
+mkListAvailableManagementCidrRangesResponse pResponseStatus_ =
   ListAvailableManagementCidrRangesResponse'
-    { _lamcrrsManagementCidrRanges =
-        Nothing,
-      _lamcrrsNextToken = Nothing,
-      _lamcrrsResponseStatus = pResponseStatus_
+    { managementCidrRanges =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
-lamcrrsManagementCidrRanges :: Lens' ListAvailableManagementCidrRangesResponse [Text]
-lamcrrsManagementCidrRanges = lens _lamcrrsManagementCidrRanges (\s a -> s {_lamcrrsManagementCidrRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'managementCidrRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrrsManagementCidrRanges :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Lude.Maybe [Lude.Text])
+lamcrrsManagementCidrRanges = Lens.lens (managementCidrRanges :: ListAvailableManagementCidrRangesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {managementCidrRanges = a} :: ListAvailableManagementCidrRangesResponse)
+{-# DEPRECATED lamcrrsManagementCidrRanges "Use generic-lens or generic-optics with 'managementCidrRanges' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
-lamcrrsNextToken :: Lens' ListAvailableManagementCidrRangesResponse (Maybe Text)
-lamcrrsNextToken = lens _lamcrrsNextToken (\s a -> s {_lamcrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrrsNextToken :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Lude.Maybe Lude.Text)
+lamcrrsNextToken = Lens.lens (nextToken :: ListAvailableManagementCidrRangesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAvailableManagementCidrRangesResponse)
+{-# DEPRECATED lamcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lamcrrsResponseStatus :: Lens' ListAvailableManagementCidrRangesResponse Int
-lamcrrsResponseStatus = lens _lamcrrsResponseStatus (\s a -> s {_lamcrrsResponseStatus = a})
-
-instance NFData ListAvailableManagementCidrRangesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrrsResponseStatus :: Lens.Lens' ListAvailableManagementCidrRangesResponse Lude.Int
+lamcrrsResponseStatus = Lens.lens (responseStatus :: ListAvailableManagementCidrRangesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAvailableManagementCidrRangesResponse)
+{-# DEPRECATED lamcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

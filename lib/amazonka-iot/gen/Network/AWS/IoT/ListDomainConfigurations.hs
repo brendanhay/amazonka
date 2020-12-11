@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListDomainConfigurations
-  ( -- * Creating a Request
-    listDomainConfigurations,
-    ListDomainConfigurations,
+  ( -- * Creating a request
+    ListDomainConfigurations (..),
+    mkListDomainConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldcMarker,
     ldcServiceType,
     ldcPageSize,
 
-    -- * Destructuring the Response
-    listDomainConfigurationsResponse,
-    ListDomainConfigurationsResponse,
+    -- * Destructuring the response
+    ListDomainConfigurationsResponse (..),
+    mkListDomainConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldcrsDomainConfigurations,
     ldcrsNextMarker,
     ldcrsResponseStatus,
@@ -44,131 +37,151 @@ module Network.AWS.IoT.ListDomainConfigurations
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDomainConfigurations' smart constructor.
+-- | /See:/ 'mkListDomainConfigurations' smart constructor.
 data ListDomainConfigurations = ListDomainConfigurations'
-  { _ldcMarker ::
-      !(Maybe Text),
-    _ldcServiceType :: !(Maybe ServiceType),
-    _ldcPageSize :: !(Maybe Nat)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    serviceType :: Lude.Maybe ServiceType,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldcMarker' - The marker for the next set of results.
---
--- * 'ldcServiceType' - The type of service delivered by the endpoint.
---
--- * 'ldcPageSize' - The result page size.
-listDomainConfigurations ::
+-- * 'marker' - The marker for the next set of results.
+-- * 'pageSize' - The result page size.
+-- * 'serviceType' - The type of service delivered by the endpoint.
+mkListDomainConfigurations ::
   ListDomainConfigurations
-listDomainConfigurations =
+mkListDomainConfigurations =
   ListDomainConfigurations'
-    { _ldcMarker = Nothing,
-      _ldcServiceType = Nothing,
-      _ldcPageSize = Nothing
+    { marker = Lude.Nothing,
+      serviceType = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
 -- | The marker for the next set of results.
-ldcMarker :: Lens' ListDomainConfigurations (Maybe Text)
-ldcMarker = lens _ldcMarker (\s a -> s {_ldcMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcMarker :: Lens.Lens' ListDomainConfigurations (Lude.Maybe Lude.Text)
+ldcMarker = Lens.lens (marker :: ListDomainConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListDomainConfigurations)
+{-# DEPRECATED ldcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The type of service delivered by the endpoint.
-ldcServiceType :: Lens' ListDomainConfigurations (Maybe ServiceType)
-ldcServiceType = lens _ldcServiceType (\s a -> s {_ldcServiceType = a})
+--
+-- /Note:/ Consider using 'serviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcServiceType :: Lens.Lens' ListDomainConfigurations (Lude.Maybe ServiceType)
+ldcServiceType = Lens.lens (serviceType :: ListDomainConfigurations -> Lude.Maybe ServiceType) (\s a -> s {serviceType = a} :: ListDomainConfigurations)
+{-# DEPRECATED ldcServiceType "Use generic-lens or generic-optics with 'serviceType' instead." #-}
 
 -- | The result page size.
-ldcPageSize :: Lens' ListDomainConfigurations (Maybe Natural)
-ldcPageSize = lens _ldcPageSize (\s a -> s {_ldcPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcPageSize :: Lens.Lens' ListDomainConfigurations (Lude.Maybe Lude.Natural)
+ldcPageSize = Lens.lens (pageSize :: ListDomainConfigurations -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListDomainConfigurations)
+{-# DEPRECATED ldcPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager ListDomainConfigurations where
+instance Page.AWSPager ListDomainConfigurations where
   page rq rs
-    | stop (rs ^. ldcrsNextMarker) = Nothing
-    | stop (rs ^. ldcrsDomainConfigurations) = Nothing
-    | otherwise = Just $ rq & ldcMarker .~ rs ^. ldcrsNextMarker
+    | Page.stop (rs Lens.^. ldcrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldcrsDomainConfigurations) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldcMarker Lens..~ rs Lens.^. ldcrsNextMarker
 
-instance AWSRequest ListDomainConfigurations where
+instance Lude.AWSRequest ListDomainConfigurations where
   type Rs ListDomainConfigurations = ListDomainConfigurationsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDomainConfigurationsResponse'
-            <$> (x .?> "domainConfigurations" .!@ mempty)
-            <*> (x .?> "nextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "domainConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDomainConfigurations
+instance Lude.ToHeaders ListDomainConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDomainConfigurations
+instance Lude.ToPath ListDomainConfigurations where
+  toPath = Lude.const "/domainConfigurations"
 
-instance ToHeaders ListDomainConfigurations where
-  toHeaders = const mempty
-
-instance ToPath ListDomainConfigurations where
-  toPath = const "/domainConfigurations"
-
-instance ToQuery ListDomainConfigurations where
+instance Lude.ToQuery ListDomainConfigurations where
   toQuery ListDomainConfigurations' {..} =
-    mconcat
-      [ "marker" =: _ldcMarker,
-        "serviceType" =: _ldcServiceType,
-        "pageSize" =: _ldcPageSize
+    Lude.mconcat
+      [ "marker" Lude.=: marker,
+        "serviceType" Lude.=: serviceType,
+        "pageSize" Lude.=: pageSize
       ]
 
--- | /See:/ 'listDomainConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkListDomainConfigurationsResponse' smart constructor.
 data ListDomainConfigurationsResponse = ListDomainConfigurationsResponse'
-  { _ldcrsDomainConfigurations ::
-      !( Maybe
-           [DomainConfigurationSummary]
-       ),
-    _ldcrsNextMarker ::
-      !(Maybe Text),
-    _ldcrsResponseStatus ::
-      !Int
+  { domainConfigurations ::
+      Lude.Maybe
+        [DomainConfigurationSummary],
+    nextMarker ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldcrsDomainConfigurations' - A list of objects that contain summary information about the user's domain configurations.
---
--- * 'ldcrsNextMarker' - The marker for the next set of results.
---
--- * 'ldcrsResponseStatus' - -- | The response status code.
-listDomainConfigurationsResponse ::
-  -- | 'ldcrsResponseStatus'
-  Int ->
+-- * 'domainConfigurations' - A list of objects that contain summary information about the user's domain configurations.
+-- * 'nextMarker' - The marker for the next set of results.
+-- * 'responseStatus' - The response status code.
+mkListDomainConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDomainConfigurationsResponse
-listDomainConfigurationsResponse pResponseStatus_ =
+mkListDomainConfigurationsResponse pResponseStatus_ =
   ListDomainConfigurationsResponse'
-    { _ldcrsDomainConfigurations =
-        Nothing,
-      _ldcrsNextMarker = Nothing,
-      _ldcrsResponseStatus = pResponseStatus_
+    { domainConfigurations =
+        Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of objects that contain summary information about the user's domain configurations.
-ldcrsDomainConfigurations :: Lens' ListDomainConfigurationsResponse [DomainConfigurationSummary]
-ldcrsDomainConfigurations = lens _ldcrsDomainConfigurations (\s a -> s {_ldcrsDomainConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsDomainConfigurations :: Lens.Lens' ListDomainConfigurationsResponse (Lude.Maybe [DomainConfigurationSummary])
+ldcrsDomainConfigurations = Lens.lens (domainConfigurations :: ListDomainConfigurationsResponse -> Lude.Maybe [DomainConfigurationSummary]) (\s a -> s {domainConfigurations = a} :: ListDomainConfigurationsResponse)
+{-# DEPRECATED ldcrsDomainConfigurations "Use generic-lens or generic-optics with 'domainConfigurations' instead." #-}
 
 -- | The marker for the next set of results.
-ldcrsNextMarker :: Lens' ListDomainConfigurationsResponse (Maybe Text)
-ldcrsNextMarker = lens _ldcrsNextMarker (\s a -> s {_ldcrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsNextMarker :: Lens.Lens' ListDomainConfigurationsResponse (Lude.Maybe Lude.Text)
+ldcrsNextMarker = Lens.lens (nextMarker :: ListDomainConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListDomainConfigurationsResponse)
+{-# DEPRECATED ldcrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-ldcrsResponseStatus :: Lens' ListDomainConfigurationsResponse Int
-ldcrsResponseStatus = lens _ldcrsResponseStatus (\s a -> s {_ldcrsResponseStatus = a})
-
-instance NFData ListDomainConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsResponseStatus :: Lens.Lens' ListDomainConfigurationsResponse Lude.Int
+ldcrsResponseStatus = Lens.lens (responseStatus :: ListDomainConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainConfigurationsResponse)
+{-# DEPRECATED ldcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

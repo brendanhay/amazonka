@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,132 +7,176 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.NewTransitVirtualInterface where
+module Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
+  ( NewTransitVirtualInterface (..),
+
+    -- * Smart constructor
+    mkNewTransitVirtualInterface,
+
+    -- * Lenses
+    ntviMtu,
+    ntviCustomerAddress,
+    ntviVlan,
+    ntviAmazonAddress,
+    ntviAddressFamily,
+    ntviDirectConnectGatewayId,
+    ntviAsn,
+    ntviAuthKey,
+    ntviVirtualInterfaceName,
+    ntviTags,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a transit virtual interface.
 --
---
---
--- /See:/ 'newTransitVirtualInterface' smart constructor.
+-- /See:/ 'mkNewTransitVirtualInterface' smart constructor.
 data NewTransitVirtualInterface = NewTransitVirtualInterface'
-  { _ntviMtu ::
-      !(Maybe Int),
-    _ntviCustomerAddress :: !(Maybe Text),
-    _ntviVlan :: !(Maybe Int),
-    _ntviAmazonAddress :: !(Maybe Text),
-    _ntviAddressFamily ::
-      !(Maybe AddressFamily),
-    _ntviDirectConnectGatewayId ::
-      !(Maybe Text),
-    _ntviAsn :: !(Maybe Int),
-    _ntviAuthKey :: !(Maybe Text),
-    _ntviVirtualInterfaceName ::
-      !(Maybe Text),
-    _ntviTags :: !(Maybe (List1 Tag))
+  { mtu ::
+      Lude.Maybe Lude.Int,
+    customerAddress ::
+      Lude.Maybe Lude.Text,
+    vlan :: Lude.Maybe Lude.Int,
+    amazonAddress :: Lude.Maybe Lude.Text,
+    addressFamily ::
+      Lude.Maybe AddressFamily,
+    directConnectGatewayId ::
+      Lude.Maybe Lude.Text,
+    asn :: Lude.Maybe Lude.Int,
+    authKey :: Lude.Maybe Lude.Text,
+    virtualInterfaceName ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NewTransitVirtualInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addressFamily' - The address family for the BGP peer.
+-- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'ntviMtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
---
--- * 'ntviCustomerAddress' - The IP address assigned to the customer interface.
---
--- * 'ntviVlan' - The ID of the VLAN.
---
--- * 'ntviAmazonAddress' - The IP address assigned to the Amazon interface.
---
--- * 'ntviAddressFamily' - The address family for the BGP peer.
---
--- * 'ntviDirectConnectGatewayId' - The ID of the Direct Connect gateway.
---
--- * 'ntviAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
---
--- * 'ntviAuthKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
---
--- * 'ntviVirtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
---
--- * 'ntviTags' - The tags associated with the transitive virtual interface.
-newTransitVirtualInterface ::
+-- The valid values are 1-2147483647.
+-- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+-- * 'tags' - The tags associated with the transitive virtual interface.
+-- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+-- * 'vlan' - The ID of the VLAN.
+mkNewTransitVirtualInterface ::
   NewTransitVirtualInterface
-newTransitVirtualInterface =
+mkNewTransitVirtualInterface =
   NewTransitVirtualInterface'
-    { _ntviMtu = Nothing,
-      _ntviCustomerAddress = Nothing,
-      _ntviVlan = Nothing,
-      _ntviAmazonAddress = Nothing,
-      _ntviAddressFamily = Nothing,
-      _ntviDirectConnectGatewayId = Nothing,
-      _ntviAsn = Nothing,
-      _ntviAuthKey = Nothing,
-      _ntviVirtualInterfaceName = Nothing,
-      _ntviTags = Nothing
+    { mtu = Lude.Nothing,
+      customerAddress = Lude.Nothing,
+      vlan = Lude.Nothing,
+      amazonAddress = Lude.Nothing,
+      addressFamily = Lude.Nothing,
+      directConnectGatewayId = Lude.Nothing,
+      asn = Lude.Nothing,
+      authKey = Lude.Nothing,
+      virtualInterfaceName = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-ntviMtu :: Lens' NewTransitVirtualInterface (Maybe Int)
-ntviMtu = lens _ntviMtu (\s a -> s {_ntviMtu = a})
+--
+-- /Note:/ Consider using 'mtu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviMtu :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Int)
+ntviMtu = Lens.lens (mtu :: NewTransitVirtualInterface -> Lude.Maybe Lude.Int) (\s a -> s {mtu = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviMtu "Use generic-lens or generic-optics with 'mtu' instead." #-}
 
 -- | The IP address assigned to the customer interface.
-ntviCustomerAddress :: Lens' NewTransitVirtualInterface (Maybe Text)
-ntviCustomerAddress = lens _ntviCustomerAddress (\s a -> s {_ntviCustomerAddress = a})
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviCustomerAddress :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Text)
+ntviCustomerAddress = Lens.lens (customerAddress :: NewTransitVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
 
 -- | The ID of the VLAN.
-ntviVlan :: Lens' NewTransitVirtualInterface (Maybe Int)
-ntviVlan = lens _ntviVlan (\s a -> s {_ntviVlan = a})
+--
+-- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviVlan :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Int)
+ntviVlan = Lens.lens (vlan :: NewTransitVirtualInterface -> Lude.Maybe Lude.Int) (\s a -> s {vlan = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
 
 -- | The IP address assigned to the Amazon interface.
-ntviAmazonAddress :: Lens' NewTransitVirtualInterface (Maybe Text)
-ntviAmazonAddress = lens _ntviAmazonAddress (\s a -> s {_ntviAmazonAddress = a})
+--
+-- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviAmazonAddress :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Text)
+ntviAmazonAddress = Lens.lens (amazonAddress :: NewTransitVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {amazonAddress = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The address family for the BGP peer.
-ntviAddressFamily :: Lens' NewTransitVirtualInterface (Maybe AddressFamily)
-ntviAddressFamily = lens _ntviAddressFamily (\s a -> s {_ntviAddressFamily = a})
+--
+-- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviAddressFamily :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe AddressFamily)
+ntviAddressFamily = Lens.lens (addressFamily :: NewTransitVirtualInterface -> Lude.Maybe AddressFamily) (\s a -> s {addressFamily = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
-ntviDirectConnectGatewayId :: Lens' NewTransitVirtualInterface (Maybe Text)
-ntviDirectConnectGatewayId = lens _ntviDirectConnectGatewayId (\s a -> s {_ntviDirectConnectGatewayId = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviDirectConnectGatewayId :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Text)
+ntviDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: NewTransitVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
--- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
-ntviAsn :: Lens' NewTransitVirtualInterface (Maybe Int)
-ntviAsn = lens _ntviAsn (\s a -> s {_ntviAsn = a})
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+--
+-- The valid values are 1-2147483647.
+--
+-- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviAsn :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Int)
+ntviAsn = Lens.lens (asn :: NewTransitVirtualInterface -> Lude.Maybe Lude.Int) (\s a -> s {asn = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
 -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
-ntviAuthKey :: Lens' NewTransitVirtualInterface (Maybe Text)
-ntviAuthKey = lens _ntviAuthKey (\s a -> s {_ntviAuthKey = a})
+--
+-- /Note:/ Consider using 'authKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviAuthKey :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Text)
+ntviAuthKey = Lens.lens (authKey :: NewTransitVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {authKey = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
 
 -- | The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
-ntviVirtualInterfaceName :: Lens' NewTransitVirtualInterface (Maybe Text)
-ntviVirtualInterfaceName = lens _ntviVirtualInterfaceName (\s a -> s {_ntviVirtualInterfaceName = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviVirtualInterfaceName :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe Lude.Text)
+ntviVirtualInterfaceName = Lens.lens (virtualInterfaceName :: NewTransitVirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceName = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviVirtualInterfaceName "Use generic-lens or generic-optics with 'virtualInterfaceName' instead." #-}
 
 -- | The tags associated with the transitive virtual interface.
-ntviTags :: Lens' NewTransitVirtualInterface (Maybe (NonEmpty Tag))
-ntviTags = lens _ntviTags (\s a -> s {_ntviTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntviTags :: Lens.Lens' NewTransitVirtualInterface (Lude.Maybe (Lude.NonEmpty Tag))
+ntviTags = Lens.lens (tags :: NewTransitVirtualInterface -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: NewTransitVirtualInterface)
+{-# DEPRECATED ntviTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Hashable NewTransitVirtualInterface
-
-instance NFData NewTransitVirtualInterface
-
-instance ToJSON NewTransitVirtualInterface where
+instance Lude.ToJSON NewTransitVirtualInterface where
   toJSON NewTransitVirtualInterface' {..} =
-    object
-      ( catMaybes
-          [ ("mtu" .=) <$> _ntviMtu,
-            ("customerAddress" .=) <$> _ntviCustomerAddress,
-            ("vlan" .=) <$> _ntviVlan,
-            ("amazonAddress" .=) <$> _ntviAmazonAddress,
-            ("addressFamily" .=) <$> _ntviAddressFamily,
-            ("directConnectGatewayId" .=) <$> _ntviDirectConnectGatewayId,
-            ("asn" .=) <$> _ntviAsn,
-            ("authKey" .=) <$> _ntviAuthKey,
-            ("virtualInterfaceName" .=) <$> _ntviVirtualInterfaceName,
-            ("tags" .=) <$> _ntviTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("mtu" Lude..=) Lude.<$> mtu,
+            ("customerAddress" Lude..=) Lude.<$> customerAddress,
+            ("vlan" Lude..=) Lude.<$> vlan,
+            ("amazonAddress" Lude..=) Lude.<$> amazonAddress,
+            ("addressFamily" Lude..=) Lude.<$> addressFamily,
+            ("directConnectGatewayId" Lude..=) Lude.<$> directConnectGatewayId,
+            ("asn" Lude..=) Lude.<$> asn,
+            ("authKey" Lude..=) Lude.<$> authKey,
+            ("virtualInterfaceName" Lude..=) Lude.<$> virtualInterfaceName,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )

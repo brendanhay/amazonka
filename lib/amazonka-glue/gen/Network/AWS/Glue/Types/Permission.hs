@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Permission where
+module Network.AWS.Glue.Types.Permission
+  ( Permission
+      ( Permission',
+        PAll,
+        PAlter,
+        PCreateDatabase,
+        PCreateTable,
+        PDataLocationAccess,
+        PDelete,
+        PDrop,
+        PInsert,
+        PSelect
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Permission
-  = PAll
-  | PAlter
-  | PCreateDatabase
-  | PCreateTable
-  | PDataLocationAccess
-  | PDelete
-  | PDrop
-  | PInsert
-  | PSelect
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Permission = Permission' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Permission where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure PAll
-      "alter" -> pure PAlter
-      "create_database" -> pure PCreateDatabase
-      "create_table" -> pure PCreateTable
-      "data_location_access" -> pure PDataLocationAccess
-      "delete" -> pure PDelete
-      "drop" -> pure PDrop
-      "insert" -> pure PInsert
-      "select" -> pure PSelect
-      e ->
-        fromTextError $
-          "Failure parsing Permission from value: '" <> e
-            <> "'. Accepted values: all, alter, create_database, create_table, data_location_access, delete, drop, insert, select"
+pattern PAll :: Permission
+pattern PAll = Permission' "ALL"
 
-instance ToText Permission where
-  toText = \case
-    PAll -> "ALL"
-    PAlter -> "ALTER"
-    PCreateDatabase -> "CREATE_DATABASE"
-    PCreateTable -> "CREATE_TABLE"
-    PDataLocationAccess -> "DATA_LOCATION_ACCESS"
-    PDelete -> "DELETE"
-    PDrop -> "DROP"
-    PInsert -> "INSERT"
-    PSelect -> "SELECT"
+pattern PAlter :: Permission
+pattern PAlter = Permission' "ALTER"
 
-instance Hashable Permission
+pattern PCreateDatabase :: Permission
+pattern PCreateDatabase = Permission' "CREATE_DATABASE"
 
-instance NFData Permission
+pattern PCreateTable :: Permission
+pattern PCreateTable = Permission' "CREATE_TABLE"
 
-instance ToByteString Permission
+pattern PDataLocationAccess :: Permission
+pattern PDataLocationAccess = Permission' "DATA_LOCATION_ACCESS"
 
-instance ToQuery Permission
+pattern PDelete :: Permission
+pattern PDelete = Permission' "DELETE"
 
-instance ToHeader Permission
+pattern PDrop :: Permission
+pattern PDrop = Permission' "DROP"
 
-instance ToJSON Permission where
-  toJSON = toJSONText
+pattern PInsert :: Permission
+pattern PInsert = Permission' "INSERT"
 
-instance FromJSON Permission where
-  parseJSON = parseJSONText "Permission"
+pattern PSelect :: Permission
+pattern PSelect = Permission' "SELECT"
+
+{-# COMPLETE
+  PAll,
+  PAlter,
+  PCreateDatabase,
+  PCreateTable,
+  PDataLocationAccess,
+  PDelete,
+  PDrop,
+  PInsert,
+  PSelect,
+  Permission'
+  #-}

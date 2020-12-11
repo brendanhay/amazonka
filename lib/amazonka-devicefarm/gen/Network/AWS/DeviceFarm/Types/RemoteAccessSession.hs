@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,36 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.RemoteAccessSession where
+module Network.AWS.DeviceFarm.Types.RemoteAccessSession
+  ( RemoteAccessSession (..),
+
+    -- * Smart constructor
+    mkRemoteAccessSession,
+
+    -- * Lenses
+    rasBillingMethod,
+    rasClientId,
+    rasDeviceUdid,
+    rasSkipAppResign,
+    rasInstanceARN,
+    rasStatus,
+    rasRemoteRecordEnabled,
+    rasArn,
+    rasRemoteRecordAppARN,
+    rasCreated,
+    rasDevice,
+    rasStopped,
+    rasResult,
+    rasName,
+    rasDeviceMinutes,
+    rasRemoteDebugEnabled,
+    rasEndpoint,
+    rasMessage,
+    rasHostAddress,
+    rasInteractionMode,
+    rasStarted,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.BillingMethod
 import Network.AWS.DeviceFarm.Types.Device
@@ -21,225 +44,413 @@ import Network.AWS.DeviceFarm.Types.DeviceMinutes
 import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ExecutionStatus
 import Network.AWS.DeviceFarm.Types.InteractionMode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about the remote access session.
 --
---
---
--- /See:/ 'remoteAccessSession' smart constructor.
+-- /See:/ 'mkRemoteAccessSession' smart constructor.
 data RemoteAccessSession = RemoteAccessSession'
-  { _rasBillingMethod ::
-      !(Maybe BillingMethod),
-    _rasClientId :: !(Maybe Text),
-    _rasDeviceUdid :: !(Maybe Text),
-    _rasSkipAppResign :: !(Maybe Bool),
-    _rasInstanceARN :: !(Maybe Text),
-    _rasStatus :: !(Maybe ExecutionStatus),
-    _rasRemoteRecordEnabled :: !(Maybe Bool),
-    _rasArn :: !(Maybe Text),
-    _rasRemoteRecordAppARN :: !(Maybe Text),
-    _rasCreated :: !(Maybe POSIX),
-    _rasDevice :: !(Maybe Device),
-    _rasStopped :: !(Maybe POSIX),
-    _rasResult :: !(Maybe ExecutionResult),
-    _rasName :: !(Maybe Text),
-    _rasDeviceMinutes :: !(Maybe DeviceMinutes),
-    _rasRemoteDebugEnabled :: !(Maybe Bool),
-    _rasEndpoint :: !(Maybe Text),
-    _rasMessage :: !(Maybe Text),
-    _rasHostAddress :: !(Maybe Text),
-    _rasInteractionMode :: !(Maybe InteractionMode),
-    _rasStarted :: !(Maybe POSIX)
+  { billingMethod ::
+      Lude.Maybe BillingMethod,
+    clientId :: Lude.Maybe Lude.Text,
+    deviceUdid :: Lude.Maybe Lude.Text,
+    skipAppResign :: Lude.Maybe Lude.Bool,
+    instanceARN :: Lude.Maybe Lude.Text,
+    status :: Lude.Maybe ExecutionStatus,
+    remoteRecordEnabled :: Lude.Maybe Lude.Bool,
+    arn :: Lude.Maybe Lude.Text,
+    remoteRecordAppARN :: Lude.Maybe Lude.Text,
+    created :: Lude.Maybe Lude.Timestamp,
+    device :: Lude.Maybe Device,
+    stopped :: Lude.Maybe Lude.Timestamp,
+    result :: Lude.Maybe ExecutionResult,
+    name :: Lude.Maybe Lude.Text,
+    deviceMinutes :: Lude.Maybe DeviceMinutes,
+    remoteDebugEnabled :: Lude.Maybe Lude.Bool,
+    endpoint :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text,
+    hostAddress :: Lude.Maybe Lude.Text,
+    interactionMode :: Lude.Maybe InteractionMode,
+    started :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoteAccessSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the remote access session.
+-- * 'billingMethod' - The billing method of the remote access session. Possible values include @METERED@ or @UNMETERED@ . For more information about metered devices, see <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology> .
+-- * 'clientId' - Unique identifier of your client for the remote access session. Only returned if remote debugging is enabled for the remote access session.
 --
--- * 'rasBillingMethod' - The billing method of the remote access session. Possible values include @METERED@ or @UNMETERED@ . For more information about metered devices, see <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology> .
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- * 'created' - The date and time the remote access session was created.
+-- * 'device' - The device (phone or tablet) used in the remote access session.
+-- * 'deviceMinutes' - The number of minutes a device is used in a remote access session (including setup and teardown minutes).
+-- * 'deviceUdid' - Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.
 --
--- * 'rasClientId' - Unique identifier of your client for the remote access session. Only returned if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- * 'endpoint' - The endpoint for the remote access sesssion.
+-- * 'hostAddress' - IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session.
 --
--- * 'rasDeviceUdid' - Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- * 'instanceARN' - The ARN of the instance.
+-- * 'interactionMode' - The interaction mode of the remote access session. Valid values are:
 --
--- * 'rasSkipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again. For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
 --
--- * 'rasInstanceARN' - The ARN of the instance.
+--     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.
 --
--- * 'rasStatus' - The status of the remote access session. Can be any of the following:     * PENDING.     * PENDING_CONCURRENCY.     * PENDING_DEVICE.     * PROCESSING.     * SCHEDULING.     * PREPARING.     * RUNNING.     * COMPLETED.     * STOPPING.
 --
--- * 'rasRemoteRecordEnabled' - This flag is set to @true@ if remote recording is enabled for the remote access session.
+--     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.
 --
--- * 'rasArn' - The Amazon Resource Name (ARN) of the remote access session.
 --
--- * 'rasRemoteRecordAppARN' - The ARN for the app to be recorded in the remote access session.
+--     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
 --
--- * 'rasCreated' - The date and time the remote access session was created.
 --
--- * 'rasDevice' - The device (phone or tablet) used in the remote access session.
+-- * 'message' - A message about the remote access session.
+-- * 'name' - The name of the remote access session.
+-- * 'remoteDebugEnabled' - This flag is set to @true@ if remote debugging is enabled for the remote access session.
 --
--- * 'rasStopped' - The date and time the remote access session was stopped.
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- * 'remoteRecordAppARN' - The ARN for the app to be recorded in the remote access session.
+-- * 'remoteRecordEnabled' - This flag is set to @true@ if remote recording is enabled for the remote access session.
+-- * 'result' - The result of the remote access session. Can be any of the following:
 --
--- * 'rasResult' - The result of the remote access session. Can be any of the following:     * PENDING.     * PASSED.     * WARNED.     * FAILED.     * SKIPPED.     * ERRORED.     * STOPPED.
 --
--- * 'rasName' - The name of the remote access session.
+--     * PENDING.
 --
--- * 'rasDeviceMinutes' - The number of minutes a device is used in a remote access session (including setup and teardown minutes).
 --
--- * 'rasRemoteDebugEnabled' - This flag is set to @true@ if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+--     * PASSED.
 --
--- * 'rasEndpoint' - The endpoint for the remote access sesssion.
 --
--- * 'rasMessage' - A message about the remote access session.
+--     * WARNED.
 --
--- * 'rasHostAddress' - IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
 --
--- * 'rasInteractionMode' - The interaction mode of the remote access session. Valid values are:     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
+--     * FAILED.
 --
--- * 'rasStarted' - The date and time the remote access session was started.
-remoteAccessSession ::
+--
+--     * SKIPPED.
+--
+--
+--     * ERRORED.
+--
+--
+--     * STOPPED.
+--
+--
+-- * 'skipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+--
+-- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+-- * 'started' - The date and time the remote access session was started.
+-- * 'status' - The status of the remote access session. Can be any of the following:
+--
+--
+--     * PENDING.
+--
+--
+--     * PENDING_CONCURRENCY.
+--
+--
+--     * PENDING_DEVICE.
+--
+--
+--     * PROCESSING.
+--
+--
+--     * SCHEDULING.
+--
+--
+--     * PREPARING.
+--
+--
+--     * RUNNING.
+--
+--
+--     * COMPLETED.
+--
+--
+--     * STOPPING.
+--
+--
+-- * 'stopped' - The date and time the remote access session was stopped.
+mkRemoteAccessSession ::
   RemoteAccessSession
-remoteAccessSession =
+mkRemoteAccessSession =
   RemoteAccessSession'
-    { _rasBillingMethod = Nothing,
-      _rasClientId = Nothing,
-      _rasDeviceUdid = Nothing,
-      _rasSkipAppResign = Nothing,
-      _rasInstanceARN = Nothing,
-      _rasStatus = Nothing,
-      _rasRemoteRecordEnabled = Nothing,
-      _rasArn = Nothing,
-      _rasRemoteRecordAppARN = Nothing,
-      _rasCreated = Nothing,
-      _rasDevice = Nothing,
-      _rasStopped = Nothing,
-      _rasResult = Nothing,
-      _rasName = Nothing,
-      _rasDeviceMinutes = Nothing,
-      _rasRemoteDebugEnabled = Nothing,
-      _rasEndpoint = Nothing,
-      _rasMessage = Nothing,
-      _rasHostAddress = Nothing,
-      _rasInteractionMode = Nothing,
-      _rasStarted = Nothing
+    { billingMethod = Lude.Nothing,
+      clientId = Lude.Nothing,
+      deviceUdid = Lude.Nothing,
+      skipAppResign = Lude.Nothing,
+      instanceARN = Lude.Nothing,
+      status = Lude.Nothing,
+      remoteRecordEnabled = Lude.Nothing,
+      arn = Lude.Nothing,
+      remoteRecordAppARN = Lude.Nothing,
+      created = Lude.Nothing,
+      device = Lude.Nothing,
+      stopped = Lude.Nothing,
+      result = Lude.Nothing,
+      name = Lude.Nothing,
+      deviceMinutes = Lude.Nothing,
+      remoteDebugEnabled = Lude.Nothing,
+      endpoint = Lude.Nothing,
+      message = Lude.Nothing,
+      hostAddress = Lude.Nothing,
+      interactionMode = Lude.Nothing,
+      started = Lude.Nothing
     }
 
 -- | The billing method of the remote access session. Possible values include @METERED@ or @UNMETERED@ . For more information about metered devices, see <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology> .
-rasBillingMethod :: Lens' RemoteAccessSession (Maybe BillingMethod)
-rasBillingMethod = lens _rasBillingMethod (\s a -> s {_rasBillingMethod = a})
+--
+-- /Note:/ Consider using 'billingMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasBillingMethod :: Lens.Lens' RemoteAccessSession (Lude.Maybe BillingMethod)
+rasBillingMethod = Lens.lens (billingMethod :: RemoteAccessSession -> Lude.Maybe BillingMethod) (\s a -> s {billingMethod = a} :: RemoteAccessSession)
+{-# DEPRECATED rasBillingMethod "Use generic-lens or generic-optics with 'billingMethod' instead." #-}
 
--- | Unique identifier of your client for the remote access session. Only returned if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
-rasClientId :: Lens' RemoteAccessSession (Maybe Text)
-rasClientId = lens _rasClientId (\s a -> s {_rasClientId = a})
+-- | Unique identifier of your client for the remote access session. Only returned if remote debugging is enabled for the remote access session.
+--
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasClientId :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasClientId = Lens.lens (clientId :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: RemoteAccessSession)
+{-# DEPRECATED rasClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
--- | Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
-rasDeviceUdid :: Lens' RemoteAccessSession (Maybe Text)
-rasDeviceUdid = lens _rasDeviceUdid (\s a -> s {_rasDeviceUdid = a})
+-- | Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.
+--
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+--
+-- /Note:/ Consider using 'deviceUdid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasDeviceUdid :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasDeviceUdid = Lens.lens (deviceUdid :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {deviceUdid = a} :: RemoteAccessSession)
+{-# DEPRECATED rasDeviceUdid "Use generic-lens or generic-optics with 'deviceUdid' instead." #-}
 
--- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again. For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
-rasSkipAppResign :: Lens' RemoteAccessSession (Maybe Bool)
-rasSkipAppResign = lens _rasSkipAppResign (\s a -> s {_rasSkipAppResign = a})
+-- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+--
+-- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+--
+-- /Note:/ Consider using 'skipAppResign' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasSkipAppResign :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Bool)
+rasSkipAppResign = Lens.lens (skipAppResign :: RemoteAccessSession -> Lude.Maybe Lude.Bool) (\s a -> s {skipAppResign = a} :: RemoteAccessSession)
+{-# DEPRECATED rasSkipAppResign "Use generic-lens or generic-optics with 'skipAppResign' instead." #-}
 
 -- | The ARN of the instance.
-rasInstanceARN :: Lens' RemoteAccessSession (Maybe Text)
-rasInstanceARN = lens _rasInstanceARN (\s a -> s {_rasInstanceARN = a})
+--
+-- /Note:/ Consider using 'instanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasInstanceARN :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasInstanceARN = Lens.lens (instanceARN :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {instanceARN = a} :: RemoteAccessSession)
+{-# DEPRECATED rasInstanceARN "Use generic-lens or generic-optics with 'instanceARN' instead." #-}
 
--- | The status of the remote access session. Can be any of the following:     * PENDING.     * PENDING_CONCURRENCY.     * PENDING_DEVICE.     * PROCESSING.     * SCHEDULING.     * PREPARING.     * RUNNING.     * COMPLETED.     * STOPPING.
-rasStatus :: Lens' RemoteAccessSession (Maybe ExecutionStatus)
-rasStatus = lens _rasStatus (\s a -> s {_rasStatus = a})
+-- | The status of the remote access session. Can be any of the following:
+--
+--
+--     * PENDING.
+--
+--
+--     * PENDING_CONCURRENCY.
+--
+--
+--     * PENDING_DEVICE.
+--
+--
+--     * PROCESSING.
+--
+--
+--     * SCHEDULING.
+--
+--
+--     * PREPARING.
+--
+--
+--     * RUNNING.
+--
+--
+--     * COMPLETED.
+--
+--
+--     * STOPPING.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasStatus :: Lens.Lens' RemoteAccessSession (Lude.Maybe ExecutionStatus)
+rasStatus = Lens.lens (status :: RemoteAccessSession -> Lude.Maybe ExecutionStatus) (\s a -> s {status = a} :: RemoteAccessSession)
+{-# DEPRECATED rasStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | This flag is set to @true@ if remote recording is enabled for the remote access session.
-rasRemoteRecordEnabled :: Lens' RemoteAccessSession (Maybe Bool)
-rasRemoteRecordEnabled = lens _rasRemoteRecordEnabled (\s a -> s {_rasRemoteRecordEnabled = a})
+--
+-- /Note:/ Consider using 'remoteRecordEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasRemoteRecordEnabled :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Bool)
+rasRemoteRecordEnabled = Lens.lens (remoteRecordEnabled :: RemoteAccessSession -> Lude.Maybe Lude.Bool) (\s a -> s {remoteRecordEnabled = a} :: RemoteAccessSession)
+{-# DEPRECATED rasRemoteRecordEnabled "Use generic-lens or generic-optics with 'remoteRecordEnabled' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the remote access session.
-rasArn :: Lens' RemoteAccessSession (Maybe Text)
-rasArn = lens _rasArn (\s a -> s {_rasArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasArn :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasArn = Lens.lens (arn :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RemoteAccessSession)
+{-# DEPRECATED rasArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The ARN for the app to be recorded in the remote access session.
-rasRemoteRecordAppARN :: Lens' RemoteAccessSession (Maybe Text)
-rasRemoteRecordAppARN = lens _rasRemoteRecordAppARN (\s a -> s {_rasRemoteRecordAppARN = a})
+--
+-- /Note:/ Consider using 'remoteRecordAppARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasRemoteRecordAppARN :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasRemoteRecordAppARN = Lens.lens (remoteRecordAppARN :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {remoteRecordAppARN = a} :: RemoteAccessSession)
+{-# DEPRECATED rasRemoteRecordAppARN "Use generic-lens or generic-optics with 'remoteRecordAppARN' instead." #-}
 
 -- | The date and time the remote access session was created.
-rasCreated :: Lens' RemoteAccessSession (Maybe UTCTime)
-rasCreated = lens _rasCreated (\s a -> s {_rasCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasCreated :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Timestamp)
+rasCreated = Lens.lens (created :: RemoteAccessSession -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: RemoteAccessSession)
+{-# DEPRECATED rasCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The device (phone or tablet) used in the remote access session.
-rasDevice :: Lens' RemoteAccessSession (Maybe Device)
-rasDevice = lens _rasDevice (\s a -> s {_rasDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasDevice :: Lens.Lens' RemoteAccessSession (Lude.Maybe Device)
+rasDevice = Lens.lens (device :: RemoteAccessSession -> Lude.Maybe Device) (\s a -> s {device = a} :: RemoteAccessSession)
+{-# DEPRECATED rasDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | The date and time the remote access session was stopped.
-rasStopped :: Lens' RemoteAccessSession (Maybe UTCTime)
-rasStopped = lens _rasStopped (\s a -> s {_rasStopped = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasStopped :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Timestamp)
+rasStopped = Lens.lens (stopped :: RemoteAccessSession -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopped = a} :: RemoteAccessSession)
+{-# DEPRECATED rasStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
 
--- | The result of the remote access session. Can be any of the following:     * PENDING.     * PASSED.     * WARNED.     * FAILED.     * SKIPPED.     * ERRORED.     * STOPPED.
-rasResult :: Lens' RemoteAccessSession (Maybe ExecutionResult)
-rasResult = lens _rasResult (\s a -> s {_rasResult = a})
+-- | The result of the remote access session. Can be any of the following:
+--
+--
+--     * PENDING.
+--
+--
+--     * PASSED.
+--
+--
+--     * WARNED.
+--
+--
+--     * FAILED.
+--
+--
+--     * SKIPPED.
+--
+--
+--     * ERRORED.
+--
+--
+--     * STOPPED.
+--
+--
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasResult :: Lens.Lens' RemoteAccessSession (Lude.Maybe ExecutionResult)
+rasResult = Lens.lens (result :: RemoteAccessSession -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: RemoteAccessSession)
+{-# DEPRECATED rasResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The name of the remote access session.
-rasName :: Lens' RemoteAccessSession (Maybe Text)
-rasName = lens _rasName (\s a -> s {_rasName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasName :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasName = Lens.lens (name :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RemoteAccessSession)
+{-# DEPRECATED rasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of minutes a device is used in a remote access session (including setup and teardown minutes).
-rasDeviceMinutes :: Lens' RemoteAccessSession (Maybe DeviceMinutes)
-rasDeviceMinutes = lens _rasDeviceMinutes (\s a -> s {_rasDeviceMinutes = a})
+--
+-- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasDeviceMinutes :: Lens.Lens' RemoteAccessSession (Lude.Maybe DeviceMinutes)
+rasDeviceMinutes = Lens.lens (deviceMinutes :: RemoteAccessSession -> Lude.Maybe DeviceMinutes) (\s a -> s {deviceMinutes = a} :: RemoteAccessSession)
+{-# DEPRECATED rasDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
 
--- | This flag is set to @true@ if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
-rasRemoteDebugEnabled :: Lens' RemoteAccessSession (Maybe Bool)
-rasRemoteDebugEnabled = lens _rasRemoteDebugEnabled (\s a -> s {_rasRemoteDebugEnabled = a})
+-- | This flag is set to @true@ if remote debugging is enabled for the remote access session.
+--
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+--
+-- /Note:/ Consider using 'remoteDebugEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasRemoteDebugEnabled :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Bool)
+rasRemoteDebugEnabled = Lens.lens (remoteDebugEnabled :: RemoteAccessSession -> Lude.Maybe Lude.Bool) (\s a -> s {remoteDebugEnabled = a} :: RemoteAccessSession)
+{-# DEPRECATED rasRemoteDebugEnabled "Use generic-lens or generic-optics with 'remoteDebugEnabled' instead." #-}
 
 -- | The endpoint for the remote access sesssion.
-rasEndpoint :: Lens' RemoteAccessSession (Maybe Text)
-rasEndpoint = lens _rasEndpoint (\s a -> s {_rasEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasEndpoint :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasEndpoint = Lens.lens (endpoint :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: RemoteAccessSession)
+{-# DEPRECATED rasEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | A message about the remote access session.
-rasMessage :: Lens' RemoteAccessSession (Maybe Text)
-rasMessage = lens _rasMessage (\s a -> s {_rasMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasMessage :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasMessage = Lens.lens (message :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: RemoteAccessSession)
+{-# DEPRECATED rasMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
--- | IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session. Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
-rasHostAddress :: Lens' RemoteAccessSession (Maybe Text)
-rasHostAddress = lens _rasHostAddress (\s a -> s {_rasHostAddress = a})
+-- | IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session.
+--
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+--
+-- /Note:/ Consider using 'hostAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasHostAddress :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Text)
+rasHostAddress = Lens.lens (hostAddress :: RemoteAccessSession -> Lude.Maybe Lude.Text) (\s a -> s {hostAddress = a} :: RemoteAccessSession)
+{-# DEPRECATED rasHostAddress "Use generic-lens or generic-optics with 'hostAddress' instead." #-}
 
--- | The interaction mode of the remote access session. Valid values are:     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
-rasInteractionMode :: Lens' RemoteAccessSession (Maybe InteractionMode)
-rasInteractionMode = lens _rasInteractionMode (\s a -> s {_rasInteractionMode = a})
+-- | The interaction mode of the remote access session. Valid values are:
+--
+--
+--     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.
+--
+--
+--     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.
+--
+--
+--     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
+--
+--
+--
+-- /Note:/ Consider using 'interactionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasInteractionMode :: Lens.Lens' RemoteAccessSession (Lude.Maybe InteractionMode)
+rasInteractionMode = Lens.lens (interactionMode :: RemoteAccessSession -> Lude.Maybe InteractionMode) (\s a -> s {interactionMode = a} :: RemoteAccessSession)
+{-# DEPRECATED rasInteractionMode "Use generic-lens or generic-optics with 'interactionMode' instead." #-}
 
 -- | The date and time the remote access session was started.
-rasStarted :: Lens' RemoteAccessSession (Maybe UTCTime)
-rasStarted = lens _rasStarted (\s a -> s {_rasStarted = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasStarted :: Lens.Lens' RemoteAccessSession (Lude.Maybe Lude.Timestamp)
+rasStarted = Lens.lens (started :: RemoteAccessSession -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: RemoteAccessSession)
+{-# DEPRECATED rasStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
-instance FromJSON RemoteAccessSession where
+instance Lude.FromJSON RemoteAccessSession where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemoteAccessSession"
       ( \x ->
           RemoteAccessSession'
-            <$> (x .:? "billingMethod")
-            <*> (x .:? "clientId")
-            <*> (x .:? "deviceUdid")
-            <*> (x .:? "skipAppResign")
-            <*> (x .:? "instanceArn")
-            <*> (x .:? "status")
-            <*> (x .:? "remoteRecordEnabled")
-            <*> (x .:? "arn")
-            <*> (x .:? "remoteRecordAppArn")
-            <*> (x .:? "created")
-            <*> (x .:? "device")
-            <*> (x .:? "stopped")
-            <*> (x .:? "result")
-            <*> (x .:? "name")
-            <*> (x .:? "deviceMinutes")
-            <*> (x .:? "remoteDebugEnabled")
-            <*> (x .:? "endpoint")
-            <*> (x .:? "message")
-            <*> (x .:? "hostAddress")
-            <*> (x .:? "interactionMode")
-            <*> (x .:? "started")
+            Lude.<$> (x Lude..:? "billingMethod")
+            Lude.<*> (x Lude..:? "clientId")
+            Lude.<*> (x Lude..:? "deviceUdid")
+            Lude.<*> (x Lude..:? "skipAppResign")
+            Lude.<*> (x Lude..:? "instanceArn")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "remoteRecordEnabled")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "remoteRecordAppArn")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "device")
+            Lude.<*> (x Lude..:? "stopped")
+            Lude.<*> (x Lude..:? "result")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "deviceMinutes")
+            Lude.<*> (x Lude..:? "remoteDebugEnabled")
+            Lude.<*> (x Lude..:? "endpoint")
+            Lude.<*> (x Lude..:? "message")
+            Lude.<*> (x Lude..:? "hostAddress")
+            Lude.<*> (x Lude..:? "interactionMode")
+            Lude.<*> (x Lude..:? "started")
       )
-
-instance Hashable RemoteAccessSession
-
-instance NFData RemoteAccessSession

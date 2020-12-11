@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,156 @@
 --
 -- List CloudFront distributions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
-  ( -- * Creating a Request
-    listDistributions,
-    ListDistributions,
+  ( -- * Creating a request
+    ListDistributions (..),
+    mkListDistributions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldMarker,
     ldMaxItems,
 
-    -- * Destructuring the Response
-    listDistributionsResponse,
-    ListDistributionsResponse,
+    -- * Destructuring the response
+    ListDistributionsResponse (..),
+    mkListDistributionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsResponseStatus,
     ldrsDistributionList,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to list your distributions.
 --
---
---
--- /See:/ 'listDistributions' smart constructor.
+-- /See:/ 'mkListDistributions' smart constructor.
 data ListDistributions = ListDistributions'
-  { _ldMarker ::
-      !(Maybe Text),
-    _ldMaxItems :: !(Maybe Text)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldMarker' - Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
---
--- * 'ldMaxItems' - The maximum number of distributions you want in the response body.
-listDistributions ::
+-- * 'marker' - Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
+-- * 'maxItems' - The maximum number of distributions you want in the response body.
+mkListDistributions ::
   ListDistributions
-listDistributions =
-  ListDistributions' {_ldMarker = Nothing, _ldMaxItems = Nothing}
+mkListDistributions =
+  ListDistributions'
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing
+    }
 
 -- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
-ldMarker :: Lens' ListDistributions (Maybe Text)
-ldMarker = lens _ldMarker (\s a -> s {_ldMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMarker :: Lens.Lens' ListDistributions (Lude.Maybe Lude.Text)
+ldMarker = Lens.lens (marker :: ListDistributions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListDistributions)
+{-# DEPRECATED ldMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of distributions you want in the response body.
-ldMaxItems :: Lens' ListDistributions (Maybe Text)
-ldMaxItems = lens _ldMaxItems (\s a -> s {_ldMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxItems :: Lens.Lens' ListDistributions (Lude.Maybe Lude.Text)
+ldMaxItems = Lens.lens (maxItems :: ListDistributions -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListDistributions)
+{-# DEPRECATED ldMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListDistributions where
+instance Page.AWSPager ListDistributions where
   page rq rs
-    | stop (rs ^. ldrsDistributionList . dlIsTruncated) = Nothing
-    | isNothing (rs ^? ldrsDistributionList . dlNextMarker . _Just) =
-      Nothing
-    | otherwise =
-      Just $
+    | Page.stop (rs Lens.^. ldrsDistributionList Lude.. dlIsTruncated) =
+      Lude.Nothing
+    | Lude.isNothing
+        ( rs
+            Lens.^? ldrsDistributionList Lude.. dlNextMarker Lude.. Lens._Just
+        ) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
         rq
-          & ldMarker .~ rs ^? ldrsDistributionList . dlNextMarker . _Just
+          Lude.& ldMarker
+          Lens..~ rs
+          Lens.^? ldrsDistributionList Lude.. dlNextMarker Lude.. Lens._Just
 
-instance AWSRequest ListDistributions where
+instance Lude.AWSRequest ListDistributions where
   type Rs ListDistributions = ListDistributionsResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListDistributionsResponse'
-            <$> (pure (fromEnum s)) <*> (parseXML x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
       )
 
-instance Hashable ListDistributions
+instance Lude.ToHeaders ListDistributions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDistributions
+instance Lude.ToPath ListDistributions where
+  toPath = Lude.const "/2020-05-31/distribution"
 
-instance ToHeaders ListDistributions where
-  toHeaders = const mempty
-
-instance ToPath ListDistributions where
-  toPath = const "/2020-05-31/distribution"
-
-instance ToQuery ListDistributions where
+instance Lude.ToQuery ListDistributions where
   toQuery ListDistributions' {..} =
-    mconcat ["Marker" =: _ldMarker, "MaxItems" =: _ldMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'listDistributionsResponse' smart constructor.
+-- /See:/ 'mkListDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
-  { _ldrsResponseStatus ::
-      !Int,
-    _ldrsDistributionList ::
-      !DistributionList
+  { responseStatus ::
+      Lude.Int,
+    distributionList :: DistributionList
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsResponseStatus' - -- | The response status code.
---
--- * 'ldrsDistributionList' - The @DistributionList@ type.
-listDistributionsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
-  -- | 'ldrsDistributionList'
+-- * 'distributionList' - The @DistributionList@ type.
+-- * 'responseStatus' - The response status code.
+mkListDistributionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'distributionList'
   DistributionList ->
   ListDistributionsResponse
-listDistributionsResponse pResponseStatus_ pDistributionList_ =
+mkListDistributionsResponse pResponseStatus_ pDistributionList_ =
   ListDistributionsResponse'
-    { _ldrsResponseStatus =
-        pResponseStatus_,
-      _ldrsDistributionList = pDistributionList_
+    { responseStatus = pResponseStatus_,
+      distributionList = pDistributionList_
     }
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDistributionsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDistributionsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDistributionsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The @DistributionList@ type.
-ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
-ldrsDistributionList = lens _ldrsDistributionList (\s a -> s {_ldrsDistributionList = a})
-
-instance NFData ListDistributionsResponse
+--
+-- /Note:/ Consider using 'distributionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDistributionList :: Lens.Lens' ListDistributionsResponse DistributionList
+ldrsDistributionList = Lens.lens (distributionList :: ListDistributionsResponse -> DistributionList) (\s a -> s {distributionList = a} :: ListDistributionsResponse)
+{-# DEPRECATED ldrsDistributionList "Use generic-lens or generic-optics with 'distributionList' instead." #-}

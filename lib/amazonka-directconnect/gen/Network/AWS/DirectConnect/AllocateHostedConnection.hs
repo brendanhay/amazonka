@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.
 --
---
 -- Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by a hosted connection on the specified interconnect or LAG of interconnects. AWS polices the hosted connection for the specified capacity and the AWS Direct Connect Partner must also police the hosted connection for the specified capacity.
 module Network.AWS.DirectConnect.AllocateHostedConnection
-  ( -- * Creating a Request
-    allocateHostedConnection,
-    AllocateHostedConnection,
+  ( -- * Creating a request
+    AllocateHostedConnection (..),
+    mkAllocateHostedConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ahcTags,
     ahcConnectionId,
     ahcOwnerAccount,
@@ -34,11 +28,11 @@ module Network.AWS.DirectConnect.AllocateHostedConnection
     ahcConnectionName,
     ahcVlan,
 
-    -- * Destructuring the Response
-    connection,
-    Connection,
+    -- * Destructuring the response
+    Connection (..),
+    mkConnection,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cLagId,
     cVlan,
     cLocation,
@@ -60,123 +54,138 @@ module Network.AWS.DirectConnect.AllocateHostedConnection
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'allocateHostedConnection' smart constructor.
+-- | /See:/ 'mkAllocateHostedConnection' smart constructor.
 data AllocateHostedConnection = AllocateHostedConnection'
-  { _ahcTags ::
-      !(Maybe (List1 Tag)),
-    _ahcConnectionId :: !Text,
-    _ahcOwnerAccount :: !Text,
-    _ahcBandwidth :: !Text,
-    _ahcConnectionName :: !Text,
-    _ahcVlan :: !Int
+  { tags ::
+      Lude.Maybe (Lude.NonEmpty Tag),
+    connectionId :: Lude.Text,
+    ownerAccount :: Lude.Text,
+    bandwidth :: Lude.Text,
+    connectionName :: Lude.Text,
+    vlan :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateHostedConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ahcTags' - The tags associated with the connection.
---
--- * 'ahcConnectionId' - The ID of the interconnect or LAG.
---
--- * 'ahcOwnerAccount' - The ID of the AWS account ID of the customer for the connection.
---
--- * 'ahcBandwidth' - The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
---
--- * 'ahcConnectionName' - The name of the hosted connection.
---
--- * 'ahcVlan' - The dedicated VLAN provisioned to the hosted connection.
-allocateHostedConnection ::
-  -- | 'ahcConnectionId'
-  Text ->
-  -- | 'ahcOwnerAccount'
-  Text ->
-  -- | 'ahcBandwidth'
-  Text ->
-  -- | 'ahcConnectionName'
-  Text ->
-  -- | 'ahcVlan'
-  Int ->
+-- * 'bandwidth' - The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
+-- * 'connectionId' - The ID of the interconnect or LAG.
+-- * 'connectionName' - The name of the hosted connection.
+-- * 'ownerAccount' - The ID of the AWS account ID of the customer for the connection.
+-- * 'tags' - The tags associated with the connection.
+-- * 'vlan' - The dedicated VLAN provisioned to the hosted connection.
+mkAllocateHostedConnection ::
+  -- | 'connectionId'
+  Lude.Text ->
+  -- | 'ownerAccount'
+  Lude.Text ->
+  -- | 'bandwidth'
+  Lude.Text ->
+  -- | 'connectionName'
+  Lude.Text ->
+  -- | 'vlan'
+  Lude.Int ->
   AllocateHostedConnection
-allocateHostedConnection
+mkAllocateHostedConnection
   pConnectionId_
   pOwnerAccount_
   pBandwidth_
   pConnectionName_
   pVlan_ =
     AllocateHostedConnection'
-      { _ahcTags = Nothing,
-        _ahcConnectionId = pConnectionId_,
-        _ahcOwnerAccount = pOwnerAccount_,
-        _ahcBandwidth = pBandwidth_,
-        _ahcConnectionName = pConnectionName_,
-        _ahcVlan = pVlan_
+      { tags = Lude.Nothing,
+        connectionId = pConnectionId_,
+        ownerAccount = pOwnerAccount_,
+        bandwidth = pBandwidth_,
+        connectionName = pConnectionName_,
+        vlan = pVlan_
       }
 
 -- | The tags associated with the connection.
-ahcTags :: Lens' AllocateHostedConnection (Maybe (NonEmpty Tag))
-ahcTags = lens _ahcTags (\s a -> s {_ahcTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcTags :: Lens.Lens' AllocateHostedConnection (Lude.Maybe (Lude.NonEmpty Tag))
+ahcTags = Lens.lens (tags :: AllocateHostedConnection -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: AllocateHostedConnection)
+{-# DEPRECATED ahcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the interconnect or LAG.
-ahcConnectionId :: Lens' AllocateHostedConnection Text
-ahcConnectionId = lens _ahcConnectionId (\s a -> s {_ahcConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcConnectionId :: Lens.Lens' AllocateHostedConnection Lude.Text
+ahcConnectionId = Lens.lens (connectionId :: AllocateHostedConnection -> Lude.Text) (\s a -> s {connectionId = a} :: AllocateHostedConnection)
+{-# DEPRECATED ahcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the AWS account ID of the customer for the connection.
-ahcOwnerAccount :: Lens' AllocateHostedConnection Text
-ahcOwnerAccount = lens _ahcOwnerAccount (\s a -> s {_ahcOwnerAccount = a})
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcOwnerAccount :: Lens.Lens' AllocateHostedConnection Lude.Text
+ahcOwnerAccount = Lens.lens (ownerAccount :: AllocateHostedConnection -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocateHostedConnection)
+{-# DEPRECATED ahcOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 -- | The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
-ahcBandwidth :: Lens' AllocateHostedConnection Text
-ahcBandwidth = lens _ahcBandwidth (\s a -> s {_ahcBandwidth = a})
+--
+-- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcBandwidth :: Lens.Lens' AllocateHostedConnection Lude.Text
+ahcBandwidth = Lens.lens (bandwidth :: AllocateHostedConnection -> Lude.Text) (\s a -> s {bandwidth = a} :: AllocateHostedConnection)
+{-# DEPRECATED ahcBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
 
 -- | The name of the hosted connection.
-ahcConnectionName :: Lens' AllocateHostedConnection Text
-ahcConnectionName = lens _ahcConnectionName (\s a -> s {_ahcConnectionName = a})
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcConnectionName :: Lens.Lens' AllocateHostedConnection Lude.Text
+ahcConnectionName = Lens.lens (connectionName :: AllocateHostedConnection -> Lude.Text) (\s a -> s {connectionName = a} :: AllocateHostedConnection)
+{-# DEPRECATED ahcConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 -- | The dedicated VLAN provisioned to the hosted connection.
-ahcVlan :: Lens' AllocateHostedConnection Int
-ahcVlan = lens _ahcVlan (\s a -> s {_ahcVlan = a})
+--
+-- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcVlan :: Lens.Lens' AllocateHostedConnection Lude.Int
+ahcVlan = Lens.lens (vlan :: AllocateHostedConnection -> Lude.Int) (\s a -> s {vlan = a} :: AllocateHostedConnection)
+{-# DEPRECATED ahcVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
 
-instance AWSRequest AllocateHostedConnection where
+instance Lude.AWSRequest AllocateHostedConnection where
   type Rs AllocateHostedConnection = Connection
-  request = postJSON directConnect
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON directConnectService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable AllocateHostedConnection
-
-instance NFData AllocateHostedConnection
-
-instance ToHeaders AllocateHostedConnection where
+instance Lude.ToHeaders AllocateHostedConnection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.AllocateHostedConnection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.AllocateHostedConnection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AllocateHostedConnection where
+instance Lude.ToJSON AllocateHostedConnection where
   toJSON AllocateHostedConnection' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _ahcTags,
-            Just ("connectionId" .= _ahcConnectionId),
-            Just ("ownerAccount" .= _ahcOwnerAccount),
-            Just ("bandwidth" .= _ahcBandwidth),
-            Just ("connectionName" .= _ahcConnectionName),
-            Just ("vlan" .= _ahcVlan)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("ownerAccount" Lude..= ownerAccount),
+            Lude.Just ("bandwidth" Lude..= bandwidth),
+            Lude.Just ("connectionName" Lude..= connectionName),
+            Lude.Just ("vlan" Lude..= vlan)
           ]
       )
 
-instance ToPath AllocateHostedConnection where
-  toPath = const "/"
+instance Lude.ToPath AllocateHostedConnection where
+  toPath = Lude.const "/"
 
-instance ToQuery AllocateHostedConnection where
-  toQuery = const mempty
+instance Lude.ToQuery AllocateHostedConnection where
+  toQuery = Lude.const Lude.mempty

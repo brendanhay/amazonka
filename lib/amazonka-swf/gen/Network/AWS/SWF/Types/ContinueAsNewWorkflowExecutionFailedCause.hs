@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause where
+module Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause
+  ( ContinueAsNewWorkflowExecutionFailedCause
+      ( ContinueAsNewWorkflowExecutionFailedCause',
+        CANWEFCContinueAsNewWorkflowExecutionRateExceeded,
+        CANWEFCDefaultChildPolicyUndefined,
+        CANWEFCDefaultExecutionStartToCloseTimeoutUndefined,
+        CANWEFCDefaultTaskListUndefined,
+        CANWEFCDefaultTaskStartToCloseTimeoutUndefined,
+        CANWEFCOperationNotPermitted,
+        CANWEFCUnhandledDecision,
+        CANWEFCWorkflowTypeDeprecated,
+        CANWEFCWorkflowTypeDoesNotExist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContinueAsNewWorkflowExecutionFailedCause
-  = CANWEFCContinueAsNewWorkflowExecutionRateExceeded
-  | CANWEFCDefaultChildPolicyUndefined
-  | CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
-  | CANWEFCDefaultTaskListUndefined
-  | CANWEFCDefaultTaskStartToCloseTimeoutUndefined
-  | CANWEFCOperationNotPermitted
-  | CANWEFCUnhandledDecision
-  | CANWEFCWorkflowTypeDeprecated
-  | CANWEFCWorkflowTypeDoesNotExist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContinueAsNewWorkflowExecutionFailedCause = ContinueAsNewWorkflowExecutionFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContinueAsNewWorkflowExecutionFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "continue_as_new_workflow_execution_rate_exceeded" -> pure CANWEFCContinueAsNewWorkflowExecutionRateExceeded
-      "default_child_policy_undefined" -> pure CANWEFCDefaultChildPolicyUndefined
-      "default_execution_start_to_close_timeout_undefined" -> pure CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
-      "default_task_list_undefined" -> pure CANWEFCDefaultTaskListUndefined
-      "default_task_start_to_close_timeout_undefined" -> pure CANWEFCDefaultTaskStartToCloseTimeoutUndefined
-      "operation_not_permitted" -> pure CANWEFCOperationNotPermitted
-      "unhandled_decision" -> pure CANWEFCUnhandledDecision
-      "workflow_type_deprecated" -> pure CANWEFCWorkflowTypeDeprecated
-      "workflow_type_does_not_exist" -> pure CANWEFCWorkflowTypeDoesNotExist
-      e ->
-        fromTextError $
-          "Failure parsing ContinueAsNewWorkflowExecutionFailedCause from value: '" <> e
-            <> "'. Accepted values: continue_as_new_workflow_execution_rate_exceeded, default_child_policy_undefined, default_execution_start_to_close_timeout_undefined, default_task_list_undefined, default_task_start_to_close_timeout_undefined, operation_not_permitted, unhandled_decision, workflow_type_deprecated, workflow_type_does_not_exist"
+pattern CANWEFCContinueAsNewWorkflowExecutionRateExceeded :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCContinueAsNewWorkflowExecutionRateExceeded = ContinueAsNewWorkflowExecutionFailedCause' "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
 
-instance ToText ContinueAsNewWorkflowExecutionFailedCause where
-  toText = \case
-    CANWEFCContinueAsNewWorkflowExecutionRateExceeded -> "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-    CANWEFCDefaultChildPolicyUndefined -> "DEFAULT_CHILD_POLICY_UNDEFINED"
-    CANWEFCDefaultExecutionStartToCloseTimeoutUndefined -> "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-    CANWEFCDefaultTaskListUndefined -> "DEFAULT_TASK_LIST_UNDEFINED"
-    CANWEFCDefaultTaskStartToCloseTimeoutUndefined -> "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-    CANWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-    CANWEFCUnhandledDecision -> "UNHANDLED_DECISION"
-    CANWEFCWorkflowTypeDeprecated -> "WORKFLOW_TYPE_DEPRECATED"
-    CANWEFCWorkflowTypeDoesNotExist -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
+pattern CANWEFCDefaultChildPolicyUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultChildPolicyUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_CHILD_POLICY_UNDEFINED"
 
-instance Hashable ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultExecutionStartToCloseTimeoutUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultExecutionStartToCloseTimeoutUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
 
-instance NFData ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultTaskListUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultTaskListUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
 
-instance ToByteString ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultTaskStartToCloseTimeoutUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultTaskStartToCloseTimeoutUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
 
-instance ToQuery ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCOperationNotPermitted :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCOperationNotPermitted = ContinueAsNewWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance ToHeader ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCUnhandledDecision :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCUnhandledDecision = ContinueAsNewWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
-instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
-  parseJSON = parseJSONText "ContinueAsNewWorkflowExecutionFailedCause"
+pattern CANWEFCWorkflowTypeDeprecated :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCWorkflowTypeDeprecated = ContinueAsNewWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DEPRECATED"
+
+pattern CANWEFCWorkflowTypeDoesNotExist :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCWorkflowTypeDoesNotExist = ContinueAsNewWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DOES_NOT_EXIST"
+
+{-# COMPLETE
+  CANWEFCContinueAsNewWorkflowExecutionRateExceeded,
+  CANWEFCDefaultChildPolicyUndefined,
+  CANWEFCDefaultExecutionStartToCloseTimeoutUndefined,
+  CANWEFCDefaultTaskListUndefined,
+  CANWEFCDefaultTaskStartToCloseTimeoutUndefined,
+  CANWEFCOperationNotPermitted,
+  CANWEFCUnhandledDecision,
+  CANWEFCWorkflowTypeDeprecated,
+  CANWEFCWorkflowTypeDoesNotExist,
+  ContinueAsNewWorkflowExecutionFailedCause'
+  #-}

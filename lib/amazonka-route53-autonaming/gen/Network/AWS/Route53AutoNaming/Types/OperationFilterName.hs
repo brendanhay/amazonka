@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.OperationFilterName where
+module Network.AWS.Route53AutoNaming.Types.OperationFilterName
+  ( OperationFilterName
+      ( OperationFilterName',
+        OFNNamespaceId,
+        OFNServiceId,
+        OFNStatus,
+        OFNType,
+        OFNUpdateDate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationFilterName
-  = OFNNamespaceId
-  | OFNServiceId
-  | OFNStatus
-  | OFNType
-  | OFNUpdateDate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationFilterName = OperationFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationFilterName where
-  parser =
-    takeLowerText >>= \case
-      "namespace_id" -> pure OFNNamespaceId
-      "service_id" -> pure OFNServiceId
-      "status" -> pure OFNStatus
-      "type" -> pure OFNType
-      "update_date" -> pure OFNUpdateDate
-      e ->
-        fromTextError $
-          "Failure parsing OperationFilterName from value: '" <> e
-            <> "'. Accepted values: namespace_id, service_id, status, type, update_date"
+pattern OFNNamespaceId :: OperationFilterName
+pattern OFNNamespaceId = OperationFilterName' "NAMESPACE_ID"
 
-instance ToText OperationFilterName where
-  toText = \case
-    OFNNamespaceId -> "NAMESPACE_ID"
-    OFNServiceId -> "SERVICE_ID"
-    OFNStatus -> "STATUS"
-    OFNType -> "TYPE"
-    OFNUpdateDate -> "UPDATE_DATE"
+pattern OFNServiceId :: OperationFilterName
+pattern OFNServiceId = OperationFilterName' "SERVICE_ID"
 
-instance Hashable OperationFilterName
+pattern OFNStatus :: OperationFilterName
+pattern OFNStatus = OperationFilterName' "STATUS"
 
-instance NFData OperationFilterName
+pattern OFNType :: OperationFilterName
+pattern OFNType = OperationFilterName' "TYPE"
 
-instance ToByteString OperationFilterName
+pattern OFNUpdateDate :: OperationFilterName
+pattern OFNUpdateDate = OperationFilterName' "UPDATE_DATE"
 
-instance ToQuery OperationFilterName
-
-instance ToHeader OperationFilterName
-
-instance ToJSON OperationFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  OFNNamespaceId,
+  OFNServiceId,
+  OFNStatus,
+  OFNType,
+  OFNUpdateDate,
+  OperationFilterName'
+  #-}

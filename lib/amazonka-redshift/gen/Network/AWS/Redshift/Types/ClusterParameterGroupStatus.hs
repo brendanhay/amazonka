@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterParameterGroupStatus where
+module Network.AWS.Redshift.Types.ClusterParameterGroupStatus
+  ( ClusterParameterGroupStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterParameterGroupStatus,
+
+    -- * Lenses
+    cpgsClusterParameterStatusList,
+    cpgsParameterApplyStatus,
+    cpgsParameterGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ClusterParameterStatus
 
 -- | Describes the status of a parameter group.
 --
---
---
--- /See:/ 'clusterParameterGroupStatus' smart constructor.
+-- /See:/ 'mkClusterParameterGroupStatus' smart constructor.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-  { _cpgsClusterParameterStatusList ::
-      !(Maybe [ClusterParameterStatus]),
-    _cpgsParameterApplyStatus ::
-      !(Maybe Text),
-    _cpgsParameterGroupName ::
-      !(Maybe Text)
+  { clusterParameterStatusList ::
+      Lude.Maybe [ClusterParameterStatus],
+    parameterApplyStatus ::
+      Lude.Maybe Lude.Text,
+    parameterGroupName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterParameterGroupStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterParameterStatusList' - The list of parameter statuses.
 --
--- * 'cpgsClusterParameterStatusList' - The list of parameter statuses. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
---
--- * 'cpgsParameterApplyStatus' - The status of parameter updates.
---
--- * 'cpgsParameterGroupName' - The name of the cluster parameter group.
-clusterParameterGroupStatus ::
+-- For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
+-- * 'parameterApplyStatus' - The status of parameter updates.
+-- * 'parameterGroupName' - The name of the cluster parameter group.
+mkClusterParameterGroupStatus ::
   ClusterParameterGroupStatus
-clusterParameterGroupStatus =
+mkClusterParameterGroupStatus =
   ClusterParameterGroupStatus'
-    { _cpgsClusterParameterStatusList =
-        Nothing,
-      _cpgsParameterApplyStatus = Nothing,
-      _cpgsParameterGroupName = Nothing
+    { clusterParameterStatusList =
+        Lude.Nothing,
+      parameterApplyStatus = Lude.Nothing,
+      parameterGroupName = Lude.Nothing
     }
 
--- | The list of parameter statuses. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
-cpgsClusterParameterStatusList :: Lens' ClusterParameterGroupStatus [ClusterParameterStatus]
-cpgsClusterParameterStatusList = lens _cpgsClusterParameterStatusList (\s a -> s {_cpgsClusterParameterStatusList = a}) . _Default . _Coerce
+-- | The list of parameter statuses.
+--
+-- For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
+--
+-- /Note:/ Consider using 'clusterParameterStatusList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgsClusterParameterStatusList :: Lens.Lens' ClusterParameterGroupStatus (Lude.Maybe [ClusterParameterStatus])
+cpgsClusterParameterStatusList = Lens.lens (clusterParameterStatusList :: ClusterParameterGroupStatus -> Lude.Maybe [ClusterParameterStatus]) (\s a -> s {clusterParameterStatusList = a} :: ClusterParameterGroupStatus)
+{-# DEPRECATED cpgsClusterParameterStatusList "Use generic-lens or generic-optics with 'clusterParameterStatusList' instead." #-}
 
 -- | The status of parameter updates.
-cpgsParameterApplyStatus :: Lens' ClusterParameterGroupStatus (Maybe Text)
-cpgsParameterApplyStatus = lens _cpgsParameterApplyStatus (\s a -> s {_cpgsParameterApplyStatus = a})
+--
+-- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgsParameterApplyStatus :: Lens.Lens' ClusterParameterGroupStatus (Lude.Maybe Lude.Text)
+cpgsParameterApplyStatus = Lens.lens (parameterApplyStatus :: ClusterParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: ClusterParameterGroupStatus)
+{-# DEPRECATED cpgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
 -- | The name of the cluster parameter group.
-cpgsParameterGroupName :: Lens' ClusterParameterGroupStatus (Maybe Text)
-cpgsParameterGroupName = lens _cpgsParameterGroupName (\s a -> s {_cpgsParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgsParameterGroupName :: Lens.Lens' ClusterParameterGroupStatus (Lude.Maybe Lude.Text)
+cpgsParameterGroupName = Lens.lens (parameterGroupName :: ClusterParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ClusterParameterGroupStatus)
+{-# DEPRECATED cpgsParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance FromXML ClusterParameterGroupStatus where
+instance Lude.FromXML ClusterParameterGroupStatus where
   parseXML x =
     ClusterParameterGroupStatus'
-      <$> ( x .@? "ClusterParameterStatusList" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "ParameterApplyStatus")
-      <*> (x .@? "ParameterGroupName")
-
-instance Hashable ClusterParameterGroupStatus
-
-instance NFData ClusterParameterGroupStatus
+      Lude.<$> ( x Lude..@? "ClusterParameterStatusList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "ParameterApplyStatus")
+      Lude.<*> (x Lude..@? "ParameterGroupName")

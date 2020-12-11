@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes the assessment templates that are specified by the ARNs of the assessment templates.
 module Network.AWS.Inspector.DescribeAssessmentTemplates
-  ( -- * Creating a Request
-    describeAssessmentTemplates,
-    DescribeAssessmentTemplates,
+  ( -- * Creating a request
+    DescribeAssessmentTemplates (..),
+    mkDescribeAssessmentTemplates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     datAssessmentTemplateARNs,
 
-    -- * Destructuring the Response
-    describeAssessmentTemplatesResponse,
-    DescribeAssessmentTemplatesResponse,
+    -- * Destructuring the response
+    DescribeAssessmentTemplatesResponse (..),
+    mkDescribeAssessmentTemplatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     datrsResponseStatus,
     datrsAssessmentTemplates,
     datrsFailedItems,
@@ -38,123 +33,141 @@ module Network.AWS.Inspector.DescribeAssessmentTemplates
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAssessmentTemplates' smart constructor.
+-- | /See:/ 'mkDescribeAssessmentTemplates' smart constructor.
 newtype DescribeAssessmentTemplates = DescribeAssessmentTemplates'
-  { _datAssessmentTemplateARNs ::
-      List1 Text
+  { assessmentTemplateARNs ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssessmentTemplates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'datAssessmentTemplateARNs' - Undocumented member.
-describeAssessmentTemplates ::
-  -- | 'datAssessmentTemplateARNs'
-  NonEmpty Text ->
+-- * 'assessmentTemplateARNs' - Undocumented field.
+mkDescribeAssessmentTemplates ::
+  -- | 'assessmentTemplateARNs'
+  Lude.NonEmpty Lude.Text ->
   DescribeAssessmentTemplates
-describeAssessmentTemplates pAssessmentTemplateARNs_ =
+mkDescribeAssessmentTemplates pAssessmentTemplateARNs_ =
   DescribeAssessmentTemplates'
-    { _datAssessmentTemplateARNs =
-        _List1 # pAssessmentTemplateARNs_
+    { assessmentTemplateARNs =
+        pAssessmentTemplateARNs_
     }
 
--- | Undocumented member.
-datAssessmentTemplateARNs :: Lens' DescribeAssessmentTemplates (NonEmpty Text)
-datAssessmentTemplateARNs = lens _datAssessmentTemplateARNs (\s a -> s {_datAssessmentTemplateARNs = a}) . _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'assessmentTemplateARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datAssessmentTemplateARNs :: Lens.Lens' DescribeAssessmentTemplates (Lude.NonEmpty Lude.Text)
+datAssessmentTemplateARNs = Lens.lens (assessmentTemplateARNs :: DescribeAssessmentTemplates -> Lude.NonEmpty Lude.Text) (\s a -> s {assessmentTemplateARNs = a} :: DescribeAssessmentTemplates)
+{-# DEPRECATED datAssessmentTemplateARNs "Use generic-lens or generic-optics with 'assessmentTemplateARNs' instead." #-}
 
-instance AWSRequest DescribeAssessmentTemplates where
+instance Lude.AWSRequest DescribeAssessmentTemplates where
   type
     Rs DescribeAssessmentTemplates =
       DescribeAssessmentTemplatesResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAssessmentTemplatesResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .?> "assessmentTemplates" .!@ mempty)
-            <*> (x .?> "failedItems" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "assessmentTemplates" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeAssessmentTemplates
-
-instance NFData DescribeAssessmentTemplates
-
-instance ToHeaders DescribeAssessmentTemplates where
+instance Lude.ToHeaders DescribeAssessmentTemplates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.DescribeAssessmentTemplates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "InspectorService.DescribeAssessmentTemplates" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAssessmentTemplates where
+instance Lude.ToJSON DescribeAssessmentTemplates where
   toJSON DescribeAssessmentTemplates' {..} =
-    object
-      ( catMaybes
-          [Just ("assessmentTemplateArns" .= _datAssessmentTemplateARNs)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("assessmentTemplateArns" Lude..= assessmentTemplateARNs)
+          ]
       )
 
-instance ToPath DescribeAssessmentTemplates where
-  toPath = const "/"
+instance Lude.ToPath DescribeAssessmentTemplates where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAssessmentTemplates where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAssessmentTemplates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAssessmentTemplatesResponse' smart constructor.
+-- | /See:/ 'mkDescribeAssessmentTemplatesResponse' smart constructor.
 data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
-  { _datrsResponseStatus ::
-      !Int,
-    _datrsAssessmentTemplates ::
-      ![AssessmentTemplate],
-    _datrsFailedItems ::
-      !( Map
-           Text
-           (FailedItemDetails)
-       )
+  { responseStatus ::
+      Lude.Int,
+    assessmentTemplates ::
+      [AssessmentTemplate],
+    failedItems ::
+      Lude.HashMap
+        Lude.Text
+        (FailedItemDetails)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssessmentTemplatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'datrsResponseStatus' - -- | The response status code.
---
--- * 'datrsAssessmentTemplates' - Information about the assessment templates.
---
--- * 'datrsFailedItems' - Assessment template details that cannot be described. An error code is provided for each failed item.
-describeAssessmentTemplatesResponse ::
-  -- | 'datrsResponseStatus'
-  Int ->
+-- * 'assessmentTemplates' - Information about the assessment templates.
+-- * 'failedItems' - Assessment template details that cannot be described. An error code is provided for each failed item.
+-- * 'responseStatus' - The response status code.
+mkDescribeAssessmentTemplatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAssessmentTemplatesResponse
-describeAssessmentTemplatesResponse pResponseStatus_ =
+mkDescribeAssessmentTemplatesResponse pResponseStatus_ =
   DescribeAssessmentTemplatesResponse'
-    { _datrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _datrsAssessmentTemplates = mempty,
-      _datrsFailedItems = mempty
+      assessmentTemplates = Lude.mempty,
+      failedItems = Lude.mempty
     }
 
--- | -- | The response status code.
-datrsResponseStatus :: Lens' DescribeAssessmentTemplatesResponse Int
-datrsResponseStatus = lens _datrsResponseStatus (\s a -> s {_datrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsResponseStatus :: Lens.Lens' DescribeAssessmentTemplatesResponse Lude.Int
+datrsResponseStatus = Lens.lens (responseStatus :: DescribeAssessmentTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssessmentTemplatesResponse)
+{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the assessment templates.
-datrsAssessmentTemplates :: Lens' DescribeAssessmentTemplatesResponse [AssessmentTemplate]
-datrsAssessmentTemplates = lens _datrsAssessmentTemplates (\s a -> s {_datrsAssessmentTemplates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'assessmentTemplates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsAssessmentTemplates :: Lens.Lens' DescribeAssessmentTemplatesResponse [AssessmentTemplate]
+datrsAssessmentTemplates = Lens.lens (assessmentTemplates :: DescribeAssessmentTemplatesResponse -> [AssessmentTemplate]) (\s a -> s {assessmentTemplates = a} :: DescribeAssessmentTemplatesResponse)
+{-# DEPRECATED datrsAssessmentTemplates "Use generic-lens or generic-optics with 'assessmentTemplates' instead." #-}
 
 -- | Assessment template details that cannot be described. An error code is provided for each failed item.
-datrsFailedItems :: Lens' DescribeAssessmentTemplatesResponse (HashMap Text (FailedItemDetails))
-datrsFailedItems = lens _datrsFailedItems (\s a -> s {_datrsFailedItems = a}) . _Map
-
-instance NFData DescribeAssessmentTemplatesResponse
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsFailedItems :: Lens.Lens' DescribeAssessmentTemplatesResponse (Lude.HashMap Lude.Text (FailedItemDetails))
+datrsFailedItems = Lens.lens (failedItems :: DescribeAssessmentTemplatesResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeAssessmentTemplatesResponse)
+{-# DEPRECATED datrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}

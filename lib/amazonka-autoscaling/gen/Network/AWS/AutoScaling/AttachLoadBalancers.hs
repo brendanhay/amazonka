@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,130 @@
 --
 -- Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.
 --
---
 -- To describe the load balancers for an Auto Scaling group, call the 'DescribeLoadBalancers' API. To detach the load balancer from the Auto Scaling group, call the 'DetachLoadBalancers' API.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.AttachLoadBalancers
-  ( -- * Creating a Request
-    attachLoadBalancers,
-    AttachLoadBalancers,
+  ( -- * Creating a request
+    AttachLoadBalancers (..),
+    mkAttachLoadBalancers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     albAutoScalingGroupName,
     albLoadBalancerNames,
 
-    -- * Destructuring the Response
-    attachLoadBalancersResponse,
-    AttachLoadBalancersResponse,
+    -- * Destructuring the response
+    AttachLoadBalancersResponse (..),
+    mkAttachLoadBalancersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     albrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachLoadBalancers' smart constructor.
+-- | /See:/ 'mkAttachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
-  { _albAutoScalingGroupName ::
-      !Text,
-    _albLoadBalancerNames :: ![Text]
+  { autoScalingGroupName ::
+      Lude.Text,
+    loadBalancerNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachLoadBalancers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'albAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'albLoadBalancerNames' - The names of the load balancers. You can specify up to 10 load balancers.
-attachLoadBalancers ::
-  -- | 'albAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'loadBalancerNames' - The names of the load balancers. You can specify up to 10 load balancers.
+mkAttachLoadBalancers ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   AttachLoadBalancers
-attachLoadBalancers pAutoScalingGroupName_ =
+mkAttachLoadBalancers pAutoScalingGroupName_ =
   AttachLoadBalancers'
-    { _albAutoScalingGroupName =
+    { autoScalingGroupName =
         pAutoScalingGroupName_,
-      _albLoadBalancerNames = mempty
+      loadBalancerNames = Lude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-albAutoScalingGroupName :: Lens' AttachLoadBalancers Text
-albAutoScalingGroupName = lens _albAutoScalingGroupName (\s a -> s {_albAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albAutoScalingGroupName :: Lens.Lens' AttachLoadBalancers Lude.Text
+albAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AttachLoadBalancers -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AttachLoadBalancers)
+{-# DEPRECATED albAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The names of the load balancers. You can specify up to 10 load balancers.
-albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
-albLoadBalancerNames = lens _albLoadBalancerNames (\s a -> s {_albLoadBalancerNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'loadBalancerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albLoadBalancerNames :: Lens.Lens' AttachLoadBalancers [Lude.Text]
+albLoadBalancerNames = Lens.lens (loadBalancerNames :: AttachLoadBalancers -> [Lude.Text]) (\s a -> s {loadBalancerNames = a} :: AttachLoadBalancers)
+{-# DEPRECATED albLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
 
-instance AWSRequest AttachLoadBalancers where
+instance Lude.AWSRequest AttachLoadBalancers where
   type Rs AttachLoadBalancers = AttachLoadBalancersResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AttachLoadBalancersResult"
-      (\s h x -> AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          AttachLoadBalancersResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AttachLoadBalancers
+instance Lude.ToHeaders AttachLoadBalancers where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachLoadBalancers
+instance Lude.ToPath AttachLoadBalancers where
+  toPath = Lude.const "/"
 
-instance ToHeaders AttachLoadBalancers where
-  toHeaders = const mempty
-
-instance ToPath AttachLoadBalancers where
-  toPath = const "/"
-
-instance ToQuery AttachLoadBalancers where
+instance Lude.ToQuery AttachLoadBalancers where
   toQuery AttachLoadBalancers' {..} =
-    mconcat
-      [ "Action" =: ("AttachLoadBalancers" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _albAutoScalingGroupName,
-        "LoadBalancerNames" =: toQueryList "member" _albLoadBalancerNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("AttachLoadBalancers" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "LoadBalancerNames"
+          Lude.=: Lude.toQueryList "member" loadBalancerNames
       ]
 
--- | /See:/ 'attachLoadBalancersResponse' smart constructor.
+-- | /See:/ 'mkAttachLoadBalancersResponse' smart constructor.
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-  { _albrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachLoadBalancersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'albrsResponseStatus' - -- | The response status code.
-attachLoadBalancersResponse ::
-  -- | 'albrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAttachLoadBalancersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachLoadBalancersResponse
-attachLoadBalancersResponse pResponseStatus_ =
-  AttachLoadBalancersResponse'
-    { _albrsResponseStatus =
-        pResponseStatus_
-    }
+mkAttachLoadBalancersResponse pResponseStatus_ =
+  AttachLoadBalancersResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
-albrsResponseStatus = lens _albrsResponseStatus (\s a -> s {_albrsResponseStatus = a})
-
-instance NFData AttachLoadBalancersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albrsResponseStatus :: Lens.Lens' AttachLoadBalancersResponse Lude.Int
+albrsResponseStatus = Lens.lens (responseStatus :: AttachLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachLoadBalancersResponse)
+{-# DEPRECATED albrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp2Settings where
+module Network.AWS.MediaConvert.Types.Mp2Settings
+  ( Mp2Settings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMp2Settings,
+
+    -- * Lenses
+    mssChannels,
+    mssSampleRate,
+    mssBitrate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
 --
--- /See:/ 'mp2Settings' smart constructor.
+-- /See:/ 'mkMp2Settings' smart constructor.
 data Mp2Settings = Mp2Settings'
-  { _mChannels :: !(Maybe Nat),
-    _mSampleRate :: !(Maybe Nat),
-    _mBitrate :: !(Maybe Nat)
+  { channels ::
+      Lude.Maybe Lude.Natural,
+    sampleRate :: Lude.Maybe Lude.Natural,
+    bitrate :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mp2Settings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mChannels' - Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
---
--- * 'mSampleRate' - Sample rate in hz.
---
--- * 'mBitrate' - Specify the average bitrate in bits per second.
-mp2Settings ::
+-- * 'bitrate' - Specify the average bitrate in bits per second.
+-- * 'channels' - Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
+-- * 'sampleRate' - Sample rate in hz.
+mkMp2Settings ::
   Mp2Settings
-mp2Settings =
+mkMp2Settings =
   Mp2Settings'
-    { _mChannels = Nothing,
-      _mSampleRate = Nothing,
-      _mBitrate = Nothing
+    { channels = Lude.Nothing,
+      sampleRate = Lude.Nothing,
+      bitrate = Lude.Nothing
     }
 
 -- | Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
-mChannels :: Lens' Mp2Settings (Maybe Natural)
-mChannels = lens _mChannels (\s a -> s {_mChannels = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'channels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssChannels :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Natural)
+mssChannels = Lens.lens (channels :: Mp2Settings -> Lude.Maybe Lude.Natural) (\s a -> s {channels = a} :: Mp2Settings)
+{-# DEPRECATED mssChannels "Use generic-lens or generic-optics with 'channels' instead." #-}
 
 -- | Sample rate in hz.
-mSampleRate :: Lens' Mp2Settings (Maybe Natural)
-mSampleRate = lens _mSampleRate (\s a -> s {_mSampleRate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssSampleRate :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Natural)
+mssSampleRate = Lens.lens (sampleRate :: Mp2Settings -> Lude.Maybe Lude.Natural) (\s a -> s {sampleRate = a} :: Mp2Settings)
+{-# DEPRECATED mssSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
 -- | Specify the average bitrate in bits per second.
-mBitrate :: Lens' Mp2Settings (Maybe Natural)
-mBitrate = lens _mBitrate (\s a -> s {_mBitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'bitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssBitrate :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Natural)
+mssBitrate = Lens.lens (bitrate :: Mp2Settings -> Lude.Maybe Lude.Natural) (\s a -> s {bitrate = a} :: Mp2Settings)
+{-# DEPRECATED mssBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
 
-instance FromJSON Mp2Settings where
+instance Lude.FromJSON Mp2Settings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Mp2Settings"
       ( \x ->
           Mp2Settings'
-            <$> (x .:? "channels") <*> (x .:? "sampleRate") <*> (x .:? "bitrate")
+            Lude.<$> (x Lude..:? "channels")
+            Lude.<*> (x Lude..:? "sampleRate")
+            Lude.<*> (x Lude..:? "bitrate")
       )
 
-instance Hashable Mp2Settings
-
-instance NFData Mp2Settings
-
-instance ToJSON Mp2Settings where
+instance Lude.ToJSON Mp2Settings where
   toJSON Mp2Settings' {..} =
-    object
-      ( catMaybes
-          [ ("channels" .=) <$> _mChannels,
-            ("sampleRate" .=) <$> _mSampleRate,
-            ("bitrate" .=) <$> _mBitrate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channels" Lude..=) Lude.<$> channels,
+            ("sampleRate" Lude..=) Lude.<$> sampleRate,
+            ("bitrate" Lude..=) Lude.<$> bitrate
           ]
       )

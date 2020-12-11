@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EndpointItemResponse where
+module Network.AWS.Pinpoint.Types.EndpointItemResponse
+  ( EndpointItemResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEndpointItemResponse,
+
+    -- * Lenses
+    eiMessage,
+    eiStatusCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the status code and message that result from processing data for an endpoint.
 --
---
---
--- /See:/ 'endpointItemResponse' smart constructor.
+-- /See:/ 'mkEndpointItemResponse' smart constructor.
 data EndpointItemResponse = EndpointItemResponse'
-  { _eiMessage ::
-      !(Maybe Text),
-    _eiStatusCode :: !(Maybe Int)
+  { message ::
+      Lude.Maybe Lude.Text,
+    statusCode :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointItemResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eiMessage' - The custom message that's returned in the response as a result of processing the endpoint data.
---
--- * 'eiStatusCode' - The status code that's returned in the response as a result of processing the endpoint data.
-endpointItemResponse ::
+-- * 'message' - The custom message that's returned in the response as a result of processing the endpoint data.
+-- * 'statusCode' - The status code that's returned in the response as a result of processing the endpoint data.
+mkEndpointItemResponse ::
   EndpointItemResponse
-endpointItemResponse =
+mkEndpointItemResponse =
   EndpointItemResponse'
-    { _eiMessage = Nothing,
-      _eiStatusCode = Nothing
+    { message = Lude.Nothing,
+      statusCode = Lude.Nothing
     }
 
 -- | The custom message that's returned in the response as a result of processing the endpoint data.
-eiMessage :: Lens' EndpointItemResponse (Maybe Text)
-eiMessage = lens _eiMessage (\s a -> s {_eiMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiMessage :: Lens.Lens' EndpointItemResponse (Lude.Maybe Lude.Text)
+eiMessage = Lens.lens (message :: EndpointItemResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EndpointItemResponse)
+{-# DEPRECATED eiMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status code that's returned in the response as a result of processing the endpoint data.
-eiStatusCode :: Lens' EndpointItemResponse (Maybe Int)
-eiStatusCode = lens _eiStatusCode (\s a -> s {_eiStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiStatusCode :: Lens.Lens' EndpointItemResponse (Lude.Maybe Lude.Int)
+eiStatusCode = Lens.lens (statusCode :: EndpointItemResponse -> Lude.Maybe Lude.Int) (\s a -> s {statusCode = a} :: EndpointItemResponse)
+{-# DEPRECATED eiStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON EndpointItemResponse where
+instance Lude.FromJSON EndpointItemResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "EndpointItemResponse"
       ( \x ->
           EndpointItemResponse'
-            <$> (x .:? "Message") <*> (x .:? "StatusCode")
+            Lude.<$> (x Lude..:? "Message") Lude.<*> (x Lude..:? "StatusCode")
       )
-
-instance Hashable EndpointItemResponse
-
-instance NFData EndpointItemResponse

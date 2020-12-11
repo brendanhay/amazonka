@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentFilterKey where
+module Network.AWS.SSM.Types.DocumentFilterKey
+  ( DocumentFilterKey
+      ( DocumentFilterKey',
+        DFKDocumentType,
+        DFKName,
+        DFKOwner,
+        DFKPlatformTypes
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentFilterKey
-  = DFKDocumentType
-  | DFKName
-  | DFKOwner
-  | DFKPlatformTypes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentFilterKey = DocumentFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "documenttype" -> pure DFKDocumentType
-      "name" -> pure DFKName
-      "owner" -> pure DFKOwner
-      "platformtypes" -> pure DFKPlatformTypes
-      e ->
-        fromTextError $
-          "Failure parsing DocumentFilterKey from value: '" <> e
-            <> "'. Accepted values: documenttype, name, owner, platformtypes"
+pattern DFKDocumentType :: DocumentFilterKey
+pattern DFKDocumentType = DocumentFilterKey' "DocumentType"
 
-instance ToText DocumentFilterKey where
-  toText = \case
-    DFKDocumentType -> "DocumentType"
-    DFKName -> "Name"
-    DFKOwner -> "Owner"
-    DFKPlatformTypes -> "PlatformTypes"
+pattern DFKName :: DocumentFilterKey
+pattern DFKName = DocumentFilterKey' "Name"
 
-instance Hashable DocumentFilterKey
+pattern DFKOwner :: DocumentFilterKey
+pattern DFKOwner = DocumentFilterKey' "Owner"
 
-instance NFData DocumentFilterKey
+pattern DFKPlatformTypes :: DocumentFilterKey
+pattern DFKPlatformTypes = DocumentFilterKey' "PlatformTypes"
 
-instance ToByteString DocumentFilterKey
-
-instance ToQuery DocumentFilterKey
-
-instance ToHeader DocumentFilterKey
-
-instance ToJSON DocumentFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  DFKDocumentType,
+  DFKName,
+  DFKOwner,
+  DFKPlatformTypes,
+  DocumentFilterKey'
+  #-}

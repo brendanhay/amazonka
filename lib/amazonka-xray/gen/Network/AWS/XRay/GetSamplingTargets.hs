@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Requests a sampling quota for rules that the service is using to sample requests.
 module Network.AWS.XRay.GetSamplingTargets
-  ( -- * Creating a Request
-    getSamplingTargets,
-    GetSamplingTargets,
+  ( -- * Creating a request
+    GetSamplingTargets (..),
+    mkGetSamplingTargets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gstSamplingStatisticsDocuments,
 
-    -- * Destructuring the Response
-    getSamplingTargetsResponse,
-    GetSamplingTargetsResponse,
+    -- * Destructuring the response
+    GetSamplingTargetsResponse (..),
+    mkGetSamplingTargetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gstrsUnprocessedStatistics,
     gstrsLastRuleModification,
     gstrsSamplingTargetDocuments,
@@ -38,120 +33,135 @@ module Network.AWS.XRay.GetSamplingTargets
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getSamplingTargets' smart constructor.
+-- | /See:/ 'mkGetSamplingTargets' smart constructor.
 newtype GetSamplingTargets = GetSamplingTargets'
-  { _gstSamplingStatisticsDocuments ::
+  { samplingStatisticsDocuments ::
       [SamplingStatisticsDocument]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingTargets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstSamplingStatisticsDocuments' - Information about rules that the service is using to sample requests.
-getSamplingTargets ::
+-- * 'samplingStatisticsDocuments' - Information about rules that the service is using to sample requests.
+mkGetSamplingTargets ::
   GetSamplingTargets
-getSamplingTargets =
-  GetSamplingTargets' {_gstSamplingStatisticsDocuments = mempty}
+mkGetSamplingTargets =
+  GetSamplingTargets' {samplingStatisticsDocuments = Lude.mempty}
 
 -- | Information about rules that the service is using to sample requests.
-gstSamplingStatisticsDocuments :: Lens' GetSamplingTargets [SamplingStatisticsDocument]
-gstSamplingStatisticsDocuments = lens _gstSamplingStatisticsDocuments (\s a -> s {_gstSamplingStatisticsDocuments = a}) . _Coerce
+--
+-- /Note:/ Consider using 'samplingStatisticsDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstSamplingStatisticsDocuments :: Lens.Lens' GetSamplingTargets [SamplingStatisticsDocument]
+gstSamplingStatisticsDocuments = Lens.lens (samplingStatisticsDocuments :: GetSamplingTargets -> [SamplingStatisticsDocument]) (\s a -> s {samplingStatisticsDocuments = a} :: GetSamplingTargets)
+{-# DEPRECATED gstSamplingStatisticsDocuments "Use generic-lens or generic-optics with 'samplingStatisticsDocuments' instead." #-}
 
-instance AWSRequest GetSamplingTargets where
+instance Lude.AWSRequest GetSamplingTargets where
   type Rs GetSamplingTargets = GetSamplingTargetsResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSamplingTargetsResponse'
-            <$> (x .?> "UnprocessedStatistics" .!@ mempty)
-            <*> (x .?> "LastRuleModification")
-            <*> (x .?> "SamplingTargetDocuments" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UnprocessedStatistics" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "LastRuleModification")
+            Lude.<*> (x Lude..?> "SamplingTargetDocuments" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSamplingTargets
+instance Lude.ToHeaders GetSamplingTargets where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetSamplingTargets
-
-instance ToHeaders GetSamplingTargets where
-  toHeaders = const mempty
-
-instance ToJSON GetSamplingTargets where
+instance Lude.ToJSON GetSamplingTargets where
   toJSON GetSamplingTargets' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "SamplingStatisticsDocuments"
-                  .= _gstSamplingStatisticsDocuments
+                  Lude..= samplingStatisticsDocuments
               )
           ]
       )
 
-instance ToPath GetSamplingTargets where
-  toPath = const "/SamplingTargets"
+instance Lude.ToPath GetSamplingTargets where
+  toPath = Lude.const "/SamplingTargets"
 
-instance ToQuery GetSamplingTargets where
-  toQuery = const mempty
+instance Lude.ToQuery GetSamplingTargets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSamplingTargetsResponse' smart constructor.
+-- | /See:/ 'mkGetSamplingTargetsResponse' smart constructor.
 data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
-  { _gstrsUnprocessedStatistics ::
-      !(Maybe [UnprocessedStatistics]),
-    _gstrsLastRuleModification ::
-      !(Maybe POSIX),
-    _gstrsSamplingTargetDocuments ::
-      !(Maybe [SamplingTargetDocument]),
-    _gstrsResponseStatus :: !Int
+  { unprocessedStatistics ::
+      Lude.Maybe [UnprocessedStatistics],
+    lastRuleModification ::
+      Lude.Maybe Lude.Timestamp,
+    samplingTargetDocuments ::
+      Lude.Maybe [SamplingTargetDocument],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingTargetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstrsUnprocessedStatistics' - Information about 'SamplingStatisticsDocument' that X-Ray could not process.
---
--- * 'gstrsLastRuleModification' - The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call 'GetSamplingRules' to get the latest version.
---
--- * 'gstrsSamplingTargetDocuments' - Updated rules that the service should use to sample requests.
---
--- * 'gstrsResponseStatus' - -- | The response status code.
-getSamplingTargetsResponse ::
-  -- | 'gstrsResponseStatus'
-  Int ->
+-- * 'lastRuleModification' - The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call 'GetSamplingRules' to get the latest version.
+-- * 'responseStatus' - The response status code.
+-- * 'samplingTargetDocuments' - Updated rules that the service should use to sample requests.
+-- * 'unprocessedStatistics' - Information about 'SamplingStatisticsDocument' that X-Ray could not process.
+mkGetSamplingTargetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSamplingTargetsResponse
-getSamplingTargetsResponse pResponseStatus_ =
+mkGetSamplingTargetsResponse pResponseStatus_ =
   GetSamplingTargetsResponse'
-    { _gstrsUnprocessedStatistics =
-        Nothing,
-      _gstrsLastRuleModification = Nothing,
-      _gstrsSamplingTargetDocuments = Nothing,
-      _gstrsResponseStatus = pResponseStatus_
+    { unprocessedStatistics = Lude.Nothing,
+      lastRuleModification = Lude.Nothing,
+      samplingTargetDocuments = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about 'SamplingStatisticsDocument' that X-Ray could not process.
-gstrsUnprocessedStatistics :: Lens' GetSamplingTargetsResponse [UnprocessedStatistics]
-gstrsUnprocessedStatistics = lens _gstrsUnprocessedStatistics (\s a -> s {_gstrsUnprocessedStatistics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsUnprocessedStatistics :: Lens.Lens' GetSamplingTargetsResponse (Lude.Maybe [UnprocessedStatistics])
+gstrsUnprocessedStatistics = Lens.lens (unprocessedStatistics :: GetSamplingTargetsResponse -> Lude.Maybe [UnprocessedStatistics]) (\s a -> s {unprocessedStatistics = a} :: GetSamplingTargetsResponse)
+{-# DEPRECATED gstrsUnprocessedStatistics "Use generic-lens or generic-optics with 'unprocessedStatistics' instead." #-}
 
 -- | The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call 'GetSamplingRules' to get the latest version.
-gstrsLastRuleModification :: Lens' GetSamplingTargetsResponse (Maybe UTCTime)
-gstrsLastRuleModification = lens _gstrsLastRuleModification (\s a -> s {_gstrsLastRuleModification = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastRuleModification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsLastRuleModification :: Lens.Lens' GetSamplingTargetsResponse (Lude.Maybe Lude.Timestamp)
+gstrsLastRuleModification = Lens.lens (lastRuleModification :: GetSamplingTargetsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastRuleModification = a} :: GetSamplingTargetsResponse)
+{-# DEPRECATED gstrsLastRuleModification "Use generic-lens or generic-optics with 'lastRuleModification' instead." #-}
 
 -- | Updated rules that the service should use to sample requests.
-gstrsSamplingTargetDocuments :: Lens' GetSamplingTargetsResponse [SamplingTargetDocument]
-gstrsSamplingTargetDocuments = lens _gstrsSamplingTargetDocuments (\s a -> s {_gstrsSamplingTargetDocuments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'samplingTargetDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsSamplingTargetDocuments :: Lens.Lens' GetSamplingTargetsResponse (Lude.Maybe [SamplingTargetDocument])
+gstrsSamplingTargetDocuments = Lens.lens (samplingTargetDocuments :: GetSamplingTargetsResponse -> Lude.Maybe [SamplingTargetDocument]) (\s a -> s {samplingTargetDocuments = a} :: GetSamplingTargetsResponse)
+{-# DEPRECATED gstrsSamplingTargetDocuments "Use generic-lens or generic-optics with 'samplingTargetDocuments' instead." #-}
 
--- | -- | The response status code.
-gstrsResponseStatus :: Lens' GetSamplingTargetsResponse Int
-gstrsResponseStatus = lens _gstrsResponseStatus (\s a -> s {_gstrsResponseStatus = a})
-
-instance NFData GetSamplingTargetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsResponseStatus :: Lens.Lens' GetSamplingTargetsResponse Lude.Int
+gstrsResponseStatus = Lens.lens (responseStatus :: GetSamplingTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSamplingTargetsResponse)
+{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

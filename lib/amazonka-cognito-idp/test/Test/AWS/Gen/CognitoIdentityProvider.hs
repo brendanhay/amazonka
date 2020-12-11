@@ -28,607 +28,607 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDeleteUserPool $
---             deleteUserPool
+--             mkDeleteUserPool
 --
 --         , requestUpdateUserPool $
---             updateUserPool
+--             mkUpdateUserPool
 --
 --         , requestUpdateUserPoolDomain $
---             updateUserPoolDomain
+--             mkUpdateUserPoolDomain
 --
 --         , requestDeleteUserPoolDomain $
---             deleteUserPoolDomain
+--             mkDeleteUserPoolDomain
 --
 --         , requestAdminInitiateAuth $
---             adminInitiateAuth
+--             mkAdminInitiateAuth
 --
 --         , requestAdminLinkProviderForUser $
---             adminLinkProviderForUser
+--             mkAdminLinkProviderForUser
 --
 --         , requestAdminEnableUser $
---             adminEnableUser
+--             mkAdminEnableUser
 --
 --         , requestGetUserAttributeVerificationCode $
---             getUserAttributeVerificationCode
+--             mkGetUserAttributeVerificationCode
 --
 --         , requestSetUserPoolMFAConfig $
---             setUserPoolMFAConfig
+--             mkSetUserPoolMFAConfig
 --
 --         , requestUpdateUserAttributes $
---             updateUserAttributes
+--             mkUpdateUserAttributes
 --
 --         , requestDeleteUserAttributes $
---             deleteUserAttributes
+--             mkDeleteUserAttributes
 --
 --         , requestVerifyUserAttribute $
---             verifyUserAttribute
+--             mkVerifyUserAttribute
 --
 --         , requestAdminDisableUser $
---             adminDisableUser
+--             mkAdminDisableUser
 --
 --         , requestConfirmDevice $
---             confirmDevice
+--             mkConfirmDevice
 --
 --         , requestConfirmForgotPassword $
---             confirmForgotPassword
+--             mkConfirmForgotPassword
 --
 --         , requestListUserImportJobs $
---             listUserImportJobs
+--             mkListUserImportJobs
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestDescribeIdentityProvider $
---             describeIdentityProvider
+--             mkDescribeIdentityProvider
 --
 --         , requestListUsers $
---             listUsers
+--             mkListUsers
 --
 --         , requestAdminDeleteUserAttributes $
---             adminDeleteUserAttributes
+--             mkAdminDeleteUserAttributes
 --
 --         , requestDescribeUserPoolDomain $
---             describeUserPoolDomain
+--             mkDescribeUserPoolDomain
 --
 --         , requestAdminUpdateUserAttributes $
---             adminUpdateUserAttributes
+--             mkAdminUpdateUserAttributes
 --
 --         , requestAdminGetUser $
---             adminGetUser
+--             mkAdminGetUser
 --
 --         , requestAdminUserGlobalSignOut $
---             adminUserGlobalSignOut
+--             mkAdminUserGlobalSignOut
 --
 --         , requestListUsersInGroup $
---             listUsersInGroup
+--             mkListUsersInGroup
 --
 --         , requestAssociateSoftwareToken $
---             associateSoftwareToken
+--             mkAssociateSoftwareToken
 --
 --         , requestAdminDisableProviderForUser $
---             adminDisableProviderForUser
+--             mkAdminDisableProviderForUser
 --
 --         , requestForgotPassword $
---             forgotPassword
+--             mkForgotPassword
 --
 --         , requestDescribeUserPool $
---             describeUserPool
+--             mkDescribeUserPool
 --
 --         , requestInitiateAuth $
---             initiateAuth
+--             mkInitiateAuth
 --
 --         , requestAdminListGroupsForUser $
---             adminListGroupsForUser
+--             mkAdminListGroupsForUser
 --
 --         , requestAdminConfirmSignUp $
---             adminConfirmSignUp
+--             mkAdminConfirmSignUp
 --
 --         , requestAdminUpdateAuthEventFeedback $
---             adminUpdateAuthEventFeedback
+--             mkAdminUpdateAuthEventFeedback
 --
 --         , requestAdminSetUserPassword $
---             adminSetUserPassword
+--             mkAdminSetUserPassword
 --
 --         , requestStartUserImportJob $
---             startUserImportJob
+--             mkStartUserImportJob
 --
 --         , requestCreateIdentityProvider $
---             createIdentityProvider
+--             mkCreateIdentityProvider
 --
 --         , requestSetUICustomization $
---             setUICustomization
+--             mkSetUICustomization
 --
 --         , requestListIdentityProviders $
---             listIdentityProviders
+--             mkListIdentityProviders
 --
 --         , requestGetDevice $
---             getDevice
+--             mkGetDevice
 --
 --         , requestSignUp $
---             signUp
+--             mkSignUp
 --
 --         , requestDeleteResourceServer $
---             deleteResourceServer
+--             mkDeleteResourceServer
 --
 --         , requestUpdateResourceServer $
---             updateResourceServer
+--             mkUpdateResourceServer
 --
 --         , requestChangePassword $
---             changePassword
+--             mkChangePassword
 --
 --         , requestCreateUserPoolDomain $
---             createUserPoolDomain
+--             mkCreateUserPoolDomain
 --
 --         , requestRespondToAuthChallenge $
---             respondToAuthChallenge
+--             mkRespondToAuthChallenge
 --
 --         , requestCreateUserPool $
---             createUserPool
+--             mkCreateUserPool
 --
 --         , requestAdminGetDevice $
---             adminGetDevice
+--             mkAdminGetDevice
 --
 --         , requestGetIdentityProviderByIdentifier $
---             getIdentityProviderByIdentifier
+--             mkGetIdentityProviderByIdentifier
 --
 --         , requestAdminRemoveUserFromGroup $
---             adminRemoveUserFromGroup
+--             mkAdminRemoveUserFromGroup
 --
 --         , requestSetRiskConfiguration $
---             setRiskConfiguration
+--             mkSetRiskConfiguration
 --
 --         , requestConfirmSignUp $
---             confirmSignUp
+--             mkConfirmSignUp
 --
 --         , requestListUserPools $
---             listUserPools
+--             mkListUserPools
 --
 --         , requestAdminResetUserPassword $
---             adminResetUserPassword
+--             mkAdminResetUserPassword
 --
 --         , requestUpdateAuthEventFeedback $
---             updateAuthEventFeedback
+--             mkUpdateAuthEventFeedback
 --
 --         , requestCreateUserImportJob $
---             createUserImportJob
+--             mkCreateUserImportJob
 --
 --         , requestGetUser $
---             getUser
+--             mkGetUser
 --
 --         , requestGetUICustomization $
---             getUICustomization
+--             mkGetUICustomization
 --
 --         , requestGetCSVHeader $
---             getCSVHeader
+--             mkGetCSVHeader
 --
 --         , requestAdminDeleteUser $
---             adminDeleteUser
+--             mkAdminDeleteUser
 --
 --         , requestAdminForgetDevice $
---             adminForgetDevice
+--             mkAdminForgetDevice
 --
 --         , requestDescribeResourceServer $
---             describeResourceServer
+--             mkDescribeResourceServer
 --
 --         , requestSetUserMFAPreference $
---             setUserMFAPreference
+--             mkSetUserMFAPreference
 --
 --         , requestAdminUpdateDeviceStatus $
---             adminUpdateDeviceStatus
+--             mkAdminUpdateDeviceStatus
 --
 --         , requestAdminCreateUser $
---             adminCreateUser
+--             mkAdminCreateUser
 --
 --         , requestAddCustomAttributes $
---             addCustomAttributes
+--             mkAddCustomAttributes
 --
 --         , requestListUserPoolClients $
---             listUserPoolClients
+--             mkListUserPoolClients
 --
 --         , requestAdminSetUserMFAPreference $
---             adminSetUserMFAPreference
+--             mkAdminSetUserMFAPreference
 --
 --         , requestUpdateUserPoolClient $
---             updateUserPoolClient
+--             mkUpdateUserPoolClient
 --
 --         , requestDeleteUserPoolClient $
---             deleteUserPoolClient
+--             mkDeleteUserPoolClient
 --
 --         , requestUpdateDeviceStatus $
---             updateDeviceStatus
+--             mkUpdateDeviceStatus
 --
 --         , requestForgetDevice $
---             forgetDevice
+--             mkForgetDevice
 --
 --         , requestGetSigningCertificate $
---             getSigningCertificate
+--             mkGetSigningCertificate
 --
 --         , requestDeleteUser $
---             deleteUser
+--             mkDeleteUser
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestCreateUserPoolClient $
---             createUserPoolClient
+--             mkCreateUserPoolClient
 --
 --         , requestGetUserPoolMFAConfig $
---             getUserPoolMFAConfig
+--             mkGetUserPoolMFAConfig
 --
 --         , requestCreateResourceServer $
---             createResourceServer
+--             mkCreateResourceServer
 --
 --         , requestAdminListUserAuthEvents $
---             adminListUserAuthEvents
+--             mkAdminListUserAuthEvents
 --
 --         , requestCreateGroup $
---             createGroup
+--             mkCreateGroup
 --
 --         , requestAdminAddUserToGroup $
---             adminAddUserToGroup
+--             mkAdminAddUserToGroup
 --
 --         , requestVerifySoftwareToken $
---             verifySoftwareToken
+--             mkVerifySoftwareToken
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestStopUserImportJob $
---             stopUserImportJob
+--             mkStopUserImportJob
 --
 --         , requestDescribeUserImportJob $
---             describeUserImportJob
+--             mkDescribeUserImportJob
 --
 --         , requestDescribeRiskConfiguration $
---             describeRiskConfiguration
+--             mkDescribeRiskConfiguration
 --
 --         , requestDeleteGroup $
---             deleteGroup
+--             mkDeleteGroup
 --
 --         , requestUpdateGroup $
---             updateGroup
+--             mkUpdateGroup
 --
 --         , requestGlobalSignOut $
---             globalSignOut
+--             mkGlobalSignOut
 --
 --         , requestListGroups $
---             listGroups
+--             mkListGroups
 --
 --         , requestUpdateIdentityProvider $
---             updateIdentityProvider
+--             mkUpdateIdentityProvider
 --
 --         , requestDeleteIdentityProvider $
---             deleteIdentityProvider
+--             mkDeleteIdentityProvider
 --
 --         , requestListResourceServers $
---             listResourceServers
+--             mkListResourceServers
 --
 --         , requestAdminRespondToAuthChallenge $
---             adminRespondToAuthChallenge
+--             mkAdminRespondToAuthChallenge
 --
 --         , requestSetUserSettings $
---             setUserSettings
+--             mkSetUserSettings
 --
 --         , requestAdminListDevices $
---             adminListDevices
+--             mkAdminListDevices
 --
 --         , requestDescribeUserPoolClient $
---             describeUserPoolClient
+--             mkDescribeUserPoolClient
 --
 --         , requestResendConfirmationCode $
---             resendConfirmationCode
+--             mkResendConfirmationCode
 --
 --         , requestGetGroup $
---             getGroup
+--             mkGetGroup
 --
 --         , requestAdminSetUserSettings $
---             adminSetUserSettings
+--             mkAdminSetUserSettings
 --
 --         , requestListDevices $
---             listDevices
+--             mkListDevices
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDeleteUserPool $
---             deleteUserPoolResponse
+--             mkDeleteUserPoolResponse
 --
 --         , responseUpdateUserPool $
---             updateUserPoolResponse
+--             mkUpdateUserPoolResponse
 --
 --         , responseUpdateUserPoolDomain $
---             updateUserPoolDomainResponse
+--             mkUpdateUserPoolDomainResponse
 --
 --         , responseDeleteUserPoolDomain $
---             deleteUserPoolDomainResponse
+--             mkDeleteUserPoolDomainResponse
 --
 --         , responseAdminInitiateAuth $
---             adminInitiateAuthResponse
+--             mkAdminInitiateAuthResponse
 --
 --         , responseAdminLinkProviderForUser $
---             adminLinkProviderForUserResponse
+--             mkAdminLinkProviderForUserResponse
 --
 --         , responseAdminEnableUser $
---             adminEnableUserResponse
+--             mkAdminEnableUserResponse
 --
 --         , responseGetUserAttributeVerificationCode $
---             getUserAttributeVerificationCodeResponse
+--             mkGetUserAttributeVerificationCodeResponse
 --
 --         , responseSetUserPoolMFAConfig $
---             setUserPoolMFAConfigResponse
+--             mkSetUserPoolMFAConfigResponse
 --
 --         , responseUpdateUserAttributes $
---             updateUserAttributesResponse
+--             mkUpdateUserAttributesResponse
 --
 --         , responseDeleteUserAttributes $
---             deleteUserAttributesResponse
+--             mkDeleteUserAttributesResponse
 --
 --         , responseVerifyUserAttribute $
---             verifyUserAttributeResponse
+--             mkVerifyUserAttributeResponse
 --
 --         , responseAdminDisableUser $
---             adminDisableUserResponse
+--             mkAdminDisableUserResponse
 --
 --         , responseConfirmDevice $
---             confirmDeviceResponse
+--             mkConfirmDeviceResponse
 --
 --         , responseConfirmForgotPassword $
---             confirmForgotPasswordResponse
+--             mkConfirmForgotPasswordResponse
 --
 --         , responseListUserImportJobs $
---             listUserImportJobsResponse
+--             mkListUserImportJobsResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseDescribeIdentityProvider $
---             describeIdentityProviderResponse
+--             mkDescribeIdentityProviderResponse
 --
 --         , responseListUsers $
---             listUsersResponse
+--             mkListUsersResponse
 --
 --         , responseAdminDeleteUserAttributes $
---             adminDeleteUserAttributesResponse
+--             mkAdminDeleteUserAttributesResponse
 --
 --         , responseDescribeUserPoolDomain $
---             describeUserPoolDomainResponse
+--             mkDescribeUserPoolDomainResponse
 --
 --         , responseAdminUpdateUserAttributes $
---             adminUpdateUserAttributesResponse
+--             mkAdminUpdateUserAttributesResponse
 --
 --         , responseAdminGetUser $
---             adminGetUserResponse
+--             mkAdminGetUserResponse
 --
 --         , responseAdminUserGlobalSignOut $
---             adminUserGlobalSignOutResponse
+--             mkAdminUserGlobalSignOutResponse
 --
 --         , responseListUsersInGroup $
---             listUsersInGroupResponse
+--             mkListUsersInGroupResponse
 --
 --         , responseAssociateSoftwareToken $
---             associateSoftwareTokenResponse
+--             mkAssociateSoftwareTokenResponse
 --
 --         , responseAdminDisableProviderForUser $
---             adminDisableProviderForUserResponse
+--             mkAdminDisableProviderForUserResponse
 --
 --         , responseForgotPassword $
---             forgotPasswordResponse
+--             mkForgotPasswordResponse
 --
 --         , responseDescribeUserPool $
---             describeUserPoolResponse
+--             mkDescribeUserPoolResponse
 --
 --         , responseInitiateAuth $
---             initiateAuthResponse
+--             mkInitiateAuthResponse
 --
 --         , responseAdminListGroupsForUser $
---             adminListGroupsForUserResponse
+--             mkAdminListGroupsForUserResponse
 --
 --         , responseAdminConfirmSignUp $
---             adminConfirmSignUpResponse
+--             mkAdminConfirmSignUpResponse
 --
 --         , responseAdminUpdateAuthEventFeedback $
---             adminUpdateAuthEventFeedbackResponse
+--             mkAdminUpdateAuthEventFeedbackResponse
 --
 --         , responseAdminSetUserPassword $
---             adminSetUserPasswordResponse
+--             mkAdminSetUserPasswordResponse
 --
 --         , responseStartUserImportJob $
---             startUserImportJobResponse
+--             mkStartUserImportJobResponse
 --
 --         , responseCreateIdentityProvider $
---             createIdentityProviderResponse
+--             mkCreateIdentityProviderResponse
 --
 --         , responseSetUICustomization $
---             setUICustomizationResponse
+--             mkSetUICustomizationResponse
 --
 --         , responseListIdentityProviders $
---             listIdentityProvidersResponse
+--             mkListIdentityProvidersResponse
 --
 --         , responseGetDevice $
---             getDeviceResponse
+--             mkGetDeviceResponse
 --
 --         , responseSignUp $
---             signUpResponse
+--             mkSignUpResponse
 --
 --         , responseDeleteResourceServer $
---             deleteResourceServerResponse
+--             mkDeleteResourceServerResponse
 --
 --         , responseUpdateResourceServer $
---             updateResourceServerResponse
+--             mkUpdateResourceServerResponse
 --
 --         , responseChangePassword $
---             changePasswordResponse
+--             mkChangePasswordResponse
 --
 --         , responseCreateUserPoolDomain $
---             createUserPoolDomainResponse
+--             mkCreateUserPoolDomainResponse
 --
 --         , responseRespondToAuthChallenge $
---             respondToAuthChallengeResponse
+--             mkRespondToAuthChallengeResponse
 --
 --         , responseCreateUserPool $
---             createUserPoolResponse
+--             mkCreateUserPoolResponse
 --
 --         , responseAdminGetDevice $
---             adminGetDeviceResponse
+--             mkAdminGetDeviceResponse
 --
 --         , responseGetIdentityProviderByIdentifier $
---             getIdentityProviderByIdentifierResponse
+--             mkGetIdentityProviderByIdentifierResponse
 --
 --         , responseAdminRemoveUserFromGroup $
---             adminRemoveUserFromGroupResponse
+--             mkAdminRemoveUserFromGroupResponse
 --
 --         , responseSetRiskConfiguration $
---             setRiskConfigurationResponse
+--             mkSetRiskConfigurationResponse
 --
 --         , responseConfirmSignUp $
---             confirmSignUpResponse
+--             mkConfirmSignUpResponse
 --
 --         , responseListUserPools $
---             listUserPoolsResponse
+--             mkListUserPoolsResponse
 --
 --         , responseAdminResetUserPassword $
---             adminResetUserPasswordResponse
+--             mkAdminResetUserPasswordResponse
 --
 --         , responseUpdateAuthEventFeedback $
---             updateAuthEventFeedbackResponse
+--             mkUpdateAuthEventFeedbackResponse
 --
 --         , responseCreateUserImportJob $
---             createUserImportJobResponse
+--             mkCreateUserImportJobResponse
 --
 --         , responseGetUser $
---             getUserResponse
+--             mkGetUserResponse
 --
 --         , responseGetUICustomization $
---             getUICustomizationResponse
+--             mkGetUICustomizationResponse
 --
 --         , responseGetCSVHeader $
---             getCSVHeaderResponse
+--             mkGetCSVHeaderResponse
 --
 --         , responseAdminDeleteUser $
---             adminDeleteUserResponse
+--             mkAdminDeleteUserResponse
 --
 --         , responseAdminForgetDevice $
---             adminForgetDeviceResponse
+--             mkAdminForgetDeviceResponse
 --
 --         , responseDescribeResourceServer $
---             describeResourceServerResponse
+--             mkDescribeResourceServerResponse
 --
 --         , responseSetUserMFAPreference $
---             setUserMFAPreferenceResponse
+--             mkSetUserMFAPreferenceResponse
 --
 --         , responseAdminUpdateDeviceStatus $
---             adminUpdateDeviceStatusResponse
+--             mkAdminUpdateDeviceStatusResponse
 --
 --         , responseAdminCreateUser $
---             adminCreateUserResponse
+--             mkAdminCreateUserResponse
 --
 --         , responseAddCustomAttributes $
---             addCustomAttributesResponse
+--             mkAddCustomAttributesResponse
 --
 --         , responseListUserPoolClients $
---             listUserPoolClientsResponse
+--             mkListUserPoolClientsResponse
 --
 --         , responseAdminSetUserMFAPreference $
---             adminSetUserMFAPreferenceResponse
+--             mkAdminSetUserMFAPreferenceResponse
 --
 --         , responseUpdateUserPoolClient $
---             updateUserPoolClientResponse
+--             mkUpdateUserPoolClientResponse
 --
 --         , responseDeleteUserPoolClient $
---             deleteUserPoolClientResponse
+--             mkDeleteUserPoolClientResponse
 --
 --         , responseUpdateDeviceStatus $
---             updateDeviceStatusResponse
+--             mkUpdateDeviceStatusResponse
 --
 --         , responseForgetDevice $
---             forgetDeviceResponse
+--             mkForgetDeviceResponse
 --
 --         , responseGetSigningCertificate $
---             getSigningCertificateResponse
+--             mkGetSigningCertificateResponse
 --
 --         , responseDeleteUser $
---             deleteUserResponse
+--             mkDeleteUserResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseCreateUserPoolClient $
---             createUserPoolClientResponse
+--             mkCreateUserPoolClientResponse
 --
 --         , responseGetUserPoolMFAConfig $
---             getUserPoolMFAConfigResponse
+--             mkGetUserPoolMFAConfigResponse
 --
 --         , responseCreateResourceServer $
---             createResourceServerResponse
+--             mkCreateResourceServerResponse
 --
 --         , responseAdminListUserAuthEvents $
---             adminListUserAuthEventsResponse
+--             mkAdminListUserAuthEventsResponse
 --
 --         , responseCreateGroup $
---             createGroupResponse
+--             mkCreateGroupResponse
 --
 --         , responseAdminAddUserToGroup $
---             adminAddUserToGroupResponse
+--             mkAdminAddUserToGroupResponse
 --
 --         , responseVerifySoftwareToken $
---             verifySoftwareTokenResponse
+--             mkVerifySoftwareTokenResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseStopUserImportJob $
---             stopUserImportJobResponse
+--             mkStopUserImportJobResponse
 --
 --         , responseDescribeUserImportJob $
---             describeUserImportJobResponse
+--             mkDescribeUserImportJobResponse
 --
 --         , responseDescribeRiskConfiguration $
---             describeRiskConfigurationResponse
+--             mkDescribeRiskConfigurationResponse
 --
 --         , responseDeleteGroup $
---             deleteGroupResponse
+--             mkDeleteGroupResponse
 --
 --         , responseUpdateGroup $
---             updateGroupResponse
+--             mkUpdateGroupResponse
 --
 --         , responseGlobalSignOut $
---             globalSignOutResponse
+--             mkGlobalSignOutResponse
 --
 --         , responseListGroups $
---             listGroupsResponse
+--             mkListGroupsResponse
 --
 --         , responseUpdateIdentityProvider $
---             updateIdentityProviderResponse
+--             mkUpdateIdentityProviderResponse
 --
 --         , responseDeleteIdentityProvider $
---             deleteIdentityProviderResponse
+--             mkDeleteIdentityProviderResponse
 --
 --         , responseListResourceServers $
---             listResourceServersResponse
+--             mkListResourceServersResponse
 --
 --         , responseAdminRespondToAuthChallenge $
---             adminRespondToAuthChallengeResponse
+--             mkAdminRespondToAuthChallengeResponse
 --
 --         , responseSetUserSettings $
---             setUserSettingsResponse
+--             mkSetUserSettingsResponse
 --
 --         , responseAdminListDevices $
---             adminListDevicesResponse
+--             mkAdminListDevicesResponse
 --
 --         , responseDescribeUserPoolClient $
---             describeUserPoolClientResponse
+--             mkDescribeUserPoolClientResponse
 --
 --         , responseResendConfirmationCode $
---             resendConfirmationCodeResponse
+--             mkResendConfirmationCodeResponse
 --
 --         , responseGetGroup $
---             getGroupResponse
+--             mkGetGroupResponse
 --
 --         , responseAdminSetUserSettings $
---             adminSetUserSettingsResponse
+--             mkAdminSetUserSettingsResponse
 --
 --         , responseListDevices $
---             listDevicesResponse
+--             mkListDevicesResponse
 --
 --           ]
 --     ]
@@ -1242,7 +1242,7 @@ responseDeleteUserPool =
   res
     "DeleteUserPoolResponse"
     "fixture/DeleteUserPoolResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteUserPool)
 
 responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
@@ -1250,7 +1250,7 @@ responseUpdateUserPool =
   res
     "UpdateUserPoolResponse"
     "fixture/UpdateUserPoolResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateUserPool)
 
 responseUpdateUserPoolDomain :: UpdateUserPoolDomainResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseUpdateUserPoolDomain =
   res
     "UpdateUserPoolDomainResponse"
     "fixture/UpdateUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateUserPoolDomain)
 
 responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
@@ -1266,7 +1266,7 @@ responseDeleteUserPoolDomain =
   res
     "DeleteUserPoolDomainResponse"
     "fixture/DeleteUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteUserPoolDomain)
 
 responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
@@ -1274,7 +1274,7 @@ responseAdminInitiateAuth =
   res
     "AdminInitiateAuthResponse"
     "fixture/AdminInitiateAuthResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminInitiateAuth)
 
 responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
@@ -1282,7 +1282,7 @@ responseAdminLinkProviderForUser =
   res
     "AdminLinkProviderForUserResponse"
     "fixture/AdminLinkProviderForUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminLinkProviderForUser)
 
 responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
@@ -1290,7 +1290,7 @@ responseAdminEnableUser =
   res
     "AdminEnableUserResponse"
     "fixture/AdminEnableUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminEnableUser)
 
 responseGetUserAttributeVerificationCode :: GetUserAttributeVerificationCodeResponse -> TestTree
@@ -1298,7 +1298,7 @@ responseGetUserAttributeVerificationCode =
   res
     "GetUserAttributeVerificationCodeResponse"
     "fixture/GetUserAttributeVerificationCodeResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetUserAttributeVerificationCode)
 
 responseSetUserPoolMFAConfig :: SetUserPoolMFAConfigResponse -> TestTree
@@ -1306,7 +1306,7 @@ responseSetUserPoolMFAConfig =
   res
     "SetUserPoolMFAConfigResponse"
     "fixture/SetUserPoolMFAConfigResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy SetUserPoolMFAConfig)
 
 responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
@@ -1314,7 +1314,7 @@ responseUpdateUserAttributes =
   res
     "UpdateUserAttributesResponse"
     "fixture/UpdateUserAttributesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateUserAttributes)
 
 responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
@@ -1322,7 +1322,7 @@ responseDeleteUserAttributes =
   res
     "DeleteUserAttributesResponse"
     "fixture/DeleteUserAttributesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteUserAttributes)
 
 responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
@@ -1330,7 +1330,7 @@ responseVerifyUserAttribute =
   res
     "VerifyUserAttributeResponse"
     "fixture/VerifyUserAttributeResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy VerifyUserAttribute)
 
 responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
@@ -1338,7 +1338,7 @@ responseAdminDisableUser =
   res
     "AdminDisableUserResponse"
     "fixture/AdminDisableUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminDisableUser)
 
 responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
@@ -1346,7 +1346,7 @@ responseConfirmDevice =
   res
     "ConfirmDeviceResponse"
     "fixture/ConfirmDeviceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ConfirmDevice)
 
 responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
@@ -1354,7 +1354,7 @@ responseConfirmForgotPassword =
   res
     "ConfirmForgotPasswordResponse"
     "fixture/ConfirmForgotPasswordResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ConfirmForgotPassword)
 
 responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
@@ -1362,7 +1362,7 @@ responseListUserImportJobs =
   res
     "ListUserImportJobsResponse"
     "fixture/ListUserImportJobsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListUserImportJobs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseDescribeIdentityProvider =
   res
     "DescribeIdentityProviderResponse"
     "fixture/DescribeIdentityProviderResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeIdentityProvider)
 
 responseListUsers :: ListUsersResponse -> TestTree
@@ -1386,7 +1386,7 @@ responseListUsers =
   res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListUsers)
 
 responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseAdminDeleteUserAttributes =
   res
     "AdminDeleteUserAttributesResponse"
     "fixture/AdminDeleteUserAttributesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminDeleteUserAttributes)
 
 responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
@@ -1402,7 +1402,7 @@ responseDescribeUserPoolDomain =
   res
     "DescribeUserPoolDomainResponse"
     "fixture/DescribeUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeUserPoolDomain)
 
 responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
@@ -1410,7 +1410,7 @@ responseAdminUpdateUserAttributes =
   res
     "AdminUpdateUserAttributesResponse"
     "fixture/AdminUpdateUserAttributesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminUpdateUserAttributes)
 
 responseAdminGetUser :: AdminGetUserResponse -> TestTree
@@ -1418,7 +1418,7 @@ responseAdminGetUser =
   res
     "AdminGetUserResponse"
     "fixture/AdminGetUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminGetUser)
 
 responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseAdminUserGlobalSignOut =
   res
     "AdminUserGlobalSignOutResponse"
     "fixture/AdminUserGlobalSignOutResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminUserGlobalSignOut)
 
 responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseListUsersInGroup =
   res
     "ListUsersInGroupResponse"
     "fixture/ListUsersInGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListUsersInGroup)
 
 responseAssociateSoftwareToken :: AssociateSoftwareTokenResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseAssociateSoftwareToken =
   res
     "AssociateSoftwareTokenResponse"
     "fixture/AssociateSoftwareTokenResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AssociateSoftwareToken)
 
 responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseAdminDisableProviderForUser =
   res
     "AdminDisableProviderForUserResponse"
     "fixture/AdminDisableProviderForUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminDisableProviderForUser)
 
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseForgotPassword =
   res
     "ForgotPasswordResponse"
     "fixture/ForgotPasswordResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ForgotPassword)
 
 responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseDescribeUserPool =
   res
     "DescribeUserPoolResponse"
     "fixture/DescribeUserPoolResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeUserPool)
 
 responseInitiateAuth :: InitiateAuthResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseInitiateAuth =
   res
     "InitiateAuthResponse"
     "fixture/InitiateAuthResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy InitiateAuth)
 
 responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
@@ -1482,7 +1482,7 @@ responseAdminListGroupsForUser =
   res
     "AdminListGroupsForUserResponse"
     "fixture/AdminListGroupsForUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminListGroupsForUser)
 
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseAdminConfirmSignUp =
   res
     "AdminConfirmSignUpResponse"
     "fixture/AdminConfirmSignUpResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminConfirmSignUp)
 
 responseAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedbackResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseAdminUpdateAuthEventFeedback =
   res
     "AdminUpdateAuthEventFeedbackResponse"
     "fixture/AdminUpdateAuthEventFeedbackResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminUpdateAuthEventFeedback)
 
 responseAdminSetUserPassword :: AdminSetUserPasswordResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseAdminSetUserPassword =
   res
     "AdminSetUserPasswordResponse"
     "fixture/AdminSetUserPasswordResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminSetUserPassword)
 
 responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseStartUserImportJob =
   res
     "StartUserImportJobResponse"
     "fixture/StartUserImportJobResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy StartUserImportJob)
 
 responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseCreateIdentityProvider =
   res
     "CreateIdentityProviderResponse"
     "fixture/CreateIdentityProviderResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateIdentityProvider)
 
 responseSetUICustomization :: SetUICustomizationResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseSetUICustomization =
   res
     "SetUICustomizationResponse"
     "fixture/SetUICustomizationResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy SetUICustomization)
 
 responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseListIdentityProviders =
   res
     "ListIdentityProvidersResponse"
     "fixture/ListIdentityProvidersResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListIdentityProviders)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseGetDevice =
   res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetDevice)
 
 responseSignUp :: SignUpResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseSignUp =
   res
     "SignUpResponse"
     "fixture/SignUpResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy SignUp)
 
 responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseDeleteResourceServer =
   res
     "DeleteResourceServerResponse"
     "fixture/DeleteResourceServerResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteResourceServer)
 
 responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseUpdateResourceServer =
   res
     "UpdateResourceServerResponse"
     "fixture/UpdateResourceServerResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateResourceServer)
 
 responseChangePassword :: ChangePasswordResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseChangePassword =
   res
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ChangePassword)
 
 responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseCreateUserPoolDomain =
   res
     "CreateUserPoolDomainResponse"
     "fixture/CreateUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateUserPoolDomain)
 
 responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseRespondToAuthChallenge =
   res
     "RespondToAuthChallengeResponse"
     "fixture/RespondToAuthChallengeResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy RespondToAuthChallenge)
 
 responseCreateUserPool :: CreateUserPoolResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseCreateUserPool =
   res
     "CreateUserPoolResponse"
     "fixture/CreateUserPoolResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateUserPool)
 
 responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseAdminGetDevice =
   res
     "AdminGetDeviceResponse"
     "fixture/AdminGetDeviceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminGetDevice)
 
 responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseGetIdentityProviderByIdentifier =
   res
     "GetIdentityProviderByIdentifierResponse"
     "fixture/GetIdentityProviderByIdentifierResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetIdentityProviderByIdentifier)
 
 responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseAdminRemoveUserFromGroup =
   res
     "AdminRemoveUserFromGroupResponse"
     "fixture/AdminRemoveUserFromGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminRemoveUserFromGroup)
 
 responseSetRiskConfiguration :: SetRiskConfigurationResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseSetRiskConfiguration =
   res
     "SetRiskConfigurationResponse"
     "fixture/SetRiskConfigurationResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy SetRiskConfiguration)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
@@ -1642,7 +1642,7 @@ responseConfirmSignUp =
   res
     "ConfirmSignUpResponse"
     "fixture/ConfirmSignUpResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ConfirmSignUp)
 
 responseListUserPools :: ListUserPoolsResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseListUserPools =
   res
     "ListUserPoolsResponse"
     "fixture/ListUserPoolsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListUserPools)
 
 responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseAdminResetUserPassword =
   res
     "AdminResetUserPasswordResponse"
     "fixture/AdminResetUserPasswordResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminResetUserPassword)
 
 responseUpdateAuthEventFeedback :: UpdateAuthEventFeedbackResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseUpdateAuthEventFeedback =
   res
     "UpdateAuthEventFeedbackResponse"
     "fixture/UpdateAuthEventFeedbackResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateAuthEventFeedback)
 
 responseCreateUserImportJob :: CreateUserImportJobResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseCreateUserImportJob =
   res
     "CreateUserImportJobResponse"
     "fixture/CreateUserImportJobResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateUserImportJob)
 
 responseGetUser :: GetUserResponse -> TestTree
@@ -1682,7 +1682,7 @@ responseGetUser =
   res
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetUser)
 
 responseGetUICustomization :: GetUICustomizationResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseGetUICustomization =
   res
     "GetUICustomizationResponse"
     "fixture/GetUICustomizationResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetUICustomization)
 
 responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseGetCSVHeader =
   res
     "GetCSVHeaderResponse"
     "fixture/GetCSVHeaderResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetCSVHeader)
 
 responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseAdminDeleteUser =
   res
     "AdminDeleteUserResponse"
     "fixture/AdminDeleteUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminDeleteUser)
 
 responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseAdminForgetDevice =
   res
     "AdminForgetDeviceResponse"
     "fixture/AdminForgetDeviceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminForgetDevice)
 
 responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseDescribeResourceServer =
   res
     "DescribeResourceServerResponse"
     "fixture/DescribeResourceServerResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeResourceServer)
 
 responseSetUserMFAPreference :: SetUserMFAPreferenceResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseSetUserMFAPreference =
   res
     "SetUserMFAPreferenceResponse"
     "fixture/SetUserMFAPreferenceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy SetUserMFAPreference)
 
 responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseAdminUpdateDeviceStatus =
   res
     "AdminUpdateDeviceStatusResponse"
     "fixture/AdminUpdateDeviceStatusResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminUpdateDeviceStatus)
 
 responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseAdminCreateUser =
   res
     "AdminCreateUserResponse"
     "fixture/AdminCreateUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminCreateUser)
 
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseAddCustomAttributes =
   res
     "AddCustomAttributesResponse"
     "fixture/AddCustomAttributesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AddCustomAttributes)
 
 responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseListUserPoolClients =
   res
     "ListUserPoolClientsResponse"
     "fixture/ListUserPoolClientsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListUserPoolClients)
 
 responseAdminSetUserMFAPreference :: AdminSetUserMFAPreferenceResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseAdminSetUserMFAPreference =
   res
     "AdminSetUserMFAPreferenceResponse"
     "fixture/AdminSetUserMFAPreferenceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminSetUserMFAPreference)
 
 responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseUpdateUserPoolClient =
   res
     "UpdateUserPoolClientResponse"
     "fixture/UpdateUserPoolClientResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateUserPoolClient)
 
 responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseDeleteUserPoolClient =
   res
     "DeleteUserPoolClientResponse"
     "fixture/DeleteUserPoolClientResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteUserPoolClient)
 
 responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseUpdateDeviceStatus =
   res
     "UpdateDeviceStatusResponse"
     "fixture/UpdateDeviceStatusResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateDeviceStatus)
 
 responseForgetDevice :: ForgetDeviceResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseForgetDevice =
   res
     "ForgetDeviceResponse"
     "fixture/ForgetDeviceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ForgetDevice)
 
 responseGetSigningCertificate :: GetSigningCertificateResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseGetSigningCertificate =
   res
     "GetSigningCertificateResponse"
     "fixture/GetSigningCertificateResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetSigningCertificate)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy TagResource)
 
 responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
@@ -1834,7 +1834,7 @@ responseCreateUserPoolClient =
   res
     "CreateUserPoolClientResponse"
     "fixture/CreateUserPoolClientResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateUserPoolClient)
 
 responseGetUserPoolMFAConfig :: GetUserPoolMFAConfigResponse -> TestTree
@@ -1842,7 +1842,7 @@ responseGetUserPoolMFAConfig =
   res
     "GetUserPoolMFAConfigResponse"
     "fixture/GetUserPoolMFAConfigResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetUserPoolMFAConfig)
 
 responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
@@ -1850,7 +1850,7 @@ responseCreateResourceServer =
   res
     "CreateResourceServerResponse"
     "fixture/CreateResourceServerResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateResourceServer)
 
 responseAdminListUserAuthEvents :: AdminListUserAuthEventsResponse -> TestTree
@@ -1858,7 +1858,7 @@ responseAdminListUserAuthEvents =
   res
     "AdminListUserAuthEventsResponse"
     "fixture/AdminListUserAuthEventsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminListUserAuthEvents)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseCreateGroup =
   res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy CreateGroup)
 
 responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
@@ -1874,7 +1874,7 @@ responseAdminAddUserToGroup =
   res
     "AdminAddUserToGroupResponse"
     "fixture/AdminAddUserToGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminAddUserToGroup)
 
 responseVerifySoftwareToken :: VerifySoftwareTokenResponse -> TestTree
@@ -1882,7 +1882,7 @@ responseVerifySoftwareToken =
   res
     "VerifySoftwareTokenResponse"
     "fixture/VerifySoftwareTokenResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy VerifySoftwareToken)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1890,7 +1890,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UntagResource)
 
 responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
@@ -1898,7 +1898,7 @@ responseStopUserImportJob =
   res
     "StopUserImportJobResponse"
     "fixture/StopUserImportJobResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy StopUserImportJob)
 
 responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
@@ -1906,7 +1906,7 @@ responseDescribeUserImportJob =
   res
     "DescribeUserImportJobResponse"
     "fixture/DescribeUserImportJobResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeUserImportJob)
 
 responseDescribeRiskConfiguration :: DescribeRiskConfigurationResponse -> TestTree
@@ -1914,7 +1914,7 @@ responseDescribeRiskConfiguration =
   res
     "DescribeRiskConfigurationResponse"
     "fixture/DescribeRiskConfigurationResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeRiskConfiguration)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
@@ -1922,7 +1922,7 @@ responseDeleteGroup =
   res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
@@ -1930,7 +1930,7 @@ responseUpdateGroup =
   res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateGroup)
 
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
@@ -1938,7 +1938,7 @@ responseGlobalSignOut =
   res
     "GlobalSignOutResponse"
     "fixture/GlobalSignOutResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GlobalSignOut)
 
 responseListGroups :: ListGroupsResponse -> TestTree
@@ -1946,7 +1946,7 @@ responseListGroups =
   res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListGroups)
 
 responseUpdateIdentityProvider :: UpdateIdentityProviderResponse -> TestTree
@@ -1954,7 +1954,7 @@ responseUpdateIdentityProvider =
   res
     "UpdateIdentityProviderResponse"
     "fixture/UpdateIdentityProviderResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy UpdateIdentityProvider)
 
 responseDeleteIdentityProvider :: DeleteIdentityProviderResponse -> TestTree
@@ -1962,7 +1962,7 @@ responseDeleteIdentityProvider =
   res
     "DeleteIdentityProviderResponse"
     "fixture/DeleteIdentityProviderResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DeleteIdentityProvider)
 
 responseListResourceServers :: ListResourceServersResponse -> TestTree
@@ -1970,7 +1970,7 @@ responseListResourceServers =
   res
     "ListResourceServersResponse"
     "fixture/ListResourceServersResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListResourceServers)
 
 responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
@@ -1978,7 +1978,7 @@ responseAdminRespondToAuthChallenge =
   res
     "AdminRespondToAuthChallengeResponse"
     "fixture/AdminRespondToAuthChallengeResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminRespondToAuthChallenge)
 
 responseSetUserSettings :: SetUserSettingsResponse -> TestTree
@@ -1986,7 +1986,7 @@ responseSetUserSettings =
   res
     "SetUserSettingsResponse"
     "fixture/SetUserSettingsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy SetUserSettings)
 
 responseAdminListDevices :: AdminListDevicesResponse -> TestTree
@@ -1994,7 +1994,7 @@ responseAdminListDevices =
   res
     "AdminListDevicesResponse"
     "fixture/AdminListDevicesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminListDevices)
 
 responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
@@ -2002,7 +2002,7 @@ responseDescribeUserPoolClient =
   res
     "DescribeUserPoolClientResponse"
     "fixture/DescribeUserPoolClientResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy DescribeUserPoolClient)
 
 responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
@@ -2010,7 +2010,7 @@ responseResendConfirmationCode =
   res
     "ResendConfirmationCodeResponse"
     "fixture/ResendConfirmationCodeResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ResendConfirmationCode)
 
 responseGetGroup :: GetGroupResponse -> TestTree
@@ -2018,7 +2018,7 @@ responseGetGroup =
   res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy GetGroup)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
@@ -2026,7 +2026,7 @@ responseAdminSetUserSettings =
   res
     "AdminSetUserSettingsResponse"
     "fixture/AdminSetUserSettingsResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy AdminSetUserSettings)
 
 responseListDevices :: ListDevicesResponse -> TestTree
@@ -2034,5 +2034,5 @@ responseListDevices =
   res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
-    cognitoIdentityProvider
+    cognitoIdentityProviderService
     (Proxy :: Proxy ListDevices)

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Cloud9.Types
-  ( -- * Service Configuration
-    cloud9,
+  ( -- * Service configuration
+    cloud9Service,
 
     -- * Errors
 
@@ -34,8 +32,8 @@ module Network.AWS.Cloud9.Types
     Permissions (..),
 
     -- * Environment
-    Environment,
-    environment,
+    Environment (..),
+    mkEnvironment,
     eArn,
     eLifecycle,
     eOwnerARN,
@@ -46,15 +44,15 @@ module Network.AWS.Cloud9.Types
     eDescription,
 
     -- * EnvironmentLifecycle
-    EnvironmentLifecycle,
-    environmentLifecycle,
+    EnvironmentLifecycle (..),
+    mkEnvironmentLifecycle,
     elStatus,
     elFailureResource,
     elReason,
 
     -- * EnvironmentMember
-    EnvironmentMember,
-    environmentMember,
+    EnvironmentMember (..),
+    mkEnvironmentMember,
     emLastAccess,
     emUserId,
     emUserARN,
@@ -62,10 +60,10 @@ module Network.AWS.Cloud9.Types
     emEnvironmentId,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
   )
 where
 
@@ -79,48 +77,60 @@ import Network.AWS.Cloud9.Types.EnvironmentType
 import Network.AWS.Cloud9.Types.MemberPermissions
 import Network.AWS.Cloud9.Types.Permissions
 import Network.AWS.Cloud9.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-23@ of the Amazon Cloud9 SDK configuration.
-cloud9 :: Service
-cloud9 =
-  Service
-    { _svcAbbrev = "Cloud9",
-      _svcSigner = v4,
-      _svcPrefix = "cloud9",
-      _svcVersion = "2017-09-23",
-      _svcEndpoint = defaultEndpoint cloud9,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Cloud9",
-      _svcRetry = retry
+cloud9Service :: Lude.Service
+cloud9Service =
+  Lude.Service
+    { Lude._svcAbbrev = "Cloud9",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "cloud9",
+      Lude._svcVersion = "2017-09-23",
+      Lude._svcEndpoint = Lude.defaultEndpoint cloud9Service,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Cloud9",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationInput where
+module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationInput
+  ( KinesisStreamingDestinationInput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisStreamingDestinationInput,
 
--- | /See:/ 'kinesisStreamingDestinationInput' smart constructor.
+    -- * Lenses
+    ksdiTableName,
+    ksdiStreamARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkKinesisStreamingDestinationInput' smart constructor.
 data KinesisStreamingDestinationInput = KinesisStreamingDestinationInput'
-  { _ksdiTableName ::
-      !Text,
-    _ksdiStreamARN :: !Text
+  { tableName ::
+      Lude.Text,
+    streamARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamingDestinationInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ksdiTableName' - The name of the DynamoDB table.
---
--- * 'ksdiStreamARN' - The ARN for a Kinesis data stream.
-kinesisStreamingDestinationInput ::
-  -- | 'ksdiTableName'
-  Text ->
-  -- | 'ksdiStreamARN'
-  Text ->
+-- * 'streamARN' - The ARN for a Kinesis data stream.
+-- * 'tableName' - The name of the DynamoDB table.
+mkKinesisStreamingDestinationInput ::
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'streamARN'
+  Lude.Text ->
   KinesisStreamingDestinationInput
-kinesisStreamingDestinationInput pTableName_ pStreamARN_ =
+mkKinesisStreamingDestinationInput pTableName_ pStreamARN_ =
   KinesisStreamingDestinationInput'
-    { _ksdiTableName = pTableName_,
-      _ksdiStreamARN = pStreamARN_
+    { tableName = pTableName_,
+      streamARN = pStreamARN_
     }
 
 -- | The name of the DynamoDB table.
-ksdiTableName :: Lens' KinesisStreamingDestinationInput Text
-ksdiTableName = lens _ksdiTableName (\s a -> s {_ksdiTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksdiTableName :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
+ksdiTableName = Lens.lens (tableName :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {tableName = a} :: KinesisStreamingDestinationInput)
+{-# DEPRECATED ksdiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The ARN for a Kinesis data stream.
-ksdiStreamARN :: Lens' KinesisStreamingDestinationInput Text
-ksdiStreamARN = lens _ksdiStreamARN (\s a -> s {_ksdiStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksdiStreamARN :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
+ksdiStreamARN = Lens.lens (streamARN :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamingDestinationInput)
+{-# DEPRECATED ksdiStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
-instance Hashable KinesisStreamingDestinationInput
-
-instance NFData KinesisStreamingDestinationInput
-
-instance ToJSON KinesisStreamingDestinationInput where
+instance Lude.ToJSON KinesisStreamingDestinationInput where
   toJSON KinesisStreamingDestinationInput' {..} =
-    object
-      ( catMaybes
-          [ Just ("TableName" .= _ksdiTableName),
-            Just ("StreamArn" .= _ksdiStreamARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("StreamArn" Lude..= streamARN)
           ]
       )

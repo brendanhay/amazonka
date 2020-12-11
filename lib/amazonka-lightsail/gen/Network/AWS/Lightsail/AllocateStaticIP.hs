@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Allocates a static IP address.
 module Network.AWS.Lightsail.AllocateStaticIP
-  ( -- * Creating a Request
-    allocateStaticIP,
-    AllocateStaticIP,
+  ( -- * Creating a request
+    AllocateStaticIP (..),
+    mkAllocateStaticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asiStaticIPName,
 
-    -- * Destructuring the Response
-    allocateStaticIPResponse,
-    AllocateStaticIPResponse,
+    -- * Destructuring the response
+    AllocateStaticIPResponse (..),
+    mkAllocateStaticIPResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asirsOperations,
     asirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'allocateStaticIP' smart constructor.
+-- | /See:/ 'mkAllocateStaticIP' smart constructor.
 newtype AllocateStaticIP = AllocateStaticIP'
-  { _asiStaticIPName ::
-      Text
+  { staticIPName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateStaticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asiStaticIPName' - The name of the static IP address.
-allocateStaticIP ::
-  -- | 'asiStaticIPName'
-  Text ->
+-- * 'staticIPName' - The name of the static IP address.
+mkAllocateStaticIP ::
+  -- | 'staticIPName'
+  Lude.Text ->
   AllocateStaticIP
-allocateStaticIP pStaticIPName_ =
-  AllocateStaticIP' {_asiStaticIPName = pStaticIPName_}
+mkAllocateStaticIP pStaticIPName_ =
+  AllocateStaticIP' {staticIPName = pStaticIPName_}
 
 -- | The name of the static IP address.
-asiStaticIPName :: Lens' AllocateStaticIP Text
-asiStaticIPName = lens _asiStaticIPName (\s a -> s {_asiStaticIPName = a})
+--
+-- /Note:/ Consider using 'staticIPName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiStaticIPName :: Lens.Lens' AllocateStaticIP Lude.Text
+asiStaticIPName = Lens.lens (staticIPName :: AllocateStaticIP -> Lude.Text) (\s a -> s {staticIPName = a} :: AllocateStaticIP)
+{-# DEPRECATED asiStaticIPName "Use generic-lens or generic-optics with 'staticIPName' instead." #-}
 
-instance AWSRequest AllocateStaticIP where
+instance Lude.AWSRequest AllocateStaticIP where
   type Rs AllocateStaticIP = AllocateStaticIPResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AllocateStaticIPResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AllocateStaticIP
-
-instance NFData AllocateStaticIP
-
-instance ToHeaders AllocateStaticIP where
+instance Lude.ToHeaders AllocateStaticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.AllocateStaticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.AllocateStaticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AllocateStaticIP where
+instance Lude.ToJSON AllocateStaticIP where
   toJSON AllocateStaticIP' {..} =
-    object (catMaybes [Just ("staticIpName" .= _asiStaticIPName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("staticIpName" Lude..= staticIPName)])
 
-instance ToPath AllocateStaticIP where
-  toPath = const "/"
+instance Lude.ToPath AllocateStaticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery AllocateStaticIP where
-  toQuery = const mempty
+instance Lude.ToQuery AllocateStaticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'allocateStaticIPResponse' smart constructor.
+-- | /See:/ 'mkAllocateStaticIPResponse' smart constructor.
 data AllocateStaticIPResponse = AllocateStaticIPResponse'
-  { _asirsOperations ::
-      !(Maybe [Operation]),
-    _asirsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateStaticIPResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asirsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'asirsResponseStatus' - -- | The response status code.
-allocateStaticIPResponse ::
-  -- | 'asirsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkAllocateStaticIPResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AllocateStaticIPResponse
-allocateStaticIPResponse pResponseStatus_ =
+mkAllocateStaticIPResponse pResponseStatus_ =
   AllocateStaticIPResponse'
-    { _asirsOperations = Nothing,
-      _asirsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-asirsOperations :: Lens' AllocateStaticIPResponse [Operation]
-asirsOperations = lens _asirsOperations (\s a -> s {_asirsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asirsOperations :: Lens.Lens' AllocateStaticIPResponse (Lude.Maybe [Operation])
+asirsOperations = Lens.lens (operations :: AllocateStaticIPResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: AllocateStaticIPResponse)
+{-# DEPRECATED asirsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-asirsResponseStatus :: Lens' AllocateStaticIPResponse Int
-asirsResponseStatus = lens _asirsResponseStatus (\s a -> s {_asirsResponseStatus = a})
-
-instance NFData AllocateStaticIPResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asirsResponseStatus :: Lens.Lens' AllocateStaticIPResponse Lude.Int
+asirsResponseStatus = Lens.lens (responseStatus :: AllocateStaticIPResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AllocateStaticIPResponse)
+{-# DEPRECATED asirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

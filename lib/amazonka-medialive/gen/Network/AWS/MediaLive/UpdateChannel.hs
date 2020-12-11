@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates a channel.
 module Network.AWS.MediaLive.UpdateChannel
-  ( -- * Creating a Request
-    updateChannel,
-    UpdateChannel,
+  ( -- * Creating a request
+    UpdateChannel (..),
+    mkUpdateChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucLogLevel,
     ucInputSpecification,
     ucInputAttachments,
@@ -34,189 +29,219 @@ module Network.AWS.MediaLive.UpdateChannel
     ucRoleARN,
     ucChannelId,
 
-    -- * Destructuring the Response
-    updateChannelResponse,
-    UpdateChannelResponse,
+    -- * Destructuring the response
+    UpdateChannelResponse (..),
+    mkUpdateChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucrsChannel,
     ucrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to update a channel.
 --
--- /See:/ 'updateChannel' smart constructor.
+-- /See:/ 'mkUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { _ucLogLevel ::
-      !(Maybe LogLevel),
-    _ucInputSpecification :: !(Maybe InputSpecification),
-    _ucInputAttachments :: !(Maybe [InputAttachment]),
-    _ucDestinations :: !(Maybe [OutputDestination]),
-    _ucName :: !(Maybe Text),
-    _ucCdiInputSpecification :: !(Maybe CdiInputSpecification),
-    _ucEncoderSettings :: !(Maybe EncoderSettings),
-    _ucRoleARN :: !(Maybe Text),
-    _ucChannelId :: !Text
+  { logLevel ::
+      Lude.Maybe LogLevel,
+    inputSpecification :: Lude.Maybe InputSpecification,
+    inputAttachments :: Lude.Maybe [InputAttachment],
+    destinations :: Lude.Maybe [OutputDestination],
+    name :: Lude.Maybe Lude.Text,
+    cdiInputSpecification :: Lude.Maybe CdiInputSpecification,
+    encoderSettings :: Lude.Maybe EncoderSettings,
+    roleARN :: Lude.Maybe Lude.Text,
+    channelId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucLogLevel' - The log level to write to CloudWatch Logs.
---
--- * 'ucInputSpecification' - Specification of network and file inputs for this channel
---
--- * 'ucInputAttachments' - Undocumented member.
---
--- * 'ucDestinations' - A list of output destinations for this channel.
---
--- * 'ucName' - The name of the channel.
---
--- * 'ucCdiInputSpecification' - Specification of CDI inputs for this channel
---
--- * 'ucEncoderSettings' - The encoder settings for this channel.
---
--- * 'ucRoleARN' - An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
---
--- * 'ucChannelId' - channel ID
-updateChannel ::
-  -- | 'ucChannelId'
-  Text ->
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'channelId' - channel ID
+-- * 'destinations' - A list of output destinations for this channel.
+-- * 'encoderSettings' - The encoder settings for this channel.
+-- * 'inputAttachments' - Undocumented field.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'logLevel' - The log level to write to CloudWatch Logs.
+-- * 'name' - The name of the channel.
+-- * 'roleARN' - An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
+mkUpdateChannel ::
+  -- | 'channelId'
+  Lude.Text ->
   UpdateChannel
-updateChannel pChannelId_ =
+mkUpdateChannel pChannelId_ =
   UpdateChannel'
-    { _ucLogLevel = Nothing,
-      _ucInputSpecification = Nothing,
-      _ucInputAttachments = Nothing,
-      _ucDestinations = Nothing,
-      _ucName = Nothing,
-      _ucCdiInputSpecification = Nothing,
-      _ucEncoderSettings = Nothing,
-      _ucRoleARN = Nothing,
-      _ucChannelId = pChannelId_
+    { logLevel = Lude.Nothing,
+      inputSpecification = Lude.Nothing,
+      inputAttachments = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      cdiInputSpecification = Lude.Nothing,
+      encoderSettings = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      channelId = pChannelId_
     }
 
 -- | The log level to write to CloudWatch Logs.
-ucLogLevel :: Lens' UpdateChannel (Maybe LogLevel)
-ucLogLevel = lens _ucLogLevel (\s a -> s {_ucLogLevel = a})
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucLogLevel :: Lens.Lens' UpdateChannel (Lude.Maybe LogLevel)
+ucLogLevel = Lens.lens (logLevel :: UpdateChannel -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: UpdateChannel)
+{-# DEPRECATED ucLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | Specification of network and file inputs for this channel
-ucInputSpecification :: Lens' UpdateChannel (Maybe InputSpecification)
-ucInputSpecification = lens _ucInputSpecification (\s a -> s {_ucInputSpecification = a})
+--
+-- /Note:/ Consider using 'inputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucInputSpecification :: Lens.Lens' UpdateChannel (Lude.Maybe InputSpecification)
+ucInputSpecification = Lens.lens (inputSpecification :: UpdateChannel -> Lude.Maybe InputSpecification) (\s a -> s {inputSpecification = a} :: UpdateChannel)
+{-# DEPRECATED ucInputSpecification "Use generic-lens or generic-optics with 'inputSpecification' instead." #-}
 
--- | Undocumented member.
-ucInputAttachments :: Lens' UpdateChannel [InputAttachment]
-ucInputAttachments = lens _ucInputAttachments (\s a -> s {_ucInputAttachments = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'inputAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucInputAttachments :: Lens.Lens' UpdateChannel (Lude.Maybe [InputAttachment])
+ucInputAttachments = Lens.lens (inputAttachments :: UpdateChannel -> Lude.Maybe [InputAttachment]) (\s a -> s {inputAttachments = a} :: UpdateChannel)
+{-# DEPRECATED ucInputAttachments "Use generic-lens or generic-optics with 'inputAttachments' instead." #-}
 
 -- | A list of output destinations for this channel.
-ucDestinations :: Lens' UpdateChannel [OutputDestination]
-ucDestinations = lens _ucDestinations (\s a -> s {_ucDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucDestinations :: Lens.Lens' UpdateChannel (Lude.Maybe [OutputDestination])
+ucDestinations = Lens.lens (destinations :: UpdateChannel -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: UpdateChannel)
+{-# DEPRECATED ucDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The name of the channel.
-ucName :: Lens' UpdateChannel (Maybe Text)
-ucName = lens _ucName (\s a -> s {_ucName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucName :: Lens.Lens' UpdateChannel (Lude.Maybe Lude.Text)
+ucName = Lens.lens (name :: UpdateChannel -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateChannel)
+{-# DEPRECATED ucName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specification of CDI inputs for this channel
-ucCdiInputSpecification :: Lens' UpdateChannel (Maybe CdiInputSpecification)
-ucCdiInputSpecification = lens _ucCdiInputSpecification (\s a -> s {_ucCdiInputSpecification = a})
+--
+-- /Note:/ Consider using 'cdiInputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCdiInputSpecification :: Lens.Lens' UpdateChannel (Lude.Maybe CdiInputSpecification)
+ucCdiInputSpecification = Lens.lens (cdiInputSpecification :: UpdateChannel -> Lude.Maybe CdiInputSpecification) (\s a -> s {cdiInputSpecification = a} :: UpdateChannel)
+{-# DEPRECATED ucCdiInputSpecification "Use generic-lens or generic-optics with 'cdiInputSpecification' instead." #-}
 
 -- | The encoder settings for this channel.
-ucEncoderSettings :: Lens' UpdateChannel (Maybe EncoderSettings)
-ucEncoderSettings = lens _ucEncoderSettings (\s a -> s {_ucEncoderSettings = a})
+--
+-- /Note:/ Consider using 'encoderSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucEncoderSettings :: Lens.Lens' UpdateChannel (Lude.Maybe EncoderSettings)
+ucEncoderSettings = Lens.lens (encoderSettings :: UpdateChannel -> Lude.Maybe EncoderSettings) (\s a -> s {encoderSettings = a} :: UpdateChannel)
+{-# DEPRECATED ucEncoderSettings "Use generic-lens or generic-optics with 'encoderSettings' instead." #-}
 
 -- | An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
-ucRoleARN :: Lens' UpdateChannel (Maybe Text)
-ucRoleARN = lens _ucRoleARN (\s a -> s {_ucRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucRoleARN :: Lens.Lens' UpdateChannel (Lude.Maybe Lude.Text)
+ucRoleARN = Lens.lens (roleARN :: UpdateChannel -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateChannel)
+{-# DEPRECATED ucRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | channel ID
-ucChannelId :: Lens' UpdateChannel Text
-ucChannelId = lens _ucChannelId (\s a -> s {_ucChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucChannelId :: Lens.Lens' UpdateChannel Lude.Text
+ucChannelId = Lens.lens (channelId :: UpdateChannel -> Lude.Text) (\s a -> s {channelId = a} :: UpdateChannel)
+{-# DEPRECATED ucChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance AWSRequest UpdateChannel where
+instance Lude.AWSRequest UpdateChannel where
   type Rs UpdateChannel = UpdateChannelResponse
-  request = putJSON mediaLive
+  request = Req.putJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            <$> (x .?> "channel") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "channel") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateChannel
-
-instance NFData UpdateChannel
-
-instance ToHeaders UpdateChannel where
+instance Lude.ToHeaders UpdateChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateChannel where
-  toJSON UpdateChannel' {..} =
-    object
-      ( catMaybes
-          [ ("logLevel" .=) <$> _ucLogLevel,
-            ("inputSpecification" .=) <$> _ucInputSpecification,
-            ("inputAttachments" .=) <$> _ucInputAttachments,
-            ("destinations" .=) <$> _ucDestinations,
-            ("name" .=) <$> _ucName,
-            ("cdiInputSpecification" .=) <$> _ucCdiInputSpecification,
-            ("encoderSettings" .=) <$> _ucEncoderSettings,
-            ("roleArn" .=) <$> _ucRoleARN
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateChannel where
-  toPath UpdateChannel' {..} =
-    mconcat ["/prod/channels/", toBS _ucChannelId]
+instance Lude.ToJSON UpdateChannel where
+  toJSON UpdateChannel' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("logLevel" Lude..=) Lude.<$> logLevel,
+            ("inputSpecification" Lude..=) Lude.<$> inputSpecification,
+            ("inputAttachments" Lude..=) Lude.<$> inputAttachments,
+            ("destinations" Lude..=) Lude.<$> destinations,
+            ("name" Lude..=) Lude.<$> name,
+            ("cdiInputSpecification" Lude..=) Lude.<$> cdiInputSpecification,
+            ("encoderSettings" Lude..=) Lude.<$> encoderSettings,
+            ("roleArn" Lude..=) Lude.<$> roleARN
+          ]
+      )
 
-instance ToQuery UpdateChannel where
-  toQuery = const mempty
+instance Lude.ToPath UpdateChannel where
+  toPath UpdateChannel' {..} =
+    Lude.mconcat ["/prod/channels/", Lude.toBS channelId]
+
+instance Lude.ToQuery UpdateChannel where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for UpdateChannelResponse
 --
--- /See:/ 'updateChannelResponse' smart constructor.
+-- /See:/ 'mkUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { _ucrsChannel ::
-      !(Maybe Channel),
-    _ucrsResponseStatus :: !Int
+  { channel ::
+      Lude.Maybe Channel,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucrsChannel' - Undocumented member.
---
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateChannelResponse ::
-  -- | 'ucrsResponseStatus'
-  Int ->
+-- * 'channel' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateChannelResponse
-updateChannelResponse pResponseStatus_ =
+mkUpdateChannelResponse pResponseStatus_ =
   UpdateChannelResponse'
-    { _ucrsChannel = Nothing,
-      _ucrsResponseStatus = pResponseStatus_
+    { channel = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ucrsChannel :: Lens' UpdateChannelResponse (Maybe Channel)
-ucrsChannel = lens _ucrsChannel (\s a -> s {_ucrsChannel = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsChannel :: Lens.Lens' UpdateChannelResponse (Lude.Maybe Channel)
+ucrsChannel = Lens.lens (channel :: UpdateChannelResponse -> Lude.Maybe Channel) (\s a -> s {channel = a} :: UpdateChannelResponse)
+{-# DEPRECATED ucrsChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateChannelResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\s a -> s {_ucrsResponseStatus = a})
-
-instance NFData UpdateChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsResponseStatus :: Lens.Lens' UpdateChannelResponse Lude.Int
+ucrsResponseStatus = Lens.lens (responseStatus :: UpdateChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateChannelResponse)
+{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

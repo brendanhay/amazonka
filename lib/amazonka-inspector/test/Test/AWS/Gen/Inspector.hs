@@ -28,229 +28,229 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetTelemetryMetadata $
---             getTelemetryMetadata
+--             mkGetTelemetryMetadata
 --
 --         , requestListFindings $
---             listFindings
+--             mkListFindings
 --
 --         , requestListAssessmentTemplates $
---             listAssessmentTemplates
+--             mkListAssessmentTemplates
 --
 --         , requestSubscribeToEvent $
---             subscribeToEvent
+--             mkSubscribeToEvent
 --
 --         , requestListAssessmentRunAgents $
---             listAssessmentRunAgents
+--             mkListAssessmentRunAgents
 --
 --         , requestStartAssessmentRun $
---             startAssessmentRun
+--             mkStartAssessmentRun
 --
 --         , requestDeleteAssessmentTemplate $
---             deleteAssessmentTemplate
+--             mkDeleteAssessmentTemplate
 --
 --         , requestCreateAssessmentTemplate $
---             createAssessmentTemplate
+--             mkCreateAssessmentTemplate
 --
 --         , requestDescribeExclusions $
---             describeExclusions
+--             mkDescribeExclusions
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestSetTagsForResource $
---             setTagsForResource
+--             mkSetTagsForResource
 --
 --         , requestDescribeCrossAccountAccessRole $
---             describeCrossAccountAccessRole
+--             mkDescribeCrossAccountAccessRole
 --
 --         , requestDescribeAssessmentTemplates $
---             describeAssessmentTemplates
+--             mkDescribeAssessmentTemplates
 --
 --         , requestDescribeResourceGroups $
---             describeResourceGroups
+--             mkDescribeResourceGroups
 --
 --         , requestCreateAssessmentTarget $
---             createAssessmentTarget
+--             mkCreateAssessmentTarget
 --
 --         , requestGetExclusionsPreview $
---             getExclusionsPreview
+--             mkGetExclusionsPreview
 --
 --         , requestListEventSubscriptions $
---             listEventSubscriptions
+--             mkListEventSubscriptions
 --
 --         , requestRegisterCrossAccountAccessRole $
---             registerCrossAccountAccessRole
+--             mkRegisterCrossAccountAccessRole
 --
 --         , requestListAssessmentTargets $
---             listAssessmentTargets
+--             mkListAssessmentTargets
 --
 --         , requestCreateExclusionsPreview $
---             createExclusionsPreview
+--             mkCreateExclusionsPreview
 --
 --         , requestCreateResourceGroup $
---             createResourceGroup
+--             mkCreateResourceGroup
 --
 --         , requestDescribeRulesPackages $
---             describeRulesPackages
+--             mkDescribeRulesPackages
 --
 --         , requestStopAssessmentRun $
---             stopAssessmentRun
+--             mkStopAssessmentRun
 --
 --         , requestListExclusions $
---             listExclusions
+--             mkListExclusions
 --
 --         , requestPreviewAgents $
---             previewAgents
+--             mkPreviewAgents
 --
 --         , requestDescribeFindings $
---             describeFindings
+--             mkDescribeFindings
 --
 --         , requestAddAttributesToFindings $
---             addAttributesToFindings
+--             mkAddAttributesToFindings
 --
 --         , requestUpdateAssessmentTarget $
---             updateAssessmentTarget
+--             mkUpdateAssessmentTarget
 --
 --         , requestDeleteAssessmentTarget $
---             deleteAssessmentTarget
+--             mkDeleteAssessmentTarget
 --
 --         , requestDeleteAssessmentRun $
---             deleteAssessmentRun
+--             mkDeleteAssessmentRun
 --
 --         , requestListAssessmentRuns $
---             listAssessmentRuns
+--             mkListAssessmentRuns
 --
 --         , requestGetAssessmentReport $
---             getAssessmentReport
+--             mkGetAssessmentReport
 --
 --         , requestListRulesPackages $
---             listRulesPackages
+--             mkListRulesPackages
 --
 --         , requestDescribeAssessmentRuns $
---             describeAssessmentRuns
+--             mkDescribeAssessmentRuns
 --
 --         , requestUnsubscribeFromEvent $
---             unsubscribeFromEvent
+--             mkUnsubscribeFromEvent
 --
 --         , requestRemoveAttributesFromFindings $
---             removeAttributesFromFindings
+--             mkRemoveAttributesFromFindings
 --
 --         , requestDescribeAssessmentTargets $
---             describeAssessmentTargets
+--             mkDescribeAssessmentTargets
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetTelemetryMetadata $
---             getTelemetryMetadataResponse
+--             mkGetTelemetryMetadataResponse
 --
 --         , responseListFindings $
---             listFindingsResponse
+--             mkListFindingsResponse
 --
 --         , responseListAssessmentTemplates $
---             listAssessmentTemplatesResponse
+--             mkListAssessmentTemplatesResponse
 --
 --         , responseSubscribeToEvent $
---             subscribeToEventResponse
+--             mkSubscribeToEventResponse
 --
 --         , responseListAssessmentRunAgents $
---             listAssessmentRunAgentsResponse
+--             mkListAssessmentRunAgentsResponse
 --
 --         , responseStartAssessmentRun $
---             startAssessmentRunResponse
+--             mkStartAssessmentRunResponse
 --
 --         , responseDeleteAssessmentTemplate $
---             deleteAssessmentTemplateResponse
+--             mkDeleteAssessmentTemplateResponse
 --
 --         , responseCreateAssessmentTemplate $
---             createAssessmentTemplateResponse
+--             mkCreateAssessmentTemplateResponse
 --
 --         , responseDescribeExclusions $
---             describeExclusionsResponse
+--             mkDescribeExclusionsResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseSetTagsForResource $
---             setTagsForResourceResponse
+--             mkSetTagsForResourceResponse
 --
 --         , responseDescribeCrossAccountAccessRole $
---             describeCrossAccountAccessRoleResponse
+--             mkDescribeCrossAccountAccessRoleResponse
 --
 --         , responseDescribeAssessmentTemplates $
---             describeAssessmentTemplatesResponse
+--             mkDescribeAssessmentTemplatesResponse
 --
 --         , responseDescribeResourceGroups $
---             describeResourceGroupsResponse
+--             mkDescribeResourceGroupsResponse
 --
 --         , responseCreateAssessmentTarget $
---             createAssessmentTargetResponse
+--             mkCreateAssessmentTargetResponse
 --
 --         , responseGetExclusionsPreview $
---             getExclusionsPreviewResponse
+--             mkGetExclusionsPreviewResponse
 --
 --         , responseListEventSubscriptions $
---             listEventSubscriptionsResponse
+--             mkListEventSubscriptionsResponse
 --
 --         , responseRegisterCrossAccountAccessRole $
---             registerCrossAccountAccessRoleResponse
+--             mkRegisterCrossAccountAccessRoleResponse
 --
 --         , responseListAssessmentTargets $
---             listAssessmentTargetsResponse
+--             mkListAssessmentTargetsResponse
 --
 --         , responseCreateExclusionsPreview $
---             createExclusionsPreviewResponse
+--             mkCreateExclusionsPreviewResponse
 --
 --         , responseCreateResourceGroup $
---             createResourceGroupResponse
+--             mkCreateResourceGroupResponse
 --
 --         , responseDescribeRulesPackages $
---             describeRulesPackagesResponse
+--             mkDescribeRulesPackagesResponse
 --
 --         , responseStopAssessmentRun $
---             stopAssessmentRunResponse
+--             mkStopAssessmentRunResponse
 --
 --         , responseListExclusions $
---             listExclusionsResponse
+--             mkListExclusionsResponse
 --
 --         , responsePreviewAgents $
---             previewAgentsResponse
+--             mkPreviewAgentsResponse
 --
 --         , responseDescribeFindings $
---             describeFindingsResponse
+--             mkDescribeFindingsResponse
 --
 --         , responseAddAttributesToFindings $
---             addAttributesToFindingsResponse
+--             mkAddAttributesToFindingsResponse
 --
 --         , responseUpdateAssessmentTarget $
---             updateAssessmentTargetResponse
+--             mkUpdateAssessmentTargetResponse
 --
 --         , responseDeleteAssessmentTarget $
---             deleteAssessmentTargetResponse
+--             mkDeleteAssessmentTargetResponse
 --
 --         , responseDeleteAssessmentRun $
---             deleteAssessmentRunResponse
+--             mkDeleteAssessmentRunResponse
 --
 --         , responseListAssessmentRuns $
---             listAssessmentRunsResponse
+--             mkListAssessmentRunsResponse
 --
 --         , responseGetAssessmentReport $
---             getAssessmentReportResponse
+--             mkGetAssessmentReportResponse
 --
 --         , responseListRulesPackages $
---             listRulesPackagesResponse
+--             mkListRulesPackagesResponse
 --
 --         , responseDescribeAssessmentRuns $
---             describeAssessmentRunsResponse
+--             mkDescribeAssessmentRunsResponse
 --
 --         , responseUnsubscribeFromEvent $
---             unsubscribeFromEventResponse
+--             mkUnsubscribeFromEventResponse
 --
 --         , responseRemoveAttributesFromFindings $
---             removeAttributesFromFindingsResponse
+--             mkRemoveAttributesFromFindingsResponse
 --
 --         , responseDescribeAssessmentTargets $
---             describeAssessmentTargetsResponse
+--             mkDescribeAssessmentTargetsResponse
 --
 --           ]
 --     ]
@@ -486,7 +486,7 @@ responseGetTelemetryMetadata =
   res
     "GetTelemetryMetadataResponse"
     "fixture/GetTelemetryMetadataResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy GetTelemetryMetadata)
 
 responseListFindings :: ListFindingsResponse -> TestTree
@@ -494,7 +494,7 @@ responseListFindings =
   res
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListFindings)
 
 responseListAssessmentTemplates :: ListAssessmentTemplatesResponse -> TestTree
@@ -502,7 +502,7 @@ responseListAssessmentTemplates =
   res
     "ListAssessmentTemplatesResponse"
     "fixture/ListAssessmentTemplatesResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListAssessmentTemplates)
 
 responseSubscribeToEvent :: SubscribeToEventResponse -> TestTree
@@ -510,7 +510,7 @@ responseSubscribeToEvent =
   res
     "SubscribeToEventResponse"
     "fixture/SubscribeToEventResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy SubscribeToEvent)
 
 responseListAssessmentRunAgents :: ListAssessmentRunAgentsResponse -> TestTree
@@ -518,7 +518,7 @@ responseListAssessmentRunAgents =
   res
     "ListAssessmentRunAgentsResponse"
     "fixture/ListAssessmentRunAgentsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListAssessmentRunAgents)
 
 responseStartAssessmentRun :: StartAssessmentRunResponse -> TestTree
@@ -526,7 +526,7 @@ responseStartAssessmentRun =
   res
     "StartAssessmentRunResponse"
     "fixture/StartAssessmentRunResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy StartAssessmentRun)
 
 responseDeleteAssessmentTemplate :: DeleteAssessmentTemplateResponse -> TestTree
@@ -534,7 +534,7 @@ responseDeleteAssessmentTemplate =
   res
     "DeleteAssessmentTemplateResponse"
     "fixture/DeleteAssessmentTemplateResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DeleteAssessmentTemplate)
 
 responseCreateAssessmentTemplate :: CreateAssessmentTemplateResponse -> TestTree
@@ -542,7 +542,7 @@ responseCreateAssessmentTemplate =
   res
     "CreateAssessmentTemplateResponse"
     "fixture/CreateAssessmentTemplateResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy CreateAssessmentTemplate)
 
 responseDescribeExclusions :: DescribeExclusionsResponse -> TestTree
@@ -550,7 +550,7 @@ responseDescribeExclusions =
   res
     "DescribeExclusionsResponse"
     "fixture/DescribeExclusionsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeExclusions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -558,7 +558,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListTagsForResource)
 
 responseSetTagsForResource :: SetTagsForResourceResponse -> TestTree
@@ -566,7 +566,7 @@ responseSetTagsForResource =
   res
     "SetTagsForResourceResponse"
     "fixture/SetTagsForResourceResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy SetTagsForResource)
 
 responseDescribeCrossAccountAccessRole :: DescribeCrossAccountAccessRoleResponse -> TestTree
@@ -574,7 +574,7 @@ responseDescribeCrossAccountAccessRole =
   res
     "DescribeCrossAccountAccessRoleResponse"
     "fixture/DescribeCrossAccountAccessRoleResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeCrossAccountAccessRole)
 
 responseDescribeAssessmentTemplates :: DescribeAssessmentTemplatesResponse -> TestTree
@@ -582,7 +582,7 @@ responseDescribeAssessmentTemplates =
   res
     "DescribeAssessmentTemplatesResponse"
     "fixture/DescribeAssessmentTemplatesResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeAssessmentTemplates)
 
 responseDescribeResourceGroups :: DescribeResourceGroupsResponse -> TestTree
@@ -590,7 +590,7 @@ responseDescribeResourceGroups =
   res
     "DescribeResourceGroupsResponse"
     "fixture/DescribeResourceGroupsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeResourceGroups)
 
 responseCreateAssessmentTarget :: CreateAssessmentTargetResponse -> TestTree
@@ -598,7 +598,7 @@ responseCreateAssessmentTarget =
   res
     "CreateAssessmentTargetResponse"
     "fixture/CreateAssessmentTargetResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy CreateAssessmentTarget)
 
 responseGetExclusionsPreview :: GetExclusionsPreviewResponse -> TestTree
@@ -606,7 +606,7 @@ responseGetExclusionsPreview =
   res
     "GetExclusionsPreviewResponse"
     "fixture/GetExclusionsPreviewResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy GetExclusionsPreview)
 
 responseListEventSubscriptions :: ListEventSubscriptionsResponse -> TestTree
@@ -614,7 +614,7 @@ responseListEventSubscriptions =
   res
     "ListEventSubscriptionsResponse"
     "fixture/ListEventSubscriptionsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListEventSubscriptions)
 
 responseRegisterCrossAccountAccessRole :: RegisterCrossAccountAccessRoleResponse -> TestTree
@@ -622,7 +622,7 @@ responseRegisterCrossAccountAccessRole =
   res
     "RegisterCrossAccountAccessRoleResponse"
     "fixture/RegisterCrossAccountAccessRoleResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy RegisterCrossAccountAccessRole)
 
 responseListAssessmentTargets :: ListAssessmentTargetsResponse -> TestTree
@@ -630,7 +630,7 @@ responseListAssessmentTargets =
   res
     "ListAssessmentTargetsResponse"
     "fixture/ListAssessmentTargetsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListAssessmentTargets)
 
 responseCreateExclusionsPreview :: CreateExclusionsPreviewResponse -> TestTree
@@ -638,7 +638,7 @@ responseCreateExclusionsPreview =
   res
     "CreateExclusionsPreviewResponse"
     "fixture/CreateExclusionsPreviewResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy CreateExclusionsPreview)
 
 responseCreateResourceGroup :: CreateResourceGroupResponse -> TestTree
@@ -646,7 +646,7 @@ responseCreateResourceGroup =
   res
     "CreateResourceGroupResponse"
     "fixture/CreateResourceGroupResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy CreateResourceGroup)
 
 responseDescribeRulesPackages :: DescribeRulesPackagesResponse -> TestTree
@@ -654,7 +654,7 @@ responseDescribeRulesPackages =
   res
     "DescribeRulesPackagesResponse"
     "fixture/DescribeRulesPackagesResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeRulesPackages)
 
 responseStopAssessmentRun :: StopAssessmentRunResponse -> TestTree
@@ -662,7 +662,7 @@ responseStopAssessmentRun =
   res
     "StopAssessmentRunResponse"
     "fixture/StopAssessmentRunResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy StopAssessmentRun)
 
 responseListExclusions :: ListExclusionsResponse -> TestTree
@@ -670,7 +670,7 @@ responseListExclusions =
   res
     "ListExclusionsResponse"
     "fixture/ListExclusionsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListExclusions)
 
 responsePreviewAgents :: PreviewAgentsResponse -> TestTree
@@ -678,7 +678,7 @@ responsePreviewAgents =
   res
     "PreviewAgentsResponse"
     "fixture/PreviewAgentsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy PreviewAgents)
 
 responseDescribeFindings :: DescribeFindingsResponse -> TestTree
@@ -686,7 +686,7 @@ responseDescribeFindings =
   res
     "DescribeFindingsResponse"
     "fixture/DescribeFindingsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeFindings)
 
 responseAddAttributesToFindings :: AddAttributesToFindingsResponse -> TestTree
@@ -694,7 +694,7 @@ responseAddAttributesToFindings =
   res
     "AddAttributesToFindingsResponse"
     "fixture/AddAttributesToFindingsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy AddAttributesToFindings)
 
 responseUpdateAssessmentTarget :: UpdateAssessmentTargetResponse -> TestTree
@@ -702,7 +702,7 @@ responseUpdateAssessmentTarget =
   res
     "UpdateAssessmentTargetResponse"
     "fixture/UpdateAssessmentTargetResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy UpdateAssessmentTarget)
 
 responseDeleteAssessmentTarget :: DeleteAssessmentTargetResponse -> TestTree
@@ -710,7 +710,7 @@ responseDeleteAssessmentTarget =
   res
     "DeleteAssessmentTargetResponse"
     "fixture/DeleteAssessmentTargetResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DeleteAssessmentTarget)
 
 responseDeleteAssessmentRun :: DeleteAssessmentRunResponse -> TestTree
@@ -718,7 +718,7 @@ responseDeleteAssessmentRun =
   res
     "DeleteAssessmentRunResponse"
     "fixture/DeleteAssessmentRunResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DeleteAssessmentRun)
 
 responseListAssessmentRuns :: ListAssessmentRunsResponse -> TestTree
@@ -726,7 +726,7 @@ responseListAssessmentRuns =
   res
     "ListAssessmentRunsResponse"
     "fixture/ListAssessmentRunsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListAssessmentRuns)
 
 responseGetAssessmentReport :: GetAssessmentReportResponse -> TestTree
@@ -734,7 +734,7 @@ responseGetAssessmentReport =
   res
     "GetAssessmentReportResponse"
     "fixture/GetAssessmentReportResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy GetAssessmentReport)
 
 responseListRulesPackages :: ListRulesPackagesResponse -> TestTree
@@ -742,7 +742,7 @@ responseListRulesPackages =
   res
     "ListRulesPackagesResponse"
     "fixture/ListRulesPackagesResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy ListRulesPackages)
 
 responseDescribeAssessmentRuns :: DescribeAssessmentRunsResponse -> TestTree
@@ -750,7 +750,7 @@ responseDescribeAssessmentRuns =
   res
     "DescribeAssessmentRunsResponse"
     "fixture/DescribeAssessmentRunsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeAssessmentRuns)
 
 responseUnsubscribeFromEvent :: UnsubscribeFromEventResponse -> TestTree
@@ -758,7 +758,7 @@ responseUnsubscribeFromEvent =
   res
     "UnsubscribeFromEventResponse"
     "fixture/UnsubscribeFromEventResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy UnsubscribeFromEvent)
 
 responseRemoveAttributesFromFindings :: RemoveAttributesFromFindingsResponse -> TestTree
@@ -766,7 +766,7 @@ responseRemoveAttributesFromFindings =
   res
     "RemoveAttributesFromFindingsResponse"
     "fixture/RemoveAttributesFromFindingsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy RemoveAttributesFromFindings)
 
 responseDescribeAssessmentTargets :: DescribeAssessmentTargetsResponse -> TestTree
@@ -774,5 +774,5 @@ responseDescribeAssessmentTargets =
   res
     "DescribeAssessmentTargetsResponse"
     "fixture/DescribeAssessmentTargetsResponse.proto"
-    inspector
+    inspectorService
     (Proxy :: Proxy DescribeAssessmentTargets)

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.InsightsConfiguration where
+module Network.AWS.XRay.Types.InsightsConfiguration
+  ( InsightsConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInsightsConfiguration,
+
+    -- * Lenses
+    icNotificationsEnabled,
+    icInsightsEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The structure containing configurations related to insights.
 --
---
---
--- /See:/ 'insightsConfiguration' smart constructor.
+-- /See:/ 'mkInsightsConfiguration' smart constructor.
 data InsightsConfiguration = InsightsConfiguration'
-  { _icNotificationsEnabled ::
-      !(Maybe Bool),
-    _icInsightsEnabled :: !(Maybe Bool)
+  { notificationsEnabled ::
+      Lude.Maybe Lude.Bool,
+    insightsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightsConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icNotificationsEnabled' - Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
---
--- * 'icInsightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to disable insights.
-insightsConfiguration ::
+-- * 'insightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to disable insights.
+-- * 'notificationsEnabled' - Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+mkInsightsConfiguration ::
   InsightsConfiguration
-insightsConfiguration =
+mkInsightsConfiguration =
   InsightsConfiguration'
-    { _icNotificationsEnabled = Nothing,
-      _icInsightsEnabled = Nothing
+    { notificationsEnabled = Lude.Nothing,
+      insightsEnabled = Lude.Nothing
     }
 
 -- | Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
-icNotificationsEnabled :: Lens' InsightsConfiguration (Maybe Bool)
-icNotificationsEnabled = lens _icNotificationsEnabled (\s a -> s {_icNotificationsEnabled = a})
+--
+-- /Note:/ Consider using 'notificationsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icNotificationsEnabled :: Lens.Lens' InsightsConfiguration (Lude.Maybe Lude.Bool)
+icNotificationsEnabled = Lens.lens (notificationsEnabled :: InsightsConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {notificationsEnabled = a} :: InsightsConfiguration)
+{-# DEPRECATED icNotificationsEnabled "Use generic-lens or generic-optics with 'notificationsEnabled' instead." #-}
 
 -- | Set the InsightsEnabled value to true to enable insights or false to disable insights.
-icInsightsEnabled :: Lens' InsightsConfiguration (Maybe Bool)
-icInsightsEnabled = lens _icInsightsEnabled (\s a -> s {_icInsightsEnabled = a})
+--
+-- /Note:/ Consider using 'insightsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icInsightsEnabled :: Lens.Lens' InsightsConfiguration (Lude.Maybe Lude.Bool)
+icInsightsEnabled = Lens.lens (insightsEnabled :: InsightsConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {insightsEnabled = a} :: InsightsConfiguration)
+{-# DEPRECATED icInsightsEnabled "Use generic-lens or generic-optics with 'insightsEnabled' instead." #-}
 
-instance FromJSON InsightsConfiguration where
+instance Lude.FromJSON InsightsConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "InsightsConfiguration"
       ( \x ->
           InsightsConfiguration'
-            <$> (x .:? "NotificationsEnabled") <*> (x .:? "InsightsEnabled")
+            Lude.<$> (x Lude..:? "NotificationsEnabled")
+            Lude.<*> (x Lude..:? "InsightsEnabled")
       )
 
-instance Hashable InsightsConfiguration
-
-instance NFData InsightsConfiguration
-
-instance ToJSON InsightsConfiguration where
+instance Lude.ToJSON InsightsConfiguration where
   toJSON InsightsConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("NotificationsEnabled" .=) <$> _icNotificationsEnabled,
-            ("InsightsEnabled" .=) <$> _icInsightsEnabled
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NotificationsEnabled" Lude..=) Lude.<$> notificationsEnabled,
+            ("InsightsEnabled" Lude..=) Lude.<$> insightsEnabled
           ]
       )

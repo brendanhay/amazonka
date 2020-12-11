@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Update the code signing configuration for the function. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function.
 module Network.AWS.Lambda.PutFunctionCodeSigningConfig
-  ( -- * Creating a Request
-    putFunctionCodeSigningConfig,
-    PutFunctionCodeSigningConfig,
+  ( -- * Creating a request
+    PutFunctionCodeSigningConfig (..),
+    mkPutFunctionCodeSigningConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pfcscCodeSigningConfigARN,
     pfcscFunctionName,
 
-    -- * Destructuring the Response
-    putFunctionCodeSigningConfigResponse,
-    PutFunctionCodeSigningConfigResponse,
+    -- * Destructuring the response
+    PutFunctionCodeSigningConfigResponse (..),
+    mkPutFunctionCodeSigningConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pfcscrsResponseStatus,
     pfcscrsCodeSigningConfigARN,
     pfcscrsFunctionName,
@@ -39,135 +34,205 @@ module Network.AWS.Lambda.PutFunctionCodeSigningConfig
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putFunctionCodeSigningConfig' smart constructor.
+-- | /See:/ 'mkPutFunctionCodeSigningConfig' smart constructor.
 data PutFunctionCodeSigningConfig = PutFunctionCodeSigningConfig'
-  { _pfcscCodeSigningConfigARN ::
-      !Text,
-    _pfcscFunctionName :: !Text
+  { codeSigningConfigARN ::
+      Lude.Text,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutFunctionCodeSigningConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'codeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'pfcscCodeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
+-- __Name formats__
 --
--- * 'pfcscFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-putFunctionCodeSigningConfig ::
-  -- | 'pfcscCodeSigningConfigARN'
-  Text ->
-  -- | 'pfcscFunctionName'
-  Text ->
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+mkPutFunctionCodeSigningConfig ::
+  -- | 'codeSigningConfigARN'
+  Lude.Text ->
+  -- | 'functionName'
+  Lude.Text ->
   PutFunctionCodeSigningConfig
-putFunctionCodeSigningConfig pCodeSigningConfigARN_ pFunctionName_ =
-  PutFunctionCodeSigningConfig'
-    { _pfcscCodeSigningConfigARN =
-        pCodeSigningConfigARN_,
-      _pfcscFunctionName = pFunctionName_
-    }
+mkPutFunctionCodeSigningConfig
+  pCodeSigningConfigARN_
+  pFunctionName_ =
+    PutFunctionCodeSigningConfig'
+      { codeSigningConfigARN =
+          pCodeSigningConfigARN_,
+        functionName = pFunctionName_
+      }
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-pfcscCodeSigningConfigARN :: Lens' PutFunctionCodeSigningConfig Text
-pfcscCodeSigningConfigARN = lens _pfcscCodeSigningConfigARN (\s a -> s {_pfcscCodeSigningConfigARN = a})
+--
+-- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfcscCodeSigningConfigARN :: Lens.Lens' PutFunctionCodeSigningConfig Lude.Text
+pfcscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: PutFunctionCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: PutFunctionCodeSigningConfig)
+{-# DEPRECATED pfcscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-pfcscFunctionName :: Lens' PutFunctionCodeSigningConfig Text
-pfcscFunctionName = lens _pfcscFunctionName (\s a -> s {_pfcscFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfcscFunctionName :: Lens.Lens' PutFunctionCodeSigningConfig Lude.Text
+pfcscFunctionName = Lens.lens (functionName :: PutFunctionCodeSigningConfig -> Lude.Text) (\s a -> s {functionName = a} :: PutFunctionCodeSigningConfig)
+{-# DEPRECATED pfcscFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest PutFunctionCodeSigningConfig where
+instance Lude.AWSRequest PutFunctionCodeSigningConfig where
   type
     Rs PutFunctionCodeSigningConfig =
       PutFunctionCodeSigningConfigResponse
-  request = putJSON lambda
+  request = Req.putJSON lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutFunctionCodeSigningConfigResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .:> "CodeSigningConfigArn")
-            <*> (x .:> "FunctionName")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "CodeSigningConfigArn")
+            Lude.<*> (x Lude..:> "FunctionName")
       )
 
-instance Hashable PutFunctionCodeSigningConfig
+instance Lude.ToHeaders PutFunctionCodeSigningConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutFunctionCodeSigningConfig
-
-instance ToHeaders PutFunctionCodeSigningConfig where
-  toHeaders = const mempty
-
-instance ToJSON PutFunctionCodeSigningConfig where
+instance Lude.ToJSON PutFunctionCodeSigningConfig where
   toJSON PutFunctionCodeSigningConfig' {..} =
-    object
-      ( catMaybes
-          [Just ("CodeSigningConfigArn" .= _pfcscCodeSigningConfigARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CodeSigningConfigArn" Lude..= codeSigningConfigARN)]
       )
 
-instance ToPath PutFunctionCodeSigningConfig where
+instance Lude.ToPath PutFunctionCodeSigningConfig where
   toPath PutFunctionCodeSigningConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-06-30/functions/",
-        toBS _pfcscFunctionName,
+        Lude.toBS functionName,
         "/code-signing-config"
       ]
 
-instance ToQuery PutFunctionCodeSigningConfig where
-  toQuery = const mempty
+instance Lude.ToQuery PutFunctionCodeSigningConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putFunctionCodeSigningConfigResponse' smart constructor.
+-- | /See:/ 'mkPutFunctionCodeSigningConfigResponse' smart constructor.
 data PutFunctionCodeSigningConfigResponse = PutFunctionCodeSigningConfigResponse'
-  { _pfcscrsResponseStatus ::
-      !Int,
-    _pfcscrsCodeSigningConfigARN ::
-      !Text,
-    _pfcscrsFunctionName ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    codeSigningConfigARN ::
+      Lude.Text,
+    functionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutFunctionCodeSigningConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'codeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'pfcscrsResponseStatus' - -- | The response status code.
+-- __Name formats__
 --
--- * 'pfcscrsCodeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
+--     * __Function name__ - @MyFunction@ .
 --
--- * 'pfcscrsFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-putFunctionCodeSigningConfigResponse ::
-  -- | 'pfcscrsResponseStatus'
-  Int ->
-  -- | 'pfcscrsCodeSigningConfigARN'
-  Text ->
-  -- | 'pfcscrsFunctionName'
-  Text ->
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'responseStatus' - The response status code.
+mkPutFunctionCodeSigningConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'codeSigningConfigARN'
+  Lude.Text ->
+  -- | 'functionName'
+  Lude.Text ->
   PutFunctionCodeSigningConfigResponse
-putFunctionCodeSigningConfigResponse
+mkPutFunctionCodeSigningConfigResponse
   pResponseStatus_
   pCodeSigningConfigARN_
   pFunctionName_ =
     PutFunctionCodeSigningConfigResponse'
-      { _pfcscrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _pfcscrsCodeSigningConfigARN = pCodeSigningConfigARN_,
-        _pfcscrsFunctionName = pFunctionName_
+        codeSigningConfigARN = pCodeSigningConfigARN_,
+        functionName = pFunctionName_
       }
 
--- | -- | The response status code.
-pfcscrsResponseStatus :: Lens' PutFunctionCodeSigningConfigResponse Int
-pfcscrsResponseStatus = lens _pfcscrsResponseStatus (\s a -> s {_pfcscrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfcscrsResponseStatus :: Lens.Lens' PutFunctionCodeSigningConfigResponse Lude.Int
+pfcscrsResponseStatus = Lens.lens (responseStatus :: PutFunctionCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutFunctionCodeSigningConfigResponse)
+{-# DEPRECATED pfcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-pfcscrsCodeSigningConfigARN :: Lens' PutFunctionCodeSigningConfigResponse Text
-pfcscrsCodeSigningConfigARN = lens _pfcscrsCodeSigningConfigARN (\s a -> s {_pfcscrsCodeSigningConfigARN = a})
+--
+-- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfcscrsCodeSigningConfigARN :: Lens.Lens' PutFunctionCodeSigningConfigResponse Lude.Text
+pfcscrsCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: PutFunctionCodeSigningConfigResponse -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: PutFunctionCodeSigningConfigResponse)
+{-# DEPRECATED pfcscrsCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-pfcscrsFunctionName :: Lens' PutFunctionCodeSigningConfigResponse Text
-pfcscrsFunctionName = lens _pfcscrsFunctionName (\s a -> s {_pfcscrsFunctionName = a})
-
-instance NFData PutFunctionCodeSigningConfigResponse
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfcscrsFunctionName :: Lens.Lens' PutFunctionCodeSigningConfigResponse Lude.Text
+pfcscrsFunctionName = Lens.lens (functionName :: PutFunctionCodeSigningConfigResponse -> Lude.Text) (\s a -> s {functionName = a} :: PutFunctionCodeSigningConfigResponse)
+{-# DEPRECATED pfcscrsFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}

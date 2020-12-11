@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,102 @@
 --
 -- Gathers a complete list of on-premises servers. Connectors must be installed and monitoring all servers to import.
 --
---
 -- This call returns immediately, but might take additional time to retrieve all the servers.
 module Network.AWS.SMS.ImportServerCatalog
-  ( -- * Creating a Request
-    importServerCatalog,
-    ImportServerCatalog,
+  ( -- * Creating a request
+    ImportServerCatalog (..),
+    mkImportServerCatalog,
 
-    -- * Destructuring the Response
-    importServerCatalogResponse,
-    ImportServerCatalogResponse,
+    -- * Destructuring the response
+    ImportServerCatalogResponse (..),
+    mkImportServerCatalogResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iscrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'importServerCatalog' smart constructor.
+-- | /See:/ 'mkImportServerCatalog' smart constructor.
 data ImportServerCatalog = ImportServerCatalog'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportServerCatalog' with the minimum fields required to make a request.
-importServerCatalog ::
+mkImportServerCatalog ::
   ImportServerCatalog
-importServerCatalog = ImportServerCatalog'
+mkImportServerCatalog = ImportServerCatalog'
 
-instance AWSRequest ImportServerCatalog where
+instance Lude.AWSRequest ImportServerCatalog where
   type Rs ImportServerCatalog = ImportServerCatalogResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
-      (\s h x -> ImportServerCatalogResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ImportServerCatalogResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ImportServerCatalog
-
-instance NFData ImportServerCatalog
-
-instance ToHeaders ImportServerCatalog where
+instance Lude.ToHeaders ImportServerCatalog where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportServerCatalog where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ImportServerCatalog where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath ImportServerCatalog where
-  toPath = const "/"
+instance Lude.ToPath ImportServerCatalog where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportServerCatalog where
-  toQuery = const mempty
+instance Lude.ToQuery ImportServerCatalog where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importServerCatalogResponse' smart constructor.
+-- | /See:/ 'mkImportServerCatalogResponse' smart constructor.
 newtype ImportServerCatalogResponse = ImportServerCatalogResponse'
-  { _iscrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportServerCatalogResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iscrsResponseStatus' - -- | The response status code.
-importServerCatalogResponse ::
-  -- | 'iscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkImportServerCatalogResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportServerCatalogResponse
-importServerCatalogResponse pResponseStatus_ =
-  ImportServerCatalogResponse'
-    { _iscrsResponseStatus =
-        pResponseStatus_
-    }
+mkImportServerCatalogResponse pResponseStatus_ =
+  ImportServerCatalogResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-iscrsResponseStatus :: Lens' ImportServerCatalogResponse Int
-iscrsResponseStatus = lens _iscrsResponseStatus (\s a -> s {_iscrsResponseStatus = a})
-
-instance NFData ImportServerCatalogResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscrsResponseStatus :: Lens.Lens' ImportServerCatalogResponse Lude.Int
+iscrsResponseStatus = Lens.lens (responseStatus :: ImportServerCatalogResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportServerCatalogResponse)
+{-# DEPRECATED iscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

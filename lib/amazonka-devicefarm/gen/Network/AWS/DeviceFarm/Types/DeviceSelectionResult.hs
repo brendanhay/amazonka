@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DeviceSelectionResult where
+module Network.AWS.DeviceFarm.Types.DeviceSelectionResult
+  ( DeviceSelectionResult (..),
+
+    -- * Smart constructor
+    mkDeviceSelectionResult,
+
+    -- * Lenses
+    dsrMatchedDevicesCount,
+    dsrFilters,
+    dsrMaxDevices,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.DeviceFilter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the run results requested by the device selection configuration and how many devices were returned. For an example of the JSON response syntax, see 'ScheduleRun' .
 --
---
---
--- /See:/ 'deviceSelectionResult' smart constructor.
+-- /See:/ 'mkDeviceSelectionResult' smart constructor.
 data DeviceSelectionResult = DeviceSelectionResult'
-  { _dsrMatchedDevicesCount ::
-      !(Maybe Int),
-    _dsrFilters :: !(Maybe [DeviceFilter]),
-    _dsrMaxDevices :: !(Maybe Int)
+  { matchedDevicesCount ::
+      Lude.Maybe Lude.Int,
+    filters :: Lude.Maybe [DeviceFilter],
+    maxDevices :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceSelectionResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrMatchedDevicesCount' - The number of devices that matched the device filter selection criteria.
---
--- * 'dsrFilters' - The filters in a device selection result.
---
--- * 'dsrMaxDevices' - The maximum number of devices to be selected by a device filter and included in a test run.
-deviceSelectionResult ::
+-- * 'filters' - The filters in a device selection result.
+-- * 'matchedDevicesCount' - The number of devices that matched the device filter selection criteria.
+-- * 'maxDevices' - The maximum number of devices to be selected by a device filter and included in a test run.
+mkDeviceSelectionResult ::
   DeviceSelectionResult
-deviceSelectionResult =
+mkDeviceSelectionResult =
   DeviceSelectionResult'
-    { _dsrMatchedDevicesCount = Nothing,
-      _dsrFilters = Nothing,
-      _dsrMaxDevices = Nothing
+    { matchedDevicesCount = Lude.Nothing,
+      filters = Lude.Nothing,
+      maxDevices = Lude.Nothing
     }
 
 -- | The number of devices that matched the device filter selection criteria.
-dsrMatchedDevicesCount :: Lens' DeviceSelectionResult (Maybe Int)
-dsrMatchedDevicesCount = lens _dsrMatchedDevicesCount (\s a -> s {_dsrMatchedDevicesCount = a})
+--
+-- /Note:/ Consider using 'matchedDevicesCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrMatchedDevicesCount :: Lens.Lens' DeviceSelectionResult (Lude.Maybe Lude.Int)
+dsrMatchedDevicesCount = Lens.lens (matchedDevicesCount :: DeviceSelectionResult -> Lude.Maybe Lude.Int) (\s a -> s {matchedDevicesCount = a} :: DeviceSelectionResult)
+{-# DEPRECATED dsrMatchedDevicesCount "Use generic-lens or generic-optics with 'matchedDevicesCount' instead." #-}
 
 -- | The filters in a device selection result.
-dsrFilters :: Lens' DeviceSelectionResult [DeviceFilter]
-dsrFilters = lens _dsrFilters (\s a -> s {_dsrFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrFilters :: Lens.Lens' DeviceSelectionResult (Lude.Maybe [DeviceFilter])
+dsrFilters = Lens.lens (filters :: DeviceSelectionResult -> Lude.Maybe [DeviceFilter]) (\s a -> s {filters = a} :: DeviceSelectionResult)
+{-# DEPRECATED dsrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The maximum number of devices to be selected by a device filter and included in a test run.
-dsrMaxDevices :: Lens' DeviceSelectionResult (Maybe Int)
-dsrMaxDevices = lens _dsrMaxDevices (\s a -> s {_dsrMaxDevices = a})
+--
+-- /Note:/ Consider using 'maxDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrMaxDevices :: Lens.Lens' DeviceSelectionResult (Lude.Maybe Lude.Int)
+dsrMaxDevices = Lens.lens (maxDevices :: DeviceSelectionResult -> Lude.Maybe Lude.Int) (\s a -> s {maxDevices = a} :: DeviceSelectionResult)
+{-# DEPRECATED dsrMaxDevices "Use generic-lens or generic-optics with 'maxDevices' instead." #-}
 
-instance FromJSON DeviceSelectionResult where
+instance Lude.FromJSON DeviceSelectionResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceSelectionResult"
       ( \x ->
           DeviceSelectionResult'
-            <$> (x .:? "matchedDevicesCount")
-            <*> (x .:? "filters" .!= mempty)
-            <*> (x .:? "maxDevices")
+            Lude.<$> (x Lude..:? "matchedDevicesCount")
+            Lude.<*> (x Lude..:? "filters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "maxDevices")
       )
-
-instance Hashable DeviceSelectionResult
-
-instance NFData DeviceSelectionResult

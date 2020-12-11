@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,140 @@
 --
 -- Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if necessary.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html Stopping an Amazon RDS DB Instance Temporarily> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.StopDBInstance
-  ( -- * Creating a Request
-    stopDBInstance,
-    StopDBInstance,
+  ( -- * Creating a request
+    StopDBInstance (..),
+    mkStopDBInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sdiDBSnapshotIdentifier,
     sdiDBInstanceIdentifier,
 
-    -- * Destructuring the Response
-    stopDBInstanceResponse,
-    StopDBInstanceResponse,
+    -- * Destructuring the response
+    StopDBInstanceResponse (..),
+    mkStopDBInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sdirsDBInstance,
     sdirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopDBInstance' smart constructor.
+-- | /See:/ 'mkStopDBInstance' smart constructor.
 data StopDBInstance = StopDBInstance'
-  { _sdiDBSnapshotIdentifier ::
-      !(Maybe Text),
-    _sdiDBInstanceIdentifier :: !Text
+  { dbSnapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    dbInstanceIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDBInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdiDBSnapshotIdentifier' - The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
---
--- * 'sdiDBInstanceIdentifier' - The user-supplied instance identifier.
-stopDBInstance ::
-  -- | 'sdiDBInstanceIdentifier'
-  Text ->
+-- * 'dbInstanceIdentifier' - The user-supplied instance identifier.
+-- * 'dbSnapshotIdentifier' - The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
+mkStopDBInstance ::
+  -- | 'dbInstanceIdentifier'
+  Lude.Text ->
   StopDBInstance
-stopDBInstance pDBInstanceIdentifier_ =
+mkStopDBInstance pDBInstanceIdentifier_ =
   StopDBInstance'
-    { _sdiDBSnapshotIdentifier = Nothing,
-      _sdiDBInstanceIdentifier = pDBInstanceIdentifier_
+    { dbSnapshotIdentifier = Lude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
-sdiDBSnapshotIdentifier :: Lens' StopDBInstance (Maybe Text)
-sdiDBSnapshotIdentifier = lens _sdiDBSnapshotIdentifier (\s a -> s {_sdiDBSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiDBSnapshotIdentifier :: Lens.Lens' StopDBInstance (Lude.Maybe Lude.Text)
+sdiDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: StopDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: StopDBInstance)
+{-# DEPRECATED sdiDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
 
 -- | The user-supplied instance identifier.
-sdiDBInstanceIdentifier :: Lens' StopDBInstance Text
-sdiDBInstanceIdentifier = lens _sdiDBInstanceIdentifier (\s a -> s {_sdiDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiDBInstanceIdentifier :: Lens.Lens' StopDBInstance Lude.Text
+sdiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: StopDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: StopDBInstance)
+{-# DEPRECATED sdiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
-instance AWSRequest StopDBInstance where
+instance Lude.AWSRequest StopDBInstance where
   type Rs StopDBInstance = StopDBInstanceResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "StopDBInstanceResult"
       ( \s h x ->
           StopDBInstanceResponse'
-            <$> (x .@? "DBInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBInstance") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopDBInstance
+instance Lude.ToHeaders StopDBInstance where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StopDBInstance
+instance Lude.ToPath StopDBInstance where
+  toPath = Lude.const "/"
 
-instance ToHeaders StopDBInstance where
-  toHeaders = const mempty
-
-instance ToPath StopDBInstance where
-  toPath = const "/"
-
-instance ToQuery StopDBInstance where
+instance Lude.ToQuery StopDBInstance where
   toQuery StopDBInstance' {..} =
-    mconcat
-      [ "Action" =: ("StopDBInstance" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBSnapshotIdentifier" =: _sdiDBSnapshotIdentifier,
-        "DBInstanceIdentifier" =: _sdiDBInstanceIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("StopDBInstance" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBSnapshotIdentifier" Lude.=: dbSnapshotIdentifier,
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier
       ]
 
--- | /See:/ 'stopDBInstanceResponse' smart constructor.
+-- | /See:/ 'mkStopDBInstanceResponse' smart constructor.
 data StopDBInstanceResponse = StopDBInstanceResponse'
-  { _sdirsDBInstance ::
-      !(Maybe DBInstance),
-    _sdirsResponseStatus :: !Int
+  { dbInstance ::
+      Lude.Maybe DBInstance,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDBInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdirsDBInstance' - Undocumented member.
---
--- * 'sdirsResponseStatus' - -- | The response status code.
-stopDBInstanceResponse ::
-  -- | 'sdirsResponseStatus'
-  Int ->
+-- * 'dbInstance' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkStopDBInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopDBInstanceResponse
-stopDBInstanceResponse pResponseStatus_ =
+mkStopDBInstanceResponse pResponseStatus_ =
   StopDBInstanceResponse'
-    { _sdirsDBInstance = Nothing,
-      _sdirsResponseStatus = pResponseStatus_
+    { dbInstance = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-sdirsDBInstance :: Lens' StopDBInstanceResponse (Maybe DBInstance)
-sdirsDBInstance = lens _sdirsDBInstance (\s a -> s {_sdirsDBInstance = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdirsDBInstance :: Lens.Lens' StopDBInstanceResponse (Lude.Maybe DBInstance)
+sdirsDBInstance = Lens.lens (dbInstance :: StopDBInstanceResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: StopDBInstanceResponse)
+{-# DEPRECATED sdirsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
 
--- | -- | The response status code.
-sdirsResponseStatus :: Lens' StopDBInstanceResponse Int
-sdirsResponseStatus = lens _sdirsResponseStatus (\s a -> s {_sdirsResponseStatus = a})
-
-instance NFData StopDBInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdirsResponseStatus :: Lens.Lens' StopDBInstanceResponse Lude.Int
+sdirsResponseStatus = Lens.lens (responseStatus :: StopDBInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDBInstanceResponse)
+{-# DEPRECATED sdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

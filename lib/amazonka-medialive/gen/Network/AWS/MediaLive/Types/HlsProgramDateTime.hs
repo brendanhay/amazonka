@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsProgramDateTime where
+module Network.AWS.MediaLive.Types.HlsProgramDateTime
+  ( HlsProgramDateTime
+      ( HlsProgramDateTime',
+        HPDTExclude,
+        HPDTInclude
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Program Date Time
-data HlsProgramDateTime
-  = HPDTExclude
-  | HPDTInclude
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsProgramDateTime = HlsProgramDateTime' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsProgramDateTime where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure HPDTExclude
-      "include" -> pure HPDTInclude
-      e ->
-        fromTextError $
-          "Failure parsing HlsProgramDateTime from value: '" <> e
-            <> "'. Accepted values: exclude, include"
+pattern HPDTExclude :: HlsProgramDateTime
+pattern HPDTExclude = HlsProgramDateTime' "EXCLUDE"
 
-instance ToText HlsProgramDateTime where
-  toText = \case
-    HPDTExclude -> "EXCLUDE"
-    HPDTInclude -> "INCLUDE"
+pattern HPDTInclude :: HlsProgramDateTime
+pattern HPDTInclude = HlsProgramDateTime' "INCLUDE"
 
-instance Hashable HlsProgramDateTime
-
-instance NFData HlsProgramDateTime
-
-instance ToByteString HlsProgramDateTime
-
-instance ToQuery HlsProgramDateTime
-
-instance ToHeader HlsProgramDateTime
-
-instance ToJSON HlsProgramDateTime where
-  toJSON = toJSONText
-
-instance FromJSON HlsProgramDateTime where
-  parseJSON = parseJSONText "HlsProgramDateTime"
+{-# COMPLETE
+  HPDTExclude,
+  HPDTInclude,
+  HlsProgramDateTime'
+  #-}

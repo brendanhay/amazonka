@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.Resource where
+module Network.AWS.Greengrass.Types.Resource
+  ( Resource (..),
+
+    -- * Smart constructor
+    mkResource,
+
+    -- * Lenses
+    rResourceDataContainer,
+    rId,
+    rName,
+  )
+where
 
 import Network.AWS.Greengrass.Types.ResourceDataContainer
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a resource.
 --
--- /See:/ 'resource' smart constructor.
+-- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { _rResourceDataContainer ::
-      !ResourceDataContainer,
-    _rId :: !Text,
-    _rName :: !Text
+  { resourceDataContainer ::
+      ResourceDataContainer,
+    id :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rResourceDataContainer' - A container of data for all resource types.
---
--- * 'rId' - The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
---
--- * 'rName' - The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
-resource ::
-  -- | 'rResourceDataContainer'
+-- * 'id' - The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+-- * 'name' - The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+-- * 'resourceDataContainer' - A container of data for all resource types.
+mkResource ::
+  -- | 'resourceDataContainer'
   ResourceDataContainer ->
-  -- | 'rId'
-  Text ->
-  -- | 'rName'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   Resource
-resource pResourceDataContainer_ pId_ pName_ =
+mkResource pResourceDataContainer_ pId_ pName_ =
   Resource'
-    { _rResourceDataContainer = pResourceDataContainer_,
-      _rId = pId_,
-      _rName = pName_
+    { resourceDataContainer = pResourceDataContainer_,
+      id = pId_,
+      name = pName_
     }
 
 -- | A container of data for all resource types.
-rResourceDataContainer :: Lens' Resource ResourceDataContainer
-rResourceDataContainer = lens _rResourceDataContainer (\s a -> s {_rResourceDataContainer = a})
+--
+-- /Note:/ Consider using 'resourceDataContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceDataContainer :: Lens.Lens' Resource ResourceDataContainer
+rResourceDataContainer = Lens.lens (resourceDataContainer :: Resource -> ResourceDataContainer) (\s a -> s {resourceDataContainer = a} :: Resource)
+{-# DEPRECATED rResourceDataContainer "Use generic-lens or generic-optics with 'resourceDataContainer' instead." #-}
 
 -- | The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
-rId :: Lens' Resource Text
-rId = lens _rId (\s a -> s {_rId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rId :: Lens.Lens' Resource Lude.Text
+rId = Lens.lens (id :: Resource -> Lude.Text) (\s a -> s {id = a} :: Resource)
+{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
-rName :: Lens' Resource Text
-rName = lens _rName (\s a -> s {_rName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' Resource Lude.Text
+rName = Lens.lens (name :: Resource -> Lude.Text) (\s a -> s {name = a} :: Resource)
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Resource where
+instance Lude.FromJSON Resource where
   parseJSON =
-    withObject
+    Lude.withObject
       "Resource"
       ( \x ->
           Resource'
-            <$> (x .: "ResourceDataContainer") <*> (x .: "Id") <*> (x .: "Name")
+            Lude.<$> (x Lude..: "ResourceDataContainer")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "Name")
       )
 
-instance Hashable Resource
-
-instance NFData Resource
-
-instance ToJSON Resource where
+instance Lude.ToJSON Resource where
   toJSON Resource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceDataContainer" .= _rResourceDataContainer),
-            Just ("Id" .= _rId),
-            Just ("Name" .= _rName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceDataContainer" Lude..= resourceDataContainer),
+            Lude.Just ("Id" Lude..= id),
+            Lude.Just ("Name" Lude..= name)
           ]
       )

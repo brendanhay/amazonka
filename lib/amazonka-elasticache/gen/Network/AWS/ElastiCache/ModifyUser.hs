@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Changes user password(s) and/or access string.
 module Network.AWS.ElastiCache.ModifyUser
-  ( -- * Creating a Request
-    modifyUser,
-    ModifyUser,
+  ( -- * Creating a request
+    ModifyUser (..),
+    mkModifyUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     muAppendAccessString,
     muAccessString,
     muPasswords,
     muNoPasswordRequired,
     muUserId,
 
-    -- * Destructuring the Response
-    user,
-    User,
+    -- * Destructuring the response
+    User (..),
+    mkUser,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uStatus,
     uARN,
     uUserGroupIds,
@@ -47,92 +42,107 @@ module Network.AWS.ElastiCache.ModifyUser
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyUser' smart constructor.
+-- | /See:/ 'mkModifyUser' smart constructor.
 data ModifyUser = ModifyUser'
-  { _muAppendAccessString ::
-      !(Maybe Text),
-    _muAccessString :: !(Maybe Text),
-    _muPasswords :: !(Maybe (List1 Text)),
-    _muNoPasswordRequired :: !(Maybe Bool),
-    _muUserId :: !Text
+  { appendAccessString ::
+      Lude.Maybe Lude.Text,
+    accessString :: Lude.Maybe Lude.Text,
+    passwords :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    noPasswordRequired :: Lude.Maybe Lude.Bool,
+    userId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'muAppendAccessString' - Adds additional user permissions to the access string.
---
--- * 'muAccessString' - Access permissions string used for this user account.
---
--- * 'muPasswords' - The passwords belonging to the user account. You are allowed up to two.
---
--- * 'muNoPasswordRequired' - Indicates no password is required for the user account.
---
--- * 'muUserId' - The ID of the user.
-modifyUser ::
-  -- | 'muUserId'
-  Text ->
+-- * 'accessString' - Access permissions string used for this user account.
+-- * 'appendAccessString' - Adds additional user permissions to the access string.
+-- * 'noPasswordRequired' - Indicates no password is required for the user account.
+-- * 'passwords' - The passwords belonging to the user account. You are allowed up to two.
+-- * 'userId' - The ID of the user.
+mkModifyUser ::
+  -- | 'userId'
+  Lude.Text ->
   ModifyUser
-modifyUser pUserId_ =
+mkModifyUser pUserId_ =
   ModifyUser'
-    { _muAppendAccessString = Nothing,
-      _muAccessString = Nothing,
-      _muPasswords = Nothing,
-      _muNoPasswordRequired = Nothing,
-      _muUserId = pUserId_
+    { appendAccessString = Lude.Nothing,
+      accessString = Lude.Nothing,
+      passwords = Lude.Nothing,
+      noPasswordRequired = Lude.Nothing,
+      userId = pUserId_
     }
 
 -- | Adds additional user permissions to the access string.
-muAppendAccessString :: Lens' ModifyUser (Maybe Text)
-muAppendAccessString = lens _muAppendAccessString (\s a -> s {_muAppendAccessString = a})
+--
+-- /Note:/ Consider using 'appendAccessString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muAppendAccessString :: Lens.Lens' ModifyUser (Lude.Maybe Lude.Text)
+muAppendAccessString = Lens.lens (appendAccessString :: ModifyUser -> Lude.Maybe Lude.Text) (\s a -> s {appendAccessString = a} :: ModifyUser)
+{-# DEPRECATED muAppendAccessString "Use generic-lens or generic-optics with 'appendAccessString' instead." #-}
 
 -- | Access permissions string used for this user account.
-muAccessString :: Lens' ModifyUser (Maybe Text)
-muAccessString = lens _muAccessString (\s a -> s {_muAccessString = a})
+--
+-- /Note:/ Consider using 'accessString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muAccessString :: Lens.Lens' ModifyUser (Lude.Maybe Lude.Text)
+muAccessString = Lens.lens (accessString :: ModifyUser -> Lude.Maybe Lude.Text) (\s a -> s {accessString = a} :: ModifyUser)
+{-# DEPRECATED muAccessString "Use generic-lens or generic-optics with 'accessString' instead." #-}
 
 -- | The passwords belonging to the user account. You are allowed up to two.
-muPasswords :: Lens' ModifyUser (Maybe (NonEmpty Text))
-muPasswords = lens _muPasswords (\s a -> s {_muPasswords = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'passwords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muPasswords :: Lens.Lens' ModifyUser (Lude.Maybe (Lude.NonEmpty Lude.Text))
+muPasswords = Lens.lens (passwords :: ModifyUser -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {passwords = a} :: ModifyUser)
+{-# DEPRECATED muPasswords "Use generic-lens or generic-optics with 'passwords' instead." #-}
 
 -- | Indicates no password is required for the user account.
-muNoPasswordRequired :: Lens' ModifyUser (Maybe Bool)
-muNoPasswordRequired = lens _muNoPasswordRequired (\s a -> s {_muNoPasswordRequired = a})
+--
+-- /Note:/ Consider using 'noPasswordRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muNoPasswordRequired :: Lens.Lens' ModifyUser (Lude.Maybe Lude.Bool)
+muNoPasswordRequired = Lens.lens (noPasswordRequired :: ModifyUser -> Lude.Maybe Lude.Bool) (\s a -> s {noPasswordRequired = a} :: ModifyUser)
+{-# DEPRECATED muNoPasswordRequired "Use generic-lens or generic-optics with 'noPasswordRequired' instead." #-}
 
 -- | The ID of the user.
-muUserId :: Lens' ModifyUser Text
-muUserId = lens _muUserId (\s a -> s {_muUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muUserId :: Lens.Lens' ModifyUser Lude.Text
+muUserId = Lens.lens (userId :: ModifyUser -> Lude.Text) (\s a -> s {userId = a} :: ModifyUser)
+{-# DEPRECATED muUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest ModifyUser where
+instance Lude.AWSRequest ModifyUser where
   type Rs ModifyUser = User
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper "ModifyUserResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "ModifyUserResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable ModifyUser
+instance Lude.ToHeaders ModifyUser where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyUser
+instance Lude.ToPath ModifyUser where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyUser where
-  toHeaders = const mempty
-
-instance ToPath ModifyUser where
-  toPath = const "/"
-
-instance ToQuery ModifyUser where
+instance Lude.ToQuery ModifyUser where
   toQuery ModifyUser' {..} =
-    mconcat
-      [ "Action" =: ("ModifyUser" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "AppendAccessString" =: _muAppendAccessString,
-        "AccessString" =: _muAccessString,
-        "Passwords" =: toQuery (toQueryList "member" <$> _muPasswords),
-        "NoPasswordRequired" =: _muNoPasswordRequired,
-        "UserId" =: _muUserId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyUser" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "AppendAccessString" Lude.=: appendAccessString,
+        "AccessString" Lude.=: accessString,
+        "Passwords"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> passwords),
+        "NoPasswordRequired" Lude.=: noPasswordRequired,
+        "UserId" Lude.=: userId
       ]

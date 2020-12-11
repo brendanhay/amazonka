@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,128 @@
 --
 -- Retrieves AWS Organizations-related information about the specified account.
 --
---
 -- This operation can be called only from the organization's management account or by a member account that is a delegated administrator for an AWS service.
 module Network.AWS.Organizations.DescribeAccount
-  ( -- * Creating a Request
-    describeAccount,
-    DescribeAccount,
+  ( -- * Creating a request
+    DescribeAccount (..),
+    mkDescribeAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daAccountId,
 
-    -- * Destructuring the Response
-    describeAccountResponse,
-    DescribeAccountResponse,
+    -- * Destructuring the response
+    DescribeAccountResponse (..),
+    mkDescribeAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsAccount,
     darsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAccount' smart constructor.
-newtype DescribeAccount = DescribeAccount' {_daAccountId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeAccount' smart constructor.
+newtype DescribeAccount = DescribeAccount' {accountId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountId' - The unique identifier (ID) of the AWS account that you want information about. You can get the ID from the 'ListAccounts' or 'ListAccountsForParent' operations.
 --
--- * 'daAccountId' - The unique identifier (ID) of the AWS account that you want information about. You can get the ID from the 'ListAccounts' or 'ListAccountsForParent' operations. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-describeAccount ::
-  -- | 'daAccountId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+mkDescribeAccount ::
+  -- | 'accountId'
+  Lude.Text ->
   DescribeAccount
-describeAccount pAccountId_ =
-  DescribeAccount' {_daAccountId = pAccountId_}
+mkDescribeAccount pAccountId_ =
+  DescribeAccount' {accountId = pAccountId_}
 
--- | The unique identifier (ID) of the AWS account that you want information about. You can get the ID from the 'ListAccounts' or 'ListAccountsForParent' operations. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-daAccountId :: Lens' DescribeAccount Text
-daAccountId = lens _daAccountId (\s a -> s {_daAccountId = a})
+-- | The unique identifier (ID) of the AWS account that you want information about. You can get the ID from the 'ListAccounts' or 'ListAccountsForParent' operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAccountId :: Lens.Lens' DescribeAccount Lude.Text
+daAccountId = Lens.lens (accountId :: DescribeAccount -> Lude.Text) (\s a -> s {accountId = a} :: DescribeAccount)
+{-# DEPRECATED daAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance AWSRequest DescribeAccount where
+instance Lude.AWSRequest DescribeAccount where
   type Rs DescribeAccount = DescribeAccountResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAccountResponse'
-            <$> (x .?> "Account") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Account") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccount
-
-instance NFData DescribeAccount
-
-instance ToHeaders DescribeAccount where
+instance Lude.ToHeaders DescribeAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.DescribeAccount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.DescribeAccount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAccount where
+instance Lude.ToJSON DescribeAccount where
   toJSON DescribeAccount' {..} =
-    object (catMaybes [Just ("AccountId" .= _daAccountId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AccountId" Lude..= accountId)])
 
-instance ToPath DescribeAccount where
-  toPath = const "/"
+instance Lude.ToPath DescribeAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAccount where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAccountResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
-  { _darsAccount ::
-      !(Maybe Account),
-    _darsResponseStatus :: !Int
+  { account ::
+      Lude.Maybe Account,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsAccount' - A structure that contains information about the requested account.
---
--- * 'darsResponseStatus' - -- | The response status code.
-describeAccountResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'account' - A structure that contains information about the requested account.
+-- * 'responseStatus' - The response status code.
+mkDescribeAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccountResponse
-describeAccountResponse pResponseStatus_ =
+mkDescribeAccountResponse pResponseStatus_ =
   DescribeAccountResponse'
-    { _darsAccount = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { account = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains information about the requested account.
-darsAccount :: Lens' DescribeAccountResponse (Maybe Account)
-darsAccount = lens _darsAccount (\s a -> s {_darsAccount = a})
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAccount :: Lens.Lens' DescribeAccountResponse (Lude.Maybe Account)
+darsAccount = Lens.lens (account :: DescribeAccountResponse -> Lude.Maybe Account) (\s a -> s {account = a} :: DescribeAccountResponse)
+{-# DEPRECATED darsAccount "Use generic-lens or generic-optics with 'account' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeAccountResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DescribeAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeAccountResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

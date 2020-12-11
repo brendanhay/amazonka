@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting disk can be attached to an Amazon Lightsail instance in the same Availability Zone (e.g., @us-east-2a@ ).
 --
---
 -- The @create disk from snapshot@ operation supports tag-based access control via request tags and resource tags applied to the resource identified by @disk snapshot name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.CreateDiskFromSnapshot
-  ( -- * Creating a Request
-    createDiskFromSnapshot,
-    CreateDiskFromSnapshot,
+  ( -- * Creating a request
+    CreateDiskFromSnapshot (..),
+    mkCreateDiskFromSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdfsUseLatestRestorableAutoSnapshot,
     cdfsSourceDiskName,
     cdfsAddOns,
@@ -37,194 +31,302 @@ module Network.AWS.Lightsail.CreateDiskFromSnapshot
     cdfsAvailabilityZone,
     cdfsSizeInGb,
 
-    -- * Destructuring the Response
-    createDiskFromSnapshotResponse,
-    CreateDiskFromSnapshotResponse,
+    -- * Destructuring the response
+    CreateDiskFromSnapshotResponse (..),
+    mkCreateDiskFromSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdfsrsOperations,
     cdfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDiskFromSnapshot' smart constructor.
+-- | /See:/ 'mkCreateDiskFromSnapshot' smart constructor.
 data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
-  { _cdfsUseLatestRestorableAutoSnapshot ::
-      !(Maybe Bool),
-    _cdfsSourceDiskName :: !(Maybe Text),
-    _cdfsAddOns :: !(Maybe [AddOnRequest]),
-    _cdfsDiskSnapshotName :: !(Maybe Text),
-    _cdfsRestoreDate :: !(Maybe Text),
-    _cdfsTags :: !(Maybe [Tag]),
-    _cdfsDiskName :: !Text,
-    _cdfsAvailabilityZone :: !Text,
-    _cdfsSizeInGb :: !Int
+  { useLatestRestorableAutoSnapshot ::
+      Lude.Maybe Lude.Bool,
+    sourceDiskName :: Lude.Maybe Lude.Text,
+    addOns :: Lude.Maybe [AddOnRequest],
+    diskSnapshotName :: Lude.Maybe Lude.Text,
+    restoreDate :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    diskName :: Lude.Text,
+    availabilityZone :: Lude.Text,
+    sizeInGb :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDiskFromSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addOns' - An array of objects that represent the add-ons to enable for the new disk.
+-- * 'availabilityZone' - The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Choose the same Availability Zone as the Lightsail instance where you want to create the disk.
 --
--- * 'cdfsUseLatestRestorableAutoSnapshot' - A Boolean value to indicate whether to use the latest available automatic snapshot. Constraints:     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+-- Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.
+-- * 'diskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
+-- * 'diskSnapshotName' - The name of the disk snapshot (e.g., @my-snapshot@ ) from which to create the new storage disk.
 --
--- * 'cdfsSourceDiskName' - The name of the source disk from which the source automatic snapshot was created. Constraints:     * This parameter cannot be defined together with the @disk snapshot name@ parameter. The @source disk name@ and @disk snapshot name@ parameters are mutually exclusive.     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+-- Constraint:
 --
--- * 'cdfsAddOns' - An array of objects that represent the add-ons to enable for the new disk.
+--     * This parameter cannot be defined together with the @source disk name@ parameter. The @disk snapshot name@ and @source disk name@ parameters are mutually exclusive.
 --
--- * 'cdfsDiskSnapshotName' - The name of the disk snapshot (e.g., @my-snapshot@ ) from which to create the new storage disk. Constraint:     * This parameter cannot be defined together with the @source disk name@ parameter. The @disk snapshot name@ and @source disk name@ parameters are mutually exclusive.
 --
--- * 'cdfsRestoreDate' - The date of the automatic snapshot to use for the new disk. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots. Constraints:     * Must be specified in @YYYY-MM-DD@ format.     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+-- * 'restoreDate' - The date of the automatic snapshot to use for the new disk. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
 --
--- * 'cdfsTags' - The tag keys and optional values to add to the resource during create. Use the @TagResource@ action to tag a resource after it's created.
+-- Constraints:
 --
--- * 'cdfsDiskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
+--     * Must be specified in @YYYY-MM-DD@ format.
 --
--- * 'cdfsAvailabilityZone' - The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Choose the same Availability Zone as the Lightsail instance where you want to create the disk. Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.
 --
--- * 'cdfsSizeInGb' - The size of the disk in GB (e.g., @32@ ).
-createDiskFromSnapshot ::
-  -- | 'cdfsDiskName'
-  Text ->
-  -- | 'cdfsAvailabilityZone'
-  Text ->
-  -- | 'cdfsSizeInGb'
-  Int ->
+--     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+-- * 'sizeInGb' - The size of the disk in GB (e.g., @32@ ).
+-- * 'sourceDiskName' - The name of the source disk from which the source automatic snapshot was created.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @disk snapshot name@ parameter. The @source disk name@ and @disk snapshot name@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+-- * 'tags' - The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+-- * 'useLatestRestorableAutoSnapshot' - A Boolean value to indicate whether to use the latest available automatic snapshot.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+mkCreateDiskFromSnapshot ::
+  -- | 'diskName'
+  Lude.Text ->
+  -- | 'availabilityZone'
+  Lude.Text ->
+  -- | 'sizeInGb'
+  Lude.Int ->
   CreateDiskFromSnapshot
-createDiskFromSnapshot pDiskName_ pAvailabilityZone_ pSizeInGb_ =
+mkCreateDiskFromSnapshot pDiskName_ pAvailabilityZone_ pSizeInGb_ =
   CreateDiskFromSnapshot'
-    { _cdfsUseLatestRestorableAutoSnapshot =
-        Nothing,
-      _cdfsSourceDiskName = Nothing,
-      _cdfsAddOns = Nothing,
-      _cdfsDiskSnapshotName = Nothing,
-      _cdfsRestoreDate = Nothing,
-      _cdfsTags = Nothing,
-      _cdfsDiskName = pDiskName_,
-      _cdfsAvailabilityZone = pAvailabilityZone_,
-      _cdfsSizeInGb = pSizeInGb_
+    { useLatestRestorableAutoSnapshot =
+        Lude.Nothing,
+      sourceDiskName = Lude.Nothing,
+      addOns = Lude.Nothing,
+      diskSnapshotName = Lude.Nothing,
+      restoreDate = Lude.Nothing,
+      tags = Lude.Nothing,
+      diskName = pDiskName_,
+      availabilityZone = pAvailabilityZone_,
+      sizeInGb = pSizeInGb_
     }
 
--- | A Boolean value to indicate whether to use the latest available automatic snapshot. Constraints:     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
-cdfsUseLatestRestorableAutoSnapshot :: Lens' CreateDiskFromSnapshot (Maybe Bool)
-cdfsUseLatestRestorableAutoSnapshot = lens _cdfsUseLatestRestorableAutoSnapshot (\s a -> s {_cdfsUseLatestRestorableAutoSnapshot = a})
+-- | A Boolean value to indicate whether to use the latest available automatic snapshot.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'useLatestRestorableAutoSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsUseLatestRestorableAutoSnapshot :: Lens.Lens' CreateDiskFromSnapshot (Lude.Maybe Lude.Bool)
+cdfsUseLatestRestorableAutoSnapshot = Lens.lens (useLatestRestorableAutoSnapshot :: CreateDiskFromSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {useLatestRestorableAutoSnapshot = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsUseLatestRestorableAutoSnapshot "Use generic-lens or generic-optics with 'useLatestRestorableAutoSnapshot' instead." #-}
 
--- | The name of the source disk from which the source automatic snapshot was created. Constraints:     * This parameter cannot be defined together with the @disk snapshot name@ parameter. The @source disk name@ and @disk snapshot name@ parameters are mutually exclusive.     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
-cdfsSourceDiskName :: Lens' CreateDiskFromSnapshot (Maybe Text)
-cdfsSourceDiskName = lens _cdfsSourceDiskName (\s a -> s {_cdfsSourceDiskName = a})
+-- | The name of the source disk from which the source automatic snapshot was created.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @disk snapshot name@ parameter. The @source disk name@ and @disk snapshot name@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'sourceDiskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsSourceDiskName :: Lens.Lens' CreateDiskFromSnapshot (Lude.Maybe Lude.Text)
+cdfsSourceDiskName = Lens.lens (sourceDiskName :: CreateDiskFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceDiskName = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsSourceDiskName "Use generic-lens or generic-optics with 'sourceDiskName' instead." #-}
 
 -- | An array of objects that represent the add-ons to enable for the new disk.
-cdfsAddOns :: Lens' CreateDiskFromSnapshot [AddOnRequest]
-cdfsAddOns = lens _cdfsAddOns (\s a -> s {_cdfsAddOns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsAddOns :: Lens.Lens' CreateDiskFromSnapshot (Lude.Maybe [AddOnRequest])
+cdfsAddOns = Lens.lens (addOns :: CreateDiskFromSnapshot -> Lude.Maybe [AddOnRequest]) (\s a -> s {addOns = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsAddOns "Use generic-lens or generic-optics with 'addOns' instead." #-}
 
--- | The name of the disk snapshot (e.g., @my-snapshot@ ) from which to create the new storage disk. Constraint:     * This parameter cannot be defined together with the @source disk name@ parameter. The @disk snapshot name@ and @source disk name@ parameters are mutually exclusive.
-cdfsDiskSnapshotName :: Lens' CreateDiskFromSnapshot (Maybe Text)
-cdfsDiskSnapshotName = lens _cdfsDiskSnapshotName (\s a -> s {_cdfsDiskSnapshotName = a})
+-- | The name of the disk snapshot (e.g., @my-snapshot@ ) from which to create the new storage disk.
+--
+-- Constraint:
+--
+--     * This parameter cannot be defined together with the @source disk name@ parameter. The @disk snapshot name@ and @source disk name@ parameters are mutually exclusive.
+--
+--
+--
+-- /Note:/ Consider using 'diskSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsDiskSnapshotName :: Lens.Lens' CreateDiskFromSnapshot (Lude.Maybe Lude.Text)
+cdfsDiskSnapshotName = Lens.lens (diskSnapshotName :: CreateDiskFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {diskSnapshotName = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsDiskSnapshotName "Use generic-lens or generic-optics with 'diskSnapshotName' instead." #-}
 
--- | The date of the automatic snapshot to use for the new disk. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots. Constraints:     * Must be specified in @YYYY-MM-DD@ format.     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
-cdfsRestoreDate :: Lens' CreateDiskFromSnapshot (Maybe Text)
-cdfsRestoreDate = lens _cdfsRestoreDate (\s a -> s {_cdfsRestoreDate = a})
+-- | The date of the automatic snapshot to use for the new disk. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
+--
+-- Constraints:
+--
+--     * Must be specified in @YYYY-MM-DD@ format.
+--
+--
+--     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'restoreDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsRestoreDate :: Lens.Lens' CreateDiskFromSnapshot (Lude.Maybe Lude.Text)
+cdfsRestoreDate = Lens.lens (restoreDate :: CreateDiskFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {restoreDate = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsRestoreDate "Use generic-lens or generic-optics with 'restoreDate' instead." #-}
 
--- | The tag keys and optional values to add to the resource during create. Use the @TagResource@ action to tag a resource after it's created.
-cdfsTags :: Lens' CreateDiskFromSnapshot [Tag]
-cdfsTags = lens _cdfsTags (\s a -> s {_cdfsTags = a}) . _Default . _Coerce
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsTags :: Lens.Lens' CreateDiskFromSnapshot (Lude.Maybe [Tag])
+cdfsTags = Lens.lens (tags :: CreateDiskFromSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The unique Lightsail disk name (e.g., @my-disk@ ).
-cdfsDiskName :: Lens' CreateDiskFromSnapshot Text
-cdfsDiskName = lens _cdfsDiskName (\s a -> s {_cdfsDiskName = a})
+--
+-- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsDiskName :: Lens.Lens' CreateDiskFromSnapshot Lude.Text
+cdfsDiskName = Lens.lens (diskName :: CreateDiskFromSnapshot -> Lude.Text) (\s a -> s {diskName = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
--- | The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Choose the same Availability Zone as the Lightsail instance where you want to create the disk. Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.
-cdfsAvailabilityZone :: Lens' CreateDiskFromSnapshot Text
-cdfsAvailabilityZone = lens _cdfsAvailabilityZone (\s a -> s {_cdfsAvailabilityZone = a})
+-- | The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Choose the same Availability Zone as the Lightsail instance where you want to create the disk.
+--
+-- Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsAvailabilityZone :: Lens.Lens' CreateDiskFromSnapshot Lude.Text
+cdfsAvailabilityZone = Lens.lens (availabilityZone :: CreateDiskFromSnapshot -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The size of the disk in GB (e.g., @32@ ).
-cdfsSizeInGb :: Lens' CreateDiskFromSnapshot Int
-cdfsSizeInGb = lens _cdfsSizeInGb (\s a -> s {_cdfsSizeInGb = a})
+--
+-- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsSizeInGb :: Lens.Lens' CreateDiskFromSnapshot Lude.Int
+cdfsSizeInGb = Lens.lens (sizeInGb :: CreateDiskFromSnapshot -> Lude.Int) (\s a -> s {sizeInGb = a} :: CreateDiskFromSnapshot)
+{-# DEPRECATED cdfsSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
 
-instance AWSRequest CreateDiskFromSnapshot where
+instance Lude.AWSRequest CreateDiskFromSnapshot where
   type Rs CreateDiskFromSnapshot = CreateDiskFromSnapshotResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDiskFromSnapshotResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDiskFromSnapshot
-
-instance NFData CreateDiskFromSnapshot
-
-instance ToHeaders CreateDiskFromSnapshot where
+instance Lude.ToHeaders CreateDiskFromSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.CreateDiskFromSnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.CreateDiskFromSnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDiskFromSnapshot where
+instance Lude.ToJSON CreateDiskFromSnapshot where
   toJSON CreateDiskFromSnapshot' {..} =
-    object
-      ( catMaybes
-          [ ("useLatestRestorableAutoSnapshot" .=)
-              <$> _cdfsUseLatestRestorableAutoSnapshot,
-            ("sourceDiskName" .=) <$> _cdfsSourceDiskName,
-            ("addOns" .=) <$> _cdfsAddOns,
-            ("diskSnapshotName" .=) <$> _cdfsDiskSnapshotName,
-            ("restoreDate" .=) <$> _cdfsRestoreDate,
-            ("tags" .=) <$> _cdfsTags,
-            Just ("diskName" .= _cdfsDiskName),
-            Just ("availabilityZone" .= _cdfsAvailabilityZone),
-            Just ("sizeInGb" .= _cdfsSizeInGb)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("useLatestRestorableAutoSnapshot" Lude..=)
+              Lude.<$> useLatestRestorableAutoSnapshot,
+            ("sourceDiskName" Lude..=) Lude.<$> sourceDiskName,
+            ("addOns" Lude..=) Lude.<$> addOns,
+            ("diskSnapshotName" Lude..=) Lude.<$> diskSnapshotName,
+            ("restoreDate" Lude..=) Lude.<$> restoreDate,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("diskName" Lude..= diskName),
+            Lude.Just ("availabilityZone" Lude..= availabilityZone),
+            Lude.Just ("sizeInGb" Lude..= sizeInGb)
           ]
       )
 
-instance ToPath CreateDiskFromSnapshot where
-  toPath = const "/"
+instance Lude.ToPath CreateDiskFromSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDiskFromSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDiskFromSnapshot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDiskFromSnapshotResponse' smart constructor.
+-- | /See:/ 'mkCreateDiskFromSnapshotResponse' smart constructor.
 data CreateDiskFromSnapshotResponse = CreateDiskFromSnapshotResponse'
-  { _cdfsrsOperations ::
-      !(Maybe [Operation]),
-    _cdfsrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDiskFromSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdfsrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'cdfsrsResponseStatus' - -- | The response status code.
-createDiskFromSnapshotResponse ::
-  -- | 'cdfsrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkCreateDiskFromSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDiskFromSnapshotResponse
-createDiskFromSnapshotResponse pResponseStatus_ =
+mkCreateDiskFromSnapshotResponse pResponseStatus_ =
   CreateDiskFromSnapshotResponse'
-    { _cdfsrsOperations = Nothing,
-      _cdfsrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-cdfsrsOperations :: Lens' CreateDiskFromSnapshotResponse [Operation]
-cdfsrsOperations = lens _cdfsrsOperations (\s a -> s {_cdfsrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsrsOperations :: Lens.Lens' CreateDiskFromSnapshotResponse (Lude.Maybe [Operation])
+cdfsrsOperations = Lens.lens (operations :: CreateDiskFromSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: CreateDiskFromSnapshotResponse)
+{-# DEPRECATED cdfsrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-cdfsrsResponseStatus :: Lens' CreateDiskFromSnapshotResponse Int
-cdfsrsResponseStatus = lens _cdfsrsResponseStatus (\s a -> s {_cdfsrsResponseStatus = a})
-
-instance NFData CreateDiskFromSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdfsrsResponseStatus :: Lens.Lens' CreateDiskFromSnapshotResponse Lude.Int
+cdfsrsResponseStatus = Lens.lens (responseStatus :: CreateDiskFromSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDiskFromSnapshotResponse)
+{-# DEPRECATED cdfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

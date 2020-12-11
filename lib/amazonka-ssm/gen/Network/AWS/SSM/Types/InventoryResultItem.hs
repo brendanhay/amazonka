@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryResultItem where
+module Network.AWS.SSM.Types.InventoryResultItem
+  ( InventoryResultItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryResultItem,
+
+    -- * Lenses
+    iriContentHash,
+    iriCaptureTime,
+    iriTypeName,
+    iriSchemaVersion,
+    iriContent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The inventory result item.
 --
---
---
--- /See:/ 'inventoryResultItem' smart constructor.
+-- /See:/ 'mkInventoryResultItem' smart constructor.
 data InventoryResultItem = InventoryResultItem'
-  { _iriContentHash ::
-      !(Maybe Text),
-    _iriCaptureTime :: !(Maybe Text),
-    _iriTypeName :: !Text,
-    _iriSchemaVersion :: !Text,
-    _iriContent :: ![Map Text (Text)]
+  { contentHash ::
+      Lude.Maybe Lude.Text,
+    captureTime :: Lude.Maybe Lude.Text,
+    typeName :: Lude.Text,
+    schemaVersion :: Lude.Text,
+    content :: [Lude.HashMap Lude.Text (Lude.Text)]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryResultItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iriContentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
---
--- * 'iriCaptureTime' - The time inventory item data was captured.
---
--- * 'iriTypeName' - The name of the inventory result item type.
---
--- * 'iriSchemaVersion' - The schema version for the inventory result item/
---
--- * 'iriContent' - Contains all the inventory data of the item type. Results include attribute names and values.
-inventoryResultItem ::
-  -- | 'iriTypeName'
-  Text ->
-  -- | 'iriSchemaVersion'
-  Text ->
+-- * 'captureTime' - The time inventory item data was captured.
+-- * 'content' - Contains all the inventory data of the item type. Results include attribute names and values.
+-- * 'contentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+-- * 'schemaVersion' - The schema version for the inventory result item/
+-- * 'typeName' - The name of the inventory result item type.
+mkInventoryResultItem ::
+  -- | 'typeName'
+  Lude.Text ->
+  -- | 'schemaVersion'
+  Lude.Text ->
   InventoryResultItem
-inventoryResultItem pTypeName_ pSchemaVersion_ =
+mkInventoryResultItem pTypeName_ pSchemaVersion_ =
   InventoryResultItem'
-    { _iriContentHash = Nothing,
-      _iriCaptureTime = Nothing,
-      _iriTypeName = pTypeName_,
-      _iriSchemaVersion = pSchemaVersion_,
-      _iriContent = mempty
+    { contentHash = Lude.Nothing,
+      captureTime = Lude.Nothing,
+      typeName = pTypeName_,
+      schemaVersion = pSchemaVersion_,
+      content = Lude.mempty
     }
 
 -- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
-iriContentHash :: Lens' InventoryResultItem (Maybe Text)
-iriContentHash = lens _iriContentHash (\s a -> s {_iriContentHash = a})
+--
+-- /Note:/ Consider using 'contentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriContentHash :: Lens.Lens' InventoryResultItem (Lude.Maybe Lude.Text)
+iriContentHash = Lens.lens (contentHash :: InventoryResultItem -> Lude.Maybe Lude.Text) (\s a -> s {contentHash = a} :: InventoryResultItem)
+{-# DEPRECATED iriContentHash "Use generic-lens or generic-optics with 'contentHash' instead." #-}
 
 -- | The time inventory item data was captured.
-iriCaptureTime :: Lens' InventoryResultItem (Maybe Text)
-iriCaptureTime = lens _iriCaptureTime (\s a -> s {_iriCaptureTime = a})
+--
+-- /Note:/ Consider using 'captureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriCaptureTime :: Lens.Lens' InventoryResultItem (Lude.Maybe Lude.Text)
+iriCaptureTime = Lens.lens (captureTime :: InventoryResultItem -> Lude.Maybe Lude.Text) (\s a -> s {captureTime = a} :: InventoryResultItem)
+{-# DEPRECATED iriCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
 
 -- | The name of the inventory result item type.
-iriTypeName :: Lens' InventoryResultItem Text
-iriTypeName = lens _iriTypeName (\s a -> s {_iriTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriTypeName :: Lens.Lens' InventoryResultItem Lude.Text
+iriTypeName = Lens.lens (typeName :: InventoryResultItem -> Lude.Text) (\s a -> s {typeName = a} :: InventoryResultItem)
+{-# DEPRECATED iriTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The schema version for the inventory result item/
-iriSchemaVersion :: Lens' InventoryResultItem Text
-iriSchemaVersion = lens _iriSchemaVersion (\s a -> s {_iriSchemaVersion = a})
+--
+-- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriSchemaVersion :: Lens.Lens' InventoryResultItem Lude.Text
+iriSchemaVersion = Lens.lens (schemaVersion :: InventoryResultItem -> Lude.Text) (\s a -> s {schemaVersion = a} :: InventoryResultItem)
+{-# DEPRECATED iriSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
 -- | Contains all the inventory data of the item type. Results include attribute names and values.
-iriContent :: Lens' InventoryResultItem [HashMap Text (Text)]
-iriContent = lens _iriContent (\s a -> s {_iriContent = a}) . _Coerce
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriContent :: Lens.Lens' InventoryResultItem [Lude.HashMap Lude.Text (Lude.Text)]
+iriContent = Lens.lens (content :: InventoryResultItem -> [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {content = a} :: InventoryResultItem)
+{-# DEPRECATED iriContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance FromJSON InventoryResultItem where
+instance Lude.FromJSON InventoryResultItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "InventoryResultItem"
       ( \x ->
           InventoryResultItem'
-            <$> (x .:? "ContentHash")
-            <*> (x .:? "CaptureTime")
-            <*> (x .: "TypeName")
-            <*> (x .: "SchemaVersion")
-            <*> (x .:? "Content" .!= mempty)
+            Lude.<$> (x Lude..:? "ContentHash")
+            Lude.<*> (x Lude..:? "CaptureTime")
+            Lude.<*> (x Lude..: "TypeName")
+            Lude.<*> (x Lude..: "SchemaVersion")
+            Lude.<*> (x Lude..:? "Content" Lude..!= Lude.mempty)
       )
-
-instance Hashable InventoryResultItem
-
-instance NFData InventoryResultItem

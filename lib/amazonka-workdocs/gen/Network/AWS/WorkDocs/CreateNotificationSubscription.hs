@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,176 +14,194 @@
 --
 -- Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a confirmation message, and must confirm the subscription.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html Subscribe to Notifications> in the /Amazon WorkDocs Developer Guide/ .
 module Network.AWS.WorkDocs.CreateNotificationSubscription
-  ( -- * Creating a Request
-    createNotificationSubscription,
-    CreateNotificationSubscription,
+  ( -- * Creating a request
+    CreateNotificationSubscription (..),
+    mkCreateNotificationSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cnsOrganizationId,
     cnsEndpoint,
     cnsProtocol,
     cnsSubscriptionType,
 
-    -- * Destructuring the Response
-    createNotificationSubscriptionResponse,
-    CreateNotificationSubscriptionResponse,
+    -- * Destructuring the response
+    CreateNotificationSubscriptionResponse (..),
+    mkCreateNotificationSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cnsrsSubscription,
     cnsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'createNotificationSubscription' smart constructor.
+-- | /See:/ 'mkCreateNotificationSubscription' smart constructor.
 data CreateNotificationSubscription = CreateNotificationSubscription'
-  { _cnsOrganizationId ::
-      !Text,
-    _cnsEndpoint :: !Text,
-    _cnsProtocol ::
-      !SubscriptionProtocolType,
-    _cnsSubscriptionType ::
-      !SubscriptionType
+  { organizationId ::
+      Lude.Text,
+    endpoint :: Lude.Text,
+    protocol ::
+      SubscriptionProtocolType,
+    subscriptionType ::
+      SubscriptionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNotificationSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cnsOrganizationId' - The ID of the organization.
---
--- * 'cnsEndpoint' - The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with @https@ .
---
--- * 'cnsProtocol' - The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
---
--- * 'cnsSubscriptionType' - The notification type.
-createNotificationSubscription ::
-  -- | 'cnsOrganizationId'
-  Text ->
-  -- | 'cnsEndpoint'
-  Text ->
-  -- | 'cnsProtocol'
+-- * 'endpoint' - The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with @https@ .
+-- * 'organizationId' - The ID of the organization.
+-- * 'protocol' - The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
+-- * 'subscriptionType' - The notification type.
+mkCreateNotificationSubscription ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'endpoint'
+  Lude.Text ->
+  -- | 'protocol'
   SubscriptionProtocolType ->
-  -- | 'cnsSubscriptionType'
+  -- | 'subscriptionType'
   SubscriptionType ->
   CreateNotificationSubscription
-createNotificationSubscription
+mkCreateNotificationSubscription
   pOrganizationId_
   pEndpoint_
   pProtocol_
   pSubscriptionType_ =
     CreateNotificationSubscription'
-      { _cnsOrganizationId =
+      { organizationId =
           pOrganizationId_,
-        _cnsEndpoint = pEndpoint_,
-        _cnsProtocol = pProtocol_,
-        _cnsSubscriptionType = pSubscriptionType_
+        endpoint = pEndpoint_,
+        protocol = pProtocol_,
+        subscriptionType = pSubscriptionType_
       }
 
 -- | The ID of the organization.
-cnsOrganizationId :: Lens' CreateNotificationSubscription Text
-cnsOrganizationId = lens _cnsOrganizationId (\s a -> s {_cnsOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnsOrganizationId :: Lens.Lens' CreateNotificationSubscription Lude.Text
+cnsOrganizationId = Lens.lens (organizationId :: CreateNotificationSubscription -> Lude.Text) (\s a -> s {organizationId = a} :: CreateNotificationSubscription)
+{-# DEPRECATED cnsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with @https@ .
-cnsEndpoint :: Lens' CreateNotificationSubscription Text
-cnsEndpoint = lens _cnsEndpoint (\s a -> s {_cnsEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnsEndpoint :: Lens.Lens' CreateNotificationSubscription Lude.Text
+cnsEndpoint = Lens.lens (endpoint :: CreateNotificationSubscription -> Lude.Text) (\s a -> s {endpoint = a} :: CreateNotificationSubscription)
+{-# DEPRECATED cnsEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
-cnsProtocol :: Lens' CreateNotificationSubscription SubscriptionProtocolType
-cnsProtocol = lens _cnsProtocol (\s a -> s {_cnsProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnsProtocol :: Lens.Lens' CreateNotificationSubscription SubscriptionProtocolType
+cnsProtocol = Lens.lens (protocol :: CreateNotificationSubscription -> SubscriptionProtocolType) (\s a -> s {protocol = a} :: CreateNotificationSubscription)
+{-# DEPRECATED cnsProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The notification type.
-cnsSubscriptionType :: Lens' CreateNotificationSubscription SubscriptionType
-cnsSubscriptionType = lens _cnsSubscriptionType (\s a -> s {_cnsSubscriptionType = a})
+--
+-- /Note:/ Consider using 'subscriptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnsSubscriptionType :: Lens.Lens' CreateNotificationSubscription SubscriptionType
+cnsSubscriptionType = Lens.lens (subscriptionType :: CreateNotificationSubscription -> SubscriptionType) (\s a -> s {subscriptionType = a} :: CreateNotificationSubscription)
+{-# DEPRECATED cnsSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
 
-instance AWSRequest CreateNotificationSubscription where
+instance Lude.AWSRequest CreateNotificationSubscription where
   type
     Rs CreateNotificationSubscription =
       CreateNotificationSubscriptionResponse
-  request = postJSON workDocs
+  request = Req.postJSON workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateNotificationSubscriptionResponse'
-            <$> (x .?> "Subscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Subscription") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateNotificationSubscription
-
-instance NFData CreateNotificationSubscription
-
-instance ToHeaders CreateNotificationSubscription where
+instance Lude.ToHeaders CreateNotificationSubscription where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateNotificationSubscription where
-  toJSON CreateNotificationSubscription' {..} =
-    object
-      ( catMaybes
-          [ Just ("Endpoint" .= _cnsEndpoint),
-            Just ("Protocol" .= _cnsProtocol),
-            Just ("SubscriptionType" .= _cnsSubscriptionType)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateNotificationSubscription where
+instance Lude.ToJSON CreateNotificationSubscription where
+  toJSON CreateNotificationSubscription' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Endpoint" Lude..= endpoint),
+            Lude.Just ("Protocol" Lude..= protocol),
+            Lude.Just ("SubscriptionType" Lude..= subscriptionType)
+          ]
+      )
+
+instance Lude.ToPath CreateNotificationSubscription where
   toPath CreateNotificationSubscription' {..} =
-    mconcat
+    Lude.mconcat
       [ "/api/v1/organizations/",
-        toBS _cnsOrganizationId,
+        Lude.toBS organizationId,
         "/subscriptions"
       ]
 
-instance ToQuery CreateNotificationSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery CreateNotificationSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createNotificationSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkCreateNotificationSubscriptionResponse' smart constructor.
 data CreateNotificationSubscriptionResponse = CreateNotificationSubscriptionResponse'
-  { _cnsrsSubscription ::
-      !( Maybe
-           Subscription
-       ),
-    _cnsrsResponseStatus ::
-      !Int
+  { subscription ::
+      Lude.Maybe
+        Subscription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNotificationSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cnsrsSubscription' - The subscription.
---
--- * 'cnsrsResponseStatus' - -- | The response status code.
-createNotificationSubscriptionResponse ::
-  -- | 'cnsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'subscription' - The subscription.
+mkCreateNotificationSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateNotificationSubscriptionResponse
-createNotificationSubscriptionResponse pResponseStatus_ =
+mkCreateNotificationSubscriptionResponse pResponseStatus_ =
   CreateNotificationSubscriptionResponse'
-    { _cnsrsSubscription =
-        Nothing,
-      _cnsrsResponseStatus = pResponseStatus_
+    { subscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The subscription.
-cnsrsSubscription :: Lens' CreateNotificationSubscriptionResponse (Maybe Subscription)
-cnsrsSubscription = lens _cnsrsSubscription (\s a -> s {_cnsrsSubscription = a})
+--
+-- /Note:/ Consider using 'subscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnsrsSubscription :: Lens.Lens' CreateNotificationSubscriptionResponse (Lude.Maybe Subscription)
+cnsrsSubscription = Lens.lens (subscription :: CreateNotificationSubscriptionResponse -> Lude.Maybe Subscription) (\s a -> s {subscription = a} :: CreateNotificationSubscriptionResponse)
+{-# DEPRECATED cnsrsSubscription "Use generic-lens or generic-optics with 'subscription' instead." #-}
 
--- | -- | The response status code.
-cnsrsResponseStatus :: Lens' CreateNotificationSubscriptionResponse Int
-cnsrsResponseStatus = lens _cnsrsResponseStatus (\s a -> s {_cnsrsResponseStatus = a})
-
-instance NFData CreateNotificationSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnsrsResponseStatus :: Lens.Lens' CreateNotificationSubscriptionResponse Lude.Int
+cnsrsResponseStatus = Lens.lens (responseStatus :: CreateNotificationSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNotificationSubscriptionResponse)
+{-# DEPRECATED cnsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

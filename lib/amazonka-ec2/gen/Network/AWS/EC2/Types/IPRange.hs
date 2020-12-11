@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.IPRange where
+module Network.AWS.EC2.Types.IPRange
+  ( IPRange (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPRange,
+
+    -- * Lenses
+    iprDescription,
+    iprCidrIP,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv4 range.
 --
---
---
--- /See:/ 'ipRange' smart constructor.
+-- /See:/ 'mkIPRange' smart constructor.
 data IPRange = IPRange'
-  { _iprDescription :: !(Maybe Text),
-    _iprCidrIP :: !Text
+  { description :: Lude.Maybe Lude.Text,
+    cidrIP :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cidrIP' - The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.
+-- * 'description' - A description for the security group rule that references this IPv4 address range.
 --
--- * 'iprDescription' - A description for the security group rule that references this IPv4 address range. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
---
--- * 'iprCidrIP' - The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.
-ipRange ::
-  -- | 'iprCidrIP'
-  Text ->
+-- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+mkIPRange ::
+  -- | 'cidrIP'
+  Lude.Text ->
   IPRange
-ipRange pCidrIP_ =
-  IPRange' {_iprDescription = Nothing, _iprCidrIP = pCidrIP_}
+mkIPRange pCidrIP_ =
+  IPRange' {description = Lude.Nothing, cidrIP = pCidrIP_}
 
--- | A description for the security group rule that references this IPv4 address range. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
-iprDescription :: Lens' IPRange (Maybe Text)
-iprDescription = lens _iprDescription (\s a -> s {_iprDescription = a})
+-- | A description for the security group rule that references this IPv4 address range.
+--
+-- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iprDescription :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
+iprDescription = Lens.lens (description :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: IPRange)
+{-# DEPRECATED iprDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.
-iprCidrIP :: Lens' IPRange Text
-iprCidrIP = lens _iprCidrIP (\s a -> s {_iprCidrIP = a})
+--
+-- /Note:/ Consider using 'cidrIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iprCidrIP :: Lens.Lens' IPRange Lude.Text
+iprCidrIP = Lens.lens (cidrIP :: IPRange -> Lude.Text) (\s a -> s {cidrIP = a} :: IPRange)
+{-# DEPRECATED iprCidrIP "Use generic-lens or generic-optics with 'cidrIP' instead." #-}
 
-instance FromXML IPRange where
-  parseXML x = IPRange' <$> (x .@? "description") <*> (x .@ "cidrIp")
+instance Lude.FromXML IPRange where
+  parseXML x =
+    IPRange'
+      Lude.<$> (x Lude..@? "description") Lude.<*> (x Lude..@ "cidrIp")
 
-instance Hashable IPRange
-
-instance NFData IPRange
-
-instance ToQuery IPRange where
+instance Lude.ToQuery IPRange where
   toQuery IPRange' {..} =
-    mconcat
-      ["Description" =: _iprDescription, "CidrIp" =: _iprCidrIP]
+    Lude.mconcat
+      ["Description" Lude.=: description, "CidrIp" Lude.=: cidrIP]

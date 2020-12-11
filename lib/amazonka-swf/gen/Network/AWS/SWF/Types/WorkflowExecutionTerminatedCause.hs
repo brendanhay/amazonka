@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause where
+module Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause
+  ( WorkflowExecutionTerminatedCause
+      ( WorkflowExecutionTerminatedCause',
+        WETCChildPolicyApplied,
+        WETCEventLimitExceeded,
+        WETCOperatorInitiated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkflowExecutionTerminatedCause
-  = WETCChildPolicyApplied
-  | WETCEventLimitExceeded
-  | WETCOperatorInitiated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkflowExecutionTerminatedCause = WorkflowExecutionTerminatedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkflowExecutionTerminatedCause where
-  parser =
-    takeLowerText >>= \case
-      "child_policy_applied" -> pure WETCChildPolicyApplied
-      "event_limit_exceeded" -> pure WETCEventLimitExceeded
-      "operator_initiated" -> pure WETCOperatorInitiated
-      e ->
-        fromTextError $
-          "Failure parsing WorkflowExecutionTerminatedCause from value: '" <> e
-            <> "'. Accepted values: child_policy_applied, event_limit_exceeded, operator_initiated"
+pattern WETCChildPolicyApplied :: WorkflowExecutionTerminatedCause
+pattern WETCChildPolicyApplied = WorkflowExecutionTerminatedCause' "CHILD_POLICY_APPLIED"
 
-instance ToText WorkflowExecutionTerminatedCause where
-  toText = \case
-    WETCChildPolicyApplied -> "CHILD_POLICY_APPLIED"
-    WETCEventLimitExceeded -> "EVENT_LIMIT_EXCEEDED"
-    WETCOperatorInitiated -> "OPERATOR_INITIATED"
+pattern WETCEventLimitExceeded :: WorkflowExecutionTerminatedCause
+pattern WETCEventLimitExceeded = WorkflowExecutionTerminatedCause' "EVENT_LIMIT_EXCEEDED"
 
-instance Hashable WorkflowExecutionTerminatedCause
+pattern WETCOperatorInitiated :: WorkflowExecutionTerminatedCause
+pattern WETCOperatorInitiated = WorkflowExecutionTerminatedCause' "OPERATOR_INITIATED"
 
-instance NFData WorkflowExecutionTerminatedCause
-
-instance ToByteString WorkflowExecutionTerminatedCause
-
-instance ToQuery WorkflowExecutionTerminatedCause
-
-instance ToHeader WorkflowExecutionTerminatedCause
-
-instance FromJSON WorkflowExecutionTerminatedCause where
-  parseJSON = parseJSONText "WorkflowExecutionTerminatedCause"
+{-# COMPLETE
+  WETCChildPolicyApplied,
+  WETCEventLimitExceeded,
+  WETCOperatorInitiated,
+  WorkflowExecutionTerminatedCause'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,118 @@
 --
 -- Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
 module Network.AWS.Greengrass.StopBulkDeployment
-  ( -- * Creating a Request
-    stopBulkDeployment,
-    StopBulkDeployment,
+  ( -- * Creating a request
+    StopBulkDeployment (..),
+    mkStopBulkDeployment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbdBulkDeploymentId,
 
-    -- * Destructuring the Response
-    stopBulkDeploymentResponse,
-    StopBulkDeploymentResponse,
+    -- * Destructuring the response
+    StopBulkDeploymentResponse (..),
+    mkStopBulkDeploymentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sbdrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopBulkDeployment' smart constructor.
+-- | /See:/ 'mkStopBulkDeployment' smart constructor.
 newtype StopBulkDeployment = StopBulkDeployment'
-  { _sbdBulkDeploymentId ::
-      Text
+  { bulkDeploymentId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBulkDeployment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbdBulkDeploymentId' - The ID of the bulk deployment.
-stopBulkDeployment ::
-  -- | 'sbdBulkDeploymentId'
-  Text ->
+-- * 'bulkDeploymentId' - The ID of the bulk deployment.
+mkStopBulkDeployment ::
+  -- | 'bulkDeploymentId'
+  Lude.Text ->
   StopBulkDeployment
-stopBulkDeployment pBulkDeploymentId_ =
-  StopBulkDeployment' {_sbdBulkDeploymentId = pBulkDeploymentId_}
+mkStopBulkDeployment pBulkDeploymentId_ =
+  StopBulkDeployment' {bulkDeploymentId = pBulkDeploymentId_}
 
 -- | The ID of the bulk deployment.
-sbdBulkDeploymentId :: Lens' StopBulkDeployment Text
-sbdBulkDeploymentId = lens _sbdBulkDeploymentId (\s a -> s {_sbdBulkDeploymentId = a})
+--
+-- /Note:/ Consider using 'bulkDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdBulkDeploymentId :: Lens.Lens' StopBulkDeployment Lude.Text
+sbdBulkDeploymentId = Lens.lens (bulkDeploymentId :: StopBulkDeployment -> Lude.Text) (\s a -> s {bulkDeploymentId = a} :: StopBulkDeployment)
+{-# DEPRECATED sbdBulkDeploymentId "Use generic-lens or generic-optics with 'bulkDeploymentId' instead." #-}
 
-instance AWSRequest StopBulkDeployment where
+instance Lude.AWSRequest StopBulkDeployment where
   type Rs StopBulkDeployment = StopBulkDeploymentResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
-      (\s h x -> StopBulkDeploymentResponse' <$> (pure (fromEnum s)))
-
-instance Hashable StopBulkDeployment
-
-instance NFData StopBulkDeployment
-
-instance ToHeaders StopBulkDeployment where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          StopBulkDeploymentResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON StopBulkDeployment where
-  toJSON = const (Object mempty)
+instance Lude.ToHeaders StopBulkDeployment where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
 
-instance ToPath StopBulkDeployment where
+instance Lude.ToJSON StopBulkDeployment where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
+
+instance Lude.ToPath StopBulkDeployment where
   toPath StopBulkDeployment' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/bulk/deployments/",
-        toBS _sbdBulkDeploymentId,
+        Lude.toBS bulkDeploymentId,
         "/$stop"
       ]
 
-instance ToQuery StopBulkDeployment where
-  toQuery = const mempty
+instance Lude.ToQuery StopBulkDeployment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopBulkDeploymentResponse' smart constructor.
+-- | /See:/ 'mkStopBulkDeploymentResponse' smart constructor.
 newtype StopBulkDeploymentResponse = StopBulkDeploymentResponse'
-  { _sbdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBulkDeploymentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbdrsResponseStatus' - -- | The response status code.
-stopBulkDeploymentResponse ::
-  -- | 'sbdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopBulkDeploymentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopBulkDeploymentResponse
-stopBulkDeploymentResponse pResponseStatus_ =
-  StopBulkDeploymentResponse'
-    { _sbdrsResponseStatus =
-        pResponseStatus_
-    }
+mkStopBulkDeploymentResponse pResponseStatus_ =
+  StopBulkDeploymentResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-sbdrsResponseStatus :: Lens' StopBulkDeploymentResponse Int
-sbdrsResponseStatus = lens _sbdrsResponseStatus (\s a -> s {_sbdrsResponseStatus = a})
-
-instance NFData StopBulkDeploymentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdrsResponseStatus :: Lens.Lens' StopBulkDeploymentResponse Lude.Int
+sbdrsResponseStatus = Lens.lens (responseStatus :: StopBulkDeploymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBulkDeploymentResponse)
+{-# DEPRECATED sbdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.SecurityGroupMembership where
+module Network.AWS.DAX.Types.SecurityGroupMembership
+  ( SecurityGroupMembership (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSecurityGroupMembership,
+
+    -- * Lenses
+    sgmStatus,
+    sgmSecurityGroupIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An individual VPC security group and its status.
 --
---
---
--- /See:/ 'securityGroupMembership' smart constructor.
+-- /See:/ 'mkSecurityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-  { _sgmStatus ::
-      !(Maybe Text),
-    _sgmSecurityGroupIdentifier ::
-      !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    securityGroupIdentifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgmStatus' - The status of this security group.
---
--- * 'sgmSecurityGroupIdentifier' - The unique ID for this security group.
-securityGroupMembership ::
+-- * 'securityGroupIdentifier' - The unique ID for this security group.
+-- * 'status' - The status of this security group.
+mkSecurityGroupMembership ::
   SecurityGroupMembership
-securityGroupMembership =
+mkSecurityGroupMembership =
   SecurityGroupMembership'
-    { _sgmStatus = Nothing,
-      _sgmSecurityGroupIdentifier = Nothing
+    { status = Lude.Nothing,
+      securityGroupIdentifier = Lude.Nothing
     }
 
 -- | The status of this security group.
-sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
-sgmStatus = lens _sgmStatus (\s a -> s {_sgmStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgmStatus :: Lens.Lens' SecurityGroupMembership (Lude.Maybe Lude.Text)
+sgmStatus = Lens.lens (status :: SecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SecurityGroupMembership)
+{-# DEPRECATED sgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID for this security group.
-sgmSecurityGroupIdentifier :: Lens' SecurityGroupMembership (Maybe Text)
-sgmSecurityGroupIdentifier = lens _sgmSecurityGroupIdentifier (\s a -> s {_sgmSecurityGroupIdentifier = a})
+--
+-- /Note:/ Consider using 'securityGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgmSecurityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Lude.Maybe Lude.Text)
+sgmSecurityGroupIdentifier = Lens.lens (securityGroupIdentifier :: SecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {securityGroupIdentifier = a} :: SecurityGroupMembership)
+{-# DEPRECATED sgmSecurityGroupIdentifier "Use generic-lens or generic-optics with 'securityGroupIdentifier' instead." #-}
 
-instance FromJSON SecurityGroupMembership where
+instance Lude.FromJSON SecurityGroupMembership where
   parseJSON =
-    withObject
+    Lude.withObject
       "SecurityGroupMembership"
       ( \x ->
           SecurityGroupMembership'
-            <$> (x .:? "Status") <*> (x .:? "SecurityGroupIdentifier")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "SecurityGroupIdentifier")
       )
-
-instance Hashable SecurityGroupMembership
-
-instance NFData SecurityGroupMembership

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.UpdateCACertificateParams where
+module Network.AWS.IoT.Types.UpdateCACertificateParams
+  ( UpdateCACertificateParams (..),
+
+    -- * Smart constructor
+    mkUpdateCACertificateParams,
+
+    -- * Lenses
+    ucacpAction,
+  )
+where
 
 import Network.AWS.IoT.Types.CACertificateUpdateAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 --
---
---
--- /See:/ 'updateCACertificateParams' smart constructor.
+-- /See:/ 'mkUpdateCACertificateParams' smart constructor.
 newtype UpdateCACertificateParams = UpdateCACertificateParams'
-  { _ucacpAction ::
+  { action ::
       CACertificateUpdateAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCACertificateParams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucacpAction' - The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
-updateCACertificateParams ::
-  -- | 'ucacpAction'
+-- * 'action' - The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
+mkUpdateCACertificateParams ::
+  -- | 'action'
   CACertificateUpdateAction ->
   UpdateCACertificateParams
-updateCACertificateParams pAction_ =
-  UpdateCACertificateParams' {_ucacpAction = pAction_}
+mkUpdateCACertificateParams pAction_ =
+  UpdateCACertificateParams' {action = pAction_}
 
 -- | The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
-ucacpAction :: Lens' UpdateCACertificateParams CACertificateUpdateAction
-ucacpAction = lens _ucacpAction (\s a -> s {_ucacpAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucacpAction :: Lens.Lens' UpdateCACertificateParams CACertificateUpdateAction
+ucacpAction = Lens.lens (action :: UpdateCACertificateParams -> CACertificateUpdateAction) (\s a -> s {action = a} :: UpdateCACertificateParams)
+{-# DEPRECATED ucacpAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance FromJSON UpdateCACertificateParams where
+instance Lude.FromJSON UpdateCACertificateParams where
   parseJSON =
-    withObject
+    Lude.withObject
       "UpdateCACertificateParams"
-      (\x -> UpdateCACertificateParams' <$> (x .: "action"))
+      (\x -> UpdateCACertificateParams' Lude.<$> (x Lude..: "action"))
 
-instance Hashable UpdateCACertificateParams
-
-instance NFData UpdateCACertificateParams
-
-instance ToJSON UpdateCACertificateParams where
+instance Lude.ToJSON UpdateCACertificateParams where
   toJSON UpdateCACertificateParams' {..} =
-    object (catMaybes [Just ("action" .= _ucacpAction)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("action" Lude..= action)])

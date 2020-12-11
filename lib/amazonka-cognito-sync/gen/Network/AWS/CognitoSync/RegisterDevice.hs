@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,169 +14,186 @@
 --
 -- Registers a device to receive push sync notifications.
 --
---
 -- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
 module Network.AWS.CognitoSync.RegisterDevice
-  ( -- * Creating a Request
-    registerDevice,
-    RegisterDevice,
+  ( -- * Creating a request
+    RegisterDevice (..),
+    mkRegisterDevice,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rdIdentityPoolId,
     rdIdentityId,
     rdPlatform,
     rdToken,
 
-    -- * Destructuring the Response
-    registerDeviceResponse,
-    RegisterDeviceResponse,
+    -- * Destructuring the response
+    RegisterDeviceResponse (..),
+    mkRegisterDeviceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rdrsDeviceId,
     rdrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to RegisterDevice.
 --
---
---
--- /See:/ 'registerDevice' smart constructor.
+-- /See:/ 'mkRegisterDevice' smart constructor.
 data RegisterDevice = RegisterDevice'
-  { _rdIdentityPoolId :: !Text,
-    _rdIdentityId :: !Text,
-    _rdPlatform :: !Platform,
-    _rdToken :: !Text
+  { identityPoolId :: Lude.Text,
+    identityId :: Lude.Text,
+    platform :: Platform,
+    token :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
---
--- * 'rdIdentityId' - The unique ID for this identity.
---
--- * 'rdPlatform' - The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
---
--- * 'rdToken' - The push token.
-registerDevice ::
-  -- | 'rdIdentityPoolId'
-  Text ->
-  -- | 'rdIdentityId'
-  Text ->
-  -- | 'rdPlatform'
+-- * 'identityId' - The unique ID for this identity.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
+-- * 'platform' - The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
+-- * 'token' - The push token.
+mkRegisterDevice ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
+  -- | 'platform'
   Platform ->
-  -- | 'rdToken'
-  Text ->
+  -- | 'token'
+  Lude.Text ->
   RegisterDevice
-registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
+mkRegisterDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
   RegisterDevice'
-    { _rdIdentityPoolId = pIdentityPoolId_,
-      _rdIdentityId = pIdentityId_,
-      _rdPlatform = pPlatform_,
-      _rdToken = pToken_
+    { identityPoolId = pIdentityPoolId_,
+      identityId = pIdentityId_,
+      platform = pPlatform_,
+      token = pToken_
     }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
-rdIdentityPoolId :: Lens' RegisterDevice Text
-rdIdentityPoolId = lens _rdIdentityPoolId (\s a -> s {_rdIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdIdentityPoolId :: Lens.Lens' RegisterDevice Lude.Text
+rdIdentityPoolId = Lens.lens (identityPoolId :: RegisterDevice -> Lude.Text) (\s a -> s {identityPoolId = a} :: RegisterDevice)
+{-# DEPRECATED rdIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | The unique ID for this identity.
-rdIdentityId :: Lens' RegisterDevice Text
-rdIdentityId = lens _rdIdentityId (\s a -> s {_rdIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdIdentityId :: Lens.Lens' RegisterDevice Lude.Text
+rdIdentityId = Lens.lens (identityId :: RegisterDevice -> Lude.Text) (\s a -> s {identityId = a} :: RegisterDevice)
+{-# DEPRECATED rdIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
-rdPlatform :: Lens' RegisterDevice Platform
-rdPlatform = lens _rdPlatform (\s a -> s {_rdPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPlatform :: Lens.Lens' RegisterDevice Platform
+rdPlatform = Lens.lens (platform :: RegisterDevice -> Platform) (\s a -> s {platform = a} :: RegisterDevice)
+{-# DEPRECATED rdPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The push token.
-rdToken :: Lens' RegisterDevice Text
-rdToken = lens _rdToken (\s a -> s {_rdToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdToken :: Lens.Lens' RegisterDevice Lude.Text
+rdToken = Lens.lens (token :: RegisterDevice -> Lude.Text) (\s a -> s {token = a} :: RegisterDevice)
+{-# DEPRECATED rdToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
-instance AWSRequest RegisterDevice where
+instance Lude.AWSRequest RegisterDevice where
   type Rs RegisterDevice = RegisterDeviceResponse
-  request = postJSON cognitoSync
+  request = Req.postJSON cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterDeviceResponse'
-            <$> (x .?> "DeviceId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DeviceId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterDevice
-
-instance NFData RegisterDevice
-
-instance ToHeaders RegisterDevice where
+instance Lude.ToHeaders RegisterDevice where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON RegisterDevice where
+instance Lude.ToJSON RegisterDevice where
   toJSON RegisterDevice' {..} =
-    object
-      ( catMaybes
-          [Just ("Platform" .= _rdPlatform), Just ("Token" .= _rdToken)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Platform" Lude..= platform),
+            Lude.Just ("Token" Lude..= token)
+          ]
       )
 
-instance ToPath RegisterDevice where
+instance Lude.ToPath RegisterDevice where
   toPath RegisterDevice' {..} =
-    mconcat
+    Lude.mconcat
       [ "/identitypools/",
-        toBS _rdIdentityPoolId,
+        Lude.toBS identityPoolId,
         "/identity/",
-        toBS _rdIdentityId,
+        Lude.toBS identityId,
         "/device"
       ]
 
-instance ToQuery RegisterDevice where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterDevice where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response to a RegisterDevice request.
 --
---
---
--- /See:/ 'registerDeviceResponse' smart constructor.
+-- /See:/ 'mkRegisterDeviceResponse' smart constructor.
 data RegisterDeviceResponse = RegisterDeviceResponse'
-  { _rdrsDeviceId ::
-      !(Maybe Text),
-    _rdrsResponseStatus :: !Int
+  { deviceId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDeviceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdrsDeviceId' - The unique ID generated for this device by Cognito.
---
--- * 'rdrsResponseStatus' - -- | The response status code.
-registerDeviceResponse ::
-  -- | 'rdrsResponseStatus'
-  Int ->
+-- * 'deviceId' - The unique ID generated for this device by Cognito.
+-- * 'responseStatus' - The response status code.
+mkRegisterDeviceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterDeviceResponse
-registerDeviceResponse pResponseStatus_ =
+mkRegisterDeviceResponse pResponseStatus_ =
   RegisterDeviceResponse'
-    { _rdrsDeviceId = Nothing,
-      _rdrsResponseStatus = pResponseStatus_
+    { deviceId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique ID generated for this device by Cognito.
-rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
-rdrsDeviceId = lens _rdrsDeviceId (\s a -> s {_rdrsDeviceId = a})
+--
+-- /Note:/ Consider using 'deviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdrsDeviceId :: Lens.Lens' RegisterDeviceResponse (Lude.Maybe Lude.Text)
+rdrsDeviceId = Lens.lens (deviceId :: RegisterDeviceResponse -> Lude.Maybe Lude.Text) (\s a -> s {deviceId = a} :: RegisterDeviceResponse)
+{-# DEPRECATED rdrsDeviceId "Use generic-lens or generic-optics with 'deviceId' instead." #-}
 
--- | -- | The response status code.
-rdrsResponseStatus :: Lens' RegisterDeviceResponse Int
-rdrsResponseStatus = lens _rdrsResponseStatus (\s a -> s {_rdrsResponseStatus = a})
-
-instance NFData RegisterDeviceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdrsResponseStatus :: Lens.Lens' RegisterDeviceResponse Lude.Int
+rdrsResponseStatus = Lens.lens (responseStatus :: RegisterDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterDeviceResponse)
+{-# DEPRECATED rdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

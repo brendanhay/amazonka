@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns the data available for the group.
 module Network.AWS.WorkMail.DescribeGroup
-  ( -- * Creating a Request
-    describeGroup,
-    DescribeGroup,
+  ( -- * Creating a request
+    DescribeGroup (..),
+    mkDescribeGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgOrganizationId,
     dgGroupId,
 
-    -- * Destructuring the Response
-    describeGroupResponse,
-    DescribeGroupResponse,
+    -- * Destructuring the response
+    DescribeGroupResponse (..),
+    mkDescribeGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsEmail,
     desrsState,
     desrsDisabledDate,
@@ -42,161 +37,187 @@ module Network.AWS.WorkMail.DescribeGroup
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'describeGroup' smart constructor.
+-- | /See:/ 'mkDescribeGroup' smart constructor.
 data DescribeGroup = DescribeGroup'
-  { _dgOrganizationId :: !Text,
-    _dgGroupId :: !Text
+  { organizationId :: Lude.Text,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgOrganizationId' - The identifier for the organization under which the group exists.
---
--- * 'dgGroupId' - The identifier for the group to be described.
-describeGroup ::
-  -- | 'dgOrganizationId'
-  Text ->
-  -- | 'dgGroupId'
-  Text ->
+-- * 'groupId' - The identifier for the group to be described.
+-- * 'organizationId' - The identifier for the organization under which the group exists.
+mkDescribeGroup ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'groupId'
+  Lude.Text ->
   DescribeGroup
-describeGroup pOrganizationId_ pGroupId_ =
+mkDescribeGroup pOrganizationId_ pGroupId_ =
   DescribeGroup'
-    { _dgOrganizationId = pOrganizationId_,
-      _dgGroupId = pGroupId_
+    { organizationId = pOrganizationId_,
+      groupId = pGroupId_
     }
 
 -- | The identifier for the organization under which the group exists.
-dgOrganizationId :: Lens' DescribeGroup Text
-dgOrganizationId = lens _dgOrganizationId (\s a -> s {_dgOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgOrganizationId :: Lens.Lens' DescribeGroup Lude.Text
+dgOrganizationId = Lens.lens (organizationId :: DescribeGroup -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeGroup)
+{-# DEPRECATED dgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the group to be described.
-dgGroupId :: Lens' DescribeGroup Text
-dgGroupId = lens _dgGroupId (\s a -> s {_dgGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgGroupId :: Lens.Lens' DescribeGroup Lude.Text
+dgGroupId = Lens.lens (groupId :: DescribeGroup -> Lude.Text) (\s a -> s {groupId = a} :: DescribeGroup)
+{-# DEPRECATED dgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest DescribeGroup where
+instance Lude.AWSRequest DescribeGroup where
   type Rs DescribeGroup = DescribeGroupResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            <$> (x .?> "Email")
-            <*> (x .?> "State")
-            <*> (x .?> "DisabledDate")
-            <*> (x .?> "Name")
-            <*> (x .?> "GroupId")
-            <*> (x .?> "EnabledDate")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Email")
+            Lude.<*> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "DisabledDate")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "GroupId")
+            Lude.<*> (x Lude..?> "EnabledDate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeGroup
-
-instance NFData DescribeGroup
-
-instance ToHeaders DescribeGroup where
+instance Lude.ToHeaders DescribeGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("WorkMailService.DescribeGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("WorkMailService.DescribeGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeGroup where
+instance Lude.ToJSON DescribeGroup where
   toJSON DescribeGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _dgOrganizationId),
-            Just ("GroupId" .= _dgGroupId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("GroupId" Lude..= groupId)
           ]
       )
 
-instance ToPath DescribeGroup where
-  toPath = const "/"
+instance Lude.ToPath DescribeGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeGroupResponse' smart constructor.
+-- | /See:/ 'mkDescribeGroupResponse' smart constructor.
 data DescribeGroupResponse = DescribeGroupResponse'
-  { _desrsEmail ::
-      !(Maybe Text),
-    _desrsState :: !(Maybe EntityState),
-    _desrsDisabledDate :: !(Maybe POSIX),
-    _desrsName :: !(Maybe Text),
-    _desrsGroupId :: !(Maybe Text),
-    _desrsEnabledDate :: !(Maybe POSIX),
-    _desrsResponseStatus :: !Int
+  { email ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe EntityState,
+    disabledDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    groupId :: Lude.Maybe Lude.Text,
+    enabledDate :: Lude.Maybe Lude.Timestamp,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsEmail' - The email of the described group.
---
--- * 'desrsState' - The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
---
--- * 'desrsDisabledDate' - The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.
---
--- * 'desrsName' - The name of the described group.
---
--- * 'desrsGroupId' - The identifier of the described group.
---
--- * 'desrsEnabledDate' - The date and time when a user was registered to WorkMail, in UNIX epoch time format.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeGroupResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'disabledDate' - The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.
+-- * 'email' - The email of the described group.
+-- * 'enabledDate' - The date and time when a user was registered to WorkMail, in UNIX epoch time format.
+-- * 'groupId' - The identifier of the described group.
+-- * 'name' - The name of the described group.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
+mkDescribeGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeGroupResponse
-describeGroupResponse pResponseStatus_ =
+mkDescribeGroupResponse pResponseStatus_ =
   DescribeGroupResponse'
-    { _desrsEmail = Nothing,
-      _desrsState = Nothing,
-      _desrsDisabledDate = Nothing,
-      _desrsName = Nothing,
-      _desrsGroupId = Nothing,
-      _desrsEnabledDate = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { email = Lude.Nothing,
+      state = Lude.Nothing,
+      disabledDate = Lude.Nothing,
+      name = Lude.Nothing,
+      groupId = Lude.Nothing,
+      enabledDate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The email of the described group.
-desrsEmail :: Lens' DescribeGroupResponse (Maybe Text)
-desrsEmail = lens _desrsEmail (\s a -> s {_desrsEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsEmail :: Lens.Lens' DescribeGroupResponse (Lude.Maybe Lude.Text)
+desrsEmail = Lens.lens (email :: DescribeGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
-desrsState :: Lens' DescribeGroupResponse (Maybe EntityState)
-desrsState = lens _desrsState (\s a -> s {_desrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsState :: Lens.Lens' DescribeGroupResponse (Lude.Maybe EntityState)
+desrsState = Lens.lens (state :: DescribeGroupResponse -> Lude.Maybe EntityState) (\s a -> s {state = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.
-desrsDisabledDate :: Lens' DescribeGroupResponse (Maybe UTCTime)
-desrsDisabledDate = lens _desrsDisabledDate (\s a -> s {_desrsDisabledDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'disabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsDisabledDate :: Lens.Lens' DescribeGroupResponse (Lude.Maybe Lude.Timestamp)
+desrsDisabledDate = Lens.lens (disabledDate :: DescribeGroupResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {disabledDate = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsDisabledDate "Use generic-lens or generic-optics with 'disabledDate' instead." #-}
 
 -- | The name of the described group.
-desrsName :: Lens' DescribeGroupResponse (Maybe Text)
-desrsName = lens _desrsName (\s a -> s {_desrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsName :: Lens.Lens' DescribeGroupResponse (Lude.Maybe Lude.Text)
+desrsName = Lens.lens (name :: DescribeGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the described group.
-desrsGroupId :: Lens' DescribeGroupResponse (Maybe Text)
-desrsGroupId = lens _desrsGroupId (\s a -> s {_desrsGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsGroupId :: Lens.Lens' DescribeGroupResponse (Lude.Maybe Lude.Text)
+desrsGroupId = Lens.lens (groupId :: DescribeGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The date and time when a user was registered to WorkMail, in UNIX epoch time format.
-desrsEnabledDate :: Lens' DescribeGroupResponse (Maybe UTCTime)
-desrsEnabledDate = lens _desrsEnabledDate (\s a -> s {_desrsEnabledDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'enabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsEnabledDate :: Lens.Lens' DescribeGroupResponse (Lude.Maybe Lude.Timestamp)
+desrsEnabledDate = Lens.lens (enabledDate :: DescribeGroupResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {enabledDate = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsEnabledDate "Use generic-lens or generic-optics with 'enabledDate' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeGroupResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeGroupResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGroupResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

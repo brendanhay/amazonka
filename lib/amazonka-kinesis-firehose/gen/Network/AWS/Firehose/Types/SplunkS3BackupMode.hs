@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.SplunkS3BackupMode where
+module Network.AWS.Firehose.Types.SplunkS3BackupMode
+  ( SplunkS3BackupMode
+      ( SplunkS3BackupMode',
+        AllEvents,
+        FailedEventsOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SplunkS3BackupMode
-  = AllEvents
-  | FailedEventsOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SplunkS3BackupMode = SplunkS3BackupMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SplunkS3BackupMode where
-  parser =
-    takeLowerText >>= \case
-      "allevents" -> pure AllEvents
-      "failedeventsonly" -> pure FailedEventsOnly
-      e ->
-        fromTextError $
-          "Failure parsing SplunkS3BackupMode from value: '" <> e
-            <> "'. Accepted values: allevents, failedeventsonly"
+pattern AllEvents :: SplunkS3BackupMode
+pattern AllEvents = SplunkS3BackupMode' "AllEvents"
 
-instance ToText SplunkS3BackupMode where
-  toText = \case
-    AllEvents -> "AllEvents"
-    FailedEventsOnly -> "FailedEventsOnly"
+pattern FailedEventsOnly :: SplunkS3BackupMode
+pattern FailedEventsOnly = SplunkS3BackupMode' "FailedEventsOnly"
 
-instance Hashable SplunkS3BackupMode
-
-instance NFData SplunkS3BackupMode
-
-instance ToByteString SplunkS3BackupMode
-
-instance ToQuery SplunkS3BackupMode
-
-instance ToHeader SplunkS3BackupMode
-
-instance ToJSON SplunkS3BackupMode where
-  toJSON = toJSONText
-
-instance FromJSON SplunkS3BackupMode where
-  parseJSON = parseJSONText "SplunkS3BackupMode"
+{-# COMPLETE
+  AllEvents,
+  FailedEventsOnly,
+  SplunkS3BackupMode'
+  #-}

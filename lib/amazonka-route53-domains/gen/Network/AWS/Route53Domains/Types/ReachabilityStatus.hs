@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.ReachabilityStatus where
+module Network.AWS.Route53Domains.Types.ReachabilityStatus
+  ( ReachabilityStatus
+      ( ReachabilityStatus',
+        Done,
+        Expired,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReachabilityStatus
-  = Done
-  | Expired
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReachabilityStatus = ReachabilityStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReachabilityStatus where
-  parser =
-    takeLowerText >>= \case
-      "done" -> pure Done
-      "expired" -> pure Expired
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing ReachabilityStatus from value: '" <> e
-            <> "'. Accepted values: done, expired, pending"
+pattern Done :: ReachabilityStatus
+pattern Done = ReachabilityStatus' "DONE"
 
-instance ToText ReachabilityStatus where
-  toText = \case
-    Done -> "DONE"
-    Expired -> "EXPIRED"
-    Pending -> "PENDING"
+pattern Expired :: ReachabilityStatus
+pattern Expired = ReachabilityStatus' "EXPIRED"
 
-instance Hashable ReachabilityStatus
+pattern Pending :: ReachabilityStatus
+pattern Pending = ReachabilityStatus' "PENDING"
 
-instance NFData ReachabilityStatus
-
-instance ToByteString ReachabilityStatus
-
-instance ToQuery ReachabilityStatus
-
-instance ToHeader ReachabilityStatus
-
-instance FromJSON ReachabilityStatus where
-  parseJSON = parseJSONText "ReachabilityStatus"
+{-# COMPLETE
+  Done,
+  Expired,
+  Pending,
+  ReachabilityStatus'
+  #-}

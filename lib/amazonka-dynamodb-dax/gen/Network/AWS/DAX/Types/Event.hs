@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Event where
+module Network.AWS.DAX.Types.Event
+  ( Event (..),
+
+    -- * Smart constructor
+    mkEvent,
+
+    -- * Lenses
+    eSourceName,
+    eSourceType,
+    eDate,
+    eMessage,
+  )
+where
 
 import Network.AWS.DAX.Types.SourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a single occurrence of something interesting within the system. Some examples of events are creating a DAX cluster, adding or removing a node, or rebooting a node.
 --
---
---
--- /See:/ 'event' smart constructor.
+-- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { _eSourceName :: !(Maybe Text),
-    _eSourceType :: !(Maybe SourceType),
-    _eDate :: !(Maybe POSIX),
-    _eMessage :: !(Maybe Text)
+  { sourceName :: Lude.Maybe Lude.Text,
+    sourceType :: Lude.Maybe SourceType,
+    date :: Lude.Maybe Lude.Timestamp,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eSourceName' - The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
---
--- * 'eSourceType' - Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.
---
--- * 'eDate' - The date and time when the event occurred.
---
--- * 'eMessage' - A user-defined message associated with the event.
-event ::
+-- * 'date' - The date and time when the event occurred.
+-- * 'message' - A user-defined message associated with the event.
+-- * 'sourceName' - The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
+-- * 'sourceType' - Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.
+mkEvent ::
   Event
-event =
+mkEvent =
   Event'
-    { _eSourceName = Nothing,
-      _eSourceType = Nothing,
-      _eDate = Nothing,
-      _eMessage = Nothing
+    { sourceName = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      date = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
-eSourceName :: Lens' Event (Maybe Text)
-eSourceName = lens _eSourceName (\s a -> s {_eSourceName = a})
+--
+-- /Note:/ Consider using 'sourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceName :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eSourceName = Lens.lens (sourceName :: Event -> Lude.Maybe Lude.Text) (\s a -> s {sourceName = a} :: Event)
+{-# DEPRECATED eSourceName "Use generic-lens or generic-optics with 'sourceName' instead." #-}
 
 -- | Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.
-eSourceType :: Lens' Event (Maybe SourceType)
-eSourceType = lens _eSourceType (\s a -> s {_eSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceType :: Lens.Lens' Event (Lude.Maybe SourceType)
+eSourceType = Lens.lens (sourceType :: Event -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: Event)
+{-# DEPRECATED eSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The date and time when the event occurred.
-eDate :: Lens' Event (Maybe UTCTime)
-eDate = lens _eDate (\s a -> s {_eDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDate :: Lens.Lens' Event (Lude.Maybe Lude.Timestamp)
+eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.Timestamp) (\s a -> s {date = a} :: Event)
+{-# DEPRECATED eDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | A user-defined message associated with the event.
-eMessage :: Lens' Event (Maybe Text)
-eMessage = lens _eMessage (\s a -> s {_eMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMessage :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eMessage = Lens.lens (message :: Event -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Event)
+{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON Event where
+instance Lude.FromJSON Event where
   parseJSON =
-    withObject
+    Lude.withObject
       "Event"
       ( \x ->
           Event'
-            <$> (x .:? "SourceName")
-            <*> (x .:? "SourceType")
-            <*> (x .:? "Date")
-            <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "SourceName")
+            Lude.<*> (x Lude..:? "SourceType")
+            Lude.<*> (x Lude..:? "Date")
+            Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable Event
-
-instance NFData Event

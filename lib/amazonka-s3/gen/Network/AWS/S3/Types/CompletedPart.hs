@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.CompletedPart where
+module Network.AWS.S3.Types.CompletedPart
+  ( CompletedPart (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCompletedPart,
+
+    -- * Lenses
+    cpPartNumber,
+    cpETag,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Details of the parts that were uploaded.
 --
---
---
--- /See:/ 'completedPart' smart constructor.
+-- /See:/ 'mkCompletedPart' smart constructor.
 data CompletedPart = CompletedPart'
-  { _cpPartNumber :: !Int,
-    _cpETag :: !ETag
+  { partNumber :: Lude.Int,
+    eTag :: ETag
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompletedPart' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpPartNumber' - Part number that identifies the part. This is a positive integer between 1 and 10,000.
---
--- * 'cpETag' - Entity tag returned when the part was uploaded.
-completedPart ::
-  -- | 'cpPartNumber'
-  Int ->
-  -- | 'cpETag'
+-- * 'eTag' - Entity tag returned when the part was uploaded.
+-- * 'partNumber' - Part number that identifies the part. This is a positive integer between 1 and 10,000.
+mkCompletedPart ::
+  -- | 'partNumber'
+  Lude.Int ->
+  -- | 'eTag'
   ETag ->
   CompletedPart
-completedPart pPartNumber_ pETag_ =
-  CompletedPart' {_cpPartNumber = pPartNumber_, _cpETag = pETag_}
+mkCompletedPart pPartNumber_ pETag_ =
+  CompletedPart' {partNumber = pPartNumber_, eTag = pETag_}
 
 -- | Part number that identifies the part. This is a positive integer between 1 and 10,000.
-cpPartNumber :: Lens' CompletedPart Int
-cpPartNumber = lens _cpPartNumber (\s a -> s {_cpPartNumber = a})
+--
+-- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPartNumber :: Lens.Lens' CompletedPart Lude.Int
+cpPartNumber = Lens.lens (partNumber :: CompletedPart -> Lude.Int) (\s a -> s {partNumber = a} :: CompletedPart)
+{-# DEPRECATED cpPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
 
 -- | Entity tag returned when the part was uploaded.
-cpETag :: Lens' CompletedPart ETag
-cpETag = lens _cpETag (\s a -> s {_cpETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpETag :: Lens.Lens' CompletedPart ETag
+cpETag = Lens.lens (eTag :: CompletedPart -> ETag) (\s a -> s {eTag = a} :: CompletedPart)
+{-# DEPRECATED cpETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
-instance Hashable CompletedPart
-
-instance NFData CompletedPart
-
-instance ToXML CompletedPart where
+instance Lude.ToXML CompletedPart where
   toXML CompletedPart' {..} =
-    mconcat ["PartNumber" @= _cpPartNumber, "ETag" @= _cpETag]
+    Lude.mconcat
+      ["PartNumber" Lude.@= partNumber, "ETag" Lude.@= eTag]

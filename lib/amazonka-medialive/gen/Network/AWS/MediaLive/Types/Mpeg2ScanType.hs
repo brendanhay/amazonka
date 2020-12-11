@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2ScanType where
+module Network.AWS.MediaLive.Types.Mpeg2ScanType
+  ( Mpeg2ScanType
+      ( Mpeg2ScanType',
+        MSTInterlaced,
+        MSTProgressive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Scan Type
-data Mpeg2ScanType
-  = MSTInterlaced
-  | MSTProgressive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2ScanType = Mpeg2ScanType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2ScanType where
-  parser =
-    takeLowerText >>= \case
-      "interlaced" -> pure MSTInterlaced
-      "progressive" -> pure MSTProgressive
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2ScanType from value: '" <> e
-            <> "'. Accepted values: interlaced, progressive"
+pattern MSTInterlaced :: Mpeg2ScanType
+pattern MSTInterlaced = Mpeg2ScanType' "INTERLACED"
 
-instance ToText Mpeg2ScanType where
-  toText = \case
-    MSTInterlaced -> "INTERLACED"
-    MSTProgressive -> "PROGRESSIVE"
+pattern MSTProgressive :: Mpeg2ScanType
+pattern MSTProgressive = Mpeg2ScanType' "PROGRESSIVE"
 
-instance Hashable Mpeg2ScanType
-
-instance NFData Mpeg2ScanType
-
-instance ToByteString Mpeg2ScanType
-
-instance ToQuery Mpeg2ScanType
-
-instance ToHeader Mpeg2ScanType
-
-instance ToJSON Mpeg2ScanType where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2ScanType where
-  parseJSON = parseJSONText "Mpeg2ScanType"
+{-# COMPLETE
+  MSTInterlaced,
+  MSTProgressive,
+  Mpeg2ScanType'
+  #-}

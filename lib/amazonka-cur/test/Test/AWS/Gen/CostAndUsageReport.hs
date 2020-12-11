@@ -28,31 +28,31 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestPutReportDefinition $
---             putReportDefinition
+--             mkPutReportDefinition
 --
 --         , requestDeleteReportDefinition $
---             deleteReportDefinition
+--             mkDeleteReportDefinition
 --
 --         , requestModifyReportDefinition $
---             modifyReportDefinition
+--             mkModifyReportDefinition
 --
 --         , requestDescribeReportDefinitions $
---             describeReportDefinitions
+--             mkDescribeReportDefinitions
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responsePutReportDefinition $
---             putReportDefinitionResponse
+--             mkPutReportDefinitionResponse
 --
 --         , responseDeleteReportDefinition $
---             deleteReportDefinitionResponse
+--             mkDeleteReportDefinitionResponse
 --
 --         , responseModifyReportDefinition $
---             modifyReportDefinitionResponse
+--             mkModifyReportDefinitionResponse
 --
 --         , responseDescribeReportDefinitions $
---             describeReportDefinitionsResponse
+--             mkDescribeReportDefinitionsResponse
 --
 --           ]
 --     ]
@@ -90,7 +90,7 @@ responsePutReportDefinition =
   res
     "PutReportDefinitionResponse"
     "fixture/PutReportDefinitionResponse.proto"
-    costAndUsageReport
+    costAndUsageReportService
     (Proxy :: Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
@@ -98,7 +98,7 @@ responseDeleteReportDefinition =
   res
     "DeleteReportDefinitionResponse"
     "fixture/DeleteReportDefinitionResponse.proto"
-    costAndUsageReport
+    costAndUsageReportService
     (Proxy :: Proxy DeleteReportDefinition)
 
 responseModifyReportDefinition :: ModifyReportDefinitionResponse -> TestTree
@@ -106,7 +106,7 @@ responseModifyReportDefinition =
   res
     "ModifyReportDefinitionResponse"
     "fixture/ModifyReportDefinitionResponse.proto"
-    costAndUsageReport
+    costAndUsageReportService
     (Proxy :: Proxy ModifyReportDefinition)
 
 responseDescribeReportDefinitions :: DescribeReportDefinitionsResponse -> TestTree
@@ -114,5 +114,5 @@ responseDescribeReportDefinitions =
   res
     "DescribeReportDefinitionsResponse"
     "fixture/DescribeReportDefinitionsResponse.proto"
-    costAndUsageReport
+    costAndUsageReportService
     (Proxy :: Proxy DescribeReportDefinitions)

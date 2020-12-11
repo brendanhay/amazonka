@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.EBSOptionsStatus where
+module Network.AWS.ElasticSearch.Types.EBSOptionsStatus
+  ( EBSOptionsStatus (..),
+
+    -- * Smart constructor
+    mkEBSOptionsStatus,
+
+    -- * Lenses
+    eosOptions,
+    eosStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.EBSOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of the EBS options for the specified Elasticsearch domain.
 --
---
---
--- /See:/ 'ebsOptionsStatus' smart constructor.
+-- /See:/ 'mkEBSOptionsStatus' smart constructor.
 data EBSOptionsStatus = EBSOptionsStatus'
-  { _eosOptions ::
-      !EBSOptions,
-    _eosStatus :: !OptionStatus
+  { options :: EBSOptions,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSOptionsStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eosOptions' - Specifies the EBS options for the specified Elasticsearch domain.
---
--- * 'eosStatus' - Specifies the status of the EBS options for the specified Elasticsearch domain.
-ebsOptionsStatus ::
-  -- | 'eosOptions'
+-- * 'options' - Specifies the EBS options for the specified Elasticsearch domain.
+-- * 'status' - Specifies the status of the EBS options for the specified Elasticsearch domain.
+mkEBSOptionsStatus ::
+  -- | 'options'
   EBSOptions ->
-  -- | 'eosStatus'
+  -- | 'status'
   OptionStatus ->
   EBSOptionsStatus
-ebsOptionsStatus pOptions_ pStatus_ =
-  EBSOptionsStatus' {_eosOptions = pOptions_, _eosStatus = pStatus_}
+mkEBSOptionsStatus pOptions_ pStatus_ =
+  EBSOptionsStatus' {options = pOptions_, status = pStatus_}
 
 -- | Specifies the EBS options for the specified Elasticsearch domain.
-eosOptions :: Lens' EBSOptionsStatus EBSOptions
-eosOptions = lens _eosOptions (\s a -> s {_eosOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eosOptions :: Lens.Lens' EBSOptionsStatus EBSOptions
+eosOptions = Lens.lens (options :: EBSOptionsStatus -> EBSOptions) (\s a -> s {options = a} :: EBSOptionsStatus)
+{-# DEPRECATED eosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of the EBS options for the specified Elasticsearch domain.
-eosStatus :: Lens' EBSOptionsStatus OptionStatus
-eosStatus = lens _eosStatus (\s a -> s {_eosStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eosStatus :: Lens.Lens' EBSOptionsStatus OptionStatus
+eosStatus = Lens.lens (status :: EBSOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: EBSOptionsStatus)
+{-# DEPRECATED eosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON EBSOptionsStatus where
+instance Lude.FromJSON EBSOptionsStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "EBSOptionsStatus"
-      (\x -> EBSOptionsStatus' <$> (x .: "Options") <*> (x .: "Status"))
-
-instance Hashable EBSOptionsStatus
-
-instance NFData EBSOptionsStatus
+      ( \x ->
+          EBSOptionsStatus'
+            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+      )

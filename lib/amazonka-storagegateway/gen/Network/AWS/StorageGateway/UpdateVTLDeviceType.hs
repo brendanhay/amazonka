@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,156 @@
 --
 -- Updates the type of medium changer in a tape gateway. When you activate a tape gateway, you select a medium changer type for the tape gateway. This operation enables you to select a different type of medium changer after a tape gateway is activated. This operation is only supported in the tape gateway type.
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
-  ( -- * Creating a Request
-    updateVTLDeviceType,
-    UpdateVTLDeviceType,
+  ( -- * Creating a request
+    UpdateVTLDeviceType (..),
+    mkUpdateVTLDeviceType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uvtldtVTLDeviceARN,
     uvtldtDeviceType,
 
-    -- * Destructuring the Response
-    updateVTLDeviceTypeResponse,
-    UpdateVTLDeviceTypeResponse,
+    -- * Destructuring the response
+    UpdateVTLDeviceTypeResponse (..),
+    mkUpdateVTLDeviceTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uvtldtrsVTLDeviceARN,
     uvtldtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateVTLDeviceType' smart constructor.
+-- | /See:/ 'mkUpdateVTLDeviceType' smart constructor.
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-  { _uvtldtVTLDeviceARN ::
-      !Text,
-    _uvtldtDeviceType :: !Text
+  { vTLDeviceARN ::
+      Lude.Text,
+    deviceType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVTLDeviceType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deviceType' - The type of medium changer you want to select.
 --
--- * 'uvtldtVTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you want to select.
---
--- * 'uvtldtDeviceType' - The type of medium changer you want to select. Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-updateVTLDeviceType ::
-  -- | 'uvtldtVTLDeviceARN'
-  Text ->
-  -- | 'uvtldtDeviceType'
-  Text ->
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+-- * 'vTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you want to select.
+mkUpdateVTLDeviceType ::
+  -- | 'vTLDeviceARN'
+  Lude.Text ->
+  -- | 'deviceType'
+  Lude.Text ->
   UpdateVTLDeviceType
-updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
+mkUpdateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
   UpdateVTLDeviceType'
-    { _uvtldtVTLDeviceARN = pVTLDeviceARN_,
-      _uvtldtDeviceType = pDeviceType_
+    { vTLDeviceARN = pVTLDeviceARN_,
+      deviceType = pDeviceType_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
-uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\s a -> s {_uvtldtVTLDeviceARN = a})
+--
+-- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtldtVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Lude.Text
+uvtldtVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceType)
+{-# DEPRECATED uvtldtVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
 
--- | The type of medium changer you want to select. Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
-uvtldtDeviceType = lens _uvtldtDeviceType (\s a -> s {_uvtldtDeviceType = a})
+-- | The type of medium changer you want to select.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+--
+-- /Note:/ Consider using 'deviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtldtDeviceType :: Lens.Lens' UpdateVTLDeviceType Lude.Text
+uvtldtDeviceType = Lens.lens (deviceType :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {deviceType = a} :: UpdateVTLDeviceType)
+{-# DEPRECATED uvtldtDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
 
-instance AWSRequest UpdateVTLDeviceType where
+instance Lude.AWSRequest UpdateVTLDeviceType where
   type Rs UpdateVTLDeviceType = UpdateVTLDeviceTypeResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateVTLDeviceTypeResponse'
-            <$> (x .?> "VTLDeviceARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VTLDeviceARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateVTLDeviceType
-
-instance NFData UpdateVTLDeviceType
-
-instance ToHeaders UpdateVTLDeviceType where
+instance Lude.ToHeaders UpdateVTLDeviceType where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.UpdateVTLDeviceType" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.UpdateVTLDeviceType" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateVTLDeviceType where
+instance Lude.ToJSON UpdateVTLDeviceType where
   toJSON UpdateVTLDeviceType' {..} =
-    object
-      ( catMaybes
-          [ Just ("VTLDeviceARN" .= _uvtldtVTLDeviceARN),
-            Just ("DeviceType" .= _uvtldtDeviceType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("VTLDeviceARN" Lude..= vTLDeviceARN),
+            Lude.Just ("DeviceType" Lude..= deviceType)
           ]
       )
 
-instance ToPath UpdateVTLDeviceType where
-  toPath = const "/"
+instance Lude.ToPath UpdateVTLDeviceType where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateVTLDeviceType where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateVTLDeviceType where
+  toQuery = Lude.const Lude.mempty
 
 -- | UpdateVTLDeviceTypeOutput
 --
---
---
--- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
+-- /See:/ 'mkUpdateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
-  { _uvtldtrsVTLDeviceARN ::
-      !(Maybe Text),
-    _uvtldtrsResponseStatus :: !Int
+  { vTLDeviceARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVTLDeviceTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uvtldtrsVTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you have selected.
---
--- * 'uvtldtrsResponseStatus' - -- | The response status code.
-updateVTLDeviceTypeResponse ::
-  -- | 'uvtldtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you have selected.
+mkUpdateVTLDeviceTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse pResponseStatus_ =
+mkUpdateVTLDeviceTypeResponse pResponseStatus_ =
   UpdateVTLDeviceTypeResponse'
-    { _uvtldtrsVTLDeviceARN = Nothing,
-      _uvtldtrsResponseStatus = pResponseStatus_
+    { vTLDeviceARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
-uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\s a -> s {_uvtldtrsVTLDeviceARN = a})
+--
+-- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtldtrsVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceTypeResponse (Lude.Maybe Lude.Text)
+uvtldtrsVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceTypeResponse)
+{-# DEPRECATED uvtldtrsVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
 
--- | -- | The response status code.
-uvtldtrsResponseStatus :: Lens' UpdateVTLDeviceTypeResponse Int
-uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\s a -> s {_uvtldtrsResponseStatus = a})
-
-instance NFData UpdateVTLDeviceTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtldtrsResponseStatus :: Lens.Lens' UpdateVTLDeviceTypeResponse Lude.Int
+uvtldtrsResponseStatus = Lens.lens (responseStatus :: UpdateVTLDeviceTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateVTLDeviceTypeResponse)
+{-# DEPRECATED uvtldtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

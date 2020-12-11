@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,107 @@
 --
 -- Deletes a stack set. Before you can delete a stack set, all of its member stack instances must be deleted. For more information about how to do this, see 'DeleteStackInstances' .
 module Network.AWS.CloudFormation.DeleteStackSet
-  ( -- * Creating a Request
-    deleteStackSet,
-    DeleteStackSet,
+  ( -- * Creating a request
+    DeleteStackSet (..),
+    mkDeleteStackSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dssStackSetName,
 
-    -- * Destructuring the Response
-    deleteStackSetResponse,
-    DeleteStackSetResponse,
+    -- * Destructuring the response
+    DeleteStackSetResponse (..),
+    mkDeleteStackSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dssrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteStackSet' smart constructor.
-newtype DeleteStackSet = DeleteStackSet' {_dssStackSetName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteStackSet' smart constructor.
+newtype DeleteStackSet = DeleteStackSet' {stackSetName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStackSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssStackSetName' - The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
-deleteStackSet ::
-  -- | 'dssStackSetName'
-  Text ->
+-- * 'stackSetName' - The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
+mkDeleteStackSet ::
+  -- | 'stackSetName'
+  Lude.Text ->
   DeleteStackSet
-deleteStackSet pStackSetName_ =
-  DeleteStackSet' {_dssStackSetName = pStackSetName_}
+mkDeleteStackSet pStackSetName_ =
+  DeleteStackSet' {stackSetName = pStackSetName_}
 
 -- | The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
-dssStackSetName :: Lens' DeleteStackSet Text
-dssStackSetName = lens _dssStackSetName (\s a -> s {_dssStackSetName = a})
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssStackSetName :: Lens.Lens' DeleteStackSet Lude.Text
+dssStackSetName = Lens.lens (stackSetName :: DeleteStackSet -> Lude.Text) (\s a -> s {stackSetName = a} :: DeleteStackSet)
+{-# DEPRECATED dssStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
-instance AWSRequest DeleteStackSet where
+instance Lude.AWSRequest DeleteStackSet where
   type Rs DeleteStackSet = DeleteStackSetResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteStackSetResult"
-      (\s h x -> DeleteStackSetResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          DeleteStackSetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteStackSet
+instance Lude.ToHeaders DeleteStackSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteStackSet
+instance Lude.ToPath DeleteStackSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteStackSet where
-  toHeaders = const mempty
-
-instance ToPath DeleteStackSet where
-  toPath = const "/"
-
-instance ToQuery DeleteStackSet where
+instance Lude.ToQuery DeleteStackSet where
   toQuery DeleteStackSet' {..} =
-    mconcat
-      [ "Action" =: ("DeleteStackSet" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackSetName" =: _dssStackSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteStackSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackSetName" Lude.=: stackSetName
       ]
 
--- | /See:/ 'deleteStackSetResponse' smart constructor.
+-- | /See:/ 'mkDeleteStackSetResponse' smart constructor.
 newtype DeleteStackSetResponse = DeleteStackSetResponse'
-  { _dssrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStackSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssrsResponseStatus' - -- | The response status code.
-deleteStackSetResponse ::
-  -- | 'dssrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteStackSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteStackSetResponse
-deleteStackSetResponse pResponseStatus_ =
-  DeleteStackSetResponse' {_dssrsResponseStatus = pResponseStatus_}
+mkDeleteStackSetResponse pResponseStatus_ =
+  DeleteStackSetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DeleteStackSetResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\s a -> s {_dssrsResponseStatus = a})
-
-instance NFData DeleteStackSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsResponseStatus :: Lens.Lens' DeleteStackSetResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DeleteStackSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStackSetResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

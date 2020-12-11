@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.ThreatIntelSetStatus where
+module Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
+  ( ThreatIntelSetStatus
+      ( ThreatIntelSetStatus',
+        Activating,
+        Active,
+        Deactivating,
+        DeletePending,
+        Deleted,
+        Error,
+        Inactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ThreatIntelSetStatus
-  = Activating
-  | Active
-  | Deactivating
-  | DeletePending
-  | Deleted
-  | Error'
-  | Inactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ThreatIntelSetStatus = ThreatIntelSetStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ThreatIntelSetStatus where
-  parser =
-    takeLowerText >>= \case
-      "activating" -> pure Activating
-      "active" -> pure Active
-      "deactivating" -> pure Deactivating
-      "delete_pending" -> pure DeletePending
-      "deleted" -> pure Deleted
-      "error" -> pure Error'
-      "inactive" -> pure Inactive
-      e ->
-        fromTextError $
-          "Failure parsing ThreatIntelSetStatus from value: '" <> e
-            <> "'. Accepted values: activating, active, deactivating, delete_pending, deleted, error, inactive"
+pattern Activating :: ThreatIntelSetStatus
+pattern Activating = ThreatIntelSetStatus' "ACTIVATING"
 
-instance ToText ThreatIntelSetStatus where
-  toText = \case
-    Activating -> "ACTIVATING"
-    Active -> "ACTIVE"
-    Deactivating -> "DEACTIVATING"
-    DeletePending -> "DELETE_PENDING"
-    Deleted -> "DELETED"
-    Error' -> "ERROR"
-    Inactive -> "INACTIVE"
+pattern Active :: ThreatIntelSetStatus
+pattern Active = ThreatIntelSetStatus' "ACTIVE"
 
-instance Hashable ThreatIntelSetStatus
+pattern Deactivating :: ThreatIntelSetStatus
+pattern Deactivating = ThreatIntelSetStatus' "DEACTIVATING"
 
-instance NFData ThreatIntelSetStatus
+pattern DeletePending :: ThreatIntelSetStatus
+pattern DeletePending = ThreatIntelSetStatus' "DELETE_PENDING"
 
-instance ToByteString ThreatIntelSetStatus
+pattern Deleted :: ThreatIntelSetStatus
+pattern Deleted = ThreatIntelSetStatus' "DELETED"
 
-instance ToQuery ThreatIntelSetStatus
+pattern Error :: ThreatIntelSetStatus
+pattern Error = ThreatIntelSetStatus' "ERROR"
 
-instance ToHeader ThreatIntelSetStatus
+pattern Inactive :: ThreatIntelSetStatus
+pattern Inactive = ThreatIntelSetStatus' "INACTIVE"
 
-instance FromJSON ThreatIntelSetStatus where
-  parseJSON = parseJSONText "ThreatIntelSetStatus"
+{-# COMPLETE
+  Activating,
+  Active,
+  Deactivating,
+  DeletePending,
+  Deleted,
+  Error,
+  Inactive,
+  ThreatIntelSetStatus'
+  #-}

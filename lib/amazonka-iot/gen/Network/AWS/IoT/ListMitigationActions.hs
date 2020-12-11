@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of all mitigation actions that match the specified filter criteria.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListMitigationActions
-  ( -- * Creating a Request
-    listMitigationActions,
-    ListMitigationActions,
+  ( -- * Creating a request
+    ListMitigationActions (..),
+    mkListMitigationActions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmaNextToken,
     lmaActionType,
     lmaMaxResults,
 
-    -- * Destructuring the Response
-    listMitigationActionsResponse,
-    ListMitigationActionsResponse,
+    -- * Destructuring the response
+    ListMitigationActionsResponse (..),
+    mkListMitigationActionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmarsActionIdentifiers,
     lmarsNextToken,
     lmarsResponseStatus,
@@ -44,129 +37,149 @@ module Network.AWS.IoT.ListMitigationActions
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listMitigationActions' smart constructor.
+-- | /See:/ 'mkListMitigationActions' smart constructor.
 data ListMitigationActions = ListMitigationActions'
-  { _lmaNextToken ::
-      !(Maybe Text),
-    _lmaActionType :: !(Maybe MitigationActionType),
-    _lmaMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    actionType :: Lude.Maybe MitigationActionType,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMitigationActions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmaNextToken' - The token for the next set of results.
---
--- * 'lmaActionType' - Specify a value to limit the result to mitigation actions with a specific action type.
---
--- * 'lmaMaxResults' - The maximum number of results to return at one time. The default is 25.
-listMitigationActions ::
+-- * 'actionType' - Specify a value to limit the result to mitigation actions with a specific action type.
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'nextToken' - The token for the next set of results.
+mkListMitigationActions ::
   ListMitigationActions
-listMitigationActions =
+mkListMitigationActions =
   ListMitigationActions'
-    { _lmaNextToken = Nothing,
-      _lmaActionType = Nothing,
-      _lmaMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      actionType = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results.
-lmaNextToken :: Lens' ListMitigationActions (Maybe Text)
-lmaNextToken = lens _lmaNextToken (\s a -> s {_lmaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmaNextToken :: Lens.Lens' ListMitigationActions (Lude.Maybe Lude.Text)
+lmaNextToken = Lens.lens (nextToken :: ListMitigationActions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMitigationActions)
+{-# DEPRECATED lmaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specify a value to limit the result to mitigation actions with a specific action type.
-lmaActionType :: Lens' ListMitigationActions (Maybe MitigationActionType)
-lmaActionType = lens _lmaActionType (\s a -> s {_lmaActionType = a})
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmaActionType :: Lens.Lens' ListMitigationActions (Lude.Maybe MitigationActionType)
+lmaActionType = Lens.lens (actionType :: ListMitigationActions -> Lude.Maybe MitigationActionType) (\s a -> s {actionType = a} :: ListMitigationActions)
+{-# DEPRECATED lmaActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
-lmaMaxResults :: Lens' ListMitigationActions (Maybe Natural)
-lmaMaxResults = lens _lmaMaxResults (\s a -> s {_lmaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmaMaxResults :: Lens.Lens' ListMitigationActions (Lude.Maybe Lude.Natural)
+lmaMaxResults = Lens.lens (maxResults :: ListMitigationActions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMitigationActions)
+{-# DEPRECATED lmaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListMitigationActions where
+instance Page.AWSPager ListMitigationActions where
   page rq rs
-    | stop (rs ^. lmarsNextToken) = Nothing
-    | stop (rs ^. lmarsActionIdentifiers) = Nothing
-    | otherwise = Just $ rq & lmaNextToken .~ rs ^. lmarsNextToken
+    | Page.stop (rs Lens.^. lmarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmarsActionIdentifiers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmaNextToken Lens..~ rs Lens.^. lmarsNextToken
 
-instance AWSRequest ListMitigationActions where
+instance Lude.AWSRequest ListMitigationActions where
   type Rs ListMitigationActions = ListMitigationActionsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListMitigationActionsResponse'
-            <$> (x .?> "actionIdentifiers" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "actionIdentifiers" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListMitigationActions
+instance Lude.ToHeaders ListMitigationActions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListMitigationActions
+instance Lude.ToPath ListMitigationActions where
+  toPath = Lude.const "/mitigationactions/actions"
 
-instance ToHeaders ListMitigationActions where
-  toHeaders = const mempty
-
-instance ToPath ListMitigationActions where
-  toPath = const "/mitigationactions/actions"
-
-instance ToQuery ListMitigationActions where
+instance Lude.ToQuery ListMitigationActions where
   toQuery ListMitigationActions' {..} =
-    mconcat
-      [ "nextToken" =: _lmaNextToken,
-        "actionType" =: _lmaActionType,
-        "maxResults" =: _lmaMaxResults
+    Lude.mconcat
+      [ "nextToken" Lude.=: nextToken,
+        "actionType" Lude.=: actionType,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listMitigationActionsResponse' smart constructor.
+-- | /See:/ 'mkListMitigationActionsResponse' smart constructor.
 data ListMitigationActionsResponse = ListMitigationActionsResponse'
-  { _lmarsActionIdentifiers ::
-      !( Maybe
-           [MitigationActionIdentifier]
-       ),
-    _lmarsNextToken ::
-      !(Maybe Text),
-    _lmarsResponseStatus :: !Int
+  { actionIdentifiers ::
+      Lude.Maybe
+        [MitigationActionIdentifier],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMitigationActionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmarsActionIdentifiers' - A set of actions that matched the specified filter criteria.
---
--- * 'lmarsNextToken' - The token for the next set of results.
---
--- * 'lmarsResponseStatus' - -- | The response status code.
-listMitigationActionsResponse ::
-  -- | 'lmarsResponseStatus'
-  Int ->
+-- * 'actionIdentifiers' - A set of actions that matched the specified filter criteria.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'responseStatus' - The response status code.
+mkListMitigationActionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListMitigationActionsResponse
-listMitigationActionsResponse pResponseStatus_ =
+mkListMitigationActionsResponse pResponseStatus_ =
   ListMitigationActionsResponse'
-    { _lmarsActionIdentifiers = Nothing,
-      _lmarsNextToken = Nothing,
-      _lmarsResponseStatus = pResponseStatus_
+    { actionIdentifiers = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A set of actions that matched the specified filter criteria.
-lmarsActionIdentifiers :: Lens' ListMitigationActionsResponse [MitigationActionIdentifier]
-lmarsActionIdentifiers = lens _lmarsActionIdentifiers (\s a -> s {_lmarsActionIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actionIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmarsActionIdentifiers :: Lens.Lens' ListMitigationActionsResponse (Lude.Maybe [MitigationActionIdentifier])
+lmarsActionIdentifiers = Lens.lens (actionIdentifiers :: ListMitigationActionsResponse -> Lude.Maybe [MitigationActionIdentifier]) (\s a -> s {actionIdentifiers = a} :: ListMitigationActionsResponse)
+{-# DEPRECATED lmarsActionIdentifiers "Use generic-lens or generic-optics with 'actionIdentifiers' instead." #-}
 
 -- | The token for the next set of results.
-lmarsNextToken :: Lens' ListMitigationActionsResponse (Maybe Text)
-lmarsNextToken = lens _lmarsNextToken (\s a -> s {_lmarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmarsNextToken :: Lens.Lens' ListMitigationActionsResponse (Lude.Maybe Lude.Text)
+lmarsNextToken = Lens.lens (nextToken :: ListMitigationActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMitigationActionsResponse)
+{-# DEPRECATED lmarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lmarsResponseStatus :: Lens' ListMitigationActionsResponse Int
-lmarsResponseStatus = lens _lmarsResponseStatus (\s a -> s {_lmarsResponseStatus = a})
-
-instance NFData ListMitigationActionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmarsResponseStatus :: Lens.Lens' ListMitigationActionsResponse Lude.Int
+lmarsResponseStatus = Lens.lens (responseStatus :: ListMitigationActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMitigationActionsResponse)
+{-# DEPRECATED lmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

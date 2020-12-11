@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.LexStatus where
+module Network.AWS.LexModels.Types.LexStatus
+  ( LexStatus
+      ( LexStatus',
+        LSBuilding,
+        LSFailed,
+        LSNotBuilt,
+        LSReady,
+        LSReadyBasicTesting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LexStatus
-  = LSBuilding
-  | LSFailed
-  | LSNotBuilt
-  | LSReady
-  | LSReadyBasicTesting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LexStatus = LexStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LexStatus where
-  parser =
-    takeLowerText >>= \case
-      "building" -> pure LSBuilding
-      "failed" -> pure LSFailed
-      "not_built" -> pure LSNotBuilt
-      "ready" -> pure LSReady
-      "ready_basic_testing" -> pure LSReadyBasicTesting
-      e ->
-        fromTextError $
-          "Failure parsing LexStatus from value: '" <> e
-            <> "'. Accepted values: building, failed, not_built, ready, ready_basic_testing"
+pattern LSBuilding :: LexStatus
+pattern LSBuilding = LexStatus' "BUILDING"
 
-instance ToText LexStatus where
-  toText = \case
-    LSBuilding -> "BUILDING"
-    LSFailed -> "FAILED"
-    LSNotBuilt -> "NOT_BUILT"
-    LSReady -> "READY"
-    LSReadyBasicTesting -> "READY_BASIC_TESTING"
+pattern LSFailed :: LexStatus
+pattern LSFailed = LexStatus' "FAILED"
 
-instance Hashable LexStatus
+pattern LSNotBuilt :: LexStatus
+pattern LSNotBuilt = LexStatus' "NOT_BUILT"
 
-instance NFData LexStatus
+pattern LSReady :: LexStatus
+pattern LSReady = LexStatus' "READY"
 
-instance ToByteString LexStatus
+pattern LSReadyBasicTesting :: LexStatus
+pattern LSReadyBasicTesting = LexStatus' "READY_BASIC_TESTING"
 
-instance ToQuery LexStatus
-
-instance ToHeader LexStatus
-
-instance FromJSON LexStatus where
-  parseJSON = parseJSONText "LexStatus"
+{-# COMPLETE
+  LSBuilding,
+  LSFailed,
+  LSNotBuilt,
+  LSReady,
+  LSReadyBasicTesting,
+  LexStatus'
+  #-}

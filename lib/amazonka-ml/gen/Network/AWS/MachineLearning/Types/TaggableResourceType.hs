@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.TaggableResourceType where
+module Network.AWS.MachineLearning.Types.TaggableResourceType
+  ( TaggableResourceType
+      ( TaggableResourceType',
+        BatchPrediction,
+        DataSource,
+        Evaluation,
+        MLModel
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaggableResourceType
-  = BatchPrediction
-  | DataSource
-  | Evaluation
-  | MLModel
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaggableResourceType = TaggableResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaggableResourceType where
-  parser =
-    takeLowerText >>= \case
-      "batchprediction" -> pure BatchPrediction
-      "datasource" -> pure DataSource
-      "evaluation" -> pure Evaluation
-      "mlmodel" -> pure MLModel
-      e ->
-        fromTextError $
-          "Failure parsing TaggableResourceType from value: '" <> e
-            <> "'. Accepted values: batchprediction, datasource, evaluation, mlmodel"
+pattern BatchPrediction :: TaggableResourceType
+pattern BatchPrediction = TaggableResourceType' "BatchPrediction"
 
-instance ToText TaggableResourceType where
-  toText = \case
-    BatchPrediction -> "BatchPrediction"
-    DataSource -> "DataSource"
-    Evaluation -> "Evaluation"
-    MLModel -> "MLModel"
+pattern DataSource :: TaggableResourceType
+pattern DataSource = TaggableResourceType' "DataSource"
 
-instance Hashable TaggableResourceType
+pattern Evaluation :: TaggableResourceType
+pattern Evaluation = TaggableResourceType' "Evaluation"
 
-instance NFData TaggableResourceType
+pattern MLModel :: TaggableResourceType
+pattern MLModel = TaggableResourceType' "MLModel"
 
-instance ToByteString TaggableResourceType
-
-instance ToQuery TaggableResourceType
-
-instance ToHeader TaggableResourceType
-
-instance ToJSON TaggableResourceType where
-  toJSON = toJSONText
-
-instance FromJSON TaggableResourceType where
-  parseJSON = parseJSONText "TaggableResourceType"
+{-# COMPLETE
+  BatchPrediction,
+  DataSource,
+  Evaluation,
+  MLModel,
+  TaggableResourceType'
+  #-}

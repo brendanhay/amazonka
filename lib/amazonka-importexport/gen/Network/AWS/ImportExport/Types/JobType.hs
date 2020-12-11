@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImportExport.Types.JobType where
+module Network.AWS.ImportExport.Types.JobType
+  ( JobType
+      ( JobType',
+        Export,
+        Import
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies whether the job to initiate is an import or export job.
-data JobType
-  = Export
-  | Import
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobType = JobType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobType where
-  parser =
-    takeLowerText >>= \case
-      "export" -> pure Export
-      "import" -> pure Import
-      e ->
-        fromTextError $
-          "Failure parsing JobType from value: '" <> e
-            <> "'. Accepted values: export, import"
+pattern Export :: JobType
+pattern Export = JobType' "Export"
 
-instance ToText JobType where
-  toText = \case
-    Export -> "Export"
-    Import -> "Import"
+pattern Import :: JobType
+pattern Import = JobType' "Import"
 
-instance Hashable JobType
-
-instance NFData JobType
-
-instance ToByteString JobType
-
-instance ToQuery JobType
-
-instance ToHeader JobType
-
-instance FromXML JobType where
-  parseXML = parseXMLText "JobType"
+{-# COMPLETE
+  Export,
+  Import,
+  JobType'
+  #-}

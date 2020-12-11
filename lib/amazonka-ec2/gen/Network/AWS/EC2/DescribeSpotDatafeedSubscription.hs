@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,132 @@
 --
 -- Describes the data feed for Spot Instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance data feed> in the /Amazon EC2 User Guide for Linux Instances/ .
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
-  ( -- * Creating a Request
-    describeSpotDatafeedSubscription,
-    DescribeSpotDatafeedSubscription,
+  ( -- * Creating a request
+    DescribeSpotDatafeedSubscription (..),
+    mkDescribeSpotDatafeedSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsdsDryRun,
 
-    -- * Destructuring the Response
-    describeSpotDatafeedSubscriptionResponse,
-    DescribeSpotDatafeedSubscriptionResponse,
+    -- * Destructuring the response
+    DescribeSpotDatafeedSubscriptionResponse (..),
+    mkDescribeSpotDatafeedSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsdsrsSpotDatafeedSubscription,
     dsdsrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeSpotDatafeedSubscription.
 --
---
---
--- /See:/ 'describeSpotDatafeedSubscription' smart constructor.
+-- /See:/ 'mkDescribeSpotDatafeedSubscription' smart constructor.
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
-  { _dsdsDryRun ::
-      Maybe Bool
+  { dryRun ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotDatafeedSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeSpotDatafeedSubscription ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+mkDescribeSpotDatafeedSubscription ::
   DescribeSpotDatafeedSubscription
-describeSpotDatafeedSubscription =
-  DescribeSpotDatafeedSubscription' {_dsdsDryRun = Nothing}
+mkDescribeSpotDatafeedSubscription =
+  DescribeSpotDatafeedSubscription' {dryRun = Lude.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
-dsdsDryRun = lens _dsdsDryRun (\s a -> s {_dsdsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdsDryRun :: Lens.Lens' DescribeSpotDatafeedSubscription (Lude.Maybe Lude.Bool)
+dsdsDryRun = Lens.lens (dryRun :: DescribeSpotDatafeedSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSpotDatafeedSubscription)
+{-# DEPRECATED dsdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DescribeSpotDatafeedSubscription where
+instance Lude.AWSRequest DescribeSpotDatafeedSubscription where
   type
     Rs DescribeSpotDatafeedSubscription =
       DescribeSpotDatafeedSubscriptionResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeSpotDatafeedSubscriptionResponse'
-            <$> (x .@? "spotDatafeedSubscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "spotDatafeedSubscription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSpotDatafeedSubscription
+instance Lude.ToHeaders DescribeSpotDatafeedSubscription where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeSpotDatafeedSubscription
+instance Lude.ToPath DescribeSpotDatafeedSubscription where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeSpotDatafeedSubscription where
-  toHeaders = const mempty
-
-instance ToPath DescribeSpotDatafeedSubscription where
-  toPath = const "/"
-
-instance ToQuery DescribeSpotDatafeedSubscription where
+instance Lude.ToQuery DescribeSpotDatafeedSubscription where
   toQuery DescribeSpotDatafeedSubscription' {..} =
-    mconcat
-      [ "Action" =: ("DescribeSpotDatafeedSubscription" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dsdsDryRun
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeSpotDatafeedSubscription" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of DescribeSpotDatafeedSubscription.
 --
---
---
--- /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
+-- /See:/ 'mkDescribeSpotDatafeedSubscriptionResponse' smart constructor.
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
-  { _dsdsrsSpotDatafeedSubscription ::
-      !( Maybe
-           SpotDatafeedSubscription
-       ),
-    _dsdsrsResponseStatus ::
-      !Int
+  { spotDatafeedSubscription ::
+      Lude.Maybe
+        SpotDatafeedSubscription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdsrsSpotDatafeedSubscription' - The Spot Instance data feed subscription.
---
--- * 'dsdsrsResponseStatus' - -- | The response status code.
-describeSpotDatafeedSubscriptionResponse ::
-  -- | 'dsdsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'spotDatafeedSubscription' - The Spot Instance data feed subscription.
+mkDescribeSpotDatafeedSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSpotDatafeedSubscriptionResponse
-describeSpotDatafeedSubscriptionResponse pResponseStatus_ =
+mkDescribeSpotDatafeedSubscriptionResponse pResponseStatus_ =
   DescribeSpotDatafeedSubscriptionResponse'
-    { _dsdsrsSpotDatafeedSubscription =
-        Nothing,
-      _dsdsrsResponseStatus = pResponseStatus_
+    { spotDatafeedSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Spot Instance data feed subscription.
-dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\s a -> s {_dsdsrsSpotDatafeedSubscription = a})
+--
+-- /Note:/ Consider using 'spotDatafeedSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdsrsSpotDatafeedSubscription :: Lens.Lens' DescribeSpotDatafeedSubscriptionResponse (Lude.Maybe SpotDatafeedSubscription)
+dsdsrsSpotDatafeedSubscription = Lens.lens (spotDatafeedSubscription :: DescribeSpotDatafeedSubscriptionResponse -> Lude.Maybe SpotDatafeedSubscription) (\s a -> s {spotDatafeedSubscription = a} :: DescribeSpotDatafeedSubscriptionResponse)
+{-# DEPRECATED dsdsrsSpotDatafeedSubscription "Use generic-lens or generic-optics with 'spotDatafeedSubscription' instead." #-}
 
--- | -- | The response status code.
-dsdsrsResponseStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
-dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\s a -> s {_dsdsrsResponseStatus = a})
-
-instance NFData DescribeSpotDatafeedSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdsrsResponseStatus :: Lens.Lens' DescribeSpotDatafeedSubscriptionResponse Lude.Int
+dsdsrsResponseStatus = Lens.lens (responseStatus :: DescribeSpotDatafeedSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSpotDatafeedSubscriptionResponse)
+{-# DEPRECATED dsdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

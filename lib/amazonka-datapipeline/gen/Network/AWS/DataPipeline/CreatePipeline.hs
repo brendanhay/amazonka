@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,180 @@
 --
 -- Creates a new, empty pipeline. Use 'PutPipelineDefinition' to populate the pipeline.
 module Network.AWS.DataPipeline.CreatePipeline
-  ( -- * Creating a Request
-    createPipeline,
-    CreatePipeline,
+  ( -- * Creating a request
+    CreatePipeline (..),
+    mkCreatePipeline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpDescription,
     cpTags,
     cpName,
     cpUniqueId,
 
-    -- * Destructuring the Response
-    createPipelineResponse,
-    CreatePipelineResponse,
+    -- * Destructuring the response
+    CreatePipelineResponse (..),
+    mkCreatePipelineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsResponseStatus,
     cprsPipelineId,
   )
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for CreatePipeline.
 --
---
---
--- /See:/ 'createPipeline' smart constructor.
+-- /See:/ 'mkCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { _cpDescription ::
-      !(Maybe Text),
-    _cpTags :: !(Maybe [Tag]),
-    _cpName :: !Text,
-    _cpUniqueId :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text,
+    uniqueId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpDescription' - The description for the pipeline.
---
--- * 'cpTags' - A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
---
--- * 'cpName' - The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
---
--- * 'cpUniqueId' - A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
-createPipeline ::
-  -- | 'cpName'
-  Text ->
-  -- | 'cpUniqueId'
-  Text ->
+-- * 'description' - The description for the pipeline.
+-- * 'name' - The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
+-- * 'tags' - A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
+-- * 'uniqueId' - A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
+mkCreatePipeline ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'uniqueId'
+  Lude.Text ->
   CreatePipeline
-createPipeline pName_ pUniqueId_ =
+mkCreatePipeline pName_ pUniqueId_ =
   CreatePipeline'
-    { _cpDescription = Nothing,
-      _cpTags = Nothing,
-      _cpName = pName_,
-      _cpUniqueId = pUniqueId_
+    { description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      uniqueId = pUniqueId_
     }
 
 -- | The description for the pipeline.
-cpDescription :: Lens' CreatePipeline (Maybe Text)
-cpDescription = lens _cpDescription (\s a -> s {_cpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDescription :: Lens.Lens' CreatePipeline (Lude.Maybe Lude.Text)
+cpDescription = Lens.lens (description :: CreatePipeline -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePipeline)
+{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
-cpTags :: Lens' CreatePipeline [Tag]
-cpTags = lens _cpTags (\s a -> s {_cpTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreatePipeline (Lude.Maybe [Tag])
+cpTags = Lens.lens (tags :: CreatePipeline -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePipeline)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
-cpName :: Lens' CreatePipeline Text
-cpName = lens _cpName (\s a -> s {_cpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreatePipeline Lude.Text
+cpName = Lens.lens (name :: CreatePipeline -> Lude.Text) (\s a -> s {name = a} :: CreatePipeline)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
-cpUniqueId :: Lens' CreatePipeline Text
-cpUniqueId = lens _cpUniqueId (\s a -> s {_cpUniqueId = a})
+--
+-- /Note:/ Consider using 'uniqueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpUniqueId :: Lens.Lens' CreatePipeline Lude.Text
+cpUniqueId = Lens.lens (uniqueId :: CreatePipeline -> Lude.Text) (\s a -> s {uniqueId = a} :: CreatePipeline)
+{-# DEPRECATED cpUniqueId "Use generic-lens or generic-optics with 'uniqueId' instead." #-}
 
-instance AWSRequest CreatePipeline where
+instance Lude.AWSRequest CreatePipeline where
   type Rs CreatePipeline = CreatePipelineResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "pipelineId")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "pipelineId")
       )
 
-instance Hashable CreatePipeline
-
-instance NFData CreatePipeline
-
-instance ToHeaders CreatePipeline where
+instance Lude.ToHeaders CreatePipeline where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DataPipeline.CreatePipeline" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DataPipeline.CreatePipeline" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePipeline where
+instance Lude.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _cpDescription,
-            ("tags" .=) <$> _cpTags,
-            Just ("name" .= _cpName),
-            Just ("uniqueId" .= _cpUniqueId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("uniqueId" Lude..= uniqueId)
           ]
       )
 
-instance ToPath CreatePipeline where
-  toPath = const "/"
+instance Lude.ToPath CreatePipeline where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePipeline where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePipeline where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of CreatePipeline.
 --
---
---
--- /See:/ 'createPipelineResponse' smart constructor.
+-- /See:/ 'mkCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { _cprsResponseStatus ::
-      !Int,
-    _cprsPipelineId :: !Text
+  { responseStatus ::
+      Lude.Int,
+    pipelineId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsResponseStatus' - -- | The response status code.
---
--- * 'cprsPipelineId' - The ID that AWS Data Pipeline assigns the newly created pipeline. For example, @df-06372391ZG65EXAMPLE@ .
-createPipelineResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
-  -- | 'cprsPipelineId'
-  Text ->
+-- * 'pipelineId' - The ID that AWS Data Pipeline assigns the newly created pipeline. For example, @df-06372391ZG65EXAMPLE@ .
+-- * 'responseStatus' - The response status code.
+mkCreatePipelineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'pipelineId'
+  Lude.Text ->
   CreatePipelineResponse
-createPipelineResponse pResponseStatus_ pPipelineId_ =
+mkCreatePipelineResponse pResponseStatus_ pPipelineId_ =
   CreatePipelineResponse'
-    { _cprsResponseStatus = pResponseStatus_,
-      _cprsPipelineId = pPipelineId_
+    { responseStatus = pResponseStatus_,
+      pipelineId = pPipelineId_
     }
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreatePipelineResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreatePipelineResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePipelineResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For example, @df-06372391ZG65EXAMPLE@ .
-cprsPipelineId :: Lens' CreatePipelineResponse Text
-cprsPipelineId = lens _cprsPipelineId (\s a -> s {_cprsPipelineId = a})
-
-instance NFData CreatePipelineResponse
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsPipelineId :: Lens.Lens' CreatePipelineResponse Lude.Text
+cprsPipelineId = Lens.lens (pipelineId :: CreatePipelineResponse -> Lude.Text) (\s a -> s {pipelineId = a} :: CreatePipelineResponse)
+{-# DEPRECATED cprsPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}

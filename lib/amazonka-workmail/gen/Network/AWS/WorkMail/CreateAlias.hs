@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,149 @@
 --
 -- Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
 module Network.AWS.WorkMail.CreateAlias
-  ( -- * Creating a Request
-    createAlias,
-    CreateAlias,
+  ( -- * Creating a request
+    CreateAlias (..),
+    mkCreateAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caOrganizationId,
     caEntityId,
     caAlias,
 
-    -- * Destructuring the Response
-    createAliasResponse,
-    CreateAliasResponse,
+    -- * Destructuring the response
+    CreateAliasResponse (..),
+    mkCreateAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'createAlias' smart constructor.
+-- | /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { _caOrganizationId :: !Text,
-    _caEntityId :: !Text,
-    _caAlias :: !Text
+  { organizationId :: Lude.Text,
+    entityId :: Lude.Text,
+    alias :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caOrganizationId' - The organization under which the member (user or group) exists.
---
--- * 'caEntityId' - The member (user or group) to which this alias is added.
---
--- * 'caAlias' - The alias to add to the member set.
-createAlias ::
-  -- | 'caOrganizationId'
-  Text ->
-  -- | 'caEntityId'
-  Text ->
-  -- | 'caAlias'
-  Text ->
+-- * 'alias' - The alias to add to the member set.
+-- * 'entityId' - The member (user or group) to which this alias is added.
+-- * 'organizationId' - The organization under which the member (user or group) exists.
+mkCreateAlias ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
+  -- | 'alias'
+  Lude.Text ->
   CreateAlias
-createAlias pOrganizationId_ pEntityId_ pAlias_ =
+mkCreateAlias pOrganizationId_ pEntityId_ pAlias_ =
   CreateAlias'
-    { _caOrganizationId = pOrganizationId_,
-      _caEntityId = pEntityId_,
-      _caAlias = pAlias_
+    { organizationId = pOrganizationId_,
+      entityId = pEntityId_,
+      alias = pAlias_
     }
 
 -- | The organization under which the member (user or group) exists.
-caOrganizationId :: Lens' CreateAlias Text
-caOrganizationId = lens _caOrganizationId (\s a -> s {_caOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caOrganizationId :: Lens.Lens' CreateAlias Lude.Text
+caOrganizationId = Lens.lens (organizationId :: CreateAlias -> Lude.Text) (\s a -> s {organizationId = a} :: CreateAlias)
+{-# DEPRECATED caOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The member (user or group) to which this alias is added.
-caEntityId :: Lens' CreateAlias Text
-caEntityId = lens _caEntityId (\s a -> s {_caEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caEntityId :: Lens.Lens' CreateAlias Lude.Text
+caEntityId = Lens.lens (entityId :: CreateAlias -> Lude.Text) (\s a -> s {entityId = a} :: CreateAlias)
+{-# DEPRECATED caEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The alias to add to the member set.
-caAlias :: Lens' CreateAlias Text
-caAlias = lens _caAlias (\s a -> s {_caAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlias :: Lens.Lens' CreateAlias Lude.Text
+caAlias = Lens.lens (alias :: CreateAlias -> Lude.Text) (\s a -> s {alias = a} :: CreateAlias)
+{-# DEPRECATED caAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
-instance AWSRequest CreateAlias where
+instance Lude.AWSRequest CreateAlias where
   type Rs CreateAlias = CreateAliasResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
-      (\s h x -> CreateAliasResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateAliasResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateAlias
-
-instance NFData CreateAlias
-
-instance ToHeaders CreateAlias where
+instance Lude.ToHeaders CreateAlias where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("WorkMailService.CreateAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("WorkMailService.CreateAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAlias where
+instance Lude.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _caOrganizationId),
-            Just ("EntityId" .= _caEntityId),
-            Just ("Alias" .= _caAlias)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("EntityId" Lude..= entityId),
+            Lude.Just ("Alias" Lude..= alias)
           ]
       )
 
-instance ToPath CreateAlias where
-  toPath = const "/"
+instance Lude.ToPath CreateAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAlias where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAliasResponse' smart constructor.
+-- | /See:/ 'mkCreateAliasResponse' smart constructor.
 newtype CreateAliasResponse = CreateAliasResponse'
-  { _carsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsResponseStatus' - -- | The response status code.
-createAliasResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAliasResponse
-createAliasResponse pResponseStatus_ =
-  CreateAliasResponse' {_carsResponseStatus = pResponseStatus_}
+mkCreateAliasResponse pResponseStatus_ =
+  CreateAliasResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAliasResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAliasResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAliasResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

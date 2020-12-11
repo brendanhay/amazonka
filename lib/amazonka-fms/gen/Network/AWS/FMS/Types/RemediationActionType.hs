@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.RemediationActionType where
+module Network.AWS.FMS.Types.RemediationActionType
+  ( RemediationActionType
+      ( RemediationActionType',
+        Modify,
+        Remove
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RemediationActionType
-  = Modify
-  | Remove
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RemediationActionType = RemediationActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RemediationActionType where
-  parser =
-    takeLowerText >>= \case
-      "modify" -> pure Modify
-      "remove" -> pure Remove
-      e ->
-        fromTextError $
-          "Failure parsing RemediationActionType from value: '" <> e
-            <> "'. Accepted values: modify, remove"
+pattern Modify :: RemediationActionType
+pattern Modify = RemediationActionType' "MODIFY"
 
-instance ToText RemediationActionType where
-  toText = \case
-    Modify -> "MODIFY"
-    Remove -> "REMOVE"
+pattern Remove :: RemediationActionType
+pattern Remove = RemediationActionType' "REMOVE"
 
-instance Hashable RemediationActionType
-
-instance NFData RemediationActionType
-
-instance ToByteString RemediationActionType
-
-instance ToQuery RemediationActionType
-
-instance ToHeader RemediationActionType
-
-instance FromJSON RemediationActionType where
-  parseJSON = parseJSONText "RemediationActionType"
+{-# COMPLETE
+  Modify,
+  Remove,
+  RemediationActionType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,172 +14,198 @@
 --
 -- Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.
 --
---
 -- To share a manual DB cluster snapshot with other AWS accounts, specify @restore@ as the @AttributeName@ and use the @ValuesToAdd@ parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB cluster snapshot. Use the value @all@ to make the manual DB cluster snapshot public, which means that it can be copied or restored by all AWS accounts.
---
 -- If a manual DB cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for the @ValuesToAdd@ parameter. You can't use @all@ as a value for that parameter in this case.
---
 -- To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster snapshot is public or private, use the 'DescribeDBClusterSnapshotAttributes' API action. The accounts are returned as values for the @restore@ attribute.
 module Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
-  ( -- * Creating a Request
-    modifyDBClusterSnapshotAttribute,
-    ModifyDBClusterSnapshotAttribute,
+  ( -- * Creating a request
+    ModifyDBClusterSnapshotAttribute (..),
+    mkModifyDBClusterSnapshotAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mdcsaValuesToAdd,
     mdcsaValuesToRemove,
     mdcsaDBClusterSnapshotIdentifier,
     mdcsaAttributeName,
 
-    -- * Destructuring the Response
-    modifyDBClusterSnapshotAttributeResponse,
-    ModifyDBClusterSnapshotAttributeResponse,
+    -- * Destructuring the response
+    ModifyDBClusterSnapshotAttributeResponse (..),
+    mkModifyDBClusterSnapshotAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mdcsarsDBClusterSnapshotAttributesResult,
     mdcsarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyDBClusterSnapshotAttribute' smart constructor.
+-- /See:/ 'mkModifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
-  { _mdcsaValuesToAdd ::
-      !(Maybe [Text]),
-    _mdcsaValuesToRemove ::
-      !(Maybe [Text]),
-    _mdcsaDBClusterSnapshotIdentifier ::
-      !Text,
-    _mdcsaAttributeName ::
-      !Text
+  { valuesToAdd ::
+      Lude.Maybe [Lude.Text],
+    valuesToRemove ::
+      Lude.Maybe [Lude.Text],
+    dbClusterSnapshotIdentifier ::
+      Lude.Text,
+    attributeName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBClusterSnapshotAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributeName' - The name of the DB cluster snapshot attribute to modify.
 --
--- * 'mdcsaValuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
+-- To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
+-- * 'dbClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
+-- * 'valuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ .
 --
--- * 'mdcsaValuesToRemove' - A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ . To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
+-- To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
+-- * 'valuesToRemove' - A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ .
 --
--- * 'mdcsaDBClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
---
--- * 'mdcsaAttributeName' - The name of the DB cluster snapshot attribute to modify. To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
-modifyDBClusterSnapshotAttribute ::
-  -- | 'mdcsaDBClusterSnapshotIdentifier'
-  Text ->
-  -- | 'mdcsaAttributeName'
-  Text ->
+-- To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
+mkModifyDBClusterSnapshotAttribute ::
+  -- | 'dbClusterSnapshotIdentifier'
+  Lude.Text ->
+  -- | 'attributeName'
+  Lude.Text ->
   ModifyDBClusterSnapshotAttribute
-modifyDBClusterSnapshotAttribute
+mkModifyDBClusterSnapshotAttribute
   pDBClusterSnapshotIdentifier_
   pAttributeName_ =
     ModifyDBClusterSnapshotAttribute'
-      { _mdcsaValuesToAdd = Nothing,
-        _mdcsaValuesToRemove = Nothing,
-        _mdcsaDBClusterSnapshotIdentifier =
-          pDBClusterSnapshotIdentifier_,
-        _mdcsaAttributeName = pAttributeName_
+      { valuesToAdd = Lude.Nothing,
+        valuesToRemove = Lude.Nothing,
+        dbClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_,
+        attributeName = pAttributeName_
       }
 
--- | A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
-mdcsaValuesToAdd :: Lens' ModifyDBClusterSnapshotAttribute [Text]
-mdcsaValuesToAdd = lens _mdcsaValuesToAdd (\s a -> s {_mdcsaValuesToAdd = a}) . _Default . _Coerce
+-- | A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ .
+--
+-- To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
+--
+-- /Note:/ Consider using 'valuesToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsaValuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Lude.Maybe [Lude.Text])
+mdcsaValuesToAdd = Lens.lens (valuesToAdd :: ModifyDBClusterSnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute)
+{-# DEPRECATED mdcsaValuesToAdd "Use generic-lens or generic-optics with 'valuesToAdd' instead." #-}
 
--- | A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ . To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
-mdcsaValuesToRemove :: Lens' ModifyDBClusterSnapshotAttribute [Text]
-mdcsaValuesToRemove = lens _mdcsaValuesToRemove (\s a -> s {_mdcsaValuesToRemove = a}) . _Default . _Coerce
+-- | A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ .
+--
+-- To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
+--
+-- /Note:/ Consider using 'valuesToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsaValuesToRemove :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Lude.Maybe [Lude.Text])
+mdcsaValuesToRemove = Lens.lens (valuesToRemove :: ModifyDBClusterSnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {valuesToRemove = a} :: ModifyDBClusterSnapshotAttribute)
+{-# DEPRECATED mdcsaValuesToRemove "Use generic-lens or generic-optics with 'valuesToRemove' instead." #-}
 
 -- | The identifier for the DB cluster snapshot to modify the attributes for.
-mdcsaDBClusterSnapshotIdentifier :: Lens' ModifyDBClusterSnapshotAttribute Text
-mdcsaDBClusterSnapshotIdentifier = lens _mdcsaDBClusterSnapshotIdentifier (\s a -> s {_mdcsaDBClusterSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsaDBClusterSnapshotIdentifier :: Lens.Lens' ModifyDBClusterSnapshotAttribute Lude.Text
+mdcsaDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: ModifyDBClusterSnapshotAttribute -> Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: ModifyDBClusterSnapshotAttribute)
+{-# DEPRECATED mdcsaDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
 
--- | The name of the DB cluster snapshot attribute to modify. To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
-mdcsaAttributeName :: Lens' ModifyDBClusterSnapshotAttribute Text
-mdcsaAttributeName = lens _mdcsaAttributeName (\s a -> s {_mdcsaAttributeName = a})
+-- | The name of the DB cluster snapshot attribute to modify.
+--
+-- To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsaAttributeName :: Lens.Lens' ModifyDBClusterSnapshotAttribute Lude.Text
+mdcsaAttributeName = Lens.lens (attributeName :: ModifyDBClusterSnapshotAttribute -> Lude.Text) (\s a -> s {attributeName = a} :: ModifyDBClusterSnapshotAttribute)
+{-# DEPRECATED mdcsaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance AWSRequest ModifyDBClusterSnapshotAttribute where
+instance Lude.AWSRequest ModifyDBClusterSnapshotAttribute where
   type
     Rs ModifyDBClusterSnapshotAttribute =
       ModifyDBClusterSnapshotAttributeResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyDBClusterSnapshotAttributeResult"
       ( \s h x ->
           ModifyDBClusterSnapshotAttributeResponse'
-            <$> (x .@? "DBClusterSnapshotAttributesResult")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBClusterSnapshotAttributesResult")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyDBClusterSnapshotAttribute
+instance Lude.ToHeaders ModifyDBClusterSnapshotAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyDBClusterSnapshotAttribute
+instance Lude.ToPath ModifyDBClusterSnapshotAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyDBClusterSnapshotAttribute where
-  toHeaders = const mempty
-
-instance ToPath ModifyDBClusterSnapshotAttribute where
-  toPath = const "/"
-
-instance ToQuery ModifyDBClusterSnapshotAttribute where
+instance Lude.ToQuery ModifyDBClusterSnapshotAttribute where
   toQuery ModifyDBClusterSnapshotAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ModifyDBClusterSnapshotAttribute" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ModifyDBClusterSnapshotAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "ValuesToAdd"
-          =: toQuery (toQueryList "AttributeValue" <$> _mdcsaValuesToAdd),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "AttributeValue" Lude.<$> valuesToAdd),
         "ValuesToRemove"
-          =: toQuery (toQueryList "AttributeValue" <$> _mdcsaValuesToRemove),
-        "DBClusterSnapshotIdentifier" =: _mdcsaDBClusterSnapshotIdentifier,
-        "AttributeName" =: _mdcsaAttributeName
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "AttributeValue" Lude.<$> valuesToRemove),
+        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier,
+        "AttributeName" Lude.=: attributeName
       ]
 
--- | /See:/ 'modifyDBClusterSnapshotAttributeResponse' smart constructor.
+-- | /See:/ 'mkModifyDBClusterSnapshotAttributeResponse' smart constructor.
 data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttributeResponse'
-  { _mdcsarsDBClusterSnapshotAttributesResult ::
-      !( Maybe
-           DBClusterSnapshotAttributesResult
-       ),
-    _mdcsarsResponseStatus ::
-      !Int
+  { dbClusterSnapshotAttributesResult ::
+      Lude.Maybe
+        DBClusterSnapshotAttributesResult,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBClusterSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdcsarsDBClusterSnapshotAttributesResult' - Undocumented member.
---
--- * 'mdcsarsResponseStatus' - -- | The response status code.
-modifyDBClusterSnapshotAttributeResponse ::
-  -- | 'mdcsarsResponseStatus'
-  Int ->
+-- * 'dbClusterSnapshotAttributesResult' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyDBClusterSnapshotAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyDBClusterSnapshotAttributeResponse
-modifyDBClusterSnapshotAttributeResponse pResponseStatus_ =
+mkModifyDBClusterSnapshotAttributeResponse pResponseStatus_ =
   ModifyDBClusterSnapshotAttributeResponse'
-    { _mdcsarsDBClusterSnapshotAttributesResult =
-        Nothing,
-      _mdcsarsResponseStatus = pResponseStatus_
+    { dbClusterSnapshotAttributesResult =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mdcsarsDBClusterSnapshotAttributesResult :: Lens' ModifyDBClusterSnapshotAttributeResponse (Maybe DBClusterSnapshotAttributesResult)
-mdcsarsDBClusterSnapshotAttributesResult = lens _mdcsarsDBClusterSnapshotAttributesResult (\s a -> s {_mdcsarsDBClusterSnapshotAttributesResult = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbClusterSnapshotAttributesResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsarsDBClusterSnapshotAttributesResult :: Lens.Lens' ModifyDBClusterSnapshotAttributeResponse (Lude.Maybe DBClusterSnapshotAttributesResult)
+mdcsarsDBClusterSnapshotAttributesResult = Lens.lens (dbClusterSnapshotAttributesResult :: ModifyDBClusterSnapshotAttributeResponse -> Lude.Maybe DBClusterSnapshotAttributesResult) (\s a -> s {dbClusterSnapshotAttributesResult = a} :: ModifyDBClusterSnapshotAttributeResponse)
+{-# DEPRECATED mdcsarsDBClusterSnapshotAttributesResult "Use generic-lens or generic-optics with 'dbClusterSnapshotAttributesResult' instead." #-}
 
--- | -- | The response status code.
-mdcsarsResponseStatus :: Lens' ModifyDBClusterSnapshotAttributeResponse Int
-mdcsarsResponseStatus = lens _mdcsarsResponseStatus (\s a -> s {_mdcsarsResponseStatus = a})
-
-instance NFData ModifyDBClusterSnapshotAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsarsResponseStatus :: Lens.Lens' ModifyDBClusterSnapshotAttributeResponse Lude.Int
+mdcsarsResponseStatus = Lens.lens (responseStatus :: ModifyDBClusterSnapshotAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyDBClusterSnapshotAttributeResponse)
+{-# DEPRECATED mdcsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

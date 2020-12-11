@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates an existing cost anomaly monitor subscription.
 module Network.AWS.CostExplorer.UpdateAnomalySubscription
-  ( -- * Creating a Request
-    updateAnomalySubscription,
-    UpdateAnomalySubscription,
+  ( -- * Creating a request
+    UpdateAnomalySubscription (..),
+    mkUpdateAnomalySubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uasSubscriptionName,
     uasFrequency,
     uasThreshold,
@@ -31,173 +26,197 @@ module Network.AWS.CostExplorer.UpdateAnomalySubscription
     uasSubscribers,
     uasSubscriptionARN,
 
-    -- * Destructuring the Response
-    updateAnomalySubscriptionResponse,
-    UpdateAnomalySubscriptionResponse,
+    -- * Destructuring the response
+    UpdateAnomalySubscriptionResponse (..),
+    mkUpdateAnomalySubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uasrsResponseStatus,
     uasrsSubscriptionARN,
   )
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAnomalySubscription' smart constructor.
+-- | /See:/ 'mkUpdateAnomalySubscription' smart constructor.
 data UpdateAnomalySubscription = UpdateAnomalySubscription'
-  { _uasSubscriptionName ::
-      !(Maybe Text),
-    _uasFrequency ::
-      !(Maybe AnomalySubscriptionFrequency),
-    _uasThreshold :: !(Maybe Double),
-    _uasMonitorARNList :: !(Maybe [Text]),
-    _uasSubscribers ::
-      !(Maybe [Subscriber]),
-    _uasSubscriptionARN :: !Text
+  { subscriptionName ::
+      Lude.Maybe Lude.Text,
+    frequency ::
+      Lude.Maybe AnomalySubscriptionFrequency,
+    threshold :: Lude.Maybe Lude.Double,
+    monitorARNList ::
+      Lude.Maybe [Lude.Text],
+    subscribers :: Lude.Maybe [Subscriber],
+    subscriptionARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAnomalySubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uasSubscriptionName' - The subscription's new name.
---
--- * 'uasFrequency' - The update to the frequency value at which subscribers will receive notifications.
---
--- * 'uasThreshold' - The update to the threshold value for receiving notifications.
---
--- * 'uasMonitorARNList' - A list of cost anomaly subscription ARNs.
---
--- * 'uasSubscribers' - The update to the subscriber list.
---
--- * 'uasSubscriptionARN' - A cost anomaly subscription Amazon Resource Name (ARN).
-updateAnomalySubscription ::
-  -- | 'uasSubscriptionARN'
-  Text ->
+-- * 'frequency' - The update to the frequency value at which subscribers will receive notifications.
+-- * 'monitorARNList' - A list of cost anomaly subscription ARNs.
+-- * 'subscribers' - The update to the subscriber list.
+-- * 'subscriptionARN' - A cost anomaly subscription Amazon Resource Name (ARN).
+-- * 'subscriptionName' - The subscription's new name.
+-- * 'threshold' - The update to the threshold value for receiving notifications.
+mkUpdateAnomalySubscription ::
+  -- | 'subscriptionARN'
+  Lude.Text ->
   UpdateAnomalySubscription
-updateAnomalySubscription pSubscriptionARN_ =
+mkUpdateAnomalySubscription pSubscriptionARN_ =
   UpdateAnomalySubscription'
-    { _uasSubscriptionName = Nothing,
-      _uasFrequency = Nothing,
-      _uasThreshold = Nothing,
-      _uasMonitorARNList = Nothing,
-      _uasSubscribers = Nothing,
-      _uasSubscriptionARN = pSubscriptionARN_
+    { subscriptionName = Lude.Nothing,
+      frequency = Lude.Nothing,
+      threshold = Lude.Nothing,
+      monitorARNList = Lude.Nothing,
+      subscribers = Lude.Nothing,
+      subscriptionARN = pSubscriptionARN_
     }
 
 -- | The subscription's new name.
-uasSubscriptionName :: Lens' UpdateAnomalySubscription (Maybe Text)
-uasSubscriptionName = lens _uasSubscriptionName (\s a -> s {_uasSubscriptionName = a})
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasSubscriptionName :: Lens.Lens' UpdateAnomalySubscription (Lude.Maybe Lude.Text)
+uasSubscriptionName = Lens.lens (subscriptionName :: UpdateAnomalySubscription -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionName = a} :: UpdateAnomalySubscription)
+{-# DEPRECATED uasSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
 -- | The update to the frequency value at which subscribers will receive notifications.
-uasFrequency :: Lens' UpdateAnomalySubscription (Maybe AnomalySubscriptionFrequency)
-uasFrequency = lens _uasFrequency (\s a -> s {_uasFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasFrequency :: Lens.Lens' UpdateAnomalySubscription (Lude.Maybe AnomalySubscriptionFrequency)
+uasFrequency = Lens.lens (frequency :: UpdateAnomalySubscription -> Lude.Maybe AnomalySubscriptionFrequency) (\s a -> s {frequency = a} :: UpdateAnomalySubscription)
+{-# DEPRECATED uasFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The update to the threshold value for receiving notifications.
-uasThreshold :: Lens' UpdateAnomalySubscription (Maybe Double)
-uasThreshold = lens _uasThreshold (\s a -> s {_uasThreshold = a})
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasThreshold :: Lens.Lens' UpdateAnomalySubscription (Lude.Maybe Lude.Double)
+uasThreshold = Lens.lens (threshold :: UpdateAnomalySubscription -> Lude.Maybe Lude.Double) (\s a -> s {threshold = a} :: UpdateAnomalySubscription)
+{-# DEPRECATED uasThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
 -- | A list of cost anomaly subscription ARNs.
-uasMonitorARNList :: Lens' UpdateAnomalySubscription [Text]
-uasMonitorARNList = lens _uasMonitorARNList (\s a -> s {_uasMonitorARNList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'monitorARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasMonitorARNList :: Lens.Lens' UpdateAnomalySubscription (Lude.Maybe [Lude.Text])
+uasMonitorARNList = Lens.lens (monitorARNList :: UpdateAnomalySubscription -> Lude.Maybe [Lude.Text]) (\s a -> s {monitorARNList = a} :: UpdateAnomalySubscription)
+{-# DEPRECATED uasMonitorARNList "Use generic-lens or generic-optics with 'monitorARNList' instead." #-}
 
 -- | The update to the subscriber list.
-uasSubscribers :: Lens' UpdateAnomalySubscription [Subscriber]
-uasSubscribers = lens _uasSubscribers (\s a -> s {_uasSubscribers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasSubscribers :: Lens.Lens' UpdateAnomalySubscription (Lude.Maybe [Subscriber])
+uasSubscribers = Lens.lens (subscribers :: UpdateAnomalySubscription -> Lude.Maybe [Subscriber]) (\s a -> s {subscribers = a} :: UpdateAnomalySubscription)
+{-# DEPRECATED uasSubscribers "Use generic-lens or generic-optics with 'subscribers' instead." #-}
 
 -- | A cost anomaly subscription Amazon Resource Name (ARN).
-uasSubscriptionARN :: Lens' UpdateAnomalySubscription Text
-uasSubscriptionARN = lens _uasSubscriptionARN (\s a -> s {_uasSubscriptionARN = a})
+--
+-- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasSubscriptionARN :: Lens.Lens' UpdateAnomalySubscription Lude.Text
+uasSubscriptionARN = Lens.lens (subscriptionARN :: UpdateAnomalySubscription -> Lude.Text) (\s a -> s {subscriptionARN = a} :: UpdateAnomalySubscription)
+{-# DEPRECATED uasSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
 
-instance AWSRequest UpdateAnomalySubscription where
+instance Lude.AWSRequest UpdateAnomalySubscription where
   type
     Rs UpdateAnomalySubscription =
       UpdateAnomalySubscriptionResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAnomalySubscriptionResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "SubscriptionArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "SubscriptionArn")
       )
 
-instance Hashable UpdateAnomalySubscription
-
-instance NFData UpdateAnomalySubscription
-
-instance ToHeaders UpdateAnomalySubscription where
+instance Lude.ToHeaders UpdateAnomalySubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSInsightsIndexService.UpdateAnomalySubscription" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.UpdateAnomalySubscription" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateAnomalySubscription where
+instance Lude.ToJSON UpdateAnomalySubscription where
   toJSON UpdateAnomalySubscription' {..} =
-    object
-      ( catMaybes
-          [ ("SubscriptionName" .=) <$> _uasSubscriptionName,
-            ("Frequency" .=) <$> _uasFrequency,
-            ("Threshold" .=) <$> _uasThreshold,
-            ("MonitorArnList" .=) <$> _uasMonitorARNList,
-            ("Subscribers" .=) <$> _uasSubscribers,
-            Just ("SubscriptionArn" .= _uasSubscriptionARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SubscriptionName" Lude..=) Lude.<$> subscriptionName,
+            ("Frequency" Lude..=) Lude.<$> frequency,
+            ("Threshold" Lude..=) Lude.<$> threshold,
+            ("MonitorArnList" Lude..=) Lude.<$> monitorARNList,
+            ("Subscribers" Lude..=) Lude.<$> subscribers,
+            Lude.Just ("SubscriptionArn" Lude..= subscriptionARN)
           ]
       )
 
-instance ToPath UpdateAnomalySubscription where
-  toPath = const "/"
+instance Lude.ToPath UpdateAnomalySubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateAnomalySubscription where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAnomalySubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAnomalySubscriptionResponse' smart constructor.
+-- | /See:/ 'mkUpdateAnomalySubscriptionResponse' smart constructor.
 data UpdateAnomalySubscriptionResponse = UpdateAnomalySubscriptionResponse'
-  { _uasrsResponseStatus ::
-      !Int,
-    _uasrsSubscriptionARN ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    subscriptionARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAnomalySubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uasrsResponseStatus' - -- | The response status code.
---
--- * 'uasrsSubscriptionARN' - A cost anomaly subscription ARN.
-updateAnomalySubscriptionResponse ::
-  -- | 'uasrsResponseStatus'
-  Int ->
-  -- | 'uasrsSubscriptionARN'
-  Text ->
+-- * 'responseStatus' - The response status code.
+-- * 'subscriptionARN' - A cost anomaly subscription ARN.
+mkUpdateAnomalySubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'subscriptionARN'
+  Lude.Text ->
   UpdateAnomalySubscriptionResponse
-updateAnomalySubscriptionResponse
+mkUpdateAnomalySubscriptionResponse
   pResponseStatus_
   pSubscriptionARN_ =
     UpdateAnomalySubscriptionResponse'
-      { _uasrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _uasrsSubscriptionARN = pSubscriptionARN_
+        subscriptionARN = pSubscriptionARN_
       }
 
--- | -- | The response status code.
-uasrsResponseStatus :: Lens' UpdateAnomalySubscriptionResponse Int
-uasrsResponseStatus = lens _uasrsResponseStatus (\s a -> s {_uasrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrsResponseStatus :: Lens.Lens' UpdateAnomalySubscriptionResponse Lude.Int
+uasrsResponseStatus = Lens.lens (responseStatus :: UpdateAnomalySubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAnomalySubscriptionResponse)
+{-# DEPRECATED uasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A cost anomaly subscription ARN.
-uasrsSubscriptionARN :: Lens' UpdateAnomalySubscriptionResponse Text
-uasrsSubscriptionARN = lens _uasrsSubscriptionARN (\s a -> s {_uasrsSubscriptionARN = a})
-
-instance NFData UpdateAnomalySubscriptionResponse
+--
+-- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrsSubscriptionARN :: Lens.Lens' UpdateAnomalySubscriptionResponse Lude.Text
+uasrsSubscriptionARN = Lens.lens (subscriptionARN :: UpdateAnomalySubscriptionResponse -> Lude.Text) (\s a -> s {subscriptionARN = a} :: UpdateAnomalySubscriptionResponse)
+{-# DEPRECATED uasrsSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}

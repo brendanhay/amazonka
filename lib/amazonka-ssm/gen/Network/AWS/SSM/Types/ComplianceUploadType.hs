@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ComplianceUploadType where
+module Network.AWS.SSM.Types.ComplianceUploadType
+  ( ComplianceUploadType
+      ( ComplianceUploadType',
+        Complete,
+        Partial
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComplianceUploadType
-  = Complete
-  | Partial
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComplianceUploadType = ComplianceUploadType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComplianceUploadType where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure Complete
-      "partial" -> pure Partial
-      e ->
-        fromTextError $
-          "Failure parsing ComplianceUploadType from value: '" <> e
-            <> "'. Accepted values: complete, partial"
+pattern Complete :: ComplianceUploadType
+pattern Complete = ComplianceUploadType' "COMPLETE"
 
-instance ToText ComplianceUploadType where
-  toText = \case
-    Complete -> "COMPLETE"
-    Partial -> "PARTIAL"
+pattern Partial :: ComplianceUploadType
+pattern Partial = ComplianceUploadType' "PARTIAL"
 
-instance Hashable ComplianceUploadType
-
-instance NFData ComplianceUploadType
-
-instance ToByteString ComplianceUploadType
-
-instance ToQuery ComplianceUploadType
-
-instance ToHeader ComplianceUploadType
-
-instance ToJSON ComplianceUploadType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Complete,
+  Partial,
+  ComplianceUploadType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,151 +17,164 @@
 --
 --     * Storage gateways of all types
 --
+--
 --     * Storage volumes
 --
+--
 --     * Virtual tapes
+--
 --
 --     * NFS and SMB file shares
 --
 --
---
 -- You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
 module Network.AWS.StorageGateway.AddTagsToResource
-  ( -- * Creating a Request
-    addTagsToResource,
-    AddTagsToResource,
+  ( -- * Creating a request
+    AddTagsToResource (..),
+    mkAddTagsToResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attrResourceARN,
     attrTags,
 
-    -- * Destructuring the Response
-    addTagsToResourceResponse,
-    AddTagsToResourceResponse,
+    -- * Destructuring the response
+    AddTagsToResourceResponse (..),
+    mkAddTagsToResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     attrrsResourceARN,
     attrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | AddTagsToResourceInput
 --
---
---
--- /See:/ 'addTagsToResource' smart constructor.
+-- /See:/ 'mkAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceARN ::
-      !Text,
-    _attrTags :: ![Tag]
+  { resourceARN ::
+      Lude.Text,
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attrResourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
---
--- * 'attrTags' - The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
-addTagsToResource ::
-  -- | 'attrResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
+-- * 'tags' - The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
+mkAddTagsToResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   AddTagsToResource
-addTagsToResource pResourceARN_ =
+mkAddTagsToResource pResourceARN_ =
   AddTagsToResource'
-    { _attrResourceARN = pResourceARN_,
-      _attrTags = mempty
+    { resourceARN = pResourceARN_,
+      tags = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
-attrResourceARN :: Lens' AddTagsToResource Text
-attrResourceARN = lens _attrResourceARN (\s a -> s {_attrResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrResourceARN :: Lens.Lens' AddTagsToResource Lude.Text
+attrResourceARN = Lens.lens (resourceARN :: AddTagsToResource -> Lude.Text) (\s a -> s {resourceARN = a} :: AddTagsToResource)
+{-# DEPRECATED attrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\s a -> s {_attrTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrTags :: Lens.Lens' AddTagsToResource [Tag]
+attrTags = Lens.lens (tags :: AddTagsToResource -> [Tag]) (\s a -> s {tags = a} :: AddTagsToResource)
+{-# DEPRECATED attrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest AddTagsToResource where
+instance Lude.AWSRequest AddTagsToResource where
   type Rs AddTagsToResource = AddTagsToResourceResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AddTagsToResourceResponse'
-            <$> (x .?> "ResourceARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourceARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddTagsToResource
-
-instance NFData AddTagsToResource
-
-instance ToHeaders AddTagsToResource where
+instance Lude.ToHeaders AddTagsToResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.AddTagsToResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.AddTagsToResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddTagsToResource where
+instance Lude.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceARN" .= _attrResourceARN),
-            Just ("Tags" .= _attrTags)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
+            Lude.Just ("Tags" Lude..= tags)
           ]
       )
 
-instance ToPath AddTagsToResource where
-  toPath = const "/"
+instance Lude.ToPath AddTagsToResource where
+  toPath = Lude.const "/"
 
-instance ToQuery AddTagsToResource where
-  toQuery = const mempty
+instance Lude.ToQuery AddTagsToResource where
+  toQuery = Lude.const Lude.mempty
 
 -- | AddTagsToResourceOutput
 --
---
---
--- /See:/ 'addTagsToResourceResponse' smart constructor.
+-- /See:/ 'mkAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
-  { _attrrsResourceARN ::
-      !(Maybe Text),
-    _attrrsResponseStatus :: !Int
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attrrsResourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
---
--- * 'attrrsResponseStatus' - -- | The response status code.
-addTagsToResourceResponse ::
-  -- | 'attrrsResponseStatus'
-  Int ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
+-- * 'responseStatus' - The response status code.
+mkAddTagsToResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddTagsToResourceResponse
-addTagsToResourceResponse pResponseStatus_ =
+mkAddTagsToResourceResponse pResponseStatus_ =
   AddTagsToResourceResponse'
-    { _attrrsResourceARN = Nothing,
-      _attrrsResponseStatus = pResponseStatus_
+    { resourceARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
-attrrsResourceARN :: Lens' AddTagsToResourceResponse (Maybe Text)
-attrrsResourceARN = lens _attrrsResourceARN (\s a -> s {_attrrsResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrrsResourceARN :: Lens.Lens' AddTagsToResourceResponse (Lude.Maybe Lude.Text)
+attrrsResourceARN = Lens.lens (resourceARN :: AddTagsToResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: AddTagsToResourceResponse)
+{-# DEPRECATED attrrsResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
--- | -- | The response status code.
-attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\s a -> s {_attrrsResponseStatus = a})
-
-instance NFData AddTagsToResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrrsResponseStatus :: Lens.Lens' AddTagsToResourceResponse Lude.Int
+attrrsResponseStatus = Lens.lens (responseStatus :: AddTagsToResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsToResourceResponse)
+{-# DEPRECATED attrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

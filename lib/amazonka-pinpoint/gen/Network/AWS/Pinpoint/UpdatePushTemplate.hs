@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,211 @@
 --
 -- Updates an existing message template for messages that are sent through a push notification channel.
 module Network.AWS.Pinpoint.UpdatePushTemplate
-  ( -- * Creating a Request
-    updatePushTemplate,
-    UpdatePushTemplate,
+  ( -- * Creating a request
+    UpdatePushTemplate (..),
+    mkUpdatePushTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uptVersion,
     uptCreateNewVersion,
     uptTemplateName,
     uptPushNotificationTemplateRequest,
 
-    -- * Destructuring the Response
-    updatePushTemplateResponse,
-    UpdatePushTemplateResponse,
+    -- * Destructuring the response
+    UpdatePushTemplateResponse (..),
+    mkUpdatePushTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uptrsResponseStatus,
     uptrsMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePushTemplate' smart constructor.
+-- | /See:/ 'mkUpdatePushTemplate' smart constructor.
 data UpdatePushTemplate = UpdatePushTemplate'
-  { _uptVersion ::
-      !(Maybe Text),
-    _uptCreateNewVersion :: !(Maybe Bool),
-    _uptTemplateName :: !Text,
-    _uptPushNotificationTemplateRequest ::
-      !PushNotificationTemplateRequest
+  { version ::
+      Lude.Maybe Lude.Text,
+    createNewVersion :: Lude.Maybe Lude.Bool,
+    templateName :: Lude.Text,
+    pushNotificationTemplateRequest ::
+      PushNotificationTemplateRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePushTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'createNewVersion' - Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
 --
--- * 'uptVersion' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
+-- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+-- * 'pushNotificationTemplateRequest' - Undocumented field.
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
--- * 'uptCreateNewVersion' - Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template. If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
 --
--- * 'uptTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+--     * For a get operation, retrieves information about the active version of the template.
 --
--- * 'uptPushNotificationTemplateRequest' - Undocumented member.
-updatePushTemplate ::
-  -- | 'uptTemplateName'
-  Text ->
-  -- | 'uptPushNotificationTemplateRequest'
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+mkUpdatePushTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'pushNotificationTemplateRequest'
   PushNotificationTemplateRequest ->
   UpdatePushTemplate
-updatePushTemplate pTemplateName_ pPushNotificationTemplateRequest_ =
-  UpdatePushTemplate'
-    { _uptVersion = Nothing,
-      _uptCreateNewVersion = Nothing,
-      _uptTemplateName = pTemplateName_,
-      _uptPushNotificationTemplateRequest =
-        pPushNotificationTemplateRequest_
-    }
+mkUpdatePushTemplate
+  pTemplateName_
+  pPushNotificationTemplateRequest_ =
+    UpdatePushTemplate'
+      { version = Lude.Nothing,
+        createNewVersion = Lude.Nothing,
+        templateName = pTemplateName_,
+        pushNotificationTemplateRequest =
+          pPushNotificationTemplateRequest_
+      }
 
--- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
-uptVersion :: Lens' UpdatePushTemplate (Maybe Text)
-uptVersion = lens _uptVersion (\s a -> s {_uptVersion = a})
+-- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+--
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+--
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+--
+--
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptVersion :: Lens.Lens' UpdatePushTemplate (Lude.Maybe Lude.Text)
+uptVersion = Lens.lens (version :: UpdatePushTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdatePushTemplate)
+{-# DEPRECATED uptVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template. If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
-uptCreateNewVersion :: Lens' UpdatePushTemplate (Maybe Bool)
-uptCreateNewVersion = lens _uptCreateNewVersion (\s a -> s {_uptCreateNewVersion = a})
+-- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
+--
+-- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+--
+-- /Note:/ Consider using 'createNewVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptCreateNewVersion :: Lens.Lens' UpdatePushTemplate (Lude.Maybe Lude.Bool)
+uptCreateNewVersion = Lens.lens (createNewVersion :: UpdatePushTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {createNewVersion = a} :: UpdatePushTemplate)
+{-# DEPRECATED uptCreateNewVersion "Use generic-lens or generic-optics with 'createNewVersion' instead." #-}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-uptTemplateName :: Lens' UpdatePushTemplate Text
-uptTemplateName = lens _uptTemplateName (\s a -> s {_uptTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptTemplateName :: Lens.Lens' UpdatePushTemplate Lude.Text
+uptTemplateName = Lens.lens (templateName :: UpdatePushTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdatePushTemplate)
+{-# DEPRECATED uptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
--- | Undocumented member.
-uptPushNotificationTemplateRequest :: Lens' UpdatePushTemplate PushNotificationTemplateRequest
-uptPushNotificationTemplateRequest = lens _uptPushNotificationTemplateRequest (\s a -> s {_uptPushNotificationTemplateRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'pushNotificationTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptPushNotificationTemplateRequest :: Lens.Lens' UpdatePushTemplate PushNotificationTemplateRequest
+uptPushNotificationTemplateRequest = Lens.lens (pushNotificationTemplateRequest :: UpdatePushTemplate -> PushNotificationTemplateRequest) (\s a -> s {pushNotificationTemplateRequest = a} :: UpdatePushTemplate)
+{-# DEPRECATED uptPushNotificationTemplateRequest "Use generic-lens or generic-optics with 'pushNotificationTemplateRequest' instead." #-}
 
-instance AWSRequest UpdatePushTemplate where
+instance Lude.AWSRequest UpdatePushTemplate where
   type Rs UpdatePushTemplate = UpdatePushTemplateResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdatePushTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdatePushTemplate
-
-instance NFData UpdatePushTemplate
-
-instance ToHeaders UpdatePushTemplate where
+instance Lude.ToHeaders UpdatePushTemplate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdatePushTemplate where
+instance Lude.ToJSON UpdatePushTemplate where
   toJSON UpdatePushTemplate' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "PushNotificationTemplateRequest"
-                  .= _uptPushNotificationTemplateRequest
+                  Lude..= pushNotificationTemplateRequest
               )
           ]
       )
 
-instance ToPath UpdatePushTemplate where
+instance Lude.ToPath UpdatePushTemplate where
   toPath UpdatePushTemplate' {..} =
-    mconcat ["/v1/templates/", toBS _uptTemplateName, "/push"]
+    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/push"]
 
-instance ToQuery UpdatePushTemplate where
+instance Lude.ToQuery UpdatePushTemplate where
   toQuery UpdatePushTemplate' {..} =
-    mconcat
-      [ "version" =: _uptVersion,
-        "create-new-version" =: _uptCreateNewVersion
+    Lude.mconcat
+      [ "version" Lude.=: version,
+        "create-new-version" Lude.=: createNewVersion
       ]
 
--- | /See:/ 'updatePushTemplateResponse' smart constructor.
+-- | /See:/ 'mkUpdatePushTemplateResponse' smart constructor.
 data UpdatePushTemplateResponse = UpdatePushTemplateResponse'
-  { _uptrsResponseStatus ::
-      !Int,
-    _uptrsMessageBody :: !MessageBody
+  { responseStatus ::
+      Lude.Int,
+    messageBody :: MessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePushTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uptrsResponseStatus' - -- | The response status code.
---
--- * 'uptrsMessageBody' - Undocumented member.
-updatePushTemplateResponse ::
-  -- | 'uptrsResponseStatus'
-  Int ->
-  -- | 'uptrsMessageBody'
+-- * 'messageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdatePushTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'messageBody'
   MessageBody ->
   UpdatePushTemplateResponse
-updatePushTemplateResponse pResponseStatus_ pMessageBody_ =
+mkUpdatePushTemplateResponse pResponseStatus_ pMessageBody_ =
   UpdatePushTemplateResponse'
-    { _uptrsResponseStatus =
-        pResponseStatus_,
-      _uptrsMessageBody = pMessageBody_
+    { responseStatus = pResponseStatus_,
+      messageBody = pMessageBody_
     }
 
--- | -- | The response status code.
-uptrsResponseStatus :: Lens' UpdatePushTemplateResponse Int
-uptrsResponseStatus = lens _uptrsResponseStatus (\s a -> s {_uptrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptrsResponseStatus :: Lens.Lens' UpdatePushTemplateResponse Lude.Int
+uptrsResponseStatus = Lens.lens (responseStatus :: UpdatePushTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePushTemplateResponse)
+{-# DEPRECATED uptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-uptrsMessageBody :: Lens' UpdatePushTemplateResponse MessageBody
-uptrsMessageBody = lens _uptrsMessageBody (\s a -> s {_uptrsMessageBody = a})
-
-instance NFData UpdatePushTemplateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptrsMessageBody :: Lens.Lens' UpdatePushTemplateResponse MessageBody
+uptrsMessageBody = Lens.lens (messageBody :: UpdatePushTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdatePushTemplateResponse)
+{-# DEPRECATED uptrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}

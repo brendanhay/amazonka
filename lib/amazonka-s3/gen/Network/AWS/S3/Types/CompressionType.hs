@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.CompressionType where
+module Network.AWS.S3.Types.CompressionType
+  ( CompressionType
+      ( CompressionType',
+        CTBZIP2,
+        CTGzip,
+        CTNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data CompressionType
-  = CTBZIP2
-  | CTGzip
-  | CTNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompressionType = CompressionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompressionType where
-  parser =
-    takeLowerText >>= \case
-      "bzip2" -> pure CTBZIP2
-      "gzip" -> pure CTGzip
-      "none" -> pure CTNone
-      e ->
-        fromTextError $
-          "Failure parsing CompressionType from value: '" <> e
-            <> "'. Accepted values: bzip2, gzip, none"
+pattern CTBZIP2 :: CompressionType
+pattern CTBZIP2 = CompressionType' "BZIP2"
 
-instance ToText CompressionType where
-  toText = \case
-    CTBZIP2 -> "BZIP2"
-    CTGzip -> "GZIP"
-    CTNone -> "NONE"
+pattern CTGzip :: CompressionType
+pattern CTGzip = CompressionType' "GZIP"
 
-instance Hashable CompressionType
+pattern CTNone :: CompressionType
+pattern CTNone = CompressionType' "NONE"
 
-instance NFData CompressionType
-
-instance ToByteString CompressionType
-
-instance ToQuery CompressionType
-
-instance ToHeader CompressionType
-
-instance ToXML CompressionType where
-  toXML = toXMLText
+{-# COMPLETE
+  CTBZIP2,
+  CTGzip,
+  CTNone,
+  CompressionType'
+  #-}

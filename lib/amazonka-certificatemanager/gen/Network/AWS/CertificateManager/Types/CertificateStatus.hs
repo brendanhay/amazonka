@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.CertificateStatus where
+module Network.AWS.CertificateManager.Types.CertificateStatus
+  ( CertificateStatus
+      ( CertificateStatus',
+        CSExpired,
+        CSFailed,
+        CSInactive,
+        CSIssued,
+        CSPendingValidation,
+        CSRevoked,
+        CSValidationTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateStatus
-  = CSExpired
-  | CSFailed
-  | CSInactive
-  | CSIssued
-  | CSPendingValidation
-  | CSRevoked
-  | CSValidationTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateStatus = CertificateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateStatus where
-  parser =
-    takeLowerText >>= \case
-      "expired" -> pure CSExpired
-      "failed" -> pure CSFailed
-      "inactive" -> pure CSInactive
-      "issued" -> pure CSIssued
-      "pending_validation" -> pure CSPendingValidation
-      "revoked" -> pure CSRevoked
-      "validation_timed_out" -> pure CSValidationTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing CertificateStatus from value: '" <> e
-            <> "'. Accepted values: expired, failed, inactive, issued, pending_validation, revoked, validation_timed_out"
+pattern CSExpired :: CertificateStatus
+pattern CSExpired = CertificateStatus' "EXPIRED"
 
-instance ToText CertificateStatus where
-  toText = \case
-    CSExpired -> "EXPIRED"
-    CSFailed -> "FAILED"
-    CSInactive -> "INACTIVE"
-    CSIssued -> "ISSUED"
-    CSPendingValidation -> "PENDING_VALIDATION"
-    CSRevoked -> "REVOKED"
-    CSValidationTimedOut -> "VALIDATION_TIMED_OUT"
+pattern CSFailed :: CertificateStatus
+pattern CSFailed = CertificateStatus' "FAILED"
 
-instance Hashable CertificateStatus
+pattern CSInactive :: CertificateStatus
+pattern CSInactive = CertificateStatus' "INACTIVE"
 
-instance NFData CertificateStatus
+pattern CSIssued :: CertificateStatus
+pattern CSIssued = CertificateStatus' "ISSUED"
 
-instance ToByteString CertificateStatus
+pattern CSPendingValidation :: CertificateStatus
+pattern CSPendingValidation = CertificateStatus' "PENDING_VALIDATION"
 
-instance ToQuery CertificateStatus
+pattern CSRevoked :: CertificateStatus
+pattern CSRevoked = CertificateStatus' "REVOKED"
 
-instance ToHeader CertificateStatus
+pattern CSValidationTimedOut :: CertificateStatus
+pattern CSValidationTimedOut = CertificateStatus' "VALIDATION_TIMED_OUT"
 
-instance ToJSON CertificateStatus where
-  toJSON = toJSONText
-
-instance FromJSON CertificateStatus where
-  parseJSON = parseJSONText "CertificateStatus"
+{-# COMPLETE
+  CSExpired,
+  CSFailed,
+  CSInactive,
+  CSIssued,
+  CSPendingValidation,
+  CSRevoked,
+  CSValidationTimedOut,
+  CertificateStatus'
+  #-}

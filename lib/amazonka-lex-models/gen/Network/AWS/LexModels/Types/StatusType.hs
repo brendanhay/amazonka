@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.StatusType where
+module Network.AWS.LexModels.Types.StatusType
+  ( StatusType
+      ( StatusType',
+        Detected,
+        Missed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusType
-  = Detected
-  | Missed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusType = StatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusType where
-  parser =
-    takeLowerText >>= \case
-      "detected" -> pure Detected
-      "missed" -> pure Missed
-      e ->
-        fromTextError $
-          "Failure parsing StatusType from value: '" <> e
-            <> "'. Accepted values: detected, missed"
+pattern Detected :: StatusType
+pattern Detected = StatusType' "Detected"
 
-instance ToText StatusType where
-  toText = \case
-    Detected -> "Detected"
-    Missed -> "Missed"
+pattern Missed :: StatusType
+pattern Missed = StatusType' "Missed"
 
-instance Hashable StatusType
-
-instance NFData StatusType
-
-instance ToByteString StatusType
-
-instance ToQuery StatusType
-
-instance ToHeader StatusType
-
-instance ToJSON StatusType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Detected,
+  Missed,
+  StatusType'
+  #-}

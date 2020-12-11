@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,20 @@
 --
 -- Lists the applications registered with the IAM user or AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListApplications
-  ( -- * Creating a Request
-    listApplications,
-    ListApplications,
+  ( -- * Creating a request
+    ListApplications (..),
+    mkListApplications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laNextToken,
 
-    -- * Destructuring the Response
-    listApplicationsResponse,
-    ListApplicationsResponse,
+    -- * Destructuring the response
+    ListApplicationsResponse (..),
+    mkListApplicationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larsNextToken,
     larsApplications,
     larsResponseStatus,
@@ -42,121 +35,136 @@ module Network.AWS.CodeDeploy.ListApplications
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ListApplications@ operation.
 --
---
---
--- /See:/ 'listApplications' smart constructor.
+-- /See:/ 'mkListApplications' smart constructor.
 newtype ListApplications = ListApplications'
-  { _laNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laNextToken' - An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
-listApplications ::
+-- * 'nextToken' - An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
+mkListApplications ::
   ListApplications
-listApplications = ListApplications' {_laNextToken = Nothing}
+mkListApplications = ListApplications' {nextToken = Lude.Nothing}
 
 -- | An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
-laNextToken :: Lens' ListApplications (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s {_laNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListApplications (Lude.Maybe Lude.Text)
+laNextToken = Lens.lens (nextToken :: ListApplications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplications)
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListApplications where
+instance Page.AWSPager ListApplications where
   page rq rs
-    | stop (rs ^. larsNextToken) = Nothing
-    | stop (rs ^. larsApplications) = Nothing
-    | otherwise = Just $ rq & laNextToken .~ rs ^. larsNextToken
+    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larsApplications) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
 
-instance AWSRequest ListApplications where
+instance Lude.AWSRequest ListApplications where
   type Rs ListApplications = ListApplicationsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "applications" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "applications" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListApplications
-
-instance NFData ListApplications
-
-instance ToHeaders ListApplications where
+instance Lude.ToHeaders ListApplications where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.ListApplications" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.ListApplications" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListApplications where
+instance Lude.ToJSON ListApplications where
   toJSON ListApplications' {..} =
-    object (catMaybes [("nextToken" .=) <$> _laNextToken])
+    Lude.object
+      (Lude.catMaybes [("nextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath ListApplications where
-  toPath = const "/"
+instance Lude.ToPath ListApplications where
+  toPath = Lude.const "/"
 
-instance ToQuery ListApplications where
-  toQuery = const mempty
+instance Lude.ToQuery ListApplications where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a ListApplications operation.
 --
---
---
--- /See:/ 'listApplicationsResponse' smart constructor.
+-- /See:/ 'mkListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { _larsNextToken ::
-      !(Maybe Text),
-    _larsApplications :: !(Maybe [Text]),
-    _larsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    applications :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications in the list.
---
--- * 'larsApplications' - A list of application names.
---
--- * 'larsResponseStatus' - -- | The response status code.
-listApplicationsResponse ::
-  -- | 'larsResponseStatus'
-  Int ->
+-- * 'applications' - A list of application names.
+-- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications in the list.
+-- * 'responseStatus' - The response status code.
+mkListApplicationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListApplicationsResponse
-listApplicationsResponse pResponseStatus_ =
+mkListApplicationsResponse pResponseStatus_ =
   ListApplicationsResponse'
-    { _larsNextToken = Nothing,
-      _larsApplications = Nothing,
-      _larsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      applications = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications in the list.
-larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\s a -> s {_larsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsNextToken :: Lens.Lens' ListApplicationsResponse (Lude.Maybe Lude.Text)
+larsNextToken = Lens.lens (nextToken :: ListApplicationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationsResponse)
+{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of application names.
-larsApplications :: Lens' ListApplicationsResponse [Text]
-larsApplications = lens _larsApplications (\s a -> s {_larsApplications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsApplications :: Lens.Lens' ListApplicationsResponse (Lude.Maybe [Lude.Text])
+larsApplications = Lens.lens (applications :: ListApplicationsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {applications = a} :: ListApplicationsResponse)
+{-# DEPRECATED larsApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListApplicationsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\s a -> s {_larsResponseStatus = a})
-
-instance NFData ListApplicationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsResponseStatus :: Lens.Lens' ListApplicationsResponse Lude.Int
+larsResponseStatus = Lens.lens (responseStatus :: ListApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationsResponse)
+{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

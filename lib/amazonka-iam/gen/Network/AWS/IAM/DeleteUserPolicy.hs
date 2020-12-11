@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,112 @@
 --
 -- Deletes the specified inline policy that is embedded in the specified IAM user.
 --
---
 -- A user can also have managed policies attached to it. To detach a managed policy from a user, use 'DetachUserPolicy' . For more information about policies, refer to <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 module Network.AWS.IAM.DeleteUserPolicy
-  ( -- * Creating a Request
-    deleteUserPolicy,
-    DeleteUserPolicy,
+  ( -- * Creating a request
+    DeleteUserPolicy (..),
+    mkDeleteUserPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupUserName,
     dupPolicyName,
 
-    -- * Destructuring the Response
-    deleteUserPolicyResponse,
-    DeleteUserPolicyResponse,
+    -- * Destructuring the response
+    DeleteUserPolicyResponse (..),
+    mkDeleteUserPolicyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUserPolicy' smart constructor.
+-- | /See:/ 'mkDeleteUserPolicy' smart constructor.
 data DeleteUserPolicy = DeleteUserPolicy'
-  { _dupUserName :: !Text,
-    _dupPolicyName :: !Text
+  { userName :: Lude.Text,
+    policyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policyName' - The name identifying the policy document to delete.
 --
--- * 'dupUserName' - The name (friendly name, not ARN) identifying the user that the policy is embedded in. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'userName' - The name (friendly name, not ARN) identifying the user that the policy is embedded in.
 --
--- * 'dupPolicyName' - The name identifying the policy document to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-deleteUserPolicy ::
-  -- | 'dupUserName'
-  Text ->
-  -- | 'dupPolicyName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkDeleteUserPolicy ::
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
   DeleteUserPolicy
-deleteUserPolicy pUserName_ pPolicyName_ =
+mkDeleteUserPolicy pUserName_ pPolicyName_ =
   DeleteUserPolicy'
-    { _dupUserName = pUserName_,
-      _dupPolicyName = pPolicyName_
+    { userName = pUserName_,
+      policyName = pPolicyName_
     }
 
--- | The name (friendly name, not ARN) identifying the user that the policy is embedded in. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dupUserName :: Lens' DeleteUserPolicy Text
-dupUserName = lens _dupUserName (\s a -> s {_dupUserName = a})
+-- | The name (friendly name, not ARN) identifying the user that the policy is embedded in.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupUserName :: Lens.Lens' DeleteUserPolicy Lude.Text
+dupUserName = Lens.lens (userName :: DeleteUserPolicy -> Lude.Text) (\s a -> s {userName = a} :: DeleteUserPolicy)
+{-# DEPRECATED dupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The name identifying the policy document to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dupPolicyName :: Lens' DeleteUserPolicy Text
-dupPolicyName = lens _dupPolicyName (\s a -> s {_dupPolicyName = a})
+-- | The name identifying the policy document to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupPolicyName :: Lens.Lens' DeleteUserPolicy Lude.Text
+dupPolicyName = Lens.lens (policyName :: DeleteUserPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteUserPolicy)
+{-# DEPRECATED dupPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance AWSRequest DeleteUserPolicy where
+instance Lude.AWSRequest DeleteUserPolicy where
   type Rs DeleteUserPolicy = DeleteUserPolicyResponse
-  request = postQuery iam
-  response = receiveNull DeleteUserPolicyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteUserPolicyResponse'
 
-instance Hashable DeleteUserPolicy
+instance Lude.ToHeaders DeleteUserPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteUserPolicy
+instance Lude.ToPath DeleteUserPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteUserPolicy where
-  toHeaders = const mempty
-
-instance ToPath DeleteUserPolicy where
-  toPath = const "/"
-
-instance ToQuery DeleteUserPolicy where
+instance Lude.ToQuery DeleteUserPolicy where
   toQuery DeleteUserPolicy' {..} =
-    mconcat
-      [ "Action" =: ("DeleteUserPolicy" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _dupUserName,
-        "PolicyName" =: _dupPolicyName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteUserPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "PolicyName" Lude.=: policyName
       ]
 
--- | /See:/ 'deleteUserPolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPolicyResponse' with the minimum fields required to make a request.
-deleteUserPolicyResponse ::
+mkDeleteUserPolicyResponse ::
   DeleteUserPolicyResponse
-deleteUserPolicyResponse = DeleteUserPolicyResponse'
-
-instance NFData DeleteUserPolicyResponse
+mkDeleteUserPolicyResponse = DeleteUserPolicyResponse'

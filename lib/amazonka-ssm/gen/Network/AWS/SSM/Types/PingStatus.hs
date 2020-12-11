@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PingStatus where
+module Network.AWS.SSM.Types.PingStatus
+  ( PingStatus
+      ( PingStatus',
+        ConnectionLost,
+        Inactive,
+        Online
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PingStatus
-  = ConnectionLost
-  | Inactive
-  | Online
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PingStatus = PingStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PingStatus where
-  parser =
-    takeLowerText >>= \case
-      "connectionlost" -> pure ConnectionLost
-      "inactive" -> pure Inactive
-      "online" -> pure Online
-      e ->
-        fromTextError $
-          "Failure parsing PingStatus from value: '" <> e
-            <> "'. Accepted values: connectionlost, inactive, online"
+pattern ConnectionLost :: PingStatus
+pattern ConnectionLost = PingStatus' "ConnectionLost"
 
-instance ToText PingStatus where
-  toText = \case
-    ConnectionLost -> "ConnectionLost"
-    Inactive -> "Inactive"
-    Online -> "Online"
+pattern Inactive :: PingStatus
+pattern Inactive = PingStatus' "Inactive"
 
-instance Hashable PingStatus
+pattern Online :: PingStatus
+pattern Online = PingStatus' "Online"
 
-instance NFData PingStatus
-
-instance ToByteString PingStatus
-
-instance ToQuery PingStatus
-
-instance ToHeader PingStatus
-
-instance FromJSON PingStatus where
-  parseJSON = parseJSONText "PingStatus"
+{-# COMPLETE
+  ConnectionLost,
+  Inactive,
+  Online,
+  PingStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describes the permissions that the owner of an image has granted to other AWS accounts for an image.
 module Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions
-  ( -- * Creating a Request
-    describeWorkspaceImagePermissions,
-    DescribeWorkspaceImagePermissions,
+  ( -- * Creating a request
+    DescribeWorkspaceImagePermissions (..),
+    mkDescribeWorkspaceImagePermissions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwipNextToken,
     dwipMaxResults,
     dwipImageId,
 
-    -- * Destructuring the Response
-    describeWorkspaceImagePermissionsResponse,
-    DescribeWorkspaceImagePermissionsResponse,
+    -- * Destructuring the response
+    DescribeWorkspaceImagePermissionsResponse (..),
+    mkDescribeWorkspaceImagePermissionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwiprsImagePermissions,
     dwiprsNextToken,
     dwiprsImageId,
@@ -40,165 +35,176 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspaceImagePermissions' smart constructor.
+-- | /See:/ 'mkDescribeWorkspaceImagePermissions' smart constructor.
 data DescribeWorkspaceImagePermissions = DescribeWorkspaceImagePermissions'
-  { _dwipNextToken ::
-      !(Maybe Text),
-    _dwipMaxResults ::
-      !(Maybe Nat),
-    _dwipImageId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    imageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceImagePermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwipNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- * 'dwipMaxResults' - The maximum number of items to return.
---
--- * 'dwipImageId' - The identifier of the image.
-describeWorkspaceImagePermissions ::
-  -- | 'dwipImageId'
-  Text ->
+-- * 'imageId' - The identifier of the image.
+-- * 'maxResults' - The maximum number of items to return.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+mkDescribeWorkspaceImagePermissions ::
+  -- | 'imageId'
+  Lude.Text ->
   DescribeWorkspaceImagePermissions
-describeWorkspaceImagePermissions pImageId_ =
+mkDescribeWorkspaceImagePermissions pImageId_ =
   DescribeWorkspaceImagePermissions'
-    { _dwipNextToken = Nothing,
-      _dwipMaxResults = Nothing,
-      _dwipImageId = pImageId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      imageId = pImageId_
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-dwipNextToken :: Lens' DescribeWorkspaceImagePermissions (Maybe Text)
-dwipNextToken = lens _dwipNextToken (\s a -> s {_dwipNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwipNextToken :: Lens.Lens' DescribeWorkspaceImagePermissions (Lude.Maybe Lude.Text)
+dwipNextToken = Lens.lens (nextToken :: DescribeWorkspaceImagePermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceImagePermissions)
+{-# DEPRECATED dwipNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
-dwipMaxResults :: Lens' DescribeWorkspaceImagePermissions (Maybe Natural)
-dwipMaxResults = lens _dwipMaxResults (\s a -> s {_dwipMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwipMaxResults :: Lens.Lens' DescribeWorkspaceImagePermissions (Lude.Maybe Lude.Natural)
+dwipMaxResults = Lens.lens (maxResults :: DescribeWorkspaceImagePermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeWorkspaceImagePermissions)
+{-# DEPRECATED dwipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the image.
-dwipImageId :: Lens' DescribeWorkspaceImagePermissions Text
-dwipImageId = lens _dwipImageId (\s a -> s {_dwipImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwipImageId :: Lens.Lens' DescribeWorkspaceImagePermissions Lude.Text
+dwipImageId = Lens.lens (imageId :: DescribeWorkspaceImagePermissions -> Lude.Text) (\s a -> s {imageId = a} :: DescribeWorkspaceImagePermissions)
+{-# DEPRECATED dwipImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance AWSRequest DescribeWorkspaceImagePermissions where
+instance Lude.AWSRequest DescribeWorkspaceImagePermissions where
   type
     Rs DescribeWorkspaceImagePermissions =
       DescribeWorkspaceImagePermissionsResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeWorkspaceImagePermissionsResponse'
-            <$> (x .?> "ImagePermissions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "ImageId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImagePermissions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "ImageId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeWorkspaceImagePermissions
-
-instance NFData DescribeWorkspaceImagePermissions
-
-instance ToHeaders DescribeWorkspaceImagePermissions where
+instance Lude.ToHeaders DescribeWorkspaceImagePermissions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "WorkspacesService.DescribeWorkspaceImagePermissions" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.DescribeWorkspaceImagePermissions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeWorkspaceImagePermissions where
+instance Lude.ToJSON DescribeWorkspaceImagePermissions where
   toJSON DescribeWorkspaceImagePermissions' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dwipNextToken,
-            ("MaxResults" .=) <$> _dwipMaxResults,
-            Just ("ImageId" .= _dwipImageId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ImageId" Lude..= imageId)
           ]
       )
 
-instance ToPath DescribeWorkspaceImagePermissions where
-  toPath = const "/"
+instance Lude.ToPath DescribeWorkspaceImagePermissions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeWorkspaceImagePermissions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeWorkspaceImagePermissions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeWorkspaceImagePermissionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeWorkspaceImagePermissionsResponse' smart constructor.
 data DescribeWorkspaceImagePermissionsResponse = DescribeWorkspaceImagePermissionsResponse'
-  { _dwiprsImagePermissions ::
-      !( Maybe
-           [ImagePermission]
-       ),
-    _dwiprsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dwiprsImageId ::
-      !( Maybe
-           Text
-       ),
-    _dwiprsResponseStatus ::
-      !Int
+  { imagePermissions ::
+      Lude.Maybe
+        [ImagePermission],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    imageId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceImagePermissionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwiprsImagePermissions' - The identifiers of the AWS accounts that the image has been shared with.
---
--- * 'dwiprsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
---
--- * 'dwiprsImageId' - The identifier of the image.
---
--- * 'dwiprsResponseStatus' - -- | The response status code.
-describeWorkspaceImagePermissionsResponse ::
-  -- | 'dwiprsResponseStatus'
-  Int ->
+-- * 'imageId' - The identifier of the image.
+-- * 'imagePermissions' - The identifiers of the AWS accounts that the image has been shared with.
+-- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'responseStatus' - The response status code.
+mkDescribeWorkspaceImagePermissionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkspaceImagePermissionsResponse
-describeWorkspaceImagePermissionsResponse pResponseStatus_ =
+mkDescribeWorkspaceImagePermissionsResponse pResponseStatus_ =
   DescribeWorkspaceImagePermissionsResponse'
-    { _dwiprsImagePermissions =
-        Nothing,
-      _dwiprsNextToken = Nothing,
-      _dwiprsImageId = Nothing,
-      _dwiprsResponseStatus = pResponseStatus_
+    { imagePermissions =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      imageId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifiers of the AWS accounts that the image has been shared with.
-dwiprsImagePermissions :: Lens' DescribeWorkspaceImagePermissionsResponse [ImagePermission]
-dwiprsImagePermissions = lens _dwiprsImagePermissions (\s a -> s {_dwiprsImagePermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'imagePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwiprsImagePermissions :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Lude.Maybe [ImagePermission])
+dwiprsImagePermissions = Lens.lens (imagePermissions :: DescribeWorkspaceImagePermissionsResponse -> Lude.Maybe [ImagePermission]) (\s a -> s {imagePermissions = a} :: DescribeWorkspaceImagePermissionsResponse)
+{-# DEPRECATED dwiprsImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
-dwiprsNextToken :: Lens' DescribeWorkspaceImagePermissionsResponse (Maybe Text)
-dwiprsNextToken = lens _dwiprsNextToken (\s a -> s {_dwiprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwiprsNextToken :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Lude.Maybe Lude.Text)
+dwiprsNextToken = Lens.lens (nextToken :: DescribeWorkspaceImagePermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceImagePermissionsResponse)
+{-# DEPRECATED dwiprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The identifier of the image.
-dwiprsImageId :: Lens' DescribeWorkspaceImagePermissionsResponse (Maybe Text)
-dwiprsImageId = lens _dwiprsImageId (\s a -> s {_dwiprsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwiprsImageId :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Lude.Maybe Lude.Text)
+dwiprsImageId = Lens.lens (imageId :: DescribeWorkspaceImagePermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: DescribeWorkspaceImagePermissionsResponse)
+{-# DEPRECATED dwiprsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
--- | -- | The response status code.
-dwiprsResponseStatus :: Lens' DescribeWorkspaceImagePermissionsResponse Int
-dwiprsResponseStatus = lens _dwiprsResponseStatus (\s a -> s {_dwiprsResponseStatus = a})
-
-instance NFData DescribeWorkspaceImagePermissionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwiprsResponseStatus :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse Lude.Int
+dwiprsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspaceImagePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspaceImagePermissionsResponse)
+{-# DEPRECATED dwiprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

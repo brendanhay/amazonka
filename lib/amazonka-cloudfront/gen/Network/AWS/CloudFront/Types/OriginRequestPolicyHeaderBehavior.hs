@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior where
+module Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior
+  ( OriginRequestPolicyHeaderBehavior
+      ( OriginRequestPolicyHeaderBehavior',
+        ORPHBAllViewer,
+        ORPHBAllViewerAndWhitelistCloudFront,
+        ORPHBNone,
+        ORPHBWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OriginRequestPolicyHeaderBehavior
-  = ORPHBAllViewer
-  | ORPHBAllViewerAndWhitelistCloudFront
-  | ORPHBNone
-  | ORPHBWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OriginRequestPolicyHeaderBehavior = OriginRequestPolicyHeaderBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OriginRequestPolicyHeaderBehavior where
-  parser =
-    takeLowerText >>= \case
-      "allviewer" -> pure ORPHBAllViewer
-      "allviewerandwhitelistcloudfront" -> pure ORPHBAllViewerAndWhitelistCloudFront
-      "none" -> pure ORPHBNone
-      "whitelist" -> pure ORPHBWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing OriginRequestPolicyHeaderBehavior from value: '" <> e
-            <> "'. Accepted values: allviewer, allviewerandwhitelistcloudfront, none, whitelist"
+pattern ORPHBAllViewer :: OriginRequestPolicyHeaderBehavior
+pattern ORPHBAllViewer = OriginRequestPolicyHeaderBehavior' "allViewer"
 
-instance ToText OriginRequestPolicyHeaderBehavior where
-  toText = \case
-    ORPHBAllViewer -> "allViewer"
-    ORPHBAllViewerAndWhitelistCloudFront -> "allViewerAndWhitelistCloudFront"
-    ORPHBNone -> "none"
-    ORPHBWhitelist -> "whitelist"
+pattern ORPHBAllViewerAndWhitelistCloudFront :: OriginRequestPolicyHeaderBehavior
+pattern ORPHBAllViewerAndWhitelistCloudFront = OriginRequestPolicyHeaderBehavior' "allViewerAndWhitelistCloudFront"
 
-instance Hashable OriginRequestPolicyHeaderBehavior
+pattern ORPHBNone :: OriginRequestPolicyHeaderBehavior
+pattern ORPHBNone = OriginRequestPolicyHeaderBehavior' "none"
 
-instance NFData OriginRequestPolicyHeaderBehavior
+pattern ORPHBWhitelist :: OriginRequestPolicyHeaderBehavior
+pattern ORPHBWhitelist = OriginRequestPolicyHeaderBehavior' "whitelist"
 
-instance ToByteString OriginRequestPolicyHeaderBehavior
-
-instance ToQuery OriginRequestPolicyHeaderBehavior
-
-instance ToHeader OriginRequestPolicyHeaderBehavior
-
-instance FromXML OriginRequestPolicyHeaderBehavior where
-  parseXML = parseXMLText "OriginRequestPolicyHeaderBehavior"
-
-instance ToXML OriginRequestPolicyHeaderBehavior where
-  toXML = toXMLText
+{-# COMPLETE
+  ORPHBAllViewer,
+  ORPHBAllViewerAndWhitelistCloudFront,
+  ORPHBNone,
+  ORPHBWhitelist,
+  OriginRequestPolicyHeaderBehavior'
+  #-}

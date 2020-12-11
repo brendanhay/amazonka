@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,32 +7,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings where
+module Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
+  ( ImmediateModeScheduleActionStartSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImmediateModeScheduleActionStartSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings to configure an action so that it occurs as soon as possible.
 --
--- /See:/ 'immediateModeScheduleActionStartSettings' smart constructor.
+-- /See:/ 'mkImmediateModeScheduleActionStartSettings' smart constructor.
 data ImmediateModeScheduleActionStartSettings = ImmediateModeScheduleActionStartSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImmediateModeScheduleActionStartSettings' with the minimum fields required to make a request.
-immediateModeScheduleActionStartSettings ::
+mkImmediateModeScheduleActionStartSettings ::
   ImmediateModeScheduleActionStartSettings
-immediateModeScheduleActionStartSettings =
+mkImmediateModeScheduleActionStartSettings =
   ImmediateModeScheduleActionStartSettings'
 
-instance FromJSON ImmediateModeScheduleActionStartSettings where
+instance Lude.FromJSON ImmediateModeScheduleActionStartSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImmediateModeScheduleActionStartSettings"
-      (\x -> pure ImmediateModeScheduleActionStartSettings')
+      (\x -> Lude.pure ImmediateModeScheduleActionStartSettings')
 
-instance Hashable ImmediateModeScheduleActionStartSettings
-
-instance NFData ImmediateModeScheduleActionStartSettings
-
-instance ToJSON ImmediateModeScheduleActionStartSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ImmediateModeScheduleActionStartSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

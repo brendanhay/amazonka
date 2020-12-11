@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.EndpointSortKey where
+module Network.AWS.SageMaker.Types.EndpointSortKey
+  ( EndpointSortKey
+      ( EndpointSortKey',
+        ESKCreationTime,
+        ESKName,
+        ESKStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EndpointSortKey
-  = ESKCreationTime
-  | ESKName
-  | ESKStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EndpointSortKey = EndpointSortKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EndpointSortKey where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure ESKCreationTime
-      "name" -> pure ESKName
-      "status" -> pure ESKStatus
-      e ->
-        fromTextError $
-          "Failure parsing EndpointSortKey from value: '" <> e
-            <> "'. Accepted values: creationtime, name, status"
+pattern ESKCreationTime :: EndpointSortKey
+pattern ESKCreationTime = EndpointSortKey' "CreationTime"
 
-instance ToText EndpointSortKey where
-  toText = \case
-    ESKCreationTime -> "CreationTime"
-    ESKName -> "Name"
-    ESKStatus -> "Status"
+pattern ESKName :: EndpointSortKey
+pattern ESKName = EndpointSortKey' "Name"
 
-instance Hashable EndpointSortKey
+pattern ESKStatus :: EndpointSortKey
+pattern ESKStatus = EndpointSortKey' "Status"
 
-instance NFData EndpointSortKey
-
-instance ToByteString EndpointSortKey
-
-instance ToQuery EndpointSortKey
-
-instance ToHeader EndpointSortKey
-
-instance ToJSON EndpointSortKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  ESKCreationTime,
+  ESKName,
+  ESKStatus,
+  EndpointSortKey'
+  #-}

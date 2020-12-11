@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.BackupState where
+module Network.AWS.CloudHSMv2.Types.BackupState
+  ( BackupState
+      ( BackupState',
+        CreateInProgress,
+        Deleted,
+        PendingDeletion,
+        Ready
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupState
-  = CreateInProgress
-  | Deleted
-  | PendingDeletion
-  | Ready
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupState = BackupState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupState where
-  parser =
-    takeLowerText >>= \case
-      "create_in_progress" -> pure CreateInProgress
-      "deleted" -> pure Deleted
-      "pending_deletion" -> pure PendingDeletion
-      "ready" -> pure Ready
-      e ->
-        fromTextError $
-          "Failure parsing BackupState from value: '" <> e
-            <> "'. Accepted values: create_in_progress, deleted, pending_deletion, ready"
+pattern CreateInProgress :: BackupState
+pattern CreateInProgress = BackupState' "CREATE_IN_PROGRESS"
 
-instance ToText BackupState where
-  toText = \case
-    CreateInProgress -> "CREATE_IN_PROGRESS"
-    Deleted -> "DELETED"
-    PendingDeletion -> "PENDING_DELETION"
-    Ready -> "READY"
+pattern Deleted :: BackupState
+pattern Deleted = BackupState' "DELETED"
 
-instance Hashable BackupState
+pattern PendingDeletion :: BackupState
+pattern PendingDeletion = BackupState' "PENDING_DELETION"
 
-instance NFData BackupState
+pattern Ready :: BackupState
+pattern Ready = BackupState' "READY"
 
-instance ToByteString BackupState
-
-instance ToQuery BackupState
-
-instance ToHeader BackupState
-
-instance FromJSON BackupState where
-  parseJSON = parseJSONText "BackupState"
+{-# COMPLETE
+  CreateInProgress,
+  Deleted,
+  PendingDeletion,
+  Ready,
+  BackupState'
+  #-}

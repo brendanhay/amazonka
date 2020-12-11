@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Describes existing 'Models' defined for a 'RestApi' resource.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetModels
-  ( -- * Creating a Request
-    getModels,
-    GetModels,
+  ( -- * Creating a request
+    GetModels (..),
+    mkGetModels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmsLimit,
     gmsPosition,
     gmsRestAPIId,
 
-    -- * Destructuring the Response
-    getModelsResponse,
-    GetModelsResponse,
+    -- * Destructuring the response
+    GetModelsResponse (..),
+    mkGetModelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmrsItems,
     gmrsPosition,
     gmrsResponseStatus,
@@ -44,134 +37,155 @@ module Network.AWS.APIGateway.GetModels
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to list existing 'Models' defined for a 'RestApi' resource.
 --
---
---
--- /See:/ 'getModels' smart constructor.
+-- /See:/ 'mkGetModels' smart constructor.
 data GetModels = GetModels'
-  { _gmsLimit :: !(Maybe Int),
-    _gmsPosition :: !(Maybe Text),
-    _gmsRestAPIId :: !Text
+  { limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmsLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gmsPosition' - The current pagination position in the paged result set.
---
--- * 'gmsRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getModels ::
-  -- | 'gmsRestAPIId'
-  Text ->
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetModels ::
+  -- | 'restAPIId'
+  Lude.Text ->
   GetModels
-getModels pRestAPIId_ =
+mkGetModels pRestAPIId_ =
   GetModels'
-    { _gmsLimit = Nothing,
-      _gmsPosition = Nothing,
-      _gmsRestAPIId = pRestAPIId_
+    { limit = Lude.Nothing,
+      position = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gmsLimit :: Lens' GetModels (Maybe Int)
-gmsLimit = lens _gmsLimit (\s a -> s {_gmsLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsLimit :: Lens.Lens' GetModels (Lude.Maybe Lude.Int)
+gmsLimit = Lens.lens (limit :: GetModels -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetModels)
+{-# DEPRECATED gmsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gmsPosition :: Lens' GetModels (Maybe Text)
-gmsPosition = lens _gmsPosition (\s a -> s {_gmsPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsPosition :: Lens.Lens' GetModels (Lude.Maybe Lude.Text)
+gmsPosition = Lens.lens (position :: GetModels -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetModels)
+{-# DEPRECATED gmsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gmsRestAPIId :: Lens' GetModels Text
-gmsRestAPIId = lens _gmsRestAPIId (\s a -> s {_gmsRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsRestAPIId :: Lens.Lens' GetModels Lude.Text
+gmsRestAPIId = Lens.lens (restAPIId :: GetModels -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModels)
+{-# DEPRECATED gmsRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSPager GetModels where
+instance Page.AWSPager GetModels where
   page rq rs
-    | stop (rs ^. gmrsPosition) = Nothing
-    | stop (rs ^. gmrsItems) = Nothing
-    | otherwise = Just $ rq & gmsPosition .~ rs ^. gmrsPosition
+    | Page.stop (rs Lens.^. gmrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gmrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gmsPosition Lens..~ rs Lens.^. gmrsPosition
 
-instance AWSRequest GetModels where
+instance Lude.AWSRequest GetModels where
   type Rs GetModels = GetModelsResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetModelsResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetModels
-
-instance NFData GetModels
-
-instance ToHeaders GetModels where
+instance Lude.ToHeaders GetModels where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetModels where
+instance Lude.ToPath GetModels where
   toPath GetModels' {..} =
-    mconcat ["/restapis/", toBS _gmsRestAPIId, "/models"]
+    Lude.mconcat ["/restapis/", Lude.toBS restAPIId, "/models"]
 
-instance ToQuery GetModels where
+instance Lude.ToQuery GetModels where
   toQuery GetModels' {..} =
-    mconcat ["limit" =: _gmsLimit, "position" =: _gmsPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | Represents a collection of 'Model' resources.
 --
---
 -- 'Method' , 'MethodResponse' , <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
--- /See:/ 'getModelsResponse' smart constructor.
+-- /See:/ 'mkGetModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
-  { _gmrsItems ::
-      !(Maybe [Model]),
-    _gmrsPosition :: !(Maybe Text),
-    _gmrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [Model],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmrsItems' - The current page of elements from this collection.
---
--- * 'gmrsPosition' - Undocumented member.
---
--- * 'gmrsResponseStatus' - -- | The response status code.
-getModelsResponse ::
-  -- | 'gmrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetModelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetModelsResponse
-getModelsResponse pResponseStatus_ =
+mkGetModelsResponse pResponseStatus_ =
   GetModelsResponse'
-    { _gmrsItems = Nothing,
-      _gmrsPosition = Nothing,
-      _gmrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gmrsItems :: Lens' GetModelsResponse [Model]
-gmrsItems = lens _gmrsItems (\s a -> s {_gmrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsItems :: Lens.Lens' GetModelsResponse (Lude.Maybe [Model])
+gmrsItems = Lens.lens (items :: GetModelsResponse -> Lude.Maybe [Model]) (\s a -> s {items = a} :: GetModelsResponse)
+{-# DEPRECATED gmrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gmrsPosition :: Lens' GetModelsResponse (Maybe Text)
-gmrsPosition = lens _gmrsPosition (\s a -> s {_gmrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsPosition :: Lens.Lens' GetModelsResponse (Lude.Maybe Lude.Text)
+gmrsPosition = Lens.lens (position :: GetModelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetModelsResponse)
+{-# DEPRECATED gmrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gmrsResponseStatus :: Lens' GetModelsResponse Int
-gmrsResponseStatus = lens _gmrsResponseStatus (\s a -> s {_gmrsResponseStatus = a})
-
-instance NFData GetModelsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsResponseStatus :: Lens.Lens' GetModelsResponse Lude.Int
+gmrsResponseStatus = Lens.lens (responseStatus :: GetModelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetModelsResponse)
+{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

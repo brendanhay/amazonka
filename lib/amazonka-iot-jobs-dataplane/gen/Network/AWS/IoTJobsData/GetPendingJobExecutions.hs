@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets the list of all jobs for a thing that are not in a terminal status.
 module Network.AWS.IoTJobsData.GetPendingJobExecutions
-  ( -- * Creating a Request
-    getPendingJobExecutions,
-    GetPendingJobExecutions,
+  ( -- * Creating a request
+    GetPendingJobExecutions (..),
+    mkGetPendingJobExecutions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpjeThingName,
 
-    -- * Destructuring the Response
-    getPendingJobExecutionsResponse,
-    GetPendingJobExecutionsResponse,
+    -- * Destructuring the response
+    GetPendingJobExecutionsResponse (..),
+    mkGetPendingJobExecutionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpjersInProgressJobs,
     gpjersQueuedJobs,
     gpjersResponseStatus,
@@ -38,105 +33,116 @@ module Network.AWS.IoTJobsData.GetPendingJobExecutions
 where
 
 import Network.AWS.IoTJobsData.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPendingJobExecutions' smart constructor.
+-- | /See:/ 'mkGetPendingJobExecutions' smart constructor.
 newtype GetPendingJobExecutions = GetPendingJobExecutions'
-  { _gpjeThingName ::
-      Text
+  { thingName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPendingJobExecutions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpjeThingName' - The name of the thing that is executing the job.
-getPendingJobExecutions ::
-  -- | 'gpjeThingName'
-  Text ->
+-- * 'thingName' - The name of the thing that is executing the job.
+mkGetPendingJobExecutions ::
+  -- | 'thingName'
+  Lude.Text ->
   GetPendingJobExecutions
-getPendingJobExecutions pThingName_ =
-  GetPendingJobExecutions' {_gpjeThingName = pThingName_}
+mkGetPendingJobExecutions pThingName_ =
+  GetPendingJobExecutions' {thingName = pThingName_}
 
 -- | The name of the thing that is executing the job.
-gpjeThingName :: Lens' GetPendingJobExecutions Text
-gpjeThingName = lens _gpjeThingName (\s a -> s {_gpjeThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpjeThingName :: Lens.Lens' GetPendingJobExecutions Lude.Text
+gpjeThingName = Lens.lens (thingName :: GetPendingJobExecutions -> Lude.Text) (\s a -> s {thingName = a} :: GetPendingJobExecutions)
+{-# DEPRECATED gpjeThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest GetPendingJobExecutions where
+instance Lude.AWSRequest GetPendingJobExecutions where
   type Rs GetPendingJobExecutions = GetPendingJobExecutionsResponse
-  request = get ioTJobsData
+  request = Req.get ioTJobsDataService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPendingJobExecutionsResponse'
-            <$> (x .?> "inProgressJobs" .!@ mempty)
-            <*> (x .?> "queuedJobs" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "inProgressJobs" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "queuedJobs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPendingJobExecutions
+instance Lude.ToHeaders GetPendingJobExecutions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetPendingJobExecutions
-
-instance ToHeaders GetPendingJobExecutions where
-  toHeaders = const mempty
-
-instance ToPath GetPendingJobExecutions where
+instance Lude.ToPath GetPendingJobExecutions where
   toPath GetPendingJobExecutions' {..} =
-    mconcat ["/things/", toBS _gpjeThingName, "/jobs"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/jobs"]
 
-instance ToQuery GetPendingJobExecutions where
-  toQuery = const mempty
+instance Lude.ToQuery GetPendingJobExecutions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPendingJobExecutionsResponse' smart constructor.
+-- | /See:/ 'mkGetPendingJobExecutionsResponse' smart constructor.
 data GetPendingJobExecutionsResponse = GetPendingJobExecutionsResponse'
-  { _gpjersInProgressJobs ::
-      !( Maybe
-           [JobExecutionSummary]
-       ),
-    _gpjersQueuedJobs ::
-      !( Maybe
-           [JobExecutionSummary]
-       ),
-    _gpjersResponseStatus ::
-      !Int
+  { inProgressJobs ::
+      Lude.Maybe
+        [JobExecutionSummary],
+    queuedJobs ::
+      Lude.Maybe
+        [JobExecutionSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPendingJobExecutionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpjersInProgressJobs' - A list of JobExecutionSummary objects with status IN_PROGRESS.
---
--- * 'gpjersQueuedJobs' - A list of JobExecutionSummary objects with status QUEUED.
---
--- * 'gpjersResponseStatus' - -- | The response status code.
-getPendingJobExecutionsResponse ::
-  -- | 'gpjersResponseStatus'
-  Int ->
+-- * 'inProgressJobs' - A list of JobExecutionSummary objects with status IN_PROGRESS.
+-- * 'queuedJobs' - A list of JobExecutionSummary objects with status QUEUED.
+-- * 'responseStatus' - The response status code.
+mkGetPendingJobExecutionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPendingJobExecutionsResponse
-getPendingJobExecutionsResponse pResponseStatus_ =
+mkGetPendingJobExecutionsResponse pResponseStatus_ =
   GetPendingJobExecutionsResponse'
-    { _gpjersInProgressJobs = Nothing,
-      _gpjersQueuedJobs = Nothing,
-      _gpjersResponseStatus = pResponseStatus_
+    { inProgressJobs = Lude.Nothing,
+      queuedJobs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of JobExecutionSummary objects with status IN_PROGRESS.
-gpjersInProgressJobs :: Lens' GetPendingJobExecutionsResponse [JobExecutionSummary]
-gpjersInProgressJobs = lens _gpjersInProgressJobs (\s a -> s {_gpjersInProgressJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inProgressJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpjersInProgressJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Lude.Maybe [JobExecutionSummary])
+gpjersInProgressJobs = Lens.lens (inProgressJobs :: GetPendingJobExecutionsResponse -> Lude.Maybe [JobExecutionSummary]) (\s a -> s {inProgressJobs = a} :: GetPendingJobExecutionsResponse)
+{-# DEPRECATED gpjersInProgressJobs "Use generic-lens or generic-optics with 'inProgressJobs' instead." #-}
 
 -- | A list of JobExecutionSummary objects with status QUEUED.
-gpjersQueuedJobs :: Lens' GetPendingJobExecutionsResponse [JobExecutionSummary]
-gpjersQueuedJobs = lens _gpjersQueuedJobs (\s a -> s {_gpjersQueuedJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queuedJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpjersQueuedJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Lude.Maybe [JobExecutionSummary])
+gpjersQueuedJobs = Lens.lens (queuedJobs :: GetPendingJobExecutionsResponse -> Lude.Maybe [JobExecutionSummary]) (\s a -> s {queuedJobs = a} :: GetPendingJobExecutionsResponse)
+{-# DEPRECATED gpjersQueuedJobs "Use generic-lens or generic-optics with 'queuedJobs' instead." #-}
 
--- | -- | The response status code.
-gpjersResponseStatus :: Lens' GetPendingJobExecutionsResponse Int
-gpjersResponseStatus = lens _gpjersResponseStatus (\s a -> s {_gpjersResponseStatus = a})
-
-instance NFData GetPendingJobExecutionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpjersResponseStatus :: Lens.Lens' GetPendingJobExecutionsResponse Lude.Int
+gpjersResponseStatus = Lens.lens (responseStatus :: GetPendingJobExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPendingJobExecutionsResponse)
+{-# DEPRECATED gpjersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

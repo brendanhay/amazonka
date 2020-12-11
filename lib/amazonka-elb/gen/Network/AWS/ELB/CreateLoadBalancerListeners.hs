@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,138 @@
 --
 -- Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.CreateLoadBalancerListeners
-  ( -- * Creating a Request
-    createLoadBalancerListeners,
-    CreateLoadBalancerListeners,
+  ( -- * Creating a request
+    CreateLoadBalancerListeners (..),
+    mkCreateLoadBalancerListeners,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clblLoadBalancerName,
     clblListeners,
 
-    -- * Destructuring the Response
-    createLoadBalancerListenersResponse,
-    CreateLoadBalancerListenersResponse,
+    -- * Destructuring the response
+    CreateLoadBalancerListenersResponse (..),
+    mkCreateLoadBalancerListenersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clblrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for CreateLoadBalancerListeners.
 --
---
---
--- /See:/ 'createLoadBalancerListeners' smart constructor.
+-- /See:/ 'mkCreateLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
-  { _clblLoadBalancerName ::
-      !Text,
-    _clblListeners :: ![Listener]
+  { loadBalancerName ::
+      Lude.Text,
+    listeners :: [Listener]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerListeners' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clblLoadBalancerName' - The name of the load balancer.
---
--- * 'clblListeners' - The listeners.
-createLoadBalancerListeners ::
-  -- | 'clblLoadBalancerName'
-  Text ->
+-- * 'listeners' - The listeners.
+-- * 'loadBalancerName' - The name of the load balancer.
+mkCreateLoadBalancerListeners ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
   CreateLoadBalancerListeners
-createLoadBalancerListeners pLoadBalancerName_ =
+mkCreateLoadBalancerListeners pLoadBalancerName_ =
   CreateLoadBalancerListeners'
-    { _clblLoadBalancerName =
+    { loadBalancerName =
         pLoadBalancerName_,
-      _clblListeners = mempty
+      listeners = Lude.mempty
     }
 
 -- | The name of the load balancer.
-clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
-clblLoadBalancerName = lens _clblLoadBalancerName (\s a -> s {_clblLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clblLoadBalancerName :: Lens.Lens' CreateLoadBalancerListeners Lude.Text
+clblLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancerListeners -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancerListeners)
+{-# DEPRECATED clblLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The listeners.
-clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
-clblListeners = lens _clblListeners (\s a -> s {_clblListeners = a}) . _Coerce
+--
+-- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clblListeners :: Lens.Lens' CreateLoadBalancerListeners [Listener]
+clblListeners = Lens.lens (listeners :: CreateLoadBalancerListeners -> [Listener]) (\s a -> s {listeners = a} :: CreateLoadBalancerListeners)
+{-# DEPRECATED clblListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
 
-instance AWSRequest CreateLoadBalancerListeners where
+instance Lude.AWSRequest CreateLoadBalancerListeners where
   type
     Rs CreateLoadBalancerListeners =
       CreateLoadBalancerListenersResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateLoadBalancerListenersResult"
       ( \s h x ->
-          CreateLoadBalancerListenersResponse' <$> (pure (fromEnum s))
+          CreateLoadBalancerListenersResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateLoadBalancerListeners
+instance Lude.ToHeaders CreateLoadBalancerListeners where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateLoadBalancerListeners
+instance Lude.ToPath CreateLoadBalancerListeners where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateLoadBalancerListeners where
-  toHeaders = const mempty
-
-instance ToPath CreateLoadBalancerListeners where
-  toPath = const "/"
-
-instance ToQuery CreateLoadBalancerListeners where
+instance Lude.ToQuery CreateLoadBalancerListeners where
   toQuery CreateLoadBalancerListeners' {..} =
-    mconcat
-      [ "Action" =: ("CreateLoadBalancerListeners" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _clblLoadBalancerName,
-        "Listeners" =: toQueryList "member" _clblListeners
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateLoadBalancerListeners" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "Listeners" Lude.=: Lude.toQueryList "member" listeners
       ]
 
 -- | Contains the parameters for CreateLoadBalancerListener.
 --
---
---
--- /See:/ 'createLoadBalancerListenersResponse' smart constructor.
+-- /See:/ 'mkCreateLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
-  { _clblrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerListenersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clblrsResponseStatus' - -- | The response status code.
-createLoadBalancerListenersResponse ::
-  -- | 'clblrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateLoadBalancerListenersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLoadBalancerListenersResponse
-createLoadBalancerListenersResponse pResponseStatus_ =
+mkCreateLoadBalancerListenersResponse pResponseStatus_ =
   CreateLoadBalancerListenersResponse'
-    { _clblrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
-clblrsResponseStatus = lens _clblrsResponseStatus (\s a -> s {_clblrsResponseStatus = a})
-
-instance NFData CreateLoadBalancerListenersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clblrsResponseStatus :: Lens.Lens' CreateLoadBalancerListenersResponse Lude.Int
+clblrsResponseStatus = Lens.lens (responseStatus :: CreateLoadBalancerListenersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLoadBalancerListenersResponse)
+{-# DEPRECATED clblrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

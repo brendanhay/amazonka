@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.ResourcePolicy where
+module Network.AWS.CloudWatchLogs.Types.ResourcePolicy
+  ( ResourcePolicy (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourcePolicy,
+
+    -- * Lenses
+    rpPolicyName,
+    rpPolicyDocument,
+    rpLastUpdatedTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A policy enabling one or more entities to put logs to a log group in this account.
 --
---
---
--- /See:/ 'resourcePolicy' smart constructor.
+-- /See:/ 'mkResourcePolicy' smart constructor.
 data ResourcePolicy = ResourcePolicy'
-  { _rpPolicyName ::
-      !(Maybe Text),
-    _rpPolicyDocument :: !(Maybe Text),
-    _rpLastUpdatedTime :: !(Maybe Nat)
+  { policyName ::
+      Lude.Maybe Lude.Text,
+    policyDocument :: Lude.Maybe Lude.Text,
+    lastUpdatedTime :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpPolicyName' - The name of the resource policy.
---
--- * 'rpPolicyDocument' - The details of the policy.
---
--- * 'rpLastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-resourcePolicy ::
+-- * 'lastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'policyDocument' - The details of the policy.
+-- * 'policyName' - The name of the resource policy.
+mkResourcePolicy ::
   ResourcePolicy
-resourcePolicy =
+mkResourcePolicy =
   ResourcePolicy'
-    { _rpPolicyName = Nothing,
-      _rpPolicyDocument = Nothing,
-      _rpLastUpdatedTime = Nothing
+    { policyName = Lude.Nothing,
+      policyDocument = Lude.Nothing,
+      lastUpdatedTime = Lude.Nothing
     }
 
 -- | The name of the resource policy.
-rpPolicyName :: Lens' ResourcePolicy (Maybe Text)
-rpPolicyName = lens _rpPolicyName (\s a -> s {_rpPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpPolicyName :: Lens.Lens' ResourcePolicy (Lude.Maybe Lude.Text)
+rpPolicyName = Lens.lens (policyName :: ResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: ResourcePolicy)
+{-# DEPRECATED rpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The details of the policy.
-rpPolicyDocument :: Lens' ResourcePolicy (Maybe Text)
-rpPolicyDocument = lens _rpPolicyDocument (\s a -> s {_rpPolicyDocument = a})
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpPolicyDocument :: Lens.Lens' ResourcePolicy (Lude.Maybe Lude.Text)
+rpPolicyDocument = Lens.lens (policyDocument :: ResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyDocument = a} :: ResourcePolicy)
+{-# DEPRECATED rpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
 -- | Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-rpLastUpdatedTime :: Lens' ResourcePolicy (Maybe Natural)
-rpLastUpdatedTime = lens _rpLastUpdatedTime (\s a -> s {_rpLastUpdatedTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpLastUpdatedTime :: Lens.Lens' ResourcePolicy (Lude.Maybe Lude.Natural)
+rpLastUpdatedTime = Lens.lens (lastUpdatedTime :: ResourcePolicy -> Lude.Maybe Lude.Natural) (\s a -> s {lastUpdatedTime = a} :: ResourcePolicy)
+{-# DEPRECATED rpLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
-instance FromJSON ResourcePolicy where
+instance Lude.FromJSON ResourcePolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            <$> (x .:? "policyName")
-            <*> (x .:? "policyDocument")
-            <*> (x .:? "lastUpdatedTime")
+            Lude.<$> (x Lude..:? "policyName")
+            Lude.<*> (x Lude..:? "policyDocument")
+            Lude.<*> (x Lude..:? "lastUpdatedTime")
       )
-
-instance Hashable ResourcePolicy
-
-instance NFData ResourcePolicy

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,20 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputVPCRequest where
+module Network.AWS.MediaLive.Types.InputVPCRequest
+  ( InputVPCRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputVPCRequest,
+
+    -- * Lenses
+    ivrSecurityGroupIds,
+    ivrSubnetIds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for a private VPC Input.
 --
@@ -24,46 +28,60 @@ import Network.AWS.Prelude
 -- This property requires setting the roleArn property on Input creation.
 -- Not compatible with the inputSecurityGroups property.
 --
--- /See:/ 'inputVPCRequest' smart constructor.
+-- /See:/ 'mkInputVPCRequest' smart constructor.
 data InputVPCRequest = InputVPCRequest'
-  { _ivrSecurityGroupIds ::
-      !(Maybe [Text]),
-    _ivrSubnetIds :: ![Text]
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    subnetIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputVPCRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'securityGroupIds' - A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
 --
--- * 'ivrSecurityGroupIds' - A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces. Requires subnetIds. If none are specified then the VPC default security group will be used.
+-- Requires subnetIds. If none are specified then the VPC default security group will be used.
+-- * 'subnetIds' - A list of 2 VPC subnet IDs from the same VPC.
 --
--- * 'ivrSubnetIds' - A list of 2 VPC subnet IDs from the same VPC. Subnet IDs must be mapped to two unique availability zones (AZ).
-inputVPCRequest ::
+-- Subnet IDs must be mapped to two unique availability zones (AZ).
+mkInputVPCRequest ::
   InputVPCRequest
-inputVPCRequest =
+mkInputVPCRequest =
   InputVPCRequest'
-    { _ivrSecurityGroupIds = Nothing,
-      _ivrSubnetIds = mempty
+    { securityGroupIds = Lude.Nothing,
+      subnetIds = Lude.mempty
     }
 
--- | A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces. Requires subnetIds. If none are specified then the VPC default security group will be used.
-ivrSecurityGroupIds :: Lens' InputVPCRequest [Text]
-ivrSecurityGroupIds = lens _ivrSecurityGroupIds (\s a -> s {_ivrSecurityGroupIds = a}) . _Default . _Coerce
+-- | A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+--
+-- Requires subnetIds. If none are specified then the VPC default security group will be used.
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivrSecurityGroupIds :: Lens.Lens' InputVPCRequest (Lude.Maybe [Lude.Text])
+ivrSecurityGroupIds = Lens.lens (securityGroupIds :: InputVPCRequest -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: InputVPCRequest)
+{-# DEPRECATED ivrSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
--- | A list of 2 VPC subnet IDs from the same VPC. Subnet IDs must be mapped to two unique availability zones (AZ).
-ivrSubnetIds :: Lens' InputVPCRequest [Text]
-ivrSubnetIds = lens _ivrSubnetIds (\s a -> s {_ivrSubnetIds = a}) . _Coerce
+-- | A list of 2 VPC subnet IDs from the same VPC.
+--
+-- Subnet IDs must be mapped to two unique availability zones (AZ).
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivrSubnetIds :: Lens.Lens' InputVPCRequest [Lude.Text]
+ivrSubnetIds = Lens.lens (subnetIds :: InputVPCRequest -> [Lude.Text]) (\s a -> s {subnetIds = a} :: InputVPCRequest)
+{-# DEPRECATED ivrSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance Hashable InputVPCRequest
-
-instance NFData InputVPCRequest
-
-instance ToJSON InputVPCRequest where
+instance Lude.ToJSON InputVPCRequest where
   toJSON InputVPCRequest' {..} =
-    object
-      ( catMaybes
-          [ ("securityGroupIds" .=) <$> _ivrSecurityGroupIds,
-            Just ("subnetIds" .= _ivrSubnetIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("securityGroupIds" Lude..=) Lude.<$> securityGroupIds,
+            Lude.Just ("subnetIds" Lude..= subnetIds)
           ]
       )

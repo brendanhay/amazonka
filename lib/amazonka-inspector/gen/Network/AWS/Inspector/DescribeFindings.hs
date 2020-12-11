@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Describes the findings that are specified by the ARNs of the findings.
 module Network.AWS.Inspector.DescribeFindings
-  ( -- * Creating a Request
-    describeFindings,
-    DescribeFindings,
+  ( -- * Creating a request
+    DescribeFindings (..),
+    mkDescribeFindings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfLocale,
     dfFindingARNs,
 
-    -- * Destructuring the Response
-    describeFindingsResponse,
-    DescribeFindingsResponse,
+    -- * Destructuring the response
+    DescribeFindingsResponse (..),
+    mkDescribeFindingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfrsResponseStatus,
     dfrsFindings,
     dfrsFailedItems,
@@ -39,125 +34,144 @@ module Network.AWS.Inspector.DescribeFindings
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFindings' smart constructor.
+-- | /See:/ 'mkDescribeFindings' smart constructor.
 data DescribeFindings = DescribeFindings'
-  { _dfLocale ::
-      !(Maybe Locale),
-    _dfFindingARNs :: !(List1 Text)
+  { locale ::
+      Lude.Maybe Locale,
+    findingARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfLocale' - The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
---
--- * 'dfFindingARNs' - The ARN that specifies the finding that you want to describe.
-describeFindings ::
-  -- | 'dfFindingARNs'
-  NonEmpty Text ->
+-- * 'findingARNs' - The ARN that specifies the finding that you want to describe.
+-- * 'locale' - The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
+mkDescribeFindings ::
+  -- | 'findingARNs'
+  Lude.NonEmpty Lude.Text ->
   DescribeFindings
-describeFindings pFindingARNs_ =
+mkDescribeFindings pFindingARNs_ =
   DescribeFindings'
-    { _dfLocale = Nothing,
-      _dfFindingARNs = _List1 # pFindingARNs_
+    { locale = Lude.Nothing,
+      findingARNs = pFindingARNs_
     }
 
 -- | The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
-dfLocale :: Lens' DescribeFindings (Maybe Locale)
-dfLocale = lens _dfLocale (\s a -> s {_dfLocale = a})
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfLocale :: Lens.Lens' DescribeFindings (Lude.Maybe Locale)
+dfLocale = Lens.lens (locale :: DescribeFindings -> Lude.Maybe Locale) (\s a -> s {locale = a} :: DescribeFindings)
+{-# DEPRECATED dfLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The ARN that specifies the finding that you want to describe.
-dfFindingARNs :: Lens' DescribeFindings (NonEmpty Text)
-dfFindingARNs = lens _dfFindingARNs (\s a -> s {_dfFindingARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'findingARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfFindingARNs :: Lens.Lens' DescribeFindings (Lude.NonEmpty Lude.Text)
+dfFindingARNs = Lens.lens (findingARNs :: DescribeFindings -> Lude.NonEmpty Lude.Text) (\s a -> s {findingARNs = a} :: DescribeFindings)
+{-# DEPRECATED dfFindingARNs "Use generic-lens or generic-optics with 'findingARNs' instead." #-}
 
-instance AWSRequest DescribeFindings where
+instance Lude.AWSRequest DescribeFindings where
   type Rs DescribeFindings = DescribeFindingsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeFindingsResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .?> "findings" .!@ mempty)
-            <*> (x .?> "failedItems" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "findings" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeFindings
-
-instance NFData DescribeFindings
-
-instance ToHeaders DescribeFindings where
+instance Lude.ToHeaders DescribeFindings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.DescribeFindings" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.DescribeFindings" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeFindings where
+instance Lude.ToJSON DescribeFindings where
   toJSON DescribeFindings' {..} =
-    object
-      ( catMaybes
-          [ ("locale" .=) <$> _dfLocale,
-            Just ("findingArns" .= _dfFindingARNs)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("locale" Lude..=) Lude.<$> locale,
+            Lude.Just ("findingArns" Lude..= findingARNs)
           ]
       )
 
-instance ToPath DescribeFindings where
-  toPath = const "/"
+instance Lude.ToPath DescribeFindings where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeFindings where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeFindings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeFindingsResponse' smart constructor.
+-- | /See:/ 'mkDescribeFindingsResponse' smart constructor.
 data DescribeFindingsResponse = DescribeFindingsResponse'
-  { _dfrsResponseStatus ::
-      !Int,
-    _dfrsFindings :: ![Finding],
-    _dfrsFailedItems ::
-      !(Map Text (FailedItemDetails))
+  { responseStatus ::
+      Lude.Int,
+    findings :: [Finding],
+    failedItems ::
+      Lude.HashMap
+        Lude.Text
+        (FailedItemDetails)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFindingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfrsResponseStatus' - -- | The response status code.
---
--- * 'dfrsFindings' - Information about the finding.
---
--- * 'dfrsFailedItems' - Finding details that cannot be described. An error code is provided for each failed item.
-describeFindingsResponse ::
-  -- | 'dfrsResponseStatus'
-  Int ->
+-- * 'failedItems' - Finding details that cannot be described. An error code is provided for each failed item.
+-- * 'findings' - Information about the finding.
+-- * 'responseStatus' - The response status code.
+mkDescribeFindingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeFindingsResponse
-describeFindingsResponse pResponseStatus_ =
+mkDescribeFindingsResponse pResponseStatus_ =
   DescribeFindingsResponse'
-    { _dfrsResponseStatus = pResponseStatus_,
-      _dfrsFindings = mempty,
-      _dfrsFailedItems = mempty
+    { responseStatus = pResponseStatus_,
+      findings = Lude.mempty,
+      failedItems = Lude.mempty
     }
 
--- | -- | The response status code.
-dfrsResponseStatus :: Lens' DescribeFindingsResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\s a -> s {_dfrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfrsResponseStatus :: Lens.Lens' DescribeFindingsResponse Lude.Int
+dfrsResponseStatus = Lens.lens (responseStatus :: DescribeFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFindingsResponse)
+{-# DEPRECATED dfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the finding.
-dfrsFindings :: Lens' DescribeFindingsResponse [Finding]
-dfrsFindings = lens _dfrsFindings (\s a -> s {_dfrsFindings = a}) . _Coerce
+--
+-- /Note:/ Consider using 'findings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfrsFindings :: Lens.Lens' DescribeFindingsResponse [Finding]
+dfrsFindings = Lens.lens (findings :: DescribeFindingsResponse -> [Finding]) (\s a -> s {findings = a} :: DescribeFindingsResponse)
+{-# DEPRECATED dfrsFindings "Use generic-lens or generic-optics with 'findings' instead." #-}
 
 -- | Finding details that cannot be described. An error code is provided for each failed item.
-dfrsFailedItems :: Lens' DescribeFindingsResponse (HashMap Text (FailedItemDetails))
-dfrsFailedItems = lens _dfrsFailedItems (\s a -> s {_dfrsFailedItems = a}) . _Map
-
-instance NFData DescribeFindingsResponse
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfrsFailedItems :: Lens.Lens' DescribeFindingsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
+dfrsFailedItems = Lens.lens (failedItems :: DescribeFindingsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeFindingsResponse)
+{-# DEPRECATED dfrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}

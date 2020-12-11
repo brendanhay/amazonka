@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,169 +7,254 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.BaseConfigurationItem where
+module Network.AWS.Config.Types.BaseConfigurationItem
+  ( BaseConfigurationItem (..),
+
+    -- * Smart constructor
+    mkBaseConfigurationItem,
+
+    -- * Lenses
+    bciResourceId,
+    bciResourceType,
+    bciConfigurationStateId,
+    bciArn,
+    bciResourceName,
+    bciResourceCreationTime,
+    bciConfigurationItemStatus,
+    bciConfigurationItemCaptureTime,
+    bciAccountId,
+    bciSupplementaryConfiguration,
+    bciAvailabilityZone,
+    bciVersion,
+    bciAwsRegion,
+    bciConfiguration,
+  )
+where
 
 import Network.AWS.Config.Types.ConfigurationItemStatus
 import Network.AWS.Config.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The detailed configuration of a specified resource.
 --
---
---
--- /See:/ 'baseConfigurationItem' smart constructor.
+-- /See:/ 'mkBaseConfigurationItem' smart constructor.
 data BaseConfigurationItem = BaseConfigurationItem'
-  { _bciResourceId ::
-      !(Maybe Text),
-    _bciResourceType :: !(Maybe ResourceType),
-    _bciConfigurationStateId :: !(Maybe Text),
-    _bciArn :: !(Maybe Text),
-    _bciResourceName :: !(Maybe Text),
-    _bciResourceCreationTime :: !(Maybe POSIX),
-    _bciConfigurationItemStatus ::
-      !(Maybe ConfigurationItemStatus),
-    _bciConfigurationItemCaptureTime ::
-      !(Maybe POSIX),
-    _bciAccountId :: !(Maybe Text),
-    _bciSupplementaryConfiguration ::
-      !(Maybe (Map Text (Text))),
-    _bciAvailabilityZone :: !(Maybe Text),
-    _bciVersion :: !(Maybe Text),
-    _bciAwsRegion :: !(Maybe Text),
-    _bciConfiguration :: !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe ResourceType,
+    configurationStateId :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    resourceName :: Lude.Maybe Lude.Text,
+    resourceCreationTime ::
+      Lude.Maybe Lude.Timestamp,
+    configurationItemStatus ::
+      Lude.Maybe ConfigurationItemStatus,
+    configurationItemCaptureTime ::
+      Lude.Maybe Lude.Timestamp,
+    accountId :: Lude.Maybe Lude.Text,
+    supplementaryConfiguration ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    availabilityZone :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    awsRegion :: Lude.Maybe Lude.Text,
+    configuration :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaseConfigurationItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountId' - The 12-digit AWS account ID associated with the resource.
+-- * 'arn' - The Amazon Resource Name (ARN) of the resource.
+-- * 'availabilityZone' - The Availability Zone associated with the resource.
+-- * 'awsRegion' - The region where the resource resides.
+-- * 'configuration' - The description of the resource configuration.
+-- * 'configurationItemCaptureTime' - The time when the configuration recording was initiated.
+-- * 'configurationItemStatus' - The configuration item status. The valid values are:
 --
--- * 'bciResourceId' - The ID of the resource (for example., sg-xxxxxx).
 --
--- * 'bciResourceType' - The type of AWS resource.
+--     * OK – The resource configuration has been updated
 --
--- * 'bciConfigurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
 --
--- * 'bciArn' - The Amazon Resource Name (ARN) of the resource.
+--     * ResourceDiscovered – The resource was newly discovered
 --
--- * 'bciResourceName' - The custom name of the resource, if available.
 --
--- * 'bciResourceCreationTime' - The time stamp when the resource was created.
+--     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type
 --
--- * 'bciConfigurationItemStatus' - The configuration item status. The valid values are:     * OK – The resource configuration has been updated     * ResourceDiscovered – The resource was newly discovered     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type     * ResourceDeleted – The resource was deleted     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
 --
--- * 'bciConfigurationItemCaptureTime' - The time when the configuration recording was initiated.
+--     * ResourceDeleted – The resource was deleted
 --
--- * 'bciAccountId' - The 12-digit AWS account ID associated with the resource.
 --
--- * 'bciSupplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.
+--     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
 --
--- * 'bciAvailabilityZone' - The Availability Zone associated with the resource.
 --
--- * 'bciVersion' - The version number of the resource configuration.
---
--- * 'bciAwsRegion' - The region where the resource resides.
---
--- * 'bciConfiguration' - The description of the resource configuration.
-baseConfigurationItem ::
+-- * 'configurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
+-- * 'resourceCreationTime' - The time stamp when the resource was created.
+-- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
+-- * 'resourceName' - The custom name of the resource, if available.
+-- * 'resourceType' - The type of AWS resource.
+-- * 'supplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.
+-- * 'version' - The version number of the resource configuration.
+mkBaseConfigurationItem ::
   BaseConfigurationItem
-baseConfigurationItem =
+mkBaseConfigurationItem =
   BaseConfigurationItem'
-    { _bciResourceId = Nothing,
-      _bciResourceType = Nothing,
-      _bciConfigurationStateId = Nothing,
-      _bciArn = Nothing,
-      _bciResourceName = Nothing,
-      _bciResourceCreationTime = Nothing,
-      _bciConfigurationItemStatus = Nothing,
-      _bciConfigurationItemCaptureTime = Nothing,
-      _bciAccountId = Nothing,
-      _bciSupplementaryConfiguration = Nothing,
-      _bciAvailabilityZone = Nothing,
-      _bciVersion = Nothing,
-      _bciAwsRegion = Nothing,
-      _bciConfiguration = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      configurationStateId = Lude.Nothing,
+      arn = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      resourceCreationTime = Lude.Nothing,
+      configurationItemStatus = Lude.Nothing,
+      configurationItemCaptureTime = Lude.Nothing,
+      accountId = Lude.Nothing,
+      supplementaryConfiguration = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      version = Lude.Nothing,
+      awsRegion = Lude.Nothing,
+      configuration = Lude.Nothing
     }
 
 -- | The ID of the resource (for example., sg-xxxxxx).
-bciResourceId :: Lens' BaseConfigurationItem (Maybe Text)
-bciResourceId = lens _bciResourceId (\s a -> s {_bciResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciResourceId :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciResourceId = Lens.lens (resourceId :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of AWS resource.
-bciResourceType :: Lens' BaseConfigurationItem (Maybe ResourceType)
-bciResourceType = lens _bciResourceType (\s a -> s {_bciResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciResourceType :: Lens.Lens' BaseConfigurationItem (Lude.Maybe ResourceType)
+bciResourceType = Lens.lens (resourceType :: BaseConfigurationItem -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | An identifier that indicates the ordering of the configuration items of a resource.
-bciConfigurationStateId :: Lens' BaseConfigurationItem (Maybe Text)
-bciConfigurationStateId = lens _bciConfigurationStateId (\s a -> s {_bciConfigurationStateId = a})
+--
+-- /Note:/ Consider using 'configurationStateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciConfigurationStateId :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciConfigurationStateId = Lens.lens (configurationStateId :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {configurationStateId = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciConfigurationStateId "Use generic-lens or generic-optics with 'configurationStateId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource.
-bciArn :: Lens' BaseConfigurationItem (Maybe Text)
-bciArn = lens _bciArn (\s a -> s {_bciArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciArn :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciArn = Lens.lens (arn :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The custom name of the resource, if available.
-bciResourceName :: Lens' BaseConfigurationItem (Maybe Text)
-bciResourceName = lens _bciResourceName (\s a -> s {_bciResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciResourceName :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciResourceName = Lens.lens (resourceName :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The time stamp when the resource was created.
-bciResourceCreationTime :: Lens' BaseConfigurationItem (Maybe UTCTime)
-bciResourceCreationTime = lens _bciResourceCreationTime (\s a -> s {_bciResourceCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'resourceCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciResourceCreationTime :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Timestamp)
+bciResourceCreationTime = Lens.lens (resourceCreationTime :: BaseConfigurationItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {resourceCreationTime = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciResourceCreationTime "Use generic-lens or generic-optics with 'resourceCreationTime' instead." #-}
 
--- | The configuration item status. The valid values are:     * OK – The resource configuration has been updated     * ResourceDiscovered – The resource was newly discovered     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type     * ResourceDeleted – The resource was deleted     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
-bciConfigurationItemStatus :: Lens' BaseConfigurationItem (Maybe ConfigurationItemStatus)
-bciConfigurationItemStatus = lens _bciConfigurationItemStatus (\s a -> s {_bciConfigurationItemStatus = a})
+-- | The configuration item status. The valid values are:
+--
+--
+--     * OK – The resource configuration has been updated
+--
+--
+--     * ResourceDiscovered – The resource was newly discovered
+--
+--
+--     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type
+--
+--
+--     * ResourceDeleted – The resource was deleted
+--
+--
+--     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
+--
+--
+--
+-- /Note:/ Consider using 'configurationItemStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciConfigurationItemStatus :: Lens.Lens' BaseConfigurationItem (Lude.Maybe ConfigurationItemStatus)
+bciConfigurationItemStatus = Lens.lens (configurationItemStatus :: BaseConfigurationItem -> Lude.Maybe ConfigurationItemStatus) (\s a -> s {configurationItemStatus = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciConfigurationItemStatus "Use generic-lens or generic-optics with 'configurationItemStatus' instead." #-}
 
 -- | The time when the configuration recording was initiated.
-bciConfigurationItemCaptureTime :: Lens' BaseConfigurationItem (Maybe UTCTime)
-bciConfigurationItemCaptureTime = lens _bciConfigurationItemCaptureTime (\s a -> s {_bciConfigurationItemCaptureTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'configurationItemCaptureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciConfigurationItemCaptureTime :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Timestamp)
+bciConfigurationItemCaptureTime = Lens.lens (configurationItemCaptureTime :: BaseConfigurationItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {configurationItemCaptureTime = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciConfigurationItemCaptureTime "Use generic-lens or generic-optics with 'configurationItemCaptureTime' instead." #-}
 
 -- | The 12-digit AWS account ID associated with the resource.
-bciAccountId :: Lens' BaseConfigurationItem (Maybe Text)
-bciAccountId = lens _bciAccountId (\s a -> s {_bciAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciAccountId :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciAccountId = Lens.lens (accountId :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.
-bciSupplementaryConfiguration :: Lens' BaseConfigurationItem (HashMap Text (Text))
-bciSupplementaryConfiguration = lens _bciSupplementaryConfiguration (\s a -> s {_bciSupplementaryConfiguration = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'supplementaryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciSupplementaryConfiguration :: Lens.Lens' BaseConfigurationItem (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+bciSupplementaryConfiguration = Lens.lens (supplementaryConfiguration :: BaseConfigurationItem -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {supplementaryConfiguration = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciSupplementaryConfiguration "Use generic-lens or generic-optics with 'supplementaryConfiguration' instead." #-}
 
 -- | The Availability Zone associated with the resource.
-bciAvailabilityZone :: Lens' BaseConfigurationItem (Maybe Text)
-bciAvailabilityZone = lens _bciAvailabilityZone (\s a -> s {_bciAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciAvailabilityZone :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciAvailabilityZone = Lens.lens (availabilityZone :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The version number of the resource configuration.
-bciVersion :: Lens' BaseConfigurationItem (Maybe Text)
-bciVersion = lens _bciVersion (\s a -> s {_bciVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciVersion :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciVersion = Lens.lens (version :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The region where the resource resides.
-bciAwsRegion :: Lens' BaseConfigurationItem (Maybe Text)
-bciAwsRegion = lens _bciAwsRegion (\s a -> s {_bciAwsRegion = a})
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciAwsRegion :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciAwsRegion = Lens.lens (awsRegion :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
 -- | The description of the resource configuration.
-bciConfiguration :: Lens' BaseConfigurationItem (Maybe Text)
-bciConfiguration = lens _bciConfiguration (\s a -> s {_bciConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciConfiguration :: Lens.Lens' BaseConfigurationItem (Lude.Maybe Lude.Text)
+bciConfiguration = Lens.lens (configuration :: BaseConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {configuration = a} :: BaseConfigurationItem)
+{-# DEPRECATED bciConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
-instance FromJSON BaseConfigurationItem where
+instance Lude.FromJSON BaseConfigurationItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "BaseConfigurationItem"
       ( \x ->
           BaseConfigurationItem'
-            <$> (x .:? "resourceId")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "configurationStateId")
-            <*> (x .:? "arn")
-            <*> (x .:? "resourceName")
-            <*> (x .:? "resourceCreationTime")
-            <*> (x .:? "configurationItemStatus")
-            <*> (x .:? "configurationItemCaptureTime")
-            <*> (x .:? "accountId")
-            <*> (x .:? "supplementaryConfiguration" .!= mempty)
-            <*> (x .:? "availabilityZone")
-            <*> (x .:? "version")
-            <*> (x .:? "awsRegion")
-            <*> (x .:? "configuration")
+            Lude.<$> (x Lude..:? "resourceId")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "configurationStateId")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "resourceName")
+            Lude.<*> (x Lude..:? "resourceCreationTime")
+            Lude.<*> (x Lude..:? "configurationItemStatus")
+            Lude.<*> (x Lude..:? "configurationItemCaptureTime")
+            Lude.<*> (x Lude..:? "accountId")
+            Lude.<*> (x Lude..:? "supplementaryConfiguration" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "availabilityZone")
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "awsRegion")
+            Lude.<*> (x Lude..:? "configuration")
       )
-
-instance Hashable BaseConfigurationItem
-
-instance NFData BaseConfigurationItem

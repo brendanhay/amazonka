@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.UserData where
+module Network.AWS.AlexaBusiness.Types.UserData
+  ( UserData (..),
+
+    -- * Smart constructor
+    mkUserData,
+
+    -- * Lenses
+    udEmail,
+    udLastName,
+    udEnrollmentId,
+    udUserARN,
+    udFirstName,
+    udEnrollmentStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.EnrollmentStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information related to a user.
 --
---
---
--- /See:/ 'userData' smart constructor.
+-- /See:/ 'mkUserData' smart constructor.
 data UserData = UserData'
-  { _udEmail :: !(Maybe Text),
-    _udLastName :: !(Maybe Text),
-    _udEnrollmentId :: !(Maybe Text),
-    _udUserARN :: !(Maybe Text),
-    _udFirstName :: !(Maybe Text),
-    _udEnrollmentStatus :: !(Maybe EnrollmentStatus)
+  { email :: Lude.Maybe Lude.Text,
+    lastName :: Lude.Maybe Lude.Text,
+    enrollmentId :: Lude.Maybe Lude.Text,
+    userARN :: Lude.Maybe Lude.Text,
+    firstName :: Lude.Maybe Lude.Text,
+    enrollmentStatus :: Lude.Maybe EnrollmentStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udEmail' - The email of a user.
---
--- * 'udLastName' - The last name of a user.
---
--- * 'udEnrollmentId' - The enrollment ARN of a user.
---
--- * 'udUserARN' - The ARN of a user.
---
--- * 'udFirstName' - The first name of a user.
---
--- * 'udEnrollmentStatus' - The enrollment status of a user.
-userData ::
+-- * 'email' - The email of a user.
+-- * 'enrollmentId' - The enrollment ARN of a user.
+-- * 'enrollmentStatus' - The enrollment status of a user.
+-- * 'firstName' - The first name of a user.
+-- * 'lastName' - The last name of a user.
+-- * 'userARN' - The ARN of a user.
+mkUserData ::
   UserData
-userData =
+mkUserData =
   UserData'
-    { _udEmail = Nothing,
-      _udLastName = Nothing,
-      _udEnrollmentId = Nothing,
-      _udUserARN = Nothing,
-      _udFirstName = Nothing,
-      _udEnrollmentStatus = Nothing
+    { email = Lude.Nothing,
+      lastName = Lude.Nothing,
+      enrollmentId = Lude.Nothing,
+      userARN = Lude.Nothing,
+      firstName = Lude.Nothing,
+      enrollmentStatus = Lude.Nothing
     }
 
 -- | The email of a user.
-udEmail :: Lens' UserData (Maybe Text)
-udEmail = lens _udEmail (\s a -> s {_udEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udEmail :: Lens.Lens' UserData (Lude.Maybe Lude.Text)
+udEmail = Lens.lens (email :: UserData -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: UserData)
+{-# DEPRECATED udEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The last name of a user.
-udLastName :: Lens' UserData (Maybe Text)
-udLastName = lens _udLastName (\s a -> s {_udLastName = a})
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udLastName :: Lens.Lens' UserData (Lude.Maybe Lude.Text)
+udLastName = Lens.lens (lastName :: UserData -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: UserData)
+{-# DEPRECATED udLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The enrollment ARN of a user.
-udEnrollmentId :: Lens' UserData (Maybe Text)
-udEnrollmentId = lens _udEnrollmentId (\s a -> s {_udEnrollmentId = a})
+--
+-- /Note:/ Consider using 'enrollmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udEnrollmentId :: Lens.Lens' UserData (Lude.Maybe Lude.Text)
+udEnrollmentId = Lens.lens (enrollmentId :: UserData -> Lude.Maybe Lude.Text) (\s a -> s {enrollmentId = a} :: UserData)
+{-# DEPRECATED udEnrollmentId "Use generic-lens or generic-optics with 'enrollmentId' instead." #-}
 
 -- | The ARN of a user.
-udUserARN :: Lens' UserData (Maybe Text)
-udUserARN = lens _udUserARN (\s a -> s {_udUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udUserARN :: Lens.Lens' UserData (Lude.Maybe Lude.Text)
+udUserARN = Lens.lens (userARN :: UserData -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: UserData)
+{-# DEPRECATED udUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The first name of a user.
-udFirstName :: Lens' UserData (Maybe Text)
-udFirstName = lens _udFirstName (\s a -> s {_udFirstName = a})
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udFirstName :: Lens.Lens' UserData (Lude.Maybe Lude.Text)
+udFirstName = Lens.lens (firstName :: UserData -> Lude.Maybe Lude.Text) (\s a -> s {firstName = a} :: UserData)
+{-# DEPRECATED udFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | The enrollment status of a user.
-udEnrollmentStatus :: Lens' UserData (Maybe EnrollmentStatus)
-udEnrollmentStatus = lens _udEnrollmentStatus (\s a -> s {_udEnrollmentStatus = a})
+--
+-- /Note:/ Consider using 'enrollmentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udEnrollmentStatus :: Lens.Lens' UserData (Lude.Maybe EnrollmentStatus)
+udEnrollmentStatus = Lens.lens (enrollmentStatus :: UserData -> Lude.Maybe EnrollmentStatus) (\s a -> s {enrollmentStatus = a} :: UserData)
+{-# DEPRECATED udEnrollmentStatus "Use generic-lens or generic-optics with 'enrollmentStatus' instead." #-}
 
-instance FromJSON UserData where
+instance Lude.FromJSON UserData where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserData"
       ( \x ->
           UserData'
-            <$> (x .:? "Email")
-            <*> (x .:? "LastName")
-            <*> (x .:? "EnrollmentId")
-            <*> (x .:? "UserArn")
-            <*> (x .:? "FirstName")
-            <*> (x .:? "EnrollmentStatus")
+            Lude.<$> (x Lude..:? "Email")
+            Lude.<*> (x Lude..:? "LastName")
+            Lude.<*> (x Lude..:? "EnrollmentId")
+            Lude.<*> (x Lude..:? "UserArn")
+            Lude.<*> (x Lude..:? "FirstName")
+            Lude.<*> (x Lude..:? "EnrollmentStatus")
       )
-
-instance Hashable UserData
-
-instance NFData UserData

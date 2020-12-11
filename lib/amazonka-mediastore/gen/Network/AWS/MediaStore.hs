@@ -13,8 +13,8 @@
 --
 -- An AWS Elemental MediaStore container is a namespace that holds folders and objects. You use a container endpoint to create, read, and delete objects.
 module Network.AWS.MediaStore
-  ( -- * Service Configuration
-    mediaStore,
+  ( -- * Service configuration
+    mediaStoreService,
 
     -- * Errors
     -- $errors
@@ -100,8 +100,8 @@ module Network.AWS.MediaStore
     MethodName (..),
 
     -- ** CORSRule
-    CORSRule,
-    corsRule,
+    CORSRule (..),
+    mkCORSRule,
     crAllowedMethods,
     crMaxAgeSeconds,
     crExposeHeaders,
@@ -109,8 +109,8 @@ module Network.AWS.MediaStore
     crAllowedHeaders,
 
     -- ** Container
-    Container,
-    container,
+    Container (..),
+    mkContainer,
     cCreationTime,
     cStatus,
     cAccessLoggingEnabled,
@@ -119,22 +119,33 @@ module Network.AWS.MediaStore
     cEndpoint,
 
     -- ** MetricPolicy
-    MetricPolicy,
-    metricPolicy,
+    MetricPolicy (..),
+    mkMetricPolicy,
     mpMetricPolicyRules,
     mpContainerLevelMetrics,
 
     -- ** MetricPolicyRule
-    MetricPolicyRule,
-    metricPolicyRule,
+    MetricPolicyRule (..),
+    mkMetricPolicyRule,
     mprObjectGroup,
     mprObjectGroupName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -161,6 +172,7 @@ import Network.AWS.MediaStore.TagResource
 import Network.AWS.MediaStore.Types
 import Network.AWS.MediaStore.UntagResource
 import Network.AWS.MediaStore.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

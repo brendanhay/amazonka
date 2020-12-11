@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates one or more values for an SSM document.
 module Network.AWS.SSM.UpdateDocument
-  ( -- * Creating a Request
-    updateDocument,
-    UpdateDocument,
+  ( -- * Creating a request
+    UpdateDocument (..),
+    mkUpdateDocument,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udAttachments,
     udVersionName,
     udTargetType,
@@ -32,171 +27,198 @@ module Network.AWS.SSM.UpdateDocument
     udContent,
     udName,
 
-    -- * Destructuring the Response
-    updateDocumentResponse,
-    UpdateDocumentResponse,
+    -- * Destructuring the response
+    UpdateDocumentResponse (..),
+    mkUpdateDocumentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udrsDocumentDescription,
     udrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'updateDocument' smart constructor.
+-- | /See:/ 'mkUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { _udAttachments ::
-      !(Maybe [AttachmentsSource]),
-    _udVersionName :: !(Maybe Text),
-    _udTargetType :: !(Maybe Text),
-    _udDocumentFormat :: !(Maybe DocumentFormat),
-    _udDocumentVersion :: !(Maybe Text),
-    _udContent :: !Text,
-    _udName :: !Text
+  { attachments ::
+      Lude.Maybe [AttachmentsSource],
+    versionName :: Lude.Maybe Lude.Text,
+    targetType :: Lude.Maybe Lude.Text,
+    documentFormat :: Lude.Maybe DocumentFormat,
+    documentVersion :: Lude.Maybe Lude.Text,
+    content :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udAttachments' - A list of key and value pairs that describe attachments to a version of a document.
---
--- * 'udVersionName' - An optional field specifying the version of the artifact you are updating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
---
--- * 'udTargetType' - Specify a new target type for the document.
---
--- * 'udDocumentFormat' - Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
---
--- * 'udDocumentVersion' - (Required) The latest version of the document that you want to update. The latest document version can be specified using the $LATEST variable or by the version number. Updating a previous version of a document is not supported.
---
--- * 'udContent' - A valid JSON or YAML string.
---
--- * 'udName' - The name of the document that you want to update.
-updateDocument ::
-  -- | 'udContent'
-  Text ->
-  -- | 'udName'
-  Text ->
+-- * 'attachments' - A list of key and value pairs that describe attachments to a version of a document.
+-- * 'content' - A valid JSON or YAML string.
+-- * 'documentFormat' - Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
+-- * 'documentVersion' - (Required) The latest version of the document that you want to update. The latest document version can be specified using the $LATEST variable or by the version number. Updating a previous version of a document is not supported.
+-- * 'name' - The name of the document that you want to update.
+-- * 'targetType' - Specify a new target type for the document.
+-- * 'versionName' - An optional field specifying the version of the artifact you are updating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+mkUpdateDocument ::
+  -- | 'content'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   UpdateDocument
-updateDocument pContent_ pName_ =
+mkUpdateDocument pContent_ pName_ =
   UpdateDocument'
-    { _udAttachments = Nothing,
-      _udVersionName = Nothing,
-      _udTargetType = Nothing,
-      _udDocumentFormat = Nothing,
-      _udDocumentVersion = Nothing,
-      _udContent = pContent_,
-      _udName = pName_
+    { attachments = Lude.Nothing,
+      versionName = Lude.Nothing,
+      targetType = Lude.Nothing,
+      documentFormat = Lude.Nothing,
+      documentVersion = Lude.Nothing,
+      content = pContent_,
+      name = pName_
     }
 
 -- | A list of key and value pairs that describe attachments to a version of a document.
-udAttachments :: Lens' UpdateDocument [AttachmentsSource]
-udAttachments = lens _udAttachments (\s a -> s {_udAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udAttachments :: Lens.Lens' UpdateDocument (Lude.Maybe [AttachmentsSource])
+udAttachments = Lens.lens (attachments :: UpdateDocument -> Lude.Maybe [AttachmentsSource]) (\s a -> s {attachments = a} :: UpdateDocument)
+{-# DEPRECATED udAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
 
 -- | An optional field specifying the version of the artifact you are updating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-udVersionName :: Lens' UpdateDocument (Maybe Text)
-udVersionName = lens _udVersionName (\s a -> s {_udVersionName = a})
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udVersionName :: Lens.Lens' UpdateDocument (Lude.Maybe Lude.Text)
+udVersionName = Lens.lens (versionName :: UpdateDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: UpdateDocument)
+{-# DEPRECATED udVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
 -- | Specify a new target type for the document.
-udTargetType :: Lens' UpdateDocument (Maybe Text)
-udTargetType = lens _udTargetType (\s a -> s {_udTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udTargetType :: Lens.Lens' UpdateDocument (Lude.Maybe Lude.Text)
+udTargetType = Lens.lens (targetType :: UpdateDocument -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: UpdateDocument)
+{-# DEPRECATED udTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
-udDocumentFormat :: Lens' UpdateDocument (Maybe DocumentFormat)
-udDocumentFormat = lens _udDocumentFormat (\s a -> s {_udDocumentFormat = a})
+--
+-- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDocumentFormat :: Lens.Lens' UpdateDocument (Lude.Maybe DocumentFormat)
+udDocumentFormat = Lens.lens (documentFormat :: UpdateDocument -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: UpdateDocument)
+{-# DEPRECATED udDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
 
 -- | (Required) The latest version of the document that you want to update. The latest document version can be specified using the $LATEST variable or by the version number. Updating a previous version of a document is not supported.
-udDocumentVersion :: Lens' UpdateDocument (Maybe Text)
-udDocumentVersion = lens _udDocumentVersion (\s a -> s {_udDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDocumentVersion :: Lens.Lens' UpdateDocument (Lude.Maybe Lude.Text)
+udDocumentVersion = Lens.lens (documentVersion :: UpdateDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: UpdateDocument)
+{-# DEPRECATED udDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | A valid JSON or YAML string.
-udContent :: Lens' UpdateDocument Text
-udContent = lens _udContent (\s a -> s {_udContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udContent :: Lens.Lens' UpdateDocument Lude.Text
+udContent = Lens.lens (content :: UpdateDocument -> Lude.Text) (\s a -> s {content = a} :: UpdateDocument)
+{-# DEPRECATED udContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The name of the document that you want to update.
-udName :: Lens' UpdateDocument Text
-udName = lens _udName (\s a -> s {_udName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udName :: Lens.Lens' UpdateDocument Lude.Text
+udName = Lens.lens (name :: UpdateDocument -> Lude.Text) (\s a -> s {name = a} :: UpdateDocument)
+{-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest UpdateDocument where
+instance Lude.AWSRequest UpdateDocument where
   type Rs UpdateDocument = UpdateDocumentResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDocumentResponse'
-            <$> (x .?> "DocumentDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DocumentDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDocument
-
-instance NFData UpdateDocument
-
-instance ToHeaders UpdateDocument where
+instance Lude.ToHeaders UpdateDocument where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.UpdateDocument" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.UpdateDocument" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDocument where
+instance Lude.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
-    object
-      ( catMaybes
-          [ ("Attachments" .=) <$> _udAttachments,
-            ("VersionName" .=) <$> _udVersionName,
-            ("TargetType" .=) <$> _udTargetType,
-            ("DocumentFormat" .=) <$> _udDocumentFormat,
-            ("DocumentVersion" .=) <$> _udDocumentVersion,
-            Just ("Content" .= _udContent),
-            Just ("Name" .= _udName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Attachments" Lude..=) Lude.<$> attachments,
+            ("VersionName" Lude..=) Lude.<$> versionName,
+            ("TargetType" Lude..=) Lude.<$> targetType,
+            ("DocumentFormat" Lude..=) Lude.<$> documentFormat,
+            ("DocumentVersion" Lude..=) Lude.<$> documentVersion,
+            Lude.Just ("Content" Lude..= content),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath UpdateDocument where
-  toPath = const "/"
+instance Lude.ToPath UpdateDocument where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDocument where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDocument where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDocumentResponse' smart constructor.
+-- | /See:/ 'mkUpdateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
-  { _udrsDocumentDescription ::
-      !(Maybe DocumentDescription),
-    _udrsResponseStatus :: !Int
+  { documentDescription ::
+      Lude.Maybe DocumentDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udrsDocumentDescription' - A description of the document that was updated.
---
--- * 'udrsResponseStatus' - -- | The response status code.
-updateDocumentResponse ::
-  -- | 'udrsResponseStatus'
-  Int ->
+-- * 'documentDescription' - A description of the document that was updated.
+-- * 'responseStatus' - The response status code.
+mkUpdateDocumentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDocumentResponse
-updateDocumentResponse pResponseStatus_ =
+mkUpdateDocumentResponse pResponseStatus_ =
   UpdateDocumentResponse'
-    { _udrsDocumentDescription = Nothing,
-      _udrsResponseStatus = pResponseStatus_
+    { documentDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A description of the document that was updated.
-udrsDocumentDescription :: Lens' UpdateDocumentResponse (Maybe DocumentDescription)
-udrsDocumentDescription = lens _udrsDocumentDescription (\s a -> s {_udrsDocumentDescription = a})
+--
+-- /Note:/ Consider using 'documentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsDocumentDescription :: Lens.Lens' UpdateDocumentResponse (Lude.Maybe DocumentDescription)
+udrsDocumentDescription = Lens.lens (documentDescription :: UpdateDocumentResponse -> Lude.Maybe DocumentDescription) (\s a -> s {documentDescription = a} :: UpdateDocumentResponse)
+{-# DEPRECATED udrsDocumentDescription "Use generic-lens or generic-optics with 'documentDescription' instead." #-}
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UpdateDocumentResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\s a -> s {_udrsResponseStatus = a})
-
-instance NFData UpdateDocumentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsResponseStatus :: Lens.Lens' UpdateDocumentResponse Lude.Int
+udrsResponseStatus = Lens.lens (responseStatus :: UpdateDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDocumentResponse)
+{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

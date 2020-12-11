@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType where
+module Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType
+  ( PermissionsBoundaryAttachmentType
+      ( PermissionsBoundaryAttachmentType',
+        PermissionsBoundaryPolicy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PermissionsBoundaryAttachmentType = PermissionsBoundaryPolicy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PermissionsBoundaryAttachmentType = PermissionsBoundaryAttachmentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PermissionsBoundaryAttachmentType where
-  parser =
-    takeLowerText >>= \case
-      "permissionsboundarypolicy" -> pure PermissionsBoundaryPolicy
-      e ->
-        fromTextError $
-          "Failure parsing PermissionsBoundaryAttachmentType from value: '" <> e
-            <> "'. Accepted values: permissionsboundarypolicy"
+pattern PermissionsBoundaryPolicy :: PermissionsBoundaryAttachmentType
+pattern PermissionsBoundaryPolicy = PermissionsBoundaryAttachmentType' "PermissionsBoundaryPolicy"
 
-instance ToText PermissionsBoundaryAttachmentType where
-  toText = \case
-    PermissionsBoundaryPolicy -> "PermissionsBoundaryPolicy"
-
-instance Hashable PermissionsBoundaryAttachmentType
-
-instance NFData PermissionsBoundaryAttachmentType
-
-instance ToByteString PermissionsBoundaryAttachmentType
-
-instance ToQuery PermissionsBoundaryAttachmentType
-
-instance ToHeader PermissionsBoundaryAttachmentType
-
-instance FromXML PermissionsBoundaryAttachmentType where
-  parseXML = parseXMLText "PermissionsBoundaryAttachmentType"
+{-# COMPLETE
+  PermissionsBoundaryPolicy,
+  PermissionsBoundaryAttachmentType'
+  #-}

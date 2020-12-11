@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TargetReservationValue where
+module Network.AWS.EC2.Types.TargetReservationValue
+  ( TargetReservationValue (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTargetReservationValue,
+
+    -- * Lenses
+    trvReservationValue,
+    trvTargetConfiguration,
+  )
+where
+
 import Network.AWS.EC2.Types.ReservationValue
 import Network.AWS.EC2.Types.TargetConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The total value of the new Convertible Reserved Instances.
 --
---
---
--- /See:/ 'targetReservationValue' smart constructor.
+-- /See:/ 'mkTargetReservationValue' smart constructor.
 data TargetReservationValue = TargetReservationValue'
-  { _trvReservationValue ::
-      !(Maybe ReservationValue),
-    _trvTargetConfiguration ::
-      !(Maybe TargetConfiguration)
+  { reservationValue ::
+      Lude.Maybe ReservationValue,
+    targetConfiguration ::
+      Lude.Maybe TargetConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetReservationValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trvReservationValue' - The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
---
--- * 'trvTargetConfiguration' - The configuration of the Convertible Reserved Instances that make up the exchange.
-targetReservationValue ::
+-- * 'reservationValue' - The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
+-- * 'targetConfiguration' - The configuration of the Convertible Reserved Instances that make up the exchange.
+mkTargetReservationValue ::
   TargetReservationValue
-targetReservationValue =
+mkTargetReservationValue =
   TargetReservationValue'
-    { _trvReservationValue = Nothing,
-      _trvTargetConfiguration = Nothing
+    { reservationValue = Lude.Nothing,
+      targetConfiguration = Lude.Nothing
     }
 
 -- | The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
-trvReservationValue :: Lens' TargetReservationValue (Maybe ReservationValue)
-trvReservationValue = lens _trvReservationValue (\s a -> s {_trvReservationValue = a})
+--
+-- /Note:/ Consider using 'reservationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trvReservationValue :: Lens.Lens' TargetReservationValue (Lude.Maybe ReservationValue)
+trvReservationValue = Lens.lens (reservationValue :: TargetReservationValue -> Lude.Maybe ReservationValue) (\s a -> s {reservationValue = a} :: TargetReservationValue)
+{-# DEPRECATED trvReservationValue "Use generic-lens or generic-optics with 'reservationValue' instead." #-}
 
 -- | The configuration of the Convertible Reserved Instances that make up the exchange.
-trvTargetConfiguration :: Lens' TargetReservationValue (Maybe TargetConfiguration)
-trvTargetConfiguration = lens _trvTargetConfiguration (\s a -> s {_trvTargetConfiguration = a})
+--
+-- /Note:/ Consider using 'targetConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trvTargetConfiguration :: Lens.Lens' TargetReservationValue (Lude.Maybe TargetConfiguration)
+trvTargetConfiguration = Lens.lens (targetConfiguration :: TargetReservationValue -> Lude.Maybe TargetConfiguration) (\s a -> s {targetConfiguration = a} :: TargetReservationValue)
+{-# DEPRECATED trvTargetConfiguration "Use generic-lens or generic-optics with 'targetConfiguration' instead." #-}
 
-instance FromXML TargetReservationValue where
+instance Lude.FromXML TargetReservationValue where
   parseXML x =
     TargetReservationValue'
-      <$> (x .@? "reservationValue") <*> (x .@? "targetConfiguration")
-
-instance Hashable TargetReservationValue
-
-instance NFData TargetReservationValue
+      Lude.<$> (x Lude..@? "reservationValue")
+      Lude.<*> (x Lude..@? "targetConfiguration")

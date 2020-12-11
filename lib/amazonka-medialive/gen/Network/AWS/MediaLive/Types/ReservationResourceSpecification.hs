@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,25 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ReservationResourceSpecification where
+module Network.AWS.MediaLive.Types.ReservationResourceSpecification
+  ( ReservationResourceSpecification (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkReservationResourceSpecification,
+
+    -- * Lenses
+    rrsVideoQuality,
+    rrsMaximumFramerate,
+    rrsResourceType,
+    rrsResolution,
+    rrsCodec,
+    rrsSpecialFeature,
+    rrsChannelClass,
+    rrsMaximumBitrate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ChannelClass
 import Network.AWS.MediaLive.Types.ReservationCodec
 import Network.AWS.MediaLive.Types.ReservationMaximumBitrate
@@ -24,124 +34,137 @@ import Network.AWS.MediaLive.Types.ReservationResolution
 import Network.AWS.MediaLive.Types.ReservationResourceType
 import Network.AWS.MediaLive.Types.ReservationSpecialFeature
 import Network.AWS.MediaLive.Types.ReservationVideoQuality
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Resource configuration (codec, resolution, bitrate, ...)
 --
--- /See:/ 'reservationResourceSpecification' smart constructor.
+-- /See:/ 'mkReservationResourceSpecification' smart constructor.
 data ReservationResourceSpecification = ReservationResourceSpecification'
-  { _rrsVideoQuality ::
-      !( Maybe
-           ReservationVideoQuality
-       ),
-    _rrsMaximumFramerate ::
-      !( Maybe
-           ReservationMaximumFramerate
-       ),
-    _rrsResourceType ::
-      !( Maybe
-           ReservationResourceType
-       ),
-    _rrsResolution ::
-      !( Maybe
-           ReservationResolution
-       ),
-    _rrsCodec ::
-      !(Maybe ReservationCodec),
-    _rrsSpecialFeature ::
-      !( Maybe
-           ReservationSpecialFeature
-       ),
-    _rrsChannelClass ::
-      !(Maybe ChannelClass),
-    _rrsMaximumBitrate ::
-      !( Maybe
-           ReservationMaximumBitrate
-       )
+  { videoQuality ::
+      Lude.Maybe
+        ReservationVideoQuality,
+    maximumFramerate ::
+      Lude.Maybe
+        ReservationMaximumFramerate,
+    resourceType ::
+      Lude.Maybe
+        ReservationResourceType,
+    resolution ::
+      Lude.Maybe
+        ReservationResolution,
+    codec ::
+      Lude.Maybe
+        ReservationCodec,
+    specialFeature ::
+      Lude.Maybe
+        ReservationSpecialFeature,
+    channelClass ::
+      Lude.Maybe ChannelClass,
+    maximumBitrate ::
+      Lude.Maybe
+        ReservationMaximumBitrate
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationResourceSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrsVideoQuality' - Video quality, e.g. 'STANDARD' (Outputs only)
---
--- * 'rrsMaximumFramerate' - Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
---
--- * 'rrsResourceType' - Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
---
--- * 'rrsResolution' - Resolution, e.g. 'HD'
---
--- * 'rrsCodec' - Codec, e.g. 'AVC'
---
--- * 'rrsSpecialFeature' - Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
---
--- * 'rrsChannelClass' - Channel class, e.g. 'STANDARD'
---
--- * 'rrsMaximumBitrate' - Maximum bitrate, e.g. 'MAX_20_MBPS'
-reservationResourceSpecification ::
+-- * 'channelClass' - Channel class, e.g. 'STANDARD'
+-- * 'codec' - Codec, e.g. 'AVC'
+-- * 'maximumBitrate' - Maximum bitrate, e.g. 'MAX_20_MBPS'
+-- * 'maximumFramerate' - Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
+-- * 'resolution' - Resolution, e.g. 'HD'
+-- * 'resourceType' - Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+-- * 'specialFeature' - Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
+-- * 'videoQuality' - Video quality, e.g. 'STANDARD' (Outputs only)
+mkReservationResourceSpecification ::
   ReservationResourceSpecification
-reservationResourceSpecification =
+mkReservationResourceSpecification =
   ReservationResourceSpecification'
-    { _rrsVideoQuality = Nothing,
-      _rrsMaximumFramerate = Nothing,
-      _rrsResourceType = Nothing,
-      _rrsResolution = Nothing,
-      _rrsCodec = Nothing,
-      _rrsSpecialFeature = Nothing,
-      _rrsChannelClass = Nothing,
-      _rrsMaximumBitrate = Nothing
+    { videoQuality = Lude.Nothing,
+      maximumFramerate = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      resolution = Lude.Nothing,
+      codec = Lude.Nothing,
+      specialFeature = Lude.Nothing,
+      channelClass = Lude.Nothing,
+      maximumBitrate = Lude.Nothing
     }
 
 -- | Video quality, e.g. 'STANDARD' (Outputs only)
-rrsVideoQuality :: Lens' ReservationResourceSpecification (Maybe ReservationVideoQuality)
-rrsVideoQuality = lens _rrsVideoQuality (\s a -> s {_rrsVideoQuality = a})
+--
+-- /Note:/ Consider using 'videoQuality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsVideoQuality :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationVideoQuality)
+rrsVideoQuality = Lens.lens (videoQuality :: ReservationResourceSpecification -> Lude.Maybe ReservationVideoQuality) (\s a -> s {videoQuality = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsVideoQuality "Use generic-lens or generic-optics with 'videoQuality' instead." #-}
 
 -- | Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
-rrsMaximumFramerate :: Lens' ReservationResourceSpecification (Maybe ReservationMaximumFramerate)
-rrsMaximumFramerate = lens _rrsMaximumFramerate (\s a -> s {_rrsMaximumFramerate = a})
+--
+-- /Note:/ Consider using 'maximumFramerate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsMaximumFramerate :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationMaximumFramerate)
+rrsMaximumFramerate = Lens.lens (maximumFramerate :: ReservationResourceSpecification -> Lude.Maybe ReservationMaximumFramerate) (\s a -> s {maximumFramerate = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsMaximumFramerate "Use generic-lens or generic-optics with 'maximumFramerate' instead." #-}
 
 -- | Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
-rrsResourceType :: Lens' ReservationResourceSpecification (Maybe ReservationResourceType)
-rrsResourceType = lens _rrsResourceType (\s a -> s {_rrsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsResourceType :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationResourceType)
+rrsResourceType = Lens.lens (resourceType :: ReservationResourceSpecification -> Lude.Maybe ReservationResourceType) (\s a -> s {resourceType = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Resolution, e.g. 'HD'
-rrsResolution :: Lens' ReservationResourceSpecification (Maybe ReservationResolution)
-rrsResolution = lens _rrsResolution (\s a -> s {_rrsResolution = a})
+--
+-- /Note:/ Consider using 'resolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsResolution :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationResolution)
+rrsResolution = Lens.lens (resolution :: ReservationResourceSpecification -> Lude.Maybe ReservationResolution) (\s a -> s {resolution = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsResolution "Use generic-lens or generic-optics with 'resolution' instead." #-}
 
 -- | Codec, e.g. 'AVC'
-rrsCodec :: Lens' ReservationResourceSpecification (Maybe ReservationCodec)
-rrsCodec = lens _rrsCodec (\s a -> s {_rrsCodec = a})
+--
+-- /Note:/ Consider using 'codec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsCodec :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationCodec)
+rrsCodec = Lens.lens (codec :: ReservationResourceSpecification -> Lude.Maybe ReservationCodec) (\s a -> s {codec = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsCodec "Use generic-lens or generic-optics with 'codec' instead." #-}
 
 -- | Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
-rrsSpecialFeature :: Lens' ReservationResourceSpecification (Maybe ReservationSpecialFeature)
-rrsSpecialFeature = lens _rrsSpecialFeature (\s a -> s {_rrsSpecialFeature = a})
+--
+-- /Note:/ Consider using 'specialFeature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsSpecialFeature :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationSpecialFeature)
+rrsSpecialFeature = Lens.lens (specialFeature :: ReservationResourceSpecification -> Lude.Maybe ReservationSpecialFeature) (\s a -> s {specialFeature = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsSpecialFeature "Use generic-lens or generic-optics with 'specialFeature' instead." #-}
 
 -- | Channel class, e.g. 'STANDARD'
-rrsChannelClass :: Lens' ReservationResourceSpecification (Maybe ChannelClass)
-rrsChannelClass = lens _rrsChannelClass (\s a -> s {_rrsChannelClass = a})
+--
+-- /Note:/ Consider using 'channelClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsChannelClass :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ChannelClass)
+rrsChannelClass = Lens.lens (channelClass :: ReservationResourceSpecification -> Lude.Maybe ChannelClass) (\s a -> s {channelClass = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsChannelClass "Use generic-lens or generic-optics with 'channelClass' instead." #-}
 
 -- | Maximum bitrate, e.g. 'MAX_20_MBPS'
-rrsMaximumBitrate :: Lens' ReservationResourceSpecification (Maybe ReservationMaximumBitrate)
-rrsMaximumBitrate = lens _rrsMaximumBitrate (\s a -> s {_rrsMaximumBitrate = a})
+--
+-- /Note:/ Consider using 'maximumBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsMaximumBitrate :: Lens.Lens' ReservationResourceSpecification (Lude.Maybe ReservationMaximumBitrate)
+rrsMaximumBitrate = Lens.lens (maximumBitrate :: ReservationResourceSpecification -> Lude.Maybe ReservationMaximumBitrate) (\s a -> s {maximumBitrate = a} :: ReservationResourceSpecification)
+{-# DEPRECATED rrsMaximumBitrate "Use generic-lens or generic-optics with 'maximumBitrate' instead." #-}
 
-instance FromJSON ReservationResourceSpecification where
+instance Lude.FromJSON ReservationResourceSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReservationResourceSpecification"
       ( \x ->
           ReservationResourceSpecification'
-            <$> (x .:? "videoQuality")
-            <*> (x .:? "maximumFramerate")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "resolution")
-            <*> (x .:? "codec")
-            <*> (x .:? "specialFeature")
-            <*> (x .:? "channelClass")
-            <*> (x .:? "maximumBitrate")
+            Lude.<$> (x Lude..:? "videoQuality")
+            Lude.<*> (x Lude..:? "maximumFramerate")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "resolution")
+            Lude.<*> (x Lude..:? "codec")
+            Lude.<*> (x Lude..:? "specialFeature")
+            Lude.<*> (x Lude..:? "channelClass")
+            Lude.<*> (x Lude..:? "maximumBitrate")
       )
-
-instance Hashable ReservationResourceSpecification
-
-instance NFData ReservationResourceSpecification

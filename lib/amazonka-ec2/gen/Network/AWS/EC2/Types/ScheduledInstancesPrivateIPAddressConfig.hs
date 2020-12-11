@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ScheduledInstancesPrivateIPAddressConfig where
+module Network.AWS.EC2.Types.ScheduledInstancesPrivateIPAddressConfig
+  ( ScheduledInstancesPrivateIPAddressConfig (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScheduledInstancesPrivateIPAddressConfig,
+
+    -- * Lenses
+    sipiacPrimary,
+    sipiacPrivateIPAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a private IPv4 address for a Scheduled Instance.
 --
---
---
--- /See:/ 'scheduledInstancesPrivateIPAddressConfig' smart constructor.
+-- /See:/ 'mkScheduledInstancesPrivateIPAddressConfig' smart constructor.
 data ScheduledInstancesPrivateIPAddressConfig = ScheduledInstancesPrivateIPAddressConfig'
-  { _sipiacPrimary ::
-      !( Maybe
-           Bool
-       ),
-    _sipiacPrivateIPAddress ::
-      !( Maybe
-           Text
-       )
+  { primary ::
+      Lude.Maybe
+        Lude.Bool,
+    privateIPAddress ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesPrivateIPAddressConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sipiacPrimary' - Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.
---
--- * 'sipiacPrivateIPAddress' - The IPv4 address.
-scheduledInstancesPrivateIPAddressConfig ::
+-- * 'primary' - Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.
+-- * 'privateIPAddress' - The IPv4 address.
+mkScheduledInstancesPrivateIPAddressConfig ::
   ScheduledInstancesPrivateIPAddressConfig
-scheduledInstancesPrivateIPAddressConfig =
+mkScheduledInstancesPrivateIPAddressConfig =
   ScheduledInstancesPrivateIPAddressConfig'
-    { _sipiacPrimary =
-        Nothing,
-      _sipiacPrivateIPAddress = Nothing
+    { primary = Lude.Nothing,
+      privateIPAddress = Lude.Nothing
     }
 
 -- | Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.
-sipiacPrimary :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Bool)
-sipiacPrimary = lens _sipiacPrimary (\s a -> s {_sipiacPrimary = a})
+--
+-- /Note:/ Consider using 'primary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sipiacPrimary :: Lens.Lens' ScheduledInstancesPrivateIPAddressConfig (Lude.Maybe Lude.Bool)
+sipiacPrimary = Lens.lens (primary :: ScheduledInstancesPrivateIPAddressConfig -> Lude.Maybe Lude.Bool) (\s a -> s {primary = a} :: ScheduledInstancesPrivateIPAddressConfig)
+{-# DEPRECATED sipiacPrimary "Use generic-lens or generic-optics with 'primary' instead." #-}
 
 -- | The IPv4 address.
-sipiacPrivateIPAddress :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Text)
-sipiacPrivateIPAddress = lens _sipiacPrivateIPAddress (\s a -> s {_sipiacPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sipiacPrivateIPAddress :: Lens.Lens' ScheduledInstancesPrivateIPAddressConfig (Lude.Maybe Lude.Text)
+sipiacPrivateIPAddress = Lens.lens (privateIPAddress :: ScheduledInstancesPrivateIPAddressConfig -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: ScheduledInstancesPrivateIPAddressConfig)
+{-# DEPRECATED sipiacPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
-instance Hashable ScheduledInstancesPrivateIPAddressConfig
-
-instance NFData ScheduledInstancesPrivateIPAddressConfig
-
-instance ToQuery ScheduledInstancesPrivateIPAddressConfig where
+instance Lude.ToQuery ScheduledInstancesPrivateIPAddressConfig where
   toQuery ScheduledInstancesPrivateIPAddressConfig' {..} =
-    mconcat
-      [ "Primary" =: _sipiacPrimary,
-        "PrivateIpAddress" =: _sipiacPrivateIPAddress
+    Lude.mconcat
+      [ "Primary" Lude.=: primary,
+        "PrivateIpAddress" Lude.=: privateIPAddress
       ]

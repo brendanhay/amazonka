@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary where
+module Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
+  ( TrustedAdvisorCostOptimizingSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrustedAdvisorCostOptimizingSummary,
+
+    -- * Lenses
+    tacosEstimatedMonthlySavings,
+    tacosEstimatedPercentMonthlySavings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The estimated cost savings that might be realized if the recommended operations are taken.
 --
---
---
--- /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
+-- /See:/ 'mkTrustedAdvisorCostOptimizingSummary' smart constructor.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
-  { _tacosEstimatedMonthlySavings ::
-      !Double,
-    _tacosEstimatedPercentMonthlySavings ::
-      !Double
+  { estimatedMonthlySavings ::
+      Lude.Double,
+    estimatedPercentMonthlySavings ::
+      Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrustedAdvisorCostOptimizingSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tacosEstimatedMonthlySavings' - The estimated monthly savings that might be realized if the recommended operations are taken.
---
--- * 'tacosEstimatedPercentMonthlySavings' - The estimated percentage of savings that might be realized if the recommended operations are taken.
-trustedAdvisorCostOptimizingSummary ::
-  -- | 'tacosEstimatedMonthlySavings'
-  Double ->
-  -- | 'tacosEstimatedPercentMonthlySavings'
-  Double ->
+-- * 'estimatedMonthlySavings' - The estimated monthly savings that might be realized if the recommended operations are taken.
+-- * 'estimatedPercentMonthlySavings' - The estimated percentage of savings that might be realized if the recommended operations are taken.
+mkTrustedAdvisorCostOptimizingSummary ::
+  -- | 'estimatedMonthlySavings'
+  Lude.Double ->
+  -- | 'estimatedPercentMonthlySavings'
+  Lude.Double ->
   TrustedAdvisorCostOptimizingSummary
-trustedAdvisorCostOptimizingSummary
+mkTrustedAdvisorCostOptimizingSummary
   pEstimatedMonthlySavings_
   pEstimatedPercentMonthlySavings_ =
     TrustedAdvisorCostOptimizingSummary'
-      { _tacosEstimatedMonthlySavings =
+      { estimatedMonthlySavings =
           pEstimatedMonthlySavings_,
-        _tacosEstimatedPercentMonthlySavings =
+        estimatedPercentMonthlySavings =
           pEstimatedPercentMonthlySavings_
       }
 
 -- | The estimated monthly savings that might be realized if the recommended operations are taken.
-tacosEstimatedMonthlySavings :: Lens' TrustedAdvisorCostOptimizingSummary Double
-tacosEstimatedMonthlySavings = lens _tacosEstimatedMonthlySavings (\s a -> s {_tacosEstimatedMonthlySavings = a})
+--
+-- /Note:/ Consider using 'estimatedMonthlySavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacosEstimatedMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Lude.Double
+tacosEstimatedMonthlySavings = Lens.lens (estimatedMonthlySavings :: TrustedAdvisorCostOptimizingSummary -> Lude.Double) (\s a -> s {estimatedMonthlySavings = a} :: TrustedAdvisorCostOptimizingSummary)
+{-# DEPRECATED tacosEstimatedMonthlySavings "Use generic-lens or generic-optics with 'estimatedMonthlySavings' instead." #-}
 
 -- | The estimated percentage of savings that might be realized if the recommended operations are taken.
-tacosEstimatedPercentMonthlySavings :: Lens' TrustedAdvisorCostOptimizingSummary Double
-tacosEstimatedPercentMonthlySavings = lens _tacosEstimatedPercentMonthlySavings (\s a -> s {_tacosEstimatedPercentMonthlySavings = a})
+--
+-- /Note:/ Consider using 'estimatedPercentMonthlySavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacosEstimatedPercentMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Lude.Double
+tacosEstimatedPercentMonthlySavings = Lens.lens (estimatedPercentMonthlySavings :: TrustedAdvisorCostOptimizingSummary -> Lude.Double) (\s a -> s {estimatedPercentMonthlySavings = a} :: TrustedAdvisorCostOptimizingSummary)
+{-# DEPRECATED tacosEstimatedPercentMonthlySavings "Use generic-lens or generic-optics with 'estimatedPercentMonthlySavings' instead." #-}
 
-instance FromJSON TrustedAdvisorCostOptimizingSummary where
+instance Lude.FromJSON TrustedAdvisorCostOptimizingSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrustedAdvisorCostOptimizingSummary"
       ( \x ->
           TrustedAdvisorCostOptimizingSummary'
-            <$> (x .: "estimatedMonthlySavings")
-            <*> (x .: "estimatedPercentMonthlySavings")
+            Lude.<$> (x Lude..: "estimatedMonthlySavings")
+            Lude.<*> (x Lude..: "estimatedPercentMonthlySavings")
       )
-
-instance Hashable TrustedAdvisorCostOptimizingSummary
-
-instance NFData TrustedAdvisorCostOptimizingSummary

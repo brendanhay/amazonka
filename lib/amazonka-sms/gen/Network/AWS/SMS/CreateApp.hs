@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates an application. An application consists of one or more server groups. Each server group contain one or more servers.
 module Network.AWS.SMS.CreateApp
-  ( -- * Creating a Request
-    createApp,
-    CreateApp,
+  ( -- * Creating a request
+    CreateApp (..),
+    mkCreateApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caClientToken,
     caRoleName,
     caName,
@@ -31,11 +26,11 @@ module Network.AWS.SMS.CreateApp
     caServerGroups,
     caTags,
 
-    -- * Destructuring the Response
-    createAppResponse,
-    CreateAppResponse,
+    -- * Destructuring the response
+    CreateAppResponse (..),
+    mkCreateAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsAppSummary,
     carsServerGroups,
     carsTags,
@@ -43,167 +38,196 @@ module Network.AWS.SMS.CreateApp
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'createApp' smart constructor.
+-- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { _caClientToken :: !(Maybe Text),
-    _caRoleName :: !(Maybe Text),
-    _caName :: !(Maybe Text),
-    _caDescription :: !(Maybe Text),
-    _caServerGroups :: !(Maybe [ServerGroup]),
-    _caTags :: !(Maybe [Tag])
+  { clientToken :: Lude.Maybe Lude.Text,
+    roleName :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    serverGroups :: Lude.Maybe [ServerGroup],
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caClientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
---
--- * 'caRoleName' - The name of the service role in the customer's account to be used by AWS SMS.
---
--- * 'caName' - The name of the new application.
---
--- * 'caDescription' - The description of the new application
---
--- * 'caServerGroups' - The server groups to include in the application.
---
--- * 'caTags' - The tags to be associated with the application.
-createApp ::
+-- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
+-- * 'description' - The description of the new application
+-- * 'name' - The name of the new application.
+-- * 'roleName' - The name of the service role in the customer's account to be used by AWS SMS.
+-- * 'serverGroups' - The server groups to include in the application.
+-- * 'tags' - The tags to be associated with the application.
+mkCreateApp ::
   CreateApp
-createApp =
+mkCreateApp =
   CreateApp'
-    { _caClientToken = Nothing,
-      _caRoleName = Nothing,
-      _caName = Nothing,
-      _caDescription = Nothing,
-      _caServerGroups = Nothing,
-      _caTags = Nothing
+    { clientToken = Lude.Nothing,
+      roleName = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing,
+      serverGroups = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
-caClientToken :: Lens' CreateApp (Maybe Text)
-caClientToken = lens _caClientToken (\s a -> s {_caClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caClientToken :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caClientToken = Lens.lens (clientToken :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateApp)
+{-# DEPRECATED caClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The name of the service role in the customer's account to be used by AWS SMS.
-caRoleName :: Lens' CreateApp (Maybe Text)
-caRoleName = lens _caRoleName (\s a -> s {_caRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRoleName :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caRoleName = Lens.lens (roleName :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: CreateApp)
+{-# DEPRECATED caRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The name of the new application.
-caName :: Lens' CreateApp (Maybe Text)
-caName = lens _caName (\s a -> s {_caName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caName = Lens.lens (name :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateApp)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the new application
-caDescription :: Lens' CreateApp (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApp)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The server groups to include in the application.
-caServerGroups :: Lens' CreateApp [ServerGroup]
-caServerGroups = lens _caServerGroups (\s a -> s {_caServerGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caServerGroups :: Lens.Lens' CreateApp (Lude.Maybe [ServerGroup])
+caServerGroups = Lens.lens (serverGroups :: CreateApp -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: CreateApp)
+{-# DEPRECATED caServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags to be associated with the application.
-caTags :: Lens' CreateApp [Tag]
-caTags = lens _caTags (\s a -> s {_caTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApp (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateApp -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApp)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateApp where
+instance Lude.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            <$> (x .?> "appSummary")
-            <*> (x .?> "serverGroups" .!@ mempty)
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "appSummary")
+            Lude.<*> (x Lude..?> "serverGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateApp
-
-instance NFData CreateApp
-
-instance ToHeaders CreateApp where
+instance Lude.ToHeaders CreateApp where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSServerMigrationService_V2016_10_24.CreateApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.CreateApp" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateApp where
+instance Lude.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    object
-      ( catMaybes
-          [ ("clientToken" .=) <$> _caClientToken,
-            ("roleName" .=) <$> _caRoleName,
-            ("name" .=) <$> _caName,
-            ("description" .=) <$> _caDescription,
-            ("serverGroups" .=) <$> _caServerGroups,
-            ("tags" .=) <$> _caTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("clientToken" Lude..=) Lude.<$> clientToken,
+            ("roleName" Lude..=) Lude.<$> roleName,
+            ("name" Lude..=) Lude.<$> name,
+            ("description" Lude..=) Lude.<$> description,
+            ("serverGroups" Lude..=) Lude.<$> serverGroups,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateApp where
-  toPath = const "/"
+instance Lude.ToPath CreateApp where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateApp where
-  toQuery = const mempty
+instance Lude.ToQuery CreateApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAppResponse' smart constructor.
+-- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { _carsAppSummary ::
-      !(Maybe AppSummary),
-    _carsServerGroups :: !(Maybe [ServerGroup]),
-    _carsTags :: !(Maybe [Tag]),
-    _carsResponseStatus :: !Int
+  { appSummary ::
+      Lude.Maybe AppSummary,
+    serverGroups :: Lude.Maybe [ServerGroup],
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsAppSummary' - A summary description of the application.
---
--- * 'carsServerGroups' - The server groups included in the application.
---
--- * 'carsTags' - The tags associated with the application.
---
--- * 'carsResponseStatus' - -- | The response status code.
-createAppResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'appSummary' - A summary description of the application.
+-- * 'responseStatus' - The response status code.
+-- * 'serverGroups' - The server groups included in the application.
+-- * 'tags' - The tags associated with the application.
+mkCreateAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAppResponse
-createAppResponse pResponseStatus_ =
+mkCreateAppResponse pResponseStatus_ =
   CreateAppResponse'
-    { _carsAppSummary = Nothing,
-      _carsServerGroups = Nothing,
-      _carsTags = Nothing,
-      _carsResponseStatus = pResponseStatus_
+    { appSummary = Lude.Nothing,
+      serverGroups = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A summary description of the application.
-carsAppSummary :: Lens' CreateAppResponse (Maybe AppSummary)
-carsAppSummary = lens _carsAppSummary (\s a -> s {_carsAppSummary = a})
+--
+-- /Note:/ Consider using 'appSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsAppSummary :: Lens.Lens' CreateAppResponse (Lude.Maybe AppSummary)
+carsAppSummary = Lens.lens (appSummary :: CreateAppResponse -> Lude.Maybe AppSummary) (\s a -> s {appSummary = a} :: CreateAppResponse)
+{-# DEPRECATED carsAppSummary "Use generic-lens or generic-optics with 'appSummary' instead." #-}
 
 -- | The server groups included in the application.
-carsServerGroups :: Lens' CreateAppResponse [ServerGroup]
-carsServerGroups = lens _carsServerGroups (\s a -> s {_carsServerGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsServerGroups :: Lens.Lens' CreateAppResponse (Lude.Maybe [ServerGroup])
+carsServerGroups = Lens.lens (serverGroups :: CreateAppResponse -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: CreateAppResponse)
+{-# DEPRECATED carsServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags associated with the application.
-carsTags :: Lens' CreateAppResponse [Tag]
-carsTags = lens _carsTags (\s a -> s {_carsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsTags :: Lens.Lens' CreateAppResponse (Lude.Maybe [Tag])
+carsTags = Lens.lens (tags :: CreateAppResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAppResponse)
+{-# DEPRECATED carsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAppResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateAppResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

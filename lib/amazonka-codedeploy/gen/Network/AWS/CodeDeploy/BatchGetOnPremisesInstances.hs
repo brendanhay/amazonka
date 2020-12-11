@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,143 @@
 --
 -- Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
-  ( -- * Creating a Request
-    batchGetOnPremisesInstances,
-    BatchGetOnPremisesInstances,
+  ( -- * Creating a request
+    BatchGetOnPremisesInstances (..),
+    mkBatchGetOnPremisesInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgopiInstanceNames,
 
-    -- * Destructuring the Response
-    batchGetOnPremisesInstancesResponse,
-    BatchGetOnPremisesInstancesResponse,
+    -- * Destructuring the response
+    BatchGetOnPremisesInstancesResponse (..),
+    mkBatchGetOnPremisesInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgopirsInstanceInfos,
     bgopirsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @BatchGetOnPremisesInstances@ operation.
 --
---
---
--- /See:/ 'batchGetOnPremisesInstances' smart constructor.
+-- /See:/ 'mkBatchGetOnPremisesInstances' smart constructor.
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
-  { _bgopiInstanceNames ::
-      [Text]
+  { instanceNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetOnPremisesInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgopiInstanceNames' - The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.
-batchGetOnPremisesInstances ::
+-- * 'instanceNames' - The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.
+mkBatchGetOnPremisesInstances ::
   BatchGetOnPremisesInstances
-batchGetOnPremisesInstances =
-  BatchGetOnPremisesInstances' {_bgopiInstanceNames = mempty}
+mkBatchGetOnPremisesInstances =
+  BatchGetOnPremisesInstances' {instanceNames = Lude.mempty}
 
 -- | The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.
-bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
-bgopiInstanceNames = lens _bgopiInstanceNames (\s a -> s {_bgopiInstanceNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgopiInstanceNames :: Lens.Lens' BatchGetOnPremisesInstances [Lude.Text]
+bgopiInstanceNames = Lens.lens (instanceNames :: BatchGetOnPremisesInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: BatchGetOnPremisesInstances)
+{-# DEPRECATED bgopiInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
-instance AWSRequest BatchGetOnPremisesInstances where
+instance Lude.AWSRequest BatchGetOnPremisesInstances where
   type
     Rs BatchGetOnPremisesInstances =
       BatchGetOnPremisesInstancesResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetOnPremisesInstancesResponse'
-            <$> (x .?> "instanceInfos" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "instanceInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetOnPremisesInstances
-
-instance NFData BatchGetOnPremisesInstances
-
-instance ToHeaders BatchGetOnPremisesInstances where
+instance Lude.ToHeaders BatchGetOnPremisesInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.BatchGetOnPremisesInstances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.BatchGetOnPremisesInstances" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetOnPremisesInstances where
+instance Lude.ToJSON BatchGetOnPremisesInstances where
   toJSON BatchGetOnPremisesInstances' {..} =
-    object
-      (catMaybes [Just ("instanceNames" .= _bgopiInstanceNames)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("instanceNames" Lude..= instanceNames)]
+      )
 
-instance ToPath BatchGetOnPremisesInstances where
-  toPath = const "/"
+instance Lude.ToPath BatchGetOnPremisesInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetOnPremisesInstances where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetOnPremisesInstances where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchGetOnPremisesInstances@ operation.
 --
---
---
--- /See:/ 'batchGetOnPremisesInstancesResponse' smart constructor.
+-- /See:/ 'mkBatchGetOnPremisesInstancesResponse' smart constructor.
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
-  { _bgopirsInstanceInfos ::
-      !( Maybe
-           [InstanceInfo]
-       ),
-    _bgopirsResponseStatus ::
-      !Int
+  { instanceInfos ::
+      Lude.Maybe
+        [InstanceInfo],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetOnPremisesInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgopirsInstanceInfos' - Information about the on-premises instances.
---
--- * 'bgopirsResponseStatus' - -- | The response status code.
-batchGetOnPremisesInstancesResponse ::
-  -- | 'bgopirsResponseStatus'
-  Int ->
+-- * 'instanceInfos' - Information about the on-premises instances.
+-- * 'responseStatus' - The response status code.
+mkBatchGetOnPremisesInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse pResponseStatus_ =
+mkBatchGetOnPremisesInstancesResponse pResponseStatus_ =
   BatchGetOnPremisesInstancesResponse'
-    { _bgopirsInstanceInfos =
-        Nothing,
-      _bgopirsResponseStatus = pResponseStatus_
+    { instanceInfos =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the on-premises instances.
-bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
-bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\s a -> s {_bgopirsInstanceInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgopirsInstanceInfos :: Lens.Lens' BatchGetOnPremisesInstancesResponse (Lude.Maybe [InstanceInfo])
+bgopirsInstanceInfos = Lens.lens (instanceInfos :: BatchGetOnPremisesInstancesResponse -> Lude.Maybe [InstanceInfo]) (\s a -> s {instanceInfos = a} :: BatchGetOnPremisesInstancesResponse)
+{-# DEPRECATED bgopirsInstanceInfos "Use generic-lens or generic-optics with 'instanceInfos' instead." #-}
 
--- | -- | The response status code.
-bgopirsResponseStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
-bgopirsResponseStatus = lens _bgopirsResponseStatus (\s a -> s {_bgopirsResponseStatus = a})
-
-instance NFData BatchGetOnPremisesInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgopirsResponseStatus :: Lens.Lens' BatchGetOnPremisesInstancesResponse Lude.Int
+bgopirsResponseStatus = Lens.lens (responseStatus :: BatchGetOnPremisesInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetOnPremisesInstancesResponse)
+{-# DEPRECATED bgopirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

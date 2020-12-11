@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,141 @@
 --
 -- Get detailed information about a particular Automation execution.
 module Network.AWS.SSM.GetAutomationExecution
-  ( -- * Creating a Request
-    getAutomationExecution,
-    GetAutomationExecution,
+  ( -- * Creating a request
+    GetAutomationExecution (..),
+    mkGetAutomationExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaeAutomationExecutionId,
 
-    -- * Destructuring the Response
-    getAutomationExecutionResponse,
-    GetAutomationExecutionResponse,
+    -- * Destructuring the response
+    GetAutomationExecutionResponse (..),
+    mkGetAutomationExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gaersAutomationExecution,
     gaersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getAutomationExecution' smart constructor.
+-- | /See:/ 'mkGetAutomationExecution' smart constructor.
 newtype GetAutomationExecution = GetAutomationExecution'
-  { _gaeAutomationExecutionId ::
-      Text
+  { automationExecutionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutomationExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaeAutomationExecutionId' - The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
-getAutomationExecution ::
-  -- | 'gaeAutomationExecutionId'
-  Text ->
+-- * 'automationExecutionId' - The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
+mkGetAutomationExecution ::
+  -- | 'automationExecutionId'
+  Lude.Text ->
   GetAutomationExecution
-getAutomationExecution pAutomationExecutionId_ =
+mkGetAutomationExecution pAutomationExecutionId_ =
   GetAutomationExecution'
-    { _gaeAutomationExecutionId =
+    { automationExecutionId =
         pAutomationExecutionId_
     }
 
 -- | The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
-gaeAutomationExecutionId :: Lens' GetAutomationExecution Text
-gaeAutomationExecutionId = lens _gaeAutomationExecutionId (\s a -> s {_gaeAutomationExecutionId = a})
+--
+-- /Note:/ Consider using 'automationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaeAutomationExecutionId :: Lens.Lens' GetAutomationExecution Lude.Text
+gaeAutomationExecutionId = Lens.lens (automationExecutionId :: GetAutomationExecution -> Lude.Text) (\s a -> s {automationExecutionId = a} :: GetAutomationExecution)
+{-# DEPRECATED gaeAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
 
-instance AWSRequest GetAutomationExecution where
+instance Lude.AWSRequest GetAutomationExecution where
   type Rs GetAutomationExecution = GetAutomationExecutionResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAutomationExecutionResponse'
-            <$> (x .?> "AutomationExecution") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AutomationExecution")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAutomationExecution
-
-instance NFData GetAutomationExecution
-
-instance ToHeaders GetAutomationExecution where
+instance Lude.ToHeaders GetAutomationExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetAutomationExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.GetAutomationExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAutomationExecution where
+instance Lude.ToJSON GetAutomationExecution where
   toJSON GetAutomationExecution' {..} =
-    object
-      ( catMaybes
-          [Just ("AutomationExecutionId" .= _gaeAutomationExecutionId)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("AutomationExecutionId" Lude..= automationExecutionId)
+          ]
       )
 
-instance ToPath GetAutomationExecution where
-  toPath = const "/"
+instance Lude.ToPath GetAutomationExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAutomationExecution where
-  toQuery = const mempty
+instance Lude.ToQuery GetAutomationExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAutomationExecutionResponse' smart constructor.
+-- | /See:/ 'mkGetAutomationExecutionResponse' smart constructor.
 data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
-  { _gaersAutomationExecution ::
-      !(Maybe AutomationExecution),
-    _gaersResponseStatus :: !Int
+  { automationExecution ::
+      Lude.Maybe
+        AutomationExecution,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutomationExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaersAutomationExecution' - Detailed information about the current state of an automation execution.
---
--- * 'gaersResponseStatus' - -- | The response status code.
-getAutomationExecutionResponse ::
-  -- | 'gaersResponseStatus'
-  Int ->
+-- * 'automationExecution' - Detailed information about the current state of an automation execution.
+-- * 'responseStatus' - The response status code.
+mkGetAutomationExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAutomationExecutionResponse
-getAutomationExecutionResponse pResponseStatus_ =
+mkGetAutomationExecutionResponse pResponseStatus_ =
   GetAutomationExecutionResponse'
-    { _gaersAutomationExecution =
-        Nothing,
-      _gaersResponseStatus = pResponseStatus_
+    { automationExecution =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Detailed information about the current state of an automation execution.
-gaersAutomationExecution :: Lens' GetAutomationExecutionResponse (Maybe AutomationExecution)
-gaersAutomationExecution = lens _gaersAutomationExecution (\s a -> s {_gaersAutomationExecution = a})
+--
+-- /Note:/ Consider using 'automationExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaersAutomationExecution :: Lens.Lens' GetAutomationExecutionResponse (Lude.Maybe AutomationExecution)
+gaersAutomationExecution = Lens.lens (automationExecution :: GetAutomationExecutionResponse -> Lude.Maybe AutomationExecution) (\s a -> s {automationExecution = a} :: GetAutomationExecutionResponse)
+{-# DEPRECATED gaersAutomationExecution "Use generic-lens or generic-optics with 'automationExecution' instead." #-}
 
--- | -- | The response status code.
-gaersResponseStatus :: Lens' GetAutomationExecutionResponse Int
-gaersResponseStatus = lens _gaersResponseStatus (\s a -> s {_gaersResponseStatus = a})
-
-instance NFData GetAutomationExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaersResponseStatus :: Lens.Lens' GetAutomationExecutionResponse Lude.Int
+gaersResponseStatus = Lens.lens (responseStatus :: GetAutomationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAutomationExecutionResponse)
+{-# DEPRECATED gaersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,150 @@
 --
 -- Modifies AWS CloudHSM cluster.
 module Network.AWS.CloudHSMv2.ModifyCluster
-  ( -- * Creating a Request
-    modifyCluster,
-    ModifyCluster,
+  ( -- * Creating a request
+    ModifyCluster (..),
+    mkModifyCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcBackupRetentionPolicy,
     mcClusterId,
 
-    -- * Destructuring the Response
-    modifyClusterResponse,
-    ModifyClusterResponse,
+    -- * Destructuring the response
+    ModifyClusterResponse (..),
+    mkModifyClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mcrsCluster,
     mcrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyCluster' smart constructor.
+-- | /See:/ 'mkModifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
-  { _mcBackupRetentionPolicy ::
-      !BackupRetentionPolicy,
-    _mcClusterId :: !Text
+  { backupRetentionPolicy ::
+      BackupRetentionPolicy,
+    clusterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcBackupRetentionPolicy' - A policy that defines how the service retains backups.
---
--- * 'mcClusterId' - The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use 'DescribeClusters' .
-modifyCluster ::
-  -- | 'mcBackupRetentionPolicy'
+-- * 'backupRetentionPolicy' - A policy that defines how the service retains backups.
+-- * 'clusterId' - The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use 'DescribeClusters' .
+mkModifyCluster ::
+  -- | 'backupRetentionPolicy'
   BackupRetentionPolicy ->
-  -- | 'mcClusterId'
-  Text ->
+  -- | 'clusterId'
+  Lude.Text ->
   ModifyCluster
-modifyCluster pBackupRetentionPolicy_ pClusterId_ =
+mkModifyCluster pBackupRetentionPolicy_ pClusterId_ =
   ModifyCluster'
-    { _mcBackupRetentionPolicy =
-        pBackupRetentionPolicy_,
-      _mcClusterId = pClusterId_
+    { backupRetentionPolicy = pBackupRetentionPolicy_,
+      clusterId = pClusterId_
     }
 
 -- | A policy that defines how the service retains backups.
-mcBackupRetentionPolicy :: Lens' ModifyCluster BackupRetentionPolicy
-mcBackupRetentionPolicy = lens _mcBackupRetentionPolicy (\s a -> s {_mcBackupRetentionPolicy = a})
+--
+-- /Note:/ Consider using 'backupRetentionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcBackupRetentionPolicy :: Lens.Lens' ModifyCluster BackupRetentionPolicy
+mcBackupRetentionPolicy = Lens.lens (backupRetentionPolicy :: ModifyCluster -> BackupRetentionPolicy) (\s a -> s {backupRetentionPolicy = a} :: ModifyCluster)
+{-# DEPRECATED mcBackupRetentionPolicy "Use generic-lens or generic-optics with 'backupRetentionPolicy' instead." #-}
 
 -- | The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use 'DescribeClusters' .
-mcClusterId :: Lens' ModifyCluster Text
-mcClusterId = lens _mcClusterId (\s a -> s {_mcClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcClusterId :: Lens.Lens' ModifyCluster Lude.Text
+mcClusterId = Lens.lens (clusterId :: ModifyCluster -> Lude.Text) (\s a -> s {clusterId = a} :: ModifyCluster)
+{-# DEPRECATED mcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSRequest ModifyCluster where
+instance Lude.AWSRequest ModifyCluster where
   type Rs ModifyCluster = ModifyClusterResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ModifyClusterResponse'
-            <$> (x .?> "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyCluster
-
-instance NFData ModifyCluster
-
-instance ToHeaders ModifyCluster where
+instance Lude.ToHeaders ModifyCluster where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("BaldrApiService.ModifyCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("BaldrApiService.ModifyCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyCluster where
+instance Lude.ToJSON ModifyCluster where
   toJSON ModifyCluster' {..} =
-    object
-      ( catMaybes
-          [ Just ("BackupRetentionPolicy" .= _mcBackupRetentionPolicy),
-            Just ("ClusterId" .= _mcClusterId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("BackupRetentionPolicy" Lude..= backupRetentionPolicy),
+            Lude.Just ("ClusterId" Lude..= clusterId)
           ]
       )
 
-instance ToPath ModifyCluster where
-  toPath = const "/"
+instance Lude.ToPath ModifyCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyCluster where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyClusterResponse' smart constructor.
+-- | /See:/ 'mkModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-  { _mcrsCluster ::
-      !(Maybe Cluster),
-    _mcrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcrsCluster' - Undocumented member.
---
--- * 'mcrsResponseStatus' - -- | The response status code.
-modifyClusterResponse ::
-  -- | 'mcrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyClusterResponse
-modifyClusterResponse pResponseStatus_ =
+mkModifyClusterResponse pResponseStatus_ =
   ModifyClusterResponse'
-    { _mcrsCluster = Nothing,
-      _mcrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
-mcrsCluster = lens _mcrsCluster (\s a -> s {_mcrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrsCluster :: Lens.Lens' ModifyClusterResponse (Lude.Maybe Cluster)
+mcrsCluster = Lens.lens (cluster :: ModifyClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ModifyClusterResponse)
+{-# DEPRECATED mcrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-mcrsResponseStatus :: Lens' ModifyClusterResponse Int
-mcrsResponseStatus = lens _mcrsResponseStatus (\s a -> s {_mcrsResponseStatus = a})
-
-instance NFData ModifyClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrsResponseStatus :: Lens.Lens' ModifyClusterResponse Lude.Int
+mcrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterResponse)
+{-# DEPRECATED mcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

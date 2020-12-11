@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,128 @@
 --
 -- List all public keys that have been added to CloudFront for this account.
 module Network.AWS.CloudFront.ListPublicKeys
-  ( -- * Creating a Request
-    listPublicKeys,
-    ListPublicKeys,
+  ( -- * Creating a request
+    ListPublicKeys (..),
+    mkListPublicKeys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpkMarker,
     lpkMaxItems,
 
-    -- * Destructuring the Response
-    listPublicKeysResponse,
-    ListPublicKeysResponse,
+    -- * Destructuring the response
+    ListPublicKeysResponse (..),
+    mkListPublicKeysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpkrsPublicKeyList,
     lpkrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPublicKeys' smart constructor.
+-- | /See:/ 'mkListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { _lpkMarker :: !(Maybe Text),
-    _lpkMaxItems :: !(Maybe Text)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublicKeys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpkMarker' - Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last public key on that page).
---
--- * 'lpkMaxItems' - The maximum number of public keys you want in the response body.
-listPublicKeys ::
+-- * 'marker' - Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last public key on that page).
+-- * 'maxItems' - The maximum number of public keys you want in the response body.
+mkListPublicKeys ::
   ListPublicKeys
-listPublicKeys =
-  ListPublicKeys' {_lpkMarker = Nothing, _lpkMaxItems = Nothing}
+mkListPublicKeys =
+  ListPublicKeys' {marker = Lude.Nothing, maxItems = Lude.Nothing}
 
 -- | Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last public key on that page).
-lpkMarker :: Lens' ListPublicKeys (Maybe Text)
-lpkMarker = lens _lpkMarker (\s a -> s {_lpkMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkMarker :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Text)
+lpkMarker = Lens.lens (marker :: ListPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPublicKeys)
+{-# DEPRECATED lpkMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of public keys you want in the response body.
-lpkMaxItems :: Lens' ListPublicKeys (Maybe Text)
-lpkMaxItems = lens _lpkMaxItems (\s a -> s {_lpkMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkMaxItems :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Text)
+lpkMaxItems = Lens.lens (maxItems :: ListPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListPublicKeys)
+{-# DEPRECATED lpkMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSRequest ListPublicKeys where
+instance Lude.AWSRequest ListPublicKeys where
   type Rs ListPublicKeys = ListPublicKeysResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
-          ListPublicKeysResponse' <$> (parseXML x) <*> (pure (fromEnum s))
+          ListPublicKeysResponse'
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPublicKeys
+instance Lude.ToHeaders ListPublicKeys where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListPublicKeys
+instance Lude.ToPath ListPublicKeys where
+  toPath = Lude.const "/2020-05-31/public-key"
 
-instance ToHeaders ListPublicKeys where
-  toHeaders = const mempty
-
-instance ToPath ListPublicKeys where
-  toPath = const "/2020-05-31/public-key"
-
-instance ToQuery ListPublicKeys where
+instance Lude.ToQuery ListPublicKeys where
   toQuery ListPublicKeys' {..} =
-    mconcat ["Marker" =: _lpkMarker, "MaxItems" =: _lpkMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
--- | /See:/ 'listPublicKeysResponse' smart constructor.
+-- | /See:/ 'mkListPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
-  { _lpkrsPublicKeyList ::
-      !(Maybe PublicKeyList),
-    _lpkrsResponseStatus :: !Int
+  { publicKeyList ::
+      Lude.Maybe PublicKeyList,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublicKeysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpkrsPublicKeyList' - Returns a list of all public keys that have been added to CloudFront for this account.
---
--- * 'lpkrsResponseStatus' - -- | The response status code.
-listPublicKeysResponse ::
-  -- | 'lpkrsResponseStatus'
-  Int ->
+-- * 'publicKeyList' - Returns a list of all public keys that have been added to CloudFront for this account.
+-- * 'responseStatus' - The response status code.
+mkListPublicKeysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPublicKeysResponse
-listPublicKeysResponse pResponseStatus_ =
+mkListPublicKeysResponse pResponseStatus_ =
   ListPublicKeysResponse'
-    { _lpkrsPublicKeyList = Nothing,
-      _lpkrsResponseStatus = pResponseStatus_
+    { publicKeyList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a list of all public keys that have been added to CloudFront for this account.
-lpkrsPublicKeyList :: Lens' ListPublicKeysResponse (Maybe PublicKeyList)
-lpkrsPublicKeyList = lens _lpkrsPublicKeyList (\s a -> s {_lpkrsPublicKeyList = a})
+--
+-- /Note:/ Consider using 'publicKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkrsPublicKeyList :: Lens.Lens' ListPublicKeysResponse (Lude.Maybe PublicKeyList)
+lpkrsPublicKeyList = Lens.lens (publicKeyList :: ListPublicKeysResponse -> Lude.Maybe PublicKeyList) (\s a -> s {publicKeyList = a} :: ListPublicKeysResponse)
+{-# DEPRECATED lpkrsPublicKeyList "Use generic-lens or generic-optics with 'publicKeyList' instead." #-}
 
--- | -- | The response status code.
-lpkrsResponseStatus :: Lens' ListPublicKeysResponse Int
-lpkrsResponseStatus = lens _lpkrsResponseStatus (\s a -> s {_lpkrsResponseStatus = a})
-
-instance NFData ListPublicKeysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkrsResponseStatus :: Lens.Lens' ListPublicKeysResponse Lude.Int
+lpkrsResponseStatus = Lens.lens (responseStatus :: ListPublicKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPublicKeysResponse)
+{-# DEPRECATED lpkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Retrieves a list of strings that identify available versions of a specified table.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetTableVersions
-  ( -- * Creating a Request
-    getTableVersions,
-    GetTableVersions,
+  ( -- * Creating a request
+    GetTableVersions (..),
+    mkGetTableVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtvsCatalogId,
     gtvsNextToken,
     gtvsMaxResults,
     gtvsDatabaseName,
     gtvsTableName,
 
-    -- * Destructuring the Response
-    getTableVersionsResponse,
-    GetTableVersionsResponse,
+    -- * Destructuring the response
+    GetTableVersionsResponse (..),
+    mkGetTableVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtvsrsTableVersions,
     gtvsrsNextToken,
     gtvsrsResponseStatus,
@@ -46,159 +39,186 @@ module Network.AWS.Glue.GetTableVersions
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTableVersions' smart constructor.
+-- | /See:/ 'mkGetTableVersions' smart constructor.
 data GetTableVersions = GetTableVersions'
-  { _gtvsCatalogId ::
-      !(Maybe Text),
-    _gtvsNextToken :: !(Maybe Text),
-    _gtvsMaxResults :: !(Maybe Nat),
-    _gtvsDatabaseName :: !Text,
-    _gtvsTableName :: !Text
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtvsCatalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
---
--- * 'gtvsNextToken' - A continuation token, if this is not the first call.
---
--- * 'gtvsMaxResults' - The maximum number of table versions to return in one response.
---
--- * 'gtvsDatabaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
---
--- * 'gtvsTableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
-getTableVersions ::
-  -- | 'gtvsDatabaseName'
-  Text ->
-  -- | 'gtvsTableName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
+-- * 'maxResults' - The maximum number of table versions to return in one response.
+-- * 'nextToken' - A continuation token, if this is not the first call.
+-- * 'tableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
+mkGetTableVersions ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   GetTableVersions
-getTableVersions pDatabaseName_ pTableName_ =
+mkGetTableVersions pDatabaseName_ pTableName_ =
   GetTableVersions'
-    { _gtvsCatalogId = Nothing,
-      _gtvsNextToken = Nothing,
-      _gtvsMaxResults = Nothing,
-      _gtvsDatabaseName = pDatabaseName_,
-      _gtvsTableName = pTableName_
+    { catalogId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
-gtvsCatalogId :: Lens' GetTableVersions (Maybe Text)
-gtvsCatalogId = lens _gtvsCatalogId (\s a -> s {_gtvsCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsCatalogId :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Text)
+gtvsCatalogId = Lens.lens (catalogId :: GetTableVersions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTableVersions)
+{-# DEPRECATED gtvsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A continuation token, if this is not the first call.
-gtvsNextToken :: Lens' GetTableVersions (Maybe Text)
-gtvsNextToken = lens _gtvsNextToken (\s a -> s {_gtvsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsNextToken :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Text)
+gtvsNextToken = Lens.lens (nextToken :: GetTableVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTableVersions)
+{-# DEPRECATED gtvsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of table versions to return in one response.
-gtvsMaxResults :: Lens' GetTableVersions (Maybe Natural)
-gtvsMaxResults = lens _gtvsMaxResults (\s a -> s {_gtvsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsMaxResults :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Natural)
+gtvsMaxResults = Lens.lens (maxResults :: GetTableVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTableVersions)
+{-# DEPRECATED gtvsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
-gtvsDatabaseName :: Lens' GetTableVersions Text
-gtvsDatabaseName = lens _gtvsDatabaseName (\s a -> s {_gtvsDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsDatabaseName :: Lens.Lens' GetTableVersions Lude.Text
+gtvsDatabaseName = Lens.lens (databaseName :: GetTableVersions -> Lude.Text) (\s a -> s {databaseName = a} :: GetTableVersions)
+{-# DEPRECATED gtvsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
-gtvsTableName :: Lens' GetTableVersions Text
-gtvsTableName = lens _gtvsTableName (\s a -> s {_gtvsTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsTableName :: Lens.Lens' GetTableVersions Lude.Text
+gtvsTableName = Lens.lens (tableName :: GetTableVersions -> Lude.Text) (\s a -> s {tableName = a} :: GetTableVersions)
+{-# DEPRECATED gtvsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSPager GetTableVersions where
+instance Page.AWSPager GetTableVersions where
   page rq rs
-    | stop (rs ^. gtvsrsNextToken) = Nothing
-    | stop (rs ^. gtvsrsTableVersions) = Nothing
-    | otherwise = Just $ rq & gtvsNextToken .~ rs ^. gtvsrsNextToken
+    | Page.stop (rs Lens.^. gtvsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gtvsrsTableVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gtvsNextToken Lens..~ rs Lens.^. gtvsrsNextToken
 
-instance AWSRequest GetTableVersions where
+instance Lude.AWSRequest GetTableVersions where
   type Rs GetTableVersions = GetTableVersionsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTableVersionsResponse'
-            <$> (x .?> "TableVersions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TableVersions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTableVersions
-
-instance NFData GetTableVersions
-
-instance ToHeaders GetTableVersions where
+instance Lude.ToHeaders GetTableVersions where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetTableVersions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetTableVersions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTableVersions where
+instance Lude.ToJSON GetTableVersions where
   toJSON GetTableVersions' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _gtvsCatalogId,
-            ("NextToken" .=) <$> _gtvsNextToken,
-            ("MaxResults" .=) <$> _gtvsMaxResults,
-            Just ("DatabaseName" .= _gtvsDatabaseName),
-            Just ("TableName" .= _gtvsTableName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
-instance ToPath GetTableVersions where
-  toPath = const "/"
+instance Lude.ToPath GetTableVersions where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTableVersions where
-  toQuery = const mempty
+instance Lude.ToQuery GetTableVersions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTableVersionsResponse' smart constructor.
+-- | /See:/ 'mkGetTableVersionsResponse' smart constructor.
 data GetTableVersionsResponse = GetTableVersionsResponse'
-  { _gtvsrsTableVersions ::
-      !(Maybe [TableVersion]),
-    _gtvsrsNextToken :: !(Maybe Text),
-    _gtvsrsResponseStatus :: !Int
+  { tableVersions ::
+      Lude.Maybe [TableVersion],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtvsrsTableVersions' - A list of strings identifying available versions of the specified table.
---
--- * 'gtvsrsNextToken' - A continuation token, if the list of available versions does not include the last one.
---
--- * 'gtvsrsResponseStatus' - -- | The response status code.
-getTableVersionsResponse ::
-  -- | 'gtvsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A continuation token, if the list of available versions does not include the last one.
+-- * 'responseStatus' - The response status code.
+-- * 'tableVersions' - A list of strings identifying available versions of the specified table.
+mkGetTableVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTableVersionsResponse
-getTableVersionsResponse pResponseStatus_ =
+mkGetTableVersionsResponse pResponseStatus_ =
   GetTableVersionsResponse'
-    { _gtvsrsTableVersions = Nothing,
-      _gtvsrsNextToken = Nothing,
-      _gtvsrsResponseStatus = pResponseStatus_
+    { tableVersions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of strings identifying available versions of the specified table.
-gtvsrsTableVersions :: Lens' GetTableVersionsResponse [TableVersion]
-gtvsrsTableVersions = lens _gtvsrsTableVersions (\s a -> s {_gtvsrsTableVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tableVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsrsTableVersions :: Lens.Lens' GetTableVersionsResponse (Lude.Maybe [TableVersion])
+gtvsrsTableVersions = Lens.lens (tableVersions :: GetTableVersionsResponse -> Lude.Maybe [TableVersion]) (\s a -> s {tableVersions = a} :: GetTableVersionsResponse)
+{-# DEPRECATED gtvsrsTableVersions "Use generic-lens or generic-optics with 'tableVersions' instead." #-}
 
 -- | A continuation token, if the list of available versions does not include the last one.
-gtvsrsNextToken :: Lens' GetTableVersionsResponse (Maybe Text)
-gtvsrsNextToken = lens _gtvsrsNextToken (\s a -> s {_gtvsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsrsNextToken :: Lens.Lens' GetTableVersionsResponse (Lude.Maybe Lude.Text)
+gtvsrsNextToken = Lens.lens (nextToken :: GetTableVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTableVersionsResponse)
+{-# DEPRECATED gtvsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gtvsrsResponseStatus :: Lens' GetTableVersionsResponse Int
-gtvsrsResponseStatus = lens _gtvsrsResponseStatus (\s a -> s {_gtvsrsResponseStatus = a})
-
-instance NFData GetTableVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvsrsResponseStatus :: Lens.Lens' GetTableVersionsResponse Lude.Int
+gtvsrsResponseStatus = Lens.lens (responseStatus :: GetTableVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTableVersionsResponse)
+{-# DEPRECATED gtvsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

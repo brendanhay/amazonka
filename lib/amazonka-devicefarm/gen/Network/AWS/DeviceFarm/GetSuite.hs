@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,130 @@
 --
 -- Gets information about a suite.
 module Network.AWS.DeviceFarm.GetSuite
-  ( -- * Creating a Request
-    getSuite,
-    GetSuite,
+  ( -- * Creating a request
+    GetSuite (..),
+    mkGetSuite,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsArn,
 
-    -- * Destructuring the Response
-    getSuiteResponse,
-    GetSuiteResponse,
+    -- * Destructuring the response
+    GetSuiteResponse (..),
+    mkGetSuiteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrsSuite,
     gsrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the get suite operation.
 --
---
---
--- /See:/ 'getSuite' smart constructor.
-newtype GetSuite = GetSuite' {_gsArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetSuite' smart constructor.
+newtype GetSuite = GetSuite' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSuite' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsArn' - The suite's ARN.
-getSuite ::
-  -- | 'gsArn'
-  Text ->
+-- * 'arn' - The suite's ARN.
+mkGetSuite ::
+  -- | 'arn'
+  Lude.Text ->
   GetSuite
-getSuite pArn_ = GetSuite' {_gsArn = pArn_}
+mkGetSuite pArn_ = GetSuite' {arn = pArn_}
 
 -- | The suite's ARN.
-gsArn :: Lens' GetSuite Text
-gsArn = lens _gsArn (\s a -> s {_gsArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsArn :: Lens.Lens' GetSuite Lude.Text
+gsArn = Lens.lens (arn :: GetSuite -> Lude.Text) (\s a -> s {arn = a} :: GetSuite)
+{-# DEPRECATED gsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetSuite where
+instance Lude.AWSRequest GetSuite where
   type Rs GetSuite = GetSuiteResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetSuiteResponse' <$> (x .?> "suite") <*> (pure (fromEnum s))
+          GetSuiteResponse'
+            Lude.<$> (x Lude..?> "suite") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSuite
-
-instance NFData GetSuite
-
-instance ToHeaders GetSuite where
+instance Lude.ToHeaders GetSuite where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.GetSuite" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.GetSuite" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSuite where
-  toJSON GetSuite' {..} = object (catMaybes [Just ("arn" .= _gsArn)])
+instance Lude.ToJSON GetSuite where
+  toJSON GetSuite' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetSuite where
-  toPath = const "/"
+instance Lude.ToPath GetSuite where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSuite where
-  toQuery = const mempty
+instance Lude.ToQuery GetSuite where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a get suite request.
 --
---
---
--- /See:/ 'getSuiteResponse' smart constructor.
+-- /See:/ 'mkGetSuiteResponse' smart constructor.
 data GetSuiteResponse = GetSuiteResponse'
-  { _gsrsSuite ::
-      !(Maybe Suite),
-    _gsrsResponseStatus :: !Int
+  { suite ::
+      Lude.Maybe Suite,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSuiteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrsSuite' - A collection of one or more tests.
---
--- * 'gsrsResponseStatus' - -- | The response status code.
-getSuiteResponse ::
-  -- | 'gsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'suite' - A collection of one or more tests.
+mkGetSuiteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSuiteResponse
-getSuiteResponse pResponseStatus_ =
+mkGetSuiteResponse pResponseStatus_ =
   GetSuiteResponse'
-    { _gsrsSuite = Nothing,
-      _gsrsResponseStatus = pResponseStatus_
+    { suite = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of one or more tests.
-gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
-gsrsSuite = lens _gsrsSuite (\s a -> s {_gsrsSuite = a})
+--
+-- /Note:/ Consider using 'suite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSuite :: Lens.Lens' GetSuiteResponse (Lude.Maybe Suite)
+gsrsSuite = Lens.lens (suite :: GetSuiteResponse -> Lude.Maybe Suite) (\s a -> s {suite = a} :: GetSuiteResponse)
+{-# DEPRECATED gsrsSuite "Use generic-lens or generic-optics with 'suite' instead." #-}
 
--- | -- | The response status code.
-gsrsResponseStatus :: Lens' GetSuiteResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\s a -> s {_gsrsResponseStatus = a})
-
-instance NFData GetSuiteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsResponseStatus :: Lens.Lens' GetSuiteResponse Lude.Int
+gsrsResponseStatus = Lens.lens (responseStatus :: GetSuiteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSuiteResponse)
+{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

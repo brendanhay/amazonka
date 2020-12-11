@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaStoreData.Types.UploadAvailability where
+module Network.AWS.MediaStoreData.Types.UploadAvailability
+  ( UploadAvailability
+      ( UploadAvailability',
+        Standard,
+        Streaming
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UploadAvailability
-  = Standard
-  | Streaming
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UploadAvailability = UploadAvailability' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UploadAvailability where
-  parser =
-    takeLowerText >>= \case
-      "standard" -> pure Standard
-      "streaming" -> pure Streaming
-      e ->
-        fromTextError $
-          "Failure parsing UploadAvailability from value: '" <> e
-            <> "'. Accepted values: standard, streaming"
+pattern Standard :: UploadAvailability
+pattern Standard = UploadAvailability' "STANDARD"
 
-instance ToText UploadAvailability where
-  toText = \case
-    Standard -> "STANDARD"
-    Streaming -> "STREAMING"
+pattern Streaming :: UploadAvailability
+pattern Streaming = UploadAvailability' "STREAMING"
 
-instance Hashable UploadAvailability
-
-instance NFData UploadAvailability
-
-instance ToByteString UploadAvailability
-
-instance ToQuery UploadAvailability
-
-instance ToHeader UploadAvailability
-
-instance ToJSON UploadAvailability where
-  toJSON = toJSONText
+{-# COMPLETE
+  Standard,
+  Streaming,
+  UploadAvailability'
+  #-}

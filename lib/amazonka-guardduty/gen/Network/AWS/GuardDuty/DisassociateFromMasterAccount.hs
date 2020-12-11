@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,121 @@
 --
 -- Disassociates the current GuardDuty member account from its master account.
 module Network.AWS.GuardDuty.DisassociateFromMasterAccount
-  ( -- * Creating a Request
-    disassociateFromMasterAccount,
-    DisassociateFromMasterAccount,
+  ( -- * Creating a request
+    DisassociateFromMasterAccount (..),
+    mkDisassociateFromMasterAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfmaDetectorId,
 
-    -- * Destructuring the Response
-    disassociateFromMasterAccountResponse,
-    DisassociateFromMasterAccountResponse,
+    -- * Destructuring the response
+    DisassociateFromMasterAccountResponse (..),
+    mkDisassociateFromMasterAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfmarsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateFromMasterAccount' smart constructor.
+-- | /See:/ 'mkDisassociateFromMasterAccount' smart constructor.
 newtype DisassociateFromMasterAccount = DisassociateFromMasterAccount'
-  { _dfmaDetectorId ::
-      Text
+  { detectorId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateFromMasterAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfmaDetectorId' - The unique ID of the detector of the GuardDuty member account.
-disassociateFromMasterAccount ::
-  -- | 'dfmaDetectorId'
-  Text ->
+-- * 'detectorId' - The unique ID of the detector of the GuardDuty member account.
+mkDisassociateFromMasterAccount ::
+  -- | 'detectorId'
+  Lude.Text ->
   DisassociateFromMasterAccount
-disassociateFromMasterAccount pDetectorId_ =
-  DisassociateFromMasterAccount' {_dfmaDetectorId = pDetectorId_}
+mkDisassociateFromMasterAccount pDetectorId_ =
+  DisassociateFromMasterAccount' {detectorId = pDetectorId_}
 
 -- | The unique ID of the detector of the GuardDuty member account.
-dfmaDetectorId :: Lens' DisassociateFromMasterAccount Text
-dfmaDetectorId = lens _dfmaDetectorId (\s a -> s {_dfmaDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfmaDetectorId :: Lens.Lens' DisassociateFromMasterAccount Lude.Text
+dfmaDetectorId = Lens.lens (detectorId :: DisassociateFromMasterAccount -> Lude.Text) (\s a -> s {detectorId = a} :: DisassociateFromMasterAccount)
+{-# DEPRECATED dfmaDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance AWSRequest DisassociateFromMasterAccount where
+instance Lude.AWSRequest DisassociateFromMasterAccount where
   type
     Rs DisassociateFromMasterAccount =
       DisassociateFromMasterAccountResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisassociateFromMasterAccountResponse' <$> (pure (fromEnum s))
+          DisassociateFromMasterAccountResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateFromMasterAccount
-
-instance NFData DisassociateFromMasterAccount
-
-instance ToHeaders DisassociateFromMasterAccount where
+instance Lude.ToHeaders DisassociateFromMasterAccount where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON DisassociateFromMasterAccount where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisassociateFromMasterAccount where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisassociateFromMasterAccount where
+instance Lude.ToPath DisassociateFromMasterAccount where
   toPath DisassociateFromMasterAccount' {..} =
-    mconcat
-      ["/detector/", toBS _dfmaDetectorId, "/master/disassociate"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/master/disassociate"]
 
-instance ToQuery DisassociateFromMasterAccount where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateFromMasterAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateFromMasterAccountResponse' smart constructor.
+-- | /See:/ 'mkDisassociateFromMasterAccountResponse' smart constructor.
 newtype DisassociateFromMasterAccountResponse = DisassociateFromMasterAccountResponse'
-  { _dfmarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateFromMasterAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfmarsResponseStatus' - -- | The response status code.
-disassociateFromMasterAccountResponse ::
-  -- | 'dfmarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateFromMasterAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateFromMasterAccountResponse
-disassociateFromMasterAccountResponse pResponseStatus_ =
+mkDisassociateFromMasterAccountResponse pResponseStatus_ =
   DisassociateFromMasterAccountResponse'
-    { _dfmarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dfmarsResponseStatus :: Lens' DisassociateFromMasterAccountResponse Int
-dfmarsResponseStatus = lens _dfmarsResponseStatus (\s a -> s {_dfmarsResponseStatus = a})
-
-instance NFData DisassociateFromMasterAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfmarsResponseStatus :: Lens.Lens' DisassociateFromMasterAccountResponse Lude.Int
+dfmarsResponseStatus = Lens.lens (responseStatus :: DisassociateFromMasterAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateFromMasterAccountResponse)
+{-# DEPRECATED dfmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

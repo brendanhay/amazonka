@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,163 @@
 --
 -- Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the __CreateClientVpnRoute__ action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint.
 module Network.AWS.EC2.DeleteClientVPNRoute
-  ( -- * Creating a Request
-    deleteClientVPNRoute,
-    DeleteClientVPNRoute,
+  ( -- * Creating a request
+    DeleteClientVPNRoute (..),
+    mkDeleteClientVPNRoute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcvpnrTargetVPCSubnetId,
     dcvpnrDryRun,
     dcvpnrClientVPNEndpointId,
     dcvpnrDestinationCidrBlock,
 
-    -- * Destructuring the Response
-    deleteClientVPNRouteResponse,
-    DeleteClientVPNRouteResponse,
+    -- * Destructuring the response
+    DeleteClientVPNRouteResponse (..),
+    mkDeleteClientVPNRouteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcvrrsStatus,
     dcvrrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteClientVPNRoute' smart constructor.
+-- | /See:/ 'mkDeleteClientVPNRoute' smart constructor.
 data DeleteClientVPNRoute = DeleteClientVPNRoute'
-  { _dcvpnrTargetVPCSubnetId ::
-      !(Maybe Text),
-    _dcvpnrDryRun :: !(Maybe Bool),
-    _dcvpnrClientVPNEndpointId :: !Text,
-    _dcvpnrDestinationCidrBlock :: !Text
+  { targetVPCSubnetId ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    clientVPNEndpointId :: Lude.Text,
+    destinationCidrBlock :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClientVPNRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcvpnrTargetVPCSubnetId' - The ID of the target subnet used by the route.
---
--- * 'dcvpnrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dcvpnrClientVPNEndpointId' - The ID of the Client VPN endpoint from which the route is to be deleted.
---
--- * 'dcvpnrDestinationCidrBlock' - The IPv4 address range, in CIDR notation, of the route to be deleted.
-deleteClientVPNRoute ::
-  -- | 'dcvpnrClientVPNEndpointId'
-  Text ->
-  -- | 'dcvpnrDestinationCidrBlock'
-  Text ->
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint from which the route is to be deleted.
+-- * 'destinationCidrBlock' - The IPv4 address range, in CIDR notation, of the route to be deleted.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'targetVPCSubnetId' - The ID of the target subnet used by the route.
+mkDeleteClientVPNRoute ::
+  -- | 'clientVPNEndpointId'
+  Lude.Text ->
+  -- | 'destinationCidrBlock'
+  Lude.Text ->
   DeleteClientVPNRoute
-deleteClientVPNRoute pClientVPNEndpointId_ pDestinationCidrBlock_ =
+mkDeleteClientVPNRoute pClientVPNEndpointId_ pDestinationCidrBlock_ =
   DeleteClientVPNRoute'
-    { _dcvpnrTargetVPCSubnetId = Nothing,
-      _dcvpnrDryRun = Nothing,
-      _dcvpnrClientVPNEndpointId = pClientVPNEndpointId_,
-      _dcvpnrDestinationCidrBlock = pDestinationCidrBlock_
+    { targetVPCSubnetId = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      clientVPNEndpointId = pClientVPNEndpointId_,
+      destinationCidrBlock = pDestinationCidrBlock_
     }
 
 -- | The ID of the target subnet used by the route.
-dcvpnrTargetVPCSubnetId :: Lens' DeleteClientVPNRoute (Maybe Text)
-dcvpnrTargetVPCSubnetId = lens _dcvpnrTargetVPCSubnetId (\s a -> s {_dcvpnrTargetVPCSubnetId = a})
+--
+-- /Note:/ Consider using 'targetVPCSubnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvpnrTargetVPCSubnetId :: Lens.Lens' DeleteClientVPNRoute (Lude.Maybe Lude.Text)
+dcvpnrTargetVPCSubnetId = Lens.lens (targetVPCSubnetId :: DeleteClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {targetVPCSubnetId = a} :: DeleteClientVPNRoute)
+{-# DEPRECATED dcvpnrTargetVPCSubnetId "Use generic-lens or generic-optics with 'targetVPCSubnetId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dcvpnrDryRun :: Lens' DeleteClientVPNRoute (Maybe Bool)
-dcvpnrDryRun = lens _dcvpnrDryRun (\s a -> s {_dcvpnrDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvpnrDryRun :: Lens.Lens' DeleteClientVPNRoute (Lude.Maybe Lude.Bool)
+dcvpnrDryRun = Lens.lens (dryRun :: DeleteClientVPNRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteClientVPNRoute)
+{-# DEPRECATED dcvpnrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Client VPN endpoint from which the route is to be deleted.
-dcvpnrClientVPNEndpointId :: Lens' DeleteClientVPNRoute Text
-dcvpnrClientVPNEndpointId = lens _dcvpnrClientVPNEndpointId (\s a -> s {_dcvpnrClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvpnrClientVPNEndpointId :: Lens.Lens' DeleteClientVPNRoute Lude.Text
+dcvpnrClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: DeleteClientVPNRoute -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: DeleteClientVPNRoute)
+{-# DEPRECATED dcvpnrClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The IPv4 address range, in CIDR notation, of the route to be deleted.
-dcvpnrDestinationCidrBlock :: Lens' DeleteClientVPNRoute Text
-dcvpnrDestinationCidrBlock = lens _dcvpnrDestinationCidrBlock (\s a -> s {_dcvpnrDestinationCidrBlock = a})
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvpnrDestinationCidrBlock :: Lens.Lens' DeleteClientVPNRoute Lude.Text
+dcvpnrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: DeleteClientVPNRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: DeleteClientVPNRoute)
+{-# DEPRECATED dcvpnrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance AWSRequest DeleteClientVPNRoute where
+instance Lude.AWSRequest DeleteClientVPNRoute where
   type Rs DeleteClientVPNRoute = DeleteClientVPNRouteResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteClientVPNRouteResponse'
-            <$> (x .@? "status") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteClientVPNRoute
+instance Lude.ToHeaders DeleteClientVPNRoute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteClientVPNRoute
+instance Lude.ToPath DeleteClientVPNRoute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteClientVPNRoute where
-  toHeaders = const mempty
-
-instance ToPath DeleteClientVPNRoute where
-  toPath = const "/"
-
-instance ToQuery DeleteClientVPNRoute where
+instance Lude.ToQuery DeleteClientVPNRoute where
   toQuery DeleteClientVPNRoute' {..} =
-    mconcat
-      [ "Action" =: ("DeleteClientVpnRoute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "TargetVpcSubnetId" =: _dcvpnrTargetVPCSubnetId,
-        "DryRun" =: _dcvpnrDryRun,
-        "ClientVpnEndpointId" =: _dcvpnrClientVPNEndpointId,
-        "DestinationCidrBlock" =: _dcvpnrDestinationCidrBlock
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteClientVpnRoute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "TargetVpcSubnetId" Lude.=: targetVPCSubnetId,
+        "DryRun" Lude.=: dryRun,
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
--- | /See:/ 'deleteClientVPNRouteResponse' smart constructor.
+-- | /See:/ 'mkDeleteClientVPNRouteResponse' smart constructor.
 data DeleteClientVPNRouteResponse = DeleteClientVPNRouteResponse'
-  { _dcvrrsStatus ::
-      !(Maybe ClientVPNRouteStatus),
-    _dcvrrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe ClientVPNRouteStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClientVPNRouteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcvrrsStatus' - The current state of the route.
---
--- * 'dcvrrsResponseStatus' - -- | The response status code.
-deleteClientVPNRouteResponse ::
-  -- | 'dcvrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current state of the route.
+mkDeleteClientVPNRouteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteClientVPNRouteResponse
-deleteClientVPNRouteResponse pResponseStatus_ =
+mkDeleteClientVPNRouteResponse pResponseStatus_ =
   DeleteClientVPNRouteResponse'
-    { _dcvrrsStatus = Nothing,
-      _dcvrrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the route.
-dcvrrsStatus :: Lens' DeleteClientVPNRouteResponse (Maybe ClientVPNRouteStatus)
-dcvrrsStatus = lens _dcvrrsStatus (\s a -> s {_dcvrrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvrrsStatus :: Lens.Lens' DeleteClientVPNRouteResponse (Lude.Maybe ClientVPNRouteStatus)
+dcvrrsStatus = Lens.lens (status :: DeleteClientVPNRouteResponse -> Lude.Maybe ClientVPNRouteStatus) (\s a -> s {status = a} :: DeleteClientVPNRouteResponse)
+{-# DEPRECATED dcvrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | -- | The response status code.
-dcvrrsResponseStatus :: Lens' DeleteClientVPNRouteResponse Int
-dcvrrsResponseStatus = lens _dcvrrsResponseStatus (\s a -> s {_dcvrrsResponseStatus = a})
-
-instance NFData DeleteClientVPNRouteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvrrsResponseStatus :: Lens.Lens' DeleteClientVPNRouteResponse Lude.Int
+dcvrrsResponseStatus = Lens.lens (responseStatus :: DeleteClientVPNRouteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClientVPNRouteResponse)
+{-# DEPRECATED dcvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioType where
+module Network.AWS.MediaLive.Types.AudioType
+  ( AudioType
+      ( AudioType',
+        CleanEffects,
+        HearingImpaired,
+        Undefined,
+        VisualImpairedCommentary
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Type
-data AudioType
-  = CleanEffects
-  | HearingImpaired
-  | Undefined
-  | VisualImpairedCommentary
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioType = AudioType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioType where
-  parser =
-    takeLowerText >>= \case
-      "clean_effects" -> pure CleanEffects
-      "hearing_impaired" -> pure HearingImpaired
-      "undefined" -> pure Undefined
-      "visual_impaired_commentary" -> pure VisualImpairedCommentary
-      e ->
-        fromTextError $
-          "Failure parsing AudioType from value: '" <> e
-            <> "'. Accepted values: clean_effects, hearing_impaired, undefined, visual_impaired_commentary"
+pattern CleanEffects :: AudioType
+pattern CleanEffects = AudioType' "CLEAN_EFFECTS"
 
-instance ToText AudioType where
-  toText = \case
-    CleanEffects -> "CLEAN_EFFECTS"
-    HearingImpaired -> "HEARING_IMPAIRED"
-    Undefined -> "UNDEFINED"
-    VisualImpairedCommentary -> "VISUAL_IMPAIRED_COMMENTARY"
+pattern HearingImpaired :: AudioType
+pattern HearingImpaired = AudioType' "HEARING_IMPAIRED"
 
-instance Hashable AudioType
+pattern Undefined :: AudioType
+pattern Undefined = AudioType' "UNDEFINED"
 
-instance NFData AudioType
+pattern VisualImpairedCommentary :: AudioType
+pattern VisualImpairedCommentary = AudioType' "VISUAL_IMPAIRED_COMMENTARY"
 
-instance ToByteString AudioType
-
-instance ToQuery AudioType
-
-instance ToHeader AudioType
-
-instance ToJSON AudioType where
-  toJSON = toJSONText
-
-instance FromJSON AudioType where
-  parseJSON = parseJSONText "AudioType"
+{-# COMPLETE
+  CleanEffects,
+  HearingImpaired,
+  Undefined,
+  VisualImpairedCommentary,
+  AudioType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,30 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse where
+module Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
+  ( BatchAttachPolicyResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchAttachPolicyResponse,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of an 'AttachPolicy' response operation.
 --
---
---
--- /See:/ 'batchAttachPolicyResponse' smart constructor.
+-- /See:/ 'mkBatchAttachPolicyResponse' smart constructor.
 data BatchAttachPolicyResponse = BatchAttachPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachPolicyResponse' with the minimum fields required to make a request.
-batchAttachPolicyResponse ::
+mkBatchAttachPolicyResponse ::
   BatchAttachPolicyResponse
-batchAttachPolicyResponse = BatchAttachPolicyResponse'
+mkBatchAttachPolicyResponse = BatchAttachPolicyResponse'
 
-instance FromJSON BatchAttachPolicyResponse where
+instance Lude.FromJSON BatchAttachPolicyResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchAttachPolicyResponse"
-      (\x -> pure BatchAttachPolicyResponse')
-
-instance Hashable BatchAttachPolicyResponse
-
-instance NFData BatchAttachPolicyResponse
+      (\x -> Lude.pure BatchAttachPolicyResponse')

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,172 @@
 --
 -- Permanently deletes a 'SqlInjectionMatchSet' . You can't delete a @SqlInjectionMatchSet@ if it's still used in any @Rules@ or if it still contains any 'SqlInjectionMatchTuple' objects.
 --
---
 -- If you just want to remove a @SqlInjectionMatchSet@ from a @Rule@ , use 'UpdateRule' .
---
 -- To permanently delete a @SqlInjectionMatchSet@ from AWS WAF, perform the following steps:
 --
 --     * Update the @SqlInjectionMatchSet@ to remove filters, if any. For more information, see 'UpdateSqlInjectionMatchSet' .
 --
+--
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSqlInjectionMatchSet@ request.
+--
 --
 --     * Submit a @DeleteSqlInjectionMatchSet@ request.
 module Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
-  ( -- * Creating a Request
-    deleteSqlInjectionMatchSet,
-    DeleteSqlInjectionMatchSet,
+  ( -- * Creating a request
+    DeleteSqlInjectionMatchSet (..),
+    mkDeleteSqlInjectionMatchSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsimsSqlInjectionMatchSetId,
     dsimsChangeToken,
 
-    -- * Destructuring the Response
-    deleteSqlInjectionMatchSetResponse,
-    DeleteSqlInjectionMatchSetResponse,
+    -- * Destructuring the response
+    DeleteSqlInjectionMatchSetResponse (..),
+    mkDeleteSqlInjectionMatchSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsimsrsChangeToken,
     dsimsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
 -- | A request to delete a 'SqlInjectionMatchSet' from AWS WAF.
 --
---
---
--- /See:/ 'deleteSqlInjectionMatchSet' smart constructor.
+-- /See:/ 'mkDeleteSqlInjectionMatchSet' smart constructor.
 data DeleteSqlInjectionMatchSet = DeleteSqlInjectionMatchSet'
-  { _dsimsSqlInjectionMatchSetId ::
-      !Text,
-    _dsimsChangeToken :: !Text
+  { sqlInjectionMatchSetId ::
+      Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSqlInjectionMatchSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsimsSqlInjectionMatchSetId' - The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to delete. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
---
--- * 'dsimsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteSqlInjectionMatchSet ::
-  -- | 'dsimsSqlInjectionMatchSetId'
-  Text ->
-  -- | 'dsimsChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'sqlInjectionMatchSetId' - The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to delete. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+mkDeleteSqlInjectionMatchSet ::
+  -- | 'sqlInjectionMatchSetId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   DeleteSqlInjectionMatchSet
-deleteSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
+mkDeleteSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
   DeleteSqlInjectionMatchSet'
-    { _dsimsSqlInjectionMatchSetId =
+    { sqlInjectionMatchSetId =
         pSqlInjectionMatchSetId_,
-      _dsimsChangeToken = pChangeToken_
+      changeToken = pChangeToken_
     }
 
 -- | The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to delete. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
-dsimsSqlInjectionMatchSetId :: Lens' DeleteSqlInjectionMatchSet Text
-dsimsSqlInjectionMatchSetId = lens _dsimsSqlInjectionMatchSetId (\s a -> s {_dsimsSqlInjectionMatchSetId = a})
+--
+-- /Note:/ Consider using 'sqlInjectionMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsimsSqlInjectionMatchSetId :: Lens.Lens' DeleteSqlInjectionMatchSet Lude.Text
+dsimsSqlInjectionMatchSetId = Lens.lens (sqlInjectionMatchSetId :: DeleteSqlInjectionMatchSet -> Lude.Text) (\s a -> s {sqlInjectionMatchSetId = a} :: DeleteSqlInjectionMatchSet)
+{-# DEPRECATED dsimsSqlInjectionMatchSetId "Use generic-lens or generic-optics with 'sqlInjectionMatchSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-dsimsChangeToken :: Lens' DeleteSqlInjectionMatchSet Text
-dsimsChangeToken = lens _dsimsChangeToken (\s a -> s {_dsimsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsimsChangeToken :: Lens.Lens' DeleteSqlInjectionMatchSet Lude.Text
+dsimsChangeToken = Lens.lens (changeToken :: DeleteSqlInjectionMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteSqlInjectionMatchSet)
+{-# DEPRECATED dsimsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest DeleteSqlInjectionMatchSet where
+instance Lude.AWSRequest DeleteSqlInjectionMatchSet where
   type
     Rs DeleteSqlInjectionMatchSet =
       DeleteSqlInjectionMatchSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteSqlInjectionMatchSetResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSqlInjectionMatchSet
-
-instance NFData DeleteSqlInjectionMatchSet
-
-instance ToHeaders DeleteSqlInjectionMatchSet where
+instance Lude.ToHeaders DeleteSqlInjectionMatchSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSWAF_Regional_20161128.DeleteSqlInjectionMatchSet" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.DeleteSqlInjectionMatchSet" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSqlInjectionMatchSet where
+instance Lude.ToJSON DeleteSqlInjectionMatchSet where
   toJSON DeleteSqlInjectionMatchSet' {..} =
-    object
-      ( catMaybes
-          [ Just ("SqlInjectionMatchSetId" .= _dsimsSqlInjectionMatchSetId),
-            Just ("ChangeToken" .= _dsimsChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("SqlInjectionMatchSetId" Lude..= sqlInjectionMatchSetId),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath DeleteSqlInjectionMatchSet where
-  toPath = const "/"
+instance Lude.ToPath DeleteSqlInjectionMatchSet where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSqlInjectionMatchSet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSqlInjectionMatchSet where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a request to delete a 'SqlInjectionMatchSet' from AWS WAF.
 --
---
---
--- /See:/ 'deleteSqlInjectionMatchSetResponse' smart constructor.
+-- /See:/ 'mkDeleteSqlInjectionMatchSetResponse' smart constructor.
 data DeleteSqlInjectionMatchSetResponse = DeleteSqlInjectionMatchSetResponse'
-  { _dsimsrsChangeToken ::
-      !(Maybe Text),
-    _dsimsrsResponseStatus ::
-      !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSqlInjectionMatchSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsimsrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'dsimsrsResponseStatus' - -- | The response status code.
-deleteSqlInjectionMatchSetResponse ::
-  -- | 'dsimsrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkDeleteSqlInjectionMatchSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSqlInjectionMatchSetResponse
-deleteSqlInjectionMatchSetResponse pResponseStatus_ =
+mkDeleteSqlInjectionMatchSetResponse pResponseStatus_ =
   DeleteSqlInjectionMatchSetResponse'
-    { _dsimsrsChangeToken =
-        Nothing,
-      _dsimsrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-dsimsrsChangeToken :: Lens' DeleteSqlInjectionMatchSetResponse (Maybe Text)
-dsimsrsChangeToken = lens _dsimsrsChangeToken (\s a -> s {_dsimsrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsimsrsChangeToken :: Lens.Lens' DeleteSqlInjectionMatchSetResponse (Lude.Maybe Lude.Text)
+dsimsrsChangeToken = Lens.lens (changeToken :: DeleteSqlInjectionMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteSqlInjectionMatchSetResponse)
+{-# DEPRECATED dsimsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-dsimsrsResponseStatus :: Lens' DeleteSqlInjectionMatchSetResponse Int
-dsimsrsResponseStatus = lens _dsimsrsResponseStatus (\s a -> s {_dsimsrsResponseStatus = a})
-
-instance NFData DeleteSqlInjectionMatchSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsimsrsResponseStatus :: Lens.Lens' DeleteSqlInjectionMatchSetResponse Lude.Int
+dsimsrsResponseStatus = Lens.lens (responseStatus :: DeleteSqlInjectionMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSqlInjectionMatchSetResponse)
+{-# DEPRECATED dsimsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

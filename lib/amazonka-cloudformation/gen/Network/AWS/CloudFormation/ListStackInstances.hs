@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns summary information about stack instances that are associated with the specified stack set. You can filter for stack instances that are associated with a specific AWS account name or Region, or that have a specific status.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackInstances
-  ( -- * Creating a Request
-    listStackInstances,
-    ListStackInstances,
+  ( -- * Creating a request
+    ListStackInstances (..),
+    mkListStackInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsiStackInstanceRegion,
     lsiFilters,
     lsiNextToken,
@@ -35,11 +28,11 @@ module Network.AWS.CloudFormation.ListStackInstances
     lsiMaxResults,
     lsiStackSetName,
 
-    -- * Destructuring the Response
-    listStackInstancesResponse,
-    ListStackInstancesResponse,
+    -- * Destructuring the response
+    ListStackInstancesResponse (..),
+    mkListStackInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsirsNextToken,
     lsirsSummaries,
     lsirsResponseStatus,
@@ -47,159 +40,189 @@ module Network.AWS.CloudFormation.ListStackInstances
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listStackInstances' smart constructor.
+-- | /See:/ 'mkListStackInstances' smart constructor.
 data ListStackInstances = ListStackInstances'
-  { _lsiStackInstanceRegion ::
-      !(Maybe Text),
-    _lsiFilters :: !(Maybe [StackInstanceFilter]),
-    _lsiNextToken :: !(Maybe Text),
-    _lsiStackInstanceAccount :: !(Maybe Text),
-    _lsiMaxResults :: !(Maybe Nat),
-    _lsiStackSetName :: !Text
+  { stackInstanceRegion ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe [StackInstanceFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    stackInstanceAccount :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    stackSetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStackInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsiStackInstanceRegion' - The name of the Region where you want to list stack instances.
---
--- * 'lsiFilters' - The status that stack instances are filtered by.
---
--- * 'lsiNextToken' - If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
---
--- * 'lsiStackInstanceAccount' - The name of the AWS account that you want to list stack instances for.
---
--- * 'lsiMaxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
---
--- * 'lsiStackSetName' - The name or unique ID of the stack set that you want to list stack instances for.
-listStackInstances ::
-  -- | 'lsiStackSetName'
-  Text ->
+-- * 'filters' - The status that stack instances are filtered by.
+-- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- * 'nextToken' - If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+-- * 'stackInstanceAccount' - The name of the AWS account that you want to list stack instances for.
+-- * 'stackInstanceRegion' - The name of the Region where you want to list stack instances.
+-- * 'stackSetName' - The name or unique ID of the stack set that you want to list stack instances for.
+mkListStackInstances ::
+  -- | 'stackSetName'
+  Lude.Text ->
   ListStackInstances
-listStackInstances pStackSetName_ =
+mkListStackInstances pStackSetName_ =
   ListStackInstances'
-    { _lsiStackInstanceRegion = Nothing,
-      _lsiFilters = Nothing,
-      _lsiNextToken = Nothing,
-      _lsiStackInstanceAccount = Nothing,
-      _lsiMaxResults = Nothing,
-      _lsiStackSetName = pStackSetName_
+    { stackInstanceRegion = Lude.Nothing,
+      filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      stackInstanceAccount = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      stackSetName = pStackSetName_
     }
 
 -- | The name of the Region where you want to list stack instances.
-lsiStackInstanceRegion :: Lens' ListStackInstances (Maybe Text)
-lsiStackInstanceRegion = lens _lsiStackInstanceRegion (\s a -> s {_lsiStackInstanceRegion = a})
+--
+-- /Note:/ Consider using 'stackInstanceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiStackInstanceRegion :: Lens.Lens' ListStackInstances (Lude.Maybe Lude.Text)
+lsiStackInstanceRegion = Lens.lens (stackInstanceRegion :: ListStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {stackInstanceRegion = a} :: ListStackInstances)
+{-# DEPRECATED lsiStackInstanceRegion "Use generic-lens or generic-optics with 'stackInstanceRegion' instead." #-}
 
 -- | The status that stack instances are filtered by.
-lsiFilters :: Lens' ListStackInstances [StackInstanceFilter]
-lsiFilters = lens _lsiFilters (\s a -> s {_lsiFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiFilters :: Lens.Lens' ListStackInstances (Lude.Maybe [StackInstanceFilter])
+lsiFilters = Lens.lens (filters :: ListStackInstances -> Lude.Maybe [StackInstanceFilter]) (\s a -> s {filters = a} :: ListStackInstances)
+{-# DEPRECATED lsiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
-lsiNextToken :: Lens' ListStackInstances (Maybe Text)
-lsiNextToken = lens _lsiNextToken (\s a -> s {_lsiNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiNextToken :: Lens.Lens' ListStackInstances (Lude.Maybe Lude.Text)
+lsiNextToken = Lens.lens (nextToken :: ListStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStackInstances)
+{-# DEPRECATED lsiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the AWS account that you want to list stack instances for.
-lsiStackInstanceAccount :: Lens' ListStackInstances (Maybe Text)
-lsiStackInstanceAccount = lens _lsiStackInstanceAccount (\s a -> s {_lsiStackInstanceAccount = a})
+--
+-- /Note:/ Consider using 'stackInstanceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiStackInstanceAccount :: Lens.Lens' ListStackInstances (Lude.Maybe Lude.Text)
+lsiStackInstanceAccount = Lens.lens (stackInstanceAccount :: ListStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {stackInstanceAccount = a} :: ListStackInstances)
+{-# DEPRECATED lsiStackInstanceAccount "Use generic-lens or generic-optics with 'stackInstanceAccount' instead." #-}
 
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-lsiMaxResults :: Lens' ListStackInstances (Maybe Natural)
-lsiMaxResults = lens _lsiMaxResults (\s a -> s {_lsiMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiMaxResults :: Lens.Lens' ListStackInstances (Lude.Maybe Lude.Natural)
+lsiMaxResults = Lens.lens (maxResults :: ListStackInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListStackInstances)
+{-# DEPRECATED lsiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name or unique ID of the stack set that you want to list stack instances for.
-lsiStackSetName :: Lens' ListStackInstances Text
-lsiStackSetName = lens _lsiStackSetName (\s a -> s {_lsiStackSetName = a})
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiStackSetName :: Lens.Lens' ListStackInstances Lude.Text
+lsiStackSetName = Lens.lens (stackSetName :: ListStackInstances -> Lude.Text) (\s a -> s {stackSetName = a} :: ListStackInstances)
+{-# DEPRECATED lsiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
-instance AWSPager ListStackInstances where
+instance Page.AWSPager ListStackInstances where
   page rq rs
-    | stop (rs ^. lsirsNextToken) = Nothing
-    | stop (rs ^. lsirsSummaries) = Nothing
-    | otherwise = Just $ rq & lsiNextToken .~ rs ^. lsirsNextToken
+    | Page.stop (rs Lens.^. lsirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsirsSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsiNextToken Lens..~ rs Lens.^. lsirsNextToken
 
-instance AWSRequest ListStackInstances where
+instance Lude.AWSRequest ListStackInstances where
   type Rs ListStackInstances = ListStackInstancesResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListStackInstancesResult"
       ( \s h x ->
           ListStackInstancesResponse'
-            <$> (x .@? "NextToken")
-            <*> (x .@? "Summaries" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> ( x Lude..@? "Summaries" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListStackInstances
+instance Lude.ToHeaders ListStackInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListStackInstances
+instance Lude.ToPath ListStackInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListStackInstances where
-  toHeaders = const mempty
-
-instance ToPath ListStackInstances where
-  toPath = const "/"
-
-instance ToQuery ListStackInstances where
+instance Lude.ToQuery ListStackInstances where
   toQuery ListStackInstances' {..} =
-    mconcat
-      [ "Action" =: ("ListStackInstances" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackInstanceRegion" =: _lsiStackInstanceRegion,
-        "Filters" =: toQuery (toQueryList "member" <$> _lsiFilters),
-        "NextToken" =: _lsiNextToken,
-        "StackInstanceAccount" =: _lsiStackInstanceAccount,
-        "MaxResults" =: _lsiMaxResults,
-        "StackSetName" =: _lsiStackSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListStackInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackInstanceRegion" Lude.=: stackInstanceRegion,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "StackInstanceAccount" Lude.=: stackInstanceAccount,
+        "MaxResults" Lude.=: maxResults,
+        "StackSetName" Lude.=: stackSetName
       ]
 
--- | /See:/ 'listStackInstancesResponse' smart constructor.
+-- | /See:/ 'mkListStackInstancesResponse' smart constructor.
 data ListStackInstancesResponse = ListStackInstancesResponse'
-  { _lsirsNextToken ::
-      !(Maybe Text),
-    _lsirsSummaries ::
-      !(Maybe [StackInstanceSummary]),
-    _lsirsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    summaries ::
+      Lude.Maybe [StackInstanceSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStackInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsirsNextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
---
--- * 'lsirsSummaries' - A list of @StackInstanceSummary@ structures that contain information about the specified stack instances.
---
--- * 'lsirsResponseStatus' - -- | The response status code.
-listStackInstancesResponse ::
-  -- | 'lsirsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+-- * 'responseStatus' - The response status code.
+-- * 'summaries' - A list of @StackInstanceSummary@ structures that contain information about the specified stack instances.
+mkListStackInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListStackInstancesResponse
-listStackInstancesResponse pResponseStatus_ =
+mkListStackInstancesResponse pResponseStatus_ =
   ListStackInstancesResponse'
-    { _lsirsNextToken = Nothing,
-      _lsirsSummaries = Nothing,
-      _lsirsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      summaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
-lsirsNextToken :: Lens' ListStackInstancesResponse (Maybe Text)
-lsirsNextToken = lens _lsirsNextToken (\s a -> s {_lsirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsirsNextToken :: Lens.Lens' ListStackInstancesResponse (Lude.Maybe Lude.Text)
+lsirsNextToken = Lens.lens (nextToken :: ListStackInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStackInstancesResponse)
+{-# DEPRECATED lsirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @StackInstanceSummary@ structures that contain information about the specified stack instances.
-lsirsSummaries :: Lens' ListStackInstancesResponse [StackInstanceSummary]
-lsirsSummaries = lens _lsirsSummaries (\s a -> s {_lsirsSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'summaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsirsSummaries :: Lens.Lens' ListStackInstancesResponse (Lude.Maybe [StackInstanceSummary])
+lsirsSummaries = Lens.lens (summaries :: ListStackInstancesResponse -> Lude.Maybe [StackInstanceSummary]) (\s a -> s {summaries = a} :: ListStackInstancesResponse)
+{-# DEPRECATED lsirsSummaries "Use generic-lens or generic-optics with 'summaries' instead." #-}
 
--- | -- | The response status code.
-lsirsResponseStatus :: Lens' ListStackInstancesResponse Int
-lsirsResponseStatus = lens _lsirsResponseStatus (\s a -> s {_lsirsResponseStatus = a})
-
-instance NFData ListStackInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsirsResponseStatus :: Lens.Lens' ListStackInstancesResponse Lude.Int
+lsirsResponseStatus = Lens.lens (responseStatus :: ListStackInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStackInstancesResponse)
+{-# DEPRECATED lsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

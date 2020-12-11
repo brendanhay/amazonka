@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata where
+module Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata
+  ( DolbyVisionLevel6Metadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDolbyVisionLevel6Metadata,
+
+    -- * Lenses
+    dvlmMaxFall,
+    dvlmMaxCll,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
 --
--- /See:/ 'dolbyVisionLevel6Metadata' smart constructor.
+-- /See:/ 'mkDolbyVisionLevel6Metadata' smart constructor.
 data DolbyVisionLevel6Metadata = DolbyVisionLevel6Metadata'
-  { _dvlmMaxFall ::
-      !(Maybe Nat),
-    _dvlmMaxCll :: !(Maybe Nat)
+  { maxFall ::
+      Lude.Maybe Lude.Natural,
+    maxCll :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DolbyVisionLevel6Metadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvlmMaxFall' - Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
---
--- * 'dvlmMaxCll' - Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
-dolbyVisionLevel6Metadata ::
+-- * 'maxCll' - Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
+-- * 'maxFall' - Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
+mkDolbyVisionLevel6Metadata ::
   DolbyVisionLevel6Metadata
-dolbyVisionLevel6Metadata =
+mkDolbyVisionLevel6Metadata =
   DolbyVisionLevel6Metadata'
-    { _dvlmMaxFall = Nothing,
-      _dvlmMaxCll = Nothing
+    { maxFall = Lude.Nothing,
+      maxCll = Lude.Nothing
     }
 
 -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
-dvlmMaxFall :: Lens' DolbyVisionLevel6Metadata (Maybe Natural)
-dvlmMaxFall = lens _dvlmMaxFall (\s a -> s {_dvlmMaxFall = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxFall' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvlmMaxFall :: Lens.Lens' DolbyVisionLevel6Metadata (Lude.Maybe Lude.Natural)
+dvlmMaxFall = Lens.lens (maxFall :: DolbyVisionLevel6Metadata -> Lude.Maybe Lude.Natural) (\s a -> s {maxFall = a} :: DolbyVisionLevel6Metadata)
+{-# DEPRECATED dvlmMaxFall "Use generic-lens or generic-optics with 'maxFall' instead." #-}
 
 -- | Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
-dvlmMaxCll :: Lens' DolbyVisionLevel6Metadata (Maybe Natural)
-dvlmMaxCll = lens _dvlmMaxCll (\s a -> s {_dvlmMaxCll = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxCll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvlmMaxCll :: Lens.Lens' DolbyVisionLevel6Metadata (Lude.Maybe Lude.Natural)
+dvlmMaxCll = Lens.lens (maxCll :: DolbyVisionLevel6Metadata -> Lude.Maybe Lude.Natural) (\s a -> s {maxCll = a} :: DolbyVisionLevel6Metadata)
+{-# DEPRECATED dvlmMaxCll "Use generic-lens or generic-optics with 'maxCll' instead." #-}
 
-instance FromJSON DolbyVisionLevel6Metadata where
+instance Lude.FromJSON DolbyVisionLevel6Metadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "DolbyVisionLevel6Metadata"
       ( \x ->
           DolbyVisionLevel6Metadata'
-            <$> (x .:? "maxFall") <*> (x .:? "maxCll")
+            Lude.<$> (x Lude..:? "maxFall") Lude.<*> (x Lude..:? "maxCll")
       )
 
-instance Hashable DolbyVisionLevel6Metadata
-
-instance NFData DolbyVisionLevel6Metadata
-
-instance ToJSON DolbyVisionLevel6Metadata where
+instance Lude.ToJSON DolbyVisionLevel6Metadata where
   toJSON DolbyVisionLevel6Metadata' {..} =
-    object
-      ( catMaybes
-          [("maxFall" .=) <$> _dvlmMaxFall, ("maxCll" .=) <$> _dvlmMaxCll]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maxFall" Lude..=) Lude.<$> maxFall,
+            ("maxCll" Lude..=) Lude.<$> maxCll
+          ]
       )

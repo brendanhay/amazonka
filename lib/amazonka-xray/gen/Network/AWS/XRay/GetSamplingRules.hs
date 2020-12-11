@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,145 @@
 --
 -- Retrieves all sampling rules.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.XRay.GetSamplingRules
-  ( -- * Creating a Request
-    getSamplingRules,
-    GetSamplingRules,
+  ( -- * Creating a request
+    GetSamplingRules (..),
+    mkGetSamplingRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsrNextToken,
 
-    -- * Destructuring the Response
-    getSamplingRulesResponse,
-    GetSamplingRulesResponse,
+    -- * Destructuring the response
+    GetSamplingRulesResponse (..),
+    mkGetSamplingRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrrsSamplingRuleRecords,
     gsrrsNextToken,
     gsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getSamplingRules' smart constructor.
+-- | /See:/ 'mkGetSamplingRules' smart constructor.
 newtype GetSamplingRules = GetSamplingRules'
-  { _gsrNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrNextToken' - Pagination token.
-getSamplingRules ::
+-- * 'nextToken' - Pagination token.
+mkGetSamplingRules ::
   GetSamplingRules
-getSamplingRules = GetSamplingRules' {_gsrNextToken = Nothing}
+mkGetSamplingRules = GetSamplingRules' {nextToken = Lude.Nothing}
 
 -- | Pagination token.
-gsrNextToken :: Lens' GetSamplingRules (Maybe Text)
-gsrNextToken = lens _gsrNextToken (\s a -> s {_gsrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrNextToken :: Lens.Lens' GetSamplingRules (Lude.Maybe Lude.Text)
+gsrNextToken = Lens.lens (nextToken :: GetSamplingRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSamplingRules)
+{-# DEPRECATED gsrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager GetSamplingRules where
+instance Page.AWSPager GetSamplingRules where
   page rq rs
-    | stop (rs ^. gsrrsNextToken) = Nothing
-    | stop (rs ^. gsrrsSamplingRuleRecords) = Nothing
-    | otherwise = Just $ rq & gsrNextToken .~ rs ^. gsrrsNextToken
+    | Page.stop (rs Lens.^. gsrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gsrrsSamplingRuleRecords) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gsrNextToken Lens..~ rs Lens.^. gsrrsNextToken
 
-instance AWSRequest GetSamplingRules where
+instance Lude.AWSRequest GetSamplingRules where
   type Rs GetSamplingRules = GetSamplingRulesResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSamplingRulesResponse'
-            <$> (x .?> "SamplingRuleRecords" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SamplingRuleRecords" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSamplingRules
+instance Lude.ToHeaders GetSamplingRules where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetSamplingRules
-
-instance ToHeaders GetSamplingRules where
-  toHeaders = const mempty
-
-instance ToJSON GetSamplingRules where
+instance Lude.ToJSON GetSamplingRules where
   toJSON GetSamplingRules' {..} =
-    object (catMaybes [("NextToken" .=) <$> _gsrNextToken])
+    Lude.object
+      (Lude.catMaybes [("NextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath GetSamplingRules where
-  toPath = const "/GetSamplingRules"
+instance Lude.ToPath GetSamplingRules where
+  toPath = Lude.const "/GetSamplingRules"
 
-instance ToQuery GetSamplingRules where
-  toQuery = const mempty
+instance Lude.ToQuery GetSamplingRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSamplingRulesResponse' smart constructor.
+-- | /See:/ 'mkGetSamplingRulesResponse' smart constructor.
 data GetSamplingRulesResponse = GetSamplingRulesResponse'
-  { _gsrrsSamplingRuleRecords ::
-      !(Maybe [SamplingRuleRecord]),
-    _gsrrsNextToken :: !(Maybe Text),
-    _gsrrsResponseStatus :: !Int
+  { samplingRuleRecords ::
+      Lude.Maybe [SamplingRuleRecord],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrrsSamplingRuleRecords' - Rule definitions and metadata.
---
--- * 'gsrrsNextToken' - Pagination token.
---
--- * 'gsrrsResponseStatus' - -- | The response status code.
-getSamplingRulesResponse ::
-  -- | 'gsrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'samplingRuleRecords' - Rule definitions and metadata.
+mkGetSamplingRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSamplingRulesResponse
-getSamplingRulesResponse pResponseStatus_ =
+mkGetSamplingRulesResponse pResponseStatus_ =
   GetSamplingRulesResponse'
-    { _gsrrsSamplingRuleRecords = Nothing,
-      _gsrrsNextToken = Nothing,
-      _gsrrsResponseStatus = pResponseStatus_
+    { samplingRuleRecords = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Rule definitions and metadata.
-gsrrsSamplingRuleRecords :: Lens' GetSamplingRulesResponse [SamplingRuleRecord]
-gsrrsSamplingRuleRecords = lens _gsrrsSamplingRuleRecords (\s a -> s {_gsrrsSamplingRuleRecords = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'samplingRuleRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrrsSamplingRuleRecords :: Lens.Lens' GetSamplingRulesResponse (Lude.Maybe [SamplingRuleRecord])
+gsrrsSamplingRuleRecords = Lens.lens (samplingRuleRecords :: GetSamplingRulesResponse -> Lude.Maybe [SamplingRuleRecord]) (\s a -> s {samplingRuleRecords = a} :: GetSamplingRulesResponse)
+{-# DEPRECATED gsrrsSamplingRuleRecords "Use generic-lens or generic-optics with 'samplingRuleRecords' instead." #-}
 
 -- | Pagination token.
-gsrrsNextToken :: Lens' GetSamplingRulesResponse (Maybe Text)
-gsrrsNextToken = lens _gsrrsNextToken (\s a -> s {_gsrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrrsNextToken :: Lens.Lens' GetSamplingRulesResponse (Lude.Maybe Lude.Text)
+gsrrsNextToken = Lens.lens (nextToken :: GetSamplingRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSamplingRulesResponse)
+{-# DEPRECATED gsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gsrrsResponseStatus :: Lens' GetSamplingRulesResponse Int
-gsrrsResponseStatus = lens _gsrrsResponseStatus (\s a -> s {_gsrrsResponseStatus = a})
-
-instance NFData GetSamplingRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrrsResponseStatus :: Lens.Lens' GetSamplingRulesResponse Lude.Int
+gsrrsResponseStatus = Lens.lens (responseStatus :: GetSamplingRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSamplingRulesResponse)
+{-# DEPRECATED gsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,98 @@
 --
 -- Deletes an Amazon Redshift security group.
 --
---
 -- For information about managing security groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
-  ( -- * Creating a Request
-    deleteClusterSecurityGroup,
-    DeleteClusterSecurityGroup,
+  ( -- * Creating a request
+    DeleteClusterSecurityGroup (..),
+    mkDeleteClusterSecurityGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dClusterSecurityGroupName,
 
-    -- * Destructuring the Response
-    deleteClusterSecurityGroupResponse,
-    DeleteClusterSecurityGroupResponse,
+    -- * Destructuring the response
+    DeleteClusterSecurityGroupResponse (..),
+    mkDeleteClusterSecurityGroupResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteClusterSecurityGroup' smart constructor.
+-- /See:/ 'mkDeleteClusterSecurityGroup' smart constructor.
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
-  { _dClusterSecurityGroupName ::
-      Text
+  { clusterSecurityGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dClusterSecurityGroupName' - The name of the cluster security group to be deleted.
-deleteClusterSecurityGroup ::
-  -- | 'dClusterSecurityGroupName'
-  Text ->
+-- * 'clusterSecurityGroupName' - The name of the cluster security group to be deleted.
+mkDeleteClusterSecurityGroup ::
+  -- | 'clusterSecurityGroupName'
+  Lude.Text ->
   DeleteClusterSecurityGroup
-deleteClusterSecurityGroup pClusterSecurityGroupName_ =
+mkDeleteClusterSecurityGroup pClusterSecurityGroupName_ =
   DeleteClusterSecurityGroup'
-    { _dClusterSecurityGroupName =
+    { clusterSecurityGroupName =
         pClusterSecurityGroupName_
     }
 
 -- | The name of the cluster security group to be deleted.
-dClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
-dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\s a -> s {_dClusterSecurityGroupName = a})
+--
+-- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dClusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Lude.Text
+dClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: DeleteClusterSecurityGroup -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: DeleteClusterSecurityGroup)
+{-# DEPRECATED dClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
-instance AWSRequest DeleteClusterSecurityGroup where
+instance Lude.AWSRequest DeleteClusterSecurityGroup where
   type
     Rs DeleteClusterSecurityGroup =
       DeleteClusterSecurityGroupResponse
-  request = postQuery redshift
-  response = receiveNull DeleteClusterSecurityGroupResponse'
+  request = Req.postQuery redshiftService
+  response = Res.receiveNull DeleteClusterSecurityGroupResponse'
 
-instance Hashable DeleteClusterSecurityGroup
+instance Lude.ToHeaders DeleteClusterSecurityGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteClusterSecurityGroup
+instance Lude.ToPath DeleteClusterSecurityGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteClusterSecurityGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteClusterSecurityGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteClusterSecurityGroup where
+instance Lude.ToQuery DeleteClusterSecurityGroup where
   toQuery DeleteClusterSecurityGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteClusterSecurityGroup" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterSecurityGroupName" =: _dClusterSecurityGroupName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteClusterSecurityGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterSecurityGroupName" Lude.=: clusterSecurityGroupName
       ]
 
--- | /See:/ 'deleteClusterSecurityGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteClusterSecurityGroupResponse' smart constructor.
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterSecurityGroupResponse' with the minimum fields required to make a request.
-deleteClusterSecurityGroupResponse ::
+mkDeleteClusterSecurityGroupResponse ::
   DeleteClusterSecurityGroupResponse
-deleteClusterSecurityGroupResponse =
+mkDeleteClusterSecurityGroupResponse =
   DeleteClusterSecurityGroupResponse'
-
-instance NFData DeleteClusterSecurityGroupResponse

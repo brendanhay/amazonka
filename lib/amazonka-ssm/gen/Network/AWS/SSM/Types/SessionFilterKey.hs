@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.SessionFilterKey where
+module Network.AWS.SSM.Types.SessionFilterKey
+  ( SessionFilterKey
+      ( SessionFilterKey',
+        SFKInvokedAfter,
+        SFKInvokedBefore,
+        SFKOwner,
+        SFKSessionId,
+        SFKStatus,
+        SFKTarget
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SessionFilterKey
-  = SFKInvokedAfter
-  | SFKInvokedBefore
-  | SFKOwner
-  | SFKSessionId
-  | SFKStatus
-  | SFKTarget
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SessionFilterKey = SessionFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SessionFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "invokedafter" -> pure SFKInvokedAfter
-      "invokedbefore" -> pure SFKInvokedBefore
-      "owner" -> pure SFKOwner
-      "sessionid" -> pure SFKSessionId
-      "status" -> pure SFKStatus
-      "target" -> pure SFKTarget
-      e ->
-        fromTextError $
-          "Failure parsing SessionFilterKey from value: '" <> e
-            <> "'. Accepted values: invokedafter, invokedbefore, owner, sessionid, status, target"
+pattern SFKInvokedAfter :: SessionFilterKey
+pattern SFKInvokedAfter = SessionFilterKey' "InvokedAfter"
 
-instance ToText SessionFilterKey where
-  toText = \case
-    SFKInvokedAfter -> "InvokedAfter"
-    SFKInvokedBefore -> "InvokedBefore"
-    SFKOwner -> "Owner"
-    SFKSessionId -> "SessionId"
-    SFKStatus -> "Status"
-    SFKTarget -> "Target"
+pattern SFKInvokedBefore :: SessionFilterKey
+pattern SFKInvokedBefore = SessionFilterKey' "InvokedBefore"
 
-instance Hashable SessionFilterKey
+pattern SFKOwner :: SessionFilterKey
+pattern SFKOwner = SessionFilterKey' "Owner"
 
-instance NFData SessionFilterKey
+pattern SFKSessionId :: SessionFilterKey
+pattern SFKSessionId = SessionFilterKey' "SessionId"
 
-instance ToByteString SessionFilterKey
+pattern SFKStatus :: SessionFilterKey
+pattern SFKStatus = SessionFilterKey' "Status"
 
-instance ToQuery SessionFilterKey
+pattern SFKTarget :: SessionFilterKey
+pattern SFKTarget = SessionFilterKey' "Target"
 
-instance ToHeader SessionFilterKey
-
-instance ToJSON SessionFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  SFKInvokedAfter,
+  SFKInvokedBefore,
+  SFKOwner,
+  SFKSessionId,
+  SFKStatus,
+  SFKTarget,
+  SessionFilterKey'
+  #-}

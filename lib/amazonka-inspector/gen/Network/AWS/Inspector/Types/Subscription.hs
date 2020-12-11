@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.Subscription where
+module Network.AWS.Inspector.Types.Subscription
+  ( Subscription (..),
+
+    -- * Smart constructor
+    mkSubscription,
+
+    -- * Lenses
+    sResourceARN,
+    sTopicARN,
+    sEventSubscriptions,
+  )
+where
 
 import Network.AWS.Inspector.Types.EventSubscription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used as a response element in the 'ListEventSubscriptions' action.
 --
---
---
--- /See:/ 'subscription' smart constructor.
+-- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { _sResourceARN :: !Text,
-    _sTopicARN :: !Text,
-    _sEventSubscriptions :: !(List1 EventSubscription)
+  { resourceARN :: Lude.Text,
+    topicARN :: Lude.Text,
+    eventSubscriptions :: Lude.NonEmpty EventSubscription
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sResourceARN' - The ARN of the assessment template that is used during the event for which the SNS notification is sent.
---
--- * 'sTopicARN' - The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
---
--- * 'sEventSubscriptions' - The list of existing event subscriptions.
-subscription ::
-  -- | 'sResourceARN'
-  Text ->
-  -- | 'sTopicARN'
-  Text ->
-  -- | 'sEventSubscriptions'
-  NonEmpty EventSubscription ->
+-- * 'eventSubscriptions' - The list of existing event subscriptions.
+-- * 'resourceARN' - The ARN of the assessment template that is used during the event for which the SNS notification is sent.
+-- * 'topicARN' - The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
+mkSubscription ::
+  -- | 'resourceARN'
+  Lude.Text ->
+  -- | 'topicARN'
+  Lude.Text ->
+  -- | 'eventSubscriptions'
+  Lude.NonEmpty EventSubscription ->
   Subscription
-subscription pResourceARN_ pTopicARN_ pEventSubscriptions_ =
+mkSubscription pResourceARN_ pTopicARN_ pEventSubscriptions_ =
   Subscription'
-    { _sResourceARN = pResourceARN_,
-      _sTopicARN = pTopicARN_,
-      _sEventSubscriptions = _List1 # pEventSubscriptions_
+    { resourceARN = pResourceARN_,
+      topicARN = pTopicARN_,
+      eventSubscriptions = pEventSubscriptions_
     }
 
 -- | The ARN of the assessment template that is used during the event for which the SNS notification is sent.
-sResourceARN :: Lens' Subscription Text
-sResourceARN = lens _sResourceARN (\s a -> s {_sResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResourceARN :: Lens.Lens' Subscription Lude.Text
+sResourceARN = Lens.lens (resourceARN :: Subscription -> Lude.Text) (\s a -> s {resourceARN = a} :: Subscription)
+{-# DEPRECATED sResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
-sTopicARN :: Lens' Subscription Text
-sTopicARN = lens _sTopicARN (\s a -> s {_sTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTopicARN :: Lens.Lens' Subscription Lude.Text
+sTopicARN = Lens.lens (topicARN :: Subscription -> Lude.Text) (\s a -> s {topicARN = a} :: Subscription)
+{-# DEPRECATED sTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The list of existing event subscriptions.
-sEventSubscriptions :: Lens' Subscription (NonEmpty EventSubscription)
-sEventSubscriptions = lens _sEventSubscriptions (\s a -> s {_sEventSubscriptions = a}) . _List1
+--
+-- /Note:/ Consider using 'eventSubscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEventSubscriptions :: Lens.Lens' Subscription (Lude.NonEmpty EventSubscription)
+sEventSubscriptions = Lens.lens (eventSubscriptions :: Subscription -> Lude.NonEmpty EventSubscription) (\s a -> s {eventSubscriptions = a} :: Subscription)
+{-# DEPRECATED sEventSubscriptions "Use generic-lens or generic-optics with 'eventSubscriptions' instead." #-}
 
-instance FromJSON Subscription where
+instance Lude.FromJSON Subscription where
   parseJSON =
-    withObject
+    Lude.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            <$> (x .: "resourceArn")
-            <*> (x .: "topicArn")
-            <*> (x .: "eventSubscriptions")
+            Lude.<$> (x Lude..: "resourceArn")
+            Lude.<*> (x Lude..: "topicArn")
+            Lude.<*> (x Lude..: "eventSubscriptions")
       )
-
-instance Hashable Subscription
-
-instance NFData Subscription

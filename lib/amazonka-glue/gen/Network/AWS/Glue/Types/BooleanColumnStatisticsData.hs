@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.BooleanColumnStatisticsData where
+module Network.AWS.Glue.Types.BooleanColumnStatisticsData
+  ( BooleanColumnStatisticsData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBooleanColumnStatisticsData,
+
+    -- * Lenses
+    bNumberOfTrues,
+    bNumberOfFalses,
+    bNumberOfNulls,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines column statistics supported for Boolean data columns.
 --
---
---
--- /See:/ 'booleanColumnStatisticsData' smart constructor.
+-- /See:/ 'mkBooleanColumnStatisticsData' smart constructor.
 data BooleanColumnStatisticsData = BooleanColumnStatisticsData'
-  { _bNumberOfTrues ::
-      !Nat,
-    _bNumberOfFalses :: !Nat,
-    _bNumberOfNulls :: !Nat
+  { numberOfTrues ::
+      Lude.Natural,
+    numberOfFalses :: Lude.Natural,
+    numberOfNulls :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BooleanColumnStatisticsData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bNumberOfTrues' - The number of true values in the column.
---
--- * 'bNumberOfFalses' - The number of false values in the column.
---
--- * 'bNumberOfNulls' - The number of null values in the column.
-booleanColumnStatisticsData ::
-  -- | 'bNumberOfTrues'
-  Natural ->
-  -- | 'bNumberOfFalses'
-  Natural ->
-  -- | 'bNumberOfNulls'
-  Natural ->
+-- * 'numberOfFalses' - The number of false values in the column.
+-- * 'numberOfNulls' - The number of null values in the column.
+-- * 'numberOfTrues' - The number of true values in the column.
+mkBooleanColumnStatisticsData ::
+  -- | 'numberOfTrues'
+  Lude.Natural ->
+  -- | 'numberOfFalses'
+  Lude.Natural ->
+  -- | 'numberOfNulls'
+  Lude.Natural ->
   BooleanColumnStatisticsData
-booleanColumnStatisticsData
+mkBooleanColumnStatisticsData
   pNumberOfTrues_
   pNumberOfFalses_
   pNumberOfNulls_ =
     BooleanColumnStatisticsData'
-      { _bNumberOfTrues =
-          _Nat # pNumberOfTrues_,
-        _bNumberOfFalses = _Nat # pNumberOfFalses_,
-        _bNumberOfNulls = _Nat # pNumberOfNulls_
+      { numberOfTrues = pNumberOfTrues_,
+        numberOfFalses = pNumberOfFalses_,
+        numberOfNulls = pNumberOfNulls_
       }
 
 -- | The number of true values in the column.
-bNumberOfTrues :: Lens' BooleanColumnStatisticsData Natural
-bNumberOfTrues = lens _bNumberOfTrues (\s a -> s {_bNumberOfTrues = a}) . _Nat
+--
+-- /Note:/ Consider using 'numberOfTrues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bNumberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
+bNumberOfTrues = Lens.lens (numberOfTrues :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfTrues = a} :: BooleanColumnStatisticsData)
+{-# DEPRECATED bNumberOfTrues "Use generic-lens or generic-optics with 'numberOfTrues' instead." #-}
 
 -- | The number of false values in the column.
-bNumberOfFalses :: Lens' BooleanColumnStatisticsData Natural
-bNumberOfFalses = lens _bNumberOfFalses (\s a -> s {_bNumberOfFalses = a}) . _Nat
+--
+-- /Note:/ Consider using 'numberOfFalses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bNumberOfFalses :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
+bNumberOfFalses = Lens.lens (numberOfFalses :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfFalses = a} :: BooleanColumnStatisticsData)
+{-# DEPRECATED bNumberOfFalses "Use generic-lens or generic-optics with 'numberOfFalses' instead." #-}
 
 -- | The number of null values in the column.
-bNumberOfNulls :: Lens' BooleanColumnStatisticsData Natural
-bNumberOfNulls = lens _bNumberOfNulls (\s a -> s {_bNumberOfNulls = a}) . _Nat
+--
+-- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bNumberOfNulls :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
+bNumberOfNulls = Lens.lens (numberOfNulls :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: BooleanColumnStatisticsData)
+{-# DEPRECATED bNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
 
-instance FromJSON BooleanColumnStatisticsData where
+instance Lude.FromJSON BooleanColumnStatisticsData where
   parseJSON =
-    withObject
+    Lude.withObject
       "BooleanColumnStatisticsData"
       ( \x ->
           BooleanColumnStatisticsData'
-            <$> (x .: "NumberOfTrues")
-            <*> (x .: "NumberOfFalses")
-            <*> (x .: "NumberOfNulls")
+            Lude.<$> (x Lude..: "NumberOfTrues")
+            Lude.<*> (x Lude..: "NumberOfFalses")
+            Lude.<*> (x Lude..: "NumberOfNulls")
       )
 
-instance Hashable BooleanColumnStatisticsData
-
-instance NFData BooleanColumnStatisticsData
-
-instance ToJSON BooleanColumnStatisticsData where
+instance Lude.ToJSON BooleanColumnStatisticsData where
   toJSON BooleanColumnStatisticsData' {..} =
-    object
-      ( catMaybes
-          [ Just ("NumberOfTrues" .= _bNumberOfTrues),
-            Just ("NumberOfFalses" .= _bNumberOfFalses),
-            Just ("NumberOfNulls" .= _bNumberOfNulls)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("NumberOfTrues" Lude..= numberOfTrues),
+            Lude.Just ("NumberOfFalses" Lude..= numberOfFalses),
+            Lude.Just ("NumberOfNulls" Lude..= numberOfNulls)
           ]
       )

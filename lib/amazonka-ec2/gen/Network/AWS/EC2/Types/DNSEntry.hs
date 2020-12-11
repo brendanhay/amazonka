@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DNSEntry where
+module Network.AWS.EC2.Types.DNSEntry
+  ( DNSEntry (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDNSEntry,
+
+    -- * Lenses
+    deHostedZoneId,
+    deDNSName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a DNS entry.
 --
---
---
--- /See:/ 'dnsEntry' smart constructor.
+-- /See:/ 'mkDNSEntry' smart constructor.
 data DNSEntry = DNSEntry'
-  { _deHostedZoneId :: !(Maybe Text),
-    _deDNSName :: !(Maybe Text)
+  { hostedZoneId :: Lude.Maybe Lude.Text,
+    dnsName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DNSEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deHostedZoneId' - The ID of the private hosted zone.
---
--- * 'deDNSName' - The DNS name.
-dnsEntry ::
+-- * 'dnsName' - The DNS name.
+-- * 'hostedZoneId' - The ID of the private hosted zone.
+mkDNSEntry ::
   DNSEntry
-dnsEntry =
-  DNSEntry' {_deHostedZoneId = Nothing, _deDNSName = Nothing}
+mkDNSEntry =
+  DNSEntry' {hostedZoneId = Lude.Nothing, dnsName = Lude.Nothing}
 
 -- | The ID of the private hosted zone.
-deHostedZoneId :: Lens' DNSEntry (Maybe Text)
-deHostedZoneId = lens _deHostedZoneId (\s a -> s {_deHostedZoneId = a})
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deHostedZoneId :: Lens.Lens' DNSEntry (Lude.Maybe Lude.Text)
+deHostedZoneId = Lens.lens (hostedZoneId :: DNSEntry -> Lude.Maybe Lude.Text) (\s a -> s {hostedZoneId = a} :: DNSEntry)
+{-# DEPRECATED deHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The DNS name.
-deDNSName :: Lens' DNSEntry (Maybe Text)
-deDNSName = lens _deDNSName (\s a -> s {_deDNSName = a})
+--
+-- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDNSName :: Lens.Lens' DNSEntry (Lude.Maybe Lude.Text)
+deDNSName = Lens.lens (dnsName :: DNSEntry -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: DNSEntry)
+{-# DEPRECATED deDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
 
-instance FromXML DNSEntry where
+instance Lude.FromXML DNSEntry where
   parseXML x =
-    DNSEntry' <$> (x .@? "hostedZoneId") <*> (x .@? "dnsName")
-
-instance Hashable DNSEntry
-
-instance NFData DNSEntry
+    DNSEntry'
+      Lude.<$> (x Lude..@? "hostedZoneId") Lude.<*> (x Lude..@? "dnsName")

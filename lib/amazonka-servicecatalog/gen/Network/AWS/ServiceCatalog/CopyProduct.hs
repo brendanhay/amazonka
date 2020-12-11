@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Copies the specified source product to the specified target product or a new product.
 --
---
 -- You can copy a product to the same account or another account. You can copy a product to the same region or another region.
---
 -- This operation is performed asynchronously. To track the progress of the operation, use 'DescribeCopyProductStatus' .
 module Network.AWS.ServiceCatalog.CopyProduct
-  ( -- * Creating a Request
-    copyProduct,
-    CopyProduct,
+  ( -- * Creating a request
+    CopyProduct (..),
+    mkCopyProduct,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cTargetProductId,
     cSourceProvisioningArtifactIdentifiers,
     cTargetProductName,
@@ -37,173 +30,223 @@ module Network.AWS.ServiceCatalog.CopyProduct
     cSourceProductARN,
     cIdempotencyToken,
 
-    -- * Destructuring the Response
-    copyProductResponse,
-    CopyProductResponse,
+    -- * Destructuring the response
+    CopyProductResponse (..),
+    mkCopyProductResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     coprsCopyProductToken,
     coprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'copyProduct' smart constructor.
+-- | /See:/ 'mkCopyProduct' smart constructor.
 data CopyProduct = CopyProduct'
-  { _cTargetProductId :: !(Maybe Text),
-    _cSourceProvisioningArtifactIdentifiers ::
-      !(Maybe [Map ProvisioningArtifactPropertyName (Text)]),
-    _cTargetProductName :: !(Maybe Text),
-    _cCopyOptions :: !(Maybe [CopyOption]),
-    _cAcceptLanguage :: !(Maybe Text),
-    _cSourceProductARN :: !Text,
-    _cIdempotencyToken :: !Text
+  { targetProductId ::
+      Lude.Maybe Lude.Text,
+    sourceProvisioningArtifactIdentifiers ::
+      Lude.Maybe
+        [Lude.HashMap ProvisioningArtifactPropertyName (Lude.Text)],
+    targetProductName :: Lude.Maybe Lude.Text,
+    copyOptions :: Lude.Maybe [CopyOption],
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    sourceProductARN :: Lude.Text,
+    idempotencyToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyProduct' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'cTargetProductId' - The identifier of the target product. By default, a new product is created.
 --
--- * 'cSourceProvisioningArtifactIdentifiers' - The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.
+--     * @en@ - English (default)
 --
--- * 'cTargetProductName' - A name for the target product. The default is the name of the source product.
 --
--- * 'cCopyOptions' - The copy options. If the value is @CopyTags@ , the tags from the source product are copied to the target product.
+--     * @jp@ - Japanese
 --
--- * 'cAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'cSourceProductARN' - The Amazon Resource Name (ARN) of the source product.
+--     * @zh@ - Chinese
 --
--- * 'cIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-copyProduct ::
-  -- | 'cSourceProductARN'
-  Text ->
-  -- | 'cIdempotencyToken'
-  Text ->
+--
+-- * 'copyOptions' - The copy options. If the value is @CopyTags@ , the tags from the source product are copied to the target product.
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'sourceProductARN' - The Amazon Resource Name (ARN) of the source product.
+-- * 'sourceProvisioningArtifactIdentifiers' - The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.
+-- * 'targetProductId' - The identifier of the target product. By default, a new product is created.
+-- * 'targetProductName' - A name for the target product. The default is the name of the source product.
+mkCopyProduct ::
+  -- | 'sourceProductARN'
+  Lude.Text ->
+  -- | 'idempotencyToken'
+  Lude.Text ->
   CopyProduct
-copyProduct pSourceProductARN_ pIdempotencyToken_ =
+mkCopyProduct pSourceProductARN_ pIdempotencyToken_ =
   CopyProduct'
-    { _cTargetProductId = Nothing,
-      _cSourceProvisioningArtifactIdentifiers = Nothing,
-      _cTargetProductName = Nothing,
-      _cCopyOptions = Nothing,
-      _cAcceptLanguage = Nothing,
-      _cSourceProductARN = pSourceProductARN_,
-      _cIdempotencyToken = pIdempotencyToken_
+    { targetProductId = Lude.Nothing,
+      sourceProvisioningArtifactIdentifiers = Lude.Nothing,
+      targetProductName = Lude.Nothing,
+      copyOptions = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      sourceProductARN = pSourceProductARN_,
+      idempotencyToken = pIdempotencyToken_
     }
 
 -- | The identifier of the target product. By default, a new product is created.
-cTargetProductId :: Lens' CopyProduct (Maybe Text)
-cTargetProductId = lens _cTargetProductId (\s a -> s {_cTargetProductId = a})
+--
+-- /Note:/ Consider using 'targetProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTargetProductId :: Lens.Lens' CopyProduct (Lude.Maybe Lude.Text)
+cTargetProductId = Lens.lens (targetProductId :: CopyProduct -> Lude.Maybe Lude.Text) (\s a -> s {targetProductId = a} :: CopyProduct)
+{-# DEPRECATED cTargetProductId "Use generic-lens or generic-optics with 'targetProductId' instead." #-}
 
 -- | The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.
-cSourceProvisioningArtifactIdentifiers :: Lens' CopyProduct [HashMap ProvisioningArtifactPropertyName (Text)]
-cSourceProvisioningArtifactIdentifiers = lens _cSourceProvisioningArtifactIdentifiers (\s a -> s {_cSourceProvisioningArtifactIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sourceProvisioningArtifactIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSourceProvisioningArtifactIdentifiers :: Lens.Lens' CopyProduct (Lude.Maybe [Lude.HashMap ProvisioningArtifactPropertyName (Lude.Text)])
+cSourceProvisioningArtifactIdentifiers = Lens.lens (sourceProvisioningArtifactIdentifiers :: CopyProduct -> Lude.Maybe [Lude.HashMap ProvisioningArtifactPropertyName (Lude.Text)]) (\s a -> s {sourceProvisioningArtifactIdentifiers = a} :: CopyProduct)
+{-# DEPRECATED cSourceProvisioningArtifactIdentifiers "Use generic-lens or generic-optics with 'sourceProvisioningArtifactIdentifiers' instead." #-}
 
 -- | A name for the target product. The default is the name of the source product.
-cTargetProductName :: Lens' CopyProduct (Maybe Text)
-cTargetProductName = lens _cTargetProductName (\s a -> s {_cTargetProductName = a})
+--
+-- /Note:/ Consider using 'targetProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTargetProductName :: Lens.Lens' CopyProduct (Lude.Maybe Lude.Text)
+cTargetProductName = Lens.lens (targetProductName :: CopyProduct -> Lude.Maybe Lude.Text) (\s a -> s {targetProductName = a} :: CopyProduct)
+{-# DEPRECATED cTargetProductName "Use generic-lens or generic-optics with 'targetProductName' instead." #-}
 
 -- | The copy options. If the value is @CopyTags@ , the tags from the source product are copied to the target product.
-cCopyOptions :: Lens' CopyProduct [CopyOption]
-cCopyOptions = lens _cCopyOptions (\s a -> s {_cCopyOptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'copyOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCopyOptions :: Lens.Lens' CopyProduct (Lude.Maybe [CopyOption])
+cCopyOptions = Lens.lens (copyOptions :: CopyProduct -> Lude.Maybe [CopyOption]) (\s a -> s {copyOptions = a} :: CopyProduct)
+{-# DEPRECATED cCopyOptions "Use generic-lens or generic-optics with 'copyOptions' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-cAcceptLanguage :: Lens' CopyProduct (Maybe Text)
-cAcceptLanguage = lens _cAcceptLanguage (\s a -> s {_cAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAcceptLanguage :: Lens.Lens' CopyProduct (Lude.Maybe Lude.Text)
+cAcceptLanguage = Lens.lens (acceptLanguage :: CopyProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CopyProduct)
+{-# DEPRECATED cAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the source product.
-cSourceProductARN :: Lens' CopyProduct Text
-cSourceProductARN = lens _cSourceProductARN (\s a -> s {_cSourceProductARN = a})
+--
+-- /Note:/ Consider using 'sourceProductARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSourceProductARN :: Lens.Lens' CopyProduct Lude.Text
+cSourceProductARN = Lens.lens (sourceProductARN :: CopyProduct -> Lude.Text) (\s a -> s {sourceProductARN = a} :: CopyProduct)
+{-# DEPRECATED cSourceProductARN "Use generic-lens or generic-optics with 'sourceProductARN' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-cIdempotencyToken :: Lens' CopyProduct Text
-cIdempotencyToken = lens _cIdempotencyToken (\s a -> s {_cIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cIdempotencyToken :: Lens.Lens' CopyProduct Lude.Text
+cIdempotencyToken = Lens.lens (idempotencyToken :: CopyProduct -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CopyProduct)
+{-# DEPRECATED cIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
-instance AWSRequest CopyProduct where
+instance Lude.AWSRequest CopyProduct where
   type Rs CopyProduct = CopyProductResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CopyProductResponse'
-            <$> (x .?> "CopyProductToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CopyProductToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyProduct
-
-instance NFData CopyProduct
-
-instance ToHeaders CopyProduct where
+instance Lude.ToHeaders CopyProduct where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.CopyProduct" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.CopyProduct" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CopyProduct where
+instance Lude.ToJSON CopyProduct where
   toJSON CopyProduct' {..} =
-    object
-      ( catMaybes
-          [ ("TargetProductId" .=) <$> _cTargetProductId,
-            ("SourceProvisioningArtifactIdentifiers" .=)
-              <$> _cSourceProvisioningArtifactIdentifiers,
-            ("TargetProductName" .=) <$> _cTargetProductName,
-            ("CopyOptions" .=) <$> _cCopyOptions,
-            ("AcceptLanguage" .=) <$> _cAcceptLanguage,
-            Just ("SourceProductArn" .= _cSourceProductARN),
-            Just ("IdempotencyToken" .= _cIdempotencyToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TargetProductId" Lude..=) Lude.<$> targetProductId,
+            ("SourceProvisioningArtifactIdentifiers" Lude..=)
+              Lude.<$> sourceProvisioningArtifactIdentifiers,
+            ("TargetProductName" Lude..=) Lude.<$> targetProductName,
+            ("CopyOptions" Lude..=) Lude.<$> copyOptions,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("SourceProductArn" Lude..= sourceProductARN),
+            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
           ]
       )
 
-instance ToPath CopyProduct where
-  toPath = const "/"
+instance Lude.ToPath CopyProduct where
+  toPath = Lude.const "/"
 
-instance ToQuery CopyProduct where
-  toQuery = const mempty
+instance Lude.ToQuery CopyProduct where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'copyProductResponse' smart constructor.
+-- | /See:/ 'mkCopyProductResponse' smart constructor.
 data CopyProductResponse = CopyProductResponse'
-  { _coprsCopyProductToken ::
-      !(Maybe Text),
-    _coprsResponseStatus :: !Int
+  { copyProductToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyProductResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coprsCopyProductToken' - The token to use to track the progress of the operation.
---
--- * 'coprsResponseStatus' - -- | The response status code.
-copyProductResponse ::
-  -- | 'coprsResponseStatus'
-  Int ->
+-- * 'copyProductToken' - The token to use to track the progress of the operation.
+-- * 'responseStatus' - The response status code.
+mkCopyProductResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyProductResponse
-copyProductResponse pResponseStatus_ =
+mkCopyProductResponse pResponseStatus_ =
   CopyProductResponse'
-    { _coprsCopyProductToken = Nothing,
-      _coprsResponseStatus = pResponseStatus_
+    { copyProductToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to track the progress of the operation.
-coprsCopyProductToken :: Lens' CopyProductResponse (Maybe Text)
-coprsCopyProductToken = lens _coprsCopyProductToken (\s a -> s {_coprsCopyProductToken = a})
+--
+-- /Note:/ Consider using 'copyProductToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coprsCopyProductToken :: Lens.Lens' CopyProductResponse (Lude.Maybe Lude.Text)
+coprsCopyProductToken = Lens.lens (copyProductToken :: CopyProductResponse -> Lude.Maybe Lude.Text) (\s a -> s {copyProductToken = a} :: CopyProductResponse)
+{-# DEPRECATED coprsCopyProductToken "Use generic-lens or generic-optics with 'copyProductToken' instead." #-}
 
--- | -- | The response status code.
-coprsResponseStatus :: Lens' CopyProductResponse Int
-coprsResponseStatus = lens _coprsResponseStatus (\s a -> s {_coprsResponseStatus = a})
-
-instance NFData CopyProductResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coprsResponseStatus :: Lens.Lens' CopyProductResponse Lude.Int
+coprsResponseStatus = Lens.lens (responseStatus :: CopyProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyProductResponse)
+{-# DEPRECATED coprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

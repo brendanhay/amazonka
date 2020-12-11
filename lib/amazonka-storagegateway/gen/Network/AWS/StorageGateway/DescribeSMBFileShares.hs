@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,141 @@
 --
 -- Gets a description for one or more Server Message Block (SMB) file shares from a file gateway. This operation is only supported for file gateways.
 module Network.AWS.StorageGateway.DescribeSMBFileShares
-  ( -- * Creating a Request
-    describeSMBFileShares,
-    DescribeSMBFileShares,
+  ( -- * Creating a request
+    DescribeSMBFileShares (..),
+    mkDescribeSMBFileShares,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsmbfsFileShareARNList,
 
-    -- * Destructuring the Response
-    describeSMBFileSharesResponse,
-    DescribeSMBFileSharesResponse,
+    -- * Destructuring the response
+    DescribeSMBFileSharesResponse (..),
+    mkDescribeSMBFileSharesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsmbfsrsSMBFileShareInfoList,
     dsmbfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | DescribeSMBFileSharesInput
 --
---
---
--- /See:/ 'describeSMBFileShares' smart constructor.
+-- /See:/ 'mkDescribeSMBFileShares' smart constructor.
 newtype DescribeSMBFileShares = DescribeSMBFileShares'
-  { _dsmbfsFileShareARNList ::
-      List1 Text
+  { fileShareARNList ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSMBFileShares' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsmbfsFileShareARNList' - An array containing the Amazon Resource Name (ARN) of each file share to be described.
-describeSMBFileShares ::
-  -- | 'dsmbfsFileShareARNList'
-  NonEmpty Text ->
+-- * 'fileShareARNList' - An array containing the Amazon Resource Name (ARN) of each file share to be described.
+mkDescribeSMBFileShares ::
+  -- | 'fileShareARNList'
+  Lude.NonEmpty Lude.Text ->
   DescribeSMBFileShares
-describeSMBFileShares pFileShareARNList_ =
-  DescribeSMBFileShares'
-    { _dsmbfsFileShareARNList =
-        _List1 # pFileShareARNList_
-    }
+mkDescribeSMBFileShares pFileShareARNList_ =
+  DescribeSMBFileShares' {fileShareARNList = pFileShareARNList_}
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
-dsmbfsFileShareARNList :: Lens' DescribeSMBFileShares (NonEmpty Text)
-dsmbfsFileShareARNList = lens _dsmbfsFileShareARNList (\s a -> s {_dsmbfsFileShareARNList = a}) . _List1
+--
+-- /Note:/ Consider using 'fileShareARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmbfsFileShareARNList :: Lens.Lens' DescribeSMBFileShares (Lude.NonEmpty Lude.Text)
+dsmbfsFileShareARNList = Lens.lens (fileShareARNList :: DescribeSMBFileShares -> Lude.NonEmpty Lude.Text) (\s a -> s {fileShareARNList = a} :: DescribeSMBFileShares)
+{-# DEPRECATED dsmbfsFileShareARNList "Use generic-lens or generic-optics with 'fileShareARNList' instead." #-}
 
-instance AWSRequest DescribeSMBFileShares where
+instance Lude.AWSRequest DescribeSMBFileShares where
   type Rs DescribeSMBFileShares = DescribeSMBFileSharesResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeSMBFileSharesResponse'
-            <$> (x .?> "SMBFileShareInfoList" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SMBFileShareInfoList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSMBFileShares
-
-instance NFData DescribeSMBFileShares
-
-instance ToHeaders DescribeSMBFileShares where
+instance Lude.ToHeaders DescribeSMBFileShares where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DescribeSMBFileShares" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeSMBFileShares" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeSMBFileShares where
+instance Lude.ToJSON DescribeSMBFileShares where
   toJSON DescribeSMBFileShares' {..} =
-    object
-      (catMaybes [Just ("FileShareARNList" .= _dsmbfsFileShareARNList)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("FileShareARNList" Lude..= fileShareARNList)]
+      )
 
-instance ToPath DescribeSMBFileShares where
-  toPath = const "/"
+instance Lude.ToPath DescribeSMBFileShares where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeSMBFileShares where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeSMBFileShares where
+  toQuery = Lude.const Lude.mempty
 
 -- | DescribeSMBFileSharesOutput
 --
---
---
--- /See:/ 'describeSMBFileSharesResponse' smart constructor.
+-- /See:/ 'mkDescribeSMBFileSharesResponse' smart constructor.
 data DescribeSMBFileSharesResponse = DescribeSMBFileSharesResponse'
-  { _dsmbfsrsSMBFileShareInfoList ::
-      !(Maybe [SMBFileShareInfo]),
-    _dsmbfsrsResponseStatus :: !Int
+  { sMBFileShareInfoList ::
+      Lude.Maybe [SMBFileShareInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSMBFileSharesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsmbfsrsSMBFileShareInfoList' - An array containing a description for each requested file share.
---
--- * 'dsmbfsrsResponseStatus' - -- | The response status code.
-describeSMBFileSharesResponse ::
-  -- | 'dsmbfsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sMBFileShareInfoList' - An array containing a description for each requested file share.
+mkDescribeSMBFileSharesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSMBFileSharesResponse
-describeSMBFileSharesResponse pResponseStatus_ =
+mkDescribeSMBFileSharesResponse pResponseStatus_ =
   DescribeSMBFileSharesResponse'
-    { _dsmbfsrsSMBFileShareInfoList =
-        Nothing,
-      _dsmbfsrsResponseStatus = pResponseStatus_
+    { sMBFileShareInfoList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array containing a description for each requested file share.
-dsmbfsrsSMBFileShareInfoList :: Lens' DescribeSMBFileSharesResponse [SMBFileShareInfo]
-dsmbfsrsSMBFileShareInfoList = lens _dsmbfsrsSMBFileShareInfoList (\s a -> s {_dsmbfsrsSMBFileShareInfoList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sMBFileShareInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmbfsrsSMBFileShareInfoList :: Lens.Lens' DescribeSMBFileSharesResponse (Lude.Maybe [SMBFileShareInfo])
+dsmbfsrsSMBFileShareInfoList = Lens.lens (sMBFileShareInfoList :: DescribeSMBFileSharesResponse -> Lude.Maybe [SMBFileShareInfo]) (\s a -> s {sMBFileShareInfoList = a} :: DescribeSMBFileSharesResponse)
+{-# DEPRECATED dsmbfsrsSMBFileShareInfoList "Use generic-lens or generic-optics with 'sMBFileShareInfoList' instead." #-}
 
--- | -- | The response status code.
-dsmbfsrsResponseStatus :: Lens' DescribeSMBFileSharesResponse Int
-dsmbfsrsResponseStatus = lens _dsmbfsrsResponseStatus (\s a -> s {_dsmbfsrsResponseStatus = a})
-
-instance NFData DescribeSMBFileSharesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmbfsrsResponseStatus :: Lens.Lens' DescribeSMBFileSharesResponse Lude.Int
+dsmbfsrsResponseStatus = Lens.lens (responseStatus :: DescribeSMBFileSharesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSMBFileSharesResponse)
+{-# DEPRECATED dsmbfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

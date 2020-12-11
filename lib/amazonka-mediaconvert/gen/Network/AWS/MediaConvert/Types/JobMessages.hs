@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.JobMessages where
+module Network.AWS.MediaConvert.Types.JobMessages
+  ( JobMessages (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobMessages,
+
+    -- * Lenses
+    jmWarning,
+    jmInfo,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides messages from the service about jobs that you have already successfully submitted.
 --
--- /See:/ 'jobMessages' smart constructor.
+-- /See:/ 'mkJobMessages' smart constructor.
 data JobMessages = JobMessages'
-  { _jmWarning :: !(Maybe [Text]),
-    _jmInfo :: !(Maybe [Text])
+  { warning :: Lude.Maybe [Lude.Text],
+    info :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobMessages' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jmWarning' - List of messages that warn about conditions that might cause your job not to run or to fail.
---
--- * 'jmInfo' - List of messages that are informational only and don't indicate a problem with your job.
-jobMessages ::
+-- * 'info' - List of messages that are informational only and don't indicate a problem with your job.
+-- * 'warning' - List of messages that warn about conditions that might cause your job not to run or to fail.
+mkJobMessages ::
   JobMessages
-jobMessages = JobMessages' {_jmWarning = Nothing, _jmInfo = Nothing}
+mkJobMessages =
+  JobMessages' {warning = Lude.Nothing, info = Lude.Nothing}
 
 -- | List of messages that warn about conditions that might cause your job not to run or to fail.
-jmWarning :: Lens' JobMessages [Text]
-jmWarning = lens _jmWarning (\s a -> s {_jmWarning = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'warning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmWarning :: Lens.Lens' JobMessages (Lude.Maybe [Lude.Text])
+jmWarning = Lens.lens (warning :: JobMessages -> Lude.Maybe [Lude.Text]) (\s a -> s {warning = a} :: JobMessages)
+{-# DEPRECATED jmWarning "Use generic-lens or generic-optics with 'warning' instead." #-}
 
 -- | List of messages that are informational only and don't indicate a problem with your job.
-jmInfo :: Lens' JobMessages [Text]
-jmInfo = lens _jmInfo (\s a -> s {_jmInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'info' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmInfo :: Lens.Lens' JobMessages (Lude.Maybe [Lude.Text])
+jmInfo = Lens.lens (info :: JobMessages -> Lude.Maybe [Lude.Text]) (\s a -> s {info = a} :: JobMessages)
+{-# DEPRECATED jmInfo "Use generic-lens or generic-optics with 'info' instead." #-}
 
-instance FromJSON JobMessages where
+instance Lude.FromJSON JobMessages where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobMessages"
       ( \x ->
           JobMessages'
-            <$> (x .:? "warning" .!= mempty) <*> (x .:? "info" .!= mempty)
+            Lude.<$> (x Lude..:? "warning" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "info" Lude..!= Lude.mempty)
       )
-
-instance Hashable JobMessages
-
-instance NFData JobMessages

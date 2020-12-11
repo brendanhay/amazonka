@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse where
+module Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
+  ( BatchListObjectChildrenResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchListObjectChildrenResponse,
+
+    -- * Lenses
+    blocChildren,
+    blocNextToken,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'ListObjectChildren' response operation.
 --
---
---
--- /See:/ 'batchListObjectChildrenResponse' smart constructor.
+-- /See:/ 'mkBatchListObjectChildrenResponse' smart constructor.
 data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
-  { _blocChildren ::
-      !(Maybe (Map Text (Text))),
-    _blocNextToken ::
-      !(Maybe Text)
+  { children ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectChildrenResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blocChildren' - The children structure, which is a map with the key as the @LinkName@ and @ObjectIdentifier@ as the value.
---
--- * 'blocNextToken' - The pagination token.
-batchListObjectChildrenResponse ::
+-- * 'children' - The children structure, which is a map with the key as the @LinkName@ and @ObjectIdentifier@ as the value.
+-- * 'nextToken' - The pagination token.
+mkBatchListObjectChildrenResponse ::
   BatchListObjectChildrenResponse
-batchListObjectChildrenResponse =
+mkBatchListObjectChildrenResponse =
   BatchListObjectChildrenResponse'
-    { _blocChildren = Nothing,
-      _blocNextToken = Nothing
+    { children = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | The children structure, which is a map with the key as the @LinkName@ and @ObjectIdentifier@ as the value.
-blocChildren :: Lens' BatchListObjectChildrenResponse (HashMap Text (Text))
-blocChildren = lens _blocChildren (\s a -> s {_blocChildren = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'children' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blocChildren :: Lens.Lens' BatchListObjectChildrenResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+blocChildren = Lens.lens (children :: BatchListObjectChildrenResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {children = a} :: BatchListObjectChildrenResponse)
+{-# DEPRECATED blocChildren "Use generic-lens or generic-optics with 'children' instead." #-}
 
 -- | The pagination token.
-blocNextToken :: Lens' BatchListObjectChildrenResponse (Maybe Text)
-blocNextToken = lens _blocNextToken (\s a -> s {_blocNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blocNextToken :: Lens.Lens' BatchListObjectChildrenResponse (Lude.Maybe Lude.Text)
+blocNextToken = Lens.lens (nextToken :: BatchListObjectChildrenResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectChildrenResponse)
+{-# DEPRECATED blocNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance FromJSON BatchListObjectChildrenResponse where
+instance Lude.FromJSON BatchListObjectChildrenResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchListObjectChildrenResponse"
       ( \x ->
           BatchListObjectChildrenResponse'
-            <$> (x .:? "Children" .!= mempty) <*> (x .:? "NextToken")
+            Lude.<$> (x Lude..:? "Children" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextToken")
       )
-
-instance Hashable BatchListObjectChildrenResponse
-
-instance NFData BatchListObjectChildrenResponse

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.MetricToRetain where
+module Network.AWS.IoT.Types.MetricToRetain
+  ( MetricToRetain (..),
+
+    -- * Smart constructor
+    mkMetricToRetain,
+
+    -- * Lenses
+    mtrMetricDimension,
+    mtrMetric,
+  )
+where
 
 import Network.AWS.IoT.Types.MetricDimension
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metric you want to retain. Dimensions are optional.
 --
---
---
--- /See:/ 'metricToRetain' smart constructor.
+-- /See:/ 'mkMetricToRetain' smart constructor.
 data MetricToRetain = MetricToRetain'
-  { _mtrMetricDimension ::
-      !(Maybe MetricDimension),
-    _mtrMetric :: !Text
+  { metricDimension ::
+      Lude.Maybe MetricDimension,
+    metric :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricToRetain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtrMetricDimension' - The dimension of a metric.
---
--- * 'mtrMetric' - What is measured by the behavior.
-metricToRetain ::
-  -- | 'mtrMetric'
-  Text ->
+-- * 'metric' - What is measured by the behavior.
+-- * 'metricDimension' - The dimension of a metric.
+mkMetricToRetain ::
+  -- | 'metric'
+  Lude.Text ->
   MetricToRetain
-metricToRetain pMetric_ =
+mkMetricToRetain pMetric_ =
   MetricToRetain'
-    { _mtrMetricDimension = Nothing,
-      _mtrMetric = pMetric_
+    { metricDimension = Lude.Nothing,
+      metric = pMetric_
     }
 
 -- | The dimension of a metric.
-mtrMetricDimension :: Lens' MetricToRetain (Maybe MetricDimension)
-mtrMetricDimension = lens _mtrMetricDimension (\s a -> s {_mtrMetricDimension = a})
+--
+-- /Note:/ Consider using 'metricDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtrMetricDimension :: Lens.Lens' MetricToRetain (Lude.Maybe MetricDimension)
+mtrMetricDimension = Lens.lens (metricDimension :: MetricToRetain -> Lude.Maybe MetricDimension) (\s a -> s {metricDimension = a} :: MetricToRetain)
+{-# DEPRECATED mtrMetricDimension "Use generic-lens or generic-optics with 'metricDimension' instead." #-}
 
 -- | What is measured by the behavior.
-mtrMetric :: Lens' MetricToRetain Text
-mtrMetric = lens _mtrMetric (\s a -> s {_mtrMetric = a})
+--
+-- /Note:/ Consider using 'metric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtrMetric :: Lens.Lens' MetricToRetain Lude.Text
+mtrMetric = Lens.lens (metric :: MetricToRetain -> Lude.Text) (\s a -> s {metric = a} :: MetricToRetain)
+{-# DEPRECATED mtrMetric "Use generic-lens or generic-optics with 'metric' instead." #-}
 
-instance FromJSON MetricToRetain where
+instance Lude.FromJSON MetricToRetain where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricToRetain"
       ( \x ->
-          MetricToRetain' <$> (x .:? "metricDimension") <*> (x .: "metric")
+          MetricToRetain'
+            Lude.<$> (x Lude..:? "metricDimension") Lude.<*> (x Lude..: "metric")
       )
 
-instance Hashable MetricToRetain
-
-instance NFData MetricToRetain
-
-instance ToJSON MetricToRetain where
+instance Lude.ToJSON MetricToRetain where
   toJSON MetricToRetain' {..} =
-    object
-      ( catMaybes
-          [ ("metricDimension" .=) <$> _mtrMetricDimension,
-            Just ("metric" .= _mtrMetric)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("metricDimension" Lude..=) Lude.<$> metricDimension,
+            Lude.Just ("metric" Lude..= metric)
           ]
       )

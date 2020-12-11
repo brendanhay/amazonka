@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about one or more build projects.
 module Network.AWS.CodeBuild.BatchGetProjects
-  ( -- * Creating a Request
-    batchGetProjects,
-    BatchGetProjects,
+  ( -- * Creating a request
+    BatchGetProjects (..),
+    mkBatchGetProjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgpNames,
 
-    -- * Destructuring the Response
-    batchGetProjectsResponse,
-    BatchGetProjectsResponse,
+    -- * Destructuring the response
+    BatchGetProjectsResponse (..),
+    mkBatchGetProjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgprsProjectsNotFound,
     bgprsProjects,
     bgprsResponseStatus,
@@ -38,109 +33,123 @@ module Network.AWS.CodeBuild.BatchGetProjects
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetProjects' smart constructor.
+-- | /See:/ 'mkBatchGetProjects' smart constructor.
 newtype BatchGetProjects = BatchGetProjects'
-  { _bgpNames ::
-      List1 Text
+  { names ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetProjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgpNames' - The names or ARNs of the build projects. To get information about a project shared with your AWS account, its ARN must be specified. You cannot specify a shared project using its name.
-batchGetProjects ::
-  -- | 'bgpNames'
-  NonEmpty Text ->
+-- * 'names' - The names or ARNs of the build projects. To get information about a project shared with your AWS account, its ARN must be specified. You cannot specify a shared project using its name.
+mkBatchGetProjects ::
+  -- | 'names'
+  Lude.NonEmpty Lude.Text ->
   BatchGetProjects
-batchGetProjects pNames_ =
-  BatchGetProjects' {_bgpNames = _List1 # pNames_}
+mkBatchGetProjects pNames_ = BatchGetProjects' {names = pNames_}
 
 -- | The names or ARNs of the build projects. To get information about a project shared with your AWS account, its ARN must be specified. You cannot specify a shared project using its name.
-bgpNames :: Lens' BatchGetProjects (NonEmpty Text)
-bgpNames = lens _bgpNames (\s a -> s {_bgpNames = a}) . _List1
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgpNames :: Lens.Lens' BatchGetProjects (Lude.NonEmpty Lude.Text)
+bgpNames = Lens.lens (names :: BatchGetProjects -> Lude.NonEmpty Lude.Text) (\s a -> s {names = a} :: BatchGetProjects)
+{-# DEPRECATED bgpNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance AWSRequest BatchGetProjects where
+instance Lude.AWSRequest BatchGetProjects where
   type Rs BatchGetProjects = BatchGetProjectsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetProjectsResponse'
-            <$> (x .?> "projectsNotFound")
-            <*> (x .?> "projects" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "projectsNotFound")
+            Lude.<*> (x Lude..?> "projects" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetProjects
-
-instance NFData BatchGetProjects
-
-instance ToHeaders BatchGetProjects where
+instance Lude.ToHeaders BatchGetProjects where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.BatchGetProjects" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.BatchGetProjects" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetProjects where
+instance Lude.ToJSON BatchGetProjects where
   toJSON BatchGetProjects' {..} =
-    object (catMaybes [Just ("names" .= _bgpNames)])
+    Lude.object (Lude.catMaybes [Lude.Just ("names" Lude..= names)])
 
-instance ToPath BatchGetProjects where
-  toPath = const "/"
+instance Lude.ToPath BatchGetProjects where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetProjects where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetProjects where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetProjectsResponse' smart constructor.
+-- | /See:/ 'mkBatchGetProjectsResponse' smart constructor.
 data BatchGetProjectsResponse = BatchGetProjectsResponse'
-  { _bgprsProjectsNotFound ::
-      !(Maybe (List1 Text)),
-    _bgprsProjects :: !(Maybe [Project]),
-    _bgprsResponseStatus :: !Int
+  { projectsNotFound ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    projects :: Lude.Maybe [Project],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetProjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgprsProjectsNotFound' - The names of build projects for which information could not be found.
---
--- * 'bgprsProjects' - Information about the requested build projects.
---
--- * 'bgprsResponseStatus' - -- | The response status code.
-batchGetProjectsResponse ::
-  -- | 'bgprsResponseStatus'
-  Int ->
+-- * 'projects' - Information about the requested build projects.
+-- * 'projectsNotFound' - The names of build projects for which information could not be found.
+-- * 'responseStatus' - The response status code.
+mkBatchGetProjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetProjectsResponse
-batchGetProjectsResponse pResponseStatus_ =
+mkBatchGetProjectsResponse pResponseStatus_ =
   BatchGetProjectsResponse'
-    { _bgprsProjectsNotFound = Nothing,
-      _bgprsProjects = Nothing,
-      _bgprsResponseStatus = pResponseStatus_
+    { projectsNotFound = Lude.Nothing,
+      projects = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of build projects for which information could not be found.
-bgprsProjectsNotFound :: Lens' BatchGetProjectsResponse (Maybe (NonEmpty Text))
-bgprsProjectsNotFound = lens _bgprsProjectsNotFound (\s a -> s {_bgprsProjectsNotFound = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'projectsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgprsProjectsNotFound :: Lens.Lens' BatchGetProjectsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+bgprsProjectsNotFound = Lens.lens (projectsNotFound :: BatchGetProjectsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {projectsNotFound = a} :: BatchGetProjectsResponse)
+{-# DEPRECATED bgprsProjectsNotFound "Use generic-lens or generic-optics with 'projectsNotFound' instead." #-}
 
 -- | Information about the requested build projects.
-bgprsProjects :: Lens' BatchGetProjectsResponse [Project]
-bgprsProjects = lens _bgprsProjects (\s a -> s {_bgprsProjects = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'projects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgprsProjects :: Lens.Lens' BatchGetProjectsResponse (Lude.Maybe [Project])
+bgprsProjects = Lens.lens (projects :: BatchGetProjectsResponse -> Lude.Maybe [Project]) (\s a -> s {projects = a} :: BatchGetProjectsResponse)
+{-# DEPRECATED bgprsProjects "Use generic-lens or generic-optics with 'projects' instead." #-}
 
--- | -- | The response status code.
-bgprsResponseStatus :: Lens' BatchGetProjectsResponse Int
-bgprsResponseStatus = lens _bgprsResponseStatus (\s a -> s {_bgprsResponseStatus = a})
-
-instance NFData BatchGetProjectsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgprsResponseStatus :: Lens.Lens' BatchGetProjectsResponse Lude.Int
+bgprsResponseStatus = Lens.lens (responseStatus :: BatchGetProjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetProjectsResponse)
+{-# DEPRECATED bgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

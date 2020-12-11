@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.FileSourceSettings where
+module Network.AWS.MediaConvert.Types.FileSourceSettings
+  ( FileSourceSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkFileSourceSettings,
+
+    -- * Lenses
+    fssFramerate,
+    fssConvert608To708,
+    fssTimeDelta,
+    fssSourceFile,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CaptionSourceFramerate
 import Network.AWS.MediaConvert.Types.FileSourceConvert608To708
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
 --
--- /See:/ 'fileSourceSettings' smart constructor.
+-- /See:/ 'mkFileSourceSettings' smart constructor.
 data FileSourceSettings = FileSourceSettings'
-  { _fssFramerate ::
-      !(Maybe CaptionSourceFramerate),
-    _fssConvert608To708 ::
-      !(Maybe FileSourceConvert608To708),
-    _fssTimeDelta :: !(Maybe Int),
-    _fssSourceFile :: !(Maybe Text)
+  { framerate ::
+      Lude.Maybe CaptionSourceFramerate,
+    convert608To708 ::
+      Lude.Maybe FileSourceConvert608To708,
+    timeDelta :: Lude.Maybe Lude.Int,
+    sourceFile :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSourceSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fssFramerate' - Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
---
--- * 'fssConvert608To708' - Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
---
--- * 'fssTimeDelta' - Specifies a time delta in seconds to offset the captions from the source file.
---
--- * 'fssSourceFile' - External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', and 'smi'.
-fileSourceSettings ::
+-- * 'convert608To708' - Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
+-- * 'framerate' - Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
+-- * 'sourceFile' - External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', and 'smi'.
+-- * 'timeDelta' - Specifies a time delta in seconds to offset the captions from the source file.
+mkFileSourceSettings ::
   FileSourceSettings
-fileSourceSettings =
+mkFileSourceSettings =
   FileSourceSettings'
-    { _fssFramerate = Nothing,
-      _fssConvert608To708 = Nothing,
-      _fssTimeDelta = Nothing,
-      _fssSourceFile = Nothing
+    { framerate = Lude.Nothing,
+      convert608To708 = Lude.Nothing,
+      timeDelta = Lude.Nothing,
+      sourceFile = Lude.Nothing
     }
 
 -- | Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
-fssFramerate :: Lens' FileSourceSettings (Maybe CaptionSourceFramerate)
-fssFramerate = lens _fssFramerate (\s a -> s {_fssFramerate = a})
+--
+-- /Note:/ Consider using 'framerate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssFramerate :: Lens.Lens' FileSourceSettings (Lude.Maybe CaptionSourceFramerate)
+fssFramerate = Lens.lens (framerate :: FileSourceSettings -> Lude.Maybe CaptionSourceFramerate) (\s a -> s {framerate = a} :: FileSourceSettings)
+{-# DEPRECATED fssFramerate "Use generic-lens or generic-optics with 'framerate' instead." #-}
 
 -- | Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
-fssConvert608To708 :: Lens' FileSourceSettings (Maybe FileSourceConvert608To708)
-fssConvert608To708 = lens _fssConvert608To708 (\s a -> s {_fssConvert608To708 = a})
+--
+-- /Note:/ Consider using 'convert608To708' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssConvert608To708 :: Lens.Lens' FileSourceSettings (Lude.Maybe FileSourceConvert608To708)
+fssConvert608To708 = Lens.lens (convert608To708 :: FileSourceSettings -> Lude.Maybe FileSourceConvert608To708) (\s a -> s {convert608To708 = a} :: FileSourceSettings)
+{-# DEPRECATED fssConvert608To708 "Use generic-lens or generic-optics with 'convert608To708' instead." #-}
 
 -- | Specifies a time delta in seconds to offset the captions from the source file.
-fssTimeDelta :: Lens' FileSourceSettings (Maybe Int)
-fssTimeDelta = lens _fssTimeDelta (\s a -> s {_fssTimeDelta = a})
+--
+-- /Note:/ Consider using 'timeDelta' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssTimeDelta :: Lens.Lens' FileSourceSettings (Lude.Maybe Lude.Int)
+fssTimeDelta = Lens.lens (timeDelta :: FileSourceSettings -> Lude.Maybe Lude.Int) (\s a -> s {timeDelta = a} :: FileSourceSettings)
+{-# DEPRECATED fssTimeDelta "Use generic-lens or generic-optics with 'timeDelta' instead." #-}
 
 -- | External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', and 'smi'.
-fssSourceFile :: Lens' FileSourceSettings (Maybe Text)
-fssSourceFile = lens _fssSourceFile (\s a -> s {_fssSourceFile = a})
+--
+-- /Note:/ Consider using 'sourceFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssSourceFile :: Lens.Lens' FileSourceSettings (Lude.Maybe Lude.Text)
+fssSourceFile = Lens.lens (sourceFile :: FileSourceSettings -> Lude.Maybe Lude.Text) (\s a -> s {sourceFile = a} :: FileSourceSettings)
+{-# DEPRECATED fssSourceFile "Use generic-lens or generic-optics with 'sourceFile' instead." #-}
 
-instance FromJSON FileSourceSettings where
+instance Lude.FromJSON FileSourceSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileSourceSettings"
       ( \x ->
           FileSourceSettings'
-            <$> (x .:? "framerate")
-            <*> (x .:? "convert608To708")
-            <*> (x .:? "timeDelta")
-            <*> (x .:? "sourceFile")
+            Lude.<$> (x Lude..:? "framerate")
+            Lude.<*> (x Lude..:? "convert608To708")
+            Lude.<*> (x Lude..:? "timeDelta")
+            Lude.<*> (x Lude..:? "sourceFile")
       )
 
-instance Hashable FileSourceSettings
-
-instance NFData FileSourceSettings
-
-instance ToJSON FileSourceSettings where
+instance Lude.ToJSON FileSourceSettings where
   toJSON FileSourceSettings' {..} =
-    object
-      ( catMaybes
-          [ ("framerate" .=) <$> _fssFramerate,
-            ("convert608To708" .=) <$> _fssConvert608To708,
-            ("timeDelta" .=) <$> _fssTimeDelta,
-            ("sourceFile" .=) <$> _fssSourceFile
+    Lude.object
+      ( Lude.catMaybes
+          [ ("framerate" Lude..=) Lude.<$> framerate,
+            ("convert608To708" Lude..=) Lude.<$> convert608To708,
+            ("timeDelta" Lude..=) Lude.<$> timeDelta,
+            ("sourceFile" Lude..=) Lude.<$> sourceFile
           ]
       )

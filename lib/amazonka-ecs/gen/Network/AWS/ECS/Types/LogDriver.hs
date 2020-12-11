@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.LogDriver where
+module Network.AWS.ECS.Types.LogDriver
+  ( LogDriver
+      ( LogDriver',
+        LDAWSfirelens,
+        LDAWSlogs,
+        LDFluentd,
+        LDGelf,
+        LDJSONFile,
+        LDJournald,
+        LDSplunk,
+        LDSyslog
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogDriver
-  = LDAWSfirelens
-  | LDAWSlogs
-  | LDFluentd
-  | LDGelf
-  | LDJSONFile
-  | LDJournald
-  | LDSplunk
-  | LDSyslog
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogDriver = LogDriver' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogDriver where
-  parser =
-    takeLowerText >>= \case
-      "awsfirelens" -> pure LDAWSfirelens
-      "awslogs" -> pure LDAWSlogs
-      "fluentd" -> pure LDFluentd
-      "gelf" -> pure LDGelf
-      "json-file" -> pure LDJSONFile
-      "journald" -> pure LDJournald
-      "splunk" -> pure LDSplunk
-      "syslog" -> pure LDSyslog
-      e ->
-        fromTextError $
-          "Failure parsing LogDriver from value: '" <> e
-            <> "'. Accepted values: awsfirelens, awslogs, fluentd, gelf, json-file, journald, splunk, syslog"
+pattern LDAWSfirelens :: LogDriver
+pattern LDAWSfirelens = LogDriver' "awsfirelens"
 
-instance ToText LogDriver where
-  toText = \case
-    LDAWSfirelens -> "awsfirelens"
-    LDAWSlogs -> "awslogs"
-    LDFluentd -> "fluentd"
-    LDGelf -> "gelf"
-    LDJSONFile -> "json-file"
-    LDJournald -> "journald"
-    LDSplunk -> "splunk"
-    LDSyslog -> "syslog"
+pattern LDAWSlogs :: LogDriver
+pattern LDAWSlogs = LogDriver' "awslogs"
 
-instance Hashable LogDriver
+pattern LDFluentd :: LogDriver
+pattern LDFluentd = LogDriver' "fluentd"
 
-instance NFData LogDriver
+pattern LDGelf :: LogDriver
+pattern LDGelf = LogDriver' "gelf"
 
-instance ToByteString LogDriver
+pattern LDJSONFile :: LogDriver
+pattern LDJSONFile = LogDriver' "json-file"
 
-instance ToQuery LogDriver
+pattern LDJournald :: LogDriver
+pattern LDJournald = LogDriver' "journald"
 
-instance ToHeader LogDriver
+pattern LDSplunk :: LogDriver
+pattern LDSplunk = LogDriver' "splunk"
 
-instance ToJSON LogDriver where
-  toJSON = toJSONText
+pattern LDSyslog :: LogDriver
+pattern LDSyslog = LogDriver' "syslog"
 
-instance FromJSON LogDriver where
-  parseJSON = parseJSONText "LogDriver"
+{-# COMPLETE
+  LDAWSfirelens,
+  LDAWSlogs,
+  LDFluentd,
+  LDGelf,
+  LDJSONFile,
+  LDJournald,
+  LDSplunk,
+  LDSyslog,
+  LogDriver'
+  #-}

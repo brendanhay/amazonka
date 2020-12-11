@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,204 +7,289 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.DataSource where
+module Network.AWS.MachineLearning.Types.DataSource
+  ( DataSource (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkDataSource,
+
+    -- * Lenses
+    dsStatus,
+    dsNumberOfFiles,
+    dsLastUpdatedAt,
+    dsCreatedAt,
+    dsComputeTime,
+    dsDataSourceId,
+    dsRDSMetadata,
+    dsDataSizeInBytes,
+    dsStartedAt,
+    dsFinishedAt,
+    dsCreatedByIAMUser,
+    dsName,
+    dsDataLocationS3,
+    dsComputeStatistics,
+    dsMessage,
+    dsRedshiftMetadata,
+    dsDataRearrangement,
+    dsRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.EntityStatus
 import Network.AWS.MachineLearning.Types.RDSMetadata
 import Network.AWS.MachineLearning.Types.RedshiftMetadata
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of the @GetDataSource@ operation.
 --
---
 -- The content consists of the detailed metadata and data file information and the current status of the @DataSource@ .
 --
---
--- /See:/ 'dataSource' smart constructor.
+-- /See:/ 'mkDataSource' smart constructor.
 data DataSource = DataSource'
-  { _dsStatus :: !(Maybe EntityStatus),
-    _dsNumberOfFiles :: !(Maybe Integer),
-    _dsLastUpdatedAt :: !(Maybe POSIX),
-    _dsCreatedAt :: !(Maybe POSIX),
-    _dsComputeTime :: !(Maybe Integer),
-    _dsDataSourceId :: !(Maybe Text),
-    _dsRDSMetadata :: !(Maybe RDSMetadata),
-    _dsDataSizeInBytes :: !(Maybe Integer),
-    _dsStartedAt :: !(Maybe POSIX),
-    _dsFinishedAt :: !(Maybe POSIX),
-    _dsCreatedByIAMUser :: !(Maybe Text),
-    _dsName :: !(Maybe Text),
-    _dsDataLocationS3 :: !(Maybe Text),
-    _dsComputeStatistics :: !(Maybe Bool),
-    _dsMessage :: !(Maybe Text),
-    _dsRedshiftMetadata :: !(Maybe RedshiftMetadata),
-    _dsDataRearrangement :: !(Maybe Text),
-    _dsRoleARN :: !(Maybe Text)
+  { status :: Lude.Maybe EntityStatus,
+    numberOfFiles :: Lude.Maybe Lude.Integer,
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    computeTime :: Lude.Maybe Lude.Integer,
+    dataSourceId :: Lude.Maybe Lude.Text,
+    rdsMetadata :: Lude.Maybe RDSMetadata,
+    dataSizeInBytes :: Lude.Maybe Lude.Integer,
+    startedAt :: Lude.Maybe Lude.Timestamp,
+    finishedAt :: Lude.Maybe Lude.Timestamp,
+    createdByIAMUser :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    dataLocationS3 :: Lude.Maybe Lude.Text,
+    computeStatistics :: Lude.Maybe Lude.Bool,
+    message :: Lude.Maybe Lude.Text,
+    redshiftMetadata :: Lude.Maybe RedshiftMetadata,
+    dataRearrangement :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'computeStatistics' - The parameter is @true@ if statistics need to be generated from the observation data.
+-- * 'computeTime' - Undocumented field.
+-- * 'createdAt' - The time that the @DataSource@ was created. The time is expressed in epoch time.
+-- * 'createdByIAMUser' - The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'dataLocationS3' - The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a @DataSource@ .
+-- * 'dataRearrangement' - A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
+-- * 'dataSizeInBytes' - The total number of observations contained in the data files that the @DataSource@ references.
+-- * 'dataSourceId' - The ID that is assigned to the @DataSource@ during creation.
+-- * 'finishedAt' - Undocumented field.
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
+-- * 'message' - A description of the most recent details about creating the @DataSource@ .
+-- * 'name' - A user-supplied name or description of the @DataSource@ .
+-- * 'numberOfFiles' - The number of data files referenced by the @DataSource@ .
+-- * 'rdsMetadata' - Undocumented field.
+-- * 'redshiftMetadata' - Undocumented field.
+-- * 'roleARN' - Undocumented field.
+-- * 'startedAt' - Undocumented field.
+-- * 'status' - The current status of the @DataSource@ . This element can have one of the following values:
 --
--- * 'dsStatus' - The current status of the @DataSource@ . This element can have one of the following values:      * PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a @DataSource@ .    * INPROGRESS - The creation process is underway.    * FAILED - The request to create a @DataSource@ did not run to completion. It is not usable.    * COMPLETED - The creation process completed successfully.    * DELETED - The @DataSource@ is marked as deleted. It is not usable.
 --
--- * 'dsNumberOfFiles' - The number of data files referenced by the @DataSource@ .
+--     * PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a @DataSource@ .
 --
--- * 'dsLastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
+--     * INPROGRESS - The creation process is underway.
 --
--- * 'dsCreatedAt' - The time that the @DataSource@ was created. The time is expressed in epoch time.
+--     * FAILED - The request to create a @DataSource@ did not run to completion. It is not usable.
 --
--- * 'dsComputeTime' - Undocumented member.
+--     * COMPLETED - The creation process completed successfully.
 --
--- * 'dsDataSourceId' - The ID that is assigned to the @DataSource@ during creation.
---
--- * 'dsRDSMetadata' - Undocumented member.
---
--- * 'dsDataSizeInBytes' - The total number of observations contained in the data files that the @DataSource@ references.
---
--- * 'dsStartedAt' - Undocumented member.
---
--- * 'dsFinishedAt' - Undocumented member.
---
--- * 'dsCreatedByIAMUser' - The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
---
--- * 'dsName' - A user-supplied name or description of the @DataSource@ .
---
--- * 'dsDataLocationS3' - The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a @DataSource@ .
---
--- * 'dsComputeStatistics' - The parameter is @true@ if statistics need to be generated from the observation data.
---
--- * 'dsMessage' - A description of the most recent details about creating the @DataSource@ .
---
--- * 'dsRedshiftMetadata' - Undocumented member.
---
--- * 'dsDataRearrangement' - A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
---
--- * 'dsRoleARN' - Undocumented member.
-dataSource ::
+--     * DELETED - The @DataSource@ is marked as deleted. It is not usable.
+mkDataSource ::
   DataSource
-dataSource =
+mkDataSource =
   DataSource'
-    { _dsStatus = Nothing,
-      _dsNumberOfFiles = Nothing,
-      _dsLastUpdatedAt = Nothing,
-      _dsCreatedAt = Nothing,
-      _dsComputeTime = Nothing,
-      _dsDataSourceId = Nothing,
-      _dsRDSMetadata = Nothing,
-      _dsDataSizeInBytes = Nothing,
-      _dsStartedAt = Nothing,
-      _dsFinishedAt = Nothing,
-      _dsCreatedByIAMUser = Nothing,
-      _dsName = Nothing,
-      _dsDataLocationS3 = Nothing,
-      _dsComputeStatistics = Nothing,
-      _dsMessage = Nothing,
-      _dsRedshiftMetadata = Nothing,
-      _dsDataRearrangement = Nothing,
-      _dsRoleARN = Nothing
+    { status = Lude.Nothing,
+      numberOfFiles = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      computeTime = Lude.Nothing,
+      dataSourceId = Lude.Nothing,
+      rdsMetadata = Lude.Nothing,
+      dataSizeInBytes = Lude.Nothing,
+      startedAt = Lude.Nothing,
+      finishedAt = Lude.Nothing,
+      createdByIAMUser = Lude.Nothing,
+      name = Lude.Nothing,
+      dataLocationS3 = Lude.Nothing,
+      computeStatistics = Lude.Nothing,
+      message = Lude.Nothing,
+      redshiftMetadata = Lude.Nothing,
+      dataRearrangement = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
--- | The current status of the @DataSource@ . This element can have one of the following values:      * PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a @DataSource@ .    * INPROGRESS - The creation process is underway.    * FAILED - The request to create a @DataSource@ did not run to completion. It is not usable.    * COMPLETED - The creation process completed successfully.    * DELETED - The @DataSource@ is marked as deleted. It is not usable.
-dsStatus :: Lens' DataSource (Maybe EntityStatus)
-dsStatus = lens _dsStatus (\s a -> s {_dsStatus = a})
+-- | The current status of the @DataSource@ . This element can have one of the following values:
+--
+--
+--     * PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a @DataSource@ .
+--
+--     * INPROGRESS - The creation process is underway.
+--
+--     * FAILED - The request to create a @DataSource@ did not run to completion. It is not usable.
+--
+--     * COMPLETED - The creation process completed successfully.
+--
+--     * DELETED - The @DataSource@ is marked as deleted. It is not usable.
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStatus :: Lens.Lens' DataSource (Lude.Maybe EntityStatus)
+dsStatus = Lens.lens (status :: DataSource -> Lude.Maybe EntityStatus) (\s a -> s {status = a} :: DataSource)
+{-# DEPRECATED dsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The number of data files referenced by the @DataSource@ .
-dsNumberOfFiles :: Lens' DataSource (Maybe Integer)
-dsNumberOfFiles = lens _dsNumberOfFiles (\s a -> s {_dsNumberOfFiles = a})
+--
+-- /Note:/ Consider using 'numberOfFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNumberOfFiles :: Lens.Lens' DataSource (Lude.Maybe Lude.Integer)
+dsNumberOfFiles = Lens.lens (numberOfFiles :: DataSource -> Lude.Maybe Lude.Integer) (\s a -> s {numberOfFiles = a} :: DataSource)
+{-# DEPRECATED dsNumberOfFiles "Use generic-lens or generic-optics with 'numberOfFiles' instead." #-}
 
 -- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
-dsLastUpdatedAt :: Lens' DataSource (Maybe UTCTime)
-dsLastUpdatedAt = lens _dsLastUpdatedAt (\s a -> s {_dsLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsLastUpdatedAt :: Lens.Lens' DataSource (Lude.Maybe Lude.Timestamp)
+dsLastUpdatedAt = Lens.lens (lastUpdatedAt :: DataSource -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: DataSource)
+{-# DEPRECATED dsLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The time that the @DataSource@ was created. The time is expressed in epoch time.
-dsCreatedAt :: Lens' DataSource (Maybe UTCTime)
-dsCreatedAt = lens _dsCreatedAt (\s a -> s {_dsCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCreatedAt :: Lens.Lens' DataSource (Lude.Maybe Lude.Timestamp)
+dsCreatedAt = Lens.lens (createdAt :: DataSource -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: DataSource)
+{-# DEPRECATED dsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
--- | Undocumented member.
-dsComputeTime :: Lens' DataSource (Maybe Integer)
-dsComputeTime = lens _dsComputeTime (\s a -> s {_dsComputeTime = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsComputeTime :: Lens.Lens' DataSource (Lude.Maybe Lude.Integer)
+dsComputeTime = Lens.lens (computeTime :: DataSource -> Lude.Maybe Lude.Integer) (\s a -> s {computeTime = a} :: DataSource)
+{-# DEPRECATED dsComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
 
 -- | The ID that is assigned to the @DataSource@ during creation.
-dsDataSourceId :: Lens' DataSource (Maybe Text)
-dsDataSourceId = lens _dsDataSourceId (\s a -> s {_dsDataSourceId = a})
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDataSourceId :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsDataSourceId = Lens.lens (dataSourceId :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: DataSource)
+{-# DEPRECATED dsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
--- | Undocumented member.
-dsRDSMetadata :: Lens' DataSource (Maybe RDSMetadata)
-dsRDSMetadata = lens _dsRDSMetadata (\s a -> s {_dsRDSMetadata = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rdsMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRDSMetadata :: Lens.Lens' DataSource (Lude.Maybe RDSMetadata)
+dsRDSMetadata = Lens.lens (rdsMetadata :: DataSource -> Lude.Maybe RDSMetadata) (\s a -> s {rdsMetadata = a} :: DataSource)
+{-# DEPRECATED dsRDSMetadata "Use generic-lens or generic-optics with 'rdsMetadata' instead." #-}
 
 -- | The total number of observations contained in the data files that the @DataSource@ references.
-dsDataSizeInBytes :: Lens' DataSource (Maybe Integer)
-dsDataSizeInBytes = lens _dsDataSizeInBytes (\s a -> s {_dsDataSizeInBytes = a})
+--
+-- /Note:/ Consider using 'dataSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDataSizeInBytes :: Lens.Lens' DataSource (Lude.Maybe Lude.Integer)
+dsDataSizeInBytes = Lens.lens (dataSizeInBytes :: DataSource -> Lude.Maybe Lude.Integer) (\s a -> s {dataSizeInBytes = a} :: DataSource)
+{-# DEPRECATED dsDataSizeInBytes "Use generic-lens or generic-optics with 'dataSizeInBytes' instead." #-}
 
--- | Undocumented member.
-dsStartedAt :: Lens' DataSource (Maybe UTCTime)
-dsStartedAt = lens _dsStartedAt (\s a -> s {_dsStartedAt = a}) . mapping _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStartedAt :: Lens.Lens' DataSource (Lude.Maybe Lude.Timestamp)
+dsStartedAt = Lens.lens (startedAt :: DataSource -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: DataSource)
+{-# DEPRECATED dsStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
--- | Undocumented member.
-dsFinishedAt :: Lens' DataSource (Maybe UTCTime)
-dsFinishedAt = lens _dsFinishedAt (\s a -> s {_dsFinishedAt = a}) . mapping _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFinishedAt :: Lens.Lens' DataSource (Lude.Maybe Lude.Timestamp)
+dsFinishedAt = Lens.lens (finishedAt :: DataSource -> Lude.Maybe Lude.Timestamp) (\s a -> s {finishedAt = a} :: DataSource)
+{-# DEPRECATED dsFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
 
 -- | The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
-dsCreatedByIAMUser :: Lens' DataSource (Maybe Text)
-dsCreatedByIAMUser = lens _dsCreatedByIAMUser (\s a -> s {_dsCreatedByIAMUser = a})
+--
+-- /Note:/ Consider using 'createdByIAMUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCreatedByIAMUser :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsCreatedByIAMUser = Lens.lens (createdByIAMUser :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {createdByIAMUser = a} :: DataSource)
+{-# DEPRECATED dsCreatedByIAMUser "Use generic-lens or generic-optics with 'createdByIAMUser' instead." #-}
 
 -- | A user-supplied name or description of the @DataSource@ .
-dsName :: Lens' DataSource (Maybe Text)
-dsName = lens _dsName (\s a -> s {_dsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsName :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsName = Lens.lens (name :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DataSource)
+{-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a @DataSource@ .
-dsDataLocationS3 :: Lens' DataSource (Maybe Text)
-dsDataLocationS3 = lens _dsDataLocationS3 (\s a -> s {_dsDataLocationS3 = a})
+--
+-- /Note:/ Consider using 'dataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDataLocationS3 :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsDataLocationS3 = Lens.lens (dataLocationS3 :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {dataLocationS3 = a} :: DataSource)
+{-# DEPRECATED dsDataLocationS3 "Use generic-lens or generic-optics with 'dataLocationS3' instead." #-}
 
 -- | The parameter is @true@ if statistics need to be generated from the observation data.
-dsComputeStatistics :: Lens' DataSource (Maybe Bool)
-dsComputeStatistics = lens _dsComputeStatistics (\s a -> s {_dsComputeStatistics = a})
+--
+-- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsComputeStatistics :: Lens.Lens' DataSource (Lude.Maybe Lude.Bool)
+dsComputeStatistics = Lens.lens (computeStatistics :: DataSource -> Lude.Maybe Lude.Bool) (\s a -> s {computeStatistics = a} :: DataSource)
+{-# DEPRECATED dsComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
 
 -- | A description of the most recent details about creating the @DataSource@ .
-dsMessage :: Lens' DataSource (Maybe Text)
-dsMessage = lens _dsMessage (\s a -> s {_dsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsMessage :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsMessage = Lens.lens (message :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DataSource)
+{-# DEPRECATED dsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
--- | Undocumented member.
-dsRedshiftMetadata :: Lens' DataSource (Maybe RedshiftMetadata)
-dsRedshiftMetadata = lens _dsRedshiftMetadata (\s a -> s {_dsRedshiftMetadata = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'redshiftMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRedshiftMetadata :: Lens.Lens' DataSource (Lude.Maybe RedshiftMetadata)
+dsRedshiftMetadata = Lens.lens (redshiftMetadata :: DataSource -> Lude.Maybe RedshiftMetadata) (\s a -> s {redshiftMetadata = a} :: DataSource)
+{-# DEPRECATED dsRedshiftMetadata "Use generic-lens or generic-optics with 'redshiftMetadata' instead." #-}
 
 -- | A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
-dsDataRearrangement :: Lens' DataSource (Maybe Text)
-dsDataRearrangement = lens _dsDataRearrangement (\s a -> s {_dsDataRearrangement = a})
+--
+-- /Note:/ Consider using 'dataRearrangement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDataRearrangement :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsDataRearrangement = Lens.lens (dataRearrangement :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {dataRearrangement = a} :: DataSource)
+{-# DEPRECATED dsDataRearrangement "Use generic-lens or generic-optics with 'dataRearrangement' instead." #-}
 
--- | Undocumented member.
-dsRoleARN :: Lens' DataSource (Maybe Text)
-dsRoleARN = lens _dsRoleARN (\s a -> s {_dsRoleARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRoleARN :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
+dsRoleARN = Lens.lens (roleARN :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DataSource)
+{-# DEPRECATED dsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON DataSource where
+instance Lude.FromJSON DataSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            <$> (x .:? "Status")
-            <*> (x .:? "NumberOfFiles")
-            <*> (x .:? "LastUpdatedAt")
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "ComputeTime")
-            <*> (x .:? "DataSourceId")
-            <*> (x .:? "RDSMetadata")
-            <*> (x .:? "DataSizeInBytes")
-            <*> (x .:? "StartedAt")
-            <*> (x .:? "FinishedAt")
-            <*> (x .:? "CreatedByIamUser")
-            <*> (x .:? "Name")
-            <*> (x .:? "DataLocationS3")
-            <*> (x .:? "ComputeStatistics")
-            <*> (x .:? "Message")
-            <*> (x .:? "RedshiftMetadata")
-            <*> (x .:? "DataRearrangement")
-            <*> (x .:? "RoleARN")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "NumberOfFiles")
+            Lude.<*> (x Lude..:? "LastUpdatedAt")
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "ComputeTime")
+            Lude.<*> (x Lude..:? "DataSourceId")
+            Lude.<*> (x Lude..:? "RDSMetadata")
+            Lude.<*> (x Lude..:? "DataSizeInBytes")
+            Lude.<*> (x Lude..:? "StartedAt")
+            Lude.<*> (x Lude..:? "FinishedAt")
+            Lude.<*> (x Lude..:? "CreatedByIamUser")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "DataLocationS3")
+            Lude.<*> (x Lude..:? "ComputeStatistics")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "RedshiftMetadata")
+            Lude.<*> (x Lude..:? "DataRearrangement")
+            Lude.<*> (x Lude..:? "RoleARN")
       )
-
-instance Hashable DataSource
-
-instance NFData DataSource

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,146 @@
 --
 -- Updates the details of a gateway group. If any optional field is not provided, the existing corresponding value is left unmodified.
 module Network.AWS.AlexaBusiness.UpdateGatewayGroup
-  ( -- * Creating a Request
-    updateGatewayGroup,
-    UpdateGatewayGroup,
+  ( -- * Creating a request
+    UpdateGatewayGroup (..),
+    mkUpdateGatewayGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uggName,
     uggDescription,
     uggGatewayGroupARN,
 
-    -- * Destructuring the Response
-    updateGatewayGroupResponse,
-    UpdateGatewayGroupResponse,
+    -- * Destructuring the response
+    UpdateGatewayGroupResponse (..),
+    mkUpdateGatewayGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uggrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGatewayGroup' smart constructor.
+-- | /See:/ 'mkUpdateGatewayGroup' smart constructor.
 data UpdateGatewayGroup = UpdateGatewayGroup'
-  { _uggName ::
-      !(Maybe Text),
-    _uggDescription :: !(Maybe Text),
-    _uggGatewayGroupARN :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    gatewayGroupARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uggName' - The updated name of the gateway group.
---
--- * 'uggDescription' - The updated description of the gateway group.
---
--- * 'uggGatewayGroupARN' - The ARN of the gateway group to update.
-updateGatewayGroup ::
-  -- | 'uggGatewayGroupARN'
-  Text ->
+-- * 'description' - The updated description of the gateway group.
+-- * 'gatewayGroupARN' - The ARN of the gateway group to update.
+-- * 'name' - The updated name of the gateway group.
+mkUpdateGatewayGroup ::
+  -- | 'gatewayGroupARN'
+  Lude.Text ->
   UpdateGatewayGroup
-updateGatewayGroup pGatewayGroupARN_ =
+mkUpdateGatewayGroup pGatewayGroupARN_ =
   UpdateGatewayGroup'
-    { _uggName = Nothing,
-      _uggDescription = Nothing,
-      _uggGatewayGroupARN = pGatewayGroupARN_
+    { name = Lude.Nothing,
+      description = Lude.Nothing,
+      gatewayGroupARN = pGatewayGroupARN_
     }
 
 -- | The updated name of the gateway group.
-uggName :: Lens' UpdateGatewayGroup (Maybe Text)
-uggName = lens _uggName (\s a -> s {_uggName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uggName :: Lens.Lens' UpdateGatewayGroup (Lude.Maybe Lude.Text)
+uggName = Lens.lens (name :: UpdateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateGatewayGroup)
+{-# DEPRECATED uggName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The updated description of the gateway group.
-uggDescription :: Lens' UpdateGatewayGroup (Maybe Text)
-uggDescription = lens _uggDescription (\s a -> s {_uggDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uggDescription :: Lens.Lens' UpdateGatewayGroup (Lude.Maybe Lude.Text)
+uggDescription = Lens.lens (description :: UpdateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGatewayGroup)
+{-# DEPRECATED uggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of the gateway group to update.
-uggGatewayGroupARN :: Lens' UpdateGatewayGroup Text
-uggGatewayGroupARN = lens _uggGatewayGroupARN (\s a -> s {_uggGatewayGroupARN = a})
+--
+-- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uggGatewayGroupARN :: Lens.Lens' UpdateGatewayGroup Lude.Text
+uggGatewayGroupARN = Lens.lens (gatewayGroupARN :: UpdateGatewayGroup -> Lude.Text) (\s a -> s {gatewayGroupARN = a} :: UpdateGatewayGroup)
+{-# DEPRECATED uggGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
 
-instance AWSRequest UpdateGatewayGroup where
+instance Lude.AWSRequest UpdateGatewayGroup where
   type Rs UpdateGatewayGroup = UpdateGatewayGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> UpdateGatewayGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateGatewayGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateGatewayGroup
-
-instance NFData UpdateGatewayGroup
-
-instance ToHeaders UpdateGatewayGroup where
+instance Lude.ToHeaders UpdateGatewayGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.UpdateGatewayGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.UpdateGatewayGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGatewayGroup where
+instance Lude.ToJSON UpdateGatewayGroup where
   toJSON UpdateGatewayGroup' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _uggName,
-            ("Description" .=) <$> _uggDescription,
-            Just ("GatewayGroupArn" .= _uggGatewayGroupARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("GatewayGroupArn" Lude..= gatewayGroupARN)
           ]
       )
 
-instance ToPath UpdateGatewayGroup where
-  toPath = const "/"
+instance Lude.ToPath UpdateGatewayGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGatewayGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGatewayGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGatewayGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateGatewayGroupResponse' smart constructor.
 newtype UpdateGatewayGroupResponse = UpdateGatewayGroupResponse'
-  { _uggrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uggrsResponseStatus' - -- | The response status code.
-updateGatewayGroupResponse ::
-  -- | 'uggrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateGatewayGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGatewayGroupResponse
-updateGatewayGroupResponse pResponseStatus_ =
-  UpdateGatewayGroupResponse'
-    { _uggrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateGatewayGroupResponse pResponseStatus_ =
+  UpdateGatewayGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uggrsResponseStatus :: Lens' UpdateGatewayGroupResponse Int
-uggrsResponseStatus = lens _uggrsResponseStatus (\s a -> s {_uggrsResponseStatus = a})
-
-instance NFData UpdateGatewayGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uggrsResponseStatus :: Lens.Lens' UpdateGatewayGroupResponse Lude.Int
+uggrsResponseStatus = Lens.lens (responseStatus :: UpdateGatewayGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGatewayGroupResponse)
+{-# DEPRECATED uggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,160 @@
 --
 -- Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.
 --
---
 -- For load balancers in a non-default VPC, use 'AttachLoadBalancerToSubnets' .
---
 -- The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-  ( -- * Creating a Request
-    enableAvailabilityZonesForLoadBalancer,
-    EnableAvailabilityZonesForLoadBalancer,
+  ( -- * Creating a request
+    EnableAvailabilityZonesForLoadBalancer (..),
+    mkEnableAvailabilityZonesForLoadBalancer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eazflbLoadBalancerName,
     eazflbAvailabilityZones,
 
-    -- * Destructuring the Response
-    enableAvailabilityZonesForLoadBalancerResponse,
-    EnableAvailabilityZonesForLoadBalancerResponse,
+    -- * Destructuring the response
+    EnableAvailabilityZonesForLoadBalancerResponse (..),
+    mkEnableAvailabilityZonesForLoadBalancerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eazflbrsAvailabilityZones,
     eazflbrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for EnableAvailabilityZonesForLoadBalancer.
 --
---
---
--- /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
+-- /See:/ 'mkEnableAvailabilityZonesForLoadBalancer' smart constructor.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
-  { _eazflbLoadBalancerName ::
-      !Text,
-    _eazflbAvailabilityZones ::
-      ![Text]
+  { loadBalancerName ::
+      Lude.Text,
+    availabilityZones ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAvailabilityZonesForLoadBalancer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eazflbLoadBalancerName' - The name of the load balancer.
---
--- * 'eazflbAvailabilityZones' - The Availability Zones. These must be in the same region as the load balancer.
-enableAvailabilityZonesForLoadBalancer ::
-  -- | 'eazflbLoadBalancerName'
-  Text ->
+-- * 'availabilityZones' - The Availability Zones. These must be in the same region as the load balancer.
+-- * 'loadBalancerName' - The name of the load balancer.
+mkEnableAvailabilityZonesForLoadBalancer ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
   EnableAvailabilityZonesForLoadBalancer
-enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
+mkEnableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
   EnableAvailabilityZonesForLoadBalancer'
-    { _eazflbLoadBalancerName =
+    { loadBalancerName =
         pLoadBalancerName_,
-      _eazflbAvailabilityZones = mempty
+      availabilityZones = Lude.mempty
     }
 
 -- | The name of the load balancer.
-eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
-eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\s a -> s {_eazflbLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eazflbLoadBalancerName :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer Lude.Text
+eazflbLoadBalancerName = Lens.lens (loadBalancerName :: EnableAvailabilityZonesForLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: EnableAvailabilityZonesForLoadBalancer)
+{-# DEPRECATED eazflbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The Availability Zones. These must be in the same region as the load balancer.
-eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
-eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\s a -> s {_eazflbAvailabilityZones = a}) . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eazflbAvailabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer [Lude.Text]
+eazflbAvailabilityZones = Lens.lens (availabilityZones :: EnableAvailabilityZonesForLoadBalancer -> [Lude.Text]) (\s a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancer)
+{-# DEPRECATED eazflbAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
-instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
+instance Lude.AWSRequest EnableAvailabilityZonesForLoadBalancer where
   type
     Rs EnableAvailabilityZonesForLoadBalancer =
       EnableAvailabilityZonesForLoadBalancerResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "EnableAvailabilityZonesForLoadBalancerResult"
       ( \s h x ->
           EnableAvailabilityZonesForLoadBalancerResponse'
-            <$> ( x .@? "AvailabilityZones" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableAvailabilityZonesForLoadBalancer
+instance Lude.ToHeaders EnableAvailabilityZonesForLoadBalancer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData EnableAvailabilityZonesForLoadBalancer
+instance Lude.ToPath EnableAvailabilityZonesForLoadBalancer where
+  toPath = Lude.const "/"
 
-instance ToHeaders EnableAvailabilityZonesForLoadBalancer where
-  toHeaders = const mempty
-
-instance ToPath EnableAvailabilityZonesForLoadBalancer where
-  toPath = const "/"
-
-instance ToQuery EnableAvailabilityZonesForLoadBalancer where
+instance Lude.ToQuery EnableAvailabilityZonesForLoadBalancer where
   toQuery EnableAvailabilityZonesForLoadBalancer' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("EnableAvailabilityZonesForLoadBalancer" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _eazflbLoadBalancerName,
+          Lude.=: ("EnableAvailabilityZonesForLoadBalancer" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
         "AvailabilityZones"
-          =: toQueryList "member" _eazflbAvailabilityZones
+          Lude.=: Lude.toQueryList "member" availabilityZones
       ]
 
 -- | Contains the output of EnableAvailabilityZonesForLoadBalancer.
 --
---
---
--- /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
+-- /See:/ 'mkEnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
-  { _eazflbrsAvailabilityZones ::
-      !( Maybe
-           [Text]
-       ),
-    _eazflbrsResponseStatus ::
-      !Int
+  { availabilityZones ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'EnableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eazflbrsAvailabilityZones' - The updated list of Availability Zones for the load balancer.
---
--- * 'eazflbrsResponseStatus' - -- | The response status code.
-enableAvailabilityZonesForLoadBalancerResponse ::
-  -- | 'eazflbrsResponseStatus'
-  Int ->
+-- * 'availabilityZones' - The updated list of Availability Zones for the load balancer.
+-- * 'responseStatus' - The response status code.
+mkEnableAvailabilityZonesForLoadBalancerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
+mkEnableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
   EnableAvailabilityZonesForLoadBalancerResponse'
-    { _eazflbrsAvailabilityZones =
-        Nothing,
-      _eazflbrsResponseStatus = pResponseStatus_
+    { availabilityZones =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated list of Availability Zones for the load balancer.
-eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
-eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\s a -> s {_eazflbrsAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eazflbrsAvailabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse (Lude.Maybe [Lude.Text])
+eazflbrsAvailabilityZones = Lens.lens (availabilityZones :: EnableAvailabilityZonesForLoadBalancerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancerResponse)
+{-# DEPRECATED eazflbrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
--- | -- | The response status code.
-eazflbrsResponseStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
-eazflbrsResponseStatus = lens _eazflbrsResponseStatus (\s a -> s {_eazflbrsResponseStatus = a})
-
-instance NFData EnableAvailabilityZonesForLoadBalancerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eazflbrsResponseStatus :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse Lude.Int
+eazflbrsResponseStatus = Lens.lens (responseStatus :: EnableAvailabilityZonesForLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableAvailabilityZonesForLoadBalancerResponse)
+{-# DEPRECATED eazflbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

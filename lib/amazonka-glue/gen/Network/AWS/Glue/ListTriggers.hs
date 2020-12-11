@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
 --
---
 -- This operation takes the optional @Tags@ field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.
 module Network.AWS.Glue.ListTriggers
-  ( -- * Creating a Request
-    listTriggers,
-    ListTriggers,
+  ( -- * Creating a request
+    ListTriggers (..),
+    mkListTriggers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltMaxResults,
     ltTags,
     ltDependentJobName,
 
-    -- * Destructuring the Response
-    listTriggersResponse,
-    ListTriggersResponse,
+    -- * Destructuring the response
+    ListTriggersResponse (..),
+    mkListTriggersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTriggerNames,
     ltrsNextToken,
     ltrsResponseStatus,
@@ -44,138 +38,161 @@ module Network.AWS.Glue.ListTriggers
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTriggers' smart constructor.
+-- | /See:/ 'mkListTriggers' smart constructor.
 data ListTriggers = ListTriggers'
-  { _ltNextToken :: !(Maybe Text),
-    _ltMaxResults :: !(Maybe Nat),
-    _ltTags :: !(Maybe (Map Text (Text))),
-    _ltDependentJobName :: !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    dependentJobName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTriggers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - A continuation token, if this is a continuation request.
---
--- * 'ltMaxResults' - The maximum size of a list to return.
---
--- * 'ltTags' - Specifies to return only these tagged resources.
---
--- * 'ltDependentJobName' - The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
-listTriggers ::
+-- * 'dependentJobName' - The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
+-- * 'maxResults' - The maximum size of a list to return.
+-- * 'nextToken' - A continuation token, if this is a continuation request.
+-- * 'tags' - Specifies to return only these tagged resources.
+mkListTriggers ::
   ListTriggers
-listTriggers =
+mkListTriggers =
   ListTriggers'
-    { _ltNextToken = Nothing,
-      _ltMaxResults = Nothing,
-      _ltTags = Nothing,
-      _ltDependentJobName = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      tags = Lude.Nothing,
+      dependentJobName = Lude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
-ltNextToken :: Lens' ListTriggers (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTriggers (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTriggers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTriggers)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of a list to return.
-ltMaxResults :: Lens' ListTriggers (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTriggers (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListTriggers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTriggers)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Specifies to return only these tagged resources.
-ltTags :: Lens' ListTriggers (HashMap Text (Text))
-ltTags = lens _ltTags (\s a -> s {_ltTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTags :: Lens.Lens' ListTriggers (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltTags = Lens.lens (tags :: ListTriggers -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTriggers)
+{-# DEPRECATED ltTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
-ltDependentJobName :: Lens' ListTriggers (Maybe Text)
-ltDependentJobName = lens _ltDependentJobName (\s a -> s {_ltDependentJobName = a})
+--
+-- /Note:/ Consider using 'dependentJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltDependentJobName :: Lens.Lens' ListTriggers (Lude.Maybe Lude.Text)
+ltDependentJobName = Lens.lens (dependentJobName :: ListTriggers -> Lude.Maybe Lude.Text) (\s a -> s {dependentJobName = a} :: ListTriggers)
+{-# DEPRECATED ltDependentJobName "Use generic-lens or generic-optics with 'dependentJobName' instead." #-}
 
-instance AWSRequest ListTriggers where
+instance Lude.AWSRequest ListTriggers where
   type Rs ListTriggers = ListTriggersResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTriggersResponse'
-            <$> (x .?> "TriggerNames" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TriggerNames" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTriggers
-
-instance NFData ListTriggers
-
-instance ToHeaders ListTriggers where
+instance Lude.ToHeaders ListTriggers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ListTriggers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ListTriggers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTriggers where
+instance Lude.ToJSON ListTriggers where
   toJSON ListTriggers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltNextToken,
-            ("MaxResults" .=) <$> _ltMaxResults,
-            ("Tags" .=) <$> _ltTags,
-            ("DependentJobName" .=) <$> _ltDependentJobName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("DependentJobName" Lude..=) Lude.<$> dependentJobName
           ]
       )
 
-instance ToPath ListTriggers where
-  toPath = const "/"
+instance Lude.ToPath ListTriggers where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTriggers where
-  toQuery = const mempty
+instance Lude.ToQuery ListTriggers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTriggersResponse' smart constructor.
+-- | /See:/ 'mkListTriggersResponse' smart constructor.
 data ListTriggersResponse = ListTriggersResponse'
-  { _ltrsTriggerNames ::
-      !(Maybe [Text]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { triggerNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTriggersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTriggerNames' - The names of all triggers in the account, or the triggers with the specified tags.
---
--- * 'ltrsNextToken' - A continuation token, if the returned list does not contain the last metric available.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTriggersResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
+-- * 'responseStatus' - The response status code.
+-- * 'triggerNames' - The names of all triggers in the account, or the triggers with the specified tags.
+mkListTriggersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTriggersResponse
-listTriggersResponse pResponseStatus_ =
+mkListTriggersResponse pResponseStatus_ =
   ListTriggersResponse'
-    { _ltrsTriggerNames = Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { triggerNames = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of all triggers in the account, or the triggers with the specified tags.
-ltrsTriggerNames :: Lens' ListTriggersResponse [Text]
-ltrsTriggerNames = lens _ltrsTriggerNames (\s a -> s {_ltrsTriggerNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTriggerNames :: Lens.Lens' ListTriggersResponse (Lude.Maybe [Lude.Text])
+ltrsTriggerNames = Lens.lens (triggerNames :: ListTriggersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {triggerNames = a} :: ListTriggersResponse)
+{-# DEPRECATED ltrsTriggerNames "Use generic-lens or generic-optics with 'triggerNames' instead." #-}
 
 -- | A continuation token, if the returned list does not contain the last metric available.
-ltrsNextToken :: Lens' ListTriggersResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTriggersResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTriggersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTriggersResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTriggersResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTriggersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTriggersResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTriggersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTriggersResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.DashboardEntry where
+module Network.AWS.CloudWatch.Types.DashboardEntry
+  ( DashboardEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDashboardEntry,
+
+    -- * Lenses
+    deSize,
+    deDashboardName,
+    deLastModified,
+    deDashboardARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a specific dashboard.
 --
---
---
--- /See:/ 'dashboardEntry' smart constructor.
+-- /See:/ 'mkDashboardEntry' smart constructor.
 data DashboardEntry = DashboardEntry'
-  { _deSize :: !(Maybe Integer),
-    _deDashboardName :: !(Maybe Text),
-    _deLastModified :: !(Maybe ISO8601),
-    _deDashboardARN :: !(Maybe Text)
+  { size ::
+      Lude.Maybe Lude.Integer,
+    dashboardName :: Lude.Maybe Lude.Text,
+    lastModified :: Lude.Maybe Lude.ISO8601,
+    dashboardARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DashboardEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deSize' - The size of the dashboard, in bytes.
---
--- * 'deDashboardName' - The name of the dashboard.
---
--- * 'deLastModified' - The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
---
--- * 'deDashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
-dashboardEntry ::
+-- * 'dashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
+-- * 'dashboardName' - The name of the dashboard.
+-- * 'lastModified' - The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'size' - The size of the dashboard, in bytes.
+mkDashboardEntry ::
   DashboardEntry
-dashboardEntry =
+mkDashboardEntry =
   DashboardEntry'
-    { _deSize = Nothing,
-      _deDashboardName = Nothing,
-      _deLastModified = Nothing,
-      _deDashboardARN = Nothing
+    { size = Lude.Nothing,
+      dashboardName = Lude.Nothing,
+      lastModified = Lude.Nothing,
+      dashboardARN = Lude.Nothing
     }
 
 -- | The size of the dashboard, in bytes.
-deSize :: Lens' DashboardEntry (Maybe Integer)
-deSize = lens _deSize (\s a -> s {_deSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSize :: Lens.Lens' DashboardEntry (Lude.Maybe Lude.Integer)
+deSize = Lens.lens (size :: DashboardEntry -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: DashboardEntry)
+{-# DEPRECATED deSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The name of the dashboard.
-deDashboardName :: Lens' DashboardEntry (Maybe Text)
-deDashboardName = lens _deDashboardName (\s a -> s {_deDashboardName = a})
+--
+-- /Note:/ Consider using 'dashboardName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDashboardName :: Lens.Lens' DashboardEntry (Lude.Maybe Lude.Text)
+deDashboardName = Lens.lens (dashboardName :: DashboardEntry -> Lude.Maybe Lude.Text) (\s a -> s {dashboardName = a} :: DashboardEntry)
+{-# DEPRECATED deDashboardName "Use generic-lens or generic-optics with 'dashboardName' instead." #-}
 
 -- | The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
-deLastModified :: Lens' DashboardEntry (Maybe UTCTime)
-deLastModified = lens _deLastModified (\s a -> s {_deLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deLastModified :: Lens.Lens' DashboardEntry (Lude.Maybe Lude.ISO8601)
+deLastModified = Lens.lens (lastModified :: DashboardEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: DashboardEntry)
+{-# DEPRECATED deLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
-deDashboardARN :: Lens' DashboardEntry (Maybe Text)
-deDashboardARN = lens _deDashboardARN (\s a -> s {_deDashboardARN = a})
+--
+-- /Note:/ Consider using 'dashboardARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDashboardARN :: Lens.Lens' DashboardEntry (Lude.Maybe Lude.Text)
+deDashboardARN = Lens.lens (dashboardARN :: DashboardEntry -> Lude.Maybe Lude.Text) (\s a -> s {dashboardARN = a} :: DashboardEntry)
+{-# DEPRECATED deDashboardARN "Use generic-lens or generic-optics with 'dashboardARN' instead." #-}
 
-instance FromXML DashboardEntry where
+instance Lude.FromXML DashboardEntry where
   parseXML x =
     DashboardEntry'
-      <$> (x .@? "Size")
-      <*> (x .@? "DashboardName")
-      <*> (x .@? "LastModified")
-      <*> (x .@? "DashboardArn")
-
-instance Hashable DashboardEntry
-
-instance NFData DashboardEntry
+      Lude.<$> (x Lude..@? "Size")
+      Lude.<*> (x Lude..@? "DashboardName")
+      Lude.<*> (x Lude..@? "LastModified")
+      Lude.<*> (x Lude..@? "DashboardArn")

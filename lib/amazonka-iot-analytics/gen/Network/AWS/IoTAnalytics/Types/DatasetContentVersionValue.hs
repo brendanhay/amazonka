@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue where
+module Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
+  ( DatasetContentVersionValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDatasetContentVersionValue,
+
+    -- * Lenses
+    dcvvDatasetName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The dataset whose latest contents are used as input to the notebook or application.
 --
---
---
--- /See:/ 'datasetContentVersionValue' smart constructor.
+-- /See:/ 'mkDatasetContentVersionValue' smart constructor.
 newtype DatasetContentVersionValue = DatasetContentVersionValue'
-  { _dcvvDatasetName ::
-      Text
+  { datasetName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetContentVersionValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcvvDatasetName' - The name of the dataset whose latest contents are used as input to the notebook or application.
-datasetContentVersionValue ::
-  -- | 'dcvvDatasetName'
-  Text ->
+-- * 'datasetName' - The name of the dataset whose latest contents are used as input to the notebook or application.
+mkDatasetContentVersionValue ::
+  -- | 'datasetName'
+  Lude.Text ->
   DatasetContentVersionValue
-datasetContentVersionValue pDatasetName_ =
-  DatasetContentVersionValue' {_dcvvDatasetName = pDatasetName_}
+mkDatasetContentVersionValue pDatasetName_ =
+  DatasetContentVersionValue' {datasetName = pDatasetName_}
 
 -- | The name of the dataset whose latest contents are used as input to the notebook or application.
-dcvvDatasetName :: Lens' DatasetContentVersionValue Text
-dcvvDatasetName = lens _dcvvDatasetName (\s a -> s {_dcvvDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvvDatasetName :: Lens.Lens' DatasetContentVersionValue Lude.Text
+dcvvDatasetName = Lens.lens (datasetName :: DatasetContentVersionValue -> Lude.Text) (\s a -> s {datasetName = a} :: DatasetContentVersionValue)
+{-# DEPRECATED dcvvDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance FromJSON DatasetContentVersionValue where
+instance Lude.FromJSON DatasetContentVersionValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatasetContentVersionValue"
-      (\x -> DatasetContentVersionValue' <$> (x .: "datasetName"))
+      ( \x ->
+          DatasetContentVersionValue' Lude.<$> (x Lude..: "datasetName")
+      )
 
-instance Hashable DatasetContentVersionValue
-
-instance NFData DatasetContentVersionValue
-
-instance ToJSON DatasetContentVersionValue where
+instance Lude.ToJSON DatasetContentVersionValue where
   toJSON DatasetContentVersionValue' {..} =
-    object (catMaybes [Just ("datasetName" .= _dcvvDatasetName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("datasetName" Lude..= datasetName)])

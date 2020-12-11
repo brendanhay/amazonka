@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,134 @@
 --
 -- Describe specified users.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeUserProfiles
-  ( -- * Creating a Request
-    describeUserProfiles,
-    DescribeUserProfiles,
+  ( -- * Creating a request
+    DescribeUserProfiles (..),
+    mkDescribeUserProfiles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupIAMUserARNs,
 
-    -- * Destructuring the Response
-    describeUserProfilesResponse,
-    DescribeUserProfilesResponse,
+    -- * Destructuring the response
+    DescribeUserProfilesResponse (..),
+    mkDescribeUserProfilesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     duprsUserProfiles,
     duprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeUserProfiles' smart constructor.
+-- | /See:/ 'mkDescribeUserProfiles' smart constructor.
 newtype DescribeUserProfiles = DescribeUserProfiles'
-  { _dupIAMUserARNs ::
-      Maybe [Text]
+  { iamUserARNs ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupIAMUserARNs' - An array of IAM or federated user ARNs that identify the users to be described.
-describeUserProfiles ::
+-- * 'iamUserARNs' - An array of IAM or federated user ARNs that identify the users to be described.
+mkDescribeUserProfiles ::
   DescribeUserProfiles
-describeUserProfiles =
-  DescribeUserProfiles' {_dupIAMUserARNs = Nothing}
+mkDescribeUserProfiles =
+  DescribeUserProfiles' {iamUserARNs = Lude.Nothing}
 
 -- | An array of IAM or federated user ARNs that identify the users to be described.
-dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
-dupIAMUserARNs = lens _dupIAMUserARNs (\s a -> s {_dupIAMUserARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'iamUserARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupIAMUserARNs :: Lens.Lens' DescribeUserProfiles (Lude.Maybe [Lude.Text])
+dupIAMUserARNs = Lens.lens (iamUserARNs :: DescribeUserProfiles -> Lude.Maybe [Lude.Text]) (\s a -> s {iamUserARNs = a} :: DescribeUserProfiles)
+{-# DEPRECATED dupIAMUserARNs "Use generic-lens or generic-optics with 'iamUserARNs' instead." #-}
 
-instance AWSRequest DescribeUserProfiles where
+instance Lude.AWSRequest DescribeUserProfiles where
   type Rs DescribeUserProfiles = DescribeUserProfilesResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUserProfilesResponse'
-            <$> (x .?> "UserProfiles" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserProfiles" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUserProfiles
-
-instance NFData DescribeUserProfiles
-
-instance ToHeaders DescribeUserProfiles where
+instance Lude.ToHeaders DescribeUserProfiles where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeUserProfiles" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeUserProfiles" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUserProfiles where
+instance Lude.ToJSON DescribeUserProfiles where
   toJSON DescribeUserProfiles' {..} =
-    object (catMaybes [("IamUserArns" .=) <$> _dupIAMUserARNs])
+    Lude.object
+      (Lude.catMaybes [("IamUserArns" Lude..=) Lude.<$> iamUserARNs])
 
-instance ToPath DescribeUserProfiles where
-  toPath = const "/"
+instance Lude.ToPath DescribeUserProfiles where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUserProfiles where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUserProfiles where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeUserProfiles@ request.
 --
---
---
--- /See:/ 'describeUserProfilesResponse' smart constructor.
+-- /See:/ 'mkDescribeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
-  { _duprsUserProfiles ::
-      !(Maybe [UserProfile]),
-    _duprsResponseStatus :: !Int
+  { userProfiles ::
+      Lude.Maybe [UserProfile],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserProfilesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duprsUserProfiles' - A @Users@ object that describes the specified users.
---
--- * 'duprsResponseStatus' - -- | The response status code.
-describeUserProfilesResponse ::
-  -- | 'duprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userProfiles' - A @Users@ object that describes the specified users.
+mkDescribeUserProfilesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUserProfilesResponse
-describeUserProfilesResponse pResponseStatus_ =
+mkDescribeUserProfilesResponse pResponseStatus_ =
   DescribeUserProfilesResponse'
-    { _duprsUserProfiles = Nothing,
-      _duprsResponseStatus = pResponseStatus_
+    { userProfiles = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A @Users@ object that describes the specified users.
-duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprsUserProfiles = lens _duprsUserProfiles (\s a -> s {_duprsUserProfiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsUserProfiles :: Lens.Lens' DescribeUserProfilesResponse (Lude.Maybe [UserProfile])
+duprsUserProfiles = Lens.lens (userProfiles :: DescribeUserProfilesResponse -> Lude.Maybe [UserProfile]) (\s a -> s {userProfiles = a} :: DescribeUserProfilesResponse)
+{-# DEPRECATED duprsUserProfiles "Use generic-lens or generic-optics with 'userProfiles' instead." #-}
 
--- | -- | The response status code.
-duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
-duprsResponseStatus = lens _duprsResponseStatus (\s a -> s {_duprsResponseStatus = a})
-
-instance NFData DescribeUserProfilesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsResponseStatus :: Lens.Lens' DescribeUserProfilesResponse Lude.Int
+duprsResponseStatus = Lens.lens (responseStatus :: DescribeUserProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserProfilesResponse)
+{-# DEPRECATED duprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

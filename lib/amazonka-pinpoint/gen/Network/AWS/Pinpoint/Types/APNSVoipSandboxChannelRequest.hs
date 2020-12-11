@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,114 +7,147 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.APNSVoipSandboxChannelRequest where
+module Network.AWS.Pinpoint.Types.APNSVoipSandboxChannelRequest
+  ( APNSVoipSandboxChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPNSVoipSandboxChannelRequest,
+
+    -- * Lenses
+    avscrTokenKey,
+    avscrPrivateKey,
+    avscrEnabled,
+    avscrTeamId,
+    avscrBundleId,
+    avscrDefaultAuthenticationMethod,
+    avscrCertificate,
+    avscrTokenKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.
 --
---
---
--- /See:/ 'apnsVoipSandboxChannelRequest' smart constructor.
+-- /See:/ 'mkAPNSVoipSandboxChannelRequest' smart constructor.
 data APNSVoipSandboxChannelRequest = APNSVoipSandboxChannelRequest'
-  { _avscrTokenKey ::
-      !(Maybe Text),
-    _avscrPrivateKey ::
-      !(Maybe Text),
-    _avscrEnabled :: !(Maybe Bool),
-    _avscrTeamId :: !(Maybe Text),
-    _avscrBundleId :: !(Maybe Text),
-    _avscrDefaultAuthenticationMethod ::
-      !(Maybe Text),
-    _avscrCertificate ::
-      !(Maybe Text),
-    _avscrTokenKeyId ::
-      !(Maybe Text)
+  { tokenKey ::
+      Lude.Maybe Lude.Text,
+    privateKey ::
+      Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    teamId :: Lude.Maybe Lude.Text,
+    bundleId ::
+      Lude.Maybe Lude.Text,
+    defaultAuthenticationMethod ::
+      Lude.Maybe Lude.Text,
+    certificate ::
+      Lude.Maybe Lude.Text,
+    tokenKeyId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSVoipSandboxChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avscrTokenKey' - The authentication key to use for APNs tokens.
---
--- * 'avscrPrivateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
---
--- * 'avscrEnabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
---
--- * 'avscrTeamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
---
--- * 'avscrBundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
---
--- * 'avscrDefaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.
---
--- * 'avscrCertificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
---
--- * 'avscrTokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
-apnsVoipSandboxChannelRequest ::
+-- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+-- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
+-- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.
+-- * 'enabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
+-- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
+-- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
+-- * 'tokenKey' - The authentication key to use for APNs tokens.
+-- * 'tokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
+mkAPNSVoipSandboxChannelRequest ::
   APNSVoipSandboxChannelRequest
-apnsVoipSandboxChannelRequest =
+mkAPNSVoipSandboxChannelRequest =
   APNSVoipSandboxChannelRequest'
-    { _avscrTokenKey = Nothing,
-      _avscrPrivateKey = Nothing,
-      _avscrEnabled = Nothing,
-      _avscrTeamId = Nothing,
-      _avscrBundleId = Nothing,
-      _avscrDefaultAuthenticationMethod = Nothing,
-      _avscrCertificate = Nothing,
-      _avscrTokenKeyId = Nothing
+    { tokenKey = Lude.Nothing,
+      privateKey = Lude.Nothing,
+      enabled = Lude.Nothing,
+      teamId = Lude.Nothing,
+      bundleId = Lude.Nothing,
+      defaultAuthenticationMethod = Lude.Nothing,
+      certificate = Lude.Nothing,
+      tokenKeyId = Lude.Nothing
     }
 
 -- | The authentication key to use for APNs tokens.
-avscrTokenKey :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrTokenKey = lens _avscrTokenKey (\s a -> s {_avscrTokenKey = a})
+--
+-- /Note:/ Consider using 'tokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrTokenKey :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrTokenKey = Lens.lens (tokenKey :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKey = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrTokenKey "Use generic-lens or generic-optics with 'tokenKey' instead." #-}
 
 -- | The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
-avscrPrivateKey :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrPrivateKey = lens _avscrPrivateKey (\s a -> s {_avscrPrivateKey = a})
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrPrivateKey :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrPrivateKey = Lens.lens (privateKey :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {privateKey = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
-avscrEnabled :: Lens' APNSVoipSandboxChannelRequest (Maybe Bool)
-avscrEnabled = lens _avscrEnabled (\s a -> s {_avscrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrEnabled :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Bool)
+avscrEnabled = Lens.lens (enabled :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
-avscrTeamId :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrTeamId = lens _avscrTeamId (\s a -> s {_avscrTeamId = a})
+--
+-- /Note:/ Consider using 'teamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrTeamId :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrTeamId = Lens.lens (teamId :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {teamId = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrTeamId "Use generic-lens or generic-optics with 'teamId' instead." #-}
 
 -- | The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
-avscrBundleId :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrBundleId = lens _avscrBundleId (\s a -> s {_avscrBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrBundleId :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrBundleId = Lens.lens (bundleId :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.
-avscrDefaultAuthenticationMethod :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrDefaultAuthenticationMethod = lens _avscrDefaultAuthenticationMethod (\s a -> s {_avscrDefaultAuthenticationMethod = a})
+--
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrDefaultAuthenticationMethod :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
 
 -- | The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
-avscrCertificate :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrCertificate = lens _avscrCertificate (\s a -> s {_avscrCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrCertificate :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrCertificate = Lens.lens (certificate :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
-avscrTokenKeyId :: Lens' APNSVoipSandboxChannelRequest (Maybe Text)
-avscrTokenKeyId = lens _avscrTokenKeyId (\s a -> s {_avscrTokenKeyId = a})
+--
+-- /Note:/ Consider using 'tokenKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscrTokenKeyId :: Lens.Lens' APNSVoipSandboxChannelRequest (Lude.Maybe Lude.Text)
+avscrTokenKeyId = Lens.lens (tokenKeyId :: APNSVoipSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKeyId = a} :: APNSVoipSandboxChannelRequest)
+{-# DEPRECATED avscrTokenKeyId "Use generic-lens or generic-optics with 'tokenKeyId' instead." #-}
 
-instance Hashable APNSVoipSandboxChannelRequest
-
-instance NFData APNSVoipSandboxChannelRequest
-
-instance ToJSON APNSVoipSandboxChannelRequest where
+instance Lude.ToJSON APNSVoipSandboxChannelRequest where
   toJSON APNSVoipSandboxChannelRequest' {..} =
-    object
-      ( catMaybes
-          [ ("TokenKey" .=) <$> _avscrTokenKey,
-            ("PrivateKey" .=) <$> _avscrPrivateKey,
-            ("Enabled" .=) <$> _avscrEnabled,
-            ("TeamId" .=) <$> _avscrTeamId,
-            ("BundleId" .=) <$> _avscrBundleId,
-            ("DefaultAuthenticationMethod" .=)
-              <$> _avscrDefaultAuthenticationMethod,
-            ("Certificate" .=) <$> _avscrCertificate,
-            ("TokenKeyId" .=) <$> _avscrTokenKeyId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TokenKey" Lude..=) Lude.<$> tokenKey,
+            ("PrivateKey" Lude..=) Lude.<$> privateKey,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("TeamId" Lude..=) Lude.<$> teamId,
+            ("BundleId" Lude..=) Lude.<$> bundleId,
+            ("DefaultAuthenticationMethod" Lude..=)
+              Lude.<$> defaultAuthenticationMethod,
+            ("Certificate" Lude..=) Lude.<$> certificate,
+            ("TokenKeyId" Lude..=) Lude.<$> tokenKeyId
           ]
       )

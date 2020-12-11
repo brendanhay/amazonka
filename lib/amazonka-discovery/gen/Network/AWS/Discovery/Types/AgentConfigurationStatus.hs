@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.AgentConfigurationStatus where
+module Network.AWS.Discovery.Types.AgentConfigurationStatus
+  ( AgentConfigurationStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAgentConfigurationStatus,
+
+    -- * Lenses
+    acsAgentId,
+    acsOperationSucceeded,
+    acsDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.
 --
---
---
--- /See:/ 'agentConfigurationStatus' smart constructor.
+-- /See:/ 'mkAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-  { _acsAgentId ::
-      !(Maybe Text),
-    _acsOperationSucceeded :: !(Maybe Bool),
-    _acsDescription :: !(Maybe Text)
+  { agentId ::
+      Lude.Maybe Lude.Text,
+    operationSucceeded ::
+      Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentConfigurationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acsAgentId' - The agent/connector ID.
---
--- * 'acsOperationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
---
--- * 'acsDescription' - A description of the operation performed.
-agentConfigurationStatus ::
+-- * 'agentId' - The agent/connector ID.
+-- * 'description' - A description of the operation performed.
+-- * 'operationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
+mkAgentConfigurationStatus ::
   AgentConfigurationStatus
-agentConfigurationStatus =
+mkAgentConfigurationStatus =
   AgentConfigurationStatus'
-    { _acsAgentId = Nothing,
-      _acsOperationSucceeded = Nothing,
-      _acsDescription = Nothing
+    { agentId = Lude.Nothing,
+      operationSucceeded = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The agent/connector ID.
-acsAgentId :: Lens' AgentConfigurationStatus (Maybe Text)
-acsAgentId = lens _acsAgentId (\s a -> s {_acsAgentId = a})
+--
+-- /Note:/ Consider using 'agentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsAgentId :: Lens.Lens' AgentConfigurationStatus (Lude.Maybe Lude.Text)
+acsAgentId = Lens.lens (agentId :: AgentConfigurationStatus -> Lude.Maybe Lude.Text) (\s a -> s {agentId = a} :: AgentConfigurationStatus)
+{-# DEPRECATED acsAgentId "Use generic-lens or generic-optics with 'agentId' instead." #-}
 
 -- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
-acsOperationSucceeded :: Lens' AgentConfigurationStatus (Maybe Bool)
-acsOperationSucceeded = lens _acsOperationSucceeded (\s a -> s {_acsOperationSucceeded = a})
+--
+-- /Note:/ Consider using 'operationSucceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsOperationSucceeded :: Lens.Lens' AgentConfigurationStatus (Lude.Maybe Lude.Bool)
+acsOperationSucceeded = Lens.lens (operationSucceeded :: AgentConfigurationStatus -> Lude.Maybe Lude.Bool) (\s a -> s {operationSucceeded = a} :: AgentConfigurationStatus)
+{-# DEPRECATED acsOperationSucceeded "Use generic-lens or generic-optics with 'operationSucceeded' instead." #-}
 
 -- | A description of the operation performed.
-acsDescription :: Lens' AgentConfigurationStatus (Maybe Text)
-acsDescription = lens _acsDescription (\s a -> s {_acsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsDescription :: Lens.Lens' AgentConfigurationStatus (Lude.Maybe Lude.Text)
+acsDescription = Lens.lens (description :: AgentConfigurationStatus -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AgentConfigurationStatus)
+{-# DEPRECATED acsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON AgentConfigurationStatus where
+instance Lude.FromJSON AgentConfigurationStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "AgentConfigurationStatus"
       ( \x ->
           AgentConfigurationStatus'
-            <$> (x .:? "agentId")
-            <*> (x .:? "operationSucceeded")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "agentId")
+            Lude.<*> (x Lude..:? "operationSucceeded")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable AgentConfigurationStatus
-
-instance NFData AgentConfigurationStatus

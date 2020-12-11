@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,188 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReplicaDescription where
+module Network.AWS.DynamoDB.Types.ReplicaDescription
+  ( ReplicaDescription (..),
+
+    -- * Smart constructor
+    mkReplicaDescription,
+
+    -- * Lenses
+    rdReplicaStatus,
+    rdRegionName,
+    rdReplicaStatusPercentProgress,
+    rdReplicaStatusDescription,
+    rdReplicaInaccessibleDateTime,
+    rdKMSMasterKeyId,
+    rdProvisionedThroughputOverride,
+    rdGlobalSecondaryIndexes,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
 import Network.AWS.DynamoDB.Types.ReplicaStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the details of the replica.
 --
---
---
--- /See:/ 'replicaDescription' smart constructor.
+-- /See:/ 'mkReplicaDescription' smart constructor.
 data ReplicaDescription = ReplicaDescription'
-  { _rdReplicaStatus ::
-      !(Maybe ReplicaStatus),
-    _rdRegionName :: !(Maybe Text),
-    _rdReplicaStatusPercentProgress :: !(Maybe Text),
-    _rdReplicaStatusDescription :: !(Maybe Text),
-    _rdReplicaInaccessibleDateTime :: !(Maybe POSIX),
-    _rdKMSMasterKeyId :: !(Maybe Text),
-    _rdProvisionedThroughputOverride ::
-      !(Maybe ProvisionedThroughputOverride),
-    _rdGlobalSecondaryIndexes ::
-      !(Maybe [ReplicaGlobalSecondaryIndexDescription])
+  { replicaStatus ::
+      Lude.Maybe ReplicaStatus,
+    regionName :: Lude.Maybe Lude.Text,
+    replicaStatusPercentProgress :: Lude.Maybe Lude.Text,
+    replicaStatusDescription :: Lude.Maybe Lude.Text,
+    replicaInaccessibleDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    kmsMasterKeyId :: Lude.Maybe Lude.Text,
+    provisionedThroughputOverride ::
+      Lude.Maybe ProvisionedThroughputOverride,
+    globalSecondaryIndexes ::
+      Lude.Maybe [ReplicaGlobalSecondaryIndexDescription]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'globalSecondaryIndexes' - Replica-specific global secondary index settings.
+-- * 'kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.
+-- * 'provisionedThroughputOverride' - Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.
+-- * 'regionName' - The name of the Region.
+-- * 'replicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the @ReplicaStatus@ property.
+-- * 'replicaStatus' - The current state of the replica:
 --
--- * 'rdReplicaStatus' - The current state of the replica:     * @CREATING@ - The replica is being created.     * @UPDATING@ - The replica is being updated.     * @DELETING@ - The replica is being deleted.     * @ACTIVE@ - The replica is ready for use.     * @REGION_DISABLED@ - The replica is inaccessible because the AWS Region has been disabled.     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to encrypt the table is inaccessible.
 --
--- * 'rdRegionName' - The name of the Region.
+--     * @CREATING@ - The replica is being created.
 --
--- * 'rdReplicaStatusPercentProgress' - Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.
 --
--- * 'rdReplicaStatusDescription' - Detailed information about the replica status.
+--     * @UPDATING@ - The replica is being updated.
 --
--- * 'rdReplicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the @ReplicaStatus@ property.
 --
--- * 'rdKMSMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.
+--     * @DELETING@ - The replica is being deleted.
 --
--- * 'rdProvisionedThroughputOverride' - Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.
 --
--- * 'rdGlobalSecondaryIndexes' - Replica-specific global secondary index settings.
-replicaDescription ::
+--     * @ACTIVE@ - The replica is ready for use.
+--
+--
+--     * @REGION_DISABLED@ - The replica is inaccessible because the AWS Region has been disabled.
+--
+--
+--     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to encrypt the table is inaccessible.
+--
+--
+-- * 'replicaStatusDescription' - Detailed information about the replica status.
+-- * 'replicaStatusPercentProgress' - Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.
+mkReplicaDescription ::
   ReplicaDescription
-replicaDescription =
+mkReplicaDescription =
   ReplicaDescription'
-    { _rdReplicaStatus = Nothing,
-      _rdRegionName = Nothing,
-      _rdReplicaStatusPercentProgress = Nothing,
-      _rdReplicaStatusDescription = Nothing,
-      _rdReplicaInaccessibleDateTime = Nothing,
-      _rdKMSMasterKeyId = Nothing,
-      _rdProvisionedThroughputOverride = Nothing,
-      _rdGlobalSecondaryIndexes = Nothing
+    { replicaStatus = Lude.Nothing,
+      regionName = Lude.Nothing,
+      replicaStatusPercentProgress = Lude.Nothing,
+      replicaStatusDescription = Lude.Nothing,
+      replicaInaccessibleDateTime = Lude.Nothing,
+      kmsMasterKeyId = Lude.Nothing,
+      provisionedThroughputOverride = Lude.Nothing,
+      globalSecondaryIndexes = Lude.Nothing
     }
 
--- | The current state of the replica:     * @CREATING@ - The replica is being created.     * @UPDATING@ - The replica is being updated.     * @DELETING@ - The replica is being deleted.     * @ACTIVE@ - The replica is ready for use.     * @REGION_DISABLED@ - The replica is inaccessible because the AWS Region has been disabled.     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to encrypt the table is inaccessible.
-rdReplicaStatus :: Lens' ReplicaDescription (Maybe ReplicaStatus)
-rdReplicaStatus = lens _rdReplicaStatus (\s a -> s {_rdReplicaStatus = a})
+-- | The current state of the replica:
+--
+--
+--     * @CREATING@ - The replica is being created.
+--
+--
+--     * @UPDATING@ - The replica is being updated.
+--
+--
+--     * @DELETING@ - The replica is being deleted.
+--
+--
+--     * @ACTIVE@ - The replica is ready for use.
+--
+--
+--     * @REGION_DISABLED@ - The replica is inaccessible because the AWS Region has been disabled.
+--
+--
+--     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to encrypt the table is inaccessible.
+--
+--
+--
+-- /Note:/ Consider using 'replicaStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdReplicaStatus :: Lens.Lens' ReplicaDescription (Lude.Maybe ReplicaStatus)
+rdReplicaStatus = Lens.lens (replicaStatus :: ReplicaDescription -> Lude.Maybe ReplicaStatus) (\s a -> s {replicaStatus = a} :: ReplicaDescription)
+{-# DEPRECATED rdReplicaStatus "Use generic-lens or generic-optics with 'replicaStatus' instead." #-}
 
 -- | The name of the Region.
-rdRegionName :: Lens' ReplicaDescription (Maybe Text)
-rdRegionName = lens _rdRegionName (\s a -> s {_rdRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRegionName :: Lens.Lens' ReplicaDescription (Lude.Maybe Lude.Text)
+rdRegionName = Lens.lens (regionName :: ReplicaDescription -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: ReplicaDescription)
+{-# DEPRECATED rdRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.
-rdReplicaStatusPercentProgress :: Lens' ReplicaDescription (Maybe Text)
-rdReplicaStatusPercentProgress = lens _rdReplicaStatusPercentProgress (\s a -> s {_rdReplicaStatusPercentProgress = a})
+--
+-- /Note:/ Consider using 'replicaStatusPercentProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdReplicaStatusPercentProgress :: Lens.Lens' ReplicaDescription (Lude.Maybe Lude.Text)
+rdReplicaStatusPercentProgress = Lens.lens (replicaStatusPercentProgress :: ReplicaDescription -> Lude.Maybe Lude.Text) (\s a -> s {replicaStatusPercentProgress = a} :: ReplicaDescription)
+{-# DEPRECATED rdReplicaStatusPercentProgress "Use generic-lens or generic-optics with 'replicaStatusPercentProgress' instead." #-}
 
 -- | Detailed information about the replica status.
-rdReplicaStatusDescription :: Lens' ReplicaDescription (Maybe Text)
-rdReplicaStatusDescription = lens _rdReplicaStatusDescription (\s a -> s {_rdReplicaStatusDescription = a})
+--
+-- /Note:/ Consider using 'replicaStatusDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdReplicaStatusDescription :: Lens.Lens' ReplicaDescription (Lude.Maybe Lude.Text)
+rdReplicaStatusDescription = Lens.lens (replicaStatusDescription :: ReplicaDescription -> Lude.Maybe Lude.Text) (\s a -> s {replicaStatusDescription = a} :: ReplicaDescription)
+{-# DEPRECATED rdReplicaStatusDescription "Use generic-lens or generic-optics with 'replicaStatusDescription' instead." #-}
 
 -- | The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the @ReplicaStatus@ property.
-rdReplicaInaccessibleDateTime :: Lens' ReplicaDescription (Maybe UTCTime)
-rdReplicaInaccessibleDateTime = lens _rdReplicaInaccessibleDateTime (\s a -> s {_rdReplicaInaccessibleDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'replicaInaccessibleDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdReplicaInaccessibleDateTime :: Lens.Lens' ReplicaDescription (Lude.Maybe Lude.Timestamp)
+rdReplicaInaccessibleDateTime = Lens.lens (replicaInaccessibleDateTime :: ReplicaDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {replicaInaccessibleDateTime = a} :: ReplicaDescription)
+{-# DEPRECATED rdReplicaInaccessibleDateTime "Use generic-lens or generic-optics with 'replicaInaccessibleDateTime' instead." #-}
 
 -- | The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.
-rdKMSMasterKeyId :: Lens' ReplicaDescription (Maybe Text)
-rdKMSMasterKeyId = lens _rdKMSMasterKeyId (\s a -> s {_rdKMSMasterKeyId = a})
+--
+-- /Note:/ Consider using 'kmsMasterKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdKMSMasterKeyId :: Lens.Lens' ReplicaDescription (Lude.Maybe Lude.Text)
+rdKMSMasterKeyId = Lens.lens (kmsMasterKeyId :: ReplicaDescription -> Lude.Maybe Lude.Text) (\s a -> s {kmsMasterKeyId = a} :: ReplicaDescription)
+{-# DEPRECATED rdKMSMasterKeyId "Use generic-lens or generic-optics with 'kmsMasterKeyId' instead." #-}
 
 -- | Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.
-rdProvisionedThroughputOverride :: Lens' ReplicaDescription (Maybe ProvisionedThroughputOverride)
-rdProvisionedThroughputOverride = lens _rdProvisionedThroughputOverride (\s a -> s {_rdProvisionedThroughputOverride = a})
+--
+-- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProvisionedThroughputOverride :: Lens.Lens' ReplicaDescription (Lude.Maybe ProvisionedThroughputOverride)
+rdProvisionedThroughputOverride = Lens.lens (provisionedThroughputOverride :: ReplicaDescription -> Lude.Maybe ProvisionedThroughputOverride) (\s a -> s {provisionedThroughputOverride = a} :: ReplicaDescription)
+{-# DEPRECATED rdProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
 
 -- | Replica-specific global secondary index settings.
-rdGlobalSecondaryIndexes :: Lens' ReplicaDescription [ReplicaGlobalSecondaryIndexDescription]
-rdGlobalSecondaryIndexes = lens _rdGlobalSecondaryIndexes (\s a -> s {_rdGlobalSecondaryIndexes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdGlobalSecondaryIndexes :: Lens.Lens' ReplicaDescription (Lude.Maybe [ReplicaGlobalSecondaryIndexDescription])
+rdGlobalSecondaryIndexes = Lens.lens (globalSecondaryIndexes :: ReplicaDescription -> Lude.Maybe [ReplicaGlobalSecondaryIndexDescription]) (\s a -> s {globalSecondaryIndexes = a} :: ReplicaDescription)
+{-# DEPRECATED rdGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
 
-instance FromJSON ReplicaDescription where
+instance Lude.FromJSON ReplicaDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicaDescription"
       ( \x ->
           ReplicaDescription'
-            <$> (x .:? "ReplicaStatus")
-            <*> (x .:? "RegionName")
-            <*> (x .:? "ReplicaStatusPercentProgress")
-            <*> (x .:? "ReplicaStatusDescription")
-            <*> (x .:? "ReplicaInaccessibleDateTime")
-            <*> (x .:? "KMSMasterKeyId")
-            <*> (x .:? "ProvisionedThroughputOverride")
-            <*> (x .:? "GlobalSecondaryIndexes" .!= mempty)
+            Lude.<$> (x Lude..:? "ReplicaStatus")
+            Lude.<*> (x Lude..:? "RegionName")
+            Lude.<*> (x Lude..:? "ReplicaStatusPercentProgress")
+            Lude.<*> (x Lude..:? "ReplicaStatusDescription")
+            Lude.<*> (x Lude..:? "ReplicaInaccessibleDateTime")
+            Lude.<*> (x Lude..:? "KMSMasterKeyId")
+            Lude.<*> (x Lude..:? "ProvisionedThroughputOverride")
+            Lude.<*> (x Lude..:? "GlobalSecondaryIndexes" Lude..!= Lude.mempty)
       )
-
-instance Hashable ReplicaDescription
-
-instance NFData ReplicaDescription

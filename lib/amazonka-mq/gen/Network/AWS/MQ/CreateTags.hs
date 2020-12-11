@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,105 @@
 --
 -- Add a tag to a resource.
 module Network.AWS.MQ.CreateTags
-  ( -- * Creating a Request
-    createTags,
-    CreateTags,
+  ( -- * Creating a request
+    CreateTags (..),
+    mkCreateTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctTags,
     ctResourceARN,
 
-    -- * Destructuring the Response
-    createTagsResponse,
-    CreateTagsResponse,
+    -- * Destructuring the response
+    CreateTagsResponse (..),
+    mkCreateTagsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A map of the key-value pairs for the resource tag.
 --
--- /See:/ 'createTags' smart constructor.
+-- /See:/ 'mkCreateTags' smart constructor.
 data CreateTags = CreateTags'
-  { _ctTags ::
-      !(Maybe (Map Text (Text))),
-    _ctResourceARN :: !Text
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctTags' - The key-value pair for the resource tag.
---
--- * 'ctResourceARN' - The Amazon Resource Name (ARN) of the resource tag.
-createTags ::
-  -- | 'ctResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource tag.
+-- * 'tags' - The key-value pair for the resource tag.
+mkCreateTags ::
+  -- | 'resourceARN'
+  Lude.Text ->
   CreateTags
-createTags pResourceARN_ =
-  CreateTags' {_ctTags = Nothing, _ctResourceARN = pResourceARN_}
+mkCreateTags pResourceARN_ =
+  CreateTags' {tags = Lude.Nothing, resourceARN = pResourceARN_}
 
 -- | The key-value pair for the resource tag.
-ctTags :: Lens' CreateTags (HashMap Text (Text))
-ctTags = lens _ctTags (\s a -> s {_ctTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTags :: Lens.Lens' CreateTags (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ctTags = Lens.lens (tags :: CreateTags -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateTags)
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource tag.
-ctResourceARN :: Lens' CreateTags Text
-ctResourceARN = lens _ctResourceARN (\s a -> s {_ctResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctResourceARN :: Lens.Lens' CreateTags Lude.Text
+ctResourceARN = Lens.lens (resourceARN :: CreateTags -> Lude.Text) (\s a -> s {resourceARN = a} :: CreateTags)
+{-# DEPRECATED ctResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest CreateTags where
+instance Lude.AWSRequest CreateTags where
   type Rs CreateTags = CreateTagsResponse
-  request = postJSON mq
-  response = receiveNull CreateTagsResponse'
+  request = Req.postJSON mqService
+  response = Res.receiveNull CreateTagsResponse'
 
-instance Hashable CreateTags
-
-instance NFData CreateTags
-
-instance ToHeaders CreateTags where
+instance Lude.ToHeaders CreateTags where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateTags where
+instance Lude.ToJSON CreateTags where
   toJSON CreateTags' {..} =
-    object (catMaybes [("tags" .=) <$> _ctTags])
+    Lude.object (Lude.catMaybes [("tags" Lude..=) Lude.<$> tags])
 
-instance ToPath CreateTags where
-  toPath CreateTags' {..} = mconcat ["/v1/tags/", toBS _ctResourceARN]
+instance Lude.ToPath CreateTags where
+  toPath CreateTags' {..} =
+    Lude.mconcat ["/v1/tags/", Lude.toBS resourceARN]
 
-instance ToQuery CreateTags where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTags where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTagsResponse' smart constructor.
+-- | /See:/ 'mkCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
-createTagsResponse ::
+mkCreateTagsResponse ::
   CreateTagsResponse
-createTagsResponse = CreateTagsResponse'
-
-instance NFData CreateTagsResponse
+mkCreateTagsResponse = CreateTagsResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup where
+module Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
+  ( CloudWatchLogsLogGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchLogsLogGroup,
+
+    -- * Lenses
+    cwllgLogGroupARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- |
 --
---
---
--- /See:/ 'cloudWatchLogsLogGroup' smart constructor.
+-- /See:/ 'mkCloudWatchLogsLogGroup' smart constructor.
 newtype CloudWatchLogsLogGroup = CloudWatchLogsLogGroup'
-  { _cwllgLogGroupARN ::
-      Maybe Text
+  { logGroupARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchLogsLogGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwllgLogGroupARN' - The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with @:*@
-cloudWatchLogsLogGroup ::
+-- * 'logGroupARN' - The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with @:*@
+mkCloudWatchLogsLogGroup ::
   CloudWatchLogsLogGroup
-cloudWatchLogsLogGroup =
-  CloudWatchLogsLogGroup' {_cwllgLogGroupARN = Nothing}
+mkCloudWatchLogsLogGroup =
+  CloudWatchLogsLogGroup' {logGroupARN = Lude.Nothing}
 
 -- | The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with @:*@
-cwllgLogGroupARN :: Lens' CloudWatchLogsLogGroup (Maybe Text)
-cwllgLogGroupARN = lens _cwllgLogGroupARN (\s a -> s {_cwllgLogGroupARN = a})
+--
+-- /Note:/ Consider using 'logGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwllgLogGroupARN :: Lens.Lens' CloudWatchLogsLogGroup (Lude.Maybe Lude.Text)
+cwllgLogGroupARN = Lens.lens (logGroupARN :: CloudWatchLogsLogGroup -> Lude.Maybe Lude.Text) (\s a -> s {logGroupARN = a} :: CloudWatchLogsLogGroup)
+{-# DEPRECATED cwllgLogGroupARN "Use generic-lens or generic-optics with 'logGroupARN' instead." #-}
 
-instance FromJSON CloudWatchLogsLogGroup where
+instance Lude.FromJSON CloudWatchLogsLogGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchLogsLogGroup"
-      (\x -> CloudWatchLogsLogGroup' <$> (x .:? "logGroupArn"))
+      ( \x ->
+          CloudWatchLogsLogGroup' Lude.<$> (x Lude..:? "logGroupArn")
+      )
 
-instance Hashable CloudWatchLogsLogGroup
-
-instance NFData CloudWatchLogsLogGroup
-
-instance ToJSON CloudWatchLogsLogGroup where
+instance Lude.ToJSON CloudWatchLogsLogGroup where
   toJSON CloudWatchLogsLogGroup' {..} =
-    object (catMaybes [("logGroupArn" .=) <$> _cwllgLogGroupARN])
+    Lude.object
+      (Lude.catMaybes [("logGroupArn" Lude..=) Lude.<$> logGroupARN])

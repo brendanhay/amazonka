@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.KeySchemaElement where
+module Network.AWS.Glue.Types.KeySchemaElement
+  ( KeySchemaElement (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKeySchemaElement,
+
+    -- * Lenses
+    kseName,
+    kseType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A partition key pair consisting of a name and a type.
 --
---
---
--- /See:/ 'keySchemaElement' smart constructor.
+-- /See:/ 'mkKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { _kseName :: !Text,
-    _kseType :: !Text
+  { name :: Lude.Text,
+    type' :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kseName' - The name of a partition key.
---
--- * 'kseType' - The type of a partition key.
-keySchemaElement ::
-  -- | 'kseName'
-  Text ->
-  -- | 'kseType'
-  Text ->
+-- * 'name' - The name of a partition key.
+-- * 'type'' - The type of a partition key.
+mkKeySchemaElement ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'type''
+  Lude.Text ->
   KeySchemaElement
-keySchemaElement pName_ pType_ =
-  KeySchemaElement' {_kseName = pName_, _kseType = pType_}
+mkKeySchemaElement pName_ pType_ =
+  KeySchemaElement' {name = pName_, type' = pType_}
 
 -- | The name of a partition key.
-kseName :: Lens' KeySchemaElement Text
-kseName = lens _kseName (\s a -> s {_kseName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kseName :: Lens.Lens' KeySchemaElement Lude.Text
+kseName = Lens.lens (name :: KeySchemaElement -> Lude.Text) (\s a -> s {name = a} :: KeySchemaElement)
+{-# DEPRECATED kseName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of a partition key.
-kseType :: Lens' KeySchemaElement Text
-kseType = lens _kseType (\s a -> s {_kseType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kseType :: Lens.Lens' KeySchemaElement Lude.Text
+kseType = Lens.lens (type' :: KeySchemaElement -> Lude.Text) (\s a -> s {type' = a} :: KeySchemaElement)
+{-# DEPRECATED kseType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON KeySchemaElement where
+instance Lude.FromJSON KeySchemaElement where
   parseJSON =
-    withObject
+    Lude.withObject
       "KeySchemaElement"
-      (\x -> KeySchemaElement' <$> (x .: "Name") <*> (x .: "Type"))
-
-instance Hashable KeySchemaElement
-
-instance NFData KeySchemaElement
+      ( \x ->
+          KeySchemaElement'
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "Type")
+      )

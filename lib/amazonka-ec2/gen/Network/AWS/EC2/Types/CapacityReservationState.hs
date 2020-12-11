@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CapacityReservationState where
+module Network.AWS.EC2.Types.CapacityReservationState
+  ( CapacityReservationState
+      ( CapacityReservationState',
+        CRSActive,
+        CRSCancelled,
+        CRSExpired,
+        CRSFailed,
+        CRSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CapacityReservationState
-  = CRSActive
-  | CRSCancelled
-  | CRSExpired
-  | CRSFailed
-  | CRSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CapacityReservationState = CapacityReservationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CapacityReservationState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CRSActive
-      "cancelled" -> pure CRSCancelled
-      "expired" -> pure CRSExpired
-      "failed" -> pure CRSFailed
-      "pending" -> pure CRSPending
-      e ->
-        fromTextError $
-          "Failure parsing CapacityReservationState from value: '" <> e
-            <> "'. Accepted values: active, cancelled, expired, failed, pending"
+pattern CRSActive :: CapacityReservationState
+pattern CRSActive = CapacityReservationState' "active"
 
-instance ToText CapacityReservationState where
-  toText = \case
-    CRSActive -> "active"
-    CRSCancelled -> "cancelled"
-    CRSExpired -> "expired"
-    CRSFailed -> "failed"
-    CRSPending -> "pending"
+pattern CRSCancelled :: CapacityReservationState
+pattern CRSCancelled = CapacityReservationState' "cancelled"
 
-instance Hashable CapacityReservationState
+pattern CRSExpired :: CapacityReservationState
+pattern CRSExpired = CapacityReservationState' "expired"
 
-instance NFData CapacityReservationState
+pattern CRSFailed :: CapacityReservationState
+pattern CRSFailed = CapacityReservationState' "failed"
 
-instance ToByteString CapacityReservationState
+pattern CRSPending :: CapacityReservationState
+pattern CRSPending = CapacityReservationState' "pending"
 
-instance ToQuery CapacityReservationState
-
-instance ToHeader CapacityReservationState
-
-instance FromXML CapacityReservationState where
-  parseXML = parseXMLText "CapacityReservationState"
+{-# COMPLETE
+  CRSActive,
+  CRSCancelled,
+  CRSExpired,
+  CRSFailed,
+  CRSPending,
+  CapacityReservationState'
+  #-}

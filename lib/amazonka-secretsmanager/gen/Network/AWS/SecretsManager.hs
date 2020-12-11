@@ -14,31 +14,20 @@
 -- __AWS Secrets Manager API Reference__
 --
 -- AWS Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.
---
 -- This guide provides descriptions of the Secrets Manager API. For more information about using this service, see the <https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html AWS Secrets Manager User Guide> .
---
 -- __API Version__
---
 -- This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.
---
 -- We recommend you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn more about the Secrets Manager HTTP Query API, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html Making Query Requests> in the /AWS Secrets Manager User Guide/ .
---
 -- Secrets Manager API supports GET and POST requests for all actions, and doesn't require you to use GET for some actions and POST for others. However, GET requests are subject to the limitation size of a URL. Therefore, for operations that require larger sizes, use a POST request.
---
 -- __Support and Feedback for AWS Secrets Manager__
---
 -- We welcome your feedback. Send your comments to <mailto:awssecretsmanager-feedback@amazon.com awssecretsmanager-feedback@amazon.com> , or post your feedback and questions in the <http://forums.aws.amazon.com/forum.jspa?forumID=296 AWS Secrets Manager Discussion Forum> . For more information about the AWS Discussion Forums, see <http://forums.aws.amazon.com/help.jspa Forums Help> .
---
 -- __How examples are presented__
---
 -- The JSON that AWS Secrets Manager expects as your request parameters and the service returns as a response to HTTP query requests contain single, long strings without line breaks or white space formatting. The JSON shown in the examples displays the code formatted with both line breaks and white space to improve readability. When example input parameters can also cause long strings extending beyond the screen, you can insert line breaks to enhance readability. You should always submit the input as a single JSON text string.
---
 -- __Logging API Requests__
---
 -- AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information that's collected by AWS CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the request, when it was made, and so on. For more about AWS Secrets Manager and support for AWS CloudTrail, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail Logging AWS Secrets Manager Events with AWS CloudTrail> in the /AWS Secrets Manager User Guide/ . To learn more about CloudTrail, including enabling it and find your log files, see the <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide> .
 module Network.AWS.SecretsManager
-  ( -- * Service Configuration
-    secretsManager,
+  ( -- * Service configuration
+    secretsManagerService,
 
     -- * Errors
     -- $errors
@@ -115,19 +104,19 @@ module Network.AWS.SecretsManager
     SortOrderType (..),
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fValues,
     fKey,
 
     -- ** RotationRulesType
-    RotationRulesType,
-    rotationRulesType,
+    RotationRulesType (..),
+    mkRotationRulesType,
     rrtAutomaticallyAfterDays,
 
     -- ** SecretListEntry
-    SecretListEntry,
-    secretListEntry,
+    SecretListEntry (..),
+    mkSecretListEntry,
     sleLastChangedDate,
     sleARN,
     sleSecretVersionsToStages,
@@ -145,27 +134,39 @@ module Network.AWS.SecretsManager
     sleTags,
 
     -- ** SecretVersionsListEntry
-    SecretVersionsListEntry,
-    secretVersionsListEntry,
+    SecretVersionsListEntry (..),
+    mkSecretVersionsListEntry,
     svleVersionId,
     svleVersionStages,
     svleCreatedDate,
     svleLastAccessedDate,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** ValidationErrorsEntry
-    ValidationErrorsEntry,
-    validationErrorsEntry,
+    ValidationErrorsEntry (..),
+    mkValidationErrorsEntry,
     veeCheckName,
     veeErrorMessage,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SecretsManager.CancelRotateSecret
 import Network.AWS.SecretsManager.CreateSecret
 import Network.AWS.SecretsManager.DeleteResourcePolicy

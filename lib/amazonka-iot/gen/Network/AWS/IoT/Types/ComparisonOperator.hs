@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ComparisonOperator where
+module Network.AWS.IoT.Types.ComparisonOperator
+  ( ComparisonOperator
+      ( ComparisonOperator',
+        GreaterThan,
+        GreaterThanEquals,
+        InCidrSet,
+        InPortSet,
+        LessThan,
+        LessThanEquals,
+        NotInCidrSet,
+        NotInPortSet
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComparisonOperator
-  = GreaterThan
-  | GreaterThanEquals
-  | InCidrSet
-  | InPortSet
-  | LessThan
-  | LessThanEquals
-  | NotInCidrSet
-  | NotInPortSet
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComparisonOperator = ComparisonOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComparisonOperator where
-  parser =
-    takeLowerText >>= \case
-      "greater-than" -> pure GreaterThan
-      "greater-than-equals" -> pure GreaterThanEquals
-      "in-cidr-set" -> pure InCidrSet
-      "in-port-set" -> pure InPortSet
-      "less-than" -> pure LessThan
-      "less-than-equals" -> pure LessThanEquals
-      "not-in-cidr-set" -> pure NotInCidrSet
-      "not-in-port-set" -> pure NotInPortSet
-      e ->
-        fromTextError $
-          "Failure parsing ComparisonOperator from value: '" <> e
-            <> "'. Accepted values: greater-than, greater-than-equals, in-cidr-set, in-port-set, less-than, less-than-equals, not-in-cidr-set, not-in-port-set"
+pattern GreaterThan :: ComparisonOperator
+pattern GreaterThan = ComparisonOperator' "greater-than"
 
-instance ToText ComparisonOperator where
-  toText = \case
-    GreaterThan -> "greater-than"
-    GreaterThanEquals -> "greater-than-equals"
-    InCidrSet -> "in-cidr-set"
-    InPortSet -> "in-port-set"
-    LessThan -> "less-than"
-    LessThanEquals -> "less-than-equals"
-    NotInCidrSet -> "not-in-cidr-set"
-    NotInPortSet -> "not-in-port-set"
+pattern GreaterThanEquals :: ComparisonOperator
+pattern GreaterThanEquals = ComparisonOperator' "greater-than-equals"
 
-instance Hashable ComparisonOperator
+pattern InCidrSet :: ComparisonOperator
+pattern InCidrSet = ComparisonOperator' "in-cidr-set"
 
-instance NFData ComparisonOperator
+pattern InPortSet :: ComparisonOperator
+pattern InPortSet = ComparisonOperator' "in-port-set"
 
-instance ToByteString ComparisonOperator
+pattern LessThan :: ComparisonOperator
+pattern LessThan = ComparisonOperator' "less-than"
 
-instance ToQuery ComparisonOperator
+pattern LessThanEquals :: ComparisonOperator
+pattern LessThanEquals = ComparisonOperator' "less-than-equals"
 
-instance ToHeader ComparisonOperator
+pattern NotInCidrSet :: ComparisonOperator
+pattern NotInCidrSet = ComparisonOperator' "not-in-cidr-set"
 
-instance ToJSON ComparisonOperator where
-  toJSON = toJSONText
+pattern NotInPortSet :: ComparisonOperator
+pattern NotInPortSet = ComparisonOperator' "not-in-port-set"
 
-instance FromJSON ComparisonOperator where
-  parseJSON = parseJSONText "ComparisonOperator"
+{-# COMPLETE
+  GreaterThan,
+  GreaterThanEquals,
+  InCidrSet,
+  InPortSet,
+  LessThan,
+  LessThanEquals,
+  NotInCidrSet,
+  NotInPortSet,
+  ComparisonOperator'
+  #-}

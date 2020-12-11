@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,178 @@
 --
 -- Lists versions for the specified application.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
-  ( -- * Creating a Request
-    listApplicationVersions,
-    ListApplicationVersions,
+  ( -- * Creating a request
+    ListApplicationVersions (..),
+    mkListApplicationVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lavNextToken,
     lavMaxItems,
     lavApplicationId,
 
-    -- * Destructuring the Response
-    listApplicationVersionsResponse,
-    ListApplicationVersionsResponse,
+    -- * Destructuring the response
+    ListApplicationVersionsResponse (..),
+    mkListApplicationVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lavrsVersions,
     lavrsNextToken,
     lavrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'listApplicationVersions' smart constructor.
+-- | /See:/ 'mkListApplicationVersions' smart constructor.
 data ListApplicationVersions = ListApplicationVersions'
-  { _lavNextToken ::
-      !(Maybe Text),
-    _lavMaxItems :: !(Maybe Nat),
-    _lavApplicationId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lavNextToken' - A token to specify where to start paginating.
---
--- * 'lavMaxItems' - The total number of items to return.
---
--- * 'lavApplicationId' - The Amazon Resource Name (ARN) of the application.
-listApplicationVersions ::
-  -- | 'lavApplicationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'maxItems' - The total number of items to return.
+-- * 'nextToken' - A token to specify where to start paginating.
+mkListApplicationVersions ::
+  -- | 'applicationId'
+  Lude.Text ->
   ListApplicationVersions
-listApplicationVersions pApplicationId_ =
+mkListApplicationVersions pApplicationId_ =
   ListApplicationVersions'
-    { _lavNextToken = Nothing,
-      _lavMaxItems = Nothing,
-      _lavApplicationId = pApplicationId_
+    { nextToken = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | A token to specify where to start paginating.
-lavNextToken :: Lens' ListApplicationVersions (Maybe Text)
-lavNextToken = lens _lavNextToken (\s a -> s {_lavNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavNextToken :: Lens.Lens' ListApplicationVersions (Lude.Maybe Lude.Text)
+lavNextToken = Lens.lens (nextToken :: ListApplicationVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationVersions)
+{-# DEPRECATED lavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of items to return.
-lavMaxItems :: Lens' ListApplicationVersions (Maybe Natural)
-lavMaxItems = lens _lavMaxItems (\s a -> s {_lavMaxItems = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavMaxItems :: Lens.Lens' ListApplicationVersions (Lude.Maybe Lude.Natural)
+lavMaxItems = Lens.lens (maxItems :: ListApplicationVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListApplicationVersions)
+{-# DEPRECATED lavMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the application.
-lavApplicationId :: Lens' ListApplicationVersions Text
-lavApplicationId = lens _lavApplicationId (\s a -> s {_lavApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavApplicationId :: Lens.Lens' ListApplicationVersions Lude.Text
+lavApplicationId = Lens.lens (applicationId :: ListApplicationVersions -> Lude.Text) (\s a -> s {applicationId = a} :: ListApplicationVersions)
+{-# DEPRECATED lavApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSPager ListApplicationVersions where
+instance Page.AWSPager ListApplicationVersions where
   page rq rs
-    | stop (rs ^. lavrsNextToken) = Nothing
-    | stop (rs ^. lavrsVersions) = Nothing
-    | otherwise = Just $ rq & lavNextToken .~ rs ^. lavrsNextToken
+    | Page.stop (rs Lens.^. lavrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lavrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lavNextToken Lens..~ rs Lens.^. lavrsNextToken
 
-instance AWSRequest ListApplicationVersions where
+instance Lude.AWSRequest ListApplicationVersions where
   type Rs ListApplicationVersions = ListApplicationVersionsResponse
-  request = get serverlessApplicationRepository
+  request = Req.get serverlessApplicationRepositoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListApplicationVersionsResponse'
-            <$> (x .?> "versions" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListApplicationVersions
-
-instance NFData ListApplicationVersions
-
-instance ToHeaders ListApplicationVersions where
+instance Lude.ToHeaders ListApplicationVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListApplicationVersions where
+instance Lude.ToPath ListApplicationVersions where
   toPath ListApplicationVersions' {..} =
-    mconcat ["/applications/", toBS _lavApplicationId, "/versions"]
+    Lude.mconcat
+      ["/applications/", Lude.toBS applicationId, "/versions"]
 
-instance ToQuery ListApplicationVersions where
+instance Lude.ToQuery ListApplicationVersions where
   toQuery ListApplicationVersions' {..} =
-    mconcat
-      ["nextToken" =: _lavNextToken, "maxItems" =: _lavMaxItems]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxItems" Lude.=: maxItems]
 
--- | /See:/ 'listApplicationVersionsResponse' smart constructor.
+-- | /See:/ 'mkListApplicationVersionsResponse' smart constructor.
 data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
-  { _lavrsVersions ::
-      !(Maybe [VersionSummary]),
-    _lavrsNextToken ::
-      !(Maybe Text),
-    _lavrsResponseStatus ::
-      !Int
+  { versions ::
+      Lude.Maybe [VersionSummary],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lavrsVersions' - An array of version summaries for the application.
---
--- * 'lavrsNextToken' - The token to request the next page of results.
---
--- * 'lavrsResponseStatus' - -- | The response status code.
-listApplicationVersionsResponse ::
-  -- | 'lavrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to request the next page of results.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - An array of version summaries for the application.
+mkListApplicationVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListApplicationVersionsResponse
-listApplicationVersionsResponse pResponseStatus_ =
+mkListApplicationVersionsResponse pResponseStatus_ =
   ListApplicationVersionsResponse'
-    { _lavrsVersions = Nothing,
-      _lavrsNextToken = Nothing,
-      _lavrsResponseStatus = pResponseStatus_
+    { versions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of version summaries for the application.
-lavrsVersions :: Lens' ListApplicationVersionsResponse [VersionSummary]
-lavrsVersions = lens _lavrsVersions (\s a -> s {_lavrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavrsVersions :: Lens.Lens' ListApplicationVersionsResponse (Lude.Maybe [VersionSummary])
+lavrsVersions = Lens.lens (versions :: ListApplicationVersionsResponse -> Lude.Maybe [VersionSummary]) (\s a -> s {versions = a} :: ListApplicationVersionsResponse)
+{-# DEPRECATED lavrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The token to request the next page of results.
-lavrsNextToken :: Lens' ListApplicationVersionsResponse (Maybe Text)
-lavrsNextToken = lens _lavrsNextToken (\s a -> s {_lavrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavrsNextToken :: Lens.Lens' ListApplicationVersionsResponse (Lude.Maybe Lude.Text)
+lavrsNextToken = Lens.lens (nextToken :: ListApplicationVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationVersionsResponse)
+{-# DEPRECATED lavrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lavrsResponseStatus :: Lens' ListApplicationVersionsResponse Int
-lavrsResponseStatus = lens _lavrsResponseStatus (\s a -> s {_lavrsResponseStatus = a})
-
-instance NFData ListApplicationVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavrsResponseStatus :: Lens.Lens' ListApplicationVersionsResponse Lude.Int
+lavrsResponseStatus = Lens.lens (responseStatus :: ListApplicationVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationVersionsResponse)
+{-# DEPRECATED lavrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

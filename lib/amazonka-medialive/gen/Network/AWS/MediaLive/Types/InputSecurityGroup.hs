@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,121 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputSecurityGroup where
+module Network.AWS.MediaLive.Types.InputSecurityGroup
+  ( InputSecurityGroup (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputSecurityGroup,
+
+    -- * Lenses
+    isgState,
+    isgARN,
+    isgInputs,
+    isgId,
+    isgWhitelistRules,
+    isgTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputSecurityGroupState
 import Network.AWS.MediaLive.Types.InputWhitelistRule
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | An Input Security Group
 --
--- /See:/ 'inputSecurityGroup' smart constructor.
+-- /See:/ 'mkInputSecurityGroup' smart constructor.
 data InputSecurityGroup = InputSecurityGroup'
-  { _isgState ::
-      !(Maybe InputSecurityGroupState),
-    _isgARN :: !(Maybe Text),
-    _isgInputs :: !(Maybe [Text]),
-    _isgId :: !(Maybe Text),
-    _isgWhitelistRules :: !(Maybe [InputWhitelistRule]),
-    _isgTags :: !(Maybe (Map Text (Text)))
+  { state ::
+      Lude.Maybe InputSecurityGroupState,
+    arn :: Lude.Maybe Lude.Text,
+    inputs :: Lude.Maybe [Lude.Text],
+    id :: Lude.Maybe Lude.Text,
+    whitelistRules :: Lude.Maybe [InputWhitelistRule],
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isgState' - The current state of the Input Security Group.
---
--- * 'isgARN' - Unique ARN of Input Security Group
---
--- * 'isgInputs' - The list of inputs currently using this Input Security Group.
---
--- * 'isgId' - The Id of the Input Security Group
---
--- * 'isgWhitelistRules' - Whitelist rules and their sync status
---
--- * 'isgTags' - A collection of key-value pairs.
-inputSecurityGroup ::
+-- * 'arn' - Unique ARN of Input Security Group
+-- * 'id' - The Id of the Input Security Group
+-- * 'inputs' - The list of inputs currently using this Input Security Group.
+-- * 'state' - The current state of the Input Security Group.
+-- * 'tags' - A collection of key-value pairs.
+-- * 'whitelistRules' - Whitelist rules and their sync status
+mkInputSecurityGroup ::
   InputSecurityGroup
-inputSecurityGroup =
+mkInputSecurityGroup =
   InputSecurityGroup'
-    { _isgState = Nothing,
-      _isgARN = Nothing,
-      _isgInputs = Nothing,
-      _isgId = Nothing,
-      _isgWhitelistRules = Nothing,
-      _isgTags = Nothing
+    { state = Lude.Nothing,
+      arn = Lude.Nothing,
+      inputs = Lude.Nothing,
+      id = Lude.Nothing,
+      whitelistRules = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The current state of the Input Security Group.
-isgState :: Lens' InputSecurityGroup (Maybe InputSecurityGroupState)
-isgState = lens _isgState (\s a -> s {_isgState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isgState :: Lens.Lens' InputSecurityGroup (Lude.Maybe InputSecurityGroupState)
+isgState = Lens.lens (state :: InputSecurityGroup -> Lude.Maybe InputSecurityGroupState) (\s a -> s {state = a} :: InputSecurityGroup)
+{-# DEPRECATED isgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Unique ARN of Input Security Group
-isgARN :: Lens' InputSecurityGroup (Maybe Text)
-isgARN = lens _isgARN (\s a -> s {_isgARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isgARN :: Lens.Lens' InputSecurityGroup (Lude.Maybe Lude.Text)
+isgARN = Lens.lens (arn :: InputSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: InputSecurityGroup)
+{-# DEPRECATED isgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The list of inputs currently using this Input Security Group.
-isgInputs :: Lens' InputSecurityGroup [Text]
-isgInputs = lens _isgInputs (\s a -> s {_isgInputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isgInputs :: Lens.Lens' InputSecurityGroup (Lude.Maybe [Lude.Text])
+isgInputs = Lens.lens (inputs :: InputSecurityGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {inputs = a} :: InputSecurityGroup)
+{-# DEPRECATED isgInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
 
 -- | The Id of the Input Security Group
-isgId :: Lens' InputSecurityGroup (Maybe Text)
-isgId = lens _isgId (\s a -> s {_isgId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isgId :: Lens.Lens' InputSecurityGroup (Lude.Maybe Lude.Text)
+isgId = Lens.lens (id :: InputSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InputSecurityGroup)
+{-# DEPRECATED isgId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Whitelist rules and their sync status
-isgWhitelistRules :: Lens' InputSecurityGroup [InputWhitelistRule]
-isgWhitelistRules = lens _isgWhitelistRules (\s a -> s {_isgWhitelistRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isgWhitelistRules :: Lens.Lens' InputSecurityGroup (Lude.Maybe [InputWhitelistRule])
+isgWhitelistRules = Lens.lens (whitelistRules :: InputSecurityGroup -> Lude.Maybe [InputWhitelistRule]) (\s a -> s {whitelistRules = a} :: InputSecurityGroup)
+{-# DEPRECATED isgWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
 
 -- | A collection of key-value pairs.
-isgTags :: Lens' InputSecurityGroup (HashMap Text (Text))
-isgTags = lens _isgTags (\s a -> s {_isgTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isgTags :: Lens.Lens' InputSecurityGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+isgTags = Lens.lens (tags :: InputSecurityGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: InputSecurityGroup)
+{-# DEPRECATED isgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON InputSecurityGroup where
+instance Lude.FromJSON InputSecurityGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputSecurityGroup"
       ( \x ->
           InputSecurityGroup'
-            <$> (x .:? "state")
-            <*> (x .:? "arn")
-            <*> (x .:? "inputs" .!= mempty)
-            <*> (x .:? "id")
-            <*> (x .:? "whitelistRules" .!= mempty)
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "inputs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "whitelistRules" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable InputSecurityGroup
-
-instance NFData InputSecurityGroup

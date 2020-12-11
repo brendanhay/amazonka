@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,143 @@
 --
 -- Retrieves the definition of a specified database.
 module Network.AWS.Glue.GetDatabase
-  ( -- * Creating a Request
-    getDatabase,
-    GetDatabase,
+  ( -- * Creating a request
+    GetDatabase (..),
+    mkGetDatabase,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gddCatalogId,
     gddName,
 
-    -- * Destructuring the Response
-    getDatabaseResponse,
-    GetDatabaseResponse,
+    -- * Destructuring the response
+    GetDatabaseResponse (..),
+    mkGetDatabaseResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdrsDatabase,
     gdrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDatabase' smart constructor.
+-- | /See:/ 'mkGetDatabase' smart constructor.
 data GetDatabase = GetDatabase'
-  { _gddCatalogId :: !(Maybe Text),
-    _gddName :: !Text
+  { catalogId :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatabase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gddCatalogId' - The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
---
--- * 'gddName' - The name of the database to retrieve. For Hive compatibility, this should be all lowercase.
-getDatabase ::
-  -- | 'gddName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
+-- * 'name' - The name of the database to retrieve. For Hive compatibility, this should be all lowercase.
+mkGetDatabase ::
+  -- | 'name'
+  Lude.Text ->
   GetDatabase
-getDatabase pName_ =
-  GetDatabase' {_gddCatalogId = Nothing, _gddName = pName_}
+mkGetDatabase pName_ =
+  GetDatabase' {catalogId = Lude.Nothing, name = pName_}
 
 -- | The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
-gddCatalogId :: Lens' GetDatabase (Maybe Text)
-gddCatalogId = lens _gddCatalogId (\s a -> s {_gddCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddCatalogId :: Lens.Lens' GetDatabase (Lude.Maybe Lude.Text)
+gddCatalogId = Lens.lens (catalogId :: GetDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetDatabase)
+{-# DEPRECATED gddCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the database to retrieve. For Hive compatibility, this should be all lowercase.
-gddName :: Lens' GetDatabase Text
-gddName = lens _gddName (\s a -> s {_gddName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddName :: Lens.Lens' GetDatabase Lude.Text
+gddName = Lens.lens (name :: GetDatabase -> Lude.Text) (\s a -> s {name = a} :: GetDatabase)
+{-# DEPRECATED gddName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetDatabase where
+instance Lude.AWSRequest GetDatabase where
   type Rs GetDatabase = GetDatabaseResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDatabaseResponse'
-            <$> (x .?> "Database") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Database") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDatabase
-
-instance NFData GetDatabase
-
-instance ToHeaders GetDatabase where
+instance Lude.ToHeaders GetDatabase where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetDatabase" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetDatabase" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDatabase where
+instance Lude.ToJSON GetDatabase where
   toJSON GetDatabase' {..} =
-    object
-      ( catMaybes
-          [("CatalogId" .=) <$> _gddCatalogId, Just ("Name" .= _gddName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )
 
-instance ToPath GetDatabase where
-  toPath = const "/"
+instance Lude.ToPath GetDatabase where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDatabase where
-  toQuery = const mempty
+instance Lude.ToQuery GetDatabase where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDatabaseResponse' smart constructor.
+-- | /See:/ 'mkGetDatabaseResponse' smart constructor.
 data GetDatabaseResponse = GetDatabaseResponse'
-  { _gdrsDatabase ::
-      !(Maybe Database),
-    _gdrsResponseStatus :: !Int
+  { database ::
+      Lude.Maybe Database,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatabaseResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdrsDatabase' - The definition of the specified database in the Data Catalog.
---
--- * 'gdrsResponseStatus' - -- | The response status code.
-getDatabaseResponse ::
-  -- | 'gdrsResponseStatus'
-  Int ->
+-- * 'database' - The definition of the specified database in the Data Catalog.
+-- * 'responseStatus' - The response status code.
+mkGetDatabaseResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDatabaseResponse
-getDatabaseResponse pResponseStatus_ =
+mkGetDatabaseResponse pResponseStatus_ =
   GetDatabaseResponse'
-    { _gdrsDatabase = Nothing,
-      _gdrsResponseStatus = pResponseStatus_
+    { database = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The definition of the specified database in the Data Catalog.
-gdrsDatabase :: Lens' GetDatabaseResponse (Maybe Database)
-gdrsDatabase = lens _gdrsDatabase (\s a -> s {_gdrsDatabase = a})
+--
+-- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsDatabase :: Lens.Lens' GetDatabaseResponse (Lude.Maybe Database)
+gdrsDatabase = Lens.lens (database :: GetDatabaseResponse -> Lude.Maybe Database) (\s a -> s {database = a} :: GetDatabaseResponse)
+{-# DEPRECATED gdrsDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDatabaseResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\s a -> s {_gdrsResponseStatus = a})
-
-instance NFData GetDatabaseResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDatabaseResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDatabaseResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

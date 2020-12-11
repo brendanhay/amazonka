@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.HashKeyRange where
+module Network.AWS.Kinesis.Types.HashKeyRange
+  ( HashKeyRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHashKeyRange,
+
+    -- * Lenses
+    hkrStartingHashKey,
+    hkrEndingHashKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
 --
---
---
--- /See:/ 'hashKeyRange' smart constructor.
+-- /See:/ 'mkHashKeyRange' smart constructor.
 data HashKeyRange = HashKeyRange'
-  { _hkrStartingHashKey :: !Text,
-    _hkrEndingHashKey :: !Text
+  { startingHashKey :: Lude.Text,
+    endingHashKey :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HashKeyRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hkrStartingHashKey' - The starting hash key of the hash key range.
---
--- * 'hkrEndingHashKey' - The ending hash key of the hash key range.
-hashKeyRange ::
-  -- | 'hkrStartingHashKey'
-  Text ->
-  -- | 'hkrEndingHashKey'
-  Text ->
+-- * 'endingHashKey' - The ending hash key of the hash key range.
+-- * 'startingHashKey' - The starting hash key of the hash key range.
+mkHashKeyRange ::
+  -- | 'startingHashKey'
+  Lude.Text ->
+  -- | 'endingHashKey'
+  Lude.Text ->
   HashKeyRange
-hashKeyRange pStartingHashKey_ pEndingHashKey_ =
+mkHashKeyRange pStartingHashKey_ pEndingHashKey_ =
   HashKeyRange'
-    { _hkrStartingHashKey = pStartingHashKey_,
-      _hkrEndingHashKey = pEndingHashKey_
+    { startingHashKey = pStartingHashKey_,
+      endingHashKey = pEndingHashKey_
     }
 
 -- | The starting hash key of the hash key range.
-hkrStartingHashKey :: Lens' HashKeyRange Text
-hkrStartingHashKey = lens _hkrStartingHashKey (\s a -> s {_hkrStartingHashKey = a})
+--
+-- /Note:/ Consider using 'startingHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hkrStartingHashKey :: Lens.Lens' HashKeyRange Lude.Text
+hkrStartingHashKey = Lens.lens (startingHashKey :: HashKeyRange -> Lude.Text) (\s a -> s {startingHashKey = a} :: HashKeyRange)
+{-# DEPRECATED hkrStartingHashKey "Use generic-lens or generic-optics with 'startingHashKey' instead." #-}
 
 -- | The ending hash key of the hash key range.
-hkrEndingHashKey :: Lens' HashKeyRange Text
-hkrEndingHashKey = lens _hkrEndingHashKey (\s a -> s {_hkrEndingHashKey = a})
+--
+-- /Note:/ Consider using 'endingHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hkrEndingHashKey :: Lens.Lens' HashKeyRange Lude.Text
+hkrEndingHashKey = Lens.lens (endingHashKey :: HashKeyRange -> Lude.Text) (\s a -> s {endingHashKey = a} :: HashKeyRange)
+{-# DEPRECATED hkrEndingHashKey "Use generic-lens or generic-optics with 'endingHashKey' instead." #-}
 
-instance FromJSON HashKeyRange where
+instance Lude.FromJSON HashKeyRange where
   parseJSON =
-    withObject
+    Lude.withObject
       "HashKeyRange"
       ( \x ->
           HashKeyRange'
-            <$> (x .: "StartingHashKey") <*> (x .: "EndingHashKey")
+            Lude.<$> (x Lude..: "StartingHashKey") Lude.<*> (x Lude..: "EndingHashKey")
       )
-
-instance Hashable HashKeyRange
-
-instance NFData HashKeyRange

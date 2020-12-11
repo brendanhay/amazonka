@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.RuleGroupUpdate where
+module Network.AWS.WAF.Types.RuleGroupUpdate
+  ( RuleGroupUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRuleGroupUpdate,
+
+    -- * Lenses
+    rguAction,
+    rguActivatedRule,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAF.Types.ActivatedRule
 import Network.AWS.WAF.Types.ChangeAction
 
 -- | Specifies an @ActivatedRule@ and indicates whether you want to add it to a @RuleGroup@ or delete it from a @RuleGroup@ .
 --
---
---
--- /See:/ 'ruleGroupUpdate' smart constructor.
+-- /See:/ 'mkRuleGroupUpdate' smart constructor.
 data RuleGroupUpdate = RuleGroupUpdate'
-  { _rguAction ::
-      !ChangeAction,
-    _rguActivatedRule :: !ActivatedRule
+  { action :: ChangeAction,
+    activatedRule :: ActivatedRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleGroupUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rguAction' - Specify @INSERT@ to add an @ActivatedRule@ to a @RuleGroup@ . Use @DELETE@ to remove an @ActivatedRule@ from a @RuleGroup@ .
---
--- * 'rguActivatedRule' - The @ActivatedRule@ object specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
-ruleGroupUpdate ::
-  -- | 'rguAction'
+-- * 'action' - Specify @INSERT@ to add an @ActivatedRule@ to a @RuleGroup@ . Use @DELETE@ to remove an @ActivatedRule@ from a @RuleGroup@ .
+-- * 'activatedRule' - The @ActivatedRule@ object specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
+mkRuleGroupUpdate ::
+  -- | 'action'
   ChangeAction ->
-  -- | 'rguActivatedRule'
+  -- | 'activatedRule'
   ActivatedRule ->
   RuleGroupUpdate
-ruleGroupUpdate pAction_ pActivatedRule_ =
+mkRuleGroupUpdate pAction_ pActivatedRule_ =
   RuleGroupUpdate'
-    { _rguAction = pAction_,
-      _rguActivatedRule = pActivatedRule_
+    { action = pAction_,
+      activatedRule = pActivatedRule_
     }
 
 -- | Specify @INSERT@ to add an @ActivatedRule@ to a @RuleGroup@ . Use @DELETE@ to remove an @ActivatedRule@ from a @RuleGroup@ .
-rguAction :: Lens' RuleGroupUpdate ChangeAction
-rguAction = lens _rguAction (\s a -> s {_rguAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rguAction :: Lens.Lens' RuleGroupUpdate ChangeAction
+rguAction = Lens.lens (action :: RuleGroupUpdate -> ChangeAction) (\s a -> s {action = a} :: RuleGroupUpdate)
+{-# DEPRECATED rguAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The @ActivatedRule@ object specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
-rguActivatedRule :: Lens' RuleGroupUpdate ActivatedRule
-rguActivatedRule = lens _rguActivatedRule (\s a -> s {_rguActivatedRule = a})
+--
+-- /Note:/ Consider using 'activatedRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rguActivatedRule :: Lens.Lens' RuleGroupUpdate ActivatedRule
+rguActivatedRule = Lens.lens (activatedRule :: RuleGroupUpdate -> ActivatedRule) (\s a -> s {activatedRule = a} :: RuleGroupUpdate)
+{-# DEPRECATED rguActivatedRule "Use generic-lens or generic-optics with 'activatedRule' instead." #-}
 
-instance Hashable RuleGroupUpdate
-
-instance NFData RuleGroupUpdate
-
-instance ToJSON RuleGroupUpdate where
+instance Lude.ToJSON RuleGroupUpdate where
   toJSON RuleGroupUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just ("Action" .= _rguAction),
-            Just ("ActivatedRule" .= _rguActivatedRule)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Action" Lude..= action),
+            Lude.Just ("ActivatedRule" Lude..= activatedRule)
           ]
       )

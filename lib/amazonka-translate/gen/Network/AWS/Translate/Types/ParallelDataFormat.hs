@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.ParallelDataFormat where
+module Network.AWS.Translate.Types.ParallelDataFormat
+  ( ParallelDataFormat
+      ( ParallelDataFormat',
+        CSV,
+        Tmx,
+        Tsv
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParallelDataFormat
-  = CSV
-  | Tmx
-  | Tsv
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParallelDataFormat = ParallelDataFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParallelDataFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      "tmx" -> pure Tmx
-      "tsv" -> pure Tsv
-      e ->
-        fromTextError $
-          "Failure parsing ParallelDataFormat from value: '" <> e
-            <> "'. Accepted values: csv, tmx, tsv"
+pattern CSV :: ParallelDataFormat
+pattern CSV = ParallelDataFormat' "CSV"
 
-instance ToText ParallelDataFormat where
-  toText = \case
-    CSV -> "CSV"
-    Tmx -> "TMX"
-    Tsv -> "TSV"
+pattern Tmx :: ParallelDataFormat
+pattern Tmx = ParallelDataFormat' "TMX"
 
-instance Hashable ParallelDataFormat
+pattern Tsv :: ParallelDataFormat
+pattern Tsv = ParallelDataFormat' "TSV"
 
-instance NFData ParallelDataFormat
-
-instance ToByteString ParallelDataFormat
-
-instance ToQuery ParallelDataFormat
-
-instance ToHeader ParallelDataFormat
-
-instance ToJSON ParallelDataFormat where
-  toJSON = toJSONText
-
-instance FromJSON ParallelDataFormat where
-  parseJSON = parseJSONText "ParallelDataFormat"
+{-# COMPLETE
+  CSV,
+  Tmx,
+  Tsv,
+  ParallelDataFormat'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.WeeklyStartTime where
+module Network.AWS.MQ.Types.WeeklyStartTime
+  ( WeeklyStartTime (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkWeeklyStartTime,
+
+    -- * Lenses
+    wstTimeOfDay,
+    wstTimeZone,
+    wstDayOfWeek,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.DayOfWeek
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
 --
--- /See:/ 'weeklyStartTime' smart constructor.
+-- /See:/ 'mkWeeklyStartTime' smart constructor.
 data WeeklyStartTime = WeeklyStartTime'
-  { _wstTimeOfDay ::
-      !(Maybe Text),
-    _wstTimeZone :: !(Maybe Text),
-    _wstDayOfWeek :: !(Maybe DayOfWeek)
+  { timeOfDay ::
+      Lude.Maybe Lude.Text,
+    timeZone :: Lude.Maybe Lude.Text,
+    dayOfWeek :: Lude.Maybe DayOfWeek
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WeeklyStartTime' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wstTimeOfDay' - Required. The time, in 24-hour format.
---
--- * 'wstTimeZone' - The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
---
--- * 'wstDayOfWeek' - Required. The day of the week.
-weeklyStartTime ::
+-- * 'dayOfWeek' - Required. The day of the week.
+-- * 'timeOfDay' - Required. The time, in 24-hour format.
+-- * 'timeZone' - The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
+mkWeeklyStartTime ::
   WeeklyStartTime
-weeklyStartTime =
+mkWeeklyStartTime =
   WeeklyStartTime'
-    { _wstTimeOfDay = Nothing,
-      _wstTimeZone = Nothing,
-      _wstDayOfWeek = Nothing
+    { timeOfDay = Lude.Nothing,
+      timeZone = Lude.Nothing,
+      dayOfWeek = Lude.Nothing
     }
 
 -- | Required. The time, in 24-hour format.
-wstTimeOfDay :: Lens' WeeklyStartTime (Maybe Text)
-wstTimeOfDay = lens _wstTimeOfDay (\s a -> s {_wstTimeOfDay = a})
+--
+-- /Note:/ Consider using 'timeOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wstTimeOfDay :: Lens.Lens' WeeklyStartTime (Lude.Maybe Lude.Text)
+wstTimeOfDay = Lens.lens (timeOfDay :: WeeklyStartTime -> Lude.Maybe Lude.Text) (\s a -> s {timeOfDay = a} :: WeeklyStartTime)
+{-# DEPRECATED wstTimeOfDay "Use generic-lens or generic-optics with 'timeOfDay' instead." #-}
 
 -- | The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
-wstTimeZone :: Lens' WeeklyStartTime (Maybe Text)
-wstTimeZone = lens _wstTimeZone (\s a -> s {_wstTimeZone = a})
+--
+-- /Note:/ Consider using 'timeZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wstTimeZone :: Lens.Lens' WeeklyStartTime (Lude.Maybe Lude.Text)
+wstTimeZone = Lens.lens (timeZone :: WeeklyStartTime -> Lude.Maybe Lude.Text) (\s a -> s {timeZone = a} :: WeeklyStartTime)
+{-# DEPRECATED wstTimeZone "Use generic-lens or generic-optics with 'timeZone' instead." #-}
 
 -- | Required. The day of the week.
-wstDayOfWeek :: Lens' WeeklyStartTime (Maybe DayOfWeek)
-wstDayOfWeek = lens _wstDayOfWeek (\s a -> s {_wstDayOfWeek = a})
+--
+-- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wstDayOfWeek :: Lens.Lens' WeeklyStartTime (Lude.Maybe DayOfWeek)
+wstDayOfWeek = Lens.lens (dayOfWeek :: WeeklyStartTime -> Lude.Maybe DayOfWeek) (\s a -> s {dayOfWeek = a} :: WeeklyStartTime)
+{-# DEPRECATED wstDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
 
-instance FromJSON WeeklyStartTime where
+instance Lude.FromJSON WeeklyStartTime where
   parseJSON =
-    withObject
+    Lude.withObject
       "WeeklyStartTime"
       ( \x ->
           WeeklyStartTime'
-            <$> (x .:? "timeOfDay") <*> (x .:? "timeZone") <*> (x .:? "dayOfWeek")
+            Lude.<$> (x Lude..:? "timeOfDay")
+            Lude.<*> (x Lude..:? "timeZone")
+            Lude.<*> (x Lude..:? "dayOfWeek")
       )
 
-instance Hashable WeeklyStartTime
-
-instance NFData WeeklyStartTime
-
-instance ToJSON WeeklyStartTime where
+instance Lude.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =
-    object
-      ( catMaybes
-          [ ("timeOfDay" .=) <$> _wstTimeOfDay,
-            ("timeZone" .=) <$> _wstTimeZone,
-            ("dayOfWeek" .=) <$> _wstDayOfWeek
+    Lude.object
+      ( Lude.catMaybes
+          [ ("timeOfDay" Lude..=) Lude.<$> timeOfDay,
+            ("timeZone" Lude..=) Lude.<$> timeZone,
+            ("dayOfWeek" Lude..=) Lude.<$> dayOfWeek
           ]
       )

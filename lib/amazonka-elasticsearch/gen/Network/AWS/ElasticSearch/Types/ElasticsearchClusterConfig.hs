@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,154 +7,193 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig where
+module Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
+  ( ElasticsearchClusterConfig (..),
+
+    -- * Smart constructor
+    mkElasticsearchClusterConfig,
+
+    -- * Lenses
+    eccDedicatedMasterCount,
+    eccDedicatedMasterType,
+    eccDedicatedMasterEnabled,
+    eccInstanceCount,
+    eccZoneAwarenessEnabled,
+    eccInstanceType,
+    eccWarmEnabled,
+    eccZoneAwarenessConfig,
+    eccWarmCount,
+    eccWarmType,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the configuration for the domain cluster, such as the type and number of instances.
 --
---
---
--- /See:/ 'elasticsearchClusterConfig' smart constructor.
+-- /See:/ 'mkElasticsearchClusterConfig' smart constructor.
 data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
-  { _eccDedicatedMasterCount ::
-      !(Maybe Int),
-    _eccDedicatedMasterType ::
-      !(Maybe ESPartitionInstanceType),
-    _eccDedicatedMasterEnabled ::
-      !(Maybe Bool),
-    _eccInstanceCount :: !(Maybe Int),
-    _eccZoneAwarenessEnabled ::
-      !(Maybe Bool),
-    _eccInstanceType ::
-      !(Maybe ESPartitionInstanceType),
-    _eccWarmEnabled :: !(Maybe Bool),
-    _eccZoneAwarenessConfig ::
-      !(Maybe ZoneAwarenessConfig),
-    _eccWarmCount :: !(Maybe Int),
-    _eccWarmType ::
-      !(Maybe ESWarmPartitionInstanceType)
+  { dedicatedMasterCount ::
+      Lude.Maybe Lude.Int,
+    dedicatedMasterType ::
+      Lude.Maybe ESPartitionInstanceType,
+    dedicatedMasterEnabled ::
+      Lude.Maybe Lude.Bool,
+    instanceCount :: Lude.Maybe Lude.Int,
+    zoneAwarenessEnabled ::
+      Lude.Maybe Lude.Bool,
+    instanceType ::
+      Lude.Maybe ESPartitionInstanceType,
+    warmEnabled :: Lude.Maybe Lude.Bool,
+    zoneAwarenessConfig ::
+      Lude.Maybe ZoneAwarenessConfig,
+    warmCount :: Lude.Maybe Lude.Int,
+    warmType ::
+      Lude.Maybe
+        ESWarmPartitionInstanceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchClusterConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eccDedicatedMasterCount' - Total number of dedicated master nodes, active and on standby, for the cluster.
---
--- * 'eccDedicatedMasterType' - The instance type for a dedicated master node.
---
--- * 'eccDedicatedMasterEnabled' - A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
---
--- * 'eccInstanceCount' - The number of instances in the specified domain cluster.
---
--- * 'eccZoneAwarenessEnabled' - A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
---
--- * 'eccInstanceType' - The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
---
--- * 'eccWarmEnabled' - True to enable warm storage.
---
--- * 'eccZoneAwarenessConfig' - Specifies the zone awareness configuration for a domain when zone awareness is enabled.
---
--- * 'eccWarmCount' - The number of warm nodes in the cluster.
---
--- * 'eccWarmType' - The instance type for the Elasticsearch cluster's warm nodes.
-elasticsearchClusterConfig ::
+-- * 'dedicatedMasterCount' - Total number of dedicated master nodes, active and on standby, for the cluster.
+-- * 'dedicatedMasterEnabled' - A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
+-- * 'dedicatedMasterType' - The instance type for a dedicated master node.
+-- * 'instanceCount' - The number of instances in the specified domain cluster.
+-- * 'instanceType' - The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+-- * 'warmCount' - The number of warm nodes in the cluster.
+-- * 'warmEnabled' - True to enable warm storage.
+-- * 'warmType' - The instance type for the Elasticsearch cluster's warm nodes.
+-- * 'zoneAwarenessConfig' - Specifies the zone awareness configuration for a domain when zone awareness is enabled.
+-- * 'zoneAwarenessEnabled' - A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
+mkElasticsearchClusterConfig ::
   ElasticsearchClusterConfig
-elasticsearchClusterConfig =
+mkElasticsearchClusterConfig =
   ElasticsearchClusterConfig'
-    { _eccDedicatedMasterCount = Nothing,
-      _eccDedicatedMasterType = Nothing,
-      _eccDedicatedMasterEnabled = Nothing,
-      _eccInstanceCount = Nothing,
-      _eccZoneAwarenessEnabled = Nothing,
-      _eccInstanceType = Nothing,
-      _eccWarmEnabled = Nothing,
-      _eccZoneAwarenessConfig = Nothing,
-      _eccWarmCount = Nothing,
-      _eccWarmType = Nothing
+    { dedicatedMasterCount = Lude.Nothing,
+      dedicatedMasterType = Lude.Nothing,
+      dedicatedMasterEnabled = Lude.Nothing,
+      instanceCount = Lude.Nothing,
+      zoneAwarenessEnabled = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      warmEnabled = Lude.Nothing,
+      zoneAwarenessConfig = Lude.Nothing,
+      warmCount = Lude.Nothing,
+      warmType = Lude.Nothing
     }
 
 -- | Total number of dedicated master nodes, active and on standby, for the cluster.
-eccDedicatedMasterCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
-eccDedicatedMasterCount = lens _eccDedicatedMasterCount (\s a -> s {_eccDedicatedMasterCount = a})
+--
+-- /Note:/ Consider using 'dedicatedMasterCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccDedicatedMasterCount :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe Lude.Int)
+eccDedicatedMasterCount = Lens.lens (dedicatedMasterCount :: ElasticsearchClusterConfig -> Lude.Maybe Lude.Int) (\s a -> s {dedicatedMasterCount = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccDedicatedMasterCount "Use generic-lens or generic-optics with 'dedicatedMasterCount' instead." #-}
 
 -- | The instance type for a dedicated master node.
-eccDedicatedMasterType :: Lens' ElasticsearchClusterConfig (Maybe ESPartitionInstanceType)
-eccDedicatedMasterType = lens _eccDedicatedMasterType (\s a -> s {_eccDedicatedMasterType = a})
+--
+-- /Note:/ Consider using 'dedicatedMasterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccDedicatedMasterType :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe ESPartitionInstanceType)
+eccDedicatedMasterType = Lens.lens (dedicatedMasterType :: ElasticsearchClusterConfig -> Lude.Maybe ESPartitionInstanceType) (\s a -> s {dedicatedMasterType = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccDedicatedMasterType "Use generic-lens or generic-optics with 'dedicatedMasterType' instead." #-}
 
 -- | A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
-eccDedicatedMasterEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
-eccDedicatedMasterEnabled = lens _eccDedicatedMasterEnabled (\s a -> s {_eccDedicatedMasterEnabled = a})
+--
+-- /Note:/ Consider using 'dedicatedMasterEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccDedicatedMasterEnabled :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe Lude.Bool)
+eccDedicatedMasterEnabled = Lens.lens (dedicatedMasterEnabled :: ElasticsearchClusterConfig -> Lude.Maybe Lude.Bool) (\s a -> s {dedicatedMasterEnabled = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccDedicatedMasterEnabled "Use generic-lens or generic-optics with 'dedicatedMasterEnabled' instead." #-}
 
 -- | The number of instances in the specified domain cluster.
-eccInstanceCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
-eccInstanceCount = lens _eccInstanceCount (\s a -> s {_eccInstanceCount = a})
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccInstanceCount :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe Lude.Int)
+eccInstanceCount = Lens.lens (instanceCount :: ElasticsearchClusterConfig -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
-eccZoneAwarenessEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
-eccZoneAwarenessEnabled = lens _eccZoneAwarenessEnabled (\s a -> s {_eccZoneAwarenessEnabled = a})
+--
+-- /Note:/ Consider using 'zoneAwarenessEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccZoneAwarenessEnabled :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe Lude.Bool)
+eccZoneAwarenessEnabled = Lens.lens (zoneAwarenessEnabled :: ElasticsearchClusterConfig -> Lude.Maybe Lude.Bool) (\s a -> s {zoneAwarenessEnabled = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccZoneAwarenessEnabled "Use generic-lens or generic-optics with 'zoneAwarenessEnabled' instead." #-}
 
 -- | The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
-eccInstanceType :: Lens' ElasticsearchClusterConfig (Maybe ESPartitionInstanceType)
-eccInstanceType = lens _eccInstanceType (\s a -> s {_eccInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccInstanceType :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe ESPartitionInstanceType)
+eccInstanceType = Lens.lens (instanceType :: ElasticsearchClusterConfig -> Lude.Maybe ESPartitionInstanceType) (\s a -> s {instanceType = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | True to enable warm storage.
-eccWarmEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
-eccWarmEnabled = lens _eccWarmEnabled (\s a -> s {_eccWarmEnabled = a})
+--
+-- /Note:/ Consider using 'warmEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccWarmEnabled :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe Lude.Bool)
+eccWarmEnabled = Lens.lens (warmEnabled :: ElasticsearchClusterConfig -> Lude.Maybe Lude.Bool) (\s a -> s {warmEnabled = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccWarmEnabled "Use generic-lens or generic-optics with 'warmEnabled' instead." #-}
 
 -- | Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-eccZoneAwarenessConfig :: Lens' ElasticsearchClusterConfig (Maybe ZoneAwarenessConfig)
-eccZoneAwarenessConfig = lens _eccZoneAwarenessConfig (\s a -> s {_eccZoneAwarenessConfig = a})
+--
+-- /Note:/ Consider using 'zoneAwarenessConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccZoneAwarenessConfig :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe ZoneAwarenessConfig)
+eccZoneAwarenessConfig = Lens.lens (zoneAwarenessConfig :: ElasticsearchClusterConfig -> Lude.Maybe ZoneAwarenessConfig) (\s a -> s {zoneAwarenessConfig = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccZoneAwarenessConfig "Use generic-lens or generic-optics with 'zoneAwarenessConfig' instead." #-}
 
 -- | The number of warm nodes in the cluster.
-eccWarmCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
-eccWarmCount = lens _eccWarmCount (\s a -> s {_eccWarmCount = a})
+--
+-- /Note:/ Consider using 'warmCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccWarmCount :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe Lude.Int)
+eccWarmCount = Lens.lens (warmCount :: ElasticsearchClusterConfig -> Lude.Maybe Lude.Int) (\s a -> s {warmCount = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccWarmCount "Use generic-lens or generic-optics with 'warmCount' instead." #-}
 
 -- | The instance type for the Elasticsearch cluster's warm nodes.
-eccWarmType :: Lens' ElasticsearchClusterConfig (Maybe ESWarmPartitionInstanceType)
-eccWarmType = lens _eccWarmType (\s a -> s {_eccWarmType = a})
+--
+-- /Note:/ Consider using 'warmType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccWarmType :: Lens.Lens' ElasticsearchClusterConfig (Lude.Maybe ESWarmPartitionInstanceType)
+eccWarmType = Lens.lens (warmType :: ElasticsearchClusterConfig -> Lude.Maybe ESWarmPartitionInstanceType) (\s a -> s {warmType = a} :: ElasticsearchClusterConfig)
+{-# DEPRECATED eccWarmType "Use generic-lens or generic-optics with 'warmType' instead." #-}
 
-instance FromJSON ElasticsearchClusterConfig where
+instance Lude.FromJSON ElasticsearchClusterConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "ElasticsearchClusterConfig"
       ( \x ->
           ElasticsearchClusterConfig'
-            <$> (x .:? "DedicatedMasterCount")
-            <*> (x .:? "DedicatedMasterType")
-            <*> (x .:? "DedicatedMasterEnabled")
-            <*> (x .:? "InstanceCount")
-            <*> (x .:? "ZoneAwarenessEnabled")
-            <*> (x .:? "InstanceType")
-            <*> (x .:? "WarmEnabled")
-            <*> (x .:? "ZoneAwarenessConfig")
-            <*> (x .:? "WarmCount")
-            <*> (x .:? "WarmType")
+            Lude.<$> (x Lude..:? "DedicatedMasterCount")
+            Lude.<*> (x Lude..:? "DedicatedMasterType")
+            Lude.<*> (x Lude..:? "DedicatedMasterEnabled")
+            Lude.<*> (x Lude..:? "InstanceCount")
+            Lude.<*> (x Lude..:? "ZoneAwarenessEnabled")
+            Lude.<*> (x Lude..:? "InstanceType")
+            Lude.<*> (x Lude..:? "WarmEnabled")
+            Lude.<*> (x Lude..:? "ZoneAwarenessConfig")
+            Lude.<*> (x Lude..:? "WarmCount")
+            Lude.<*> (x Lude..:? "WarmType")
       )
 
-instance Hashable ElasticsearchClusterConfig
-
-instance NFData ElasticsearchClusterConfig
-
-instance ToJSON ElasticsearchClusterConfig where
+instance Lude.ToJSON ElasticsearchClusterConfig where
   toJSON ElasticsearchClusterConfig' {..} =
-    object
-      ( catMaybes
-          [ ("DedicatedMasterCount" .=) <$> _eccDedicatedMasterCount,
-            ("DedicatedMasterType" .=) <$> _eccDedicatedMasterType,
-            ("DedicatedMasterEnabled" .=) <$> _eccDedicatedMasterEnabled,
-            ("InstanceCount" .=) <$> _eccInstanceCount,
-            ("ZoneAwarenessEnabled" .=) <$> _eccZoneAwarenessEnabled,
-            ("InstanceType" .=) <$> _eccInstanceType,
-            ("WarmEnabled" .=) <$> _eccWarmEnabled,
-            ("ZoneAwarenessConfig" .=) <$> _eccZoneAwarenessConfig,
-            ("WarmCount" .=) <$> _eccWarmCount,
-            ("WarmType" .=) <$> _eccWarmType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DedicatedMasterCount" Lude..=) Lude.<$> dedicatedMasterCount,
+            ("DedicatedMasterType" Lude..=) Lude.<$> dedicatedMasterType,
+            ("DedicatedMasterEnabled" Lude..=) Lude.<$> dedicatedMasterEnabled,
+            ("InstanceCount" Lude..=) Lude.<$> instanceCount,
+            ("ZoneAwarenessEnabled" Lude..=) Lude.<$> zoneAwarenessEnabled,
+            ("InstanceType" Lude..=) Lude.<$> instanceType,
+            ("WarmEnabled" Lude..=) Lude.<$> warmEnabled,
+            ("ZoneAwarenessConfig" Lude..=) Lude.<$> zoneAwarenessConfig,
+            ("WarmCount" Lude..=) Lude.<$> warmCount,
+            ("WarmType" Lude..=) Lude.<$> warmType
           ]
       )

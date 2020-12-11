@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType where
+module Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType
+  ( StringAttributeConstraintsType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStringAttributeConstraintsType,
+
+    -- * Lenses
+    sactMaxLength,
+    sactMinLength,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The constraints associated with a string attribute.
 --
---
---
--- /See:/ 'stringAttributeConstraintsType' smart constructor.
+-- /See:/ 'mkStringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
-  { _sactMaxLength ::
-      !(Maybe Text),
-    _sactMinLength ::
-      !(Maybe Text)
+  { maxLength ::
+      Lude.Maybe Lude.Text,
+    minLength ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StringAttributeConstraintsType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sactMaxLength' - The maximum length.
---
--- * 'sactMinLength' - The minimum length.
-stringAttributeConstraintsType ::
+-- * 'maxLength' - The maximum length.
+-- * 'minLength' - The minimum length.
+mkStringAttributeConstraintsType ::
   StringAttributeConstraintsType
-stringAttributeConstraintsType =
+mkStringAttributeConstraintsType =
   StringAttributeConstraintsType'
-    { _sactMaxLength = Nothing,
-      _sactMinLength = Nothing
+    { maxLength = Lude.Nothing,
+      minLength = Lude.Nothing
     }
 
 -- | The maximum length.
-sactMaxLength :: Lens' StringAttributeConstraintsType (Maybe Text)
-sactMaxLength = lens _sactMaxLength (\s a -> s {_sactMaxLength = a})
+--
+-- /Note:/ Consider using 'maxLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sactMaxLength :: Lens.Lens' StringAttributeConstraintsType (Lude.Maybe Lude.Text)
+sactMaxLength = Lens.lens (maxLength :: StringAttributeConstraintsType -> Lude.Maybe Lude.Text) (\s a -> s {maxLength = a} :: StringAttributeConstraintsType)
+{-# DEPRECATED sactMaxLength "Use generic-lens or generic-optics with 'maxLength' instead." #-}
 
 -- | The minimum length.
-sactMinLength :: Lens' StringAttributeConstraintsType (Maybe Text)
-sactMinLength = lens _sactMinLength (\s a -> s {_sactMinLength = a})
+--
+-- /Note:/ Consider using 'minLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sactMinLength :: Lens.Lens' StringAttributeConstraintsType (Lude.Maybe Lude.Text)
+sactMinLength = Lens.lens (minLength :: StringAttributeConstraintsType -> Lude.Maybe Lude.Text) (\s a -> s {minLength = a} :: StringAttributeConstraintsType)
+{-# DEPRECATED sactMinLength "Use generic-lens or generic-optics with 'minLength' instead." #-}
 
-instance FromJSON StringAttributeConstraintsType where
+instance Lude.FromJSON StringAttributeConstraintsType where
   parseJSON =
-    withObject
+    Lude.withObject
       "StringAttributeConstraintsType"
       ( \x ->
           StringAttributeConstraintsType'
-            <$> (x .:? "MaxLength") <*> (x .:? "MinLength")
+            Lude.<$> (x Lude..:? "MaxLength") Lude.<*> (x Lude..:? "MinLength")
       )
 
-instance Hashable StringAttributeConstraintsType
-
-instance NFData StringAttributeConstraintsType
-
-instance ToJSON StringAttributeConstraintsType where
+instance Lude.ToJSON StringAttributeConstraintsType where
   toJSON StringAttributeConstraintsType' {..} =
-    object
-      ( catMaybes
-          [ ("MaxLength" .=) <$> _sactMaxLength,
-            ("MinLength" .=) <$> _sactMinLength
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaxLength" Lude..=) Lude.<$> maxLength,
+            ("MinLength" Lude..=) Lude.<$> minLength
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets the details for the input device
 module Network.AWS.MediaLive.DescribeInputDevice
-  ( -- * Creating a Request
-    describeInputDevice,
-    DescribeInputDevice,
+  ( -- * Creating a request
+    DescribeInputDevice (..),
+    mkDescribeInputDevice,
 
-    -- * Request Lenses
+    -- ** Request lenses
     didInputDeviceId,
 
-    -- * Destructuring the Response
-    describeInputDeviceResponse,
-    DescribeInputDeviceResponse,
+    -- * Destructuring the response
+    DescribeInputDeviceResponse (..),
+    mkDescribeInputDeviceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     didrsARN,
     didrsMACAddress,
     didrsHdDeviceSettings,
@@ -46,195 +41,231 @@ module Network.AWS.MediaLive.DescribeInputDevice
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DescribeInputDeviceRequest
 --
--- /See:/ 'describeInputDevice' smart constructor.
+-- /See:/ 'mkDescribeInputDevice' smart constructor.
 newtype DescribeInputDevice = DescribeInputDevice'
-  { _didInputDeviceId ::
-      Text
+  { inputDeviceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'didInputDeviceId' - The unique ID of this input device. For example, hd-123456789abcdef.
-describeInputDevice ::
-  -- | 'didInputDeviceId'
-  Text ->
+-- * 'inputDeviceId' - The unique ID of this input device. For example, hd-123456789abcdef.
+mkDescribeInputDevice ::
+  -- | 'inputDeviceId'
+  Lude.Text ->
   DescribeInputDevice
-describeInputDevice pInputDeviceId_ =
-  DescribeInputDevice' {_didInputDeviceId = pInputDeviceId_}
+mkDescribeInputDevice pInputDeviceId_ =
+  DescribeInputDevice' {inputDeviceId = pInputDeviceId_}
 
 -- | The unique ID of this input device. For example, hd-123456789abcdef.
-didInputDeviceId :: Lens' DescribeInputDevice Text
-didInputDeviceId = lens _didInputDeviceId (\s a -> s {_didInputDeviceId = a})
+--
+-- /Note:/ Consider using 'inputDeviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didInputDeviceId :: Lens.Lens' DescribeInputDevice Lude.Text
+didInputDeviceId = Lens.lens (inputDeviceId :: DescribeInputDevice -> Lude.Text) (\s a -> s {inputDeviceId = a} :: DescribeInputDevice)
+{-# DEPRECATED didInputDeviceId "Use generic-lens or generic-optics with 'inputDeviceId' instead." #-}
 
-instance AWSRequest DescribeInputDevice where
+instance Lude.AWSRequest DescribeInputDevice where
   type Rs DescribeInputDevice = DescribeInputDeviceResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInputDeviceResponse'
-            <$> (x .?> "arn")
-            <*> (x .?> "macAddress")
-            <*> (x .?> "hdDeviceSettings")
-            <*> (x .?> "name")
-            <*> (x .?> "id")
-            <*> (x .?> "deviceUpdateStatus")
-            <*> (x .?> "deviceSettingsSyncState")
-            <*> (x .?> "type")
-            <*> (x .?> "serialNumber")
-            <*> (x .?> "networkSettings")
-            <*> (x .?> "connectionState")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "macAddress")
+            Lude.<*> (x Lude..?> "hdDeviceSettings")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "deviceUpdateStatus")
+            Lude.<*> (x Lude..?> "deviceSettingsSyncState")
+            Lude.<*> (x Lude..?> "type")
+            Lude.<*> (x Lude..?> "serialNumber")
+            Lude.<*> (x Lude..?> "networkSettings")
+            Lude.<*> (x Lude..?> "connectionState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInputDevice
-
-instance NFData DescribeInputDevice
-
-instance ToHeaders DescribeInputDevice where
+instance Lude.ToHeaders DescribeInputDevice where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeInputDevice where
+instance Lude.ToPath DescribeInputDevice where
   toPath DescribeInputDevice' {..} =
-    mconcat ["/prod/inputDevices/", toBS _didInputDeviceId]
+    Lude.mconcat ["/prod/inputDevices/", Lude.toBS inputDeviceId]
 
-instance ToQuery DescribeInputDevice where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInputDevice where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeInputDeviceResponse
 --
--- /See:/ 'describeInputDeviceResponse' smart constructor.
+-- /See:/ 'mkDescribeInputDeviceResponse' smart constructor.
 data DescribeInputDeviceResponse = DescribeInputDeviceResponse'
-  { _didrsARN ::
-      !(Maybe Text),
-    _didrsMACAddress :: !(Maybe Text),
-    _didrsHdDeviceSettings ::
-      !(Maybe InputDeviceHdSettings),
-    _didrsName :: !(Maybe Text),
-    _didrsId :: !(Maybe Text),
-    _didrsDeviceUpdateStatus ::
-      !(Maybe DeviceUpdateStatus),
-    _didrsDeviceSettingsSyncState ::
-      !(Maybe DeviceSettingsSyncState),
-    _didrsType ::
-      !(Maybe InputDeviceType),
-    _didrsSerialNumber :: !(Maybe Text),
-    _didrsNetworkSettings ::
-      !(Maybe InputDeviceNetworkSettings),
-    _didrsConnectionState ::
-      !(Maybe InputDeviceConnectionState),
-    _didrsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    mACAddress :: Lude.Maybe Lude.Text,
+    hdDeviceSettings ::
+      Lude.Maybe InputDeviceHdSettings,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    deviceUpdateStatus ::
+      Lude.Maybe DeviceUpdateStatus,
+    deviceSettingsSyncState ::
+      Lude.Maybe DeviceSettingsSyncState,
+    type' :: Lude.Maybe InputDeviceType,
+    serialNumber ::
+      Lude.Maybe Lude.Text,
+    networkSettings ::
+      Lude.Maybe
+        InputDeviceNetworkSettings,
+    connectionState ::
+      Lude.Maybe
+        InputDeviceConnectionState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputDeviceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'didrsARN' - The unique ARN of the input device.
---
--- * 'didrsMACAddress' - The network MAC address of the input device.
---
--- * 'didrsHdDeviceSettings' - Settings that describe an input device that is type HD.
---
--- * 'didrsName' - A name that you specify for the input device.
---
--- * 'didrsId' - The unique ID of the input device.
---
--- * 'didrsDeviceUpdateStatus' - The status of software on the input device.
---
--- * 'didrsDeviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
---
--- * 'didrsType' - The type of the input device.
---
--- * 'didrsSerialNumber' - The unique serial number of the input device.
---
--- * 'didrsNetworkSettings' - The network settings for the input device.
---
--- * 'didrsConnectionState' - The state of the connection between the input device and AWS.
---
--- * 'didrsResponseStatus' - -- | The response status code.
-describeInputDeviceResponse ::
-  -- | 'didrsResponseStatus'
-  Int ->
+-- * 'arn' - The unique ARN of the input device.
+-- * 'connectionState' - The state of the connection between the input device and AWS.
+-- * 'deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+-- * 'deviceUpdateStatus' - The status of software on the input device.
+-- * 'hdDeviceSettings' - Settings that describe an input device that is type HD.
+-- * 'id' - The unique ID of the input device.
+-- * 'mACAddress' - The network MAC address of the input device.
+-- * 'name' - A name that you specify for the input device.
+-- * 'networkSettings' - The network settings for the input device.
+-- * 'responseStatus' - The response status code.
+-- * 'serialNumber' - The unique serial number of the input device.
+-- * 'type'' - The type of the input device.
+mkDescribeInputDeviceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInputDeviceResponse
-describeInputDeviceResponse pResponseStatus_ =
+mkDescribeInputDeviceResponse pResponseStatus_ =
   DescribeInputDeviceResponse'
-    { _didrsARN = Nothing,
-      _didrsMACAddress = Nothing,
-      _didrsHdDeviceSettings = Nothing,
-      _didrsName = Nothing,
-      _didrsId = Nothing,
-      _didrsDeviceUpdateStatus = Nothing,
-      _didrsDeviceSettingsSyncState = Nothing,
-      _didrsType = Nothing,
-      _didrsSerialNumber = Nothing,
-      _didrsNetworkSettings = Nothing,
-      _didrsConnectionState = Nothing,
-      _didrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      mACAddress = Lude.Nothing,
+      hdDeviceSettings = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      deviceUpdateStatus = Lude.Nothing,
+      deviceSettingsSyncState = Lude.Nothing,
+      type' = Lude.Nothing,
+      serialNumber = Lude.Nothing,
+      networkSettings = Lude.Nothing,
+      connectionState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique ARN of the input device.
-didrsARN :: Lens' DescribeInputDeviceResponse (Maybe Text)
-didrsARN = lens _didrsARN (\s a -> s {_didrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsARN :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe Lude.Text)
+didrsARN = Lens.lens (arn :: DescribeInputDeviceResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The network MAC address of the input device.
-didrsMACAddress :: Lens' DescribeInputDeviceResponse (Maybe Text)
-didrsMACAddress = lens _didrsMACAddress (\s a -> s {_didrsMACAddress = a})
+--
+-- /Note:/ Consider using 'mACAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsMACAddress :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe Lude.Text)
+didrsMACAddress = Lens.lens (mACAddress :: DescribeInputDeviceResponse -> Lude.Maybe Lude.Text) (\s a -> s {mACAddress = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsMACAddress "Use generic-lens or generic-optics with 'mACAddress' instead." #-}
 
 -- | Settings that describe an input device that is type HD.
-didrsHdDeviceSettings :: Lens' DescribeInputDeviceResponse (Maybe InputDeviceHdSettings)
-didrsHdDeviceSettings = lens _didrsHdDeviceSettings (\s a -> s {_didrsHdDeviceSettings = a})
+--
+-- /Note:/ Consider using 'hdDeviceSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsHdDeviceSettings :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe InputDeviceHdSettings)
+didrsHdDeviceSettings = Lens.lens (hdDeviceSettings :: DescribeInputDeviceResponse -> Lude.Maybe InputDeviceHdSettings) (\s a -> s {hdDeviceSettings = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsHdDeviceSettings "Use generic-lens or generic-optics with 'hdDeviceSettings' instead." #-}
 
 -- | A name that you specify for the input device.
-didrsName :: Lens' DescribeInputDeviceResponse (Maybe Text)
-didrsName = lens _didrsName (\s a -> s {_didrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsName :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe Lude.Text)
+didrsName = Lens.lens (name :: DescribeInputDeviceResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique ID of the input device.
-didrsId :: Lens' DescribeInputDeviceResponse (Maybe Text)
-didrsId = lens _didrsId (\s a -> s {_didrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsId :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe Lude.Text)
+didrsId = Lens.lens (id :: DescribeInputDeviceResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The status of software on the input device.
-didrsDeviceUpdateStatus :: Lens' DescribeInputDeviceResponse (Maybe DeviceUpdateStatus)
-didrsDeviceUpdateStatus = lens _didrsDeviceUpdateStatus (\s a -> s {_didrsDeviceUpdateStatus = a})
+--
+-- /Note:/ Consider using 'deviceUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsDeviceUpdateStatus :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe DeviceUpdateStatus)
+didrsDeviceUpdateStatus = Lens.lens (deviceUpdateStatus :: DescribeInputDeviceResponse -> Lude.Maybe DeviceUpdateStatus) (\s a -> s {deviceUpdateStatus = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsDeviceUpdateStatus "Use generic-lens or generic-optics with 'deviceUpdateStatus' instead." #-}
 
 -- | The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
-didrsDeviceSettingsSyncState :: Lens' DescribeInputDeviceResponse (Maybe DeviceSettingsSyncState)
-didrsDeviceSettingsSyncState = lens _didrsDeviceSettingsSyncState (\s a -> s {_didrsDeviceSettingsSyncState = a})
+--
+-- /Note:/ Consider using 'deviceSettingsSyncState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsDeviceSettingsSyncState :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe DeviceSettingsSyncState)
+didrsDeviceSettingsSyncState = Lens.lens (deviceSettingsSyncState :: DescribeInputDeviceResponse -> Lude.Maybe DeviceSettingsSyncState) (\s a -> s {deviceSettingsSyncState = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsDeviceSettingsSyncState "Use generic-lens or generic-optics with 'deviceSettingsSyncState' instead." #-}
 
 -- | The type of the input device.
-didrsType :: Lens' DescribeInputDeviceResponse (Maybe InputDeviceType)
-didrsType = lens _didrsType (\s a -> s {_didrsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsType :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe InputDeviceType)
+didrsType = Lens.lens (type' :: DescribeInputDeviceResponse -> Lude.Maybe InputDeviceType) (\s a -> s {type' = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The unique serial number of the input device.
-didrsSerialNumber :: Lens' DescribeInputDeviceResponse (Maybe Text)
-didrsSerialNumber = lens _didrsSerialNumber (\s a -> s {_didrsSerialNumber = a})
+--
+-- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsSerialNumber :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe Lude.Text)
+didrsSerialNumber = Lens.lens (serialNumber :: DescribeInputDeviceResponse -> Lude.Maybe Lude.Text) (\s a -> s {serialNumber = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
 -- | The network settings for the input device.
-didrsNetworkSettings :: Lens' DescribeInputDeviceResponse (Maybe InputDeviceNetworkSettings)
-didrsNetworkSettings = lens _didrsNetworkSettings (\s a -> s {_didrsNetworkSettings = a})
+--
+-- /Note:/ Consider using 'networkSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsNetworkSettings :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe InputDeviceNetworkSettings)
+didrsNetworkSettings = Lens.lens (networkSettings :: DescribeInputDeviceResponse -> Lude.Maybe InputDeviceNetworkSettings) (\s a -> s {networkSettings = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsNetworkSettings "Use generic-lens or generic-optics with 'networkSettings' instead." #-}
 
 -- | The state of the connection between the input device and AWS.
-didrsConnectionState :: Lens' DescribeInputDeviceResponse (Maybe InputDeviceConnectionState)
-didrsConnectionState = lens _didrsConnectionState (\s a -> s {_didrsConnectionState = a})
+--
+-- /Note:/ Consider using 'connectionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsConnectionState :: Lens.Lens' DescribeInputDeviceResponse (Lude.Maybe InputDeviceConnectionState)
+didrsConnectionState = Lens.lens (connectionState :: DescribeInputDeviceResponse -> Lude.Maybe InputDeviceConnectionState) (\s a -> s {connectionState = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsConnectionState "Use generic-lens or generic-optics with 'connectionState' instead." #-}
 
--- | -- | The response status code.
-didrsResponseStatus :: Lens' DescribeInputDeviceResponse Int
-didrsResponseStatus = lens _didrsResponseStatus (\s a -> s {_didrsResponseStatus = a})
-
-instance NFData DescribeInputDeviceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didrsResponseStatus :: Lens.Lens' DescribeInputDeviceResponse Lude.Int
+didrsResponseStatus = Lens.lens (responseStatus :: DescribeInputDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInputDeviceResponse)
+{-# DEPRECATED didrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

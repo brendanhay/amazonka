@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,152 @@
 --
 -- Retrieves a list of all attributes associated with a specific migration task.
 module Network.AWS.MigrationHub.DescribeMigrationTask
-  ( -- * Creating a Request
-    describeMigrationTask,
-    DescribeMigrationTask,
+  ( -- * Creating a request
+    DescribeMigrationTask (..),
+    mkDescribeMigrationTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmtProgressUpdateStream,
     dmtMigrationTaskName,
 
-    -- * Destructuring the Response
-    describeMigrationTaskResponse,
-    DescribeMigrationTaskResponse,
+    -- * Destructuring the response
+    DescribeMigrationTaskResponse (..),
+    mkDescribeMigrationTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmtrsMigrationTask,
     dmtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeMigrationTask' smart constructor.
+-- | /See:/ 'mkDescribeMigrationTask' smart constructor.
 data DescribeMigrationTask = DescribeMigrationTask'
-  { _dmtProgressUpdateStream ::
-      !Text,
-    _dmtMigrationTaskName :: !Text
+  { progressUpdateStream ::
+      Lude.Text,
+    migrationTaskName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMigrationTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmtProgressUpdateStream' - The name of the ProgressUpdateStream.
---
--- * 'dmtMigrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
-describeMigrationTask ::
-  -- | 'dmtProgressUpdateStream'
-  Text ->
-  -- | 'dmtMigrationTaskName'
-  Text ->
+-- * 'migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
+-- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+mkDescribeMigrationTask ::
+  -- | 'progressUpdateStream'
+  Lude.Text ->
+  -- | 'migrationTaskName'
+  Lude.Text ->
   DescribeMigrationTask
-describeMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
+mkDescribeMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
   DescribeMigrationTask'
-    { _dmtProgressUpdateStream =
+    { progressUpdateStream =
         pProgressUpdateStream_,
-      _dmtMigrationTaskName = pMigrationTaskName_
+      migrationTaskName = pMigrationTaskName_
     }
 
 -- | The name of the ProgressUpdateStream.
-dmtProgressUpdateStream :: Lens' DescribeMigrationTask Text
-dmtProgressUpdateStream = lens _dmtProgressUpdateStream (\s a -> s {_dmtProgressUpdateStream = a})
+--
+-- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmtProgressUpdateStream :: Lens.Lens' DescribeMigrationTask Lude.Text
+dmtProgressUpdateStream = Lens.lens (progressUpdateStream :: DescribeMigrationTask -> Lude.Text) (\s a -> s {progressUpdateStream = a} :: DescribeMigrationTask)
+{-# DEPRECATED dmtProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | The identifier given to the MigrationTask. /Do not store personal data in this field./
-dmtMigrationTaskName :: Lens' DescribeMigrationTask Text
-dmtMigrationTaskName = lens _dmtMigrationTaskName (\s a -> s {_dmtMigrationTaskName = a})
+--
+-- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmtMigrationTaskName :: Lens.Lens' DescribeMigrationTask Lude.Text
+dmtMigrationTaskName = Lens.lens (migrationTaskName :: DescribeMigrationTask -> Lude.Text) (\s a -> s {migrationTaskName = a} :: DescribeMigrationTask)
+{-# DEPRECATED dmtMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
-instance AWSRequest DescribeMigrationTask where
+instance Lude.AWSRequest DescribeMigrationTask where
   type Rs DescribeMigrationTask = DescribeMigrationTaskResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMigrationTaskResponse'
-            <$> (x .?> "MigrationTask") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "MigrationTask")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMigrationTask
-
-instance NFData DescribeMigrationTask
-
-instance ToHeaders DescribeMigrationTask where
+instance Lude.ToHeaders DescribeMigrationTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.DescribeMigrationTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.DescribeMigrationTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMigrationTask where
+instance Lude.ToJSON DescribeMigrationTask where
   toJSON DescribeMigrationTask' {..} =
-    object
-      ( catMaybes
-          [ Just ("ProgressUpdateStream" .= _dmtProgressUpdateStream),
-            Just ("MigrationTaskName" .= _dmtMigrationTaskName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
+            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName)
           ]
       )
 
-instance ToPath DescribeMigrationTask where
-  toPath = const "/"
+instance Lude.ToPath DescribeMigrationTask where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMigrationTask where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMigrationTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeMigrationTaskResponse' smart constructor.
+-- | /See:/ 'mkDescribeMigrationTaskResponse' smart constructor.
 data DescribeMigrationTaskResponse = DescribeMigrationTaskResponse'
-  { _dmtrsMigrationTask ::
-      !(Maybe MigrationTask),
-    _dmtrsResponseStatus :: !Int
+  { migrationTask ::
+      Lude.Maybe MigrationTask,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMigrationTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmtrsMigrationTask' - Object encapsulating information about the migration task.
---
--- * 'dmtrsResponseStatus' - -- | The response status code.
-describeMigrationTaskResponse ::
-  -- | 'dmtrsResponseStatus'
-  Int ->
+-- * 'migrationTask' - Object encapsulating information about the migration task.
+-- * 'responseStatus' - The response status code.
+mkDescribeMigrationTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMigrationTaskResponse
-describeMigrationTaskResponse pResponseStatus_ =
+mkDescribeMigrationTaskResponse pResponseStatus_ =
   DescribeMigrationTaskResponse'
-    { _dmtrsMigrationTask = Nothing,
-      _dmtrsResponseStatus = pResponseStatus_
+    { migrationTask = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Object encapsulating information about the migration task.
-dmtrsMigrationTask :: Lens' DescribeMigrationTaskResponse (Maybe MigrationTask)
-dmtrsMigrationTask = lens _dmtrsMigrationTask (\s a -> s {_dmtrsMigrationTask = a})
+--
+-- /Note:/ Consider using 'migrationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmtrsMigrationTask :: Lens.Lens' DescribeMigrationTaskResponse (Lude.Maybe MigrationTask)
+dmtrsMigrationTask = Lens.lens (migrationTask :: DescribeMigrationTaskResponse -> Lude.Maybe MigrationTask) (\s a -> s {migrationTask = a} :: DescribeMigrationTaskResponse)
+{-# DEPRECATED dmtrsMigrationTask "Use generic-lens or generic-optics with 'migrationTask' instead." #-}
 
--- | -- | The response status code.
-dmtrsResponseStatus :: Lens' DescribeMigrationTaskResponse Int
-dmtrsResponseStatus = lens _dmtrsResponseStatus (\s a -> s {_dmtrsResponseStatus = a})
-
-instance NFData DescribeMigrationTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmtrsResponseStatus :: Lens.Lens' DescribeMigrationTaskResponse Lude.Int
+dmtrsResponseStatus = Lens.lens (responseStatus :: DescribeMigrationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMigrationTaskResponse)
+{-# DEPRECATED dmtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,113 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.InstanceDetails where
+module Network.AWS.CostExplorer.Types.InstanceDetails
+  ( InstanceDetails (..),
+
+    -- * Smart constructor
+    mkInstanceDetails,
+
+    -- * Lenses
+    idESInstanceDetails,
+    idRDSInstanceDetails,
+    idElastiCacheInstanceDetails,
+    idEC2InstanceDetails,
+    idRedshiftInstanceDetails,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.EC2InstanceDetails
 import Network.AWS.CostExplorer.Types.ESInstanceDetails
 import Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
 import Network.AWS.CostExplorer.Types.RDSInstanceDetails
 import Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the instances that AWS recommends that you purchase.
 --
---
---
--- /See:/ 'instanceDetails' smart constructor.
+-- /See:/ 'mkInstanceDetails' smart constructor.
 data InstanceDetails = InstanceDetails'
-  { _idESInstanceDetails ::
-      !(Maybe ESInstanceDetails),
-    _idRDSInstanceDetails :: !(Maybe RDSInstanceDetails),
-    _idElastiCacheInstanceDetails ::
-      !(Maybe ElastiCacheInstanceDetails),
-    _idEC2InstanceDetails :: !(Maybe EC2InstanceDetails),
-    _idRedshiftInstanceDetails ::
-      !(Maybe RedshiftInstanceDetails)
+  { eSInstanceDetails ::
+      Lude.Maybe ESInstanceDetails,
+    rdsInstanceDetails :: Lude.Maybe RDSInstanceDetails,
+    elastiCacheInstanceDetails ::
+      Lude.Maybe ElastiCacheInstanceDetails,
+    ec2InstanceDetails :: Lude.Maybe EC2InstanceDetails,
+    redshiftInstanceDetails ::
+      Lude.Maybe RedshiftInstanceDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idESInstanceDetails' - The Amazon ES instances that AWS recommends that you purchase.
---
--- * 'idRDSInstanceDetails' - The Amazon RDS instances that AWS recommends that you purchase.
---
--- * 'idElastiCacheInstanceDetails' - The ElastiCache instances that AWS recommends that you purchase.
---
--- * 'idEC2InstanceDetails' - The Amazon EC2 instances that AWS recommends that you purchase.
---
--- * 'idRedshiftInstanceDetails' - The Amazon Redshift instances that AWS recommends that you purchase.
-instanceDetails ::
+-- * 'eSInstanceDetails' - The Amazon ES instances that AWS recommends that you purchase.
+-- * 'ec2InstanceDetails' - The Amazon EC2 instances that AWS recommends that you purchase.
+-- * 'elastiCacheInstanceDetails' - The ElastiCache instances that AWS recommends that you purchase.
+-- * 'rdsInstanceDetails' - The Amazon RDS instances that AWS recommends that you purchase.
+-- * 'redshiftInstanceDetails' - The Amazon Redshift instances that AWS recommends that you purchase.
+mkInstanceDetails ::
   InstanceDetails
-instanceDetails =
+mkInstanceDetails =
   InstanceDetails'
-    { _idESInstanceDetails = Nothing,
-      _idRDSInstanceDetails = Nothing,
-      _idElastiCacheInstanceDetails = Nothing,
-      _idEC2InstanceDetails = Nothing,
-      _idRedshiftInstanceDetails = Nothing
+    { eSInstanceDetails = Lude.Nothing,
+      rdsInstanceDetails = Lude.Nothing,
+      elastiCacheInstanceDetails = Lude.Nothing,
+      ec2InstanceDetails = Lude.Nothing,
+      redshiftInstanceDetails = Lude.Nothing
     }
 
 -- | The Amazon ES instances that AWS recommends that you purchase.
-idESInstanceDetails :: Lens' InstanceDetails (Maybe ESInstanceDetails)
-idESInstanceDetails = lens _idESInstanceDetails (\s a -> s {_idESInstanceDetails = a})
+--
+-- /Note:/ Consider using 'eSInstanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idESInstanceDetails :: Lens.Lens' InstanceDetails (Lude.Maybe ESInstanceDetails)
+idESInstanceDetails = Lens.lens (eSInstanceDetails :: InstanceDetails -> Lude.Maybe ESInstanceDetails) (\s a -> s {eSInstanceDetails = a} :: InstanceDetails)
+{-# DEPRECATED idESInstanceDetails "Use generic-lens or generic-optics with 'eSInstanceDetails' instead." #-}
 
 -- | The Amazon RDS instances that AWS recommends that you purchase.
-idRDSInstanceDetails :: Lens' InstanceDetails (Maybe RDSInstanceDetails)
-idRDSInstanceDetails = lens _idRDSInstanceDetails (\s a -> s {_idRDSInstanceDetails = a})
+--
+-- /Note:/ Consider using 'rdsInstanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idRDSInstanceDetails :: Lens.Lens' InstanceDetails (Lude.Maybe RDSInstanceDetails)
+idRDSInstanceDetails = Lens.lens (rdsInstanceDetails :: InstanceDetails -> Lude.Maybe RDSInstanceDetails) (\s a -> s {rdsInstanceDetails = a} :: InstanceDetails)
+{-# DEPRECATED idRDSInstanceDetails "Use generic-lens or generic-optics with 'rdsInstanceDetails' instead." #-}
 
 -- | The ElastiCache instances that AWS recommends that you purchase.
-idElastiCacheInstanceDetails :: Lens' InstanceDetails (Maybe ElastiCacheInstanceDetails)
-idElastiCacheInstanceDetails = lens _idElastiCacheInstanceDetails (\s a -> s {_idElastiCacheInstanceDetails = a})
+--
+-- /Note:/ Consider using 'elastiCacheInstanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idElastiCacheInstanceDetails :: Lens.Lens' InstanceDetails (Lude.Maybe ElastiCacheInstanceDetails)
+idElastiCacheInstanceDetails = Lens.lens (elastiCacheInstanceDetails :: InstanceDetails -> Lude.Maybe ElastiCacheInstanceDetails) (\s a -> s {elastiCacheInstanceDetails = a} :: InstanceDetails)
+{-# DEPRECATED idElastiCacheInstanceDetails "Use generic-lens or generic-optics with 'elastiCacheInstanceDetails' instead." #-}
 
 -- | The Amazon EC2 instances that AWS recommends that you purchase.
-idEC2InstanceDetails :: Lens' InstanceDetails (Maybe EC2InstanceDetails)
-idEC2InstanceDetails = lens _idEC2InstanceDetails (\s a -> s {_idEC2InstanceDetails = a})
+--
+-- /Note:/ Consider using 'ec2InstanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idEC2InstanceDetails :: Lens.Lens' InstanceDetails (Lude.Maybe EC2InstanceDetails)
+idEC2InstanceDetails = Lens.lens (ec2InstanceDetails :: InstanceDetails -> Lude.Maybe EC2InstanceDetails) (\s a -> s {ec2InstanceDetails = a} :: InstanceDetails)
+{-# DEPRECATED idEC2InstanceDetails "Use generic-lens or generic-optics with 'ec2InstanceDetails' instead." #-}
 
 -- | The Amazon Redshift instances that AWS recommends that you purchase.
-idRedshiftInstanceDetails :: Lens' InstanceDetails (Maybe RedshiftInstanceDetails)
-idRedshiftInstanceDetails = lens _idRedshiftInstanceDetails (\s a -> s {_idRedshiftInstanceDetails = a})
+--
+-- /Note:/ Consider using 'redshiftInstanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idRedshiftInstanceDetails :: Lens.Lens' InstanceDetails (Lude.Maybe RedshiftInstanceDetails)
+idRedshiftInstanceDetails = Lens.lens (redshiftInstanceDetails :: InstanceDetails -> Lude.Maybe RedshiftInstanceDetails) (\s a -> s {redshiftInstanceDetails = a} :: InstanceDetails)
+{-# DEPRECATED idRedshiftInstanceDetails "Use generic-lens or generic-optics with 'redshiftInstanceDetails' instead." #-}
 
-instance FromJSON InstanceDetails where
+instance Lude.FromJSON InstanceDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceDetails"
       ( \x ->
           InstanceDetails'
-            <$> (x .:? "ESInstanceDetails")
-            <*> (x .:? "RDSInstanceDetails")
-            <*> (x .:? "ElastiCacheInstanceDetails")
-            <*> (x .:? "EC2InstanceDetails")
-            <*> (x .:? "RedshiftInstanceDetails")
+            Lude.<$> (x Lude..:? "ESInstanceDetails")
+            Lude.<*> (x Lude..:? "RDSInstanceDetails")
+            Lude.<*> (x Lude..:? "ElastiCacheInstanceDetails")
+            Lude.<*> (x Lude..:? "EC2InstanceDetails")
+            Lude.<*> (x Lude..:? "RedshiftInstanceDetails")
       )
-
-instance Hashable InstanceDetails
-
-instance NFData InstanceDetails

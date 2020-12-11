@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchFilterGroup where
+module Network.AWS.SSM.Types.PatchFilterGroup
+  ( PatchFilterGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPatchFilterGroup,
+
+    -- * Lenses
+    pfgPatchFilters,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.PatchFilter
 
 -- | A set of patch filters, typically used for approval rules.
 --
---
---
--- /See:/ 'patchFilterGroup' smart constructor.
+-- /See:/ 'mkPatchFilterGroup' smart constructor.
 newtype PatchFilterGroup = PatchFilterGroup'
-  { _pfgPatchFilters ::
+  { patchFilters ::
       [PatchFilter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchFilterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfgPatchFilters' - The set of patch filters that make up the group.
-patchFilterGroup ::
+-- * 'patchFilters' - The set of patch filters that make up the group.
+mkPatchFilterGroup ::
   PatchFilterGroup
-patchFilterGroup = PatchFilterGroup' {_pfgPatchFilters = mempty}
+mkPatchFilterGroup = PatchFilterGroup' {patchFilters = Lude.mempty}
 
 -- | The set of patch filters that make up the group.
-pfgPatchFilters :: Lens' PatchFilterGroup [PatchFilter]
-pfgPatchFilters = lens _pfgPatchFilters (\s a -> s {_pfgPatchFilters = a}) . _Coerce
+--
+-- /Note:/ Consider using 'patchFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfgPatchFilters :: Lens.Lens' PatchFilterGroup [PatchFilter]
+pfgPatchFilters = Lens.lens (patchFilters :: PatchFilterGroup -> [PatchFilter]) (\s a -> s {patchFilters = a} :: PatchFilterGroup)
+{-# DEPRECATED pfgPatchFilters "Use generic-lens or generic-optics with 'patchFilters' instead." #-}
 
-instance FromJSON PatchFilterGroup where
+instance Lude.FromJSON PatchFilterGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "PatchFilterGroup"
-      (\x -> PatchFilterGroup' <$> (x .:? "PatchFilters" .!= mempty))
+      ( \x ->
+          PatchFilterGroup'
+            Lude.<$> (x Lude..:? "PatchFilters" Lude..!= Lude.mempty)
+      )
 
-instance Hashable PatchFilterGroup
-
-instance NFData PatchFilterGroup
-
-instance ToJSON PatchFilterGroup where
+instance Lude.ToJSON PatchFilterGroup where
   toJSON PatchFilterGroup' {..} =
-    object (catMaybes [Just ("PatchFilters" .= _pfgPatchFilters)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PatchFilters" Lude..= patchFilters)])

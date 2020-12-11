@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AvailBlanking where
+module Network.AWS.MediaConvert.Types.AvailBlanking
+  ( AvailBlanking (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAvailBlanking,
+
+    -- * Lenses
+    abAvailBlankingImage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for Avail Blanking
 --
--- /See:/ 'availBlanking' smart constructor.
+-- /See:/ 'mkAvailBlanking' smart constructor.
 newtype AvailBlanking = AvailBlanking'
-  { _abAvailBlankingImage ::
-      Maybe Text
+  { availBlankingImage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailBlanking' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'abAvailBlankingImage' - Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
-availBlanking ::
+-- * 'availBlankingImage' - Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
+mkAvailBlanking ::
   AvailBlanking
-availBlanking = AvailBlanking' {_abAvailBlankingImage = Nothing}
+mkAvailBlanking = AvailBlanking' {availBlankingImage = Lude.Nothing}
 
 -- | Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
-abAvailBlankingImage :: Lens' AvailBlanking (Maybe Text)
-abAvailBlankingImage = lens _abAvailBlankingImage (\s a -> s {_abAvailBlankingImage = a})
+--
+-- /Note:/ Consider using 'availBlankingImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abAvailBlankingImage :: Lens.Lens' AvailBlanking (Lude.Maybe Lude.Text)
+abAvailBlankingImage = Lens.lens (availBlankingImage :: AvailBlanking -> Lude.Maybe Lude.Text) (\s a -> s {availBlankingImage = a} :: AvailBlanking)
+{-# DEPRECATED abAvailBlankingImage "Use generic-lens or generic-optics with 'availBlankingImage' instead." #-}
 
-instance FromJSON AvailBlanking where
+instance Lude.FromJSON AvailBlanking where
   parseJSON =
-    withObject
+    Lude.withObject
       "AvailBlanking"
-      (\x -> AvailBlanking' <$> (x .:? "availBlankingImage"))
+      (\x -> AvailBlanking' Lude.<$> (x Lude..:? "availBlankingImage"))
 
-instance Hashable AvailBlanking
-
-instance NFData AvailBlanking
-
-instance ToJSON AvailBlanking where
+instance Lude.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
-    object
-      (catMaybes [("availBlankingImage" .=) <$> _abAvailBlankingImage])
+    Lude.object
+      ( Lude.catMaybes
+          [("availBlankingImage" Lude..=) Lude.<$> availBlankingImage]
+      )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,156 @@
 --
 -- Deletes a previously provisioned cluster. @DeleteCacheCluster@ deletes all associated cache nodes, node endpoints and the cluster itself. When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the cluster; you cannot cancel or revert this operation.
 --
---
 -- This operation is not valid for:
 --
 --     * Redis (cluster mode enabled) clusters
 --
+--
 --     * A cluster that is the last read replica of a replication group
+--
 --
 --     * A node group (shard) that has Multi-AZ mode enabled
 --
+--
 --     * A cluster from a Redis (cluster mode enabled) replication group
+--
 --
 --     * A cluster that is not in the @available@ state
 module Network.AWS.ElastiCache.DeleteCacheCluster
-  ( -- * Creating a Request
-    deleteCacheCluster,
-    DeleteCacheCluster,
+  ( -- * Creating a request
+    DeleteCacheCluster (..),
+    mkDeleteCacheCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dccFinalSnapshotIdentifier,
     dccCacheClusterId,
 
-    -- * Destructuring the Response
-    deleteCacheClusterResponse,
-    DeleteCacheClusterResponse,
+    -- * Destructuring the response
+    DeleteCacheClusterResponse (..),
+    mkDeleteCacheClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dccrsCacheCluster,
     dccrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DeleteCacheCluster@ operation.
 --
---
---
--- /See:/ 'deleteCacheCluster' smart constructor.
+-- /See:/ 'mkDeleteCacheCluster' smart constructor.
 data DeleteCacheCluster = DeleteCacheCluster'
-  { _dccFinalSnapshotIdentifier ::
-      !(Maybe Text),
-    _dccCacheClusterId :: !Text
+  { finalSnapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    cacheClusterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCacheCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccFinalSnapshotIdentifier' - The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
---
--- * 'dccCacheClusterId' - The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
-deleteCacheCluster ::
-  -- | 'dccCacheClusterId'
-  Text ->
+-- * 'cacheClusterId' - The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
+-- * 'finalSnapshotIdentifier' - The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
+mkDeleteCacheCluster ::
+  -- | 'cacheClusterId'
+  Lude.Text ->
   DeleteCacheCluster
-deleteCacheCluster pCacheClusterId_ =
+mkDeleteCacheCluster pCacheClusterId_ =
   DeleteCacheCluster'
-    { _dccFinalSnapshotIdentifier = Nothing,
-      _dccCacheClusterId = pCacheClusterId_
+    { finalSnapshotIdentifier = Lude.Nothing,
+      cacheClusterId = pCacheClusterId_
     }
 
 -- | The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
-dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
-dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\s a -> s {_dccFinalSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'finalSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccFinalSnapshotIdentifier :: Lens.Lens' DeleteCacheCluster (Lude.Maybe Lude.Text)
+dccFinalSnapshotIdentifier = Lens.lens (finalSnapshotIdentifier :: DeleteCacheCluster -> Lude.Maybe Lude.Text) (\s a -> s {finalSnapshotIdentifier = a} :: DeleteCacheCluster)
+{-# DEPRECATED dccFinalSnapshotIdentifier "Use generic-lens or generic-optics with 'finalSnapshotIdentifier' instead." #-}
 
 -- | The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
-dccCacheClusterId :: Lens' DeleteCacheCluster Text
-dccCacheClusterId = lens _dccCacheClusterId (\s a -> s {_dccCacheClusterId = a})
+--
+-- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccCacheClusterId :: Lens.Lens' DeleteCacheCluster Lude.Text
+dccCacheClusterId = Lens.lens (cacheClusterId :: DeleteCacheCluster -> Lude.Text) (\s a -> s {cacheClusterId = a} :: DeleteCacheCluster)
+{-# DEPRECATED dccCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
-instance AWSRequest DeleteCacheCluster where
+instance Lude.AWSRequest DeleteCacheCluster where
   type Rs DeleteCacheCluster = DeleteCacheClusterResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteCacheClusterResult"
       ( \s h x ->
           DeleteCacheClusterResponse'
-            <$> (x .@? "CacheCluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "CacheCluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCacheCluster
+instance Lude.ToHeaders DeleteCacheCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteCacheCluster
+instance Lude.ToPath DeleteCacheCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteCacheCluster where
-  toHeaders = const mempty
-
-instance ToPath DeleteCacheCluster where
-  toPath = const "/"
-
-instance ToQuery DeleteCacheCluster where
+instance Lude.ToQuery DeleteCacheCluster where
   toQuery DeleteCacheCluster' {..} =
-    mconcat
-      [ "Action" =: ("DeleteCacheCluster" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "FinalSnapshotIdentifier" =: _dccFinalSnapshotIdentifier,
-        "CacheClusterId" =: _dccCacheClusterId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteCacheCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "FinalSnapshotIdentifier" Lude.=: finalSnapshotIdentifier,
+        "CacheClusterId" Lude.=: cacheClusterId
       ]
 
--- | /See:/ 'deleteCacheClusterResponse' smart constructor.
+-- | /See:/ 'mkDeleteCacheClusterResponse' smart constructor.
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
-  { _dccrsCacheCluster ::
-      !(Maybe CacheCluster),
-    _dccrsResponseStatus :: !Int
+  { cacheCluster ::
+      Lude.Maybe CacheCluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCacheClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccrsCacheCluster' - Undocumented member.
---
--- * 'dccrsResponseStatus' - -- | The response status code.
-deleteCacheClusterResponse ::
-  -- | 'dccrsResponseStatus'
-  Int ->
+-- * 'cacheCluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteCacheClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCacheClusterResponse
-deleteCacheClusterResponse pResponseStatus_ =
+mkDeleteCacheClusterResponse pResponseStatus_ =
   DeleteCacheClusterResponse'
-    { _dccrsCacheCluster = Nothing,
-      _dccrsResponseStatus = pResponseStatus_
+    { cacheCluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
-dccrsCacheCluster = lens _dccrsCacheCluster (\s a -> s {_dccrsCacheCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cacheCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccrsCacheCluster :: Lens.Lens' DeleteCacheClusterResponse (Lude.Maybe CacheCluster)
+dccrsCacheCluster = Lens.lens (cacheCluster :: DeleteCacheClusterResponse -> Lude.Maybe CacheCluster) (\s a -> s {cacheCluster = a} :: DeleteCacheClusterResponse)
+{-# DEPRECATED dccrsCacheCluster "Use generic-lens or generic-optics with 'cacheCluster' instead." #-}
 
--- | -- | The response status code.
-dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\s a -> s {_dccrsResponseStatus = a})
-
-instance NFData DeleteCacheClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccrsResponseStatus :: Lens.Lens' DeleteCacheClusterResponse Lude.Int
+dccrsResponseStatus = Lens.lens (responseStatus :: DeleteCacheClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCacheClusterResponse)
+{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

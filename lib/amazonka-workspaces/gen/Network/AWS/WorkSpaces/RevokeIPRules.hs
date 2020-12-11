@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,130 @@
 --
 -- Removes one or more rules from the specified IP access control group.
 module Network.AWS.WorkSpaces.RevokeIPRules
-  ( -- * Creating a Request
-    revokeIPRules,
-    RevokeIPRules,
+  ( -- * Creating a request
+    RevokeIPRules (..),
+    mkRevokeIPRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rirGroupId,
     rirUserRules,
 
-    -- * Destructuring the Response
-    revokeIPRulesResponse,
-    RevokeIPRulesResponse,
+    -- * Destructuring the response
+    RevokeIPRulesResponse (..),
+    mkRevokeIPRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rirrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'revokeIPRules' smart constructor.
+-- | /See:/ 'mkRevokeIPRules' smart constructor.
 data RevokeIPRules = RevokeIPRules'
-  { _rirGroupId :: !Text,
-    _rirUserRules :: ![Text]
+  { groupId :: Lude.Text,
+    userRules :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeIPRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rirGroupId' - The identifier of the group.
---
--- * 'rirUserRules' - The rules to remove from the group.
-revokeIPRules ::
-  -- | 'rirGroupId'
-  Text ->
+-- * 'groupId' - The identifier of the group.
+-- * 'userRules' - The rules to remove from the group.
+mkRevokeIPRules ::
+  -- | 'groupId'
+  Lude.Text ->
   RevokeIPRules
-revokeIPRules pGroupId_ =
-  RevokeIPRules' {_rirGroupId = pGroupId_, _rirUserRules = mempty}
+mkRevokeIPRules pGroupId_ =
+  RevokeIPRules' {groupId = pGroupId_, userRules = Lude.mempty}
 
 -- | The identifier of the group.
-rirGroupId :: Lens' RevokeIPRules Text
-rirGroupId = lens _rirGroupId (\s a -> s {_rirGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirGroupId :: Lens.Lens' RevokeIPRules Lude.Text
+rirGroupId = Lens.lens (groupId :: RevokeIPRules -> Lude.Text) (\s a -> s {groupId = a} :: RevokeIPRules)
+{-# DEPRECATED rirGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The rules to remove from the group.
-rirUserRules :: Lens' RevokeIPRules [Text]
-rirUserRules = lens _rirUserRules (\s a -> s {_rirUserRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'userRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirUserRules :: Lens.Lens' RevokeIPRules [Lude.Text]
+rirUserRules = Lens.lens (userRules :: RevokeIPRules -> [Lude.Text]) (\s a -> s {userRules = a} :: RevokeIPRules)
+{-# DEPRECATED rirUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
 
-instance AWSRequest RevokeIPRules where
+instance Lude.AWSRequest RevokeIPRules where
   type Rs RevokeIPRules = RevokeIPRulesResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> RevokeIPRulesResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          RevokeIPRulesResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable RevokeIPRules
-
-instance NFData RevokeIPRules
-
-instance ToHeaders RevokeIPRules where
+instance Lude.ToHeaders RevokeIPRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.RevokeIpRules" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.RevokeIpRules" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RevokeIPRules where
+instance Lude.ToJSON RevokeIPRules where
   toJSON RevokeIPRules' {..} =
-    object
-      ( catMaybes
-          [ Just ("GroupId" .= _rirGroupId),
-            Just ("UserRules" .= _rirUserRules)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GroupId" Lude..= groupId),
+            Lude.Just ("UserRules" Lude..= userRules)
           ]
       )
 
-instance ToPath RevokeIPRules where
-  toPath = const "/"
+instance Lude.ToPath RevokeIPRules where
+  toPath = Lude.const "/"
 
-instance ToQuery RevokeIPRules where
-  toQuery = const mempty
+instance Lude.ToQuery RevokeIPRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'revokeIPRulesResponse' smart constructor.
+-- | /See:/ 'mkRevokeIPRulesResponse' smart constructor.
 newtype RevokeIPRulesResponse = RevokeIPRulesResponse'
-  { _rirrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeIPRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rirrsResponseStatus' - -- | The response status code.
-revokeIPRulesResponse ::
-  -- | 'rirrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRevokeIPRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RevokeIPRulesResponse
-revokeIPRulesResponse pResponseStatus_ =
-  RevokeIPRulesResponse' {_rirrsResponseStatus = pResponseStatus_}
+mkRevokeIPRulesResponse pResponseStatus_ =
+  RevokeIPRulesResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rirrsResponseStatus :: Lens' RevokeIPRulesResponse Int
-rirrsResponseStatus = lens _rirrsResponseStatus (\s a -> s {_rirrsResponseStatus = a})
-
-instance NFData RevokeIPRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirrsResponseStatus :: Lens.Lens' RevokeIPRulesResponse Lude.Int
+rirrsResponseStatus = Lens.lens (responseStatus :: RevokeIPRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RevokeIPRulesResponse)
+{-# DEPRECATED rirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

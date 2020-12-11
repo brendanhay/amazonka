@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CommandStatus where
+module Network.AWS.SSM.Types.CommandStatus
+  ( CommandStatus
+      ( CommandStatus',
+        CSCancelled,
+        CSCancelling,
+        CSFailed,
+        CSInProgress,
+        CSPending,
+        CSSuccess,
+        CSTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CommandStatus
-  = CSCancelled
-  | CSCancelling
-  | CSFailed
-  | CSInProgress
-  | CSPending
-  | CSSuccess
-  | CSTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CommandStatus = CommandStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CommandStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure CSCancelled
-      "cancelling" -> pure CSCancelling
-      "failed" -> pure CSFailed
-      "inprogress" -> pure CSInProgress
-      "pending" -> pure CSPending
-      "success" -> pure CSSuccess
-      "timedout" -> pure CSTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing CommandStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, success, timedout"
+pattern CSCancelled :: CommandStatus
+pattern CSCancelled = CommandStatus' "Cancelled"
 
-instance ToText CommandStatus where
-  toText = \case
-    CSCancelled -> "Cancelled"
-    CSCancelling -> "Cancelling"
-    CSFailed -> "Failed"
-    CSInProgress -> "InProgress"
-    CSPending -> "Pending"
-    CSSuccess -> "Success"
-    CSTimedOut -> "TimedOut"
+pattern CSCancelling :: CommandStatus
+pattern CSCancelling = CommandStatus' "Cancelling"
 
-instance Hashable CommandStatus
+pattern CSFailed :: CommandStatus
+pattern CSFailed = CommandStatus' "Failed"
 
-instance NFData CommandStatus
+pattern CSInProgress :: CommandStatus
+pattern CSInProgress = CommandStatus' "InProgress"
 
-instance ToByteString CommandStatus
+pattern CSPending :: CommandStatus
+pattern CSPending = CommandStatus' "Pending"
 
-instance ToQuery CommandStatus
+pattern CSSuccess :: CommandStatus
+pattern CSSuccess = CommandStatus' "Success"
 
-instance ToHeader CommandStatus
+pattern CSTimedOut :: CommandStatus
+pattern CSTimedOut = CommandStatus' "TimedOut"
 
-instance FromJSON CommandStatus where
-  parseJSON = parseJSONText "CommandStatus"
+{-# COMPLETE
+  CSCancelled,
+  CSCancelling,
+  CSFailed,
+  CSInProgress,
+  CSPending,
+  CSSuccess,
+  CSTimedOut,
+  CommandStatus'
+  #-}

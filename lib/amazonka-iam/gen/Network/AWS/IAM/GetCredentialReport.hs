@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Retrieves a credential report for the AWS account. For more information about the credential report, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/ .
 module Network.AWS.IAM.GetCredentialReport
-  ( -- * Creating a Request
-    getCredentialReport,
-    GetCredentialReport,
+  ( -- * Creating a request
+    GetCredentialReport (..),
+    mkGetCredentialReport,
 
-    -- * Destructuring the Response
-    getCredentialReportResponse,
-    GetCredentialReportResponse,
+    -- * Destructuring the response
+    GetCredentialReportResponse (..),
+    mkGetCredentialReportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsContent,
     grsGeneratedTime,
     grsReportFormat,
@@ -36,106 +31,127 @@ module Network.AWS.IAM.GetCredentialReport
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCredentialReport' smart constructor.
+-- | /See:/ 'mkGetCredentialReport' smart constructor.
 data GetCredentialReport = GetCredentialReport'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCredentialReport' with the minimum fields required to make a request.
-getCredentialReport ::
+mkGetCredentialReport ::
   GetCredentialReport
-getCredentialReport = GetCredentialReport'
+mkGetCredentialReport = GetCredentialReport'
 
-instance AWSRequest GetCredentialReport where
+instance Lude.AWSRequest GetCredentialReport where
   type Rs GetCredentialReport = GetCredentialReportResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetCredentialReportResult"
       ( \s h x ->
           GetCredentialReportResponse'
-            <$> (x .@? "Content")
-            <*> (x .@? "GeneratedTime")
-            <*> (x .@? "ReportFormat")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Content")
+            Lude.<*> (x Lude..@? "GeneratedTime")
+            Lude.<*> (x Lude..@? "ReportFormat")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCredentialReport
+instance Lude.ToHeaders GetCredentialReport where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetCredentialReport
+instance Lude.ToPath GetCredentialReport where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetCredentialReport where
-  toHeaders = const mempty
-
-instance ToPath GetCredentialReport where
-  toPath = const "/"
-
-instance ToQuery GetCredentialReport where
+instance Lude.ToQuery GetCredentialReport where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("GetCredentialReport" :: ByteString),
-            "Version" =: ("2010-05-08" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("GetCredentialReport" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
           ]
       )
 
 -- | Contains the response to a successful 'GetCredentialReport' request.
 --
---
---
--- /See:/ 'getCredentialReportResponse' smart constructor.
+-- /See:/ 'mkGetCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
-  { _grsContent ::
-      !(Maybe Base64),
-    _grsGeneratedTime ::
-      !(Maybe ISO8601),
-    _grsReportFormat ::
-      !(Maybe ReportFormatType),
-    _grsResponseStatus :: !Int
+  { content ::
+      Lude.Maybe Lude.Base64,
+    generatedTime ::
+      Lude.Maybe Lude.ISO8601,
+    reportFormat ::
+      Lude.Maybe ReportFormatType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCredentialReportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsContent' - Contains the credential report. The report is Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'grsGeneratedTime' - The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
---
--- * 'grsReportFormat' - The format (MIME type) of the credential report.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getCredentialReportResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'content' - Contains the credential report. The report is Base64-encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'generatedTime' - The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
+-- * 'reportFormat' - The format (MIME type) of the credential report.
+-- * 'responseStatus' - The response status code.
+mkGetCredentialReportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCredentialReportResponse
-getCredentialReportResponse pResponseStatus_ =
+mkGetCredentialReportResponse pResponseStatus_ =
   GetCredentialReportResponse'
-    { _grsContent = Nothing,
-      _grsGeneratedTime = Nothing,
-      _grsReportFormat = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { content = Lude.Nothing,
+      generatedTime = Lude.Nothing,
+      reportFormat = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Contains the credential report. The report is Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
-grsContent = lens _grsContent (\s a -> s {_grsContent = a}) . mapping _Base64
+-- | Contains the credential report. The report is Base64-encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsContent :: Lens.Lens' GetCredentialReportResponse (Lude.Maybe Lude.Base64)
+grsContent = Lens.lens (content :: GetCredentialReportResponse -> Lude.Maybe Lude.Base64) (\s a -> s {content = a} :: GetCredentialReportResponse)
+{-# DEPRECATED grsContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
-grsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
-grsGeneratedTime = lens _grsGeneratedTime (\s a -> s {_grsGeneratedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'generatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsGeneratedTime :: Lens.Lens' GetCredentialReportResponse (Lude.Maybe Lude.ISO8601)
+grsGeneratedTime = Lens.lens (generatedTime :: GetCredentialReportResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {generatedTime = a} :: GetCredentialReportResponse)
+{-# DEPRECATED grsGeneratedTime "Use generic-lens or generic-optics with 'generatedTime' instead." #-}
 
 -- | The format (MIME type) of the credential report.
-grsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
-grsReportFormat = lens _grsReportFormat (\s a -> s {_grsReportFormat = a})
+--
+-- /Note:/ Consider using 'reportFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsReportFormat :: Lens.Lens' GetCredentialReportResponse (Lude.Maybe ReportFormatType)
+grsReportFormat = Lens.lens (reportFormat :: GetCredentialReportResponse -> Lude.Maybe ReportFormatType) (\s a -> s {reportFormat = a} :: GetCredentialReportResponse)
+{-# DEPRECATED grsReportFormat "Use generic-lens or generic-optics with 'reportFormat' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetCredentialReportResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetCredentialReportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetCredentialReportResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetCredentialReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCredentialReportResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

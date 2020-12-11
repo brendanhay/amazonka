@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about a specified RTMP distribution, including the distribution configuration.
 module Network.AWS.CloudFront.GetStreamingDistribution
-  ( -- * Creating a Request
-    getStreamingDistribution,
-    GetStreamingDistribution,
+  ( -- * Creating a request
+    GetStreamingDistribution (..),
+    mkGetStreamingDistribution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsdId,
 
-    -- * Destructuring the Response
-    getStreamingDistributionResponse,
-    GetStreamingDistributionResponse,
+    -- * Destructuring the response
+    GetStreamingDistributionResponse (..),
+    mkGetStreamingDistributionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsdrsETag,
     gsdrsStreamingDistribution,
     gsdrsResponseStatus,
@@ -38,109 +33,121 @@ module Network.AWS.CloudFront.GetStreamingDistribution
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to get a streaming distribution's information.
 --
---
---
--- /See:/ 'getStreamingDistribution' smart constructor.
+-- /See:/ 'mkGetStreamingDistribution' smart constructor.
 newtype GetStreamingDistribution = GetStreamingDistribution'
-  { _gsdId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStreamingDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsdId' - The streaming distribution's ID.
-getStreamingDistribution ::
-  -- | 'gsdId'
-  Text ->
+-- * 'id' - The streaming distribution's ID.
+mkGetStreamingDistribution ::
+  -- | 'id'
+  Lude.Text ->
   GetStreamingDistribution
-getStreamingDistribution pId_ =
-  GetStreamingDistribution' {_gsdId = pId_}
+mkGetStreamingDistribution pId_ =
+  GetStreamingDistribution' {id = pId_}
 
 -- | The streaming distribution's ID.
-gsdId :: Lens' GetStreamingDistribution Text
-gsdId = lens _gsdId (\s a -> s {_gsdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdId :: Lens.Lens' GetStreamingDistribution Lude.Text
+gsdId = Lens.lens (id :: GetStreamingDistribution -> Lude.Text) (\s a -> s {id = a} :: GetStreamingDistribution)
+{-# DEPRECATED gsdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetStreamingDistribution where
+instance Lude.AWSRequest GetStreamingDistribution where
   type Rs GetStreamingDistribution = GetStreamingDistributionResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetStreamingDistributionResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetStreamingDistribution
+instance Lude.ToHeaders GetStreamingDistribution where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetStreamingDistribution
-
-instance ToHeaders GetStreamingDistribution where
-  toHeaders = const mempty
-
-instance ToPath GetStreamingDistribution where
+instance Lude.ToPath GetStreamingDistribution where
   toPath GetStreamingDistribution' {..} =
-    mconcat ["/2020-05-31/streaming-distribution/", toBS _gsdId]
+    Lude.mconcat
+      ["/2020-05-31/streaming-distribution/", Lude.toBS id]
 
-instance ToQuery GetStreamingDistribution where
-  toQuery = const mempty
+instance Lude.ToQuery GetStreamingDistribution where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'getStreamingDistributionResponse' smart constructor.
+-- /See:/ 'mkGetStreamingDistributionResponse' smart constructor.
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
-  { _gsdrsETag ::
-      !(Maybe Text),
-    _gsdrsStreamingDistribution ::
-      !( Maybe
-           StreamingDistribution
-       ),
-    _gsdrsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    streamingDistribution ::
+      Lude.Maybe
+        StreamingDistribution,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStreamingDistributionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsdrsETag' - The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'gsdrsStreamingDistribution' - The streaming distribution's information.
---
--- * 'gsdrsResponseStatus' - -- | The response status code.
-getStreamingDistributionResponse ::
-  -- | 'gsdrsResponseStatus'
-  Int ->
+-- * 'eTag' - The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
+-- * 'responseStatus' - The response status code.
+-- * 'streamingDistribution' - The streaming distribution's information.
+mkGetStreamingDistributionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetStreamingDistributionResponse
-getStreamingDistributionResponse pResponseStatus_ =
+mkGetStreamingDistributionResponse pResponseStatus_ =
   GetStreamingDistributionResponse'
-    { _gsdrsETag = Nothing,
-      _gsdrsStreamingDistribution = Nothing,
-      _gsdrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      streamingDistribution = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
-gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
-gsdrsETag = lens _gsdrsETag (\s a -> s {_gsdrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdrsETag :: Lens.Lens' GetStreamingDistributionResponse (Lude.Maybe Lude.Text)
+gsdrsETag = Lens.lens (eTag :: GetStreamingDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetStreamingDistributionResponse)
+{-# DEPRECATED gsdrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The streaming distribution's information.
-gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\s a -> s {_gsdrsStreamingDistribution = a})
+--
+-- /Note:/ Consider using 'streamingDistribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdrsStreamingDistribution :: Lens.Lens' GetStreamingDistributionResponse (Lude.Maybe StreamingDistribution)
+gsdrsStreamingDistribution = Lens.lens (streamingDistribution :: GetStreamingDistributionResponse -> Lude.Maybe StreamingDistribution) (\s a -> s {streamingDistribution = a} :: GetStreamingDistributionResponse)
+{-# DEPRECATED gsdrsStreamingDistribution "Use generic-lens or generic-optics with 'streamingDistribution' instead." #-}
 
--- | -- | The response status code.
-gsdrsResponseStatus :: Lens' GetStreamingDistributionResponse Int
-gsdrsResponseStatus = lens _gsdrsResponseStatus (\s a -> s {_gsdrsResponseStatus = a})
-
-instance NFData GetStreamingDistributionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdrsResponseStatus :: Lens.Lens' GetStreamingDistributionResponse Lude.Int
+gsdrsResponseStatus = Lens.lens (responseStatus :: GetStreamingDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStreamingDistributionResponse)
+{-# DEPRECATED gsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

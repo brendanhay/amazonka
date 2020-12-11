@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ParameterRange where
+module Network.AWS.SageMaker.Types.ParameterRange
+  ( ParameterRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterRange,
+
+    -- * Lenses
+    prCategoricalParameterRangeSpecification,
+    prIntegerParameterRangeSpecification,
+    prContinuousParameterRangeSpecification,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.CategoricalParameterRangeSpecification
 import Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification
 import Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
 
 -- | Defines the possible values for categorical, continuous, and integer hyperparameters to be used by an algorithm.
 --
---
---
--- /See:/ 'parameterRange' smart constructor.
+-- /See:/ 'mkParameterRange' smart constructor.
 data ParameterRange = ParameterRange'
-  { _prCategoricalParameterRangeSpecification ::
-      !(Maybe CategoricalParameterRangeSpecification),
-    _prIntegerParameterRangeSpecification ::
-      !(Maybe IntegerParameterRangeSpecification),
-    _prContinuousParameterRangeSpecification ::
-      !(Maybe ContinuousParameterRangeSpecification)
+  { categoricalParameterRangeSpecification ::
+      Lude.Maybe CategoricalParameterRangeSpecification,
+    integerParameterRangeSpecification ::
+      Lude.Maybe IntegerParameterRangeSpecification,
+    continuousParameterRangeSpecification ::
+      Lude.Maybe ContinuousParameterRangeSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prCategoricalParameterRangeSpecification' - A @CategoricalParameterRangeSpecification@ object that defines the possible values for a categorical hyperparameter.
---
--- * 'prIntegerParameterRangeSpecification' - A @IntegerParameterRangeSpecification@ object that defines the possible values for an integer hyperparameter.
---
--- * 'prContinuousParameterRangeSpecification' - A @ContinuousParameterRangeSpecification@ object that defines the possible values for a continuous hyperparameter.
-parameterRange ::
+-- * 'categoricalParameterRangeSpecification' - A @CategoricalParameterRangeSpecification@ object that defines the possible values for a categorical hyperparameter.
+-- * 'continuousParameterRangeSpecification' - A @ContinuousParameterRangeSpecification@ object that defines the possible values for a continuous hyperparameter.
+-- * 'integerParameterRangeSpecification' - A @IntegerParameterRangeSpecification@ object that defines the possible values for an integer hyperparameter.
+mkParameterRange ::
   ParameterRange
-parameterRange =
+mkParameterRange =
   ParameterRange'
-    { _prCategoricalParameterRangeSpecification =
-        Nothing,
-      _prIntegerParameterRangeSpecification = Nothing,
-      _prContinuousParameterRangeSpecification = Nothing
+    { categoricalParameterRangeSpecification =
+        Lude.Nothing,
+      integerParameterRangeSpecification = Lude.Nothing,
+      continuousParameterRangeSpecification = Lude.Nothing
     }
 
 -- | A @CategoricalParameterRangeSpecification@ object that defines the possible values for a categorical hyperparameter.
-prCategoricalParameterRangeSpecification :: Lens' ParameterRange (Maybe CategoricalParameterRangeSpecification)
-prCategoricalParameterRangeSpecification = lens _prCategoricalParameterRangeSpecification (\s a -> s {_prCategoricalParameterRangeSpecification = a})
+--
+-- /Note:/ Consider using 'categoricalParameterRangeSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prCategoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Lude.Maybe CategoricalParameterRangeSpecification)
+prCategoricalParameterRangeSpecification = Lens.lens (categoricalParameterRangeSpecification :: ParameterRange -> Lude.Maybe CategoricalParameterRangeSpecification) (\s a -> s {categoricalParameterRangeSpecification = a} :: ParameterRange)
+{-# DEPRECATED prCategoricalParameterRangeSpecification "Use generic-lens or generic-optics with 'categoricalParameterRangeSpecification' instead." #-}
 
 -- | A @IntegerParameterRangeSpecification@ object that defines the possible values for an integer hyperparameter.
-prIntegerParameterRangeSpecification :: Lens' ParameterRange (Maybe IntegerParameterRangeSpecification)
-prIntegerParameterRangeSpecification = lens _prIntegerParameterRangeSpecification (\s a -> s {_prIntegerParameterRangeSpecification = a})
+--
+-- /Note:/ Consider using 'integerParameterRangeSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prIntegerParameterRangeSpecification :: Lens.Lens' ParameterRange (Lude.Maybe IntegerParameterRangeSpecification)
+prIntegerParameterRangeSpecification = Lens.lens (integerParameterRangeSpecification :: ParameterRange -> Lude.Maybe IntegerParameterRangeSpecification) (\s a -> s {integerParameterRangeSpecification = a} :: ParameterRange)
+{-# DEPRECATED prIntegerParameterRangeSpecification "Use generic-lens or generic-optics with 'integerParameterRangeSpecification' instead." #-}
 
 -- | A @ContinuousParameterRangeSpecification@ object that defines the possible values for a continuous hyperparameter.
-prContinuousParameterRangeSpecification :: Lens' ParameterRange (Maybe ContinuousParameterRangeSpecification)
-prContinuousParameterRangeSpecification = lens _prContinuousParameterRangeSpecification (\s a -> s {_prContinuousParameterRangeSpecification = a})
+--
+-- /Note:/ Consider using 'continuousParameterRangeSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prContinuousParameterRangeSpecification :: Lens.Lens' ParameterRange (Lude.Maybe ContinuousParameterRangeSpecification)
+prContinuousParameterRangeSpecification = Lens.lens (continuousParameterRangeSpecification :: ParameterRange -> Lude.Maybe ContinuousParameterRangeSpecification) (\s a -> s {continuousParameterRangeSpecification = a} :: ParameterRange)
+{-# DEPRECATED prContinuousParameterRangeSpecification "Use generic-lens or generic-optics with 'continuousParameterRangeSpecification' instead." #-}
 
-instance FromJSON ParameterRange where
+instance Lude.FromJSON ParameterRange where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterRange"
       ( \x ->
           ParameterRange'
-            <$> (x .:? "CategoricalParameterRangeSpecification")
-            <*> (x .:? "IntegerParameterRangeSpecification")
-            <*> (x .:? "ContinuousParameterRangeSpecification")
+            Lude.<$> (x Lude..:? "CategoricalParameterRangeSpecification")
+            Lude.<*> (x Lude..:? "IntegerParameterRangeSpecification")
+            Lude.<*> (x Lude..:? "ContinuousParameterRangeSpecification")
       )
 
-instance Hashable ParameterRange
-
-instance NFData ParameterRange
-
-instance ToJSON ParameterRange where
+instance Lude.ToJSON ParameterRange where
   toJSON ParameterRange' {..} =
-    object
-      ( catMaybes
-          [ ("CategoricalParameterRangeSpecification" .=)
-              <$> _prCategoricalParameterRangeSpecification,
-            ("IntegerParameterRangeSpecification" .=)
-              <$> _prIntegerParameterRangeSpecification,
-            ("ContinuousParameterRangeSpecification" .=)
-              <$> _prContinuousParameterRangeSpecification
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CategoricalParameterRangeSpecification" Lude..=)
+              Lude.<$> categoricalParameterRangeSpecification,
+            ("IntegerParameterRangeSpecification" Lude..=)
+              Lude.<$> integerParameterRangeSpecification,
+            ("ContinuousParameterRangeSpecification" Lude..=)
+              Lude.<$> continuousParameterRangeSpecification
           ]
       )

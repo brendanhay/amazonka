@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264UnregisteredSeiTimecode where
+module Network.AWS.MediaConvert.Types.H264UnregisteredSeiTimecode
+  ( H264UnregisteredSeiTimecode
+      ( H264UnregisteredSeiTimecode',
+        HDisabled,
+        HEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
-data H264UnregisteredSeiTimecode
-  = HDisabled
-  | HEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264UnregisteredSeiTimecode = H264UnregisteredSeiTimecode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264UnregisteredSeiTimecode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HDisabled
-      "enabled" -> pure HEnabled
-      e ->
-        fromTextError $
-          "Failure parsing H264UnregisteredSeiTimecode from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HDisabled :: H264UnregisteredSeiTimecode
+pattern HDisabled = H264UnregisteredSeiTimecode' "DISABLED"
 
-instance ToText H264UnregisteredSeiTimecode where
-  toText = \case
-    HDisabled -> "DISABLED"
-    HEnabled -> "ENABLED"
+pattern HEnabled :: H264UnregisteredSeiTimecode
+pattern HEnabled = H264UnregisteredSeiTimecode' "ENABLED"
 
-instance Hashable H264UnregisteredSeiTimecode
-
-instance NFData H264UnregisteredSeiTimecode
-
-instance ToByteString H264UnregisteredSeiTimecode
-
-instance ToQuery H264UnregisteredSeiTimecode
-
-instance ToHeader H264UnregisteredSeiTimecode
-
-instance ToJSON H264UnregisteredSeiTimecode where
-  toJSON = toJSONText
-
-instance FromJSON H264UnregisteredSeiTimecode where
-  parseJSON = parseJSONText "H264UnregisteredSeiTimecode"
+{-# COMPLETE
+  HDisabled,
+  HEnabled,
+  H264UnregisteredSeiTimecode'
+  #-}

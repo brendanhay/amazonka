@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,122 @@
 --
 -- Lists tags for a resource.
 module Network.AWS.MQ.ListTags
-  ( -- * Creating a Request
-    listTags,
-    ListTags,
+  ( -- * Creating a request
+    ListTags (..),
+    mkListTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltResourceARN,
 
-    -- * Destructuring the Response
-    listTagsResponse,
-    ListTagsResponse,
+    -- * Destructuring the response
+    ListTagsResponse (..),
+    mkListTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTags,
     ltrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTags' smart constructor.
-newtype ListTags = ListTags' {_ltResourceARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkListTags' smart constructor.
+newtype ListTags = ListTags' {resourceARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltResourceARN' - The Amazon Resource Name (ARN) of the resource tag.
-listTags ::
-  -- | 'ltResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource tag.
+mkListTags ::
+  -- | 'resourceARN'
+  Lude.Text ->
   ListTags
-listTags pResourceARN_ = ListTags' {_ltResourceARN = pResourceARN_}
+mkListTags pResourceARN_ = ListTags' {resourceARN = pResourceARN_}
 
 -- | The Amazon Resource Name (ARN) of the resource tag.
-ltResourceARN :: Lens' ListTags Text
-ltResourceARN = lens _ltResourceARN (\s a -> s {_ltResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltResourceARN :: Lens.Lens' ListTags Lude.Text
+ltResourceARN = Lens.lens (resourceARN :: ListTags -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTags)
+{-# DEPRECATED ltResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest ListTags where
+instance Lude.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
-  request = get mq
+  request = Req.get mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            <$> (x .?> "tags" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTags
-
-instance NFData ListTags
-
-instance ToHeaders ListTags where
+instance Lude.ToHeaders ListTags where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListTags where
-  toPath ListTags' {..} = mconcat ["/v1/tags/", toBS _ltResourceARN]
+instance Lude.ToPath ListTags where
+  toPath ListTags' {..} =
+    Lude.mconcat ["/v1/tags/", Lude.toBS resourceARN]
 
-instance ToQuery ListTags where
-  toQuery = const mempty
+instance Lude.ToQuery ListTags where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsResponse' smart constructor.
+-- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { _ltrsTags ::
-      !(Maybe (Map Text (Text))),
-    _ltrsResponseStatus :: !Int
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTags' - The key-value pair for the resource tag.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTagsResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The key-value pair for the resource tag.
+mkListTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsResponse
-listTagsResponse pResponseStatus_ =
+mkListTagsResponse pResponseStatus_ =
   ListTagsResponse'
-    { _ltrsTags = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The key-value pair for the resource tag.
-ltrsTags :: Lens' ListTagsResponse (HashMap Text (Text))
-ltrsTags = lens _ltrsTags (\s a -> s {_ltrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTags :: Lens.Lens' ListTagsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltrsTags = Lens.lens (tags :: ListTagsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTagsResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

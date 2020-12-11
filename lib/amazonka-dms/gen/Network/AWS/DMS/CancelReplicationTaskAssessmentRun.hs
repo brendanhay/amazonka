@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,155 @@
 --
 -- Cancels a single premigration assessment run.
 --
---
 -- This operation prevents any individual assessments from running if they haven't started running. It also attempts to cancel any individual assessments that are currently running.
 module Network.AWS.DMS.CancelReplicationTaskAssessmentRun
-  ( -- * Creating a Request
-    cancelReplicationTaskAssessmentRun,
-    CancelReplicationTaskAssessmentRun,
+  ( -- * Creating a request
+    CancelReplicationTaskAssessmentRun (..),
+    mkCancelReplicationTaskAssessmentRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crtarReplicationTaskAssessmentRunARN,
 
-    -- * Destructuring the Response
-    cancelReplicationTaskAssessmentRunResponse,
-    CancelReplicationTaskAssessmentRunResponse,
+    -- * Destructuring the response
+    CancelReplicationTaskAssessmentRunResponse (..),
+    mkCancelReplicationTaskAssessmentRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crtarrsReplicationTaskAssessmentRun,
     crtarrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'cancelReplicationTaskAssessmentRun' smart constructor.
+-- /See:/ 'mkCancelReplicationTaskAssessmentRun' smart constructor.
 newtype CancelReplicationTaskAssessmentRun = CancelReplicationTaskAssessmentRun'
-  { _crtarReplicationTaskAssessmentRunARN ::
-      Text
+  { replicationTaskAssessmentRunARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelReplicationTaskAssessmentRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crtarReplicationTaskAssessmentRunARN' - Amazon Resource Name (ARN) of the premigration assessment run to be canceled.
-cancelReplicationTaskAssessmentRun ::
-  -- | 'crtarReplicationTaskAssessmentRunARN'
-  Text ->
+-- * 'replicationTaskAssessmentRunARN' - Amazon Resource Name (ARN) of the premigration assessment run to be canceled.
+mkCancelReplicationTaskAssessmentRun ::
+  -- | 'replicationTaskAssessmentRunARN'
+  Lude.Text ->
   CancelReplicationTaskAssessmentRun
-cancelReplicationTaskAssessmentRun
+mkCancelReplicationTaskAssessmentRun
   pReplicationTaskAssessmentRunARN_ =
     CancelReplicationTaskAssessmentRun'
-      { _crtarReplicationTaskAssessmentRunARN =
+      { replicationTaskAssessmentRunARN =
           pReplicationTaskAssessmentRunARN_
       }
 
 -- | Amazon Resource Name (ARN) of the premigration assessment run to be canceled.
-crtarReplicationTaskAssessmentRunARN :: Lens' CancelReplicationTaskAssessmentRun Text
-crtarReplicationTaskAssessmentRunARN = lens _crtarReplicationTaskAssessmentRunARN (\s a -> s {_crtarReplicationTaskAssessmentRunARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtarReplicationTaskAssessmentRunARN :: Lens.Lens' CancelReplicationTaskAssessmentRun Lude.Text
+crtarReplicationTaskAssessmentRunARN = Lens.lens (replicationTaskAssessmentRunARN :: CancelReplicationTaskAssessmentRun -> Lude.Text) (\s a -> s {replicationTaskAssessmentRunARN = a} :: CancelReplicationTaskAssessmentRun)
+{-# DEPRECATED crtarReplicationTaskAssessmentRunARN "Use generic-lens or generic-optics with 'replicationTaskAssessmentRunARN' instead." #-}
 
-instance AWSRequest CancelReplicationTaskAssessmentRun where
+instance Lude.AWSRequest CancelReplicationTaskAssessmentRun where
   type
     Rs CancelReplicationTaskAssessmentRun =
       CancelReplicationTaskAssessmentRunResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CancelReplicationTaskAssessmentRunResponse'
-            <$> (x .?> "ReplicationTaskAssessmentRun") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTaskAssessmentRun")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelReplicationTaskAssessmentRun
-
-instance NFData CancelReplicationTaskAssessmentRun
-
-instance ToHeaders CancelReplicationTaskAssessmentRun where
+instance Lude.ToHeaders CancelReplicationTaskAssessmentRun where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.CancelReplicationTaskAssessmentRun" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.CancelReplicationTaskAssessmentRun" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelReplicationTaskAssessmentRun where
+instance Lude.ToJSON CancelReplicationTaskAssessmentRun where
   toJSON CancelReplicationTaskAssessmentRun' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "ReplicationTaskAssessmentRunArn"
-                  .= _crtarReplicationTaskAssessmentRunARN
+                  Lude..= replicationTaskAssessmentRunARN
               )
           ]
       )
 
-instance ToPath CancelReplicationTaskAssessmentRun where
-  toPath = const "/"
+instance Lude.ToPath CancelReplicationTaskAssessmentRun where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelReplicationTaskAssessmentRun where
-  toQuery = const mempty
+instance Lude.ToQuery CancelReplicationTaskAssessmentRun where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'cancelReplicationTaskAssessmentRunResponse' smart constructor.
+-- /See:/ 'mkCancelReplicationTaskAssessmentRunResponse' smart constructor.
 data CancelReplicationTaskAssessmentRunResponse = CancelReplicationTaskAssessmentRunResponse'
-  { _crtarrsReplicationTaskAssessmentRun ::
-      !( Maybe
-           ReplicationTaskAssessmentRun
-       ),
-    _crtarrsResponseStatus ::
-      !Int
+  { replicationTaskAssessmentRun ::
+      Lude.Maybe
+        ReplicationTaskAssessmentRun,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelReplicationTaskAssessmentRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crtarrsReplicationTaskAssessmentRun' - The @ReplicationTaskAssessmentRun@ object for the canceled assessment run.
---
--- * 'crtarrsResponseStatus' - -- | The response status code.
-cancelReplicationTaskAssessmentRunResponse ::
-  -- | 'crtarrsResponseStatus'
-  Int ->
+-- * 'replicationTaskAssessmentRun' - The @ReplicationTaskAssessmentRun@ object for the canceled assessment run.
+-- * 'responseStatus' - The response status code.
+mkCancelReplicationTaskAssessmentRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelReplicationTaskAssessmentRunResponse
-cancelReplicationTaskAssessmentRunResponse pResponseStatus_ =
+mkCancelReplicationTaskAssessmentRunResponse pResponseStatus_ =
   CancelReplicationTaskAssessmentRunResponse'
-    { _crtarrsReplicationTaskAssessmentRun =
-        Nothing,
-      _crtarrsResponseStatus = pResponseStatus_
+    { replicationTaskAssessmentRun =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ReplicationTaskAssessmentRun@ object for the canceled assessment run.
-crtarrsReplicationTaskAssessmentRun :: Lens' CancelReplicationTaskAssessmentRunResponse (Maybe ReplicationTaskAssessmentRun)
-crtarrsReplicationTaskAssessmentRun = lens _crtarrsReplicationTaskAssessmentRun (\s a -> s {_crtarrsReplicationTaskAssessmentRun = a})
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtarrsReplicationTaskAssessmentRun :: Lens.Lens' CancelReplicationTaskAssessmentRunResponse (Lude.Maybe ReplicationTaskAssessmentRun)
+crtarrsReplicationTaskAssessmentRun = Lens.lens (replicationTaskAssessmentRun :: CancelReplicationTaskAssessmentRunResponse -> Lude.Maybe ReplicationTaskAssessmentRun) (\s a -> s {replicationTaskAssessmentRun = a} :: CancelReplicationTaskAssessmentRunResponse)
+{-# DEPRECATED crtarrsReplicationTaskAssessmentRun "Use generic-lens or generic-optics with 'replicationTaskAssessmentRun' instead." #-}
 
--- | -- | The response status code.
-crtarrsResponseStatus :: Lens' CancelReplicationTaskAssessmentRunResponse Int
-crtarrsResponseStatus = lens _crtarrsResponseStatus (\s a -> s {_crtarrsResponseStatus = a})
-
-instance NFData CancelReplicationTaskAssessmentRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtarrsResponseStatus :: Lens.Lens' CancelReplicationTaskAssessmentRunResponse Lude.Int
+crtarrsResponseStatus = Lens.lens (responseStatus :: CancelReplicationTaskAssessmentRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelReplicationTaskAssessmentRunResponse)
+{-# DEPRECATED crtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

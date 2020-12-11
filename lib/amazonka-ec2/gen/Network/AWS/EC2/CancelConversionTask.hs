@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,115 @@
 --
 -- Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI> .
 module Network.AWS.EC2.CancelConversionTask
-  ( -- * Creating a Request
-    cancelConversionTask,
-    CancelConversionTask,
+  ( -- * Creating a request
+    CancelConversionTask (..),
+    mkCancelConversionTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cctReasonMessage,
     cctDryRun,
     cctConversionTaskId,
 
-    -- * Destructuring the Response
-    cancelConversionTaskResponse,
-    CancelConversionTaskResponse,
+    -- * Destructuring the response
+    CancelConversionTaskResponse (..),
+    mkCancelConversionTaskResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelConversionTask' smart constructor.
+-- | /See:/ 'mkCancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
-  { _cctReasonMessage ::
-      !(Maybe Text),
-    _cctDryRun :: !(Maybe Bool),
-    _cctConversionTaskId :: !Text
+  { reasonMessage ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    conversionTaskId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelConversionTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cctReasonMessage' - The reason for canceling the conversion task.
---
--- * 'cctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'cctConversionTaskId' - The ID of the conversion task.
-cancelConversionTask ::
-  -- | 'cctConversionTaskId'
-  Text ->
+-- * 'conversionTaskId' - The ID of the conversion task.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'reasonMessage' - The reason for canceling the conversion task.
+mkCancelConversionTask ::
+  -- | 'conversionTaskId'
+  Lude.Text ->
   CancelConversionTask
-cancelConversionTask pConversionTaskId_ =
+mkCancelConversionTask pConversionTaskId_ =
   CancelConversionTask'
-    { _cctReasonMessage = Nothing,
-      _cctDryRun = Nothing,
-      _cctConversionTaskId = pConversionTaskId_
+    { reasonMessage = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      conversionTaskId = pConversionTaskId_
     }
 
 -- | The reason for canceling the conversion task.
-cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-cctReasonMessage = lens _cctReasonMessage (\s a -> s {_cctReasonMessage = a})
+--
+-- /Note:/ Consider using 'reasonMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cctReasonMessage :: Lens.Lens' CancelConversionTask (Lude.Maybe Lude.Text)
+cctReasonMessage = Lens.lens (reasonMessage :: CancelConversionTask -> Lude.Maybe Lude.Text) (\s a -> s {reasonMessage = a} :: CancelConversionTask)
+{-# DEPRECATED cctReasonMessage "Use generic-lens or generic-optics with 'reasonMessage' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
-cctDryRun = lens _cctDryRun (\s a -> s {_cctDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cctDryRun :: Lens.Lens' CancelConversionTask (Lude.Maybe Lude.Bool)
+cctDryRun = Lens.lens (dryRun :: CancelConversionTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelConversionTask)
+{-# DEPRECATED cctDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the conversion task.
-cctConversionTaskId :: Lens' CancelConversionTask Text
-cctConversionTaskId = lens _cctConversionTaskId (\s a -> s {_cctConversionTaskId = a})
+--
+-- /Note:/ Consider using 'conversionTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cctConversionTaskId :: Lens.Lens' CancelConversionTask Lude.Text
+cctConversionTaskId = Lens.lens (conversionTaskId :: CancelConversionTask -> Lude.Text) (\s a -> s {conversionTaskId = a} :: CancelConversionTask)
+{-# DEPRECATED cctConversionTaskId "Use generic-lens or generic-optics with 'conversionTaskId' instead." #-}
 
-instance AWSRequest CancelConversionTask where
+instance Lude.AWSRequest CancelConversionTask where
   type Rs CancelConversionTask = CancelConversionTaskResponse
-  request = postQuery ec2
-  response = receiveNull CancelConversionTaskResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull CancelConversionTaskResponse'
 
-instance Hashable CancelConversionTask
+instance Lude.ToHeaders CancelConversionTask where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelConversionTask
+instance Lude.ToPath CancelConversionTask where
+  toPath = Lude.const "/"
 
-instance ToHeaders CancelConversionTask where
-  toHeaders = const mempty
-
-instance ToPath CancelConversionTask where
-  toPath = const "/"
-
-instance ToQuery CancelConversionTask where
+instance Lude.ToQuery CancelConversionTask where
   toQuery CancelConversionTask' {..} =
-    mconcat
-      [ "Action" =: ("CancelConversionTask" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ReasonMessage" =: _cctReasonMessage,
-        "DryRun" =: _cctDryRun,
-        "ConversionTaskId" =: _cctConversionTaskId
+    Lude.mconcat
+      [ "Action" Lude.=: ("CancelConversionTask" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ReasonMessage" Lude.=: reasonMessage,
+        "DryRun" Lude.=: dryRun,
+        "ConversionTaskId" Lude.=: conversionTaskId
       ]
 
--- | /See:/ 'cancelConversionTaskResponse' smart constructor.
+-- | /See:/ 'mkCancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse = CancelConversionTaskResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelConversionTaskResponse' with the minimum fields required to make a request.
-cancelConversionTaskResponse ::
+mkCancelConversionTaskResponse ::
   CancelConversionTaskResponse
-cancelConversionTaskResponse = CancelConversionTaskResponse'
-
-instance NFData CancelConversionTaskResponse
+mkCancelConversionTaskResponse = CancelConversionTaskResponse'

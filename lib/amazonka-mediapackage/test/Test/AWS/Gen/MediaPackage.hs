@@ -28,115 +28,115 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestCreateHarvestJob $
---             createHarvestJob
+--             mkCreateHarvestJob
 --
 --         , requestConfigureLogs $
---             configureLogs
+--             mkConfigureLogs
 --
 --         , requestDescribeOriginEndpoint $
---             describeOriginEndpoint
+--             mkDescribeOriginEndpoint
 --
 --         , requestListChannels $
---             listChannels
+--             mkListChannels
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestDeleteChannel $
---             deleteChannel
+--             mkDeleteChannel
 --
 --         , requestUpdateChannel $
---             updateChannel
+--             mkUpdateChannel
 --
 --         , requestDescribeHarvestJob $
---             describeHarvestJob
+--             mkDescribeHarvestJob
 --
 --         , requestRotateIngestEndpointCredentials $
---             rotateIngestEndpointCredentials
+--             mkRotateIngestEndpointCredentials
 --
 --         , requestCreateOriginEndpoint $
---             createOriginEndpoint
+--             mkCreateOriginEndpoint
 --
 --         , requestListOriginEndpoints $
---             listOriginEndpoints
+--             mkListOriginEndpoints
 --
 --         , requestListHarvestJobs $
---             listHarvestJobs
+--             mkListHarvestJobs
 --
 --         , requestCreateChannel $
---             createChannel
+--             mkCreateChannel
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDescribeChannel $
---             describeChannel
+--             mkDescribeChannel
 --
 --         , requestDeleteOriginEndpoint $
---             deleteOriginEndpoint
+--             mkDeleteOriginEndpoint
 --
 --         , requestUpdateOriginEndpoint $
---             updateOriginEndpoint
+--             mkUpdateOriginEndpoint
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCreateHarvestJob $
---             createHarvestJobResponse
+--             mkCreateHarvestJobResponse
 --
 --         , responseConfigureLogs $
---             configureLogsResponse
+--             mkConfigureLogsResponse
 --
 --         , responseDescribeOriginEndpoint $
---             describeOriginEndpointResponse
+--             mkDescribeOriginEndpointResponse
 --
 --         , responseListChannels $
---             listChannelsResponse
+--             mkListChannelsResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseDeleteChannel $
---             deleteChannelResponse
+--             mkDeleteChannelResponse
 --
 --         , responseUpdateChannel $
---             updateChannelResponse
+--             mkUpdateChannelResponse
 --
 --         , responseDescribeHarvestJob $
---             describeHarvestJobResponse
+--             mkDescribeHarvestJobResponse
 --
 --         , responseRotateIngestEndpointCredentials $
---             rotateIngestEndpointCredentialsResponse
+--             mkRotateIngestEndpointCredentialsResponse
 --
 --         , responseCreateOriginEndpoint $
---             createOriginEndpointResponse
+--             mkCreateOriginEndpointResponse
 --
 --         , responseListOriginEndpoints $
---             listOriginEndpointsResponse
+--             mkListOriginEndpointsResponse
 --
 --         , responseListHarvestJobs $
---             listHarvestJobsResponse
+--             mkListHarvestJobsResponse
 --
 --         , responseCreateChannel $
---             createChannelResponse
+--             mkCreateChannelResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDescribeChannel $
---             describeChannelResponse
+--             mkDescribeChannelResponse
 --
 --         , responseDeleteOriginEndpoint $
---             deleteOriginEndpointResponse
+--             mkDeleteOriginEndpointResponse
 --
 --         , responseUpdateOriginEndpoint $
---             updateOriginEndpointResponse
+--             mkUpdateOriginEndpointResponse
 --
 --           ]
 --     ]
@@ -258,7 +258,7 @@ responseCreateHarvestJob =
   res
     "CreateHarvestJobResponse"
     "fixture/CreateHarvestJobResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy CreateHarvestJob)
 
 responseConfigureLogs :: ConfigureLogsResponse -> TestTree
@@ -266,7 +266,7 @@ responseConfigureLogs =
   res
     "ConfigureLogsResponse"
     "fixture/ConfigureLogsResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy ConfigureLogs)
 
 responseDescribeOriginEndpoint :: DescribeOriginEndpointResponse -> TestTree
@@ -274,7 +274,7 @@ responseDescribeOriginEndpoint =
   res
     "DescribeOriginEndpointResponse"
     "fixture/DescribeOriginEndpointResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy DescribeOriginEndpoint)
 
 responseListChannels :: ListChannelsResponse -> TestTree
@@ -282,7 +282,7 @@ responseListChannels =
   res
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy ListChannels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -290,7 +290,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
@@ -298,7 +298,7 @@ responseDeleteChannel =
   res
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
@@ -306,7 +306,7 @@ responseUpdateChannel =
   res
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy UpdateChannel)
 
 responseDescribeHarvestJob :: DescribeHarvestJobResponse -> TestTree
@@ -314,7 +314,7 @@ responseDescribeHarvestJob =
   res
     "DescribeHarvestJobResponse"
     "fixture/DescribeHarvestJobResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy DescribeHarvestJob)
 
 responseRotateIngestEndpointCredentials :: RotateIngestEndpointCredentialsResponse -> TestTree
@@ -322,7 +322,7 @@ responseRotateIngestEndpointCredentials =
   res
     "RotateIngestEndpointCredentialsResponse"
     "fixture/RotateIngestEndpointCredentialsResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy RotateIngestEndpointCredentials)
 
 responseCreateOriginEndpoint :: CreateOriginEndpointResponse -> TestTree
@@ -330,7 +330,7 @@ responseCreateOriginEndpoint =
   res
     "CreateOriginEndpointResponse"
     "fixture/CreateOriginEndpointResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy CreateOriginEndpoint)
 
 responseListOriginEndpoints :: ListOriginEndpointsResponse -> TestTree
@@ -338,7 +338,7 @@ responseListOriginEndpoints =
   res
     "ListOriginEndpointsResponse"
     "fixture/ListOriginEndpointsResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy ListOriginEndpoints)
 
 responseListHarvestJobs :: ListHarvestJobsResponse -> TestTree
@@ -346,7 +346,7 @@ responseListHarvestJobs =
   res
     "ListHarvestJobsResponse"
     "fixture/ListHarvestJobsResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy ListHarvestJobs)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
@@ -354,7 +354,7 @@ responseCreateChannel =
   res
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy CreateChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -362,7 +362,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -370,7 +370,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy UntagResource)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
@@ -378,7 +378,7 @@ responseDescribeChannel =
   res
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy DescribeChannel)
 
 responseDeleteOriginEndpoint :: DeleteOriginEndpointResponse -> TestTree
@@ -386,7 +386,7 @@ responseDeleteOriginEndpoint =
   res
     "DeleteOriginEndpointResponse"
     "fixture/DeleteOriginEndpointResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy DeleteOriginEndpoint)
 
 responseUpdateOriginEndpoint :: UpdateOriginEndpointResponse -> TestTree
@@ -394,5 +394,5 @@ responseUpdateOriginEndpoint =
   res
     "UpdateOriginEndpointResponse"
     "fixture/UpdateOriginEndpointResponse.proto"
-    mediaPackage
+    mediaPackageService
     (Proxy :: Proxy UpdateOriginEndpoint)

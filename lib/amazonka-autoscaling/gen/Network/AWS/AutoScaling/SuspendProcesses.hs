@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,165 @@
 --
 -- Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.
 --
---
 -- If you suspend either the @Launch@ or @Terminate@ process types, it can prevent other process types from functioning properly. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html Suspending and resuming scaling processes> in the /Amazon EC2 Auto Scaling User Guide/ .
---
 -- To resume processes that have been suspended, call the 'ResumeProcesses' API.
 module Network.AWS.AutoScaling.SuspendProcesses
-  ( -- * Creating a Request
-    suspendProcesses,
-    SuspendProcesses,
+  ( -- * Creating a request
+    SuspendProcesses (..),
+    mkSuspendProcesses,
 
-    -- * Request Lenses
+    -- ** Request lenses
     spScalingProcesses,
     spAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    suspendProcessesResponse,
-    SuspendProcessesResponse,
+    -- * Destructuring the response
+    SuspendProcessesResponse (..),
+    mkSuspendProcessesResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'suspendProcesses' smart constructor.
+-- | /See:/ 'mkSuspendProcesses' smart constructor.
 data SuspendProcesses = SuspendProcesses'
-  { _spScalingProcesses ::
-      !(Maybe [Text]),
-    _spAutoScalingGroupName :: !Text
+  { scalingProcesses ::
+      Lude.Maybe [Lude.Text],
+    autoScalingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuspendProcesses' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'scalingProcesses' - One or more of the following processes:
 --
--- * 'spScalingProcesses' - One or more of the following processes:     * @Launch@      * @Terminate@      * @AddToLoadBalancer@      * @AlarmNotification@      * @AZRebalance@      * @HealthCheck@      * @InstanceRefresh@      * @ReplaceUnhealthy@      * @ScheduledActions@  If you omit this parameter, all processes are specified.
 --
--- * 'spAutoScalingGroupName' - The name of the Auto Scaling group.
-suspendProcesses ::
-  -- | 'spAutoScalingGroupName'
-  Text ->
+--     * @Launch@
+--
+--
+--     * @Terminate@
+--
+--
+--     * @AddToLoadBalancer@
+--
+--
+--     * @AlarmNotification@
+--
+--
+--     * @AZRebalance@
+--
+--
+--     * @HealthCheck@
+--
+--
+--     * @InstanceRefresh@
+--
+--
+--     * @ReplaceUnhealthy@
+--
+--
+--     * @ScheduledActions@
+--
+--
+-- If you omit this parameter, all processes are specified.
+mkSuspendProcesses ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   SuspendProcesses
-suspendProcesses pAutoScalingGroupName_ =
+mkSuspendProcesses pAutoScalingGroupName_ =
   SuspendProcesses'
-    { _spScalingProcesses = Nothing,
-      _spAutoScalingGroupName = pAutoScalingGroupName_
+    { scalingProcesses = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more of the following processes:     * @Launch@      * @Terminate@      * @AddToLoadBalancer@      * @AlarmNotification@      * @AZRebalance@      * @HealthCheck@      * @InstanceRefresh@      * @ReplaceUnhealthy@      * @ScheduledActions@  If you omit this parameter, all processes are specified.
-spScalingProcesses :: Lens' SuspendProcesses [Text]
-spScalingProcesses = lens _spScalingProcesses (\s a -> s {_spScalingProcesses = a}) . _Default . _Coerce
+-- | One or more of the following processes:
+--
+--
+--     * @Launch@
+--
+--
+--     * @Terminate@
+--
+--
+--     * @AddToLoadBalancer@
+--
+--
+--     * @AlarmNotification@
+--
+--
+--     * @AZRebalance@
+--
+--
+--     * @HealthCheck@
+--
+--
+--     * @InstanceRefresh@
+--
+--
+--     * @ReplaceUnhealthy@
+--
+--
+--     * @ScheduledActions@
+--
+--
+-- If you omit this parameter, all processes are specified.
+--
+-- /Note:/ Consider using 'scalingProcesses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spScalingProcesses :: Lens.Lens' SuspendProcesses (Lude.Maybe [Lude.Text])
+spScalingProcesses = Lens.lens (scalingProcesses :: SuspendProcesses -> Lude.Maybe [Lude.Text]) (\s a -> s {scalingProcesses = a} :: SuspendProcesses)
+{-# DEPRECATED spScalingProcesses "Use generic-lens or generic-optics with 'scalingProcesses' instead." #-}
 
 -- | The name of the Auto Scaling group.
-spAutoScalingGroupName :: Lens' SuspendProcesses Text
-spAutoScalingGroupName = lens _spAutoScalingGroupName (\s a -> s {_spAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spAutoScalingGroupName :: Lens.Lens' SuspendProcesses Lude.Text
+spAutoScalingGroupName = Lens.lens (autoScalingGroupName :: SuspendProcesses -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: SuspendProcesses)
+{-# DEPRECATED spAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSRequest SuspendProcesses where
+instance Lude.AWSRequest SuspendProcesses where
   type Rs SuspendProcesses = SuspendProcessesResponse
-  request = postQuery autoScaling
-  response = receiveNull SuspendProcessesResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull SuspendProcessesResponse'
 
-instance Hashable SuspendProcesses
+instance Lude.ToHeaders SuspendProcesses where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SuspendProcesses
+instance Lude.ToPath SuspendProcesses where
+  toPath = Lude.const "/"
 
-instance ToHeaders SuspendProcesses where
-  toHeaders = const mempty
-
-instance ToPath SuspendProcesses where
-  toPath = const "/"
-
-instance ToQuery SuspendProcesses where
+instance Lude.ToQuery SuspendProcesses where
   toQuery SuspendProcesses' {..} =
-    mconcat
-      [ "Action" =: ("SuspendProcesses" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("SuspendProcesses" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "ScalingProcesses"
-          =: toQuery (toQueryList "member" <$> _spScalingProcesses),
-        "AutoScalingGroupName" =: _spAutoScalingGroupName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'suspendProcessesResponse' smart constructor.
+-- | /See:/ 'mkSuspendProcessesResponse' smart constructor.
 data SuspendProcessesResponse = SuspendProcessesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuspendProcessesResponse' with the minimum fields required to make a request.
-suspendProcessesResponse ::
+mkSuspendProcessesResponse ::
   SuspendProcessesResponse
-suspendProcessesResponse = SuspendProcessesResponse'
-
-instance NFData SuspendProcessesResponse
+mkSuspendProcessesResponse = SuspendProcessesResponse'

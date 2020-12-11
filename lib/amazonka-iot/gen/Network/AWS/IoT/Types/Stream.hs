@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Stream where
+module Network.AWS.IoT.Types.Stream
+  ( Stream (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStream,
+
+    -- * Lenses
+    sFileId,
+    sStreamId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a group of files that can be streamed.
 --
---
---
--- /See:/ 'stream' smart constructor.
+-- /See:/ 'mkStream' smart constructor.
 data Stream = Stream'
-  { _sFileId :: !(Maybe Nat),
-    _sStreamId :: !(Maybe Text)
+  { fileId :: Lude.Maybe Lude.Natural,
+    streamId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sFileId' - The ID of a file associated with a stream.
---
--- * 'sStreamId' - The stream ID.
-stream ::
+-- * 'fileId' - The ID of a file associated with a stream.
+-- * 'streamId' - The stream ID.
+mkStream ::
   Stream
-stream = Stream' {_sFileId = Nothing, _sStreamId = Nothing}
+mkStream = Stream' {fileId = Lude.Nothing, streamId = Lude.Nothing}
 
 -- | The ID of a file associated with a stream.
-sFileId :: Lens' Stream (Maybe Natural)
-sFileId = lens _sFileId (\s a -> s {_sFileId = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'fileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sFileId :: Lens.Lens' Stream (Lude.Maybe Lude.Natural)
+sFileId = Lens.lens (fileId :: Stream -> Lude.Maybe Lude.Natural) (\s a -> s {fileId = a} :: Stream)
+{-# DEPRECATED sFileId "Use generic-lens or generic-optics with 'fileId' instead." #-}
 
 -- | The stream ID.
-sStreamId :: Lens' Stream (Maybe Text)
-sStreamId = lens _sStreamId (\s a -> s {_sStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStreamId :: Lens.Lens' Stream (Lude.Maybe Lude.Text)
+sStreamId = Lens.lens (streamId :: Stream -> Lude.Maybe Lude.Text) (\s a -> s {streamId = a} :: Stream)
+{-# DEPRECATED sStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
-instance FromJSON Stream where
+instance Lude.FromJSON Stream where
   parseJSON =
-    withObject
+    Lude.withObject
       "Stream"
-      (\x -> Stream' <$> (x .:? "fileId") <*> (x .:? "streamId"))
+      ( \x ->
+          Stream'
+            Lude.<$> (x Lude..:? "fileId") Lude.<*> (x Lude..:? "streamId")
+      )
 
-instance Hashable Stream
-
-instance NFData Stream
-
-instance ToJSON Stream where
+instance Lude.ToJSON Stream where
   toJSON Stream' {..} =
-    object
-      ( catMaybes
-          [("fileId" .=) <$> _sFileId, ("streamId" .=) <$> _sStreamId]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("fileId" Lude..=) Lude.<$> fileId,
+            ("streamId" Lude..=) Lude.<$> streamId
+          ]
       )

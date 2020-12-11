@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,152 @@
 --
 -- Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the @Deployed@ option to @true@ to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for a Search Domain> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-  ( -- * Creating a Request
-    describeServiceAccessPolicies,
-    DescribeServiceAccessPolicies,
+  ( -- * Creating a request
+    DescribeServiceAccessPolicies (..),
+    mkDescribeServiceAccessPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsapDeployed,
     dsapDomainName,
 
-    -- * Destructuring the Response
-    describeServiceAccessPoliciesResponse,
-    DescribeServiceAccessPoliciesResponse,
+    -- * Destructuring the response
+    DescribeServiceAccessPoliciesResponse (..),
+    mkDescribeServiceAccessPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsaprsResponseStatus,
     dsaprsAccessPolicies,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DescribeServiceAccessPolicies' @ operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
---
---
--- /See:/ 'describeServiceAccessPolicies' smart constructor.
+-- /See:/ 'mkDescribeServiceAccessPolicies' smart constructor.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-  { _dsapDeployed ::
-      !(Maybe Bool),
-    _dsapDomainName :: !Text
+  { deployed ::
+      Lude.Maybe Lude.Bool,
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceAccessPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsapDeployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
---
--- * 'dsapDomainName' - The name of the domain you want to describe.
-describeServiceAccessPolicies ::
-  -- | 'dsapDomainName'
-  Text ->
+-- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+-- * 'domainName' - The name of the domain you want to describe.
+mkDescribeServiceAccessPolicies ::
+  -- | 'domainName'
+  Lude.Text ->
   DescribeServiceAccessPolicies
-describeServiceAccessPolicies pDomainName_ =
+mkDescribeServiceAccessPolicies pDomainName_ =
   DescribeServiceAccessPolicies'
-    { _dsapDeployed = Nothing,
-      _dsapDomainName = pDomainName_
+    { deployed = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsapDeployed = lens _dsapDeployed (\s a -> s {_dsapDeployed = a})
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsapDeployed :: Lens.Lens' DescribeServiceAccessPolicies (Lude.Maybe Lude.Bool)
+dsapDeployed = Lens.lens (deployed :: DescribeServiceAccessPolicies -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeServiceAccessPolicies)
+{-# DEPRECATED dsapDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
 
 -- | The name of the domain you want to describe.
-dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
-dsapDomainName = lens _dsapDomainName (\s a -> s {_dsapDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsapDomainName :: Lens.Lens' DescribeServiceAccessPolicies Lude.Text
+dsapDomainName = Lens.lens (domainName :: DescribeServiceAccessPolicies -> Lude.Text) (\s a -> s {domainName = a} :: DescribeServiceAccessPolicies)
+{-# DEPRECATED dsapDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DescribeServiceAccessPolicies where
+instance Lude.AWSRequest DescribeServiceAccessPolicies where
   type
     Rs DescribeServiceAccessPolicies =
       DescribeServiceAccessPoliciesResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeServiceAccessPoliciesResult"
       ( \s h x ->
           DescribeServiceAccessPoliciesResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "AccessPolicies")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "AccessPolicies")
       )
 
-instance Hashable DescribeServiceAccessPolicies
+instance Lude.ToHeaders DescribeServiceAccessPolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeServiceAccessPolicies
+instance Lude.ToPath DescribeServiceAccessPolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeServiceAccessPolicies where
-  toHeaders = const mempty
-
-instance ToPath DescribeServiceAccessPolicies where
-  toPath = const "/"
-
-instance ToQuery DescribeServiceAccessPolicies where
+instance Lude.ToQuery DescribeServiceAccessPolicies where
   toQuery DescribeServiceAccessPolicies' {..} =
-    mconcat
-      [ "Action" =: ("DescribeServiceAccessPolicies" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "Deployed" =: _dsapDeployed,
-        "DomainName" =: _dsapDomainName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeServiceAccessPolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "Deployed" Lude.=: deployed,
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @DescribeServiceAccessPolicies@ request.
 --
---
---
--- /See:/ 'describeServiceAccessPoliciesResponse' smart constructor.
+-- /See:/ 'mkDescribeServiceAccessPoliciesResponse' smart constructor.
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-  { _dsaprsResponseStatus ::
-      !Int,
-    _dsaprsAccessPolicies ::
-      !AccessPoliciesStatus
+  { responseStatus ::
+      Lude.Int,
+    accessPolicies ::
+      AccessPoliciesStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceAccessPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsaprsResponseStatus' - -- | The response status code.
---
--- * 'dsaprsAccessPolicies' - The access rules configured for the domain specified in the request.
-describeServiceAccessPoliciesResponse ::
-  -- | 'dsaprsResponseStatus'
-  Int ->
-  -- | 'dsaprsAccessPolicies'
+-- * 'accessPolicies' - The access rules configured for the domain specified in the request.
+-- * 'responseStatus' - The response status code.
+mkDescribeServiceAccessPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'accessPolicies'
   AccessPoliciesStatus ->
   DescribeServiceAccessPoliciesResponse
-describeServiceAccessPoliciesResponse
+mkDescribeServiceAccessPoliciesResponse
   pResponseStatus_
   pAccessPolicies_ =
     DescribeServiceAccessPoliciesResponse'
-      { _dsaprsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _dsaprsAccessPolicies = pAccessPolicies_
+        accessPolicies = pAccessPolicies_
       }
 
--- | -- | The response status code.
-dsaprsResponseStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
-dsaprsResponseStatus = lens _dsaprsResponseStatus (\s a -> s {_dsaprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaprsResponseStatus :: Lens.Lens' DescribeServiceAccessPoliciesResponse Lude.Int
+dsaprsResponseStatus = Lens.lens (responseStatus :: DescribeServiceAccessPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServiceAccessPoliciesResponse)
+{-# DEPRECATED dsaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The access rules configured for the domain specified in the request.
-dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-dsaprsAccessPolicies = lens _dsaprsAccessPolicies (\s a -> s {_dsaprsAccessPolicies = a})
-
-instance NFData DescribeServiceAccessPoliciesResponse
+--
+-- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaprsAccessPolicies :: Lens.Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
+dsaprsAccessPolicies = Lens.lens (accessPolicies :: DescribeServiceAccessPoliciesResponse -> AccessPoliciesStatus) (\s a -> s {accessPolicies = a} :: DescribeServiceAccessPoliciesResponse)
+{-# DEPRECATED dsaprsAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CoverageCost where
+module Network.AWS.CostExplorer.Types.CoverageCost
+  ( CoverageCost (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCoverageCost,
+
+    -- * Lenses
+    ccOnDemandCost,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | How much it costs to run an instance.
 --
---
---
--- /See:/ 'coverageCost' smart constructor.
-newtype CoverageCost = CoverageCost' {_ccOnDemandCost :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkCoverageCost' smart constructor.
+newtype CoverageCost = CoverageCost'
+  { onDemandCost ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoverageCost' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccOnDemandCost' - How much an On-Demand Instance costs.
-coverageCost ::
+-- * 'onDemandCost' - How much an On-Demand Instance costs.
+mkCoverageCost ::
   CoverageCost
-coverageCost = CoverageCost' {_ccOnDemandCost = Nothing}
+mkCoverageCost = CoverageCost' {onDemandCost = Lude.Nothing}
 
 -- | How much an On-Demand Instance costs.
-ccOnDemandCost :: Lens' CoverageCost (Maybe Text)
-ccOnDemandCost = lens _ccOnDemandCost (\s a -> s {_ccOnDemandCost = a})
+--
+-- /Note:/ Consider using 'onDemandCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccOnDemandCost :: Lens.Lens' CoverageCost (Lude.Maybe Lude.Text)
+ccOnDemandCost = Lens.lens (onDemandCost :: CoverageCost -> Lude.Maybe Lude.Text) (\s a -> s {onDemandCost = a} :: CoverageCost)
+{-# DEPRECATED ccOnDemandCost "Use generic-lens or generic-optics with 'onDemandCost' instead." #-}
 
-instance FromJSON CoverageCost where
+instance Lude.FromJSON CoverageCost where
   parseJSON =
-    withObject
+    Lude.withObject
       "CoverageCost"
-      (\x -> CoverageCost' <$> (x .:? "OnDemandCost"))
-
-instance Hashable CoverageCost
-
-instance NFData CoverageCost
+      (\x -> CoverageCost' Lude.<$> (x Lude..:? "OnDemandCost"))

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,159 @@
 --
 -- Retrieves the introspection schema for a GraphQL API.
 module Network.AWS.AppSync.GetIntrospectionSchema
-  ( -- * Creating a Request
-    getIntrospectionSchema,
-    GetIntrospectionSchema,
+  ( -- * Creating a request
+    GetIntrospectionSchema (..),
+    mkGetIntrospectionSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gisIncludeDirectives,
     gisApiId,
     gisFormat,
 
-    -- * Destructuring the Response
-    getIntrospectionSchemaResponse,
-    GetIntrospectionSchemaResponse,
+    -- * Destructuring the response
+    GetIntrospectionSchemaResponse (..),
+    mkGetIntrospectionSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gisrsSchema,
     gisrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getIntrospectionSchema' smart constructor.
+-- | /See:/ 'mkGetIntrospectionSchema' smart constructor.
 data GetIntrospectionSchema = GetIntrospectionSchema'
-  { _gisIncludeDirectives ::
-      !(Maybe Bool),
-    _gisApiId :: !Text,
-    _gisFormat :: !OutputType
+  { includeDirectives ::
+      Lude.Maybe Lude.Bool,
+    apiId :: Lude.Text,
+    format :: OutputType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntrospectionSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisIncludeDirectives' - A flag that specifies whether the schema introspection should contain directives.
---
--- * 'gisApiId' - The API ID.
---
--- * 'gisFormat' - The schema format: SDL or JSON.
-getIntrospectionSchema ::
-  -- | 'gisApiId'
-  Text ->
-  -- | 'gisFormat'
+-- * 'apiId' - The API ID.
+-- * 'format' - The schema format: SDL or JSON.
+-- * 'includeDirectives' - A flag that specifies whether the schema introspection should contain directives.
+mkGetIntrospectionSchema ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'format'
   OutputType ->
   GetIntrospectionSchema
-getIntrospectionSchema pApiId_ pFormat_ =
+mkGetIntrospectionSchema pApiId_ pFormat_ =
   GetIntrospectionSchema'
-    { _gisIncludeDirectives = Nothing,
-      _gisApiId = pApiId_,
-      _gisFormat = pFormat_
+    { includeDirectives = Lude.Nothing,
+      apiId = pApiId_,
+      format = pFormat_
     }
 
 -- | A flag that specifies whether the schema introspection should contain directives.
-gisIncludeDirectives :: Lens' GetIntrospectionSchema (Maybe Bool)
-gisIncludeDirectives = lens _gisIncludeDirectives (\s a -> s {_gisIncludeDirectives = a})
+--
+-- /Note:/ Consider using 'includeDirectives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisIncludeDirectives :: Lens.Lens' GetIntrospectionSchema (Lude.Maybe Lude.Bool)
+gisIncludeDirectives = Lens.lens (includeDirectives :: GetIntrospectionSchema -> Lude.Maybe Lude.Bool) (\s a -> s {includeDirectives = a} :: GetIntrospectionSchema)
+{-# DEPRECATED gisIncludeDirectives "Use generic-lens or generic-optics with 'includeDirectives' instead." #-}
 
 -- | The API ID.
-gisApiId :: Lens' GetIntrospectionSchema Text
-gisApiId = lens _gisApiId (\s a -> s {_gisApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisApiId :: Lens.Lens' GetIntrospectionSchema Lude.Text
+gisApiId = Lens.lens (apiId :: GetIntrospectionSchema -> Lude.Text) (\s a -> s {apiId = a} :: GetIntrospectionSchema)
+{-# DEPRECATED gisApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The schema format: SDL or JSON.
-gisFormat :: Lens' GetIntrospectionSchema OutputType
-gisFormat = lens _gisFormat (\s a -> s {_gisFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisFormat :: Lens.Lens' GetIntrospectionSchema OutputType
+gisFormat = Lens.lens (format :: GetIntrospectionSchema -> OutputType) (\s a -> s {format = a} :: GetIntrospectionSchema)
+{-# DEPRECATED gisFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
-instance AWSRequest GetIntrospectionSchema where
+instance Lude.AWSRequest GetIntrospectionSchema where
   type Rs GetIntrospectionSchema = GetIntrospectionSchemaResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
           GetIntrospectionSchemaResponse'
-            <$> (pure (Just x)) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.Just x)) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetIntrospectionSchema
-
-instance NFData GetIntrospectionSchema
-
-instance ToHeaders GetIntrospectionSchema where
+instance Lude.ToHeaders GetIntrospectionSchema where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetIntrospectionSchema where
+instance Lude.ToPath GetIntrospectionSchema where
   toPath GetIntrospectionSchema' {..} =
-    mconcat ["/v1/apis/", toBS _gisApiId, "/schema"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/schema"]
 
-instance ToQuery GetIntrospectionSchema where
+instance Lude.ToQuery GetIntrospectionSchema where
   toQuery GetIntrospectionSchema' {..} =
-    mconcat
-      [ "includeDirectives" =: _gisIncludeDirectives,
-        "format" =: _gisFormat
+    Lude.mconcat
+      [ "includeDirectives" Lude.=: includeDirectives,
+        "format" Lude.=: format
       ]
 
--- | /See:/ 'getIntrospectionSchemaResponse' smart constructor.
+-- | /See:/ 'mkGetIntrospectionSchemaResponse' smart constructor.
 data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
-  { _gisrsSchema ::
-      !(Maybe ByteString),
-    _gisrsResponseStatus :: !Int
+  { schema ::
+      Lude.Maybe Lude.ByteString,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntrospectionSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'schema' - The schema, in GraphQL Schema Definition Language (SDL) format.
 --
--- * 'gisrsSchema' - The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
---
--- * 'gisrsResponseStatus' - -- | The response status code.
-getIntrospectionSchemaResponse ::
-  -- | 'gisrsResponseStatus'
-  Int ->
+-- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+mkGetIntrospectionSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIntrospectionSchemaResponse
-getIntrospectionSchemaResponse pResponseStatus_ =
+mkGetIntrospectionSchemaResponse pResponseStatus_ =
   GetIntrospectionSchemaResponse'
-    { _gisrsSchema = Nothing,
-      _gisrsResponseStatus = pResponseStatus_
+    { schema = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
-gisrsSchema :: Lens' GetIntrospectionSchemaResponse (Maybe ByteString)
-gisrsSchema = lens _gisrsSchema (\s a -> s {_gisrsSchema = a})
+-- | The schema, in GraphQL Schema Definition Language (SDL) format.
+--
+-- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+--
+-- /Note:/ Consider using 'schema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsSchema :: Lens.Lens' GetIntrospectionSchemaResponse (Lude.Maybe Lude.ByteString)
+gisrsSchema = Lens.lens (schema :: GetIntrospectionSchemaResponse -> Lude.Maybe Lude.ByteString) (\s a -> s {schema = a} :: GetIntrospectionSchemaResponse)
+{-# DEPRECATED gisrsSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetIntrospectionSchemaResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\s a -> s {_gisrsResponseStatus = a})
-
-instance NFData GetIntrospectionSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsResponseStatus :: Lens.Lens' GetIntrospectionSchemaResponse Lude.Int
+gisrsResponseStatus = Lens.lens (responseStatus :: GetIntrospectionSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIntrospectionSchemaResponse)
+{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

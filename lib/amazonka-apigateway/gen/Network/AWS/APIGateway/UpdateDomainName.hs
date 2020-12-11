@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Changes information about the 'DomainName' resource.
 module Network.AWS.APIGateway.UpdateDomainName
-  ( -- * Creating a Request
-    updateDomainName,
-    UpdateDomainName,
+  ( -- * Creating a request
+    UpdateDomainName (..),
+    mkUpdateDomainName,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udnPatchOperations,
     udnDomainName,
 
-    -- * Destructuring the Response
-    domainName,
-    DomainName,
+    -- * Destructuring the response
+    DomainName (..),
+    mkDomainName,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dnRegionalHostedZoneId,
     dnCertificateName,
     dnRegionalCertificateARN,
@@ -52,69 +47,78 @@ module Network.AWS.APIGateway.UpdateDomainName
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to change information about the 'DomainName' resource.
 --
---
---
--- /See:/ 'updateDomainName' smart constructor.
+-- /See:/ 'mkUpdateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
-  { _udnPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _udnDomainName :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainName' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udnPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'udnDomainName' - [Required] The name of the 'DomainName' resource to be changed.
-updateDomainName ::
-  -- | 'udnDomainName'
-  Text ->
+-- * 'domainName' - [Required] The name of the 'DomainName' resource to be changed.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+mkUpdateDomainName ::
+  -- | 'domainName'
+  Lude.Text ->
   UpdateDomainName
-updateDomainName pDomainName_ =
+mkUpdateDomainName pDomainName_ =
   UpdateDomainName'
-    { _udnPatchOperations = Nothing,
-      _udnDomainName = pDomainName_
+    { patchOperations = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
-udnPatchOperations = lens _udnPatchOperations (\s a -> s {_udnPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnPatchOperations :: Lens.Lens' UpdateDomainName (Lude.Maybe [PatchOperation])
+udnPatchOperations = Lens.lens (patchOperations :: UpdateDomainName -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDomainName)
+{-# DEPRECATED udnPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The name of the 'DomainName' resource to be changed.
-udnDomainName :: Lens' UpdateDomainName Text
-udnDomainName = lens _udnDomainName (\s a -> s {_udnDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnDomainName :: Lens.Lens' UpdateDomainName Lude.Text
+udnDomainName = Lens.lens (domainName :: UpdateDomainName -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainName)
+{-# DEPRECATED udnDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest UpdateDomainName where
+instance Lude.AWSRequest UpdateDomainName where
   type Rs UpdateDomainName = DomainName
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateDomainName
-
-instance NFData UpdateDomainName
-
-instance ToHeaders UpdateDomainName where
+instance Lude.ToHeaders UpdateDomainName where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateDomainName where
+instance Lude.ToJSON UpdateDomainName where
   toJSON UpdateDomainName' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _udnPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateDomainName where
+instance Lude.ToPath UpdateDomainName where
   toPath UpdateDomainName' {..} =
-    mconcat ["/domainnames/", toBS _udnDomainName]
+    Lude.mconcat ["/domainnames/", Lude.toBS domainName]
 
-instance ToQuery UpdateDomainName where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDomainName where
+  toQuery = Lude.const Lude.mempty

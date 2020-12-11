@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,163 @@
 --
 -- Returns information about all key pairs in the user's account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetKeyPairs
-  ( -- * Creating a Request
-    getKeyPairs,
-    GetKeyPairs,
+  ( -- * Creating a request
+    GetKeyPairs (..),
+    mkGetKeyPairs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gkpPageToken,
 
-    -- * Destructuring the Response
-    getKeyPairsResponse,
-    GetKeyPairsResponse,
+    -- * Destructuring the response
+    GetKeyPairsResponse (..),
+    mkGetKeyPairsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gkpsrsNextPageToken,
     gkpsrsKeyPairs,
     gkpsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getKeyPairs' smart constructor.
-newtype GetKeyPairs = GetKeyPairs' {_gkpPageToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetKeyPairs' smart constructor.
+newtype GetKeyPairs = GetKeyPairs'
+  { pageToken ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetKeyPairs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gkpPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetKeyPairs@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getKeyPairs ::
+-- To get a page token, perform an initial @GetKeyPairs@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetKeyPairs ::
   GetKeyPairs
-getKeyPairs = GetKeyPairs' {_gkpPageToken = Nothing}
+mkGetKeyPairs = GetKeyPairs' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetKeyPairs@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-gkpPageToken :: Lens' GetKeyPairs (Maybe Text)
-gkpPageToken = lens _gkpPageToken (\s a -> s {_gkpPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetKeyPairs@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpPageToken :: Lens.Lens' GetKeyPairs (Lude.Maybe Lude.Text)
+gkpPageToken = Lens.lens (pageToken :: GetKeyPairs -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetKeyPairs)
+{-# DEPRECATED gkpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetKeyPairs where
+instance Page.AWSPager GetKeyPairs where
   page rq rs
-    | stop (rs ^. gkpsrsNextPageToken) = Nothing
-    | stop (rs ^. gkpsrsKeyPairs) = Nothing
-    | otherwise = Just $ rq & gkpPageToken .~ rs ^. gkpsrsNextPageToken
+    | Page.stop (rs Lens.^. gkpsrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gkpsrsKeyPairs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gkpPageToken Lens..~ rs Lens.^. gkpsrsNextPageToken
 
-instance AWSRequest GetKeyPairs where
+instance Lude.AWSRequest GetKeyPairs where
   type Rs GetKeyPairs = GetKeyPairsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetKeyPairsResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "keyPairs" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "keyPairs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetKeyPairs
-
-instance NFData GetKeyPairs
-
-instance ToHeaders GetKeyPairs where
+instance Lude.ToHeaders GetKeyPairs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetKeyPairs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetKeyPairs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetKeyPairs where
+instance Lude.ToJSON GetKeyPairs where
   toJSON GetKeyPairs' {..} =
-    object (catMaybes [("pageToken" .=) <$> _gkpPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetKeyPairs where
-  toPath = const "/"
+instance Lude.ToPath GetKeyPairs where
+  toPath = Lude.const "/"
 
-instance ToQuery GetKeyPairs where
-  toQuery = const mempty
+instance Lude.ToQuery GetKeyPairs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getKeyPairsResponse' smart constructor.
+-- | /See:/ 'mkGetKeyPairsResponse' smart constructor.
 data GetKeyPairsResponse = GetKeyPairsResponse'
-  { _gkpsrsNextPageToken ::
-      !(Maybe Text),
-    _gkpsrsKeyPairs :: !(Maybe [KeyPair]),
-    _gkpsrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    keyPairs :: Lude.Maybe [KeyPair],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetKeyPairsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'keyPairs' - An array of key-value pairs containing information about the key pairs.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gkpsrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetKeyPairs@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'gkpsrsKeyPairs' - An array of key-value pairs containing information about the key pairs.
---
--- * 'gkpsrsResponseStatus' - -- | The response status code.
-getKeyPairsResponse ::
-  -- | 'gkpsrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetKeyPairs@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetKeyPairsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetKeyPairsResponse
-getKeyPairsResponse pResponseStatus_ =
+mkGetKeyPairsResponse pResponseStatus_ =
   GetKeyPairsResponse'
-    { _gkpsrsNextPageToken = Nothing,
-      _gkpsrsKeyPairs = Nothing,
-      _gkpsrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      keyPairs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetKeyPairs@ request and specify the next page token using the @pageToken@ parameter.
-gkpsrsNextPageToken :: Lens' GetKeyPairsResponse (Maybe Text)
-gkpsrsNextPageToken = lens _gkpsrsNextPageToken (\s a -> s {_gkpsrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetKeyPairs@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpsrsNextPageToken :: Lens.Lens' GetKeyPairsResponse (Lude.Maybe Lude.Text)
+gkpsrsNextPageToken = Lens.lens (nextPageToken :: GetKeyPairsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetKeyPairsResponse)
+{-# DEPRECATED gkpsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of key-value pairs containing information about the key pairs.
-gkpsrsKeyPairs :: Lens' GetKeyPairsResponse [KeyPair]
-gkpsrsKeyPairs = lens _gkpsrsKeyPairs (\s a -> s {_gkpsrsKeyPairs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'keyPairs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpsrsKeyPairs :: Lens.Lens' GetKeyPairsResponse (Lude.Maybe [KeyPair])
+gkpsrsKeyPairs = Lens.lens (keyPairs :: GetKeyPairsResponse -> Lude.Maybe [KeyPair]) (\s a -> s {keyPairs = a} :: GetKeyPairsResponse)
+{-# DEPRECATED gkpsrsKeyPairs "Use generic-lens or generic-optics with 'keyPairs' instead." #-}
 
--- | -- | The response status code.
-gkpsrsResponseStatus :: Lens' GetKeyPairsResponse Int
-gkpsrsResponseStatus = lens _gkpsrsResponseStatus (\s a -> s {_gkpsrsResponseStatus = a})
-
-instance NFData GetKeyPairsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpsrsResponseStatus :: Lens.Lens' GetKeyPairsResponse Lude.Int
+gkpsrsResponseStatus = Lens.lens (responseStatus :: GetKeyPairsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyPairsResponse)
+{-# DEPRECATED gkpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

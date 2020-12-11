@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.
 module Network.AWS.APIGateway.UpdateUsage
-  ( -- * Creating a Request
-    updateUsage,
-    UpdateUsage,
+  ( -- * Creating a request
+    UpdateUsage (..),
+    mkUpdateUsage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuPatchOperations,
     uuUsagePlanId,
     uuKeyId,
 
-    -- * Destructuring the Response
-    usage,
-    Usage,
+    -- * Destructuring the response
+    Usage (..),
+    mkUsage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uUsagePlanId,
     uEndDate,
     uItems,
@@ -42,85 +37,96 @@ module Network.AWS.APIGateway.UpdateUsage
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.
 --
---
---
--- /See:/ 'updateUsage' smart constructor.
+-- /See:/ 'mkUpdateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
-  { _uuPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uuUsagePlanId :: !Text,
-    _uuKeyId :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    usagePlanId :: Lude.Text,
+    keyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUsage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uuUsagePlanId' - [Required] The Id of the usage plan associated with the usage data.
---
--- * 'uuKeyId' - [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
-updateUsage ::
-  -- | 'uuUsagePlanId'
-  Text ->
-  -- | 'uuKeyId'
-  Text ->
+-- * 'keyId' - [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
+mkUpdateUsage ::
+  -- | 'usagePlanId'
+  Lude.Text ->
+  -- | 'keyId'
+  Lude.Text ->
   UpdateUsage
-updateUsage pUsagePlanId_ pKeyId_ =
+mkUpdateUsage pUsagePlanId_ pKeyId_ =
   UpdateUsage'
-    { _uuPatchOperations = Nothing,
-      _uuUsagePlanId = pUsagePlanId_,
-      _uuKeyId = pKeyId_
+    { patchOperations = Lude.Nothing,
+      usagePlanId = pUsagePlanId_,
+      keyId = pKeyId_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uuPatchOperations :: Lens' UpdateUsage [PatchOperation]
-uuPatchOperations = lens _uuPatchOperations (\s a -> s {_uuPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuPatchOperations :: Lens.Lens' UpdateUsage (Lude.Maybe [PatchOperation])
+uuPatchOperations = Lens.lens (patchOperations :: UpdateUsage -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateUsage)
+{-# DEPRECATED uuPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The Id of the usage plan associated with the usage data.
-uuUsagePlanId :: Lens' UpdateUsage Text
-uuUsagePlanId = lens _uuUsagePlanId (\s a -> s {_uuUsagePlanId = a})
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuUsagePlanId :: Lens.Lens' UpdateUsage Lude.Text
+uuUsagePlanId = Lens.lens (usagePlanId :: UpdateUsage -> Lude.Text) (\s a -> s {usagePlanId = a} :: UpdateUsage)
+{-# DEPRECATED uuUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
 -- | [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
-uuKeyId :: Lens' UpdateUsage Text
-uuKeyId = lens _uuKeyId (\s a -> s {_uuKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuKeyId :: Lens.Lens' UpdateUsage Lude.Text
+uuKeyId = Lens.lens (keyId :: UpdateUsage -> Lude.Text) (\s a -> s {keyId = a} :: UpdateUsage)
+{-# DEPRECATED uuKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance AWSRequest UpdateUsage where
+instance Lude.AWSRequest UpdateUsage where
   type Rs UpdateUsage = Usage
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateUsage
-
-instance NFData UpdateUsage
-
-instance ToHeaders UpdateUsage where
+instance Lude.ToHeaders UpdateUsage where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateUsage where
+instance Lude.ToJSON UpdateUsage where
   toJSON UpdateUsage' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uuPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateUsage where
+instance Lude.ToPath UpdateUsage where
   toPath UpdateUsage' {..} =
-    mconcat
+    Lude.mconcat
       [ "/usageplans/",
-        toBS _uuUsagePlanId,
+        Lude.toBS usagePlanId,
         "/keys/",
-        toBS _uuKeyId,
+        Lude.toBS keyId,
         "/usage"
       ]
 
-instance ToQuery UpdateUsage where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUsage where
+  toQuery = Lude.const Lude.mempty

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,191 @@
 --
 -- Provisions or modifies a product based on the resource changes for the specified plan.
 module Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
-  ( -- * Creating a Request
-    executeProvisionedProductPlan,
-    ExecuteProvisionedProductPlan,
+  ( -- * Creating a request
+    ExecuteProvisionedProductPlan (..),
+    mkExecuteProvisionedProductPlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     epppAcceptLanguage,
     epppPlanId,
     epppIdempotencyToken,
 
-    -- * Destructuring the Response
-    executeProvisionedProductPlanResponse,
-    ExecuteProvisionedProductPlanResponse,
+    -- * Destructuring the response
+    ExecuteProvisionedProductPlanResponse (..),
+    mkExecuteProvisionedProductPlanResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eppprsRecordDetail,
     eppprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'executeProvisionedProductPlan' smart constructor.
+-- | /See:/ 'mkExecuteProvisionedProductPlan' smart constructor.
 data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
-  { _epppAcceptLanguage ::
-      !(Maybe Text),
-    _epppPlanId :: !Text,
-    _epppIdempotencyToken :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    planId :: Lude.Text,
+    idempotencyToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteProvisionedProductPlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'epppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'epppPlanId' - The plan identifier.
+--     * @en@ - English (default)
 --
--- * 'epppIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-executeProvisionedProductPlan ::
-  -- | 'epppPlanId'
-  Text ->
-  -- | 'epppIdempotencyToken'
-  Text ->
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'planId' - The plan identifier.
+mkExecuteProvisionedProductPlan ::
+  -- | 'planId'
+  Lude.Text ->
+  -- | 'idempotencyToken'
+  Lude.Text ->
   ExecuteProvisionedProductPlan
-executeProvisionedProductPlan pPlanId_ pIdempotencyToken_ =
+mkExecuteProvisionedProductPlan pPlanId_ pIdempotencyToken_ =
   ExecuteProvisionedProductPlan'
-    { _epppAcceptLanguage = Nothing,
-      _epppPlanId = pPlanId_,
-      _epppIdempotencyToken = pIdempotencyToken_
+    { acceptLanguage = Lude.Nothing,
+      planId = pPlanId_,
+      idempotencyToken = pIdempotencyToken_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-epppAcceptLanguage :: Lens' ExecuteProvisionedProductPlan (Maybe Text)
-epppAcceptLanguage = lens _epppAcceptLanguage (\s a -> s {_epppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epppAcceptLanguage :: Lens.Lens' ExecuteProvisionedProductPlan (Lude.Maybe Lude.Text)
+epppAcceptLanguage = Lens.lens (acceptLanguage :: ExecuteProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ExecuteProvisionedProductPlan)
+{-# DEPRECATED epppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The plan identifier.
-epppPlanId :: Lens' ExecuteProvisionedProductPlan Text
-epppPlanId = lens _epppPlanId (\s a -> s {_epppPlanId = a})
+--
+-- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epppPlanId :: Lens.Lens' ExecuteProvisionedProductPlan Lude.Text
+epppPlanId = Lens.lens (planId :: ExecuteProvisionedProductPlan -> Lude.Text) (\s a -> s {planId = a} :: ExecuteProvisionedProductPlan)
+{-# DEPRECATED epppPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-epppIdempotencyToken :: Lens' ExecuteProvisionedProductPlan Text
-epppIdempotencyToken = lens _epppIdempotencyToken (\s a -> s {_epppIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epppIdempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan Lude.Text
+epppIdempotencyToken = Lens.lens (idempotencyToken :: ExecuteProvisionedProductPlan -> Lude.Text) (\s a -> s {idempotencyToken = a} :: ExecuteProvisionedProductPlan)
+{-# DEPRECATED epppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
-instance AWSRequest ExecuteProvisionedProductPlan where
+instance Lude.AWSRequest ExecuteProvisionedProductPlan where
   type
     Rs ExecuteProvisionedProductPlan =
       ExecuteProvisionedProductPlanResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ExecuteProvisionedProductPlanResponse'
-            <$> (x .?> "RecordDetail") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RecordDetail") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ExecuteProvisionedProductPlan
-
-instance NFData ExecuteProvisionedProductPlan
-
-instance ToHeaders ExecuteProvisionedProductPlan where
+instance Lude.ToHeaders ExecuteProvisionedProductPlan where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ExecuteProvisionedProductPlan where
+instance Lude.ToJSON ExecuteProvisionedProductPlan where
   toJSON ExecuteProvisionedProductPlan' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _epppAcceptLanguage,
-            Just ("PlanId" .= _epppPlanId),
-            Just ("IdempotencyToken" .= _epppIdempotencyToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("PlanId" Lude..= planId),
+            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
           ]
       )
 
-instance ToPath ExecuteProvisionedProductPlan where
-  toPath = const "/"
+instance Lude.ToPath ExecuteProvisionedProductPlan where
+  toPath = Lude.const "/"
 
-instance ToQuery ExecuteProvisionedProductPlan where
-  toQuery = const mempty
+instance Lude.ToQuery ExecuteProvisionedProductPlan where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'executeProvisionedProductPlanResponse' smart constructor.
+-- | /See:/ 'mkExecuteProvisionedProductPlanResponse' smart constructor.
 data ExecuteProvisionedProductPlanResponse = ExecuteProvisionedProductPlanResponse'
-  { _eppprsRecordDetail ::
-      !( Maybe
-           RecordDetail
-       ),
-    _eppprsResponseStatus ::
-      !Int
+  { recordDetail ::
+      Lude.Maybe
+        RecordDetail,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteProvisionedProductPlanResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eppprsRecordDetail' - Information about the result of provisioning the product.
---
--- * 'eppprsResponseStatus' - -- | The response status code.
-executeProvisionedProductPlanResponse ::
-  -- | 'eppprsResponseStatus'
-  Int ->
+-- * 'recordDetail' - Information about the result of provisioning the product.
+-- * 'responseStatus' - The response status code.
+mkExecuteProvisionedProductPlanResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ExecuteProvisionedProductPlanResponse
-executeProvisionedProductPlanResponse pResponseStatus_ =
+mkExecuteProvisionedProductPlanResponse pResponseStatus_ =
   ExecuteProvisionedProductPlanResponse'
-    { _eppprsRecordDetail =
-        Nothing,
-      _eppprsResponseStatus = pResponseStatus_
+    { recordDetail =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the result of provisioning the product.
-eppprsRecordDetail :: Lens' ExecuteProvisionedProductPlanResponse (Maybe RecordDetail)
-eppprsRecordDetail = lens _eppprsRecordDetail (\s a -> s {_eppprsRecordDetail = a})
+--
+-- /Note:/ Consider using 'recordDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eppprsRecordDetail :: Lens.Lens' ExecuteProvisionedProductPlanResponse (Lude.Maybe RecordDetail)
+eppprsRecordDetail = Lens.lens (recordDetail :: ExecuteProvisionedProductPlanResponse -> Lude.Maybe RecordDetail) (\s a -> s {recordDetail = a} :: ExecuteProvisionedProductPlanResponse)
+{-# DEPRECATED eppprsRecordDetail "Use generic-lens or generic-optics with 'recordDetail' instead." #-}
 
--- | -- | The response status code.
-eppprsResponseStatus :: Lens' ExecuteProvisionedProductPlanResponse Int
-eppprsResponseStatus = lens _eppprsResponseStatus (\s a -> s {_eppprsResponseStatus = a})
-
-instance NFData ExecuteProvisionedProductPlanResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eppprsResponseStatus :: Lens.Lens' ExecuteProvisionedProductPlanResponse Lude.Int
+eppprsResponseStatus = Lens.lens (responseStatus :: ExecuteProvisionedProductPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExecuteProvisionedProductPlanResponse)
+{-# DEPRECATED eppprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

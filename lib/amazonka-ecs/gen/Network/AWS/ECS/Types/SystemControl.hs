@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.SystemControl where
+module Network.AWS.ECS.Types.SystemControl
+  ( SystemControl (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSystemControl,
+
+    -- * Lenses
+    scValue,
+    scNamespace,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of namespaced kernel parameters to set in the container. This parameter maps to @Sysctls@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the @--sysctl@ option to <https://docs.docker.com/engine/reference/run/#security-configuration docker run> .
---
 --
 -- It is not recommended that you specify network-related @systemControls@ parameters for multiple containers in a single task that also uses either the @awsvpc@ or @host@ network mode for the following reasons:
 --
 --     * For tasks that use the @awsvpc@ network mode, if you set @systemControls@ for any container, it applies to all containers in the task. If you set different @systemControls@ for multiple containers in a single task, the container that is started last determines which @systemControls@ take effect.
 --
+--
 --     * For tasks that use the @host@ network mode, the @systemControls@ parameter applies to the container instance's kernel parameter as well as that of all containers of any tasks running on that container instance.
 --
 --
 --
---
--- /See:/ 'systemControl' smart constructor.
+-- /See:/ 'mkSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { _scValue :: !(Maybe Text),
-    _scNamespace :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SystemControl' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scValue' - The value for the namespaced kernel parameter specified in @namespace@ .
---
--- * 'scNamespace' - The namespaced kernel parameter for which to set a @value@ .
-systemControl ::
+-- * 'namespace' - The namespaced kernel parameter for which to set a @value@ .
+-- * 'value' - The value for the namespaced kernel parameter specified in @namespace@ .
+mkSystemControl ::
   SystemControl
-systemControl =
-  SystemControl' {_scValue = Nothing, _scNamespace = Nothing}
+mkSystemControl =
+  SystemControl' {value = Lude.Nothing, namespace = Lude.Nothing}
 
 -- | The value for the namespaced kernel parameter specified in @namespace@ .
-scValue :: Lens' SystemControl (Maybe Text)
-scValue = lens _scValue (\s a -> s {_scValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scValue :: Lens.Lens' SystemControl (Lude.Maybe Lude.Text)
+scValue = Lens.lens (value :: SystemControl -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: SystemControl)
+{-# DEPRECATED scValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The namespaced kernel parameter for which to set a @value@ .
-scNamespace :: Lens' SystemControl (Maybe Text)
-scNamespace = lens _scNamespace (\s a -> s {_scNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scNamespace :: Lens.Lens' SystemControl (Lude.Maybe Lude.Text)
+scNamespace = Lens.lens (namespace :: SystemControl -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: SystemControl)
+{-# DEPRECATED scNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
-instance FromJSON SystemControl where
+instance Lude.FromJSON SystemControl where
   parseJSON =
-    withObject
+    Lude.withObject
       "SystemControl"
-      (\x -> SystemControl' <$> (x .:? "value") <*> (x .:? "namespace"))
+      ( \x ->
+          SystemControl'
+            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "namespace")
+      )
 
-instance Hashable SystemControl
-
-instance NFData SystemControl
-
-instance ToJSON SystemControl where
+instance Lude.ToJSON SystemControl where
   toJSON SystemControl' {..} =
-    object
-      ( catMaybes
-          [("value" .=) <$> _scValue, ("namespace" .=) <$> _scNamespace]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("value" Lude..=) Lude.<$> value,
+            ("namespace" Lude..=) Lude.<$> namespace
+          ]
       )

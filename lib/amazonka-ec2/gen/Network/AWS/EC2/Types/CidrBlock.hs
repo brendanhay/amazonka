@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CidrBlock where
+module Network.AWS.EC2.Types.CidrBlock
+  ( CidrBlock (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCidrBlock,
+
+    -- * Lenses
+    cbCidrBlock,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv4 CIDR block.
 --
---
---
--- /See:/ 'cidrBlock' smart constructor.
-newtype CidrBlock = CidrBlock' {_cbCidrBlock :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkCidrBlock' smart constructor.
+newtype CidrBlock = CidrBlock' {cidrBlock :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CidrBlock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbCidrBlock' - The IPv4 CIDR block.
-cidrBlock ::
+-- * 'cidrBlock' - The IPv4 CIDR block.
+mkCidrBlock ::
   CidrBlock
-cidrBlock = CidrBlock' {_cbCidrBlock = Nothing}
+mkCidrBlock = CidrBlock' {cidrBlock = Lude.Nothing}
 
 -- | The IPv4 CIDR block.
-cbCidrBlock :: Lens' CidrBlock (Maybe Text)
-cbCidrBlock = lens _cbCidrBlock (\s a -> s {_cbCidrBlock = a})
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbCidrBlock :: Lens.Lens' CidrBlock (Lude.Maybe Lude.Text)
+cbCidrBlock = Lens.lens (cidrBlock :: CidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: CidrBlock)
+{-# DEPRECATED cbCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
-instance FromXML CidrBlock where
-  parseXML x = CidrBlock' <$> (x .@? "cidrBlock")
-
-instance Hashable CidrBlock
-
-instance NFData CidrBlock
+instance Lude.FromXML CidrBlock where
+  parseXML x = CidrBlock' Lude.<$> (x Lude..@? "cidrBlock")

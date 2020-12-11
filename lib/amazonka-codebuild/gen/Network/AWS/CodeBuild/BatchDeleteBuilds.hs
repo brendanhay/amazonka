@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Deletes one or more builds.
 module Network.AWS.CodeBuild.BatchDeleteBuilds
-  ( -- * Creating a Request
-    batchDeleteBuilds,
-    BatchDeleteBuilds,
+  ( -- * Creating a request
+    BatchDeleteBuilds (..),
+    mkBatchDeleteBuilds,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdbIds,
 
-    -- * Destructuring the Response
-    batchDeleteBuildsResponse,
-    BatchDeleteBuildsResponse,
+    -- * Destructuring the response
+    BatchDeleteBuildsResponse (..),
+    mkBatchDeleteBuildsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bdbrsBuildsNotDeleted,
     bdbrsBuildsDeleted,
     bdbrsResponseStatus,
@@ -38,110 +33,124 @@ module Network.AWS.CodeBuild.BatchDeleteBuilds
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchDeleteBuilds' smart constructor.
+-- | /See:/ 'mkBatchDeleteBuilds' smart constructor.
 newtype BatchDeleteBuilds = BatchDeleteBuilds'
-  { _bdbIds ::
-      List1 Text
+  { ids ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteBuilds' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdbIds' - The IDs of the builds to delete.
-batchDeleteBuilds ::
-  -- | 'bdbIds'
-  NonEmpty Text ->
+-- * 'ids' - The IDs of the builds to delete.
+mkBatchDeleteBuilds ::
+  -- | 'ids'
+  Lude.NonEmpty Lude.Text ->
   BatchDeleteBuilds
-batchDeleteBuilds pIds_ =
-  BatchDeleteBuilds' {_bdbIds = _List1 # pIds_}
+mkBatchDeleteBuilds pIds_ = BatchDeleteBuilds' {ids = pIds_}
 
 -- | The IDs of the builds to delete.
-bdbIds :: Lens' BatchDeleteBuilds (NonEmpty Text)
-bdbIds = lens _bdbIds (\s a -> s {_bdbIds = a}) . _List1
+--
+-- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdbIds :: Lens.Lens' BatchDeleteBuilds (Lude.NonEmpty Lude.Text)
+bdbIds = Lens.lens (ids :: BatchDeleteBuilds -> Lude.NonEmpty Lude.Text) (\s a -> s {ids = a} :: BatchDeleteBuilds)
+{-# DEPRECATED bdbIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
-instance AWSRequest BatchDeleteBuilds where
+instance Lude.AWSRequest BatchDeleteBuilds where
   type Rs BatchDeleteBuilds = BatchDeleteBuildsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDeleteBuildsResponse'
-            <$> (x .?> "buildsNotDeleted" .!@ mempty)
-            <*> (x .?> "buildsDeleted")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "buildsNotDeleted" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "buildsDeleted")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchDeleteBuilds
-
-instance NFData BatchDeleteBuilds
-
-instance ToHeaders BatchDeleteBuilds where
+instance Lude.ToHeaders BatchDeleteBuilds where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.BatchDeleteBuilds" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.BatchDeleteBuilds" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchDeleteBuilds where
+instance Lude.ToJSON BatchDeleteBuilds where
   toJSON BatchDeleteBuilds' {..} =
-    object (catMaybes [Just ("ids" .= _bdbIds)])
+    Lude.object (Lude.catMaybes [Lude.Just ("ids" Lude..= ids)])
 
-instance ToPath BatchDeleteBuilds where
-  toPath = const "/"
+instance Lude.ToPath BatchDeleteBuilds where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchDeleteBuilds where
-  toQuery = const mempty
+instance Lude.ToQuery BatchDeleteBuilds where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchDeleteBuildsResponse' smart constructor.
+-- | /See:/ 'mkBatchDeleteBuildsResponse' smart constructor.
 data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
-  { _bdbrsBuildsNotDeleted ::
-      !(Maybe [BuildNotDeleted]),
-    _bdbrsBuildsDeleted ::
-      !(Maybe (List1 Text)),
-    _bdbrsResponseStatus :: !Int
+  { buildsNotDeleted ::
+      Lude.Maybe [BuildNotDeleted],
+    buildsDeleted ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteBuildsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdbrsBuildsNotDeleted' - Information about any builds that could not be successfully deleted.
---
--- * 'bdbrsBuildsDeleted' - The IDs of the builds that were successfully deleted.
---
--- * 'bdbrsResponseStatus' - -- | The response status code.
-batchDeleteBuildsResponse ::
-  -- | 'bdbrsResponseStatus'
-  Int ->
+-- * 'buildsDeleted' - The IDs of the builds that were successfully deleted.
+-- * 'buildsNotDeleted' - Information about any builds that could not be successfully deleted.
+-- * 'responseStatus' - The response status code.
+mkBatchDeleteBuildsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDeleteBuildsResponse
-batchDeleteBuildsResponse pResponseStatus_ =
+mkBatchDeleteBuildsResponse pResponseStatus_ =
   BatchDeleteBuildsResponse'
-    { _bdbrsBuildsNotDeleted = Nothing,
-      _bdbrsBuildsDeleted = Nothing,
-      _bdbrsResponseStatus = pResponseStatus_
+    { buildsNotDeleted = Lude.Nothing,
+      buildsDeleted = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about any builds that could not be successfully deleted.
-bdbrsBuildsNotDeleted :: Lens' BatchDeleteBuildsResponse [BuildNotDeleted]
-bdbrsBuildsNotDeleted = lens _bdbrsBuildsNotDeleted (\s a -> s {_bdbrsBuildsNotDeleted = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'buildsNotDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdbrsBuildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Lude.Maybe [BuildNotDeleted])
+bdbrsBuildsNotDeleted = Lens.lens (buildsNotDeleted :: BatchDeleteBuildsResponse -> Lude.Maybe [BuildNotDeleted]) (\s a -> s {buildsNotDeleted = a} :: BatchDeleteBuildsResponse)
+{-# DEPRECATED bdbrsBuildsNotDeleted "Use generic-lens or generic-optics with 'buildsNotDeleted' instead." #-}
 
 -- | The IDs of the builds that were successfully deleted.
-bdbrsBuildsDeleted :: Lens' BatchDeleteBuildsResponse (Maybe (NonEmpty Text))
-bdbrsBuildsDeleted = lens _bdbrsBuildsDeleted (\s a -> s {_bdbrsBuildsDeleted = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'buildsDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdbrsBuildsDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+bdbrsBuildsDeleted = Lens.lens (buildsDeleted :: BatchDeleteBuildsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {buildsDeleted = a} :: BatchDeleteBuildsResponse)
+{-# DEPRECATED bdbrsBuildsDeleted "Use generic-lens or generic-optics with 'buildsDeleted' instead." #-}
 
--- | -- | The response status code.
-bdbrsResponseStatus :: Lens' BatchDeleteBuildsResponse Int
-bdbrsResponseStatus = lens _bdbrsResponseStatus (\s a -> s {_bdbrsResponseStatus = a})
-
-instance NFData BatchDeleteBuildsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdbrsResponseStatus :: Lens.Lens' BatchDeleteBuildsResponse Lude.Int
+bdbrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteBuildsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteBuildsResponse)
+{-# DEPRECATED bdbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

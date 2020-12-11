@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Retrieves a collection of resources, including folders and documents. The only @CollectionType@ supported is @SHARED_WITH_ME@ .
 module Network.AWS.WorkDocs.GetResources
-  ( -- * Creating a Request
-    getResources,
-    GetResources,
+  ( -- * Creating a request
+    GetResources (..),
+    mkGetResources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grAuthenticationToken,
     grUserId,
     grMarker,
     grLimit,
     grCollectionType,
 
-    -- * Destructuring the Response
-    getResourcesResponse,
-    GetResourcesResponse,
+    -- * Destructuring the response
+    GetResourcesResponse (..),
+    mkGetResourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsFolders,
     grrsDocuments,
     grrsMarker,
@@ -42,150 +37,163 @@ module Network.AWS.WorkDocs.GetResources
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'getResources' smart constructor.
+-- | /See:/ 'mkGetResources' smart constructor.
 data GetResources = GetResources'
-  { _grAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _grUserId :: !(Maybe Text),
-    _grMarker :: !(Maybe Text),
-    _grLimit :: !(Maybe Nat),
-    _grCollectionType :: !(Maybe ResourceCollectionType)
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    userId :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    collectionType :: Lude.Maybe ResourceCollectionType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grAuthenticationToken' - The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'grUserId' - The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.
---
--- * 'grMarker' - The marker for the next set of results. This marker was received from a previous call.
---
--- * 'grLimit' - The maximum number of resources to return.
---
--- * 'grCollectionType' - The collection type.
-getResources ::
+-- * 'authenticationToken' - The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'collectionType' - The collection type.
+-- * 'limit' - The maximum number of resources to return.
+-- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
+-- * 'userId' - The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.
+mkGetResources ::
   GetResources
-getResources =
+mkGetResources =
   GetResources'
-    { _grAuthenticationToken = Nothing,
-      _grUserId = Nothing,
-      _grMarker = Nothing,
-      _grLimit = Nothing,
-      _grCollectionType = Nothing
+    { authenticationToken = Lude.Nothing,
+      userId = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      collectionType = Lude.Nothing
     }
 
 -- | The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-grAuthenticationToken :: Lens' GetResources (Maybe Text)
-grAuthenticationToken = lens _grAuthenticationToken (\s a -> s {_grAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grAuthenticationToken :: Lens.Lens' GetResources (Lude.Maybe (Lude.Sensitive Lude.Text))
+grAuthenticationToken = Lens.lens (authenticationToken :: GetResources -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: GetResources)
+{-# DEPRECATED grAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.
-grUserId :: Lens' GetResources (Maybe Text)
-grUserId = lens _grUserId (\s a -> s {_grUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grUserId :: Lens.Lens' GetResources (Lude.Maybe Lude.Text)
+grUserId = Lens.lens (userId :: GetResources -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: GetResources)
+{-# DEPRECATED grUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The marker for the next set of results. This marker was received from a previous call.
-grMarker :: Lens' GetResources (Maybe Text)
-grMarker = lens _grMarker (\s a -> s {_grMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grMarker :: Lens.Lens' GetResources (Lude.Maybe Lude.Text)
+grMarker = Lens.lens (marker :: GetResources -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetResources)
+{-# DEPRECATED grMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of resources to return.
-grLimit :: Lens' GetResources (Maybe Natural)
-grLimit = lens _grLimit (\s a -> s {_grLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grLimit :: Lens.Lens' GetResources (Lude.Maybe Lude.Natural)
+grLimit = Lens.lens (limit :: GetResources -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetResources)
+{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The collection type.
-grCollectionType :: Lens' GetResources (Maybe ResourceCollectionType)
-grCollectionType = lens _grCollectionType (\s a -> s {_grCollectionType = a})
+--
+-- /Note:/ Consider using 'collectionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grCollectionType :: Lens.Lens' GetResources (Lude.Maybe ResourceCollectionType)
+grCollectionType = Lens.lens (collectionType :: GetResources -> Lude.Maybe ResourceCollectionType) (\s a -> s {collectionType = a} :: GetResources)
+{-# DEPRECATED grCollectionType "Use generic-lens or generic-optics with 'collectionType' instead." #-}
 
-instance AWSRequest GetResources where
+instance Lude.AWSRequest GetResources where
   type Rs GetResources = GetResourcesResponse
-  request = get workDocs
+  request = Req.get workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetResourcesResponse'
-            <$> (x .?> "Folders" .!@ mempty)
-            <*> (x .?> "Documents" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Folders" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Documents" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetResources
-
-instance NFData GetResources
-
-instance ToHeaders GetResources where
+instance Lude.ToHeaders GetResources where
   toHeaders GetResources' {..} =
-    mconcat
-      [ "Authentication" =# _grAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath GetResources where
-  toPath = const "/api/v1/resources"
+instance Lude.ToPath GetResources where
+  toPath = Lude.const "/api/v1/resources"
 
-instance ToQuery GetResources where
+instance Lude.ToQuery GetResources where
   toQuery GetResources' {..} =
-    mconcat
-      [ "userId" =: _grUserId,
-        "marker" =: _grMarker,
-        "limit" =: _grLimit,
-        "collectionType" =: _grCollectionType
+    Lude.mconcat
+      [ "userId" Lude.=: userId,
+        "marker" Lude.=: marker,
+        "limit" Lude.=: limit,
+        "collectionType" Lude.=: collectionType
       ]
 
--- | /See:/ 'getResourcesResponse' smart constructor.
+-- | /See:/ 'mkGetResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-  { _grrsFolders ::
-      !(Maybe [FolderMetadata]),
-    _grrsDocuments :: !(Maybe [DocumentMetadata]),
-    _grrsMarker :: !(Maybe Text),
-    _grrsResponseStatus :: !Int
+  { folders ::
+      Lude.Maybe [FolderMetadata],
+    documents :: Lude.Maybe [DocumentMetadata],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsFolders' - The folders in the specified folder.
---
--- * 'grrsDocuments' - The documents in the specified collection.
---
--- * 'grrsMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-getResourcesResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'documents' - The documents in the specified collection.
+-- * 'folders' - The folders in the specified folder.
+-- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkGetResourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetResourcesResponse
-getResourcesResponse pResponseStatus_ =
+mkGetResourcesResponse pResponseStatus_ =
   GetResourcesResponse'
-    { _grrsFolders = Nothing,
-      _grrsDocuments = Nothing,
-      _grrsMarker = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { folders = Lude.Nothing,
+      documents = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The folders in the specified folder.
-grrsFolders :: Lens' GetResourcesResponse [FolderMetadata]
-grrsFolders = lens _grrsFolders (\s a -> s {_grrsFolders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'folders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsFolders :: Lens.Lens' GetResourcesResponse (Lude.Maybe [FolderMetadata])
+grrsFolders = Lens.lens (folders :: GetResourcesResponse -> Lude.Maybe [FolderMetadata]) (\s a -> s {folders = a} :: GetResourcesResponse)
+{-# DEPRECATED grrsFolders "Use generic-lens or generic-optics with 'folders' instead." #-}
 
 -- | The documents in the specified collection.
-grrsDocuments :: Lens' GetResourcesResponse [DocumentMetadata]
-grrsDocuments = lens _grrsDocuments (\s a -> s {_grrsDocuments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'documents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsDocuments :: Lens.Lens' GetResourcesResponse (Lude.Maybe [DocumentMetadata])
+grrsDocuments = Lens.lens (documents :: GetResourcesResponse -> Lude.Maybe [DocumentMetadata]) (\s a -> s {documents = a} :: GetResourcesResponse)
+{-# DEPRECATED grrsDocuments "Use generic-lens or generic-optics with 'documents' instead." #-}
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-grrsMarker :: Lens' GetResourcesResponse (Maybe Text)
-grrsMarker = lens _grrsMarker (\s a -> s {_grrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsMarker :: Lens.Lens' GetResourcesResponse (Lude.Maybe Lude.Text)
+grrsMarker = Lens.lens (marker :: GetResourcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetResourcesResponse)
+{-# DEPRECATED grrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetResourcesResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GetResourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GetResourcesResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GetResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourcesResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

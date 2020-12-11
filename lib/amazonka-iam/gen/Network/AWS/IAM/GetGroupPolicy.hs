@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Retrieves the specified inline policy document that is embedded in the specified IAM group.
 --
---
 -- An IAM group can also have managed policies attached to it. To retrieve a managed policy document that is attached to a group, use 'GetPolicy' to determine the policy's default version, then use 'GetPolicyVersion' to retrieve the policy document.
---
 -- For more information about policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 module Network.AWS.IAM.GetGroupPolicy
-  ( -- * Creating a Request
-    getGroupPolicy,
-    GetGroupPolicy,
+  ( -- * Creating a request
+    GetGroupPolicy (..),
+    mkGetGroupPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggpGroupName,
     ggpPolicyName,
 
-    -- * Destructuring the Response
-    getGroupPolicyResponse,
-    GetGroupPolicyResponse,
+    -- * Destructuring the response
+    GetGroupPolicyResponse (..),
+    mkGetGroupPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggprsResponseStatus,
     ggprsGroupName,
     ggprsPolicyName,
@@ -45,139 +38,167 @@ module Network.AWS.IAM.GetGroupPolicy
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGroupPolicy' smart constructor.
+-- | /See:/ 'mkGetGroupPolicy' smart constructor.
 data GetGroupPolicy = GetGroupPolicy'
-  { _ggpGroupName :: !Text,
-    _ggpPolicyName :: !Text
+  { groupName :: Lude.Text,
+    policyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The name of the group the policy is associated with.
 --
--- * 'ggpGroupName' - The name of the group the policy is associated with. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'policyName' - The name of the policy document to get.
 --
--- * 'ggpPolicyName' - The name of the policy document to get. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-getGroupPolicy ::
-  -- | 'ggpGroupName'
-  Text ->
-  -- | 'ggpPolicyName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkGetGroupPolicy ::
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
   GetGroupPolicy
-getGroupPolicy pGroupName_ pPolicyName_ =
+mkGetGroupPolicy pGroupName_ pPolicyName_ =
   GetGroupPolicy'
-    { _ggpGroupName = pGroupName_,
-      _ggpPolicyName = pPolicyName_
+    { groupName = pGroupName_,
+      policyName = pPolicyName_
     }
 
--- | The name of the group the policy is associated with. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-ggpGroupName :: Lens' GetGroupPolicy Text
-ggpGroupName = lens _ggpGroupName (\s a -> s {_ggpGroupName = a})
+-- | The name of the group the policy is associated with.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggpGroupName :: Lens.Lens' GetGroupPolicy Lude.Text
+ggpGroupName = Lens.lens (groupName :: GetGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: GetGroupPolicy)
+{-# DEPRECATED ggpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | The name of the policy document to get. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-ggpPolicyName :: Lens' GetGroupPolicy Text
-ggpPolicyName = lens _ggpPolicyName (\s a -> s {_ggpPolicyName = a})
+-- | The name of the policy document to get.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggpPolicyName :: Lens.Lens' GetGroupPolicy Lude.Text
+ggpPolicyName = Lens.lens (policyName :: GetGroupPolicy -> Lude.Text) (\s a -> s {policyName = a} :: GetGroupPolicy)
+{-# DEPRECATED ggpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance AWSRequest GetGroupPolicy where
+instance Lude.AWSRequest GetGroupPolicy where
   type Rs GetGroupPolicy = GetGroupPolicyResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetGroupPolicyResult"
       ( \s h x ->
           GetGroupPolicyResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@ "GroupName")
-            <*> (x .@ "PolicyName")
-            <*> (x .@ "PolicyDocument")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "GroupName")
+            Lude.<*> (x Lude..@ "PolicyName")
+            Lude.<*> (x Lude..@ "PolicyDocument")
       )
 
-instance Hashable GetGroupPolicy
+instance Lude.ToHeaders GetGroupPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetGroupPolicy
+instance Lude.ToPath GetGroupPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetGroupPolicy where
-  toHeaders = const mempty
-
-instance ToPath GetGroupPolicy where
-  toPath = const "/"
-
-instance ToQuery GetGroupPolicy where
+instance Lude.ToQuery GetGroupPolicy where
   toQuery GetGroupPolicy' {..} =
-    mconcat
-      [ "Action" =: ("GetGroupPolicy" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "GroupName" =: _ggpGroupName,
-        "PolicyName" =: _ggpPolicyName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetGroupPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "GroupName" Lude.=: groupName,
+        "PolicyName" Lude.=: policyName
       ]
 
 -- | Contains the response to a successful 'GetGroupPolicy' request.
 --
---
---
--- /See:/ 'getGroupPolicyResponse' smart constructor.
+-- /See:/ 'mkGetGroupPolicyResponse' smart constructor.
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-  { _ggprsResponseStatus ::
-      !Int,
-    _ggprsGroupName :: !Text,
-    _ggprsPolicyName :: !Text,
-    _ggprsPolicyDocument :: !Text
+  { responseStatus ::
+      Lude.Int,
+    groupName :: Lude.Text,
+    policyName :: Lude.Text,
+    policyDocument :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The group the policy is associated with.
+-- * 'policyDocument' - The policy document.
 --
--- * 'ggprsResponseStatus' - -- | The response status code.
---
--- * 'ggprsGroupName' - The group the policy is associated with.
---
--- * 'ggprsPolicyName' - The name of the policy.
---
--- * 'ggprsPolicyDocument' - The policy document. IAM stores policies in JSON format. However, resources that were created using AWS CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
-getGroupPolicyResponse ::
-  -- | 'ggprsResponseStatus'
-  Int ->
-  -- | 'ggprsGroupName'
-  Text ->
-  -- | 'ggprsPolicyName'
-  Text ->
-  -- | 'ggprsPolicyDocument'
-  Text ->
+-- IAM stores policies in JSON format. However, resources that were created using AWS CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+-- * 'policyName' - The name of the policy.
+-- * 'responseStatus' - The response status code.
+mkGetGroupPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'policyDocument'
+  Lude.Text ->
   GetGroupPolicyResponse
-getGroupPolicyResponse
+mkGetGroupPolicyResponse
   pResponseStatus_
   pGroupName_
   pPolicyName_
   pPolicyDocument_ =
     GetGroupPolicyResponse'
-      { _ggprsResponseStatus = pResponseStatus_,
-        _ggprsGroupName = pGroupName_,
-        _ggprsPolicyName = pPolicyName_,
-        _ggprsPolicyDocument = pPolicyDocument_
+      { responseStatus = pResponseStatus_,
+        groupName = pGroupName_,
+        policyName = pPolicyName_,
+        policyDocument = pPolicyDocument_
       }
 
--- | -- | The response status code.
-ggprsResponseStatus :: Lens' GetGroupPolicyResponse Int
-ggprsResponseStatus = lens _ggprsResponseStatus (\s a -> s {_ggprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggprsResponseStatus :: Lens.Lens' GetGroupPolicyResponse Lude.Int
+ggprsResponseStatus = Lens.lens (responseStatus :: GetGroupPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupPolicyResponse)
+{-# DEPRECATED ggprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The group the policy is associated with.
-ggprsGroupName :: Lens' GetGroupPolicyResponse Text
-ggprsGroupName = lens _ggprsGroupName (\s a -> s {_ggprsGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggprsGroupName :: Lens.Lens' GetGroupPolicyResponse Lude.Text
+ggprsGroupName = Lens.lens (groupName :: GetGroupPolicyResponse -> Lude.Text) (\s a -> s {groupName = a} :: GetGroupPolicyResponse)
+{-# DEPRECATED ggprsGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The name of the policy.
-ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
-ggprsPolicyName = lens _ggprsPolicyName (\s a -> s {_ggprsPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggprsPolicyName :: Lens.Lens' GetGroupPolicyResponse Lude.Text
+ggprsPolicyName = Lens.lens (policyName :: GetGroupPolicyResponse -> Lude.Text) (\s a -> s {policyName = a} :: GetGroupPolicyResponse)
+{-# DEPRECATED ggprsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
--- | The policy document. IAM stores policies in JSON format. However, resources that were created using AWS CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
-ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
-ggprsPolicyDocument = lens _ggprsPolicyDocument (\s a -> s {_ggprsPolicyDocument = a})
-
-instance NFData GetGroupPolicyResponse
+-- | The policy document.
+--
+-- IAM stores policies in JSON format. However, resources that were created using AWS CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggprsPolicyDocument :: Lens.Lens' GetGroupPolicyResponse Lude.Text
+ggprsPolicyDocument = Lens.lens (policyDocument :: GetGroupPolicyResponse -> Lude.Text) (\s a -> s {policyDocument = a} :: GetGroupPolicyResponse)
+{-# DEPRECATED ggprsPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}

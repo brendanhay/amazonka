@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateHTTPTokensState where
+module Network.AWS.EC2.Types.LaunchTemplateHTTPTokensState
+  ( LaunchTemplateHTTPTokensState
+      ( LaunchTemplateHTTPTokensState',
+        Optional,
+        Required
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LaunchTemplateHTTPTokensState
-  = Optional
-  | Required
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LaunchTemplateHTTPTokensState = LaunchTemplateHTTPTokensState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LaunchTemplateHTTPTokensState where
-  parser =
-    takeLowerText >>= \case
-      "optional" -> pure Optional
-      "required" -> pure Required
-      e ->
-        fromTextError $
-          "Failure parsing LaunchTemplateHTTPTokensState from value: '" <> e
-            <> "'. Accepted values: optional, required"
+pattern Optional :: LaunchTemplateHTTPTokensState
+pattern Optional = LaunchTemplateHTTPTokensState' "optional"
 
-instance ToText LaunchTemplateHTTPTokensState where
-  toText = \case
-    Optional -> "optional"
-    Required -> "required"
+pattern Required :: LaunchTemplateHTTPTokensState
+pattern Required = LaunchTemplateHTTPTokensState' "required"
 
-instance Hashable LaunchTemplateHTTPTokensState
-
-instance NFData LaunchTemplateHTTPTokensState
-
-instance ToByteString LaunchTemplateHTTPTokensState
-
-instance ToQuery LaunchTemplateHTTPTokensState
-
-instance ToHeader LaunchTemplateHTTPTokensState
-
-instance FromXML LaunchTemplateHTTPTokensState where
-  parseXML = parseXMLText "LaunchTemplateHTTPTokensState"
+{-# COMPLETE
+  Optional,
+  Required,
+  LaunchTemplateHTTPTokensState'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.DirectConnectGatewayState where
+module Network.AWS.DirectConnect.Types.DirectConnectGatewayState
+  ( DirectConnectGatewayState
+      ( DirectConnectGatewayState',
+        DCGSAvailable,
+        DCGSDeleted,
+        DCGSDeleting,
+        DCGSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectConnectGatewayState
-  = DCGSAvailable
-  | DCGSDeleted
-  | DCGSDeleting
-  | DCGSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectConnectGatewayState = DirectConnectGatewayState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectConnectGatewayState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure DCGSAvailable
-      "deleted" -> pure DCGSDeleted
-      "deleting" -> pure DCGSDeleting
-      "pending" -> pure DCGSPending
-      e ->
-        fromTextError $
-          "Failure parsing DirectConnectGatewayState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, pending"
+pattern DCGSAvailable :: DirectConnectGatewayState
+pattern DCGSAvailable = DirectConnectGatewayState' "available"
 
-instance ToText DirectConnectGatewayState where
-  toText = \case
-    DCGSAvailable -> "available"
-    DCGSDeleted -> "deleted"
-    DCGSDeleting -> "deleting"
-    DCGSPending -> "pending"
+pattern DCGSDeleted :: DirectConnectGatewayState
+pattern DCGSDeleted = DirectConnectGatewayState' "deleted"
 
-instance Hashable DirectConnectGatewayState
+pattern DCGSDeleting :: DirectConnectGatewayState
+pattern DCGSDeleting = DirectConnectGatewayState' "deleting"
 
-instance NFData DirectConnectGatewayState
+pattern DCGSPending :: DirectConnectGatewayState
+pattern DCGSPending = DirectConnectGatewayState' "pending"
 
-instance ToByteString DirectConnectGatewayState
-
-instance ToQuery DirectConnectGatewayState
-
-instance ToHeader DirectConnectGatewayState
-
-instance FromJSON DirectConnectGatewayState where
-  parseJSON = parseJSONText "DirectConnectGatewayState"
+{-# COMPLETE
+  DCGSAvailable,
+  DCGSDeleted,
+  DCGSDeleting,
+  DCGSPending,
+  DirectConnectGatewayState'
+  #-}

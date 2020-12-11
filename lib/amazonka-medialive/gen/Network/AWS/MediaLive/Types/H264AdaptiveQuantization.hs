@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264AdaptiveQuantization where
+module Network.AWS.MediaLive.Types.H264AdaptiveQuantization
+  ( H264AdaptiveQuantization
+      ( H264AdaptiveQuantization',
+        HHigh,
+        HHigher,
+        HLow,
+        HMax,
+        HMedium,
+        HOff
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Adaptive Quantization
-data H264AdaptiveQuantization
-  = HHigh
-  | HHigher
-  | HLow
-  | HMax
-  | HMedium
-  | HOff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264AdaptiveQuantization = H264AdaptiveQuantization' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264AdaptiveQuantization where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure HHigh
-      "higher" -> pure HHigher
-      "low" -> pure HLow
-      "max" -> pure HMax
-      "medium" -> pure HMedium
-      "off" -> pure HOff
-      e ->
-        fromTextError $
-          "Failure parsing H264AdaptiveQuantization from value: '" <> e
-            <> "'. Accepted values: high, higher, low, max, medium, off"
+pattern HHigh :: H264AdaptiveQuantization
+pattern HHigh = H264AdaptiveQuantization' "HIGH"
 
-instance ToText H264AdaptiveQuantization where
-  toText = \case
-    HHigh -> "HIGH"
-    HHigher -> "HIGHER"
-    HLow -> "LOW"
-    HMax -> "MAX"
-    HMedium -> "MEDIUM"
-    HOff -> "OFF"
+pattern HHigher :: H264AdaptiveQuantization
+pattern HHigher = H264AdaptiveQuantization' "HIGHER"
 
-instance Hashable H264AdaptiveQuantization
+pattern HLow :: H264AdaptiveQuantization
+pattern HLow = H264AdaptiveQuantization' "LOW"
 
-instance NFData H264AdaptiveQuantization
+pattern HMax :: H264AdaptiveQuantization
+pattern HMax = H264AdaptiveQuantization' "MAX"
 
-instance ToByteString H264AdaptiveQuantization
+pattern HMedium :: H264AdaptiveQuantization
+pattern HMedium = H264AdaptiveQuantization' "MEDIUM"
 
-instance ToQuery H264AdaptiveQuantization
+pattern HOff :: H264AdaptiveQuantization
+pattern HOff = H264AdaptiveQuantization' "OFF"
 
-instance ToHeader H264AdaptiveQuantization
-
-instance ToJSON H264AdaptiveQuantization where
-  toJSON = toJSONText
-
-instance FromJSON H264AdaptiveQuantization where
-  parseJSON = parseJSONText "H264AdaptiveQuantization"
+{-# COMPLETE
+  HHigh,
+  HHigher,
+  HLow,
+  HMax,
+  HMedium,
+  HOff,
+  H264AdaptiveQuantization'
+  #-}

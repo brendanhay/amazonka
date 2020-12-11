@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbSubSourceSettings where
+module Network.AWS.MediaLive.Types.DvbSubSourceSettings
+  ( DvbSubSourceSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDvbSubSourceSettings,
+
+    -- * Lenses
+    dsssPid,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Dvb Sub Source Settings
 --
--- /See:/ 'dvbSubSourceSettings' smart constructor.
+-- /See:/ 'mkDvbSubSourceSettings' smart constructor.
 newtype DvbSubSourceSettings = DvbSubSourceSettings'
-  { _dsssPid ::
-      Maybe Nat
+  { pid ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DvbSubSourceSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsssPid' - When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-dvbSubSourceSettings ::
+-- * 'pid' - When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+mkDvbSubSourceSettings ::
   DvbSubSourceSettings
-dvbSubSourceSettings = DvbSubSourceSettings' {_dsssPid = Nothing}
+mkDvbSubSourceSettings = DvbSubSourceSettings' {pid = Lude.Nothing}
 
 -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-dsssPid :: Lens' DvbSubSourceSettings (Maybe Natural)
-dsssPid = lens _dsssPid (\s a -> s {_dsssPid = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsssPid :: Lens.Lens' DvbSubSourceSettings (Lude.Maybe Lude.Natural)
+dsssPid = Lens.lens (pid :: DvbSubSourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {pid = a} :: DvbSubSourceSettings)
+{-# DEPRECATED dsssPid "Use generic-lens or generic-optics with 'pid' instead." #-}
 
-instance FromJSON DvbSubSourceSettings where
+instance Lude.FromJSON DvbSubSourceSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "DvbSubSourceSettings"
-      (\x -> DvbSubSourceSettings' <$> (x .:? "pid"))
+      (\x -> DvbSubSourceSettings' Lude.<$> (x Lude..:? "pid"))
 
-instance Hashable DvbSubSourceSettings
-
-instance NFData DvbSubSourceSettings
-
-instance ToJSON DvbSubSourceSettings where
+instance Lude.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =
-    object (catMaybes [("pid" .=) <$> _dsssPid])
+    Lude.object (Lude.catMaybes [("pid" Lude..=) Lude.<$> pid])

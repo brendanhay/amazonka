@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TimeBasedLinear where
+module Network.AWS.CodeDeploy.Types.TimeBasedLinear
+  ( TimeBasedLinear (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeBasedLinear,
+
+    -- * Lenses
+    tblLinearInterval,
+    tblLinearPercentage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 --
---
---
--- /See:/ 'timeBasedLinear' smart constructor.
+-- /See:/ 'mkTimeBasedLinear' smart constructor.
 data TimeBasedLinear = TimeBasedLinear'
-  { _tblLinearInterval ::
-      !(Maybe Int),
-    _tblLinearPercentage :: !(Maybe Int)
+  { linearInterval ::
+      Lude.Maybe Lude.Int,
+    linearPercentage :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeBasedLinear' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tblLinearInterval' - The number of minutes between each incremental traffic shift of a @TimeBasedLinear@ deployment.
---
--- * 'tblLinearPercentage' - The percentage of traffic that is shifted at the start of each increment of a @TimeBasedLinear@ deployment.
-timeBasedLinear ::
+-- * 'linearInterval' - The number of minutes between each incremental traffic shift of a @TimeBasedLinear@ deployment.
+-- * 'linearPercentage' - The percentage of traffic that is shifted at the start of each increment of a @TimeBasedLinear@ deployment.
+mkTimeBasedLinear ::
   TimeBasedLinear
-timeBasedLinear =
+mkTimeBasedLinear =
   TimeBasedLinear'
-    { _tblLinearInterval = Nothing,
-      _tblLinearPercentage = Nothing
+    { linearInterval = Lude.Nothing,
+      linearPercentage = Lude.Nothing
     }
 
 -- | The number of minutes between each incremental traffic shift of a @TimeBasedLinear@ deployment.
-tblLinearInterval :: Lens' TimeBasedLinear (Maybe Int)
-tblLinearInterval = lens _tblLinearInterval (\s a -> s {_tblLinearInterval = a})
+--
+-- /Note:/ Consider using 'linearInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tblLinearInterval :: Lens.Lens' TimeBasedLinear (Lude.Maybe Lude.Int)
+tblLinearInterval = Lens.lens (linearInterval :: TimeBasedLinear -> Lude.Maybe Lude.Int) (\s a -> s {linearInterval = a} :: TimeBasedLinear)
+{-# DEPRECATED tblLinearInterval "Use generic-lens or generic-optics with 'linearInterval' instead." #-}
 
 -- | The percentage of traffic that is shifted at the start of each increment of a @TimeBasedLinear@ deployment.
-tblLinearPercentage :: Lens' TimeBasedLinear (Maybe Int)
-tblLinearPercentage = lens _tblLinearPercentage (\s a -> s {_tblLinearPercentage = a})
+--
+-- /Note:/ Consider using 'linearPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tblLinearPercentage :: Lens.Lens' TimeBasedLinear (Lude.Maybe Lude.Int)
+tblLinearPercentage = Lens.lens (linearPercentage :: TimeBasedLinear -> Lude.Maybe Lude.Int) (\s a -> s {linearPercentage = a} :: TimeBasedLinear)
+{-# DEPRECATED tblLinearPercentage "Use generic-lens or generic-optics with 'linearPercentage' instead." #-}
 
-instance FromJSON TimeBasedLinear where
+instance Lude.FromJSON TimeBasedLinear where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimeBasedLinear"
       ( \x ->
           TimeBasedLinear'
-            <$> (x .:? "linearInterval") <*> (x .:? "linearPercentage")
+            Lude.<$> (x Lude..:? "linearInterval")
+            Lude.<*> (x Lude..:? "linearPercentage")
       )
 
-instance Hashable TimeBasedLinear
-
-instance NFData TimeBasedLinear
-
-instance ToJSON TimeBasedLinear where
+instance Lude.ToJSON TimeBasedLinear where
   toJSON TimeBasedLinear' {..} =
-    object
-      ( catMaybes
-          [ ("linearInterval" .=) <$> _tblLinearInterval,
-            ("linearPercentage" .=) <$> _tblLinearPercentage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("linearInterval" Lude..=) Lude.<$> linearInterval,
+            ("linearPercentage" Lude..=) Lude.<$> linearPercentage
           ]
       )

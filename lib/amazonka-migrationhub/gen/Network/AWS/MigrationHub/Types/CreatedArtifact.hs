@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.CreatedArtifact where
+module Network.AWS.MigrationHub.Types.CreatedArtifact
+  ( CreatedArtifact (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCreatedArtifact,
+
+    -- * Lenses
+    caDescription,
+    caName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).
 --
---
---
--- /See:/ 'createdArtifact' smart constructor.
+-- /See:/ 'mkCreatedArtifact' smart constructor.
 data CreatedArtifact = CreatedArtifact'
-  { _caDescription ::
-      !(Maybe Text),
-    _caName :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatedArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caDescription' - A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
---
--- * 'caName' - An ARN that uniquely identifies the result of a migration task.
-createdArtifact ::
-  -- | 'caName'
-  Text ->
+-- * 'description' - A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
+-- * 'name' - An ARN that uniquely identifies the result of a migration task.
+mkCreatedArtifact ::
+  -- | 'name'
+  Lude.Text ->
   CreatedArtifact
-createdArtifact pName_ =
-  CreatedArtifact' {_caDescription = Nothing, _caName = pName_}
+mkCreatedArtifact pName_ =
+  CreatedArtifact' {description = Lude.Nothing, name = pName_}
 
 -- | A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
-caDescription :: Lens' CreatedArtifact (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreatedArtifact (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreatedArtifact -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatedArtifact)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | An ARN that uniquely identifies the result of a migration task.
-caName :: Lens' CreatedArtifact Text
-caName = lens _caName (\s a -> s {_caName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreatedArtifact Lude.Text
+caName = Lens.lens (name :: CreatedArtifact -> Lude.Text) (\s a -> s {name = a} :: CreatedArtifact)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON CreatedArtifact where
+instance Lude.FromJSON CreatedArtifact where
   parseJSON =
-    withObject
+    Lude.withObject
       "CreatedArtifact"
       ( \x ->
-          CreatedArtifact' <$> (x .:? "Description") <*> (x .: "Name")
+          CreatedArtifact'
+            Lude.<$> (x Lude..:? "Description") Lude.<*> (x Lude..: "Name")
       )
 
-instance Hashable CreatedArtifact
-
-instance NFData CreatedArtifact
-
-instance ToJSON CreatedArtifact where
+instance Lude.ToJSON CreatedArtifact where
   toJSON CreatedArtifact' {..} =
-    object
-      ( catMaybes
-          [("Description" .=) <$> _caDescription, Just ("Name" .= _caName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )

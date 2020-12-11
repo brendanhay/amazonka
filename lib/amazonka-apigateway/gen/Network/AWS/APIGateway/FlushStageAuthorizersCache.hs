@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,113 @@
 --
 -- Flushes all authorizer cache entries on a stage.
 module Network.AWS.APIGateway.FlushStageAuthorizersCache
-  ( -- * Creating a Request
-    flushStageAuthorizersCache,
-    FlushStageAuthorizersCache,
+  ( -- * Creating a request
+    FlushStageAuthorizersCache (..),
+    mkFlushStageAuthorizersCache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     fsacRestAPIId,
     fsacStageName,
 
-    -- * Destructuring the Response
-    flushStageAuthorizersCacheResponse,
-    FlushStageAuthorizersCacheResponse,
+    -- * Destructuring the response
+    FlushStageAuthorizersCacheResponse (..),
+    mkFlushStageAuthorizersCacheResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to flush authorizer cache entries on a specified stage.
 --
---
---
--- /See:/ 'flushStageAuthorizersCache' smart constructor.
+-- /See:/ 'mkFlushStageAuthorizersCache' smart constructor.
 data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
-  { _fsacRestAPIId ::
-      !Text,
-    _fsacStageName :: !Text
+  { restAPIId ::
+      Lude.Text,
+    stageName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushStageAuthorizersCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsacRestAPIId' - The string identifier of the associated 'RestApi' .
---
--- * 'fsacStageName' - The name of the stage to flush.
-flushStageAuthorizersCache ::
-  -- | 'fsacRestAPIId'
-  Text ->
-  -- | 'fsacStageName'
-  Text ->
+-- * 'restAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'stageName' - The name of the stage to flush.
+mkFlushStageAuthorizersCache ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
   FlushStageAuthorizersCache
-flushStageAuthorizersCache pRestAPIId_ pStageName_ =
+mkFlushStageAuthorizersCache pRestAPIId_ pStageName_ =
   FlushStageAuthorizersCache'
-    { _fsacRestAPIId = pRestAPIId_,
-      _fsacStageName = pStageName_
+    { restAPIId = pRestAPIId_,
+      stageName = pStageName_
     }
 
 -- | The string identifier of the associated 'RestApi' .
-fsacRestAPIId :: Lens' FlushStageAuthorizersCache Text
-fsacRestAPIId = lens _fsacRestAPIId (\s a -> s {_fsacRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsacRestAPIId :: Lens.Lens' FlushStageAuthorizersCache Lude.Text
+fsacRestAPIId = Lens.lens (restAPIId :: FlushStageAuthorizersCache -> Lude.Text) (\s a -> s {restAPIId = a} :: FlushStageAuthorizersCache)
+{-# DEPRECATED fsacRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | The name of the stage to flush.
-fsacStageName :: Lens' FlushStageAuthorizersCache Text
-fsacStageName = lens _fsacStageName (\s a -> s {_fsacStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsacStageName :: Lens.Lens' FlushStageAuthorizersCache Lude.Text
+fsacStageName = Lens.lens (stageName :: FlushStageAuthorizersCache -> Lude.Text) (\s a -> s {stageName = a} :: FlushStageAuthorizersCache)
+{-# DEPRECATED fsacStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
-instance AWSRequest FlushStageAuthorizersCache where
+instance Lude.AWSRequest FlushStageAuthorizersCache where
   type
     Rs FlushStageAuthorizersCache =
       FlushStageAuthorizersCacheResponse
-  request = delete apiGateway
-  response = receiveNull FlushStageAuthorizersCacheResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull FlushStageAuthorizersCacheResponse'
 
-instance Hashable FlushStageAuthorizersCache
-
-instance NFData FlushStageAuthorizersCache
-
-instance ToHeaders FlushStageAuthorizersCache where
+instance Lude.ToHeaders FlushStageAuthorizersCache where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath FlushStageAuthorizersCache where
+instance Lude.ToPath FlushStageAuthorizersCache where
   toPath FlushStageAuthorizersCache' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _fsacRestAPIId,
+        Lude.toBS restAPIId,
         "/stages/",
-        toBS _fsacStageName,
+        Lude.toBS stageName,
         "/cache/authorizers"
       ]
 
-instance ToQuery FlushStageAuthorizersCache where
-  toQuery = const mempty
+instance Lude.ToQuery FlushStageAuthorizersCache where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'flushStageAuthorizersCacheResponse' smart constructor.
+-- | /See:/ 'mkFlushStageAuthorizersCacheResponse' smart constructor.
 data FlushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushStageAuthorizersCacheResponse' with the minimum fields required to make a request.
-flushStageAuthorizersCacheResponse ::
+mkFlushStageAuthorizersCacheResponse ::
   FlushStageAuthorizersCacheResponse
-flushStageAuthorizersCacheResponse =
+mkFlushStageAuthorizersCacheResponse =
   FlushStageAuthorizersCacheResponse'
-
-instance NFData FlushStageAuthorizersCacheResponse

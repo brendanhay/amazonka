@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.SequenceNumberRange where
+module Network.AWS.Kinesis.Types.SequenceNumberRange
+  ( SequenceNumberRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSequenceNumberRange,
+
+    -- * Lenses
+    snrEndingSequenceNumber,
+    snrStartingSequenceNumber,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The range of possible sequence numbers for the shard.
 --
---
---
--- /See:/ 'sequenceNumberRange' smart constructor.
+-- /See:/ 'mkSequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { _snrEndingSequenceNumber ::
-      !(Maybe Text),
-    _snrStartingSequenceNumber :: !Text
+  { endingSequenceNumber ::
+      Lude.Maybe Lude.Text,
+    startingSequenceNumber :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'snrEndingSequenceNumber' - The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
---
--- * 'snrStartingSequenceNumber' - The starting sequence number for the range.
-sequenceNumberRange ::
-  -- | 'snrStartingSequenceNumber'
-  Text ->
+-- * 'endingSequenceNumber' - The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
+-- * 'startingSequenceNumber' - The starting sequence number for the range.
+mkSequenceNumberRange ::
+  -- | 'startingSequenceNumber'
+  Lude.Text ->
   SequenceNumberRange
-sequenceNumberRange pStartingSequenceNumber_ =
+mkSequenceNumberRange pStartingSequenceNumber_ =
   SequenceNumberRange'
-    { _snrEndingSequenceNumber = Nothing,
-      _snrStartingSequenceNumber = pStartingSequenceNumber_
+    { endingSequenceNumber = Lude.Nothing,
+      startingSequenceNumber = pStartingSequenceNumber_
     }
 
 -- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
-snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
-snrEndingSequenceNumber = lens _snrEndingSequenceNumber (\s a -> s {_snrEndingSequenceNumber = a})
+--
+-- /Note:/ Consider using 'endingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Lude.Maybe Lude.Text)
+snrEndingSequenceNumber = Lens.lens (endingSequenceNumber :: SequenceNumberRange -> Lude.Maybe Lude.Text) (\s a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
+{-# DEPRECATED snrEndingSequenceNumber "Use generic-lens or generic-optics with 'endingSequenceNumber' instead." #-}
 
 -- | The starting sequence number for the range.
-snrStartingSequenceNumber :: Lens' SequenceNumberRange Text
-snrStartingSequenceNumber = lens _snrStartingSequenceNumber (\s a -> s {_snrStartingSequenceNumber = a})
+--
+-- /Note:/ Consider using 'startingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snrStartingSequenceNumber :: Lens.Lens' SequenceNumberRange Lude.Text
+snrStartingSequenceNumber = Lens.lens (startingSequenceNumber :: SequenceNumberRange -> Lude.Text) (\s a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
+{-# DEPRECATED snrStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
 
-instance FromJSON SequenceNumberRange where
+instance Lude.FromJSON SequenceNumberRange where
   parseJSON =
-    withObject
+    Lude.withObject
       "SequenceNumberRange"
       ( \x ->
           SequenceNumberRange'
-            <$> (x .:? "EndingSequenceNumber") <*> (x .: "StartingSequenceNumber")
+            Lude.<$> (x Lude..:? "EndingSequenceNumber")
+            Lude.<*> (x Lude..: "StartingSequenceNumber")
       )
-
-instance Hashable SequenceNumberRange
-
-instance NFData SequenceNumberRange

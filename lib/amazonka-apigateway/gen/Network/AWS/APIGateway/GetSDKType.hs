@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.GetSDKType
-  ( -- * Creating a Request
-    getSDKType,
-    GetSDKType,
+  ( -- * Creating a request
+    GetSDKType (..),
+    mkGetSDKType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gstId,
 
-    -- * Destructuring the Response
-    sdkType,
-    SDKType,
+    -- * Destructuring the response
+    SDKType (..),
+    mkSDKType,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stFriendlyName,
     stConfigurationProperties,
     stId,
@@ -39,49 +34,54 @@ module Network.AWS.APIGateway.GetSDKType
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Get an 'SdkType' instance.
 --
---
---
--- /See:/ 'getSDKType' smart constructor.
-newtype GetSDKType = GetSDKType' {_gstId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetSDKType' smart constructor.
+newtype GetSDKType = GetSDKType' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSDKType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstId' - [Required] The identifier of the queried 'SdkType' instance.
-getSDKType ::
-  -- | 'gstId'
-  Text ->
+-- * 'id' - [Required] The identifier of the queried 'SdkType' instance.
+mkGetSDKType ::
+  -- | 'id'
+  Lude.Text ->
   GetSDKType
-getSDKType pId_ = GetSDKType' {_gstId = pId_}
+mkGetSDKType pId_ = GetSDKType' {id = pId_}
 
 -- | [Required] The identifier of the queried 'SdkType' instance.
-gstId :: Lens' GetSDKType Text
-gstId = lens _gstId (\s a -> s {_gstId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstId :: Lens.Lens' GetSDKType Lude.Text
+gstId = Lens.lens (id :: GetSDKType -> Lude.Text) (\s a -> s {id = a} :: GetSDKType)
+{-# DEPRECATED gstId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetSDKType where
+instance Lude.AWSRequest GetSDKType where
   type Rs GetSDKType = SDKType
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetSDKType
-
-instance NFData GetSDKType
-
-instance ToHeaders GetSDKType where
+instance Lude.ToHeaders GetSDKType where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetSDKType where
-  toPath GetSDKType' {..} = mconcat ["/sdktypes/", toBS _gstId]
+instance Lude.ToPath GetSDKType where
+  toPath GetSDKType' {..} = Lude.mconcat ["/sdktypes/", Lude.toBS id]
 
-instance ToQuery GetSDKType where
-  toQuery = const mempty
+instance Lude.ToQuery GetSDKType where
+  toQuery = Lude.const Lude.mempty

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new 'Stage' resource that references a pre-existing 'Deployment' for the API.
 module Network.AWS.APIGateway.CreateStage
-  ( -- * Creating a Request
-    createStage,
-    CreateStage,
+  ( -- * Creating a request
+    CreateStage (..),
+    mkCreateStage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cVariables,
     cDocumentationVersion,
     cTracingEnabled,
@@ -36,11 +31,11 @@ module Network.AWS.APIGateway.CreateStage
     cStageName,
     cDeploymentId,
 
-    -- * Destructuring the Response
-    stage,
-    Stage,
+    -- * Destructuring the response
+    Stage (..),
+    mkStage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sDeploymentId,
     sVariables,
     sAccessLogSettings,
@@ -62,157 +57,182 @@ module Network.AWS.APIGateway.CreateStage
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to create a 'Stage' resource.
 --
---
---
--- /See:/ 'createStage' smart constructor.
+-- /See:/ 'mkCreateStage' smart constructor.
 data CreateStage = CreateStage'
-  { _cVariables ::
-      !(Maybe (Map Text (Text))),
-    _cDocumentationVersion :: !(Maybe Text),
-    _cTracingEnabled :: !(Maybe Bool),
-    _cCacheClusterSize :: !(Maybe CacheClusterSize),
-    _cCanarySettings :: !(Maybe CanarySettings),
-    _cCacheClusterEnabled :: !(Maybe Bool),
-    _cDescription :: !(Maybe Text),
-    _cTags :: !(Maybe (Map Text (Text))),
-    _cRestAPIId :: !Text,
-    _cStageName :: !Text,
-    _cDeploymentId :: !Text
+  { variables ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    documentationVersion :: Lude.Maybe Lude.Text,
+    tracingEnabled :: Lude.Maybe Lude.Bool,
+    cacheClusterSize :: Lude.Maybe CacheClusterSize,
+    canarySettings :: Lude.Maybe CanarySettings,
+    cacheClusterEnabled :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    restAPIId :: Lude.Text,
+    stageName :: Lude.Text,
+    deploymentId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cVariables' - A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
---
--- * 'cDocumentationVersion' - The version of the associated API documentation.
---
--- * 'cTracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
---
--- * 'cCacheClusterSize' - The stage's cache cluster size.
---
--- * 'cCanarySettings' - The canary deployment settings of this stage.
---
--- * 'cCacheClusterEnabled' - Whether cache clustering is enabled for the stage.
---
--- * 'cDescription' - The description of the 'Stage' resource.
---
--- * 'cTags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
---
--- * 'cRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'cStageName' - [Required] The name for the 'Stage' resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
---
--- * 'cDeploymentId' - [Required] The identifier of the 'Deployment' resource for the 'Stage' resource.
-createStage ::
-  -- | 'cRestAPIId'
-  Text ->
-  -- | 'cStageName'
-  Text ->
-  -- | 'cDeploymentId'
-  Text ->
+-- * 'cacheClusterEnabled' - Whether cache clustering is enabled for the stage.
+-- * 'cacheClusterSize' - The stage's cache cluster size.
+-- * 'canarySettings' - The canary deployment settings of this stage.
+-- * 'deploymentId' - [Required] The identifier of the 'Deployment' resource for the 'Stage' resource.
+-- * 'description' - The description of the 'Stage' resource.
+-- * 'documentationVersion' - The version of the associated API documentation.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - [Required] The name for the 'Stage' resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+-- * 'tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
+-- * 'variables' - A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+mkCreateStage ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'deploymentId'
+  Lude.Text ->
   CreateStage
-createStage pRestAPIId_ pStageName_ pDeploymentId_ =
+mkCreateStage pRestAPIId_ pStageName_ pDeploymentId_ =
   CreateStage'
-    { _cVariables = Nothing,
-      _cDocumentationVersion = Nothing,
-      _cTracingEnabled = Nothing,
-      _cCacheClusterSize = Nothing,
-      _cCanarySettings = Nothing,
-      _cCacheClusterEnabled = Nothing,
-      _cDescription = Nothing,
-      _cTags = Nothing,
-      _cRestAPIId = pRestAPIId_,
-      _cStageName = pStageName_,
-      _cDeploymentId = pDeploymentId_
+    { variables = Lude.Nothing,
+      documentationVersion = Lude.Nothing,
+      tracingEnabled = Lude.Nothing,
+      cacheClusterSize = Lude.Nothing,
+      canarySettings = Lude.Nothing,
+      cacheClusterEnabled = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      stageName = pStageName_,
+      deploymentId = pDeploymentId_
     }
 
 -- | A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
-cVariables :: Lens' CreateStage (HashMap Text (Text))
-cVariables = lens _cVariables (\s a -> s {_cVariables = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVariables :: Lens.Lens' CreateStage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cVariables = Lens.lens (variables :: CreateStage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {variables = a} :: CreateStage)
+{-# DEPRECATED cVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | The version of the associated API documentation.
-cDocumentationVersion :: Lens' CreateStage (Maybe Text)
-cDocumentationVersion = lens _cDocumentationVersion (\s a -> s {_cDocumentationVersion = a})
+--
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDocumentationVersion :: Lens.Lens' CreateStage (Lude.Maybe Lude.Text)
+cDocumentationVersion = Lens.lens (documentationVersion :: CreateStage -> Lude.Maybe Lude.Text) (\s a -> s {documentationVersion = a} :: CreateStage)
+{-# DEPRECATED cDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
 -- | Specifies whether active tracing with X-ray is enabled for the 'Stage' .
-cTracingEnabled :: Lens' CreateStage (Maybe Bool)
-cTracingEnabled = lens _cTracingEnabled (\s a -> s {_cTracingEnabled = a})
+--
+-- /Note:/ Consider using 'tracingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTracingEnabled :: Lens.Lens' CreateStage (Lude.Maybe Lude.Bool)
+cTracingEnabled = Lens.lens (tracingEnabled :: CreateStage -> Lude.Maybe Lude.Bool) (\s a -> s {tracingEnabled = a} :: CreateStage)
+{-# DEPRECATED cTracingEnabled "Use generic-lens or generic-optics with 'tracingEnabled' instead." #-}
 
 -- | The stage's cache cluster size.
-cCacheClusterSize :: Lens' CreateStage (Maybe CacheClusterSize)
-cCacheClusterSize = lens _cCacheClusterSize (\s a -> s {_cCacheClusterSize = a})
+--
+-- /Note:/ Consider using 'cacheClusterSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCacheClusterSize :: Lens.Lens' CreateStage (Lude.Maybe CacheClusterSize)
+cCacheClusterSize = Lens.lens (cacheClusterSize :: CreateStage -> Lude.Maybe CacheClusterSize) (\s a -> s {cacheClusterSize = a} :: CreateStage)
+{-# DEPRECATED cCacheClusterSize "Use generic-lens or generic-optics with 'cacheClusterSize' instead." #-}
 
 -- | The canary deployment settings of this stage.
-cCanarySettings :: Lens' CreateStage (Maybe CanarySettings)
-cCanarySettings = lens _cCanarySettings (\s a -> s {_cCanarySettings = a})
+--
+-- /Note:/ Consider using 'canarySettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCanarySettings :: Lens.Lens' CreateStage (Lude.Maybe CanarySettings)
+cCanarySettings = Lens.lens (canarySettings :: CreateStage -> Lude.Maybe CanarySettings) (\s a -> s {canarySettings = a} :: CreateStage)
+{-# DEPRECATED cCanarySettings "Use generic-lens or generic-optics with 'canarySettings' instead." #-}
 
 -- | Whether cache clustering is enabled for the stage.
-cCacheClusterEnabled :: Lens' CreateStage (Maybe Bool)
-cCacheClusterEnabled = lens _cCacheClusterEnabled (\s a -> s {_cCacheClusterEnabled = a})
+--
+-- /Note:/ Consider using 'cacheClusterEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCacheClusterEnabled :: Lens.Lens' CreateStage (Lude.Maybe Lude.Bool)
+cCacheClusterEnabled = Lens.lens (cacheClusterEnabled :: CreateStage -> Lude.Maybe Lude.Bool) (\s a -> s {cacheClusterEnabled = a} :: CreateStage)
+{-# DEPRECATED cCacheClusterEnabled "Use generic-lens or generic-optics with 'cacheClusterEnabled' instead." #-}
 
 -- | The description of the 'Stage' resource.
-cDescription :: Lens' CreateStage (Maybe Text)
-cDescription = lens _cDescription (\s a -> s {_cDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDescription :: Lens.Lens' CreateStage (Lude.Maybe Lude.Text)
+cDescription = Lens.lens (description :: CreateStage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateStage)
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-cTags :: Lens' CreateStage (HashMap Text (Text))
-cTags = lens _cTags (\s a -> s {_cTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' CreateStage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cTags = Lens.lens (tags :: CreateStage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateStage)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-cRestAPIId :: Lens' CreateStage Text
-cRestAPIId = lens _cRestAPIId (\s a -> s {_cRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRestAPIId :: Lens.Lens' CreateStage Lude.Text
+cRestAPIId = Lens.lens (restAPIId :: CreateStage -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateStage)
+{-# DEPRECATED cRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name for the 'Stage' resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
-cStageName :: Lens' CreateStage Text
-cStageName = lens _cStageName (\s a -> s {_cStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStageName :: Lens.Lens' CreateStage Lude.Text
+cStageName = Lens.lens (stageName :: CreateStage -> Lude.Text) (\s a -> s {stageName = a} :: CreateStage)
+{-# DEPRECATED cStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | [Required] The identifier of the 'Deployment' resource for the 'Stage' resource.
-cDeploymentId :: Lens' CreateStage Text
-cDeploymentId = lens _cDeploymentId (\s a -> s {_cDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDeploymentId :: Lens.Lens' CreateStage Lude.Text
+cDeploymentId = Lens.lens (deploymentId :: CreateStage -> Lude.Text) (\s a -> s {deploymentId = a} :: CreateStage)
+{-# DEPRECATED cDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
-instance AWSRequest CreateStage where
+instance Lude.AWSRequest CreateStage where
   type Rs CreateStage = Stage
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateStage
-
-instance NFData CreateStage
-
-instance ToHeaders CreateStage where
+instance Lude.ToHeaders CreateStage where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateStage where
+instance Lude.ToJSON CreateStage where
   toJSON CreateStage' {..} =
-    object
-      ( catMaybes
-          [ ("variables" .=) <$> _cVariables,
-            ("documentationVersion" .=) <$> _cDocumentationVersion,
-            ("tracingEnabled" .=) <$> _cTracingEnabled,
-            ("cacheClusterSize" .=) <$> _cCacheClusterSize,
-            ("canarySettings" .=) <$> _cCanarySettings,
-            ("cacheClusterEnabled" .=) <$> _cCacheClusterEnabled,
-            ("description" .=) <$> _cDescription,
-            ("tags" .=) <$> _cTags,
-            Just ("stageName" .= _cStageName),
-            Just ("deploymentId" .= _cDeploymentId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("variables" Lude..=) Lude.<$> variables,
+            ("documentationVersion" Lude..=) Lude.<$> documentationVersion,
+            ("tracingEnabled" Lude..=) Lude.<$> tracingEnabled,
+            ("cacheClusterSize" Lude..=) Lude.<$> cacheClusterSize,
+            ("canarySettings" Lude..=) Lude.<$> canarySettings,
+            ("cacheClusterEnabled" Lude..=) Lude.<$> cacheClusterEnabled,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("stageName" Lude..= stageName),
+            Lude.Just ("deploymentId" Lude..= deploymentId)
           ]
       )
 
-instance ToPath CreateStage where
+instance Lude.ToPath CreateStage where
   toPath CreateStage' {..} =
-    mconcat ["/restapis/", toBS _cRestAPIId, "/stages"]
+    Lude.mconcat ["/restapis/", Lude.toBS restAPIId, "/stages"]
 
-instance ToQuery CreateStage where
-  toQuery = const mempty
+instance Lude.ToQuery CreateStage where
+  toQuery = Lude.const Lude.mempty

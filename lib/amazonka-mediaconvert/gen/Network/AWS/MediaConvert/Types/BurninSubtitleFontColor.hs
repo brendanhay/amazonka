@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.BurninSubtitleFontColor where
+module Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
+  ( BurninSubtitleFontColor
+      ( BurninSubtitleFontColor',
+        BSFCBlack,
+        BSFCBlue,
+        BSFCGreen,
+        BSFCRed,
+        BSFCWhite,
+        BSFCYellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-data BurninSubtitleFontColor
-  = BSFCBlack
-  | BSFCBlue
-  | BSFCGreen
-  | BSFCRed
-  | BSFCWhite
-  | BSFCYellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurninSubtitleFontColor = BurninSubtitleFontColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurninSubtitleFontColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure BSFCBlack
-      "blue" -> pure BSFCBlue
-      "green" -> pure BSFCGreen
-      "red" -> pure BSFCRed
-      "white" -> pure BSFCWhite
-      "yellow" -> pure BSFCYellow
-      e ->
-        fromTextError $
-          "Failure parsing BurninSubtitleFontColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern BSFCBlack :: BurninSubtitleFontColor
+pattern BSFCBlack = BurninSubtitleFontColor' "BLACK"
 
-instance ToText BurninSubtitleFontColor where
-  toText = \case
-    BSFCBlack -> "BLACK"
-    BSFCBlue -> "BLUE"
-    BSFCGreen -> "GREEN"
-    BSFCRed -> "RED"
-    BSFCWhite -> "WHITE"
-    BSFCYellow -> "YELLOW"
+pattern BSFCBlue :: BurninSubtitleFontColor
+pattern BSFCBlue = BurninSubtitleFontColor' "BLUE"
 
-instance Hashable BurninSubtitleFontColor
+pattern BSFCGreen :: BurninSubtitleFontColor
+pattern BSFCGreen = BurninSubtitleFontColor' "GREEN"
 
-instance NFData BurninSubtitleFontColor
+pattern BSFCRed :: BurninSubtitleFontColor
+pattern BSFCRed = BurninSubtitleFontColor' "RED"
 
-instance ToByteString BurninSubtitleFontColor
+pattern BSFCWhite :: BurninSubtitleFontColor
+pattern BSFCWhite = BurninSubtitleFontColor' "WHITE"
 
-instance ToQuery BurninSubtitleFontColor
+pattern BSFCYellow :: BurninSubtitleFontColor
+pattern BSFCYellow = BurninSubtitleFontColor' "YELLOW"
 
-instance ToHeader BurninSubtitleFontColor
-
-instance ToJSON BurninSubtitleFontColor where
-  toJSON = toJSONText
-
-instance FromJSON BurninSubtitleFontColor where
-  parseJSON = parseJSONText "BurninSubtitleFontColor"
+{-# COMPLETE
+  BSFCBlack,
+  BSFCBlue,
+  BSFCGreen,
+  BSFCRed,
+  BSFCWhite,
+  BSFCYellow,
+  BurninSubtitleFontColor'
+  #-}

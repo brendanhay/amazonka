@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,85 @@
 --
 -- Disables the rule.
 module Network.AWS.IoT.DisableTopicRule
-  ( -- * Creating a Request
-    disableTopicRule,
-    DisableTopicRule,
+  ( -- * Creating a request
+    DisableTopicRule (..),
+    mkDisableTopicRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtrRuleName,
 
-    -- * Destructuring the Response
-    disableTopicRuleResponse,
-    DisableTopicRuleResponse,
+    -- * Destructuring the response
+    DisableTopicRuleResponse (..),
+    mkDisableTopicRuleResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DisableTopicRuleRequest operation.
 --
---
---
--- /See:/ 'disableTopicRule' smart constructor.
-newtype DisableTopicRule = DisableTopicRule' {_dtrRuleName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDisableTopicRule' smart constructor.
+newtype DisableTopicRule = DisableTopicRule' {ruleName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableTopicRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrRuleName' - The name of the rule to disable.
-disableTopicRule ::
-  -- | 'dtrRuleName'
-  Text ->
+-- * 'ruleName' - The name of the rule to disable.
+mkDisableTopicRule ::
+  -- | 'ruleName'
+  Lude.Text ->
   DisableTopicRule
-disableTopicRule pRuleName_ =
-  DisableTopicRule' {_dtrRuleName = pRuleName_}
+mkDisableTopicRule pRuleName_ =
+  DisableTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule to disable.
-dtrRuleName :: Lens' DisableTopicRule Text
-dtrRuleName = lens _dtrRuleName (\s a -> s {_dtrRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrRuleName :: Lens.Lens' DisableTopicRule Lude.Text
+dtrRuleName = Lens.lens (ruleName :: DisableTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: DisableTopicRule)
+{-# DEPRECATED dtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance AWSRequest DisableTopicRule where
+instance Lude.AWSRequest DisableTopicRule where
   type Rs DisableTopicRule = DisableTopicRuleResponse
-  request = postJSON ioT
-  response = receiveNull DisableTopicRuleResponse'
+  request = Req.postJSON ioTService
+  response = Res.receiveNull DisableTopicRuleResponse'
 
-instance Hashable DisableTopicRule
+instance Lude.ToHeaders DisableTopicRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisableTopicRule
+instance Lude.ToJSON DisableTopicRule where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders DisableTopicRule where
-  toHeaders = const mempty
-
-instance ToJSON DisableTopicRule where
-  toJSON = const (Object mempty)
-
-instance ToPath DisableTopicRule where
+instance Lude.ToPath DisableTopicRule where
   toPath DisableTopicRule' {..} =
-    mconcat ["/rules/", toBS _dtrRuleName, "/disable"]
+    Lude.mconcat ["/rules/", Lude.toBS ruleName, "/disable"]
 
-instance ToQuery DisableTopicRule where
-  toQuery = const mempty
+instance Lude.ToQuery DisableTopicRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableTopicRuleResponse' smart constructor.
+-- | /See:/ 'mkDisableTopicRuleResponse' smart constructor.
 data DisableTopicRuleResponse = DisableTopicRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableTopicRuleResponse' with the minimum fields required to make a request.
-disableTopicRuleResponse ::
+mkDisableTopicRuleResponse ::
   DisableTopicRuleResponse
-disableTopicRuleResponse = DisableTopicRuleResponse'
-
-instance NFData DisableTopicRuleResponse
+mkDisableTopicRuleResponse = DisableTopicRuleResponse'

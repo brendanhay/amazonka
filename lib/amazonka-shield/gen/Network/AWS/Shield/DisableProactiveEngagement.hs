@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,105 @@
 --
 -- Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations to the DRT and to initiate proactive customer support.
 module Network.AWS.Shield.DisableProactiveEngagement
-  ( -- * Creating a Request
-    disableProactiveEngagement,
-    DisableProactiveEngagement,
+  ( -- * Creating a request
+    DisableProactiveEngagement (..),
+    mkDisableProactiveEngagement,
 
-    -- * Destructuring the Response
-    disableProactiveEngagementResponse,
-    DisableProactiveEngagementResponse,
+    -- * Destructuring the response
+    DisableProactiveEngagementResponse (..),
+    mkDisableProactiveEngagementResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'disableProactiveEngagement' smart constructor.
+-- | /See:/ 'mkDisableProactiveEngagement' smart constructor.
 data DisableProactiveEngagement = DisableProactiveEngagement'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableProactiveEngagement' with the minimum fields required to make a request.
-disableProactiveEngagement ::
+mkDisableProactiveEngagement ::
   DisableProactiveEngagement
-disableProactiveEngagement = DisableProactiveEngagement'
+mkDisableProactiveEngagement = DisableProactiveEngagement'
 
-instance AWSRequest DisableProactiveEngagement where
+instance Lude.AWSRequest DisableProactiveEngagement where
   type
     Rs DisableProactiveEngagement =
       DisableProactiveEngagementResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisableProactiveEngagementResponse' <$> (pure (fromEnum s))
+          DisableProactiveEngagementResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableProactiveEngagement
-
-instance NFData DisableProactiveEngagement
-
-instance ToHeaders DisableProactiveEngagement where
+instance Lude.ToHeaders DisableProactiveEngagement where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.DisableProactiveEngagement" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShield_20160616.DisableProactiveEngagement" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableProactiveEngagement where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisableProactiveEngagement where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisableProactiveEngagement where
-  toPath = const "/"
+instance Lude.ToPath DisableProactiveEngagement where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableProactiveEngagement where
-  toQuery = const mempty
+instance Lude.ToQuery DisableProactiveEngagement where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableProactiveEngagementResponse' smart constructor.
+-- | /See:/ 'mkDisableProactiveEngagementResponse' smart constructor.
 newtype DisableProactiveEngagementResponse = DisableProactiveEngagementResponse'
-  { _dpersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableProactiveEngagementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpersResponseStatus' - -- | The response status code.
-disableProactiveEngagementResponse ::
-  -- | 'dpersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisableProactiveEngagementResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableProactiveEngagementResponse
-disableProactiveEngagementResponse pResponseStatus_ =
+mkDisableProactiveEngagementResponse pResponseStatus_ =
   DisableProactiveEngagementResponse'
-    { _dpersResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dpersResponseStatus :: Lens' DisableProactiveEngagementResponse Int
-dpersResponseStatus = lens _dpersResponseStatus (\s a -> s {_dpersResponseStatus = a})
-
-instance NFData DisableProactiveEngagementResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpersResponseStatus :: Lens.Lens' DisableProactiveEngagementResponse Lude.Int
+dpersResponseStatus = Lens.lens (responseStatus :: DisableProactiveEngagementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableProactiveEngagementResponse)
+{-# DEPRECATED dpersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

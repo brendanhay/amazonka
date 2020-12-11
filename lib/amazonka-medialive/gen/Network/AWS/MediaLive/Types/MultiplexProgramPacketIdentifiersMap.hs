@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,165 +7,227 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap where
+module Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
+  ( MultiplexProgramPacketIdentifiersMap (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMultiplexProgramPacketIdentifiersMap,
+
+    -- * Lenses
+    mppimPmtPid,
+    mppimEtvSignalPid,
+    mppimVideoPid,
+    mppimScte35Pid,
+    mppimPrivateMetadataPid,
+    mppimTimedMetadataPid,
+    mppimPcrPid,
+    mppimKlvDataPids,
+    mppimDvbSubPids,
+    mppimScte27Pids,
+    mppimEtvPlatformPid,
+    mppimAudioPids,
+    mppimDvbTeletextPid,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Packet identifiers map for a given Multiplex program.
 --
--- /See:/ 'multiplexProgramPacketIdentifiersMap' smart constructor.
+-- /See:/ 'mkMultiplexProgramPacketIdentifiersMap' smart constructor.
 data MultiplexProgramPacketIdentifiersMap = MultiplexProgramPacketIdentifiersMap'
-  { _mppimPmtPid ::
-      !(Maybe Int),
-    _mppimEtvSignalPid ::
-      !(Maybe Int),
-    _mppimVideoPid ::
-      !(Maybe Int),
-    _mppimScte35Pid ::
-      !(Maybe Int),
-    _mppimPrivateMetadataPid ::
-      !(Maybe Int),
-    _mppimTimedMetadataPid ::
-      !(Maybe Int),
-    _mppimPcrPid ::
-      !(Maybe Int),
-    _mppimKlvDataPids ::
-      !(Maybe [Int]),
-    _mppimDvbSubPids ::
-      !(Maybe [Int]),
-    _mppimScte27Pids ::
-      !(Maybe [Int]),
-    _mppimEtvPlatformPid ::
-      !(Maybe Int),
-    _mppimAudioPids ::
-      !(Maybe [Int]),
-    _mppimDvbTeletextPid ::
-      !(Maybe Int)
+  { pmtPid ::
+      Lude.Maybe
+        Lude.Int,
+    etvSignalPid ::
+      Lude.Maybe
+        Lude.Int,
+    videoPid ::
+      Lude.Maybe
+        Lude.Int,
+    scte35Pid ::
+      Lude.Maybe
+        Lude.Int,
+    privateMetadataPid ::
+      Lude.Maybe
+        Lude.Int,
+    timedMetadataPid ::
+      Lude.Maybe
+        Lude.Int,
+    pcrPid ::
+      Lude.Maybe
+        Lude.Int,
+    klvDataPids ::
+      Lude.Maybe
+        [Lude.Int],
+    dvbSubPids ::
+      Lude.Maybe
+        [Lude.Int],
+    scte27Pids ::
+      Lude.Maybe
+        [Lude.Int],
+    etvPlatformPid ::
+      Lude.Maybe
+        Lude.Int,
+    audioPids ::
+      Lude.Maybe
+        [Lude.Int],
+    dvbTeletextPid ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgramPacketIdentifiersMap' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mppimPmtPid' - Undocumented member.
---
--- * 'mppimEtvSignalPid' - Undocumented member.
---
--- * 'mppimVideoPid' - Undocumented member.
---
--- * 'mppimScte35Pid' - Undocumented member.
---
--- * 'mppimPrivateMetadataPid' - Undocumented member.
---
--- * 'mppimTimedMetadataPid' - Undocumented member.
---
--- * 'mppimPcrPid' - Undocumented member.
---
--- * 'mppimKlvDataPids' - Undocumented member.
---
--- * 'mppimDvbSubPids' - Undocumented member.
---
--- * 'mppimScte27Pids' - Undocumented member.
---
--- * 'mppimEtvPlatformPid' - Undocumented member.
---
--- * 'mppimAudioPids' - Undocumented member.
---
--- * 'mppimDvbTeletextPid' - Undocumented member.
-multiplexProgramPacketIdentifiersMap ::
+-- * 'audioPids' - Undocumented field.
+-- * 'dvbSubPids' - Undocumented field.
+-- * 'dvbTeletextPid' - Undocumented field.
+-- * 'etvPlatformPid' - Undocumented field.
+-- * 'etvSignalPid' - Undocumented field.
+-- * 'klvDataPids' - Undocumented field.
+-- * 'pcrPid' - Undocumented field.
+-- * 'pmtPid' - Undocumented field.
+-- * 'privateMetadataPid' - Undocumented field.
+-- * 'scte27Pids' - Undocumented field.
+-- * 'scte35Pid' - Undocumented field.
+-- * 'timedMetadataPid' - Undocumented field.
+-- * 'videoPid' - Undocumented field.
+mkMultiplexProgramPacketIdentifiersMap ::
   MultiplexProgramPacketIdentifiersMap
-multiplexProgramPacketIdentifiersMap =
+mkMultiplexProgramPacketIdentifiersMap =
   MultiplexProgramPacketIdentifiersMap'
-    { _mppimPmtPid = Nothing,
-      _mppimEtvSignalPid = Nothing,
-      _mppimVideoPid = Nothing,
-      _mppimScte35Pid = Nothing,
-      _mppimPrivateMetadataPid = Nothing,
-      _mppimTimedMetadataPid = Nothing,
-      _mppimPcrPid = Nothing,
-      _mppimKlvDataPids = Nothing,
-      _mppimDvbSubPids = Nothing,
-      _mppimScte27Pids = Nothing,
-      _mppimEtvPlatformPid = Nothing,
-      _mppimAudioPids = Nothing,
-      _mppimDvbTeletextPid = Nothing
+    { pmtPid = Lude.Nothing,
+      etvSignalPid = Lude.Nothing,
+      videoPid = Lude.Nothing,
+      scte35Pid = Lude.Nothing,
+      privateMetadataPid = Lude.Nothing,
+      timedMetadataPid = Lude.Nothing,
+      pcrPid = Lude.Nothing,
+      klvDataPids = Lude.Nothing,
+      dvbSubPids = Lude.Nothing,
+      scte27Pids = Lude.Nothing,
+      etvPlatformPid = Lude.Nothing,
+      audioPids = Lude.Nothing,
+      dvbTeletextPid = Lude.Nothing
     }
 
--- | Undocumented member.
-mppimPmtPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimPmtPid = lens _mppimPmtPid (\s a -> s {_mppimPmtPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'pmtPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimPmtPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimPmtPid = Lens.lens (pmtPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {pmtPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimPmtPid "Use generic-lens or generic-optics with 'pmtPid' instead." #-}
 
--- | Undocumented member.
-mppimEtvSignalPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimEtvSignalPid = lens _mppimEtvSignalPid (\s a -> s {_mppimEtvSignalPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'etvSignalPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimEtvSignalPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimEtvSignalPid = Lens.lens (etvSignalPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {etvSignalPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimEtvSignalPid "Use generic-lens or generic-optics with 'etvSignalPid' instead." #-}
 
--- | Undocumented member.
-mppimVideoPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimVideoPid = lens _mppimVideoPid (\s a -> s {_mppimVideoPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'videoPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimVideoPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimVideoPid = Lens.lens (videoPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {videoPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimVideoPid "Use generic-lens or generic-optics with 'videoPid' instead." #-}
 
--- | Undocumented member.
-mppimScte35Pid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimScte35Pid = lens _mppimScte35Pid (\s a -> s {_mppimScte35Pid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'scte35Pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimScte35Pid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimScte35Pid = Lens.lens (scte35Pid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {scte35Pid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimScte35Pid "Use generic-lens or generic-optics with 'scte35Pid' instead." #-}
 
--- | Undocumented member.
-mppimPrivateMetadataPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimPrivateMetadataPid = lens _mppimPrivateMetadataPid (\s a -> s {_mppimPrivateMetadataPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'privateMetadataPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimPrivateMetadataPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimPrivateMetadataPid = Lens.lens (privateMetadataPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {privateMetadataPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimPrivateMetadataPid "Use generic-lens or generic-optics with 'privateMetadataPid' instead." #-}
 
--- | Undocumented member.
-mppimTimedMetadataPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimTimedMetadataPid = lens _mppimTimedMetadataPid (\s a -> s {_mppimTimedMetadataPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'timedMetadataPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimTimedMetadataPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimTimedMetadataPid = Lens.lens (timedMetadataPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {timedMetadataPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimTimedMetadataPid "Use generic-lens or generic-optics with 'timedMetadataPid' instead." #-}
 
--- | Undocumented member.
-mppimPcrPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimPcrPid = lens _mppimPcrPid (\s a -> s {_mppimPcrPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'pcrPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimPcrPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimPcrPid = Lens.lens (pcrPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {pcrPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimPcrPid "Use generic-lens or generic-optics with 'pcrPid' instead." #-}
 
--- | Undocumented member.
-mppimKlvDataPids :: Lens' MultiplexProgramPacketIdentifiersMap [Int]
-mppimKlvDataPids = lens _mppimKlvDataPids (\s a -> s {_mppimKlvDataPids = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'klvDataPids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimKlvDataPids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe [Lude.Int])
+mppimKlvDataPids = Lens.lens (klvDataPids :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe [Lude.Int]) (\s a -> s {klvDataPids = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimKlvDataPids "Use generic-lens or generic-optics with 'klvDataPids' instead." #-}
 
--- | Undocumented member.
-mppimDvbSubPids :: Lens' MultiplexProgramPacketIdentifiersMap [Int]
-mppimDvbSubPids = lens _mppimDvbSubPids (\s a -> s {_mppimDvbSubPids = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dvbSubPids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimDvbSubPids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe [Lude.Int])
+mppimDvbSubPids = Lens.lens (dvbSubPids :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe [Lude.Int]) (\s a -> s {dvbSubPids = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimDvbSubPids "Use generic-lens or generic-optics with 'dvbSubPids' instead." #-}
 
--- | Undocumented member.
-mppimScte27Pids :: Lens' MultiplexProgramPacketIdentifiersMap [Int]
-mppimScte27Pids = lens _mppimScte27Pids (\s a -> s {_mppimScte27Pids = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'scte27Pids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimScte27Pids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe [Lude.Int])
+mppimScte27Pids = Lens.lens (scte27Pids :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe [Lude.Int]) (\s a -> s {scte27Pids = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimScte27Pids "Use generic-lens or generic-optics with 'scte27Pids' instead." #-}
 
--- | Undocumented member.
-mppimEtvPlatformPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimEtvPlatformPid = lens _mppimEtvPlatformPid (\s a -> s {_mppimEtvPlatformPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'etvPlatformPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimEtvPlatformPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimEtvPlatformPid = Lens.lens (etvPlatformPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {etvPlatformPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimEtvPlatformPid "Use generic-lens or generic-optics with 'etvPlatformPid' instead." #-}
 
--- | Undocumented member.
-mppimAudioPids :: Lens' MultiplexProgramPacketIdentifiersMap [Int]
-mppimAudioPids = lens _mppimAudioPids (\s a -> s {_mppimAudioPids = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'audioPids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimAudioPids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe [Lude.Int])
+mppimAudioPids = Lens.lens (audioPids :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe [Lude.Int]) (\s a -> s {audioPids = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimAudioPids "Use generic-lens or generic-optics with 'audioPids' instead." #-}
 
--- | Undocumented member.
-mppimDvbTeletextPid :: Lens' MultiplexProgramPacketIdentifiersMap (Maybe Int)
-mppimDvbTeletextPid = lens _mppimDvbTeletextPid (\s a -> s {_mppimDvbTeletextPid = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dvbTeletextPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppimDvbTeletextPid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Lude.Maybe Lude.Int)
+mppimDvbTeletextPid = Lens.lens (dvbTeletextPid :: MultiplexProgramPacketIdentifiersMap -> Lude.Maybe Lude.Int) (\s a -> s {dvbTeletextPid = a} :: MultiplexProgramPacketIdentifiersMap)
+{-# DEPRECATED mppimDvbTeletextPid "Use generic-lens or generic-optics with 'dvbTeletextPid' instead." #-}
 
-instance FromJSON MultiplexProgramPacketIdentifiersMap where
+instance Lude.FromJSON MultiplexProgramPacketIdentifiersMap where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexProgramPacketIdentifiersMap"
       ( \x ->
           MultiplexProgramPacketIdentifiersMap'
-            <$> (x .:? "pmtPid")
-            <*> (x .:? "etvSignalPid")
-            <*> (x .:? "videoPid")
-            <*> (x .:? "scte35Pid")
-            <*> (x .:? "privateMetadataPid")
-            <*> (x .:? "timedMetadataPid")
-            <*> (x .:? "pcrPid")
-            <*> (x .:? "klvDataPids" .!= mempty)
-            <*> (x .:? "dvbSubPids" .!= mempty)
-            <*> (x .:? "scte27Pids" .!= mempty)
-            <*> (x .:? "etvPlatformPid")
-            <*> (x .:? "audioPids" .!= mempty)
-            <*> (x .:? "dvbTeletextPid")
+            Lude.<$> (x Lude..:? "pmtPid")
+            Lude.<*> (x Lude..:? "etvSignalPid")
+            Lude.<*> (x Lude..:? "videoPid")
+            Lude.<*> (x Lude..:? "scte35Pid")
+            Lude.<*> (x Lude..:? "privateMetadataPid")
+            Lude.<*> (x Lude..:? "timedMetadataPid")
+            Lude.<*> (x Lude..:? "pcrPid")
+            Lude.<*> (x Lude..:? "klvDataPids" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "dvbSubPids" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "scte27Pids" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "etvPlatformPid")
+            Lude.<*> (x Lude..:? "audioPids" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "dvbTeletextPid")
       )
-
-instance Hashable MultiplexProgramPacketIdentifiersMap
-
-instance NFData MultiplexProgramPacketIdentifiersMap

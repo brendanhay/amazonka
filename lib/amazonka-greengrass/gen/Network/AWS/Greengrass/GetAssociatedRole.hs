@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves the role associated with a particular group.
 module Network.AWS.Greengrass.GetAssociatedRole
-  ( -- * Creating a Request
-    getAssociatedRole,
-    GetAssociatedRole,
+  ( -- * Creating a request
+    GetAssociatedRole (..),
+    mkGetAssociatedRole,
 
-    -- * Request Lenses
+    -- ** Request lenses
     garGroupId,
 
-    -- * Destructuring the Response
-    getAssociatedRoleResponse,
-    GetAssociatedRoleResponse,
+    -- * Destructuring the response
+    GetAssociatedRoleResponse (..),
+    mkGetAssociatedRoleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garrsAssociatedAt,
     garrsRoleARN,
     garrsResponseStatus,
@@ -38,100 +33,119 @@ module Network.AWS.Greengrass.GetAssociatedRole
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAssociatedRole' smart constructor.
-newtype GetAssociatedRole = GetAssociatedRole' {_garGroupId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetAssociatedRole' smart constructor.
+newtype GetAssociatedRole = GetAssociatedRole'
+  { groupId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedRole' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garGroupId' - The ID of the Greengrass group.
-getAssociatedRole ::
-  -- | 'garGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+mkGetAssociatedRole ::
+  -- | 'groupId'
+  Lude.Text ->
   GetAssociatedRole
-getAssociatedRole pGroupId_ =
-  GetAssociatedRole' {_garGroupId = pGroupId_}
+mkGetAssociatedRole pGroupId_ =
+  GetAssociatedRole' {groupId = pGroupId_}
 
 -- | The ID of the Greengrass group.
-garGroupId :: Lens' GetAssociatedRole Text
-garGroupId = lens _garGroupId (\s a -> s {_garGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garGroupId :: Lens.Lens' GetAssociatedRole Lude.Text
+garGroupId = Lens.lens (groupId :: GetAssociatedRole -> Lude.Text) (\s a -> s {groupId = a} :: GetAssociatedRole)
+{-# DEPRECATED garGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest GetAssociatedRole where
+instance Lude.AWSRequest GetAssociatedRole where
   type Rs GetAssociatedRole = GetAssociatedRoleResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAssociatedRoleResponse'
-            <$> (x .?> "AssociatedAt")
-            <*> (x .?> "RoleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AssociatedAt")
+            Lude.<*> (x Lude..?> "RoleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAssociatedRole
-
-instance NFData GetAssociatedRole
-
-instance ToHeaders GetAssociatedRole where
+instance Lude.ToHeaders GetAssociatedRole where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetAssociatedRole where
+instance Lude.ToPath GetAssociatedRole where
   toPath GetAssociatedRole' {..} =
-    mconcat ["/greengrass/groups/", toBS _garGroupId, "/role"]
+    Lude.mconcat ["/greengrass/groups/", Lude.toBS groupId, "/role"]
 
-instance ToQuery GetAssociatedRole where
-  toQuery = const mempty
+instance Lude.ToQuery GetAssociatedRole where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAssociatedRoleResponse' smart constructor.
+-- | /See:/ 'mkGetAssociatedRoleResponse' smart constructor.
 data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
-  { _garrsAssociatedAt ::
-      !(Maybe Text),
-    _garrsRoleARN :: !(Maybe Text),
-    _garrsResponseStatus :: !Int
+  { associatedAt ::
+      Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedRoleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garrsAssociatedAt' - The time when the role was associated with the group.
---
--- * 'garrsRoleARN' - The ARN of the role that is associated with the group.
---
--- * 'garrsResponseStatus' - -- | The response status code.
-getAssociatedRoleResponse ::
-  -- | 'garrsResponseStatus'
-  Int ->
+-- * 'associatedAt' - The time when the role was associated with the group.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The ARN of the role that is associated with the group.
+mkGetAssociatedRoleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAssociatedRoleResponse
-getAssociatedRoleResponse pResponseStatus_ =
+mkGetAssociatedRoleResponse pResponseStatus_ =
   GetAssociatedRoleResponse'
-    { _garrsAssociatedAt = Nothing,
-      _garrsRoleARN = Nothing,
-      _garrsResponseStatus = pResponseStatus_
+    { associatedAt = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time when the role was associated with the group.
-garrsAssociatedAt :: Lens' GetAssociatedRoleResponse (Maybe Text)
-garrsAssociatedAt = lens _garrsAssociatedAt (\s a -> s {_garrsAssociatedAt = a})
+--
+-- /Note:/ Consider using 'associatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garrsAssociatedAt :: Lens.Lens' GetAssociatedRoleResponse (Lude.Maybe Lude.Text)
+garrsAssociatedAt = Lens.lens (associatedAt :: GetAssociatedRoleResponse -> Lude.Maybe Lude.Text) (\s a -> s {associatedAt = a} :: GetAssociatedRoleResponse)
+{-# DEPRECATED garrsAssociatedAt "Use generic-lens or generic-optics with 'associatedAt' instead." #-}
 
 -- | The ARN of the role that is associated with the group.
-garrsRoleARN :: Lens' GetAssociatedRoleResponse (Maybe Text)
-garrsRoleARN = lens _garrsRoleARN (\s a -> s {_garrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garrsRoleARN :: Lens.Lens' GetAssociatedRoleResponse (Lude.Maybe Lude.Text)
+garrsRoleARN = Lens.lens (roleARN :: GetAssociatedRoleResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: GetAssociatedRoleResponse)
+{-# DEPRECATED garrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-garrsResponseStatus :: Lens' GetAssociatedRoleResponse Int
-garrsResponseStatus = lens _garrsResponseStatus (\s a -> s {_garrsResponseStatus = a})
-
-instance NFData GetAssociatedRoleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garrsResponseStatus :: Lens.Lens' GetAssociatedRoleResponse Lude.Int
+garrsResponseStatus = Lens.lens (responseStatus :: GetAssociatedRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAssociatedRoleResponse)
+{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

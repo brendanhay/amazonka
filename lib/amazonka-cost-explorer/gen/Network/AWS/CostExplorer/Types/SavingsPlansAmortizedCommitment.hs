@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment where
+module Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
+  ( SavingsPlansAmortizedCommitment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSavingsPlansAmortizedCommitment,
+
+    -- * Lenses
+    spacAmortizedUpfrontCommitment,
+    spacTotalAmortizedCommitment,
+    spacAmortizedRecurringCommitment,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The amortized amount of Savings Plans purchased in a specific account during a specific time interval.
 --
---
---
--- /See:/ 'savingsPlansAmortizedCommitment' smart constructor.
+-- /See:/ 'mkSavingsPlansAmortizedCommitment' smart constructor.
 data SavingsPlansAmortizedCommitment = SavingsPlansAmortizedCommitment'
-  { _spacAmortizedUpfrontCommitment ::
-      !(Maybe Text),
-    _spacTotalAmortizedCommitment ::
-      !(Maybe Text),
-    _spacAmortizedRecurringCommitment ::
-      !(Maybe Text)
+  { amortizedUpfrontCommitment ::
+      Lude.Maybe Lude.Text,
+    totalAmortizedCommitment ::
+      Lude.Maybe Lude.Text,
+    amortizedRecurringCommitment ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansAmortizedCommitment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spacAmortizedUpfrontCommitment' - The amortized amount of your Savings Plans commitment that was purchased with an @Upfront@ or @PartialUpfront@ Savings Plans.
---
--- * 'spacTotalAmortizedCommitment' - The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method.
---
--- * 'spacAmortizedRecurringCommitment' - The amortized amount of your Savings Plans commitment that was purchased with either a @Partial@ or a @NoUpfront@ .
-savingsPlansAmortizedCommitment ::
+-- * 'amortizedRecurringCommitment' - The amortized amount of your Savings Plans commitment that was purchased with either a @Partial@ or a @NoUpfront@ .
+-- * 'amortizedUpfrontCommitment' - The amortized amount of your Savings Plans commitment that was purchased with an @Upfront@ or @PartialUpfront@ Savings Plans.
+-- * 'totalAmortizedCommitment' - The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method.
+mkSavingsPlansAmortizedCommitment ::
   SavingsPlansAmortizedCommitment
-savingsPlansAmortizedCommitment =
+mkSavingsPlansAmortizedCommitment =
   SavingsPlansAmortizedCommitment'
-    { _spacAmortizedUpfrontCommitment =
-        Nothing,
-      _spacTotalAmortizedCommitment = Nothing,
-      _spacAmortizedRecurringCommitment = Nothing
+    { amortizedUpfrontCommitment =
+        Lude.Nothing,
+      totalAmortizedCommitment = Lude.Nothing,
+      amortizedRecurringCommitment = Lude.Nothing
     }
 
 -- | The amortized amount of your Savings Plans commitment that was purchased with an @Upfront@ or @PartialUpfront@ Savings Plans.
-spacAmortizedUpfrontCommitment :: Lens' SavingsPlansAmortizedCommitment (Maybe Text)
-spacAmortizedUpfrontCommitment = lens _spacAmortizedUpfrontCommitment (\s a -> s {_spacAmortizedUpfrontCommitment = a})
+--
+-- /Note:/ Consider using 'amortizedUpfrontCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spacAmortizedUpfrontCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Lude.Maybe Lude.Text)
+spacAmortizedUpfrontCommitment = Lens.lens (amortizedUpfrontCommitment :: SavingsPlansAmortizedCommitment -> Lude.Maybe Lude.Text) (\s a -> s {amortizedUpfrontCommitment = a} :: SavingsPlansAmortizedCommitment)
+{-# DEPRECATED spacAmortizedUpfrontCommitment "Use generic-lens or generic-optics with 'amortizedUpfrontCommitment' instead." #-}
 
 -- | The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method.
-spacTotalAmortizedCommitment :: Lens' SavingsPlansAmortizedCommitment (Maybe Text)
-spacTotalAmortizedCommitment = lens _spacTotalAmortizedCommitment (\s a -> s {_spacTotalAmortizedCommitment = a})
+--
+-- /Note:/ Consider using 'totalAmortizedCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spacTotalAmortizedCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Lude.Maybe Lude.Text)
+spacTotalAmortizedCommitment = Lens.lens (totalAmortizedCommitment :: SavingsPlansAmortizedCommitment -> Lude.Maybe Lude.Text) (\s a -> s {totalAmortizedCommitment = a} :: SavingsPlansAmortizedCommitment)
+{-# DEPRECATED spacTotalAmortizedCommitment "Use generic-lens or generic-optics with 'totalAmortizedCommitment' instead." #-}
 
 -- | The amortized amount of your Savings Plans commitment that was purchased with either a @Partial@ or a @NoUpfront@ .
-spacAmortizedRecurringCommitment :: Lens' SavingsPlansAmortizedCommitment (Maybe Text)
-spacAmortizedRecurringCommitment = lens _spacAmortizedRecurringCommitment (\s a -> s {_spacAmortizedRecurringCommitment = a})
+--
+-- /Note:/ Consider using 'amortizedRecurringCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spacAmortizedRecurringCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Lude.Maybe Lude.Text)
+spacAmortizedRecurringCommitment = Lens.lens (amortizedRecurringCommitment :: SavingsPlansAmortizedCommitment -> Lude.Maybe Lude.Text) (\s a -> s {amortizedRecurringCommitment = a} :: SavingsPlansAmortizedCommitment)
+{-# DEPRECATED spacAmortizedRecurringCommitment "Use generic-lens or generic-optics with 'amortizedRecurringCommitment' instead." #-}
 
-instance FromJSON SavingsPlansAmortizedCommitment where
+instance Lude.FromJSON SavingsPlansAmortizedCommitment where
   parseJSON =
-    withObject
+    Lude.withObject
       "SavingsPlansAmortizedCommitment"
       ( \x ->
           SavingsPlansAmortizedCommitment'
-            <$> (x .:? "AmortizedUpfrontCommitment")
-            <*> (x .:? "TotalAmortizedCommitment")
-            <*> (x .:? "AmortizedRecurringCommitment")
+            Lude.<$> (x Lude..:? "AmortizedUpfrontCommitment")
+            Lude.<*> (x Lude..:? "TotalAmortizedCommitment")
+            Lude.<*> (x Lude..:? "AmortizedRecurringCommitment")
       )
-
-instance Hashable SavingsPlansAmortizedCommitment
-
-instance NFData SavingsPlansAmortizedCommitment

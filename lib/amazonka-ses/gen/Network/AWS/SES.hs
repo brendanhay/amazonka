@@ -15,8 +15,8 @@
 --
 -- This document contains reference information for the <https://aws.amazon.com/ses/ Amazon Simple Email Service> (Amazon SES) API, version 2010-12-01. This document is best used in conjunction with the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
 module Network.AWS.SES
-  ( -- * Service Configuration
-    ses,
+  ( -- * Service configuration
+    sesService,
 
     -- * Errors
     -- $errors
@@ -291,20 +291,20 @@ module Network.AWS.SES
     VerificationStatus (..),
 
     -- ** AddHeaderAction
-    AddHeaderAction,
-    addHeaderAction,
+    AddHeaderAction (..),
+    mkAddHeaderAction,
     ahaHeaderName,
     ahaHeaderValue,
 
     -- ** Body
-    Body,
-    body,
+    Body (..),
+    mkBody,
     bText,
     bHTML,
 
     -- ** BounceAction
-    BounceAction,
-    bounceAction,
+    BounceAction (..),
+    mkBounceAction,
     baTopicARN,
     baStatusCode,
     baSmtpReplyCode,
@@ -312,53 +312,53 @@ module Network.AWS.SES
     baSender,
 
     -- ** BouncedRecipientInfo
-    BouncedRecipientInfo,
-    bouncedRecipientInfo,
+    BouncedRecipientInfo (..),
+    mkBouncedRecipientInfo,
     briBounceType,
     briRecipientDsnFields,
     briRecipientARN,
     briRecipient,
 
     -- ** BulkEmailDestination
-    BulkEmailDestination,
-    bulkEmailDestination,
+    BulkEmailDestination (..),
+    mkBulkEmailDestination,
     bedReplacementTemplateData,
     bedReplacementTags,
     bedDestination,
 
     -- ** BulkEmailDestinationStatus
-    BulkEmailDestinationStatus,
-    bulkEmailDestinationStatus,
+    BulkEmailDestinationStatus (..),
+    mkBulkEmailDestinationStatus,
     bedsStatus,
     bedsError,
     bedsMessageId,
 
     -- ** CloudWatchDestination
-    CloudWatchDestination,
-    cloudWatchDestination,
+    CloudWatchDestination (..),
+    mkCloudWatchDestination,
     cwdDimensionConfigurations,
 
     -- ** CloudWatchDimensionConfiguration
-    CloudWatchDimensionConfiguration,
-    cloudWatchDimensionConfiguration,
+    CloudWatchDimensionConfiguration (..),
+    mkCloudWatchDimensionConfiguration,
     cwdcDimensionName,
     cwdcDimensionValueSource,
     cwdcDefaultDimensionValue,
 
     -- ** ConfigurationSet
-    ConfigurationSet,
-    configurationSet,
+    ConfigurationSet (..),
+    mkConfigurationSet,
     csName,
 
     -- ** Content
-    Content,
-    content,
+    Content (..),
+    mkContent,
     cCharset,
     cData,
 
     -- ** CustomVerificationEmailTemplate
-    CustomVerificationEmailTemplate,
-    customVerificationEmailTemplate,
+    CustomVerificationEmailTemplate (..),
+    mkCustomVerificationEmailTemplate,
     cvetFromEmailAddress,
     cvetTemplateName,
     cvetFailureRedirectionURL,
@@ -366,20 +366,20 @@ module Network.AWS.SES
     cvetSuccessRedirectionURL,
 
     -- ** DeliveryOptions
-    DeliveryOptions,
-    deliveryOptions,
+    DeliveryOptions (..),
+    mkDeliveryOptions,
     doTLSPolicy,
 
     -- ** Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dBCCAddresses,
     dCCAddresses,
     dToAddresses,
 
     -- ** EventDestination
-    EventDestination,
-    eventDestination,
+    EventDestination (..),
+    mkEventDestination,
     edEnabled,
     edKinesisFirehoseDestination,
     edCloudWatchDestination,
@@ -388,28 +388,28 @@ module Network.AWS.SES
     edMatchingEventTypes,
 
     -- ** ExtensionField
-    ExtensionField,
-    extensionField,
+    ExtensionField (..),
+    mkExtensionField,
     efName,
     efValue,
 
     -- ** IdentityDkimAttributes
-    IdentityDkimAttributes,
-    identityDkimAttributes,
+    IdentityDkimAttributes (..),
+    mkIdentityDkimAttributes,
     idaDkimTokens,
     idaDkimEnabled,
     idaDkimVerificationStatus,
 
     -- ** IdentityMailFromDomainAttributes
-    IdentityMailFromDomainAttributes,
-    identityMailFromDomainAttributes,
+    IdentityMailFromDomainAttributes (..),
+    mkIdentityMailFromDomainAttributes,
     imfdaMailFromDomain,
     imfdaMailFromDomainStatus,
     imfdaBehaviorOnMXFailure,
 
     -- ** IdentityNotificationAttributes
-    IdentityNotificationAttributes,
-    identityNotificationAttributes,
+    IdentityNotificationAttributes (..),
+    mkIdentityNotificationAttributes,
     inaHeadersInDeliveryNotificationsEnabled,
     inaHeadersInComplaintNotificationsEnabled,
     inaHeadersInBounceNotificationsEnabled,
@@ -419,51 +419,51 @@ module Network.AWS.SES
     inaForwardingEnabled,
 
     -- ** IdentityVerificationAttributes
-    IdentityVerificationAttributes,
-    identityVerificationAttributes,
+    IdentityVerificationAttributes (..),
+    mkIdentityVerificationAttributes,
     ivaVerificationToken,
     ivaVerificationStatus,
 
     -- ** KinesisFirehoseDestination
-    KinesisFirehoseDestination,
-    kinesisFirehoseDestination,
+    KinesisFirehoseDestination (..),
+    mkKinesisFirehoseDestination,
     kfdIAMRoleARN,
     kfdDeliveryStreamARN,
 
     -- ** LambdaAction
-    LambdaAction,
-    lambdaAction,
+    LambdaAction (..),
+    mkLambdaAction,
     laInvocationType,
     laTopicARN,
     laFunctionARN,
 
     -- ** Message
-    Message,
-    message,
+    Message (..),
+    mkMessage,
     mSubject,
     mBody,
 
     -- ** MessageDsn
-    MessageDsn,
-    messageDsn,
+    MessageDsn (..),
+    mkMessageDsn,
     mdArrivalDate,
     mdExtensionFields,
     mdReportingMta,
 
     -- ** MessageTag
-    MessageTag,
-    messageTag,
+    MessageTag (..),
+    mkMessageTag,
     mtName,
     mtValue,
 
     -- ** RawMessage
-    RawMessage,
-    rawMessage,
+    RawMessage (..),
+    mkRawMessage,
     rmData,
 
     -- ** ReceiptAction
-    ReceiptAction,
-    receiptAction,
+    ReceiptAction (..),
+    mkReceiptAction,
     raAddHeaderAction,
     raSNSAction,
     raWorkmailAction,
@@ -473,20 +473,20 @@ module Network.AWS.SES
     raS3Action,
 
     -- ** ReceiptFilter
-    ReceiptFilter,
-    receiptFilter,
+    ReceiptFilter (..),
+    mkReceiptFilter,
     rfName,
     rfIPFilter,
 
     -- ** ReceiptIPFilter
-    ReceiptIPFilter,
-    receiptIPFilter,
+    ReceiptIPFilter (..),
+    mkReceiptIPFilter,
     rifPolicy,
     rifCidr,
 
     -- ** ReceiptRule
-    ReceiptRule,
-    receiptRule,
+    ReceiptRule (..),
+    mkReceiptRule,
     rrScanEnabled,
     rrEnabled,
     rrActions,
@@ -495,14 +495,14 @@ module Network.AWS.SES
     rrName,
 
     -- ** ReceiptRuleSetMetadata
-    ReceiptRuleSetMetadata,
-    receiptRuleSetMetadata,
+    ReceiptRuleSetMetadata (..),
+    mkReceiptRuleSetMetadata,
     rrsmName,
     rrsmCreatedTimestamp,
 
     -- ** RecipientDsnFields
-    RecipientDsnFields,
-    recipientDsnFields,
+    RecipientDsnFields (..),
+    mkRecipientDsnFields,
     rdfDiagnosticCode,
     rdfRemoteMta,
     rdfFinalRecipient,
@@ -512,34 +512,34 @@ module Network.AWS.SES
     rdfStatus,
 
     -- ** ReputationOptions
-    ReputationOptions,
-    reputationOptions,
+    ReputationOptions (..),
+    mkReputationOptions,
     roLastFreshStart,
     roReputationMetricsEnabled,
     roSendingEnabled,
 
     -- ** S3Action
-    S3Action,
-    s3Action,
+    S3Action (..),
+    mkS3Action,
     s3KMSKeyARN,
     s3TopicARN,
     s3ObjectKeyPrefix,
     s3BucketName,
 
     -- ** SNSAction
-    SNSAction,
-    snsAction,
+    SNSAction (..),
+    mkSNSAction,
     saEncoding,
     saTopicARN,
 
     -- ** SNSDestination
-    SNSDestination,
-    snsDestination,
+    SNSDestination (..),
+    mkSNSDestination,
     sdTopicARN,
 
     -- ** SendDataPoint
-    SendDataPoint,
-    sendDataPoint,
+    SendDataPoint (..),
+    mkSendDataPoint,
     sdpRejects,
     sdpComplaints,
     sdpDeliveryAttempts,
@@ -547,38 +547,50 @@ module Network.AWS.SES
     sdpTimestamp,
 
     -- ** StopAction
-    StopAction,
-    stopAction,
+    StopAction (..),
+    mkStopAction,
     sTopicARN,
     sScope,
 
     -- ** Template
-    Template,
-    template,
+    Template (..),
+    mkTemplate,
     tTextPart,
     tSubjectPart,
     tHTMLPart,
     tTemplateName,
 
     -- ** TemplateMetadata
-    TemplateMetadata,
-    templateMetadata,
+    TemplateMetadata (..),
+    mkTemplateMetadata,
     tmName,
     tmCreatedTimestamp,
 
     -- ** TrackingOptions
-    TrackingOptions,
-    trackingOptions,
+    TrackingOptions (..),
+    mkTrackingOptions,
     toCustomRedirectDomain,
 
     -- ** WorkmailAction
-    WorkmailAction,
-    workmailAction,
+    WorkmailAction (..),
+    mkWorkmailAction,
     waTopicARN,
     waOrganizationARN,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.CloneReceiptRuleSet
 import Network.AWS.SES.CreateConfigurationSet
 import Network.AWS.SES.CreateConfigurationSetEventDestination

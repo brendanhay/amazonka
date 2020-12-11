@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue where
+module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue
+  ( Phase1IntegrityAlgorithmsListValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPhase1IntegrityAlgorithmsListValue,
+
+    -- * Lenses
+    pialvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The integrity algorithm for phase 1 IKE negotiations.
 --
---
---
--- /See:/ 'phase1IntegrityAlgorithmsListValue' smart constructor.
+-- /See:/ 'mkPhase1IntegrityAlgorithmsListValue' smart constructor.
 newtype Phase1IntegrityAlgorithmsListValue = Phase1IntegrityAlgorithmsListValue'
-  { _pialvValue ::
-      Maybe Text
+  { value ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1IntegrityAlgorithmsListValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pialvValue' - The value for the integrity algorithm.
-phase1IntegrityAlgorithmsListValue ::
+-- * 'value' - The value for the integrity algorithm.
+mkPhase1IntegrityAlgorithmsListValue ::
   Phase1IntegrityAlgorithmsListValue
-phase1IntegrityAlgorithmsListValue =
-  Phase1IntegrityAlgorithmsListValue' {_pialvValue = Nothing}
+mkPhase1IntegrityAlgorithmsListValue =
+  Phase1IntegrityAlgorithmsListValue' {value = Lude.Nothing}
 
 -- | The value for the integrity algorithm.
-pialvValue :: Lens' Phase1IntegrityAlgorithmsListValue (Maybe Text)
-pialvValue = lens _pialvValue (\s a -> s {_pialvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pialvValue :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Lude.Maybe Lude.Text)
+pialvValue = Lens.lens (value :: Phase1IntegrityAlgorithmsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1IntegrityAlgorithmsListValue)
+{-# DEPRECATED pialvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML Phase1IntegrityAlgorithmsListValue where
+instance Lude.FromXML Phase1IntegrityAlgorithmsListValue where
   parseXML x =
-    Phase1IntegrityAlgorithmsListValue' <$> (x .@? "value")
-
-instance Hashable Phase1IntegrityAlgorithmsListValue
-
-instance NFData Phase1IntegrityAlgorithmsListValue
+    Phase1IntegrityAlgorithmsListValue' Lude.<$> (x Lude..@? "value")

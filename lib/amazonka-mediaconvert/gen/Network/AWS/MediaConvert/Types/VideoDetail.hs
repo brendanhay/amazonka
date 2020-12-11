@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoDetail where
+module Network.AWS.MediaConvert.Types.VideoDetail
+  ( VideoDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVideoDetail,
+
+    -- * Lenses
+    vdHeightInPx,
+    vdWidthInPx,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the output's video stream
 --
--- /See:/ 'videoDetail' smart constructor.
+-- /See:/ 'mkVideoDetail' smart constructor.
 data VideoDetail = VideoDetail'
-  { _vdHeightInPx :: !(Maybe Int),
-    _vdWidthInPx :: !(Maybe Int)
+  { heightInPx :: Lude.Maybe Lude.Int,
+    widthInPx :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vdHeightInPx' - Height in pixels for the output
---
--- * 'vdWidthInPx' - Width in pixels for the output
-videoDetail ::
+-- * 'heightInPx' - Height in pixels for the output
+-- * 'widthInPx' - Width in pixels for the output
+mkVideoDetail ::
   VideoDetail
-videoDetail =
-  VideoDetail' {_vdHeightInPx = Nothing, _vdWidthInPx = Nothing}
+mkVideoDetail =
+  VideoDetail' {heightInPx = Lude.Nothing, widthInPx = Lude.Nothing}
 
 -- | Height in pixels for the output
-vdHeightInPx :: Lens' VideoDetail (Maybe Int)
-vdHeightInPx = lens _vdHeightInPx (\s a -> s {_vdHeightInPx = a})
+--
+-- /Note:/ Consider using 'heightInPx' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdHeightInPx :: Lens.Lens' VideoDetail (Lude.Maybe Lude.Int)
+vdHeightInPx = Lens.lens (heightInPx :: VideoDetail -> Lude.Maybe Lude.Int) (\s a -> s {heightInPx = a} :: VideoDetail)
+{-# DEPRECATED vdHeightInPx "Use generic-lens or generic-optics with 'heightInPx' instead." #-}
 
 -- | Width in pixels for the output
-vdWidthInPx :: Lens' VideoDetail (Maybe Int)
-vdWidthInPx = lens _vdWidthInPx (\s a -> s {_vdWidthInPx = a})
+--
+-- /Note:/ Consider using 'widthInPx' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdWidthInPx :: Lens.Lens' VideoDetail (Lude.Maybe Lude.Int)
+vdWidthInPx = Lens.lens (widthInPx :: VideoDetail -> Lude.Maybe Lude.Int) (\s a -> s {widthInPx = a} :: VideoDetail)
+{-# DEPRECATED vdWidthInPx "Use generic-lens or generic-optics with 'widthInPx' instead." #-}
 
-instance FromJSON VideoDetail where
+instance Lude.FromJSON VideoDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "VideoDetail"
       ( \x ->
-          VideoDetail' <$> (x .:? "heightInPx") <*> (x .:? "widthInPx")
+          VideoDetail'
+            Lude.<$> (x Lude..:? "heightInPx") Lude.<*> (x Lude..:? "widthInPx")
       )
-
-instance Hashable VideoDetail
-
-instance NFData VideoDetail

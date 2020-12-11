@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,120 +7,175 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.Namespace where
+module Network.AWS.Route53AutoNaming.Types.Namespace
+  ( Namespace (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNamespace,
+
+    -- * Lenses
+    nARN,
+    nCreatorRequestId,
+    nCreateDate,
+    nServiceCount,
+    nName,
+    nId,
+    nType,
+    nDescription,
+    nProperties,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.NamespaceProperties
 import Network.AWS.Route53AutoNaming.Types.NamespaceType
 
 -- | A complex type that contains information about a specified namespace.
 --
---
---
--- /See:/ 'namespace' smart constructor.
+-- /See:/ 'mkNamespace' smart constructor.
 data Namespace = Namespace'
-  { _nARN :: !(Maybe Text),
-    _nCreatorRequestId :: !(Maybe Text),
-    _nCreateDate :: !(Maybe POSIX),
-    _nServiceCount :: !(Maybe Int),
-    _nName :: !(Maybe Text),
-    _nId :: !(Maybe Text),
-    _nType :: !(Maybe NamespaceType),
-    _nDescription :: !(Maybe Text),
-    _nProperties :: !(Maybe NamespaceProperties)
+  { arn :: Lude.Maybe Lude.Text,
+    creatorRequestId :: Lude.Maybe Lude.Text,
+    createDate :: Lude.Maybe Lude.Timestamp,
+    serviceCount :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe NamespaceType,
+    description :: Lude.Maybe Lude.Text,
+    properties :: Lude.Maybe NamespaceProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Namespace' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
+-- * 'createDate' - The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+-- * 'creatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing an operation twice.
+-- * 'description' - The description that you specify for the namespace when you create it.
+-- * 'id' - The ID of a namespace.
+-- * 'name' - The name of the namespace, such as @example.com@ .
+-- * 'properties' - A complex type that contains information that's specific to the type of the namespace.
+-- * 'serviceCount' - The number of services that are associated with the namespace.
+-- * 'type'' - The type of the namespace. The methods for discovering instances depends on the value that you specify:
 --
--- * 'nARN' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
 --
--- * 'nCreatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing an operation twice.
+--     * @HTTP@ : Instances can be discovered only programmatically, using the AWS Cloud Map @DiscoverInstances@ API.
 --
--- * 'nCreateDate' - The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 --
--- * 'nServiceCount' - The number of services that are associated with the namespace.
+--     * @DNS_PUBLIC@ : Instances can be discovered using public DNS queries and using the @DiscoverInstances@ API.
 --
--- * 'nName' - The name of the namespace, such as @example.com@ .
 --
--- * 'nId' - The ID of a namespace.
---
--- * 'nType' - The type of the namespace. The methods for discovering instances depends on the value that you specify:     * @HTTP@ : Instances can be discovered only programmatically, using the AWS Cloud Map @DiscoverInstances@ API.     * @DNS_PUBLIC@ : Instances can be discovered using public DNS queries and using the @DiscoverInstances@ API.     * @DNS_PRIVATE@ : Instances can be discovered using DNS queries in VPCs and using the @DiscoverInstances@ API.
---
--- * 'nDescription' - The description that you specify for the namespace when you create it.
---
--- * 'nProperties' - A complex type that contains information that's specific to the type of the namespace.
-namespace ::
+--     * @DNS_PRIVATE@ : Instances can be discovered using DNS queries in VPCs and using the @DiscoverInstances@ API.
+mkNamespace ::
   Namespace
-namespace =
+mkNamespace =
   Namespace'
-    { _nARN = Nothing,
-      _nCreatorRequestId = Nothing,
-      _nCreateDate = Nothing,
-      _nServiceCount = Nothing,
-      _nName = Nothing,
-      _nId = Nothing,
-      _nType = Nothing,
-      _nDescription = Nothing,
-      _nProperties = Nothing
+    { arn = Lude.Nothing,
+      creatorRequestId = Lude.Nothing,
+      createDate = Lude.Nothing,
+      serviceCount = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing,
+      properties = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
-nARN :: Lens' Namespace (Maybe Text)
-nARN = lens _nARN (\s a -> s {_nARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nARN :: Lens.Lens' Namespace (Lude.Maybe Lude.Text)
+nARN = Lens.lens (arn :: Namespace -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Namespace)
+{-# DEPRECATED nARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A unique string that identifies the request and that allows failed requests to be retried without the risk of executing an operation twice.
-nCreatorRequestId :: Lens' Namespace (Maybe Text)
-nCreatorRequestId = lens _nCreatorRequestId (\s a -> s {_nCreatorRequestId = a})
+--
+-- /Note:/ Consider using 'creatorRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nCreatorRequestId :: Lens.Lens' Namespace (Lude.Maybe Lude.Text)
+nCreatorRequestId = Lens.lens (creatorRequestId :: Namespace -> Lude.Maybe Lude.Text) (\s a -> s {creatorRequestId = a} :: Namespace)
+{-# DEPRECATED nCreatorRequestId "Use generic-lens or generic-optics with 'creatorRequestId' instead." #-}
 
 -- | The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
-nCreateDate :: Lens' Namespace (Maybe UTCTime)
-nCreateDate = lens _nCreateDate (\s a -> s {_nCreateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nCreateDate :: Lens.Lens' Namespace (Lude.Maybe Lude.Timestamp)
+nCreateDate = Lens.lens (createDate :: Namespace -> Lude.Maybe Lude.Timestamp) (\s a -> s {createDate = a} :: Namespace)
+{-# DEPRECATED nCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The number of services that are associated with the namespace.
-nServiceCount :: Lens' Namespace (Maybe Int)
-nServiceCount = lens _nServiceCount (\s a -> s {_nServiceCount = a})
+--
+-- /Note:/ Consider using 'serviceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nServiceCount :: Lens.Lens' Namespace (Lude.Maybe Lude.Int)
+nServiceCount = Lens.lens (serviceCount :: Namespace -> Lude.Maybe Lude.Int) (\s a -> s {serviceCount = a} :: Namespace)
+{-# DEPRECATED nServiceCount "Use generic-lens or generic-optics with 'serviceCount' instead." #-}
 
 -- | The name of the namespace, such as @example.com@ .
-nName :: Lens' Namespace (Maybe Text)
-nName = lens _nName (\s a -> s {_nName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nName :: Lens.Lens' Namespace (Lude.Maybe Lude.Text)
+nName = Lens.lens (name :: Namespace -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Namespace)
+{-# DEPRECATED nName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of a namespace.
-nId :: Lens' Namespace (Maybe Text)
-nId = lens _nId (\s a -> s {_nId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nId :: Lens.Lens' Namespace (Lude.Maybe Lude.Text)
+nId = Lens.lens (id :: Namespace -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Namespace)
+{-# DEPRECATED nId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The type of the namespace. The methods for discovering instances depends on the value that you specify:     * @HTTP@ : Instances can be discovered only programmatically, using the AWS Cloud Map @DiscoverInstances@ API.     * @DNS_PUBLIC@ : Instances can be discovered using public DNS queries and using the @DiscoverInstances@ API.     * @DNS_PRIVATE@ : Instances can be discovered using DNS queries in VPCs and using the @DiscoverInstances@ API.
-nType :: Lens' Namespace (Maybe NamespaceType)
-nType = lens _nType (\s a -> s {_nType = a})
+-- | The type of the namespace. The methods for discovering instances depends on the value that you specify:
+--
+--
+--     * @HTTP@ : Instances can be discovered only programmatically, using the AWS Cloud Map @DiscoverInstances@ API.
+--
+--
+--     * @DNS_PUBLIC@ : Instances can be discovered using public DNS queries and using the @DiscoverInstances@ API.
+--
+--
+--     * @DNS_PRIVATE@ : Instances can be discovered using DNS queries in VPCs and using the @DiscoverInstances@ API.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nType :: Lens.Lens' Namespace (Lude.Maybe NamespaceType)
+nType = Lens.lens (type' :: Namespace -> Lude.Maybe NamespaceType) (\s a -> s {type' = a} :: Namespace)
+{-# DEPRECATED nType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description that you specify for the namespace when you create it.
-nDescription :: Lens' Namespace (Maybe Text)
-nDescription = lens _nDescription (\s a -> s {_nDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nDescription :: Lens.Lens' Namespace (Lude.Maybe Lude.Text)
+nDescription = Lens.lens (description :: Namespace -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Namespace)
+{-# DEPRECATED nDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A complex type that contains information that's specific to the type of the namespace.
-nProperties :: Lens' Namespace (Maybe NamespaceProperties)
-nProperties = lens _nProperties (\s a -> s {_nProperties = a})
+--
+-- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nProperties :: Lens.Lens' Namespace (Lude.Maybe NamespaceProperties)
+nProperties = Lens.lens (properties :: Namespace -> Lude.Maybe NamespaceProperties) (\s a -> s {properties = a} :: Namespace)
+{-# DEPRECATED nProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance FromJSON Namespace where
+instance Lude.FromJSON Namespace where
   parseJSON =
-    withObject
+    Lude.withObject
       "Namespace"
       ( \x ->
           Namespace'
-            <$> (x .:? "Arn")
-            <*> (x .:? "CreatorRequestId")
-            <*> (x .:? "CreateDate")
-            <*> (x .:? "ServiceCount")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Type")
-            <*> (x .:? "Description")
-            <*> (x .:? "Properties")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "CreatorRequestId")
+            Lude.<*> (x Lude..:? "CreateDate")
+            Lude.<*> (x Lude..:? "ServiceCount")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "Properties")
       )
-
-instance Hashable Namespace
-
-instance NFData Namespace

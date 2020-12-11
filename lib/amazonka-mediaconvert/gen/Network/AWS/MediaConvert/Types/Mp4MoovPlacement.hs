@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp4MoovPlacement where
+module Network.AWS.MediaConvert.Types.Mp4MoovPlacement
+  ( Mp4MoovPlacement
+      ( Mp4MoovPlacement',
+        MMPNormal,
+        MMPProgressiveDownload
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-data Mp4MoovPlacement
-  = MMPNormal
-  | MMPProgressiveDownload
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mp4MoovPlacement = Mp4MoovPlacement' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mp4MoovPlacement where
-  parser =
-    takeLowerText >>= \case
-      "normal" -> pure MMPNormal
-      "progressive_download" -> pure MMPProgressiveDownload
-      e ->
-        fromTextError $
-          "Failure parsing Mp4MoovPlacement from value: '" <> e
-            <> "'. Accepted values: normal, progressive_download"
+pattern MMPNormal :: Mp4MoovPlacement
+pattern MMPNormal = Mp4MoovPlacement' "NORMAL"
 
-instance ToText Mp4MoovPlacement where
-  toText = \case
-    MMPNormal -> "NORMAL"
-    MMPProgressiveDownload -> "PROGRESSIVE_DOWNLOAD"
+pattern MMPProgressiveDownload :: Mp4MoovPlacement
+pattern MMPProgressiveDownload = Mp4MoovPlacement' "PROGRESSIVE_DOWNLOAD"
 
-instance Hashable Mp4MoovPlacement
-
-instance NFData Mp4MoovPlacement
-
-instance ToByteString Mp4MoovPlacement
-
-instance ToQuery Mp4MoovPlacement
-
-instance ToHeader Mp4MoovPlacement
-
-instance ToJSON Mp4MoovPlacement where
-  toJSON = toJSONText
-
-instance FromJSON Mp4MoovPlacement where
-  parseJSON = parseJSONText "Mp4MoovPlacement"
+{-# COMPLETE
+  MMPNormal,
+  MMPProgressiveDownload,
+  Mp4MoovPlacement'
+  #-}

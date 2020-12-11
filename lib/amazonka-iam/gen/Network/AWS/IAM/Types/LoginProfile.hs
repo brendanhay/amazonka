@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.LoginProfile where
+module Network.AWS.IAM.Types.LoginProfile
+  ( LoginProfile (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLoginProfile,
+
+    -- * Lenses
+    lpPasswordResetRequired,
+    lpUserName,
+    lpCreateDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the user name and password create date for a user.
 --
---
 -- This data type is used as a response element in the 'CreateLoginProfile' and 'GetLoginProfile' operations.
 --
---
--- /See:/ 'loginProfile' smart constructor.
+-- /See:/ 'mkLoginProfile' smart constructor.
 data LoginProfile = LoginProfile'
-  { _lpPasswordResetRequired ::
-      !(Maybe Bool),
-    _lpUserName :: !Text,
-    _lpCreateDate :: !ISO8601
+  { passwordResetRequired ::
+      Lude.Maybe Lude.Bool,
+    userName :: Lude.Text,
+    createDate :: Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoginProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpPasswordResetRequired' - Specifies whether the user is required to set a new password on next sign-in.
---
--- * 'lpUserName' - The name of the user, which can be used for signing in to the AWS Management Console.
---
--- * 'lpCreateDate' - The date when the password for the user was created.
-loginProfile ::
-  -- | 'lpUserName'
-  Text ->
-  -- | 'lpCreateDate'
-  UTCTime ->
+-- * 'createDate' - The date when the password for the user was created.
+-- * 'passwordResetRequired' - Specifies whether the user is required to set a new password on next sign-in.
+-- * 'userName' - The name of the user, which can be used for signing in to the AWS Management Console.
+mkLoginProfile ::
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'createDate'
+  Lude.ISO8601 ->
   LoginProfile
-loginProfile pUserName_ pCreateDate_ =
+mkLoginProfile pUserName_ pCreateDate_ =
   LoginProfile'
-    { _lpPasswordResetRequired = Nothing,
-      _lpUserName = pUserName_,
-      _lpCreateDate = _Time # pCreateDate_
+    { passwordResetRequired = Lude.Nothing,
+      userName = pUserName_,
+      createDate = pCreateDate_
     }
 
 -- | Specifies whether the user is required to set a new password on next sign-in.
-lpPasswordResetRequired :: Lens' LoginProfile (Maybe Bool)
-lpPasswordResetRequired = lens _lpPasswordResetRequired (\s a -> s {_lpPasswordResetRequired = a})
+--
+-- /Note:/ Consider using 'passwordResetRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpPasswordResetRequired :: Lens.Lens' LoginProfile (Lude.Maybe Lude.Bool)
+lpPasswordResetRequired = Lens.lens (passwordResetRequired :: LoginProfile -> Lude.Maybe Lude.Bool) (\s a -> s {passwordResetRequired = a} :: LoginProfile)
+{-# DEPRECATED lpPasswordResetRequired "Use generic-lens or generic-optics with 'passwordResetRequired' instead." #-}
 
 -- | The name of the user, which can be used for signing in to the AWS Management Console.
-lpUserName :: Lens' LoginProfile Text
-lpUserName = lens _lpUserName (\s a -> s {_lpUserName = a})
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpUserName :: Lens.Lens' LoginProfile Lude.Text
+lpUserName = Lens.lens (userName :: LoginProfile -> Lude.Text) (\s a -> s {userName = a} :: LoginProfile)
+{-# DEPRECATED lpUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The date when the password for the user was created.
-lpCreateDate :: Lens' LoginProfile UTCTime
-lpCreateDate = lens _lpCreateDate (\s a -> s {_lpCreateDate = a}) . _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpCreateDate :: Lens.Lens' LoginProfile Lude.ISO8601
+lpCreateDate = Lens.lens (createDate :: LoginProfile -> Lude.ISO8601) (\s a -> s {createDate = a} :: LoginProfile)
+{-# DEPRECATED lpCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
-instance FromXML LoginProfile where
+instance Lude.FromXML LoginProfile where
   parseXML x =
     LoginProfile'
-      <$> (x .@? "PasswordResetRequired")
-      <*> (x .@ "UserName")
-      <*> (x .@ "CreateDate")
-
-instance Hashable LoginProfile
-
-instance NFData LoginProfile
+      Lude.<$> (x Lude..@? "PasswordResetRequired")
+      Lude.<*> (x Lude..@ "UserName")
+      Lude.<*> (x Lude..@ "CreateDate")

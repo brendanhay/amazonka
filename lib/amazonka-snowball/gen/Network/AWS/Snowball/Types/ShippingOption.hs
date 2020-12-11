@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.ShippingOption where
+module Network.AWS.Snowball.Types.ShippingOption
+  ( ShippingOption
+      ( ShippingOption',
+        SOExpress,
+        SONextDay,
+        SOSecondDay,
+        SOStandard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShippingOption
-  = SOExpress
-  | SONextDay
-  | SOSecondDay
-  | SOStandard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShippingOption = ShippingOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShippingOption where
-  parser =
-    takeLowerText >>= \case
-      "express" -> pure SOExpress
-      "next_day" -> pure SONextDay
-      "second_day" -> pure SOSecondDay
-      "standard" -> pure SOStandard
-      e ->
-        fromTextError $
-          "Failure parsing ShippingOption from value: '" <> e
-            <> "'. Accepted values: express, next_day, second_day, standard"
+pattern SOExpress :: ShippingOption
+pattern SOExpress = ShippingOption' "EXPRESS"
 
-instance ToText ShippingOption where
-  toText = \case
-    SOExpress -> "EXPRESS"
-    SONextDay -> "NEXT_DAY"
-    SOSecondDay -> "SECOND_DAY"
-    SOStandard -> "STANDARD"
+pattern SONextDay :: ShippingOption
+pattern SONextDay = ShippingOption' "NEXT_DAY"
 
-instance Hashable ShippingOption
+pattern SOSecondDay :: ShippingOption
+pattern SOSecondDay = ShippingOption' "SECOND_DAY"
 
-instance NFData ShippingOption
+pattern SOStandard :: ShippingOption
+pattern SOStandard = ShippingOption' "STANDARD"
 
-instance ToByteString ShippingOption
-
-instance ToQuery ShippingOption
-
-instance ToHeader ShippingOption
-
-instance ToJSON ShippingOption where
-  toJSON = toJSONText
-
-instance FromJSON ShippingOption where
-  parseJSON = parseJSONText "ShippingOption"
+{-# COMPLETE
+  SOExpress,
+  SONextDay,
+  SOSecondDay,
+  SOStandard,
+  ShippingOption'
+  #-}

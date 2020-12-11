@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets a usage plan of a given plan identifier.
 module Network.AWS.APIGateway.GetUsagePlan
-  ( -- * Creating a Request
-    getUsagePlan,
-    GetUsagePlan,
+  ( -- * Creating a request
+    GetUsagePlan (..),
+    mkGetUsagePlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gupUsagePlanId,
 
-    -- * Destructuring the Response
-    usagePlan,
-    UsagePlan,
+    -- * Destructuring the response
+    UsagePlan (..),
+    mkUsagePlan,
 
-    -- * Response Lenses
+    -- ** Response lenses
     upApiStages,
     upName,
     upId,
@@ -43,51 +38,56 @@ module Network.AWS.APIGateway.GetUsagePlan
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The GET request to get a usage plan of a given plan identifier.
 --
---
---
--- /See:/ 'getUsagePlan' smart constructor.
-newtype GetUsagePlan = GetUsagePlan' {_gupUsagePlanId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetUsagePlan' smart constructor.
+newtype GetUsagePlan = GetUsagePlan' {usagePlanId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gupUsagePlanId' - [Required] The identifier of the 'UsagePlan' resource to be retrieved.
-getUsagePlan ::
-  -- | 'gupUsagePlanId'
-  Text ->
+-- * 'usagePlanId' - [Required] The identifier of the 'UsagePlan' resource to be retrieved.
+mkGetUsagePlan ::
+  -- | 'usagePlanId'
+  Lude.Text ->
   GetUsagePlan
-getUsagePlan pUsagePlanId_ =
-  GetUsagePlan' {_gupUsagePlanId = pUsagePlanId_}
+mkGetUsagePlan pUsagePlanId_ =
+  GetUsagePlan' {usagePlanId = pUsagePlanId_}
 
 -- | [Required] The identifier of the 'UsagePlan' resource to be retrieved.
-gupUsagePlanId :: Lens' GetUsagePlan Text
-gupUsagePlanId = lens _gupUsagePlanId (\s a -> s {_gupUsagePlanId = a})
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupUsagePlanId :: Lens.Lens' GetUsagePlan Lude.Text
+gupUsagePlanId = Lens.lens (usagePlanId :: GetUsagePlan -> Lude.Text) (\s a -> s {usagePlanId = a} :: GetUsagePlan)
+{-# DEPRECATED gupUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
-instance AWSRequest GetUsagePlan where
+instance Lude.AWSRequest GetUsagePlan where
   type Rs GetUsagePlan = UsagePlan
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetUsagePlan
-
-instance NFData GetUsagePlan
-
-instance ToHeaders GetUsagePlan where
+instance Lude.ToHeaders GetUsagePlan where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetUsagePlan where
+instance Lude.ToPath GetUsagePlan where
   toPath GetUsagePlan' {..} =
-    mconcat ["/usageplans/", toBS _gupUsagePlanId]
+    Lude.mconcat ["/usageplans/", Lude.toBS usagePlanId]
 
-instance ToQuery GetUsagePlan where
-  toQuery = const mempty
+instance Lude.ToQuery GetUsagePlan where
+  toQuery = Lude.const Lude.mempty

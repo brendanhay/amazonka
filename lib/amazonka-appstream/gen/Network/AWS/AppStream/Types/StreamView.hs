@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.StreamView where
+module Network.AWS.AppStream.Types.StreamView
+  ( StreamView
+      ( StreamView',
+        App,
+        Desktop
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StreamView
-  = App
-  | Desktop
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StreamView = StreamView' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StreamView where
-  parser =
-    takeLowerText >>= \case
-      "app" -> pure App
-      "desktop" -> pure Desktop
-      e ->
-        fromTextError $
-          "Failure parsing StreamView from value: '" <> e
-            <> "'. Accepted values: app, desktop"
+pattern App :: StreamView
+pattern App = StreamView' "APP"
 
-instance ToText StreamView where
-  toText = \case
-    App -> "APP"
-    Desktop -> "DESKTOP"
+pattern Desktop :: StreamView
+pattern Desktop = StreamView' "DESKTOP"
 
-instance Hashable StreamView
-
-instance NFData StreamView
-
-instance ToByteString StreamView
-
-instance ToQuery StreamView
-
-instance ToHeader StreamView
-
-instance ToJSON StreamView where
-  toJSON = toJSONText
-
-instance FromJSON StreamView where
-  parseJSON = parseJSONText "StreamView"
+{-# COMPLETE
+  App,
+  Desktop,
+  StreamView'
+  #-}

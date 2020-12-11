@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Complete the migration of data.
 module Network.AWS.ElastiCache.CompleteMigration
-  ( -- * Creating a Request
-    completeMigration,
-    CompleteMigration,
+  ( -- * Creating a request
+    CompleteMigration (..),
+    mkCompleteMigration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmForce,
     cmReplicationGroupId,
 
-    -- * Destructuring the Response
-    completeMigrationResponse,
-    CompleteMigrationResponse,
+    -- * Destructuring the response
+    CompleteMigrationResponse (..),
+    mkCompleteMigrationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmrsReplicationGroup,
     cmrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'completeMigration' smart constructor.
+-- | /See:/ 'mkCompleteMigration' smart constructor.
 data CompleteMigration = CompleteMigration'
-  { _cmForce ::
-      !(Maybe Bool),
-    _cmReplicationGroupId :: !Text
+  { force ::
+      Lude.Maybe Lude.Bool,
+    replicationGroupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteMigration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmForce' - Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.
---
--- * 'cmReplicationGroupId' - The ID of the replication group to which data is being migrated.
-completeMigration ::
-  -- | 'cmReplicationGroupId'
-  Text ->
+-- * 'force' - Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.
+-- * 'replicationGroupId' - The ID of the replication group to which data is being migrated.
+mkCompleteMigration ::
+  -- | 'replicationGroupId'
+  Lude.Text ->
   CompleteMigration
-completeMigration pReplicationGroupId_ =
+mkCompleteMigration pReplicationGroupId_ =
   CompleteMigration'
-    { _cmForce = Nothing,
-      _cmReplicationGroupId = pReplicationGroupId_
+    { force = Lude.Nothing,
+      replicationGroupId = pReplicationGroupId_
     }
 
 -- | Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.
-cmForce :: Lens' CompleteMigration (Maybe Bool)
-cmForce = lens _cmForce (\s a -> s {_cmForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmForce :: Lens.Lens' CompleteMigration (Lude.Maybe Lude.Bool)
+cmForce = Lens.lens (force :: CompleteMigration -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: CompleteMigration)
+{-# DEPRECATED cmForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The ID of the replication group to which data is being migrated.
-cmReplicationGroupId :: Lens' CompleteMigration Text
-cmReplicationGroupId = lens _cmReplicationGroupId (\s a -> s {_cmReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmReplicationGroupId :: Lens.Lens' CompleteMigration Lude.Text
+cmReplicationGroupId = Lens.lens (replicationGroupId :: CompleteMigration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: CompleteMigration)
+{-# DEPRECATED cmReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance AWSRequest CompleteMigration where
+instance Lude.AWSRequest CompleteMigration where
   type Rs CompleteMigration = CompleteMigrationResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CompleteMigrationResult"
       ( \s h x ->
           CompleteMigrationResponse'
-            <$> (x .@? "ReplicationGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ReplicationGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CompleteMigration
+instance Lude.ToHeaders CompleteMigration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CompleteMigration
+instance Lude.ToPath CompleteMigration where
+  toPath = Lude.const "/"
 
-instance ToHeaders CompleteMigration where
-  toHeaders = const mempty
-
-instance ToPath CompleteMigration where
-  toPath = const "/"
-
-instance ToQuery CompleteMigration where
+instance Lude.ToQuery CompleteMigration where
   toQuery CompleteMigration' {..} =
-    mconcat
-      [ "Action" =: ("CompleteMigration" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "Force" =: _cmForce,
-        "ReplicationGroupId" =: _cmReplicationGroupId
+    Lude.mconcat
+      [ "Action" Lude.=: ("CompleteMigration" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "Force" Lude.=: force,
+        "ReplicationGroupId" Lude.=: replicationGroupId
       ]
 
--- | /See:/ 'completeMigrationResponse' smart constructor.
+-- | /See:/ 'mkCompleteMigrationResponse' smart constructor.
 data CompleteMigrationResponse = CompleteMigrationResponse'
-  { _cmrsReplicationGroup ::
-      !(Maybe ReplicationGroup),
-    _cmrsResponseStatus :: !Int
+  { replicationGroup ::
+      Lude.Maybe ReplicationGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteMigrationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmrsReplicationGroup' - Undocumented member.
---
--- * 'cmrsResponseStatus' - -- | The response status code.
-completeMigrationResponse ::
-  -- | 'cmrsResponseStatus'
-  Int ->
+-- * 'replicationGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCompleteMigrationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CompleteMigrationResponse
-completeMigrationResponse pResponseStatus_ =
+mkCompleteMigrationResponse pResponseStatus_ =
   CompleteMigrationResponse'
-    { _cmrsReplicationGroup = Nothing,
-      _cmrsResponseStatus = pResponseStatus_
+    { replicationGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cmrsReplicationGroup :: Lens' CompleteMigrationResponse (Maybe ReplicationGroup)
-cmrsReplicationGroup = lens _cmrsReplicationGroup (\s a -> s {_cmrsReplicationGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'replicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsReplicationGroup :: Lens.Lens' CompleteMigrationResponse (Lude.Maybe ReplicationGroup)
+cmrsReplicationGroup = Lens.lens (replicationGroup :: CompleteMigrationResponse -> Lude.Maybe ReplicationGroup) (\s a -> s {replicationGroup = a} :: CompleteMigrationResponse)
+{-# DEPRECATED cmrsReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
 
--- | -- | The response status code.
-cmrsResponseStatus :: Lens' CompleteMigrationResponse Int
-cmrsResponseStatus = lens _cmrsResponseStatus (\s a -> s {_cmrsResponseStatus = a})
-
-instance NFData CompleteMigrationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsResponseStatus :: Lens.Lens' CompleteMigrationResponse Lude.Int
+cmrsResponseStatus = Lens.lens (responseStatus :: CompleteMigrationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CompleteMigrationResponse)
+{-# DEPRECATED cmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

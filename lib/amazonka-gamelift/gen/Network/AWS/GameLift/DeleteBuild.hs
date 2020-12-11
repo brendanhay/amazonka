@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,112 @@
 --
 -- Deletes a build. This operation permanently deletes the build resource and any uploaded build files. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.
 --
---
 -- To delete a build, specify the build ID.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
---
 -- __Related operations__
 --
 --     * 'CreateBuild'
 --
+--
 --     * 'ListBuilds'
+--
 --
 --     * 'DescribeBuild'
 --
+--
 --     * 'UpdateBuild'
+--
 --
 --     * 'DeleteBuild'
 module Network.AWS.GameLift.DeleteBuild
-  ( -- * Creating a Request
-    deleteBuild,
-    DeleteBuild,
+  ( -- * Creating a request
+    DeleteBuild (..),
+    mkDeleteBuild,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbBuildId,
 
-    -- * Destructuring the Response
-    deleteBuildResponse,
-    DeleteBuildResponse,
+    -- * Destructuring the response
+    DeleteBuildResponse (..),
+    mkDeleteBuildResponse,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'deleteBuild' smart constructor.
-newtype DeleteBuild = DeleteBuild' {_dbBuildId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteBuild' smart constructor.
+newtype DeleteBuild = DeleteBuild' {buildId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBuild' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbBuildId' - A unique identifier for a build to delete. You can use either the build ID or ARN value.
-deleteBuild ::
-  -- | 'dbBuildId'
-  Text ->
+-- * 'buildId' - A unique identifier for a build to delete. You can use either the build ID or ARN value.
+mkDeleteBuild ::
+  -- | 'buildId'
+  Lude.Text ->
   DeleteBuild
-deleteBuild pBuildId_ = DeleteBuild' {_dbBuildId = pBuildId_}
+mkDeleteBuild pBuildId_ = DeleteBuild' {buildId = pBuildId_}
 
 -- | A unique identifier for a build to delete. You can use either the build ID or ARN value.
-dbBuildId :: Lens' DeleteBuild Text
-dbBuildId = lens _dbBuildId (\s a -> s {_dbBuildId = a})
+--
+-- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbBuildId :: Lens.Lens' DeleteBuild Lude.Text
+dbBuildId = Lens.lens (buildId :: DeleteBuild -> Lude.Text) (\s a -> s {buildId = a} :: DeleteBuild)
+{-# DEPRECATED dbBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
-instance AWSRequest DeleteBuild where
+instance Lude.AWSRequest DeleteBuild where
   type Rs DeleteBuild = DeleteBuildResponse
-  request = postJSON gameLift
-  response = receiveNull DeleteBuildResponse'
+  request = Req.postJSON gameLiftService
+  response = Res.receiveNull DeleteBuildResponse'
 
-instance Hashable DeleteBuild
-
-instance NFData DeleteBuild
-
-instance ToHeaders DeleteBuild where
+instance Lude.ToHeaders DeleteBuild where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DeleteBuild" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DeleteBuild" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteBuild where
+instance Lude.ToJSON DeleteBuild where
   toJSON DeleteBuild' {..} =
-    object (catMaybes [Just ("BuildId" .= _dbBuildId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BuildId" Lude..= buildId)])
 
-instance ToPath DeleteBuild where
-  toPath = const "/"
+instance Lude.ToPath DeleteBuild where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteBuild where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBuild where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBuildResponse' smart constructor.
+-- | /See:/ 'mkDeleteBuildResponse' smart constructor.
 data DeleteBuildResponse = DeleteBuildResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBuildResponse' with the minimum fields required to make a request.
-deleteBuildResponse ::
+mkDeleteBuildResponse ::
   DeleteBuildResponse
-deleteBuildResponse = DeleteBuildResponse'
-
-instance NFData DeleteBuildResponse
+mkDeleteBuildResponse = DeleteBuildResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ReservationResolution where
+module Network.AWS.MediaLive.Types.ReservationResolution
+  ( ReservationResolution
+      ( ReservationResolution',
+        RRFhd,
+        RRHD,
+        RRSD,
+        RRUhd
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Resolution based on lines of vertical resolution; SD is less than 720 lines, HD is 720 to 1080 lines, FHD is 1080 lines, UHD is greater than 1080 lines
-data ReservationResolution
-  = RRFhd
-  | RRHD
-  | RRSD
-  | RRUhd
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReservationResolution = ReservationResolution' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReservationResolution where
-  parser =
-    takeLowerText >>= \case
-      "fhd" -> pure RRFhd
-      "hd" -> pure RRHD
-      "sd" -> pure RRSD
-      "uhd" -> pure RRUhd
-      e ->
-        fromTextError $
-          "Failure parsing ReservationResolution from value: '" <> e
-            <> "'. Accepted values: fhd, hd, sd, uhd"
+pattern RRFhd :: ReservationResolution
+pattern RRFhd = ReservationResolution' "FHD"
 
-instance ToText ReservationResolution where
-  toText = \case
-    RRFhd -> "FHD"
-    RRHD -> "HD"
-    RRSD -> "SD"
-    RRUhd -> "UHD"
+pattern RRHD :: ReservationResolution
+pattern RRHD = ReservationResolution' "HD"
 
-instance Hashable ReservationResolution
+pattern RRSD :: ReservationResolution
+pattern RRSD = ReservationResolution' "SD"
 
-instance NFData ReservationResolution
+pattern RRUhd :: ReservationResolution
+pattern RRUhd = ReservationResolution' "UHD"
 
-instance ToByteString ReservationResolution
-
-instance ToQuery ReservationResolution
-
-instance ToHeader ReservationResolution
-
-instance FromJSON ReservationResolution where
-  parseJSON = parseJSONText "ReservationResolution"
+{-# COMPLETE
+  RRFhd,
+  RRHD,
+  RRSD,
+  RRUhd,
+  ReservationResolution'
+  #-}

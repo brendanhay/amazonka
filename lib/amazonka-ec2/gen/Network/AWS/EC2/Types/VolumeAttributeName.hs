@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeAttributeName where
+module Network.AWS.EC2.Types.VolumeAttributeName
+  ( VolumeAttributeName
+      ( VolumeAttributeName',
+        VANAutoEnableIO,
+        VANProductCodes
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VolumeAttributeName
-  = VANAutoEnableIO
-  | VANProductCodes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeAttributeName = VolumeAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "autoenableio" -> pure VANAutoEnableIO
-      "productcodes" -> pure VANProductCodes
-      e ->
-        fromTextError $
-          "Failure parsing VolumeAttributeName from value: '" <> e
-            <> "'. Accepted values: autoenableio, productcodes"
+pattern VANAutoEnableIO :: VolumeAttributeName
+pattern VANAutoEnableIO = VolumeAttributeName' "autoEnableIO"
 
-instance ToText VolumeAttributeName where
-  toText = \case
-    VANAutoEnableIO -> "autoEnableIO"
-    VANProductCodes -> "productCodes"
+pattern VANProductCodes :: VolumeAttributeName
+pattern VANProductCodes = VolumeAttributeName' "productCodes"
 
-instance Hashable VolumeAttributeName
-
-instance NFData VolumeAttributeName
-
-instance ToByteString VolumeAttributeName
-
-instance ToQuery VolumeAttributeName
-
-instance ToHeader VolumeAttributeName
+{-# COMPLETE
+  VANAutoEnableIO,
+  VANProductCodes,
+  VolumeAttributeName'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Returns the number of compliant and noncompliant rules for one or more accounts and regions in an aggregator.
 module Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
-  ( -- * Creating a Request
-    getAggregateConfigRuleComplianceSummary,
-    GetAggregateConfigRuleComplianceSummary,
+  ( -- * Creating a request
+    GetAggregateConfigRuleComplianceSummary (..),
+    mkGetAggregateConfigRuleComplianceSummary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gacrcsFilters,
     gacrcsNextToken,
     gacrcsLimit,
     gacrcsGroupByKey,
     gacrcsConfigurationAggregatorName,
 
-    -- * Destructuring the Response
-    getAggregateConfigRuleComplianceSummaryResponse,
-    GetAggregateConfigRuleComplianceSummaryResponse,
+    -- * Destructuring the response
+    GetAggregateConfigRuleComplianceSummaryResponse (..),
+    mkGetAggregateConfigRuleComplianceSummaryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gacrcsrsAggregateComplianceCounts,
     gacrcsrsNextToken,
     gacrcsrsGroupByKey,
@@ -43,199 +38,212 @@ module Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAggregateConfigRuleComplianceSummary' smart constructor.
+-- | /See:/ 'mkGetAggregateConfigRuleComplianceSummary' smart constructor.
 data GetAggregateConfigRuleComplianceSummary = GetAggregateConfigRuleComplianceSummary'
-  { _gacrcsFilters ::
-      !( Maybe
-           ConfigRuleComplianceSummaryFilters
-       ),
-    _gacrcsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gacrcsLimit ::
-      !( Maybe
-           Nat
-       ),
-    _gacrcsGroupByKey ::
-      !( Maybe
-           ConfigRuleComplianceSummaryGroupKey
-       ),
-    _gacrcsConfigurationAggregatorName ::
-      !Text
+  { filters ::
+      Lude.Maybe
+        ConfigRuleComplianceSummaryFilters,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    groupByKey ::
+      Lude.Maybe
+        ConfigRuleComplianceSummaryGroupKey,
+    configurationAggregatorName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateConfigRuleComplianceSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacrcsFilters' - Filters the results based on the ConfigRuleComplianceSummaryFilters object.
---
--- * 'gacrcsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gacrcsLimit' - The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
---
--- * 'gacrcsGroupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
---
--- * 'gacrcsConfigurationAggregatorName' - The name of the configuration aggregator.
-getAggregateConfigRuleComplianceSummary ::
-  -- | 'gacrcsConfigurationAggregatorName'
-  Text ->
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- * 'filters' - Filters the results based on the ConfigRuleComplianceSummaryFilters object.
+-- * 'groupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkGetAggregateConfigRuleComplianceSummary ::
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
   GetAggregateConfigRuleComplianceSummary
-getAggregateConfigRuleComplianceSummary
+mkGetAggregateConfigRuleComplianceSummary
   pConfigurationAggregatorName_ =
     GetAggregateConfigRuleComplianceSummary'
-      { _gacrcsFilters =
-          Nothing,
-        _gacrcsNextToken = Nothing,
-        _gacrcsLimit = Nothing,
-        _gacrcsGroupByKey = Nothing,
-        _gacrcsConfigurationAggregatorName =
+      { filters = Lude.Nothing,
+        nextToken = Lude.Nothing,
+        limit = Lude.Nothing,
+        groupByKey = Lude.Nothing,
+        configurationAggregatorName =
           pConfigurationAggregatorName_
       }
 
 -- | Filters the results based on the ConfigRuleComplianceSummaryFilters object.
-gacrcsFilters :: Lens' GetAggregateConfigRuleComplianceSummary (Maybe ConfigRuleComplianceSummaryFilters)
-gacrcsFilters = lens _gacrcsFilters (\s a -> s {_gacrcsFilters = a})
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsFilters :: Lens.Lens' GetAggregateConfigRuleComplianceSummary (Lude.Maybe ConfigRuleComplianceSummaryFilters)
+gacrcsFilters = Lens.lens (filters :: GetAggregateConfigRuleComplianceSummary -> Lude.Maybe ConfigRuleComplianceSummaryFilters) (\s a -> s {filters = a} :: GetAggregateConfigRuleComplianceSummary)
+{-# DEPRECATED gacrcsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gacrcsNextToken :: Lens' GetAggregateConfigRuleComplianceSummary (Maybe Text)
-gacrcsNextToken = lens _gacrcsNextToken (\s a -> s {_gacrcsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsNextToken :: Lens.Lens' GetAggregateConfigRuleComplianceSummary (Lude.Maybe Lude.Text)
+gacrcsNextToken = Lens.lens (nextToken :: GetAggregateConfigRuleComplianceSummary -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAggregateConfigRuleComplianceSummary)
+{-# DEPRECATED gacrcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
-gacrcsLimit :: Lens' GetAggregateConfigRuleComplianceSummary (Maybe Natural)
-gacrcsLimit = lens _gacrcsLimit (\s a -> s {_gacrcsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsLimit :: Lens.Lens' GetAggregateConfigRuleComplianceSummary (Lude.Maybe Lude.Natural)
+gacrcsLimit = Lens.lens (limit :: GetAggregateConfigRuleComplianceSummary -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetAggregateConfigRuleComplianceSummary)
+{-# DEPRECATED gacrcsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Groups the result based on ACCOUNT_ID or AWS_REGION.
-gacrcsGroupByKey :: Lens' GetAggregateConfigRuleComplianceSummary (Maybe ConfigRuleComplianceSummaryGroupKey)
-gacrcsGroupByKey = lens _gacrcsGroupByKey (\s a -> s {_gacrcsGroupByKey = a})
+--
+-- /Note:/ Consider using 'groupByKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsGroupByKey :: Lens.Lens' GetAggregateConfigRuleComplianceSummary (Lude.Maybe ConfigRuleComplianceSummaryGroupKey)
+gacrcsGroupByKey = Lens.lens (groupByKey :: GetAggregateConfigRuleComplianceSummary -> Lude.Maybe ConfigRuleComplianceSummaryGroupKey) (\s a -> s {groupByKey = a} :: GetAggregateConfigRuleComplianceSummary)
+{-# DEPRECATED gacrcsGroupByKey "Use generic-lens or generic-optics with 'groupByKey' instead." #-}
 
 -- | The name of the configuration aggregator.
-gacrcsConfigurationAggregatorName :: Lens' GetAggregateConfigRuleComplianceSummary Text
-gacrcsConfigurationAggregatorName = lens _gacrcsConfigurationAggregatorName (\s a -> s {_gacrcsConfigurationAggregatorName = a})
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsConfigurationAggregatorName :: Lens.Lens' GetAggregateConfigRuleComplianceSummary Lude.Text
+gacrcsConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: GetAggregateConfigRuleComplianceSummary -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: GetAggregateConfigRuleComplianceSummary)
+{-# DEPRECATED gacrcsConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
-instance AWSRequest GetAggregateConfigRuleComplianceSummary where
+instance Lude.AWSRequest GetAggregateConfigRuleComplianceSummary where
   type
     Rs GetAggregateConfigRuleComplianceSummary =
       GetAggregateConfigRuleComplianceSummaryResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAggregateConfigRuleComplianceSummaryResponse'
-            <$> (x .?> "AggregateComplianceCounts" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "GroupByKey")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AggregateComplianceCounts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "GroupByKey")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAggregateConfigRuleComplianceSummary
-
-instance NFData GetAggregateConfigRuleComplianceSummary
-
-instance ToHeaders GetAggregateConfigRuleComplianceSummary where
+instance Lude.ToHeaders GetAggregateConfigRuleComplianceSummary where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.GetAggregateConfigRuleComplianceSummary" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetAggregateConfigRuleComplianceSummary" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAggregateConfigRuleComplianceSummary where
+instance Lude.ToJSON GetAggregateConfigRuleComplianceSummary where
   toJSON GetAggregateConfigRuleComplianceSummary' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _gacrcsFilters,
-            ("NextToken" .=) <$> _gacrcsNextToken,
-            ("Limit" .=) <$> _gacrcsLimit,
-            ("GroupByKey" .=) <$> _gacrcsGroupByKey,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("GroupByKey" Lude..=) Lude.<$> groupByKey,
+            Lude.Just
               ( "ConfigurationAggregatorName"
-                  .= _gacrcsConfigurationAggregatorName
+                  Lude..= configurationAggregatorName
               )
           ]
       )
 
-instance ToPath GetAggregateConfigRuleComplianceSummary where
-  toPath = const "/"
+instance Lude.ToPath GetAggregateConfigRuleComplianceSummary where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAggregateConfigRuleComplianceSummary where
-  toQuery = const mempty
+instance Lude.ToQuery GetAggregateConfigRuleComplianceSummary where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAggregateConfigRuleComplianceSummaryResponse' smart constructor.
+-- | /See:/ 'mkGetAggregateConfigRuleComplianceSummaryResponse' smart constructor.
 data GetAggregateConfigRuleComplianceSummaryResponse = GetAggregateConfigRuleComplianceSummaryResponse'
-  { _gacrcsrsAggregateComplianceCounts ::
-      !( Maybe
-           [AggregateComplianceCount]
-       ),
-    _gacrcsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gacrcsrsGroupByKey ::
-      !( Maybe
-           Text
-       ),
-    _gacrcsrsResponseStatus ::
-      !Int
+  { aggregateComplianceCounts ::
+      Lude.Maybe
+        [AggregateComplianceCount],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    groupByKey ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetAggregateConfigRuleComplianceSummaryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacrcsrsAggregateComplianceCounts' - Returns a list of AggregateComplianceCounts object.
---
--- * 'gacrcsrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gacrcsrsGroupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
---
--- * 'gacrcsrsResponseStatus' - -- | The response status code.
-getAggregateConfigRuleComplianceSummaryResponse ::
-  -- | 'gacrcsrsResponseStatus'
-  Int ->
+-- * 'aggregateComplianceCounts' - Returns a list of AggregateComplianceCounts object.
+-- * 'groupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkGetAggregateConfigRuleComplianceSummaryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAggregateConfigRuleComplianceSummaryResponse
-getAggregateConfigRuleComplianceSummaryResponse pResponseStatus_ =
+mkGetAggregateConfigRuleComplianceSummaryResponse pResponseStatus_ =
   GetAggregateConfigRuleComplianceSummaryResponse'
-    { _gacrcsrsAggregateComplianceCounts =
-        Nothing,
-      _gacrcsrsNextToken = Nothing,
-      _gacrcsrsGroupByKey = Nothing,
-      _gacrcsrsResponseStatus = pResponseStatus_
+    { aggregateComplianceCounts =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      groupByKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a list of AggregateComplianceCounts object.
-gacrcsrsAggregateComplianceCounts :: Lens' GetAggregateConfigRuleComplianceSummaryResponse [AggregateComplianceCount]
-gacrcsrsAggregateComplianceCounts = lens _gacrcsrsAggregateComplianceCounts (\s a -> s {_gacrcsrsAggregateComplianceCounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aggregateComplianceCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsrsAggregateComplianceCounts :: Lens.Lens' GetAggregateConfigRuleComplianceSummaryResponse (Lude.Maybe [AggregateComplianceCount])
+gacrcsrsAggregateComplianceCounts = Lens.lens (aggregateComplianceCounts :: GetAggregateConfigRuleComplianceSummaryResponse -> Lude.Maybe [AggregateComplianceCount]) (\s a -> s {aggregateComplianceCounts = a} :: GetAggregateConfigRuleComplianceSummaryResponse)
+{-# DEPRECATED gacrcsrsAggregateComplianceCounts "Use generic-lens or generic-optics with 'aggregateComplianceCounts' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gacrcsrsNextToken :: Lens' GetAggregateConfigRuleComplianceSummaryResponse (Maybe Text)
-gacrcsrsNextToken = lens _gacrcsrsNextToken (\s a -> s {_gacrcsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsrsNextToken :: Lens.Lens' GetAggregateConfigRuleComplianceSummaryResponse (Lude.Maybe Lude.Text)
+gacrcsrsNextToken = Lens.lens (nextToken :: GetAggregateConfigRuleComplianceSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAggregateConfigRuleComplianceSummaryResponse)
+{-# DEPRECATED gacrcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Groups the result based on ACCOUNT_ID or AWS_REGION.
-gacrcsrsGroupByKey :: Lens' GetAggregateConfigRuleComplianceSummaryResponse (Maybe Text)
-gacrcsrsGroupByKey = lens _gacrcsrsGroupByKey (\s a -> s {_gacrcsrsGroupByKey = a})
+--
+-- /Note:/ Consider using 'groupByKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsrsGroupByKey :: Lens.Lens' GetAggregateConfigRuleComplianceSummaryResponse (Lude.Maybe Lude.Text)
+gacrcsrsGroupByKey = Lens.lens (groupByKey :: GetAggregateConfigRuleComplianceSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupByKey = a} :: GetAggregateConfigRuleComplianceSummaryResponse)
+{-# DEPRECATED gacrcsrsGroupByKey "Use generic-lens or generic-optics with 'groupByKey' instead." #-}
 
--- | -- | The response status code.
-gacrcsrsResponseStatus :: Lens' GetAggregateConfigRuleComplianceSummaryResponse Int
-gacrcsrsResponseStatus = lens _gacrcsrsResponseStatus (\s a -> s {_gacrcsrsResponseStatus = a})
-
-instance NFData GetAggregateConfigRuleComplianceSummaryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrcsrsResponseStatus :: Lens.Lens' GetAggregateConfigRuleComplianceSummaryResponse Lude.Int
+gacrcsrsResponseStatus = Lens.lens (responseStatus :: GetAggregateConfigRuleComplianceSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAggregateConfigRuleComplianceSummaryResponse)
+{-# DEPRECATED gacrcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

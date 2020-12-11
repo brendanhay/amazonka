@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,111 @@
 --
 -- Updates a registered Elastic IP address's name. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.UpdateElasticIP
-  ( -- * Creating a Request
-    updateElasticIP,
-    UpdateElasticIP,
+  ( -- * Creating a request
+    UpdateElasticIP (..),
+    mkUpdateElasticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ueiName,
     ueiElasticIP,
 
-    -- * Destructuring the Response
-    updateElasticIPResponse,
-    UpdateElasticIPResponse,
+    -- * Destructuring the response
+    UpdateElasticIPResponse (..),
+    mkUpdateElasticIPResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateElasticIP' smart constructor.
+-- | /See:/ 'mkUpdateElasticIP' smart constructor.
 data UpdateElasticIP = UpdateElasticIP'
-  { _ueiName :: !(Maybe Text),
-    _ueiElasticIP :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    elasticIP :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateElasticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ueiName' - The new name.
---
--- * 'ueiElasticIP' - The IP address for which you want to update the name.
-updateElasticIP ::
-  -- | 'ueiElasticIP'
-  Text ->
+-- * 'elasticIP' - The IP address for which you want to update the name.
+-- * 'name' - The new name.
+mkUpdateElasticIP ::
+  -- | 'elasticIP'
+  Lude.Text ->
   UpdateElasticIP
-updateElasticIP pElasticIP_ =
-  UpdateElasticIP' {_ueiName = Nothing, _ueiElasticIP = pElasticIP_}
+mkUpdateElasticIP pElasticIP_ =
+  UpdateElasticIP' {name = Lude.Nothing, elasticIP = pElasticIP_}
 
 -- | The new name.
-ueiName :: Lens' UpdateElasticIP (Maybe Text)
-ueiName = lens _ueiName (\s a -> s {_ueiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueiName :: Lens.Lens' UpdateElasticIP (Lude.Maybe Lude.Text)
+ueiName = Lens.lens (name :: UpdateElasticIP -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateElasticIP)
+{-# DEPRECATED ueiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The IP address for which you want to update the name.
-ueiElasticIP :: Lens' UpdateElasticIP Text
-ueiElasticIP = lens _ueiElasticIP (\s a -> s {_ueiElasticIP = a})
+--
+-- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueiElasticIP :: Lens.Lens' UpdateElasticIP Lude.Text
+ueiElasticIP = Lens.lens (elasticIP :: UpdateElasticIP -> Lude.Text) (\s a -> s {elasticIP = a} :: UpdateElasticIP)
+{-# DEPRECATED ueiElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
 
-instance AWSRequest UpdateElasticIP where
+instance Lude.AWSRequest UpdateElasticIP where
   type Rs UpdateElasticIP = UpdateElasticIPResponse
-  request = postJSON opsWorks
-  response = receiveNull UpdateElasticIPResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull UpdateElasticIPResponse'
 
-instance Hashable UpdateElasticIP
-
-instance NFData UpdateElasticIP
-
-instance ToHeaders UpdateElasticIP where
+instance Lude.ToHeaders UpdateElasticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.UpdateElasticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.UpdateElasticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateElasticIP where
+instance Lude.ToJSON UpdateElasticIP where
   toJSON UpdateElasticIP' {..} =
-    object
-      ( catMaybes
-          [("Name" .=) <$> _ueiName, Just ("ElasticIp" .= _ueiElasticIP)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            Lude.Just ("ElasticIp" Lude..= elasticIP)
+          ]
       )
 
-instance ToPath UpdateElasticIP where
-  toPath = const "/"
+instance Lude.ToPath UpdateElasticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateElasticIP where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateElasticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateElasticIPResponse' smart constructor.
+-- | /See:/ 'mkUpdateElasticIPResponse' smart constructor.
 data UpdateElasticIPResponse = UpdateElasticIPResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateElasticIPResponse' with the minimum fields required to make a request.
-updateElasticIPResponse ::
+mkUpdateElasticIPResponse ::
   UpdateElasticIPResponse
-updateElasticIPResponse = UpdateElasticIPResponse'
-
-instance NFData UpdateElasticIPResponse
+mkUpdateElasticIPResponse = UpdateElasticIPResponse'

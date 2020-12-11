@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.UpdateInstantBooking where
+module Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
+  ( UpdateInstantBooking (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUpdateInstantBooking,
+
+    -- * Lenses
+    uibEnabled,
+    uibDurationInMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Updates settings for the instant booking feature that are applied to a room profile. If instant booking is enabled, Alexa automatically reserves a room if it is free when a user joins a meeting with Alexa.
 --
---
---
--- /See:/ 'updateInstantBooking' smart constructor.
+-- /See:/ 'mkUpdateInstantBooking' smart constructor.
 data UpdateInstantBooking = UpdateInstantBooking'
-  { _uibEnabled ::
-      !(Maybe Bool),
-    _uibDurationInMinutes :: !(Maybe Int)
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    durationInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstantBooking' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uibEnabled' - Whether instant booking is enabled or not.
---
--- * 'uibDurationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
-updateInstantBooking ::
+-- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+-- * 'enabled' - Whether instant booking is enabled or not.
+mkUpdateInstantBooking ::
   UpdateInstantBooking
-updateInstantBooking =
+mkUpdateInstantBooking =
   UpdateInstantBooking'
-    { _uibEnabled = Nothing,
-      _uibDurationInMinutes = Nothing
+    { enabled = Lude.Nothing,
+      durationInMinutes = Lude.Nothing
     }
 
 -- | Whether instant booking is enabled or not.
-uibEnabled :: Lens' UpdateInstantBooking (Maybe Bool)
-uibEnabled = lens _uibEnabled (\s a -> s {_uibEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uibEnabled :: Lens.Lens' UpdateInstantBooking (Lude.Maybe Lude.Bool)
+uibEnabled = Lens.lens (enabled :: UpdateInstantBooking -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateInstantBooking)
+{-# DEPRECATED uibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
-uibDurationInMinutes :: Lens' UpdateInstantBooking (Maybe Int)
-uibDurationInMinutes = lens _uibDurationInMinutes (\s a -> s {_uibDurationInMinutes = a})
+--
+-- /Note:/ Consider using 'durationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uibDurationInMinutes :: Lens.Lens' UpdateInstantBooking (Lude.Maybe Lude.Int)
+uibDurationInMinutes = Lens.lens (durationInMinutes :: UpdateInstantBooking -> Lude.Maybe Lude.Int) (\s a -> s {durationInMinutes = a} :: UpdateInstantBooking)
+{-# DEPRECATED uibDurationInMinutes "Use generic-lens or generic-optics with 'durationInMinutes' instead." #-}
 
-instance Hashable UpdateInstantBooking
-
-instance NFData UpdateInstantBooking
-
-instance ToJSON UpdateInstantBooking where
+instance Lude.ToJSON UpdateInstantBooking where
   toJSON UpdateInstantBooking' {..} =
-    object
-      ( catMaybes
-          [ ("Enabled" .=) <$> _uibEnabled,
-            ("DurationInMinutes" .=) <$> _uibDurationInMinutes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Enabled" Lude..=) Lude.<$> enabled,
+            ("DurationInMinutes" Lude..=) Lude.<$> durationInMinutes
           ]
       )

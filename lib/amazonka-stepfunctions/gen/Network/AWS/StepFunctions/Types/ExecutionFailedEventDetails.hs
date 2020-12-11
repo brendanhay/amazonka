@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails where
+module Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails
+  ( ExecutionFailedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExecutionFailedEventDetails,
+
+    -- * Lenses
+    efedError,
+    efedCause,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about an execution failure event.
 --
---
---
--- /See:/ 'executionFailedEventDetails' smart constructor.
+-- /See:/ 'mkExecutionFailedEventDetails' smart constructor.
 data ExecutionFailedEventDetails = ExecutionFailedEventDetails'
-  { _efedError ::
-      !(Maybe (Sensitive Text)),
-    _efedCause ::
-      !(Maybe (Sensitive Text))
+  { error ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    cause ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text)
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionFailedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efedError' - The error code of the failure.
---
--- * 'efedCause' - A more detailed explanation of the cause of the failure.
-executionFailedEventDetails ::
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'error' - The error code of the failure.
+mkExecutionFailedEventDetails ::
   ExecutionFailedEventDetails
-executionFailedEventDetails =
+mkExecutionFailedEventDetails =
   ExecutionFailedEventDetails'
-    { _efedError = Nothing,
-      _efedCause = Nothing
+    { error = Lude.Nothing,
+      cause = Lude.Nothing
     }
 
 -- | The error code of the failure.
-efedError :: Lens' ExecutionFailedEventDetails (Maybe Text)
-efedError = lens _efedError (\s a -> s {_efedError = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efedError :: Lens.Lens' ExecutionFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+efedError = Lens.lens (error :: ExecutionFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: ExecutionFailedEventDetails)
+{-# DEPRECATED efedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
-efedCause :: Lens' ExecutionFailedEventDetails (Maybe Text)
-efedCause = lens _efedCause (\s a -> s {_efedCause = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efedCause :: Lens.Lens' ExecutionFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+efedCause = Lens.lens (cause :: ExecutionFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: ExecutionFailedEventDetails)
+{-# DEPRECATED efedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance FromJSON ExecutionFailedEventDetails where
+instance Lude.FromJSON ExecutionFailedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExecutionFailedEventDetails"
       ( \x ->
           ExecutionFailedEventDetails'
-            <$> (x .:? "error") <*> (x .:? "cause")
+            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
       )
-
-instance Hashable ExecutionFailedEventDetails
-
-instance NFData ExecutionFailedEventDetails

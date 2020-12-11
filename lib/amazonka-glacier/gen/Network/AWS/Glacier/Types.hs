@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types
-  ( -- * Service Configuration
-    glacier,
+  ( -- * Service configuration
+    glacierService,
 
     -- * Errors
 
@@ -46,15 +44,15 @@ module Network.AWS.Glacier.Types
     Type (..),
 
     -- * ArchiveCreationOutput
-    ArchiveCreationOutput,
-    archiveCreationOutput,
+    ArchiveCreationOutput (..),
+    mkArchiveCreationOutput,
     acoArchiveId,
     acoChecksum,
     acoLocation,
 
     -- * CSVInput
-    CSVInput,
-    csvInput,
+    CSVInput (..),
+    mkCSVInput,
     ciQuoteCharacter,
     ciRecordDelimiter,
     ciFileHeaderInfo,
@@ -63,8 +61,8 @@ module Network.AWS.Glacier.Types
     ciFieldDelimiter,
 
     -- * CSVOutput
-    CSVOutput,
-    csvOutput,
+    CSVOutput (..),
+    mkCSVOutput,
     coQuoteCharacter,
     coQuoteFields,
     coRecordDelimiter,
@@ -72,19 +70,19 @@ module Network.AWS.Glacier.Types
     coFieldDelimiter,
 
     -- * DataRetrievalPolicy
-    DataRetrievalPolicy,
-    dataRetrievalPolicy,
+    DataRetrievalPolicy (..),
+    mkDataRetrievalPolicy,
     drpRules,
 
     -- * DataRetrievalRule
-    DataRetrievalRule,
-    dataRetrievalRule,
+    DataRetrievalRule (..),
+    mkDataRetrievalRule,
     drrStrategy,
     drrBytesPerHour,
 
     -- * DescribeVaultOutput
-    DescribeVaultOutput,
-    describeVaultOutput,
+    DescribeVaultOutput (..),
+    mkDescribeVaultOutput,
     dvoVaultName,
     dvoSizeInBytes,
     dvoLastInventoryDate,
@@ -93,15 +91,15 @@ module Network.AWS.Glacier.Types
     dvoNumberOfArchives,
 
     -- * Encryption
-    Encryption,
-    encryption,
+    Encryption (..),
+    mkEncryption,
     eEncryptionType,
     eKMSKeyId,
     eKMSContext,
 
     -- * GlacierJobDescription
-    GlacierJobDescription,
-    glacierJobDescription,
+    GlacierJobDescription (..),
+    mkGlacierJobDescription,
     gjdSHA256TreeHash,
     gjdArchiveId,
     gjdSelectParameters,
@@ -125,14 +123,14 @@ module Network.AWS.Glacier.Types
     gjdStatusCode,
 
     -- * Grant
-    Grant,
-    grant,
+    Grant (..),
+    mkGrant,
     gPermission,
     gGrantee,
 
     -- * Grantee
-    Grantee,
-    grantee,
+    Grantee (..),
+    mkGrantee,
     gURI,
     gEmailAddress,
     gDisplayName,
@@ -140,13 +138,13 @@ module Network.AWS.Glacier.Types
     gType,
 
     -- * InputSerialization
-    InputSerialization,
-    inputSerialization,
+    InputSerialization (..),
+    mkInputSerialization,
     isCsv,
 
     -- * InventoryRetrievalJobDescription
-    InventoryRetrievalJobDescription,
-    inventoryRetrievalJobDescription,
+    InventoryRetrievalJobDescription (..),
+    mkInventoryRetrievalJobDescription,
     irjdFormat,
     irjdEndDate,
     irjdStartDate,
@@ -154,16 +152,16 @@ module Network.AWS.Glacier.Types
     irjdLimit,
 
     -- * InventoryRetrievalJobInput
-    InventoryRetrievalJobInput,
-    inventoryRetrievalJobInput,
+    InventoryRetrievalJobInput (..),
+    mkInventoryRetrievalJobInput,
     irjiEndDate,
     irjiStartDate,
     irjiMarker,
     irjiLimit,
 
     -- * JobParameters
-    JobParameters,
-    jobParameters,
+    JobParameters (..),
+    mkJobParameters,
     jpArchiveId,
     jpSelectParameters,
     jpFormat,
@@ -176,31 +174,31 @@ module Network.AWS.Glacier.Types
     jpDescription,
 
     -- * OutputLocation
-    OutputLocation,
-    outputLocation,
+    OutputLocation (..),
+    mkOutputLocation,
     olS3,
 
     -- * OutputSerialization
-    OutputSerialization,
-    outputSerialization,
+    OutputSerialization (..),
+    mkOutputSerialization,
     osCsv,
 
     -- * PartListElement
-    PartListElement,
-    partListElement,
+    PartListElement (..),
+    mkPartListElement,
     pleSHA256TreeHash,
     pleRangeInBytes,
 
     -- * ProvisionedCapacityDescription
-    ProvisionedCapacityDescription,
-    provisionedCapacityDescription,
+    ProvisionedCapacityDescription (..),
+    mkProvisionedCapacityDescription,
     pcdCapacityId,
     pcdStartDate,
     pcdExpirationDate,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slCannedACL,
     slPrefix,
     slBucketName,
@@ -211,16 +209,16 @@ module Network.AWS.Glacier.Types
     slTagging,
 
     -- * SelectParameters
-    SelectParameters,
-    selectParameters,
+    SelectParameters (..),
+    mkSelectParameters,
     spExpressionType,
     spOutputSerialization,
     spExpression,
     spInputSerialization,
 
     -- * UploadListElement
-    UploadListElement,
-    uploadListElement,
+    UploadListElement (..),
+    mkUploadListElement,
     uleMultipartUploadId,
     ulePartSizeInBytes,
     uleArchiveDescription,
@@ -228,18 +226,18 @@ module Network.AWS.Glacier.Types
     uleCreationDate,
 
     -- * VaultAccessPolicy
-    VaultAccessPolicy,
-    vaultAccessPolicy,
+    VaultAccessPolicy (..),
+    mkVaultAccessPolicy,
     vapPolicy,
 
     -- * VaultLockPolicy
-    VaultLockPolicy,
-    vaultLockPolicy,
+    VaultLockPolicy (..),
+    mkVaultLockPolicy,
     vlpPolicy,
 
     -- * VaultNotificationConfig
-    VaultNotificationConfig,
-    vaultNotificationConfig,
+    VaultNotificationConfig (..),
+    mkVaultNotificationConfig,
     vncSNSTopic,
     vncEvents,
   )
@@ -279,50 +277,64 @@ import Network.AWS.Glacier.Types.UploadListElement
 import Network.AWS.Glacier.Types.VaultAccessPolicy
 import Network.AWS.Glacier.Types.VaultLockPolicy
 import Network.AWS.Glacier.Types.VaultNotificationConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-06-01@ of the Amazon Glacier SDK configuration.
-glacier :: Service
-glacier =
-  Service
-    { _svcAbbrev = "Glacier",
-      _svcSigner = v4,
-      _svcPrefix = "glacier",
-      _svcVersion = "2012-06-01",
-      _svcEndpoint = defaultEndpoint glacier,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Glacier",
-      _svcRetry = retry
+glacierService :: Lude.Service
+glacierService =
+  Lude.Service
+    { Lude._svcAbbrev = "Glacier",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "glacier",
+      Lude._svcVersion = "2012-06-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint glacierService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Glacier",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasCode "RequestTimeoutException" . hasStatus 408) e =
-        Just "timeouts"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has
+          (Lude.hasCode "RequestTimeoutException" Lude.. Lude.hasStatus 408)
+          e =
+        Lude.Just "timeouts"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNConnectionStatusCode where
+module Network.AWS.EC2.Types.ClientVPNConnectionStatusCode
+  ( ClientVPNConnectionStatusCode
+      ( ClientVPNConnectionStatusCode',
+        CVCSCActive,
+        CVCSCFailedToTerminate,
+        CVCSCTerminated,
+        CVCSCTerminating
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientVPNConnectionStatusCode
-  = CVCSCActive
-  | CVCSCFailedToTerminate
-  | CVCSCTerminated
-  | CVCSCTerminating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientVPNConnectionStatusCode = ClientVPNConnectionStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientVPNConnectionStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CVCSCActive
-      "failed-to-terminate" -> pure CVCSCFailedToTerminate
-      "terminated" -> pure CVCSCTerminated
-      "terminating" -> pure CVCSCTerminating
-      e ->
-        fromTextError $
-          "Failure parsing ClientVPNConnectionStatusCode from value: '" <> e
-            <> "'. Accepted values: active, failed-to-terminate, terminated, terminating"
+pattern CVCSCActive :: ClientVPNConnectionStatusCode
+pattern CVCSCActive = ClientVPNConnectionStatusCode' "active"
 
-instance ToText ClientVPNConnectionStatusCode where
-  toText = \case
-    CVCSCActive -> "active"
-    CVCSCFailedToTerminate -> "failed-to-terminate"
-    CVCSCTerminated -> "terminated"
-    CVCSCTerminating -> "terminating"
+pattern CVCSCFailedToTerminate :: ClientVPNConnectionStatusCode
+pattern CVCSCFailedToTerminate = ClientVPNConnectionStatusCode' "failed-to-terminate"
 
-instance Hashable ClientVPNConnectionStatusCode
+pattern CVCSCTerminated :: ClientVPNConnectionStatusCode
+pattern CVCSCTerminated = ClientVPNConnectionStatusCode' "terminated"
 
-instance NFData ClientVPNConnectionStatusCode
+pattern CVCSCTerminating :: ClientVPNConnectionStatusCode
+pattern CVCSCTerminating = ClientVPNConnectionStatusCode' "terminating"
 
-instance ToByteString ClientVPNConnectionStatusCode
-
-instance ToQuery ClientVPNConnectionStatusCode
-
-instance ToHeader ClientVPNConnectionStatusCode
-
-instance FromXML ClientVPNConnectionStatusCode where
-  parseXML = parseXMLText "ClientVPNConnectionStatusCode"
+{-# COMPLETE
+  CVCSCActive,
+  CVCSCFailedToTerminate,
+  CVCSCTerminated,
+  CVCSCTerminating,
+  ClientVPNConnectionStatusCode'
+  #-}

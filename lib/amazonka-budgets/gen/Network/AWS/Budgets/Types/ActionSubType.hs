@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ActionSubType where
+module Network.AWS.Budgets.Types.ActionSubType
+  ( ActionSubType
+      ( ActionSubType',
+        StopEC2Instances,
+        StopRDSInstances
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionSubType
-  = StopEC2Instances
-  | StopRDSInstances
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionSubType = ActionSubType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionSubType where
-  parser =
-    takeLowerText >>= \case
-      "stop_ec2_instances" -> pure StopEC2Instances
-      "stop_rds_instances" -> pure StopRDSInstances
-      e ->
-        fromTextError $
-          "Failure parsing ActionSubType from value: '" <> e
-            <> "'. Accepted values: stop_ec2_instances, stop_rds_instances"
+pattern StopEC2Instances :: ActionSubType
+pattern StopEC2Instances = ActionSubType' "STOP_EC2_INSTANCES"
 
-instance ToText ActionSubType where
-  toText = \case
-    StopEC2Instances -> "STOP_EC2_INSTANCES"
-    StopRDSInstances -> "STOP_RDS_INSTANCES"
+pattern StopRDSInstances :: ActionSubType
+pattern StopRDSInstances = ActionSubType' "STOP_RDS_INSTANCES"
 
-instance Hashable ActionSubType
-
-instance NFData ActionSubType
-
-instance ToByteString ActionSubType
-
-instance ToQuery ActionSubType
-
-instance ToHeader ActionSubType
-
-instance ToJSON ActionSubType where
-  toJSON = toJSONText
-
-instance FromJSON ActionSubType where
-  parseJSON = parseJSONText "ActionSubType"
+{-# COMPLETE
+  StopEC2Instances,
+  StopRDSInstances,
+  ActionSubType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Lists devices, as an administrator.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminListDevices
-  ( -- * Creating a Request
-    adminListDevices,
-    AdminListDevices,
+  ( -- * Creating a request
+    AdminListDevices (..),
+    mkAdminListDevices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aldPaginationToken,
     aldLimit,
     aldUserPoolId,
     aldUsername,
 
-    -- * Destructuring the Response
-    adminListDevicesResponse,
-    AdminListDevicesResponse,
+    -- * Destructuring the response
+    AdminListDevicesResponse (..),
+    mkAdminListDevicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aldrsPaginationToken,
     aldrsDevices,
     aldrsResponseStatus,
@@ -44,154 +38,159 @@ module Network.AWS.CognitoIdentityProvider.AdminListDevices
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to list devices, as an administrator.
 --
---
---
--- /See:/ 'adminListDevices' smart constructor.
+-- /See:/ 'mkAdminListDevices' smart constructor.
 data AdminListDevices = AdminListDevices'
-  { _aldPaginationToken ::
-      !(Maybe Text),
-    _aldLimit :: !(Maybe Nat),
-    _aldUserPoolId :: !Text,
-    _aldUsername :: !(Sensitive Text)
+  { paginationToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    userPoolId :: Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminListDevices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aldPaginationToken' - The pagination token.
---
--- * 'aldLimit' - The limit of the devices request.
---
--- * 'aldUserPoolId' - The user pool ID.
---
--- * 'aldUsername' - The user name.
-adminListDevices ::
-  -- | 'aldUserPoolId'
-  Text ->
-  -- | 'aldUsername'
-  Text ->
+-- * 'limit' - The limit of the devices request.
+-- * 'paginationToken' - The pagination token.
+-- * 'userPoolId' - The user pool ID.
+-- * 'username' - The user name.
+mkAdminListDevices ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminListDevices
-adminListDevices pUserPoolId_ pUsername_ =
+mkAdminListDevices pUserPoolId_ pUsername_ =
   AdminListDevices'
-    { _aldPaginationToken = Nothing,
-      _aldLimit = Nothing,
-      _aldUserPoolId = pUserPoolId_,
-      _aldUsername = _Sensitive # pUsername_
+    { paginationToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      userPoolId = pUserPoolId_,
+      username = pUsername_
     }
 
 -- | The pagination token.
-aldPaginationToken :: Lens' AdminListDevices (Maybe Text)
-aldPaginationToken = lens _aldPaginationToken (\s a -> s {_aldPaginationToken = a})
+--
+-- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldPaginationToken :: Lens.Lens' AdminListDevices (Lude.Maybe Lude.Text)
+aldPaginationToken = Lens.lens (paginationToken :: AdminListDevices -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: AdminListDevices)
+{-# DEPRECATED aldPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | The limit of the devices request.
-aldLimit :: Lens' AdminListDevices (Maybe Natural)
-aldLimit = lens _aldLimit (\s a -> s {_aldLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldLimit :: Lens.Lens' AdminListDevices (Lude.Maybe Lude.Natural)
+aldLimit = Lens.lens (limit :: AdminListDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: AdminListDevices)
+{-# DEPRECATED aldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The user pool ID.
-aldUserPoolId :: Lens' AdminListDevices Text
-aldUserPoolId = lens _aldUserPoolId (\s a -> s {_aldUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldUserPoolId :: Lens.Lens' AdminListDevices Lude.Text
+aldUserPoolId = Lens.lens (userPoolId :: AdminListDevices -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminListDevices)
+{-# DEPRECATED aldUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name.
-aldUsername :: Lens' AdminListDevices Text
-aldUsername = lens _aldUsername (\s a -> s {_aldUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldUsername :: Lens.Lens' AdminListDevices (Lude.Sensitive Lude.Text)
+aldUsername = Lens.lens (username :: AdminListDevices -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminListDevices)
+{-# DEPRECATED aldUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest AdminListDevices where
+instance Lude.AWSRequest AdminListDevices where
   type Rs AdminListDevices = AdminListDevicesResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AdminListDevicesResponse'
-            <$> (x .?> "PaginationToken")
-            <*> (x .?> "Devices" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PaginationToken")
+            Lude.<*> (x Lude..?> "Devices" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AdminListDevices
-
-instance NFData AdminListDevices
-
-instance ToHeaders AdminListDevices where
+instance Lude.ToHeaders AdminListDevices where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminListDevices" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminListDevices" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminListDevices where
+instance Lude.ToJSON AdminListDevices where
   toJSON AdminListDevices' {..} =
-    object
-      ( catMaybes
-          [ ("PaginationToken" .=) <$> _aldPaginationToken,
-            ("Limit" .=) <$> _aldLimit,
-            Just ("UserPoolId" .= _aldUserPoolId),
-            Just ("Username" .= _aldUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PaginationToken" Lude..=) Lude.<$> paginationToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath AdminListDevices where
-  toPath = const "/"
+instance Lude.ToPath AdminListDevices where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminListDevices where
-  toQuery = const mempty
+instance Lude.ToQuery AdminListDevices where
+  toQuery = Lude.const Lude.mempty
 
 -- | Lists the device's response, as an administrator.
 --
---
---
--- /See:/ 'adminListDevicesResponse' smart constructor.
+-- /See:/ 'mkAdminListDevicesResponse' smart constructor.
 data AdminListDevicesResponse = AdminListDevicesResponse'
-  { _aldrsPaginationToken ::
-      !(Maybe Text),
-    _aldrsDevices :: !(Maybe [DeviceType]),
-    _aldrsResponseStatus :: !Int
+  { paginationToken ::
+      Lude.Maybe Lude.Text,
+    devices :: Lude.Maybe [DeviceType],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminListDevicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aldrsPaginationToken' - The pagination token.
---
--- * 'aldrsDevices' - The devices in the list of devices response.
---
--- * 'aldrsResponseStatus' - -- | The response status code.
-adminListDevicesResponse ::
-  -- | 'aldrsResponseStatus'
-  Int ->
+-- * 'devices' - The devices in the list of devices response.
+-- * 'paginationToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+mkAdminListDevicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AdminListDevicesResponse
-adminListDevicesResponse pResponseStatus_ =
+mkAdminListDevicesResponse pResponseStatus_ =
   AdminListDevicesResponse'
-    { _aldrsPaginationToken = Nothing,
-      _aldrsDevices = Nothing,
-      _aldrsResponseStatus = pResponseStatus_
+    { paginationToken = Lude.Nothing,
+      devices = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token.
-aldrsPaginationToken :: Lens' AdminListDevicesResponse (Maybe Text)
-aldrsPaginationToken = lens _aldrsPaginationToken (\s a -> s {_aldrsPaginationToken = a})
+--
+-- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldrsPaginationToken :: Lens.Lens' AdminListDevicesResponse (Lude.Maybe Lude.Text)
+aldrsPaginationToken = Lens.lens (paginationToken :: AdminListDevicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: AdminListDevicesResponse)
+{-# DEPRECATED aldrsPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | The devices in the list of devices response.
-aldrsDevices :: Lens' AdminListDevicesResponse [DeviceType]
-aldrsDevices = lens _aldrsDevices (\s a -> s {_aldrsDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldrsDevices :: Lens.Lens' AdminListDevicesResponse (Lude.Maybe [DeviceType])
+aldrsDevices = Lens.lens (devices :: AdminListDevicesResponse -> Lude.Maybe [DeviceType]) (\s a -> s {devices = a} :: AdminListDevicesResponse)
+{-# DEPRECATED aldrsDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
--- | -- | The response status code.
-aldrsResponseStatus :: Lens' AdminListDevicesResponse Int
-aldrsResponseStatus = lens _aldrsResponseStatus (\s a -> s {_aldrsResponseStatus = a})
-
-instance NFData AdminListDevicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldrsResponseStatus :: Lens.Lens' AdminListDevicesResponse Lude.Int
+aldrsResponseStatus = Lens.lens (responseStatus :: AdminListDevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminListDevicesResponse)
+{-# DEPRECATED aldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

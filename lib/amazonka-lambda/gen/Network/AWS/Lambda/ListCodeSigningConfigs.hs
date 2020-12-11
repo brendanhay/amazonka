@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns a list of <https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html code signing configurations> for the specified function. A request returns up to 10,000 configurations per call. You can use the @MaxItems@ parameter to return fewer configurations per call.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListCodeSigningConfigs
-  ( -- * Creating a Request
-    listCodeSigningConfigs,
-    ListCodeSigningConfigs,
+  ( -- * Creating a request
+    ListCodeSigningConfigs (..),
+    mkListCodeSigningConfigs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcscMarker,
     lcscMaxItems,
 
-    -- * Destructuring the Response
-    listCodeSigningConfigsResponse,
-    ListCodeSigningConfigsResponse,
+    -- * Destructuring the response
+    ListCodeSigningConfigsResponse (..),
+    mkListCodeSigningConfigsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcscrsCodeSigningConfigs,
     lcscrsNextMarker,
     lcscrsResponseStatus,
@@ -43,116 +36,137 @@ module Network.AWS.Lambda.ListCodeSigningConfigs
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCodeSigningConfigs' smart constructor.
+-- | /See:/ 'mkListCodeSigningConfigs' smart constructor.
 data ListCodeSigningConfigs = ListCodeSigningConfigs'
-  { _lcscMarker ::
-      !(Maybe Text),
-    _lcscMaxItems :: !(Maybe Nat)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCodeSigningConfigs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcscMarker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
---
--- * 'lcscMaxItems' - Maximum number of items to return.
-listCodeSigningConfigs ::
+-- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+-- * 'maxItems' - Maximum number of items to return.
+mkListCodeSigningConfigs ::
   ListCodeSigningConfigs
-listCodeSigningConfigs =
+mkListCodeSigningConfigs =
   ListCodeSigningConfigs'
-    { _lcscMarker = Nothing,
-      _lcscMaxItems = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
 -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
-lcscMarker :: Lens' ListCodeSigningConfigs (Maybe Text)
-lcscMarker = lens _lcscMarker (\s a -> s {_lcscMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcscMarker :: Lens.Lens' ListCodeSigningConfigs (Lude.Maybe Lude.Text)
+lcscMarker = Lens.lens (marker :: ListCodeSigningConfigs -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListCodeSigningConfigs)
+{-# DEPRECATED lcscMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Maximum number of items to return.
-lcscMaxItems :: Lens' ListCodeSigningConfigs (Maybe Natural)
-lcscMaxItems = lens _lcscMaxItems (\s a -> s {_lcscMaxItems = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcscMaxItems :: Lens.Lens' ListCodeSigningConfigs (Lude.Maybe Lude.Natural)
+lcscMaxItems = Lens.lens (maxItems :: ListCodeSigningConfigs -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListCodeSigningConfigs)
+{-# DEPRECATED lcscMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListCodeSigningConfigs where
+instance Page.AWSPager ListCodeSigningConfigs where
   page rq rs
-    | stop (rs ^. lcscrsNextMarker) = Nothing
-    | stop (rs ^. lcscrsCodeSigningConfigs) = Nothing
-    | otherwise = Just $ rq & lcscMarker .~ rs ^. lcscrsNextMarker
+    | Page.stop (rs Lens.^. lcscrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcscrsCodeSigningConfigs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcscMarker Lens..~ rs Lens.^. lcscrsNextMarker
 
-instance AWSRequest ListCodeSigningConfigs where
+instance Lude.AWSRequest ListCodeSigningConfigs where
   type Rs ListCodeSigningConfigs = ListCodeSigningConfigsResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCodeSigningConfigsResponse'
-            <$> (x .?> "CodeSigningConfigs" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CodeSigningConfigs" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCodeSigningConfigs
+instance Lude.ToHeaders ListCodeSigningConfigs where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListCodeSigningConfigs
+instance Lude.ToPath ListCodeSigningConfigs where
+  toPath = Lude.const "/2020-04-22/code-signing-configs/"
 
-instance ToHeaders ListCodeSigningConfigs where
-  toHeaders = const mempty
-
-instance ToPath ListCodeSigningConfigs where
-  toPath = const "/2020-04-22/code-signing-configs/"
-
-instance ToQuery ListCodeSigningConfigs where
+instance Lude.ToQuery ListCodeSigningConfigs where
   toQuery ListCodeSigningConfigs' {..} =
-    mconcat ["Marker" =: _lcscMarker, "MaxItems" =: _lcscMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
--- | /See:/ 'listCodeSigningConfigsResponse' smart constructor.
+-- | /See:/ 'mkListCodeSigningConfigsResponse' smart constructor.
 data ListCodeSigningConfigsResponse = ListCodeSigningConfigsResponse'
-  { _lcscrsCodeSigningConfigs ::
-      !(Maybe [CodeSigningConfig]),
-    _lcscrsNextMarker ::
-      !(Maybe Text),
-    _lcscrsResponseStatus :: !Int
+  { codeSigningConfigs ::
+      Lude.Maybe
+        [CodeSigningConfig],
+    nextMarker ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCodeSigningConfigsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcscrsCodeSigningConfigs' - The code signing configurations
---
--- * 'lcscrsNextMarker' - The pagination token that's included if more results are available.
---
--- * 'lcscrsResponseStatus' - -- | The response status code.
-listCodeSigningConfigsResponse ::
-  -- | 'lcscrsResponseStatus'
-  Int ->
+-- * 'codeSigningConfigs' - The code signing configurations
+-- * 'nextMarker' - The pagination token that's included if more results are available.
+-- * 'responseStatus' - The response status code.
+mkListCodeSigningConfigsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCodeSigningConfigsResponse
-listCodeSigningConfigsResponse pResponseStatus_ =
+mkListCodeSigningConfigsResponse pResponseStatus_ =
   ListCodeSigningConfigsResponse'
-    { _lcscrsCodeSigningConfigs =
-        Nothing,
-      _lcscrsNextMarker = Nothing,
-      _lcscrsResponseStatus = pResponseStatus_
+    { codeSigningConfigs =
+        Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The code signing configurations
-lcscrsCodeSigningConfigs :: Lens' ListCodeSigningConfigsResponse [CodeSigningConfig]
-lcscrsCodeSigningConfigs = lens _lcscrsCodeSigningConfigs (\s a -> s {_lcscrsCodeSigningConfigs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'codeSigningConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcscrsCodeSigningConfigs :: Lens.Lens' ListCodeSigningConfigsResponse (Lude.Maybe [CodeSigningConfig])
+lcscrsCodeSigningConfigs = Lens.lens (codeSigningConfigs :: ListCodeSigningConfigsResponse -> Lude.Maybe [CodeSigningConfig]) (\s a -> s {codeSigningConfigs = a} :: ListCodeSigningConfigsResponse)
+{-# DEPRECATED lcscrsCodeSigningConfigs "Use generic-lens or generic-optics with 'codeSigningConfigs' instead." #-}
 
 -- | The pagination token that's included if more results are available.
-lcscrsNextMarker :: Lens' ListCodeSigningConfigsResponse (Maybe Text)
-lcscrsNextMarker = lens _lcscrsNextMarker (\s a -> s {_lcscrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcscrsNextMarker :: Lens.Lens' ListCodeSigningConfigsResponse (Lude.Maybe Lude.Text)
+lcscrsNextMarker = Lens.lens (nextMarker :: ListCodeSigningConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListCodeSigningConfigsResponse)
+{-# DEPRECATED lcscrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lcscrsResponseStatus :: Lens' ListCodeSigningConfigsResponse Int
-lcscrsResponseStatus = lens _lcscrsResponseStatus (\s a -> s {_lcscrsResponseStatus = a})
-
-instance NFData ListCodeSigningConfigsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcscrsResponseStatus :: Lens.Lens' ListCodeSigningConfigsResponse Lude.Int
+lcscrsResponseStatus = Lens.lens (responseStatus :: ListCodeSigningConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCodeSigningConfigsResponse)
+{-# DEPRECATED lcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

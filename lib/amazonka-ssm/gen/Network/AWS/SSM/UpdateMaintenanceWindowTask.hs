@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,27 +17,30 @@
 --
 --     * TaskARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript to AWS-RunShellScript.
 --
+--
 --     * ServiceRoleArn
+--
 --
 --     * TaskInvocationParameters
 --
+--
 --     * Priority
 --
+--
 --     * MaxConcurrency
+--
 --
 --     * MaxErrors
 --
 --
---
 -- If the value for a parameter in @UpdateMaintenanceWindowTask@ is null, then the corresponding field is not modified. If you set @Replace@ to true, then all fields required by the 'RegisterTaskWithMaintenanceWindow' action are required for this request. Optional fields that aren't specified are set to null.
---
 -- /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
 module Network.AWS.SSM.UpdateMaintenanceWindowTask
-  ( -- * Creating a Request
-    updateMaintenanceWindowTask,
-    UpdateMaintenanceWindowTask,
+  ( -- * Creating a request
+    UpdateMaintenanceWindowTask (..),
+    mkUpdateMaintenanceWindowTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umwtServiceRoleARN,
     umwtReplace,
     umwtTaskParameters,
@@ -58,11 +56,11 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
     umwtWindowId,
     umwtWindowTaskId,
 
-    -- * Destructuring the Response
-    updateMaintenanceWindowTaskResponse,
-    UpdateMaintenanceWindowTaskResponse,
+    -- * Destructuring the response
+    UpdateMaintenanceWindowTaskResponse (..),
+    mkUpdateMaintenanceWindowTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     umwtrsServiceRoleARN,
     umwtrsWindowTaskId,
     umwtrsTaskParameters,
@@ -80,383 +78,465 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'updateMaintenanceWindowTask' smart constructor.
+-- | /See:/ 'mkUpdateMaintenanceWindowTask' smart constructor.
 data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
-  { _umwtServiceRoleARN ::
-      !(Maybe Text),
-    _umwtReplace :: !(Maybe Bool),
-    _umwtTaskParameters ::
-      !( Maybe
-           ( Sensitive
-               ( Map
-                   Text
-                   ( Sensitive
-                       MaintenanceWindowTaskParameterValueExpression
-                   )
-               )
-           )
-       ),
-    _umwtPriority :: !(Maybe Nat),
-    _umwtTaskARN :: !(Maybe Text),
-    _umwtMaxErrors :: !(Maybe Text),
-    _umwtTaskInvocationParameters ::
-      !( Maybe
-           MaintenanceWindowTaskInvocationParameters
-       ),
-    _umwtName :: !(Maybe Text),
-    _umwtTargets :: !(Maybe [Target]),
-    _umwtLoggingInfo ::
-      !(Maybe LoggingInfo),
-    _umwtDescription ::
-      !(Maybe (Sensitive Text)),
-    _umwtMaxConcurrency ::
-      !(Maybe Text),
-    _umwtWindowId :: !Text,
-    _umwtWindowTaskId :: !Text
+  { serviceRoleARN ::
+      Lude.Maybe Lude.Text,
+    replace :: Lude.Maybe Lude.Bool,
+    taskParameters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (MaintenanceWindowTaskParameterValueExpression)
+        ),
+    priority :: Lude.Maybe Lude.Natural,
+    taskARN :: Lude.Maybe Lude.Text,
+    maxErrors :: Lude.Maybe Lude.Text,
+    taskInvocationParameters ::
+      Lude.Maybe
+        MaintenanceWindowTaskInvocationParameters,
+    name :: Lude.Maybe Lude.Text,
+    targets :: Lude.Maybe [Target],
+    loggingInfo ::
+      Lude.Maybe LoggingInfo,
+    description ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    maxConcurrency ::
+      Lude.Maybe Lude.Text,
+    windowId :: Lude.Text,
+    windowTaskId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - The new task description to specify.
+-- * 'loggingInfo' - The new logging location in Amazon S3 to specify.
+-- * 'maxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
+-- * 'maxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
+-- * 'name' - The new task name to specify.
+-- * 'priority' - The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- * 'replace' - If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
+-- * 'serviceRoleARN' - The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ .
 --
--- * 'umwtServiceRoleARN' - The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ . For more information, see the following topics in the in the /AWS Systems Manager User Guide/ :     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>      * <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks? >
+-- For more information, see the following topics in the in the /AWS Systems Manager User Guide/ :
 --
--- * 'umwtReplace' - If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
 --
--- * 'umwtTaskParameters' - The parameters to modify. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
 --
--- * 'umwtPriority' - The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks? >
 --
--- * 'umwtTaskARN' - The task ARN to modify.
 --
--- * 'umwtMaxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
+-- * 'targets' - The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
+-- * 'taskARN' - The task ARN to modify.
+-- * 'taskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
 --
--- * 'umwtTaskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty. /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
+-- /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
+-- * 'taskParameters' - The parameters to modify.
 --
--- * 'umwtName' - The new task name to specify.
---
--- * 'umwtTargets' - The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
---
--- * 'umwtLoggingInfo' - The new logging location in Amazon S3 to specify.
---
--- * 'umwtDescription' - The new task description to specify.
---
--- * 'umwtMaxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
---
--- * 'umwtWindowId' - The maintenance window ID that contains the task to modify.
---
--- * 'umwtWindowTaskId' - The task ID to modify.
-updateMaintenanceWindowTask ::
-  -- | 'umwtWindowId'
-  Text ->
-  -- | 'umwtWindowTaskId'
-  Text ->
+-- The map has the following format:
+-- Key: string, between 1 and 255 characters
+-- Value: an array of strings, each string is between 1 and 255 characters
+-- * 'windowId' - The maintenance window ID that contains the task to modify.
+-- * 'windowTaskId' - The task ID to modify.
+mkUpdateMaintenanceWindowTask ::
+  -- | 'windowId'
+  Lude.Text ->
+  -- | 'windowTaskId'
+  Lude.Text ->
   UpdateMaintenanceWindowTask
-updateMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
+mkUpdateMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
   UpdateMaintenanceWindowTask'
-    { _umwtServiceRoleARN = Nothing,
-      _umwtReplace = Nothing,
-      _umwtTaskParameters = Nothing,
-      _umwtPriority = Nothing,
-      _umwtTaskARN = Nothing,
-      _umwtMaxErrors = Nothing,
-      _umwtTaskInvocationParameters = Nothing,
-      _umwtName = Nothing,
-      _umwtTargets = Nothing,
-      _umwtLoggingInfo = Nothing,
-      _umwtDescription = Nothing,
-      _umwtMaxConcurrency = Nothing,
-      _umwtWindowId = pWindowId_,
-      _umwtWindowTaskId = pWindowTaskId_
+    { serviceRoleARN = Lude.Nothing,
+      replace = Lude.Nothing,
+      taskParameters = Lude.Nothing,
+      priority = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      maxErrors = Lude.Nothing,
+      taskInvocationParameters = Lude.Nothing,
+      name = Lude.Nothing,
+      targets = Lude.Nothing,
+      loggingInfo = Lude.Nothing,
+      description = Lude.Nothing,
+      maxConcurrency = Lude.Nothing,
+      windowId = pWindowId_,
+      windowTaskId = pWindowTaskId_
     }
 
--- | The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ . For more information, see the following topics in the in the /AWS Systems Manager User Guide/ :     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>      * <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks? >
-umwtServiceRoleARN :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
-umwtServiceRoleARN = lens _umwtServiceRoleARN (\s a -> s {_umwtServiceRoleARN = a})
+-- | The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ .
+--
+-- For more information, see the following topics in the in the /AWS Systems Manager User Guide/ :
+--
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+--
+--
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks? >
+--
+--
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtServiceRoleARN :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Text)
+umwtServiceRoleARN = Lens.lens (serviceRoleARN :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
-umwtReplace :: Lens' UpdateMaintenanceWindowTask (Maybe Bool)
-umwtReplace = lens _umwtReplace (\s a -> s {_umwtReplace = a})
+--
+-- /Note:/ Consider using 'replace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtReplace :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Bool)
+umwtReplace = Lens.lens (replace :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Bool) (\s a -> s {replace = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtReplace "Use generic-lens or generic-optics with 'replace' instead." #-}
 
--- | The parameters to modify. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
-umwtTaskParameters :: Lens' UpdateMaintenanceWindowTask (Maybe (HashMap Text (MaintenanceWindowTaskParameterValueExpression)))
-umwtTaskParameters = lens _umwtTaskParameters (\s a -> s {_umwtTaskParameters = a}) . mapping (_Sensitive . _Map)
+-- | The parameters to modify.
+--
+-- The map has the following format:
+-- Key: string, between 1 and 255 characters
+-- Value: an array of strings, each string is between 1 and 255 characters
+--
+-- /Note:/ Consider using 'taskParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtTaskParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)))
+umwtTaskParameters = Lens.lens (taskParameters :: UpdateMaintenanceWindowTask -> Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression))) (\s a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtTaskParameters "Use generic-lens or generic-optics with 'taskParameters' instead." #-}
 
 -- | The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
-umwtPriority :: Lens' UpdateMaintenanceWindowTask (Maybe Natural)
-umwtPriority = lens _umwtPriority (\s a -> s {_umwtPriority = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtPriority :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Natural)
+umwtPriority = Lens.lens (priority :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The task ARN to modify.
-umwtTaskARN :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
-umwtTaskARN = lens _umwtTaskARN (\s a -> s {_umwtTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtTaskARN :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Text)
+umwtTaskARN = Lens.lens (taskARN :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
-umwtMaxErrors :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
-umwtMaxErrors = lens _umwtMaxErrors (\s a -> s {_umwtMaxErrors = a})
+--
+-- /Note:/ Consider using 'maxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtMaxErrors :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Text)
+umwtMaxErrors = Lens.lens (maxErrors :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {maxErrors = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtMaxErrors "Use generic-lens or generic-optics with 'maxErrors' instead." #-}
 
--- | The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty. /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
-umwtTaskInvocationParameters :: Lens' UpdateMaintenanceWindowTask (Maybe MaintenanceWindowTaskInvocationParameters)
-umwtTaskInvocationParameters = lens _umwtTaskInvocationParameters (\s a -> s {_umwtTaskInvocationParameters = a})
+-- | The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+--
+-- /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
+--
+-- /Note:/ Consider using 'taskInvocationParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtTaskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe MaintenanceWindowTaskInvocationParameters)
+umwtTaskInvocationParameters = Lens.lens (taskInvocationParameters :: UpdateMaintenanceWindowTask -> Lude.Maybe MaintenanceWindowTaskInvocationParameters) (\s a -> s {taskInvocationParameters = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtTaskInvocationParameters "Use generic-lens or generic-optics with 'taskInvocationParameters' instead." #-}
 
 -- | The new task name to specify.
-umwtName :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
-umwtName = lens _umwtName (\s a -> s {_umwtName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtName :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Text)
+umwtName = Lens.lens (name :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
-umwtTargets :: Lens' UpdateMaintenanceWindowTask [Target]
-umwtTargets = lens _umwtTargets (\s a -> s {_umwtTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtTargets :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe [Target])
+umwtTargets = Lens.lens (targets :: UpdateMaintenanceWindowTask -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The new logging location in Amazon S3 to specify.
-umwtLoggingInfo :: Lens' UpdateMaintenanceWindowTask (Maybe LoggingInfo)
-umwtLoggingInfo = lens _umwtLoggingInfo (\s a -> s {_umwtLoggingInfo = a})
+--
+-- /Note:/ Consider using 'loggingInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtLoggingInfo :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe LoggingInfo)
+umwtLoggingInfo = Lens.lens (loggingInfo :: UpdateMaintenanceWindowTask -> Lude.Maybe LoggingInfo) (\s a -> s {loggingInfo = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtLoggingInfo "Use generic-lens or generic-optics with 'loggingInfo' instead." #-}
 
 -- | The new task description to specify.
-umwtDescription :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
-umwtDescription = lens _umwtDescription (\s a -> s {_umwtDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtDescription :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe (Lude.Sensitive Lude.Text))
+umwtDescription = Lens.lens (description :: UpdateMaintenanceWindowTask -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
-umwtMaxConcurrency :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
-umwtMaxConcurrency = lens _umwtMaxConcurrency (\s a -> s {_umwtMaxConcurrency = a})
+--
+-- /Note:/ Consider using 'maxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtMaxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Text)
+umwtMaxConcurrency = Lens.lens (maxConcurrency :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
 -- | The maintenance window ID that contains the task to modify.
-umwtWindowId :: Lens' UpdateMaintenanceWindowTask Text
-umwtWindowId = lens _umwtWindowId (\s a -> s {_umwtWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtWindowId :: Lens.Lens' UpdateMaintenanceWindowTask Lude.Text
+umwtWindowId = Lens.lens (windowId :: UpdateMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowId = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The task ID to modify.
-umwtWindowTaskId :: Lens' UpdateMaintenanceWindowTask Text
-umwtWindowTaskId = lens _umwtWindowTaskId (\s a -> s {_umwtWindowTaskId = a})
+--
+-- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtWindowTaskId :: Lens.Lens' UpdateMaintenanceWindowTask Lude.Text
+umwtWindowTaskId = Lens.lens (windowTaskId :: UpdateMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
 
-instance AWSRequest UpdateMaintenanceWindowTask where
+instance Lude.AWSRequest UpdateMaintenanceWindowTask where
   type
     Rs UpdateMaintenanceWindowTask =
       UpdateMaintenanceWindowTaskResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateMaintenanceWindowTaskResponse'
-            <$> (x .?> "ServiceRoleArn")
-            <*> (x .?> "WindowTaskId")
-            <*> (x .?> "TaskParameters" .!@ mempty)
-            <*> (x .?> "Priority")
-            <*> (x .?> "TaskArn")
-            <*> (x .?> "MaxErrors")
-            <*> (x .?> "TaskInvocationParameters")
-            <*> (x .?> "Name")
-            <*> (x .?> "Targets" .!@ mempty)
-            <*> (x .?> "LoggingInfo")
-            <*> (x .?> "Description")
-            <*> (x .?> "MaxConcurrency")
-            <*> (x .?> "WindowId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ServiceRoleArn")
+            Lude.<*> (x Lude..?> "WindowTaskId")
+            Lude.<*> (x Lude..?> "TaskParameters" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Priority")
+            Lude.<*> (x Lude..?> "TaskArn")
+            Lude.<*> (x Lude..?> "MaxErrors")
+            Lude.<*> (x Lude..?> "TaskInvocationParameters")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "Targets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "LoggingInfo")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "MaxConcurrency")
+            Lude.<*> (x Lude..?> "WindowId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateMaintenanceWindowTask
-
-instance NFData UpdateMaintenanceWindowTask
-
-instance ToHeaders UpdateMaintenanceWindowTask where
+instance Lude.ToHeaders UpdateMaintenanceWindowTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.UpdateMaintenanceWindowTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.UpdateMaintenanceWindowTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateMaintenanceWindowTask where
+instance Lude.ToJSON UpdateMaintenanceWindowTask where
   toJSON UpdateMaintenanceWindowTask' {..} =
-    object
-      ( catMaybes
-          [ ("ServiceRoleArn" .=) <$> _umwtServiceRoleARN,
-            ("Replace" .=) <$> _umwtReplace,
-            ("TaskParameters" .=) <$> _umwtTaskParameters,
-            ("Priority" .=) <$> _umwtPriority,
-            ("TaskArn" .=) <$> _umwtTaskARN,
-            ("MaxErrors" .=) <$> _umwtMaxErrors,
-            ("TaskInvocationParameters" .=) <$> _umwtTaskInvocationParameters,
-            ("Name" .=) <$> _umwtName,
-            ("Targets" .=) <$> _umwtTargets,
-            ("LoggingInfo" .=) <$> _umwtLoggingInfo,
-            ("Description" .=) <$> _umwtDescription,
-            ("MaxConcurrency" .=) <$> _umwtMaxConcurrency,
-            Just ("WindowId" .= _umwtWindowId),
-            Just ("WindowTaskId" .= _umwtWindowTaskId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ServiceRoleArn" Lude..=) Lude.<$> serviceRoleARN,
+            ("Replace" Lude..=) Lude.<$> replace,
+            ("TaskParameters" Lude..=) Lude.<$> taskParameters,
+            ("Priority" Lude..=) Lude.<$> priority,
+            ("TaskArn" Lude..=) Lude.<$> taskARN,
+            ("MaxErrors" Lude..=) Lude.<$> maxErrors,
+            ("TaskInvocationParameters" Lude..=)
+              Lude.<$> taskInvocationParameters,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Targets" Lude..=) Lude.<$> targets,
+            ("LoggingInfo" Lude..=) Lude.<$> loggingInfo,
+            ("Description" Lude..=) Lude.<$> description,
+            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency,
+            Lude.Just ("WindowId" Lude..= windowId),
+            Lude.Just ("WindowTaskId" Lude..= windowTaskId)
           ]
       )
 
-instance ToPath UpdateMaintenanceWindowTask where
-  toPath = const "/"
+instance Lude.ToPath UpdateMaintenanceWindowTask where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateMaintenanceWindowTask where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMaintenanceWindowTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateMaintenanceWindowTaskResponse' smart constructor.
+-- | /See:/ 'mkUpdateMaintenanceWindowTaskResponse' smart constructor.
 data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
-  { _umwtrsServiceRoleARN ::
-      !(Maybe Text),
-    _umwtrsWindowTaskId ::
-      !(Maybe Text),
-    _umwtrsTaskParameters ::
-      !( Maybe
-           ( Sensitive
-               ( Map
-                   Text
-                   ( Sensitive
-                       MaintenanceWindowTaskParameterValueExpression
-                   )
-               )
-           )
-       ),
-    _umwtrsPriority ::
-      !(Maybe Nat),
-    _umwtrsTaskARN ::
-      !(Maybe Text),
-    _umwtrsMaxErrors ::
-      !(Maybe Text),
-    _umwtrsTaskInvocationParameters ::
-      !( Maybe
-           MaintenanceWindowTaskInvocationParameters
-       ),
-    _umwtrsName ::
-      !(Maybe Text),
-    _umwtrsTargets ::
-      !(Maybe [Target]),
-    _umwtrsLoggingInfo ::
-      !( Maybe
-           LoggingInfo
-       ),
-    _umwtrsDescription ::
-      !( Maybe
-           ( Sensitive
-               Text
-           )
-       ),
-    _umwtrsMaxConcurrency ::
-      !(Maybe Text),
-    _umwtrsWindowId ::
-      !(Maybe Text),
-    _umwtrsResponseStatus ::
-      !Int
+  { serviceRoleARN ::
+      Lude.Maybe
+        Lude.Text,
+    windowTaskId ::
+      Lude.Maybe
+        Lude.Text,
+    taskParameters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (MaintenanceWindowTaskParameterValueExpression)
+        ),
+    priority ::
+      Lude.Maybe
+        Lude.Natural,
+    taskARN ::
+      Lude.Maybe
+        Lude.Text,
+    maxErrors ::
+      Lude.Maybe
+        Lude.Text,
+    taskInvocationParameters ::
+      Lude.Maybe
+        MaintenanceWindowTaskInvocationParameters,
+    name ::
+      Lude.Maybe
+        Lude.Text,
+    targets ::
+      Lude.Maybe [Target],
+    loggingInfo ::
+      Lude.Maybe
+        LoggingInfo,
+    description ::
+      Lude.Maybe
+        ( Lude.Sensitive
+            Lude.Text
+        ),
+    maxConcurrency ::
+      Lude.Maybe
+        Lude.Text,
+    windowId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umwtrsServiceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
---
--- * 'umwtrsWindowTaskId' - The task ID of the maintenance window that was updated.
---
--- * 'umwtrsTaskParameters' - The updated parameter values.
---
--- * 'umwtrsPriority' - The updated priority value.
---
--- * 'umwtrsTaskARN' - The updated task ARN value.
---
--- * 'umwtrsMaxErrors' - The updated MaxErrors value.
---
--- * 'umwtrsTaskInvocationParameters' - The updated parameter values.
---
--- * 'umwtrsName' - The updated task name.
---
--- * 'umwtrsTargets' - The updated target values.
---
--- * 'umwtrsLoggingInfo' - The updated logging information in Amazon S3.
---
--- * 'umwtrsDescription' - The updated task description.
---
--- * 'umwtrsMaxConcurrency' - The updated MaxConcurrency value.
---
--- * 'umwtrsWindowId' - The ID of the maintenance window that was updated.
---
--- * 'umwtrsResponseStatus' - -- | The response status code.
-updateMaintenanceWindowTaskResponse ::
-  -- | 'umwtrsResponseStatus'
-  Int ->
+-- * 'description' - The updated task description.
+-- * 'loggingInfo' - The updated logging information in Amazon S3.
+-- * 'maxConcurrency' - The updated MaxConcurrency value.
+-- * 'maxErrors' - The updated MaxErrors value.
+-- * 'name' - The updated task name.
+-- * 'priority' - The updated priority value.
+-- * 'responseStatus' - The response status code.
+-- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+-- * 'targets' - The updated target values.
+-- * 'taskARN' - The updated task ARN value.
+-- * 'taskInvocationParameters' - The updated parameter values.
+-- * 'taskParameters' - The updated parameter values.
+-- * 'windowId' - The ID of the maintenance window that was updated.
+-- * 'windowTaskId' - The task ID of the maintenance window that was updated.
+mkUpdateMaintenanceWindowTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateMaintenanceWindowTaskResponse
-updateMaintenanceWindowTaskResponse pResponseStatus_ =
+mkUpdateMaintenanceWindowTaskResponse pResponseStatus_ =
   UpdateMaintenanceWindowTaskResponse'
-    { _umwtrsServiceRoleARN =
-        Nothing,
-      _umwtrsWindowTaskId = Nothing,
-      _umwtrsTaskParameters = Nothing,
-      _umwtrsPriority = Nothing,
-      _umwtrsTaskARN = Nothing,
-      _umwtrsMaxErrors = Nothing,
-      _umwtrsTaskInvocationParameters = Nothing,
-      _umwtrsName = Nothing,
-      _umwtrsTargets = Nothing,
-      _umwtrsLoggingInfo = Nothing,
-      _umwtrsDescription = Nothing,
-      _umwtrsMaxConcurrency = Nothing,
-      _umwtrsWindowId = Nothing,
-      _umwtrsResponseStatus = pResponseStatus_
+    { serviceRoleARN =
+        Lude.Nothing,
+      windowTaskId = Lude.Nothing,
+      taskParameters = Lude.Nothing,
+      priority = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      maxErrors = Lude.Nothing,
+      taskInvocationParameters = Lude.Nothing,
+      name = Lude.Nothing,
+      targets = Lude.Nothing,
+      loggingInfo = Lude.Nothing,
+      description = Lude.Nothing,
+      maxConcurrency = Lude.Nothing,
+      windowId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-umwtrsServiceRoleARN :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsServiceRoleARN = lens _umwtrsServiceRoleARN (\s a -> s {_umwtrsServiceRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsServiceRoleARN :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsServiceRoleARN = Lens.lens (serviceRoleARN :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | The task ID of the maintenance window that was updated.
-umwtrsWindowTaskId :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsWindowTaskId = lens _umwtrsWindowTaskId (\s a -> s {_umwtrsWindowTaskId = a})
+--
+-- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsWindowTaskId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsWindowTaskId = Lens.lens (windowTaskId :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
 
 -- | The updated parameter values.
-umwtrsTaskParameters :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe (HashMap Text (MaintenanceWindowTaskParameterValueExpression)))
-umwtrsTaskParameters = lens _umwtrsTaskParameters (\s a -> s {_umwtrsTaskParameters = a}) . mapping (_Sensitive . _Map)
+--
+-- /Note:/ Consider using 'taskParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsTaskParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)))
+umwtrsTaskParameters = Lens.lens (taskParameters :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression))) (\s a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsTaskParameters "Use generic-lens or generic-optics with 'taskParameters' instead." #-}
 
 -- | The updated priority value.
-umwtrsPriority :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Natural)
-umwtrsPriority = lens _umwtrsPriority (\s a -> s {_umwtrsPriority = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsPriority :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Natural)
+umwtrsPriority = Lens.lens (priority :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The updated task ARN value.
-umwtrsTaskARN :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsTaskARN = lens _umwtrsTaskARN (\s a -> s {_umwtrsTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsTaskARN :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsTaskARN = Lens.lens (taskARN :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The updated MaxErrors value.
-umwtrsMaxErrors :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsMaxErrors = lens _umwtrsMaxErrors (\s a -> s {_umwtrsMaxErrors = a})
+--
+-- /Note:/ Consider using 'maxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsMaxErrors :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsMaxErrors = Lens.lens (maxErrors :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {maxErrors = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsMaxErrors "Use generic-lens or generic-optics with 'maxErrors' instead." #-}
 
 -- | The updated parameter values.
-umwtrsTaskInvocationParameters :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe MaintenanceWindowTaskInvocationParameters)
-umwtrsTaskInvocationParameters = lens _umwtrsTaskInvocationParameters (\s a -> s {_umwtrsTaskInvocationParameters = a})
+--
+-- /Note:/ Consider using 'taskInvocationParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsTaskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe MaintenanceWindowTaskInvocationParameters)
+umwtrsTaskInvocationParameters = Lens.lens (taskInvocationParameters :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe MaintenanceWindowTaskInvocationParameters) (\s a -> s {taskInvocationParameters = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsTaskInvocationParameters "Use generic-lens or generic-optics with 'taskInvocationParameters' instead." #-}
 
 -- | The updated task name.
-umwtrsName :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsName = lens _umwtrsName (\s a -> s {_umwtrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsName :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsName = Lens.lens (name :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The updated target values.
-umwtrsTargets :: Lens' UpdateMaintenanceWindowTaskResponse [Target]
-umwtrsTargets = lens _umwtrsTargets (\s a -> s {_umwtrsTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsTargets :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe [Target])
+umwtrsTargets = Lens.lens (targets :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The updated logging information in Amazon S3.
-umwtrsLoggingInfo :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe LoggingInfo)
-umwtrsLoggingInfo = lens _umwtrsLoggingInfo (\s a -> s {_umwtrsLoggingInfo = a})
+--
+-- /Note:/ Consider using 'loggingInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsLoggingInfo :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe LoggingInfo)
+umwtrsLoggingInfo = Lens.lens (loggingInfo :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe LoggingInfo) (\s a -> s {loggingInfo = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsLoggingInfo "Use generic-lens or generic-optics with 'loggingInfo' instead." #-}
 
 -- | The updated task description.
-umwtrsDescription :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsDescription = lens _umwtrsDescription (\s a -> s {_umwtrsDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsDescription :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+umwtrsDescription = Lens.lens (description :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The updated MaxConcurrency value.
-umwtrsMaxConcurrency :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsMaxConcurrency = lens _umwtrsMaxConcurrency (\s a -> s {_umwtrsMaxConcurrency = a})
+--
+-- /Note:/ Consider using 'maxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsMaxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsMaxConcurrency = Lens.lens (maxConcurrency :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
 -- | The ID of the maintenance window that was updated.
-umwtrsWindowId :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
-umwtrsWindowId = lens _umwtrsWindowId (\s a -> s {_umwtrsWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsWindowId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Lude.Maybe Lude.Text)
+umwtrsWindowId = Lens.lens (windowId :: UpdateMaintenanceWindowTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
--- | -- | The response status code.
-umwtrsResponseStatus :: Lens' UpdateMaintenanceWindowTaskResponse Int
-umwtrsResponseStatus = lens _umwtrsResponseStatus (\s a -> s {_umwtrsResponseStatus = a})
-
-instance NFData UpdateMaintenanceWindowTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtrsResponseStatus :: Lens.Lens' UpdateMaintenanceWindowTaskResponse Lude.Int
+umwtrsResponseStatus = Lens.lens (responseStatus :: UpdateMaintenanceWindowTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMaintenanceWindowTaskResponse)
+{-# DEPRECATED umwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

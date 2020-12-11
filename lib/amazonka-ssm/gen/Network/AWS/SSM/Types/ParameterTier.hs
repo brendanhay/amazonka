@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ParameterTier where
+module Network.AWS.SSM.Types.ParameterTier
+  ( ParameterTier
+      ( ParameterTier',
+        Advanced,
+        IntelligentTiering,
+        Standard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParameterTier
-  = Advanced
-  | IntelligentTiering
-  | Standard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParameterTier = ParameterTier' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParameterTier where
-  parser =
-    takeLowerText >>= \case
-      "advanced" -> pure Advanced
-      "intelligent-tiering" -> pure IntelligentTiering
-      "standard" -> pure Standard
-      e ->
-        fromTextError $
-          "Failure parsing ParameterTier from value: '" <> e
-            <> "'. Accepted values: advanced, intelligent-tiering, standard"
+pattern Advanced :: ParameterTier
+pattern Advanced = ParameterTier' "Advanced"
 
-instance ToText ParameterTier where
-  toText = \case
-    Advanced -> "Advanced"
-    IntelligentTiering -> "Intelligent-Tiering"
-    Standard -> "Standard"
+pattern IntelligentTiering :: ParameterTier
+pattern IntelligentTiering = ParameterTier' "Intelligent-Tiering"
 
-instance Hashable ParameterTier
+pattern Standard :: ParameterTier
+pattern Standard = ParameterTier' "Standard"
 
-instance NFData ParameterTier
-
-instance ToByteString ParameterTier
-
-instance ToQuery ParameterTier
-
-instance ToHeader ParameterTier
-
-instance ToJSON ParameterTier where
-  toJSON = toJSONText
-
-instance FromJSON ParameterTier where
-  parseJSON = parseJSONText "ParameterTier"
+{-# COMPLETE
+  Advanced,
+  IntelligentTiering,
+  Standard,
+  ParameterTier'
+  #-}

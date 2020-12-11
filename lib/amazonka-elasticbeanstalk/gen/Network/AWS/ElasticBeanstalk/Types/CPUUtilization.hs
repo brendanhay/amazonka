@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,106 +7,162 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.CPUUtilization where
+module Network.AWS.ElasticBeanstalk.Types.CPUUtilization
+  ( CPUUtilization (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCPUUtilization,
+
+    -- * Lenses
+    cuSoftIRQ,
+    cuIdle,
+    cuIRQ,
+    cuSystem,
+    cuPrivileged,
+    cuUser,
+    cuIOWait,
+    cuNice,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | CPU utilization metrics for an instance.
 --
---
---
--- /See:/ 'cpuUtilization' smart constructor.
+-- /See:/ 'mkCPUUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
-  { _cuSoftIRQ ::
-      !(Maybe Double),
-    _cuIdle :: !(Maybe Double),
-    _cuIRQ :: !(Maybe Double),
-    _cuSystem :: !(Maybe Double),
-    _cuPrivileged :: !(Maybe Double),
-    _cuUser :: !(Maybe Double),
-    _cuIOWait :: !(Maybe Double),
-    _cuNice :: !(Maybe Double)
+  { softIRQ ::
+      Lude.Maybe Lude.Double,
+    idle :: Lude.Maybe Lude.Double,
+    iRQ :: Lude.Maybe Lude.Double,
+    system :: Lude.Maybe Lude.Double,
+    privileged :: Lude.Maybe Lude.Double,
+    user :: Lude.Maybe Lude.Double,
+    iOWait :: Lude.Maybe Lude.Double,
+    nice :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CPUUtilization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'iOWait' - Available on Linux environments only.
 --
--- * 'cuSoftIRQ' - Available on Linux environments only. Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
+-- Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
+-- * 'iRQ' - Available on Linux environments only.
 --
--- * 'cuIdle' - Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
+-- Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
+-- * 'idle' - Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
+-- * 'nice' - Available on Linux environments only.
 --
--- * 'cuIRQ' - Available on Linux environments only. Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
+-- Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
+-- * 'privileged' - Available on Windows environments only.
 --
--- * 'cuSystem' - Available on Linux environments only. Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
+-- Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
+-- * 'softIRQ' - Available on Linux environments only.
 --
--- * 'cuPrivileged' - Available on Windows environments only. Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
+-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
+-- * 'system' - Available on Linux environments only.
 --
--- * 'cuUser' - Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
---
--- * 'cuIOWait' - Available on Linux environments only. Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
---
--- * 'cuNice' - Available on Linux environments only. Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
-cpuUtilization ::
+-- Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
+-- * 'user' - Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
+mkCPUUtilization ::
   CPUUtilization
-cpuUtilization =
+mkCPUUtilization =
   CPUUtilization'
-    { _cuSoftIRQ = Nothing,
-      _cuIdle = Nothing,
-      _cuIRQ = Nothing,
-      _cuSystem = Nothing,
-      _cuPrivileged = Nothing,
-      _cuUser = Nothing,
-      _cuIOWait = Nothing,
-      _cuNice = Nothing
+    { softIRQ = Lude.Nothing,
+      idle = Lude.Nothing,
+      iRQ = Lude.Nothing,
+      system = Lude.Nothing,
+      privileged = Lude.Nothing,
+      user = Lude.Nothing,
+      iOWait = Lude.Nothing,
+      nice = Lude.Nothing
     }
 
--- | Available on Linux environments only. Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
-cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
-cuSoftIRQ = lens _cuSoftIRQ (\s a -> s {_cuSoftIRQ = a})
+-- | Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
+--
+-- /Note:/ Consider using 'softIRQ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuSoftIRQ :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuSoftIRQ = Lens.lens (softIRQ :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {softIRQ = a} :: CPUUtilization)
+{-# DEPRECATED cuSoftIRQ "Use generic-lens or generic-optics with 'softIRQ' instead." #-}
 
 -- | Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
-cuIdle :: Lens' CPUUtilization (Maybe Double)
-cuIdle = lens _cuIdle (\s a -> s {_cuIdle = a})
+--
+-- /Note:/ Consider using 'idle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuIdle :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuIdle = Lens.lens (idle :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {idle = a} :: CPUUtilization)
+{-# DEPRECATED cuIdle "Use generic-lens or generic-optics with 'idle' instead." #-}
 
--- | Available on Linux environments only. Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
-cuIRQ :: Lens' CPUUtilization (Maybe Double)
-cuIRQ = lens _cuIRQ (\s a -> s {_cuIRQ = a})
+-- | Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
+--
+-- /Note:/ Consider using 'iRQ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuIRQ :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuIRQ = Lens.lens (iRQ :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {iRQ = a} :: CPUUtilization)
+{-# DEPRECATED cuIRQ "Use generic-lens or generic-optics with 'iRQ' instead." #-}
 
--- | Available on Linux environments only. Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
-cuSystem :: Lens' CPUUtilization (Maybe Double)
-cuSystem = lens _cuSystem (\s a -> s {_cuSystem = a})
+-- | Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
+--
+-- /Note:/ Consider using 'system' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuSystem :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuSystem = Lens.lens (system :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {system = a} :: CPUUtilization)
+{-# DEPRECATED cuSystem "Use generic-lens or generic-optics with 'system' instead." #-}
 
--- | Available on Windows environments only. Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
-cuPrivileged :: Lens' CPUUtilization (Maybe Double)
-cuPrivileged = lens _cuPrivileged (\s a -> s {_cuPrivileged = a})
+-- | Available on Windows environments only.
+--
+-- Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
+--
+-- /Note:/ Consider using 'privileged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuPrivileged :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuPrivileged = Lens.lens (privileged :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {privileged = a} :: CPUUtilization)
+{-# DEPRECATED cuPrivileged "Use generic-lens or generic-optics with 'privileged' instead." #-}
 
 -- | Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
-cuUser :: Lens' CPUUtilization (Maybe Double)
-cuUser = lens _cuUser (\s a -> s {_cuUser = a})
+--
+-- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUser :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuUser = Lens.lens (user :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {user = a} :: CPUUtilization)
+{-# DEPRECATED cuUser "Use generic-lens or generic-optics with 'user' instead." #-}
 
--- | Available on Linux environments only. Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
-cuIOWait :: Lens' CPUUtilization (Maybe Double)
-cuIOWait = lens _cuIOWait (\s a -> s {_cuIOWait = a})
+-- | Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
+--
+-- /Note:/ Consider using 'iOWait' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuIOWait :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuIOWait = Lens.lens (iOWait :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {iOWait = a} :: CPUUtilization)
+{-# DEPRECATED cuIOWait "Use generic-lens or generic-optics with 'iOWait' instead." #-}
 
--- | Available on Linux environments only. Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
-cuNice :: Lens' CPUUtilization (Maybe Double)
-cuNice = lens _cuNice (\s a -> s {_cuNice = a})
+-- | Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
+--
+-- /Note:/ Consider using 'nice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuNice :: Lens.Lens' CPUUtilization (Lude.Maybe Lude.Double)
+cuNice = Lens.lens (nice :: CPUUtilization -> Lude.Maybe Lude.Double) (\s a -> s {nice = a} :: CPUUtilization)
+{-# DEPRECATED cuNice "Use generic-lens or generic-optics with 'nice' instead." #-}
 
-instance FromXML CPUUtilization where
+instance Lude.FromXML CPUUtilization where
   parseXML x =
     CPUUtilization'
-      <$> (x .@? "SoftIRQ")
-      <*> (x .@? "Idle")
-      <*> (x .@? "IRQ")
-      <*> (x .@? "System")
-      <*> (x .@? "Privileged")
-      <*> (x .@? "User")
-      <*> (x .@? "IOWait")
-      <*> (x .@? "Nice")
-
-instance Hashable CPUUtilization
-
-instance NFData CPUUtilization
+      Lude.<$> (x Lude..@? "SoftIRQ")
+      Lude.<*> (x Lude..@? "Idle")
+      Lude.<*> (x Lude..@? "IRQ")
+      Lude.<*> (x Lude..@? "System")
+      Lude.<*> (x Lude..@? "Privileged")
+      Lude.<*> (x Lude..@? "User")
+      Lude.<*> (x Lude..@? "IOWait")
+      Lude.<*> (x Lude..@? "Nice")

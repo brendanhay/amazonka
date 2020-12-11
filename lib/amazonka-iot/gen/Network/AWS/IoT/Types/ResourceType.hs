@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ResourceType where
+module Network.AWS.IoT.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        RTAccountSettings,
+        RTCaCertificate,
+        RTClientId,
+        RTCognitoIdentityPool,
+        RTDeviceCertificate,
+        RTIAMRole,
+        RTIotPolicy,
+        RTRoleAlias
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = RTAccountSettings
-  | RTCaCertificate
-  | RTClientId
-  | RTCognitoIdentityPool
-  | RTDeviceCertificate
-  | RTIAMRole
-  | RTIotPolicy
-  | RTRoleAlias
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "account_settings" -> pure RTAccountSettings
-      "ca_certificate" -> pure RTCaCertificate
-      "client_id" -> pure RTClientId
-      "cognito_identity_pool" -> pure RTCognitoIdentityPool
-      "device_certificate" -> pure RTDeviceCertificate
-      "iam_role" -> pure RTIAMRole
-      "iot_policy" -> pure RTIotPolicy
-      "role_alias" -> pure RTRoleAlias
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: account_settings, ca_certificate, client_id, cognito_identity_pool, device_certificate, iam_role, iot_policy, role_alias"
+pattern RTAccountSettings :: ResourceType
+pattern RTAccountSettings = ResourceType' "ACCOUNT_SETTINGS"
 
-instance ToText ResourceType where
-  toText = \case
-    RTAccountSettings -> "ACCOUNT_SETTINGS"
-    RTCaCertificate -> "CA_CERTIFICATE"
-    RTClientId -> "CLIENT_ID"
-    RTCognitoIdentityPool -> "COGNITO_IDENTITY_POOL"
-    RTDeviceCertificate -> "DEVICE_CERTIFICATE"
-    RTIAMRole -> "IAM_ROLE"
-    RTIotPolicy -> "IOT_POLICY"
-    RTRoleAlias -> "ROLE_ALIAS"
+pattern RTCaCertificate :: ResourceType
+pattern RTCaCertificate = ResourceType' "CA_CERTIFICATE"
 
-instance Hashable ResourceType
+pattern RTClientId :: ResourceType
+pattern RTClientId = ResourceType' "CLIENT_ID"
 
-instance NFData ResourceType
+pattern RTCognitoIdentityPool :: ResourceType
+pattern RTCognitoIdentityPool = ResourceType' "COGNITO_IDENTITY_POOL"
 
-instance ToByteString ResourceType
+pattern RTDeviceCertificate :: ResourceType
+pattern RTDeviceCertificate = ResourceType' "DEVICE_CERTIFICATE"
 
-instance ToQuery ResourceType
+pattern RTIAMRole :: ResourceType
+pattern RTIAMRole = ResourceType' "IAM_ROLE"
 
-instance ToHeader ResourceType
+pattern RTIotPolicy :: ResourceType
+pattern RTIotPolicy = ResourceType' "IOT_POLICY"
 
-instance FromJSON ResourceType where
-  parseJSON = parseJSONText "ResourceType"
+pattern RTRoleAlias :: ResourceType
+pattern RTRoleAlias = ResourceType' "ROLE_ALIAS"
+
+{-# COMPLETE
+  RTAccountSettings,
+  RTCaCertificate,
+  RTClientId,
+  RTCognitoIdentityPool,
+  RTDeviceCertificate,
+  RTIAMRole,
+  RTIotPolicy,
+  RTRoleAlias,
+  ResourceType'
+  #-}

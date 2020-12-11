@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.CannedACL where
+module Network.AWS.Glacier.Types.CannedACL
+  ( CannedACL
+      ( CannedACL',
+        AWSExecRead,
+        AuthenticatedRead,
+        BucketOwnerFullControl,
+        BucketOwnerRead,
+        Private,
+        PublicRead,
+        PublicReadWrite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CannedACL
-  = AWSExecRead
-  | AuthenticatedRead
-  | BucketOwnerFullControl
-  | BucketOwnerRead
-  | Private
-  | PublicRead
-  | PublicReadWrite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CannedACL = CannedACL' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CannedACL where
-  parser =
-    takeLowerText >>= \case
-      "aws-exec-read" -> pure AWSExecRead
-      "authenticated-read" -> pure AuthenticatedRead
-      "bucket-owner-full-control" -> pure BucketOwnerFullControl
-      "bucket-owner-read" -> pure BucketOwnerRead
-      "private" -> pure Private
-      "public-read" -> pure PublicRead
-      "public-read-write" -> pure PublicReadWrite
-      e ->
-        fromTextError $
-          "Failure parsing CannedACL from value: '" <> e
-            <> "'. Accepted values: aws-exec-read, authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
+pattern AWSExecRead :: CannedACL
+pattern AWSExecRead = CannedACL' "aws-exec-read"
 
-instance ToText CannedACL where
-  toText = \case
-    AWSExecRead -> "aws-exec-read"
-    AuthenticatedRead -> "authenticated-read"
-    BucketOwnerFullControl -> "bucket-owner-full-control"
-    BucketOwnerRead -> "bucket-owner-read"
-    Private -> "private"
-    PublicRead -> "public-read"
-    PublicReadWrite -> "public-read-write"
+pattern AuthenticatedRead :: CannedACL
+pattern AuthenticatedRead = CannedACL' "authenticated-read"
 
-instance Hashable CannedACL
+pattern BucketOwnerFullControl :: CannedACL
+pattern BucketOwnerFullControl = CannedACL' "bucket-owner-full-control"
 
-instance NFData CannedACL
+pattern BucketOwnerRead :: CannedACL
+pattern BucketOwnerRead = CannedACL' "bucket-owner-read"
 
-instance ToByteString CannedACL
+pattern Private :: CannedACL
+pattern Private = CannedACL' "private"
 
-instance ToQuery CannedACL
+pattern PublicRead :: CannedACL
+pattern PublicRead = CannedACL' "public-read"
 
-instance ToHeader CannedACL
+pattern PublicReadWrite :: CannedACL
+pattern PublicReadWrite = CannedACL' "public-read-write"
 
-instance ToJSON CannedACL where
-  toJSON = toJSONText
-
-instance FromJSON CannedACL where
-  parseJSON = parseJSONText "CannedACL"
+{-# COMPLETE
+  AWSExecRead,
+  AuthenticatedRead,
+  BucketOwnerFullControl,
+  BucketOwnerRead,
+  Private,
+  PublicRead,
+  PublicReadWrite,
+  CannedACL'
+  #-}

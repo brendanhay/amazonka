@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.StreamSelection where
+module Network.AWS.MediaPackage.Types.StreamSelection
+  ( StreamSelection (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkStreamSelection,
+
+    -- * Lenses
+    ssStreamOrder,
+    ssMinVideoBitsPerSecond,
+    ssMaxVideoBitsPerSecond,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.StreamOrder
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A StreamSelection configuration.
 --
--- /See:/ 'streamSelection' smart constructor.
+-- /See:/ 'mkStreamSelection' smart constructor.
 data StreamSelection = StreamSelection'
-  { _ssStreamOrder ::
-      !(Maybe StreamOrder),
-    _ssMinVideoBitsPerSecond :: !(Maybe Int),
-    _ssMaxVideoBitsPerSecond :: !(Maybe Int)
+  { streamOrder ::
+      Lude.Maybe StreamOrder,
+    minVideoBitsPerSecond :: Lude.Maybe Lude.Int,
+    maxVideoBitsPerSecond :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamSelection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssStreamOrder' - A directive that determines the order of streams in the output.
---
--- * 'ssMinVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
---
--- * 'ssMaxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
-streamSelection ::
+-- * 'maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
+-- * 'minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
+-- * 'streamOrder' - A directive that determines the order of streams in the output.
+mkStreamSelection ::
   StreamSelection
-streamSelection =
+mkStreamSelection =
   StreamSelection'
-    { _ssStreamOrder = Nothing,
-      _ssMinVideoBitsPerSecond = Nothing,
-      _ssMaxVideoBitsPerSecond = Nothing
+    { streamOrder = Lude.Nothing,
+      minVideoBitsPerSecond = Lude.Nothing,
+      maxVideoBitsPerSecond = Lude.Nothing
     }
 
 -- | A directive that determines the order of streams in the output.
-ssStreamOrder :: Lens' StreamSelection (Maybe StreamOrder)
-ssStreamOrder = lens _ssStreamOrder (\s a -> s {_ssStreamOrder = a})
+--
+-- /Note:/ Consider using 'streamOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStreamOrder :: Lens.Lens' StreamSelection (Lude.Maybe StreamOrder)
+ssStreamOrder = Lens.lens (streamOrder :: StreamSelection -> Lude.Maybe StreamOrder) (\s a -> s {streamOrder = a} :: StreamSelection)
+{-# DEPRECATED ssStreamOrder "Use generic-lens or generic-optics with 'streamOrder' instead." #-}
 
 -- | The minimum video bitrate (bps) to include in output.
-ssMinVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
-ssMinVideoBitsPerSecond = lens _ssMinVideoBitsPerSecond (\s a -> s {_ssMinVideoBitsPerSecond = a})
+--
+-- /Note:/ Consider using 'minVideoBitsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssMinVideoBitsPerSecond :: Lens.Lens' StreamSelection (Lude.Maybe Lude.Int)
+ssMinVideoBitsPerSecond = Lens.lens (minVideoBitsPerSecond :: StreamSelection -> Lude.Maybe Lude.Int) (\s a -> s {minVideoBitsPerSecond = a} :: StreamSelection)
+{-# DEPRECATED ssMinVideoBitsPerSecond "Use generic-lens or generic-optics with 'minVideoBitsPerSecond' instead." #-}
 
 -- | The maximum video bitrate (bps) to include in output.
-ssMaxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
-ssMaxVideoBitsPerSecond = lens _ssMaxVideoBitsPerSecond (\s a -> s {_ssMaxVideoBitsPerSecond = a})
+--
+-- /Note:/ Consider using 'maxVideoBitsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssMaxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Lude.Maybe Lude.Int)
+ssMaxVideoBitsPerSecond = Lens.lens (maxVideoBitsPerSecond :: StreamSelection -> Lude.Maybe Lude.Int) (\s a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
+{-# DEPRECATED ssMaxVideoBitsPerSecond "Use generic-lens or generic-optics with 'maxVideoBitsPerSecond' instead." #-}
 
-instance FromJSON StreamSelection where
+instance Lude.FromJSON StreamSelection where
   parseJSON =
-    withObject
+    Lude.withObject
       "StreamSelection"
       ( \x ->
           StreamSelection'
-            <$> (x .:? "streamOrder")
-            <*> (x .:? "minVideoBitsPerSecond")
-            <*> (x .:? "maxVideoBitsPerSecond")
+            Lude.<$> (x Lude..:? "streamOrder")
+            Lude.<*> (x Lude..:? "minVideoBitsPerSecond")
+            Lude.<*> (x Lude..:? "maxVideoBitsPerSecond")
       )
 
-instance Hashable StreamSelection
-
-instance NFData StreamSelection
-
-instance ToJSON StreamSelection where
+instance Lude.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =
-    object
-      ( catMaybes
-          [ ("streamOrder" .=) <$> _ssStreamOrder,
-            ("minVideoBitsPerSecond" .=) <$> _ssMinVideoBitsPerSecond,
-            ("maxVideoBitsPerSecond" .=) <$> _ssMaxVideoBitsPerSecond
+    Lude.object
+      ( Lude.catMaybes
+          [ ("streamOrder" Lude..=) Lude.<$> streamOrder,
+            ("minVideoBitsPerSecond" Lude..=) Lude.<$> minVideoBitsPerSecond,
+            ("maxVideoBitsPerSecond" Lude..=) Lude.<$> maxVideoBitsPerSecond
           ]
       )

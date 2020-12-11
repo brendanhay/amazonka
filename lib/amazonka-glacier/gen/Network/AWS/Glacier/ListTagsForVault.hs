@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,145 @@
 --
 -- This operation lists all the tags attached to a vault. The operation returns an empty map if there are no tags. For more information about tags, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon S3 Glacier Resources> .
 module Network.AWS.Glacier.ListTagsForVault
-  ( -- * Creating a Request
-    listTagsForVault,
-    ListTagsForVault,
+  ( -- * Creating a request
+    ListTagsForVault (..),
+    mkListTagsForVault,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfvAccountId,
     ltfvVaultName,
 
-    -- * Destructuring the Response
-    listTagsForVaultResponse,
-    ListTagsForVaultResponse,
+    -- * Destructuring the response
+    ListTagsForVaultResponse (..),
+    mkListTagsForVaultResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfvrsTags,
     ltfvrsResponseStatus,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input value for @ListTagsForVaultInput@ .
 --
---
---
--- /See:/ 'listTagsForVault' smart constructor.
+-- /See:/ 'mkListTagsForVault' smart constructor.
 data ListTagsForVault = ListTagsForVault'
-  { _ltfvAccountId :: !Text,
-    _ltfvVaultName :: !Text
+  { accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForVault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'ltfvVaultName' - The name of the vault.
-listTagsForVault ::
-  -- | 'ltfvAccountId'
-  Text ->
-  -- | 'ltfvVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'vaultName' - The name of the vault.
+mkListTagsForVault ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   ListTagsForVault
-listTagsForVault pAccountId_ pVaultName_ =
+mkListTagsForVault pAccountId_ pVaultName_ =
   ListTagsForVault'
-    { _ltfvAccountId = pAccountId_,
-      _ltfvVaultName = pVaultName_
+    { accountId = pAccountId_,
+      vaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-ltfvAccountId :: Lens' ListTagsForVault Text
-ltfvAccountId = lens _ltfvAccountId (\s a -> s {_ltfvAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfvAccountId :: Lens.Lens' ListTagsForVault Lude.Text
+ltfvAccountId = Lens.lens (accountId :: ListTagsForVault -> Lude.Text) (\s a -> s {accountId = a} :: ListTagsForVault)
+{-# DEPRECATED ltfvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-ltfvVaultName :: Lens' ListTagsForVault Text
-ltfvVaultName = lens _ltfvVaultName (\s a -> s {_ltfvVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfvVaultName :: Lens.Lens' ListTagsForVault Lude.Text
+ltfvVaultName = Lens.lens (vaultName :: ListTagsForVault -> Lude.Text) (\s a -> s {vaultName = a} :: ListTagsForVault)
+{-# DEPRECATED ltfvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest ListTagsForVault where
+instance Lude.AWSRequest ListTagsForVault where
   type Rs ListTagsForVault = ListTagsForVaultResponse
-  request = get glacier
+  request = Req.get glacierService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsForVaultResponse'
-            <$> (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForVault
+instance Lude.ToHeaders ListTagsForVault where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTagsForVault
-
-instance ToHeaders ListTagsForVault where
-  toHeaders = const mempty
-
-instance ToPath ListTagsForVault where
+instance Lude.ToPath ListTagsForVault where
   toPath ListTagsForVault' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _ltfvAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _ltfvVaultName,
+        Lude.toBS vaultName,
         "/tags"
       ]
 
-instance ToQuery ListTagsForVault where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsForVault where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'listTagsForVaultResponse' smart constructor.
+-- /See:/ 'mkListTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-  { _ltfvrsTags ::
-      !(Maybe (Map Text (Text))),
-    _ltfvrsResponseStatus :: !Int
+  { tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForVaultResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfvrsTags' - The tags attached to the vault. Each tag is composed of a key and a value.
---
--- * 'ltfvrsResponseStatus' - -- | The response status code.
-listTagsForVaultResponse ::
-  -- | 'ltfvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags attached to the vault. Each tag is composed of a key and a value.
+mkListTagsForVaultResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForVaultResponse
-listTagsForVaultResponse pResponseStatus_ =
+mkListTagsForVaultResponse pResponseStatus_ =
   ListTagsForVaultResponse'
-    { _ltfvrsTags = Nothing,
-      _ltfvrsResponseStatus = pResponseStatus_
+    { tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The tags attached to the vault. Each tag is composed of a key and a value.
-ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text (Text))
-ltfvrsTags = lens _ltfvrsTags (\s a -> s {_ltfvrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfvrsTags :: Lens.Lens' ListTagsForVaultResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltfvrsTags = Lens.lens (tags :: ListTagsForVaultResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsForVaultResponse)
+{-# DEPRECATED ltfvrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
-ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\s a -> s {_ltfvrsResponseStatus = a})
-
-instance NFData ListTagsForVaultResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfvrsResponseStatus :: Lens.Lens' ListTagsForVaultResponse Lude.Int
+ltfvrsResponseStatus = Lens.lens (responseStatus :: ListTagsForVaultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForVaultResponse)
+{-# DEPRECATED ltfvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

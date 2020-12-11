@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.ArchiveCreationOutput where
+module Network.AWS.Glacier.Types.ArchiveCreationOutput
+  ( ArchiveCreationOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkArchiveCreationOutput,
+
+    -- * Lenses
+    acoArchiveId,
+    acoChecksum,
+    acoLocation,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
 -- For information about the underlying REST API, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive> . For conceptual information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon S3 Glacier> .
 --
---
--- /See:/ 'archiveCreationOutput' smart constructor.
+-- /See:/ 'mkArchiveCreationOutput' smart constructor.
 data ArchiveCreationOutput = ArchiveCreationOutput'
-  { _acoArchiveId ::
-      !(Maybe Text),
-    _acoChecksum :: !(Maybe Text),
-    _acoLocation :: !(Maybe Text)
+  { archiveId ::
+      Lude.Maybe Lude.Text,
+    checksum :: Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveCreationOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acoArchiveId' - The ID of the archive. This value is also included as part of the location.
---
--- * 'acoChecksum' - The checksum of the archive computed by Amazon S3 Glacier.
---
--- * 'acoLocation' - The relative URI path of the newly added archive resource.
-archiveCreationOutput ::
+-- * 'archiveId' - The ID of the archive. This value is also included as part of the location.
+-- * 'checksum' - The checksum of the archive computed by Amazon S3 Glacier.
+-- * 'location' - The relative URI path of the newly added archive resource.
+mkArchiveCreationOutput ::
   ArchiveCreationOutput
-archiveCreationOutput =
+mkArchiveCreationOutput =
   ArchiveCreationOutput'
-    { _acoArchiveId = Nothing,
-      _acoChecksum = Nothing,
-      _acoLocation = Nothing
+    { archiveId = Lude.Nothing,
+      checksum = Lude.Nothing,
+      location = Lude.Nothing
     }
 
 -- | The ID of the archive. This value is also included as part of the location.
-acoArchiveId :: Lens' ArchiveCreationOutput (Maybe Text)
-acoArchiveId = lens _acoArchiveId (\s a -> s {_acoArchiveId = a})
+--
+-- /Note:/ Consider using 'archiveId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acoArchiveId :: Lens.Lens' ArchiveCreationOutput (Lude.Maybe Lude.Text)
+acoArchiveId = Lens.lens (archiveId :: ArchiveCreationOutput -> Lude.Maybe Lude.Text) (\s a -> s {archiveId = a} :: ArchiveCreationOutput)
+{-# DEPRECATED acoArchiveId "Use generic-lens or generic-optics with 'archiveId' instead." #-}
 
 -- | The checksum of the archive computed by Amazon S3 Glacier.
-acoChecksum :: Lens' ArchiveCreationOutput (Maybe Text)
-acoChecksum = lens _acoChecksum (\s a -> s {_acoChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acoChecksum :: Lens.Lens' ArchiveCreationOutput (Lude.Maybe Lude.Text)
+acoChecksum = Lens.lens (checksum :: ArchiveCreationOutput -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: ArchiveCreationOutput)
+{-# DEPRECATED acoChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The relative URI path of the newly added archive resource.
-acoLocation :: Lens' ArchiveCreationOutput (Maybe Text)
-acoLocation = lens _acoLocation (\s a -> s {_acoLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acoLocation :: Lens.Lens' ArchiveCreationOutput (Lude.Maybe Lude.Text)
+acoLocation = Lens.lens (location :: ArchiveCreationOutput -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: ArchiveCreationOutput)
+{-# DEPRECATED acoLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
-instance FromJSON ArchiveCreationOutput where
+instance Lude.FromJSON ArchiveCreationOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "ArchiveCreationOutput"
       ( \x ->
           ArchiveCreationOutput'
-            <$> (x .:? "x-amz-archive-id")
-            <*> (x .:? "x-amz-sha256-tree-hash")
-            <*> (x .:? "Location")
+            Lude.<$> (x Lude..:? "x-amz-archive-id")
+            Lude.<*> (x Lude..:? "x-amz-sha256-tree-hash")
+            Lude.<*> (x Lude..:? "Location")
       )
-
-instance Hashable ArchiveCreationOutput
-
-instance NFData ArchiveCreationOutput

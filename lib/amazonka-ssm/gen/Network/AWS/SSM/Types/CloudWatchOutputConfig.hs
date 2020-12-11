@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CloudWatchOutputConfig where
+module Network.AWS.SSM.Types.CloudWatchOutputConfig
+  ( CloudWatchOutputConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchOutputConfig,
+
+    -- * Lenses
+    cwocCloudWatchLogGroupName,
+    cwocCloudWatchOutputEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration options for sending command output to CloudWatch Logs.
 --
---
---
--- /See:/ 'cloudWatchOutputConfig' smart constructor.
+-- /See:/ 'mkCloudWatchOutputConfig' smart constructor.
 data CloudWatchOutputConfig = CloudWatchOutputConfig'
-  { _cwocCloudWatchLogGroupName ::
-      !(Maybe Text),
-    _cwocCloudWatchOutputEnabled :: !(Maybe Bool)
+  { cloudWatchLogGroupName ::
+      Lude.Maybe Lude.Text,
+    cloudWatchOutputEnabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchOutputConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwocCloudWatchLogGroupName' - The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
---
--- * 'cwocCloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
-cloudWatchOutputConfig ::
+-- * 'cloudWatchLogGroupName' - The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
+-- * 'cloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
+mkCloudWatchOutputConfig ::
   CloudWatchOutputConfig
-cloudWatchOutputConfig =
+mkCloudWatchOutputConfig =
   CloudWatchOutputConfig'
-    { _cwocCloudWatchLogGroupName = Nothing,
-      _cwocCloudWatchOutputEnabled = Nothing
+    { cloudWatchLogGroupName = Lude.Nothing,
+      cloudWatchOutputEnabled = Lude.Nothing
     }
 
 -- | The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
-cwocCloudWatchLogGroupName :: Lens' CloudWatchOutputConfig (Maybe Text)
-cwocCloudWatchLogGroupName = lens _cwocCloudWatchLogGroupName (\s a -> s {_cwocCloudWatchLogGroupName = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwocCloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Lude.Maybe Lude.Text)
+cwocCloudWatchLogGroupName = Lens.lens (cloudWatchLogGroupName :: CloudWatchOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
+{-# DEPRECATED cwocCloudWatchLogGroupName "Use generic-lens or generic-optics with 'cloudWatchLogGroupName' instead." #-}
 
 -- | Enables Systems Manager to send command output to CloudWatch Logs.
-cwocCloudWatchOutputEnabled :: Lens' CloudWatchOutputConfig (Maybe Bool)
-cwocCloudWatchOutputEnabled = lens _cwocCloudWatchOutputEnabled (\s a -> s {_cwocCloudWatchOutputEnabled = a})
+--
+-- /Note:/ Consider using 'cloudWatchOutputEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwocCloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Lude.Maybe Lude.Bool)
+cwocCloudWatchOutputEnabled = Lens.lens (cloudWatchOutputEnabled :: CloudWatchOutputConfig -> Lude.Maybe Lude.Bool) (\s a -> s {cloudWatchOutputEnabled = a} :: CloudWatchOutputConfig)
+{-# DEPRECATED cwocCloudWatchOutputEnabled "Use generic-lens or generic-optics with 'cloudWatchOutputEnabled' instead." #-}
 
-instance FromJSON CloudWatchOutputConfig where
+instance Lude.FromJSON CloudWatchOutputConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchOutputConfig"
       ( \x ->
           CloudWatchOutputConfig'
-            <$> (x .:? "CloudWatchLogGroupName")
-            <*> (x .:? "CloudWatchOutputEnabled")
+            Lude.<$> (x Lude..:? "CloudWatchLogGroupName")
+            Lude.<*> (x Lude..:? "CloudWatchOutputEnabled")
       )
 
-instance Hashable CloudWatchOutputConfig
-
-instance NFData CloudWatchOutputConfig
-
-instance ToJSON CloudWatchOutputConfig where
+instance Lude.ToJSON CloudWatchOutputConfig where
   toJSON CloudWatchOutputConfig' {..} =
-    object
-      ( catMaybes
-          [ ("CloudWatchLogGroupName" .=) <$> _cwocCloudWatchLogGroupName,
-            ("CloudWatchOutputEnabled" .=) <$> _cwocCloudWatchOutputEnabled
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CloudWatchLogGroupName" Lude..=)
+              Lude.<$> cloudWatchLogGroupName,
+            ("CloudWatchOutputEnabled" Lude..=)
+              Lude.<$> cloudWatchOutputEnabled
           ]
       )

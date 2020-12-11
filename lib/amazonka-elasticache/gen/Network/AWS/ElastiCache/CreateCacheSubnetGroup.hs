@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,166 @@
 --
 -- Creates a new cache subnet group.
 --
---
 -- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
-  ( -- * Creating a Request
-    createCacheSubnetGroup,
-    CreateCacheSubnetGroup,
+  ( -- * Creating a request
+    CreateCacheSubnetGroup (..),
+    mkCreateCacheSubnetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccsgCacheSubnetGroupName,
     ccsgCacheSubnetGroupDescription,
     ccsgSubnetIds,
 
-    -- * Destructuring the Response
-    createCacheSubnetGroupResponse,
-    CreateCacheSubnetGroupResponse,
+    -- * Destructuring the response
+    CreateCacheSubnetGroupResponse (..),
+    mkCreateCacheSubnetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crsCacheSubnetGroup,
     crsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @CreateCacheSubnetGroup@ operation.
 --
---
---
--- /See:/ 'createCacheSubnetGroup' smart constructor.
+-- /See:/ 'mkCreateCacheSubnetGroup' smart constructor.
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
-  { _ccsgCacheSubnetGroupName ::
-      !Text,
-    _ccsgCacheSubnetGroupDescription :: !Text,
-    _ccsgSubnetIds :: ![Text]
+  { cacheSubnetGroupName ::
+      Lude.Text,
+    cacheSubnetGroupDescription :: Lude.Text,
+    subnetIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCacheSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheSubnetGroupDescription' - A description for the cache subnet group.
+-- * 'cacheSubnetGroupName' - A name for the cache subnet group. This value is stored as a lowercase string.
 --
--- * 'ccsgCacheSubnetGroupName' - A name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
---
--- * 'ccsgCacheSubnetGroupDescription' - A description for the cache subnet group.
---
--- * 'ccsgSubnetIds' - A list of VPC subnet IDs for the cache subnet group.
-createCacheSubnetGroup ::
-  -- | 'ccsgCacheSubnetGroupName'
-  Text ->
-  -- | 'ccsgCacheSubnetGroupDescription'
-  Text ->
+-- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
+-- Example: @mysubnetgroup@
+-- * 'subnetIds' - A list of VPC subnet IDs for the cache subnet group.
+mkCreateCacheSubnetGroup ::
+  -- | 'cacheSubnetGroupName'
+  Lude.Text ->
+  -- | 'cacheSubnetGroupDescription'
+  Lude.Text ->
   CreateCacheSubnetGroup
-createCacheSubnetGroup
+mkCreateCacheSubnetGroup
   pCacheSubnetGroupName_
   pCacheSubnetGroupDescription_ =
     CreateCacheSubnetGroup'
-      { _ccsgCacheSubnetGroupName =
+      { cacheSubnetGroupName =
           pCacheSubnetGroupName_,
-        _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_,
-        _ccsgSubnetIds = mempty
+        cacheSubnetGroupDescription = pCacheSubnetGroupDescription_,
+        subnetIds = Lude.mempty
       }
 
--- | A name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
-ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
-ccsgCacheSubnetGroupName = lens _ccsgCacheSubnetGroupName (\s a -> s {_ccsgCacheSubnetGroupName = a})
+-- | A name for the cache subnet group. This value is stored as a lowercase string.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
+-- Example: @mysubnetgroup@
+--
+-- /Note:/ Consider using 'cacheSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsgCacheSubnetGroupName :: Lens.Lens' CreateCacheSubnetGroup Lude.Text
+ccsgCacheSubnetGroupName = Lens.lens (cacheSubnetGroupName :: CreateCacheSubnetGroup -> Lude.Text) (\s a -> s {cacheSubnetGroupName = a} :: CreateCacheSubnetGroup)
+{-# DEPRECATED ccsgCacheSubnetGroupName "Use generic-lens or generic-optics with 'cacheSubnetGroupName' instead." #-}
 
 -- | A description for the cache subnet group.
-ccsgCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
-ccsgCacheSubnetGroupDescription = lens _ccsgCacheSubnetGroupDescription (\s a -> s {_ccsgCacheSubnetGroupDescription = a})
+--
+-- /Note:/ Consider using 'cacheSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsgCacheSubnetGroupDescription :: Lens.Lens' CreateCacheSubnetGroup Lude.Text
+ccsgCacheSubnetGroupDescription = Lens.lens (cacheSubnetGroupDescription :: CreateCacheSubnetGroup -> Lude.Text) (\s a -> s {cacheSubnetGroupDescription = a} :: CreateCacheSubnetGroup)
+{-# DEPRECATED ccsgCacheSubnetGroupDescription "Use generic-lens or generic-optics with 'cacheSubnetGroupDescription' instead." #-}
 
 -- | A list of VPC subnet IDs for the cache subnet group.
-ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s {_ccsgSubnetIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsgSubnetIds :: Lens.Lens' CreateCacheSubnetGroup [Lude.Text]
+ccsgSubnetIds = Lens.lens (subnetIds :: CreateCacheSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateCacheSubnetGroup)
+{-# DEPRECATED ccsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance AWSRequest CreateCacheSubnetGroup where
+instance Lude.AWSRequest CreateCacheSubnetGroup where
   type Rs CreateCacheSubnetGroup = CreateCacheSubnetGroupResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateCacheSubnetGroupResult"
       ( \s h x ->
           CreateCacheSubnetGroupResponse'
-            <$> (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "CacheSubnetGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCacheSubnetGroup
+instance Lude.ToHeaders CreateCacheSubnetGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateCacheSubnetGroup
+instance Lude.ToPath CreateCacheSubnetGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateCacheSubnetGroup where
-  toHeaders = const mempty
-
-instance ToPath CreateCacheSubnetGroup where
-  toPath = const "/"
-
-instance ToQuery CreateCacheSubnetGroup where
+instance Lude.ToQuery CreateCacheSubnetGroup where
   toQuery CreateCacheSubnetGroup' {..} =
-    mconcat
-      [ "Action" =: ("CreateCacheSubnetGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "CacheSubnetGroupName" =: _ccsgCacheSubnetGroupName,
-        "CacheSubnetGroupDescription" =: _ccsgCacheSubnetGroupDescription,
-        "SubnetIds" =: toQueryList "SubnetIdentifier" _ccsgSubnetIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateCacheSubnetGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "CacheSubnetGroupName" Lude.=: cacheSubnetGroupName,
+        "CacheSubnetGroupDescription" Lude.=: cacheSubnetGroupDescription,
+        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds
       ]
 
--- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateCacheSubnetGroupResponse' smart constructor.
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
-  { _crsCacheSubnetGroup ::
-      !(Maybe CacheSubnetGroup),
-    _crsResponseStatus :: !Int
+  { cacheSubnetGroup ::
+      Lude.Maybe CacheSubnetGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCacheSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsCacheSubnetGroup' - Undocumented member.
---
--- * 'crsResponseStatus' - -- | The response status code.
-createCacheSubnetGroupResponse ::
-  -- | 'crsResponseStatus'
-  Int ->
+-- * 'cacheSubnetGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateCacheSubnetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCacheSubnetGroupResponse
-createCacheSubnetGroupResponse pResponseStatus_ =
+mkCreateCacheSubnetGroupResponse pResponseStatus_ =
   CreateCacheSubnetGroupResponse'
-    { _crsCacheSubnetGroup = Nothing,
-      _crsResponseStatus = pResponseStatus_
+    { cacheSubnetGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\s a -> s {_crsCacheSubnetGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cacheSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsCacheSubnetGroup :: Lens.Lens' CreateCacheSubnetGroupResponse (Lude.Maybe CacheSubnetGroup)
+crsCacheSubnetGroup = Lens.lens (cacheSubnetGroup :: CreateCacheSubnetGroupResponse -> Lude.Maybe CacheSubnetGroup) (\s a -> s {cacheSubnetGroup = a} :: CreateCacheSubnetGroupResponse)
+{-# DEPRECATED crsCacheSubnetGroup "Use generic-lens or generic-optics with 'cacheSubnetGroup' instead." #-}
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' CreateCacheSubnetGroupResponse Int
-crsResponseStatus = lens _crsResponseStatus (\s a -> s {_crsResponseStatus = a})
-
-instance NFData CreateCacheSubnetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsResponseStatus :: Lens.Lens' CreateCacheSubnetGroupResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateCacheSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCacheSubnetGroupResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

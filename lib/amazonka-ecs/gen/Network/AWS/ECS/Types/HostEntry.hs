@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.HostEntry where
+module Network.AWS.ECS.Types.HostEntry
+  ( HostEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHostEntry,
+
+    -- * Lenses
+    heHostname,
+    heIpAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hostnames and IP address entries that are added to the @/etc/hosts@ file of a container via the @extraHosts@ parameter of its 'ContainerDefinition' .
 --
---
---
--- /See:/ 'hostEntry' smart constructor.
+-- /See:/ 'mkHostEntry' smart constructor.
 data HostEntry = HostEntry'
-  { _heHostname :: !Text,
-    _heIpAddress :: !Text
+  { hostname :: Lude.Text,
+    ipAddress :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'heHostname' - The hostname to use in the @/etc/hosts@ entry.
---
--- * 'heIpAddress' - The IP address to use in the @/etc/hosts@ entry.
-hostEntry ::
-  -- | 'heHostname'
-  Text ->
-  -- | 'heIpAddress'
-  Text ->
+-- * 'hostname' - The hostname to use in the @/etc/hosts@ entry.
+-- * 'ipAddress' - The IP address to use in the @/etc/hosts@ entry.
+mkHostEntry ::
+  -- | 'hostname'
+  Lude.Text ->
+  -- | 'ipAddress'
+  Lude.Text ->
   HostEntry
-hostEntry pHostname_ pIpAddress_ =
-  HostEntry' {_heHostname = pHostname_, _heIpAddress = pIpAddress_}
+mkHostEntry pHostname_ pIpAddress_ =
+  HostEntry' {hostname = pHostname_, ipAddress = pIpAddress_}
 
 -- | The hostname to use in the @/etc/hosts@ entry.
-heHostname :: Lens' HostEntry Text
-heHostname = lens _heHostname (\s a -> s {_heHostname = a})
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heHostname :: Lens.Lens' HostEntry Lude.Text
+heHostname = Lens.lens (hostname :: HostEntry -> Lude.Text) (\s a -> s {hostname = a} :: HostEntry)
+{-# DEPRECATED heHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- | The IP address to use in the @/etc/hosts@ entry.
-heIpAddress :: Lens' HostEntry Text
-heIpAddress = lens _heIpAddress (\s a -> s {_heIpAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heIpAddress :: Lens.Lens' HostEntry Lude.Text
+heIpAddress = Lens.lens (ipAddress :: HostEntry -> Lude.Text) (\s a -> s {ipAddress = a} :: HostEntry)
+{-# DEPRECATED heIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
-instance FromJSON HostEntry where
+instance Lude.FromJSON HostEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "HostEntry"
-      (\x -> HostEntry' <$> (x .: "hostname") <*> (x .: "ipAddress"))
+      ( \x ->
+          HostEntry'
+            Lude.<$> (x Lude..: "hostname") Lude.<*> (x Lude..: "ipAddress")
+      )
 
-instance Hashable HostEntry
-
-instance NFData HostEntry
-
-instance ToJSON HostEntry where
+instance Lude.ToJSON HostEntry where
   toJSON HostEntry' {..} =
-    object
-      ( catMaybes
-          [ Just ("hostname" .= _heHostname),
-            Just ("ipAddress" .= _heIpAddress)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("hostname" Lude..= hostname),
+            Lude.Just ("ipAddress" Lude..= ipAddress)
           ]
       )

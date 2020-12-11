@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CrawlerMetrics where
+module Network.AWS.Glue.Types.CrawlerMetrics
+  ( CrawlerMetrics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCrawlerMetrics,
+
+    -- * Lenses
+    cmLastRuntimeSeconds,
+    cmTablesCreated,
+    cmStillEstimating,
+    cmMedianRuntimeSeconds,
+    cmTimeLeftSeconds,
+    cmTablesDeleted,
+    cmTablesUpdated,
+    cmCrawlerName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metrics for a specified crawler.
 --
---
---
--- /See:/ 'crawlerMetrics' smart constructor.
+-- /See:/ 'mkCrawlerMetrics' smart constructor.
 data CrawlerMetrics = CrawlerMetrics'
-  { _cmLastRuntimeSeconds ::
-      !(Maybe Double),
-    _cmTablesCreated :: !(Maybe Nat),
-    _cmStillEstimating :: !(Maybe Bool),
-    _cmMedianRuntimeSeconds :: !(Maybe Double),
-    _cmTimeLeftSeconds :: !(Maybe Double),
-    _cmTablesDeleted :: !(Maybe Nat),
-    _cmTablesUpdated :: !(Maybe Nat),
-    _cmCrawlerName :: !(Maybe Text)
+  { lastRuntimeSeconds ::
+      Lude.Maybe Lude.Double,
+    tablesCreated :: Lude.Maybe Lude.Natural,
+    stillEstimating :: Lude.Maybe Lude.Bool,
+    medianRuntimeSeconds :: Lude.Maybe Lude.Double,
+    timeLeftSeconds :: Lude.Maybe Lude.Double,
+    tablesDeleted :: Lude.Maybe Lude.Natural,
+    tablesUpdated :: Lude.Maybe Lude.Natural,
+    crawlerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrawlerMetrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmLastRuntimeSeconds' - The duration of the crawler's most recent run, in seconds.
---
--- * 'cmTablesCreated' - The number of tables created by this crawler.
---
--- * 'cmStillEstimating' - True if the crawler is still estimating how long it will take to complete this run.
---
--- * 'cmMedianRuntimeSeconds' - The median duration of this crawler's runs, in seconds.
---
--- * 'cmTimeLeftSeconds' - The estimated time left to complete a running crawl.
---
--- * 'cmTablesDeleted' - The number of tables deleted by this crawler.
---
--- * 'cmTablesUpdated' - The number of tables updated by this crawler.
---
--- * 'cmCrawlerName' - The name of the crawler.
-crawlerMetrics ::
+-- * 'crawlerName' - The name of the crawler.
+-- * 'lastRuntimeSeconds' - The duration of the crawler's most recent run, in seconds.
+-- * 'medianRuntimeSeconds' - The median duration of this crawler's runs, in seconds.
+-- * 'stillEstimating' - True if the crawler is still estimating how long it will take to complete this run.
+-- * 'tablesCreated' - The number of tables created by this crawler.
+-- * 'tablesDeleted' - The number of tables deleted by this crawler.
+-- * 'tablesUpdated' - The number of tables updated by this crawler.
+-- * 'timeLeftSeconds' - The estimated time left to complete a running crawl.
+mkCrawlerMetrics ::
   CrawlerMetrics
-crawlerMetrics =
+mkCrawlerMetrics =
   CrawlerMetrics'
-    { _cmLastRuntimeSeconds = Nothing,
-      _cmTablesCreated = Nothing,
-      _cmStillEstimating = Nothing,
-      _cmMedianRuntimeSeconds = Nothing,
-      _cmTimeLeftSeconds = Nothing,
-      _cmTablesDeleted = Nothing,
-      _cmTablesUpdated = Nothing,
-      _cmCrawlerName = Nothing
+    { lastRuntimeSeconds = Lude.Nothing,
+      tablesCreated = Lude.Nothing,
+      stillEstimating = Lude.Nothing,
+      medianRuntimeSeconds = Lude.Nothing,
+      timeLeftSeconds = Lude.Nothing,
+      tablesDeleted = Lude.Nothing,
+      tablesUpdated = Lude.Nothing,
+      crawlerName = Lude.Nothing
     }
 
 -- | The duration of the crawler's most recent run, in seconds.
-cmLastRuntimeSeconds :: Lens' CrawlerMetrics (Maybe Double)
-cmLastRuntimeSeconds = lens _cmLastRuntimeSeconds (\s a -> s {_cmLastRuntimeSeconds = a})
+--
+-- /Note:/ Consider using 'lastRuntimeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmLastRuntimeSeconds :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Double)
+cmLastRuntimeSeconds = Lens.lens (lastRuntimeSeconds :: CrawlerMetrics -> Lude.Maybe Lude.Double) (\s a -> s {lastRuntimeSeconds = a} :: CrawlerMetrics)
+{-# DEPRECATED cmLastRuntimeSeconds "Use generic-lens or generic-optics with 'lastRuntimeSeconds' instead." #-}
 
 -- | The number of tables created by this crawler.
-cmTablesCreated :: Lens' CrawlerMetrics (Maybe Natural)
-cmTablesCreated = lens _cmTablesCreated (\s a -> s {_cmTablesCreated = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'tablesCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmTablesCreated :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Natural)
+cmTablesCreated = Lens.lens (tablesCreated :: CrawlerMetrics -> Lude.Maybe Lude.Natural) (\s a -> s {tablesCreated = a} :: CrawlerMetrics)
+{-# DEPRECATED cmTablesCreated "Use generic-lens or generic-optics with 'tablesCreated' instead." #-}
 
 -- | True if the crawler is still estimating how long it will take to complete this run.
-cmStillEstimating :: Lens' CrawlerMetrics (Maybe Bool)
-cmStillEstimating = lens _cmStillEstimating (\s a -> s {_cmStillEstimating = a})
+--
+-- /Note:/ Consider using 'stillEstimating' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmStillEstimating :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Bool)
+cmStillEstimating = Lens.lens (stillEstimating :: CrawlerMetrics -> Lude.Maybe Lude.Bool) (\s a -> s {stillEstimating = a} :: CrawlerMetrics)
+{-# DEPRECATED cmStillEstimating "Use generic-lens or generic-optics with 'stillEstimating' instead." #-}
 
 -- | The median duration of this crawler's runs, in seconds.
-cmMedianRuntimeSeconds :: Lens' CrawlerMetrics (Maybe Double)
-cmMedianRuntimeSeconds = lens _cmMedianRuntimeSeconds (\s a -> s {_cmMedianRuntimeSeconds = a})
+--
+-- /Note:/ Consider using 'medianRuntimeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmMedianRuntimeSeconds :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Double)
+cmMedianRuntimeSeconds = Lens.lens (medianRuntimeSeconds :: CrawlerMetrics -> Lude.Maybe Lude.Double) (\s a -> s {medianRuntimeSeconds = a} :: CrawlerMetrics)
+{-# DEPRECATED cmMedianRuntimeSeconds "Use generic-lens or generic-optics with 'medianRuntimeSeconds' instead." #-}
 
 -- | The estimated time left to complete a running crawl.
-cmTimeLeftSeconds :: Lens' CrawlerMetrics (Maybe Double)
-cmTimeLeftSeconds = lens _cmTimeLeftSeconds (\s a -> s {_cmTimeLeftSeconds = a})
+--
+-- /Note:/ Consider using 'timeLeftSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmTimeLeftSeconds :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Double)
+cmTimeLeftSeconds = Lens.lens (timeLeftSeconds :: CrawlerMetrics -> Lude.Maybe Lude.Double) (\s a -> s {timeLeftSeconds = a} :: CrawlerMetrics)
+{-# DEPRECATED cmTimeLeftSeconds "Use generic-lens or generic-optics with 'timeLeftSeconds' instead." #-}
 
 -- | The number of tables deleted by this crawler.
-cmTablesDeleted :: Lens' CrawlerMetrics (Maybe Natural)
-cmTablesDeleted = lens _cmTablesDeleted (\s a -> s {_cmTablesDeleted = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'tablesDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmTablesDeleted :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Natural)
+cmTablesDeleted = Lens.lens (tablesDeleted :: CrawlerMetrics -> Lude.Maybe Lude.Natural) (\s a -> s {tablesDeleted = a} :: CrawlerMetrics)
+{-# DEPRECATED cmTablesDeleted "Use generic-lens or generic-optics with 'tablesDeleted' instead." #-}
 
 -- | The number of tables updated by this crawler.
-cmTablesUpdated :: Lens' CrawlerMetrics (Maybe Natural)
-cmTablesUpdated = lens _cmTablesUpdated (\s a -> s {_cmTablesUpdated = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'tablesUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmTablesUpdated :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Natural)
+cmTablesUpdated = Lens.lens (tablesUpdated :: CrawlerMetrics -> Lude.Maybe Lude.Natural) (\s a -> s {tablesUpdated = a} :: CrawlerMetrics)
+{-# DEPRECATED cmTablesUpdated "Use generic-lens or generic-optics with 'tablesUpdated' instead." #-}
 
 -- | The name of the crawler.
-cmCrawlerName :: Lens' CrawlerMetrics (Maybe Text)
-cmCrawlerName = lens _cmCrawlerName (\s a -> s {_cmCrawlerName = a})
+--
+-- /Note:/ Consider using 'crawlerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmCrawlerName :: Lens.Lens' CrawlerMetrics (Lude.Maybe Lude.Text)
+cmCrawlerName = Lens.lens (crawlerName :: CrawlerMetrics -> Lude.Maybe Lude.Text) (\s a -> s {crawlerName = a} :: CrawlerMetrics)
+{-# DEPRECATED cmCrawlerName "Use generic-lens or generic-optics with 'crawlerName' instead." #-}
 
-instance FromJSON CrawlerMetrics where
+instance Lude.FromJSON CrawlerMetrics where
   parseJSON =
-    withObject
+    Lude.withObject
       "CrawlerMetrics"
       ( \x ->
           CrawlerMetrics'
-            <$> (x .:? "LastRuntimeSeconds")
-            <*> (x .:? "TablesCreated")
-            <*> (x .:? "StillEstimating")
-            <*> (x .:? "MedianRuntimeSeconds")
-            <*> (x .:? "TimeLeftSeconds")
-            <*> (x .:? "TablesDeleted")
-            <*> (x .:? "TablesUpdated")
-            <*> (x .:? "CrawlerName")
+            Lude.<$> (x Lude..:? "LastRuntimeSeconds")
+            Lude.<*> (x Lude..:? "TablesCreated")
+            Lude.<*> (x Lude..:? "StillEstimating")
+            Lude.<*> (x Lude..:? "MedianRuntimeSeconds")
+            Lude.<*> (x Lude..:? "TimeLeftSeconds")
+            Lude.<*> (x Lude..:? "TablesDeleted")
+            Lude.<*> (x Lude..:? "TablesUpdated")
+            Lude.<*> (x Lude..:? "CrawlerName")
       )
-
-instance Hashable CrawlerMetrics
-
-instance NFData CrawlerMetrics

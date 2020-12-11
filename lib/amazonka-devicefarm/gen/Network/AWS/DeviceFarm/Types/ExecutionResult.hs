@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.ExecutionResult where
+module Network.AWS.DeviceFarm.Types.ExecutionResult
+  ( ExecutionResult
+      ( ExecutionResult',
+        ERErrored,
+        ERFailed,
+        ERPassed,
+        ERPending,
+        ERSkipped,
+        ERStopped,
+        ERWarned
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionResult
-  = ERErrored
-  | ERFailed
-  | ERPassed
-  | ERPending
-  | ERSkipped
-  | ERStopped
-  | ERWarned
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionResult = ExecutionResult' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionResult where
-  parser =
-    takeLowerText >>= \case
-      "errored" -> pure ERErrored
-      "failed" -> pure ERFailed
-      "passed" -> pure ERPassed
-      "pending" -> pure ERPending
-      "skipped" -> pure ERSkipped
-      "stopped" -> pure ERStopped
-      "warned" -> pure ERWarned
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionResult from value: '" <> e
-            <> "'. Accepted values: errored, failed, passed, pending, skipped, stopped, warned"
+pattern ERErrored :: ExecutionResult
+pattern ERErrored = ExecutionResult' "ERRORED"
 
-instance ToText ExecutionResult where
-  toText = \case
-    ERErrored -> "ERRORED"
-    ERFailed -> "FAILED"
-    ERPassed -> "PASSED"
-    ERPending -> "PENDING"
-    ERSkipped -> "SKIPPED"
-    ERStopped -> "STOPPED"
-    ERWarned -> "WARNED"
+pattern ERFailed :: ExecutionResult
+pattern ERFailed = ExecutionResult' "FAILED"
 
-instance Hashable ExecutionResult
+pattern ERPassed :: ExecutionResult
+pattern ERPassed = ExecutionResult' "PASSED"
 
-instance NFData ExecutionResult
+pattern ERPending :: ExecutionResult
+pattern ERPending = ExecutionResult' "PENDING"
 
-instance ToByteString ExecutionResult
+pattern ERSkipped :: ExecutionResult
+pattern ERSkipped = ExecutionResult' "SKIPPED"
 
-instance ToQuery ExecutionResult
+pattern ERStopped :: ExecutionResult
+pattern ERStopped = ExecutionResult' "STOPPED"
 
-instance ToHeader ExecutionResult
+pattern ERWarned :: ExecutionResult
+pattern ERWarned = ExecutionResult' "WARNED"
 
-instance FromJSON ExecutionResult where
-  parseJSON = parseJSONText "ExecutionResult"
+{-# COMPLETE
+  ERErrored,
+  ERFailed,
+  ERPassed,
+  ERPending,
+  ERSkipped,
+  ERStopped,
+  ERWarned,
+  ExecutionResult'
+  #-}

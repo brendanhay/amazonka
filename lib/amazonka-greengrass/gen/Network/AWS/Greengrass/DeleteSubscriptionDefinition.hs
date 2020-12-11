@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,123 @@
 --
 -- Deletes a subscription definition.
 module Network.AWS.Greengrass.DeleteSubscriptionDefinition
-  ( -- * Creating a Request
-    deleteSubscriptionDefinition,
-    DeleteSubscriptionDefinition,
+  ( -- * Creating a request
+    DeleteSubscriptionDefinition (..),
+    mkDeleteSubscriptionDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsdSubscriptionDefinitionId,
 
-    -- * Destructuring the Response
-    deleteSubscriptionDefinitionResponse,
-    DeleteSubscriptionDefinitionResponse,
+    -- * Destructuring the response
+    DeleteSubscriptionDefinitionResponse (..),
+    mkDeleteSubscriptionDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsdrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSubscriptionDefinition' smart constructor.
+-- | /See:/ 'mkDeleteSubscriptionDefinition' smart constructor.
 newtype DeleteSubscriptionDefinition = DeleteSubscriptionDefinition'
-  { _dsdSubscriptionDefinitionId ::
-      Text
+  { subscriptionDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubscriptionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdSubscriptionDefinitionId' - The ID of the subscription definition.
-deleteSubscriptionDefinition ::
-  -- | 'dsdSubscriptionDefinitionId'
-  Text ->
+-- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+mkDeleteSubscriptionDefinition ::
+  -- | 'subscriptionDefinitionId'
+  Lude.Text ->
   DeleteSubscriptionDefinition
-deleteSubscriptionDefinition pSubscriptionDefinitionId_ =
+mkDeleteSubscriptionDefinition pSubscriptionDefinitionId_ =
   DeleteSubscriptionDefinition'
-    { _dsdSubscriptionDefinitionId =
+    { subscriptionDefinitionId =
         pSubscriptionDefinitionId_
     }
 
 -- | The ID of the subscription definition.
-dsdSubscriptionDefinitionId :: Lens' DeleteSubscriptionDefinition Text
-dsdSubscriptionDefinitionId = lens _dsdSubscriptionDefinitionId (\s a -> s {_dsdSubscriptionDefinitionId = a})
+--
+-- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdSubscriptionDefinitionId :: Lens.Lens' DeleteSubscriptionDefinition Lude.Text
+dsdSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: DeleteSubscriptionDefinition -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: DeleteSubscriptionDefinition)
+{-# DEPRECATED dsdSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
-instance AWSRequest DeleteSubscriptionDefinition where
+instance Lude.AWSRequest DeleteSubscriptionDefinition where
   type
     Rs DeleteSubscriptionDefinition =
       DeleteSubscriptionDefinitionResponse
-  request = delete greengrass
+  request = Req.delete greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteSubscriptionDefinitionResponse' <$> (pure (fromEnum s))
+          DeleteSubscriptionDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSubscriptionDefinition
-
-instance NFData DeleteSubscriptionDefinition
-
-instance ToHeaders DeleteSubscriptionDefinition where
+instance Lude.ToHeaders DeleteSubscriptionDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteSubscriptionDefinition where
+instance Lude.ToPath DeleteSubscriptionDefinition where
   toPath DeleteSubscriptionDefinition' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        toBS _dsdSubscriptionDefinitionId
+        Lude.toBS subscriptionDefinitionId
       ]
 
-instance ToQuery DeleteSubscriptionDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSubscriptionDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSubscriptionDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeleteSubscriptionDefinitionResponse' smart constructor.
 newtype DeleteSubscriptionDefinitionResponse = DeleteSubscriptionDefinitionResponse'
-  { _dsdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdrsResponseStatus' - -- | The response status code.
-deleteSubscriptionDefinitionResponse ::
-  -- | 'dsdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSubscriptionDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSubscriptionDefinitionResponse
-deleteSubscriptionDefinitionResponse pResponseStatus_ =
+mkDeleteSubscriptionDefinitionResponse pResponseStatus_ =
   DeleteSubscriptionDefinitionResponse'
-    { _dsdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dsdrsResponseStatus :: Lens' DeleteSubscriptionDefinitionResponse Int
-dsdrsResponseStatus = lens _dsdrsResponseStatus (\s a -> s {_dsdrsResponseStatus = a})
-
-instance NFData DeleteSubscriptionDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdrsResponseStatus :: Lens.Lens' DeleteSubscriptionDefinitionResponse Lude.Int
+dsdrsResponseStatus = Lens.lens (responseStatus :: DeleteSubscriptionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSubscriptionDefinitionResponse)
+{-# DEPRECATED dsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

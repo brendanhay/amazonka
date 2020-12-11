@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CidrAuthorizationContext where
+module Network.AWS.EC2.Types.CidrAuthorizationContext
+  ( CidrAuthorizationContext (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCidrAuthorizationContext,
+
+    -- * Lenses
+    cacMessage,
+    cacSignature,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides authorization for Amazon to bring a specific IP address range to a specific AWS account using bring your own IP addresses (BYOIP). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip Prepare to Bring Your Address Range to Your AWS Account> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
---
---
--- /See:/ 'cidrAuthorizationContext' smart constructor.
+-- /See:/ 'mkCidrAuthorizationContext' smart constructor.
 data CidrAuthorizationContext = CidrAuthorizationContext'
-  { _cacMessage ::
-      !Text,
-    _cacSignature :: !Text
+  { message ::
+      Lude.Text,
+    signature :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CidrAuthorizationContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cacMessage' - The plain-text authorization message for the prefix and account.
---
--- * 'cacSignature' - The signed authorization message for the prefix and account.
-cidrAuthorizationContext ::
-  -- | 'cacMessage'
-  Text ->
-  -- | 'cacSignature'
-  Text ->
+-- * 'message' - The plain-text authorization message for the prefix and account.
+-- * 'signature' - The signed authorization message for the prefix and account.
+mkCidrAuthorizationContext ::
+  -- | 'message'
+  Lude.Text ->
+  -- | 'signature'
+  Lude.Text ->
   CidrAuthorizationContext
-cidrAuthorizationContext pMessage_ pSignature_ =
+mkCidrAuthorizationContext pMessage_ pSignature_ =
   CidrAuthorizationContext'
-    { _cacMessage = pMessage_,
-      _cacSignature = pSignature_
+    { message = pMessage_,
+      signature = pSignature_
     }
 
 -- | The plain-text authorization message for the prefix and account.
-cacMessage :: Lens' CidrAuthorizationContext Text
-cacMessage = lens _cacMessage (\s a -> s {_cacMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacMessage :: Lens.Lens' CidrAuthorizationContext Lude.Text
+cacMessage = Lens.lens (message :: CidrAuthorizationContext -> Lude.Text) (\s a -> s {message = a} :: CidrAuthorizationContext)
+{-# DEPRECATED cacMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The signed authorization message for the prefix and account.
-cacSignature :: Lens' CidrAuthorizationContext Text
-cacSignature = lens _cacSignature (\s a -> s {_cacSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacSignature :: Lens.Lens' CidrAuthorizationContext Lude.Text
+cacSignature = Lens.lens (signature :: CidrAuthorizationContext -> Lude.Text) (\s a -> s {signature = a} :: CidrAuthorizationContext)
+{-# DEPRECATED cacSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
-instance Hashable CidrAuthorizationContext
-
-instance NFData CidrAuthorizationContext
-
-instance ToQuery CidrAuthorizationContext where
+instance Lude.ToQuery CidrAuthorizationContext where
   toQuery CidrAuthorizationContext' {..} =
-    mconcat ["Message" =: _cacMessage, "Signature" =: _cacSignature]
+    Lude.mconcat
+      ["Message" Lude.=: message, "Signature" Lude.=: signature]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,149 @@
 --
 -- Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListTopics@ call to get further results.
 --
---
 -- This action is throttled at 30 transactions per second (TPS).
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListTopics
-  ( -- * Creating a Request
-    listTopics,
-    ListTopics,
+  ( -- * Creating a request
+    ListTopics (..),
+    mkListTopics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
 
-    -- * Destructuring the Response
-    listTopicsResponse,
-    ListTopicsResponse,
+    -- * Destructuring the response
+    ListTopicsResponse (..),
+    mkListTopicsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTopics,
     ltrsNextToken,
     ltrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
--- | /See:/ 'listTopics' smart constructor.
-newtype ListTopics = ListTopics' {_ltNextToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkListTopics' smart constructor.
+newtype ListTopics = ListTopics' {nextToken :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - Token returned by the previous @ListTopics@ request.
-listTopics ::
+-- * 'nextToken' - Token returned by the previous @ListTopics@ request.
+mkListTopics ::
   ListTopics
-listTopics = ListTopics' {_ltNextToken = Nothing}
+mkListTopics = ListTopics' {nextToken = Lude.Nothing}
 
 -- | Token returned by the previous @ListTopics@ request.
-ltNextToken :: Lens' ListTopics (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTopics (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTopics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopics)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListTopics where
+instance Page.AWSPager ListTopics where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsTopics) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTopics) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListTopics where
+instance Lude.AWSRequest ListTopics where
   type Rs ListTopics = ListTopicsResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTopicsResult"
       ( \s h x ->
           ListTopicsResponse'
-            <$> (x .@? "Topics" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Topics" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTopics
+instance Lude.ToHeaders ListTopics where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTopics
+instance Lude.ToPath ListTopics where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTopics where
-  toHeaders = const mempty
-
-instance ToPath ListTopics where
-  toPath = const "/"
-
-instance ToQuery ListTopics where
+instance Lude.ToQuery ListTopics where
   toQuery ListTopics' {..} =
-    mconcat
-      [ "Action" =: ("ListTopics" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "NextToken" =: _ltNextToken
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTopics" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken
       ]
 
 -- | Response for ListTopics action.
 --
---
---
--- /See:/ 'listTopicsResponse' smart constructor.
+-- /See:/ 'mkListTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-  { _ltrsTopics ::
-      !(Maybe [Topic]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { topics ::
+      Lude.Maybe [Topic],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTopics' - A list of topic ARNs.
---
--- * 'ltrsNextToken' - Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTopicsResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
+-- * 'responseStatus' - The response status code.
+-- * 'topics' - A list of topic ARNs.
+mkListTopicsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTopicsResponse
-listTopicsResponse pResponseStatus_ =
+mkListTopicsResponse pResponseStatus_ =
   ListTopicsResponse'
-    { _ltrsTopics = Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { topics = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of topic ARNs.
-ltrsTopics :: Lens' ListTopicsResponse [Topic]
-ltrsTopics = lens _ltrsTopics (\s a -> s {_ltrsTopics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'topics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTopics :: Lens.Lens' ListTopicsResponse (Lude.Maybe [Topic])
+ltrsTopics = Lens.lens (topics :: ListTopicsResponse -> Lude.Maybe [Topic]) (\s a -> s {topics = a} :: ListTopicsResponse)
+{-# DEPRECATED ltrsTopics "Use generic-lens or generic-optics with 'topics' instead." #-}
 
 -- | Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
-ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTopicsResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTopicsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicsResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTopicsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTopicsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTopicsResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTopicsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTopicsResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

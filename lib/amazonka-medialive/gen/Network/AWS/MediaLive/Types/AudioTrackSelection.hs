@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioTrackSelection where
+module Network.AWS.MediaLive.Types.AudioTrackSelection
+  ( AudioTrackSelection (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioTrackSelection,
+
+    -- * Lenses
+    atsTracks,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioTrack
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Track Selection
 --
--- /See:/ 'audioTrackSelection' smart constructor.
+-- /See:/ 'mkAudioTrackSelection' smart constructor.
 newtype AudioTrackSelection = AudioTrackSelection'
-  { _atsTracks ::
+  { tracks ::
       [AudioTrack]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioTrackSelection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atsTracks' - Selects one or more unique audio tracks from within a source.
-audioTrackSelection ::
+-- * 'tracks' - Selects one or more unique audio tracks from within a source.
+mkAudioTrackSelection ::
   AudioTrackSelection
-audioTrackSelection = AudioTrackSelection' {_atsTracks = mempty}
+mkAudioTrackSelection = AudioTrackSelection' {tracks = Lude.mempty}
 
 -- | Selects one or more unique audio tracks from within a source.
-atsTracks :: Lens' AudioTrackSelection [AudioTrack]
-atsTracks = lens _atsTracks (\s a -> s {_atsTracks = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tracks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsTracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
+atsTracks = Lens.lens (tracks :: AudioTrackSelection -> [AudioTrack]) (\s a -> s {tracks = a} :: AudioTrackSelection)
+{-# DEPRECATED atsTracks "Use generic-lens or generic-optics with 'tracks' instead." #-}
 
-instance FromJSON AudioTrackSelection where
+instance Lude.FromJSON AudioTrackSelection where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioTrackSelection"
-      (\x -> AudioTrackSelection' <$> (x .:? "tracks" .!= mempty))
+      ( \x ->
+          AudioTrackSelection'
+            Lude.<$> (x Lude..:? "tracks" Lude..!= Lude.mempty)
+      )
 
-instance Hashable AudioTrackSelection
-
-instance NFData AudioTrackSelection
-
-instance ToJSON AudioTrackSelection where
+instance Lude.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =
-    object (catMaybes [Just ("tracks" .= _atsTracks)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("tracks" Lude..= tracks)])

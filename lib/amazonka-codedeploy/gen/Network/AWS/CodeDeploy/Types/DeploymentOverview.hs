@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentOverview where
+module Network.AWS.CodeDeploy.Types.DeploymentOverview
+  ( DeploymentOverview (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeploymentOverview,
+
+    -- * Lenses
+    doPending,
+    doSkipped,
+    doInProgress,
+    doSucceeded,
+    doReady,
+    doFailed,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the deployment status of the instances in the deployment.
 --
---
---
--- /See:/ 'deploymentOverview' smart constructor.
+-- /See:/ 'mkDeploymentOverview' smart constructor.
 data DeploymentOverview = DeploymentOverview'
-  { _doPending ::
-      !(Maybe Integer),
-    _doSkipped :: !(Maybe Integer),
-    _doInProgress :: !(Maybe Integer),
-    _doSucceeded :: !(Maybe Integer),
-    _doReady :: !(Maybe Integer),
-    _doFailed :: !(Maybe Integer)
+  { pending ::
+      Lude.Maybe Lude.Integer,
+    skipped :: Lude.Maybe Lude.Integer,
+    inProgress :: Lude.Maybe Lude.Integer,
+    succeeded :: Lude.Maybe Lude.Integer,
+    ready :: Lude.Maybe Lude.Integer,
+    failed :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentOverview' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doPending' - The number of instances in the deployment in a pending state.
---
--- * 'doSkipped' - The number of instances in the deployment in a skipped state.
---
--- * 'doInProgress' - The number of instances in which the deployment is in progress.
---
--- * 'doSucceeded' - The number of instances in the deployment to which revisions have been successfully deployed.
---
--- * 'doReady' - The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
---
--- * 'doFailed' - The number of instances in the deployment in a failed state.
-deploymentOverview ::
+-- * 'failed' - The number of instances in the deployment in a failed state.
+-- * 'inProgress' - The number of instances in which the deployment is in progress.
+-- * 'pending' - The number of instances in the deployment in a pending state.
+-- * 'ready' - The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
+-- * 'skipped' - The number of instances in the deployment in a skipped state.
+-- * 'succeeded' - The number of instances in the deployment to which revisions have been successfully deployed.
+mkDeploymentOverview ::
   DeploymentOverview
-deploymentOverview =
+mkDeploymentOverview =
   DeploymentOverview'
-    { _doPending = Nothing,
-      _doSkipped = Nothing,
-      _doInProgress = Nothing,
-      _doSucceeded = Nothing,
-      _doReady = Nothing,
-      _doFailed = Nothing
+    { pending = Lude.Nothing,
+      skipped = Lude.Nothing,
+      inProgress = Lude.Nothing,
+      succeeded = Lude.Nothing,
+      ready = Lude.Nothing,
+      failed = Lude.Nothing
     }
 
 -- | The number of instances in the deployment in a pending state.
-doPending :: Lens' DeploymentOverview (Maybe Integer)
-doPending = lens _doPending (\s a -> s {_doPending = a})
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doPending :: Lens.Lens' DeploymentOverview (Lude.Maybe Lude.Integer)
+doPending = Lens.lens (pending :: DeploymentOverview -> Lude.Maybe Lude.Integer) (\s a -> s {pending = a} :: DeploymentOverview)
+{-# DEPRECATED doPending "Use generic-lens or generic-optics with 'pending' instead." #-}
 
 -- | The number of instances in the deployment in a skipped state.
-doSkipped :: Lens' DeploymentOverview (Maybe Integer)
-doSkipped = lens _doSkipped (\s a -> s {_doSkipped = a})
+--
+-- /Note:/ Consider using 'skipped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doSkipped :: Lens.Lens' DeploymentOverview (Lude.Maybe Lude.Integer)
+doSkipped = Lens.lens (skipped :: DeploymentOverview -> Lude.Maybe Lude.Integer) (\s a -> s {skipped = a} :: DeploymentOverview)
+{-# DEPRECATED doSkipped "Use generic-lens or generic-optics with 'skipped' instead." #-}
 
 -- | The number of instances in which the deployment is in progress.
-doInProgress :: Lens' DeploymentOverview (Maybe Integer)
-doInProgress = lens _doInProgress (\s a -> s {_doInProgress = a})
+--
+-- /Note:/ Consider using 'inProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doInProgress :: Lens.Lens' DeploymentOverview (Lude.Maybe Lude.Integer)
+doInProgress = Lens.lens (inProgress :: DeploymentOverview -> Lude.Maybe Lude.Integer) (\s a -> s {inProgress = a} :: DeploymentOverview)
+{-# DEPRECATED doInProgress "Use generic-lens or generic-optics with 'inProgress' instead." #-}
 
 -- | The number of instances in the deployment to which revisions have been successfully deployed.
-doSucceeded :: Lens' DeploymentOverview (Maybe Integer)
-doSucceeded = lens _doSucceeded (\s a -> s {_doSucceeded = a})
+--
+-- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doSucceeded :: Lens.Lens' DeploymentOverview (Lude.Maybe Lude.Integer)
+doSucceeded = Lens.lens (succeeded :: DeploymentOverview -> Lude.Maybe Lude.Integer) (\s a -> s {succeeded = a} :: DeploymentOverview)
+{-# DEPRECATED doSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
-doReady :: Lens' DeploymentOverview (Maybe Integer)
-doReady = lens _doReady (\s a -> s {_doReady = a})
+--
+-- /Note:/ Consider using 'ready' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doReady :: Lens.Lens' DeploymentOverview (Lude.Maybe Lude.Integer)
+doReady = Lens.lens (ready :: DeploymentOverview -> Lude.Maybe Lude.Integer) (\s a -> s {ready = a} :: DeploymentOverview)
+{-# DEPRECATED doReady "Use generic-lens or generic-optics with 'ready' instead." #-}
 
 -- | The number of instances in the deployment in a failed state.
-doFailed :: Lens' DeploymentOverview (Maybe Integer)
-doFailed = lens _doFailed (\s a -> s {_doFailed = a})
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doFailed :: Lens.Lens' DeploymentOverview (Lude.Maybe Lude.Integer)
+doFailed = Lens.lens (failed :: DeploymentOverview -> Lude.Maybe Lude.Integer) (\s a -> s {failed = a} :: DeploymentOverview)
+{-# DEPRECATED doFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
-instance FromJSON DeploymentOverview where
+instance Lude.FromJSON DeploymentOverview where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeploymentOverview"
       ( \x ->
           DeploymentOverview'
-            <$> (x .:? "Pending")
-            <*> (x .:? "Skipped")
-            <*> (x .:? "InProgress")
-            <*> (x .:? "Succeeded")
-            <*> (x .:? "Ready")
-            <*> (x .:? "Failed")
+            Lude.<$> (x Lude..:? "Pending")
+            Lude.<*> (x Lude..:? "Skipped")
+            Lude.<*> (x Lude..:? "InProgress")
+            Lude.<*> (x Lude..:? "Succeeded")
+            Lude.<*> (x Lude..:? "Ready")
+            Lude.<*> (x Lude..:? "Failed")
       )
-
-instance Hashable DeploymentOverview
-
-instance NFData DeploymentOverview

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation where
+module Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
+  ( InstanceNetworkInterfaceAssociation (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceNetworkInterfaceAssociation,
+
+    -- * Lenses
+    iniaPublicDNSName,
+    iniaCarrierIP,
+    iniaIPOwnerId,
+    iniaPublicIP,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes association information for an Elastic IP address (IPv4).
 --
---
---
--- /See:/ 'instanceNetworkInterfaceAssociation' smart constructor.
+-- /See:/ 'mkInstanceNetworkInterfaceAssociation' smart constructor.
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
-  { _iniaPublicDNSName ::
-      !(Maybe Text),
-    _iniaCarrierIP ::
-      !(Maybe Text),
-    _iniaIPOwnerId ::
-      !(Maybe Text),
-    _iniaPublicIP ::
-      !(Maybe Text)
+  { publicDNSName ::
+      Lude.Maybe
+        Lude.Text,
+    carrierIP ::
+      Lude.Maybe
+        Lude.Text,
+    ipOwnerId ::
+      Lude.Maybe
+        Lude.Text,
+    publicIP ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworkInterfaceAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iniaPublicDNSName' - The public DNS name.
---
--- * 'iniaCarrierIP' - The carrier IP address associated with the network interface.
---
--- * 'iniaIPOwnerId' - The ID of the owner of the Elastic IP address.
---
--- * 'iniaPublicIP' - The public IP address or Elastic IP address bound to the network interface.
-instanceNetworkInterfaceAssociation ::
+-- * 'carrierIP' - The carrier IP address associated with the network interface.
+-- * 'ipOwnerId' - The ID of the owner of the Elastic IP address.
+-- * 'publicDNSName' - The public DNS name.
+-- * 'publicIP' - The public IP address or Elastic IP address bound to the network interface.
+mkInstanceNetworkInterfaceAssociation ::
   InstanceNetworkInterfaceAssociation
-instanceNetworkInterfaceAssociation =
+mkInstanceNetworkInterfaceAssociation =
   InstanceNetworkInterfaceAssociation'
-    { _iniaPublicDNSName =
-        Nothing,
-      _iniaCarrierIP = Nothing,
-      _iniaIPOwnerId = Nothing,
-      _iniaPublicIP = Nothing
+    { publicDNSName =
+        Lude.Nothing,
+      carrierIP = Lude.Nothing,
+      ipOwnerId = Lude.Nothing,
+      publicIP = Lude.Nothing
     }
 
 -- | The public DNS name.
-iniaPublicDNSName :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
-iniaPublicDNSName = lens _iniaPublicDNSName (\s a -> s {_iniaPublicDNSName = a})
+--
+-- /Note:/ Consider using 'publicDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniaPublicDNSName :: Lens.Lens' InstanceNetworkInterfaceAssociation (Lude.Maybe Lude.Text)
+iniaPublicDNSName = Lens.lens (publicDNSName :: InstanceNetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {publicDNSName = a} :: InstanceNetworkInterfaceAssociation)
+{-# DEPRECATED iniaPublicDNSName "Use generic-lens or generic-optics with 'publicDNSName' instead." #-}
 
 -- | The carrier IP address associated with the network interface.
-iniaCarrierIP :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
-iniaCarrierIP = lens _iniaCarrierIP (\s a -> s {_iniaCarrierIP = a})
+--
+-- /Note:/ Consider using 'carrierIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniaCarrierIP :: Lens.Lens' InstanceNetworkInterfaceAssociation (Lude.Maybe Lude.Text)
+iniaCarrierIP = Lens.lens (carrierIP :: InstanceNetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {carrierIP = a} :: InstanceNetworkInterfaceAssociation)
+{-# DEPRECATED iniaCarrierIP "Use generic-lens or generic-optics with 'carrierIP' instead." #-}
 
 -- | The ID of the owner of the Elastic IP address.
-iniaIPOwnerId :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
-iniaIPOwnerId = lens _iniaIPOwnerId (\s a -> s {_iniaIPOwnerId = a})
+--
+-- /Note:/ Consider using 'ipOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniaIPOwnerId :: Lens.Lens' InstanceNetworkInterfaceAssociation (Lude.Maybe Lude.Text)
+iniaIPOwnerId = Lens.lens (ipOwnerId :: InstanceNetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {ipOwnerId = a} :: InstanceNetworkInterfaceAssociation)
+{-# DEPRECATED iniaIPOwnerId "Use generic-lens or generic-optics with 'ipOwnerId' instead." #-}
 
 -- | The public IP address or Elastic IP address bound to the network interface.
-iniaPublicIP :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
-iniaPublicIP = lens _iniaPublicIP (\s a -> s {_iniaPublicIP = a})
+--
+-- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniaPublicIP :: Lens.Lens' InstanceNetworkInterfaceAssociation (Lude.Maybe Lude.Text)
+iniaPublicIP = Lens.lens (publicIP :: InstanceNetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: InstanceNetworkInterfaceAssociation)
+{-# DEPRECATED iniaPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
-instance FromXML InstanceNetworkInterfaceAssociation where
+instance Lude.FromXML InstanceNetworkInterfaceAssociation where
   parseXML x =
     InstanceNetworkInterfaceAssociation'
-      <$> (x .@? "publicDnsName")
-      <*> (x .@? "carrierIp")
-      <*> (x .@? "ipOwnerId")
-      <*> (x .@? "publicIp")
-
-instance Hashable InstanceNetworkInterfaceAssociation
-
-instance NFData InstanceNetworkInterfaceAssociation
+      Lude.<$> (x Lude..@? "publicDnsName")
+      Lude.<*> (x Lude..@? "carrierIp")
+      Lude.<*> (x Lude..@? "ipOwnerId")
+      Lude.<*> (x Lude..@? "publicIp")

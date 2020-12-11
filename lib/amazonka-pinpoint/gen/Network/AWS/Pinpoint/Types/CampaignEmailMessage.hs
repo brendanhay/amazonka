@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.CampaignEmailMessage where
+module Network.AWS.Pinpoint.Types.CampaignEmailMessage
+  ( CampaignEmailMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCampaignEmailMessage,
+
+    -- * Lenses
+    cemBody,
+    cemFromAddress,
+    cemHTMLBody,
+    cemTitle,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the content and "From" address for an email message that's sent to recipients of a campaign.
 --
---
---
--- /See:/ 'campaignEmailMessage' smart constructor.
+-- /See:/ 'mkCampaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
-  { _cemBody ::
-      !(Maybe Text),
-    _cemFromAddress :: !(Maybe Text),
-    _cemHTMLBody :: !(Maybe Text),
-    _cemTitle :: !(Maybe Text)
+  { body ::
+      Lude.Maybe Lude.Text,
+    fromAddress :: Lude.Maybe Lude.Text,
+    htmlBody :: Lude.Maybe Lude.Text,
+    title :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignEmailMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cemBody' - The body of the email for recipients whose email clients don't render HTML content.
---
--- * 'cemFromAddress' - The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.
---
--- * 'cemHTMLBody' - The body of the email, in HTML format, for recipients whose email clients render HTML content.
---
--- * 'cemTitle' - The subject line, or title, of the email.
-campaignEmailMessage ::
+-- * 'body' - The body of the email for recipients whose email clients don't render HTML content.
+-- * 'fromAddress' - The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.
+-- * 'htmlBody' - The body of the email, in HTML format, for recipients whose email clients render HTML content.
+-- * 'title' - The subject line, or title, of the email.
+mkCampaignEmailMessage ::
   CampaignEmailMessage
-campaignEmailMessage =
+mkCampaignEmailMessage =
   CampaignEmailMessage'
-    { _cemBody = Nothing,
-      _cemFromAddress = Nothing,
-      _cemHTMLBody = Nothing,
-      _cemTitle = Nothing
+    { body = Lude.Nothing,
+      fromAddress = Lude.Nothing,
+      htmlBody = Lude.Nothing,
+      title = Lude.Nothing
     }
 
 -- | The body of the email for recipients whose email clients don't render HTML content.
-cemBody :: Lens' CampaignEmailMessage (Maybe Text)
-cemBody = lens _cemBody (\s a -> s {_cemBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemBody :: Lens.Lens' CampaignEmailMessage (Lude.Maybe Lude.Text)
+cemBody = Lens.lens (body :: CampaignEmailMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: CampaignEmailMessage)
+{-# DEPRECATED cemBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.
-cemFromAddress :: Lens' CampaignEmailMessage (Maybe Text)
-cemFromAddress = lens _cemFromAddress (\s a -> s {_cemFromAddress = a})
+--
+-- /Note:/ Consider using 'fromAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemFromAddress :: Lens.Lens' CampaignEmailMessage (Lude.Maybe Lude.Text)
+cemFromAddress = Lens.lens (fromAddress :: CampaignEmailMessage -> Lude.Maybe Lude.Text) (\s a -> s {fromAddress = a} :: CampaignEmailMessage)
+{-# DEPRECATED cemFromAddress "Use generic-lens or generic-optics with 'fromAddress' instead." #-}
 
 -- | The body of the email, in HTML format, for recipients whose email clients render HTML content.
-cemHTMLBody :: Lens' CampaignEmailMessage (Maybe Text)
-cemHTMLBody = lens _cemHTMLBody (\s a -> s {_cemHTMLBody = a})
+--
+-- /Note:/ Consider using 'htmlBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemHTMLBody :: Lens.Lens' CampaignEmailMessage (Lude.Maybe Lude.Text)
+cemHTMLBody = Lens.lens (htmlBody :: CampaignEmailMessage -> Lude.Maybe Lude.Text) (\s a -> s {htmlBody = a} :: CampaignEmailMessage)
+{-# DEPRECATED cemHTMLBody "Use generic-lens or generic-optics with 'htmlBody' instead." #-}
 
 -- | The subject line, or title, of the email.
-cemTitle :: Lens' CampaignEmailMessage (Maybe Text)
-cemTitle = lens _cemTitle (\s a -> s {_cemTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemTitle :: Lens.Lens' CampaignEmailMessage (Lude.Maybe Lude.Text)
+cemTitle = Lens.lens (title :: CampaignEmailMessage -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: CampaignEmailMessage)
+{-# DEPRECATED cemTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
-instance FromJSON CampaignEmailMessage where
+instance Lude.FromJSON CampaignEmailMessage where
   parseJSON =
-    withObject
+    Lude.withObject
       "CampaignEmailMessage"
       ( \x ->
           CampaignEmailMessage'
-            <$> (x .:? "Body")
-            <*> (x .:? "FromAddress")
-            <*> (x .:? "HtmlBody")
-            <*> (x .:? "Title")
+            Lude.<$> (x Lude..:? "Body")
+            Lude.<*> (x Lude..:? "FromAddress")
+            Lude.<*> (x Lude..:? "HtmlBody")
+            Lude.<*> (x Lude..:? "Title")
       )
 
-instance Hashable CampaignEmailMessage
-
-instance NFData CampaignEmailMessage
-
-instance ToJSON CampaignEmailMessage where
+instance Lude.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =
-    object
-      ( catMaybes
-          [ ("Body" .=) <$> _cemBody,
-            ("FromAddress" .=) <$> _cemFromAddress,
-            ("HtmlBody" .=) <$> _cemHTMLBody,
-            ("Title" .=) <$> _cemTitle
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Body" Lude..=) Lude.<$> body,
+            ("FromAddress" Lude..=) Lude.<$> fromAddress,
+            ("HtmlBody" Lude..=) Lude.<$> htmlBody,
+            ("Title" Lude..=) Lude.<$> title
           ]
       )

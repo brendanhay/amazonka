@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,178 @@
 --
 -- Updates a partition.
 module Network.AWS.Glue.UpdatePartition
-  ( -- * Creating a Request
-    updatePartition,
-    UpdatePartition,
+  ( -- * Creating a request
+    UpdatePartition (..),
+    mkUpdatePartition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upCatalogId,
     upDatabaseName,
     upTableName,
     upPartitionValueList,
     upPartitionInput,
 
-    -- * Destructuring the Response
-    updatePartitionResponse,
-    UpdatePartitionResponse,
+    -- * Destructuring the response
+    UpdatePartitionResponse (..),
+    mkUpdatePartitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePartition' smart constructor.
+-- | /See:/ 'mkUpdatePartition' smart constructor.
 data UpdatePartition = UpdatePartition'
-  { _upCatalogId ::
-      !(Maybe Text),
-    _upDatabaseName :: !Text,
-    _upTableName :: !Text,
-    _upPartitionValueList :: ![Text],
-    _upPartitionInput :: !PartitionInput
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text,
+    partitionValueList :: [Lude.Text],
+    partitionInput :: PartitionInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePartition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'catalogId' - The ID of the Data Catalog where the partition to be updated resides. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the catalog database in which the table in question resides.
+-- * 'partitionInput' - The new partition object to update the partition to.
 --
--- * 'upCatalogId' - The ID of the Data Catalog where the partition to be updated resides. If none is provided, the AWS account ID is used by default.
---
--- * 'upDatabaseName' - The name of the catalog database in which the table in question resides.
---
--- * 'upTableName' - The name of the table in which the partition to be updated is located.
---
--- * 'upPartitionValueList' - List of partition key values that define the partition to update.
---
--- * 'upPartitionInput' - The new partition object to update the partition to. The @Values@ property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.
-updatePartition ::
-  -- | 'upDatabaseName'
-  Text ->
-  -- | 'upTableName'
-  Text ->
-  -- | 'upPartitionInput'
+-- The @Values@ property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.
+-- * 'partitionValueList' - List of partition key values that define the partition to update.
+-- * 'tableName' - The name of the table in which the partition to be updated is located.
+mkUpdatePartition ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'partitionInput'
   PartitionInput ->
   UpdatePartition
-updatePartition pDatabaseName_ pTableName_ pPartitionInput_ =
+mkUpdatePartition pDatabaseName_ pTableName_ pPartitionInput_ =
   UpdatePartition'
-    { _upCatalogId = Nothing,
-      _upDatabaseName = pDatabaseName_,
-      _upTableName = pTableName_,
-      _upPartitionValueList = mempty,
-      _upPartitionInput = pPartitionInput_
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      partitionValueList = Lude.mempty,
+      partitionInput = pPartitionInput_
     }
 
 -- | The ID of the Data Catalog where the partition to be updated resides. If none is provided, the AWS account ID is used by default.
-upCatalogId :: Lens' UpdatePartition (Maybe Text)
-upCatalogId = lens _upCatalogId (\s a -> s {_upCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upCatalogId :: Lens.Lens' UpdatePartition (Lude.Maybe Lude.Text)
+upCatalogId = Lens.lens (catalogId :: UpdatePartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdatePartition)
+{-# DEPRECATED upCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database in which the table in question resides.
-upDatabaseName :: Lens' UpdatePartition Text
-upDatabaseName = lens _upDatabaseName (\s a -> s {_upDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDatabaseName :: Lens.Lens' UpdatePartition Lude.Text
+upDatabaseName = Lens.lens (databaseName :: UpdatePartition -> Lude.Text) (\s a -> s {databaseName = a} :: UpdatePartition)
+{-# DEPRECATED upDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table in which the partition to be updated is located.
-upTableName :: Lens' UpdatePartition Text
-upTableName = lens _upTableName (\s a -> s {_upTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upTableName :: Lens.Lens' UpdatePartition Lude.Text
+upTableName = Lens.lens (tableName :: UpdatePartition -> Lude.Text) (\s a -> s {tableName = a} :: UpdatePartition)
+{-# DEPRECATED upTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | List of partition key values that define the partition to update.
-upPartitionValueList :: Lens' UpdatePartition [Text]
-upPartitionValueList = lens _upPartitionValueList (\s a -> s {_upPartitionValueList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'partitionValueList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPartitionValueList :: Lens.Lens' UpdatePartition [Lude.Text]
+upPartitionValueList = Lens.lens (partitionValueList :: UpdatePartition -> [Lude.Text]) (\s a -> s {partitionValueList = a} :: UpdatePartition)
+{-# DEPRECATED upPartitionValueList "Use generic-lens or generic-optics with 'partitionValueList' instead." #-}
 
--- | The new partition object to update the partition to. The @Values@ property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.
-upPartitionInput :: Lens' UpdatePartition PartitionInput
-upPartitionInput = lens _upPartitionInput (\s a -> s {_upPartitionInput = a})
+-- | The new partition object to update the partition to.
+--
+-- The @Values@ property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.
+--
+-- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPartitionInput :: Lens.Lens' UpdatePartition PartitionInput
+upPartitionInput = Lens.lens (partitionInput :: UpdatePartition -> PartitionInput) (\s a -> s {partitionInput = a} :: UpdatePartition)
+{-# DEPRECATED upPartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
 
-instance AWSRequest UpdatePartition where
+instance Lude.AWSRequest UpdatePartition where
   type Rs UpdatePartition = UpdatePartitionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> UpdatePartitionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdatePartitionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdatePartition
-
-instance NFData UpdatePartition
-
-instance ToHeaders UpdatePartition where
+instance Lude.ToHeaders UpdatePartition where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdatePartition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.UpdatePartition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdatePartition where
+instance Lude.ToJSON UpdatePartition where
   toJSON UpdatePartition' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _upCatalogId,
-            Just ("DatabaseName" .= _upDatabaseName),
-            Just ("TableName" .= _upTableName),
-            Just ("PartitionValueList" .= _upPartitionValueList),
-            Just ("PartitionInput" .= _upPartitionInput)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionValueList" Lude..= partitionValueList),
+            Lude.Just ("PartitionInput" Lude..= partitionInput)
           ]
       )
 
-instance ToPath UpdatePartition where
-  toPath = const "/"
+instance Lude.ToPath UpdatePartition where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdatePartition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePartition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePartitionResponse' smart constructor.
+-- | /See:/ 'mkUpdatePartitionResponse' smart constructor.
 newtype UpdatePartitionResponse = UpdatePartitionResponse'
-  { _uprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePartitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprsResponseStatus' - -- | The response status code.
-updatePartitionResponse ::
-  -- | 'uprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdatePartitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePartitionResponse
-updatePartitionResponse pResponseStatus_ =
-  UpdatePartitionResponse' {_uprsResponseStatus = pResponseStatus_}
+mkUpdatePartitionResponse pResponseStatus_ =
+  UpdatePartitionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdatePartitionResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\s a -> s {_uprsResponseStatus = a})
-
-instance NFData UpdatePartitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsResponseStatus :: Lens.Lens' UpdatePartitionResponse Lude.Int
+uprsResponseStatus = Lens.lens (responseStatus :: UpdatePartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePartitionResponse)
+{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

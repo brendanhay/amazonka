@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Displays the details of the dashboard that you specify.
 --
---
 -- To copy an existing dashboard, use @GetDashboard@ , and then use the data returned within @DashboardBody@ as the template for the new dashboard when you call @PutDashboard@ to create the copy.
 module Network.AWS.CloudWatch.GetDashboard
-  ( -- * Creating a Request
-    getDashboard,
-    GetDashboard,
+  ( -- * Creating a request
+    GetDashboard (..),
+    mkGetDashboard,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdDashboardName,
 
-    -- * Destructuring the Response
-    getDashboardResponse,
-    GetDashboardResponse,
+    -- * Destructuring the response
+    GetDashboardResponse (..),
+    mkGetDashboardResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdrsDashboardName,
     gdrsDashboardBody,
     gdrsDashboardARN,
@@ -42,110 +36,126 @@ module Network.AWS.CloudWatch.GetDashboard
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDashboard' smart constructor.
-newtype GetDashboard = GetDashboard' {_gdDashboardName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetDashboard' smart constructor.
+newtype GetDashboard = GetDashboard' {dashboardName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDashboard' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdDashboardName' - The name of the dashboard to be described.
-getDashboard ::
-  -- | 'gdDashboardName'
-  Text ->
+-- * 'dashboardName' - The name of the dashboard to be described.
+mkGetDashboard ::
+  -- | 'dashboardName'
+  Lude.Text ->
   GetDashboard
-getDashboard pDashboardName_ =
-  GetDashboard' {_gdDashboardName = pDashboardName_}
+mkGetDashboard pDashboardName_ =
+  GetDashboard' {dashboardName = pDashboardName_}
 
 -- | The name of the dashboard to be described.
-gdDashboardName :: Lens' GetDashboard Text
-gdDashboardName = lens _gdDashboardName (\s a -> s {_gdDashboardName = a})
+--
+-- /Note:/ Consider using 'dashboardName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDashboardName :: Lens.Lens' GetDashboard Lude.Text
+gdDashboardName = Lens.lens (dashboardName :: GetDashboard -> Lude.Text) (\s a -> s {dashboardName = a} :: GetDashboard)
+{-# DEPRECATED gdDashboardName "Use generic-lens or generic-optics with 'dashboardName' instead." #-}
 
-instance AWSRequest GetDashboard where
+instance Lude.AWSRequest GetDashboard where
   type Rs GetDashboard = GetDashboardResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetDashboardResult"
       ( \s h x ->
           GetDashboardResponse'
-            <$> (x .@? "DashboardName")
-            <*> (x .@? "DashboardBody")
-            <*> (x .@? "DashboardArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DashboardName")
+            Lude.<*> (x Lude..@? "DashboardBody")
+            Lude.<*> (x Lude..@? "DashboardArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDashboard
+instance Lude.ToHeaders GetDashboard where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetDashboard
+instance Lude.ToPath GetDashboard where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetDashboard where
-  toHeaders = const mempty
-
-instance ToPath GetDashboard where
-  toPath = const "/"
-
-instance ToQuery GetDashboard where
+instance Lude.ToQuery GetDashboard where
   toQuery GetDashboard' {..} =
-    mconcat
-      [ "Action" =: ("GetDashboard" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "DashboardName" =: _gdDashboardName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetDashboard" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "DashboardName" Lude.=: dashboardName
       ]
 
--- | /See:/ 'getDashboardResponse' smart constructor.
+-- | /See:/ 'mkGetDashboardResponse' smart constructor.
 data GetDashboardResponse = GetDashboardResponse'
-  { _gdrsDashboardName ::
-      !(Maybe Text),
-    _gdrsDashboardBody :: !(Maybe Text),
-    _gdrsDashboardARN :: !(Maybe Text),
-    _gdrsResponseStatus :: !Int
+  { dashboardName ::
+      Lude.Maybe Lude.Text,
+    dashboardBody :: Lude.Maybe Lude.Text,
+    dashboardARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDashboardResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdrsDashboardName' - The name of the dashboard.
---
--- * 'gdrsDashboardBody' - The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the @DashboardBody@ syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
---
--- * 'gdrsDashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
---
--- * 'gdrsResponseStatus' - -- | The response status code.
-getDashboardResponse ::
-  -- | 'gdrsResponseStatus'
-  Int ->
+-- * 'dashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
+-- * 'dashboardBody' - The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the @DashboardBody@ syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
+-- * 'dashboardName' - The name of the dashboard.
+-- * 'responseStatus' - The response status code.
+mkGetDashboardResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDashboardResponse
-getDashboardResponse pResponseStatus_ =
+mkGetDashboardResponse pResponseStatus_ =
   GetDashboardResponse'
-    { _gdrsDashboardName = Nothing,
-      _gdrsDashboardBody = Nothing,
-      _gdrsDashboardARN = Nothing,
-      _gdrsResponseStatus = pResponseStatus_
+    { dashboardName = Lude.Nothing,
+      dashboardBody = Lude.Nothing,
+      dashboardARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the dashboard.
-gdrsDashboardName :: Lens' GetDashboardResponse (Maybe Text)
-gdrsDashboardName = lens _gdrsDashboardName (\s a -> s {_gdrsDashboardName = a})
+--
+-- /Note:/ Consider using 'dashboardName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsDashboardName :: Lens.Lens' GetDashboardResponse (Lude.Maybe Lude.Text)
+gdrsDashboardName = Lens.lens (dashboardName :: GetDashboardResponse -> Lude.Maybe Lude.Text) (\s a -> s {dashboardName = a} :: GetDashboardResponse)
+{-# DEPRECATED gdrsDashboardName "Use generic-lens or generic-optics with 'dashboardName' instead." #-}
 
 -- | The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the @DashboardBody@ syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
-gdrsDashboardBody :: Lens' GetDashboardResponse (Maybe Text)
-gdrsDashboardBody = lens _gdrsDashboardBody (\s a -> s {_gdrsDashboardBody = a})
+--
+-- /Note:/ Consider using 'dashboardBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsDashboardBody :: Lens.Lens' GetDashboardResponse (Lude.Maybe Lude.Text)
+gdrsDashboardBody = Lens.lens (dashboardBody :: GetDashboardResponse -> Lude.Maybe Lude.Text) (\s a -> s {dashboardBody = a} :: GetDashboardResponse)
+{-# DEPRECATED gdrsDashboardBody "Use generic-lens or generic-optics with 'dashboardBody' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
-gdrsDashboardARN :: Lens' GetDashboardResponse (Maybe Text)
-gdrsDashboardARN = lens _gdrsDashboardARN (\s a -> s {_gdrsDashboardARN = a})
+--
+-- /Note:/ Consider using 'dashboardARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsDashboardARN :: Lens.Lens' GetDashboardResponse (Lude.Maybe Lude.Text)
+gdrsDashboardARN = Lens.lens (dashboardARN :: GetDashboardResponse -> Lude.Maybe Lude.Text) (\s a -> s {dashboardARN = a} :: GetDashboardResponse)
+{-# DEPRECATED gdrsDashboardARN "Use generic-lens or generic-optics with 'dashboardARN' instead." #-}
 
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDashboardResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\s a -> s {_gdrsResponseStatus = a})
-
-instance NFData GetDashboardResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDashboardResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDashboardResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDashboardResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ListStateFilterAction where
+module Network.AWS.CodeDeploy.Types.ListStateFilterAction
+  ( ListStateFilterAction
+      ( ListStateFilterAction',
+        Exclude,
+        Ignore,
+        Include
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ListStateFilterAction
-  = Exclude
-  | Ignore
-  | Include
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ListStateFilterAction = ListStateFilterAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ListStateFilterAction where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure Exclude
-      "ignore" -> pure Ignore
-      "include" -> pure Include
-      e ->
-        fromTextError $
-          "Failure parsing ListStateFilterAction from value: '" <> e
-            <> "'. Accepted values: exclude, ignore, include"
+pattern Exclude :: ListStateFilterAction
+pattern Exclude = ListStateFilterAction' "exclude"
 
-instance ToText ListStateFilterAction where
-  toText = \case
-    Exclude -> "exclude"
-    Ignore -> "ignore"
-    Include -> "include"
+pattern Ignore :: ListStateFilterAction
+pattern Ignore = ListStateFilterAction' "ignore"
 
-instance Hashable ListStateFilterAction
+pattern Include :: ListStateFilterAction
+pattern Include = ListStateFilterAction' "include"
 
-instance NFData ListStateFilterAction
-
-instance ToByteString ListStateFilterAction
-
-instance ToQuery ListStateFilterAction
-
-instance ToHeader ListStateFilterAction
-
-instance ToJSON ListStateFilterAction where
-  toJSON = toJSONText
+{-# COMPLETE
+  Exclude,
+  Ignore,
+  Include,
+  ListStateFilterAction'
+  #-}

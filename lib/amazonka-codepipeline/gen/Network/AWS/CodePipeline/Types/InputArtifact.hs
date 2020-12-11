@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.InputArtifact where
+module Network.AWS.CodePipeline.Types.InputArtifact
+  ( InputArtifact (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputArtifact,
+
+    -- * Lenses
+    iaName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about an artifact to be worked on, such as a test or build artifact.
 --
---
---
--- /See:/ 'inputArtifact' smart constructor.
-newtype InputArtifact = InputArtifact' {_iaName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkInputArtifact' smart constructor.
+newtype InputArtifact = InputArtifact' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the artifact to be worked on (for example, "My App").
 --
--- * 'iaName' - The name of the artifact to be worked on (for example, "My App"). The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-inputArtifact ::
-  -- | 'iaName'
-  Text ->
+-- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+mkInputArtifact ::
+  -- | 'name'
+  Lude.Text ->
   InputArtifact
-inputArtifact pName_ = InputArtifact' {_iaName = pName_}
+mkInputArtifact pName_ = InputArtifact' {name = pName_}
 
--- | The name of the artifact to be worked on (for example, "My App"). The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-iaName :: Lens' InputArtifact Text
-iaName = lens _iaName (\s a -> s {_iaName = a})
+-- | The name of the artifact to be worked on (for example, "My App").
+--
+-- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaName :: Lens.Lens' InputArtifact Lude.Text
+iaName = Lens.lens (name :: InputArtifact -> Lude.Text) (\s a -> s {name = a} :: InputArtifact)
+{-# DEPRECATED iaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON InputArtifact where
+instance Lude.FromJSON InputArtifact where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputArtifact"
-      (\x -> InputArtifact' <$> (x .: "name"))
+      (\x -> InputArtifact' Lude.<$> (x Lude..: "name"))
 
-instance Hashable InputArtifact
-
-instance NFData InputArtifact
-
-instance ToJSON InputArtifact where
+instance Lude.ToJSON InputArtifact where
   toJSON InputArtifact' {..} =
-    object (catMaybes [Just ("name" .= _iaName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])

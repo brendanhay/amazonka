@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,118 @@
 --
 -- Sets one or more parameters of the specified parameter group to their default values and sets the source values of the parameters to "engine-default". To reset the entire parameter group specify the /ResetAllParameters/ parameter. For parameter changes to take effect you must reboot any associated clusters.
 module Network.AWS.Redshift.ResetClusterParameterGroup
-  ( -- * Creating a Request
-    resetClusterParameterGroup,
-    ResetClusterParameterGroup,
+  ( -- * Creating a request
+    ResetClusterParameterGroup (..),
+    mkResetClusterParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcpgResetAllParameters,
     rcpgParameters,
     rcpgParameterGroupName,
 
-    -- * Destructuring the Response
-    clusterParameterGroupNameMessage,
-    ClusterParameterGroupNameMessage,
+    -- * Destructuring the response
+    ClusterParameterGroupNameMessage (..),
+    mkClusterParameterGroupNameMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpgnmParameterGroupStatus,
     cpgnmParameterGroupName,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'resetClusterParameterGroup' smart constructor.
+-- /See:/ 'mkResetClusterParameterGroup' smart constructor.
 data ResetClusterParameterGroup = ResetClusterParameterGroup'
-  { _rcpgResetAllParameters ::
-      !(Maybe Bool),
-    _rcpgParameters ::
-      !(Maybe [Parameter]),
-    _rcpgParameterGroupName :: !Text
+  { resetAllParameters ::
+      Lude.Maybe Lude.Bool,
+    parameters :: Lude.Maybe [Parameter],
+    parameterGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetClusterParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'parameterGroupName' - The name of the cluster parameter group to be reset.
+-- * 'parameters' - An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.
 --
--- * 'rcpgResetAllParameters' - If @true@ , all parameters in the specified parameter group will be reset to their default values.  Default: @true@
+-- Constraints: A maximum of 20 parameters can be reset in a single request.
+-- * 'resetAllParameters' - If @true@ , all parameters in the specified parameter group will be reset to their default values.
 --
--- * 'rcpgParameters' - An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.  Constraints: A maximum of 20 parameters can be reset in a single request.
---
--- * 'rcpgParameterGroupName' - The name of the cluster parameter group to be reset.
-resetClusterParameterGroup ::
-  -- | 'rcpgParameterGroupName'
-  Text ->
+-- Default: @true@
+mkResetClusterParameterGroup ::
+  -- | 'parameterGroupName'
+  Lude.Text ->
   ResetClusterParameterGroup
-resetClusterParameterGroup pParameterGroupName_ =
+mkResetClusterParameterGroup pParameterGroupName_ =
   ResetClusterParameterGroup'
-    { _rcpgResetAllParameters = Nothing,
-      _rcpgParameters = Nothing,
-      _rcpgParameterGroupName = pParameterGroupName_
+    { resetAllParameters = Lude.Nothing,
+      parameters = Lude.Nothing,
+      parameterGroupName = pParameterGroupName_
     }
 
--- | If @true@ , all parameters in the specified parameter group will be reset to their default values.  Default: @true@
-rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
-rcpgResetAllParameters = lens _rcpgResetAllParameters (\s a -> s {_rcpgResetAllParameters = a})
+-- | If @true@ , all parameters in the specified parameter group will be reset to their default values.
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'resetAllParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcpgResetAllParameters :: Lens.Lens' ResetClusterParameterGroup (Lude.Maybe Lude.Bool)
+rcpgResetAllParameters = Lens.lens (resetAllParameters :: ResetClusterParameterGroup -> Lude.Maybe Lude.Bool) (\s a -> s {resetAllParameters = a} :: ResetClusterParameterGroup)
+{-# DEPRECATED rcpgResetAllParameters "Use generic-lens or generic-optics with 'resetAllParameters' instead." #-}
 
--- | An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.  Constraints: A maximum of 20 parameters can be reset in a single request.
-rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
-rcpgParameters = lens _rcpgParameters (\s a -> s {_rcpgParameters = a}) . _Default . _Coerce
+-- | An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.
+--
+-- Constraints: A maximum of 20 parameters can be reset in a single request.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcpgParameters :: Lens.Lens' ResetClusterParameterGroup (Lude.Maybe [Parameter])
+rcpgParameters = Lens.lens (parameters :: ResetClusterParameterGroup -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: ResetClusterParameterGroup)
+{-# DEPRECATED rcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The name of the cluster parameter group to be reset.
-rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
-rcpgParameterGroupName = lens _rcpgParameterGroupName (\s a -> s {_rcpgParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcpgParameterGroupName :: Lens.Lens' ResetClusterParameterGroup Lude.Text
+rcpgParameterGroupName = Lens.lens (parameterGroupName :: ResetClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: ResetClusterParameterGroup)
+{-# DEPRECATED rcpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance AWSRequest ResetClusterParameterGroup where
+instance Lude.AWSRequest ResetClusterParameterGroup where
   type
     Rs ResetClusterParameterGroup =
       ClusterParameterGroupNameMessage
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ResetClusterParameterGroupResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable ResetClusterParameterGroup
+instance Lude.ToHeaders ResetClusterParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ResetClusterParameterGroup
+instance Lude.ToPath ResetClusterParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ResetClusterParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath ResetClusterParameterGroup where
-  toPath = const "/"
-
-instance ToQuery ResetClusterParameterGroup where
+instance Lude.ToQuery ResetClusterParameterGroup where
   toQuery ResetClusterParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("ResetClusterParameterGroup" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ResetAllParameters" =: _rcpgResetAllParameters,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ResetClusterParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ResetAllParameters" Lude.=: resetAllParameters,
         "Parameters"
-          =: toQuery (toQueryList "Parameter" <$> _rcpgParameters),
-        "ParameterGroupName" =: _rcpgParameterGroupName
+          Lude.=: Lude.toQuery (Lude.toQueryList "Parameter" Lude.<$> parameters),
+        "ParameterGroupName" Lude.=: parameterGroupName
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.AnomalyFeedbackType where
+module Network.AWS.CostExplorer.Types.AnomalyFeedbackType
+  ( AnomalyFeedbackType
+      ( AnomalyFeedbackType',
+        NO,
+        PlannedActivity,
+        Yes
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AnomalyFeedbackType
-  = NO
-  | PlannedActivity
-  | Yes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AnomalyFeedbackType = AnomalyFeedbackType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AnomalyFeedbackType where
-  parser =
-    takeLowerText >>= \case
-      "no" -> pure NO
-      "planned_activity" -> pure PlannedActivity
-      "yes" -> pure Yes
-      e ->
-        fromTextError $
-          "Failure parsing AnomalyFeedbackType from value: '" <> e
-            <> "'. Accepted values: no, planned_activity, yes"
+pattern NO :: AnomalyFeedbackType
+pattern NO = AnomalyFeedbackType' "NO"
 
-instance ToText AnomalyFeedbackType where
-  toText = \case
-    NO -> "NO"
-    PlannedActivity -> "PLANNED_ACTIVITY"
-    Yes -> "YES"
+pattern PlannedActivity :: AnomalyFeedbackType
+pattern PlannedActivity = AnomalyFeedbackType' "PLANNED_ACTIVITY"
 
-instance Hashable AnomalyFeedbackType
+pattern Yes :: AnomalyFeedbackType
+pattern Yes = AnomalyFeedbackType' "YES"
 
-instance NFData AnomalyFeedbackType
-
-instance ToByteString AnomalyFeedbackType
-
-instance ToQuery AnomalyFeedbackType
-
-instance ToHeader AnomalyFeedbackType
-
-instance ToJSON AnomalyFeedbackType where
-  toJSON = toJSONText
-
-instance FromJSON AnomalyFeedbackType where
-  parseJSON = parseJSONText "AnomalyFeedbackType"
+{-# COMPLETE
+  NO,
+  PlannedActivity,
+  Yes,
+  AnomalyFeedbackType'
+  #-}

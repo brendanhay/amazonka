@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,113 @@
 --
 -- Updates the status of the specified certificate. This operation is idempotent.
 --
---
 -- Certificates must be in the ACTIVE state to authenticate devices that use a certificate to connect to AWS IoT.
---
 -- Within a few minutes of updating a certificate from the ACTIVE state to any other state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot use a certificate that is not in the ACTIVE state to reconnect.
 module Network.AWS.IoT.UpdateCertificate
-  ( -- * Creating a Request
-    updateCertificate,
-    UpdateCertificate,
+  ( -- * Creating a request
+    UpdateCertificate (..),
+    mkUpdateCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucCertificateId,
     ucNewStatus,
 
-    -- * Destructuring the Response
-    updateCertificateResponse,
-    UpdateCertificateResponse,
+    -- * Destructuring the response
+    UpdateCertificateResponse (..),
+    mkUpdateCertificateResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the UpdateCertificate operation.
 --
---
---
--- /See:/ 'updateCertificate' smart constructor.
+-- /See:/ 'mkUpdateCertificate' smart constructor.
 data UpdateCertificate = UpdateCertificate'
-  { _ucCertificateId ::
-      !Text,
-    _ucNewStatus :: !CertificateStatus
+  { certificateId ::
+      Lude.Text,
+    newStatus :: CertificateStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+-- * 'newStatus' - The new status.
 --
--- * 'ucCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
---
--- * 'ucNewStatus' - The new status. __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not intended for developer use. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
-updateCertificate ::
-  -- | 'ucCertificateId'
-  Text ->
-  -- | 'ucNewStatus'
+-- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not intended for developer use.
+-- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+mkUpdateCertificate ::
+  -- | 'certificateId'
+  Lude.Text ->
+  -- | 'newStatus'
   CertificateStatus ->
   UpdateCertificate
-updateCertificate pCertificateId_ pNewStatus_ =
+mkUpdateCertificate pCertificateId_ pNewStatus_ =
   UpdateCertificate'
-    { _ucCertificateId = pCertificateId_,
-      _ucNewStatus = pNewStatus_
+    { certificateId = pCertificateId_,
+      newStatus = pNewStatus_
     }
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-ucCertificateId :: Lens' UpdateCertificate Text
-ucCertificateId = lens _ucCertificateId (\s a -> s {_ucCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCertificateId :: Lens.Lens' UpdateCertificate Lude.Text
+ucCertificateId = Lens.lens (certificateId :: UpdateCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: UpdateCertificate)
+{-# DEPRECATED ucCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
--- | The new status. __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not intended for developer use. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
-ucNewStatus :: Lens' UpdateCertificate CertificateStatus
-ucNewStatus = lens _ucNewStatus (\s a -> s {_ucNewStatus = a})
+-- | The new status.
+--
+-- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not intended for developer use.
+-- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+--
+-- /Note:/ Consider using 'newStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucNewStatus :: Lens.Lens' UpdateCertificate CertificateStatus
+ucNewStatus = Lens.lens (newStatus :: UpdateCertificate -> CertificateStatus) (\s a -> s {newStatus = a} :: UpdateCertificate)
+{-# DEPRECATED ucNewStatus "Use generic-lens or generic-optics with 'newStatus' instead." #-}
 
-instance AWSRequest UpdateCertificate where
+instance Lude.AWSRequest UpdateCertificate where
   type Rs UpdateCertificate = UpdateCertificateResponse
-  request = putJSON ioT
-  response = receiveNull UpdateCertificateResponse'
+  request = Req.putJSON ioTService
+  response = Res.receiveNull UpdateCertificateResponse'
 
-instance Hashable UpdateCertificate
+instance Lude.ToHeaders UpdateCertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateCertificate
+instance Lude.ToJSON UpdateCertificate where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders UpdateCertificate where
-  toHeaders = const mempty
-
-instance ToJSON UpdateCertificate where
-  toJSON = const (Object mempty)
-
-instance ToPath UpdateCertificate where
+instance Lude.ToPath UpdateCertificate where
   toPath UpdateCertificate' {..} =
-    mconcat ["/certificates/", toBS _ucCertificateId]
+    Lude.mconcat ["/certificates/", Lude.toBS certificateId]
 
-instance ToQuery UpdateCertificate where
+instance Lude.ToQuery UpdateCertificate where
   toQuery UpdateCertificate' {..} =
-    mconcat ["newStatus" =: _ucNewStatus]
+    Lude.mconcat ["newStatus" Lude.=: newStatus]
 
--- | /See:/ 'updateCertificateResponse' smart constructor.
+-- | /See:/ 'mkUpdateCertificateResponse' smart constructor.
 data UpdateCertificateResponse = UpdateCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCertificateResponse' with the minimum fields required to make a request.
-updateCertificateResponse ::
+mkUpdateCertificateResponse ::
   UpdateCertificateResponse
-updateCertificateResponse = UpdateCertificateResponse'
-
-instance NFData UpdateCertificateResponse
+mkUpdateCertificateResponse = UpdateCertificateResponse'

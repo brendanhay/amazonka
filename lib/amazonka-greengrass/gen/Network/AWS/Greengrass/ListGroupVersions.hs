@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListGroupVersions
-  ( -- * Creating a Request
-    listGroupVersions,
-    ListGroupVersions,
+  ( -- * Creating a request
+    ListGroupVersions (..),
+    mkListGroupVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgvNextToken,
     lgvMaxResults,
     lgvGroupId,
 
-    -- * Destructuring the Response
-    listGroupVersionsResponse,
-    ListGroupVersionsResponse,
+    -- * Destructuring the response
+    ListGroupVersionsResponse (..),
+    mkListGroupVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgvrsVersions,
     lgvrsNextToken,
     lgvrsResponseStatus,
@@ -42,130 +37,154 @@ module Network.AWS.Greengrass.ListGroupVersions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGroupVersions' smart constructor.
+-- | /See:/ 'mkListGroupVersions' smart constructor.
 data ListGroupVersions = ListGroupVersions'
-  { _lgvNextToken ::
-      !(Maybe Text),
-    _lgvMaxResults :: !(Maybe Text),
-    _lgvGroupId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lgvMaxResults' - The maximum number of results to be returned per request.
---
--- * 'lgvGroupId' - The ID of the Greengrass group.
-listGroupVersions ::
-  -- | 'lgvGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListGroupVersions ::
+  -- | 'groupId'
+  Lude.Text ->
   ListGroupVersions
-listGroupVersions pGroupId_ =
+mkListGroupVersions pGroupId_ =
   ListGroupVersions'
-    { _lgvNextToken = Nothing,
-      _lgvMaxResults = Nothing,
-      _lgvGroupId = pGroupId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      groupId = pGroupId_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lgvNextToken :: Lens' ListGroupVersions (Maybe Text)
-lgvNextToken = lens _lgvNextToken (\s a -> s {_lgvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvNextToken :: Lens.Lens' ListGroupVersions (Lude.Maybe Lude.Text)
+lgvNextToken = Lens.lens (nextToken :: ListGroupVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupVersions)
+{-# DEPRECATED lgvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lgvMaxResults :: Lens' ListGroupVersions (Maybe Text)
-lgvMaxResults = lens _lgvMaxResults (\s a -> s {_lgvMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvMaxResults :: Lens.Lens' ListGroupVersions (Lude.Maybe Lude.Text)
+lgvMaxResults = Lens.lens (maxResults :: ListGroupVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListGroupVersions)
+{-# DEPRECATED lgvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the Greengrass group.
-lgvGroupId :: Lens' ListGroupVersions Text
-lgvGroupId = lens _lgvGroupId (\s a -> s {_lgvGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvGroupId :: Lens.Lens' ListGroupVersions Lude.Text
+lgvGroupId = Lens.lens (groupId :: ListGroupVersions -> Lude.Text) (\s a -> s {groupId = a} :: ListGroupVersions)
+{-# DEPRECATED lgvGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSPager ListGroupVersions where
+instance Page.AWSPager ListGroupVersions where
   page rq rs
-    | stop (rs ^. lgvrsNextToken) = Nothing
-    | stop (rs ^. lgvrsVersions) = Nothing
-    | otherwise = Just $ rq & lgvNextToken .~ rs ^. lgvrsNextToken
+    | Page.stop (rs Lens.^. lgvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgvrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgvNextToken Lens..~ rs Lens.^. lgvrsNextToken
 
-instance AWSRequest ListGroupVersions where
+instance Lude.AWSRequest ListGroupVersions where
   type Rs ListGroupVersions = ListGroupVersionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGroupVersionsResponse'
-            <$> (x .?> "Versions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGroupVersions
-
-instance NFData ListGroupVersions
-
-instance ToHeaders ListGroupVersions where
+instance Lude.ToHeaders ListGroupVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListGroupVersions where
+instance Lude.ToPath ListGroupVersions where
   toPath ListGroupVersions' {..} =
-    mconcat ["/greengrass/groups/", toBS _lgvGroupId, "/versions"]
+    Lude.mconcat
+      ["/greengrass/groups/", Lude.toBS groupId, "/versions"]
 
-instance ToQuery ListGroupVersions where
+instance Lude.ToQuery ListGroupVersions where
   toQuery ListGroupVersions' {..} =
-    mconcat
-      ["NextToken" =: _lgvNextToken, "MaxResults" =: _lgvMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listGroupVersionsResponse' smart constructor.
+-- | /See:/ 'mkListGroupVersionsResponse' smart constructor.
 data ListGroupVersionsResponse = ListGroupVersionsResponse'
-  { _lgvrsVersions ::
-      !(Maybe [VersionInformation]),
-    _lgvrsNextToken :: !(Maybe Text),
-    _lgvrsResponseStatus :: !Int
+  { versions ::
+      Lude.Maybe [VersionInformation],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgvrsVersions' - Information about a version.
---
--- * 'lgvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lgvrsResponseStatus' - -- | The response status code.
-listGroupVersionsResponse ::
-  -- | 'lgvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - Information about a version.
+mkListGroupVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupVersionsResponse
-listGroupVersionsResponse pResponseStatus_ =
+mkListGroupVersionsResponse pResponseStatus_ =
   ListGroupVersionsResponse'
-    { _lgvrsVersions = Nothing,
-      _lgvrsNextToken = Nothing,
-      _lgvrsResponseStatus = pResponseStatus_
+    { versions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a version.
-lgvrsVersions :: Lens' ListGroupVersionsResponse [VersionInformation]
-lgvrsVersions = lens _lgvrsVersions (\s a -> s {_lgvrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvrsVersions :: Lens.Lens' ListGroupVersionsResponse (Lude.Maybe [VersionInformation])
+lgvrsVersions = Lens.lens (versions :: ListGroupVersionsResponse -> Lude.Maybe [VersionInformation]) (\s a -> s {versions = a} :: ListGroupVersionsResponse)
+{-# DEPRECATED lgvrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lgvrsNextToken :: Lens' ListGroupVersionsResponse (Maybe Text)
-lgvrsNextToken = lens _lgvrsNextToken (\s a -> s {_lgvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvrsNextToken :: Lens.Lens' ListGroupVersionsResponse (Lude.Maybe Lude.Text)
+lgvrsNextToken = Lens.lens (nextToken :: ListGroupVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupVersionsResponse)
+{-# DEPRECATED lgvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lgvrsResponseStatus :: Lens' ListGroupVersionsResponse Int
-lgvrsResponseStatus = lens _lgvrsResponseStatus (\s a -> s {_lgvrsResponseStatus = a})
-
-instance NFData ListGroupVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvrsResponseStatus :: Lens.Lens' ListGroupVersionsResponse Lude.Int
+lgvrsResponseStatus = Lens.lens (responseStatus :: ListGroupVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupVersionsResponse)
+{-# DEPRECATED lgvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

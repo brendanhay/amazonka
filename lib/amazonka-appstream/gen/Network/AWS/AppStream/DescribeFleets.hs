@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeFleets
-  ( -- * Creating a Request
-    describeFleets,
-    DescribeFleets,
+  ( -- * Creating a request
+    DescribeFleets (..),
+    mkDescribeFleets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfNextToken,
     dfNames,
 
-    -- * Destructuring the Response
-    describeFleetsResponse,
-    DescribeFleetsResponse,
+    -- * Destructuring the response
+    DescribeFleetsResponse (..),
+    mkDescribeFleetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfsrsNextToken,
     dfsrsFleets,
     dfsrsResponseStatus,
@@ -43,124 +36,146 @@ module Network.AWS.AppStream.DescribeFleets
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFleets' smart constructor.
+-- | /See:/ 'mkDescribeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
-  { _dfNextToken ::
-      !(Maybe Text),
-    _dfNames :: !(Maybe [Text])
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    names :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- * 'dfNames' - The names of the fleets to describe.
-describeFleets ::
+-- * 'names' - The names of the fleets to describe.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+mkDescribeFleets ::
   DescribeFleets
-describeFleets =
-  DescribeFleets' {_dfNextToken = Nothing, _dfNames = Nothing}
+mkDescribeFleets =
+  DescribeFleets' {nextToken = Lude.Nothing, names = Lude.Nothing}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-dfNextToken :: Lens' DescribeFleets (Maybe Text)
-dfNextToken = lens _dfNextToken (\s a -> s {_dfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfNextToken :: Lens.Lens' DescribeFleets (Lude.Maybe Lude.Text)
+dfNextToken = Lens.lens (nextToken :: DescribeFleets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleets)
+{-# DEPRECATED dfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of the fleets to describe.
-dfNames :: Lens' DescribeFleets [Text]
-dfNames = lens _dfNames (\s a -> s {_dfNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfNames :: Lens.Lens' DescribeFleets (Lude.Maybe [Lude.Text])
+dfNames = Lens.lens (names :: DescribeFleets -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeFleets)
+{-# DEPRECATED dfNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance AWSPager DescribeFleets where
+instance Page.AWSPager DescribeFleets where
   page rq rs
-    | stop (rs ^. dfsrsNextToken) = Nothing
-    | stop (rs ^. dfsrsFleets) = Nothing
-    | otherwise = Just $ rq & dfNextToken .~ rs ^. dfsrsNextToken
+    | Page.stop (rs Lens.^. dfsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dfsrsFleets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dfNextToken Lens..~ rs Lens.^. dfsrsNextToken
 
-instance AWSRequest DescribeFleets where
+instance Lude.AWSRequest DescribeFleets where
   type Rs DescribeFleets = DescribeFleetsResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeFleetsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Fleets" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Fleets" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeFleets
-
-instance NFData DescribeFleets
-
-instance ToHeaders DescribeFleets where
+instance Lude.ToHeaders DescribeFleets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DescribeFleets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DescribeFleets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeFleets where
+instance Lude.ToJSON DescribeFleets where
   toJSON DescribeFleets' {..} =
-    object
-      ( catMaybes
-          [("NextToken" .=) <$> _dfNextToken, ("Names" .=) <$> _dfNames]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Names" Lude..=) Lude.<$> names
+          ]
       )
 
-instance ToPath DescribeFleets where
-  toPath = const "/"
+instance Lude.ToPath DescribeFleets where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeFleets where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeFleets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeFleetsResponse' smart constructor.
+-- | /See:/ 'mkDescribeFleetsResponse' smart constructor.
 data DescribeFleetsResponse = DescribeFleetsResponse'
-  { _dfsrsNextToken ::
-      !(Maybe Text),
-    _dfsrsFleets :: !(Maybe [Fleet]),
-    _dfsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    fleets :: Lude.Maybe [Fleet],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfsrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
---
--- * 'dfsrsFleets' - Information about the fleets.
---
--- * 'dfsrsResponseStatus' - -- | The response status code.
-describeFleetsResponse ::
-  -- | 'dfsrsResponseStatus'
-  Int ->
+-- * 'fleets' - Information about the fleets.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'responseStatus' - The response status code.
+mkDescribeFleetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeFleetsResponse
-describeFleetsResponse pResponseStatus_ =
+mkDescribeFleetsResponse pResponseStatus_ =
   DescribeFleetsResponse'
-    { _dfsrsNextToken = Nothing,
-      _dfsrsFleets = Nothing,
-      _dfsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      fleets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-dfsrsNextToken :: Lens' DescribeFleetsResponse (Maybe Text)
-dfsrsNextToken = lens _dfsrsNextToken (\s a -> s {_dfsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsNextToken :: Lens.Lens' DescribeFleetsResponse (Lude.Maybe Lude.Text)
+dfsrsNextToken = Lens.lens (nextToken :: DescribeFleetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetsResponse)
+{-# DEPRECATED dfsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the fleets.
-dfsrsFleets :: Lens' DescribeFleetsResponse [Fleet]
-dfsrsFleets = lens _dfsrsFleets (\s a -> s {_dfsrsFleets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fleets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsFleets :: Lens.Lens' DescribeFleetsResponse (Lude.Maybe [Fleet])
+dfsrsFleets = Lens.lens (fleets :: DescribeFleetsResponse -> Lude.Maybe [Fleet]) (\s a -> s {fleets = a} :: DescribeFleetsResponse)
+{-# DEPRECATED dfsrsFleets "Use generic-lens or generic-optics with 'fleets' instead." #-}
 
--- | -- | The response status code.
-dfsrsResponseStatus :: Lens' DescribeFleetsResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\s a -> s {_dfsrsResponseStatus = a})
-
-instance NFData DescribeFleetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsResponseStatus :: Lens.Lens' DescribeFleetsResponse Lude.Int
+dfsrsResponseStatus = Lens.lens (responseStatus :: DescribeFleetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetsResponse)
+{-# DEPRECATED dfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

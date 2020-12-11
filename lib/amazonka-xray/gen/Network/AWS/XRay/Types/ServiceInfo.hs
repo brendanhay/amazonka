@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,157 +7,230 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ServiceInfo where
+module Network.AWS.XRay.Types.ServiceInfo
+  ( ServiceInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceInfo,
+
+    -- * Lenses
+    sState,
+    sStartTime,
+    sRoot,
+    sResponseTimeHistogram,
+    sDurationHistogram,
+    sReferenceId,
+    sAccountId,
+    sNames,
+    sName,
+    sEndTime,
+    sType,
+    sEdges,
+    sSummaryStatistics,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.Edge
 import Network.AWS.XRay.Types.HistogramEntry
 import Network.AWS.XRay.Types.ServiceStatistics
 
 -- | Information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
 --
---
---
--- /See:/ 'serviceInfo' smart constructor.
+-- /See:/ 'mkServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { _sState :: !(Maybe Text),
-    _sStartTime :: !(Maybe POSIX),
-    _sRoot :: !(Maybe Bool),
-    _sResponseTimeHistogram :: !(Maybe [HistogramEntry]),
-    _sDurationHistogram :: !(Maybe [HistogramEntry]),
-    _sReferenceId :: !(Maybe Int),
-    _sAccountId :: !(Maybe Text),
-    _sNames :: !(Maybe [Text]),
-    _sName :: !(Maybe Text),
-    _sEndTime :: !(Maybe POSIX),
-    _sType :: !(Maybe Text),
-    _sEdges :: !(Maybe [Edge]),
-    _sSummaryStatistics :: !(Maybe ServiceStatistics)
+  { state :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    root :: Lude.Maybe Lude.Bool,
+    responseTimeHistogram :: Lude.Maybe [HistogramEntry],
+    durationHistogram :: Lude.Maybe [HistogramEntry],
+    referenceId :: Lude.Maybe Lude.Int,
+    accountId :: Lude.Maybe Lude.Text,
+    names :: Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    type' :: Lude.Maybe Lude.Text,
+    edges :: Lude.Maybe [Edge],
+    summaryStatistics :: Lude.Maybe ServiceStatistics
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountId' - Identifier of the AWS account in which the service runs.
+-- * 'durationHistogram' - A histogram that maps the spread of service durations.
+-- * 'edges' - Connections to downstream services.
+-- * 'endTime' - The end time of the last segment that the service generated.
+-- * 'name' - The canonical name of the service.
+-- * 'names' - A list of names for the service, including the canonical name.
+-- * 'referenceId' - Identifier for the service. Unique within the service map.
+-- * 'responseTimeHistogram' - A histogram that maps the spread of service response times.
+-- * 'root' - Indicates that the service was the first service to process a request.
+-- * 'startTime' - The start time of the first segment that the service generated.
+-- * 'state' - The service's state.
+-- * 'summaryStatistics' - Aggregated statistics for the service.
+-- * 'type'' - The type of service.
 --
--- * 'sState' - The service's state.
 --
--- * 'sStartTime' - The start time of the first segment that the service generated.
+--     * AWS Resource - The type of an AWS resource. For example, @AWS::EC2::Instance@ for an application running on Amazon EC2 or @AWS::DynamoDB::Table@ for an Amazon DynamoDB table that the application used.
 --
--- * 'sRoot' - Indicates that the service was the first service to process a request.
 --
--- * 'sResponseTimeHistogram' - A histogram that maps the spread of service response times.
+--     * AWS Service - The type of an AWS service. For example, @AWS::DynamoDB@ for downstream calls to Amazon DynamoDB that didn't target a specific table.
 --
--- * 'sDurationHistogram' - A histogram that maps the spread of service durations.
 --
--- * 'sReferenceId' - Identifier for the service. Unique within the service map.
+--     * @client@ - Represents the clients that sent requests to a root service.
 --
--- * 'sAccountId' - Identifier of the AWS account in which the service runs.
 --
--- * 'sNames' - A list of names for the service, including the canonical name.
---
--- * 'sName' - The canonical name of the service.
---
--- * 'sEndTime' - The end time of the last segment that the service generated.
---
--- * 'sType' - The type of service.     * AWS Resource - The type of an AWS resource. For example, @AWS::EC2::Instance@ for an application running on Amazon EC2 or @AWS::DynamoDB::Table@ for an Amazon DynamoDB table that the application used.     * AWS Service - The type of an AWS service. For example, @AWS::DynamoDB@ for downstream calls to Amazon DynamoDB that didn't target a specific table.     * @client@ - Represents the clients that sent requests to a root service.     * @remote@ - A downstream service of indeterminate type.
---
--- * 'sEdges' - Connections to downstream services.
---
--- * 'sSummaryStatistics' - Aggregated statistics for the service.
-serviceInfo ::
+--     * @remote@ - A downstream service of indeterminate type.
+mkServiceInfo ::
   ServiceInfo
-serviceInfo =
+mkServiceInfo =
   ServiceInfo'
-    { _sState = Nothing,
-      _sStartTime = Nothing,
-      _sRoot = Nothing,
-      _sResponseTimeHistogram = Nothing,
-      _sDurationHistogram = Nothing,
-      _sReferenceId = Nothing,
-      _sAccountId = Nothing,
-      _sNames = Nothing,
-      _sName = Nothing,
-      _sEndTime = Nothing,
-      _sType = Nothing,
-      _sEdges = Nothing,
-      _sSummaryStatistics = Nothing
+    { state = Lude.Nothing,
+      startTime = Lude.Nothing,
+      root = Lude.Nothing,
+      responseTimeHistogram = Lude.Nothing,
+      durationHistogram = Lude.Nothing,
+      referenceId = Lude.Nothing,
+      accountId = Lude.Nothing,
+      names = Lude.Nothing,
+      name = Lude.Nothing,
+      endTime = Lude.Nothing,
+      type' = Lude.Nothing,
+      edges = Lude.Nothing,
+      summaryStatistics = Lude.Nothing
     }
 
 -- | The service's state.
-sState :: Lens' ServiceInfo (Maybe Text)
-sState = lens _sState (\s a -> s {_sState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sState :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
+sState = Lens.lens (state :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: ServiceInfo)
+{-# DEPRECATED sState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The start time of the first segment that the service generated.
-sStartTime :: Lens' ServiceInfo (Maybe UTCTime)
-sStartTime = lens _sStartTime (\s a -> s {_sStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStartTime :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Timestamp)
+sStartTime = Lens.lens (startTime :: ServiceInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: ServiceInfo)
+{-# DEPRECATED sStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Indicates that the service was the first service to process a request.
-sRoot :: Lens' ServiceInfo (Maybe Bool)
-sRoot = lens _sRoot (\s a -> s {_sRoot = a})
+--
+-- /Note:/ Consider using 'root' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sRoot :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Bool)
+sRoot = Lens.lens (root :: ServiceInfo -> Lude.Maybe Lude.Bool) (\s a -> s {root = a} :: ServiceInfo)
+{-# DEPRECATED sRoot "Use generic-lens or generic-optics with 'root' instead." #-}
 
 -- | A histogram that maps the spread of service response times.
-sResponseTimeHistogram :: Lens' ServiceInfo [HistogramEntry]
-sResponseTimeHistogram = lens _sResponseTimeHistogram (\s a -> s {_sResponseTimeHistogram = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'responseTimeHistogram' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResponseTimeHistogram :: Lens.Lens' ServiceInfo (Lude.Maybe [HistogramEntry])
+sResponseTimeHistogram = Lens.lens (responseTimeHistogram :: ServiceInfo -> Lude.Maybe [HistogramEntry]) (\s a -> s {responseTimeHistogram = a} :: ServiceInfo)
+{-# DEPRECATED sResponseTimeHistogram "Use generic-lens or generic-optics with 'responseTimeHistogram' instead." #-}
 
 -- | A histogram that maps the spread of service durations.
-sDurationHistogram :: Lens' ServiceInfo [HistogramEntry]
-sDurationHistogram = lens _sDurationHistogram (\s a -> s {_sDurationHistogram = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'durationHistogram' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDurationHistogram :: Lens.Lens' ServiceInfo (Lude.Maybe [HistogramEntry])
+sDurationHistogram = Lens.lens (durationHistogram :: ServiceInfo -> Lude.Maybe [HistogramEntry]) (\s a -> s {durationHistogram = a} :: ServiceInfo)
+{-# DEPRECATED sDurationHistogram "Use generic-lens or generic-optics with 'durationHistogram' instead." #-}
 
 -- | Identifier for the service. Unique within the service map.
-sReferenceId :: Lens' ServiceInfo (Maybe Int)
-sReferenceId = lens _sReferenceId (\s a -> s {_sReferenceId = a})
+--
+-- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sReferenceId :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Int)
+sReferenceId = Lens.lens (referenceId :: ServiceInfo -> Lude.Maybe Lude.Int) (\s a -> s {referenceId = a} :: ServiceInfo)
+{-# DEPRECATED sReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
 -- | Identifier of the AWS account in which the service runs.
-sAccountId :: Lens' ServiceInfo (Maybe Text)
-sAccountId = lens _sAccountId (\s a -> s {_sAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAccountId :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
+sAccountId = Lens.lens (accountId :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ServiceInfo)
+{-# DEPRECATED sAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | A list of names for the service, including the canonical name.
-sNames :: Lens' ServiceInfo [Text]
-sNames = lens _sNames (\s a -> s {_sNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sNames :: Lens.Lens' ServiceInfo (Lude.Maybe [Lude.Text])
+sNames = Lens.lens (names :: ServiceInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: ServiceInfo)
+{-# DEPRECATED sNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The canonical name of the service.
-sName :: Lens' ServiceInfo (Maybe Text)
-sName = lens _sName (\s a -> s {_sName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
+sName = Lens.lens (name :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServiceInfo)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The end time of the last segment that the service generated.
-sEndTime :: Lens' ServiceInfo (Maybe UTCTime)
-sEndTime = lens _sEndTime (\s a -> s {_sEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEndTime :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Timestamp)
+sEndTime = Lens.lens (endTime :: ServiceInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: ServiceInfo)
+{-# DEPRECATED sEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The type of service.     * AWS Resource - The type of an AWS resource. For example, @AWS::EC2::Instance@ for an application running on Amazon EC2 or @AWS::DynamoDB::Table@ for an Amazon DynamoDB table that the application used.     * AWS Service - The type of an AWS service. For example, @AWS::DynamoDB@ for downstream calls to Amazon DynamoDB that didn't target a specific table.     * @client@ - Represents the clients that sent requests to a root service.     * @remote@ - A downstream service of indeterminate type.
-sType :: Lens' ServiceInfo (Maybe Text)
-sType = lens _sType (\s a -> s {_sType = a})
+-- | The type of service.
+--
+--
+--     * AWS Resource - The type of an AWS resource. For example, @AWS::EC2::Instance@ for an application running on Amazon EC2 or @AWS::DynamoDB::Table@ for an Amazon DynamoDB table that the application used.
+--
+--
+--     * AWS Service - The type of an AWS service. For example, @AWS::DynamoDB@ for downstream calls to Amazon DynamoDB that didn't target a specific table.
+--
+--
+--     * @client@ - Represents the clients that sent requests to a root service.
+--
+--
+--     * @remote@ - A downstream service of indeterminate type.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sType :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
+sType = Lens.lens (type' :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ServiceInfo)
+{-# DEPRECATED sType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Connections to downstream services.
-sEdges :: Lens' ServiceInfo [Edge]
-sEdges = lens _sEdges (\s a -> s {_sEdges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'edges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEdges :: Lens.Lens' ServiceInfo (Lude.Maybe [Edge])
+sEdges = Lens.lens (edges :: ServiceInfo -> Lude.Maybe [Edge]) (\s a -> s {edges = a} :: ServiceInfo)
+{-# DEPRECATED sEdges "Use generic-lens or generic-optics with 'edges' instead." #-}
 
 -- | Aggregated statistics for the service.
-sSummaryStatistics :: Lens' ServiceInfo (Maybe ServiceStatistics)
-sSummaryStatistics = lens _sSummaryStatistics (\s a -> s {_sSummaryStatistics = a})
+--
+-- /Note:/ Consider using 'summaryStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSummaryStatistics :: Lens.Lens' ServiceInfo (Lude.Maybe ServiceStatistics)
+sSummaryStatistics = Lens.lens (summaryStatistics :: ServiceInfo -> Lude.Maybe ServiceStatistics) (\s a -> s {summaryStatistics = a} :: ServiceInfo)
+{-# DEPRECATED sSummaryStatistics "Use generic-lens or generic-optics with 'summaryStatistics' instead." #-}
 
-instance FromJSON ServiceInfo where
+instance Lude.FromJSON ServiceInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            <$> (x .:? "State")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "Root")
-            <*> (x .:? "ResponseTimeHistogram" .!= mempty)
-            <*> (x .:? "DurationHistogram" .!= mempty)
-            <*> (x .:? "ReferenceId")
-            <*> (x .:? "AccountId")
-            <*> (x .:? "Names" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "Type")
-            <*> (x .:? "Edges" .!= mempty)
-            <*> (x .:? "SummaryStatistics")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "Root")
+            Lude.<*> (x Lude..:? "ResponseTimeHistogram" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DurationHistogram" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ReferenceId")
+            Lude.<*> (x Lude..:? "AccountId")
+            Lude.<*> (x Lude..:? "Names" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Edges" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "SummaryStatistics")
       )
-
-instance Hashable ServiceInfo
-
-instance NFData ServiceInfo

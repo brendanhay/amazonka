@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Types.Operation where
+module Network.AWS.CognitoSync.Types.Operation
+  ( Operation
+      ( Operation',
+        Remove,
+        Replace
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Operation
-  = Remove
-  | Replace
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Operation = Operation' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Operation where
-  parser =
-    takeLowerText >>= \case
-      "remove" -> pure Remove
-      "replace" -> pure Replace
-      e ->
-        fromTextError $
-          "Failure parsing Operation from value: '" <> e
-            <> "'. Accepted values: remove, replace"
+pattern Remove :: Operation
+pattern Remove = Operation' "remove"
 
-instance ToText Operation where
-  toText = \case
-    Remove -> "remove"
-    Replace -> "replace"
+pattern Replace :: Operation
+pattern Replace = Operation' "replace"
 
-instance Hashable Operation
-
-instance NFData Operation
-
-instance ToByteString Operation
-
-instance ToQuery Operation
-
-instance ToHeader Operation
-
-instance ToJSON Operation where
-  toJSON = toJSONText
+{-# COMPLETE
+  Remove,
+  Replace,
+  Operation'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,30 +14,26 @@
 --
 -- Gets the face search results for Amazon Rekognition Video face search started by 'StartFaceSearch' . The search returns faces in a collection that match the faces of persons detected in a video. It also includes the time(s) that faces are matched in the video.
 --
---
 -- Face search in a video is an asynchronous operation. You start face search by calling to 'StartFaceSearch' which returns a job identifier (@JobId@ ). When the search operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartFaceSearch@ . To get the search results, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetFaceSearch@ and pass the job identifier (@JobId@ ) from the initial call to @StartFaceSearch@ .
---
 -- For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
---
 -- The search results are retured in an array, @Persons@ , of 'PersonMatch' objects. Each@PersonMatch@ element contains details about the matching faces in the input collection, person information (facial attributes, bounding boxes, and person identifer) for the matched person, and the time the person was matched in the video.
---
 -- By default, the @Persons@ array is sorted by the time, in milliseconds from the start of the video, persons are matched. You can also sort by persons by specifying @INDEX@ for the @SORTBY@ input parameter.
 module Network.AWS.Rekognition.GetFaceSearch
-  ( -- * Creating a Request
-    getFaceSearch,
-    GetFaceSearch,
+  ( -- * Creating a request
+    GetFaceSearch (..),
+    mkGetFaceSearch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfsNextToken,
     gfsMaxResults,
     gfsSortBy,
     gfsJobId,
 
-    -- * Destructuring the Response
-    getFaceSearchResponse,
-    GetFaceSearchResponse,
+    -- * Destructuring the response
+    GetFaceSearchResponse (..),
+    mkGetFaceSearchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfsrsNextToken,
     gfsrsVideoMetadata,
     gfsrsStatusMessage,
@@ -52,169 +43,197 @@ module Network.AWS.Rekognition.GetFaceSearch
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFaceSearch' smart constructor.
+-- | /See:/ 'mkGetFaceSearch' smart constructor.
 data GetFaceSearch = GetFaceSearch'
-  { _gfsNextToken :: !(Maybe Text),
-    _gfsMaxResults :: !(Maybe Nat),
-    _gfsSortBy :: !(Maybe FaceSearchSortBy),
-    _gfsJobId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe FaceSearchSortBy,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFaceSearch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfsNextToken' - If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
---
--- * 'gfsMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
---
--- * 'gfsSortBy' - Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group faces by the time that they are recognized. Use @INDEX@ to sort by recognized faces.
---
--- * 'gfsJobId' - The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
-getFaceSearch ::
-  -- | 'gfsJobId'
-  Text ->
+-- * 'jobId' - The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
+-- * 'nextToken' - If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
+-- * 'sortBy' - Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group faces by the time that they are recognized. Use @INDEX@ to sort by recognized faces.
+mkGetFaceSearch ::
+  -- | 'jobId'
+  Lude.Text ->
   GetFaceSearch
-getFaceSearch pJobId_ =
+mkGetFaceSearch pJobId_ =
   GetFaceSearch'
-    { _gfsNextToken = Nothing,
-      _gfsMaxResults = Nothing,
-      _gfsSortBy = Nothing,
-      _gfsJobId = pJobId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing,
+      jobId = pJobId_
     }
 
 -- | If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
-gfsNextToken :: Lens' GetFaceSearch (Maybe Text)
-gfsNextToken = lens _gfsNextToken (\s a -> s {_gfsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsNextToken :: Lens.Lens' GetFaceSearch (Lude.Maybe Lude.Text)
+gfsNextToken = Lens.lens (nextToken :: GetFaceSearch -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetFaceSearch)
+{-# DEPRECATED gfsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
-gfsMaxResults :: Lens' GetFaceSearch (Maybe Natural)
-gfsMaxResults = lens _gfsMaxResults (\s a -> s {_gfsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsMaxResults :: Lens.Lens' GetFaceSearch (Lude.Maybe Lude.Natural)
+gfsMaxResults = Lens.lens (maxResults :: GetFaceSearch -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetFaceSearch)
+{-# DEPRECATED gfsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group faces by the time that they are recognized. Use @INDEX@ to sort by recognized faces.
-gfsSortBy :: Lens' GetFaceSearch (Maybe FaceSearchSortBy)
-gfsSortBy = lens _gfsSortBy (\s a -> s {_gfsSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsSortBy :: Lens.Lens' GetFaceSearch (Lude.Maybe FaceSearchSortBy)
+gfsSortBy = Lens.lens (sortBy :: GetFaceSearch -> Lude.Maybe FaceSearchSortBy) (\s a -> s {sortBy = a} :: GetFaceSearch)
+{-# DEPRECATED gfsSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 -- | The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
-gfsJobId :: Lens' GetFaceSearch Text
-gfsJobId = lens _gfsJobId (\s a -> s {_gfsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsJobId :: Lens.Lens' GetFaceSearch Lude.Text
+gfsJobId = Lens.lens (jobId :: GetFaceSearch -> Lude.Text) (\s a -> s {jobId = a} :: GetFaceSearch)
+{-# DEPRECATED gfsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetFaceSearch where
+instance Lude.AWSRequest GetFaceSearch where
   type Rs GetFaceSearch = GetFaceSearchResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFaceSearchResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "VideoMetadata")
-            <*> (x .?> "StatusMessage")
-            <*> (x .?> "JobStatus")
-            <*> (x .?> "Persons" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "VideoMetadata")
+            Lude.<*> (x Lude..?> "StatusMessage")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (x Lude..?> "Persons" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFaceSearch
-
-instance NFData GetFaceSearch
-
-instance ToHeaders GetFaceSearch where
+instance Lude.ToHeaders GetFaceSearch where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.GetFaceSearch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.GetFaceSearch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetFaceSearch where
+instance Lude.ToJSON GetFaceSearch where
   toJSON GetFaceSearch' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gfsNextToken,
-            ("MaxResults" .=) <$> _gfsMaxResults,
-            ("SortBy" .=) <$> _gfsSortBy,
-            Just ("JobId" .= _gfsJobId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy,
+            Lude.Just ("JobId" Lude..= jobId)
           ]
       )
 
-instance ToPath GetFaceSearch where
-  toPath = const "/"
+instance Lude.ToPath GetFaceSearch where
+  toPath = Lude.const "/"
 
-instance ToQuery GetFaceSearch where
-  toQuery = const mempty
+instance Lude.ToQuery GetFaceSearch where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFaceSearchResponse' smart constructor.
+-- | /See:/ 'mkGetFaceSearchResponse' smart constructor.
 data GetFaceSearchResponse = GetFaceSearchResponse'
-  { _gfsrsNextToken ::
-      !(Maybe Text),
-    _gfsrsVideoMetadata :: !(Maybe VideoMetadata),
-    _gfsrsStatusMessage :: !(Maybe Text),
-    _gfsrsJobStatus :: !(Maybe VideoJobStatus),
-    _gfsrsPersons :: !(Maybe [PersonMatch]),
-    _gfsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    videoMetadata :: Lude.Maybe VideoMetadata,
+    statusMessage :: Lude.Maybe Lude.Text,
+    jobStatus :: Lude.Maybe VideoJobStatus,
+    persons :: Lude.Maybe [PersonMatch],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFaceSearchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfsrsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
---
--- * 'gfsrsVideoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
---
--- * 'gfsrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- * 'gfsrsJobStatus' - The current status of the face search job.
---
--- * 'gfsrsPersons' - An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
---
--- * 'gfsrsResponseStatus' - -- | The response status code.
-getFaceSearchResponse ::
-  -- | 'gfsrsResponseStatus'
-  Int ->
+-- * 'jobStatus' - The current status of the face search job.
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
+-- * 'persons' - An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
+-- * 'responseStatus' - The response status code.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'videoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+mkGetFaceSearchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFaceSearchResponse
-getFaceSearchResponse pResponseStatus_ =
+mkGetFaceSearchResponse pResponseStatus_ =
   GetFaceSearchResponse'
-    { _gfsrsNextToken = Nothing,
-      _gfsrsVideoMetadata = Nothing,
-      _gfsrsStatusMessage = Nothing,
-      _gfsrsJobStatus = Nothing,
-      _gfsrsPersons = Nothing,
-      _gfsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      videoMetadata = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      persons = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
-gfsrsNextToken :: Lens' GetFaceSearchResponse (Maybe Text)
-gfsrsNextToken = lens _gfsrsNextToken (\s a -> s {_gfsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsNextToken :: Lens.Lens' GetFaceSearchResponse (Lude.Maybe Lude.Text)
+gfsrsNextToken = Lens.lens (nextToken :: GetFaceSearchResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetFaceSearchResponse)
+{-# DEPRECATED gfsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
-gfsrsVideoMetadata :: Lens' GetFaceSearchResponse (Maybe VideoMetadata)
-gfsrsVideoMetadata = lens _gfsrsVideoMetadata (\s a -> s {_gfsrsVideoMetadata = a})
+--
+-- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsVideoMetadata :: Lens.Lens' GetFaceSearchResponse (Lude.Maybe VideoMetadata)
+gfsrsVideoMetadata = Lens.lens (videoMetadata :: GetFaceSearchResponse -> Lude.Maybe VideoMetadata) (\s a -> s {videoMetadata = a} :: GetFaceSearchResponse)
+{-# DEPRECATED gfsrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-gfsrsStatusMessage :: Lens' GetFaceSearchResponse (Maybe Text)
-gfsrsStatusMessage = lens _gfsrsStatusMessage (\s a -> s {_gfsrsStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsStatusMessage :: Lens.Lens' GetFaceSearchResponse (Lude.Maybe Lude.Text)
+gfsrsStatusMessage = Lens.lens (statusMessage :: GetFaceSearchResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GetFaceSearchResponse)
+{-# DEPRECATED gfsrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The current status of the face search job.
-gfsrsJobStatus :: Lens' GetFaceSearchResponse (Maybe VideoJobStatus)
-gfsrsJobStatus = lens _gfsrsJobStatus (\s a -> s {_gfsrsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsJobStatus :: Lens.Lens' GetFaceSearchResponse (Lude.Maybe VideoJobStatus)
+gfsrsJobStatus = Lens.lens (jobStatus :: GetFaceSearchResponse -> Lude.Maybe VideoJobStatus) (\s a -> s {jobStatus = a} :: GetFaceSearchResponse)
+{-# DEPRECATED gfsrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
-gfsrsPersons :: Lens' GetFaceSearchResponse [PersonMatch]
-gfsrsPersons = lens _gfsrsPersons (\s a -> s {_gfsrsPersons = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'persons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsPersons :: Lens.Lens' GetFaceSearchResponse (Lude.Maybe [PersonMatch])
+gfsrsPersons = Lens.lens (persons :: GetFaceSearchResponse -> Lude.Maybe [PersonMatch]) (\s a -> s {persons = a} :: GetFaceSearchResponse)
+{-# DEPRECATED gfsrsPersons "Use generic-lens or generic-optics with 'persons' instead." #-}
 
--- | -- | The response status code.
-gfsrsResponseStatus :: Lens' GetFaceSearchResponse Int
-gfsrsResponseStatus = lens _gfsrsResponseStatus (\s a -> s {_gfsrsResponseStatus = a})
-
-instance NFData GetFaceSearchResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsResponseStatus :: Lens.Lens' GetFaceSearchResponse Lude.Int
+gfsrsResponseStatus = Lens.lens (responseStatus :: GetFaceSearchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFaceSearchResponse)
+{-# DEPRECATED gfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ChangeSetStatus where
+module Network.AWS.CloudFormation.Types.ChangeSetStatus
+  ( ChangeSetStatus
+      ( ChangeSetStatus',
+        CSSCreateComplete,
+        CSSCreateInProgress,
+        CSSCreatePending,
+        CSSDeleteComplete,
+        CSSDeleteFailed,
+        CSSDeleteInProgress,
+        CSSDeletePending,
+        CSSFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeSetStatus
-  = CSSCreateComplete
-  | CSSCreateInProgress
-  | CSSCreatePending
-  | CSSDeleteComplete
-  | CSSDeleteFailed
-  | CSSDeleteInProgress
-  | CSSDeletePending
-  | CSSFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeSetStatus = ChangeSetStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeSetStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_complete" -> pure CSSCreateComplete
-      "create_in_progress" -> pure CSSCreateInProgress
-      "create_pending" -> pure CSSCreatePending
-      "delete_complete" -> pure CSSDeleteComplete
-      "delete_failed" -> pure CSSDeleteFailed
-      "delete_in_progress" -> pure CSSDeleteInProgress
-      "delete_pending" -> pure CSSDeletePending
-      "failed" -> pure CSSFailed
-      e ->
-        fromTextError $
-          "Failure parsing ChangeSetStatus from value: '" <> e
-            <> "'. Accepted values: create_complete, create_in_progress, create_pending, delete_complete, delete_failed, delete_in_progress, delete_pending, failed"
+pattern CSSCreateComplete :: ChangeSetStatus
+pattern CSSCreateComplete = ChangeSetStatus' "CREATE_COMPLETE"
 
-instance ToText ChangeSetStatus where
-  toText = \case
-    CSSCreateComplete -> "CREATE_COMPLETE"
-    CSSCreateInProgress -> "CREATE_IN_PROGRESS"
-    CSSCreatePending -> "CREATE_PENDING"
-    CSSDeleteComplete -> "DELETE_COMPLETE"
-    CSSDeleteFailed -> "DELETE_FAILED"
-    CSSDeleteInProgress -> "DELETE_IN_PROGRESS"
-    CSSDeletePending -> "DELETE_PENDING"
-    CSSFailed -> "FAILED"
+pattern CSSCreateInProgress :: ChangeSetStatus
+pattern CSSCreateInProgress = ChangeSetStatus' "CREATE_IN_PROGRESS"
 
-instance Hashable ChangeSetStatus
+pattern CSSCreatePending :: ChangeSetStatus
+pattern CSSCreatePending = ChangeSetStatus' "CREATE_PENDING"
 
-instance NFData ChangeSetStatus
+pattern CSSDeleteComplete :: ChangeSetStatus
+pattern CSSDeleteComplete = ChangeSetStatus' "DELETE_COMPLETE"
 
-instance ToByteString ChangeSetStatus
+pattern CSSDeleteFailed :: ChangeSetStatus
+pattern CSSDeleteFailed = ChangeSetStatus' "DELETE_FAILED"
 
-instance ToQuery ChangeSetStatus
+pattern CSSDeleteInProgress :: ChangeSetStatus
+pattern CSSDeleteInProgress = ChangeSetStatus' "DELETE_IN_PROGRESS"
 
-instance ToHeader ChangeSetStatus
+pattern CSSDeletePending :: ChangeSetStatus
+pattern CSSDeletePending = ChangeSetStatus' "DELETE_PENDING"
 
-instance FromXML ChangeSetStatus where
-  parseXML = parseXMLText "ChangeSetStatus"
+pattern CSSFailed :: ChangeSetStatus
+pattern CSSFailed = ChangeSetStatus' "FAILED"
+
+{-# COMPLETE
+  CSSCreateComplete,
+  CSSCreateInProgress,
+  CSSCreatePending,
+  CSSDeleteComplete,
+  CSSDeleteFailed,
+  CSSDeleteInProgress,
+  CSSDeletePending,
+  CSSFailed,
+  ChangeSetStatus'
+  #-}

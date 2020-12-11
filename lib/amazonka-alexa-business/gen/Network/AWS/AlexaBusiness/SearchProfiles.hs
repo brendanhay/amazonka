@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Searches room profiles and lists the ones that meet a set of filter criteria.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.SearchProfiles
-  ( -- * Creating a Request
-    searchProfiles,
-    SearchProfiles,
+  ( -- * Creating a request
+    SearchProfiles (..),
+    mkSearchProfiles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     spFilters,
     spSortCriteria,
     spNextToken,
     spMaxResults,
 
-    -- * Destructuring the Response
-    searchProfilesResponse,
-    SearchProfilesResponse,
+    -- * Destructuring the response
+    SearchProfilesResponse (..),
+    mkSearchProfilesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sprsProfiles,
     sprsNextToken,
     sprsTotalCount,
@@ -46,156 +39,182 @@ module Network.AWS.AlexaBusiness.SearchProfiles
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchProfiles' smart constructor.
+-- | /See:/ 'mkSearchProfiles' smart constructor.
 data SearchProfiles = SearchProfiles'
-  { _spFilters ::
-      !(Maybe [Filter]),
-    _spSortCriteria :: !(Maybe [Sort]),
-    _spNextToken :: !(Maybe Text),
-    _spMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [Filter],
+    sortCriteria :: Lude.Maybe [Sort],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spFilters' - The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required.
---
--- * 'spSortCriteria' - The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address.
---
--- * 'spNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'spMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-searchProfiles ::
+-- * 'filters' - The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'sortCriteria' - The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address.
+mkSearchProfiles ::
   SearchProfiles
-searchProfiles =
+mkSearchProfiles =
   SearchProfiles'
-    { _spFilters = Nothing,
-      _spSortCriteria = Nothing,
-      _spNextToken = Nothing,
-      _spMaxResults = Nothing
+    { filters = Lude.Nothing,
+      sortCriteria = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required.
-spFilters :: Lens' SearchProfiles [Filter]
-spFilters = lens _spFilters (\s a -> s {_spFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spFilters :: Lens.Lens' SearchProfiles (Lude.Maybe [Filter])
+spFilters = Lens.lens (filters :: SearchProfiles -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: SearchProfiles)
+{-# DEPRECATED spFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address.
-spSortCriteria :: Lens' SearchProfiles [Sort]
-spSortCriteria = lens _spSortCriteria (\s a -> s {_spSortCriteria = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spSortCriteria :: Lens.Lens' SearchProfiles (Lude.Maybe [Sort])
+spSortCriteria = Lens.lens (sortCriteria :: SearchProfiles -> Lude.Maybe [Sort]) (\s a -> s {sortCriteria = a} :: SearchProfiles)
+{-# DEPRECATED spSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-spNextToken :: Lens' SearchProfiles (Maybe Text)
-spNextToken = lens _spNextToken (\s a -> s {_spNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spNextToken :: Lens.Lens' SearchProfiles (Lude.Maybe Lude.Text)
+spNextToken = Lens.lens (nextToken :: SearchProfiles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchProfiles)
+{-# DEPRECATED spNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-spMaxResults :: Lens' SearchProfiles (Maybe Natural)
-spMaxResults = lens _spMaxResults (\s a -> s {_spMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spMaxResults :: Lens.Lens' SearchProfiles (Lude.Maybe Lude.Natural)
+spMaxResults = Lens.lens (maxResults :: SearchProfiles -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchProfiles)
+{-# DEPRECATED spMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager SearchProfiles where
+instance Page.AWSPager SearchProfiles where
   page rq rs
-    | stop (rs ^. sprsNextToken) = Nothing
-    | stop (rs ^. sprsProfiles) = Nothing
-    | otherwise = Just $ rq & spNextToken .~ rs ^. sprsNextToken
+    | Page.stop (rs Lens.^. sprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. sprsProfiles) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& spNextToken Lens..~ rs Lens.^. sprsNextToken
 
-instance AWSRequest SearchProfiles where
+instance Lude.AWSRequest SearchProfiles where
   type Rs SearchProfiles = SearchProfilesResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchProfilesResponse'
-            <$> (x .?> "Profiles" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "TotalCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Profiles" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "TotalCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchProfiles
-
-instance NFData SearchProfiles
-
-instance ToHeaders SearchProfiles where
+instance Lude.ToHeaders SearchProfiles where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.SearchProfiles" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.SearchProfiles" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchProfiles where
+instance Lude.ToJSON SearchProfiles where
   toJSON SearchProfiles' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _spFilters,
-            ("SortCriteria" .=) <$> _spSortCriteria,
-            ("NextToken" .=) <$> _spNextToken,
-            ("MaxResults" .=) <$> _spMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath SearchProfiles where
-  toPath = const "/"
+instance Lude.ToPath SearchProfiles where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchProfiles where
-  toQuery = const mempty
+instance Lude.ToQuery SearchProfiles where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchProfilesResponse' smart constructor.
+-- | /See:/ 'mkSearchProfilesResponse' smart constructor.
 data SearchProfilesResponse = SearchProfilesResponse'
-  { _sprsProfiles ::
-      !(Maybe [ProfileData]),
-    _sprsNextToken :: !(Maybe Text),
-    _sprsTotalCount :: !(Maybe Int),
-    _sprsResponseStatus :: !Int
+  { profiles ::
+      Lude.Maybe [ProfileData],
+    nextToken :: Lude.Maybe Lude.Text,
+    totalCount :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProfilesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sprsProfiles' - The profiles that meet the specified set of filter criteria, in sort order.
---
--- * 'sprsNextToken' - The token returned to indicate that there is more data available.
---
--- * 'sprsTotalCount' - The total number of room profiles returned.
---
--- * 'sprsResponseStatus' - -- | The response status code.
-searchProfilesResponse ::
-  -- | 'sprsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token returned to indicate that there is more data available.
+-- * 'profiles' - The profiles that meet the specified set of filter criteria, in sort order.
+-- * 'responseStatus' - The response status code.
+-- * 'totalCount' - The total number of room profiles returned.
+mkSearchProfilesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchProfilesResponse
-searchProfilesResponse pResponseStatus_ =
+mkSearchProfilesResponse pResponseStatus_ =
   SearchProfilesResponse'
-    { _sprsProfiles = Nothing,
-      _sprsNextToken = Nothing,
-      _sprsTotalCount = Nothing,
-      _sprsResponseStatus = pResponseStatus_
+    { profiles = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      totalCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The profiles that meet the specified set of filter criteria, in sort order.
-sprsProfiles :: Lens' SearchProfilesResponse [ProfileData]
-sprsProfiles = lens _sprsProfiles (\s a -> s {_sprsProfiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'profiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprsProfiles :: Lens.Lens' SearchProfilesResponse (Lude.Maybe [ProfileData])
+sprsProfiles = Lens.lens (profiles :: SearchProfilesResponse -> Lude.Maybe [ProfileData]) (\s a -> s {profiles = a} :: SearchProfilesResponse)
+{-# DEPRECATED sprsProfiles "Use generic-lens or generic-optics with 'profiles' instead." #-}
 
 -- | The token returned to indicate that there is more data available.
-sprsNextToken :: Lens' SearchProfilesResponse (Maybe Text)
-sprsNextToken = lens _sprsNextToken (\s a -> s {_sprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprsNextToken :: Lens.Lens' SearchProfilesResponse (Lude.Maybe Lude.Text)
+sprsNextToken = Lens.lens (nextToken :: SearchProfilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchProfilesResponse)
+{-# DEPRECATED sprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of room profiles returned.
-sprsTotalCount :: Lens' SearchProfilesResponse (Maybe Int)
-sprsTotalCount = lens _sprsTotalCount (\s a -> s {_sprsTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprsTotalCount :: Lens.Lens' SearchProfilesResponse (Lude.Maybe Lude.Int)
+sprsTotalCount = Lens.lens (totalCount :: SearchProfilesResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: SearchProfilesResponse)
+{-# DEPRECATED sprsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
--- | -- | The response status code.
-sprsResponseStatus :: Lens' SearchProfilesResponse Int
-sprsResponseStatus = lens _sprsResponseStatus (\s a -> s {_sprsResponseStatus = a})
-
-instance NFData SearchProfilesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprsResponseStatus :: Lens.Lens' SearchProfilesResponse Lude.Int
+sprsResponseStatus = Lens.lens (responseStatus :: SearchProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchProfilesResponse)
+{-# DEPRECATED sprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

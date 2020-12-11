@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCClassicLink where
+module Network.AWS.EC2.Types.VPCClassicLink
+  ( VPCClassicLink (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPCClassicLink,
+
+    -- * Lenses
+    vclVPCId,
+    vclTags,
+    vclClassicLinkEnabled,
+  )
+where
+
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes whether a VPC is enabled for ClassicLink.
 --
---
---
--- /See:/ 'vpcClassicLink' smart constructor.
+-- /See:/ 'mkVPCClassicLink' smart constructor.
 data VPCClassicLink = VPCClassicLink'
-  { _vclVPCId :: !(Maybe Text),
-    _vclTags :: !(Maybe [Tag]),
-    _vclClassicLinkEnabled :: !(Maybe Bool)
+  { vpcId ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    classicLinkEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCClassicLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vclVPCId' - The ID of the VPC.
---
--- * 'vclTags' - Any tags assigned to the VPC.
---
--- * 'vclClassicLinkEnabled' - Indicates whether the VPC is enabled for ClassicLink.
-vpcClassicLink ::
+-- * 'classicLinkEnabled' - Indicates whether the VPC is enabled for ClassicLink.
+-- * 'tags' - Any tags assigned to the VPC.
+-- * 'vpcId' - The ID of the VPC.
+mkVPCClassicLink ::
   VPCClassicLink
-vpcClassicLink =
+mkVPCClassicLink =
   VPCClassicLink'
-    { _vclVPCId = Nothing,
-      _vclTags = Nothing,
-      _vclClassicLinkEnabled = Nothing
+    { vpcId = Lude.Nothing,
+      tags = Lude.Nothing,
+      classicLinkEnabled = Lude.Nothing
     }
 
 -- | The ID of the VPC.
-vclVPCId :: Lens' VPCClassicLink (Maybe Text)
-vclVPCId = lens _vclVPCId (\s a -> s {_vclVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vclVPCId :: Lens.Lens' VPCClassicLink (Lude.Maybe Lude.Text)
+vclVPCId = Lens.lens (vpcId :: VPCClassicLink -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: VPCClassicLink)
+{-# DEPRECATED vclVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Any tags assigned to the VPC.
-vclTags :: Lens' VPCClassicLink [Tag]
-vclTags = lens _vclTags (\s a -> s {_vclTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vclTags :: Lens.Lens' VPCClassicLink (Lude.Maybe [Tag])
+vclTags = Lens.lens (tags :: VPCClassicLink -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: VPCClassicLink)
+{-# DEPRECATED vclTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Indicates whether the VPC is enabled for ClassicLink.
-vclClassicLinkEnabled :: Lens' VPCClassicLink (Maybe Bool)
-vclClassicLinkEnabled = lens _vclClassicLinkEnabled (\s a -> s {_vclClassicLinkEnabled = a})
+--
+-- /Note:/ Consider using 'classicLinkEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vclClassicLinkEnabled :: Lens.Lens' VPCClassicLink (Lude.Maybe Lude.Bool)
+vclClassicLinkEnabled = Lens.lens (classicLinkEnabled :: VPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {classicLinkEnabled = a} :: VPCClassicLink)
+{-# DEPRECATED vclClassicLinkEnabled "Use generic-lens or generic-optics with 'classicLinkEnabled' instead." #-}
 
-instance FromXML VPCClassicLink where
+instance Lude.FromXML VPCClassicLink where
   parseXML x =
     VPCClassicLink'
-      <$> (x .@? "vpcId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "classicLinkEnabled")
-
-instance Hashable VPCClassicLink
-
-instance NFData VPCClassicLink
+      Lude.<$> (x Lude..@? "vpcId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "classicLinkEnabled")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult where
+module Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult
+  ( DBClusterSnapshotAttributesResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBClusterSnapshotAttributesResult,
+
+    -- * Lenses
+    dcsarDBClusterSnapshotIdentifier,
+    dcsarDBClusterSnapshotAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
 
 -- | Contains the results of a successful call to the @DescribeDBClusterSnapshotAttributes@ API action.
 --
---
 -- Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB cluster snapshot. For more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
 --
---
--- /See:/ 'dbClusterSnapshotAttributesResult' smart constructor.
+-- /See:/ 'mkDBClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
-  { _dcsarDBClusterSnapshotIdentifier ::
-      !(Maybe Text),
-    _dcsarDBClusterSnapshotAttributes ::
-      !( Maybe
-           [DBClusterSnapshotAttribute]
-       )
+  { dbClusterSnapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    dbClusterSnapshotAttributes ::
+      Lude.Maybe
+        [DBClusterSnapshotAttribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterSnapshotAttributesResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsarDBClusterSnapshotIdentifier' - The identifier of the manual DB cluster snapshot that the attributes apply to.
---
--- * 'dcsarDBClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.
-dbClusterSnapshotAttributesResult ::
+-- * 'dbClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.
+-- * 'dbClusterSnapshotIdentifier' - The identifier of the manual DB cluster snapshot that the attributes apply to.
+mkDBClusterSnapshotAttributesResult ::
   DBClusterSnapshotAttributesResult
-dbClusterSnapshotAttributesResult =
+mkDBClusterSnapshotAttributesResult =
   DBClusterSnapshotAttributesResult'
-    { _dcsarDBClusterSnapshotIdentifier =
-        Nothing,
-      _dcsarDBClusterSnapshotAttributes = Nothing
+    { dbClusterSnapshotIdentifier =
+        Lude.Nothing,
+      dbClusterSnapshotAttributes = Lude.Nothing
     }
 
 -- | The identifier of the manual DB cluster snapshot that the attributes apply to.
-dcsarDBClusterSnapshotIdentifier :: Lens' DBClusterSnapshotAttributesResult (Maybe Text)
-dcsarDBClusterSnapshotIdentifier = lens _dcsarDBClusterSnapshotIdentifier (\s a -> s {_dcsarDBClusterSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsarDBClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Lude.Maybe Lude.Text)
+dcsarDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: DBClusterSnapshotAttributesResult -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: DBClusterSnapshotAttributesResult)
+{-# DEPRECATED dcsarDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
 
 -- | The list of attributes and values for the manual DB cluster snapshot.
-dcsarDBClusterSnapshotAttributes :: Lens' DBClusterSnapshotAttributesResult [DBClusterSnapshotAttribute]
-dcsarDBClusterSnapshotAttributes = lens _dcsarDBClusterSnapshotAttributes (\s a -> s {_dcsarDBClusterSnapshotAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbClusterSnapshotAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsarDBClusterSnapshotAttributes :: Lens.Lens' DBClusterSnapshotAttributesResult (Lude.Maybe [DBClusterSnapshotAttribute])
+dcsarDBClusterSnapshotAttributes = Lens.lens (dbClusterSnapshotAttributes :: DBClusterSnapshotAttributesResult -> Lude.Maybe [DBClusterSnapshotAttribute]) (\s a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult)
+{-# DEPRECATED dcsarDBClusterSnapshotAttributes "Use generic-lens or generic-optics with 'dbClusterSnapshotAttributes' instead." #-}
 
-instance FromXML DBClusterSnapshotAttributesResult where
+instance Lude.FromXML DBClusterSnapshotAttributesResult where
   parseXML x =
     DBClusterSnapshotAttributesResult'
-      <$> (x .@? "DBClusterSnapshotIdentifier")
-      <*> ( x .@? "DBClusterSnapshotAttributes" .!@ mempty
-              >>= may (parseXMLList "DBClusterSnapshotAttribute")
-          )
-
-instance Hashable DBClusterSnapshotAttributesResult
-
-instance NFData DBClusterSnapshotAttributesResult
+      Lude.<$> (x Lude..@? "DBClusterSnapshotIdentifier")
+      Lude.<*> ( x Lude..@? "DBClusterSnapshotAttributes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBClusterSnapshotAttribute")
+               )

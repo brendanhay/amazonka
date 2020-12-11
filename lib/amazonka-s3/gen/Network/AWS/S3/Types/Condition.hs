@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Condition where
+module Network.AWS.S3.Types.Condition
+  ( Condition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCondition,
+
+    -- * Lenses
+    cKeyPrefixEquals,
+    cHTTPErrorCodeReturnedEquals,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the @/docs@ folder, redirect to the @/documents@ folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
 --
---
---
--- /See:/ 'condition' smart constructor.
+-- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { _cKeyPrefixEquals :: !(Maybe Text),
-    _cHTTPErrorCodeReturnedEquals :: !(Maybe Text)
+  { keyPrefixEquals ::
+      Lude.Maybe Lude.Text,
+    hTTPErrorCodeReturnedEquals :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cKeyPrefixEquals' - The object key name prefix when the redirect is applied. For example, to redirect requests for @ExamplePage.html@ , the key prefix will be @ExamplePage.html@ . To redirect request for all pages with the prefix @docs/@ , the key prefix will be @/docs@ , which identifies all objects in the @docs/@ folder. Required when the parent element @Condition@ is specified and sibling @HttpErrorCodeReturnedEquals@ is not specified. If both conditions are specified, both must be true for the redirect to be applied.
---
--- * 'cHTTPErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element @Condition@ is specified and sibling @KeyPrefixEquals@ is not specified. If both are specified, then both must be true for the redirect to be applied.
-condition ::
+-- * 'hTTPErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element @Condition@ is specified and sibling @KeyPrefixEquals@ is not specified. If both are specified, then both must be true for the redirect to be applied.
+-- * 'keyPrefixEquals' - The object key name prefix when the redirect is applied. For example, to redirect requests for @ExamplePage.html@ , the key prefix will be @ExamplePage.html@ . To redirect request for all pages with the prefix @docs/@ , the key prefix will be @/docs@ , which identifies all objects in the @docs/@ folder. Required when the parent element @Condition@ is specified and sibling @HttpErrorCodeReturnedEquals@ is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+mkCondition ::
   Condition
-condition =
+mkCondition =
   Condition'
-    { _cKeyPrefixEquals = Nothing,
-      _cHTTPErrorCodeReturnedEquals = Nothing
+    { keyPrefixEquals = Lude.Nothing,
+      hTTPErrorCodeReturnedEquals = Lude.Nothing
     }
 
 -- | The object key name prefix when the redirect is applied. For example, to redirect requests for @ExamplePage.html@ , the key prefix will be @ExamplePage.html@ . To redirect request for all pages with the prefix @docs/@ , the key prefix will be @/docs@ , which identifies all objects in the @docs/@ folder. Required when the parent element @Condition@ is specified and sibling @HttpErrorCodeReturnedEquals@ is not specified. If both conditions are specified, both must be true for the redirect to be applied.
-cKeyPrefixEquals :: Lens' Condition (Maybe Text)
-cKeyPrefixEquals = lens _cKeyPrefixEquals (\s a -> s {_cKeyPrefixEquals = a})
+--
+-- /Note:/ Consider using 'keyPrefixEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cKeyPrefixEquals :: Lens.Lens' Condition (Lude.Maybe Lude.Text)
+cKeyPrefixEquals = Lens.lens (keyPrefixEquals :: Condition -> Lude.Maybe Lude.Text) (\s a -> s {keyPrefixEquals = a} :: Condition)
+{-# DEPRECATED cKeyPrefixEquals "Use generic-lens or generic-optics with 'keyPrefixEquals' instead." #-}
 
 -- | The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element @Condition@ is specified and sibling @KeyPrefixEquals@ is not specified. If both are specified, then both must be true for the redirect to be applied.
-cHTTPErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
-cHTTPErrorCodeReturnedEquals = lens _cHTTPErrorCodeReturnedEquals (\s a -> s {_cHTTPErrorCodeReturnedEquals = a})
+--
+-- /Note:/ Consider using 'hTTPErrorCodeReturnedEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHTTPErrorCodeReturnedEquals :: Lens.Lens' Condition (Lude.Maybe Lude.Text)
+cHTTPErrorCodeReturnedEquals = Lens.lens (hTTPErrorCodeReturnedEquals :: Condition -> Lude.Maybe Lude.Text) (\s a -> s {hTTPErrorCodeReturnedEquals = a} :: Condition)
+{-# DEPRECATED cHTTPErrorCodeReturnedEquals "Use generic-lens or generic-optics with 'hTTPErrorCodeReturnedEquals' instead." #-}
 
-instance FromXML Condition where
+instance Lude.FromXML Condition where
   parseXML x =
     Condition'
-      <$> (x .@? "KeyPrefixEquals") <*> (x .@? "HttpErrorCodeReturnedEquals")
+      Lude.<$> (x Lude..@? "KeyPrefixEquals")
+      Lude.<*> (x Lude..@? "HttpErrorCodeReturnedEquals")
 
-instance Hashable Condition
-
-instance NFData Condition
-
-instance ToXML Condition where
+instance Lude.ToXML Condition where
   toXML Condition' {..} =
-    mconcat
-      [ "KeyPrefixEquals" @= _cKeyPrefixEquals,
-        "HttpErrorCodeReturnedEquals" @= _cHTTPErrorCodeReturnedEquals
+    Lude.mconcat
+      [ "KeyPrefixEquals" Lude.@= keyPrefixEquals,
+        "HttpErrorCodeReturnedEquals" Lude.@= hTTPErrorCodeReturnedEquals
       ]

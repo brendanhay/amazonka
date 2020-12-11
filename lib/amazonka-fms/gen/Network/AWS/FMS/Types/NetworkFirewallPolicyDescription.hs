@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.NetworkFirewallPolicyDescription where
+module Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
+  ( NetworkFirewallPolicyDescription (..),
+
+    -- * Smart constructor
+    mkNetworkFirewallPolicyDescription,
+
+    -- * Lenses
+    nfpdStatefulRuleGroups,
+    nfpdStatelessRuleGroups,
+    nfpdStatelessFragmentDefaultActions,
+    nfpdStatelessCustomActions,
+    nfpdStatelessDefaultActions,
+  )
+where
 
 import Network.AWS.FMS.Types.StatefulRuleGroup
 import Network.AWS.FMS.Types.StatelessRuleGroup
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The definition of the AWS Network Firewall firewall policy.
 --
---
---
--- /See:/ 'networkFirewallPolicyDescription' smart constructor.
+-- /See:/ 'mkNetworkFirewallPolicyDescription' smart constructor.
 data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
-  { _nfpdStatefulRuleGroups ::
-      !( Maybe
-           [StatefulRuleGroup]
-       ),
-    _nfpdStatelessRuleGroups ::
-      !( Maybe
-           [StatelessRuleGroup]
-       ),
-    _nfpdStatelessFragmentDefaultActions ::
-      !(Maybe [Text]),
-    _nfpdStatelessCustomActions ::
-      !(Maybe [Text]),
-    _nfpdStatelessDefaultActions ::
-      !(Maybe [Text])
+  { statefulRuleGroups ::
+      Lude.Maybe
+        [StatefulRuleGroup],
+    statelessRuleGroups ::
+      Lude.Maybe
+        [StatelessRuleGroup],
+    statelessFragmentDefaultActions ::
+      Lude.Maybe [Lude.Text],
+    statelessCustomActions ::
+      Lude.Maybe [Lude.Text],
+    statelessDefaultActions ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkFirewallPolicyDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nfpdStatefulRuleGroups' - The stateful rule groups that are used in the Network Firewall firewall policy.
---
--- * 'nfpdStatelessRuleGroups' - The stateless rule groups that are used in the Network Firewall firewall policy.
---
--- * 'nfpdStatelessFragmentDefaultActions' - The actions to take on packet fragments that don't match any of the stateless rule groups.
---
--- * 'nfpdStatelessCustomActions' - Names of custom actions that are available for use in the stateless default actions settings.
---
--- * 'nfpdStatelessDefaultActions' - The actions to take on packets that don't match any of the stateless rule groups.
-networkFirewallPolicyDescription ::
+-- * 'statefulRuleGroups' - The stateful rule groups that are used in the Network Firewall firewall policy.
+-- * 'statelessCustomActions' - Names of custom actions that are available for use in the stateless default actions settings.
+-- * 'statelessDefaultActions' - The actions to take on packets that don't match any of the stateless rule groups.
+-- * 'statelessFragmentDefaultActions' - The actions to take on packet fragments that don't match any of the stateless rule groups.
+-- * 'statelessRuleGroups' - The stateless rule groups that are used in the Network Firewall firewall policy.
+mkNetworkFirewallPolicyDescription ::
   NetworkFirewallPolicyDescription
-networkFirewallPolicyDescription =
+mkNetworkFirewallPolicyDescription =
   NetworkFirewallPolicyDescription'
-    { _nfpdStatefulRuleGroups =
-        Nothing,
-      _nfpdStatelessRuleGroups = Nothing,
-      _nfpdStatelessFragmentDefaultActions = Nothing,
-      _nfpdStatelessCustomActions = Nothing,
-      _nfpdStatelessDefaultActions = Nothing
+    { statefulRuleGroups =
+        Lude.Nothing,
+      statelessRuleGroups = Lude.Nothing,
+      statelessFragmentDefaultActions = Lude.Nothing,
+      statelessCustomActions = Lude.Nothing,
+      statelessDefaultActions = Lude.Nothing
     }
 
 -- | The stateful rule groups that are used in the Network Firewall firewall policy.
-nfpdStatefulRuleGroups :: Lens' NetworkFirewallPolicyDescription [StatefulRuleGroup]
-nfpdStatefulRuleGroups = lens _nfpdStatefulRuleGroups (\s a -> s {_nfpdStatefulRuleGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statefulRuleGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfpdStatefulRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Lude.Maybe [StatefulRuleGroup])
+nfpdStatefulRuleGroups = Lens.lens (statefulRuleGroups :: NetworkFirewallPolicyDescription -> Lude.Maybe [StatefulRuleGroup]) (\s a -> s {statefulRuleGroups = a} :: NetworkFirewallPolicyDescription)
+{-# DEPRECATED nfpdStatefulRuleGroups "Use generic-lens or generic-optics with 'statefulRuleGroups' instead." #-}
 
 -- | The stateless rule groups that are used in the Network Firewall firewall policy.
-nfpdStatelessRuleGroups :: Lens' NetworkFirewallPolicyDescription [StatelessRuleGroup]
-nfpdStatelessRuleGroups = lens _nfpdStatelessRuleGroups (\s a -> s {_nfpdStatelessRuleGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statelessRuleGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfpdStatelessRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Lude.Maybe [StatelessRuleGroup])
+nfpdStatelessRuleGroups = Lens.lens (statelessRuleGroups :: NetworkFirewallPolicyDescription -> Lude.Maybe [StatelessRuleGroup]) (\s a -> s {statelessRuleGroups = a} :: NetworkFirewallPolicyDescription)
+{-# DEPRECATED nfpdStatelessRuleGroups "Use generic-lens or generic-optics with 'statelessRuleGroups' instead." #-}
 
 -- | The actions to take on packet fragments that don't match any of the stateless rule groups.
-nfpdStatelessFragmentDefaultActions :: Lens' NetworkFirewallPolicyDescription [Text]
-nfpdStatelessFragmentDefaultActions = lens _nfpdStatelessFragmentDefaultActions (\s a -> s {_nfpdStatelessFragmentDefaultActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statelessFragmentDefaultActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfpdStatelessFragmentDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Lude.Maybe [Lude.Text])
+nfpdStatelessFragmentDefaultActions = Lens.lens (statelessFragmentDefaultActions :: NetworkFirewallPolicyDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {statelessFragmentDefaultActions = a} :: NetworkFirewallPolicyDescription)
+{-# DEPRECATED nfpdStatelessFragmentDefaultActions "Use generic-lens or generic-optics with 'statelessFragmentDefaultActions' instead." #-}
 
 -- | Names of custom actions that are available for use in the stateless default actions settings.
-nfpdStatelessCustomActions :: Lens' NetworkFirewallPolicyDescription [Text]
-nfpdStatelessCustomActions = lens _nfpdStatelessCustomActions (\s a -> s {_nfpdStatelessCustomActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statelessCustomActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfpdStatelessCustomActions :: Lens.Lens' NetworkFirewallPolicyDescription (Lude.Maybe [Lude.Text])
+nfpdStatelessCustomActions = Lens.lens (statelessCustomActions :: NetworkFirewallPolicyDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {statelessCustomActions = a} :: NetworkFirewallPolicyDescription)
+{-# DEPRECATED nfpdStatelessCustomActions "Use generic-lens or generic-optics with 'statelessCustomActions' instead." #-}
 
 -- | The actions to take on packets that don't match any of the stateless rule groups.
-nfpdStatelessDefaultActions :: Lens' NetworkFirewallPolicyDescription [Text]
-nfpdStatelessDefaultActions = lens _nfpdStatelessDefaultActions (\s a -> s {_nfpdStatelessDefaultActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statelessDefaultActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfpdStatelessDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Lude.Maybe [Lude.Text])
+nfpdStatelessDefaultActions = Lens.lens (statelessDefaultActions :: NetworkFirewallPolicyDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {statelessDefaultActions = a} :: NetworkFirewallPolicyDescription)
+{-# DEPRECATED nfpdStatelessDefaultActions "Use generic-lens or generic-optics with 'statelessDefaultActions' instead." #-}
 
-instance FromJSON NetworkFirewallPolicyDescription where
+instance Lude.FromJSON NetworkFirewallPolicyDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkFirewallPolicyDescription"
       ( \x ->
           NetworkFirewallPolicyDescription'
-            <$> (x .:? "StatefulRuleGroups" .!= mempty)
-            <*> (x .:? "StatelessRuleGroups" .!= mempty)
-            <*> (x .:? "StatelessFragmentDefaultActions" .!= mempty)
-            <*> (x .:? "StatelessCustomActions" .!= mempty)
-            <*> (x .:? "StatelessDefaultActions" .!= mempty)
+            Lude.<$> (x Lude..:? "StatefulRuleGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StatelessRuleGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StatelessFragmentDefaultActions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StatelessCustomActions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StatelessDefaultActions" Lude..!= Lude.mempty)
       )
-
-instance Hashable NetworkFirewallPolicyDescription
-
-instance NFData NetworkFirewallPolicyDescription

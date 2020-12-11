@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,107 @@
 --
 -- Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
 module Network.AWS.EC2.DeleteVPNConnectionRoute
-  ( -- * Creating a Request
-    deleteVPNConnectionRoute,
-    DeleteVPNConnectionRoute,
+  ( -- * Creating a request
+    DeleteVPNConnectionRoute (..),
+    mkDeleteVPNConnectionRoute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvcrDestinationCidrBlock,
     dvcrVPNConnectionId,
 
-    -- * Destructuring the Response
-    deleteVPNConnectionRouteResponse,
-    DeleteVPNConnectionRouteResponse,
+    -- * Destructuring the response
+    DeleteVPNConnectionRouteResponse (..),
+    mkDeleteVPNConnectionRouteResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeleteVpnConnectionRoute.
 --
---
---
--- /See:/ 'deleteVPNConnectionRoute' smart constructor.
+-- /See:/ 'mkDeleteVPNConnectionRoute' smart constructor.
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
-  { _dvcrDestinationCidrBlock ::
-      !Text,
-    _dvcrVPNConnectionId :: !Text
+  { destinationCidrBlock ::
+      Lude.Text,
+    vpnConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPNConnectionRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcrDestinationCidrBlock' - The CIDR block associated with the local subnet of the customer network.
---
--- * 'dvcrVPNConnectionId' - The ID of the VPN connection.
-deleteVPNConnectionRoute ::
-  -- | 'dvcrDestinationCidrBlock'
-  Text ->
-  -- | 'dvcrVPNConnectionId'
-  Text ->
+-- * 'destinationCidrBlock' - The CIDR block associated with the local subnet of the customer network.
+-- * 'vpnConnectionId' - The ID of the VPN connection.
+mkDeleteVPNConnectionRoute ::
+  -- | 'destinationCidrBlock'
+  Lude.Text ->
+  -- | 'vpnConnectionId'
+  Lude.Text ->
   DeleteVPNConnectionRoute
-deleteVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
+mkDeleteVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
   DeleteVPNConnectionRoute'
-    { _dvcrDestinationCidrBlock =
+    { destinationCidrBlock =
         pDestinationCidrBlock_,
-      _dvcrVPNConnectionId = pVPNConnectionId_
+      vpnConnectionId = pVPNConnectionId_
     }
 
 -- | The CIDR block associated with the local subnet of the customer network.
-dvcrDestinationCidrBlock :: Lens' DeleteVPNConnectionRoute Text
-dvcrDestinationCidrBlock = lens _dvcrDestinationCidrBlock (\s a -> s {_dvcrDestinationCidrBlock = a})
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcrDestinationCidrBlock :: Lens.Lens' DeleteVPNConnectionRoute Lude.Text
+dvcrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: DeleteVPNConnectionRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: DeleteVPNConnectionRoute)
+{-# DEPRECATED dvcrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
 -- | The ID of the VPN connection.
-dvcrVPNConnectionId :: Lens' DeleteVPNConnectionRoute Text
-dvcrVPNConnectionId = lens _dvcrVPNConnectionId (\s a -> s {_dvcrVPNConnectionId = a})
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcrVPNConnectionId :: Lens.Lens' DeleteVPNConnectionRoute Lude.Text
+dvcrVPNConnectionId = Lens.lens (vpnConnectionId :: DeleteVPNConnectionRoute -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: DeleteVPNConnectionRoute)
+{-# DEPRECATED dvcrVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
-instance AWSRequest DeleteVPNConnectionRoute where
+instance Lude.AWSRequest DeleteVPNConnectionRoute where
   type Rs DeleteVPNConnectionRoute = DeleteVPNConnectionRouteResponse
-  request = postQuery ec2
-  response = receiveNull DeleteVPNConnectionRouteResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteVPNConnectionRouteResponse'
 
-instance Hashable DeleteVPNConnectionRoute
+instance Lude.ToHeaders DeleteVPNConnectionRoute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVPNConnectionRoute
+instance Lude.ToPath DeleteVPNConnectionRoute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVPNConnectionRoute where
-  toHeaders = const mempty
-
-instance ToPath DeleteVPNConnectionRoute where
-  toPath = const "/"
-
-instance ToQuery DeleteVPNConnectionRoute where
+instance Lude.ToQuery DeleteVPNConnectionRoute where
   toQuery DeleteVPNConnectionRoute' {..} =
-    mconcat
-      [ "Action" =: ("DeleteVpnConnectionRoute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DestinationCidrBlock" =: _dvcrDestinationCidrBlock,
-        "VpnConnectionId" =: _dvcrVPNConnectionId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteVpnConnectionRoute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
+        "VpnConnectionId" Lude.=: vpnConnectionId
       ]
 
--- | /See:/ 'deleteVPNConnectionRouteResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPNConnectionRouteResponse' smart constructor.
 data DeleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPNConnectionRouteResponse' with the minimum fields required to make a request.
-deleteVPNConnectionRouteResponse ::
+mkDeleteVPNConnectionRouteResponse ::
   DeleteVPNConnectionRouteResponse
-deleteVPNConnectionRouteResponse =
+mkDeleteVPNConnectionRouteResponse =
   DeleteVPNConnectionRouteResponse'
-
-instance NFData DeleteVPNConnectionRouteResponse

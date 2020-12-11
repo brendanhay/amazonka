@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a channel. A channel collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline.
 module Network.AWS.IoTAnalytics.CreateChannel
-  ( -- * Creating a Request
-    createChannel,
-    CreateChannel,
+  ( -- * Creating a request
+    CreateChannel (..),
+    mkCreateChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccRetentionPeriod,
     ccChannelStorage,
     ccTags,
     ccChannelName,
 
-    -- * Destructuring the Response
-    createChannelResponse,
-    CreateChannelResponse,
+    -- * Destructuring the response
+    CreateChannelResponse (..),
+    mkCreateChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsChannelARN,
     ccrsRetentionPeriod,
     ccrsChannelName,
@@ -42,145 +37,166 @@ module Network.AWS.IoTAnalytics.CreateChannel
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createChannel' smart constructor.
+-- | /See:/ 'mkCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { _ccRetentionPeriod ::
-      !(Maybe RetentionPeriod),
-    _ccChannelStorage :: !(Maybe ChannelStorage),
-    _ccTags :: !(Maybe (List1 Tag)),
-    _ccChannelName :: !Text
+  { retentionPeriod ::
+      Lude.Maybe RetentionPeriod,
+    channelStorage :: Lude.Maybe ChannelStorage,
+    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    channelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccRetentionPeriod' - How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
---
--- * 'ccChannelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
---
--- * 'ccTags' - Metadata which can be used to manage the channel.
---
--- * 'ccChannelName' - The name of the channel.
-createChannel ::
-  -- | 'ccChannelName'
-  Text ->
+-- * 'channelName' - The name of the channel.
+-- * 'channelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
+-- * 'retentionPeriod' - How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
+-- * 'tags' - Metadata which can be used to manage the channel.
+mkCreateChannel ::
+  -- | 'channelName'
+  Lude.Text ->
   CreateChannel
-createChannel pChannelName_ =
+mkCreateChannel pChannelName_ =
   CreateChannel'
-    { _ccRetentionPeriod = Nothing,
-      _ccChannelStorage = Nothing,
-      _ccTags = Nothing,
-      _ccChannelName = pChannelName_
+    { retentionPeriod = Lude.Nothing,
+      channelStorage = Lude.Nothing,
+      tags = Lude.Nothing,
+      channelName = pChannelName_
     }
 
 -- | How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
-ccRetentionPeriod :: Lens' CreateChannel (Maybe RetentionPeriod)
-ccRetentionPeriod = lens _ccRetentionPeriod (\s a -> s {_ccRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRetentionPeriod :: Lens.Lens' CreateChannel (Lude.Maybe RetentionPeriod)
+ccRetentionPeriod = Lens.lens (retentionPeriod :: CreateChannel -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateChannel)
+{-# DEPRECATED ccRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
-ccChannelStorage :: Lens' CreateChannel (Maybe ChannelStorage)
-ccChannelStorage = lens _ccChannelStorage (\s a -> s {_ccChannelStorage = a})
+--
+-- /Note:/ Consider using 'channelStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccChannelStorage :: Lens.Lens' CreateChannel (Lude.Maybe ChannelStorage)
+ccChannelStorage = Lens.lens (channelStorage :: CreateChannel -> Lude.Maybe ChannelStorage) (\s a -> s {channelStorage = a} :: CreateChannel)
+{-# DEPRECATED ccChannelStorage "Use generic-lens or generic-optics with 'channelStorage' instead." #-}
 
 -- | Metadata which can be used to manage the channel.
-ccTags :: Lens' CreateChannel (Maybe (NonEmpty Tag))
-ccTags = lens _ccTags (\s a -> s {_ccTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' CreateChannel (Lude.Maybe (Lude.NonEmpty Tag))
+ccTags = Lens.lens (tags :: CreateChannel -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateChannel)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the channel.
-ccChannelName :: Lens' CreateChannel Text
-ccChannelName = lens _ccChannelName (\s a -> s {_ccChannelName = a})
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccChannelName :: Lens.Lens' CreateChannel Lude.Text
+ccChannelName = Lens.lens (channelName :: CreateChannel -> Lude.Text) (\s a -> s {channelName = a} :: CreateChannel)
+{-# DEPRECATED ccChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
-instance AWSRequest CreateChannel where
+instance Lude.AWSRequest CreateChannel where
   type Rs CreateChannel = CreateChannelResponse
-  request = postJSON ioTAnalytics
+  request = Req.postJSON ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            <$> (x .?> "channelArn")
-            <*> (x .?> "retentionPeriod")
-            <*> (x .?> "channelName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "channelArn")
+            Lude.<*> (x Lude..?> "retentionPeriod")
+            Lude.<*> (x Lude..?> "channelName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateChannel
+instance Lude.ToHeaders CreateChannel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateChannel
-
-instance ToHeaders CreateChannel where
-  toHeaders = const mempty
-
-instance ToJSON CreateChannel where
+instance Lude.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
-    object
-      ( catMaybes
-          [ ("retentionPeriod" .=) <$> _ccRetentionPeriod,
-            ("channelStorage" .=) <$> _ccChannelStorage,
-            ("tags" .=) <$> _ccTags,
-            Just ("channelName" .= _ccChannelName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
+            ("channelStorage" Lude..=) Lude.<$> channelStorage,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("channelName" Lude..= channelName)
           ]
       )
 
-instance ToPath CreateChannel where
-  toPath = const "/channels"
+instance Lude.ToPath CreateChannel where
+  toPath = Lude.const "/channels"
 
-instance ToQuery CreateChannel where
-  toQuery = const mempty
+instance Lude.ToQuery CreateChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createChannelResponse' smart constructor.
+-- | /See:/ 'mkCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { _ccrsChannelARN ::
-      !(Maybe Text),
-    _ccrsRetentionPeriod ::
-      !(Maybe RetentionPeriod),
-    _ccrsChannelName :: !(Maybe Text),
-    _ccrsResponseStatus :: !Int
+  { channelARN ::
+      Lude.Maybe Lude.Text,
+    retentionPeriod :: Lude.Maybe RetentionPeriod,
+    channelName :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsChannelARN' - The ARN of the channel.
---
--- * 'ccrsRetentionPeriod' - How long, in days, message data is kept for the channel.
---
--- * 'ccrsChannelName' - The name of the channel.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createChannelResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'channelARN' - The ARN of the channel.
+-- * 'channelName' - The name of the channel.
+-- * 'responseStatus' - The response status code.
+-- * 'retentionPeriod' - How long, in days, message data is kept for the channel.
+mkCreateChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateChannelResponse
-createChannelResponse pResponseStatus_ =
+mkCreateChannelResponse pResponseStatus_ =
   CreateChannelResponse'
-    { _ccrsChannelARN = Nothing,
-      _ccrsRetentionPeriod = Nothing,
-      _ccrsChannelName = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { channelARN = Lude.Nothing,
+      retentionPeriod = Lude.Nothing,
+      channelName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the channel.
-ccrsChannelARN :: Lens' CreateChannelResponse (Maybe Text)
-ccrsChannelARN = lens _ccrsChannelARN (\s a -> s {_ccrsChannelARN = a})
+--
+-- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsChannelARN :: Lens.Lens' CreateChannelResponse (Lude.Maybe Lude.Text)
+ccrsChannelARN = Lens.lens (channelARN :: CreateChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelARN = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
 
 -- | How long, in days, message data is kept for the channel.
-ccrsRetentionPeriod :: Lens' CreateChannelResponse (Maybe RetentionPeriod)
-ccrsRetentionPeriod = lens _ccrsRetentionPeriod (\s a -> s {_ccrsRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsRetentionPeriod :: Lens.Lens' CreateChannelResponse (Lude.Maybe RetentionPeriod)
+ccrsRetentionPeriod = Lens.lens (retentionPeriod :: CreateChannelResponse -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | The name of the channel.
-ccrsChannelName :: Lens' CreateChannelResponse (Maybe Text)
-ccrsChannelName = lens _ccrsChannelName (\s a -> s {_ccrsChannelName = a})
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsChannelName :: Lens.Lens' CreateChannelResponse (Lude.Maybe Lude.Text)
+ccrsChannelName = Lens.lens (channelName :: CreateChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelName = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateChannelResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateChannelResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,134 @@
 --
 -- Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any DAX clusters.
 module Network.AWS.DAX.DeleteParameterGroup
-  ( -- * Creating a Request
-    deleteParameterGroup,
-    DeleteParameterGroup,
+  ( -- * Creating a request
+    DeleteParameterGroup (..),
+    mkDeleteParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpgParameterGroupName,
 
-    -- * Destructuring the Response
-    deleteParameterGroupResponse,
-    DeleteParameterGroupResponse,
+    -- * Destructuring the response
+    DeleteParameterGroupResponse (..),
+    mkDeleteParameterGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpgrsDeletionMessage,
     dpgrsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteParameterGroup' smart constructor.
+-- | /See:/ 'mkDeleteParameterGroup' smart constructor.
 newtype DeleteParameterGroup = DeleteParameterGroup'
-  { _dpgParameterGroupName ::
-      Text
+  { parameterGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgParameterGroupName' - The name of the parameter group to delete.
-deleteParameterGroup ::
-  -- | 'dpgParameterGroupName'
-  Text ->
+-- * 'parameterGroupName' - The name of the parameter group to delete.
+mkDeleteParameterGroup ::
+  -- | 'parameterGroupName'
+  Lude.Text ->
   DeleteParameterGroup
-deleteParameterGroup pParameterGroupName_ =
-  DeleteParameterGroup'
-    { _dpgParameterGroupName =
-        pParameterGroupName_
-    }
+mkDeleteParameterGroup pParameterGroupName_ =
+  DeleteParameterGroup' {parameterGroupName = pParameterGroupName_}
 
 -- | The name of the parameter group to delete.
-dpgParameterGroupName :: Lens' DeleteParameterGroup Text
-dpgParameterGroupName = lens _dpgParameterGroupName (\s a -> s {_dpgParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgParameterGroupName :: Lens.Lens' DeleteParameterGroup Lude.Text
+dpgParameterGroupName = Lens.lens (parameterGroupName :: DeleteParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: DeleteParameterGroup)
+{-# DEPRECATED dpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance AWSRequest DeleteParameterGroup where
+instance Lude.AWSRequest DeleteParameterGroup where
   type Rs DeleteParameterGroup = DeleteParameterGroupResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteParameterGroupResponse'
-            <$> (x .?> "DeletionMessage") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DeletionMessage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteParameterGroup
-
-instance NFData DeleteParameterGroup
-
-instance ToHeaders DeleteParameterGroup where
+instance Lude.ToHeaders DeleteParameterGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDAXV3.DeleteParameterGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDAXV3.DeleteParameterGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteParameterGroup where
+instance Lude.ToJSON DeleteParameterGroup where
   toJSON DeleteParameterGroup' {..} =
-    object
-      (catMaybes [Just ("ParameterGroupName" .= _dpgParameterGroupName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ParameterGroupName" Lude..= parameterGroupName)]
+      )
 
-instance ToPath DeleteParameterGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteParameterGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteParameterGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteParameterGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteParameterGroupResponse' smart constructor.
 data DeleteParameterGroupResponse = DeleteParameterGroupResponse'
-  { _dpgrsDeletionMessage ::
-      !(Maybe Text),
-    _dpgrsResponseStatus :: !Int
+  { deletionMessage ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteParameterGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgrsDeletionMessage' - A user-specified message for this action (i.e., a reason for deleting the parameter group).
---
--- * 'dpgrsResponseStatus' - -- | The response status code.
-deleteParameterGroupResponse ::
-  -- | 'dpgrsResponseStatus'
-  Int ->
+-- * 'deletionMessage' - A user-specified message for this action (i.e., a reason for deleting the parameter group).
+-- * 'responseStatus' - The response status code.
+mkDeleteParameterGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteParameterGroupResponse
-deleteParameterGroupResponse pResponseStatus_ =
+mkDeleteParameterGroupResponse pResponseStatus_ =
   DeleteParameterGroupResponse'
-    { _dpgrsDeletionMessage = Nothing,
-      _dpgrsResponseStatus = pResponseStatus_
+    { deletionMessage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A user-specified message for this action (i.e., a reason for deleting the parameter group).
-dpgrsDeletionMessage :: Lens' DeleteParameterGroupResponse (Maybe Text)
-dpgrsDeletionMessage = lens _dpgrsDeletionMessage (\s a -> s {_dpgrsDeletionMessage = a})
+--
+-- /Note:/ Consider using 'deletionMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgrsDeletionMessage :: Lens.Lens' DeleteParameterGroupResponse (Lude.Maybe Lude.Text)
+dpgrsDeletionMessage = Lens.lens (deletionMessage :: DeleteParameterGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {deletionMessage = a} :: DeleteParameterGroupResponse)
+{-# DEPRECATED dpgrsDeletionMessage "Use generic-lens or generic-optics with 'deletionMessage' instead." #-}
 
--- | -- | The response status code.
-dpgrsResponseStatus :: Lens' DeleteParameterGroupResponse Int
-dpgrsResponseStatus = lens _dpgrsResponseStatus (\s a -> s {_dpgrsResponseStatus = a})
-
-instance NFData DeleteParameterGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgrsResponseStatus :: Lens.Lens' DeleteParameterGroupResponse Lude.Int
+dpgrsResponseStatus = Lens.lens (responseStatus :: DeleteParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteParameterGroupResponse)
+{-# DEPRECATED dpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,171 @@
 --
 -- Gets a list of stream processors that you have created with 'CreateStreamProcessor' .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Rekognition.ListStreamProcessors
-  ( -- * Creating a Request
-    listStreamProcessors,
-    ListStreamProcessors,
+  ( -- * Creating a request
+    ListStreamProcessors (..),
+    mkListStreamProcessors,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lspNextToken,
     lspMaxResults,
 
-    -- * Destructuring the Response
-    listStreamProcessorsResponse,
-    ListStreamProcessorsResponse,
+    -- * Destructuring the response
+    ListStreamProcessorsResponse (..),
+    mkListStreamProcessorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsprsStreamProcessors,
     lsprsNextToken,
     lsprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listStreamProcessors' smart constructor.
+-- | /See:/ 'mkListStreamProcessors' smart constructor.
 data ListStreamProcessors = ListStreamProcessors'
-  { _lspNextToken ::
-      !(Maybe Text),
-    _lspMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamProcessors' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lspNextToken' - If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
---
--- * 'lspMaxResults' - Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
-listStreamProcessors ::
+-- * 'maxResults' - Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
+-- * 'nextToken' - If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
+mkListStreamProcessors ::
   ListStreamProcessors
-listStreamProcessors =
+mkListStreamProcessors =
   ListStreamProcessors'
-    { _lspNextToken = Nothing,
-      _lspMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
-lspNextToken :: Lens' ListStreamProcessors (Maybe Text)
-lspNextToken = lens _lspNextToken (\s a -> s {_lspNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspNextToken :: Lens.Lens' ListStreamProcessors (Lude.Maybe Lude.Text)
+lspNextToken = Lens.lens (nextToken :: ListStreamProcessors -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStreamProcessors)
+{-# DEPRECATED lspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
-lspMaxResults :: Lens' ListStreamProcessors (Maybe Natural)
-lspMaxResults = lens _lspMaxResults (\s a -> s {_lspMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspMaxResults :: Lens.Lens' ListStreamProcessors (Lude.Maybe Lude.Natural)
+lspMaxResults = Lens.lens (maxResults :: ListStreamProcessors -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListStreamProcessors)
+{-# DEPRECATED lspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListStreamProcessors where
+instance Page.AWSPager ListStreamProcessors where
   page rq rs
-    | stop (rs ^. lsprsNextToken) = Nothing
-    | stop (rs ^. lsprsStreamProcessors) = Nothing
-    | otherwise = Just $ rq & lspNextToken .~ rs ^. lsprsNextToken
+    | Page.stop (rs Lens.^. lsprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsprsStreamProcessors) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lspNextToken Lens..~ rs Lens.^. lsprsNextToken
 
-instance AWSRequest ListStreamProcessors where
+instance Lude.AWSRequest ListStreamProcessors where
   type Rs ListStreamProcessors = ListStreamProcessorsResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListStreamProcessorsResponse'
-            <$> (x .?> "StreamProcessors" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StreamProcessors" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListStreamProcessors
-
-instance NFData ListStreamProcessors
-
-instance ToHeaders ListStreamProcessors where
+instance Lude.ToHeaders ListStreamProcessors where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.ListStreamProcessors" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.ListStreamProcessors" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListStreamProcessors where
+instance Lude.ToJSON ListStreamProcessors where
   toJSON ListStreamProcessors' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lspNextToken,
-            ("MaxResults" .=) <$> _lspMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListStreamProcessors where
-  toPath = const "/"
+instance Lude.ToPath ListStreamProcessors where
+  toPath = Lude.const "/"
 
-instance ToQuery ListStreamProcessors where
-  toQuery = const mempty
+instance Lude.ToQuery ListStreamProcessors where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listStreamProcessorsResponse' smart constructor.
+-- | /See:/ 'mkListStreamProcessorsResponse' smart constructor.
 data ListStreamProcessorsResponse = ListStreamProcessorsResponse'
-  { _lsprsStreamProcessors ::
-      !(Maybe [StreamProcessor]),
-    _lsprsNextToken :: !(Maybe Text),
-    _lsprsResponseStatus :: !Int
+  { streamProcessors ::
+      Lude.Maybe [StreamProcessor],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamProcessorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsprsStreamProcessors' - List of stream processors that you have created.
---
--- * 'lsprsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
---
--- * 'lsprsResponseStatus' - -- | The response status code.
-listStreamProcessorsResponse ::
-  -- | 'lsprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
+-- * 'responseStatus' - The response status code.
+-- * 'streamProcessors' - List of stream processors that you have created.
+mkListStreamProcessorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListStreamProcessorsResponse
-listStreamProcessorsResponse pResponseStatus_ =
+mkListStreamProcessorsResponse pResponseStatus_ =
   ListStreamProcessorsResponse'
-    { _lsprsStreamProcessors = Nothing,
-      _lsprsNextToken = Nothing,
-      _lsprsResponseStatus = pResponseStatus_
+    { streamProcessors = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of stream processors that you have created.
-lsprsStreamProcessors :: Lens' ListStreamProcessorsResponse [StreamProcessor]
-lsprsStreamProcessors = lens _lsprsStreamProcessors (\s a -> s {_lsprsStreamProcessors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'streamProcessors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsprsStreamProcessors :: Lens.Lens' ListStreamProcessorsResponse (Lude.Maybe [StreamProcessor])
+lsprsStreamProcessors = Lens.lens (streamProcessors :: ListStreamProcessorsResponse -> Lude.Maybe [StreamProcessor]) (\s a -> s {streamProcessors = a} :: ListStreamProcessorsResponse)
+{-# DEPRECATED lsprsStreamProcessors "Use generic-lens or generic-optics with 'streamProcessors' instead." #-}
 
 -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
-lsprsNextToken :: Lens' ListStreamProcessorsResponse (Maybe Text)
-lsprsNextToken = lens _lsprsNextToken (\s a -> s {_lsprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsprsNextToken :: Lens.Lens' ListStreamProcessorsResponse (Lude.Maybe Lude.Text)
+lsprsNextToken = Lens.lens (nextToken :: ListStreamProcessorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStreamProcessorsResponse)
+{-# DEPRECATED lsprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lsprsResponseStatus :: Lens' ListStreamProcessorsResponse Int
-lsprsResponseStatus = lens _lsprsResponseStatus (\s a -> s {_lsprsResponseStatus = a})
-
-instance NFData ListStreamProcessorsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsprsResponseStatus :: Lens.Lens' ListStreamProcessorsResponse Lude.Int
+lsprsResponseStatus = Lens.lens (responseStatus :: ListStreamProcessorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamProcessorsResponse)
+{-# DEPRECATED lsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

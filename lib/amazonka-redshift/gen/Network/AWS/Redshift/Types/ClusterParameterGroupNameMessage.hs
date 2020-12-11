@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage where
+module Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage
+  ( ClusterParameterGroupNameMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterParameterGroupNameMessage,
+
+    -- * Lenses
+    cpgnmParameterGroupStatus,
+    cpgnmParameterGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- |
 --
---
---
--- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
+-- /See:/ 'mkClusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-  { _cpgnmParameterGroupStatus ::
-      !(Maybe Text),
-    _cpgnmParameterGroupName ::
-      !(Maybe Text)
+  { parameterGroupStatus ::
+      Lude.Maybe Lude.Text,
+    parameterGroupName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterParameterGroupNameMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpgnmParameterGroupStatus' - The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
---
--- * 'cpgnmParameterGroupName' - The name of the cluster parameter group.
-clusterParameterGroupNameMessage ::
+-- * 'parameterGroupName' - The name of the cluster parameter group.
+-- * 'parameterGroupStatus' - The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
+mkClusterParameterGroupNameMessage ::
   ClusterParameterGroupNameMessage
-clusterParameterGroupNameMessage =
+mkClusterParameterGroupNameMessage =
   ClusterParameterGroupNameMessage'
-    { _cpgnmParameterGroupStatus =
-        Nothing,
-      _cpgnmParameterGroupName = Nothing
+    { parameterGroupStatus =
+        Lude.Nothing,
+      parameterGroupName = Lude.Nothing
     }
 
 -- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
-cpgnmParameterGroupStatus :: Lens' ClusterParameterGroupNameMessage (Maybe Text)
-cpgnmParameterGroupStatus = lens _cpgnmParameterGroupStatus (\s a -> s {_cpgnmParameterGroupStatus = a})
+--
+-- /Note:/ Consider using 'parameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgnmParameterGroupStatus :: Lens.Lens' ClusterParameterGroupNameMessage (Lude.Maybe Lude.Text)
+cpgnmParameterGroupStatus = Lens.lens (parameterGroupStatus :: ClusterParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupStatus = a} :: ClusterParameterGroupNameMessage)
+{-# DEPRECATED cpgnmParameterGroupStatus "Use generic-lens or generic-optics with 'parameterGroupStatus' instead." #-}
 
 -- | The name of the cluster parameter group.
-cpgnmParameterGroupName :: Lens' ClusterParameterGroupNameMessage (Maybe Text)
-cpgnmParameterGroupName = lens _cpgnmParameterGroupName (\s a -> s {_cpgnmParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgnmParameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Lude.Maybe Lude.Text)
+cpgnmParameterGroupName = Lens.lens (parameterGroupName :: ClusterParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ClusterParameterGroupNameMessage)
+{-# DEPRECATED cpgnmParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance FromXML ClusterParameterGroupNameMessage where
+instance Lude.FromXML ClusterParameterGroupNameMessage where
   parseXML x =
     ClusterParameterGroupNameMessage'
-      <$> (x .@? "ParameterGroupStatus") <*> (x .@? "ParameterGroupName")
-
-instance Hashable ClusterParameterGroupNameMessage
-
-instance NFData ClusterParameterGroupNameMessage
+      Lude.<$> (x Lude..@? "ParameterGroupStatus")
+      Lude.<*> (x Lude..@? "ParameterGroupName")

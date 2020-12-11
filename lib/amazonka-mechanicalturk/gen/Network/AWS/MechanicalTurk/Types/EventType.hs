@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.EventType where
+module Network.AWS.MechanicalTurk.Types.EventType
+  ( EventType
+      ( EventType',
+        AssignmentAbandoned,
+        AssignmentAccepted,
+        AssignmentApproved,
+        AssignmentRejected,
+        AssignmentReturned,
+        AssignmentSubmitted,
+        HITCreated,
+        HITDisposed,
+        HITExpired,
+        HITExtended,
+        HITReviewable,
+        Ping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventType
-  = AssignmentAbandoned
-  | AssignmentAccepted
-  | AssignmentApproved
-  | AssignmentRejected
-  | AssignmentReturned
-  | AssignmentSubmitted
-  | HITCreated
-  | HITDisposed
-  | HITExpired
-  | HITExtended
-  | HITReviewable
-  | Ping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventType = EventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventType where
-  parser =
-    takeLowerText >>= \case
-      "assignmentabandoned" -> pure AssignmentAbandoned
-      "assignmentaccepted" -> pure AssignmentAccepted
-      "assignmentapproved" -> pure AssignmentApproved
-      "assignmentrejected" -> pure AssignmentRejected
-      "assignmentreturned" -> pure AssignmentReturned
-      "assignmentsubmitted" -> pure AssignmentSubmitted
-      "hitcreated" -> pure HITCreated
-      "hitdisposed" -> pure HITDisposed
-      "hitexpired" -> pure HITExpired
-      "hitextended" -> pure HITExtended
-      "hitreviewable" -> pure HITReviewable
-      "ping" -> pure Ping
-      e ->
-        fromTextError $
-          "Failure parsing EventType from value: '" <> e
-            <> "'. Accepted values: assignmentabandoned, assignmentaccepted, assignmentapproved, assignmentrejected, assignmentreturned, assignmentsubmitted, hitcreated, hitdisposed, hitexpired, hitextended, hitreviewable, ping"
+pattern AssignmentAbandoned :: EventType
+pattern AssignmentAbandoned = EventType' "AssignmentAbandoned"
 
-instance ToText EventType where
-  toText = \case
-    AssignmentAbandoned -> "AssignmentAbandoned"
-    AssignmentAccepted -> "AssignmentAccepted"
-    AssignmentApproved -> "AssignmentApproved"
-    AssignmentRejected -> "AssignmentRejected"
-    AssignmentReturned -> "AssignmentReturned"
-    AssignmentSubmitted -> "AssignmentSubmitted"
-    HITCreated -> "HITCreated"
-    HITDisposed -> "HITDisposed"
-    HITExpired -> "HITExpired"
-    HITExtended -> "HITExtended"
-    HITReviewable -> "HITReviewable"
-    Ping -> "Ping"
+pattern AssignmentAccepted :: EventType
+pattern AssignmentAccepted = EventType' "AssignmentAccepted"
 
-instance Hashable EventType
+pattern AssignmentApproved :: EventType
+pattern AssignmentApproved = EventType' "AssignmentApproved"
 
-instance NFData EventType
+pattern AssignmentRejected :: EventType
+pattern AssignmentRejected = EventType' "AssignmentRejected"
 
-instance ToByteString EventType
+pattern AssignmentReturned :: EventType
+pattern AssignmentReturned = EventType' "AssignmentReturned"
 
-instance ToQuery EventType
+pattern AssignmentSubmitted :: EventType
+pattern AssignmentSubmitted = EventType' "AssignmentSubmitted"
 
-instance ToHeader EventType
+pattern HITCreated :: EventType
+pattern HITCreated = EventType' "HITCreated"
 
-instance ToJSON EventType where
-  toJSON = toJSONText
+pattern HITDisposed :: EventType
+pattern HITDisposed = EventType' "HITDisposed"
+
+pattern HITExpired :: EventType
+pattern HITExpired = EventType' "HITExpired"
+
+pattern HITExtended :: EventType
+pattern HITExtended = EventType' "HITExtended"
+
+pattern HITReviewable :: EventType
+pattern HITReviewable = EventType' "HITReviewable"
+
+pattern Ping :: EventType
+pattern Ping = EventType' "Ping"
+
+{-# COMPLETE
+  AssignmentAbandoned,
+  AssignmentAccepted,
+  AssignmentApproved,
+  AssignmentRejected,
+  AssignmentReturned,
+  AssignmentSubmitted,
+  HITCreated,
+  HITDisposed,
+  HITExpired,
+  HITExtended,
+  HITReviewable,
+  Ping,
+  EventType'
+  #-}

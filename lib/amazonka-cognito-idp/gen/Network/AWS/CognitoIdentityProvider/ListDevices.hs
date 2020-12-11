@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Lists the devices.
 module Network.AWS.CognitoIdentityProvider.ListDevices
-  ( -- * Creating a Request
-    listDevices,
-    ListDevices,
+  ( -- * Creating a request
+    ListDevices (..),
+    mkListDevices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldPaginationToken,
     ldLimit,
     ldAccessToken,
 
-    -- * Destructuring the Response
-    listDevicesResponse,
-    ListDevicesResponse,
+    -- * Destructuring the response
+    ListDevicesResponse (..),
+    mkListDevicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsPaginationToken,
     ldrsDevices,
     ldrsResponseStatus,
@@ -40,141 +35,146 @@ module Network.AWS.CognitoIdentityProvider.ListDevices
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to list the devices.
 --
---
---
--- /See:/ 'listDevices' smart constructor.
+-- /See:/ 'mkListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { _ldPaginationToken ::
-      !(Maybe Text),
-    _ldLimit :: !(Maybe Nat),
-    _ldAccessToken :: !(Sensitive Text)
+  { paginationToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    accessToken :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldPaginationToken' - The pagination token for the list request.
---
--- * 'ldLimit' - The limit of the device request.
---
--- * 'ldAccessToken' - The access tokens for the request to list devices.
-listDevices ::
-  -- | 'ldAccessToken'
-  Text ->
+-- * 'accessToken' - The access tokens for the request to list devices.
+-- * 'limit' - The limit of the device request.
+-- * 'paginationToken' - The pagination token for the list request.
+mkListDevices ::
+  -- | 'accessToken'
+  Lude.Sensitive Lude.Text ->
   ListDevices
-listDevices pAccessToken_ =
+mkListDevices pAccessToken_ =
   ListDevices'
-    { _ldPaginationToken = Nothing,
-      _ldLimit = Nothing,
-      _ldAccessToken = _Sensitive # pAccessToken_
+    { paginationToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      accessToken = pAccessToken_
     }
 
 -- | The pagination token for the list request.
-ldPaginationToken :: Lens' ListDevices (Maybe Text)
-ldPaginationToken = lens _ldPaginationToken (\s a -> s {_ldPaginationToken = a})
+--
+-- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldPaginationToken :: Lens.Lens' ListDevices (Lude.Maybe Lude.Text)
+ldPaginationToken = Lens.lens (paginationToken :: ListDevices -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: ListDevices)
+{-# DEPRECATED ldPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | The limit of the device request.
-ldLimit :: Lens' ListDevices (Maybe Natural)
-ldLimit = lens _ldLimit (\s a -> s {_ldLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldLimit :: Lens.Lens' ListDevices (Lude.Maybe Lude.Natural)
+ldLimit = Lens.lens (limit :: ListDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListDevices)
+{-# DEPRECATED ldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The access tokens for the request to list devices.
-ldAccessToken :: Lens' ListDevices Text
-ldAccessToken = lens _ldAccessToken (\s a -> s {_ldAccessToken = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldAccessToken :: Lens.Lens' ListDevices (Lude.Sensitive Lude.Text)
+ldAccessToken = Lens.lens (accessToken :: ListDevices -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ListDevices)
+{-# DEPRECATED ldAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
-instance AWSRequest ListDevices where
+instance Lude.AWSRequest ListDevices where
   type Rs ListDevices = ListDevicesResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            <$> (x .?> "PaginationToken")
-            <*> (x .?> "Devices" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PaginationToken")
+            Lude.<*> (x Lude..?> "Devices" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDevices
-
-instance NFData ListDevices
-
-instance ToHeaders ListDevices where
+instance Lude.ToHeaders ListDevices where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.ListDevices" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.ListDevices" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDevices where
+instance Lude.ToJSON ListDevices where
   toJSON ListDevices' {..} =
-    object
-      ( catMaybes
-          [ ("PaginationToken" .=) <$> _ldPaginationToken,
-            ("Limit" .=) <$> _ldLimit,
-            Just ("AccessToken" .= _ldAccessToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PaginationToken" Lude..=) Lude.<$> paginationToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("AccessToken" Lude..= accessToken)
           ]
       )
 
-instance ToPath ListDevices where
-  toPath = const "/"
+instance Lude.ToPath ListDevices where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDevices where
-  toQuery = const mempty
+instance Lude.ToQuery ListDevices where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response to list devices.
 --
---
---
--- /See:/ 'listDevicesResponse' smart constructor.
+-- /See:/ 'mkListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-  { _ldrsPaginationToken ::
-      !(Maybe Text),
-    _ldrsDevices :: !(Maybe [DeviceType]),
-    _ldrsResponseStatus :: !Int
+  { paginationToken ::
+      Lude.Maybe Lude.Text,
+    devices :: Lude.Maybe [DeviceType],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsPaginationToken' - The pagination token for the list device response.
---
--- * 'ldrsDevices' - The devices returned in the list devices response.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDevicesResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'devices' - The devices returned in the list devices response.
+-- * 'paginationToken' - The pagination token for the list device response.
+-- * 'responseStatus' - The response status code.
+mkListDevicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDevicesResponse
-listDevicesResponse pResponseStatus_ =
+mkListDevicesResponse pResponseStatus_ =
   ListDevicesResponse'
-    { _ldrsPaginationToken = Nothing,
-      _ldrsDevices = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { paginationToken = Lude.Nothing,
+      devices = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token for the list device response.
-ldrsPaginationToken :: Lens' ListDevicesResponse (Maybe Text)
-ldrsPaginationToken = lens _ldrsPaginationToken (\s a -> s {_ldrsPaginationToken = a})
+--
+-- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsPaginationToken :: Lens.Lens' ListDevicesResponse (Lude.Maybe Lude.Text)
+ldrsPaginationToken = Lens.lens (paginationToken :: ListDevicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: ListDevicesResponse)
+{-# DEPRECATED ldrsPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | The devices returned in the list devices response.
-ldrsDevices :: Lens' ListDevicesResponse [DeviceType]
-ldrsDevices = lens _ldrsDevices (\s a -> s {_ldrsDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDevices :: Lens.Lens' ListDevicesResponse (Lude.Maybe [DeviceType])
+ldrsDevices = Lens.lens (devices :: ListDevicesResponse -> Lude.Maybe [DeviceType]) (\s a -> s {devices = a} :: ListDevicesResponse)
+{-# DEPRECATED ldrsDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDevicesResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDevicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDevicesResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDevicesResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

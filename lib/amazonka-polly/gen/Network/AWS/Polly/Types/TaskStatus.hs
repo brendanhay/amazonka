@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.TaskStatus where
+module Network.AWS.Polly.Types.TaskStatus
+  ( TaskStatus
+      ( TaskStatus',
+        Completed,
+        Failed,
+        InProgress,
+        Scheduled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskStatus
-  = Completed
-  | Failed
-  | InProgress
-  | Scheduled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskStatus = TaskStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "inprogress" -> pure InProgress
-      "scheduled" -> pure Scheduled
-      e ->
-        fromTextError $
-          "Failure parsing TaskStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, scheduled"
+pattern Completed :: TaskStatus
+pattern Completed = TaskStatus' "completed"
 
-instance ToText TaskStatus where
-  toText = \case
-    Completed -> "completed"
-    Failed -> "failed"
-    InProgress -> "inProgress"
-    Scheduled -> "scheduled"
+pattern Failed :: TaskStatus
+pattern Failed = TaskStatus' "failed"
 
-instance Hashable TaskStatus
+pattern InProgress :: TaskStatus
+pattern InProgress = TaskStatus' "inProgress"
 
-instance NFData TaskStatus
+pattern Scheduled :: TaskStatus
+pattern Scheduled = TaskStatus' "scheduled"
 
-instance ToByteString TaskStatus
-
-instance ToQuery TaskStatus
-
-instance ToHeader TaskStatus
-
-instance ToJSON TaskStatus where
-  toJSON = toJSONText
-
-instance FromJSON TaskStatus where
-  parseJSON = parseJSONText "TaskStatus"
+{-# COMPLETE
+  Completed,
+  Failed,
+  InProgress,
+  Scheduled,
+  TaskStatus'
+  #-}

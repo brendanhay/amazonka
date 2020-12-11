@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.HandshakePartyType where
+module Network.AWS.Organizations.Types.HandshakePartyType
+  ( HandshakePartyType
+      ( HandshakePartyType',
+        HPTAccount,
+        HPTEmail,
+        HPTOrganization
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HandshakePartyType
-  = HPTAccount
-  | HPTEmail
-  | HPTOrganization
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HandshakePartyType = HandshakePartyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HandshakePartyType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure HPTAccount
-      "email" -> pure HPTEmail
-      "organization" -> pure HPTOrganization
-      e ->
-        fromTextError $
-          "Failure parsing HandshakePartyType from value: '" <> e
-            <> "'. Accepted values: account, email, organization"
+pattern HPTAccount :: HandshakePartyType
+pattern HPTAccount = HandshakePartyType' "ACCOUNT"
 
-instance ToText HandshakePartyType where
-  toText = \case
-    HPTAccount -> "ACCOUNT"
-    HPTEmail -> "EMAIL"
-    HPTOrganization -> "ORGANIZATION"
+pattern HPTEmail :: HandshakePartyType
+pattern HPTEmail = HandshakePartyType' "EMAIL"
 
-instance Hashable HandshakePartyType
+pattern HPTOrganization :: HandshakePartyType
+pattern HPTOrganization = HandshakePartyType' "ORGANIZATION"
 
-instance NFData HandshakePartyType
-
-instance ToByteString HandshakePartyType
-
-instance ToQuery HandshakePartyType
-
-instance ToHeader HandshakePartyType
-
-instance ToJSON HandshakePartyType where
-  toJSON = toJSONText
-
-instance FromJSON HandshakePartyType where
-  parseJSON = parseJSONText "HandshakePartyType"
+{-# COMPLETE
+  HPTAccount,
+  HPTEmail,
+  HPTOrganization,
+  HandshakePartyType'
+  #-}

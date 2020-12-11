@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- For Redis engine version 6.x onwards: Deletes a user. The user will be removed from all user groups and in turn removed from all replication groups. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html Using Role Based Access Control (RBAC)> .
 module Network.AWS.ElastiCache.DeleteUser
-  ( -- * Creating a Request
-    deleteUser,
-    DeleteUser,
+  ( -- * Creating a request
+    DeleteUser (..),
+    mkDeleteUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dUserId,
 
-    -- * Destructuring the Response
-    user,
-    User,
+    -- * Destructuring the response
+    User (..),
+    mkUser,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uStatus,
     uARN,
     uUserGroupIds,
@@ -43,50 +38,56 @@ module Network.AWS.ElastiCache.DeleteUser
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUser' smart constructor.
-newtype DeleteUser = DeleteUser' {_dUserId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteUser' smart constructor.
+newtype DeleteUser = DeleteUser' {userId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dUserId' - The ID of the user.
-deleteUser ::
-  -- | 'dUserId'
-  Text ->
+-- * 'userId' - The ID of the user.
+mkDeleteUser ::
+  -- | 'userId'
+  Lude.Text ->
   DeleteUser
-deleteUser pUserId_ = DeleteUser' {_dUserId = pUserId_}
+mkDeleteUser pUserId_ = DeleteUser' {userId = pUserId_}
 
 -- | The ID of the user.
-dUserId :: Lens' DeleteUser Text
-dUserId = lens _dUserId (\s a -> s {_dUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dUserId :: Lens.Lens' DeleteUser Lude.Text
+dUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
+{-# DEPRECATED dUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest DeleteUser where
+instance Lude.AWSRequest DeleteUser where
   type Rs DeleteUser = User
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper "DeleteUserResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "DeleteUserResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DeleteUser
+instance Lude.ToHeaders DeleteUser where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteUser
+instance Lude.ToPath DeleteUser where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteUser where
-  toHeaders = const mempty
-
-instance ToPath DeleteUser where
-  toPath = const "/"
-
-instance ToQuery DeleteUser where
+instance Lude.ToQuery DeleteUser where
   toQuery DeleteUser' {..} =
-    mconcat
-      [ "Action" =: ("DeleteUser" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "UserId" =: _dUserId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteUser" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "UserId" Lude.=: userId
       ]

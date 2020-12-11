@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,173 @@
 --
 -- Retrieves information about the status, configuration, and other settings for all versions of a campaign.
 module Network.AWS.Pinpoint.GetCampaignVersions
-  ( -- * Creating a Request
-    getCampaignVersions,
-    GetCampaignVersions,
+  ( -- * Creating a request
+    GetCampaignVersions (..),
+    mkGetCampaignVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcvToken,
     gcvPageSize,
     gcvApplicationId,
     gcvCampaignId,
 
-    -- * Destructuring the Response
-    getCampaignVersionsResponse,
-    GetCampaignVersionsResponse,
+    -- * Destructuring the response
+    GetCampaignVersionsResponse (..),
+    mkGetCampaignVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcvrsResponseStatus,
     gcvrsCampaignsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCampaignVersions' smart constructor.
+-- | /See:/ 'mkGetCampaignVersions' smart constructor.
 data GetCampaignVersions = GetCampaignVersions'
-  { _gcvToken ::
-      !(Maybe Text),
-    _gcvPageSize :: !(Maybe Text),
-    _gcvApplicationId :: !Text,
-    _gcvCampaignId :: !Text
+  { token ::
+      Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Text,
+    applicationId :: Lude.Text,
+    campaignId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcvToken' - The NextToken string that specifies which page of results to return in a paginated response.
---
--- * 'gcvPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'gcvApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'gcvCampaignId' - The unique identifier for the campaign.
-getCampaignVersions ::
-  -- | 'gcvApplicationId'
-  Text ->
-  -- | 'gcvCampaignId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'campaignId' - The unique identifier for the campaign.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+mkGetCampaignVersions ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'campaignId'
+  Lude.Text ->
   GetCampaignVersions
-getCampaignVersions pApplicationId_ pCampaignId_ =
+mkGetCampaignVersions pApplicationId_ pCampaignId_ =
   GetCampaignVersions'
-    { _gcvToken = Nothing,
-      _gcvPageSize = Nothing,
-      _gcvApplicationId = pApplicationId_,
-      _gcvCampaignId = pCampaignId_
+    { token = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      applicationId = pApplicationId_,
+      campaignId = pCampaignId_
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
-gcvToken :: Lens' GetCampaignVersions (Maybe Text)
-gcvToken = lens _gcvToken (\s a -> s {_gcvToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvToken :: Lens.Lens' GetCampaignVersions (Lude.Maybe Lude.Text)
+gcvToken = Lens.lens (token :: GetCampaignVersions -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetCampaignVersions)
+{-# DEPRECATED gcvToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gcvPageSize :: Lens' GetCampaignVersions (Maybe Text)
-gcvPageSize = lens _gcvPageSize (\s a -> s {_gcvPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvPageSize :: Lens.Lens' GetCampaignVersions (Lude.Maybe Lude.Text)
+gcvPageSize = Lens.lens (pageSize :: GetCampaignVersions -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetCampaignVersions)
+{-# DEPRECATED gcvPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gcvApplicationId :: Lens' GetCampaignVersions Text
-gcvApplicationId = lens _gcvApplicationId (\s a -> s {_gcvApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvApplicationId :: Lens.Lens' GetCampaignVersions Lude.Text
+gcvApplicationId = Lens.lens (applicationId :: GetCampaignVersions -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaignVersions)
+{-# DEPRECATED gcvApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the campaign.
-gcvCampaignId :: Lens' GetCampaignVersions Text
-gcvCampaignId = lens _gcvCampaignId (\s a -> s {_gcvCampaignId = a})
+--
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvCampaignId :: Lens.Lens' GetCampaignVersions Lude.Text
+gcvCampaignId = Lens.lens (campaignId :: GetCampaignVersions -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaignVersions)
+{-# DEPRECATED gcvCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
-instance AWSRequest GetCampaignVersions where
+instance Lude.AWSRequest GetCampaignVersions where
   type Rs GetCampaignVersions = GetCampaignVersionsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCampaignVersionsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetCampaignVersions
-
-instance NFData GetCampaignVersions
-
-instance ToHeaders GetCampaignVersions where
+instance Lude.ToHeaders GetCampaignVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetCampaignVersions where
+instance Lude.ToPath GetCampaignVersions where
   toPath GetCampaignVersions' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _gcvApplicationId,
+        Lude.toBS applicationId,
         "/campaigns/",
-        toBS _gcvCampaignId,
+        Lude.toBS campaignId,
         "/versions"
       ]
 
-instance ToQuery GetCampaignVersions where
+instance Lude.ToQuery GetCampaignVersions where
   toQuery GetCampaignVersions' {..} =
-    mconcat ["token" =: _gcvToken, "page-size" =: _gcvPageSize]
+    Lude.mconcat
+      ["token" Lude.=: token, "page-size" Lude.=: pageSize]
 
--- | /See:/ 'getCampaignVersionsResponse' smart constructor.
+-- | /See:/ 'mkGetCampaignVersionsResponse' smart constructor.
 data GetCampaignVersionsResponse = GetCampaignVersionsResponse'
-  { _gcvrsResponseStatus ::
-      !Int,
-    _gcvrsCampaignsResponse ::
-      !CampaignsResponse
+  { responseStatus ::
+      Lude.Int,
+    campaignsResponse ::
+      CampaignsResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcvrsResponseStatus' - -- | The response status code.
---
--- * 'gcvrsCampaignsResponse' - Undocumented member.
-getCampaignVersionsResponse ::
-  -- | 'gcvrsResponseStatus'
-  Int ->
-  -- | 'gcvrsCampaignsResponse'
+-- * 'campaignsResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetCampaignVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'campaignsResponse'
   CampaignsResponse ->
   GetCampaignVersionsResponse
-getCampaignVersionsResponse pResponseStatus_ pCampaignsResponse_ =
+mkGetCampaignVersionsResponse pResponseStatus_ pCampaignsResponse_ =
   GetCampaignVersionsResponse'
-    { _gcvrsResponseStatus =
-        pResponseStatus_,
-      _gcvrsCampaignsResponse = pCampaignsResponse_
+    { responseStatus = pResponseStatus_,
+      campaignsResponse = pCampaignsResponse_
     }
 
--- | -- | The response status code.
-gcvrsResponseStatus :: Lens' GetCampaignVersionsResponse Int
-gcvrsResponseStatus = lens _gcvrsResponseStatus (\s a -> s {_gcvrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvrsResponseStatus :: Lens.Lens' GetCampaignVersionsResponse Lude.Int
+gcvrsResponseStatus = Lens.lens (responseStatus :: GetCampaignVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignVersionsResponse)
+{-# DEPRECATED gcvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gcvrsCampaignsResponse :: Lens' GetCampaignVersionsResponse CampaignsResponse
-gcvrsCampaignsResponse = lens _gcvrsCampaignsResponse (\s a -> s {_gcvrsCampaignsResponse = a})
-
-instance NFData GetCampaignVersionsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'campaignsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvrsCampaignsResponse :: Lens.Lens' GetCampaignVersionsResponse CampaignsResponse
+gcvrsCampaignsResponse = Lens.lens (campaignsResponse :: GetCampaignVersionsResponse -> CampaignsResponse) (\s a -> s {campaignsResponse = a} :: GetCampaignVersionsResponse)
+{-# DEPRECATED gcvrsCampaignsResponse "Use generic-lens or generic-optics with 'campaignsResponse' instead." #-}

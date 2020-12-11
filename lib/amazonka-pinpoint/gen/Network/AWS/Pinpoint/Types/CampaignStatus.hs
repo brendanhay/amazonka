@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.CampaignStatus where
+module Network.AWS.Pinpoint.Types.CampaignStatus
+  ( CampaignStatus
+      ( CampaignStatus',
+        Completed,
+        Deleted,
+        Executing,
+        Invalid,
+        Paused,
+        PendingNextRun,
+        Scheduled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CampaignStatus
-  = Completed
-  | Deleted
-  | Executing
-  | Invalid
-  | Paused
-  | PendingNextRun
-  | Scheduled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CampaignStatus = CampaignStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CampaignStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "deleted" -> pure Deleted
-      "executing" -> pure Executing
-      "invalid" -> pure Invalid
-      "paused" -> pure Paused
-      "pending_next_run" -> pure PendingNextRun
-      "scheduled" -> pure Scheduled
-      e ->
-        fromTextError $
-          "Failure parsing CampaignStatus from value: '" <> e
-            <> "'. Accepted values: completed, deleted, executing, invalid, paused, pending_next_run, scheduled"
+pattern Completed :: CampaignStatus
+pattern Completed = CampaignStatus' "COMPLETED"
 
-instance ToText CampaignStatus where
-  toText = \case
-    Completed -> "COMPLETED"
-    Deleted -> "DELETED"
-    Executing -> "EXECUTING"
-    Invalid -> "INVALID"
-    Paused -> "PAUSED"
-    PendingNextRun -> "PENDING_NEXT_RUN"
-    Scheduled -> "SCHEDULED"
+pattern Deleted :: CampaignStatus
+pattern Deleted = CampaignStatus' "DELETED"
 
-instance Hashable CampaignStatus
+pattern Executing :: CampaignStatus
+pattern Executing = CampaignStatus' "EXECUTING"
 
-instance NFData CampaignStatus
+pattern Invalid :: CampaignStatus
+pattern Invalid = CampaignStatus' "INVALID"
 
-instance ToByteString CampaignStatus
+pattern Paused :: CampaignStatus
+pattern Paused = CampaignStatus' "PAUSED"
 
-instance ToQuery CampaignStatus
+pattern PendingNextRun :: CampaignStatus
+pattern PendingNextRun = CampaignStatus' "PENDING_NEXT_RUN"
 
-instance ToHeader CampaignStatus
+pattern Scheduled :: CampaignStatus
+pattern Scheduled = CampaignStatus' "SCHEDULED"
 
-instance FromJSON CampaignStatus where
-  parseJSON = parseJSONText "CampaignStatus"
+{-# COMPLETE
+  Completed,
+  Deleted,
+  Executing,
+  Invalid,
+  Paused,
+  PendingNextRun,
+  Scheduled,
+  CampaignStatus'
+  #-}

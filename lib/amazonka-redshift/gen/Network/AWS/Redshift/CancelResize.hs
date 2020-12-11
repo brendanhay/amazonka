@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Cancels a resize operation for a cluster.
 module Network.AWS.Redshift.CancelResize
-  ( -- * Creating a Request
-    cancelResize,
-    CancelResize,
+  ( -- * Creating a request
+    CancelResize (..),
+    mkCancelResize,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crClusterIdentifier,
 
-    -- * Destructuring the Response
-    resizeProgressMessage,
-    ResizeProgressMessage,
+    -- * Destructuring the response
+    ResizeProgressMessage (..),
+    mkResizeProgressMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rpmImportTablesNotStarted,
     rpmStatus,
     rpmEstimatedTimeToCompletionInSeconds,
@@ -50,52 +45,61 @@ module Network.AWS.Redshift.CancelResize
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelResize' smart constructor.
-newtype CancelResize = CancelResize' {_crClusterIdentifier :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCancelResize' smart constructor.
+newtype CancelResize = CancelResize'
+  { clusterIdentifier ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelResize' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crClusterIdentifier' - The unique identifier for the cluster that you want to cancel a resize operation for.
-cancelResize ::
-  -- | 'crClusterIdentifier'
-  Text ->
+-- * 'clusterIdentifier' - The unique identifier for the cluster that you want to cancel a resize operation for.
+mkCancelResize ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   CancelResize
-cancelResize pClusterIdentifier_ =
-  CancelResize' {_crClusterIdentifier = pClusterIdentifier_}
+mkCancelResize pClusterIdentifier_ =
+  CancelResize' {clusterIdentifier = pClusterIdentifier_}
 
 -- | The unique identifier for the cluster that you want to cancel a resize operation for.
-crClusterIdentifier :: Lens' CancelResize Text
-crClusterIdentifier = lens _crClusterIdentifier (\s a -> s {_crClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crClusterIdentifier :: Lens.Lens' CancelResize Lude.Text
+crClusterIdentifier = Lens.lens (clusterIdentifier :: CancelResize -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: CancelResize)
+{-# DEPRECATED crClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest CancelResize where
+instance Lude.AWSRequest CancelResize where
   type Rs CancelResize = ResizeProgressMessage
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper "CancelResizeResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "CancelResizeResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable CancelResize
+instance Lude.ToHeaders CancelResize where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelResize
+instance Lude.ToPath CancelResize where
+  toPath = Lude.const "/"
 
-instance ToHeaders CancelResize where
-  toHeaders = const mempty
-
-instance ToPath CancelResize where
-  toPath = const "/"
-
-instance ToQuery CancelResize where
+instance Lude.ToQuery CancelResize where
   toQuery CancelResize' {..} =
-    mconcat
-      [ "Action" =: ("CancelResize" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _crClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("CancelResize" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]

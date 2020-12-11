@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,135 @@
 --
 -- Returns information about the configured contact methods. Specify a protocol in your request to return information about a specific contact method.
 --
---
 -- A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each AWS Region. However, SMS text messaging is not supported in some AWS Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
 module Network.AWS.Lightsail.GetContactMethods
-  ( -- * Creating a Request
-    getContactMethods,
-    GetContactMethods,
+  ( -- * Creating a request
+    GetContactMethods (..),
+    mkGetContactMethods,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcmProtocols,
 
-    -- * Destructuring the Response
-    getContactMethodsResponse,
-    GetContactMethodsResponse,
+    -- * Destructuring the response
+    GetContactMethodsResponse (..),
+    mkGetContactMethodsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcmrsContactMethods,
     gcmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getContactMethods' smart constructor.
+-- | /See:/ 'mkGetContactMethods' smart constructor.
 newtype GetContactMethods = GetContactMethods'
-  { _gcmProtocols ::
-      Maybe [ContactProtocol]
+  { protocols ::
+      Lude.Maybe [ContactProtocol]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactMethods' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'protocols' - The protocols used to send notifications, such as @Email@ , or @SMS@ (text messaging).
 --
--- * 'gcmProtocols' - The protocols used to send notifications, such as @Email@ , or @SMS@ (text messaging). Specify a protocol in your request to return information about a specific contact method protocol.
-getContactMethods ::
+-- Specify a protocol in your request to return information about a specific contact method protocol.
+mkGetContactMethods ::
   GetContactMethods
-getContactMethods = GetContactMethods' {_gcmProtocols = Nothing}
+mkGetContactMethods = GetContactMethods' {protocols = Lude.Nothing}
 
--- | The protocols used to send notifications, such as @Email@ , or @SMS@ (text messaging). Specify a protocol in your request to return information about a specific contact method protocol.
-gcmProtocols :: Lens' GetContactMethods [ContactProtocol]
-gcmProtocols = lens _gcmProtocols (\s a -> s {_gcmProtocols = a}) . _Default . _Coerce
+-- | The protocols used to send notifications, such as @Email@ , or @SMS@ (text messaging).
+--
+-- Specify a protocol in your request to return information about a specific contact method protocol.
+--
+-- /Note:/ Consider using 'protocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmProtocols :: Lens.Lens' GetContactMethods (Lude.Maybe [ContactProtocol])
+gcmProtocols = Lens.lens (protocols :: GetContactMethods -> Lude.Maybe [ContactProtocol]) (\s a -> s {protocols = a} :: GetContactMethods)
+{-# DEPRECATED gcmProtocols "Use generic-lens or generic-optics with 'protocols' instead." #-}
 
-instance AWSRequest GetContactMethods where
+instance Lude.AWSRequest GetContactMethods where
   type Rs GetContactMethods = GetContactMethodsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetContactMethodsResponse'
-            <$> (x .?> "contactMethods" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "contactMethods" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetContactMethods
-
-instance NFData GetContactMethods
-
-instance ToHeaders GetContactMethods where
+instance Lude.ToHeaders GetContactMethods where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetContactMethods" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetContactMethods" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContactMethods where
+instance Lude.ToJSON GetContactMethods where
   toJSON GetContactMethods' {..} =
-    object (catMaybes [("protocols" .=) <$> _gcmProtocols])
+    Lude.object
+      (Lude.catMaybes [("protocols" Lude..=) Lude.<$> protocols])
 
-instance ToPath GetContactMethods where
-  toPath = const "/"
+instance Lude.ToPath GetContactMethods where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContactMethods where
-  toQuery = const mempty
+instance Lude.ToQuery GetContactMethods where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContactMethodsResponse' smart constructor.
+-- | /See:/ 'mkGetContactMethodsResponse' smart constructor.
 data GetContactMethodsResponse = GetContactMethodsResponse'
-  { _gcmrsContactMethods ::
-      !(Maybe [ContactMethod]),
-    _gcmrsResponseStatus :: !Int
+  { contactMethods ::
+      Lude.Maybe [ContactMethod],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactMethodsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcmrsContactMethods' - An array of objects that describe the contact methods.
---
--- * 'gcmrsResponseStatus' - -- | The response status code.
-getContactMethodsResponse ::
-  -- | 'gcmrsResponseStatus'
-  Int ->
+-- * 'contactMethods' - An array of objects that describe the contact methods.
+-- * 'responseStatus' - The response status code.
+mkGetContactMethodsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContactMethodsResponse
-getContactMethodsResponse pResponseStatus_ =
+mkGetContactMethodsResponse pResponseStatus_ =
   GetContactMethodsResponse'
-    { _gcmrsContactMethods = Nothing,
-      _gcmrsResponseStatus = pResponseStatus_
+    { contactMethods = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the contact methods.
-gcmrsContactMethods :: Lens' GetContactMethodsResponse [ContactMethod]
-gcmrsContactMethods = lens _gcmrsContactMethods (\s a -> s {_gcmrsContactMethods = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contactMethods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsContactMethods :: Lens.Lens' GetContactMethodsResponse (Lude.Maybe [ContactMethod])
+gcmrsContactMethods = Lens.lens (contactMethods :: GetContactMethodsResponse -> Lude.Maybe [ContactMethod]) (\s a -> s {contactMethods = a} :: GetContactMethodsResponse)
+{-# DEPRECATED gcmrsContactMethods "Use generic-lens or generic-optics with 'contactMethods' instead." #-}
 
--- | -- | The response status code.
-gcmrsResponseStatus :: Lens' GetContactMethodsResponse Int
-gcmrsResponseStatus = lens _gcmrsResponseStatus (\s a -> s {_gcmrsResponseStatus = a})
-
-instance NFData GetContactMethodsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsResponseStatus :: Lens.Lens' GetContactMethodsResponse Lude.Int
+gcmrsResponseStatus = Lens.lens (responseStatus :: GetContactMethodsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContactMethodsResponse)
+{-# DEPRECATED gcmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

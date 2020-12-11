@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,175 @@
 --
 -- Retrieves information about the status and settings of the import jobs for a segment.
 module Network.AWS.Pinpoint.GetSegmentImportJobs
-  ( -- * Creating a Request
-    getSegmentImportJobs,
-    GetSegmentImportJobs,
+  ( -- * Creating a request
+    GetSegmentImportJobs (..),
+    mkGetSegmentImportJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsijToken,
     gsijPageSize,
     gsijSegmentId,
     gsijApplicationId,
 
-    -- * Destructuring the Response
-    getSegmentImportJobsResponse,
-    GetSegmentImportJobsResponse,
+    -- * Destructuring the response
+    GetSegmentImportJobsResponse (..),
+    mkGetSegmentImportJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsijrsResponseStatus,
     gsijrsImportJobsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSegmentImportJobs' smart constructor.
+-- | /See:/ 'mkGetSegmentImportJobs' smart constructor.
 data GetSegmentImportJobs = GetSegmentImportJobs'
-  { _gsijToken ::
-      !(Maybe Text),
-    _gsijPageSize :: !(Maybe Text),
-    _gsijSegmentId :: !Text,
-    _gsijApplicationId :: !Text
+  { token ::
+      Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Text,
+    segmentId :: Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentImportJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsijToken' - The NextToken string that specifies which page of results to return in a paginated response.
---
--- * 'gsijPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'gsijSegmentId' - The unique identifier for the segment.
---
--- * 'gsijApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getSegmentImportJobs ::
-  -- | 'gsijSegmentId'
-  Text ->
-  -- | 'gsijApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'segmentId' - The unique identifier for the segment.
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+mkGetSegmentImportJobs ::
+  -- | 'segmentId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   GetSegmentImportJobs
-getSegmentImportJobs pSegmentId_ pApplicationId_ =
+mkGetSegmentImportJobs pSegmentId_ pApplicationId_ =
   GetSegmentImportJobs'
-    { _gsijToken = Nothing,
-      _gsijPageSize = Nothing,
-      _gsijSegmentId = pSegmentId_,
-      _gsijApplicationId = pApplicationId_
+    { token = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      segmentId = pSegmentId_,
+      applicationId = pApplicationId_
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
-gsijToken :: Lens' GetSegmentImportJobs (Maybe Text)
-gsijToken = lens _gsijToken (\s a -> s {_gsijToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsijToken :: Lens.Lens' GetSegmentImportJobs (Lude.Maybe Lude.Text)
+gsijToken = Lens.lens (token :: GetSegmentImportJobs -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetSegmentImportJobs)
+{-# DEPRECATED gsijToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gsijPageSize :: Lens' GetSegmentImportJobs (Maybe Text)
-gsijPageSize = lens _gsijPageSize (\s a -> s {_gsijPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsijPageSize :: Lens.Lens' GetSegmentImportJobs (Lude.Maybe Lude.Text)
+gsijPageSize = Lens.lens (pageSize :: GetSegmentImportJobs -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetSegmentImportJobs)
+{-# DEPRECATED gsijPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The unique identifier for the segment.
-gsijSegmentId :: Lens' GetSegmentImportJobs Text
-gsijSegmentId = lens _gsijSegmentId (\s a -> s {_gsijSegmentId = a})
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsijSegmentId :: Lens.Lens' GetSegmentImportJobs Lude.Text
+gsijSegmentId = Lens.lens (segmentId :: GetSegmentImportJobs -> Lude.Text) (\s a -> s {segmentId = a} :: GetSegmentImportJobs)
+{-# DEPRECATED gsijSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gsijApplicationId :: Lens' GetSegmentImportJobs Text
-gsijApplicationId = lens _gsijApplicationId (\s a -> s {_gsijApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsijApplicationId :: Lens.Lens' GetSegmentImportJobs Lude.Text
+gsijApplicationId = Lens.lens (applicationId :: GetSegmentImportJobs -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegmentImportJobs)
+{-# DEPRECATED gsijApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetSegmentImportJobs where
+instance Lude.AWSRequest GetSegmentImportJobs where
   type Rs GetSegmentImportJobs = GetSegmentImportJobsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSegmentImportJobsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetSegmentImportJobs
-
-instance NFData GetSegmentImportJobs
-
-instance ToHeaders GetSegmentImportJobs where
+instance Lude.ToHeaders GetSegmentImportJobs where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSegmentImportJobs where
+instance Lude.ToPath GetSegmentImportJobs where
   toPath GetSegmentImportJobs' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _gsijApplicationId,
+        Lude.toBS applicationId,
         "/segments/",
-        toBS _gsijSegmentId,
+        Lude.toBS segmentId,
         "/jobs/import"
       ]
 
-instance ToQuery GetSegmentImportJobs where
+instance Lude.ToQuery GetSegmentImportJobs where
   toQuery GetSegmentImportJobs' {..} =
-    mconcat ["token" =: _gsijToken, "page-size" =: _gsijPageSize]
+    Lude.mconcat
+      ["token" Lude.=: token, "page-size" Lude.=: pageSize]
 
--- | /See:/ 'getSegmentImportJobsResponse' smart constructor.
+-- | /See:/ 'mkGetSegmentImportJobsResponse' smart constructor.
 data GetSegmentImportJobsResponse = GetSegmentImportJobsResponse'
-  { _gsijrsResponseStatus ::
-      !Int,
-    _gsijrsImportJobsResponse ::
-      !ImportJobsResponse
+  { responseStatus ::
+      Lude.Int,
+    importJobsResponse ::
+      ImportJobsResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentImportJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsijrsResponseStatus' - -- | The response status code.
---
--- * 'gsijrsImportJobsResponse' - Undocumented member.
-getSegmentImportJobsResponse ::
-  -- | 'gsijrsResponseStatus'
-  Int ->
-  -- | 'gsijrsImportJobsResponse'
+-- * 'importJobsResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetSegmentImportJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'importJobsResponse'
   ImportJobsResponse ->
   GetSegmentImportJobsResponse
-getSegmentImportJobsResponse pResponseStatus_ pImportJobsResponse_ =
-  GetSegmentImportJobsResponse'
-    { _gsijrsResponseStatus =
-        pResponseStatus_,
-      _gsijrsImportJobsResponse = pImportJobsResponse_
-    }
+mkGetSegmentImportJobsResponse
+  pResponseStatus_
+  pImportJobsResponse_ =
+    GetSegmentImportJobsResponse'
+      { responseStatus = pResponseStatus_,
+        importJobsResponse = pImportJobsResponse_
+      }
 
--- | -- | The response status code.
-gsijrsResponseStatus :: Lens' GetSegmentImportJobsResponse Int
-gsijrsResponseStatus = lens _gsijrsResponseStatus (\s a -> s {_gsijrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsijrsResponseStatus :: Lens.Lens' GetSegmentImportJobsResponse Lude.Int
+gsijrsResponseStatus = Lens.lens (responseStatus :: GetSegmentImportJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentImportJobsResponse)
+{-# DEPRECATED gsijrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gsijrsImportJobsResponse :: Lens' GetSegmentImportJobsResponse ImportJobsResponse
-gsijrsImportJobsResponse = lens _gsijrsImportJobsResponse (\s a -> s {_gsijrsImportJobsResponse = a})
-
-instance NFData GetSegmentImportJobsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'importJobsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsijrsImportJobsResponse :: Lens.Lens' GetSegmentImportJobsResponse ImportJobsResponse
+gsijrsImportJobsResponse = Lens.lens (importJobsResponse :: GetSegmentImportJobsResponse -> ImportJobsResponse) (\s a -> s {importJobsResponse = a} :: GetSegmentImportJobsResponse)
+{-# DEPRECATED gsijrsImportJobsResponse "Use generic-lens or generic-optics with 'importJobsResponse' instead." #-}

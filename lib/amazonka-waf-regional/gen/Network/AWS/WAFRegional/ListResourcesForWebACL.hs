@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,151 @@
 --
 -- Returns an array of resources associated with the specified web ACL.
 module Network.AWS.WAFRegional.ListResourcesForWebACL
-  ( -- * Creating a Request
-    listResourcesForWebACL,
-    ListResourcesForWebACL,
+  ( -- * Creating a request
+    ListResourcesForWebACL (..),
+    mkListResourcesForWebACL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrfwaResourceType,
     lrfwaWebACLId,
 
-    -- * Destructuring the Response
-    listResourcesForWebACLResponse,
-    ListResourcesForWebACLResponse,
+    -- * Destructuring the response
+    ListResourcesForWebACLResponse (..),
+    mkListResourcesForWebACLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrfwarsResourceARNs,
     lrfwarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'listResourcesForWebACL' smart constructor.
+-- | /See:/ 'mkListResourcesForWebACL' smart constructor.
 data ListResourcesForWebACL = ListResourcesForWebACL'
-  { _lrfwaResourceType ::
-      !(Maybe ResourceType),
-    _lrfwaWebACLId :: !Text
+  { resourceType ::
+      Lude.Maybe ResourceType,
+    webACLId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForWebACL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrfwaResourceType' - The type of resource to list, either an application load balancer or Amazon API Gateway.
---
--- * 'lrfwaWebACLId' - The unique identifier (ID) of the web ACL for which to list the associated resources.
-listResourcesForWebACL ::
-  -- | 'lrfwaWebACLId'
-  Text ->
+-- * 'resourceType' - The type of resource to list, either an application load balancer or Amazon API Gateway.
+-- * 'webACLId' - The unique identifier (ID) of the web ACL for which to list the associated resources.
+mkListResourcesForWebACL ::
+  -- | 'webACLId'
+  Lude.Text ->
   ListResourcesForWebACL
-listResourcesForWebACL pWebACLId_ =
+mkListResourcesForWebACL pWebACLId_ =
   ListResourcesForWebACL'
-    { _lrfwaResourceType = Nothing,
-      _lrfwaWebACLId = pWebACLId_
+    { resourceType = Lude.Nothing,
+      webACLId = pWebACLId_
     }
 
 -- | The type of resource to list, either an application load balancer or Amazon API Gateway.
-lrfwaResourceType :: Lens' ListResourcesForWebACL (Maybe ResourceType)
-lrfwaResourceType = lens _lrfwaResourceType (\s a -> s {_lrfwaResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfwaResourceType :: Lens.Lens' ListResourcesForWebACL (Lude.Maybe ResourceType)
+lrfwaResourceType = Lens.lens (resourceType :: ListResourcesForWebACL -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ListResourcesForWebACL)
+{-# DEPRECATED lrfwaResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The unique identifier (ID) of the web ACL for which to list the associated resources.
-lrfwaWebACLId :: Lens' ListResourcesForWebACL Text
-lrfwaWebACLId = lens _lrfwaWebACLId (\s a -> s {_lrfwaWebACLId = a})
+--
+-- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfwaWebACLId :: Lens.Lens' ListResourcesForWebACL Lude.Text
+lrfwaWebACLId = Lens.lens (webACLId :: ListResourcesForWebACL -> Lude.Text) (\s a -> s {webACLId = a} :: ListResourcesForWebACL)
+{-# DEPRECATED lrfwaWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
-instance AWSRequest ListResourcesForWebACL where
+instance Lude.AWSRequest ListResourcesForWebACL where
   type Rs ListResourcesForWebACL = ListResourcesForWebACLResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListResourcesForWebACLResponse'
-            <$> (x .?> "ResourceArns" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourceArns" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListResourcesForWebACL
-
-instance NFData ListResourcesForWebACL
-
-instance ToHeaders ListResourcesForWebACL where
+instance Lude.ToHeaders ListResourcesForWebACL where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.ListResourcesForWebACL" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.ListResourcesForWebACL" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListResourcesForWebACL where
+instance Lude.ToJSON ListResourcesForWebACL where
   toJSON ListResourcesForWebACL' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceType" .=) <$> _lrfwaResourceType,
-            Just ("WebACLId" .= _lrfwaWebACLId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
+            Lude.Just ("WebACLId" Lude..= webACLId)
           ]
       )
 
-instance ToPath ListResourcesForWebACL where
-  toPath = const "/"
+instance Lude.ToPath ListResourcesForWebACL where
+  toPath = Lude.const "/"
 
-instance ToQuery ListResourcesForWebACL where
-  toQuery = const mempty
+instance Lude.ToQuery ListResourcesForWebACL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listResourcesForWebACLResponse' smart constructor.
+-- | /See:/ 'mkListResourcesForWebACLResponse' smart constructor.
 data ListResourcesForWebACLResponse = ListResourcesForWebACLResponse'
-  { _lrfwarsResourceARNs ::
-      !(Maybe [Text]),
-    _lrfwarsResponseStatus ::
-      !Int
+  { resourceARNs ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForWebACLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrfwarsResourceARNs' - An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.
---
--- * 'lrfwarsResponseStatus' - -- | The response status code.
-listResourcesForWebACLResponse ::
-  -- | 'lrfwarsResponseStatus'
-  Int ->
+-- * 'resourceARNs' - An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.
+-- * 'responseStatus' - The response status code.
+mkListResourcesForWebACLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListResourcesForWebACLResponse
-listResourcesForWebACLResponse pResponseStatus_ =
+mkListResourcesForWebACLResponse pResponseStatus_ =
   ListResourcesForWebACLResponse'
-    { _lrfwarsResourceARNs = Nothing,
-      _lrfwarsResponseStatus = pResponseStatus_
+    { resourceARNs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.
-lrfwarsResourceARNs :: Lens' ListResourcesForWebACLResponse [Text]
-lrfwarsResourceARNs = lens _lrfwarsResourceARNs (\s a -> s {_lrfwarsResourceARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfwarsResourceARNs :: Lens.Lens' ListResourcesForWebACLResponse (Lude.Maybe [Lude.Text])
+lrfwarsResourceARNs = Lens.lens (resourceARNs :: ListResourcesForWebACLResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceARNs = a} :: ListResourcesForWebACLResponse)
+{-# DEPRECATED lrfwarsResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
--- | -- | The response status code.
-lrfwarsResponseStatus :: Lens' ListResourcesForWebACLResponse Int
-lrfwarsResponseStatus = lens _lrfwarsResponseStatus (\s a -> s {_lrfwarsResponseStatus = a})
-
-instance NFData ListResourcesForWebACLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfwarsResponseStatus :: Lens.Lens' ListResourcesForWebACLResponse Lude.Int
+lrfwarsResponseStatus = Lens.lens (responseStatus :: ListResourcesForWebACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourcesForWebACLResponse)
+{-# DEPRECATED lrfwarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.AccountQuota where
+module Network.AWS.DMS.Types.AccountQuota
+  ( AccountQuota (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccountQuota,
+
+    -- * Lenses
+    aqMax,
+    aqUsed,
+    aqAccountQuotaName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a quota for an AWS account, for example, the number of replication instances allowed.
 --
---
---
--- /See:/ 'accountQuota' smart constructor.
+-- /See:/ 'mkAccountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-  { _aqMax :: !(Maybe Integer),
-    _aqUsed :: !(Maybe Integer),
-    _aqAccountQuotaName :: !(Maybe Text)
+  { max :: Lude.Maybe Lude.Integer,
+    used :: Lude.Maybe Lude.Integer,
+    accountQuotaName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountQuota' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aqMax' - The maximum allowed value for the quota.
---
--- * 'aqUsed' - The amount currently used toward the quota maximum.
---
--- * 'aqAccountQuotaName' - The name of the AWS DMS quota for this AWS account.
-accountQuota ::
+-- * 'accountQuotaName' - The name of the AWS DMS quota for this AWS account.
+-- * 'max' - The maximum allowed value for the quota.
+-- * 'used' - The amount currently used toward the quota maximum.
+mkAccountQuota ::
   AccountQuota
-accountQuota =
+mkAccountQuota =
   AccountQuota'
-    { _aqMax = Nothing,
-      _aqUsed = Nothing,
-      _aqAccountQuotaName = Nothing
+    { max = Lude.Nothing,
+      used = Lude.Nothing,
+      accountQuotaName = Lude.Nothing
     }
 
 -- | The maximum allowed value for the quota.
-aqMax :: Lens' AccountQuota (Maybe Integer)
-aqMax = lens _aqMax (\s a -> s {_aqMax = a})
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aqMax :: Lens.Lens' AccountQuota (Lude.Maybe Lude.Integer)
+aqMax = Lens.lens (max :: AccountQuota -> Lude.Maybe Lude.Integer) (\s a -> s {max = a} :: AccountQuota)
+{-# DEPRECATED aqMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
 -- | The amount currently used toward the quota maximum.
-aqUsed :: Lens' AccountQuota (Maybe Integer)
-aqUsed = lens _aqUsed (\s a -> s {_aqUsed = a})
+--
+-- /Note:/ Consider using 'used' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aqUsed :: Lens.Lens' AccountQuota (Lude.Maybe Lude.Integer)
+aqUsed = Lens.lens (used :: AccountQuota -> Lude.Maybe Lude.Integer) (\s a -> s {used = a} :: AccountQuota)
+{-# DEPRECATED aqUsed "Use generic-lens or generic-optics with 'used' instead." #-}
 
 -- | The name of the AWS DMS quota for this AWS account.
-aqAccountQuotaName :: Lens' AccountQuota (Maybe Text)
-aqAccountQuotaName = lens _aqAccountQuotaName (\s a -> s {_aqAccountQuotaName = a})
+--
+-- /Note:/ Consider using 'accountQuotaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aqAccountQuotaName :: Lens.Lens' AccountQuota (Lude.Maybe Lude.Text)
+aqAccountQuotaName = Lens.lens (accountQuotaName :: AccountQuota -> Lude.Maybe Lude.Text) (\s a -> s {accountQuotaName = a} :: AccountQuota)
+{-# DEPRECATED aqAccountQuotaName "Use generic-lens or generic-optics with 'accountQuotaName' instead." #-}
 
-instance FromJSON AccountQuota where
+instance Lude.FromJSON AccountQuota where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccountQuota"
       ( \x ->
           AccountQuota'
-            <$> (x .:? "Max") <*> (x .:? "Used") <*> (x .:? "AccountQuotaName")
+            Lude.<$> (x Lude..:? "Max")
+            Lude.<*> (x Lude..:? "Used")
+            Lude.<*> (x Lude..:? "AccountQuotaName")
       )
-
-instance Hashable AccountQuota
-
-instance NFData AccountQuota

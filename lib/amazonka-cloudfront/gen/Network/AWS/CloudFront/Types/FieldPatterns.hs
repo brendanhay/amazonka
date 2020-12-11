@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.FieldPatterns where
+module Network.AWS.CloudFront.Types.FieldPatterns
+  ( FieldPatterns (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFieldPatterns,
+
+    -- * Lenses
+    fpItems,
+    fpQuantity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex data type that includes the field patterns to match for field-level encryption.
 --
---
---
--- /See:/ 'fieldPatterns' smart constructor.
+-- /See:/ 'mkFieldPatterns' smart constructor.
 data FieldPatterns = FieldPatterns'
-  { _fpItems :: !(Maybe [Text]),
-    _fpQuantity :: !Int
+  { items ::
+      Lude.Maybe [Lude.Text],
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldPatterns' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fpItems' - An array of the field-level encryption field patterns.
---
--- * 'fpQuantity' - The number of field-level encryption field patterns.
-fieldPatterns ::
-  -- | 'fpQuantity'
-  Int ->
+-- * 'items' - An array of the field-level encryption field patterns.
+-- * 'quantity' - The number of field-level encryption field patterns.
+mkFieldPatterns ::
+  -- | 'quantity'
+  Lude.Int ->
   FieldPatterns
-fieldPatterns pQuantity_ =
-  FieldPatterns' {_fpItems = Nothing, _fpQuantity = pQuantity_}
+mkFieldPatterns pQuantity_ =
+  FieldPatterns' {items = Lude.Nothing, quantity = pQuantity_}
 
 -- | An array of the field-level encryption field patterns.
-fpItems :: Lens' FieldPatterns [Text]
-fpItems = lens _fpItems (\s a -> s {_fpItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fpItems :: Lens.Lens' FieldPatterns (Lude.Maybe [Lude.Text])
+fpItems = Lens.lens (items :: FieldPatterns -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: FieldPatterns)
+{-# DEPRECATED fpItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of field-level encryption field patterns.
-fpQuantity :: Lens' FieldPatterns Int
-fpQuantity = lens _fpQuantity (\s a -> s {_fpQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fpQuantity :: Lens.Lens' FieldPatterns Lude.Int
+fpQuantity = Lens.lens (quantity :: FieldPatterns -> Lude.Int) (\s a -> s {quantity = a} :: FieldPatterns)
+{-# DEPRECATED fpQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML FieldPatterns where
+instance Lude.FromXML FieldPatterns where
   parseXML x =
     FieldPatterns'
-      <$> (x .@? "Items" .!@ mempty >>= may (parseXMLList "FieldPattern"))
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "FieldPattern")
+               )
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable FieldPatterns
-
-instance NFData FieldPatterns
-
-instance ToXML FieldPatterns where
+instance Lude.ToXML FieldPatterns where
   toXML FieldPatterns' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "FieldPattern" <$> _fpItems),
-        "Quantity" @= _fpQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "FieldPattern" Lude.<$> items),
+        "Quantity" Lude.@= quantity
       ]

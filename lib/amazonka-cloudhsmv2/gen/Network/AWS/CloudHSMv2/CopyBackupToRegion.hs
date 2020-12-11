@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,167 @@
 --
 -- Copy an AWS CloudHSM cluster backup to a different region.
 module Network.AWS.CloudHSMv2.CopyBackupToRegion
-  ( -- * Creating a Request
-    copyBackupToRegion,
-    CopyBackupToRegion,
+  ( -- * Creating a request
+    CopyBackupToRegion (..),
+    mkCopyBackupToRegion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbtrTagList,
     cbtrDestinationRegion,
     cbtrBackupId,
 
-    -- * Destructuring the Response
-    copyBackupToRegionResponse,
-    CopyBackupToRegionResponse,
+    -- * Destructuring the response
+    CopyBackupToRegionResponse (..),
+    mkCopyBackupToRegionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cbtrrsDestinationBackup,
     cbtrrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'copyBackupToRegion' smart constructor.
+-- | /See:/ 'mkCopyBackupToRegion' smart constructor.
 data CopyBackupToRegion = CopyBackupToRegion'
-  { _cbtrTagList ::
-      !(Maybe [Tag]),
-    _cbtrDestinationRegion :: !Text,
-    _cbtrBackupId :: !Text
+  { tagList ::
+      Lude.Maybe [Tag],
+    destinationRegion :: Lude.Text,
+    backupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyBackupToRegion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbtrTagList' - Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.
---
--- * 'cbtrDestinationRegion' - The AWS region that will contain your copied CloudHSM cluster backup.
---
--- * 'cbtrBackupId' - The ID of the backup that will be copied to the destination region.
-copyBackupToRegion ::
-  -- | 'cbtrDestinationRegion'
-  Text ->
-  -- | 'cbtrBackupId'
-  Text ->
+-- * 'backupId' - The ID of the backup that will be copied to the destination region.
+-- * 'destinationRegion' - The AWS region that will contain your copied CloudHSM cluster backup.
+-- * 'tagList' - Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.
+mkCopyBackupToRegion ::
+  -- | 'destinationRegion'
+  Lude.Text ->
+  -- | 'backupId'
+  Lude.Text ->
   CopyBackupToRegion
-copyBackupToRegion pDestinationRegion_ pBackupId_ =
+mkCopyBackupToRegion pDestinationRegion_ pBackupId_ =
   CopyBackupToRegion'
-    { _cbtrTagList = Nothing,
-      _cbtrDestinationRegion = pDestinationRegion_,
-      _cbtrBackupId = pBackupId_
+    { tagList = Lude.Nothing,
+      destinationRegion = pDestinationRegion_,
+      backupId = pBackupId_
     }
 
 -- | Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.
-cbtrTagList :: Lens' CopyBackupToRegion [Tag]
-cbtrTagList = lens _cbtrTagList (\s a -> s {_cbtrTagList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtrTagList :: Lens.Lens' CopyBackupToRegion (Lude.Maybe [Tag])
+cbtrTagList = Lens.lens (tagList :: CopyBackupToRegion -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: CopyBackupToRegion)
+{-# DEPRECATED cbtrTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | The AWS region that will contain your copied CloudHSM cluster backup.
-cbtrDestinationRegion :: Lens' CopyBackupToRegion Text
-cbtrDestinationRegion = lens _cbtrDestinationRegion (\s a -> s {_cbtrDestinationRegion = a})
+--
+-- /Note:/ Consider using 'destinationRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtrDestinationRegion :: Lens.Lens' CopyBackupToRegion Lude.Text
+cbtrDestinationRegion = Lens.lens (destinationRegion :: CopyBackupToRegion -> Lude.Text) (\s a -> s {destinationRegion = a} :: CopyBackupToRegion)
+{-# DEPRECATED cbtrDestinationRegion "Use generic-lens or generic-optics with 'destinationRegion' instead." #-}
 
 -- | The ID of the backup that will be copied to the destination region.
-cbtrBackupId :: Lens' CopyBackupToRegion Text
-cbtrBackupId = lens _cbtrBackupId (\s a -> s {_cbtrBackupId = a})
+--
+-- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtrBackupId :: Lens.Lens' CopyBackupToRegion Lude.Text
+cbtrBackupId = Lens.lens (backupId :: CopyBackupToRegion -> Lude.Text) (\s a -> s {backupId = a} :: CopyBackupToRegion)
+{-# DEPRECATED cbtrBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
 
-instance AWSRequest CopyBackupToRegion where
+instance Lude.AWSRequest CopyBackupToRegion where
   type Rs CopyBackupToRegion = CopyBackupToRegionResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CopyBackupToRegionResponse'
-            <$> (x .?> "DestinationBackup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DestinationBackup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyBackupToRegion
-
-instance NFData CopyBackupToRegion
-
-instance ToHeaders CopyBackupToRegion where
+instance Lude.ToHeaders CopyBackupToRegion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("BaldrApiService.CopyBackupToRegion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("BaldrApiService.CopyBackupToRegion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CopyBackupToRegion where
+instance Lude.ToJSON CopyBackupToRegion where
   toJSON CopyBackupToRegion' {..} =
-    object
-      ( catMaybes
-          [ ("TagList" .=) <$> _cbtrTagList,
-            Just ("DestinationRegion" .= _cbtrDestinationRegion),
-            Just ("BackupId" .= _cbtrBackupId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TagList" Lude..=) Lude.<$> tagList,
+            Lude.Just ("DestinationRegion" Lude..= destinationRegion),
+            Lude.Just ("BackupId" Lude..= backupId)
           ]
       )
 
-instance ToPath CopyBackupToRegion where
-  toPath = const "/"
+instance Lude.ToPath CopyBackupToRegion where
+  toPath = Lude.const "/"
 
-instance ToQuery CopyBackupToRegion where
-  toQuery = const mempty
+instance Lude.ToQuery CopyBackupToRegion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'copyBackupToRegionResponse' smart constructor.
+-- | /See:/ 'mkCopyBackupToRegionResponse' smart constructor.
 data CopyBackupToRegionResponse = CopyBackupToRegionResponse'
-  { _cbtrrsDestinationBackup ::
-      !(Maybe DestinationBackup),
-    _cbtrrsResponseStatus :: !Int
+  { destinationBackup ::
+      Lude.Maybe DestinationBackup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyBackupToRegionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'destinationBackup' - Information on the backup that will be copied to the destination region, including CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the destination backup will be the same as that of the source backup.
 --
--- * 'cbtrrsDestinationBackup' - Information on the backup that will be copied to the destination region, including CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the destination backup will be the same as that of the source backup. You will need to use the @sourceBackupID@ returned in this operation to use the 'DescribeBackups' operation on the backup that will be copied to the destination region.
---
--- * 'cbtrrsResponseStatus' - -- | The response status code.
-copyBackupToRegionResponse ::
-  -- | 'cbtrrsResponseStatus'
-  Int ->
+-- You will need to use the @sourceBackupID@ returned in this operation to use the 'DescribeBackups' operation on the backup that will be copied to the destination region.
+-- * 'responseStatus' - The response status code.
+mkCopyBackupToRegionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyBackupToRegionResponse
-copyBackupToRegionResponse pResponseStatus_ =
+mkCopyBackupToRegionResponse pResponseStatus_ =
   CopyBackupToRegionResponse'
-    { _cbtrrsDestinationBackup = Nothing,
-      _cbtrrsResponseStatus = pResponseStatus_
+    { destinationBackup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Information on the backup that will be copied to the destination region, including CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the destination backup will be the same as that of the source backup. You will need to use the @sourceBackupID@ returned in this operation to use the 'DescribeBackups' operation on the backup that will be copied to the destination region.
-cbtrrsDestinationBackup :: Lens' CopyBackupToRegionResponse (Maybe DestinationBackup)
-cbtrrsDestinationBackup = lens _cbtrrsDestinationBackup (\s a -> s {_cbtrrsDestinationBackup = a})
+-- | Information on the backup that will be copied to the destination region, including CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the destination backup will be the same as that of the source backup.
+--
+-- You will need to use the @sourceBackupID@ returned in this operation to use the 'DescribeBackups' operation on the backup that will be copied to the destination region.
+--
+-- /Note:/ Consider using 'destinationBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtrrsDestinationBackup :: Lens.Lens' CopyBackupToRegionResponse (Lude.Maybe DestinationBackup)
+cbtrrsDestinationBackup = Lens.lens (destinationBackup :: CopyBackupToRegionResponse -> Lude.Maybe DestinationBackup) (\s a -> s {destinationBackup = a} :: CopyBackupToRegionResponse)
+{-# DEPRECATED cbtrrsDestinationBackup "Use generic-lens or generic-optics with 'destinationBackup' instead." #-}
 
--- | -- | The response status code.
-cbtrrsResponseStatus :: Lens' CopyBackupToRegionResponse Int
-cbtrrsResponseStatus = lens _cbtrrsResponseStatus (\s a -> s {_cbtrrsResponseStatus = a})
-
-instance NFData CopyBackupToRegionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtrrsResponseStatus :: Lens.Lens' CopyBackupToRegionResponse Lude.Int
+cbtrrsResponseStatus = Lens.lens (responseStatus :: CopyBackupToRegionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyBackupToRegionResponse)
+{-# DEPRECATED cbtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

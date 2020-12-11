@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,145 @@
 --
 -- Updates the comment for a specified hosted zone.
 module Network.AWS.Route53.UpdateHostedZoneComment
-  ( -- * Creating a Request
-    updateHostedZoneComment,
-    UpdateHostedZoneComment,
+  ( -- * Creating a request
+    UpdateHostedZoneComment (..),
+    mkUpdateHostedZoneComment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uhzcComment,
     uhzcId,
 
-    -- * Destructuring the Response
-    updateHostedZoneCommentResponse,
-    UpdateHostedZoneCommentResponse,
+    -- * Destructuring the response
+    UpdateHostedZoneCommentResponse (..),
+    mkUpdateHostedZoneCommentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uhzcrsResponseStatus,
     uhzcrsHostedZone,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to update the comment for a hosted zone.
 --
---
---
--- /See:/ 'updateHostedZoneComment' smart constructor.
+-- /See:/ 'mkUpdateHostedZoneComment' smart constructor.
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
-  { _uhzcComment ::
-      !(Maybe Text),
-    _uhzcId :: !ResourceId
+  { comment ::
+      Lude.Maybe Lude.Text,
+    id :: ResourceId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHostedZoneComment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uhzcComment' - The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
---
--- * 'uhzcId' - The ID for the hosted zone that you want to update the comment for.
-updateHostedZoneComment ::
-  -- | 'uhzcId'
+-- * 'comment' - The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
+-- * 'id' - The ID for the hosted zone that you want to update the comment for.
+mkUpdateHostedZoneComment ::
+  -- | 'id'
   ResourceId ->
   UpdateHostedZoneComment
-updateHostedZoneComment pId_ =
-  UpdateHostedZoneComment' {_uhzcComment = Nothing, _uhzcId = pId_}
+mkUpdateHostedZoneComment pId_ =
+  UpdateHostedZoneComment' {comment = Lude.Nothing, id = pId_}
 
 -- | The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
-uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
-uhzcComment = lens _uhzcComment (\s a -> s {_uhzcComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhzcComment :: Lens.Lens' UpdateHostedZoneComment (Lude.Maybe Lude.Text)
+uhzcComment = Lens.lens (comment :: UpdateHostedZoneComment -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: UpdateHostedZoneComment)
+{-# DEPRECATED uhzcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The ID for the hosted zone that you want to update the comment for.
-uhzcId :: Lens' UpdateHostedZoneComment ResourceId
-uhzcId = lens _uhzcId (\s a -> s {_uhzcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhzcId :: Lens.Lens' UpdateHostedZoneComment ResourceId
+uhzcId = Lens.lens (id :: UpdateHostedZoneComment -> ResourceId) (\s a -> s {id = a} :: UpdateHostedZoneComment)
+{-# DEPRECATED uhzcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdateHostedZoneComment where
+instance Lude.AWSRequest UpdateHostedZoneComment where
   type Rs UpdateHostedZoneComment = UpdateHostedZoneCommentResponse
-  request = postXML route53
+  request = Req.postXML route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdateHostedZoneCommentResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "HostedZone")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "HostedZone")
       )
 
-instance Hashable UpdateHostedZoneComment
-
-instance NFData UpdateHostedZoneComment
-
-instance ToElement UpdateHostedZoneComment where
+instance Lude.ToElement UpdateHostedZoneComment where
   toElement =
-    mkElement
+    Lude.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHostedZoneCommentRequest"
 
-instance ToHeaders UpdateHostedZoneComment where
-  toHeaders = const mempty
+instance Lude.ToHeaders UpdateHostedZoneComment where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath UpdateHostedZoneComment where
+instance Lude.ToPath UpdateHostedZoneComment where
   toPath UpdateHostedZoneComment' {..} =
-    mconcat ["/2013-04-01/hostedzone/", toBS _uhzcId]
+    Lude.mconcat ["/2013-04-01/hostedzone/", Lude.toBS id]
 
-instance ToQuery UpdateHostedZoneComment where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateHostedZoneComment where
+  toQuery = Lude.const Lude.mempty
 
-instance ToXML UpdateHostedZoneComment where
+instance Lude.ToXML UpdateHostedZoneComment where
   toXML UpdateHostedZoneComment' {..} =
-    mconcat ["Comment" @= _uhzcComment]
+    Lude.mconcat ["Comment" Lude.@= comment]
 
 -- | A complex type that contains the response to the @UpdateHostedZoneComment@ request.
 --
---
---
--- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
+-- /See:/ 'mkUpdateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-  { _uhzcrsResponseStatus ::
-      !Int,
-    _uhzcrsHostedZone ::
-      !HostedZone
+  { responseStatus ::
+      Lude.Int,
+    hostedZone :: HostedZone
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHostedZoneCommentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uhzcrsResponseStatus' - -- | The response status code.
---
--- * 'uhzcrsHostedZone' - A complex type that contains the response to the @UpdateHostedZoneComment@ request.
-updateHostedZoneCommentResponse ::
-  -- | 'uhzcrsResponseStatus'
-  Int ->
-  -- | 'uhzcrsHostedZone'
+-- * 'hostedZone' - A complex type that contains the response to the @UpdateHostedZoneComment@ request.
+-- * 'responseStatus' - The response status code.
+mkUpdateHostedZoneCommentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'hostedZone'
   HostedZone ->
   UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pResponseStatus_ pHostedZone_ =
+mkUpdateHostedZoneCommentResponse pResponseStatus_ pHostedZone_ =
   UpdateHostedZoneCommentResponse'
-    { _uhzcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _uhzcrsHostedZone = pHostedZone_
+      hostedZone = pHostedZone_
     }
 
--- | -- | The response status code.
-uhzcrsResponseStatus :: Lens' UpdateHostedZoneCommentResponse Int
-uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\s a -> s {_uhzcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhzcrsResponseStatus :: Lens.Lens' UpdateHostedZoneCommentResponse Lude.Int
+uhzcrsResponseStatus = Lens.lens (responseStatus :: UpdateHostedZoneCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateHostedZoneCommentResponse)
+{-# DEPRECATED uhzcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains the response to the @UpdateHostedZoneComment@ request.
-uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
-uhzcrsHostedZone = lens _uhzcrsHostedZone (\s a -> s {_uhzcrsHostedZone = a})
-
-instance NFData UpdateHostedZoneCommentResponse
+--
+-- /Note:/ Consider using 'hostedZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhzcrsHostedZone :: Lens.Lens' UpdateHostedZoneCommentResponse HostedZone
+uhzcrsHostedZone = Lens.lens (hostedZone :: UpdateHostedZoneCommentResponse -> HostedZone) (\s a -> s {hostedZone = a} :: UpdateHostedZoneCommentResponse)
+{-# DEPRECATED uhzcrsHostedZone "Use generic-lens or generic-optics with 'hostedZone' instead." #-}

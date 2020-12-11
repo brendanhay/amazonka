@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TopicRuleDestinationStatus where
+module Network.AWS.IoT.Types.TopicRuleDestinationStatus
+  ( TopicRuleDestinationStatus
+      ( TopicRuleDestinationStatus',
+        TRDSDisabled,
+        TRDSEnabled,
+        TRDSError,
+        TRDSInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TopicRuleDestinationStatus
-  = TRDSDisabled
-  | TRDSEnabled
-  | TRDSError'
-  | TRDSInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TopicRuleDestinationStatus = TopicRuleDestinationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TopicRuleDestinationStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure TRDSDisabled
-      "enabled" -> pure TRDSEnabled
-      "error" -> pure TRDSError'
-      "in_progress" -> pure TRDSInProgress
-      e ->
-        fromTextError $
-          "Failure parsing TopicRuleDestinationStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled, error, in_progress"
+pattern TRDSDisabled :: TopicRuleDestinationStatus
+pattern TRDSDisabled = TopicRuleDestinationStatus' "DISABLED"
 
-instance ToText TopicRuleDestinationStatus where
-  toText = \case
-    TRDSDisabled -> "DISABLED"
-    TRDSEnabled -> "ENABLED"
-    TRDSError' -> "ERROR"
-    TRDSInProgress -> "IN_PROGRESS"
+pattern TRDSEnabled :: TopicRuleDestinationStatus
+pattern TRDSEnabled = TopicRuleDestinationStatus' "ENABLED"
 
-instance Hashable TopicRuleDestinationStatus
+pattern TRDSError :: TopicRuleDestinationStatus
+pattern TRDSError = TopicRuleDestinationStatus' "ERROR"
 
-instance NFData TopicRuleDestinationStatus
+pattern TRDSInProgress :: TopicRuleDestinationStatus
+pattern TRDSInProgress = TopicRuleDestinationStatus' "IN_PROGRESS"
 
-instance ToByteString TopicRuleDestinationStatus
-
-instance ToQuery TopicRuleDestinationStatus
-
-instance ToHeader TopicRuleDestinationStatus
-
-instance ToJSON TopicRuleDestinationStatus where
-  toJSON = toJSONText
-
-instance FromJSON TopicRuleDestinationStatus where
-  parseJSON = parseJSONText "TopicRuleDestinationStatus"
+{-# COMPLETE
+  TRDSDisabled,
+  TRDSEnabled,
+  TRDSError,
+  TRDSInProgress,
+  TopicRuleDestinationStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,129 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.OptionStatus where
+module Network.AWS.CloudSearch.Types.OptionStatus
+  ( OptionStatus (..),
+
+    -- * Smart constructor
+    mkOptionStatus,
+
+    -- * Lenses
+    osPendingDeletion,
+    osUpdateVersion,
+    osCreationDate,
+    osUpdateDate,
+    osState,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.OptionState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of domain configuration option.
 --
---
---
--- /See:/ 'optionStatus' smart constructor.
+-- /See:/ 'mkOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { _osPendingDeletion ::
-      !(Maybe Bool),
-    _osUpdateVersion :: !(Maybe Nat),
-    _osCreationDate :: !ISO8601,
-    _osUpdateDate :: !ISO8601,
-    _osState :: !OptionState
+  { pendingDeletion ::
+      Lude.Maybe Lude.Bool,
+    updateVersion :: Lude.Maybe Lude.Natural,
+    creationDate :: Lude.ISO8601,
+    updateDate :: Lude.ISO8601,
+    state :: OptionState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationDate' - A timestamp for when this option was created.
+-- * 'pendingDeletion' - Indicates that the option will be deleted once processing is complete.
+-- * 'state' - The state of processing a change to an option. Possible values:
 --
--- * 'osPendingDeletion' - Indicates that the option will be deleted once processing is complete.
 --
--- * 'osUpdateVersion' - A unique integer that indicates when this option was last updated.
+--     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.
 --
--- * 'osCreationDate' - A timestamp for when this option was created.
+--     * @Processing@ : the option's latest value is in the process of being activated.
 --
--- * 'osUpdateDate' - A timestamp for when this option was last updated.
+--     * @Active@ : the option's latest value is completely deployed.
 --
--- * 'osState' - The state of processing a change to an option. Possible values:     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * @Processing@ : the option's latest value is in the process of being activated.     * @Active@ : the option's latest value is completely deployed.    * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
-optionStatus ::
-  -- | 'osCreationDate'
-  UTCTime ->
-  -- | 'osUpdateDate'
-  UTCTime ->
-  -- | 'osState'
+--     * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+--
+-- * 'updateDate' - A timestamp for when this option was last updated.
+-- * 'updateVersion' - A unique integer that indicates when this option was last updated.
+mkOptionStatus ::
+  -- | 'creationDate'
+  Lude.ISO8601 ->
+  -- | 'updateDate'
+  Lude.ISO8601 ->
+  -- | 'state'
   OptionState ->
   OptionStatus
-optionStatus pCreationDate_ pUpdateDate_ pState_ =
+mkOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-    { _osPendingDeletion = Nothing,
-      _osUpdateVersion = Nothing,
-      _osCreationDate = _Time # pCreationDate_,
-      _osUpdateDate = _Time # pUpdateDate_,
-      _osState = pState_
+    { pendingDeletion = Lude.Nothing,
+      updateVersion = Lude.Nothing,
+      creationDate = pCreationDate_,
+      updateDate = pUpdateDate_,
+      state = pState_
     }
 
 -- | Indicates that the option will be deleted once processing is complete.
-osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
-osPendingDeletion = lens _osPendingDeletion (\s a -> s {_osPendingDeletion = a})
+--
+-- /Note:/ Consider using 'pendingDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osPendingDeletion :: Lens.Lens' OptionStatus (Lude.Maybe Lude.Bool)
+osPendingDeletion = Lens.lens (pendingDeletion :: OptionStatus -> Lude.Maybe Lude.Bool) (\s a -> s {pendingDeletion = a} :: OptionStatus)
+{-# DEPRECATED osPendingDeletion "Use generic-lens or generic-optics with 'pendingDeletion' instead." #-}
 
 -- | A unique integer that indicates when this option was last updated.
-osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
-osUpdateVersion = lens _osUpdateVersion (\s a -> s {_osUpdateVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'updateVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osUpdateVersion :: Lens.Lens' OptionStatus (Lude.Maybe Lude.Natural)
+osUpdateVersion = Lens.lens (updateVersion :: OptionStatus -> Lude.Maybe Lude.Natural) (\s a -> s {updateVersion = a} :: OptionStatus)
+{-# DEPRECATED osUpdateVersion "Use generic-lens or generic-optics with 'updateVersion' instead." #-}
 
 -- | A timestamp for when this option was created.
-osCreationDate :: Lens' OptionStatus UTCTime
-osCreationDate = lens _osCreationDate (\s a -> s {_osCreationDate = a}) . _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osCreationDate :: Lens.Lens' OptionStatus Lude.ISO8601
+osCreationDate = Lens.lens (creationDate :: OptionStatus -> Lude.ISO8601) (\s a -> s {creationDate = a} :: OptionStatus)
+{-# DEPRECATED osCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A timestamp for when this option was last updated.
-osUpdateDate :: Lens' OptionStatus UTCTime
-osUpdateDate = lens _osUpdateDate (\s a -> s {_osUpdateDate = a}) . _Time
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osUpdateDate :: Lens.Lens' OptionStatus Lude.ISO8601
+osUpdateDate = Lens.lens (updateDate :: OptionStatus -> Lude.ISO8601) (\s a -> s {updateDate = a} :: OptionStatus)
+{-# DEPRECATED osUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
--- | The state of processing a change to an option. Possible values:     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * @Processing@ : the option's latest value is in the process of being activated.     * @Active@ : the option's latest value is completely deployed.    * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
-osState :: Lens' OptionStatus OptionState
-osState = lens _osState (\s a -> s {_osState = a})
+-- | The state of processing a change to an option. Possible values:
+--
+--
+--     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.
+--
+--     * @Processing@ : the option's latest value is in the process of being activated.
+--
+--     * @Active@ : the option's latest value is completely deployed.
+--
+--     * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+--
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osState :: Lens.Lens' OptionStatus OptionState
+osState = Lens.lens (state :: OptionStatus -> OptionState) (\s a -> s {state = a} :: OptionStatus)
+{-# DEPRECATED osState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance FromXML OptionStatus where
+instance Lude.FromXML OptionStatus where
   parseXML x =
     OptionStatus'
-      <$> (x .@? "PendingDeletion")
-      <*> (x .@? "UpdateVersion")
-      <*> (x .@ "CreationDate")
-      <*> (x .@ "UpdateDate")
-      <*> (x .@ "State")
-
-instance Hashable OptionStatus
-
-instance NFData OptionStatus
+      Lude.<$> (x Lude..@? "PendingDeletion")
+      Lude.<*> (x Lude..@? "UpdateVersion")
+      Lude.<*> (x Lude..@ "CreationDate")
+      Lude.<*> (x Lude..@ "UpdateDate")
+      Lude.<*> (x Lude..@ "State")

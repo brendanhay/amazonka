@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.TextTranslationJobProperties where
+module Network.AWS.Translate.Types.TextTranslationJobProperties
+  ( TextTranslationJobProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTextTranslationJobProperties,
+
+    -- * Lenses
+    ttjpJobId,
+    ttjpTargetLanguageCodes,
+    ttjpJobName,
+    ttjpSubmittedTime,
+    ttjpInputDataConfig,
+    ttjpParallelDataNames,
+    ttjpTerminologyNames,
+    ttjpSourceLanguageCode,
+    ttjpEndTime,
+    ttjpOutputDataConfig,
+    ttjpJobDetails,
+    ttjpDataAccessRoleARN,
+    ttjpJobStatus,
+    ttjpMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Translate.Types.InputDataConfig
 import Network.AWS.Translate.Types.JobDetails
 import Network.AWS.Translate.Types.JobStatus
@@ -24,167 +40,196 @@ import Network.AWS.Translate.Types.OutputDataConfig
 
 -- | Provides information about a translation job.
 --
---
---
--- /See:/ 'textTranslationJobProperties' smart constructor.
+-- /See:/ 'mkTextTranslationJobProperties' smart constructor.
 data TextTranslationJobProperties = TextTranslationJobProperties'
-  { _ttjpJobId ::
-      !(Maybe Text),
-    _ttjpTargetLanguageCodes ::
-      !(Maybe (List1 Text)),
-    _ttjpJobName :: !(Maybe Text),
-    _ttjpSubmittedTime ::
-      !(Maybe POSIX),
-    _ttjpInputDataConfig ::
-      !(Maybe InputDataConfig),
-    _ttjpParallelDataNames ::
-      !(Maybe [Text]),
-    _ttjpTerminologyNames ::
-      !(Maybe [Text]),
-    _ttjpSourceLanguageCode ::
-      !(Maybe Text),
-    _ttjpEndTime :: !(Maybe POSIX),
-    _ttjpOutputDataConfig ::
-      !(Maybe OutputDataConfig),
-    _ttjpJobDetails ::
-      !(Maybe JobDetails),
-    _ttjpDataAccessRoleARN ::
-      !(Maybe Text),
-    _ttjpJobStatus ::
-      !(Maybe JobStatus),
-    _ttjpMessage :: !(Maybe Text)
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    targetLanguageCodes ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Text),
+    jobName :: Lude.Maybe Lude.Text,
+    submittedTime ::
+      Lude.Maybe Lude.Timestamp,
+    inputDataConfig ::
+      Lude.Maybe InputDataConfig,
+    parallelDataNames ::
+      Lude.Maybe [Lude.Text],
+    terminologyNames ::
+      Lude.Maybe [Lude.Text],
+    sourceLanguageCode ::
+      Lude.Maybe Lude.Text,
+    endTime ::
+      Lude.Maybe Lude.Timestamp,
+    outputDataConfig ::
+      Lude.Maybe OutputDataConfig,
+    jobDetails ::
+      Lude.Maybe JobDetails,
+    dataAccessRoleARN ::
+      Lude.Maybe Lude.Text,
+    jobStatus :: Lude.Maybe JobStatus,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextTranslationJobProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ttjpJobId' - The ID of the translation job.
---
--- * 'ttjpTargetLanguageCodes' - The language code of the language of the target text. The language must be a language supported by Amazon Translate.
---
--- * 'ttjpJobName' - The user-defined name of the translation job.
---
--- * 'ttjpSubmittedTime' - The time at which the translation job was submitted.
---
--- * 'ttjpInputDataConfig' - The input configuration properties that were specified when the job was requested.
---
--- * 'ttjpParallelDataNames' - A list containing the names of the parallel data resources applied to the translation job.
---
--- * 'ttjpTerminologyNames' - A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per 'StartTextTranslationJob' request at this time.
---
--- * 'ttjpSourceLanguageCode' - The language code of the language of the source text. The language must be a language supported by Amazon Translate.
---
--- * 'ttjpEndTime' - The time at which the translation job ended.
---
--- * 'ttjpOutputDataConfig' - The output configuration properties that were specified when the job was requested.
---
--- * 'ttjpJobDetails' - The number of documents successfully and unsuccessfully processed during the translation job.
---
--- * 'ttjpDataAccessRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.
---
--- * 'ttjpJobStatus' - The status of the translation job.
---
--- * 'ttjpMessage' - An explanation of any errors that may have occured during the translation job.
-textTranslationJobProperties ::
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.
+-- * 'endTime' - The time at which the translation job ended.
+-- * 'inputDataConfig' - The input configuration properties that were specified when the job was requested.
+-- * 'jobDetails' - The number of documents successfully and unsuccessfully processed during the translation job.
+-- * 'jobId' - The ID of the translation job.
+-- * 'jobName' - The user-defined name of the translation job.
+-- * 'jobStatus' - The status of the translation job.
+-- * 'message' - An explanation of any errors that may have occured during the translation job.
+-- * 'outputDataConfig' - The output configuration properties that were specified when the job was requested.
+-- * 'parallelDataNames' - A list containing the names of the parallel data resources applied to the translation job.
+-- * 'sourceLanguageCode' - The language code of the language of the source text. The language must be a language supported by Amazon Translate.
+-- * 'submittedTime' - The time at which the translation job was submitted.
+-- * 'targetLanguageCodes' - The language code of the language of the target text. The language must be a language supported by Amazon Translate.
+-- * 'terminologyNames' - A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per 'StartTextTranslationJob' request at this time.
+mkTextTranslationJobProperties ::
   TextTranslationJobProperties
-textTranslationJobProperties =
+mkTextTranslationJobProperties =
   TextTranslationJobProperties'
-    { _ttjpJobId = Nothing,
-      _ttjpTargetLanguageCodes = Nothing,
-      _ttjpJobName = Nothing,
-      _ttjpSubmittedTime = Nothing,
-      _ttjpInputDataConfig = Nothing,
-      _ttjpParallelDataNames = Nothing,
-      _ttjpTerminologyNames = Nothing,
-      _ttjpSourceLanguageCode = Nothing,
-      _ttjpEndTime = Nothing,
-      _ttjpOutputDataConfig = Nothing,
-      _ttjpJobDetails = Nothing,
-      _ttjpDataAccessRoleARN = Nothing,
-      _ttjpJobStatus = Nothing,
-      _ttjpMessage = Nothing
+    { jobId = Lude.Nothing,
+      targetLanguageCodes = Lude.Nothing,
+      jobName = Lude.Nothing,
+      submittedTime = Lude.Nothing,
+      inputDataConfig = Lude.Nothing,
+      parallelDataNames = Lude.Nothing,
+      terminologyNames = Lude.Nothing,
+      sourceLanguageCode = Lude.Nothing,
+      endTime = Lude.Nothing,
+      outputDataConfig = Lude.Nothing,
+      jobDetails = Lude.Nothing,
+      dataAccessRoleARN = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The ID of the translation job.
-ttjpJobId :: Lens' TextTranslationJobProperties (Maybe Text)
-ttjpJobId = lens _ttjpJobId (\s a -> s {_ttjpJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpJobId :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Text)
+ttjpJobId = Lens.lens (jobId :: TextTranslationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The language code of the language of the target text. The language must be a language supported by Amazon Translate.
-ttjpTargetLanguageCodes :: Lens' TextTranslationJobProperties (Maybe (NonEmpty Text))
-ttjpTargetLanguageCodes = lens _ttjpTargetLanguageCodes (\s a -> s {_ttjpTargetLanguageCodes = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'targetLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpTargetLanguageCodes :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe (Lude.NonEmpty Lude.Text))
+ttjpTargetLanguageCodes = Lens.lens (targetLanguageCodes :: TextTranslationJobProperties -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {targetLanguageCodes = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpTargetLanguageCodes "Use generic-lens or generic-optics with 'targetLanguageCodes' instead." #-}
 
 -- | The user-defined name of the translation job.
-ttjpJobName :: Lens' TextTranslationJobProperties (Maybe Text)
-ttjpJobName = lens _ttjpJobName (\s a -> s {_ttjpJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpJobName :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Text)
+ttjpJobName = Lens.lens (jobName :: TextTranslationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The time at which the translation job was submitted.
-ttjpSubmittedTime :: Lens' TextTranslationJobProperties (Maybe UTCTime)
-ttjpSubmittedTime = lens _ttjpSubmittedTime (\s a -> s {_ttjpSubmittedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submittedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpSubmittedTime :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Timestamp)
+ttjpSubmittedTime = Lens.lens (submittedTime :: TextTranslationJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {submittedTime = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpSubmittedTime "Use generic-lens or generic-optics with 'submittedTime' instead." #-}
 
 -- | The input configuration properties that were specified when the job was requested.
-ttjpInputDataConfig :: Lens' TextTranslationJobProperties (Maybe InputDataConfig)
-ttjpInputDataConfig = lens _ttjpInputDataConfig (\s a -> s {_ttjpInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpInputDataConfig :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe InputDataConfig)
+ttjpInputDataConfig = Lens.lens (inputDataConfig :: TextTranslationJobProperties -> Lude.Maybe InputDataConfig) (\s a -> s {inputDataConfig = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | A list containing the names of the parallel data resources applied to the translation job.
-ttjpParallelDataNames :: Lens' TextTranslationJobProperties [Text]
-ttjpParallelDataNames = lens _ttjpParallelDataNames (\s a -> s {_ttjpParallelDataNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parallelDataNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpParallelDataNames :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe [Lude.Text])
+ttjpParallelDataNames = Lens.lens (parallelDataNames :: TextTranslationJobProperties -> Lude.Maybe [Lude.Text]) (\s a -> s {parallelDataNames = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpParallelDataNames "Use generic-lens or generic-optics with 'parallelDataNames' instead." #-}
 
 -- | A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per 'StartTextTranslationJob' request at this time.
-ttjpTerminologyNames :: Lens' TextTranslationJobProperties [Text]
-ttjpTerminologyNames = lens _ttjpTerminologyNames (\s a -> s {_ttjpTerminologyNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'terminologyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpTerminologyNames :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe [Lude.Text])
+ttjpTerminologyNames = Lens.lens (terminologyNames :: TextTranslationJobProperties -> Lude.Maybe [Lude.Text]) (\s a -> s {terminologyNames = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpTerminologyNames "Use generic-lens or generic-optics with 'terminologyNames' instead." #-}
 
 -- | The language code of the language of the source text. The language must be a language supported by Amazon Translate.
-ttjpSourceLanguageCode :: Lens' TextTranslationJobProperties (Maybe Text)
-ttjpSourceLanguageCode = lens _ttjpSourceLanguageCode (\s a -> s {_ttjpSourceLanguageCode = a})
+--
+-- /Note:/ Consider using 'sourceLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpSourceLanguageCode :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Text)
+ttjpSourceLanguageCode = Lens.lens (sourceLanguageCode :: TextTranslationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {sourceLanguageCode = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
 
 -- | The time at which the translation job ended.
-ttjpEndTime :: Lens' TextTranslationJobProperties (Maybe UTCTime)
-ttjpEndTime = lens _ttjpEndTime (\s a -> s {_ttjpEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpEndTime :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Timestamp)
+ttjpEndTime = Lens.lens (endTime :: TextTranslationJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The output configuration properties that were specified when the job was requested.
-ttjpOutputDataConfig :: Lens' TextTranslationJobProperties (Maybe OutputDataConfig)
-ttjpOutputDataConfig = lens _ttjpOutputDataConfig (\s a -> s {_ttjpOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpOutputDataConfig :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe OutputDataConfig)
+ttjpOutputDataConfig = Lens.lens (outputDataConfig :: TextTranslationJobProperties -> Lude.Maybe OutputDataConfig) (\s a -> s {outputDataConfig = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The number of documents successfully and unsuccessfully processed during the translation job.
-ttjpJobDetails :: Lens' TextTranslationJobProperties (Maybe JobDetails)
-ttjpJobDetails = lens _ttjpJobDetails (\s a -> s {_ttjpJobDetails = a})
+--
+-- /Note:/ Consider using 'jobDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpJobDetails :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe JobDetails)
+ttjpJobDetails = Lens.lens (jobDetails :: TextTranslationJobProperties -> Lude.Maybe JobDetails) (\s a -> s {jobDetails = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpJobDetails "Use generic-lens or generic-optics with 'jobDetails' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.
-ttjpDataAccessRoleARN :: Lens' TextTranslationJobProperties (Maybe Text)
-ttjpDataAccessRoleARN = lens _ttjpDataAccessRoleARN (\s a -> s {_ttjpDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpDataAccessRoleARN :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Text)
+ttjpDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: TextTranslationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | The status of the translation job.
-ttjpJobStatus :: Lens' TextTranslationJobProperties (Maybe JobStatus)
-ttjpJobStatus = lens _ttjpJobStatus (\s a -> s {_ttjpJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpJobStatus :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe JobStatus)
+ttjpJobStatus = Lens.lens (jobStatus :: TextTranslationJobProperties -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | An explanation of any errors that may have occured during the translation job.
-ttjpMessage :: Lens' TextTranslationJobProperties (Maybe Text)
-ttjpMessage = lens _ttjpMessage (\s a -> s {_ttjpMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjpMessage :: Lens.Lens' TextTranslationJobProperties (Lude.Maybe Lude.Text)
+ttjpMessage = Lens.lens (message :: TextTranslationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: TextTranslationJobProperties)
+{-# DEPRECATED ttjpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON TextTranslationJobProperties where
+instance Lude.FromJSON TextTranslationJobProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "TextTranslationJobProperties"
       ( \x ->
           TextTranslationJobProperties'
-            <$> (x .:? "JobId")
-            <*> (x .:? "TargetLanguageCodes")
-            <*> (x .:? "JobName")
-            <*> (x .:? "SubmittedTime")
-            <*> (x .:? "InputDataConfig")
-            <*> (x .:? "ParallelDataNames" .!= mempty)
-            <*> (x .:? "TerminologyNames" .!= mempty)
-            <*> (x .:? "SourceLanguageCode")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "OutputDataConfig")
-            <*> (x .:? "JobDetails")
-            <*> (x .:? "DataAccessRoleArn")
-            <*> (x .:? "JobStatus")
-            <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "JobId")
+            Lude.<*> (x Lude..:? "TargetLanguageCodes")
+            Lude.<*> (x Lude..:? "JobName")
+            Lude.<*> (x Lude..:? "SubmittedTime")
+            Lude.<*> (x Lude..:? "InputDataConfig")
+            Lude.<*> (x Lude..:? "ParallelDataNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TerminologyNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "SourceLanguageCode")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "OutputDataConfig")
+            Lude.<*> (x Lude..:? "JobDetails")
+            Lude.<*> (x Lude..:? "DataAccessRoleArn")
+            Lude.<*> (x Lude..:? "JobStatus")
+            Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable TextTranslationJobProperties
-
-instance NFData TextTranslationJobProperties

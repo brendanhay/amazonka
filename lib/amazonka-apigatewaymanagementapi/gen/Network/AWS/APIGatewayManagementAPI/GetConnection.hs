@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Get information about the connection with the provided id.
 module Network.AWS.APIGatewayManagementAPI.GetConnection
-  ( -- * Creating a Request
-    getConnection,
-    GetConnection,
+  ( -- * Creating a request
+    GetConnection (..),
+    mkGetConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcConnectionId,
 
-    -- * Destructuring the Response
-    getConnectionResponse,
-    GetConnectionResponse,
+    -- * Destructuring the response
+    GetConnectionResponse (..),
+    mkGetConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsConnectedAt,
     gcrsLastActiveAt,
     gcrsIdentity,
@@ -39,109 +34,127 @@ module Network.AWS.APIGatewayManagementAPI.GetConnection
 where
 
 import Network.AWS.APIGatewayManagementAPI.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getConnection' smart constructor.
-newtype GetConnection = GetConnection' {_gcConnectionId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetConnection' smart constructor.
+newtype GetConnection = GetConnection' {connectionId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcConnectionId' - Undocumented member.
-getConnection ::
-  -- | 'gcConnectionId'
-  Text ->
+-- * 'connectionId' - Undocumented field.
+mkGetConnection ::
+  -- | 'connectionId'
+  Lude.Text ->
   GetConnection
-getConnection pConnectionId_ =
-  GetConnection' {_gcConnectionId = pConnectionId_}
+mkGetConnection pConnectionId_ =
+  GetConnection' {connectionId = pConnectionId_}
 
--- | Undocumented member.
-gcConnectionId :: Lens' GetConnection Text
-gcConnectionId = lens _gcConnectionId (\s a -> s {_gcConnectionId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcConnectionId :: Lens.Lens' GetConnection Lude.Text
+gcConnectionId = Lens.lens (connectionId :: GetConnection -> Lude.Text) (\s a -> s {connectionId = a} :: GetConnection)
+{-# DEPRECATED gcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance AWSRequest GetConnection where
+instance Lude.AWSRequest GetConnection where
   type Rs GetConnection = GetConnectionResponse
-  request = get apiGatewayManagementAPI
+  request = Req.get apiGatewayManagementAPIService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetConnectionResponse'
-            <$> (x .?> "connectedAt")
-            <*> (x .?> "lastActiveAt")
-            <*> (x .?> "identity")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "connectedAt")
+            Lude.<*> (x Lude..?> "lastActiveAt")
+            Lude.<*> (x Lude..?> "identity")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetConnection
-
-instance NFData GetConnection
-
-instance ToHeaders GetConnection where
+instance Lude.ToHeaders GetConnection where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetConnection where
+instance Lude.ToPath GetConnection where
   toPath GetConnection' {..} =
-    mconcat ["/@connections/", toBS _gcConnectionId]
+    Lude.mconcat ["/@connections/", Lude.toBS connectionId]
 
-instance ToQuery GetConnection where
-  toQuery = const mempty
+instance Lude.ToQuery GetConnection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getConnectionResponse' smart constructor.
+-- | /See:/ 'mkGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { _gcrsConnectedAt ::
-      !(Maybe POSIX),
-    _gcrsLastActiveAt :: !(Maybe POSIX),
-    _gcrsIdentity :: !(Maybe Identity),
-    _gcrsResponseStatus :: !Int
+  { connectedAt ::
+      Lude.Maybe Lude.Timestamp,
+    lastActiveAt :: Lude.Maybe Lude.Timestamp,
+    identity :: Lude.Maybe Identity,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsConnectedAt' - The time in ISO 8601 format for when the connection was established.
---
--- * 'gcrsLastActiveAt' - The time in ISO 8601 format for when the connection was last active.
---
--- * 'gcrsIdentity' - Undocumented member.
---
--- * 'gcrsResponseStatus' - -- | The response status code.
-getConnectionResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
+-- * 'connectedAt' - The time in ISO 8601 format for when the connection was established.
+-- * 'identity' - Undocumented field.
+-- * 'lastActiveAt' - The time in ISO 8601 format for when the connection was last active.
+-- * 'responseStatus' - The response status code.
+mkGetConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetConnectionResponse
-getConnectionResponse pResponseStatus_ =
+mkGetConnectionResponse pResponseStatus_ =
   GetConnectionResponse'
-    { _gcrsConnectedAt = Nothing,
-      _gcrsLastActiveAt = Nothing,
-      _gcrsIdentity = Nothing,
-      _gcrsResponseStatus = pResponseStatus_
+    { connectedAt = Lude.Nothing,
+      lastActiveAt = Lude.Nothing,
+      identity = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time in ISO 8601 format for when the connection was established.
-gcrsConnectedAt :: Lens' GetConnectionResponse (Maybe UTCTime)
-gcrsConnectedAt = lens _gcrsConnectedAt (\s a -> s {_gcrsConnectedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'connectedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsConnectedAt :: Lens.Lens' GetConnectionResponse (Lude.Maybe Lude.Timestamp)
+gcrsConnectedAt = Lens.lens (connectedAt :: GetConnectionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {connectedAt = a} :: GetConnectionResponse)
+{-# DEPRECATED gcrsConnectedAt "Use generic-lens or generic-optics with 'connectedAt' instead." #-}
 
 -- | The time in ISO 8601 format for when the connection was last active.
-gcrsLastActiveAt :: Lens' GetConnectionResponse (Maybe UTCTime)
-gcrsLastActiveAt = lens _gcrsLastActiveAt (\s a -> s {_gcrsLastActiveAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastActiveAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsLastActiveAt :: Lens.Lens' GetConnectionResponse (Lude.Maybe Lude.Timestamp)
+gcrsLastActiveAt = Lens.lens (lastActiveAt :: GetConnectionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastActiveAt = a} :: GetConnectionResponse)
+{-# DEPRECATED gcrsLastActiveAt "Use generic-lens or generic-optics with 'lastActiveAt' instead." #-}
 
--- | Undocumented member.
-gcrsIdentity :: Lens' GetConnectionResponse (Maybe Identity)
-gcrsIdentity = lens _gcrsIdentity (\s a -> s {_gcrsIdentity = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsIdentity :: Lens.Lens' GetConnectionResponse (Lude.Maybe Identity)
+gcrsIdentity = Lens.lens (identity :: GetConnectionResponse -> Lude.Maybe Identity) (\s a -> s {identity = a} :: GetConnectionResponse)
+{-# DEPRECATED gcrsIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetConnectionResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
-
-instance NFData GetConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetConnectionResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

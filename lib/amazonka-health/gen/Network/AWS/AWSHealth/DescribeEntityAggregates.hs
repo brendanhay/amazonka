@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,133 @@
 --
 -- Returns the number of entities that are affected by each of the specified events. If no events are specified, the counts of all affected entities are returned.
 module Network.AWS.AWSHealth.DescribeEntityAggregates
-  ( -- * Creating a Request
-    describeEntityAggregates,
-    DescribeEntityAggregates,
+  ( -- * Creating a request
+    DescribeEntityAggregates (..),
+    mkDescribeEntityAggregates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deaEventARNs,
 
-    -- * Destructuring the Response
-    describeEntityAggregatesResponse,
-    DescribeEntityAggregatesResponse,
+    -- * Destructuring the response
+    DescribeEntityAggregatesResponse (..),
+    mkDescribeEntityAggregatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dearsEntityAggregates,
     dearsResponseStatus,
   )
 where
 
 import Network.AWS.AWSHealth.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEntityAggregates' smart constructor.
+-- | /See:/ 'mkDescribeEntityAggregates' smart constructor.
 newtype DescribeEntityAggregates = DescribeEntityAggregates'
-  { _deaEventARNs ::
-      Maybe (List1 Text)
+  { eventARNs ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEntityAggregates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deaEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
-describeEntityAggregates ::
+-- * 'eventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
+mkDescribeEntityAggregates ::
   DescribeEntityAggregates
-describeEntityAggregates =
-  DescribeEntityAggregates' {_deaEventARNs = Nothing}
+mkDescribeEntityAggregates =
+  DescribeEntityAggregates' {eventARNs = Lude.Nothing}
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
-deaEventARNs :: Lens' DescribeEntityAggregates (Maybe (NonEmpty Text))
-deaEventARNs = lens _deaEventARNs (\s a -> s {_deaEventARNs = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'eventARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaEventARNs :: Lens.Lens' DescribeEntityAggregates (Lude.Maybe (Lude.NonEmpty Lude.Text))
+deaEventARNs = Lens.lens (eventARNs :: DescribeEntityAggregates -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {eventARNs = a} :: DescribeEntityAggregates)
+{-# DEPRECATED deaEventARNs "Use generic-lens or generic-optics with 'eventARNs' instead." #-}
 
-instance AWSRequest DescribeEntityAggregates where
+instance Lude.AWSRequest DescribeEntityAggregates where
   type Rs DescribeEntityAggregates = DescribeEntityAggregatesResponse
-  request = postJSON awsHealth
+  request = Req.postJSON awsHealthService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEntityAggregatesResponse'
-            <$> (x .?> "entityAggregates" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "entityAggregates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEntityAggregates
-
-instance NFData DescribeEntityAggregates
-
-instance ToHeaders DescribeEntityAggregates where
+instance Lude.ToHeaders DescribeEntityAggregates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSHealth_20160804.DescribeEntityAggregates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSHealth_20160804.DescribeEntityAggregates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEntityAggregates where
+instance Lude.ToJSON DescribeEntityAggregates where
   toJSON DescribeEntityAggregates' {..} =
-    object (catMaybes [("eventArns" .=) <$> _deaEventARNs])
+    Lude.object
+      (Lude.catMaybes [("eventArns" Lude..=) Lude.<$> eventARNs])
 
-instance ToPath DescribeEntityAggregates where
-  toPath = const "/"
+instance Lude.ToPath DescribeEntityAggregates where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEntityAggregates where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEntityAggregates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEntityAggregatesResponse' smart constructor.
+-- | /See:/ 'mkDescribeEntityAggregatesResponse' smart constructor.
 data DescribeEntityAggregatesResponse = DescribeEntityAggregatesResponse'
-  { _dearsEntityAggregates ::
-      !( Maybe
-           [EntityAggregate]
-       ),
-    _dearsResponseStatus ::
-      !Int
+  { entityAggregates ::
+      Lude.Maybe
+        [EntityAggregate],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEntityAggregatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dearsEntityAggregates' - The number of entities that are affected by each of the specified events.
---
--- * 'dearsResponseStatus' - -- | The response status code.
-describeEntityAggregatesResponse ::
-  -- | 'dearsResponseStatus'
-  Int ->
+-- * 'entityAggregates' - The number of entities that are affected by each of the specified events.
+-- * 'responseStatus' - The response status code.
+mkDescribeEntityAggregatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEntityAggregatesResponse
-describeEntityAggregatesResponse pResponseStatus_ =
+mkDescribeEntityAggregatesResponse pResponseStatus_ =
   DescribeEntityAggregatesResponse'
-    { _dearsEntityAggregates =
-        Nothing,
-      _dearsResponseStatus = pResponseStatus_
+    { entityAggregates =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The number of entities that are affected by each of the specified events.
-dearsEntityAggregates :: Lens' DescribeEntityAggregatesResponse [EntityAggregate]
-dearsEntityAggregates = lens _dearsEntityAggregates (\s a -> s {_dearsEntityAggregates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entityAggregates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dearsEntityAggregates :: Lens.Lens' DescribeEntityAggregatesResponse (Lude.Maybe [EntityAggregate])
+dearsEntityAggregates = Lens.lens (entityAggregates :: DescribeEntityAggregatesResponse -> Lude.Maybe [EntityAggregate]) (\s a -> s {entityAggregates = a} :: DescribeEntityAggregatesResponse)
+{-# DEPRECATED dearsEntityAggregates "Use generic-lens or generic-optics with 'entityAggregates' instead." #-}
 
--- | -- | The response status code.
-dearsResponseStatus :: Lens' DescribeEntityAggregatesResponse Int
-dearsResponseStatus = lens _dearsResponseStatus (\s a -> s {_dearsResponseStatus = a})
-
-instance NFData DescribeEntityAggregatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dearsResponseStatus :: Lens.Lens' DescribeEntityAggregatesResponse Lude.Int
+dearsResponseStatus = Lens.lens (responseStatus :: DescribeEntityAggregatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEntityAggregatesResponse)
+{-# DEPRECATED dearsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

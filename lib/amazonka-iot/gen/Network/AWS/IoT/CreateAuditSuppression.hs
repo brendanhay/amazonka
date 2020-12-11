@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a Device Defender audit suppression.
 module Network.AWS.IoT.CreateAuditSuppression
-  ( -- * Creating a Request
-    createAuditSuppression,
-    CreateAuditSuppression,
+  ( -- * Creating a request
+    CreateAuditSuppression (..),
+    mkCreateAuditSuppression,
 
-    -- * Request Lenses
+    -- ** Request lenses
     casExpirationDate,
     casSuppressIndefinitely,
     casDescription,
@@ -31,152 +26,173 @@ module Network.AWS.IoT.CreateAuditSuppression
     casResourceIdentifier,
     casClientRequestToken,
 
-    -- * Destructuring the Response
-    createAuditSuppressionResponse,
-    CreateAuditSuppressionResponse,
+    -- * Destructuring the response
+    CreateAuditSuppressionResponse (..),
+    mkCreateAuditSuppressionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     casrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createAuditSuppression' smart constructor.
+-- | /See:/ 'mkCreateAuditSuppression' smart constructor.
 data CreateAuditSuppression = CreateAuditSuppression'
-  { _casExpirationDate ::
-      !(Maybe POSIX),
-    _casSuppressIndefinitely :: !(Maybe Bool),
-    _casDescription :: !(Maybe Text),
-    _casCheckName :: !Text,
-    _casResourceIdentifier :: !ResourceIdentifier,
-    _casClientRequestToken :: !Text
+  { expirationDate ::
+      Lude.Maybe Lude.Timestamp,
+    suppressIndefinitely :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    checkName :: Lude.Text,
+    resourceIdentifier :: ResourceIdentifier,
+    clientRequestToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAuditSuppression' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'casExpirationDate' - The epoch timestamp in seconds at which this suppression expires.
---
--- * 'casSuppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
---
--- * 'casDescription' - The description of the audit suppression.
---
--- * 'casCheckName' - Undocumented member.
---
--- * 'casResourceIdentifier' - Undocumented member.
---
--- * 'casClientRequestToken' - The epoch timestamp in seconds at which this suppression expires.
-createAuditSuppression ::
-  -- | 'casCheckName'
-  Text ->
-  -- | 'casResourceIdentifier'
+-- * 'checkName' - Undocumented field.
+-- * 'clientRequestToken' - The epoch timestamp in seconds at which this suppression expires.
+-- * 'description' - The description of the audit suppression.
+-- * 'expirationDate' - The epoch timestamp in seconds at which this suppression expires.
+-- * 'resourceIdentifier' - Undocumented field.
+-- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+mkCreateAuditSuppression ::
+  -- | 'checkName'
+  Lude.Text ->
+  -- | 'resourceIdentifier'
   ResourceIdentifier ->
-  -- | 'casClientRequestToken'
-  Text ->
+  -- | 'clientRequestToken'
+  Lude.Text ->
   CreateAuditSuppression
-createAuditSuppression
+mkCreateAuditSuppression
   pCheckName_
   pResourceIdentifier_
   pClientRequestToken_ =
     CreateAuditSuppression'
-      { _casExpirationDate = Nothing,
-        _casSuppressIndefinitely = Nothing,
-        _casDescription = Nothing,
-        _casCheckName = pCheckName_,
-        _casResourceIdentifier = pResourceIdentifier_,
-        _casClientRequestToken = pClientRequestToken_
+      { expirationDate = Lude.Nothing,
+        suppressIndefinitely = Lude.Nothing,
+        description = Lude.Nothing,
+        checkName = pCheckName_,
+        resourceIdentifier = pResourceIdentifier_,
+        clientRequestToken = pClientRequestToken_
       }
 
 -- | The epoch timestamp in seconds at which this suppression expires.
-casExpirationDate :: Lens' CreateAuditSuppression (Maybe UTCTime)
-casExpirationDate = lens _casExpirationDate (\s a -> s {_casExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casExpirationDate :: Lens.Lens' CreateAuditSuppression (Lude.Maybe Lude.Timestamp)
+casExpirationDate = Lens.lens (expirationDate :: CreateAuditSuppression -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: CreateAuditSuppression)
+{-# DEPRECATED casExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | Indicates whether a suppression should exist indefinitely or not.
-casSuppressIndefinitely :: Lens' CreateAuditSuppression (Maybe Bool)
-casSuppressIndefinitely = lens _casSuppressIndefinitely (\s a -> s {_casSuppressIndefinitely = a})
+--
+-- /Note:/ Consider using 'suppressIndefinitely' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casSuppressIndefinitely :: Lens.Lens' CreateAuditSuppression (Lude.Maybe Lude.Bool)
+casSuppressIndefinitely = Lens.lens (suppressIndefinitely :: CreateAuditSuppression -> Lude.Maybe Lude.Bool) (\s a -> s {suppressIndefinitely = a} :: CreateAuditSuppression)
+{-# DEPRECATED casSuppressIndefinitely "Use generic-lens or generic-optics with 'suppressIndefinitely' instead." #-}
 
 -- | The description of the audit suppression.
-casDescription :: Lens' CreateAuditSuppression (Maybe Text)
-casDescription = lens _casDescription (\s a -> s {_casDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casDescription :: Lens.Lens' CreateAuditSuppression (Lude.Maybe Lude.Text)
+casDescription = Lens.lens (description :: CreateAuditSuppression -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAuditSuppression)
+{-# DEPRECATED casDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-casCheckName :: Lens' CreateAuditSuppression Text
-casCheckName = lens _casCheckName (\s a -> s {_casCheckName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casCheckName :: Lens.Lens' CreateAuditSuppression Lude.Text
+casCheckName = Lens.lens (checkName :: CreateAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: CreateAuditSuppression)
+{-# DEPRECATED casCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
--- | Undocumented member.
-casResourceIdentifier :: Lens' CreateAuditSuppression ResourceIdentifier
-casResourceIdentifier = lens _casResourceIdentifier (\s a -> s {_casResourceIdentifier = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casResourceIdentifier :: Lens.Lens' CreateAuditSuppression ResourceIdentifier
+casResourceIdentifier = Lens.lens (resourceIdentifier :: CreateAuditSuppression -> ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: CreateAuditSuppression)
+{-# DEPRECATED casResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
 -- | The epoch timestamp in seconds at which this suppression expires.
-casClientRequestToken :: Lens' CreateAuditSuppression Text
-casClientRequestToken = lens _casClientRequestToken (\s a -> s {_casClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casClientRequestToken :: Lens.Lens' CreateAuditSuppression Lude.Text
+casClientRequestToken = Lens.lens (clientRequestToken :: CreateAuditSuppression -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateAuditSuppression)
+{-# DEPRECATED casClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
-instance AWSRequest CreateAuditSuppression where
+instance Lude.AWSRequest CreateAuditSuppression where
   type Rs CreateAuditSuppression = CreateAuditSuppressionResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          CreateAuditSuppressionResponse' <$> (pure (fromEnum s))
+          CreateAuditSuppressionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAuditSuppression
+instance Lude.ToHeaders CreateAuditSuppression where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateAuditSuppression
-
-instance ToHeaders CreateAuditSuppression where
-  toHeaders = const mempty
-
-instance ToJSON CreateAuditSuppression where
+instance Lude.ToJSON CreateAuditSuppression where
   toJSON CreateAuditSuppression' {..} =
-    object
-      ( catMaybes
-          [ ("expirationDate" .=) <$> _casExpirationDate,
-            ("suppressIndefinitely" .=) <$> _casSuppressIndefinitely,
-            ("description" .=) <$> _casDescription,
-            Just ("checkName" .= _casCheckName),
-            Just ("resourceIdentifier" .= _casResourceIdentifier),
-            Just ("clientRequestToken" .= _casClientRequestToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expirationDate" Lude..=) Lude.<$> expirationDate,
+            ("suppressIndefinitely" Lude..=) Lude.<$> suppressIndefinitely,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("checkName" Lude..= checkName),
+            Lude.Just ("resourceIdentifier" Lude..= resourceIdentifier),
+            Lude.Just ("clientRequestToken" Lude..= clientRequestToken)
           ]
       )
 
-instance ToPath CreateAuditSuppression where
-  toPath = const "/audit/suppressions/create"
+instance Lude.ToPath CreateAuditSuppression where
+  toPath = Lude.const "/audit/suppressions/create"
 
-instance ToQuery CreateAuditSuppression where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAuditSuppression where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAuditSuppressionResponse' smart constructor.
+-- | /See:/ 'mkCreateAuditSuppressionResponse' smart constructor.
 newtype CreateAuditSuppressionResponse = CreateAuditSuppressionResponse'
-  { _casrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAuditSuppressionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'casrsResponseStatus' - -- | The response status code.
-createAuditSuppressionResponse ::
-  -- | 'casrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateAuditSuppressionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAuditSuppressionResponse
-createAuditSuppressionResponse pResponseStatus_ =
+mkCreateAuditSuppressionResponse pResponseStatus_ =
   CreateAuditSuppressionResponse'
-    { _casrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-casrsResponseStatus :: Lens' CreateAuditSuppressionResponse Int
-casrsResponseStatus = lens _casrsResponseStatus (\s a -> s {_casrsResponseStatus = a})
-
-instance NFData CreateAuditSuppressionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casrsResponseStatus :: Lens.Lens' CreateAuditSuppressionResponse Lude.Int
+casrsResponseStatus = Lens.lens (responseStatus :: CreateAuditSuppressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAuditSuppressionResponse)
+{-# DEPRECATED casrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

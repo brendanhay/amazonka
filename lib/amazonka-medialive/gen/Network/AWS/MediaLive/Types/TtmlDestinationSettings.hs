@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.TtmlDestinationSettings where
+module Network.AWS.MediaLive.Types.TtmlDestinationSettings
+  ( TtmlDestinationSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkTtmlDestinationSettings,
+
+    -- * Lenses
+    tdsStyleControl,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TtmlDestinationStyleControl
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ttml Destination Settings
 --
--- /See:/ 'ttmlDestinationSettings' smart constructor.
+-- /See:/ 'mkTtmlDestinationSettings' smart constructor.
 newtype TtmlDestinationSettings = TtmlDestinationSettings'
-  { _tdsStyleControl ::
-      Maybe TtmlDestinationStyleControl
+  { styleControl ::
+      Lude.Maybe TtmlDestinationStyleControl
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TtmlDestinationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdsStyleControl' - When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-ttmlDestinationSettings ::
+-- * 'styleControl' - When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
+mkTtmlDestinationSettings ::
   TtmlDestinationSettings
-ttmlDestinationSettings =
-  TtmlDestinationSettings' {_tdsStyleControl = Nothing}
+mkTtmlDestinationSettings =
+  TtmlDestinationSettings' {styleControl = Lude.Nothing}
 
 -- | When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-tdsStyleControl :: Lens' TtmlDestinationSettings (Maybe TtmlDestinationStyleControl)
-tdsStyleControl = lens _tdsStyleControl (\s a -> s {_tdsStyleControl = a})
+--
+-- /Note:/ Consider using 'styleControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdsStyleControl :: Lens.Lens' TtmlDestinationSettings (Lude.Maybe TtmlDestinationStyleControl)
+tdsStyleControl = Lens.lens (styleControl :: TtmlDestinationSettings -> Lude.Maybe TtmlDestinationStyleControl) (\s a -> s {styleControl = a} :: TtmlDestinationSettings)
+{-# DEPRECATED tdsStyleControl "Use generic-lens or generic-optics with 'styleControl' instead." #-}
 
-instance FromJSON TtmlDestinationSettings where
+instance Lude.FromJSON TtmlDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "TtmlDestinationSettings"
-      (\x -> TtmlDestinationSettings' <$> (x .:? "styleControl"))
+      ( \x ->
+          TtmlDestinationSettings' Lude.<$> (x Lude..:? "styleControl")
+      )
 
-instance Hashable TtmlDestinationSettings
-
-instance NFData TtmlDestinationSettings
-
-instance ToJSON TtmlDestinationSettings where
+instance Lude.ToJSON TtmlDestinationSettings where
   toJSON TtmlDestinationSettings' {..} =
-    object (catMaybes [("styleControl" .=) <$> _tdsStyleControl])
+    Lude.object
+      (Lude.catMaybes [("styleControl" Lude..=) Lude.<$> styleControl])

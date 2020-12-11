@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets information about test suites for a given job.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListSuites
-  ( -- * Creating a Request
-    listSuites,
-    ListSuites,
+  ( -- * Creating a request
+    ListSuites (..),
+    mkListSuites,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lssNextToken,
     lssArn,
 
-    -- * Destructuring the Response
-    listSuitesResponse,
-    ListSuitesResponse,
+    -- * Destructuring the response
+    ListSuitesResponse (..),
+    mkListSuitesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsrsNextToken,
     lsrsSuites,
     lsrsResponseStatus,
@@ -43,133 +36,151 @@ module Network.AWS.DeviceFarm.ListSuites
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the list suites operation.
 --
---
---
--- /See:/ 'listSuites' smart constructor.
+-- /See:/ 'mkListSuites' smart constructor.
 data ListSuites = ListSuites'
-  { _lssNextToken :: !(Maybe Text),
-    _lssArn :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSuites' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lssNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lssArn' - The job's Amazon Resource Name (ARN).
-listSuites ::
-  -- | 'lssArn'
-  Text ->
+-- * 'arn' - The job's Amazon Resource Name (ARN).
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListSuites ::
+  -- | 'arn'
+  Lude.Text ->
   ListSuites
-listSuites pArn_ =
-  ListSuites' {_lssNextToken = Nothing, _lssArn = pArn_}
+mkListSuites pArn_ =
+  ListSuites' {nextToken = Lude.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lssNextToken :: Lens' ListSuites (Maybe Text)
-lssNextToken = lens _lssNextToken (\s a -> s {_lssNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lssNextToken :: Lens.Lens' ListSuites (Lude.Maybe Lude.Text)
+lssNextToken = Lens.lens (nextToken :: ListSuites -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSuites)
+{-# DEPRECATED lssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The job's Amazon Resource Name (ARN).
-lssArn :: Lens' ListSuites Text
-lssArn = lens _lssArn (\s a -> s {_lssArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lssArn :: Lens.Lens' ListSuites Lude.Text
+lssArn = Lens.lens (arn :: ListSuites -> Lude.Text) (\s a -> s {arn = a} :: ListSuites)
+{-# DEPRECATED lssArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSPager ListSuites where
+instance Page.AWSPager ListSuites where
   page rq rs
-    | stop (rs ^. lsrsNextToken) = Nothing
-    | stop (rs ^. lsrsSuites) = Nothing
-    | otherwise = Just $ rq & lssNextToken .~ rs ^. lsrsNextToken
+    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsrsSuites) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lssNextToken Lens..~ rs Lens.^. lsrsNextToken
 
-instance AWSRequest ListSuites where
+instance Lude.AWSRequest ListSuites where
   type Rs ListSuites = ListSuitesResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSuitesResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "suites" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "suites" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSuites
-
-instance NFData ListSuites
-
-instance ToHeaders ListSuites where
+instance Lude.ToHeaders ListSuites where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListSuites" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListSuites" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListSuites where
+instance Lude.ToJSON ListSuites where
   toJSON ListSuites' {..} =
-    object
-      ( catMaybes
-          [("nextToken" .=) <$> _lssNextToken, Just ("arn" .= _lssArn)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("arn" Lude..= arn)
+          ]
       )
 
-instance ToPath ListSuites where
-  toPath = const "/"
+instance Lude.ToPath ListSuites where
+  toPath = Lude.const "/"
 
-instance ToQuery ListSuites where
-  toQuery = const mempty
+instance Lude.ToQuery ListSuites where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a list suites request.
 --
---
---
--- /See:/ 'listSuitesResponse' smart constructor.
+-- /See:/ 'mkListSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
-  { _lsrsNextToken ::
-      !(Maybe Text),
-    _lsrsSuites :: !(Maybe [Suite]),
-    _lsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    suites :: Lude.Maybe [Suite],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSuitesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'lsrsSuites' - Information about the suites.
---
--- * 'lsrsResponseStatus' - -- | The response status code.
-listSuitesResponse ::
-  -- | 'lsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'suites' - Information about the suites.
+mkListSuitesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSuitesResponse
-listSuitesResponse pResponseStatus_ =
+mkListSuitesResponse pResponseStatus_ =
   ListSuitesResponse'
-    { _lsrsNextToken = Nothing,
-      _lsrsSuites = Nothing,
-      _lsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      suites = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-lsrsNextToken :: Lens' ListSuitesResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s {_lsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsNextToken :: Lens.Lens' ListSuitesResponse (Lude.Maybe Lude.Text)
+lsrsNextToken = Lens.lens (nextToken :: ListSuitesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSuitesResponse)
+{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the suites.
-lsrsSuites :: Lens' ListSuitesResponse [Suite]
-lsrsSuites = lens _lsrsSuites (\s a -> s {_lsrsSuites = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'suites' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsSuites :: Lens.Lens' ListSuitesResponse (Lude.Maybe [Suite])
+lsrsSuites = Lens.lens (suites :: ListSuitesResponse -> Lude.Maybe [Suite]) (\s a -> s {suites = a} :: ListSuitesResponse)
+{-# DEPRECATED lsrsSuites "Use generic-lens or generic-optics with 'suites' instead." #-}
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListSuitesResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\s a -> s {_lsrsResponseStatus = a})
-
-instance NFData ListSuitesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsResponseStatus :: Lens.Lens' ListSuitesResponse Lude.Int
+lsrsResponseStatus = Lens.lens (responseStatus :: ListSuitesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSuitesResponse)
+{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

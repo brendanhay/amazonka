@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,195 @@
 --
 -- Adds a source identifier to an existing RDS event notification subscription.
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
-  ( -- * Creating a Request
-    addSourceIdentifierToSubscription,
-    AddSourceIdentifierToSubscription,
+  ( -- * Creating a request
+    AddSourceIdentifierToSubscription (..),
+    mkAddSourceIdentifierToSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asitsSubscriptionName,
     asitsSourceIdentifier,
 
-    -- * Destructuring the Response
-    addSourceIdentifierToSubscriptionResponse,
-    AddSourceIdentifierToSubscriptionResponse,
+    -- * Destructuring the response
+    AddSourceIdentifierToSubscriptionResponse (..),
+    mkAddSourceIdentifierToSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asitsrsEventSubscription,
     asitsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'addSourceIdentifierToSubscription' smart constructor.
+-- /See:/ 'mkAddSourceIdentifierToSubscription' smart constructor.
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
-  { _asitsSubscriptionName ::
-      !Text,
-    _asitsSourceIdentifier ::
-      !Text
+  { subscriptionName ::
+      Lude.Text,
+    sourceIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddSourceIdentifierToSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sourceIdentifier' - The identifier of the event source to be added.
 --
--- * 'asitsSubscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
+-- Constraints:
 --
--- * 'asitsSourceIdentifier' - The identifier of the event source to be added. Constraints:     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
-addSourceIdentifierToSubscription ::
-  -- | 'asitsSubscriptionName'
-  Text ->
-  -- | 'asitsSourceIdentifier'
-  Text ->
+--     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+--
+-- * 'subscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
+mkAddSourceIdentifierToSubscription ::
+  -- | 'subscriptionName'
+  Lude.Text ->
+  -- | 'sourceIdentifier'
+  Lude.Text ->
   AddSourceIdentifierToSubscription
-addSourceIdentifierToSubscription
+mkAddSourceIdentifierToSubscription
   pSubscriptionName_
   pSourceIdentifier_ =
     AddSourceIdentifierToSubscription'
-      { _asitsSubscriptionName =
+      { subscriptionName =
           pSubscriptionName_,
-        _asitsSourceIdentifier = pSourceIdentifier_
+        sourceIdentifier = pSourceIdentifier_
       }
 
 -- | The name of the RDS event notification subscription you want to add a source identifier to.
-asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
-asitsSubscriptionName = lens _asitsSubscriptionName (\s a -> s {_asitsSubscriptionName = a})
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asitsSubscriptionName :: Lens.Lens' AddSourceIdentifierToSubscription Lude.Text
+asitsSubscriptionName = Lens.lens (subscriptionName :: AddSourceIdentifierToSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: AddSourceIdentifierToSubscription)
+{-# DEPRECATED asitsSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
--- | The identifier of the event source to be added. Constraints:     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
-asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
-asitsSourceIdentifier = lens _asitsSourceIdentifier (\s a -> s {_asitsSourceIdentifier = a})
+-- | The identifier of the event source to be added.
+--
+-- Constraints:
+--
+--     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+--
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asitsSourceIdentifier :: Lens.Lens' AddSourceIdentifierToSubscription Lude.Text
+asitsSourceIdentifier = Lens.lens (sourceIdentifier :: AddSourceIdentifierToSubscription -> Lude.Text) (\s a -> s {sourceIdentifier = a} :: AddSourceIdentifierToSubscription)
+{-# DEPRECATED asitsSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
-instance AWSRequest AddSourceIdentifierToSubscription where
+instance Lude.AWSRequest AddSourceIdentifierToSubscription where
   type
     Rs AddSourceIdentifierToSubscription =
       AddSourceIdentifierToSubscriptionResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AddSourceIdentifierToSubscriptionResult"
       ( \s h x ->
           AddSourceIdentifierToSubscriptionResponse'
-            <$> (x .@? "EventSubscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "EventSubscription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddSourceIdentifierToSubscription
+instance Lude.ToHeaders AddSourceIdentifierToSubscription where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddSourceIdentifierToSubscription
+instance Lude.ToPath AddSourceIdentifierToSubscription where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddSourceIdentifierToSubscription where
-  toHeaders = const mempty
-
-instance ToPath AddSourceIdentifierToSubscription where
-  toPath = const "/"
-
-instance ToQuery AddSourceIdentifierToSubscription where
+instance Lude.ToQuery AddSourceIdentifierToSubscription where
   toQuery AddSourceIdentifierToSubscription' {..} =
-    mconcat
-      [ "Action" =: ("AddSourceIdentifierToSubscription" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "SubscriptionName" =: _asitsSubscriptionName,
-        "SourceIdentifier" =: _asitsSourceIdentifier
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("AddSourceIdentifierToSubscription" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "SubscriptionName" Lude.=: subscriptionName,
+        "SourceIdentifier" Lude.=: sourceIdentifier
       ]
 
--- | /See:/ 'addSourceIdentifierToSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkAddSourceIdentifierToSubscriptionResponse' smart constructor.
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
-  { _asitsrsEventSubscription ::
-      !( Maybe
-           EventSubscription
-       ),
-    _asitsrsResponseStatus ::
-      !Int
+  { eventSubscription ::
+      Lude.Maybe
+        EventSubscription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddSourceIdentifierToSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asitsrsEventSubscription' - Undocumented member.
---
--- * 'asitsrsResponseStatus' - -- | The response status code.
-addSourceIdentifierToSubscriptionResponse ::
-  -- | 'asitsrsResponseStatus'
-  Int ->
+-- * 'eventSubscription' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkAddSourceIdentifierToSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddSourceIdentifierToSubscriptionResponse
-addSourceIdentifierToSubscriptionResponse pResponseStatus_ =
+mkAddSourceIdentifierToSubscriptionResponse pResponseStatus_ =
   AddSourceIdentifierToSubscriptionResponse'
-    { _asitsrsEventSubscription =
-        Nothing,
-      _asitsrsResponseStatus = pResponseStatus_
+    { eventSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
-asitsrsEventSubscription = lens _asitsrsEventSubscription (\s a -> s {_asitsrsEventSubscription = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'eventSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asitsrsEventSubscription :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse (Lude.Maybe EventSubscription)
+asitsrsEventSubscription = Lens.lens (eventSubscription :: AddSourceIdentifierToSubscriptionResponse -> Lude.Maybe EventSubscription) (\s a -> s {eventSubscription = a} :: AddSourceIdentifierToSubscriptionResponse)
+{-# DEPRECATED asitsrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
 
--- | -- | The response status code.
-asitsrsResponseStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
-asitsrsResponseStatus = lens _asitsrsResponseStatus (\s a -> s {_asitsrsResponseStatus = a})
-
-instance NFData AddSourceIdentifierToSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asitsrsResponseStatus :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse Lude.Int
+asitsrsResponseStatus = Lens.lens (responseStatus :: AddSourceIdentifierToSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddSourceIdentifierToSubscriptionResponse)
+{-# DEPRECATED asitsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

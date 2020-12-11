@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.FailureDetails where
+module Network.AWS.CodePipeline.Types.FailureDetails
+  ( FailureDetails (..),
+
+    -- * Smart constructor
+    mkFailureDetails,
+
+    -- * Lenses
+    fdExternalExecutionId,
+    fdType,
+    fdMessage,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.FailureType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about failure details.
 --
---
---
--- /See:/ 'failureDetails' smart constructor.
+-- /See:/ 'mkFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { _fdExternalExecutionId ::
-      !(Maybe Text),
-    _fdType :: !FailureType,
-    _fdMessage :: !Text
+  { externalExecutionId ::
+      Lude.Maybe Lude.Text,
+    type' :: FailureType,
+    message :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdExternalExecutionId' - The external ID of the run of the action that failed.
---
--- * 'fdType' - The type of the failure.
---
--- * 'fdMessage' - The message about the failure.
-failureDetails ::
-  -- | 'fdType'
+-- * 'externalExecutionId' - The external ID of the run of the action that failed.
+-- * 'message' - The message about the failure.
+-- * 'type'' - The type of the failure.
+mkFailureDetails ::
+  -- | 'type''
   FailureType ->
-  -- | 'fdMessage'
-  Text ->
+  -- | 'message'
+  Lude.Text ->
   FailureDetails
-failureDetails pType_ pMessage_ =
+mkFailureDetails pType_ pMessage_ =
   FailureDetails'
-    { _fdExternalExecutionId = Nothing,
-      _fdType = pType_,
-      _fdMessage = pMessage_
+    { externalExecutionId = Lude.Nothing,
+      type' = pType_,
+      message = pMessage_
     }
 
 -- | The external ID of the run of the action that failed.
-fdExternalExecutionId :: Lens' FailureDetails (Maybe Text)
-fdExternalExecutionId = lens _fdExternalExecutionId (\s a -> s {_fdExternalExecutionId = a})
+--
+-- /Note:/ Consider using 'externalExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdExternalExecutionId :: Lens.Lens' FailureDetails (Lude.Maybe Lude.Text)
+fdExternalExecutionId = Lens.lens (externalExecutionId :: FailureDetails -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionId = a} :: FailureDetails)
+{-# DEPRECATED fdExternalExecutionId "Use generic-lens or generic-optics with 'externalExecutionId' instead." #-}
 
 -- | The type of the failure.
-fdType :: Lens' FailureDetails FailureType
-fdType = lens _fdType (\s a -> s {_fdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdType :: Lens.Lens' FailureDetails FailureType
+fdType = Lens.lens (type' :: FailureDetails -> FailureType) (\s a -> s {type' = a} :: FailureDetails)
+{-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The message about the failure.
-fdMessage :: Lens' FailureDetails Text
-fdMessage = lens _fdMessage (\s a -> s {_fdMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdMessage :: Lens.Lens' FailureDetails Lude.Text
+fdMessage = Lens.lens (message :: FailureDetails -> Lude.Text) (\s a -> s {message = a} :: FailureDetails)
+{-# DEPRECATED fdMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Hashable FailureDetails
-
-instance NFData FailureDetails
-
-instance ToJSON FailureDetails where
+instance Lude.ToJSON FailureDetails where
   toJSON FailureDetails' {..} =
-    object
-      ( catMaybes
-          [ ("externalExecutionId" .=) <$> _fdExternalExecutionId,
-            Just ("type" .= _fdType),
-            Just ("message" .= _fdMessage)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("externalExecutionId" Lude..=) Lude.<$> externalExecutionId,
+            Lude.Just ("type" Lude..= type'),
+            Lude.Just ("message" Lude..= message)
           ]
       )

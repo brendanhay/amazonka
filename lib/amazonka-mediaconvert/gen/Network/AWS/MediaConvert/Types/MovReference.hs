@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MovReference where
+module Network.AWS.MediaConvert.Types.MovReference
+  ( MovReference
+      ( MovReference',
+        External,
+        SelfContained
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Always keep the default value (SELF_CONTAINED) for this setting.
-data MovReference
-  = External
-  | SelfContained
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MovReference = MovReference' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MovReference where
-  parser =
-    takeLowerText >>= \case
-      "external" -> pure External
-      "self_contained" -> pure SelfContained
-      e ->
-        fromTextError $
-          "Failure parsing MovReference from value: '" <> e
-            <> "'. Accepted values: external, self_contained"
+pattern External :: MovReference
+pattern External = MovReference' "EXTERNAL"
 
-instance ToText MovReference where
-  toText = \case
-    External -> "EXTERNAL"
-    SelfContained -> "SELF_CONTAINED"
+pattern SelfContained :: MovReference
+pattern SelfContained = MovReference' "SELF_CONTAINED"
 
-instance Hashable MovReference
-
-instance NFData MovReference
-
-instance ToByteString MovReference
-
-instance ToQuery MovReference
-
-instance ToHeader MovReference
-
-instance ToJSON MovReference where
-  toJSON = toJSONText
-
-instance FromJSON MovReference where
-  parseJSON = parseJSONText "MovReference"
+{-# COMPLETE
+  External,
+  SelfContained,
+  MovReference'
+  #-}

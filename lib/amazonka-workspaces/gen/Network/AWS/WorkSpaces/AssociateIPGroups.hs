@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,134 @@
 --
 -- Associates the specified IP access control group with the specified directory.
 module Network.AWS.WorkSpaces.AssociateIPGroups
-  ( -- * Creating a Request
-    associateIPGroups,
-    AssociateIPGroups,
+  ( -- * Creating a request
+    AssociateIPGroups (..),
+    mkAssociateIPGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aigDirectoryId,
     aigGroupIds,
 
-    -- * Destructuring the Response
-    associateIPGroupsResponse,
-    AssociateIPGroupsResponse,
+    -- * Destructuring the response
+    AssociateIPGroupsResponse (..),
+    mkAssociateIPGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aigrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'associateIPGroups' smart constructor.
+-- | /See:/ 'mkAssociateIPGroups' smart constructor.
 data AssociateIPGroups = AssociateIPGroups'
-  { _aigDirectoryId ::
-      !Text,
-    _aigGroupIds :: ![Text]
+  { directoryId ::
+      Lude.Text,
+    groupIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateIPGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aigDirectoryId' - The identifier of the directory.
---
--- * 'aigGroupIds' - The identifiers of one or more IP access control groups.
-associateIPGroups ::
-  -- | 'aigDirectoryId'
-  Text ->
+-- * 'directoryId' - The identifier of the directory.
+-- * 'groupIds' - The identifiers of one or more IP access control groups.
+mkAssociateIPGroups ::
+  -- | 'directoryId'
+  Lude.Text ->
   AssociateIPGroups
-associateIPGroups pDirectoryId_ =
+mkAssociateIPGroups pDirectoryId_ =
   AssociateIPGroups'
-    { _aigDirectoryId = pDirectoryId_,
-      _aigGroupIds = mempty
+    { directoryId = pDirectoryId_,
+      groupIds = Lude.mempty
     }
 
 -- | The identifier of the directory.
-aigDirectoryId :: Lens' AssociateIPGroups Text
-aigDirectoryId = lens _aigDirectoryId (\s a -> s {_aigDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigDirectoryId :: Lens.Lens' AssociateIPGroups Lude.Text
+aigDirectoryId = Lens.lens (directoryId :: AssociateIPGroups -> Lude.Text) (\s a -> s {directoryId = a} :: AssociateIPGroups)
+{-# DEPRECATED aigDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifiers of one or more IP access control groups.
-aigGroupIds :: Lens' AssociateIPGroups [Text]
-aigGroupIds = lens _aigGroupIds (\s a -> s {_aigGroupIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'groupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigGroupIds :: Lens.Lens' AssociateIPGroups [Lude.Text]
+aigGroupIds = Lens.lens (groupIds :: AssociateIPGroups -> [Lude.Text]) (\s a -> s {groupIds = a} :: AssociateIPGroups)
+{-# DEPRECATED aigGroupIds "Use generic-lens or generic-optics with 'groupIds' instead." #-}
 
-instance AWSRequest AssociateIPGroups where
+instance Lude.AWSRequest AssociateIPGroups where
   type Rs AssociateIPGroups = AssociateIPGroupsResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> AssociateIPGroupsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AssociateIPGroupsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AssociateIPGroups
-
-instance NFData AssociateIPGroups
-
-instance ToHeaders AssociateIPGroups where
+instance Lude.ToHeaders AssociateIPGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.AssociateIpGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.AssociateIpGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateIPGroups where
+instance Lude.ToJSON AssociateIPGroups where
   toJSON AssociateIPGroups' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _aigDirectoryId),
-            Just ("GroupIds" .= _aigGroupIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("GroupIds" Lude..= groupIds)
           ]
       )
 
-instance ToPath AssociateIPGroups where
-  toPath = const "/"
+instance Lude.ToPath AssociateIPGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateIPGroups where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateIPGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateIPGroupsResponse' smart constructor.
+-- | /See:/ 'mkAssociateIPGroupsResponse' smart constructor.
 newtype AssociateIPGroupsResponse = AssociateIPGroupsResponse'
-  { _aigrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateIPGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aigrsResponseStatus' - -- | The response status code.
-associateIPGroupsResponse ::
-  -- | 'aigrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateIPGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateIPGroupsResponse
-associateIPGroupsResponse pResponseStatus_ =
-  AssociateIPGroupsResponse'
-    { _aigrsResponseStatus =
-        pResponseStatus_
-    }
+mkAssociateIPGroupsResponse pResponseStatus_ =
+  AssociateIPGroupsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-aigrsResponseStatus :: Lens' AssociateIPGroupsResponse Int
-aigrsResponseStatus = lens _aigrsResponseStatus (\s a -> s {_aigrsResponseStatus = a})
-
-instance NFData AssociateIPGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigrsResponseStatus :: Lens.Lens' AssociateIPGroupsResponse Lude.Int
+aigrsResponseStatus = Lens.lens (responseStatus :: AssociateIPGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateIPGroupsResponse)
+{-# DEPRECATED aigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

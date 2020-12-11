@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,128 @@
 --
 -- Disables the ADM channel for an application and deletes any existing settings for the channel.
 module Network.AWS.Pinpoint.DeleteADMChannel
-  ( -- * Creating a Request
-    deleteADMChannel,
-    DeleteADMChannel,
+  ( -- * Creating a request
+    DeleteADMChannel (..),
+    mkDeleteADMChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dadmcApplicationId,
 
-    -- * Destructuring the Response
-    deleteADMChannelResponse,
-    DeleteADMChannelResponse,
+    -- * Destructuring the response
+    DeleteADMChannelResponse (..),
+    mkDeleteADMChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dadmcrsResponseStatus,
     dadmcrsADMChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteADMChannel' smart constructor.
+-- | /See:/ 'mkDeleteADMChannel' smart constructor.
 newtype DeleteADMChannel = DeleteADMChannel'
-  { _dadmcApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteADMChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dadmcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deleteADMChannel ::
-  -- | 'dadmcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkDeleteADMChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteADMChannel
-deleteADMChannel pApplicationId_ =
-  DeleteADMChannel' {_dadmcApplicationId = pApplicationId_}
+mkDeleteADMChannel pApplicationId_ =
+  DeleteADMChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-dadmcApplicationId :: Lens' DeleteADMChannel Text
-dadmcApplicationId = lens _dadmcApplicationId (\s a -> s {_dadmcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadmcApplicationId :: Lens.Lens' DeleteADMChannel Lude.Text
+dadmcApplicationId = Lens.lens (applicationId :: DeleteADMChannel -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteADMChannel)
+{-# DEPRECATED dadmcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteADMChannel where
+instance Lude.AWSRequest DeleteADMChannel where
   type Rs DeleteADMChannel = DeleteADMChannelResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteADMChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteADMChannel
-
-instance NFData DeleteADMChannel
-
-instance ToHeaders DeleteADMChannel where
+instance Lude.ToHeaders DeleteADMChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteADMChannel where
+instance Lude.ToPath DeleteADMChannel where
   toPath DeleteADMChannel' {..} =
-    mconcat ["/v1/apps/", toBS _dadmcApplicationId, "/channels/adm"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/adm"]
 
-instance ToQuery DeleteADMChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteADMChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteADMChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteADMChannelResponse' smart constructor.
 data DeleteADMChannelResponse = DeleteADMChannelResponse'
-  { _dadmcrsResponseStatus ::
-      !Int,
-    _dadmcrsADMChannelResponse ::
-      !ADMChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    aDMChannelResponse :: ADMChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteADMChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dadmcrsResponseStatus' - -- | The response status code.
---
--- * 'dadmcrsADMChannelResponse' - Undocumented member.
-deleteADMChannelResponse ::
-  -- | 'dadmcrsResponseStatus'
-  Int ->
-  -- | 'dadmcrsADMChannelResponse'
+-- * 'aDMChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteADMChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'aDMChannelResponse'
   ADMChannelResponse ->
   DeleteADMChannelResponse
-deleteADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
+mkDeleteADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
   DeleteADMChannelResponse'
-    { _dadmcrsResponseStatus =
-        pResponseStatus_,
-      _dadmcrsADMChannelResponse = pADMChannelResponse_
+    { responseStatus = pResponseStatus_,
+      aDMChannelResponse = pADMChannelResponse_
     }
 
--- | -- | The response status code.
-dadmcrsResponseStatus :: Lens' DeleteADMChannelResponse Int
-dadmcrsResponseStatus = lens _dadmcrsResponseStatus (\s a -> s {_dadmcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadmcrsResponseStatus :: Lens.Lens' DeleteADMChannelResponse Lude.Int
+dadmcrsResponseStatus = Lens.lens (responseStatus :: DeleteADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteADMChannelResponse)
+{-# DEPRECATED dadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dadmcrsADMChannelResponse :: Lens' DeleteADMChannelResponse ADMChannelResponse
-dadmcrsADMChannelResponse = lens _dadmcrsADMChannelResponse (\s a -> s {_dadmcrsADMChannelResponse = a})
-
-instance NFData DeleteADMChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'aDMChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadmcrsADMChannelResponse :: Lens.Lens' DeleteADMChannelResponse ADMChannelResponse
+dadmcrsADMChannelResponse = Lens.lens (aDMChannelResponse :: DeleteADMChannelResponse -> ADMChannelResponse) (\s a -> s {aDMChannelResponse = a} :: DeleteADMChannelResponse)
+{-# DEPRECATED dadmcrsADMChannelResponse "Use generic-lens or generic-optics with 'aDMChannelResponse' instead." #-}

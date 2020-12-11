@@ -28,493 +28,493 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListActivatedRulesInRuleGroup $
---             listActivatedRulesInRuleGroup
+--             mkListActivatedRulesInRuleGroup
 --
 --         , requestListRateBasedRules $
---             listRateBasedRules
+--             mkListRateBasedRules
 --
 --         , requestGetSizeConstraintSet $
---             getSizeConstraintSet
+--             mkGetSizeConstraintSet
 --
 --         , requestDeleteRateBasedRule $
---             deleteRateBasedRule
+--             mkDeleteRateBasedRule
 --
 --         , requestUpdateRateBasedRule $
---             updateRateBasedRule
+--             mkUpdateRateBasedRule
 --
 --         , requestUpdateRule $
---             updateRule
+--             mkUpdateRule
 --
 --         , requestDeleteRule $
---             deleteRule
+--             mkDeleteRule
 --
 --         , requestCreateIPSet $
---             createIPSet
+--             mkCreateIPSet
 --
 --         , requestGetRuleGroup $
---             getRuleGroup
+--             mkGetRuleGroup
 --
 --         , requestGetChangeTokenStatus $
---             getChangeTokenStatus
+--             mkGetChangeTokenStatus
 --
 --         , requestDeleteWebACL $
---             deleteWebACL
+--             mkDeleteWebACL
 --
 --         , requestUpdateWebACL $
---             updateWebACL
+--             mkUpdateWebACL
 --
 --         , requestListWebACLs $
---             listWebACLs
+--             mkListWebACLs
 --
 --         , requestListRules $
---             listRules
+--             mkListRules
 --
 --         , requestCreateRule $
---             createRule
+--             mkCreateRule
 --
 --         , requestDeleteLoggingConfiguration $
---             deleteLoggingConfiguration
+--             mkDeleteLoggingConfiguration
 --
 --         , requestCreateWebACL $
---             createWebACL
+--             mkCreateWebACL
 --
 --         , requestGetGeoMatchSet $
---             getGeoMatchSet
+--             mkGetGeoMatchSet
 --
 --         , requestPutLoggingConfiguration $
---             putLoggingConfiguration
+--             mkPutLoggingConfiguration
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestListByteMatchSets $
---             listByteMatchSets
+--             mkListByteMatchSets
 --
 --         , requestListGeoMatchSets $
---             listGeoMatchSets
+--             mkListGeoMatchSets
 --
 --         , requestGetLoggingConfiguration $
---             getLoggingConfiguration
+--             mkGetLoggingConfiguration
 --
 --         , requestCreateRuleGroup $
---             createRuleGroup
+--             mkCreateRuleGroup
 --
 --         , requestDeleteRegexMatchSet $
---             deleteRegexMatchSet
+--             mkDeleteRegexMatchSet
 --
 --         , requestUpdateRegexMatchSet $
---             updateRegexMatchSet
+--             mkUpdateRegexMatchSet
 --
 --         , requestGetIPSet $
---             getIPSet
+--             mkGetIPSet
 --
 --         , requestGetWebACL $
---             getWebACL
+--             mkGetWebACL
 --
 --         , requestGetRule $
---             getRule
+--             mkGetRule
 --
 --         , requestDeleteXSSMatchSet $
---             deleteXSSMatchSet
+--             mkDeleteXSSMatchSet
 --
 --         , requestUpdateXSSMatchSet $
---             updateXSSMatchSet
+--             mkUpdateXSSMatchSet
 --
 --         , requestCreateWebACLMigrationStack $
---             createWebACLMigrationStack
+--             mkCreateWebACLMigrationStack
 --
 --         , requestListXSSMatchSets $
---             listXSSMatchSets
+--             mkListXSSMatchSets
 --
 --         , requestCreateGeoMatchSet $
---             createGeoMatchSet
+--             mkCreateGeoMatchSet
 --
 --         , requestGetChangeToken $
---             getChangeToken
+--             mkGetChangeToken
 --
 --         , requestListSizeConstraintSets $
---             listSizeConstraintSets
+--             mkListSizeConstraintSets
 --
 --         , requestListResourcesForWebACL $
---             listResourcesForWebACL
+--             mkListResourcesForWebACL
 --
 --         , requestGetSampledRequests $
---             getSampledRequests
+--             mkGetSampledRequests
 --
 --         , requestGetSqlInjectionMatchSet $
---             getSqlInjectionMatchSet
+--             mkGetSqlInjectionMatchSet
 --
 --         , requestGetWebACLForResource $
---             getWebACLForResource
+--             mkGetWebACLForResource
 --
 --         , requestDisassociateWebACL $
---             disassociateWebACL
+--             mkDisassociateWebACL
 --
 --         , requestListSubscribedRuleGroups $
---             listSubscribedRuleGroups
+--             mkListSubscribedRuleGroups
 --
 --         , requestCreateSqlInjectionMatchSet $
---             createSqlInjectionMatchSet
+--             mkCreateSqlInjectionMatchSet
 --
 --         , requestGetXSSMatchSet $
---             getXSSMatchSet
+--             mkGetXSSMatchSet
 --
 --         , requestCreateByteMatchSet $
---             createByteMatchSet
+--             mkCreateByteMatchSet
 --
 --         , requestUpdateByteMatchSet $
---             updateByteMatchSet
+--             mkUpdateByteMatchSet
 --
 --         , requestDeleteByteMatchSet $
---             deleteByteMatchSet
+--             mkDeleteByteMatchSet
 --
 --         , requestPutPermissionPolicy $
---             putPermissionPolicy
+--             mkPutPermissionPolicy
 --
 --         , requestListLoggingConfigurations $
---             listLoggingConfigurations
+--             mkListLoggingConfigurations
 --
 --         , requestGetRateBasedRuleManagedKeys $
---             getRateBasedRuleManagedKeys
+--             mkGetRateBasedRuleManagedKeys
 --
 --         , requestAssociateWebACL $
---             associateWebACL
+--             mkAssociateWebACL
 --
 --         , requestDeletePermissionPolicy $
---             deletePermissionPolicy
+--             mkDeletePermissionPolicy
 --
 --         , requestGetRegexMatchSet $
---             getRegexMatchSet
+--             mkGetRegexMatchSet
 --
 --         , requestDeleteIPSet $
---             deleteIPSet
+--             mkDeleteIPSet
 --
 --         , requestUpdateIPSet $
---             updateIPSet
+--             mkUpdateIPSet
 --
 --         , requestListIPSets $
---             listIPSets
+--             mkListIPSets
 --
 --         , requestListRegexMatchSets $
---             listRegexMatchSets
+--             mkListRegexMatchSets
 --
 --         , requestCreateXSSMatchSet $
---             createXSSMatchSet
+--             mkCreateXSSMatchSet
 --
 --         , requestDeleteGeoMatchSet $
---             deleteGeoMatchSet
+--             mkDeleteGeoMatchSet
 --
 --         , requestUpdateGeoMatchSet $
---             updateGeoMatchSet
+--             mkUpdateGeoMatchSet
 --
 --         , requestGetByteMatchSet $
---             getByteMatchSet
+--             mkGetByteMatchSet
 --
 --         , requestGetPermissionPolicy $
---             getPermissionPolicy
+--             mkGetPermissionPolicy
 --
 --         , requestListRuleGroups $
---             listRuleGroups
+--             mkListRuleGroups
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestDeleteRuleGroup $
---             deleteRuleGroup
+--             mkDeleteRuleGroup
 --
 --         , requestUpdateRuleGroup $
---             updateRuleGroup
+--             mkUpdateRuleGroup
 --
 --         , requestCreateRegexMatchSet $
---             createRegexMatchSet
+--             mkCreateRegexMatchSet
 --
 --         , requestGetRateBasedRule $
---             getRateBasedRule
+--             mkGetRateBasedRule
 --
 --         , requestCreateRegexPatternSet $
---             createRegexPatternSet
+--             mkCreateRegexPatternSet
 --
 --         , requestDeleteSizeConstraintSet $
---             deleteSizeConstraintSet
+--             mkDeleteSizeConstraintSet
 --
 --         , requestUpdateSizeConstraintSet $
---             updateSizeConstraintSet
+--             mkUpdateSizeConstraintSet
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDeleteRegexPatternSet $
---             deleteRegexPatternSet
+--             mkDeleteRegexPatternSet
 --
 --         , requestUpdateRegexPatternSet $
---             updateRegexPatternSet
+--             mkUpdateRegexPatternSet
 --
 --         , requestCreateSizeConstraintSet $
---             createSizeConstraintSet
+--             mkCreateSizeConstraintSet
 --
 --         , requestListRegexPatternSets $
---             listRegexPatternSets
+--             mkListRegexPatternSets
 --
 --         , requestListSqlInjectionMatchSets $
---             listSqlInjectionMatchSets
+--             mkListSqlInjectionMatchSets
 --
 --         , requestGetRegexPatternSet $
---             getRegexPatternSet
+--             mkGetRegexPatternSet
 --
 --         , requestCreateRateBasedRule $
---             createRateBasedRule
+--             mkCreateRateBasedRule
 --
 --         , requestDeleteSqlInjectionMatchSet $
---             deleteSqlInjectionMatchSet
+--             mkDeleteSqlInjectionMatchSet
 --
 --         , requestUpdateSqlInjectionMatchSet $
---             updateSqlInjectionMatchSet
+--             mkUpdateSqlInjectionMatchSet
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListActivatedRulesInRuleGroup $
---             listActivatedRulesInRuleGroupResponse
+--             mkListActivatedRulesInRuleGroupResponse
 --
 --         , responseListRateBasedRules $
---             listRateBasedRulesResponse
+--             mkListRateBasedRulesResponse
 --
 --         , responseGetSizeConstraintSet $
---             getSizeConstraintSetResponse
+--             mkGetSizeConstraintSetResponse
 --
 --         , responseDeleteRateBasedRule $
---             deleteRateBasedRuleResponse
+--             mkDeleteRateBasedRuleResponse
 --
 --         , responseUpdateRateBasedRule $
---             updateRateBasedRuleResponse
+--             mkUpdateRateBasedRuleResponse
 --
 --         , responseUpdateRule $
---             updateRuleResponse
+--             mkUpdateRuleResponse
 --
 --         , responseDeleteRule $
---             deleteRuleResponse
+--             mkDeleteRuleResponse
 --
 --         , responseCreateIPSet $
---             createIPSetResponse
+--             mkCreateIPSetResponse
 --
 --         , responseGetRuleGroup $
---             getRuleGroupResponse
+--             mkGetRuleGroupResponse
 --
 --         , responseGetChangeTokenStatus $
---             getChangeTokenStatusResponse
+--             mkGetChangeTokenStatusResponse
 --
 --         , responseDeleteWebACL $
---             deleteWebACLResponse
+--             mkDeleteWebACLResponse
 --
 --         , responseUpdateWebACL $
---             updateWebACLResponse
+--             mkUpdateWebACLResponse
 --
 --         , responseListWebACLs $
---             listWebACLsResponse
+--             mkListWebACLsResponse
 --
 --         , responseListRules $
---             listRulesResponse
+--             mkListRulesResponse
 --
 --         , responseCreateRule $
---             createRuleResponse
+--             mkCreateRuleResponse
 --
 --         , responseDeleteLoggingConfiguration $
---             deleteLoggingConfigurationResponse
+--             mkDeleteLoggingConfigurationResponse
 --
 --         , responseCreateWebACL $
---             createWebACLResponse
+--             mkCreateWebACLResponse
 --
 --         , responseGetGeoMatchSet $
---             getGeoMatchSetResponse
+--             mkGetGeoMatchSetResponse
 --
 --         , responsePutLoggingConfiguration $
---             putLoggingConfigurationResponse
+--             mkPutLoggingConfigurationResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseListByteMatchSets $
---             listByteMatchSetsResponse
+--             mkListByteMatchSetsResponse
 --
 --         , responseListGeoMatchSets $
---             listGeoMatchSetsResponse
+--             mkListGeoMatchSetsResponse
 --
 --         , responseGetLoggingConfiguration $
---             getLoggingConfigurationResponse
+--             mkGetLoggingConfigurationResponse
 --
 --         , responseCreateRuleGroup $
---             createRuleGroupResponse
+--             mkCreateRuleGroupResponse
 --
 --         , responseDeleteRegexMatchSet $
---             deleteRegexMatchSetResponse
+--             mkDeleteRegexMatchSetResponse
 --
 --         , responseUpdateRegexMatchSet $
---             updateRegexMatchSetResponse
+--             mkUpdateRegexMatchSetResponse
 --
 --         , responseGetIPSet $
---             getIPSetResponse
+--             mkGetIPSetResponse
 --
 --         , responseGetWebACL $
---             getWebACLResponse
+--             mkGetWebACLResponse
 --
 --         , responseGetRule $
---             getRuleResponse
+--             mkGetRuleResponse
 --
 --         , responseDeleteXSSMatchSet $
---             deleteXSSMatchSetResponse
+--             mkDeleteXSSMatchSetResponse
 --
 --         , responseUpdateXSSMatchSet $
---             updateXSSMatchSetResponse
+--             mkUpdateXSSMatchSetResponse
 --
 --         , responseCreateWebACLMigrationStack $
---             createWebACLMigrationStackResponse
+--             mkCreateWebACLMigrationStackResponse
 --
 --         , responseListXSSMatchSets $
---             listXSSMatchSetsResponse
+--             mkListXSSMatchSetsResponse
 --
 --         , responseCreateGeoMatchSet $
---             createGeoMatchSetResponse
+--             mkCreateGeoMatchSetResponse
 --
 --         , responseGetChangeToken $
---             getChangeTokenResponse
+--             mkGetChangeTokenResponse
 --
 --         , responseListSizeConstraintSets $
---             listSizeConstraintSetsResponse
+--             mkListSizeConstraintSetsResponse
 --
 --         , responseListResourcesForWebACL $
---             listResourcesForWebACLResponse
+--             mkListResourcesForWebACLResponse
 --
 --         , responseGetSampledRequests $
---             getSampledRequestsResponse
+--             mkGetSampledRequestsResponse
 --
 --         , responseGetSqlInjectionMatchSet $
---             getSqlInjectionMatchSetResponse
+--             mkGetSqlInjectionMatchSetResponse
 --
 --         , responseGetWebACLForResource $
---             getWebACLForResourceResponse
+--             mkGetWebACLForResourceResponse
 --
 --         , responseDisassociateWebACL $
---             disassociateWebACLResponse
+--             mkDisassociateWebACLResponse
 --
 --         , responseListSubscribedRuleGroups $
---             listSubscribedRuleGroupsResponse
+--             mkListSubscribedRuleGroupsResponse
 --
 --         , responseCreateSqlInjectionMatchSet $
---             createSqlInjectionMatchSetResponse
+--             mkCreateSqlInjectionMatchSetResponse
 --
 --         , responseGetXSSMatchSet $
---             getXSSMatchSetResponse
+--             mkGetXSSMatchSetResponse
 --
 --         , responseCreateByteMatchSet $
---             createByteMatchSetResponse
+--             mkCreateByteMatchSetResponse
 --
 --         , responseUpdateByteMatchSet $
---             updateByteMatchSetResponse
+--             mkUpdateByteMatchSetResponse
 --
 --         , responseDeleteByteMatchSet $
---             deleteByteMatchSetResponse
+--             mkDeleteByteMatchSetResponse
 --
 --         , responsePutPermissionPolicy $
---             putPermissionPolicyResponse
+--             mkPutPermissionPolicyResponse
 --
 --         , responseListLoggingConfigurations $
---             listLoggingConfigurationsResponse
+--             mkListLoggingConfigurationsResponse
 --
 --         , responseGetRateBasedRuleManagedKeys $
---             getRateBasedRuleManagedKeysResponse
+--             mkGetRateBasedRuleManagedKeysResponse
 --
 --         , responseAssociateWebACL $
---             associateWebACLResponse
+--             mkAssociateWebACLResponse
 --
 --         , responseDeletePermissionPolicy $
---             deletePermissionPolicyResponse
+--             mkDeletePermissionPolicyResponse
 --
 --         , responseGetRegexMatchSet $
---             getRegexMatchSetResponse
+--             mkGetRegexMatchSetResponse
 --
 --         , responseDeleteIPSet $
---             deleteIPSetResponse
+--             mkDeleteIPSetResponse
 --
 --         , responseUpdateIPSet $
---             updateIPSetResponse
+--             mkUpdateIPSetResponse
 --
 --         , responseListIPSets $
---             listIPSetsResponse
+--             mkListIPSetsResponse
 --
 --         , responseListRegexMatchSets $
---             listRegexMatchSetsResponse
+--             mkListRegexMatchSetsResponse
 --
 --         , responseCreateXSSMatchSet $
---             createXSSMatchSetResponse
+--             mkCreateXSSMatchSetResponse
 --
 --         , responseDeleteGeoMatchSet $
---             deleteGeoMatchSetResponse
+--             mkDeleteGeoMatchSetResponse
 --
 --         , responseUpdateGeoMatchSet $
---             updateGeoMatchSetResponse
+--             mkUpdateGeoMatchSetResponse
 --
 --         , responseGetByteMatchSet $
---             getByteMatchSetResponse
+--             mkGetByteMatchSetResponse
 --
 --         , responseGetPermissionPolicy $
---             getPermissionPolicyResponse
+--             mkGetPermissionPolicyResponse
 --
 --         , responseListRuleGroups $
---             listRuleGroupsResponse
+--             mkListRuleGroupsResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseDeleteRuleGroup $
---             deleteRuleGroupResponse
+--             mkDeleteRuleGroupResponse
 --
 --         , responseUpdateRuleGroup $
---             updateRuleGroupResponse
+--             mkUpdateRuleGroupResponse
 --
 --         , responseCreateRegexMatchSet $
---             createRegexMatchSetResponse
+--             mkCreateRegexMatchSetResponse
 --
 --         , responseGetRateBasedRule $
---             getRateBasedRuleResponse
+--             mkGetRateBasedRuleResponse
 --
 --         , responseCreateRegexPatternSet $
---             createRegexPatternSetResponse
+--             mkCreateRegexPatternSetResponse
 --
 --         , responseDeleteSizeConstraintSet $
---             deleteSizeConstraintSetResponse
+--             mkDeleteSizeConstraintSetResponse
 --
 --         , responseUpdateSizeConstraintSet $
---             updateSizeConstraintSetResponse
+--             mkUpdateSizeConstraintSetResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDeleteRegexPatternSet $
---             deleteRegexPatternSetResponse
+--             mkDeleteRegexPatternSetResponse
 --
 --         , responseUpdateRegexPatternSet $
---             updateRegexPatternSetResponse
+--             mkUpdateRegexPatternSetResponse
 --
 --         , responseCreateSizeConstraintSet $
---             createSizeConstraintSetResponse
+--             mkCreateSizeConstraintSetResponse
 --
 --         , responseListRegexPatternSets $
---             listRegexPatternSetsResponse
+--             mkListRegexPatternSetsResponse
 --
 --         , responseListSqlInjectionMatchSets $
---             listSqlInjectionMatchSetsResponse
+--             mkListSqlInjectionMatchSetsResponse
 --
 --         , responseGetRegexPatternSet $
---             getRegexPatternSetResponse
+--             mkGetRegexPatternSetResponse
 --
 --         , responseCreateRateBasedRule $
---             createRateBasedRuleResponse
+--             mkCreateRateBasedRuleResponse
 --
 --         , responseDeleteSqlInjectionMatchSet $
---             deleteSqlInjectionMatchSetResponse
+--             mkDeleteSqlInjectionMatchSetResponse
 --
 --         , responseUpdateSqlInjectionMatchSet $
---             updateSqlInjectionMatchSetResponse
+--             mkUpdateSqlInjectionMatchSetResponse
 --
 --           ]
 --     ]
@@ -1014,7 +1014,7 @@ responseListActivatedRulesInRuleGroup =
   res
     "ListActivatedRulesInRuleGroupResponse"
     "fixture/ListActivatedRulesInRuleGroupResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListActivatedRulesInRuleGroup)
 
 responseListRateBasedRules :: ListRateBasedRulesResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseListRateBasedRules =
   res
     "ListRateBasedRulesResponse"
     "fixture/ListRateBasedRulesResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListRateBasedRules)
 
 responseGetSizeConstraintSet :: GetSizeConstraintSetResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseGetSizeConstraintSet =
   res
     "GetSizeConstraintSetResponse"
     "fixture/GetSizeConstraintSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetSizeConstraintSet)
 
 responseDeleteRateBasedRule :: DeleteRateBasedRuleResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseDeleteRateBasedRule =
   res
     "DeleteRateBasedRuleResponse"
     "fixture/DeleteRateBasedRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteRateBasedRule)
 
 responseUpdateRateBasedRule :: UpdateRateBasedRuleResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseUpdateRateBasedRule =
   res
     "UpdateRateBasedRuleResponse"
     "fixture/UpdateRateBasedRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateRateBasedRule)
 
 responseUpdateRule :: UpdateRuleResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseUpdateRule =
   res
     "UpdateRuleResponse"
     "fixture/UpdateRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateRule)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseDeleteRule =
   res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteRule)
 
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseCreateIPSet =
   res
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateIPSet)
 
 responseGetRuleGroup :: GetRuleGroupResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseGetRuleGroup =
   res
     "GetRuleGroupResponse"
     "fixture/GetRuleGroupResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetRuleGroup)
 
 responseGetChangeTokenStatus :: GetChangeTokenStatusResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseGetChangeTokenStatus =
   res
     "GetChangeTokenStatusResponse"
     "fixture/GetChangeTokenStatusResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetChangeTokenStatus)
 
 responseDeleteWebACL :: DeleteWebACLResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseDeleteWebACL =
   res
     "DeleteWebACLResponse"
     "fixture/DeleteWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteWebACL)
 
 responseUpdateWebACL :: UpdateWebACLResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseUpdateWebACL =
   res
     "UpdateWebACLResponse"
     "fixture/UpdateWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateWebACL)
 
 responseListWebACLs :: ListWebACLsResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseListWebACLs =
   res
     "ListWebACLsResponse"
     "fixture/ListWebACLsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListWebACLs)
 
 responseListRules :: ListRulesResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseListRules =
   res
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListRules)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseCreateRule =
   res
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateRule)
 
 responseDeleteLoggingConfiguration :: DeleteLoggingConfigurationResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseDeleteLoggingConfiguration =
   res
     "DeleteLoggingConfigurationResponse"
     "fixture/DeleteLoggingConfigurationResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteLoggingConfiguration)
 
 responseCreateWebACL :: CreateWebACLResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseCreateWebACL =
   res
     "CreateWebACLResponse"
     "fixture/CreateWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateWebACL)
 
 responseGetGeoMatchSet :: GetGeoMatchSetResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseGetGeoMatchSet =
   res
     "GetGeoMatchSetResponse"
     "fixture/GetGeoMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetGeoMatchSet)
 
 responsePutLoggingConfiguration :: PutLoggingConfigurationResponse -> TestTree
@@ -1158,7 +1158,7 @@ responsePutLoggingConfiguration =
   res
     "PutLoggingConfigurationResponse"
     "fixture/PutLoggingConfigurationResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy PutLoggingConfiguration)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListTagsForResource)
 
 responseListByteMatchSets :: ListByteMatchSetsResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseListByteMatchSets =
   res
     "ListByteMatchSetsResponse"
     "fixture/ListByteMatchSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListByteMatchSets)
 
 responseListGeoMatchSets :: ListGeoMatchSetsResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseListGeoMatchSets =
   res
     "ListGeoMatchSetsResponse"
     "fixture/ListGeoMatchSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListGeoMatchSets)
 
 responseGetLoggingConfiguration :: GetLoggingConfigurationResponse -> TestTree
@@ -1190,7 +1190,7 @@ responseGetLoggingConfiguration =
   res
     "GetLoggingConfigurationResponse"
     "fixture/GetLoggingConfigurationResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetLoggingConfiguration)
 
 responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseCreateRuleGroup =
   res
     "CreateRuleGroupResponse"
     "fixture/CreateRuleGroupResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateRuleGroup)
 
 responseDeleteRegexMatchSet :: DeleteRegexMatchSetResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseDeleteRegexMatchSet =
   res
     "DeleteRegexMatchSetResponse"
     "fixture/DeleteRegexMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteRegexMatchSet)
 
 responseUpdateRegexMatchSet :: UpdateRegexMatchSetResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseUpdateRegexMatchSet =
   res
     "UpdateRegexMatchSetResponse"
     "fixture/UpdateRegexMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateRegexMatchSet)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseGetIPSet =
   res
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetIPSet)
 
 responseGetWebACL :: GetWebACLResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseGetWebACL =
   res
     "GetWebACLResponse"
     "fixture/GetWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetWebACL)
 
 responseGetRule :: GetRuleResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseGetRule =
   res
     "GetRuleResponse"
     "fixture/GetRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetRule)
 
 responseDeleteXSSMatchSet :: DeleteXSSMatchSetResponse -> TestTree
@@ -1246,7 +1246,7 @@ responseDeleteXSSMatchSet =
   res
     "DeleteXSSMatchSetResponse"
     "fixture/DeleteXSSMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteXSSMatchSet)
 
 responseUpdateXSSMatchSet :: UpdateXSSMatchSetResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseUpdateXSSMatchSet =
   res
     "UpdateXSSMatchSetResponse"
     "fixture/UpdateXSSMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateXSSMatchSet)
 
 responseCreateWebACLMigrationStack :: CreateWebACLMigrationStackResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseCreateWebACLMigrationStack =
   res
     "CreateWebACLMigrationStackResponse"
     "fixture/CreateWebACLMigrationStackResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateWebACLMigrationStack)
 
 responseListXSSMatchSets :: ListXSSMatchSetsResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseListXSSMatchSets =
   res
     "ListXSSMatchSetsResponse"
     "fixture/ListXSSMatchSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListXSSMatchSets)
 
 responseCreateGeoMatchSet :: CreateGeoMatchSetResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseCreateGeoMatchSet =
   res
     "CreateGeoMatchSetResponse"
     "fixture/CreateGeoMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateGeoMatchSet)
 
 responseGetChangeToken :: GetChangeTokenResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseGetChangeToken =
   res
     "GetChangeTokenResponse"
     "fixture/GetChangeTokenResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetChangeToken)
 
 responseListSizeConstraintSets :: ListSizeConstraintSetsResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseListSizeConstraintSets =
   res
     "ListSizeConstraintSetsResponse"
     "fixture/ListSizeConstraintSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListSizeConstraintSets)
 
 responseListResourcesForWebACL :: ListResourcesForWebACLResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseListResourcesForWebACL =
   res
     "ListResourcesForWebACLResponse"
     "fixture/ListResourcesForWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListResourcesForWebACL)
 
 responseGetSampledRequests :: GetSampledRequestsResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseGetSampledRequests =
   res
     "GetSampledRequestsResponse"
     "fixture/GetSampledRequestsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetSampledRequests)
 
 responseGetSqlInjectionMatchSet :: GetSqlInjectionMatchSetResponse -> TestTree
@@ -1318,7 +1318,7 @@ responseGetSqlInjectionMatchSet =
   res
     "GetSqlInjectionMatchSetResponse"
     "fixture/GetSqlInjectionMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetSqlInjectionMatchSet)
 
 responseGetWebACLForResource :: GetWebACLForResourceResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseGetWebACLForResource =
   res
     "GetWebACLForResourceResponse"
     "fixture/GetWebACLForResourceResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetWebACLForResource)
 
 responseDisassociateWebACL :: DisassociateWebACLResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseDisassociateWebACL =
   res
     "DisassociateWebACLResponse"
     "fixture/DisassociateWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DisassociateWebACL)
 
 responseListSubscribedRuleGroups :: ListSubscribedRuleGroupsResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseListSubscribedRuleGroups =
   res
     "ListSubscribedRuleGroupsResponse"
     "fixture/ListSubscribedRuleGroupsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListSubscribedRuleGroups)
 
 responseCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSetResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseCreateSqlInjectionMatchSet =
   res
     "CreateSqlInjectionMatchSetResponse"
     "fixture/CreateSqlInjectionMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateSqlInjectionMatchSet)
 
 responseGetXSSMatchSet :: GetXSSMatchSetResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseGetXSSMatchSet =
   res
     "GetXSSMatchSetResponse"
     "fixture/GetXSSMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetXSSMatchSet)
 
 responseCreateByteMatchSet :: CreateByteMatchSetResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseCreateByteMatchSet =
   res
     "CreateByteMatchSetResponse"
     "fixture/CreateByteMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateByteMatchSet)
 
 responseUpdateByteMatchSet :: UpdateByteMatchSetResponse -> TestTree
@@ -1374,7 +1374,7 @@ responseUpdateByteMatchSet =
   res
     "UpdateByteMatchSetResponse"
     "fixture/UpdateByteMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateByteMatchSet)
 
 responseDeleteByteMatchSet :: DeleteByteMatchSetResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseDeleteByteMatchSet =
   res
     "DeleteByteMatchSetResponse"
     "fixture/DeleteByteMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteByteMatchSet)
 
 responsePutPermissionPolicy :: PutPermissionPolicyResponse -> TestTree
@@ -1390,7 +1390,7 @@ responsePutPermissionPolicy =
   res
     "PutPermissionPolicyResponse"
     "fixture/PutPermissionPolicyResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy PutPermissionPolicy)
 
 responseListLoggingConfigurations :: ListLoggingConfigurationsResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseListLoggingConfigurations =
   res
     "ListLoggingConfigurationsResponse"
     "fixture/ListLoggingConfigurationsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListLoggingConfigurations)
 
 responseGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeysResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseGetRateBasedRuleManagedKeys =
   res
     "GetRateBasedRuleManagedKeysResponse"
     "fixture/GetRateBasedRuleManagedKeysResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetRateBasedRuleManagedKeys)
 
 responseAssociateWebACL :: AssociateWebACLResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseAssociateWebACL =
   res
     "AssociateWebACLResponse"
     "fixture/AssociateWebACLResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy AssociateWebACL)
 
 responseDeletePermissionPolicy :: DeletePermissionPolicyResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseDeletePermissionPolicy =
   res
     "DeletePermissionPolicyResponse"
     "fixture/DeletePermissionPolicyResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeletePermissionPolicy)
 
 responseGetRegexMatchSet :: GetRegexMatchSetResponse -> TestTree
@@ -1430,7 +1430,7 @@ responseGetRegexMatchSet =
   res
     "GetRegexMatchSetResponse"
     "fixture/GetRegexMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetRegexMatchSet)
 
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseDeleteIPSet =
   res
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteIPSet)
 
 responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseUpdateIPSet =
   res
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateIPSet)
 
 responseListIPSets :: ListIPSetsResponse -> TestTree
@@ -1454,7 +1454,7 @@ responseListIPSets =
   res
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListIPSets)
 
 responseListRegexMatchSets :: ListRegexMatchSetsResponse -> TestTree
@@ -1462,7 +1462,7 @@ responseListRegexMatchSets =
   res
     "ListRegexMatchSetsResponse"
     "fixture/ListRegexMatchSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListRegexMatchSets)
 
 responseCreateXSSMatchSet :: CreateXSSMatchSetResponse -> TestTree
@@ -1470,7 +1470,7 @@ responseCreateXSSMatchSet =
   res
     "CreateXSSMatchSetResponse"
     "fixture/CreateXSSMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateXSSMatchSet)
 
 responseDeleteGeoMatchSet :: DeleteGeoMatchSetResponse -> TestTree
@@ -1478,7 +1478,7 @@ responseDeleteGeoMatchSet =
   res
     "DeleteGeoMatchSetResponse"
     "fixture/DeleteGeoMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteGeoMatchSet)
 
 responseUpdateGeoMatchSet :: UpdateGeoMatchSetResponse -> TestTree
@@ -1486,7 +1486,7 @@ responseUpdateGeoMatchSet =
   res
     "UpdateGeoMatchSetResponse"
     "fixture/UpdateGeoMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateGeoMatchSet)
 
 responseGetByteMatchSet :: GetByteMatchSetResponse -> TestTree
@@ -1494,7 +1494,7 @@ responseGetByteMatchSet =
   res
     "GetByteMatchSetResponse"
     "fixture/GetByteMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetByteMatchSet)
 
 responseGetPermissionPolicy :: GetPermissionPolicyResponse -> TestTree
@@ -1502,7 +1502,7 @@ responseGetPermissionPolicy =
   res
     "GetPermissionPolicyResponse"
     "fixture/GetPermissionPolicyResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetPermissionPolicy)
 
 responseListRuleGroups :: ListRuleGroupsResponse -> TestTree
@@ -1510,7 +1510,7 @@ responseListRuleGroups =
   res
     "ListRuleGroupsResponse"
     "fixture/ListRuleGroupsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListRuleGroups)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1518,7 +1518,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy TagResource)
 
 responseDeleteRuleGroup :: DeleteRuleGroupResponse -> TestTree
@@ -1526,7 +1526,7 @@ responseDeleteRuleGroup =
   res
     "DeleteRuleGroupResponse"
     "fixture/DeleteRuleGroupResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteRuleGroup)
 
 responseUpdateRuleGroup :: UpdateRuleGroupResponse -> TestTree
@@ -1534,7 +1534,7 @@ responseUpdateRuleGroup =
   res
     "UpdateRuleGroupResponse"
     "fixture/UpdateRuleGroupResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateRuleGroup)
 
 responseCreateRegexMatchSet :: CreateRegexMatchSetResponse -> TestTree
@@ -1542,7 +1542,7 @@ responseCreateRegexMatchSet =
   res
     "CreateRegexMatchSetResponse"
     "fixture/CreateRegexMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateRegexMatchSet)
 
 responseGetRateBasedRule :: GetRateBasedRuleResponse -> TestTree
@@ -1550,7 +1550,7 @@ responseGetRateBasedRule =
   res
     "GetRateBasedRuleResponse"
     "fixture/GetRateBasedRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetRateBasedRule)
 
 responseCreateRegexPatternSet :: CreateRegexPatternSetResponse -> TestTree
@@ -1558,7 +1558,7 @@ responseCreateRegexPatternSet =
   res
     "CreateRegexPatternSetResponse"
     "fixture/CreateRegexPatternSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateRegexPatternSet)
 
 responseDeleteSizeConstraintSet :: DeleteSizeConstraintSetResponse -> TestTree
@@ -1566,7 +1566,7 @@ responseDeleteSizeConstraintSet =
   res
     "DeleteSizeConstraintSetResponse"
     "fixture/DeleteSizeConstraintSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteSizeConstraintSet)
 
 responseUpdateSizeConstraintSet :: UpdateSizeConstraintSetResponse -> TestTree
@@ -1574,7 +1574,7 @@ responseUpdateSizeConstraintSet =
   res
     "UpdateSizeConstraintSetResponse"
     "fixture/UpdateSizeConstraintSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateSizeConstraintSet)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1582,7 +1582,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UntagResource)
 
 responseDeleteRegexPatternSet :: DeleteRegexPatternSetResponse -> TestTree
@@ -1590,7 +1590,7 @@ responseDeleteRegexPatternSet =
   res
     "DeleteRegexPatternSetResponse"
     "fixture/DeleteRegexPatternSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteRegexPatternSet)
 
 responseUpdateRegexPatternSet :: UpdateRegexPatternSetResponse -> TestTree
@@ -1598,7 +1598,7 @@ responseUpdateRegexPatternSet =
   res
     "UpdateRegexPatternSetResponse"
     "fixture/UpdateRegexPatternSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateRegexPatternSet)
 
 responseCreateSizeConstraintSet :: CreateSizeConstraintSetResponse -> TestTree
@@ -1606,7 +1606,7 @@ responseCreateSizeConstraintSet =
   res
     "CreateSizeConstraintSetResponse"
     "fixture/CreateSizeConstraintSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateSizeConstraintSet)
 
 responseListRegexPatternSets :: ListRegexPatternSetsResponse -> TestTree
@@ -1614,7 +1614,7 @@ responseListRegexPatternSets =
   res
     "ListRegexPatternSetsResponse"
     "fixture/ListRegexPatternSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListRegexPatternSets)
 
 responseListSqlInjectionMatchSets :: ListSqlInjectionMatchSetsResponse -> TestTree
@@ -1622,7 +1622,7 @@ responseListSqlInjectionMatchSets =
   res
     "ListSqlInjectionMatchSetsResponse"
     "fixture/ListSqlInjectionMatchSetsResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy ListSqlInjectionMatchSets)
 
 responseGetRegexPatternSet :: GetRegexPatternSetResponse -> TestTree
@@ -1630,7 +1630,7 @@ responseGetRegexPatternSet =
   res
     "GetRegexPatternSetResponse"
     "fixture/GetRegexPatternSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy GetRegexPatternSet)
 
 responseCreateRateBasedRule :: CreateRateBasedRuleResponse -> TestTree
@@ -1638,7 +1638,7 @@ responseCreateRateBasedRule =
   res
     "CreateRateBasedRuleResponse"
     "fixture/CreateRateBasedRuleResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy CreateRateBasedRule)
 
 responseDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSetResponse -> TestTree
@@ -1646,7 +1646,7 @@ responseDeleteSqlInjectionMatchSet =
   res
     "DeleteSqlInjectionMatchSetResponse"
     "fixture/DeleteSqlInjectionMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy DeleteSqlInjectionMatchSet)
 
 responseUpdateSqlInjectionMatchSet :: UpdateSqlInjectionMatchSetResponse -> TestTree
@@ -1654,5 +1654,5 @@ responseUpdateSqlInjectionMatchSet =
   res
     "UpdateSqlInjectionMatchSetResponse"
     "fixture/UpdateSqlInjectionMatchSetResponse.proto"
-    wAFRegional
+    wAFRegionalService
     (Proxy :: Proxy UpdateSqlInjectionMatchSet)

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringStatisticsResource where
+module Network.AWS.SageMaker.Types.MonitoringStatisticsResource
+  ( MonitoringStatisticsResource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringStatisticsResource,
+
+    -- * Lenses
+    msrS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The statistics resource for a monitoring job.
 --
---
---
--- /See:/ 'monitoringStatisticsResource' smart constructor.
+-- /See:/ 'mkMonitoringStatisticsResource' smart constructor.
 newtype MonitoringStatisticsResource = MonitoringStatisticsResource'
-  { _msrS3URI ::
-      Maybe Text
+  { s3URI ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringStatisticsResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msrS3URI' - The Amazon S3 URI for the statistics resource.
-monitoringStatisticsResource ::
+-- * 's3URI' - The Amazon S3 URI for the statistics resource.
+mkMonitoringStatisticsResource ::
   MonitoringStatisticsResource
-monitoringStatisticsResource =
-  MonitoringStatisticsResource' {_msrS3URI = Nothing}
+mkMonitoringStatisticsResource =
+  MonitoringStatisticsResource' {s3URI = Lude.Nothing}
 
 -- | The Amazon S3 URI for the statistics resource.
-msrS3URI :: Lens' MonitoringStatisticsResource (Maybe Text)
-msrS3URI = lens _msrS3URI (\s a -> s {_msrS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msrS3URI :: Lens.Lens' MonitoringStatisticsResource (Lude.Maybe Lude.Text)
+msrS3URI = Lens.lens (s3URI :: MonitoringStatisticsResource -> Lude.Maybe Lude.Text) (\s a -> s {s3URI = a} :: MonitoringStatisticsResource)
+{-# DEPRECATED msrS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON MonitoringStatisticsResource where
+instance Lude.FromJSON MonitoringStatisticsResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringStatisticsResource"
-      (\x -> MonitoringStatisticsResource' <$> (x .:? "S3Uri"))
+      ( \x ->
+          MonitoringStatisticsResource' Lude.<$> (x Lude..:? "S3Uri")
+      )
 
-instance Hashable MonitoringStatisticsResource
-
-instance NFData MonitoringStatisticsResource
-
-instance ToJSON MonitoringStatisticsResource where
+instance Lude.ToJSON MonitoringStatisticsResource where
   toJSON MonitoringStatisticsResource' {..} =
-    object (catMaybes [("S3Uri" .=) <$> _msrS3URI])
+    Lude.object (Lude.catMaybes [("S3Uri" Lude..=) Lude.<$> s3URI])

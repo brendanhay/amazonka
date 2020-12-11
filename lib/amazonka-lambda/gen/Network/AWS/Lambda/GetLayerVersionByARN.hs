@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about a version of an <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> , with a link to download the layer archive that's valid for 10 minutes.
 module Network.AWS.Lambda.GetLayerVersionByARN
-  ( -- * Creating a Request
-    getLayerVersionByARN,
-    GetLayerVersionByARN,
+  ( -- * Creating a request
+    GetLayerVersionByARN (..),
+    mkGetLayerVersionByARN,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glvbaARN,
 
-    -- * Destructuring the Response
-    getLayerVersionResponse,
-    GetLayerVersionResponse,
+    -- * Destructuring the response
+    GetLayerVersionResponse (..),
+    mkGetLayerVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glvLayerVersionARN,
     glvContent,
     glvCreatedDate,
@@ -43,49 +38,52 @@ module Network.AWS.Lambda.GetLayerVersionByARN
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLayerVersionByARN' smart constructor.
+-- | /See:/ 'mkGetLayerVersionByARN' smart constructor.
 newtype GetLayerVersionByARN = GetLayerVersionByARN'
-  { _glvbaARN ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLayerVersionByARN' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glvbaARN' - The ARN of the layer version.
-getLayerVersionByARN ::
-  -- | 'glvbaARN'
-  Text ->
+-- * 'arn' - The ARN of the layer version.
+mkGetLayerVersionByARN ::
+  -- | 'arn'
+  Lude.Text ->
   GetLayerVersionByARN
-getLayerVersionByARN pARN_ =
-  GetLayerVersionByARN' {_glvbaARN = pARN_}
+mkGetLayerVersionByARN pARN_ = GetLayerVersionByARN' {arn = pARN_}
 
 -- | The ARN of the layer version.
-glvbaARN :: Lens' GetLayerVersionByARN Text
-glvbaARN = lens _glvbaARN (\s a -> s {_glvbaARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glvbaARN :: Lens.Lens' GetLayerVersionByARN Lude.Text
+glvbaARN = Lens.lens (arn :: GetLayerVersionByARN -> Lude.Text) (\s a -> s {arn = a} :: GetLayerVersionByARN)
+{-# DEPRECATED glvbaARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetLayerVersionByARN where
+instance Lude.AWSRequest GetLayerVersionByARN where
   type Rs GetLayerVersionByARN = GetLayerVersionResponse
-  request = get lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetLayerVersionByARN
+instance Lude.ToHeaders GetLayerVersionByARN where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetLayerVersionByARN
+instance Lude.ToPath GetLayerVersionByARN where
+  toPath = Lude.const "/2018-10-31/layers"
 
-instance ToHeaders GetLayerVersionByARN where
-  toHeaders = const mempty
-
-instance ToPath GetLayerVersionByARN where
-  toPath = const "/2018-10-31/layers"
-
-instance ToQuery GetLayerVersionByARN where
+instance Lude.ToQuery GetLayerVersionByARN where
   toQuery GetLayerVersionByARN' {..} =
-    mconcat ["Arn" =: _glvbaARN, "find=LayerVersion"]
+    Lude.mconcat ["Arn" Lude.=: arn, "find=LayerVersion"]

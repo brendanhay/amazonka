@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.WavCodingMode where
+module Network.AWS.MediaLive.Types.WavCodingMode
+  ( WavCodingMode
+      ( WavCodingMode',
+        WCMCodingMode10,
+        WCMCodingMode20,
+        WCMCodingMode40,
+        WCMCodingMode80
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Wav Coding Mode
-data WavCodingMode
-  = WCMCodingMode10
-  | WCMCodingMode20
-  | WCMCodingMode40
-  | WCMCodingMode80
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WavCodingMode = WavCodingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WavCodingMode where
-  parser =
-    takeLowerText >>= \case
-      "coding_mode_1_0" -> pure WCMCodingMode10
-      "coding_mode_2_0" -> pure WCMCodingMode20
-      "coding_mode_4_0" -> pure WCMCodingMode40
-      "coding_mode_8_0" -> pure WCMCodingMode80
-      e ->
-        fromTextError $
-          "Failure parsing WavCodingMode from value: '" <> e
-            <> "'. Accepted values: coding_mode_1_0, coding_mode_2_0, coding_mode_4_0, coding_mode_8_0"
+pattern WCMCodingMode10 :: WavCodingMode
+pattern WCMCodingMode10 = WavCodingMode' "CODING_MODE_1_0"
 
-instance ToText WavCodingMode where
-  toText = \case
-    WCMCodingMode10 -> "CODING_MODE_1_0"
-    WCMCodingMode20 -> "CODING_MODE_2_0"
-    WCMCodingMode40 -> "CODING_MODE_4_0"
-    WCMCodingMode80 -> "CODING_MODE_8_0"
+pattern WCMCodingMode20 :: WavCodingMode
+pattern WCMCodingMode20 = WavCodingMode' "CODING_MODE_2_0"
 
-instance Hashable WavCodingMode
+pattern WCMCodingMode40 :: WavCodingMode
+pattern WCMCodingMode40 = WavCodingMode' "CODING_MODE_4_0"
 
-instance NFData WavCodingMode
+pattern WCMCodingMode80 :: WavCodingMode
+pattern WCMCodingMode80 = WavCodingMode' "CODING_MODE_8_0"
 
-instance ToByteString WavCodingMode
-
-instance ToQuery WavCodingMode
-
-instance ToHeader WavCodingMode
-
-instance ToJSON WavCodingMode where
-  toJSON = toJSONText
-
-instance FromJSON WavCodingMode where
-  parseJSON = parseJSONText "WavCodingMode"
+{-# COMPLETE
+  WCMCodingMode10,
+  WCMCodingMode20,
+  WCMCodingMode40,
+  WCMCodingMode80,
+  WavCodingMode'
+  #-}

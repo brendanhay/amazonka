@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectLockRule where
+module Network.AWS.S3.Types.ObjectLockRule
+  ( ObjectLockRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkObjectLockRule,
+
+    -- * Lenses
+    olrDefaultRetention,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.DefaultRetention
 
 -- | The container element for an Object Lock rule.
 --
---
---
--- /See:/ 'objectLockRule' smart constructor.
+-- /See:/ 'mkObjectLockRule' smart constructor.
 newtype ObjectLockRule = ObjectLockRule'
-  { _olrDefaultRetention ::
-      Maybe DefaultRetention
+  { defaultRetention ::
+      Lude.Maybe DefaultRetention
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectLockRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'olrDefaultRetention' - The default retention period that you want to apply to new objects placed in the specified bucket.
-objectLockRule ::
+-- * 'defaultRetention' - The default retention period that you want to apply to new objects placed in the specified bucket.
+mkObjectLockRule ::
   ObjectLockRule
-objectLockRule = ObjectLockRule' {_olrDefaultRetention = Nothing}
+mkObjectLockRule = ObjectLockRule' {defaultRetention = Lude.Nothing}
 
 -- | The default retention period that you want to apply to new objects placed in the specified bucket.
-olrDefaultRetention :: Lens' ObjectLockRule (Maybe DefaultRetention)
-olrDefaultRetention = lens _olrDefaultRetention (\s a -> s {_olrDefaultRetention = a})
+--
+-- /Note:/ Consider using 'defaultRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+olrDefaultRetention :: Lens.Lens' ObjectLockRule (Lude.Maybe DefaultRetention)
+olrDefaultRetention = Lens.lens (defaultRetention :: ObjectLockRule -> Lude.Maybe DefaultRetention) (\s a -> s {defaultRetention = a} :: ObjectLockRule)
+{-# DEPRECATED olrDefaultRetention "Use generic-lens or generic-optics with 'defaultRetention' instead." #-}
 
-instance FromXML ObjectLockRule where
-  parseXML x = ObjectLockRule' <$> (x .@? "DefaultRetention")
+instance Lude.FromXML ObjectLockRule where
+  parseXML x =
+    ObjectLockRule' Lude.<$> (x Lude..@? "DefaultRetention")
 
-instance Hashable ObjectLockRule
-
-instance NFData ObjectLockRule
-
-instance ToXML ObjectLockRule where
+instance Lude.ToXML ObjectLockRule where
   toXML ObjectLockRule' {..} =
-    mconcat ["DefaultRetention" @= _olrDefaultRetention]
+    Lude.mconcat ["DefaultRetention" Lude.@= defaultRetention]

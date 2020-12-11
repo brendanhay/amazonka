@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,131 @@
 --
 -- Deletes a patch baseline.
 module Network.AWS.SSM.DeletePatchBaseline
-  ( -- * Creating a Request
-    deletePatchBaseline,
-    DeletePatchBaseline,
+  ( -- * Creating a request
+    DeletePatchBaseline (..),
+    mkDeletePatchBaseline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpbBaselineId,
 
-    -- * Destructuring the Response
-    deletePatchBaselineResponse,
-    DeletePatchBaselineResponse,
+    -- * Destructuring the response
+    DeletePatchBaselineResponse (..),
+    mkDeletePatchBaselineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpbrsBaselineId,
     dpbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'deletePatchBaseline' smart constructor.
+-- | /See:/ 'mkDeletePatchBaseline' smart constructor.
 newtype DeletePatchBaseline = DeletePatchBaseline'
-  { _dpbBaselineId ::
-      Text
+  { baselineId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePatchBaseline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpbBaselineId' - The ID of the patch baseline to delete.
-deletePatchBaseline ::
-  -- | 'dpbBaselineId'
-  Text ->
+-- * 'baselineId' - The ID of the patch baseline to delete.
+mkDeletePatchBaseline ::
+  -- | 'baselineId'
+  Lude.Text ->
   DeletePatchBaseline
-deletePatchBaseline pBaselineId_ =
-  DeletePatchBaseline' {_dpbBaselineId = pBaselineId_}
+mkDeletePatchBaseline pBaselineId_ =
+  DeletePatchBaseline' {baselineId = pBaselineId_}
 
 -- | The ID of the patch baseline to delete.
-dpbBaselineId :: Lens' DeletePatchBaseline Text
-dpbBaselineId = lens _dpbBaselineId (\s a -> s {_dpbBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbBaselineId :: Lens.Lens' DeletePatchBaseline Lude.Text
+dpbBaselineId = Lens.lens (baselineId :: DeletePatchBaseline -> Lude.Text) (\s a -> s {baselineId = a} :: DeletePatchBaseline)
+{-# DEPRECATED dpbBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
-instance AWSRequest DeletePatchBaseline where
+instance Lude.AWSRequest DeletePatchBaseline where
   type Rs DeletePatchBaseline = DeletePatchBaselineResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeletePatchBaselineResponse'
-            <$> (x .?> "BaselineId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BaselineId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeletePatchBaseline
-
-instance NFData DeletePatchBaseline
-
-instance ToHeaders DeletePatchBaseline where
+instance Lude.ToHeaders DeletePatchBaseline where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.DeletePatchBaseline" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.DeletePatchBaseline" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeletePatchBaseline where
+instance Lude.ToJSON DeletePatchBaseline where
   toJSON DeletePatchBaseline' {..} =
-    object (catMaybes [Just ("BaselineId" .= _dpbBaselineId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BaselineId" Lude..= baselineId)])
 
-instance ToPath DeletePatchBaseline where
-  toPath = const "/"
+instance Lude.ToPath DeletePatchBaseline where
+  toPath = Lude.const "/"
 
-instance ToQuery DeletePatchBaseline where
-  toQuery = const mempty
+instance Lude.ToQuery DeletePatchBaseline where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deletePatchBaselineResponse' smart constructor.
+-- | /See:/ 'mkDeletePatchBaselineResponse' smart constructor.
 data DeletePatchBaselineResponse = DeletePatchBaselineResponse'
-  { _dpbrsBaselineId ::
-      !(Maybe Text),
-    _dpbrsResponseStatus :: !Int
+  { baselineId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePatchBaselineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpbrsBaselineId' - The ID of the deleted patch baseline.
---
--- * 'dpbrsResponseStatus' - -- | The response status code.
-deletePatchBaselineResponse ::
-  -- | 'dpbrsResponseStatus'
-  Int ->
+-- * 'baselineId' - The ID of the deleted patch baseline.
+-- * 'responseStatus' - The response status code.
+mkDeletePatchBaselineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeletePatchBaselineResponse
-deletePatchBaselineResponse pResponseStatus_ =
+mkDeletePatchBaselineResponse pResponseStatus_ =
   DeletePatchBaselineResponse'
-    { _dpbrsBaselineId = Nothing,
-      _dpbrsResponseStatus = pResponseStatus_
+    { baselineId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the deleted patch baseline.
-dpbrsBaselineId :: Lens' DeletePatchBaselineResponse (Maybe Text)
-dpbrsBaselineId = lens _dpbrsBaselineId (\s a -> s {_dpbrsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbrsBaselineId :: Lens.Lens' DeletePatchBaselineResponse (Lude.Maybe Lude.Text)
+dpbrsBaselineId = Lens.lens (baselineId :: DeletePatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: DeletePatchBaselineResponse)
+{-# DEPRECATED dpbrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
--- | -- | The response status code.
-dpbrsResponseStatus :: Lens' DeletePatchBaselineResponse Int
-dpbrsResponseStatus = lens _dpbrsResponseStatus (\s a -> s {_dpbrsResponseStatus = a})
-
-instance NFData DeletePatchBaselineResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbrsResponseStatus :: Lens.Lens' DeletePatchBaselineResponse Lude.Int
+dpbrsResponseStatus = Lens.lens (responseStatus :: DeletePatchBaselineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePatchBaselineResponse)
+{-# DEPRECATED dpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

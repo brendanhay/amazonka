@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.ScalingParametersStatus where
+module Network.AWS.CloudSearch.Types.ScalingParametersStatus
+  ( ScalingParametersStatus (..),
+
+    -- * Smart constructor
+    mkScalingParametersStatus,
+
+    -- * Lenses
+    spsOptions,
+    spsStatus,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.OptionStatus
 import Network.AWS.CloudSearch.Types.ScalingParameters
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status and configuration of a search domain's scaling parameters.
 --
---
---
--- /See:/ 'scalingParametersStatus' smart constructor.
+-- /See:/ 'mkScalingParametersStatus' smart constructor.
 data ScalingParametersStatus = ScalingParametersStatus'
-  { _spsOptions ::
-      !ScalingParameters,
-    _spsStatus :: !OptionStatus
+  { options ::
+      ScalingParameters,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingParametersStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spsOptions' - Undocumented member.
---
--- * 'spsStatus' - Undocumented member.
-scalingParametersStatus ::
-  -- | 'spsOptions'
+-- * 'options' - Undocumented field.
+-- * 'status' - Undocumented field.
+mkScalingParametersStatus ::
+  -- | 'options'
   ScalingParameters ->
-  -- | 'spsStatus'
+  -- | 'status'
   OptionStatus ->
   ScalingParametersStatus
-scalingParametersStatus pOptions_ pStatus_ =
-  ScalingParametersStatus'
-    { _spsOptions = pOptions_,
-      _spsStatus = pStatus_
-    }
+mkScalingParametersStatus pOptions_ pStatus_ =
+  ScalingParametersStatus' {options = pOptions_, status = pStatus_}
 
--- | Undocumented member.
-spsOptions :: Lens' ScalingParametersStatus ScalingParameters
-spsOptions = lens _spsOptions (\s a -> s {_spsOptions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsOptions :: Lens.Lens' ScalingParametersStatus ScalingParameters
+spsOptions = Lens.lens (options :: ScalingParametersStatus -> ScalingParameters) (\s a -> s {options = a} :: ScalingParametersStatus)
+{-# DEPRECATED spsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
--- | Undocumented member.
-spsStatus :: Lens' ScalingParametersStatus OptionStatus
-spsStatus = lens _spsStatus (\s a -> s {_spsStatus = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsStatus :: Lens.Lens' ScalingParametersStatus OptionStatus
+spsStatus = Lens.lens (status :: ScalingParametersStatus -> OptionStatus) (\s a -> s {status = a} :: ScalingParametersStatus)
+{-# DEPRECATED spsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML ScalingParametersStatus where
+instance Lude.FromXML ScalingParametersStatus where
   parseXML x =
-    ScalingParametersStatus' <$> (x .@ "Options") <*> (x .@ "Status")
-
-instance Hashable ScalingParametersStatus
-
-instance NFData ScalingParametersStatus
+    ScalingParametersStatus'
+      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")

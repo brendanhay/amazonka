@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ServerSideEncryptionRule where
+module Network.AWS.S3.Types.ServerSideEncryptionRule
+  ( ServerSideEncryptionRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerSideEncryptionRule,
+
+    -- * Lenses
+    sserApplyServerSideEncryptionByDefault,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ServerSideEncryptionByDefault
 
 -- | Specifies the default server-side encryption configuration.
 --
---
---
--- /See:/ 'serverSideEncryptionRule' smart constructor.
+-- /See:/ 'mkServerSideEncryptionRule' smart constructor.
 newtype ServerSideEncryptionRule = ServerSideEncryptionRule'
-  { _sserApplyServerSideEncryptionByDefault ::
-      Maybe ServerSideEncryptionByDefault
+  { applyServerSideEncryptionByDefault ::
+      Lude.Maybe
+        ServerSideEncryptionByDefault
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerSideEncryptionRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sserApplyServerSideEncryptionByDefault' - Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-serverSideEncryptionRule ::
+-- * 'applyServerSideEncryptionByDefault' - Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+mkServerSideEncryptionRule ::
   ServerSideEncryptionRule
-serverSideEncryptionRule =
+mkServerSideEncryptionRule =
   ServerSideEncryptionRule'
-    { _sserApplyServerSideEncryptionByDefault =
-        Nothing
+    { applyServerSideEncryptionByDefault =
+        Lude.Nothing
     }
 
 -- | Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-sserApplyServerSideEncryptionByDefault :: Lens' ServerSideEncryptionRule (Maybe ServerSideEncryptionByDefault)
-sserApplyServerSideEncryptionByDefault = lens _sserApplyServerSideEncryptionByDefault (\s a -> s {_sserApplyServerSideEncryptionByDefault = a})
+--
+-- /Note:/ Consider using 'applyServerSideEncryptionByDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sserApplyServerSideEncryptionByDefault :: Lens.Lens' ServerSideEncryptionRule (Lude.Maybe ServerSideEncryptionByDefault)
+sserApplyServerSideEncryptionByDefault = Lens.lens (applyServerSideEncryptionByDefault :: ServerSideEncryptionRule -> Lude.Maybe ServerSideEncryptionByDefault) (\s a -> s {applyServerSideEncryptionByDefault = a} :: ServerSideEncryptionRule)
+{-# DEPRECATED sserApplyServerSideEncryptionByDefault "Use generic-lens or generic-optics with 'applyServerSideEncryptionByDefault' instead." #-}
 
-instance FromXML ServerSideEncryptionRule where
+instance Lude.FromXML ServerSideEncryptionRule where
   parseXML x =
     ServerSideEncryptionRule'
-      <$> (x .@? "ApplyServerSideEncryptionByDefault")
+      Lude.<$> (x Lude..@? "ApplyServerSideEncryptionByDefault")
 
-instance Hashable ServerSideEncryptionRule
-
-instance NFData ServerSideEncryptionRule
-
-instance ToXML ServerSideEncryptionRule where
+instance Lude.ToXML ServerSideEncryptionRule where
   toXML ServerSideEncryptionRule' {..} =
-    mconcat
+    Lude.mconcat
       [ "ApplyServerSideEncryptionByDefault"
-          @= _sserApplyServerSideEncryptionByDefault
+          Lude.@= applyServerSideEncryptionByDefault
       ]

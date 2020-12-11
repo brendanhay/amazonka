@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.Disk where
+module Network.AWS.StorageGateway.Types.Disk
+  ( Disk (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDisk,
+
+    -- * Lenses
+    dDiskAllocationResource,
+    dDiskAllocationType,
+    dDiskNode,
+    dDiskPath,
+    dDiskSizeInBytes,
+    dDiskStatus,
+    dDiskId,
+    dDiskAttributeList,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a gateway's local disk.
 --
---
---
--- /See:/ 'disk' smart constructor.
+-- /See:/ 'mkDisk' smart constructor.
 data Disk = Disk'
-  { _dDiskAllocationResource :: !(Maybe Text),
-    _dDiskAllocationType :: !(Maybe Text),
-    _dDiskNode :: !(Maybe Text),
-    _dDiskPath :: !(Maybe Text),
-    _dDiskSizeInBytes :: !(Maybe Integer),
-    _dDiskStatus :: !(Maybe Text),
-    _dDiskId :: !(Maybe Text),
-    _dDiskAttributeList :: !(Maybe [Text])
+  { diskAllocationResource :: Lude.Maybe Lude.Text,
+    diskAllocationType :: Lude.Maybe Lude.Text,
+    diskNode :: Lude.Maybe Lude.Text,
+    diskPath :: Lude.Maybe Lude.Text,
+    diskSizeInBytes :: Lude.Maybe Lude.Integer,
+    diskStatus :: Lude.Maybe Lude.Text,
+    diskId :: Lude.Maybe Lude.Text,
+    diskAttributeList :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Disk' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDiskAllocationResource' - The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the local disk is not defined as an iSCSI target. The format of this field is /targetIqn::LUNNumber::region-volumeId/ .
---
--- * 'dDiskAllocationType' - Undocumented member.
---
--- * 'dDiskNode' - The device node of a local disk as assigned by the virtualization environment.
---
--- * 'dDiskPath' - The path of a local disk in the gateway virtual machine (VM).
---
--- * 'dDiskSizeInBytes' - The local disk size in bytes.
---
--- * 'dDiskStatus' - A value that represents the status of a local disk.
---
--- * 'dDiskId' - The unique device ID or other distinguishing data that identifies a local disk.
---
--- * 'dDiskAttributeList' - Undocumented member.
-disk ::
+-- * 'diskAllocationResource' - The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the local disk is not defined as an iSCSI target. The format of this field is /targetIqn::LUNNumber::region-volumeId/ .
+-- * 'diskAllocationType' - Undocumented field.
+-- * 'diskAttributeList' - Undocumented field.
+-- * 'diskId' - The unique device ID or other distinguishing data that identifies a local disk.
+-- * 'diskNode' - The device node of a local disk as assigned by the virtualization environment.
+-- * 'diskPath' - The path of a local disk in the gateway virtual machine (VM).
+-- * 'diskSizeInBytes' - The local disk size in bytes.
+-- * 'diskStatus' - A value that represents the status of a local disk.
+mkDisk ::
   Disk
-disk =
+mkDisk =
   Disk'
-    { _dDiskAllocationResource = Nothing,
-      _dDiskAllocationType = Nothing,
-      _dDiskNode = Nothing,
-      _dDiskPath = Nothing,
-      _dDiskSizeInBytes = Nothing,
-      _dDiskStatus = Nothing,
-      _dDiskId = Nothing,
-      _dDiskAttributeList = Nothing
+    { diskAllocationResource = Lude.Nothing,
+      diskAllocationType = Lude.Nothing,
+      diskNode = Lude.Nothing,
+      diskPath = Lude.Nothing,
+      diskSizeInBytes = Lude.Nothing,
+      diskStatus = Lude.Nothing,
+      diskId = Lude.Nothing,
+      diskAttributeList = Lude.Nothing
     }
 
 -- | The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the local disk is not defined as an iSCSI target. The format of this field is /targetIqn::LUNNumber::region-volumeId/ .
-dDiskAllocationResource :: Lens' Disk (Maybe Text)
-dDiskAllocationResource = lens _dDiskAllocationResource (\s a -> s {_dDiskAllocationResource = a})
+--
+-- /Note:/ Consider using 'diskAllocationResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskAllocationResource :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dDiskAllocationResource = Lens.lens (diskAllocationResource :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {diskAllocationResource = a} :: Disk)
+{-# DEPRECATED dDiskAllocationResource "Use generic-lens or generic-optics with 'diskAllocationResource' instead." #-}
 
--- | Undocumented member.
-dDiskAllocationType :: Lens' Disk (Maybe Text)
-dDiskAllocationType = lens _dDiskAllocationType (\s a -> s {_dDiskAllocationType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'diskAllocationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskAllocationType :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dDiskAllocationType = Lens.lens (diskAllocationType :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {diskAllocationType = a} :: Disk)
+{-# DEPRECATED dDiskAllocationType "Use generic-lens or generic-optics with 'diskAllocationType' instead." #-}
 
 -- | The device node of a local disk as assigned by the virtualization environment.
-dDiskNode :: Lens' Disk (Maybe Text)
-dDiskNode = lens _dDiskNode (\s a -> s {_dDiskNode = a})
+--
+-- /Note:/ Consider using 'diskNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskNode :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dDiskNode = Lens.lens (diskNode :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {diskNode = a} :: Disk)
+{-# DEPRECATED dDiskNode "Use generic-lens or generic-optics with 'diskNode' instead." #-}
 
 -- | The path of a local disk in the gateway virtual machine (VM).
-dDiskPath :: Lens' Disk (Maybe Text)
-dDiskPath = lens _dDiskPath (\s a -> s {_dDiskPath = a})
+--
+-- /Note:/ Consider using 'diskPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskPath :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dDiskPath = Lens.lens (diskPath :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {diskPath = a} :: Disk)
+{-# DEPRECATED dDiskPath "Use generic-lens or generic-optics with 'diskPath' instead." #-}
 
 -- | The local disk size in bytes.
-dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
-dDiskSizeInBytes = lens _dDiskSizeInBytes (\s a -> s {_dDiskSizeInBytes = a})
+--
+-- /Note:/ Consider using 'diskSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskSizeInBytes :: Lens.Lens' Disk (Lude.Maybe Lude.Integer)
+dDiskSizeInBytes = Lens.lens (diskSizeInBytes :: Disk -> Lude.Maybe Lude.Integer) (\s a -> s {diskSizeInBytes = a} :: Disk)
+{-# DEPRECATED dDiskSizeInBytes "Use generic-lens or generic-optics with 'diskSizeInBytes' instead." #-}
 
 -- | A value that represents the status of a local disk.
-dDiskStatus :: Lens' Disk (Maybe Text)
-dDiskStatus = lens _dDiskStatus (\s a -> s {_dDiskStatus = a})
+--
+-- /Note:/ Consider using 'diskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskStatus :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dDiskStatus = Lens.lens (diskStatus :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {diskStatus = a} :: Disk)
+{-# DEPRECATED dDiskStatus "Use generic-lens or generic-optics with 'diskStatus' instead." #-}
 
 -- | The unique device ID or other distinguishing data that identifies a local disk.
-dDiskId :: Lens' Disk (Maybe Text)
-dDiskId = lens _dDiskId (\s a -> s {_dDiskId = a})
+--
+-- /Note:/ Consider using 'diskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskId :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dDiskId = Lens.lens (diskId :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {diskId = a} :: Disk)
+{-# DEPRECATED dDiskId "Use generic-lens or generic-optics with 'diskId' instead." #-}
 
--- | Undocumented member.
-dDiskAttributeList :: Lens' Disk [Text]
-dDiskAttributeList = lens _dDiskAttributeList (\s a -> s {_dDiskAttributeList = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'diskAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskAttributeList :: Lens.Lens' Disk (Lude.Maybe [Lude.Text])
+dDiskAttributeList = Lens.lens (diskAttributeList :: Disk -> Lude.Maybe [Lude.Text]) (\s a -> s {diskAttributeList = a} :: Disk)
+{-# DEPRECATED dDiskAttributeList "Use generic-lens or generic-optics with 'diskAttributeList' instead." #-}
 
-instance FromJSON Disk where
+instance Lude.FromJSON Disk where
   parseJSON =
-    withObject
+    Lude.withObject
       "Disk"
       ( \x ->
           Disk'
-            <$> (x .:? "DiskAllocationResource")
-            <*> (x .:? "DiskAllocationType")
-            <*> (x .:? "DiskNode")
-            <*> (x .:? "DiskPath")
-            <*> (x .:? "DiskSizeInBytes")
-            <*> (x .:? "DiskStatus")
-            <*> (x .:? "DiskId")
-            <*> (x .:? "DiskAttributeList" .!= mempty)
+            Lude.<$> (x Lude..:? "DiskAllocationResource")
+            Lude.<*> (x Lude..:? "DiskAllocationType")
+            Lude.<*> (x Lude..:? "DiskNode")
+            Lude.<*> (x Lude..:? "DiskPath")
+            Lude.<*> (x Lude..:? "DiskSizeInBytes")
+            Lude.<*> (x Lude..:? "DiskStatus")
+            Lude.<*> (x Lude..:? "DiskId")
+            Lude.<*> (x Lude..:? "DiskAttributeList" Lude..!= Lude.mempty)
       )
-
-instance Hashable Disk
-
-instance NFData Disk

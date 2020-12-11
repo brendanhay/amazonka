@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,85 +14,114 @@
 --
 -- Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.
 module Network.AWS.RDS.DeleteDBParameterGroup
-  ( -- * Creating a Request
-    deleteDBParameterGroup,
-    DeleteDBParameterGroup,
+  ( -- * Creating a request
+    DeleteDBParameterGroup (..),
+    mkDeleteDBParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddbpgDBParameterGroupName,
 
-    -- * Destructuring the Response
-    deleteDBParameterGroupResponse,
-    DeleteDBParameterGroupResponse,
+    -- * Destructuring the response
+    DeleteDBParameterGroupResponse (..),
+    mkDeleteDBParameterGroupResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteDBParameterGroup' smart constructor.
+-- /See:/ 'mkDeleteDBParameterGroup' smart constructor.
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
-  { _ddbpgDBParameterGroupName ::
-      Text
+  { dbParameterGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbParameterGroupName' - The name of the DB parameter group.
 --
--- * 'ddbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You can't delete a default DB parameter group     * Can't be associated with any DB instances
-deleteDBParameterGroup ::
-  -- | 'ddbpgDBParameterGroupName'
-  Text ->
+-- Constraints:
+--
+--     * Must be the name of an existing DB parameter group
+--
+--
+--     * You can't delete a default DB parameter group
+--
+--
+--     * Can't be associated with any DB instances
+mkDeleteDBParameterGroup ::
+  -- | 'dbParameterGroupName'
+  Lude.Text ->
   DeleteDBParameterGroup
-deleteDBParameterGroup pDBParameterGroupName_ =
+mkDeleteDBParameterGroup pDBParameterGroupName_ =
   DeleteDBParameterGroup'
-    { _ddbpgDBParameterGroupName =
+    { dbParameterGroupName =
         pDBParameterGroupName_
     }
 
--- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You can't delete a default DB parameter group     * Can't be associated with any DB instances
-ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
-ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\s a -> s {_ddbpgDBParameterGroupName = a})
+-- | The name of the DB parameter group.
+--
+-- Constraints:
+--
+--     * Must be the name of an existing DB parameter group
+--
+--
+--     * You can't delete a default DB parameter group
+--
+--
+--     * Can't be associated with any DB instances
+--
+--
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbpgDBParameterGroupName :: Lens.Lens' DeleteDBParameterGroup Lude.Text
+ddbpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: DeleteDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DeleteDBParameterGroup)
+{-# DEPRECATED ddbpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
-instance AWSRequest DeleteDBParameterGroup where
+instance Lude.AWSRequest DeleteDBParameterGroup where
   type Rs DeleteDBParameterGroup = DeleteDBParameterGroupResponse
-  request = postQuery rds
-  response = receiveNull DeleteDBParameterGroupResponse'
+  request = Req.postQuery rdsService
+  response = Res.receiveNull DeleteDBParameterGroupResponse'
 
-instance Hashable DeleteDBParameterGroup
+instance Lude.ToHeaders DeleteDBParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDBParameterGroup
+instance Lude.ToPath DeleteDBParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteDBParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteDBParameterGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteDBParameterGroup where
+instance Lude.ToQuery DeleteDBParameterGroup where
   toQuery DeleteDBParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteDBParameterGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBParameterGroupName" =: _ddbpgDBParameterGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteDBParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBParameterGroupName" Lude.=: dbParameterGroupName
       ]
 
--- | /See:/ 'deleteDBParameterGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteDBParameterGroupResponse' smart constructor.
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBParameterGroupResponse' with the minimum fields required to make a request.
-deleteDBParameterGroupResponse ::
+mkDeleteDBParameterGroupResponse ::
   DeleteDBParameterGroupResponse
-deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'
-
-instance NFData DeleteDBParameterGroupResponse
+mkDeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'

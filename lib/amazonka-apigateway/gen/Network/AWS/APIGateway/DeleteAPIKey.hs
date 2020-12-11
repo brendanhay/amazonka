@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,74 +14,85 @@
 --
 -- Deletes the 'ApiKey' resource.
 module Network.AWS.APIGateway.DeleteAPIKey
-  ( -- * Creating a Request
-    deleteAPIKey,
-    DeleteAPIKey,
+  ( -- * Creating a request
+    DeleteAPIKey (..),
+    mkDeleteAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dakApiKey,
 
-    -- * Destructuring the Response
-    deleteAPIKeyResponse,
-    DeleteAPIKeyResponse,
+    -- * Destructuring the response
+    DeleteAPIKeyResponse (..),
+    mkDeleteAPIKeyResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to delete the 'ApiKey' resource.
 --
---
---
--- /See:/ 'deleteAPIKey' smart constructor.
-newtype DeleteAPIKey = DeleteAPIKey' {_dakApiKey :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteAPIKey' smart constructor.
+newtype DeleteAPIKey = DeleteAPIKey' {apiKey :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dakApiKey' - [Required] The identifier of the 'ApiKey' resource to be deleted.
-deleteAPIKey ::
-  -- | 'dakApiKey'
-  Text ->
+-- * 'apiKey' - [Required] The identifier of the 'ApiKey' resource to be deleted.
+mkDeleteAPIKey ::
+  -- | 'apiKey'
+  Lude.Text ->
   DeleteAPIKey
-deleteAPIKey pApiKey_ = DeleteAPIKey' {_dakApiKey = pApiKey_}
+mkDeleteAPIKey pApiKey_ = DeleteAPIKey' {apiKey = pApiKey_}
 
 -- | [Required] The identifier of the 'ApiKey' resource to be deleted.
-dakApiKey :: Lens' DeleteAPIKey Text
-dakApiKey = lens _dakApiKey (\s a -> s {_dakApiKey = a})
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dakApiKey :: Lens.Lens' DeleteAPIKey Lude.Text
+dakApiKey = Lens.lens (apiKey :: DeleteAPIKey -> Lude.Text) (\s a -> s {apiKey = a} :: DeleteAPIKey)
+{-# DEPRECATED dakApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
-instance AWSRequest DeleteAPIKey where
+instance Lude.AWSRequest DeleteAPIKey where
   type Rs DeleteAPIKey = DeleteAPIKeyResponse
-  request = delete apiGateway
-  response = receiveNull DeleteAPIKeyResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteAPIKeyResponse'
 
-instance Hashable DeleteAPIKey
-
-instance NFData DeleteAPIKey
-
-instance ToHeaders DeleteAPIKey where
+instance Lude.ToHeaders DeleteAPIKey where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteAPIKey where
-  toPath DeleteAPIKey' {..} = mconcat ["/apikeys/", toBS _dakApiKey]
+instance Lude.ToPath DeleteAPIKey where
+  toPath DeleteAPIKey' {..} =
+    Lude.mconcat ["/apikeys/", Lude.toBS apiKey]
 
-instance ToQuery DeleteAPIKey where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAPIKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAPIKeyResponse' smart constructor.
+-- | /See:/ 'mkDeleteAPIKeyResponse' smart constructor.
 data DeleteAPIKeyResponse = DeleteAPIKeyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPIKeyResponse' with the minimum fields required to make a request.
-deleteAPIKeyResponse ::
+mkDeleteAPIKeyResponse ::
   DeleteAPIKeyResponse
-deleteAPIKeyResponse = DeleteAPIKeyResponse'
-
-instance NFData DeleteAPIKeyResponse
+mkDeleteAPIKeyResponse = DeleteAPIKeyResponse'

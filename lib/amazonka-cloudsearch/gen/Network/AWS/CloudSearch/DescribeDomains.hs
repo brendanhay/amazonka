@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,129 @@
 --
 -- Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a @matchall@ request to your domain's search endpoint: @q=matchall&amp;q.parser=structured&amp;size=0@ . For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.DescribeDomains
-  ( -- * Creating a Request
-    describeDomains,
-    DescribeDomains,
+  ( -- * Creating a request
+    DescribeDomains (..),
+    mkDescribeDomains,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDomainNames,
 
-    -- * Destructuring the Response
-    describeDomainsResponse,
-    DescribeDomainsResponse,
+    -- * Destructuring the response
+    DescribeDomainsResponse (..),
+    mkDescribeDomainsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddsrsResponseStatus,
     ddsrsDomainStatusList,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DescribeDomains' @ operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.
 --
---
---
--- /See:/ 'describeDomains' smart constructor.
+-- /See:/ 'mkDescribeDomains' smart constructor.
 newtype DescribeDomains = DescribeDomains'
-  { _ddDomainNames ::
-      Maybe [Text]
+  { domainNames ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomains' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDomainNames' - The names of the domains you want to include in the response.
-describeDomains ::
+-- * 'domainNames' - The names of the domains you want to include in the response.
+mkDescribeDomains ::
   DescribeDomains
-describeDomains = DescribeDomains' {_ddDomainNames = Nothing}
+mkDescribeDomains = DescribeDomains' {domainNames = Lude.Nothing}
 
 -- | The names of the domains you want to include in the response.
-ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\s a -> s {_ddDomainNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomainNames :: Lens.Lens' DescribeDomains (Lude.Maybe [Lude.Text])
+ddDomainNames = Lens.lens (domainNames :: DescribeDomains -> Lude.Maybe [Lude.Text]) (\s a -> s {domainNames = a} :: DescribeDomains)
+{-# DEPRECATED ddDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
 
-instance AWSRequest DescribeDomains where
+instance Lude.AWSRequest DescribeDomains where
   type Rs DescribeDomains = DescribeDomainsResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDomainsResult"
       ( \s h x ->
           DescribeDomainsResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@? "DomainStatusList" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "DomainStatusList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable DescribeDomains
+instance Lude.ToHeaders DescribeDomains where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDomains
+instance Lude.ToPath DescribeDomains where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDomains where
-  toHeaders = const mempty
-
-instance ToPath DescribeDomains where
-  toPath = const "/"
-
-instance ToQuery DescribeDomains where
+instance Lude.ToQuery DescribeDomains where
   toQuery DescribeDomains' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDomains" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "DomainNames" =: toQuery (toQueryList "member" <$> _ddDomainNames)
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeDomains" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "DomainNames"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> domainNames)
       ]
 
 -- | The result of a @DescribeDomains@ request. Contains the status of the domains specified in the request or all domains owned by the account.
 --
---
---
--- /See:/ 'describeDomainsResponse' smart constructor.
+-- /See:/ 'mkDescribeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
-  { _ddsrsResponseStatus ::
-      !Int,
-    _ddsrsDomainStatusList :: ![DomainStatus]
+  { responseStatus ::
+      Lude.Int,
+    domainStatusList :: [DomainStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsrsResponseStatus' - -- | The response status code.
---
--- * 'ddsrsDomainStatusList' - Undocumented member.
-describeDomainsResponse ::
-  -- | 'ddsrsResponseStatus'
-  Int ->
+-- * 'domainStatusList' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeDomainsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDomainsResponse
-describeDomainsResponse pResponseStatus_ =
+mkDescribeDomainsResponse pResponseStatus_ =
   DescribeDomainsResponse'
-    { _ddsrsResponseStatus = pResponseStatus_,
-      _ddsrsDomainStatusList = mempty
+    { responseStatus = pResponseStatus_,
+      domainStatusList = Lude.mempty
     }
 
--- | -- | The response status code.
-ddsrsResponseStatus :: Lens' DescribeDomainsResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\s a -> s {_ddsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsResponseStatus :: Lens.Lens' DescribeDomainsResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainsResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\s a -> s {_ddsrsDomainStatusList = a}) . _Coerce
-
-instance NFData DescribeDomainsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainStatusList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsDomainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
+ddsrsDomainStatusList = Lens.lens (domainStatusList :: DescribeDomainsResponse -> [DomainStatus]) (\s a -> s {domainStatusList = a} :: DescribeDomainsResponse)
+{-# DEPRECATED ddsrsDomainStatusList "Use generic-lens or generic-optics with 'domainStatusList' instead." #-}

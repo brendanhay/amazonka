@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,123 @@
 --
 -- Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first.
 module Network.AWS.SSM.DeregisterManagedInstance
-  ( -- * Creating a Request
-    deregisterManagedInstance,
-    DeregisterManagedInstance,
+  ( -- * Creating a request
+    DeregisterManagedInstance (..),
+    mkDeregisterManagedInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmiInstanceId,
 
-    -- * Destructuring the Response
-    deregisterManagedInstanceResponse,
-    DeregisterManagedInstanceResponse,
+    -- * Destructuring the response
+    DeregisterManagedInstanceResponse (..),
+    mkDeregisterManagedInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'deregisterManagedInstance' smart constructor.
+-- | /See:/ 'mkDeregisterManagedInstance' smart constructor.
 newtype DeregisterManagedInstance = DeregisterManagedInstance'
-  { _dmiInstanceId ::
-      Text
+  { instanceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterManagedInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmiInstanceId' - The ID assigned to the managed instance when you registered it using the activation process.
-deregisterManagedInstance ::
-  -- | 'dmiInstanceId'
-  Text ->
+-- * 'instanceId' - The ID assigned to the managed instance when you registered it using the activation process.
+mkDeregisterManagedInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   DeregisterManagedInstance
-deregisterManagedInstance pInstanceId_ =
-  DeregisterManagedInstance' {_dmiInstanceId = pInstanceId_}
+mkDeregisterManagedInstance pInstanceId_ =
+  DeregisterManagedInstance' {instanceId = pInstanceId_}
 
 -- | The ID assigned to the managed instance when you registered it using the activation process.
-dmiInstanceId :: Lens' DeregisterManagedInstance Text
-dmiInstanceId = lens _dmiInstanceId (\s a -> s {_dmiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmiInstanceId :: Lens.Lens' DeregisterManagedInstance Lude.Text
+dmiInstanceId = Lens.lens (instanceId :: DeregisterManagedInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeregisterManagedInstance)
+{-# DEPRECATED dmiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest DeregisterManagedInstance where
+instance Lude.AWSRequest DeregisterManagedInstance where
   type
     Rs DeregisterManagedInstance =
       DeregisterManagedInstanceResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeregisterManagedInstanceResponse' <$> (pure (fromEnum s))
+          DeregisterManagedInstanceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterManagedInstance
-
-instance NFData DeregisterManagedInstance
-
-instance ToHeaders DeregisterManagedInstance where
+instance Lude.ToHeaders DeregisterManagedInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DeregisterManagedInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DeregisterManagedInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterManagedInstance where
+instance Lude.ToJSON DeregisterManagedInstance where
   toJSON DeregisterManagedInstance' {..} =
-    object (catMaybes [Just ("InstanceId" .= _dmiInstanceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
 
-instance ToPath DeregisterManagedInstance where
-  toPath = const "/"
+instance Lude.ToPath DeregisterManagedInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterManagedInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterManagedInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterManagedInstanceResponse' smart constructor.
+-- | /See:/ 'mkDeregisterManagedInstanceResponse' smart constructor.
 newtype DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
-  { _dmirsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterManagedInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmirsResponseStatus' - -- | The response status code.
-deregisterManagedInstanceResponse ::
-  -- | 'dmirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeregisterManagedInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterManagedInstanceResponse
-deregisterManagedInstanceResponse pResponseStatus_ =
+mkDeregisterManagedInstanceResponse pResponseStatus_ =
   DeregisterManagedInstanceResponse'
-    { _dmirsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dmirsResponseStatus :: Lens' DeregisterManagedInstanceResponse Int
-dmirsResponseStatus = lens _dmirsResponseStatus (\s a -> s {_dmirsResponseStatus = a})
-
-instance NFData DeregisterManagedInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmirsResponseStatus :: Lens.Lens' DeregisterManagedInstanceResponse Lude.Int
+dmirsResponseStatus = Lens.lens (responseStatus :: DeregisterManagedInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterManagedInstanceResponse)
+{-# DEPRECATED dmirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

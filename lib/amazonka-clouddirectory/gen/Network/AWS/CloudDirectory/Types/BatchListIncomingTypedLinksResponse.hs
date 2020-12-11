@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse where
+module Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
+  ( BatchListIncomingTypedLinksResponse (..),
+
+    -- * Smart constructor
+    mkBatchListIncomingTypedLinksResponse,
+
+    -- * Lenses
+    blitlLinkSpecifiers,
+    blitlNextToken,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'ListIncomingTypedLinks' response operation.
 --
---
---
--- /See:/ 'batchListIncomingTypedLinksResponse' smart constructor.
+-- /See:/ 'mkBatchListIncomingTypedLinksResponse' smart constructor.
 data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
-  { _blitlLinkSpecifiers ::
-      !( Maybe
-           [TypedLinkSpecifier]
-       ),
-    _blitlNextToken ::
-      !(Maybe Text)
+  { linkSpecifiers ::
+      Lude.Maybe
+        [TypedLinkSpecifier],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListIncomingTypedLinksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blitlLinkSpecifiers' - Returns one or more typed link specifiers as output.
---
--- * 'blitlNextToken' - The pagination token.
-batchListIncomingTypedLinksResponse ::
+-- * 'linkSpecifiers' - Returns one or more typed link specifiers as output.
+-- * 'nextToken' - The pagination token.
+mkBatchListIncomingTypedLinksResponse ::
   BatchListIncomingTypedLinksResponse
-batchListIncomingTypedLinksResponse =
+mkBatchListIncomingTypedLinksResponse =
   BatchListIncomingTypedLinksResponse'
-    { _blitlLinkSpecifiers =
-        Nothing,
-      _blitlNextToken = Nothing
+    { linkSpecifiers =
+        Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | Returns one or more typed link specifiers as output.
-blitlLinkSpecifiers :: Lens' BatchListIncomingTypedLinksResponse [TypedLinkSpecifier]
-blitlLinkSpecifiers = lens _blitlLinkSpecifiers (\s a -> s {_blitlLinkSpecifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'linkSpecifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blitlLinkSpecifiers :: Lens.Lens' BatchListIncomingTypedLinksResponse (Lude.Maybe [TypedLinkSpecifier])
+blitlLinkSpecifiers = Lens.lens (linkSpecifiers :: BatchListIncomingTypedLinksResponse -> Lude.Maybe [TypedLinkSpecifier]) (\s a -> s {linkSpecifiers = a} :: BatchListIncomingTypedLinksResponse)
+{-# DEPRECATED blitlLinkSpecifiers "Use generic-lens or generic-optics with 'linkSpecifiers' instead." #-}
 
 -- | The pagination token.
-blitlNextToken :: Lens' BatchListIncomingTypedLinksResponse (Maybe Text)
-blitlNextToken = lens _blitlNextToken (\s a -> s {_blitlNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blitlNextToken :: Lens.Lens' BatchListIncomingTypedLinksResponse (Lude.Maybe Lude.Text)
+blitlNextToken = Lens.lens (nextToken :: BatchListIncomingTypedLinksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListIncomingTypedLinksResponse)
+{-# DEPRECATED blitlNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance FromJSON BatchListIncomingTypedLinksResponse where
+instance Lude.FromJSON BatchListIncomingTypedLinksResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchListIncomingTypedLinksResponse"
       ( \x ->
           BatchListIncomingTypedLinksResponse'
-            <$> (x .:? "LinkSpecifiers" .!= mempty) <*> (x .:? "NextToken")
+            Lude.<$> (x Lude..:? "LinkSpecifiers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextToken")
       )
-
-instance Hashable BatchListIncomingTypedLinksResponse
-
-instance NFData BatchListIncomingTypedLinksResponse

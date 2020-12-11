@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ReplicationJobState where
+module Network.AWS.SMS.Types.ReplicationJobState
+  ( ReplicationJobState
+      ( ReplicationJobState',
+        RJSActive,
+        RJSCompleted,
+        RJSDeleted,
+        RJSDeleting,
+        RJSFailed,
+        RJSFailing,
+        RJSPausedOnFailure,
+        RJSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReplicationJobState
-  = RJSActive
-  | RJSCompleted
-  | RJSDeleted
-  | RJSDeleting
-  | RJSFailed
-  | RJSFailing
-  | RJSPausedOnFailure
-  | RJSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplicationJobState = ReplicationJobState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplicationJobState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure RJSActive
-      "completed" -> pure RJSCompleted
-      "deleted" -> pure RJSDeleted
-      "deleting" -> pure RJSDeleting
-      "failed" -> pure RJSFailed
-      "failing" -> pure RJSFailing
-      "paused_on_failure" -> pure RJSPausedOnFailure
-      "pending" -> pure RJSPending
-      e ->
-        fromTextError $
-          "Failure parsing ReplicationJobState from value: '" <> e
-            <> "'. Accepted values: active, completed, deleted, deleting, failed, failing, paused_on_failure, pending"
+pattern RJSActive :: ReplicationJobState
+pattern RJSActive = ReplicationJobState' "ACTIVE"
 
-instance ToText ReplicationJobState where
-  toText = \case
-    RJSActive -> "ACTIVE"
-    RJSCompleted -> "COMPLETED"
-    RJSDeleted -> "DELETED"
-    RJSDeleting -> "DELETING"
-    RJSFailed -> "FAILED"
-    RJSFailing -> "FAILING"
-    RJSPausedOnFailure -> "PAUSED_ON_FAILURE"
-    RJSPending -> "PENDING"
+pattern RJSCompleted :: ReplicationJobState
+pattern RJSCompleted = ReplicationJobState' "COMPLETED"
 
-instance Hashable ReplicationJobState
+pattern RJSDeleted :: ReplicationJobState
+pattern RJSDeleted = ReplicationJobState' "DELETED"
 
-instance NFData ReplicationJobState
+pattern RJSDeleting :: ReplicationJobState
+pattern RJSDeleting = ReplicationJobState' "DELETING"
 
-instance ToByteString ReplicationJobState
+pattern RJSFailed :: ReplicationJobState
+pattern RJSFailed = ReplicationJobState' "FAILED"
 
-instance ToQuery ReplicationJobState
+pattern RJSFailing :: ReplicationJobState
+pattern RJSFailing = ReplicationJobState' "FAILING"
 
-instance ToHeader ReplicationJobState
+pattern RJSPausedOnFailure :: ReplicationJobState
+pattern RJSPausedOnFailure = ReplicationJobState' "PAUSED_ON_FAILURE"
 
-instance FromJSON ReplicationJobState where
-  parseJSON = parseJSONText "ReplicationJobState"
+pattern RJSPending :: ReplicationJobState
+pattern RJSPending = ReplicationJobState' "PENDING"
+
+{-# COMPLETE
+  RJSActive,
+  RJSCompleted,
+  RJSDeleted,
+  RJSDeleting,
+  RJSFailed,
+  RJSFailing,
+  RJSPausedOnFailure,
+  RJSPending,
+  ReplicationJobState'
+  #-}

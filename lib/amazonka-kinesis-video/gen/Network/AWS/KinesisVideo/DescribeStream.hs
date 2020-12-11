@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,138 @@
 --
 -- Returns the most current information about the specified stream. You must specify either the @StreamName@ or the @StreamARN@ .
 module Network.AWS.KinesisVideo.DescribeStream
-  ( -- * Creating a Request
-    describeStream,
-    DescribeStream,
+  ( -- * Creating a request
+    DescribeStream (..),
+    mkDescribeStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dStreamARN,
     dStreamName,
 
-    -- * Destructuring the Response
-    describeStreamResponse,
-    DescribeStreamResponse,
+    -- * Destructuring the response
+    DescribeStreamResponse (..),
+    mkDescribeStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsStreamInfo,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStream' smart constructor.
+-- | /See:/ 'mkDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
-  { _dStreamARN :: !(Maybe Text),
-    _dStreamName :: !(Maybe Text)
+  { streamARN ::
+      Lude.Maybe Lude.Text,
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dStreamARN' - The Amazon Resource Name (ARN) of the stream.
---
--- * 'dStreamName' - The name of the stream.
-describeStream ::
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the stream.
+-- * 'streamName' - The name of the stream.
+mkDescribeStream ::
   DescribeStream
-describeStream =
-  DescribeStream' {_dStreamARN = Nothing, _dStreamName = Nothing}
+mkDescribeStream =
+  DescribeStream'
+    { streamARN = Lude.Nothing,
+      streamName = Lude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the stream.
-dStreamARN :: Lens' DescribeStream (Maybe Text)
-dStreamARN = lens _dStreamARN (\s a -> s {_dStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStreamARN :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
+dStreamARN = Lens.lens (streamARN :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: DescribeStream)
+{-# DEPRECATED dStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream.
-dStreamName :: Lens' DescribeStream (Maybe Text)
-dStreamName = lens _dStreamName (\s a -> s {_dStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStreamName :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
+dStreamName = Lens.lens (streamName :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: DescribeStream)
+{-# DEPRECATED dStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance AWSRequest DescribeStream where
+instance Lude.AWSRequest DescribeStream where
   type Rs DescribeStream = DescribeStreamResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStreamResponse'
-            <$> (x .?> "StreamInfo") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StreamInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStream
+instance Lude.ToHeaders DescribeStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStream
-
-instance ToHeaders DescribeStream where
-  toHeaders = const mempty
-
-instance ToJSON DescribeStream where
+instance Lude.ToJSON DescribeStream where
   toJSON DescribeStream' {..} =
-    object
-      ( catMaybes
-          [ ("StreamARN" .=) <$> _dStreamARN,
-            ("StreamName" .=) <$> _dStreamName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
+            ("StreamName" Lude..=) Lude.<$> streamName
           ]
       )
 
-instance ToPath DescribeStream where
-  toPath = const "/describeStream"
+instance Lude.ToPath DescribeStream where
+  toPath = Lude.const "/describeStream"
 
-instance ToQuery DescribeStream where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeStreamResponse' smart constructor.
+-- | /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { _drsStreamInfo ::
-      !(Maybe StreamInfo),
-    _drsResponseStatus :: !Int
+  { streamInfo ::
+      Lude.Maybe StreamInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsStreamInfo' - An object that describes the stream.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeStreamResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'streamInfo' - An object that describes the stream.
+mkDescribeStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStreamResponse
-describeStreamResponse pResponseStatus_ =
+mkDescribeStreamResponse pResponseStatus_ =
   DescribeStreamResponse'
-    { _drsStreamInfo = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { streamInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes the stream.
-drsStreamInfo :: Lens' DescribeStreamResponse (Maybe StreamInfo)
-drsStreamInfo = lens _drsStreamInfo (\s a -> s {_drsStreamInfo = a})
+--
+-- /Note:/ Consider using 'streamInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsStreamInfo :: Lens.Lens' DescribeStreamResponse (Lude.Maybe StreamInfo)
+drsStreamInfo = Lens.lens (streamInfo :: DescribeStreamResponse -> Lude.Maybe StreamInfo) (\s a -> s {streamInfo = a} :: DescribeStreamResponse)
+{-# DEPRECATED drsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeStreamResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

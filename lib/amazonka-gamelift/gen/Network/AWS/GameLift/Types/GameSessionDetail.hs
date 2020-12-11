@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionDetail where
+module Network.AWS.GameLift.Types.GameSessionDetail
+  ( GameSessionDetail (..),
+
+    -- * Smart constructor
+    mkGameSessionDetail,
+
+    -- * Lenses
+    gsdGameSession,
+    gsdProtectionPolicy,
+  )
+where
 
 import Network.AWS.GameLift.Types.GameSession
 import Network.AWS.GameLift.Types.ProtectionPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A game session's properties plus the protection policy currently in force.
 --
---
---
--- /See:/ 'gameSessionDetail' smart constructor.
+-- /See:/ 'mkGameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
-  { _gsdGameSession ::
-      !(Maybe GameSession),
-    _gsdProtectionPolicy :: !(Maybe ProtectionPolicy)
+  { gameSession ::
+      Lude.Maybe GameSession,
+    protectionPolicy :: Lude.Maybe ProtectionPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'gameSession' - Object that describes a game session.
+-- * 'protectionPolicy' - Current status of protection for the game session.
 --
--- * 'gsdGameSession' - Object that describes a game session.
 --
--- * 'gsdProtectionPolicy' - Current status of protection for the game session.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
-gameSessionDetail ::
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+--
+--
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+mkGameSessionDetail ::
   GameSessionDetail
-gameSessionDetail =
+mkGameSessionDetail =
   GameSessionDetail'
-    { _gsdGameSession = Nothing,
-      _gsdProtectionPolicy = Nothing
+    { gameSession = Lude.Nothing,
+      protectionPolicy = Lude.Nothing
     }
 
 -- | Object that describes a game session.
-gsdGameSession :: Lens' GameSessionDetail (Maybe GameSession)
-gsdGameSession = lens _gsdGameSession (\s a -> s {_gsdGameSession = a})
+--
+-- /Note:/ Consider using 'gameSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdGameSession :: Lens.Lens' GameSessionDetail (Lude.Maybe GameSession)
+gsdGameSession = Lens.lens (gameSession :: GameSessionDetail -> Lude.Maybe GameSession) (\s a -> s {gameSession = a} :: GameSessionDetail)
+{-# DEPRECATED gsdGameSession "Use generic-lens or generic-optics with 'gameSession' instead." #-}
 
--- | Current status of protection for the game session.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
-gsdProtectionPolicy :: Lens' GameSessionDetail (Maybe ProtectionPolicy)
-gsdProtectionPolicy = lens _gsdProtectionPolicy (\s a -> s {_gsdProtectionPolicy = a})
+-- | Current status of protection for the game session.
+--
+--
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+--
+--
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+--
+--
+--
+-- /Note:/ Consider using 'protectionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdProtectionPolicy :: Lens.Lens' GameSessionDetail (Lude.Maybe ProtectionPolicy)
+gsdProtectionPolicy = Lens.lens (protectionPolicy :: GameSessionDetail -> Lude.Maybe ProtectionPolicy) (\s a -> s {protectionPolicy = a} :: GameSessionDetail)
+{-# DEPRECATED gsdProtectionPolicy "Use generic-lens or generic-optics with 'protectionPolicy' instead." #-}
 
-instance FromJSON GameSessionDetail where
+instance Lude.FromJSON GameSessionDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "GameSessionDetail"
       ( \x ->
           GameSessionDetail'
-            <$> (x .:? "GameSession") <*> (x .:? "ProtectionPolicy")
+            Lude.<$> (x Lude..:? "GameSession")
+            Lude.<*> (x Lude..:? "ProtectionPolicy")
       )
-
-instance Hashable GameSessionDetail
-
-instance NFData GameSessionDetail

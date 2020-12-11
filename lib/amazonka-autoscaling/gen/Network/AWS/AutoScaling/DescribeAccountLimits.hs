@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,17 @@
 --
 -- Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.
 --
---
 -- For information about requesting an increase, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html Amazon EC2 Auto Scaling service quotas> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.DescribeAccountLimits
-  ( -- * Creating a Request
-    describeAccountLimits,
-    DescribeAccountLimits,
+  ( -- * Creating a request
+    DescribeAccountLimits (..),
+    mkDescribeAccountLimits,
 
-    -- * Destructuring the Response
-    describeAccountLimitsResponse,
-    DescribeAccountLimitsResponse,
+    -- * Destructuring the response
+    DescribeAccountLimitsResponse (..),
+    mkDescribeAccountLimitsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dalrsNumberOfLaunchConfigurations,
     dalrsNumberOfAutoScalingGroups,
     dalrsMaxNumberOfAutoScalingGroups,
@@ -40,113 +34,130 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAccountLimits' smart constructor.
+-- | /See:/ 'mkDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
-describeAccountLimits ::
+mkDescribeAccountLimits ::
   DescribeAccountLimits
-describeAccountLimits = DescribeAccountLimits'
+mkDescribeAccountLimits = DescribeAccountLimits'
 
-instance AWSRequest DescribeAccountLimits where
+instance Lude.AWSRequest DescribeAccountLimits where
   type Rs DescribeAccountLimits = DescribeAccountLimitsResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            <$> (x .@? "NumberOfLaunchConfigurations")
-            <*> (x .@? "NumberOfAutoScalingGroups")
-            <*> (x .@? "MaxNumberOfAutoScalingGroups")
-            <*> (x .@? "MaxNumberOfLaunchConfigurations")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NumberOfLaunchConfigurations")
+            Lude.<*> (x Lude..@? "NumberOfAutoScalingGroups")
+            Lude.<*> (x Lude..@? "MaxNumberOfAutoScalingGroups")
+            Lude.<*> (x Lude..@? "MaxNumberOfLaunchConfigurations")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccountLimits
+instance Lude.ToHeaders DescribeAccountLimits where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeAccountLimits
+instance Lude.ToPath DescribeAccountLimits where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeAccountLimits where
-  toHeaders = const mempty
-
-instance ToPath DescribeAccountLimits where
-  toPath = const "/"
-
-instance ToQuery DescribeAccountLimits where
+instance Lude.ToQuery DescribeAccountLimits where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("DescribeAccountLimits" :: ByteString),
-            "Version" =: ("2011-01-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("DescribeAccountLimits" :: Lude.ByteString),
+            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
           ]
       )
 
--- | /See:/ 'describeAccountLimitsResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { _dalrsNumberOfLaunchConfigurations ::
-      !(Maybe Int),
-    _dalrsNumberOfAutoScalingGroups ::
-      !(Maybe Int),
-    _dalrsMaxNumberOfAutoScalingGroups ::
-      !(Maybe Int),
-    _dalrsMaxNumberOfLaunchConfigurations ::
-      !(Maybe Int),
-    _dalrsResponseStatus :: !Int
+  { numberOfLaunchConfigurations ::
+      Lude.Maybe Lude.Int,
+    numberOfAutoScalingGroups ::
+      Lude.Maybe Lude.Int,
+    maxNumberOfAutoScalingGroups ::
+      Lude.Maybe Lude.Int,
+    maxNumberOfLaunchConfigurations ::
+      Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dalrsNumberOfLaunchConfigurations' - The current number of launch configurations for your AWS account.
---
--- * 'dalrsNumberOfAutoScalingGroups' - The current number of groups for your AWS account.
---
--- * 'dalrsMaxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.
---
--- * 'dalrsMaxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.
---
--- * 'dalrsResponseStatus' - -- | The response status code.
-describeAccountLimitsResponse ::
-  -- | 'dalrsResponseStatus'
-  Int ->
+-- * 'maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.
+-- * 'maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.
+-- * 'numberOfAutoScalingGroups' - The current number of groups for your AWS account.
+-- * 'numberOfLaunchConfigurations' - The current number of launch configurations for your AWS account.
+-- * 'responseStatus' - The response status code.
+mkDescribeAccountLimitsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccountLimitsResponse
-describeAccountLimitsResponse pResponseStatus_ =
+mkDescribeAccountLimitsResponse pResponseStatus_ =
   DescribeAccountLimitsResponse'
-    { _dalrsNumberOfLaunchConfigurations =
-        Nothing,
-      _dalrsNumberOfAutoScalingGroups = Nothing,
-      _dalrsMaxNumberOfAutoScalingGroups = Nothing,
-      _dalrsMaxNumberOfLaunchConfigurations = Nothing,
-      _dalrsResponseStatus = pResponseStatus_
+    { numberOfLaunchConfigurations =
+        Lude.Nothing,
+      numberOfAutoScalingGroups = Lude.Nothing,
+      maxNumberOfAutoScalingGroups = Lude.Nothing,
+      maxNumberOfLaunchConfigurations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current number of launch configurations for your AWS account.
-dalrsNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsNumberOfLaunchConfigurations = lens _dalrsNumberOfLaunchConfigurations (\s a -> s {_dalrsNumberOfLaunchConfigurations = a})
+--
+-- /Note:/ Consider using 'numberOfLaunchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe Lude.Int)
+dalrsNumberOfLaunchConfigurations = Lens.lens (numberOfLaunchConfigurations :: DescribeAccountLimitsResponse -> Lude.Maybe Lude.Int) (\s a -> s {numberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsNumberOfLaunchConfigurations "Use generic-lens or generic-optics with 'numberOfLaunchConfigurations' instead." #-}
 
 -- | The current number of groups for your AWS account.
-dalrsNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsNumberOfAutoScalingGroups = lens _dalrsNumberOfAutoScalingGroups (\s a -> s {_dalrsNumberOfAutoScalingGroups = a})
+--
+-- /Note:/ Consider using 'numberOfAutoScalingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsNumberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe Lude.Int)
+dalrsNumberOfAutoScalingGroups = Lens.lens (numberOfAutoScalingGroups :: DescribeAccountLimitsResponse -> Lude.Maybe Lude.Int) (\s a -> s {numberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsNumberOfAutoScalingGroups "Use generic-lens or generic-optics with 'numberOfAutoScalingGroups' instead." #-}
 
 -- | The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.
-dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\s a -> s {_dalrsMaxNumberOfAutoScalingGroups = a})
+--
+-- /Note:/ Consider using 'maxNumberOfAutoScalingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsMaxNumberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe Lude.Int)
+dalrsMaxNumberOfAutoScalingGroups = Lens.lens (maxNumberOfAutoScalingGroups :: DescribeAccountLimitsResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxNumberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsMaxNumberOfAutoScalingGroups "Use generic-lens or generic-optics with 'maxNumberOfAutoScalingGroups' instead." #-}
 
 -- | The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.
-dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\s a -> s {_dalrsMaxNumberOfLaunchConfigurations = a})
+--
+-- /Note:/ Consider using 'maxNumberOfLaunchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsMaxNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe Lude.Int)
+dalrsMaxNumberOfLaunchConfigurations = Lens.lens (maxNumberOfLaunchConfigurations :: DescribeAccountLimitsResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxNumberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsMaxNumberOfLaunchConfigurations "Use generic-lens or generic-optics with 'maxNumberOfLaunchConfigurations' instead." #-}
 
--- | -- | The response status code.
-dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsResponseStatus = lens _dalrsResponseStatus (\s a -> s {_dalrsResponseStatus = a})
-
-instance NFData DescribeAccountLimitsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsResponseStatus :: Lens.Lens' DescribeAccountLimitsResponse Lude.Int
+dalrsResponseStatus = Lens.lens (responseStatus :: DescribeAccountLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

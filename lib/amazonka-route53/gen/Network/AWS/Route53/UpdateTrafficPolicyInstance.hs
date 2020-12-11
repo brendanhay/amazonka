@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,184 +14,201 @@
 --
 -- Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.
 --
---
 -- When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root resource record set name (such as example.com) while it replaces one group of resource record sets with another. Route 53 performs the following operations:
 --
 --     * Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true regardless of how significant the differences are between the existing resource record sets and the new resource record sets.
 --
+--
 --     * When all of the new resource record sets have been created, Route 53 starts to respond to DNS queries for the root resource record set name (such as example.com) by using the new resource record sets.
+--
 --
 --     * Route 53 deletes the old group of resource record sets that are associated with the root resource record set name.
 module Network.AWS.Route53.UpdateTrafficPolicyInstance
-  ( -- * Creating a Request
-    updateTrafficPolicyInstance,
-    UpdateTrafficPolicyInstance,
+  ( -- * Creating a request
+    UpdateTrafficPolicyInstance (..),
+    mkUpdateTrafficPolicyInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utpiId,
     utpiTTL,
     utpiTrafficPolicyId,
     utpiTrafficPolicyVersion,
 
-    -- * Destructuring the Response
-    updateTrafficPolicyInstanceResponse,
-    UpdateTrafficPolicyInstanceResponse,
+    -- * Destructuring the response
+    UpdateTrafficPolicyInstanceResponse (..),
+    mkUpdateTrafficPolicyInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utpirsResponseStatus,
     utpirsTrafficPolicyInstance,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the resource record sets that you want to update based on a specified traffic policy instance.
 --
---
---
--- /See:/ 'updateTrafficPolicyInstance' smart constructor.
+-- /See:/ 'mkUpdateTrafficPolicyInstance' smart constructor.
 data UpdateTrafficPolicyInstance = UpdateTrafficPolicyInstance'
-  { _utpiId ::
-      !Text,
-    _utpiTTL :: !Nat,
-    _utpiTrafficPolicyId :: !Text,
-    _utpiTrafficPolicyVersion :: !Nat
+  { id ::
+      Lude.Text,
+    tTL :: Lude.Natural,
+    trafficPolicyId :: Lude.Text,
+    trafficPolicyVersion ::
+      Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrafficPolicyInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utpiId' - The ID of the traffic policy instance that you want to update.
---
--- * 'utpiTTL' - The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.
---
--- * 'utpiTrafficPolicyId' - The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
---
--- * 'utpiTrafficPolicyVersion' - The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
-updateTrafficPolicyInstance ::
-  -- | 'utpiId'
-  Text ->
-  -- | 'utpiTTL'
-  Natural ->
-  -- | 'utpiTrafficPolicyId'
-  Text ->
-  -- | 'utpiTrafficPolicyVersion'
-  Natural ->
+-- * 'id' - The ID of the traffic policy instance that you want to update.
+-- * 'tTL' - The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.
+-- * 'trafficPolicyId' - The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
+-- * 'trafficPolicyVersion' - The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
+mkUpdateTrafficPolicyInstance ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'tTL'
+  Lude.Natural ->
+  -- | 'trafficPolicyId'
+  Lude.Text ->
+  -- | 'trafficPolicyVersion'
+  Lude.Natural ->
   UpdateTrafficPolicyInstance
-updateTrafficPolicyInstance
+mkUpdateTrafficPolicyInstance
   pId_
   pTTL_
   pTrafficPolicyId_
   pTrafficPolicyVersion_ =
     UpdateTrafficPolicyInstance'
-      { _utpiId = pId_,
-        _utpiTTL = _Nat # pTTL_,
-        _utpiTrafficPolicyId = pTrafficPolicyId_,
-        _utpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
+      { id = pId_,
+        tTL = pTTL_,
+        trafficPolicyId = pTrafficPolicyId_,
+        trafficPolicyVersion = pTrafficPolicyVersion_
       }
 
 -- | The ID of the traffic policy instance that you want to update.
-utpiId :: Lens' UpdateTrafficPolicyInstance Text
-utpiId = lens _utpiId (\s a -> s {_utpiId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpiId :: Lens.Lens' UpdateTrafficPolicyInstance Lude.Text
+utpiId = Lens.lens (id :: UpdateTrafficPolicyInstance -> Lude.Text) (\s a -> s {id = a} :: UpdateTrafficPolicyInstance)
+{-# DEPRECATED utpiId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.
-utpiTTL :: Lens' UpdateTrafficPolicyInstance Natural
-utpiTTL = lens _utpiTTL (\s a -> s {_utpiTTL = a}) . _Nat
+--
+-- /Note:/ Consider using 'tTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpiTTL :: Lens.Lens' UpdateTrafficPolicyInstance Lude.Natural
+utpiTTL = Lens.lens (tTL :: UpdateTrafficPolicyInstance -> Lude.Natural) (\s a -> s {tTL = a} :: UpdateTrafficPolicyInstance)
+{-# DEPRECATED utpiTTL "Use generic-lens or generic-optics with 'tTL' instead." #-}
 
 -- | The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
-utpiTrafficPolicyId :: Lens' UpdateTrafficPolicyInstance Text
-utpiTrafficPolicyId = lens _utpiTrafficPolicyId (\s a -> s {_utpiTrafficPolicyId = a})
+--
+-- /Note:/ Consider using 'trafficPolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpiTrafficPolicyId :: Lens.Lens' UpdateTrafficPolicyInstance Lude.Text
+utpiTrafficPolicyId = Lens.lens (trafficPolicyId :: UpdateTrafficPolicyInstance -> Lude.Text) (\s a -> s {trafficPolicyId = a} :: UpdateTrafficPolicyInstance)
+{-# DEPRECATED utpiTrafficPolicyId "Use generic-lens or generic-optics with 'trafficPolicyId' instead." #-}
 
 -- | The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
-utpiTrafficPolicyVersion :: Lens' UpdateTrafficPolicyInstance Natural
-utpiTrafficPolicyVersion = lens _utpiTrafficPolicyVersion (\s a -> s {_utpiTrafficPolicyVersion = a}) . _Nat
+--
+-- /Note:/ Consider using 'trafficPolicyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpiTrafficPolicyVersion :: Lens.Lens' UpdateTrafficPolicyInstance Lude.Natural
+utpiTrafficPolicyVersion = Lens.lens (trafficPolicyVersion :: UpdateTrafficPolicyInstance -> Lude.Natural) (\s a -> s {trafficPolicyVersion = a} :: UpdateTrafficPolicyInstance)
+{-# DEPRECATED utpiTrafficPolicyVersion "Use generic-lens or generic-optics with 'trafficPolicyVersion' instead." #-}
 
-instance AWSRequest UpdateTrafficPolicyInstance where
+instance Lude.AWSRequest UpdateTrafficPolicyInstance where
   type
     Rs UpdateTrafficPolicyInstance =
       UpdateTrafficPolicyInstanceResponse
-  request = postXML route53
+  request = Req.postXML route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdateTrafficPolicyInstanceResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "TrafficPolicyInstance")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "TrafficPolicyInstance")
       )
 
-instance Hashable UpdateTrafficPolicyInstance
-
-instance NFData UpdateTrafficPolicyInstance
-
-instance ToElement UpdateTrafficPolicyInstance where
+instance Lude.ToElement UpdateTrafficPolicyInstance where
   toElement =
-    mkElement
+    Lude.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateTrafficPolicyInstanceRequest"
 
-instance ToHeaders UpdateTrafficPolicyInstance where
-  toHeaders = const mempty
+instance Lude.ToHeaders UpdateTrafficPolicyInstance where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath UpdateTrafficPolicyInstance where
+instance Lude.ToPath UpdateTrafficPolicyInstance where
   toPath UpdateTrafficPolicyInstance' {..} =
-    mconcat ["/2013-04-01/trafficpolicyinstance/", toBS _utpiId]
+    Lude.mconcat ["/2013-04-01/trafficpolicyinstance/", Lude.toBS id]
 
-instance ToQuery UpdateTrafficPolicyInstance where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTrafficPolicyInstance where
+  toQuery = Lude.const Lude.mempty
 
-instance ToXML UpdateTrafficPolicyInstance where
+instance Lude.ToXML UpdateTrafficPolicyInstance where
   toXML UpdateTrafficPolicyInstance' {..} =
-    mconcat
-      [ "TTL" @= _utpiTTL,
-        "TrafficPolicyId" @= _utpiTrafficPolicyId,
-        "TrafficPolicyVersion" @= _utpiTrafficPolicyVersion
+    Lude.mconcat
+      [ "TTL" Lude.@= tTL,
+        "TrafficPolicyId" Lude.@= trafficPolicyId,
+        "TrafficPolicyVersion" Lude.@= trafficPolicyVersion
       ]
 
 -- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
---
---
--- /See:/ 'updateTrafficPolicyInstanceResponse' smart constructor.
+-- /See:/ 'mkUpdateTrafficPolicyInstanceResponse' smart constructor.
 data UpdateTrafficPolicyInstanceResponse = UpdateTrafficPolicyInstanceResponse'
-  { _utpirsResponseStatus ::
-      !Int,
-    _utpirsTrafficPolicyInstance ::
-      !TrafficPolicyInstance
+  { responseStatus ::
+      Lude.Int,
+    trafficPolicyInstance ::
+      TrafficPolicyInstance
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrafficPolicyInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utpirsResponseStatus' - -- | The response status code.
---
--- * 'utpirsTrafficPolicyInstance' - A complex type that contains settings for the updated traffic policy instance.
-updateTrafficPolicyInstanceResponse ::
-  -- | 'utpirsResponseStatus'
-  Int ->
-  -- | 'utpirsTrafficPolicyInstance'
+-- * 'responseStatus' - The response status code.
+-- * 'trafficPolicyInstance' - A complex type that contains settings for the updated traffic policy instance.
+mkUpdateTrafficPolicyInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'trafficPolicyInstance'
   TrafficPolicyInstance ->
   UpdateTrafficPolicyInstanceResponse
-updateTrafficPolicyInstanceResponse
+mkUpdateTrafficPolicyInstanceResponse
   pResponseStatus_
   pTrafficPolicyInstance_ =
     UpdateTrafficPolicyInstanceResponse'
-      { _utpirsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _utpirsTrafficPolicyInstance = pTrafficPolicyInstance_
+        trafficPolicyInstance = pTrafficPolicyInstance_
       }
 
--- | -- | The response status code.
-utpirsResponseStatus :: Lens' UpdateTrafficPolicyInstanceResponse Int
-utpirsResponseStatus = lens _utpirsResponseStatus (\s a -> s {_utpirsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpirsResponseStatus :: Lens.Lens' UpdateTrafficPolicyInstanceResponse Lude.Int
+utpirsResponseStatus = Lens.lens (responseStatus :: UpdateTrafficPolicyInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTrafficPolicyInstanceResponse)
+{-# DEPRECATED utpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains settings for the updated traffic policy instance.
-utpirsTrafficPolicyInstance :: Lens' UpdateTrafficPolicyInstanceResponse TrafficPolicyInstance
-utpirsTrafficPolicyInstance = lens _utpirsTrafficPolicyInstance (\s a -> s {_utpirsTrafficPolicyInstance = a})
-
-instance NFData UpdateTrafficPolicyInstanceResponse
+--
+-- /Note:/ Consider using 'trafficPolicyInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpirsTrafficPolicyInstance :: Lens.Lens' UpdateTrafficPolicyInstanceResponse TrafficPolicyInstance
+utpirsTrafficPolicyInstance = Lens.lens (trafficPolicyInstance :: UpdateTrafficPolicyInstanceResponse -> TrafficPolicyInstance) (\s a -> s {trafficPolicyInstance = a} :: UpdateTrafficPolicyInstanceResponse)
+{-# DEPRECATED utpirsTrafficPolicyInstance "Use generic-lens or generic-optics with 'trafficPolicyInstance' instead." #-}

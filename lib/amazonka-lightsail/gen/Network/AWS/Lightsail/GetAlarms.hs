@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,190 @@
 --
 -- Returns information about the configured alarms. Specify an alarm name in your request to return information about a specific alarm, or specify a monitored resource name to return information about all alarms for a specific resource.
 --
---
 -- An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms Alarms in Amazon Lightsail> .
 module Network.AWS.Lightsail.GetAlarms
-  ( -- * Creating a Request
-    getAlarms,
-    GetAlarms,
+  ( -- * Creating a request
+    GetAlarms (..),
+    mkGetAlarms,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaAlarmName,
     gaMonitoredResourceName,
     gaPageToken,
 
-    -- * Destructuring the Response
-    getAlarmsResponse,
-    GetAlarmsResponse,
+    -- * Destructuring the response
+    GetAlarmsResponse (..),
+    mkGetAlarmsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garsNextPageToken,
     garsAlarms,
     garsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAlarms' smart constructor.
+-- | /See:/ 'mkGetAlarms' smart constructor.
 data GetAlarms = GetAlarms'
-  { _gaAlarmName :: !(Maybe Text),
-    _gaMonitoredResourceName :: !(Maybe Text),
-    _gaPageToken :: !(Maybe Text)
+  { alarmName :: Lude.Maybe Lude.Text,
+    monitoredResourceName :: Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAlarms' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'alarmName' - The name of the alarm.
 --
--- * 'gaAlarmName' - The name of the alarm. Specify an alarm name to return information about a specific alarm.
+-- Specify an alarm name to return information about a specific alarm.
+-- * 'monitoredResourceName' - The name of the Lightsail resource being monitored by the alarm.
 --
--- * 'gaMonitoredResourceName' - The name of the Lightsail resource being monitored by the alarm. Specify a monitored resource name to return information about all alarms for a specific resource.
+-- Specify a monitored resource name to return information about all alarms for a specific resource.
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gaPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetAlarms@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getAlarms ::
+-- To get a page token, perform an initial @GetAlarms@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetAlarms ::
   GetAlarms
-getAlarms =
+mkGetAlarms =
   GetAlarms'
-    { _gaAlarmName = Nothing,
-      _gaMonitoredResourceName = Nothing,
-      _gaPageToken = Nothing
+    { alarmName = Lude.Nothing,
+      monitoredResourceName = Lude.Nothing,
+      pageToken = Lude.Nothing
     }
 
--- | The name of the alarm. Specify an alarm name to return information about a specific alarm.
-gaAlarmName :: Lens' GetAlarms (Maybe Text)
-gaAlarmName = lens _gaAlarmName (\s a -> s {_gaAlarmName = a})
+-- | The name of the alarm.
+--
+-- Specify an alarm name to return information about a specific alarm.
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaAlarmName :: Lens.Lens' GetAlarms (Lude.Maybe Lude.Text)
+gaAlarmName = Lens.lens (alarmName :: GetAlarms -> Lude.Maybe Lude.Text) (\s a -> s {alarmName = a} :: GetAlarms)
+{-# DEPRECATED gaAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
--- | The name of the Lightsail resource being monitored by the alarm. Specify a monitored resource name to return information about all alarms for a specific resource.
-gaMonitoredResourceName :: Lens' GetAlarms (Maybe Text)
-gaMonitoredResourceName = lens _gaMonitoredResourceName (\s a -> s {_gaMonitoredResourceName = a})
+-- | The name of the Lightsail resource being monitored by the alarm.
+--
+-- Specify a monitored resource name to return information about all alarms for a specific resource.
+--
+-- /Note:/ Consider using 'monitoredResourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaMonitoredResourceName :: Lens.Lens' GetAlarms (Lude.Maybe Lude.Text)
+gaMonitoredResourceName = Lens.lens (monitoredResourceName :: GetAlarms -> Lude.Maybe Lude.Text) (\s a -> s {monitoredResourceName = a} :: GetAlarms)
+{-# DEPRECATED gaMonitoredResourceName "Use generic-lens or generic-optics with 'monitoredResourceName' instead." #-}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetAlarms@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-gaPageToken :: Lens' GetAlarms (Maybe Text)
-gaPageToken = lens _gaPageToken (\s a -> s {_gaPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetAlarms@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaPageToken :: Lens.Lens' GetAlarms (Lude.Maybe Lude.Text)
+gaPageToken = Lens.lens (pageToken :: GetAlarms -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetAlarms)
+{-# DEPRECATED gaPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSRequest GetAlarms where
+instance Lude.AWSRequest GetAlarms where
   type Rs GetAlarms = GetAlarmsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAlarmsResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "alarms" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "alarms" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAlarms
-
-instance NFData GetAlarms
-
-instance ToHeaders GetAlarms where
+instance Lude.ToHeaders GetAlarms where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.GetAlarms" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.GetAlarms" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAlarms where
+instance Lude.ToJSON GetAlarms where
   toJSON GetAlarms' {..} =
-    object
-      ( catMaybes
-          [ ("alarmName" .=) <$> _gaAlarmName,
-            ("monitoredResourceName" .=) <$> _gaMonitoredResourceName,
-            ("pageToken" .=) <$> _gaPageToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("alarmName" Lude..=) Lude.<$> alarmName,
+            ("monitoredResourceName" Lude..=) Lude.<$> monitoredResourceName,
+            ("pageToken" Lude..=) Lude.<$> pageToken
           ]
       )
 
-instance ToPath GetAlarms where
-  toPath = const "/"
+instance Lude.ToPath GetAlarms where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAlarms where
-  toQuery = const mempty
+instance Lude.ToQuery GetAlarms where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAlarmsResponse' smart constructor.
+-- | /See:/ 'mkGetAlarmsResponse' smart constructor.
 data GetAlarmsResponse = GetAlarmsResponse'
-  { _garsNextPageToken ::
-      !(Maybe Text),
-    _garsAlarms :: !(Maybe [Alarm]),
-    _garsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    alarms :: Lude.Maybe [Alarm],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAlarmsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'alarms' - An array of objects that describe the alarms.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'garsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetAlarms@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'garsAlarms' - An array of objects that describe the alarms.
---
--- * 'garsResponseStatus' - -- | The response status code.
-getAlarmsResponse ::
-  -- | 'garsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetAlarms@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetAlarmsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAlarmsResponse
-getAlarmsResponse pResponseStatus_ =
+mkGetAlarmsResponse pResponseStatus_ =
   GetAlarmsResponse'
-    { _garsNextPageToken = Nothing,
-      _garsAlarms = Nothing,
-      _garsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      alarms = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetAlarms@ request and specify the next page token using the @pageToken@ parameter.
-garsNextPageToken :: Lens' GetAlarmsResponse (Maybe Text)
-garsNextPageToken = lens _garsNextPageToken (\s a -> s {_garsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetAlarms@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsNextPageToken :: Lens.Lens' GetAlarmsResponse (Lude.Maybe Lude.Text)
+garsNextPageToken = Lens.lens (nextPageToken :: GetAlarmsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetAlarmsResponse)
+{-# DEPRECATED garsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of objects that describe the alarms.
-garsAlarms :: Lens' GetAlarmsResponse [Alarm]
-garsAlarms = lens _garsAlarms (\s a -> s {_garsAlarms = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'alarms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsAlarms :: Lens.Lens' GetAlarmsResponse (Lude.Maybe [Alarm])
+garsAlarms = Lens.lens (alarms :: GetAlarmsResponse -> Lude.Maybe [Alarm]) (\s a -> s {alarms = a} :: GetAlarmsResponse)
+{-# DEPRECATED garsAlarms "Use generic-lens or generic-optics with 'alarms' instead." #-}
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetAlarmsResponse Int
-garsResponseStatus = lens _garsResponseStatus (\s a -> s {_garsResponseStatus = a})
-
-instance NFData GetAlarmsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GetAlarmsResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GetAlarmsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAlarmsResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

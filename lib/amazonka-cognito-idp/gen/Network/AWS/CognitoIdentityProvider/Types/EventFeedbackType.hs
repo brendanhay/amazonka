@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType where
+module Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType
+  ( EventFeedbackType (..),
+
+    -- * Smart constructor
+    mkEventFeedbackType,
+
+    -- * Lenses
+    eftFeedbackDate,
+    eftFeedbackValue,
+    eftProvider,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the event feedback type.
 --
---
---
--- /See:/ 'eventFeedbackType' smart constructor.
+-- /See:/ 'mkEventFeedbackType' smart constructor.
 data EventFeedbackType = EventFeedbackType'
-  { _eftFeedbackDate ::
-      !(Maybe POSIX),
-    _eftFeedbackValue :: !FeedbackValueType,
-    _eftProvider :: !Text
+  { feedbackDate ::
+      Lude.Maybe Lude.Timestamp,
+    feedbackValue :: FeedbackValueType,
+    provider :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventFeedbackType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eftFeedbackDate' - The event feedback date.
---
--- * 'eftFeedbackValue' - The event feedback value.
---
--- * 'eftProvider' - The provider.
-eventFeedbackType ::
-  -- | 'eftFeedbackValue'
+-- * 'feedbackDate' - The event feedback date.
+-- * 'feedbackValue' - The event feedback value.
+-- * 'provider' - The provider.
+mkEventFeedbackType ::
+  -- | 'feedbackValue'
   FeedbackValueType ->
-  -- | 'eftProvider'
-  Text ->
+  -- | 'provider'
+  Lude.Text ->
   EventFeedbackType
-eventFeedbackType pFeedbackValue_ pProvider_ =
+mkEventFeedbackType pFeedbackValue_ pProvider_ =
   EventFeedbackType'
-    { _eftFeedbackDate = Nothing,
-      _eftFeedbackValue = pFeedbackValue_,
-      _eftProvider = pProvider_
+    { feedbackDate = Lude.Nothing,
+      feedbackValue = pFeedbackValue_,
+      provider = pProvider_
     }
 
 -- | The event feedback date.
-eftFeedbackDate :: Lens' EventFeedbackType (Maybe UTCTime)
-eftFeedbackDate = lens _eftFeedbackDate (\s a -> s {_eftFeedbackDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'feedbackDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eftFeedbackDate :: Lens.Lens' EventFeedbackType (Lude.Maybe Lude.Timestamp)
+eftFeedbackDate = Lens.lens (feedbackDate :: EventFeedbackType -> Lude.Maybe Lude.Timestamp) (\s a -> s {feedbackDate = a} :: EventFeedbackType)
+{-# DEPRECATED eftFeedbackDate "Use generic-lens or generic-optics with 'feedbackDate' instead." #-}
 
 -- | The event feedback value.
-eftFeedbackValue :: Lens' EventFeedbackType FeedbackValueType
-eftFeedbackValue = lens _eftFeedbackValue (\s a -> s {_eftFeedbackValue = a})
+--
+-- /Note:/ Consider using 'feedbackValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eftFeedbackValue :: Lens.Lens' EventFeedbackType FeedbackValueType
+eftFeedbackValue = Lens.lens (feedbackValue :: EventFeedbackType -> FeedbackValueType) (\s a -> s {feedbackValue = a} :: EventFeedbackType)
+{-# DEPRECATED eftFeedbackValue "Use generic-lens or generic-optics with 'feedbackValue' instead." #-}
 
 -- | The provider.
-eftProvider :: Lens' EventFeedbackType Text
-eftProvider = lens _eftProvider (\s a -> s {_eftProvider = a})
+--
+-- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eftProvider :: Lens.Lens' EventFeedbackType Lude.Text
+eftProvider = Lens.lens (provider :: EventFeedbackType -> Lude.Text) (\s a -> s {provider = a} :: EventFeedbackType)
+{-# DEPRECATED eftProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
 
-instance FromJSON EventFeedbackType where
+instance Lude.FromJSON EventFeedbackType where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventFeedbackType"
       ( \x ->
           EventFeedbackType'
-            <$> (x .:? "FeedbackDate")
-            <*> (x .: "FeedbackValue")
-            <*> (x .: "Provider")
+            Lude.<$> (x Lude..:? "FeedbackDate")
+            Lude.<*> (x Lude..: "FeedbackValue")
+            Lude.<*> (x Lude..: "Provider")
       )
-
-instance Hashable EventFeedbackType
-
-instance NFData EventFeedbackType

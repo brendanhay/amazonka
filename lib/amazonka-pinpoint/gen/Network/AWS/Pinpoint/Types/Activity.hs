@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Activity where
+module Network.AWS.Pinpoint.Types.Activity
+  ( Activity (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkActivity,
+
+    -- * Lenses
+    aConditionalSplit,
+    aEMAIL,
+    aMultiCondition,
+    aCUSTOM,
+    aWait,
+    aRandomSplit,
+    aHoldout,
+    aSMS,
+    aPUSH,
+    aDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ConditionalSplitActivity
 import Network.AWS.Pinpoint.Types.CustomMessageActivity
 import Network.AWS.Pinpoint.Types.EmailMessageActivity
@@ -25,142 +37,162 @@ import Network.AWS.Pinpoint.Types.PushMessageActivity
 import Network.AWS.Pinpoint.Types.RandomSplitActivity
 import Network.AWS.Pinpoint.Types.SMSMessageActivity
 import Network.AWS.Pinpoint.Types.WaitActivity
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the configuration and other settings for an activity in a journey.
 --
---
---
--- /See:/ 'activity' smart constructor.
+-- /See:/ 'mkActivity' smart constructor.
 data Activity = Activity'
-  { _aConditionalSplit ::
-      !(Maybe ConditionalSplitActivity),
-    _aEMAIL :: !(Maybe EmailMessageActivity),
-    _aMultiCondition :: !(Maybe MultiConditionalSplitActivity),
-    _aCUSTOM :: !(Maybe CustomMessageActivity),
-    _aWait :: !(Maybe WaitActivity),
-    _aRandomSplit :: !(Maybe RandomSplitActivity),
-    _aHoldout :: !(Maybe HoldoutActivity),
-    _aSMS :: !(Maybe SMSMessageActivity),
-    _aPUSH :: !(Maybe PushMessageActivity),
-    _aDescription :: !(Maybe Text)
+  { conditionalSplit ::
+      Lude.Maybe ConditionalSplitActivity,
+    eMAIL :: Lude.Maybe EmailMessageActivity,
+    multiCondition :: Lude.Maybe MultiConditionalSplitActivity,
+    cUSTOM :: Lude.Maybe CustomMessageActivity,
+    wait :: Lude.Maybe WaitActivity,
+    randomSplit :: Lude.Maybe RandomSplitActivity,
+    holdout :: Lude.Maybe HoldoutActivity,
+    sMS :: Lude.Maybe SMSMessageActivity,
+    pUSH :: Lude.Maybe PushMessageActivity,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Activity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aConditionalSplit' - The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.
---
--- * 'aEMAIL' - The settings for an email activity. This type of activity sends an email message to participants.
---
--- * 'aMultiCondition' - The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default /Else/ path) in a journey, based on conditions that you specify.
---
--- * 'aCUSTOM' - The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.
---
--- * 'aWait' - The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
---
--- * 'aRandomSplit' - The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
---
--- * 'aHoldout' - The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.
---
--- * 'aSMS' - The settings for an SMS activity. This type of activity sends a text message to participants.
---
--- * 'aPUSH' - The settings for a push notification activity. This type of activity sends a push notification to participants.
---
--- * 'aDescription' - The custom description of the activity.
-activity ::
+-- * 'cUSTOM' - The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.
+-- * 'conditionalSplit' - The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.
+-- * 'description' - The custom description of the activity.
+-- * 'eMAIL' - The settings for an email activity. This type of activity sends an email message to participants.
+-- * 'holdout' - The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.
+-- * 'multiCondition' - The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default /Else/ path) in a journey, based on conditions that you specify.
+-- * 'pUSH' - The settings for a push notification activity. This type of activity sends a push notification to participants.
+-- * 'randomSplit' - The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
+-- * 'sMS' - The settings for an SMS activity. This type of activity sends a text message to participants.
+-- * 'wait' - The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
+mkActivity ::
   Activity
-activity =
+mkActivity =
   Activity'
-    { _aConditionalSplit = Nothing,
-      _aEMAIL = Nothing,
-      _aMultiCondition = Nothing,
-      _aCUSTOM = Nothing,
-      _aWait = Nothing,
-      _aRandomSplit = Nothing,
-      _aHoldout = Nothing,
-      _aSMS = Nothing,
-      _aPUSH = Nothing,
-      _aDescription = Nothing
+    { conditionalSplit = Lude.Nothing,
+      eMAIL = Lude.Nothing,
+      multiCondition = Lude.Nothing,
+      cUSTOM = Lude.Nothing,
+      wait = Lude.Nothing,
+      randomSplit = Lude.Nothing,
+      holdout = Lude.Nothing,
+      sMS = Lude.Nothing,
+      pUSH = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.
-aConditionalSplit :: Lens' Activity (Maybe ConditionalSplitActivity)
-aConditionalSplit = lens _aConditionalSplit (\s a -> s {_aConditionalSplit = a})
+--
+-- /Note:/ Consider using 'conditionalSplit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aConditionalSplit :: Lens.Lens' Activity (Lude.Maybe ConditionalSplitActivity)
+aConditionalSplit = Lens.lens (conditionalSplit :: Activity -> Lude.Maybe ConditionalSplitActivity) (\s a -> s {conditionalSplit = a} :: Activity)
+{-# DEPRECATED aConditionalSplit "Use generic-lens or generic-optics with 'conditionalSplit' instead." #-}
 
 -- | The settings for an email activity. This type of activity sends an email message to participants.
-aEMAIL :: Lens' Activity (Maybe EmailMessageActivity)
-aEMAIL = lens _aEMAIL (\s a -> s {_aEMAIL = a})
+--
+-- /Note:/ Consider using 'eMAIL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aEMAIL :: Lens.Lens' Activity (Lude.Maybe EmailMessageActivity)
+aEMAIL = Lens.lens (eMAIL :: Activity -> Lude.Maybe EmailMessageActivity) (\s a -> s {eMAIL = a} :: Activity)
+{-# DEPRECATED aEMAIL "Use generic-lens or generic-optics with 'eMAIL' instead." #-}
 
 -- | The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default /Else/ path) in a journey, based on conditions that you specify.
-aMultiCondition :: Lens' Activity (Maybe MultiConditionalSplitActivity)
-aMultiCondition = lens _aMultiCondition (\s a -> s {_aMultiCondition = a})
+--
+-- /Note:/ Consider using 'multiCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aMultiCondition :: Lens.Lens' Activity (Lude.Maybe MultiConditionalSplitActivity)
+aMultiCondition = Lens.lens (multiCondition :: Activity -> Lude.Maybe MultiConditionalSplitActivity) (\s a -> s {multiCondition = a} :: Activity)
+{-# DEPRECATED aMultiCondition "Use generic-lens or generic-optics with 'multiCondition' instead." #-}
 
 -- | The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.
-aCUSTOM :: Lens' Activity (Maybe CustomMessageActivity)
-aCUSTOM = lens _aCUSTOM (\s a -> s {_aCUSTOM = a})
+--
+-- /Note:/ Consider using 'cUSTOM' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCUSTOM :: Lens.Lens' Activity (Lude.Maybe CustomMessageActivity)
+aCUSTOM = Lens.lens (cUSTOM :: Activity -> Lude.Maybe CustomMessageActivity) (\s a -> s {cUSTOM = a} :: Activity)
+{-# DEPRECATED aCUSTOM "Use generic-lens or generic-optics with 'cUSTOM' instead." #-}
 
 -- | The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
-aWait :: Lens' Activity (Maybe WaitActivity)
-aWait = lens _aWait (\s a -> s {_aWait = a})
+--
+-- /Note:/ Consider using 'wait' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aWait :: Lens.Lens' Activity (Lude.Maybe WaitActivity)
+aWait = Lens.lens (wait :: Activity -> Lude.Maybe WaitActivity) (\s a -> s {wait = a} :: Activity)
+{-# DEPRECATED aWait "Use generic-lens or generic-optics with 'wait' instead." #-}
 
 -- | The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
-aRandomSplit :: Lens' Activity (Maybe RandomSplitActivity)
-aRandomSplit = lens _aRandomSplit (\s a -> s {_aRandomSplit = a})
+--
+-- /Note:/ Consider using 'randomSplit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRandomSplit :: Lens.Lens' Activity (Lude.Maybe RandomSplitActivity)
+aRandomSplit = Lens.lens (randomSplit :: Activity -> Lude.Maybe RandomSplitActivity) (\s a -> s {randomSplit = a} :: Activity)
+{-# DEPRECATED aRandomSplit "Use generic-lens or generic-optics with 'randomSplit' instead." #-}
 
 -- | The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.
-aHoldout :: Lens' Activity (Maybe HoldoutActivity)
-aHoldout = lens _aHoldout (\s a -> s {_aHoldout = a})
+--
+-- /Note:/ Consider using 'holdout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aHoldout :: Lens.Lens' Activity (Lude.Maybe HoldoutActivity)
+aHoldout = Lens.lens (holdout :: Activity -> Lude.Maybe HoldoutActivity) (\s a -> s {holdout = a} :: Activity)
+{-# DEPRECATED aHoldout "Use generic-lens or generic-optics with 'holdout' instead." #-}
 
 -- | The settings for an SMS activity. This type of activity sends a text message to participants.
-aSMS :: Lens' Activity (Maybe SMSMessageActivity)
-aSMS = lens _aSMS (\s a -> s {_aSMS = a})
+--
+-- /Note:/ Consider using 'sMS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSMS :: Lens.Lens' Activity (Lude.Maybe SMSMessageActivity)
+aSMS = Lens.lens (sMS :: Activity -> Lude.Maybe SMSMessageActivity) (\s a -> s {sMS = a} :: Activity)
+{-# DEPRECATED aSMS "Use generic-lens or generic-optics with 'sMS' instead." #-}
 
 -- | The settings for a push notification activity. This type of activity sends a push notification to participants.
-aPUSH :: Lens' Activity (Maybe PushMessageActivity)
-aPUSH = lens _aPUSH (\s a -> s {_aPUSH = a})
+--
+-- /Note:/ Consider using 'pUSH' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPUSH :: Lens.Lens' Activity (Lude.Maybe PushMessageActivity)
+aPUSH = Lens.lens (pUSH :: Activity -> Lude.Maybe PushMessageActivity) (\s a -> s {pUSH = a} :: Activity)
+{-# DEPRECATED aPUSH "Use generic-lens or generic-optics with 'pUSH' instead." #-}
 
 -- | The custom description of the activity.
-aDescription :: Lens' Activity (Maybe Text)
-aDescription = lens _aDescription (\s a -> s {_aDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDescription :: Lens.Lens' Activity (Lude.Maybe Lude.Text)
+aDescription = Lens.lens (description :: Activity -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Activity)
+{-# DEPRECATED aDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON Activity where
+instance Lude.FromJSON Activity where
   parseJSON =
-    withObject
+    Lude.withObject
       "Activity"
       ( \x ->
           Activity'
-            <$> (x .:? "ConditionalSplit")
-            <*> (x .:? "EMAIL")
-            <*> (x .:? "MultiCondition")
-            <*> (x .:? "CUSTOM")
-            <*> (x .:? "Wait")
-            <*> (x .:? "RandomSplit")
-            <*> (x .:? "Holdout")
-            <*> (x .:? "SMS")
-            <*> (x .:? "PUSH")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "ConditionalSplit")
+            Lude.<*> (x Lude..:? "EMAIL")
+            Lude.<*> (x Lude..:? "MultiCondition")
+            Lude.<*> (x Lude..:? "CUSTOM")
+            Lude.<*> (x Lude..:? "Wait")
+            Lude.<*> (x Lude..:? "RandomSplit")
+            Lude.<*> (x Lude..:? "Holdout")
+            Lude.<*> (x Lude..:? "SMS")
+            Lude.<*> (x Lude..:? "PUSH")
+            Lude.<*> (x Lude..:? "Description")
       )
 
-instance Hashable Activity
-
-instance NFData Activity
-
-instance ToJSON Activity where
+instance Lude.ToJSON Activity where
   toJSON Activity' {..} =
-    object
-      ( catMaybes
-          [ ("ConditionalSplit" .=) <$> _aConditionalSplit,
-            ("EMAIL" .=) <$> _aEMAIL,
-            ("MultiCondition" .=) <$> _aMultiCondition,
-            ("CUSTOM" .=) <$> _aCUSTOM,
-            ("Wait" .=) <$> _aWait,
-            ("RandomSplit" .=) <$> _aRandomSplit,
-            ("Holdout" .=) <$> _aHoldout,
-            ("SMS" .=) <$> _aSMS,
-            ("PUSH" .=) <$> _aPUSH,
-            ("Description" .=) <$> _aDescription
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConditionalSplit" Lude..=) Lude.<$> conditionalSplit,
+            ("EMAIL" Lude..=) Lude.<$> eMAIL,
+            ("MultiCondition" Lude..=) Lude.<$> multiCondition,
+            ("CUSTOM" Lude..=) Lude.<$> cUSTOM,
+            ("Wait" Lude..=) Lude.<$> wait,
+            ("RandomSplit" Lude..=) Lude.<$> randomSplit,
+            ("Holdout" Lude..=) Lude.<$> holdout,
+            ("SMS" Lude..=) Lude.<$> sMS,
+            ("PUSH" Lude..=) Lude.<$> pUSH,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

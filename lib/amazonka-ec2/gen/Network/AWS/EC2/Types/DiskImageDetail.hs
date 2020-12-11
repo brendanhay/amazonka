@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DiskImageDetail where
+module Network.AWS.EC2.Types.DiskImageDetail
+  ( DiskImageDetail (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDiskImageDetail,
+
+    -- * Lenses
+    didBytes,
+    didFormat,
+    didImportManifestURL,
+  )
+where
+
 import Network.AWS.EC2.Types.DiskImageFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a disk image.
 --
---
---
--- /See:/ 'diskImageDetail' smart constructor.
+-- /See:/ 'mkDiskImageDetail' smart constructor.
 data DiskImageDetail = DiskImageDetail'
-  { _didBytes :: !Integer,
-    _didFormat :: !DiskImageFormat,
-    _didImportManifestURL :: !Text
+  { bytes :: Lude.Integer,
+    format :: DiskImageFormat,
+    importManifestURL :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskImageDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bytes' - The size of the disk image, in GiB.
+-- * 'format' - The disk image format.
+-- * 'importManifestURL' - A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ .
 --
--- * 'didBytes' - The size of the disk image, in GiB.
---
--- * 'didFormat' - The disk image format.
---
--- * 'didImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
-diskImageDetail ::
-  -- | 'didBytes'
-  Integer ->
-  -- | 'didFormat'
+-- For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+mkDiskImageDetail ::
+  -- | 'bytes'
+  Lude.Integer ->
+  -- | 'format'
   DiskImageFormat ->
-  -- | 'didImportManifestURL'
-  Text ->
+  -- | 'importManifestURL'
+  Lude.Text ->
   DiskImageDetail
-diskImageDetail pBytes_ pFormat_ pImportManifestURL_ =
+mkDiskImageDetail pBytes_ pFormat_ pImportManifestURL_ =
   DiskImageDetail'
-    { _didBytes = pBytes_,
-      _didFormat = pFormat_,
-      _didImportManifestURL = pImportManifestURL_
+    { bytes = pBytes_,
+      format = pFormat_,
+      importManifestURL = pImportManifestURL_
     }
 
 -- | The size of the disk image, in GiB.
-didBytes :: Lens' DiskImageDetail Integer
-didBytes = lens _didBytes (\s a -> s {_didBytes = a})
+--
+-- /Note:/ Consider using 'bytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didBytes :: Lens.Lens' DiskImageDetail Lude.Integer
+didBytes = Lens.lens (bytes :: DiskImageDetail -> Lude.Integer) (\s a -> s {bytes = a} :: DiskImageDetail)
+{-# DEPRECATED didBytes "Use generic-lens or generic-optics with 'bytes' instead." #-}
 
 -- | The disk image format.
-didFormat :: Lens' DiskImageDetail DiskImageFormat
-didFormat = lens _didFormat (\s a -> s {_didFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didFormat :: Lens.Lens' DiskImageDetail DiskImageFormat
+didFormat = Lens.lens (format :: DiskImageDetail -> DiskImageFormat) (\s a -> s {format = a} :: DiskImageDetail)
+{-# DEPRECATED didFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
--- | A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
-didImportManifestURL :: Lens' DiskImageDetail Text
-didImportManifestURL = lens _didImportManifestURL (\s a -> s {_didImportManifestURL = a})
+-- | A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
+-- /Note:/ Consider using 'importManifestURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didImportManifestURL :: Lens.Lens' DiskImageDetail Lude.Text
+didImportManifestURL = Lens.lens (importManifestURL :: DiskImageDetail -> Lude.Text) (\s a -> s {importManifestURL = a} :: DiskImageDetail)
+{-# DEPRECATED didImportManifestURL "Use generic-lens or generic-optics with 'importManifestURL' instead." #-}
 
-instance Hashable DiskImageDetail
-
-instance NFData DiskImageDetail
-
-instance ToQuery DiskImageDetail where
+instance Lude.ToQuery DiskImageDetail where
   toQuery DiskImageDetail' {..} =
-    mconcat
-      [ "Bytes" =: _didBytes,
-        "Format" =: _didFormat,
-        "ImportManifestUrl" =: _didImportManifestURL
+    Lude.mconcat
+      [ "Bytes" Lude.=: bytes,
+        "Format" Lude.=: format,
+        "ImportManifestUrl" Lude.=: importManifestURL
       ]

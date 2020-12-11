@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ModificationState where
+module Network.AWS.WorkSpaces.Types.ModificationState
+  ( ModificationState (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkModificationState,
+
+    -- * Lenses
+    msState,
+    msResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.ModificationResourceEnum
 import Network.AWS.WorkSpaces.Types.ModificationStateEnum
 
 -- | Describes a WorkSpace modification.
 --
---
---
--- /See:/ 'modificationState' smart constructor.
+-- /See:/ 'mkModificationState' smart constructor.
 data ModificationState = ModificationState'
-  { _msState ::
-      !(Maybe ModificationStateEnum),
-    _msResource :: !(Maybe ModificationResourceEnum)
+  { state ::
+      Lude.Maybe ModificationStateEnum,
+    resource :: Lude.Maybe ModificationResourceEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModificationState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msState' - The modification state.
---
--- * 'msResource' - The resource.
-modificationState ::
+-- * 'resource' - The resource.
+-- * 'state' - The modification state.
+mkModificationState ::
   ModificationState
-modificationState =
-  ModificationState' {_msState = Nothing, _msResource = Nothing}
+mkModificationState =
+  ModificationState' {state = Lude.Nothing, resource = Lude.Nothing}
 
 -- | The modification state.
-msState :: Lens' ModificationState (Maybe ModificationStateEnum)
-msState = lens _msState (\s a -> s {_msState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msState :: Lens.Lens' ModificationState (Lude.Maybe ModificationStateEnum)
+msState = Lens.lens (state :: ModificationState -> Lude.Maybe ModificationStateEnum) (\s a -> s {state = a} :: ModificationState)
+{-# DEPRECATED msState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The resource.
-msResource :: Lens' ModificationState (Maybe ModificationResourceEnum)
-msResource = lens _msResource (\s a -> s {_msResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msResource :: Lens.Lens' ModificationState (Lude.Maybe ModificationResourceEnum)
+msResource = Lens.lens (resource :: ModificationState -> Lude.Maybe ModificationResourceEnum) (\s a -> s {resource = a} :: ModificationState)
+{-# DEPRECATED msResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON ModificationState where
+instance Lude.FromJSON ModificationState where
   parseJSON =
-    withObject
+    Lude.withObject
       "ModificationState"
       ( \x ->
-          ModificationState' <$> (x .:? "State") <*> (x .:? "Resource")
+          ModificationState'
+            Lude.<$> (x Lude..:? "State") Lude.<*> (x Lude..:? "Resource")
       )
-
-instance Hashable ModificationState
-
-instance NFData ModificationState

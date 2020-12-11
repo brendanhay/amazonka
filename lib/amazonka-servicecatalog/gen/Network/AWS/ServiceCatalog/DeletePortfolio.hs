@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,156 @@
 --
 -- Deletes the specified portfolio.
 --
---
 -- You cannot delete a portfolio if it was shared with you or if it has associated products, users, constraints, or shared accounts.
---
 -- A delegated admin is authorized to invoke this command.
 module Network.AWS.ServiceCatalog.DeletePortfolio
-  ( -- * Creating a Request
-    deletePortfolio,
-    DeletePortfolio,
+  ( -- * Creating a request
+    DeletePortfolio (..),
+    mkDeletePortfolio,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddAcceptLanguage,
     ddId,
 
-    -- * Destructuring the Response
-    deletePortfolioResponse,
-    DeletePortfolioResponse,
+    -- * Destructuring the response
+    DeletePortfolioResponse (..),
+    mkDeletePortfolioResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'deletePortfolio' smart constructor.
+-- | /See:/ 'mkDeletePortfolio' smart constructor.
 data DeletePortfolio = DeletePortfolio'
-  { _ddAcceptLanguage ::
-      !(Maybe Text),
-    _ddId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePortfolio' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'ddAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'ddId' - The portfolio identifier.
-deletePortfolio ::
-  -- | 'ddId'
-  Text ->
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'id' - The portfolio identifier.
+mkDeletePortfolio ::
+  -- | 'id'
+  Lude.Text ->
   DeletePortfolio
-deletePortfolio pId_ =
-  DeletePortfolio' {_ddAcceptLanguage = Nothing, _ddId = pId_}
+mkDeletePortfolio pId_ =
+  DeletePortfolio' {acceptLanguage = Lude.Nothing, id = pId_}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-ddAcceptLanguage :: Lens' DeletePortfolio (Maybe Text)
-ddAcceptLanguage = lens _ddAcceptLanguage (\s a -> s {_ddAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddAcceptLanguage :: Lens.Lens' DeletePortfolio (Lude.Maybe Lude.Text)
+ddAcceptLanguage = Lens.lens (acceptLanguage :: DeletePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeletePortfolio)
+{-# DEPRECATED ddAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The portfolio identifier.
-ddId :: Lens' DeletePortfolio Text
-ddId = lens _ddId (\s a -> s {_ddId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddId :: Lens.Lens' DeletePortfolio Lude.Text
+ddId = Lens.lens (id :: DeletePortfolio -> Lude.Text) (\s a -> s {id = a} :: DeletePortfolio)
+{-# DEPRECATED ddId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeletePortfolio where
+instance Lude.AWSRequest DeletePortfolio where
   type Rs DeletePortfolio = DeletePortfolioResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
-      (\s h x -> DeletePortfolioResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeletePortfolioResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeletePortfolio
-
-instance NFData DeletePortfolio
-
-instance ToHeaders DeletePortfolio where
+instance Lude.ToHeaders DeletePortfolio where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.DeletePortfolio" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.DeletePortfolio" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeletePortfolio where
+instance Lude.ToJSON DeletePortfolio where
   toJSON DeletePortfolio' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _ddAcceptLanguage,
-            Just ("Id" .= _ddId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
-instance ToPath DeletePortfolio where
-  toPath = const "/"
+instance Lude.ToPath DeletePortfolio where
+  toPath = Lude.const "/"
 
-instance ToQuery DeletePortfolio where
-  toQuery = const mempty
+instance Lude.ToQuery DeletePortfolio where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deletePortfolioResponse' smart constructor.
+-- | /See:/ 'mkDeletePortfolioResponse' smart constructor.
 newtype DeletePortfolioResponse = DeletePortfolioResponse'
-  { _delrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePortfolioResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deletePortfolioResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeletePortfolioResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeletePortfolioResponse
-deletePortfolioResponse pResponseStatus_ =
-  DeletePortfolioResponse' {_delrsResponseStatus = pResponseStatus_}
+mkDeletePortfolioResponse pResponseStatus_ =
+  DeletePortfolioResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeletePortfolioResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeletePortfolioResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeletePortfolioResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeletePortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePortfolioResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

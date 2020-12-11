@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.MixedInstancesPolicy where
+module Network.AWS.AutoScaling.Types.MixedInstancesPolicy
+  ( MixedInstancesPolicy (..),
+
+    -- * Smart constructor
+    mkMixedInstancesPolicy,
+
+    -- * Lenses
+    mipLaunchTemplate,
+    mipInstancesDistribution,
+  )
+where
 
 import Network.AWS.AutoScaling.Types.InstancesDistribution
 import Network.AWS.AutoScaling.Types.LaunchTemplate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a mixed instances policy for an Auto Scaling group. With mixed instances, your Auto Scaling group can provision a combination of On-Demand Instances and Spot Instances across multiple instance types. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
---
 -- You can create a mixed instances policy for a new Auto Scaling group, or you can create it for an existing group by updating the group to specify @MixedInstancesPolicy@ as the top-level parameter instead of a launch configuration or launch template.
 --
---
--- /See:/ 'mixedInstancesPolicy' smart constructor.
+-- /See:/ 'mkMixedInstancesPolicy' smart constructor.
 data MixedInstancesPolicy = MixedInstancesPolicy'
-  { _mipLaunchTemplate ::
-      !(Maybe LaunchTemplate),
-    _mipInstancesDistribution ::
-      !(Maybe InstancesDistribution)
+  { launchTemplate ::
+      Lude.Maybe LaunchTemplate,
+    instancesDistribution ::
+      Lude.Maybe InstancesDistribution
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MixedInstancesPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mipLaunchTemplate' - Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when creating a mixed instances policy.
---
--- * 'mipInstancesDistribution' - Specifies the instances distribution. If not provided, the value for each parameter in @InstancesDistribution@ uses a default value.
-mixedInstancesPolicy ::
+-- * 'instancesDistribution' - Specifies the instances distribution. If not provided, the value for each parameter in @InstancesDistribution@ uses a default value.
+-- * 'launchTemplate' - Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when creating a mixed instances policy.
+mkMixedInstancesPolicy ::
   MixedInstancesPolicy
-mixedInstancesPolicy =
+mkMixedInstancesPolicy =
   MixedInstancesPolicy'
-    { _mipLaunchTemplate = Nothing,
-      _mipInstancesDistribution = Nothing
+    { launchTemplate = Lude.Nothing,
+      instancesDistribution = Lude.Nothing
     }
 
 -- | Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when creating a mixed instances policy.
-mipLaunchTemplate :: Lens' MixedInstancesPolicy (Maybe LaunchTemplate)
-mipLaunchTemplate = lens _mipLaunchTemplate (\s a -> s {_mipLaunchTemplate = a})
+--
+-- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipLaunchTemplate :: Lens.Lens' MixedInstancesPolicy (Lude.Maybe LaunchTemplate)
+mipLaunchTemplate = Lens.lens (launchTemplate :: MixedInstancesPolicy -> Lude.Maybe LaunchTemplate) (\s a -> s {launchTemplate = a} :: MixedInstancesPolicy)
+{-# DEPRECATED mipLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
 
 -- | Specifies the instances distribution. If not provided, the value for each parameter in @InstancesDistribution@ uses a default value.
-mipInstancesDistribution :: Lens' MixedInstancesPolicy (Maybe InstancesDistribution)
-mipInstancesDistribution = lens _mipInstancesDistribution (\s a -> s {_mipInstancesDistribution = a})
+--
+-- /Note:/ Consider using 'instancesDistribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipInstancesDistribution :: Lens.Lens' MixedInstancesPolicy (Lude.Maybe InstancesDistribution)
+mipInstancesDistribution = Lens.lens (instancesDistribution :: MixedInstancesPolicy -> Lude.Maybe InstancesDistribution) (\s a -> s {instancesDistribution = a} :: MixedInstancesPolicy)
+{-# DEPRECATED mipInstancesDistribution "Use generic-lens or generic-optics with 'instancesDistribution' instead." #-}
 
-instance FromXML MixedInstancesPolicy where
+instance Lude.FromXML MixedInstancesPolicy where
   parseXML x =
     MixedInstancesPolicy'
-      <$> (x .@? "LaunchTemplate") <*> (x .@? "InstancesDistribution")
+      Lude.<$> (x Lude..@? "LaunchTemplate")
+      Lude.<*> (x Lude..@? "InstancesDistribution")
 
-instance Hashable MixedInstancesPolicy
-
-instance NFData MixedInstancesPolicy
-
-instance ToQuery MixedInstancesPolicy where
+instance Lude.ToQuery MixedInstancesPolicy where
   toQuery MixedInstancesPolicy' {..} =
-    mconcat
-      [ "LaunchTemplate" =: _mipLaunchTemplate,
-        "InstancesDistribution" =: _mipInstancesDistribution
+    Lude.mconcat
+      [ "LaunchTemplate" Lude.=: launchTemplate,
+        "InstancesDistribution" Lude.=: instancesDistribution
       ]

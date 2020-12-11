@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.RuleEvaluationStatus where
+module Network.AWS.SageMaker.Types.RuleEvaluationStatus
+  ( RuleEvaluationStatus
+      ( RuleEvaluationStatus',
+        Error,
+        InProgress,
+        IssuesFound,
+        NoIssuesFound,
+        Stopped,
+        Stopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RuleEvaluationStatus
-  = Error'
-  | InProgress
-  | IssuesFound
-  | NoIssuesFound
-  | Stopped
-  | Stopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RuleEvaluationStatus = RuleEvaluationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RuleEvaluationStatus where
-  parser =
-    takeLowerText >>= \case
-      "error" -> pure Error'
-      "inprogress" -> pure InProgress
-      "issuesfound" -> pure IssuesFound
-      "noissuesfound" -> pure NoIssuesFound
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      e ->
-        fromTextError $
-          "Failure parsing RuleEvaluationStatus from value: '" <> e
-            <> "'. Accepted values: error, inprogress, issuesfound, noissuesfound, stopped, stopping"
+pattern Error :: RuleEvaluationStatus
+pattern Error = RuleEvaluationStatus' "Error"
 
-instance ToText RuleEvaluationStatus where
-  toText = \case
-    Error' -> "Error"
-    InProgress -> "InProgress"
-    IssuesFound -> "IssuesFound"
-    NoIssuesFound -> "NoIssuesFound"
-    Stopped -> "Stopped"
-    Stopping -> "Stopping"
+pattern InProgress :: RuleEvaluationStatus
+pattern InProgress = RuleEvaluationStatus' "InProgress"
 
-instance Hashable RuleEvaluationStatus
+pattern IssuesFound :: RuleEvaluationStatus
+pattern IssuesFound = RuleEvaluationStatus' "IssuesFound"
 
-instance NFData RuleEvaluationStatus
+pattern NoIssuesFound :: RuleEvaluationStatus
+pattern NoIssuesFound = RuleEvaluationStatus' "NoIssuesFound"
 
-instance ToByteString RuleEvaluationStatus
+pattern Stopped :: RuleEvaluationStatus
+pattern Stopped = RuleEvaluationStatus' "Stopped"
 
-instance ToQuery RuleEvaluationStatus
+pattern Stopping :: RuleEvaluationStatus
+pattern Stopping = RuleEvaluationStatus' "Stopping"
 
-instance ToHeader RuleEvaluationStatus
-
-instance FromJSON RuleEvaluationStatus where
-  parseJSON = parseJSONText "RuleEvaluationStatus"
+{-# COMPLETE
+  Error,
+  InProgress,
+  IssuesFound,
+  NoIssuesFound,
+  Stopped,
+  Stopping,
+  RuleEvaluationStatus'
+  #-}

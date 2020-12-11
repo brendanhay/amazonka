@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Changes information about a model.
 module Network.AWS.APIGateway.UpdateModel
-  ( -- * Creating a Request
-    updateModel,
-    UpdateModel,
+  ( -- * Creating a request
+    UpdateModel (..),
+    mkUpdateModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uPatchOperations,
     uRestAPIId,
     uModelName,
 
-    -- * Destructuring the Response
-    model,
-    Model,
+    -- * Destructuring the response
+    Model (..),
+    mkModel,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mSchema,
     mName,
     mId,
@@ -42,79 +37,95 @@ module Network.AWS.APIGateway.UpdateModel
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to update an existing model in an existing 'RestApi' resource.
 --
---
---
--- /See:/ 'updateModel' smart constructor.
+-- /See:/ 'mkUpdateModel' smart constructor.
 data UpdateModel = UpdateModel'
-  { _uPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uRestAPIId :: !Text,
-    _uModelName :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    modelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'uModelName' - [Required] The name of the model to update.
-updateModel ::
-  -- | 'uRestAPIId'
-  Text ->
-  -- | 'uModelName'
-  Text ->
+-- * 'modelName' - [Required] The name of the model to update.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkUpdateModel ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'modelName'
+  Lude.Text ->
   UpdateModel
-updateModel pRestAPIId_ pModelName_ =
+mkUpdateModel pRestAPIId_ pModelName_ =
   UpdateModel'
-    { _uPatchOperations = Nothing,
-      _uRestAPIId = pRestAPIId_,
-      _uModelName = pModelName_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      modelName = pModelName_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uPatchOperations :: Lens' UpdateModel [PatchOperation]
-uPatchOperations = lens _uPatchOperations (\s a -> s {_uPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uPatchOperations :: Lens.Lens' UpdateModel (Lude.Maybe [PatchOperation])
+uPatchOperations = Lens.lens (patchOperations :: UpdateModel -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateModel)
+{-# DEPRECATED uPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-uRestAPIId :: Lens' UpdateModel Text
-uRestAPIId = lens _uRestAPIId (\s a -> s {_uRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uRestAPIId :: Lens.Lens' UpdateModel Lude.Text
+uRestAPIId = Lens.lens (restAPIId :: UpdateModel -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateModel)
+{-# DEPRECATED uRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model to update.
-uModelName :: Lens' UpdateModel Text
-uModelName = lens _uModelName (\s a -> s {_uModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uModelName :: Lens.Lens' UpdateModel Lude.Text
+uModelName = Lens.lens (modelName :: UpdateModel -> Lude.Text) (\s a -> s {modelName = a} :: UpdateModel)
+{-# DEPRECATED uModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest UpdateModel where
+instance Lude.AWSRequest UpdateModel where
   type Rs UpdateModel = Model
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateModel
-
-instance NFData UpdateModel
-
-instance ToHeaders UpdateModel where
+instance Lude.ToHeaders UpdateModel where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateModel where
+instance Lude.ToJSON UpdateModel where
   toJSON UpdateModel' {..} =
-    object (catMaybes [("patchOperations" .=) <$> _uPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateModel where
+instance Lude.ToPath UpdateModel where
   toPath UpdateModel' {..} =
-    mconcat
-      ["/restapis/", toBS _uRestAPIId, "/models/", toBS _uModelName]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/models/",
+        Lude.toBS modelName
+      ]
 
-instance ToQuery UpdateModel where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateModel where
+  toQuery = Lude.const Lude.mempty

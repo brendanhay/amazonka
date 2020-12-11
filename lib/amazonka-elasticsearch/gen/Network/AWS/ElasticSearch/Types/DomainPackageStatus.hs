@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.DomainPackageStatus where
+module Network.AWS.ElasticSearch.Types.DomainPackageStatus
+  ( DomainPackageStatus
+      ( DomainPackageStatus',
+        DPSActive,
+        DPSAssociating,
+        DPSAssociationFailed,
+        DPSDissociating,
+        DPSDissociationFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainPackageStatus
-  = DPSActive
-  | DPSAssociating
-  | DPSAssociationFailed
-  | DPSDissociating
-  | DPSDissociationFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainPackageStatus = DomainPackageStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainPackageStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DPSActive
-      "associating" -> pure DPSAssociating
-      "association_failed" -> pure DPSAssociationFailed
-      "dissociating" -> pure DPSDissociating
-      "dissociation_failed" -> pure DPSDissociationFailed
-      e ->
-        fromTextError $
-          "Failure parsing DomainPackageStatus from value: '" <> e
-            <> "'. Accepted values: active, associating, association_failed, dissociating, dissociation_failed"
+pattern DPSActive :: DomainPackageStatus
+pattern DPSActive = DomainPackageStatus' "ACTIVE"
 
-instance ToText DomainPackageStatus where
-  toText = \case
-    DPSActive -> "ACTIVE"
-    DPSAssociating -> "ASSOCIATING"
-    DPSAssociationFailed -> "ASSOCIATION_FAILED"
-    DPSDissociating -> "DISSOCIATING"
-    DPSDissociationFailed -> "DISSOCIATION_FAILED"
+pattern DPSAssociating :: DomainPackageStatus
+pattern DPSAssociating = DomainPackageStatus' "ASSOCIATING"
 
-instance Hashable DomainPackageStatus
+pattern DPSAssociationFailed :: DomainPackageStatus
+pattern DPSAssociationFailed = DomainPackageStatus' "ASSOCIATION_FAILED"
 
-instance NFData DomainPackageStatus
+pattern DPSDissociating :: DomainPackageStatus
+pattern DPSDissociating = DomainPackageStatus' "DISSOCIATING"
 
-instance ToByteString DomainPackageStatus
+pattern DPSDissociationFailed :: DomainPackageStatus
+pattern DPSDissociationFailed = DomainPackageStatus' "DISSOCIATION_FAILED"
 
-instance ToQuery DomainPackageStatus
-
-instance ToHeader DomainPackageStatus
-
-instance FromJSON DomainPackageStatus where
-  parseJSON = parseJSONText "DomainPackageStatus"
+{-# COMPLETE
+  DPSActive,
+  DPSAssociating,
+  DPSAssociationFailed,
+  DPSDissociating,
+  DPSDissociationFailed,
+  DomainPackageStatus'
+  #-}

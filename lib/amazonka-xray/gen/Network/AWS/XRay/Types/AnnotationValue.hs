@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.AnnotationValue where
+module Network.AWS.XRay.Types.AnnotationValue
+  ( AnnotationValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAnnotationValue,
+
+    -- * Lenses
+    avNumberValue,
+    avStringValue,
+    avBooleanValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Value of a segment annotation. Has one of three value types: Number, Boolean, or String.
 --
---
---
--- /See:/ 'annotationValue' smart constructor.
+-- /See:/ 'mkAnnotationValue' smart constructor.
 data AnnotationValue = AnnotationValue'
-  { _avNumberValue ::
-      !(Maybe Double),
-    _avStringValue :: !(Maybe Text),
-    _avBooleanValue :: !(Maybe Bool)
+  { numberValue ::
+      Lude.Maybe Lude.Double,
+    stringValue :: Lude.Maybe Lude.Text,
+    booleanValue :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnnotationValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avNumberValue' - Value for a Number annotation.
---
--- * 'avStringValue' - Value for a String annotation.
---
--- * 'avBooleanValue' - Value for a Boolean annotation.
-annotationValue ::
+-- * 'booleanValue' - Value for a Boolean annotation.
+-- * 'numberValue' - Value for a Number annotation.
+-- * 'stringValue' - Value for a String annotation.
+mkAnnotationValue ::
   AnnotationValue
-annotationValue =
+mkAnnotationValue =
   AnnotationValue'
-    { _avNumberValue = Nothing,
-      _avStringValue = Nothing,
-      _avBooleanValue = Nothing
+    { numberValue = Lude.Nothing,
+      stringValue = Lude.Nothing,
+      booleanValue = Lude.Nothing
     }
 
 -- | Value for a Number annotation.
-avNumberValue :: Lens' AnnotationValue (Maybe Double)
-avNumberValue = lens _avNumberValue (\s a -> s {_avNumberValue = a})
+--
+-- /Note:/ Consider using 'numberValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avNumberValue :: Lens.Lens' AnnotationValue (Lude.Maybe Lude.Double)
+avNumberValue = Lens.lens (numberValue :: AnnotationValue -> Lude.Maybe Lude.Double) (\s a -> s {numberValue = a} :: AnnotationValue)
+{-# DEPRECATED avNumberValue "Use generic-lens or generic-optics with 'numberValue' instead." #-}
 
 -- | Value for a String annotation.
-avStringValue :: Lens' AnnotationValue (Maybe Text)
-avStringValue = lens _avStringValue (\s a -> s {_avStringValue = a})
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avStringValue :: Lens.Lens' AnnotationValue (Lude.Maybe Lude.Text)
+avStringValue = Lens.lens (stringValue :: AnnotationValue -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: AnnotationValue)
+{-# DEPRECATED avStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
 -- | Value for a Boolean annotation.
-avBooleanValue :: Lens' AnnotationValue (Maybe Bool)
-avBooleanValue = lens _avBooleanValue (\s a -> s {_avBooleanValue = a})
+--
+-- /Note:/ Consider using 'booleanValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avBooleanValue :: Lens.Lens' AnnotationValue (Lude.Maybe Lude.Bool)
+avBooleanValue = Lens.lens (booleanValue :: AnnotationValue -> Lude.Maybe Lude.Bool) (\s a -> s {booleanValue = a} :: AnnotationValue)
+{-# DEPRECATED avBooleanValue "Use generic-lens or generic-optics with 'booleanValue' instead." #-}
 
-instance FromJSON AnnotationValue where
+instance Lude.FromJSON AnnotationValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "AnnotationValue"
       ( \x ->
           AnnotationValue'
-            <$> (x .:? "NumberValue")
-            <*> (x .:? "StringValue")
-            <*> (x .:? "BooleanValue")
+            Lude.<$> (x Lude..:? "NumberValue")
+            Lude.<*> (x Lude..:? "StringValue")
+            Lude.<*> (x Lude..:? "BooleanValue")
       )
-
-instance Hashable AnnotationValue
-
-instance NFData AnnotationValue

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the rules for the specific topic.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListTopicRules
-  ( -- * Creating a Request
-    listTopicRules,
-    ListTopicRules,
+  ( -- * Creating a request
+    ListTopicRules (..),
+    mkListTopicRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltrRuleDisabled,
     ltrTopic,
     ltrNextToken,
     ltrMaxResults,
 
-    -- * Destructuring the Response
-    listTopicRulesResponse,
-    ListTopicRulesResponse,
+    -- * Destructuring the response
+    ListTopicRulesResponse (..),
+    mkListTopicRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrrsRules,
     ltrrsNextToken,
     ltrrsResponseStatus,
@@ -45,143 +38,162 @@ module Network.AWS.IoT.ListTopicRules
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the ListTopicRules operation.
 --
---
---
--- /See:/ 'listTopicRules' smart constructor.
+-- /See:/ 'mkListTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
-  { _ltrRuleDisabled ::
-      !(Maybe Bool),
-    _ltrTopic :: !(Maybe Text),
-    _ltrNextToken :: !(Maybe Text),
-    _ltrMaxResults :: !(Maybe Nat)
+  { ruleDisabled ::
+      Lude.Maybe Lude.Bool,
+    topic :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrRuleDisabled' - Specifies whether the rule is disabled.
---
--- * 'ltrTopic' - The topic.
---
--- * 'ltrNextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- * 'ltrMaxResults' - The maximum number of results to return.
-listTopicRules ::
+-- * 'maxResults' - The maximum number of results to return.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'ruleDisabled' - Specifies whether the rule is disabled.
+-- * 'topic' - The topic.
+mkListTopicRules ::
   ListTopicRules
-listTopicRules =
+mkListTopicRules =
   ListTopicRules'
-    { _ltrRuleDisabled = Nothing,
-      _ltrTopic = Nothing,
-      _ltrNextToken = Nothing,
-      _ltrMaxResults = Nothing
+    { ruleDisabled = Lude.Nothing,
+      topic = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Specifies whether the rule is disabled.
-ltrRuleDisabled :: Lens' ListTopicRules (Maybe Bool)
-ltrRuleDisabled = lens _ltrRuleDisabled (\s a -> s {_ltrRuleDisabled = a})
+--
+-- /Note:/ Consider using 'ruleDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrRuleDisabled :: Lens.Lens' ListTopicRules (Lude.Maybe Lude.Bool)
+ltrRuleDisabled = Lens.lens (ruleDisabled :: ListTopicRules -> Lude.Maybe Lude.Bool) (\s a -> s {ruleDisabled = a} :: ListTopicRules)
+{-# DEPRECATED ltrRuleDisabled "Use generic-lens or generic-optics with 'ruleDisabled' instead." #-}
 
 -- | The topic.
-ltrTopic :: Lens' ListTopicRules (Maybe Text)
-ltrTopic = lens _ltrTopic (\s a -> s {_ltrTopic = a})
+--
+-- /Note:/ Consider using 'topic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrTopic :: Lens.Lens' ListTopicRules (Lude.Maybe Lude.Text)
+ltrTopic = Lens.lens (topic :: ListTopicRules -> Lude.Maybe Lude.Text) (\s a -> s {topic = a} :: ListTopicRules)
+{-# DEPRECATED ltrTopic "Use generic-lens or generic-optics with 'topic' instead." #-}
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-ltrNextToken :: Lens' ListTopicRules (Maybe Text)
-ltrNextToken = lens _ltrNextToken (\s a -> s {_ltrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrNextToken :: Lens.Lens' ListTopicRules (Lude.Maybe Lude.Text)
+ltrNextToken = Lens.lens (nextToken :: ListTopicRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicRules)
+{-# DEPRECATED ltrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return.
-ltrMaxResults :: Lens' ListTopicRules (Maybe Natural)
-ltrMaxResults = lens _ltrMaxResults (\s a -> s {_ltrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrMaxResults :: Lens.Lens' ListTopicRules (Lude.Maybe Lude.Natural)
+ltrMaxResults = Lens.lens (maxResults :: ListTopicRules -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTopicRules)
+{-# DEPRECATED ltrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListTopicRules where
+instance Page.AWSPager ListTopicRules where
   page rq rs
-    | stop (rs ^. ltrrsNextToken) = Nothing
-    | stop (rs ^. ltrrsRules) = Nothing
-    | otherwise = Just $ rq & ltrNextToken .~ rs ^. ltrrsNextToken
+    | Page.stop (rs Lens.^. ltrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrrsRules) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltrNextToken Lens..~ rs Lens.^. ltrrsNextToken
 
-instance AWSRequest ListTopicRules where
+instance Lude.AWSRequest ListTopicRules where
   type Rs ListTopicRules = ListTopicRulesResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTopicRulesResponse'
-            <$> (x .?> "rules" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "rules" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTopicRules
+instance Lude.ToHeaders ListTopicRules where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTopicRules
+instance Lude.ToPath ListTopicRules where
+  toPath = Lude.const "/rules"
 
-instance ToHeaders ListTopicRules where
-  toHeaders = const mempty
-
-instance ToPath ListTopicRules where
-  toPath = const "/rules"
-
-instance ToQuery ListTopicRules where
+instance Lude.ToQuery ListTopicRules where
   toQuery ListTopicRules' {..} =
-    mconcat
-      [ "ruleDisabled" =: _ltrRuleDisabled,
-        "topic" =: _ltrTopic,
-        "nextToken" =: _ltrNextToken,
-        "maxResults" =: _ltrMaxResults
+    Lude.mconcat
+      [ "ruleDisabled" Lude.=: ruleDisabled,
+        "topic" Lude.=: topic,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | The output from the ListTopicRules operation.
 --
---
---
--- /See:/ 'listTopicRulesResponse' smart constructor.
+-- /See:/ 'mkListTopicRulesResponse' smart constructor.
 data ListTopicRulesResponse = ListTopicRulesResponse'
-  { _ltrrsRules ::
-      !(Maybe [TopicRuleListItem]),
-    _ltrrsNextToken :: !(Maybe Text),
-    _ltrrsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe [TopicRuleListItem],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrrsRules' - The rules.
---
--- * 'ltrrsNextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
---
--- * 'ltrrsResponseStatus' - -- | The response status code.
-listTopicRulesResponse ::
-  -- | 'ltrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - The rules.
+mkListTopicRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTopicRulesResponse
-listTopicRulesResponse pResponseStatus_ =
+mkListTopicRulesResponse pResponseStatus_ =
   ListTopicRulesResponse'
-    { _ltrrsRules = Nothing,
-      _ltrrsNextToken = Nothing,
-      _ltrrsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The rules.
-ltrrsRules :: Lens' ListTopicRulesResponse [TopicRuleListItem]
-ltrrsRules = lens _ltrrsRules (\s a -> s {_ltrrsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrrsRules :: Lens.Lens' ListTopicRulesResponse (Lude.Maybe [TopicRuleListItem])
+ltrrsRules = Lens.lens (rules :: ListTopicRulesResponse -> Lude.Maybe [TopicRuleListItem]) (\s a -> s {rules = a} :: ListTopicRulesResponse)
+{-# DEPRECATED ltrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-ltrrsNextToken :: Lens' ListTopicRulesResponse (Maybe Text)
-ltrrsNextToken = lens _ltrrsNextToken (\s a -> s {_ltrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrrsNextToken :: Lens.Lens' ListTopicRulesResponse (Lude.Maybe Lude.Text)
+ltrrsNextToken = Lens.lens (nextToken :: ListTopicRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicRulesResponse)
+{-# DEPRECATED ltrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrrsResponseStatus :: Lens' ListTopicRulesResponse Int
-ltrrsResponseStatus = lens _ltrrsResponseStatus (\s a -> s {_ltrrsResponseStatus = a})
-
-instance NFData ListTopicRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrrsResponseStatus :: Lens.Lens' ListTopicRulesResponse Lude.Int
+ltrrsResponseStatus = Lens.lens (responseStatus :: ListTopicRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTopicRulesResponse)
+{-# DEPRECATED ltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

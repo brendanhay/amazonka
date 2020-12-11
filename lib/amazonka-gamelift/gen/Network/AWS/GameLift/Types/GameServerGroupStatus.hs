@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServerGroupStatus where
+module Network.AWS.GameLift.Types.GameServerGroupStatus
+  ( GameServerGroupStatus
+      ( GameServerGroupStatus',
+        GSGSActivating,
+        GSGSActive,
+        GSGSDeleteScheduled,
+        GSGSDeleted,
+        GSGSDeleting,
+        GSGSError,
+        GSGSNew
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameServerGroupStatus
-  = GSGSActivating
-  | GSGSActive
-  | GSGSDeleteScheduled
-  | GSGSDeleted
-  | GSGSDeleting
-  | GSGSError'
-  | GSGSNew
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameServerGroupStatus = GameServerGroupStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameServerGroupStatus where
-  parser =
-    takeLowerText >>= \case
-      "activating" -> pure GSGSActivating
-      "active" -> pure GSGSActive
-      "delete_scheduled" -> pure GSGSDeleteScheduled
-      "deleted" -> pure GSGSDeleted
-      "deleting" -> pure GSGSDeleting
-      "error" -> pure GSGSError'
-      "new" -> pure GSGSNew
-      e ->
-        fromTextError $
-          "Failure parsing GameServerGroupStatus from value: '" <> e
-            <> "'. Accepted values: activating, active, delete_scheduled, deleted, deleting, error, new"
+pattern GSGSActivating :: GameServerGroupStatus
+pattern GSGSActivating = GameServerGroupStatus' "ACTIVATING"
 
-instance ToText GameServerGroupStatus where
-  toText = \case
-    GSGSActivating -> "ACTIVATING"
-    GSGSActive -> "ACTIVE"
-    GSGSDeleteScheduled -> "DELETE_SCHEDULED"
-    GSGSDeleted -> "DELETED"
-    GSGSDeleting -> "DELETING"
-    GSGSError' -> "ERROR"
-    GSGSNew -> "NEW"
+pattern GSGSActive :: GameServerGroupStatus
+pattern GSGSActive = GameServerGroupStatus' "ACTIVE"
 
-instance Hashable GameServerGroupStatus
+pattern GSGSDeleteScheduled :: GameServerGroupStatus
+pattern GSGSDeleteScheduled = GameServerGroupStatus' "DELETE_SCHEDULED"
 
-instance NFData GameServerGroupStatus
+pattern GSGSDeleted :: GameServerGroupStatus
+pattern GSGSDeleted = GameServerGroupStatus' "DELETED"
 
-instance ToByteString GameServerGroupStatus
+pattern GSGSDeleting :: GameServerGroupStatus
+pattern GSGSDeleting = GameServerGroupStatus' "DELETING"
 
-instance ToQuery GameServerGroupStatus
+pattern GSGSError :: GameServerGroupStatus
+pattern GSGSError = GameServerGroupStatus' "ERROR"
 
-instance ToHeader GameServerGroupStatus
+pattern GSGSNew :: GameServerGroupStatus
+pattern GSGSNew = GameServerGroupStatus' "NEW"
 
-instance FromJSON GameServerGroupStatus where
-  parseJSON = parseJSONText "GameServerGroupStatus"
+{-# COMPLETE
+  GSGSActivating,
+  GSGSActive,
+  GSGSDeleteScheduled,
+  GSGSDeleted,
+  GSGSDeleting,
+  GSGSError,
+  GSGSNew,
+  GameServerGroupStatus'
+  #-}

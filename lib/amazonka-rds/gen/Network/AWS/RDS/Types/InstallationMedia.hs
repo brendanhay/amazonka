@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,140 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.InstallationMedia where
+module Network.AWS.RDS.Types.InstallationMedia
+  ( InstallationMedia (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstallationMedia,
+
+    -- * Lenses
+    imEngineVersion,
+    imStatus,
+    imInstallationMediaId,
+    imEngineInstallationMediaPath,
+    imEngine,
+    imOSInstallationMediaPath,
+    imCustomAvailabilityZoneId,
+    imFailureCause,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.InstallationMediaFailureCause
 
 -- | Contains the installation media for a DB engine that requires an on-premises customer provided license, such as Microsoft SQL Server.
 --
---
---
--- /See:/ 'installationMedia' smart constructor.
+-- /See:/ 'mkInstallationMedia' smart constructor.
 data InstallationMedia = InstallationMedia'
-  { _imEngineVersion ::
-      !(Maybe Text),
-    _imStatus :: !(Maybe Text),
-    _imInstallationMediaId :: !(Maybe Text),
-    _imEngineInstallationMediaPath :: !(Maybe Text),
-    _imEngine :: !(Maybe Text),
-    _imOSInstallationMediaPath :: !(Maybe Text),
-    _imCustomAvailabilityZoneId :: !(Maybe Text),
-    _imFailureCause ::
-      !(Maybe InstallationMediaFailureCause)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    installationMediaId :: Lude.Maybe Lude.Text,
+    engineInstallationMediaPath :: Lude.Maybe Lude.Text,
+    engine :: Lude.Maybe Lude.Text,
+    osInstallationMediaPath :: Lude.Maybe Lude.Text,
+    customAvailabilityZoneId :: Lude.Maybe Lude.Text,
+    failureCause ::
+      Lude.Maybe InstallationMediaFailureCause
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstallationMedia' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'imEngineVersion' - The engine version of the DB engine.
---
--- * 'imStatus' - The status of the installation medium.
---
--- * 'imInstallationMediaId' - The installation medium ID.
---
--- * 'imEngineInstallationMediaPath' - The path to the installation medium for the DB engine.
---
--- * 'imEngine' - The DB engine.
---
--- * 'imOSInstallationMediaPath' - The path to the installation medium for the operating system associated with the DB engine.
---
--- * 'imCustomAvailabilityZoneId' - The custom Availability Zone (AZ) that contains the installation media.
---
--- * 'imFailureCause' - If an installation media failure occurred, the cause of the failure.
-installationMedia ::
+-- * 'customAvailabilityZoneId' - The custom Availability Zone (AZ) that contains the installation media.
+-- * 'engine' - The DB engine.
+-- * 'engineInstallationMediaPath' - The path to the installation medium for the DB engine.
+-- * 'engineVersion' - The engine version of the DB engine.
+-- * 'failureCause' - If an installation media failure occurred, the cause of the failure.
+-- * 'installationMediaId' - The installation medium ID.
+-- * 'osInstallationMediaPath' - The path to the installation medium for the operating system associated with the DB engine.
+-- * 'status' - The status of the installation medium.
+mkInstallationMedia ::
   InstallationMedia
-installationMedia =
+mkInstallationMedia =
   InstallationMedia'
-    { _imEngineVersion = Nothing,
-      _imStatus = Nothing,
-      _imInstallationMediaId = Nothing,
-      _imEngineInstallationMediaPath = Nothing,
-      _imEngine = Nothing,
-      _imOSInstallationMediaPath = Nothing,
-      _imCustomAvailabilityZoneId = Nothing,
-      _imFailureCause = Nothing
+    { engineVersion = Lude.Nothing,
+      status = Lude.Nothing,
+      installationMediaId = Lude.Nothing,
+      engineInstallationMediaPath = Lude.Nothing,
+      engine = Lude.Nothing,
+      osInstallationMediaPath = Lude.Nothing,
+      customAvailabilityZoneId = Lude.Nothing,
+      failureCause = Lude.Nothing
     }
 
 -- | The engine version of the DB engine.
-imEngineVersion :: Lens' InstallationMedia (Maybe Text)
-imEngineVersion = lens _imEngineVersion (\s a -> s {_imEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imEngineVersion :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imEngineVersion = Lens.lens (engineVersion :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: InstallationMedia)
+{-# DEPRECATED imEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The status of the installation medium.
-imStatus :: Lens' InstallationMedia (Maybe Text)
-imStatus = lens _imStatus (\s a -> s {_imStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imStatus :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imStatus = Lens.lens (status :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: InstallationMedia)
+{-# DEPRECATED imStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The installation medium ID.
-imInstallationMediaId :: Lens' InstallationMedia (Maybe Text)
-imInstallationMediaId = lens _imInstallationMediaId (\s a -> s {_imInstallationMediaId = a})
+--
+-- /Note:/ Consider using 'installationMediaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imInstallationMediaId :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imInstallationMediaId = Lens.lens (installationMediaId :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {installationMediaId = a} :: InstallationMedia)
+{-# DEPRECATED imInstallationMediaId "Use generic-lens or generic-optics with 'installationMediaId' instead." #-}
 
 -- | The path to the installation medium for the DB engine.
-imEngineInstallationMediaPath :: Lens' InstallationMedia (Maybe Text)
-imEngineInstallationMediaPath = lens _imEngineInstallationMediaPath (\s a -> s {_imEngineInstallationMediaPath = a})
+--
+-- /Note:/ Consider using 'engineInstallationMediaPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imEngineInstallationMediaPath :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imEngineInstallationMediaPath = Lens.lens (engineInstallationMediaPath :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {engineInstallationMediaPath = a} :: InstallationMedia)
+{-# DEPRECATED imEngineInstallationMediaPath "Use generic-lens or generic-optics with 'engineInstallationMediaPath' instead." #-}
 
 -- | The DB engine.
-imEngine :: Lens' InstallationMedia (Maybe Text)
-imEngine = lens _imEngine (\s a -> s {_imEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imEngine :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imEngine = Lens.lens (engine :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: InstallationMedia)
+{-# DEPRECATED imEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The path to the installation medium for the operating system associated with the DB engine.
-imOSInstallationMediaPath :: Lens' InstallationMedia (Maybe Text)
-imOSInstallationMediaPath = lens _imOSInstallationMediaPath (\s a -> s {_imOSInstallationMediaPath = a})
+--
+-- /Note:/ Consider using 'osInstallationMediaPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imOSInstallationMediaPath :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imOSInstallationMediaPath = Lens.lens (osInstallationMediaPath :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {osInstallationMediaPath = a} :: InstallationMedia)
+{-# DEPRECATED imOSInstallationMediaPath "Use generic-lens or generic-optics with 'osInstallationMediaPath' instead." #-}
 
 -- | The custom Availability Zone (AZ) that contains the installation media.
-imCustomAvailabilityZoneId :: Lens' InstallationMedia (Maybe Text)
-imCustomAvailabilityZoneId = lens _imCustomAvailabilityZoneId (\s a -> s {_imCustomAvailabilityZoneId = a})
+--
+-- /Note:/ Consider using 'customAvailabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imCustomAvailabilityZoneId :: Lens.Lens' InstallationMedia (Lude.Maybe Lude.Text)
+imCustomAvailabilityZoneId = Lens.lens (customAvailabilityZoneId :: InstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {customAvailabilityZoneId = a} :: InstallationMedia)
+{-# DEPRECATED imCustomAvailabilityZoneId "Use generic-lens or generic-optics with 'customAvailabilityZoneId' instead." #-}
 
 -- | If an installation media failure occurred, the cause of the failure.
-imFailureCause :: Lens' InstallationMedia (Maybe InstallationMediaFailureCause)
-imFailureCause = lens _imFailureCause (\s a -> s {_imFailureCause = a})
+--
+-- /Note:/ Consider using 'failureCause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imFailureCause :: Lens.Lens' InstallationMedia (Lude.Maybe InstallationMediaFailureCause)
+imFailureCause = Lens.lens (failureCause :: InstallationMedia -> Lude.Maybe InstallationMediaFailureCause) (\s a -> s {failureCause = a} :: InstallationMedia)
+{-# DEPRECATED imFailureCause "Use generic-lens or generic-optics with 'failureCause' instead." #-}
 
-instance FromXML InstallationMedia where
+instance Lude.FromXML InstallationMedia where
   parseXML x =
     InstallationMedia'
-      <$> (x .@? "EngineVersion")
-      <*> (x .@? "Status")
-      <*> (x .@? "InstallationMediaId")
-      <*> (x .@? "EngineInstallationMediaPath")
-      <*> (x .@? "Engine")
-      <*> (x .@? "OSInstallationMediaPath")
-      <*> (x .@? "CustomAvailabilityZoneId")
-      <*> (x .@? "FailureCause")
-
-instance Hashable InstallationMedia
-
-instance NFData InstallationMedia
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "InstallationMediaId")
+      Lude.<*> (x Lude..@? "EngineInstallationMediaPath")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "OSInstallationMediaPath")
+      Lude.<*> (x Lude..@? "CustomAvailabilityZoneId")
+      Lude.<*> (x Lude..@? "FailureCause")

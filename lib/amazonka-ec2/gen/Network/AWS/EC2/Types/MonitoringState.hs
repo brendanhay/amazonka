@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.MonitoringState where
+module Network.AWS.EC2.Types.MonitoringState
+  ( MonitoringState
+      ( MonitoringState',
+        MSDisabled,
+        MSDisabling,
+        MSEnabled,
+        MSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MonitoringState
-  = MSDisabled
-  | MSDisabling
-  | MSEnabled
-  | MSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MonitoringState = MonitoringState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MonitoringState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure MSDisabled
-      "disabling" -> pure MSDisabling
-      "enabled" -> pure MSEnabled
-      "pending" -> pure MSPending
-      e ->
-        fromTextError $
-          "Failure parsing MonitoringState from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, pending"
+pattern MSDisabled :: MonitoringState
+pattern MSDisabled = MonitoringState' "disabled"
 
-instance ToText MonitoringState where
-  toText = \case
-    MSDisabled -> "disabled"
-    MSDisabling -> "disabling"
-    MSEnabled -> "enabled"
-    MSPending -> "pending"
+pattern MSDisabling :: MonitoringState
+pattern MSDisabling = MonitoringState' "disabling"
 
-instance Hashable MonitoringState
+pattern MSEnabled :: MonitoringState
+pattern MSEnabled = MonitoringState' "enabled"
 
-instance NFData MonitoringState
+pattern MSPending :: MonitoringState
+pattern MSPending = MonitoringState' "pending"
 
-instance ToByteString MonitoringState
-
-instance ToQuery MonitoringState
-
-instance ToHeader MonitoringState
-
-instance FromXML MonitoringState where
-  parseXML = parseXMLText "MonitoringState"
+{-# COMPLETE
+  MSDisabled,
+  MSDisabling,
+  MSEnabled,
+  MSPending,
+  MonitoringState'
+  #-}

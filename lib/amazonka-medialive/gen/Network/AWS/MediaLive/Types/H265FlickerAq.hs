@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265FlickerAq where
+module Network.AWS.MediaLive.Types.H265FlickerAq
+  ( H265FlickerAq
+      ( H265FlickerAq',
+        HFADisabled,
+        HFAEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H265 Flicker Aq
-data H265FlickerAq
-  = HFADisabled
-  | HFAEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265FlickerAq = H265FlickerAq' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265FlickerAq where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HFADisabled
-      "enabled" -> pure HFAEnabled
-      e ->
-        fromTextError $
-          "Failure parsing H265FlickerAq from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HFADisabled :: H265FlickerAq
+pattern HFADisabled = H265FlickerAq' "DISABLED"
 
-instance ToText H265FlickerAq where
-  toText = \case
-    HFADisabled -> "DISABLED"
-    HFAEnabled -> "ENABLED"
+pattern HFAEnabled :: H265FlickerAq
+pattern HFAEnabled = H265FlickerAq' "ENABLED"
 
-instance Hashable H265FlickerAq
-
-instance NFData H265FlickerAq
-
-instance ToByteString H265FlickerAq
-
-instance ToQuery H265FlickerAq
-
-instance ToHeader H265FlickerAq
-
-instance ToJSON H265FlickerAq where
-  toJSON = toJSONText
-
-instance FromJSON H265FlickerAq where
-  parseJSON = parseJSONText "H265FlickerAq"
+{-# COMPLETE
+  HFADisabled,
+  HFAEnabled,
+  H265FlickerAq'
+  #-}

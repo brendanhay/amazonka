@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,176 @@
 --
 -- Returns information about one or more of your Amazon Lightsail content delivery network (CDN) distributions.
 module Network.AWS.Lightsail.GetDistributions
-  ( -- * Creating a Request
-    getDistributions,
-    GetDistributions,
+  ( -- * Creating a request
+    GetDistributions (..),
+    mkGetDistributions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdDistributionName,
     gdPageToken,
 
-    -- * Destructuring the Response
-    getDistributionsResponse,
-    GetDistributionsResponse,
+    -- * Destructuring the response
+    GetDistributionsResponse (..),
+    mkGetDistributionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdrsNextPageToken,
     gdrsDistributions,
     gdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDistributions' smart constructor.
+-- | /See:/ 'mkGetDistributions' smart constructor.
 data GetDistributions = GetDistributions'
-  { _gdDistributionName ::
-      !(Maybe Text),
-    _gdPageToken :: !(Maybe Text)
+  { distributionName ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'distributionName' - The name of the distribution for which to return information.
 --
--- * 'gdDistributionName' - The name of the distribution for which to return information. Use the @GetDistributions@ action to get a list of distribution names that you can specify. When omitted, the response includes all of your distributions in the AWS Region where the request is made.
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- When omitted, the response includes all of your distributions in the AWS Region where the request is made.
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gdPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetDistributions@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getDistributions ::
+-- To get a page token, perform an initial @GetDistributions@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetDistributions ::
   GetDistributions
-getDistributions =
+mkGetDistributions =
   GetDistributions'
-    { _gdDistributionName = Nothing,
-      _gdPageToken = Nothing
+    { distributionName = Lude.Nothing,
+      pageToken = Lude.Nothing
     }
 
--- | The name of the distribution for which to return information. Use the @GetDistributions@ action to get a list of distribution names that you can specify. When omitted, the response includes all of your distributions in the AWS Region where the request is made.
-gdDistributionName :: Lens' GetDistributions (Maybe Text)
-gdDistributionName = lens _gdDistributionName (\s a -> s {_gdDistributionName = a})
+-- | The name of the distribution for which to return information.
+--
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- When omitted, the response includes all of your distributions in the AWS Region where the request is made.
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDistributionName :: Lens.Lens' GetDistributions (Lude.Maybe Lude.Text)
+gdDistributionName = Lens.lens (distributionName :: GetDistributions -> Lude.Maybe Lude.Text) (\s a -> s {distributionName = a} :: GetDistributions)
+{-# DEPRECATED gdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetDistributions@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-gdPageToken :: Lens' GetDistributions (Maybe Text)
-gdPageToken = lens _gdPageToken (\s a -> s {_gdPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDistributions@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdPageToken :: Lens.Lens' GetDistributions (Lude.Maybe Lude.Text)
+gdPageToken = Lens.lens (pageToken :: GetDistributions -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetDistributions)
+{-# DEPRECATED gdPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSRequest GetDistributions where
+instance Lude.AWSRequest GetDistributions where
   type Rs GetDistributions = GetDistributionsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDistributionsResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "distributions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "distributions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDistributions
-
-instance NFData GetDistributions
-
-instance ToHeaders GetDistributions where
+instance Lude.ToHeaders GetDistributions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetDistributions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetDistributions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDistributions where
+instance Lude.ToJSON GetDistributions where
   toJSON GetDistributions' {..} =
-    object
-      ( catMaybes
-          [ ("distributionName" .=) <$> _gdDistributionName,
-            ("pageToken" .=) <$> _gdPageToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("distributionName" Lude..=) Lude.<$> distributionName,
+            ("pageToken" Lude..=) Lude.<$> pageToken
           ]
       )
 
-instance ToPath GetDistributions where
-  toPath = const "/"
+instance Lude.ToPath GetDistributions where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDistributions where
-  toQuery = const mempty
+instance Lude.ToQuery GetDistributions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDistributionsResponse' smart constructor.
+-- | /See:/ 'mkGetDistributionsResponse' smart constructor.
 data GetDistributionsResponse = GetDistributionsResponse'
-  { _gdrsNextPageToken ::
-      !(Maybe Text),
-    _gdrsDistributions ::
-      !(Maybe [LightsailDistribution]),
-    _gdrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    distributions ::
+      Lude.Maybe [LightsailDistribution],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'distributions' - An array of objects that describe your distributions.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gdrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetDistributions@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'gdrsDistributions' - An array of objects that describe your distributions.
---
--- * 'gdrsResponseStatus' - -- | The response status code.
-getDistributionsResponse ::
-  -- | 'gdrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetDistributions@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetDistributionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDistributionsResponse
-getDistributionsResponse pResponseStatus_ =
+mkGetDistributionsResponse pResponseStatus_ =
   GetDistributionsResponse'
-    { _gdrsNextPageToken = Nothing,
-      _gdrsDistributions = Nothing,
-      _gdrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      distributions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetDistributions@ request and specify the next page token using the @pageToken@ parameter.
-gdrsNextPageToken :: Lens' GetDistributionsResponse (Maybe Text)
-gdrsNextPageToken = lens _gdrsNextPageToken (\s a -> s {_gdrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetDistributions@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsNextPageToken :: Lens.Lens' GetDistributionsResponse (Lude.Maybe Lude.Text)
+gdrsNextPageToken = Lens.lens (nextPageToken :: GetDistributionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetDistributionsResponse)
+{-# DEPRECATED gdrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of objects that describe your distributions.
-gdrsDistributions :: Lens' GetDistributionsResponse [LightsailDistribution]
-gdrsDistributions = lens _gdrsDistributions (\s a -> s {_gdrsDistributions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'distributions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsDistributions :: Lens.Lens' GetDistributionsResponse (Lude.Maybe [LightsailDistribution])
+gdrsDistributions = Lens.lens (distributions :: GetDistributionsResponse -> Lude.Maybe [LightsailDistribution]) (\s a -> s {distributions = a} :: GetDistributionsResponse)
+{-# DEPRECATED gdrsDistributions "Use generic-lens or generic-optics with 'distributions' instead." #-}
 
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDistributionsResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\s a -> s {_gdrsResponseStatus = a})
-
-instance NFData GetDistributionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDistributionsResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDistributionsResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.EC2Specification where
+module Network.AWS.CostExplorer.Types.EC2Specification
+  ( EC2Specification (..),
+
+    -- * Smart constructor
+    mkEC2Specification,
+
+    -- * Lenses
+    esOfferingClass,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.OfferingClass
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon EC2 hardware specifications that you want AWS to provide recommendations for.
 --
---
---
--- /See:/ 'ec2Specification' smart constructor.
+-- /See:/ 'mkEC2Specification' smart constructor.
 newtype EC2Specification = EC2Specification'
-  { _esOfferingClass ::
-      Maybe OfferingClass
+  { offeringClass ::
+      Lude.Maybe OfferingClass
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2Specification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esOfferingClass' - Whether you want a recommendation for standard or convertible reservations.
-ec2Specification ::
+-- * 'offeringClass' - Whether you want a recommendation for standard or convertible reservations.
+mkEC2Specification ::
   EC2Specification
-ec2Specification = EC2Specification' {_esOfferingClass = Nothing}
+mkEC2Specification =
+  EC2Specification' {offeringClass = Lude.Nothing}
 
 -- | Whether you want a recommendation for standard or convertible reservations.
-esOfferingClass :: Lens' EC2Specification (Maybe OfferingClass)
-esOfferingClass = lens _esOfferingClass (\s a -> s {_esOfferingClass = a})
+--
+-- /Note:/ Consider using 'offeringClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esOfferingClass :: Lens.Lens' EC2Specification (Lude.Maybe OfferingClass)
+esOfferingClass = Lens.lens (offeringClass :: EC2Specification -> Lude.Maybe OfferingClass) (\s a -> s {offeringClass = a} :: EC2Specification)
+{-# DEPRECATED esOfferingClass "Use generic-lens or generic-optics with 'offeringClass' instead." #-}
 
-instance FromJSON EC2Specification where
+instance Lude.FromJSON EC2Specification where
   parseJSON =
-    withObject
+    Lude.withObject
       "EC2Specification"
-      (\x -> EC2Specification' <$> (x .:? "OfferingClass"))
+      (\x -> EC2Specification' Lude.<$> (x Lude..:? "OfferingClass"))
 
-instance Hashable EC2Specification
-
-instance NFData EC2Specification
-
-instance ToJSON EC2Specification where
+instance Lude.ToJSON EC2Specification where
   toJSON EC2Specification' {..} =
-    object (catMaybes [("OfferingClass" .=) <$> _esOfferingClass])
+    Lude.object
+      (Lude.catMaybes [("OfferingClass" Lude..=) Lude.<$> offeringClass])

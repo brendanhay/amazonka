@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,218 +7,286 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.InstancesCount where
+module Network.AWS.OpsWorks.Types.InstancesCount
+  ( InstancesCount (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstancesCount,
+
+    -- * Lenses
+    icTerminating,
+    icPending,
+    icOnline,
+    icUnassigning,
+    icDeregistering,
+    icRunningSetup,
+    icRequested,
+    icStopFailed,
+    icBooting,
+    icStopped,
+    icRebooting,
+    icAssigning,
+    icShuttingDown,
+    icSetupFailed,
+    icConnectionLost,
+    icTerminated,
+    icStopping,
+    icRegistered,
+    icStartFailed,
+    icRegistering,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes how many instances a stack has for each status.
 --
---
---
--- /See:/ 'instancesCount' smart constructor.
+-- /See:/ 'mkInstancesCount' smart constructor.
 data InstancesCount = InstancesCount'
-  { _icTerminating ::
-      !(Maybe Int),
-    _icPending :: !(Maybe Int),
-    _icOnline :: !(Maybe Int),
-    _icUnassigning :: !(Maybe Int),
-    _icDeregistering :: !(Maybe Int),
-    _icRunningSetup :: !(Maybe Int),
-    _icRequested :: !(Maybe Int),
-    _icStopFailed :: !(Maybe Int),
-    _icBooting :: !(Maybe Int),
-    _icStopped :: !(Maybe Int),
-    _icRebooting :: !(Maybe Int),
-    _icAssigning :: !(Maybe Int),
-    _icShuttingDown :: !(Maybe Int),
-    _icSetupFailed :: !(Maybe Int),
-    _icConnectionLost :: !(Maybe Int),
-    _icTerminated :: !(Maybe Int),
-    _icStopping :: !(Maybe Int),
-    _icRegistered :: !(Maybe Int),
-    _icStartFailed :: !(Maybe Int),
-    _icRegistering :: !(Maybe Int)
+  { terminating ::
+      Lude.Maybe Lude.Int,
+    pending :: Lude.Maybe Lude.Int,
+    online :: Lude.Maybe Lude.Int,
+    unassigning :: Lude.Maybe Lude.Int,
+    deregistering :: Lude.Maybe Lude.Int,
+    runningSetup :: Lude.Maybe Lude.Int,
+    requested :: Lude.Maybe Lude.Int,
+    stopFailed :: Lude.Maybe Lude.Int,
+    booting :: Lude.Maybe Lude.Int,
+    stopped :: Lude.Maybe Lude.Int,
+    rebooting :: Lude.Maybe Lude.Int,
+    assigning :: Lude.Maybe Lude.Int,
+    shuttingDown :: Lude.Maybe Lude.Int,
+    setupFailed :: Lude.Maybe Lude.Int,
+    connectionLost :: Lude.Maybe Lude.Int,
+    terminated :: Lude.Maybe Lude.Int,
+    stopping :: Lude.Maybe Lude.Int,
+    registered :: Lude.Maybe Lude.Int,
+    startFailed :: Lude.Maybe Lude.Int,
+    registering :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstancesCount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icTerminating' - The number of instances with @terminating@ status.
---
--- * 'icPending' - The number of instances with @pending@ status.
---
--- * 'icOnline' - The number of instances with @online@ status.
---
--- * 'icUnassigning' - The number of instances in the Unassigning state.
---
--- * 'icDeregistering' - The number of instances in the Deregistering state.
---
--- * 'icRunningSetup' - The number of instances with @running_setup@ status.
---
--- * 'icRequested' - The number of instances with @requested@ status.
---
--- * 'icStopFailed' - The number of instances with @stop_failed@ status.
---
--- * 'icBooting' - The number of instances with @booting@ status.
---
--- * 'icStopped' - The number of instances with @stopped@ status.
---
--- * 'icRebooting' - The number of instances with @rebooting@ status.
---
--- * 'icAssigning' - The number of instances in the Assigning state.
---
--- * 'icShuttingDown' - The number of instances with @shutting_down@ status.
---
--- * 'icSetupFailed' - The number of instances with @setup_failed@ status.
---
--- * 'icConnectionLost' - The number of instances with @connection_lost@ status.
---
--- * 'icTerminated' - The number of instances with @terminated@ status.
---
--- * 'icStopping' - The number of instances with @stopping@ status.
---
--- * 'icRegistered' - The number of instances in the Registered state.
---
--- * 'icStartFailed' - The number of instances with @start_failed@ status.
---
--- * 'icRegistering' - The number of instances in the Registering state.
-instancesCount ::
+-- * 'assigning' - The number of instances in the Assigning state.
+-- * 'booting' - The number of instances with @booting@ status.
+-- * 'connectionLost' - The number of instances with @connection_lost@ status.
+-- * 'deregistering' - The number of instances in the Deregistering state.
+-- * 'online' - The number of instances with @online@ status.
+-- * 'pending' - The number of instances with @pending@ status.
+-- * 'rebooting' - The number of instances with @rebooting@ status.
+-- * 'registered' - The number of instances in the Registered state.
+-- * 'registering' - The number of instances in the Registering state.
+-- * 'requested' - The number of instances with @requested@ status.
+-- * 'runningSetup' - The number of instances with @running_setup@ status.
+-- * 'setupFailed' - The number of instances with @setup_failed@ status.
+-- * 'shuttingDown' - The number of instances with @shutting_down@ status.
+-- * 'startFailed' - The number of instances with @start_failed@ status.
+-- * 'stopFailed' - The number of instances with @stop_failed@ status.
+-- * 'stopped' - The number of instances with @stopped@ status.
+-- * 'stopping' - The number of instances with @stopping@ status.
+-- * 'terminated' - The number of instances with @terminated@ status.
+-- * 'terminating' - The number of instances with @terminating@ status.
+-- * 'unassigning' - The number of instances in the Unassigning state.
+mkInstancesCount ::
   InstancesCount
-instancesCount =
+mkInstancesCount =
   InstancesCount'
-    { _icTerminating = Nothing,
-      _icPending = Nothing,
-      _icOnline = Nothing,
-      _icUnassigning = Nothing,
-      _icDeregistering = Nothing,
-      _icRunningSetup = Nothing,
-      _icRequested = Nothing,
-      _icStopFailed = Nothing,
-      _icBooting = Nothing,
-      _icStopped = Nothing,
-      _icRebooting = Nothing,
-      _icAssigning = Nothing,
-      _icShuttingDown = Nothing,
-      _icSetupFailed = Nothing,
-      _icConnectionLost = Nothing,
-      _icTerminated = Nothing,
-      _icStopping = Nothing,
-      _icRegistered = Nothing,
-      _icStartFailed = Nothing,
-      _icRegistering = Nothing
+    { terminating = Lude.Nothing,
+      pending = Lude.Nothing,
+      online = Lude.Nothing,
+      unassigning = Lude.Nothing,
+      deregistering = Lude.Nothing,
+      runningSetup = Lude.Nothing,
+      requested = Lude.Nothing,
+      stopFailed = Lude.Nothing,
+      booting = Lude.Nothing,
+      stopped = Lude.Nothing,
+      rebooting = Lude.Nothing,
+      assigning = Lude.Nothing,
+      shuttingDown = Lude.Nothing,
+      setupFailed = Lude.Nothing,
+      connectionLost = Lude.Nothing,
+      terminated = Lude.Nothing,
+      stopping = Lude.Nothing,
+      registered = Lude.Nothing,
+      startFailed = Lude.Nothing,
+      registering = Lude.Nothing
     }
 
 -- | The number of instances with @terminating@ status.
-icTerminating :: Lens' InstancesCount (Maybe Int)
-icTerminating = lens _icTerminating (\s a -> s {_icTerminating = a})
+--
+-- /Note:/ Consider using 'terminating' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icTerminating :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icTerminating = Lens.lens (terminating :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {terminating = a} :: InstancesCount)
+{-# DEPRECATED icTerminating "Use generic-lens or generic-optics with 'terminating' instead." #-}
 
 -- | The number of instances with @pending@ status.
-icPending :: Lens' InstancesCount (Maybe Int)
-icPending = lens _icPending (\s a -> s {_icPending = a})
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icPending :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icPending = Lens.lens (pending :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {pending = a} :: InstancesCount)
+{-# DEPRECATED icPending "Use generic-lens or generic-optics with 'pending' instead." #-}
 
 -- | The number of instances with @online@ status.
-icOnline :: Lens' InstancesCount (Maybe Int)
-icOnline = lens _icOnline (\s a -> s {_icOnline = a})
+--
+-- /Note:/ Consider using 'online' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icOnline :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icOnline = Lens.lens (online :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {online = a} :: InstancesCount)
+{-# DEPRECATED icOnline "Use generic-lens or generic-optics with 'online' instead." #-}
 
 -- | The number of instances in the Unassigning state.
-icUnassigning :: Lens' InstancesCount (Maybe Int)
-icUnassigning = lens _icUnassigning (\s a -> s {_icUnassigning = a})
+--
+-- /Note:/ Consider using 'unassigning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icUnassigning :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icUnassigning = Lens.lens (unassigning :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {unassigning = a} :: InstancesCount)
+{-# DEPRECATED icUnassigning "Use generic-lens or generic-optics with 'unassigning' instead." #-}
 
 -- | The number of instances in the Deregistering state.
-icDeregistering :: Lens' InstancesCount (Maybe Int)
-icDeregistering = lens _icDeregistering (\s a -> s {_icDeregistering = a})
+--
+-- /Note:/ Consider using 'deregistering' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icDeregistering :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icDeregistering = Lens.lens (deregistering :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {deregistering = a} :: InstancesCount)
+{-# DEPRECATED icDeregistering "Use generic-lens or generic-optics with 'deregistering' instead." #-}
 
 -- | The number of instances with @running_setup@ status.
-icRunningSetup :: Lens' InstancesCount (Maybe Int)
-icRunningSetup = lens _icRunningSetup (\s a -> s {_icRunningSetup = a})
+--
+-- /Note:/ Consider using 'runningSetup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icRunningSetup :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icRunningSetup = Lens.lens (runningSetup :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {runningSetup = a} :: InstancesCount)
+{-# DEPRECATED icRunningSetup "Use generic-lens or generic-optics with 'runningSetup' instead." #-}
 
 -- | The number of instances with @requested@ status.
-icRequested :: Lens' InstancesCount (Maybe Int)
-icRequested = lens _icRequested (\s a -> s {_icRequested = a})
+--
+-- /Note:/ Consider using 'requested' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icRequested :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icRequested = Lens.lens (requested :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {requested = a} :: InstancesCount)
+{-# DEPRECATED icRequested "Use generic-lens or generic-optics with 'requested' instead." #-}
 
 -- | The number of instances with @stop_failed@ status.
-icStopFailed :: Lens' InstancesCount (Maybe Int)
-icStopFailed = lens _icStopFailed (\s a -> s {_icStopFailed = a})
+--
+-- /Note:/ Consider using 'stopFailed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icStopFailed :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icStopFailed = Lens.lens (stopFailed :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {stopFailed = a} :: InstancesCount)
+{-# DEPRECATED icStopFailed "Use generic-lens or generic-optics with 'stopFailed' instead." #-}
 
 -- | The number of instances with @booting@ status.
-icBooting :: Lens' InstancesCount (Maybe Int)
-icBooting = lens _icBooting (\s a -> s {_icBooting = a})
+--
+-- /Note:/ Consider using 'booting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icBooting :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icBooting = Lens.lens (booting :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {booting = a} :: InstancesCount)
+{-# DEPRECATED icBooting "Use generic-lens or generic-optics with 'booting' instead." #-}
 
 -- | The number of instances with @stopped@ status.
-icStopped :: Lens' InstancesCount (Maybe Int)
-icStopped = lens _icStopped (\s a -> s {_icStopped = a})
+--
+-- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icStopped :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icStopped = Lens.lens (stopped :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {stopped = a} :: InstancesCount)
+{-# DEPRECATED icStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
 
 -- | The number of instances with @rebooting@ status.
-icRebooting :: Lens' InstancesCount (Maybe Int)
-icRebooting = lens _icRebooting (\s a -> s {_icRebooting = a})
+--
+-- /Note:/ Consider using 'rebooting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icRebooting :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icRebooting = Lens.lens (rebooting :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {rebooting = a} :: InstancesCount)
+{-# DEPRECATED icRebooting "Use generic-lens or generic-optics with 'rebooting' instead." #-}
 
 -- | The number of instances in the Assigning state.
-icAssigning :: Lens' InstancesCount (Maybe Int)
-icAssigning = lens _icAssigning (\s a -> s {_icAssigning = a})
+--
+-- /Note:/ Consider using 'assigning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icAssigning :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icAssigning = Lens.lens (assigning :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {assigning = a} :: InstancesCount)
+{-# DEPRECATED icAssigning "Use generic-lens or generic-optics with 'assigning' instead." #-}
 
 -- | The number of instances with @shutting_down@ status.
-icShuttingDown :: Lens' InstancesCount (Maybe Int)
-icShuttingDown = lens _icShuttingDown (\s a -> s {_icShuttingDown = a})
+--
+-- /Note:/ Consider using 'shuttingDown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icShuttingDown :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icShuttingDown = Lens.lens (shuttingDown :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {shuttingDown = a} :: InstancesCount)
+{-# DEPRECATED icShuttingDown "Use generic-lens or generic-optics with 'shuttingDown' instead." #-}
 
 -- | The number of instances with @setup_failed@ status.
-icSetupFailed :: Lens' InstancesCount (Maybe Int)
-icSetupFailed = lens _icSetupFailed (\s a -> s {_icSetupFailed = a})
+--
+-- /Note:/ Consider using 'setupFailed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icSetupFailed :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icSetupFailed = Lens.lens (setupFailed :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {setupFailed = a} :: InstancesCount)
+{-# DEPRECATED icSetupFailed "Use generic-lens or generic-optics with 'setupFailed' instead." #-}
 
 -- | The number of instances with @connection_lost@ status.
-icConnectionLost :: Lens' InstancesCount (Maybe Int)
-icConnectionLost = lens _icConnectionLost (\s a -> s {_icConnectionLost = a})
+--
+-- /Note:/ Consider using 'connectionLost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icConnectionLost :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icConnectionLost = Lens.lens (connectionLost :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {connectionLost = a} :: InstancesCount)
+{-# DEPRECATED icConnectionLost "Use generic-lens or generic-optics with 'connectionLost' instead." #-}
 
 -- | The number of instances with @terminated@ status.
-icTerminated :: Lens' InstancesCount (Maybe Int)
-icTerminated = lens _icTerminated (\s a -> s {_icTerminated = a})
+--
+-- /Note:/ Consider using 'terminated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icTerminated :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icTerminated = Lens.lens (terminated :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {terminated = a} :: InstancesCount)
+{-# DEPRECATED icTerminated "Use generic-lens or generic-optics with 'terminated' instead." #-}
 
 -- | The number of instances with @stopping@ status.
-icStopping :: Lens' InstancesCount (Maybe Int)
-icStopping = lens _icStopping (\s a -> s {_icStopping = a})
+--
+-- /Note:/ Consider using 'stopping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icStopping :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icStopping = Lens.lens (stopping :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {stopping = a} :: InstancesCount)
+{-# DEPRECATED icStopping "Use generic-lens or generic-optics with 'stopping' instead." #-}
 
 -- | The number of instances in the Registered state.
-icRegistered :: Lens' InstancesCount (Maybe Int)
-icRegistered = lens _icRegistered (\s a -> s {_icRegistered = a})
+--
+-- /Note:/ Consider using 'registered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icRegistered :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icRegistered = Lens.lens (registered :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {registered = a} :: InstancesCount)
+{-# DEPRECATED icRegistered "Use generic-lens or generic-optics with 'registered' instead." #-}
 
 -- | The number of instances with @start_failed@ status.
-icStartFailed :: Lens' InstancesCount (Maybe Int)
-icStartFailed = lens _icStartFailed (\s a -> s {_icStartFailed = a})
+--
+-- /Note:/ Consider using 'startFailed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icStartFailed :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icStartFailed = Lens.lens (startFailed :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {startFailed = a} :: InstancesCount)
+{-# DEPRECATED icStartFailed "Use generic-lens or generic-optics with 'startFailed' instead." #-}
 
 -- | The number of instances in the Registering state.
-icRegistering :: Lens' InstancesCount (Maybe Int)
-icRegistering = lens _icRegistering (\s a -> s {_icRegistering = a})
+--
+-- /Note:/ Consider using 'registering' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icRegistering :: Lens.Lens' InstancesCount (Lude.Maybe Lude.Int)
+icRegistering = Lens.lens (registering :: InstancesCount -> Lude.Maybe Lude.Int) (\s a -> s {registering = a} :: InstancesCount)
+{-# DEPRECATED icRegistering "Use generic-lens or generic-optics with 'registering' instead." #-}
 
-instance FromJSON InstancesCount where
+instance Lude.FromJSON InstancesCount where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstancesCount"
       ( \x ->
           InstancesCount'
-            <$> (x .:? "Terminating")
-            <*> (x .:? "Pending")
-            <*> (x .:? "Online")
-            <*> (x .:? "Unassigning")
-            <*> (x .:? "Deregistering")
-            <*> (x .:? "RunningSetup")
-            <*> (x .:? "Requested")
-            <*> (x .:? "StopFailed")
-            <*> (x .:? "Booting")
-            <*> (x .:? "Stopped")
-            <*> (x .:? "Rebooting")
-            <*> (x .:? "Assigning")
-            <*> (x .:? "ShuttingDown")
-            <*> (x .:? "SetupFailed")
-            <*> (x .:? "ConnectionLost")
-            <*> (x .:? "Terminated")
-            <*> (x .:? "Stopping")
-            <*> (x .:? "Registered")
-            <*> (x .:? "StartFailed")
-            <*> (x .:? "Registering")
+            Lude.<$> (x Lude..:? "Terminating")
+            Lude.<*> (x Lude..:? "Pending")
+            Lude.<*> (x Lude..:? "Online")
+            Lude.<*> (x Lude..:? "Unassigning")
+            Lude.<*> (x Lude..:? "Deregistering")
+            Lude.<*> (x Lude..:? "RunningSetup")
+            Lude.<*> (x Lude..:? "Requested")
+            Lude.<*> (x Lude..:? "StopFailed")
+            Lude.<*> (x Lude..:? "Booting")
+            Lude.<*> (x Lude..:? "Stopped")
+            Lude.<*> (x Lude..:? "Rebooting")
+            Lude.<*> (x Lude..:? "Assigning")
+            Lude.<*> (x Lude..:? "ShuttingDown")
+            Lude.<*> (x Lude..:? "SetupFailed")
+            Lude.<*> (x Lude..:? "ConnectionLost")
+            Lude.<*> (x Lude..:? "Terminated")
+            Lude.<*> (x Lude..:? "Stopping")
+            Lude.<*> (x Lude..:? "Registered")
+            Lude.<*> (x Lude..:? "StartFailed")
+            Lude.<*> (x Lude..:? "Registering")
       )
-
-instance Hashable InstancesCount
-
-instance NFData InstancesCount

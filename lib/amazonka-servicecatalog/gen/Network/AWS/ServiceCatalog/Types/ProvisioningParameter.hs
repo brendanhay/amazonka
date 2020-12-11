@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningParameter where
+module Network.AWS.ServiceCatalog.Types.ProvisioningParameter
+  ( ProvisioningParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningParameter,
+
+    -- * Lenses
+    ppValue,
+    ppKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a parameter used to provision a product.
 --
---
---
--- /See:/ 'provisioningParameter' smart constructor.
+-- /See:/ 'mkProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { _ppValue ::
-      !(Maybe Text),
-    _ppKey :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppValue' - The parameter value.
---
--- * 'ppKey' - The parameter key.
-provisioningParameter ::
+-- * 'key' - The parameter key.
+-- * 'value' - The parameter value.
+mkProvisioningParameter ::
   ProvisioningParameter
-provisioningParameter =
-  ProvisioningParameter' {_ppValue = Nothing, _ppKey = Nothing}
+mkProvisioningParameter =
+  ProvisioningParameter' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | The parameter value.
-ppValue :: Lens' ProvisioningParameter (Maybe Text)
-ppValue = lens _ppValue (\s a -> s {_ppValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValue :: Lens.Lens' ProvisioningParameter (Lude.Maybe Lude.Text)
+ppValue = Lens.lens (value :: ProvisioningParameter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ProvisioningParameter)
+{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The parameter key.
-ppKey :: Lens' ProvisioningParameter (Maybe Text)
-ppKey = lens _ppKey (\s a -> s {_ppKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppKey :: Lens.Lens' ProvisioningParameter (Lude.Maybe Lude.Text)
+ppKey = Lens.lens (key :: ProvisioningParameter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ProvisioningParameter)
+{-# DEPRECATED ppKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable ProvisioningParameter
-
-instance NFData ProvisioningParameter
-
-instance ToJSON ProvisioningParameter where
+instance Lude.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _ppValue, ("Key" .=) <$> _ppKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.SyntaxLanguageCode where
+module Network.AWS.Comprehend.Types.SyntaxLanguageCode
+  ( SyntaxLanguageCode
+      ( SyntaxLanguageCode',
+        SLCDE,
+        SLCEN,
+        SLCES,
+        SLCFR,
+        SLCIT,
+        SLCPT
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SyntaxLanguageCode
-  = SLCDE
-  | SLCEN
-  | SLCES
-  | SLCFR
-  | SLCIT
-  | SLCPT
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SyntaxLanguageCode = SyntaxLanguageCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SyntaxLanguageCode where
-  parser =
-    takeLowerText >>= \case
-      "de" -> pure SLCDE
-      "en" -> pure SLCEN
-      "es" -> pure SLCES
-      "fr" -> pure SLCFR
-      "it" -> pure SLCIT
-      "pt" -> pure SLCPT
-      e ->
-        fromTextError $
-          "Failure parsing SyntaxLanguageCode from value: '" <> e
-            <> "'. Accepted values: de, en, es, fr, it, pt"
+pattern SLCDE :: SyntaxLanguageCode
+pattern SLCDE = SyntaxLanguageCode' "de"
 
-instance ToText SyntaxLanguageCode where
-  toText = \case
-    SLCDE -> "de"
-    SLCEN -> "en"
-    SLCES -> "es"
-    SLCFR -> "fr"
-    SLCIT -> "it"
-    SLCPT -> "pt"
+pattern SLCEN :: SyntaxLanguageCode
+pattern SLCEN = SyntaxLanguageCode' "en"
 
-instance Hashable SyntaxLanguageCode
+pattern SLCES :: SyntaxLanguageCode
+pattern SLCES = SyntaxLanguageCode' "es"
 
-instance NFData SyntaxLanguageCode
+pattern SLCFR :: SyntaxLanguageCode
+pattern SLCFR = SyntaxLanguageCode' "fr"
 
-instance ToByteString SyntaxLanguageCode
+pattern SLCIT :: SyntaxLanguageCode
+pattern SLCIT = SyntaxLanguageCode' "it"
 
-instance ToQuery SyntaxLanguageCode
+pattern SLCPT :: SyntaxLanguageCode
+pattern SLCPT = SyntaxLanguageCode' "pt"
 
-instance ToHeader SyntaxLanguageCode
-
-instance ToJSON SyntaxLanguageCode where
-  toJSON = toJSONText
+{-# COMPLETE
+  SLCDE,
+  SLCEN,
+  SLCES,
+  SLCFR,
+  SLCIT,
+  SLCPT,
+  SyntaxLanguageCode'
+  #-}

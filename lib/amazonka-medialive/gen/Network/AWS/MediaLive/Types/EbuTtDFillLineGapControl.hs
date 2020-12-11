@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.EbuTtDFillLineGapControl where
+module Network.AWS.MediaLive.Types.EbuTtDFillLineGapControl
+  ( EbuTtDFillLineGapControl
+      ( EbuTtDFillLineGapControl',
+        ETDFLGCDisabled,
+        ETDFLGCEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ebu Tt DFill Line Gap Control
-data EbuTtDFillLineGapControl
-  = ETDFLGCDisabled
-  | ETDFLGCEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EbuTtDFillLineGapControl = EbuTtDFillLineGapControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EbuTtDFillLineGapControl where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ETDFLGCDisabled
-      "enabled" -> pure ETDFLGCEnabled
-      e ->
-        fromTextError $
-          "Failure parsing EbuTtDFillLineGapControl from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern ETDFLGCDisabled :: EbuTtDFillLineGapControl
+pattern ETDFLGCDisabled = EbuTtDFillLineGapControl' "DISABLED"
 
-instance ToText EbuTtDFillLineGapControl where
-  toText = \case
-    ETDFLGCDisabled -> "DISABLED"
-    ETDFLGCEnabled -> "ENABLED"
+pattern ETDFLGCEnabled :: EbuTtDFillLineGapControl
+pattern ETDFLGCEnabled = EbuTtDFillLineGapControl' "ENABLED"
 
-instance Hashable EbuTtDFillLineGapControl
-
-instance NFData EbuTtDFillLineGapControl
-
-instance ToByteString EbuTtDFillLineGapControl
-
-instance ToQuery EbuTtDFillLineGapControl
-
-instance ToHeader EbuTtDFillLineGapControl
-
-instance ToJSON EbuTtDFillLineGapControl where
-  toJSON = toJSONText
-
-instance FromJSON EbuTtDFillLineGapControl where
-  parseJSON = parseJSONText "EbuTtDFillLineGapControl"
+{-# COMPLETE
+  ETDFLGCDisabled,
+  ETDFLGCEnabled,
+  EbuTtDFillLineGapControl'
+  #-}

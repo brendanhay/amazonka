@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,121 @@
 --
 -- Detaches a specified Elastic Load Balancing instance from its layer.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
-  ( -- * Creating a Request
-    detachElasticLoadBalancer,
-    DetachElasticLoadBalancer,
+  ( -- * Creating a request
+    DetachElasticLoadBalancer (..),
+    mkDetachElasticLoadBalancer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delbElasticLoadBalancerName,
     delbLayerId,
 
-    -- * Destructuring the Response
-    detachElasticLoadBalancerResponse,
-    DetachElasticLoadBalancerResponse,
+    -- * Destructuring the response
+    DetachElasticLoadBalancerResponse (..),
+    mkDetachElasticLoadBalancerResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachElasticLoadBalancer' smart constructor.
+-- | /See:/ 'mkDetachElasticLoadBalancer' smart constructor.
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
-  { _delbElasticLoadBalancerName ::
-      !Text,
-    _delbLayerId :: !Text
+  { elasticLoadBalancerName ::
+      Lude.Text,
+    layerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachElasticLoadBalancer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delbElasticLoadBalancerName' - The Elastic Load Balancing instance's name.
---
--- * 'delbLayerId' - The ID of the layer that the Elastic Load Balancing instance is attached to.
-detachElasticLoadBalancer ::
-  -- | 'delbElasticLoadBalancerName'
-  Text ->
-  -- | 'delbLayerId'
-  Text ->
+-- * 'elasticLoadBalancerName' - The Elastic Load Balancing instance's name.
+-- * 'layerId' - The ID of the layer that the Elastic Load Balancing instance is attached to.
+mkDetachElasticLoadBalancer ::
+  -- | 'elasticLoadBalancerName'
+  Lude.Text ->
+  -- | 'layerId'
+  Lude.Text ->
   DetachElasticLoadBalancer
-detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
+mkDetachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
   DetachElasticLoadBalancer'
-    { _delbElasticLoadBalancerName =
+    { elasticLoadBalancerName =
         pElasticLoadBalancerName_,
-      _delbLayerId = pLayerId_
+      layerId = pLayerId_
     }
 
 -- | The Elastic Load Balancing instance's name.
-delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
-delbElasticLoadBalancerName = lens _delbElasticLoadBalancerName (\s a -> s {_delbElasticLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'elasticLoadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delbElasticLoadBalancerName :: Lens.Lens' DetachElasticLoadBalancer Lude.Text
+delbElasticLoadBalancerName = Lens.lens (elasticLoadBalancerName :: DetachElasticLoadBalancer -> Lude.Text) (\s a -> s {elasticLoadBalancerName = a} :: DetachElasticLoadBalancer)
+{-# DEPRECATED delbElasticLoadBalancerName "Use generic-lens or generic-optics with 'elasticLoadBalancerName' instead." #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached to.
-delbLayerId :: Lens' DetachElasticLoadBalancer Text
-delbLayerId = lens _delbLayerId (\s a -> s {_delbLayerId = a})
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delbLayerId :: Lens.Lens' DetachElasticLoadBalancer Lude.Text
+delbLayerId = Lens.lens (layerId :: DetachElasticLoadBalancer -> Lude.Text) (\s a -> s {layerId = a} :: DetachElasticLoadBalancer)
+{-# DEPRECATED delbLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance AWSRequest DetachElasticLoadBalancer where
+instance Lude.AWSRequest DetachElasticLoadBalancer where
   type
     Rs DetachElasticLoadBalancer =
       DetachElasticLoadBalancerResponse
-  request = postJSON opsWorks
-  response = receiveNull DetachElasticLoadBalancerResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DetachElasticLoadBalancerResponse'
 
-instance Hashable DetachElasticLoadBalancer
-
-instance NFData DetachElasticLoadBalancer
-
-instance ToHeaders DetachElasticLoadBalancer where
+instance Lude.ToHeaders DetachElasticLoadBalancer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DetachElasticLoadBalancer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DetachElasticLoadBalancer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetachElasticLoadBalancer where
+instance Lude.ToJSON DetachElasticLoadBalancer where
   toJSON DetachElasticLoadBalancer' {..} =
-    object
-      ( catMaybes
-          [ Just ("ElasticLoadBalancerName" .= _delbElasticLoadBalancerName),
-            Just ("LayerId" .= _delbLayerId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ElasticLoadBalancerName" Lude..= elasticLoadBalancerName),
+            Lude.Just ("LayerId" Lude..= layerId)
           ]
       )
 
-instance ToPath DetachElasticLoadBalancer where
-  toPath = const "/"
+instance Lude.ToPath DetachElasticLoadBalancer where
+  toPath = Lude.const "/"
 
-instance ToQuery DetachElasticLoadBalancer where
-  toQuery = const mempty
+instance Lude.ToQuery DetachElasticLoadBalancer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detachElasticLoadBalancerResponse' smart constructor.
+-- | /See:/ 'mkDetachElasticLoadBalancerResponse' smart constructor.
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachElasticLoadBalancerResponse' with the minimum fields required to make a request.
-detachElasticLoadBalancerResponse ::
+mkDetachElasticLoadBalancerResponse ::
   DetachElasticLoadBalancerResponse
-detachElasticLoadBalancerResponse =
+mkDetachElasticLoadBalancerResponse =
   DetachElasticLoadBalancerResponse'
-
-instance NFData DetachElasticLoadBalancerResponse

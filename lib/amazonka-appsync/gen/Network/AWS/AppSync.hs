@@ -13,8 +13,8 @@
 --
 -- AWS AppSync provides API actions for creating and interacting with data sources using GraphQL from your application.
 module Network.AWS.AppSync
-  ( -- * Service Configuration
-    appSync,
+  ( -- * Service configuration
+    appSyncService,
 
     -- * Errors
     -- $errors
@@ -196,8 +196,8 @@ module Network.AWS.AppSync
     TypeDefinitionFormat (..),
 
     -- ** APICache
-    APICache,
-    apiCache,
+    APICache (..),
+    mkAPICache,
     acTtl,
     acStatus,
     acAtRestEncryptionEnabled,
@@ -206,48 +206,48 @@ module Network.AWS.AppSync
     acType,
 
     -- ** APIKey
-    APIKey,
-    apiKey,
+    APIKey (..),
+    mkAPIKey,
     akExpires,
     akDeletes,
     akId,
     akDescription,
 
     -- ** AWSIAMConfig
-    AWSIAMConfig,
-    awsIAMConfig,
+    AWSIAMConfig (..),
+    mkAWSIAMConfig,
     aicSigningServiceName,
     aicSigningRegion,
 
     -- ** AdditionalAuthenticationProvider
-    AdditionalAuthenticationProvider,
-    additionalAuthenticationProvider,
+    AdditionalAuthenticationProvider (..),
+    mkAdditionalAuthenticationProvider,
     aapOpenIdConnectConfig,
     aapUserPoolConfig,
     aapAuthenticationType,
 
     -- ** AuthorizationConfig
-    AuthorizationConfig,
-    authorizationConfig,
+    AuthorizationConfig (..),
+    mkAuthorizationConfig,
     acAwsIAMConfig,
     acAuthorizationType,
 
     -- ** CachingConfig
-    CachingConfig,
-    cachingConfig,
+    CachingConfig (..),
+    mkCachingConfig,
     ccTtl,
     ccCachingKeys,
 
     -- ** CognitoUserPoolConfig
-    CognitoUserPoolConfig,
-    cognitoUserPoolConfig,
+    CognitoUserPoolConfig (..),
+    mkCognitoUserPoolConfig,
     cupcAppIdClientRegex,
     cupcUserPoolId,
     cupcAwsRegion,
 
     -- ** DataSource
-    DataSource,
-    dataSource,
+    DataSource (..),
+    mkDataSource,
     dsServiceRoleARN,
     dsRelationalDatabaseConfig,
     dsDataSourceARN,
@@ -260,15 +260,15 @@ module Network.AWS.AppSync
     dsElasticsearchConfig,
 
     -- ** DeltaSyncConfig
-    DeltaSyncConfig,
-    deltaSyncConfig,
+    DeltaSyncConfig (..),
+    mkDeltaSyncConfig,
     dscBaseTableTTL,
     dscDeltaSyncTableName,
     dscDeltaSyncTableTTL,
 
     -- ** DynamodbDataSourceConfig
-    DynamodbDataSourceConfig,
-    dynamodbDataSourceConfig,
+    DynamodbDataSourceConfig (..),
+    mkDynamodbDataSourceConfig,
     ddscVersioned,
     ddscUseCallerCredentials,
     ddscDeltaSyncConfig,
@@ -276,14 +276,14 @@ module Network.AWS.AppSync
     ddscAwsRegion,
 
     -- ** ElasticsearchDataSourceConfig
-    ElasticsearchDataSourceConfig,
-    elasticsearchDataSourceConfig,
+    ElasticsearchDataSourceConfig (..),
+    mkElasticsearchDataSourceConfig,
     edscEndpoint,
     edscAwsRegion,
 
     -- ** FunctionConfiguration
-    FunctionConfiguration,
-    functionConfiguration,
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
     fcFunctionARN,
     fcDataSourceName,
     fcRequestMappingTemplate,
@@ -294,8 +294,8 @@ module Network.AWS.AppSync
     fcDescription,
 
     -- ** GraphqlAPI
-    GraphqlAPI,
-    graphqlAPI,
+    GraphqlAPI (..),
+    mkGraphqlAPI,
     gaXrayEnabled,
     gaArn,
     gaApiId,
@@ -310,44 +310,44 @@ module Network.AWS.AppSync
     gaTags,
 
     -- ** HTTPDataSourceConfig
-    HTTPDataSourceConfig,
-    hTTPDataSourceConfig,
+    HTTPDataSourceConfig (..),
+    mkHTTPDataSourceConfig,
     httpdscAuthorizationConfig,
     httpdscEndpoint,
 
     -- ** LambdaConflictHandlerConfig
-    LambdaConflictHandlerConfig,
-    lambdaConflictHandlerConfig,
+    LambdaConflictHandlerConfig (..),
+    mkLambdaConflictHandlerConfig,
     lchcLambdaConflictHandlerARN,
 
     -- ** LambdaDataSourceConfig
-    LambdaDataSourceConfig,
-    lambdaDataSourceConfig,
+    LambdaDataSourceConfig (..),
+    mkLambdaDataSourceConfig,
     ldscLambdaFunctionARN,
 
     -- ** LogConfig
-    LogConfig,
-    logConfig,
+    LogConfig (..),
+    mkLogConfig,
     lcExcludeVerboseContent,
     lcFieldLogLevel,
     lcCloudWatchLogsRoleARN,
 
     -- ** OpenIdConnectConfig
-    OpenIdConnectConfig,
-    openIdConnectConfig,
+    OpenIdConnectConfig (..),
+    mkOpenIdConnectConfig,
     oiccAuthTTL,
     oiccClientId,
     oiccIatTTL,
     oiccIssuer,
 
     -- ** PipelineConfig
-    PipelineConfig,
-    pipelineConfig,
+    PipelineConfig (..),
+    mkPipelineConfig,
     pcFunctions,
 
     -- ** RDSHTTPEndpointConfig
-    RDSHTTPEndpointConfig,
-    rdsHTTPEndpointConfig,
+    RDSHTTPEndpointConfig (..),
+    mkRDSHTTPEndpointConfig,
     rhttpecDbClusterIdentifier,
     rhttpecSchema,
     rhttpecDatabaseName,
@@ -355,14 +355,14 @@ module Network.AWS.AppSync
     rhttpecAwsSecretStoreARN,
 
     -- ** RelationalDatabaseDataSourceConfig
-    RelationalDatabaseDataSourceConfig,
-    relationalDatabaseDataSourceConfig,
+    RelationalDatabaseDataSourceConfig (..),
+    mkRelationalDatabaseDataSourceConfig,
     rddscRelationalDatabaseSourceType,
     rddscRdsHTTPEndpointConfig,
 
     -- ** Resolver
-    Resolver,
-    resolver,
+    Resolver (..),
+    mkResolver,
     rTypeName,
     rDataSourceName,
     rRequestMappingTemplate,
@@ -375,15 +375,15 @@ module Network.AWS.AppSync
     rPipelineConfig,
 
     -- ** SyncConfig
-    SyncConfig,
-    syncConfig,
+    SyncConfig (..),
+    mkSyncConfig,
     scConflictHandler,
     scConflictDetection,
     scLambdaConflictHandlerConfig,
 
     -- ** Type
-    Type,
-    type',
+    Type (..),
+    mkType,
     tArn,
     tDefinition,
     tFormat,
@@ -391,12 +391,23 @@ module Network.AWS.AppSync
     tDescription,
 
     -- ** UserPoolConfig
-    UserPoolConfig,
-    userPoolConfig,
+    UserPoolConfig (..),
+    mkUserPoolConfig,
     upcAppIdClientRegex,
     upcUserPoolId,
     upcAwsRegion,
     upcDefaultAction,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -443,6 +454,7 @@ import Network.AWS.AppSync.UpdateGraphqlAPI
 import Network.AWS.AppSync.UpdateResolver
 import Network.AWS.AppSync.UpdateType
 import Network.AWS.AppSync.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

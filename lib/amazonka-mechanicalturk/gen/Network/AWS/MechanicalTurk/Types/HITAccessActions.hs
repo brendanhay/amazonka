@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.HITAccessActions where
+module Network.AWS.MechanicalTurk.Types.HITAccessActions
+  ( HITAccessActions
+      ( HITAccessActions',
+        Accept,
+        DiscoverPreviewAndAccept,
+        PreviewAndAccept
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HITAccessActions
-  = Accept
-  | DiscoverPreviewAndAccept
-  | PreviewAndAccept
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HITAccessActions = HITAccessActions' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HITAccessActions where
-  parser =
-    takeLowerText >>= \case
-      "accept" -> pure Accept
-      "discoverpreviewandaccept" -> pure DiscoverPreviewAndAccept
-      "previewandaccept" -> pure PreviewAndAccept
-      e ->
-        fromTextError $
-          "Failure parsing HITAccessActions from value: '" <> e
-            <> "'. Accepted values: accept, discoverpreviewandaccept, previewandaccept"
+pattern Accept :: HITAccessActions
+pattern Accept = HITAccessActions' "Accept"
 
-instance ToText HITAccessActions where
-  toText = \case
-    Accept -> "Accept"
-    DiscoverPreviewAndAccept -> "DiscoverPreviewAndAccept"
-    PreviewAndAccept -> "PreviewAndAccept"
+pattern DiscoverPreviewAndAccept :: HITAccessActions
+pattern DiscoverPreviewAndAccept = HITAccessActions' "DiscoverPreviewAndAccept"
 
-instance Hashable HITAccessActions
+pattern PreviewAndAccept :: HITAccessActions
+pattern PreviewAndAccept = HITAccessActions' "PreviewAndAccept"
 
-instance NFData HITAccessActions
-
-instance ToByteString HITAccessActions
-
-instance ToQuery HITAccessActions
-
-instance ToHeader HITAccessActions
-
-instance ToJSON HITAccessActions where
-  toJSON = toJSONText
-
-instance FromJSON HITAccessActions where
-  parseJSON = parseJSONText "HITAccessActions"
+{-# COMPLETE
+  Accept,
+  DiscoverPreviewAndAccept,
+  PreviewAndAccept,
+  HITAccessActions'
+  #-}

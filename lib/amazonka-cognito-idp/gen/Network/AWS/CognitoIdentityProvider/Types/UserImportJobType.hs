@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,156 +7,255 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserImportJobType where
+module Network.AWS.CognitoIdentityProvider.Types.UserImportJobType
+  ( UserImportJobType (..),
+
+    -- * Smart constructor
+    mkUserImportJobType,
+
+    -- * Lenses
+    uijtStatus,
+    uijtSkippedUsers,
+    uijtJobId,
+    uijtUserPoolId,
+    uijtJobName,
+    uijtPreSignedURL,
+    uijtFailedUsers,
+    uijtStartDate,
+    uijtCompletionMessage,
+    uijtCreationDate,
+    uijtCompletionDate,
+    uijtCloudWatchLogsRoleARN,
+    uijtImportedUsers,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The user import job type.
 --
---
---
--- /See:/ 'userImportJobType' smart constructor.
+-- /See:/ 'mkUserImportJobType' smart constructor.
 data UserImportJobType = UserImportJobType'
-  { _uijtStatus ::
-      !(Maybe UserImportJobStatusType),
-    _uijtSkippedUsers :: !(Maybe Integer),
-    _uijtJobId :: !(Maybe Text),
-    _uijtUserPoolId :: !(Maybe Text),
-    _uijtJobName :: !(Maybe Text),
-    _uijtPreSignedURL :: !(Maybe Text),
-    _uijtFailedUsers :: !(Maybe Integer),
-    _uijtStartDate :: !(Maybe POSIX),
-    _uijtCompletionMessage :: !(Maybe Text),
-    _uijtCreationDate :: !(Maybe POSIX),
-    _uijtCompletionDate :: !(Maybe POSIX),
-    _uijtCloudWatchLogsRoleARN :: !(Maybe Text),
-    _uijtImportedUsers :: !(Maybe Integer)
+  { status ::
+      Lude.Maybe UserImportJobStatusType,
+    skippedUsers :: Lude.Maybe Lude.Integer,
+    jobId :: Lude.Maybe Lude.Text,
+    userPoolId :: Lude.Maybe Lude.Text,
+    jobName :: Lude.Maybe Lude.Text,
+    preSignedURL :: Lude.Maybe Lude.Text,
+    failedUsers :: Lude.Maybe Lude.Integer,
+    startDate :: Lude.Maybe Lude.Timestamp,
+    completionMessage :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    completionDate :: Lude.Maybe Lude.Timestamp,
+    cloudWatchLogsRoleARN :: Lude.Maybe Lude.Text,
+    importedUsers :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserImportJobType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+-- * 'completionDate' - The date when the user import job was completed.
+-- * 'completionMessage' - The message returned when the user import job is completed.
+-- * 'creationDate' - The date the user import job was created.
+-- * 'failedUsers' - The number of users that could not be imported.
+-- * 'importedUsers' - The number of users that were successfully imported.
+-- * 'jobId' - The job ID for the user import job.
+-- * 'jobName' - The job name for the user import job.
+-- * 'preSignedURL' - The pre-signed URL to be used to upload the @.csv@ file.
+-- * 'skippedUsers' - The number of users that were skipped.
+-- * 'startDate' - The date when the user import job was started.
+-- * 'status' - The status of the user import job. One of the following:
 --
--- * 'uijtStatus' - The status of the user import job. One of the following:     * @Created@ - The job was created but not started.     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.     * @InProgress@ - The job has started, and users are being imported.     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.     * @Stopped@ - You have stopped the job, and the job has stopped importing users.     * @Succeeded@ - The job has completed successfully.     * @Failed@ - The job has stopped due to an error.     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 --
--- * 'uijtSkippedUsers' - The number of users that were skipped.
+--     * @Created@ - The job was created but not started.
 --
--- * 'uijtJobId' - The job ID for the user import job.
 --
--- * 'uijtUserPoolId' - The user pool ID for the user pool that the users are being imported into.
+--     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.
 --
--- * 'uijtJobName' - The job name for the user import job.
 --
--- * 'uijtPreSignedURL' - The pre-signed URL to be used to upload the @.csv@ file.
+--     * @InProgress@ - The job has started, and users are being imported.
 --
--- * 'uijtFailedUsers' - The number of users that could not be imported.
 --
--- * 'uijtStartDate' - The date when the user import job was started.
+--     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.
 --
--- * 'uijtCompletionMessage' - The message returned when the user import job is completed.
 --
--- * 'uijtCreationDate' - The date the user import job was created.
+--     * @Stopped@ - You have stopped the job, and the job has stopped importing users.
 --
--- * 'uijtCompletionDate' - The date when the user import job was completed.
 --
--- * 'uijtCloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+--     * @Succeeded@ - The job has completed successfully.
 --
--- * 'uijtImportedUsers' - The number of users that were successfully imported.
-userImportJobType ::
+--
+--     * @Failed@ - The job has stopped due to an error.
+--
+--
+--     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+--
+--
+-- * 'userPoolId' - The user pool ID for the user pool that the users are being imported into.
+mkUserImportJobType ::
   UserImportJobType
-userImportJobType =
+mkUserImportJobType =
   UserImportJobType'
-    { _uijtStatus = Nothing,
-      _uijtSkippedUsers = Nothing,
-      _uijtJobId = Nothing,
-      _uijtUserPoolId = Nothing,
-      _uijtJobName = Nothing,
-      _uijtPreSignedURL = Nothing,
-      _uijtFailedUsers = Nothing,
-      _uijtStartDate = Nothing,
-      _uijtCompletionMessage = Nothing,
-      _uijtCreationDate = Nothing,
-      _uijtCompletionDate = Nothing,
-      _uijtCloudWatchLogsRoleARN = Nothing,
-      _uijtImportedUsers = Nothing
+    { status = Lude.Nothing,
+      skippedUsers = Lude.Nothing,
+      jobId = Lude.Nothing,
+      userPoolId = Lude.Nothing,
+      jobName = Lude.Nothing,
+      preSignedURL = Lude.Nothing,
+      failedUsers = Lude.Nothing,
+      startDate = Lude.Nothing,
+      completionMessage = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      completionDate = Lude.Nothing,
+      cloudWatchLogsRoleARN = Lude.Nothing,
+      importedUsers = Lude.Nothing
     }
 
--- | The status of the user import job. One of the following:     * @Created@ - The job was created but not started.     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.     * @InProgress@ - The job has started, and users are being imported.     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.     * @Stopped@ - You have stopped the job, and the job has stopped importing users.     * @Succeeded@ - The job has completed successfully.     * @Failed@ - The job has stopped due to an error.     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
-uijtStatus :: Lens' UserImportJobType (Maybe UserImportJobStatusType)
-uijtStatus = lens _uijtStatus (\s a -> s {_uijtStatus = a})
+-- | The status of the user import job. One of the following:
+--
+--
+--     * @Created@ - The job was created but not started.
+--
+--
+--     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.
+--
+--
+--     * @InProgress@ - The job has started, and users are being imported.
+--
+--
+--     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.
+--
+--
+--     * @Stopped@ - You have stopped the job, and the job has stopped importing users.
+--
+--
+--     * @Succeeded@ - The job has completed successfully.
+--
+--
+--     * @Failed@ - The job has stopped due to an error.
+--
+--
+--     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtStatus :: Lens.Lens' UserImportJobType (Lude.Maybe UserImportJobStatusType)
+uijtStatus = Lens.lens (status :: UserImportJobType -> Lude.Maybe UserImportJobStatusType) (\s a -> s {status = a} :: UserImportJobType)
+{-# DEPRECATED uijtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The number of users that were skipped.
-uijtSkippedUsers :: Lens' UserImportJobType (Maybe Integer)
-uijtSkippedUsers = lens _uijtSkippedUsers (\s a -> s {_uijtSkippedUsers = a})
+--
+-- /Note:/ Consider using 'skippedUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtSkippedUsers :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Integer)
+uijtSkippedUsers = Lens.lens (skippedUsers :: UserImportJobType -> Lude.Maybe Lude.Integer) (\s a -> s {skippedUsers = a} :: UserImportJobType)
+{-# DEPRECATED uijtSkippedUsers "Use generic-lens or generic-optics with 'skippedUsers' instead." #-}
 
 -- | The job ID for the user import job.
-uijtJobId :: Lens' UserImportJobType (Maybe Text)
-uijtJobId = lens _uijtJobId (\s a -> s {_uijtJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtJobId :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Text)
+uijtJobId = Lens.lens (jobId :: UserImportJobType -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: UserImportJobType)
+{-# DEPRECATED uijtJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The user pool ID for the user pool that the users are being imported into.
-uijtUserPoolId :: Lens' UserImportJobType (Maybe Text)
-uijtUserPoolId = lens _uijtUserPoolId (\s a -> s {_uijtUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtUserPoolId :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Text)
+uijtUserPoolId = Lens.lens (userPoolId :: UserImportJobType -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: UserImportJobType)
+{-# DEPRECATED uijtUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The job name for the user import job.
-uijtJobName :: Lens' UserImportJobType (Maybe Text)
-uijtJobName = lens _uijtJobName (\s a -> s {_uijtJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtJobName :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Text)
+uijtJobName = Lens.lens (jobName :: UserImportJobType -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: UserImportJobType)
+{-# DEPRECATED uijtJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The pre-signed URL to be used to upload the @.csv@ file.
-uijtPreSignedURL :: Lens' UserImportJobType (Maybe Text)
-uijtPreSignedURL = lens _uijtPreSignedURL (\s a -> s {_uijtPreSignedURL = a})
+--
+-- /Note:/ Consider using 'preSignedURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtPreSignedURL :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Text)
+uijtPreSignedURL = Lens.lens (preSignedURL :: UserImportJobType -> Lude.Maybe Lude.Text) (\s a -> s {preSignedURL = a} :: UserImportJobType)
+{-# DEPRECATED uijtPreSignedURL "Use generic-lens or generic-optics with 'preSignedURL' instead." #-}
 
 -- | The number of users that could not be imported.
-uijtFailedUsers :: Lens' UserImportJobType (Maybe Integer)
-uijtFailedUsers = lens _uijtFailedUsers (\s a -> s {_uijtFailedUsers = a})
+--
+-- /Note:/ Consider using 'failedUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtFailedUsers :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Integer)
+uijtFailedUsers = Lens.lens (failedUsers :: UserImportJobType -> Lude.Maybe Lude.Integer) (\s a -> s {failedUsers = a} :: UserImportJobType)
+{-# DEPRECATED uijtFailedUsers "Use generic-lens or generic-optics with 'failedUsers' instead." #-}
 
 -- | The date when the user import job was started.
-uijtStartDate :: Lens' UserImportJobType (Maybe UTCTime)
-uijtStartDate = lens _uijtStartDate (\s a -> s {_uijtStartDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtStartDate :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Timestamp)
+uijtStartDate = Lens.lens (startDate :: UserImportJobType -> Lude.Maybe Lude.Timestamp) (\s a -> s {startDate = a} :: UserImportJobType)
+{-# DEPRECATED uijtStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The message returned when the user import job is completed.
-uijtCompletionMessage :: Lens' UserImportJobType (Maybe Text)
-uijtCompletionMessage = lens _uijtCompletionMessage (\s a -> s {_uijtCompletionMessage = a})
+--
+-- /Note:/ Consider using 'completionMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtCompletionMessage :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Text)
+uijtCompletionMessage = Lens.lens (completionMessage :: UserImportJobType -> Lude.Maybe Lude.Text) (\s a -> s {completionMessage = a} :: UserImportJobType)
+{-# DEPRECATED uijtCompletionMessage "Use generic-lens or generic-optics with 'completionMessage' instead." #-}
 
 -- | The date the user import job was created.
-uijtCreationDate :: Lens' UserImportJobType (Maybe UTCTime)
-uijtCreationDate = lens _uijtCreationDate (\s a -> s {_uijtCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtCreationDate :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Timestamp)
+uijtCreationDate = Lens.lens (creationDate :: UserImportJobType -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: UserImportJobType)
+{-# DEPRECATED uijtCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The date when the user import job was completed.
-uijtCompletionDate :: Lens' UserImportJobType (Maybe UTCTime)
-uijtCompletionDate = lens _uijtCompletionDate (\s a -> s {_uijtCompletionDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtCompletionDate :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Timestamp)
+uijtCompletionDate = Lens.lens (completionDate :: UserImportJobType -> Lude.Maybe Lude.Timestamp) (\s a -> s {completionDate = a} :: UserImportJobType)
+{-# DEPRECATED uijtCompletionDate "Use generic-lens or generic-optics with 'completionDate' instead." #-}
 
 -- | The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
-uijtCloudWatchLogsRoleARN :: Lens' UserImportJobType (Maybe Text)
-uijtCloudWatchLogsRoleARN = lens _uijtCloudWatchLogsRoleARN (\s a -> s {_uijtCloudWatchLogsRoleARN = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogsRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtCloudWatchLogsRoleARN :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Text)
+uijtCloudWatchLogsRoleARN = Lens.lens (cloudWatchLogsRoleARN :: UserImportJobType -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogsRoleARN = a} :: UserImportJobType)
+{-# DEPRECATED uijtCloudWatchLogsRoleARN "Use generic-lens or generic-optics with 'cloudWatchLogsRoleARN' instead." #-}
 
 -- | The number of users that were successfully imported.
-uijtImportedUsers :: Lens' UserImportJobType (Maybe Integer)
-uijtImportedUsers = lens _uijtImportedUsers (\s a -> s {_uijtImportedUsers = a})
+--
+-- /Note:/ Consider using 'importedUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uijtImportedUsers :: Lens.Lens' UserImportJobType (Lude.Maybe Lude.Integer)
+uijtImportedUsers = Lens.lens (importedUsers :: UserImportJobType -> Lude.Maybe Lude.Integer) (\s a -> s {importedUsers = a} :: UserImportJobType)
+{-# DEPRECATED uijtImportedUsers "Use generic-lens or generic-optics with 'importedUsers' instead." #-}
 
-instance FromJSON UserImportJobType where
+instance Lude.FromJSON UserImportJobType where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserImportJobType"
       ( \x ->
           UserImportJobType'
-            <$> (x .:? "Status")
-            <*> (x .:? "SkippedUsers")
-            <*> (x .:? "JobId")
-            <*> (x .:? "UserPoolId")
-            <*> (x .:? "JobName")
-            <*> (x .:? "PreSignedUrl")
-            <*> (x .:? "FailedUsers")
-            <*> (x .:? "StartDate")
-            <*> (x .:? "CompletionMessage")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "CompletionDate")
-            <*> (x .:? "CloudWatchLogsRoleArn")
-            <*> (x .:? "ImportedUsers")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "SkippedUsers")
+            Lude.<*> (x Lude..:? "JobId")
+            Lude.<*> (x Lude..:? "UserPoolId")
+            Lude.<*> (x Lude..:? "JobName")
+            Lude.<*> (x Lude..:? "PreSignedUrl")
+            Lude.<*> (x Lude..:? "FailedUsers")
+            Lude.<*> (x Lude..:? "StartDate")
+            Lude.<*> (x Lude..:? "CompletionMessage")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "CompletionDate")
+            Lude.<*> (x Lude..:? "CloudWatchLogsRoleArn")
+            Lude.<*> (x Lude..:? "ImportedUsers")
       )
-
-instance Hashable UserImportJobType
-
-instance NFData UserImportJobType

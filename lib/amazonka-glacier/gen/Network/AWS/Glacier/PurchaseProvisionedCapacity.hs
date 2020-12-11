@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,127 @@
 --
 -- This operation purchases a provisioned capacity unit for an AWS account.
 module Network.AWS.Glacier.PurchaseProvisionedCapacity
-  ( -- * Creating a Request
-    purchaseProvisionedCapacity,
-    PurchaseProvisionedCapacity,
+  ( -- * Creating a request
+    PurchaseProvisionedCapacity (..),
+    mkPurchaseProvisionedCapacity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ppcAccountId,
 
-    -- * Destructuring the Response
-    purchaseProvisionedCapacityResponse,
-    PurchaseProvisionedCapacityResponse,
+    -- * Destructuring the response
+    PurchaseProvisionedCapacityResponse (..),
+    mkPurchaseProvisionedCapacityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ppcrsCapacityId,
     ppcrsResponseStatus,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'purchaseProvisionedCapacity' smart constructor.
+-- | /See:/ 'mkPurchaseProvisionedCapacity' smart constructor.
 newtype PurchaseProvisionedCapacity = PurchaseProvisionedCapacity'
-  { _ppcAccountId ::
-      Text
+  { accountId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseProvisionedCapacity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppcAccountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-purchaseProvisionedCapacity ::
-  -- | 'ppcAccountId'
-  Text ->
+-- * 'accountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
+mkPurchaseProvisionedCapacity ::
+  -- | 'accountId'
+  Lude.Text ->
   PurchaseProvisionedCapacity
-purchaseProvisionedCapacity pAccountId_ =
-  PurchaseProvisionedCapacity' {_ppcAccountId = pAccountId_}
+mkPurchaseProvisionedCapacity pAccountId_ =
+  PurchaseProvisionedCapacity' {accountId = pAccountId_}
 
 -- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-ppcAccountId :: Lens' PurchaseProvisionedCapacity Text
-ppcAccountId = lens _ppcAccountId (\s a -> s {_ppcAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppcAccountId :: Lens.Lens' PurchaseProvisionedCapacity Lude.Text
+ppcAccountId = Lens.lens (accountId :: PurchaseProvisionedCapacity -> Lude.Text) (\s a -> s {accountId = a} :: PurchaseProvisionedCapacity)
+{-# DEPRECATED ppcAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance AWSRequest PurchaseProvisionedCapacity where
+instance Lude.AWSRequest PurchaseProvisionedCapacity where
   type
     Rs PurchaseProvisionedCapacity =
       PurchaseProvisionedCapacityResponse
-  request = postJSON glacier
+  request = Req.postJSON glacierService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           PurchaseProvisionedCapacityResponse'
-            <$> (h .#? "x-amz-capacity-id") <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "x-amz-capacity-id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PurchaseProvisionedCapacity
+instance Lude.ToHeaders PurchaseProvisionedCapacity where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PurchaseProvisionedCapacity
+instance Lude.ToJSON PurchaseProvisionedCapacity where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders PurchaseProvisionedCapacity where
-  toHeaders = const mempty
-
-instance ToJSON PurchaseProvisionedCapacity where
-  toJSON = const (Object mempty)
-
-instance ToPath PurchaseProvisionedCapacity where
+instance Lude.ToPath PurchaseProvisionedCapacity where
   toPath PurchaseProvisionedCapacity' {..} =
-    mconcat ["/", toBS _ppcAccountId, "/provisioned-capacity"]
+    Lude.mconcat ["/", Lude.toBS accountId, "/provisioned-capacity"]
 
-instance ToQuery PurchaseProvisionedCapacity where
-  toQuery = const mempty
+instance Lude.ToQuery PurchaseProvisionedCapacity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'purchaseProvisionedCapacityResponse' smart constructor.
+-- | /See:/ 'mkPurchaseProvisionedCapacityResponse' smart constructor.
 data PurchaseProvisionedCapacityResponse = PurchaseProvisionedCapacityResponse'
-  { _ppcrsCapacityId ::
-      !(Maybe Text),
-    _ppcrsResponseStatus ::
-      !Int
+  { capacityId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseProvisionedCapacityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppcrsCapacityId' - The ID that identifies the provisioned capacity unit.
---
--- * 'ppcrsResponseStatus' - -- | The response status code.
-purchaseProvisionedCapacityResponse ::
-  -- | 'ppcrsResponseStatus'
-  Int ->
+-- * 'capacityId' - The ID that identifies the provisioned capacity unit.
+-- * 'responseStatus' - The response status code.
+mkPurchaseProvisionedCapacityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PurchaseProvisionedCapacityResponse
-purchaseProvisionedCapacityResponse pResponseStatus_ =
+mkPurchaseProvisionedCapacityResponse pResponseStatus_ =
   PurchaseProvisionedCapacityResponse'
-    { _ppcrsCapacityId = Nothing,
-      _ppcrsResponseStatus = pResponseStatus_
+    { capacityId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID that identifies the provisioned capacity unit.
-ppcrsCapacityId :: Lens' PurchaseProvisionedCapacityResponse (Maybe Text)
-ppcrsCapacityId = lens _ppcrsCapacityId (\s a -> s {_ppcrsCapacityId = a})
+--
+-- /Note:/ Consider using 'capacityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppcrsCapacityId :: Lens.Lens' PurchaseProvisionedCapacityResponse (Lude.Maybe Lude.Text)
+ppcrsCapacityId = Lens.lens (capacityId :: PurchaseProvisionedCapacityResponse -> Lude.Maybe Lude.Text) (\s a -> s {capacityId = a} :: PurchaseProvisionedCapacityResponse)
+{-# DEPRECATED ppcrsCapacityId "Use generic-lens or generic-optics with 'capacityId' instead." #-}
 
--- | -- | The response status code.
-ppcrsResponseStatus :: Lens' PurchaseProvisionedCapacityResponse Int
-ppcrsResponseStatus = lens _ppcrsResponseStatus (\s a -> s {_ppcrsResponseStatus = a})
-
-instance NFData PurchaseProvisionedCapacityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppcrsResponseStatus :: Lens.Lens' PurchaseProvisionedCapacityResponse Lude.Int
+ppcrsResponseStatus = Lens.lens (responseStatus :: PurchaseProvisionedCapacityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseProvisionedCapacityResponse)
+{-# DEPRECATED ppcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

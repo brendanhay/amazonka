@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.InputSerialization where
+module Network.AWS.Glacier.Types.InputSerialization
+  ( InputSerialization (..),
+
+    -- * Smart constructor
+    mkInputSerialization,
+
+    -- * Lenses
+    isCsv,
+  )
+where
 
 import Network.AWS.Glacier.Types.CSVInput
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes how the archive is serialized.
 --
---
---
--- /See:/ 'inputSerialization' smart constructor.
+-- /See:/ 'mkInputSerialization' smart constructor.
 newtype InputSerialization = InputSerialization'
-  { _isCsv ::
-      Maybe CSVInput
+  { csv ::
+      Lude.Maybe CSVInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSerialization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isCsv' - Describes the serialization of a CSV-encoded object.
-inputSerialization ::
+-- * 'csv' - Describes the serialization of a CSV-encoded object.
+mkInputSerialization ::
   InputSerialization
-inputSerialization = InputSerialization' {_isCsv = Nothing}
+mkInputSerialization = InputSerialization' {csv = Lude.Nothing}
 
 -- | Describes the serialization of a CSV-encoded object.
-isCsv :: Lens' InputSerialization (Maybe CSVInput)
-isCsv = lens _isCsv (\s a -> s {_isCsv = a})
+--
+-- /Note:/ Consider using 'csv' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isCsv :: Lens.Lens' InputSerialization (Lude.Maybe CSVInput)
+isCsv = Lens.lens (csv :: InputSerialization -> Lude.Maybe CSVInput) (\s a -> s {csv = a} :: InputSerialization)
+{-# DEPRECATED isCsv "Use generic-lens or generic-optics with 'csv' instead." #-}
 
-instance FromJSON InputSerialization where
+instance Lude.FromJSON InputSerialization where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputSerialization"
-      (\x -> InputSerialization' <$> (x .:? "csv"))
+      (\x -> InputSerialization' Lude.<$> (x Lude..:? "csv"))
 
-instance Hashable InputSerialization
-
-instance NFData InputSerialization
-
-instance ToJSON InputSerialization where
+instance Lude.ToJSON InputSerialization where
   toJSON InputSerialization' {..} =
-    object (catMaybes [("csv" .=) <$> _isCsv])
+    Lude.object (Lude.catMaybes [("csv" Lude..=) Lude.<$> csv])

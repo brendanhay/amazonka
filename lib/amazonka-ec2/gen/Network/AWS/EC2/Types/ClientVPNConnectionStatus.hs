@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNConnectionStatus where
+module Network.AWS.EC2.Types.ClientVPNConnectionStatus
+  ( ClientVPNConnectionStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNConnectionStatus,
+
+    -- * Lenses
+    cvcsCode,
+    cvcsMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNConnectionStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the status of a client connection.
 --
---
---
--- /See:/ 'clientVPNConnectionStatus' smart constructor.
+-- /See:/ 'mkClientVPNConnectionStatus' smart constructor.
 data ClientVPNConnectionStatus = ClientVPNConnectionStatus'
-  { _cvcsCode ::
-      !(Maybe ClientVPNConnectionStatusCode),
-    _cvcsMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe
+        ClientVPNConnectionStatusCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNConnectionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvcsCode' - The state of the client connection.
---
--- * 'cvcsMessage' - A message about the status of the client connection, if applicable.
-clientVPNConnectionStatus ::
+-- * 'code' - The state of the client connection.
+-- * 'message' - A message about the status of the client connection, if applicable.
+mkClientVPNConnectionStatus ::
   ClientVPNConnectionStatus
-clientVPNConnectionStatus =
+mkClientVPNConnectionStatus =
   ClientVPNConnectionStatus'
-    { _cvcsCode = Nothing,
-      _cvcsMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The state of the client connection.
-cvcsCode :: Lens' ClientVPNConnectionStatus (Maybe ClientVPNConnectionStatusCode)
-cvcsCode = lens _cvcsCode (\s a -> s {_cvcsCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvcsCode :: Lens.Lens' ClientVPNConnectionStatus (Lude.Maybe ClientVPNConnectionStatusCode)
+cvcsCode = Lens.lens (code :: ClientVPNConnectionStatus -> Lude.Maybe ClientVPNConnectionStatusCode) (\s a -> s {code = a} :: ClientVPNConnectionStatus)
+{-# DEPRECATED cvcsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message about the status of the client connection, if applicable.
-cvcsMessage :: Lens' ClientVPNConnectionStatus (Maybe Text)
-cvcsMessage = lens _cvcsMessage (\s a -> s {_cvcsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvcsMessage :: Lens.Lens' ClientVPNConnectionStatus (Lude.Maybe Lude.Text)
+cvcsMessage = Lens.lens (message :: ClientVPNConnectionStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ClientVPNConnectionStatus)
+{-# DEPRECATED cvcsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML ClientVPNConnectionStatus where
+instance Lude.FromXML ClientVPNConnectionStatus where
   parseXML x =
     ClientVPNConnectionStatus'
-      <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable ClientVPNConnectionStatus
-
-instance NFData ClientVPNConnectionStatus
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

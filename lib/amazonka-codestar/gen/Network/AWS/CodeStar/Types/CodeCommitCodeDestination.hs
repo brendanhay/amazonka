@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStar.Types.CodeCommitCodeDestination where
+module Network.AWS.CodeStar.Types.CodeCommitCodeDestination
+  ( CodeCommitCodeDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCodeCommitCodeDestination,
+
+    -- * Lenses
+    cccdName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
 --
---
---
--- /See:/ 'codeCommitCodeDestination' smart constructor.
+-- /See:/ 'mkCodeCommitCodeDestination' smart constructor.
 newtype CodeCommitCodeDestination = CodeCommitCodeDestination'
-  { _cccdName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeCommitCodeDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cccdName' - The name of the AWS CodeCommit repository to be created in AWS CodeStar.
-codeCommitCodeDestination ::
-  -- | 'cccdName'
-  Text ->
+-- * 'name' - The name of the AWS CodeCommit repository to be created in AWS CodeStar.
+mkCodeCommitCodeDestination ::
+  -- | 'name'
+  Lude.Text ->
   CodeCommitCodeDestination
-codeCommitCodeDestination pName_ =
-  CodeCommitCodeDestination' {_cccdName = pName_}
+mkCodeCommitCodeDestination pName_ =
+  CodeCommitCodeDestination' {name = pName_}
 
 -- | The name of the AWS CodeCommit repository to be created in AWS CodeStar.
-cccdName :: Lens' CodeCommitCodeDestination Text
-cccdName = lens _cccdName (\s a -> s {_cccdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdName :: Lens.Lens' CodeCommitCodeDestination Lude.Text
+cccdName = Lens.lens (name :: CodeCommitCodeDestination -> Lude.Text) (\s a -> s {name = a} :: CodeCommitCodeDestination)
+{-# DEPRECATED cccdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable CodeCommitCodeDestination
-
-instance NFData CodeCommitCodeDestination
-
-instance ToJSON CodeCommitCodeDestination where
+instance Lude.ToJSON CodeCommitCodeDestination where
   toJSON CodeCommitCodeDestination' {..} =
-    object (catMaybes [Just ("name" .= _cccdName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])

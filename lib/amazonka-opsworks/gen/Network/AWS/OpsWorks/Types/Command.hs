@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,267 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Command where
+module Network.AWS.OpsWorks.Types.Command
+  ( Command (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCommand,
+
+    -- * Lenses
+    cDeploymentId,
+    cInstanceId,
+    cStatus,
+    cLogURL,
+    cCreatedAt,
+    cCommandId,
+    cExitCode,
+    cType,
+    cCompletedAt,
+    cAcknowledgedAt,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a command.
 --
---
---
--- /See:/ 'command' smart constructor.
+-- /See:/ 'mkCommand' smart constructor.
 data Command = Command'
-  { _cDeploymentId :: !(Maybe Text),
-    _cInstanceId :: !(Maybe Text),
-    _cStatus :: !(Maybe Text),
-    _cLogURL :: !(Maybe Text),
-    _cCreatedAt :: !(Maybe Text),
-    _cCommandId :: !(Maybe Text),
-    _cExitCode :: !(Maybe Int),
-    _cType :: !(Maybe Text),
-    _cCompletedAt :: !(Maybe Text),
-    _cAcknowledgedAt :: !(Maybe Text)
+  { deploymentId :: Lude.Maybe Lude.Text,
+    instanceId :: Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    logURL :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Text,
+    commandId :: Lude.Maybe Lude.Text,
+    exitCode :: Lude.Maybe Lude.Int,
+    type' :: Lude.Maybe Lude.Text,
+    completedAt :: Lude.Maybe Lude.Text,
+    acknowledgedAt :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acknowledgedAt' - Date and time when the command was acknowledged.
+-- * 'commandId' - The command ID.
+-- * 'completedAt' - Date when the command completed.
+-- * 'createdAt' - Date and time when the command was run.
+-- * 'deploymentId' - The command deployment ID.
+-- * 'exitCode' - The command exit code.
+-- * 'instanceId' - The ID of the instance where the command was executed.
+-- * 'logURL' - The URL of the command log.
+-- * 'status' - The command status:
 --
--- * 'cDeploymentId' - The command deployment ID.
 --
--- * 'cInstanceId' - The ID of the instance where the command was executed.
+--     * failed
 --
--- * 'cStatus' - The command status:     * failed     * successful     * skipped     * pending
 --
--- * 'cLogURL' - The URL of the command log.
+--     * successful
 --
--- * 'cCreatedAt' - Date and time when the command was run.
 --
--- * 'cCommandId' - The command ID.
+--     * skipped
 --
--- * 'cExitCode' - The command exit code.
 --
--- * 'cType' - The command type:     * @configure@      * @deploy@      * @execute_recipes@      * @install_dependencies@      * @restart@      * @rollback@      * @setup@      * @start@      * @stop@      * @undeploy@      * @update_custom_cookbooks@      * @update_dependencies@
+--     * pending
 --
--- * 'cCompletedAt' - Date when the command completed.
 --
--- * 'cAcknowledgedAt' - Date and time when the command was acknowledged.
-command ::
+-- * 'type'' - The command type:
+--
+--
+--     * @configure@
+--
+--
+--     * @deploy@
+--
+--
+--     * @execute_recipes@
+--
+--
+--     * @install_dependencies@
+--
+--
+--     * @restart@
+--
+--
+--     * @rollback@
+--
+--
+--     * @setup@
+--
+--
+--     * @start@
+--
+--
+--     * @stop@
+--
+--
+--     * @undeploy@
+--
+--
+--     * @update_custom_cookbooks@
+--
+--
+--     * @update_dependencies@
+mkCommand ::
   Command
-command =
+mkCommand =
   Command'
-    { _cDeploymentId = Nothing,
-      _cInstanceId = Nothing,
-      _cStatus = Nothing,
-      _cLogURL = Nothing,
-      _cCreatedAt = Nothing,
-      _cCommandId = Nothing,
-      _cExitCode = Nothing,
-      _cType = Nothing,
-      _cCompletedAt = Nothing,
-      _cAcknowledgedAt = Nothing
+    { deploymentId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      status = Lude.Nothing,
+      logURL = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      commandId = Lude.Nothing,
+      exitCode = Lude.Nothing,
+      type' = Lude.Nothing,
+      completedAt = Lude.Nothing,
+      acknowledgedAt = Lude.Nothing
     }
 
 -- | The command deployment ID.
-cDeploymentId :: Lens' Command (Maybe Text)
-cDeploymentId = lens _cDeploymentId (\s a -> s {_cDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDeploymentId :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cDeploymentId = Lens.lens (deploymentId :: Command -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: Command)
+{-# DEPRECATED cDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The ID of the instance where the command was executed.
-cInstanceId :: Lens' Command (Maybe Text)
-cInstanceId = lens _cInstanceId (\s a -> s {_cInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cInstanceId :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cInstanceId = Lens.lens (instanceId :: Command -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Command)
+{-# DEPRECATED cInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | The command status:     * failed     * successful     * skipped     * pending
-cStatus :: Lens' Command (Maybe Text)
-cStatus = lens _cStatus (\s a -> s {_cStatus = a})
+-- | The command status:
+--
+--
+--     * failed
+--
+--
+--     * successful
+--
+--
+--     * skipped
+--
+--
+--     * pending
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatus :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cStatus = Lens.lens (status :: Command -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Command)
+{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The URL of the command log.
-cLogURL :: Lens' Command (Maybe Text)
-cLogURL = lens _cLogURL (\s a -> s {_cLogURL = a})
+--
+-- /Note:/ Consider using 'logURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLogURL :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cLogURL = Lens.lens (logURL :: Command -> Lude.Maybe Lude.Text) (\s a -> s {logURL = a} :: Command)
+{-# DEPRECATED cLogURL "Use generic-lens or generic-optics with 'logURL' instead." #-}
 
 -- | Date and time when the command was run.
-cCreatedAt :: Lens' Command (Maybe Text)
-cCreatedAt = lens _cCreatedAt (\s a -> s {_cCreatedAt = a})
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreatedAt :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cCreatedAt = Lens.lens (createdAt :: Command -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: Command)
+{-# DEPRECATED cCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The command ID.
-cCommandId :: Lens' Command (Maybe Text)
-cCommandId = lens _cCommandId (\s a -> s {_cCommandId = a})
+--
+-- /Note:/ Consider using 'commandId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCommandId :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cCommandId = Lens.lens (commandId :: Command -> Lude.Maybe Lude.Text) (\s a -> s {commandId = a} :: Command)
+{-# DEPRECATED cCommandId "Use generic-lens or generic-optics with 'commandId' instead." #-}
 
 -- | The command exit code.
-cExitCode :: Lens' Command (Maybe Int)
-cExitCode = lens _cExitCode (\s a -> s {_cExitCode = a})
+--
+-- /Note:/ Consider using 'exitCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cExitCode :: Lens.Lens' Command (Lude.Maybe Lude.Int)
+cExitCode = Lens.lens (exitCode :: Command -> Lude.Maybe Lude.Int) (\s a -> s {exitCode = a} :: Command)
+{-# DEPRECATED cExitCode "Use generic-lens or generic-optics with 'exitCode' instead." #-}
 
--- | The command type:     * @configure@      * @deploy@      * @execute_recipes@      * @install_dependencies@      * @restart@      * @rollback@      * @setup@      * @start@      * @stop@      * @undeploy@      * @update_custom_cookbooks@      * @update_dependencies@
-cType :: Lens' Command (Maybe Text)
-cType = lens _cType (\s a -> s {_cType = a})
+-- | The command type:
+--
+--
+--     * @configure@
+--
+--
+--     * @deploy@
+--
+--
+--     * @execute_recipes@
+--
+--
+--     * @install_dependencies@
+--
+--
+--     * @restart@
+--
+--
+--     * @rollback@
+--
+--
+--     * @setup@
+--
+--
+--     * @start@
+--
+--
+--     * @stop@
+--
+--
+--     * @undeploy@
+--
+--
+--     * @update_custom_cookbooks@
+--
+--
+--     * @update_dependencies@
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cType :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cType = Lens.lens (type' :: Command -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Command)
+{-# DEPRECATED cType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Date when the command completed.
-cCompletedAt :: Lens' Command (Maybe Text)
-cCompletedAt = lens _cCompletedAt (\s a -> s {_cCompletedAt = a})
+--
+-- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCompletedAt :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cCompletedAt = Lens.lens (completedAt :: Command -> Lude.Maybe Lude.Text) (\s a -> s {completedAt = a} :: Command)
+{-# DEPRECATED cCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
 
 -- | Date and time when the command was acknowledged.
-cAcknowledgedAt :: Lens' Command (Maybe Text)
-cAcknowledgedAt = lens _cAcknowledgedAt (\s a -> s {_cAcknowledgedAt = a})
+--
+-- /Note:/ Consider using 'acknowledgedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAcknowledgedAt :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cAcknowledgedAt = Lens.lens (acknowledgedAt :: Command -> Lude.Maybe Lude.Text) (\s a -> s {acknowledgedAt = a} :: Command)
+{-# DEPRECATED cAcknowledgedAt "Use generic-lens or generic-optics with 'acknowledgedAt' instead." #-}
 
-instance FromJSON Command where
+instance Lude.FromJSON Command where
   parseJSON =
-    withObject
+    Lude.withObject
       "Command"
       ( \x ->
           Command'
-            <$> (x .:? "DeploymentId")
-            <*> (x .:? "InstanceId")
-            <*> (x .:? "Status")
-            <*> (x .:? "LogUrl")
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "CommandId")
-            <*> (x .:? "ExitCode")
-            <*> (x .:? "Type")
-            <*> (x .:? "CompletedAt")
-            <*> (x .:? "AcknowledgedAt")
+            Lude.<$> (x Lude..:? "DeploymentId")
+            Lude.<*> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "LogUrl")
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "CommandId")
+            Lude.<*> (x Lude..:? "ExitCode")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "CompletedAt")
+            Lude.<*> (x Lude..:? "AcknowledgedAt")
       )
-
-instance Hashable Command
-
-instance NFData Command

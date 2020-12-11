@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.SSLSupportMethod where
+module Network.AWS.CloudFront.Types.SSLSupportMethod
+  ( SSLSupportMethod
+      ( SSLSupportMethod',
+        SNIOnly,
+        StaticIP,
+        VIP
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SSLSupportMethod
-  = SNIOnly
-  | StaticIP
-  | VIP
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SSLSupportMethod = SSLSupportMethod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SSLSupportMethod where
-  parser =
-    takeLowerText >>= \case
-      "sni-only" -> pure SNIOnly
-      "static-ip" -> pure StaticIP
-      "vip" -> pure VIP
-      e ->
-        fromTextError $
-          "Failure parsing SSLSupportMethod from value: '" <> e
-            <> "'. Accepted values: sni-only, static-ip, vip"
+pattern SNIOnly :: SSLSupportMethod
+pattern SNIOnly = SSLSupportMethod' "sni-only"
 
-instance ToText SSLSupportMethod where
-  toText = \case
-    SNIOnly -> "sni-only"
-    StaticIP -> "static-ip"
-    VIP -> "vip"
+pattern StaticIP :: SSLSupportMethod
+pattern StaticIP = SSLSupportMethod' "static-ip"
 
-instance Hashable SSLSupportMethod
+pattern VIP :: SSLSupportMethod
+pattern VIP = SSLSupportMethod' "vip"
 
-instance NFData SSLSupportMethod
-
-instance ToByteString SSLSupportMethod
-
-instance ToQuery SSLSupportMethod
-
-instance ToHeader SSLSupportMethod
-
-instance FromXML SSLSupportMethod where
-  parseXML = parseXMLText "SSLSupportMethod"
-
-instance ToXML SSLSupportMethod where
-  toXML = toXMLText
+{-# COMPLETE
+  SNIOnly,
+  StaticIP,
+  VIP,
+  SSLSupportMethod'
+  #-}

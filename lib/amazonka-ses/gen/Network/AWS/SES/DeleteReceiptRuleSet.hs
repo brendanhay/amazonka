@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,118 @@
 --
 -- Deletes the specified receipt rule set and all of the receipt rules it contains.
 --
---
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.DeleteReceiptRuleSet
-  ( -- * Creating a Request
-    deleteReceiptRuleSet,
-    DeleteReceiptRuleSet,
+  ( -- * Creating a request
+    DeleteReceiptRuleSet (..),
+    mkDeleteReceiptRuleSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dRuleSetName,
 
-    -- * Destructuring the Response
-    deleteReceiptRuleSetResponse,
-    DeleteReceiptRuleSetResponse,
+    -- * Destructuring the response
+    DeleteReceiptRuleSetResponse (..),
+    mkDeleteReceiptRuleSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'deleteReceiptRuleSet' smart constructor.
+-- /See:/ 'mkDeleteReceiptRuleSet' smart constructor.
 newtype DeleteReceiptRuleSet = DeleteReceiptRuleSet'
-  { _dRuleSetName ::
-      Text
+  { ruleSetName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReceiptRuleSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dRuleSetName' - The name of the receipt rule set to delete.
-deleteReceiptRuleSet ::
-  -- | 'dRuleSetName'
-  Text ->
+-- * 'ruleSetName' - The name of the receipt rule set to delete.
+mkDeleteReceiptRuleSet ::
+  -- | 'ruleSetName'
+  Lude.Text ->
   DeleteReceiptRuleSet
-deleteReceiptRuleSet pRuleSetName_ =
-  DeleteReceiptRuleSet' {_dRuleSetName = pRuleSetName_}
+mkDeleteReceiptRuleSet pRuleSetName_ =
+  DeleteReceiptRuleSet' {ruleSetName = pRuleSetName_}
 
 -- | The name of the receipt rule set to delete.
-dRuleSetName :: Lens' DeleteReceiptRuleSet Text
-dRuleSetName = lens _dRuleSetName (\s a -> s {_dRuleSetName = a})
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRuleSetName :: Lens.Lens' DeleteReceiptRuleSet Lude.Text
+dRuleSetName = Lens.lens (ruleSetName :: DeleteReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: DeleteReceiptRuleSet)
+{-# DEPRECATED dRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance AWSRequest DeleteReceiptRuleSet where
+instance Lude.AWSRequest DeleteReceiptRuleSet where
   type Rs DeleteReceiptRuleSet = DeleteReceiptRuleSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteReceiptRuleSetResult"
-      (\s h x -> DeleteReceiptRuleSetResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          DeleteReceiptRuleSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteReceiptRuleSet
+instance Lude.ToHeaders DeleteReceiptRuleSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteReceiptRuleSet
+instance Lude.ToPath DeleteReceiptRuleSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteReceiptRuleSet where
-  toHeaders = const mempty
-
-instance ToPath DeleteReceiptRuleSet where
-  toPath = const "/"
-
-instance ToQuery DeleteReceiptRuleSet where
+instance Lude.ToQuery DeleteReceiptRuleSet where
   toQuery DeleteReceiptRuleSet' {..} =
-    mconcat
-      [ "Action" =: ("DeleteReceiptRuleSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "RuleSetName" =: _dRuleSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteReceiptRuleSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "RuleSetName" Lude.=: ruleSetName
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'deleteReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'mkDeleteReceiptRuleSetResponse' smart constructor.
 newtype DeleteReceiptRuleSetResponse = DeleteReceiptRuleSetResponse'
-  { _drrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsrsResponseStatus' - -- | The response status code.
-deleteReceiptRuleSetResponse ::
-  -- | 'drrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteReceiptRuleSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReceiptRuleSetResponse
-deleteReceiptRuleSetResponse pResponseStatus_ =
-  DeleteReceiptRuleSetResponse'
-    { _drrsrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteReceiptRuleSetResponse pResponseStatus_ =
+  DeleteReceiptRuleSetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drrsrsResponseStatus :: Lens' DeleteReceiptRuleSetResponse Int
-drrsrsResponseStatus = lens _drrsrsResponseStatus (\s a -> s {_drrsrsResponseStatus = a})
-
-instance NFData DeleteReceiptRuleSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsrsResponseStatus :: Lens.Lens' DeleteReceiptRuleSetResponse Lude.Int
+drrsrsResponseStatus = Lens.lens (responseStatus :: DeleteReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReceiptRuleSetResponse)
+{-# DEPRECATED drrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.OperationStatus where
+module Network.AWS.Lightsail.Types.OperationStatus
+  ( OperationStatus
+      ( OperationStatus',
+        OSCompleted,
+        OSFailed,
+        OSNotStarted,
+        OSStarted,
+        OSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationStatus
-  = OSCompleted
-  | OSFailed
-  | OSNotStarted
-  | OSStarted
-  | OSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationStatus = OperationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure OSCompleted
-      "failed" -> pure OSFailed
-      "notstarted" -> pure OSNotStarted
-      "started" -> pure OSStarted
-      "succeeded" -> pure OSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing OperationStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, notstarted, started, succeeded"
+pattern OSCompleted :: OperationStatus
+pattern OSCompleted = OperationStatus' "Completed"
 
-instance ToText OperationStatus where
-  toText = \case
-    OSCompleted -> "Completed"
-    OSFailed -> "Failed"
-    OSNotStarted -> "NotStarted"
-    OSStarted -> "Started"
-    OSSucceeded -> "Succeeded"
+pattern OSFailed :: OperationStatus
+pattern OSFailed = OperationStatus' "Failed"
 
-instance Hashable OperationStatus
+pattern OSNotStarted :: OperationStatus
+pattern OSNotStarted = OperationStatus' "NotStarted"
 
-instance NFData OperationStatus
+pattern OSStarted :: OperationStatus
+pattern OSStarted = OperationStatus' "Started"
 
-instance ToByteString OperationStatus
+pattern OSSucceeded :: OperationStatus
+pattern OSSucceeded = OperationStatus' "Succeeded"
 
-instance ToQuery OperationStatus
-
-instance ToHeader OperationStatus
-
-instance FromJSON OperationStatus where
-  parseJSON = parseJSONText "OperationStatus"
+{-# COMPLETE
+  OSCompleted,
+  OSFailed,
+  OSNotStarted,
+  OSStarted,
+  OSSucceeded,
+  OperationStatus'
+  #-}

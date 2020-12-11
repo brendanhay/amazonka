@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,134 @@
 --
 -- Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
-  ( -- * Creating a Request
-    deleteLoadBalancerPolicy,
-    DeleteLoadBalancerPolicy,
+  ( -- * Creating a request
+    DeleteLoadBalancerPolicy (..),
+    mkDeleteLoadBalancerPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dLoadBalancerName,
     dPolicyName,
 
-    -- * Destructuring the Response
-    deleteLoadBalancerPolicyResponse,
-    DeleteLoadBalancerPolicyResponse,
+    -- * Destructuring the response
+    DeleteLoadBalancerPolicyResponse (..),
+    mkDeleteLoadBalancerPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeleteLoadBalancerPolicy.
 --
---
---
--- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
+-- /See:/ 'mkDeleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
-  { _dLoadBalancerName ::
-      !Text,
-    _dPolicyName :: !Text
+  { loadBalancerName ::
+      Lude.Text,
+    policyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dLoadBalancerName' - The name of the load balancer.
---
--- * 'dPolicyName' - The name of the policy.
-deleteLoadBalancerPolicy ::
-  -- | 'dLoadBalancerName'
-  Text ->
-  -- | 'dPolicyName'
-  Text ->
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'policyName' - The name of the policy.
+mkDeleteLoadBalancerPolicy ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
   DeleteLoadBalancerPolicy
-deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
+mkDeleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
   DeleteLoadBalancerPolicy'
-    { _dLoadBalancerName =
-        pLoadBalancerName_,
-      _dPolicyName = pPolicyName_
+    { loadBalancerName = pLoadBalancerName_,
+      policyName = pPolicyName_
     }
 
 -- | The name of the load balancer.
-dLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
-dLoadBalancerName = lens _dLoadBalancerName (\s a -> s {_dLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLoadBalancerName :: Lens.Lens' DeleteLoadBalancerPolicy Lude.Text
+dLoadBalancerName = Lens.lens (loadBalancerName :: DeleteLoadBalancerPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeleteLoadBalancerPolicy)
+{-# DEPRECATED dLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the policy.
-dPolicyName :: Lens' DeleteLoadBalancerPolicy Text
-dPolicyName = lens _dPolicyName (\s a -> s {_dPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPolicyName :: Lens.Lens' DeleteLoadBalancerPolicy Lude.Text
+dPolicyName = Lens.lens (policyName :: DeleteLoadBalancerPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteLoadBalancerPolicy)
+{-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance AWSRequest DeleteLoadBalancerPolicy where
+instance Lude.AWSRequest DeleteLoadBalancerPolicy where
   type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteLoadBalancerPolicyResult"
       ( \s h x ->
-          DeleteLoadBalancerPolicyResponse' <$> (pure (fromEnum s))
+          DeleteLoadBalancerPolicyResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteLoadBalancerPolicy
+instance Lude.ToHeaders DeleteLoadBalancerPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteLoadBalancerPolicy
+instance Lude.ToPath DeleteLoadBalancerPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteLoadBalancerPolicy where
-  toHeaders = const mempty
-
-instance ToPath DeleteLoadBalancerPolicy where
-  toPath = const "/"
-
-instance ToQuery DeleteLoadBalancerPolicy where
+instance Lude.ToQuery DeleteLoadBalancerPolicy where
   toQuery DeleteLoadBalancerPolicy' {..} =
-    mconcat
-      [ "Action" =: ("DeleteLoadBalancerPolicy" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _dLoadBalancerName,
-        "PolicyName" =: _dPolicyName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteLoadBalancerPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "PolicyName" Lude.=: policyName
       ]
 
 -- | Contains the output of DeleteLoadBalancerPolicy.
 --
---
---
--- /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
+-- /See:/ 'mkDeleteLoadBalancerPolicyResponse' smart constructor.
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
-  { _delrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteLoadBalancerPolicyResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteLoadBalancerPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLoadBalancerPolicyResponse
-deleteLoadBalancerPolicyResponse pResponseStatus_ =
+mkDeleteLoadBalancerPolicyResponse pResponseStatus_ =
   DeleteLoadBalancerPolicyResponse'
-    { _delrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteLoadBalancerPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteLoadBalancerPolicyResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteLoadBalancerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoadBalancerPolicyResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

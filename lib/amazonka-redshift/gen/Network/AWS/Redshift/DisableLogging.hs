@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Stops logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.DisableLogging
-  ( -- * Creating a Request
-    disableLogging,
-    DisableLogging,
+  ( -- * Creating a request
+    DisableLogging (..),
+    mkDisableLogging,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlClusterIdentifier,
 
-    -- * Destructuring the Response
-    loggingStatus,
-    LoggingStatus,
+    -- * Destructuring the response
+    LoggingStatus (..),
+    mkLoggingStatus,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsLastFailureTime,
     lsLastSuccessfulDeliveryTime,
     lsS3KeyPrefix,
@@ -40,59 +35,67 @@ module Network.AWS.Redshift.DisableLogging
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'disableLogging' smart constructor.
+-- /See:/ 'mkDisableLogging' smart constructor.
 newtype DisableLogging = DisableLogging'
-  { _dlClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableLogging' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The identifier of the cluster on which logging is to be stopped.
 --
--- * 'dlClusterIdentifier' - The identifier of the cluster on which logging is to be stopped. Example: @examplecluster@
-disableLogging ::
-  -- | 'dlClusterIdentifier'
-  Text ->
+-- Example: @examplecluster@
+mkDisableLogging ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   DisableLogging
-disableLogging pClusterIdentifier_ =
-  DisableLogging' {_dlClusterIdentifier = pClusterIdentifier_}
+mkDisableLogging pClusterIdentifier_ =
+  DisableLogging' {clusterIdentifier = pClusterIdentifier_}
 
--- | The identifier of the cluster on which logging is to be stopped. Example: @examplecluster@
-dlClusterIdentifier :: Lens' DisableLogging Text
-dlClusterIdentifier = lens _dlClusterIdentifier (\s a -> s {_dlClusterIdentifier = a})
+-- | The identifier of the cluster on which logging is to be stopped.
+--
+-- Example: @examplecluster@
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlClusterIdentifier :: Lens.Lens' DisableLogging Lude.Text
+dlClusterIdentifier = Lens.lens (clusterIdentifier :: DisableLogging -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DisableLogging)
+{-# DEPRECATED dlClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest DisableLogging where
+instance Lude.AWSRequest DisableLogging where
   type Rs DisableLogging = LoggingStatus
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper "DisableLoggingResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "DisableLoggingResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DisableLogging
+instance Lude.ToHeaders DisableLogging where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisableLogging
+instance Lude.ToPath DisableLogging where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisableLogging where
-  toHeaders = const mempty
-
-instance ToPath DisableLogging where
-  toPath = const "/"
-
-instance ToQuery DisableLogging where
+instance Lude.ToQuery DisableLogging where
   toQuery DisableLogging' {..} =
-    mconcat
-      [ "Action" =: ("DisableLogging" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _dlClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DisableLogging" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]

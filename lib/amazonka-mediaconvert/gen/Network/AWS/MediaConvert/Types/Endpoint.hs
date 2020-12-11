@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,34 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Endpoint where
+module Network.AWS.MediaConvert.Types.Endpoint
+  ( Endpoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEndpoint,
+
+    -- * Lenses
+    eURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an account-specific API endpoint.
 --
--- /See:/ 'endpoint' smart constructor.
-newtype Endpoint = Endpoint' {_eURL :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkEndpoint' smart constructor.
+newtype Endpoint = Endpoint' {url :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eURL' - URL of endpoint
-endpoint ::
+-- * 'url' - URL of endpoint
+mkEndpoint ::
   Endpoint
-endpoint = Endpoint' {_eURL = Nothing}
+mkEndpoint = Endpoint' {url = Lude.Nothing}
 
 -- | URL of endpoint
-eURL :: Lens' Endpoint (Maybe Text)
-eURL = lens _eURL (\s a -> s {_eURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eURL :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
+eURL = Lens.lens (url :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Endpoint)
+{-# DEPRECATED eURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
-instance FromJSON Endpoint where
+instance Lude.FromJSON Endpoint where
   parseJSON =
-    withObject "Endpoint" (\x -> Endpoint' <$> (x .:? "url"))
-
-instance Hashable Endpoint
-
-instance NFData Endpoint
+    Lude.withObject
+      "Endpoint"
+      (\x -> Endpoint' Lude.<$> (x Lude..:? "url"))

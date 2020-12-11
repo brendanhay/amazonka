@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.PortInfoSourceType where
+module Network.AWS.Lightsail.Types.PortInfoSourceType
+  ( PortInfoSourceType
+      ( PortInfoSourceType',
+        PISTClosed,
+        PISTDefault,
+        PISTInstance,
+        PISTNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PortInfoSourceType
-  = PISTClosed
-  | PISTDefault
-  | PISTInstance
-  | PISTNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PortInfoSourceType = PortInfoSourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PortInfoSourceType where
-  parser =
-    takeLowerText >>= \case
-      "closed" -> pure PISTClosed
-      "default" -> pure PISTDefault
-      "instance" -> pure PISTInstance
-      "none" -> pure PISTNone
-      e ->
-        fromTextError $
-          "Failure parsing PortInfoSourceType from value: '" <> e
-            <> "'. Accepted values: closed, default, instance, none"
+pattern PISTClosed :: PortInfoSourceType
+pattern PISTClosed = PortInfoSourceType' "CLOSED"
 
-instance ToText PortInfoSourceType where
-  toText = \case
-    PISTClosed -> "CLOSED"
-    PISTDefault -> "DEFAULT"
-    PISTInstance -> "INSTANCE"
-    PISTNone -> "NONE"
+pattern PISTDefault :: PortInfoSourceType
+pattern PISTDefault = PortInfoSourceType' "DEFAULT"
 
-instance Hashable PortInfoSourceType
+pattern PISTInstance :: PortInfoSourceType
+pattern PISTInstance = PortInfoSourceType' "INSTANCE"
 
-instance NFData PortInfoSourceType
+pattern PISTNone :: PortInfoSourceType
+pattern PISTNone = PortInfoSourceType' "NONE"
 
-instance ToByteString PortInfoSourceType
-
-instance ToQuery PortInfoSourceType
-
-instance ToHeader PortInfoSourceType
-
-instance ToJSON PortInfoSourceType where
-  toJSON = toJSONText
+{-# COMPLETE
+  PISTClosed,
+  PISTDefault,
+  PISTInstance,
+  PISTNone,
+  PortInfoSourceType'
+  #-}

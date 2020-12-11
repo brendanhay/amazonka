@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLJobConfig where
+module Network.AWS.SageMaker.Types.AutoMLJobConfig
+  ( AutoMLJobConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutoMLJobConfig,
+
+    -- * Lenses
+    amljcSecurityConfig,
+    amljcCompletionCriteria,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria
 import Network.AWS.SageMaker.Types.AutoMLSecurityConfig
 
 -- | A collection of settings used for a job.
 --
---
---
--- /See:/ 'autoMLJobConfig' smart constructor.
+-- /See:/ 'mkAutoMLJobConfig' smart constructor.
 data AutoMLJobConfig = AutoMLJobConfig'
-  { _amljcSecurityConfig ::
-      !(Maybe AutoMLSecurityConfig),
-    _amljcCompletionCriteria ::
-      !(Maybe AutoMLJobCompletionCriteria)
+  { securityConfig ::
+      Lude.Maybe AutoMLSecurityConfig,
+    completionCriteria ::
+      Lude.Maybe AutoMLJobCompletionCriteria
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLJobConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amljcSecurityConfig' - Security configuration for traffic encryption or Amazon VPC settings.
---
--- * 'amljcCompletionCriteria' - How long a job is allowed to run, or how many candidates a job is allowed to generate.
-autoMLJobConfig ::
+-- * 'completionCriteria' - How long a job is allowed to run, or how many candidates a job is allowed to generate.
+-- * 'securityConfig' - Security configuration for traffic encryption or Amazon VPC settings.
+mkAutoMLJobConfig ::
   AutoMLJobConfig
-autoMLJobConfig =
+mkAutoMLJobConfig =
   AutoMLJobConfig'
-    { _amljcSecurityConfig = Nothing,
-      _amljcCompletionCriteria = Nothing
+    { securityConfig = Lude.Nothing,
+      completionCriteria = Lude.Nothing
     }
 
 -- | Security configuration for traffic encryption or Amazon VPC settings.
-amljcSecurityConfig :: Lens' AutoMLJobConfig (Maybe AutoMLSecurityConfig)
-amljcSecurityConfig = lens _amljcSecurityConfig (\s a -> s {_amljcSecurityConfig = a})
+--
+-- /Note:/ Consider using 'securityConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljcSecurityConfig :: Lens.Lens' AutoMLJobConfig (Lude.Maybe AutoMLSecurityConfig)
+amljcSecurityConfig = Lens.lens (securityConfig :: AutoMLJobConfig -> Lude.Maybe AutoMLSecurityConfig) (\s a -> s {securityConfig = a} :: AutoMLJobConfig)
+{-# DEPRECATED amljcSecurityConfig "Use generic-lens or generic-optics with 'securityConfig' instead." #-}
 
 -- | How long a job is allowed to run, or how many candidates a job is allowed to generate.
-amljcCompletionCriteria :: Lens' AutoMLJobConfig (Maybe AutoMLJobCompletionCriteria)
-amljcCompletionCriteria = lens _amljcCompletionCriteria (\s a -> s {_amljcCompletionCriteria = a})
+--
+-- /Note:/ Consider using 'completionCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljcCompletionCriteria :: Lens.Lens' AutoMLJobConfig (Lude.Maybe AutoMLJobCompletionCriteria)
+amljcCompletionCriteria = Lens.lens (completionCriteria :: AutoMLJobConfig -> Lude.Maybe AutoMLJobCompletionCriteria) (\s a -> s {completionCriteria = a} :: AutoMLJobConfig)
+{-# DEPRECATED amljcCompletionCriteria "Use generic-lens or generic-optics with 'completionCriteria' instead." #-}
 
-instance FromJSON AutoMLJobConfig where
+instance Lude.FromJSON AutoMLJobConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoMLJobConfig"
       ( \x ->
           AutoMLJobConfig'
-            <$> (x .:? "SecurityConfig") <*> (x .:? "CompletionCriteria")
+            Lude.<$> (x Lude..:? "SecurityConfig")
+            Lude.<*> (x Lude..:? "CompletionCriteria")
       )
 
-instance Hashable AutoMLJobConfig
-
-instance NFData AutoMLJobConfig
-
-instance ToJSON AutoMLJobConfig where
+instance Lude.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =
-    object
-      ( catMaybes
-          [ ("SecurityConfig" .=) <$> _amljcSecurityConfig,
-            ("CompletionCriteria" .=) <$> _amljcCompletionCriteria
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SecurityConfig" Lude..=) Lude.<$> securityConfig,
+            ("CompletionCriteria" Lude..=) Lude.<$> completionCriteria
           ]
       )

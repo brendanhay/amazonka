@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ExpirationStatus where
+module Network.AWS.S3.Types.ExpirationStatus
+  ( ExpirationStatus
+      ( ExpirationStatus',
+        ESDisabled,
+        ESEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ExpirationStatus
-  = ESDisabled
-  | ESEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExpirationStatus = ExpirationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExpirationStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ESDisabled
-      "enabled" -> pure ESEnabled
-      e ->
-        fromTextError $
-          "Failure parsing ExpirationStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern ESDisabled :: ExpirationStatus
+pattern ESDisabled = ExpirationStatus' "Disabled"
 
-instance ToText ExpirationStatus where
-  toText = \case
-    ESDisabled -> "Disabled"
-    ESEnabled -> "Enabled"
+pattern ESEnabled :: ExpirationStatus
+pattern ESEnabled = ExpirationStatus' "Enabled"
 
-instance Hashable ExpirationStatus
-
-instance NFData ExpirationStatus
-
-instance ToByteString ExpirationStatus
-
-instance ToQuery ExpirationStatus
-
-instance ToHeader ExpirationStatus
-
-instance FromXML ExpirationStatus where
-  parseXML = parseXMLText "ExpirationStatus"
-
-instance ToXML ExpirationStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  ESDisabled,
+  ESEnabled,
+  ExpirationStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,34 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceDirectory where
+module Network.AWS.WorkSpaces.Types.WorkspaceDirectory
+  ( WorkspaceDirectory (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkspaceDirectory,
+
+    -- * Lenses
+    wdRegistrationCode,
+    wdIAMRoleId,
+    wdDirectoryId,
+    wdState,
+    wdCustomerUserName,
+    wdSubnetIds,
+    wdIpGroupIds,
+    wdAlias,
+    wdWorkspaceSecurityGroupId,
+    wdDirectoryType,
+    wdTenancy,
+    wdWorkspaceCreationProperties,
+    wdDNSIPAddresses,
+    wdWorkspaceAccessProperties,
+    wdDirectoryName,
+    wdSelfservicePermissions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties
 import Network.AWS.WorkSpaces.Types.SelfservicePermissions
 import Network.AWS.WorkSpaces.Types.Tenancy
@@ -26,178 +44,210 @@ import Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
 
 -- | Describes a directory that is used with Amazon WorkSpaces.
 --
---
---
--- /See:/ 'workspaceDirectory' smart constructor.
+-- /See:/ 'mkWorkspaceDirectory' smart constructor.
 data WorkspaceDirectory = WorkspaceDirectory'
-  { _wdRegistrationCode ::
-      !(Maybe Text),
-    _wdIAMRoleId :: !(Maybe Text),
-    _wdDirectoryId :: !(Maybe Text),
-    _wdState :: !(Maybe WorkspaceDirectoryState),
-    _wdCustomerUserName :: !(Maybe Text),
-    _wdSubnetIds :: !(Maybe [Text]),
-    _wdIpGroupIds :: !(Maybe [Text]),
-    _wdAlias :: !(Maybe Text),
-    _wdWorkspaceSecurityGroupId :: !(Maybe Text),
-    _wdDirectoryType :: !(Maybe WorkspaceDirectoryType),
-    _wdTenancy :: !(Maybe Tenancy),
-    _wdWorkspaceCreationProperties ::
-      !(Maybe DefaultWorkspaceCreationProperties),
-    _wdDNSIPAddresses :: !(Maybe [Text]),
-    _wdWorkspaceAccessProperties ::
-      !(Maybe WorkspaceAccessProperties),
-    _wdDirectoryName :: !(Maybe Text),
-    _wdSelfservicePermissions ::
-      !(Maybe SelfservicePermissions)
+  { registrationCode ::
+      Lude.Maybe Lude.Text,
+    iamRoleId :: Lude.Maybe Lude.Text,
+    directoryId :: Lude.Maybe Lude.Text,
+    state :: Lude.Maybe WorkspaceDirectoryState,
+    customerUserName :: Lude.Maybe Lude.Text,
+    subnetIds :: Lude.Maybe [Lude.Text],
+    ipGroupIds :: Lude.Maybe [Lude.Text],
+    alias :: Lude.Maybe Lude.Text,
+    workspaceSecurityGroupId :: Lude.Maybe Lude.Text,
+    directoryType :: Lude.Maybe WorkspaceDirectoryType,
+    tenancy :: Lude.Maybe Tenancy,
+    workspaceCreationProperties ::
+      Lude.Maybe DefaultWorkspaceCreationProperties,
+    dnsIPAddresses :: Lude.Maybe [Lude.Text],
+    workspaceAccessProperties ::
+      Lude.Maybe WorkspaceAccessProperties,
+    directoryName :: Lude.Maybe Lude.Text,
+    selfservicePermissions ::
+      Lude.Maybe SelfservicePermissions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wdRegistrationCode' - The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
---
--- * 'wdIAMRoleId' - The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
---
--- * 'wdDirectoryId' - The directory identifier.
---
--- * 'wdState' - The state of the directory's registration with Amazon WorkSpaces. After a directory is deregistered, the @DEREGISTERED@ state is returned very briefly before the directory metadata is cleaned up, so this state is rarely returned. To confirm that a directory is deregistered, check for the directory ID by using <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories> . If the directory ID isn't returned, then the directory has been successfully deregistered.
---
--- * 'wdCustomerUserName' - The user name for the service account.
---
--- * 'wdSubnetIds' - The identifiers of the subnets used with the directory.
---
--- * 'wdIpGroupIds' - The identifiers of the IP access control groups associated with the directory.
---
--- * 'wdAlias' - The directory alias.
---
--- * 'wdWorkspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.
---
--- * 'wdDirectoryType' - The directory type.
---
--- * 'wdTenancy' - Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
---
--- * 'wdWorkspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.
---
--- * 'wdDNSIPAddresses' - The IP addresses of the DNS servers for the directory.
---
--- * 'wdWorkspaceAccessProperties' - The devices and operating systems that users can use to access WorkSpaces.
---
--- * 'wdDirectoryName' - The name of the directory.
---
--- * 'wdSelfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.
-workspaceDirectory ::
+-- * 'alias' - The directory alias.
+-- * 'customerUserName' - The user name for the service account.
+-- * 'directoryId' - The directory identifier.
+-- * 'directoryName' - The name of the directory.
+-- * 'directoryType' - The directory type.
+-- * 'dnsIPAddresses' - The IP addresses of the DNS servers for the directory.
+-- * 'iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+-- * 'ipGroupIds' - The identifiers of the IP access control groups associated with the directory.
+-- * 'registrationCode' - The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+-- * 'selfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.
+-- * 'state' - The state of the directory's registration with Amazon WorkSpaces. After a directory is deregistered, the @DEREGISTERED@ state is returned very briefly before the directory metadata is cleaned up, so this state is rarely returned. To confirm that a directory is deregistered, check for the directory ID by using <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories> . If the directory ID isn't returned, then the directory has been successfully deregistered.
+-- * 'subnetIds' - The identifiers of the subnets used with the directory.
+-- * 'tenancy' - Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+-- * 'workspaceAccessProperties' - The devices and operating systems that users can use to access WorkSpaces.
+-- * 'workspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.
+-- * 'workspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.
+mkWorkspaceDirectory ::
   WorkspaceDirectory
-workspaceDirectory =
+mkWorkspaceDirectory =
   WorkspaceDirectory'
-    { _wdRegistrationCode = Nothing,
-      _wdIAMRoleId = Nothing,
-      _wdDirectoryId = Nothing,
-      _wdState = Nothing,
-      _wdCustomerUserName = Nothing,
-      _wdSubnetIds = Nothing,
-      _wdIpGroupIds = Nothing,
-      _wdAlias = Nothing,
-      _wdWorkspaceSecurityGroupId = Nothing,
-      _wdDirectoryType = Nothing,
-      _wdTenancy = Nothing,
-      _wdWorkspaceCreationProperties = Nothing,
-      _wdDNSIPAddresses = Nothing,
-      _wdWorkspaceAccessProperties = Nothing,
-      _wdDirectoryName = Nothing,
-      _wdSelfservicePermissions = Nothing
+    { registrationCode = Lude.Nothing,
+      iamRoleId = Lude.Nothing,
+      directoryId = Lude.Nothing,
+      state = Lude.Nothing,
+      customerUserName = Lude.Nothing,
+      subnetIds = Lude.Nothing,
+      ipGroupIds = Lude.Nothing,
+      alias = Lude.Nothing,
+      workspaceSecurityGroupId = Lude.Nothing,
+      directoryType = Lude.Nothing,
+      tenancy = Lude.Nothing,
+      workspaceCreationProperties = Lude.Nothing,
+      dnsIPAddresses = Lude.Nothing,
+      workspaceAccessProperties = Lude.Nothing,
+      directoryName = Lude.Nothing,
+      selfservicePermissions = Lude.Nothing
     }
 
 -- | The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-wdRegistrationCode :: Lens' WorkspaceDirectory (Maybe Text)
-wdRegistrationCode = lens _wdRegistrationCode (\s a -> s {_wdRegistrationCode = a})
+--
+-- /Note:/ Consider using 'registrationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdRegistrationCode :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdRegistrationCode = Lens.lens (registrationCode :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {registrationCode = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdRegistrationCode "Use generic-lens or generic-optics with 'registrationCode' instead." #-}
 
 -- | The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-wdIAMRoleId :: Lens' WorkspaceDirectory (Maybe Text)
-wdIAMRoleId = lens _wdIAMRoleId (\s a -> s {_wdIAMRoleId = a})
+--
+-- /Note:/ Consider using 'iamRoleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdIAMRoleId :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdIAMRoleId = Lens.lens (iamRoleId :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleId = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdIAMRoleId "Use generic-lens or generic-optics with 'iamRoleId' instead." #-}
 
 -- | The directory identifier.
-wdDirectoryId :: Lens' WorkspaceDirectory (Maybe Text)
-wdDirectoryId = lens _wdDirectoryId (\s a -> s {_wdDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdDirectoryId :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdDirectoryId = Lens.lens (directoryId :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The state of the directory's registration with Amazon WorkSpaces. After a directory is deregistered, the @DEREGISTERED@ state is returned very briefly before the directory metadata is cleaned up, so this state is rarely returned. To confirm that a directory is deregistered, check for the directory ID by using <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories> . If the directory ID isn't returned, then the directory has been successfully deregistered.
-wdState :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryState)
-wdState = lens _wdState (\s a -> s {_wdState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdState :: Lens.Lens' WorkspaceDirectory (Lude.Maybe WorkspaceDirectoryState)
+wdState = Lens.lens (state :: WorkspaceDirectory -> Lude.Maybe WorkspaceDirectoryState) (\s a -> s {state = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The user name for the service account.
-wdCustomerUserName :: Lens' WorkspaceDirectory (Maybe Text)
-wdCustomerUserName = lens _wdCustomerUserName (\s a -> s {_wdCustomerUserName = a})
+--
+-- /Note:/ Consider using 'customerUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdCustomerUserName :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdCustomerUserName = Lens.lens (customerUserName :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {customerUserName = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdCustomerUserName "Use generic-lens or generic-optics with 'customerUserName' instead." #-}
 
 -- | The identifiers of the subnets used with the directory.
-wdSubnetIds :: Lens' WorkspaceDirectory [Text]
-wdSubnetIds = lens _wdSubnetIds (\s a -> s {_wdSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdSubnetIds :: Lens.Lens' WorkspaceDirectory (Lude.Maybe [Lude.Text])
+wdSubnetIds = Lens.lens (subnetIds :: WorkspaceDirectory -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The identifiers of the IP access control groups associated with the directory.
-wdIpGroupIds :: Lens' WorkspaceDirectory [Text]
-wdIpGroupIds = lens _wdIpGroupIds (\s a -> s {_wdIpGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdIpGroupIds :: Lens.Lens' WorkspaceDirectory (Lude.Maybe [Lude.Text])
+wdIpGroupIds = Lens.lens (ipGroupIds :: WorkspaceDirectory -> Lude.Maybe [Lude.Text]) (\s a -> s {ipGroupIds = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdIpGroupIds "Use generic-lens or generic-optics with 'ipGroupIds' instead." #-}
 
 -- | The directory alias.
-wdAlias :: Lens' WorkspaceDirectory (Maybe Text)
-wdAlias = lens _wdAlias (\s a -> s {_wdAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdAlias :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdAlias = Lens.lens (alias :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {alias = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
 -- | The identifier of the security group that is assigned to new WorkSpaces.
-wdWorkspaceSecurityGroupId :: Lens' WorkspaceDirectory (Maybe Text)
-wdWorkspaceSecurityGroupId = lens _wdWorkspaceSecurityGroupId (\s a -> s {_wdWorkspaceSecurityGroupId = a})
+--
+-- /Note:/ Consider using 'workspaceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdWorkspaceSecurityGroupId :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdWorkspaceSecurityGroupId = Lens.lens (workspaceSecurityGroupId :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {workspaceSecurityGroupId = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdWorkspaceSecurityGroupId "Use generic-lens or generic-optics with 'workspaceSecurityGroupId' instead." #-}
 
 -- | The directory type.
-wdDirectoryType :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryType)
-wdDirectoryType = lens _wdDirectoryType (\s a -> s {_wdDirectoryType = a})
+--
+-- /Note:/ Consider using 'directoryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdDirectoryType :: Lens.Lens' WorkspaceDirectory (Lude.Maybe WorkspaceDirectoryType)
+wdDirectoryType = Lens.lens (directoryType :: WorkspaceDirectory -> Lude.Maybe WorkspaceDirectoryType) (\s a -> s {directoryType = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdDirectoryType "Use generic-lens or generic-optics with 'directoryType' instead." #-}
 
 -- | Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
-wdTenancy :: Lens' WorkspaceDirectory (Maybe Tenancy)
-wdTenancy = lens _wdTenancy (\s a -> s {_wdTenancy = a})
+--
+-- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdTenancy :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Tenancy)
+wdTenancy = Lens.lens (tenancy :: WorkspaceDirectory -> Lude.Maybe Tenancy) (\s a -> s {tenancy = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
 
 -- | The default creation properties for all WorkSpaces in the directory.
-wdWorkspaceCreationProperties :: Lens' WorkspaceDirectory (Maybe DefaultWorkspaceCreationProperties)
-wdWorkspaceCreationProperties = lens _wdWorkspaceCreationProperties (\s a -> s {_wdWorkspaceCreationProperties = a})
+--
+-- /Note:/ Consider using 'workspaceCreationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdWorkspaceCreationProperties :: Lens.Lens' WorkspaceDirectory (Lude.Maybe DefaultWorkspaceCreationProperties)
+wdWorkspaceCreationProperties = Lens.lens (workspaceCreationProperties :: WorkspaceDirectory -> Lude.Maybe DefaultWorkspaceCreationProperties) (\s a -> s {workspaceCreationProperties = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdWorkspaceCreationProperties "Use generic-lens or generic-optics with 'workspaceCreationProperties' instead." #-}
 
 -- | The IP addresses of the DNS servers for the directory.
-wdDNSIPAddresses :: Lens' WorkspaceDirectory [Text]
-wdDNSIPAddresses = lens _wdDNSIPAddresses (\s a -> s {_wdDNSIPAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dnsIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdDNSIPAddresses :: Lens.Lens' WorkspaceDirectory (Lude.Maybe [Lude.Text])
+wdDNSIPAddresses = Lens.lens (dnsIPAddresses :: WorkspaceDirectory -> Lude.Maybe [Lude.Text]) (\s a -> s {dnsIPAddresses = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdDNSIPAddresses "Use generic-lens or generic-optics with 'dnsIPAddresses' instead." #-}
 
 -- | The devices and operating systems that users can use to access WorkSpaces.
-wdWorkspaceAccessProperties :: Lens' WorkspaceDirectory (Maybe WorkspaceAccessProperties)
-wdWorkspaceAccessProperties = lens _wdWorkspaceAccessProperties (\s a -> s {_wdWorkspaceAccessProperties = a})
+--
+-- /Note:/ Consider using 'workspaceAccessProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdWorkspaceAccessProperties :: Lens.Lens' WorkspaceDirectory (Lude.Maybe WorkspaceAccessProperties)
+wdWorkspaceAccessProperties = Lens.lens (workspaceAccessProperties :: WorkspaceDirectory -> Lude.Maybe WorkspaceAccessProperties) (\s a -> s {workspaceAccessProperties = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdWorkspaceAccessProperties "Use generic-lens or generic-optics with 'workspaceAccessProperties' instead." #-}
 
 -- | The name of the directory.
-wdDirectoryName :: Lens' WorkspaceDirectory (Maybe Text)
-wdDirectoryName = lens _wdDirectoryName (\s a -> s {_wdDirectoryName = a})
+--
+-- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdDirectoryName :: Lens.Lens' WorkspaceDirectory (Lude.Maybe Lude.Text)
+wdDirectoryName = Lens.lens (directoryName :: WorkspaceDirectory -> Lude.Maybe Lude.Text) (\s a -> s {directoryName = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
 -- | The default self-service permissions for WorkSpaces in the directory.
-wdSelfservicePermissions :: Lens' WorkspaceDirectory (Maybe SelfservicePermissions)
-wdSelfservicePermissions = lens _wdSelfservicePermissions (\s a -> s {_wdSelfservicePermissions = a})
+--
+-- /Note:/ Consider using 'selfservicePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wdSelfservicePermissions :: Lens.Lens' WorkspaceDirectory (Lude.Maybe SelfservicePermissions)
+wdSelfservicePermissions = Lens.lens (selfservicePermissions :: WorkspaceDirectory -> Lude.Maybe SelfservicePermissions) (\s a -> s {selfservicePermissions = a} :: WorkspaceDirectory)
+{-# DEPRECATED wdSelfservicePermissions "Use generic-lens or generic-optics with 'selfservicePermissions' instead." #-}
 
-instance FromJSON WorkspaceDirectory where
+instance Lude.FromJSON WorkspaceDirectory where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkspaceDirectory"
       ( \x ->
           WorkspaceDirectory'
-            <$> (x .:? "RegistrationCode")
-            <*> (x .:? "IamRoleId")
-            <*> (x .:? "DirectoryId")
-            <*> (x .:? "State")
-            <*> (x .:? "CustomerUserName")
-            <*> (x .:? "SubnetIds" .!= mempty)
-            <*> (x .:? "ipGroupIds" .!= mempty)
-            <*> (x .:? "Alias")
-            <*> (x .:? "WorkspaceSecurityGroupId")
-            <*> (x .:? "DirectoryType")
-            <*> (x .:? "Tenancy")
-            <*> (x .:? "WorkspaceCreationProperties")
-            <*> (x .:? "DnsIpAddresses" .!= mempty)
-            <*> (x .:? "WorkspaceAccessProperties")
-            <*> (x .:? "DirectoryName")
-            <*> (x .:? "SelfservicePermissions")
+            Lude.<$> (x Lude..:? "RegistrationCode")
+            Lude.<*> (x Lude..:? "IamRoleId")
+            Lude.<*> (x Lude..:? "DirectoryId")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "CustomerUserName")
+            Lude.<*> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ipGroupIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Alias")
+            Lude.<*> (x Lude..:? "WorkspaceSecurityGroupId")
+            Lude.<*> (x Lude..:? "DirectoryType")
+            Lude.<*> (x Lude..:? "Tenancy")
+            Lude.<*> (x Lude..:? "WorkspaceCreationProperties")
+            Lude.<*> (x Lude..:? "DnsIpAddresses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "WorkspaceAccessProperties")
+            Lude.<*> (x Lude..:? "DirectoryName")
+            Lude.<*> (x Lude..:? "SelfservicePermissions")
       )
-
-instance Hashable WorkspaceDirectory
-
-instance NFData WorkspaceDirectory

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.FollowUpPrompt where
+module Network.AWS.LexModels.Types.FollowUpPrompt
+  ( FollowUpPrompt (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkFollowUpPrompt,
+
+    -- * Lenses
+    fupPrompt,
+    fupRejectionStatement,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Prompt
 import Network.AWS.LexModels.Types.Statement
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A prompt for additional activity after an intent is fulfilled. For example, after the @OrderPizza@ intent is fulfilled, you might prompt the user to find out whether the user wants to order drinks.
 --
---
---
--- /See:/ 'followUpPrompt' smart constructor.
+-- /See:/ 'mkFollowUpPrompt' smart constructor.
 data FollowUpPrompt = FollowUpPrompt'
-  { _fupPrompt :: !Prompt,
-    _fupRejectionStatement :: !Statement
+  { prompt :: Prompt,
+    rejectionStatement :: Statement
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FollowUpPrompt' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fupPrompt' - Prompts for information from the user.
---
--- * 'fupRejectionStatement' - If the user answers "no" to the question defined in the @prompt@ field, Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-followUpPrompt ::
-  -- | 'fupPrompt'
+-- * 'prompt' - Prompts for information from the user.
+-- * 'rejectionStatement' - If the user answers "no" to the question defined in the @prompt@ field, Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+mkFollowUpPrompt ::
+  -- | 'prompt'
   Prompt ->
-  -- | 'fupRejectionStatement'
+  -- | 'rejectionStatement'
   Statement ->
   FollowUpPrompt
-followUpPrompt pPrompt_ pRejectionStatement_ =
+mkFollowUpPrompt pPrompt_ pRejectionStatement_ =
   FollowUpPrompt'
-    { _fupPrompt = pPrompt_,
-      _fupRejectionStatement = pRejectionStatement_
+    { prompt = pPrompt_,
+      rejectionStatement = pRejectionStatement_
     }
 
 -- | Prompts for information from the user.
-fupPrompt :: Lens' FollowUpPrompt Prompt
-fupPrompt = lens _fupPrompt (\s a -> s {_fupPrompt = a})
+--
+-- /Note:/ Consider using 'prompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fupPrompt :: Lens.Lens' FollowUpPrompt Prompt
+fupPrompt = Lens.lens (prompt :: FollowUpPrompt -> Prompt) (\s a -> s {prompt = a} :: FollowUpPrompt)
+{-# DEPRECATED fupPrompt "Use generic-lens or generic-optics with 'prompt' instead." #-}
 
 -- | If the user answers "no" to the question defined in the @prompt@ field, Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-fupRejectionStatement :: Lens' FollowUpPrompt Statement
-fupRejectionStatement = lens _fupRejectionStatement (\s a -> s {_fupRejectionStatement = a})
+--
+-- /Note:/ Consider using 'rejectionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fupRejectionStatement :: Lens.Lens' FollowUpPrompt Statement
+fupRejectionStatement = Lens.lens (rejectionStatement :: FollowUpPrompt -> Statement) (\s a -> s {rejectionStatement = a} :: FollowUpPrompt)
+{-# DEPRECATED fupRejectionStatement "Use generic-lens or generic-optics with 'rejectionStatement' instead." #-}
 
-instance FromJSON FollowUpPrompt where
+instance Lude.FromJSON FollowUpPrompt where
   parseJSON =
-    withObject
+    Lude.withObject
       "FollowUpPrompt"
       ( \x ->
           FollowUpPrompt'
-            <$> (x .: "prompt") <*> (x .: "rejectionStatement")
+            Lude.<$> (x Lude..: "prompt") Lude.<*> (x Lude..: "rejectionStatement")
       )
 
-instance Hashable FollowUpPrompt
-
-instance NFData FollowUpPrompt
-
-instance ToJSON FollowUpPrompt where
+instance Lude.ToJSON FollowUpPrompt where
   toJSON FollowUpPrompt' {..} =
-    object
-      ( catMaybes
-          [ Just ("prompt" .= _fupPrompt),
-            Just ("rejectionStatement" .= _fupRejectionStatement)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("prompt" Lude..= prompt),
+            Lude.Just ("rejectionStatement" Lude..= rejectionStatement)
           ]
       )

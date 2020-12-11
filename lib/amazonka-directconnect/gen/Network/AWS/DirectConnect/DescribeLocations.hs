@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling 'CreateConnection' or 'CreateInterconnect' .
 module Network.AWS.DirectConnect.DescribeLocations
-  ( -- * Creating a Request
-    describeLocations,
-    DescribeLocations,
+  ( -- * Creating a request
+    DescribeLocations (..),
+    mkDescribeLocations,
 
-    -- * Destructuring the Response
-    describeLocationsResponse,
-    DescribeLocationsResponse,
+    -- * Destructuring the response
+    DescribeLocationsResponse (..),
+    mkDescribeLocationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlsrsLocations,
     dlsrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLocations' smart constructor.
+-- | /See:/ 'mkDescribeLocations' smart constructor.
 data DescribeLocations = DescribeLocations'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocations' with the minimum fields required to make a request.
-describeLocations ::
+mkDescribeLocations ::
   DescribeLocations
-describeLocations = DescribeLocations'
+mkDescribeLocations = DescribeLocations'
 
-instance AWSRequest DescribeLocations where
+instance Lude.AWSRequest DescribeLocations where
   type Rs DescribeLocations = DescribeLocationsResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeLocationsResponse'
-            <$> (x .?> "locations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "locations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLocations
-
-instance NFData DescribeLocations
-
-instance ToHeaders DescribeLocations where
+instance Lude.ToHeaders DescribeLocations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.DescribeLocations" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.DescribeLocations" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeLocations where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeLocations where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeLocations where
-  toPath = const "/"
+instance Lude.ToPath DescribeLocations where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeLocations where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeLocations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeLocationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-  { _dlsrsLocations ::
-      !(Maybe [Location]),
-    _dlsrsResponseStatus :: !Int
+  { locations ::
+      Lude.Maybe [Location],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlsrsLocations' - The locations.
---
--- * 'dlsrsResponseStatus' - -- | The response status code.
-describeLocationsResponse ::
-  -- | 'dlsrsResponseStatus'
-  Int ->
+-- * 'locations' - The locations.
+-- * 'responseStatus' - The response status code.
+mkDescribeLocationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLocationsResponse
-describeLocationsResponse pResponseStatus_ =
+mkDescribeLocationsResponse pResponseStatus_ =
   DescribeLocationsResponse'
-    { _dlsrsLocations = Nothing,
-      _dlsrsResponseStatus = pResponseStatus_
+    { locations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The locations.
-dlsrsLocations :: Lens' DescribeLocationsResponse [Location]
-dlsrsLocations = lens _dlsrsLocations (\s a -> s {_dlsrsLocations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'locations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlsrsLocations :: Lens.Lens' DescribeLocationsResponse (Lude.Maybe [Location])
+dlsrsLocations = Lens.lens (locations :: DescribeLocationsResponse -> Lude.Maybe [Location]) (\s a -> s {locations = a} :: DescribeLocationsResponse)
+{-# DEPRECATED dlsrsLocations "Use generic-lens or generic-optics with 'locations' instead." #-}
 
--- | -- | The response status code.
-dlsrsResponseStatus :: Lens' DescribeLocationsResponse Int
-dlsrsResponseStatus = lens _dlsrsResponseStatus (\s a -> s {_dlsrsResponseStatus = a})
-
-instance NFData DescribeLocationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlsrsResponseStatus :: Lens.Lens' DescribeLocationsResponse Lude.Int
+dlsrsResponseStatus = Lens.lens (responseStatus :: DescribeLocationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocationsResponse)
+{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TrafficMirrorFilterRuleField where
+module Network.AWS.EC2.Types.TrafficMirrorFilterRuleField
+  ( TrafficMirrorFilterRuleField
+      ( TrafficMirrorFilterRuleField',
+        TMFRFDescription,
+        TMFRFDestinationPortRange,
+        TMFRFProtocol,
+        TMFRFSourcePortRange
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrafficMirrorFilterRuleField
-  = TMFRFDescription
-  | TMFRFDestinationPortRange
-  | TMFRFProtocol
-  | TMFRFSourcePortRange
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrafficMirrorFilterRuleField = TrafficMirrorFilterRuleField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrafficMirrorFilterRuleField where
-  parser =
-    takeLowerText >>= \case
-      "description" -> pure TMFRFDescription
-      "destination-port-range" -> pure TMFRFDestinationPortRange
-      "protocol" -> pure TMFRFProtocol
-      "source-port-range" -> pure TMFRFSourcePortRange
-      e ->
-        fromTextError $
-          "Failure parsing TrafficMirrorFilterRuleField from value: '" <> e
-            <> "'. Accepted values: description, destination-port-range, protocol, source-port-range"
+pattern TMFRFDescription :: TrafficMirrorFilterRuleField
+pattern TMFRFDescription = TrafficMirrorFilterRuleField' "description"
 
-instance ToText TrafficMirrorFilterRuleField where
-  toText = \case
-    TMFRFDescription -> "description"
-    TMFRFDestinationPortRange -> "destination-port-range"
-    TMFRFProtocol -> "protocol"
-    TMFRFSourcePortRange -> "source-port-range"
+pattern TMFRFDestinationPortRange :: TrafficMirrorFilterRuleField
+pattern TMFRFDestinationPortRange = TrafficMirrorFilterRuleField' "destination-port-range"
 
-instance Hashable TrafficMirrorFilterRuleField
+pattern TMFRFProtocol :: TrafficMirrorFilterRuleField
+pattern TMFRFProtocol = TrafficMirrorFilterRuleField' "protocol"
 
-instance NFData TrafficMirrorFilterRuleField
+pattern TMFRFSourcePortRange :: TrafficMirrorFilterRuleField
+pattern TMFRFSourcePortRange = TrafficMirrorFilterRuleField' "source-port-range"
 
-instance ToByteString TrafficMirrorFilterRuleField
-
-instance ToQuery TrafficMirrorFilterRuleField
-
-instance ToHeader TrafficMirrorFilterRuleField
+{-# COMPLETE
+  TMFRFDescription,
+  TMFRFDestinationPortRange,
+  TMFRFProtocol,
+  TMFRFSourcePortRange,
+  TrafficMirrorFilterRuleField'
+  #-}

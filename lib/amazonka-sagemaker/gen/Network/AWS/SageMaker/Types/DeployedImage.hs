@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DeployedImage where
+module Network.AWS.SageMaker.Types.DeployedImage
+  ( DeployedImage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeployedImage,
+
+    -- * Lenses
+    diResolvedImage,
+    diSpecifiedImage,
+    diResolutionTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this 'ProductionVariant' .
 --
---
 -- If you used the @registry/repository[:tag]@ form to specify the image path of the primary container when you created the model hosted in this @ProductionVariant@ , the path resolves to a path of the form @registry/repository[@digest]@ . A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html Pulling an Image> in the /Amazon ECR User Guide/ .
 --
---
--- /See:/ 'deployedImage' smart constructor.
+-- /See:/ 'mkDeployedImage' smart constructor.
 data DeployedImage = DeployedImage'
-  { _diResolvedImage ::
-      !(Maybe Text),
-    _diSpecifiedImage :: !(Maybe Text),
-    _diResolutionTime :: !(Maybe POSIX)
+  { resolvedImage ::
+      Lude.Maybe Lude.Text,
+    specifiedImage :: Lude.Maybe Lude.Text,
+    resolutionTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeployedImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diResolvedImage' - The specific digest path of the image hosted in this @ProductionVariant@ .
---
--- * 'diSpecifiedImage' - The image path you specified when you created the model.
---
--- * 'diResolutionTime' - The date and time when the image path for the model resolved to the @ResolvedImage@
-deployedImage ::
+-- * 'resolutionTime' - The date and time when the image path for the model resolved to the @ResolvedImage@
+-- * 'resolvedImage' - The specific digest path of the image hosted in this @ProductionVariant@ .
+-- * 'specifiedImage' - The image path you specified when you created the model.
+mkDeployedImage ::
   DeployedImage
-deployedImage =
+mkDeployedImage =
   DeployedImage'
-    { _diResolvedImage = Nothing,
-      _diSpecifiedImage = Nothing,
-      _diResolutionTime = Nothing
+    { resolvedImage = Lude.Nothing,
+      specifiedImage = Lude.Nothing,
+      resolutionTime = Lude.Nothing
     }
 
 -- | The specific digest path of the image hosted in this @ProductionVariant@ .
-diResolvedImage :: Lens' DeployedImage (Maybe Text)
-diResolvedImage = lens _diResolvedImage (\s a -> s {_diResolvedImage = a})
+--
+-- /Note:/ Consider using 'resolvedImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diResolvedImage :: Lens.Lens' DeployedImage (Lude.Maybe Lude.Text)
+diResolvedImage = Lens.lens (resolvedImage :: DeployedImage -> Lude.Maybe Lude.Text) (\s a -> s {resolvedImage = a} :: DeployedImage)
+{-# DEPRECATED diResolvedImage "Use generic-lens or generic-optics with 'resolvedImage' instead." #-}
 
 -- | The image path you specified when you created the model.
-diSpecifiedImage :: Lens' DeployedImage (Maybe Text)
-diSpecifiedImage = lens _diSpecifiedImage (\s a -> s {_diSpecifiedImage = a})
+--
+-- /Note:/ Consider using 'specifiedImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diSpecifiedImage :: Lens.Lens' DeployedImage (Lude.Maybe Lude.Text)
+diSpecifiedImage = Lens.lens (specifiedImage :: DeployedImage -> Lude.Maybe Lude.Text) (\s a -> s {specifiedImage = a} :: DeployedImage)
+{-# DEPRECATED diSpecifiedImage "Use generic-lens or generic-optics with 'specifiedImage' instead." #-}
 
 -- | The date and time when the image path for the model resolved to the @ResolvedImage@
-diResolutionTime :: Lens' DeployedImage (Maybe UTCTime)
-diResolutionTime = lens _diResolutionTime (\s a -> s {_diResolutionTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'resolutionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diResolutionTime :: Lens.Lens' DeployedImage (Lude.Maybe Lude.Timestamp)
+diResolutionTime = Lens.lens (resolutionTime :: DeployedImage -> Lude.Maybe Lude.Timestamp) (\s a -> s {resolutionTime = a} :: DeployedImage)
+{-# DEPRECATED diResolutionTime "Use generic-lens or generic-optics with 'resolutionTime' instead." #-}
 
-instance FromJSON DeployedImage where
+instance Lude.FromJSON DeployedImage where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeployedImage"
       ( \x ->
           DeployedImage'
-            <$> (x .:? "ResolvedImage")
-            <*> (x .:? "SpecifiedImage")
-            <*> (x .:? "ResolutionTime")
+            Lude.<$> (x Lude..:? "ResolvedImage")
+            Lude.<*> (x Lude..:? "SpecifiedImage")
+            Lude.<*> (x Lude..:? "ResolutionTime")
       )
-
-instance Hashable DeployedImage
-
-instance NFData DeployedImage

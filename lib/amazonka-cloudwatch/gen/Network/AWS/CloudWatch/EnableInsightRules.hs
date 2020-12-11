@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,124 @@
 --
 -- Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.
 module Network.AWS.CloudWatch.EnableInsightRules
-  ( -- * Creating a Request
-    enableInsightRules,
-    EnableInsightRules,
+  ( -- * Creating a request
+    EnableInsightRules (..),
+    mkEnableInsightRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eirRuleNames,
 
-    -- * Destructuring the Response
-    enableInsightRulesResponse,
-    EnableInsightRulesResponse,
+    -- * Destructuring the response
+    EnableInsightRulesResponse (..),
+    mkEnableInsightRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eirrsFailures,
     eirrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableInsightRules' smart constructor.
+-- | /See:/ 'mkEnableInsightRules' smart constructor.
 newtype EnableInsightRules = EnableInsightRules'
-  { _eirRuleNames ::
-      [Text]
+  { ruleNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableInsightRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eirRuleNames' - An array of the rule names to enable. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-enableInsightRules ::
+-- * 'ruleNames' - An array of the rule names to enable. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
+mkEnableInsightRules ::
   EnableInsightRules
-enableInsightRules = EnableInsightRules' {_eirRuleNames = mempty}
+mkEnableInsightRules = EnableInsightRules' {ruleNames = Lude.mempty}
 
 -- | An array of the rule names to enable. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-eirRuleNames :: Lens' EnableInsightRules [Text]
-eirRuleNames = lens _eirRuleNames (\s a -> s {_eirRuleNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirRuleNames :: Lens.Lens' EnableInsightRules [Lude.Text]
+eirRuleNames = Lens.lens (ruleNames :: EnableInsightRules -> [Lude.Text]) (\s a -> s {ruleNames = a} :: EnableInsightRules)
+{-# DEPRECATED eirRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
-instance AWSRequest EnableInsightRules where
+instance Lude.AWSRequest EnableInsightRules where
   type Rs EnableInsightRules = EnableInsightRulesResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "EnableInsightRulesResult"
       ( \s h x ->
           EnableInsightRulesResponse'
-            <$> (x .@? "Failures" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Failures" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableInsightRules
+instance Lude.ToHeaders EnableInsightRules where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData EnableInsightRules
+instance Lude.ToPath EnableInsightRules where
+  toPath = Lude.const "/"
 
-instance ToHeaders EnableInsightRules where
-  toHeaders = const mempty
-
-instance ToPath EnableInsightRules where
-  toPath = const "/"
-
-instance ToQuery EnableInsightRules where
+instance Lude.ToQuery EnableInsightRules where
   toQuery EnableInsightRules' {..} =
-    mconcat
-      [ "Action" =: ("EnableInsightRules" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "RuleNames" =: toQueryList "member" _eirRuleNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("EnableInsightRules" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames
       ]
 
--- | /See:/ 'enableInsightRulesResponse' smart constructor.
+-- | /See:/ 'mkEnableInsightRulesResponse' smart constructor.
 data EnableInsightRulesResponse = EnableInsightRulesResponse'
-  { _eirrsFailures ::
-      !(Maybe [PartialFailure]),
-    _eirrsResponseStatus :: !Int
+  { failures ::
+      Lude.Maybe [PartialFailure],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableInsightRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eirrsFailures' - An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.
---
--- * 'eirrsResponseStatus' - -- | The response status code.
-enableInsightRulesResponse ::
-  -- | 'eirrsResponseStatus'
-  Int ->
+-- * 'failures' - An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.
+-- * 'responseStatus' - The response status code.
+mkEnableInsightRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableInsightRulesResponse
-enableInsightRulesResponse pResponseStatus_ =
+mkEnableInsightRulesResponse pResponseStatus_ =
   EnableInsightRulesResponse'
-    { _eirrsFailures = Nothing,
-      _eirrsResponseStatus = pResponseStatus_
+    { failures = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.
-eirrsFailures :: Lens' EnableInsightRulesResponse [PartialFailure]
-eirrsFailures = lens _eirrsFailures (\s a -> s {_eirrsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsFailures :: Lens.Lens' EnableInsightRulesResponse (Lude.Maybe [PartialFailure])
+eirrsFailures = Lens.lens (failures :: EnableInsightRulesResponse -> Lude.Maybe [PartialFailure]) (\s a -> s {failures = a} :: EnableInsightRulesResponse)
+{-# DEPRECATED eirrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
--- | -- | The response status code.
-eirrsResponseStatus :: Lens' EnableInsightRulesResponse Int
-eirrsResponseStatus = lens _eirrsResponseStatus (\s a -> s {_eirrsResponseStatus = a})
-
-instance NFData EnableInsightRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsResponseStatus :: Lens.Lens' EnableInsightRulesResponse Lude.Int
+eirrsResponseStatus = Lens.lens (responseStatus :: EnableInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableInsightRulesResponse)
+{-# DEPRECATED eirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.Op where
+module Network.AWS.APIGateway.Types.Op
+  ( Op
+      ( Op',
+        Add,
+        Copy,
+        Move,
+        Remove,
+        Replace,
+        Test
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Op
-  = Add
-  | Copy
-  | Move
-  | Remove
-  | Replace
-  | Test
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Op = Op' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Op where
-  parser =
-    takeLowerText >>= \case
-      "add" -> pure Add
-      "copy" -> pure Copy
-      "move" -> pure Move
-      "remove" -> pure Remove
-      "replace" -> pure Replace
-      "test" -> pure Test
-      e ->
-        fromTextError $
-          "Failure parsing Op from value: '" <> e
-            <> "'. Accepted values: add, copy, move, remove, replace, test"
+pattern Add :: Op
+pattern Add = Op' "add"
 
-instance ToText Op where
-  toText = \case
-    Add -> "add"
-    Copy -> "copy"
-    Move -> "move"
-    Remove -> "remove"
-    Replace -> "replace"
-    Test -> "test"
+pattern Copy :: Op
+pattern Copy = Op' "copy"
 
-instance Hashable Op
+pattern Move :: Op
+pattern Move = Op' "move"
 
-instance NFData Op
+pattern Remove :: Op
+pattern Remove = Op' "remove"
 
-instance ToByteString Op
+pattern Replace :: Op
+pattern Replace = Op' "replace"
 
-instance ToQuery Op
+pattern Test :: Op
+pattern Test = Op' "test"
 
-instance ToHeader Op
-
-instance ToJSON Op where
-  toJSON = toJSONText
+{-# COMPLETE
+  Add,
+  Copy,
+  Move,
+  Remove,
+  Replace,
+  Test,
+  Op'
+  #-}

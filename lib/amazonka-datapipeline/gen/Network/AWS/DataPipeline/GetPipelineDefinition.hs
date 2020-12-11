@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets the definition of the specified pipeline. You can call @GetPipelineDefinition@ to retrieve the pipeline definition that you provided using 'PutPipelineDefinition' .
 module Network.AWS.DataPipeline.GetPipelineDefinition
-  ( -- * Creating a Request
-    getPipelineDefinition,
-    GetPipelineDefinition,
+  ( -- * Creating a request
+    GetPipelineDefinition (..),
+    mkGetPipelineDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpdVersion,
     gpdPipelineId,
 
-    -- * Destructuring the Response
-    getPipelineDefinitionResponse,
-    GetPipelineDefinitionResponse,
+    -- * Destructuring the response
+    GetPipelineDefinitionResponse (..),
+    mkGetPipelineDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpdrsPipelineObjects,
     gpdrsParameterObjects,
     gpdrsParameterValues,
@@ -40,143 +35,158 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for GetPipelineDefinition.
 --
---
---
--- /See:/ 'getPipelineDefinition' smart constructor.
+-- /See:/ 'mkGetPipelineDefinition' smart constructor.
 data GetPipelineDefinition = GetPipelineDefinition'
-  { _gpdVersion ::
-      !(Maybe Text),
-    _gpdPipelineId :: !Text
+  { version ::
+      Lude.Maybe Lude.Text,
+    pipelineId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpdVersion' - The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
---
--- * 'gpdPipelineId' - The ID of the pipeline.
-getPipelineDefinition ::
-  -- | 'gpdPipelineId'
-  Text ->
+-- * 'pipelineId' - The ID of the pipeline.
+-- * 'version' - The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
+mkGetPipelineDefinition ::
+  -- | 'pipelineId'
+  Lude.Text ->
   GetPipelineDefinition
-getPipelineDefinition pPipelineId_ =
+mkGetPipelineDefinition pPipelineId_ =
   GetPipelineDefinition'
-    { _gpdVersion = Nothing,
-      _gpdPipelineId = pPipelineId_
+    { version = Lude.Nothing,
+      pipelineId = pPipelineId_
     }
 
 -- | The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
-gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
-gpdVersion = lens _gpdVersion (\s a -> s {_gpdVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdVersion :: Lens.Lens' GetPipelineDefinition (Lude.Maybe Lude.Text)
+gpdVersion = Lens.lens (version :: GetPipelineDefinition -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetPipelineDefinition)
+{-# DEPRECATED gpdVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the pipeline.
-gpdPipelineId :: Lens' GetPipelineDefinition Text
-gpdPipelineId = lens _gpdPipelineId (\s a -> s {_gpdPipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdPipelineId :: Lens.Lens' GetPipelineDefinition Lude.Text
+gpdPipelineId = Lens.lens (pipelineId :: GetPipelineDefinition -> Lude.Text) (\s a -> s {pipelineId = a} :: GetPipelineDefinition)
+{-# DEPRECATED gpdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
-instance AWSRequest GetPipelineDefinition where
+instance Lude.AWSRequest GetPipelineDefinition where
   type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPipelineDefinitionResponse'
-            <$> (x .?> "pipelineObjects" .!@ mempty)
-            <*> (x .?> "parameterObjects" .!@ mempty)
-            <*> (x .?> "parameterValues" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "pipelineObjects" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "parameterObjects" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "parameterValues" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPipelineDefinition
-
-instance NFData GetPipelineDefinition
-
-instance ToHeaders GetPipelineDefinition where
+instance Lude.ToHeaders GetPipelineDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DataPipeline.GetPipelineDefinition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DataPipeline.GetPipelineDefinition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetPipelineDefinition where
+instance Lude.ToJSON GetPipelineDefinition where
   toJSON GetPipelineDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("version" .=) <$> _gpdVersion,
-            Just ("pipelineId" .= _gpdPipelineId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("version" Lude..=) Lude.<$> version,
+            Lude.Just ("pipelineId" Lude..= pipelineId)
           ]
       )
 
-instance ToPath GetPipelineDefinition where
-  toPath = const "/"
+instance Lude.ToPath GetPipelineDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery GetPipelineDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery GetPipelineDefinition where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of GetPipelineDefinition.
 --
---
---
--- /See:/ 'getPipelineDefinitionResponse' smart constructor.
+-- /See:/ 'mkGetPipelineDefinitionResponse' smart constructor.
 data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
-  { _gpdrsPipelineObjects ::
-      !(Maybe [PipelineObject]),
-    _gpdrsParameterObjects ::
-      !(Maybe [ParameterObject]),
-    _gpdrsParameterValues ::
-      !(Maybe [ParameterValue]),
-    _gpdrsResponseStatus :: !Int
+  { pipelineObjects ::
+      Lude.Maybe [PipelineObject],
+    parameterObjects ::
+      Lude.Maybe [ParameterObject],
+    parameterValues ::
+      Lude.Maybe [ParameterValue],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpdrsPipelineObjects' - The objects defined in the pipeline.
---
--- * 'gpdrsParameterObjects' - The parameter objects used in the pipeline definition.
---
--- * 'gpdrsParameterValues' - The parameter values used in the pipeline definition.
---
--- * 'gpdrsResponseStatus' - -- | The response status code.
-getPipelineDefinitionResponse ::
-  -- | 'gpdrsResponseStatus'
-  Int ->
+-- * 'parameterObjects' - The parameter objects used in the pipeline definition.
+-- * 'parameterValues' - The parameter values used in the pipeline definition.
+-- * 'pipelineObjects' - The objects defined in the pipeline.
+-- * 'responseStatus' - The response status code.
+mkGetPipelineDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPipelineDefinitionResponse
-getPipelineDefinitionResponse pResponseStatus_ =
+mkGetPipelineDefinitionResponse pResponseStatus_ =
   GetPipelineDefinitionResponse'
-    { _gpdrsPipelineObjects = Nothing,
-      _gpdrsParameterObjects = Nothing,
-      _gpdrsParameterValues = Nothing,
-      _gpdrsResponseStatus = pResponseStatus_
+    { pipelineObjects = Lude.Nothing,
+      parameterObjects = Lude.Nothing,
+      parameterValues = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The objects defined in the pipeline.
-gpdrsPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
-gpdrsPipelineObjects = lens _gpdrsPipelineObjects (\s a -> s {_gpdrsPipelineObjects = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pipelineObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsPipelineObjects :: Lens.Lens' GetPipelineDefinitionResponse (Lude.Maybe [PipelineObject])
+gpdrsPipelineObjects = Lens.lens (pipelineObjects :: GetPipelineDefinitionResponse -> Lude.Maybe [PipelineObject]) (\s a -> s {pipelineObjects = a} :: GetPipelineDefinitionResponse)
+{-# DEPRECATED gpdrsPipelineObjects "Use generic-lens or generic-optics with 'pipelineObjects' instead." #-}
 
 -- | The parameter objects used in the pipeline definition.
-gpdrsParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
-gpdrsParameterObjects = lens _gpdrsParameterObjects (\s a -> s {_gpdrsParameterObjects = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsParameterObjects :: Lens.Lens' GetPipelineDefinitionResponse (Lude.Maybe [ParameterObject])
+gpdrsParameterObjects = Lens.lens (parameterObjects :: GetPipelineDefinitionResponse -> Lude.Maybe [ParameterObject]) (\s a -> s {parameterObjects = a} :: GetPipelineDefinitionResponse)
+{-# DEPRECATED gpdrsParameterObjects "Use generic-lens or generic-optics with 'parameterObjects' instead." #-}
 
 -- | The parameter values used in the pipeline definition.
-gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
-gpdrsParameterValues = lens _gpdrsParameterValues (\s a -> s {_gpdrsParameterValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsParameterValues :: Lens.Lens' GetPipelineDefinitionResponse (Lude.Maybe [ParameterValue])
+gpdrsParameterValues = Lens.lens (parameterValues :: GetPipelineDefinitionResponse -> Lude.Maybe [ParameterValue]) (\s a -> s {parameterValues = a} :: GetPipelineDefinitionResponse)
+{-# DEPRECATED gpdrsParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
 
--- | -- | The response status code.
-gpdrsResponseStatus :: Lens' GetPipelineDefinitionResponse Int
-gpdrsResponseStatus = lens _gpdrsResponseStatus (\s a -> s {_gpdrsResponseStatus = a})
-
-instance NFData GetPipelineDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsResponseStatus :: Lens.Lens' GetPipelineDefinitionResponse Lude.Int
+gpdrsResponseStatus = Lens.lens (responseStatus :: GetPipelineDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPipelineDefinitionResponse)
+{-# DEPRECATED gpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

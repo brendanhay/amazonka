@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns status information for each of your AWS managed Config rules. The status includes information such as the last time AWS Config invoked the rule, the last time AWS Config failed to invoke the rule, and the related error for the last failure.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
-  ( -- * Creating a Request
-    describeConfigRuleEvaluationStatus,
-    DescribeConfigRuleEvaluationStatus,
+  ( -- * Creating a request
+    DescribeConfigRuleEvaluationStatus (..),
+    mkDescribeConfigRuleEvaluationStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcresConfigRuleNames,
     dcresNextToken,
     dcresLimit,
 
-    -- * Destructuring the Response
-    describeConfigRuleEvaluationStatusResponse,
-    DescribeConfigRuleEvaluationStatusResponse,
+    -- * Destructuring the response
+    DescribeConfigRuleEvaluationStatusResponse (..),
+    mkDescribeConfigRuleEvaluationStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcresrsConfigRulesEvaluationStatus,
     dcresrsNextToken,
     dcresrsResponseStatus,
@@ -44,167 +37,185 @@ module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeConfigRuleEvaluationStatus' smart constructor.
+-- /See:/ 'mkDescribeConfigRuleEvaluationStatus' smart constructor.
 data DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
-  { _dcresConfigRuleNames ::
-      !(Maybe [Text]),
-    _dcresNextToken ::
-      !(Maybe Text),
-    _dcresLimit ::
-      !(Maybe Nat)
+  { configRuleNames ::
+      Lude.Maybe
+        [Lude.Text],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRuleEvaluationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configRuleNames' - The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
+-- * 'limit' - The number of rule evaluation results that you want returned.
 --
--- * 'dcresConfigRuleNames' - The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
---
--- * 'dcresNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dcresLimit' - The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 150 rules. For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
-describeConfigRuleEvaluationStatus ::
+-- This parameter is required if the rule limit for your account is more than the default of 150 rules.
+-- For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkDescribeConfigRuleEvaluationStatus ::
   DescribeConfigRuleEvaluationStatus
-describeConfigRuleEvaluationStatus =
+mkDescribeConfigRuleEvaluationStatus =
   DescribeConfigRuleEvaluationStatus'
-    { _dcresConfigRuleNames =
-        Nothing,
-      _dcresNextToken = Nothing,
-      _dcresLimit = Nothing
+    { configRuleNames =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
-dcresConfigRuleNames :: Lens' DescribeConfigRuleEvaluationStatus [Text]
-dcresConfigRuleNames = lens _dcresConfigRuleNames (\s a -> s {_dcresConfigRuleNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcresConfigRuleNames :: Lens.Lens' DescribeConfigRuleEvaluationStatus (Lude.Maybe [Lude.Text])
+dcresConfigRuleNames = Lens.lens (configRuleNames :: DescribeConfigRuleEvaluationStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {configRuleNames = a} :: DescribeConfigRuleEvaluationStatus)
+{-# DEPRECATED dcresConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcresNextToken :: Lens' DescribeConfigRuleEvaluationStatus (Maybe Text)
-dcresNextToken = lens _dcresNextToken (\s a -> s {_dcresNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcresNextToken :: Lens.Lens' DescribeConfigRuleEvaluationStatus (Lude.Maybe Lude.Text)
+dcresNextToken = Lens.lens (nextToken :: DescribeConfigRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigRuleEvaluationStatus)
+{-# DEPRECATED dcresNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 150 rules. For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
-dcresLimit :: Lens' DescribeConfigRuleEvaluationStatus (Maybe Natural)
-dcresLimit = lens _dcresLimit (\s a -> s {_dcresLimit = a}) . mapping _Nat
+-- | The number of rule evaluation results that you want returned.
+--
+-- This parameter is required if the rule limit for your account is more than the default of 150 rules.
+-- For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcresLimit :: Lens.Lens' DescribeConfigRuleEvaluationStatus (Lude.Maybe Lude.Natural)
+dcresLimit = Lens.lens (limit :: DescribeConfigRuleEvaluationStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeConfigRuleEvaluationStatus)
+{-# DEPRECATED dcresLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeConfigRuleEvaluationStatus where
+instance Page.AWSPager DescribeConfigRuleEvaluationStatus where
   page rq rs
-    | stop (rs ^. dcresrsNextToken) = Nothing
-    | stop (rs ^. dcresrsConfigRulesEvaluationStatus) = Nothing
-    | otherwise = Just $ rq & dcresNextToken .~ rs ^. dcresrsNextToken
+    | Page.stop (rs Lens.^. dcresrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcresrsConfigRulesEvaluationStatus) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcresNextToken Lens..~ rs Lens.^. dcresrsNextToken
 
-instance AWSRequest DescribeConfigRuleEvaluationStatus where
+instance Lude.AWSRequest DescribeConfigRuleEvaluationStatus where
   type
     Rs DescribeConfigRuleEvaluationStatus =
       DescribeConfigRuleEvaluationStatusResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConfigRuleEvaluationStatusResponse'
-            <$> (x .?> "ConfigRulesEvaluationStatus" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConfigRulesEvaluationStatus" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfigRuleEvaluationStatus
-
-instance NFData DescribeConfigRuleEvaluationStatus
-
-instance ToHeaders DescribeConfigRuleEvaluationStatus where
+instance Lude.ToHeaders DescribeConfigRuleEvaluationStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeConfigRuleEvaluationStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeConfigRuleEvaluationStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeConfigRuleEvaluationStatus where
+instance Lude.ToJSON DescribeConfigRuleEvaluationStatus where
   toJSON DescribeConfigRuleEvaluationStatus' {..} =
-    object
-      ( catMaybes
-          [ ("ConfigRuleNames" .=) <$> _dcresConfigRuleNames,
-            ("NextToken" .=) <$> _dcresNextToken,
-            ("Limit" .=) <$> _dcresLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConfigRuleNames" Lude..=) Lude.<$> configRuleNames,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeConfigRuleEvaluationStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeConfigRuleEvaluationStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeConfigRuleEvaluationStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConfigRuleEvaluationStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeConfigRuleEvaluationStatusResponse' smart constructor.
+-- /See:/ 'mkDescribeConfigRuleEvaluationStatusResponse' smart constructor.
 data DescribeConfigRuleEvaluationStatusResponse = DescribeConfigRuleEvaluationStatusResponse'
-  { _dcresrsConfigRulesEvaluationStatus ::
-      !( Maybe
-           [ConfigRuleEvaluationStatus]
-       ),
-    _dcresrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dcresrsResponseStatus ::
-      !Int
+  { configRulesEvaluationStatus ::
+      Lude.Maybe
+        [ConfigRuleEvaluationStatus],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRuleEvaluationStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcresrsConfigRulesEvaluationStatus' - Status information about your AWS managed Config rules.
---
--- * 'dcresrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
---
--- * 'dcresrsResponseStatus' - -- | The response status code.
-describeConfigRuleEvaluationStatusResponse ::
-  -- | 'dcresrsResponseStatus'
-  Int ->
+-- * 'configRulesEvaluationStatus' - Status information about your AWS managed Config rules.
+-- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkDescribeConfigRuleEvaluationStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigRuleEvaluationStatusResponse
-describeConfigRuleEvaluationStatusResponse pResponseStatus_ =
+mkDescribeConfigRuleEvaluationStatusResponse pResponseStatus_ =
   DescribeConfigRuleEvaluationStatusResponse'
-    { _dcresrsConfigRulesEvaluationStatus =
-        Nothing,
-      _dcresrsNextToken = Nothing,
-      _dcresrsResponseStatus = pResponseStatus_
+    { configRulesEvaluationStatus =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Status information about your AWS managed Config rules.
-dcresrsConfigRulesEvaluationStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse [ConfigRuleEvaluationStatus]
-dcresrsConfigRulesEvaluationStatus = lens _dcresrsConfigRulesEvaluationStatus (\s a -> s {_dcresrsConfigRulesEvaluationStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configRulesEvaluationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcresrsConfigRulesEvaluationStatus :: Lens.Lens' DescribeConfigRuleEvaluationStatusResponse (Lude.Maybe [ConfigRuleEvaluationStatus])
+dcresrsConfigRulesEvaluationStatus = Lens.lens (configRulesEvaluationStatus :: DescribeConfigRuleEvaluationStatusResponse -> Lude.Maybe [ConfigRuleEvaluationStatus]) (\s a -> s {configRulesEvaluationStatus = a} :: DescribeConfigRuleEvaluationStatusResponse)
+{-# DEPRECATED dcresrsConfigRulesEvaluationStatus "Use generic-lens or generic-optics with 'configRulesEvaluationStatus' instead." #-}
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-dcresrsNextToken :: Lens' DescribeConfigRuleEvaluationStatusResponse (Maybe Text)
-dcresrsNextToken = lens _dcresrsNextToken (\s a -> s {_dcresrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcresrsNextToken :: Lens.Lens' DescribeConfigRuleEvaluationStatusResponse (Lude.Maybe Lude.Text)
+dcresrsNextToken = Lens.lens (nextToken :: DescribeConfigRuleEvaluationStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigRuleEvaluationStatusResponse)
+{-# DEPRECATED dcresrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dcresrsResponseStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse Int
-dcresrsResponseStatus = lens _dcresrsResponseStatus (\s a -> s {_dcresrsResponseStatus = a})
-
-instance NFData DescribeConfigRuleEvaluationStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcresrsResponseStatus :: Lens.Lens' DescribeConfigRuleEvaluationStatusResponse Lude.Int
+dcresrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigRuleEvaluationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigRuleEvaluationStatusResponse)
+{-# DEPRECATED dcresrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

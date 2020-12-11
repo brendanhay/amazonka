@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,171 @@
 --
 -- Updates a package for use with Amazon ES domains.
 module Network.AWS.ElasticSearch.UpdatePackage
-  ( -- * Creating a Request
-    updatePackage,
-    UpdatePackage,
+  ( -- * Creating a request
+    UpdatePackage (..),
+    mkUpdatePackage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upPackageDescription,
     upCommitMessage,
     upPackageId,
     upPackageSource,
 
-    -- * Destructuring the Response
-    updatePackageResponse,
-    UpdatePackageResponse,
+    -- * Destructuring the response
+    UpdatePackageResponse (..),
+    mkUpdatePackageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprsPackageDetails,
     uprsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for request parameters to @'UpdatePackage' @ operation.
 --
---
---
--- /See:/ 'updatePackage' smart constructor.
+-- /See:/ 'mkUpdatePackage' smart constructor.
 data UpdatePackage = UpdatePackage'
-  { _upPackageDescription ::
-      !(Maybe Text),
-    _upCommitMessage :: !(Maybe Text),
-    _upPackageId :: !Text,
-    _upPackageSource :: !PackageSource
+  { packageDescription ::
+      Lude.Maybe Lude.Text,
+    commitMessage :: Lude.Maybe Lude.Text,
+    packageId :: Lude.Text,
+    packageSource :: PackageSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePackage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upPackageDescription' - New description of the package.
---
--- * 'upCommitMessage' - An info message for the new version which will be shown as part of @GetPackageVersionHistoryResponse@ .
---
--- * 'upPackageId' - Unique identifier for the package.
---
--- * 'upPackageSource' - Undocumented member.
-updatePackage ::
-  -- | 'upPackageId'
-  Text ->
-  -- | 'upPackageSource'
+-- * 'commitMessage' - An info message for the new version which will be shown as part of @GetPackageVersionHistoryResponse@ .
+-- * 'packageDescription' - New description of the package.
+-- * 'packageId' - Unique identifier for the package.
+-- * 'packageSource' - Undocumented field.
+mkUpdatePackage ::
+  -- | 'packageId'
+  Lude.Text ->
+  -- | 'packageSource'
   PackageSource ->
   UpdatePackage
-updatePackage pPackageId_ pPackageSource_ =
+mkUpdatePackage pPackageId_ pPackageSource_ =
   UpdatePackage'
-    { _upPackageDescription = Nothing,
-      _upCommitMessage = Nothing,
-      _upPackageId = pPackageId_,
-      _upPackageSource = pPackageSource_
+    { packageDescription = Lude.Nothing,
+      commitMessage = Lude.Nothing,
+      packageId = pPackageId_,
+      packageSource = pPackageSource_
     }
 
 -- | New description of the package.
-upPackageDescription :: Lens' UpdatePackage (Maybe Text)
-upPackageDescription = lens _upPackageDescription (\s a -> s {_upPackageDescription = a})
+--
+-- /Note:/ Consider using 'packageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPackageDescription :: Lens.Lens' UpdatePackage (Lude.Maybe Lude.Text)
+upPackageDescription = Lens.lens (packageDescription :: UpdatePackage -> Lude.Maybe Lude.Text) (\s a -> s {packageDescription = a} :: UpdatePackage)
+{-# DEPRECATED upPackageDescription "Use generic-lens or generic-optics with 'packageDescription' instead." #-}
 
 -- | An info message for the new version which will be shown as part of @GetPackageVersionHistoryResponse@ .
-upCommitMessage :: Lens' UpdatePackage (Maybe Text)
-upCommitMessage = lens _upCommitMessage (\s a -> s {_upCommitMessage = a})
+--
+-- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upCommitMessage :: Lens.Lens' UpdatePackage (Lude.Maybe Lude.Text)
+upCommitMessage = Lens.lens (commitMessage :: UpdatePackage -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: UpdatePackage)
+{-# DEPRECATED upCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
 -- | Unique identifier for the package.
-upPackageId :: Lens' UpdatePackage Text
-upPackageId = lens _upPackageId (\s a -> s {_upPackageId = a})
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPackageId :: Lens.Lens' UpdatePackage Lude.Text
+upPackageId = Lens.lens (packageId :: UpdatePackage -> Lude.Text) (\s a -> s {packageId = a} :: UpdatePackage)
+{-# DEPRECATED upPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
--- | Undocumented member.
-upPackageSource :: Lens' UpdatePackage PackageSource
-upPackageSource = lens _upPackageSource (\s a -> s {_upPackageSource = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'packageSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPackageSource :: Lens.Lens' UpdatePackage PackageSource
+upPackageSource = Lens.lens (packageSource :: UpdatePackage -> PackageSource) (\s a -> s {packageSource = a} :: UpdatePackage)
+{-# DEPRECATED upPackageSource "Use generic-lens or generic-optics with 'packageSource' instead." #-}
 
-instance AWSRequest UpdatePackage where
+instance Lude.AWSRequest UpdatePackage where
   type Rs UpdatePackage = UpdatePackageResponse
-  request = postJSON elasticSearch
+  request = Req.postJSON elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdatePackageResponse'
-            <$> (x .?> "PackageDetails") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PackageDetails")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePackage
+instance Lude.ToHeaders UpdatePackage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdatePackage
-
-instance ToHeaders UpdatePackage where
-  toHeaders = const mempty
-
-instance ToJSON UpdatePackage where
+instance Lude.ToJSON UpdatePackage where
   toJSON UpdatePackage' {..} =
-    object
-      ( catMaybes
-          [ ("PackageDescription" .=) <$> _upPackageDescription,
-            ("CommitMessage" .=) <$> _upCommitMessage,
-            Just ("PackageID" .= _upPackageId),
-            Just ("PackageSource" .= _upPackageSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PackageDescription" Lude..=) Lude.<$> packageDescription,
+            ("CommitMessage" Lude..=) Lude.<$> commitMessage,
+            Lude.Just ("PackageID" Lude..= packageId),
+            Lude.Just ("PackageSource" Lude..= packageSource)
           ]
       )
 
-instance ToPath UpdatePackage where
-  toPath = const "/2015-01-01/packages/update"
+instance Lude.ToPath UpdatePackage where
+  toPath = Lude.const "/2015-01-01/packages/update"
 
-instance ToQuery UpdatePackage where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePackage where
+  toQuery = Lude.const Lude.mempty
 
 -- | Container for response returned by @'UpdatePackage' @ operation.
 --
---
---
--- /See:/ 'updatePackageResponse' smart constructor.
+-- /See:/ 'mkUpdatePackageResponse' smart constructor.
 data UpdatePackageResponse = UpdatePackageResponse'
-  { _uprsPackageDetails ::
-      !(Maybe PackageDetails),
-    _uprsResponseStatus :: !Int
+  { packageDetails ::
+      Lude.Maybe PackageDetails,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePackageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprsPackageDetails' - Information about the package @PackageDetails@ .
---
--- * 'uprsResponseStatus' - -- | The response status code.
-updatePackageResponse ::
-  -- | 'uprsResponseStatus'
-  Int ->
+-- * 'packageDetails' - Information about the package @PackageDetails@ .
+-- * 'responseStatus' - The response status code.
+mkUpdatePackageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePackageResponse
-updatePackageResponse pResponseStatus_ =
+mkUpdatePackageResponse pResponseStatus_ =
   UpdatePackageResponse'
-    { _uprsPackageDetails = Nothing,
-      _uprsResponseStatus = pResponseStatus_
+    { packageDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the package @PackageDetails@ .
-uprsPackageDetails :: Lens' UpdatePackageResponse (Maybe PackageDetails)
-uprsPackageDetails = lens _uprsPackageDetails (\s a -> s {_uprsPackageDetails = a})
+--
+-- /Note:/ Consider using 'packageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsPackageDetails :: Lens.Lens' UpdatePackageResponse (Lude.Maybe PackageDetails)
+uprsPackageDetails = Lens.lens (packageDetails :: UpdatePackageResponse -> Lude.Maybe PackageDetails) (\s a -> s {packageDetails = a} :: UpdatePackageResponse)
+{-# DEPRECATED uprsPackageDetails "Use generic-lens or generic-optics with 'packageDetails' instead." #-}
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdatePackageResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\s a -> s {_uprsResponseStatus = a})
-
-instance NFData UpdatePackageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsResponseStatus :: Lens.Lens' UpdatePackageResponse Lude.Int
+uprsResponseStatus = Lens.lens (responseStatus :: UpdatePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePackageResponse)
+{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

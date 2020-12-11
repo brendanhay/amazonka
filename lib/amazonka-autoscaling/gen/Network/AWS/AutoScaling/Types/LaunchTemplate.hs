@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.LaunchTemplate where
+module Network.AWS.AutoScaling.Types.LaunchTemplate
+  ( LaunchTemplate (..),
+
+    -- * Smart constructor
+    mkLaunchTemplate,
+
+    -- * Lenses
+    ltOverrides,
+    ltLaunchTemplateSpecification,
+  )
+where
 
 import Network.AWS.AutoScaling.Types.LaunchTemplateOverrides
 import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch template and overrides.
 --
---
 -- You specify these parameters as part of a mixed instances policy.
---
 -- When you update the launch template or overrides, existing Amazon EC2 instances continue to run. When scale out occurs, Amazon EC2 Auto Scaling launches instances to match the new settings. When scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination policies.
 --
---
--- /See:/ 'launchTemplate' smart constructor.
+-- /See:/ 'mkLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
-  { _ltOverrides ::
-      !(Maybe [LaunchTemplateOverrides]),
-    _ltLaunchTemplateSpecification ::
-      !(Maybe LaunchTemplateSpecification)
+  { overrides ::
+      Lude.Maybe [LaunchTemplateOverrides],
+    launchTemplateSpecification ::
+      Lude.Maybe LaunchTemplateSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltOverrides' - Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance.
---
--- * 'ltLaunchTemplateSpecification' - The launch template to use.
-launchTemplate ::
+-- * 'launchTemplateSpecification' - The launch template to use.
+-- * 'overrides' - Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance.
+mkLaunchTemplate ::
   LaunchTemplate
-launchTemplate =
+mkLaunchTemplate =
   LaunchTemplate'
-    { _ltOverrides = Nothing,
-      _ltLaunchTemplateSpecification = Nothing
+    { overrides = Lude.Nothing,
+      launchTemplateSpecification = Lude.Nothing
     }
 
 -- | Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance.
-ltOverrides :: Lens' LaunchTemplate [LaunchTemplateOverrides]
-ltOverrides = lens _ltOverrides (\s a -> s {_ltOverrides = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltOverrides :: Lens.Lens' LaunchTemplate (Lude.Maybe [LaunchTemplateOverrides])
+ltOverrides = Lens.lens (overrides :: LaunchTemplate -> Lude.Maybe [LaunchTemplateOverrides]) (\s a -> s {overrides = a} :: LaunchTemplate)
+{-# DEPRECATED ltOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The launch template to use.
-ltLaunchTemplateSpecification :: Lens' LaunchTemplate (Maybe LaunchTemplateSpecification)
-ltLaunchTemplateSpecification = lens _ltLaunchTemplateSpecification (\s a -> s {_ltLaunchTemplateSpecification = a})
+--
+-- /Note:/ Consider using 'launchTemplateSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltLaunchTemplateSpecification :: Lens.Lens' LaunchTemplate (Lude.Maybe LaunchTemplateSpecification)
+ltLaunchTemplateSpecification = Lens.lens (launchTemplateSpecification :: LaunchTemplate -> Lude.Maybe LaunchTemplateSpecification) (\s a -> s {launchTemplateSpecification = a} :: LaunchTemplate)
+{-# DEPRECATED ltLaunchTemplateSpecification "Use generic-lens or generic-optics with 'launchTemplateSpecification' instead." #-}
 
-instance FromXML LaunchTemplate where
+instance Lude.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate'
-      <$> (x .@? "Overrides" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "LaunchTemplateSpecification")
+      Lude.<$> ( x Lude..@? "Overrides" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "LaunchTemplateSpecification")
 
-instance Hashable LaunchTemplate
-
-instance NFData LaunchTemplate
-
-instance ToQuery LaunchTemplate where
+instance Lude.ToQuery LaunchTemplate where
   toQuery LaunchTemplate' {..} =
-    mconcat
-      [ "Overrides" =: toQuery (toQueryList "member" <$> _ltOverrides),
-        "LaunchTemplateSpecification" =: _ltLaunchTemplateSpecification
+    Lude.mconcat
+      [ "Overrides"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> overrides),
+        "LaunchTemplateSpecification" Lude.=: launchTemplateSpecification
       ]

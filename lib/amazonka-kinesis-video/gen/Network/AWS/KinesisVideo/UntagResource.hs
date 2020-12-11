@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,127 @@
 --
 -- Removes one or more tags from a signaling channel. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.
 module Network.AWS.KinesisVideo.UntagResource
-  ( -- * Creating a Request
-    untagResource,
-    UntagResource,
+  ( -- * Creating a request
+    UntagResource (..),
+    mkUntagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urResourceARN,
     urTagKeyList,
 
-    -- * Destructuring the Response
-    untagResourceResponse,
-    UntagResourceResponse,
+    -- * Destructuring the response
+    UntagResourceResponse (..),
+    mkUntagResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagResource' smart constructor.
+-- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResourceARN :: !Text,
-    _urTagKeyList :: !(List1 Text)
+  { resourceARN :: Lude.Text,
+    tagKeyList :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urResourceARN' - The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.
---
--- * 'urTagKeyList' - A list of the keys of the tags that you want to remove.
-untagResource ::
-  -- | 'urResourceARN'
-  Text ->
-  -- | 'urTagKeyList'
-  NonEmpty Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.
+-- * 'tagKeyList' - A list of the keys of the tags that you want to remove.
+mkUntagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
+  -- | 'tagKeyList'
+  Lude.NonEmpty Lude.Text ->
   UntagResource
-untagResource pResourceARN_ pTagKeyList_ =
+mkUntagResource pResourceARN_ pTagKeyList_ =
   UntagResource'
-    { _urResourceARN = pResourceARN_,
-      _urTagKeyList = _List1 # pTagKeyList_
+    { resourceARN = pResourceARN_,
+      tagKeyList = pTagKeyList_
     }
 
 -- | The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.
-urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\s a -> s {_urResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARN :: Lens.Lens' UntagResource Lude.Text
+urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | A list of the keys of the tags that you want to remove.
-urTagKeyList :: Lens' UntagResource (NonEmpty Text)
-urTagKeyList = lens _urTagKeyList (\s a -> s {_urTagKeyList = a}) . _List1
+--
+-- /Note:/ Consider using 'tagKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeyList :: Lens.Lens' UntagResource (Lude.NonEmpty Lude.Text)
+urTagKeyList = Lens.lens (tagKeyList :: UntagResource -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeyList = a} :: UntagResource)
+{-# DEPRECATED urTagKeyList "Use generic-lens or generic-optics with 'tagKeyList' instead." #-}
 
-instance AWSRequest UntagResource where
+instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveEmpty
-      (\s h x -> UntagResourceResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UntagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UntagResource
+instance Lude.ToHeaders UntagResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UntagResource
-
-instance ToHeaders UntagResource where
-  toHeaders = const mempty
-
-instance ToJSON UntagResource where
+instance Lude.ToJSON UntagResource where
   toJSON UntagResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceARN" .= _urResourceARN),
-            Just ("TagKeyList" .= _urTagKeyList)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
+            Lude.Just ("TagKeyList" Lude..= tagKeyList)
           ]
       )
 
-instance ToPath UntagResource where
-  toPath = const "/UntagResource"
+instance Lude.ToPath UntagResource where
+  toPath = Lude.const "/UntagResource"
 
-instance ToQuery UntagResource where
-  toQuery = const mempty
+instance Lude.ToQuery UntagResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'untagResourceResponse' smart constructor.
+-- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
-  { _urrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsResponseStatus' - -- | The response status code.
-untagResourceResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUntagResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UntagResourceResponse
-untagResourceResponse pResponseStatus_ =
-  UntagResourceResponse' {_urrsResponseStatus = pResponseStatus_}
+mkUntagResourceResponse pResponseStatus_ =
+  UntagResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UntagResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UntagResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UntagResourceResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UntagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourceResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

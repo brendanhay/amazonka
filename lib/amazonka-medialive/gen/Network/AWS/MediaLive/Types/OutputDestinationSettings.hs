@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OutputDestinationSettings where
+module Network.AWS.MediaLive.Types.OutputDestinationSettings
+  ( OutputDestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputDestinationSettings,
+
+    -- * Lenses
+    odsURL,
+    odsUsername,
+    odsPasswordParam,
+    odsStreamName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for OutputDestinationSettings
 --
--- /See:/ 'outputDestinationSettings' smart constructor.
+-- /See:/ 'mkOutputDestinationSettings' smart constructor.
 data OutputDestinationSettings = OutputDestinationSettings'
-  { _odsURL ::
-      !(Maybe Text),
-    _odsUsername :: !(Maybe Text),
-    _odsPasswordParam :: !(Maybe Text),
-    _odsStreamName :: !(Maybe Text)
+  { url ::
+      Lude.Maybe Lude.Text,
+    username :: Lude.Maybe Lude.Text,
+    passwordParam :: Lude.Maybe Lude.Text,
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputDestinationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'odsURL' - A URL specifying a destination
---
--- * 'odsUsername' - username for destination
---
--- * 'odsPasswordParam' - key used to extract the password from EC2 Parameter store
---
--- * 'odsStreamName' - Stream name for RTMP destinations (URLs of type rtmp://)
-outputDestinationSettings ::
+-- * 'passwordParam' - key used to extract the password from EC2 Parameter store
+-- * 'streamName' - Stream name for RTMP destinations (URLs of type rtmp://)
+-- * 'url' - A URL specifying a destination
+-- * 'username' - username for destination
+mkOutputDestinationSettings ::
   OutputDestinationSettings
-outputDestinationSettings =
+mkOutputDestinationSettings =
   OutputDestinationSettings'
-    { _odsURL = Nothing,
-      _odsUsername = Nothing,
-      _odsPasswordParam = Nothing,
-      _odsStreamName = Nothing
+    { url = Lude.Nothing,
+      username = Lude.Nothing,
+      passwordParam = Lude.Nothing,
+      streamName = Lude.Nothing
     }
 
 -- | A URL specifying a destination
-odsURL :: Lens' OutputDestinationSettings (Maybe Text)
-odsURL = lens _odsURL (\s a -> s {_odsURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odsURL :: Lens.Lens' OutputDestinationSettings (Lude.Maybe Lude.Text)
+odsURL = Lens.lens (url :: OutputDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: OutputDestinationSettings)
+{-# DEPRECATED odsURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | username for destination
-odsUsername :: Lens' OutputDestinationSettings (Maybe Text)
-odsUsername = lens _odsUsername (\s a -> s {_odsUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odsUsername :: Lens.Lens' OutputDestinationSettings (Lude.Maybe Lude.Text)
+odsUsername = Lens.lens (username :: OutputDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: OutputDestinationSettings)
+{-# DEPRECATED odsUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | key used to extract the password from EC2 Parameter store
-odsPasswordParam :: Lens' OutputDestinationSettings (Maybe Text)
-odsPasswordParam = lens _odsPasswordParam (\s a -> s {_odsPasswordParam = a})
+--
+-- /Note:/ Consider using 'passwordParam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odsPasswordParam :: Lens.Lens' OutputDestinationSettings (Lude.Maybe Lude.Text)
+odsPasswordParam = Lens.lens (passwordParam :: OutputDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {passwordParam = a} :: OutputDestinationSettings)
+{-# DEPRECATED odsPasswordParam "Use generic-lens or generic-optics with 'passwordParam' instead." #-}
 
 -- | Stream name for RTMP destinations (URLs of type rtmp://)
-odsStreamName :: Lens' OutputDestinationSettings (Maybe Text)
-odsStreamName = lens _odsStreamName (\s a -> s {_odsStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odsStreamName :: Lens.Lens' OutputDestinationSettings (Lude.Maybe Lude.Text)
+odsStreamName = Lens.lens (streamName :: OutputDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: OutputDestinationSettings)
+{-# DEPRECATED odsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance FromJSON OutputDestinationSettings where
+instance Lude.FromJSON OutputDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputDestinationSettings"
       ( \x ->
           OutputDestinationSettings'
-            <$> (x .:? "url")
-            <*> (x .:? "username")
-            <*> (x .:? "passwordParam")
-            <*> (x .:? "streamName")
+            Lude.<$> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "username")
+            Lude.<*> (x Lude..:? "passwordParam")
+            Lude.<*> (x Lude..:? "streamName")
       )
 
-instance Hashable OutputDestinationSettings
-
-instance NFData OutputDestinationSettings
-
-instance ToJSON OutputDestinationSettings where
+instance Lude.ToJSON OutputDestinationSettings where
   toJSON OutputDestinationSettings' {..} =
-    object
-      ( catMaybes
-          [ ("url" .=) <$> _odsURL,
-            ("username" .=) <$> _odsUsername,
-            ("passwordParam" .=) <$> _odsPasswordParam,
-            ("streamName" .=) <$> _odsStreamName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("url" Lude..=) Lude.<$> url,
+            ("username" Lude..=) Lude.<$> username,
+            ("passwordParam" Lude..=) Lude.<$> passwordParam,
+            ("streamName" Lude..=) Lude.<$> streamName
           ]
       )

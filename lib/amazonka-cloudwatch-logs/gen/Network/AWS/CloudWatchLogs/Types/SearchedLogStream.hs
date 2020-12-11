@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.SearchedLogStream where
+module Network.AWS.CloudWatchLogs.Types.SearchedLogStream
+  ( SearchedLogStream (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSearchedLogStream,
+
+    -- * Lenses
+    slsLogStreamName,
+    slsSearchedCompletely,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the search status of a log stream.
 --
---
---
--- /See:/ 'searchedLogStream' smart constructor.
+-- /See:/ 'mkSearchedLogStream' smart constructor.
 data SearchedLogStream = SearchedLogStream'
-  { _slsLogStreamName ::
-      !(Maybe Text),
-    _slsSearchedCompletely :: !(Maybe Bool)
+  { logStreamName ::
+      Lude.Maybe Lude.Text,
+    searchedCompletely :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchedLogStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slsLogStreamName' - The name of the log stream.
---
--- * 'slsSearchedCompletely' - Indicates whether all the events in this log stream were searched.
-searchedLogStream ::
+-- * 'logStreamName' - The name of the log stream.
+-- * 'searchedCompletely' - Indicates whether all the events in this log stream were searched.
+mkSearchedLogStream ::
   SearchedLogStream
-searchedLogStream =
+mkSearchedLogStream =
   SearchedLogStream'
-    { _slsLogStreamName = Nothing,
-      _slsSearchedCompletely = Nothing
+    { logStreamName = Lude.Nothing,
+      searchedCompletely = Lude.Nothing
     }
 
 -- | The name of the log stream.
-slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
-slsLogStreamName = lens _slsLogStreamName (\s a -> s {_slsLogStreamName = a})
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slsLogStreamName :: Lens.Lens' SearchedLogStream (Lude.Maybe Lude.Text)
+slsLogStreamName = Lens.lens (logStreamName :: SearchedLogStream -> Lude.Maybe Lude.Text) (\s a -> s {logStreamName = a} :: SearchedLogStream)
+{-# DEPRECATED slsLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 -- | Indicates whether all the events in this log stream were searched.
-slsSearchedCompletely :: Lens' SearchedLogStream (Maybe Bool)
-slsSearchedCompletely = lens _slsSearchedCompletely (\s a -> s {_slsSearchedCompletely = a})
+--
+-- /Note:/ Consider using 'searchedCompletely' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slsSearchedCompletely :: Lens.Lens' SearchedLogStream (Lude.Maybe Lude.Bool)
+slsSearchedCompletely = Lens.lens (searchedCompletely :: SearchedLogStream -> Lude.Maybe Lude.Bool) (\s a -> s {searchedCompletely = a} :: SearchedLogStream)
+{-# DEPRECATED slsSearchedCompletely "Use generic-lens or generic-optics with 'searchedCompletely' instead." #-}
 
-instance FromJSON SearchedLogStream where
+instance Lude.FromJSON SearchedLogStream where
   parseJSON =
-    withObject
+    Lude.withObject
       "SearchedLogStream"
       ( \x ->
           SearchedLogStream'
-            <$> (x .:? "logStreamName") <*> (x .:? "searchedCompletely")
+            Lude.<$> (x Lude..:? "logStreamName")
+            Lude.<*> (x Lude..:? "searchedCompletely")
       )
-
-instance Hashable SearchedLogStream
-
-instance NFData SearchedLogStream

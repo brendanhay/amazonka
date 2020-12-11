@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,145 @@
 --
 -- Returns the Region the bucket resides in. You set the bucket's Region using the @LocationConstraint@ request parameter in a @CreateBucket@ request. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket> .
 --
---
 -- To use this implementation of the operation, you must be the bucket owner.
---
 -- The following operations are related to @GetBucketLocation@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
 module Network.AWS.S3.GetBucketLocation
-  ( -- * Creating a Request
-    getBucketLocation,
-    GetBucketLocation,
+  ( -- * Creating a request
+    GetBucketLocation (..),
+    mkGetBucketLocation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gblExpectedBucketOwner,
     gblBucket,
 
-    -- * Destructuring the Response
-    getBucketLocationResponse,
-    GetBucketLocationResponse,
+    -- * Destructuring the response
+    GetBucketLocationResponse (..),
+    mkGetBucketLocationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gblbrsResponseStatus,
     gblbrsLocationConstraint,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getBucketLocation' smart constructor.
+-- | /See:/ 'mkGetBucketLocation' smart constructor.
 data GetBucketLocation = GetBucketLocation'
-  { _gblExpectedBucketOwner ::
-      !(Maybe Text),
-    _gblBucket :: !BucketName
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketLocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gblExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'gblBucket' - The name of the bucket for which to get the location.
-getBucketLocation ::
-  -- | 'gblBucket'
+-- * 'bucket' - The name of the bucket for which to get the location.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkGetBucketLocation ::
+  -- | 'bucket'
   BucketName ->
   GetBucketLocation
-getBucketLocation pBucket_ =
+mkGetBucketLocation pBucket_ =
   GetBucketLocation'
-    { _gblExpectedBucketOwner = Nothing,
-      _gblBucket = pBucket_
+    { expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-gblExpectedBucketOwner :: Lens' GetBucketLocation (Maybe Text)
-gblExpectedBucketOwner = lens _gblExpectedBucketOwner (\s a -> s {_gblExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gblExpectedBucketOwner :: Lens.Lens' GetBucketLocation (Lude.Maybe Lude.Text)
+gblExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketLocation -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketLocation)
+{-# DEPRECATED gblExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which to get the location.
-gblBucket :: Lens' GetBucketLocation BucketName
-gblBucket = lens _gblBucket (\s a -> s {_gblBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gblBucket :: Lens.Lens' GetBucketLocation BucketName
+gblBucket = Lens.lens (bucket :: GetBucketLocation -> BucketName) (\s a -> s {bucket = a} :: GetBucketLocation)
+{-# DEPRECATED gblBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest GetBucketLocation where
+instance Lude.AWSRequest GetBucketLocation where
   type Rs GetBucketLocation = GetBucketLocationResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetBucketLocationResponse'
-            <$> (pure (fromEnum s)) <*> (parseXML x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
       )
 
-instance Hashable GetBucketLocation
-
-instance NFData GetBucketLocation
-
-instance ToHeaders GetBucketLocation where
+instance Lude.ToHeaders GetBucketLocation where
   toHeaders GetBucketLocation' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _gblExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath GetBucketLocation where
-  toPath GetBucketLocation' {..} = mconcat ["/", toBS _gblBucket]
+instance Lude.ToPath GetBucketLocation where
+  toPath GetBucketLocation' {..} =
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery GetBucketLocation where
-  toQuery = const (mconcat ["location"])
+instance Lude.ToQuery GetBucketLocation where
+  toQuery = Lude.const (Lude.mconcat ["location"])
 
--- | /See:/ 'getBucketLocationResponse' smart constructor.
+-- | /See:/ 'mkGetBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
-  { _gblbrsResponseStatus ::
-      !Int,
-    _gblbrsLocationConstraint ::
-      !LocationConstraint
+  { responseStatus ::
+      Lude.Int,
+    locationConstraint ::
+      LocationConstraint
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gblbrsResponseStatus' - -- | The response status code.
---
--- * 'gblbrsLocationConstraint' - Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints> . Buckets in Region @us-east-1@ have a LocationConstraint of @null@ .
-getBucketLocationResponse ::
-  -- | 'gblbrsResponseStatus'
-  Int ->
-  -- | 'gblbrsLocationConstraint'
+-- * 'locationConstraint' - Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints> . Buckets in Region @us-east-1@ have a LocationConstraint of @null@ .
+-- * 'responseStatus' - The response status code.
+mkGetBucketLocationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'locationConstraint'
   LocationConstraint ->
   GetBucketLocationResponse
-getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
+mkGetBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
   GetBucketLocationResponse'
-    { _gblbrsResponseStatus =
-        pResponseStatus_,
-      _gblbrsLocationConstraint = pLocationConstraint_
+    { responseStatus = pResponseStatus_,
+      locationConstraint = pLocationConstraint_
     }
 
--- | -- | The response status code.
-gblbrsResponseStatus :: Lens' GetBucketLocationResponse Int
-gblbrsResponseStatus = lens _gblbrsResponseStatus (\s a -> s {_gblbrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gblbrsResponseStatus :: Lens.Lens' GetBucketLocationResponse Lude.Int
+gblbrsResponseStatus = Lens.lens (responseStatus :: GetBucketLocationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketLocationResponse)
+{-# DEPRECATED gblbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints> . Buckets in Region @us-east-1@ have a LocationConstraint of @null@ .
-gblbrsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
-gblbrsLocationConstraint = lens _gblbrsLocationConstraint (\s a -> s {_gblbrsLocationConstraint = a})
-
-instance NFData GetBucketLocationResponse
+--
+-- /Note:/ Consider using 'locationConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gblbrsLocationConstraint :: Lens.Lens' GetBucketLocationResponse LocationConstraint
+gblbrsLocationConstraint = Lens.lens (locationConstraint :: GetBucketLocationResponse -> LocationConstraint) (\s a -> s {locationConstraint = a} :: GetBucketLocationResponse)
+{-# DEPRECATED gblbrsLocationConstraint "Use generic-lens or generic-optics with 'locationConstraint' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.FunctionDefinitionVersion where
+module Network.AWS.Greengrass.Types.FunctionDefinitionVersion
+  ( FunctionDefinitionVersion (..),
+
+    -- * Smart constructor
+    mkFunctionDefinitionVersion,
+
+    -- * Lenses
+    fdvDefaultConfig,
+    fdvFunctions,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Function
 import Network.AWS.Greengrass.Types.FunctionDefaultConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a function definition version.
 --
--- /See:/ 'functionDefinitionVersion' smart constructor.
+-- /See:/ 'mkFunctionDefinitionVersion' smart constructor.
 data FunctionDefinitionVersion = FunctionDefinitionVersion'
-  { _fdvDefaultConfig ::
-      !(Maybe FunctionDefaultConfig),
-    _fdvFunctions :: !(Maybe [Function])
+  { defaultConfig ::
+      Lude.Maybe FunctionDefaultConfig,
+    functions :: Lude.Maybe [Function]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdvDefaultConfig' - The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
---
--- * 'fdvFunctions' - A list of Lambda functions in this function definition version.
-functionDefinitionVersion ::
+-- * 'defaultConfig' - The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+-- * 'functions' - A list of Lambda functions in this function definition version.
+mkFunctionDefinitionVersion ::
   FunctionDefinitionVersion
-functionDefinitionVersion =
+mkFunctionDefinitionVersion =
   FunctionDefinitionVersion'
-    { _fdvDefaultConfig = Nothing,
-      _fdvFunctions = Nothing
+    { defaultConfig = Lude.Nothing,
+      functions = Lude.Nothing
     }
 
 -- | The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
-fdvDefaultConfig :: Lens' FunctionDefinitionVersion (Maybe FunctionDefaultConfig)
-fdvDefaultConfig = lens _fdvDefaultConfig (\s a -> s {_fdvDefaultConfig = a})
+--
+-- /Note:/ Consider using 'defaultConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdvDefaultConfig :: Lens.Lens' FunctionDefinitionVersion (Lude.Maybe FunctionDefaultConfig)
+fdvDefaultConfig = Lens.lens (defaultConfig :: FunctionDefinitionVersion -> Lude.Maybe FunctionDefaultConfig) (\s a -> s {defaultConfig = a} :: FunctionDefinitionVersion)
+{-# DEPRECATED fdvDefaultConfig "Use generic-lens or generic-optics with 'defaultConfig' instead." #-}
 
 -- | A list of Lambda functions in this function definition version.
-fdvFunctions :: Lens' FunctionDefinitionVersion [Function]
-fdvFunctions = lens _fdvFunctions (\s a -> s {_fdvFunctions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdvFunctions :: Lens.Lens' FunctionDefinitionVersion (Lude.Maybe [Function])
+fdvFunctions = Lens.lens (functions :: FunctionDefinitionVersion -> Lude.Maybe [Function]) (\s a -> s {functions = a} :: FunctionDefinitionVersion)
+{-# DEPRECATED fdvFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
 
-instance FromJSON FunctionDefinitionVersion where
+instance Lude.FromJSON FunctionDefinitionVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "FunctionDefinitionVersion"
       ( \x ->
           FunctionDefinitionVersion'
-            <$> (x .:? "DefaultConfig") <*> (x .:? "Functions" .!= mempty)
+            Lude.<$> (x Lude..:? "DefaultConfig")
+            Lude.<*> (x Lude..:? "Functions" Lude..!= Lude.mempty)
       )
 
-instance Hashable FunctionDefinitionVersion
-
-instance NFData FunctionDefinitionVersion
-
-instance ToJSON FunctionDefinitionVersion where
+instance Lude.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultConfig" .=) <$> _fdvDefaultConfig,
-            ("Functions" .=) <$> _fdvFunctions
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultConfig" Lude..=) Lude.<$> defaultConfig,
+            ("Functions" Lude..=) Lude.<$> functions
           ]
       )

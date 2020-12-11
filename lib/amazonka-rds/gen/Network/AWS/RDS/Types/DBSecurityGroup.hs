@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBSecurityGroup where
+module Network.AWS.RDS.Types.DBSecurityGroup
+  ( DBSecurityGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBSecurityGroup,
+
+    -- * Lenses
+    dbsgVPCId,
+    dbsgOwnerId,
+    dbsgDBSecurityGroupARN,
+    dbsgIPRanges,
+    dbsgDBSecurityGroupName,
+    dbsgEC2SecurityGroups,
+    dbsgDBSecurityGroupDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.EC2SecurityGroup
 import Network.AWS.RDS.Types.IPRange
 
 -- | Contains the details for an Amazon RDS DB security group.
 --
---
 -- This data type is used as a response element in the @DescribeDBSecurityGroups@ action.
 --
---
--- /See:/ 'dbSecurityGroup' smart constructor.
+-- /See:/ 'mkDBSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
-  { _dbsgVPCId ::
-      !(Maybe Text),
-    _dbsgOwnerId :: !(Maybe Text),
-    _dbsgDBSecurityGroupARN :: !(Maybe Text),
-    _dbsgIPRanges :: !(Maybe [IPRange]),
-    _dbsgDBSecurityGroupName :: !(Maybe Text),
-    _dbsgEC2SecurityGroups :: !(Maybe [EC2SecurityGroup]),
-    _dbsgDBSecurityGroupDescription :: !(Maybe Text)
+  { vpcId ::
+      Lude.Maybe Lude.Text,
+    ownerId :: Lude.Maybe Lude.Text,
+    dbSecurityGroupARN :: Lude.Maybe Lude.Text,
+    ipRanges :: Lude.Maybe [IPRange],
+    dbSecurityGroupName :: Lude.Maybe Lude.Text,
+    ec2SecurityGroups :: Lude.Maybe [EC2SecurityGroup],
+    dbSecurityGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbsgVPCId' - Provides the VpcId of the DB security group.
---
--- * 'dbsgOwnerId' - Provides the AWS ID of the owner of a specific DB security group.
---
--- * 'dbsgDBSecurityGroupARN' - The Amazon Resource Name (ARN) for the DB security group.
---
--- * 'dbsgIPRanges' - Contains a list of @IPRange@ elements.
---
--- * 'dbsgDBSecurityGroupName' - Specifies the name of the DB security group.
---
--- * 'dbsgEC2SecurityGroups' - Contains a list of @EC2SecurityGroup@ elements.
---
--- * 'dbsgDBSecurityGroupDescription' - Provides the description of the DB security group.
-dbSecurityGroup ::
+-- * 'dbSecurityGroupARN' - The Amazon Resource Name (ARN) for the DB security group.
+-- * 'dbSecurityGroupDescription' - Provides the description of the DB security group.
+-- * 'dbSecurityGroupName' - Specifies the name of the DB security group.
+-- * 'ec2SecurityGroups' - Contains a list of @EC2SecurityGroup@ elements.
+-- * 'ipRanges' - Contains a list of @IPRange@ elements.
+-- * 'ownerId' - Provides the AWS ID of the owner of a specific DB security group.
+-- * 'vpcId' - Provides the VpcId of the DB security group.
+mkDBSecurityGroup ::
   DBSecurityGroup
-dbSecurityGroup =
+mkDBSecurityGroup =
   DBSecurityGroup'
-    { _dbsgVPCId = Nothing,
-      _dbsgOwnerId = Nothing,
-      _dbsgDBSecurityGroupARN = Nothing,
-      _dbsgIPRanges = Nothing,
-      _dbsgDBSecurityGroupName = Nothing,
-      _dbsgEC2SecurityGroups = Nothing,
-      _dbsgDBSecurityGroupDescription = Nothing
+    { vpcId = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      dbSecurityGroupARN = Lude.Nothing,
+      ipRanges = Lude.Nothing,
+      dbSecurityGroupName = Lude.Nothing,
+      ec2SecurityGroups = Lude.Nothing,
+      dbSecurityGroupDescription = Lude.Nothing
     }
 
 -- | Provides the VpcId of the DB security group.
-dbsgVPCId :: Lens' DBSecurityGroup (Maybe Text)
-dbsgVPCId = lens _dbsgVPCId (\s a -> s {_dbsgVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgVPCId :: Lens.Lens' DBSecurityGroup (Lude.Maybe Lude.Text)
+dbsgVPCId = Lens.lens (vpcId :: DBSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Provides the AWS ID of the owner of a specific DB security group.
-dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
-dbsgOwnerId = lens _dbsgOwnerId (\s a -> s {_dbsgOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgOwnerId :: Lens.Lens' DBSecurityGroup (Lude.Maybe Lude.Text)
+dbsgOwnerId = Lens.lens (ownerId :: DBSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the DB security group.
-dbsgDBSecurityGroupARN :: Lens' DBSecurityGroup (Maybe Text)
-dbsgDBSecurityGroupARN = lens _dbsgDBSecurityGroupARN (\s a -> s {_dbsgDBSecurityGroupARN = a})
+--
+-- /Note:/ Consider using 'dbSecurityGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgDBSecurityGroupARN :: Lens.Lens' DBSecurityGroup (Lude.Maybe Lude.Text)
+dbsgDBSecurityGroupARN = Lens.lens (dbSecurityGroupARN :: DBSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSecurityGroupARN = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgDBSecurityGroupARN "Use generic-lens or generic-optics with 'dbSecurityGroupARN' instead." #-}
 
 -- | Contains a list of @IPRange@ elements.
-dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
-dbsgIPRanges = lens _dbsgIPRanges (\s a -> s {_dbsgIPRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgIPRanges :: Lens.Lens' DBSecurityGroup (Lude.Maybe [IPRange])
+dbsgIPRanges = Lens.lens (ipRanges :: DBSecurityGroup -> Lude.Maybe [IPRange]) (\s a -> s {ipRanges = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgIPRanges "Use generic-lens or generic-optics with 'ipRanges' instead." #-}
 
 -- | Specifies the name of the DB security group.
-dbsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
-dbsgDBSecurityGroupName = lens _dbsgDBSecurityGroupName (\s a -> s {_dbsgDBSecurityGroupName = a})
+--
+-- /Note:/ Consider using 'dbSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgDBSecurityGroupName :: Lens.Lens' DBSecurityGroup (Lude.Maybe Lude.Text)
+dbsgDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: DBSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSecurityGroupName = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgDBSecurityGroupName "Use generic-lens or generic-optics with 'dbSecurityGroupName' instead." #-}
 
 -- | Contains a list of @EC2SecurityGroup@ elements.
-dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
-dbsgEC2SecurityGroups = lens _dbsgEC2SecurityGroups (\s a -> s {_dbsgEC2SecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ec2SecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgEC2SecurityGroups :: Lens.Lens' DBSecurityGroup (Lude.Maybe [EC2SecurityGroup])
+dbsgEC2SecurityGroups = Lens.lens (ec2SecurityGroups :: DBSecurityGroup -> Lude.Maybe [EC2SecurityGroup]) (\s a -> s {ec2SecurityGroups = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgEC2SecurityGroups "Use generic-lens or generic-optics with 'ec2SecurityGroups' instead." #-}
 
 -- | Provides the description of the DB security group.
-dbsgDBSecurityGroupDescription :: Lens' DBSecurityGroup (Maybe Text)
-dbsgDBSecurityGroupDescription = lens _dbsgDBSecurityGroupDescription (\s a -> s {_dbsgDBSecurityGroupDescription = a})
+--
+-- /Note:/ Consider using 'dbSecurityGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgDBSecurityGroupDescription :: Lens.Lens' DBSecurityGroup (Lude.Maybe Lude.Text)
+dbsgDBSecurityGroupDescription = Lens.lens (dbSecurityGroupDescription :: DBSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSecurityGroupDescription = a} :: DBSecurityGroup)
+{-# DEPRECATED dbsgDBSecurityGroupDescription "Use generic-lens or generic-optics with 'dbSecurityGroupDescription' instead." #-}
 
-instance FromXML DBSecurityGroup where
+instance Lude.FromXML DBSecurityGroup where
   parseXML x =
     DBSecurityGroup'
-      <$> (x .@? "VpcId")
-      <*> (x .@? "OwnerId")
-      <*> (x .@? "DBSecurityGroupArn")
-      <*> (x .@? "IPRanges" .!@ mempty >>= may (parseXMLList "IPRange"))
-      <*> (x .@? "DBSecurityGroupName")
-      <*> ( x .@? "EC2SecurityGroups" .!@ mempty
-              >>= may (parseXMLList "EC2SecurityGroup")
-          )
-      <*> (x .@? "DBSecurityGroupDescription")
-
-instance Hashable DBSecurityGroup
-
-instance NFData DBSecurityGroup
+      Lude.<$> (x Lude..@? "VpcId")
+      Lude.<*> (x Lude..@? "OwnerId")
+      Lude.<*> (x Lude..@? "DBSecurityGroupArn")
+      Lude.<*> ( x Lude..@? "IPRanges" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "IPRange")
+               )
+      Lude.<*> (x Lude..@? "DBSecurityGroupName")
+      Lude.<*> ( x Lude..@? "EC2SecurityGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "EC2SecurityGroup")
+               )
+      Lude.<*> (x Lude..@? "DBSecurityGroupDescription")

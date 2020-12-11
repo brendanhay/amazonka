@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.SecurityGroupRuleDescription where
+module Network.AWS.FMS.Types.SecurityGroupRuleDescription
+  ( SecurityGroupRuleDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSecurityGroupRuleDescription,
+
+    -- * Lenses
+    sgrdFromPort,
+    sgrdProtocol,
+    sgrdIPV4Range,
+    sgrdPrefixListId,
+    sgrdToPort,
+    sgrdIPV6Range,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a set of permissions for a security group rule.
 --
---
---
--- /See:/ 'securityGroupRuleDescription' smart constructor.
+-- /See:/ 'mkSecurityGroupRuleDescription' smart constructor.
 data SecurityGroupRuleDescription = SecurityGroupRuleDescription'
-  { _sgrdFromPort ::
-      !(Maybe Nat),
-    _sgrdProtocol :: !(Maybe Text),
-    _sgrdIPV4Range :: !(Maybe Text),
-    _sgrdPrefixListId ::
-      !(Maybe Text),
-    _sgrdToPort :: !(Maybe Nat),
-    _sgrdIPV6Range :: !(Maybe Text)
+  { fromPort ::
+      Lude.Maybe Lude.Natural,
+    protocol :: Lude.Maybe Lude.Text,
+    ipV4Range :: Lude.Maybe Lude.Text,
+    prefixListId ::
+      Lude.Maybe Lude.Text,
+    toPort :: Lude.Maybe Lude.Natural,
+    ipV6Range :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupRuleDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgrdFromPort' - The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
---
--- * 'sgrdProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ , @icmpv6@ ) or number.
---
--- * 'sgrdIPV4Range' - The IPv4 ranges for the security group rule.
---
--- * 'sgrdPrefixListId' - The ID of the prefix list for the security group rule.
---
--- * 'sgrdToPort' - The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes.
---
--- * 'sgrdIPV6Range' - The IPv6 ranges for the security group rule.
-securityGroupRuleDescription ::
+-- * 'fromPort' - The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
+-- * 'ipV4Range' - The IPv4 ranges for the security group rule.
+-- * 'ipV6Range' - The IPv6 ranges for the security group rule.
+-- * 'prefixListId' - The ID of the prefix list for the security group rule.
+-- * 'protocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ , @icmpv6@ ) or number.
+-- * 'toPort' - The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes.
+mkSecurityGroupRuleDescription ::
   SecurityGroupRuleDescription
-securityGroupRuleDescription =
+mkSecurityGroupRuleDescription =
   SecurityGroupRuleDescription'
-    { _sgrdFromPort = Nothing,
-      _sgrdProtocol = Nothing,
-      _sgrdIPV4Range = Nothing,
-      _sgrdPrefixListId = Nothing,
-      _sgrdToPort = Nothing,
-      _sgrdIPV6Range = Nothing
+    { fromPort = Lude.Nothing,
+      protocol = Lude.Nothing,
+      ipV4Range = Lude.Nothing,
+      prefixListId = Lude.Nothing,
+      toPort = Lude.Nothing,
+      ipV6Range = Lude.Nothing
     }
 
 -- | The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
-sgrdFromPort :: Lens' SecurityGroupRuleDescription (Maybe Natural)
-sgrdFromPort = lens _sgrdFromPort (\s a -> s {_sgrdFromPort = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'fromPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrdFromPort :: Lens.Lens' SecurityGroupRuleDescription (Lude.Maybe Lude.Natural)
+sgrdFromPort = Lens.lens (fromPort :: SecurityGroupRuleDescription -> Lude.Maybe Lude.Natural) (\s a -> s {fromPort = a} :: SecurityGroupRuleDescription)
+{-# DEPRECATED sgrdFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
 
 -- | The IP protocol name (@tcp@ , @udp@ , @icmp@ , @icmpv6@ ) or number.
-sgrdProtocol :: Lens' SecurityGroupRuleDescription (Maybe Text)
-sgrdProtocol = lens _sgrdProtocol (\s a -> s {_sgrdProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrdProtocol :: Lens.Lens' SecurityGroupRuleDescription (Lude.Maybe Lude.Text)
+sgrdProtocol = Lens.lens (protocol :: SecurityGroupRuleDescription -> Lude.Maybe Lude.Text) (\s a -> s {protocol = a} :: SecurityGroupRuleDescription)
+{-# DEPRECATED sgrdProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The IPv4 ranges for the security group rule.
-sgrdIPV4Range :: Lens' SecurityGroupRuleDescription (Maybe Text)
-sgrdIPV4Range = lens _sgrdIPV4Range (\s a -> s {_sgrdIPV4Range = a})
+--
+-- /Note:/ Consider using 'ipV4Range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrdIPV4Range :: Lens.Lens' SecurityGroupRuleDescription (Lude.Maybe Lude.Text)
+sgrdIPV4Range = Lens.lens (ipV4Range :: SecurityGroupRuleDescription -> Lude.Maybe Lude.Text) (\s a -> s {ipV4Range = a} :: SecurityGroupRuleDescription)
+{-# DEPRECATED sgrdIPV4Range "Use generic-lens or generic-optics with 'ipV4Range' instead." #-}
 
 -- | The ID of the prefix list for the security group rule.
-sgrdPrefixListId :: Lens' SecurityGroupRuleDescription (Maybe Text)
-sgrdPrefixListId = lens _sgrdPrefixListId (\s a -> s {_sgrdPrefixListId = a})
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrdPrefixListId :: Lens.Lens' SecurityGroupRuleDescription (Lude.Maybe Lude.Text)
+sgrdPrefixListId = Lens.lens (prefixListId :: SecurityGroupRuleDescription -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: SecurityGroupRuleDescription)
+{-# DEPRECATED sgrdPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes.
-sgrdToPort :: Lens' SecurityGroupRuleDescription (Maybe Natural)
-sgrdToPort = lens _sgrdToPort (\s a -> s {_sgrdToPort = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'toPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrdToPort :: Lens.Lens' SecurityGroupRuleDescription (Lude.Maybe Lude.Natural)
+sgrdToPort = Lens.lens (toPort :: SecurityGroupRuleDescription -> Lude.Maybe Lude.Natural) (\s a -> s {toPort = a} :: SecurityGroupRuleDescription)
+{-# DEPRECATED sgrdToPort "Use generic-lens or generic-optics with 'toPort' instead." #-}
 
 -- | The IPv6 ranges for the security group rule.
-sgrdIPV6Range :: Lens' SecurityGroupRuleDescription (Maybe Text)
-sgrdIPV6Range = lens _sgrdIPV6Range (\s a -> s {_sgrdIPV6Range = a})
+--
+-- /Note:/ Consider using 'ipV6Range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrdIPV6Range :: Lens.Lens' SecurityGroupRuleDescription (Lude.Maybe Lude.Text)
+sgrdIPV6Range = Lens.lens (ipV6Range :: SecurityGroupRuleDescription -> Lude.Maybe Lude.Text) (\s a -> s {ipV6Range = a} :: SecurityGroupRuleDescription)
+{-# DEPRECATED sgrdIPV6Range "Use generic-lens or generic-optics with 'ipV6Range' instead." #-}
 
-instance FromJSON SecurityGroupRuleDescription where
+instance Lude.FromJSON SecurityGroupRuleDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "SecurityGroupRuleDescription"
       ( \x ->
           SecurityGroupRuleDescription'
-            <$> (x .:? "FromPort")
-            <*> (x .:? "Protocol")
-            <*> (x .:? "IPV4Range")
-            <*> (x .:? "PrefixListId")
-            <*> (x .:? "ToPort")
-            <*> (x .:? "IPV6Range")
+            Lude.<$> (x Lude..:? "FromPort")
+            Lude.<*> (x Lude..:? "Protocol")
+            Lude.<*> (x Lude..:? "IPV4Range")
+            Lude.<*> (x Lude..:? "PrefixListId")
+            Lude.<*> (x Lude..:? "ToPort")
+            Lude.<*> (x Lude..:? "IPV6Range")
       )
-
-instance Hashable SecurityGroupRuleDescription
-
-instance NFData SecurityGroupRuleDescription

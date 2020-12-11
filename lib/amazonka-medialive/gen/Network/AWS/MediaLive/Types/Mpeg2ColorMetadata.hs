@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2ColorMetadata where
+module Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
+  ( Mpeg2ColorMetadata
+      ( Mpeg2ColorMetadata',
+        MCMIgnore,
+        MCMInsert
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Color Metadata
-data Mpeg2ColorMetadata
-  = MCMIgnore
-  | MCMInsert
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2ColorMetadata = Mpeg2ColorMetadata' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2ColorMetadata where
-  parser =
-    takeLowerText >>= \case
-      "ignore" -> pure MCMIgnore
-      "insert" -> pure MCMInsert
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2ColorMetadata from value: '" <> e
-            <> "'. Accepted values: ignore, insert"
+pattern MCMIgnore :: Mpeg2ColorMetadata
+pattern MCMIgnore = Mpeg2ColorMetadata' "IGNORE"
 
-instance ToText Mpeg2ColorMetadata where
-  toText = \case
-    MCMIgnore -> "IGNORE"
-    MCMInsert -> "INSERT"
+pattern MCMInsert :: Mpeg2ColorMetadata
+pattern MCMInsert = Mpeg2ColorMetadata' "INSERT"
 
-instance Hashable Mpeg2ColorMetadata
-
-instance NFData Mpeg2ColorMetadata
-
-instance ToByteString Mpeg2ColorMetadata
-
-instance ToQuery Mpeg2ColorMetadata
-
-instance ToHeader Mpeg2ColorMetadata
-
-instance ToJSON Mpeg2ColorMetadata where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2ColorMetadata where
-  parseJSON = parseJSONText "Mpeg2ColorMetadata"
+{-# COMPLETE
+  MCMIgnore,
+  MCMInsert,
+  Mpeg2ColorMetadata'
+  #-}

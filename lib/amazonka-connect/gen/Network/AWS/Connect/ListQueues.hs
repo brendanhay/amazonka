@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,25 @@
 --
 -- Provides information about the queues for the specified Amazon Connect instance.
 --
---
 -- For more information about queues, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html Queues: Standard and Agent> in the /Amazon Connect Administrator Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListQueues
-  ( -- * Creating a Request
-    listQueues,
-    ListQueues,
+  ( -- * Creating a request
+    ListQueues (..),
+    mkListQueues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lqNextToken,
     lqQueueTypes,
     lqMaxResults,
     lqInstanceId,
 
-    -- * Destructuring the Response
-    listQueuesResponse,
-    ListQueuesResponse,
+    -- * Destructuring the response
+    ListQueuesResponse (..),
+    mkListQueuesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lqrsNextToken,
     lqrsQueueSummaryList,
     lqrsResponseStatus,
@@ -47,140 +40,166 @@ module Network.AWS.Connect.ListQueues
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listQueues' smart constructor.
+-- | /See:/ 'mkListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { _lqNextToken :: !(Maybe Text),
-    _lqQueueTypes :: !(Maybe [QueueType]),
-    _lqMaxResults :: !(Maybe Nat),
-    _lqInstanceId :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    queueTypes :: Lude.Maybe [QueueType],
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'lqQueueTypes' - The type of queue.
---
--- * 'lqMaxResults' - The maximimum number of results to return per page.
---
--- * 'lqInstanceId' - The identifier of the Amazon Connect instance.
-listQueues ::
-  -- | 'lqInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'maxResults' - The maximimum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'queueTypes' - The type of queue.
+mkListQueues ::
+  -- | 'instanceId'
+  Lude.Text ->
   ListQueues
-listQueues pInstanceId_ =
+mkListQueues pInstanceId_ =
   ListQueues'
-    { _lqNextToken = Nothing,
-      _lqQueueTypes = Nothing,
-      _lqMaxResults = Nothing,
-      _lqInstanceId = pInstanceId_
+    { nextToken = Lude.Nothing,
+      queueTypes = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-lqNextToken :: Lens' ListQueues (Maybe Text)
-lqNextToken = lens _lqNextToken (\s a -> s {_lqNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqNextToken :: Lens.Lens' ListQueues (Lude.Maybe Lude.Text)
+lqNextToken = Lens.lens (nextToken :: ListQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueues)
+{-# DEPRECATED lqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The type of queue.
-lqQueueTypes :: Lens' ListQueues [QueueType]
-lqQueueTypes = lens _lqQueueTypes (\s a -> s {_lqQueueTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queueTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqQueueTypes :: Lens.Lens' ListQueues (Lude.Maybe [QueueType])
+lqQueueTypes = Lens.lens (queueTypes :: ListQueues -> Lude.Maybe [QueueType]) (\s a -> s {queueTypes = a} :: ListQueues)
+{-# DEPRECATED lqQueueTypes "Use generic-lens or generic-optics with 'queueTypes' instead." #-}
 
 -- | The maximimum number of results to return per page.
-lqMaxResults :: Lens' ListQueues (Maybe Natural)
-lqMaxResults = lens _lqMaxResults (\s a -> s {_lqMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqMaxResults :: Lens.Lens' ListQueues (Lude.Maybe Lude.Natural)
+lqMaxResults = Lens.lens (maxResults :: ListQueues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListQueues)
+{-# DEPRECATED lqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-lqInstanceId :: Lens' ListQueues Text
-lqInstanceId = lens _lqInstanceId (\s a -> s {_lqInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqInstanceId :: Lens.Lens' ListQueues Lude.Text
+lqInstanceId = Lens.lens (instanceId :: ListQueues -> Lude.Text) (\s a -> s {instanceId = a} :: ListQueues)
+{-# DEPRECATED lqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager ListQueues where
+instance Page.AWSPager ListQueues where
   page rq rs
-    | stop (rs ^. lqrsNextToken) = Nothing
-    | stop (rs ^. lqrsQueueSummaryList) = Nothing
-    | otherwise = Just $ rq & lqNextToken .~ rs ^. lqrsNextToken
+    | Page.stop (rs Lens.^. lqrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lqrsQueueSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lqNextToken Lens..~ rs Lens.^. lqrsNextToken
 
-instance AWSRequest ListQueues where
+instance Lude.AWSRequest ListQueues where
   type Rs ListQueues = ListQueuesResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListQueuesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "QueueSummaryList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "QueueSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListQueues
-
-instance NFData ListQueues
-
-instance ToHeaders ListQueues where
+instance Lude.ToHeaders ListQueues where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListQueues where
+instance Lude.ToPath ListQueues where
   toPath ListQueues' {..} =
-    mconcat ["/queues-summary/", toBS _lqInstanceId]
+    Lude.mconcat ["/queues-summary/", Lude.toBS instanceId]
 
-instance ToQuery ListQueues where
+instance Lude.ToQuery ListQueues where
   toQuery ListQueues' {..} =
-    mconcat
-      [ "nextToken" =: _lqNextToken,
-        "queueTypes" =: toQuery (toQueryList "member" <$> _lqQueueTypes),
-        "maxResults" =: _lqMaxResults
+    Lude.mconcat
+      [ "nextToken" Lude.=: nextToken,
+        "queueTypes"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> queueTypes),
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listQueuesResponse' smart constructor.
+-- | /See:/ 'mkListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { _lqrsNextToken ::
-      !(Maybe Text),
-    _lqrsQueueSummaryList :: !(Maybe [QueueSummary]),
-    _lqrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    queueSummaryList :: Lude.Maybe [QueueSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqrsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'lqrsQueueSummaryList' - Information about the queues.
---
--- * 'lqrsResponseStatus' - -- | The response status code.
-listQueuesResponse ::
-  -- | 'lqrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'queueSummaryList' - Information about the queues.
+-- * 'responseStatus' - The response status code.
+mkListQueuesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListQueuesResponse
-listQueuesResponse pResponseStatus_ =
+mkListQueuesResponse pResponseStatus_ =
   ListQueuesResponse'
-    { _lqrsNextToken = Nothing,
-      _lqrsQueueSummaryList = Nothing,
-      _lqrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      queueSummaryList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of results.
-lqrsNextToken :: Lens' ListQueuesResponse (Maybe Text)
-lqrsNextToken = lens _lqrsNextToken (\s a -> s {_lqrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrsNextToken :: Lens.Lens' ListQueuesResponse (Lude.Maybe Lude.Text)
+lqrsNextToken = Lens.lens (nextToken :: ListQueuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueuesResponse)
+{-# DEPRECATED lqrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the queues.
-lqrsQueueSummaryList :: Lens' ListQueuesResponse [QueueSummary]
-lqrsQueueSummaryList = lens _lqrsQueueSummaryList (\s a -> s {_lqrsQueueSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queueSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrsQueueSummaryList :: Lens.Lens' ListQueuesResponse (Lude.Maybe [QueueSummary])
+lqrsQueueSummaryList = Lens.lens (queueSummaryList :: ListQueuesResponse -> Lude.Maybe [QueueSummary]) (\s a -> s {queueSummaryList = a} :: ListQueuesResponse)
+{-# DEPRECATED lqrsQueueSummaryList "Use generic-lens or generic-optics with 'queueSummaryList' instead." #-}
 
--- | -- | The response status code.
-lqrsResponseStatus :: Lens' ListQueuesResponse Int
-lqrsResponseStatus = lens _lqrsResponseStatus (\s a -> s {_lqrsResponseStatus = a})
-
-instance NFData ListQueuesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrsResponseStatus :: Lens.Lens' ListQueuesResponse Lude.Int
+lqrsResponseStatus = Lens.lens (responseStatus :: ListQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListQueuesResponse)
+{-# DEPRECATED lqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

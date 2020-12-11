@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the address blocks that you have added to a directory.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DirectoryService.ListIPRoutes
-  ( -- * Creating a Request
-    listIPRoutes,
-    ListIPRoutes,
+  ( -- * Creating a request
+    ListIPRoutes (..),
+    mkListIPRoutes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lirNextToken,
     lirLimit,
     lirDirectoryId,
 
-    -- * Destructuring the Response
-    listIPRoutesResponse,
-    ListIPRoutesResponse,
+    -- * Destructuring the response
+    ListIPRoutesResponse (..),
+    mkListIPRoutesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirrsIPRoutesInfo,
     lirrsNextToken,
     lirrsResponseStatus,
@@ -44,139 +37,162 @@ module Network.AWS.DirectoryService.ListIPRoutes
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listIPRoutes' smart constructor.
+-- | /See:/ 'mkListIPRoutes' smart constructor.
 data ListIPRoutes = ListIPRoutes'
-  { _lirNextToken :: !(Maybe Text),
-    _lirLimit :: !(Maybe Nat),
-    _lirDirectoryId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    directoryId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPRoutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirNextToken' - The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
---
--- * 'lirLimit' - Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
---
--- * 'lirDirectoryId' - Identifier (ID) of the directory for which you want to retrieve the IP addresses.
-listIPRoutes ::
-  -- | 'lirDirectoryId'
-  Text ->
+-- * 'directoryId' - Identifier (ID) of the directory for which you want to retrieve the IP addresses.
+-- * 'limit' - Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
+-- * 'nextToken' - The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
+mkListIPRoutes ::
+  -- | 'directoryId'
+  Lude.Text ->
   ListIPRoutes
-listIPRoutes pDirectoryId_ =
+mkListIPRoutes pDirectoryId_ =
   ListIPRoutes'
-    { _lirNextToken = Nothing,
-      _lirLimit = Nothing,
-      _lirDirectoryId = pDirectoryId_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      directoryId = pDirectoryId_
     }
 
 -- | The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
-lirNextToken :: Lens' ListIPRoutes (Maybe Text)
-lirNextToken = lens _lirNextToken (\s a -> s {_lirNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirNextToken :: Lens.Lens' ListIPRoutes (Lude.Maybe Lude.Text)
+lirNextToken = Lens.lens (nextToken :: ListIPRoutes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIPRoutes)
+{-# DEPRECATED lirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
-lirLimit :: Lens' ListIPRoutes (Maybe Natural)
-lirLimit = lens _lirLimit (\s a -> s {_lirLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirLimit :: Lens.Lens' ListIPRoutes (Lude.Maybe Lude.Natural)
+lirLimit = Lens.lens (limit :: ListIPRoutes -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListIPRoutes)
+{-# DEPRECATED lirLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Identifier (ID) of the directory for which you want to retrieve the IP addresses.
-lirDirectoryId :: Lens' ListIPRoutes Text
-lirDirectoryId = lens _lirDirectoryId (\s a -> s {_lirDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirDirectoryId :: Lens.Lens' ListIPRoutes Lude.Text
+lirDirectoryId = Lens.lens (directoryId :: ListIPRoutes -> Lude.Text) (\s a -> s {directoryId = a} :: ListIPRoutes)
+{-# DEPRECATED lirDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance AWSPager ListIPRoutes where
+instance Page.AWSPager ListIPRoutes where
   page rq rs
-    | stop (rs ^. lirrsNextToken) = Nothing
-    | stop (rs ^. lirrsIPRoutesInfo) = Nothing
-    | otherwise = Just $ rq & lirNextToken .~ rs ^. lirrsNextToken
+    | Page.stop (rs Lens.^. lirrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lirrsIPRoutesInfo) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lirNextToken Lens..~ rs Lens.^. lirrsNextToken
 
-instance AWSRequest ListIPRoutes where
+instance Lude.AWSRequest ListIPRoutes where
   type Rs ListIPRoutes = ListIPRoutesResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListIPRoutesResponse'
-            <$> (x .?> "IpRoutesInfo" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "IpRoutesInfo" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListIPRoutes
-
-instance NFData ListIPRoutes
-
-instance ToHeaders ListIPRoutes where
+instance Lude.ToHeaders ListIPRoutes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.ListIpRoutes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.ListIpRoutes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListIPRoutes where
+instance Lude.ToJSON ListIPRoutes where
   toJSON ListIPRoutes' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lirNextToken,
-            ("Limit" .=) <$> _lirLimit,
-            Just ("DirectoryId" .= _lirDirectoryId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("DirectoryId" Lude..= directoryId)
           ]
       )
 
-instance ToPath ListIPRoutes where
-  toPath = const "/"
+instance Lude.ToPath ListIPRoutes where
+  toPath = Lude.const "/"
 
-instance ToQuery ListIPRoutes where
-  toQuery = const mempty
+instance Lude.ToQuery ListIPRoutes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listIPRoutesResponse' smart constructor.
+-- | /See:/ 'mkListIPRoutesResponse' smart constructor.
 data ListIPRoutesResponse = ListIPRoutesResponse'
-  { _lirrsIPRoutesInfo ::
-      !(Maybe [IPRouteInfo]),
-    _lirrsNextToken :: !(Maybe Text),
-    _lirrsResponseStatus :: !Int
+  { ipRoutesInfo ::
+      Lude.Maybe [IPRouteInfo],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPRoutesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirrsIPRoutesInfo' - A list of 'IpRoute' s.
---
--- * 'lirrsNextToken' - If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
---
--- * 'lirrsResponseStatus' - -- | The response status code.
-listIPRoutesResponse ::
-  -- | 'lirrsResponseStatus'
-  Int ->
+-- * 'ipRoutesInfo' - A list of 'IpRoute' s.
+-- * 'nextToken' - If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
+-- * 'responseStatus' - The response status code.
+mkListIPRoutesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListIPRoutesResponse
-listIPRoutesResponse pResponseStatus_ =
+mkListIPRoutesResponse pResponseStatus_ =
   ListIPRoutesResponse'
-    { _lirrsIPRoutesInfo = Nothing,
-      _lirrsNextToken = Nothing,
-      _lirrsResponseStatus = pResponseStatus_
+    { ipRoutesInfo = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of 'IpRoute' s.
-lirrsIPRoutesInfo :: Lens' ListIPRoutesResponse [IPRouteInfo]
-lirrsIPRoutesInfo = lens _lirrsIPRoutesInfo (\s a -> s {_lirrsIPRoutesInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipRoutesInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirrsIPRoutesInfo :: Lens.Lens' ListIPRoutesResponse (Lude.Maybe [IPRouteInfo])
+lirrsIPRoutesInfo = Lens.lens (ipRoutesInfo :: ListIPRoutesResponse -> Lude.Maybe [IPRouteInfo]) (\s a -> s {ipRoutesInfo = a} :: ListIPRoutesResponse)
+{-# DEPRECATED lirrsIPRoutesInfo "Use generic-lens or generic-optics with 'ipRoutesInfo' instead." #-}
 
 -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
-lirrsNextToken :: Lens' ListIPRoutesResponse (Maybe Text)
-lirrsNextToken = lens _lirrsNextToken (\s a -> s {_lirrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirrsNextToken :: Lens.Lens' ListIPRoutesResponse (Lude.Maybe Lude.Text)
+lirrsNextToken = Lens.lens (nextToken :: ListIPRoutesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIPRoutesResponse)
+{-# DEPRECATED lirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lirrsResponseStatus :: Lens' ListIPRoutesResponse Int
-lirrsResponseStatus = lens _lirrsResponseStatus (\s a -> s {_lirrsResponseStatus = a})
-
-instance NFData ListIPRoutesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirrsResponseStatus :: Lens.Lens' ListIPRoutesResponse Lude.Int
+lirrsResponseStatus = Lens.lens (responseStatus :: ListIPRoutesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIPRoutesResponse)
+{-# DEPRECATED lirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

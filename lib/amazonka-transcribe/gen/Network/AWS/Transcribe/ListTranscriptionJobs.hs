@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Lists transcription jobs with the specified status.
 module Network.AWS.Transcribe.ListTranscriptionJobs
-  ( -- * Creating a Request
-    listTranscriptionJobs,
-    ListTranscriptionJobs,
+  ( -- * Creating a request
+    ListTranscriptionJobs (..),
+    mkListTranscriptionJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltjStatus,
     ltjNextToken,
     ltjJobNameContains,
     ltjMaxResults,
 
-    -- * Destructuring the Response
-    listTranscriptionJobsResponse,
-    ListTranscriptionJobsResponse,
+    -- * Destructuring the response
+    ListTranscriptionJobsResponse (..),
+    mkListTranscriptionJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltjrsStatus,
     ltjrsNextToken,
     ltjrsTranscriptionJobSummaries,
@@ -41,154 +36,177 @@ module Network.AWS.Transcribe.ListTranscriptionJobs
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'listTranscriptionJobs' smart constructor.
+-- | /See:/ 'mkListTranscriptionJobs' smart constructor.
 data ListTranscriptionJobs = ListTranscriptionJobs'
-  { _ltjStatus ::
-      !(Maybe TranscriptionJobStatus),
-    _ltjNextToken :: !(Maybe Text),
-    _ltjJobNameContains :: !(Maybe Text),
-    _ltjMaxResults :: !(Maybe Nat)
+  { status ::
+      Lude.Maybe TranscriptionJobStatus,
+    nextToken :: Lude.Maybe Lude.Text,
+    jobNameContains :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTranscriptionJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltjStatus' - When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
---
--- * 'ltjNextToken' - If the result of the previous request to @ListTranscriptionJobs@ was truncated, include the @NextToken@ to fetch the next set of jobs.
---
--- * 'ltjJobNameContains' - When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
---
--- * 'ltjMaxResults' - The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.
-listTranscriptionJobs ::
+-- * 'jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
+-- * 'maxResults' - The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.
+-- * 'nextToken' - If the result of the previous request to @ListTranscriptionJobs@ was truncated, include the @NextToken@ to fetch the next set of jobs.
+-- * 'status' - When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
+mkListTranscriptionJobs ::
   ListTranscriptionJobs
-listTranscriptionJobs =
+mkListTranscriptionJobs =
   ListTranscriptionJobs'
-    { _ltjStatus = Nothing,
-      _ltjNextToken = Nothing,
-      _ltjJobNameContains = Nothing,
-      _ltjMaxResults = Nothing
+    { status = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      jobNameContains = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
-ltjStatus :: Lens' ListTranscriptionJobs (Maybe TranscriptionJobStatus)
-ltjStatus = lens _ltjStatus (\s a -> s {_ltjStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjStatus :: Lens.Lens' ListTranscriptionJobs (Lude.Maybe TranscriptionJobStatus)
+ltjStatus = Lens.lens (status :: ListTranscriptionJobs -> Lude.Maybe TranscriptionJobStatus) (\s a -> s {status = a} :: ListTranscriptionJobs)
+{-# DEPRECATED ltjStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | If the result of the previous request to @ListTranscriptionJobs@ was truncated, include the @NextToken@ to fetch the next set of jobs.
-ltjNextToken :: Lens' ListTranscriptionJobs (Maybe Text)
-ltjNextToken = lens _ltjNextToken (\s a -> s {_ltjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjNextToken :: Lens.Lens' ListTranscriptionJobs (Lude.Maybe Lude.Text)
+ltjNextToken = Lens.lens (nextToken :: ListTranscriptionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTranscriptionJobs)
+{-# DEPRECATED ltjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
-ltjJobNameContains :: Lens' ListTranscriptionJobs (Maybe Text)
-ltjJobNameContains = lens _ltjJobNameContains (\s a -> s {_ltjJobNameContains = a})
+--
+-- /Note:/ Consider using 'jobNameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjJobNameContains :: Lens.Lens' ListTranscriptionJobs (Lude.Maybe Lude.Text)
+ltjJobNameContains = Lens.lens (jobNameContains :: ListTranscriptionJobs -> Lude.Maybe Lude.Text) (\s a -> s {jobNameContains = a} :: ListTranscriptionJobs)
+{-# DEPRECATED ltjJobNameContains "Use generic-lens or generic-optics with 'jobNameContains' instead." #-}
 
 -- | The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.
-ltjMaxResults :: Lens' ListTranscriptionJobs (Maybe Natural)
-ltjMaxResults = lens _ltjMaxResults (\s a -> s {_ltjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjMaxResults :: Lens.Lens' ListTranscriptionJobs (Lude.Maybe Lude.Natural)
+ltjMaxResults = Lens.lens (maxResults :: ListTranscriptionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTranscriptionJobs)
+{-# DEPRECATED ltjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListTranscriptionJobs where
+instance Lude.AWSRequest ListTranscriptionJobs where
   type Rs ListTranscriptionJobs = ListTranscriptionJobsResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTranscriptionJobsResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "TranscriptionJobSummaries" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "TranscriptionJobSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTranscriptionJobs
-
-instance NFData ListTranscriptionJobs
-
-instance ToHeaders ListTranscriptionJobs where
+instance Lude.ToHeaders ListTranscriptionJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.ListTranscriptionJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.ListTranscriptionJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTranscriptionJobs where
+instance Lude.ToJSON ListTranscriptionJobs where
   toJSON ListTranscriptionJobs' {..} =
-    object
-      ( catMaybes
-          [ ("Status" .=) <$> _ltjStatus,
-            ("NextToken" .=) <$> _ltjNextToken,
-            ("JobNameContains" .=) <$> _ltjJobNameContains,
-            ("MaxResults" .=) <$> _ltjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Status" Lude..=) Lude.<$> status,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("JobNameContains" Lude..=) Lude.<$> jobNameContains,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListTranscriptionJobs where
-  toPath = const "/"
+instance Lude.ToPath ListTranscriptionJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTranscriptionJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListTranscriptionJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTranscriptionJobsResponse' smart constructor.
+-- | /See:/ 'mkListTranscriptionJobsResponse' smart constructor.
 data ListTranscriptionJobsResponse = ListTranscriptionJobsResponse'
-  { _ltjrsStatus ::
-      !(Maybe TranscriptionJobStatus),
-    _ltjrsNextToken ::
-      !(Maybe Text),
-    _ltjrsTranscriptionJobSummaries ::
-      !( Maybe
-           [TranscriptionJobSummary]
-       ),
-    _ltjrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe
+        TranscriptionJobStatus,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    transcriptionJobSummaries ::
+      Lude.Maybe
+        [TranscriptionJobSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTranscriptionJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltjrsStatus' - The requested status of the jobs returned.
---
--- * 'ltjrsNextToken' - The @ListTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListTranscriptionJobs@ operation to return in the next page of jobs.
---
--- * 'ltjrsTranscriptionJobSummaries' - A list of objects containing summary information for a transcription job.
---
--- * 'ltjrsResponseStatus' - -- | The response status code.
-listTranscriptionJobsResponse ::
-  -- | 'ltjrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @ListTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListTranscriptionJobs@ operation to return in the next page of jobs.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The requested status of the jobs returned.
+-- * 'transcriptionJobSummaries' - A list of objects containing summary information for a transcription job.
+mkListTranscriptionJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTranscriptionJobsResponse
-listTranscriptionJobsResponse pResponseStatus_ =
+mkListTranscriptionJobsResponse pResponseStatus_ =
   ListTranscriptionJobsResponse'
-    { _ltjrsStatus = Nothing,
-      _ltjrsNextToken = Nothing,
-      _ltjrsTranscriptionJobSummaries = Nothing,
-      _ltjrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      transcriptionJobSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The requested status of the jobs returned.
-ltjrsStatus :: Lens' ListTranscriptionJobsResponse (Maybe TranscriptionJobStatus)
-ltjrsStatus = lens _ltjrsStatus (\s a -> s {_ltjrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsStatus :: Lens.Lens' ListTranscriptionJobsResponse (Lude.Maybe TranscriptionJobStatus)
+ltjrsStatus = Lens.lens (status :: ListTranscriptionJobsResponse -> Lude.Maybe TranscriptionJobStatus) (\s a -> s {status = a} :: ListTranscriptionJobsResponse)
+{-# DEPRECATED ltjrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The @ListTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListTranscriptionJobs@ operation to return in the next page of jobs.
-ltjrsNextToken :: Lens' ListTranscriptionJobsResponse (Maybe Text)
-ltjrsNextToken = lens _ltjrsNextToken (\s a -> s {_ltjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsNextToken :: Lens.Lens' ListTranscriptionJobsResponse (Lude.Maybe Lude.Text)
+ltjrsNextToken = Lens.lens (nextToken :: ListTranscriptionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTranscriptionJobsResponse)
+{-# DEPRECATED ltjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of objects containing summary information for a transcription job.
-ltjrsTranscriptionJobSummaries :: Lens' ListTranscriptionJobsResponse [TranscriptionJobSummary]
-ltjrsTranscriptionJobSummaries = lens _ltjrsTranscriptionJobSummaries (\s a -> s {_ltjrsTranscriptionJobSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'transcriptionJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsTranscriptionJobSummaries :: Lens.Lens' ListTranscriptionJobsResponse (Lude.Maybe [TranscriptionJobSummary])
+ltjrsTranscriptionJobSummaries = Lens.lens (transcriptionJobSummaries :: ListTranscriptionJobsResponse -> Lude.Maybe [TranscriptionJobSummary]) (\s a -> s {transcriptionJobSummaries = a} :: ListTranscriptionJobsResponse)
+{-# DEPRECATED ltjrsTranscriptionJobSummaries "Use generic-lens or generic-optics with 'transcriptionJobSummaries' instead." #-}
 
--- | -- | The response status code.
-ltjrsResponseStatus :: Lens' ListTranscriptionJobsResponse Int
-ltjrsResponseStatus = lens _ltjrsResponseStatus (\s a -> s {_ltjrsResponseStatus = a})
-
-instance NFData ListTranscriptionJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsResponseStatus :: Lens.Lens' ListTranscriptionJobsResponse Lude.Int
+ltjrsResponseStatus = Lens.lens (responseStatus :: ListTranscriptionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTranscriptionJobsResponse)
+{-# DEPRECATED ltjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

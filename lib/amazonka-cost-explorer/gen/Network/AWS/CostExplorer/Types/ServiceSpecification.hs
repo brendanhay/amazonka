@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.ServiceSpecification where
+module Network.AWS.CostExplorer.Types.ServiceSpecification
+  ( ServiceSpecification (..),
+
+    -- * Smart constructor
+    mkServiceSpecification,
+
+    -- * Lenses
+    ssEC2Specification,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.EC2Specification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hardware specifications for the service that you want recommendations for.
 --
---
---
--- /See:/ 'serviceSpecification' smart constructor.
+-- /See:/ 'mkServiceSpecification' smart constructor.
 newtype ServiceSpecification = ServiceSpecification'
-  { _ssEC2Specification ::
-      Maybe EC2Specification
+  { ec2Specification ::
+      Lude.Maybe EC2Specification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssEC2Specification' - The Amazon EC2 hardware specifications that you want AWS to provide recommendations for.
-serviceSpecification ::
+-- * 'ec2Specification' - The Amazon EC2 hardware specifications that you want AWS to provide recommendations for.
+mkServiceSpecification ::
   ServiceSpecification
-serviceSpecification =
-  ServiceSpecification' {_ssEC2Specification = Nothing}
+mkServiceSpecification =
+  ServiceSpecification' {ec2Specification = Lude.Nothing}
 
 -- | The Amazon EC2 hardware specifications that you want AWS to provide recommendations for.
-ssEC2Specification :: Lens' ServiceSpecification (Maybe EC2Specification)
-ssEC2Specification = lens _ssEC2Specification (\s a -> s {_ssEC2Specification = a})
+--
+-- /Note:/ Consider using 'ec2Specification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssEC2Specification :: Lens.Lens' ServiceSpecification (Lude.Maybe EC2Specification)
+ssEC2Specification = Lens.lens (ec2Specification :: ServiceSpecification -> Lude.Maybe EC2Specification) (\s a -> s {ec2Specification = a} :: ServiceSpecification)
+{-# DEPRECATED ssEC2Specification "Use generic-lens or generic-optics with 'ec2Specification' instead." #-}
 
-instance FromJSON ServiceSpecification where
+instance Lude.FromJSON ServiceSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceSpecification"
-      (\x -> ServiceSpecification' <$> (x .:? "EC2Specification"))
+      ( \x ->
+          ServiceSpecification' Lude.<$> (x Lude..:? "EC2Specification")
+      )
 
-instance Hashable ServiceSpecification
-
-instance NFData ServiceSpecification
-
-instance ToJSON ServiceSpecification where
+instance Lude.ToJSON ServiceSpecification where
   toJSON ServiceSpecification' {..} =
-    object
-      (catMaybes [("EC2Specification" .=) <$> _ssEC2Specification])
+    Lude.object
+      ( Lude.catMaybes
+          [("EC2Specification" Lude..=) Lude.<$> ec2Specification]
+      )

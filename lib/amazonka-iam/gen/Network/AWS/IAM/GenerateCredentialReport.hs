@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Generates a credential report for the AWS account. For more information about the credential report, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/ .
 module Network.AWS.IAM.GenerateCredentialReport
-  ( -- * Creating a Request
-    generateCredentialReport,
-    GenerateCredentialReport,
+  ( -- * Creating a request
+    GenerateCredentialReport (..),
+    mkGenerateCredentialReport,
 
-    -- * Destructuring the Response
-    generateCredentialReportResponse,
-    GenerateCredentialReportResponse,
+    -- * Destructuring the response
+    GenerateCredentialReportResponse (..),
+    mkGenerateCredentialReportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrrsState,
     gcrrsDescription,
     gcrrsResponseStatus,
@@ -35,95 +30,109 @@ module Network.AWS.IAM.GenerateCredentialReport
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'generateCredentialReport' smart constructor.
+-- | /See:/ 'mkGenerateCredentialReport' smart constructor.
 data GenerateCredentialReport = GenerateCredentialReport'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateCredentialReport' with the minimum fields required to make a request.
-generateCredentialReport ::
+mkGenerateCredentialReport ::
   GenerateCredentialReport
-generateCredentialReport = GenerateCredentialReport'
+mkGenerateCredentialReport = GenerateCredentialReport'
 
-instance AWSRequest GenerateCredentialReport where
+instance Lude.AWSRequest GenerateCredentialReport where
   type Rs GenerateCredentialReport = GenerateCredentialReportResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GenerateCredentialReportResult"
       ( \s h x ->
           GenerateCredentialReportResponse'
-            <$> (x .@? "State") <*> (x .@? "Description") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "State")
+            Lude.<*> (x Lude..@? "Description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GenerateCredentialReport
+instance Lude.ToHeaders GenerateCredentialReport where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GenerateCredentialReport
+instance Lude.ToPath GenerateCredentialReport where
+  toPath = Lude.const "/"
 
-instance ToHeaders GenerateCredentialReport where
-  toHeaders = const mempty
-
-instance ToPath GenerateCredentialReport where
-  toPath = const "/"
-
-instance ToQuery GenerateCredentialReport where
+instance Lude.ToQuery GenerateCredentialReport where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("GenerateCredentialReport" :: ByteString),
-            "Version" =: ("2010-05-08" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("GenerateCredentialReport" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
           ]
       )
 
 -- | Contains the response to a successful 'GenerateCredentialReport' request.
 --
---
---
--- /See:/ 'generateCredentialReportResponse' smart constructor.
+-- /See:/ 'mkGenerateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-  { _gcrrsState ::
-      !(Maybe ReportStateType),
-    _gcrrsDescription ::
-      !(Maybe Text),
-    _gcrrsResponseStatus ::
-      !Int
+  { state ::
+      Lude.Maybe
+        ReportStateType,
+    description ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrrsState' - Information about the state of the credential report.
---
--- * 'gcrrsDescription' - Information about the credential report.
---
--- * 'gcrrsResponseStatus' - -- | The response status code.
-generateCredentialReportResponse ::
-  -- | 'gcrrsResponseStatus'
-  Int ->
+-- * 'description' - Information about the credential report.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - Information about the state of the credential report.
+mkGenerateCredentialReportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GenerateCredentialReportResponse
-generateCredentialReportResponse pResponseStatus_ =
+mkGenerateCredentialReportResponse pResponseStatus_ =
   GenerateCredentialReportResponse'
-    { _gcrrsState = Nothing,
-      _gcrrsDescription = Nothing,
-      _gcrrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the state of the credential report.
-gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
-gcrrsState = lens _gcrrsState (\s a -> s {_gcrrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsState :: Lens.Lens' GenerateCredentialReportResponse (Lude.Maybe ReportStateType)
+gcrrsState = Lens.lens (state :: GenerateCredentialReportResponse -> Lude.Maybe ReportStateType) (\s a -> s {state = a} :: GenerateCredentialReportResponse)
+{-# DEPRECATED gcrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Information about the credential report.
-gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
-gcrrsDescription = lens _gcrrsDescription (\s a -> s {_gcrrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsDescription :: Lens.Lens' GenerateCredentialReportResponse (Lude.Maybe Lude.Text)
+gcrrsDescription = Lens.lens (description :: GenerateCredentialReportResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GenerateCredentialReportResponse)
+{-# DEPRECATED gcrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
-gcrrsResponseStatus = lens _gcrrsResponseStatus (\s a -> s {_gcrrsResponseStatus = a})
-
-instance NFData GenerateCredentialReportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsResponseStatus :: Lens.Lens' GenerateCredentialReportResponse Lude.Int
+gcrrsResponseStatus = Lens.lens (responseStatus :: GenerateCredentialReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateCredentialReportResponse)
+{-# DEPRECATED gcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

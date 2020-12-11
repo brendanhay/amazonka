@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.EventType where
+module Network.AWS.IoT.Types.EventType
+  ( EventType
+      ( EventType',
+        CaCertificate,
+        Certificate,
+        Job,
+        JobExecution,
+        Policy,
+        Thing,
+        ThingGroup,
+        ThingGroupHierarchy,
+        ThingGroupMembership,
+        ThingType,
+        ThingTypeAssociation
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventType
-  = CaCertificate
-  | Certificate
-  | Job
-  | JobExecution
-  | Policy
-  | Thing
-  | ThingGroup
-  | ThingGroupHierarchy
-  | ThingGroupMembership
-  | ThingType
-  | ThingTypeAssociation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventType = EventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventType where
-  parser =
-    takeLowerText >>= \case
-      "ca_certificate" -> pure CaCertificate
-      "certificate" -> pure Certificate
-      "job" -> pure Job
-      "job_execution" -> pure JobExecution
-      "policy" -> pure Policy
-      "thing" -> pure Thing
-      "thing_group" -> pure ThingGroup
-      "thing_group_hierarchy" -> pure ThingGroupHierarchy
-      "thing_group_membership" -> pure ThingGroupMembership
-      "thing_type" -> pure ThingType
-      "thing_type_association" -> pure ThingTypeAssociation
-      e ->
-        fromTextError $
-          "Failure parsing EventType from value: '" <> e
-            <> "'. Accepted values: ca_certificate, certificate, job, job_execution, policy, thing, thing_group, thing_group_hierarchy, thing_group_membership, thing_type, thing_type_association"
+pattern CaCertificate :: EventType
+pattern CaCertificate = EventType' "CA_CERTIFICATE"
 
-instance ToText EventType where
-  toText = \case
-    CaCertificate -> "CA_CERTIFICATE"
-    Certificate -> "CERTIFICATE"
-    Job -> "JOB"
-    JobExecution -> "JOB_EXECUTION"
-    Policy -> "POLICY"
-    Thing -> "THING"
-    ThingGroup -> "THING_GROUP"
-    ThingGroupHierarchy -> "THING_GROUP_HIERARCHY"
-    ThingGroupMembership -> "THING_GROUP_MEMBERSHIP"
-    ThingType -> "THING_TYPE"
-    ThingTypeAssociation -> "THING_TYPE_ASSOCIATION"
+pattern Certificate :: EventType
+pattern Certificate = EventType' "CERTIFICATE"
 
-instance Hashable EventType
+pattern Job :: EventType
+pattern Job = EventType' "JOB"
 
-instance NFData EventType
+pattern JobExecution :: EventType
+pattern JobExecution = EventType' "JOB_EXECUTION"
 
-instance ToByteString EventType
+pattern Policy :: EventType
+pattern Policy = EventType' "POLICY"
 
-instance ToQuery EventType
+pattern Thing :: EventType
+pattern Thing = EventType' "THING"
 
-instance ToHeader EventType
+pattern ThingGroup :: EventType
+pattern ThingGroup = EventType' "THING_GROUP"
 
-instance ToJSON EventType where
-  toJSON = toJSONText
+pattern ThingGroupHierarchy :: EventType
+pattern ThingGroupHierarchy = EventType' "THING_GROUP_HIERARCHY"
 
-instance FromJSON EventType where
-  parseJSON = parseJSONText "EventType"
+pattern ThingGroupMembership :: EventType
+pattern ThingGroupMembership = EventType' "THING_GROUP_MEMBERSHIP"
+
+pattern ThingType :: EventType
+pattern ThingType = EventType' "THING_TYPE"
+
+pattern ThingTypeAssociation :: EventType
+pattern ThingTypeAssociation = EventType' "THING_TYPE_ASSOCIATION"
+
+{-# COMPLETE
+  CaCertificate,
+  Certificate,
+  Job,
+  JobExecution,
+  Policy,
+  Thing,
+  ThingGroup,
+  ThingGroupHierarchy,
+  ThingGroupMembership,
+  ThingType,
+  ThingTypeAssociation,
+  EventType'
+  #-}

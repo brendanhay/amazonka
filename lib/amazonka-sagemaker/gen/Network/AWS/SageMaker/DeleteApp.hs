@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,140 @@
 --
 -- Used to stop and delete an app.
 module Network.AWS.SageMaker.DeleteApp
-  ( -- * Creating a Request
-    deleteApp,
-    DeleteApp,
+  ( -- * Creating a request
+    DeleteApp (..),
+    mkDeleteApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dDomainId,
     dUserProfileName,
     dAppType,
     dAppName,
 
-    -- * Destructuring the Response
-    deleteAppResponse,
-    DeleteAppResponse,
+    -- * Destructuring the response
+    DeleteAppResponse (..),
+    mkDeleteAppResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteApp' smart constructor.
+-- | /See:/ 'mkDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
-  { _dDomainId :: !Text,
-    _dUserProfileName :: !Text,
-    _dAppType :: !AppType,
-    _dAppName :: !Text
+  { domainId :: Lude.Text,
+    userProfileName :: Lude.Text,
+    appType :: AppType,
+    appName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDomainId' - The domain ID.
---
--- * 'dUserProfileName' - The user profile name.
---
--- * 'dAppType' - The type of app.
---
--- * 'dAppName' - The name of the app.
-deleteApp ::
-  -- | 'dDomainId'
-  Text ->
-  -- | 'dUserProfileName'
-  Text ->
-  -- | 'dAppType'
+-- * 'appName' - The name of the app.
+-- * 'appType' - The type of app.
+-- * 'domainId' - The domain ID.
+-- * 'userProfileName' - The user profile name.
+mkDeleteApp ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
+  -- | 'appType'
   AppType ->
-  -- | 'dAppName'
-  Text ->
+  -- | 'appName'
+  Lude.Text ->
   DeleteApp
-deleteApp pDomainId_ pUserProfileName_ pAppType_ pAppName_ =
+mkDeleteApp pDomainId_ pUserProfileName_ pAppType_ pAppName_ =
   DeleteApp'
-    { _dDomainId = pDomainId_,
-      _dUserProfileName = pUserProfileName_,
-      _dAppType = pAppType_,
-      _dAppName = pAppName_
+    { domainId = pDomainId_,
+      userProfileName = pUserProfileName_,
+      appType = pAppType_,
+      appName = pAppName_
     }
 
 -- | The domain ID.
-dDomainId :: Lens' DeleteApp Text
-dDomainId = lens _dDomainId (\s a -> s {_dDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDomainId :: Lens.Lens' DeleteApp Lude.Text
+dDomainId = Lens.lens (domainId :: DeleteApp -> Lude.Text) (\s a -> s {domainId = a} :: DeleteApp)
+{-# DEPRECATED dDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
-dUserProfileName :: Lens' DeleteApp Text
-dUserProfileName = lens _dUserProfileName (\s a -> s {_dUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dUserProfileName :: Lens.Lens' DeleteApp Lude.Text
+dUserProfileName = Lens.lens (userProfileName :: DeleteApp -> Lude.Text) (\s a -> s {userProfileName = a} :: DeleteApp)
+{-# DEPRECATED dUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The type of app.
-dAppType :: Lens' DeleteApp AppType
-dAppType = lens _dAppType (\s a -> s {_dAppType = a})
+--
+-- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAppType :: Lens.Lens' DeleteApp AppType
+dAppType = Lens.lens (appType :: DeleteApp -> AppType) (\s a -> s {appType = a} :: DeleteApp)
+{-# DEPRECATED dAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
 
 -- | The name of the app.
-dAppName :: Lens' DeleteApp Text
-dAppName = lens _dAppName (\s a -> s {_dAppName = a})
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAppName :: Lens.Lens' DeleteApp Lude.Text
+dAppName = Lens.lens (appName :: DeleteApp -> Lude.Text) (\s a -> s {appName = a} :: DeleteApp)
+{-# DEPRECATED dAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
-instance AWSRequest DeleteApp where
+instance Lude.AWSRequest DeleteApp where
   type Rs DeleteApp = DeleteAppResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteAppResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteAppResponse'
 
-instance Hashable DeleteApp
-
-instance NFData DeleteApp
-
-instance ToHeaders DeleteApp where
+instance Lude.ToHeaders DeleteApp where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DeleteApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("SageMaker.DeleteApp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteApp where
+instance Lude.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
-    object
-      ( catMaybes
-          [ Just ("DomainId" .= _dDomainId),
-            Just ("UserProfileName" .= _dUserProfileName),
-            Just ("AppType" .= _dAppType),
-            Just ("AppName" .= _dAppName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName),
+            Lude.Just ("AppType" Lude..= appType),
+            Lude.Just ("AppName" Lude..= appName)
           ]
       )
 
-instance ToPath DeleteApp where
-  toPath = const "/"
+instance Lude.ToPath DeleteApp where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteApp where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAppResponse' smart constructor.
+-- | /See:/ 'mkDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
-deleteAppResponse ::
+mkDeleteAppResponse ::
   DeleteAppResponse
-deleteAppResponse = DeleteAppResponse'
-
-instance NFData DeleteAppResponse
+mkDeleteAppResponse = DeleteAppResponse'

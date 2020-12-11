@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,119 @@
 --
 -- Deletes a thing group.
 module Network.AWS.IoT.DeleteThingGroup
-  ( -- * Creating a Request
-    deleteThingGroup,
-    DeleteThingGroup,
+  ( -- * Creating a request
+    DeleteThingGroup (..),
+    mkDeleteThingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dExpectedVersion,
     dThingGroupName,
 
-    -- * Destructuring the Response
-    deleteThingGroupResponse,
-    DeleteThingGroupResponse,
+    -- * Destructuring the response
+    DeleteThingGroupResponse (..),
+    mkDeleteThingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgtrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteThingGroup' smart constructor.
+-- | /See:/ 'mkDeleteThingGroup' smart constructor.
 data DeleteThingGroup = DeleteThingGroup'
-  { _dExpectedVersion ::
-      !(Maybe Integer),
-    _dThingGroupName :: !Text
+  { expectedVersion ::
+      Lude.Maybe Lude.Integer,
+    thingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dExpectedVersion' - The expected version of the thing group to delete.
---
--- * 'dThingGroupName' - The name of the thing group to delete.
-deleteThingGroup ::
-  -- | 'dThingGroupName'
-  Text ->
+-- * 'expectedVersion' - The expected version of the thing group to delete.
+-- * 'thingGroupName' - The name of the thing group to delete.
+mkDeleteThingGroup ::
+  -- | 'thingGroupName'
+  Lude.Text ->
   DeleteThingGroup
-deleteThingGroup pThingGroupName_ =
+mkDeleteThingGroup pThingGroupName_ =
   DeleteThingGroup'
-    { _dExpectedVersion = Nothing,
-      _dThingGroupName = pThingGroupName_
+    { expectedVersion = Lude.Nothing,
+      thingGroupName = pThingGroupName_
     }
 
 -- | The expected version of the thing group to delete.
-dExpectedVersion :: Lens' DeleteThingGroup (Maybe Integer)
-dExpectedVersion = lens _dExpectedVersion (\s a -> s {_dExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExpectedVersion :: Lens.Lens' DeleteThingGroup (Lude.Maybe Lude.Integer)
+dExpectedVersion = Lens.lens (expectedVersion :: DeleteThingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: DeleteThingGroup)
+{-# DEPRECATED dExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The name of the thing group to delete.
-dThingGroupName :: Lens' DeleteThingGroup Text
-dThingGroupName = lens _dThingGroupName (\s a -> s {_dThingGroupName = a})
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dThingGroupName :: Lens.Lens' DeleteThingGroup Lude.Text
+dThingGroupName = Lens.lens (thingGroupName :: DeleteThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: DeleteThingGroup)
+{-# DEPRECATED dThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
-instance AWSRequest DeleteThingGroup where
+instance Lude.AWSRequest DeleteThingGroup where
   type Rs DeleteThingGroup = DeleteThingGroupResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteThingGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteThingGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteThingGroup
+instance Lude.ToHeaders DeleteThingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteThingGroup
-
-instance ToHeaders DeleteThingGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteThingGroup where
+instance Lude.ToPath DeleteThingGroup where
   toPath DeleteThingGroup' {..} =
-    mconcat ["/thing-groups/", toBS _dThingGroupName]
+    Lude.mconcat ["/thing-groups/", Lude.toBS thingGroupName]
 
-instance ToQuery DeleteThingGroup where
+instance Lude.ToQuery DeleteThingGroup where
   toQuery DeleteThingGroup' {..} =
-    mconcat ["expectedVersion" =: _dExpectedVersion]
+    Lude.mconcat ["expectedVersion" Lude.=: expectedVersion]
 
--- | /See:/ 'deleteThingGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteThingGroupResponse' smart constructor.
 newtype DeleteThingGroupResponse = DeleteThingGroupResponse'
-  { _dtgtrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgtrsResponseStatus' - -- | The response status code.
-deleteThingGroupResponse ::
-  -- | 'dtgtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteThingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteThingGroupResponse
-deleteThingGroupResponse pResponseStatus_ =
-  DeleteThingGroupResponse'
-    { _dtgtrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteThingGroupResponse pResponseStatus_ =
+  DeleteThingGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dtgtrsResponseStatus :: Lens' DeleteThingGroupResponse Int
-dtgtrsResponseStatus = lens _dtgtrsResponseStatus (\s a -> s {_dtgtrsResponseStatus = a})
-
-instance NFData DeleteThingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgtrsResponseStatus :: Lens.Lens' DeleteThingGroupResponse Lude.Int
+dtgtrsResponseStatus = Lens.lens (responseStatus :: DeleteThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteThingGroupResponse)
+{-# DEPRECATED dtgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,102 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.UpgradeTarget where
+module Network.AWS.RDS.Types.UpgradeTarget
+  ( UpgradeTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUpgradeTarget,
+
+    -- * Lenses
+    utEngineVersion,
+    utIsMajorVersionUpgrade,
+    utEngine,
+    utAutoUpgrade,
+    utDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The version of the database engine that a DB instance can be upgraded to.
 --
---
---
--- /See:/ 'upgradeTarget' smart constructor.
+-- /See:/ 'mkUpgradeTarget' smart constructor.
 data UpgradeTarget = UpgradeTarget'
-  { _utEngineVersion ::
-      !(Maybe Text),
-    _utIsMajorVersionUpgrade :: !(Maybe Bool),
-    _utEngine :: !(Maybe Text),
-    _utAutoUpgrade :: !(Maybe Bool),
-    _utDescription :: !(Maybe Text)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    isMajorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    engine :: Lude.Maybe Lude.Text,
+    autoUpgrade :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utEngineVersion' - The version number of the upgrade target database engine.
---
--- * 'utIsMajorVersionUpgrade' - A value that indicates whether a database engine is upgraded to a major version.
---
--- * 'utEngine' - The name of the upgrade target database engine.
---
--- * 'utAutoUpgrade' - A value that indicates whether the target version is applied to any source DB instances that have @AutoMinorVersionUpgrade@ set to true.
---
--- * 'utDescription' - The version of the database engine that a DB instance can be upgraded to.
-upgradeTarget ::
+-- * 'autoUpgrade' - A value that indicates whether the target version is applied to any source DB instances that have @AutoMinorVersionUpgrade@ set to true.
+-- * 'description' - The version of the database engine that a DB instance can be upgraded to.
+-- * 'engine' - The name of the upgrade target database engine.
+-- * 'engineVersion' - The version number of the upgrade target database engine.
+-- * 'isMajorVersionUpgrade' - A value that indicates whether a database engine is upgraded to a major version.
+mkUpgradeTarget ::
   UpgradeTarget
-upgradeTarget =
+mkUpgradeTarget =
   UpgradeTarget'
-    { _utEngineVersion = Nothing,
-      _utIsMajorVersionUpgrade = Nothing,
-      _utEngine = Nothing,
-      _utAutoUpgrade = Nothing,
-      _utDescription = Nothing
+    { engineVersion = Lude.Nothing,
+      isMajorVersionUpgrade = Lude.Nothing,
+      engine = Lude.Nothing,
+      autoUpgrade = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The version number of the upgrade target database engine.
-utEngineVersion :: Lens' UpgradeTarget (Maybe Text)
-utEngineVersion = lens _utEngineVersion (\s a -> s {_utEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utEngineVersion :: Lens.Lens' UpgradeTarget (Lude.Maybe Lude.Text)
+utEngineVersion = Lens.lens (engineVersion :: UpgradeTarget -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: UpgradeTarget)
+{-# DEPRECATED utEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | A value that indicates whether a database engine is upgraded to a major version.
-utIsMajorVersionUpgrade :: Lens' UpgradeTarget (Maybe Bool)
-utIsMajorVersionUpgrade = lens _utIsMajorVersionUpgrade (\s a -> s {_utIsMajorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'isMajorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utIsMajorVersionUpgrade :: Lens.Lens' UpgradeTarget (Lude.Maybe Lude.Bool)
+utIsMajorVersionUpgrade = Lens.lens (isMajorVersionUpgrade :: UpgradeTarget -> Lude.Maybe Lude.Bool) (\s a -> s {isMajorVersionUpgrade = a} :: UpgradeTarget)
+{-# DEPRECATED utIsMajorVersionUpgrade "Use generic-lens or generic-optics with 'isMajorVersionUpgrade' instead." #-}
 
 -- | The name of the upgrade target database engine.
-utEngine :: Lens' UpgradeTarget (Maybe Text)
-utEngine = lens _utEngine (\s a -> s {_utEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utEngine :: Lens.Lens' UpgradeTarget (Lude.Maybe Lude.Text)
+utEngine = Lens.lens (engine :: UpgradeTarget -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: UpgradeTarget)
+{-# DEPRECATED utEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | A value that indicates whether the target version is applied to any source DB instances that have @AutoMinorVersionUpgrade@ set to true.
-utAutoUpgrade :: Lens' UpgradeTarget (Maybe Bool)
-utAutoUpgrade = lens _utAutoUpgrade (\s a -> s {_utAutoUpgrade = a})
+--
+-- /Note:/ Consider using 'autoUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utAutoUpgrade :: Lens.Lens' UpgradeTarget (Lude.Maybe Lude.Bool)
+utAutoUpgrade = Lens.lens (autoUpgrade :: UpgradeTarget -> Lude.Maybe Lude.Bool) (\s a -> s {autoUpgrade = a} :: UpgradeTarget)
+{-# DEPRECATED utAutoUpgrade "Use generic-lens or generic-optics with 'autoUpgrade' instead." #-}
 
 -- | The version of the database engine that a DB instance can be upgraded to.
-utDescription :: Lens' UpgradeTarget (Maybe Text)
-utDescription = lens _utDescription (\s a -> s {_utDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utDescription :: Lens.Lens' UpgradeTarget (Lude.Maybe Lude.Text)
+utDescription = Lens.lens (description :: UpgradeTarget -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpgradeTarget)
+{-# DEPRECATED utDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML UpgradeTarget where
+instance Lude.FromXML UpgradeTarget where
   parseXML x =
     UpgradeTarget'
-      <$> (x .@? "EngineVersion")
-      <*> (x .@? "IsMajorVersionUpgrade")
-      <*> (x .@? "Engine")
-      <*> (x .@? "AutoUpgrade")
-      <*> (x .@? "Description")
-
-instance Hashable UpgradeTarget
-
-instance NFData UpgradeTarget
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> (x Lude..@? "IsMajorVersionUpgrade")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "AutoUpgrade")
+      Lude.<*> (x Lude..@? "Description")

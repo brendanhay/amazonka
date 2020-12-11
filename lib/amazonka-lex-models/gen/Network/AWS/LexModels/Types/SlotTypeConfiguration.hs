@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.SlotTypeConfiguration where
+module Network.AWS.LexModels.Types.SlotTypeConfiguration
+  ( SlotTypeConfiguration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkSlotTypeConfiguration,
+
+    -- * Lenses
+    stcRegexConfiguration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides configuration information for a slot type.
 --
---
---
--- /See:/ 'slotTypeConfiguration' smart constructor.
+-- /See:/ 'mkSlotTypeConfiguration' smart constructor.
 newtype SlotTypeConfiguration = SlotTypeConfiguration'
-  { _stcRegexConfiguration ::
-      Maybe SlotTypeRegexConfiguration
+  { regexConfiguration ::
+      Lude.Maybe SlotTypeRegexConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotTypeConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stcRegexConfiguration' - A regular expression used to validate the value of a slot.
-slotTypeConfiguration ::
+-- * 'regexConfiguration' - A regular expression used to validate the value of a slot.
+mkSlotTypeConfiguration ::
   SlotTypeConfiguration
-slotTypeConfiguration =
-  SlotTypeConfiguration' {_stcRegexConfiguration = Nothing}
+mkSlotTypeConfiguration =
+  SlotTypeConfiguration' {regexConfiguration = Lude.Nothing}
 
 -- | A regular expression used to validate the value of a slot.
-stcRegexConfiguration :: Lens' SlotTypeConfiguration (Maybe SlotTypeRegexConfiguration)
-stcRegexConfiguration = lens _stcRegexConfiguration (\s a -> s {_stcRegexConfiguration = a})
+--
+-- /Note:/ Consider using 'regexConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stcRegexConfiguration :: Lens.Lens' SlotTypeConfiguration (Lude.Maybe SlotTypeRegexConfiguration)
+stcRegexConfiguration = Lens.lens (regexConfiguration :: SlotTypeConfiguration -> Lude.Maybe SlotTypeRegexConfiguration) (\s a -> s {regexConfiguration = a} :: SlotTypeConfiguration)
+{-# DEPRECATED stcRegexConfiguration "Use generic-lens or generic-optics with 'regexConfiguration' instead." #-}
 
-instance FromJSON SlotTypeConfiguration where
+instance Lude.FromJSON SlotTypeConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "SlotTypeConfiguration"
-      (\x -> SlotTypeConfiguration' <$> (x .:? "regexConfiguration"))
+      ( \x ->
+          SlotTypeConfiguration' Lude.<$> (x Lude..:? "regexConfiguration")
+      )
 
-instance Hashable SlotTypeConfiguration
-
-instance NFData SlotTypeConfiguration
-
-instance ToJSON SlotTypeConfiguration where
+instance Lude.ToJSON SlotTypeConfiguration where
   toJSON SlotTypeConfiguration' {..} =
-    object
-      (catMaybes [("regexConfiguration" .=) <$> _stcRegexConfiguration])
+    Lude.object
+      ( Lude.catMaybes
+          [("regexConfiguration" Lude..=) Lude.<$> regexConfiguration]
+      )

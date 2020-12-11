@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,57 +10,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Waiters where
+module Network.AWS.CertificateManagerPCA.Waiters
+  ( -- * CertificateIssued
+    mkCertificateIssued,
+
+    -- * AuditReportCreated
+    mkAuditReportCreated,
+
+    -- * CertificateAuthorityCSRCreated
+    mkCertificateAuthorityCSRCreated,
+  )
+where
 
 import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
 import Network.AWS.CertificateManagerPCA.GetCertificate
 import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-certificateIssued :: Wait GetCertificate
-certificateIssued =
-  Wait
-    { _waitName = "CertificateIssued",
-      _waitAttempts = 60,
-      _waitDelay = 3,
-      _waitAcceptors =
-        [ matchStatus 200 AcceptSuccess,
-          matchError "RequestInProgressException" AcceptRetry
+mkCertificateIssued :: Wait.Wait GetCertificate
+mkCertificateIssued =
+  Wait.Wait
+    { Wait._waitName = "CertificateIssued",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 3,
+      Wait._waitAcceptors =
+        [ Wait.matchStatus 200 Wait.AcceptSuccess,
+          Wait.matchError "RequestInProgressException" Wait.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-auditReportCreated :: Wait DescribeCertificateAuthorityAuditReport
-auditReportCreated =
-  Wait
-    { _waitName = "AuditReportCreated",
-      _waitAttempts = 60,
-      _waitDelay = 3,
-      _waitAcceptors =
-        [ matchAll
+mkAuditReportCreated :: Wait.Wait DescribeCertificateAuthorityAuditReport
+mkAuditReportCreated =
+  Wait.Wait
+    { Wait._waitName = "AuditReportCreated",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 3,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "SUCCESS"
-            AcceptSuccess
-            (dcaarrsAuditReportStatus . _Just . to toTextCI),
-          matchAll
+            Wait.AcceptSuccess
+            ( dcaarrsAuditReportStatus Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
+            ),
+          Wait.matchAll
             "FAILED"
-            AcceptFailure
-            (dcaarrsAuditReportStatus . _Just . to toTextCI)
+            Wait.AcceptFailure
+            ( dcaarrsAuditReportStatus Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
+            )
         ]
     }
 
 -- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-certificateAuthorityCSRCreated :: Wait GetCertificateAuthorityCSR
-certificateAuthorityCSRCreated =
-  Wait
-    { _waitName = "CertificateAuthorityCSRCreated",
-      _waitAttempts = 60,
-      _waitDelay = 3,
-      _waitAcceptors =
-        [ matchStatus 200 AcceptSuccess,
-          matchError "RequestInProgressException" AcceptRetry
+mkCertificateAuthorityCSRCreated :: Wait.Wait GetCertificateAuthorityCSR
+mkCertificateAuthorityCSRCreated =
+  Wait.Wait
+    { Wait._waitName = "CertificateAuthorityCSRCreated",
+      Wait._waitAttempts = 60,
+      Wait._waitDelay = 3,
+      Wait._waitAcceptors =
+        [ Wait.matchStatus 200 Wait.AcceptSuccess,
+          Wait.matchError "RequestInProgressException" Wait.AcceptRetry
         ]
     }

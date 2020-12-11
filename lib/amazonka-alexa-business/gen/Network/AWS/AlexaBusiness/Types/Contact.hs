@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Contact where
+module Network.AWS.AlexaBusiness.Types.Contact
+  ( Contact (..),
+
+    -- * Smart constructor
+    mkContact,
+
+    -- * Lenses
+    cLastName,
+    cContactARN,
+    cPhoneNumbers,
+    cPhoneNumber,
+    cSipAddresses,
+    cFirstName,
+    cDisplayName,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.PhoneNumber
 import Network.AWS.AlexaBusiness.Types.SipAddress
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A contact with attributes.
 --
---
---
--- /See:/ 'contact' smart constructor.
+-- /See:/ 'mkContact' smart constructor.
 data Contact = Contact'
-  { _cLastName :: !(Maybe Text),
-    _cContactARN :: !(Maybe Text),
-    _cPhoneNumbers :: !(Maybe [PhoneNumber]),
-    _cPhoneNumber :: !(Maybe (Sensitive Text)),
-    _cSipAddresses :: !(Maybe [SipAddress]),
-    _cFirstName :: !(Maybe Text),
-    _cDisplayName :: !(Maybe Text)
+  { lastName :: Lude.Maybe Lude.Text,
+    contactARN :: Lude.Maybe Lude.Text,
+    phoneNumbers :: Lude.Maybe [PhoneNumber],
+    phoneNumber :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sipAddresses :: Lude.Maybe [SipAddress],
+    firstName :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Contact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cLastName' - The last name of the contact, used to call the contact on the device.
---
--- * 'cContactARN' - The ARN of the contact.
---
--- * 'cPhoneNumbers' - The list of phone numbers for the contact.
---
--- * 'cPhoneNumber' - The phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
---
--- * 'cSipAddresses' - The list of SIP addresses for the contact.
---
--- * 'cFirstName' - The first name of the contact, used to call the contact on the device.
---
--- * 'cDisplayName' - The name of the contact to display on the console.
-contact ::
+-- * 'contactARN' - The ARN of the contact.
+-- * 'displayName' - The name of the contact to display on the console.
+-- * 'firstName' - The first name of the contact, used to call the contact on the device.
+-- * 'lastName' - The last name of the contact, used to call the contact on the device.
+-- * 'phoneNumber' - The phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
+-- * 'phoneNumbers' - The list of phone numbers for the contact.
+-- * 'sipAddresses' - The list of SIP addresses for the contact.
+mkContact ::
   Contact
-contact =
+mkContact =
   Contact'
-    { _cLastName = Nothing,
-      _cContactARN = Nothing,
-      _cPhoneNumbers = Nothing,
-      _cPhoneNumber = Nothing,
-      _cSipAddresses = Nothing,
-      _cFirstName = Nothing,
-      _cDisplayName = Nothing
+    { lastName = Lude.Nothing,
+      contactARN = Lude.Nothing,
+      phoneNumbers = Lude.Nothing,
+      phoneNumber = Lude.Nothing,
+      sipAddresses = Lude.Nothing,
+      firstName = Lude.Nothing,
+      displayName = Lude.Nothing
     }
 
 -- | The last name of the contact, used to call the contact on the device.
-cLastName :: Lens' Contact (Maybe Text)
-cLastName = lens _cLastName (\s a -> s {_cLastName = a})
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLastName :: Lens.Lens' Contact (Lude.Maybe Lude.Text)
+cLastName = Lens.lens (lastName :: Contact -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: Contact)
+{-# DEPRECATED cLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The ARN of the contact.
-cContactARN :: Lens' Contact (Maybe Text)
-cContactARN = lens _cContactARN (\s a -> s {_cContactARN = a})
+--
+-- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cContactARN :: Lens.Lens' Contact (Lude.Maybe Lude.Text)
+cContactARN = Lens.lens (contactARN :: Contact -> Lude.Maybe Lude.Text) (\s a -> s {contactARN = a} :: Contact)
+{-# DEPRECATED cContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
 -- | The list of phone numbers for the contact.
-cPhoneNumbers :: Lens' Contact [PhoneNumber]
-cPhoneNumbers = lens _cPhoneNumbers (\s a -> s {_cPhoneNumbers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPhoneNumbers :: Lens.Lens' Contact (Lude.Maybe [PhoneNumber])
+cPhoneNumbers = Lens.lens (phoneNumbers :: Contact -> Lude.Maybe [PhoneNumber]) (\s a -> s {phoneNumbers = a} :: Contact)
+{-# DEPRECATED cPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
 
 -- | The phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
-cPhoneNumber :: Lens' Contact (Maybe Text)
-cPhoneNumber = lens _cPhoneNumber (\s a -> s {_cPhoneNumber = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPhoneNumber :: Lens.Lens' Contact (Lude.Maybe (Lude.Sensitive Lude.Text))
+cPhoneNumber = Lens.lens (phoneNumber :: Contact -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {phoneNumber = a} :: Contact)
+{-# DEPRECATED cPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | The list of SIP addresses for the contact.
-cSipAddresses :: Lens' Contact [SipAddress]
-cSipAddresses = lens _cSipAddresses (\s a -> s {_cSipAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sipAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSipAddresses :: Lens.Lens' Contact (Lude.Maybe [SipAddress])
+cSipAddresses = Lens.lens (sipAddresses :: Contact -> Lude.Maybe [SipAddress]) (\s a -> s {sipAddresses = a} :: Contact)
+{-# DEPRECATED cSipAddresses "Use generic-lens or generic-optics with 'sipAddresses' instead." #-}
 
 -- | The first name of the contact, used to call the contact on the device.
-cFirstName :: Lens' Contact (Maybe Text)
-cFirstName = lens _cFirstName (\s a -> s {_cFirstName = a})
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cFirstName :: Lens.Lens' Contact (Lude.Maybe Lude.Text)
+cFirstName = Lens.lens (firstName :: Contact -> Lude.Maybe Lude.Text) (\s a -> s {firstName = a} :: Contact)
+{-# DEPRECATED cFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | The name of the contact to display on the console.
-cDisplayName :: Lens' Contact (Maybe Text)
-cDisplayName = lens _cDisplayName (\s a -> s {_cDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDisplayName :: Lens.Lens' Contact (Lude.Maybe Lude.Text)
+cDisplayName = Lens.lens (displayName :: Contact -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Contact)
+{-# DEPRECATED cDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance FromJSON Contact where
+instance Lude.FromJSON Contact where
   parseJSON =
-    withObject
+    Lude.withObject
       "Contact"
       ( \x ->
           Contact'
-            <$> (x .:? "LastName")
-            <*> (x .:? "ContactArn")
-            <*> (x .:? "PhoneNumbers" .!= mempty)
-            <*> (x .:? "PhoneNumber")
-            <*> (x .:? "SipAddresses" .!= mempty)
-            <*> (x .:? "FirstName")
-            <*> (x .:? "DisplayName")
+            Lude.<$> (x Lude..:? "LastName")
+            Lude.<*> (x Lude..:? "ContactArn")
+            Lude.<*> (x Lude..:? "PhoneNumbers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "PhoneNumber")
+            Lude.<*> (x Lude..:? "SipAddresses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "FirstName")
+            Lude.<*> (x Lude..:? "DisplayName")
       )
-
-instance Hashable Contact
-
-instance NFData Contact

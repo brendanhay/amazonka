@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.CustomerAgentInfo where
+module Network.AWS.Discovery.Types.CustomerAgentInfo
+  ( CustomerAgentInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCustomerAgentInfo,
+
+    -- * Lenses
+    caiActiveAgents,
+    caiHealthyAgents,
+    caiBlackListedAgents,
+    caiShutdownAgents,
+    caiUnhealthyAgents,
+    caiTotalAgents,
+    caiUnknownAgents,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Inventory data for installed discovery agents.
 --
---
---
--- /See:/ 'customerAgentInfo' smart constructor.
+-- /See:/ 'mkCustomerAgentInfo' smart constructor.
 data CustomerAgentInfo = CustomerAgentInfo'
-  { _caiActiveAgents ::
-      !Int,
-    _caiHealthyAgents :: !Int,
-    _caiBlackListedAgents :: !Int,
-    _caiShutdownAgents :: !Int,
-    _caiUnhealthyAgents :: !Int,
-    _caiTotalAgents :: !Int,
-    _caiUnknownAgents :: !Int
+  { activeAgents ::
+      Lude.Int,
+    healthyAgents :: Lude.Int,
+    blackListedAgents :: Lude.Int,
+    shutdownAgents :: Lude.Int,
+    unhealthyAgents :: Lude.Int,
+    totalAgents :: Lude.Int,
+    unknownAgents :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomerAgentInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caiActiveAgents' - Number of active discovery agents.
---
--- * 'caiHealthyAgents' - Number of healthy discovery agents
---
--- * 'caiBlackListedAgents' - Number of blacklisted discovery agents.
---
--- * 'caiShutdownAgents' - Number of discovery agents with status SHUTDOWN.
---
--- * 'caiUnhealthyAgents' - Number of unhealthy discovery agents.
---
--- * 'caiTotalAgents' - Total number of discovery agents.
---
--- * 'caiUnknownAgents' - Number of unknown discovery agents.
-customerAgentInfo ::
-  -- | 'caiActiveAgents'
-  Int ->
-  -- | 'caiHealthyAgents'
-  Int ->
-  -- | 'caiBlackListedAgents'
-  Int ->
-  -- | 'caiShutdownAgents'
-  Int ->
-  -- | 'caiUnhealthyAgents'
-  Int ->
-  -- | 'caiTotalAgents'
-  Int ->
-  -- | 'caiUnknownAgents'
-  Int ->
+-- * 'activeAgents' - Number of active discovery agents.
+-- * 'blackListedAgents' - Number of blacklisted discovery agents.
+-- * 'healthyAgents' - Number of healthy discovery agents
+-- * 'shutdownAgents' - Number of discovery agents with status SHUTDOWN.
+-- * 'totalAgents' - Total number of discovery agents.
+-- * 'unhealthyAgents' - Number of unhealthy discovery agents.
+-- * 'unknownAgents' - Number of unknown discovery agents.
+mkCustomerAgentInfo ::
+  -- | 'activeAgents'
+  Lude.Int ->
+  -- | 'healthyAgents'
+  Lude.Int ->
+  -- | 'blackListedAgents'
+  Lude.Int ->
+  -- | 'shutdownAgents'
+  Lude.Int ->
+  -- | 'unhealthyAgents'
+  Lude.Int ->
+  -- | 'totalAgents'
+  Lude.Int ->
+  -- | 'unknownAgents'
+  Lude.Int ->
   CustomerAgentInfo
-customerAgentInfo
+mkCustomerAgentInfo
   pActiveAgents_
   pHealthyAgents_
   pBlackListedAgents_
@@ -77,58 +83,75 @@ customerAgentInfo
   pTotalAgents_
   pUnknownAgents_ =
     CustomerAgentInfo'
-      { _caiActiveAgents = pActiveAgents_,
-        _caiHealthyAgents = pHealthyAgents_,
-        _caiBlackListedAgents = pBlackListedAgents_,
-        _caiShutdownAgents = pShutdownAgents_,
-        _caiUnhealthyAgents = pUnhealthyAgents_,
-        _caiTotalAgents = pTotalAgents_,
-        _caiUnknownAgents = pUnknownAgents_
+      { activeAgents = pActiveAgents_,
+        healthyAgents = pHealthyAgents_,
+        blackListedAgents = pBlackListedAgents_,
+        shutdownAgents = pShutdownAgents_,
+        unhealthyAgents = pUnhealthyAgents_,
+        totalAgents = pTotalAgents_,
+        unknownAgents = pUnknownAgents_
       }
 
 -- | Number of active discovery agents.
-caiActiveAgents :: Lens' CustomerAgentInfo Int
-caiActiveAgents = lens _caiActiveAgents (\s a -> s {_caiActiveAgents = a})
+--
+-- /Note:/ Consider using 'activeAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiActiveAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiActiveAgents = Lens.lens (activeAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {activeAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiActiveAgents "Use generic-lens or generic-optics with 'activeAgents' instead." #-}
 
 -- | Number of healthy discovery agents
-caiHealthyAgents :: Lens' CustomerAgentInfo Int
-caiHealthyAgents = lens _caiHealthyAgents (\s a -> s {_caiHealthyAgents = a})
+--
+-- /Note:/ Consider using 'healthyAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiHealthyAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiHealthyAgents = Lens.lens (healthyAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {healthyAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiHealthyAgents "Use generic-lens or generic-optics with 'healthyAgents' instead." #-}
 
 -- | Number of blacklisted discovery agents.
-caiBlackListedAgents :: Lens' CustomerAgentInfo Int
-caiBlackListedAgents = lens _caiBlackListedAgents (\s a -> s {_caiBlackListedAgents = a})
+--
+-- /Note:/ Consider using 'blackListedAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiBlackListedAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiBlackListedAgents = Lens.lens (blackListedAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {blackListedAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiBlackListedAgents "Use generic-lens or generic-optics with 'blackListedAgents' instead." #-}
 
 -- | Number of discovery agents with status SHUTDOWN.
-caiShutdownAgents :: Lens' CustomerAgentInfo Int
-caiShutdownAgents = lens _caiShutdownAgents (\s a -> s {_caiShutdownAgents = a})
+--
+-- /Note:/ Consider using 'shutdownAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiShutdownAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiShutdownAgents = Lens.lens (shutdownAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {shutdownAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiShutdownAgents "Use generic-lens or generic-optics with 'shutdownAgents' instead." #-}
 
 -- | Number of unhealthy discovery agents.
-caiUnhealthyAgents :: Lens' CustomerAgentInfo Int
-caiUnhealthyAgents = lens _caiUnhealthyAgents (\s a -> s {_caiUnhealthyAgents = a})
+--
+-- /Note:/ Consider using 'unhealthyAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiUnhealthyAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiUnhealthyAgents = Lens.lens (unhealthyAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {unhealthyAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiUnhealthyAgents "Use generic-lens or generic-optics with 'unhealthyAgents' instead." #-}
 
 -- | Total number of discovery agents.
-caiTotalAgents :: Lens' CustomerAgentInfo Int
-caiTotalAgents = lens _caiTotalAgents (\s a -> s {_caiTotalAgents = a})
+--
+-- /Note:/ Consider using 'totalAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiTotalAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiTotalAgents = Lens.lens (totalAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {totalAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiTotalAgents "Use generic-lens or generic-optics with 'totalAgents' instead." #-}
 
 -- | Number of unknown discovery agents.
-caiUnknownAgents :: Lens' CustomerAgentInfo Int
-caiUnknownAgents = lens _caiUnknownAgents (\s a -> s {_caiUnknownAgents = a})
+--
+-- /Note:/ Consider using 'unknownAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiUnknownAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
+caiUnknownAgents = Lens.lens (unknownAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {unknownAgents = a} :: CustomerAgentInfo)
+{-# DEPRECATED caiUnknownAgents "Use generic-lens or generic-optics with 'unknownAgents' instead." #-}
 
-instance FromJSON CustomerAgentInfo where
+instance Lude.FromJSON CustomerAgentInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "CustomerAgentInfo"
       ( \x ->
           CustomerAgentInfo'
-            <$> (x .: "activeAgents")
-            <*> (x .: "healthyAgents")
-            <*> (x .: "blackListedAgents")
-            <*> (x .: "shutdownAgents")
-            <*> (x .: "unhealthyAgents")
-            <*> (x .: "totalAgents")
-            <*> (x .: "unknownAgents")
+            Lude.<$> (x Lude..: "activeAgents")
+            Lude.<*> (x Lude..: "healthyAgents")
+            Lude.<*> (x Lude..: "blackListedAgents")
+            Lude.<*> (x Lude..: "shutdownAgents")
+            Lude.<*> (x Lude..: "unhealthyAgents")
+            Lude.<*> (x Lude..: "totalAgents")
+            Lude.<*> (x Lude..: "unknownAgents")
       )
-
-instance Hashable CustomerAgentInfo
-
-instance NFData CustomerAgentInfo

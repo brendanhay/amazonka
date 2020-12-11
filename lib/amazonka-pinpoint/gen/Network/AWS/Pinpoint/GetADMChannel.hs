@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,125 @@
 --
 -- Retrieves information about the status and settings of the ADM channel for an application.
 module Network.AWS.Pinpoint.GetADMChannel
-  ( -- * Creating a Request
-    getADMChannel,
-    GetADMChannel,
+  ( -- * Creating a request
+    GetADMChannel (..),
+    mkGetADMChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gadmcApplicationId,
 
-    -- * Destructuring the Response
-    getADMChannelResponse,
-    GetADMChannelResponse,
+    -- * Destructuring the response
+    GetADMChannelResponse (..),
+    mkGetADMChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gadmcrsResponseStatus,
     gadmcrsADMChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getADMChannel' smart constructor.
-newtype GetADMChannel = GetADMChannel' {_gadmcApplicationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetADMChannel' smart constructor.
+newtype GetADMChannel = GetADMChannel' {applicationId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetADMChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gadmcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getADMChannel ::
-  -- | 'gadmcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetADMChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetADMChannel
-getADMChannel pApplicationId_ =
-  GetADMChannel' {_gadmcApplicationId = pApplicationId_}
+mkGetADMChannel pApplicationId_ =
+  GetADMChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gadmcApplicationId :: Lens' GetADMChannel Text
-gadmcApplicationId = lens _gadmcApplicationId (\s a -> s {_gadmcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadmcApplicationId :: Lens.Lens' GetADMChannel Lude.Text
+gadmcApplicationId = Lens.lens (applicationId :: GetADMChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetADMChannel)
+{-# DEPRECATED gadmcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetADMChannel where
+instance Lude.AWSRequest GetADMChannel where
   type Rs GetADMChannel = GetADMChannelResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetADMChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetADMChannel
-
-instance NFData GetADMChannel
-
-instance ToHeaders GetADMChannel where
+instance Lude.ToHeaders GetADMChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetADMChannel where
+instance Lude.ToPath GetADMChannel where
   toPath GetADMChannel' {..} =
-    mconcat ["/v1/apps/", toBS _gadmcApplicationId, "/channels/adm"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/adm"]
 
-instance ToQuery GetADMChannel where
-  toQuery = const mempty
+instance Lude.ToQuery GetADMChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getADMChannelResponse' smart constructor.
+-- | /See:/ 'mkGetADMChannelResponse' smart constructor.
 data GetADMChannelResponse = GetADMChannelResponse'
-  { _gadmcrsResponseStatus ::
-      !Int,
-    _gadmcrsADMChannelResponse ::
-      !ADMChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    aDMChannelResponse :: ADMChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetADMChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gadmcrsResponseStatus' - -- | The response status code.
---
--- * 'gadmcrsADMChannelResponse' - Undocumented member.
-getADMChannelResponse ::
-  -- | 'gadmcrsResponseStatus'
-  Int ->
-  -- | 'gadmcrsADMChannelResponse'
+-- * 'aDMChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetADMChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'aDMChannelResponse'
   ADMChannelResponse ->
   GetADMChannelResponse
-getADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
+mkGetADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
   GetADMChannelResponse'
-    { _gadmcrsResponseStatus = pResponseStatus_,
-      _gadmcrsADMChannelResponse = pADMChannelResponse_
+    { responseStatus = pResponseStatus_,
+      aDMChannelResponse = pADMChannelResponse_
     }
 
--- | -- | The response status code.
-gadmcrsResponseStatus :: Lens' GetADMChannelResponse Int
-gadmcrsResponseStatus = lens _gadmcrsResponseStatus (\s a -> s {_gadmcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadmcrsResponseStatus :: Lens.Lens' GetADMChannelResponse Lude.Int
+gadmcrsResponseStatus = Lens.lens (responseStatus :: GetADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetADMChannelResponse)
+{-# DEPRECATED gadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gadmcrsADMChannelResponse :: Lens' GetADMChannelResponse ADMChannelResponse
-gadmcrsADMChannelResponse = lens _gadmcrsADMChannelResponse (\s a -> s {_gadmcrsADMChannelResponse = a})
-
-instance NFData GetADMChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'aDMChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadmcrsADMChannelResponse :: Lens.Lens' GetADMChannelResponse ADMChannelResponse
+gadmcrsADMChannelResponse = Lens.lens (aDMChannelResponse :: GetADMChannelResponse -> ADMChannelResponse) (\s a -> s {aDMChannelResponse = a} :: GetADMChannelResponse)
+{-# DEPRECATED gadmcrsADMChannelResponse "Use generic-lens or generic-optics with 'aDMChannelResponse' instead." #-}

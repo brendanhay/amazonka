@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.EbuTtDDestinationSettings where
+module Network.AWS.MediaLive.Types.EbuTtDDestinationSettings
+  ( EbuTtDDestinationSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEbuTtDDestinationSettings,
+
+    -- * Lenses
+    etddsFillLineGap,
+    etddsFontFamily,
+    etddsStyleControl,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl
 import Network.AWS.MediaLive.Types.EbuTtDFillLineGapControl
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ebu Tt DDestination Settings
 --
--- /See:/ 'ebuTtDDestinationSettings' smart constructor.
+-- /See:/ 'mkEbuTtDDestinationSettings' smart constructor.
 data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
-  { _etddsFillLineGap ::
-      !(Maybe EbuTtDFillLineGapControl),
-    _etddsFontFamily :: !(Maybe Text),
-    _etddsStyleControl ::
-      !(Maybe EbuTtDDestinationStyleControl)
+  { fillLineGap ::
+      Lude.Maybe EbuTtDFillLineGapControl,
+    fontFamily :: Lude.Maybe Lude.Text,
+    styleControl ::
+      Lude.Maybe
+        EbuTtDDestinationStyleControl
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EbuTtDDestinationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'fillLineGap' - Specifies how to handle the gap between the lines (in multi-line captions).
 --
--- * 'etddsFillLineGap' - Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
 --
--- * 'etddsFontFamily' - Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+-- - enabled: Fill with the captions background color (as specified in the input captions).
+-- - disabled: Leave the gap unfilled.
+-- * 'fontFamily' - Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".)
 --
--- * 'etddsStyleControl' - Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
-ebuTtDDestinationSettings ::
+--
+-- You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size.
+--
+-- - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font).
+-- - Leave blank to set the family to “monospace”.
+-- * 'styleControl' - Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions.
+--
+--
+-- - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext.
+-- - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
+mkEbuTtDDestinationSettings ::
   EbuTtDDestinationSettings
-ebuTtDDestinationSettings =
+mkEbuTtDDestinationSettings =
   EbuTtDDestinationSettings'
-    { _etddsFillLineGap = Nothing,
-      _etddsFontFamily = Nothing,
-      _etddsStyleControl = Nothing
+    { fillLineGap = Lude.Nothing,
+      fontFamily = Lude.Nothing,
+      styleControl = Lude.Nothing
     }
 
--- | Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
-etddsFillLineGap :: Lens' EbuTtDDestinationSettings (Maybe EbuTtDFillLineGapControl)
-etddsFillLineGap = lens _etddsFillLineGap (\s a -> s {_etddsFillLineGap = a})
+-- | Specifies how to handle the gap between the lines (in multi-line captions).
+--
+--
+-- - enabled: Fill with the captions background color (as specified in the input captions).
+-- - disabled: Leave the gap unfilled.
+--
+-- /Note:/ Consider using 'fillLineGap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etddsFillLineGap :: Lens.Lens' EbuTtDDestinationSettings (Lude.Maybe EbuTtDFillLineGapControl)
+etddsFillLineGap = Lens.lens (fillLineGap :: EbuTtDDestinationSettings -> Lude.Maybe EbuTtDFillLineGapControl) (\s a -> s {fillLineGap = a} :: EbuTtDDestinationSettings)
+{-# DEPRECATED etddsFillLineGap "Use generic-lens or generic-optics with 'fillLineGap' instead." #-}
 
--- | Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
-etddsFontFamily :: Lens' EbuTtDDestinationSettings (Maybe Text)
-etddsFontFamily = lens _etddsFontFamily (\s a -> s {_etddsFontFamily = a})
+-- | Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".)
+--
+--
+-- You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size.
+--
+-- - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font).
+-- - Leave blank to set the family to “monospace”.
+--
+-- /Note:/ Consider using 'fontFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etddsFontFamily :: Lens.Lens' EbuTtDDestinationSettings (Lude.Maybe Lude.Text)
+etddsFontFamily = Lens.lens (fontFamily :: EbuTtDDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {fontFamily = a} :: EbuTtDDestinationSettings)
+{-# DEPRECATED etddsFontFamily "Use generic-lens or generic-optics with 'fontFamily' instead." #-}
 
--- | Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
-etddsStyleControl :: Lens' EbuTtDDestinationSettings (Maybe EbuTtDDestinationStyleControl)
-etddsStyleControl = lens _etddsStyleControl (\s a -> s {_etddsStyleControl = a})
+-- | Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions.
+--
+--
+-- - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext.
+-- - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
+--
+-- /Note:/ Consider using 'styleControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etddsStyleControl :: Lens.Lens' EbuTtDDestinationSettings (Lude.Maybe EbuTtDDestinationStyleControl)
+etddsStyleControl = Lens.lens (styleControl :: EbuTtDDestinationSettings -> Lude.Maybe EbuTtDDestinationStyleControl) (\s a -> s {styleControl = a} :: EbuTtDDestinationSettings)
+{-# DEPRECATED etddsStyleControl "Use generic-lens or generic-optics with 'styleControl' instead." #-}
 
-instance FromJSON EbuTtDDestinationSettings where
+instance Lude.FromJSON EbuTtDDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "EbuTtDDestinationSettings"
       ( \x ->
           EbuTtDDestinationSettings'
-            <$> (x .:? "fillLineGap")
-            <*> (x .:? "fontFamily")
-            <*> (x .:? "styleControl")
+            Lude.<$> (x Lude..:? "fillLineGap")
+            Lude.<*> (x Lude..:? "fontFamily")
+            Lude.<*> (x Lude..:? "styleControl")
       )
 
-instance Hashable EbuTtDDestinationSettings
-
-instance NFData EbuTtDDestinationSettings
-
-instance ToJSON EbuTtDDestinationSettings where
+instance Lude.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =
-    object
-      ( catMaybes
-          [ ("fillLineGap" .=) <$> _etddsFillLineGap,
-            ("fontFamily" .=) <$> _etddsFontFamily,
-            ("styleControl" .=) <$> _etddsStyleControl
+    Lude.object
+      ( Lude.catMaybes
+          [ ("fillLineGap" Lude..=) Lude.<$> fillLineGap,
+            ("fontFamily" Lude..=) Lude.<$> fontFamily,
+            ("styleControl" Lude..=) Lude.<$> styleControl
           ]
       )

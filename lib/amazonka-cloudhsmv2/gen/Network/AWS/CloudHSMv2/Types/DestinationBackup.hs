@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.DestinationBackup where
+module Network.AWS.CloudHSMv2.Types.DestinationBackup
+  ( DestinationBackup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDestinationBackup,
+
+    -- * Lenses
+    dbSourceCluster,
+    dbSourceRegion,
+    dbSourceBackup,
+    dbCreateTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the backup that will be copied and created by the 'CopyBackupToRegion' operation.
 --
---
---
--- /See:/ 'destinationBackup' smart constructor.
+-- /See:/ 'mkDestinationBackup' smart constructor.
 data DestinationBackup = DestinationBackup'
-  { _dbSourceCluster ::
-      !(Maybe Text),
-    _dbSourceRegion :: !(Maybe Text),
-    _dbSourceBackup :: !(Maybe Text),
-    _dbCreateTimestamp :: !(Maybe POSIX)
+  { sourceCluster ::
+      Lude.Maybe Lude.Text,
+    sourceRegion :: Lude.Maybe Lude.Text,
+    sourceBackup :: Lude.Maybe Lude.Text,
+    createTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationBackup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbSourceCluster' - The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
---
--- * 'dbSourceRegion' - The AWS region that contains the source backup from which the new backup was copied.
---
--- * 'dbSourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
---
--- * 'dbCreateTimestamp' - The date and time when both the source backup was created.
-destinationBackup ::
+-- * 'createTimestamp' - The date and time when both the source backup was created.
+-- * 'sourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
+-- * 'sourceCluster' - The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
+-- * 'sourceRegion' - The AWS region that contains the source backup from which the new backup was copied.
+mkDestinationBackup ::
   DestinationBackup
-destinationBackup =
+mkDestinationBackup =
   DestinationBackup'
-    { _dbSourceCluster = Nothing,
-      _dbSourceRegion = Nothing,
-      _dbSourceBackup = Nothing,
-      _dbCreateTimestamp = Nothing
+    { sourceCluster = Lude.Nothing,
+      sourceRegion = Lude.Nothing,
+      sourceBackup = Lude.Nothing,
+      createTimestamp = Lude.Nothing
     }
 
 -- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
-dbSourceCluster :: Lens' DestinationBackup (Maybe Text)
-dbSourceCluster = lens _dbSourceCluster (\s a -> s {_dbSourceCluster = a})
+--
+-- /Note:/ Consider using 'sourceCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbSourceCluster :: Lens.Lens' DestinationBackup (Lude.Maybe Lude.Text)
+dbSourceCluster = Lens.lens (sourceCluster :: DestinationBackup -> Lude.Maybe Lude.Text) (\s a -> s {sourceCluster = a} :: DestinationBackup)
+{-# DEPRECATED dbSourceCluster "Use generic-lens or generic-optics with 'sourceCluster' instead." #-}
 
 -- | The AWS region that contains the source backup from which the new backup was copied.
-dbSourceRegion :: Lens' DestinationBackup (Maybe Text)
-dbSourceRegion = lens _dbSourceRegion (\s a -> s {_dbSourceRegion = a})
+--
+-- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbSourceRegion :: Lens.Lens' DestinationBackup (Lude.Maybe Lude.Text)
+dbSourceRegion = Lens.lens (sourceRegion :: DestinationBackup -> Lude.Maybe Lude.Text) (\s a -> s {sourceRegion = a} :: DestinationBackup)
+{-# DEPRECATED dbSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
 -- | The identifier (ID) of the source backup from which the new backup was copied.
-dbSourceBackup :: Lens' DestinationBackup (Maybe Text)
-dbSourceBackup = lens _dbSourceBackup (\s a -> s {_dbSourceBackup = a})
+--
+-- /Note:/ Consider using 'sourceBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbSourceBackup :: Lens.Lens' DestinationBackup (Lude.Maybe Lude.Text)
+dbSourceBackup = Lens.lens (sourceBackup :: DestinationBackup -> Lude.Maybe Lude.Text) (\s a -> s {sourceBackup = a} :: DestinationBackup)
+{-# DEPRECATED dbSourceBackup "Use generic-lens or generic-optics with 'sourceBackup' instead." #-}
 
 -- | The date and time when both the source backup was created.
-dbCreateTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
-dbCreateTimestamp = lens _dbCreateTimestamp (\s a -> s {_dbCreateTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbCreateTimestamp :: Lens.Lens' DestinationBackup (Lude.Maybe Lude.Timestamp)
+dbCreateTimestamp = Lens.lens (createTimestamp :: DestinationBackup -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTimestamp = a} :: DestinationBackup)
+{-# DEPRECATED dbCreateTimestamp "Use generic-lens or generic-optics with 'createTimestamp' instead." #-}
 
-instance FromJSON DestinationBackup where
+instance Lude.FromJSON DestinationBackup where
   parseJSON =
-    withObject
+    Lude.withObject
       "DestinationBackup"
       ( \x ->
           DestinationBackup'
-            <$> (x .:? "SourceCluster")
-            <*> (x .:? "SourceRegion")
-            <*> (x .:? "SourceBackup")
-            <*> (x .:? "CreateTimestamp")
+            Lude.<$> (x Lude..:? "SourceCluster")
+            Lude.<*> (x Lude..:? "SourceRegion")
+            Lude.<*> (x Lude..:? "SourceBackup")
+            Lude.<*> (x Lude..:? "CreateTimestamp")
       )
-
-instance Hashable DestinationBackup
-
-instance NFData DestinationBackup

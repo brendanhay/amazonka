@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelArtifacts where
+module Network.AWS.SageMaker.Types.ModelArtifacts
+  ( ModelArtifacts (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkModelArtifacts,
+
+    -- * Lenses
+    maS3ModelArtifacts,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the location that is configured for storing model artifacts.
 --
---
 -- Model artifacts are the output that results from training a model, and typically consist of trained parameters, a model defintion that desribes how to compute inferences, and other metadata.
 --
---
--- /See:/ 'modelArtifacts' smart constructor.
+-- /See:/ 'mkModelArtifacts' smart constructor.
 newtype ModelArtifacts = ModelArtifacts'
-  { _maS3ModelArtifacts ::
-      Text
+  { s3ModelArtifacts ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelArtifacts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'maS3ModelArtifacts' - The path of the S3 object that contains the model artifacts. For example, @s3://bucket-name/keynameprefix/model.tar.gz@ .
-modelArtifacts ::
-  -- | 'maS3ModelArtifacts'
-  Text ->
+-- * 's3ModelArtifacts' - The path of the S3 object that contains the model artifacts. For example, @s3://bucket-name/keynameprefix/model.tar.gz@ .
+mkModelArtifacts ::
+  -- | 's3ModelArtifacts'
+  Lude.Text ->
   ModelArtifacts
-modelArtifacts pS3ModelArtifacts_ =
-  ModelArtifacts' {_maS3ModelArtifacts = pS3ModelArtifacts_}
+mkModelArtifacts pS3ModelArtifacts_ =
+  ModelArtifacts' {s3ModelArtifacts = pS3ModelArtifacts_}
 
 -- | The path of the S3 object that contains the model artifacts. For example, @s3://bucket-name/keynameprefix/model.tar.gz@ .
-maS3ModelArtifacts :: Lens' ModelArtifacts Text
-maS3ModelArtifacts = lens _maS3ModelArtifacts (\s a -> s {_maS3ModelArtifacts = a})
+--
+-- /Note:/ Consider using 's3ModelArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maS3ModelArtifacts :: Lens.Lens' ModelArtifacts Lude.Text
+maS3ModelArtifacts = Lens.lens (s3ModelArtifacts :: ModelArtifacts -> Lude.Text) (\s a -> s {s3ModelArtifacts = a} :: ModelArtifacts)
+{-# DEPRECATED maS3ModelArtifacts "Use generic-lens or generic-optics with 's3ModelArtifacts' instead." #-}
 
-instance FromJSON ModelArtifacts where
+instance Lude.FromJSON ModelArtifacts where
   parseJSON =
-    withObject
+    Lude.withObject
       "ModelArtifacts"
-      (\x -> ModelArtifacts' <$> (x .: "S3ModelArtifacts"))
-
-instance Hashable ModelArtifacts
-
-instance NFData ModelArtifacts
+      (\x -> ModelArtifacts' Lude.<$> (x Lude..: "S3ModelArtifacts"))

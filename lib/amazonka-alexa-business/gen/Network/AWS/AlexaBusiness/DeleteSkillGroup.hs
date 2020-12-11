@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,115 @@
 --
 -- Deletes a skill group by skill group ARN.
 module Network.AWS.AlexaBusiness.DeleteSkillGroup
-  ( -- * Creating a Request
-    deleteSkillGroup,
-    DeleteSkillGroup,
+  ( -- * Creating a request
+    DeleteSkillGroup (..),
+    mkDeleteSkillGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsgSkillGroupARN,
 
-    -- * Destructuring the Response
-    deleteSkillGroupResponse,
-    DeleteSkillGroupResponse,
+    -- * Destructuring the response
+    DeleteSkillGroupResponse (..),
+    mkDeleteSkillGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsgrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSkillGroup' smart constructor.
+-- | /See:/ 'mkDeleteSkillGroup' smart constructor.
 newtype DeleteSkillGroup = DeleteSkillGroup'
-  { _dsgSkillGroupARN ::
-      Maybe Text
+  { skillGroupARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSkillGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgSkillGroupARN' - The ARN of the skill group to delete. Required.
-deleteSkillGroup ::
+-- * 'skillGroupARN' - The ARN of the skill group to delete. Required.
+mkDeleteSkillGroup ::
   DeleteSkillGroup
-deleteSkillGroup = DeleteSkillGroup' {_dsgSkillGroupARN = Nothing}
+mkDeleteSkillGroup =
+  DeleteSkillGroup' {skillGroupARN = Lude.Nothing}
 
 -- | The ARN of the skill group to delete. Required.
-dsgSkillGroupARN :: Lens' DeleteSkillGroup (Maybe Text)
-dsgSkillGroupARN = lens _dsgSkillGroupARN (\s a -> s {_dsgSkillGroupARN = a})
+--
+-- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgSkillGroupARN :: Lens.Lens' DeleteSkillGroup (Lude.Maybe Lude.Text)
+dsgSkillGroupARN = Lens.lens (skillGroupARN :: DeleteSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: DeleteSkillGroup)
+{-# DEPRECATED dsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
-instance AWSRequest DeleteSkillGroup where
+instance Lude.AWSRequest DeleteSkillGroup where
   type Rs DeleteSkillGroup = DeleteSkillGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> DeleteSkillGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteSkillGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteSkillGroup
-
-instance NFData DeleteSkillGroup
-
-instance ToHeaders DeleteSkillGroup where
+instance Lude.ToHeaders DeleteSkillGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DeleteSkillGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.DeleteSkillGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSkillGroup where
+instance Lude.ToJSON DeleteSkillGroup where
   toJSON DeleteSkillGroup' {..} =
-    object (catMaybes [("SkillGroupArn" .=) <$> _dsgSkillGroupARN])
+    Lude.object
+      (Lude.catMaybes [("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN])
 
-instance ToPath DeleteSkillGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteSkillGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSkillGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSkillGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSkillGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteSkillGroupResponse' smart constructor.
 newtype DeleteSkillGroupResponse = DeleteSkillGroupResponse'
-  { _dsgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSkillGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgrsResponseStatus' - -- | The response status code.
-deleteSkillGroupResponse ::
-  -- | 'dsgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSkillGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSkillGroupResponse
-deleteSkillGroupResponse pResponseStatus_ =
-  DeleteSkillGroupResponse'
-    { _dsgrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteSkillGroupResponse pResponseStatus_ =
+  DeleteSkillGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsgrsResponseStatus :: Lens' DeleteSkillGroupResponse Int
-dsgrsResponseStatus = lens _dsgrsResponseStatus (\s a -> s {_dsgrsResponseStatus = a})
-
-instance NFData DeleteSkillGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgrsResponseStatus :: Lens.Lens' DeleteSkillGroupResponse Lude.Int
+dsgrsResponseStatus = Lens.lens (responseStatus :: DeleteSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSkillGroupResponse)
+{-# DEPRECATED dsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

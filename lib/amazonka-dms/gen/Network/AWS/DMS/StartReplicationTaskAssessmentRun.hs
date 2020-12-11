@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Starts a new premigration assessment run for one or more individual assessments of a migration task.
 --
---
 -- The assessments that you can specify depend on the source and target database engine and the migration type defined for the given task. To run this operation, your migration task must already be created. After you run this operation, you can review the status of each individual assessment. You can also run the migration task manually after the assessment run and its individual assessments complete.
 module Network.AWS.DMS.StartReplicationTaskAssessmentRun
-  ( -- * Creating a Request
-    startReplicationTaskAssessmentRun,
-    StartReplicationTaskAssessmentRun,
+  ( -- * Creating a request
+    StartReplicationTaskAssessmentRun (..),
+    mkStartReplicationTaskAssessmentRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srtarIncludeOnly,
     srtarResultKMSKeyARN,
     srtarResultLocationFolder,
@@ -37,229 +31,263 @@ module Network.AWS.DMS.StartReplicationTaskAssessmentRun
     srtarResultLocationBucket,
     srtarAssessmentRunName,
 
-    -- * Destructuring the Response
-    startReplicationTaskAssessmentRunResponse,
-    StartReplicationTaskAssessmentRunResponse,
+    -- * Destructuring the response
+    StartReplicationTaskAssessmentRunResponse (..),
+    mkStartReplicationTaskAssessmentRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srtarrsReplicationTaskAssessmentRun,
     srtarrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'startReplicationTaskAssessmentRun' smart constructor.
+-- /See:/ 'mkStartReplicationTaskAssessmentRun' smart constructor.
 data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
-  { _srtarIncludeOnly ::
-      !(Maybe [Text]),
-    _srtarResultKMSKeyARN ::
-      !(Maybe Text),
-    _srtarResultLocationFolder ::
-      !(Maybe Text),
-    _srtarResultEncryptionMode ::
-      !(Maybe Text),
-    _srtarExclude ::
-      !(Maybe [Text]),
-    _srtarReplicationTaskARN ::
-      !Text,
-    _srtarServiceAccessRoleARN ::
-      !Text,
-    _srtarResultLocationBucket ::
-      !Text,
-    _srtarAssessmentRunName ::
-      !Text
+  { includeOnly ::
+      Lude.Maybe [Lude.Text],
+    resultKMSKeyARN ::
+      Lude.Maybe Lude.Text,
+    resultLocationFolder ::
+      Lude.Maybe Lude.Text,
+    resultEncryptionMode ::
+      Lude.Maybe Lude.Text,
+    exclude ::
+      Lude.Maybe [Lude.Text],
+    replicationTaskARN ::
+      Lude.Text,
+    serviceAccessRoleARN ::
+      Lude.Text,
+    resultLocationBucket ::
+      Lude.Text,
+    assessmentRunName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReplicationTaskAssessmentRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'assessmentRunName' - Unique name to identify the assessment run.
+-- * 'exclude' - Space-separated list of names for specific individual assessments that you want to exclude. These names come from the default list of individual assessments that AWS DMS supports for the associated migration task. This task is specified by @ReplicationTaskArn@ .
+-- * 'includeOnly' - Space-separated list of names for specific individual assessments that you want to include. These names come from the default list of individual assessments that AWS DMS supports for the associated migration task. This task is specified by @ReplicationTaskArn@ .
+-- * 'replicationTaskARN' - Amazon Resource Name (ARN) of the migration task associated with the premigration assessment run that you want to start.
+-- * 'resultEncryptionMode' - Encryption mode that you can specify to encrypt the results of this assessment run. If you don't specify this request parameter, AWS DMS stores the assessment run results without encryption. You can specify one of the options following:
 --
--- * 'srtarIncludeOnly' - Space-separated list of names for specific individual assessments that you want to include. These names come from the default list of individual assessments that AWS DMS supports for the associated migration task. This task is specified by @ReplicationTaskArn@ .
 --
--- * 'srtarResultKMSKeyARN' - ARN of a custom KMS encryption key that you specify when you set @ResultEncryptionMode@ to @"SSE_KMS@ ".
+--     * @"SSE_S3"@ – The server-side encryption provided as a default by Amazon S3.
 --
--- * 'srtarResultLocationFolder' - Folder within an Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.
 --
--- * 'srtarResultEncryptionMode' - Encryption mode that you can specify to encrypt the results of this assessment run. If you don't specify this request parameter, AWS DMS stores the assessment run results without encryption. You can specify one of the options following:     * @"SSE_S3"@ – The server-side encryption provided as a default by Amazon S3.     * @"SSE_KMS"@ – AWS Key Management Service (AWS KMS) encryption. This encryption can use either a custom KMS encryption key that you specify or the default KMS encryption key that DMS provides.
+--     * @"SSE_KMS"@ – AWS Key Management Service (AWS KMS) encryption. This encryption can use either a custom KMS encryption key that you specify or the default KMS encryption key that DMS provides.
 --
--- * 'srtarExclude' - Space-separated list of names for specific individual assessments that you want to exclude. These names come from the default list of individual assessments that AWS DMS supports for the associated migration task. This task is specified by @ReplicationTaskArn@ .
 --
--- * 'srtarReplicationTaskARN' - Amazon Resource Name (ARN) of the migration task associated with the premigration assessment run that you want to start.
---
--- * 'srtarServiceAccessRoleARN' - ARN of a service role needed to start the assessment run.
---
--- * 'srtarResultLocationBucket' - Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.
---
--- * 'srtarAssessmentRunName' - Unique name to identify the assessment run.
-startReplicationTaskAssessmentRun ::
-  -- | 'srtarReplicationTaskARN'
-  Text ->
-  -- | 'srtarServiceAccessRoleARN'
-  Text ->
-  -- | 'srtarResultLocationBucket'
-  Text ->
-  -- | 'srtarAssessmentRunName'
-  Text ->
+-- * 'resultKMSKeyARN' - ARN of a custom KMS encryption key that you specify when you set @ResultEncryptionMode@ to @"SSE_KMS@ ".
+-- * 'resultLocationBucket' - Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.
+-- * 'resultLocationFolder' - Folder within an Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.
+-- * 'serviceAccessRoleARN' - ARN of a service role needed to start the assessment run.
+mkStartReplicationTaskAssessmentRun ::
+  -- | 'replicationTaskARN'
+  Lude.Text ->
+  -- | 'serviceAccessRoleARN'
+  Lude.Text ->
+  -- | 'resultLocationBucket'
+  Lude.Text ->
+  -- | 'assessmentRunName'
+  Lude.Text ->
   StartReplicationTaskAssessmentRun
-startReplicationTaskAssessmentRun
+mkStartReplicationTaskAssessmentRun
   pReplicationTaskARN_
   pServiceAccessRoleARN_
   pResultLocationBucket_
   pAssessmentRunName_ =
     StartReplicationTaskAssessmentRun'
-      { _srtarIncludeOnly = Nothing,
-        _srtarResultKMSKeyARN = Nothing,
-        _srtarResultLocationFolder = Nothing,
-        _srtarResultEncryptionMode = Nothing,
-        _srtarExclude = Nothing,
-        _srtarReplicationTaskARN = pReplicationTaskARN_,
-        _srtarServiceAccessRoleARN = pServiceAccessRoleARN_,
-        _srtarResultLocationBucket = pResultLocationBucket_,
-        _srtarAssessmentRunName = pAssessmentRunName_
+      { includeOnly = Lude.Nothing,
+        resultKMSKeyARN = Lude.Nothing,
+        resultLocationFolder = Lude.Nothing,
+        resultEncryptionMode = Lude.Nothing,
+        exclude = Lude.Nothing,
+        replicationTaskARN = pReplicationTaskARN_,
+        serviceAccessRoleARN = pServiceAccessRoleARN_,
+        resultLocationBucket = pResultLocationBucket_,
+        assessmentRunName = pAssessmentRunName_
       }
 
 -- | Space-separated list of names for specific individual assessments that you want to include. These names come from the default list of individual assessments that AWS DMS supports for the associated migration task. This task is specified by @ReplicationTaskArn@ .
-srtarIncludeOnly :: Lens' StartReplicationTaskAssessmentRun [Text]
-srtarIncludeOnly = lens _srtarIncludeOnly (\s a -> s {_srtarIncludeOnly = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'includeOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarIncludeOnly :: Lens.Lens' StartReplicationTaskAssessmentRun (Lude.Maybe [Lude.Text])
+srtarIncludeOnly = Lens.lens (includeOnly :: StartReplicationTaskAssessmentRun -> Lude.Maybe [Lude.Text]) (\s a -> s {includeOnly = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarIncludeOnly "Use generic-lens or generic-optics with 'includeOnly' instead." #-}
 
 -- | ARN of a custom KMS encryption key that you specify when you set @ResultEncryptionMode@ to @"SSE_KMS@ ".
-srtarResultKMSKeyARN :: Lens' StartReplicationTaskAssessmentRun (Maybe Text)
-srtarResultKMSKeyARN = lens _srtarResultKMSKeyARN (\s a -> s {_srtarResultKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'resultKMSKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarResultKMSKeyARN :: Lens.Lens' StartReplicationTaskAssessmentRun (Lude.Maybe Lude.Text)
+srtarResultKMSKeyARN = Lens.lens (resultKMSKeyARN :: StartReplicationTaskAssessmentRun -> Lude.Maybe Lude.Text) (\s a -> s {resultKMSKeyARN = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarResultKMSKeyARN "Use generic-lens or generic-optics with 'resultKMSKeyARN' instead." #-}
 
 -- | Folder within an Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.
-srtarResultLocationFolder :: Lens' StartReplicationTaskAssessmentRun (Maybe Text)
-srtarResultLocationFolder = lens _srtarResultLocationFolder (\s a -> s {_srtarResultLocationFolder = a})
+--
+-- /Note:/ Consider using 'resultLocationFolder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarResultLocationFolder :: Lens.Lens' StartReplicationTaskAssessmentRun (Lude.Maybe Lude.Text)
+srtarResultLocationFolder = Lens.lens (resultLocationFolder :: StartReplicationTaskAssessmentRun -> Lude.Maybe Lude.Text) (\s a -> s {resultLocationFolder = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarResultLocationFolder "Use generic-lens or generic-optics with 'resultLocationFolder' instead." #-}
 
--- | Encryption mode that you can specify to encrypt the results of this assessment run. If you don't specify this request parameter, AWS DMS stores the assessment run results without encryption. You can specify one of the options following:     * @"SSE_S3"@ – The server-side encryption provided as a default by Amazon S3.     * @"SSE_KMS"@ – AWS Key Management Service (AWS KMS) encryption. This encryption can use either a custom KMS encryption key that you specify or the default KMS encryption key that DMS provides.
-srtarResultEncryptionMode :: Lens' StartReplicationTaskAssessmentRun (Maybe Text)
-srtarResultEncryptionMode = lens _srtarResultEncryptionMode (\s a -> s {_srtarResultEncryptionMode = a})
+-- | Encryption mode that you can specify to encrypt the results of this assessment run. If you don't specify this request parameter, AWS DMS stores the assessment run results without encryption. You can specify one of the options following:
+--
+--
+--     * @"SSE_S3"@ – The server-side encryption provided as a default by Amazon S3.
+--
+--
+--     * @"SSE_KMS"@ – AWS Key Management Service (AWS KMS) encryption. This encryption can use either a custom KMS encryption key that you specify or the default KMS encryption key that DMS provides.
+--
+--
+--
+-- /Note:/ Consider using 'resultEncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarResultEncryptionMode :: Lens.Lens' StartReplicationTaskAssessmentRun (Lude.Maybe Lude.Text)
+srtarResultEncryptionMode = Lens.lens (resultEncryptionMode :: StartReplicationTaskAssessmentRun -> Lude.Maybe Lude.Text) (\s a -> s {resultEncryptionMode = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarResultEncryptionMode "Use generic-lens or generic-optics with 'resultEncryptionMode' instead." #-}
 
 -- | Space-separated list of names for specific individual assessments that you want to exclude. These names come from the default list of individual assessments that AWS DMS supports for the associated migration task. This task is specified by @ReplicationTaskArn@ .
-srtarExclude :: Lens' StartReplicationTaskAssessmentRun [Text]
-srtarExclude = lens _srtarExclude (\s a -> s {_srtarExclude = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exclude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarExclude :: Lens.Lens' StartReplicationTaskAssessmentRun (Lude.Maybe [Lude.Text])
+srtarExclude = Lens.lens (exclude :: StartReplicationTaskAssessmentRun -> Lude.Maybe [Lude.Text]) (\s a -> s {exclude = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarExclude "Use generic-lens or generic-optics with 'exclude' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the migration task associated with the premigration assessment run that you want to start.
-srtarReplicationTaskARN :: Lens' StartReplicationTaskAssessmentRun Text
-srtarReplicationTaskARN = lens _srtarReplicationTaskARN (\s a -> s {_srtarReplicationTaskARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarReplicationTaskARN :: Lens.Lens' StartReplicationTaskAssessmentRun Lude.Text
+srtarReplicationTaskARN = Lens.lens (replicationTaskARN :: StartReplicationTaskAssessmentRun -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | ARN of a service role needed to start the assessment run.
-srtarServiceAccessRoleARN :: Lens' StartReplicationTaskAssessmentRun Text
-srtarServiceAccessRoleARN = lens _srtarServiceAccessRoleARN (\s a -> s {_srtarServiceAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarServiceAccessRoleARN :: Lens.Lens' StartReplicationTaskAssessmentRun Lude.Text
+srtarServiceAccessRoleARN = Lens.lens (serviceAccessRoleARN :: StartReplicationTaskAssessmentRun -> Lude.Text) (\s a -> s {serviceAccessRoleARN = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarServiceAccessRoleARN "Use generic-lens or generic-optics with 'serviceAccessRoleARN' instead." #-}
 
 -- | Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.
-srtarResultLocationBucket :: Lens' StartReplicationTaskAssessmentRun Text
-srtarResultLocationBucket = lens _srtarResultLocationBucket (\s a -> s {_srtarResultLocationBucket = a})
+--
+-- /Note:/ Consider using 'resultLocationBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarResultLocationBucket :: Lens.Lens' StartReplicationTaskAssessmentRun Lude.Text
+srtarResultLocationBucket = Lens.lens (resultLocationBucket :: StartReplicationTaskAssessmentRun -> Lude.Text) (\s a -> s {resultLocationBucket = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarResultLocationBucket "Use generic-lens or generic-optics with 'resultLocationBucket' instead." #-}
 
 -- | Unique name to identify the assessment run.
-srtarAssessmentRunName :: Lens' StartReplicationTaskAssessmentRun Text
-srtarAssessmentRunName = lens _srtarAssessmentRunName (\s a -> s {_srtarAssessmentRunName = a})
+--
+-- /Note:/ Consider using 'assessmentRunName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarAssessmentRunName :: Lens.Lens' StartReplicationTaskAssessmentRun Lude.Text
+srtarAssessmentRunName = Lens.lens (assessmentRunName :: StartReplicationTaskAssessmentRun -> Lude.Text) (\s a -> s {assessmentRunName = a} :: StartReplicationTaskAssessmentRun)
+{-# DEPRECATED srtarAssessmentRunName "Use generic-lens or generic-optics with 'assessmentRunName' instead." #-}
 
-instance AWSRequest StartReplicationTaskAssessmentRun where
+instance Lude.AWSRequest StartReplicationTaskAssessmentRun where
   type
     Rs StartReplicationTaskAssessmentRun =
       StartReplicationTaskAssessmentRunResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartReplicationTaskAssessmentRunResponse'
-            <$> (x .?> "ReplicationTaskAssessmentRun") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTaskAssessmentRun")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartReplicationTaskAssessmentRun
-
-instance NFData StartReplicationTaskAssessmentRun
-
-instance ToHeaders StartReplicationTaskAssessmentRun where
+instance Lude.ToHeaders StartReplicationTaskAssessmentRun where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartReplicationTaskAssessmentRun where
+instance Lude.ToJSON StartReplicationTaskAssessmentRun where
   toJSON StartReplicationTaskAssessmentRun' {..} =
-    object
-      ( catMaybes
-          [ ("IncludeOnly" .=) <$> _srtarIncludeOnly,
-            ("ResultKmsKeyArn" .=) <$> _srtarResultKMSKeyARN,
-            ("ResultLocationFolder" .=) <$> _srtarResultLocationFolder,
-            ("ResultEncryptionMode" .=) <$> _srtarResultEncryptionMode,
-            ("Exclude" .=) <$> _srtarExclude,
-            Just ("ReplicationTaskArn" .= _srtarReplicationTaskARN),
-            Just ("ServiceAccessRoleArn" .= _srtarServiceAccessRoleARN),
-            Just ("ResultLocationBucket" .= _srtarResultLocationBucket),
-            Just ("AssessmentRunName" .= _srtarAssessmentRunName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IncludeOnly" Lude..=) Lude.<$> includeOnly,
+            ("ResultKmsKeyArn" Lude..=) Lude.<$> resultKMSKeyARN,
+            ("ResultLocationFolder" Lude..=) Lude.<$> resultLocationFolder,
+            ("ResultEncryptionMode" Lude..=) Lude.<$> resultEncryptionMode,
+            ("Exclude" Lude..=) Lude.<$> exclude,
+            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
+            Lude.Just ("ServiceAccessRoleArn" Lude..= serviceAccessRoleARN),
+            Lude.Just ("ResultLocationBucket" Lude..= resultLocationBucket),
+            Lude.Just ("AssessmentRunName" Lude..= assessmentRunName)
           ]
       )
 
-instance ToPath StartReplicationTaskAssessmentRun where
-  toPath = const "/"
+instance Lude.ToPath StartReplicationTaskAssessmentRun where
+  toPath = Lude.const "/"
 
-instance ToQuery StartReplicationTaskAssessmentRun where
-  toQuery = const mempty
+instance Lude.ToQuery StartReplicationTaskAssessmentRun where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'startReplicationTaskAssessmentRunResponse' smart constructor.
+-- /See:/ 'mkStartReplicationTaskAssessmentRunResponse' smart constructor.
 data StartReplicationTaskAssessmentRunResponse = StartReplicationTaskAssessmentRunResponse'
-  { _srtarrsReplicationTaskAssessmentRun ::
-      !( Maybe
-           ReplicationTaskAssessmentRun
-       ),
-    _srtarrsResponseStatus ::
-      !Int
+  { replicationTaskAssessmentRun ::
+      Lude.Maybe
+        ReplicationTaskAssessmentRun,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReplicationTaskAssessmentRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srtarrsReplicationTaskAssessmentRun' - The premigration assessment run that was started.
---
--- * 'srtarrsResponseStatus' - -- | The response status code.
-startReplicationTaskAssessmentRunResponse ::
-  -- | 'srtarrsResponseStatus'
-  Int ->
+-- * 'replicationTaskAssessmentRun' - The premigration assessment run that was started.
+-- * 'responseStatus' - The response status code.
+mkStartReplicationTaskAssessmentRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartReplicationTaskAssessmentRunResponse
-startReplicationTaskAssessmentRunResponse pResponseStatus_ =
+mkStartReplicationTaskAssessmentRunResponse pResponseStatus_ =
   StartReplicationTaskAssessmentRunResponse'
-    { _srtarrsReplicationTaskAssessmentRun =
-        Nothing,
-      _srtarrsResponseStatus = pResponseStatus_
+    { replicationTaskAssessmentRun =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The premigration assessment run that was started.
-srtarrsReplicationTaskAssessmentRun :: Lens' StartReplicationTaskAssessmentRunResponse (Maybe ReplicationTaskAssessmentRun)
-srtarrsReplicationTaskAssessmentRun = lens _srtarrsReplicationTaskAssessmentRun (\s a -> s {_srtarrsReplicationTaskAssessmentRun = a})
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarrsReplicationTaskAssessmentRun :: Lens.Lens' StartReplicationTaskAssessmentRunResponse (Lude.Maybe ReplicationTaskAssessmentRun)
+srtarrsReplicationTaskAssessmentRun = Lens.lens (replicationTaskAssessmentRun :: StartReplicationTaskAssessmentRunResponse -> Lude.Maybe ReplicationTaskAssessmentRun) (\s a -> s {replicationTaskAssessmentRun = a} :: StartReplicationTaskAssessmentRunResponse)
+{-# DEPRECATED srtarrsReplicationTaskAssessmentRun "Use generic-lens or generic-optics with 'replicationTaskAssessmentRun' instead." #-}
 
--- | -- | The response status code.
-srtarrsResponseStatus :: Lens' StartReplicationTaskAssessmentRunResponse Int
-srtarrsResponseStatus = lens _srtarrsResponseStatus (\s a -> s {_srtarrsResponseStatus = a})
-
-instance NFData StartReplicationTaskAssessmentRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarrsResponseStatus :: Lens.Lens' StartReplicationTaskAssessmentRunResponse Lude.Int
+srtarrsResponseStatus = Lens.lens (responseStatus :: StartReplicationTaskAssessmentRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartReplicationTaskAssessmentRunResponse)
+{-# DEPRECATED srtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMFAConfigType where
+module Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMFAConfigType
+  ( SoftwareTokenMFAConfigType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSoftwareTokenMFAConfigType,
+
+    -- * Lenses
+    stmctEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type used for enabling software token MFA at the user pool level.
 --
---
---
--- /See:/ 'softwareTokenMFAConfigType' smart constructor.
+-- /See:/ 'mkSoftwareTokenMFAConfigType' smart constructor.
 newtype SoftwareTokenMFAConfigType = SoftwareTokenMFAConfigType'
-  { _stmctEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SoftwareTokenMFAConfigType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stmctEnabled' - Specifies whether software token MFA is enabled.
-softwareTokenMFAConfigType ::
+-- * 'enabled' - Specifies whether software token MFA is enabled.
+mkSoftwareTokenMFAConfigType ::
   SoftwareTokenMFAConfigType
-softwareTokenMFAConfigType =
-  SoftwareTokenMFAConfigType' {_stmctEnabled = Nothing}
+mkSoftwareTokenMFAConfigType =
+  SoftwareTokenMFAConfigType' {enabled = Lude.Nothing}
 
 -- | Specifies whether software token MFA is enabled.
-stmctEnabled :: Lens' SoftwareTokenMFAConfigType (Maybe Bool)
-stmctEnabled = lens _stmctEnabled (\s a -> s {_stmctEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stmctEnabled :: Lens.Lens' SoftwareTokenMFAConfigType (Lude.Maybe Lude.Bool)
+stmctEnabled = Lens.lens (enabled :: SoftwareTokenMFAConfigType -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SoftwareTokenMFAConfigType)
+{-# DEPRECATED stmctEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromJSON SoftwareTokenMFAConfigType where
+instance Lude.FromJSON SoftwareTokenMFAConfigType where
   parseJSON =
-    withObject
+    Lude.withObject
       "SoftwareTokenMFAConfigType"
-      (\x -> SoftwareTokenMFAConfigType' <$> (x .:? "Enabled"))
+      ( \x ->
+          SoftwareTokenMFAConfigType' Lude.<$> (x Lude..:? "Enabled")
+      )
 
-instance Hashable SoftwareTokenMFAConfigType
-
-instance NFData SoftwareTokenMFAConfigType
-
-instance ToJSON SoftwareTokenMFAConfigType where
+instance Lude.ToJSON SoftwareTokenMFAConfigType where
   toJSON SoftwareTokenMFAConfigType' {..} =
-    object (catMaybes [("Enabled" .=) <$> _stmctEnabled])
+    Lude.object
+      (Lude.catMaybes [("Enabled" Lude..=) Lude.<$> enabled])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.ReloadOptionValue where
+module Network.AWS.DMS.Types.ReloadOptionValue
+  ( ReloadOptionValue
+      ( ReloadOptionValue',
+        DataReload,
+        ValidateOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReloadOptionValue
-  = DataReload
-  | ValidateOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReloadOptionValue = ReloadOptionValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReloadOptionValue where
-  parser =
-    takeLowerText >>= \case
-      "data-reload" -> pure DataReload
-      "validate-only" -> pure ValidateOnly
-      e ->
-        fromTextError $
-          "Failure parsing ReloadOptionValue from value: '" <> e
-            <> "'. Accepted values: data-reload, validate-only"
+pattern DataReload :: ReloadOptionValue
+pattern DataReload = ReloadOptionValue' "data-reload"
 
-instance ToText ReloadOptionValue where
-  toText = \case
-    DataReload -> "data-reload"
-    ValidateOnly -> "validate-only"
+pattern ValidateOnly :: ReloadOptionValue
+pattern ValidateOnly = ReloadOptionValue' "validate-only"
 
-instance Hashable ReloadOptionValue
-
-instance NFData ReloadOptionValue
-
-instance ToByteString ReloadOptionValue
-
-instance ToQuery ReloadOptionValue
-
-instance ToHeader ReloadOptionValue
-
-instance ToJSON ReloadOptionValue where
-  toJSON = toJSONText
+{-# COMPLETE
+  DataReload,
+  ValidateOnly,
+  ReloadOptionValue'
+  #-}

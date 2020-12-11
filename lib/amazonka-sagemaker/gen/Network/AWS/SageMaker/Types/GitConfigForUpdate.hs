@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.GitConfigForUpdate where
+module Network.AWS.SageMaker.Types.GitConfigForUpdate
+  ( GitConfigForUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGitConfigForUpdate,
+
+    -- * Lenses
+    gcfuSecretARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies configuration details for a Git repository when the repository is updated.
 --
---
---
--- /See:/ 'gitConfigForUpdate' smart constructor.
+-- /See:/ 'mkGitConfigForUpdate' smart constructor.
 newtype GitConfigForUpdate = GitConfigForUpdate'
-  { _gcfuSecretARN ::
-      Maybe Text
+  { secretARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitConfigForUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'secretARN' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
 --
--- * 'gcfuSecretARN' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format: @{"username": /UserName/ , "password": /Password/ }@
-gitConfigForUpdate ::
+-- @{"username": /UserName/ , "password": /Password/ }@
+mkGitConfigForUpdate ::
   GitConfigForUpdate
-gitConfigForUpdate = GitConfigForUpdate' {_gcfuSecretARN = Nothing}
+mkGitConfigForUpdate =
+  GitConfigForUpdate' {secretARN = Lude.Nothing}
 
--- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format: @{"username": /UserName/ , "password": /Password/ }@
-gcfuSecretARN :: Lens' GitConfigForUpdate (Maybe Text)
-gcfuSecretARN = lens _gcfuSecretARN (\s a -> s {_gcfuSecretARN = a})
+-- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
+--
+-- @{"username": /UserName/ , "password": /Password/ }@
+--
+-- /Note:/ Consider using 'secretARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfuSecretARN :: Lens.Lens' GitConfigForUpdate (Lude.Maybe Lude.Text)
+gcfuSecretARN = Lens.lens (secretARN :: GitConfigForUpdate -> Lude.Maybe Lude.Text) (\s a -> s {secretARN = a} :: GitConfigForUpdate)
+{-# DEPRECATED gcfuSecretARN "Use generic-lens or generic-optics with 'secretARN' instead." #-}
 
-instance Hashable GitConfigForUpdate
-
-instance NFData GitConfigForUpdate
-
-instance ToJSON GitConfigForUpdate where
+instance Lude.ToJSON GitConfigForUpdate where
   toJSON GitConfigForUpdate' {..} =
-    object (catMaybes [("SecretArn" .=) <$> _gcfuSecretARN])
+    Lude.object
+      (Lude.catMaybes [("SecretArn" Lude..=) Lude.<$> secretARN])

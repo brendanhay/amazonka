@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig where
+module Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
+  ( ElasticsearchDataSourceConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkElasticsearchDataSourceConfig,
+
+    -- * Lenses
+    edscEndpoint,
+    edscAwsRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Elasticsearch data source configuration.
 --
---
---
--- /See:/ 'elasticsearchDataSourceConfig' smart constructor.
+-- /See:/ 'mkElasticsearchDataSourceConfig' smart constructor.
 data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
-  { _edscEndpoint ::
-      !Text,
-    _edscAwsRegion :: !Text
+  { endpoint ::
+      Lude.Text,
+    awsRegion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDataSourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edscEndpoint' - The endpoint.
---
--- * 'edscAwsRegion' - The AWS Region.
-elasticsearchDataSourceConfig ::
-  -- | 'edscEndpoint'
-  Text ->
-  -- | 'edscAwsRegion'
-  Text ->
+-- * 'awsRegion' - The AWS Region.
+-- * 'endpoint' - The endpoint.
+mkElasticsearchDataSourceConfig ::
+  -- | 'endpoint'
+  Lude.Text ->
+  -- | 'awsRegion'
+  Lude.Text ->
   ElasticsearchDataSourceConfig
-elasticsearchDataSourceConfig pEndpoint_ pAwsRegion_ =
+mkElasticsearchDataSourceConfig pEndpoint_ pAwsRegion_ =
   ElasticsearchDataSourceConfig'
-    { _edscEndpoint = pEndpoint_,
-      _edscAwsRegion = pAwsRegion_
+    { endpoint = pEndpoint_,
+      awsRegion = pAwsRegion_
     }
 
 -- | The endpoint.
-edscEndpoint :: Lens' ElasticsearchDataSourceConfig Text
-edscEndpoint = lens _edscEndpoint (\s a -> s {_edscEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edscEndpoint :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
+edscEndpoint = Lens.lens (endpoint :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
+{-# DEPRECATED edscEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The AWS Region.
-edscAwsRegion :: Lens' ElasticsearchDataSourceConfig Text
-edscAwsRegion = lens _edscAwsRegion (\s a -> s {_edscAwsRegion = a})
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edscAwsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
+edscAwsRegion = Lens.lens (awsRegion :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: ElasticsearchDataSourceConfig)
+{-# DEPRECATED edscAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
-instance FromJSON ElasticsearchDataSourceConfig where
+instance Lude.FromJSON ElasticsearchDataSourceConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "ElasticsearchDataSourceConfig"
       ( \x ->
           ElasticsearchDataSourceConfig'
-            <$> (x .: "endpoint") <*> (x .: "awsRegion")
+            Lude.<$> (x Lude..: "endpoint") Lude.<*> (x Lude..: "awsRegion")
       )
 
-instance Hashable ElasticsearchDataSourceConfig
-
-instance NFData ElasticsearchDataSourceConfig
-
-instance ToJSON ElasticsearchDataSourceConfig where
+instance Lude.ToJSON ElasticsearchDataSourceConfig where
   toJSON ElasticsearchDataSourceConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("endpoint" .= _edscEndpoint),
-            Just ("awsRegion" .= _edscAwsRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("endpoint" Lude..= endpoint),
+            Lude.Just ("awsRegion" Lude..= awsRegion)
           ]
       )

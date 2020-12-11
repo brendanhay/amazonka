@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,20 @@
 --
 -- Lists the deployment configurations with the IAM user or AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
-  ( -- * Creating a Request
-    listDeploymentConfigs,
-    ListDeploymentConfigs,
+  ( -- * Creating a request
+    ListDeploymentConfigs (..),
+    mkListDeploymentConfigs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldcNextToken,
 
-    -- * Destructuring the Response
-    listDeploymentConfigsResponse,
-    ListDeploymentConfigsResponse,
+    -- * Destructuring the response
+    ListDeploymentConfigsResponse (..),
+    mkListDeploymentConfigsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldcrsNextToken,
     ldcrsDeploymentConfigsList,
     ldcrsResponseStatus,
@@ -42,123 +35,138 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ListDeploymentConfigs@ operation.
 --
---
---
--- /See:/ 'listDeploymentConfigs' smart constructor.
+-- /See:/ 'mkListDeploymentConfigs' smart constructor.
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
-  { _ldcNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentConfigs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldcNextToken' - An identifier returned from the previous @ListDeploymentConfigs@ call. It can be used to return the next set of deployment configurations in the list.
-listDeploymentConfigs ::
+-- * 'nextToken' - An identifier returned from the previous @ListDeploymentConfigs@ call. It can be used to return the next set of deployment configurations in the list.
+mkListDeploymentConfigs ::
   ListDeploymentConfigs
-listDeploymentConfigs =
-  ListDeploymentConfigs' {_ldcNextToken = Nothing}
+mkListDeploymentConfigs =
+  ListDeploymentConfigs' {nextToken = Lude.Nothing}
 
 -- | An identifier returned from the previous @ListDeploymentConfigs@ call. It can be used to return the next set of deployment configurations in the list.
-ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
-ldcNextToken = lens _ldcNextToken (\s a -> s {_ldcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcNextToken :: Lens.Lens' ListDeploymentConfigs (Lude.Maybe Lude.Text)
+ldcNextToken = Lens.lens (nextToken :: ListDeploymentConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentConfigs)
+{-# DEPRECATED ldcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListDeploymentConfigs where
+instance Page.AWSPager ListDeploymentConfigs where
   page rq rs
-    | stop (rs ^. ldcrsNextToken) = Nothing
-    | stop (rs ^. ldcrsDeploymentConfigsList) = Nothing
-    | otherwise = Just $ rq & ldcNextToken .~ rs ^. ldcrsNextToken
+    | Page.stop (rs Lens.^. ldcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldcrsDeploymentConfigsList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldcNextToken Lens..~ rs Lens.^. ldcrsNextToken
 
-instance AWSRequest ListDeploymentConfigs where
+instance Lude.AWSRequest ListDeploymentConfigs where
   type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDeploymentConfigsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "deploymentConfigsList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "deploymentConfigsList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDeploymentConfigs
-
-instance NFData ListDeploymentConfigs
-
-instance ToHeaders ListDeploymentConfigs where
+instance Lude.ToHeaders ListDeploymentConfigs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.ListDeploymentConfigs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.ListDeploymentConfigs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDeploymentConfigs where
+instance Lude.ToJSON ListDeploymentConfigs where
   toJSON ListDeploymentConfigs' {..} =
-    object (catMaybes [("nextToken" .=) <$> _ldcNextToken])
+    Lude.object
+      (Lude.catMaybes [("nextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath ListDeploymentConfigs where
-  toPath = const "/"
+instance Lude.ToPath ListDeploymentConfigs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDeploymentConfigs where
-  toQuery = const mempty
+instance Lude.ToQuery ListDeploymentConfigs where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @ListDeploymentConfigs@ operation.
 --
---
---
--- /See:/ 'listDeploymentConfigsResponse' smart constructor.
+-- /See:/ 'mkListDeploymentConfigsResponse' smart constructor.
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-  { _ldcrsNextToken ::
-      !(Maybe Text),
-    _ldcrsDeploymentConfigsList ::
-      !(Maybe [Text]),
-    _ldcrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    deploymentConfigsList ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentConfigsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldcrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
---
--- * 'ldcrsDeploymentConfigsList' - A list of deployment configurations, including built-in configurations such as @CodeDeployDefault.OneAtATime@ .
---
--- * 'ldcrsResponseStatus' - -- | The response status code.
-listDeploymentConfigsResponse ::
-  -- | 'ldcrsResponseStatus'
-  Int ->
+-- * 'deploymentConfigsList' - A list of deployment configurations, including built-in configurations such as @CodeDeployDefault.OneAtATime@ .
+-- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
+-- * 'responseStatus' - The response status code.
+mkListDeploymentConfigsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDeploymentConfigsResponse
-listDeploymentConfigsResponse pResponseStatus_ =
+mkListDeploymentConfigsResponse pResponseStatus_ =
   ListDeploymentConfigsResponse'
-    { _ldcrsNextToken = Nothing,
-      _ldcrsDeploymentConfigsList = Nothing,
-      _ldcrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      deploymentConfigsList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
-ldcrsNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
-ldcrsNextToken = lens _ldcrsNextToken (\s a -> s {_ldcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsNextToken :: Lens.Lens' ListDeploymentConfigsResponse (Lude.Maybe Lude.Text)
+ldcrsNextToken = Lens.lens (nextToken :: ListDeploymentConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentConfigsResponse)
+{-# DEPRECATED ldcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of deployment configurations, including built-in configurations such as @CodeDeployDefault.OneAtATime@ .
-ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
-ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\s a -> s {_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deploymentConfigsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsDeploymentConfigsList :: Lens.Lens' ListDeploymentConfigsResponse (Lude.Maybe [Lude.Text])
+ldcrsDeploymentConfigsList = Lens.lens (deploymentConfigsList :: ListDeploymentConfigsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {deploymentConfigsList = a} :: ListDeploymentConfigsResponse)
+{-# DEPRECATED ldcrsDeploymentConfigsList "Use generic-lens or generic-optics with 'deploymentConfigsList' instead." #-}
 
--- | -- | The response status code.
-ldcrsResponseStatus :: Lens' ListDeploymentConfigsResponse Int
-ldcrsResponseStatus = lens _ldcrsResponseStatus (\s a -> s {_ldcrsResponseStatus = a})
-
-instance NFData ListDeploymentConfigsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsResponseStatus :: Lens.Lens' ListDeploymentConfigsResponse Lude.Int
+ldcrsResponseStatus = Lens.lens (responseStatus :: ListDeploymentConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeploymentConfigsResponse)
+{-# DEPRECATED ldcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

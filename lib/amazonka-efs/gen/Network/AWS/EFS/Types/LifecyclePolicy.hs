@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.LifecyclePolicy where
+module Network.AWS.EFS.Types.LifecyclePolicy
+  ( LifecyclePolicy (..),
+
+    -- * Smart constructor
+    mkLifecyclePolicy,
+
+    -- * Lenses
+    lpTransitionToIA,
+  )
+where
 
 import Network.AWS.EFS.Types.TransitionToIARules
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.
 --
---
---
--- /See:/ 'lifecyclePolicy' smart constructor.
+-- /See:/ 'mkLifecyclePolicy' smart constructor.
 newtype LifecyclePolicy = LifecyclePolicy'
-  { _lpTransitionToIA ::
-      Maybe TransitionToIARules
+  { transitionToIA ::
+      Lude.Maybe TransitionToIARules
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecyclePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpTransitionToIA' - A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
-lifecyclePolicy ::
+-- * 'transitionToIA' - A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
+mkLifecyclePolicy ::
   LifecyclePolicy
-lifecyclePolicy = LifecyclePolicy' {_lpTransitionToIA = Nothing}
+mkLifecyclePolicy = LifecyclePolicy' {transitionToIA = Lude.Nothing}
 
 -- | A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
-lpTransitionToIA :: Lens' LifecyclePolicy (Maybe TransitionToIARules)
-lpTransitionToIA = lens _lpTransitionToIA (\s a -> s {_lpTransitionToIA = a})
+--
+-- /Note:/ Consider using 'transitionToIA' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpTransitionToIA :: Lens.Lens' LifecyclePolicy (Lude.Maybe TransitionToIARules)
+lpTransitionToIA = Lens.lens (transitionToIA :: LifecyclePolicy -> Lude.Maybe TransitionToIARules) (\s a -> s {transitionToIA = a} :: LifecyclePolicy)
+{-# DEPRECATED lpTransitionToIA "Use generic-lens or generic-optics with 'transitionToIA' instead." #-}
 
-instance FromJSON LifecyclePolicy where
+instance Lude.FromJSON LifecyclePolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "LifecyclePolicy"
-      (\x -> LifecyclePolicy' <$> (x .:? "TransitionToIA"))
+      (\x -> LifecyclePolicy' Lude.<$> (x Lude..:? "TransitionToIA"))
 
-instance Hashable LifecyclePolicy
-
-instance NFData LifecyclePolicy
-
-instance ToJSON LifecyclePolicy where
+instance Lude.ToJSON LifecyclePolicy where
   toJSON LifecyclePolicy' {..} =
-    object (catMaybes [("TransitionToIA" .=) <$> _lpTransitionToIA])
+    Lude.object
+      ( Lude.catMaybes
+          [("TransitionToIA" Lude..=) Lude.<$> transitionToIA]
+      )

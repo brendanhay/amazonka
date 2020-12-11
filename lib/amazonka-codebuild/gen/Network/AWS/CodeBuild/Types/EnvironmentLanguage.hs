@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.EnvironmentLanguage where
+module Network.AWS.CodeBuild.Types.EnvironmentLanguage
+  ( EnvironmentLanguage (..),
+
+    -- * Smart constructor
+    mkEnvironmentLanguage,
+
+    -- * Lenses
+    elImages,
+    elLanguage,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.EnvironmentImage
 import Network.AWS.CodeBuild.Types.LanguageType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A set of Docker images that are related by programming language and are managed by AWS CodeBuild.
 --
---
---
--- /See:/ 'environmentLanguage' smart constructor.
+-- /See:/ 'mkEnvironmentLanguage' smart constructor.
 data EnvironmentLanguage = EnvironmentLanguage'
-  { _elImages ::
-      !(Maybe [EnvironmentImage]),
-    _elLanguage :: !(Maybe LanguageType)
+  { images ::
+      Lude.Maybe [EnvironmentImage],
+    language :: Lude.Maybe LanguageType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentLanguage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'elImages' - The list of Docker images that are related by the specified programming language.
---
--- * 'elLanguage' - The programming language for the Docker images.
-environmentLanguage ::
+-- * 'images' - The list of Docker images that are related by the specified programming language.
+-- * 'language' - The programming language for the Docker images.
+mkEnvironmentLanguage ::
   EnvironmentLanguage
-environmentLanguage =
-  EnvironmentLanguage' {_elImages = Nothing, _elLanguage = Nothing}
+mkEnvironmentLanguage =
+  EnvironmentLanguage'
+    { images = Lude.Nothing,
+      language = Lude.Nothing
+    }
 
 -- | The list of Docker images that are related by the specified programming language.
-elImages :: Lens' EnvironmentLanguage [EnvironmentImage]
-elImages = lens _elImages (\s a -> s {_elImages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elImages :: Lens.Lens' EnvironmentLanguage (Lude.Maybe [EnvironmentImage])
+elImages = Lens.lens (images :: EnvironmentLanguage -> Lude.Maybe [EnvironmentImage]) (\s a -> s {images = a} :: EnvironmentLanguage)
+{-# DEPRECATED elImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | The programming language for the Docker images.
-elLanguage :: Lens' EnvironmentLanguage (Maybe LanguageType)
-elLanguage = lens _elLanguage (\s a -> s {_elLanguage = a})
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elLanguage :: Lens.Lens' EnvironmentLanguage (Lude.Maybe LanguageType)
+elLanguage = Lens.lens (language :: EnvironmentLanguage -> Lude.Maybe LanguageType) (\s a -> s {language = a} :: EnvironmentLanguage)
+{-# DEPRECATED elLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
-instance FromJSON EnvironmentLanguage where
+instance Lude.FromJSON EnvironmentLanguage where
   parseJSON =
-    withObject
+    Lude.withObject
       "EnvironmentLanguage"
       ( \x ->
           EnvironmentLanguage'
-            <$> (x .:? "images" .!= mempty) <*> (x .:? "language")
+            Lude.<$> (x Lude..:? "images" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "language")
       )
-
-instance Hashable EnvironmentLanguage
-
-instance NFData EnvironmentLanguage

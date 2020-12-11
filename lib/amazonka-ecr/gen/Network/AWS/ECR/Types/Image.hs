@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.Image where
+module Network.AWS.ECR.Types.Image
+  ( Image (..),
+
+    -- * Smart constructor
+    mkImage,
+
+    -- * Lenses
+    iRegistryId,
+    iImageManifestMediaType,
+    iImageId,
+    iRepositoryName,
+    iImageManifest,
+  )
+where
 
 import Network.AWS.ECR.Types.ImageIdentifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing an Amazon ECR image.
 --
---
---
--- /See:/ 'image' smart constructor.
+-- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { _iRegistryId :: !(Maybe Text),
-    _iImageManifestMediaType :: !(Maybe Text),
-    _iImageId :: !(Maybe ImageIdentifier),
-    _iRepositoryName :: !(Maybe Text),
-    _iImageManifest :: !(Maybe Text)
+  { registryId :: Lude.Maybe Lude.Text,
+    imageManifestMediaType :: Lude.Maybe Lude.Text,
+    imageId :: Lude.Maybe ImageIdentifier,
+    repositoryName :: Lude.Maybe Lude.Text,
+    imageManifest :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iRegistryId' - The AWS account ID associated with the registry containing the image.
---
--- * 'iImageManifestMediaType' - The manifest media type of the image.
---
--- * 'iImageId' - An object containing the image tag and image digest associated with an image.
---
--- * 'iRepositoryName' - The name of the repository associated with the image.
---
--- * 'iImageManifest' - The image manifest associated with the image.
-image ::
+-- * 'imageId' - An object containing the image tag and image digest associated with an image.
+-- * 'imageManifest' - The image manifest associated with the image.
+-- * 'imageManifestMediaType' - The manifest media type of the image.
+-- * 'registryId' - The AWS account ID associated with the registry containing the image.
+-- * 'repositoryName' - The name of the repository associated with the image.
+mkImage ::
   Image
-image =
+mkImage =
   Image'
-    { _iRegistryId = Nothing,
-      _iImageManifestMediaType = Nothing,
-      _iImageId = Nothing,
-      _iRepositoryName = Nothing,
-      _iImageManifest = Nothing
+    { registryId = Lude.Nothing,
+      imageManifestMediaType = Lude.Nothing,
+      imageId = Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      imageManifest = Lude.Nothing
     }
 
 -- | The AWS account ID associated with the registry containing the image.
-iRegistryId :: Lens' Image (Maybe Text)
-iRegistryId = lens _iRegistryId (\s a -> s {_iRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRegistryId :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iRegistryId = Lens.lens (registryId :: Image -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: Image)
+{-# DEPRECATED iRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The manifest media type of the image.
-iImageManifestMediaType :: Lens' Image (Maybe Text)
-iImageManifestMediaType = lens _iImageManifestMediaType (\s a -> s {_iImageManifestMediaType = a})
+--
+-- /Note:/ Consider using 'imageManifestMediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageManifestMediaType :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iImageManifestMediaType = Lens.lens (imageManifestMediaType :: Image -> Lude.Maybe Lude.Text) (\s a -> s {imageManifestMediaType = a} :: Image)
+{-# DEPRECATED iImageManifestMediaType "Use generic-lens or generic-optics with 'imageManifestMediaType' instead." #-}
 
 -- | An object containing the image tag and image digest associated with an image.
-iImageId :: Lens' Image (Maybe ImageIdentifier)
-iImageId = lens _iImageId (\s a -> s {_iImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageId :: Lens.Lens' Image (Lude.Maybe ImageIdentifier)
+iImageId = Lens.lens (imageId :: Image -> Lude.Maybe ImageIdentifier) (\s a -> s {imageId = a} :: Image)
+{-# DEPRECATED iImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The name of the repository associated with the image.
-iRepositoryName :: Lens' Image (Maybe Text)
-iRepositoryName = lens _iRepositoryName (\s a -> s {_iRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRepositoryName :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iRepositoryName = Lens.lens (repositoryName :: Image -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: Image)
+{-# DEPRECATED iRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The image manifest associated with the image.
-iImageManifest :: Lens' Image (Maybe Text)
-iImageManifest = lens _iImageManifest (\s a -> s {_iImageManifest = a})
+--
+-- /Note:/ Consider using 'imageManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageManifest :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iImageManifest = Lens.lens (imageManifest :: Image -> Lude.Maybe Lude.Text) (\s a -> s {imageManifest = a} :: Image)
+{-# DEPRECATED iImageManifest "Use generic-lens or generic-optics with 'imageManifest' instead." #-}
 
-instance FromJSON Image where
+instance Lude.FromJSON Image where
   parseJSON =
-    withObject
+    Lude.withObject
       "Image"
       ( \x ->
           Image'
-            <$> (x .:? "registryId")
-            <*> (x .:? "imageManifestMediaType")
-            <*> (x .:? "imageId")
-            <*> (x .:? "repositoryName")
-            <*> (x .:? "imageManifest")
+            Lude.<$> (x Lude..:? "registryId")
+            Lude.<*> (x Lude..:? "imageManifestMediaType")
+            Lude.<*> (x Lude..:? "imageId")
+            Lude.<*> (x Lude..:? "repositoryName")
+            Lude.<*> (x Lude..:? "imageManifest")
       )
-
-instance Hashable Image
-
-instance NFData Image

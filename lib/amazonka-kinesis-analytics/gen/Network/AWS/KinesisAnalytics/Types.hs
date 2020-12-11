@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types
-  ( -- * Service Configuration
-    kinesisAnalytics,
+  ( -- * Service configuration
+    kinesisAnalyticsService,
 
     -- * Errors
 
@@ -25,8 +23,8 @@ module Network.AWS.KinesisAnalytics.Types
     RecordFormatType (..),
 
     -- * ApplicationDetail
-    ApplicationDetail,
-    applicationDetail,
+    ApplicationDetail (..),
+    mkApplicationDetail,
     adApplicationDescription,
     adOutputDescriptions,
     adCloudWatchLoggingOptionDescriptions,
@@ -41,15 +39,15 @@ module Network.AWS.KinesisAnalytics.Types
     adApplicationVersionId,
 
     -- * ApplicationSummary
-    ApplicationSummary,
-    applicationSummary,
+    ApplicationSummary (..),
+    mkApplicationSummary,
     asApplicationName,
     asApplicationARN,
     asApplicationStatus,
 
     -- * ApplicationUpdate
-    ApplicationUpdate,
-    applicationUpdate,
+    ApplicationUpdate (..),
+    mkApplicationUpdate,
     auReferenceDataSourceUpdates,
     auInputUpdates,
     auCloudWatchLoggingOptionUpdates,
@@ -57,39 +55,39 @@ module Network.AWS.KinesisAnalytics.Types
     auApplicationCodeUpdate,
 
     -- * CSVMappingParameters
-    CSVMappingParameters,
-    csvMappingParameters,
+    CSVMappingParameters (..),
+    mkCSVMappingParameters,
     cmpRecordRowDelimiter,
     cmpRecordColumnDelimiter,
 
     -- * CloudWatchLoggingOption
-    CloudWatchLoggingOption,
-    cloudWatchLoggingOption,
+    CloudWatchLoggingOption (..),
+    mkCloudWatchLoggingOption,
     cwloLogStreamARN,
     cwloRoleARN,
 
     -- * CloudWatchLoggingOptionDescription
-    CloudWatchLoggingOptionDescription,
-    cloudWatchLoggingOptionDescription,
+    CloudWatchLoggingOptionDescription (..),
+    mkCloudWatchLoggingOptionDescription,
     cwlodCloudWatchLoggingOptionId,
     cwlodLogStreamARN,
     cwlodRoleARN,
 
     -- * CloudWatchLoggingOptionUpdate
-    CloudWatchLoggingOptionUpdate,
-    cloudWatchLoggingOptionUpdate,
+    CloudWatchLoggingOptionUpdate (..),
+    mkCloudWatchLoggingOptionUpdate,
     cwlouRoleARNUpdate,
     cwlouLogStreamARNUpdate,
     cwlouCloudWatchLoggingOptionId,
 
     -- * DestinationSchema
-    DestinationSchema,
-    destinationSchema,
+    DestinationSchema (..),
+    mkDestinationSchema,
     dsRecordFormatType,
 
     -- * Input
-    Input,
-    input,
+    Input (..),
+    mkInput,
     iInputParallelism,
     iInputProcessingConfiguration,
     iKinesisStreamsInput,
@@ -98,14 +96,14 @@ module Network.AWS.KinesisAnalytics.Types
     iInputSchema,
 
     -- * InputConfiguration
-    InputConfiguration,
-    inputConfiguration,
+    InputConfiguration (..),
+    mkInputConfiguration,
     icId,
     icInputStartingPositionConfiguration,
 
     -- * InputDescription
-    InputDescription,
-    inputDescription,
+    InputDescription (..),
+    mkInputDescription,
     idInputStartingPositionConfiguration,
     idInputParallelism,
     idInputId,
@@ -117,63 +115,63 @@ module Network.AWS.KinesisAnalytics.Types
     idInputProcessingConfigurationDescription,
 
     -- * InputLambdaProcessor
-    InputLambdaProcessor,
-    inputLambdaProcessor,
+    InputLambdaProcessor (..),
+    mkInputLambdaProcessor,
     ilpResourceARN,
     ilpRoleARN,
 
     -- * InputLambdaProcessorDescription
-    InputLambdaProcessorDescription,
-    inputLambdaProcessorDescription,
+    InputLambdaProcessorDescription (..),
+    mkInputLambdaProcessorDescription,
     ilpdResourceARN,
     ilpdRoleARN,
 
     -- * InputLambdaProcessorUpdate
-    InputLambdaProcessorUpdate,
-    inputLambdaProcessorUpdate,
+    InputLambdaProcessorUpdate (..),
+    mkInputLambdaProcessorUpdate,
     ilpuRoleARNUpdate,
     ilpuResourceARNUpdate,
 
     -- * InputParallelism
-    InputParallelism,
-    inputParallelism,
+    InputParallelism (..),
+    mkInputParallelism,
     ipCount,
 
     -- * InputParallelismUpdate
-    InputParallelismUpdate,
-    inputParallelismUpdate,
+    InputParallelismUpdate (..),
+    mkInputParallelismUpdate,
     ipuCountUpdate,
 
     -- * InputProcessingConfiguration
-    InputProcessingConfiguration,
-    inputProcessingConfiguration,
+    InputProcessingConfiguration (..),
+    mkInputProcessingConfiguration,
     ipcInputLambdaProcessor,
 
     -- * InputProcessingConfigurationDescription
-    InputProcessingConfigurationDescription,
-    inputProcessingConfigurationDescription,
+    InputProcessingConfigurationDescription (..),
+    mkInputProcessingConfigurationDescription,
     ipcdInputLambdaProcessorDescription,
 
     -- * InputProcessingConfigurationUpdate
-    InputProcessingConfigurationUpdate,
-    inputProcessingConfigurationUpdate,
+    InputProcessingConfigurationUpdate (..),
+    mkInputProcessingConfigurationUpdate,
     ipcuInputLambdaProcessorUpdate,
 
     -- * InputSchemaUpdate
-    InputSchemaUpdate,
-    inputSchemaUpdate,
+    InputSchemaUpdate (..),
+    mkInputSchemaUpdate,
     isuRecordFormatUpdate,
     isuRecordEncodingUpdate,
     isuRecordColumnUpdates,
 
     -- * InputStartingPositionConfiguration
-    InputStartingPositionConfiguration,
-    inputStartingPositionConfiguration,
+    InputStartingPositionConfiguration (..),
+    mkInputStartingPositionConfiguration,
     ispcInputStartingPosition,
 
     -- * InputUpdate
-    InputUpdate,
-    inputUpdate,
+    InputUpdate (..),
+    mkInputUpdate,
     iuInputProcessingConfigurationUpdate,
     iuKinesisStreamsInputUpdate,
     iuInputParallelismUpdate,
@@ -183,109 +181,109 @@ module Network.AWS.KinesisAnalytics.Types
     iuInputId,
 
     -- * JSONMappingParameters
-    JSONMappingParameters,
-    jsonMappingParameters,
+    JSONMappingParameters (..),
+    mkJSONMappingParameters,
     jmpRecordRowPath,
 
     -- * KinesisFirehoseInput
-    KinesisFirehoseInput,
-    kinesisFirehoseInput,
+    KinesisFirehoseInput (..),
+    mkKinesisFirehoseInput,
     kfiResourceARN,
     kfiRoleARN,
 
     -- * KinesisFirehoseInputDescription
-    KinesisFirehoseInputDescription,
-    kinesisFirehoseInputDescription,
+    KinesisFirehoseInputDescription (..),
+    mkKinesisFirehoseInputDescription,
     kfidResourceARN,
     kfidRoleARN,
 
     -- * KinesisFirehoseInputUpdate
-    KinesisFirehoseInputUpdate,
-    kinesisFirehoseInputUpdate,
+    KinesisFirehoseInputUpdate (..),
+    mkKinesisFirehoseInputUpdate,
     kfiuRoleARNUpdate,
     kfiuResourceARNUpdate,
 
     -- * KinesisFirehoseOutput
-    KinesisFirehoseOutput,
-    kinesisFirehoseOutput,
+    KinesisFirehoseOutput (..),
+    mkKinesisFirehoseOutput,
     kfoResourceARN,
     kfoRoleARN,
 
     -- * KinesisFirehoseOutputDescription
-    KinesisFirehoseOutputDescription,
-    kinesisFirehoseOutputDescription,
+    KinesisFirehoseOutputDescription (..),
+    mkKinesisFirehoseOutputDescription,
     kfodResourceARN,
     kfodRoleARN,
 
     -- * KinesisFirehoseOutputUpdate
-    KinesisFirehoseOutputUpdate,
-    kinesisFirehoseOutputUpdate,
+    KinesisFirehoseOutputUpdate (..),
+    mkKinesisFirehoseOutputUpdate,
     kfouRoleARNUpdate,
     kfouResourceARNUpdate,
 
     -- * KinesisStreamsInput
-    KinesisStreamsInput,
-    kinesisStreamsInput,
+    KinesisStreamsInput (..),
+    mkKinesisStreamsInput,
     ksiResourceARN,
     ksiRoleARN,
 
     -- * KinesisStreamsInputDescription
-    KinesisStreamsInputDescription,
-    kinesisStreamsInputDescription,
+    KinesisStreamsInputDescription (..),
+    mkKinesisStreamsInputDescription,
     ksidResourceARN,
     ksidRoleARN,
 
     -- * KinesisStreamsInputUpdate
-    KinesisStreamsInputUpdate,
-    kinesisStreamsInputUpdate,
+    KinesisStreamsInputUpdate (..),
+    mkKinesisStreamsInputUpdate,
     ksiuRoleARNUpdate,
     ksiuResourceARNUpdate,
 
     -- * KinesisStreamsOutput
-    KinesisStreamsOutput,
-    kinesisStreamsOutput,
+    KinesisStreamsOutput (..),
+    mkKinesisStreamsOutput,
     ksoResourceARN,
     ksoRoleARN,
 
     -- * KinesisStreamsOutputDescription
-    KinesisStreamsOutputDescription,
-    kinesisStreamsOutputDescription,
+    KinesisStreamsOutputDescription (..),
+    mkKinesisStreamsOutputDescription,
     ksodResourceARN,
     ksodRoleARN,
 
     -- * KinesisStreamsOutputUpdate
-    KinesisStreamsOutputUpdate,
-    kinesisStreamsOutputUpdate,
+    KinesisStreamsOutputUpdate (..),
+    mkKinesisStreamsOutputUpdate,
     ksouRoleARNUpdate,
     ksouResourceARNUpdate,
 
     -- * LambdaOutput
-    LambdaOutput,
-    lambdaOutput,
+    LambdaOutput (..),
+    mkLambdaOutput,
     loResourceARN,
     loRoleARN,
 
     -- * LambdaOutputDescription
-    LambdaOutputDescription,
-    lambdaOutputDescription,
+    LambdaOutputDescription (..),
+    mkLambdaOutputDescription,
     lodResourceARN,
     lodRoleARN,
 
     -- * LambdaOutputUpdate
-    LambdaOutputUpdate,
-    lambdaOutputUpdate,
+    LambdaOutputUpdate (..),
+    mkLambdaOutputUpdate,
     louRoleARNUpdate,
     louResourceARNUpdate,
 
     -- * MappingParameters
-    MappingParameters,
-    mappingParameters,
+    MappingParameters (..),
+    mkMappingParameters,
     mpCSVMappingParameters,
     mpJSONMappingParameters,
 
     -- * Output
-    Output,
-    output,
+    Output (..),
+    mkOutput,
     oLambdaOutput,
     oKinesisStreamsOutput,
     oKinesisFirehoseOutput,
@@ -293,8 +291,8 @@ module Network.AWS.KinesisAnalytics.Types
     oDestinationSchema,
 
     -- * OutputDescription
-    OutputDescription,
-    outputDescription,
+    OutputDescription (..),
+    mkOutputDescription,
     odOutputId,
     odDestinationSchema,
     odKinesisFirehoseOutputDescription,
@@ -303,8 +301,8 @@ module Network.AWS.KinesisAnalytics.Types
     odLambdaOutputDescription,
 
     -- * OutputUpdate
-    OutputUpdate,
-    outputUpdate,
+    OutputUpdate (..),
+    mkOutputUpdate,
     ouKinesisStreamsOutputUpdate,
     ouDestinationSchemaUpdate,
     ouKinesisFirehoseOutputUpdate,
@@ -313,81 +311,81 @@ module Network.AWS.KinesisAnalytics.Types
     ouOutputId,
 
     -- * RecordColumn
-    RecordColumn,
-    recordColumn,
+    RecordColumn (..),
+    mkRecordColumn,
     rcMapping,
     rcName,
     rcSqlType,
 
     -- * RecordFormat
-    RecordFormat,
-    recordFormat,
+    RecordFormat (..),
+    mkRecordFormat,
     rfMappingParameters,
     rfRecordFormatType,
 
     -- * ReferenceDataSource
-    ReferenceDataSource,
-    referenceDataSource,
+    ReferenceDataSource (..),
+    mkReferenceDataSource,
     rdsS3ReferenceDataSource,
     rdsTableName,
     rdsReferenceSchema,
 
     -- * ReferenceDataSourceDescription
-    ReferenceDataSourceDescription,
-    referenceDataSourceDescription,
+    ReferenceDataSourceDescription (..),
+    mkReferenceDataSourceDescription,
     rdsdReferenceSchema,
     rdsdReferenceId,
     rdsdTableName,
     rdsdS3ReferenceDataSourceDescription,
 
     -- * ReferenceDataSourceUpdate
-    ReferenceDataSourceUpdate,
-    referenceDataSourceUpdate,
+    ReferenceDataSourceUpdate (..),
+    mkReferenceDataSourceUpdate,
     rdsuTableNameUpdate,
     rdsuS3ReferenceDataSourceUpdate,
     rdsuReferenceSchemaUpdate,
     rdsuReferenceId,
 
     -- * S3Configuration
-    S3Configuration,
-    s3Configuration,
+    S3Configuration (..),
+    mkS3Configuration,
     scRoleARN,
     scBucketARN,
     scFileKey,
 
     -- * S3ReferenceDataSource
-    S3ReferenceDataSource,
-    s3ReferenceDataSource,
+    S3ReferenceDataSource (..),
+    mkS3ReferenceDataSource,
     srdsBucketARN,
     srdsFileKey,
     srdsReferenceRoleARN,
 
     -- * S3ReferenceDataSourceDescription
-    S3ReferenceDataSourceDescription,
-    s3ReferenceDataSourceDescription,
+    S3ReferenceDataSourceDescription (..),
+    mkS3ReferenceDataSourceDescription,
     srdsdBucketARN,
     srdsdFileKey,
     srdsdReferenceRoleARN,
 
     -- * S3ReferenceDataSourceUpdate
-    S3ReferenceDataSourceUpdate,
-    s3ReferenceDataSourceUpdate,
+    S3ReferenceDataSourceUpdate (..),
+    mkS3ReferenceDataSourceUpdate,
     srdsuBucketARNUpdate,
     srdsuFileKeyUpdate,
     srdsuReferenceRoleARNUpdate,
 
     -- * SourceSchema
-    SourceSchema,
-    sourceSchema,
+    SourceSchema (..),
+    mkSourceSchema,
     ssRecordEncoding,
     ssRecordFormat,
     ssRecordColumns,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
   )
 where
 
@@ -447,48 +445,60 @@ import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
 import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
 import Network.AWS.KinesisAnalytics.Types.SourceSchema
 import Network.AWS.KinesisAnalytics.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-08-14@ of the Amazon Kinesis Analytics SDK configuration.
-kinesisAnalytics :: Service
-kinesisAnalytics =
-  Service
-    { _svcAbbrev = "KinesisAnalytics",
-      _svcSigner = v4,
-      _svcPrefix = "kinesisanalytics",
-      _svcVersion = "2015-08-14",
-      _svcEndpoint = defaultEndpoint kinesisAnalytics,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "KinesisAnalytics",
-      _svcRetry = retry
+kinesisAnalyticsService :: Lude.Service
+kinesisAnalyticsService =
+  Lude.Service
+    { Lude._svcAbbrev = "KinesisAnalytics",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "kinesisanalytics",
+      Lude._svcVersion = "2015-08-14",
+      Lude._svcEndpoint = Lude.defaultEndpoint kinesisAnalyticsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "KinesisAnalytics",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

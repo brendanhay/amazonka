@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,137 @@
 --
 -- Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.
 module Network.AWS.CodeCommit.UpdatePullRequestApprovalState
-  ( -- * Creating a Request
-    updatePullRequestApprovalState,
-    UpdatePullRequestApprovalState,
+  ( -- * Creating a request
+    UpdatePullRequestApprovalState (..),
+    mkUpdatePullRequestApprovalState,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uprasPullRequestId,
     uprasRevisionId,
     uprasApprovalState,
 
-    -- * Destructuring the Response
-    updatePullRequestApprovalStateResponse,
-    UpdatePullRequestApprovalStateResponse,
+    -- * Destructuring the response
+    UpdatePullRequestApprovalStateResponse (..),
+    mkUpdatePullRequestApprovalStateResponse,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePullRequestApprovalState' smart constructor.
+-- | /See:/ 'mkUpdatePullRequestApprovalState' smart constructor.
 data UpdatePullRequestApprovalState = UpdatePullRequestApprovalState'
-  { _uprasPullRequestId ::
-      !Text,
-    _uprasRevisionId :: !Text,
-    _uprasApprovalState ::
-      !ApprovalState
+  { pullRequestId ::
+      Lude.Text,
+    revisionId :: Lude.Text,
+    approvalState ::
+      ApprovalState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePullRequestApprovalState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprasPullRequestId' - The system-generated ID of the pull request.
---
--- * 'uprasRevisionId' - The system-generated ID of the revision.
---
--- * 'uprasApprovalState' - The approval state to associate with the user on the pull request.
-updatePullRequestApprovalState ::
-  -- | 'uprasPullRequestId'
-  Text ->
-  -- | 'uprasRevisionId'
-  Text ->
-  -- | 'uprasApprovalState'
+-- * 'approvalState' - The approval state to associate with the user on the pull request.
+-- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'revisionId' - The system-generated ID of the revision.
+mkUpdatePullRequestApprovalState ::
+  -- | 'pullRequestId'
+  Lude.Text ->
+  -- | 'revisionId'
+  Lude.Text ->
+  -- | 'approvalState'
   ApprovalState ->
   UpdatePullRequestApprovalState
-updatePullRequestApprovalState
+mkUpdatePullRequestApprovalState
   pPullRequestId_
   pRevisionId_
   pApprovalState_ =
     UpdatePullRequestApprovalState'
-      { _uprasPullRequestId =
-          pPullRequestId_,
-        _uprasRevisionId = pRevisionId_,
-        _uprasApprovalState = pApprovalState_
+      { pullRequestId = pPullRequestId_,
+        revisionId = pRevisionId_,
+        approvalState = pApprovalState_
       }
 
 -- | The system-generated ID of the pull request.
-uprasPullRequestId :: Lens' UpdatePullRequestApprovalState Text
-uprasPullRequestId = lens _uprasPullRequestId (\s a -> s {_uprasPullRequestId = a})
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprasPullRequestId :: Lens.Lens' UpdatePullRequestApprovalState Lude.Text
+uprasPullRequestId = Lens.lens (pullRequestId :: UpdatePullRequestApprovalState -> Lude.Text) (\s a -> s {pullRequestId = a} :: UpdatePullRequestApprovalState)
+{-# DEPRECATED uprasPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The system-generated ID of the revision.
-uprasRevisionId :: Lens' UpdatePullRequestApprovalState Text
-uprasRevisionId = lens _uprasRevisionId (\s a -> s {_uprasRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprasRevisionId :: Lens.Lens' UpdatePullRequestApprovalState Lude.Text
+uprasRevisionId = Lens.lens (revisionId :: UpdatePullRequestApprovalState -> Lude.Text) (\s a -> s {revisionId = a} :: UpdatePullRequestApprovalState)
+{-# DEPRECATED uprasRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 -- | The approval state to associate with the user on the pull request.
-uprasApprovalState :: Lens' UpdatePullRequestApprovalState ApprovalState
-uprasApprovalState = lens _uprasApprovalState (\s a -> s {_uprasApprovalState = a})
+--
+-- /Note:/ Consider using 'approvalState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprasApprovalState :: Lens.Lens' UpdatePullRequestApprovalState ApprovalState
+uprasApprovalState = Lens.lens (approvalState :: UpdatePullRequestApprovalState -> ApprovalState) (\s a -> s {approvalState = a} :: UpdatePullRequestApprovalState)
+{-# DEPRECATED uprasApprovalState "Use generic-lens or generic-optics with 'approvalState' instead." #-}
 
-instance AWSRequest UpdatePullRequestApprovalState where
+instance Lude.AWSRequest UpdatePullRequestApprovalState where
   type
     Rs UpdatePullRequestApprovalState =
       UpdatePullRequestApprovalStateResponse
-  request = postJSON codeCommit
-  response = receiveNull UpdatePullRequestApprovalStateResponse'
+  request = Req.postJSON codeCommitService
+  response = Res.receiveNull UpdatePullRequestApprovalStateResponse'
 
-instance Hashable UpdatePullRequestApprovalState
-
-instance NFData UpdatePullRequestApprovalState
-
-instance ToHeaders UpdatePullRequestApprovalState where
+instance Lude.ToHeaders UpdatePullRequestApprovalState where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodeCommit_20150413.UpdatePullRequestApprovalState" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.UpdatePullRequestApprovalState" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdatePullRequestApprovalState where
+instance Lude.ToJSON UpdatePullRequestApprovalState where
   toJSON UpdatePullRequestApprovalState' {..} =
-    object
-      ( catMaybes
-          [ Just ("pullRequestId" .= _uprasPullRequestId),
-            Just ("revisionId" .= _uprasRevisionId),
-            Just ("approvalState" .= _uprasApprovalState)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("revisionId" Lude..= revisionId),
+            Lude.Just ("approvalState" Lude..= approvalState)
           ]
       )
 
-instance ToPath UpdatePullRequestApprovalState where
-  toPath = const "/"
+instance Lude.ToPath UpdatePullRequestApprovalState where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdatePullRequestApprovalState where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePullRequestApprovalState where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePullRequestApprovalStateResponse' smart constructor.
+-- | /See:/ 'mkUpdatePullRequestApprovalStateResponse' smart constructor.
 data UpdatePullRequestApprovalStateResponse = UpdatePullRequestApprovalStateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePullRequestApprovalStateResponse' with the minimum fields required to make a request.
-updatePullRequestApprovalStateResponse ::
+mkUpdatePullRequestApprovalStateResponse ::
   UpdatePullRequestApprovalStateResponse
-updatePullRequestApprovalStateResponse =
+mkUpdatePullRequestApprovalStateResponse =
   UpdatePullRequestApprovalStateResponse'
-
-instance NFData UpdatePullRequestApprovalStateResponse

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,136 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.AccessDetail where
+module Network.AWS.IAM.Types.AccessDetail
+  ( AccessDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccessDetail,
+
+    -- * Lenses
+    adEntityPath,
+    adRegion,
+    adLastAuthenticatedTime,
+    adTotalAuthenticatedEntities,
+    adServiceName,
+    adServiceNamespace,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that contains details about when a principal in the reported AWS Organizations entity last attempted to access an AWS service. A principal can be an IAM user, an IAM role, or the AWS account root user within the reported Organizations entity.
 --
---
 -- This data type is a response element in the 'GetOrganizationsAccessReport' operation.
 --
---
--- /See:/ 'accessDetail' smart constructor.
+-- /See:/ 'mkAccessDetail' smart constructor.
 data AccessDetail = AccessDetail'
-  { _adEntityPath :: !(Maybe Text),
-    _adRegion :: !(Maybe Text),
-    _adLastAuthenticatedTime :: !(Maybe ISO8601),
-    _adTotalAuthenticatedEntities :: !(Maybe Int),
-    _adServiceName :: !Text,
-    _adServiceNamespace :: !Text
+  { entityPath ::
+      Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    lastAuthenticatedTime :: Lude.Maybe Lude.ISO8601,
+    totalAuthenticatedEntities :: Lude.Maybe Lude.Int,
+    serviceName :: Lude.Text,
+    serviceNamespace :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'entityPath' - The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. AWS does not report unauthenticated requests.
 --
--- * 'adEntityPath' - The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. AWS does not report unauthenticated requests. This field is null if no principals (IAM users, IAM roles, or root users) in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- This field is null if no principals (IAM users, IAM roles, or root users) in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- * 'lastAuthenticatedTime' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated principal most recently attempted to access the service. AWS does not report unauthenticated requests.
 --
--- * 'adRegion' - The Region where the last service access attempt occurred. This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- * 'region' - The Region where the last service access attempt occurred.
 --
--- * 'adLastAuthenticatedTime' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated principal most recently attempted to access the service. AWS does not report unauthenticated requests. This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- * 'serviceName' - The name of the service in which access was attempted.
+-- * 'serviceNamespace' - The namespace of the service in which access was attempted.
 --
--- * 'adTotalAuthenticatedEntities' - The number of accounts with authenticated principals (root users, IAM users, and IAM roles) that attempted to access the service in the reporting period.
---
--- * 'adServiceName' - The name of the service in which access was attempted.
---
--- * 'adServiceNamespace' - The namespace of the service in which access was attempted. To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
-accessDetail ::
-  -- | 'adServiceName'
-  Text ->
-  -- | 'adServiceNamespace'
-  Text ->
+-- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'totalAuthenticatedEntities' - The number of accounts with authenticated principals (root users, IAM users, and IAM roles) that attempted to access the service in the reporting period.
+mkAccessDetail ::
+  -- | 'serviceName'
+  Lude.Text ->
+  -- | 'serviceNamespace'
+  Lude.Text ->
   AccessDetail
-accessDetail pServiceName_ pServiceNamespace_ =
+mkAccessDetail pServiceName_ pServiceNamespace_ =
   AccessDetail'
-    { _adEntityPath = Nothing,
-      _adRegion = Nothing,
-      _adLastAuthenticatedTime = Nothing,
-      _adTotalAuthenticatedEntities = Nothing,
-      _adServiceName = pServiceName_,
-      _adServiceNamespace = pServiceNamespace_
+    { entityPath = Lude.Nothing,
+      region = Lude.Nothing,
+      lastAuthenticatedTime = Lude.Nothing,
+      totalAuthenticatedEntities = Lude.Nothing,
+      serviceName = pServiceName_,
+      serviceNamespace = pServiceNamespace_
     }
 
--- | The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. AWS does not report unauthenticated requests. This field is null if no principals (IAM users, IAM roles, or root users) in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
-adEntityPath :: Lens' AccessDetail (Maybe Text)
-adEntityPath = lens _adEntityPath (\s a -> s {_adEntityPath = a})
+-- | The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. AWS does not report unauthenticated requests.
+--
+-- This field is null if no principals (IAM users, IAM roles, or root users) in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adEntityPath :: Lens.Lens' AccessDetail (Lude.Maybe Lude.Text)
+adEntityPath = Lens.lens (entityPath :: AccessDetail -> Lude.Maybe Lude.Text) (\s a -> s {entityPath = a} :: AccessDetail)
+{-# DEPRECATED adEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
--- | The Region where the last service access attempt occurred. This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
-adRegion :: Lens' AccessDetail (Maybe Text)
-adRegion = lens _adRegion (\s a -> s {_adRegion = a})
+-- | The Region where the last service access attempt occurred.
+--
+-- This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adRegion :: Lens.Lens' AccessDetail (Lude.Maybe Lude.Text)
+adRegion = Lens.lens (region :: AccessDetail -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: AccessDetail)
+{-# DEPRECATED adRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated principal most recently attempted to access the service. AWS does not report unauthenticated requests. This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
-adLastAuthenticatedTime :: Lens' AccessDetail (Maybe UTCTime)
-adLastAuthenticatedTime = lens _adLastAuthenticatedTime (\s a -> s {_adLastAuthenticatedTime = a}) . mapping _Time
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated principal most recently attempted to access the service. AWS does not report unauthenticated requests.
+--
+-- This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- /Note:/ Consider using 'lastAuthenticatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLastAuthenticatedTime :: Lens.Lens' AccessDetail (Lude.Maybe Lude.ISO8601)
+adLastAuthenticatedTime = Lens.lens (lastAuthenticatedTime :: AccessDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastAuthenticatedTime = a} :: AccessDetail)
+{-# DEPRECATED adLastAuthenticatedTime "Use generic-lens or generic-optics with 'lastAuthenticatedTime' instead." #-}
 
 -- | The number of accounts with authenticated principals (root users, IAM users, and IAM roles) that attempted to access the service in the reporting period.
-adTotalAuthenticatedEntities :: Lens' AccessDetail (Maybe Int)
-adTotalAuthenticatedEntities = lens _adTotalAuthenticatedEntities (\s a -> s {_adTotalAuthenticatedEntities = a})
+--
+-- /Note:/ Consider using 'totalAuthenticatedEntities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adTotalAuthenticatedEntities :: Lens.Lens' AccessDetail (Lude.Maybe Lude.Int)
+adTotalAuthenticatedEntities = Lens.lens (totalAuthenticatedEntities :: AccessDetail -> Lude.Maybe Lude.Int) (\s a -> s {totalAuthenticatedEntities = a} :: AccessDetail)
+{-# DEPRECATED adTotalAuthenticatedEntities "Use generic-lens or generic-optics with 'totalAuthenticatedEntities' instead." #-}
 
 -- | The name of the service in which access was attempted.
-adServiceName :: Lens' AccessDetail Text
-adServiceName = lens _adServiceName (\s a -> s {_adServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adServiceName :: Lens.Lens' AccessDetail Lude.Text
+adServiceName = Lens.lens (serviceName :: AccessDetail -> Lude.Text) (\s a -> s {serviceName = a} :: AccessDetail)
+{-# DEPRECATED adServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
--- | The namespace of the service in which access was attempted. To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
-adServiceNamespace :: Lens' AccessDetail Text
-adServiceNamespace = lens _adServiceNamespace (\s a -> s {_adServiceNamespace = a})
+-- | The namespace of the service in which access was attempted.
+--
+-- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adServiceNamespace :: Lens.Lens' AccessDetail Lude.Text
+adServiceNamespace = Lens.lens (serviceNamespace :: AccessDetail -> Lude.Text) (\s a -> s {serviceNamespace = a} :: AccessDetail)
+{-# DEPRECATED adServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
 
-instance FromXML AccessDetail where
+instance Lude.FromXML AccessDetail where
   parseXML x =
     AccessDetail'
-      <$> (x .@? "EntityPath")
-      <*> (x .@? "Region")
-      <*> (x .@? "LastAuthenticatedTime")
-      <*> (x .@? "TotalAuthenticatedEntities")
-      <*> (x .@ "ServiceName")
-      <*> (x .@ "ServiceNamespace")
-
-instance Hashable AccessDetail
-
-instance NFData AccessDetail
+      Lude.<$> (x Lude..@? "EntityPath")
+      Lude.<*> (x Lude..@? "Region")
+      Lude.<*> (x Lude..@? "LastAuthenticatedTime")
+      Lude.<*> (x Lude..@? "TotalAuthenticatedEntities")
+      Lude.<*> (x Lude..@ "ServiceName")
+      Lude.<*> (x Lude..@ "ServiceNamespace")

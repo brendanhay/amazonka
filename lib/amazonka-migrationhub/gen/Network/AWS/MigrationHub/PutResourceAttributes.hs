@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,187 @@
 --
 -- Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service repository. This association occurs asynchronously after @PutResourceAttributes@ returns.
 --
+-- /Important:/
+--     * Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to /add/ an IP address, it will then be required to call it with /both/ the IP and MAC addresses to prevent overriding the MAC address.
 --
--- /Important:/     * Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to /add/ an IP address, it will then be required to call it with /both/ the IP and MAC addresses to prevent overriding the MAC address.
 --
 --     * Note the instructions regarding the special use case of the <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList @ResourceAttributeList@ > parameter when specifying any "VM" related value.
 module Network.AWS.MigrationHub.PutResourceAttributes
-  ( -- * Creating a Request
-    putResourceAttributes,
-    PutResourceAttributes,
+  ( -- * Creating a request
+    PutResourceAttributes (..),
+    mkPutResourceAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     praDryRun,
     praProgressUpdateStream,
     praMigrationTaskName,
     praResourceAttributeList,
 
-    -- * Destructuring the Response
-    putResourceAttributesResponse,
-    PutResourceAttributesResponse,
+    -- * Destructuring the response
+    PutResourceAttributesResponse (..),
+    mkPutResourceAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     prarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putResourceAttributes' smart constructor.
+-- | /See:/ 'mkPutResourceAttributes' smart constructor.
 data PutResourceAttributes = PutResourceAttributes'
-  { _praDryRun ::
-      !(Maybe Bool),
-    _praProgressUpdateStream :: !Text,
-    _praMigrationTaskName :: !Text,
-    _praResourceAttributeList ::
-      !(List1 ResourceAttribute)
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    progressUpdateStream :: Lude.Text,
+    migrationTaskName :: Lude.Text,
+    resourceAttributeList ::
+      Lude.NonEmpty ResourceAttribute
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourceAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'resourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
 --
--- * 'praDryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- /Important:/
+--     * If any "VM" related value is set for a @ResourceAttribute@ object, it is required that @VM_MANAGER_ID@ , as a minimum, is always set. If @VM_MANAGER_ID@ is not set, then all "VM" fields will be discarded and "VM" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples Example> section below for a use case of specifying "VM" related values.
 --
--- * 'praProgressUpdateStream' - The name of the ProgressUpdateStream.
 --
--- * 'praMigrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
---
--- * 'praResourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository. /Important:/     * If any "VM" related value is set for a @ResourceAttribute@ object, it is required that @VM_MANAGER_ID@ , as a minimum, is always set. If @VM_MANAGER_ID@ is not set, then all "VM" fields will be discarded and "VM" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples Example> section below for a use case of specifying "VM" related values.     * If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the @ResourceAttributeList@ parameter to maximize the chances of matching.
-putResourceAttributes ::
-  -- | 'praProgressUpdateStream'
-  Text ->
-  -- | 'praMigrationTaskName'
-  Text ->
-  -- | 'praResourceAttributeList'
-  NonEmpty ResourceAttribute ->
+--     * If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the @ResourceAttributeList@ parameter to maximize the chances of matching.
+mkPutResourceAttributes ::
+  -- | 'progressUpdateStream'
+  Lude.Text ->
+  -- | 'migrationTaskName'
+  Lude.Text ->
+  -- | 'resourceAttributeList'
+  Lude.NonEmpty ResourceAttribute ->
   PutResourceAttributes
-putResourceAttributes
+mkPutResourceAttributes
   pProgressUpdateStream_
   pMigrationTaskName_
   pResourceAttributeList_ =
     PutResourceAttributes'
-      { _praDryRun = Nothing,
-        _praProgressUpdateStream = pProgressUpdateStream_,
-        _praMigrationTaskName = pMigrationTaskName_,
-        _praResourceAttributeList = _List1 # pResourceAttributeList_
+      { dryRun = Lude.Nothing,
+        progressUpdateStream = pProgressUpdateStream_,
+        migrationTaskName = pMigrationTaskName_,
+        resourceAttributeList = pResourceAttributeList_
       }
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-praDryRun :: Lens' PutResourceAttributes (Maybe Bool)
-praDryRun = lens _praDryRun (\s a -> s {_praDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+praDryRun :: Lens.Lens' PutResourceAttributes (Lude.Maybe Lude.Bool)
+praDryRun = Lens.lens (dryRun :: PutResourceAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: PutResourceAttributes)
+{-# DEPRECATED praDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
-praProgressUpdateStream :: Lens' PutResourceAttributes Text
-praProgressUpdateStream = lens _praProgressUpdateStream (\s a -> s {_praProgressUpdateStream = a})
+--
+-- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+praProgressUpdateStream :: Lens.Lens' PutResourceAttributes Lude.Text
+praProgressUpdateStream = Lens.lens (progressUpdateStream :: PutResourceAttributes -> Lude.Text) (\s a -> s {progressUpdateStream = a} :: PutResourceAttributes)
+{-# DEPRECATED praProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-praMigrationTaskName :: Lens' PutResourceAttributes Text
-praMigrationTaskName = lens _praMigrationTaskName (\s a -> s {_praMigrationTaskName = a})
+--
+-- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+praMigrationTaskName :: Lens.Lens' PutResourceAttributes Lude.Text
+praMigrationTaskName = Lens.lens (migrationTaskName :: PutResourceAttributes -> Lude.Text) (\s a -> s {migrationTaskName = a} :: PutResourceAttributes)
+{-# DEPRECATED praMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
--- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository. /Important:/     * If any "VM" related value is set for a @ResourceAttribute@ object, it is required that @VM_MANAGER_ID@ , as a minimum, is always set. If @VM_MANAGER_ID@ is not set, then all "VM" fields will be discarded and "VM" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples Example> section below for a use case of specifying "VM" related values.     * If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the @ResourceAttributeList@ parameter to maximize the chances of matching.
-praResourceAttributeList :: Lens' PutResourceAttributes (NonEmpty ResourceAttribute)
-praResourceAttributeList = lens _praResourceAttributeList (\s a -> s {_praResourceAttributeList = a}) . _List1
+-- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
+--
+-- /Important:/
+--     * If any "VM" related value is set for a @ResourceAttribute@ object, it is required that @VM_MANAGER_ID@ , as a minimum, is always set. If @VM_MANAGER_ID@ is not set, then all "VM" fields will be discarded and "VM" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples Example> section below for a use case of specifying "VM" related values.
+--
+--
+--     * If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the @ResourceAttributeList@ parameter to maximize the chances of matching.
+--
+--
+--
+-- /Note:/ Consider using 'resourceAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+praResourceAttributeList :: Lens.Lens' PutResourceAttributes (Lude.NonEmpty ResourceAttribute)
+praResourceAttributeList = Lens.lens (resourceAttributeList :: PutResourceAttributes -> Lude.NonEmpty ResourceAttribute) (\s a -> s {resourceAttributeList = a} :: PutResourceAttributes)
+{-# DEPRECATED praResourceAttributeList "Use generic-lens or generic-optics with 'resourceAttributeList' instead." #-}
 
-instance AWSRequest PutResourceAttributes where
+instance Lude.AWSRequest PutResourceAttributes where
   type Rs PutResourceAttributes = PutResourceAttributesResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveEmpty
-      (\s h x -> PutResourceAttributesResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutResourceAttributesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutResourceAttributes
-
-instance NFData PutResourceAttributes
-
-instance ToHeaders PutResourceAttributes where
+instance Lude.ToHeaders PutResourceAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.PutResourceAttributes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.PutResourceAttributes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutResourceAttributes where
+instance Lude.ToJSON PutResourceAttributes where
   toJSON PutResourceAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("DryRun" .=) <$> _praDryRun,
-            Just ("ProgressUpdateStream" .= _praProgressUpdateStream),
-            Just ("MigrationTaskName" .= _praMigrationTaskName),
-            Just ("ResourceAttributeList" .= _praResourceAttributeList)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DryRun" Lude..=) Lude.<$> dryRun,
+            Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
+            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
+            Lude.Just ("ResourceAttributeList" Lude..= resourceAttributeList)
           ]
       )
 
-instance ToPath PutResourceAttributes where
-  toPath = const "/"
+instance Lude.ToPath PutResourceAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery PutResourceAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery PutResourceAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putResourceAttributesResponse' smart constructor.
+-- | /See:/ 'mkPutResourceAttributesResponse' smart constructor.
 newtype PutResourceAttributesResponse = PutResourceAttributesResponse'
-  { _prarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourceAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prarsResponseStatus' - -- | The response status code.
-putResourceAttributesResponse ::
-  -- | 'prarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutResourceAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutResourceAttributesResponse
-putResourceAttributesResponse pResponseStatus_ =
-  PutResourceAttributesResponse'
-    { _prarsResponseStatus =
-        pResponseStatus_
-    }
+mkPutResourceAttributesResponse pResponseStatus_ =
+  PutResourceAttributesResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-prarsResponseStatus :: Lens' PutResourceAttributesResponse Int
-prarsResponseStatus = lens _prarsResponseStatus (\s a -> s {_prarsResponseStatus = a})
-
-instance NFData PutResourceAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prarsResponseStatus :: Lens.Lens' PutResourceAttributesResponse Lude.Int
+prarsResponseStatus = Lens.lens (responseStatus :: PutResourceAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutResourceAttributesResponse)
+{-# DEPRECATED prarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

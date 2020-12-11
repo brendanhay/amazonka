@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DestinationSettings where
+module Network.AWS.MediaConvert.Types.DestinationSettings
+  ( DestinationSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkDestinationSettings,
+
+    -- * Lenses
+    dsS3Settings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.S3DestinationSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings associated with the destination. Will vary based on the type of destination
 --
--- /See:/ 'destinationSettings' smart constructor.
+-- /See:/ 'mkDestinationSettings' smart constructor.
 newtype DestinationSettings = DestinationSettings'
-  { _dsS3Settings ::
-      Maybe S3DestinationSettings
+  { s3Settings ::
+      Lude.Maybe S3DestinationSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsS3Settings' - Settings associated with S3 destination
-destinationSettings ::
+-- * 's3Settings' - Settings associated with S3 destination
+mkDestinationSettings ::
   DestinationSettings
-destinationSettings = DestinationSettings' {_dsS3Settings = Nothing}
+mkDestinationSettings =
+  DestinationSettings' {s3Settings = Lude.Nothing}
 
 -- | Settings associated with S3 destination
-dsS3Settings :: Lens' DestinationSettings (Maybe S3DestinationSettings)
-dsS3Settings = lens _dsS3Settings (\s a -> s {_dsS3Settings = a})
+--
+-- /Note:/ Consider using 's3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsS3Settings :: Lens.Lens' DestinationSettings (Lude.Maybe S3DestinationSettings)
+dsS3Settings = Lens.lens (s3Settings :: DestinationSettings -> Lude.Maybe S3DestinationSettings) (\s a -> s {s3Settings = a} :: DestinationSettings)
+{-# DEPRECATED dsS3Settings "Use generic-lens or generic-optics with 's3Settings' instead." #-}
 
-instance FromJSON DestinationSettings where
+instance Lude.FromJSON DestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "DestinationSettings"
-      (\x -> DestinationSettings' <$> (x .:? "s3Settings"))
+      (\x -> DestinationSettings' Lude.<$> (x Lude..:? "s3Settings"))
 
-instance Hashable DestinationSettings
-
-instance NFData DestinationSettings
-
-instance ToJSON DestinationSettings where
+instance Lude.ToJSON DestinationSettings where
   toJSON DestinationSettings' {..} =
-    object (catMaybes [("s3Settings" .=) <$> _dsS3Settings])
+    Lude.object
+      (Lude.catMaybes [("s3Settings" Lude..=) Lude.<$> s3Settings])

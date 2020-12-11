@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264CodecLevel where
+module Network.AWS.MediaConvert.Types.H264CodecLevel
+  ( H264CodecLevel
+      ( H264CodecLevel',
+        HAuto,
+        HLevel1,
+        HLevel11,
+        HLevel12,
+        HLevel13,
+        HLevel2,
+        HLevel21,
+        HLevel22,
+        HLevel3,
+        HLevel31,
+        HLevel32,
+        HLevel4,
+        HLevel41,
+        HLevel42,
+        HLevel5,
+        HLevel51,
+        HLevel52
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify an H.264 level that is consistent with your output video settings. If you aren't sure what level to specify, choose Auto (AUTO).
-data H264CodecLevel
-  = HAuto
-  | HLevel1
-  | HLevel11
-  | HLevel12
-  | HLevel13
-  | HLevel2
-  | HLevel21
-  | HLevel22
-  | HLevel3
-  | HLevel31
-  | HLevel32
-  | HLevel4
-  | HLevel41
-  | HLevel42
-  | HLevel5
-  | HLevel51
-  | HLevel52
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264CodecLevel = H264CodecLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264CodecLevel where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure HAuto
-      "level_1" -> pure HLevel1
-      "level_1_1" -> pure HLevel11
-      "level_1_2" -> pure HLevel12
-      "level_1_3" -> pure HLevel13
-      "level_2" -> pure HLevel2
-      "level_2_1" -> pure HLevel21
-      "level_2_2" -> pure HLevel22
-      "level_3" -> pure HLevel3
-      "level_3_1" -> pure HLevel31
-      "level_3_2" -> pure HLevel32
-      "level_4" -> pure HLevel4
-      "level_4_1" -> pure HLevel41
-      "level_4_2" -> pure HLevel42
-      "level_5" -> pure HLevel5
-      "level_5_1" -> pure HLevel51
-      "level_5_2" -> pure HLevel52
-      e ->
-        fromTextError $
-          "Failure parsing H264CodecLevel from value: '" <> e
-            <> "'. Accepted values: auto, level_1, level_1_1, level_1_2, level_1_3, level_2, level_2_1, level_2_2, level_3, level_3_1, level_3_2, level_4, level_4_1, level_4_2, level_5, level_5_1, level_5_2"
+pattern HAuto :: H264CodecLevel
+pattern HAuto = H264CodecLevel' "AUTO"
 
-instance ToText H264CodecLevel where
-  toText = \case
-    HAuto -> "AUTO"
-    HLevel1 -> "LEVEL_1"
-    HLevel11 -> "LEVEL_1_1"
-    HLevel12 -> "LEVEL_1_2"
-    HLevel13 -> "LEVEL_1_3"
-    HLevel2 -> "LEVEL_2"
-    HLevel21 -> "LEVEL_2_1"
-    HLevel22 -> "LEVEL_2_2"
-    HLevel3 -> "LEVEL_3"
-    HLevel31 -> "LEVEL_3_1"
-    HLevel32 -> "LEVEL_3_2"
-    HLevel4 -> "LEVEL_4"
-    HLevel41 -> "LEVEL_4_1"
-    HLevel42 -> "LEVEL_4_2"
-    HLevel5 -> "LEVEL_5"
-    HLevel51 -> "LEVEL_5_1"
-    HLevel52 -> "LEVEL_5_2"
+pattern HLevel1 :: H264CodecLevel
+pattern HLevel1 = H264CodecLevel' "LEVEL_1"
 
-instance Hashable H264CodecLevel
+pattern HLevel11 :: H264CodecLevel
+pattern HLevel11 = H264CodecLevel' "LEVEL_1_1"
 
-instance NFData H264CodecLevel
+pattern HLevel12 :: H264CodecLevel
+pattern HLevel12 = H264CodecLevel' "LEVEL_1_2"
 
-instance ToByteString H264CodecLevel
+pattern HLevel13 :: H264CodecLevel
+pattern HLevel13 = H264CodecLevel' "LEVEL_1_3"
 
-instance ToQuery H264CodecLevel
+pattern HLevel2 :: H264CodecLevel
+pattern HLevel2 = H264CodecLevel' "LEVEL_2"
 
-instance ToHeader H264CodecLevel
+pattern HLevel21 :: H264CodecLevel
+pattern HLevel21 = H264CodecLevel' "LEVEL_2_1"
 
-instance ToJSON H264CodecLevel where
-  toJSON = toJSONText
+pattern HLevel22 :: H264CodecLevel
+pattern HLevel22 = H264CodecLevel' "LEVEL_2_2"
 
-instance FromJSON H264CodecLevel where
-  parseJSON = parseJSONText "H264CodecLevel"
+pattern HLevel3 :: H264CodecLevel
+pattern HLevel3 = H264CodecLevel' "LEVEL_3"
+
+pattern HLevel31 :: H264CodecLevel
+pattern HLevel31 = H264CodecLevel' "LEVEL_3_1"
+
+pattern HLevel32 :: H264CodecLevel
+pattern HLevel32 = H264CodecLevel' "LEVEL_3_2"
+
+pattern HLevel4 :: H264CodecLevel
+pattern HLevel4 = H264CodecLevel' "LEVEL_4"
+
+pattern HLevel41 :: H264CodecLevel
+pattern HLevel41 = H264CodecLevel' "LEVEL_4_1"
+
+pattern HLevel42 :: H264CodecLevel
+pattern HLevel42 = H264CodecLevel' "LEVEL_4_2"
+
+pattern HLevel5 :: H264CodecLevel
+pattern HLevel5 = H264CodecLevel' "LEVEL_5"
+
+pattern HLevel51 :: H264CodecLevel
+pattern HLevel51 = H264CodecLevel' "LEVEL_5_1"
+
+pattern HLevel52 :: H264CodecLevel
+pattern HLevel52 = H264CodecLevel' "LEVEL_5_2"
+
+{-# COMPLETE
+  HAuto,
+  HLevel1,
+  HLevel11,
+  HLevel12,
+  HLevel13,
+  HLevel2,
+  HLevel21,
+  HLevel22,
+  HLevel3,
+  HLevel31,
+  HLevel32,
+  HLevel4,
+  HLevel41,
+  HLevel42,
+  HLevel5,
+  HLevel51,
+  HLevel52,
+  H264CodecLevel'
+  #-}

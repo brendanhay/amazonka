@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.BackendConnectionErrors where
+module Network.AWS.XRay.Types.BackendConnectionErrors
+  ( BackendConnectionErrors (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBackendConnectionErrors,
+
+    -- * Lenses
+    bceOtherCount,
+    bceTimeoutCount,
+    bceHTTPCode5XXCount,
+    bceConnectionRefusedCount,
+    bceHTTPCode4XXCount,
+    bceUnknownHostCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- |
 --
---
---
--- /See:/ 'backendConnectionErrors' smart constructor.
+-- /See:/ 'mkBackendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-  { _bceOtherCount ::
-      !(Maybe Int),
-    _bceTimeoutCount :: !(Maybe Int),
-    _bceHTTPCode5XXCount :: !(Maybe Int),
-    _bceConnectionRefusedCount :: !(Maybe Int),
-    _bceHTTPCode4XXCount :: !(Maybe Int),
-    _bceUnknownHostCount :: !(Maybe Int)
+  { otherCount ::
+      Lude.Maybe Lude.Int,
+    timeoutCount :: Lude.Maybe Lude.Int,
+    hTTPCode5XXCount :: Lude.Maybe Lude.Int,
+    connectionRefusedCount ::
+      Lude.Maybe Lude.Int,
+    hTTPCode4XXCount :: Lude.Maybe Lude.Int,
+    unknownHostCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackendConnectionErrors' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bceOtherCount' -
---
--- * 'bceTimeoutCount' -
---
--- * 'bceHTTPCode5XXCount' -
---
--- * 'bceConnectionRefusedCount' -
---
--- * 'bceHTTPCode4XXCount' -
---
--- * 'bceUnknownHostCount' -
-backendConnectionErrors ::
+-- * 'connectionRefusedCount' -
+-- * 'hTTPCode4XXCount' -
+-- * 'hTTPCode5XXCount' -
+-- * 'otherCount' -
+-- * 'timeoutCount' -
+-- * 'unknownHostCount' -
+mkBackendConnectionErrors ::
   BackendConnectionErrors
-backendConnectionErrors =
+mkBackendConnectionErrors =
   BackendConnectionErrors'
-    { _bceOtherCount = Nothing,
-      _bceTimeoutCount = Nothing,
-      _bceHTTPCode5XXCount = Nothing,
-      _bceConnectionRefusedCount = Nothing,
-      _bceHTTPCode4XXCount = Nothing,
-      _bceUnknownHostCount = Nothing
+    { otherCount = Lude.Nothing,
+      timeoutCount = Lude.Nothing,
+      hTTPCode5XXCount = Lude.Nothing,
+      connectionRefusedCount = Lude.Nothing,
+      hTTPCode4XXCount = Lude.Nothing,
+      unknownHostCount = Lude.Nothing
     }
 
 -- |
-bceOtherCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceOtherCount = lens _bceOtherCount (\s a -> s {_bceOtherCount = a})
+--
+-- /Note:/ Consider using 'otherCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bceOtherCount :: Lens.Lens' BackendConnectionErrors (Lude.Maybe Lude.Int)
+bceOtherCount = Lens.lens (otherCount :: BackendConnectionErrors -> Lude.Maybe Lude.Int) (\s a -> s {otherCount = a} :: BackendConnectionErrors)
+{-# DEPRECATED bceOtherCount "Use generic-lens or generic-optics with 'otherCount' instead." #-}
 
 -- |
-bceTimeoutCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceTimeoutCount = lens _bceTimeoutCount (\s a -> s {_bceTimeoutCount = a})
+--
+-- /Note:/ Consider using 'timeoutCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bceTimeoutCount :: Lens.Lens' BackendConnectionErrors (Lude.Maybe Lude.Int)
+bceTimeoutCount = Lens.lens (timeoutCount :: BackendConnectionErrors -> Lude.Maybe Lude.Int) (\s a -> s {timeoutCount = a} :: BackendConnectionErrors)
+{-# DEPRECATED bceTimeoutCount "Use generic-lens or generic-optics with 'timeoutCount' instead." #-}
 
 -- |
-bceHTTPCode5XXCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceHTTPCode5XXCount = lens _bceHTTPCode5XXCount (\s a -> s {_bceHTTPCode5XXCount = a})
+--
+-- /Note:/ Consider using 'hTTPCode5XXCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bceHTTPCode5XXCount :: Lens.Lens' BackendConnectionErrors (Lude.Maybe Lude.Int)
+bceHTTPCode5XXCount = Lens.lens (hTTPCode5XXCount :: BackendConnectionErrors -> Lude.Maybe Lude.Int) (\s a -> s {hTTPCode5XXCount = a} :: BackendConnectionErrors)
+{-# DEPRECATED bceHTTPCode5XXCount "Use generic-lens or generic-optics with 'hTTPCode5XXCount' instead." #-}
 
 -- |
-bceConnectionRefusedCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceConnectionRefusedCount = lens _bceConnectionRefusedCount (\s a -> s {_bceConnectionRefusedCount = a})
+--
+-- /Note:/ Consider using 'connectionRefusedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bceConnectionRefusedCount :: Lens.Lens' BackendConnectionErrors (Lude.Maybe Lude.Int)
+bceConnectionRefusedCount = Lens.lens (connectionRefusedCount :: BackendConnectionErrors -> Lude.Maybe Lude.Int) (\s a -> s {connectionRefusedCount = a} :: BackendConnectionErrors)
+{-# DEPRECATED bceConnectionRefusedCount "Use generic-lens or generic-optics with 'connectionRefusedCount' instead." #-}
 
 -- |
-bceHTTPCode4XXCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceHTTPCode4XXCount = lens _bceHTTPCode4XXCount (\s a -> s {_bceHTTPCode4XXCount = a})
+--
+-- /Note:/ Consider using 'hTTPCode4XXCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bceHTTPCode4XXCount :: Lens.Lens' BackendConnectionErrors (Lude.Maybe Lude.Int)
+bceHTTPCode4XXCount = Lens.lens (hTTPCode4XXCount :: BackendConnectionErrors -> Lude.Maybe Lude.Int) (\s a -> s {hTTPCode4XXCount = a} :: BackendConnectionErrors)
+{-# DEPRECATED bceHTTPCode4XXCount "Use generic-lens or generic-optics with 'hTTPCode4XXCount' instead." #-}
 
 -- |
-bceUnknownHostCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceUnknownHostCount = lens _bceUnknownHostCount (\s a -> s {_bceUnknownHostCount = a})
+--
+-- /Note:/ Consider using 'unknownHostCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bceUnknownHostCount :: Lens.Lens' BackendConnectionErrors (Lude.Maybe Lude.Int)
+bceUnknownHostCount = Lens.lens (unknownHostCount :: BackendConnectionErrors -> Lude.Maybe Lude.Int) (\s a -> s {unknownHostCount = a} :: BackendConnectionErrors)
+{-# DEPRECATED bceUnknownHostCount "Use generic-lens or generic-optics with 'unknownHostCount' instead." #-}
 
-instance Hashable BackendConnectionErrors
-
-instance NFData BackendConnectionErrors
-
-instance ToJSON BackendConnectionErrors where
+instance Lude.ToJSON BackendConnectionErrors where
   toJSON BackendConnectionErrors' {..} =
-    object
-      ( catMaybes
-          [ ("OtherCount" .=) <$> _bceOtherCount,
-            ("TimeoutCount" .=) <$> _bceTimeoutCount,
-            ("HTTPCode5XXCount" .=) <$> _bceHTTPCode5XXCount,
-            ("ConnectionRefusedCount" .=) <$> _bceConnectionRefusedCount,
-            ("HTTPCode4XXCount" .=) <$> _bceHTTPCode4XXCount,
-            ("UnknownHostCount" .=) <$> _bceUnknownHostCount
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OtherCount" Lude..=) Lude.<$> otherCount,
+            ("TimeoutCount" Lude..=) Lude.<$> timeoutCount,
+            ("HTTPCode5XXCount" Lude..=) Lude.<$> hTTPCode5XXCount,
+            ("ConnectionRefusedCount" Lude..=) Lude.<$> connectionRefusedCount,
+            ("HTTPCode4XXCount" Lude..=) Lude.<$> hTTPCode4XXCount,
+            ("UnknownHostCount" Lude..=) Lude.<$> unknownHostCount
           ]
       )

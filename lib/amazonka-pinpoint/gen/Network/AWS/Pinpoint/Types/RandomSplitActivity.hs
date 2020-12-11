@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.RandomSplitActivity where
+module Network.AWS.Pinpoint.Types.RandomSplitActivity
+  ( RandomSplitActivity (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRandomSplitActivity,
+
+    -- * Lenses
+    rsaBranches,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.RandomSplitEntry
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a random split activity in a journey. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
 --
---
---
--- /See:/ 'randomSplitActivity' smart constructor.
+-- /See:/ 'mkRandomSplitActivity' smart constructor.
 newtype RandomSplitActivity = RandomSplitActivity'
-  { _rsaBranches ::
-      Maybe [RandomSplitEntry]
+  { branches ::
+      Lude.Maybe [RandomSplitEntry]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RandomSplitActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsaBranches' - The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.
-randomSplitActivity ::
+-- * 'branches' - The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.
+mkRandomSplitActivity ::
   RandomSplitActivity
-randomSplitActivity = RandomSplitActivity' {_rsaBranches = Nothing}
+mkRandomSplitActivity =
+  RandomSplitActivity' {branches = Lude.Nothing}
 
 -- | The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.
-rsaBranches :: Lens' RandomSplitActivity [RandomSplitEntry]
-rsaBranches = lens _rsaBranches (\s a -> s {_rsaBranches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'branches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsaBranches :: Lens.Lens' RandomSplitActivity (Lude.Maybe [RandomSplitEntry])
+rsaBranches = Lens.lens (branches :: RandomSplitActivity -> Lude.Maybe [RandomSplitEntry]) (\s a -> s {branches = a} :: RandomSplitActivity)
+{-# DEPRECATED rsaBranches "Use generic-lens or generic-optics with 'branches' instead." #-}
 
-instance FromJSON RandomSplitActivity where
+instance Lude.FromJSON RandomSplitActivity where
   parseJSON =
-    withObject
+    Lude.withObject
       "RandomSplitActivity"
-      (\x -> RandomSplitActivity' <$> (x .:? "Branches" .!= mempty))
+      ( \x ->
+          RandomSplitActivity'
+            Lude.<$> (x Lude..:? "Branches" Lude..!= Lude.mempty)
+      )
 
-instance Hashable RandomSplitActivity
-
-instance NFData RandomSplitActivity
-
-instance ToJSON RandomSplitActivity where
+instance Lude.ToJSON RandomSplitActivity where
   toJSON RandomSplitActivity' {..} =
-    object (catMaybes [("Branches" .=) <$> _rsaBranches])
+    Lude.object
+      (Lude.catMaybes [("Branches" Lude..=) Lude.<$> branches])

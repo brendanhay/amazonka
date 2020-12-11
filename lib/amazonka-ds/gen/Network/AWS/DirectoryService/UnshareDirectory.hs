@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Stops the directory sharing between the directory owner and consumer accounts.
 module Network.AWS.DirectoryService.UnshareDirectory
-  ( -- * Creating a Request
-    unshareDirectory,
-    UnshareDirectory,
+  ( -- * Creating a request
+    UnshareDirectory (..),
+    mkUnshareDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udDirectoryId,
     udUnshareTarget,
 
-    -- * Destructuring the Response
-    unshareDirectoryResponse,
-    UnshareDirectoryResponse,
+    -- * Destructuring the response
+    UnshareDirectoryResponse (..),
+    mkUnshareDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udrsSharedDirectoryId,
     udrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'unshareDirectory' smart constructor.
+-- | /See:/ 'mkUnshareDirectory' smart constructor.
 data UnshareDirectory = UnshareDirectory'
-  { _udDirectoryId :: !Text,
-    _udUnshareTarget :: !UnshareTarget
+  { directoryId :: Lude.Text,
+    unshareTarget :: UnshareTarget
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udDirectoryId' - The identifier of the AWS Managed Microsoft AD directory that you want to stop sharing.
---
--- * 'udUnshareTarget' - Identifier for the directory consumer account with whom the directory has to be unshared.
-unshareDirectory ::
-  -- | 'udDirectoryId'
-  Text ->
-  -- | 'udUnshareTarget'
+-- * 'directoryId' - The identifier of the AWS Managed Microsoft AD directory that you want to stop sharing.
+-- * 'unshareTarget' - Identifier for the directory consumer account with whom the directory has to be unshared.
+mkUnshareDirectory ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'unshareTarget'
   UnshareTarget ->
   UnshareDirectory
-unshareDirectory pDirectoryId_ pUnshareTarget_ =
+mkUnshareDirectory pDirectoryId_ pUnshareTarget_ =
   UnshareDirectory'
-    { _udDirectoryId = pDirectoryId_,
-      _udUnshareTarget = pUnshareTarget_
+    { directoryId = pDirectoryId_,
+      unshareTarget = pUnshareTarget_
     }
 
 -- | The identifier of the AWS Managed Microsoft AD directory that you want to stop sharing.
-udDirectoryId :: Lens' UnshareDirectory Text
-udDirectoryId = lens _udDirectoryId (\s a -> s {_udDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDirectoryId :: Lens.Lens' UnshareDirectory Lude.Text
+udDirectoryId = Lens.lens (directoryId :: UnshareDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: UnshareDirectory)
+{-# DEPRECATED udDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | Identifier for the directory consumer account with whom the directory has to be unshared.
-udUnshareTarget :: Lens' UnshareDirectory UnshareTarget
-udUnshareTarget = lens _udUnshareTarget (\s a -> s {_udUnshareTarget = a})
+--
+-- /Note:/ Consider using 'unshareTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udUnshareTarget :: Lens.Lens' UnshareDirectory UnshareTarget
+udUnshareTarget = Lens.lens (unshareTarget :: UnshareDirectory -> UnshareTarget) (\s a -> s {unshareTarget = a} :: UnshareDirectory)
+{-# DEPRECATED udUnshareTarget "Use generic-lens or generic-optics with 'unshareTarget' instead." #-}
 
-instance AWSRequest UnshareDirectory where
+instance Lude.AWSRequest UnshareDirectory where
   type Rs UnshareDirectory = UnshareDirectoryResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UnshareDirectoryResponse'
-            <$> (x .?> "SharedDirectoryId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SharedDirectoryId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UnshareDirectory
-
-instance NFData UnshareDirectory
-
-instance ToHeaders UnshareDirectory where
+instance Lude.ToHeaders UnshareDirectory where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.UnshareDirectory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.UnshareDirectory" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UnshareDirectory where
+instance Lude.ToJSON UnshareDirectory where
   toJSON UnshareDirectory' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _udDirectoryId),
-            Just ("UnshareTarget" .= _udUnshareTarget)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("UnshareTarget" Lude..= unshareTarget)
           ]
       )
 
-instance ToPath UnshareDirectory where
-  toPath = const "/"
+instance Lude.ToPath UnshareDirectory where
+  toPath = Lude.const "/"
 
-instance ToQuery UnshareDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery UnshareDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'unshareDirectoryResponse' smart constructor.
+-- | /See:/ 'mkUnshareDirectoryResponse' smart constructor.
 data UnshareDirectoryResponse = UnshareDirectoryResponse'
-  { _udrsSharedDirectoryId ::
-      !(Maybe Text),
-    _udrsResponseStatus :: !Int
+  { sharedDirectoryId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udrsSharedDirectoryId' - Identifier of the directory stored in the directory consumer account that is to be unshared from the specified directory (@DirectoryId@ ).
---
--- * 'udrsResponseStatus' - -- | The response status code.
-unshareDirectoryResponse ::
-  -- | 'udrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sharedDirectoryId' - Identifier of the directory stored in the directory consumer account that is to be unshared from the specified directory (@DirectoryId@ ).
+mkUnshareDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UnshareDirectoryResponse
-unshareDirectoryResponse pResponseStatus_ =
+mkUnshareDirectoryResponse pResponseStatus_ =
   UnshareDirectoryResponse'
-    { _udrsSharedDirectoryId = Nothing,
-      _udrsResponseStatus = pResponseStatus_
+    { sharedDirectoryId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifier of the directory stored in the directory consumer account that is to be unshared from the specified directory (@DirectoryId@ ).
-udrsSharedDirectoryId :: Lens' UnshareDirectoryResponse (Maybe Text)
-udrsSharedDirectoryId = lens _udrsSharedDirectoryId (\s a -> s {_udrsSharedDirectoryId = a})
+--
+-- /Note:/ Consider using 'sharedDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsSharedDirectoryId :: Lens.Lens' UnshareDirectoryResponse (Lude.Maybe Lude.Text)
+udrsSharedDirectoryId = Lens.lens (sharedDirectoryId :: UnshareDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {sharedDirectoryId = a} :: UnshareDirectoryResponse)
+{-# DEPRECATED udrsSharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead." #-}
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UnshareDirectoryResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\s a -> s {_udrsResponseStatus = a})
-
-instance NFData UnshareDirectoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsResponseStatus :: Lens.Lens' UnshareDirectoryResponse Lude.Int
+udrsResponseStatus = Lens.lens (responseStatus :: UnshareDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UnshareDirectoryResponse)
+{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

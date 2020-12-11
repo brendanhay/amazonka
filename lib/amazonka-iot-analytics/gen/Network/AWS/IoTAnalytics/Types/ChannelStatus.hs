@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ChannelStatus where
+module Network.AWS.IoTAnalytics.Types.ChannelStatus
+  ( ChannelStatus
+      ( ChannelStatus',
+        CSActive,
+        CSCreating,
+        CSDeleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChannelStatus
-  = CSActive
-  | CSCreating
-  | CSDeleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChannelStatus = ChannelStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChannelStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CSActive
-      "creating" -> pure CSCreating
-      "deleting" -> pure CSDeleting
-      e ->
-        fromTextError $
-          "Failure parsing ChannelStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting"
+pattern CSActive :: ChannelStatus
+pattern CSActive = ChannelStatus' "ACTIVE"
 
-instance ToText ChannelStatus where
-  toText = \case
-    CSActive -> "ACTIVE"
-    CSCreating -> "CREATING"
-    CSDeleting -> "DELETING"
+pattern CSCreating :: ChannelStatus
+pattern CSCreating = ChannelStatus' "CREATING"
 
-instance Hashable ChannelStatus
+pattern CSDeleting :: ChannelStatus
+pattern CSDeleting = ChannelStatus' "DELETING"
 
-instance NFData ChannelStatus
-
-instance ToByteString ChannelStatus
-
-instance ToQuery ChannelStatus
-
-instance ToHeader ChannelStatus
-
-instance FromJSON ChannelStatus where
-  parseJSON = parseJSONText "ChannelStatus"
+{-# COMPLETE
+  CSActive,
+  CSCreating,
+  CSDeleting,
+  ChannelStatus'
+  #-}

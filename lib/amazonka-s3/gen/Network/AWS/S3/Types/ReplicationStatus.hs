@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ReplicationStatus where
+module Network.AWS.S3.Types.ReplicationStatus
+  ( ReplicationStatus
+      ( ReplicationStatus',
+        Completed,
+        Failed,
+        Pending,
+        Replica
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ReplicationStatus
-  = Completed
-  | Failed
-  | Pending
-  | Replica
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplicationStatus = ReplicationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplicationStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      "replica" -> pure Replica
-      e ->
-        fromTextError $
-          "Failure parsing ReplicationStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, pending, replica"
+pattern Completed :: ReplicationStatus
+pattern Completed = ReplicationStatus' "COMPLETED"
 
-instance ToText ReplicationStatus where
-  toText = \case
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    Pending -> "PENDING"
-    Replica -> "REPLICA"
+pattern Failed :: ReplicationStatus
+pattern Failed = ReplicationStatus' "FAILED"
 
-instance Hashable ReplicationStatus
+pattern Pending :: ReplicationStatus
+pattern Pending = ReplicationStatus' "PENDING"
 
-instance NFData ReplicationStatus
+pattern Replica :: ReplicationStatus
+pattern Replica = ReplicationStatus' "REPLICA"
 
-instance ToByteString ReplicationStatus
-
-instance ToQuery ReplicationStatus
-
-instance ToHeader ReplicationStatus
-
-instance FromXML ReplicationStatus where
-  parseXML = parseXMLText "ReplicationStatus"
+{-# COMPLETE
+  Completed,
+  Failed,
+  Pending,
+  Replica,
+  ReplicationStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,106 @@
 --
 -- Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput.
 --
+-- The following limitations are enforced for this operation:
+--     * 1 MB request size
 --
--- The following limitations are enforced for this operation:     * 1 MB request size    * 25 item limit per BatchDeleteAttributes operation
+--     * 25 item limit per BatchDeleteAttributes operation
 module Network.AWS.SDB.BatchDeleteAttributes
-  ( -- * Creating a Request
-    batchDeleteAttributes,
-    BatchDeleteAttributes,
+  ( -- * Creating a request
+    BatchDeleteAttributes (..),
+    mkBatchDeleteAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdaDomainName,
     bdaItems,
 
-    -- * Destructuring the Response
-    batchDeleteAttributesResponse,
-    BatchDeleteAttributesResponse,
+    -- * Destructuring the response
+    BatchDeleteAttributesResponse (..),
+    mkBatchDeleteAttributesResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
--- | /See:/ 'batchDeleteAttributes' smart constructor.
+-- | /See:/ 'mkBatchDeleteAttributes' smart constructor.
 data BatchDeleteAttributes = BatchDeleteAttributes'
-  { _bdaDomainName ::
-      !Text,
-    _bdaItems :: ![DeletableItem]
+  { domainName ::
+      Lude.Text,
+    items :: [DeletableItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdaDomainName' - The name of the domain in which the attributes are being deleted.
---
--- * 'bdaItems' - A list of items on which to perform the operation.
-batchDeleteAttributes ::
-  -- | 'bdaDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain in which the attributes are being deleted.
+-- * 'items' - A list of items on which to perform the operation.
+mkBatchDeleteAttributes ::
+  -- | 'domainName'
+  Lude.Text ->
   BatchDeleteAttributes
-batchDeleteAttributes pDomainName_ =
+mkBatchDeleteAttributes pDomainName_ =
   BatchDeleteAttributes'
-    { _bdaDomainName = pDomainName_,
-      _bdaItems = mempty
+    { domainName = pDomainName_,
+      items = Lude.mempty
     }
 
 -- | The name of the domain in which the attributes are being deleted.
-bdaDomainName :: Lens' BatchDeleteAttributes Text
-bdaDomainName = lens _bdaDomainName (\s a -> s {_bdaDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdaDomainName :: Lens.Lens' BatchDeleteAttributes Lude.Text
+bdaDomainName = Lens.lens (domainName :: BatchDeleteAttributes -> Lude.Text) (\s a -> s {domainName = a} :: BatchDeleteAttributes)
+{-# DEPRECATED bdaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | A list of items on which to perform the operation.
-bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
-bdaItems = lens _bdaItems (\s a -> s {_bdaItems = a}) . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdaItems :: Lens.Lens' BatchDeleteAttributes [DeletableItem]
+bdaItems = Lens.lens (items :: BatchDeleteAttributes -> [DeletableItem]) (\s a -> s {items = a} :: BatchDeleteAttributes)
+{-# DEPRECATED bdaItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance AWSRequest BatchDeleteAttributes where
+instance Lude.AWSRequest BatchDeleteAttributes where
   type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse
-  request = postQuery sdb
-  response = receiveNull BatchDeleteAttributesResponse'
+  request = Req.postQuery sdbService
+  response = Res.receiveNull BatchDeleteAttributesResponse'
 
-instance Hashable BatchDeleteAttributes
+instance Lude.ToHeaders BatchDeleteAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BatchDeleteAttributes
+instance Lude.ToPath BatchDeleteAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders BatchDeleteAttributes where
-  toHeaders = const mempty
-
-instance ToPath BatchDeleteAttributes where
-  toPath = const "/"
-
-instance ToQuery BatchDeleteAttributes where
+instance Lude.ToQuery BatchDeleteAttributes where
   toQuery BatchDeleteAttributes' {..} =
-    mconcat
-      [ "Action" =: ("BatchDeleteAttributes" :: ByteString),
-        "Version" =: ("2009-04-15" :: ByteString),
-        "DomainName" =: _bdaDomainName,
-        toQueryList "Item" _bdaItems
+    Lude.mconcat
+      [ "Action" Lude.=: ("BatchDeleteAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName,
+        Lude.toQueryList "Item" items
       ]
 
--- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
+-- | /See:/ 'mkBatchDeleteAttributesResponse' smart constructor.
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteAttributesResponse' with the minimum fields required to make a request.
-batchDeleteAttributesResponse ::
+mkBatchDeleteAttributesResponse ::
   BatchDeleteAttributesResponse
-batchDeleteAttributesResponse = BatchDeleteAttributesResponse'
-
-instance NFData BatchDeleteAttributesResponse
+mkBatchDeleteAttributesResponse = BatchDeleteAttributesResponse'

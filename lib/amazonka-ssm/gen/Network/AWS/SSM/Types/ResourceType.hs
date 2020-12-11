@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceType where
+module Network.AWS.SSM.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        Document,
+        EC2Instance,
+        ManagedInstance
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = Document
-  | EC2Instance
-  | ManagedInstance
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "document" -> pure Document
-      "ec2instance" -> pure EC2Instance
-      "managedinstance" -> pure ManagedInstance
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: document, ec2instance, managedinstance"
+pattern Document :: ResourceType
+pattern Document = ResourceType' "Document"
 
-instance ToText ResourceType where
-  toText = \case
-    Document -> "Document"
-    EC2Instance -> "EC2Instance"
-    ManagedInstance -> "ManagedInstance"
+pattern EC2Instance :: ResourceType
+pattern EC2Instance = ResourceType' "EC2Instance"
 
-instance Hashable ResourceType
+pattern ManagedInstance :: ResourceType
+pattern ManagedInstance = ResourceType' "ManagedInstance"
 
-instance NFData ResourceType
-
-instance ToByteString ResourceType
-
-instance ToQuery ResourceType
-
-instance ToHeader ResourceType
-
-instance FromJSON ResourceType where
-  parseJSON = parseJSONText "ResourceType"
+{-# COMPLETE
+  Document,
+  EC2Instance,
+  ManagedInstance,
+  ResourceType'
+  #-}

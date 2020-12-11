@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 90 days.)
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditFindings
-  ( -- * Creating a Request
-    listAuditFindings,
-    ListAuditFindings,
+  ( -- * Creating a request
+    ListAuditFindings (..),
+    mkListAuditFindings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lafStartTime,
     lafTaskId,
     lafCheckName,
@@ -37,11 +30,11 @@ module Network.AWS.IoT.ListAuditFindings
     lafMaxResults,
     lafResourceIdentifier,
 
-    -- * Destructuring the Response
-    listAuditFindingsResponse,
-    ListAuditFindingsResponse,
+    -- * Destructuring the response
+    ListAuditFindingsResponse (..),
+    mkListAuditFindingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lafrsNextToken,
     lafrsFindings,
     lafrsResponseStatus,
@@ -49,177 +42,207 @@ module Network.AWS.IoT.ListAuditFindings
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAuditFindings' smart constructor.
+-- | /See:/ 'mkListAuditFindings' smart constructor.
 data ListAuditFindings = ListAuditFindings'
-  { _lafStartTime ::
-      !(Maybe POSIX),
-    _lafTaskId :: !(Maybe Text),
-    _lafCheckName :: !(Maybe Text),
-    _lafListSuppressedFindings :: !(Maybe Bool),
-    _lafNextToken :: !(Maybe Text),
-    _lafEndTime :: !(Maybe POSIX),
-    _lafMaxResults :: !(Maybe Nat),
-    _lafResourceIdentifier :: !(Maybe ResourceIdentifier)
+  { startTime ::
+      Lude.Maybe Lude.Timestamp,
+    taskId :: Lude.Maybe Lude.Text,
+    checkName :: Lude.Maybe Lude.Text,
+    listSuppressedFindings :: Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    maxResults :: Lude.Maybe Lude.Natural,
+    resourceIdentifier :: Lude.Maybe ResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lafStartTime' - A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both.
---
--- * 'lafTaskId' - A filter to limit results to the audit with the specified ID. You must specify either the taskId or the startTime and endTime, but not both.
---
--- * 'lafCheckName' - A filter to limit results to the findings for the specified audit check.
---
--- * 'lafListSuppressedFindings' - Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
---
--- * 'lafNextToken' - The token for the next set of results.
---
--- * 'lafEndTime' - A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.
---
--- * 'lafMaxResults' - The maximum number of results to return at one time. The default is 25.
---
--- * 'lafResourceIdentifier' - Information identifying the noncompliant resource.
-listAuditFindings ::
+-- * 'checkName' - A filter to limit results to the findings for the specified audit check.
+-- * 'endTime' - A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.
+-- * 'listSuppressedFindings' - Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'resourceIdentifier' - Information identifying the noncompliant resource.
+-- * 'startTime' - A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both.
+-- * 'taskId' - A filter to limit results to the audit with the specified ID. You must specify either the taskId or the startTime and endTime, but not both.
+mkListAuditFindings ::
   ListAuditFindings
-listAuditFindings =
+mkListAuditFindings =
   ListAuditFindings'
-    { _lafStartTime = Nothing,
-      _lafTaskId = Nothing,
-      _lafCheckName = Nothing,
-      _lafListSuppressedFindings = Nothing,
-      _lafNextToken = Nothing,
-      _lafEndTime = Nothing,
-      _lafMaxResults = Nothing,
-      _lafResourceIdentifier = Nothing
+    { startTime = Lude.Nothing,
+      taskId = Lude.Nothing,
+      checkName = Lude.Nothing,
+      listSuppressedFindings = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      endTime = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      resourceIdentifier = Lude.Nothing
     }
 
 -- | A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both.
-lafStartTime :: Lens' ListAuditFindings (Maybe UTCTime)
-lafStartTime = lens _lafStartTime (\s a -> s {_lafStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafStartTime :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Timestamp)
+lafStartTime = Lens.lens (startTime :: ListAuditFindings -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditFindings)
+{-# DEPRECATED lafStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | A filter to limit results to the audit with the specified ID. You must specify either the taskId or the startTime and endTime, but not both.
-lafTaskId :: Lens' ListAuditFindings (Maybe Text)
-lafTaskId = lens _lafTaskId (\s a -> s {_lafTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafTaskId :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Text)
+lafTaskId = Lens.lens (taskId :: ListAuditFindings -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: ListAuditFindings)
+{-# DEPRECATED lafTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | A filter to limit results to the findings for the specified audit check.
-lafCheckName :: Lens' ListAuditFindings (Maybe Text)
-lafCheckName = lens _lafCheckName (\s a -> s {_lafCheckName = a})
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafCheckName :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Text)
+lafCheckName = Lens.lens (checkName :: ListAuditFindings -> Lude.Maybe Lude.Text) (\s a -> s {checkName = a} :: ListAuditFindings)
+{-# DEPRECATED lafCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
-lafListSuppressedFindings :: Lens' ListAuditFindings (Maybe Bool)
-lafListSuppressedFindings = lens _lafListSuppressedFindings (\s a -> s {_lafListSuppressedFindings = a})
+--
+-- /Note:/ Consider using 'listSuppressedFindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafListSuppressedFindings :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Bool)
+lafListSuppressedFindings = Lens.lens (listSuppressedFindings :: ListAuditFindings -> Lude.Maybe Lude.Bool) (\s a -> s {listSuppressedFindings = a} :: ListAuditFindings)
+{-# DEPRECATED lafListSuppressedFindings "Use generic-lens or generic-optics with 'listSuppressedFindings' instead." #-}
 
 -- | The token for the next set of results.
-lafNextToken :: Lens' ListAuditFindings (Maybe Text)
-lafNextToken = lens _lafNextToken (\s a -> s {_lafNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafNextToken :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Text)
+lafNextToken = Lens.lens (nextToken :: ListAuditFindings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditFindings)
+{-# DEPRECATED lafNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.
-lafEndTime :: Lens' ListAuditFindings (Maybe UTCTime)
-lafEndTime = lens _lafEndTime (\s a -> s {_lafEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafEndTime :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Timestamp)
+lafEndTime = Lens.lens (endTime :: ListAuditFindings -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditFindings)
+{-# DEPRECATED lafEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
-lafMaxResults :: Lens' ListAuditFindings (Maybe Natural)
-lafMaxResults = lens _lafMaxResults (\s a -> s {_lafMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafMaxResults :: Lens.Lens' ListAuditFindings (Lude.Maybe Lude.Natural)
+lafMaxResults = Lens.lens (maxResults :: ListAuditFindings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAuditFindings)
+{-# DEPRECATED lafMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Information identifying the noncompliant resource.
-lafResourceIdentifier :: Lens' ListAuditFindings (Maybe ResourceIdentifier)
-lafResourceIdentifier = lens _lafResourceIdentifier (\s a -> s {_lafResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafResourceIdentifier :: Lens.Lens' ListAuditFindings (Lude.Maybe ResourceIdentifier)
+lafResourceIdentifier = Lens.lens (resourceIdentifier :: ListAuditFindings -> Lude.Maybe ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: ListAuditFindings)
+{-# DEPRECATED lafResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance AWSPager ListAuditFindings where
+instance Page.AWSPager ListAuditFindings where
   page rq rs
-    | stop (rs ^. lafrsNextToken) = Nothing
-    | stop (rs ^. lafrsFindings) = Nothing
-    | otherwise = Just $ rq & lafNextToken .~ rs ^. lafrsNextToken
+    | Page.stop (rs Lens.^. lafrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lafrsFindings) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lafNextToken Lens..~ rs Lens.^. lafrsNextToken
 
-instance AWSRequest ListAuditFindings where
+instance Lude.AWSRequest ListAuditFindings where
   type Rs ListAuditFindings = ListAuditFindingsResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAuditFindingsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "findings" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "findings" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAuditFindings
+instance Lude.ToHeaders ListAuditFindings where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListAuditFindings
-
-instance ToHeaders ListAuditFindings where
-  toHeaders = const mempty
-
-instance ToJSON ListAuditFindings where
+instance Lude.ToJSON ListAuditFindings where
   toJSON ListAuditFindings' {..} =
-    object
-      ( catMaybes
-          [ ("startTime" .=) <$> _lafStartTime,
-            ("taskId" .=) <$> _lafTaskId,
-            ("checkName" .=) <$> _lafCheckName,
-            ("listSuppressedFindings" .=) <$> _lafListSuppressedFindings,
-            ("nextToken" .=) <$> _lafNextToken,
-            ("endTime" .=) <$> _lafEndTime,
-            ("maxResults" .=) <$> _lafMaxResults,
-            ("resourceIdentifier" .=) <$> _lafResourceIdentifier
+    Lude.object
+      ( Lude.catMaybes
+          [ ("startTime" Lude..=) Lude.<$> startTime,
+            ("taskId" Lude..=) Lude.<$> taskId,
+            ("checkName" Lude..=) Lude.<$> checkName,
+            ("listSuppressedFindings" Lude..=) Lude.<$> listSuppressedFindings,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("endTime" Lude..=) Lude.<$> endTime,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            ("resourceIdentifier" Lude..=) Lude.<$> resourceIdentifier
           ]
       )
 
-instance ToPath ListAuditFindings where
-  toPath = const "/audit/findings"
+instance Lude.ToPath ListAuditFindings where
+  toPath = Lude.const "/audit/findings"
 
-instance ToQuery ListAuditFindings where
-  toQuery = const mempty
+instance Lude.ToQuery ListAuditFindings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAuditFindingsResponse' smart constructor.
+-- | /See:/ 'mkListAuditFindingsResponse' smart constructor.
 data ListAuditFindingsResponse = ListAuditFindingsResponse'
-  { _lafrsNextToken ::
-      !(Maybe Text),
-    _lafrsFindings ::
-      !(Maybe [AuditFinding]),
-    _lafrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    findings :: Lude.Maybe [AuditFinding],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditFindingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lafrsNextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
---
--- * 'lafrsFindings' - The findings (results) of the audit.
---
--- * 'lafrsResponseStatus' - -- | The response status code.
-listAuditFindingsResponse ::
-  -- | 'lafrsResponseStatus'
-  Int ->
+-- * 'findings' - The findings (results) of the audit.
+-- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListAuditFindingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAuditFindingsResponse
-listAuditFindingsResponse pResponseStatus_ =
+mkListAuditFindingsResponse pResponseStatus_ =
   ListAuditFindingsResponse'
-    { _lafrsNextToken = Nothing,
-      _lafrsFindings = Nothing,
-      _lafrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      findings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
-lafrsNextToken :: Lens' ListAuditFindingsResponse (Maybe Text)
-lafrsNextToken = lens _lafrsNextToken (\s a -> s {_lafrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafrsNextToken :: Lens.Lens' ListAuditFindingsResponse (Lude.Maybe Lude.Text)
+lafrsNextToken = Lens.lens (nextToken :: ListAuditFindingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditFindingsResponse)
+{-# DEPRECATED lafrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The findings (results) of the audit.
-lafrsFindings :: Lens' ListAuditFindingsResponse [AuditFinding]
-lafrsFindings = lens _lafrsFindings (\s a -> s {_lafrsFindings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'findings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafrsFindings :: Lens.Lens' ListAuditFindingsResponse (Lude.Maybe [AuditFinding])
+lafrsFindings = Lens.lens (findings :: ListAuditFindingsResponse -> Lude.Maybe [AuditFinding]) (\s a -> s {findings = a} :: ListAuditFindingsResponse)
+{-# DEPRECATED lafrsFindings "Use generic-lens or generic-optics with 'findings' instead." #-}
 
--- | -- | The response status code.
-lafrsResponseStatus :: Lens' ListAuditFindingsResponse Int
-lafrsResponseStatus = lens _lafrsResponseStatus (\s a -> s {_lafrsResponseStatus = a})
-
-instance NFData ListAuditFindingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafrsResponseStatus :: Lens.Lens' ListAuditFindingsResponse Lude.Int
+lafrsResponseStatus = Lens.lens (responseStatus :: ListAuditFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAuditFindingsResponse)
+{-# DEPRECATED lafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

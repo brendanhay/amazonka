@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EBSEncryptionSupport where
+module Network.AWS.EC2.Types.EBSEncryptionSupport
+  ( EBSEncryptionSupport
+      ( EBSEncryptionSupport',
+        Supported,
+        Unsupported
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EBSEncryptionSupport
-  = Supported
-  | Unsupported
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EBSEncryptionSupport = EBSEncryptionSupport' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EBSEncryptionSupport where
-  parser =
-    takeLowerText >>= \case
-      "supported" -> pure Supported
-      "unsupported" -> pure Unsupported
-      e ->
-        fromTextError $
-          "Failure parsing EBSEncryptionSupport from value: '" <> e
-            <> "'. Accepted values: supported, unsupported"
+pattern Supported :: EBSEncryptionSupport
+pattern Supported = EBSEncryptionSupport' "supported"
 
-instance ToText EBSEncryptionSupport where
-  toText = \case
-    Supported -> "supported"
-    Unsupported -> "unsupported"
+pattern Unsupported :: EBSEncryptionSupport
+pattern Unsupported = EBSEncryptionSupport' "unsupported"
 
-instance Hashable EBSEncryptionSupport
-
-instance NFData EBSEncryptionSupport
-
-instance ToByteString EBSEncryptionSupport
-
-instance ToQuery EBSEncryptionSupport
-
-instance ToHeader EBSEncryptionSupport
-
-instance FromXML EBSEncryptionSupport where
-  parseXML = parseXMLText "EBSEncryptionSupport"
+{-# COMPLETE
+  Supported,
+  Unsupported,
+  EBSEncryptionSupport'
+  #-}

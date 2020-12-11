@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Adds an instance fleet to a running cluster.
 module Network.AWS.EMR.AddInstanceFleet
-  ( -- * Creating a Request
-    addInstanceFleet,
-    AddInstanceFleet,
+  ( -- * Creating a request
+    AddInstanceFleet (..),
+    mkAddInstanceFleet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aifClusterId,
     aifInstanceFleet,
 
-    -- * Destructuring the Response
-    addInstanceFleetResponse,
-    AddInstanceFleetResponse,
+    -- * Destructuring the response
+    AddInstanceFleetResponse (..),
+    mkAddInstanceFleetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aifrsClusterARN,
     aifrsClusterId,
     aifrsInstanceFleetId,
@@ -40,134 +35,153 @@ module Network.AWS.EMR.AddInstanceFleet
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addInstanceFleet' smart constructor.
+-- | /See:/ 'mkAddInstanceFleet' smart constructor.
 data AddInstanceFleet = AddInstanceFleet'
-  { _aifClusterId :: !Text,
-    _aifInstanceFleet :: !InstanceFleetConfig
+  { clusterId :: Lude.Text,
+    instanceFleet :: InstanceFleetConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddInstanceFleet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aifClusterId' - The unique identifier of the cluster.
---
--- * 'aifInstanceFleet' - Specifies the configuration of the instance fleet.
-addInstanceFleet ::
-  -- | 'aifClusterId'
-  Text ->
-  -- | 'aifInstanceFleet'
+-- * 'clusterId' - The unique identifier of the cluster.
+-- * 'instanceFleet' - Specifies the configuration of the instance fleet.
+mkAddInstanceFleet ::
+  -- | 'clusterId'
+  Lude.Text ->
+  -- | 'instanceFleet'
   InstanceFleetConfig ->
   AddInstanceFleet
-addInstanceFleet pClusterId_ pInstanceFleet_ =
+mkAddInstanceFleet pClusterId_ pInstanceFleet_ =
   AddInstanceFleet'
-    { _aifClusterId = pClusterId_,
-      _aifInstanceFleet = pInstanceFleet_
+    { clusterId = pClusterId_,
+      instanceFleet = pInstanceFleet_
     }
 
 -- | The unique identifier of the cluster.
-aifClusterId :: Lens' AddInstanceFleet Text
-aifClusterId = lens _aifClusterId (\s a -> s {_aifClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifClusterId :: Lens.Lens' AddInstanceFleet Lude.Text
+aifClusterId = Lens.lens (clusterId :: AddInstanceFleet -> Lude.Text) (\s a -> s {clusterId = a} :: AddInstanceFleet)
+{-# DEPRECATED aifClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | Specifies the configuration of the instance fleet.
-aifInstanceFleet :: Lens' AddInstanceFleet InstanceFleetConfig
-aifInstanceFleet = lens _aifInstanceFleet (\s a -> s {_aifInstanceFleet = a})
+--
+-- /Note:/ Consider using 'instanceFleet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifInstanceFleet :: Lens.Lens' AddInstanceFleet InstanceFleetConfig
+aifInstanceFleet = Lens.lens (instanceFleet :: AddInstanceFleet -> InstanceFleetConfig) (\s a -> s {instanceFleet = a} :: AddInstanceFleet)
+{-# DEPRECATED aifInstanceFleet "Use generic-lens or generic-optics with 'instanceFleet' instead." #-}
 
-instance AWSRequest AddInstanceFleet where
+instance Lude.AWSRequest AddInstanceFleet where
   type Rs AddInstanceFleet = AddInstanceFleetResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AddInstanceFleetResponse'
-            <$> (x .?> "ClusterArn")
-            <*> (x .?> "ClusterId")
-            <*> (x .?> "InstanceFleetId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ClusterArn")
+            Lude.<*> (x Lude..?> "ClusterId")
+            Lude.<*> (x Lude..?> "InstanceFleetId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddInstanceFleet
-
-instance NFData AddInstanceFleet
-
-instance ToHeaders AddInstanceFleet where
+instance Lude.ToHeaders AddInstanceFleet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.AddInstanceFleet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.AddInstanceFleet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddInstanceFleet where
+instance Lude.ToJSON AddInstanceFleet where
   toJSON AddInstanceFleet' {..} =
-    object
-      ( catMaybes
-          [ Just ("ClusterId" .= _aifClusterId),
-            Just ("InstanceFleet" .= _aifInstanceFleet)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            Lude.Just ("InstanceFleet" Lude..= instanceFleet)
           ]
       )
 
-instance ToPath AddInstanceFleet where
-  toPath = const "/"
+instance Lude.ToPath AddInstanceFleet where
+  toPath = Lude.const "/"
 
-instance ToQuery AddInstanceFleet where
-  toQuery = const mempty
+instance Lude.ToQuery AddInstanceFleet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addInstanceFleetResponse' smart constructor.
+-- | /See:/ 'mkAddInstanceFleetResponse' smart constructor.
 data AddInstanceFleetResponse = AddInstanceFleetResponse'
-  { _aifrsClusterARN ::
-      !(Maybe Text),
-    _aifrsClusterId :: !(Maybe Text),
-    _aifrsInstanceFleetId :: !(Maybe Text),
-    _aifrsResponseStatus :: !Int
+  { clusterARN ::
+      Lude.Maybe Lude.Text,
+    clusterId :: Lude.Maybe Lude.Text,
+    instanceFleetId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddInstanceFleetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aifrsClusterARN' - The Amazon Resource Name of the cluster.
---
--- * 'aifrsClusterId' - The unique identifier of the cluster.
---
--- * 'aifrsInstanceFleetId' - The unique identifier of the instance fleet.
---
--- * 'aifrsResponseStatus' - -- | The response status code.
-addInstanceFleetResponse ::
-  -- | 'aifrsResponseStatus'
-  Int ->
+-- * 'clusterARN' - The Amazon Resource Name of the cluster.
+-- * 'clusterId' - The unique identifier of the cluster.
+-- * 'instanceFleetId' - The unique identifier of the instance fleet.
+-- * 'responseStatus' - The response status code.
+mkAddInstanceFleetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddInstanceFleetResponse
-addInstanceFleetResponse pResponseStatus_ =
+mkAddInstanceFleetResponse pResponseStatus_ =
   AddInstanceFleetResponse'
-    { _aifrsClusterARN = Nothing,
-      _aifrsClusterId = Nothing,
-      _aifrsInstanceFleetId = Nothing,
-      _aifrsResponseStatus = pResponseStatus_
+    { clusterARN = Lude.Nothing,
+      clusterId = Lude.Nothing,
+      instanceFleetId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name of the cluster.
-aifrsClusterARN :: Lens' AddInstanceFleetResponse (Maybe Text)
-aifrsClusterARN = lens _aifrsClusterARN (\s a -> s {_aifrsClusterARN = a})
+--
+-- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifrsClusterARN :: Lens.Lens' AddInstanceFleetResponse (Lude.Maybe Lude.Text)
+aifrsClusterARN = Lens.lens (clusterARN :: AddInstanceFleetResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: AddInstanceFleetResponse)
+{-# DEPRECATED aifrsClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
 
 -- | The unique identifier of the cluster.
-aifrsClusterId :: Lens' AddInstanceFleetResponse (Maybe Text)
-aifrsClusterId = lens _aifrsClusterId (\s a -> s {_aifrsClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifrsClusterId :: Lens.Lens' AddInstanceFleetResponse (Lude.Maybe Lude.Text)
+aifrsClusterId = Lens.lens (clusterId :: AddInstanceFleetResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: AddInstanceFleetResponse)
+{-# DEPRECATED aifrsClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The unique identifier of the instance fleet.
-aifrsInstanceFleetId :: Lens' AddInstanceFleetResponse (Maybe Text)
-aifrsInstanceFleetId = lens _aifrsInstanceFleetId (\s a -> s {_aifrsInstanceFleetId = a})
+--
+-- /Note:/ Consider using 'instanceFleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifrsInstanceFleetId :: Lens.Lens' AddInstanceFleetResponse (Lude.Maybe Lude.Text)
+aifrsInstanceFleetId = Lens.lens (instanceFleetId :: AddInstanceFleetResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceFleetId = a} :: AddInstanceFleetResponse)
+{-# DEPRECATED aifrsInstanceFleetId "Use generic-lens or generic-optics with 'instanceFleetId' instead." #-}
 
--- | -- | The response status code.
-aifrsResponseStatus :: Lens' AddInstanceFleetResponse Int
-aifrsResponseStatus = lens _aifrsResponseStatus (\s a -> s {_aifrsResponseStatus = a})
-
-instance NFData AddInstanceFleetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifrsResponseStatus :: Lens.Lens' AddInstanceFleetResponse Lude.Int
+aifrsResponseStatus = Lens.lens (responseStatus :: AddInstanceFleetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddInstanceFleetResponse)
+{-# DEPRECATED aifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

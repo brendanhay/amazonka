@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Cancels an in-process import virtual machine or import snapshot task.
 module Network.AWS.EC2.CancelImportTask
-  ( -- * Creating a Request
-    cancelImportTask,
-    CancelImportTask,
+  ( -- * Creating a request
+    CancelImportTask (..),
+    mkCancelImportTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     citCancelReason,
     citImportTaskId,
     citDryRun,
 
-    -- * Destructuring the Response
-    cancelImportTaskResponse,
-    CancelImportTaskResponse,
+    -- * Destructuring the response
+    CancelImportTaskResponse (..),
+    mkCancelImportTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     citrsState,
     citrsImportTaskId,
     citrsPreviousState,
@@ -41,130 +36,150 @@ module Network.AWS.EC2.CancelImportTask
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelImportTask' smart constructor.
+-- | /See:/ 'mkCancelImportTask' smart constructor.
 data CancelImportTask = CancelImportTask'
-  { _citCancelReason ::
-      !(Maybe Text),
-    _citImportTaskId :: !(Maybe Text),
-    _citDryRun :: !(Maybe Bool)
+  { cancelReason ::
+      Lude.Maybe Lude.Text,
+    importTaskId :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelImportTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'citCancelReason' - The reason for canceling the task.
---
--- * 'citImportTaskId' - The ID of the import image or import snapshot task to be canceled.
---
--- * 'citDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cancelImportTask ::
+-- * 'cancelReason' - The reason for canceling the task.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'importTaskId' - The ID of the import image or import snapshot task to be canceled.
+mkCancelImportTask ::
   CancelImportTask
-cancelImportTask =
+mkCancelImportTask =
   CancelImportTask'
-    { _citCancelReason = Nothing,
-      _citImportTaskId = Nothing,
-      _citDryRun = Nothing
+    { cancelReason = Lude.Nothing,
+      importTaskId = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The reason for canceling the task.
-citCancelReason :: Lens' CancelImportTask (Maybe Text)
-citCancelReason = lens _citCancelReason (\s a -> s {_citCancelReason = a})
+--
+-- /Note:/ Consider using 'cancelReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citCancelReason :: Lens.Lens' CancelImportTask (Lude.Maybe Lude.Text)
+citCancelReason = Lens.lens (cancelReason :: CancelImportTask -> Lude.Maybe Lude.Text) (\s a -> s {cancelReason = a} :: CancelImportTask)
+{-# DEPRECATED citCancelReason "Use generic-lens or generic-optics with 'cancelReason' instead." #-}
 
 -- | The ID of the import image or import snapshot task to be canceled.
-citImportTaskId :: Lens' CancelImportTask (Maybe Text)
-citImportTaskId = lens _citImportTaskId (\s a -> s {_citImportTaskId = a})
+--
+-- /Note:/ Consider using 'importTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citImportTaskId :: Lens.Lens' CancelImportTask (Lude.Maybe Lude.Text)
+citImportTaskId = Lens.lens (importTaskId :: CancelImportTask -> Lude.Maybe Lude.Text) (\s a -> s {importTaskId = a} :: CancelImportTask)
+{-# DEPRECATED citImportTaskId "Use generic-lens or generic-optics with 'importTaskId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-citDryRun :: Lens' CancelImportTask (Maybe Bool)
-citDryRun = lens _citDryRun (\s a -> s {_citDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citDryRun :: Lens.Lens' CancelImportTask (Lude.Maybe Lude.Bool)
+citDryRun = Lens.lens (dryRun :: CancelImportTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelImportTask)
+{-# DEPRECATED citDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest CancelImportTask where
+instance Lude.AWSRequest CancelImportTask where
   type Rs CancelImportTask = CancelImportTaskResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CancelImportTaskResponse'
-            <$> (x .@? "state")
-            <*> (x .@? "importTaskId")
-            <*> (x .@? "previousState")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "state")
+            Lude.<*> (x Lude..@? "importTaskId")
+            Lude.<*> (x Lude..@? "previousState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelImportTask
+instance Lude.ToHeaders CancelImportTask where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelImportTask
+instance Lude.ToPath CancelImportTask where
+  toPath = Lude.const "/"
 
-instance ToHeaders CancelImportTask where
-  toHeaders = const mempty
-
-instance ToPath CancelImportTask where
-  toPath = const "/"
-
-instance ToQuery CancelImportTask where
+instance Lude.ToQuery CancelImportTask where
   toQuery CancelImportTask' {..} =
-    mconcat
-      [ "Action" =: ("CancelImportTask" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "CancelReason" =: _citCancelReason,
-        "ImportTaskId" =: _citImportTaskId,
-        "DryRun" =: _citDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("CancelImportTask" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "CancelReason" Lude.=: cancelReason,
+        "ImportTaskId" Lude.=: importTaskId,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'cancelImportTaskResponse' smart constructor.
+-- | /See:/ 'mkCancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
-  { _citrsState ::
-      !(Maybe Text),
-    _citrsImportTaskId :: !(Maybe Text),
-    _citrsPreviousState :: !(Maybe Text),
-    _citrsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe Lude.Text,
+    importTaskId :: Lude.Maybe Lude.Text,
+    previousState :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelImportTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'citrsState' - The current state of the task being canceled.
---
--- * 'citrsImportTaskId' - The ID of the task being canceled.
---
--- * 'citrsPreviousState' - The current state of the task being canceled.
---
--- * 'citrsResponseStatus' - -- | The response status code.
-cancelImportTaskResponse ::
-  -- | 'citrsResponseStatus'
-  Int ->
+-- * 'importTaskId' - The ID of the task being canceled.
+-- * 'previousState' - The current state of the task being canceled.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The current state of the task being canceled.
+mkCancelImportTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelImportTaskResponse
-cancelImportTaskResponse pResponseStatus_ =
+mkCancelImportTaskResponse pResponseStatus_ =
   CancelImportTaskResponse'
-    { _citrsState = Nothing,
-      _citrsImportTaskId = Nothing,
-      _citrsPreviousState = Nothing,
-      _citrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      importTaskId = Lude.Nothing,
+      previousState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the task being canceled.
-citrsState :: Lens' CancelImportTaskResponse (Maybe Text)
-citrsState = lens _citrsState (\s a -> s {_citrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citrsState :: Lens.Lens' CancelImportTaskResponse (Lude.Maybe Lude.Text)
+citrsState = Lens.lens (state :: CancelImportTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: CancelImportTaskResponse)
+{-# DEPRECATED citrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the task being canceled.
-citrsImportTaskId :: Lens' CancelImportTaskResponse (Maybe Text)
-citrsImportTaskId = lens _citrsImportTaskId (\s a -> s {_citrsImportTaskId = a})
+--
+-- /Note:/ Consider using 'importTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citrsImportTaskId :: Lens.Lens' CancelImportTaskResponse (Lude.Maybe Lude.Text)
+citrsImportTaskId = Lens.lens (importTaskId :: CancelImportTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {importTaskId = a} :: CancelImportTaskResponse)
+{-# DEPRECATED citrsImportTaskId "Use generic-lens or generic-optics with 'importTaskId' instead." #-}
 
 -- | The current state of the task being canceled.
-citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
-citrsPreviousState = lens _citrsPreviousState (\s a -> s {_citrsPreviousState = a})
+--
+-- /Note:/ Consider using 'previousState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citrsPreviousState :: Lens.Lens' CancelImportTaskResponse (Lude.Maybe Lude.Text)
+citrsPreviousState = Lens.lens (previousState :: CancelImportTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {previousState = a} :: CancelImportTaskResponse)
+{-# DEPRECATED citrsPreviousState "Use generic-lens or generic-optics with 'previousState' instead." #-}
 
--- | -- | The response status code.
-citrsResponseStatus :: Lens' CancelImportTaskResponse Int
-citrsResponseStatus = lens _citrsResponseStatus (\s a -> s {_citrsResponseStatus = a})
-
-instance NFData CancelImportTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+citrsResponseStatus :: Lens.Lens' CancelImportTaskResponse Lude.Int
+citrsResponseStatus = Lens.lens (responseStatus :: CancelImportTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelImportTaskResponse)
+{-# DEPRECATED citrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

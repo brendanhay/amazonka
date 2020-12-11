@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.MetadataEntry where
+module Network.AWS.S3.Types.MetadataEntry
+  ( MetadataEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetadataEntry,
+
+    -- * Lenses
+    meValue,
+    meName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | A metadata key-value pair to store with an object.
 --
---
---
--- /See:/ 'metadataEntry' smart constructor.
+-- /See:/ 'mkMetadataEntry' smart constructor.
 data MetadataEntry = MetadataEntry'
-  { _meValue :: !(Maybe Text),
-    _meName :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetadataEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'meValue' - Value of the Object.
---
--- * 'meName' - Name of the Object.
-metadataEntry ::
+-- * 'name' - Name of the Object.
+-- * 'value' - Value of the Object.
+mkMetadataEntry ::
   MetadataEntry
-metadataEntry =
-  MetadataEntry' {_meValue = Nothing, _meName = Nothing}
+mkMetadataEntry =
+  MetadataEntry' {value = Lude.Nothing, name = Lude.Nothing}
 
 -- | Value of the Object.
-meValue :: Lens' MetadataEntry (Maybe Text)
-meValue = lens _meValue (\s a -> s {_meValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meValue :: Lens.Lens' MetadataEntry (Lude.Maybe Lude.Text)
+meValue = Lens.lens (value :: MetadataEntry -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: MetadataEntry)
+{-# DEPRECATED meValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Name of the Object.
-meName :: Lens' MetadataEntry (Maybe Text)
-meName = lens _meName (\s a -> s {_meName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meName :: Lens.Lens' MetadataEntry (Lude.Maybe Lude.Text)
+meName = Lens.lens (name :: MetadataEntry -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MetadataEntry)
+{-# DEPRECATED meName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable MetadataEntry
-
-instance NFData MetadataEntry
-
-instance ToXML MetadataEntry where
+instance Lude.ToXML MetadataEntry where
   toXML MetadataEntry' {..} =
-    mconcat ["Value" @= _meValue, "Name" @= _meName]
+    Lude.mconcat ["Value" Lude.@= value, "Name" Lude.@= name]

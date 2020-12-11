@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vc3SlowPal where
+module Network.AWS.MediaConvert.Types.Vc3SlowPal
+  ( Vc3SlowPal
+      ( Vc3SlowPal',
+        VSPDisabled,
+        VSPEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Framerate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
-data Vc3SlowPal
-  = VSPDisabled
-  | VSPEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Vc3SlowPal = Vc3SlowPal' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Vc3SlowPal where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure VSPDisabled
-      "enabled" -> pure VSPEnabled
-      e ->
-        fromTextError $
-          "Failure parsing Vc3SlowPal from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern VSPDisabled :: Vc3SlowPal
+pattern VSPDisabled = Vc3SlowPal' "DISABLED"
 
-instance ToText Vc3SlowPal where
-  toText = \case
-    VSPDisabled -> "DISABLED"
-    VSPEnabled -> "ENABLED"
+pattern VSPEnabled :: Vc3SlowPal
+pattern VSPEnabled = Vc3SlowPal' "ENABLED"
 
-instance Hashable Vc3SlowPal
-
-instance NFData Vc3SlowPal
-
-instance ToByteString Vc3SlowPal
-
-instance ToQuery Vc3SlowPal
-
-instance ToHeader Vc3SlowPal
-
-instance ToJSON Vc3SlowPal where
-  toJSON = toJSONText
-
-instance FromJSON Vc3SlowPal where
-  parseJSON = parseJSONText "Vc3SlowPal"
+{-# COMPLETE
+  VSPDisabled,
+  VSPEnabled,
+  Vc3SlowPal'
+  #-}

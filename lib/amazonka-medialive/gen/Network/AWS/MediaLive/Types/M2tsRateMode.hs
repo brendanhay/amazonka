@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsRateMode where
+module Network.AWS.MediaLive.Types.M2tsRateMode
+  ( M2tsRateMode
+      ( M2tsRateMode',
+        MRMCbr,
+        MRMVbr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Rate Mode
-data M2tsRateMode
-  = MRMCbr
-  | MRMVbr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsRateMode = M2tsRateMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsRateMode where
-  parser =
-    takeLowerText >>= \case
-      "cbr" -> pure MRMCbr
-      "vbr" -> pure MRMVbr
-      e ->
-        fromTextError $
-          "Failure parsing M2tsRateMode from value: '" <> e
-            <> "'. Accepted values: cbr, vbr"
+pattern MRMCbr :: M2tsRateMode
+pattern MRMCbr = M2tsRateMode' "CBR"
 
-instance ToText M2tsRateMode where
-  toText = \case
-    MRMCbr -> "CBR"
-    MRMVbr -> "VBR"
+pattern MRMVbr :: M2tsRateMode
+pattern MRMVbr = M2tsRateMode' "VBR"
 
-instance Hashable M2tsRateMode
-
-instance NFData M2tsRateMode
-
-instance ToByteString M2tsRateMode
-
-instance ToQuery M2tsRateMode
-
-instance ToHeader M2tsRateMode
-
-instance ToJSON M2tsRateMode where
-  toJSON = toJSONText
-
-instance FromJSON M2tsRateMode where
-  parseJSON = parseJSONText "M2tsRateMode"
+{-# COMPLETE
+  MRMCbr,
+  MRMVbr,
+  M2tsRateMode'
+  #-}

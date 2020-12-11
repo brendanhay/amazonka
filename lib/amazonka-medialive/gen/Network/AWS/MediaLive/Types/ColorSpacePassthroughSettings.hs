@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,31 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings where
+module Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
+  ( ColorSpacePassthroughSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkColorSpacePassthroughSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Passthrough applies no color space conversion to the output
 --
--- /See:/ 'colorSpacePassthroughSettings' smart constructor.
+-- /See:/ 'mkColorSpacePassthroughSettings' smart constructor.
 data ColorSpacePassthroughSettings = ColorSpacePassthroughSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ColorSpacePassthroughSettings' with the minimum fields required to make a request.
-colorSpacePassthroughSettings ::
+mkColorSpacePassthroughSettings ::
   ColorSpacePassthroughSettings
-colorSpacePassthroughSettings = ColorSpacePassthroughSettings'
+mkColorSpacePassthroughSettings = ColorSpacePassthroughSettings'
 
-instance FromJSON ColorSpacePassthroughSettings where
+instance Lude.FromJSON ColorSpacePassthroughSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ColorSpacePassthroughSettings"
-      (\x -> pure ColorSpacePassthroughSettings')
+      (\x -> Lude.pure ColorSpacePassthroughSettings')
 
-instance Hashable ColorSpacePassthroughSettings
-
-instance NFData ColorSpacePassthroughSettings
-
-instance ToJSON ColorSpacePassthroughSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ColorSpacePassthroughSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

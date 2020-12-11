@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails where
+module Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
+  ( TaskSubmitFailedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskSubmitFailedEventDetails,
+
+    -- * Lenses
+    tsfedError,
+    tsfedCause,
+    tsfedResourceType,
+    tsfedResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about a task that failed to submit during an execution.
 --
---
---
--- /See:/ 'taskSubmitFailedEventDetails' smart constructor.
+-- /See:/ 'mkTaskSubmitFailedEventDetails' smart constructor.
 data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
-  { _tsfedError ::
-      !(Maybe (Sensitive Text)),
-    _tsfedCause ::
-      !(Maybe (Sensitive Text)),
-    _tsfedResourceType :: !Text,
-    _tsfedResource :: !Text
+  { error ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    cause ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    resourceType :: Lude.Text,
+    resource :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskSubmitFailedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsfedError' - The error code of the failure.
---
--- * 'tsfedCause' - A more detailed explanation of the cause of the failure.
---
--- * 'tsfedResourceType' - The action of the resource called by a task state.
---
--- * 'tsfedResource' - The service name of the resource in a task state.
-taskSubmitFailedEventDetails ::
-  -- | 'tsfedResourceType'
-  Text ->
-  -- | 'tsfedResource'
-  Text ->
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'error' - The error code of the failure.
+-- * 'resource' - The service name of the resource in a task state.
+-- * 'resourceType' - The action of the resource called by a task state.
+mkTaskSubmitFailedEventDetails ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resource'
+  Lude.Text ->
   TaskSubmitFailedEventDetails
-taskSubmitFailedEventDetails pResourceType_ pResource_ =
+mkTaskSubmitFailedEventDetails pResourceType_ pResource_ =
   TaskSubmitFailedEventDetails'
-    { _tsfedError = Nothing,
-      _tsfedCause = Nothing,
-      _tsfedResourceType = pResourceType_,
-      _tsfedResource = pResource_
+    { error = Lude.Nothing,
+      cause = Lude.Nothing,
+      resourceType = pResourceType_,
+      resource = pResource_
     }
 
 -- | The error code of the failure.
-tsfedError :: Lens' TaskSubmitFailedEventDetails (Maybe Text)
-tsfedError = lens _tsfedError (\s a -> s {_tsfedError = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedError :: Lens.Lens' TaskSubmitFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+tsfedError = Lens.lens (error :: TaskSubmitFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: TaskSubmitFailedEventDetails)
+{-# DEPRECATED tsfedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
-tsfedCause :: Lens' TaskSubmitFailedEventDetails (Maybe Text)
-tsfedCause = lens _tsfedCause (\s a -> s {_tsfedCause = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedCause :: Lens.Lens' TaskSubmitFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+tsfedCause = Lens.lens (cause :: TaskSubmitFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskSubmitFailedEventDetails)
+{-# DEPRECATED tsfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The action of the resource called by a task state.
-tsfedResourceType :: Lens' TaskSubmitFailedEventDetails Text
-tsfedResourceType = lens _tsfedResourceType (\s a -> s {_tsfedResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedResourceType :: Lens.Lens' TaskSubmitFailedEventDetails Lude.Text
+tsfedResourceType = Lens.lens (resourceType :: TaskSubmitFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskSubmitFailedEventDetails)
+{-# DEPRECATED tsfedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
-tsfedResource :: Lens' TaskSubmitFailedEventDetails Text
-tsfedResource = lens _tsfedResource (\s a -> s {_tsfedResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedResource :: Lens.Lens' TaskSubmitFailedEventDetails Lude.Text
+tsfedResource = Lens.lens (resource :: TaskSubmitFailedEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskSubmitFailedEventDetails)
+{-# DEPRECATED tsfedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON TaskSubmitFailedEventDetails where
+instance Lude.FromJSON TaskSubmitFailedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskSubmitFailedEventDetails"
       ( \x ->
           TaskSubmitFailedEventDetails'
-            <$> (x .:? "error")
-            <*> (x .:? "cause")
-            <*> (x .: "resourceType")
-            <*> (x .: "resource")
+            Lude.<$> (x Lude..:? "error")
+            Lude.<*> (x Lude..:? "cause")
+            Lude.<*> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..: "resource")
       )
-
-instance Hashable TaskSubmitFailedEventDetails
-
-instance NFData TaskSubmitFailedEventDetails

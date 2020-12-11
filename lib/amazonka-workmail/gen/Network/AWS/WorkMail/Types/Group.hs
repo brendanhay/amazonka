@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.Group where
+module Network.AWS.WorkMail.Types.Group
+  ( Group (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroup,
+
+    -- * Lenses
+    gEmail,
+    gState,
+    gDisabledDate,
+    gName,
+    gId,
+    gEnabledDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkMail.Types.EntityState
 
 -- | The representation of an Amazon WorkMail group.
 --
---
---
--- /See:/ 'group'' smart constructor.
+-- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { _gEmail :: !(Maybe Text),
-    _gState :: !(Maybe EntityState),
-    _gDisabledDate :: !(Maybe POSIX),
-    _gName :: !(Maybe Text),
-    _gId :: !(Maybe Text),
-    _gEnabledDate :: !(Maybe POSIX)
+  { email :: Lude.Maybe Lude.Text,
+    state :: Lude.Maybe EntityState,
+    disabledDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    enabledDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gEmail' - The email of the group.
---
--- * 'gState' - The state of the group, which can be ENABLED, DISABLED, or DELETED.
---
--- * 'gDisabledDate' - The date indicating when the group was disabled from Amazon WorkMail use.
---
--- * 'gName' - The name of the group.
---
--- * 'gId' - The identifier of the group.
---
--- * 'gEnabledDate' - The date indicating when the group was enabled for Amazon WorkMail use.
-group' ::
+-- * 'disabledDate' - The date indicating when the group was disabled from Amazon WorkMail use.
+-- * 'email' - The email of the group.
+-- * 'enabledDate' - The date indicating when the group was enabled for Amazon WorkMail use.
+-- * 'id' - The identifier of the group.
+-- * 'name' - The name of the group.
+-- * 'state' - The state of the group, which can be ENABLED, DISABLED, or DELETED.
+mkGroup ::
   Group
-group' =
+mkGroup =
   Group'
-    { _gEmail = Nothing,
-      _gState = Nothing,
-      _gDisabledDate = Nothing,
-      _gName = Nothing,
-      _gId = Nothing,
-      _gEnabledDate = Nothing
+    { email = Lude.Nothing,
+      state = Lude.Nothing,
+      disabledDate = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      enabledDate = Lude.Nothing
     }
 
 -- | The email of the group.
-gEmail :: Lens' Group (Maybe Text)
-gEmail = lens _gEmail (\s a -> s {_gEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gEmail :: Lens.Lens' Group (Lude.Maybe Lude.Text)
+gEmail = Lens.lens (email :: Group -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: Group)
+{-# DEPRECATED gEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The state of the group, which can be ENABLED, DISABLED, or DELETED.
-gState :: Lens' Group (Maybe EntityState)
-gState = lens _gState (\s a -> s {_gState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gState :: Lens.Lens' Group (Lude.Maybe EntityState)
+gState = Lens.lens (state :: Group -> Lude.Maybe EntityState) (\s a -> s {state = a} :: Group)
+{-# DEPRECATED gState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The date indicating when the group was disabled from Amazon WorkMail use.
-gDisabledDate :: Lens' Group (Maybe UTCTime)
-gDisabledDate = lens _gDisabledDate (\s a -> s {_gDisabledDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'disabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDisabledDate :: Lens.Lens' Group (Lude.Maybe Lude.Timestamp)
+gDisabledDate = Lens.lens (disabledDate :: Group -> Lude.Maybe Lude.Timestamp) (\s a -> s {disabledDate = a} :: Group)
+{-# DEPRECATED gDisabledDate "Use generic-lens or generic-optics with 'disabledDate' instead." #-}
 
 -- | The name of the group.
-gName :: Lens' Group (Maybe Text)
-gName = lens _gName (\s a -> s {_gName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gName :: Lens.Lens' Group (Lude.Maybe Lude.Text)
+gName = Lens.lens (name :: Group -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Group)
+{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the group.
-gId :: Lens' Group (Maybe Text)
-gId = lens _gId (\s a -> s {_gId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gId :: Lens.Lens' Group (Lude.Maybe Lude.Text)
+gId = Lens.lens (id :: Group -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Group)
+{-# DEPRECATED gId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date indicating when the group was enabled for Amazon WorkMail use.
-gEnabledDate :: Lens' Group (Maybe UTCTime)
-gEnabledDate = lens _gEnabledDate (\s a -> s {_gEnabledDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'enabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gEnabledDate :: Lens.Lens' Group (Lude.Maybe Lude.Timestamp)
+gEnabledDate = Lens.lens (enabledDate :: Group -> Lude.Maybe Lude.Timestamp) (\s a -> s {enabledDate = a} :: Group)
+{-# DEPRECATED gEnabledDate "Use generic-lens or generic-optics with 'enabledDate' instead." #-}
 
-instance FromJSON Group where
+instance Lude.FromJSON Group where
   parseJSON =
-    withObject
+    Lude.withObject
       "Group"
       ( \x ->
           Group'
-            <$> (x .:? "Email")
-            <*> (x .:? "State")
-            <*> (x .:? "DisabledDate")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "EnabledDate")
+            Lude.<$> (x Lude..:? "Email")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "DisabledDate")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "EnabledDate")
       )
-
-instance Hashable Group
-
-instance NFData Group

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Affinity where
+module Network.AWS.EC2.Types.Affinity
+  ( Affinity
+      ( Affinity',
+        ADefault,
+        AHost
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Affinity
-  = ADefault
-  | AHost
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Affinity = Affinity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Affinity where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure ADefault
-      "host" -> pure AHost
-      e ->
-        fromTextError $
-          "Failure parsing Affinity from value: '" <> e
-            <> "'. Accepted values: default, host"
+pattern ADefault :: Affinity
+pattern ADefault = Affinity' "default"
 
-instance ToText Affinity where
-  toText = \case
-    ADefault -> "default"
-    AHost -> "host"
+pattern AHost :: Affinity
+pattern AHost = Affinity' "host"
 
-instance Hashable Affinity
-
-instance NFData Affinity
-
-instance ToByteString Affinity
-
-instance ToQuery Affinity
-
-instance ToHeader Affinity
+{-# COMPLETE
+  ADefault,
+  AHost,
+  Affinity'
+  #-}

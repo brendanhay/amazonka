@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialSource where
+module Network.AWS.SageMaker.Types.TrialSource
+  ( TrialSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrialSource,
+
+    -- * Lenses
+    tsSourceType,
+    tsSourceARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The source of the trial.
 --
---
---
--- /See:/ 'trialSource' smart constructor.
+-- /See:/ 'mkTrialSource' smart constructor.
 data TrialSource = TrialSource'
-  { _tsSourceType :: !(Maybe Text),
-    _tsSourceARN :: !Text
+  { sourceType :: Lude.Maybe Lude.Text,
+    sourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsSourceType' - The source job type.
---
--- * 'tsSourceARN' - The Amazon Resource Name (ARN) of the source.
-trialSource ::
-  -- | 'tsSourceARN'
-  Text ->
+-- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
+-- * 'sourceType' - The source job type.
+mkTrialSource ::
+  -- | 'sourceARN'
+  Lude.Text ->
   TrialSource
-trialSource pSourceARN_ =
-  TrialSource' {_tsSourceType = Nothing, _tsSourceARN = pSourceARN_}
+mkTrialSource pSourceARN_ =
+  TrialSource' {sourceType = Lude.Nothing, sourceARN = pSourceARN_}
 
 -- | The source job type.
-tsSourceType :: Lens' TrialSource (Maybe Text)
-tsSourceType = lens _tsSourceType (\s a -> s {_tsSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsSourceType :: Lens.Lens' TrialSource (Lude.Maybe Lude.Text)
+tsSourceType = Lens.lens (sourceType :: TrialSource -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: TrialSource)
+{-# DEPRECATED tsSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the source.
-tsSourceARN :: Lens' TrialSource Text
-tsSourceARN = lens _tsSourceARN (\s a -> s {_tsSourceARN = a})
+--
+-- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsSourceARN :: Lens.Lens' TrialSource Lude.Text
+tsSourceARN = Lens.lens (sourceARN :: TrialSource -> Lude.Text) (\s a -> s {sourceARN = a} :: TrialSource)
+{-# DEPRECATED tsSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
 
-instance FromJSON TrialSource where
+instance Lude.FromJSON TrialSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrialSource"
       ( \x ->
-          TrialSource' <$> (x .:? "SourceType") <*> (x .: "SourceArn")
+          TrialSource'
+            Lude.<$> (x Lude..:? "SourceType") Lude.<*> (x Lude..: "SourceArn")
       )
-
-instance Hashable TrialSource
-
-instance NFData TrialSource

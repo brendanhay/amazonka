@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.NestingLevelValue where
+module Network.AWS.DMS.Types.NestingLevelValue
+  ( NestingLevelValue
+      ( NestingLevelValue',
+        None,
+        One
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NestingLevelValue
-  = None
-  | One
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NestingLevelValue = NestingLevelValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NestingLevelValue where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure None
-      "one" -> pure One
-      e ->
-        fromTextError $
-          "Failure parsing NestingLevelValue from value: '" <> e
-            <> "'. Accepted values: none, one"
+pattern None :: NestingLevelValue
+pattern None = NestingLevelValue' "none"
 
-instance ToText NestingLevelValue where
-  toText = \case
-    None -> "none"
-    One -> "one"
+pattern One :: NestingLevelValue
+pattern One = NestingLevelValue' "one"
 
-instance Hashable NestingLevelValue
-
-instance NFData NestingLevelValue
-
-instance ToByteString NestingLevelValue
-
-instance ToQuery NestingLevelValue
-
-instance ToHeader NestingLevelValue
-
-instance ToJSON NestingLevelValue where
-  toJSON = toJSONText
-
-instance FromJSON NestingLevelValue where
-  parseJSON = parseJSONText "NestingLevelValue"
+{-# COMPLETE
+  None,
+  One,
+  NestingLevelValue'
+  #-}

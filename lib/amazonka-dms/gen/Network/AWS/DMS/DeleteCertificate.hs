@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,133 @@
 --
 -- Deletes the specified certificate.
 module Network.AWS.DMS.DeleteCertificate
-  ( -- * Creating a Request
-    deleteCertificate,
-    DeleteCertificate,
+  ( -- * Creating a request
+    DeleteCertificate (..),
+    mkDeleteCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcCertificateARN,
 
-    -- * Destructuring the Response
-    deleteCertificateResponse,
-    DeleteCertificateResponse,
+    -- * Destructuring the response
+    DeleteCertificateResponse (..),
+    mkDeleteCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dccrsCertificate,
     dccrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCertificate' smart constructor.
+-- | /See:/ 'mkDeleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
-  { _dcCertificateARN ::
-      Text
+  { certificateARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcCertificateARN' - The Amazon Resource Name (ARN) of the deleted certificate.
-deleteCertificate ::
-  -- | 'dcCertificateARN'
-  Text ->
+-- * 'certificateARN' - The Amazon Resource Name (ARN) of the deleted certificate.
+mkDeleteCertificate ::
+  -- | 'certificateARN'
+  Lude.Text ->
   DeleteCertificate
-deleteCertificate pCertificateARN_ =
-  DeleteCertificate' {_dcCertificateARN = pCertificateARN_}
+mkDeleteCertificate pCertificateARN_ =
+  DeleteCertificate' {certificateARN = pCertificateARN_}
 
 -- | The Amazon Resource Name (ARN) of the deleted certificate.
-dcCertificateARN :: Lens' DeleteCertificate Text
-dcCertificateARN = lens _dcCertificateARN (\s a -> s {_dcCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcCertificateARN :: Lens.Lens' DeleteCertificate Lude.Text
+dcCertificateARN = Lens.lens (certificateARN :: DeleteCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: DeleteCertificate)
+{-# DEPRECATED dcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
-instance AWSRequest DeleteCertificate where
+instance Lude.AWSRequest DeleteCertificate where
   type Rs DeleteCertificate = DeleteCertificateResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteCertificateResponse'
-            <$> (x .?> "Certificate") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Certificate") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCertificate
-
-instance NFData DeleteCertificate
-
-instance ToHeaders DeleteCertificate where
+instance Lude.ToHeaders DeleteCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DeleteCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.DeleteCertificate" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCertificate where
+instance Lude.ToJSON DeleteCertificate where
   toJSON DeleteCertificate' {..} =
-    object (catMaybes [Just ("CertificateArn" .= _dcCertificateARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CertificateArn" Lude..= certificateARN)]
+      )
 
-instance ToPath DeleteCertificate where
-  toPath = const "/"
+instance Lude.ToPath DeleteCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCertificateResponse' smart constructor.
+-- | /See:/ 'mkDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
-  { _dccrsCertificate ::
-      !(Maybe Certificate),
-    _dccrsResponseStatus :: !Int
+  { certificate ::
+      Lude.Maybe Certificate,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccrsCertificate' - The Secure Sockets Layer (SSL) certificate.
---
--- * 'dccrsResponseStatus' - -- | The response status code.
-deleteCertificateResponse ::
-  -- | 'dccrsResponseStatus'
-  Int ->
+-- * 'certificate' - The Secure Sockets Layer (SSL) certificate.
+-- * 'responseStatus' - The response status code.
+mkDeleteCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCertificateResponse
-deleteCertificateResponse pResponseStatus_ =
+mkDeleteCertificateResponse pResponseStatus_ =
   DeleteCertificateResponse'
-    { _dccrsCertificate = Nothing,
-      _dccrsResponseStatus = pResponseStatus_
+    { certificate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Secure Sockets Layer (SSL) certificate.
-dccrsCertificate :: Lens' DeleteCertificateResponse (Maybe Certificate)
-dccrsCertificate = lens _dccrsCertificate (\s a -> s {_dccrsCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccrsCertificate :: Lens.Lens' DeleteCertificateResponse (Lude.Maybe Certificate)
+dccrsCertificate = Lens.lens (certificate :: DeleteCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: DeleteCertificateResponse)
+{-# DEPRECATED dccrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
--- | -- | The response status code.
-dccrsResponseStatus :: Lens' DeleteCertificateResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\s a -> s {_dccrsResponseStatus = a})
-
-instance NFData DeleteCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccrsResponseStatus :: Lens.Lens' DeleteCertificateResponse Lude.Int
+dccrsResponseStatus = Lens.lens (responseStatus :: DeleteCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCertificateResponse)
+{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

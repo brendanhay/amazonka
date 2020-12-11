@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,129 @@
 --
 -- Gets information about the specified TagOption.
 module Network.AWS.ServiceCatalog.DescribeTagOption
-  ( -- * Creating a Request
-    describeTagOption,
-    DescribeTagOption,
+  ( -- * Creating a request
+    DescribeTagOption (..),
+    mkDescribeTagOption,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtoId,
 
-    -- * Destructuring the Response
-    describeTagOptionResponse,
-    DescribeTagOptionResponse,
+    -- * Destructuring the response
+    DescribeTagOptionResponse (..),
+    mkDescribeTagOptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtorsTagOptionDetail,
     dtorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'describeTagOption' smart constructor.
-newtype DescribeTagOption = DescribeTagOption' {_dtoId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeTagOption' smart constructor.
+newtype DescribeTagOption = DescribeTagOption' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagOption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtoId' - The TagOption identifier.
-describeTagOption ::
-  -- | 'dtoId'
-  Text ->
+-- * 'id' - The TagOption identifier.
+mkDescribeTagOption ::
+  -- | 'id'
+  Lude.Text ->
   DescribeTagOption
-describeTagOption pId_ = DescribeTagOption' {_dtoId = pId_}
+mkDescribeTagOption pId_ = DescribeTagOption' {id = pId_}
 
 -- | The TagOption identifier.
-dtoId :: Lens' DescribeTagOption Text
-dtoId = lens _dtoId (\s a -> s {_dtoId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtoId :: Lens.Lens' DescribeTagOption Lude.Text
+dtoId = Lens.lens (id :: DescribeTagOption -> Lude.Text) (\s a -> s {id = a} :: DescribeTagOption)
+{-# DEPRECATED dtoId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DescribeTagOption where
+instance Lude.AWSRequest DescribeTagOption where
   type Rs DescribeTagOption = DescribeTagOptionResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTagOptionResponse'
-            <$> (x .?> "TagOptionDetail") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TagOptionDetail")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTagOption
-
-instance NFData DescribeTagOption
-
-instance ToHeaders DescribeTagOption where
+instance Lude.ToHeaders DescribeTagOption where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.DescribeTagOption" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DescribeTagOption" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTagOption where
+instance Lude.ToJSON DescribeTagOption where
   toJSON DescribeTagOption' {..} =
-    object (catMaybes [Just ("Id" .= _dtoId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
 
-instance ToPath DescribeTagOption where
-  toPath = const "/"
+instance Lude.ToPath DescribeTagOption where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTagOption where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTagOption where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTagOptionResponse' smart constructor.
+-- | /See:/ 'mkDescribeTagOptionResponse' smart constructor.
 data DescribeTagOptionResponse = DescribeTagOptionResponse'
-  { _dtorsTagOptionDetail ::
-      !(Maybe TagOptionDetail),
-    _dtorsResponseStatus :: !Int
+  { tagOptionDetail ::
+      Lude.Maybe TagOptionDetail,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagOptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtorsTagOptionDetail' - Information about the TagOption.
---
--- * 'dtorsResponseStatus' - -- | The response status code.
-describeTagOptionResponse ::
-  -- | 'dtorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tagOptionDetail' - Information about the TagOption.
+mkDescribeTagOptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTagOptionResponse
-describeTagOptionResponse pResponseStatus_ =
+mkDescribeTagOptionResponse pResponseStatus_ =
   DescribeTagOptionResponse'
-    { _dtorsTagOptionDetail = Nothing,
-      _dtorsResponseStatus = pResponseStatus_
+    { tagOptionDetail = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the TagOption.
-dtorsTagOptionDetail :: Lens' DescribeTagOptionResponse (Maybe TagOptionDetail)
-dtorsTagOptionDetail = lens _dtorsTagOptionDetail (\s a -> s {_dtorsTagOptionDetail = a})
+--
+-- /Note:/ Consider using 'tagOptionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtorsTagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Lude.Maybe TagOptionDetail)
+dtorsTagOptionDetail = Lens.lens (tagOptionDetail :: DescribeTagOptionResponse -> Lude.Maybe TagOptionDetail) (\s a -> s {tagOptionDetail = a} :: DescribeTagOptionResponse)
+{-# DEPRECATED dtorsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
 
--- | -- | The response status code.
-dtorsResponseStatus :: Lens' DescribeTagOptionResponse Int
-dtorsResponseStatus = lens _dtorsResponseStatus (\s a -> s {_dtorsResponseStatus = a})
-
-instance NFData DescribeTagOptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtorsResponseStatus :: Lens.Lens' DescribeTagOptionResponse Lude.Int
+dtorsResponseStatus = Lens.lens (responseStatus :: DescribeTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagOptionResponse)
+{-# DEPRECATED dtorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

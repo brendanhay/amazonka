@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProductViewDetail where
+module Network.AWS.ServiceCatalog.Types.ProductViewDetail
+  ( ProductViewDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProductViewDetail,
+
+    -- * Lenses
+    pvdStatus,
+    pvdProductViewSummary,
+    pvdCreatedTime,
+    pvdProductARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ProductViewSummary
 import Network.AWS.ServiceCatalog.Types.RequestStatus
 
 -- | Information about a product view.
 --
---
---
--- /See:/ 'productViewDetail' smart constructor.
+-- /See:/ 'mkProductViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
-  { _pvdStatus ::
-      !(Maybe RequestStatus),
-    _pvdProductViewSummary :: !(Maybe ProductViewSummary),
-    _pvdCreatedTime :: !(Maybe POSIX),
-    _pvdProductARN :: !(Maybe Text)
+  { status ::
+      Lude.Maybe RequestStatus,
+    productViewSummary :: Lude.Maybe ProductViewSummary,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    productARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductViewDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'productARN' - The ARN of the product.
+-- * 'productViewSummary' - Summary information about the product view.
+-- * 'status' - The status of the product.
 --
--- * 'pvdStatus' - The status of the product.     * @AVAILABLE@ - The product is ready for use.     * @CREATING@ - Product creation has started; the product is not ready for use.     * @FAILED@ - An action failed.
 --
--- * 'pvdProductViewSummary' - Summary information about the product view.
+--     * @AVAILABLE@ - The product is ready for use.
 --
--- * 'pvdCreatedTime' - The UTC time stamp of the creation time.
 --
--- * 'pvdProductARN' - The ARN of the product.
-productViewDetail ::
+--     * @CREATING@ - Product creation has started; the product is not ready for use.
+--
+--
+--     * @FAILED@ - An action failed.
+mkProductViewDetail ::
   ProductViewDetail
-productViewDetail =
+mkProductViewDetail =
   ProductViewDetail'
-    { _pvdStatus = Nothing,
-      _pvdProductViewSummary = Nothing,
-      _pvdCreatedTime = Nothing,
-      _pvdProductARN = Nothing
+    { status = Lude.Nothing,
+      productViewSummary = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      productARN = Lude.Nothing
     }
 
--- | The status of the product.     * @AVAILABLE@ - The product is ready for use.     * @CREATING@ - Product creation has started; the product is not ready for use.     * @FAILED@ - An action failed.
-pvdStatus :: Lens' ProductViewDetail (Maybe RequestStatus)
-pvdStatus = lens _pvdStatus (\s a -> s {_pvdStatus = a})
+-- | The status of the product.
+--
+--
+--     * @AVAILABLE@ - The product is ready for use.
+--
+--
+--     * @CREATING@ - Product creation has started; the product is not ready for use.
+--
+--
+--     * @FAILED@ - An action failed.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdStatus :: Lens.Lens' ProductViewDetail (Lude.Maybe RequestStatus)
+pvdStatus = Lens.lens (status :: ProductViewDetail -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: ProductViewDetail)
+{-# DEPRECATED pvdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Summary information about the product view.
-pvdProductViewSummary :: Lens' ProductViewDetail (Maybe ProductViewSummary)
-pvdProductViewSummary = lens _pvdProductViewSummary (\s a -> s {_pvdProductViewSummary = a})
+--
+-- /Note:/ Consider using 'productViewSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdProductViewSummary :: Lens.Lens' ProductViewDetail (Lude.Maybe ProductViewSummary)
+pvdProductViewSummary = Lens.lens (productViewSummary :: ProductViewDetail -> Lude.Maybe ProductViewSummary) (\s a -> s {productViewSummary = a} :: ProductViewDetail)
+{-# DEPRECATED pvdProductViewSummary "Use generic-lens or generic-optics with 'productViewSummary' instead." #-}
 
 -- | The UTC time stamp of the creation time.
-pvdCreatedTime :: Lens' ProductViewDetail (Maybe UTCTime)
-pvdCreatedTime = lens _pvdCreatedTime (\s a -> s {_pvdCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdCreatedTime :: Lens.Lens' ProductViewDetail (Lude.Maybe Lude.Timestamp)
+pvdCreatedTime = Lens.lens (createdTime :: ProductViewDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProductViewDetail)
+{-# DEPRECATED pvdCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The ARN of the product.
-pvdProductARN :: Lens' ProductViewDetail (Maybe Text)
-pvdProductARN = lens _pvdProductARN (\s a -> s {_pvdProductARN = a})
+--
+-- /Note:/ Consider using 'productARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvdProductARN :: Lens.Lens' ProductViewDetail (Lude.Maybe Lude.Text)
+pvdProductARN = Lens.lens (productARN :: ProductViewDetail -> Lude.Maybe Lude.Text) (\s a -> s {productARN = a} :: ProductViewDetail)
+{-# DEPRECATED pvdProductARN "Use generic-lens or generic-optics with 'productARN' instead." #-}
 
-instance FromJSON ProductViewDetail where
+instance Lude.FromJSON ProductViewDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProductViewDetail"
       ( \x ->
           ProductViewDetail'
-            <$> (x .:? "Status")
-            <*> (x .:? "ProductViewSummary")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "ProductARN")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ProductViewSummary")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "ProductARN")
       )
-
-instance Hashable ProductViewDetail
-
-instance NFData ProductViewDetail

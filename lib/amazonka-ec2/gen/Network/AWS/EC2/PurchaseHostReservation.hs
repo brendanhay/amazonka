@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.
 module Network.AWS.EC2.PurchaseHostReservation
-  ( -- * Creating a Request
-    purchaseHostReservation,
-    PurchaseHostReservation,
+  ( -- * Creating a request
+    PurchaseHostReservation (..),
+    mkPurchaseHostReservation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     phrCurrencyCode,
     phrClientToken,
     phrTagSpecifications,
@@ -31,11 +26,11 @@ module Network.AWS.EC2.PurchaseHostReservation
     phrHostIdSet,
     phrOfferingId,
 
-    -- * Destructuring the Response
-    purchaseHostReservationResponse,
-    PurchaseHostReservationResponse,
+    -- * Destructuring the response
+    PurchaseHostReservationResponse (..),
+    mkPurchaseHostReservationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     phrrsCurrencyCode,
     phrrsClientToken,
     phrrsTotalHourlyPrice,
@@ -46,183 +41,216 @@ module Network.AWS.EC2.PurchaseHostReservation
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'purchaseHostReservation' smart constructor.
+-- | /See:/ 'mkPurchaseHostReservation' smart constructor.
 data PurchaseHostReservation = PurchaseHostReservation'
-  { _phrCurrencyCode ::
-      !(Maybe CurrencyCodeValues),
-    _phrClientToken :: !(Maybe Text),
-    _phrTagSpecifications ::
-      !(Maybe [TagSpecification]),
-    _phrLimitPrice :: !(Maybe Text),
-    _phrHostIdSet :: ![Text],
-    _phrOfferingId :: !Text
+  { currencyCode ::
+      Lude.Maybe CurrencyCodeValues,
+    clientToken :: Lude.Maybe Lude.Text,
+    tagSpecifications ::
+      Lude.Maybe [TagSpecification],
+    limitPrice :: Lude.Maybe Lude.Text,
+    hostIdSet :: [Lude.Text],
+    offeringId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseHostReservation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'phrCurrencyCode' - The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
---
--- * 'phrClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'phrTagSpecifications' - The tags to apply to the Dedicated Host Reservation during purchase.
---
--- * 'phrLimitPrice' - The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
---
--- * 'phrHostIdSet' - The IDs of the Dedicated Hosts with which the reservation will be associated.
---
--- * 'phrOfferingId' - The ID of the offering.
-purchaseHostReservation ::
-  -- | 'phrOfferingId'
-  Text ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'currencyCode' - The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+-- * 'hostIdSet' - The IDs of the Dedicated Hosts with which the reservation will be associated.
+-- * 'limitPrice' - The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
+-- * 'offeringId' - The ID of the offering.
+-- * 'tagSpecifications' - The tags to apply to the Dedicated Host Reservation during purchase.
+mkPurchaseHostReservation ::
+  -- | 'offeringId'
+  Lude.Text ->
   PurchaseHostReservation
-purchaseHostReservation pOfferingId_ =
+mkPurchaseHostReservation pOfferingId_ =
   PurchaseHostReservation'
-    { _phrCurrencyCode = Nothing,
-      _phrClientToken = Nothing,
-      _phrTagSpecifications = Nothing,
-      _phrLimitPrice = Nothing,
-      _phrHostIdSet = mempty,
-      _phrOfferingId = pOfferingId_
+    { currencyCode = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      limitPrice = Lude.Nothing,
+      hostIdSet = Lude.mempty,
+      offeringId = pOfferingId_
     }
 
 -- | The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
-phrCurrencyCode :: Lens' PurchaseHostReservation (Maybe CurrencyCodeValues)
-phrCurrencyCode = lens _phrCurrencyCode (\s a -> s {_phrCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrCurrencyCode :: Lens.Lens' PurchaseHostReservation (Lude.Maybe CurrencyCodeValues)
+phrCurrencyCode = Lens.lens (currencyCode :: PurchaseHostReservation -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-phrClientToken :: Lens' PurchaseHostReservation (Maybe Text)
-phrClientToken = lens _phrClientToken (\s a -> s {_phrClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrClientToken :: Lens.Lens' PurchaseHostReservation (Lude.Maybe Lude.Text)
+phrClientToken = Lens.lens (clientToken :: PurchaseHostReservation -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The tags to apply to the Dedicated Host Reservation during purchase.
-phrTagSpecifications :: Lens' PurchaseHostReservation [TagSpecification]
-phrTagSpecifications = lens _phrTagSpecifications (\s a -> s {_phrTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrTagSpecifications :: Lens.Lens' PurchaseHostReservation (Lude.Maybe [TagSpecification])
+phrTagSpecifications = Lens.lens (tagSpecifications :: PurchaseHostReservation -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
-phrLimitPrice :: Lens' PurchaseHostReservation (Maybe Text)
-phrLimitPrice = lens _phrLimitPrice (\s a -> s {_phrLimitPrice = a})
+--
+-- /Note:/ Consider using 'limitPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrLimitPrice :: Lens.Lens' PurchaseHostReservation (Lude.Maybe Lude.Text)
+phrLimitPrice = Lens.lens (limitPrice :: PurchaseHostReservation -> Lude.Maybe Lude.Text) (\s a -> s {limitPrice = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrLimitPrice "Use generic-lens or generic-optics with 'limitPrice' instead." #-}
 
 -- | The IDs of the Dedicated Hosts with which the reservation will be associated.
-phrHostIdSet :: Lens' PurchaseHostReservation [Text]
-phrHostIdSet = lens _phrHostIdSet (\s a -> s {_phrHostIdSet = a}) . _Coerce
+--
+-- /Note:/ Consider using 'hostIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrHostIdSet :: Lens.Lens' PurchaseHostReservation [Lude.Text]
+phrHostIdSet = Lens.lens (hostIdSet :: PurchaseHostReservation -> [Lude.Text]) (\s a -> s {hostIdSet = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrHostIdSet "Use generic-lens or generic-optics with 'hostIdSet' instead." #-}
 
 -- | The ID of the offering.
-phrOfferingId :: Lens' PurchaseHostReservation Text
-phrOfferingId = lens _phrOfferingId (\s a -> s {_phrOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrOfferingId :: Lens.Lens' PurchaseHostReservation Lude.Text
+phrOfferingId = Lens.lens (offeringId :: PurchaseHostReservation -> Lude.Text) (\s a -> s {offeringId = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
-instance AWSRequest PurchaseHostReservation where
+instance Lude.AWSRequest PurchaseHostReservation where
   type Rs PurchaseHostReservation = PurchaseHostReservationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           PurchaseHostReservationResponse'
-            <$> (x .@? "currencyCode")
-            <*> (x .@? "clientToken")
-            <*> (x .@? "totalHourlyPrice")
-            <*> (x .@? "totalUpfrontPrice")
-            <*> (x .@? "purchase" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "currencyCode")
+            Lude.<*> (x Lude..@? "clientToken")
+            Lude.<*> (x Lude..@? "totalHourlyPrice")
+            Lude.<*> (x Lude..@? "totalUpfrontPrice")
+            Lude.<*> ( x Lude..@? "purchase" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PurchaseHostReservation
+instance Lude.ToHeaders PurchaseHostReservation where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PurchaseHostReservation
+instance Lude.ToPath PurchaseHostReservation where
+  toPath = Lude.const "/"
 
-instance ToHeaders PurchaseHostReservation where
-  toHeaders = const mempty
-
-instance ToPath PurchaseHostReservation where
-  toPath = const "/"
-
-instance ToQuery PurchaseHostReservation where
+instance Lude.ToQuery PurchaseHostReservation where
   toQuery PurchaseHostReservation' {..} =
-    mconcat
-      [ "Action" =: ("PurchaseHostReservation" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "CurrencyCode" =: _phrCurrencyCode,
-        "ClientToken" =: _phrClientToken,
-        toQuery (toQueryList "TagSpecification" <$> _phrTagSpecifications),
-        "LimitPrice" =: _phrLimitPrice,
-        toQueryList "HostIdSet" _phrHostIdSet,
-        "OfferingId" =: _phrOfferingId
+    Lude.mconcat
+      [ "Action" Lude.=: ("PurchaseHostReservation" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "CurrencyCode" Lude.=: currencyCode,
+        "ClientToken" Lude.=: clientToken,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "LimitPrice" Lude.=: limitPrice,
+        Lude.toQueryList "HostIdSet" hostIdSet,
+        "OfferingId" Lude.=: offeringId
       ]
 
--- | /See:/ 'purchaseHostReservationResponse' smart constructor.
+-- | /See:/ 'mkPurchaseHostReservationResponse' smart constructor.
 data PurchaseHostReservationResponse = PurchaseHostReservationResponse'
-  { _phrrsCurrencyCode ::
-      !(Maybe CurrencyCodeValues),
-    _phrrsClientToken ::
-      !(Maybe Text),
-    _phrrsTotalHourlyPrice ::
-      !(Maybe Text),
-    _phrrsTotalUpfrontPrice ::
-      !(Maybe Text),
-    _phrrsPurchase ::
-      !(Maybe [Purchase]),
-    _phrrsResponseStatus ::
-      !Int
+  { currencyCode ::
+      Lude.Maybe
+        CurrencyCodeValues,
+    clientToken ::
+      Lude.Maybe Lude.Text,
+    totalHourlyPrice ::
+      Lude.Maybe Lude.Text,
+    totalUpfrontPrice ::
+      Lude.Maybe Lude.Text,
+    purchase ::
+      Lude.Maybe [Purchase],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseHostReservationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'phrrsCurrencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
---
--- * 'phrrsClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'phrrsTotalHourlyPrice' - The total hourly price of the reservation calculated per hour.
---
--- * 'phrrsTotalUpfrontPrice' - The total amount charged to your account when you purchase the reservation.
---
--- * 'phrrsPurchase' - Describes the details of the purchase.
---
--- * 'phrrsResponseStatus' - -- | The response status code.
-purchaseHostReservationResponse ::
-  -- | 'phrrsResponseStatus'
-  Int ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'currencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+-- * 'purchase' - Describes the details of the purchase.
+-- * 'responseStatus' - The response status code.
+-- * 'totalHourlyPrice' - The total hourly price of the reservation calculated per hour.
+-- * 'totalUpfrontPrice' - The total amount charged to your account when you purchase the reservation.
+mkPurchaseHostReservationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PurchaseHostReservationResponse
-purchaseHostReservationResponse pResponseStatus_ =
+mkPurchaseHostReservationResponse pResponseStatus_ =
   PurchaseHostReservationResponse'
-    { _phrrsCurrencyCode = Nothing,
-      _phrrsClientToken = Nothing,
-      _phrrsTotalHourlyPrice = Nothing,
-      _phrrsTotalUpfrontPrice = Nothing,
-      _phrrsPurchase = Nothing,
-      _phrrsResponseStatus = pResponseStatus_
+    { currencyCode = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      totalHourlyPrice = Lude.Nothing,
+      totalUpfrontPrice = Lude.Nothing,
+      purchase = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
-phrrsCurrencyCode :: Lens' PurchaseHostReservationResponse (Maybe CurrencyCodeValues)
-phrrsCurrencyCode = lens _phrrsCurrencyCode (\s a -> s {_phrrsCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrrsCurrencyCode :: Lens.Lens' PurchaseHostReservationResponse (Lude.Maybe CurrencyCodeValues)
+phrrsCurrencyCode = Lens.lens (currencyCode :: PurchaseHostReservationResponse -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: PurchaseHostReservationResponse)
+{-# DEPRECATED phrrsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-phrrsClientToken :: Lens' PurchaseHostReservationResponse (Maybe Text)
-phrrsClientToken = lens _phrrsClientToken (\s a -> s {_phrrsClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrrsClientToken :: Lens.Lens' PurchaseHostReservationResponse (Lude.Maybe Lude.Text)
+phrrsClientToken = Lens.lens (clientToken :: PurchaseHostReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: PurchaseHostReservationResponse)
+{-# DEPRECATED phrrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The total hourly price of the reservation calculated per hour.
-phrrsTotalHourlyPrice :: Lens' PurchaseHostReservationResponse (Maybe Text)
-phrrsTotalHourlyPrice = lens _phrrsTotalHourlyPrice (\s a -> s {_phrrsTotalHourlyPrice = a})
+--
+-- /Note:/ Consider using 'totalHourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrrsTotalHourlyPrice :: Lens.Lens' PurchaseHostReservationResponse (Lude.Maybe Lude.Text)
+phrrsTotalHourlyPrice = Lens.lens (totalHourlyPrice :: PurchaseHostReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {totalHourlyPrice = a} :: PurchaseHostReservationResponse)
+{-# DEPRECATED phrrsTotalHourlyPrice "Use generic-lens or generic-optics with 'totalHourlyPrice' instead." #-}
 
 -- | The total amount charged to your account when you purchase the reservation.
-phrrsTotalUpfrontPrice :: Lens' PurchaseHostReservationResponse (Maybe Text)
-phrrsTotalUpfrontPrice = lens _phrrsTotalUpfrontPrice (\s a -> s {_phrrsTotalUpfrontPrice = a})
+--
+-- /Note:/ Consider using 'totalUpfrontPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrrsTotalUpfrontPrice :: Lens.Lens' PurchaseHostReservationResponse (Lude.Maybe Lude.Text)
+phrrsTotalUpfrontPrice = Lens.lens (totalUpfrontPrice :: PurchaseHostReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {totalUpfrontPrice = a} :: PurchaseHostReservationResponse)
+{-# DEPRECATED phrrsTotalUpfrontPrice "Use generic-lens or generic-optics with 'totalUpfrontPrice' instead." #-}
 
 -- | Describes the details of the purchase.
-phrrsPurchase :: Lens' PurchaseHostReservationResponse [Purchase]
-phrrsPurchase = lens _phrrsPurchase (\s a -> s {_phrrsPurchase = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'purchase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrrsPurchase :: Lens.Lens' PurchaseHostReservationResponse (Lude.Maybe [Purchase])
+phrrsPurchase = Lens.lens (purchase :: PurchaseHostReservationResponse -> Lude.Maybe [Purchase]) (\s a -> s {purchase = a} :: PurchaseHostReservationResponse)
+{-# DEPRECATED phrrsPurchase "Use generic-lens or generic-optics with 'purchase' instead." #-}
 
--- | -- | The response status code.
-phrrsResponseStatus :: Lens' PurchaseHostReservationResponse Int
-phrrsResponseStatus = lens _phrrsResponseStatus (\s a -> s {_phrrsResponseStatus = a})
-
-instance NFData PurchaseHostReservationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrrsResponseStatus :: Lens.Lens' PurchaseHostReservationResponse Lude.Int
+phrrsResponseStatus = Lens.lens (responseStatus :: PurchaseHostReservationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseHostReservationResponse)
+{-# DEPRECATED phrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

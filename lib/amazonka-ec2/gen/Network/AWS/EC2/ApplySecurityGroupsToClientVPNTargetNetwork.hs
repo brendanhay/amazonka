@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,178 +14,186 @@
 --
 -- Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing security groups with the specified security groups.
 module Network.AWS.EC2.ApplySecurityGroupsToClientVPNTargetNetwork
-  ( -- * Creating a Request
-    applySecurityGroupsToClientVPNTargetNetwork,
-    ApplySecurityGroupsToClientVPNTargetNetwork,
+  ( -- * Creating a request
+    ApplySecurityGroupsToClientVPNTargetNetwork (..),
+    mkApplySecurityGroupsToClientVPNTargetNetwork,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asgtcvtnDryRun,
     asgtcvtnClientVPNEndpointId,
     asgtcvtnVPCId,
     asgtcvtnSecurityGroupIds,
 
-    -- * Destructuring the Response
-    applySecurityGroupsToClientVPNTargetNetworkResponse,
-    ApplySecurityGroupsToClientVPNTargetNetworkResponse,
+    -- * Destructuring the response
+    ApplySecurityGroupsToClientVPNTargetNetworkResponse (..),
+    mkApplySecurityGroupsToClientVPNTargetNetworkResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asgtcvtnrsSecurityGroupIds,
     asgtcvtnrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'applySecurityGroupsToClientVPNTargetNetwork' smart constructor.
+-- | /See:/ 'mkApplySecurityGroupsToClientVPNTargetNetwork' smart constructor.
 data ApplySecurityGroupsToClientVPNTargetNetwork = ApplySecurityGroupsToClientVPNTargetNetwork'
-  { _asgtcvtnDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _asgtcvtnClientVPNEndpointId ::
-      !Text,
-    _asgtcvtnVPCId ::
-      !Text,
-    _asgtcvtnSecurityGroupIds ::
-      ![Text]
+  { dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    clientVPNEndpointId ::
+      Lude.Text,
+    vpcId ::
+      Lude.Text,
+    securityGroupIds ::
+      [Lude.Text]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySecurityGroupsToClientVPNTargetNetwork' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgtcvtnDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'asgtcvtnClientVPNEndpointId' - The ID of the Client VPN endpoint.
---
--- * 'asgtcvtnVPCId' - The ID of the VPC in which the associated target network is located.
---
--- * 'asgtcvtnSecurityGroupIds' - The IDs of the security groups to apply to the associated target network. Up to 5 security groups can be applied to an associated target network.
-applySecurityGroupsToClientVPNTargetNetwork ::
-  -- | 'asgtcvtnClientVPNEndpointId'
-  Text ->
-  -- | 'asgtcvtnVPCId'
-  Text ->
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'securityGroupIds' - The IDs of the security groups to apply to the associated target network. Up to 5 security groups can be applied to an associated target network.
+-- * 'vpcId' - The ID of the VPC in which the associated target network is located.
+mkApplySecurityGroupsToClientVPNTargetNetwork ::
+  -- | 'clientVPNEndpointId'
+  Lude.Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   ApplySecurityGroupsToClientVPNTargetNetwork
-applySecurityGroupsToClientVPNTargetNetwork
+mkApplySecurityGroupsToClientVPNTargetNetwork
   pClientVPNEndpointId_
   pVPCId_ =
     ApplySecurityGroupsToClientVPNTargetNetwork'
-      { _asgtcvtnDryRun =
-          Nothing,
-        _asgtcvtnClientVPNEndpointId =
-          pClientVPNEndpointId_,
-        _asgtcvtnVPCId = pVPCId_,
-        _asgtcvtnSecurityGroupIds = mempty
+      { dryRun =
+          Lude.Nothing,
+        clientVPNEndpointId = pClientVPNEndpointId_,
+        vpcId = pVPCId_,
+        securityGroupIds = Lude.mempty
       }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-asgtcvtnDryRun :: Lens' ApplySecurityGroupsToClientVPNTargetNetwork (Maybe Bool)
-asgtcvtnDryRun = lens _asgtcvtnDryRun (\s a -> s {_asgtcvtnDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtcvtnDryRun :: Lens.Lens' ApplySecurityGroupsToClientVPNTargetNetwork (Lude.Maybe Lude.Bool)
+asgtcvtnDryRun = Lens.lens (dryRun :: ApplySecurityGroupsToClientVPNTargetNetwork -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ApplySecurityGroupsToClientVPNTargetNetwork)
+{-# DEPRECATED asgtcvtnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
-asgtcvtnClientVPNEndpointId :: Lens' ApplySecurityGroupsToClientVPNTargetNetwork Text
-asgtcvtnClientVPNEndpointId = lens _asgtcvtnClientVPNEndpointId (\s a -> s {_asgtcvtnClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtcvtnClientVPNEndpointId :: Lens.Lens' ApplySecurityGroupsToClientVPNTargetNetwork Lude.Text
+asgtcvtnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: ApplySecurityGroupsToClientVPNTargetNetwork -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: ApplySecurityGroupsToClientVPNTargetNetwork)
+{-# DEPRECATED asgtcvtnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The ID of the VPC in which the associated target network is located.
-asgtcvtnVPCId :: Lens' ApplySecurityGroupsToClientVPNTargetNetwork Text
-asgtcvtnVPCId = lens _asgtcvtnVPCId (\s a -> s {_asgtcvtnVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtcvtnVPCId :: Lens.Lens' ApplySecurityGroupsToClientVPNTargetNetwork Lude.Text
+asgtcvtnVPCId = Lens.lens (vpcId :: ApplySecurityGroupsToClientVPNTargetNetwork -> Lude.Text) (\s a -> s {vpcId = a} :: ApplySecurityGroupsToClientVPNTargetNetwork)
+{-# DEPRECATED asgtcvtnVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The IDs of the security groups to apply to the associated target network. Up to 5 security groups can be applied to an associated target network.
-asgtcvtnSecurityGroupIds :: Lens' ApplySecurityGroupsToClientVPNTargetNetwork [Text]
-asgtcvtnSecurityGroupIds = lens _asgtcvtnSecurityGroupIds (\s a -> s {_asgtcvtnSecurityGroupIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtcvtnSecurityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVPNTargetNetwork [Lude.Text]
+asgtcvtnSecurityGroupIds = Lens.lens (securityGroupIds :: ApplySecurityGroupsToClientVPNTargetNetwork -> [Lude.Text]) (\s a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVPNTargetNetwork)
+{-# DEPRECATED asgtcvtnSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
-instance AWSRequest ApplySecurityGroupsToClientVPNTargetNetwork where
+instance
+  Lude.AWSRequest
+    ApplySecurityGroupsToClientVPNTargetNetwork
+  where
   type
     Rs ApplySecurityGroupsToClientVPNTargetNetwork =
       ApplySecurityGroupsToClientVPNTargetNetworkResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ApplySecurityGroupsToClientVPNTargetNetworkResponse'
-            <$> (x .@? "securityGroupIds" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "securityGroupIds" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ApplySecurityGroupsToClientVPNTargetNetwork
+instance Lude.ToHeaders ApplySecurityGroupsToClientVPNTargetNetwork where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ApplySecurityGroupsToClientVPNTargetNetwork
+instance Lude.ToPath ApplySecurityGroupsToClientVPNTargetNetwork where
+  toPath = Lude.const "/"
 
-instance ToHeaders ApplySecurityGroupsToClientVPNTargetNetwork where
-  toHeaders = const mempty
-
-instance ToPath ApplySecurityGroupsToClientVPNTargetNetwork where
-  toPath = const "/"
-
-instance ToQuery ApplySecurityGroupsToClientVPNTargetNetwork where
+instance Lude.ToQuery ApplySecurityGroupsToClientVPNTargetNetwork where
   toQuery ApplySecurityGroupsToClientVPNTargetNetwork' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("ApplySecurityGroupsToClientVpnTargetNetwork" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _asgtcvtnDryRun,
-        "ClientVpnEndpointId" =: _asgtcvtnClientVPNEndpointId,
-        "VpcId" =: _asgtcvtnVPCId,
-        toQueryList "SecurityGroupId" _asgtcvtnSecurityGroupIds
+          Lude.=: ("ApplySecurityGroupsToClientVpnTargetNetwork" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "VpcId" Lude.=: vpcId,
+        Lude.toQueryList "SecurityGroupId" securityGroupIds
       ]
 
--- | /See:/ 'applySecurityGroupsToClientVPNTargetNetworkResponse' smart constructor.
+-- | /See:/ 'mkApplySecurityGroupsToClientVPNTargetNetworkResponse' smart constructor.
 data ApplySecurityGroupsToClientVPNTargetNetworkResponse = ApplySecurityGroupsToClientVPNTargetNetworkResponse'
-  { _asgtcvtnrsSecurityGroupIds ::
-      !( Maybe
-           [Text]
-       ),
-    _asgtcvtnrsResponseStatus ::
-      !Int
+  { securityGroupIds ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ApplySecurityGroupsToClientVPNTargetNetworkResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgtcvtnrsSecurityGroupIds' - The IDs of the applied security groups.
---
--- * 'asgtcvtnrsResponseStatus' - -- | The response status code.
-applySecurityGroupsToClientVPNTargetNetworkResponse ::
-  -- | 'asgtcvtnrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'securityGroupIds' - The IDs of the applied security groups.
+mkApplySecurityGroupsToClientVPNTargetNetworkResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ApplySecurityGroupsToClientVPNTargetNetworkResponse
-applySecurityGroupsToClientVPNTargetNetworkResponse
+mkApplySecurityGroupsToClientVPNTargetNetworkResponse
   pResponseStatus_ =
     ApplySecurityGroupsToClientVPNTargetNetworkResponse'
-      { _asgtcvtnrsSecurityGroupIds =
-          Nothing,
-        _asgtcvtnrsResponseStatus =
-          pResponseStatus_
+      { securityGroupIds =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | The IDs of the applied security groups.
-asgtcvtnrsSecurityGroupIds :: Lens' ApplySecurityGroupsToClientVPNTargetNetworkResponse [Text]
-asgtcvtnrsSecurityGroupIds = lens _asgtcvtnrsSecurityGroupIds (\s a -> s {_asgtcvtnrsSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtcvtnrsSecurityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVPNTargetNetworkResponse (Lude.Maybe [Lude.Text])
+asgtcvtnrsSecurityGroupIds = Lens.lens (securityGroupIds :: ApplySecurityGroupsToClientVPNTargetNetworkResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVPNTargetNetworkResponse)
+{-# DEPRECATED asgtcvtnrsSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
--- | -- | The response status code.
-asgtcvtnrsResponseStatus :: Lens' ApplySecurityGroupsToClientVPNTargetNetworkResponse Int
-asgtcvtnrsResponseStatus = lens _asgtcvtnrsResponseStatus (\s a -> s {_asgtcvtnrsResponseStatus = a})
-
-instance NFData ApplySecurityGroupsToClientVPNTargetNetworkResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtcvtnrsResponseStatus :: Lens.Lens' ApplySecurityGroupsToClientVPNTargetNetworkResponse Lude.Int
+asgtcvtnrsResponseStatus = Lens.lens (responseStatus :: ApplySecurityGroupsToClientVPNTargetNetworkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApplySecurityGroupsToClientVPNTargetNetworkResponse)
+{-# DEPRECATED asgtcvtnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

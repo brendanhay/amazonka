@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,132 @@
 --
 -- Describes the tags associated with the specified load balancers.
 module Network.AWS.ELB.DescribeTags
-  ( -- * Creating a Request
-    describeTags,
-    DescribeTags,
+  ( -- * Creating a request
+    DescribeTags (..),
+    mkDescribeTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtLoadBalancerNames,
 
-    -- * Destructuring the Response
-    describeTagsResponse,
-    DescribeTagsResponse,
+    -- * Destructuring the response
+    DescribeTagsResponse (..),
+    mkDescribeTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsTagDescriptions,
     dtrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeTags.
 --
---
---
--- /See:/ 'describeTags' smart constructor.
+-- /See:/ 'mkDescribeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
-  { _dtLoadBalancerNames ::
-      List1 Text
+  { loadBalancerNames ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtLoadBalancerNames' - The names of the load balancers.
-describeTags ::
-  -- | 'dtLoadBalancerNames'
-  NonEmpty Text ->
+-- * 'loadBalancerNames' - The names of the load balancers.
+mkDescribeTags ::
+  -- | 'loadBalancerNames'
+  Lude.NonEmpty Lude.Text ->
   DescribeTags
-describeTags pLoadBalancerNames_ =
-  DescribeTags'
-    { _dtLoadBalancerNames =
-        _List1 # pLoadBalancerNames_
-    }
+mkDescribeTags pLoadBalancerNames_ =
+  DescribeTags' {loadBalancerNames = pLoadBalancerNames_}
 
 -- | The names of the load balancers.
-dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
-dtLoadBalancerNames = lens _dtLoadBalancerNames (\s a -> s {_dtLoadBalancerNames = a}) . _List1
+--
+-- /Note:/ Consider using 'loadBalancerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtLoadBalancerNames :: Lens.Lens' DescribeTags (Lude.NonEmpty Lude.Text)
+dtLoadBalancerNames = Lens.lens (loadBalancerNames :: DescribeTags -> Lude.NonEmpty Lude.Text) (\s a -> s {loadBalancerNames = a} :: DescribeTags)
+{-# DEPRECATED dtLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
 
-instance AWSRequest DescribeTags where
+instance Lude.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeTagsResult"
       ( \s h x ->
           DescribeTagsResponse'
-            <$> ( x .@? "TagDescriptions" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "TagDescriptions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTags
+instance Lude.ToHeaders DescribeTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeTags
+instance Lude.ToPath DescribeTags where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeTags where
-  toHeaders = const mempty
-
-instance ToPath DescribeTags where
-  toPath = const "/"
-
-instance ToQuery DescribeTags where
+instance Lude.ToQuery DescribeTags where
   toQuery DescribeTags' {..} =
-    mconcat
-      [ "Action" =: ("DescribeTags" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerNames" =: toQueryList "member" _dtLoadBalancerNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeTags" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerNames"
+          Lude.=: Lude.toQueryList "member" loadBalancerNames
       ]
 
 -- | Contains the output for DescribeTags.
 --
---
---
--- /See:/ 'describeTagsResponse' smart constructor.
+-- /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsTagDescriptions ::
-      !(Maybe [TagDescription]),
-    _dtrsResponseStatus :: !Int
+  { tagDescriptions ::
+      Lude.Maybe [TagDescription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrsTagDescriptions' - Information about the tags.
---
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeTagsResponse ::
-  -- | 'dtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tagDescriptions' - Information about the tags.
+mkDescribeTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTagsResponse
-describeTagsResponse pResponseStatus_ =
+mkDescribeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-    { _dtrsTagDescriptions = Nothing,
-      _dtrsResponseStatus = pResponseStatus_
+    { tagDescriptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the tags.
-dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTagDescriptions = lens _dtrsTagDescriptions (\s a -> s {_dtrsTagDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsTagDescriptions :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [TagDescription])
+dtrsTagDescriptions = Lens.lens (tagDescriptions :: DescribeTagsResponse -> Lude.Maybe [TagDescription]) (\s a -> s {tagDescriptions = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtrsTagDescriptions "Use generic-lens or generic-optics with 'tagDescriptions' instead." #-}
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\s a -> s {_dtrsResponseStatus = a})
-
-instance NFData DescribeTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

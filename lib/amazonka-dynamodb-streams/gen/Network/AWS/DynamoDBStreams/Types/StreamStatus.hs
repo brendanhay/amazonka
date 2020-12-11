@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types.StreamStatus where
+module Network.AWS.DynamoDBStreams.Types.StreamStatus
+  ( StreamStatus
+      ( StreamStatus',
+        Disabled,
+        Disabling,
+        Enabled,
+        Enabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StreamStatus
-  = Disabled
-  | Disabling
-  | Enabled
-  | Enabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StreamStatus = StreamStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StreamStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "disabling" -> pure Disabling
-      "enabled" -> pure Enabled
-      "enabling" -> pure Enabling
-      e ->
-        fromTextError $
-          "Failure parsing StreamStatus from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling"
+pattern Disabled :: StreamStatus
+pattern Disabled = StreamStatus' "DISABLED"
 
-instance ToText StreamStatus where
-  toText = \case
-    Disabled -> "DISABLED"
-    Disabling -> "DISABLING"
-    Enabled -> "ENABLED"
-    Enabling -> "ENABLING"
+pattern Disabling :: StreamStatus
+pattern Disabling = StreamStatus' "DISABLING"
 
-instance Hashable StreamStatus
+pattern Enabled :: StreamStatus
+pattern Enabled = StreamStatus' "ENABLED"
 
-instance NFData StreamStatus
+pattern Enabling :: StreamStatus
+pattern Enabling = StreamStatus' "ENABLING"
 
-instance ToByteString StreamStatus
-
-instance ToQuery StreamStatus
-
-instance ToHeader StreamStatus
-
-instance FromJSON StreamStatus where
-  parseJSON = parseJSONText "StreamStatus"
+{-# COMPLETE
+  Disabled,
+  Disabling,
+  Enabled,
+  Enabling,
+  StreamStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Rectangle where
+module Network.AWS.MediaConvert.Types.Rectangle
+  ( Rectangle (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRectangle,
+
+    -- * Lenses
+    rHeight,
+    rWidth,
+    rX,
+    rY,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Rectangle to identify a specific area of the video frame.
 --
--- /See:/ 'rectangle' smart constructor.
+-- /See:/ 'mkRectangle' smart constructor.
 data Rectangle = Rectangle'
-  { _rHeight :: !(Maybe Nat),
-    _rWidth :: !(Maybe Nat),
-    _rX :: !(Maybe Nat),
-    _rY :: !(Maybe Nat)
+  { height :: Lude.Maybe Lude.Natural,
+    width :: Lude.Maybe Lude.Natural,
+    x :: Lude.Maybe Lude.Natural,
+    y :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rectangle' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rHeight' - Height of rectangle in pixels. Specify only even numbers.
---
--- * 'rWidth' - Width of rectangle in pixels. Specify only even numbers.
---
--- * 'rX' - The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
---
--- * 'rY' - The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
-rectangle ::
+-- * 'height' - Height of rectangle in pixels. Specify only even numbers.
+-- * 'width' - Width of rectangle in pixels. Specify only even numbers.
+-- * 'x' - The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
+-- * 'y' - The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
+mkRectangle ::
   Rectangle
-rectangle =
+mkRectangle =
   Rectangle'
-    { _rHeight = Nothing,
-      _rWidth = Nothing,
-      _rX = Nothing,
-      _rY = Nothing
+    { height = Lude.Nothing,
+      width = Lude.Nothing,
+      x = Lude.Nothing,
+      y = Lude.Nothing
     }
 
 -- | Height of rectangle in pixels. Specify only even numbers.
-rHeight :: Lens' Rectangle (Maybe Natural)
-rHeight = lens _rHeight (\s a -> s {_rHeight = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rHeight :: Lens.Lens' Rectangle (Lude.Maybe Lude.Natural)
+rHeight = Lens.lens (height :: Rectangle -> Lude.Maybe Lude.Natural) (\s a -> s {height = a} :: Rectangle)
+{-# DEPRECATED rHeight "Use generic-lens or generic-optics with 'height' instead." #-}
 
 -- | Width of rectangle in pixels. Specify only even numbers.
-rWidth :: Lens' Rectangle (Maybe Natural)
-rWidth = lens _rWidth (\s a -> s {_rWidth = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rWidth :: Lens.Lens' Rectangle (Lude.Maybe Lude.Natural)
+rWidth = Lens.lens (width :: Rectangle -> Lude.Maybe Lude.Natural) (\s a -> s {width = a} :: Rectangle)
+{-# DEPRECATED rWidth "Use generic-lens or generic-optics with 'width' instead." #-}
 
 -- | The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
-rX :: Lens' Rectangle (Maybe Natural)
-rX = lens _rX (\s a -> s {_rX = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'x' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rX :: Lens.Lens' Rectangle (Lude.Maybe Lude.Natural)
+rX = Lens.lens (x :: Rectangle -> Lude.Maybe Lude.Natural) (\s a -> s {x = a} :: Rectangle)
+{-# DEPRECATED rX "Use generic-lens or generic-optics with 'x' instead." #-}
 
 -- | The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
-rY :: Lens' Rectangle (Maybe Natural)
-rY = lens _rY (\s a -> s {_rY = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'y' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rY :: Lens.Lens' Rectangle (Lude.Maybe Lude.Natural)
+rY = Lens.lens (y :: Rectangle -> Lude.Maybe Lude.Natural) (\s a -> s {y = a} :: Rectangle)
+{-# DEPRECATED rY "Use generic-lens or generic-optics with 'y' instead." #-}
 
-instance FromJSON Rectangle where
+instance Lude.FromJSON Rectangle where
   parseJSON =
-    withObject
+    Lude.withObject
       "Rectangle"
       ( \x ->
           Rectangle'
-            <$> (x .:? "height")
-            <*> (x .:? "width")
-            <*> (x .:? "x")
-            <*> (x .:? "y")
+            Lude.<$> (x Lude..:? "height")
+            Lude.<*> (x Lude..:? "width")
+            Lude.<*> (x Lude..:? "x")
+            Lude.<*> (x Lude..:? "y")
       )
 
-instance Hashable Rectangle
-
-instance NFData Rectangle
-
-instance ToJSON Rectangle where
+instance Lude.ToJSON Rectangle where
   toJSON Rectangle' {..} =
-    object
-      ( catMaybes
-          [ ("height" .=) <$> _rHeight,
-            ("width" .=) <$> _rWidth,
-            ("x" .=) <$> _rX,
-            ("y" .=) <$> _rY
+    Lude.object
+      ( Lude.catMaybes
+          [ ("height" Lude..=) Lude.<$> height,
+            ("width" Lude..=) Lude.<$> width,
+            ("x" Lude..=) Lude.<$> x,
+            ("y" Lude..=) Lude.<$> y
           ]
       )

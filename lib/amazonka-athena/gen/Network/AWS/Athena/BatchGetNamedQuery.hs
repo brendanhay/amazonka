@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use 'ListNamedQueriesInput' to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under 'UnprocessedNamedQueryId' . Named queries differ from executed queries. Use 'BatchGetQueryExecutionInput' to get details about each unique query execution, and 'ListQueryExecutionsInput' to get a list of query execution IDs.
 module Network.AWS.Athena.BatchGetNamedQuery
-  ( -- * Creating a Request
-    batchGetNamedQuery,
-    BatchGetNamedQuery,
+  ( -- * Creating a request
+    BatchGetNamedQuery (..),
+    mkBatchGetNamedQuery,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgnqNamedQueryIds,
 
-    -- * Destructuring the Response
-    batchGetNamedQueryResponse,
-    BatchGetNamedQueryResponse,
+    -- * Destructuring the response
+    BatchGetNamedQueryResponse (..),
+    mkBatchGetNamedQueryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgnqrsNamedQueries,
     bgnqrsUnprocessedNamedQueryIds,
     bgnqrsResponseStatus,
@@ -38,113 +33,128 @@ module Network.AWS.Athena.BatchGetNamedQuery
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetNamedQuery' smart constructor.
+-- | /See:/ 'mkBatchGetNamedQuery' smart constructor.
 newtype BatchGetNamedQuery = BatchGetNamedQuery'
-  { _bgnqNamedQueryIds ::
-      List1 Text
+  { namedQueryIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetNamedQuery' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgnqNamedQueryIds' - An array of query IDs.
-batchGetNamedQuery ::
-  -- | 'bgnqNamedQueryIds'
-  NonEmpty Text ->
+-- * 'namedQueryIds' - An array of query IDs.
+mkBatchGetNamedQuery ::
+  -- | 'namedQueryIds'
+  Lude.NonEmpty Lude.Text ->
   BatchGetNamedQuery
-batchGetNamedQuery pNamedQueryIds_ =
-  BatchGetNamedQuery'
-    { _bgnqNamedQueryIds =
-        _List1 # pNamedQueryIds_
-    }
+mkBatchGetNamedQuery pNamedQueryIds_ =
+  BatchGetNamedQuery' {namedQueryIds = pNamedQueryIds_}
 
 -- | An array of query IDs.
-bgnqNamedQueryIds :: Lens' BatchGetNamedQuery (NonEmpty Text)
-bgnqNamedQueryIds = lens _bgnqNamedQueryIds (\s a -> s {_bgnqNamedQueryIds = a}) . _List1
+--
+-- /Note:/ Consider using 'namedQueryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgnqNamedQueryIds :: Lens.Lens' BatchGetNamedQuery (Lude.NonEmpty Lude.Text)
+bgnqNamedQueryIds = Lens.lens (namedQueryIds :: BatchGetNamedQuery -> Lude.NonEmpty Lude.Text) (\s a -> s {namedQueryIds = a} :: BatchGetNamedQuery)
+{-# DEPRECATED bgnqNamedQueryIds "Use generic-lens or generic-optics with 'namedQueryIds' instead." #-}
 
-instance AWSRequest BatchGetNamedQuery where
+instance Lude.AWSRequest BatchGetNamedQuery where
   type Rs BatchGetNamedQuery = BatchGetNamedQueryResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetNamedQueryResponse'
-            <$> (x .?> "NamedQueries" .!@ mempty)
-            <*> (x .?> "UnprocessedNamedQueryIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NamedQueries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "UnprocessedNamedQueryIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetNamedQuery
-
-instance NFData BatchGetNamedQuery
-
-instance ToHeaders BatchGetNamedQuery where
+instance Lude.ToHeaders BatchGetNamedQuery where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonAthena.BatchGetNamedQuery" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonAthena.BatchGetNamedQuery" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetNamedQuery where
+instance Lude.ToJSON BatchGetNamedQuery where
   toJSON BatchGetNamedQuery' {..} =
-    object (catMaybes [Just ("NamedQueryIds" .= _bgnqNamedQueryIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("NamedQueryIds" Lude..= namedQueryIds)]
+      )
 
-instance ToPath BatchGetNamedQuery where
-  toPath = const "/"
+instance Lude.ToPath BatchGetNamedQuery where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetNamedQuery where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetNamedQuery where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetNamedQueryResponse' smart constructor.
+-- | /See:/ 'mkBatchGetNamedQueryResponse' smart constructor.
 data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
-  { _bgnqrsNamedQueries ::
-      !(Maybe [NamedQuery]),
-    _bgnqrsUnprocessedNamedQueryIds ::
-      !(Maybe [UnprocessedNamedQueryId]),
-    _bgnqrsResponseStatus :: !Int
+  { namedQueries ::
+      Lude.Maybe [NamedQuery],
+    unprocessedNamedQueryIds ::
+      Lude.Maybe [UnprocessedNamedQueryId],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetNamedQueryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgnqrsNamedQueries' - Information about the named query IDs submitted.
---
--- * 'bgnqrsUnprocessedNamedQueryIds' - Information about provided query IDs.
---
--- * 'bgnqrsResponseStatus' - -- | The response status code.
-batchGetNamedQueryResponse ::
-  -- | 'bgnqrsResponseStatus'
-  Int ->
+-- * 'namedQueries' - Information about the named query IDs submitted.
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedNamedQueryIds' - Information about provided query IDs.
+mkBatchGetNamedQueryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetNamedQueryResponse
-batchGetNamedQueryResponse pResponseStatus_ =
+mkBatchGetNamedQueryResponse pResponseStatus_ =
   BatchGetNamedQueryResponse'
-    { _bgnqrsNamedQueries = Nothing,
-      _bgnqrsUnprocessedNamedQueryIds = Nothing,
-      _bgnqrsResponseStatus = pResponseStatus_
+    { namedQueries = Lude.Nothing,
+      unprocessedNamedQueryIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the named query IDs submitted.
-bgnqrsNamedQueries :: Lens' BatchGetNamedQueryResponse [NamedQuery]
-bgnqrsNamedQueries = lens _bgnqrsNamedQueries (\s a -> s {_bgnqrsNamedQueries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'namedQueries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgnqrsNamedQueries :: Lens.Lens' BatchGetNamedQueryResponse (Lude.Maybe [NamedQuery])
+bgnqrsNamedQueries = Lens.lens (namedQueries :: BatchGetNamedQueryResponse -> Lude.Maybe [NamedQuery]) (\s a -> s {namedQueries = a} :: BatchGetNamedQueryResponse)
+{-# DEPRECATED bgnqrsNamedQueries "Use generic-lens or generic-optics with 'namedQueries' instead." #-}
 
 -- | Information about provided query IDs.
-bgnqrsUnprocessedNamedQueryIds :: Lens' BatchGetNamedQueryResponse [UnprocessedNamedQueryId]
-bgnqrsUnprocessedNamedQueryIds = lens _bgnqrsUnprocessedNamedQueryIds (\s a -> s {_bgnqrsUnprocessedNamedQueryIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedNamedQueryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgnqrsUnprocessedNamedQueryIds :: Lens.Lens' BatchGetNamedQueryResponse (Lude.Maybe [UnprocessedNamedQueryId])
+bgnqrsUnprocessedNamedQueryIds = Lens.lens (unprocessedNamedQueryIds :: BatchGetNamedQueryResponse -> Lude.Maybe [UnprocessedNamedQueryId]) (\s a -> s {unprocessedNamedQueryIds = a} :: BatchGetNamedQueryResponse)
+{-# DEPRECATED bgnqrsUnprocessedNamedQueryIds "Use generic-lens or generic-optics with 'unprocessedNamedQueryIds' instead." #-}
 
--- | -- | The response status code.
-bgnqrsResponseStatus :: Lens' BatchGetNamedQueryResponse Int
-bgnqrsResponseStatus = lens _bgnqrsResponseStatus (\s a -> s {_bgnqrsResponseStatus = a})
-
-instance NFData BatchGetNamedQueryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgnqrsResponseStatus :: Lens.Lens' BatchGetNamedQueryResponse Lude.Int
+bgnqrsResponseStatus = Lens.lens (responseStatus :: BatchGetNamedQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetNamedQueryResponse)
+{-# DEPRECATED bgnqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

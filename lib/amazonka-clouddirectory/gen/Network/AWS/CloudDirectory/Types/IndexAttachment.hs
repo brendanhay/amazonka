@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.IndexAttachment where
+module Network.AWS.CloudDirectory.Types.IndexAttachment
+  ( IndexAttachment (..),
+
+    -- * Smart constructor
+    mkIndexAttachment,
+
+    -- * Lenses
+    iaIndexedAttributes,
+    iaObjectIdentifier,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an index and an attached object.
 --
---
---
--- /See:/ 'indexAttachment' smart constructor.
+-- /See:/ 'mkIndexAttachment' smart constructor.
 data IndexAttachment = IndexAttachment'
-  { _iaIndexedAttributes ::
-      !(Maybe [AttributeKeyAndValue]),
-    _iaObjectIdentifier :: !(Maybe Text)
+  { indexedAttributes ::
+      Lude.Maybe [AttributeKeyAndValue],
+    objectIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IndexAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iaIndexedAttributes' - The indexed attribute values.
---
--- * 'iaObjectIdentifier' - In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
-indexAttachment ::
+-- * 'indexedAttributes' - The indexed attribute values.
+-- * 'objectIdentifier' - In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
+mkIndexAttachment ::
   IndexAttachment
-indexAttachment =
+mkIndexAttachment =
   IndexAttachment'
-    { _iaIndexedAttributes = Nothing,
-      _iaObjectIdentifier = Nothing
+    { indexedAttributes = Lude.Nothing,
+      objectIdentifier = Lude.Nothing
     }
 
 -- | The indexed attribute values.
-iaIndexedAttributes :: Lens' IndexAttachment [AttributeKeyAndValue]
-iaIndexedAttributes = lens _iaIndexedAttributes (\s a -> s {_iaIndexedAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'indexedAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaIndexedAttributes :: Lens.Lens' IndexAttachment (Lude.Maybe [AttributeKeyAndValue])
+iaIndexedAttributes = Lens.lens (indexedAttributes :: IndexAttachment -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {indexedAttributes = a} :: IndexAttachment)
+{-# DEPRECATED iaIndexedAttributes "Use generic-lens or generic-optics with 'indexedAttributes' instead." #-}
 
 -- | In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
-iaObjectIdentifier :: Lens' IndexAttachment (Maybe Text)
-iaObjectIdentifier = lens _iaObjectIdentifier (\s a -> s {_iaObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaObjectIdentifier :: Lens.Lens' IndexAttachment (Lude.Maybe Lude.Text)
+iaObjectIdentifier = Lens.lens (objectIdentifier :: IndexAttachment -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: IndexAttachment)
+{-# DEPRECATED iaObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance FromJSON IndexAttachment where
+instance Lude.FromJSON IndexAttachment where
   parseJSON =
-    withObject
+    Lude.withObject
       "IndexAttachment"
       ( \x ->
           IndexAttachment'
-            <$> (x .:? "IndexedAttributes" .!= mempty)
-            <*> (x .:? "ObjectIdentifier")
+            Lude.<$> (x Lude..:? "IndexedAttributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ObjectIdentifier")
       )
-
-instance Hashable IndexAttachment
-
-instance NFData IndexAttachment

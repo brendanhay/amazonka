@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.DescribeObjects
-  ( -- * Creating a Request
-    describeObjects,
-    DescribeObjects,
+  ( -- * Creating a request
+    DescribeObjects (..),
+    mkDescribeObjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doEvaluateExpressions,
     doMarker,
     doPipelineId,
     doObjectIds,
 
-    -- * Destructuring the Response
-    describeObjectsResponse,
-    DescribeObjectsResponse,
+    -- * Destructuring the response
+    DescribeObjectsResponse (..),
+    mkDescribeObjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorsHasMoreResults,
     dorsMarker,
     dorsResponseStatus,
@@ -46,165 +39,186 @@ module Network.AWS.DataPipeline.DescribeObjects
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeObjects.
 --
---
---
--- /See:/ 'describeObjects' smart constructor.
+-- /See:/ 'mkDescribeObjects' smart constructor.
 data DescribeObjects = DescribeObjects'
-  { _doEvaluateExpressions ::
-      !(Maybe Bool),
-    _doMarker :: !(Maybe Text),
-    _doPipelineId :: !Text,
-    _doObjectIds :: ![Text]
+  { evaluateExpressions ::
+      Lude.Maybe Lude.Bool,
+    marker :: Lude.Maybe Lude.Text,
+    pipelineId :: Lude.Text,
+    objectIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeObjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doEvaluateExpressions' - Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.
---
--- * 'doMarker' - The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @DescribeObjects@ with the marker value from the previous call to retrieve the next set of results.
---
--- * 'doPipelineId' - The ID of the pipeline that contains the object definitions.
---
--- * 'doObjectIds' - The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to @DescribeObjects@ .
-describeObjects ::
-  -- | 'doPipelineId'
-  Text ->
+-- * 'evaluateExpressions' - Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.
+-- * 'marker' - The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @DescribeObjects@ with the marker value from the previous call to retrieve the next set of results.
+-- * 'objectIds' - The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to @DescribeObjects@ .
+-- * 'pipelineId' - The ID of the pipeline that contains the object definitions.
+mkDescribeObjects ::
+  -- | 'pipelineId'
+  Lude.Text ->
   DescribeObjects
-describeObjects pPipelineId_ =
+mkDescribeObjects pPipelineId_ =
   DescribeObjects'
-    { _doEvaluateExpressions = Nothing,
-      _doMarker = Nothing,
-      _doPipelineId = pPipelineId_,
-      _doObjectIds = mempty
+    { evaluateExpressions = Lude.Nothing,
+      marker = Lude.Nothing,
+      pipelineId = pPipelineId_,
+      objectIds = Lude.mempty
     }
 
 -- | Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.
-doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
-doEvaluateExpressions = lens _doEvaluateExpressions (\s a -> s {_doEvaluateExpressions = a})
+--
+-- /Note:/ Consider using 'evaluateExpressions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doEvaluateExpressions :: Lens.Lens' DescribeObjects (Lude.Maybe Lude.Bool)
+doEvaluateExpressions = Lens.lens (evaluateExpressions :: DescribeObjects -> Lude.Maybe Lude.Bool) (\s a -> s {evaluateExpressions = a} :: DescribeObjects)
+{-# DEPRECATED doEvaluateExpressions "Use generic-lens or generic-optics with 'evaluateExpressions' instead." #-}
 
 -- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @DescribeObjects@ with the marker value from the previous call to retrieve the next set of results.
-doMarker :: Lens' DescribeObjects (Maybe Text)
-doMarker = lens _doMarker (\s a -> s {_doMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doMarker :: Lens.Lens' DescribeObjects (Lude.Maybe Lude.Text)
+doMarker = Lens.lens (marker :: DescribeObjects -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeObjects)
+{-# DEPRECATED doMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The ID of the pipeline that contains the object definitions.
-doPipelineId :: Lens' DescribeObjects Text
-doPipelineId = lens _doPipelineId (\s a -> s {_doPipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doPipelineId :: Lens.Lens' DescribeObjects Lude.Text
+doPipelineId = Lens.lens (pipelineId :: DescribeObjects -> Lude.Text) (\s a -> s {pipelineId = a} :: DescribeObjects)
+{-# DEPRECATED doPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to @DescribeObjects@ .
-doObjectIds :: Lens' DescribeObjects [Text]
-doObjectIds = lens _doObjectIds (\s a -> s {_doObjectIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'objectIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doObjectIds :: Lens.Lens' DescribeObjects [Lude.Text]
+doObjectIds = Lens.lens (objectIds :: DescribeObjects -> [Lude.Text]) (\s a -> s {objectIds = a} :: DescribeObjects)
+{-# DEPRECATED doObjectIds "Use generic-lens or generic-optics with 'objectIds' instead." #-}
 
-instance AWSPager DescribeObjects where
+instance Page.AWSPager DescribeObjects where
   page rq rs
-    | stop (rs ^. dorsHasMoreResults) = Nothing
-    | isNothing (rs ^. dorsMarker) = Nothing
-    | otherwise = Just $ rq & doMarker .~ rs ^. dorsMarker
+    | Page.stop (rs Lens.^. dorsHasMoreResults) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. dorsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& doMarker Lens..~ rs Lens.^. dorsMarker
 
-instance AWSRequest DescribeObjects where
+instance Lude.AWSRequest DescribeObjects where
   type Rs DescribeObjects = DescribeObjectsResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeObjectsResponse'
-            <$> (x .?> "hasMoreResults")
-            <*> (x .?> "marker")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "pipelineObjects" .!@ mempty)
+            Lude.<$> (x Lude..?> "hasMoreResults")
+            Lude.<*> (x Lude..?> "marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "pipelineObjects" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeObjects
-
-instance NFData DescribeObjects
-
-instance ToHeaders DescribeObjects where
+instance Lude.ToHeaders DescribeObjects where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DataPipeline.DescribeObjects" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DataPipeline.DescribeObjects" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeObjects where
+instance Lude.ToJSON DescribeObjects where
   toJSON DescribeObjects' {..} =
-    object
-      ( catMaybes
-          [ ("evaluateExpressions" .=) <$> _doEvaluateExpressions,
-            ("marker" .=) <$> _doMarker,
-            Just ("pipelineId" .= _doPipelineId),
-            Just ("objectIds" .= _doObjectIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("evaluateExpressions" Lude..=) Lude.<$> evaluateExpressions,
+            ("marker" Lude..=) Lude.<$> marker,
+            Lude.Just ("pipelineId" Lude..= pipelineId),
+            Lude.Just ("objectIds" Lude..= objectIds)
           ]
       )
 
-instance ToPath DescribeObjects where
-  toPath = const "/"
+instance Lude.ToPath DescribeObjects where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeObjects where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeObjects where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of DescribeObjects.
 --
---
---
--- /See:/ 'describeObjectsResponse' smart constructor.
+-- /See:/ 'mkDescribeObjectsResponse' smart constructor.
 data DescribeObjectsResponse = DescribeObjectsResponse'
-  { _dorsHasMoreResults ::
-      !(Maybe Bool),
-    _dorsMarker :: !(Maybe Text),
-    _dorsResponseStatus :: !Int,
-    _dorsPipelineObjects :: ![PipelineObject]
+  { hasMoreResults ::
+      Lude.Maybe Lude.Bool,
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    pipelineObjects :: [PipelineObject]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeObjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dorsHasMoreResults' - Indicates whether there are more results to return.
---
--- * 'dorsMarker' - The starting point for the next page of results. To view the next page of results, call @DescribeObjects@ again with this marker value. If the value is null, there are no more results.
---
--- * 'dorsResponseStatus' - -- | The response status code.
---
--- * 'dorsPipelineObjects' - An array of object definitions.
-describeObjectsResponse ::
-  -- | 'dorsResponseStatus'
-  Int ->
+-- * 'hasMoreResults' - Indicates whether there are more results to return.
+-- * 'marker' - The starting point for the next page of results. To view the next page of results, call @DescribeObjects@ again with this marker value. If the value is null, there are no more results.
+-- * 'pipelineObjects' - An array of object definitions.
+-- * 'responseStatus' - The response status code.
+mkDescribeObjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeObjectsResponse
-describeObjectsResponse pResponseStatus_ =
+mkDescribeObjectsResponse pResponseStatus_ =
   DescribeObjectsResponse'
-    { _dorsHasMoreResults = Nothing,
-      _dorsMarker = Nothing,
-      _dorsResponseStatus = pResponseStatus_,
-      _dorsPipelineObjects = mempty
+    { hasMoreResults = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      pipelineObjects = Lude.mempty
     }
 
 -- | Indicates whether there are more results to return.
-dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
-dorsHasMoreResults = lens _dorsHasMoreResults (\s a -> s {_dorsHasMoreResults = a})
+--
+-- /Note:/ Consider using 'hasMoreResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsHasMoreResults :: Lens.Lens' DescribeObjectsResponse (Lude.Maybe Lude.Bool)
+dorsHasMoreResults = Lens.lens (hasMoreResults :: DescribeObjectsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasMoreResults = a} :: DescribeObjectsResponse)
+{-# DEPRECATED dorsHasMoreResults "Use generic-lens or generic-optics with 'hasMoreResults' instead." #-}
 
 -- | The starting point for the next page of results. To view the next page of results, call @DescribeObjects@ again with this marker value. If the value is null, there are no more results.
-dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
-dorsMarker = lens _dorsMarker (\s a -> s {_dorsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsMarker :: Lens.Lens' DescribeObjectsResponse (Lude.Maybe Lude.Text)
+dorsMarker = Lens.lens (marker :: DescribeObjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeObjectsResponse)
+{-# DEPRECATED dorsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dorsResponseStatus :: Lens' DescribeObjectsResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\s a -> s {_dorsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResponseStatus :: Lens.Lens' DescribeObjectsResponse Lude.Int
+dorsResponseStatus = Lens.lens (responseStatus :: DescribeObjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeObjectsResponse)
+{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array of object definitions.
-dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-dorsPipelineObjects = lens _dorsPipelineObjects (\s a -> s {_dorsPipelineObjects = a}) . _Coerce
-
-instance NFData DescribeObjectsResponse
+--
+-- /Note:/ Consider using 'pipelineObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsPipelineObjects :: Lens.Lens' DescribeObjectsResponse [PipelineObject]
+dorsPipelineObjects = Lens.lens (pipelineObjects :: DescribeObjectsResponse -> [PipelineObject]) (\s a -> s {pipelineObjects = a} :: DescribeObjectsResponse)
+{-# DEPRECATED dorsPipelineObjects "Use generic-lens or generic-optics with 'pipelineObjects' instead." #-}

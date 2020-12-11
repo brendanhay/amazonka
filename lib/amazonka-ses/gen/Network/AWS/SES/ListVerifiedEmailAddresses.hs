@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,118 @@
 --
 -- Deprecated. Use the @ListIdentities@ operation to list the email addresses and domains associated with your account.
 module Network.AWS.SES.ListVerifiedEmailAddresses
-  ( -- * Creating a Request
-    listVerifiedEmailAddresses,
-    ListVerifiedEmailAddresses,
+  ( -- * Creating a request
+    ListVerifiedEmailAddresses (..),
+    mkListVerifiedEmailAddresses,
 
-    -- * Destructuring the Response
-    listVerifiedEmailAddressesResponse,
-    ListVerifiedEmailAddressesResponse,
+    -- * Destructuring the response
+    ListVerifiedEmailAddressesResponse (..),
+    mkListVerifiedEmailAddressesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvearsVerifiedEmailAddresses,
     lvearsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
--- | /See:/ 'listVerifiedEmailAddresses' smart constructor.
+-- | /See:/ 'mkListVerifiedEmailAddresses' smart constructor.
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVerifiedEmailAddresses' with the minimum fields required to make a request.
-listVerifiedEmailAddresses ::
+mkListVerifiedEmailAddresses ::
   ListVerifiedEmailAddresses
-listVerifiedEmailAddresses = ListVerifiedEmailAddresses'
+mkListVerifiedEmailAddresses = ListVerifiedEmailAddresses'
 
-instance AWSRequest ListVerifiedEmailAddresses where
+instance Lude.AWSRequest ListVerifiedEmailAddresses where
   type
     Rs ListVerifiedEmailAddresses =
       ListVerifiedEmailAddressesResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListVerifiedEmailAddressesResult"
       ( \s h x ->
           ListVerifiedEmailAddressesResponse'
-            <$> ( x .@? "VerifiedEmailAddresses" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "VerifiedEmailAddresses" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVerifiedEmailAddresses
+instance Lude.ToHeaders ListVerifiedEmailAddresses where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListVerifiedEmailAddresses
+instance Lude.ToPath ListVerifiedEmailAddresses where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListVerifiedEmailAddresses where
-  toHeaders = const mempty
-
-instance ToPath ListVerifiedEmailAddresses where
-  toPath = const "/"
-
-instance ToQuery ListVerifiedEmailAddresses where
+instance Lude.ToQuery ListVerifiedEmailAddresses where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("ListVerifiedEmailAddresses" :: ByteString),
-            "Version" =: ("2010-12-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action"
+              Lude.=: ("ListVerifiedEmailAddresses" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
           ]
       )
 
 -- | A list of email addresses that you have verified with Amazon SES under your AWS account.
 --
---
---
--- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
+-- /See:/ 'mkListVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
-  { _lvearsVerifiedEmailAddresses ::
-      !(Maybe [Text]),
-    _lvearsResponseStatus ::
-      !Int
+  { verifiedEmailAddresses ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVerifiedEmailAddressesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvearsVerifiedEmailAddresses' - A list of email addresses that have been verified.
---
--- * 'lvearsResponseStatus' - -- | The response status code.
-listVerifiedEmailAddressesResponse ::
-  -- | 'lvearsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'verifiedEmailAddresses' - A list of email addresses that have been verified.
+mkListVerifiedEmailAddressesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse pResponseStatus_ =
+mkListVerifiedEmailAddressesResponse pResponseStatus_ =
   ListVerifiedEmailAddressesResponse'
-    { _lvearsVerifiedEmailAddresses =
-        Nothing,
-      _lvearsResponseStatus = pResponseStatus_
+    { verifiedEmailAddresses =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of email addresses that have been verified.
-lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\s a -> s {_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'verifiedEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvearsVerifiedEmailAddresses :: Lens.Lens' ListVerifiedEmailAddressesResponse (Lude.Maybe [Lude.Text])
+lvearsVerifiedEmailAddresses = Lens.lens (verifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {verifiedEmailAddresses = a} :: ListVerifiedEmailAddressesResponse)
+{-# DEPRECATED lvearsVerifiedEmailAddresses "Use generic-lens or generic-optics with 'verifiedEmailAddresses' instead." #-}
 
--- | -- | The response status code.
-lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
-lvearsResponseStatus = lens _lvearsResponseStatus (\s a -> s {_lvearsResponseStatus = a})
-
-instance NFData ListVerifiedEmailAddressesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvearsResponseStatus :: Lens.Lens' ListVerifiedEmailAddressesResponse Lude.Int
+lvearsResponseStatus = Lens.lens (responseStatus :: ListVerifiedEmailAddressesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVerifiedEmailAddressesResponse)
+{-# DEPRECATED lvearsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

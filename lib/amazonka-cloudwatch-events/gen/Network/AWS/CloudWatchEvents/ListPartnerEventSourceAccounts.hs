@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- An SaaS partner can use this operation to display the AWS account ID that a particular partner event source name is associated with. This operation is not used by AWS customers.
 module Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
-  ( -- * Creating a Request
-    listPartnerEventSourceAccounts,
-    ListPartnerEventSourceAccounts,
+  ( -- * Creating a request
+    ListPartnerEventSourceAccounts (..),
+    mkListPartnerEventSourceAccounts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpesaNextToken,
     lpesaLimit,
     lpesaEventSourceName,
 
-    -- * Destructuring the Response
-    listPartnerEventSourceAccountsResponse,
-    ListPartnerEventSourceAccountsResponse,
+    -- * Destructuring the response
+    ListPartnerEventSourceAccountsResponse (..),
+    mkListPartnerEventSourceAccountsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpesarsPartnerEventSourceAccounts,
     lpesarsNextToken,
     lpesarsResponseStatus,
@@ -40,141 +35,160 @@ module Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPartnerEventSourceAccounts' smart constructor.
+-- | /See:/ 'mkListPartnerEventSourceAccounts' smart constructor.
 data ListPartnerEventSourceAccounts = ListPartnerEventSourceAccounts'
-  { _lpesaNextToken ::
-      !(Maybe Text),
-    _lpesaLimit :: !(Maybe Nat),
-    _lpesaEventSourceName ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit ::
+      Lude.Maybe Lude.Natural,
+    eventSourceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPartnerEventSourceAccounts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpesaNextToken' - The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
---
--- * 'lpesaLimit' - Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
---
--- * 'lpesaEventSourceName' - The name of the partner event source to display account information about.
-listPartnerEventSourceAccounts ::
-  -- | 'lpesaEventSourceName'
-  Text ->
+-- * 'eventSourceName' - The name of the partner event source to display account information about.
+-- * 'limit' - Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
+-- * 'nextToken' - The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
+mkListPartnerEventSourceAccounts ::
+  -- | 'eventSourceName'
+  Lude.Text ->
   ListPartnerEventSourceAccounts
-listPartnerEventSourceAccounts pEventSourceName_ =
+mkListPartnerEventSourceAccounts pEventSourceName_ =
   ListPartnerEventSourceAccounts'
-    { _lpesaNextToken = Nothing,
-      _lpesaLimit = Nothing,
-      _lpesaEventSourceName = pEventSourceName_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      eventSourceName = pEventSourceName_
     }
 
 -- | The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
-lpesaNextToken :: Lens' ListPartnerEventSourceAccounts (Maybe Text)
-lpesaNextToken = lens _lpesaNextToken (\s a -> s {_lpesaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesaNextToken :: Lens.Lens' ListPartnerEventSourceAccounts (Lude.Maybe Lude.Text)
+lpesaNextToken = Lens.lens (nextToken :: ListPartnerEventSourceAccounts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPartnerEventSourceAccounts)
+{-# DEPRECATED lpesaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
-lpesaLimit :: Lens' ListPartnerEventSourceAccounts (Maybe Natural)
-lpesaLimit = lens _lpesaLimit (\s a -> s {_lpesaLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesaLimit :: Lens.Lens' ListPartnerEventSourceAccounts (Lude.Maybe Lude.Natural)
+lpesaLimit = Lens.lens (limit :: ListPartnerEventSourceAccounts -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListPartnerEventSourceAccounts)
+{-# DEPRECATED lpesaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the partner event source to display account information about.
-lpesaEventSourceName :: Lens' ListPartnerEventSourceAccounts Text
-lpesaEventSourceName = lens _lpesaEventSourceName (\s a -> s {_lpesaEventSourceName = a})
+--
+-- /Note:/ Consider using 'eventSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesaEventSourceName :: Lens.Lens' ListPartnerEventSourceAccounts Lude.Text
+lpesaEventSourceName = Lens.lens (eventSourceName :: ListPartnerEventSourceAccounts -> Lude.Text) (\s a -> s {eventSourceName = a} :: ListPartnerEventSourceAccounts)
+{-# DEPRECATED lpesaEventSourceName "Use generic-lens or generic-optics with 'eventSourceName' instead." #-}
 
-instance AWSRequest ListPartnerEventSourceAccounts where
+instance Lude.AWSRequest ListPartnerEventSourceAccounts where
   type
     Rs ListPartnerEventSourceAccounts =
       ListPartnerEventSourceAccountsResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPartnerEventSourceAccountsResponse'
-            <$> (x .?> "PartnerEventSourceAccounts" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PartnerEventSourceAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPartnerEventSourceAccounts
-
-instance NFData ListPartnerEventSourceAccounts
-
-instance ToHeaders ListPartnerEventSourceAccounts where
+instance Lude.ToHeaders ListPartnerEventSourceAccounts where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSEvents.ListPartnerEventSourceAccounts" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSEvents.ListPartnerEventSourceAccounts" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListPartnerEventSourceAccounts where
+instance Lude.ToJSON ListPartnerEventSourceAccounts where
   toJSON ListPartnerEventSourceAccounts' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lpesaNextToken,
-            ("Limit" .=) <$> _lpesaLimit,
-            Just ("EventSourceName" .= _lpesaEventSourceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("EventSourceName" Lude..= eventSourceName)
           ]
       )
 
-instance ToPath ListPartnerEventSourceAccounts where
-  toPath = const "/"
+instance Lude.ToPath ListPartnerEventSourceAccounts where
+  toPath = Lude.const "/"
 
-instance ToQuery ListPartnerEventSourceAccounts where
-  toQuery = const mempty
+instance Lude.ToQuery ListPartnerEventSourceAccounts where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listPartnerEventSourceAccountsResponse' smart constructor.
+-- | /See:/ 'mkListPartnerEventSourceAccountsResponse' smart constructor.
 data ListPartnerEventSourceAccountsResponse = ListPartnerEventSourceAccountsResponse'
-  { _lpesarsPartnerEventSourceAccounts ::
-      !( Maybe
-           [PartnerEventSourceAccount]
-       ),
-    _lpesarsNextToken ::
-      !(Maybe Text),
-    _lpesarsResponseStatus ::
-      !Int
+  { partnerEventSourceAccounts ::
+      Lude.Maybe
+        [PartnerEventSourceAccount],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPartnerEventSourceAccountsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpesarsPartnerEventSourceAccounts' - The list of partner event sources returned by the operation.
---
--- * 'lpesarsNextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
---
--- * 'lpesarsResponseStatus' - -- | The response status code.
-listPartnerEventSourceAccountsResponse ::
-  -- | 'lpesarsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
+-- * 'partnerEventSourceAccounts' - The list of partner event sources returned by the operation.
+-- * 'responseStatus' - The response status code.
+mkListPartnerEventSourceAccountsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPartnerEventSourceAccountsResponse
-listPartnerEventSourceAccountsResponse pResponseStatus_ =
+mkListPartnerEventSourceAccountsResponse pResponseStatus_ =
   ListPartnerEventSourceAccountsResponse'
-    { _lpesarsPartnerEventSourceAccounts =
-        Nothing,
-      _lpesarsNextToken = Nothing,
-      _lpesarsResponseStatus = pResponseStatus_
+    { partnerEventSourceAccounts =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of partner event sources returned by the operation.
-lpesarsPartnerEventSourceAccounts :: Lens' ListPartnerEventSourceAccountsResponse [PartnerEventSourceAccount]
-lpesarsPartnerEventSourceAccounts = lens _lpesarsPartnerEventSourceAccounts (\s a -> s {_lpesarsPartnerEventSourceAccounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partnerEventSourceAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesarsPartnerEventSourceAccounts :: Lens.Lens' ListPartnerEventSourceAccountsResponse (Lude.Maybe [PartnerEventSourceAccount])
+lpesarsPartnerEventSourceAccounts = Lens.lens (partnerEventSourceAccounts :: ListPartnerEventSourceAccountsResponse -> Lude.Maybe [PartnerEventSourceAccount]) (\s a -> s {partnerEventSourceAccounts = a} :: ListPartnerEventSourceAccountsResponse)
+{-# DEPRECATED lpesarsPartnerEventSourceAccounts "Use generic-lens or generic-optics with 'partnerEventSourceAccounts' instead." #-}
 
 -- | A token you can use in a subsequent operation to retrieve the next set of results.
-lpesarsNextToken :: Lens' ListPartnerEventSourceAccountsResponse (Maybe Text)
-lpesarsNextToken = lens _lpesarsNextToken (\s a -> s {_lpesarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesarsNextToken :: Lens.Lens' ListPartnerEventSourceAccountsResponse (Lude.Maybe Lude.Text)
+lpesarsNextToken = Lens.lens (nextToken :: ListPartnerEventSourceAccountsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPartnerEventSourceAccountsResponse)
+{-# DEPRECATED lpesarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lpesarsResponseStatus :: Lens' ListPartnerEventSourceAccountsResponse Int
-lpesarsResponseStatus = lens _lpesarsResponseStatus (\s a -> s {_lpesarsResponseStatus = a})
-
-instance NFData ListPartnerEventSourceAccountsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesarsResponseStatus :: Lens.Lens' ListPartnerEventSourceAccountsResponse Lude.Int
+lpesarsResponseStatus = Lens.lens (responseStatus :: ListPartnerEventSourceAccountsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPartnerEventSourceAccountsResponse)
+{-# DEPRECATED lpesarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

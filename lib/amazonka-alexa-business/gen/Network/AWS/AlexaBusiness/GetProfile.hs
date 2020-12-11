@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,128 @@
 --
 -- Gets the details of a room profile by profile ARN.
 module Network.AWS.AlexaBusiness.GetProfile
-  ( -- * Creating a Request
-    getProfile,
-    GetProfile,
+  ( -- * Creating a request
+    GetProfile (..),
+    mkGetProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpProfileARN,
 
-    -- * Destructuring the Response
-    getProfileResponse,
-    GetProfileResponse,
+    -- * Destructuring the response
+    GetProfileResponse (..),
+    mkGetProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gprsProfile,
     gprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getProfile' smart constructor.
-newtype GetProfile = GetProfile' {_gpProfileARN :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetProfile' smart constructor.
+newtype GetProfile = GetProfile'
+  { profileARN ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpProfileARN' - The ARN of the room profile for which to request details. Required.
-getProfile ::
+-- * 'profileARN' - The ARN of the room profile for which to request details. Required.
+mkGetProfile ::
   GetProfile
-getProfile = GetProfile' {_gpProfileARN = Nothing}
+mkGetProfile = GetProfile' {profileARN = Lude.Nothing}
 
 -- | The ARN of the room profile for which to request details. Required.
-gpProfileARN :: Lens' GetProfile (Maybe Text)
-gpProfileARN = lens _gpProfileARN (\s a -> s {_gpProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpProfileARN :: Lens.Lens' GetProfile (Lude.Maybe Lude.Text)
+gpProfileARN = Lens.lens (profileARN :: GetProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: GetProfile)
+{-# DEPRECATED gpProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
-instance AWSRequest GetProfile where
+instance Lude.AWSRequest GetProfile where
   type Rs GetProfile = GetProfileResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetProfileResponse' <$> (x .?> "Profile") <*> (pure (fromEnum s))
+          GetProfileResponse'
+            Lude.<$> (x Lude..?> "Profile") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetProfile
-
-instance NFData GetProfile
-
-instance ToHeaders GetProfile where
+instance Lude.ToHeaders GetProfile where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.GetProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.GetProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetProfile where
+instance Lude.ToJSON GetProfile where
   toJSON GetProfile' {..} =
-    object (catMaybes [("ProfileArn" .=) <$> _gpProfileARN])
+    Lude.object
+      (Lude.catMaybes [("ProfileArn" Lude..=) Lude.<$> profileARN])
 
-instance ToPath GetProfile where
-  toPath = const "/"
+instance Lude.ToPath GetProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery GetProfile where
-  toQuery = const mempty
+instance Lude.ToQuery GetProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getProfileResponse' smart constructor.
+-- | /See:/ 'mkGetProfileResponse' smart constructor.
 data GetProfileResponse = GetProfileResponse'
-  { _gprsProfile ::
-      !(Maybe Profile),
-    _gprsResponseStatus :: !Int
+  { profile ::
+      Lude.Maybe Profile,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gprsProfile' - The details of the room profile requested. Required.
---
--- * 'gprsResponseStatus' - -- | The response status code.
-getProfileResponse ::
-  -- | 'gprsResponseStatus'
-  Int ->
+-- * 'profile' - The details of the room profile requested. Required.
+-- * 'responseStatus' - The response status code.
+mkGetProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetProfileResponse
-getProfileResponse pResponseStatus_ =
+mkGetProfileResponse pResponseStatus_ =
   GetProfileResponse'
-    { _gprsProfile = Nothing,
-      _gprsResponseStatus = pResponseStatus_
+    { profile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the room profile requested. Required.
-gprsProfile :: Lens' GetProfileResponse (Maybe Profile)
-gprsProfile = lens _gprsProfile (\s a -> s {_gprsProfile = a})
+--
+-- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsProfile :: Lens.Lens' GetProfileResponse (Lude.Maybe Profile)
+gprsProfile = Lens.lens (profile :: GetProfileResponse -> Lude.Maybe Profile) (\s a -> s {profile = a} :: GetProfileResponse)
+{-# DEPRECATED gprsProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetProfileResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\s a -> s {_gprsResponseStatus = a})
-
-instance NFData GetProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsResponseStatus :: Lens.Lens' GetProfileResponse Lude.Int
+gprsResponseStatus = Lens.lens (responseStatus :: GetProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetProfileResponse)
+{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

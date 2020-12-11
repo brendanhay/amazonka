@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.BackupPolicy where
+module Network.AWS.CloudHSMv2.Types.BackupPolicy
+  ( BackupPolicy
+      ( BackupPolicy',
+        Default
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupPolicy = Default
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupPolicy = BackupPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupPolicy where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure Default
-      e ->
-        fromTextError $
-          "Failure parsing BackupPolicy from value: '" <> e
-            <> "'. Accepted values: default"
+pattern Default :: BackupPolicy
+pattern Default = BackupPolicy' "DEFAULT"
 
-instance ToText BackupPolicy where
-  toText = \case
-    Default -> "DEFAULT"
-
-instance Hashable BackupPolicy
-
-instance NFData BackupPolicy
-
-instance ToByteString BackupPolicy
-
-instance ToQuery BackupPolicy
-
-instance ToHeader BackupPolicy
-
-instance FromJSON BackupPolicy where
-  parseJSON = parseJSONText "BackupPolicy"
+{-# COMPLETE
+  Default,
+  BackupPolicy'
+  #-}

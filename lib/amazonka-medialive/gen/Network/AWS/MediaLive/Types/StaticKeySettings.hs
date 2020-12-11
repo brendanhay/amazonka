@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.StaticKeySettings where
+module Network.AWS.MediaLive.Types.StaticKeySettings
+  ( StaticKeySettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkStaticKeySettings,
+
+    -- * Lenses
+    sksKeyProviderServer,
+    sksStaticKeyValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputLocation
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Static Key Settings
 --
--- /See:/ 'staticKeySettings' smart constructor.
+-- /See:/ 'mkStaticKeySettings' smart constructor.
 data StaticKeySettings = StaticKeySettings'
-  { _sksKeyProviderServer ::
-      !(Maybe InputLocation),
-    _sksStaticKeyValue :: !Text
+  { keyProviderServer ::
+      Lude.Maybe InputLocation,
+    staticKeyValue :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticKeySettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sksKeyProviderServer' - The URL of the license server used for protecting content.
---
--- * 'sksStaticKeyValue' - Static key value as a 32 character hexadecimal string.
-staticKeySettings ::
-  -- | 'sksStaticKeyValue'
-  Text ->
+-- * 'keyProviderServer' - The URL of the license server used for protecting content.
+-- * 'staticKeyValue' - Static key value as a 32 character hexadecimal string.
+mkStaticKeySettings ::
+  -- | 'staticKeyValue'
+  Lude.Text ->
   StaticKeySettings
-staticKeySettings pStaticKeyValue_ =
+mkStaticKeySettings pStaticKeyValue_ =
   StaticKeySettings'
-    { _sksKeyProviderServer = Nothing,
-      _sksStaticKeyValue = pStaticKeyValue_
+    { keyProviderServer = Lude.Nothing,
+      staticKeyValue = pStaticKeyValue_
     }
 
 -- | The URL of the license server used for protecting content.
-sksKeyProviderServer :: Lens' StaticKeySettings (Maybe InputLocation)
-sksKeyProviderServer = lens _sksKeyProviderServer (\s a -> s {_sksKeyProviderServer = a})
+--
+-- /Note:/ Consider using 'keyProviderServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sksKeyProviderServer :: Lens.Lens' StaticKeySettings (Lude.Maybe InputLocation)
+sksKeyProviderServer = Lens.lens (keyProviderServer :: StaticKeySettings -> Lude.Maybe InputLocation) (\s a -> s {keyProviderServer = a} :: StaticKeySettings)
+{-# DEPRECATED sksKeyProviderServer "Use generic-lens or generic-optics with 'keyProviderServer' instead." #-}
 
 -- | Static key value as a 32 character hexadecimal string.
-sksStaticKeyValue :: Lens' StaticKeySettings Text
-sksStaticKeyValue = lens _sksStaticKeyValue (\s a -> s {_sksStaticKeyValue = a})
+--
+-- /Note:/ Consider using 'staticKeyValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sksStaticKeyValue :: Lens.Lens' StaticKeySettings Lude.Text
+sksStaticKeyValue = Lens.lens (staticKeyValue :: StaticKeySettings -> Lude.Text) (\s a -> s {staticKeyValue = a} :: StaticKeySettings)
+{-# DEPRECATED sksStaticKeyValue "Use generic-lens or generic-optics with 'staticKeyValue' instead." #-}
 
-instance FromJSON StaticKeySettings where
+instance Lude.FromJSON StaticKeySettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "StaticKeySettings"
       ( \x ->
           StaticKeySettings'
-            <$> (x .:? "keyProviderServer") <*> (x .: "staticKeyValue")
+            Lude.<$> (x Lude..:? "keyProviderServer")
+            Lude.<*> (x Lude..: "staticKeyValue")
       )
 
-instance Hashable StaticKeySettings
-
-instance NFData StaticKeySettings
-
-instance ToJSON StaticKeySettings where
+instance Lude.ToJSON StaticKeySettings where
   toJSON StaticKeySettings' {..} =
-    object
-      ( catMaybes
-          [ ("keyProviderServer" .=) <$> _sksKeyProviderServer,
-            Just ("staticKeyValue" .= _sksStaticKeyValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("keyProviderServer" Lude..=) Lude.<$> keyProviderServer,
+            Lude.Just ("staticKeyValue" Lude..= staticKeyValue)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.VaultLockPolicy where
+module Network.AWS.Glacier.Types.VaultLockPolicy
+  ( VaultLockPolicy (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVaultLockPolicy,
+
+    -- * Lenses
+    vlpPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the vault lock policy.
 --
---
---
--- /See:/ 'vaultLockPolicy' smart constructor.
+-- /See:/ 'mkVaultLockPolicy' smart constructor.
 newtype VaultLockPolicy = VaultLockPolicy'
-  { _vlpPolicy ::
-      Maybe Text
+  { policy ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VaultLockPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vlpPolicy' - The vault lock policy.
-vaultLockPolicy ::
+-- * 'policy' - The vault lock policy.
+mkVaultLockPolicy ::
   VaultLockPolicy
-vaultLockPolicy = VaultLockPolicy' {_vlpPolicy = Nothing}
+mkVaultLockPolicy = VaultLockPolicy' {policy = Lude.Nothing}
 
 -- | The vault lock policy.
-vlpPolicy :: Lens' VaultLockPolicy (Maybe Text)
-vlpPolicy = lens _vlpPolicy (\s a -> s {_vlpPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vlpPolicy :: Lens.Lens' VaultLockPolicy (Lude.Maybe Lude.Text)
+vlpPolicy = Lens.lens (policy :: VaultLockPolicy -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: VaultLockPolicy)
+{-# DEPRECATED vlpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Hashable VaultLockPolicy
-
-instance NFData VaultLockPolicy
-
-instance ToJSON VaultLockPolicy where
+instance Lude.ToJSON VaultLockPolicy where
   toJSON VaultLockPolicy' {..} =
-    object (catMaybes [("Policy" .=) <$> _vlpPolicy])
+    Lude.object (Lude.catMaybes [("Policy" Lude..=) Lude.<$> policy])

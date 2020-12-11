@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType where
+module Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType
+  ( RiskDecisionType
+      ( RiskDecisionType',
+        AccountTakeover,
+        Block,
+        NoRisk
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RiskDecisionType
-  = AccountTakeover
-  | Block
-  | NoRisk
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RiskDecisionType = RiskDecisionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RiskDecisionType where
-  parser =
-    takeLowerText >>= \case
-      "accounttakeover" -> pure AccountTakeover
-      "block" -> pure Block
-      "norisk" -> pure NoRisk
-      e ->
-        fromTextError $
-          "Failure parsing RiskDecisionType from value: '" <> e
-            <> "'. Accepted values: accounttakeover, block, norisk"
+pattern AccountTakeover :: RiskDecisionType
+pattern AccountTakeover = RiskDecisionType' "AccountTakeover"
 
-instance ToText RiskDecisionType where
-  toText = \case
-    AccountTakeover -> "AccountTakeover"
-    Block -> "Block"
-    NoRisk -> "NoRisk"
+pattern Block :: RiskDecisionType
+pattern Block = RiskDecisionType' "Block"
 
-instance Hashable RiskDecisionType
+pattern NoRisk :: RiskDecisionType
+pattern NoRisk = RiskDecisionType' "NoRisk"
 
-instance NFData RiskDecisionType
-
-instance ToByteString RiskDecisionType
-
-instance ToQuery RiskDecisionType
-
-instance ToHeader RiskDecisionType
-
-instance FromJSON RiskDecisionType where
-  parseJSON = parseJSONText "RiskDecisionType"
+{-# COMPLETE
+  AccountTakeover,
+  Block,
+  NoRisk,
+  RiskDecisionType'
+  #-}

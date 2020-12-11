@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsEbifControl where
+module Network.AWS.MediaLive.Types.M2tsEbifControl
+  ( M2tsEbifControl
+      ( M2tsEbifControl',
+        MECNone,
+        MECPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Ebif Control
-data M2tsEbifControl
-  = MECNone
-  | MECPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsEbifControl = M2tsEbifControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsEbifControl where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure MECNone
-      "passthrough" -> pure MECPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing M2tsEbifControl from value: '" <> e
-            <> "'. Accepted values: none, passthrough"
+pattern MECNone :: M2tsEbifControl
+pattern MECNone = M2tsEbifControl' "NONE"
 
-instance ToText M2tsEbifControl where
-  toText = \case
-    MECNone -> "NONE"
-    MECPassthrough -> "PASSTHROUGH"
+pattern MECPassthrough :: M2tsEbifControl
+pattern MECPassthrough = M2tsEbifControl' "PASSTHROUGH"
 
-instance Hashable M2tsEbifControl
-
-instance NFData M2tsEbifControl
-
-instance ToByteString M2tsEbifControl
-
-instance ToQuery M2tsEbifControl
-
-instance ToHeader M2tsEbifControl
-
-instance ToJSON M2tsEbifControl where
-  toJSON = toJSONText
-
-instance FromJSON M2tsEbifControl where
-  parseJSON = parseJSONText "M2tsEbifControl"
+{-# COMPLETE
+  MECNone,
+  MECPassthrough,
+  M2tsEbifControl'
+  #-}

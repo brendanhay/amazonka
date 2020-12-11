@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types.AdditionalArtifact where
+module Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
+  ( AdditionalArtifact
+      ( AdditionalArtifact',
+        Athena,
+        Quicksight,
+        Redshift
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The types of manifest that you want AWS to create for this report.
-data AdditionalArtifact
-  = Athena
-  | Quicksight
-  | Redshift
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AdditionalArtifact = AdditionalArtifact' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AdditionalArtifact where
-  parser =
-    takeLowerText >>= \case
-      "athena" -> pure Athena
-      "quicksight" -> pure Quicksight
-      "redshift" -> pure Redshift
-      e ->
-        fromTextError $
-          "Failure parsing AdditionalArtifact from value: '" <> e
-            <> "'. Accepted values: athena, quicksight, redshift"
+pattern Athena :: AdditionalArtifact
+pattern Athena = AdditionalArtifact' "ATHENA"
 
-instance ToText AdditionalArtifact where
-  toText = \case
-    Athena -> "ATHENA"
-    Quicksight -> "QUICKSIGHT"
-    Redshift -> "REDSHIFT"
+pattern Quicksight :: AdditionalArtifact
+pattern Quicksight = AdditionalArtifact' "QUICKSIGHT"
 
-instance Hashable AdditionalArtifact
+pattern Redshift :: AdditionalArtifact
+pattern Redshift = AdditionalArtifact' "REDSHIFT"
 
-instance NFData AdditionalArtifact
-
-instance ToByteString AdditionalArtifact
-
-instance ToQuery AdditionalArtifact
-
-instance ToHeader AdditionalArtifact
-
-instance ToJSON AdditionalArtifact where
-  toJSON = toJSONText
-
-instance FromJSON AdditionalArtifact where
-  parseJSON = parseJSONText "AdditionalArtifact"
+{-# COMPLETE
+  Athena,
+  Quicksight,
+  Redshift,
+  AdditionalArtifact'
+  #-}

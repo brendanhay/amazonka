@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JobRunState where
+module Network.AWS.Glue.Types.JobRunState
+  ( JobRunState
+      ( JobRunState',
+        JRSFailed,
+        JRSRunning,
+        JRSStarting,
+        JRSStopped,
+        JRSStopping,
+        JRSSucceeded,
+        JRSTimeout
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobRunState
-  = JRSFailed
-  | JRSRunning
-  | JRSStarting
-  | JRSStopped
-  | JRSStopping
-  | JRSSucceeded
-  | JRSTimeout
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobRunState = JobRunState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobRunState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure JRSFailed
-      "running" -> pure JRSRunning
-      "starting" -> pure JRSStarting
-      "stopped" -> pure JRSStopped
-      "stopping" -> pure JRSStopping
-      "succeeded" -> pure JRSSucceeded
-      "timeout" -> pure JRSTimeout
-      e ->
-        fromTextError $
-          "Failure parsing JobRunState from value: '" <> e
-            <> "'. Accepted values: failed, running, starting, stopped, stopping, succeeded, timeout"
+pattern JRSFailed :: JobRunState
+pattern JRSFailed = JobRunState' "FAILED"
 
-instance ToText JobRunState where
-  toText = \case
-    JRSFailed -> "FAILED"
-    JRSRunning -> "RUNNING"
-    JRSStarting -> "STARTING"
-    JRSStopped -> "STOPPED"
-    JRSStopping -> "STOPPING"
-    JRSSucceeded -> "SUCCEEDED"
-    JRSTimeout -> "TIMEOUT"
+pattern JRSRunning :: JobRunState
+pattern JRSRunning = JobRunState' "RUNNING"
 
-instance Hashable JobRunState
+pattern JRSStarting :: JobRunState
+pattern JRSStarting = JobRunState' "STARTING"
 
-instance NFData JobRunState
+pattern JRSStopped :: JobRunState
+pattern JRSStopped = JobRunState' "STOPPED"
 
-instance ToByteString JobRunState
+pattern JRSStopping :: JobRunState
+pattern JRSStopping = JobRunState' "STOPPING"
 
-instance ToQuery JobRunState
+pattern JRSSucceeded :: JobRunState
+pattern JRSSucceeded = JobRunState' "SUCCEEDED"
 
-instance ToHeader JobRunState
+pattern JRSTimeout :: JobRunState
+pattern JRSTimeout = JobRunState' "TIMEOUT"
 
-instance ToJSON JobRunState where
-  toJSON = toJSONText
-
-instance FromJSON JobRunState where
-  parseJSON = parseJSONText "JobRunState"
+{-# COMPLETE
+  JRSFailed,
+  JRSRunning,
+  JRSStarting,
+  JRSStopped,
+  JRSStopping,
+  JRSSucceeded,
+  JRSTimeout,
+  JobRunState'
+  #-}

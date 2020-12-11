@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,121 @@
 --
 -- Gets the contact details by the contact ARN.
 module Network.AWS.AlexaBusiness.GetContact
-  ( -- * Creating a Request
-    getContact,
-    GetContact,
+  ( -- * Creating a request
+    GetContact (..),
+    mkGetContact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcContactARN,
 
-    -- * Destructuring the Response
-    getContactResponse,
-    GetContactResponse,
+    -- * Destructuring the response
+    GetContactResponse (..),
+    mkGetContactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsContact,
     gcrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getContact' smart constructor.
-newtype GetContact = GetContact' {_gcContactARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetContact' smart constructor.
+newtype GetContact = GetContact' {contactARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcContactARN' - The ARN of the contact for which to request details.
-getContact ::
-  -- | 'gcContactARN'
-  Text ->
+-- * 'contactARN' - The ARN of the contact for which to request details.
+mkGetContact ::
+  -- | 'contactARN'
+  Lude.Text ->
   GetContact
-getContact pContactARN_ = GetContact' {_gcContactARN = pContactARN_}
+mkGetContact pContactARN_ = GetContact' {contactARN = pContactARN_}
 
 -- | The ARN of the contact for which to request details.
-gcContactARN :: Lens' GetContact Text
-gcContactARN = lens _gcContactARN (\s a -> s {_gcContactARN = a})
+--
+-- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcContactARN :: Lens.Lens' GetContact Lude.Text
+gcContactARN = Lens.lens (contactARN :: GetContact -> Lude.Text) (\s a -> s {contactARN = a} :: GetContact)
+{-# DEPRECATED gcContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
-instance AWSRequest GetContact where
+instance Lude.AWSRequest GetContact where
   type Rs GetContact = GetContactResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetContactResponse' <$> (x .?> "Contact") <*> (pure (fromEnum s))
+          GetContactResponse'
+            Lude.<$> (x Lude..?> "Contact") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetContact
-
-instance NFData GetContact
-
-instance ToHeaders GetContact where
+instance Lude.ToHeaders GetContact where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.GetContact" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.GetContact" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContact where
+instance Lude.ToJSON GetContact where
   toJSON GetContact' {..} =
-    object (catMaybes [Just ("ContactArn" .= _gcContactARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ContactArn" Lude..= contactARN)])
 
-instance ToPath GetContact where
-  toPath = const "/"
+instance Lude.ToPath GetContact where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContact where
-  toQuery = const mempty
+instance Lude.ToQuery GetContact where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContactResponse' smart constructor.
+-- | /See:/ 'mkGetContactResponse' smart constructor.
 data GetContactResponse = GetContactResponse'
-  { _gcrsContact ::
-      !(Maybe Contact),
-    _gcrsResponseStatus :: !Int
+  { contact ::
+      Lude.Maybe Contact,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsContact' - The details of the requested contact.
---
--- * 'gcrsResponseStatus' - -- | The response status code.
-getContactResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
+-- * 'contact' - The details of the requested contact.
+-- * 'responseStatus' - The response status code.
+mkGetContactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContactResponse
-getContactResponse pResponseStatus_ =
+mkGetContactResponse pResponseStatus_ =
   GetContactResponse'
-    { _gcrsContact = Nothing,
-      _gcrsResponseStatus = pResponseStatus_
+    { contact = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the requested contact.
-gcrsContact :: Lens' GetContactResponse (Maybe Contact)
-gcrsContact = lens _gcrsContact (\s a -> s {_gcrsContact = a})
+--
+-- /Note:/ Consider using 'contact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsContact :: Lens.Lens' GetContactResponse (Lude.Maybe Contact)
+gcrsContact = Lens.lens (contact :: GetContactResponse -> Lude.Maybe Contact) (\s a -> s {contact = a} :: GetContactResponse)
+{-# DEPRECATED gcrsContact "Use generic-lens or generic-optics with 'contact' instead." #-}
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetContactResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
-
-instance NFData GetContactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetContactResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContactResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

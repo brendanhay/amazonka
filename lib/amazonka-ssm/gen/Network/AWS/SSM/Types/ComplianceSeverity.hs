@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ComplianceSeverity where
+module Network.AWS.SSM.Types.ComplianceSeverity
+  ( ComplianceSeverity
+      ( ComplianceSeverity',
+        CSCritical,
+        CSHigh,
+        CSInformational,
+        CSLow,
+        CSMedium,
+        CSUnspecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComplianceSeverity
-  = CSCritical
-  | CSHigh
-  | CSInformational
-  | CSLow
-  | CSMedium
-  | CSUnspecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComplianceSeverity = ComplianceSeverity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComplianceSeverity where
-  parser =
-    takeLowerText >>= \case
-      "critical" -> pure CSCritical
-      "high" -> pure CSHigh
-      "informational" -> pure CSInformational
-      "low" -> pure CSLow
-      "medium" -> pure CSMedium
-      "unspecified" -> pure CSUnspecified
-      e ->
-        fromTextError $
-          "Failure parsing ComplianceSeverity from value: '" <> e
-            <> "'. Accepted values: critical, high, informational, low, medium, unspecified"
+pattern CSCritical :: ComplianceSeverity
+pattern CSCritical = ComplianceSeverity' "CRITICAL"
 
-instance ToText ComplianceSeverity where
-  toText = \case
-    CSCritical -> "CRITICAL"
-    CSHigh -> "HIGH"
-    CSInformational -> "INFORMATIONAL"
-    CSLow -> "LOW"
-    CSMedium -> "MEDIUM"
-    CSUnspecified -> "UNSPECIFIED"
+pattern CSHigh :: ComplianceSeverity
+pattern CSHigh = ComplianceSeverity' "HIGH"
 
-instance Hashable ComplianceSeverity
+pattern CSInformational :: ComplianceSeverity
+pattern CSInformational = ComplianceSeverity' "INFORMATIONAL"
 
-instance NFData ComplianceSeverity
+pattern CSLow :: ComplianceSeverity
+pattern CSLow = ComplianceSeverity' "LOW"
 
-instance ToByteString ComplianceSeverity
+pattern CSMedium :: ComplianceSeverity
+pattern CSMedium = ComplianceSeverity' "MEDIUM"
 
-instance ToQuery ComplianceSeverity
+pattern CSUnspecified :: ComplianceSeverity
+pattern CSUnspecified = ComplianceSeverity' "UNSPECIFIED"
 
-instance ToHeader ComplianceSeverity
-
-instance ToJSON ComplianceSeverity where
-  toJSON = toJSONText
-
-instance FromJSON ComplianceSeverity where
-  parseJSON = parseJSONText "ComplianceSeverity"
+{-# COMPLETE
+  CSCritical,
+  CSHigh,
+  CSInformational,
+  CSLow,
+  CSMedium,
+  CSUnspecified,
+  ComplianceSeverity'
+  #-}

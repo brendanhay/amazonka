@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,35 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.Trigger where
+module Network.AWS.ElasticBeanstalk.Types.Trigger
+  ( Trigger (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrigger,
+
+    -- * Lenses
+    tName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a trigger.
 --
---
---
--- /See:/ 'trigger' smart constructor.
-newtype Trigger = Trigger' {_tName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTrigger' smart constructor.
+newtype Trigger = Trigger' {name :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Trigger' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tName' - The name of the trigger.
-trigger ::
+-- * 'name' - The name of the trigger.
+mkTrigger ::
   Trigger
-trigger = Trigger' {_tName = Nothing}
+mkTrigger = Trigger' {name = Lude.Nothing}
 
 -- | The name of the trigger.
-tName :: Lens' Trigger (Maybe Text)
-tName = lens _tName (\s a -> s {_tName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Trigger (Lude.Maybe Lude.Text)
+tName = Lens.lens (name :: Trigger -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Trigger)
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML Trigger where
-  parseXML x = Trigger' <$> (x .@? "Name")
-
-instance Hashable Trigger
-
-instance NFData Trigger
+instance Lude.FromXML Trigger where
+  parseXML x = Trigger' Lude.<$> (x Lude..@? "Name")

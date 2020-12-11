@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the deployments in a deployment group for an application registered with the IAM user or AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeployments
-  ( -- * Creating a Request
-    listDeployments,
-    ListDeployments,
+  ( -- * Creating a request
+    ListDeployments (..),
+    mkListDeployments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldCreateTimeRange,
     ldNextToken,
     ldIncludeOnlyStatuses,
@@ -35,11 +28,11 @@ module Network.AWS.CodeDeploy.ListDeployments
     ldExternalId,
     ldDeploymentGroupName,
 
-    -- * Destructuring the Response
-    listDeploymentsResponse,
-    ListDeploymentsResponse,
+    -- * Destructuring the response
+    ListDeploymentsResponse (..),
+    mkListDeploymentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsNextToken,
     ldrsDeployments,
     ldrsResponseStatus,
@@ -47,173 +40,237 @@ module Network.AWS.CodeDeploy.ListDeployments
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ListDeployments@ operation.
 --
---
---
--- /See:/ 'listDeployments' smart constructor.
+-- /See:/ 'mkListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { _ldCreateTimeRange ::
-      !(Maybe TimeRange),
-    _ldNextToken :: !(Maybe Text),
-    _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus]),
-    _ldApplicationName :: !(Maybe Text),
-    _ldExternalId :: !(Maybe Text),
-    _ldDeploymentGroupName :: !(Maybe Text)
+  { createTimeRange ::
+      Lude.Maybe TimeRange,
+    nextToken :: Lude.Maybe Lude.Text,
+    includeOnlyStatuses :: Lude.Maybe [DeploymentStatus],
+    applicationName :: Lude.Maybe Lude.Text,
+    externalId :: Lude.Maybe Lude.Text,
+    deploymentGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'createTimeRange' - A time range (start and end) for returning a subset of the list of deployments.
+-- * 'deploymentGroupName' - The name of a deployment group for the specified application.
+-- * 'externalId' - The unique ID of an external resource for returning deployments linked to the external resource.
+-- * 'includeOnlyStatuses' - A subset of deployments to list by status:
 --
--- * 'ldCreateTimeRange' - A time range (start and end) for returning a subset of the list of deployments.
 --
--- * 'ldNextToken' - An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
+--     * @Created@ : Include created deployments in the resulting list.
 --
--- * 'ldIncludeOnlyStatuses' - A subset of deployments to list by status:     * @Created@ : Include created deployments in the resulting list.     * @Queued@ : Include queued deployments in the resulting list.     * @In Progress@ : Include in-progress deployments in the resulting list.     * @Succeeded@ : Include successful deployments in the resulting list.     * @Failed@ : Include failed deployments in the resulting list.     * @Stopped@ : Include stopped deployments in the resulting list.
 --
--- * 'ldApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+--     * @Queued@ : Include queued deployments in the resulting list.
 --
--- * 'ldExternalId' - The unique ID of an external resource for returning deployments linked to the external resource.
 --
--- * 'ldDeploymentGroupName' - The name of a deployment group for the specified application.
-listDeployments ::
+--     * @In Progress@ : Include in-progress deployments in the resulting list.
+--
+--
+--     * @Succeeded@ : Include successful deployments in the resulting list.
+--
+--
+--     * @Failed@ : Include failed deployments in the resulting list.
+--
+--
+--     * @Stopped@ : Include stopped deployments in the resulting list.
+--
+--
+-- * 'nextToken' - An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
+mkListDeployments ::
   ListDeployments
-listDeployments =
+mkListDeployments =
   ListDeployments'
-    { _ldCreateTimeRange = Nothing,
-      _ldNextToken = Nothing,
-      _ldIncludeOnlyStatuses = Nothing,
-      _ldApplicationName = Nothing,
-      _ldExternalId = Nothing,
-      _ldDeploymentGroupName = Nothing
+    { createTimeRange = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      includeOnlyStatuses = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      externalId = Lude.Nothing,
+      deploymentGroupName = Lude.Nothing
     }
 
 -- | A time range (start and end) for returning a subset of the list of deployments.
-ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
-ldCreateTimeRange = lens _ldCreateTimeRange (\s a -> s {_ldCreateTimeRange = a})
+--
+-- /Note:/ Consider using 'createTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldCreateTimeRange :: Lens.Lens' ListDeployments (Lude.Maybe TimeRange)
+ldCreateTimeRange = Lens.lens (createTimeRange :: ListDeployments -> Lude.Maybe TimeRange) (\s a -> s {createTimeRange = a} :: ListDeployments)
+{-# DEPRECATED ldCreateTimeRange "Use generic-lens or generic-optics with 'createTimeRange' instead." #-}
 
 -- | An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
-ldNextToken :: Lens' ListDeployments (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDeployments (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDeployments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeployments)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | A subset of deployments to list by status:     * @Created@ : Include created deployments in the resulting list.     * @Queued@ : Include queued deployments in the resulting list.     * @In Progress@ : Include in-progress deployments in the resulting list.     * @Succeeded@ : Include successful deployments in the resulting list.     * @Failed@ : Include failed deployments in the resulting list.     * @Stopped@ : Include stopped deployments in the resulting list.
-ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
-ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\s a -> s {_ldIncludeOnlyStatuses = a}) . _Default . _Coerce
+-- | A subset of deployments to list by status:
+--
+--
+--     * @Created@ : Include created deployments in the resulting list.
+--
+--
+--     * @Queued@ : Include queued deployments in the resulting list.
+--
+--
+--     * @In Progress@ : Include in-progress deployments in the resulting list.
+--
+--
+--     * @Succeeded@ : Include successful deployments in the resulting list.
+--
+--
+--     * @Failed@ : Include failed deployments in the resulting list.
+--
+--
+--     * @Stopped@ : Include stopped deployments in the resulting list.
+--
+--
+--
+-- /Note:/ Consider using 'includeOnlyStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldIncludeOnlyStatuses :: Lens.Lens' ListDeployments (Lude.Maybe [DeploymentStatus])
+ldIncludeOnlyStatuses = Lens.lens (includeOnlyStatuses :: ListDeployments -> Lude.Maybe [DeploymentStatus]) (\s a -> s {includeOnlyStatuses = a} :: ListDeployments)
+{-# DEPRECATED ldIncludeOnlyStatuses "Use generic-lens or generic-optics with 'includeOnlyStatuses' instead." #-}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-ldApplicationName :: Lens' ListDeployments (Maybe Text)
-ldApplicationName = lens _ldApplicationName (\s a -> s {_ldApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldApplicationName :: Lens.Lens' ListDeployments (Lude.Maybe Lude.Text)
+ldApplicationName = Lens.lens (applicationName :: ListDeployments -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ListDeployments)
+{-# DEPRECATED ldApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The unique ID of an external resource for returning deployments linked to the external resource.
-ldExternalId :: Lens' ListDeployments (Maybe Text)
-ldExternalId = lens _ldExternalId (\s a -> s {_ldExternalId = a})
+--
+-- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldExternalId :: Lens.Lens' ListDeployments (Lude.Maybe Lude.Text)
+ldExternalId = Lens.lens (externalId :: ListDeployments -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: ListDeployments)
+{-# DEPRECATED ldExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
 
 -- | The name of a deployment group for the specified application.
-ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
-ldDeploymentGroupName = lens _ldDeploymentGroupName (\s a -> s {_ldDeploymentGroupName = a})
+--
+-- /Note:/ Consider using 'deploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldDeploymentGroupName :: Lens.Lens' ListDeployments (Lude.Maybe Lude.Text)
+ldDeploymentGroupName = Lens.lens (deploymentGroupName :: ListDeployments -> Lude.Maybe Lude.Text) (\s a -> s {deploymentGroupName = a} :: ListDeployments)
+{-# DEPRECATED ldDeploymentGroupName "Use generic-lens or generic-optics with 'deploymentGroupName' instead." #-}
 
-instance AWSPager ListDeployments where
+instance Page.AWSPager ListDeployments where
   page rq rs
-    | stop (rs ^. ldrsNextToken) = Nothing
-    | stop (rs ^. ldrsDeployments) = Nothing
-    | otherwise = Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldrsDeployments) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
 
-instance AWSRequest ListDeployments where
+instance Lude.AWSRequest ListDeployments where
   type Rs ListDeployments = ListDeploymentsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDeploymentsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "deployments" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "deployments" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDeployments
-
-instance NFData ListDeployments
-
-instance ToHeaders ListDeployments where
+instance Lude.ToHeaders ListDeployments where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.ListDeployments" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.ListDeployments" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDeployments where
+instance Lude.ToJSON ListDeployments where
   toJSON ListDeployments' {..} =
-    object
-      ( catMaybes
-          [ ("createTimeRange" .=) <$> _ldCreateTimeRange,
-            ("nextToken" .=) <$> _ldNextToken,
-            ("includeOnlyStatuses" .=) <$> _ldIncludeOnlyStatuses,
-            ("applicationName" .=) <$> _ldApplicationName,
-            ("externalId" .=) <$> _ldExternalId,
-            ("deploymentGroupName" .=) <$> _ldDeploymentGroupName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("createTimeRange" Lude..=) Lude.<$> createTimeRange,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("includeOnlyStatuses" Lude..=) Lude.<$> includeOnlyStatuses,
+            ("applicationName" Lude..=) Lude.<$> applicationName,
+            ("externalId" Lude..=) Lude.<$> externalId,
+            ("deploymentGroupName" Lude..=) Lude.<$> deploymentGroupName
           ]
       )
 
-instance ToPath ListDeployments where
-  toPath = const "/"
+instance Lude.ToPath ListDeployments where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDeployments where
-  toQuery = const mempty
+instance Lude.ToQuery ListDeployments where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @ListDeployments@ operation.
 --
---
---
--- /See:/ 'listDeploymentsResponse' smart constructor.
+-- /See:/ 'mkListDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-  { _ldrsNextToken ::
-      !(Maybe Text),
-    _ldrsDeployments :: !(Maybe [Text]),
-    _ldrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    deployments :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
---
--- * 'ldrsDeployments' - A list of deployment IDs.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDeploymentsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'deployments' - A list of deployment IDs.
+-- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
+-- * 'responseStatus' - The response status code.
+mkListDeploymentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDeploymentsResponse
-listDeploymentsResponse pResponseStatus_ =
+mkListDeploymentsResponse pResponseStatus_ =
   ListDeploymentsResponse'
-    { _ldrsNextToken = Nothing,
-      _ldrsDeployments = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      deployments = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
-ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDeploymentsResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDeploymentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentsResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of deployment IDs.
-ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
-ldrsDeployments = lens _ldrsDeployments (\s a -> s {_ldrsDeployments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deployments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDeployments :: Lens.Lens' ListDeploymentsResponse (Lude.Maybe [Lude.Text])
+ldrsDeployments = Lens.lens (deployments :: ListDeploymentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {deployments = a} :: ListDeploymentsResponse)
+{-# DEPRECATED ldrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDeploymentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDeploymentsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeploymentsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

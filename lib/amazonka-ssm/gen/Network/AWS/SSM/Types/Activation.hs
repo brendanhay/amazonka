@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,166 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.Activation where
+module Network.AWS.SSM.Types.Activation
+  ( Activation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActivation,
+
+    -- * Lenses
+    aExpired,
+    aDefaultInstanceName,
+    aActivationId,
+    aCreatedDate,
+    aRegistrationLimit,
+    aExpirationDate,
+    aDescription,
+    aTags,
+    aRegistrationsCount,
+    aIAMRole,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.Tag
 
 -- | An activation registers one or more on-premises servers or virtual machines (VMs) with AWS so that you can configure those servers or VMs using Run Command. A server or VM that has been registered with AWS is called a managed instance.
 --
---
---
--- /See:/ 'activation' smart constructor.
+-- /See:/ 'mkActivation' smart constructor.
 data Activation = Activation'
-  { _aExpired :: !(Maybe Bool),
-    _aDefaultInstanceName :: !(Maybe Text),
-    _aActivationId :: !(Maybe Text),
-    _aCreatedDate :: !(Maybe POSIX),
-    _aRegistrationLimit :: !(Maybe Nat),
-    _aExpirationDate :: !(Maybe POSIX),
-    _aDescription :: !(Maybe Text),
-    _aTags :: !(Maybe [Tag]),
-    _aRegistrationsCount :: !(Maybe Nat),
-    _aIAMRole :: !(Maybe Text)
+  { expired :: Lude.Maybe Lude.Bool,
+    defaultInstanceName :: Lude.Maybe Lude.Text,
+    activationId :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    registrationLimit :: Lude.Maybe Lude.Natural,
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    registrationsCount :: Lude.Maybe Lude.Natural,
+    iamRole :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Activation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aExpired' - Whether or not the activation is expired.
---
--- * 'aDefaultInstanceName' - A name for the managed instance when it is created.
---
--- * 'aActivationId' - The ID created by Systems Manager when you submitted the activation.
---
--- * 'aCreatedDate' - The date the activation was created.
---
--- * 'aRegistrationLimit' - The maximum number of managed instances that can be registered using this activation.
---
--- * 'aExpirationDate' - The date when this activation can no longer be used to register managed instances.
---
--- * 'aDescription' - A user defined description of the activation.
---
--- * 'aTags' - Tags assigned to the activation.
---
--- * 'aRegistrationsCount' - The number of managed instances already registered with this activation.
---
--- * 'aIAMRole' - The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
-activation ::
+-- * 'activationId' - The ID created by Systems Manager when you submitted the activation.
+-- * 'createdDate' - The date the activation was created.
+-- * 'defaultInstanceName' - A name for the managed instance when it is created.
+-- * 'description' - A user defined description of the activation.
+-- * 'expirationDate' - The date when this activation can no longer be used to register managed instances.
+-- * 'expired' - Whether or not the activation is expired.
+-- * 'iamRole' - The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
+-- * 'registrationLimit' - The maximum number of managed instances that can be registered using this activation.
+-- * 'registrationsCount' - The number of managed instances already registered with this activation.
+-- * 'tags' - Tags assigned to the activation.
+mkActivation ::
   Activation
-activation =
+mkActivation =
   Activation'
-    { _aExpired = Nothing,
-      _aDefaultInstanceName = Nothing,
-      _aActivationId = Nothing,
-      _aCreatedDate = Nothing,
-      _aRegistrationLimit = Nothing,
-      _aExpirationDate = Nothing,
-      _aDescription = Nothing,
-      _aTags = Nothing,
-      _aRegistrationsCount = Nothing,
-      _aIAMRole = Nothing
+    { expired = Lude.Nothing,
+      defaultInstanceName = Lude.Nothing,
+      activationId = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      registrationLimit = Lude.Nothing,
+      expirationDate = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      registrationsCount = Lude.Nothing,
+      iamRole = Lude.Nothing
     }
 
 -- | Whether or not the activation is expired.
-aExpired :: Lens' Activation (Maybe Bool)
-aExpired = lens _aExpired (\s a -> s {_aExpired = a})
+--
+-- /Note:/ Consider using 'expired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aExpired :: Lens.Lens' Activation (Lude.Maybe Lude.Bool)
+aExpired = Lens.lens (expired :: Activation -> Lude.Maybe Lude.Bool) (\s a -> s {expired = a} :: Activation)
+{-# DEPRECATED aExpired "Use generic-lens or generic-optics with 'expired' instead." #-}
 
 -- | A name for the managed instance when it is created.
-aDefaultInstanceName :: Lens' Activation (Maybe Text)
-aDefaultInstanceName = lens _aDefaultInstanceName (\s a -> s {_aDefaultInstanceName = a})
+--
+-- /Note:/ Consider using 'defaultInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDefaultInstanceName :: Lens.Lens' Activation (Lude.Maybe Lude.Text)
+aDefaultInstanceName = Lens.lens (defaultInstanceName :: Activation -> Lude.Maybe Lude.Text) (\s a -> s {defaultInstanceName = a} :: Activation)
+{-# DEPRECATED aDefaultInstanceName "Use generic-lens or generic-optics with 'defaultInstanceName' instead." #-}
 
 -- | The ID created by Systems Manager when you submitted the activation.
-aActivationId :: Lens' Activation (Maybe Text)
-aActivationId = lens _aActivationId (\s a -> s {_aActivationId = a})
+--
+-- /Note:/ Consider using 'activationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aActivationId :: Lens.Lens' Activation (Lude.Maybe Lude.Text)
+aActivationId = Lens.lens (activationId :: Activation -> Lude.Maybe Lude.Text) (\s a -> s {activationId = a} :: Activation)
+{-# DEPRECATED aActivationId "Use generic-lens or generic-optics with 'activationId' instead." #-}
 
 -- | The date the activation was created.
-aCreatedDate :: Lens' Activation (Maybe UTCTime)
-aCreatedDate = lens _aCreatedDate (\s a -> s {_aCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreatedDate :: Lens.Lens' Activation (Lude.Maybe Lude.Timestamp)
+aCreatedDate = Lens.lens (createdDate :: Activation -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: Activation)
+{-# DEPRECATED aCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The maximum number of managed instances that can be registered using this activation.
-aRegistrationLimit :: Lens' Activation (Maybe Natural)
-aRegistrationLimit = lens _aRegistrationLimit (\s a -> s {_aRegistrationLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'registrationLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRegistrationLimit :: Lens.Lens' Activation (Lude.Maybe Lude.Natural)
+aRegistrationLimit = Lens.lens (registrationLimit :: Activation -> Lude.Maybe Lude.Natural) (\s a -> s {registrationLimit = a} :: Activation)
+{-# DEPRECATED aRegistrationLimit "Use generic-lens or generic-optics with 'registrationLimit' instead." #-}
 
 -- | The date when this activation can no longer be used to register managed instances.
-aExpirationDate :: Lens' Activation (Maybe UTCTime)
-aExpirationDate = lens _aExpirationDate (\s a -> s {_aExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aExpirationDate :: Lens.Lens' Activation (Lude.Maybe Lude.Timestamp)
+aExpirationDate = Lens.lens (expirationDate :: Activation -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: Activation)
+{-# DEPRECATED aExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | A user defined description of the activation.
-aDescription :: Lens' Activation (Maybe Text)
-aDescription = lens _aDescription (\s a -> s {_aDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDescription :: Lens.Lens' Activation (Lude.Maybe Lude.Text)
+aDescription = Lens.lens (description :: Activation -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Activation)
+{-# DEPRECATED aDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Tags assigned to the activation.
-aTags :: Lens' Activation [Tag]
-aTags = lens _aTags (\s a -> s {_aTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTags :: Lens.Lens' Activation (Lude.Maybe [Tag])
+aTags = Lens.lens (tags :: Activation -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Activation)
+{-# DEPRECATED aTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The number of managed instances already registered with this activation.
-aRegistrationsCount :: Lens' Activation (Maybe Natural)
-aRegistrationsCount = lens _aRegistrationsCount (\s a -> s {_aRegistrationsCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'registrationsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRegistrationsCount :: Lens.Lens' Activation (Lude.Maybe Lude.Natural)
+aRegistrationsCount = Lens.lens (registrationsCount :: Activation -> Lude.Maybe Lude.Natural) (\s a -> s {registrationsCount = a} :: Activation)
+{-# DEPRECATED aRegistrationsCount "Use generic-lens or generic-optics with 'registrationsCount' instead." #-}
 
 -- | The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
-aIAMRole :: Lens' Activation (Maybe Text)
-aIAMRole = lens _aIAMRole (\s a -> s {_aIAMRole = a})
+--
+-- /Note:/ Consider using 'iamRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aIAMRole :: Lens.Lens' Activation (Lude.Maybe Lude.Text)
+aIAMRole = Lens.lens (iamRole :: Activation -> Lude.Maybe Lude.Text) (\s a -> s {iamRole = a} :: Activation)
+{-# DEPRECATED aIAMRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
 
-instance FromJSON Activation where
+instance Lude.FromJSON Activation where
   parseJSON =
-    withObject
+    Lude.withObject
       "Activation"
       ( \x ->
           Activation'
-            <$> (x .:? "Expired")
-            <*> (x .:? "DefaultInstanceName")
-            <*> (x .:? "ActivationId")
-            <*> (x .:? "CreatedDate")
-            <*> (x .:? "RegistrationLimit")
-            <*> (x .:? "ExpirationDate")
-            <*> (x .:? "Description")
-            <*> (x .:? "Tags" .!= mempty)
-            <*> (x .:? "RegistrationsCount")
-            <*> (x .:? "IamRole")
+            Lude.<$> (x Lude..:? "Expired")
+            Lude.<*> (x Lude..:? "DefaultInstanceName")
+            Lude.<*> (x Lude..:? "ActivationId")
+            Lude.<*> (x Lude..:? "CreatedDate")
+            Lude.<*> (x Lude..:? "RegistrationLimit")
+            Lude.<*> (x Lude..:? "ExpirationDate")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "RegistrationsCount")
+            Lude.<*> (x Lude..:? "IamRole")
       )
-
-instance Hashable Activation
-
-instance NFData Activation

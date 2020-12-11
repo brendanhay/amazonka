@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingTypeMetadata where
+module Network.AWS.IoT.Types.ThingTypeMetadata
+  ( ThingTypeMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkThingTypeMetadata,
+
+    -- * Lenses
+    ttmDeprecationDate,
+    ttmCreationDate,
+    ttmDeprecated,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.
 --
---
---
--- /See:/ 'thingTypeMetadata' smart constructor.
+-- /See:/ 'mkThingTypeMetadata' smart constructor.
 data ThingTypeMetadata = ThingTypeMetadata'
-  { _ttmDeprecationDate ::
-      !(Maybe POSIX),
-    _ttmCreationDate :: !(Maybe POSIX),
-    _ttmDeprecated :: !(Maybe Bool)
+  { deprecationDate ::
+      Lude.Maybe Lude.Timestamp,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    deprecated :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingTypeMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ttmDeprecationDate' - The date and time when the thing type was deprecated.
---
--- * 'ttmCreationDate' - The date and time when the thing type was created.
---
--- * 'ttmDeprecated' - Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
-thingTypeMetadata ::
+-- * 'creationDate' - The date and time when the thing type was created.
+-- * 'deprecated' - Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
+-- * 'deprecationDate' - The date and time when the thing type was deprecated.
+mkThingTypeMetadata ::
   ThingTypeMetadata
-thingTypeMetadata =
+mkThingTypeMetadata =
   ThingTypeMetadata'
-    { _ttmDeprecationDate = Nothing,
-      _ttmCreationDate = Nothing,
-      _ttmDeprecated = Nothing
+    { deprecationDate = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      deprecated = Lude.Nothing
     }
 
 -- | The date and time when the thing type was deprecated.
-ttmDeprecationDate :: Lens' ThingTypeMetadata (Maybe UTCTime)
-ttmDeprecationDate = lens _ttmDeprecationDate (\s a -> s {_ttmDeprecationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deprecationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttmDeprecationDate :: Lens.Lens' ThingTypeMetadata (Lude.Maybe Lude.Timestamp)
+ttmDeprecationDate = Lens.lens (deprecationDate :: ThingTypeMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {deprecationDate = a} :: ThingTypeMetadata)
+{-# DEPRECATED ttmDeprecationDate "Use generic-lens or generic-optics with 'deprecationDate' instead." #-}
 
 -- | The date and time when the thing type was created.
-ttmCreationDate :: Lens' ThingTypeMetadata (Maybe UTCTime)
-ttmCreationDate = lens _ttmCreationDate (\s a -> s {_ttmCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttmCreationDate :: Lens.Lens' ThingTypeMetadata (Lude.Maybe Lude.Timestamp)
+ttmCreationDate = Lens.lens (creationDate :: ThingTypeMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: ThingTypeMetadata)
+{-# DEPRECATED ttmCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
-ttmDeprecated :: Lens' ThingTypeMetadata (Maybe Bool)
-ttmDeprecated = lens _ttmDeprecated (\s a -> s {_ttmDeprecated = a})
+--
+-- /Note:/ Consider using 'deprecated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttmDeprecated :: Lens.Lens' ThingTypeMetadata (Lude.Maybe Lude.Bool)
+ttmDeprecated = Lens.lens (deprecated :: ThingTypeMetadata -> Lude.Maybe Lude.Bool) (\s a -> s {deprecated = a} :: ThingTypeMetadata)
+{-# DEPRECATED ttmDeprecated "Use generic-lens or generic-optics with 'deprecated' instead." #-}
 
-instance FromJSON ThingTypeMetadata where
+instance Lude.FromJSON ThingTypeMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThingTypeMetadata"
       ( \x ->
           ThingTypeMetadata'
-            <$> (x .:? "deprecationDate")
-            <*> (x .:? "creationDate")
-            <*> (x .:? "deprecated")
+            Lude.<$> (x Lude..:? "deprecationDate")
+            Lude.<*> (x Lude..:? "creationDate")
+            Lude.<*> (x Lude..:? "deprecated")
       )
-
-instance Hashable ThingTypeMetadata
-
-instance NFData ThingTypeMetadata

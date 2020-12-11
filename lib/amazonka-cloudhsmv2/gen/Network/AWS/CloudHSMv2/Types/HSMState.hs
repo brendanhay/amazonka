@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.HSMState where
+module Network.AWS.CloudHSMv2.Types.HSMState
+  ( HSMState
+      ( HSMState',
+        HSActive,
+        HSCreateInProgress,
+        HSDegraded,
+        HSDeleteInProgress,
+        HSDeleted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HSMState
-  = HSActive
-  | HSCreateInProgress
-  | HSDegraded
-  | HSDeleteInProgress
-  | HSDeleted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HSMState = HSMState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HSMState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure HSActive
-      "create_in_progress" -> pure HSCreateInProgress
-      "degraded" -> pure HSDegraded
-      "delete_in_progress" -> pure HSDeleteInProgress
-      "deleted" -> pure HSDeleted
-      e ->
-        fromTextError $
-          "Failure parsing HSMState from value: '" <> e
-            <> "'. Accepted values: active, create_in_progress, degraded, delete_in_progress, deleted"
+pattern HSActive :: HSMState
+pattern HSActive = HSMState' "ACTIVE"
 
-instance ToText HSMState where
-  toText = \case
-    HSActive -> "ACTIVE"
-    HSCreateInProgress -> "CREATE_IN_PROGRESS"
-    HSDegraded -> "DEGRADED"
-    HSDeleteInProgress -> "DELETE_IN_PROGRESS"
-    HSDeleted -> "DELETED"
+pattern HSCreateInProgress :: HSMState
+pattern HSCreateInProgress = HSMState' "CREATE_IN_PROGRESS"
 
-instance Hashable HSMState
+pattern HSDegraded :: HSMState
+pattern HSDegraded = HSMState' "DEGRADED"
 
-instance NFData HSMState
+pattern HSDeleteInProgress :: HSMState
+pattern HSDeleteInProgress = HSMState' "DELETE_IN_PROGRESS"
 
-instance ToByteString HSMState
+pattern HSDeleted :: HSMState
+pattern HSDeleted = HSMState' "DELETED"
 
-instance ToQuery HSMState
-
-instance ToHeader HSMState
-
-instance FromJSON HSMState where
-  parseJSON = parseJSONText "HSMState"
+{-# COMPLETE
+  HSActive,
+  HSCreateInProgress,
+  HSDegraded,
+  HSDeleteInProgress,
+  HSDeleted,
+  HSMState'
+  #-}

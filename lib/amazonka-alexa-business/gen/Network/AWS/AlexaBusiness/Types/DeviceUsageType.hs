@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceUsageType where
+module Network.AWS.AlexaBusiness.Types.DeviceUsageType
+  ( DeviceUsageType
+      ( DeviceUsageType',
+        Voice
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceUsageType = Voice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceUsageType = DeviceUsageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceUsageType where
-  parser =
-    takeLowerText >>= \case
-      "voice" -> pure Voice
-      e ->
-        fromTextError $
-          "Failure parsing DeviceUsageType from value: '" <> e
-            <> "'. Accepted values: voice"
+pattern Voice :: DeviceUsageType
+pattern Voice = DeviceUsageType' "VOICE"
 
-instance ToText DeviceUsageType where
-  toText = \case
-    Voice -> "VOICE"
-
-instance Hashable DeviceUsageType
-
-instance NFData DeviceUsageType
-
-instance ToByteString DeviceUsageType
-
-instance ToQuery DeviceUsageType
-
-instance ToHeader DeviceUsageType
-
-instance ToJSON DeviceUsageType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Voice,
+  DeviceUsageType'
+  #-}

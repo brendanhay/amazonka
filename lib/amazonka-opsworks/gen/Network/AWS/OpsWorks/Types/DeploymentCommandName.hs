@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.DeploymentCommandName where
+module Network.AWS.OpsWorks.Types.DeploymentCommandName
+  ( DeploymentCommandName
+      ( DeploymentCommandName',
+        Configure,
+        Deploy,
+        ExecuteRecipes,
+        InstallDependencies,
+        Restart,
+        Rollback,
+        Setup,
+        Start,
+        Stop,
+        Undeploy,
+        UpdateCustomCookbooks,
+        UpdateDependencies
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentCommandName
-  = Configure
-  | Deploy
-  | ExecuteRecipes
-  | InstallDependencies
-  | Restart
-  | Rollback
-  | Setup
-  | Start
-  | Stop
-  | Undeploy
-  | UpdateCustomCookbooks
-  | UpdateDependencies
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentCommandName = DeploymentCommandName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentCommandName where
-  parser =
-    takeLowerText >>= \case
-      "configure" -> pure Configure
-      "deploy" -> pure Deploy
-      "execute_recipes" -> pure ExecuteRecipes
-      "install_dependencies" -> pure InstallDependencies
-      "restart" -> pure Restart
-      "rollback" -> pure Rollback
-      "setup" -> pure Setup
-      "start" -> pure Start
-      "stop" -> pure Stop
-      "undeploy" -> pure Undeploy
-      "update_custom_cookbooks" -> pure UpdateCustomCookbooks
-      "update_dependencies" -> pure UpdateDependencies
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentCommandName from value: '" <> e
-            <> "'. Accepted values: configure, deploy, execute_recipes, install_dependencies, restart, rollback, setup, start, stop, undeploy, update_custom_cookbooks, update_dependencies"
+pattern Configure :: DeploymentCommandName
+pattern Configure = DeploymentCommandName' "configure"
 
-instance ToText DeploymentCommandName where
-  toText = \case
-    Configure -> "configure"
-    Deploy -> "deploy"
-    ExecuteRecipes -> "execute_recipes"
-    InstallDependencies -> "install_dependencies"
-    Restart -> "restart"
-    Rollback -> "rollback"
-    Setup -> "setup"
-    Start -> "start"
-    Stop -> "stop"
-    Undeploy -> "undeploy"
-    UpdateCustomCookbooks -> "update_custom_cookbooks"
-    UpdateDependencies -> "update_dependencies"
+pattern Deploy :: DeploymentCommandName
+pattern Deploy = DeploymentCommandName' "deploy"
 
-instance Hashable DeploymentCommandName
+pattern ExecuteRecipes :: DeploymentCommandName
+pattern ExecuteRecipes = DeploymentCommandName' "execute_recipes"
 
-instance NFData DeploymentCommandName
+pattern InstallDependencies :: DeploymentCommandName
+pattern InstallDependencies = DeploymentCommandName' "install_dependencies"
 
-instance ToByteString DeploymentCommandName
+pattern Restart :: DeploymentCommandName
+pattern Restart = DeploymentCommandName' "restart"
 
-instance ToQuery DeploymentCommandName
+pattern Rollback :: DeploymentCommandName
+pattern Rollback = DeploymentCommandName' "rollback"
 
-instance ToHeader DeploymentCommandName
+pattern Setup :: DeploymentCommandName
+pattern Setup = DeploymentCommandName' "setup"
 
-instance ToJSON DeploymentCommandName where
-  toJSON = toJSONText
+pattern Start :: DeploymentCommandName
+pattern Start = DeploymentCommandName' "start"
 
-instance FromJSON DeploymentCommandName where
-  parseJSON = parseJSONText "DeploymentCommandName"
+pattern Stop :: DeploymentCommandName
+pattern Stop = DeploymentCommandName' "stop"
+
+pattern Undeploy :: DeploymentCommandName
+pattern Undeploy = DeploymentCommandName' "undeploy"
+
+pattern UpdateCustomCookbooks :: DeploymentCommandName
+pattern UpdateCustomCookbooks = DeploymentCommandName' "update_custom_cookbooks"
+
+pattern UpdateDependencies :: DeploymentCommandName
+pattern UpdateDependencies = DeploymentCommandName' "update_dependencies"
+
+{-# COMPLETE
+  Configure,
+  Deploy,
+  ExecuteRecipes,
+  InstallDependencies,
+  Restart,
+  Rollback,
+  Setup,
+  Start,
+  Stop,
+  Undeploy,
+  UpdateCustomCookbooks,
+  UpdateDependencies,
+  DeploymentCommandName'
+  #-}

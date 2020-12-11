@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Adds a new conference provider under the user's AWS account.
 module Network.AWS.AlexaBusiness.CreateConferenceProvider
-  ( -- * Creating a Request
-    createConferenceProvider,
-    CreateConferenceProvider,
+  ( -- * Creating a request
+    CreateConferenceProvider (..),
+    mkCreateConferenceProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccpPSTNDialIn,
     ccpClientRequestToken,
     ccpIPDialIn,
@@ -31,171 +26,198 @@ module Network.AWS.AlexaBusiness.CreateConferenceProvider
     ccpConferenceProviderType,
     ccpMeetingSetting,
 
-    -- * Destructuring the Response
-    createConferenceProviderResponse,
-    CreateConferenceProviderResponse,
+    -- * Destructuring the response
+    CreateConferenceProviderResponse (..),
+    mkCreateConferenceProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccprsConferenceProviderARN,
     ccprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createConferenceProvider' smart constructor.
+-- | /See:/ 'mkCreateConferenceProvider' smart constructor.
 data CreateConferenceProvider = CreateConferenceProvider'
-  { _ccpPSTNDialIn ::
-      !(Maybe PSTNDialIn),
-    _ccpClientRequestToken :: !(Maybe Text),
-    _ccpIPDialIn :: !(Maybe IPDialIn),
-    _ccpConferenceProviderName :: !Text,
-    _ccpConferenceProviderType ::
-      !ConferenceProviderType,
-    _ccpMeetingSetting :: !MeetingSetting
+  { pSTNDialIn ::
+      Lude.Maybe PSTNDialIn,
+    clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    ipDialIn :: Lude.Maybe IPDialIn,
+    conferenceProviderName :: Lude.Text,
+    conferenceProviderType ::
+      ConferenceProviderType,
+    meetingSetting :: MeetingSetting
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConferenceProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccpPSTNDialIn' - The information for PSTN conferencing.
---
--- * 'ccpClientRequestToken' - The request token of the client.
---
--- * 'ccpIPDialIn' - The IP endpoint and protocol for calling.
---
--- * 'ccpConferenceProviderName' - The name of the conference provider.
---
--- * 'ccpConferenceProviderType' - Represents a type within a list of predefined types.
---
--- * 'ccpMeetingSetting' - The meeting settings for the conference provider.
-createConferenceProvider ::
-  -- | 'ccpConferenceProviderName'
-  Text ->
-  -- | 'ccpConferenceProviderType'
+-- * 'clientRequestToken' - The request token of the client.
+-- * 'conferenceProviderName' - The name of the conference provider.
+-- * 'conferenceProviderType' - Represents a type within a list of predefined types.
+-- * 'ipDialIn' - The IP endpoint and protocol for calling.
+-- * 'meetingSetting' - The meeting settings for the conference provider.
+-- * 'pSTNDialIn' - The information for PSTN conferencing.
+mkCreateConferenceProvider ::
+  -- | 'conferenceProviderName'
+  Lude.Text ->
+  -- | 'conferenceProviderType'
   ConferenceProviderType ->
-  -- | 'ccpMeetingSetting'
+  -- | 'meetingSetting'
   MeetingSetting ->
   CreateConferenceProvider
-createConferenceProvider
+mkCreateConferenceProvider
   pConferenceProviderName_
   pConferenceProviderType_
   pMeetingSetting_ =
     CreateConferenceProvider'
-      { _ccpPSTNDialIn = Nothing,
-        _ccpClientRequestToken = Nothing,
-        _ccpIPDialIn = Nothing,
-        _ccpConferenceProviderName = pConferenceProviderName_,
-        _ccpConferenceProviderType = pConferenceProviderType_,
-        _ccpMeetingSetting = pMeetingSetting_
+      { pSTNDialIn = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        ipDialIn = Lude.Nothing,
+        conferenceProviderName = pConferenceProviderName_,
+        conferenceProviderType = pConferenceProviderType_,
+        meetingSetting = pMeetingSetting_
       }
 
 -- | The information for PSTN conferencing.
-ccpPSTNDialIn :: Lens' CreateConferenceProvider (Maybe PSTNDialIn)
-ccpPSTNDialIn = lens _ccpPSTNDialIn (\s a -> s {_ccpPSTNDialIn = a})
+--
+-- /Note:/ Consider using 'pSTNDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpPSTNDialIn :: Lens.Lens' CreateConferenceProvider (Lude.Maybe PSTNDialIn)
+ccpPSTNDialIn = Lens.lens (pSTNDialIn :: CreateConferenceProvider -> Lude.Maybe PSTNDialIn) (\s a -> s {pSTNDialIn = a} :: CreateConferenceProvider)
+{-# DEPRECATED ccpPSTNDialIn "Use generic-lens or generic-optics with 'pSTNDialIn' instead." #-}
 
 -- | The request token of the client.
-ccpClientRequestToken :: Lens' CreateConferenceProvider (Maybe Text)
-ccpClientRequestToken = lens _ccpClientRequestToken (\s a -> s {_ccpClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpClientRequestToken :: Lens.Lens' CreateConferenceProvider (Lude.Maybe Lude.Text)
+ccpClientRequestToken = Lens.lens (clientRequestToken :: CreateConferenceProvider -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateConferenceProvider)
+{-# DEPRECATED ccpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The IP endpoint and protocol for calling.
-ccpIPDialIn :: Lens' CreateConferenceProvider (Maybe IPDialIn)
-ccpIPDialIn = lens _ccpIPDialIn (\s a -> s {_ccpIPDialIn = a})
+--
+-- /Note:/ Consider using 'ipDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpIPDialIn :: Lens.Lens' CreateConferenceProvider (Lude.Maybe IPDialIn)
+ccpIPDialIn = Lens.lens (ipDialIn :: CreateConferenceProvider -> Lude.Maybe IPDialIn) (\s a -> s {ipDialIn = a} :: CreateConferenceProvider)
+{-# DEPRECATED ccpIPDialIn "Use generic-lens or generic-optics with 'ipDialIn' instead." #-}
 
 -- | The name of the conference provider.
-ccpConferenceProviderName :: Lens' CreateConferenceProvider Text
-ccpConferenceProviderName = lens _ccpConferenceProviderName (\s a -> s {_ccpConferenceProviderName = a})
+--
+-- /Note:/ Consider using 'conferenceProviderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpConferenceProviderName :: Lens.Lens' CreateConferenceProvider Lude.Text
+ccpConferenceProviderName = Lens.lens (conferenceProviderName :: CreateConferenceProvider -> Lude.Text) (\s a -> s {conferenceProviderName = a} :: CreateConferenceProvider)
+{-# DEPRECATED ccpConferenceProviderName "Use generic-lens or generic-optics with 'conferenceProviderName' instead." #-}
 
 -- | Represents a type within a list of predefined types.
-ccpConferenceProviderType :: Lens' CreateConferenceProvider ConferenceProviderType
-ccpConferenceProviderType = lens _ccpConferenceProviderType (\s a -> s {_ccpConferenceProviderType = a})
+--
+-- /Note:/ Consider using 'conferenceProviderType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpConferenceProviderType :: Lens.Lens' CreateConferenceProvider ConferenceProviderType
+ccpConferenceProviderType = Lens.lens (conferenceProviderType :: CreateConferenceProvider -> ConferenceProviderType) (\s a -> s {conferenceProviderType = a} :: CreateConferenceProvider)
+{-# DEPRECATED ccpConferenceProviderType "Use generic-lens or generic-optics with 'conferenceProviderType' instead." #-}
 
 -- | The meeting settings for the conference provider.
-ccpMeetingSetting :: Lens' CreateConferenceProvider MeetingSetting
-ccpMeetingSetting = lens _ccpMeetingSetting (\s a -> s {_ccpMeetingSetting = a})
+--
+-- /Note:/ Consider using 'meetingSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpMeetingSetting :: Lens.Lens' CreateConferenceProvider MeetingSetting
+ccpMeetingSetting = Lens.lens (meetingSetting :: CreateConferenceProvider -> MeetingSetting) (\s a -> s {meetingSetting = a} :: CreateConferenceProvider)
+{-# DEPRECATED ccpMeetingSetting "Use generic-lens or generic-optics with 'meetingSetting' instead." #-}
 
-instance AWSRequest CreateConferenceProvider where
+instance Lude.AWSRequest CreateConferenceProvider where
   type Rs CreateConferenceProvider = CreateConferenceProviderResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateConferenceProviderResponse'
-            <$> (x .?> "ConferenceProviderArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConferenceProviderArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateConferenceProvider
-
-instance NFData CreateConferenceProvider
-
-instance ToHeaders CreateConferenceProvider where
+instance Lude.ToHeaders CreateConferenceProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.CreateConferenceProvider" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.CreateConferenceProvider" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateConferenceProvider where
+instance Lude.ToJSON CreateConferenceProvider where
   toJSON CreateConferenceProvider' {..} =
-    object
-      ( catMaybes
-          [ ("PSTNDialIn" .=) <$> _ccpPSTNDialIn,
-            ("ClientRequestToken" .=) <$> _ccpClientRequestToken,
-            ("IPDialIn" .=) <$> _ccpIPDialIn,
-            Just ("ConferenceProviderName" .= _ccpConferenceProviderName),
-            Just ("ConferenceProviderType" .= _ccpConferenceProviderType),
-            Just ("MeetingSetting" .= _ccpMeetingSetting)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PSTNDialIn" Lude..=) Lude.<$> pSTNDialIn,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("IPDialIn" Lude..=) Lude.<$> ipDialIn,
+            Lude.Just
+              ("ConferenceProviderName" Lude..= conferenceProviderName),
+            Lude.Just
+              ("ConferenceProviderType" Lude..= conferenceProviderType),
+            Lude.Just ("MeetingSetting" Lude..= meetingSetting)
           ]
       )
 
-instance ToPath CreateConferenceProvider where
-  toPath = const "/"
+instance Lude.ToPath CreateConferenceProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateConferenceProvider where
-  toQuery = const mempty
+instance Lude.ToQuery CreateConferenceProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createConferenceProviderResponse' smart constructor.
+-- | /See:/ 'mkCreateConferenceProviderResponse' smart constructor.
 data CreateConferenceProviderResponse = CreateConferenceProviderResponse'
-  { _ccprsConferenceProviderARN ::
-      !(Maybe Text),
-    _ccprsResponseStatus ::
-      !Int
+  { conferenceProviderARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConferenceProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccprsConferenceProviderARN' - The ARN of the newly-created conference provider.
---
--- * 'ccprsResponseStatus' - -- | The response status code.
-createConferenceProviderResponse ::
-  -- | 'ccprsResponseStatus'
-  Int ->
+-- * 'conferenceProviderARN' - The ARN of the newly-created conference provider.
+-- * 'responseStatus' - The response status code.
+mkCreateConferenceProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConferenceProviderResponse
-createConferenceProviderResponse pResponseStatus_ =
+mkCreateConferenceProviderResponse pResponseStatus_ =
   CreateConferenceProviderResponse'
-    { _ccprsConferenceProviderARN =
-        Nothing,
-      _ccprsResponseStatus = pResponseStatus_
+    { conferenceProviderARN =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the newly-created conference provider.
-ccprsConferenceProviderARN :: Lens' CreateConferenceProviderResponse (Maybe Text)
-ccprsConferenceProviderARN = lens _ccprsConferenceProviderARN (\s a -> s {_ccprsConferenceProviderARN = a})
+--
+-- /Note:/ Consider using 'conferenceProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccprsConferenceProviderARN :: Lens.Lens' CreateConferenceProviderResponse (Lude.Maybe Lude.Text)
+ccprsConferenceProviderARN = Lens.lens (conferenceProviderARN :: CreateConferenceProviderResponse -> Lude.Maybe Lude.Text) (\s a -> s {conferenceProviderARN = a} :: CreateConferenceProviderResponse)
+{-# DEPRECATED ccprsConferenceProviderARN "Use generic-lens or generic-optics with 'conferenceProviderARN' instead." #-}
 
--- | -- | The response status code.
-ccprsResponseStatus :: Lens' CreateConferenceProviderResponse Int
-ccprsResponseStatus = lens _ccprsResponseStatus (\s a -> s {_ccprsResponseStatus = a})
-
-instance NFData CreateConferenceProviderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccprsResponseStatus :: Lens.Lens' CreateConferenceProviderResponse Lude.Int
+ccprsResponseStatus = Lens.lens (responseStatus :: CreateConferenceProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConferenceProviderResponse)
+{-# DEPRECATED ccprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

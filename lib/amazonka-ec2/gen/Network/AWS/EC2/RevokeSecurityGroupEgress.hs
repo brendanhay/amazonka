@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- [VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action does not apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
 --
---
 -- Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
---
 -- Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 module Network.AWS.EC2.RevokeSecurityGroupEgress
-  ( -- * Creating a Request
-    revokeSecurityGroupEgress,
-    RevokeSecurityGroupEgress,
+  ( -- * Creating a request
+    RevokeSecurityGroupEgress (..),
+    mkRevokeSecurityGroupEgress,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsgeFromPort,
     rsgeIPPermissions,
     rsgeIPProtocol,
@@ -39,11 +32,11 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     rsgeDryRun,
     rsgeGroupId,
 
-    -- * Destructuring the Response
-    revokeSecurityGroupEgressResponse,
-    RevokeSecurityGroupEgressResponse,
+    -- * Destructuring the response
+    RevokeSecurityGroupEgressResponse (..),
+    mkRevokeSecurityGroupEgressResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsgersReturn,
     rsgersUnknownIPPermissions,
     rsgersResponseStatus,
@@ -51,186 +44,218 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'revokeSecurityGroupEgress' smart constructor.
+-- | /See:/ 'mkRevokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-  { _rsgeFromPort ::
-      !(Maybe Int),
-    _rsgeIPPermissions ::
-      !(Maybe [IPPermission]),
-    _rsgeIPProtocol :: !(Maybe Text),
-    _rsgeToPort :: !(Maybe Int),
-    _rsgeCidrIP :: !(Maybe Text),
-    _rsgeSourceSecurityGroupOwnerId ::
-      !(Maybe Text),
-    _rsgeSourceSecurityGroupName ::
-      !(Maybe Text),
-    _rsgeDryRun :: !(Maybe Bool),
-    _rsgeGroupId :: !Text
+  { fromPort ::
+      Lude.Maybe Lude.Int,
+    ipPermissions ::
+      Lude.Maybe [IPPermission],
+    ipProtocol :: Lude.Maybe Lude.Text,
+    toPort :: Lude.Maybe Lude.Int,
+    cidrIP :: Lude.Maybe Lude.Text,
+    sourceSecurityGroupOwnerId ::
+      Lude.Maybe Lude.Text,
+    sourceSecurityGroupName ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSecurityGroupEgress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsgeFromPort' - Not supported. Use a set of IP permissions to specify the port.
---
--- * 'rsgeIPPermissions' - The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
---
--- * 'rsgeIPProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
---
--- * 'rsgeToPort' - Not supported. Use a set of IP permissions to specify the port.
---
--- * 'rsgeCidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
---
--- * 'rsgeSourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
---
--- * 'rsgeSourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
---
--- * 'rsgeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rsgeGroupId' - The ID of the security group.
-revokeSecurityGroupEgress ::
-  -- | 'rsgeGroupId'
-  Text ->
+-- * 'cidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'fromPort' - Not supported. Use a set of IP permissions to specify the port.
+-- * 'groupId' - The ID of the security group.
+-- * 'ipPermissions' - The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+-- * 'ipProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
+-- * 'sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'toPort' - Not supported. Use a set of IP permissions to specify the port.
+mkRevokeSecurityGroupEgress ::
+  -- | 'groupId'
+  Lude.Text ->
   RevokeSecurityGroupEgress
-revokeSecurityGroupEgress pGroupId_ =
+mkRevokeSecurityGroupEgress pGroupId_ =
   RevokeSecurityGroupEgress'
-    { _rsgeFromPort = Nothing,
-      _rsgeIPPermissions = Nothing,
-      _rsgeIPProtocol = Nothing,
-      _rsgeToPort = Nothing,
-      _rsgeCidrIP = Nothing,
-      _rsgeSourceSecurityGroupOwnerId = Nothing,
-      _rsgeSourceSecurityGroupName = Nothing,
-      _rsgeDryRun = Nothing,
-      _rsgeGroupId = pGroupId_
+    { fromPort = Lude.Nothing,
+      ipPermissions = Lude.Nothing,
+      ipProtocol = Lude.Nothing,
+      toPort = Lude.Nothing,
+      cidrIP = Lude.Nothing,
+      sourceSecurityGroupOwnerId = Lude.Nothing,
+      sourceSecurityGroupName = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      groupId = pGroupId_
     }
 
 -- | Not supported. Use a set of IP permissions to specify the port.
-rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
-rsgeFromPort = lens _rsgeFromPort (\s a -> s {_rsgeFromPort = a})
+--
+-- /Note:/ Consider using 'fromPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeFromPort :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Int)
+rsgeFromPort = Lens.lens (fromPort :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Int) (\s a -> s {fromPort = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
 
 -- | The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
-rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
-rsgeIPPermissions = lens _rsgeIPPermissions (\s a -> s {_rsgeIPPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeIPPermissions :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe [IPPermission])
+rsgeIPPermissions = Lens.lens (ipPermissions :: RevokeSecurityGroupEgress -> Lude.Maybe [IPPermission]) (\s a -> s {ipPermissions = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeIPPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the protocol name or number.
-rsgeIPProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeIPProtocol = lens _rsgeIPProtocol (\s a -> s {_rsgeIPProtocol = a})
+--
+-- /Note:/ Consider using 'ipProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeIPProtocol :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Text)
+rsgeIPProtocol = Lens.lens (ipProtocol :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {ipProtocol = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeIPProtocol "Use generic-lens or generic-optics with 'ipProtocol' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the port.
-rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
-rsgeToPort = lens _rsgeToPort (\s a -> s {_rsgeToPort = a})
+--
+-- /Note:/ Consider using 'toPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeToPort :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Int)
+rsgeToPort = Lens.lens (toPort :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Int) (\s a -> s {toPort = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeToPort "Use generic-lens or generic-optics with 'toPort' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the CIDR.
-rsgeCidrIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeCidrIP = lens _rsgeCidrIP (\s a -> s {_rsgeCidrIP = a})
+--
+-- /Note:/ Consider using 'cidrIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeCidrIP :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Text)
+rsgeCidrIP = Lens.lens (cidrIP :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {cidrIP = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeCidrIP "Use generic-lens or generic-optics with 'cidrIP' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
-rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeSourceSecurityGroupOwnerId = lens _rsgeSourceSecurityGroupOwnerId (\s a -> s {_rsgeSourceSecurityGroupOwnerId = a})
+--
+-- /Note:/ Consider using 'sourceSecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeSourceSecurityGroupOwnerId :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Text)
+rsgeSourceSecurityGroupOwnerId = Lens.lens (sourceSecurityGroupOwnerId :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {sourceSecurityGroupOwnerId = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeSourceSecurityGroupOwnerId "Use generic-lens or generic-optics with 'sourceSecurityGroupOwnerId' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
-rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\s a -> s {_rsgeSourceSecurityGroupName = a})
+--
+-- /Note:/ Consider using 'sourceSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeSourceSecurityGroupName :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Text)
+rsgeSourceSecurityGroupName = Lens.lens (sourceSecurityGroupName :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {sourceSecurityGroupName = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeSourceSecurityGroupName "Use generic-lens or generic-optics with 'sourceSecurityGroupName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
-rsgeDryRun = lens _rsgeDryRun (\s a -> s {_rsgeDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeDryRun :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Bool)
+rsgeDryRun = Lens.lens (dryRun :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the security group.
-rsgeGroupId :: Lens' RevokeSecurityGroupEgress Text
-rsgeGroupId = lens _rsgeGroupId (\s a -> s {_rsgeGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeGroupId :: Lens.Lens' RevokeSecurityGroupEgress Lude.Text
+rsgeGroupId = Lens.lens (groupId :: RevokeSecurityGroupEgress -> Lude.Text) (\s a -> s {groupId = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest RevokeSecurityGroupEgress where
+instance Lude.AWSRequest RevokeSecurityGroupEgress where
   type
     Rs RevokeSecurityGroupEgress =
       RevokeSecurityGroupEgressResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           RevokeSecurityGroupEgressResponse'
-            <$> (x .@? "return")
-            <*> ( x .@? "unknownIpPermissionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return")
+            Lude.<*> ( x Lude..@? "unknownIpPermissionSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RevokeSecurityGroupEgress
+instance Lude.ToHeaders RevokeSecurityGroupEgress where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RevokeSecurityGroupEgress
+instance Lude.ToPath RevokeSecurityGroupEgress where
+  toPath = Lude.const "/"
 
-instance ToHeaders RevokeSecurityGroupEgress where
-  toHeaders = const mempty
-
-instance ToPath RevokeSecurityGroupEgress where
-  toPath = const "/"
-
-instance ToQuery RevokeSecurityGroupEgress where
+instance Lude.ToQuery RevokeSecurityGroupEgress where
   toQuery RevokeSecurityGroupEgress' {..} =
-    mconcat
-      [ "Action" =: ("RevokeSecurityGroupEgress" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "FromPort" =: _rsgeFromPort,
-        toQuery (toQueryList "IpPermissions" <$> _rsgeIPPermissions),
-        "IpProtocol" =: _rsgeIPProtocol,
-        "ToPort" =: _rsgeToPort,
-        "CidrIp" =: _rsgeCidrIP,
-        "SourceSecurityGroupOwnerId" =: _rsgeSourceSecurityGroupOwnerId,
-        "SourceSecurityGroupName" =: _rsgeSourceSecurityGroupName,
-        "DryRun" =: _rsgeDryRun,
-        "GroupId" =: _rsgeGroupId
+    Lude.mconcat
+      [ "Action" Lude.=: ("RevokeSecurityGroupEgress" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "FromPort" Lude.=: fromPort,
+        Lude.toQuery
+          (Lude.toQueryList "IpPermissions" Lude.<$> ipPermissions),
+        "IpProtocol" Lude.=: ipProtocol,
+        "ToPort" Lude.=: toPort,
+        "CidrIp" Lude.=: cidrIP,
+        "SourceSecurityGroupOwnerId" Lude.=: sourceSecurityGroupOwnerId,
+        "SourceSecurityGroupName" Lude.=: sourceSecurityGroupName,
+        "DryRun" Lude.=: dryRun,
+        "GroupId" Lude.=: groupId
       ]
 
--- | /See:/ 'revokeSecurityGroupEgressResponse' smart constructor.
+-- | /See:/ 'mkRevokeSecurityGroupEgressResponse' smart constructor.
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'
-  { _rsgersReturn ::
-      !(Maybe Bool),
-    _rsgersUnknownIPPermissions ::
-      !(Maybe [IPPermission]),
-    _rsgersResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    unknownIPPermissions ::
+      Lude.Maybe
+        [IPPermission],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSecurityGroupEgressResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsgersReturn' - Returns @true@ if the request succeeds; otherwise, returns an error.
---
--- * 'rsgersUnknownIPPermissions' - The outbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
---
--- * 'rsgersResponseStatus' - -- | The response status code.
-revokeSecurityGroupEgressResponse ::
-  -- | 'rsgersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, returns an error.
+-- * 'unknownIPPermissions' - The outbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
+mkRevokeSecurityGroupEgressResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RevokeSecurityGroupEgressResponse
-revokeSecurityGroupEgressResponse pResponseStatus_ =
+mkRevokeSecurityGroupEgressResponse pResponseStatus_ =
   RevokeSecurityGroupEgressResponse'
-    { _rsgersReturn = Nothing,
-      _rsgersUnknownIPPermissions = Nothing,
-      _rsgersResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      unknownIPPermissions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-rsgersReturn :: Lens' RevokeSecurityGroupEgressResponse (Maybe Bool)
-rsgersReturn = lens _rsgersReturn (\s a -> s {_rsgersReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgersReturn :: Lens.Lens' RevokeSecurityGroupEgressResponse (Lude.Maybe Lude.Bool)
+rsgersReturn = Lens.lens (return :: RevokeSecurityGroupEgressResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: RevokeSecurityGroupEgressResponse)
+{-# DEPRECATED rsgersReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The outbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
-rsgersUnknownIPPermissions :: Lens' RevokeSecurityGroupEgressResponse [IPPermission]
-rsgersUnknownIPPermissions = lens _rsgersUnknownIPPermissions (\s a -> s {_rsgersUnknownIPPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unknownIPPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgersUnknownIPPermissions :: Lens.Lens' RevokeSecurityGroupEgressResponse (Lude.Maybe [IPPermission])
+rsgersUnknownIPPermissions = Lens.lens (unknownIPPermissions :: RevokeSecurityGroupEgressResponse -> Lude.Maybe [IPPermission]) (\s a -> s {unknownIPPermissions = a} :: RevokeSecurityGroupEgressResponse)
+{-# DEPRECATED rsgersUnknownIPPermissions "Use generic-lens or generic-optics with 'unknownIPPermissions' instead." #-}
 
--- | -- | The response status code.
-rsgersResponseStatus :: Lens' RevokeSecurityGroupEgressResponse Int
-rsgersResponseStatus = lens _rsgersResponseStatus (\s a -> s {_rsgersResponseStatus = a})
-
-instance NFData RevokeSecurityGroupEgressResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgersResponseStatus :: Lens.Lens' RevokeSecurityGroupEgressResponse Lude.Int
+rsgersResponseStatus = Lens.lens (responseStatus :: RevokeSecurityGroupEgressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RevokeSecurityGroupEgressResponse)
+{-# DEPRECATED rsgersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceGroupTimeline where
+module Network.AWS.EMR.Types.InstanceGroupTimeline
+  ( InstanceGroupTimeline (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceGroupTimeline,
+
+    -- * Lenses
+    igtReadyDateTime,
+    igtCreationDateTime,
+    igtEndDateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The timeline of the instance group lifecycle.
 --
---
---
--- /See:/ 'instanceGroupTimeline' smart constructor.
+-- /See:/ 'mkInstanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
-  { _igtReadyDateTime ::
-      !(Maybe POSIX),
-    _igtCreationDateTime :: !(Maybe POSIX),
-    _igtEndDateTime :: !(Maybe POSIX)
+  { readyDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    creationDateTime :: Lude.Maybe Lude.Timestamp,
+    endDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceGroupTimeline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'igtReadyDateTime' - The date and time when the instance group became ready to perform tasks.
---
--- * 'igtCreationDateTime' - The creation date and time of the instance group.
---
--- * 'igtEndDateTime' - The date and time when the instance group terminated.
-instanceGroupTimeline ::
+-- * 'creationDateTime' - The creation date and time of the instance group.
+-- * 'endDateTime' - The date and time when the instance group terminated.
+-- * 'readyDateTime' - The date and time when the instance group became ready to perform tasks.
+mkInstanceGroupTimeline ::
   InstanceGroupTimeline
-instanceGroupTimeline =
+mkInstanceGroupTimeline =
   InstanceGroupTimeline'
-    { _igtReadyDateTime = Nothing,
-      _igtCreationDateTime = Nothing,
-      _igtEndDateTime = Nothing
+    { readyDateTime = Lude.Nothing,
+      creationDateTime = Lude.Nothing,
+      endDateTime = Lude.Nothing
     }
 
 -- | The date and time when the instance group became ready to perform tasks.
-igtReadyDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
-igtReadyDateTime = lens _igtReadyDateTime (\s a -> s {_igtReadyDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igtReadyDateTime :: Lens.Lens' InstanceGroupTimeline (Lude.Maybe Lude.Timestamp)
+igtReadyDateTime = Lens.lens (readyDateTime :: InstanceGroupTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {readyDateTime = a} :: InstanceGroupTimeline)
+{-# DEPRECATED igtReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
 
 -- | The creation date and time of the instance group.
-igtCreationDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
-igtCreationDateTime = lens _igtCreationDateTime (\s a -> s {_igtCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igtCreationDateTime :: Lens.Lens' InstanceGroupTimeline (Lude.Maybe Lude.Timestamp)
+igtCreationDateTime = Lens.lens (creationDateTime :: InstanceGroupTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: InstanceGroupTimeline)
+{-# DEPRECATED igtCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the instance group terminated.
-igtEndDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
-igtEndDateTime = lens _igtEndDateTime (\s a -> s {_igtEndDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igtEndDateTime :: Lens.Lens' InstanceGroupTimeline (Lude.Maybe Lude.Timestamp)
+igtEndDateTime = Lens.lens (endDateTime :: InstanceGroupTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: InstanceGroupTimeline)
+{-# DEPRECATED igtEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
-instance FromJSON InstanceGroupTimeline where
+instance Lude.FromJSON InstanceGroupTimeline where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceGroupTimeline"
       ( \x ->
           InstanceGroupTimeline'
-            <$> (x .:? "ReadyDateTime")
-            <*> (x .:? "CreationDateTime")
-            <*> (x .:? "EndDateTime")
+            Lude.<$> (x Lude..:? "ReadyDateTime")
+            Lude.<*> (x Lude..:? "CreationDateTime")
+            Lude.<*> (x Lude..:? "EndDateTime")
       )
-
-instance Hashable InstanceGroupTimeline
-
-instance NFData InstanceGroupTimeline

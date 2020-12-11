@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,45 +14,45 @@
 --
 -- Updates the shard count of the specified stream to the specified number of shards.
 --
---
 -- Updating the shard count is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to @UPDATING@ . After the update is complete, Kinesis Data Streams sets the status of the stream back to @ACTIVE@ . Depending on the size of the stream, the scaling action could take a few minutes to complete. You can continue to read and write data to your stream while its status is @UPDATING@ .
---
 -- To update the shard count, Kinesis Data Streams performs splits or merges on individual shards. This can cause short-lived shards to be created, in addition to the final shards. These short-lived shards count towards your total shard limit for your account in the Region.
---
 -- When using this operation, we recommend that you specify a target shard count that is a multiple of 25% (25%, 50%, 75%, 100%). You can specify any target value within your shard limit. However, if you specify a target that isn't a multiple of 25%, the scaling action might take longer to complete.
---
 -- This operation has the following default limits. By default, you cannot do the following:
 --
 --     * Scale more than ten times per rolling 24-hour period per stream
 --
+--
 --     * Scale up to more than double your current shard count for a stream
+--
 --
 --     * Scale down below half your current shard count for a stream
 --
+--
 --     * Scale up to more than 500 shards in a stream
 --
+--
 --     * Scale a stream with more than 500 shards down unless the result is less than 500 shards
+--
 --
 --     * Scale up to more than the shard limit for your account
 --
 --
---
 -- For the default limits for an AWS account, see <https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Data Streams Developer Guide/ . To request an increase in the call rate limit, the shard limit for this API, or your overall shard limit, use the <https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis limits form> .
 module Network.AWS.Kinesis.UpdateShardCount
-  ( -- * Creating a Request
-    updateShardCount,
-    UpdateShardCount,
+  ( -- * Creating a request
+    UpdateShardCount (..),
+    mkUpdateShardCount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uscStreamName,
     uscTargetShardCount,
     uscScalingType,
 
-    -- * Destructuring the Response
-    updateShardCountResponse,
-    UpdateShardCountResponse,
+    -- * Destructuring the response
+    UpdateShardCountResponse (..),
+    mkUpdateShardCountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uscrsTargetShardCount,
     uscrsStreamName,
     uscrsCurrentShardCount,
@@ -66,145 +61,193 @@ module Network.AWS.Kinesis.UpdateShardCount
 where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateShardCount' smart constructor.
+-- | /See:/ 'mkUpdateShardCount' smart constructor.
 data UpdateShardCount = UpdateShardCount'
-  { _uscStreamName :: !Text,
-    _uscTargetShardCount :: !Nat,
-    _uscScalingType :: !ScalingType
+  { streamName :: Lude.Text,
+    targetShardCount :: Lude.Natural,
+    scalingType :: ScalingType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateShardCount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'scalingType' - The scaling type. Uniform scaling creates shards of equal size.
+-- * 'streamName' - The name of the stream.
+-- * 'targetShardCount' - The new number of shards. This value has the following default limits. By default, you cannot do the following:
 --
--- * 'uscStreamName' - The name of the stream.
 --
--- * 'uscTargetShardCount' - The new number of shards. This value has the following default limits. By default, you cannot do the following:      * Set this value to more than double your current shard count for a stream.     * Set this value below half your current shard count for a stream.     * Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
+--     * Set this value to more than double your current shard count for a stream.
 --
--- * 'uscScalingType' - The scaling type. Uniform scaling creates shards of equal size.
-updateShardCount ::
-  -- | 'uscStreamName'
-  Text ->
-  -- | 'uscTargetShardCount'
-  Natural ->
-  -- | 'uscScalingType'
+--
+--     * Set this value below half your current shard count for a stream.
+--
+--
+--     * Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.
+--
+--
+--     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
+mkUpdateShardCount ::
+  -- | 'streamName'
+  Lude.Text ->
+  -- | 'targetShardCount'
+  Lude.Natural ->
+  -- | 'scalingType'
   ScalingType ->
   UpdateShardCount
-updateShardCount pStreamName_ pTargetShardCount_ pScalingType_ =
+mkUpdateShardCount pStreamName_ pTargetShardCount_ pScalingType_ =
   UpdateShardCount'
-    { _uscStreamName = pStreamName_,
-      _uscTargetShardCount = _Nat # pTargetShardCount_,
-      _uscScalingType = pScalingType_
+    { streamName = pStreamName_,
+      targetShardCount = pTargetShardCount_,
+      scalingType = pScalingType_
     }
 
 -- | The name of the stream.
-uscStreamName :: Lens' UpdateShardCount Text
-uscStreamName = lens _uscStreamName (\s a -> s {_uscStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscStreamName :: Lens.Lens' UpdateShardCount Lude.Text
+uscStreamName = Lens.lens (streamName :: UpdateShardCount -> Lude.Text) (\s a -> s {streamName = a} :: UpdateShardCount)
+{-# DEPRECATED uscStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | The new number of shards. This value has the following default limits. By default, you cannot do the following:      * Set this value to more than double your current shard count for a stream.     * Set this value below half your current shard count for a stream.     * Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
-uscTargetShardCount :: Lens' UpdateShardCount Natural
-uscTargetShardCount = lens _uscTargetShardCount (\s a -> s {_uscTargetShardCount = a}) . _Nat
+-- | The new number of shards. This value has the following default limits. By default, you cannot do the following:
+--
+--
+--     * Set this value to more than double your current shard count for a stream.
+--
+--
+--     * Set this value below half your current shard count for a stream.
+--
+--
+--     * Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.
+--
+--
+--     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
+--
+--
+--
+-- /Note:/ Consider using 'targetShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscTargetShardCount :: Lens.Lens' UpdateShardCount Lude.Natural
+uscTargetShardCount = Lens.lens (targetShardCount :: UpdateShardCount -> Lude.Natural) (\s a -> s {targetShardCount = a} :: UpdateShardCount)
+{-# DEPRECATED uscTargetShardCount "Use generic-lens or generic-optics with 'targetShardCount' instead." #-}
 
 -- | The scaling type. Uniform scaling creates shards of equal size.
-uscScalingType :: Lens' UpdateShardCount ScalingType
-uscScalingType = lens _uscScalingType (\s a -> s {_uscScalingType = a})
+--
+-- /Note:/ Consider using 'scalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscScalingType :: Lens.Lens' UpdateShardCount ScalingType
+uscScalingType = Lens.lens (scalingType :: UpdateShardCount -> ScalingType) (\s a -> s {scalingType = a} :: UpdateShardCount)
+{-# DEPRECATED uscScalingType "Use generic-lens or generic-optics with 'scalingType' instead." #-}
 
-instance AWSRequest UpdateShardCount where
+instance Lude.AWSRequest UpdateShardCount where
   type Rs UpdateShardCount = UpdateShardCountResponse
-  request = postJSON kinesis
+  request = Req.postJSON kinesisService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateShardCountResponse'
-            <$> (x .?> "TargetShardCount")
-            <*> (x .?> "StreamName")
-            <*> (x .?> "CurrentShardCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TargetShardCount")
+            Lude.<*> (x Lude..?> "StreamName")
+            Lude.<*> (x Lude..?> "CurrentShardCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateShardCount
-
-instance NFData UpdateShardCount
-
-instance ToHeaders UpdateShardCount where
+instance Lude.ToHeaders UpdateShardCount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Kinesis_20131202.UpdateShardCount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Kinesis_20131202.UpdateShardCount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateShardCount where
+instance Lude.ToJSON UpdateShardCount where
   toJSON UpdateShardCount' {..} =
-    object
-      ( catMaybes
-          [ Just ("StreamName" .= _uscStreamName),
-            Just ("TargetShardCount" .= _uscTargetShardCount),
-            Just ("ScalingType" .= _uscScalingType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("StreamName" Lude..= streamName),
+            Lude.Just ("TargetShardCount" Lude..= targetShardCount),
+            Lude.Just ("ScalingType" Lude..= scalingType)
           ]
       )
 
-instance ToPath UpdateShardCount where
-  toPath = const "/"
+instance Lude.ToPath UpdateShardCount where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateShardCount where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateShardCount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateShardCountResponse' smart constructor.
+-- | /See:/ 'mkUpdateShardCountResponse' smart constructor.
 data UpdateShardCountResponse = UpdateShardCountResponse'
-  { _uscrsTargetShardCount ::
-      !(Maybe Nat),
-    _uscrsStreamName :: !(Maybe Text),
-    _uscrsCurrentShardCount :: !(Maybe Nat),
-    _uscrsResponseStatus :: !Int
+  { targetShardCount ::
+      Lude.Maybe Lude.Natural,
+    streamName :: Lude.Maybe Lude.Text,
+    currentShardCount ::
+      Lude.Maybe Lude.Natural,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateShardCountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uscrsTargetShardCount' - The updated number of shards.
---
--- * 'uscrsStreamName' - The name of the stream.
---
--- * 'uscrsCurrentShardCount' - The current number of shards.
---
--- * 'uscrsResponseStatus' - -- | The response status code.
-updateShardCountResponse ::
-  -- | 'uscrsResponseStatus'
-  Int ->
+-- * 'currentShardCount' - The current number of shards.
+-- * 'responseStatus' - The response status code.
+-- * 'streamName' - The name of the stream.
+-- * 'targetShardCount' - The updated number of shards.
+mkUpdateShardCountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateShardCountResponse
-updateShardCountResponse pResponseStatus_ =
+mkUpdateShardCountResponse pResponseStatus_ =
   UpdateShardCountResponse'
-    { _uscrsTargetShardCount = Nothing,
-      _uscrsStreamName = Nothing,
-      _uscrsCurrentShardCount = Nothing,
-      _uscrsResponseStatus = pResponseStatus_
+    { targetShardCount = Lude.Nothing,
+      streamName = Lude.Nothing,
+      currentShardCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated number of shards.
-uscrsTargetShardCount :: Lens' UpdateShardCountResponse (Maybe Natural)
-uscrsTargetShardCount = lens _uscrsTargetShardCount (\s a -> s {_uscrsTargetShardCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'targetShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrsTargetShardCount :: Lens.Lens' UpdateShardCountResponse (Lude.Maybe Lude.Natural)
+uscrsTargetShardCount = Lens.lens (targetShardCount :: UpdateShardCountResponse -> Lude.Maybe Lude.Natural) (\s a -> s {targetShardCount = a} :: UpdateShardCountResponse)
+{-# DEPRECATED uscrsTargetShardCount "Use generic-lens or generic-optics with 'targetShardCount' instead." #-}
 
 -- | The name of the stream.
-uscrsStreamName :: Lens' UpdateShardCountResponse (Maybe Text)
-uscrsStreamName = lens _uscrsStreamName (\s a -> s {_uscrsStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrsStreamName :: Lens.Lens' UpdateShardCountResponse (Lude.Maybe Lude.Text)
+uscrsStreamName = Lens.lens (streamName :: UpdateShardCountResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: UpdateShardCountResponse)
+{-# DEPRECATED uscrsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The current number of shards.
-uscrsCurrentShardCount :: Lens' UpdateShardCountResponse (Maybe Natural)
-uscrsCurrentShardCount = lens _uscrsCurrentShardCount (\s a -> s {_uscrsCurrentShardCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'currentShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrsCurrentShardCount :: Lens.Lens' UpdateShardCountResponse (Lude.Maybe Lude.Natural)
+uscrsCurrentShardCount = Lens.lens (currentShardCount :: UpdateShardCountResponse -> Lude.Maybe Lude.Natural) (\s a -> s {currentShardCount = a} :: UpdateShardCountResponse)
+{-# DEPRECATED uscrsCurrentShardCount "Use generic-lens or generic-optics with 'currentShardCount' instead." #-}
 
--- | -- | The response status code.
-uscrsResponseStatus :: Lens' UpdateShardCountResponse Int
-uscrsResponseStatus = lens _uscrsResponseStatus (\s a -> s {_uscrsResponseStatus = a})
-
-instance NFData UpdateShardCountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrsResponseStatus :: Lens.Lens' UpdateShardCountResponse Lude.Int
+uscrsResponseStatus = Lens.lens (responseStatus :: UpdateShardCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateShardCountResponse)
+{-# DEPRECATED uscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

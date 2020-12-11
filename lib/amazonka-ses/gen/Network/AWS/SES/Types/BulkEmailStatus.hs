@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.BulkEmailStatus where
+module Network.AWS.SES.Types.BulkEmailStatus
+  ( BulkEmailStatus
+      ( BulkEmailStatus',
+        AccountDailyQuotaExceeded,
+        AccountSendingPaused,
+        AccountSuspended,
+        AccountThrottled,
+        ConfigurationSetDoesNotExist,
+        ConfigurationSetSendingPaused,
+        Failed,
+        InvalidParameterValue,
+        InvalidSendingPoolName,
+        MailFromDomainNotVerified,
+        MessageRejected,
+        Success,
+        TemplateDoesNotExist,
+        TransientFailure
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BulkEmailStatus
-  = AccountDailyQuotaExceeded
-  | AccountSendingPaused
-  | AccountSuspended
-  | AccountThrottled
-  | ConfigurationSetDoesNotExist
-  | ConfigurationSetSendingPaused
-  | Failed
-  | InvalidParameterValue
-  | InvalidSendingPoolName
-  | MailFromDomainNotVerified
-  | MessageRejected
-  | Success
-  | TemplateDoesNotExist
-  | TransientFailure
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BulkEmailStatus = BulkEmailStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BulkEmailStatus where
-  parser =
-    takeLowerText >>= \case
-      "accountdailyquotaexceeded" -> pure AccountDailyQuotaExceeded
-      "accountsendingpaused" -> pure AccountSendingPaused
-      "accountsuspended" -> pure AccountSuspended
-      "accountthrottled" -> pure AccountThrottled
-      "configurationsetdoesnotexist" -> pure ConfigurationSetDoesNotExist
-      "configurationsetsendingpaused" -> pure ConfigurationSetSendingPaused
-      "failed" -> pure Failed
-      "invalidparametervalue" -> pure InvalidParameterValue
-      "invalidsendingpoolname" -> pure InvalidSendingPoolName
-      "mailfromdomainnotverified" -> pure MailFromDomainNotVerified
-      "messagerejected" -> pure MessageRejected
-      "success" -> pure Success
-      "templatedoesnotexist" -> pure TemplateDoesNotExist
-      "transientfailure" -> pure TransientFailure
-      e ->
-        fromTextError $
-          "Failure parsing BulkEmailStatus from value: '" <> e
-            <> "'. Accepted values: accountdailyquotaexceeded, accountsendingpaused, accountsuspended, accountthrottled, configurationsetdoesnotexist, configurationsetsendingpaused, failed, invalidparametervalue, invalidsendingpoolname, mailfromdomainnotverified, messagerejected, success, templatedoesnotexist, transientfailure"
+pattern AccountDailyQuotaExceeded :: BulkEmailStatus
+pattern AccountDailyQuotaExceeded = BulkEmailStatus' "AccountDailyQuotaExceeded"
 
-instance ToText BulkEmailStatus where
-  toText = \case
-    AccountDailyQuotaExceeded -> "AccountDailyQuotaExceeded"
-    AccountSendingPaused -> "AccountSendingPaused"
-    AccountSuspended -> "AccountSuspended"
-    AccountThrottled -> "AccountThrottled"
-    ConfigurationSetDoesNotExist -> "ConfigurationSetDoesNotExist"
-    ConfigurationSetSendingPaused -> "ConfigurationSetSendingPaused"
-    Failed -> "Failed"
-    InvalidParameterValue -> "InvalidParameterValue"
-    InvalidSendingPoolName -> "InvalidSendingPoolName"
-    MailFromDomainNotVerified -> "MailFromDomainNotVerified"
-    MessageRejected -> "MessageRejected"
-    Success -> "Success"
-    TemplateDoesNotExist -> "TemplateDoesNotExist"
-    TransientFailure -> "TransientFailure"
+pattern AccountSendingPaused :: BulkEmailStatus
+pattern AccountSendingPaused = BulkEmailStatus' "AccountSendingPaused"
 
-instance Hashable BulkEmailStatus
+pattern AccountSuspended :: BulkEmailStatus
+pattern AccountSuspended = BulkEmailStatus' "AccountSuspended"
 
-instance NFData BulkEmailStatus
+pattern AccountThrottled :: BulkEmailStatus
+pattern AccountThrottled = BulkEmailStatus' "AccountThrottled"
 
-instance ToByteString BulkEmailStatus
+pattern ConfigurationSetDoesNotExist :: BulkEmailStatus
+pattern ConfigurationSetDoesNotExist = BulkEmailStatus' "ConfigurationSetDoesNotExist"
 
-instance ToQuery BulkEmailStatus
+pattern ConfigurationSetSendingPaused :: BulkEmailStatus
+pattern ConfigurationSetSendingPaused = BulkEmailStatus' "ConfigurationSetSendingPaused"
 
-instance ToHeader BulkEmailStatus
+pattern Failed :: BulkEmailStatus
+pattern Failed = BulkEmailStatus' "Failed"
 
-instance FromXML BulkEmailStatus where
-  parseXML = parseXMLText "BulkEmailStatus"
+pattern InvalidParameterValue :: BulkEmailStatus
+pattern InvalidParameterValue = BulkEmailStatus' "InvalidParameterValue"
+
+pattern InvalidSendingPoolName :: BulkEmailStatus
+pattern InvalidSendingPoolName = BulkEmailStatus' "InvalidSendingPoolName"
+
+pattern MailFromDomainNotVerified :: BulkEmailStatus
+pattern MailFromDomainNotVerified = BulkEmailStatus' "MailFromDomainNotVerified"
+
+pattern MessageRejected :: BulkEmailStatus
+pattern MessageRejected = BulkEmailStatus' "MessageRejected"
+
+pattern Success :: BulkEmailStatus
+pattern Success = BulkEmailStatus' "Success"
+
+pattern TemplateDoesNotExist :: BulkEmailStatus
+pattern TemplateDoesNotExist = BulkEmailStatus' "TemplateDoesNotExist"
+
+pattern TransientFailure :: BulkEmailStatus
+pattern TransientFailure = BulkEmailStatus' "TransientFailure"
+
+{-# COMPLETE
+  AccountDailyQuotaExceeded,
+  AccountSendingPaused,
+  AccountSuspended,
+  AccountThrottled,
+  ConfigurationSetDoesNotExist,
+  ConfigurationSetSendingPaused,
+  Failed,
+  InvalidParameterValue,
+  InvalidSendingPoolName,
+  MailFromDomainNotVerified,
+  MessageRejected,
+  Success,
+  TemplateDoesNotExist,
+  TransientFailure,
+  BulkEmailStatus'
+  #-}

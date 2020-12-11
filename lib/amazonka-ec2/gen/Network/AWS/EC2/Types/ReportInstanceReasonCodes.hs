@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReportInstanceReasonCodes where
+module Network.AWS.EC2.Types.ReportInstanceReasonCodes
+  ( ReportInstanceReasonCodes
+      ( ReportInstanceReasonCodes',
+        InstanceStuckInState,
+        NotAcceptingCredentials,
+        Other,
+        PasswordNotAvailable,
+        PerformanceEBSVolume,
+        PerformanceInstanceStore,
+        PerformanceNetwork,
+        PerformanceOther,
+        Unresponsive
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportInstanceReasonCodes
-  = InstanceStuckInState
-  | NotAcceptingCredentials
-  | Other
-  | PasswordNotAvailable
-  | PerformanceEBSVolume
-  | PerformanceInstanceStore
-  | PerformanceNetwork
-  | PerformanceOther
-  | Unresponsive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportInstanceReasonCodes = ReportInstanceReasonCodes' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportInstanceReasonCodes where
-  parser =
-    takeLowerText >>= \case
-      "instance-stuck-in-state" -> pure InstanceStuckInState
-      "not-accepting-credentials" -> pure NotAcceptingCredentials
-      "other" -> pure Other
-      "password-not-available" -> pure PasswordNotAvailable
-      "performance-ebs-volume" -> pure PerformanceEBSVolume
-      "performance-instance-store" -> pure PerformanceInstanceStore
-      "performance-network" -> pure PerformanceNetwork
-      "performance-other" -> pure PerformanceOther
-      "unresponsive" -> pure Unresponsive
-      e ->
-        fromTextError $
-          "Failure parsing ReportInstanceReasonCodes from value: '" <> e
-            <> "'. Accepted values: instance-stuck-in-state, not-accepting-credentials, other, password-not-available, performance-ebs-volume, performance-instance-store, performance-network, performance-other, unresponsive"
+pattern InstanceStuckInState :: ReportInstanceReasonCodes
+pattern InstanceStuckInState = ReportInstanceReasonCodes' "instance-stuck-in-state"
 
-instance ToText ReportInstanceReasonCodes where
-  toText = \case
-    InstanceStuckInState -> "instance-stuck-in-state"
-    NotAcceptingCredentials -> "not-accepting-credentials"
-    Other -> "other"
-    PasswordNotAvailable -> "password-not-available"
-    PerformanceEBSVolume -> "performance-ebs-volume"
-    PerformanceInstanceStore -> "performance-instance-store"
-    PerformanceNetwork -> "performance-network"
-    PerformanceOther -> "performance-other"
-    Unresponsive -> "unresponsive"
+pattern NotAcceptingCredentials :: ReportInstanceReasonCodes
+pattern NotAcceptingCredentials = ReportInstanceReasonCodes' "not-accepting-credentials"
 
-instance Hashable ReportInstanceReasonCodes
+pattern Other :: ReportInstanceReasonCodes
+pattern Other = ReportInstanceReasonCodes' "other"
 
-instance NFData ReportInstanceReasonCodes
+pattern PasswordNotAvailable :: ReportInstanceReasonCodes
+pattern PasswordNotAvailable = ReportInstanceReasonCodes' "password-not-available"
 
-instance ToByteString ReportInstanceReasonCodes
+pattern PerformanceEBSVolume :: ReportInstanceReasonCodes
+pattern PerformanceEBSVolume = ReportInstanceReasonCodes' "performance-ebs-volume"
 
-instance ToQuery ReportInstanceReasonCodes
+pattern PerformanceInstanceStore :: ReportInstanceReasonCodes
+pattern PerformanceInstanceStore = ReportInstanceReasonCodes' "performance-instance-store"
 
-instance ToHeader ReportInstanceReasonCodes
+pattern PerformanceNetwork :: ReportInstanceReasonCodes
+pattern PerformanceNetwork = ReportInstanceReasonCodes' "performance-network"
+
+pattern PerformanceOther :: ReportInstanceReasonCodes
+pattern PerformanceOther = ReportInstanceReasonCodes' "performance-other"
+
+pattern Unresponsive :: ReportInstanceReasonCodes
+pattern Unresponsive = ReportInstanceReasonCodes' "unresponsive"
+
+{-# COMPLETE
+  InstanceStuckInState,
+  NotAcceptingCredentials,
+  Other,
+  PasswordNotAvailable,
+  PerformanceEBSVolume,
+  PerformanceInstanceStore,
+  PerformanceNetwork,
+  PerformanceOther,
+  Unresponsive,
+  ReportInstanceReasonCodes'
+  #-}

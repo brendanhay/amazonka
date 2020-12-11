@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.LoadBalancerInfo where
+module Network.AWS.CodeDeploy.Types.LoadBalancerInfo
+  ( LoadBalancerInfo (..),
+
+    -- * Smart constructor
+    mkLoadBalancerInfo,
+
+    -- * Lenses
+    lbiElbInfoList,
+    lbiTargetGroupInfoList,
+    lbiTargetGroupPairInfoList,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.ELBInfo
 import Network.AWS.CodeDeploy.Types.TargetGroupInfo
 import Network.AWS.CodeDeploy.Types.TargetGroupPairInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the Elastic Load Balancing load balancer or target group used in a deployment.
 --
---
---
--- /See:/ 'loadBalancerInfo' smart constructor.
+-- /See:/ 'mkLoadBalancerInfo' smart constructor.
 data LoadBalancerInfo = LoadBalancerInfo'
-  { _lbiElbInfoList ::
-      !(Maybe [ELBInfo]),
-    _lbiTargetGroupInfoList :: !(Maybe [TargetGroupInfo]),
-    _lbiTargetGroupPairInfoList ::
-      !(Maybe [TargetGroupPairInfo])
+  { elbInfoList ::
+      Lude.Maybe [ELBInfo],
+    targetGroupInfoList :: Lude.Maybe [TargetGroupInfo],
+    targetGroupPairInfoList ::
+      Lude.Maybe [TargetGroupPairInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbiElbInfoList' - An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
---
--- * 'lbiTargetGroupInfoList' - An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
---
--- * 'lbiTargetGroupPairInfoList' - The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
-loadBalancerInfo ::
+-- * 'elbInfoList' - An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
+-- * 'targetGroupInfoList' - An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
+-- * 'targetGroupPairInfoList' - The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
+mkLoadBalancerInfo ::
   LoadBalancerInfo
-loadBalancerInfo =
+mkLoadBalancerInfo =
   LoadBalancerInfo'
-    { _lbiElbInfoList = Nothing,
-      _lbiTargetGroupInfoList = Nothing,
-      _lbiTargetGroupPairInfoList = Nothing
+    { elbInfoList = Lude.Nothing,
+      targetGroupInfoList = Lude.Nothing,
+      targetGroupPairInfoList = Lude.Nothing
     }
 
 -- | An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
-lbiElbInfoList :: Lens' LoadBalancerInfo [ELBInfo]
-lbiElbInfoList = lens _lbiElbInfoList (\s a -> s {_lbiElbInfoList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elbInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbiElbInfoList :: Lens.Lens' LoadBalancerInfo (Lude.Maybe [ELBInfo])
+lbiElbInfoList = Lens.lens (elbInfoList :: LoadBalancerInfo -> Lude.Maybe [ELBInfo]) (\s a -> s {elbInfoList = a} :: LoadBalancerInfo)
+{-# DEPRECATED lbiElbInfoList "Use generic-lens or generic-optics with 'elbInfoList' instead." #-}
 
 -- | An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
-lbiTargetGroupInfoList :: Lens' LoadBalancerInfo [TargetGroupInfo]
-lbiTargetGroupInfoList = lens _lbiTargetGroupInfoList (\s a -> s {_lbiTargetGroupInfoList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetGroupInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbiTargetGroupInfoList :: Lens.Lens' LoadBalancerInfo (Lude.Maybe [TargetGroupInfo])
+lbiTargetGroupInfoList = Lens.lens (targetGroupInfoList :: LoadBalancerInfo -> Lude.Maybe [TargetGroupInfo]) (\s a -> s {targetGroupInfoList = a} :: LoadBalancerInfo)
+{-# DEPRECATED lbiTargetGroupInfoList "Use generic-lens or generic-optics with 'targetGroupInfoList' instead." #-}
 
 -- | The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
-lbiTargetGroupPairInfoList :: Lens' LoadBalancerInfo [TargetGroupPairInfo]
-lbiTargetGroupPairInfoList = lens _lbiTargetGroupPairInfoList (\s a -> s {_lbiTargetGroupPairInfoList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetGroupPairInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbiTargetGroupPairInfoList :: Lens.Lens' LoadBalancerInfo (Lude.Maybe [TargetGroupPairInfo])
+lbiTargetGroupPairInfoList = Lens.lens (targetGroupPairInfoList :: LoadBalancerInfo -> Lude.Maybe [TargetGroupPairInfo]) (\s a -> s {targetGroupPairInfoList = a} :: LoadBalancerInfo)
+{-# DEPRECATED lbiTargetGroupPairInfoList "Use generic-lens or generic-optics with 'targetGroupPairInfoList' instead." #-}
 
-instance FromJSON LoadBalancerInfo where
+instance Lude.FromJSON LoadBalancerInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoadBalancerInfo"
       ( \x ->
           LoadBalancerInfo'
-            <$> (x .:? "elbInfoList" .!= mempty)
-            <*> (x .:? "targetGroupInfoList" .!= mempty)
-            <*> (x .:? "targetGroupPairInfoList" .!= mempty)
+            Lude.<$> (x Lude..:? "elbInfoList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "targetGroupInfoList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "targetGroupPairInfoList" Lude..!= Lude.mempty)
       )
 
-instance Hashable LoadBalancerInfo
-
-instance NFData LoadBalancerInfo
-
-instance ToJSON LoadBalancerInfo where
+instance Lude.ToJSON LoadBalancerInfo where
   toJSON LoadBalancerInfo' {..} =
-    object
-      ( catMaybes
-          [ ("elbInfoList" .=) <$> _lbiElbInfoList,
-            ("targetGroupInfoList" .=) <$> _lbiTargetGroupInfoList,
-            ("targetGroupPairInfoList" .=) <$> _lbiTargetGroupPairInfoList
+    Lude.object
+      ( Lude.catMaybes
+          [ ("elbInfoList" Lude..=) Lude.<$> elbInfoList,
+            ("targetGroupInfoList" Lude..=) Lude.<$> targetGroupInfoList,
+            ("targetGroupPairInfoList" Lude..=)
+              Lude.<$> targetGroupPairInfoList
           ]
       )

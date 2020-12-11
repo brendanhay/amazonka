@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets information about jobs for a given test run.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListJobs
-  ( -- * Creating a Request
-    listJobs,
-    ListJobs,
+  ( -- * Creating a request
+    ListJobs (..),
+    mkListJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ljNextToken,
     ljArn,
 
-    -- * Destructuring the Response
-    listJobsResponse,
-    ListJobsResponse,
+    -- * Destructuring the response
+    ListJobsResponse (..),
+    mkListJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ljrsJobs,
     ljrsNextToken,
     ljrsResponseStatus,
@@ -43,131 +36,149 @@ module Network.AWS.DeviceFarm.ListJobs
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the list jobs operation.
 --
---
---
--- /See:/ 'listJobs' smart constructor.
+-- /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { _ljNextToken :: !(Maybe Text),
-    _ljArn :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'ljArn' - The run's Amazon Resource Name (ARN).
-listJobs ::
-  -- | 'ljArn'
-  Text ->
+-- * 'arn' - The run's Amazon Resource Name (ARN).
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListJobs ::
+  -- | 'arn'
+  Lude.Text ->
   ListJobs
-listJobs pArn_ = ListJobs' {_ljNextToken = Nothing, _ljArn = pArn_}
+mkListJobs pArn_ = ListJobs' {nextToken = Lude.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-ljNextToken :: Lens' ListJobs (Maybe Text)
-ljNextToken = lens _ljNextToken (\s a -> s {_ljNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
+{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The run's Amazon Resource Name (ARN).
-ljArn :: Lens' ListJobs Text
-ljArn = lens _ljArn (\s a -> s {_ljArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljArn :: Lens.Lens' ListJobs Lude.Text
+ljArn = Lens.lens (arn :: ListJobs -> Lude.Text) (\s a -> s {arn = a} :: ListJobs)
+{-# DEPRECATED ljArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSPager ListJobs where
+instance Page.AWSPager ListJobs where
   page rq rs
-    | stop (rs ^. ljrsNextToken) = Nothing
-    | stop (rs ^. ljrsJobs) = Nothing
-    | otherwise = Just $ rq & ljNextToken .~ rs ^. ljrsNextToken
+    | Page.stop (rs Lens.^. ljrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ljrsJobs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ljNextToken Lens..~ rs Lens.^. ljrsNextToken
 
-instance AWSRequest ListJobs where
+instance Lude.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            <$> (x .?> "jobs" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListJobs
-
-instance NFData ListJobs
-
-instance ToHeaders ListJobs where
+instance Lude.ToHeaders ListJobs where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.ListJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.ListJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListJobs where
+instance Lude.ToJSON ListJobs where
   toJSON ListJobs' {..} =
-    object
-      ( catMaybes
-          [("nextToken" .=) <$> _ljNextToken, Just ("arn" .= _ljArn)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("arn" Lude..= arn)
+          ]
       )
 
-instance ToPath ListJobs where
-  toPath = const "/"
+instance Lude.ToPath ListJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListJobs where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a list jobs request.
 --
---
---
--- /See:/ 'listJobsResponse' smart constructor.
+-- /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { _ljrsJobs ::
-      !(Maybe [Job]),
-    _ljrsNextToken :: !(Maybe Text),
-    _ljrsResponseStatus :: !Int
+  { jobs :: Lude.Maybe [Job],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljrsJobs' - Information about the jobs.
---
--- * 'ljrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'ljrsResponseStatus' - -- | The response status code.
-listJobsResponse ::
-  -- | 'ljrsResponseStatus'
-  Int ->
+-- * 'jobs' - Information about the jobs.
+-- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListJobsResponse
-listJobsResponse pResponseStatus_ =
+mkListJobsResponse pResponseStatus_ =
   ListJobsResponse'
-    { _ljrsJobs = Nothing,
-      _ljrsNextToken = Nothing,
-      _ljrsResponseStatus = pResponseStatus_
+    { jobs = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the jobs.
-ljrsJobs :: Lens' ListJobsResponse [Job]
-ljrsJobs = lens _ljrsJobs (\s a -> s {_ljrsJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsJobs :: Lens.Lens' ListJobsResponse (Lude.Maybe [Job])
+ljrsJobs = Lens.lens (jobs :: ListJobsResponse -> Lude.Maybe [Job]) (\s a -> s {jobs = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
-ljrsNextToken = lens _ljrsNextToken (\s a -> s {_ljrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsNextToken :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Text)
+ljrsNextToken = Lens.lens (nextToken :: ListJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\s a -> s {_ljrsResponseStatus = a})
-
-instance NFData ListJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
+ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

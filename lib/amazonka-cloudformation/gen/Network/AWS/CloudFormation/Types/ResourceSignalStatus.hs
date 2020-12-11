@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ResourceSignalStatus where
+module Network.AWS.CloudFormation.Types.ResourceSignalStatus
+  ( ResourceSignalStatus
+      ( ResourceSignalStatus',
+        Failure,
+        Success
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceSignalStatus
-  = Failure
-  | Success
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceSignalStatus = ResourceSignalStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceSignalStatus where
-  parser =
-    takeLowerText >>= \case
-      "failure" -> pure Failure
-      "success" -> pure Success
-      e ->
-        fromTextError $
-          "Failure parsing ResourceSignalStatus from value: '" <> e
-            <> "'. Accepted values: failure, success"
+pattern Failure :: ResourceSignalStatus
+pattern Failure = ResourceSignalStatus' "FAILURE"
 
-instance ToText ResourceSignalStatus where
-  toText = \case
-    Failure -> "FAILURE"
-    Success -> "SUCCESS"
+pattern Success :: ResourceSignalStatus
+pattern Success = ResourceSignalStatus' "SUCCESS"
 
-instance Hashable ResourceSignalStatus
-
-instance NFData ResourceSignalStatus
-
-instance ToByteString ResourceSignalStatus
-
-instance ToQuery ResourceSignalStatus
-
-instance ToHeader ResourceSignalStatus
+{-# COMPLETE
+  Failure,
+  Success,
+  ResourceSignalStatus'
+  #-}

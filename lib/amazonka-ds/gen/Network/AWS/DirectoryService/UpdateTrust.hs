@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.
 module Network.AWS.DirectoryService.UpdateTrust
-  ( -- * Creating a Request
-    updateTrust,
-    UpdateTrust,
+  ( -- * Creating a request
+    UpdateTrust (..),
+    mkUpdateTrust,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utSelectiveAuth,
     utTrustId,
 
-    -- * Destructuring the Response
-    updateTrustResponse,
-    UpdateTrustResponse,
+    -- * Destructuring the response
+    UpdateTrustResponse (..),
+    mkUpdateTrustResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utrsRequestId,
     utrsTrustId,
     utrsResponseStatus,
@@ -39,119 +34,138 @@ module Network.AWS.DirectoryService.UpdateTrust
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTrust' smart constructor.
+-- | /See:/ 'mkUpdateTrust' smart constructor.
 data UpdateTrust = UpdateTrust'
-  { _utSelectiveAuth ::
-      !(Maybe SelectiveAuth),
-    _utTrustId :: !Text
+  { selectiveAuth ::
+      Lude.Maybe SelectiveAuth,
+    trustId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrust' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utSelectiveAuth' - Updates selective authentication for the trust.
---
--- * 'utTrustId' - Identifier of the trust relationship.
-updateTrust ::
-  -- | 'utTrustId'
-  Text ->
+-- * 'selectiveAuth' - Updates selective authentication for the trust.
+-- * 'trustId' - Identifier of the trust relationship.
+mkUpdateTrust ::
+  -- | 'trustId'
+  Lude.Text ->
   UpdateTrust
-updateTrust pTrustId_ =
-  UpdateTrust' {_utSelectiveAuth = Nothing, _utTrustId = pTrustId_}
+mkUpdateTrust pTrustId_ =
+  UpdateTrust' {selectiveAuth = Lude.Nothing, trustId = pTrustId_}
 
 -- | Updates selective authentication for the trust.
-utSelectiveAuth :: Lens' UpdateTrust (Maybe SelectiveAuth)
-utSelectiveAuth = lens _utSelectiveAuth (\s a -> s {_utSelectiveAuth = a})
+--
+-- /Note:/ Consider using 'selectiveAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utSelectiveAuth :: Lens.Lens' UpdateTrust (Lude.Maybe SelectiveAuth)
+utSelectiveAuth = Lens.lens (selectiveAuth :: UpdateTrust -> Lude.Maybe SelectiveAuth) (\s a -> s {selectiveAuth = a} :: UpdateTrust)
+{-# DEPRECATED utSelectiveAuth "Use generic-lens or generic-optics with 'selectiveAuth' instead." #-}
 
 -- | Identifier of the trust relationship.
-utTrustId :: Lens' UpdateTrust Text
-utTrustId = lens _utTrustId (\s a -> s {_utTrustId = a})
+--
+-- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utTrustId :: Lens.Lens' UpdateTrust Lude.Text
+utTrustId = Lens.lens (trustId :: UpdateTrust -> Lude.Text) (\s a -> s {trustId = a} :: UpdateTrust)
+{-# DEPRECATED utTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
-instance AWSRequest UpdateTrust where
+instance Lude.AWSRequest UpdateTrust where
   type Rs UpdateTrust = UpdateTrustResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateTrustResponse'
-            <$> (x .?> "RequestId") <*> (x .?> "TrustId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RequestId")
+            Lude.<*> (x Lude..?> "TrustId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateTrust
-
-instance NFData UpdateTrust
-
-instance ToHeaders UpdateTrust where
+instance Lude.ToHeaders UpdateTrust where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.UpdateTrust" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.UpdateTrust" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateTrust where
+instance Lude.ToJSON UpdateTrust where
   toJSON UpdateTrust' {..} =
-    object
-      ( catMaybes
-          [ ("SelectiveAuth" .=) <$> _utSelectiveAuth,
-            Just ("TrustId" .= _utTrustId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SelectiveAuth" Lude..=) Lude.<$> selectiveAuth,
+            Lude.Just ("TrustId" Lude..= trustId)
           ]
       )
 
-instance ToPath UpdateTrust where
-  toPath = const "/"
+instance Lude.ToPath UpdateTrust where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateTrust where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTrust where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTrustResponse' smart constructor.
+-- | /See:/ 'mkUpdateTrustResponse' smart constructor.
 data UpdateTrustResponse = UpdateTrustResponse'
-  { _utrsRequestId ::
-      !(Maybe Text),
-    _utrsTrustId :: !(Maybe Text),
-    _utrsResponseStatus :: !Int
+  { requestId ::
+      Lude.Maybe Lude.Text,
+    trustId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrustResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utrsRequestId' - Undocumented member.
---
--- * 'utrsTrustId' - Identifier of the trust relationship.
---
--- * 'utrsResponseStatus' - -- | The response status code.
-updateTrustResponse ::
-  -- | 'utrsResponseStatus'
-  Int ->
+-- * 'requestId' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'trustId' - Identifier of the trust relationship.
+mkUpdateTrustResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTrustResponse
-updateTrustResponse pResponseStatus_ =
+mkUpdateTrustResponse pResponseStatus_ =
   UpdateTrustResponse'
-    { _utrsRequestId = Nothing,
-      _utrsTrustId = Nothing,
-      _utrsResponseStatus = pResponseStatus_
+    { requestId = Lude.Nothing,
+      trustId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-utrsRequestId :: Lens' UpdateTrustResponse (Maybe Text)
-utrsRequestId = lens _utrsRequestId (\s a -> s {_utrsRequestId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrsRequestId :: Lens.Lens' UpdateTrustResponse (Lude.Maybe Lude.Text)
+utrsRequestId = Lens.lens (requestId :: UpdateTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: UpdateTrustResponse)
+{-# DEPRECATED utrsRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | Identifier of the trust relationship.
-utrsTrustId :: Lens' UpdateTrustResponse (Maybe Text)
-utrsTrustId = lens _utrsTrustId (\s a -> s {_utrsTrustId = a})
+--
+-- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrsTrustId :: Lens.Lens' UpdateTrustResponse (Lude.Maybe Lude.Text)
+utrsTrustId = Lens.lens (trustId :: UpdateTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: UpdateTrustResponse)
+{-# DEPRECATED utrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
--- | -- | The response status code.
-utrsResponseStatus :: Lens' UpdateTrustResponse Int
-utrsResponseStatus = lens _utrsResponseStatus (\s a -> s {_utrsResponseStatus = a})
-
-instance NFData UpdateTrustResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrsResponseStatus :: Lens.Lens' UpdateTrustResponse Lude.Int
+utrsResponseStatus = Lens.lens (responseStatus :: UpdateTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTrustResponse)
+{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

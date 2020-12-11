@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.ListGrantsResponse where
+module Network.AWS.KMS.Types.ListGrantsResponse
+  ( ListGrantsResponse (..),
+
+    -- * Smart constructor
+    mkListGrantsResponse,
+
+    -- * Lenses
+    lgTruncated,
+    lgGrants,
+    lgNextMarker,
+  )
+where
 
 import Network.AWS.KMS.Types.GrantListEntry
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'listGrantsResponse' smart constructor.
+-- | /See:/ 'mkListGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-  { _lgTruncated ::
-      !(Maybe Bool),
-    _lgGrants :: !(Maybe [GrantListEntry]),
-    _lgNextMarker :: !(Maybe Text)
+  { truncated ::
+      Lude.Maybe Lude.Bool,
+    grants :: Lude.Maybe [GrantListEntry],
+    nextMarker :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- * 'lgGrants' - A list of grants.
---
--- * 'lgNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-listGrantsResponse ::
+-- * 'grants' - A list of grants.
+-- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
+-- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+mkListGrantsResponse ::
   ListGrantsResponse
-listGrantsResponse =
+mkListGrantsResponse =
   ListGrantsResponse'
-    { _lgTruncated = Nothing,
-      _lgGrants = Nothing,
-      _lgNextMarker = Nothing
+    { truncated = Lude.Nothing,
+      grants = Lude.Nothing,
+      nextMarker = Lude.Nothing
     }
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-lgTruncated :: Lens' ListGrantsResponse (Maybe Bool)
-lgTruncated = lens _lgTruncated (\s a -> s {_lgTruncated = a})
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgTruncated :: Lens.Lens' ListGrantsResponse (Lude.Maybe Lude.Bool)
+lgTruncated = Lens.lens (truncated :: ListGrantsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ListGrantsResponse)
+{-# DEPRECATED lgTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | A list of grants.
-lgGrants :: Lens' ListGrantsResponse [GrantListEntry]
-lgGrants = lens _lgGrants (\s a -> s {_lgGrants = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'grants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgGrants :: Lens.Lens' ListGrantsResponse (Lude.Maybe [GrantListEntry])
+lgGrants = Lens.lens (grants :: ListGrantsResponse -> Lude.Maybe [GrantListEntry]) (\s a -> s {grants = a} :: ListGrantsResponse)
+{-# DEPRECATED lgGrants "Use generic-lens or generic-optics with 'grants' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-lgNextMarker :: Lens' ListGrantsResponse (Maybe Text)
-lgNextMarker = lens _lgNextMarker (\s a -> s {_lgNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgNextMarker :: Lens.Lens' ListGrantsResponse (Lude.Maybe Lude.Text)
+lgNextMarker = Lens.lens (nextMarker :: ListGrantsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListGrantsResponse)
+{-# DEPRECATED lgNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
-instance FromJSON ListGrantsResponse where
+instance Lude.FromJSON ListGrantsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ListGrantsResponse"
       ( \x ->
           ListGrantsResponse'
-            <$> (x .:? "Truncated")
-            <*> (x .:? "Grants" .!= mempty)
-            <*> (x .:? "NextMarker")
+            Lude.<$> (x Lude..:? "Truncated")
+            Lude.<*> (x Lude..:? "Grants" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextMarker")
       )
-
-instance Hashable ListGrantsResponse
-
-instance NFData ListGrantsResponse

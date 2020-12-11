@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about an import job started with the @StartImport@ operation.
 module Network.AWS.LexModels.GetImport
-  ( -- * Creating a Request
-    getImport,
-    GetImport,
+  ( -- * Creating a request
+    GetImport (..),
+    mkGetImport,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giImportId,
 
-    -- * Destructuring the Response
-    getImportResponse,
-    GetImportResponse,
+    -- * Destructuring the response
+    GetImportResponse (..),
+    mkGetImportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     girsFailureReason,
     girsResourceType,
     girsImportId,
@@ -42,144 +37,171 @@ module Network.AWS.LexModels.GetImport
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getImport' smart constructor.
-newtype GetImport = GetImport' {_giImportId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetImport' smart constructor.
+newtype GetImport = GetImport' {importId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetImport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giImportId' - The identifier of the import job information to return.
-getImport ::
-  -- | 'giImportId'
-  Text ->
+-- * 'importId' - The identifier of the import job information to return.
+mkGetImport ::
+  -- | 'importId'
+  Lude.Text ->
   GetImport
-getImport pImportId_ = GetImport' {_giImportId = pImportId_}
+mkGetImport pImportId_ = GetImport' {importId = pImportId_}
 
 -- | The identifier of the import job information to return.
-giImportId :: Lens' GetImport Text
-giImportId = lens _giImportId (\s a -> s {_giImportId = a})
+--
+-- /Note:/ Consider using 'importId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giImportId :: Lens.Lens' GetImport Lude.Text
+giImportId = Lens.lens (importId :: GetImport -> Lude.Text) (\s a -> s {importId = a} :: GetImport)
+{-# DEPRECATED giImportId "Use generic-lens or generic-optics with 'importId' instead." #-}
 
-instance AWSRequest GetImport where
+instance Lude.AWSRequest GetImport where
   type Rs GetImport = GetImportResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetImportResponse'
-            <$> (x .?> "failureReason" .!@ mempty)
-            <*> (x .?> "resourceType")
-            <*> (x .?> "importId")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "name")
-            <*> (x .?> "mergeStrategy")
-            <*> (x .?> "importStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "failureReason" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "resourceType")
+            Lude.<*> (x Lude..?> "importId")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "mergeStrategy")
+            Lude.<*> (x Lude..?> "importStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetImport
-
-instance NFData GetImport
-
-instance ToHeaders GetImport where
+instance Lude.ToHeaders GetImport where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetImport where
-  toPath GetImport' {..} = mconcat ["/imports/", toBS _giImportId]
+instance Lude.ToPath GetImport where
+  toPath GetImport' {..} =
+    Lude.mconcat ["/imports/", Lude.toBS importId]
 
-instance ToQuery GetImport where
-  toQuery = const mempty
+instance Lude.ToQuery GetImport where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getImportResponse' smart constructor.
+-- | /See:/ 'mkGetImportResponse' smart constructor.
 data GetImportResponse = GetImportResponse'
-  { _girsFailureReason ::
-      !(Maybe [Text]),
-    _girsResourceType :: !(Maybe ResourceType),
-    _girsImportId :: !(Maybe Text),
-    _girsCreatedDate :: !(Maybe POSIX),
-    _girsName :: !(Maybe Text),
-    _girsMergeStrategy :: !(Maybe MergeStrategy),
-    _girsImportStatus :: !(Maybe ImportStatus),
-    _girsResponseStatus :: !Int
+  { failureReason ::
+      Lude.Maybe [Lude.Text],
+    resourceType :: Lude.Maybe ResourceType,
+    importId :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    mergeStrategy :: Lude.Maybe MergeStrategy,
+    importStatus :: Lude.Maybe ImportStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetImportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'girsFailureReason' - A string that describes why an import job failed to complete.
---
--- * 'girsResourceType' - The type of resource imported.
---
--- * 'girsImportId' - The identifier for the specific import job.
---
--- * 'girsCreatedDate' - A timestamp for the date and time that the import job was created.
---
--- * 'girsName' - The name given to the import job.
---
--- * 'girsMergeStrategy' - The action taken when there was a conflict between an existing resource and a resource in the import file.
---
--- * 'girsImportStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
---
--- * 'girsResponseStatus' - -- | The response status code.
-getImportResponse ::
-  -- | 'girsResponseStatus'
-  Int ->
+-- * 'createdDate' - A timestamp for the date and time that the import job was created.
+-- * 'failureReason' - A string that describes why an import job failed to complete.
+-- * 'importId' - The identifier for the specific import job.
+-- * 'importStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
+-- * 'mergeStrategy' - The action taken when there was a conflict between an existing resource and a resource in the import file.
+-- * 'name' - The name given to the import job.
+-- * 'resourceType' - The type of resource imported.
+-- * 'responseStatus' - The response status code.
+mkGetImportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetImportResponse
-getImportResponse pResponseStatus_ =
+mkGetImportResponse pResponseStatus_ =
   GetImportResponse'
-    { _girsFailureReason = Nothing,
-      _girsResourceType = Nothing,
-      _girsImportId = Nothing,
-      _girsCreatedDate = Nothing,
-      _girsName = Nothing,
-      _girsMergeStrategy = Nothing,
-      _girsImportStatus = Nothing,
-      _girsResponseStatus = pResponseStatus_
+    { failureReason = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      importId = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      mergeStrategy = Lude.Nothing,
+      importStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string that describes why an import job failed to complete.
-girsFailureReason :: Lens' GetImportResponse [Text]
-girsFailureReason = lens _girsFailureReason (\s a -> s {_girsFailureReason = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsFailureReason :: Lens.Lens' GetImportResponse (Lude.Maybe [Lude.Text])
+girsFailureReason = Lens.lens (failureReason :: GetImportResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {failureReason = a} :: GetImportResponse)
+{-# DEPRECATED girsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The type of resource imported.
-girsResourceType :: Lens' GetImportResponse (Maybe ResourceType)
-girsResourceType = lens _girsResourceType (\s a -> s {_girsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsResourceType :: Lens.Lens' GetImportResponse (Lude.Maybe ResourceType)
+girsResourceType = Lens.lens (resourceType :: GetImportResponse -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: GetImportResponse)
+{-# DEPRECATED girsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The identifier for the specific import job.
-girsImportId :: Lens' GetImportResponse (Maybe Text)
-girsImportId = lens _girsImportId (\s a -> s {_girsImportId = a})
+--
+-- /Note:/ Consider using 'importId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsImportId :: Lens.Lens' GetImportResponse (Lude.Maybe Lude.Text)
+girsImportId = Lens.lens (importId :: GetImportResponse -> Lude.Maybe Lude.Text) (\s a -> s {importId = a} :: GetImportResponse)
+{-# DEPRECATED girsImportId "Use generic-lens or generic-optics with 'importId' instead." #-}
 
 -- | A timestamp for the date and time that the import job was created.
-girsCreatedDate :: Lens' GetImportResponse (Maybe UTCTime)
-girsCreatedDate = lens _girsCreatedDate (\s a -> s {_girsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsCreatedDate :: Lens.Lens' GetImportResponse (Lude.Maybe Lude.Timestamp)
+girsCreatedDate = Lens.lens (createdDate :: GetImportResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: GetImportResponse)
+{-# DEPRECATED girsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name given to the import job.
-girsName :: Lens' GetImportResponse (Maybe Text)
-girsName = lens _girsName (\s a -> s {_girsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsName :: Lens.Lens' GetImportResponse (Lude.Maybe Lude.Text)
+girsName = Lens.lens (name :: GetImportResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetImportResponse)
+{-# DEPRECATED girsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The action taken when there was a conflict between an existing resource and a resource in the import file.
-girsMergeStrategy :: Lens' GetImportResponse (Maybe MergeStrategy)
-girsMergeStrategy = lens _girsMergeStrategy (\s a -> s {_girsMergeStrategy = a})
+--
+-- /Note:/ Consider using 'mergeStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsMergeStrategy :: Lens.Lens' GetImportResponse (Lude.Maybe MergeStrategy)
+girsMergeStrategy = Lens.lens (mergeStrategy :: GetImportResponse -> Lude.Maybe MergeStrategy) (\s a -> s {mergeStrategy = a} :: GetImportResponse)
+{-# DEPRECATED girsMergeStrategy "Use generic-lens or generic-optics with 'mergeStrategy' instead." #-}
 
 -- | The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
-girsImportStatus :: Lens' GetImportResponse (Maybe ImportStatus)
-girsImportStatus = lens _girsImportStatus (\s a -> s {_girsImportStatus = a})
+--
+-- /Note:/ Consider using 'importStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsImportStatus :: Lens.Lens' GetImportResponse (Lude.Maybe ImportStatus)
+girsImportStatus = Lens.lens (importStatus :: GetImportResponse -> Lude.Maybe ImportStatus) (\s a -> s {importStatus = a} :: GetImportResponse)
+{-# DEPRECATED girsImportStatus "Use generic-lens or generic-optics with 'importStatus' instead." #-}
 
--- | -- | The response status code.
-girsResponseStatus :: Lens' GetImportResponse Int
-girsResponseStatus = lens _girsResponseStatus (\s a -> s {_girsResponseStatus = a})
-
-instance NFData GetImportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsResponseStatus :: Lens.Lens' GetImportResponse Lude.Int
+girsResponseStatus = Lens.lens (responseStatus :: GetImportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetImportResponse)
+{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

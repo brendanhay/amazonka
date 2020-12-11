@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,120 @@
 --
 -- Sets or changes the comment or description for a repository.
 module Network.AWS.CodeCommit.UpdateRepositoryDescription
-  ( -- * Creating a Request
-    updateRepositoryDescription,
-    UpdateRepositoryDescription,
+  ( -- * Creating a request
+    UpdateRepositoryDescription (..),
+    mkUpdateRepositoryDescription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urdRepositoryDescription,
     urdRepositoryName,
 
-    -- * Destructuring the Response
-    updateRepositoryDescriptionResponse,
-    UpdateRepositoryDescriptionResponse,
+    -- * Destructuring the response
+    UpdateRepositoryDescriptionResponse (..),
+    mkUpdateRepositoryDescriptionResponse,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of an update repository description operation.
 --
---
---
--- /See:/ 'updateRepositoryDescription' smart constructor.
+-- /See:/ 'mkUpdateRepositoryDescription' smart constructor.
 data UpdateRepositoryDescription = UpdateRepositoryDescription'
-  { _urdRepositoryDescription ::
-      !(Maybe Text),
-    _urdRepositoryName :: !Text
+  { repositoryDescription ::
+      Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRepositoryDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdRepositoryDescription' - The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.
---
--- * 'urdRepositoryName' - The name of the repository to set or change the comment or description for.
-updateRepositoryDescription ::
-  -- | 'urdRepositoryName'
-  Text ->
+-- * 'repositoryDescription' - The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.
+-- * 'repositoryName' - The name of the repository to set or change the comment or description for.
+mkUpdateRepositoryDescription ::
+  -- | 'repositoryName'
+  Lude.Text ->
   UpdateRepositoryDescription
-updateRepositoryDescription pRepositoryName_ =
+mkUpdateRepositoryDescription pRepositoryName_ =
   UpdateRepositoryDescription'
-    { _urdRepositoryDescription = Nothing,
-      _urdRepositoryName = pRepositoryName_
+    { repositoryDescription =
+        Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.
-urdRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
-urdRepositoryDescription = lens _urdRepositoryDescription (\s a -> s {_urdRepositoryDescription = a})
+--
+-- /Note:/ Consider using 'repositoryDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdRepositoryDescription :: Lens.Lens' UpdateRepositoryDescription (Lude.Maybe Lude.Text)
+urdRepositoryDescription = Lens.lens (repositoryDescription :: UpdateRepositoryDescription -> Lude.Maybe Lude.Text) (\s a -> s {repositoryDescription = a} :: UpdateRepositoryDescription)
+{-# DEPRECATED urdRepositoryDescription "Use generic-lens or generic-optics with 'repositoryDescription' instead." #-}
 
 -- | The name of the repository to set or change the comment or description for.
-urdRepositoryName :: Lens' UpdateRepositoryDescription Text
-urdRepositoryName = lens _urdRepositoryName (\s a -> s {_urdRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdRepositoryName :: Lens.Lens' UpdateRepositoryDescription Lude.Text
+urdRepositoryName = Lens.lens (repositoryName :: UpdateRepositoryDescription -> Lude.Text) (\s a -> s {repositoryName = a} :: UpdateRepositoryDescription)
+{-# DEPRECATED urdRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest UpdateRepositoryDescription where
+instance Lude.AWSRequest UpdateRepositoryDescription where
   type
     Rs UpdateRepositoryDescription =
       UpdateRepositoryDescriptionResponse
-  request = postJSON codeCommit
-  response = receiveNull UpdateRepositoryDescriptionResponse'
+  request = Req.postJSON codeCommitService
+  response = Res.receiveNull UpdateRepositoryDescriptionResponse'
 
-instance Hashable UpdateRepositoryDescription
-
-instance NFData UpdateRepositoryDescription
-
-instance ToHeaders UpdateRepositoryDescription where
+instance Lude.ToHeaders UpdateRepositoryDescription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.UpdateRepositoryDescription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.UpdateRepositoryDescription" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRepositoryDescription where
+instance Lude.ToJSON UpdateRepositoryDescription where
   toJSON UpdateRepositoryDescription' {..} =
-    object
-      ( catMaybes
-          [ ("repositoryDescription" .=) <$> _urdRepositoryDescription,
-            Just ("repositoryName" .= _urdRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("repositoryDescription" Lude..=) Lude.<$> repositoryDescription,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath UpdateRepositoryDescription where
-  toPath = const "/"
+instance Lude.ToPath UpdateRepositoryDescription where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRepositoryDescription where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRepositoryDescription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRepositoryDescriptionResponse' smart constructor.
+-- | /See:/ 'mkUpdateRepositoryDescriptionResponse' smart constructor.
 data UpdateRepositoryDescriptionResponse = UpdateRepositoryDescriptionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRepositoryDescriptionResponse' with the minimum fields required to make a request.
-updateRepositoryDescriptionResponse ::
+mkUpdateRepositoryDescriptionResponse ::
   UpdateRepositoryDescriptionResponse
-updateRepositoryDescriptionResponse =
+mkUpdateRepositoryDescriptionResponse =
   UpdateRepositoryDescriptionResponse'
-
-instance NFData UpdateRepositoryDescriptionResponse

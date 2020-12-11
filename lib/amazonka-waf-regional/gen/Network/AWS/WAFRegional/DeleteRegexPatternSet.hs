@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,152 @@
 --
 -- Permanently deletes a 'RegexPatternSet' . You can't delete a @RegexPatternSet@ if it's still used in any @RegexMatchSet@ or if the @RegexPatternSet@ is not empty.
 module Network.AWS.WAFRegional.DeleteRegexPatternSet
-  ( -- * Creating a Request
-    deleteRegexPatternSet,
-    DeleteRegexPatternSet,
+  ( -- * Creating a request
+    DeleteRegexPatternSet (..),
+    mkDeleteRegexPatternSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drpsRegexPatternSetId,
     drpsChangeToken,
 
-    -- * Destructuring the Response
-    deleteRegexPatternSetResponse,
-    DeleteRegexPatternSetResponse,
+    -- * Destructuring the response
+    DeleteRegexPatternSetResponse (..),
+    mkDeleteRegexPatternSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drpsrsChangeToken,
     drpsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'deleteRegexPatternSet' smart constructor.
+-- | /See:/ 'mkDeleteRegexPatternSet' smart constructor.
 data DeleteRegexPatternSet = DeleteRegexPatternSet'
-  { _drpsRegexPatternSetId ::
-      !Text,
-    _drpsChangeToken :: !Text
+  { regexPatternSetId ::
+      Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRegexPatternSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drpsRegexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to delete. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
---
--- * 'drpsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteRegexPatternSet ::
-  -- | 'drpsRegexPatternSetId'
-  Text ->
-  -- | 'drpsChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'regexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to delete. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+mkDeleteRegexPatternSet ::
+  -- | 'regexPatternSetId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   DeleteRegexPatternSet
-deleteRegexPatternSet pRegexPatternSetId_ pChangeToken_ =
+mkDeleteRegexPatternSet pRegexPatternSetId_ pChangeToken_ =
   DeleteRegexPatternSet'
-    { _drpsRegexPatternSetId =
-        pRegexPatternSetId_,
-      _drpsChangeToken = pChangeToken_
+    { regexPatternSetId = pRegexPatternSetId_,
+      changeToken = pChangeToken_
     }
 
 -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to delete. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
-drpsRegexPatternSetId :: Lens' DeleteRegexPatternSet Text
-drpsRegexPatternSetId = lens _drpsRegexPatternSetId (\s a -> s {_drpsRegexPatternSetId = a})
+--
+-- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpsRegexPatternSetId :: Lens.Lens' DeleteRegexPatternSet Lude.Text
+drpsRegexPatternSetId = Lens.lens (regexPatternSetId :: DeleteRegexPatternSet -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: DeleteRegexPatternSet)
+{-# DEPRECATED drpsRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-drpsChangeToken :: Lens' DeleteRegexPatternSet Text
-drpsChangeToken = lens _drpsChangeToken (\s a -> s {_drpsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpsChangeToken :: Lens.Lens' DeleteRegexPatternSet Lude.Text
+drpsChangeToken = Lens.lens (changeToken :: DeleteRegexPatternSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteRegexPatternSet)
+{-# DEPRECATED drpsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest DeleteRegexPatternSet where
+instance Lude.AWSRequest DeleteRegexPatternSet where
   type Rs DeleteRegexPatternSet = DeleteRegexPatternSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteRegexPatternSetResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRegexPatternSet
-
-instance NFData DeleteRegexPatternSet
-
-instance ToHeaders DeleteRegexPatternSet where
+instance Lude.ToHeaders DeleteRegexPatternSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.DeleteRegexPatternSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.DeleteRegexPatternSet" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRegexPatternSet where
+instance Lude.ToJSON DeleteRegexPatternSet where
   toJSON DeleteRegexPatternSet' {..} =
-    object
-      ( catMaybes
-          [ Just ("RegexPatternSetId" .= _drpsRegexPatternSetId),
-            Just ("ChangeToken" .= _drpsChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RegexPatternSetId" Lude..= regexPatternSetId),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath DeleteRegexPatternSet where
-  toPath = const "/"
+instance Lude.ToPath DeleteRegexPatternSet where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRegexPatternSet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRegexPatternSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRegexPatternSetResponse' smart constructor.
+-- | /See:/ 'mkDeleteRegexPatternSetResponse' smart constructor.
 data DeleteRegexPatternSetResponse = DeleteRegexPatternSetResponse'
-  { _drpsrsChangeToken ::
-      !(Maybe Text),
-    _drpsrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRegexPatternSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drpsrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'drpsrsResponseStatus' - -- | The response status code.
-deleteRegexPatternSetResponse ::
-  -- | 'drpsrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkDeleteRegexPatternSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRegexPatternSetResponse
-deleteRegexPatternSetResponse pResponseStatus_ =
+mkDeleteRegexPatternSetResponse pResponseStatus_ =
   DeleteRegexPatternSetResponse'
-    { _drpsrsChangeToken = Nothing,
-      _drpsrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-drpsrsChangeToken :: Lens' DeleteRegexPatternSetResponse (Maybe Text)
-drpsrsChangeToken = lens _drpsrsChangeToken (\s a -> s {_drpsrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpsrsChangeToken :: Lens.Lens' DeleteRegexPatternSetResponse (Lude.Maybe Lude.Text)
+drpsrsChangeToken = Lens.lens (changeToken :: DeleteRegexPatternSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteRegexPatternSetResponse)
+{-# DEPRECATED drpsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-drpsrsResponseStatus :: Lens' DeleteRegexPatternSetResponse Int
-drpsrsResponseStatus = lens _drpsrsResponseStatus (\s a -> s {_drpsrsResponseStatus = a})
-
-instance NFData DeleteRegexPatternSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpsrsResponseStatus :: Lens.Lens' DeleteRegexPatternSetResponse Lude.Int
+drpsrsResponseStatus = Lens.lens (responseStatus :: DeleteRegexPatternSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRegexPatternSetResponse)
+{-# DEPRECATED drpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

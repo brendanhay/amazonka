@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Get the field-level encryption profile configuration information.
 module Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
-  ( -- * Creating a Request
-    getFieldLevelEncryptionProfileConfig,
-    GetFieldLevelEncryptionProfileConfig,
+  ( -- * Creating a request
+    GetFieldLevelEncryptionProfileConfig (..),
+    mkGetFieldLevelEncryptionProfileConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gflepcId,
 
-    -- * Destructuring the Response
-    getFieldLevelEncryptionProfileConfigResponse,
-    GetFieldLevelEncryptionProfileConfigResponse,
+    -- * Destructuring the response
+    GetFieldLevelEncryptionProfileConfigResponse (..),
+    mkGetFieldLevelEncryptionProfileConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gflepcrsETag,
     gflepcrsFieldLevelEncryptionProfileConfig,
     gflepcrsResponseStatus,
@@ -38,118 +33,124 @@ module Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFieldLevelEncryptionProfileConfig' smart constructor.
+-- | /See:/ 'mkGetFieldLevelEncryptionProfileConfig' smart constructor.
 newtype GetFieldLevelEncryptionProfileConfig = GetFieldLevelEncryptionProfileConfig'
-  { _gflepcId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionProfileConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gflepcId' - Get the ID for the field-level encryption profile configuration information.
-getFieldLevelEncryptionProfileConfig ::
-  -- | 'gflepcId'
-  Text ->
+-- * 'id' - Get the ID for the field-level encryption profile configuration information.
+mkGetFieldLevelEncryptionProfileConfig ::
+  -- | 'id'
+  Lude.Text ->
   GetFieldLevelEncryptionProfileConfig
-getFieldLevelEncryptionProfileConfig pId_ =
-  GetFieldLevelEncryptionProfileConfig' {_gflepcId = pId_}
+mkGetFieldLevelEncryptionProfileConfig pId_ =
+  GetFieldLevelEncryptionProfileConfig' {id = pId_}
 
 -- | Get the ID for the field-level encryption profile configuration information.
-gflepcId :: Lens' GetFieldLevelEncryptionProfileConfig Text
-gflepcId = lens _gflepcId (\s a -> s {_gflepcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gflepcId :: Lens.Lens' GetFieldLevelEncryptionProfileConfig Lude.Text
+gflepcId = Lens.lens (id :: GetFieldLevelEncryptionProfileConfig -> Lude.Text) (\s a -> s {id = a} :: GetFieldLevelEncryptionProfileConfig)
+{-# DEPRECATED gflepcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetFieldLevelEncryptionProfileConfig where
+instance Lude.AWSRequest GetFieldLevelEncryptionProfileConfig where
   type
     Rs GetFieldLevelEncryptionProfileConfig =
       GetFieldLevelEncryptionProfileConfigResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetFieldLevelEncryptionProfileConfigResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFieldLevelEncryptionProfileConfig
+instance Lude.ToHeaders GetFieldLevelEncryptionProfileConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetFieldLevelEncryptionProfileConfig
-
-instance ToHeaders GetFieldLevelEncryptionProfileConfig where
-  toHeaders = const mempty
-
-instance ToPath GetFieldLevelEncryptionProfileConfig where
+instance Lude.ToPath GetFieldLevelEncryptionProfileConfig where
   toPath GetFieldLevelEncryptionProfileConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/field-level-encryption-profile/",
-        toBS _gflepcId,
+        Lude.toBS id,
         "/config"
       ]
 
-instance ToQuery GetFieldLevelEncryptionProfileConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetFieldLevelEncryptionProfileConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFieldLevelEncryptionProfileConfigResponse' smart constructor.
+-- | /See:/ 'mkGetFieldLevelEncryptionProfileConfigResponse' smart constructor.
 data GetFieldLevelEncryptionProfileConfigResponse = GetFieldLevelEncryptionProfileConfigResponse'
-  { _gflepcrsETag ::
-      !( Maybe
-           Text
-       ),
-    _gflepcrsFieldLevelEncryptionProfileConfig ::
-      !( Maybe
-           FieldLevelEncryptionProfileConfig
-       ),
-    _gflepcrsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    fieldLevelEncryptionProfileConfig ::
+      Lude.Maybe
+        FieldLevelEncryptionProfileConfig,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionProfileConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gflepcrsETag' - The current version of the field-level encryption profile configuration result. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'gflepcrsFieldLevelEncryptionProfileConfig' - Return the field-level encryption profile configuration information.
---
--- * 'gflepcrsResponseStatus' - -- | The response status code.
-getFieldLevelEncryptionProfileConfigResponse ::
-  -- | 'gflepcrsResponseStatus'
-  Int ->
+-- * 'eTag' - The current version of the field-level encryption profile configuration result. For example: @E2QWRUHAPOMQZL@ .
+-- * 'fieldLevelEncryptionProfileConfig' - Return the field-level encryption profile configuration information.
+-- * 'responseStatus' - The response status code.
+mkGetFieldLevelEncryptionProfileConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFieldLevelEncryptionProfileConfigResponse
-getFieldLevelEncryptionProfileConfigResponse pResponseStatus_ =
+mkGetFieldLevelEncryptionProfileConfigResponse pResponseStatus_ =
   GetFieldLevelEncryptionProfileConfigResponse'
-    { _gflepcrsETag =
-        Nothing,
-      _gflepcrsFieldLevelEncryptionProfileConfig =
-        Nothing,
-      _gflepcrsResponseStatus = pResponseStatus_
+    { eTag =
+        Lude.Nothing,
+      fieldLevelEncryptionProfileConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the field-level encryption profile configuration result. For example: @E2QWRUHAPOMQZL@ .
-gflepcrsETag :: Lens' GetFieldLevelEncryptionProfileConfigResponse (Maybe Text)
-gflepcrsETag = lens _gflepcrsETag (\s a -> s {_gflepcrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gflepcrsETag :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse (Lude.Maybe Lude.Text)
+gflepcrsETag = Lens.lens (eTag :: GetFieldLevelEncryptionProfileConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetFieldLevelEncryptionProfileConfigResponse)
+{-# DEPRECATED gflepcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Return the field-level encryption profile configuration information.
-gflepcrsFieldLevelEncryptionProfileConfig :: Lens' GetFieldLevelEncryptionProfileConfigResponse (Maybe FieldLevelEncryptionProfileConfig)
-gflepcrsFieldLevelEncryptionProfileConfig = lens _gflepcrsFieldLevelEncryptionProfileConfig (\s a -> s {_gflepcrsFieldLevelEncryptionProfileConfig = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gflepcrsFieldLevelEncryptionProfileConfig :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse (Lude.Maybe FieldLevelEncryptionProfileConfig)
+gflepcrsFieldLevelEncryptionProfileConfig = Lens.lens (fieldLevelEncryptionProfileConfig :: GetFieldLevelEncryptionProfileConfigResponse -> Lude.Maybe FieldLevelEncryptionProfileConfig) (\s a -> s {fieldLevelEncryptionProfileConfig = a} :: GetFieldLevelEncryptionProfileConfigResponse)
+{-# DEPRECATED gflepcrsFieldLevelEncryptionProfileConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfileConfig' instead." #-}
 
--- | -- | The response status code.
-gflepcrsResponseStatus :: Lens' GetFieldLevelEncryptionProfileConfigResponse Int
-gflepcrsResponseStatus = lens _gflepcrsResponseStatus (\s a -> s {_gflepcrsResponseStatus = a})
-
-instance NFData GetFieldLevelEncryptionProfileConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gflepcrsResponseStatus :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse Lude.Int
+gflepcrsResponseStatus = Lens.lens (responseStatus :: GetFieldLevelEncryptionProfileConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFieldLevelEncryptionProfileConfigResponse)
+{-# DEPRECATED gflepcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

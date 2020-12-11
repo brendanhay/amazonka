@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,132 @@
 --
 -- Activates the switch for the specific directory to always use LDAP secure calls.
 module Network.AWS.DirectoryService.EnableLDAPS
-  ( -- * Creating a Request
-    enableLDAPS,
-    EnableLDAPS,
+  ( -- * Creating a request
+    EnableLDAPS (..),
+    mkEnableLDAPS,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eldapsDirectoryId,
     eldapsType,
 
-    -- * Destructuring the Response
-    enableLDAPSResponse,
-    EnableLDAPSResponse,
+    -- * Destructuring the response
+    EnableLDAPSResponse (..),
+    mkEnableLDAPSResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eldapsrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableLDAPS' smart constructor.
+-- | /See:/ 'mkEnableLDAPS' smart constructor.
 data EnableLDAPS = EnableLDAPS'
-  { _eldapsDirectoryId :: !Text,
-    _eldapsType :: !LDAPSType
+  { directoryId :: Lude.Text,
+    type' :: LDAPSType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableLDAPS' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eldapsDirectoryId' - The identifier of the directory.
---
--- * 'eldapsType' - The type of LDAP security to enable. Currently only the value @Client@ is supported.
-enableLDAPS ::
-  -- | 'eldapsDirectoryId'
-  Text ->
-  -- | 'eldapsType'
+-- * 'directoryId' - The identifier of the directory.
+-- * 'type'' - The type of LDAP security to enable. Currently only the value @Client@ is supported.
+mkEnableLDAPS ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'type''
   LDAPSType ->
   EnableLDAPS
-enableLDAPS pDirectoryId_ pType_ =
-  EnableLDAPS'
-    { _eldapsDirectoryId = pDirectoryId_,
-      _eldapsType = pType_
-    }
+mkEnableLDAPS pDirectoryId_ pType_ =
+  EnableLDAPS' {directoryId = pDirectoryId_, type' = pType_}
 
 -- | The identifier of the directory.
-eldapsDirectoryId :: Lens' EnableLDAPS Text
-eldapsDirectoryId = lens _eldapsDirectoryId (\s a -> s {_eldapsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eldapsDirectoryId :: Lens.Lens' EnableLDAPS Lude.Text
+eldapsDirectoryId = Lens.lens (directoryId :: EnableLDAPS -> Lude.Text) (\s a -> s {directoryId = a} :: EnableLDAPS)
+{-# DEPRECATED eldapsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The type of LDAP security to enable. Currently only the value @Client@ is supported.
-eldapsType :: Lens' EnableLDAPS LDAPSType
-eldapsType = lens _eldapsType (\s a -> s {_eldapsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eldapsType :: Lens.Lens' EnableLDAPS LDAPSType
+eldapsType = Lens.lens (type' :: EnableLDAPS -> LDAPSType) (\s a -> s {type' = a} :: EnableLDAPS)
+{-# DEPRECATED eldapsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest EnableLDAPS where
+instance Lude.AWSRequest EnableLDAPS where
   type Rs EnableLDAPS = EnableLDAPSResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> EnableLDAPSResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          EnableLDAPSResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable EnableLDAPS
-
-instance NFData EnableLDAPS
-
-instance ToHeaders EnableLDAPS where
+instance Lude.ToHeaders EnableLDAPS where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.EnableLDAPS" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.EnableLDAPS" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableLDAPS where
+instance Lude.ToJSON EnableLDAPS where
   toJSON EnableLDAPS' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _eldapsDirectoryId),
-            Just ("Type" .= _eldapsType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("Type" Lude..= type')
           ]
       )
 
-instance ToPath EnableLDAPS where
-  toPath = const "/"
+instance Lude.ToPath EnableLDAPS where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableLDAPS where
-  toQuery = const mempty
+instance Lude.ToQuery EnableLDAPS where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableLDAPSResponse' smart constructor.
+-- | /See:/ 'mkEnableLDAPSResponse' smart constructor.
 newtype EnableLDAPSResponse = EnableLDAPSResponse'
-  { _eldapsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableLDAPSResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eldapsrsResponseStatus' - -- | The response status code.
-enableLDAPSResponse ::
-  -- | 'eldapsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkEnableLDAPSResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableLDAPSResponse
-enableLDAPSResponse pResponseStatus_ =
-  EnableLDAPSResponse' {_eldapsrsResponseStatus = pResponseStatus_}
+mkEnableLDAPSResponse pResponseStatus_ =
+  EnableLDAPSResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-eldapsrsResponseStatus :: Lens' EnableLDAPSResponse Int
-eldapsrsResponseStatus = lens _eldapsrsResponseStatus (\s a -> s {_eldapsrsResponseStatus = a})
-
-instance NFData EnableLDAPSResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eldapsrsResponseStatus :: Lens.Lens' EnableLDAPSResponse Lude.Int
+eldapsrsResponseStatus = Lens.lens (responseStatus :: EnableLDAPSResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableLDAPSResponse)
+{-# DEPRECATED eldapsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

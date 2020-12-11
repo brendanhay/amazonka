@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.DocumentationVersion where
+module Network.AWS.APIGateway.Types.DocumentationVersion
+  ( DocumentationVersion (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDocumentationVersion,
+
+    -- * Lenses
+    dvCreatedDate,
+    dvVersion,
+    dvDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A snapshot of the documentation of an API.
 --
---
 -- Publishing API documentation involves creating a documentation version associated with an API stage and exporting the versioned documentation to an external (e.g., OpenAPI) file.
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart' , 'DocumentationVersions'
 --
--- /See:/ 'documentationVersion' smart constructor.
+-- /See:/ 'mkDocumentationVersion' smart constructor.
 data DocumentationVersion = DocumentationVersion'
-  { _dvCreatedDate ::
-      !(Maybe POSIX),
-    _dvVersion :: !(Maybe Text),
-    _dvDescription :: !(Maybe Text)
+  { createdDate ::
+      Lude.Maybe Lude.Timestamp,
+    version :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentationVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvCreatedDate' - The date when the API documentation snapshot is created.
---
--- * 'dvVersion' - The version identifier of the API documentation snapshot.
---
--- * 'dvDescription' - The description of the API documentation snapshot.
-documentationVersion ::
+-- * 'createdDate' - The date when the API documentation snapshot is created.
+-- * 'description' - The description of the API documentation snapshot.
+-- * 'version' - The version identifier of the API documentation snapshot.
+mkDocumentationVersion ::
   DocumentationVersion
-documentationVersion =
+mkDocumentationVersion =
   DocumentationVersion'
-    { _dvCreatedDate = Nothing,
-      _dvVersion = Nothing,
-      _dvDescription = Nothing
+    { createdDate = Lude.Nothing,
+      version = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The date when the API documentation snapshot is created.
-dvCreatedDate :: Lens' DocumentationVersion (Maybe UTCTime)
-dvCreatedDate = lens _dvCreatedDate (\s a -> s {_dvCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvCreatedDate :: Lens.Lens' DocumentationVersion (Lude.Maybe Lude.Timestamp)
+dvCreatedDate = Lens.lens (createdDate :: DocumentationVersion -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: DocumentationVersion)
+{-# DEPRECATED dvCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The version identifier of the API documentation snapshot.
-dvVersion :: Lens' DocumentationVersion (Maybe Text)
-dvVersion = lens _dvVersion (\s a -> s {_dvVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvVersion :: Lens.Lens' DocumentationVersion (Lude.Maybe Lude.Text)
+dvVersion = Lens.lens (version :: DocumentationVersion -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DocumentationVersion)
+{-# DEPRECATED dvVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The description of the API documentation snapshot.
-dvDescription :: Lens' DocumentationVersion (Maybe Text)
-dvDescription = lens _dvDescription (\s a -> s {_dvDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvDescription :: Lens.Lens' DocumentationVersion (Lude.Maybe Lude.Text)
+dvDescription = Lens.lens (description :: DocumentationVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DocumentationVersion)
+{-# DEPRECATED dvDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON DocumentationVersion where
+instance Lude.FromJSON DocumentationVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "DocumentationVersion"
       ( \x ->
           DocumentationVersion'
-            <$> (x .:? "createdDate")
-            <*> (x .:? "version")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable DocumentationVersion
-
-instance NFData DocumentationVersion

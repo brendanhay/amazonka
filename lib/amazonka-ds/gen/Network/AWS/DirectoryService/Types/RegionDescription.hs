@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,122 +7,158 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.RegionDescription where
+module Network.AWS.DirectoryService.Types.RegionDescription
+  ( RegionDescription (..),
+
+    -- * Smart constructor
+    mkRegionDescription,
+
+    -- * Lenses
+    rdStatus,
+    rdDirectoryId,
+    rdRegionName,
+    rdDesiredNumberOfDomainControllers,
+    rdRegionType,
+    rdLaunchTime,
+    rdLastUpdatedDateTime,
+    rdStatusLastUpdatedDateTime,
+    rdVPCSettings,
+  )
+where
 
 import Network.AWS.DirectoryService.Types.DirectoryStage
 import Network.AWS.DirectoryService.Types.DirectoryVPCSettings
 import Network.AWS.DirectoryService.Types.RegionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The replicated regional information for a directory.
 --
---
---
--- /See:/ 'regionDescription' smart constructor.
+-- /See:/ 'mkRegionDescription' smart constructor.
 data RegionDescription = RegionDescription'
-  { _rdStatus ::
-      !(Maybe DirectoryStage),
-    _rdDirectoryId :: !(Maybe Text),
-    _rdRegionName :: !(Maybe Text),
-    _rdDesiredNumberOfDomainControllers :: !(Maybe Nat),
-    _rdRegionType :: !(Maybe RegionType),
-    _rdLaunchTime :: !(Maybe POSIX),
-    _rdLastUpdatedDateTime :: !(Maybe POSIX),
-    _rdStatusLastUpdatedDateTime :: !(Maybe POSIX),
-    _rdVPCSettings :: !(Maybe DirectoryVPCSettings)
+  { status ::
+      Lude.Maybe DirectoryStage,
+    directoryId :: Lude.Maybe Lude.Text,
+    regionName :: Lude.Maybe Lude.Text,
+    desiredNumberOfDomainControllers ::
+      Lude.Maybe Lude.Natural,
+    regionType :: Lude.Maybe RegionType,
+    launchTime :: Lude.Maybe Lude.Timestamp,
+    lastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    statusLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    vpcSettings :: Lude.Maybe DirectoryVPCSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdStatus' - The status of the replication process for the specified Region.
---
--- * 'rdDirectoryId' - The identifier of the directory.
---
--- * 'rdRegionName' - The name of the Region. For example, @us-east-1@ .
---
--- * 'rdDesiredNumberOfDomainControllers' - The desired number of domain controllers in the specified Region for the specified directory.
---
--- * 'rdRegionType' - Specifies if the Region is the primary Region or an additional Region.
---
--- * 'rdLaunchTime' - Specifies when the Region replication began.
---
--- * 'rdLastUpdatedDateTime' - The date and time that the Region description was last updated.
---
--- * 'rdStatusLastUpdatedDateTime' - The date and time that the Region status was last updated.
---
--- * 'rdVPCSettings' - Undocumented member.
-regionDescription ::
+-- * 'desiredNumberOfDomainControllers' - The desired number of domain controllers in the specified Region for the specified directory.
+-- * 'directoryId' - The identifier of the directory.
+-- * 'lastUpdatedDateTime' - The date and time that the Region description was last updated.
+-- * 'launchTime' - Specifies when the Region replication began.
+-- * 'regionName' - The name of the Region. For example, @us-east-1@ .
+-- * 'regionType' - Specifies if the Region is the primary Region or an additional Region.
+-- * 'status' - The status of the replication process for the specified Region.
+-- * 'statusLastUpdatedDateTime' - The date and time that the Region status was last updated.
+-- * 'vpcSettings' - Undocumented field.
+mkRegionDescription ::
   RegionDescription
-regionDescription =
+mkRegionDescription =
   RegionDescription'
-    { _rdStatus = Nothing,
-      _rdDirectoryId = Nothing,
-      _rdRegionName = Nothing,
-      _rdDesiredNumberOfDomainControllers = Nothing,
-      _rdRegionType = Nothing,
-      _rdLaunchTime = Nothing,
-      _rdLastUpdatedDateTime = Nothing,
-      _rdStatusLastUpdatedDateTime = Nothing,
-      _rdVPCSettings = Nothing
+    { status = Lude.Nothing,
+      directoryId = Lude.Nothing,
+      regionName = Lude.Nothing,
+      desiredNumberOfDomainControllers = Lude.Nothing,
+      regionType = Lude.Nothing,
+      launchTime = Lude.Nothing,
+      lastUpdatedDateTime = Lude.Nothing,
+      statusLastUpdatedDateTime = Lude.Nothing,
+      vpcSettings = Lude.Nothing
     }
 
 -- | The status of the replication process for the specified Region.
-rdStatus :: Lens' RegionDescription (Maybe DirectoryStage)
-rdStatus = lens _rdStatus (\s a -> s {_rdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdStatus :: Lens.Lens' RegionDescription (Lude.Maybe DirectoryStage)
+rdStatus = Lens.lens (status :: RegionDescription -> Lude.Maybe DirectoryStage) (\s a -> s {status = a} :: RegionDescription)
+{-# DEPRECATED rdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The identifier of the directory.
-rdDirectoryId :: Lens' RegionDescription (Maybe Text)
-rdDirectoryId = lens _rdDirectoryId (\s a -> s {_rdDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdDirectoryId :: Lens.Lens' RegionDescription (Lude.Maybe Lude.Text)
+rdDirectoryId = Lens.lens (directoryId :: RegionDescription -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: RegionDescription)
+{-# DEPRECATED rdDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the Region. For example, @us-east-1@ .
-rdRegionName :: Lens' RegionDescription (Maybe Text)
-rdRegionName = lens _rdRegionName (\s a -> s {_rdRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRegionName :: Lens.Lens' RegionDescription (Lude.Maybe Lude.Text)
+rdRegionName = Lens.lens (regionName :: RegionDescription -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: RegionDescription)
+{-# DEPRECATED rdRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | The desired number of domain controllers in the specified Region for the specified directory.
-rdDesiredNumberOfDomainControllers :: Lens' RegionDescription (Maybe Natural)
-rdDesiredNumberOfDomainControllers = lens _rdDesiredNumberOfDomainControllers (\s a -> s {_rdDesiredNumberOfDomainControllers = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'desiredNumberOfDomainControllers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdDesiredNumberOfDomainControllers :: Lens.Lens' RegionDescription (Lude.Maybe Lude.Natural)
+rdDesiredNumberOfDomainControllers = Lens.lens (desiredNumberOfDomainControllers :: RegionDescription -> Lude.Maybe Lude.Natural) (\s a -> s {desiredNumberOfDomainControllers = a} :: RegionDescription)
+{-# DEPRECATED rdDesiredNumberOfDomainControllers "Use generic-lens or generic-optics with 'desiredNumberOfDomainControllers' instead." #-}
 
 -- | Specifies if the Region is the primary Region or an additional Region.
-rdRegionType :: Lens' RegionDescription (Maybe RegionType)
-rdRegionType = lens _rdRegionType (\s a -> s {_rdRegionType = a})
+--
+-- /Note:/ Consider using 'regionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRegionType :: Lens.Lens' RegionDescription (Lude.Maybe RegionType)
+rdRegionType = Lens.lens (regionType :: RegionDescription -> Lude.Maybe RegionType) (\s a -> s {regionType = a} :: RegionDescription)
+{-# DEPRECATED rdRegionType "Use generic-lens or generic-optics with 'regionType' instead." #-}
 
 -- | Specifies when the Region replication began.
-rdLaunchTime :: Lens' RegionDescription (Maybe UTCTime)
-rdLaunchTime = lens _rdLaunchTime (\s a -> s {_rdLaunchTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'launchTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdLaunchTime :: Lens.Lens' RegionDescription (Lude.Maybe Lude.Timestamp)
+rdLaunchTime = Lens.lens (launchTime :: RegionDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {launchTime = a} :: RegionDescription)
+{-# DEPRECATED rdLaunchTime "Use generic-lens or generic-optics with 'launchTime' instead." #-}
 
 -- | The date and time that the Region description was last updated.
-rdLastUpdatedDateTime :: Lens' RegionDescription (Maybe UTCTime)
-rdLastUpdatedDateTime = lens _rdLastUpdatedDateTime (\s a -> s {_rdLastUpdatedDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdLastUpdatedDateTime :: Lens.Lens' RegionDescription (Lude.Maybe Lude.Timestamp)
+rdLastUpdatedDateTime = Lens.lens (lastUpdatedDateTime :: RegionDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDateTime = a} :: RegionDescription)
+{-# DEPRECATED rdLastUpdatedDateTime "Use generic-lens or generic-optics with 'lastUpdatedDateTime' instead." #-}
 
 -- | The date and time that the Region status was last updated.
-rdStatusLastUpdatedDateTime :: Lens' RegionDescription (Maybe UTCTime)
-rdStatusLastUpdatedDateTime = lens _rdStatusLastUpdatedDateTime (\s a -> s {_rdStatusLastUpdatedDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'statusLastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdStatusLastUpdatedDateTime :: Lens.Lens' RegionDescription (Lude.Maybe Lude.Timestamp)
+rdStatusLastUpdatedDateTime = Lens.lens (statusLastUpdatedDateTime :: RegionDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {statusLastUpdatedDateTime = a} :: RegionDescription)
+{-# DEPRECATED rdStatusLastUpdatedDateTime "Use generic-lens or generic-optics with 'statusLastUpdatedDateTime' instead." #-}
 
--- | Undocumented member.
-rdVPCSettings :: Lens' RegionDescription (Maybe DirectoryVPCSettings)
-rdVPCSettings = lens _rdVPCSettings (\s a -> s {_rdVPCSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdVPCSettings :: Lens.Lens' RegionDescription (Lude.Maybe DirectoryVPCSettings)
+rdVPCSettings = Lens.lens (vpcSettings :: RegionDescription -> Lude.Maybe DirectoryVPCSettings) (\s a -> s {vpcSettings = a} :: RegionDescription)
+{-# DEPRECATED rdVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
 
-instance FromJSON RegionDescription where
+instance Lude.FromJSON RegionDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "RegionDescription"
       ( \x ->
           RegionDescription'
-            <$> (x .:? "Status")
-            <*> (x .:? "DirectoryId")
-            <*> (x .:? "RegionName")
-            <*> (x .:? "DesiredNumberOfDomainControllers")
-            <*> (x .:? "RegionType")
-            <*> (x .:? "LaunchTime")
-            <*> (x .:? "LastUpdatedDateTime")
-            <*> (x .:? "StatusLastUpdatedDateTime")
-            <*> (x .:? "VpcSettings")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "DirectoryId")
+            Lude.<*> (x Lude..:? "RegionName")
+            Lude.<*> (x Lude..:? "DesiredNumberOfDomainControllers")
+            Lude.<*> (x Lude..:? "RegionType")
+            Lude.<*> (x Lude..:? "LaunchTime")
+            Lude.<*> (x Lude..:? "LastUpdatedDateTime")
+            Lude.<*> (x Lude..:? "StatusLastUpdatedDateTime")
+            Lude.<*> (x Lude..:? "VpcSettings")
       )
-
-instance Hashable RegionDescription
-
-instance NFData RegionDescription

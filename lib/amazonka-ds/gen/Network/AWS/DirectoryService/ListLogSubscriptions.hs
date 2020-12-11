@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the active log subscriptions for the AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DirectoryService.ListLogSubscriptions
-  ( -- * Creating a Request
-    listLogSubscriptions,
-    ListLogSubscriptions,
+  ( -- * Creating a request
+    ListLogSubscriptions (..),
+    mkListLogSubscriptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     llsDirectoryId,
     llsNextToken,
     llsLimit,
 
-    -- * Destructuring the Response
-    listLogSubscriptionsResponse,
-    ListLogSubscriptionsResponse,
+    -- * Destructuring the response
+    ListLogSubscriptionsResponse (..),
+    mkListLogSubscriptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     llsrsNextToken,
     llsrsLogSubscriptions,
     llsrsResponseStatus,
@@ -44,139 +37,163 @@ module Network.AWS.DirectoryService.ListLogSubscriptions
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listLogSubscriptions' smart constructor.
+-- | /See:/ 'mkListLogSubscriptions' smart constructor.
 data ListLogSubscriptions = ListLogSubscriptions'
-  { _llsDirectoryId ::
-      !(Maybe Text),
-    _llsNextToken :: !(Maybe Text),
-    _llsLimit :: !(Maybe Nat)
+  { directoryId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLogSubscriptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llsDirectoryId' - If a /DirectoryID/ is provided, lists only the log subscription associated with that directory. If no /DirectoryId/ is provided, lists all log subscriptions associated with your AWS account. If there are no log subscriptions for the AWS account or the directory, an empty list will be returned.
---
--- * 'llsNextToken' - The token for the next set of items to return.
---
--- * 'llsLimit' - The maximum number of items returned.
-listLogSubscriptions ::
+-- * 'directoryId' - If a /DirectoryID/ is provided, lists only the log subscription associated with that directory. If no /DirectoryId/ is provided, lists all log subscriptions associated with your AWS account. If there are no log subscriptions for the AWS account or the directory, an empty list will be returned.
+-- * 'limit' - The maximum number of items returned.
+-- * 'nextToken' - The token for the next set of items to return.
+mkListLogSubscriptions ::
   ListLogSubscriptions
-listLogSubscriptions =
+mkListLogSubscriptions =
   ListLogSubscriptions'
-    { _llsDirectoryId = Nothing,
-      _llsNextToken = Nothing,
-      _llsLimit = Nothing
+    { directoryId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If a /DirectoryID/ is provided, lists only the log subscription associated with that directory. If no /DirectoryId/ is provided, lists all log subscriptions associated with your AWS account. If there are no log subscriptions for the AWS account or the directory, an empty list will be returned.
-llsDirectoryId :: Lens' ListLogSubscriptions (Maybe Text)
-llsDirectoryId = lens _llsDirectoryId (\s a -> s {_llsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llsDirectoryId :: Lens.Lens' ListLogSubscriptions (Lude.Maybe Lude.Text)
+llsDirectoryId = Lens.lens (directoryId :: ListLogSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: ListLogSubscriptions)
+{-# DEPRECATED llsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The token for the next set of items to return.
-llsNextToken :: Lens' ListLogSubscriptions (Maybe Text)
-llsNextToken = lens _llsNextToken (\s a -> s {_llsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llsNextToken :: Lens.Lens' ListLogSubscriptions (Lude.Maybe Lude.Text)
+llsNextToken = Lens.lens (nextToken :: ListLogSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLogSubscriptions)
+{-# DEPRECATED llsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items returned.
-llsLimit :: Lens' ListLogSubscriptions (Maybe Natural)
-llsLimit = lens _llsLimit (\s a -> s {_llsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llsLimit :: Lens.Lens' ListLogSubscriptions (Lude.Maybe Lude.Natural)
+llsLimit = Lens.lens (limit :: ListLogSubscriptions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListLogSubscriptions)
+{-# DEPRECATED llsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListLogSubscriptions where
+instance Page.AWSPager ListLogSubscriptions where
   page rq rs
-    | stop (rs ^. llsrsNextToken) = Nothing
-    | stop (rs ^. llsrsLogSubscriptions) = Nothing
-    | otherwise = Just $ rq & llsNextToken .~ rs ^. llsrsNextToken
+    | Page.stop (rs Lens.^. llsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. llsrsLogSubscriptions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& llsNextToken Lens..~ rs Lens.^. llsrsNextToken
 
-instance AWSRequest ListLogSubscriptions where
+instance Lude.AWSRequest ListLogSubscriptions where
   type Rs ListLogSubscriptions = ListLogSubscriptionsResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListLogSubscriptionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "LogSubscriptions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "LogSubscriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListLogSubscriptions
-
-instance NFData ListLogSubscriptions
-
-instance ToHeaders ListLogSubscriptions where
+instance Lude.ToHeaders ListLogSubscriptions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.ListLogSubscriptions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.ListLogSubscriptions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListLogSubscriptions where
+instance Lude.ToJSON ListLogSubscriptions where
   toJSON ListLogSubscriptions' {..} =
-    object
-      ( catMaybes
-          [ ("DirectoryId" .=) <$> _llsDirectoryId,
-            ("NextToken" .=) <$> _llsNextToken,
-            ("Limit" .=) <$> _llsLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DirectoryId" Lude..=) Lude.<$> directoryId,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListLogSubscriptions where
-  toPath = const "/"
+instance Lude.ToPath ListLogSubscriptions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListLogSubscriptions where
-  toQuery = const mempty
+instance Lude.ToQuery ListLogSubscriptions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listLogSubscriptionsResponse' smart constructor.
+-- | /See:/ 'mkListLogSubscriptionsResponse' smart constructor.
 data ListLogSubscriptionsResponse = ListLogSubscriptionsResponse'
-  { _llsrsNextToken ::
-      !(Maybe Text),
-    _llsrsLogSubscriptions ::
-      !(Maybe [LogSubscription]),
-    _llsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    logSubscriptions ::
+      Lude.Maybe [LogSubscription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLogSubscriptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llsrsNextToken' - The token for the next set of items to return.
---
--- * 'llsrsLogSubscriptions' - A list of active 'LogSubscription' objects for calling the AWS account.
---
--- * 'llsrsResponseStatus' - -- | The response status code.
-listLogSubscriptionsResponse ::
-  -- | 'llsrsResponseStatus'
-  Int ->
+-- * 'logSubscriptions' - A list of active 'LogSubscription' objects for calling the AWS account.
+-- * 'nextToken' - The token for the next set of items to return.
+-- * 'responseStatus' - The response status code.
+mkListLogSubscriptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListLogSubscriptionsResponse
-listLogSubscriptionsResponse pResponseStatus_ =
+mkListLogSubscriptionsResponse pResponseStatus_ =
   ListLogSubscriptionsResponse'
-    { _llsrsNextToken = Nothing,
-      _llsrsLogSubscriptions = Nothing,
-      _llsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      logSubscriptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of items to return.
-llsrsNextToken :: Lens' ListLogSubscriptionsResponse (Maybe Text)
-llsrsNextToken = lens _llsrsNextToken (\s a -> s {_llsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llsrsNextToken :: Lens.Lens' ListLogSubscriptionsResponse (Lude.Maybe Lude.Text)
+llsrsNextToken = Lens.lens (nextToken :: ListLogSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLogSubscriptionsResponse)
+{-# DEPRECATED llsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of active 'LogSubscription' objects for calling the AWS account.
-llsrsLogSubscriptions :: Lens' ListLogSubscriptionsResponse [LogSubscription]
-llsrsLogSubscriptions = lens _llsrsLogSubscriptions (\s a -> s {_llsrsLogSubscriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logSubscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llsrsLogSubscriptions :: Lens.Lens' ListLogSubscriptionsResponse (Lude.Maybe [LogSubscription])
+llsrsLogSubscriptions = Lens.lens (logSubscriptions :: ListLogSubscriptionsResponse -> Lude.Maybe [LogSubscription]) (\s a -> s {logSubscriptions = a} :: ListLogSubscriptionsResponse)
+{-# DEPRECATED llsrsLogSubscriptions "Use generic-lens or generic-optics with 'logSubscriptions' instead." #-}
 
--- | -- | The response status code.
-llsrsResponseStatus :: Lens' ListLogSubscriptionsResponse Int
-llsrsResponseStatus = lens _llsrsResponseStatus (\s a -> s {_llsrsResponseStatus = a})
-
-instance NFData ListLogSubscriptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llsrsResponseStatus :: Lens.Lens' ListLogSubscriptionsResponse Lude.Int
+llsrsResponseStatus = Lens.lens (responseStatus :: ListLogSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLogSubscriptionsResponse)
+{-# DEPRECATED llsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

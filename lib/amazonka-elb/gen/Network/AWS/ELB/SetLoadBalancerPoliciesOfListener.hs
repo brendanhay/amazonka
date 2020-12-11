@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,157 @@
 --
 -- Replaces the current set of policies for the specified load balancer port with the specified set of policies.
 --
---
 -- To enable back-end server authentication, use 'SetLoadBalancerPoliciesForBackendServer' .
---
 -- For more information about setting policies, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html Update the SSL Negotiation Configuration> , <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness> , and <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-  ( -- * Creating a Request
-    setLoadBalancerPoliciesOfListener,
-    SetLoadBalancerPoliciesOfListener,
+  ( -- * Creating a request
+    SetLoadBalancerPoliciesOfListener (..),
+    mkSetLoadBalancerPoliciesOfListener,
 
-    -- * Request Lenses
+    -- ** Request lenses
     slbpolLoadBalancerName,
     slbpolLoadBalancerPort,
     slbpolPolicyNames,
 
-    -- * Destructuring the Response
-    setLoadBalancerPoliciesOfListenerResponse,
-    SetLoadBalancerPoliciesOfListenerResponse,
+    -- * Destructuring the response
+    SetLoadBalancerPoliciesOfListenerResponse (..),
+    mkSetLoadBalancerPoliciesOfListenerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     slbpolrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for SetLoadBalancePoliciesOfListener.
 --
---
---
--- /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
+-- /See:/ 'mkSetLoadBalancerPoliciesOfListener' smart constructor.
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
-  { _slbpolLoadBalancerName ::
-      !Text,
-    _slbpolLoadBalancerPort ::
-      !Int,
-    _slbpolPolicyNames ::
-      ![Text]
+  { loadBalancerName ::
+      Lude.Text,
+    loadBalancerPort ::
+      Lude.Int,
+    policyNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesOfListener' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slbpolLoadBalancerName' - The name of the load balancer.
---
--- * 'slbpolLoadBalancerPort' - The external port of the load balancer.
---
--- * 'slbpolPolicyNames' - The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
-setLoadBalancerPoliciesOfListener ::
-  -- | 'slbpolLoadBalancerName'
-  Text ->
-  -- | 'slbpolLoadBalancerPort'
-  Int ->
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'loadBalancerPort' - The external port of the load balancer.
+-- * 'policyNames' - The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
+mkSetLoadBalancerPoliciesOfListener ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'loadBalancerPort'
+  Lude.Int ->
   SetLoadBalancerPoliciesOfListener
-setLoadBalancerPoliciesOfListener
+mkSetLoadBalancerPoliciesOfListener
   pLoadBalancerName_
   pLoadBalancerPort_ =
     SetLoadBalancerPoliciesOfListener'
-      { _slbpolLoadBalancerName =
+      { loadBalancerName =
           pLoadBalancerName_,
-        _slbpolLoadBalancerPort = pLoadBalancerPort_,
-        _slbpolPolicyNames = mempty
+        loadBalancerPort = pLoadBalancerPort_,
+        policyNames = Lude.mempty
       }
 
 -- | The name of the load balancer.
-slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
-slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\s a -> s {_slbpolLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpolLoadBalancerName :: Lens.Lens' SetLoadBalancerPoliciesOfListener Lude.Text
+slbpolLoadBalancerName = Lens.lens (loadBalancerName :: SetLoadBalancerPoliciesOfListener -> Lude.Text) (\s a -> s {loadBalancerName = a} :: SetLoadBalancerPoliciesOfListener)
+{-# DEPRECATED slbpolLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The external port of the load balancer.
-slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
-slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\s a -> s {_slbpolLoadBalancerPort = a})
+--
+-- /Note:/ Consider using 'loadBalancerPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpolLoadBalancerPort :: Lens.Lens' SetLoadBalancerPoliciesOfListener Lude.Int
+slbpolLoadBalancerPort = Lens.lens (loadBalancerPort :: SetLoadBalancerPoliciesOfListener -> Lude.Int) (\s a -> s {loadBalancerPort = a} :: SetLoadBalancerPoliciesOfListener)
+{-# DEPRECATED slbpolLoadBalancerPort "Use generic-lens or generic-optics with 'loadBalancerPort' instead." #-}
 
 -- | The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
-slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
-slbpolPolicyNames = lens _slbpolPolicyNames (\s a -> s {_slbpolPolicyNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpolPolicyNames :: Lens.Lens' SetLoadBalancerPoliciesOfListener [Lude.Text]
+slbpolPolicyNames = Lens.lens (policyNames :: SetLoadBalancerPoliciesOfListener -> [Lude.Text]) (\s a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener)
+{-# DEPRECATED slbpolPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
-instance AWSRequest SetLoadBalancerPoliciesOfListener where
+instance Lude.AWSRequest SetLoadBalancerPoliciesOfListener where
   type
     Rs SetLoadBalancerPoliciesOfListener =
       SetLoadBalancerPoliciesOfListenerResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetLoadBalancerPoliciesOfListenerResult"
       ( \s h x ->
-          SetLoadBalancerPoliciesOfListenerResponse' <$> (pure (fromEnum s))
+          SetLoadBalancerPoliciesOfListenerResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetLoadBalancerPoliciesOfListener
+instance Lude.ToHeaders SetLoadBalancerPoliciesOfListener where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetLoadBalancerPoliciesOfListener
+instance Lude.ToPath SetLoadBalancerPoliciesOfListener where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetLoadBalancerPoliciesOfListener where
-  toHeaders = const mempty
-
-instance ToPath SetLoadBalancerPoliciesOfListener where
-  toPath = const "/"
-
-instance ToQuery SetLoadBalancerPoliciesOfListener where
+instance Lude.ToQuery SetLoadBalancerPoliciesOfListener where
   toQuery SetLoadBalancerPoliciesOfListener' {..} =
-    mconcat
-      [ "Action" =: ("SetLoadBalancerPoliciesOfListener" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _slbpolLoadBalancerName,
-        "LoadBalancerPort" =: _slbpolLoadBalancerPort,
-        "PolicyNames" =: toQueryList "member" _slbpolPolicyNames
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("SetLoadBalancerPoliciesOfListener" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "LoadBalancerPort" Lude.=: loadBalancerPort,
+        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames
       ]
 
 -- | Contains the output of SetLoadBalancePoliciesOfListener.
 --
---
---
--- /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
+-- /See:/ 'mkSetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
-  { _slbpolrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesOfListenerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slbpolrsResponseStatus' - -- | The response status code.
-setLoadBalancerPoliciesOfListenerResponse ::
-  -- | 'slbpolrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSetLoadBalancerPoliciesOfListenerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse pResponseStatus_ =
+mkSetLoadBalancerPoliciesOfListenerResponse pResponseStatus_ =
   SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-slbpolrsResponseStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
-slbpolrsResponseStatus = lens _slbpolrsResponseStatus (\s a -> s {_slbpolrsResponseStatus = a})
-
-instance NFData SetLoadBalancerPoliciesOfListenerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpolrsResponseStatus :: Lens.Lens' SetLoadBalancerPoliciesOfListenerResponse Lude.Int
+slbpolrsResponseStatus = Lens.lens (responseStatus :: SetLoadBalancerPoliciesOfListenerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetLoadBalancerPoliciesOfListenerResponse)
+{-# DEPRECATED slbpolrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

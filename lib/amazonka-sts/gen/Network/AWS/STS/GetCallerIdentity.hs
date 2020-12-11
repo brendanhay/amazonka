@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Returns details about the IAM user or role whose credentials are used to call the operation.
 module Network.AWS.STS.GetCallerIdentity
-  ( -- * Creating a Request
-    getCallerIdentity,
-    GetCallerIdentity,
+  ( -- * Creating a request
+    GetCallerIdentity (..),
+    mkGetCallerIdentity,
 
-    -- * Destructuring the Response
-    getCallerIdentityResponse,
-    GetCallerIdentityResponse,
+    -- * Destructuring the response
+    GetCallerIdentityResponse (..),
+    mkGetCallerIdentityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcirsARN,
     gcirsAccount,
     gcirsUserId,
@@ -35,105 +30,118 @@ module Network.AWS.STS.GetCallerIdentity
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.STS.Types
 
--- | /See:/ 'getCallerIdentity' smart constructor.
+-- | /See:/ 'mkGetCallerIdentity' smart constructor.
 data GetCallerIdentity = GetCallerIdentity'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCallerIdentity' with the minimum fields required to make a request.
-getCallerIdentity ::
+mkGetCallerIdentity ::
   GetCallerIdentity
-getCallerIdentity = GetCallerIdentity'
+mkGetCallerIdentity = GetCallerIdentity'
 
-instance AWSRequest GetCallerIdentity where
+instance Lude.AWSRequest GetCallerIdentity where
   type Rs GetCallerIdentity = GetCallerIdentityResponse
-  request = postQuery sts
+  request = Req.postQuery stsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetCallerIdentityResult"
       ( \s h x ->
           GetCallerIdentityResponse'
-            <$> (x .@? "Arn")
-            <*> (x .@? "Account")
-            <*> (x .@? "UserId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Arn")
+            Lude.<*> (x Lude..@? "Account")
+            Lude.<*> (x Lude..@? "UserId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCallerIdentity
+instance Lude.ToHeaders GetCallerIdentity where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetCallerIdentity
+instance Lude.ToPath GetCallerIdentity where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetCallerIdentity where
-  toHeaders = const mempty
-
-instance ToPath GetCallerIdentity where
-  toPath = const "/"
-
-instance ToQuery GetCallerIdentity where
+instance Lude.ToQuery GetCallerIdentity where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("GetCallerIdentity" :: ByteString),
-            "Version" =: ("2011-06-15" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("GetCallerIdentity" :: Lude.ByteString),
+            "Version" Lude.=: ("2011-06-15" :: Lude.ByteString)
           ]
       )
 
 -- | Contains the response to a successful 'GetCallerIdentity' request, including information about the entity making the request.
 --
---
---
--- /See:/ 'getCallerIdentityResponse' smart constructor.
+-- /See:/ 'mkGetCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
-  { _gcirsARN ::
-      !(Maybe Text),
-    _gcirsAccount :: !(Maybe Text),
-    _gcirsUserId :: !(Maybe Text),
-    _gcirsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    account :: Lude.Maybe Lude.Text,
+    userId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCallerIdentityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcirsARN' - The AWS ARN associated with the calling entity.
---
--- * 'gcirsAccount' - The AWS account ID number of the account that owns or contains the calling entity.
---
--- * 'gcirsUserId' - The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the __aws:userid__ column in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
---
--- * 'gcirsResponseStatus' - -- | The response status code.
-getCallerIdentityResponse ::
-  -- | 'gcirsResponseStatus'
-  Int ->
+-- * 'account' - The AWS account ID number of the account that owns or contains the calling entity.
+-- * 'arn' - The AWS ARN associated with the calling entity.
+-- * 'responseStatus' - The response status code.
+-- * 'userId' - The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the __aws:userid__ column in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
+mkGetCallerIdentityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCallerIdentityResponse
-getCallerIdentityResponse pResponseStatus_ =
+mkGetCallerIdentityResponse pResponseStatus_ =
   GetCallerIdentityResponse'
-    { _gcirsARN = Nothing,
-      _gcirsAccount = Nothing,
-      _gcirsUserId = Nothing,
-      _gcirsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      account = Lude.Nothing,
+      userId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The AWS ARN associated with the calling entity.
-gcirsARN :: Lens' GetCallerIdentityResponse (Maybe Text)
-gcirsARN = lens _gcirsARN (\s a -> s {_gcirsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirsARN :: Lens.Lens' GetCallerIdentityResponse (Lude.Maybe Lude.Text)
+gcirsARN = Lens.lens (arn :: GetCallerIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetCallerIdentityResponse)
+{-# DEPRECATED gcirsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The AWS account ID number of the account that owns or contains the calling entity.
-gcirsAccount :: Lens' GetCallerIdentityResponse (Maybe Text)
-gcirsAccount = lens _gcirsAccount (\s a -> s {_gcirsAccount = a})
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirsAccount :: Lens.Lens' GetCallerIdentityResponse (Lude.Maybe Lude.Text)
+gcirsAccount = Lens.lens (account :: GetCallerIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: GetCallerIdentityResponse)
+{-# DEPRECATED gcirsAccount "Use generic-lens or generic-optics with 'account' instead." #-}
 
 -- | The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the __aws:userid__ column in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
-gcirsUserId :: Lens' GetCallerIdentityResponse (Maybe Text)
-gcirsUserId = lens _gcirsUserId (\s a -> s {_gcirsUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirsUserId :: Lens.Lens' GetCallerIdentityResponse (Lude.Maybe Lude.Text)
+gcirsUserId = Lens.lens (userId :: GetCallerIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: GetCallerIdentityResponse)
+{-# DEPRECATED gcirsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
--- | -- | The response status code.
-gcirsResponseStatus :: Lens' GetCallerIdentityResponse Int
-gcirsResponseStatus = lens _gcirsResponseStatus (\s a -> s {_gcirsResponseStatus = a})
-
-instance NFData GetCallerIdentityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirsResponseStatus :: Lens.Lens' GetCallerIdentityResponse Lude.Int
+gcirsResponseStatus = Lens.lens (responseStatus :: GetCallerIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCallerIdentityResponse)
+{-# DEPRECATED gcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

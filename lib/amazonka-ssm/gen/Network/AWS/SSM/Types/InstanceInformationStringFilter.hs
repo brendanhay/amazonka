@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstanceInformationStringFilter where
+module Network.AWS.SSM.Types.InstanceInformationStringFilter
+  ( InstanceInformationStringFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceInformationStringFilter,
+
+    -- * Lenses
+    iisfKey,
+    iisfValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The filters to describe or get information about your managed instances.
 --
---
---
--- /See:/ 'instanceInformationStringFilter' smart constructor.
+-- /See:/ 'mkInstanceInformationStringFilter' smart constructor.
 data InstanceInformationStringFilter = InstanceInformationStringFilter'
-  { _iisfKey ::
-      !Text,
-    _iisfValues ::
-      !(List1 Text)
+  { key ::
+      Lude.Text,
+    values ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceInformationStringFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The filter key name to describe your instances. For example:
 --
--- * 'iisfKey' - The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
---
--- * 'iisfValues' - The filter values.
-instanceInformationStringFilter ::
-  -- | 'iisfKey'
-  Text ->
-  -- | 'iisfValues'
-  NonEmpty Text ->
+-- "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
+-- * 'values' - The filter values.
+mkInstanceInformationStringFilter ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   InstanceInformationStringFilter
-instanceInformationStringFilter pKey_ pValues_ =
-  InstanceInformationStringFilter'
-    { _iisfKey = pKey_,
-      _iisfValues = _List1 # pValues_
-    }
+mkInstanceInformationStringFilter pKey_ pValues_ =
+  InstanceInformationStringFilter' {key = pKey_, values = pValues_}
 
--- | The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
-iisfKey :: Lens' InstanceInformationStringFilter Text
-iisfKey = lens _iisfKey (\s a -> s {_iisfKey = a})
+-- | The filter key name to describe your instances. For example:
+--
+-- "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisfKey :: Lens.Lens' InstanceInformationStringFilter Lude.Text
+iisfKey = Lens.lens (key :: InstanceInformationStringFilter -> Lude.Text) (\s a -> s {key = a} :: InstanceInformationStringFilter)
+{-# DEPRECATED iisfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The filter values.
-iisfValues :: Lens' InstanceInformationStringFilter (NonEmpty Text)
-iisfValues = lens _iisfValues (\s a -> s {_iisfValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisfValues :: Lens.Lens' InstanceInformationStringFilter (Lude.NonEmpty Lude.Text)
+iisfValues = Lens.lens (values :: InstanceInformationStringFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: InstanceInformationStringFilter)
+{-# DEPRECATED iisfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable InstanceInformationStringFilter
-
-instance NFData InstanceInformationStringFilter
-
-instance ToJSON InstanceInformationStringFilter where
+instance Lude.ToJSON InstanceInformationStringFilter where
   toJSON InstanceInformationStringFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("Key" .= _iisfKey), Just ("Values" .= _iisfValues)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values)
+          ]
       )

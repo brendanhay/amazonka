@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by 'GetId' . You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.
 --
---
 -- The OpenId token is valid for 10 minutes.
---
 -- This is a public API. You do not need any credentials to call this API.
 module Network.AWS.CognitoIdentity.GetOpenIdToken
-  ( -- * Creating a Request
-    getOpenIdToken,
-    GetOpenIdToken,
+  ( -- * Creating a request
+    GetOpenIdToken (..),
+    mkGetOpenIdToken,
 
-    -- * Request Lenses
+    -- ** Request lenses
     goitLogins,
     goitIdentityId,
 
-    -- * Destructuring the Response
-    getOpenIdTokenResponse,
-    GetOpenIdTokenResponse,
+    -- * Destructuring the response
+    GetOpenIdTokenResponse (..),
+    mkGetOpenIdTokenResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     goitrsToken,
     goitrsIdentityId,
     goitrsResponseStatus,
@@ -44,130 +37,142 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the GetOpenIdToken action.
 --
---
---
--- /See:/ 'getOpenIdToken' smart constructor.
+-- /See:/ 'mkGetOpenIdToken' smart constructor.
 data GetOpenIdToken = GetOpenIdToken'
-  { _goitLogins ::
-      !(Maybe (Map Text (Text))),
-    _goitIdentityId :: !Text
+  { logins ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    identityId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdToken' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'goitLogins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the @id_token@ .
---
--- * 'goitIdentityId' - A unique identifier in the format REGION:GUID.
-getOpenIdToken ::
-  -- | 'goitIdentityId'
-  Text ->
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the @id_token@ .
+mkGetOpenIdToken ::
+  -- | 'identityId'
+  Lude.Text ->
   GetOpenIdToken
-getOpenIdToken pIdentityId_ =
-  GetOpenIdToken'
-    { _goitLogins = Nothing,
-      _goitIdentityId = pIdentityId_
-    }
+mkGetOpenIdToken pIdentityId_ =
+  GetOpenIdToken' {logins = Lude.Nothing, identityId = pIdentityId_}
 
 -- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the @id_token@ .
-goitLogins :: Lens' GetOpenIdToken (HashMap Text (Text))
-goitLogins = lens _goitLogins (\s a -> s {_goitLogins = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'logins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitLogins :: Lens.Lens' GetOpenIdToken (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+goitLogins = Lens.lens (logins :: GetOpenIdToken -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {logins = a} :: GetOpenIdToken)
+{-# DEPRECATED goitLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
 
 -- | A unique identifier in the format REGION:GUID.
-goitIdentityId :: Lens' GetOpenIdToken Text
-goitIdentityId = lens _goitIdentityId (\s a -> s {_goitIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitIdentityId :: Lens.Lens' GetOpenIdToken Lude.Text
+goitIdentityId = Lens.lens (identityId :: GetOpenIdToken -> Lude.Text) (\s a -> s {identityId = a} :: GetOpenIdToken)
+{-# DEPRECATED goitIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance AWSRequest GetOpenIdToken where
+instance Lude.AWSRequest GetOpenIdToken where
   type Rs GetOpenIdToken = GetOpenIdTokenResponse
-  request = postJSON cognitoIdentity
+  request = Req.postJSON cognitoIdentityService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOpenIdTokenResponse'
-            <$> (x .?> "Token") <*> (x .?> "IdentityId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Token")
+            Lude.<*> (x Lude..?> "IdentityId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOpenIdToken
-
-instance NFData GetOpenIdToken
-
-instance ToHeaders GetOpenIdToken where
+instance Lude.ToHeaders GetOpenIdToken where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.GetOpenIdToken" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityService.GetOpenIdToken" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetOpenIdToken where
+instance Lude.ToJSON GetOpenIdToken where
   toJSON GetOpenIdToken' {..} =
-    object
-      ( catMaybes
-          [ ("Logins" .=) <$> _goitLogins,
-            Just ("IdentityId" .= _goitIdentityId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Logins" Lude..=) Lude.<$> logins,
+            Lude.Just ("IdentityId" Lude..= identityId)
           ]
       )
 
-instance ToPath GetOpenIdToken where
-  toPath = const "/"
+instance Lude.ToPath GetOpenIdToken where
+  toPath = Lude.const "/"
 
-instance ToQuery GetOpenIdToken where
-  toQuery = const mempty
+instance Lude.ToQuery GetOpenIdToken where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returned in response to a successful GetOpenIdToken request.
 --
---
---
--- /See:/ 'getOpenIdTokenResponse' smart constructor.
+-- /See:/ 'mkGetOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-  { _goitrsToken ::
-      !(Maybe Text),
-    _goitrsIdentityId :: !(Maybe Text),
-    _goitrsResponseStatus :: !Int
+  { token ::
+      Lude.Maybe Lude.Text,
+    identityId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'goitrsToken' - An OpenID token, valid for 10 minutes.
---
--- * 'goitrsIdentityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
---
--- * 'goitrsResponseStatus' - -- | The response status code.
-getOpenIdTokenResponse ::
-  -- | 'goitrsResponseStatus'
-  Int ->
+-- * 'identityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
+-- * 'responseStatus' - The response status code.
+-- * 'token' - An OpenID token, valid for 10 minutes.
+mkGetOpenIdTokenResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOpenIdTokenResponse
-getOpenIdTokenResponse pResponseStatus_ =
+mkGetOpenIdTokenResponse pResponseStatus_ =
   GetOpenIdTokenResponse'
-    { _goitrsToken = Nothing,
-      _goitrsIdentityId = Nothing,
-      _goitrsResponseStatus = pResponseStatus_
+    { token = Lude.Nothing,
+      identityId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An OpenID token, valid for 10 minutes.
-goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsToken = lens _goitrsToken (\s a -> s {_goitrsToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitrsToken :: Lens.Lens' GetOpenIdTokenResponse (Lude.Maybe Lude.Text)
+goitrsToken = Lens.lens (token :: GetOpenIdTokenResponse -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetOpenIdTokenResponse)
+{-# DEPRECATED goitrsToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
-goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsIdentityId = lens _goitrsIdentityId (\s a -> s {_goitrsIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitrsIdentityId :: Lens.Lens' GetOpenIdTokenResponse (Lude.Maybe Lude.Text)
+goitrsIdentityId = Lens.lens (identityId :: GetOpenIdTokenResponse -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: GetOpenIdTokenResponse)
+{-# DEPRECATED goitrsIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
--- | -- | The response status code.
-goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
-goitrsResponseStatus = lens _goitrsResponseStatus (\s a -> s {_goitrsResponseStatus = a})
-
-instance NFData GetOpenIdTokenResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitrsResponseStatus :: Lens.Lens' GetOpenIdTokenResponse Lude.Int
+goitrsResponseStatus = Lens.lens (responseStatus :: GetOpenIdTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOpenIdTokenResponse)
+{-# DEPRECATED goitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage where
+module Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
+  ( PlatformProgrammingLanguage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPlatformProgrammingLanguage,
+
+    -- * Lenses
+    pplName,
+    pplVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A programming language supported by the platform.
 --
---
---
--- /See:/ 'platformProgrammingLanguage' smart constructor.
+-- /See:/ 'mkPlatformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
-  { _pplName ::
-      !(Maybe Text),
-    _pplVersion :: !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformProgrammingLanguage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pplName' - The name of the programming language.
---
--- * 'pplVersion' - The version of the programming language.
-platformProgrammingLanguage ::
+-- * 'name' - The name of the programming language.
+-- * 'version' - The version of the programming language.
+mkPlatformProgrammingLanguage ::
   PlatformProgrammingLanguage
-platformProgrammingLanguage =
+mkPlatformProgrammingLanguage =
   PlatformProgrammingLanguage'
-    { _pplName = Nothing,
-      _pplVersion = Nothing
+    { name = Lude.Nothing,
+      version = Lude.Nothing
     }
 
 -- | The name of the programming language.
-pplName :: Lens' PlatformProgrammingLanguage (Maybe Text)
-pplName = lens _pplName (\s a -> s {_pplName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplName :: Lens.Lens' PlatformProgrammingLanguage (Lude.Maybe Lude.Text)
+pplName = Lens.lens (name :: PlatformProgrammingLanguage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PlatformProgrammingLanguage)
+{-# DEPRECATED pplName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the programming language.
-pplVersion :: Lens' PlatformProgrammingLanguage (Maybe Text)
-pplVersion = lens _pplVersion (\s a -> s {_pplVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplVersion :: Lens.Lens' PlatformProgrammingLanguage (Lude.Maybe Lude.Text)
+pplVersion = Lens.lens (version :: PlatformProgrammingLanguage -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: PlatformProgrammingLanguage)
+{-# DEPRECATED pplVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromXML PlatformProgrammingLanguage where
+instance Lude.FromXML PlatformProgrammingLanguage where
   parseXML x =
     PlatformProgrammingLanguage'
-      <$> (x .@? "Name") <*> (x .@? "Version")
-
-instance Hashable PlatformProgrammingLanguage
-
-instance NFData PlatformProgrammingLanguage
+      Lude.<$> (x Lude..@? "Name") Lude.<*> (x Lude..@? "Version")

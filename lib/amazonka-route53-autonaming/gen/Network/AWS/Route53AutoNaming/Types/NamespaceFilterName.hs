@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.NamespaceFilterName where
+module Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
+  ( NamespaceFilterName
+      ( NamespaceFilterName',
+        Type
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NamespaceFilterName = Type
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NamespaceFilterName = NamespaceFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NamespaceFilterName where
-  parser =
-    takeLowerText >>= \case
-      "type" -> pure Type
-      e ->
-        fromTextError $
-          "Failure parsing NamespaceFilterName from value: '" <> e
-            <> "'. Accepted values: type"
+pattern Type :: NamespaceFilterName
+pattern Type = NamespaceFilterName' "TYPE"
 
-instance ToText NamespaceFilterName where
-  toText = \case
-    Type -> "TYPE"
-
-instance Hashable NamespaceFilterName
-
-instance NFData NamespaceFilterName
-
-instance ToByteString NamespaceFilterName
-
-instance ToQuery NamespaceFilterName
-
-instance ToHeader NamespaceFilterName
-
-instance ToJSON NamespaceFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  Type,
+  NamespaceFilterName'
+  #-}

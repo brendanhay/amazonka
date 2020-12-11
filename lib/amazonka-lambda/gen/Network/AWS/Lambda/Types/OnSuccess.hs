@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.OnSuccess where
+module Network.AWS.Lambda.Types.OnSuccess
+  ( OnSuccess (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOnSuccess,
+
+    -- * Lenses
+    osDestination,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A destination for events that were processed successfully.
 --
---
---
--- /See:/ 'onSuccess' smart constructor.
-newtype OnSuccess = OnSuccess' {_osDestination :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkOnSuccess' smart constructor.
+newtype OnSuccess = OnSuccess' {destination :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OnSuccess' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osDestination' - The Amazon Resource Name (ARN) of the destination resource.
-onSuccess ::
+-- * 'destination' - The Amazon Resource Name (ARN) of the destination resource.
+mkOnSuccess ::
   OnSuccess
-onSuccess = OnSuccess' {_osDestination = Nothing}
+mkOnSuccess = OnSuccess' {destination = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the destination resource.
-osDestination :: Lens' OnSuccess (Maybe Text)
-osDestination = lens _osDestination (\s a -> s {_osDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osDestination :: Lens.Lens' OnSuccess (Lude.Maybe Lude.Text)
+osDestination = Lens.lens (destination :: OnSuccess -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: OnSuccess)
+{-# DEPRECATED osDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance FromJSON OnSuccess where
+instance Lude.FromJSON OnSuccess where
   parseJSON =
-    withObject
+    Lude.withObject
       "OnSuccess"
-      (\x -> OnSuccess' <$> (x .:? "Destination"))
+      (\x -> OnSuccess' Lude.<$> (x Lude..:? "Destination"))
 
-instance Hashable OnSuccess
-
-instance NFData OnSuccess
-
-instance ToJSON OnSuccess where
+instance Lude.ToJSON OnSuccess where
   toJSON OnSuccess' {..} =
-    object (catMaybes [("Destination" .=) <$> _osDestination])
+    Lude.object
+      (Lude.catMaybes [("Destination" Lude..=) Lude.<$> destination])

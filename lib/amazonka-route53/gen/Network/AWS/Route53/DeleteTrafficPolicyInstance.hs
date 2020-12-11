@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,119 @@
 --
 -- Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
-  ( -- * Creating a Request
-    deleteTrafficPolicyInstance,
-    DeleteTrafficPolicyInstance,
+  ( -- * Creating a request
+    DeleteTrafficPolicyInstance (..),
+    mkDeleteTrafficPolicyInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtpiId,
 
-    -- * Destructuring the Response
-    deleteTrafficPolicyInstanceResponse,
-    DeleteTrafficPolicyInstanceResponse,
+    -- * Destructuring the response
+    DeleteTrafficPolicyInstanceResponse (..),
+    mkDeleteTrafficPolicyInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtpirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to delete a specified traffic policy instance.
 --
---
---
--- /See:/ 'deleteTrafficPolicyInstance' smart constructor.
+-- /See:/ 'mkDeleteTrafficPolicyInstance' smart constructor.
 newtype DeleteTrafficPolicyInstance = DeleteTrafficPolicyInstance'
-  { _dtpiId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficPolicyInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'id' - The ID of the traffic policy instance that you want to delete.
 --
--- * 'dtpiId' - The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
-deleteTrafficPolicyInstance ::
-  -- | 'dtpiId'
-  Text ->
+-- /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
+mkDeleteTrafficPolicyInstance ::
+  -- | 'id'
+  Lude.Text ->
   DeleteTrafficPolicyInstance
-deleteTrafficPolicyInstance pId_ =
-  DeleteTrafficPolicyInstance' {_dtpiId = pId_}
+mkDeleteTrafficPolicyInstance pId_ =
+  DeleteTrafficPolicyInstance' {id = pId_}
 
--- | The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
-dtpiId :: Lens' DeleteTrafficPolicyInstance Text
-dtpiId = lens _dtpiId (\s a -> s {_dtpiId = a})
+-- | The ID of the traffic policy instance that you want to delete.
+--
+-- /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpiId :: Lens.Lens' DeleteTrafficPolicyInstance Lude.Text
+dtpiId = Lens.lens (id :: DeleteTrafficPolicyInstance -> Lude.Text) (\s a -> s {id = a} :: DeleteTrafficPolicyInstance)
+{-# DEPRECATED dtpiId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteTrafficPolicyInstance where
+instance Lude.AWSRequest DeleteTrafficPolicyInstance where
   type
     Rs DeleteTrafficPolicyInstance =
       DeleteTrafficPolicyInstanceResponse
-  request = delete route53
+  request = Req.delete route53Service
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteTrafficPolicyInstanceResponse' <$> (pure (fromEnum s))
+          DeleteTrafficPolicyInstanceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTrafficPolicyInstance
+instance Lude.ToHeaders DeleteTrafficPolicyInstance where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTrafficPolicyInstance
-
-instance ToHeaders DeleteTrafficPolicyInstance where
-  toHeaders = const mempty
-
-instance ToPath DeleteTrafficPolicyInstance where
+instance Lude.ToPath DeleteTrafficPolicyInstance where
   toPath DeleteTrafficPolicyInstance' {..} =
-    mconcat ["/2013-04-01/trafficpolicyinstance/", toBS _dtpiId]
+    Lude.mconcat ["/2013-04-01/trafficpolicyinstance/", Lude.toBS id]
 
-instance ToQuery DeleteTrafficPolicyInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteTrafficPolicyInstance where
+  toQuery = Lude.const Lude.mempty
 
 -- | An empty element.
 --
---
---
--- /See:/ 'deleteTrafficPolicyInstanceResponse' smart constructor.
+-- /See:/ 'mkDeleteTrafficPolicyInstanceResponse' smart constructor.
 newtype DeleteTrafficPolicyInstanceResponse = DeleteTrafficPolicyInstanceResponse'
-  { _dtpirsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficPolicyInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtpirsResponseStatus' - -- | The response status code.
-deleteTrafficPolicyInstanceResponse ::
-  -- | 'dtpirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteTrafficPolicyInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTrafficPolicyInstanceResponse
-deleteTrafficPolicyInstanceResponse pResponseStatus_ =
+mkDeleteTrafficPolicyInstanceResponse pResponseStatus_ =
   DeleteTrafficPolicyInstanceResponse'
-    { _dtpirsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dtpirsResponseStatus :: Lens' DeleteTrafficPolicyInstanceResponse Int
-dtpirsResponseStatus = lens _dtpirsResponseStatus (\s a -> s {_dtpirsResponseStatus = a})
-
-instance NFData DeleteTrafficPolicyInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpirsResponseStatus :: Lens.Lens' DeleteTrafficPolicyInstanceResponse Lude.Int
+dtpirsResponseStatus = Lens.lens (responseStatus :: DeleteTrafficPolicyInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrafficPolicyInstanceResponse)
+{-# DEPRECATED dtpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

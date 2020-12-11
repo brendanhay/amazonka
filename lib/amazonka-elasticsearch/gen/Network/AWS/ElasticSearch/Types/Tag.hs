@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.Tag where
+module Network.AWS.ElasticSearch.Types.Tag
+  ( Tag (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTag,
+
+    -- * Lenses
+    tKey,
+    tValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a key value pair for a resource tag.
 --
---
---
--- /See:/ 'tag' smart constructor.
-data Tag = Tag' {_tagKey :: !Text, _tagValue :: !Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTag' smart constructor.
+data Tag = Tag' {key :: Lude.Text, value :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagKey' - Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
---
--- * 'tagValue' - Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
-tag ::
-  -- | 'tagKey'
-  Text ->
-  -- | 'tagValue'
-  Text ->
+-- * 'key' - Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
+-- * 'value' - Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
+mkTag ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   Tag
-tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+mkTag pKey_ pValue_ = Tag' {key = pKey_, value = pValue_}
 
 -- | Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
-tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\s a -> s {_tagKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
-tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\s a -> s {_tagValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag Lude.Text
+tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON Tag where
+instance Lude.FromJSON Tag where
   parseJSON =
-    withObject
+    Lude.withObject
       "Tag"
-      (\x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+      ( \x ->
+          Tag' Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Value")
+      )
 
-instance Hashable Tag
-
-instance NFData Tag
-
-instance ToJSON Tag where
+instance Lude.ToJSON Tag where
   toJSON Tag' {..} =
-    object
-      (catMaybes [Just ("Key" .= _tagKey), Just ("Value" .= _tagValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+      )

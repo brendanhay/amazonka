@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,105 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation where
+module Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+  ( NetworkFirewallMissingExpectedRTViolation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNetworkFirewallMissingExpectedRTViolation,
+
+    -- * Lenses
+    nfmertvCurrentRouteTable,
+    nfmertvAvailabilityZone,
+    nfmertvVPC,
+    nfmertvViolationTarget,
+    nfmertvExpectedRouteTable,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Violation details for AWS Network Firewall for a subnet that's not associated to the expected Firewall Manager managed route table.
 --
---
---
--- /See:/ 'networkFirewallMissingExpectedRTViolation' smart constructor.
+-- /See:/ 'mkNetworkFirewallMissingExpectedRTViolation' smart constructor.
 data NetworkFirewallMissingExpectedRTViolation = NetworkFirewallMissingExpectedRTViolation'
-  { _nfmertvCurrentRouteTable ::
-      !( Maybe
-           Text
-       ),
-    _nfmertvAvailabilityZone ::
-      !( Maybe
-           Text
-       ),
-    _nfmertvVPC ::
-      !( Maybe
-           Text
-       ),
-    _nfmertvViolationTarget ::
-      !( Maybe
-           Text
-       ),
-    _nfmertvExpectedRouteTable ::
-      !( Maybe
-           Text
-       )
+  { currentRouteTable ::
+      Lude.Maybe
+        Lude.Text,
+    availabilityZone ::
+      Lude.Maybe
+        Lude.Text,
+    vpc ::
+      Lude.Maybe
+        Lude.Text,
+    violationTarget ::
+      Lude.Maybe
+        Lude.Text,
+    expectedRouteTable ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkFirewallMissingExpectedRTViolation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nfmertvCurrentRouteTable' - The resource ID of the current route table that's associated with the subnet, if one is available.
---
--- * 'nfmertvAvailabilityZone' - The Availability Zone of a violating subnet.
---
--- * 'nfmertvVPC' - The resource ID of the VPC associated with a violating subnet.
---
--- * 'nfmertvViolationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
---
--- * 'nfmertvExpectedRouteTable' - The resource ID of the route table that should be associated with the subnet.
-networkFirewallMissingExpectedRTViolation ::
+-- * 'availabilityZone' - The Availability Zone of a violating subnet.
+-- * 'currentRouteTable' - The resource ID of the current route table that's associated with the subnet, if one is available.
+-- * 'expectedRouteTable' - The resource ID of the route table that should be associated with the subnet.
+-- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
+-- * 'vpc' - The resource ID of the VPC associated with a violating subnet.
+mkNetworkFirewallMissingExpectedRTViolation ::
   NetworkFirewallMissingExpectedRTViolation
-networkFirewallMissingExpectedRTViolation =
+mkNetworkFirewallMissingExpectedRTViolation =
   NetworkFirewallMissingExpectedRTViolation'
-    { _nfmertvCurrentRouteTable =
-        Nothing,
-      _nfmertvAvailabilityZone = Nothing,
-      _nfmertvVPC = Nothing,
-      _nfmertvViolationTarget = Nothing,
-      _nfmertvExpectedRouteTable = Nothing
+    { currentRouteTable =
+        Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      vpc = Lude.Nothing,
+      violationTarget = Lude.Nothing,
+      expectedRouteTable = Lude.Nothing
     }
 
 -- | The resource ID of the current route table that's associated with the subnet, if one is available.
-nfmertvCurrentRouteTable :: Lens' NetworkFirewallMissingExpectedRTViolation (Maybe Text)
-nfmertvCurrentRouteTable = lens _nfmertvCurrentRouteTable (\s a -> s {_nfmertvCurrentRouteTable = a})
+--
+-- /Note:/ Consider using 'currentRouteTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfmertvCurrentRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Lude.Maybe Lude.Text)
+nfmertvCurrentRouteTable = Lens.lens (currentRouteTable :: NetworkFirewallMissingExpectedRTViolation -> Lude.Maybe Lude.Text) (\s a -> s {currentRouteTable = a} :: NetworkFirewallMissingExpectedRTViolation)
+{-# DEPRECATED nfmertvCurrentRouteTable "Use generic-lens or generic-optics with 'currentRouteTable' instead." #-}
 
 -- | The Availability Zone of a violating subnet.
-nfmertvAvailabilityZone :: Lens' NetworkFirewallMissingExpectedRTViolation (Maybe Text)
-nfmertvAvailabilityZone = lens _nfmertvAvailabilityZone (\s a -> s {_nfmertvAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfmertvAvailabilityZone :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Lude.Maybe Lude.Text)
+nfmertvAvailabilityZone = Lens.lens (availabilityZone :: NetworkFirewallMissingExpectedRTViolation -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: NetworkFirewallMissingExpectedRTViolation)
+{-# DEPRECATED nfmertvAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The resource ID of the VPC associated with a violating subnet.
-nfmertvVPC :: Lens' NetworkFirewallMissingExpectedRTViolation (Maybe Text)
-nfmertvVPC = lens _nfmertvVPC (\s a -> s {_nfmertvVPC = a})
+--
+-- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfmertvVPC :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Lude.Maybe Lude.Text)
+nfmertvVPC = Lens.lens (vpc :: NetworkFirewallMissingExpectedRTViolation -> Lude.Maybe Lude.Text) (\s a -> s {vpc = a} :: NetworkFirewallMissingExpectedRTViolation)
+{-# DEPRECATED nfmertvVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
 -- | The ID of the AWS Network Firewall or VPC resource that's in violation.
-nfmertvViolationTarget :: Lens' NetworkFirewallMissingExpectedRTViolation (Maybe Text)
-nfmertvViolationTarget = lens _nfmertvViolationTarget (\s a -> s {_nfmertvViolationTarget = a})
+--
+-- /Note:/ Consider using 'violationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfmertvViolationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Lude.Maybe Lude.Text)
+nfmertvViolationTarget = Lens.lens (violationTarget :: NetworkFirewallMissingExpectedRTViolation -> Lude.Maybe Lude.Text) (\s a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRTViolation)
+{-# DEPRECATED nfmertvViolationTarget "Use generic-lens or generic-optics with 'violationTarget' instead." #-}
 
 -- | The resource ID of the route table that should be associated with the subnet.
-nfmertvExpectedRouteTable :: Lens' NetworkFirewallMissingExpectedRTViolation (Maybe Text)
-nfmertvExpectedRouteTable = lens _nfmertvExpectedRouteTable (\s a -> s {_nfmertvExpectedRouteTable = a})
+--
+-- /Note:/ Consider using 'expectedRouteTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfmertvExpectedRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Lude.Maybe Lude.Text)
+nfmertvExpectedRouteTable = Lens.lens (expectedRouteTable :: NetworkFirewallMissingExpectedRTViolation -> Lude.Maybe Lude.Text) (\s a -> s {expectedRouteTable = a} :: NetworkFirewallMissingExpectedRTViolation)
+{-# DEPRECATED nfmertvExpectedRouteTable "Use generic-lens or generic-optics with 'expectedRouteTable' instead." #-}
 
-instance FromJSON NetworkFirewallMissingExpectedRTViolation where
+instance Lude.FromJSON NetworkFirewallMissingExpectedRTViolation where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkFirewallMissingExpectedRTViolation"
       ( \x ->
           NetworkFirewallMissingExpectedRTViolation'
-            <$> (x .:? "CurrentRouteTable")
-            <*> (x .:? "AvailabilityZone")
-            <*> (x .:? "VPC")
-            <*> (x .:? "ViolationTarget")
-            <*> (x .:? "ExpectedRouteTable")
+            Lude.<$> (x Lude..:? "CurrentRouteTable")
+            Lude.<*> (x Lude..:? "AvailabilityZone")
+            Lude.<*> (x Lude..:? "VPC")
+            Lude.<*> (x Lude..:? "ViolationTarget")
+            Lude.<*> (x Lude..:? "ExpectedRouteTable")
       )
-
-instance Hashable NetworkFirewallMissingExpectedRTViolation
-
-instance NFData NetworkFirewallMissingExpectedRTViolation

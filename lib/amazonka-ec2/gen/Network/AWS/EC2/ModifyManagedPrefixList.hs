@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Modifies the specified managed prefix list.
 --
---
 -- Adding or removing entries in a prefix list creates a new version of the prefix list. Changing the name of the prefix list does not affect the version.
---
 -- If you specify a current version number that does not match the true current version number, the request fails.
 module Network.AWS.EC2.ModifyManagedPrefixList
-  ( -- * Creating a Request
-    modifyManagedPrefixList,
-    ModifyManagedPrefixList,
+  ( -- * Creating a request
+    ModifyManagedPrefixList (..),
+    mkModifyManagedPrefixList,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mmplCurrentVersion,
     mmplRemoveEntries,
     mmplPrefixListName,
@@ -36,154 +29,177 @@ module Network.AWS.EC2.ModifyManagedPrefixList
     mmplDryRun,
     mmplPrefixListId,
 
-    -- * Destructuring the Response
-    modifyManagedPrefixListResponse,
-    ModifyManagedPrefixListResponse,
+    -- * Destructuring the response
+    ModifyManagedPrefixListResponse (..),
+    mkModifyManagedPrefixListResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mmplrsPrefixList,
     mmplrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyManagedPrefixList' smart constructor.
+-- | /See:/ 'mkModifyManagedPrefixList' smart constructor.
 data ModifyManagedPrefixList = ModifyManagedPrefixList'
-  { _mmplCurrentVersion ::
-      !(Maybe Integer),
-    _mmplRemoveEntries ::
-      !(Maybe [RemovePrefixListEntry]),
-    _mmplPrefixListName :: !(Maybe Text),
-    _mmplAddEntries ::
-      !(Maybe [AddPrefixListEntry]),
-    _mmplDryRun :: !(Maybe Bool),
-    _mmplPrefixListId :: !Text
+  { currentVersion ::
+      Lude.Maybe Lude.Integer,
+    removeEntries ::
+      Lude.Maybe [RemovePrefixListEntry],
+    prefixListName :: Lude.Maybe Lude.Text,
+    addEntries ::
+      Lude.Maybe [AddPrefixListEntry],
+    dryRun :: Lude.Maybe Lude.Bool,
+    prefixListId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyManagedPrefixList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mmplCurrentVersion' - The current version of the prefix list.
---
--- * 'mmplRemoveEntries' - One or more entries to remove from the prefix list.
---
--- * 'mmplPrefixListName' - A name for the prefix list.
---
--- * 'mmplAddEntries' - One or more entries to add to the prefix list.
---
--- * 'mmplDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mmplPrefixListId' - The ID of the prefix list.
-modifyManagedPrefixList ::
-  -- | 'mmplPrefixListId'
-  Text ->
+-- * 'addEntries' - One or more entries to add to the prefix list.
+-- * 'currentVersion' - The current version of the prefix list.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'prefixListId' - The ID of the prefix list.
+-- * 'prefixListName' - A name for the prefix list.
+-- * 'removeEntries' - One or more entries to remove from the prefix list.
+mkModifyManagedPrefixList ::
+  -- | 'prefixListId'
+  Lude.Text ->
   ModifyManagedPrefixList
-modifyManagedPrefixList pPrefixListId_ =
+mkModifyManagedPrefixList pPrefixListId_ =
   ModifyManagedPrefixList'
-    { _mmplCurrentVersion = Nothing,
-      _mmplRemoveEntries = Nothing,
-      _mmplPrefixListName = Nothing,
-      _mmplAddEntries = Nothing,
-      _mmplDryRun = Nothing,
-      _mmplPrefixListId = pPrefixListId_
+    { currentVersion = Lude.Nothing,
+      removeEntries = Lude.Nothing,
+      prefixListName = Lude.Nothing,
+      addEntries = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      prefixListId = pPrefixListId_
     }
 
 -- | The current version of the prefix list.
-mmplCurrentVersion :: Lens' ModifyManagedPrefixList (Maybe Integer)
-mmplCurrentVersion = lens _mmplCurrentVersion (\s a -> s {_mmplCurrentVersion = a})
+--
+-- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplCurrentVersion :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe Lude.Integer)
+mmplCurrentVersion = Lens.lens (currentVersion :: ModifyManagedPrefixList -> Lude.Maybe Lude.Integer) (\s a -> s {currentVersion = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
 
 -- | One or more entries to remove from the prefix list.
-mmplRemoveEntries :: Lens' ModifyManagedPrefixList [RemovePrefixListEntry]
-mmplRemoveEntries = lens _mmplRemoveEntries (\s a -> s {_mmplRemoveEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplRemoveEntries :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe [RemovePrefixListEntry])
+mmplRemoveEntries = Lens.lens (removeEntries :: ModifyManagedPrefixList -> Lude.Maybe [RemovePrefixListEntry]) (\s a -> s {removeEntries = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplRemoveEntries "Use generic-lens or generic-optics with 'removeEntries' instead." #-}
 
 -- | A name for the prefix list.
-mmplPrefixListName :: Lens' ModifyManagedPrefixList (Maybe Text)
-mmplPrefixListName = lens _mmplPrefixListName (\s a -> s {_mmplPrefixListName = a})
+--
+-- /Note:/ Consider using 'prefixListName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplPrefixListName :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe Lude.Text)
+mmplPrefixListName = Lens.lens (prefixListName :: ModifyManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {prefixListName = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplPrefixListName "Use generic-lens or generic-optics with 'prefixListName' instead." #-}
 
 -- | One or more entries to add to the prefix list.
-mmplAddEntries :: Lens' ModifyManagedPrefixList [AddPrefixListEntry]
-mmplAddEntries = lens _mmplAddEntries (\s a -> s {_mmplAddEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplAddEntries :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe [AddPrefixListEntry])
+mmplAddEntries = Lens.lens (addEntries :: ModifyManagedPrefixList -> Lude.Maybe [AddPrefixListEntry]) (\s a -> s {addEntries = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplAddEntries "Use generic-lens or generic-optics with 'addEntries' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mmplDryRun :: Lens' ModifyManagedPrefixList (Maybe Bool)
-mmplDryRun = lens _mmplDryRun (\s a -> s {_mmplDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplDryRun :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe Lude.Bool)
+mmplDryRun = Lens.lens (dryRun :: ModifyManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the prefix list.
-mmplPrefixListId :: Lens' ModifyManagedPrefixList Text
-mmplPrefixListId = lens _mmplPrefixListId (\s a -> s {_mmplPrefixListId = a})
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplPrefixListId :: Lens.Lens' ModifyManagedPrefixList Lude.Text
+mmplPrefixListId = Lens.lens (prefixListId :: ModifyManagedPrefixList -> Lude.Text) (\s a -> s {prefixListId = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
-instance AWSRequest ModifyManagedPrefixList where
+instance Lude.AWSRequest ModifyManagedPrefixList where
   type Rs ModifyManagedPrefixList = ModifyManagedPrefixListResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyManagedPrefixListResponse'
-            <$> (x .@? "prefixList") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "prefixList") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyManagedPrefixList
+instance Lude.ToHeaders ModifyManagedPrefixList where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyManagedPrefixList
+instance Lude.ToPath ModifyManagedPrefixList where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyManagedPrefixList where
-  toHeaders = const mempty
-
-instance ToPath ModifyManagedPrefixList where
-  toPath = const "/"
-
-instance ToQuery ModifyManagedPrefixList where
+instance Lude.ToQuery ModifyManagedPrefixList where
   toQuery ModifyManagedPrefixList' {..} =
-    mconcat
-      [ "Action" =: ("ModifyManagedPrefixList" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "CurrentVersion" =: _mmplCurrentVersion,
-        toQuery (toQueryList "RemoveEntry" <$> _mmplRemoveEntries),
-        "PrefixListName" =: _mmplPrefixListName,
-        toQuery (toQueryList "AddEntry" <$> _mmplAddEntries),
-        "DryRun" =: _mmplDryRun,
-        "PrefixListId" =: _mmplPrefixListId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyManagedPrefixList" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "CurrentVersion" Lude.=: currentVersion,
+        Lude.toQuery
+          (Lude.toQueryList "RemoveEntry" Lude.<$> removeEntries),
+        "PrefixListName" Lude.=: prefixListName,
+        Lude.toQuery (Lude.toQueryList "AddEntry" Lude.<$> addEntries),
+        "DryRun" Lude.=: dryRun,
+        "PrefixListId" Lude.=: prefixListId
       ]
 
--- | /See:/ 'modifyManagedPrefixListResponse' smart constructor.
+-- | /See:/ 'mkModifyManagedPrefixListResponse' smart constructor.
 data ModifyManagedPrefixListResponse = ModifyManagedPrefixListResponse'
-  { _mmplrsPrefixList ::
-      !(Maybe ManagedPrefixList),
-    _mmplrsResponseStatus ::
-      !Int
+  { prefixList ::
+      Lude.Maybe
+        ManagedPrefixList,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyManagedPrefixListResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mmplrsPrefixList' - Information about the prefix list.
---
--- * 'mmplrsResponseStatus' - -- | The response status code.
-modifyManagedPrefixListResponse ::
-  -- | 'mmplrsResponseStatus'
-  Int ->
+-- * 'prefixList' - Information about the prefix list.
+-- * 'responseStatus' - The response status code.
+mkModifyManagedPrefixListResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyManagedPrefixListResponse
-modifyManagedPrefixListResponse pResponseStatus_ =
+mkModifyManagedPrefixListResponse pResponseStatus_ =
   ModifyManagedPrefixListResponse'
-    { _mmplrsPrefixList = Nothing,
-      _mmplrsResponseStatus = pResponseStatus_
+    { prefixList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the prefix list.
-mmplrsPrefixList :: Lens' ModifyManagedPrefixListResponse (Maybe ManagedPrefixList)
-mmplrsPrefixList = lens _mmplrsPrefixList (\s a -> s {_mmplrsPrefixList = a})
+--
+-- /Note:/ Consider using 'prefixList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplrsPrefixList :: Lens.Lens' ModifyManagedPrefixListResponse (Lude.Maybe ManagedPrefixList)
+mmplrsPrefixList = Lens.lens (prefixList :: ModifyManagedPrefixListResponse -> Lude.Maybe ManagedPrefixList) (\s a -> s {prefixList = a} :: ModifyManagedPrefixListResponse)
+{-# DEPRECATED mmplrsPrefixList "Use generic-lens or generic-optics with 'prefixList' instead." #-}
 
--- | -- | The response status code.
-mmplrsResponseStatus :: Lens' ModifyManagedPrefixListResponse Int
-mmplrsResponseStatus = lens _mmplrsResponseStatus (\s a -> s {_mmplrsResponseStatus = a})
-
-instance NFData ModifyManagedPrefixListResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplrsResponseStatus :: Lens.Lens' ModifyManagedPrefixListResponse Lude.Int
+mmplrsResponseStatus = Lens.lens (responseStatus :: ModifyManagedPrefixListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyManagedPrefixListResponse)
+{-# DEPRECATED mmplrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

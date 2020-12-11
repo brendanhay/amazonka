@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EventItemResponse where
+module Network.AWS.Pinpoint.Types.EventItemResponse
+  ( EventItemResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventItemResponse,
+
+    -- * Lenses
+    eMessage,
+    eStatusCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the status code and message that result from processing an event.
 --
---
---
--- /See:/ 'eventItemResponse' smart constructor.
+-- /See:/ 'mkEventItemResponse' smart constructor.
 data EventItemResponse = EventItemResponse'
-  { _eMessage ::
-      !(Maybe Text),
-    _eStatusCode :: !(Maybe Int)
+  { message ::
+      Lude.Maybe Lude.Text,
+    statusCode :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventItemResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eMessage' - A custom message that's returned in the response as a result of processing the event.
---
--- * 'eStatusCode' - The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
-eventItemResponse ::
+-- * 'message' - A custom message that's returned in the response as a result of processing the event.
+-- * 'statusCode' - The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
+mkEventItemResponse ::
   EventItemResponse
-eventItemResponse =
-  EventItemResponse' {_eMessage = Nothing, _eStatusCode = Nothing}
+mkEventItemResponse =
+  EventItemResponse'
+    { message = Lude.Nothing,
+      statusCode = Lude.Nothing
+    }
 
 -- | A custom message that's returned in the response as a result of processing the event.
-eMessage :: Lens' EventItemResponse (Maybe Text)
-eMessage = lens _eMessage (\s a -> s {_eMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMessage :: Lens.Lens' EventItemResponse (Lude.Maybe Lude.Text)
+eMessage = Lens.lens (message :: EventItemResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EventItemResponse)
+{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
-eStatusCode :: Lens' EventItemResponse (Maybe Int)
-eStatusCode = lens _eStatusCode (\s a -> s {_eStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eStatusCode :: Lens.Lens' EventItemResponse (Lude.Maybe Lude.Int)
+eStatusCode = Lens.lens (statusCode :: EventItemResponse -> Lude.Maybe Lude.Int) (\s a -> s {statusCode = a} :: EventItemResponse)
+{-# DEPRECATED eStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON EventItemResponse where
+instance Lude.FromJSON EventItemResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventItemResponse"
       ( \x ->
-          EventItemResponse' <$> (x .:? "Message") <*> (x .:? "StatusCode")
+          EventItemResponse'
+            Lude.<$> (x Lude..:? "Message") Lude.<*> (x Lude..:? "StatusCode")
       )
-
-instance Hashable EventItemResponse
-
-instance NFData EventItemResponse

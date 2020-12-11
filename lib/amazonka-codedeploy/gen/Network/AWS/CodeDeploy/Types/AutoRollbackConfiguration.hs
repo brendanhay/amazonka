@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration where
+module Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
+  ( AutoRollbackConfiguration (..),
+
+    -- * Smart constructor
+    mkAutoRollbackConfiguration,
+
+    -- * Lenses
+    arcEnabled,
+    arcEvents,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.AutoRollbackEvent
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment is not completed successfully.
 --
---
---
--- /See:/ 'autoRollbackConfiguration' smart constructor.
+-- /See:/ 'mkAutoRollbackConfiguration' smart constructor.
 data AutoRollbackConfiguration = AutoRollbackConfiguration'
-  { _arcEnabled ::
-      !(Maybe Bool),
-    _arcEvents ::
-      !(Maybe [AutoRollbackEvent])
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    events ::
+      Lude.Maybe [AutoRollbackEvent]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoRollbackConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arcEnabled' - Indicates whether a defined automatic rollback configuration is currently enabled.
---
--- * 'arcEvents' - The event type or types that trigger a rollback.
-autoRollbackConfiguration ::
+-- * 'enabled' - Indicates whether a defined automatic rollback configuration is currently enabled.
+-- * 'events' - The event type or types that trigger a rollback.
+mkAutoRollbackConfiguration ::
   AutoRollbackConfiguration
-autoRollbackConfiguration =
+mkAutoRollbackConfiguration =
   AutoRollbackConfiguration'
-    { _arcEnabled = Nothing,
-      _arcEvents = Nothing
+    { enabled = Lude.Nothing,
+      events = Lude.Nothing
     }
 
 -- | Indicates whether a defined automatic rollback configuration is currently enabled.
-arcEnabled :: Lens' AutoRollbackConfiguration (Maybe Bool)
-arcEnabled = lens _arcEnabled (\s a -> s {_arcEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arcEnabled :: Lens.Lens' AutoRollbackConfiguration (Lude.Maybe Lude.Bool)
+arcEnabled = Lens.lens (enabled :: AutoRollbackConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AutoRollbackConfiguration)
+{-# DEPRECATED arcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The event type or types that trigger a rollback.
-arcEvents :: Lens' AutoRollbackConfiguration [AutoRollbackEvent]
-arcEvents = lens _arcEvents (\s a -> s {_arcEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arcEvents :: Lens.Lens' AutoRollbackConfiguration (Lude.Maybe [AutoRollbackEvent])
+arcEvents = Lens.lens (events :: AutoRollbackConfiguration -> Lude.Maybe [AutoRollbackEvent]) (\s a -> s {events = a} :: AutoRollbackConfiguration)
+{-# DEPRECATED arcEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance FromJSON AutoRollbackConfiguration where
+instance Lude.FromJSON AutoRollbackConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoRollbackConfiguration"
       ( \x ->
           AutoRollbackConfiguration'
-            <$> (x .:? "enabled") <*> (x .:? "events" .!= mempty)
+            Lude.<$> (x Lude..:? "enabled")
+            Lude.<*> (x Lude..:? "events" Lude..!= Lude.mempty)
       )
 
-instance Hashable AutoRollbackConfiguration
-
-instance NFData AutoRollbackConfiguration
-
-instance ToJSON AutoRollbackConfiguration where
+instance Lude.ToJSON AutoRollbackConfiguration where
   toJSON AutoRollbackConfiguration' {..} =
-    object
-      ( catMaybes
-          [("enabled" .=) <$> _arcEnabled, ("events" .=) <$> _arcEvents]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("enabled" Lude..=) Lude.<$> enabled,
+            ("events" Lude..=) Lude.<$> events
+          ]
       )

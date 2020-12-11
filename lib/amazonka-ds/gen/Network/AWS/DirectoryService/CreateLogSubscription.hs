@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Creates a subscription to forward real-time Directory Service domain controller security logs to the specified Amazon CloudWatch log group in your AWS account.
 module Network.AWS.DirectoryService.CreateLogSubscription
-  ( -- * Creating a Request
-    createLogSubscription,
-    CreateLogSubscription,
+  ( -- * Creating a request
+    CreateLogSubscription (..),
+    mkCreateLogSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clsDirectoryId,
     clsLogGroupName,
 
-    -- * Destructuring the Response
-    createLogSubscriptionResponse,
-    CreateLogSubscriptionResponse,
+    -- * Destructuring the response
+    CreateLogSubscriptionResponse (..),
+    mkCreateLogSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clsrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createLogSubscription' smart constructor.
+-- | /See:/ 'mkCreateLogSubscription' smart constructor.
 data CreateLogSubscription = CreateLogSubscription'
-  { _clsDirectoryId ::
-      !Text,
-    _clsLogGroupName :: !Text
+  { directoryId ::
+      Lude.Text,
+    logGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLogSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clsDirectoryId' - Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.
---
--- * 'clsLogGroupName' - The name of the CloudWatch log group where the real-time domain controller logs are forwarded.
-createLogSubscription ::
-  -- | 'clsDirectoryId'
-  Text ->
-  -- | 'clsLogGroupName'
-  Text ->
+-- * 'directoryId' - Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.
+-- * 'logGroupName' - The name of the CloudWatch log group where the real-time domain controller logs are forwarded.
+mkCreateLogSubscription ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'logGroupName'
+  Lude.Text ->
   CreateLogSubscription
-createLogSubscription pDirectoryId_ pLogGroupName_ =
+mkCreateLogSubscription pDirectoryId_ pLogGroupName_ =
   CreateLogSubscription'
-    { _clsDirectoryId = pDirectoryId_,
-      _clsLogGroupName = pLogGroupName_
+    { directoryId = pDirectoryId_,
+      logGroupName = pLogGroupName_
     }
 
 -- | Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.
-clsDirectoryId :: Lens' CreateLogSubscription Text
-clsDirectoryId = lens _clsDirectoryId (\s a -> s {_clsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clsDirectoryId :: Lens.Lens' CreateLogSubscription Lude.Text
+clsDirectoryId = Lens.lens (directoryId :: CreateLogSubscription -> Lude.Text) (\s a -> s {directoryId = a} :: CreateLogSubscription)
+{-# DEPRECATED clsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the CloudWatch log group where the real-time domain controller logs are forwarded.
-clsLogGroupName :: Lens' CreateLogSubscription Text
-clsLogGroupName = lens _clsLogGroupName (\s a -> s {_clsLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clsLogGroupName :: Lens.Lens' CreateLogSubscription Lude.Text
+clsLogGroupName = Lens.lens (logGroupName :: CreateLogSubscription -> Lude.Text) (\s a -> s {logGroupName = a} :: CreateLogSubscription)
+{-# DEPRECATED clsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance AWSRequest CreateLogSubscription where
+instance Lude.AWSRequest CreateLogSubscription where
   type Rs CreateLogSubscription = CreateLogSubscriptionResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> CreateLogSubscriptionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateLogSubscriptionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateLogSubscription
-
-instance NFData CreateLogSubscription
-
-instance ToHeaders CreateLogSubscription where
+instance Lude.ToHeaders CreateLogSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.CreateLogSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.CreateLogSubscription" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateLogSubscription where
+instance Lude.ToJSON CreateLogSubscription where
   toJSON CreateLogSubscription' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _clsDirectoryId),
-            Just ("LogGroupName" .= _clsLogGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("LogGroupName" Lude..= logGroupName)
           ]
       )
 
-instance ToPath CreateLogSubscription where
-  toPath = const "/"
+instance Lude.ToPath CreateLogSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateLogSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery CreateLogSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createLogSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkCreateLogSubscriptionResponse' smart constructor.
 newtype CreateLogSubscriptionResponse = CreateLogSubscriptionResponse'
-  { _clsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLogSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clsrsResponseStatus' - -- | The response status code.
-createLogSubscriptionResponse ::
-  -- | 'clsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateLogSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLogSubscriptionResponse
-createLogSubscriptionResponse pResponseStatus_ =
-  CreateLogSubscriptionResponse'
-    { _clsrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateLogSubscriptionResponse pResponseStatus_ =
+  CreateLogSubscriptionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-clsrsResponseStatus :: Lens' CreateLogSubscriptionResponse Int
-clsrsResponseStatus = lens _clsrsResponseStatus (\s a -> s {_clsrsResponseStatus = a})
-
-instance NFData CreateLogSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clsrsResponseStatus :: Lens.Lens' CreateLogSubscriptionResponse Lude.Int
+clsrsResponseStatus = Lens.lens (responseStatus :: CreateLogSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLogSubscriptionResponse)
+{-# DEPRECATED clsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

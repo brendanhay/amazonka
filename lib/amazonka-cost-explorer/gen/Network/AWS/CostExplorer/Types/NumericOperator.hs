@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.NumericOperator where
+module Network.AWS.CostExplorer.Types.NumericOperator
+  ( NumericOperator
+      ( NumericOperator',
+        Between,
+        Equal,
+        GreaterThan,
+        GreaterThanOrEqual,
+        LessThan,
+        LessThanOrEqual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NumericOperator
-  = Between
-  | Equal
-  | GreaterThan
-  | GreaterThanOrEqual
-  | LessThan
-  | LessThanOrEqual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NumericOperator = NumericOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NumericOperator where
-  parser =
-    takeLowerText >>= \case
-      "between" -> pure Between
-      "equal" -> pure Equal
-      "greater_than" -> pure GreaterThan
-      "greater_than_or_equal" -> pure GreaterThanOrEqual
-      "less_than" -> pure LessThan
-      "less_than_or_equal" -> pure LessThanOrEqual
-      e ->
-        fromTextError $
-          "Failure parsing NumericOperator from value: '" <> e
-            <> "'. Accepted values: between, equal, greater_than, greater_than_or_equal, less_than, less_than_or_equal"
+pattern Between :: NumericOperator
+pattern Between = NumericOperator' "BETWEEN"
 
-instance ToText NumericOperator where
-  toText = \case
-    Between -> "BETWEEN"
-    Equal -> "EQUAL"
-    GreaterThan -> "GREATER_THAN"
-    GreaterThanOrEqual -> "GREATER_THAN_OR_EQUAL"
-    LessThan -> "LESS_THAN"
-    LessThanOrEqual -> "LESS_THAN_OR_EQUAL"
+pattern Equal :: NumericOperator
+pattern Equal = NumericOperator' "EQUAL"
 
-instance Hashable NumericOperator
+pattern GreaterThan :: NumericOperator
+pattern GreaterThan = NumericOperator' "GREATER_THAN"
 
-instance NFData NumericOperator
+pattern GreaterThanOrEqual :: NumericOperator
+pattern GreaterThanOrEqual = NumericOperator' "GREATER_THAN_OR_EQUAL"
 
-instance ToByteString NumericOperator
+pattern LessThan :: NumericOperator
+pattern LessThan = NumericOperator' "LESS_THAN"
 
-instance ToQuery NumericOperator
+pattern LessThanOrEqual :: NumericOperator
+pattern LessThanOrEqual = NumericOperator' "LESS_THAN_OR_EQUAL"
 
-instance ToHeader NumericOperator
-
-instance ToJSON NumericOperator where
-  toJSON = toJSONText
+{-# COMPLETE
+  Between,
+  Equal,
+  GreaterThan,
+  GreaterThanOrEqual,
+  LessThan,
+  LessThanOrEqual,
+  NumericOperator'
+  #-}

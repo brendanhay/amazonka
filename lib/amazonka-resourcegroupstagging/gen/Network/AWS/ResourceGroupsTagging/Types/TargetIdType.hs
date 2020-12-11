@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroupsTagging.Types.TargetIdType where
+module Network.AWS.ResourceGroupsTagging.Types.TargetIdType
+  ( TargetIdType
+      ( TargetIdType',
+        Account,
+        OU,
+        Root
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetIdType
-  = Account
-  | OU
-  | Root
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetIdType = TargetIdType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetIdType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure Account
-      "ou" -> pure OU
-      "root" -> pure Root
-      e ->
-        fromTextError $
-          "Failure parsing TargetIdType from value: '" <> e
-            <> "'. Accepted values: account, ou, root"
+pattern Account :: TargetIdType
+pattern Account = TargetIdType' "ACCOUNT"
 
-instance ToText TargetIdType where
-  toText = \case
-    Account -> "ACCOUNT"
-    OU -> "OU"
-    Root -> "ROOT"
+pattern OU :: TargetIdType
+pattern OU = TargetIdType' "OU"
 
-instance Hashable TargetIdType
+pattern Root :: TargetIdType
+pattern Root = TargetIdType' "ROOT"
 
-instance NFData TargetIdType
-
-instance ToByteString TargetIdType
-
-instance ToQuery TargetIdType
-
-instance ToHeader TargetIdType
-
-instance FromJSON TargetIdType where
-  parseJSON = parseJSONText "TargetIdType"
+{-# COMPLETE
+  Account,
+  OU,
+  Root,
+  TargetIdType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.ThrottleSettings where
+module Network.AWS.APIGateway.Types.ThrottleSettings
+  ( ThrottleSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkThrottleSettings,
+
+    -- * Lenses
+    tsBurstLimit,
+    tsRateLimit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The API request rate limits.
 --
---
---
--- /See:/ 'throttleSettings' smart constructor.
+-- /See:/ 'mkThrottleSettings' smart constructor.
 data ThrottleSettings = ThrottleSettings'
-  { _tsBurstLimit ::
-      !(Maybe Int),
-    _tsRateLimit :: !(Maybe Double)
+  { burstLimit ::
+      Lude.Maybe Lude.Int,
+    rateLimit :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThrottleSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsBurstLimit' - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
---
--- * 'tsRateLimit' - The API request steady-state rate limit.
-throttleSettings ::
+-- * 'burstLimit' - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+-- * 'rateLimit' - The API request steady-state rate limit.
+mkThrottleSettings ::
   ThrottleSettings
-throttleSettings =
+mkThrottleSettings =
   ThrottleSettings'
-    { _tsBurstLimit = Nothing,
-      _tsRateLimit = Nothing
+    { burstLimit = Lude.Nothing,
+      rateLimit = Lude.Nothing
     }
 
 -- | The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-tsBurstLimit :: Lens' ThrottleSettings (Maybe Int)
-tsBurstLimit = lens _tsBurstLimit (\s a -> s {_tsBurstLimit = a})
+--
+-- /Note:/ Consider using 'burstLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsBurstLimit :: Lens.Lens' ThrottleSettings (Lude.Maybe Lude.Int)
+tsBurstLimit = Lens.lens (burstLimit :: ThrottleSettings -> Lude.Maybe Lude.Int) (\s a -> s {burstLimit = a} :: ThrottleSettings)
+{-# DEPRECATED tsBurstLimit "Use generic-lens or generic-optics with 'burstLimit' instead." #-}
 
 -- | The API request steady-state rate limit.
-tsRateLimit :: Lens' ThrottleSettings (Maybe Double)
-tsRateLimit = lens _tsRateLimit (\s a -> s {_tsRateLimit = a})
+--
+-- /Note:/ Consider using 'rateLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsRateLimit :: Lens.Lens' ThrottleSettings (Lude.Maybe Lude.Double)
+tsRateLimit = Lens.lens (rateLimit :: ThrottleSettings -> Lude.Maybe Lude.Double) (\s a -> s {rateLimit = a} :: ThrottleSettings)
+{-# DEPRECATED tsRateLimit "Use generic-lens or generic-optics with 'rateLimit' instead." #-}
 
-instance FromJSON ThrottleSettings where
+instance Lude.FromJSON ThrottleSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThrottleSettings"
       ( \x ->
-          ThrottleSettings' <$> (x .:? "burstLimit") <*> (x .:? "rateLimit")
+          ThrottleSettings'
+            Lude.<$> (x Lude..:? "burstLimit") Lude.<*> (x Lude..:? "rateLimit")
       )
 
-instance Hashable ThrottleSettings
-
-instance NFData ThrottleSettings
-
-instance ToJSON ThrottleSettings where
+instance Lude.ToJSON ThrottleSettings where
   toJSON ThrottleSettings' {..} =
-    object
-      ( catMaybes
-          [ ("burstLimit" .=) <$> _tsBurstLimit,
-            ("rateLimit" .=) <$> _tsRateLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("burstLimit" Lude..=) Lude.<$> burstLimit,
+            ("rateLimit" Lude..=) Lude.<$> rateLimit
           ]
       )

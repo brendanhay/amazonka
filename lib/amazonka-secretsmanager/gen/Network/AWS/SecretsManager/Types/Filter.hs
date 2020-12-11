@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecretsManager.Types.Filter where
+module Network.AWS.SecretsManager.Types.Filter
+  ( Filter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFilter,
+
+    -- * Lenses
+    fValues,
+    fKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SecretsManager.Types.FilterNameStringType
 
 -- | Allows you to filter your list of secrets.
 --
---
---
--- /See:/ 'filter'' smart constructor.
+-- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { _fValues :: !(Maybe (List1 Text)),
-    _fKey :: !(Maybe FilterNameStringType)
+  { values ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    key :: Lude.Maybe FilterNameStringType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fValues' - Filters your list of secrets by a specific value.
---
--- * 'fKey' - Filters your list of secrets by a specific key.
-filter' ::
+-- * 'key' - Filters your list of secrets by a specific key.
+-- * 'values' - Filters your list of secrets by a specific value.
+mkFilter ::
   Filter
-filter' = Filter' {_fValues = Nothing, _fKey = Nothing}
+mkFilter = Filter' {values = Lude.Nothing, key = Lude.Nothing}
 
 -- | Filters your list of secrets by a specific value.
-fValues :: Lens' Filter (Maybe (NonEmpty Text))
-fValues = lens _fValues (\s a -> s {_fValues = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fValues :: Lens.Lens' Filter (Lude.Maybe (Lude.NonEmpty Lude.Text))
+fValues = Lens.lens (values :: Filter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {values = a} :: Filter)
+{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | Filters your list of secrets by a specific key.
-fKey :: Lens' Filter (Maybe FilterNameStringType)
-fKey = lens _fKey (\s a -> s {_fKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fKey :: Lens.Lens' Filter (Lude.Maybe FilterNameStringType)
+fKey = Lens.lens (key :: Filter -> Lude.Maybe FilterNameStringType) (\s a -> s {key = a} :: Filter)
+{-# DEPRECATED fKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable Filter
-
-instance NFData Filter
-
-instance ToJSON Filter where
+instance Lude.ToJSON Filter where
   toJSON Filter' {..} =
-    object
-      (catMaybes [("Values" .=) <$> _fValues, ("Key" .=) <$> _fKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+      )

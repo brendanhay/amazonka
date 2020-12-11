@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.AutoSnapshotDetails where
+module Network.AWS.Lightsail.Types.AutoSnapshotDetails
+  ( AutoSnapshotDetails (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAutoSnapshotDetails,
+
+    -- * Lenses
+    asdStatus,
+    asdFromAttachedDisks,
+    asdCreatedAt,
+    asdDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.AttachedDisk
 import Network.AWS.Lightsail.Types.AutoSnapshotStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an automatic snapshot.
 --
---
---
--- /See:/ 'autoSnapshotDetails' smart constructor.
+-- /See:/ 'mkAutoSnapshotDetails' smart constructor.
 data AutoSnapshotDetails = AutoSnapshotDetails'
-  { _asdStatus ::
-      !(Maybe AutoSnapshotStatus),
-    _asdFromAttachedDisks :: !(Maybe [AttachedDisk]),
-    _asdCreatedAt :: !(Maybe POSIX),
-    _asdDate :: !(Maybe Text)
+  { status ::
+      Lude.Maybe AutoSnapshotStatus,
+    fromAttachedDisks :: Lude.Maybe [AttachedDisk],
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    date :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoSnapshotDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asdStatus' - The status of the automatic snapshot.
---
--- * 'asdFromAttachedDisks' - An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
---
--- * 'asdCreatedAt' - The timestamp when the automatic snapshot was created.
---
--- * 'asdDate' - The date of the automatic snapshot in @YYYY-MM-DD@ format.
-autoSnapshotDetails ::
+-- * 'createdAt' - The timestamp when the automatic snapshot was created.
+-- * 'date' - The date of the automatic snapshot in @YYYY-MM-DD@ format.
+-- * 'fromAttachedDisks' - An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
+-- * 'status' - The status of the automatic snapshot.
+mkAutoSnapshotDetails ::
   AutoSnapshotDetails
-autoSnapshotDetails =
+mkAutoSnapshotDetails =
   AutoSnapshotDetails'
-    { _asdStatus = Nothing,
-      _asdFromAttachedDisks = Nothing,
-      _asdCreatedAt = Nothing,
-      _asdDate = Nothing
+    { status = Lude.Nothing,
+      fromAttachedDisks = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      date = Lude.Nothing
     }
 
 -- | The status of the automatic snapshot.
-asdStatus :: Lens' AutoSnapshotDetails (Maybe AutoSnapshotStatus)
-asdStatus = lens _asdStatus (\s a -> s {_asdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdStatus :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe AutoSnapshotStatus)
+asdStatus = Lens.lens (status :: AutoSnapshotDetails -> Lude.Maybe AutoSnapshotStatus) (\s a -> s {status = a} :: AutoSnapshotDetails)
+{-# DEPRECATED asdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
-asdFromAttachedDisks :: Lens' AutoSnapshotDetails [AttachedDisk]
-asdFromAttachedDisks = lens _asdFromAttachedDisks (\s a -> s {_asdFromAttachedDisks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fromAttachedDisks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdFromAttachedDisks :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe [AttachedDisk])
+asdFromAttachedDisks = Lens.lens (fromAttachedDisks :: AutoSnapshotDetails -> Lude.Maybe [AttachedDisk]) (\s a -> s {fromAttachedDisks = a} :: AutoSnapshotDetails)
+{-# DEPRECATED asdFromAttachedDisks "Use generic-lens or generic-optics with 'fromAttachedDisks' instead." #-}
 
 -- | The timestamp when the automatic snapshot was created.
-asdCreatedAt :: Lens' AutoSnapshotDetails (Maybe UTCTime)
-asdCreatedAt = lens _asdCreatedAt (\s a -> s {_asdCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdCreatedAt :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe Lude.Timestamp)
+asdCreatedAt = Lens.lens (createdAt :: AutoSnapshotDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: AutoSnapshotDetails)
+{-# DEPRECATED asdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The date of the automatic snapshot in @YYYY-MM-DD@ format.
-asdDate :: Lens' AutoSnapshotDetails (Maybe Text)
-asdDate = lens _asdDate (\s a -> s {_asdDate = a})
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdDate :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe Lude.Text)
+asdDate = Lens.lens (date :: AutoSnapshotDetails -> Lude.Maybe Lude.Text) (\s a -> s {date = a} :: AutoSnapshotDetails)
+{-# DEPRECATED asdDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
-instance FromJSON AutoSnapshotDetails where
+instance Lude.FromJSON AutoSnapshotDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoSnapshotDetails"
       ( \x ->
           AutoSnapshotDetails'
-            <$> (x .:? "status")
-            <*> (x .:? "fromAttachedDisks" .!= mempty)
-            <*> (x .:? "createdAt")
-            <*> (x .:? "date")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "fromAttachedDisks" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "date")
       )
-
-instance Hashable AutoSnapshotDetails
-
-instance NFData AutoSnapshotDetails

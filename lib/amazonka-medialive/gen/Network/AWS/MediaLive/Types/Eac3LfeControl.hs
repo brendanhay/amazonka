@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3LfeControl where
+module Network.AWS.MediaLive.Types.Eac3LfeControl
+  ( Eac3LfeControl
+      ( Eac3LfeControl',
+        Lfe,
+        NoLfe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Eac3 Lfe Control
-data Eac3LfeControl
-  = Lfe
-  | NoLfe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3LfeControl = Eac3LfeControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3LfeControl where
-  parser =
-    takeLowerText >>= \case
-      "lfe" -> pure Lfe
-      "no_lfe" -> pure NoLfe
-      e ->
-        fromTextError $
-          "Failure parsing Eac3LfeControl from value: '" <> e
-            <> "'. Accepted values: lfe, no_lfe"
+pattern Lfe :: Eac3LfeControl
+pattern Lfe = Eac3LfeControl' "LFE"
 
-instance ToText Eac3LfeControl where
-  toText = \case
-    Lfe -> "LFE"
-    NoLfe -> "NO_LFE"
+pattern NoLfe :: Eac3LfeControl
+pattern NoLfe = Eac3LfeControl' "NO_LFE"
 
-instance Hashable Eac3LfeControl
-
-instance NFData Eac3LfeControl
-
-instance ToByteString Eac3LfeControl
-
-instance ToQuery Eac3LfeControl
-
-instance ToHeader Eac3LfeControl
-
-instance ToJSON Eac3LfeControl where
-  toJSON = toJSONText
-
-instance FromJSON Eac3LfeControl where
-  parseJSON = parseJSONText "Eac3LfeControl"
+{-# COMPLETE
+  Lfe,
+  NoLfe,
+  Eac3LfeControl'
+  #-}

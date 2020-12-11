@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,126 @@
 --
 -- Deletes the specified image builder and releases the capacity.
 module Network.AWS.AppStream.DeleteImageBuilder
-  ( -- * Creating a Request
-    deleteImageBuilder,
-    DeleteImageBuilder,
+  ( -- * Creating a request
+    DeleteImageBuilder (..),
+    mkDeleteImageBuilder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dibName,
 
-    -- * Destructuring the Response
-    deleteImageBuilderResponse,
-    DeleteImageBuilderResponse,
+    -- * Destructuring the response
+    DeleteImageBuilderResponse (..),
+    mkDeleteImageBuilderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dibrsImageBuilder,
     dibrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteImageBuilder' smart constructor.
-newtype DeleteImageBuilder = DeleteImageBuilder' {_dibName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteImageBuilder' smart constructor.
+newtype DeleteImageBuilder = DeleteImageBuilder' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageBuilder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dibName' - The name of the image builder.
-deleteImageBuilder ::
-  -- | 'dibName'
-  Text ->
+-- * 'name' - The name of the image builder.
+mkDeleteImageBuilder ::
+  -- | 'name'
+  Lude.Text ->
   DeleteImageBuilder
-deleteImageBuilder pName_ = DeleteImageBuilder' {_dibName = pName_}
+mkDeleteImageBuilder pName_ = DeleteImageBuilder' {name = pName_}
 
 -- | The name of the image builder.
-dibName :: Lens' DeleteImageBuilder Text
-dibName = lens _dibName (\s a -> s {_dibName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dibName :: Lens.Lens' DeleteImageBuilder Lude.Text
+dibName = Lens.lens (name :: DeleteImageBuilder -> Lude.Text) (\s a -> s {name = a} :: DeleteImageBuilder)
+{-# DEPRECATED dibName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteImageBuilder where
+instance Lude.AWSRequest DeleteImageBuilder where
   type Rs DeleteImageBuilder = DeleteImageBuilderResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteImageBuilderResponse'
-            <$> (x .?> "ImageBuilder") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImageBuilder") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteImageBuilder
-
-instance NFData DeleteImageBuilder
-
-instance ToHeaders DeleteImageBuilder where
+instance Lude.ToHeaders DeleteImageBuilder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DeleteImageBuilder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DeleteImageBuilder" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteImageBuilder where
+instance Lude.ToJSON DeleteImageBuilder where
   toJSON DeleteImageBuilder' {..} =
-    object (catMaybes [Just ("Name" .= _dibName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteImageBuilder where
-  toPath = const "/"
+instance Lude.ToPath DeleteImageBuilder where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteImageBuilder where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteImageBuilder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteImageBuilderResponse' smart constructor.
+-- | /See:/ 'mkDeleteImageBuilderResponse' smart constructor.
 data DeleteImageBuilderResponse = DeleteImageBuilderResponse'
-  { _dibrsImageBuilder ::
-      !(Maybe ImageBuilder),
-    _dibrsResponseStatus :: !Int
+  { imageBuilder ::
+      Lude.Maybe ImageBuilder,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageBuilderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dibrsImageBuilder' - Information about the image builder.
---
--- * 'dibrsResponseStatus' - -- | The response status code.
-deleteImageBuilderResponse ::
-  -- | 'dibrsResponseStatus'
-  Int ->
+-- * 'imageBuilder' - Information about the image builder.
+-- * 'responseStatus' - The response status code.
+mkDeleteImageBuilderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteImageBuilderResponse
-deleteImageBuilderResponse pResponseStatus_ =
+mkDeleteImageBuilderResponse pResponseStatus_ =
   DeleteImageBuilderResponse'
-    { _dibrsImageBuilder = Nothing,
-      _dibrsResponseStatus = pResponseStatus_
+    { imageBuilder = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the image builder.
-dibrsImageBuilder :: Lens' DeleteImageBuilderResponse (Maybe ImageBuilder)
-dibrsImageBuilder = lens _dibrsImageBuilder (\s a -> s {_dibrsImageBuilder = a})
+--
+-- /Note:/ Consider using 'imageBuilder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dibrsImageBuilder :: Lens.Lens' DeleteImageBuilderResponse (Lude.Maybe ImageBuilder)
+dibrsImageBuilder = Lens.lens (imageBuilder :: DeleteImageBuilderResponse -> Lude.Maybe ImageBuilder) (\s a -> s {imageBuilder = a} :: DeleteImageBuilderResponse)
+{-# DEPRECATED dibrsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
 
--- | -- | The response status code.
-dibrsResponseStatus :: Lens' DeleteImageBuilderResponse Int
-dibrsResponseStatus = lens _dibrsResponseStatus (\s a -> s {_dibrsResponseStatus = a})
-
-instance NFData DeleteImageBuilderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dibrsResponseStatus :: Lens.Lens' DeleteImageBuilderResponse Lude.Int
+dibrsResponseStatus = Lens.lens (responseStatus :: DeleteImageBuilderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImageBuilderResponse)
+{-# DEPRECATED dibrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

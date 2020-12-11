@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns an array of @ProtocolsListDataSummary@ objects.
 module Network.AWS.FMS.ListProtocolsLists
-  ( -- * Creating a Request
-    listProtocolsLists,
-    ListProtocolsLists,
+  ( -- * Creating a request
+    ListProtocolsLists (..),
+    mkListProtocolsLists,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lplDefaultLists,
     lplNextToken,
     lplMaxResults,
 
-    -- * Destructuring the Response
-    listProtocolsListsResponse,
-    ListProtocolsListsResponse,
+    -- * Destructuring the response
+    ListProtocolsListsResponse (..),
+    mkListProtocolsListsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lplrsProtocolsLists,
     lplrsNextToken,
     lplrsResponseStatus,
@@ -40,133 +35,156 @@ module Network.AWS.FMS.ListProtocolsLists
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listProtocolsLists' smart constructor.
+-- | /See:/ 'mkListProtocolsLists' smart constructor.
 data ListProtocolsLists = ListProtocolsLists'
-  { _lplDefaultLists ::
-      !(Maybe Bool),
-    _lplNextToken :: !(Maybe Text),
-    _lplMaxResults :: !Nat
+  { defaultLists ::
+      Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProtocolsLists' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'defaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
+-- * 'maxResults' - The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects.
 --
--- * 'lplDefaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
---
--- * 'lplNextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
---
--- * 'lplMaxResults' - The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects. If you don't specify this, AWS Firewall Manager returns all available objects.
-listProtocolsLists ::
-  -- | 'lplMaxResults'
-  Natural ->
+-- If you don't specify this, AWS Firewall Manager returns all available objects.
+-- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
+mkListProtocolsLists ::
+  -- | 'maxResults'
+  Lude.Natural ->
   ListProtocolsLists
-listProtocolsLists pMaxResults_ =
+mkListProtocolsLists pMaxResults_ =
   ListProtocolsLists'
-    { _lplDefaultLists = Nothing,
-      _lplNextToken = Nothing,
-      _lplMaxResults = _Nat # pMaxResults_
+    { defaultLists = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = pMaxResults_
     }
 
 -- | Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
-lplDefaultLists :: Lens' ListProtocolsLists (Maybe Bool)
-lplDefaultLists = lens _lplDefaultLists (\s a -> s {_lplDefaultLists = a})
+--
+-- /Note:/ Consider using 'defaultLists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lplDefaultLists :: Lens.Lens' ListProtocolsLists (Lude.Maybe Lude.Bool)
+lplDefaultLists = Lens.lens (defaultLists :: ListProtocolsLists -> Lude.Maybe Lude.Bool) (\s a -> s {defaultLists = a} :: ListProtocolsLists)
+{-# DEPRECATED lplDefaultLists "Use generic-lens or generic-optics with 'defaultLists' instead." #-}
 
 -- | If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
-lplNextToken :: Lens' ListProtocolsLists (Maybe Text)
-lplNextToken = lens _lplNextToken (\s a -> s {_lplNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lplNextToken :: Lens.Lens' ListProtocolsLists (Lude.Maybe Lude.Text)
+lplNextToken = Lens.lens (nextToken :: ListProtocolsLists -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProtocolsLists)
+{-# DEPRECATED lplNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects. If you don't specify this, AWS Firewall Manager returns all available objects.
-lplMaxResults :: Lens' ListProtocolsLists Natural
-lplMaxResults = lens _lplMaxResults (\s a -> s {_lplMaxResults = a}) . _Nat
+-- | The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects.
+--
+-- If you don't specify this, AWS Firewall Manager returns all available objects.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lplMaxResults :: Lens.Lens' ListProtocolsLists Lude.Natural
+lplMaxResults = Lens.lens (maxResults :: ListProtocolsLists -> Lude.Natural) (\s a -> s {maxResults = a} :: ListProtocolsLists)
+{-# DEPRECATED lplMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListProtocolsLists where
+instance Lude.AWSRequest ListProtocolsLists where
   type Rs ListProtocolsLists = ListProtocolsListsResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListProtocolsListsResponse'
-            <$> (x .?> "ProtocolsLists" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProtocolsLists" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListProtocolsLists
-
-instance NFData ListProtocolsLists
-
-instance ToHeaders ListProtocolsLists where
+instance Lude.ToHeaders ListProtocolsLists where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.ListProtocolsLists" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.ListProtocolsLists" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListProtocolsLists where
+instance Lude.ToJSON ListProtocolsLists where
   toJSON ListProtocolsLists' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultLists" .=) <$> _lplDefaultLists,
-            ("NextToken" .=) <$> _lplNextToken,
-            Just ("MaxResults" .= _lplMaxResults)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultLists" Lude..=) Lude.<$> defaultLists,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("MaxResults" Lude..= maxResults)
           ]
       )
 
-instance ToPath ListProtocolsLists where
-  toPath = const "/"
+instance Lude.ToPath ListProtocolsLists where
+  toPath = Lude.const "/"
 
-instance ToQuery ListProtocolsLists where
-  toQuery = const mempty
+instance Lude.ToQuery ListProtocolsLists where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listProtocolsListsResponse' smart constructor.
+-- | /See:/ 'mkListProtocolsListsResponse' smart constructor.
 data ListProtocolsListsResponse = ListProtocolsListsResponse'
-  { _lplrsProtocolsLists ::
-      !(Maybe [ProtocolsListDataSummary]),
-    _lplrsNextToken :: !(Maybe Text),
-    _lplrsResponseStatus :: !Int
+  { protocolsLists ::
+      Lude.Maybe [ProtocolsListDataSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProtocolsListsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lplrsProtocolsLists' - An array of @ProtocolsListDataSummary@ objects.
---
--- * 'lplrsNextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
---
--- * 'lplrsResponseStatus' - -- | The response status code.
-listProtocolsListsResponse ::
-  -- | 'lplrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
+-- * 'protocolsLists' - An array of @ProtocolsListDataSummary@ objects.
+-- * 'responseStatus' - The response status code.
+mkListProtocolsListsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListProtocolsListsResponse
-listProtocolsListsResponse pResponseStatus_ =
+mkListProtocolsListsResponse pResponseStatus_ =
   ListProtocolsListsResponse'
-    { _lplrsProtocolsLists = Nothing,
-      _lplrsNextToken = Nothing,
-      _lplrsResponseStatus = pResponseStatus_
+    { protocolsLists = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @ProtocolsListDataSummary@ objects.
-lplrsProtocolsLists :: Lens' ListProtocolsListsResponse [ProtocolsListDataSummary]
-lplrsProtocolsLists = lens _lplrsProtocolsLists (\s a -> s {_lplrsProtocolsLists = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'protocolsLists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lplrsProtocolsLists :: Lens.Lens' ListProtocolsListsResponse (Lude.Maybe [ProtocolsListDataSummary])
+lplrsProtocolsLists = Lens.lens (protocolsLists :: ListProtocolsListsResponse -> Lude.Maybe [ProtocolsListDataSummary]) (\s a -> s {protocolsLists = a} :: ListProtocolsListsResponse)
+{-# DEPRECATED lplrsProtocolsLists "Use generic-lens or generic-optics with 'protocolsLists' instead." #-}
 
 -- | If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
-lplrsNextToken :: Lens' ListProtocolsListsResponse (Maybe Text)
-lplrsNextToken = lens _lplrsNextToken (\s a -> s {_lplrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lplrsNextToken :: Lens.Lens' ListProtocolsListsResponse (Lude.Maybe Lude.Text)
+lplrsNextToken = Lens.lens (nextToken :: ListProtocolsListsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProtocolsListsResponse)
+{-# DEPRECATED lplrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lplrsResponseStatus :: Lens' ListProtocolsListsResponse Int
-lplrsResponseStatus = lens _lplrsResponseStatus (\s a -> s {_lplrsResponseStatus = a})
-
-instance NFData ListProtocolsListsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lplrsResponseStatus :: Lens.Lens' ListProtocolsListsResponse Lude.Int
+lplrsResponseStatus = Lens.lens (responseStatus :: ListProtocolsListsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProtocolsListsResponse)
+{-# DEPRECATED lplrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

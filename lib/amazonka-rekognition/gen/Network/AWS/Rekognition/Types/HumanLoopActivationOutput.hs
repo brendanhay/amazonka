@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.HumanLoopActivationOutput where
+module Network.AWS.Rekognition.Types.HumanLoopActivationOutput
+  ( HumanLoopActivationOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHumanLoopActivationOutput,
+
+    -- * Lenses
+    hlaoHumanLoopActivationReasons,
+    hlaoHumanLoopARN,
+    hlaoHumanLoopActivationConditionsEvaluationResults,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did not trigger human review.
 --
---
---
--- /See:/ 'humanLoopActivationOutput' smart constructor.
+-- /See:/ 'mkHumanLoopActivationOutput' smart constructor.
 data HumanLoopActivationOutput = HumanLoopActivationOutput'
-  { _hlaoHumanLoopActivationReasons ::
-      !(Maybe (List1 Text)),
-    _hlaoHumanLoopARN :: !(Maybe Text),
-    _hlaoHumanLoopActivationConditionsEvaluationResults ::
-      !(Maybe Text)
+  { humanLoopActivationReasons ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    humanLoopARN :: Lude.Maybe Lude.Text,
+    humanLoopActivationConditionsEvaluationResults ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopActivationOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hlaoHumanLoopActivationReasons' - Shows if and why human review was needed.
---
--- * 'hlaoHumanLoopARN' - The Amazon Resource Name (ARN) of the HumanLoop created.
---
--- * 'hlaoHumanLoopActivationConditionsEvaluationResults' - Shows the result of condition evaluations, including those conditions which activated a human review.
-humanLoopActivationOutput ::
+-- * 'humanLoopARN' - The Amazon Resource Name (ARN) of the HumanLoop created.
+-- * 'humanLoopActivationConditionsEvaluationResults' - Shows the result of condition evaluations, including those conditions which activated a human review.
+-- * 'humanLoopActivationReasons' - Shows if and why human review was needed.
+mkHumanLoopActivationOutput ::
   HumanLoopActivationOutput
-humanLoopActivationOutput =
+mkHumanLoopActivationOutput =
   HumanLoopActivationOutput'
-    { _hlaoHumanLoopActivationReasons =
-        Nothing,
-      _hlaoHumanLoopARN = Nothing,
-      _hlaoHumanLoopActivationConditionsEvaluationResults = Nothing
+    { humanLoopActivationReasons =
+        Lude.Nothing,
+      humanLoopARN = Lude.Nothing,
+      humanLoopActivationConditionsEvaluationResults = Lude.Nothing
     }
 
 -- | Shows if and why human review was needed.
-hlaoHumanLoopActivationReasons :: Lens' HumanLoopActivationOutput (Maybe (NonEmpty Text))
-hlaoHumanLoopActivationReasons = lens _hlaoHumanLoopActivationReasons (\s a -> s {_hlaoHumanLoopActivationReasons = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'humanLoopActivationReasons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlaoHumanLoopActivationReasons :: Lens.Lens' HumanLoopActivationOutput (Lude.Maybe (Lude.NonEmpty Lude.Text))
+hlaoHumanLoopActivationReasons = Lens.lens (humanLoopActivationReasons :: HumanLoopActivationOutput -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {humanLoopActivationReasons = a} :: HumanLoopActivationOutput)
+{-# DEPRECATED hlaoHumanLoopActivationReasons "Use generic-lens or generic-optics with 'humanLoopActivationReasons' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the HumanLoop created.
-hlaoHumanLoopARN :: Lens' HumanLoopActivationOutput (Maybe Text)
-hlaoHumanLoopARN = lens _hlaoHumanLoopARN (\s a -> s {_hlaoHumanLoopARN = a})
+--
+-- /Note:/ Consider using 'humanLoopARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlaoHumanLoopARN :: Lens.Lens' HumanLoopActivationOutput (Lude.Maybe Lude.Text)
+hlaoHumanLoopARN = Lens.lens (humanLoopARN :: HumanLoopActivationOutput -> Lude.Maybe Lude.Text) (\s a -> s {humanLoopARN = a} :: HumanLoopActivationOutput)
+{-# DEPRECATED hlaoHumanLoopARN "Use generic-lens or generic-optics with 'humanLoopARN' instead." #-}
 
 -- | Shows the result of condition evaluations, including those conditions which activated a human review.
-hlaoHumanLoopActivationConditionsEvaluationResults :: Lens' HumanLoopActivationOutput (Maybe Text)
-hlaoHumanLoopActivationConditionsEvaluationResults = lens _hlaoHumanLoopActivationConditionsEvaluationResults (\s a -> s {_hlaoHumanLoopActivationConditionsEvaluationResults = a})
+--
+-- /Note:/ Consider using 'humanLoopActivationConditionsEvaluationResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlaoHumanLoopActivationConditionsEvaluationResults :: Lens.Lens' HumanLoopActivationOutput (Lude.Maybe Lude.Text)
+hlaoHumanLoopActivationConditionsEvaluationResults = Lens.lens (humanLoopActivationConditionsEvaluationResults :: HumanLoopActivationOutput -> Lude.Maybe Lude.Text) (\s a -> s {humanLoopActivationConditionsEvaluationResults = a} :: HumanLoopActivationOutput)
+{-# DEPRECATED hlaoHumanLoopActivationConditionsEvaluationResults "Use generic-lens or generic-optics with 'humanLoopActivationConditionsEvaluationResults' instead." #-}
 
-instance FromJSON HumanLoopActivationOutput where
+instance Lude.FromJSON HumanLoopActivationOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "HumanLoopActivationOutput"
       ( \x ->
           HumanLoopActivationOutput'
-            <$> (x .:? "HumanLoopActivationReasons")
-            <*> (x .:? "HumanLoopArn")
-            <*> (x .:? "HumanLoopActivationConditionsEvaluationResults")
+            Lude.<$> (x Lude..:? "HumanLoopActivationReasons")
+            Lude.<*> (x Lude..:? "HumanLoopArn")
+            Lude.<*> (x Lude..:? "HumanLoopActivationConditionsEvaluationResults")
       )
-
-instance Hashable HumanLoopActivationOutput
-
-instance NFData HumanLoopActivationOutput

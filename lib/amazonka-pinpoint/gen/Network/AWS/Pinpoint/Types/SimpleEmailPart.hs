@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SimpleEmailPart where
+module Network.AWS.Pinpoint.Types.SimpleEmailPart
+  ( SimpleEmailPart (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSimpleEmailPart,
+
+    -- * Lenses
+    sepData,
+    sepCharset,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the subject or body of an email message, represented as textual email data and the applicable character set.
 --
---
---
--- /See:/ 'simpleEmailPart' smart constructor.
+-- /See:/ 'mkSimpleEmailPart' smart constructor.
 data SimpleEmailPart = SimpleEmailPart'
-  { _sepData :: !(Maybe Text),
-    _sepCharset :: !(Maybe Text)
+  { data' ::
+      Lude.Maybe Lude.Text,
+    charset :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SimpleEmailPart' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sepData' - The textual data of the message content.
---
--- * 'sepCharset' - The applicable character set for the message content.
-simpleEmailPart ::
+-- * 'charset' - The applicable character set for the message content.
+-- * 'data'' - The textual data of the message content.
+mkSimpleEmailPart ::
   SimpleEmailPart
-simpleEmailPart =
-  SimpleEmailPart' {_sepData = Nothing, _sepCharset = Nothing}
+mkSimpleEmailPart =
+  SimpleEmailPart' {data' = Lude.Nothing, charset = Lude.Nothing}
 
 -- | The textual data of the message content.
-sepData :: Lens' SimpleEmailPart (Maybe Text)
-sepData = lens _sepData (\s a -> s {_sepData = a})
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sepData :: Lens.Lens' SimpleEmailPart (Lude.Maybe Lude.Text)
+sepData = Lens.lens (data' :: SimpleEmailPart -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: SimpleEmailPart)
+{-# DEPRECATED sepData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The applicable character set for the message content.
-sepCharset :: Lens' SimpleEmailPart (Maybe Text)
-sepCharset = lens _sepCharset (\s a -> s {_sepCharset = a})
+--
+-- /Note:/ Consider using 'charset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sepCharset :: Lens.Lens' SimpleEmailPart (Lude.Maybe Lude.Text)
+sepCharset = Lens.lens (charset :: SimpleEmailPart -> Lude.Maybe Lude.Text) (\s a -> s {charset = a} :: SimpleEmailPart)
+{-# DEPRECATED sepCharset "Use generic-lens or generic-optics with 'charset' instead." #-}
 
-instance Hashable SimpleEmailPart
-
-instance NFData SimpleEmailPart
-
-instance ToJSON SimpleEmailPart where
+instance Lude.ToJSON SimpleEmailPart where
   toJSON SimpleEmailPart' {..} =
-    object
-      ( catMaybes
-          [("Data" .=) <$> _sepData, ("Charset" .=) <$> _sepCharset]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Data" Lude..=) Lude.<$> data',
+            ("Charset" Lude..=) Lude.<$> charset
+          ]
       )

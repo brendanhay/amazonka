@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,114 @@
 --
 -- Deletes the specified organization conformance pack and all of the config rules and remediation actions from all member accounts in that organization.
 --
---
 -- Only a master account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
---
 -- AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state.
 module Network.AWS.Config.DeleteOrganizationConformancePack
-  ( -- * Creating a Request
-    deleteOrganizationConformancePack,
-    DeleteOrganizationConformancePack,
+  ( -- * Creating a request
+    DeleteOrganizationConformancePack (..),
+    mkDeleteOrganizationConformancePack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     docpOrganizationConformancePackName,
 
-    -- * Destructuring the Response
-    deleteOrganizationConformancePackResponse,
-    DeleteOrganizationConformancePackResponse,
+    -- * Destructuring the response
+    DeleteOrganizationConformancePackResponse (..),
+    mkDeleteOrganizationConformancePackResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteOrganizationConformancePack' smart constructor.
+-- | /See:/ 'mkDeleteOrganizationConformancePack' smart constructor.
 newtype DeleteOrganizationConformancePack = DeleteOrganizationConformancePack'
-  { _docpOrganizationConformancePackName ::
-      Text
+  { organizationConformancePackName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationConformancePack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'docpOrganizationConformancePackName' - The name of organization conformance pack that you want to delete.
-deleteOrganizationConformancePack ::
-  -- | 'docpOrganizationConformancePackName'
-  Text ->
+-- * 'organizationConformancePackName' - The name of organization conformance pack that you want to delete.
+mkDeleteOrganizationConformancePack ::
+  -- | 'organizationConformancePackName'
+  Lude.Text ->
   DeleteOrganizationConformancePack
-deleteOrganizationConformancePack pOrganizationConformancePackName_ =
-  DeleteOrganizationConformancePack'
-    { _docpOrganizationConformancePackName =
-        pOrganizationConformancePackName_
-    }
+mkDeleteOrganizationConformancePack
+  pOrganizationConformancePackName_ =
+    DeleteOrganizationConformancePack'
+      { organizationConformancePackName =
+          pOrganizationConformancePackName_
+      }
 
 -- | The name of organization conformance pack that you want to delete.
-docpOrganizationConformancePackName :: Lens' DeleteOrganizationConformancePack Text
-docpOrganizationConformancePackName = lens _docpOrganizationConformancePackName (\s a -> s {_docpOrganizationConformancePackName = a})
+--
+-- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docpOrganizationConformancePackName :: Lens.Lens' DeleteOrganizationConformancePack Lude.Text
+docpOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: DeleteOrganizationConformancePack -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: DeleteOrganizationConformancePack)
+{-# DEPRECATED docpOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
-instance AWSRequest DeleteOrganizationConformancePack where
+instance Lude.AWSRequest DeleteOrganizationConformancePack where
   type
     Rs DeleteOrganizationConformancePack =
       DeleteOrganizationConformancePackResponse
-  request = postJSON config
-  response = receiveNull DeleteOrganizationConformancePackResponse'
+  request = Req.postJSON configService
+  response =
+    Res.receiveNull DeleteOrganizationConformancePackResponse'
 
-instance Hashable DeleteOrganizationConformancePack
-
-instance NFData DeleteOrganizationConformancePack
-
-instance ToHeaders DeleteOrganizationConformancePack where
+instance Lude.ToHeaders DeleteOrganizationConformancePack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DeleteOrganizationConformancePack" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DeleteOrganizationConformancePack" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteOrganizationConformancePack where
+instance Lude.ToJSON DeleteOrganizationConformancePack where
   toJSON DeleteOrganizationConformancePack' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "OrganizationConformancePackName"
-                  .= _docpOrganizationConformancePackName
+                  Lude..= organizationConformancePackName
               )
           ]
       )
 
-instance ToPath DeleteOrganizationConformancePack where
-  toPath = const "/"
+instance Lude.ToPath DeleteOrganizationConformancePack where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteOrganizationConformancePack where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteOrganizationConformancePack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteOrganizationConformancePackResponse' smart constructor.
+-- | /See:/ 'mkDeleteOrganizationConformancePackResponse' smart constructor.
 data DeleteOrganizationConformancePackResponse = DeleteOrganizationConformancePackResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationConformancePackResponse' with the minimum fields required to make a request.
-deleteOrganizationConformancePackResponse ::
+mkDeleteOrganizationConformancePackResponse ::
   DeleteOrganizationConformancePackResponse
-deleteOrganizationConformancePackResponse =
+mkDeleteOrganizationConformancePackResponse =
   DeleteOrganizationConformancePackResponse'
-
-instance NFData DeleteOrganizationConformancePackResponse

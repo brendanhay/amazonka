@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,105 +7,137 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.Latency where
+module Network.AWS.ElasticBeanstalk.Types.Latency
+  ( Latency (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLatency,
+
+    -- * Lenses
+    lP75,
+    lP50,
+    lP85,
+    lP999,
+    lP90,
+    lP95,
+    lP99,
+    lP10,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the average latency for the slowest X percent of requests over the last 10 seconds.
 --
---
---
--- /See:/ 'latency' smart constructor.
+-- /See:/ 'mkLatency' smart constructor.
 data Latency = Latency'
-  { _lP75 :: !(Maybe Double),
-    _lP50 :: !(Maybe Double),
-    _lP85 :: !(Maybe Double),
-    _lP999 :: !(Maybe Double),
-    _lP90 :: !(Maybe Double),
-    _lP95 :: !(Maybe Double),
-    _lP99 :: !(Maybe Double),
-    _lP10 :: !(Maybe Double)
+  { p75 :: Lude.Maybe Lude.Double,
+    p50 :: Lude.Maybe Lude.Double,
+    p85 :: Lude.Maybe Lude.Double,
+    p999 :: Lude.Maybe Lude.Double,
+    p90 :: Lude.Maybe Lude.Double,
+    p95 :: Lude.Maybe Lude.Double,
+    p99 :: Lude.Maybe Lude.Double,
+    p10 :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Latency' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lP75' - The average latency for the slowest 25 percent of requests over the last 10 seconds.
---
--- * 'lP50' - The average latency for the slowest 50 percent of requests over the last 10 seconds.
---
--- * 'lP85' - The average latency for the slowest 15 percent of requests over the last 10 seconds.
---
--- * 'lP999' - The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
---
--- * 'lP90' - The average latency for the slowest 10 percent of requests over the last 10 seconds.
---
--- * 'lP95' - The average latency for the slowest 5 percent of requests over the last 10 seconds.
---
--- * 'lP99' - The average latency for the slowest 1 percent of requests over the last 10 seconds.
---
--- * 'lP10' - The average latency for the slowest 90 percent of requests over the last 10 seconds.
-latency ::
+-- * 'p10' - The average latency for the slowest 90 percent of requests over the last 10 seconds.
+-- * 'p50' - The average latency for the slowest 50 percent of requests over the last 10 seconds.
+-- * 'p75' - The average latency for the slowest 25 percent of requests over the last 10 seconds.
+-- * 'p85' - The average latency for the slowest 15 percent of requests over the last 10 seconds.
+-- * 'p90' - The average latency for the slowest 10 percent of requests over the last 10 seconds.
+-- * 'p95' - The average latency for the slowest 5 percent of requests over the last 10 seconds.
+-- * 'p99' - The average latency for the slowest 1 percent of requests over the last 10 seconds.
+-- * 'p999' - The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
+mkLatency ::
   Latency
-latency =
+mkLatency =
   Latency'
-    { _lP75 = Nothing,
-      _lP50 = Nothing,
-      _lP85 = Nothing,
-      _lP999 = Nothing,
-      _lP90 = Nothing,
-      _lP95 = Nothing,
-      _lP99 = Nothing,
-      _lP10 = Nothing
+    { p75 = Lude.Nothing,
+      p50 = Lude.Nothing,
+      p85 = Lude.Nothing,
+      p999 = Lude.Nothing,
+      p90 = Lude.Nothing,
+      p95 = Lude.Nothing,
+      p99 = Lude.Nothing,
+      p10 = Lude.Nothing
     }
 
 -- | The average latency for the slowest 25 percent of requests over the last 10 seconds.
-lP75 :: Lens' Latency (Maybe Double)
-lP75 = lens _lP75 (\s a -> s {_lP75 = a})
+--
+-- /Note:/ Consider using 'p75' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP75 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP75 = Lens.lens (p75 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p75 = a} :: Latency)
+{-# DEPRECATED lP75 "Use generic-lens or generic-optics with 'p75' instead." #-}
 
 -- | The average latency for the slowest 50 percent of requests over the last 10 seconds.
-lP50 :: Lens' Latency (Maybe Double)
-lP50 = lens _lP50 (\s a -> s {_lP50 = a})
+--
+-- /Note:/ Consider using 'p50' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP50 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP50 = Lens.lens (p50 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p50 = a} :: Latency)
+{-# DEPRECATED lP50 "Use generic-lens or generic-optics with 'p50' instead." #-}
 
 -- | The average latency for the slowest 15 percent of requests over the last 10 seconds.
-lP85 :: Lens' Latency (Maybe Double)
-lP85 = lens _lP85 (\s a -> s {_lP85 = a})
+--
+-- /Note:/ Consider using 'p85' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP85 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP85 = Lens.lens (p85 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p85 = a} :: Latency)
+{-# DEPRECATED lP85 "Use generic-lens or generic-optics with 'p85' instead." #-}
 
 -- | The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
-lP999 :: Lens' Latency (Maybe Double)
-lP999 = lens _lP999 (\s a -> s {_lP999 = a})
+--
+-- /Note:/ Consider using 'p999' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP999 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP999 = Lens.lens (p999 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p999 = a} :: Latency)
+{-# DEPRECATED lP999 "Use generic-lens or generic-optics with 'p999' instead." #-}
 
 -- | The average latency for the slowest 10 percent of requests over the last 10 seconds.
-lP90 :: Lens' Latency (Maybe Double)
-lP90 = lens _lP90 (\s a -> s {_lP90 = a})
+--
+-- /Note:/ Consider using 'p90' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP90 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP90 = Lens.lens (p90 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p90 = a} :: Latency)
+{-# DEPRECATED lP90 "Use generic-lens or generic-optics with 'p90' instead." #-}
 
 -- | The average latency for the slowest 5 percent of requests over the last 10 seconds.
-lP95 :: Lens' Latency (Maybe Double)
-lP95 = lens _lP95 (\s a -> s {_lP95 = a})
+--
+-- /Note:/ Consider using 'p95' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP95 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP95 = Lens.lens (p95 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p95 = a} :: Latency)
+{-# DEPRECATED lP95 "Use generic-lens or generic-optics with 'p95' instead." #-}
 
 -- | The average latency for the slowest 1 percent of requests over the last 10 seconds.
-lP99 :: Lens' Latency (Maybe Double)
-lP99 = lens _lP99 (\s a -> s {_lP99 = a})
+--
+-- /Note:/ Consider using 'p99' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP99 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP99 = Lens.lens (p99 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p99 = a} :: Latency)
+{-# DEPRECATED lP99 "Use generic-lens or generic-optics with 'p99' instead." #-}
 
 -- | The average latency for the slowest 90 percent of requests over the last 10 seconds.
-lP10 :: Lens' Latency (Maybe Double)
-lP10 = lens _lP10 (\s a -> s {_lP10 = a})
+--
+-- /Note:/ Consider using 'p10' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lP10 :: Lens.Lens' Latency (Lude.Maybe Lude.Double)
+lP10 = Lens.lens (p10 :: Latency -> Lude.Maybe Lude.Double) (\s a -> s {p10 = a} :: Latency)
+{-# DEPRECATED lP10 "Use generic-lens or generic-optics with 'p10' instead." #-}
 
-instance FromXML Latency where
+instance Lude.FromXML Latency where
   parseXML x =
     Latency'
-      <$> (x .@? "P75")
-      <*> (x .@? "P50")
-      <*> (x .@? "P85")
-      <*> (x .@? "P999")
-      <*> (x .@? "P90")
-      <*> (x .@? "P95")
-      <*> (x .@? "P99")
-      <*> (x .@? "P10")
-
-instance Hashable Latency
-
-instance NFData Latency
+      Lude.<$> (x Lude..@? "P75")
+      Lude.<*> (x Lude..@? "P50")
+      Lude.<*> (x Lude..@? "P85")
+      Lude.<*> (x Lude..@? "P999")
+      Lude.<*> (x Lude..@? "P90")
+      Lude.<*> (x Lude..@? "P95")
+      Lude.<*> (x Lude..@? "P99")
+      Lude.<*> (x Lude..@? "P10")

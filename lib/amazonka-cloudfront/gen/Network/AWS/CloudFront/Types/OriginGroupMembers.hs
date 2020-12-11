@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginGroupMembers where
+module Network.AWS.CloudFront.Types.OriginGroupMembers
+  ( OriginGroupMembers (..),
+
+    -- * Smart constructor
+    mkOriginGroupMembers,
+
+    -- * Lenses
+    ogmQuantity,
+    ogmItems,
+  )
+where
 
 import Network.AWS.CloudFront.Types.OriginGroupMember
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex data type for the origins included in an origin group.
 --
---
---
--- /See:/ 'originGroupMembers' smart constructor.
+-- /See:/ 'mkOriginGroupMembers' smart constructor.
 data OriginGroupMembers = OriginGroupMembers'
-  { _ogmQuantity :: !Int,
-    _ogmItems :: !(List1 OriginGroupMember)
+  { quantity :: Lude.Int,
+    items :: Lude.NonEmpty OriginGroupMember
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginGroupMembers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogmQuantity' - The number of origins in an origin group.
---
--- * 'ogmItems' - Items (origins) in an origin group.
-originGroupMembers ::
-  -- | 'ogmQuantity'
-  Int ->
-  -- | 'ogmItems'
-  NonEmpty OriginGroupMember ->
+-- * 'items' - Items (origins) in an origin group.
+-- * 'quantity' - The number of origins in an origin group.
+mkOriginGroupMembers ::
+  -- | 'quantity'
+  Lude.Int ->
+  -- | 'items'
+  Lude.NonEmpty OriginGroupMember ->
   OriginGroupMembers
-originGroupMembers pQuantity_ pItems_ =
-  OriginGroupMembers'
-    { _ogmQuantity = pQuantity_,
-      _ogmItems = _List1 # pItems_
-    }
+mkOriginGroupMembers pQuantity_ pItems_ =
+  OriginGroupMembers' {quantity = pQuantity_, items = pItems_}
 
 -- | The number of origins in an origin group.
-ogmQuantity :: Lens' OriginGroupMembers Int
-ogmQuantity = lens _ogmQuantity (\s a -> s {_ogmQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogmQuantity :: Lens.Lens' OriginGroupMembers Lude.Int
+ogmQuantity = Lens.lens (quantity :: OriginGroupMembers -> Lude.Int) (\s a -> s {quantity = a} :: OriginGroupMembers)
+{-# DEPRECATED ogmQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | Items (origins) in an origin group.
-ogmItems :: Lens' OriginGroupMembers (NonEmpty OriginGroupMember)
-ogmItems = lens _ogmItems (\s a -> s {_ogmItems = a}) . _List1
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogmItems :: Lens.Lens' OriginGroupMembers (Lude.NonEmpty OriginGroupMember)
+ogmItems = Lens.lens (items :: OriginGroupMembers -> Lude.NonEmpty OriginGroupMember) (\s a -> s {items = a} :: OriginGroupMembers)
+{-# DEPRECATED ogmItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance FromXML OriginGroupMembers where
+instance Lude.FromXML OriginGroupMembers where
   parseXML x =
     OriginGroupMembers'
-      <$> (x .@ "Quantity")
-      <*> (x .@? "Items" .!@ mempty >>= parseXMLList1 "OriginGroupMember")
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLNonEmpty "OriginGroupMember"
+               )
 
-instance Hashable OriginGroupMembers
-
-instance NFData OriginGroupMembers
-
-instance ToXML OriginGroupMembers where
+instance Lude.ToXML OriginGroupMembers where
   toXML OriginGroupMembers' {..} =
-    mconcat
-      [ "Quantity" @= _ogmQuantity,
-        "Items" @= toXMLList "OriginGroupMember" _ogmItems
+    Lude.mconcat
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXMLList "OriginGroupMember" items
       ]

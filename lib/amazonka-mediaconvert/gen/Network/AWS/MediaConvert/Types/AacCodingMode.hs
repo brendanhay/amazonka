@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AacCodingMode where
+module Network.AWS.MediaConvert.Types.AacCodingMode
+  ( AacCodingMode
+      ( AacCodingMode',
+        ACMAdReceiverMix,
+        ACMCodingMode10,
+        ACMCodingMode11,
+        ACMCodingMode20,
+        ACMCodingMode51
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
-data AacCodingMode
-  = ACMAdReceiverMix
-  | ACMCodingMode10
-  | ACMCodingMode11
-  | ACMCodingMode20
-  | ACMCodingMode51
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AacCodingMode = AacCodingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AacCodingMode where
-  parser =
-    takeLowerText >>= \case
-      "ad_receiver_mix" -> pure ACMAdReceiverMix
-      "coding_mode_1_0" -> pure ACMCodingMode10
-      "coding_mode_1_1" -> pure ACMCodingMode11
-      "coding_mode_2_0" -> pure ACMCodingMode20
-      "coding_mode_5_1" -> pure ACMCodingMode51
-      e ->
-        fromTextError $
-          "Failure parsing AacCodingMode from value: '" <> e
-            <> "'. Accepted values: ad_receiver_mix, coding_mode_1_0, coding_mode_1_1, coding_mode_2_0, coding_mode_5_1"
+pattern ACMAdReceiverMix :: AacCodingMode
+pattern ACMAdReceiverMix = AacCodingMode' "AD_RECEIVER_MIX"
 
-instance ToText AacCodingMode where
-  toText = \case
-    ACMAdReceiverMix -> "AD_RECEIVER_MIX"
-    ACMCodingMode10 -> "CODING_MODE_1_0"
-    ACMCodingMode11 -> "CODING_MODE_1_1"
-    ACMCodingMode20 -> "CODING_MODE_2_0"
-    ACMCodingMode51 -> "CODING_MODE_5_1"
+pattern ACMCodingMode10 :: AacCodingMode
+pattern ACMCodingMode10 = AacCodingMode' "CODING_MODE_1_0"
 
-instance Hashable AacCodingMode
+pattern ACMCodingMode11 :: AacCodingMode
+pattern ACMCodingMode11 = AacCodingMode' "CODING_MODE_1_1"
 
-instance NFData AacCodingMode
+pattern ACMCodingMode20 :: AacCodingMode
+pattern ACMCodingMode20 = AacCodingMode' "CODING_MODE_2_0"
 
-instance ToByteString AacCodingMode
+pattern ACMCodingMode51 :: AacCodingMode
+pattern ACMCodingMode51 = AacCodingMode' "CODING_MODE_5_1"
 
-instance ToQuery AacCodingMode
-
-instance ToHeader AacCodingMode
-
-instance ToJSON AacCodingMode where
-  toJSON = toJSONText
-
-instance FromJSON AacCodingMode where
-  parseJSON = parseJSONText "AacCodingMode"
+{-# COMPLETE
+  ACMAdReceiverMix,
+  ACMCodingMode10,
+  ACMCodingMode11,
+  ACMCodingMode20,
+  ACMCodingMode51,
+  AacCodingMode'
+  #-}

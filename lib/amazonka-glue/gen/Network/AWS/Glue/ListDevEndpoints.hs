@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Retrieves the names of all @DevEndpoint@ resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
 --
---
 -- This operation takes the optional @Tags@ field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.
 module Network.AWS.Glue.ListDevEndpoints
-  ( -- * Creating a Request
-    listDevEndpoints,
-    ListDevEndpoints,
+  ( -- * Creating a request
+    ListDevEndpoints (..),
+    mkListDevEndpoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldeNextToken,
     ldeMaxResults,
     ldeTags,
 
-    -- * Destructuring the Response
-    listDevEndpointsResponse,
-    ListDevEndpointsResponse,
+    -- * Destructuring the response
+    ListDevEndpointsResponse (..),
+    mkListDevEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldersNextToken,
     ldersDevEndpointNames,
     ldersResponseStatus,
@@ -43,130 +37,151 @@ module Network.AWS.Glue.ListDevEndpoints
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDevEndpoints' smart constructor.
+-- | /See:/ 'mkListDevEndpoints' smart constructor.
 data ListDevEndpoints = ListDevEndpoints'
-  { _ldeNextToken ::
-      !(Maybe Text),
-    _ldeMaxResults :: !(Maybe Nat),
-    _ldeTags :: !(Maybe (Map Text (Text)))
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevEndpoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldeNextToken' - A continuation token, if this is a continuation request.
---
--- * 'ldeMaxResults' - The maximum size of a list to return.
---
--- * 'ldeTags' - Specifies to return only these tagged resources.
-listDevEndpoints ::
+-- * 'maxResults' - The maximum size of a list to return.
+-- * 'nextToken' - A continuation token, if this is a continuation request.
+-- * 'tags' - Specifies to return only these tagged resources.
+mkListDevEndpoints ::
   ListDevEndpoints
-listDevEndpoints =
+mkListDevEndpoints =
   ListDevEndpoints'
-    { _ldeNextToken = Nothing,
-      _ldeMaxResults = Nothing,
-      _ldeTags = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
-ldeNextToken :: Lens' ListDevEndpoints (Maybe Text)
-ldeNextToken = lens _ldeNextToken (\s a -> s {_ldeNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldeNextToken :: Lens.Lens' ListDevEndpoints (Lude.Maybe Lude.Text)
+ldeNextToken = Lens.lens (nextToken :: ListDevEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDevEndpoints)
+{-# DEPRECATED ldeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of a list to return.
-ldeMaxResults :: Lens' ListDevEndpoints (Maybe Natural)
-ldeMaxResults = lens _ldeMaxResults (\s a -> s {_ldeMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldeMaxResults :: Lens.Lens' ListDevEndpoints (Lude.Maybe Lude.Natural)
+ldeMaxResults = Lens.lens (maxResults :: ListDevEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDevEndpoints)
+{-# DEPRECATED ldeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Specifies to return only these tagged resources.
-ldeTags :: Lens' ListDevEndpoints (HashMap Text (Text))
-ldeTags = lens _ldeTags (\s a -> s {_ldeTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldeTags :: Lens.Lens' ListDevEndpoints (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ldeTags = Lens.lens (tags :: ListDevEndpoints -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListDevEndpoints)
+{-# DEPRECATED ldeTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest ListDevEndpoints where
+instance Lude.AWSRequest ListDevEndpoints where
   type Rs ListDevEndpoints = ListDevEndpointsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDevEndpointsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "DevEndpointNames" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "DevEndpointNames" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDevEndpoints
-
-instance NFData ListDevEndpoints
-
-instance ToHeaders ListDevEndpoints where
+instance Lude.ToHeaders ListDevEndpoints where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ListDevEndpoints" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ListDevEndpoints" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDevEndpoints where
+instance Lude.ToJSON ListDevEndpoints where
   toJSON ListDevEndpoints' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ldeNextToken,
-            ("MaxResults" .=) <$> _ldeMaxResults,
-            ("Tags" .=) <$> _ldeTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath ListDevEndpoints where
-  toPath = const "/"
+instance Lude.ToPath ListDevEndpoints where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDevEndpoints where
-  toQuery = const mempty
+instance Lude.ToQuery ListDevEndpoints where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDevEndpointsResponse' smart constructor.
+-- | /See:/ 'mkListDevEndpointsResponse' smart constructor.
 data ListDevEndpointsResponse = ListDevEndpointsResponse'
-  { _ldersNextToken ::
-      !(Maybe Text),
-    _ldersDevEndpointNames :: !(Maybe [Text]),
-    _ldersResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    devEndpointNames ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldersNextToken' - A continuation token, if the returned list does not contain the last metric available.
---
--- * 'ldersDevEndpointNames' - The names of all the @DevEndpoint@ s in the account, or the @DevEndpoint@ s with the specified tags.
---
--- * 'ldersResponseStatus' - -- | The response status code.
-listDevEndpointsResponse ::
-  -- | 'ldersResponseStatus'
-  Int ->
+-- * 'devEndpointNames' - The names of all the @DevEndpoint@ s in the account, or the @DevEndpoint@ s with the specified tags.
+-- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
+-- * 'responseStatus' - The response status code.
+mkListDevEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDevEndpointsResponse
-listDevEndpointsResponse pResponseStatus_ =
+mkListDevEndpointsResponse pResponseStatus_ =
   ListDevEndpointsResponse'
-    { _ldersNextToken = Nothing,
-      _ldersDevEndpointNames = Nothing,
-      _ldersResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      devEndpointNames = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if the returned list does not contain the last metric available.
-ldersNextToken :: Lens' ListDevEndpointsResponse (Maybe Text)
-ldersNextToken = lens _ldersNextToken (\s a -> s {_ldersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldersNextToken :: Lens.Lens' ListDevEndpointsResponse (Lude.Maybe Lude.Text)
+ldersNextToken = Lens.lens (nextToken :: ListDevEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDevEndpointsResponse)
+{-# DEPRECATED ldersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of all the @DevEndpoint@ s in the account, or the @DevEndpoint@ s with the specified tags.
-ldersDevEndpointNames :: Lens' ListDevEndpointsResponse [Text]
-ldersDevEndpointNames = lens _ldersDevEndpointNames (\s a -> s {_ldersDevEndpointNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devEndpointNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldersDevEndpointNames :: Lens.Lens' ListDevEndpointsResponse (Lude.Maybe [Lude.Text])
+ldersDevEndpointNames = Lens.lens (devEndpointNames :: ListDevEndpointsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {devEndpointNames = a} :: ListDevEndpointsResponse)
+{-# DEPRECATED ldersDevEndpointNames "Use generic-lens or generic-optics with 'devEndpointNames' instead." #-}
 
--- | -- | The response status code.
-ldersResponseStatus :: Lens' ListDevEndpointsResponse Int
-ldersResponseStatus = lens _ldersResponseStatus (\s a -> s {_ldersResponseStatus = a})
-
-instance NFData ListDevEndpointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldersResponseStatus :: Lens.Lens' ListDevEndpointsResponse Lude.Int
+ldersResponseStatus = Lens.lens (responseStatus :: ListDevEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDevEndpointsResponse)
+{-# DEPRECATED ldersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

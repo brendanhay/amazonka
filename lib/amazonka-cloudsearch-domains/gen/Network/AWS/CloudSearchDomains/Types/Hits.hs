@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.Hits where
+module Network.AWS.CloudSearchDomains.Types.Hits
+  ( Hits (..),
+
+    -- * Smart constructor
+    mkHits,
+
+    -- * Lenses
+    hCursor,
+    hHit,
+    hStart,
+    hFound,
+  )
+where
 
 import Network.AWS.CloudSearchDomains.Types.Hit
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The collection of documents that match the search request.
 --
---
---
--- /See:/ 'hits' smart constructor.
+-- /See:/ 'mkHits' smart constructor.
 data Hits = Hits'
-  { _hCursor :: !(Maybe Text),
-    _hHit :: !(Maybe [Hit]),
-    _hStart :: !(Maybe Integer),
-    _hFound :: !(Maybe Integer)
+  { cursor :: Lude.Maybe Lude.Text,
+    hit :: Lude.Maybe [Hit],
+    start :: Lude.Maybe Lude.Integer,
+    found :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Hits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hCursor' - A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
---
--- * 'hHit' - A document that matches the search request.
---
--- * 'hStart' - The index of the first matching document.
---
--- * 'hFound' - The total number of documents that match the search request.
-hits ::
+-- * 'cursor' - A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
+-- * 'found' - The total number of documents that match the search request.
+-- * 'hit' - A document that matches the search request.
+-- * 'start' - The index of the first matching document.
+mkHits ::
   Hits
-hits =
+mkHits =
   Hits'
-    { _hCursor = Nothing,
-      _hHit = Nothing,
-      _hStart = Nothing,
-      _hFound = Nothing
+    { cursor = Lude.Nothing,
+      hit = Lude.Nothing,
+      start = Lude.Nothing,
+      found = Lude.Nothing
     }
 
 -- | A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
-hCursor :: Lens' Hits (Maybe Text)
-hCursor = lens _hCursor (\s a -> s {_hCursor = a})
+--
+-- /Note:/ Consider using 'cursor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hCursor :: Lens.Lens' Hits (Lude.Maybe Lude.Text)
+hCursor = Lens.lens (cursor :: Hits -> Lude.Maybe Lude.Text) (\s a -> s {cursor = a} :: Hits)
+{-# DEPRECATED hCursor "Use generic-lens or generic-optics with 'cursor' instead." #-}
 
 -- | A document that matches the search request.
-hHit :: Lens' Hits [Hit]
-hHit = lens _hHit (\s a -> s {_hHit = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHit :: Lens.Lens' Hits (Lude.Maybe [Hit])
+hHit = Lens.lens (hit :: Hits -> Lude.Maybe [Hit]) (\s a -> s {hit = a} :: Hits)
+{-# DEPRECATED hHit "Use generic-lens or generic-optics with 'hit' instead." #-}
 
 -- | The index of the first matching document.
-hStart :: Lens' Hits (Maybe Integer)
-hStart = lens _hStart (\s a -> s {_hStart = a})
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hStart :: Lens.Lens' Hits (Lude.Maybe Lude.Integer)
+hStart = Lens.lens (start :: Hits -> Lude.Maybe Lude.Integer) (\s a -> s {start = a} :: Hits)
+{-# DEPRECATED hStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The total number of documents that match the search request.
-hFound :: Lens' Hits (Maybe Integer)
-hFound = lens _hFound (\s a -> s {_hFound = a})
+--
+-- /Note:/ Consider using 'found' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hFound :: Lens.Lens' Hits (Lude.Maybe Lude.Integer)
+hFound = Lens.lens (found :: Hits -> Lude.Maybe Lude.Integer) (\s a -> s {found = a} :: Hits)
+{-# DEPRECATED hFound "Use generic-lens or generic-optics with 'found' instead." #-}
 
-instance FromJSON Hits where
+instance Lude.FromJSON Hits where
   parseJSON =
-    withObject
+    Lude.withObject
       "Hits"
       ( \x ->
           Hits'
-            <$> (x .:? "cursor")
-            <*> (x .:? "hit" .!= mempty)
-            <*> (x .:? "start")
-            <*> (x .:? "found")
+            Lude.<$> (x Lude..:? "cursor")
+            Lude.<*> (x Lude..:? "hit" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "start")
+            Lude.<*> (x Lude..:? "found")
       )
-
-instance Hashable Hits
-
-instance NFData Hits

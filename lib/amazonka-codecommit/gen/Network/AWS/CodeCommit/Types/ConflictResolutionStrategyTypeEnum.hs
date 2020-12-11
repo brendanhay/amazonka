@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum where
+module Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
+  ( ConflictResolutionStrategyTypeEnum
+      ( ConflictResolutionStrategyTypeEnum',
+        AcceptDestination,
+        AcceptSource,
+        Automerge,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConflictResolutionStrategyTypeEnum
-  = AcceptDestination
-  | AcceptSource
-  | Automerge
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConflictResolutionStrategyTypeEnum = ConflictResolutionStrategyTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConflictResolutionStrategyTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "accept_destination" -> pure AcceptDestination
-      "accept_source" -> pure AcceptSource
-      "automerge" -> pure Automerge
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing ConflictResolutionStrategyTypeEnum from value: '" <> e
-            <> "'. Accepted values: accept_destination, accept_source, automerge, none"
+pattern AcceptDestination :: ConflictResolutionStrategyTypeEnum
+pattern AcceptDestination = ConflictResolutionStrategyTypeEnum' "ACCEPT_DESTINATION"
 
-instance ToText ConflictResolutionStrategyTypeEnum where
-  toText = \case
-    AcceptDestination -> "ACCEPT_DESTINATION"
-    AcceptSource -> "ACCEPT_SOURCE"
-    Automerge -> "AUTOMERGE"
-    None -> "NONE"
+pattern AcceptSource :: ConflictResolutionStrategyTypeEnum
+pattern AcceptSource = ConflictResolutionStrategyTypeEnum' "ACCEPT_SOURCE"
 
-instance Hashable ConflictResolutionStrategyTypeEnum
+pattern Automerge :: ConflictResolutionStrategyTypeEnum
+pattern Automerge = ConflictResolutionStrategyTypeEnum' "AUTOMERGE"
 
-instance NFData ConflictResolutionStrategyTypeEnum
+pattern None :: ConflictResolutionStrategyTypeEnum
+pattern None = ConflictResolutionStrategyTypeEnum' "NONE"
 
-instance ToByteString ConflictResolutionStrategyTypeEnum
-
-instance ToQuery ConflictResolutionStrategyTypeEnum
-
-instance ToHeader ConflictResolutionStrategyTypeEnum
-
-instance ToJSON ConflictResolutionStrategyTypeEnum where
-  toJSON = toJSONText
+{-# COMPLETE
+  AcceptDestination,
+  AcceptSource,
+  Automerge,
+  None,
+  ConflictResolutionStrategyTypeEnum'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,190 @@
 --
 -- Returns AWS resource descriptions for running and deleted stacks. If @StackName@ is specified, all the associated resources that are part of the stack are returned. If @PhysicalResourceId@ is specified, the associated resources of the stack that the resource belongs to are returned.
 --
---
 -- For deleted stacks, @DescribeStackResources@ returns resource information for up to 90 days after the stack has been deleted.
---
 -- You must specify either @StackName@ or @PhysicalResourceId@ , but not both. In addition, you can specify @LogicalResourceId@ to filter the returned result. For more information about resources, the @LogicalResourceId@ and @PhysicalResourceId@ , go to the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/ AWS CloudFormation User Guide> .
 module Network.AWS.CloudFormation.DescribeStackResources
-  ( -- * Creating a Request
-    describeStackResources,
-    DescribeStackResources,
+  ( -- * Creating a request
+    DescribeStackResources (..),
+    mkDescribeStackResources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsrLogicalResourceId,
     dsrPhysicalResourceId,
     dsrStackName,
 
-    -- * Destructuring the Response
-    describeStackResourcesResponse,
-    DescribeStackResourcesResponse,
+    -- * Destructuring the response
+    DescribeStackResourcesResponse (..),
+    mkDescribeStackResourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsrsStackResources,
     dsrsrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for 'DescribeStackResources' action.
 --
---
---
--- /See:/ 'describeStackResources' smart constructor.
+-- /See:/ 'mkDescribeStackResources' smart constructor.
 data DescribeStackResources = DescribeStackResources'
-  { _dsrLogicalResourceId ::
-      !(Maybe Text),
-    _dsrPhysicalResourceId :: !(Maybe Text),
-    _dsrStackName :: !(Maybe Text)
+  { logicalResourceId ::
+      Lude.Maybe Lude.Text,
+    physicalResourceId :: Lude.Maybe Lude.Text,
+    stackName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'logicalResourceId' - The logical name of the resource as specified in the template.
 --
--- * 'dsrLogicalResourceId' - The logical name of the resource as specified in the template. Default: There is no default value.
+-- Default: There is no default value.
+-- * 'physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
 --
--- * 'dsrPhysicalResourceId' - The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation. For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack. Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ . Default: There is no default value.
+-- For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack.
+-- Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ .
+-- Default: There is no default value.
+-- * 'stackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
--- * 'dsrStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value. Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
-describeStackResources ::
+--
+--     * Running stacks: You can specify either the stack's name or its unique stack ID.
+--
+--
+--     * Deleted stacks: You must specify the unique stack ID.
+--
+--
+-- Default: There is no default value.
+-- Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
+mkDescribeStackResources ::
   DescribeStackResources
-describeStackResources =
+mkDescribeStackResources =
   DescribeStackResources'
-    { _dsrLogicalResourceId = Nothing,
-      _dsrPhysicalResourceId = Nothing,
-      _dsrStackName = Nothing
+    { logicalResourceId = Lude.Nothing,
+      physicalResourceId = Lude.Nothing,
+      stackName = Lude.Nothing
     }
 
--- | The logical name of the resource as specified in the template. Default: There is no default value.
-dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrLogicalResourceId = lens _dsrLogicalResourceId (\s a -> s {_dsrLogicalResourceId = a})
+-- | The logical name of the resource as specified in the template.
+--
+-- Default: There is no default value.
+--
+-- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrLogicalResourceId :: Lens.Lens' DescribeStackResources (Lude.Maybe Lude.Text)
+dsrLogicalResourceId = Lens.lens (logicalResourceId :: DescribeStackResources -> Lude.Maybe Lude.Text) (\s a -> s {logicalResourceId = a} :: DescribeStackResources)
+{-# DEPRECATED dsrLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
 
--- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation. For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack. Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ . Default: There is no default value.
-dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\s a -> s {_dsrPhysicalResourceId = a})
+-- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
+--
+-- For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack.
+-- Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ .
+-- Default: There is no default value.
+--
+-- /Note:/ Consider using 'physicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrPhysicalResourceId :: Lens.Lens' DescribeStackResources (Lude.Maybe Lude.Text)
+dsrPhysicalResourceId = Lens.lens (physicalResourceId :: DescribeStackResources -> Lude.Maybe Lude.Text) (\s a -> s {physicalResourceId = a} :: DescribeStackResources)
+{-# DEPRECATED dsrPhysicalResourceId "Use generic-lens or generic-optics with 'physicalResourceId' instead." #-}
 
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value. Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
-dsrStackName :: Lens' DescribeStackResources (Maybe Text)
-dsrStackName = lens _dsrStackName (\s a -> s {_dsrStackName = a})
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
+--
+--
+--     * Running stacks: You can specify either the stack's name or its unique stack ID.
+--
+--
+--     * Deleted stacks: You must specify the unique stack ID.
+--
+--
+-- Default: There is no default value.
+-- Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrStackName :: Lens.Lens' DescribeStackResources (Lude.Maybe Lude.Text)
+dsrStackName = Lens.lens (stackName :: DescribeStackResources -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeStackResources)
+{-# DEPRECATED dsrStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance AWSRequest DescribeStackResources where
+instance Lude.AWSRequest DescribeStackResources where
   type Rs DescribeStackResources = DescribeStackResourcesResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeStackResourcesResult"
       ( \s h x ->
           DescribeStackResourcesResponse'
-            <$> (x .@? "StackResources" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "StackResources" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStackResources
+instance Lude.ToHeaders DescribeStackResources where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStackResources
+instance Lude.ToPath DescribeStackResources where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeStackResources where
-  toHeaders = const mempty
-
-instance ToPath DescribeStackResources where
-  toPath = const "/"
-
-instance ToQuery DescribeStackResources where
+instance Lude.ToQuery DescribeStackResources where
   toQuery DescribeStackResources' {..} =
-    mconcat
-      [ "Action" =: ("DescribeStackResources" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "LogicalResourceId" =: _dsrLogicalResourceId,
-        "PhysicalResourceId" =: _dsrPhysicalResourceId,
-        "StackName" =: _dsrStackName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeStackResources" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "LogicalResourceId" Lude.=: logicalResourceId,
+        "PhysicalResourceId" Lude.=: physicalResourceId,
+        "StackName" Lude.=: stackName
       ]
 
 -- | The output for a 'DescribeStackResources' action.
 --
---
---
--- /See:/ 'describeStackResourcesResponse' smart constructor.
+-- /See:/ 'mkDescribeStackResourcesResponse' smart constructor.
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
-  { _dsrsrsStackResources ::
-      !(Maybe [StackResource]),
-    _dsrsrsResponseStatus :: !Int
+  { stackResources ::
+      Lude.Maybe [StackResource],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackResourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsrsStackResources' - A list of @StackResource@ structures.
---
--- * 'dsrsrsResponseStatus' - -- | The response status code.
-describeStackResourcesResponse ::
-  -- | 'dsrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stackResources' - A list of @StackResource@ structures.
+mkDescribeStackResourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackResourcesResponse
-describeStackResourcesResponse pResponseStatus_ =
+mkDescribeStackResourcesResponse pResponseStatus_ =
   DescribeStackResourcesResponse'
-    { _dsrsrsStackResources = Nothing,
-      _dsrsrsResponseStatus = pResponseStatus_
+    { stackResources = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @StackResource@ structures.
-dsrsrsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-dsrsrsStackResources = lens _dsrsrsStackResources (\s a -> s {_dsrsrsStackResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stackResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsrsStackResources :: Lens.Lens' DescribeStackResourcesResponse (Lude.Maybe [StackResource])
+dsrsrsStackResources = Lens.lens (stackResources :: DescribeStackResourcesResponse -> Lude.Maybe [StackResource]) (\s a -> s {stackResources = a} :: DescribeStackResourcesResponse)
+{-# DEPRECATED dsrsrsStackResources "Use generic-lens or generic-optics with 'stackResources' instead." #-}
 
--- | -- | The response status code.
-dsrsrsResponseStatus :: Lens' DescribeStackResourcesResponse Int
-dsrsrsResponseStatus = lens _dsrsrsResponseStatus (\s a -> s {_dsrsrsResponseStatus = a})
-
-instance NFData DescribeStackResourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsrsResponseStatus :: Lens.Lens' DescribeStackResourcesResponse Lude.Int
+dsrsrsResponseStatus = Lens.lens (responseStatus :: DescribeStackResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackResourcesResponse)
+{-# DEPRECATED dsrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

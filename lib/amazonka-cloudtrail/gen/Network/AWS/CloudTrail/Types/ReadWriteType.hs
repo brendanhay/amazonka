@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.ReadWriteType where
+module Network.AWS.CloudTrail.Types.ReadWriteType
+  ( ReadWriteType
+      ( ReadWriteType',
+        RWTAll,
+        RWTReadOnly,
+        RWTWriteOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReadWriteType
-  = RWTAll
-  | RWTReadOnly
-  | RWTWriteOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReadWriteType = ReadWriteType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReadWriteType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure RWTAll
-      "readonly" -> pure RWTReadOnly
-      "writeonly" -> pure RWTWriteOnly
-      e ->
-        fromTextError $
-          "Failure parsing ReadWriteType from value: '" <> e
-            <> "'. Accepted values: all, readonly, writeonly"
+pattern RWTAll :: ReadWriteType
+pattern RWTAll = ReadWriteType' "All"
 
-instance ToText ReadWriteType where
-  toText = \case
-    RWTAll -> "All"
-    RWTReadOnly -> "ReadOnly"
-    RWTWriteOnly -> "WriteOnly"
+pattern RWTReadOnly :: ReadWriteType
+pattern RWTReadOnly = ReadWriteType' "ReadOnly"
 
-instance Hashable ReadWriteType
+pattern RWTWriteOnly :: ReadWriteType
+pattern RWTWriteOnly = ReadWriteType' "WriteOnly"
 
-instance NFData ReadWriteType
-
-instance ToByteString ReadWriteType
-
-instance ToQuery ReadWriteType
-
-instance ToHeader ReadWriteType
-
-instance ToJSON ReadWriteType where
-  toJSON = toJSONText
-
-instance FromJSON ReadWriteType where
-  parseJSON = parseJSONText "ReadWriteType"
+{-# COMPLETE
+  RWTAll,
+  RWTReadOnly,
+  RWTWriteOnly,
+  ReadWriteType'
+  #-}

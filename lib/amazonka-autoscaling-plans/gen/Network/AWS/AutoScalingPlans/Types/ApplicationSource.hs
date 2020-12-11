@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ApplicationSource where
+module Network.AWS.AutoScalingPlans.Types.ApplicationSource
+  ( ApplicationSource (..),
+
+    -- * Smart constructor
+    mkApplicationSource,
+
+    -- * Lenses
+    asTagFilters,
+    asCloudFormationStackARN,
+  )
+where
 
 import Network.AWS.AutoScalingPlans.Types.TagFilter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an application source.
 --
---
---
--- /See:/ 'applicationSource' smart constructor.
+-- /See:/ 'mkApplicationSource' smart constructor.
 data ApplicationSource = ApplicationSource'
-  { _asTagFilters ::
-      !(Maybe [TagFilter]),
-    _asCloudFormationStackARN :: !(Maybe Text)
+  { tagFilters ::
+      Lude.Maybe [TagFilter],
+    cloudFormationStackARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asTagFilters' - A set of tags (up to 50).
---
--- * 'asCloudFormationStackARN' - The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-applicationSource ::
+-- * 'cloudFormationStackARN' - The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+-- * 'tagFilters' - A set of tags (up to 50).
+mkApplicationSource ::
   ApplicationSource
-applicationSource =
+mkApplicationSource =
   ApplicationSource'
-    { _asTagFilters = Nothing,
-      _asCloudFormationStackARN = Nothing
+    { tagFilters = Lude.Nothing,
+      cloudFormationStackARN = Lude.Nothing
     }
 
 -- | A set of tags (up to 50).
-asTagFilters :: Lens' ApplicationSource [TagFilter]
-asTagFilters = lens _asTagFilters (\s a -> s {_asTagFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asTagFilters :: Lens.Lens' ApplicationSource (Lude.Maybe [TagFilter])
+asTagFilters = Lens.lens (tagFilters :: ApplicationSource -> Lude.Maybe [TagFilter]) (\s a -> s {tagFilters = a} :: ApplicationSource)
+{-# DEPRECATED asTagFilters "Use generic-lens or generic-optics with 'tagFilters' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-asCloudFormationStackARN :: Lens' ApplicationSource (Maybe Text)
-asCloudFormationStackARN = lens _asCloudFormationStackARN (\s a -> s {_asCloudFormationStackARN = a})
+--
+-- /Note:/ Consider using 'cloudFormationStackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCloudFormationStackARN :: Lens.Lens' ApplicationSource (Lude.Maybe Lude.Text)
+asCloudFormationStackARN = Lens.lens (cloudFormationStackARN :: ApplicationSource -> Lude.Maybe Lude.Text) (\s a -> s {cloudFormationStackARN = a} :: ApplicationSource)
+{-# DEPRECATED asCloudFormationStackARN "Use generic-lens or generic-optics with 'cloudFormationStackARN' instead." #-}
 
-instance FromJSON ApplicationSource where
+instance Lude.FromJSON ApplicationSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "ApplicationSource"
       ( \x ->
           ApplicationSource'
-            <$> (x .:? "TagFilters" .!= mempty)
-            <*> (x .:? "CloudFormationStackARN")
+            Lude.<$> (x Lude..:? "TagFilters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CloudFormationStackARN")
       )
 
-instance Hashable ApplicationSource
-
-instance NFData ApplicationSource
-
-instance ToJSON ApplicationSource where
+instance Lude.ToJSON ApplicationSource where
   toJSON ApplicationSource' {..} =
-    object
-      ( catMaybes
-          [ ("TagFilters" .=) <$> _asTagFilters,
-            ("CloudFormationStackARN" .=) <$> _asCloudFormationStackARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TagFilters" Lude..=) Lude.<$> tagFilters,
+            ("CloudFormationStackARN" Lude..=)
+              Lude.<$> cloudFormationStackARN
           ]
       )

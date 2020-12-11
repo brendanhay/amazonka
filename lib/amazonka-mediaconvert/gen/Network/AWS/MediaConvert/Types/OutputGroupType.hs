@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputGroupType where
+module Network.AWS.MediaConvert.Types.OutputGroupType
+  ( OutputGroupType
+      ( OutputGroupType',
+        CmafGroupSettings,
+        DashIsoGroupSettings,
+        FileGroupSettings,
+        HlsGroupSettings,
+        MsSmoothGroupSettings
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
-data OutputGroupType
-  = CmafGroupSettings
-  | DashIsoGroupSettings
-  | FileGroupSettings
-  | HlsGroupSettings
-  | MsSmoothGroupSettings
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutputGroupType = OutputGroupType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutputGroupType where
-  parser =
-    takeLowerText >>= \case
-      "cmaf_group_settings" -> pure CmafGroupSettings
-      "dash_iso_group_settings" -> pure DashIsoGroupSettings
-      "file_group_settings" -> pure FileGroupSettings
-      "hls_group_settings" -> pure HlsGroupSettings
-      "ms_smooth_group_settings" -> pure MsSmoothGroupSettings
-      e ->
-        fromTextError $
-          "Failure parsing OutputGroupType from value: '" <> e
-            <> "'. Accepted values: cmaf_group_settings, dash_iso_group_settings, file_group_settings, hls_group_settings, ms_smooth_group_settings"
+pattern CmafGroupSettings :: OutputGroupType
+pattern CmafGroupSettings = OutputGroupType' "CMAF_GROUP_SETTINGS"
 
-instance ToText OutputGroupType where
-  toText = \case
-    CmafGroupSettings -> "CMAF_GROUP_SETTINGS"
-    DashIsoGroupSettings -> "DASH_ISO_GROUP_SETTINGS"
-    FileGroupSettings -> "FILE_GROUP_SETTINGS"
-    HlsGroupSettings -> "HLS_GROUP_SETTINGS"
-    MsSmoothGroupSettings -> "MS_SMOOTH_GROUP_SETTINGS"
+pattern DashIsoGroupSettings :: OutputGroupType
+pattern DashIsoGroupSettings = OutputGroupType' "DASH_ISO_GROUP_SETTINGS"
 
-instance Hashable OutputGroupType
+pattern FileGroupSettings :: OutputGroupType
+pattern FileGroupSettings = OutputGroupType' "FILE_GROUP_SETTINGS"
 
-instance NFData OutputGroupType
+pattern HlsGroupSettings :: OutputGroupType
+pattern HlsGroupSettings = OutputGroupType' "HLS_GROUP_SETTINGS"
 
-instance ToByteString OutputGroupType
+pattern MsSmoothGroupSettings :: OutputGroupType
+pattern MsSmoothGroupSettings = OutputGroupType' "MS_SMOOTH_GROUP_SETTINGS"
 
-instance ToQuery OutputGroupType
-
-instance ToHeader OutputGroupType
-
-instance ToJSON OutputGroupType where
-  toJSON = toJSONText
-
-instance FromJSON OutputGroupType where
-  parseJSON = parseJSONText "OutputGroupType"
+{-# COMPLETE
+  CmafGroupSettings,
+  DashIsoGroupSettings,
+  FileGroupSettings,
+  HlsGroupSettings,
+  MsSmoothGroupSettings,
+  OutputGroupType'
+  #-}

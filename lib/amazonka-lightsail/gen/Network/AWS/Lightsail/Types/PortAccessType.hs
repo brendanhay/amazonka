@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.PortAccessType where
+module Network.AWS.Lightsail.Types.PortAccessType
+  ( PortAccessType
+      ( PortAccessType',
+        Private,
+        Public
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PortAccessType
-  = Private
-  | Public
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PortAccessType = PortAccessType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PortAccessType where
-  parser =
-    takeLowerText >>= \case
-      "private" -> pure Private
-      "public" -> pure Public
-      e ->
-        fromTextError $
-          "Failure parsing PortAccessType from value: '" <> e
-            <> "'. Accepted values: private, public"
+pattern Private :: PortAccessType
+pattern Private = PortAccessType' "Private"
 
-instance ToText PortAccessType where
-  toText = \case
-    Private -> "Private"
-    Public -> "Public"
+pattern Public :: PortAccessType
+pattern Public = PortAccessType' "Public"
 
-instance Hashable PortAccessType
-
-instance NFData PortAccessType
-
-instance ToByteString PortAccessType
-
-instance ToQuery PortAccessType
-
-instance ToHeader PortAccessType
-
-instance FromJSON PortAccessType where
-  parseJSON = parseJSONText "PortAccessType"
+{-# COMPLETE
+  Private,
+  Public,
+  PortAccessType'
+  #-}

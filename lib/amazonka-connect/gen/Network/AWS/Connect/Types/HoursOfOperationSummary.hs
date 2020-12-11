@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.HoursOfOperationSummary where
+module Network.AWS.Connect.Types.HoursOfOperationSummary
+  ( HoursOfOperationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHoursOfOperationSummary,
+
+    -- * Lenses
+    hoosARN,
+    hoosName,
+    hoosId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary information about hours of operation for a contact center.
 --
---
---
--- /See:/ 'hoursOfOperationSummary' smart constructor.
+-- /See:/ 'mkHoursOfOperationSummary' smart constructor.
 data HoursOfOperationSummary = HoursOfOperationSummary'
-  { _hoosARN ::
-      !(Maybe Text),
-    _hoosName :: !(Maybe Text),
-    _hoosId :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HoursOfOperationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hoosARN' - The Amazon Resource Name (ARN) of the hours of operation.
---
--- * 'hoosName' - The name of the hours of operation.
---
--- * 'hoosId' - The identifier of the hours of operation.
-hoursOfOperationSummary ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the hours of operation.
+-- * 'id' - The identifier of the hours of operation.
+-- * 'name' - The name of the hours of operation.
+mkHoursOfOperationSummary ::
   HoursOfOperationSummary
-hoursOfOperationSummary =
+mkHoursOfOperationSummary =
   HoursOfOperationSummary'
-    { _hoosARN = Nothing,
-      _hoosName = Nothing,
-      _hoosId = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hours of operation.
-hoosARN :: Lens' HoursOfOperationSummary (Maybe Text)
-hoosARN = lens _hoosARN (\s a -> s {_hoosARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoosARN :: Lens.Lens' HoursOfOperationSummary (Lude.Maybe Lude.Text)
+hoosARN = Lens.lens (arn :: HoursOfOperationSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: HoursOfOperationSummary)
+{-# DEPRECATED hoosARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the hours of operation.
-hoosName :: Lens' HoursOfOperationSummary (Maybe Text)
-hoosName = lens _hoosName (\s a -> s {_hoosName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoosName :: Lens.Lens' HoursOfOperationSummary (Lude.Maybe Lude.Text)
+hoosName = Lens.lens (name :: HoursOfOperationSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: HoursOfOperationSummary)
+{-# DEPRECATED hoosName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the hours of operation.
-hoosId :: Lens' HoursOfOperationSummary (Maybe Text)
-hoosId = lens _hoosId (\s a -> s {_hoosId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoosId :: Lens.Lens' HoursOfOperationSummary (Lude.Maybe Lude.Text)
+hoosId = Lens.lens (id :: HoursOfOperationSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: HoursOfOperationSummary)
+{-# DEPRECATED hoosId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON HoursOfOperationSummary where
+instance Lude.FromJSON HoursOfOperationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "HoursOfOperationSummary"
       ( \x ->
           HoursOfOperationSummary'
-            <$> (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable HoursOfOperationSummary
-
-instance NFData HoursOfOperationSummary

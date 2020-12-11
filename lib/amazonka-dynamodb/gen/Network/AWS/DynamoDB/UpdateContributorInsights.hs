@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Updates the status for contributor insights for a specific table or index.
 module Network.AWS.DynamoDB.UpdateContributorInsights
-  ( -- * Creating a Request
-    updateContributorInsights,
-    UpdateContributorInsights,
+  ( -- * Creating a request
+    UpdateContributorInsights (..),
+    mkUpdateContributorInsights,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uciIndexName,
     uciTableName,
     uciContributorInsightsAction,
 
-    -- * Destructuring the Response
-    updateContributorInsightsResponse,
-    UpdateContributorInsightsResponse,
+    -- * Destructuring the response
+    UpdateContributorInsightsResponse (..),
+    mkUpdateContributorInsightsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucirsContributorInsightsStatus,
     ucirsTableName,
     ucirsIndexName,
@@ -41,154 +36,174 @@ module Network.AWS.DynamoDB.UpdateContributorInsights
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateContributorInsights' smart constructor.
+-- | /See:/ 'mkUpdateContributorInsights' smart constructor.
 data UpdateContributorInsights = UpdateContributorInsights'
-  { _uciIndexName ::
-      !(Maybe Text),
-    _uciTableName :: !Text,
-    _uciContributorInsightsAction ::
-      !ContributorInsightsAction
+  { indexName ::
+      Lude.Maybe Lude.Text,
+    tableName :: Lude.Text,
+    contributorInsightsAction ::
+      ContributorInsightsAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContributorInsights' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uciIndexName' - The global secondary index name, if applicable.
---
--- * 'uciTableName' - The name of the table.
---
--- * 'uciContributorInsightsAction' - Represents the contributor insights action.
-updateContributorInsights ::
-  -- | 'uciTableName'
-  Text ->
-  -- | 'uciContributorInsightsAction'
+-- * 'contributorInsightsAction' - Represents the contributor insights action.
+-- * 'indexName' - The global secondary index name, if applicable.
+-- * 'tableName' - The name of the table.
+mkUpdateContributorInsights ::
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'contributorInsightsAction'
   ContributorInsightsAction ->
   UpdateContributorInsights
-updateContributorInsights pTableName_ pContributorInsightsAction_ =
+mkUpdateContributorInsights pTableName_ pContributorInsightsAction_ =
   UpdateContributorInsights'
-    { _uciIndexName = Nothing,
-      _uciTableName = pTableName_,
-      _uciContributorInsightsAction = pContributorInsightsAction_
+    { indexName = Lude.Nothing,
+      tableName = pTableName_,
+      contributorInsightsAction = pContributorInsightsAction_
     }
 
 -- | The global secondary index name, if applicable.
-uciIndexName :: Lens' UpdateContributorInsights (Maybe Text)
-uciIndexName = lens _uciIndexName (\s a -> s {_uciIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uciIndexName :: Lens.Lens' UpdateContributorInsights (Lude.Maybe Lude.Text)
+uciIndexName = Lens.lens (indexName :: UpdateContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: UpdateContributorInsights)
+{-# DEPRECATED uciIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The name of the table.
-uciTableName :: Lens' UpdateContributorInsights Text
-uciTableName = lens _uciTableName (\s a -> s {_uciTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uciTableName :: Lens.Lens' UpdateContributorInsights Lude.Text
+uciTableName = Lens.lens (tableName :: UpdateContributorInsights -> Lude.Text) (\s a -> s {tableName = a} :: UpdateContributorInsights)
+{-# DEPRECATED uciTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | Represents the contributor insights action.
-uciContributorInsightsAction :: Lens' UpdateContributorInsights ContributorInsightsAction
-uciContributorInsightsAction = lens _uciContributorInsightsAction (\s a -> s {_uciContributorInsightsAction = a})
+--
+-- /Note:/ Consider using 'contributorInsightsAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uciContributorInsightsAction :: Lens.Lens' UpdateContributorInsights ContributorInsightsAction
+uciContributorInsightsAction = Lens.lens (contributorInsightsAction :: UpdateContributorInsights -> ContributorInsightsAction) (\s a -> s {contributorInsightsAction = a} :: UpdateContributorInsights)
+{-# DEPRECATED uciContributorInsightsAction "Use generic-lens or generic-optics with 'contributorInsightsAction' instead." #-}
 
-instance AWSRequest UpdateContributorInsights where
+instance Lude.AWSRequest UpdateContributorInsights where
   type
     Rs UpdateContributorInsights =
       UpdateContributorInsightsResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateContributorInsightsResponse'
-            <$> (x .?> "ContributorInsightsStatus")
-            <*> (x .?> "TableName")
-            <*> (x .?> "IndexName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContributorInsightsStatus")
+            Lude.<*> (x Lude..?> "TableName")
+            Lude.<*> (x Lude..?> "IndexName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateContributorInsights
-
-instance NFData UpdateContributorInsights
-
-instance ToHeaders UpdateContributorInsights where
+instance Lude.ToHeaders UpdateContributorInsights where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.UpdateContributorInsights" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.UpdateContributorInsights" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateContributorInsights where
+instance Lude.ToJSON UpdateContributorInsights where
   toJSON UpdateContributorInsights' {..} =
-    object
-      ( catMaybes
-          [ ("IndexName" .=) <$> _uciIndexName,
-            Just ("TableName" .= _uciTableName),
-            Just
-              ("ContributorInsightsAction" .= _uciContributorInsightsAction)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IndexName" Lude..=) Lude.<$> indexName,
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just
+              ("ContributorInsightsAction" Lude..= contributorInsightsAction)
           ]
       )
 
-instance ToPath UpdateContributorInsights where
-  toPath = const "/"
+instance Lude.ToPath UpdateContributorInsights where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateContributorInsights where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateContributorInsights where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateContributorInsightsResponse' smart constructor.
+-- | /See:/ 'mkUpdateContributorInsightsResponse' smart constructor.
 data UpdateContributorInsightsResponse = UpdateContributorInsightsResponse'
-  { _ucirsContributorInsightsStatus ::
-      !( Maybe
-           ContributorInsightsStatus
-       ),
-    _ucirsTableName ::
-      !(Maybe Text),
-    _ucirsIndexName ::
-      !(Maybe Text),
-    _ucirsResponseStatus ::
-      !Int
+  { contributorInsightsStatus ::
+      Lude.Maybe
+        ContributorInsightsStatus,
+    tableName ::
+      Lude.Maybe Lude.Text,
+    indexName ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContributorInsightsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucirsContributorInsightsStatus' - The status of contributor insights
---
--- * 'ucirsTableName' - The name of the table.
---
--- * 'ucirsIndexName' - The name of the global secondary index, if applicable.
---
--- * 'ucirsResponseStatus' - -- | The response status code.
-updateContributorInsightsResponse ::
-  -- | 'ucirsResponseStatus'
-  Int ->
+-- * 'contributorInsightsStatus' - The status of contributor insights
+-- * 'indexName' - The name of the global secondary index, if applicable.
+-- * 'responseStatus' - The response status code.
+-- * 'tableName' - The name of the table.
+mkUpdateContributorInsightsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateContributorInsightsResponse
-updateContributorInsightsResponse pResponseStatus_ =
+mkUpdateContributorInsightsResponse pResponseStatus_ =
   UpdateContributorInsightsResponse'
-    { _ucirsContributorInsightsStatus =
-        Nothing,
-      _ucirsTableName = Nothing,
-      _ucirsIndexName = Nothing,
-      _ucirsResponseStatus = pResponseStatus_
+    { contributorInsightsStatus =
+        Lude.Nothing,
+      tableName = Lude.Nothing,
+      indexName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of contributor insights
-ucirsContributorInsightsStatus :: Lens' UpdateContributorInsightsResponse (Maybe ContributorInsightsStatus)
-ucirsContributorInsightsStatus = lens _ucirsContributorInsightsStatus (\s a -> s {_ucirsContributorInsightsStatus = a})
+--
+-- /Note:/ Consider using 'contributorInsightsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucirsContributorInsightsStatus :: Lens.Lens' UpdateContributorInsightsResponse (Lude.Maybe ContributorInsightsStatus)
+ucirsContributorInsightsStatus = Lens.lens (contributorInsightsStatus :: UpdateContributorInsightsResponse -> Lude.Maybe ContributorInsightsStatus) (\s a -> s {contributorInsightsStatus = a} :: UpdateContributorInsightsResponse)
+{-# DEPRECATED ucirsContributorInsightsStatus "Use generic-lens or generic-optics with 'contributorInsightsStatus' instead." #-}
 
 -- | The name of the table.
-ucirsTableName :: Lens' UpdateContributorInsightsResponse (Maybe Text)
-ucirsTableName = lens _ucirsTableName (\s a -> s {_ucirsTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucirsTableName :: Lens.Lens' UpdateContributorInsightsResponse (Lude.Maybe Lude.Text)
+ucirsTableName = Lens.lens (tableName :: UpdateContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: UpdateContributorInsightsResponse)
+{-# DEPRECATED ucirsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The name of the global secondary index, if applicable.
-ucirsIndexName :: Lens' UpdateContributorInsightsResponse (Maybe Text)
-ucirsIndexName = lens _ucirsIndexName (\s a -> s {_ucirsIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucirsIndexName :: Lens.Lens' UpdateContributorInsightsResponse (Lude.Maybe Lude.Text)
+ucirsIndexName = Lens.lens (indexName :: UpdateContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: UpdateContributorInsightsResponse)
+{-# DEPRECATED ucirsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
--- | -- | The response status code.
-ucirsResponseStatus :: Lens' UpdateContributorInsightsResponse Int
-ucirsResponseStatus = lens _ucirsResponseStatus (\s a -> s {_ucirsResponseStatus = a})
-
-instance NFData UpdateContributorInsightsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucirsResponseStatus :: Lens.Lens' UpdateContributorInsightsResponse Lude.Int
+ucirsResponseStatus = Lens.lens (responseStatus :: UpdateContributorInsightsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContributorInsightsResponse)
+{-# DEPRECATED ucirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

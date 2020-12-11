@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
 module Network.AWS.Route53.TestDNSAnswer
-  ( -- * Creating a Request
-    testDNSAnswer,
-    TestDNSAnswer,
+  ( -- * Creating a request
+    TestDNSAnswer (..),
+    mkTestDNSAnswer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tdaResolverIP,
     tdaEDNS0ClientSubnetIP,
     tdaEDNS0ClientSubnetMask,
@@ -31,11 +26,11 @@ module Network.AWS.Route53.TestDNSAnswer
     tdaRecordName,
     tdaRecordType,
 
-    -- * Destructuring the Response
-    testDNSAnswerResponse,
-    TestDNSAnswerResponse,
+    -- * Destructuring the response
+    TestDNSAnswerResponse (..),
+    mkTestDNSAnswerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tdarsResponseStatus,
     tdarsNameserver,
     tdarsRecordName,
@@ -46,171 +41,200 @@ module Network.AWS.Route53.TestDNSAnswer
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
 --
---
---
--- /See:/ 'testDNSAnswer' smart constructor.
+-- /See:/ 'mkTestDNSAnswer' smart constructor.
 data TestDNSAnswer = TestDNSAnswer'
-  { _tdaResolverIP ::
-      !(Maybe Text),
-    _tdaEDNS0ClientSubnetIP :: !(Maybe Text),
-    _tdaEDNS0ClientSubnetMask :: !(Maybe Text),
-    _tdaHostedZoneId :: !ResourceId,
-    _tdaRecordName :: !Text,
-    _tdaRecordType :: !RecordType
+  { resolverIP ::
+      Lude.Maybe Lude.Text,
+    eDNS0ClientSubnetIP :: Lude.Maybe Lude.Text,
+    eDNS0ClientSubnetMask :: Lude.Maybe Lude.Text,
+    hostedZoneId :: ResourceId,
+    recordName :: Lude.Text,
+    recordType :: RecordType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestDNSAnswer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'eDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
+-- * 'eDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses.
 --
--- * 'tdaResolverIP' - If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
+-- The range of valid values depends on whether @edns0clientsubnetip@ is an IPv4 or an IPv6 address:
 --
--- * 'tdaEDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
+--     * __IPv4__ : Specify a value between 0 and 32
 --
--- * 'tdaEDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses. The range of valid values depends on whether @edns0clientsubnetip@ is an IPv4 or an IPv6 address:     * __IPv4__ : Specify a value between 0 and 32     * __IPv6__ : Specify a value between 0 and 128
 --
--- * 'tdaHostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
+--     * __IPv6__ : Specify a value between 0 and 128
 --
--- * 'tdaRecordName' - The name of the resource record set that you want Amazon Route 53 to simulate a query for.
 --
--- * 'tdaRecordType' - The type of the resource record set.
-testDNSAnswer ::
-  -- | 'tdaHostedZoneId'
+-- * 'hostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
+-- * 'recordName' - The name of the resource record set that you want Amazon Route 53 to simulate a query for.
+-- * 'recordType' - The type of the resource record set.
+-- * 'resolverIP' - If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
+mkTestDNSAnswer ::
+  -- | 'hostedZoneId'
   ResourceId ->
-  -- | 'tdaRecordName'
-  Text ->
-  -- | 'tdaRecordType'
+  -- | 'recordName'
+  Lude.Text ->
+  -- | 'recordType'
   RecordType ->
   TestDNSAnswer
-testDNSAnswer pHostedZoneId_ pRecordName_ pRecordType_ =
+mkTestDNSAnswer pHostedZoneId_ pRecordName_ pRecordType_ =
   TestDNSAnswer'
-    { _tdaResolverIP = Nothing,
-      _tdaEDNS0ClientSubnetIP = Nothing,
-      _tdaEDNS0ClientSubnetMask = Nothing,
-      _tdaHostedZoneId = pHostedZoneId_,
-      _tdaRecordName = pRecordName_,
-      _tdaRecordType = pRecordType_
+    { resolverIP = Lude.Nothing,
+      eDNS0ClientSubnetIP = Lude.Nothing,
+      eDNS0ClientSubnetMask = Lude.Nothing,
+      hostedZoneId = pHostedZoneId_,
+      recordName = pRecordName_,
+      recordType = pRecordType_
     }
 
 -- | If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
-tdaResolverIP :: Lens' TestDNSAnswer (Maybe Text)
-tdaResolverIP = lens _tdaResolverIP (\s a -> s {_tdaResolverIP = a})
+--
+-- /Note:/ Consider using 'resolverIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdaResolverIP :: Lens.Lens' TestDNSAnswer (Lude.Maybe Lude.Text)
+tdaResolverIP = Lens.lens (resolverIP :: TestDNSAnswer -> Lude.Maybe Lude.Text) (\s a -> s {resolverIP = a} :: TestDNSAnswer)
+{-# DEPRECATED tdaResolverIP "Use generic-lens or generic-optics with 'resolverIP' instead." #-}
 
 -- | If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
-tdaEDNS0ClientSubnetIP :: Lens' TestDNSAnswer (Maybe Text)
-tdaEDNS0ClientSubnetIP = lens _tdaEDNS0ClientSubnetIP (\s a -> s {_tdaEDNS0ClientSubnetIP = a})
+--
+-- /Note:/ Consider using 'eDNS0ClientSubnetIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdaEDNS0ClientSubnetIP :: Lens.Lens' TestDNSAnswer (Lude.Maybe Lude.Text)
+tdaEDNS0ClientSubnetIP = Lens.lens (eDNS0ClientSubnetIP :: TestDNSAnswer -> Lude.Maybe Lude.Text) (\s a -> s {eDNS0ClientSubnetIP = a} :: TestDNSAnswer)
+{-# DEPRECATED tdaEDNS0ClientSubnetIP "Use generic-lens or generic-optics with 'eDNS0ClientSubnetIP' instead." #-}
 
--- | If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses. The range of valid values depends on whether @edns0clientsubnetip@ is an IPv4 or an IPv6 address:     * __IPv4__ : Specify a value between 0 and 32     * __IPv6__ : Specify a value between 0 and 128
-tdaEDNS0ClientSubnetMask :: Lens' TestDNSAnswer (Maybe Text)
-tdaEDNS0ClientSubnetMask = lens _tdaEDNS0ClientSubnetMask (\s a -> s {_tdaEDNS0ClientSubnetMask = a})
+-- | If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses.
+--
+-- The range of valid values depends on whether @edns0clientsubnetip@ is an IPv4 or an IPv6 address:
+--
+--     * __IPv4__ : Specify a value between 0 and 32
+--
+--
+--     * __IPv6__ : Specify a value between 0 and 128
+--
+--
+--
+-- /Note:/ Consider using 'eDNS0ClientSubnetMask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdaEDNS0ClientSubnetMask :: Lens.Lens' TestDNSAnswer (Lude.Maybe Lude.Text)
+tdaEDNS0ClientSubnetMask = Lens.lens (eDNS0ClientSubnetMask :: TestDNSAnswer -> Lude.Maybe Lude.Text) (\s a -> s {eDNS0ClientSubnetMask = a} :: TestDNSAnswer)
+{-# DEPRECATED tdaEDNS0ClientSubnetMask "Use generic-lens or generic-optics with 'eDNS0ClientSubnetMask' instead." #-}
 
 -- | The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
-tdaHostedZoneId :: Lens' TestDNSAnswer ResourceId
-tdaHostedZoneId = lens _tdaHostedZoneId (\s a -> s {_tdaHostedZoneId = a})
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdaHostedZoneId :: Lens.Lens' TestDNSAnswer ResourceId
+tdaHostedZoneId = Lens.lens (hostedZoneId :: TestDNSAnswer -> ResourceId) (\s a -> s {hostedZoneId = a} :: TestDNSAnswer)
+{-# DEPRECATED tdaHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The name of the resource record set that you want Amazon Route 53 to simulate a query for.
-tdaRecordName :: Lens' TestDNSAnswer Text
-tdaRecordName = lens _tdaRecordName (\s a -> s {_tdaRecordName = a})
+--
+-- /Note:/ Consider using 'recordName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdaRecordName :: Lens.Lens' TestDNSAnswer Lude.Text
+tdaRecordName = Lens.lens (recordName :: TestDNSAnswer -> Lude.Text) (\s a -> s {recordName = a} :: TestDNSAnswer)
+{-# DEPRECATED tdaRecordName "Use generic-lens or generic-optics with 'recordName' instead." #-}
 
 -- | The type of the resource record set.
-tdaRecordType :: Lens' TestDNSAnswer RecordType
-tdaRecordType = lens _tdaRecordType (\s a -> s {_tdaRecordType = a})
+--
+-- /Note:/ Consider using 'recordType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdaRecordType :: Lens.Lens' TestDNSAnswer RecordType
+tdaRecordType = Lens.lens (recordType :: TestDNSAnswer -> RecordType) (\s a -> s {recordType = a} :: TestDNSAnswer)
+{-# DEPRECATED tdaRecordType "Use generic-lens or generic-optics with 'recordType' instead." #-}
 
-instance AWSRequest TestDNSAnswer where
+instance Lude.AWSRequest TestDNSAnswer where
   type Rs TestDNSAnswer = TestDNSAnswerResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           TestDNSAnswerResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@ "Nameserver")
-            <*> (x .@ "RecordName")
-            <*> (x .@ "RecordType")
-            <*> (x .@? "RecordData" .!@ mempty >>= parseXMLList "RecordDataEntry")
-            <*> (x .@ "ResponseCode")
-            <*> (x .@ "Protocol")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "Nameserver")
+            Lude.<*> (x Lude..@ "RecordName")
+            Lude.<*> (x Lude..@ "RecordType")
+            Lude.<*> ( x Lude..@? "RecordData" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "RecordDataEntry"
+                     )
+            Lude.<*> (x Lude..@ "ResponseCode")
+            Lude.<*> (x Lude..@ "Protocol")
       )
 
-instance Hashable TestDNSAnswer
+instance Lude.ToHeaders TestDNSAnswer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TestDNSAnswer
+instance Lude.ToPath TestDNSAnswer where
+  toPath = Lude.const "/2013-04-01/testdnsanswer"
 
-instance ToHeaders TestDNSAnswer where
-  toHeaders = const mempty
-
-instance ToPath TestDNSAnswer where
-  toPath = const "/2013-04-01/testdnsanswer"
-
-instance ToQuery TestDNSAnswer where
+instance Lude.ToQuery TestDNSAnswer where
   toQuery TestDNSAnswer' {..} =
-    mconcat
-      [ "resolverip" =: _tdaResolverIP,
-        "edns0clientsubnetip" =: _tdaEDNS0ClientSubnetIP,
-        "edns0clientsubnetmask" =: _tdaEDNS0ClientSubnetMask,
-        "hostedzoneid" =: _tdaHostedZoneId,
-        "recordname" =: _tdaRecordName,
-        "recordtype" =: _tdaRecordType
+    Lude.mconcat
+      [ "resolverip" Lude.=: resolverIP,
+        "edns0clientsubnetip" Lude.=: eDNS0ClientSubnetIP,
+        "edns0clientsubnetmask" Lude.=: eDNS0ClientSubnetMask,
+        "hostedzoneid" Lude.=: hostedZoneId,
+        "recordname" Lude.=: recordName,
+        "recordtype" Lude.=: recordType
       ]
 
 -- | A complex type that contains the response to a @TestDNSAnswer@ request.
 --
---
---
--- /See:/ 'testDNSAnswerResponse' smart constructor.
+-- /See:/ 'mkTestDNSAnswerResponse' smart constructor.
 data TestDNSAnswerResponse = TestDNSAnswerResponse'
-  { _tdarsResponseStatus ::
-      !Int,
-    _tdarsNameserver :: !Text,
-    _tdarsRecordName :: !Text,
-    _tdarsRecordType :: !RecordType,
-    _tdarsRecordData :: ![Text],
-    _tdarsResponseCode :: !Text,
-    _tdarsProtocol :: !Text
+  { responseStatus ::
+      Lude.Int,
+    nameserver :: Lude.Text,
+    recordName :: Lude.Text,
+    recordType :: RecordType,
+    recordData :: [Lude.Text],
+    responseCode :: Lude.Text,
+    protocol :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestDNSAnswerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdarsResponseStatus' - -- | The response status code.
---
--- * 'tdarsNameserver' - The Amazon Route 53 name server used to respond to the request.
---
--- * 'tdarsRecordName' - The name of the resource record set that you submitted a request for.
---
--- * 'tdarsRecordType' - The type of the resource record set that you submitted a request for.
---
--- * 'tdarsRecordData' - A list that contains values that Amazon Route 53 returned for this resource record set.
---
--- * 'tdarsResponseCode' - A code that indicates whether the request is valid or not. The most common response code is @NOERROR@ , meaning that the request is valid. If the response is not valid, Amazon Route 53 returns a response code that describes the error. For a list of possible response codes, see <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES> on the IANA website.
---
--- * 'tdarsProtocol' - The protocol that Amazon Route 53 used to respond to the request, either @UDP@ or @TCP@ .
-testDNSAnswerResponse ::
-  -- | 'tdarsResponseStatus'
-  Int ->
-  -- | 'tdarsNameserver'
-  Text ->
-  -- | 'tdarsRecordName'
-  Text ->
-  -- | 'tdarsRecordType'
+-- * 'nameserver' - The Amazon Route 53 name server used to respond to the request.
+-- * 'protocol' - The protocol that Amazon Route 53 used to respond to the request, either @UDP@ or @TCP@ .
+-- * 'recordData' - A list that contains values that Amazon Route 53 returned for this resource record set.
+-- * 'recordName' - The name of the resource record set that you submitted a request for.
+-- * 'recordType' - The type of the resource record set that you submitted a request for.
+-- * 'responseCode' - A code that indicates whether the request is valid or not. The most common response code is @NOERROR@ , meaning that the request is valid. If the response is not valid, Amazon Route 53 returns a response code that describes the error. For a list of possible response codes, see <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES> on the IANA website.
+-- * 'responseStatus' - The response status code.
+mkTestDNSAnswerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'nameserver'
+  Lude.Text ->
+  -- | 'recordName'
+  Lude.Text ->
+  -- | 'recordType'
   RecordType ->
-  -- | 'tdarsResponseCode'
-  Text ->
-  -- | 'tdarsProtocol'
-  Text ->
+  -- | 'responseCode'
+  Lude.Text ->
+  -- | 'protocol'
+  Lude.Text ->
   TestDNSAnswerResponse
-testDNSAnswerResponse
+mkTestDNSAnswerResponse
   pResponseStatus_
   pNameserver_
   pRecordName_
@@ -218,41 +242,60 @@ testDNSAnswerResponse
   pResponseCode_
   pProtocol_ =
     TestDNSAnswerResponse'
-      { _tdarsResponseStatus = pResponseStatus_,
-        _tdarsNameserver = pNameserver_,
-        _tdarsRecordName = pRecordName_,
-        _tdarsRecordType = pRecordType_,
-        _tdarsRecordData = mempty,
-        _tdarsResponseCode = pResponseCode_,
-        _tdarsProtocol = pProtocol_
+      { responseStatus = pResponseStatus_,
+        nameserver = pNameserver_,
+        recordName = pRecordName_,
+        recordType = pRecordType_,
+        recordData = Lude.mempty,
+        responseCode = pResponseCode_,
+        protocol = pProtocol_
       }
 
--- | -- | The response status code.
-tdarsResponseStatus :: Lens' TestDNSAnswerResponse Int
-tdarsResponseStatus = lens _tdarsResponseStatus (\s a -> s {_tdarsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsResponseStatus :: Lens.Lens' TestDNSAnswerResponse Lude.Int
+tdarsResponseStatus = Lens.lens (responseStatus :: TestDNSAnswerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Route 53 name server used to respond to the request.
-tdarsNameserver :: Lens' TestDNSAnswerResponse Text
-tdarsNameserver = lens _tdarsNameserver (\s a -> s {_tdarsNameserver = a})
+--
+-- /Note:/ Consider using 'nameserver' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsNameserver :: Lens.Lens' TestDNSAnswerResponse Lude.Text
+tdarsNameserver = Lens.lens (nameserver :: TestDNSAnswerResponse -> Lude.Text) (\s a -> s {nameserver = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsNameserver "Use generic-lens or generic-optics with 'nameserver' instead." #-}
 
 -- | The name of the resource record set that you submitted a request for.
-tdarsRecordName :: Lens' TestDNSAnswerResponse Text
-tdarsRecordName = lens _tdarsRecordName (\s a -> s {_tdarsRecordName = a})
+--
+-- /Note:/ Consider using 'recordName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsRecordName :: Lens.Lens' TestDNSAnswerResponse Lude.Text
+tdarsRecordName = Lens.lens (recordName :: TestDNSAnswerResponse -> Lude.Text) (\s a -> s {recordName = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsRecordName "Use generic-lens or generic-optics with 'recordName' instead." #-}
 
 -- | The type of the resource record set that you submitted a request for.
-tdarsRecordType :: Lens' TestDNSAnswerResponse RecordType
-tdarsRecordType = lens _tdarsRecordType (\s a -> s {_tdarsRecordType = a})
+--
+-- /Note:/ Consider using 'recordType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsRecordType :: Lens.Lens' TestDNSAnswerResponse RecordType
+tdarsRecordType = Lens.lens (recordType :: TestDNSAnswerResponse -> RecordType) (\s a -> s {recordType = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsRecordType "Use generic-lens or generic-optics with 'recordType' instead." #-}
 
 -- | A list that contains values that Amazon Route 53 returned for this resource record set.
-tdarsRecordData :: Lens' TestDNSAnswerResponse [Text]
-tdarsRecordData = lens _tdarsRecordData (\s a -> s {_tdarsRecordData = a}) . _Coerce
+--
+-- /Note:/ Consider using 'recordData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsRecordData :: Lens.Lens' TestDNSAnswerResponse [Lude.Text]
+tdarsRecordData = Lens.lens (recordData :: TestDNSAnswerResponse -> [Lude.Text]) (\s a -> s {recordData = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsRecordData "Use generic-lens or generic-optics with 'recordData' instead." #-}
 
 -- | A code that indicates whether the request is valid or not. The most common response code is @NOERROR@ , meaning that the request is valid. If the response is not valid, Amazon Route 53 returns a response code that describes the error. For a list of possible response codes, see <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES> on the IANA website.
-tdarsResponseCode :: Lens' TestDNSAnswerResponse Text
-tdarsResponseCode = lens _tdarsResponseCode (\s a -> s {_tdarsResponseCode = a})
+--
+-- /Note:/ Consider using 'responseCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsResponseCode :: Lens.Lens' TestDNSAnswerResponse Lude.Text
+tdarsResponseCode = Lens.lens (responseCode :: TestDNSAnswerResponse -> Lude.Text) (\s a -> s {responseCode = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsResponseCode "Use generic-lens or generic-optics with 'responseCode' instead." #-}
 
 -- | The protocol that Amazon Route 53 used to respond to the request, either @UDP@ or @TCP@ .
-tdarsProtocol :: Lens' TestDNSAnswerResponse Text
-tdarsProtocol = lens _tdarsProtocol (\s a -> s {_tdarsProtocol = a})
-
-instance NFData TestDNSAnswerResponse
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdarsProtocol :: Lens.Lens' TestDNSAnswerResponse Lude.Text
+tdarsProtocol = Lens.lens (protocol :: TestDNSAnswerResponse -> Lude.Text) (\s a -> s {protocol = a} :: TestDNSAnswerResponse)
+{-# DEPRECATED tdarsProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,39 +14,35 @@
 --
 -- Returns a list of 'Fragment' objects from the specified stream and timestamp range within the archived data.
 --
---
 -- Listing fragments is eventually consistent. This means that even if the producer receives an acknowledgment that a fragment is persisted, the result might not be returned immediately from a request to @ListFragments@ . However, results are typically available in less than one second.
---
 -- /Important:/ If an error is thrown after invoking a Kinesis Video Streams archived media API, in addition to the HTTP status code and the response body, it includes the following pieces of information:
 --
 --     * @x-amz-ErrorType@ HTTP header – contains a more specific error type in addition to what the HTTP status code provides.
 --
+--
 --     * @x-amz-RequestId@ HTTP header – if you want to report an issue to AWS, the support team can better diagnose the problem if given the Request Id.
 --
 --
---
 -- Both the HTTP status code and the ErrorType header can be utilized to make programmatic decisions about whether errors are retry-able and under what conditions, as well as provide information on what actions the client programmer might need to take in order to successfully try again.
---
 -- For more information, see the __Errors__ section at the bottom of this topic, as well as <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html Common Errors> .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.KinesisVideoArchivedMedia.ListFragments
-  ( -- * Creating a Request
-    listFragments,
-    ListFragments,
+  ( -- * Creating a request
+    ListFragments (..),
+    mkListFragments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lfFragmentSelector,
     lfNextToken,
     lfMaxResults,
     lfStreamName,
 
-    -- * Destructuring the Response
-    listFragmentsResponse,
-    ListFragmentsResponse,
+    -- * Destructuring the response
+    ListFragmentsResponse (..),
+    mkListFragmentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lfrsNextToken,
     lfrsFragments,
     lfrsResponseStatus,
@@ -59,142 +50,165 @@ module Network.AWS.KinesisVideoArchivedMedia.ListFragments
 where
 
 import Network.AWS.KinesisVideoArchivedMedia.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listFragments' smart constructor.
+-- | /See:/ 'mkListFragments' smart constructor.
 data ListFragments = ListFragments'
-  { _lfFragmentSelector ::
-      !(Maybe FragmentSelector),
-    _lfNextToken :: !(Maybe Text),
-    _lfMaxResults :: !(Maybe Nat),
-    _lfStreamName :: !Text
+  { fragmentSelector ::
+      Lude.Maybe FragmentSelector,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    streamName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFragments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfFragmentSelector' - Describes the timestamp range and timestamp origin for the range of fragments to return.
---
--- * 'lfNextToken' - A token to specify where to start paginating. This is the 'ListFragmentsOutput$NextToken' from a previously truncated response.
---
--- * 'lfMaxResults' - The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
---
--- * 'lfStreamName' - The name of the stream from which to retrieve a fragment list.
-listFragments ::
-  -- | 'lfStreamName'
-  Text ->
+-- * 'fragmentSelector' - Describes the timestamp range and timestamp origin for the range of fragments to return.
+-- * 'maxResults' - The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
+-- * 'nextToken' - A token to specify where to start paginating. This is the 'ListFragmentsOutput$NextToken' from a previously truncated response.
+-- * 'streamName' - The name of the stream from which to retrieve a fragment list.
+mkListFragments ::
+  -- | 'streamName'
+  Lude.Text ->
   ListFragments
-listFragments pStreamName_ =
+mkListFragments pStreamName_ =
   ListFragments'
-    { _lfFragmentSelector = Nothing,
-      _lfNextToken = Nothing,
-      _lfMaxResults = Nothing,
-      _lfStreamName = pStreamName_
+    { fragmentSelector = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      streamName = pStreamName_
     }
 
 -- | Describes the timestamp range and timestamp origin for the range of fragments to return.
-lfFragmentSelector :: Lens' ListFragments (Maybe FragmentSelector)
-lfFragmentSelector = lens _lfFragmentSelector (\s a -> s {_lfFragmentSelector = a})
+--
+-- /Note:/ Consider using 'fragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfFragmentSelector :: Lens.Lens' ListFragments (Lude.Maybe FragmentSelector)
+lfFragmentSelector = Lens.lens (fragmentSelector :: ListFragments -> Lude.Maybe FragmentSelector) (\s a -> s {fragmentSelector = a} :: ListFragments)
+{-# DEPRECATED lfFragmentSelector "Use generic-lens or generic-optics with 'fragmentSelector' instead." #-}
 
 -- | A token to specify where to start paginating. This is the 'ListFragmentsOutput$NextToken' from a previously truncated response.
-lfNextToken :: Lens' ListFragments (Maybe Text)
-lfNextToken = lens _lfNextToken (\s a -> s {_lfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfNextToken :: Lens.Lens' ListFragments (Lude.Maybe Lude.Text)
+lfNextToken = Lens.lens (nextToken :: ListFragments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFragments)
+{-# DEPRECATED lfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
-lfMaxResults :: Lens' ListFragments (Maybe Natural)
-lfMaxResults = lens _lfMaxResults (\s a -> s {_lfMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfMaxResults :: Lens.Lens' ListFragments (Lude.Maybe Lude.Natural)
+lfMaxResults = Lens.lens (maxResults :: ListFragments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFragments)
+{-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the stream from which to retrieve a fragment list.
-lfStreamName :: Lens' ListFragments Text
-lfStreamName = lens _lfStreamName (\s a -> s {_lfStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfStreamName :: Lens.Lens' ListFragments Lude.Text
+lfStreamName = Lens.lens (streamName :: ListFragments -> Lude.Text) (\s a -> s {streamName = a} :: ListFragments)
+{-# DEPRECATED lfStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance AWSPager ListFragments where
+instance Page.AWSPager ListFragments where
   page rq rs
-    | stop (rs ^. lfrsNextToken) = Nothing
-    | stop (rs ^. lfrsFragments) = Nothing
-    | otherwise = Just $ rq & lfNextToken .~ rs ^. lfrsNextToken
+    | Page.stop (rs Lens.^. lfrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lfrsFragments) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lfNextToken Lens..~ rs Lens.^. lfrsNextToken
 
-instance AWSRequest ListFragments where
+instance Lude.AWSRequest ListFragments where
   type Rs ListFragments = ListFragmentsResponse
-  request = postJSON kinesisVideoArchivedMedia
+  request = Req.postJSON kinesisVideoArchivedMediaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListFragmentsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Fragments" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Fragments" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListFragments
+instance Lude.ToHeaders ListFragments where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListFragments
-
-instance ToHeaders ListFragments where
-  toHeaders = const mempty
-
-instance ToJSON ListFragments where
+instance Lude.ToJSON ListFragments where
   toJSON ListFragments' {..} =
-    object
-      ( catMaybes
-          [ ("FragmentSelector" .=) <$> _lfFragmentSelector,
-            ("NextToken" .=) <$> _lfNextToken,
-            ("MaxResults" .=) <$> _lfMaxResults,
-            Just ("StreamName" .= _lfStreamName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FragmentSelector" Lude..=) Lude.<$> fragmentSelector,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
-instance ToPath ListFragments where
-  toPath = const "/listFragments"
+instance Lude.ToPath ListFragments where
+  toPath = Lude.const "/listFragments"
 
-instance ToQuery ListFragments where
-  toQuery = const mempty
+instance Lude.ToQuery ListFragments where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listFragmentsResponse' smart constructor.
+-- | /See:/ 'mkListFragmentsResponse' smart constructor.
 data ListFragmentsResponse = ListFragmentsResponse'
-  { _lfrsNextToken ::
-      !(Maybe Text),
-    _lfrsFragments :: !(Maybe [Fragment]),
-    _lfrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    fragments :: Lude.Maybe [Fragment],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFragmentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfrsNextToken' - If the returned list is truncated, the operation returns this token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'lfrsFragments' - A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
---
--- * 'lfrsResponseStatus' - -- | The response status code.
-listFragmentsResponse ::
-  -- | 'lfrsResponseStatus'
-  Int ->
+-- * 'fragments' - A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
+-- * 'nextToken' - If the returned list is truncated, the operation returns this token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkListFragmentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListFragmentsResponse
-listFragmentsResponse pResponseStatus_ =
+mkListFragmentsResponse pResponseStatus_ =
   ListFragmentsResponse'
-    { _lfrsNextToken = Nothing,
-      _lfrsFragments = Nothing,
-      _lfrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      fragments = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the returned list is truncated, the operation returns this token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-lfrsNextToken :: Lens' ListFragmentsResponse (Maybe Text)
-lfrsNextToken = lens _lfrsNextToken (\s a -> s {_lfrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsNextToken :: Lens.Lens' ListFragmentsResponse (Lude.Maybe Lude.Text)
+lfrsNextToken = Lens.lens (nextToken :: ListFragmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFragmentsResponse)
+{-# DEPRECATED lfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
-lfrsFragments :: Lens' ListFragmentsResponse [Fragment]
-lfrsFragments = lens _lfrsFragments (\s a -> s {_lfrsFragments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fragments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsFragments :: Lens.Lens' ListFragmentsResponse (Lude.Maybe [Fragment])
+lfrsFragments = Lens.lens (fragments :: ListFragmentsResponse -> Lude.Maybe [Fragment]) (\s a -> s {fragments = a} :: ListFragmentsResponse)
+{-# DEPRECATED lfrsFragments "Use generic-lens or generic-optics with 'fragments' instead." #-}
 
--- | -- | The response status code.
-lfrsResponseStatus :: Lens' ListFragmentsResponse Int
-lfrsResponseStatus = lens _lfrsResponseStatus (\s a -> s {_lfrsResponseStatus = a})
-
-instance NFData ListFragmentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsResponseStatus :: Lens.Lens' ListFragmentsResponse Lude.Int
+lfrsResponseStatus = Lens.lens (responseStatus :: ListFragmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFragmentsResponse)
+{-# DEPRECATED lfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

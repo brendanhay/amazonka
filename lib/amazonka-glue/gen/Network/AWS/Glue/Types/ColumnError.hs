@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ColumnError where
+module Network.AWS.Glue.Types.ColumnError
+  ( ColumnError (..),
+
+    -- * Smart constructor
+    mkColumnError,
+
+    -- * Lenses
+    ceError,
+    ceColumnName,
+  )
+where
 
 import Network.AWS.Glue.Types.ErrorDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encapsulates a column name that failed and the reason for failure.
 --
---
---
--- /See:/ 'columnError' smart constructor.
+-- /See:/ 'mkColumnError' smart constructor.
 data ColumnError = ColumnError'
-  { _ceError :: !(Maybe ErrorDetail),
-    _ceColumnName :: !(Maybe Text)
+  { error :: Lude.Maybe ErrorDetail,
+    columnName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ColumnError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ceError' - An error message with the reason for the failure of an operation.
---
--- * 'ceColumnName' - The name of the column that failed.
-columnError ::
+-- * 'columnName' - The name of the column that failed.
+-- * 'error' - An error message with the reason for the failure of an operation.
+mkColumnError ::
   ColumnError
-columnError =
-  ColumnError' {_ceError = Nothing, _ceColumnName = Nothing}
+mkColumnError =
+  ColumnError' {error = Lude.Nothing, columnName = Lude.Nothing}
 
 -- | An error message with the reason for the failure of an operation.
-ceError :: Lens' ColumnError (Maybe ErrorDetail)
-ceError = lens _ceError (\s a -> s {_ceError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceError :: Lens.Lens' ColumnError (Lude.Maybe ErrorDetail)
+ceError = Lens.lens (error :: ColumnError -> Lude.Maybe ErrorDetail) (\s a -> s {error = a} :: ColumnError)
+{-# DEPRECATED ceError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The name of the column that failed.
-ceColumnName :: Lens' ColumnError (Maybe Text)
-ceColumnName = lens _ceColumnName (\s a -> s {_ceColumnName = a})
+--
+-- /Note:/ Consider using 'columnName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceColumnName :: Lens.Lens' ColumnError (Lude.Maybe Lude.Text)
+ceColumnName = Lens.lens (columnName :: ColumnError -> Lude.Maybe Lude.Text) (\s a -> s {columnName = a} :: ColumnError)
+{-# DEPRECATED ceColumnName "Use generic-lens or generic-optics with 'columnName' instead." #-}
 
-instance FromJSON ColumnError where
+instance Lude.FromJSON ColumnError where
   parseJSON =
-    withObject
+    Lude.withObject
       "ColumnError"
-      (\x -> ColumnError' <$> (x .:? "Error") <*> (x .:? "ColumnName"))
-
-instance Hashable ColumnError
-
-instance NFData ColumnError
+      ( \x ->
+          ColumnError'
+            Lude.<$> (x Lude..:? "Error") Lude.<*> (x Lude..:? "ColumnName")
+      )

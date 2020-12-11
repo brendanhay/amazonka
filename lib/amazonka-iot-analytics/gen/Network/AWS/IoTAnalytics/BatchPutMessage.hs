@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,185 @@
 --
 -- Sends messages to a channel.
 module Network.AWS.IoTAnalytics.BatchPutMessage
-  ( -- * Creating a Request
-    batchPutMessage,
-    BatchPutMessage,
+  ( -- * Creating a request
+    BatchPutMessage (..),
+    mkBatchPutMessage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bpmChannelName,
     bpmMessages,
 
-    -- * Destructuring the Response
-    batchPutMessageResponse,
-    BatchPutMessageResponse,
+    -- * Destructuring the response
+    BatchPutMessageResponse (..),
+    mkBatchPutMessageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bpmrsBatchPutMessageErrorEntries,
     bpmrsResponseStatus,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchPutMessage' smart constructor.
+-- | /See:/ 'mkBatchPutMessage' smart constructor.
 data BatchPutMessage = BatchPutMessage'
-  { _bpmChannelName :: !Text,
-    _bpmMessages :: ![Message]
+  { channelName :: Lude.Text,
+    messages :: [Message]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'channelName' - The name of the channel where the messages are sent.
+-- * 'messages' - The list of messages to be sent. Each message has the format: { "messageId": "string", "payload": "string"}.
 --
--- * 'bpmChannelName' - The name of the channel where the messages are sent.
+-- The field names of message payloads (data) that you send to AWS IoT Analytics:
 --
--- * 'bpmMessages' - The list of messages to be sent. Each message has the format: { "messageId": "string", "payload": "string"}. The field names of message payloads (data) that you send to AWS IoT Analytics:     * Must contain only alphanumeric characters and undescores (_). No other special characters are allowed.     * Must begin with an alphabetic character or single underscore (_).     * Cannot contain hyphens (-).     * In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".      * Cannot be more than 255 characters.     * Are case insensitive. (Fields named foo and FOO in the same payload are considered duplicates.) For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29}, {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.
-batchPutMessage ::
-  -- | 'bpmChannelName'
-  Text ->
+--     * Must contain only alphanumeric characters and undescores (_). No other special characters are allowed.
+--
+--
+--     * Must begin with an alphabetic character or single underscore (_).
+--
+--
+--     * Cannot contain hyphens (-).
+--
+--
+--     * In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
+--
+--
+--     * Cannot be more than 255 characters.
+--
+--
+--     * Are case insensitive. (Fields named foo and FOO in the same payload are considered duplicates.)
+--
+--
+-- For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29}, {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.
+mkBatchPutMessage ::
+  -- | 'channelName'
+  Lude.Text ->
   BatchPutMessage
-batchPutMessage pChannelName_ =
+mkBatchPutMessage pChannelName_ =
   BatchPutMessage'
-    { _bpmChannelName = pChannelName_,
-      _bpmMessages = mempty
+    { channelName = pChannelName_,
+      messages = Lude.mempty
     }
 
 -- | The name of the channel where the messages are sent.
-bpmChannelName :: Lens' BatchPutMessage Text
-bpmChannelName = lens _bpmChannelName (\s a -> s {_bpmChannelName = a})
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpmChannelName :: Lens.Lens' BatchPutMessage Lude.Text
+bpmChannelName = Lens.lens (channelName :: BatchPutMessage -> Lude.Text) (\s a -> s {channelName = a} :: BatchPutMessage)
+{-# DEPRECATED bpmChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
--- | The list of messages to be sent. Each message has the format: { "messageId": "string", "payload": "string"}. The field names of message payloads (data) that you send to AWS IoT Analytics:     * Must contain only alphanumeric characters and undescores (_). No other special characters are allowed.     * Must begin with an alphabetic character or single underscore (_).     * Cannot contain hyphens (-).     * In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".      * Cannot be more than 255 characters.     * Are case insensitive. (Fields named foo and FOO in the same payload are considered duplicates.) For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29}, {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.
-bpmMessages :: Lens' BatchPutMessage [Message]
-bpmMessages = lens _bpmMessages (\s a -> s {_bpmMessages = a}) . _Coerce
+-- | The list of messages to be sent. Each message has the format: { "messageId": "string", "payload": "string"}.
+--
+-- The field names of message payloads (data) that you send to AWS IoT Analytics:
+--
+--     * Must contain only alphanumeric characters and undescores (_). No other special characters are allowed.
+--
+--
+--     * Must begin with an alphabetic character or single underscore (_).
+--
+--
+--     * Cannot contain hyphens (-).
+--
+--
+--     * In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
+--
+--
+--     * Cannot be more than 255 characters.
+--
+--
+--     * Are case insensitive. (Fields named foo and FOO in the same payload are considered duplicates.)
+--
+--
+-- For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29}, {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.
+--
+-- /Note:/ Consider using 'messages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpmMessages :: Lens.Lens' BatchPutMessage [Message]
+bpmMessages = Lens.lens (messages :: BatchPutMessage -> [Message]) (\s a -> s {messages = a} :: BatchPutMessage)
+{-# DEPRECATED bpmMessages "Use generic-lens or generic-optics with 'messages' instead." #-}
 
-instance AWSRequest BatchPutMessage where
+instance Lude.AWSRequest BatchPutMessage where
   type Rs BatchPutMessage = BatchPutMessageResponse
-  request = postJSON ioTAnalytics
+  request = Req.postJSON ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchPutMessageResponse'
-            <$> (x .?> "batchPutMessageErrorEntries" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "batchPutMessageErrorEntries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchPutMessage
+instance Lude.ToHeaders BatchPutMessage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BatchPutMessage
-
-instance ToHeaders BatchPutMessage where
-  toHeaders = const mempty
-
-instance ToJSON BatchPutMessage where
+instance Lude.ToJSON BatchPutMessage where
   toJSON BatchPutMessage' {..} =
-    object
-      ( catMaybes
-          [ Just ("channelName" .= _bpmChannelName),
-            Just ("messages" .= _bpmMessages)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("channelName" Lude..= channelName),
+            Lude.Just ("messages" Lude..= messages)
           ]
       )
 
-instance ToPath BatchPutMessage where
-  toPath = const "/messages/batch"
+instance Lude.ToPath BatchPutMessage where
+  toPath = Lude.const "/messages/batch"
 
-instance ToQuery BatchPutMessage where
-  toQuery = const mempty
+instance Lude.ToQuery BatchPutMessage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchPutMessageResponse' smart constructor.
+-- | /See:/ 'mkBatchPutMessageResponse' smart constructor.
 data BatchPutMessageResponse = BatchPutMessageResponse'
-  { _bpmrsBatchPutMessageErrorEntries ::
-      !(Maybe [BatchPutMessageErrorEntry]),
-    _bpmrsResponseStatus :: !Int
+  { batchPutMessageErrorEntries ::
+      Lude.Maybe [BatchPutMessageErrorEntry],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutMessageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bpmrsBatchPutMessageErrorEntries' - A list of any errors encountered when sending the messages to the channel.
---
--- * 'bpmrsResponseStatus' - -- | The response status code.
-batchPutMessageResponse ::
-  -- | 'bpmrsResponseStatus'
-  Int ->
+-- * 'batchPutMessageErrorEntries' - A list of any errors encountered when sending the messages to the channel.
+-- * 'responseStatus' - The response status code.
+mkBatchPutMessageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchPutMessageResponse
-batchPutMessageResponse pResponseStatus_ =
+mkBatchPutMessageResponse pResponseStatus_ =
   BatchPutMessageResponse'
-    { _bpmrsBatchPutMessageErrorEntries =
-        Nothing,
-      _bpmrsResponseStatus = pResponseStatus_
+    { batchPutMessageErrorEntries =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of any errors encountered when sending the messages to the channel.
-bpmrsBatchPutMessageErrorEntries :: Lens' BatchPutMessageResponse [BatchPutMessageErrorEntry]
-bpmrsBatchPutMessageErrorEntries = lens _bpmrsBatchPutMessageErrorEntries (\s a -> s {_bpmrsBatchPutMessageErrorEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'batchPutMessageErrorEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpmrsBatchPutMessageErrorEntries :: Lens.Lens' BatchPutMessageResponse (Lude.Maybe [BatchPutMessageErrorEntry])
+bpmrsBatchPutMessageErrorEntries = Lens.lens (batchPutMessageErrorEntries :: BatchPutMessageResponse -> Lude.Maybe [BatchPutMessageErrorEntry]) (\s a -> s {batchPutMessageErrorEntries = a} :: BatchPutMessageResponse)
+{-# DEPRECATED bpmrsBatchPutMessageErrorEntries "Use generic-lens or generic-optics with 'batchPutMessageErrorEntries' instead." #-}
 
--- | -- | The response status code.
-bpmrsResponseStatus :: Lens' BatchPutMessageResponse Int
-bpmrsResponseStatus = lens _bpmrsResponseStatus (\s a -> s {_bpmrsResponseStatus = a})
-
-instance NFData BatchPutMessageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpmrsResponseStatus :: Lens.Lens' BatchPutMessageResponse Lude.Int
+bpmrsResponseStatus = Lens.lens (responseStatus :: BatchPutMessageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchPutMessageResponse)
+{-# DEPRECATED bpmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

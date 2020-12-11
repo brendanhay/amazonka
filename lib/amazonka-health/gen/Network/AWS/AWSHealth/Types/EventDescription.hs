@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EventDescription where
+module Network.AWS.AWSHealth.Types.EventDescription
+  ( EventDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventDescription,
+
+    -- * Lenses
+    edLatestDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The detailed description of the event. Included in the information returned by the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html DescribeEventDetails> operation.
 --
---
---
--- /See:/ 'eventDescription' smart constructor.
+-- /See:/ 'mkEventDescription' smart constructor.
 newtype EventDescription = EventDescription'
-  { _edLatestDescription ::
-      Maybe Text
+  { latestDescription ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edLatestDescription' - The most recent description of the event.
-eventDescription ::
+-- * 'latestDescription' - The most recent description of the event.
+mkEventDescription ::
   EventDescription
-eventDescription =
-  EventDescription' {_edLatestDescription = Nothing}
+mkEventDescription =
+  EventDescription' {latestDescription = Lude.Nothing}
 
 -- | The most recent description of the event.
-edLatestDescription :: Lens' EventDescription (Maybe Text)
-edLatestDescription = lens _edLatestDescription (\s a -> s {_edLatestDescription = a})
+--
+-- /Note:/ Consider using 'latestDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edLatestDescription :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
+edLatestDescription = Lens.lens (latestDescription :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {latestDescription = a} :: EventDescription)
+{-# DEPRECATED edLatestDescription "Use generic-lens or generic-optics with 'latestDescription' instead." #-}
 
-instance FromJSON EventDescription where
+instance Lude.FromJSON EventDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventDescription"
-      (\x -> EventDescription' <$> (x .:? "latestDescription"))
-
-instance Hashable EventDescription
-
-instance NFData EventDescription
+      ( \x ->
+          EventDescription' Lude.<$> (x Lude..:? "latestDescription")
+      )

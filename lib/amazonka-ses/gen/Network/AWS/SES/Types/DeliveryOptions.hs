@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.DeliveryOptions where
+module Network.AWS.SES.Types.DeliveryOptions
+  ( DeliveryOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeliveryOptions,
+
+    -- * Lenses
+    doTLSPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.TLSPolicy
 
 -- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 --
---
---
--- /See:/ 'deliveryOptions' smart constructor.
+-- /See:/ 'mkDeliveryOptions' smart constructor.
 newtype DeliveryOptions = DeliveryOptions'
-  { _doTLSPolicy ::
-      Maybe TLSPolicy
+  { tlsPolicy ::
+      Lude.Maybe TLSPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doTLSPolicy' - Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is @Require@ , messages are only delivered if a TLS connection can be established. If the value is @Optional@ , messages can be delivered in plain text if a TLS connection can't be established.
-deliveryOptions ::
+-- * 'tlsPolicy' - Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is @Require@ , messages are only delivered if a TLS connection can be established. If the value is @Optional@ , messages can be delivered in plain text if a TLS connection can't be established.
+mkDeliveryOptions ::
   DeliveryOptions
-deliveryOptions = DeliveryOptions' {_doTLSPolicy = Nothing}
+mkDeliveryOptions = DeliveryOptions' {tlsPolicy = Lude.Nothing}
 
 -- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is @Require@ , messages are only delivered if a TLS connection can be established. If the value is @Optional@ , messages can be delivered in plain text if a TLS connection can't be established.
-doTLSPolicy :: Lens' DeliveryOptions (Maybe TLSPolicy)
-doTLSPolicy = lens _doTLSPolicy (\s a -> s {_doTLSPolicy = a})
+--
+-- /Note:/ Consider using 'tlsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doTLSPolicy :: Lens.Lens' DeliveryOptions (Lude.Maybe TLSPolicy)
+doTLSPolicy = Lens.lens (tlsPolicy :: DeliveryOptions -> Lude.Maybe TLSPolicy) (\s a -> s {tlsPolicy = a} :: DeliveryOptions)
+{-# DEPRECATED doTLSPolicy "Use generic-lens or generic-optics with 'tlsPolicy' instead." #-}
 
-instance FromXML DeliveryOptions where
-  parseXML x = DeliveryOptions' <$> (x .@? "TlsPolicy")
+instance Lude.FromXML DeliveryOptions where
+  parseXML x = DeliveryOptions' Lude.<$> (x Lude..@? "TlsPolicy")
 
-instance Hashable DeliveryOptions
-
-instance NFData DeliveryOptions
-
-instance ToQuery DeliveryOptions where
+instance Lude.ToQuery DeliveryOptions where
   toQuery DeliveryOptions' {..} =
-    mconcat ["TlsPolicy" =: _doTLSPolicy]
+    Lude.mconcat ["TlsPolicy" Lude.=: tlsPolicy]

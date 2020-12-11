@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.DirectMessageConfiguration where
+module Network.AWS.Pinpoint.Types.DirectMessageConfiguration
+  ( DirectMessageConfiguration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkDirectMessageConfiguration,
+
+    -- * Lenses
+    dmcAPNSMessage,
+    dmcGCMMessage,
+    dmcDefaultMessage,
+    dmcADMMessage,
+    dmcSMSMessage,
+    dmcEmailMessage,
+    dmcVoiceMessage,
+    dmcBaiduMessage,
+    dmcDefaultPushNotificationMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ADMMessage
 import Network.AWS.Pinpoint.Types.APNSMessage
 import Network.AWS.Pinpoint.Types.BaiduMessage
@@ -25,123 +36,140 @@ import Network.AWS.Pinpoint.Types.EmailMessage
 import Network.AWS.Pinpoint.Types.GCMMessage
 import Network.AWS.Pinpoint.Types.SMSMessage
 import Network.AWS.Pinpoint.Types.VoiceMessage
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings and content for the default message and any default messages that you tailored for specific channels.
 --
---
---
--- /See:/ 'directMessageConfiguration' smart constructor.
+-- /See:/ 'mkDirectMessageConfiguration' smart constructor.
 data DirectMessageConfiguration = DirectMessageConfiguration'
-  { _dmcAPNSMessage ::
-      !(Maybe APNSMessage),
-    _dmcGCMMessage :: !(Maybe GCMMessage),
-    _dmcDefaultMessage ::
-      !(Maybe DefaultMessage),
-    _dmcADMMessage :: !(Maybe ADMMessage),
-    _dmcSMSMessage :: !(Maybe SMSMessage),
-    _dmcEmailMessage ::
-      !(Maybe EmailMessage),
-    _dmcVoiceMessage ::
-      !(Maybe VoiceMessage),
-    _dmcBaiduMessage ::
-      !(Maybe BaiduMessage),
-    _dmcDefaultPushNotificationMessage ::
-      !( Maybe
-           DefaultPushNotificationMessage
-       )
+  { apnsMessage ::
+      Lude.Maybe APNSMessage,
+    gcmMessage :: Lude.Maybe GCMMessage,
+    defaultMessage ::
+      Lude.Maybe DefaultMessage,
+    aDMMessage :: Lude.Maybe ADMMessage,
+    sMSMessage :: Lude.Maybe SMSMessage,
+    emailMessage ::
+      Lude.Maybe EmailMessage,
+    voiceMessage ::
+      Lude.Maybe VoiceMessage,
+    baiduMessage ::
+      Lude.Maybe BaiduMessage,
+    defaultPushNotificationMessage ::
+      Lude.Maybe
+        DefaultPushNotificationMessage
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectMessageConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmcAPNSMessage' - The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
---
--- * 'dmcGCMMessage' - The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).
---
--- * 'dmcDefaultMessage' - The default message for all channels.
---
--- * 'dmcADMMessage' - The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
---
--- * 'dmcSMSMessage' - The default message for the SMS channel. This message overrides the default message (DefaultMessage).
---
--- * 'dmcEmailMessage' - The default message for the email channel. This message overrides the default message (DefaultMessage).
---
--- * 'dmcVoiceMessage' - The default message for the voice channel. This message overrides the default message (DefaultMessage).
---
--- * 'dmcBaiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
---
--- * 'dmcDefaultPushNotificationMessage' - The default push notification message for all push notification channels.
-directMessageConfiguration ::
+-- * 'aDMMessage' - The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
+-- * 'apnsMessage' - The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
+-- * 'baiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
+-- * 'defaultMessage' - The default message for all channels.
+-- * 'defaultPushNotificationMessage' - The default push notification message for all push notification channels.
+-- * 'emailMessage' - The default message for the email channel. This message overrides the default message (DefaultMessage).
+-- * 'gcmMessage' - The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).
+-- * 'sMSMessage' - The default message for the SMS channel. This message overrides the default message (DefaultMessage).
+-- * 'voiceMessage' - The default message for the voice channel. This message overrides the default message (DefaultMessage).
+mkDirectMessageConfiguration ::
   DirectMessageConfiguration
-directMessageConfiguration =
+mkDirectMessageConfiguration =
   DirectMessageConfiguration'
-    { _dmcAPNSMessage = Nothing,
-      _dmcGCMMessage = Nothing,
-      _dmcDefaultMessage = Nothing,
-      _dmcADMMessage = Nothing,
-      _dmcSMSMessage = Nothing,
-      _dmcEmailMessage = Nothing,
-      _dmcVoiceMessage = Nothing,
-      _dmcBaiduMessage = Nothing,
-      _dmcDefaultPushNotificationMessage = Nothing
+    { apnsMessage = Lude.Nothing,
+      gcmMessage = Lude.Nothing,
+      defaultMessage = Lude.Nothing,
+      aDMMessage = Lude.Nothing,
+      sMSMessage = Lude.Nothing,
+      emailMessage = Lude.Nothing,
+      voiceMessage = Lude.Nothing,
+      baiduMessage = Lude.Nothing,
+      defaultPushNotificationMessage = Lude.Nothing
     }
 
 -- | The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
-dmcAPNSMessage :: Lens' DirectMessageConfiguration (Maybe APNSMessage)
-dmcAPNSMessage = lens _dmcAPNSMessage (\s a -> s {_dmcAPNSMessage = a})
+--
+-- /Note:/ Consider using 'apnsMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcAPNSMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe APNSMessage)
+dmcAPNSMessage = Lens.lens (apnsMessage :: DirectMessageConfiguration -> Lude.Maybe APNSMessage) (\s a -> s {apnsMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcAPNSMessage "Use generic-lens or generic-optics with 'apnsMessage' instead." #-}
 
 -- | The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).
-dmcGCMMessage :: Lens' DirectMessageConfiguration (Maybe GCMMessage)
-dmcGCMMessage = lens _dmcGCMMessage (\s a -> s {_dmcGCMMessage = a})
+--
+-- /Note:/ Consider using 'gcmMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcGCMMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe GCMMessage)
+dmcGCMMessage = Lens.lens (gcmMessage :: DirectMessageConfiguration -> Lude.Maybe GCMMessage) (\s a -> s {gcmMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcGCMMessage "Use generic-lens or generic-optics with 'gcmMessage' instead." #-}
 
 -- | The default message for all channels.
-dmcDefaultMessage :: Lens' DirectMessageConfiguration (Maybe DefaultMessage)
-dmcDefaultMessage = lens _dmcDefaultMessage (\s a -> s {_dmcDefaultMessage = a})
+--
+-- /Note:/ Consider using 'defaultMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcDefaultMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe DefaultMessage)
+dmcDefaultMessage = Lens.lens (defaultMessage :: DirectMessageConfiguration -> Lude.Maybe DefaultMessage) (\s a -> s {defaultMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcDefaultMessage "Use generic-lens or generic-optics with 'defaultMessage' instead." #-}
 
 -- | The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
-dmcADMMessage :: Lens' DirectMessageConfiguration (Maybe ADMMessage)
-dmcADMMessage = lens _dmcADMMessage (\s a -> s {_dmcADMMessage = a})
+--
+-- /Note:/ Consider using 'aDMMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcADMMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe ADMMessage)
+dmcADMMessage = Lens.lens (aDMMessage :: DirectMessageConfiguration -> Lude.Maybe ADMMessage) (\s a -> s {aDMMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcADMMessage "Use generic-lens or generic-optics with 'aDMMessage' instead." #-}
 
 -- | The default message for the SMS channel. This message overrides the default message (DefaultMessage).
-dmcSMSMessage :: Lens' DirectMessageConfiguration (Maybe SMSMessage)
-dmcSMSMessage = lens _dmcSMSMessage (\s a -> s {_dmcSMSMessage = a})
+--
+-- /Note:/ Consider using 'sMSMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcSMSMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe SMSMessage)
+dmcSMSMessage = Lens.lens (sMSMessage :: DirectMessageConfiguration -> Lude.Maybe SMSMessage) (\s a -> s {sMSMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcSMSMessage "Use generic-lens or generic-optics with 'sMSMessage' instead." #-}
 
 -- | The default message for the email channel. This message overrides the default message (DefaultMessage).
-dmcEmailMessage :: Lens' DirectMessageConfiguration (Maybe EmailMessage)
-dmcEmailMessage = lens _dmcEmailMessage (\s a -> s {_dmcEmailMessage = a})
+--
+-- /Note:/ Consider using 'emailMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcEmailMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe EmailMessage)
+dmcEmailMessage = Lens.lens (emailMessage :: DirectMessageConfiguration -> Lude.Maybe EmailMessage) (\s a -> s {emailMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcEmailMessage "Use generic-lens or generic-optics with 'emailMessage' instead." #-}
 
 -- | The default message for the voice channel. This message overrides the default message (DefaultMessage).
-dmcVoiceMessage :: Lens' DirectMessageConfiguration (Maybe VoiceMessage)
-dmcVoiceMessage = lens _dmcVoiceMessage (\s a -> s {_dmcVoiceMessage = a})
+--
+-- /Note:/ Consider using 'voiceMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcVoiceMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe VoiceMessage)
+dmcVoiceMessage = Lens.lens (voiceMessage :: DirectMessageConfiguration -> Lude.Maybe VoiceMessage) (\s a -> s {voiceMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcVoiceMessage "Use generic-lens or generic-optics with 'voiceMessage' instead." #-}
 
 -- | The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
-dmcBaiduMessage :: Lens' DirectMessageConfiguration (Maybe BaiduMessage)
-dmcBaiduMessage = lens _dmcBaiduMessage (\s a -> s {_dmcBaiduMessage = a})
+--
+-- /Note:/ Consider using 'baiduMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcBaiduMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe BaiduMessage)
+dmcBaiduMessage = Lens.lens (baiduMessage :: DirectMessageConfiguration -> Lude.Maybe BaiduMessage) (\s a -> s {baiduMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcBaiduMessage "Use generic-lens or generic-optics with 'baiduMessage' instead." #-}
 
 -- | The default push notification message for all push notification channels.
-dmcDefaultPushNotificationMessage :: Lens' DirectMessageConfiguration (Maybe DefaultPushNotificationMessage)
-dmcDefaultPushNotificationMessage = lens _dmcDefaultPushNotificationMessage (\s a -> s {_dmcDefaultPushNotificationMessage = a})
+--
+-- /Note:/ Consider using 'defaultPushNotificationMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcDefaultPushNotificationMessage :: Lens.Lens' DirectMessageConfiguration (Lude.Maybe DefaultPushNotificationMessage)
+dmcDefaultPushNotificationMessage = Lens.lens (defaultPushNotificationMessage :: DirectMessageConfiguration -> Lude.Maybe DefaultPushNotificationMessage) (\s a -> s {defaultPushNotificationMessage = a} :: DirectMessageConfiguration)
+{-# DEPRECATED dmcDefaultPushNotificationMessage "Use generic-lens or generic-optics with 'defaultPushNotificationMessage' instead." #-}
 
-instance Hashable DirectMessageConfiguration
-
-instance NFData DirectMessageConfiguration
-
-instance ToJSON DirectMessageConfiguration where
+instance Lude.ToJSON DirectMessageConfiguration where
   toJSON DirectMessageConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("APNSMessage" .=) <$> _dmcAPNSMessage,
-            ("GCMMessage" .=) <$> _dmcGCMMessage,
-            ("DefaultMessage" .=) <$> _dmcDefaultMessage,
-            ("ADMMessage" .=) <$> _dmcADMMessage,
-            ("SMSMessage" .=) <$> _dmcSMSMessage,
-            ("EmailMessage" .=) <$> _dmcEmailMessage,
-            ("VoiceMessage" .=) <$> _dmcVoiceMessage,
-            ("BaiduMessage" .=) <$> _dmcBaiduMessage,
-            ("DefaultPushNotificationMessage" .=)
-              <$> _dmcDefaultPushNotificationMessage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("APNSMessage" Lude..=) Lude.<$> apnsMessage,
+            ("GCMMessage" Lude..=) Lude.<$> gcmMessage,
+            ("DefaultMessage" Lude..=) Lude.<$> defaultMessage,
+            ("ADMMessage" Lude..=) Lude.<$> aDMMessage,
+            ("SMSMessage" Lude..=) Lude.<$> sMSMessage,
+            ("EmailMessage" Lude..=) Lude.<$> emailMessage,
+            ("VoiceMessage" Lude..=) Lude.<$> voiceMessage,
+            ("BaiduMessage" Lude..=) Lude.<$> baiduMessage,
+            ("DefaultPushNotificationMessage" Lude..=)
+              Lude.<$> defaultPushNotificationMessage
           ]
       )

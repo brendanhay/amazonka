@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.CdiInputResolution where
+module Network.AWS.MediaLive.Types.CdiInputResolution
+  ( CdiInputResolution
+      ( CdiInputResolution',
+        CIRFhd,
+        CIRHD,
+        CIRSD,
+        CIRUhd
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Maximum CDI input resolution; SD is 480i and 576i up to 30 frames-per-second (fps), HD is 720p up to 60 fps / 1080i up to 30 fps, FHD is 1080p up to 60 fps, UHD is 2160p up to 60 fps
-data CdiInputResolution
-  = CIRFhd
-  | CIRHD
-  | CIRSD
-  | CIRUhd
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CdiInputResolution = CdiInputResolution' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CdiInputResolution where
-  parser =
-    takeLowerText >>= \case
-      "fhd" -> pure CIRFhd
-      "hd" -> pure CIRHD
-      "sd" -> pure CIRSD
-      "uhd" -> pure CIRUhd
-      e ->
-        fromTextError $
-          "Failure parsing CdiInputResolution from value: '" <> e
-            <> "'. Accepted values: fhd, hd, sd, uhd"
+pattern CIRFhd :: CdiInputResolution
+pattern CIRFhd = CdiInputResolution' "FHD"
 
-instance ToText CdiInputResolution where
-  toText = \case
-    CIRFhd -> "FHD"
-    CIRHD -> "HD"
-    CIRSD -> "SD"
-    CIRUhd -> "UHD"
+pattern CIRHD :: CdiInputResolution
+pattern CIRHD = CdiInputResolution' "HD"
 
-instance Hashable CdiInputResolution
+pattern CIRSD :: CdiInputResolution
+pattern CIRSD = CdiInputResolution' "SD"
 
-instance NFData CdiInputResolution
+pattern CIRUhd :: CdiInputResolution
+pattern CIRUhd = CdiInputResolution' "UHD"
 
-instance ToByteString CdiInputResolution
-
-instance ToQuery CdiInputResolution
-
-instance ToHeader CdiInputResolution
-
-instance ToJSON CdiInputResolution where
-  toJSON = toJSONText
-
-instance FromJSON CdiInputResolution where
-  parseJSON = parseJSONText "CdiInputResolution"
+{-# COMPLETE
+  CIRFhd,
+  CIRHD,
+  CIRSD,
+  CIRUhd,
+  CdiInputResolution'
+  #-}

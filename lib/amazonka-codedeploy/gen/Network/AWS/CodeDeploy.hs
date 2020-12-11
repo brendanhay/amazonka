@@ -14,41 +14,42 @@
 -- __AWS CodeDeploy__
 --
 -- AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances running in your own facility, serverless AWS Lambda functions, or applications in an Amazon ECS service.
---
 -- You can deploy a nearly unlimited variety of application content, such as an updated Lambda function, updated applications in an Amazon ECS service, code, web and configuration files, executables, packages, scripts, multimedia files, and so on. AWS CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to make changes to your existing code before you can use AWS CodeDeploy.
---
 -- AWS CodeDeploy makes it easier for you to rapidly release new features, helps you avoid downtime during application deployment, and handles the complexity of updating your applications, without many of the risks associated with error-prone manual deployments.
---
 -- __AWS CodeDeploy Components__
---
 -- Use the information in this guide to help you work with the following AWS CodeDeploy components:
 --
 --     * __Application__ : A name that uniquely identifies the application you want to deploy. AWS CodeDeploy uses this name, which functions as a container, to ensure the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment.
 --
+--
 --     * __Deployment group__ : A set of individual instances, CodeDeploy Lambda deployment configuration settings, or an Amazon ECS service and network details. A Lambda deployment group specifies how to route traffic to a new version of a Lambda function. An Amazon ECS deployment group specifies the service created in Amazon ECS to deploy, a load balancer, and a listener to reroute production traffic to an updated containerized application. An EC2/On-premises deployment group contains individually tagged instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both. All deployment groups can specify optional trigger, alarm, and rollback settings.
+--
 --
 --     * __Deployment configuration__ : A set of deployment rules and deployment success and failure conditions used by AWS CodeDeploy during a deployment.
 --
+--
 --     * __Deployment__ : The process and the components used when updating a Lambda function, a containerized application in an Amazon ECS service, or of installing content on one or more instances.
+--
 --
 --     * __Application revisions__ : For an AWS Lambda deployment, this is an AppSpec file that specifies the Lambda function to be updated and one or more functions to validate deployment lifecycle events. For an Amazon ECS deployment, this is an AppSpec file that specifies the Amazon ECS task definition, container, and port where production traffic is rerouted. For an EC2/On-premises deployment, this is an archive file that contains source content—source code, webpages, executable files, and deployment scripts—along with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For GitHub, a revision is uniquely identified by its commit ID.
 --
 --
---
 -- This guide also contains information to help you get details about the instances in your deployments, to make on-premises instances available for AWS CodeDeploy deployments, to get details about a Lambda function deployment, and to get details about Amazon ECS service deployments.
---
 -- __AWS CodeDeploy Information Resources__
 --
 --     * <https://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide>
 --
+--
 --     * <https://docs.aws.amazon.com/codedeploy/latest/APIReference/ AWS CodeDeploy API Reference Guide>
+--
 --
 --     * <https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html AWS CLI Reference for AWS CodeDeploy>
 --
+--
 --     * <https://forums.aws.amazon.com/forum.jspa?forumID=179 AWS CodeDeploy Developer Forum>
 module Network.AWS.CodeDeploy
-  ( -- * Service Configuration
-    codeDeploy,
+  ( -- * Service configuration
+    codeDeployService,
 
     -- * Errors
     -- $errors
@@ -57,7 +58,7 @@ module Network.AWS.CodeDeploy
     -- $waiters
 
     -- ** DeploymentSuccessful
-    deploymentSuccessful,
+    mkDeploymentSuccessful,
 
     -- * Operations
     -- $operations
@@ -284,26 +285,26 @@ module Network.AWS.CodeDeploy
     TriggerEventType (..),
 
     -- ** Alarm
-    Alarm,
-    alarm,
+    Alarm (..),
+    mkAlarm,
     aName,
 
     -- ** AlarmConfiguration
-    AlarmConfiguration,
-    alarmConfiguration,
+    AlarmConfiguration (..),
+    mkAlarmConfiguration,
     acIgnorePollAlarmFailure,
     acEnabled,
     acAlarms,
 
     -- ** AppSpecContent
-    AppSpecContent,
-    appSpecContent,
+    AppSpecContent (..),
+    mkAppSpecContent,
     ascContent,
     ascSha256,
 
     -- ** ApplicationInfo
-    ApplicationInfo,
-    applicationInfo,
+    ApplicationInfo (..),
+    mkApplicationInfo,
     aiLinkedToGitHub,
     aiComputePlatform,
     aiApplicationId,
@@ -312,33 +313,33 @@ module Network.AWS.CodeDeploy
     aiCreateTime,
 
     -- ** AutoRollbackConfiguration
-    AutoRollbackConfiguration,
-    autoRollbackConfiguration,
+    AutoRollbackConfiguration (..),
+    mkAutoRollbackConfiguration,
     arcEnabled,
     arcEvents,
 
     -- ** AutoScalingGroup
-    AutoScalingGroup,
-    autoScalingGroup,
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
     asgHook,
     asgName,
 
     -- ** BlueGreenDeploymentConfiguration
-    BlueGreenDeploymentConfiguration,
-    blueGreenDeploymentConfiguration,
+    BlueGreenDeploymentConfiguration (..),
+    mkBlueGreenDeploymentConfiguration,
     bgdcDeploymentReadyOption,
     bgdcGreenFleetProvisioningOption,
     bgdcTerminateBlueInstancesOnDeploymentSuccess,
 
     -- ** BlueInstanceTerminationOption
-    BlueInstanceTerminationOption,
-    blueInstanceTerminationOption,
+    BlueInstanceTerminationOption (..),
+    mkBlueInstanceTerminationOption,
     bitoAction,
     bitoTerminationWaitTimeInMinutes,
 
     -- ** CloudFormationTarget
-    CloudFormationTarget,
-    cloudFormationTarget,
+    CloudFormationTarget (..),
+    mkCloudFormationTarget,
     cftTargetId,
     cftStatus,
     cftDeploymentId,
@@ -348,8 +349,8 @@ module Network.AWS.CodeDeploy
     cftTargetVersionWeight,
 
     -- ** DeploymentConfigInfo
-    DeploymentConfigInfo,
-    deploymentConfigInfo,
+    DeploymentConfigInfo (..),
+    mkDeploymentConfigInfo,
     dciDeploymentConfigName,
     dciComputePlatform,
     dciMinimumHealthyHosts,
@@ -358,8 +359,8 @@ module Network.AWS.CodeDeploy
     dciCreateTime,
 
     -- ** DeploymentGroupInfo
-    DeploymentGroupInfo,
-    deploymentGroupInfo,
+    DeploymentGroupInfo (..),
+    mkDeploymentGroupInfo,
     dgiServiceRoleARN,
     dgiEc2TagSet,
     dgiDeploymentConfigName,
@@ -383,8 +384,8 @@ module Network.AWS.CodeDeploy
     dgiDeploymentGroupName,
 
     -- ** DeploymentInfo
-    DeploymentInfo,
-    deploymentInfo,
+    DeploymentInfo (..),
+    mkDeploymentInfo,
     diCreator,
     diStatus,
     diDeploymentId,
@@ -415,8 +416,8 @@ module Network.AWS.CodeDeploy
     diIgnoreApplicationStopFailures,
 
     -- ** DeploymentOverview
-    DeploymentOverview,
-    deploymentOverview,
+    DeploymentOverview (..),
+    mkDeploymentOverview,
     doPending,
     doSkipped,
     doInProgress,
@@ -425,20 +426,20 @@ module Network.AWS.CodeDeploy
     doFailed,
 
     -- ** DeploymentReadyOption
-    DeploymentReadyOption,
-    deploymentReadyOption,
+    DeploymentReadyOption (..),
+    mkDeploymentReadyOption,
     droActionOnTimeout,
     droWaitTimeInMinutes,
 
     -- ** DeploymentStyle
-    DeploymentStyle,
-    deploymentStyle,
+    DeploymentStyle (..),
+    mkDeploymentStyle,
     dsDeploymentOption,
     dsDeploymentType,
 
     -- ** DeploymentTarget
-    DeploymentTarget,
-    deploymentTarget,
+    DeploymentTarget (..),
+    mkDeploymentTarget,
     dtInstanceTarget,
     dtCloudFormationTarget,
     dtEcsTarget,
@@ -446,34 +447,34 @@ module Network.AWS.CodeDeploy
     dtLambdaTarget,
 
     -- ** Diagnostics
-    Diagnostics,
-    diagnostics,
+    Diagnostics (..),
+    mkDiagnostics,
     dLogTail,
     dErrorCode,
     dScriptName,
     dMessage,
 
     -- ** EC2TagFilter
-    EC2TagFilter,
-    ec2TagFilter,
+    EC2TagFilter (..),
+    mkEC2TagFilter,
     etfValue,
     etfKey,
     etfType,
 
     -- ** EC2TagSet
-    EC2TagSet,
-    ec2TagSet,
+    EC2TagSet (..),
+    mkEC2TagSet,
     etsEc2TagSetList,
 
     -- ** ECSService
-    ECSService,
-    eCSService,
+    ECSService (..),
+    mkECSService,
     ecssServiceName,
     ecssClusterName,
 
     -- ** ECSTarget
-    ECSTarget,
-    eCSTarget,
+    ECSTarget (..),
+    mkECSTarget,
     ecstTargetARN,
     ecstTargetId,
     ecstStatus,
@@ -483,8 +484,8 @@ module Network.AWS.CodeDeploy
     ecstLifecycleEvents,
 
     -- ** ECSTaskSet
-    ECSTaskSet,
-    eCSTaskSet,
+    ECSTaskSet (..),
+    mkECSTaskSet,
     ecstsRunningCount,
     ecstsStatus,
     ecstsIdentifer,
@@ -495,19 +496,19 @@ module Network.AWS.CodeDeploy
     ecstsTaskSetLabel,
 
     -- ** ELBInfo
-    ELBInfo,
-    eLBInfo,
+    ELBInfo (..),
+    mkELBInfo,
     elbiName,
 
     -- ** ErrorInformation
-    ErrorInformation,
-    errorInformation,
+    ErrorInformation (..),
+    mkErrorInformation,
     eiCode,
     eiMessage,
 
     -- ** GenericRevisionInfo
-    GenericRevisionInfo,
-    genericRevisionInfo,
+    GenericRevisionInfo (..),
+    mkGenericRevisionInfo,
     griRegisterTime,
     griFirstUsedTime,
     griDeploymentGroups,
@@ -515,19 +516,19 @@ module Network.AWS.CodeDeploy
     griDescription,
 
     -- ** GitHubLocation
-    GitHubLocation,
-    gitHubLocation,
+    GitHubLocation (..),
+    mkGitHubLocation,
     ghlCommitId,
     ghlRepository,
 
     -- ** GreenFleetProvisioningOption
-    GreenFleetProvisioningOption,
-    greenFleetProvisioningOption,
+    GreenFleetProvisioningOption (..),
+    mkGreenFleetProvisioningOption,
     gfpoAction,
 
     -- ** InstanceInfo
-    InstanceInfo,
-    instanceInfo,
+    InstanceInfo (..),
+    mkInstanceInfo,
     iiRegisterTime,
     iiInstanceARN,
     iiDeregisterTime,
@@ -537,8 +538,8 @@ module Network.AWS.CodeDeploy
     iiTags,
 
     -- ** InstanceTarget
-    InstanceTarget,
-    instanceTarget,
+    InstanceTarget (..),
+    mkInstanceTarget,
     itTargetARN,
     itTargetId,
     itStatus,
@@ -548,8 +549,8 @@ module Network.AWS.CodeDeploy
     itLifecycleEvents,
 
     -- ** LambdaFunctionInfo
-    LambdaFunctionInfo,
-    lambdaFunctionInfo,
+    LambdaFunctionInfo (..),
+    mkLambdaFunctionInfo,
     lfiCurrentVersion,
     lfiFunctionAlias,
     lfiFunctionName,
@@ -557,8 +558,8 @@ module Network.AWS.CodeDeploy
     lfiTargetVersionWeight,
 
     -- ** LambdaTarget
-    LambdaTarget,
-    lambdaTarget,
+    LambdaTarget (..),
+    mkLambdaTarget,
     ltTargetARN,
     ltTargetId,
     ltStatus,
@@ -568,16 +569,16 @@ module Network.AWS.CodeDeploy
     ltLambdaFunctionInfo,
 
     -- ** LastDeploymentInfo
-    LastDeploymentInfo,
-    lastDeploymentInfo,
+    LastDeploymentInfo (..),
+    mkLastDeploymentInfo,
     ldiStatus,
     ldiDeploymentId,
     ldiEndTime,
     ldiCreateTime,
 
     -- ** LifecycleEvent
-    LifecycleEvent,
-    lifecycleEvent,
+    LifecycleEvent (..),
+    mkLifecycleEvent,
     leStatus,
     leLifecycleEventName,
     leStartTime,
@@ -585,38 +586,38 @@ module Network.AWS.CodeDeploy
     leEndTime,
 
     -- ** LoadBalancerInfo
-    LoadBalancerInfo,
-    loadBalancerInfo,
+    LoadBalancerInfo (..),
+    mkLoadBalancerInfo,
     lbiElbInfoList,
     lbiTargetGroupInfoList,
     lbiTargetGroupPairInfoList,
 
     -- ** MinimumHealthyHosts
-    MinimumHealthyHosts,
-    minimumHealthyHosts,
+    MinimumHealthyHosts (..),
+    mkMinimumHealthyHosts,
     mhhValue,
     mhhType,
 
     -- ** OnPremisesTagSet
-    OnPremisesTagSet,
-    onPremisesTagSet,
+    OnPremisesTagSet (..),
+    mkOnPremisesTagSet,
     optsOnPremisesTagSetList,
 
     -- ** RawString
-    RawString,
-    rawString,
+    RawString (..),
+    mkRawString,
     rsContent,
     rsSha256,
 
     -- ** RevisionInfo
-    RevisionInfo,
-    revisionInfo,
+    RevisionInfo (..),
+    mkRevisionInfo,
     riGenericRevisionInfo,
     riRevisionLocation,
 
     -- ** RevisionLocation
-    RevisionLocation,
-    revisionLocation,
+    RevisionLocation (..),
+    mkRevisionLocation,
     rlString,
     rlRevisionType,
     rlS3Location,
@@ -624,15 +625,15 @@ module Network.AWS.CodeDeploy
     rlGitHubLocation,
 
     -- ** RollbackInfo
-    RollbackInfo,
-    rollbackInfo,
+    RollbackInfo (..),
+    mkRollbackInfo,
     riRollbackTriggeringDeploymentId,
     riRollbackMessage,
     riRollbackDeploymentId,
 
     -- ** S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBundleType,
     slETag,
     slBucket,
@@ -640,73 +641,84 @@ module Network.AWS.CodeDeploy
     slVersion,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TagFilter
-    TagFilter,
-    tagFilter,
+    TagFilter (..),
+    mkTagFilter,
     tfValue,
     tfKey,
     tfType,
 
     -- ** TargetGroupInfo
-    TargetGroupInfo,
-    targetGroupInfo,
+    TargetGroupInfo (..),
+    mkTargetGroupInfo,
     tgiName,
 
     -- ** TargetGroupPairInfo
-    TargetGroupPairInfo,
-    targetGroupPairInfo,
+    TargetGroupPairInfo (..),
+    mkTargetGroupPairInfo,
     tgpiProdTrafficRoute,
     tgpiTestTrafficRoute,
     tgpiTargetGroups,
 
     -- ** TargetInstances
-    TargetInstances,
-    targetInstances,
+    TargetInstances (..),
+    mkTargetInstances,
     tiEc2TagSet,
     tiTagFilters,
     tiAutoScalingGroups,
 
     -- ** TimeBasedCanary
-    TimeBasedCanary,
-    timeBasedCanary,
+    TimeBasedCanary (..),
+    mkTimeBasedCanary,
     tbcCanaryInterval,
     tbcCanaryPercentage,
 
     -- ** TimeBasedLinear
-    TimeBasedLinear,
-    timeBasedLinear,
+    TimeBasedLinear (..),
+    mkTimeBasedLinear,
     tblLinearInterval,
     tblLinearPercentage,
 
     -- ** TimeRange
-    TimeRange,
-    timeRange,
+    TimeRange (..),
+    mkTimeRange,
     trStart,
     trEnd,
 
     -- ** TrafficRoute
-    TrafficRoute,
-    trafficRoute,
+    TrafficRoute (..),
+    mkTrafficRoute,
     trListenerARNs,
 
     -- ** TrafficRoutingConfig
-    TrafficRoutingConfig,
-    trafficRoutingConfig,
+    TrafficRoutingConfig (..),
+    mkTrafficRoutingConfig,
     trcTimeBasedCanary,
     trcTimeBasedLinear,
     trcType,
 
     -- ** TriggerConfig
-    TriggerConfig,
-    triggerConfig,
+    TriggerConfig (..),
+    mkTriggerConfig,
     tcTriggerName,
     tcTriggerEvents,
     tcTriggerTargetARN,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -755,6 +767,7 @@ import Network.AWS.CodeDeploy.UntagResource
 import Network.AWS.CodeDeploy.UpdateApplication
 import Network.AWS.CodeDeploy.UpdateDeploymentGroup
 import Network.AWS.CodeDeploy.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,143 @@
 --
 -- Returns the 'IPSet' that is specified by @IPSetId@ .
 module Network.AWS.WAFRegional.GetIPSet
-  ( -- * Creating a Request
-    getIPSet,
-    GetIPSet,
+  ( -- * Creating a request
+    GetIPSet (..),
+    mkGetIPSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gisIPSetId,
 
-    -- * Destructuring the Response
-    getIPSetResponse,
-    GetIPSetResponse,
+    -- * Destructuring the response
+    GetIPSetResponse (..),
+    mkGetIPSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gisrsIPSet,
     gisrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getIPSet' smart constructor.
-newtype GetIPSet = GetIPSet' {_gisIPSetId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetIPSet' smart constructor.
+newtype GetIPSet = GetIPSet' {ipSetId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIPSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisIPSetId' - The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
-getIPSet ::
-  -- | 'gisIPSetId'
-  Text ->
+-- * 'ipSetId' - The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+mkGetIPSet ::
+  -- | 'ipSetId'
+  Lude.Text ->
   GetIPSet
-getIPSet pIPSetId_ = GetIPSet' {_gisIPSetId = pIPSetId_}
+mkGetIPSet pIPSetId_ = GetIPSet' {ipSetId = pIPSetId_}
 
 -- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
-gisIPSetId :: Lens' GetIPSet Text
-gisIPSetId = lens _gisIPSetId (\s a -> s {_gisIPSetId = a})
+--
+-- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisIPSetId :: Lens.Lens' GetIPSet Lude.Text
+gisIPSetId = Lens.lens (ipSetId :: GetIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: GetIPSet)
+{-# DEPRECATED gisIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
 
-instance AWSRequest GetIPSet where
+instance Lude.AWSRequest GetIPSet where
   type Rs GetIPSet = GetIPSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetIPSetResponse' <$> (x .?> "IPSet") <*> (pure (fromEnum s))
+          GetIPSetResponse'
+            Lude.<$> (x Lude..?> "IPSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetIPSet
-
-instance NFData GetIPSet
-
-instance ToHeaders GetIPSet where
+instance Lude.ToHeaders GetIPSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetIPSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.GetIPSet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetIPSet where
+instance Lude.ToJSON GetIPSet where
   toJSON GetIPSet' {..} =
-    object (catMaybes [Just ("IPSetId" .= _gisIPSetId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("IPSetId" Lude..= ipSetId)])
 
-instance ToPath GetIPSet where
-  toPath = const "/"
+instance Lude.ToPath GetIPSet where
+  toPath = Lude.const "/"
 
-instance ToQuery GetIPSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetIPSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getIPSetResponse' smart constructor.
+-- | /See:/ 'mkGetIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
-  { _gisrsIPSet ::
-      !(Maybe IPSet),
-    _gisrsResponseStatus :: !Int
+  { ipSet ::
+      Lude.Maybe IPSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIPSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'ipSet' - Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:
 --
--- * 'gisrsIPSet' - Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@      * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 --
--- * 'gisrsResponseStatus' - -- | The response status code.
-getIPSetResponse ::
-  -- | 'gisrsResponseStatus'
-  Int ->
+--     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@
+--
+--
+--     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
+--
+--
+-- * 'responseStatus' - The response status code.
+mkGetIPSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIPSetResponse
-getIPSetResponse pResponseStatus_ =
+mkGetIPSetResponse pResponseStatus_ =
   GetIPSetResponse'
-    { _gisrsIPSet = Nothing,
-      _gisrsResponseStatus = pResponseStatus_
+    { ipSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@      * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
-gisrsIPSet :: Lens' GetIPSetResponse (Maybe IPSet)
-gisrsIPSet = lens _gisrsIPSet (\s a -> s {_gisrsIPSet = a})
+-- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:
+--
+--
+--     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@
+--
+--
+--     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
+--
+--
+--
+-- /Note:/ Consider using 'ipSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsIPSet :: Lens.Lens' GetIPSetResponse (Lude.Maybe IPSet)
+gisrsIPSet = Lens.lens (ipSet :: GetIPSetResponse -> Lude.Maybe IPSet) (\s a -> s {ipSet = a} :: GetIPSetResponse)
+{-# DEPRECATED gisrsIPSet "Use generic-lens or generic-optics with 'ipSet' instead." #-}
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetIPSetResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\s a -> s {_gisrsResponseStatus = a})
-
-instance NFData GetIPSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsResponseStatus :: Lens.Lens' GetIPSetResponse Lude.Int
+gisrsResponseStatus = Lens.lens (responseStatus :: GetIPSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIPSetResponse)
+{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.HTTPContext where
+module Network.AWS.IoT.Types.HTTPContext
+  ( HTTPContext (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPContext,
+
+    -- * Lenses
+    httpcHeaders,
+    httpcQueryString,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the HTTP context to use for the test authorizer request.
 --
---
---
--- /See:/ 'hTTPContext' smart constructor.
+-- /See:/ 'mkHTTPContext' smart constructor.
 data HTTPContext = HTTPContext'
-  { _httpcHeaders ::
-      !(Maybe (Map Text (Text))),
-    _httpcQueryString :: !(Maybe Text)
+  { headers ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    queryString :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpcHeaders' - The header keys and values in an HTTP authorization request.
---
--- * 'httpcQueryString' - The query string keys and values in an HTTP authorization request.
-hTTPContext ::
+-- * 'headers' - The header keys and values in an HTTP authorization request.
+-- * 'queryString' - The query string keys and values in an HTTP authorization request.
+mkHTTPContext ::
   HTTPContext
-hTTPContext =
-  HTTPContext'
-    { _httpcHeaders = Nothing,
-      _httpcQueryString = Nothing
-    }
+mkHTTPContext =
+  HTTPContext' {headers = Lude.Nothing, queryString = Lude.Nothing}
 
 -- | The header keys and values in an HTTP authorization request.
-httpcHeaders :: Lens' HTTPContext (HashMap Text (Text))
-httpcHeaders = lens _httpcHeaders (\s a -> s {_httpcHeaders = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpcHeaders :: Lens.Lens' HTTPContext (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+httpcHeaders = Lens.lens (headers :: HTTPContext -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {headers = a} :: HTTPContext)
+{-# DEPRECATED httpcHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
 -- | The query string keys and values in an HTTP authorization request.
-httpcQueryString :: Lens' HTTPContext (Maybe Text)
-httpcQueryString = lens _httpcQueryString (\s a -> s {_httpcQueryString = a})
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpcQueryString :: Lens.Lens' HTTPContext (Lude.Maybe Lude.Text)
+httpcQueryString = Lens.lens (queryString :: HTTPContext -> Lude.Maybe Lude.Text) (\s a -> s {queryString = a} :: HTTPContext)
+{-# DEPRECATED httpcQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
-instance Hashable HTTPContext
-
-instance NFData HTTPContext
-
-instance ToJSON HTTPContext where
+instance Lude.ToJSON HTTPContext where
   toJSON HTTPContext' {..} =
-    object
-      ( catMaybes
-          [ ("headers" .=) <$> _httpcHeaders,
-            ("queryString" .=) <$> _httpcQueryString
+    Lude.object
+      ( Lude.catMaybes
+          [ ("headers" Lude..=) Lude.<$> headers,
+            ("queryString" Lude..=) Lude.<$> queryString
           ]
       )

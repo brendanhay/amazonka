@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,151 @@
 --
 -- Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the configuration (term, payment type, or number of nodes) and no additional costs.
 module Network.AWS.Redshift.AcceptReservedNodeExchange
-  ( -- * Creating a Request
-    acceptReservedNodeExchange,
-    AcceptReservedNodeExchange,
+  ( -- * Creating a request
+    AcceptReservedNodeExchange (..),
+    mkAcceptReservedNodeExchange,
 
-    -- * Request Lenses
+    -- ** Request lenses
     arneReservedNodeId,
     arneTargetReservedNodeOfferingId,
 
-    -- * Destructuring the Response
-    acceptReservedNodeExchangeResponse,
-    AcceptReservedNodeExchangeResponse,
+    -- * Destructuring the response
+    AcceptReservedNodeExchangeResponse (..),
+    mkAcceptReservedNodeExchangeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     arnersExchangedReservedNode,
     arnersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'acceptReservedNodeExchange' smart constructor.
+-- | /See:/ 'mkAcceptReservedNodeExchange' smart constructor.
 data AcceptReservedNodeExchange = AcceptReservedNodeExchange'
-  { _arneReservedNodeId ::
-      !Text,
-    _arneTargetReservedNodeOfferingId ::
-      !Text
+  { reservedNodeId ::
+      Lude.Text,
+    targetReservedNodeOfferingId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptReservedNodeExchange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arneReservedNodeId' - A string representing the node identifier of the DC1 Reserved Node to be exchanged.
---
--- * 'arneTargetReservedNodeOfferingId' - The unique identifier of the DC2 Reserved Node offering to be used for the exchange. You can obtain the value for the parameter by calling 'GetReservedNodeExchangeOfferings'
-acceptReservedNodeExchange ::
-  -- | 'arneReservedNodeId'
-  Text ->
-  -- | 'arneTargetReservedNodeOfferingId'
-  Text ->
+-- * 'reservedNodeId' - A string representing the node identifier of the DC1 Reserved Node to be exchanged.
+-- * 'targetReservedNodeOfferingId' - The unique identifier of the DC2 Reserved Node offering to be used for the exchange. You can obtain the value for the parameter by calling 'GetReservedNodeExchangeOfferings'
+mkAcceptReservedNodeExchange ::
+  -- | 'reservedNodeId'
+  Lude.Text ->
+  -- | 'targetReservedNodeOfferingId'
+  Lude.Text ->
   AcceptReservedNodeExchange
-acceptReservedNodeExchange
+mkAcceptReservedNodeExchange
   pReservedNodeId_
   pTargetReservedNodeOfferingId_ =
     AcceptReservedNodeExchange'
-      { _arneReservedNodeId =
-          pReservedNodeId_,
-        _arneTargetReservedNodeOfferingId = pTargetReservedNodeOfferingId_
+      { reservedNodeId = pReservedNodeId_,
+        targetReservedNodeOfferingId = pTargetReservedNodeOfferingId_
       }
 
 -- | A string representing the node identifier of the DC1 Reserved Node to be exchanged.
-arneReservedNodeId :: Lens' AcceptReservedNodeExchange Text
-arneReservedNodeId = lens _arneReservedNodeId (\s a -> s {_arneReservedNodeId = a})
+--
+-- /Note:/ Consider using 'reservedNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arneReservedNodeId :: Lens.Lens' AcceptReservedNodeExchange Lude.Text
+arneReservedNodeId = Lens.lens (reservedNodeId :: AcceptReservedNodeExchange -> Lude.Text) (\s a -> s {reservedNodeId = a} :: AcceptReservedNodeExchange)
+{-# DEPRECATED arneReservedNodeId "Use generic-lens or generic-optics with 'reservedNodeId' instead." #-}
 
 -- | The unique identifier of the DC2 Reserved Node offering to be used for the exchange. You can obtain the value for the parameter by calling 'GetReservedNodeExchangeOfferings'
-arneTargetReservedNodeOfferingId :: Lens' AcceptReservedNodeExchange Text
-arneTargetReservedNodeOfferingId = lens _arneTargetReservedNodeOfferingId (\s a -> s {_arneTargetReservedNodeOfferingId = a})
+--
+-- /Note:/ Consider using 'targetReservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arneTargetReservedNodeOfferingId :: Lens.Lens' AcceptReservedNodeExchange Lude.Text
+arneTargetReservedNodeOfferingId = Lens.lens (targetReservedNodeOfferingId :: AcceptReservedNodeExchange -> Lude.Text) (\s a -> s {targetReservedNodeOfferingId = a} :: AcceptReservedNodeExchange)
+{-# DEPRECATED arneTargetReservedNodeOfferingId "Use generic-lens or generic-optics with 'targetReservedNodeOfferingId' instead." #-}
 
-instance AWSRequest AcceptReservedNodeExchange where
+instance Lude.AWSRequest AcceptReservedNodeExchange where
   type
     Rs AcceptReservedNodeExchange =
       AcceptReservedNodeExchangeResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AcceptReservedNodeExchangeResult"
       ( \s h x ->
           AcceptReservedNodeExchangeResponse'
-            <$> (x .@? "ExchangedReservedNode") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ExchangedReservedNode")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AcceptReservedNodeExchange
+instance Lude.ToHeaders AcceptReservedNodeExchange where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AcceptReservedNodeExchange
+instance Lude.ToPath AcceptReservedNodeExchange where
+  toPath = Lude.const "/"
 
-instance ToHeaders AcceptReservedNodeExchange where
-  toHeaders = const mempty
-
-instance ToPath AcceptReservedNodeExchange where
-  toPath = const "/"
-
-instance ToQuery AcceptReservedNodeExchange where
+instance Lude.ToQuery AcceptReservedNodeExchange where
   toQuery AcceptReservedNodeExchange' {..} =
-    mconcat
-      [ "Action" =: ("AcceptReservedNodeExchange" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ReservedNodeId" =: _arneReservedNodeId,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("AcceptReservedNodeExchange" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ReservedNodeId" Lude.=: reservedNodeId,
         "TargetReservedNodeOfferingId"
-          =: _arneTargetReservedNodeOfferingId
+          Lude.=: targetReservedNodeOfferingId
       ]
 
--- | /See:/ 'acceptReservedNodeExchangeResponse' smart constructor.
+-- | /See:/ 'mkAcceptReservedNodeExchangeResponse' smart constructor.
 data AcceptReservedNodeExchangeResponse = AcceptReservedNodeExchangeResponse'
-  { _arnersExchangedReservedNode ::
-      !(Maybe ReservedNode),
-    _arnersResponseStatus ::
-      !Int
+  { exchangedReservedNode ::
+      Lude.Maybe
+        ReservedNode,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptReservedNodeExchangeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arnersExchangedReservedNode' -
---
--- * 'arnersResponseStatus' - -- | The response status code.
-acceptReservedNodeExchangeResponse ::
-  -- | 'arnersResponseStatus'
-  Int ->
+-- * 'exchangedReservedNode' -
+-- * 'responseStatus' - The response status code.
+mkAcceptReservedNodeExchangeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AcceptReservedNodeExchangeResponse
-acceptReservedNodeExchangeResponse pResponseStatus_ =
+mkAcceptReservedNodeExchangeResponse pResponseStatus_ =
   AcceptReservedNodeExchangeResponse'
-    { _arnersExchangedReservedNode =
-        Nothing,
-      _arnersResponseStatus = pResponseStatus_
+    { exchangedReservedNode =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- |
-arnersExchangedReservedNode :: Lens' AcceptReservedNodeExchangeResponse (Maybe ReservedNode)
-arnersExchangedReservedNode = lens _arnersExchangedReservedNode (\s a -> s {_arnersExchangedReservedNode = a})
+--
+-- /Note:/ Consider using 'exchangedReservedNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arnersExchangedReservedNode :: Lens.Lens' AcceptReservedNodeExchangeResponse (Lude.Maybe ReservedNode)
+arnersExchangedReservedNode = Lens.lens (exchangedReservedNode :: AcceptReservedNodeExchangeResponse -> Lude.Maybe ReservedNode) (\s a -> s {exchangedReservedNode = a} :: AcceptReservedNodeExchangeResponse)
+{-# DEPRECATED arnersExchangedReservedNode "Use generic-lens or generic-optics with 'exchangedReservedNode' instead." #-}
 
--- | -- | The response status code.
-arnersResponseStatus :: Lens' AcceptReservedNodeExchangeResponse Int
-arnersResponseStatus = lens _arnersResponseStatus (\s a -> s {_arnersResponseStatus = a})
-
-instance NFData AcceptReservedNodeExchangeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arnersResponseStatus :: Lens.Lens' AcceptReservedNodeExchangeResponse Lude.Int
+arnersResponseStatus = Lens.lens (responseStatus :: AcceptReservedNodeExchangeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptReservedNodeExchangeResponse)
+{-# DEPRECATED arnersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

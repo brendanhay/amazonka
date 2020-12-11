@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm where
+module Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm
+  ( AudioNormalizationAlgorithm
+      ( AudioNormalizationAlgorithm',
+        Itu17701,
+        Itu17702
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Normalization Algorithm
-data AudioNormalizationAlgorithm
-  = Itu17701
-  | Itu17702
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioNormalizationAlgorithm = AudioNormalizationAlgorithm' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioNormalizationAlgorithm where
-  parser =
-    takeLowerText >>= \case
-      "itu_1770_1" -> pure Itu17701
-      "itu_1770_2" -> pure Itu17702
-      e ->
-        fromTextError $
-          "Failure parsing AudioNormalizationAlgorithm from value: '" <> e
-            <> "'. Accepted values: itu_1770_1, itu_1770_2"
+pattern Itu17701 :: AudioNormalizationAlgorithm
+pattern Itu17701 = AudioNormalizationAlgorithm' "ITU_1770_1"
 
-instance ToText AudioNormalizationAlgorithm where
-  toText = \case
-    Itu17701 -> "ITU_1770_1"
-    Itu17702 -> "ITU_1770_2"
+pattern Itu17702 :: AudioNormalizationAlgorithm
+pattern Itu17702 = AudioNormalizationAlgorithm' "ITU_1770_2"
 
-instance Hashable AudioNormalizationAlgorithm
-
-instance NFData AudioNormalizationAlgorithm
-
-instance ToByteString AudioNormalizationAlgorithm
-
-instance ToQuery AudioNormalizationAlgorithm
-
-instance ToHeader AudioNormalizationAlgorithm
-
-instance ToJSON AudioNormalizationAlgorithm where
-  toJSON = toJSONText
-
-instance FromJSON AudioNormalizationAlgorithm where
-  parseJSON = parseJSONText "AudioNormalizationAlgorithm"
+{-# COMPLETE
+  Itu17701,
+  Itu17702,
+  AudioNormalizationAlgorithm'
+  #-}

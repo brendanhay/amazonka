@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- View a summary of OpsItems based on specified filters and aggregators.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.GetOpsSummary
-  ( -- * Creating a Request
-    getOpsSummary,
-    GetOpsSummary,
+  ( -- * Creating a request
+    GetOpsSummary (..),
+    mkGetOpsSummary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gosAggregators,
     gosSyncName,
     gosFilters,
@@ -35,176 +28,206 @@ module Network.AWS.SSM.GetOpsSummary
     gosNextToken,
     gosMaxResults,
 
-    -- * Destructuring the Response
-    getOpsSummaryResponse,
-    GetOpsSummaryResponse,
+    -- * Destructuring the response
+    GetOpsSummaryResponse (..),
+    mkGetOpsSummaryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gosrsEntities,
     gosrsNextToken,
     gosrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getOpsSummary' smart constructor.
+-- | /See:/ 'mkGetOpsSummary' smart constructor.
 data GetOpsSummary = GetOpsSummary'
-  { _gosAggregators ::
-      !(Maybe (List1 OpsAggregator)),
-    _gosSyncName :: !(Maybe Text),
-    _gosFilters :: !(Maybe (List1 OpsFilter)),
-    _gosResultAttributes :: !(Maybe (List1 OpsResultAttribute)),
-    _gosNextToken :: !(Maybe Text),
-    _gosMaxResults :: !(Maybe Nat)
+  { aggregators ::
+      Lude.Maybe (Lude.NonEmpty OpsAggregator),
+    syncName :: Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe (Lude.NonEmpty OpsFilter),
+    resultAttributes ::
+      Lude.Maybe (Lude.NonEmpty OpsResultAttribute),
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpsSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gosAggregators' - Optional aggregators that return counts of OpsItems based on one or more expressions.
---
--- * 'gosSyncName' - Specify the name of a resource data sync to get.
---
--- * 'gosFilters' - Optional filters used to scope down the returned OpsItems.
---
--- * 'gosResultAttributes' - The OpsItem data type to return.
---
--- * 'gosNextToken' - A token to start the list. Use this token to get the next set of results.
---
--- * 'gosMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-getOpsSummary ::
+-- * 'aggregators' - Optional aggregators that return counts of OpsItems based on one or more expressions.
+-- * 'filters' - Optional filters used to scope down the returned OpsItems.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'resultAttributes' - The OpsItem data type to return.
+-- * 'syncName' - Specify the name of a resource data sync to get.
+mkGetOpsSummary ::
   GetOpsSummary
-getOpsSummary =
+mkGetOpsSummary =
   GetOpsSummary'
-    { _gosAggregators = Nothing,
-      _gosSyncName = Nothing,
-      _gosFilters = Nothing,
-      _gosResultAttributes = Nothing,
-      _gosNextToken = Nothing,
-      _gosMaxResults = Nothing
+    { aggregators = Lude.Nothing,
+      syncName = Lude.Nothing,
+      filters = Lude.Nothing,
+      resultAttributes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Optional aggregators that return counts of OpsItems based on one or more expressions.
-gosAggregators :: Lens' GetOpsSummary (Maybe (NonEmpty OpsAggregator))
-gosAggregators = lens _gosAggregators (\s a -> s {_gosAggregators = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'aggregators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosAggregators :: Lens.Lens' GetOpsSummary (Lude.Maybe (Lude.NonEmpty OpsAggregator))
+gosAggregators = Lens.lens (aggregators :: GetOpsSummary -> Lude.Maybe (Lude.NonEmpty OpsAggregator)) (\s a -> s {aggregators = a} :: GetOpsSummary)
+{-# DEPRECATED gosAggregators "Use generic-lens or generic-optics with 'aggregators' instead." #-}
 
 -- | Specify the name of a resource data sync to get.
-gosSyncName :: Lens' GetOpsSummary (Maybe Text)
-gosSyncName = lens _gosSyncName (\s a -> s {_gosSyncName = a})
+--
+-- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosSyncName :: Lens.Lens' GetOpsSummary (Lude.Maybe Lude.Text)
+gosSyncName = Lens.lens (syncName :: GetOpsSummary -> Lude.Maybe Lude.Text) (\s a -> s {syncName = a} :: GetOpsSummary)
+{-# DEPRECATED gosSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
 -- | Optional filters used to scope down the returned OpsItems.
-gosFilters :: Lens' GetOpsSummary (Maybe (NonEmpty OpsFilter))
-gosFilters = lens _gosFilters (\s a -> s {_gosFilters = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosFilters :: Lens.Lens' GetOpsSummary (Lude.Maybe (Lude.NonEmpty OpsFilter))
+gosFilters = Lens.lens (filters :: GetOpsSummary -> Lude.Maybe (Lude.NonEmpty OpsFilter)) (\s a -> s {filters = a} :: GetOpsSummary)
+{-# DEPRECATED gosFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The OpsItem data type to return.
-gosResultAttributes :: Lens' GetOpsSummary (Maybe (NonEmpty OpsResultAttribute))
-gosResultAttributes = lens _gosResultAttributes (\s a -> s {_gosResultAttributes = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'resultAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosResultAttributes :: Lens.Lens' GetOpsSummary (Lude.Maybe (Lude.NonEmpty OpsResultAttribute))
+gosResultAttributes = Lens.lens (resultAttributes :: GetOpsSummary -> Lude.Maybe (Lude.NonEmpty OpsResultAttribute)) (\s a -> s {resultAttributes = a} :: GetOpsSummary)
+{-# DEPRECATED gosResultAttributes "Use generic-lens or generic-optics with 'resultAttributes' instead." #-}
 
 -- | A token to start the list. Use this token to get the next set of results.
-gosNextToken :: Lens' GetOpsSummary (Maybe Text)
-gosNextToken = lens _gosNextToken (\s a -> s {_gosNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosNextToken :: Lens.Lens' GetOpsSummary (Lude.Maybe Lude.Text)
+gosNextToken = Lens.lens (nextToken :: GetOpsSummary -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOpsSummary)
+{-# DEPRECATED gosNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-gosMaxResults :: Lens' GetOpsSummary (Maybe Natural)
-gosMaxResults = lens _gosMaxResults (\s a -> s {_gosMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosMaxResults :: Lens.Lens' GetOpsSummary (Lude.Maybe Lude.Natural)
+gosMaxResults = Lens.lens (maxResults :: GetOpsSummary -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetOpsSummary)
+{-# DEPRECATED gosMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetOpsSummary where
+instance Page.AWSPager GetOpsSummary where
   page rq rs
-    | stop (rs ^. gosrsNextToken) = Nothing
-    | stop (rs ^. gosrsEntities) = Nothing
-    | otherwise = Just $ rq & gosNextToken .~ rs ^. gosrsNextToken
+    | Page.stop (rs Lens.^. gosrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gosrsEntities) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gosNextToken Lens..~ rs Lens.^. gosrsNextToken
 
-instance AWSRequest GetOpsSummary where
+instance Lude.AWSRequest GetOpsSummary where
   type Rs GetOpsSummary = GetOpsSummaryResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOpsSummaryResponse'
-            <$> (x .?> "Entities" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Entities" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOpsSummary
-
-instance NFData GetOpsSummary
-
-instance ToHeaders GetOpsSummary where
+instance Lude.ToHeaders GetOpsSummary where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.GetOpsSummary" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.GetOpsSummary" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetOpsSummary where
+instance Lude.ToJSON GetOpsSummary where
   toJSON GetOpsSummary' {..} =
-    object
-      ( catMaybes
-          [ ("Aggregators" .=) <$> _gosAggregators,
-            ("SyncName" .=) <$> _gosSyncName,
-            ("Filters" .=) <$> _gosFilters,
-            ("ResultAttributes" .=) <$> _gosResultAttributes,
-            ("NextToken" .=) <$> _gosNextToken,
-            ("MaxResults" .=) <$> _gosMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Aggregators" Lude..=) Lude.<$> aggregators,
+            ("SyncName" Lude..=) Lude.<$> syncName,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("ResultAttributes" Lude..=) Lude.<$> resultAttributes,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetOpsSummary where
-  toPath = const "/"
+instance Lude.ToPath GetOpsSummary where
+  toPath = Lude.const "/"
 
-instance ToQuery GetOpsSummary where
-  toQuery = const mempty
+instance Lude.ToQuery GetOpsSummary where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getOpsSummaryResponse' smart constructor.
+-- | /See:/ 'mkGetOpsSummaryResponse' smart constructor.
 data GetOpsSummaryResponse = GetOpsSummaryResponse'
-  { _gosrsEntities ::
-      !(Maybe [OpsEntity]),
-    _gosrsNextToken :: !(Maybe Text),
-    _gosrsResponseStatus :: !Int
+  { entities ::
+      Lude.Maybe [OpsEntity],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpsSummaryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gosrsEntities' - The list of aggregated and filtered OpsItems.
---
--- * 'gosrsNextToken' - The token for the next set of items to return. Use this token to get the next set of results.
---
--- * 'gosrsResponseStatus' - -- | The response status code.
-getOpsSummaryResponse ::
-  -- | 'gosrsResponseStatus'
-  Int ->
+-- * 'entities' - The list of aggregated and filtered OpsItems.
+-- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
+-- * 'responseStatus' - The response status code.
+mkGetOpsSummaryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOpsSummaryResponse
-getOpsSummaryResponse pResponseStatus_ =
+mkGetOpsSummaryResponse pResponseStatus_ =
   GetOpsSummaryResponse'
-    { _gosrsEntities = Nothing,
-      _gosrsNextToken = Nothing,
-      _gosrsResponseStatus = pResponseStatus_
+    { entities = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of aggregated and filtered OpsItems.
-gosrsEntities :: Lens' GetOpsSummaryResponse [OpsEntity]
-gosrsEntities = lens _gosrsEntities (\s a -> s {_gosrsEntities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosrsEntities :: Lens.Lens' GetOpsSummaryResponse (Lude.Maybe [OpsEntity])
+gosrsEntities = Lens.lens (entities :: GetOpsSummaryResponse -> Lude.Maybe [OpsEntity]) (\s a -> s {entities = a} :: GetOpsSummaryResponse)
+{-# DEPRECATED gosrsEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
-gosrsNextToken :: Lens' GetOpsSummaryResponse (Maybe Text)
-gosrsNextToken = lens _gosrsNextToken (\s a -> s {_gosrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosrsNextToken :: Lens.Lens' GetOpsSummaryResponse (Lude.Maybe Lude.Text)
+gosrsNextToken = Lens.lens (nextToken :: GetOpsSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOpsSummaryResponse)
+{-# DEPRECATED gosrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gosrsResponseStatus :: Lens' GetOpsSummaryResponse Int
-gosrsResponseStatus = lens _gosrsResponseStatus (\s a -> s {_gosrsResponseStatus = a})
-
-instance NFData GetOpsSummaryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosrsResponseStatus :: Lens.Lens' GetOpsSummaryResponse Lude.Int
+gosrsResponseStatus = Lens.lens (responseStatus :: GetOpsSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOpsSummaryResponse)
+{-# DEPRECATED gosrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

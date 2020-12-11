@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EBSInstanceBlockDeviceSpecification where
+module Network.AWS.EC2.Types.EBSInstanceBlockDeviceSpecification
+  ( EBSInstanceBlockDeviceSpecification (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEBSInstanceBlockDeviceSpecification,
+
+    -- * Lenses
+    eibdsDeleteOnTermination,
+    eibdsVolumeId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes information used to set up an EBS volume specified in a block device mapping.
 --
---
---
--- /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
+-- /See:/ 'mkEBSInstanceBlockDeviceSpecification' smart constructor.
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
-  { _eibdsDeleteOnTermination ::
-      !(Maybe Bool),
-    _eibdsVolumeId ::
-      !(Maybe Text)
+  { deleteOnTermination ::
+      Lude.Maybe
+        Lude.Bool,
+    volumeId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSInstanceBlockDeviceSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eibdsDeleteOnTermination' - Indicates whether the volume is deleted on instance termination.
---
--- * 'eibdsVolumeId' - The ID of the EBS volume.
-ebsInstanceBlockDeviceSpecification ::
+-- * 'deleteOnTermination' - Indicates whether the volume is deleted on instance termination.
+-- * 'volumeId' - The ID of the EBS volume.
+mkEBSInstanceBlockDeviceSpecification ::
   EBSInstanceBlockDeviceSpecification
-ebsInstanceBlockDeviceSpecification =
+mkEBSInstanceBlockDeviceSpecification =
   EBSInstanceBlockDeviceSpecification'
-    { _eibdsDeleteOnTermination =
-        Nothing,
-      _eibdsVolumeId = Nothing
+    { deleteOnTermination =
+        Lude.Nothing,
+      volumeId = Lude.Nothing
     }
 
 -- | Indicates whether the volume is deleted on instance termination.
-eibdsDeleteOnTermination :: Lens' EBSInstanceBlockDeviceSpecification (Maybe Bool)
-eibdsDeleteOnTermination = lens _eibdsDeleteOnTermination (\s a -> s {_eibdsDeleteOnTermination = a})
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eibdsDeleteOnTermination :: Lens.Lens' EBSInstanceBlockDeviceSpecification (Lude.Maybe Lude.Bool)
+eibdsDeleteOnTermination = Lens.lens (deleteOnTermination :: EBSInstanceBlockDeviceSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: EBSInstanceBlockDeviceSpecification)
+{-# DEPRECATED eibdsDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | The ID of the EBS volume.
-eibdsVolumeId :: Lens' EBSInstanceBlockDeviceSpecification (Maybe Text)
-eibdsVolumeId = lens _eibdsVolumeId (\s a -> s {_eibdsVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eibdsVolumeId :: Lens.Lens' EBSInstanceBlockDeviceSpecification (Lude.Maybe Lude.Text)
+eibdsVolumeId = Lens.lens (volumeId :: EBSInstanceBlockDeviceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: EBSInstanceBlockDeviceSpecification)
+{-# DEPRECATED eibdsVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance Hashable EBSInstanceBlockDeviceSpecification
-
-instance NFData EBSInstanceBlockDeviceSpecification
-
-instance ToQuery EBSInstanceBlockDeviceSpecification where
+instance Lude.ToQuery EBSInstanceBlockDeviceSpecification where
   toQuery EBSInstanceBlockDeviceSpecification' {..} =
-    mconcat
-      [ "DeleteOnTermination" =: _eibdsDeleteOnTermination,
-        "VolumeId" =: _eibdsVolumeId
+    Lude.mconcat
+      [ "DeleteOnTermination" Lude.=: deleteOnTermination,
+        "VolumeId" Lude.=: volumeId
       ]

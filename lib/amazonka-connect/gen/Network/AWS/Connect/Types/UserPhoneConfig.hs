@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.UserPhoneConfig where
+module Network.AWS.Connect.Types.UserPhoneConfig
+  ( UserPhoneConfig (..),
+
+    -- * Smart constructor
+    mkUserPhoneConfig,
+
+    -- * Lenses
+    upcAutoAccept,
+    upcAfterContactWorkTimeLimit,
+    upcDeskPhoneNumber,
+    upcPhoneType,
+  )
+where
 
 import Network.AWS.Connect.Types.PhoneType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the phone configuration settings for a user.
 --
---
---
--- /See:/ 'userPhoneConfig' smart constructor.
+-- /See:/ 'mkUserPhoneConfig' smart constructor.
 data UserPhoneConfig = UserPhoneConfig'
-  { _upcAutoAccept ::
-      !(Maybe Bool),
-    _upcAfterContactWorkTimeLimit :: !(Maybe Nat),
-    _upcDeskPhoneNumber :: !(Maybe Text),
-    _upcPhoneType :: !PhoneType
+  { autoAccept ::
+      Lude.Maybe Lude.Bool,
+    afterContactWorkTimeLimit :: Lude.Maybe Lude.Natural,
+    deskPhoneNumber :: Lude.Maybe Lude.Text,
+    phoneType :: PhoneType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPhoneConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upcAutoAccept' - The Auto accept setting.
---
--- * 'upcAfterContactWorkTimeLimit' - The After Call Work (ACW) timeout setting, in seconds.
---
--- * 'upcDeskPhoneNumber' - The phone number for the user's desk phone.
---
--- * 'upcPhoneType' - The phone type.
-userPhoneConfig ::
-  -- | 'upcPhoneType'
+-- * 'afterContactWorkTimeLimit' - The After Call Work (ACW) timeout setting, in seconds.
+-- * 'autoAccept' - The Auto accept setting.
+-- * 'deskPhoneNumber' - The phone number for the user's desk phone.
+-- * 'phoneType' - The phone type.
+mkUserPhoneConfig ::
+  -- | 'phoneType'
   PhoneType ->
   UserPhoneConfig
-userPhoneConfig pPhoneType_ =
+mkUserPhoneConfig pPhoneType_ =
   UserPhoneConfig'
-    { _upcAutoAccept = Nothing,
-      _upcAfterContactWorkTimeLimit = Nothing,
-      _upcDeskPhoneNumber = Nothing,
-      _upcPhoneType = pPhoneType_
+    { autoAccept = Lude.Nothing,
+      afterContactWorkTimeLimit = Lude.Nothing,
+      deskPhoneNumber = Lude.Nothing,
+      phoneType = pPhoneType_
     }
 
 -- | The Auto accept setting.
-upcAutoAccept :: Lens' UserPhoneConfig (Maybe Bool)
-upcAutoAccept = lens _upcAutoAccept (\s a -> s {_upcAutoAccept = a})
+--
+-- /Note:/ Consider using 'autoAccept' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcAutoAccept :: Lens.Lens' UserPhoneConfig (Lude.Maybe Lude.Bool)
+upcAutoAccept = Lens.lens (autoAccept :: UserPhoneConfig -> Lude.Maybe Lude.Bool) (\s a -> s {autoAccept = a} :: UserPhoneConfig)
+{-# DEPRECATED upcAutoAccept "Use generic-lens or generic-optics with 'autoAccept' instead." #-}
 
 -- | The After Call Work (ACW) timeout setting, in seconds.
-upcAfterContactWorkTimeLimit :: Lens' UserPhoneConfig (Maybe Natural)
-upcAfterContactWorkTimeLimit = lens _upcAfterContactWorkTimeLimit (\s a -> s {_upcAfterContactWorkTimeLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'afterContactWorkTimeLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcAfterContactWorkTimeLimit :: Lens.Lens' UserPhoneConfig (Lude.Maybe Lude.Natural)
+upcAfterContactWorkTimeLimit = Lens.lens (afterContactWorkTimeLimit :: UserPhoneConfig -> Lude.Maybe Lude.Natural) (\s a -> s {afterContactWorkTimeLimit = a} :: UserPhoneConfig)
+{-# DEPRECATED upcAfterContactWorkTimeLimit "Use generic-lens or generic-optics with 'afterContactWorkTimeLimit' instead." #-}
 
 -- | The phone number for the user's desk phone.
-upcDeskPhoneNumber :: Lens' UserPhoneConfig (Maybe Text)
-upcDeskPhoneNumber = lens _upcDeskPhoneNumber (\s a -> s {_upcDeskPhoneNumber = a})
+--
+-- /Note:/ Consider using 'deskPhoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcDeskPhoneNumber :: Lens.Lens' UserPhoneConfig (Lude.Maybe Lude.Text)
+upcDeskPhoneNumber = Lens.lens (deskPhoneNumber :: UserPhoneConfig -> Lude.Maybe Lude.Text) (\s a -> s {deskPhoneNumber = a} :: UserPhoneConfig)
+{-# DEPRECATED upcDeskPhoneNumber "Use generic-lens or generic-optics with 'deskPhoneNumber' instead." #-}
 
 -- | The phone type.
-upcPhoneType :: Lens' UserPhoneConfig PhoneType
-upcPhoneType = lens _upcPhoneType (\s a -> s {_upcPhoneType = a})
+--
+-- /Note:/ Consider using 'phoneType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcPhoneType :: Lens.Lens' UserPhoneConfig PhoneType
+upcPhoneType = Lens.lens (phoneType :: UserPhoneConfig -> PhoneType) (\s a -> s {phoneType = a} :: UserPhoneConfig)
+{-# DEPRECATED upcPhoneType "Use generic-lens or generic-optics with 'phoneType' instead." #-}
 
-instance FromJSON UserPhoneConfig where
+instance Lude.FromJSON UserPhoneConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPhoneConfig"
       ( \x ->
           UserPhoneConfig'
-            <$> (x .:? "AutoAccept")
-            <*> (x .:? "AfterContactWorkTimeLimit")
-            <*> (x .:? "DeskPhoneNumber")
-            <*> (x .: "PhoneType")
+            Lude.<$> (x Lude..:? "AutoAccept")
+            Lude.<*> (x Lude..:? "AfterContactWorkTimeLimit")
+            Lude.<*> (x Lude..:? "DeskPhoneNumber")
+            Lude.<*> (x Lude..: "PhoneType")
       )
 
-instance Hashable UserPhoneConfig
-
-instance NFData UserPhoneConfig
-
-instance ToJSON UserPhoneConfig where
+instance Lude.ToJSON UserPhoneConfig where
   toJSON UserPhoneConfig' {..} =
-    object
-      ( catMaybes
-          [ ("AutoAccept" .=) <$> _upcAutoAccept,
-            ("AfterContactWorkTimeLimit" .=) <$> _upcAfterContactWorkTimeLimit,
-            ("DeskPhoneNumber" .=) <$> _upcDeskPhoneNumber,
-            Just ("PhoneType" .= _upcPhoneType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AutoAccept" Lude..=) Lude.<$> autoAccept,
+            ("AfterContactWorkTimeLimit" Lude..=)
+              Lude.<$> afterContactWorkTimeLimit,
+            ("DeskPhoneNumber" Lude..=) Lude.<$> deskPhoneNumber,
+            Lude.Just ("PhoneType" Lude..= phoneType)
           ]
       )

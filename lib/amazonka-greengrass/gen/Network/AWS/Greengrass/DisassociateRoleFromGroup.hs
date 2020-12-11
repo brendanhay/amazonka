@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,130 @@
 --
 -- Disassociates the role from a group.
 module Network.AWS.Greengrass.DisassociateRoleFromGroup
-  ( -- * Creating a Request
-    disassociateRoleFromGroup,
-    DisassociateRoleFromGroup,
+  ( -- * Creating a request
+    DisassociateRoleFromGroup (..),
+    mkDisassociateRoleFromGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drfgGroupId,
 
-    -- * Destructuring the Response
-    disassociateRoleFromGroupResponse,
-    DisassociateRoleFromGroupResponse,
+    -- * Destructuring the response
+    DisassociateRoleFromGroupResponse (..),
+    mkDisassociateRoleFromGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drfgrsDisassociatedAt,
     drfgrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateRoleFromGroup' smart constructor.
+-- | /See:/ 'mkDisassociateRoleFromGroup' smart constructor.
 newtype DisassociateRoleFromGroup = DisassociateRoleFromGroup'
-  { _drfgGroupId ::
-      Text
+  { groupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateRoleFromGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drfgGroupId' - The ID of the Greengrass group.
-disassociateRoleFromGroup ::
-  -- | 'drfgGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+mkDisassociateRoleFromGroup ::
+  -- | 'groupId'
+  Lude.Text ->
   DisassociateRoleFromGroup
-disassociateRoleFromGroup pGroupId_ =
-  DisassociateRoleFromGroup' {_drfgGroupId = pGroupId_}
+mkDisassociateRoleFromGroup pGroupId_ =
+  DisassociateRoleFromGroup' {groupId = pGroupId_}
 
 -- | The ID of the Greengrass group.
-drfgGroupId :: Lens' DisassociateRoleFromGroup Text
-drfgGroupId = lens _drfgGroupId (\s a -> s {_drfgGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfgGroupId :: Lens.Lens' DisassociateRoleFromGroup Lude.Text
+drfgGroupId = Lens.lens (groupId :: DisassociateRoleFromGroup -> Lude.Text) (\s a -> s {groupId = a} :: DisassociateRoleFromGroup)
+{-# DEPRECATED drfgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest DisassociateRoleFromGroup where
+instance Lude.AWSRequest DisassociateRoleFromGroup where
   type
     Rs DisassociateRoleFromGroup =
       DisassociateRoleFromGroupResponse
-  request = delete greengrass
+  request = Req.delete greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisassociateRoleFromGroupResponse'
-            <$> (x .?> "DisassociatedAt") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DisassociatedAt")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateRoleFromGroup
-
-instance NFData DisassociateRoleFromGroup
-
-instance ToHeaders DisassociateRoleFromGroup where
+instance Lude.ToHeaders DisassociateRoleFromGroup where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DisassociateRoleFromGroup where
+instance Lude.ToPath DisassociateRoleFromGroup where
   toPath DisassociateRoleFromGroup' {..} =
-    mconcat ["/greengrass/groups/", toBS _drfgGroupId, "/role"]
+    Lude.mconcat ["/greengrass/groups/", Lude.toBS groupId, "/role"]
 
-instance ToQuery DisassociateRoleFromGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateRoleFromGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateRoleFromGroupResponse' smart constructor.
+-- | /See:/ 'mkDisassociateRoleFromGroupResponse' smart constructor.
 data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
-  { _drfgrsDisassociatedAt ::
-      !(Maybe Text),
-    _drfgrsResponseStatus ::
-      !Int
+  { disassociatedAt ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateRoleFromGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drfgrsDisassociatedAt' - The time, in milliseconds since the epoch, when the role was disassociated from the group.
---
--- * 'drfgrsResponseStatus' - -- | The response status code.
-disassociateRoleFromGroupResponse ::
-  -- | 'drfgrsResponseStatus'
-  Int ->
+-- * 'disassociatedAt' - The time, in milliseconds since the epoch, when the role was disassociated from the group.
+-- * 'responseStatus' - The response status code.
+mkDisassociateRoleFromGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateRoleFromGroupResponse
-disassociateRoleFromGroupResponse pResponseStatus_ =
+mkDisassociateRoleFromGroupResponse pResponseStatus_ =
   DisassociateRoleFromGroupResponse'
-    { _drfgrsDisassociatedAt =
-        Nothing,
-      _drfgrsResponseStatus = pResponseStatus_
+    { disassociatedAt =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the role was disassociated from the group.
-drfgrsDisassociatedAt :: Lens' DisassociateRoleFromGroupResponse (Maybe Text)
-drfgrsDisassociatedAt = lens _drfgrsDisassociatedAt (\s a -> s {_drfgrsDisassociatedAt = a})
+--
+-- /Note:/ Consider using 'disassociatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfgrsDisassociatedAt :: Lens.Lens' DisassociateRoleFromGroupResponse (Lude.Maybe Lude.Text)
+drfgrsDisassociatedAt = Lens.lens (disassociatedAt :: DisassociateRoleFromGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {disassociatedAt = a} :: DisassociateRoleFromGroupResponse)
+{-# DEPRECATED drfgrsDisassociatedAt "Use generic-lens or generic-optics with 'disassociatedAt' instead." #-}
 
--- | -- | The response status code.
-drfgrsResponseStatus :: Lens' DisassociateRoleFromGroupResponse Int
-drfgrsResponseStatus = lens _drfgrsResponseStatus (\s a -> s {_drfgrsResponseStatus = a})
-
-instance NFData DisassociateRoleFromGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfgrsResponseStatus :: Lens.Lens' DisassociateRoleFromGroupResponse Lude.Int
+drfgrsResponseStatus = Lens.lens (responseStatus :: DisassociateRoleFromGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateRoleFromGroupResponse)
+{-# DEPRECATED drfgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,109 @@
 --
 -- Remove the Lambda function from the drop-down options available in the relevant contact flow blocks.
 module Network.AWS.Connect.DisassociateLambdaFunction
-  ( -- * Creating a Request
-    disassociateLambdaFunction,
-    DisassociateLambdaFunction,
+  ( -- * Creating a request
+    DisassociateLambdaFunction (..),
+    mkDisassociateLambdaFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlfInstanceId,
     dlfFunctionARN,
 
-    -- * Destructuring the Response
-    disassociateLambdaFunctionResponse,
-    DisassociateLambdaFunctionResponse,
+    -- * Destructuring the response
+    DisassociateLambdaFunctionResponse (..),
+    mkDisassociateLambdaFunctionResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateLambdaFunction' smart constructor.
+-- | /See:/ 'mkDisassociateLambdaFunction' smart constructor.
 data DisassociateLambdaFunction = DisassociateLambdaFunction'
-  { _dlfInstanceId ::
-      !Text,
-    _dlfFunctionARN :: !Text
+  { instanceId ::
+      Lude.Text,
+    functionARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateLambdaFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlfInstanceId' - The identifier of the Amazon Connect instance..
---
--- * 'dlfFunctionARN' - The Amazon Resource Name (ARN) of the Lambda function being disassociated.
-disassociateLambdaFunction ::
-  -- | 'dlfInstanceId'
-  Text ->
-  -- | 'dlfFunctionARN'
-  Text ->
+-- * 'functionARN' - The Amazon Resource Name (ARN) of the Lambda function being disassociated.
+-- * 'instanceId' - The identifier of the Amazon Connect instance..
+mkDisassociateLambdaFunction ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'functionARN'
+  Lude.Text ->
   DisassociateLambdaFunction
-disassociateLambdaFunction pInstanceId_ pFunctionARN_ =
+mkDisassociateLambdaFunction pInstanceId_ pFunctionARN_ =
   DisassociateLambdaFunction'
-    { _dlfInstanceId = pInstanceId_,
-      _dlfFunctionARN = pFunctionARN_
+    { instanceId = pInstanceId_,
+      functionARN = pFunctionARN_
     }
 
 -- | The identifier of the Amazon Connect instance..
-dlfInstanceId :: Lens' DisassociateLambdaFunction Text
-dlfInstanceId = lens _dlfInstanceId (\s a -> s {_dlfInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlfInstanceId :: Lens.Lens' DisassociateLambdaFunction Lude.Text
+dlfInstanceId = Lens.lens (instanceId :: DisassociateLambdaFunction -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateLambdaFunction)
+{-# DEPRECATED dlfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Lambda function being disassociated.
-dlfFunctionARN :: Lens' DisassociateLambdaFunction Text
-dlfFunctionARN = lens _dlfFunctionARN (\s a -> s {_dlfFunctionARN = a})
+--
+-- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlfFunctionARN :: Lens.Lens' DisassociateLambdaFunction Lude.Text
+dlfFunctionARN = Lens.lens (functionARN :: DisassociateLambdaFunction -> Lude.Text) (\s a -> s {functionARN = a} :: DisassociateLambdaFunction)
+{-# DEPRECATED dlfFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
 
-instance AWSRequest DisassociateLambdaFunction where
+instance Lude.AWSRequest DisassociateLambdaFunction where
   type
     Rs DisassociateLambdaFunction =
       DisassociateLambdaFunctionResponse
-  request = delete connect
-  response = receiveNull DisassociateLambdaFunctionResponse'
+  request = Req.delete connectService
+  response = Res.receiveNull DisassociateLambdaFunctionResponse'
 
-instance Hashable DisassociateLambdaFunction
-
-instance NFData DisassociateLambdaFunction
-
-instance ToHeaders DisassociateLambdaFunction where
+instance Lude.ToHeaders DisassociateLambdaFunction where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DisassociateLambdaFunction where
+instance Lude.ToPath DisassociateLambdaFunction where
   toPath DisassociateLambdaFunction' {..} =
-    mconcat ["/instance/", toBS _dlfInstanceId, "/lambda-function"]
+    Lude.mconcat
+      ["/instance/", Lude.toBS instanceId, "/lambda-function"]
 
-instance ToQuery DisassociateLambdaFunction where
+instance Lude.ToQuery DisassociateLambdaFunction where
   toQuery DisassociateLambdaFunction' {..} =
-    mconcat ["functionArn" =: _dlfFunctionARN]
+    Lude.mconcat ["functionArn" Lude.=: functionARN]
 
--- | /See:/ 'disassociateLambdaFunctionResponse' smart constructor.
+-- | /See:/ 'mkDisassociateLambdaFunctionResponse' smart constructor.
 data DisassociateLambdaFunctionResponse = DisassociateLambdaFunctionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateLambdaFunctionResponse' with the minimum fields required to make a request.
-disassociateLambdaFunctionResponse ::
+mkDisassociateLambdaFunctionResponse ::
   DisassociateLambdaFunctionResponse
-disassociateLambdaFunctionResponse =
+mkDisassociateLambdaFunctionResponse =
   DisassociateLambdaFunctionResponse'
-
-instance NFData DisassociateLambdaFunctionResponse

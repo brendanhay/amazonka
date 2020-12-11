@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel where
+module Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
+  ( ReviewPolicyLevel
+      ( ReviewPolicyLevel',
+        Assignment,
+        Hit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReviewPolicyLevel
-  = Assignment
-  | Hit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReviewPolicyLevel = ReviewPolicyLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReviewPolicyLevel where
-  parser =
-    takeLowerText >>= \case
-      "assignment" -> pure Assignment
-      "hit" -> pure Hit
-      e ->
-        fromTextError $
-          "Failure parsing ReviewPolicyLevel from value: '" <> e
-            <> "'. Accepted values: assignment, hit"
+pattern Assignment :: ReviewPolicyLevel
+pattern Assignment = ReviewPolicyLevel' "Assignment"
 
-instance ToText ReviewPolicyLevel where
-  toText = \case
-    Assignment -> "Assignment"
-    Hit -> "HIT"
+pattern Hit :: ReviewPolicyLevel
+pattern Hit = ReviewPolicyLevel' "HIT"
 
-instance Hashable ReviewPolicyLevel
-
-instance NFData ReviewPolicyLevel
-
-instance ToByteString ReviewPolicyLevel
-
-instance ToQuery ReviewPolicyLevel
-
-instance ToHeader ReviewPolicyLevel
-
-instance ToJSON ReviewPolicyLevel where
-  toJSON = toJSONText
+{-# COMPLETE
+  Assignment,
+  Hit,
+  ReviewPolicyLevel'
+  #-}

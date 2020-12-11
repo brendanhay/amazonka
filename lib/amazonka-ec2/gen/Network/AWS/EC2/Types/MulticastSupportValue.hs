@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.MulticastSupportValue where
+module Network.AWS.EC2.Types.MulticastSupportValue
+  ( MulticastSupportValue
+      ( MulticastSupportValue',
+        MSVDisable,
+        MSVEnable
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MulticastSupportValue
-  = MSVDisable
-  | MSVEnable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MulticastSupportValue = MulticastSupportValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MulticastSupportValue where
-  parser =
-    takeLowerText >>= \case
-      "disable" -> pure MSVDisable
-      "enable" -> pure MSVEnable
-      e ->
-        fromTextError $
-          "Failure parsing MulticastSupportValue from value: '" <> e
-            <> "'. Accepted values: disable, enable"
+pattern MSVDisable :: MulticastSupportValue
+pattern MSVDisable = MulticastSupportValue' "disable"
 
-instance ToText MulticastSupportValue where
-  toText = \case
-    MSVDisable -> "disable"
-    MSVEnable -> "enable"
+pattern MSVEnable :: MulticastSupportValue
+pattern MSVEnable = MulticastSupportValue' "enable"
 
-instance Hashable MulticastSupportValue
-
-instance NFData MulticastSupportValue
-
-instance ToByteString MulticastSupportValue
-
-instance ToQuery MulticastSupportValue
-
-instance ToHeader MulticastSupportValue
-
-instance FromXML MulticastSupportValue where
-  parseXML = parseXMLText "MulticastSupportValue"
+{-# COMPLETE
+  MSVDisable,
+  MSVEnable,
+  MulticastSupportValue'
+  #-}

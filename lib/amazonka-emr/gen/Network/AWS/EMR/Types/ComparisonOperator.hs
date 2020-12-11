@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ComparisonOperator where
+module Network.AWS.EMR.Types.ComparisonOperator
+  ( ComparisonOperator
+      ( ComparisonOperator',
+        GreaterThan,
+        GreaterThanOrEqual,
+        LessThan,
+        LessThanOrEqual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComparisonOperator
-  = GreaterThan
-  | GreaterThanOrEqual
-  | LessThan
-  | LessThanOrEqual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComparisonOperator = ComparisonOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComparisonOperator where
-  parser =
-    takeLowerText >>= \case
-      "greater_than" -> pure GreaterThan
-      "greater_than_or_equal" -> pure GreaterThanOrEqual
-      "less_than" -> pure LessThan
-      "less_than_or_equal" -> pure LessThanOrEqual
-      e ->
-        fromTextError $
-          "Failure parsing ComparisonOperator from value: '" <> e
-            <> "'. Accepted values: greater_than, greater_than_or_equal, less_than, less_than_or_equal"
+pattern GreaterThan :: ComparisonOperator
+pattern GreaterThan = ComparisonOperator' "GREATER_THAN"
 
-instance ToText ComparisonOperator where
-  toText = \case
-    GreaterThan -> "GREATER_THAN"
-    GreaterThanOrEqual -> "GREATER_THAN_OR_EQUAL"
-    LessThan -> "LESS_THAN"
-    LessThanOrEqual -> "LESS_THAN_OR_EQUAL"
+pattern GreaterThanOrEqual :: ComparisonOperator
+pattern GreaterThanOrEqual = ComparisonOperator' "GREATER_THAN_OR_EQUAL"
 
-instance Hashable ComparisonOperator
+pattern LessThan :: ComparisonOperator
+pattern LessThan = ComparisonOperator' "LESS_THAN"
 
-instance NFData ComparisonOperator
+pattern LessThanOrEqual :: ComparisonOperator
+pattern LessThanOrEqual = ComparisonOperator' "LESS_THAN_OR_EQUAL"
 
-instance ToByteString ComparisonOperator
-
-instance ToQuery ComparisonOperator
-
-instance ToHeader ComparisonOperator
-
-instance ToJSON ComparisonOperator where
-  toJSON = toJSONText
-
-instance FromJSON ComparisonOperator where
-  parseJSON = parseJSONText "ComparisonOperator"
+{-# COMPLETE
+  GreaterThan,
+  GreaterThanOrEqual,
+  LessThan,
+  LessThanOrEqual,
+  ComparisonOperator'
+  #-}

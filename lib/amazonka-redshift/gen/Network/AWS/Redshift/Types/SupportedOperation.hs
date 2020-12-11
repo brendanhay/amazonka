@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SupportedOperation where
+module Network.AWS.Redshift.Types.SupportedOperation
+  ( SupportedOperation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSupportedOperation,
+
+    -- * Lenses
+    soOperationName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the operations that are allowed on a maintenance track.
 --
---
---
--- /See:/ 'supportedOperation' smart constructor.
+-- /See:/ 'mkSupportedOperation' smart constructor.
 newtype SupportedOperation = SupportedOperation'
-  { _soOperationName ::
-      Maybe Text
+  { operationName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SupportedOperation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'soOperationName' - A list of the supported operations.
-supportedOperation ::
+-- * 'operationName' - A list of the supported operations.
+mkSupportedOperation ::
   SupportedOperation
-supportedOperation =
-  SupportedOperation' {_soOperationName = Nothing}
+mkSupportedOperation =
+  SupportedOperation' {operationName = Lude.Nothing}
 
 -- | A list of the supported operations.
-soOperationName :: Lens' SupportedOperation (Maybe Text)
-soOperationName = lens _soOperationName (\s a -> s {_soOperationName = a})
+--
+-- /Note:/ Consider using 'operationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+soOperationName :: Lens.Lens' SupportedOperation (Lude.Maybe Lude.Text)
+soOperationName = Lens.lens (operationName :: SupportedOperation -> Lude.Maybe Lude.Text) (\s a -> s {operationName = a} :: SupportedOperation)
+{-# DEPRECATED soOperationName "Use generic-lens or generic-optics with 'operationName' instead." #-}
 
-instance FromXML SupportedOperation where
-  parseXML x = SupportedOperation' <$> (x .@? "OperationName")
-
-instance Hashable SupportedOperation
-
-instance NFData SupportedOperation
+instance Lude.FromXML SupportedOperation where
+  parseXML x =
+    SupportedOperation' Lude.<$> (x Lude..@? "OperationName")

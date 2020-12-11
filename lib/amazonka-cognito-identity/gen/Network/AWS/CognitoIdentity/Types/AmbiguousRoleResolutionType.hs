@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType where
+module Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
+  ( AmbiguousRoleResolutionType
+      ( AmbiguousRoleResolutionType',
+        AuthenticatedRole,
+        Deny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AmbiguousRoleResolutionType
-  = AuthenticatedRole
-  | Deny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AmbiguousRoleResolutionType = AmbiguousRoleResolutionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AmbiguousRoleResolutionType where
-  parser =
-    takeLowerText >>= \case
-      "authenticatedrole" -> pure AuthenticatedRole
-      "deny" -> pure Deny
-      e ->
-        fromTextError $
-          "Failure parsing AmbiguousRoleResolutionType from value: '" <> e
-            <> "'. Accepted values: authenticatedrole, deny"
+pattern AuthenticatedRole :: AmbiguousRoleResolutionType
+pattern AuthenticatedRole = AmbiguousRoleResolutionType' "AuthenticatedRole"
 
-instance ToText AmbiguousRoleResolutionType where
-  toText = \case
-    AuthenticatedRole -> "AuthenticatedRole"
-    Deny -> "Deny"
+pattern Deny :: AmbiguousRoleResolutionType
+pattern Deny = AmbiguousRoleResolutionType' "Deny"
 
-instance Hashable AmbiguousRoleResolutionType
-
-instance NFData AmbiguousRoleResolutionType
-
-instance ToByteString AmbiguousRoleResolutionType
-
-instance ToQuery AmbiguousRoleResolutionType
-
-instance ToHeader AmbiguousRoleResolutionType
-
-instance ToJSON AmbiguousRoleResolutionType where
-  toJSON = toJSONText
-
-instance FromJSON AmbiguousRoleResolutionType where
-  parseJSON = parseJSONText "AmbiguousRoleResolutionType"
+{-# COMPLETE
+  AuthenticatedRole,
+  Deny,
+  AmbiguousRoleResolutionType'
+  #-}

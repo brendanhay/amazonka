@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,158 @@
 --
 -- Rejects one or more VPC endpoint connection requests to your VPC endpoint service.
 module Network.AWS.EC2.RejectVPCEndpointConnections
-  ( -- * Creating a Request
-    rejectVPCEndpointConnections,
-    RejectVPCEndpointConnections,
+  ( -- * Creating a request
+    RejectVPCEndpointConnections (..),
+    mkRejectVPCEndpointConnections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rvecDryRun,
     rvecServiceId,
     rvecVPCEndpointIds,
 
-    -- * Destructuring the Response
-    rejectVPCEndpointConnectionsResponse,
-    RejectVPCEndpointConnectionsResponse,
+    -- * Destructuring the response
+    RejectVPCEndpointConnectionsResponse (..),
+    mkRejectVPCEndpointConnectionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rvecrsUnsuccessful,
     rvecrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rejectVPCEndpointConnections' smart constructor.
+-- | /See:/ 'mkRejectVPCEndpointConnections' smart constructor.
 data RejectVPCEndpointConnections = RejectVPCEndpointConnections'
-  { _rvecDryRun ::
-      !(Maybe Bool),
-    _rvecServiceId :: !Text,
-    _rvecVPCEndpointIds :: ![Text]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    serviceId :: Lude.Text,
+    vpcEndpointIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectVPCEndpointConnections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvecDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rvecServiceId' - The ID of the service.
---
--- * 'rvecVPCEndpointIds' - The IDs of one or more VPC endpoints.
-rejectVPCEndpointConnections ::
-  -- | 'rvecServiceId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'serviceId' - The ID of the service.
+-- * 'vpcEndpointIds' - The IDs of one or more VPC endpoints.
+mkRejectVPCEndpointConnections ::
+  -- | 'serviceId'
+  Lude.Text ->
   RejectVPCEndpointConnections
-rejectVPCEndpointConnections pServiceId_ =
+mkRejectVPCEndpointConnections pServiceId_ =
   RejectVPCEndpointConnections'
-    { _rvecDryRun = Nothing,
-      _rvecServiceId = pServiceId_,
-      _rvecVPCEndpointIds = mempty
+    { dryRun = Lude.Nothing,
+      serviceId = pServiceId_,
+      vpcEndpointIds = Lude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rvecDryRun :: Lens' RejectVPCEndpointConnections (Maybe Bool)
-rvecDryRun = lens _rvecDryRun (\s a -> s {_rvecDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecDryRun :: Lens.Lens' RejectVPCEndpointConnections (Lude.Maybe Lude.Bool)
+rvecDryRun = Lens.lens (dryRun :: RejectVPCEndpointConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RejectVPCEndpointConnections)
+{-# DEPRECATED rvecDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the service.
-rvecServiceId :: Lens' RejectVPCEndpointConnections Text
-rvecServiceId = lens _rvecServiceId (\s a -> s {_rvecServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecServiceId :: Lens.Lens' RejectVPCEndpointConnections Lude.Text
+rvecServiceId = Lens.lens (serviceId :: RejectVPCEndpointConnections -> Lude.Text) (\s a -> s {serviceId = a} :: RejectVPCEndpointConnections)
+{-# DEPRECATED rvecServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 -- | The IDs of one or more VPC endpoints.
-rvecVPCEndpointIds :: Lens' RejectVPCEndpointConnections [Text]
-rvecVPCEndpointIds = lens _rvecVPCEndpointIds (\s a -> s {_rvecVPCEndpointIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'vpcEndpointIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecVPCEndpointIds :: Lens.Lens' RejectVPCEndpointConnections [Lude.Text]
+rvecVPCEndpointIds = Lens.lens (vpcEndpointIds :: RejectVPCEndpointConnections -> [Lude.Text]) (\s a -> s {vpcEndpointIds = a} :: RejectVPCEndpointConnections)
+{-# DEPRECATED rvecVPCEndpointIds "Use generic-lens or generic-optics with 'vpcEndpointIds' instead." #-}
 
-instance AWSRequest RejectVPCEndpointConnections where
+instance Lude.AWSRequest RejectVPCEndpointConnections where
   type
     Rs RejectVPCEndpointConnections =
       RejectVPCEndpointConnectionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           RejectVPCEndpointConnectionsResponse'
-            <$> (x .@? "unsuccessful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RejectVPCEndpointConnections
+instance Lude.ToHeaders RejectVPCEndpointConnections where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RejectVPCEndpointConnections
+instance Lude.ToPath RejectVPCEndpointConnections where
+  toPath = Lude.const "/"
 
-instance ToHeaders RejectVPCEndpointConnections where
-  toHeaders = const mempty
-
-instance ToPath RejectVPCEndpointConnections where
-  toPath = const "/"
-
-instance ToQuery RejectVPCEndpointConnections where
+instance Lude.ToQuery RejectVPCEndpointConnections where
   toQuery RejectVPCEndpointConnections' {..} =
-    mconcat
-      [ "Action" =: ("RejectVpcEndpointConnections" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _rvecDryRun,
-        "ServiceId" =: _rvecServiceId,
-        toQueryList "VpcEndpointId" _rvecVPCEndpointIds
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("RejectVpcEndpointConnections" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "ServiceId" Lude.=: serviceId,
+        Lude.toQueryList "VpcEndpointId" vpcEndpointIds
       ]
 
--- | /See:/ 'rejectVPCEndpointConnectionsResponse' smart constructor.
+-- | /See:/ 'mkRejectVPCEndpointConnectionsResponse' smart constructor.
 data RejectVPCEndpointConnectionsResponse = RejectVPCEndpointConnectionsResponse'
-  { _rvecrsUnsuccessful ::
-      !( Maybe
-           [UnsuccessfulItem]
-       ),
-    _rvecrsResponseStatus ::
-      !Int
+  { unsuccessful ::
+      Lude.Maybe
+        [UnsuccessfulItem],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectVPCEndpointConnectionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvecrsUnsuccessful' - Information about the endpoints that were not rejected, if applicable.
---
--- * 'rvecrsResponseStatus' - -- | The response status code.
-rejectVPCEndpointConnectionsResponse ::
-  -- | 'rvecrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unsuccessful' - Information about the endpoints that were not rejected, if applicable.
+mkRejectVPCEndpointConnectionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectVPCEndpointConnectionsResponse
-rejectVPCEndpointConnectionsResponse pResponseStatus_ =
+mkRejectVPCEndpointConnectionsResponse pResponseStatus_ =
   RejectVPCEndpointConnectionsResponse'
-    { _rvecrsUnsuccessful =
-        Nothing,
-      _rvecrsResponseStatus = pResponseStatus_
+    { unsuccessful =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the endpoints that were not rejected, if applicable.
-rvecrsUnsuccessful :: Lens' RejectVPCEndpointConnectionsResponse [UnsuccessfulItem]
-rvecrsUnsuccessful = lens _rvecrsUnsuccessful (\s a -> s {_rvecrsUnsuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecrsUnsuccessful :: Lens.Lens' RejectVPCEndpointConnectionsResponse (Lude.Maybe [UnsuccessfulItem])
+rvecrsUnsuccessful = Lens.lens (unsuccessful :: RejectVPCEndpointConnectionsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: RejectVPCEndpointConnectionsResponse)
+{-# DEPRECATED rvecrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
--- | -- | The response status code.
-rvecrsResponseStatus :: Lens' RejectVPCEndpointConnectionsResponse Int
-rvecrsResponseStatus = lens _rvecrsResponseStatus (\s a -> s {_rvecrsResponseStatus = a})
-
-instance NFData RejectVPCEndpointConnectionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecrsResponseStatus :: Lens.Lens' RejectVPCEndpointConnectionsResponse Lude.Int
+rvecrsResponseStatus = Lens.lens (responseStatus :: RejectVPCEndpointConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectVPCEndpointConnectionsResponse)
+{-# DEPRECATED rvecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

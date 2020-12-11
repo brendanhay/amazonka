@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.EventSourcePosition where
+module Network.AWS.Lambda.Types.EventSourcePosition
+  ( EventSourcePosition
+      ( EventSourcePosition',
+        AtTimestamp,
+        Latest,
+        TrimHorizon
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventSourcePosition
-  = AtTimestamp
-  | Latest
-  | TrimHorizon
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventSourcePosition = EventSourcePosition' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventSourcePosition where
-  parser =
-    takeLowerText >>= \case
-      "at_timestamp" -> pure AtTimestamp
-      "latest" -> pure Latest
-      "trim_horizon" -> pure TrimHorizon
-      e ->
-        fromTextError $
-          "Failure parsing EventSourcePosition from value: '" <> e
-            <> "'. Accepted values: at_timestamp, latest, trim_horizon"
+pattern AtTimestamp :: EventSourcePosition
+pattern AtTimestamp = EventSourcePosition' "AT_TIMESTAMP"
 
-instance ToText EventSourcePosition where
-  toText = \case
-    AtTimestamp -> "AT_TIMESTAMP"
-    Latest -> "LATEST"
-    TrimHorizon -> "TRIM_HORIZON"
+pattern Latest :: EventSourcePosition
+pattern Latest = EventSourcePosition' "LATEST"
 
-instance Hashable EventSourcePosition
+pattern TrimHorizon :: EventSourcePosition
+pattern TrimHorizon = EventSourcePosition' "TRIM_HORIZON"
 
-instance NFData EventSourcePosition
-
-instance ToByteString EventSourcePosition
-
-instance ToQuery EventSourcePosition
-
-instance ToHeader EventSourcePosition
-
-instance ToJSON EventSourcePosition where
-  toJSON = toJSONText
-
-instance FromJSON EventSourcePosition where
-  parseJSON = parseJSONText "EventSourcePosition"
+{-# COMPLETE
+  AtTimestamp,
+  Latest,
+  TrimHorizon,
+  EventSourcePosition'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.AccessControlRuleEffect where
+module Network.AWS.WorkMail.Types.AccessControlRuleEffect
+  ( AccessControlRuleEffect
+      ( AccessControlRuleEffect',
+        Allow,
+        Deny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccessControlRuleEffect
-  = Allow
-  | Deny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccessControlRuleEffect = AccessControlRuleEffect' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccessControlRuleEffect where
-  parser =
-    takeLowerText >>= \case
-      "allow" -> pure Allow
-      "deny" -> pure Deny
-      e ->
-        fromTextError $
-          "Failure parsing AccessControlRuleEffect from value: '" <> e
-            <> "'. Accepted values: allow, deny"
+pattern Allow :: AccessControlRuleEffect
+pattern Allow = AccessControlRuleEffect' "ALLOW"
 
-instance ToText AccessControlRuleEffect where
-  toText = \case
-    Allow -> "ALLOW"
-    Deny -> "DENY"
+pattern Deny :: AccessControlRuleEffect
+pattern Deny = AccessControlRuleEffect' "DENY"
 
-instance Hashable AccessControlRuleEffect
-
-instance NFData AccessControlRuleEffect
-
-instance ToByteString AccessControlRuleEffect
-
-instance ToQuery AccessControlRuleEffect
-
-instance ToHeader AccessControlRuleEffect
-
-instance ToJSON AccessControlRuleEffect where
-  toJSON = toJSONText
-
-instance FromJSON AccessControlRuleEffect where
-  parseJSON = parseJSONText "AccessControlRuleEffect"
+{-# COMPLETE
+  Allow,
+  Deny,
+  AccessControlRuleEffect'
+  #-}

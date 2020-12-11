@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.EC2Configuration where
+module Network.AWS.Batch.Types.EC2Configuration
+  ( EC2Configuration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEC2Configuration,
+
+    -- * Lenses
+    ecImageIdOverride,
+    ecImageType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for instances in the compute environment. If the @Ec2Configuration@ is not specified, the default is @ECS_AL1@ .
 --
---
---
--- /See:/ 'ec2Configuration' smart constructor.
+-- /See:/ 'mkEC2Configuration' smart constructor.
 data EC2Configuration = EC2Configuration'
-  { _ecImageIdOverride ::
-      !(Maybe Text),
-    _ecImageType :: !Text
+  { imageIdOverride ::
+      Lude.Maybe Lude.Text,
+    imageType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2Configuration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'imageIdOverride' - The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
+-- * 'imageType' - The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.
 --
--- * 'ecImageIdOverride' - The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
 --
--- * 'ecImageType' - The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.     * ECS_AL2    * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2> − Default for all AWS Graviton-based instance families (for example, @C6g@ , @M6g@ , @R6g@ , and @T4g@ ) and can be used for all non-GPU instance types.     * ECS_AL2_NVIDIA    * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)> −Default for all GPU instance families (for example @P4@ and @G4@ ) and can be used for all non-AWS Graviton-based instance types.     * ECS_AL1    * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux> −Default for all non-GPU, non-AWS-Graviton instance families. Amazon Linux is reaching the end-of-life of standard support. For more information, see <https://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI> .
-ec2Configuration ::
-  -- | 'ecImageType'
-  Text ->
+--     * ECS_AL2
+--
+--     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2> − Default for all AWS Graviton-based instance families (for example, @C6g@ , @M6g@ , @R6g@ , and @T4g@ ) and can be used for all non-GPU instance types.
+--
+--
+--     * ECS_AL2_NVIDIA
+--
+--     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)> −Default for all GPU instance families (for example @P4@ and @G4@ ) and can be used for all non-AWS Graviton-based instance types.
+--
+--
+--     * ECS_AL1
+--
+--     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux> −Default for all non-GPU, non-AWS-Graviton instance families. Amazon Linux is reaching the end-of-life of standard support. For more information, see <https://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI> .
+mkEC2Configuration ::
+  -- | 'imageType'
+  Lude.Text ->
   EC2Configuration
-ec2Configuration pImageType_ =
+mkEC2Configuration pImageType_ =
   EC2Configuration'
-    { _ecImageIdOverride = Nothing,
-      _ecImageType = pImageType_
+    { imageIdOverride = Lude.Nothing,
+      imageType = pImageType_
     }
 
 -- | The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
-ecImageIdOverride :: Lens' EC2Configuration (Maybe Text)
-ecImageIdOverride = lens _ecImageIdOverride (\s a -> s {_ecImageIdOverride = a})
+--
+-- /Note:/ Consider using 'imageIdOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecImageIdOverride :: Lens.Lens' EC2Configuration (Lude.Maybe Lude.Text)
+ecImageIdOverride = Lens.lens (imageIdOverride :: EC2Configuration -> Lude.Maybe Lude.Text) (\s a -> s {imageIdOverride = a} :: EC2Configuration)
+{-# DEPRECATED ecImageIdOverride "Use generic-lens or generic-optics with 'imageIdOverride' instead." #-}
 
--- | The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.     * ECS_AL2    * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2> − Default for all AWS Graviton-based instance families (for example, @C6g@ , @M6g@ , @R6g@ , and @T4g@ ) and can be used for all non-GPU instance types.     * ECS_AL2_NVIDIA    * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)> −Default for all GPU instance families (for example @P4@ and @G4@ ) and can be used for all non-AWS Graviton-based instance types.     * ECS_AL1    * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux> −Default for all non-GPU, non-AWS-Graviton instance families. Amazon Linux is reaching the end-of-life of standard support. For more information, see <https://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI> .
-ecImageType :: Lens' EC2Configuration Text
-ecImageType = lens _ecImageType (\s a -> s {_ecImageType = a})
+-- | The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.
+--
+--
+--     * ECS_AL2
+--
+--     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2> − Default for all AWS Graviton-based instance families (for example, @C6g@ , @M6g@ , @R6g@ , and @T4g@ ) and can be used for all non-GPU instance types.
+--
+--
+--     * ECS_AL2_NVIDIA
+--
+--     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)> −Default for all GPU instance families (for example @P4@ and @G4@ ) and can be used for all non-AWS Graviton-based instance types.
+--
+--
+--     * ECS_AL1
+--
+--     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux> −Default for all non-GPU, non-AWS-Graviton instance families. Amazon Linux is reaching the end-of-life of standard support. For more information, see <https://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI> .
+--
+--
+--
+-- /Note:/ Consider using 'imageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecImageType :: Lens.Lens' EC2Configuration Lude.Text
+ecImageType = Lens.lens (imageType :: EC2Configuration -> Lude.Text) (\s a -> s {imageType = a} :: EC2Configuration)
+{-# DEPRECATED ecImageType "Use generic-lens or generic-optics with 'imageType' instead." #-}
 
-instance FromJSON EC2Configuration where
+instance Lude.FromJSON EC2Configuration where
   parseJSON =
-    withObject
+    Lude.withObject
       "EC2Configuration"
       ( \x ->
           EC2Configuration'
-            <$> (x .:? "imageIdOverride") <*> (x .: "imageType")
+            Lude.<$> (x Lude..:? "imageIdOverride") Lude.<*> (x Lude..: "imageType")
       )
 
-instance Hashable EC2Configuration
-
-instance NFData EC2Configuration
-
-instance ToJSON EC2Configuration where
+instance Lude.ToJSON EC2Configuration where
   toJSON EC2Configuration' {..} =
-    object
-      ( catMaybes
-          [ ("imageIdOverride" .=) <$> _ecImageIdOverride,
-            Just ("imageType" .= _ecImageType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("imageIdOverride" Lude..=) Lude.<$> imageIdOverride,
+            Lude.Just ("imageType" Lude..= imageType)
           ]
       )

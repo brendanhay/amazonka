@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,172 @@
 --
 -- Returns all tag values for the specified key in the specified Region for the AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ResourceGroupsTagging.GetTagValues
-  ( -- * Creating a Request
-    getTagValues,
-    GetTagValues,
+  ( -- * Creating a request
+    GetTagValues (..),
+    mkGetTagValues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtvPaginationToken,
     gtvKey,
 
-    -- * Destructuring the Response
-    getTagValuesResponse,
-    GetTagValuesResponse,
+    -- * Destructuring the response
+    GetTagValuesResponse (..),
+    mkGetTagValuesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtvrsPaginationToken,
     gtvrsTagValues,
     gtvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroupsTagging.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTagValues' smart constructor.
+-- | /See:/ 'mkGetTagValues' smart constructor.
 data GetTagValues = GetTagValues'
-  { _gtvPaginationToken ::
-      !(Maybe Text),
-    _gtvKey :: !Text
+  { paginationToken ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtvPaginationToken' - A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
---
--- * 'gtvKey' - The key for which you want to list all existing values in the specified Region for the AWS account.
-getTagValues ::
-  -- | 'gtvKey'
-  Text ->
+-- * 'key' - The key for which you want to list all existing values in the specified Region for the AWS account.
+-- * 'paginationToken' - A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
+mkGetTagValues ::
+  -- | 'key'
+  Lude.Text ->
   GetTagValues
-getTagValues pKey_ =
-  GetTagValues' {_gtvPaginationToken = Nothing, _gtvKey = pKey_}
+mkGetTagValues pKey_ =
+  GetTagValues' {paginationToken = Lude.Nothing, key = pKey_}
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
-gtvPaginationToken :: Lens' GetTagValues (Maybe Text)
-gtvPaginationToken = lens _gtvPaginationToken (\s a -> s {_gtvPaginationToken = a})
+--
+-- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvPaginationToken :: Lens.Lens' GetTagValues (Lude.Maybe Lude.Text)
+gtvPaginationToken = Lens.lens (paginationToken :: GetTagValues -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: GetTagValues)
+{-# DEPRECATED gtvPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | The key for which you want to list all existing values in the specified Region for the AWS account.
-gtvKey :: Lens' GetTagValues Text
-gtvKey = lens _gtvKey (\s a -> s {_gtvKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvKey :: Lens.Lens' GetTagValues Lude.Text
+gtvKey = Lens.lens (key :: GetTagValues -> Lude.Text) (\s a -> s {key = a} :: GetTagValues)
+{-# DEPRECATED gtvKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSPager GetTagValues where
+instance Page.AWSPager GetTagValues where
   page rq rs
-    | stop (rs ^. gtvrsPaginationToken) = Nothing
-    | stop (rs ^. gtvrsTagValues) = Nothing
-    | otherwise =
-      Just $ rq & gtvPaginationToken .~ rs ^. gtvrsPaginationToken
+    | Page.stop (rs Lens.^. gtvrsPaginationToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gtvrsTagValues) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gtvPaginationToken Lens..~ rs Lens.^. gtvrsPaginationToken
 
-instance AWSRequest GetTagValues where
+instance Lude.AWSRequest GetTagValues where
   type Rs GetTagValues = GetTagValuesResponse
-  request = postJSON resourceGroupsTagging
+  request = Req.postJSON resourceGroupsTaggingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTagValuesResponse'
-            <$> (x .?> "PaginationToken")
-            <*> (x .?> "TagValues" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PaginationToken")
+            Lude.<*> (x Lude..?> "TagValues" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTagValues
-
-instance NFData GetTagValues
-
-instance ToHeaders GetTagValues where
+instance Lude.ToHeaders GetTagValues where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ResourceGroupsTaggingAPI_20170126.GetTagValues" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagValues" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTagValues where
+instance Lude.ToJSON GetTagValues where
   toJSON GetTagValues' {..} =
-    object
-      ( catMaybes
-          [ ("PaginationToken" .=) <$> _gtvPaginationToken,
-            Just ("Key" .= _gtvKey)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PaginationToken" Lude..=) Lude.<$> paginationToken,
+            Lude.Just ("Key" Lude..= key)
           ]
       )
 
-instance ToPath GetTagValues where
-  toPath = const "/"
+instance Lude.ToPath GetTagValues where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTagValues where
-  toQuery = const mempty
+instance Lude.ToQuery GetTagValues where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTagValuesResponse' smart constructor.
+-- | /See:/ 'mkGetTagValuesResponse' smart constructor.
 data GetTagValuesResponse = GetTagValuesResponse'
-  { _gtvrsPaginationToken ::
-      !(Maybe Text),
-    _gtvrsTagValues :: !(Maybe [Text]),
-    _gtvrsResponseStatus :: !Int
+  { paginationToken ::
+      Lude.Maybe Lude.Text,
+    tagValues :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagValuesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtvrsPaginationToken' - A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
---
--- * 'gtvrsTagValues' - A list of all tag values for the specified key in the AWS account.
---
--- * 'gtvrsResponseStatus' - -- | The response status code.
-getTagValuesResponse ::
-  -- | 'gtvrsResponseStatus'
-  Int ->
+-- * 'paginationToken' - A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
+-- * 'responseStatus' - The response status code.
+-- * 'tagValues' - A list of all tag values for the specified key in the AWS account.
+mkGetTagValuesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTagValuesResponse
-getTagValuesResponse pResponseStatus_ =
+mkGetTagValuesResponse pResponseStatus_ =
   GetTagValuesResponse'
-    { _gtvrsPaginationToken = Nothing,
-      _gtvrsTagValues = Nothing,
-      _gtvrsResponseStatus = pResponseStatus_
+    { paginationToken = Lude.Nothing,
+      tagValues = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
-gtvrsPaginationToken :: Lens' GetTagValuesResponse (Maybe Text)
-gtvrsPaginationToken = lens _gtvrsPaginationToken (\s a -> s {_gtvrsPaginationToken = a})
+--
+-- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvrsPaginationToken :: Lens.Lens' GetTagValuesResponse (Lude.Maybe Lude.Text)
+gtvrsPaginationToken = Lens.lens (paginationToken :: GetTagValuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: GetTagValuesResponse)
+{-# DEPRECATED gtvrsPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | A list of all tag values for the specified key in the AWS account.
-gtvrsTagValues :: Lens' GetTagValuesResponse [Text]
-gtvrsTagValues = lens _gtvrsTagValues (\s a -> s {_gtvrsTagValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvrsTagValues :: Lens.Lens' GetTagValuesResponse (Lude.Maybe [Lude.Text])
+gtvrsTagValues = Lens.lens (tagValues :: GetTagValuesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: GetTagValuesResponse)
+{-# DEPRECATED gtvrsTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
 
--- | -- | The response status code.
-gtvrsResponseStatus :: Lens' GetTagValuesResponse Int
-gtvrsResponseStatus = lens _gtvrsResponseStatus (\s a -> s {_gtvrsResponseStatus = a})
-
-instance NFData GetTagValuesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvrsResponseStatus :: Lens.Lens' GetTagValuesResponse Lude.Int
+gtvrsResponseStatus = Lens.lens (responseStatus :: GetTagValuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTagValuesResponse)
+{-# DEPRECATED gtvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsRequestListValue where
+module Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsRequestListValue
+  ( Phase1EncryptionAlgorithmsRequestListValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPhase1EncryptionAlgorithmsRequestListValue,
+
+    -- * Lenses
+    pearlvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
 --
---
---
--- /See:/ 'phase1EncryptionAlgorithmsRequestListValue' smart constructor.
+-- /See:/ 'mkPhase1EncryptionAlgorithmsRequestListValue' smart constructor.
 newtype Phase1EncryptionAlgorithmsRequestListValue = Phase1EncryptionAlgorithmsRequestListValue'
-  { _pearlvValue ::
-      Maybe
-        Text
+  { value ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1EncryptionAlgorithmsRequestListValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pearlvValue' - The value for the encryption algorithm.
-phase1EncryptionAlgorithmsRequestListValue ::
+-- * 'value' - The value for the encryption algorithm.
+mkPhase1EncryptionAlgorithmsRequestListValue ::
   Phase1EncryptionAlgorithmsRequestListValue
-phase1EncryptionAlgorithmsRequestListValue =
-  Phase1EncryptionAlgorithmsRequestListValue'
-    { _pearlvValue =
-        Nothing
-    }
+mkPhase1EncryptionAlgorithmsRequestListValue =
+  Phase1EncryptionAlgorithmsRequestListValue' {value = Lude.Nothing}
 
 -- | The value for the encryption algorithm.
-pearlvValue :: Lens' Phase1EncryptionAlgorithmsRequestListValue (Maybe Text)
-pearlvValue = lens _pearlvValue (\s a -> s {_pearlvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pearlvValue :: Lens.Lens' Phase1EncryptionAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
+pearlvValue = Lens.lens (value :: Phase1EncryptionAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1EncryptionAlgorithmsRequestListValue)
+{-# DEPRECATED pearlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable Phase1EncryptionAlgorithmsRequestListValue
-
-instance NFData Phase1EncryptionAlgorithmsRequestListValue
-
-instance ToQuery Phase1EncryptionAlgorithmsRequestListValue where
+instance Lude.ToQuery Phase1EncryptionAlgorithmsRequestListValue where
   toQuery Phase1EncryptionAlgorithmsRequestListValue' {..} =
-    mconcat ["Value" =: _pearlvValue]
+    Lude.mconcat ["Value" Lude.=: value]

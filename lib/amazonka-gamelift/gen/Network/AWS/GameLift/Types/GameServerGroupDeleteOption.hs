@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServerGroupDeleteOption where
+module Network.AWS.GameLift.Types.GameServerGroupDeleteOption
+  ( GameServerGroupDeleteOption
+      ( GameServerGroupDeleteOption',
+        ForceDelete,
+        Retain,
+        SafeDelete
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameServerGroupDeleteOption
-  = ForceDelete
-  | Retain
-  | SafeDelete
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameServerGroupDeleteOption = GameServerGroupDeleteOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameServerGroupDeleteOption where
-  parser =
-    takeLowerText >>= \case
-      "force_delete" -> pure ForceDelete
-      "retain" -> pure Retain
-      "safe_delete" -> pure SafeDelete
-      e ->
-        fromTextError $
-          "Failure parsing GameServerGroupDeleteOption from value: '" <> e
-            <> "'. Accepted values: force_delete, retain, safe_delete"
+pattern ForceDelete :: GameServerGroupDeleteOption
+pattern ForceDelete = GameServerGroupDeleteOption' "FORCE_DELETE"
 
-instance ToText GameServerGroupDeleteOption where
-  toText = \case
-    ForceDelete -> "FORCE_DELETE"
-    Retain -> "RETAIN"
-    SafeDelete -> "SAFE_DELETE"
+pattern Retain :: GameServerGroupDeleteOption
+pattern Retain = GameServerGroupDeleteOption' "RETAIN"
 
-instance Hashable GameServerGroupDeleteOption
+pattern SafeDelete :: GameServerGroupDeleteOption
+pattern SafeDelete = GameServerGroupDeleteOption' "SAFE_DELETE"
 
-instance NFData GameServerGroupDeleteOption
-
-instance ToByteString GameServerGroupDeleteOption
-
-instance ToQuery GameServerGroupDeleteOption
-
-instance ToHeader GameServerGroupDeleteOption
-
-instance ToJSON GameServerGroupDeleteOption where
-  toJSON = toJSONText
+{-# COMPLETE
+  ForceDelete,
+  Retain,
+  SafeDelete,
+  GameServerGroupDeleteOption'
+  #-}

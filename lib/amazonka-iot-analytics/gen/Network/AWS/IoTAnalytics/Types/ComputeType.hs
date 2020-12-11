@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ComputeType where
+module Network.AWS.IoTAnalytics.Types.ComputeType
+  ( ComputeType
+      ( ComputeType',
+        Acu1,
+        Acu2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComputeType
-  = Acu1
-  | Acu2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComputeType = ComputeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComputeType where
-  parser =
-    takeLowerText >>= \case
-      "acu_1" -> pure Acu1
-      "acu_2" -> pure Acu2
-      e ->
-        fromTextError $
-          "Failure parsing ComputeType from value: '" <> e
-            <> "'. Accepted values: acu_1, acu_2"
+pattern Acu1 :: ComputeType
+pattern Acu1 = ComputeType' "ACU_1"
 
-instance ToText ComputeType where
-  toText = \case
-    Acu1 -> "ACU_1"
-    Acu2 -> "ACU_2"
+pattern Acu2 :: ComputeType
+pattern Acu2 = ComputeType' "ACU_2"
 
-instance Hashable ComputeType
-
-instance NFData ComputeType
-
-instance ToByteString ComputeType
-
-instance ToQuery ComputeType
-
-instance ToHeader ComputeType
-
-instance ToJSON ComputeType where
-  toJSON = toJSONText
-
-instance FromJSON ComputeType where
-  parseJSON = parseJSONText "ComputeType"
+{-# COMPLETE
+  Acu1,
+  Acu2,
+  ComputeType'
+  #-}

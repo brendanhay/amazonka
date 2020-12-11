@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types
-  ( -- * Service Configuration
-    apiGateway,
+  ( -- * Service configuration
+    apiGatewayService,
 
     -- * Errors
 
@@ -73,8 +71,8 @@ module Network.AWS.APIGateway.Types
     VPCLinkStatus (..),
 
     -- * APIKey
-    APIKey,
-    apiKey,
+    APIKey (..),
+    mkAPIKey,
     akEnabled,
     akValue,
     akCustomerId,
@@ -87,29 +85,29 @@ module Network.AWS.APIGateway.Types
     akTags,
 
     -- * APIStage
-    APIStage,
-    apiStage,
+    APIStage (..),
+    mkAPIStage,
     asStage,
     asApiId,
     asThrottle,
 
     -- * AccessLogSettings
-    AccessLogSettings,
-    accessLogSettings,
+    AccessLogSettings (..),
+    mkAccessLogSettings,
     alsFormat,
     alsDestinationARN,
 
     -- * Account
-    Account,
-    account,
+    Account (..),
+    mkAccount,
     aApiKeyVersion,
     aCloudwatchRoleARN,
     aFeatures,
     aThrottleSettings,
 
     -- * Authorizer
-    Authorizer,
-    authorizer,
+    Authorizer (..),
+    mkAuthorizer,
     aAuthorizerURI,
     aIdentityValidationExpression,
     aProviderARNs,
@@ -122,23 +120,23 @@ module Network.AWS.APIGateway.Types
     aAuthorizerCredentials,
 
     -- * BasePathMapping
-    BasePathMapping,
-    basePathMapping,
+    BasePathMapping (..),
+    mkBasePathMapping,
     bpmStage,
     bpmBasePath,
     bpmRestAPIId,
 
     -- * CanarySettings
-    CanarySettings,
-    canarySettings,
+    CanarySettings (..),
+    mkCanarySettings,
     csDeploymentId,
     csStageVariableOverrides,
     csUseStageCache,
     csPercentTraffic,
 
     -- * ClientCertificate
-    ClientCertificate,
-    clientCertificate,
+    ClientCertificate (..),
+    mkClientCertificate,
     ccPemEncodedCertificate,
     ccClientCertificateId,
     ccCreatedDate,
@@ -147,30 +145,30 @@ module Network.AWS.APIGateway.Types
     ccTags,
 
     -- * Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dApiSummary,
     dCreatedDate,
     dId,
     dDescription,
 
     -- * DeploymentCanarySettings
-    DeploymentCanarySettings,
-    deploymentCanarySettings,
+    DeploymentCanarySettings (..),
+    mkDeploymentCanarySettings,
     dcsStageVariableOverrides,
     dcsUseStageCache,
     dcsPercentTraffic,
 
     -- * DocumentationPart
-    DocumentationPart,
-    documentationPart,
+    DocumentationPart (..),
+    mkDocumentationPart,
     dpLocation,
     dpId,
     dpProperties,
 
     -- * DocumentationPartLocation
-    DocumentationPartLocation,
-    documentationPartLocation,
+    DocumentationPartLocation (..),
+    mkDocumentationPartLocation,
     dplPath,
     dplName,
     dplMethod,
@@ -178,15 +176,15 @@ module Network.AWS.APIGateway.Types
     dplType,
 
     -- * DocumentationVersion
-    DocumentationVersion,
-    documentationVersion,
+    DocumentationVersion (..),
+    mkDocumentationVersion,
     dvCreatedDate,
     dvVersion,
     dvDescription,
 
     -- * DomainName
-    DomainName,
-    domainName,
+    DomainName (..),
+    mkDomainName,
     dnRegionalHostedZoneId,
     dnCertificateName,
     dnRegionalCertificateARN,
@@ -205,14 +203,14 @@ module Network.AWS.APIGateway.Types
     dnTags,
 
     -- * EndpointConfiguration
-    EndpointConfiguration,
-    endpointConfiguration,
+    EndpointConfiguration (..),
+    mkEndpointConfiguration,
     ecTypes,
     ecVpcEndpointIds,
 
     -- * GatewayResponse
-    GatewayResponse,
-    gatewayResponse,
+    GatewayResponse (..),
+    mkGatewayResponse,
     gDefaultResponse,
     gResponseTemplates,
     gResponseType,
@@ -220,8 +218,8 @@ module Network.AWS.APIGateway.Types
     gResponseParameters,
 
     -- * Integration
-    Integration,
-    integration,
+    Integration (..),
+    mkIntegration,
     iHttpMethod,
     iRequestTemplates,
     iCredentials,
@@ -239,8 +237,8 @@ module Network.AWS.APIGateway.Types
     iCacheKeyParameters,
 
     -- * IntegrationResponse
-    IntegrationResponse,
-    integrationResponse,
+    IntegrationResponse (..),
+    mkIntegrationResponse,
     intContentHandling,
     intResponseTemplates,
     intSelectionPattern,
@@ -248,8 +246,8 @@ module Network.AWS.APIGateway.Types
     intResponseParameters,
 
     -- * Method
-    Method,
-    method,
+    Method (..),
+    mkMethod,
     mMethodResponses,
     mHttpMethod,
     mAuthorizationScopes,
@@ -263,15 +261,15 @@ module Network.AWS.APIGateway.Types
     mMethodIntegration,
 
     -- * MethodResponse
-    MethodResponse,
-    methodResponse,
+    MethodResponse (..),
+    mkMethodResponse,
     mResponseModels,
     mStatusCode,
     mResponseParameters,
 
     -- * MethodSetting
-    MethodSetting,
-    methodSetting,
+    MethodSetting (..),
+    mkMethodSetting,
     msCacheTtlInSeconds,
     msDataTraceEnabled,
     msThrottlingBurstLimit,
@@ -284,14 +282,14 @@ module Network.AWS.APIGateway.Types
     msUnauthorizedCacheControlHeaderStrategy,
 
     -- * MethodSnapshot
-    MethodSnapshot,
-    methodSnapshot,
+    MethodSnapshot (..),
+    mkMethodSnapshot,
     msAuthorizationType,
     msApiKeyRequired,
 
     -- * Model
-    Model,
-    model,
+    Model (..),
+    mkModel,
     mSchema,
     mName,
     mId,
@@ -299,44 +297,44 @@ module Network.AWS.APIGateway.Types
     mContentType,
 
     -- * MutualTLSAuthentication
-    MutualTLSAuthentication,
-    mutualTLSAuthentication,
+    MutualTLSAuthentication (..),
+    mkMutualTLSAuthentication,
     mtaTruststoreWarnings,
     mtaTruststoreURI,
     mtaTruststoreVersion,
 
     -- * MutualTLSAuthenticationInput
-    MutualTLSAuthenticationInput,
-    mutualTLSAuthenticationInput,
+    MutualTLSAuthenticationInput (..),
+    mkMutualTLSAuthenticationInput,
     mtaiTruststoreURI,
     mtaiTruststoreVersion,
 
     -- * PatchOperation
-    PatchOperation,
-    patchOperation,
+    PatchOperation (..),
+    mkPatchOperation,
     poOp,
     poPath,
     poValue,
     poFrom,
 
     -- * QuotaSettings
-    QuotaSettings,
-    quotaSettings,
+    QuotaSettings (..),
+    mkQuotaSettings,
     qsOffset,
     qsPeriod,
     qsLimit,
 
     -- * RequestValidator
-    RequestValidator,
-    requestValidator,
+    RequestValidator (..),
+    mkRequestValidator,
     rvValidateRequestParameters,
     rvName,
     rvValidateRequestBody,
     rvId,
 
     -- * Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rPathPart,
     rPath,
     rId,
@@ -344,8 +342,8 @@ module Network.AWS.APIGateway.Types
     rParentId,
 
     -- * RestAPI
-    RestAPI,
-    restAPI,
+    RestAPI (..),
+    mkRestAPI,
     raMinimumCompressionSize,
     raDisableExecuteAPIEndpoint,
     raBinaryMediaTypes,
@@ -361,8 +359,8 @@ module Network.AWS.APIGateway.Types
     raTags,
 
     -- * SDKConfigurationProperty
-    SDKConfigurationProperty,
-    sdkConfigurationProperty,
+    SDKConfigurationProperty (..),
+    mkSDKConfigurationProperty,
     scpFriendlyName,
     scpRequired,
     scpName,
@@ -370,16 +368,16 @@ module Network.AWS.APIGateway.Types
     scpDescription,
 
     -- * SDKType
-    SDKType,
-    sdkType,
+    SDKType (..),
+    mkSDKType,
     stFriendlyName,
     stConfigurationProperties,
     stId,
     stDescription,
 
     -- * Stage
-    Stage,
-    stage,
+    Stage (..),
+    mkStage,
     sDeploymentId,
     sVariables,
     sAccessLogSettings,
@@ -399,25 +397,25 @@ module Network.AWS.APIGateway.Types
     sTags,
 
     -- * StageKey
-    StageKey,
-    stageKey,
+    StageKey (..),
+    mkStageKey,
     skRestAPIId,
     skStageName,
 
     -- * TLSConfig
-    TLSConfig,
-    tlsConfig,
+    TLSConfig (..),
+    mkTLSConfig,
     tcInsecureSkipVerification,
 
     -- * ThrottleSettings
-    ThrottleSettings,
-    throttleSettings,
+    ThrottleSettings (..),
+    mkThrottleSettings,
     tsBurstLimit,
     tsRateLimit,
 
     -- * Usage
-    Usage,
-    usage,
+    Usage (..),
+    mkUsage,
     uUsagePlanId,
     uEndDate,
     uItems,
@@ -425,8 +423,8 @@ module Network.AWS.APIGateway.Types
     uPosition,
 
     -- * UsagePlan
-    UsagePlan,
-    usagePlan,
+    UsagePlan (..),
+    mkUsagePlan,
     upApiStages,
     upName,
     upId,
@@ -437,16 +435,16 @@ module Network.AWS.APIGateway.Types
     upTags,
 
     -- * UsagePlanKey
-    UsagePlanKey,
-    usagePlanKey,
+    UsagePlanKey (..),
+    mkUsagePlanKey,
     upkValue,
     upkName,
     upkId,
     upkType,
 
     -- * VPCLink
-    VPCLink,
-    vpcLink,
+    VPCLink (..),
+    mkVPCLink,
     vlStatus,
     vlTargetARNs,
     vlName,
@@ -516,48 +514,60 @@ import Network.AWS.APIGateway.Types.UsagePlan
 import Network.AWS.APIGateway.Types.UsagePlanKey
 import Network.AWS.APIGateway.Types.VPCLink
 import Network.AWS.APIGateway.Types.VPCLinkStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-07-09@ of the Amazon API Gateway SDK configuration.
-apiGateway :: Service
-apiGateway =
-  Service
-    { _svcAbbrev = "APIGateway",
-      _svcSigner = v4,
-      _svcPrefix = "apigateway",
-      _svcVersion = "2015-07-09",
-      _svcEndpoint = defaultEndpoint apiGateway,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "APIGateway",
-      _svcRetry = retry
+apiGatewayService :: Lude.Service
+apiGatewayService =
+  Lude.Service
+    { Lude._svcAbbrev = "APIGateway",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "apigateway",
+      Lude._svcVersion = "2015-07-09",
+      Lude._svcEndpoint = Lude.defaultEndpoint apiGatewayService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "APIGateway",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

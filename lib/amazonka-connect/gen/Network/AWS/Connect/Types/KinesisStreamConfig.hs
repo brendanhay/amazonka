@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.KinesisStreamConfig where
+module Network.AWS.Connect.Types.KinesisStreamConfig
+  ( KinesisStreamConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisStreamConfig,
+
+    -- * Lenses
+    kscStreamARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information of a Kinesis data stream.
 --
---
---
--- /See:/ 'kinesisStreamConfig' smart constructor.
+-- /See:/ 'mkKinesisStreamConfig' smart constructor.
 newtype KinesisStreamConfig = KinesisStreamConfig'
-  { _kscStreamARN ::
-      Text
+  { streamARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kscStreamARN' - The Amazon Resource Name (ARN) of the data stream.
-kinesisStreamConfig ::
-  -- | 'kscStreamARN'
-  Text ->
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the data stream.
+mkKinesisStreamConfig ::
+  -- | 'streamARN'
+  Lude.Text ->
   KinesisStreamConfig
-kinesisStreamConfig pStreamARN_ =
-  KinesisStreamConfig' {_kscStreamARN = pStreamARN_}
+mkKinesisStreamConfig pStreamARN_ =
+  KinesisStreamConfig' {streamARN = pStreamARN_}
 
 -- | The Amazon Resource Name (ARN) of the data stream.
-kscStreamARN :: Lens' KinesisStreamConfig Text
-kscStreamARN = lens _kscStreamARN (\s a -> s {_kscStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kscStreamARN :: Lens.Lens' KinesisStreamConfig Lude.Text
+kscStreamARN = Lens.lens (streamARN :: KinesisStreamConfig -> Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamConfig)
+{-# DEPRECATED kscStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
-instance FromJSON KinesisStreamConfig where
+instance Lude.FromJSON KinesisStreamConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisStreamConfig"
-      (\x -> KinesisStreamConfig' <$> (x .: "StreamArn"))
+      (\x -> KinesisStreamConfig' Lude.<$> (x Lude..: "StreamArn"))
 
-instance Hashable KinesisStreamConfig
-
-instance NFData KinesisStreamConfig
-
-instance ToJSON KinesisStreamConfig where
+instance Lude.ToJSON KinesisStreamConfig where
   toJSON KinesisStreamConfig' {..} =
-    object (catMaybes [Just ("StreamArn" .= _kscStreamARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StreamArn" Lude..= streamARN)])

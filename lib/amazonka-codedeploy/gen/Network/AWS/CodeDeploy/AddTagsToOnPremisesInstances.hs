@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,121 @@
 --
 -- Adds tags to on-premises instances.
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
-  ( -- * Creating a Request
-    addTagsToOnPremisesInstances,
-    AddTagsToOnPremisesInstances,
+  ( -- * Creating a request
+    AddTagsToOnPremisesInstances (..),
+    mkAddTagsToOnPremisesInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attopiTags,
     attopiInstanceNames,
 
-    -- * Destructuring the Response
-    addTagsToOnPremisesInstancesResponse,
-    AddTagsToOnPremisesInstancesResponse,
+    -- * Destructuring the response
+    AddTagsToOnPremisesInstancesResponse (..),
+    mkAddTagsToOnPremisesInstancesResponse,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of, and adds tags to, an on-premises instance operation.
 --
---
---
--- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
+-- /See:/ 'mkAddTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
-  { _attopiTags ::
-      ![Tag],
-    _attopiInstanceNames :: ![Text]
+  { tags ::
+      [Tag],
+    instanceNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToOnPremisesInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instanceNames' - The names of the on-premises instances to which to add tags.
+-- * 'tags' - The tag key-value pairs to add to the on-premises instances.
 --
--- * 'attopiTags' - The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
---
--- * 'attopiInstanceNames' - The names of the on-premises instances to which to add tags.
-addTagsToOnPremisesInstances ::
+-- Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
+mkAddTagsToOnPremisesInstances ::
   AddTagsToOnPremisesInstances
-addTagsToOnPremisesInstances =
+mkAddTagsToOnPremisesInstances =
   AddTagsToOnPremisesInstances'
-    { _attopiTags = mempty,
-      _attopiInstanceNames = mempty
+    { tags = Lude.mempty,
+      instanceNames = Lude.mempty
     }
 
--- | The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
-attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
-attopiTags = lens _attopiTags (\s a -> s {_attopiTags = a}) . _Coerce
+-- | The tag key-value pairs to add to the on-premises instances.
+--
+-- Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attopiTags :: Lens.Lens' AddTagsToOnPremisesInstances [Tag]
+attopiTags = Lens.lens (tags :: AddTagsToOnPremisesInstances -> [Tag]) (\s a -> s {tags = a} :: AddTagsToOnPremisesInstances)
+{-# DEPRECATED attopiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The names of the on-premises instances to which to add tags.
-attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
-attopiInstanceNames = lens _attopiInstanceNames (\s a -> s {_attopiInstanceNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attopiInstanceNames :: Lens.Lens' AddTagsToOnPremisesInstances [Lude.Text]
+attopiInstanceNames = Lens.lens (instanceNames :: AddTagsToOnPremisesInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances)
+{-# DEPRECATED attopiInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
-instance AWSRequest AddTagsToOnPremisesInstances where
+instance Lude.AWSRequest AddTagsToOnPremisesInstances where
   type
     Rs AddTagsToOnPremisesInstances =
       AddTagsToOnPremisesInstancesResponse
-  request = postJSON codeDeploy
-  response = receiveNull AddTagsToOnPremisesInstancesResponse'
+  request = Req.postJSON codeDeployService
+  response = Res.receiveNull AddTagsToOnPremisesInstancesResponse'
 
-instance Hashable AddTagsToOnPremisesInstances
-
-instance NFData AddTagsToOnPremisesInstances
-
-instance ToHeaders AddTagsToOnPremisesInstances where
+instance Lude.ToHeaders AddTagsToOnPremisesInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.AddTagsToOnPremisesInstances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.AddTagsToOnPremisesInstances" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddTagsToOnPremisesInstances where
+instance Lude.ToJSON AddTagsToOnPremisesInstances where
   toJSON AddTagsToOnPremisesInstances' {..} =
-    object
-      ( catMaybes
-          [ Just ("tags" .= _attopiTags),
-            Just ("instanceNames" .= _attopiInstanceNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("tags" Lude..= tags),
+            Lude.Just ("instanceNames" Lude..= instanceNames)
           ]
       )
 
-instance ToPath AddTagsToOnPremisesInstances where
-  toPath = const "/"
+instance Lude.ToPath AddTagsToOnPremisesInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery AddTagsToOnPremisesInstances where
-  toQuery = const mempty
+instance Lude.ToQuery AddTagsToOnPremisesInstances where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addTagsToOnPremisesInstancesResponse' smart constructor.
+-- | /See:/ 'mkAddTagsToOnPremisesInstancesResponse' smart constructor.
 data AddTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToOnPremisesInstancesResponse' with the minimum fields required to make a request.
-addTagsToOnPremisesInstancesResponse ::
+mkAddTagsToOnPremisesInstancesResponse ::
   AddTagsToOnPremisesInstancesResponse
-addTagsToOnPremisesInstancesResponse =
+mkAddTagsToOnPremisesInstancesResponse =
   AddTagsToOnPremisesInstancesResponse'
-
-instance NFData AddTagsToOnPremisesInstancesResponse

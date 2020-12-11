@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,126 @@
 --
 -- Disables an AWS account within the Organization as the GuardDuty delegated administrator.
 module Network.AWS.GuardDuty.DisableOrganizationAdminAccount
-  ( -- * Creating a Request
-    disableOrganizationAdminAccount,
-    DisableOrganizationAdminAccount,
+  ( -- * Creating a request
+    DisableOrganizationAdminAccount (..),
+    mkDisableOrganizationAdminAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doaaAdminAccountId,
 
-    -- * Destructuring the Response
-    disableOrganizationAdminAccountResponse,
-    DisableOrganizationAdminAccountResponse,
+    -- * Destructuring the response
+    DisableOrganizationAdminAccountResponse (..),
+    mkDisableOrganizationAdminAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     doaarsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableOrganizationAdminAccount' smart constructor.
+-- | /See:/ 'mkDisableOrganizationAdminAccount' smart constructor.
 newtype DisableOrganizationAdminAccount = DisableOrganizationAdminAccount'
-  { _doaaAdminAccountId ::
-      Text
+  { adminAccountId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableOrganizationAdminAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doaaAdminAccountId' - The AWS Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.
-disableOrganizationAdminAccount ::
-  -- | 'doaaAdminAccountId'
-  Text ->
+-- * 'adminAccountId' - The AWS Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.
+mkDisableOrganizationAdminAccount ::
+  -- | 'adminAccountId'
+  Lude.Text ->
   DisableOrganizationAdminAccount
-disableOrganizationAdminAccount pAdminAccountId_ =
+mkDisableOrganizationAdminAccount pAdminAccountId_ =
   DisableOrganizationAdminAccount'
-    { _doaaAdminAccountId =
+    { adminAccountId =
         pAdminAccountId_
     }
 
 -- | The AWS Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.
-doaaAdminAccountId :: Lens' DisableOrganizationAdminAccount Text
-doaaAdminAccountId = lens _doaaAdminAccountId (\s a -> s {_doaaAdminAccountId = a})
+--
+-- /Note:/ Consider using 'adminAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doaaAdminAccountId :: Lens.Lens' DisableOrganizationAdminAccount Lude.Text
+doaaAdminAccountId = Lens.lens (adminAccountId :: DisableOrganizationAdminAccount -> Lude.Text) (\s a -> s {adminAccountId = a} :: DisableOrganizationAdminAccount)
+{-# DEPRECATED doaaAdminAccountId "Use generic-lens or generic-optics with 'adminAccountId' instead." #-}
 
-instance AWSRequest DisableOrganizationAdminAccount where
+instance Lude.AWSRequest DisableOrganizationAdminAccount where
   type
     Rs DisableOrganizationAdminAccount =
       DisableOrganizationAdminAccountResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisableOrganizationAdminAccountResponse' <$> (pure (fromEnum s))
+          DisableOrganizationAdminAccountResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableOrganizationAdminAccount
-
-instance NFData DisableOrganizationAdminAccount
-
-instance ToHeaders DisableOrganizationAdminAccount where
+instance Lude.ToHeaders DisableOrganizationAdminAccount where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON DisableOrganizationAdminAccount where
+instance Lude.ToJSON DisableOrganizationAdminAccount where
   toJSON DisableOrganizationAdminAccount' {..} =
-    object
-      (catMaybes [Just ("adminAccountId" .= _doaaAdminAccountId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("adminAccountId" Lude..= adminAccountId)]
+      )
 
-instance ToPath DisableOrganizationAdminAccount where
-  toPath = const "/admin/disable"
+instance Lude.ToPath DisableOrganizationAdminAccount where
+  toPath = Lude.const "/admin/disable"
 
-instance ToQuery DisableOrganizationAdminAccount where
-  toQuery = const mempty
+instance Lude.ToQuery DisableOrganizationAdminAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableOrganizationAdminAccountResponse' smart constructor.
+-- | /See:/ 'mkDisableOrganizationAdminAccountResponse' smart constructor.
 newtype DisableOrganizationAdminAccountResponse = DisableOrganizationAdminAccountResponse'
-  { _doaarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableOrganizationAdminAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doaarsResponseStatus' - -- | The response status code.
-disableOrganizationAdminAccountResponse ::
-  -- | 'doaarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisableOrganizationAdminAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableOrganizationAdminAccountResponse
-disableOrganizationAdminAccountResponse pResponseStatus_ =
+mkDisableOrganizationAdminAccountResponse pResponseStatus_ =
   DisableOrganizationAdminAccountResponse'
-    { _doaarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-doaarsResponseStatus :: Lens' DisableOrganizationAdminAccountResponse Int
-doaarsResponseStatus = lens _doaarsResponseStatus (\s a -> s {_doaarsResponseStatus = a})
-
-instance NFData DisableOrganizationAdminAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doaarsResponseStatus :: Lens.Lens' DisableOrganizationAdminAccountResponse Lude.Int
+doaarsResponseStatus = Lens.lens (responseStatus :: DisableOrganizationAdminAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableOrganizationAdminAccountResponse)
+{-# DEPRECATED doaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

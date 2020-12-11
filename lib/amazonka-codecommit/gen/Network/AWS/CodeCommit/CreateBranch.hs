@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,129 @@
 --
 -- Creates a branch in a repository and points the branch to a commit.
 module Network.AWS.CodeCommit.CreateBranch
-  ( -- * Creating a Request
-    createBranch,
-    CreateBranch,
+  ( -- * Creating a request
+    CreateBranch (..),
+    mkCreateBranch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbRepositoryName,
     cbBranchName,
     cbCommitId,
 
-    -- * Destructuring the Response
-    createBranchResponse,
-    CreateBranchResponse,
+    -- * Destructuring the response
+    CreateBranchResponse (..),
+    mkCreateBranchResponse,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a create branch operation.
 --
---
---
--- /See:/ 'createBranch' smart constructor.
+-- /See:/ 'mkCreateBranch' smart constructor.
 data CreateBranch = CreateBranch'
-  { _cbRepositoryName :: !Text,
-    _cbBranchName :: !Text,
-    _cbCommitId :: !Text
+  { repositoryName :: Lude.Text,
+    branchName :: Lude.Text,
+    commitId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBranch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbRepositoryName' - The name of the repository in which you want to create the new branch.
---
--- * 'cbBranchName' - The name of the new branch to create.
---
--- * 'cbCommitId' - The ID of the commit to point the new branch to.
-createBranch ::
-  -- | 'cbRepositoryName'
-  Text ->
-  -- | 'cbBranchName'
-  Text ->
-  -- | 'cbCommitId'
-  Text ->
+-- * 'branchName' - The name of the new branch to create.
+-- * 'commitId' - The ID of the commit to point the new branch to.
+-- * 'repositoryName' - The name of the repository in which you want to create the new branch.
+mkCreateBranch ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'branchName'
+  Lude.Text ->
+  -- | 'commitId'
+  Lude.Text ->
   CreateBranch
-createBranch pRepositoryName_ pBranchName_ pCommitId_ =
+mkCreateBranch pRepositoryName_ pBranchName_ pCommitId_ =
   CreateBranch'
-    { _cbRepositoryName = pRepositoryName_,
-      _cbBranchName = pBranchName_,
-      _cbCommitId = pCommitId_
+    { repositoryName = pRepositoryName_,
+      branchName = pBranchName_,
+      commitId = pCommitId_
     }
 
 -- | The name of the repository in which you want to create the new branch.
-cbRepositoryName :: Lens' CreateBranch Text
-cbRepositoryName = lens _cbRepositoryName (\s a -> s {_cbRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbRepositoryName :: Lens.Lens' CreateBranch Lude.Text
+cbRepositoryName = Lens.lens (repositoryName :: CreateBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateBranch)
+{-# DEPRECATED cbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The name of the new branch to create.
-cbBranchName :: Lens' CreateBranch Text
-cbBranchName = lens _cbBranchName (\s a -> s {_cbBranchName = a})
+--
+-- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbBranchName :: Lens.Lens' CreateBranch Lude.Text
+cbBranchName = Lens.lens (branchName :: CreateBranch -> Lude.Text) (\s a -> s {branchName = a} :: CreateBranch)
+{-# DEPRECATED cbBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
 -- | The ID of the commit to point the new branch to.
-cbCommitId :: Lens' CreateBranch Text
-cbCommitId = lens _cbCommitId (\s a -> s {_cbCommitId = a})
+--
+-- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbCommitId :: Lens.Lens' CreateBranch Lude.Text
+cbCommitId = Lens.lens (commitId :: CreateBranch -> Lude.Text) (\s a -> s {commitId = a} :: CreateBranch)
+{-# DEPRECATED cbCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
-instance AWSRequest CreateBranch where
+instance Lude.AWSRequest CreateBranch where
   type Rs CreateBranch = CreateBranchResponse
-  request = postJSON codeCommit
-  response = receiveNull CreateBranchResponse'
+  request = Req.postJSON codeCommitService
+  response = Res.receiveNull CreateBranchResponse'
 
-instance Hashable CreateBranch
-
-instance NFData CreateBranch
-
-instance ToHeaders CreateBranch where
+instance Lude.ToHeaders CreateBranch where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.CreateBranch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.CreateBranch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateBranch where
+instance Lude.ToJSON CreateBranch where
   toJSON CreateBranch' {..} =
-    object
-      ( catMaybes
-          [ Just ("repositoryName" .= _cbRepositoryName),
-            Just ("branchName" .= _cbBranchName),
-            Just ("commitId" .= _cbCommitId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("branchName" Lude..= branchName),
+            Lude.Just ("commitId" Lude..= commitId)
           ]
       )
 
-instance ToPath CreateBranch where
-  toPath = const "/"
+instance Lude.ToPath CreateBranch where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateBranch where
-  toQuery = const mempty
+instance Lude.ToQuery CreateBranch where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createBranchResponse' smart constructor.
+-- | /See:/ 'mkCreateBranchResponse' smart constructor.
 data CreateBranchResponse = CreateBranchResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBranchResponse' with the minimum fields required to make a request.
-createBranchResponse ::
+mkCreateBranchResponse ::
   CreateBranchResponse
-createBranchResponse = CreateBranchResponse'
-
-instance NFData CreateBranchResponse
+mkCreateBranchResponse = CreateBranchResponse'

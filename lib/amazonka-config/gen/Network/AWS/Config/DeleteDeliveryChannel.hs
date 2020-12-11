@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,104 @@
 --
 -- Deletes the delivery channel.
 --
---
 -- Before you can delete the delivery channel, you must stop the configuration recorder by using the 'StopConfigurationRecorder' action.
 module Network.AWS.Config.DeleteDeliveryChannel
-  ( -- * Creating a Request
-    deleteDeliveryChannel,
-    DeleteDeliveryChannel,
+  ( -- * Creating a request
+    DeleteDeliveryChannel (..),
+    mkDeleteDeliveryChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcDeliveryChannelName,
 
-    -- * Destructuring the Response
-    deleteDeliveryChannelResponse,
-    DeleteDeliveryChannelResponse,
+    -- * Destructuring the response
+    DeleteDeliveryChannelResponse (..),
+    mkDeleteDeliveryChannelResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'DeleteDeliveryChannel' action. The action accepts the following data, in JSON format.
 --
---
---
--- /See:/ 'deleteDeliveryChannel' smart constructor.
+-- /See:/ 'mkDeleteDeliveryChannel' smart constructor.
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
-  { _ddcDeliveryChannelName ::
-      Text
+  { deliveryChannelName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeliveryChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcDeliveryChannelName' - The name of the delivery channel to delete.
-deleteDeliveryChannel ::
-  -- | 'ddcDeliveryChannelName'
-  Text ->
+-- * 'deliveryChannelName' - The name of the delivery channel to delete.
+mkDeleteDeliveryChannel ::
+  -- | 'deliveryChannelName'
+  Lude.Text ->
   DeleteDeliveryChannel
-deleteDeliveryChannel pDeliveryChannelName_ =
+mkDeleteDeliveryChannel pDeliveryChannelName_ =
   DeleteDeliveryChannel'
-    { _ddcDeliveryChannelName =
+    { deliveryChannelName =
         pDeliveryChannelName_
     }
 
 -- | The name of the delivery channel to delete.
-ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
-ddcDeliveryChannelName = lens _ddcDeliveryChannelName (\s a -> s {_ddcDeliveryChannelName = a})
+--
+-- /Note:/ Consider using 'deliveryChannelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDeliveryChannelName :: Lens.Lens' DeleteDeliveryChannel Lude.Text
+ddcDeliveryChannelName = Lens.lens (deliveryChannelName :: DeleteDeliveryChannel -> Lude.Text) (\s a -> s {deliveryChannelName = a} :: DeleteDeliveryChannel)
+{-# DEPRECATED ddcDeliveryChannelName "Use generic-lens or generic-optics with 'deliveryChannelName' instead." #-}
 
-instance AWSRequest DeleteDeliveryChannel where
+instance Lude.AWSRequest DeleteDeliveryChannel where
   type Rs DeleteDeliveryChannel = DeleteDeliveryChannelResponse
-  request = postJSON config
-  response = receiveNull DeleteDeliveryChannelResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeleteDeliveryChannelResponse'
 
-instance Hashable DeleteDeliveryChannel
-
-instance NFData DeleteDeliveryChannel
-
-instance ToHeaders DeleteDeliveryChannel where
+instance Lude.ToHeaders DeleteDeliveryChannel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteDeliveryChannel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.DeleteDeliveryChannel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDeliveryChannel where
+instance Lude.ToJSON DeleteDeliveryChannel where
   toJSON DeleteDeliveryChannel' {..} =
-    object
-      ( catMaybes
-          [Just ("DeliveryChannelName" .= _ddcDeliveryChannelName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("DeliveryChannelName" Lude..= deliveryChannelName)]
       )
 
-instance ToPath DeleteDeliveryChannel where
-  toPath = const "/"
+instance Lude.ToPath DeleteDeliveryChannel where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDeliveryChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDeliveryChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDeliveryChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteDeliveryChannelResponse' smart constructor.
 data DeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeliveryChannelResponse' with the minimum fields required to make a request.
-deleteDeliveryChannelResponse ::
+mkDeleteDeliveryChannelResponse ::
   DeleteDeliveryChannelResponse
-deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'
-
-instance NFData DeleteDeliveryChannelResponse
+mkDeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'

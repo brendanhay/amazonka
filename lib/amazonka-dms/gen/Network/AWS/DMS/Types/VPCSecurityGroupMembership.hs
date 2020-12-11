@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.VPCSecurityGroupMembership where
+module Network.AWS.DMS.Types.VPCSecurityGroupMembership
+  ( VPCSecurityGroupMembership (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVPCSecurityGroupMembership,
+
+    -- * Lenses
+    vsgmStatus,
+    vsgmVPCSecurityGroupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the status of a security group associated with the virtual private cloud (VPC) hosting your replication and DB instances.
 --
---
---
--- /See:/ 'vpcSecurityGroupMembership' smart constructor.
+-- /See:/ 'mkVPCSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-  { _vsgmStatus ::
-      !(Maybe Text),
-    _vsgmVPCSecurityGroupId ::
-      !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    vpcSecurityGroupId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsgmStatus' - The status of the VPC security group.
---
--- * 'vsgmVPCSecurityGroupId' - The VPC security group ID.
-vpcSecurityGroupMembership ::
+-- * 'status' - The status of the VPC security group.
+-- * 'vpcSecurityGroupId' - The VPC security group ID.
+mkVPCSecurityGroupMembership ::
   VPCSecurityGroupMembership
-vpcSecurityGroupMembership =
+mkVPCSecurityGroupMembership =
   VPCSecurityGroupMembership'
-    { _vsgmStatus = Nothing,
-      _vsgmVPCSecurityGroupId = Nothing
+    { status = Lude.Nothing,
+      vpcSecurityGroupId = Lude.Nothing
     }
 
 -- | The status of the VPC security group.
-vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
-vsgmStatus = lens _vsgmStatus (\s a -> s {_vsgmStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsgmStatus :: Lens.Lens' VPCSecurityGroupMembership (Lude.Maybe Lude.Text)
+vsgmStatus = Lens.lens (status :: VPCSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: VPCSecurityGroupMembership)
+{-# DEPRECATED vsgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The VPC security group ID.
-vsgmVPCSecurityGroupId :: Lens' VPCSecurityGroupMembership (Maybe Text)
-vsgmVPCSecurityGroupId = lens _vsgmVPCSecurityGroupId (\s a -> s {_vsgmVPCSecurityGroupId = a})
+--
+-- /Note:/ Consider using 'vpcSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsgmVPCSecurityGroupId :: Lens.Lens' VPCSecurityGroupMembership (Lude.Maybe Lude.Text)
+vsgmVPCSecurityGroupId = Lens.lens (vpcSecurityGroupId :: VPCSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {vpcSecurityGroupId = a} :: VPCSecurityGroupMembership)
+{-# DEPRECATED vsgmVPCSecurityGroupId "Use generic-lens or generic-optics with 'vpcSecurityGroupId' instead." #-}
 
-instance FromJSON VPCSecurityGroupMembership where
+instance Lude.FromJSON VPCSecurityGroupMembership where
   parseJSON =
-    withObject
+    Lude.withObject
       "VPCSecurityGroupMembership"
       ( \x ->
           VPCSecurityGroupMembership'
-            <$> (x .:? "Status") <*> (x .:? "VpcSecurityGroupId")
+            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "VpcSecurityGroupId")
       )
-
-instance Hashable VPCSecurityGroupMembership
-
-instance NFData VPCSecurityGroupMembership

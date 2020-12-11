@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Returns the container images that are registered to your Amazon Lightsail container service.
 module Network.AWS.Lightsail.GetContainerImages
-  ( -- * Creating a Request
-    getContainerImages,
-    GetContainerImages,
+  ( -- * Creating a request
+    GetContainerImages (..),
+    mkGetContainerImages,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gciServiceName,
 
-    -- * Destructuring the Response
-    getContainerImagesResponse,
-    GetContainerImagesResponse,
+    -- * Destructuring the response
+    GetContainerImagesResponse (..),
+    mkGetContainerImagesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcirsContainerImages,
     gcirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getContainerImages' smart constructor.
+-- | /See:/ 'mkGetContainerImages' smart constructor.
 newtype GetContainerImages = GetContainerImages'
-  { _gciServiceName ::
-      Text
+  { serviceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerImages' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gciServiceName' - The name of the container service for which to return registered container images.
-getContainerImages ::
-  -- | 'gciServiceName'
-  Text ->
+-- * 'serviceName' - The name of the container service for which to return registered container images.
+mkGetContainerImages ::
+  -- | 'serviceName'
+  Lude.Text ->
   GetContainerImages
-getContainerImages pServiceName_ =
-  GetContainerImages' {_gciServiceName = pServiceName_}
+mkGetContainerImages pServiceName_ =
+  GetContainerImages' {serviceName = pServiceName_}
 
 -- | The name of the container service for which to return registered container images.
-gciServiceName :: Lens' GetContainerImages Text
-gciServiceName = lens _gciServiceName (\s a -> s {_gciServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gciServiceName :: Lens.Lens' GetContainerImages Lude.Text
+gciServiceName = Lens.lens (serviceName :: GetContainerImages -> Lude.Text) (\s a -> s {serviceName = a} :: GetContainerImages)
+{-# DEPRECATED gciServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance AWSRequest GetContainerImages where
+instance Lude.AWSRequest GetContainerImages where
   type Rs GetContainerImages = GetContainerImagesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetContainerImagesResponse'
-            <$> (x .?> "containerImages" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "containerImages" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetContainerImages
-
-instance NFData GetContainerImages
-
-instance ToHeaders GetContainerImages where
+instance Lude.ToHeaders GetContainerImages where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetContainerImages" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetContainerImages" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContainerImages where
+instance Lude.ToJSON GetContainerImages where
   toJSON GetContainerImages' {..} =
-    object (catMaybes [Just ("serviceName" .= _gciServiceName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("serviceName" Lude..= serviceName)])
 
-instance ToPath GetContainerImages where
-  toPath = const "/"
+instance Lude.ToPath GetContainerImages where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContainerImages where
-  toQuery = const mempty
+instance Lude.ToQuery GetContainerImages where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContainerImagesResponse' smart constructor.
+-- | /See:/ 'mkGetContainerImagesResponse' smart constructor.
 data GetContainerImagesResponse = GetContainerImagesResponse'
-  { _gcirsContainerImages ::
-      !(Maybe [ContainerImage]),
-    _gcirsResponseStatus :: !Int
+  { containerImages ::
+      Lude.Maybe [ContainerImage],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerImagesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcirsContainerImages' - An array of objects that describe container images that are registered to the container service.
---
--- * 'gcirsResponseStatus' - -- | The response status code.
-getContainerImagesResponse ::
-  -- | 'gcirsResponseStatus'
-  Int ->
+-- * 'containerImages' - An array of objects that describe container images that are registered to the container service.
+-- * 'responseStatus' - The response status code.
+mkGetContainerImagesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContainerImagesResponse
-getContainerImagesResponse pResponseStatus_ =
+mkGetContainerImagesResponse pResponseStatus_ =
   GetContainerImagesResponse'
-    { _gcirsContainerImages = Nothing,
-      _gcirsResponseStatus = pResponseStatus_
+    { containerImages = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe container images that are registered to the container service.
-gcirsContainerImages :: Lens' GetContainerImagesResponse [ContainerImage]
-gcirsContainerImages = lens _gcirsContainerImages (\s a -> s {_gcirsContainerImages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'containerImages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirsContainerImages :: Lens.Lens' GetContainerImagesResponse (Lude.Maybe [ContainerImage])
+gcirsContainerImages = Lens.lens (containerImages :: GetContainerImagesResponse -> Lude.Maybe [ContainerImage]) (\s a -> s {containerImages = a} :: GetContainerImagesResponse)
+{-# DEPRECATED gcirsContainerImages "Use generic-lens or generic-optics with 'containerImages' instead." #-}
 
--- | -- | The response status code.
-gcirsResponseStatus :: Lens' GetContainerImagesResponse Int
-gcirsResponseStatus = lens _gcirsResponseStatus (\s a -> s {_gcirsResponseStatus = a})
-
-instance NFData GetContainerImagesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirsResponseStatus :: Lens.Lens' GetContainerImagesResponse Lude.Int
+gcirsResponseStatus = Lens.lens (responseStatus :: GetContainerImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerImagesResponse)
+{-# DEPRECATED gcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,114 @@
 --
 -- The @DeleteHIT@ operation is used to delete HIT that is no longer needed. Only the Requester who created the HIT can delete it.
 --
---
 -- You can only dispose of HITs that are in the @Reviewable@ state, with all of their submitted assignments already either approved or rejected. If you call the DeleteHIT operation on a HIT that is not in the @Reviewable@ state (for example, that has not expired, or still has active assignments), or on a HIT that is Reviewable but without all of its submitted assignments already approved or rejected, the service will return an error.
 module Network.AWS.MechanicalTurk.DeleteHIT
-  ( -- * Creating a Request
-    deleteHIT,
-    DeleteHIT,
+  ( -- * Creating a request
+    DeleteHIT (..),
+    mkDeleteHIT,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhitHITId,
 
-    -- * Destructuring the Response
-    deleteHITResponse,
-    DeleteHITResponse,
+    -- * Destructuring the response
+    DeleteHITResponse (..),
+    mkDeleteHITResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dhitrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteHIT' smart constructor.
-newtype DeleteHIT = DeleteHIT' {_dhitHITId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteHIT' smart constructor.
+newtype DeleteHIT = DeleteHIT' {hITId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHIT' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhitHITId' - The ID of the HIT to be deleted.
-deleteHIT ::
-  -- | 'dhitHITId'
-  Text ->
+-- * 'hITId' - The ID of the HIT to be deleted.
+mkDeleteHIT ::
+  -- | 'hITId'
+  Lude.Text ->
   DeleteHIT
-deleteHIT pHITId_ = DeleteHIT' {_dhitHITId = pHITId_}
+mkDeleteHIT pHITId_ = DeleteHIT' {hITId = pHITId_}
 
 -- | The ID of the HIT to be deleted.
-dhitHITId :: Lens' DeleteHIT Text
-dhitHITId = lens _dhitHITId (\s a -> s {_dhitHITId = a})
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhitHITId :: Lens.Lens' DeleteHIT Lude.Text
+dhitHITId = Lens.lens (hITId :: DeleteHIT -> Lude.Text) (\s a -> s {hITId = a} :: DeleteHIT)
+{-# DEPRECATED dhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
-instance AWSRequest DeleteHIT where
+instance Lude.AWSRequest DeleteHIT where
   type Rs DeleteHIT = DeleteHITResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> DeleteHITResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteHITResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteHIT
-
-instance NFData DeleteHIT
-
-instance ToHeaders DeleteHIT where
+instance Lude.ToHeaders DeleteHIT where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.DeleteHIT" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MTurkRequesterServiceV20170117.DeleteHIT" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteHIT where
+instance Lude.ToJSON DeleteHIT where
   toJSON DeleteHIT' {..} =
-    object (catMaybes [Just ("HITId" .= _dhitHITId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("HITId" Lude..= hITId)])
 
-instance ToPath DeleteHIT where
-  toPath = const "/"
+instance Lude.ToPath DeleteHIT where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteHIT where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteHIT where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteHITResponse' smart constructor.
+-- | /See:/ 'mkDeleteHITResponse' smart constructor.
 newtype DeleteHITResponse = DeleteHITResponse'
-  { _dhitrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHITResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhitrsResponseStatus' - -- | The response status code.
-deleteHITResponse ::
-  -- | 'dhitrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteHITResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteHITResponse
-deleteHITResponse pResponseStatus_ =
-  DeleteHITResponse' {_dhitrsResponseStatus = pResponseStatus_}
+mkDeleteHITResponse pResponseStatus_ =
+  DeleteHITResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dhitrsResponseStatus :: Lens' DeleteHITResponse Int
-dhitrsResponseStatus = lens _dhitrsResponseStatus (\s a -> s {_dhitrsResponseStatus = a})
-
-instance NFData DeleteHITResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhitrsResponseStatus :: Lens.Lens' DeleteHITResponse Lude.Int
+dhitrsResponseStatus = Lens.lens (responseStatus :: DeleteHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHITResponse)
+{-# DEPRECATED dhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

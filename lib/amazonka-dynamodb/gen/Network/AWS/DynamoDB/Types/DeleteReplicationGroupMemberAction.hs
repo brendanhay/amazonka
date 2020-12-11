@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction where
+module Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction
+  ( DeleteReplicationGroupMemberAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteReplicationGroupMemberAction,
+
+    -- * Lenses
+    drgmaRegionName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a replica to be deleted.
 --
---
---
--- /See:/ 'deleteReplicationGroupMemberAction' smart constructor.
+-- /See:/ 'mkDeleteReplicationGroupMemberAction' smart constructor.
 newtype DeleteReplicationGroupMemberAction = DeleteReplicationGroupMemberAction'
-  { _drgmaRegionName ::
-      Text
+  { regionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationGroupMemberAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drgmaRegionName' - The Region where the replica exists.
-deleteReplicationGroupMemberAction ::
-  -- | 'drgmaRegionName'
-  Text ->
+-- * 'regionName' - The Region where the replica exists.
+mkDeleteReplicationGroupMemberAction ::
+  -- | 'regionName'
+  Lude.Text ->
   DeleteReplicationGroupMemberAction
-deleteReplicationGroupMemberAction pRegionName_ =
-  DeleteReplicationGroupMemberAction'
-    { _drgmaRegionName =
-        pRegionName_
-    }
+mkDeleteReplicationGroupMemberAction pRegionName_ =
+  DeleteReplicationGroupMemberAction' {regionName = pRegionName_}
 
 -- | The Region where the replica exists.
-drgmaRegionName :: Lens' DeleteReplicationGroupMemberAction Text
-drgmaRegionName = lens _drgmaRegionName (\s a -> s {_drgmaRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgmaRegionName :: Lens.Lens' DeleteReplicationGroupMemberAction Lude.Text
+drgmaRegionName = Lens.lens (regionName :: DeleteReplicationGroupMemberAction -> Lude.Text) (\s a -> s {regionName = a} :: DeleteReplicationGroupMemberAction)
+{-# DEPRECATED drgmaRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Hashable DeleteReplicationGroupMemberAction
-
-instance NFData DeleteReplicationGroupMemberAction
-
-instance ToJSON DeleteReplicationGroupMemberAction where
+instance Lude.ToJSON DeleteReplicationGroupMemberAction where
   toJSON DeleteReplicationGroupMemberAction' {..} =
-    object (catMaybes [Just ("RegionName" .= _drgmaRegionName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RegionName" Lude..= regionName)])

@@ -28,61 +28,61 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetLexicon $
---             getLexicon
+--             mkGetLexicon
 --
 --         , requestGetSpeechSynthesisTask $
---             getSpeechSynthesisTask
+--             mkGetSpeechSynthesisTask
 --
 --         , requestDescribeVoices $
---             describeVoices
+--             mkDescribeVoices
 --
 --         , requestListLexicons $
---             listLexicons
+--             mkListLexicons
 --
 --         , requestSynthesizeSpeech $
---             synthesizeSpeech
+--             mkSynthesizeSpeech
 --
 --         , requestListSpeechSynthesisTasks $
---             listSpeechSynthesisTasks
+--             mkListSpeechSynthesisTasks
 --
 --         , requestPutLexicon $
---             putLexicon
+--             mkPutLexicon
 --
 --         , requestDeleteLexicon $
---             deleteLexicon
+--             mkDeleteLexicon
 --
 --         , requestStartSpeechSynthesisTask $
---             startSpeechSynthesisTask
+--             mkStartSpeechSynthesisTask
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetLexicon $
---             getLexiconResponse
+--             mkGetLexiconResponse
 --
 --         , responseGetSpeechSynthesisTask $
---             getSpeechSynthesisTaskResponse
+--             mkGetSpeechSynthesisTaskResponse
 --
 --         , responseDescribeVoices $
---             describeVoicesResponse
+--             mkDescribeVoicesResponse
 --
 --         , responseListLexicons $
---             listLexiconsResponse
+--             mkListLexiconsResponse
 --
 --         , responseSynthesizeSpeech $
---             synthesizeSpeechResponse
+--             mkSynthesizeSpeechResponse
 --
 --         , responseListSpeechSynthesisTasks $
---             listSpeechSynthesisTasksResponse
+--             mkListSpeechSynthesisTasksResponse
 --
 --         , responsePutLexicon $
---             putLexiconResponse
+--             mkPutLexiconResponse
 --
 --         , responseDeleteLexicon $
---             deleteLexiconResponse
+--             mkDeleteLexiconResponse
 --
 --         , responseStartSpeechSynthesisTask $
---             startSpeechSynthesisTaskResponse
+--             mkStartSpeechSynthesisTaskResponse
 --
 --           ]
 --     ]
@@ -150,7 +150,7 @@ responseGetLexicon =
   res
     "GetLexiconResponse"
     "fixture/GetLexiconResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy GetLexicon)
 
 responseGetSpeechSynthesisTask :: GetSpeechSynthesisTaskResponse -> TestTree
@@ -158,7 +158,7 @@ responseGetSpeechSynthesisTask =
   res
     "GetSpeechSynthesisTaskResponse"
     "fixture/GetSpeechSynthesisTaskResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy GetSpeechSynthesisTask)
 
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
@@ -166,7 +166,7 @@ responseDescribeVoices =
   res
     "DescribeVoicesResponse"
     "fixture/DescribeVoicesResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy DescribeVoices)
 
 responseListLexicons :: ListLexiconsResponse -> TestTree
@@ -174,7 +174,7 @@ responseListLexicons =
   res
     "ListLexiconsResponse"
     "fixture/ListLexiconsResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy ListLexicons)
 
 responseListSpeechSynthesisTasks :: ListSpeechSynthesisTasksResponse -> TestTree
@@ -182,7 +182,7 @@ responseListSpeechSynthesisTasks =
   res
     "ListSpeechSynthesisTasksResponse"
     "fixture/ListSpeechSynthesisTasksResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy ListSpeechSynthesisTasks)
 
 responsePutLexicon :: PutLexiconResponse -> TestTree
@@ -190,7 +190,7 @@ responsePutLexicon =
   res
     "PutLexiconResponse"
     "fixture/PutLexiconResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy PutLexicon)
 
 responseDeleteLexicon :: DeleteLexiconResponse -> TestTree
@@ -198,7 +198,7 @@ responseDeleteLexicon =
   res
     "DeleteLexiconResponse"
     "fixture/DeleteLexiconResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy DeleteLexicon)
 
 responseStartSpeechSynthesisTask :: StartSpeechSynthesisTaskResponse -> TestTree
@@ -206,5 +206,5 @@ responseStartSpeechSynthesisTask =
   res
     "StartSpeechSynthesisTaskResponse"
     "fixture/StartSpeechSynthesisTaskResponse.proto"
-    polly
+    pollyService
     (Proxy :: Proxy StartSpeechSynthesisTask)

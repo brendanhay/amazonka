@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.ContentHandlingStrategy where
+module Network.AWS.APIGateway.Types.ContentHandlingStrategy
+  ( ContentHandlingStrategy
+      ( ContentHandlingStrategy',
+        ConvertToBinary,
+        ConvertToText
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentHandlingStrategy
-  = ConvertToBinary
-  | ConvertToText
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentHandlingStrategy = ContentHandlingStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentHandlingStrategy where
-  parser =
-    takeLowerText >>= \case
-      "convert_to_binary" -> pure ConvertToBinary
-      "convert_to_text" -> pure ConvertToText
-      e ->
-        fromTextError $
-          "Failure parsing ContentHandlingStrategy from value: '" <> e
-            <> "'. Accepted values: convert_to_binary, convert_to_text"
+pattern ConvertToBinary :: ContentHandlingStrategy
+pattern ConvertToBinary = ContentHandlingStrategy' "CONVERT_TO_BINARY"
 
-instance ToText ContentHandlingStrategy where
-  toText = \case
-    ConvertToBinary -> "CONVERT_TO_BINARY"
-    ConvertToText -> "CONVERT_TO_TEXT"
+pattern ConvertToText :: ContentHandlingStrategy
+pattern ConvertToText = ContentHandlingStrategy' "CONVERT_TO_TEXT"
 
-instance Hashable ContentHandlingStrategy
-
-instance NFData ContentHandlingStrategy
-
-instance ToByteString ContentHandlingStrategy
-
-instance ToQuery ContentHandlingStrategy
-
-instance ToHeader ContentHandlingStrategy
-
-instance ToJSON ContentHandlingStrategy where
-  toJSON = toJSONText
-
-instance FromJSON ContentHandlingStrategy where
-  parseJSON = parseJSONText "ContentHandlingStrategy"
+{-# COMPLETE
+  ConvertToBinary,
+  ConvertToText,
+  ContentHandlingStrategy'
+  #-}

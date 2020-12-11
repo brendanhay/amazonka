@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,114 @@
 --
 -- Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
 module Network.AWS.MediaConvert.AssociateCertificate
-  ( -- * Creating a Request
-    associateCertificate,
-    AssociateCertificate,
+  ( -- * Creating a request
+    AssociateCertificate (..),
+    mkAssociateCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     acARN,
 
-    -- * Destructuring the Response
-    associateCertificateResponse,
-    AssociateCertificateResponse,
+    -- * Destructuring the response
+    AssociateCertificateResponse (..),
+    mkAssociateCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateCertificate' smart constructor.
+-- | /See:/ 'mkAssociateCertificate' smart constructor.
 newtype AssociateCertificate = AssociateCertificate'
-  { _acARN ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acARN' - The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
-associateCertificate ::
-  -- | 'acARN'
-  Text ->
+-- * 'arn' - The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
+mkAssociateCertificate ::
+  -- | 'arn'
+  Lude.Text ->
   AssociateCertificate
-associateCertificate pARN_ = AssociateCertificate' {_acARN = pARN_}
+mkAssociateCertificate pARN_ = AssociateCertificate' {arn = pARN_}
 
 -- | The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
-acARN :: Lens' AssociateCertificate Text
-acARN = lens _acARN (\s a -> s {_acARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acARN :: Lens.Lens' AssociateCertificate Lude.Text
+acARN = Lens.lens (arn :: AssociateCertificate -> Lude.Text) (\s a -> s {arn = a} :: AssociateCertificate)
+{-# DEPRECATED acARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest AssociateCertificate where
+instance Lude.AWSRequest AssociateCertificate where
   type Rs AssociateCertificate = AssociateCertificateResponse
-  request = postJSON mediaConvert
+  request = Req.postJSON mediaConvertService
   response =
-    receiveEmpty
-      (\s h x -> AssociateCertificateResponse' <$> (pure (fromEnum s)))
-
-instance Hashable AssociateCertificate
-
-instance NFData AssociateCertificate
-
-instance ToHeaders AssociateCertificate where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          AssociateCertificateResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON AssociateCertificate where
+instance Lude.ToHeaders AssociateCertificate where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToJSON AssociateCertificate where
   toJSON AssociateCertificate' {..} =
-    object (catMaybes [Just ("arn" .= _acARN)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath AssociateCertificate where
-  toPath = const "/2017-08-29/certificates"
+instance Lude.ToPath AssociateCertificate where
+  toPath = Lude.const "/2017-08-29/certificates"
 
-instance ToQuery AssociateCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateCertificateResponse' smart constructor.
+-- | /See:/ 'mkAssociateCertificateResponse' smart constructor.
 newtype AssociateCertificateResponse = AssociateCertificateResponse'
-  { _acrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acrsResponseStatus' - -- | The response status code.
-associateCertificateResponse ::
-  -- | 'acrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateCertificateResponse
-associateCertificateResponse pResponseStatus_ =
-  AssociateCertificateResponse'
-    { _acrsResponseStatus =
-        pResponseStatus_
-    }
+mkAssociateCertificateResponse pResponseStatus_ =
+  AssociateCertificateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-acrsResponseStatus :: Lens' AssociateCertificateResponse Int
-acrsResponseStatus = lens _acrsResponseStatus (\s a -> s {_acrsResponseStatus = a})
-
-instance NFData AssociateCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrsResponseStatus :: Lens.Lens' AssociateCertificateResponse Lude.Int
+acrsResponseStatus = Lens.lens (responseStatus :: AssociateCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateCertificateResponse)
+{-# DEPRECATED acrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

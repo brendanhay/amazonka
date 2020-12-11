@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,31 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary where
+module Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary
+  ( ServiceManagedChannelS3StorageSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceManagedChannelS3StorageSummary,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
 --
---
---
--- /See:/ 'serviceManagedChannelS3StorageSummary' smart constructor.
+-- /See:/ 'mkServiceManagedChannelS3StorageSummary' smart constructor.
 data ServiceManagedChannelS3StorageSummary = ServiceManagedChannelS3StorageSummary'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceManagedChannelS3StorageSummary' with the minimum fields required to make a request.
-serviceManagedChannelS3StorageSummary ::
+mkServiceManagedChannelS3StorageSummary ::
   ServiceManagedChannelS3StorageSummary
-serviceManagedChannelS3StorageSummary =
+mkServiceManagedChannelS3StorageSummary =
   ServiceManagedChannelS3StorageSummary'
 
-instance FromJSON ServiceManagedChannelS3StorageSummary where
+instance Lude.FromJSON ServiceManagedChannelS3StorageSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceManagedChannelS3StorageSummary"
-      (\x -> pure ServiceManagedChannelS3StorageSummary')
-
-instance Hashable ServiceManagedChannelS3StorageSummary
-
-instance NFData ServiceManagedChannelS3StorageSummary
+      (\x -> Lude.pure ServiceManagedChannelS3StorageSummary')

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,109 @@
 --
 -- Flushes a stage's cache.
 module Network.AWS.APIGateway.FlushStageCache
-  ( -- * Creating a Request
-    flushStageCache,
-    FlushStageCache,
+  ( -- * Creating a request
+    FlushStageCache (..),
+    mkFlushStageCache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     fscRestAPIId,
     fscStageName,
 
-    -- * Destructuring the Response
-    flushStageCacheResponse,
-    FlushStageCacheResponse,
+    -- * Destructuring the response
+    FlushStageCacheResponse (..),
+    mkFlushStageCacheResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to flush a stage's cache.
 --
---
---
--- /See:/ 'flushStageCache' smart constructor.
+-- /See:/ 'mkFlushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
-  { _fscRestAPIId :: !Text,
-    _fscStageName :: !Text
+  { restAPIId :: Lude.Text,
+    stageName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushStageCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fscRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'fscStageName' - [Required] The name of the stage to flush its cache.
-flushStageCache ::
-  -- | 'fscRestAPIId'
-  Text ->
-  -- | 'fscStageName'
-  Text ->
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - [Required] The name of the stage to flush its cache.
+mkFlushStageCache ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
   FlushStageCache
-flushStageCache pRestAPIId_ pStageName_ =
+mkFlushStageCache pRestAPIId_ pStageName_ =
   FlushStageCache'
-    { _fscRestAPIId = pRestAPIId_,
-      _fscStageName = pStageName_
+    { restAPIId = pRestAPIId_,
+      stageName = pStageName_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-fscRestAPIId :: Lens' FlushStageCache Text
-fscRestAPIId = lens _fscRestAPIId (\s a -> s {_fscRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscRestAPIId :: Lens.Lens' FlushStageCache Lude.Text
+fscRestAPIId = Lens.lens (restAPIId :: FlushStageCache -> Lude.Text) (\s a -> s {restAPIId = a} :: FlushStageCache)
+{-# DEPRECATED fscRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the stage to flush its cache.
-fscStageName :: Lens' FlushStageCache Text
-fscStageName = lens _fscStageName (\s a -> s {_fscStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscStageName :: Lens.Lens' FlushStageCache Lude.Text
+fscStageName = Lens.lens (stageName :: FlushStageCache -> Lude.Text) (\s a -> s {stageName = a} :: FlushStageCache)
+{-# DEPRECATED fscStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
-instance AWSRequest FlushStageCache where
+instance Lude.AWSRequest FlushStageCache where
   type Rs FlushStageCache = FlushStageCacheResponse
-  request = delete apiGateway
-  response = receiveNull FlushStageCacheResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull FlushStageCacheResponse'
 
-instance Hashable FlushStageCache
-
-instance NFData FlushStageCache
-
-instance ToHeaders FlushStageCache where
+instance Lude.ToHeaders FlushStageCache where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath FlushStageCache where
+instance Lude.ToPath FlushStageCache where
   toPath FlushStageCache' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _fscRestAPIId,
+        Lude.toBS restAPIId,
         "/stages/",
-        toBS _fscStageName,
+        Lude.toBS stageName,
         "/cache/data"
       ]
 
-instance ToQuery FlushStageCache where
-  toQuery = const mempty
+instance Lude.ToQuery FlushStageCache where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'flushStageCacheResponse' smart constructor.
+-- | /See:/ 'mkFlushStageCacheResponse' smart constructor.
 data FlushStageCacheResponse = FlushStageCacheResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushStageCacheResponse' with the minimum fields required to make a request.
-flushStageCacheResponse ::
+mkFlushStageCacheResponse ::
   FlushStageCacheResponse
-flushStageCacheResponse = FlushStageCacheResponse'
-
-instance NFData FlushStageCacheResponse
+mkFlushStageCacheResponse = FlushStageCacheResponse'

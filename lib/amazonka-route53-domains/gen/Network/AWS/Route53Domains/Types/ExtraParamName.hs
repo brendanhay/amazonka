@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,133 +7,184 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.ExtraParamName where
+module Network.AWS.Route53Domains.Types.ExtraParamName
+  ( ExtraParamName
+      ( ExtraParamName',
+        AuIdNumber,
+        AuIdType,
+        BirthCity,
+        BirthCountry,
+        BirthDateInYyyyMmDd,
+        BirthDepartment,
+        BrandNumber,
+        CaBusinessEntityType,
+        CaLegalRepresentative,
+        CaLegalRepresentativeCapacity,
+        CaLegalType,
+        DocumentNumber,
+        DunsNumber,
+        EsIdentification,
+        EsIdentificationType,
+        EsLegalForm,
+        FiBusinessNumber,
+        FiIdNumber,
+        FiNationality,
+        FiOrganizationType,
+        ItNationality,
+        ItPin,
+        ItRegistrantEntityType,
+        RuPassportData,
+        SeIdNumber,
+        SgIdNumber,
+        UkCompanyNumber,
+        UkContactType,
+        VatNumber
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExtraParamName
-  = AuIdNumber
-  | AuIdType
-  | BirthCity
-  | BirthCountry
-  | BirthDateInYyyyMmDd
-  | BirthDepartment
-  | BrandNumber
-  | CaBusinessEntityType
-  | CaLegalRepresentative
-  | CaLegalRepresentativeCapacity
-  | CaLegalType
-  | DocumentNumber
-  | DunsNumber
-  | EsIdentification
-  | EsIdentificationType
-  | EsLegalForm
-  | FiBusinessNumber
-  | FiIdNumber
-  | FiNationality
-  | FiOrganizationType
-  | ItNationality
-  | ItPin
-  | ItRegistrantEntityType
-  | RuPassportData
-  | SeIdNumber
-  | SgIdNumber
-  | UkCompanyNumber
-  | UkContactType
-  | VatNumber
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExtraParamName = ExtraParamName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExtraParamName where
-  parser =
-    takeLowerText >>= \case
-      "au_id_number" -> pure AuIdNumber
-      "au_id_type" -> pure AuIdType
-      "birth_city" -> pure BirthCity
-      "birth_country" -> pure BirthCountry
-      "birth_date_in_yyyy_mm_dd" -> pure BirthDateInYyyyMmDd
-      "birth_department" -> pure BirthDepartment
-      "brand_number" -> pure BrandNumber
-      "ca_business_entity_type" -> pure CaBusinessEntityType
-      "ca_legal_representative" -> pure CaLegalRepresentative
-      "ca_legal_representative_capacity" -> pure CaLegalRepresentativeCapacity
-      "ca_legal_type" -> pure CaLegalType
-      "document_number" -> pure DocumentNumber
-      "duns_number" -> pure DunsNumber
-      "es_identification" -> pure EsIdentification
-      "es_identification_type" -> pure EsIdentificationType
-      "es_legal_form" -> pure EsLegalForm
-      "fi_business_number" -> pure FiBusinessNumber
-      "fi_id_number" -> pure FiIdNumber
-      "fi_nationality" -> pure FiNationality
-      "fi_organization_type" -> pure FiOrganizationType
-      "it_nationality" -> pure ItNationality
-      "it_pin" -> pure ItPin
-      "it_registrant_entity_type" -> pure ItRegistrantEntityType
-      "ru_passport_data" -> pure RuPassportData
-      "se_id_number" -> pure SeIdNumber
-      "sg_id_number" -> pure SgIdNumber
-      "uk_company_number" -> pure UkCompanyNumber
-      "uk_contact_type" -> pure UkContactType
-      "vat_number" -> pure VatNumber
-      e ->
-        fromTextError $
-          "Failure parsing ExtraParamName from value: '" <> e
-            <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_business_entity_type, ca_legal_representative, ca_legal_representative_capacity, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, fi_nationality, fi_organization_type, it_nationality, it_pin, it_registrant_entity_type, ru_passport_data, se_id_number, sg_id_number, uk_company_number, uk_contact_type, vat_number"
+pattern AuIdNumber :: ExtraParamName
+pattern AuIdNumber = ExtraParamName' "AU_ID_NUMBER"
 
-instance ToText ExtraParamName where
-  toText = \case
-    AuIdNumber -> "AU_ID_NUMBER"
-    AuIdType -> "AU_ID_TYPE"
-    BirthCity -> "BIRTH_CITY"
-    BirthCountry -> "BIRTH_COUNTRY"
-    BirthDateInYyyyMmDd -> "BIRTH_DATE_IN_YYYY_MM_DD"
-    BirthDepartment -> "BIRTH_DEPARTMENT"
-    BrandNumber -> "BRAND_NUMBER"
-    CaBusinessEntityType -> "CA_BUSINESS_ENTITY_TYPE"
-    CaLegalRepresentative -> "CA_LEGAL_REPRESENTATIVE"
-    CaLegalRepresentativeCapacity -> "CA_LEGAL_REPRESENTATIVE_CAPACITY"
-    CaLegalType -> "CA_LEGAL_TYPE"
-    DocumentNumber -> "DOCUMENT_NUMBER"
-    DunsNumber -> "DUNS_NUMBER"
-    EsIdentification -> "ES_IDENTIFICATION"
-    EsIdentificationType -> "ES_IDENTIFICATION_TYPE"
-    EsLegalForm -> "ES_LEGAL_FORM"
-    FiBusinessNumber -> "FI_BUSINESS_NUMBER"
-    FiIdNumber -> "FI_ID_NUMBER"
-    FiNationality -> "FI_NATIONALITY"
-    FiOrganizationType -> "FI_ORGANIZATION_TYPE"
-    ItNationality -> "IT_NATIONALITY"
-    ItPin -> "IT_PIN"
-    ItRegistrantEntityType -> "IT_REGISTRANT_ENTITY_TYPE"
-    RuPassportData -> "RU_PASSPORT_DATA"
-    SeIdNumber -> "SE_ID_NUMBER"
-    SgIdNumber -> "SG_ID_NUMBER"
-    UkCompanyNumber -> "UK_COMPANY_NUMBER"
-    UkContactType -> "UK_CONTACT_TYPE"
-    VatNumber -> "VAT_NUMBER"
+pattern AuIdType :: ExtraParamName
+pattern AuIdType = ExtraParamName' "AU_ID_TYPE"
 
-instance Hashable ExtraParamName
+pattern BirthCity :: ExtraParamName
+pattern BirthCity = ExtraParamName' "BIRTH_CITY"
 
-instance NFData ExtraParamName
+pattern BirthCountry :: ExtraParamName
+pattern BirthCountry = ExtraParamName' "BIRTH_COUNTRY"
 
-instance ToByteString ExtraParamName
+pattern BirthDateInYyyyMmDd :: ExtraParamName
+pattern BirthDateInYyyyMmDd = ExtraParamName' "BIRTH_DATE_IN_YYYY_MM_DD"
 
-instance ToQuery ExtraParamName
+pattern BirthDepartment :: ExtraParamName
+pattern BirthDepartment = ExtraParamName' "BIRTH_DEPARTMENT"
 
-instance ToHeader ExtraParamName
+pattern BrandNumber :: ExtraParamName
+pattern BrandNumber = ExtraParamName' "BRAND_NUMBER"
 
-instance ToJSON ExtraParamName where
-  toJSON = toJSONText
+pattern CaBusinessEntityType :: ExtraParamName
+pattern CaBusinessEntityType = ExtraParamName' "CA_BUSINESS_ENTITY_TYPE"
 
-instance FromJSON ExtraParamName where
-  parseJSON = parseJSONText "ExtraParamName"
+pattern CaLegalRepresentative :: ExtraParamName
+pattern CaLegalRepresentative = ExtraParamName' "CA_LEGAL_REPRESENTATIVE"
+
+pattern CaLegalRepresentativeCapacity :: ExtraParamName
+pattern CaLegalRepresentativeCapacity = ExtraParamName' "CA_LEGAL_REPRESENTATIVE_CAPACITY"
+
+pattern CaLegalType :: ExtraParamName
+pattern CaLegalType = ExtraParamName' "CA_LEGAL_TYPE"
+
+pattern DocumentNumber :: ExtraParamName
+pattern DocumentNumber = ExtraParamName' "DOCUMENT_NUMBER"
+
+pattern DunsNumber :: ExtraParamName
+pattern DunsNumber = ExtraParamName' "DUNS_NUMBER"
+
+pattern EsIdentification :: ExtraParamName
+pattern EsIdentification = ExtraParamName' "ES_IDENTIFICATION"
+
+pattern EsIdentificationType :: ExtraParamName
+pattern EsIdentificationType = ExtraParamName' "ES_IDENTIFICATION_TYPE"
+
+pattern EsLegalForm :: ExtraParamName
+pattern EsLegalForm = ExtraParamName' "ES_LEGAL_FORM"
+
+pattern FiBusinessNumber :: ExtraParamName
+pattern FiBusinessNumber = ExtraParamName' "FI_BUSINESS_NUMBER"
+
+pattern FiIdNumber :: ExtraParamName
+pattern FiIdNumber = ExtraParamName' "FI_ID_NUMBER"
+
+pattern FiNationality :: ExtraParamName
+pattern FiNationality = ExtraParamName' "FI_NATIONALITY"
+
+pattern FiOrganizationType :: ExtraParamName
+pattern FiOrganizationType = ExtraParamName' "FI_ORGANIZATION_TYPE"
+
+pattern ItNationality :: ExtraParamName
+pattern ItNationality = ExtraParamName' "IT_NATIONALITY"
+
+pattern ItPin :: ExtraParamName
+pattern ItPin = ExtraParamName' "IT_PIN"
+
+pattern ItRegistrantEntityType :: ExtraParamName
+pattern ItRegistrantEntityType = ExtraParamName' "IT_REGISTRANT_ENTITY_TYPE"
+
+pattern RuPassportData :: ExtraParamName
+pattern RuPassportData = ExtraParamName' "RU_PASSPORT_DATA"
+
+pattern SeIdNumber :: ExtraParamName
+pattern SeIdNumber = ExtraParamName' "SE_ID_NUMBER"
+
+pattern SgIdNumber :: ExtraParamName
+pattern SgIdNumber = ExtraParamName' "SG_ID_NUMBER"
+
+pattern UkCompanyNumber :: ExtraParamName
+pattern UkCompanyNumber = ExtraParamName' "UK_COMPANY_NUMBER"
+
+pattern UkContactType :: ExtraParamName
+pattern UkContactType = ExtraParamName' "UK_CONTACT_TYPE"
+
+pattern VatNumber :: ExtraParamName
+pattern VatNumber = ExtraParamName' "VAT_NUMBER"
+
+{-# COMPLETE
+  AuIdNumber,
+  AuIdType,
+  BirthCity,
+  BirthCountry,
+  BirthDateInYyyyMmDd,
+  BirthDepartment,
+  BrandNumber,
+  CaBusinessEntityType,
+  CaLegalRepresentative,
+  CaLegalRepresentativeCapacity,
+  CaLegalType,
+  DocumentNumber,
+  DunsNumber,
+  EsIdentification,
+  EsIdentificationType,
+  EsLegalForm,
+  FiBusinessNumber,
+  FiIdNumber,
+  FiNationality,
+  FiOrganizationType,
+  ItNationality,
+  ItPin,
+  ItRegistrantEntityType,
+  RuPassportData,
+  SeIdNumber,
+  SgIdNumber,
+  UkCompanyNumber,
+  UkContactType,
+  VatNumber,
+  ExtraParamName'
+  #-}

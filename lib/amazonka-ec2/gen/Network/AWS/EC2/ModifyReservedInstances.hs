@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,158 @@
 --
 -- Modifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances> in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.ModifyReservedInstances
-  ( -- * Creating a Request
-    modifyReservedInstances,
-    ModifyReservedInstances,
+  ( -- * Creating a request
+    ModifyReservedInstances (..),
+    mkModifyReservedInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mriClientToken,
     mriReservedInstancesIds,
     mriTargetConfigurations,
 
-    -- * Destructuring the Response
-    modifyReservedInstancesResponse,
-    ModifyReservedInstancesResponse,
+    -- * Destructuring the response
+    ModifyReservedInstancesResponse (..),
+    mkModifyReservedInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mrirsReservedInstancesModificationId,
     mrirsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ModifyReservedInstances.
 --
---
---
--- /See:/ 'modifyReservedInstances' smart constructor.
+-- /See:/ 'mkModifyReservedInstances' smart constructor.
 data ModifyReservedInstances = ModifyReservedInstances'
-  { _mriClientToken ::
-      !(Maybe Text),
-    _mriReservedInstancesIds :: ![Text],
-    _mriTargetConfigurations ::
-      ![ReservedInstancesConfiguration]
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    reservedInstancesIds :: [Lude.Text],
+    targetConfigurations ::
+      [ReservedInstancesConfiguration]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReservedInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mriClientToken' - A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- * 'mriReservedInstancesIds' - The IDs of the Reserved Instances to modify.
---
--- * 'mriTargetConfigurations' - The configuration settings for the Reserved Instances to modify.
-modifyReservedInstances ::
+-- * 'clientToken' - A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'reservedInstancesIds' - The IDs of the Reserved Instances to modify.
+-- * 'targetConfigurations' - The configuration settings for the Reserved Instances to modify.
+mkModifyReservedInstances ::
   ModifyReservedInstances
-modifyReservedInstances =
+mkModifyReservedInstances =
   ModifyReservedInstances'
-    { _mriClientToken = Nothing,
-      _mriReservedInstancesIds = mempty,
-      _mriTargetConfigurations = mempty
+    { clientToken = Lude.Nothing,
+      reservedInstancesIds = Lude.mempty,
+      targetConfigurations = Lude.mempty
     }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
-mriClientToken = lens _mriClientToken (\s a -> s {_mriClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriClientToken :: Lens.Lens' ModifyReservedInstances (Lude.Maybe Lude.Text)
+mriClientToken = Lens.lens (clientToken :: ModifyReservedInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ModifyReservedInstances)
+{-# DEPRECATED mriClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The IDs of the Reserved Instances to modify.
-mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
-mriReservedInstancesIds = lens _mriReservedInstancesIds (\s a -> s {_mriReservedInstancesIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'reservedInstancesIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriReservedInstancesIds :: Lens.Lens' ModifyReservedInstances [Lude.Text]
+mriReservedInstancesIds = Lens.lens (reservedInstancesIds :: ModifyReservedInstances -> [Lude.Text]) (\s a -> s {reservedInstancesIds = a} :: ModifyReservedInstances)
+{-# DEPRECATED mriReservedInstancesIds "Use generic-lens or generic-optics with 'reservedInstancesIds' instead." #-}
 
 -- | The configuration settings for the Reserved Instances to modify.
-mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-mriTargetConfigurations = lens _mriTargetConfigurations (\s a -> s {_mriTargetConfigurations = a}) . _Coerce
+--
+-- /Note:/ Consider using 'targetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriTargetConfigurations :: Lens.Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
+mriTargetConfigurations = Lens.lens (targetConfigurations :: ModifyReservedInstances -> [ReservedInstancesConfiguration]) (\s a -> s {targetConfigurations = a} :: ModifyReservedInstances)
+{-# DEPRECATED mriTargetConfigurations "Use generic-lens or generic-optics with 'targetConfigurations' instead." #-}
 
-instance AWSRequest ModifyReservedInstances where
+instance Lude.AWSRequest ModifyReservedInstances where
   type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyReservedInstancesResponse'
-            <$> (x .@? "reservedInstancesModificationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "reservedInstancesModificationId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyReservedInstances
+instance Lude.ToHeaders ModifyReservedInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyReservedInstances
+instance Lude.ToPath ModifyReservedInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyReservedInstances where
-  toHeaders = const mempty
-
-instance ToPath ModifyReservedInstances where
-  toPath = const "/"
-
-instance ToQuery ModifyReservedInstances where
+instance Lude.ToQuery ModifyReservedInstances where
   toQuery ModifyReservedInstances' {..} =
-    mconcat
-      [ "Action" =: ("ModifyReservedInstances" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _mriClientToken,
-        toQueryList "ReservedInstancesId" _mriReservedInstancesIds,
-        toQueryList
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyReservedInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        Lude.toQueryList "ReservedInstancesId" reservedInstancesIds,
+        Lude.toQueryList
           "ReservedInstancesConfigurationSetItemType"
-          _mriTargetConfigurations
+          targetConfigurations
       ]
 
 -- | Contains the output of ModifyReservedInstances.
 --
---
---
--- /See:/ 'modifyReservedInstancesResponse' smart constructor.
+-- /See:/ 'mkModifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
-  { _mrirsReservedInstancesModificationId ::
-      !(Maybe Text),
-    _mrirsResponseStatus ::
-      !Int
+  { reservedInstancesModificationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReservedInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrirsReservedInstancesModificationId' - The ID for the modification.
---
--- * 'mrirsResponseStatus' - -- | The response status code.
-modifyReservedInstancesResponse ::
-  -- | 'mrirsResponseStatus'
-  Int ->
+-- * 'reservedInstancesModificationId' - The ID for the modification.
+-- * 'responseStatus' - The response status code.
+mkModifyReservedInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyReservedInstancesResponse
-modifyReservedInstancesResponse pResponseStatus_ =
+mkModifyReservedInstancesResponse pResponseStatus_ =
   ModifyReservedInstancesResponse'
-    { _mrirsReservedInstancesModificationId =
-        Nothing,
-      _mrirsResponseStatus = pResponseStatus_
+    { reservedInstancesModificationId =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID for the modification.
-mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
-mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\s a -> s {_mrirsReservedInstancesModificationId = a})
+--
+-- /Note:/ Consider using 'reservedInstancesModificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrirsReservedInstancesModificationId :: Lens.Lens' ModifyReservedInstancesResponse (Lude.Maybe Lude.Text)
+mrirsReservedInstancesModificationId = Lens.lens (reservedInstancesModificationId :: ModifyReservedInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesModificationId = a} :: ModifyReservedInstancesResponse)
+{-# DEPRECATED mrirsReservedInstancesModificationId "Use generic-lens or generic-optics with 'reservedInstancesModificationId' instead." #-}
 
--- | -- | The response status code.
-mrirsResponseStatus :: Lens' ModifyReservedInstancesResponse Int
-mrirsResponseStatus = lens _mrirsResponseStatus (\s a -> s {_mrirsResponseStatus = a})
-
-instance NFData ModifyReservedInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrirsResponseStatus :: Lens.Lens' ModifyReservedInstancesResponse Lude.Int
+mrirsResponseStatus = Lens.lens (responseStatus :: ModifyReservedInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyReservedInstancesResponse)
+{-# DEPRECATED mrirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

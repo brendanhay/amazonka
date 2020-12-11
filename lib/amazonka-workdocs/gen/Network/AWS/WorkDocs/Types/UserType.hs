@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.UserType where
+module Network.AWS.WorkDocs.Types.UserType
+  ( UserType
+      ( UserType',
+        UTAdmin,
+        UTMinimaluser,
+        UTPoweruser,
+        UTUser,
+        UTWorkspacesuser
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserType
-  = UTAdmin
-  | UTMinimaluser
-  | UTPoweruser
-  | UTUser
-  | UTWorkspacesuser
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserType = UserType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserType where
-  parser =
-    takeLowerText >>= \case
-      "admin" -> pure UTAdmin
-      "minimaluser" -> pure UTMinimaluser
-      "poweruser" -> pure UTPoweruser
-      "user" -> pure UTUser
-      "workspacesuser" -> pure UTWorkspacesuser
-      e ->
-        fromTextError $
-          "Failure parsing UserType from value: '" <> e
-            <> "'. Accepted values: admin, minimaluser, poweruser, user, workspacesuser"
+pattern UTAdmin :: UserType
+pattern UTAdmin = UserType' "ADMIN"
 
-instance ToText UserType where
-  toText = \case
-    UTAdmin -> "ADMIN"
-    UTMinimaluser -> "MINIMALUSER"
-    UTPoweruser -> "POWERUSER"
-    UTUser -> "USER"
-    UTWorkspacesuser -> "WORKSPACESUSER"
+pattern UTMinimaluser :: UserType
+pattern UTMinimaluser = UserType' "MINIMALUSER"
 
-instance Hashable UserType
+pattern UTPoweruser :: UserType
+pattern UTPoweruser = UserType' "POWERUSER"
 
-instance NFData UserType
+pattern UTUser :: UserType
+pattern UTUser = UserType' "USER"
 
-instance ToByteString UserType
+pattern UTWorkspacesuser :: UserType
+pattern UTWorkspacesuser = UserType' "WORKSPACESUSER"
 
-instance ToQuery UserType
-
-instance ToHeader UserType
-
-instance ToJSON UserType where
-  toJSON = toJSONText
-
-instance FromJSON UserType where
-  parseJSON = parseJSONText "UserType"
+{-# COMPLETE
+  UTAdmin,
+  UTMinimaluser,
+  UTPoweruser,
+  UTUser,
+  UTWorkspacesuser,
+  UserType'
+  #-}

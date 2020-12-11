@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3PhaseControl where
+module Network.AWS.MediaConvert.Types.Eac3PhaseControl
+  ( Eac3PhaseControl
+      ( Eac3PhaseControl',
+        NoShift,
+        Shift90Degrees
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
-data Eac3PhaseControl
-  = NoShift
-  | Shift90Degrees
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3PhaseControl = Eac3PhaseControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3PhaseControl where
-  parser =
-    takeLowerText >>= \case
-      "no_shift" -> pure NoShift
-      "shift_90_degrees" -> pure Shift90Degrees
-      e ->
-        fromTextError $
-          "Failure parsing Eac3PhaseControl from value: '" <> e
-            <> "'. Accepted values: no_shift, shift_90_degrees"
+pattern NoShift :: Eac3PhaseControl
+pattern NoShift = Eac3PhaseControl' "NO_SHIFT"
 
-instance ToText Eac3PhaseControl where
-  toText = \case
-    NoShift -> "NO_SHIFT"
-    Shift90Degrees -> "SHIFT_90_DEGREES"
+pattern Shift90Degrees :: Eac3PhaseControl
+pattern Shift90Degrees = Eac3PhaseControl' "SHIFT_90_DEGREES"
 
-instance Hashable Eac3PhaseControl
-
-instance NFData Eac3PhaseControl
-
-instance ToByteString Eac3PhaseControl
-
-instance ToQuery Eac3PhaseControl
-
-instance ToHeader Eac3PhaseControl
-
-instance ToJSON Eac3PhaseControl where
-  toJSON = toJSONText
-
-instance FromJSON Eac3PhaseControl where
-  parseJSON = parseJSONText "Eac3PhaseControl"
+{-# COMPLETE
+  NoShift,
+  Shift90Degrees,
+  Eac3PhaseControl'
+  #-}

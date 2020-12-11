@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns an array of @PolicyComplianceStatus@ objects. Use @PolicyComplianceStatus@ to get a summary of which member accounts are protected by the specified policy.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.FMS.ListComplianceStatus
-  ( -- * Creating a Request
-    listComplianceStatus,
-    ListComplianceStatus,
+  ( -- * Creating a request
+    ListComplianceStatus (..),
+    mkListComplianceStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcsNextToken,
     lcsMaxResults,
     lcsPolicyId,
 
-    -- * Destructuring the Response
-    listComplianceStatusResponse,
-    ListComplianceStatusResponse,
+    -- * Destructuring the response
+    ListComplianceStatusResponse (..),
+    mkListComplianceStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcsrsNextToken,
     lcsrsPolicyComplianceStatusList,
     lcsrsResponseStatus,
@@ -44,141 +37,165 @@ module Network.AWS.FMS.ListComplianceStatus
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listComplianceStatus' smart constructor.
+-- | /See:/ 'mkListComplianceStatus' smart constructor.
 data ListComplianceStatus = ListComplianceStatus'
-  { _lcsNextToken ::
-      !(Maybe Text),
-    _lcsMaxResults :: !(Maybe Nat),
-    _lcsPolicyId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    policyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcsNextToken' - If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
---
--- * 'lcsMaxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicyComplianceStatus@ objects.
---
--- * 'lcsPolicyId' - The ID of the AWS Firewall Manager policy that you want the details for.
-listComplianceStatus ::
-  -- | 'lcsPolicyId'
-  Text ->
+-- * 'maxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicyComplianceStatus@ objects.
+-- * 'nextToken' - If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
+-- * 'policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
+mkListComplianceStatus ::
+  -- | 'policyId'
+  Lude.Text ->
   ListComplianceStatus
-listComplianceStatus pPolicyId_ =
+mkListComplianceStatus pPolicyId_ =
   ListComplianceStatus'
-    { _lcsNextToken = Nothing,
-      _lcsMaxResults = Nothing,
-      _lcsPolicyId = pPolicyId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      policyId = pPolicyId_
     }
 
 -- | If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
-lcsNextToken :: Lens' ListComplianceStatus (Maybe Text)
-lcsNextToken = lens _lcsNextToken (\s a -> s {_lcsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsNextToken :: Lens.Lens' ListComplianceStatus (Lude.Maybe Lude.Text)
+lcsNextToken = Lens.lens (nextToken :: ListComplianceStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListComplianceStatus)
+{-# DEPRECATED lcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies the number of @PolicyComplianceStatus@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicyComplianceStatus@ objects.
-lcsMaxResults :: Lens' ListComplianceStatus (Maybe Natural)
-lcsMaxResults = lens _lcsMaxResults (\s a -> s {_lcsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsMaxResults :: Lens.Lens' ListComplianceStatus (Lude.Maybe Lude.Natural)
+lcsMaxResults = Lens.lens (maxResults :: ListComplianceStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListComplianceStatus)
+{-# DEPRECATED lcsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the AWS Firewall Manager policy that you want the details for.
-lcsPolicyId :: Lens' ListComplianceStatus Text
-lcsPolicyId = lens _lcsPolicyId (\s a -> s {_lcsPolicyId = a})
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsPolicyId :: Lens.Lens' ListComplianceStatus Lude.Text
+lcsPolicyId = Lens.lens (policyId :: ListComplianceStatus -> Lude.Text) (\s a -> s {policyId = a} :: ListComplianceStatus)
+{-# DEPRECATED lcsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
-instance AWSPager ListComplianceStatus where
+instance Page.AWSPager ListComplianceStatus where
   page rq rs
-    | stop (rs ^. lcsrsNextToken) = Nothing
-    | stop (rs ^. lcsrsPolicyComplianceStatusList) = Nothing
-    | otherwise = Just $ rq & lcsNextToken .~ rs ^. lcsrsNextToken
+    | Page.stop (rs Lens.^. lcsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcsrsPolicyComplianceStatusList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcsNextToken Lens..~ rs Lens.^. lcsrsNextToken
 
-instance AWSRequest ListComplianceStatus where
+instance Lude.AWSRequest ListComplianceStatus where
   type Rs ListComplianceStatus = ListComplianceStatusResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListComplianceStatusResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "PolicyComplianceStatusList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "PolicyComplianceStatusList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListComplianceStatus
-
-instance NFData ListComplianceStatus
-
-instance ToHeaders ListComplianceStatus where
+instance Lude.ToHeaders ListComplianceStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.ListComplianceStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.ListComplianceStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListComplianceStatus where
+instance Lude.ToJSON ListComplianceStatus where
   toJSON ListComplianceStatus' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcsNextToken,
-            ("MaxResults" .=) <$> _lcsMaxResults,
-            Just ("PolicyId" .= _lcsPolicyId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("PolicyId" Lude..= policyId)
           ]
       )
 
-instance ToPath ListComplianceStatus where
-  toPath = const "/"
+instance Lude.ToPath ListComplianceStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery ListComplianceStatus where
-  toQuery = const mempty
+instance Lude.ToQuery ListComplianceStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listComplianceStatusResponse' smart constructor.
+-- | /See:/ 'mkListComplianceStatusResponse' smart constructor.
 data ListComplianceStatusResponse = ListComplianceStatusResponse'
-  { _lcsrsNextToken ::
-      !(Maybe Text),
-    _lcsrsPolicyComplianceStatusList ::
-      !(Maybe [PolicyComplianceStatus]),
-    _lcsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    policyComplianceStatusList ::
+      Lude.Maybe
+        [PolicyComplianceStatus],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcsrsNextToken' - If you have more @PolicyComplianceStatus@ objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more @PolicyComplianceStatus@ objects, submit another @ListComplianceStatus@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
---
--- * 'lcsrsPolicyComplianceStatusList' - An array of @PolicyComplianceStatus@ objects.
---
--- * 'lcsrsResponseStatus' - -- | The response status code.
-listComplianceStatusResponse ::
-  -- | 'lcsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If you have more @PolicyComplianceStatus@ objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more @PolicyComplianceStatus@ objects, submit another @ListComplianceStatus@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+-- * 'policyComplianceStatusList' - An array of @PolicyComplianceStatus@ objects.
+-- * 'responseStatus' - The response status code.
+mkListComplianceStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListComplianceStatusResponse
-listComplianceStatusResponse pResponseStatus_ =
+mkListComplianceStatusResponse pResponseStatus_ =
   ListComplianceStatusResponse'
-    { _lcsrsNextToken = Nothing,
-      _lcsrsPolicyComplianceStatusList = Nothing,
-      _lcsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      policyComplianceStatusList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If you have more @PolicyComplianceStatus@ objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more @PolicyComplianceStatus@ objects, submit another @ListComplianceStatus@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
-lcsrsNextToken :: Lens' ListComplianceStatusResponse (Maybe Text)
-lcsrsNextToken = lens _lcsrsNextToken (\s a -> s {_lcsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsrsNextToken :: Lens.Lens' ListComplianceStatusResponse (Lude.Maybe Lude.Text)
+lcsrsNextToken = Lens.lens (nextToken :: ListComplianceStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListComplianceStatusResponse)
+{-# DEPRECATED lcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @PolicyComplianceStatus@ objects.
-lcsrsPolicyComplianceStatusList :: Lens' ListComplianceStatusResponse [PolicyComplianceStatus]
-lcsrsPolicyComplianceStatusList = lens _lcsrsPolicyComplianceStatusList (\s a -> s {_lcsrsPolicyComplianceStatusList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyComplianceStatusList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsrsPolicyComplianceStatusList :: Lens.Lens' ListComplianceStatusResponse (Lude.Maybe [PolicyComplianceStatus])
+lcsrsPolicyComplianceStatusList = Lens.lens (policyComplianceStatusList :: ListComplianceStatusResponse -> Lude.Maybe [PolicyComplianceStatus]) (\s a -> s {policyComplianceStatusList = a} :: ListComplianceStatusResponse)
+{-# DEPRECATED lcsrsPolicyComplianceStatusList "Use generic-lens or generic-optics with 'policyComplianceStatusList' instead." #-}
 
--- | -- | The response status code.
-lcsrsResponseStatus :: Lens' ListComplianceStatusResponse Int
-lcsrsResponseStatus = lens _lcsrsResponseStatus (\s a -> s {_lcsrsResponseStatus = a})
-
-instance NFData ListComplianceStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsrsResponseStatus :: Lens.Lens' ListComplianceStatusResponse Lude.Int
+lcsrsResponseStatus = Lens.lens (responseStatus :: ListComplianceStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListComplianceStatusResponse)
+{-# DEPRECATED lcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

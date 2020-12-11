@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.PolicyAttachment where
+module Network.AWS.CloudDirectory.Types.PolicyAttachment
+  ( PolicyAttachment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPolicyAttachment,
+
+    -- * Lenses
+    paPolicyId,
+    paPolicyType,
+    paObjectIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the @PolicyType@ , @PolicyId@ , and the @ObjectIdentifier@ to which it is attached. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
 --
---
---
--- /See:/ 'policyAttachment' smart constructor.
+-- /See:/ 'mkPolicyAttachment' smart constructor.
 data PolicyAttachment = PolicyAttachment'
-  { _paPolicyId ::
-      !(Maybe Text),
-    _paPolicyType :: !(Maybe Text),
-    _paObjectIdentifier :: !(Maybe Text)
+  { policyId ::
+      Lude.Maybe Lude.Text,
+    policyType :: Lude.Maybe Lude.Text,
+    objectIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paPolicyId' - The ID of @PolicyAttachment@ .
---
--- * 'paPolicyType' - The type of policy that can be associated with @PolicyAttachment@ .
---
--- * 'paObjectIdentifier' - The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
-policyAttachment ::
+-- * 'objectIdentifier' - The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
+-- * 'policyId' - The ID of @PolicyAttachment@ .
+-- * 'policyType' - The type of policy that can be associated with @PolicyAttachment@ .
+mkPolicyAttachment ::
   PolicyAttachment
-policyAttachment =
+mkPolicyAttachment =
   PolicyAttachment'
-    { _paPolicyId = Nothing,
-      _paPolicyType = Nothing,
-      _paObjectIdentifier = Nothing
+    { policyId = Lude.Nothing,
+      policyType = Lude.Nothing,
+      objectIdentifier = Lude.Nothing
     }
 
 -- | The ID of @PolicyAttachment@ .
-paPolicyId :: Lens' PolicyAttachment (Maybe Text)
-paPolicyId = lens _paPolicyId (\s a -> s {_paPolicyId = a})
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPolicyId :: Lens.Lens' PolicyAttachment (Lude.Maybe Lude.Text)
+paPolicyId = Lens.lens (policyId :: PolicyAttachment -> Lude.Maybe Lude.Text) (\s a -> s {policyId = a} :: PolicyAttachment)
+{-# DEPRECATED paPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | The type of policy that can be associated with @PolicyAttachment@ .
-paPolicyType :: Lens' PolicyAttachment (Maybe Text)
-paPolicyType = lens _paPolicyType (\s a -> s {_paPolicyType = a})
+--
+-- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPolicyType :: Lens.Lens' PolicyAttachment (Lude.Maybe Lude.Text)
+paPolicyType = Lens.lens (policyType :: PolicyAttachment -> Lude.Maybe Lude.Text) (\s a -> s {policyType = a} :: PolicyAttachment)
+{-# DEPRECATED paPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
 -- | The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
-paObjectIdentifier :: Lens' PolicyAttachment (Maybe Text)
-paObjectIdentifier = lens _paObjectIdentifier (\s a -> s {_paObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paObjectIdentifier :: Lens.Lens' PolicyAttachment (Lude.Maybe Lude.Text)
+paObjectIdentifier = Lens.lens (objectIdentifier :: PolicyAttachment -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: PolicyAttachment)
+{-# DEPRECATED paObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance FromJSON PolicyAttachment where
+instance Lude.FromJSON PolicyAttachment where
   parseJSON =
-    withObject
+    Lude.withObject
       "PolicyAttachment"
       ( \x ->
           PolicyAttachment'
-            <$> (x .:? "PolicyId")
-            <*> (x .:? "PolicyType")
-            <*> (x .:? "ObjectIdentifier")
+            Lude.<$> (x Lude..:? "PolicyId")
+            Lude.<*> (x Lude..:? "PolicyType")
+            Lude.<*> (x Lude..:? "ObjectIdentifier")
       )
-
-instance Hashable PolicyAttachment
-
-instance NFData PolicyAttachment

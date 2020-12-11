@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioDefaultSelection where
+module Network.AWS.MediaConvert.Types.AudioDefaultSelection
+  ( AudioDefaultSelection
+      ( AudioDefaultSelection',
+        ADSDefault,
+        ADSNotDefault
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
-data AudioDefaultSelection
-  = ADSDefault
-  | ADSNotDefault
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioDefaultSelection = AudioDefaultSelection' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioDefaultSelection where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure ADSDefault
-      "not_default" -> pure ADSNotDefault
-      e ->
-        fromTextError $
-          "Failure parsing AudioDefaultSelection from value: '" <> e
-            <> "'. Accepted values: default, not_default"
+pattern ADSDefault :: AudioDefaultSelection
+pattern ADSDefault = AudioDefaultSelection' "DEFAULT"
 
-instance ToText AudioDefaultSelection where
-  toText = \case
-    ADSDefault -> "DEFAULT"
-    ADSNotDefault -> "NOT_DEFAULT"
+pattern ADSNotDefault :: AudioDefaultSelection
+pattern ADSNotDefault = AudioDefaultSelection' "NOT_DEFAULT"
 
-instance Hashable AudioDefaultSelection
-
-instance NFData AudioDefaultSelection
-
-instance ToByteString AudioDefaultSelection
-
-instance ToQuery AudioDefaultSelection
-
-instance ToHeader AudioDefaultSelection
-
-instance ToJSON AudioDefaultSelection where
-  toJSON = toJSONText
-
-instance FromJSON AudioDefaultSelection where
-  parseJSON = parseJSONText "AudioDefaultSelection"
+{-# COMPLETE
+  ADSDefault,
+  ADSNotDefault,
+  AudioDefaultSelection'
+  #-}

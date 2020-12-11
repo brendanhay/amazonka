@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,129 @@
 --
 -- Deletes the specified lifecycle hook.
 --
---
 -- If there are any outstanding lifecycle actions, they are completed first (@ABANDON@ for launching instances, @CONTINUE@ for terminating instances).
 module Network.AWS.AutoScaling.DeleteLifecycleHook
-  ( -- * Creating a Request
-    deleteLifecycleHook,
-    DeleteLifecycleHook,
+  ( -- * Creating a request
+    DeleteLifecycleHook (..),
+    mkDeleteLifecycleHook,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delLifecycleHookName,
     delAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    deleteLifecycleHookResponse,
-    DeleteLifecycleHookResponse,
+    -- * Destructuring the response
+    DeleteLifecycleHookResponse (..),
+    mkDeleteLifecycleHookResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLifecycleHook' smart constructor.
+-- | /See:/ 'mkDeleteLifecycleHook' smart constructor.
 data DeleteLifecycleHook = DeleteLifecycleHook'
-  { _delLifecycleHookName ::
-      !Text,
-    _delAutoScalingGroupName :: !Text
+  { lifecycleHookName ::
+      Lude.Text,
+    autoScalingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLifecycleHook' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delLifecycleHookName' - The name of the lifecycle hook.
---
--- * 'delAutoScalingGroupName' - The name of the Auto Scaling group.
-deleteLifecycleHook ::
-  -- | 'delLifecycleHookName'
-  Text ->
-  -- | 'delAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'lifecycleHookName' - The name of the lifecycle hook.
+mkDeleteLifecycleHook ::
+  -- | 'lifecycleHookName'
+  Lude.Text ->
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   DeleteLifecycleHook
-deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
+mkDeleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
   DeleteLifecycleHook'
-    { _delLifecycleHookName = pLifecycleHookName_,
-      _delAutoScalingGroupName = pAutoScalingGroupName_
+    { lifecycleHookName = pLifecycleHookName_,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The name of the lifecycle hook.
-delLifecycleHookName :: Lens' DeleteLifecycleHook Text
-delLifecycleHookName = lens _delLifecycleHookName (\s a -> s {_delLifecycleHookName = a})
+--
+-- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delLifecycleHookName :: Lens.Lens' DeleteLifecycleHook Lude.Text
+delLifecycleHookName = Lens.lens (lifecycleHookName :: DeleteLifecycleHook -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: DeleteLifecycleHook)
+{-# DEPRECATED delLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
 
 -- | The name of the Auto Scaling group.
-delAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
-delAutoScalingGroupName = lens _delAutoScalingGroupName (\s a -> s {_delAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delAutoScalingGroupName :: Lens.Lens' DeleteLifecycleHook Lude.Text
+delAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteLifecycleHook -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteLifecycleHook)
+{-# DEPRECATED delAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSRequest DeleteLifecycleHook where
+instance Lude.AWSRequest DeleteLifecycleHook where
   type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteLifecycleHookResult"
-      (\s h x -> DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          DeleteLifecycleHookResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteLifecycleHook
+instance Lude.ToHeaders DeleteLifecycleHook where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteLifecycleHook
+instance Lude.ToPath DeleteLifecycleHook where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteLifecycleHook where
-  toHeaders = const mempty
-
-instance ToPath DeleteLifecycleHook where
-  toPath = const "/"
-
-instance ToQuery DeleteLifecycleHook where
+instance Lude.ToQuery DeleteLifecycleHook where
   toQuery DeleteLifecycleHook' {..} =
-    mconcat
-      [ "Action" =: ("DeleteLifecycleHook" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "LifecycleHookName" =: _delLifecycleHookName,
-        "AutoScalingGroupName" =: _delAutoScalingGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteLifecycleHook" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "LifecycleHookName" Lude.=: lifecycleHookName,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
+-- | /See:/ 'mkDeleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
-  { _drsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLifecycleHookResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteLifecycleHookResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteLifecycleHookResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLifecycleHookResponse
-deleteLifecycleHookResponse pResponseStatus_ =
-  DeleteLifecycleHookResponse'
-    { _drsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteLifecycleHookResponse pResponseStatus_ =
+  DeleteLifecycleHookResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteLifecycleHookResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteLifecycleHookResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteLifecycleHookResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteLifecycleHookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLifecycleHookResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

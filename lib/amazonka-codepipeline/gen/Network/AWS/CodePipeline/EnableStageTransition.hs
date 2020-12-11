@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,130 @@
 --
 -- Enables artifacts in a pipeline to transition to a stage in a pipeline.
 module Network.AWS.CodePipeline.EnableStageTransition
-  ( -- * Creating a Request
-    enableStageTransition,
-    EnableStageTransition,
+  ( -- * Creating a request
+    EnableStageTransition (..),
+    mkEnableStageTransition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     estPipelineName,
     estStageName,
     estTransitionType,
 
-    -- * Destructuring the Response
-    enableStageTransitionResponse,
-    EnableStageTransitionResponse,
+    -- * Destructuring the response
+    EnableStageTransitionResponse (..),
+    mkEnableStageTransitionResponse,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of an @EnableStageTransition@ action.
 --
---
---
--- /See:/ 'enableStageTransition' smart constructor.
+-- /See:/ 'mkEnableStageTransition' smart constructor.
 data EnableStageTransition = EnableStageTransition'
-  { _estPipelineName ::
-      !Text,
-    _estStageName :: !Text,
-    _estTransitionType :: !StageTransitionType
+  { pipelineName ::
+      Lude.Text,
+    stageName :: Lude.Text,
+    transitionType :: StageTransitionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableStageTransition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'estPipelineName' - The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
---
--- * 'estStageName' - The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).
---
--- * 'estTransitionType' - Specifies whether artifacts are allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already processed artifacts are allowed to transition to the next stage (outbound).
-enableStageTransition ::
-  -- | 'estPipelineName'
-  Text ->
-  -- | 'estStageName'
-  Text ->
-  -- | 'estTransitionType'
+-- * 'pipelineName' - The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
+-- * 'stageName' - The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).
+-- * 'transitionType' - Specifies whether artifacts are allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already processed artifacts are allowed to transition to the next stage (outbound).
+mkEnableStageTransition ::
+  -- | 'pipelineName'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'transitionType'
   StageTransitionType ->
   EnableStageTransition
-enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
+mkEnableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
   EnableStageTransition'
-    { _estPipelineName = pPipelineName_,
-      _estStageName = pStageName_,
-      _estTransitionType = pTransitionType_
+    { pipelineName = pPipelineName_,
+      stageName = pStageName_,
+      transitionType = pTransitionType_
     }
 
 -- | The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
-estPipelineName :: Lens' EnableStageTransition Text
-estPipelineName = lens _estPipelineName (\s a -> s {_estPipelineName = a})
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+estPipelineName :: Lens.Lens' EnableStageTransition Lude.Text
+estPipelineName = Lens.lens (pipelineName :: EnableStageTransition -> Lude.Text) (\s a -> s {pipelineName = a} :: EnableStageTransition)
+{-# DEPRECATED estPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).
-estStageName :: Lens' EnableStageTransition Text
-estStageName = lens _estStageName (\s a -> s {_estStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+estStageName :: Lens.Lens' EnableStageTransition Lude.Text
+estStageName = Lens.lens (stageName :: EnableStageTransition -> Lude.Text) (\s a -> s {stageName = a} :: EnableStageTransition)
+{-# DEPRECATED estStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | Specifies whether artifacts are allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already processed artifacts are allowed to transition to the next stage (outbound).
-estTransitionType :: Lens' EnableStageTransition StageTransitionType
-estTransitionType = lens _estTransitionType (\s a -> s {_estTransitionType = a})
+--
+-- /Note:/ Consider using 'transitionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+estTransitionType :: Lens.Lens' EnableStageTransition StageTransitionType
+estTransitionType = Lens.lens (transitionType :: EnableStageTransition -> StageTransitionType) (\s a -> s {transitionType = a} :: EnableStageTransition)
+{-# DEPRECATED estTransitionType "Use generic-lens or generic-optics with 'transitionType' instead." #-}
 
-instance AWSRequest EnableStageTransition where
+instance Lude.AWSRequest EnableStageTransition where
   type Rs EnableStageTransition = EnableStageTransitionResponse
-  request = postJSON codePipeline
-  response = receiveNull EnableStageTransitionResponse'
+  request = Req.postJSON codePipelineService
+  response = Res.receiveNull EnableStageTransitionResponse'
 
-instance Hashable EnableStageTransition
-
-instance NFData EnableStageTransition
-
-instance ToHeaders EnableStageTransition where
+instance Lude.ToHeaders EnableStageTransition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.EnableStageTransition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.EnableStageTransition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableStageTransition where
+instance Lude.ToJSON EnableStageTransition where
   toJSON EnableStageTransition' {..} =
-    object
-      ( catMaybes
-          [ Just ("pipelineName" .= _estPipelineName),
-            Just ("stageName" .= _estStageName),
-            Just ("transitionType" .= _estTransitionType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            Lude.Just ("stageName" Lude..= stageName),
+            Lude.Just ("transitionType" Lude..= transitionType)
           ]
       )
 
-instance ToPath EnableStageTransition where
-  toPath = const "/"
+instance Lude.ToPath EnableStageTransition where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableStageTransition where
-  toQuery = const mempty
+instance Lude.ToQuery EnableStageTransition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableStageTransitionResponse' smart constructor.
+-- | /See:/ 'mkEnableStageTransitionResponse' smart constructor.
 data EnableStageTransitionResponse = EnableStageTransitionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableStageTransitionResponse' with the minimum fields required to make a request.
-enableStageTransitionResponse ::
+mkEnableStageTransitionResponse ::
   EnableStageTransitionResponse
-enableStageTransitionResponse = EnableStageTransitionResponse'
-
-instance NFData EnableStageTransitionResponse
+mkEnableStageTransitionResponse = EnableStageTransitionResponse'

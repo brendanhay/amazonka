@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,145 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.BrokerSummary where
+module Network.AWS.MQ.Types.BrokerSummary
+  ( BrokerSummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkBrokerSummary,
+
+    -- * Lenses
+    bsBrokerName,
+    bsBrokerState,
+    bsCreated,
+    bsDeploymentMode,
+    bsBrokerId,
+    bsEngineType,
+    bsBrokerARN,
+    bsHostInstanceType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.BrokerState
 import Network.AWS.MQ.Types.DeploymentMode
 import Network.AWS.MQ.Types.EngineType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon Resource Name (ARN) of the broker.
 --
--- /See:/ 'brokerSummary' smart constructor.
+-- /See:/ 'mkBrokerSummary' smart constructor.
 data BrokerSummary = BrokerSummary'
-  { _bsBrokerName :: !(Maybe Text),
-    _bsBrokerState :: !(Maybe BrokerState),
-    _bsCreated :: !(Maybe POSIX),
-    _bsDeploymentMode :: !(Maybe DeploymentMode),
-    _bsBrokerId :: !(Maybe Text),
-    _bsEngineType :: !(Maybe EngineType),
-    _bsBrokerARN :: !(Maybe Text),
-    _bsHostInstanceType :: !(Maybe Text)
+  { brokerName ::
+      Lude.Maybe Lude.Text,
+    brokerState :: Lude.Maybe BrokerState,
+    created :: Lude.Maybe Lude.Timestamp,
+    deploymentMode :: Lude.Maybe DeploymentMode,
+    brokerId :: Lude.Maybe Lude.Text,
+    engineType :: Lude.Maybe EngineType,
+    brokerARN :: Lude.Maybe Lude.Text,
+    hostInstanceType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BrokerSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsBrokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
---
--- * 'bsBrokerState' - The status of the broker.
---
--- * 'bsCreated' - The time when the broker was created.
---
--- * 'bsDeploymentMode' - Required. The deployment mode of the broker.
---
--- * 'bsBrokerId' - The unique ID that Amazon MQ generates for the broker.
---
--- * 'bsEngineType' - Required. The type of broker engine.
---
--- * 'bsBrokerARN' - The Amazon Resource Name (ARN) of the broker.
---
--- * 'bsHostInstanceType' - The broker's instance type.
-brokerSummary ::
+-- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'brokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+-- * 'brokerState' - The status of the broker.
+-- * 'created' - The time when the broker was created.
+-- * 'deploymentMode' - Required. The deployment mode of the broker.
+-- * 'engineType' - Required. The type of broker engine.
+-- * 'hostInstanceType' - The broker's instance type.
+mkBrokerSummary ::
   BrokerSummary
-brokerSummary =
+mkBrokerSummary =
   BrokerSummary'
-    { _bsBrokerName = Nothing,
-      _bsBrokerState = Nothing,
-      _bsCreated = Nothing,
-      _bsDeploymentMode = Nothing,
-      _bsBrokerId = Nothing,
-      _bsEngineType = Nothing,
-      _bsBrokerARN = Nothing,
-      _bsHostInstanceType = Nothing
+    { brokerName = Lude.Nothing,
+      brokerState = Lude.Nothing,
+      created = Lude.Nothing,
+      deploymentMode = Lude.Nothing,
+      brokerId = Lude.Nothing,
+      engineType = Lude.Nothing,
+      brokerARN = Lude.Nothing,
+      hostInstanceType = Lude.Nothing
     }
 
 -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-bsBrokerName :: Lens' BrokerSummary (Maybe Text)
-bsBrokerName = lens _bsBrokerName (\s a -> s {_bsBrokerName = a})
+--
+-- /Note:/ Consider using 'brokerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBrokerName :: Lens.Lens' BrokerSummary (Lude.Maybe Lude.Text)
+bsBrokerName = Lens.lens (brokerName :: BrokerSummary -> Lude.Maybe Lude.Text) (\s a -> s {brokerName = a} :: BrokerSummary)
+{-# DEPRECATED bsBrokerName "Use generic-lens or generic-optics with 'brokerName' instead." #-}
 
 -- | The status of the broker.
-bsBrokerState :: Lens' BrokerSummary (Maybe BrokerState)
-bsBrokerState = lens _bsBrokerState (\s a -> s {_bsBrokerState = a})
+--
+-- /Note:/ Consider using 'brokerState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBrokerState :: Lens.Lens' BrokerSummary (Lude.Maybe BrokerState)
+bsBrokerState = Lens.lens (brokerState :: BrokerSummary -> Lude.Maybe BrokerState) (\s a -> s {brokerState = a} :: BrokerSummary)
+{-# DEPRECATED bsBrokerState "Use generic-lens or generic-optics with 'brokerState' instead." #-}
 
 -- | The time when the broker was created.
-bsCreated :: Lens' BrokerSummary (Maybe UTCTime)
-bsCreated = lens _bsCreated (\s a -> s {_bsCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsCreated :: Lens.Lens' BrokerSummary (Lude.Maybe Lude.Timestamp)
+bsCreated = Lens.lens (created :: BrokerSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: BrokerSummary)
+{-# DEPRECATED bsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | Required. The deployment mode of the broker.
-bsDeploymentMode :: Lens' BrokerSummary (Maybe DeploymentMode)
-bsDeploymentMode = lens _bsDeploymentMode (\s a -> s {_bsDeploymentMode = a})
+--
+-- /Note:/ Consider using 'deploymentMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsDeploymentMode :: Lens.Lens' BrokerSummary (Lude.Maybe DeploymentMode)
+bsDeploymentMode = Lens.lens (deploymentMode :: BrokerSummary -> Lude.Maybe DeploymentMode) (\s a -> s {deploymentMode = a} :: BrokerSummary)
+{-# DEPRECATED bsDeploymentMode "Use generic-lens or generic-optics with 'deploymentMode' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-bsBrokerId :: Lens' BrokerSummary (Maybe Text)
-bsBrokerId = lens _bsBrokerId (\s a -> s {_bsBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBrokerId :: Lens.Lens' BrokerSummary (Lude.Maybe Lude.Text)
+bsBrokerId = Lens.lens (brokerId :: BrokerSummary -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: BrokerSummary)
+{-# DEPRECATED bsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | Required. The type of broker engine.
-bsEngineType :: Lens' BrokerSummary (Maybe EngineType)
-bsEngineType = lens _bsEngineType (\s a -> s {_bsEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsEngineType :: Lens.Lens' BrokerSummary (Lude.Maybe EngineType)
+bsEngineType = Lens.lens (engineType :: BrokerSummary -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: BrokerSummary)
+{-# DEPRECATED bsEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the broker.
-bsBrokerARN :: Lens' BrokerSummary (Maybe Text)
-bsBrokerARN = lens _bsBrokerARN (\s a -> s {_bsBrokerARN = a})
+--
+-- /Note:/ Consider using 'brokerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBrokerARN :: Lens.Lens' BrokerSummary (Lude.Maybe Lude.Text)
+bsBrokerARN = Lens.lens (brokerARN :: BrokerSummary -> Lude.Maybe Lude.Text) (\s a -> s {brokerARN = a} :: BrokerSummary)
+{-# DEPRECATED bsBrokerARN "Use generic-lens or generic-optics with 'brokerARN' instead." #-}
 
 -- | The broker's instance type.
-bsHostInstanceType :: Lens' BrokerSummary (Maybe Text)
-bsHostInstanceType = lens _bsHostInstanceType (\s a -> s {_bsHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsHostInstanceType :: Lens.Lens' BrokerSummary (Lude.Maybe Lude.Text)
+bsHostInstanceType = Lens.lens (hostInstanceType :: BrokerSummary -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: BrokerSummary)
+{-# DEPRECATED bsHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
-instance FromJSON BrokerSummary where
+instance Lude.FromJSON BrokerSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "BrokerSummary"
       ( \x ->
           BrokerSummary'
-            <$> (x .:? "brokerName")
-            <*> (x .:? "brokerState")
-            <*> (x .:? "created")
-            <*> (x .:? "deploymentMode")
-            <*> (x .:? "brokerId")
-            <*> (x .:? "engineType")
-            <*> (x .:? "brokerArn")
-            <*> (x .:? "hostInstanceType")
+            Lude.<$> (x Lude..:? "brokerName")
+            Lude.<*> (x Lude..:? "brokerState")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "deploymentMode")
+            Lude.<*> (x Lude..:? "brokerId")
+            Lude.<*> (x Lude..:? "engineType")
+            Lude.<*> (x Lude..:? "brokerArn")
+            Lude.<*> (x Lude..:? "hostInstanceType")
       )
-
-instance Hashable BrokerSummary
-
-instance NFData BrokerSummary

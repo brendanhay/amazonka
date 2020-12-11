@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,101 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ConnectionNotification where
+module Network.AWS.EC2.Types.ConnectionNotification
+  ( ConnectionNotification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkConnectionNotification,
+
+    -- * Lenses
+    cnConnectionNotificationState,
+    cnConnectionNotificationType,
+    cnConnectionEvents,
+    cnServiceId,
+    cnVPCEndpointId,
+    cnConnectionNotificationId,
+    cnConnectionNotificationARN,
+  )
+where
+
 import Network.AWS.EC2.Types.ConnectionNotificationState
 import Network.AWS.EC2.Types.ConnectionNotificationType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a connection notification for a VPC endpoint or VPC endpoint service.
 --
---
---
--- /See:/ 'connectionNotification' smart constructor.
+-- /See:/ 'mkConnectionNotification' smart constructor.
 data ConnectionNotification = ConnectionNotification'
-  { _cnConnectionNotificationState ::
-      !(Maybe ConnectionNotificationState),
-    _cnConnectionNotificationType ::
-      !(Maybe ConnectionNotificationType),
-    _cnConnectionEvents :: !(Maybe [Text]),
-    _cnServiceId :: !(Maybe Text),
-    _cnVPCEndpointId :: !(Maybe Text),
-    _cnConnectionNotificationId :: !(Maybe Text),
-    _cnConnectionNotificationARN :: !(Maybe Text)
+  { connectionNotificationState ::
+      Lude.Maybe ConnectionNotificationState,
+    connectionNotificationType ::
+      Lude.Maybe ConnectionNotificationType,
+    connectionEvents :: Lude.Maybe [Lude.Text],
+    serviceId :: Lude.Maybe Lude.Text,
+    vpcEndpointId :: Lude.Maybe Lude.Text,
+    connectionNotificationId ::
+      Lude.Maybe Lude.Text,
+    connectionNotificationARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionNotification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cnConnectionNotificationState' - The state of the notification.
---
--- * 'cnConnectionNotificationType' - The type of notification.
---
--- * 'cnConnectionEvents' - The events for the notification. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
---
--- * 'cnServiceId' - The ID of the endpoint service.
---
--- * 'cnVPCEndpointId' - The ID of the VPC endpoint.
---
--- * 'cnConnectionNotificationId' - The ID of the notification.
---
--- * 'cnConnectionNotificationARN' - The ARN of the SNS topic for the notification.
-connectionNotification ::
+-- * 'connectionEvents' - The events for the notification. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
+-- * 'connectionNotificationARN' - The ARN of the SNS topic for the notification.
+-- * 'connectionNotificationId' - The ID of the notification.
+-- * 'connectionNotificationState' - The state of the notification.
+-- * 'connectionNotificationType' - The type of notification.
+-- * 'serviceId' - The ID of the endpoint service.
+-- * 'vpcEndpointId' - The ID of the VPC endpoint.
+mkConnectionNotification ::
   ConnectionNotification
-connectionNotification =
+mkConnectionNotification =
   ConnectionNotification'
-    { _cnConnectionNotificationState = Nothing,
-      _cnConnectionNotificationType = Nothing,
-      _cnConnectionEvents = Nothing,
-      _cnServiceId = Nothing,
-      _cnVPCEndpointId = Nothing,
-      _cnConnectionNotificationId = Nothing,
-      _cnConnectionNotificationARN = Nothing
+    { connectionNotificationState =
+        Lude.Nothing,
+      connectionNotificationType = Lude.Nothing,
+      connectionEvents = Lude.Nothing,
+      serviceId = Lude.Nothing,
+      vpcEndpointId = Lude.Nothing,
+      connectionNotificationId = Lude.Nothing,
+      connectionNotificationARN = Lude.Nothing
     }
 
 -- | The state of the notification.
-cnConnectionNotificationState :: Lens' ConnectionNotification (Maybe ConnectionNotificationState)
-cnConnectionNotificationState = lens _cnConnectionNotificationState (\s a -> s {_cnConnectionNotificationState = a})
+--
+-- /Note:/ Consider using 'connectionNotificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnConnectionNotificationState :: Lens.Lens' ConnectionNotification (Lude.Maybe ConnectionNotificationState)
+cnConnectionNotificationState = Lens.lens (connectionNotificationState :: ConnectionNotification -> Lude.Maybe ConnectionNotificationState) (\s a -> s {connectionNotificationState = a} :: ConnectionNotification)
+{-# DEPRECATED cnConnectionNotificationState "Use generic-lens or generic-optics with 'connectionNotificationState' instead." #-}
 
 -- | The type of notification.
-cnConnectionNotificationType :: Lens' ConnectionNotification (Maybe ConnectionNotificationType)
-cnConnectionNotificationType = lens _cnConnectionNotificationType (\s a -> s {_cnConnectionNotificationType = a})
+--
+-- /Note:/ Consider using 'connectionNotificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnConnectionNotificationType :: Lens.Lens' ConnectionNotification (Lude.Maybe ConnectionNotificationType)
+cnConnectionNotificationType = Lens.lens (connectionNotificationType :: ConnectionNotification -> Lude.Maybe ConnectionNotificationType) (\s a -> s {connectionNotificationType = a} :: ConnectionNotification)
+{-# DEPRECATED cnConnectionNotificationType "Use generic-lens or generic-optics with 'connectionNotificationType' instead." #-}
 
 -- | The events for the notification. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
-cnConnectionEvents :: Lens' ConnectionNotification [Text]
-cnConnectionEvents = lens _cnConnectionEvents (\s a -> s {_cnConnectionEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connectionEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnConnectionEvents :: Lens.Lens' ConnectionNotification (Lude.Maybe [Lude.Text])
+cnConnectionEvents = Lens.lens (connectionEvents :: ConnectionNotification -> Lude.Maybe [Lude.Text]) (\s a -> s {connectionEvents = a} :: ConnectionNotification)
+{-# DEPRECATED cnConnectionEvents "Use generic-lens or generic-optics with 'connectionEvents' instead." #-}
 
 -- | The ID of the endpoint service.
-cnServiceId :: Lens' ConnectionNotification (Maybe Text)
-cnServiceId = lens _cnServiceId (\s a -> s {_cnServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnServiceId :: Lens.Lens' ConnectionNotification (Lude.Maybe Lude.Text)
+cnServiceId = Lens.lens (serviceId :: ConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {serviceId = a} :: ConnectionNotification)
+{-# DEPRECATED cnServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 -- | The ID of the VPC endpoint.
-cnVPCEndpointId :: Lens' ConnectionNotification (Maybe Text)
-cnVPCEndpointId = lens _cnVPCEndpointId (\s a -> s {_cnVPCEndpointId = a})
+--
+-- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnVPCEndpointId :: Lens.Lens' ConnectionNotification (Lude.Maybe Lude.Text)
+cnVPCEndpointId = Lens.lens (vpcEndpointId :: ConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {vpcEndpointId = a} :: ConnectionNotification)
+{-# DEPRECATED cnVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
 
 -- | The ID of the notification.
-cnConnectionNotificationId :: Lens' ConnectionNotification (Maybe Text)
-cnConnectionNotificationId = lens _cnConnectionNotificationId (\s a -> s {_cnConnectionNotificationId = a})
+--
+-- /Note:/ Consider using 'connectionNotificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnConnectionNotificationId :: Lens.Lens' ConnectionNotification (Lude.Maybe Lude.Text)
+cnConnectionNotificationId = Lens.lens (connectionNotificationId :: ConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {connectionNotificationId = a} :: ConnectionNotification)
+{-# DEPRECATED cnConnectionNotificationId "Use generic-lens or generic-optics with 'connectionNotificationId' instead." #-}
 
 -- | The ARN of the SNS topic for the notification.
-cnConnectionNotificationARN :: Lens' ConnectionNotification (Maybe Text)
-cnConnectionNotificationARN = lens _cnConnectionNotificationARN (\s a -> s {_cnConnectionNotificationARN = a})
+--
+-- /Note:/ Consider using 'connectionNotificationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnConnectionNotificationARN :: Lens.Lens' ConnectionNotification (Lude.Maybe Lude.Text)
+cnConnectionNotificationARN = Lens.lens (connectionNotificationARN :: ConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {connectionNotificationARN = a} :: ConnectionNotification)
+{-# DEPRECATED cnConnectionNotificationARN "Use generic-lens or generic-optics with 'connectionNotificationARN' instead." #-}
 
-instance FromXML ConnectionNotification where
+instance Lude.FromXML ConnectionNotification where
   parseXML x =
     ConnectionNotification'
-      <$> (x .@? "connectionNotificationState")
-      <*> (x .@? "connectionNotificationType")
-      <*> (x .@? "connectionEvents" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "serviceId")
-      <*> (x .@? "vpcEndpointId")
-      <*> (x .@? "connectionNotificationId")
-      <*> (x .@? "connectionNotificationArn")
-
-instance Hashable ConnectionNotification
-
-instance NFData ConnectionNotification
+      Lude.<$> (x Lude..@? "connectionNotificationState")
+      Lude.<*> (x Lude..@? "connectionNotificationType")
+      Lude.<*> ( x Lude..@? "connectionEvents" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "serviceId")
+      Lude.<*> (x Lude..@? "vpcEndpointId")
+      Lude.<*> (x Lude..@? "connectionNotificationId")
+      Lude.<*> (x Lude..@? "connectionNotificationArn")

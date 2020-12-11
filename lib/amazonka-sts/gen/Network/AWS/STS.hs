@@ -15,8 +15,8 @@
 --
 -- AWS Security Token Service (STS) enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more information about using this service, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials> .
 module Network.AWS.STS
-  ( -- * Service Configuration
-    sts,
+  ( -- * Service configuration
+    stsService,
 
     -- * Errors
     -- $errors
@@ -54,30 +54,42 @@ module Network.AWS.STS
     -- * Types
 
     -- ** AssumedRoleUser
-    AssumedRoleUser,
-    assumedRoleUser,
+    AssumedRoleUser (..),
+    mkAssumedRoleUser,
     aruAssumedRoleId,
     aruARN,
 
     -- ** FederatedUser
-    FederatedUser,
-    federatedUser,
+    FederatedUser (..),
+    mkFederatedUser,
     fuFederatedUserId,
     fuARN,
 
     -- ** PolicyDescriptorType
-    PolicyDescriptorType,
-    policyDescriptorType,
+    PolicyDescriptorType (..),
+    mkPolicyDescriptorType,
     pdtArn,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.STS.AssumeRole
 import Network.AWS.STS.AssumeRoleWithSAML
 import Network.AWS.STS.AssumeRoleWithWebIdentity

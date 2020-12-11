@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchDeploymentStatus where
+module Network.AWS.SSM.Types.PatchDeploymentStatus
+  ( PatchDeploymentStatus
+      ( PatchDeploymentStatus',
+        Approved,
+        ExplicitApproved,
+        ExplicitRejected,
+        PendingApproval
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PatchDeploymentStatus
-  = Approved
-  | ExplicitApproved
-  | ExplicitRejected
-  | PendingApproval
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PatchDeploymentStatus = PatchDeploymentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PatchDeploymentStatus where
-  parser =
-    takeLowerText >>= \case
-      "approved" -> pure Approved
-      "explicit_approved" -> pure ExplicitApproved
-      "explicit_rejected" -> pure ExplicitRejected
-      "pending_approval" -> pure PendingApproval
-      e ->
-        fromTextError $
-          "Failure parsing PatchDeploymentStatus from value: '" <> e
-            <> "'. Accepted values: approved, explicit_approved, explicit_rejected, pending_approval"
+pattern Approved :: PatchDeploymentStatus
+pattern Approved = PatchDeploymentStatus' "APPROVED"
 
-instance ToText PatchDeploymentStatus where
-  toText = \case
-    Approved -> "APPROVED"
-    ExplicitApproved -> "EXPLICIT_APPROVED"
-    ExplicitRejected -> "EXPLICIT_REJECTED"
-    PendingApproval -> "PENDING_APPROVAL"
+pattern ExplicitApproved :: PatchDeploymentStatus
+pattern ExplicitApproved = PatchDeploymentStatus' "EXPLICIT_APPROVED"
 
-instance Hashable PatchDeploymentStatus
+pattern ExplicitRejected :: PatchDeploymentStatus
+pattern ExplicitRejected = PatchDeploymentStatus' "EXPLICIT_REJECTED"
 
-instance NFData PatchDeploymentStatus
+pattern PendingApproval :: PatchDeploymentStatus
+pattern PendingApproval = PatchDeploymentStatus' "PENDING_APPROVAL"
 
-instance ToByteString PatchDeploymentStatus
-
-instance ToQuery PatchDeploymentStatus
-
-instance ToHeader PatchDeploymentStatus
-
-instance FromJSON PatchDeploymentStatus where
-  parseJSON = parseJSONText "PatchDeploymentStatus"
+{-# COMPLETE
+  Approved,
+  ExplicitApproved,
+  ExplicitRejected,
+  PendingApproval,
+  PatchDeploymentStatus'
+  #-}

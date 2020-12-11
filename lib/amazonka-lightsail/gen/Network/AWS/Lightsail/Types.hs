@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types
-  ( -- * Service Configuration
-    lightsail,
+  ( -- * Service configuration
+    lightsailService,
 
     -- * Errors
 
@@ -184,22 +182,22 @@ module Network.AWS.Lightsail.Types
     TreatMissingData (..),
 
     -- * AddOn
-    AddOn,
-    addOn,
+    AddOn (..),
+    mkAddOn,
     aoStatus,
     aoNextSnapshotTimeOfDay,
     aoSnapshotTimeOfDay,
     aoName,
 
     -- * AddOnRequest
-    AddOnRequest,
-    addOnRequest,
+    AddOnRequest (..),
+    mkAddOnRequest,
     aorAutoSnapshotAddOnRequest,
     aorAddOnType,
 
     -- * Alarm
-    Alarm,
-    alarm,
+    Alarm (..),
+    mkAlarm,
     aState,
     aTreatMissingData,
     aResourceType,
@@ -222,33 +220,33 @@ module Network.AWS.Lightsail.Types
     aMonitoredResourceInfo,
 
     -- * AttachedDisk
-    AttachedDisk,
-    attachedDisk,
+    AttachedDisk (..),
+    mkAttachedDisk,
     adPath,
     adSizeInGb,
 
     -- * AutoSnapshotAddOnRequest
-    AutoSnapshotAddOnRequest,
-    autoSnapshotAddOnRequest,
+    AutoSnapshotAddOnRequest (..),
+    mkAutoSnapshotAddOnRequest,
     asaorSnapshotTimeOfDay,
 
     -- * AutoSnapshotDetails
-    AutoSnapshotDetails,
-    autoSnapshotDetails,
+    AutoSnapshotDetails (..),
+    mkAutoSnapshotDetails,
     asdStatus,
     asdFromAttachedDisks,
     asdCreatedAt,
     asdDate,
 
     -- * AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azState,
     azZoneName,
 
     -- * Blueprint
-    Blueprint,
-    blueprint,
+    Blueprint (..),
+    mkBlueprint,
     bVersionCode,
     bPlatform,
     bGroup,
@@ -263,8 +261,8 @@ module Network.AWS.Lightsail.Types
     bDescription,
 
     -- * Bundle
-    Bundle,
-    bundle,
+    Bundle (..),
+    mkBundle,
     bunCpuCount,
     bunTransferPerMonthInGb,
     bunBundleId,
@@ -278,19 +276,19 @@ module Network.AWS.Lightsail.Types
     bunRamSizeInGb,
 
     -- * CacheBehavior
-    CacheBehavior,
-    cacheBehavior,
+    CacheBehavior (..),
+    mkCacheBehavior,
     cbBehavior,
 
     -- * CacheBehaviorPerPath
-    CacheBehaviorPerPath,
-    cacheBehaviorPerPath,
+    CacheBehaviorPerPath (..),
+    mkCacheBehaviorPerPath,
     cbppPath,
     cbppBehavior,
 
     -- * CacheSettings
-    CacheSettings,
-    cacheSettings,
+    CacheSettings (..),
+    mkCacheSettings,
     csMaximumTTL,
     csCachedHTTPMethods,
     csForwardedCookies,
@@ -301,8 +299,8 @@ module Network.AWS.Lightsail.Types
     csForwardedQueryStrings,
 
     -- * Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cerStatus,
     cerSubjectAlternativeNames,
     cerArn,
@@ -326,8 +324,8 @@ module Network.AWS.Lightsail.Types
     cerNotAfter,
 
     -- * CertificateSummary
-    CertificateSummary,
-    certificateSummary,
+    CertificateSummary (..),
+    mkCertificateSummary,
     cCertificateDetail,
     cCertificateName,
     cCertificateARN,
@@ -335,8 +333,8 @@ module Network.AWS.Lightsail.Types
     cTags,
 
     -- * CloudFormationStackRecord
-    CloudFormationStackRecord,
-    cloudFormationStackRecord,
+    CloudFormationStackRecord (..),
+    mkCloudFormationStackRecord,
     cfsrState,
     cfsrDestinationInfo,
     cfsrResourceType,
@@ -347,15 +345,15 @@ module Network.AWS.Lightsail.Types
     cfsrSourceInfo,
 
     -- * CloudFormationStackRecordSourceInfo
-    CloudFormationStackRecordSourceInfo,
-    cloudFormationStackRecordSourceInfo,
+    CloudFormationStackRecordSourceInfo (..),
+    mkCloudFormationStackRecordSourceInfo,
     cfsrsiResourceType,
     cfsrsiArn,
     cfsrsiName,
 
     -- * ContactMethod
-    ContactMethod,
-    contactMethod,
+    ContactMethod (..),
+    mkContactMethod,
     cmStatus,
     cmResourceType,
     cmArn,
@@ -367,23 +365,23 @@ module Network.AWS.Lightsail.Types
     cmContactEndpoint,
 
     -- * Container
-    Container,
-    container,
+    Container (..),
+    mkContainer,
     cImage,
     cCommand,
     cEnvironment,
     cPorts,
 
     -- * ContainerImage
-    ContainerImage,
-    containerImage,
+    ContainerImage (..),
+    mkContainerImage,
     ciImage,
     ciCreatedAt,
     ciDigest,
 
     -- * ContainerService
-    ContainerService,
-    containerService,
+    ContainerService (..),
+    mkContainerService,
     csState,
     csPowerId,
     csResourceType,
@@ -403,8 +401,8 @@ module Network.AWS.Lightsail.Types
     csTags,
 
     -- * ContainerServiceDeployment
-    ContainerServiceDeployment,
-    containerServiceDeployment,
+    ContainerServiceDeployment (..),
+    mkContainerServiceDeployment,
     csdState,
     csdPublicEndpoint,
     csdCreatedAt,
@@ -412,21 +410,21 @@ module Network.AWS.Lightsail.Types
     csdVersion,
 
     -- * ContainerServiceDeploymentRequest
-    ContainerServiceDeploymentRequest,
-    containerServiceDeploymentRequest,
+    ContainerServiceDeploymentRequest (..),
+    mkContainerServiceDeploymentRequest,
     csdrPublicEndpoint,
     csdrContainers,
 
     -- * ContainerServiceEndpoint
-    ContainerServiceEndpoint,
-    containerServiceEndpoint,
+    ContainerServiceEndpoint (..),
+    mkContainerServiceEndpoint,
     cseHealthCheck,
     cseContainerName,
     cseContainerPort,
 
     -- * ContainerServiceHealthCheckConfig
-    ContainerServiceHealthCheckConfig,
-    containerServiceHealthCheckConfig,
+    ContainerServiceHealthCheckConfig (..),
+    mkContainerServiceHealthCheckConfig,
     cshccHealthyThreshold,
     cshccPath,
     cshccSuccessCodes,
@@ -435,14 +433,14 @@ module Network.AWS.Lightsail.Types
     cshccUnhealthyThreshold,
 
     -- * ContainerServiceLogEvent
-    ContainerServiceLogEvent,
-    containerServiceLogEvent,
+    ContainerServiceLogEvent (..),
+    mkContainerServiceLogEvent,
     csleCreatedAt,
     csleMessage,
 
     -- * ContainerServicePower
-    ContainerServicePower,
-    containerServicePower,
+    ContainerServicePower (..),
+    mkContainerServicePower,
     cspPowerId,
     cspCpuCount,
     cspName,
@@ -451,28 +449,28 @@ module Network.AWS.Lightsail.Types
     cspRamSizeInGb,
 
     -- * ContainerServiceRegistryLogin
-    ContainerServiceRegistryLogin,
-    containerServiceRegistryLogin,
+    ContainerServiceRegistryLogin (..),
+    mkContainerServiceRegistryLogin,
     csrlExpiresAt,
     csrlUsername,
     csrlPassword,
     csrlRegistry,
 
     -- * CookieObject
-    CookieObject,
-    cookieObject,
+    CookieObject (..),
+    mkCookieObject,
     coCookiesAllowList,
     coOption,
 
     -- * DestinationInfo
-    DestinationInfo,
-    destinationInfo,
+    DestinationInfo (..),
+    mkDestinationInfo,
     diService,
     diId,
 
     -- * Disk
-    Disk,
-    disk,
+    Disk (..),
+    mkDisk,
     dState,
     dResourceType,
     dArn,
@@ -492,22 +490,22 @@ module Network.AWS.Lightsail.Types
     dTags,
 
     -- * DiskInfo
-    DiskInfo,
-    diskInfo,
+    DiskInfo (..),
+    mkDiskInfo,
     diPath,
     diName,
     diSizeInGb,
     diIsSystemDisk,
 
     -- * DiskMap
-    DiskMap,
-    diskMap,
+    DiskMap (..),
+    mkDiskMap,
     dmNewDiskName,
     dmOriginalDiskPath,
 
     -- * DiskSnapshot
-    DiskSnapshot,
-    diskSnapshot,
+    DiskSnapshot (..),
+    mkDiskSnapshot,
     dsFromDiskName,
     dsIsFromAutoSnapshot,
     dsState,
@@ -525,13 +523,13 @@ module Network.AWS.Lightsail.Types
     dsTags,
 
     -- * DiskSnapshotInfo
-    DiskSnapshotInfo,
-    diskSnapshotInfo,
+    DiskSnapshotInfo (..),
+    mkDiskSnapshotInfo,
     dsiSizeInGb,
 
     -- * DistributionBundle
-    DistributionBundle,
-    distributionBundle,
+    DistributionBundle (..),
+    mkDistributionBundle,
     dbTransferPerMonthInGb,
     dbBundleId,
     dbName,
@@ -539,8 +537,8 @@ module Network.AWS.Lightsail.Types
     dbIsActive,
 
     -- * Domain
-    Domain,
-    domain,
+    Domain (..),
+    mkDomain,
     domResourceType,
     domDomainEntries,
     domArn,
@@ -551,8 +549,8 @@ module Network.AWS.Lightsail.Types
     domTags,
 
     -- * DomainEntry
-    DomainEntry,
-    domainEntry,
+    DomainEntry (..),
+    mkDomainEntry,
     deIsAlias,
     deName,
     deId,
@@ -561,21 +559,21 @@ module Network.AWS.Lightsail.Types
     deTarget,
 
     -- * DomainValidationRecord
-    DomainValidationRecord,
-    domainValidationRecord,
+    DomainValidationRecord (..),
+    mkDomainValidationRecord,
     dvrResourceRecord,
     dvrDomainName,
 
     -- * EndpointRequest
-    EndpointRequest,
-    endpointRequest,
+    EndpointRequest (..),
+    mkEndpointRequest,
     erHealthCheck,
     erContainerName,
     erContainerPort,
 
     -- * ExportSnapshotRecord
-    ExportSnapshotRecord,
-    exportSnapshotRecord,
+    ExportSnapshotRecord (..),
+    mkExportSnapshotRecord,
     esrState,
     esrDestinationInfo,
     esrResourceType,
@@ -586,8 +584,8 @@ module Network.AWS.Lightsail.Types
     esrSourceInfo,
 
     -- * ExportSnapshotRecordSourceInfo
-    ExportSnapshotRecordSourceInfo,
-    exportSnapshotRecordSourceInfo,
+    ExportSnapshotRecordSourceInfo (..),
+    mkExportSnapshotRecordSourceInfo,
     esrsiDiskSnapshotInfo,
     esrsiResourceType,
     esrsiArn,
@@ -598,14 +596,14 @@ module Network.AWS.Lightsail.Types
     esrsiFromResourceName,
 
     -- * HeaderObject
-    HeaderObject,
-    headerObject,
+    HeaderObject (..),
+    mkHeaderObject,
     hoHeadersAllowList,
     hoOption,
 
     -- * HostKeyAttributes
-    HostKeyAttributes,
-    hostKeyAttributes,
+    HostKeyAttributes (..),
+    mkHostKeyAttributes,
     hkaNotValidAfter,
     hkaNotValidBefore,
     hkaFingerprintSHA1,
@@ -615,15 +613,15 @@ module Network.AWS.Lightsail.Types
     hkaFingerprintSHA256,
 
     -- * InputOrigin
-    InputOrigin,
-    inputOrigin,
+    InputOrigin (..),
+    mkInputOrigin,
     ioRegionName,
     ioName,
     ioProtocolPolicy,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iState,
     iIpv6Address,
     iResourceType,
@@ -646,8 +644,8 @@ module Network.AWS.Lightsail.Types
     iTags,
 
     -- * InstanceAccessDetails
-    InstanceAccessDetails,
-    instanceAccessDetails,
+    InstanceAccessDetails (..),
+    mkInstanceAccessDetails,
     iadHostKeys,
     iadCertKey,
     iadIpAddress,
@@ -660,8 +658,8 @@ module Network.AWS.Lightsail.Types
     iadInstanceName,
 
     -- * InstanceEntry
-    InstanceEntry,
-    instanceEntry,
+    InstanceEntry (..),
+    mkInstanceEntry,
     ieUserData,
     ieSourceName,
     ieInstanceType,
@@ -669,28 +667,28 @@ module Network.AWS.Lightsail.Types
     ieAvailabilityZone,
 
     -- * InstanceHardware
-    InstanceHardware,
-    instanceHardware,
+    InstanceHardware (..),
+    mkInstanceHardware,
     ihCpuCount,
     ihDisks,
     ihRamSizeInGb,
 
     -- * InstanceHealthSummary
-    InstanceHealthSummary,
-    instanceHealthSummary,
+    InstanceHealthSummary (..),
+    mkInstanceHealthSummary,
     ihsInstanceHealth,
     ihsInstanceName,
     ihsInstanceHealthReason,
 
     -- * InstanceNetworking
-    InstanceNetworking,
-    instanceNetworking,
+    InstanceNetworking (..),
+    mkInstanceNetworking,
     inMonthlyTransfer,
     inPorts,
 
     -- * InstancePortInfo
-    InstancePortInfo,
-    instancePortInfo,
+    InstancePortInfo (..),
+    mkInstancePortInfo,
     ipiFromPort,
     ipiCidrs,
     ipiCommonName,
@@ -702,8 +700,8 @@ module Network.AWS.Lightsail.Types
     ipiAccessFrom,
 
     -- * InstancePortState
-    InstancePortState,
-    instancePortState,
+    InstancePortState (..),
+    mkInstancePortState,
     ipsFromPort,
     ipsCidrs,
     ipsState,
@@ -712,8 +710,8 @@ module Network.AWS.Lightsail.Types
     ipsToPort,
 
     -- * InstanceSnapshot
-    InstanceSnapshot,
-    instanceSnapshot,
+    InstanceSnapshot (..),
+    mkInstanceSnapshot,
     insFromBlueprintId,
     insIsFromAutoSnapshot,
     insState,
@@ -732,21 +730,21 @@ module Network.AWS.Lightsail.Types
     insTags,
 
     -- * InstanceSnapshotInfo
-    InstanceSnapshotInfo,
-    instanceSnapshotInfo,
+    InstanceSnapshotInfo (..),
+    mkInstanceSnapshotInfo,
     isiFromBlueprintId,
     isiFromBundleId,
     isiFromDiskInfo,
 
     -- * InstanceState
-    InstanceState,
-    instanceState,
+    InstanceState (..),
+    mkInstanceState,
     isName,
     isCode,
 
     -- * KeyPair
-    KeyPair,
-    keyPair,
+    KeyPair (..),
+    mkKeyPair,
     kpResourceType,
     kpArn,
     kpCreatedAt,
@@ -757,8 +755,8 @@ module Network.AWS.Lightsail.Types
     kpTags,
 
     -- * LightsailDistribution
-    LightsailDistribution,
-    lightsailDistribution,
+    LightsailDistribution (..),
+    mkLightsailDistribution,
     ldStatus,
     ldOrigin,
     ldCertificateName,
@@ -780,8 +778,8 @@ module Network.AWS.Lightsail.Types
     ldTags,
 
     -- * LoadBalancer
-    LoadBalancer,
-    loadBalancer,
+    LoadBalancer (..),
+    mkLoadBalancer,
     lbHealthCheckPath,
     lbState,
     lbResourceType,
@@ -800,8 +798,8 @@ module Network.AWS.Lightsail.Types
     lbTags,
 
     -- * LoadBalancerTLSCertificate
-    LoadBalancerTLSCertificate,
-    loadBalancerTLSCertificate,
+    LoadBalancerTLSCertificate (..),
+    mkLoadBalancerTLSCertificate,
     lbtcFailureReason,
     lbtcSubject,
     lbtcStatus,
@@ -829,14 +827,14 @@ module Network.AWS.Lightsail.Types
     lbtcNotAfter,
 
     -- * LoadBalancerTLSCertificateDomainValidationOption
-    LoadBalancerTLSCertificateDomainValidationOption,
-    loadBalancerTLSCertificateDomainValidationOption,
+    LoadBalancerTLSCertificateDomainValidationOption (..),
+    mkLoadBalancerTLSCertificateDomainValidationOption,
     lbtcdvoDomainName,
     lbtcdvoValidationStatus,
 
     -- * LoadBalancerTLSCertificateDomainValidationRecord
-    LoadBalancerTLSCertificateDomainValidationRecord,
-    loadBalancerTLSCertificateDomainValidationRecord,
+    LoadBalancerTLSCertificateDomainValidationRecord (..),
+    mkLoadBalancerTLSCertificateDomainValidationRecord,
     lbtcdvrValue,
     lbtcdvrDomainName,
     lbtcdvrName,
@@ -844,26 +842,26 @@ module Network.AWS.Lightsail.Types
     lbtcdvrType,
 
     -- * LoadBalancerTLSCertificateRenewalSummary
-    LoadBalancerTLSCertificateRenewalSummary,
-    loadBalancerTLSCertificateRenewalSummary,
+    LoadBalancerTLSCertificateRenewalSummary (..),
+    mkLoadBalancerTLSCertificateRenewalSummary,
     lbtcrsRenewalStatus,
     lbtcrsDomainValidationOptions,
 
     -- * LoadBalancerTLSCertificateSummary
-    LoadBalancerTLSCertificateSummary,
-    loadBalancerTLSCertificateSummary,
+    LoadBalancerTLSCertificateSummary (..),
+    mkLoadBalancerTLSCertificateSummary,
     lbtcsIsAttached,
     lbtcsName,
 
     -- * LogEvent
-    LogEvent,
-    logEvent,
+    LogEvent (..),
+    mkLogEvent,
     leCreatedAt,
     leMessage,
 
     -- * MetricDatapoint
-    MetricDatapoint,
-    metricDatapoint,
+    MetricDatapoint (..),
+    mkMetricDatapoint,
     mdSampleCount,
     mdMaximum,
     mdAverage,
@@ -873,20 +871,20 @@ module Network.AWS.Lightsail.Types
     mdUnit,
 
     -- * MonitoredResourceInfo
-    MonitoredResourceInfo,
-    monitoredResourceInfo,
+    MonitoredResourceInfo (..),
+    mkMonitoredResourceInfo,
     mriResourceType,
     mriArn,
     mriName,
 
     -- * MonthlyTransfer
-    MonthlyTransfer,
-    monthlyTransfer,
+    MonthlyTransfer (..),
+    mkMonthlyTransfer,
     mtGbPerMonthAllocated,
 
     -- * Operation
-    Operation,
-    operation,
+    Operation (..),
+    mkOperation,
     opeStatus,
     opeOperationDetails,
     opeResourceType,
@@ -901,36 +899,36 @@ module Network.AWS.Lightsail.Types
     opeIsTerminal,
 
     -- * Origin
-    Origin,
-    origin,
+    Origin (..),
+    mkOrigin,
     oRegionName,
     oResourceType,
     oName,
     oProtocolPolicy,
 
     -- * PasswordData
-    PasswordData,
-    passwordData,
+    PasswordData (..),
+    mkPasswordData,
     pdKeyPairName,
     pdCiphertext,
 
     -- * PendingMaintenanceAction
-    PendingMaintenanceAction,
-    pendingMaintenanceAction,
+    PendingMaintenanceAction (..),
+    mkPendingMaintenanceAction,
     pmaAction,
     pmaDescription,
     pmaCurrentApplyDate,
 
     -- * PendingModifiedRelationalDatabaseValues
-    PendingModifiedRelationalDatabaseValues,
-    pendingModifiedRelationalDatabaseValues,
+    PendingModifiedRelationalDatabaseValues (..),
+    mkPendingModifiedRelationalDatabaseValues,
     pmrdvEngineVersion,
     pmrdvMasterUserPassword,
     pmrdvBackupRetentionEnabled,
 
     -- * PortInfo
-    PortInfo,
-    portInfo,
+    PortInfo (..),
+    mkPortInfo,
     piFromPort,
     piCidrs,
     piProtocol,
@@ -938,14 +936,14 @@ module Network.AWS.Lightsail.Types
     piToPort,
 
     -- * QueryStringObject
-    QueryStringObject,
-    queryStringObject,
+    QueryStringObject (..),
+    mkQueryStringObject,
     qsoQueryStringsAllowList,
     qsoOption,
 
     -- * RegionInfo
-    RegionInfo,
-    regionInfo,
+    RegionInfo (..),
+    mkRegionInfo,
     riAvailabilityZones,
     riName,
     riRelationalDatabaseAvailabilityZones,
@@ -954,8 +952,8 @@ module Network.AWS.Lightsail.Types
     riDescription,
 
     -- * RelationalDatabase
-    RelationalDatabase,
-    relationalDatabase,
+    RelationalDatabase (..),
+    mkRelationalDatabase,
     rdEngineVersion,
     rdRelationalDatabaseBundleId,
     rdMasterEndpoint,
@@ -984,8 +982,8 @@ module Network.AWS.Lightsail.Types
     rdTags,
 
     -- * RelationalDatabaseBlueprint
-    RelationalDatabaseBlueprint,
-    relationalDatabaseBlueprint,
+    RelationalDatabaseBlueprint (..),
+    mkRelationalDatabaseBlueprint,
     rdbEngineVersion,
     rdbIsEngineDefault,
     rdbEngineVersionDescription,
@@ -994,8 +992,8 @@ module Network.AWS.Lightsail.Types
     rdbEngineDescription,
 
     -- * RelationalDatabaseBundle
-    RelationalDatabaseBundle,
-    relationalDatabaseBundle,
+    RelationalDatabaseBundle (..),
+    mkRelationalDatabaseBundle,
     rdbIsEncrypted,
     rdbCpuCount,
     rdbTransferPerMonthInGb,
@@ -1007,29 +1005,29 @@ module Network.AWS.Lightsail.Types
     rdbRamSizeInGb,
 
     -- * RelationalDatabaseEndpoint
-    RelationalDatabaseEndpoint,
-    relationalDatabaseEndpoint,
+    RelationalDatabaseEndpoint (..),
+    mkRelationalDatabaseEndpoint,
     rdeAddress,
     rdePort,
 
     -- * RelationalDatabaseEvent
-    RelationalDatabaseEvent,
-    relationalDatabaseEvent,
+    RelationalDatabaseEvent (..),
+    mkRelationalDatabaseEvent,
     rdeCreatedAt,
     rdeEventCategories,
     rdeResource,
     rdeMessage,
 
     -- * RelationalDatabaseHardware
-    RelationalDatabaseHardware,
-    relationalDatabaseHardware,
+    RelationalDatabaseHardware (..),
+    mkRelationalDatabaseHardware,
     rdhCpuCount,
     rdhDiskSizeInGb,
     rdhRamSizeInGb,
 
     -- * RelationalDatabaseParameter
-    RelationalDatabaseParameter,
-    relationalDatabaseParameter,
+    RelationalDatabaseParameter (..),
+    mkRelationalDatabaseParameter,
     rdpApplyType,
     rdpParameterValue,
     rdpApplyMethod,
@@ -1040,8 +1038,8 @@ module Network.AWS.Lightsail.Types
     rdpDescription,
 
     -- * RelationalDatabaseSnapshot
-    RelationalDatabaseSnapshot,
-    relationalDatabaseSnapshot,
+    RelationalDatabaseSnapshot (..),
+    mkRelationalDatabaseSnapshot,
     rdsEngineVersion,
     rdsState,
     rdsFromRelationalDatabaseName,
@@ -1059,29 +1057,29 @@ module Network.AWS.Lightsail.Types
     rdsTags,
 
     -- * RenewalSummary
-    RenewalSummary,
-    renewalSummary,
+    RenewalSummary (..),
+    mkRenewalSummary,
     rsRenewalStatus,
     rsDomainValidationRecords,
     rsUpdatedAt,
     rsRenewalStatusReason,
 
     -- * ResourceLocation
-    ResourceLocation,
-    resourceLocation,
+    ResourceLocation (..),
+    mkResourceLocation,
     rlRegionName,
     rlAvailabilityZone,
 
     -- * ResourceRecord
-    ResourceRecord,
-    resourceRecord,
+    ResourceRecord (..),
+    mkResourceRecord,
     rrValue,
     rrName,
     rrType,
 
     -- * StaticIP
-    StaticIP,
-    staticIP,
+    StaticIP (..),
+    mkStaticIP,
     siIpAddress,
     siResourceType,
     siArn,
@@ -1093,14 +1091,14 @@ module Network.AWS.Lightsail.Types
     siAttachedTo,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.AccessDirection
 import Network.AWS.Lightsail.Types.AddOn
 import Network.AWS.Lightsail.Types.AddOnRequest
@@ -1245,47 +1243,59 @@ import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.StaticIP
 import Network.AWS.Lightsail.Types.Tag
 import Network.AWS.Lightsail.Types.TreatMissingData
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-11-28@ of the Amazon Lightsail SDK configuration.
-lightsail :: Service
-lightsail =
-  Service
-    { _svcAbbrev = "Lightsail",
-      _svcSigner = v4,
-      _svcPrefix = "lightsail",
-      _svcVersion = "2016-11-28",
-      _svcEndpoint = defaultEndpoint lightsail,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Lightsail",
-      _svcRetry = retry
+lightsailService :: Lude.Service
+lightsailService =
+  Lude.Service
+    { Lude._svcAbbrev = "Lightsail",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "lightsail",
+      Lude._svcVersion = "2016-11-28",
+      Lude._svcEndpoint = Lude.defaultEndpoint lightsailService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Lightsail",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

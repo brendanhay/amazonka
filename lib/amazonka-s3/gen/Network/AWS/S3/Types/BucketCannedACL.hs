@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.BucketCannedACL where
+module Network.AWS.S3.Types.BucketCannedACL
+  ( BucketCannedACL
+      ( BucketCannedACL',
+        BAuthenticatedRead,
+        BPrivate,
+        BPublicRead,
+        BPublicReadWrite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data BucketCannedACL
-  = BAuthenticatedRead
-  | BPrivate
-  | BPublicRead
-  | BPublicReadWrite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BucketCannedACL = BucketCannedACL' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BucketCannedACL where
-  parser =
-    takeLowerText >>= \case
-      "authenticated-read" -> pure BAuthenticatedRead
-      "private" -> pure BPrivate
-      "public-read" -> pure BPublicRead
-      "public-read-write" -> pure BPublicReadWrite
-      e ->
-        fromTextError $
-          "Failure parsing BucketCannedACL from value: '" <> e
-            <> "'. Accepted values: authenticated-read, private, public-read, public-read-write"
+pattern BAuthenticatedRead :: BucketCannedACL
+pattern BAuthenticatedRead = BucketCannedACL' "authenticated-read"
 
-instance ToText BucketCannedACL where
-  toText = \case
-    BAuthenticatedRead -> "authenticated-read"
-    BPrivate -> "private"
-    BPublicRead -> "public-read"
-    BPublicReadWrite -> "public-read-write"
+pattern BPrivate :: BucketCannedACL
+pattern BPrivate = BucketCannedACL' "private"
 
-instance Hashable BucketCannedACL
+pattern BPublicRead :: BucketCannedACL
+pattern BPublicRead = BucketCannedACL' "public-read"
 
-instance NFData BucketCannedACL
+pattern BPublicReadWrite :: BucketCannedACL
+pattern BPublicReadWrite = BucketCannedACL' "public-read-write"
 
-instance ToByteString BucketCannedACL
-
-instance ToQuery BucketCannedACL
-
-instance ToHeader BucketCannedACL
-
-instance ToXML BucketCannedACL where
-  toXML = toXMLText
+{-# COMPLETE
+  BAuthenticatedRead,
+  BPrivate,
+  BPublicRead,
+  BPublicReadWrite,
+  BucketCannedACL'
+  #-}

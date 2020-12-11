@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.AssignmentStatus where
+module Network.AWS.MechanicalTurk.Types.AssignmentStatus
+  ( AssignmentStatus
+      ( AssignmentStatus',
+        Approved,
+        Rejected,
+        Submitted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssignmentStatus
-  = Approved
-  | Rejected
-  | Submitted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssignmentStatus = AssignmentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssignmentStatus where
-  parser =
-    takeLowerText >>= \case
-      "approved" -> pure Approved
-      "rejected" -> pure Rejected
-      "submitted" -> pure Submitted
-      e ->
-        fromTextError $
-          "Failure parsing AssignmentStatus from value: '" <> e
-            <> "'. Accepted values: approved, rejected, submitted"
+pattern Approved :: AssignmentStatus
+pattern Approved = AssignmentStatus' "Approved"
 
-instance ToText AssignmentStatus where
-  toText = \case
-    Approved -> "Approved"
-    Rejected -> "Rejected"
-    Submitted -> "Submitted"
+pattern Rejected :: AssignmentStatus
+pattern Rejected = AssignmentStatus' "Rejected"
 
-instance Hashable AssignmentStatus
+pattern Submitted :: AssignmentStatus
+pattern Submitted = AssignmentStatus' "Submitted"
 
-instance NFData AssignmentStatus
-
-instance ToByteString AssignmentStatus
-
-instance ToQuery AssignmentStatus
-
-instance ToHeader AssignmentStatus
-
-instance ToJSON AssignmentStatus where
-  toJSON = toJSONText
-
-instance FromJSON AssignmentStatus where
-  parseJSON = parseJSONText "AssignmentStatus"
+{-# COMPLETE
+  Approved,
+  Rejected,
+  Submitted,
+  AssignmentStatus'
+  #-}

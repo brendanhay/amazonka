@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceStatusSummary where
+module Network.AWS.EC2.Types.InstanceStatusSummary
+  ( InstanceStatusSummary (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceStatusSummary,
+
+    -- * Lenses
+    issDetails,
+    issStatus,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceStatusDetails
 import Network.AWS.EC2.Types.SummaryStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the status of an instance.
 --
---
---
--- /See:/ 'instanceStatusSummary' smart constructor.
+-- /See:/ 'mkInstanceStatusSummary' smart constructor.
 data InstanceStatusSummary = InstanceStatusSummary'
-  { _issDetails ::
-      !(Maybe [InstanceStatusDetails]),
-    _issStatus :: !SummaryStatus
+  { details ::
+      Lude.Maybe [InstanceStatusDetails],
+    status :: SummaryStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStatusSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'issDetails' - The system instance health or application instance health.
---
--- * 'issStatus' - The status.
-instanceStatusSummary ::
-  -- | 'issStatus'
+-- * 'details' - The system instance health or application instance health.
+-- * 'status' - The status.
+mkInstanceStatusSummary ::
+  -- | 'status'
   SummaryStatus ->
   InstanceStatusSummary
-instanceStatusSummary pStatus_ =
-  InstanceStatusSummary'
-    { _issDetails = Nothing,
-      _issStatus = pStatus_
-    }
+mkInstanceStatusSummary pStatus_ =
+  InstanceStatusSummary' {details = Lude.Nothing, status = pStatus_}
 
 -- | The system instance health or application instance health.
-issDetails :: Lens' InstanceStatusSummary [InstanceStatusDetails]
-issDetails = lens _issDetails (\s a -> s {_issDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issDetails :: Lens.Lens' InstanceStatusSummary (Lude.Maybe [InstanceStatusDetails])
+issDetails = Lens.lens (details :: InstanceStatusSummary -> Lude.Maybe [InstanceStatusDetails]) (\s a -> s {details = a} :: InstanceStatusSummary)
+{-# DEPRECATED issDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The status.
-issStatus :: Lens' InstanceStatusSummary SummaryStatus
-issStatus = lens _issStatus (\s a -> s {_issStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issStatus :: Lens.Lens' InstanceStatusSummary SummaryStatus
+issStatus = Lens.lens (status :: InstanceStatusSummary -> SummaryStatus) (\s a -> s {status = a} :: InstanceStatusSummary)
+{-# DEPRECATED issStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML InstanceStatusSummary where
+instance Lude.FromXML InstanceStatusSummary where
   parseXML x =
     InstanceStatusSummary'
-      <$> (x .@? "details" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@ "status")
-
-instance Hashable InstanceStatusSummary
-
-instance NFData InstanceStatusSummary
+      Lude.<$> ( x Lude..@? "details" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@ "status")

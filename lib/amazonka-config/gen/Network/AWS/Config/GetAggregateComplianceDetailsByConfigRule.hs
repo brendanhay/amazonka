@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns the evaluation results for the specified AWS Config rule for a specific resource in a rule. The results indicate which AWS resources were evaluated by the rule, when each resource was last evaluated, and whether each resource complies with the rule.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
-  ( -- * Creating a Request
-    getAggregateComplianceDetailsByConfigRule,
-    GetAggregateComplianceDetailsByConfigRule,
+  ( -- * Creating a request
+    GetAggregateComplianceDetailsByConfigRule (..),
+    mkGetAggregateComplianceDetailsByConfigRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gacdbcrNextToken,
     gacdbcrLimit,
     gacdbcrComplianceType,
@@ -36,11 +29,11 @@ module Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
     gacdbcrAccountId,
     gacdbcrAWSRegion,
 
-    -- * Destructuring the Response
-    getAggregateComplianceDetailsByConfigRuleResponse,
-    GetAggregateComplianceDetailsByConfigRuleResponse,
+    -- * Destructuring the response
+    GetAggregateComplianceDetailsByConfigRuleResponse (..),
+    mkGetAggregateComplianceDetailsByConfigRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gacdbcrrsNextToken,
     gacdbcrrsAggregateEvaluationResults,
     gacdbcrrsResponseStatus,
@@ -48,230 +41,244 @@ module Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAggregateComplianceDetailsByConfigRule' smart constructor.
+-- | /See:/ 'mkGetAggregateComplianceDetailsByConfigRule' smart constructor.
 data GetAggregateComplianceDetailsByConfigRule = GetAggregateComplianceDetailsByConfigRule'
-  { _gacdbcrNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gacdbcrLimit ::
-      !( Maybe
-           Nat
-       ),
-    _gacdbcrComplianceType ::
-      !( Maybe
-           ComplianceType
-       ),
-    _gacdbcrConfigurationAggregatorName ::
-      !Text,
-    _gacdbcrConfigRuleName ::
-      !Text,
-    _gacdbcrAccountId ::
-      !Text,
-    _gacdbcrAWSRegion ::
-      !Text
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    complianceType ::
+      Lude.Maybe
+        ComplianceType,
+    configurationAggregatorName ::
+      Lude.Text,
+    configRuleName ::
+      Lude.Text,
+    accountId ::
+      Lude.Text,
+    awsRegion ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateComplianceDetailsByConfigRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacdbcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gacdbcrLimit' - The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
---
--- * 'gacdbcrComplianceType' - The resource compliance status.
---
--- * 'gacdbcrConfigurationAggregatorName' - The name of the configuration aggregator.
---
--- * 'gacdbcrConfigRuleName' - The name of the AWS Config rule for which you want compliance information.
---
--- * 'gacdbcrAccountId' - The 12-digit account ID of the source account.
---
--- * 'gacdbcrAWSRegion' - The source region from where the data is aggregated.
-getAggregateComplianceDetailsByConfigRule ::
-  -- | 'gacdbcrConfigurationAggregatorName'
-  Text ->
-  -- | 'gacdbcrConfigRuleName'
-  Text ->
-  -- | 'gacdbcrAccountId'
-  Text ->
-  -- | 'gacdbcrAWSRegion'
-  Text ->
+-- * 'accountId' - The 12-digit account ID of the source account.
+-- * 'awsRegion' - The source region from where the data is aggregated.
+-- * 'complianceType' - The resource compliance status.
+-- * 'configRuleName' - The name of the AWS Config rule for which you want compliance information.
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkGetAggregateComplianceDetailsByConfigRule ::
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
+  -- | 'configRuleName'
+  Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'awsRegion'
+  Lude.Text ->
   GetAggregateComplianceDetailsByConfigRule
-getAggregateComplianceDetailsByConfigRule
+mkGetAggregateComplianceDetailsByConfigRule
   pConfigurationAggregatorName_
   pConfigRuleName_
   pAccountId_
   pAWSRegion_ =
     GetAggregateComplianceDetailsByConfigRule'
-      { _gacdbcrNextToken =
-          Nothing,
-        _gacdbcrLimit = Nothing,
-        _gacdbcrComplianceType = Nothing,
-        _gacdbcrConfigurationAggregatorName =
+      { nextToken =
+          Lude.Nothing,
+        limit = Lude.Nothing,
+        complianceType = Lude.Nothing,
+        configurationAggregatorName =
           pConfigurationAggregatorName_,
-        _gacdbcrConfigRuleName = pConfigRuleName_,
-        _gacdbcrAccountId = pAccountId_,
-        _gacdbcrAWSRegion = pAWSRegion_
+        configRuleName = pConfigRuleName_,
+        accountId = pAccountId_,
+        awsRegion = pAWSRegion_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gacdbcrNextToken :: Lens' GetAggregateComplianceDetailsByConfigRule (Maybe Text)
-gacdbcrNextToken = lens _gacdbcrNextToken (\s a -> s {_gacdbcrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrNextToken :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Lude.Maybe Lude.Text)
+gacdbcrNextToken = Lens.lens (nextToken :: GetAggregateComplianceDetailsByConfigRule -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-gacdbcrLimit :: Lens' GetAggregateComplianceDetailsByConfigRule (Maybe Natural)
-gacdbcrLimit = lens _gacdbcrLimit (\s a -> s {_gacdbcrLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrLimit :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Lude.Maybe Lude.Natural)
+gacdbcrLimit = Lens.lens (limit :: GetAggregateComplianceDetailsByConfigRule -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The resource compliance status.
-gacdbcrComplianceType :: Lens' GetAggregateComplianceDetailsByConfigRule (Maybe ComplianceType)
-gacdbcrComplianceType = lens _gacdbcrComplianceType (\s a -> s {_gacdbcrComplianceType = a})
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrComplianceType :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Lude.Maybe ComplianceType)
+gacdbcrComplianceType = Lens.lens (complianceType :: GetAggregateComplianceDetailsByConfigRule -> Lude.Maybe ComplianceType) (\s a -> s {complianceType = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
 -- | The name of the configuration aggregator.
-gacdbcrConfigurationAggregatorName :: Lens' GetAggregateComplianceDetailsByConfigRule Text
-gacdbcrConfigurationAggregatorName = lens _gacdbcrConfigurationAggregatorName (\s a -> s {_gacdbcrConfigurationAggregatorName = a})
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrConfigurationAggregatorName :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Lude.Text
+gacdbcrConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: GetAggregateComplianceDetailsByConfigRule -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
 -- | The name of the AWS Config rule for which you want compliance information.
-gacdbcrConfigRuleName :: Lens' GetAggregateComplianceDetailsByConfigRule Text
-gacdbcrConfigRuleName = lens _gacdbcrConfigRuleName (\s a -> s {_gacdbcrConfigRuleName = a})
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrConfigRuleName :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Lude.Text
+gacdbcrConfigRuleName = Lens.lens (configRuleName :: GetAggregateComplianceDetailsByConfigRule -> Lude.Text) (\s a -> s {configRuleName = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | The 12-digit account ID of the source account.
-gacdbcrAccountId :: Lens' GetAggregateComplianceDetailsByConfigRule Text
-gacdbcrAccountId = lens _gacdbcrAccountId (\s a -> s {_gacdbcrAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrAccountId :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Lude.Text
+gacdbcrAccountId = Lens.lens (accountId :: GetAggregateComplianceDetailsByConfigRule -> Lude.Text) (\s a -> s {accountId = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The source region from where the data is aggregated.
-gacdbcrAWSRegion :: Lens' GetAggregateComplianceDetailsByConfigRule Text
-gacdbcrAWSRegion = lens _gacdbcrAWSRegion (\s a -> s {_gacdbcrAWSRegion = a})
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrAWSRegion :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Lude.Text
+gacdbcrAWSRegion = Lens.lens (awsRegion :: GetAggregateComplianceDetailsByConfigRule -> Lude.Text) (\s a -> s {awsRegion = a} :: GetAggregateComplianceDetailsByConfigRule)
+{-# DEPRECATED gacdbcrAWSRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
-instance AWSPager GetAggregateComplianceDetailsByConfigRule where
+instance Page.AWSPager GetAggregateComplianceDetailsByConfigRule where
   page rq rs
-    | stop (rs ^. gacdbcrrsNextToken) = Nothing
-    | stop (rs ^. gacdbcrrsAggregateEvaluationResults) = Nothing
-    | otherwise =
-      Just $ rq & gacdbcrNextToken .~ rs ^. gacdbcrrsNextToken
+    | Page.stop (rs Lens.^. gacdbcrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gacdbcrrsAggregateEvaluationResults) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gacdbcrNextToken Lens..~ rs Lens.^. gacdbcrrsNextToken
 
-instance AWSRequest GetAggregateComplianceDetailsByConfigRule where
+instance Lude.AWSRequest GetAggregateComplianceDetailsByConfigRule where
   type
     Rs GetAggregateComplianceDetailsByConfigRule =
       GetAggregateComplianceDetailsByConfigRuleResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAggregateComplianceDetailsByConfigRuleResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "AggregateEvaluationResults" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "AggregateEvaluationResults" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAggregateComplianceDetailsByConfigRule
-
-instance NFData GetAggregateComplianceDetailsByConfigRule
-
-instance ToHeaders GetAggregateComplianceDetailsByConfigRule where
+instance Lude.ToHeaders GetAggregateComplianceDetailsByConfigRule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAggregateComplianceDetailsByConfigRule where
+instance Lude.ToJSON GetAggregateComplianceDetailsByConfigRule where
   toJSON GetAggregateComplianceDetailsByConfigRule' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gacdbcrNextToken,
-            ("Limit" .=) <$> _gacdbcrLimit,
-            ("ComplianceType" .=) <$> _gacdbcrComplianceType,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("ComplianceType" Lude..=) Lude.<$> complianceType,
+            Lude.Just
               ( "ConfigurationAggregatorName"
-                  .= _gacdbcrConfigurationAggregatorName
+                  Lude..= configurationAggregatorName
               ),
-            Just ("ConfigRuleName" .= _gacdbcrConfigRuleName),
-            Just ("AccountId" .= _gacdbcrAccountId),
-            Just ("AwsRegion" .= _gacdbcrAWSRegion)
+            Lude.Just ("ConfigRuleName" Lude..= configRuleName),
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("AwsRegion" Lude..= awsRegion)
           ]
       )
 
-instance ToPath GetAggregateComplianceDetailsByConfigRule where
-  toPath = const "/"
+instance Lude.ToPath GetAggregateComplianceDetailsByConfigRule where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAggregateComplianceDetailsByConfigRule where
-  toQuery = const mempty
+instance Lude.ToQuery GetAggregateComplianceDetailsByConfigRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAggregateComplianceDetailsByConfigRuleResponse' smart constructor.
+-- | /See:/ 'mkGetAggregateComplianceDetailsByConfigRuleResponse' smart constructor.
 data GetAggregateComplianceDetailsByConfigRuleResponse = GetAggregateComplianceDetailsByConfigRuleResponse'
-  { _gacdbcrrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gacdbcrrsAggregateEvaluationResults ::
-      !( Maybe
-           [AggregateEvaluationResult]
-       ),
-    _gacdbcrrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    aggregateEvaluationResults ::
+      Lude.Maybe
+        [AggregateEvaluationResult],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetAggregateComplianceDetailsByConfigRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacdbcrrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gacdbcrrsAggregateEvaluationResults' - Returns an AggregateEvaluationResults object.
---
--- * 'gacdbcrrsResponseStatus' - -- | The response status code.
-getAggregateComplianceDetailsByConfigRuleResponse ::
-  -- | 'gacdbcrrsResponseStatus'
-  Int ->
+-- * 'aggregateEvaluationResults' - Returns an AggregateEvaluationResults object.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkGetAggregateComplianceDetailsByConfigRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAggregateComplianceDetailsByConfigRuleResponse
-getAggregateComplianceDetailsByConfigRuleResponse pResponseStatus_ =
-  GetAggregateComplianceDetailsByConfigRuleResponse'
-    { _gacdbcrrsNextToken =
-        Nothing,
-      _gacdbcrrsAggregateEvaluationResults =
-        Nothing,
-      _gacdbcrrsResponseStatus = pResponseStatus_
-    }
+mkGetAggregateComplianceDetailsByConfigRuleResponse
+  pResponseStatus_ =
+    GetAggregateComplianceDetailsByConfigRuleResponse'
+      { nextToken =
+          Lude.Nothing,
+        aggregateEvaluationResults = Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gacdbcrrsNextToken :: Lens' GetAggregateComplianceDetailsByConfigRuleResponse (Maybe Text)
-gacdbcrrsNextToken = lens _gacdbcrrsNextToken (\s a -> s {_gacdbcrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrrsNextToken :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse (Lude.Maybe Lude.Text)
+gacdbcrrsNextToken = Lens.lens (nextToken :: GetAggregateComplianceDetailsByConfigRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAggregateComplianceDetailsByConfigRuleResponse)
+{-# DEPRECATED gacdbcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns an AggregateEvaluationResults object.
-gacdbcrrsAggregateEvaluationResults :: Lens' GetAggregateComplianceDetailsByConfigRuleResponse [AggregateEvaluationResult]
-gacdbcrrsAggregateEvaluationResults = lens _gacdbcrrsAggregateEvaluationResults (\s a -> s {_gacdbcrrsAggregateEvaluationResults = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aggregateEvaluationResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrrsAggregateEvaluationResults :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse (Lude.Maybe [AggregateEvaluationResult])
+gacdbcrrsAggregateEvaluationResults = Lens.lens (aggregateEvaluationResults :: GetAggregateComplianceDetailsByConfigRuleResponse -> Lude.Maybe [AggregateEvaluationResult]) (\s a -> s {aggregateEvaluationResults = a} :: GetAggregateComplianceDetailsByConfigRuleResponse)
+{-# DEPRECATED gacdbcrrsAggregateEvaluationResults "Use generic-lens or generic-optics with 'aggregateEvaluationResults' instead." #-}
 
--- | -- | The response status code.
-gacdbcrrsResponseStatus :: Lens' GetAggregateComplianceDetailsByConfigRuleResponse Int
-gacdbcrrsResponseStatus = lens _gacdbcrrsResponseStatus (\s a -> s {_gacdbcrrsResponseStatus = a})
-
-instance NFData GetAggregateComplianceDetailsByConfigRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacdbcrrsResponseStatus :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse Lude.Int
+gacdbcrrsResponseStatus = Lens.lens (responseStatus :: GetAggregateComplianceDetailsByConfigRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAggregateComplianceDetailsByConfigRuleResponse)
+{-# DEPRECATED gacdbcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

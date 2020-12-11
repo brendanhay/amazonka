@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,108 @@
 --
 -- Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.
 --
---
 -- To check for pending certificate transfers, call 'ListCertificates' to enumerate your certificates.
 module Network.AWS.IoT.AcceptCertificateTransfer
-  ( -- * Creating a Request
-    acceptCertificateTransfer,
-    AcceptCertificateTransfer,
+  ( -- * Creating a request
+    AcceptCertificateTransfer (..),
+    mkAcceptCertificateTransfer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     actSetAsActive,
     actCertificateId,
 
-    -- * Destructuring the Response
-    acceptCertificateTransferResponse,
-    AcceptCertificateTransferResponse,
+    -- * Destructuring the response
+    AcceptCertificateTransferResponse (..),
+    mkAcceptCertificateTransferResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the AcceptCertificateTransfer operation.
 --
---
---
--- /See:/ 'acceptCertificateTransfer' smart constructor.
+-- /See:/ 'mkAcceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
-  { _actSetAsActive ::
-      !(Maybe Bool),
-    _actCertificateId :: !Text
+  { setAsActive ::
+      Lude.Maybe Lude.Bool,
+    certificateId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptCertificateTransfer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'actSetAsActive' - Specifies whether the certificate is active.
---
--- * 'actCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-acceptCertificateTransfer ::
-  -- | 'actCertificateId'
-  Text ->
+-- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+-- * 'setAsActive' - Specifies whether the certificate is active.
+mkAcceptCertificateTransfer ::
+  -- | 'certificateId'
+  Lude.Text ->
   AcceptCertificateTransfer
-acceptCertificateTransfer pCertificateId_ =
+mkAcceptCertificateTransfer pCertificateId_ =
   AcceptCertificateTransfer'
-    { _actSetAsActive = Nothing,
-      _actCertificateId = pCertificateId_
+    { setAsActive = Lude.Nothing,
+      certificateId = pCertificateId_
     }
 
 -- | Specifies whether the certificate is active.
-actSetAsActive :: Lens' AcceptCertificateTransfer (Maybe Bool)
-actSetAsActive = lens _actSetAsActive (\s a -> s {_actSetAsActive = a})
+--
+-- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+actSetAsActive :: Lens.Lens' AcceptCertificateTransfer (Lude.Maybe Lude.Bool)
+actSetAsActive = Lens.lens (setAsActive :: AcceptCertificateTransfer -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: AcceptCertificateTransfer)
+{-# DEPRECATED actSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-actCertificateId :: Lens' AcceptCertificateTransfer Text
-actCertificateId = lens _actCertificateId (\s a -> s {_actCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+actCertificateId :: Lens.Lens' AcceptCertificateTransfer Lude.Text
+actCertificateId = Lens.lens (certificateId :: AcceptCertificateTransfer -> Lude.Text) (\s a -> s {certificateId = a} :: AcceptCertificateTransfer)
+{-# DEPRECATED actCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest AcceptCertificateTransfer where
+instance Lude.AWSRequest AcceptCertificateTransfer where
   type
     Rs AcceptCertificateTransfer =
       AcceptCertificateTransferResponse
-  request = patchJSON ioT
-  response = receiveNull AcceptCertificateTransferResponse'
+  request = Req.patchJSON ioTService
+  response = Res.receiveNull AcceptCertificateTransferResponse'
 
-instance Hashable AcceptCertificateTransfer
+instance Lude.ToHeaders AcceptCertificateTransfer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AcceptCertificateTransfer
+instance Lude.ToJSON AcceptCertificateTransfer where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders AcceptCertificateTransfer where
-  toHeaders = const mempty
-
-instance ToJSON AcceptCertificateTransfer where
-  toJSON = const (Object mempty)
-
-instance ToPath AcceptCertificateTransfer where
+instance Lude.ToPath AcceptCertificateTransfer where
   toPath AcceptCertificateTransfer' {..} =
-    mconcat ["/accept-certificate-transfer/", toBS _actCertificateId]
+    Lude.mconcat
+      ["/accept-certificate-transfer/", Lude.toBS certificateId]
 
-instance ToQuery AcceptCertificateTransfer where
+instance Lude.ToQuery AcceptCertificateTransfer where
   toQuery AcceptCertificateTransfer' {..} =
-    mconcat ["setAsActive" =: _actSetAsActive]
+    Lude.mconcat ["setAsActive" Lude.=: setAsActive]
 
--- | /See:/ 'acceptCertificateTransferResponse' smart constructor.
+-- | /See:/ 'mkAcceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptCertificateTransferResponse' with the minimum fields required to make a request.
-acceptCertificateTransferResponse ::
+mkAcceptCertificateTransferResponse ::
   AcceptCertificateTransferResponse
-acceptCertificateTransferResponse =
+mkAcceptCertificateTransferResponse =
   AcceptCertificateTransferResponse'
-
-instance NFData AcceptCertificateTransferResponse

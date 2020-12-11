@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,172 @@
 --
 -- Updates an uploaded test spec.
 module Network.AWS.DeviceFarm.UpdateUpload
-  ( -- * Creating a Request
-    updateUpload,
-    UpdateUpload,
+  ( -- * Creating a request
+    UpdateUpload (..),
+    mkUpdateUpload,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuEditContent,
     uuName,
     uuContentType,
     uuArn,
 
-    -- * Destructuring the Response
-    updateUploadResponse,
-    UpdateUploadResponse,
+    -- * Destructuring the response
+    UpdateUploadResponse (..),
+    mkUpdateUploadResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uursUpload,
     uursResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateUpload' smart constructor.
+-- | /See:/ 'mkUpdateUpload' smart constructor.
 data UpdateUpload = UpdateUpload'
-  { _uuEditContent :: !(Maybe Bool),
-    _uuName :: !(Maybe Text),
-    _uuContentType :: !(Maybe Text),
-    _uuArn :: !Text
+  { editContent ::
+      Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUpload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuEditContent' - Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
---
--- * 'uuName' - The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the @.yaml@ or @.yml@ file extension.
---
--- * 'uuContentType' - The upload's content type (for example, @application/x-yaml@ ).
---
--- * 'uuArn' - The Amazon Resource Name (ARN) of the uploaded test spec.
-updateUpload ::
-  -- | 'uuArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the uploaded test spec.
+-- * 'contentType' - The upload's content type (for example, @application/x-yaml@ ).
+-- * 'editContent' - Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
+-- * 'name' - The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the @.yaml@ or @.yml@ file extension.
+mkUpdateUpload ::
+  -- | 'arn'
+  Lude.Text ->
   UpdateUpload
-updateUpload pArn_ =
+mkUpdateUpload pArn_ =
   UpdateUpload'
-    { _uuEditContent = Nothing,
-      _uuName = Nothing,
-      _uuContentType = Nothing,
-      _uuArn = pArn_
+    { editContent = Lude.Nothing,
+      name = Lude.Nothing,
+      contentType = Lude.Nothing,
+      arn = pArn_
     }
 
 -- | Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
-uuEditContent :: Lens' UpdateUpload (Maybe Bool)
-uuEditContent = lens _uuEditContent (\s a -> s {_uuEditContent = a})
+--
+-- /Note:/ Consider using 'editContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuEditContent :: Lens.Lens' UpdateUpload (Lude.Maybe Lude.Bool)
+uuEditContent = Lens.lens (editContent :: UpdateUpload -> Lude.Maybe Lude.Bool) (\s a -> s {editContent = a} :: UpdateUpload)
+{-# DEPRECATED uuEditContent "Use generic-lens or generic-optics with 'editContent' instead." #-}
 
 -- | The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the @.yaml@ or @.yml@ file extension.
-uuName :: Lens' UpdateUpload (Maybe Text)
-uuName = lens _uuName (\s a -> s {_uuName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuName :: Lens.Lens' UpdateUpload (Lude.Maybe Lude.Text)
+uuName = Lens.lens (name :: UpdateUpload -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateUpload)
+{-# DEPRECATED uuName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The upload's content type (for example, @application/x-yaml@ ).
-uuContentType :: Lens' UpdateUpload (Maybe Text)
-uuContentType = lens _uuContentType (\s a -> s {_uuContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuContentType :: Lens.Lens' UpdateUpload (Lude.Maybe Lude.Text)
+uuContentType = Lens.lens (contentType :: UpdateUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: UpdateUpload)
+{-# DEPRECATED uuContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the uploaded test spec.
-uuArn :: Lens' UpdateUpload Text
-uuArn = lens _uuArn (\s a -> s {_uuArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuArn :: Lens.Lens' UpdateUpload Lude.Text
+uuArn = Lens.lens (arn :: UpdateUpload -> Lude.Text) (\s a -> s {arn = a} :: UpdateUpload)
+{-# DEPRECATED uuArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest UpdateUpload where
+instance Lude.AWSRequest UpdateUpload where
   type Rs UpdateUpload = UpdateUploadResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateUploadResponse' <$> (x .?> "upload") <*> (pure (fromEnum s))
+          UpdateUploadResponse'
+            Lude.<$> (x Lude..?> "upload") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateUpload
-
-instance NFData UpdateUpload
-
-instance ToHeaders UpdateUpload where
+instance Lude.ToHeaders UpdateUpload where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.UpdateUpload" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.UpdateUpload" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateUpload where
+instance Lude.ToJSON UpdateUpload where
   toJSON UpdateUpload' {..} =
-    object
-      ( catMaybes
-          [ ("editContent" .=) <$> _uuEditContent,
-            ("name" .=) <$> _uuName,
-            ("contentType" .=) <$> _uuContentType,
-            Just ("arn" .= _uuArn)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("editContent" Lude..=) Lude.<$> editContent,
+            ("name" Lude..=) Lude.<$> name,
+            ("contentType" Lude..=) Lude.<$> contentType,
+            Lude.Just ("arn" Lude..= arn)
           ]
       )
 
-instance ToPath UpdateUpload where
-  toPath = const "/"
+instance Lude.ToPath UpdateUpload where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateUpload where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUpload where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUploadResponse' smart constructor.
+-- | /See:/ 'mkUpdateUploadResponse' smart constructor.
 data UpdateUploadResponse = UpdateUploadResponse'
-  { _uursUpload ::
-      !(Maybe Upload),
-    _uursResponseStatus :: !Int
+  { upload ::
+      Lude.Maybe Upload,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUploadResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uursUpload' - A test spec uploaded to Device Farm.
---
--- * 'uursResponseStatus' - -- | The response status code.
-updateUploadResponse ::
-  -- | 'uursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'upload' - A test spec uploaded to Device Farm.
+mkUpdateUploadResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateUploadResponse
-updateUploadResponse pResponseStatus_ =
+mkUpdateUploadResponse pResponseStatus_ =
   UpdateUploadResponse'
-    { _uursUpload = Nothing,
-      _uursResponseStatus = pResponseStatus_
+    { upload = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A test spec uploaded to Device Farm.
-uursUpload :: Lens' UpdateUploadResponse (Maybe Upload)
-uursUpload = lens _uursUpload (\s a -> s {_uursUpload = a})
+--
+-- /Note:/ Consider using 'upload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uursUpload :: Lens.Lens' UpdateUploadResponse (Lude.Maybe Upload)
+uursUpload = Lens.lens (upload :: UpdateUploadResponse -> Lude.Maybe Upload) (\s a -> s {upload = a} :: UpdateUploadResponse)
+{-# DEPRECATED uursUpload "Use generic-lens or generic-optics with 'upload' instead." #-}
 
--- | -- | The response status code.
-uursResponseStatus :: Lens' UpdateUploadResponse Int
-uursResponseStatus = lens _uursResponseStatus (\s a -> s {_uursResponseStatus = a})
-
-instance NFData UpdateUploadResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uursResponseStatus :: Lens.Lens' UpdateUploadResponse Lude.Int
+uursResponseStatus = Lens.lens (responseStatus :: UpdateUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateUploadResponse)
+{-# DEPRECATED uursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

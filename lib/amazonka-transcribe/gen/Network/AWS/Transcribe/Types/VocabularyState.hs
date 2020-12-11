@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.VocabularyState where
+module Network.AWS.Transcribe.Types.VocabularyState
+  ( VocabularyState
+      ( VocabularyState',
+        Failed,
+        Pending,
+        Ready
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VocabularyState
-  = Failed
-  | Pending
-  | Ready
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VocabularyState = VocabularyState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VocabularyState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      "ready" -> pure Ready
-      e ->
-        fromTextError $
-          "Failure parsing VocabularyState from value: '" <> e
-            <> "'. Accepted values: failed, pending, ready"
+pattern Failed :: VocabularyState
+pattern Failed = VocabularyState' "FAILED"
 
-instance ToText VocabularyState where
-  toText = \case
-    Failed -> "FAILED"
-    Pending -> "PENDING"
-    Ready -> "READY"
+pattern Pending :: VocabularyState
+pattern Pending = VocabularyState' "PENDING"
 
-instance Hashable VocabularyState
+pattern Ready :: VocabularyState
+pattern Ready = VocabularyState' "READY"
 
-instance NFData VocabularyState
-
-instance ToByteString VocabularyState
-
-instance ToQuery VocabularyState
-
-instance ToHeader VocabularyState
-
-instance ToJSON VocabularyState where
-  toJSON = toJSONText
-
-instance FromJSON VocabularyState where
-  parseJSON = parseJSONText "VocabularyState"
+{-# COMPLETE
+  Failed,
+  Pending,
+  Ready,
+  VocabularyState'
+  #-}

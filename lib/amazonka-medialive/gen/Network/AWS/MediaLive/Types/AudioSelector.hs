@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioSelector where
+module Network.AWS.MediaLive.Types.AudioSelector
+  ( AudioSelector (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioSelector,
+
+    -- * Lenses
+    asSelectorSettings,
+    asName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioSelectorSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Selector
 --
--- /See:/ 'audioSelector' smart constructor.
+-- /See:/ 'mkAudioSelector' smart constructor.
 data AudioSelector = AudioSelector'
-  { _asSelectorSettings ::
-      !(Maybe AudioSelectorSettings),
-    _asName :: !Text
+  { selectorSettings ::
+      Lude.Maybe AudioSelectorSettings,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asSelectorSettings' - The audio selector settings.
---
--- * 'asName' - The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
-audioSelector ::
-  -- | 'asName'
-  Text ->
+-- * 'name' - The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
+-- * 'selectorSettings' - The audio selector settings.
+mkAudioSelector ::
+  -- | 'name'
+  Lude.Text ->
   AudioSelector
-audioSelector pName_ =
-  AudioSelector' {_asSelectorSettings = Nothing, _asName = pName_}
+mkAudioSelector pName_ =
+  AudioSelector' {selectorSettings = Lude.Nothing, name = pName_}
 
 -- | The audio selector settings.
-asSelectorSettings :: Lens' AudioSelector (Maybe AudioSelectorSettings)
-asSelectorSettings = lens _asSelectorSettings (\s a -> s {_asSelectorSettings = a})
+--
+-- /Note:/ Consider using 'selectorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSelectorSettings :: Lens.Lens' AudioSelector (Lude.Maybe AudioSelectorSettings)
+asSelectorSettings = Lens.lens (selectorSettings :: AudioSelector -> Lude.Maybe AudioSelectorSettings) (\s a -> s {selectorSettings = a} :: AudioSelector)
+{-# DEPRECATED asSelectorSettings "Use generic-lens or generic-optics with 'selectorSettings' instead." #-}
 
 -- | The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
-asName :: Lens' AudioSelector Text
-asName = lens _asName (\s a -> s {_asName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asName :: Lens.Lens' AudioSelector Lude.Text
+asName = Lens.lens (name :: AudioSelector -> Lude.Text) (\s a -> s {name = a} :: AudioSelector)
+{-# DEPRECATED asName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON AudioSelector where
+instance Lude.FromJSON AudioSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioSelector"
       ( \x ->
-          AudioSelector' <$> (x .:? "selectorSettings") <*> (x .: "name")
+          AudioSelector'
+            Lude.<$> (x Lude..:? "selectorSettings") Lude.<*> (x Lude..: "name")
       )
 
-instance Hashable AudioSelector
-
-instance NFData AudioSelector
-
-instance ToJSON AudioSelector where
+instance Lude.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =
-    object
-      ( catMaybes
-          [ ("selectorSettings" .=) <$> _asSelectorSettings,
-            Just ("name" .= _asName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("selectorSettings" Lude..=) Lude.<$> selectorSettings,
+            Lude.Just ("name" Lude..= name)
           ]
       )

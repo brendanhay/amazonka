@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,129 @@
 --
 -- Returns information about the specified code signing configuration.
 module Network.AWS.Lambda.GetCodeSigningConfig
-  ( -- * Creating a Request
-    getCodeSigningConfig,
-    GetCodeSigningConfig,
+  ( -- * Creating a request
+    GetCodeSigningConfig (..),
+    mkGetCodeSigningConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcscCodeSigningConfigARN,
 
-    -- * Destructuring the Response
-    getCodeSigningConfigResponse,
-    GetCodeSigningConfigResponse,
+    -- * Destructuring the response
+    GetCodeSigningConfigResponse (..),
+    mkGetCodeSigningConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcscrsResponseStatus,
     gcscrsCodeSigningConfig,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCodeSigningConfig' smart constructor.
+-- | /See:/ 'mkGetCodeSigningConfig' smart constructor.
 newtype GetCodeSigningConfig = GetCodeSigningConfig'
-  { _gcscCodeSigningConfigARN ::
-      Text
+  { codeSigningConfigARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCodeSigningConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcscCodeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
-getCodeSigningConfig ::
-  -- | 'gcscCodeSigningConfigARN'
-  Text ->
+-- * 'codeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
+mkGetCodeSigningConfig ::
+  -- | 'codeSigningConfigARN'
+  Lude.Text ->
   GetCodeSigningConfig
-getCodeSigningConfig pCodeSigningConfigARN_ =
+mkGetCodeSigningConfig pCodeSigningConfigARN_ =
   GetCodeSigningConfig'
-    { _gcscCodeSigningConfigARN =
+    { codeSigningConfigARN =
         pCodeSigningConfigARN_
     }
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-gcscCodeSigningConfigARN :: Lens' GetCodeSigningConfig Text
-gcscCodeSigningConfigARN = lens _gcscCodeSigningConfigARN (\s a -> s {_gcscCodeSigningConfigARN = a})
+--
+-- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcscCodeSigningConfigARN :: Lens.Lens' GetCodeSigningConfig Lude.Text
+gcscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: GetCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: GetCodeSigningConfig)
+{-# DEPRECATED gcscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
-instance AWSRequest GetCodeSigningConfig where
+instance Lude.AWSRequest GetCodeSigningConfig where
   type Rs GetCodeSigningConfig = GetCodeSigningConfigResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCodeSigningConfigResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "CodeSigningConfig")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "CodeSigningConfig")
       )
 
-instance Hashable GetCodeSigningConfig
+instance Lude.ToHeaders GetCodeSigningConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetCodeSigningConfig
-
-instance ToHeaders GetCodeSigningConfig where
-  toHeaders = const mempty
-
-instance ToPath GetCodeSigningConfig where
+instance Lude.ToPath GetCodeSigningConfig where
   toPath GetCodeSigningConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-04-22/code-signing-configs/",
-        toBS _gcscCodeSigningConfigARN
+        Lude.toBS codeSigningConfigARN
       ]
 
-instance ToQuery GetCodeSigningConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetCodeSigningConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCodeSigningConfigResponse' smart constructor.
+-- | /See:/ 'mkGetCodeSigningConfigResponse' smart constructor.
 data GetCodeSigningConfigResponse = GetCodeSigningConfigResponse'
-  { _gcscrsResponseStatus ::
-      !Int,
-    _gcscrsCodeSigningConfig ::
-      !CodeSigningConfig
+  { responseStatus ::
+      Lude.Int,
+    codeSigningConfig ::
+      CodeSigningConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCodeSigningConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcscrsResponseStatus' - -- | The response status code.
---
--- * 'gcscrsCodeSigningConfig' - The code signing configuration
-getCodeSigningConfigResponse ::
-  -- | 'gcscrsResponseStatus'
-  Int ->
-  -- | 'gcscrsCodeSigningConfig'
+-- * 'codeSigningConfig' - The code signing configuration
+-- * 'responseStatus' - The response status code.
+mkGetCodeSigningConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'codeSigningConfig'
   CodeSigningConfig ->
   GetCodeSigningConfigResponse
-getCodeSigningConfigResponse pResponseStatus_ pCodeSigningConfig_ =
+mkGetCodeSigningConfigResponse pResponseStatus_ pCodeSigningConfig_ =
   GetCodeSigningConfigResponse'
-    { _gcscrsResponseStatus =
-        pResponseStatus_,
-      _gcscrsCodeSigningConfig = pCodeSigningConfig_
+    { responseStatus = pResponseStatus_,
+      codeSigningConfig = pCodeSigningConfig_
     }
 
--- | -- | The response status code.
-gcscrsResponseStatus :: Lens' GetCodeSigningConfigResponse Int
-gcscrsResponseStatus = lens _gcscrsResponseStatus (\s a -> s {_gcscrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcscrsResponseStatus :: Lens.Lens' GetCodeSigningConfigResponse Lude.Int
+gcscrsResponseStatus = Lens.lens (responseStatus :: GetCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCodeSigningConfigResponse)
+{-# DEPRECATED gcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The code signing configuration
-gcscrsCodeSigningConfig :: Lens' GetCodeSigningConfigResponse CodeSigningConfig
-gcscrsCodeSigningConfig = lens _gcscrsCodeSigningConfig (\s a -> s {_gcscrsCodeSigningConfig = a})
-
-instance NFData GetCodeSigningConfigResponse
+--
+-- /Note:/ Consider using 'codeSigningConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcscrsCodeSigningConfig :: Lens.Lens' GetCodeSigningConfigResponse CodeSigningConfig
+gcscrsCodeSigningConfig = Lens.lens (codeSigningConfig :: GetCodeSigningConfigResponse -> CodeSigningConfig) (\s a -> s {codeSigningConfig = a} :: GetCodeSigningConfigResponse)
+{-# DEPRECATED gcscrsCodeSigningConfig "Use generic-lens or generic-optics with 'codeSigningConfig' instead." #-}

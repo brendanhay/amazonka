@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.RelatedResource where
+module Network.AWS.IoT.Types.RelatedResource
+  ( RelatedResource (..),
+
+    -- * Smart constructor
+    mkRelatedResource,
+
+    -- * Lenses
+    rrAdditionalInfo,
+    rrResourceType,
+    rrResourceIdentifier,
+  )
+where
 
 import Network.AWS.IoT.Types.ResourceIdentifier
 import Network.AWS.IoT.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a related resource.
 --
---
---
--- /See:/ 'relatedResource' smart constructor.
+-- /See:/ 'mkRelatedResource' smart constructor.
 data RelatedResource = RelatedResource'
-  { _rrAdditionalInfo ::
-      !(Maybe (Map Text (Text))),
-    _rrResourceType :: !(Maybe ResourceType),
-    _rrResourceIdentifier :: !(Maybe ResourceIdentifier)
+  { additionalInfo ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    resourceType :: Lude.Maybe ResourceType,
+    resourceIdentifier :: Lude.Maybe ResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelatedResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrAdditionalInfo' - Other information about the resource.
---
--- * 'rrResourceType' - The type of resource.
---
--- * 'rrResourceIdentifier' - Information that identifies the resource.
-relatedResource ::
+-- * 'additionalInfo' - Other information about the resource.
+-- * 'resourceIdentifier' - Information that identifies the resource.
+-- * 'resourceType' - The type of resource.
+mkRelatedResource ::
   RelatedResource
-relatedResource =
+mkRelatedResource =
   RelatedResource'
-    { _rrAdditionalInfo = Nothing,
-      _rrResourceType = Nothing,
-      _rrResourceIdentifier = Nothing
+    { additionalInfo = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      resourceIdentifier = Lude.Nothing
     }
 
 -- | Other information about the resource.
-rrAdditionalInfo :: Lens' RelatedResource (HashMap Text (Text))
-rrAdditionalInfo = lens _rrAdditionalInfo (\s a -> s {_rrAdditionalInfo = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'additionalInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrAdditionalInfo :: Lens.Lens' RelatedResource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+rrAdditionalInfo = Lens.lens (additionalInfo :: RelatedResource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {additionalInfo = a} :: RelatedResource)
+{-# DEPRECATED rrAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
 
 -- | The type of resource.
-rrResourceType :: Lens' RelatedResource (Maybe ResourceType)
-rrResourceType = lens _rrResourceType (\s a -> s {_rrResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrResourceType :: Lens.Lens' RelatedResource (Lude.Maybe ResourceType)
+rrResourceType = Lens.lens (resourceType :: RelatedResource -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: RelatedResource)
+{-# DEPRECATED rrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Information that identifies the resource.
-rrResourceIdentifier :: Lens' RelatedResource (Maybe ResourceIdentifier)
-rrResourceIdentifier = lens _rrResourceIdentifier (\s a -> s {_rrResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrResourceIdentifier :: Lens.Lens' RelatedResource (Lude.Maybe ResourceIdentifier)
+rrResourceIdentifier = Lens.lens (resourceIdentifier :: RelatedResource -> Lude.Maybe ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: RelatedResource)
+{-# DEPRECATED rrResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance FromJSON RelatedResource where
+instance Lude.FromJSON RelatedResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelatedResource"
       ( \x ->
           RelatedResource'
-            <$> (x .:? "additionalInfo" .!= mempty)
-            <*> (x .:? "resourceType")
-            <*> (x .:? "resourceIdentifier")
+            Lude.<$> (x Lude..:? "additionalInfo" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "resourceIdentifier")
       )
-
-instance Hashable RelatedResource
-
-instance NFData RelatedResource

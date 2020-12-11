@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,156 @@
 --
 -- Creates a new instance profile. For information about instance profiles, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
 --
---
 -- The number and size of IAM resources in an AWS account are limited. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html IAM and STS Quotas> in the /IAM User Guide/ .
 module Network.AWS.IAM.CreateInstanceProfile
-  ( -- * Creating a Request
-    createInstanceProfile,
-    CreateInstanceProfile,
+  ( -- * Creating a request
+    CreateInstanceProfile (..),
+    mkCreateInstanceProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cipPath,
     cipInstanceProfileName,
 
-    -- * Destructuring the Response
-    createInstanceProfileResponse,
-    CreateInstanceProfileResponse,
+    -- * Destructuring the response
+    CreateInstanceProfileResponse (..),
+    mkCreateInstanceProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ciprsResponseStatus,
     ciprsInstanceProfile,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createInstanceProfile' smart constructor.
+-- | /See:/ 'mkCreateInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-  { _cipPath ::
-      !(Maybe Text),
-    _cipInstanceProfileName :: !Text
+  { path ::
+      Lude.Maybe Lude.Text,
+    instanceProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstanceProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instanceProfileName' - The name of the instance profile to create.
 --
--- * 'cipPath' - The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'path' - The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
--- * 'cipInstanceProfileName' - The name of the instance profile to create. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-createInstanceProfile ::
-  -- | 'cipInstanceProfileName'
-  Text ->
+-- This parameter is optional. If it is not included, it defaults to a slash (/).
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+mkCreateInstanceProfile ::
+  -- | 'instanceProfileName'
+  Lude.Text ->
   CreateInstanceProfile
-createInstanceProfile pInstanceProfileName_ =
+mkCreateInstanceProfile pInstanceProfileName_ =
   CreateInstanceProfile'
-    { _cipPath = Nothing,
-      _cipInstanceProfileName = pInstanceProfileName_
+    { path = Lude.Nothing,
+      instanceProfileName = pInstanceProfileName_
     }
 
--- | The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
-cipPath :: Lens' CreateInstanceProfile (Maybe Text)
-cipPath = lens _cipPath (\s a -> s {_cipPath = a})
+-- | The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- This parameter is optional. If it is not included, it defaults to a slash (/).
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipPath :: Lens.Lens' CreateInstanceProfile (Lude.Maybe Lude.Text)
+cipPath = Lens.lens (path :: CreateInstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: CreateInstanceProfile)
+{-# DEPRECATED cipPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | The name of the instance profile to create. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-cipInstanceProfileName :: Lens' CreateInstanceProfile Text
-cipInstanceProfileName = lens _cipInstanceProfileName (\s a -> s {_cipInstanceProfileName = a})
+-- | The name of the instance profile to create.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipInstanceProfileName :: Lens.Lens' CreateInstanceProfile Lude.Text
+cipInstanceProfileName = Lens.lens (instanceProfileName :: CreateInstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: CreateInstanceProfile)
+{-# DEPRECATED cipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
 
-instance AWSRequest CreateInstanceProfile where
+instance Lude.AWSRequest CreateInstanceProfile where
   type Rs CreateInstanceProfile = CreateInstanceProfileResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateInstanceProfileResult"
       ( \s h x ->
           CreateInstanceProfileResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "InstanceProfile")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "InstanceProfile")
       )
 
-instance Hashable CreateInstanceProfile
+instance Lude.ToHeaders CreateInstanceProfile where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateInstanceProfile
+instance Lude.ToPath CreateInstanceProfile where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateInstanceProfile where
-  toHeaders = const mempty
-
-instance ToPath CreateInstanceProfile where
-  toPath = const "/"
-
-instance ToQuery CreateInstanceProfile where
+instance Lude.ToQuery CreateInstanceProfile where
   toQuery CreateInstanceProfile' {..} =
-    mconcat
-      [ "Action" =: ("CreateInstanceProfile" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "Path" =: _cipPath,
-        "InstanceProfileName" =: _cipInstanceProfileName
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateInstanceProfile" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Path" Lude.=: path,
+        "InstanceProfileName" Lude.=: instanceProfileName
       ]
 
 -- | Contains the response to a successful 'CreateInstanceProfile' request.
 --
---
---
--- /See:/ 'createInstanceProfileResponse' smart constructor.
+-- /See:/ 'mkCreateInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-  { _ciprsResponseStatus ::
-      !Int,
-    _ciprsInstanceProfile ::
-      !InstanceProfile
+  { responseStatus ::
+      Lude.Int,
+    instanceProfile ::
+      InstanceProfile
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstanceProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciprsResponseStatus' - -- | The response status code.
---
--- * 'ciprsInstanceProfile' - A structure containing details about the new instance profile.
-createInstanceProfileResponse ::
-  -- | 'ciprsResponseStatus'
-  Int ->
-  -- | 'ciprsInstanceProfile'
+-- * 'instanceProfile' - A structure containing details about the new instance profile.
+-- * 'responseStatus' - The response status code.
+mkCreateInstanceProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'instanceProfile'
   InstanceProfile ->
   CreateInstanceProfileResponse
-createInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
+mkCreateInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
   CreateInstanceProfileResponse'
-    { _ciprsResponseStatus =
-        pResponseStatus_,
-      _ciprsInstanceProfile = pInstanceProfile_
+    { responseStatus = pResponseStatus_,
+      instanceProfile = pInstanceProfile_
     }
 
--- | -- | The response status code.
-ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
-ciprsResponseStatus = lens _ciprsResponseStatus (\s a -> s {_ciprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciprsResponseStatus :: Lens.Lens' CreateInstanceProfileResponse Lude.Int
+ciprsResponseStatus = Lens.lens (responseStatus :: CreateInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInstanceProfileResponse)
+{-# DEPRECATED ciprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the new instance profile.
-ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
-ciprsInstanceProfile = lens _ciprsInstanceProfile (\s a -> s {_ciprsInstanceProfile = a})
-
-instance NFData CreateInstanceProfileResponse
+--
+-- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciprsInstanceProfile :: Lens.Lens' CreateInstanceProfileResponse InstanceProfile
+ciprsInstanceProfile = Lens.lens (instanceProfile :: CreateInstanceProfileResponse -> InstanceProfile) (\s a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
+{-# DEPRECATED ciprsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}

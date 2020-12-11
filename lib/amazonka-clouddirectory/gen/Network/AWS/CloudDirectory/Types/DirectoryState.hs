@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.DirectoryState where
+module Network.AWS.CloudDirectory.Types.DirectoryState
+  ( DirectoryState
+      ( DirectoryState',
+        Deleted,
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectoryState
-  = Deleted
-  | Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectoryState = DirectoryState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectoryState where
-  parser =
-    takeLowerText >>= \case
-      "deleted" -> pure Deleted
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing DirectoryState from value: '" <> e
-            <> "'. Accepted values: deleted, disabled, enabled"
+pattern Deleted :: DirectoryState
+pattern Deleted = DirectoryState' "DELETED"
 
-instance ToText DirectoryState where
-  toText = \case
-    Deleted -> "DELETED"
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Disabled :: DirectoryState
+pattern Disabled = DirectoryState' "DISABLED"
 
-instance Hashable DirectoryState
+pattern Enabled :: DirectoryState
+pattern Enabled = DirectoryState' "ENABLED"
 
-instance NFData DirectoryState
-
-instance ToByteString DirectoryState
-
-instance ToQuery DirectoryState
-
-instance ToHeader DirectoryState
-
-instance ToJSON DirectoryState where
-  toJSON = toJSONText
-
-instance FromJSON DirectoryState where
-  parseJSON = parseJSONText "DirectoryState"
+{-# COMPLETE
+  Deleted,
+  Disabled,
+  Enabled,
+  DirectoryState'
+  #-}

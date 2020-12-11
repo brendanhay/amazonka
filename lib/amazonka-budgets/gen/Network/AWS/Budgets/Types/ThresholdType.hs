@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ThresholdType where
+module Network.AWS.Budgets.Types.ThresholdType
+  ( ThresholdType
+      ( ThresholdType',
+        AbsoluteValue,
+        Percentage
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of threshold for a notification.
-data ThresholdType
-  = AbsoluteValue
-  | Percentage
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ThresholdType = ThresholdType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ThresholdType where
-  parser =
-    takeLowerText >>= \case
-      "absolute_value" -> pure AbsoluteValue
-      "percentage" -> pure Percentage
-      e ->
-        fromTextError $
-          "Failure parsing ThresholdType from value: '" <> e
-            <> "'. Accepted values: absolute_value, percentage"
+pattern AbsoluteValue :: ThresholdType
+pattern AbsoluteValue = ThresholdType' "ABSOLUTE_VALUE"
 
-instance ToText ThresholdType where
-  toText = \case
-    AbsoluteValue -> "ABSOLUTE_VALUE"
-    Percentage -> "PERCENTAGE"
+pattern Percentage :: ThresholdType
+pattern Percentage = ThresholdType' "PERCENTAGE"
 
-instance Hashable ThresholdType
-
-instance NFData ThresholdType
-
-instance ToByteString ThresholdType
-
-instance ToQuery ThresholdType
-
-instance ToHeader ThresholdType
-
-instance ToJSON ThresholdType where
-  toJSON = toJSONText
-
-instance FromJSON ThresholdType where
-  parseJSON = parseJSONText "ThresholdType"
+{-# COMPLETE
+  AbsoluteValue,
+  Percentage,
+  ThresholdType'
+  #-}

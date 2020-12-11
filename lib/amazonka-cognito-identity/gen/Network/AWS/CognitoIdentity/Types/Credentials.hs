@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types.Credentials where
+module Network.AWS.CognitoIdentity.Types.Credentials
+  ( Credentials (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCredentials,
+
+    -- * Lenses
+    cSessionToken,
+    cExpiration,
+    cSecretKey,
+    cAccessKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Credentials for the provided identity ID.
 --
---
---
--- /See:/ 'credentials' smart constructor.
+-- /See:/ 'mkCredentials' smart constructor.
 data Credentials = Credentials'
-  { _cSessionToken :: !(Maybe Text),
-    _cExpiration :: !(Maybe POSIX),
-    _cSecretKey :: !(Maybe Text),
-    _cAccessKeyId :: !(Maybe Text)
+  { sessionToken ::
+      Lude.Maybe Lude.Text,
+    expiration :: Lude.Maybe Lude.Timestamp,
+    secretKey :: Lude.Maybe Lude.Text,
+    accessKeyId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cSessionToken' - The Session Token portion of the credentials
---
--- * 'cExpiration' - The date at which these credentials will expire.
---
--- * 'cSecretKey' - The Secret Access Key portion of the credentials
---
--- * 'cAccessKeyId' - The Access Key portion of the credentials.
-credentials ::
+-- * 'accessKeyId' - The Access Key portion of the credentials.
+-- * 'expiration' - The date at which these credentials will expire.
+-- * 'secretKey' - The Secret Access Key portion of the credentials
+-- * 'sessionToken' - The Session Token portion of the credentials
+mkCredentials ::
   Credentials
-credentials =
+mkCredentials =
   Credentials'
-    { _cSessionToken = Nothing,
-      _cExpiration = Nothing,
-      _cSecretKey = Nothing,
-      _cAccessKeyId = Nothing
+    { sessionToken = Lude.Nothing,
+      expiration = Lude.Nothing,
+      secretKey = Lude.Nothing,
+      accessKeyId = Lude.Nothing
     }
 
 -- | The Session Token portion of the credentials
-cSessionToken :: Lens' Credentials (Maybe Text)
-cSessionToken = lens _cSessionToken (\s a -> s {_cSessionToken = a})
+--
+-- /Note:/ Consider using 'sessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSessionToken :: Lens.Lens' Credentials (Lude.Maybe Lude.Text)
+cSessionToken = Lens.lens (sessionToken :: Credentials -> Lude.Maybe Lude.Text) (\s a -> s {sessionToken = a} :: Credentials)
+{-# DEPRECATED cSessionToken "Use generic-lens or generic-optics with 'sessionToken' instead." #-}
 
 -- | The date at which these credentials will expire.
-cExpiration :: Lens' Credentials (Maybe UTCTime)
-cExpiration = lens _cExpiration (\s a -> s {_cExpiration = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cExpiration :: Lens.Lens' Credentials (Lude.Maybe Lude.Timestamp)
+cExpiration = Lens.lens (expiration :: Credentials -> Lude.Maybe Lude.Timestamp) (\s a -> s {expiration = a} :: Credentials)
+{-# DEPRECATED cExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
 
 -- | The Secret Access Key portion of the credentials
-cSecretKey :: Lens' Credentials (Maybe Text)
-cSecretKey = lens _cSecretKey (\s a -> s {_cSecretKey = a})
+--
+-- /Note:/ Consider using 'secretKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSecretKey :: Lens.Lens' Credentials (Lude.Maybe Lude.Text)
+cSecretKey = Lens.lens (secretKey :: Credentials -> Lude.Maybe Lude.Text) (\s a -> s {secretKey = a} :: Credentials)
+{-# DEPRECATED cSecretKey "Use generic-lens or generic-optics with 'secretKey' instead." #-}
 
 -- | The Access Key portion of the credentials.
-cAccessKeyId :: Lens' Credentials (Maybe Text)
-cAccessKeyId = lens _cAccessKeyId (\s a -> s {_cAccessKeyId = a})
+--
+-- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAccessKeyId :: Lens.Lens' Credentials (Lude.Maybe Lude.Text)
+cAccessKeyId = Lens.lens (accessKeyId :: Credentials -> Lude.Maybe Lude.Text) (\s a -> s {accessKeyId = a} :: Credentials)
+{-# DEPRECATED cAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance FromJSON Credentials where
+instance Lude.FromJSON Credentials where
   parseJSON =
-    withObject
+    Lude.withObject
       "Credentials"
       ( \x ->
           Credentials'
-            <$> (x .:? "SessionToken")
-            <*> (x .:? "Expiration")
-            <*> (x .:? "SecretKey")
-            <*> (x .:? "AccessKeyId")
+            Lude.<$> (x Lude..:? "SessionToken")
+            Lude.<*> (x Lude..:? "Expiration")
+            Lude.<*> (x Lude..:? "SecretKey")
+            Lude.<*> (x Lude..:? "AccessKeyId")
       )
-
-instance Hashable Credentials
-
-instance NFData Credentials

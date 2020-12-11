@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CancelBatchErrorCode where
+module Network.AWS.EC2.Types.CancelBatchErrorCode
+  ( CancelBatchErrorCode
+      ( CancelBatchErrorCode',
+        CBECFleetRequestIdDoesNotExist,
+        CBECFleetRequestIdMalformed,
+        CBECFleetRequestNotInCancellableState,
+        CBECUnexpectedError
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CancelBatchErrorCode
-  = CBECFleetRequestIdDoesNotExist
-  | CBECFleetRequestIdMalformed
-  | CBECFleetRequestNotInCancellableState
-  | CBECUnexpectedError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CancelBatchErrorCode = CancelBatchErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CancelBatchErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "fleetrequestiddoesnotexist" -> pure CBECFleetRequestIdDoesNotExist
-      "fleetrequestidmalformed" -> pure CBECFleetRequestIdMalformed
-      "fleetrequestnotincancellablestate" -> pure CBECFleetRequestNotInCancellableState
-      "unexpectederror" -> pure CBECUnexpectedError
-      e ->
-        fromTextError $
-          "Failure parsing CancelBatchErrorCode from value: '" <> e
-            <> "'. Accepted values: fleetrequestiddoesnotexist, fleetrequestidmalformed, fleetrequestnotincancellablestate, unexpectederror"
+pattern CBECFleetRequestIdDoesNotExist :: CancelBatchErrorCode
+pattern CBECFleetRequestIdDoesNotExist = CancelBatchErrorCode' "fleetRequestIdDoesNotExist"
 
-instance ToText CancelBatchErrorCode where
-  toText = \case
-    CBECFleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
-    CBECFleetRequestIdMalformed -> "fleetRequestIdMalformed"
-    CBECFleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
-    CBECUnexpectedError -> "unexpectedError"
+pattern CBECFleetRequestIdMalformed :: CancelBatchErrorCode
+pattern CBECFleetRequestIdMalformed = CancelBatchErrorCode' "fleetRequestIdMalformed"
 
-instance Hashable CancelBatchErrorCode
+pattern CBECFleetRequestNotInCancellableState :: CancelBatchErrorCode
+pattern CBECFleetRequestNotInCancellableState = CancelBatchErrorCode' "fleetRequestNotInCancellableState"
 
-instance NFData CancelBatchErrorCode
+pattern CBECUnexpectedError :: CancelBatchErrorCode
+pattern CBECUnexpectedError = CancelBatchErrorCode' "unexpectedError"
 
-instance ToByteString CancelBatchErrorCode
-
-instance ToQuery CancelBatchErrorCode
-
-instance ToHeader CancelBatchErrorCode
-
-instance FromXML CancelBatchErrorCode where
-  parseXML = parseXMLText "CancelBatchErrorCode"
+{-# COMPLETE
+  CBECFleetRequestIdDoesNotExist,
+  CBECFleetRequestIdMalformed,
+  CBECFleetRequestNotInCancellableState,
+  CBECUnexpectedError,
+  CancelBatchErrorCode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.KerberosAttributes where
+module Network.AWS.EMR.Types.KerberosAttributes
+  ( KerberosAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKerberosAttributes,
+
+    -- * Lenses
+    kaKdcAdminPassword,
+    kaRealm,
+    kaADDomainJoinPassword,
+    kaCrossRealmTrustPrincipalPassword,
+    kaADDomainJoinUser,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication> in the /Amazon EMR Management Guide/ .
 --
---
---
--- /See:/ 'kerberosAttributes' smart constructor.
+-- /See:/ 'mkKerberosAttributes' smart constructor.
 data KerberosAttributes = KerberosAttributes'
-  { _kaKdcAdminPassword ::
-      !(Maybe Text),
-    _kaRealm :: !(Maybe Text),
-    _kaADDomainJoinPassword :: !(Maybe Text),
-    _kaCrossRealmTrustPrincipalPassword :: !(Maybe Text),
-    _kaADDomainJoinUser :: !(Maybe Text)
+  { kdcAdminPassword ::
+      Lude.Maybe Lude.Text,
+    realm :: Lude.Maybe Lude.Text,
+    aDDomainJoinPassword :: Lude.Maybe Lude.Text,
+    crossRealmTrustPrincipalPassword ::
+      Lude.Maybe Lude.Text,
+    aDDomainJoinUser :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KerberosAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kaKdcAdminPassword' - The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
---
--- * 'kaRealm' - The name of the Kerberos realm to which all nodes in a cluster belong. For example, @EC2.INTERNAL@ .
---
--- * 'kaADDomainJoinPassword' - The Active Directory password for @ADDomainJoinUser@ .
---
--- * 'kaCrossRealmTrustPrincipalPassword' - Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
---
--- * 'kaADDomainJoinUser' - Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
-kerberosAttributes ::
+-- * 'aDDomainJoinPassword' - The Active Directory password for @ADDomainJoinUser@ .
+-- * 'aDDomainJoinUser' - Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+-- * 'crossRealmTrustPrincipalPassword' - Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+-- * 'kdcAdminPassword' - The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+-- * 'realm' - The name of the Kerberos realm to which all nodes in a cluster belong. For example, @EC2.INTERNAL@ .
+mkKerberosAttributes ::
   KerberosAttributes
-kerberosAttributes =
+mkKerberosAttributes =
   KerberosAttributes'
-    { _kaKdcAdminPassword = Nothing,
-      _kaRealm = Nothing,
-      _kaADDomainJoinPassword = Nothing,
-      _kaCrossRealmTrustPrincipalPassword = Nothing,
-      _kaADDomainJoinUser = Nothing
+    { kdcAdminPassword = Lude.Nothing,
+      realm = Lude.Nothing,
+      aDDomainJoinPassword = Lude.Nothing,
+      crossRealmTrustPrincipalPassword = Lude.Nothing,
+      aDDomainJoinUser = Lude.Nothing
     }
 
 -- | The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
-kaKdcAdminPassword :: Lens' KerberosAttributes (Maybe Text)
-kaKdcAdminPassword = lens _kaKdcAdminPassword (\s a -> s {_kaKdcAdminPassword = a})
+--
+-- /Note:/ Consider using 'kdcAdminPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaKdcAdminPassword :: Lens.Lens' KerberosAttributes (Lude.Maybe Lude.Text)
+kaKdcAdminPassword = Lens.lens (kdcAdminPassword :: KerberosAttributes -> Lude.Maybe Lude.Text) (\s a -> s {kdcAdminPassword = a} :: KerberosAttributes)
+{-# DEPRECATED kaKdcAdminPassword "Use generic-lens or generic-optics with 'kdcAdminPassword' instead." #-}
 
 -- | The name of the Kerberos realm to which all nodes in a cluster belong. For example, @EC2.INTERNAL@ .
-kaRealm :: Lens' KerberosAttributes (Maybe Text)
-kaRealm = lens _kaRealm (\s a -> s {_kaRealm = a})
+--
+-- /Note:/ Consider using 'realm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaRealm :: Lens.Lens' KerberosAttributes (Lude.Maybe Lude.Text)
+kaRealm = Lens.lens (realm :: KerberosAttributes -> Lude.Maybe Lude.Text) (\s a -> s {realm = a} :: KerberosAttributes)
+{-# DEPRECATED kaRealm "Use generic-lens or generic-optics with 'realm' instead." #-}
 
 -- | The Active Directory password for @ADDomainJoinUser@ .
-kaADDomainJoinPassword :: Lens' KerberosAttributes (Maybe Text)
-kaADDomainJoinPassword = lens _kaADDomainJoinPassword (\s a -> s {_kaADDomainJoinPassword = a})
+--
+-- /Note:/ Consider using 'aDDomainJoinPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaADDomainJoinPassword :: Lens.Lens' KerberosAttributes (Lude.Maybe Lude.Text)
+kaADDomainJoinPassword = Lens.lens (aDDomainJoinPassword :: KerberosAttributes -> Lude.Maybe Lude.Text) (\s a -> s {aDDomainJoinPassword = a} :: KerberosAttributes)
+{-# DEPRECATED kaADDomainJoinPassword "Use generic-lens or generic-optics with 'aDDomainJoinPassword' instead." #-}
 
 -- | Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
-kaCrossRealmTrustPrincipalPassword :: Lens' KerberosAttributes (Maybe Text)
-kaCrossRealmTrustPrincipalPassword = lens _kaCrossRealmTrustPrincipalPassword (\s a -> s {_kaCrossRealmTrustPrincipalPassword = a})
+--
+-- /Note:/ Consider using 'crossRealmTrustPrincipalPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaCrossRealmTrustPrincipalPassword :: Lens.Lens' KerberosAttributes (Lude.Maybe Lude.Text)
+kaCrossRealmTrustPrincipalPassword = Lens.lens (crossRealmTrustPrincipalPassword :: KerberosAttributes -> Lude.Maybe Lude.Text) (\s a -> s {crossRealmTrustPrincipalPassword = a} :: KerberosAttributes)
+{-# DEPRECATED kaCrossRealmTrustPrincipalPassword "Use generic-lens or generic-optics with 'crossRealmTrustPrincipalPassword' instead." #-}
 
 -- | Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
-kaADDomainJoinUser :: Lens' KerberosAttributes (Maybe Text)
-kaADDomainJoinUser = lens _kaADDomainJoinUser (\s a -> s {_kaADDomainJoinUser = a})
+--
+-- /Note:/ Consider using 'aDDomainJoinUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaADDomainJoinUser :: Lens.Lens' KerberosAttributes (Lude.Maybe Lude.Text)
+kaADDomainJoinUser = Lens.lens (aDDomainJoinUser :: KerberosAttributes -> Lude.Maybe Lude.Text) (\s a -> s {aDDomainJoinUser = a} :: KerberosAttributes)
+{-# DEPRECATED kaADDomainJoinUser "Use generic-lens or generic-optics with 'aDDomainJoinUser' instead." #-}
 
-instance FromJSON KerberosAttributes where
+instance Lude.FromJSON KerberosAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "KerberosAttributes"
       ( \x ->
           KerberosAttributes'
-            <$> (x .:? "KdcAdminPassword")
-            <*> (x .:? "Realm")
-            <*> (x .:? "ADDomainJoinPassword")
-            <*> (x .:? "CrossRealmTrustPrincipalPassword")
-            <*> (x .:? "ADDomainJoinUser")
+            Lude.<$> (x Lude..:? "KdcAdminPassword")
+            Lude.<*> (x Lude..:? "Realm")
+            Lude.<*> (x Lude..:? "ADDomainJoinPassword")
+            Lude.<*> (x Lude..:? "CrossRealmTrustPrincipalPassword")
+            Lude.<*> (x Lude..:? "ADDomainJoinUser")
       )
 
-instance Hashable KerberosAttributes
-
-instance NFData KerberosAttributes
-
-instance ToJSON KerberosAttributes where
+instance Lude.ToJSON KerberosAttributes where
   toJSON KerberosAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("KdcAdminPassword" .=) <$> _kaKdcAdminPassword,
-            ("Realm" .=) <$> _kaRealm,
-            ("ADDomainJoinPassword" .=) <$> _kaADDomainJoinPassword,
-            ("CrossRealmTrustPrincipalPassword" .=)
-              <$> _kaCrossRealmTrustPrincipalPassword,
-            ("ADDomainJoinUser" .=) <$> _kaADDomainJoinUser
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KdcAdminPassword" Lude..=) Lude.<$> kdcAdminPassword,
+            ("Realm" Lude..=) Lude.<$> realm,
+            ("ADDomainJoinPassword" Lude..=) Lude.<$> aDDomainJoinPassword,
+            ("CrossRealmTrustPrincipalPassword" Lude..=)
+              Lude.<$> crossRealmTrustPrincipalPassword,
+            ("ADDomainJoinUser" Lude..=) Lude.<$> aDDomainJoinUser
           ]
       )

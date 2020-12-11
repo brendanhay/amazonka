@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Grant where
+module Network.AWS.S3.Types.Grant
+  ( Grant (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGrant,
+
+    -- * Lenses
+    gPermission,
+    gGrantee,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Grantee
 import Network.AWS.S3.Types.Permission
 
 -- | Container for grant information.
 --
---
---
--- /See:/ 'grant' smart constructor.
+-- /See:/ 'mkGrant' smart constructor.
 data Grant = Grant'
-  { _gPermission :: !(Maybe Permission),
-    _gGrantee :: !(Maybe Grantee)
+  { permission :: Lude.Maybe Permission,
+    grantee :: Lude.Maybe Grantee
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Grant' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gPermission' - Specifies the permission given to the grantee.
---
--- * 'gGrantee' - The person being granted permissions.
-grant ::
+-- * 'grantee' - The person being granted permissions.
+-- * 'permission' - Specifies the permission given to the grantee.
+mkGrant ::
   Grant
-grant = Grant' {_gPermission = Nothing, _gGrantee = Nothing}
+mkGrant = Grant' {permission = Lude.Nothing, grantee = Lude.Nothing}
 
 -- | Specifies the permission given to the grantee.
-gPermission :: Lens' Grant (Maybe Permission)
-gPermission = lens _gPermission (\s a -> s {_gPermission = a})
+--
+-- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gPermission :: Lens.Lens' Grant (Lude.Maybe Permission)
+gPermission = Lens.lens (permission :: Grant -> Lude.Maybe Permission) (\s a -> s {permission = a} :: Grant)
+{-# DEPRECATED gPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
 
 -- | The person being granted permissions.
-gGrantee :: Lens' Grant (Maybe Grantee)
-gGrantee = lens _gGrantee (\s a -> s {_gGrantee = a})
+--
+-- /Note:/ Consider using 'grantee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gGrantee :: Lens.Lens' Grant (Lude.Maybe Grantee)
+gGrantee = Lens.lens (grantee :: Grant -> Lude.Maybe Grantee) (\s a -> s {grantee = a} :: Grant)
+{-# DEPRECATED gGrantee "Use generic-lens or generic-optics with 'grantee' instead." #-}
 
-instance FromXML Grant where
-  parseXML x = Grant' <$> (x .@? "Permission") <*> (x .@? "Grantee")
+instance Lude.FromXML Grant where
+  parseXML x =
+    Grant'
+      Lude.<$> (x Lude..@? "Permission") Lude.<*> (x Lude..@? "Grantee")
 
-instance Hashable Grant
-
-instance NFData Grant
-
-instance ToXML Grant where
+instance Lude.ToXML Grant where
   toXML Grant' {..} =
-    mconcat ["Permission" @= _gPermission, "Grantee" @= _gGrantee]
+    Lude.mconcat
+      ["Permission" Lude.@= permission, "Grantee" Lude.@= grantee]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.IPSetUpdate where
+module Network.AWS.WAFRegional.Types.IPSetUpdate
+  ( IPSetUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPSetUpdate,
+
+    -- * Lenses
+    isuAction,
+    isuIPSetDescriptor,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.IPSetDescriptor
 
 -- | Specifies the type of update to perform to an 'IPSet' with 'UpdateIPSet' .
 --
---
---
--- /See:/ 'ipSetUpdate' smart constructor.
+-- /See:/ 'mkIPSetUpdate' smart constructor.
 data IPSetUpdate = IPSetUpdate'
-  { _isuAction :: !ChangeAction,
-    _isuIPSetDescriptor :: !IPSetDescriptor
+  { action :: ChangeAction,
+    ipSetDescriptor :: IPSetDescriptor
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPSetUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isuAction' - Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
---
--- * 'isuIPSetDescriptor' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
-ipSetUpdate ::
-  -- | 'isuAction'
+-- * 'action' - Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
+-- * 'ipSetDescriptor' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
+mkIPSetUpdate ::
+  -- | 'action'
   ChangeAction ->
-  -- | 'isuIPSetDescriptor'
+  -- | 'ipSetDescriptor'
   IPSetDescriptor ->
   IPSetUpdate
-ipSetUpdate pAction_ pIPSetDescriptor_ =
+mkIPSetUpdate pAction_ pIPSetDescriptor_ =
   IPSetUpdate'
-    { _isuAction = pAction_,
-      _isuIPSetDescriptor = pIPSetDescriptor_
+    { action = pAction_,
+      ipSetDescriptor = pIPSetDescriptor_
     }
 
 -- | Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
-isuAction :: Lens' IPSetUpdate ChangeAction
-isuAction = lens _isuAction (\s a -> s {_isuAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isuAction :: Lens.Lens' IPSetUpdate ChangeAction
+isuAction = Lens.lens (action :: IPSetUpdate -> ChangeAction) (\s a -> s {action = a} :: IPSetUpdate)
+{-# DEPRECATED isuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
-isuIPSetDescriptor :: Lens' IPSetUpdate IPSetDescriptor
-isuIPSetDescriptor = lens _isuIPSetDescriptor (\s a -> s {_isuIPSetDescriptor = a})
+--
+-- /Note:/ Consider using 'ipSetDescriptor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isuIPSetDescriptor :: Lens.Lens' IPSetUpdate IPSetDescriptor
+isuIPSetDescriptor = Lens.lens (ipSetDescriptor :: IPSetUpdate -> IPSetDescriptor) (\s a -> s {ipSetDescriptor = a} :: IPSetUpdate)
+{-# DEPRECATED isuIPSetDescriptor "Use generic-lens or generic-optics with 'ipSetDescriptor' instead." #-}
 
-instance Hashable IPSetUpdate
-
-instance NFData IPSetUpdate
-
-instance ToJSON IPSetUpdate where
+instance Lude.ToJSON IPSetUpdate where
   toJSON IPSetUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just ("Action" .= _isuAction),
-            Just ("IPSetDescriptor" .= _isuIPSetDescriptor)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Action" Lude..= action),
+            Lude.Just ("IPSetDescriptor" Lude..= ipSetDescriptor)
           ]
       )

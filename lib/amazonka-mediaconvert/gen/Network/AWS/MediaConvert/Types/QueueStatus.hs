@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.QueueStatus where
+module Network.AWS.MediaConvert.Types.QueueStatus
+  ( QueueStatus
+      ( QueueStatus',
+        QSActive,
+        QSPaused
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Queues can be ACTIVE or PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause a queue continue to run until they finish or result in an error.
-data QueueStatus
-  = QSActive
-  | QSPaused
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueueStatus = QueueStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueueStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure QSActive
-      "paused" -> pure QSPaused
-      e ->
-        fromTextError $
-          "Failure parsing QueueStatus from value: '" <> e
-            <> "'. Accepted values: active, paused"
+pattern QSActive :: QueueStatus
+pattern QSActive = QueueStatus' "ACTIVE"
 
-instance ToText QueueStatus where
-  toText = \case
-    QSActive -> "ACTIVE"
-    QSPaused -> "PAUSED"
+pattern QSPaused :: QueueStatus
+pattern QSPaused = QueueStatus' "PAUSED"
 
-instance Hashable QueueStatus
-
-instance NFData QueueStatus
-
-instance ToByteString QueueStatus
-
-instance ToQuery QueueStatus
-
-instance ToHeader QueueStatus
-
-instance ToJSON QueueStatus where
-  toJSON = toJSONText
-
-instance FromJSON QueueStatus where
-  parseJSON = parseJSONText "QueueStatus"
+{-# COMPLETE
+  QSActive,
+  QSPaused,
+  QueueStatus'
+  #-}

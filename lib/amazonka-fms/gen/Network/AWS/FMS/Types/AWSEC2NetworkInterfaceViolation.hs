@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.AWSEC2NetworkInterfaceViolation where
+module Network.AWS.FMS.Types.AWSEC2NetworkInterfaceViolation
+  ( AWSEC2NetworkInterfaceViolation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAWSEC2NetworkInterfaceViolation,
+
+    -- * Lenses
+    aenivViolatingSecurityGroups,
+    aenivViolationTarget,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Violations for network interfaces associated with an EC2 instance.
 --
---
---
--- /See:/ 'awsEC2NetworkInterfaceViolation' smart constructor.
+-- /See:/ 'mkAWSEC2NetworkInterfaceViolation' smart constructor.
 data AWSEC2NetworkInterfaceViolation = AWSEC2NetworkInterfaceViolation'
-  { _aenivViolatingSecurityGroups ::
-      !(Maybe [Text]),
-    _aenivViolationTarget ::
-      !(Maybe Text)
+  { violatingSecurityGroups ::
+      Lude.Maybe [Lude.Text],
+    violationTarget ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSEC2NetworkInterfaceViolation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aenivViolatingSecurityGroups' - List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.
---
--- * 'aenivViolationTarget' - The resource ID of the network interface.
-awsEC2NetworkInterfaceViolation ::
+-- * 'violatingSecurityGroups' - List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.
+-- * 'violationTarget' - The resource ID of the network interface.
+mkAWSEC2NetworkInterfaceViolation ::
   AWSEC2NetworkInterfaceViolation
-awsEC2NetworkInterfaceViolation =
+mkAWSEC2NetworkInterfaceViolation =
   AWSEC2NetworkInterfaceViolation'
-    { _aenivViolatingSecurityGroups =
-        Nothing,
-      _aenivViolationTarget = Nothing
+    { violatingSecurityGroups =
+        Lude.Nothing,
+      violationTarget = Lude.Nothing
     }
 
 -- | List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.
-aenivViolatingSecurityGroups :: Lens' AWSEC2NetworkInterfaceViolation [Text]
-aenivViolatingSecurityGroups = lens _aenivViolatingSecurityGroups (\s a -> s {_aenivViolatingSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'violatingSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aenivViolatingSecurityGroups :: Lens.Lens' AWSEC2NetworkInterfaceViolation (Lude.Maybe [Lude.Text])
+aenivViolatingSecurityGroups = Lens.lens (violatingSecurityGroups :: AWSEC2NetworkInterfaceViolation -> Lude.Maybe [Lude.Text]) (\s a -> s {violatingSecurityGroups = a} :: AWSEC2NetworkInterfaceViolation)
+{-# DEPRECATED aenivViolatingSecurityGroups "Use generic-lens or generic-optics with 'violatingSecurityGroups' instead." #-}
 
 -- | The resource ID of the network interface.
-aenivViolationTarget :: Lens' AWSEC2NetworkInterfaceViolation (Maybe Text)
-aenivViolationTarget = lens _aenivViolationTarget (\s a -> s {_aenivViolationTarget = a})
+--
+-- /Note:/ Consider using 'violationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aenivViolationTarget :: Lens.Lens' AWSEC2NetworkInterfaceViolation (Lude.Maybe Lude.Text)
+aenivViolationTarget = Lens.lens (violationTarget :: AWSEC2NetworkInterfaceViolation -> Lude.Maybe Lude.Text) (\s a -> s {violationTarget = a} :: AWSEC2NetworkInterfaceViolation)
+{-# DEPRECATED aenivViolationTarget "Use generic-lens or generic-optics with 'violationTarget' instead." #-}
 
-instance FromJSON AWSEC2NetworkInterfaceViolation where
+instance Lude.FromJSON AWSEC2NetworkInterfaceViolation where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSEC2NetworkInterfaceViolation"
       ( \x ->
           AWSEC2NetworkInterfaceViolation'
-            <$> (x .:? "ViolatingSecurityGroups" .!= mempty)
-            <*> (x .:? "ViolationTarget")
+            Lude.<$> (x Lude..:? "ViolatingSecurityGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ViolationTarget")
       )
-
-instance Hashable AWSEC2NetworkInterfaceViolation
-
-instance NFData AWSEC2NetworkInterfaceViolation

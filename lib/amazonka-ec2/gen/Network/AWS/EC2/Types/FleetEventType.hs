@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetEventType where
+module Network.AWS.EC2.Types.FleetEventType
+  ( FleetEventType
+      ( FleetEventType',
+        FETFleetChange,
+        FETInstanceChange,
+        FETServiceError
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetEventType
-  = FETFleetChange
-  | FETInstanceChange
-  | FETServiceError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetEventType = FleetEventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetEventType where
-  parser =
-    takeLowerText >>= \case
-      "fleet-change" -> pure FETFleetChange
-      "instance-change" -> pure FETInstanceChange
-      "service-error" -> pure FETServiceError
-      e ->
-        fromTextError $
-          "Failure parsing FleetEventType from value: '" <> e
-            <> "'. Accepted values: fleet-change, instance-change, service-error"
+pattern FETFleetChange :: FleetEventType
+pattern FETFleetChange = FleetEventType' "fleet-change"
 
-instance ToText FleetEventType where
-  toText = \case
-    FETFleetChange -> "fleet-change"
-    FETInstanceChange -> "instance-change"
-    FETServiceError -> "service-error"
+pattern FETInstanceChange :: FleetEventType
+pattern FETInstanceChange = FleetEventType' "instance-change"
 
-instance Hashable FleetEventType
+pattern FETServiceError :: FleetEventType
+pattern FETServiceError = FleetEventType' "service-error"
 
-instance NFData FleetEventType
-
-instance ToByteString FleetEventType
-
-instance ToQuery FleetEventType
-
-instance ToHeader FleetEventType
-
-instance FromXML FleetEventType where
-  parseXML = parseXMLText "FleetEventType"
+{-# COMPLETE
+  FETFleetChange,
+  FETInstanceChange,
+  FETServiceError,
+  FleetEventType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.LBCookieStickinessPolicy where
+module Network.AWS.ELB.Types.LBCookieStickinessPolicy
+  ( LBCookieStickinessPolicy (..),
+
+    -- * Smart constructor
+    mkLBCookieStickinessPolicy,
+
+    -- * Lenses
+    lbcspPolicyName,
+    lbcspCookieExpirationPeriod,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a policy for duration-based session stickiness.
 --
---
---
--- /See:/ 'lBCookieStickinessPolicy' smart constructor.
+-- /See:/ 'mkLBCookieStickinessPolicy' smart constructor.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
-  { _lbcspPolicyName ::
-      !(Maybe Text),
-    _lbcspCookieExpirationPeriod ::
-      !(Maybe Integer)
+  { policyName ::
+      Lude.Maybe Lude.Text,
+    cookieExpirationPeriod ::
+      Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LBCookieStickinessPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbcspPolicyName' - The name of the policy. This name must be unique within the set of policies for this load balancer.
---
--- * 'lbcspCookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
-lBCookieStickinessPolicy ::
+-- * 'cookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
+-- * 'policyName' - The name of the policy. This name must be unique within the set of policies for this load balancer.
+mkLBCookieStickinessPolicy ::
   LBCookieStickinessPolicy
-lBCookieStickinessPolicy =
+mkLBCookieStickinessPolicy =
   LBCookieStickinessPolicy'
-    { _lbcspPolicyName = Nothing,
-      _lbcspCookieExpirationPeriod = Nothing
+    { policyName = Lude.Nothing,
+      cookieExpirationPeriod = Lude.Nothing
     }
 
 -- | The name of the policy. This name must be unique within the set of policies for this load balancer.
-lbcspPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
-lbcspPolicyName = lens _lbcspPolicyName (\s a -> s {_lbcspPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbcspPolicyName :: Lens.Lens' LBCookieStickinessPolicy (Lude.Maybe Lude.Text)
+lbcspPolicyName = Lens.lens (policyName :: LBCookieStickinessPolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: LBCookieStickinessPolicy)
+{-# DEPRECATED lbcspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
-lbcspCookieExpirationPeriod :: Lens' LBCookieStickinessPolicy (Maybe Integer)
-lbcspCookieExpirationPeriod = lens _lbcspCookieExpirationPeriod (\s a -> s {_lbcspCookieExpirationPeriod = a})
+--
+-- /Note:/ Consider using 'cookieExpirationPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbcspCookieExpirationPeriod :: Lens.Lens' LBCookieStickinessPolicy (Lude.Maybe Lude.Integer)
+lbcspCookieExpirationPeriod = Lens.lens (cookieExpirationPeriod :: LBCookieStickinessPolicy -> Lude.Maybe Lude.Integer) (\s a -> s {cookieExpirationPeriod = a} :: LBCookieStickinessPolicy)
+{-# DEPRECATED lbcspCookieExpirationPeriod "Use generic-lens or generic-optics with 'cookieExpirationPeriod' instead." #-}
 
-instance FromXML LBCookieStickinessPolicy where
+instance Lude.FromXML LBCookieStickinessPolicy where
   parseXML x =
     LBCookieStickinessPolicy'
-      <$> (x .@? "PolicyName") <*> (x .@? "CookieExpirationPeriod")
-
-instance Hashable LBCookieStickinessPolicy
-
-instance NFData LBCookieStickinessPolicy
+      Lude.<$> (x Lude..@? "PolicyName")
+      Lude.<*> (x Lude..@? "CookieExpirationPeriod")

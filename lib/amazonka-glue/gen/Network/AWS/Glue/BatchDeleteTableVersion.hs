@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,176 @@
 --
 -- Deletes a specified batch of versions of a table.
 module Network.AWS.Glue.BatchDeleteTableVersion
-  ( -- * Creating a Request
-    batchDeleteTableVersion,
-    BatchDeleteTableVersion,
+  ( -- * Creating a request
+    BatchDeleteTableVersion (..),
+    mkBatchDeleteTableVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdtvCatalogId,
     bdtvDatabaseName,
     bdtvTableName,
     bdtvVersionIds,
 
-    -- * Destructuring the Response
-    batchDeleteTableVersionResponse,
-    BatchDeleteTableVersionResponse,
+    -- * Destructuring the response
+    BatchDeleteTableVersionResponse (..),
+    mkBatchDeleteTableVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bdtvrsErrors,
     bdtvrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchDeleteTableVersion' smart constructor.
+-- | /See:/ 'mkBatchDeleteTableVersion' smart constructor.
 data BatchDeleteTableVersion = BatchDeleteTableVersion'
-  { _bdtvCatalogId ::
-      !(Maybe Text),
-    _bdtvDatabaseName :: !Text,
-    _bdtvTableName :: !Text,
-    _bdtvVersionIds :: ![Text]
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text,
+    versionIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteTableVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdtvCatalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
---
--- * 'bdtvDatabaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
---
--- * 'bdtvTableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
---
--- * 'bdtvVersionIds' - A list of the IDs of versions to be deleted. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
-batchDeleteTableVersion ::
-  -- | 'bdtvDatabaseName'
-  Text ->
-  -- | 'bdtvTableName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
+-- * 'tableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
+-- * 'versionIds' - A list of the IDs of versions to be deleted. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
+mkBatchDeleteTableVersion ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   BatchDeleteTableVersion
-batchDeleteTableVersion pDatabaseName_ pTableName_ =
+mkBatchDeleteTableVersion pDatabaseName_ pTableName_ =
   BatchDeleteTableVersion'
-    { _bdtvCatalogId = Nothing,
-      _bdtvDatabaseName = pDatabaseName_,
-      _bdtvTableName = pTableName_,
-      _bdtvVersionIds = mempty
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      versionIds = Lude.mempty
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
-bdtvCatalogId :: Lens' BatchDeleteTableVersion (Maybe Text)
-bdtvCatalogId = lens _bdtvCatalogId (\s a -> s {_bdtvCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtvCatalogId :: Lens.Lens' BatchDeleteTableVersion (Lude.Maybe Lude.Text)
+bdtvCatalogId = Lens.lens (catalogId :: BatchDeleteTableVersion -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchDeleteTableVersion)
+{-# DEPRECATED bdtvCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
-bdtvDatabaseName :: Lens' BatchDeleteTableVersion Text
-bdtvDatabaseName = lens _bdtvDatabaseName (\s a -> s {_bdtvDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtvDatabaseName :: Lens.Lens' BatchDeleteTableVersion Lude.Text
+bdtvDatabaseName = Lens.lens (databaseName :: BatchDeleteTableVersion -> Lude.Text) (\s a -> s {databaseName = a} :: BatchDeleteTableVersion)
+{-# DEPRECATED bdtvDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
-bdtvTableName :: Lens' BatchDeleteTableVersion Text
-bdtvTableName = lens _bdtvTableName (\s a -> s {_bdtvTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtvTableName :: Lens.Lens' BatchDeleteTableVersion Lude.Text
+bdtvTableName = Lens.lens (tableName :: BatchDeleteTableVersion -> Lude.Text) (\s a -> s {tableName = a} :: BatchDeleteTableVersion)
+{-# DEPRECATED bdtvTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | A list of the IDs of versions to be deleted. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
-bdtvVersionIds :: Lens' BatchDeleteTableVersion [Text]
-bdtvVersionIds = lens _bdtvVersionIds (\s a -> s {_bdtvVersionIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'versionIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtvVersionIds :: Lens.Lens' BatchDeleteTableVersion [Lude.Text]
+bdtvVersionIds = Lens.lens (versionIds :: BatchDeleteTableVersion -> [Lude.Text]) (\s a -> s {versionIds = a} :: BatchDeleteTableVersion)
+{-# DEPRECATED bdtvVersionIds "Use generic-lens or generic-optics with 'versionIds' instead." #-}
 
-instance AWSRequest BatchDeleteTableVersion where
+instance Lude.AWSRequest BatchDeleteTableVersion where
   type Rs BatchDeleteTableVersion = BatchDeleteTableVersionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDeleteTableVersionResponse'
-            <$> (x .?> "Errors" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchDeleteTableVersion
-
-instance NFData BatchDeleteTableVersion
-
-instance ToHeaders BatchDeleteTableVersion where
+instance Lude.ToHeaders BatchDeleteTableVersion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.BatchDeleteTableVersion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.BatchDeleteTableVersion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchDeleteTableVersion where
+instance Lude.ToJSON BatchDeleteTableVersion where
   toJSON BatchDeleteTableVersion' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _bdtvCatalogId,
-            Just ("DatabaseName" .= _bdtvDatabaseName),
-            Just ("TableName" .= _bdtvTableName),
-            Just ("VersionIds" .= _bdtvVersionIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("VersionIds" Lude..= versionIds)
           ]
       )
 
-instance ToPath BatchDeleteTableVersion where
-  toPath = const "/"
+instance Lude.ToPath BatchDeleteTableVersion where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchDeleteTableVersion where
-  toQuery = const mempty
+instance Lude.ToQuery BatchDeleteTableVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchDeleteTableVersionResponse' smart constructor.
+-- | /See:/ 'mkBatchDeleteTableVersionResponse' smart constructor.
 data BatchDeleteTableVersionResponse = BatchDeleteTableVersionResponse'
-  { _bdtvrsErrors ::
-      !( Maybe
-           [TableVersionError]
-       ),
-    _bdtvrsResponseStatus ::
-      !Int
+  { errors ::
+      Lude.Maybe
+        [TableVersionError],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteTableVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdtvrsErrors' - A list of errors encountered while trying to delete the specified table versions.
---
--- * 'bdtvrsResponseStatus' - -- | The response status code.
-batchDeleteTableVersionResponse ::
-  -- | 'bdtvrsResponseStatus'
-  Int ->
+-- * 'errors' - A list of errors encountered while trying to delete the specified table versions.
+-- * 'responseStatus' - The response status code.
+mkBatchDeleteTableVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDeleteTableVersionResponse
-batchDeleteTableVersionResponse pResponseStatus_ =
+mkBatchDeleteTableVersionResponse pResponseStatus_ =
   BatchDeleteTableVersionResponse'
-    { _bdtvrsErrors = Nothing,
-      _bdtvrsResponseStatus = pResponseStatus_
+    { errors = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of errors encountered while trying to delete the specified table versions.
-bdtvrsErrors :: Lens' BatchDeleteTableVersionResponse [TableVersionError]
-bdtvrsErrors = lens _bdtvrsErrors (\s a -> s {_bdtvrsErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtvrsErrors :: Lens.Lens' BatchDeleteTableVersionResponse (Lude.Maybe [TableVersionError])
+bdtvrsErrors = Lens.lens (errors :: BatchDeleteTableVersionResponse -> Lude.Maybe [TableVersionError]) (\s a -> s {errors = a} :: BatchDeleteTableVersionResponse)
+{-# DEPRECATED bdtvrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
--- | -- | The response status code.
-bdtvrsResponseStatus :: Lens' BatchDeleteTableVersionResponse Int
-bdtvrsResponseStatus = lens _bdtvrsResponseStatus (\s a -> s {_bdtvrsResponseStatus = a})
-
-instance NFData BatchDeleteTableVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtvrsResponseStatus :: Lens.Lens' BatchDeleteTableVersionResponse Lude.Int
+bdtvrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteTableVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteTableVersionResponse)
+{-# DEPRECATED bdtvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

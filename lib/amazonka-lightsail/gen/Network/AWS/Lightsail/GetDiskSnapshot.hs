@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,133 @@
 --
 -- Returns information about a specific block storage disk snapshot.
 module Network.AWS.Lightsail.GetDiskSnapshot
-  ( -- * Creating a Request
-    getDiskSnapshot,
-    GetDiskSnapshot,
+  ( -- * Creating a request
+    GetDiskSnapshot (..),
+    mkGetDiskSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdsDiskSnapshotName,
 
-    -- * Destructuring the Response
-    getDiskSnapshotResponse,
-    GetDiskSnapshotResponse,
+    -- * Destructuring the response
+    GetDiskSnapshotResponse (..),
+    mkGetDiskSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdsrsDiskSnapshot,
     gdsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDiskSnapshot' smart constructor.
+-- | /See:/ 'mkGetDiskSnapshot' smart constructor.
 newtype GetDiskSnapshot = GetDiskSnapshot'
-  { _gdsDiskSnapshotName ::
-      Text
+  { diskSnapshotName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiskSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdsDiskSnapshotName' - The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
-getDiskSnapshot ::
-  -- | 'gdsDiskSnapshotName'
-  Text ->
+-- * 'diskSnapshotName' - The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
+mkGetDiskSnapshot ::
+  -- | 'diskSnapshotName'
+  Lude.Text ->
   GetDiskSnapshot
-getDiskSnapshot pDiskSnapshotName_ =
-  GetDiskSnapshot' {_gdsDiskSnapshotName = pDiskSnapshotName_}
+mkGetDiskSnapshot pDiskSnapshotName_ =
+  GetDiskSnapshot' {diskSnapshotName = pDiskSnapshotName_}
 
 -- | The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
-gdsDiskSnapshotName :: Lens' GetDiskSnapshot Text
-gdsDiskSnapshotName = lens _gdsDiskSnapshotName (\s a -> s {_gdsDiskSnapshotName = a})
+--
+-- /Note:/ Consider using 'diskSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsDiskSnapshotName :: Lens.Lens' GetDiskSnapshot Lude.Text
+gdsDiskSnapshotName = Lens.lens (diskSnapshotName :: GetDiskSnapshot -> Lude.Text) (\s a -> s {diskSnapshotName = a} :: GetDiskSnapshot)
+{-# DEPRECATED gdsDiskSnapshotName "Use generic-lens or generic-optics with 'diskSnapshotName' instead." #-}
 
-instance AWSRequest GetDiskSnapshot where
+instance Lude.AWSRequest GetDiskSnapshot where
   type Rs GetDiskSnapshot = GetDiskSnapshotResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDiskSnapshotResponse'
-            <$> (x .?> "diskSnapshot") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "diskSnapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDiskSnapshot
-
-instance NFData GetDiskSnapshot
-
-instance ToHeaders GetDiskSnapshot where
+instance Lude.ToHeaders GetDiskSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetDiskSnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetDiskSnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDiskSnapshot where
+instance Lude.ToJSON GetDiskSnapshot where
   toJSON GetDiskSnapshot' {..} =
-    object
-      (catMaybes [Just ("diskSnapshotName" .= _gdsDiskSnapshotName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("diskSnapshotName" Lude..= diskSnapshotName)]
+      )
 
-instance ToPath GetDiskSnapshot where
-  toPath = const "/"
+instance Lude.ToPath GetDiskSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDiskSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery GetDiskSnapshot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDiskSnapshotResponse' smart constructor.
+-- | /See:/ 'mkGetDiskSnapshotResponse' smart constructor.
 data GetDiskSnapshotResponse = GetDiskSnapshotResponse'
-  { _gdsrsDiskSnapshot ::
-      !(Maybe DiskSnapshot),
-    _gdsrsResponseStatus :: !Int
+  { diskSnapshot ::
+      Lude.Maybe DiskSnapshot,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiskSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdsrsDiskSnapshot' - An object containing information about the disk snapshot.
---
--- * 'gdsrsResponseStatus' - -- | The response status code.
-getDiskSnapshotResponse ::
-  -- | 'gdsrsResponseStatus'
-  Int ->
+-- * 'diskSnapshot' - An object containing information about the disk snapshot.
+-- * 'responseStatus' - The response status code.
+mkGetDiskSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDiskSnapshotResponse
-getDiskSnapshotResponse pResponseStatus_ =
+mkGetDiskSnapshotResponse pResponseStatus_ =
   GetDiskSnapshotResponse'
-    { _gdsrsDiskSnapshot = Nothing,
-      _gdsrsResponseStatus = pResponseStatus_
+    { diskSnapshot = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object containing information about the disk snapshot.
-gdsrsDiskSnapshot :: Lens' GetDiskSnapshotResponse (Maybe DiskSnapshot)
-gdsrsDiskSnapshot = lens _gdsrsDiskSnapshot (\s a -> s {_gdsrsDiskSnapshot = a})
+--
+-- /Note:/ Consider using 'diskSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrsDiskSnapshot :: Lens.Lens' GetDiskSnapshotResponse (Lude.Maybe DiskSnapshot)
+gdsrsDiskSnapshot = Lens.lens (diskSnapshot :: GetDiskSnapshotResponse -> Lude.Maybe DiskSnapshot) (\s a -> s {diskSnapshot = a} :: GetDiskSnapshotResponse)
+{-# DEPRECATED gdsrsDiskSnapshot "Use generic-lens or generic-optics with 'diskSnapshot' instead." #-}
 
--- | -- | The response status code.
-gdsrsResponseStatus :: Lens' GetDiskSnapshotResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\s a -> s {_gdsrsResponseStatus = a})
-
-instance NFData GetDiskSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrsResponseStatus :: Lens.Lens' GetDiskSnapshotResponse Lude.Int
+gdsrsResponseStatus = Lens.lens (responseStatus :: GetDiskSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDiskSnapshotResponse)
+{-# DEPRECATED gdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

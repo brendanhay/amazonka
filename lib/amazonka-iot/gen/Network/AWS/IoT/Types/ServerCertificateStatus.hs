@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ServerCertificateStatus where
+module Network.AWS.IoT.Types.ServerCertificateStatus
+  ( ServerCertificateStatus
+      ( ServerCertificateStatus',
+        Invalid,
+        Valid
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServerCertificateStatus
-  = Invalid
-  | Valid
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServerCertificateStatus = ServerCertificateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServerCertificateStatus where
-  parser =
-    takeLowerText >>= \case
-      "invalid" -> pure Invalid
-      "valid" -> pure Valid
-      e ->
-        fromTextError $
-          "Failure parsing ServerCertificateStatus from value: '" <> e
-            <> "'. Accepted values: invalid, valid"
+pattern Invalid :: ServerCertificateStatus
+pattern Invalid = ServerCertificateStatus' "INVALID"
 
-instance ToText ServerCertificateStatus where
-  toText = \case
-    Invalid -> "INVALID"
-    Valid -> "VALID"
+pattern Valid :: ServerCertificateStatus
+pattern Valid = ServerCertificateStatus' "VALID"
 
-instance Hashable ServerCertificateStatus
-
-instance NFData ServerCertificateStatus
-
-instance ToByteString ServerCertificateStatus
-
-instance ToQuery ServerCertificateStatus
-
-instance ToHeader ServerCertificateStatus
-
-instance FromJSON ServerCertificateStatus where
-  parseJSON = parseJSONText "ServerCertificateStatus"
+{-# COMPLETE
+  Invalid,
+  Valid,
+  ServerCertificateStatus'
+  #-}

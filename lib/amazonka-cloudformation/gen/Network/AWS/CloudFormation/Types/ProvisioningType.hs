@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ProvisioningType where
+module Network.AWS.CloudFormation.Types.ProvisioningType
+  ( ProvisioningType
+      ( ProvisioningType',
+        FullyMutable,
+        Immutable,
+        NonProvisionable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisioningType
-  = FullyMutable
-  | Immutable
-  | NonProvisionable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisioningType = ProvisioningType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisioningType where
-  parser =
-    takeLowerText >>= \case
-      "fully_mutable" -> pure FullyMutable
-      "immutable" -> pure Immutable
-      "non_provisionable" -> pure NonProvisionable
-      e ->
-        fromTextError $
-          "Failure parsing ProvisioningType from value: '" <> e
-            <> "'. Accepted values: fully_mutable, immutable, non_provisionable"
+pattern FullyMutable :: ProvisioningType
+pattern FullyMutable = ProvisioningType' "FULLY_MUTABLE"
 
-instance ToText ProvisioningType where
-  toText = \case
-    FullyMutable -> "FULLY_MUTABLE"
-    Immutable -> "IMMUTABLE"
-    NonProvisionable -> "NON_PROVISIONABLE"
+pattern Immutable :: ProvisioningType
+pattern Immutable = ProvisioningType' "IMMUTABLE"
 
-instance Hashable ProvisioningType
+pattern NonProvisionable :: ProvisioningType
+pattern NonProvisionable = ProvisioningType' "NON_PROVISIONABLE"
 
-instance NFData ProvisioningType
-
-instance ToByteString ProvisioningType
-
-instance ToQuery ProvisioningType
-
-instance ToHeader ProvisioningType
-
-instance FromXML ProvisioningType where
-  parseXML = parseXMLText "ProvisioningType"
+{-# COMPLETE
+  FullyMutable,
+  Immutable,
+  NonProvisionable,
+  ProvisioningType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,148 @@
 --
 -- Deletes a conditional forwarder that has been set up for your AWS directory.
 module Network.AWS.DirectoryService.DeleteConditionalForwarder
-  ( -- * Creating a Request
-    deleteConditionalForwarder,
-    DeleteConditionalForwarder,
+  ( -- * Creating a request
+    DeleteConditionalForwarder (..),
+    mkDeleteConditionalForwarder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delDirectoryId,
     delRemoteDomainName,
 
-    -- * Destructuring the Response
-    deleteConditionalForwarderResponse,
-    DeleteConditionalForwarderResponse,
+    -- * Destructuring the response
+    DeleteConditionalForwarderResponse (..),
+    mkDeleteConditionalForwarderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Deletes a conditional forwarder.
 --
---
---
--- /See:/ 'deleteConditionalForwarder' smart constructor.
+-- /See:/ 'mkDeleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
-  { _delDirectoryId ::
-      !Text,
-    _delRemoteDomainName :: !Text
+  { directoryId ::
+      Lude.Text,
+    remoteDomainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConditionalForwarder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delDirectoryId' - The directory ID for which you are deleting the conditional forwarder.
---
--- * 'delRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
-deleteConditionalForwarder ::
-  -- | 'delDirectoryId'
-  Text ->
-  -- | 'delRemoteDomainName'
-  Text ->
+-- * 'directoryId' - The directory ID for which you are deleting the conditional forwarder.
+-- * 'remoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
+mkDeleteConditionalForwarder ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'remoteDomainName'
+  Lude.Text ->
   DeleteConditionalForwarder
-deleteConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
+mkDeleteConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
   DeleteConditionalForwarder'
-    { _delDirectoryId = pDirectoryId_,
-      _delRemoteDomainName = pRemoteDomainName_
+    { directoryId = pDirectoryId_,
+      remoteDomainName = pRemoteDomainName_
     }
 
 -- | The directory ID for which you are deleting the conditional forwarder.
-delDirectoryId :: Lens' DeleteConditionalForwarder Text
-delDirectoryId = lens _delDirectoryId (\s a -> s {_delDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delDirectoryId :: Lens.Lens' DeleteConditionalForwarder Lude.Text
+delDirectoryId = Lens.lens (directoryId :: DeleteConditionalForwarder -> Lude.Text) (\s a -> s {directoryId = a} :: DeleteConditionalForwarder)
+{-# DEPRECATED delDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
-delRemoteDomainName :: Lens' DeleteConditionalForwarder Text
-delRemoteDomainName = lens _delRemoteDomainName (\s a -> s {_delRemoteDomainName = a})
+--
+-- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delRemoteDomainName :: Lens.Lens' DeleteConditionalForwarder Lude.Text
+delRemoteDomainName = Lens.lens (remoteDomainName :: DeleteConditionalForwarder -> Lude.Text) (\s a -> s {remoteDomainName = a} :: DeleteConditionalForwarder)
+{-# DEPRECATED delRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
 
-instance AWSRequest DeleteConditionalForwarder where
+instance Lude.AWSRequest DeleteConditionalForwarder where
   type
     Rs DeleteConditionalForwarder =
       DeleteConditionalForwarderResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteConditionalForwarderResponse' <$> (pure (fromEnum s))
+          DeleteConditionalForwarderResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteConditionalForwarder
-
-instance NFData DeleteConditionalForwarder
-
-instance ToHeaders DeleteConditionalForwarder where
+instance Lude.ToHeaders DeleteConditionalForwarder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "DirectoryService_20150416.DeleteConditionalForwarder" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DeleteConditionalForwarder" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteConditionalForwarder where
+instance Lude.ToJSON DeleteConditionalForwarder where
   toJSON DeleteConditionalForwarder' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _delDirectoryId),
-            Just ("RemoteDomainName" .= _delRemoteDomainName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("RemoteDomainName" Lude..= remoteDomainName)
           ]
       )
 
-instance ToPath DeleteConditionalForwarder where
-  toPath = const "/"
+instance Lude.ToPath DeleteConditionalForwarder where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteConditionalForwarder where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteConditionalForwarder where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a DeleteConditionalForwarder request.
 --
---
---
--- /See:/ 'deleteConditionalForwarderResponse' smart constructor.
+-- /See:/ 'mkDeleteConditionalForwarderResponse' smart constructor.
 newtype DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
-  { _drsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConditionalForwarderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteConditionalForwarderResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteConditionalForwarderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteConditionalForwarderResponse
-deleteConditionalForwarderResponse pResponseStatus_ =
+mkDeleteConditionalForwarderResponse pResponseStatus_ =
   DeleteConditionalForwarderResponse'
-    { _drsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteConditionalForwarderResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteConditionalForwarderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteConditionalForwarderResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteConditionalForwarderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConditionalForwarderResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.MetricsAndOperator where
+module Network.AWS.S3.Types.MetricsAndOperator
+  ( MetricsAndOperator (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricsAndOperator,
+
+    -- * Lenses
+    maoPrefix,
+    maoTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
 --
---
---
--- /See:/ 'metricsAndOperator' smart constructor.
+-- /See:/ 'mkMetricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
-  { _maoPrefix ::
-      !(Maybe Text),
-    _maoTags :: !(Maybe [Tag])
+  { prefix ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricsAndOperator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'maoPrefix' - The prefix used when evaluating an AND predicate.
---
--- * 'maoTags' - The list of tags used when evaluating an AND predicate.
-metricsAndOperator ::
+-- * 'prefix' - The prefix used when evaluating an AND predicate.
+-- * 'tags' - The list of tags used when evaluating an AND predicate.
+mkMetricsAndOperator ::
   MetricsAndOperator
-metricsAndOperator =
-  MetricsAndOperator' {_maoPrefix = Nothing, _maoTags = Nothing}
+mkMetricsAndOperator =
+  MetricsAndOperator' {prefix = Lude.Nothing, tags = Lude.Nothing}
 
 -- | The prefix used when evaluating an AND predicate.
-maoPrefix :: Lens' MetricsAndOperator (Maybe Text)
-maoPrefix = lens _maoPrefix (\s a -> s {_maoPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maoPrefix :: Lens.Lens' MetricsAndOperator (Lude.Maybe Lude.Text)
+maoPrefix = Lens.lens (prefix :: MetricsAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: MetricsAndOperator)
+{-# DEPRECATED maoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The list of tags used when evaluating an AND predicate.
-maoTags :: Lens' MetricsAndOperator [Tag]
-maoTags = lens _maoTags (\s a -> s {_maoTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maoTags :: Lens.Lens' MetricsAndOperator (Lude.Maybe [Tag])
+maoTags = Lens.lens (tags :: MetricsAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: MetricsAndOperator)
+{-# DEPRECATED maoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML MetricsAndOperator where
+instance Lude.FromXML MetricsAndOperator where
   parseXML x =
     MetricsAndOperator'
-      <$> (x .@? "Prefix")
-      <*> (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+      Lude.<$> (x Lude..@? "Prefix")
+      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
 
-instance Hashable MetricsAndOperator
-
-instance NFData MetricsAndOperator
-
-instance ToXML MetricsAndOperator where
+instance Lude.ToXML MetricsAndOperator where
   toXML MetricsAndOperator' {..} =
-    mconcat
-      [ "Prefix" @= _maoPrefix,
-        "Tag" @= toXML (toXMLList "Tag" <$> _maoTags)
+    Lude.mconcat
+      [ "Prefix" Lude.@= prefix,
+        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
       ]

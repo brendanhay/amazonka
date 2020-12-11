@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,123 @@
 --
 -- This operation disables automatic renewal of domain registration for the specified domain.
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
-  ( -- * Creating a Request
-    disableDomainAutoRenew,
-    DisableDomainAutoRenew,
+  ( -- * Creating a request
+    DisableDomainAutoRenew (..),
+    mkDisableDomainAutoRenew,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddarDomainName,
 
-    -- * Destructuring the Response
-    disableDomainAutoRenewResponse,
-    DisableDomainAutoRenewResponse,
+    -- * Destructuring the response
+    DisableDomainAutoRenewResponse (..),
+    mkDisableDomainAutoRenewResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddarrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'disableDomainAutoRenew' smart constructor.
+-- | /See:/ 'mkDisableDomainAutoRenew' smart constructor.
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
-  { _ddarDomainName ::
-      Text
+  { domainName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainAutoRenew' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddarDomainName' - The name of the domain that you want to disable automatic renewal for.
-disableDomainAutoRenew ::
-  -- | 'ddarDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain that you want to disable automatic renewal for.
+mkDisableDomainAutoRenew ::
+  -- | 'domainName'
+  Lude.Text ->
   DisableDomainAutoRenew
-disableDomainAutoRenew pDomainName_ =
-  DisableDomainAutoRenew' {_ddarDomainName = pDomainName_}
+mkDisableDomainAutoRenew pDomainName_ =
+  DisableDomainAutoRenew' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to disable automatic renewal for.
-ddarDomainName :: Lens' DisableDomainAutoRenew Text
-ddarDomainName = lens _ddarDomainName (\s a -> s {_ddarDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddarDomainName :: Lens.Lens' DisableDomainAutoRenew Lude.Text
+ddarDomainName = Lens.lens (domainName :: DisableDomainAutoRenew -> Lude.Text) (\s a -> s {domainName = a} :: DisableDomainAutoRenew)
+{-# DEPRECATED ddarDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DisableDomainAutoRenew where
+instance Lude.AWSRequest DisableDomainAutoRenew where
   type Rs DisableDomainAutoRenew = DisableDomainAutoRenewResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisableDomainAutoRenewResponse' <$> (pure (fromEnum s))
+          DisableDomainAutoRenewResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableDomainAutoRenew
-
-instance NFData DisableDomainAutoRenew
-
-instance ToHeaders DisableDomainAutoRenew where
+instance Lude.ToHeaders DisableDomainAutoRenew where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53Domains_v20140515.DisableDomainAutoRenew" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.DisableDomainAutoRenew" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableDomainAutoRenew where
+instance Lude.ToJSON DisableDomainAutoRenew where
   toJSON DisableDomainAutoRenew' {..} =
-    object (catMaybes [Just ("DomainName" .= _ddarDomainName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
 
-instance ToPath DisableDomainAutoRenew where
-  toPath = const "/"
+instance Lude.ToPath DisableDomainAutoRenew where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableDomainAutoRenew where
-  toQuery = const mempty
+instance Lude.ToQuery DisableDomainAutoRenew where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableDomainAutoRenewResponse' smart constructor.
+-- | /See:/ 'mkDisableDomainAutoRenewResponse' smart constructor.
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
-  { _ddarrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainAutoRenewResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddarrsResponseStatus' - -- | The response status code.
-disableDomainAutoRenewResponse ::
-  -- | 'ddarrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisableDomainAutoRenewResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableDomainAutoRenewResponse
-disableDomainAutoRenewResponse pResponseStatus_ =
+mkDisableDomainAutoRenewResponse pResponseStatus_ =
   DisableDomainAutoRenewResponse'
-    { _ddarrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
-ddarrsResponseStatus = lens _ddarrsResponseStatus (\s a -> s {_ddarrsResponseStatus = a})
-
-instance NFData DisableDomainAutoRenewResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddarrsResponseStatus :: Lens.Lens' DisableDomainAutoRenewResponse Lude.Int
+ddarrsResponseStatus = Lens.lens (responseStatus :: DisableDomainAutoRenewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDomainAutoRenewResponse)
+{-# DEPRECATED ddarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

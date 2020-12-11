@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types
-  ( -- * Service Configuration
-    connect,
+  ( -- * Service configuration
+    connectService,
 
     -- * Errors
 
@@ -73,20 +71,20 @@ module Network.AWS.Connect.Types
     VoiceRecordingTrack (..),
 
     -- * Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aAttributeType,
 
     -- * ChatMessage
-    ChatMessage,
-    chatMessage,
+    ChatMessage (..),
+    mkChatMessage,
     cmContentType,
     cmContent,
 
     -- * ContactFlow
-    ContactFlow,
-    contactFlow,
+    ContactFlow (..),
+    mkContactFlow,
     cfARN,
     cfContent,
     cfName,
@@ -96,60 +94,60 @@ module Network.AWS.Connect.Types
     cfTags,
 
     -- * ContactFlowSummary
-    ContactFlowSummary,
-    contactFlowSummary,
+    ContactFlowSummary (..),
+    mkContactFlowSummary,
     cfsARN,
     cfsName,
     cfsContactFlowType,
     cfsId,
 
     -- * Credentials
-    Credentials,
-    credentials,
+    Credentials (..),
+    mkCredentials,
     cAccessTokenExpiration,
     cAccessToken,
     cRefreshToken,
     cRefreshTokenExpiration,
 
     -- * CurrentMetric
-    CurrentMetric,
-    currentMetric,
+    CurrentMetric (..),
+    mkCurrentMetric,
     cmName,
     cmUnit,
 
     -- * CurrentMetricData
-    CurrentMetricData,
-    currentMetricData,
+    CurrentMetricData (..),
+    mkCurrentMetricData,
     cmdValue,
     cmdMetric,
 
     -- * CurrentMetricResult
-    CurrentMetricResult,
-    currentMetricResult,
+    CurrentMetricResult (..),
+    mkCurrentMetricResult,
     cmrCollections,
     cmrDimensions,
 
     -- * Dimensions
-    Dimensions,
-    dimensions,
+    Dimensions (..),
+    mkDimensions,
     dChannel,
     dQueue,
 
     -- * EncryptionConfig
-    EncryptionConfig,
-    encryptionConfig,
+    EncryptionConfig (..),
+    mkEncryptionConfig,
     ecEncryptionType,
     ecKeyId,
 
     -- * Filters
-    Filters,
-    filters,
+    Filters (..),
+    mkFilters,
     fQueues,
     fChannels,
 
     -- * HierarchyGroup
-    HierarchyGroup,
-    hierarchyGroup,
+    HierarchyGroup (..),
+    mkHierarchyGroup,
     hgARN,
     hgName,
     hgHierarchyPath,
@@ -157,27 +155,27 @@ module Network.AWS.Connect.Types
     hgLevelId,
 
     -- * HierarchyGroupSummary
-    HierarchyGroupSummary,
-    hierarchyGroupSummary,
+    HierarchyGroupSummary (..),
+    mkHierarchyGroupSummary,
     hgsARN,
     hgsName,
     hgsId,
 
     -- * HierarchyLevel
-    HierarchyLevel,
-    hierarchyLevel,
+    HierarchyLevel (..),
+    mkHierarchyLevel,
     hlARN,
     hlName,
     hlId,
 
     -- * HierarchyLevelUpdate
-    HierarchyLevelUpdate,
-    hierarchyLevelUpdate,
+    HierarchyLevelUpdate (..),
+    mkHierarchyLevelUpdate,
     hluName,
 
     -- * HierarchyPath
-    HierarchyPath,
-    hierarchyPath,
+    HierarchyPath (..),
+    mkHierarchyPath,
     hpLevelFive,
     hpLevelThree,
     hpLevelFour,
@@ -185,8 +183,8 @@ module Network.AWS.Connect.Types
     hpLevelOne,
 
     -- * HierarchyStructure
-    HierarchyStructure,
-    hierarchyStructure,
+    HierarchyStructure (..),
+    mkHierarchyStructure,
     hsLevelFive,
     hsLevelThree,
     hsLevelFour,
@@ -194,8 +192,8 @@ module Network.AWS.Connect.Types
     hsLevelOne,
 
     -- * HierarchyStructureUpdate
-    HierarchyStructureUpdate,
-    hierarchyStructureUpdate,
+    HierarchyStructureUpdate (..),
+    mkHierarchyStructureUpdate,
     hsuLevelFive,
     hsuLevelThree,
     hsuLevelFour,
@@ -203,35 +201,35 @@ module Network.AWS.Connect.Types
     hsuLevelOne,
 
     -- * HistoricalMetric
-    HistoricalMetric,
-    historicalMetric,
+    HistoricalMetric (..),
+    mkHistoricalMetric,
     hmName,
     hmThreshold,
     hmUnit,
     hmStatistic,
 
     -- * HistoricalMetricData
-    HistoricalMetricData,
-    historicalMetricData,
+    HistoricalMetricData (..),
+    mkHistoricalMetricData,
     hmdValue,
     hmdMetric,
 
     -- * HistoricalMetricResult
-    HistoricalMetricResult,
-    historicalMetricResult,
+    HistoricalMetricResult (..),
+    mkHistoricalMetricResult,
     hmrCollections,
     hmrDimensions,
 
     -- * HoursOfOperationSummary
-    HoursOfOperationSummary,
-    hoursOfOperationSummary,
+    HoursOfOperationSummary (..),
+    mkHoursOfOperationSummary,
     hoosARN,
     hoosName,
     hoosId,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iARN,
     iCreatedTime,
     iOutboundCallsEnabled,
@@ -244,13 +242,13 @@ module Network.AWS.Connect.Types
     iServiceRole,
 
     -- * InstanceStatusReason
-    InstanceStatusReason,
-    instanceStatusReason,
+    InstanceStatusReason (..),
+    mkInstanceStatusReason,
     isrMessage,
 
     -- * InstanceStorageConfig
-    InstanceStorageConfig,
-    instanceStorageConfig,
+    InstanceStorageConfig (..),
+    mkInstanceStorageConfig,
     iscAssociationId,
     iscKinesisStreamConfig,
     iscKinesisVideoStreamConfig,
@@ -259,8 +257,8 @@ module Network.AWS.Connect.Types
     iscStorageType,
 
     -- * InstanceSummary
-    InstanceSummary,
-    instanceSummary,
+    InstanceSummary (..),
+    mkInstanceSummary,
     isARN,
     isCreatedTime,
     isOutboundCallsEnabled,
@@ -272,42 +270,42 @@ module Network.AWS.Connect.Types
     isServiceRole,
 
     -- * KinesisFirehoseConfig
-    KinesisFirehoseConfig,
-    kinesisFirehoseConfig,
+    KinesisFirehoseConfig (..),
+    mkKinesisFirehoseConfig,
     kfcFirehoseARN,
 
     -- * KinesisStreamConfig
-    KinesisStreamConfig,
-    kinesisStreamConfig,
+    KinesisStreamConfig (..),
+    mkKinesisStreamConfig,
     kscStreamARN,
 
     -- * KinesisVideoStreamConfig
-    KinesisVideoStreamConfig,
-    kinesisVideoStreamConfig,
+    KinesisVideoStreamConfig (..),
+    mkKinesisVideoStreamConfig,
     kvscPrefix,
     kvscRetentionPeriodHours,
     kvscEncryptionConfig,
 
     -- * LexBot
-    LexBot,
-    lexBot,
+    LexBot (..),
+    mkLexBot,
     lbLexRegion,
     lbName,
 
     -- * MediaConcurrency
-    MediaConcurrency,
-    mediaConcurrency,
+    MediaConcurrency (..),
+    mkMediaConcurrency,
     mcChannel,
     mcConcurrency,
 
     -- * ParticipantDetails
-    ParticipantDetails,
-    participantDetails,
+    ParticipantDetails (..),
+    mkParticipantDetails,
     pdDisplayName,
 
     -- * PhoneNumberSummary
-    PhoneNumberSummary,
-    phoneNumberSummary,
+    PhoneNumberSummary (..),
+    mkPhoneNumberSummary,
     pnsPhoneNumberType,
     pnsARN,
     pnsPhoneNumber,
@@ -315,29 +313,29 @@ module Network.AWS.Connect.Types
     pnsId,
 
     -- * PromptSummary
-    PromptSummary,
-    promptSummary,
+    PromptSummary (..),
+    mkPromptSummary,
     psARN,
     psName,
     psId,
 
     -- * QueueReference
-    QueueReference,
-    queueReference,
+    QueueReference (..),
+    mkQueueReference,
     qrARN,
     qrId,
 
     -- * QueueSummary
-    QueueSummary,
-    queueSummary,
+    QueueSummary (..),
+    mkQueueSummary,
     qsARN,
     qsName,
     qsId,
     qsQueueType,
 
     -- * RoutingProfile
-    RoutingProfile,
-    routingProfile,
+    RoutingProfile (..),
+    mkRoutingProfile,
     rpInstanceId,
     rpRoutingProfileARN,
     rpRoutingProfileId,
@@ -348,15 +346,15 @@ module Network.AWS.Connect.Types
     rpTags,
 
     -- * RoutingProfileQueueConfig
-    RoutingProfileQueueConfig,
-    routingProfileQueueConfig,
+    RoutingProfileQueueConfig (..),
+    mkRoutingProfileQueueConfig,
     rpqcQueueReference,
     rpqcPriority,
     rpqcDelay,
 
     -- * RoutingProfileQueueConfigSummary
-    RoutingProfileQueueConfigSummary,
-    routingProfileQueueConfigSummary,
+    RoutingProfileQueueConfigSummary (..),
+    mkRoutingProfileQueueConfigSummary,
     rpqcsQueueId,
     rpqcsQueueARN,
     rpqcsQueueName,
@@ -365,48 +363,48 @@ module Network.AWS.Connect.Types
     rpqcsChannel,
 
     -- * RoutingProfileQueueReference
-    RoutingProfileQueueReference,
-    routingProfileQueueReference,
+    RoutingProfileQueueReference (..),
+    mkRoutingProfileQueueReference,
     rpqrQueueId,
     rpqrChannel,
 
     -- * RoutingProfileSummary
-    RoutingProfileSummary,
-    routingProfileSummary,
+    RoutingProfileSummary (..),
+    mkRoutingProfileSummary,
     rpsARN,
     rpsName,
     rpsId,
 
     -- * S3Config
-    S3Config,
-    s3Config,
+    S3Config (..),
+    mkS3Config,
     scEncryptionConfig,
     scBucketName,
     scBucketPrefix,
 
     -- * SecurityKey
-    SecurityKey,
-    securityKey,
+    SecurityKey (..),
+    mkSecurityKey,
     skCreationTime,
     skAssociationId,
     skKey,
 
     -- * SecurityProfileSummary
-    SecurityProfileSummary,
-    securityProfileSummary,
+    SecurityProfileSummary (..),
+    mkSecurityProfileSummary,
     spsARN,
     spsName,
     spsId,
 
     -- * Threshold
-    Threshold,
-    threshold,
+    Threshold (..),
+    mkThreshold,
     tThresholdValue,
     tComparison,
 
     -- * User
-    User,
-    user,
+    User (..),
+    mkUser,
     uRoutingProfileId,
     uDirectoryUserId,
     uARN,
@@ -419,30 +417,30 @@ module Network.AWS.Connect.Types
     uTags,
 
     -- * UserIdentityInfo
-    UserIdentityInfo,
-    userIdentityInfo,
+    UserIdentityInfo (..),
+    mkUserIdentityInfo,
     uiiEmail,
     uiiLastName,
     uiiFirstName,
 
     -- * UserPhoneConfig
-    UserPhoneConfig,
-    userPhoneConfig,
+    UserPhoneConfig (..),
+    mkUserPhoneConfig,
     upcAutoAccept,
     upcAfterContactWorkTimeLimit,
     upcDeskPhoneNumber,
     upcPhoneType,
 
     -- * UserSummary
-    UserSummary,
-    userSummary,
+    UserSummary (..),
+    mkUserSummary,
     usARN,
     usUsername,
     usId,
 
     -- * VoiceRecordingConfiguration
-    VoiceRecordingConfiguration,
-    voiceRecordingConfiguration,
+    VoiceRecordingConfiguration (..),
+    mkVoiceRecordingConfiguration,
     vrcVoiceRecordingTrack,
   )
 where
@@ -516,48 +514,60 @@ import Network.AWS.Connect.Types.UserPhoneConfig
 import Network.AWS.Connect.Types.UserSummary
 import Network.AWS.Connect.Types.VoiceRecordingConfiguration
 import Network.AWS.Connect.Types.VoiceRecordingTrack
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-08-08@ of the Amazon Connect Service SDK configuration.
-connect :: Service
-connect =
-  Service
-    { _svcAbbrev = "Connect",
-      _svcSigner = v4,
-      _svcPrefix = "connect",
-      _svcVersion = "2017-08-08",
-      _svcEndpoint = defaultEndpoint connect,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Connect",
-      _svcRetry = retry
+connectService :: Lude.Service
+connectService =
+  Lude.Service
+    { Lude._svcAbbrev = "Connect",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "connect",
+      Lude._svcVersion = "2017-08-08",
+      Lude._svcEndpoint = Lude.defaultEndpoint connectService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Connect",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

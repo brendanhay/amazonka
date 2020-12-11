@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,172 +14,195 @@
 --
 -- Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the results of this request by using a filter.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListDocuments
-  ( -- * Creating a Request
-    listDocuments,
-    ListDocuments,
+  ( -- * Creating a request
+    ListDocuments (..),
+    mkListDocuments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldDocumentFilterList,
     ldFilters,
     ldNextToken,
     ldMaxResults,
 
-    -- * Destructuring the Response
-    listDocumentsResponse,
-    ListDocumentsResponse,
+    -- * Destructuring the response
+    ListDocumentsResponse (..),
+    mkListDocumentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsDocumentIdentifiers,
     ldrsNextToken,
     ldrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'listDocuments' smart constructor.
+-- | /See:/ 'mkListDocuments' smart constructor.
 data ListDocuments = ListDocuments'
-  { _ldDocumentFilterList ::
-      !(Maybe (List1 DocumentFilter)),
-    _ldFilters :: !(Maybe [DocumentKeyValuesFilter]),
-    _ldNextToken :: !(Maybe Text),
-    _ldMaxResults :: !(Maybe Nat)
+  { documentFilterList ::
+      Lude.Maybe (Lude.NonEmpty DocumentFilter),
+    filters :: Lude.Maybe [DocumentKeyValuesFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocuments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldDocumentFilterList' - This data type is deprecated. Instead, use @Filters@ .
---
--- * 'ldFilters' - One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include @Owner@ , @Name@ , @PlatformTypes@ , @DocumentType@ , and @TargetType@ . For example, to return documents you own use @Key=Owner,Values=Self@ . To specify a custom key-value pair, use the format @Key=tag:tagName,Values=valueName@ .
---
--- * 'ldNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'ldMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-listDocuments ::
+-- * 'documentFilterList' - This data type is deprecated. Instead, use @Filters@ .
+-- * 'filters' - One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include @Owner@ , @Name@ , @PlatformTypes@ , @DocumentType@ , and @TargetType@ . For example, to return documents you own use @Key=Owner,Values=Self@ . To specify a custom key-value pair, use the format @Key=tag:tagName,Values=valueName@ .
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkListDocuments ::
   ListDocuments
-listDocuments =
+mkListDocuments =
   ListDocuments'
-    { _ldDocumentFilterList = Nothing,
-      _ldFilters = Nothing,
-      _ldNextToken = Nothing,
-      _ldMaxResults = Nothing
+    { documentFilterList = Lude.Nothing,
+      filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | This data type is deprecated. Instead, use @Filters@ .
-ldDocumentFilterList :: Lens' ListDocuments (Maybe (NonEmpty DocumentFilter))
-ldDocumentFilterList = lens _ldDocumentFilterList (\s a -> s {_ldDocumentFilterList = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'documentFilterList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldDocumentFilterList :: Lens.Lens' ListDocuments (Lude.Maybe (Lude.NonEmpty DocumentFilter))
+ldDocumentFilterList = Lens.lens (documentFilterList :: ListDocuments -> Lude.Maybe (Lude.NonEmpty DocumentFilter)) (\s a -> s {documentFilterList = a} :: ListDocuments)
+{-# DEPRECATED ldDocumentFilterList "Use generic-lens or generic-optics with 'documentFilterList' instead." #-}
 
 -- | One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include @Owner@ , @Name@ , @PlatformTypes@ , @DocumentType@ , and @TargetType@ . For example, to return documents you own use @Key=Owner,Values=Self@ . To specify a custom key-value pair, use the format @Key=tag:tagName,Values=valueName@ .
-ldFilters :: Lens' ListDocuments [DocumentKeyValuesFilter]
-ldFilters = lens _ldFilters (\s a -> s {_ldFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldFilters :: Lens.Lens' ListDocuments (Lude.Maybe [DocumentKeyValuesFilter])
+ldFilters = Lens.lens (filters :: ListDocuments -> Lude.Maybe [DocumentKeyValuesFilter]) (\s a -> s {filters = a} :: ListDocuments)
+{-# DEPRECATED ldFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-ldNextToken :: Lens' ListDocuments (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDocuments (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDocuments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocuments)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-ldMaxResults :: Lens' ListDocuments (Maybe Natural)
-ldMaxResults = lens _ldMaxResults (\s a -> s {_ldMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxResults :: Lens.Lens' ListDocuments (Lude.Maybe Lude.Natural)
+ldMaxResults = Lens.lens (maxResults :: ListDocuments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDocuments)
+{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDocuments where
+instance Page.AWSPager ListDocuments where
   page rq rs
-    | stop (rs ^. ldrsNextToken) = Nothing
-    | stop (rs ^. ldrsDocumentIdentifiers) = Nothing
-    | otherwise = Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldrsDocumentIdentifiers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
 
-instance AWSRequest ListDocuments where
+instance Lude.AWSRequest ListDocuments where
   type Rs ListDocuments = ListDocumentsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDocumentsResponse'
-            <$> (x .?> "DocumentIdentifiers" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DocumentIdentifiers" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDocuments
-
-instance NFData ListDocuments
-
-instance ToHeaders ListDocuments where
+instance Lude.ToHeaders ListDocuments where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.ListDocuments" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.ListDocuments" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDocuments where
+instance Lude.ToJSON ListDocuments where
   toJSON ListDocuments' {..} =
-    object
-      ( catMaybes
-          [ ("DocumentFilterList" .=) <$> _ldDocumentFilterList,
-            ("Filters" .=) <$> _ldFilters,
-            ("NextToken" .=) <$> _ldNextToken,
-            ("MaxResults" .=) <$> _ldMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DocumentFilterList" Lude..=) Lude.<$> documentFilterList,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListDocuments where
-  toPath = const "/"
+instance Lude.ToPath ListDocuments where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDocuments where
-  toQuery = const mempty
+instance Lude.ToQuery ListDocuments where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDocumentsResponse' smart constructor.
+-- | /See:/ 'mkListDocumentsResponse' smart constructor.
 data ListDocumentsResponse = ListDocumentsResponse'
-  { _ldrsDocumentIdentifiers ::
-      !(Maybe [DocumentIdentifier]),
-    _ldrsNextToken :: !(Maybe Text),
-    _ldrsResponseStatus :: !Int
+  { documentIdentifiers ::
+      Lude.Maybe [DocumentIdentifier],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsDocumentIdentifiers' - The names of the Systems Manager documents.
---
--- * 'ldrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDocumentsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'documentIdentifiers' - The names of the Systems Manager documents.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkListDocumentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDocumentsResponse
-listDocumentsResponse pResponseStatus_ =
+mkListDocumentsResponse pResponseStatus_ =
   ListDocumentsResponse'
-    { _ldrsDocumentIdentifiers = Nothing,
-      _ldrsNextToken = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { documentIdentifiers = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of the Systems Manager documents.
-ldrsDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
-ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\s a -> s {_ldrsDocumentIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'documentIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDocumentIdentifiers :: Lens.Lens' ListDocumentsResponse (Lude.Maybe [DocumentIdentifier])
+ldrsDocumentIdentifiers = Lens.lens (documentIdentifiers :: ListDocumentsResponse -> Lude.Maybe [DocumentIdentifier]) (\s a -> s {documentIdentifiers = a} :: ListDocumentsResponse)
+{-# DEPRECATED ldrsDocumentIdentifiers "Use generic-lens or generic-optics with 'documentIdentifiers' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDocumentsResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDocumentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentsResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDocumentsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDocumentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDocumentsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDocumentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDocumentsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

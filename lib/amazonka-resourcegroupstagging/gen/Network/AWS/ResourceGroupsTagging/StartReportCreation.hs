@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,130 @@
 --
 -- Generates a report that lists all tagged resources in accounts across your organization and tells whether each resource is compliant with the effective tag policy. Compliance data is refreshed daily.
 --
---
 -- The generated report is saved to the following location:
---
 -- @s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv@
---
 -- You can call this operation only from the organization's master account and from the us-east-1 Region.
 module Network.AWS.ResourceGroupsTagging.StartReportCreation
-  ( -- * Creating a Request
-    startReportCreation,
-    StartReportCreation,
+  ( -- * Creating a request
+    StartReportCreation (..),
+    mkStartReportCreation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srcS3Bucket,
 
-    -- * Destructuring the Response
-    startReportCreationResponse,
-    StartReportCreationResponse,
+    -- * Destructuring the response
+    StartReportCreationResponse (..),
+    mkStartReportCreationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroupsTagging.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startReportCreation' smart constructor.
+-- | /See:/ 'mkStartReportCreation' smart constructor.
 newtype StartReportCreation = StartReportCreation'
-  { _srcS3Bucket ::
-      Text
+  { s3Bucket ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReportCreation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 's3Bucket' - The name of the Amazon S3 bucket where the report will be stored; for example:
 --
--- * 'srcS3Bucket' - The name of the Amazon S3 bucket where the report will be stored; for example: @awsexamplebucket@  For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
-startReportCreation ::
-  -- | 'srcS3Bucket'
-  Text ->
+-- @awsexamplebucket@
+-- For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
+mkStartReportCreation ::
+  -- | 's3Bucket'
+  Lude.Text ->
   StartReportCreation
-startReportCreation pS3Bucket_ =
-  StartReportCreation' {_srcS3Bucket = pS3Bucket_}
+mkStartReportCreation pS3Bucket_ =
+  StartReportCreation' {s3Bucket = pS3Bucket_}
 
--- | The name of the Amazon S3 bucket where the report will be stored; for example: @awsexamplebucket@  For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
-srcS3Bucket :: Lens' StartReportCreation Text
-srcS3Bucket = lens _srcS3Bucket (\s a -> s {_srcS3Bucket = a})
+-- | The name of the Amazon S3 bucket where the report will be stored; for example:
+--
+-- @awsexamplebucket@
+-- For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcS3Bucket :: Lens.Lens' StartReportCreation Lude.Text
+srcS3Bucket = Lens.lens (s3Bucket :: StartReportCreation -> Lude.Text) (\s a -> s {s3Bucket = a} :: StartReportCreation)
+{-# DEPRECATED srcS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance AWSRequest StartReportCreation where
+instance Lude.AWSRequest StartReportCreation where
   type Rs StartReportCreation = StartReportCreationResponse
-  request = postJSON resourceGroupsTagging
+  request = Req.postJSON resourceGroupsTaggingService
   response =
-    receiveEmpty
-      (\s h x -> StartReportCreationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StartReportCreationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StartReportCreation
-
-instance NFData StartReportCreation
-
-instance ToHeaders StartReportCreation where
+instance Lude.ToHeaders StartReportCreation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "ResourceGroupsTaggingAPI_20170126.StartReportCreation" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.StartReportCreation" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartReportCreation where
+instance Lude.ToJSON StartReportCreation where
   toJSON StartReportCreation' {..} =
-    object (catMaybes [Just ("S3Bucket" .= _srcS3Bucket)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("S3Bucket" Lude..= s3Bucket)])
 
-instance ToPath StartReportCreation where
-  toPath = const "/"
+instance Lude.ToPath StartReportCreation where
+  toPath = Lude.const "/"
 
-instance ToQuery StartReportCreation where
-  toQuery = const mempty
+instance Lude.ToQuery StartReportCreation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startReportCreationResponse' smart constructor.
+-- | /See:/ 'mkStartReportCreationResponse' smart constructor.
 newtype StartReportCreationResponse = StartReportCreationResponse'
-  { _srcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReportCreationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srcrsResponseStatus' - -- | The response status code.
-startReportCreationResponse ::
-  -- | 'srcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartReportCreationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartReportCreationResponse
-startReportCreationResponse pResponseStatus_ =
-  StartReportCreationResponse'
-    { _srcrsResponseStatus =
-        pResponseStatus_
-    }
+mkStartReportCreationResponse pResponseStatus_ =
+  StartReportCreationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-srcrsResponseStatus :: Lens' StartReportCreationResponse Int
-srcrsResponseStatus = lens _srcrsResponseStatus (\s a -> s {_srcrsResponseStatus = a})
-
-instance NFData StartReportCreationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcrsResponseStatus :: Lens.Lens' StartReportCreationResponse Lude.Int
+srcrsResponseStatus = Lens.lens (responseStatus :: StartReportCreationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartReportCreationResponse)
+{-# DEPRECATED srcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

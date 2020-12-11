@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.IntelligentTieringAndOperator where
+module Network.AWS.S3.Types.IntelligentTieringAndOperator
+  ( IntelligentTieringAndOperator (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIntelligentTieringAndOperator,
+
+    -- * Lenses
+    itaoPrefix,
+    itaoTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
 -- | A container for specifying S3 Intelligent-Tiering filters. The filters determine the subset of objects to which the rule applies.
 --
---
---
--- /See:/ 'intelligentTieringAndOperator' smart constructor.
+-- /See:/ 'mkIntelligentTieringAndOperator' smart constructor.
 data IntelligentTieringAndOperator = IntelligentTieringAndOperator'
-  { _itaoPrefix ::
-      !(Maybe Text),
-    _itaoTags :: !(Maybe [Tag])
+  { prefix ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntelligentTieringAndOperator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'itaoPrefix' - An object key name prefix that identifies the subset of objects to which the configuration applies.
---
--- * 'itaoTags' - All of these tags must exist in the object's tag set in order for the configuration to apply.
-intelligentTieringAndOperator ::
+-- * 'prefix' - An object key name prefix that identifies the subset of objects to which the configuration applies.
+-- * 'tags' - All of these tags must exist in the object's tag set in order for the configuration to apply.
+mkIntelligentTieringAndOperator ::
   IntelligentTieringAndOperator
-intelligentTieringAndOperator =
+mkIntelligentTieringAndOperator =
   IntelligentTieringAndOperator'
-    { _itaoPrefix = Nothing,
-      _itaoTags = Nothing
+    { prefix = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which the configuration applies.
-itaoPrefix :: Lens' IntelligentTieringAndOperator (Maybe Text)
-itaoPrefix = lens _itaoPrefix (\s a -> s {_itaoPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itaoPrefix :: Lens.Lens' IntelligentTieringAndOperator (Lude.Maybe Lude.Text)
+itaoPrefix = Lens.lens (prefix :: IntelligentTieringAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: IntelligentTieringAndOperator)
+{-# DEPRECATED itaoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | All of these tags must exist in the object's tag set in order for the configuration to apply.
-itaoTags :: Lens' IntelligentTieringAndOperator [Tag]
-itaoTags = lens _itaoTags (\s a -> s {_itaoTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itaoTags :: Lens.Lens' IntelligentTieringAndOperator (Lude.Maybe [Tag])
+itaoTags = Lens.lens (tags :: IntelligentTieringAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: IntelligentTieringAndOperator)
+{-# DEPRECATED itaoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML IntelligentTieringAndOperator where
+instance Lude.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
-      <$> (x .@? "Prefix")
-      <*> (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+      Lude.<$> (x Lude..@? "Prefix")
+      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
 
-instance Hashable IntelligentTieringAndOperator
-
-instance NFData IntelligentTieringAndOperator
-
-instance ToXML IntelligentTieringAndOperator where
+instance Lude.ToXML IntelligentTieringAndOperator where
   toXML IntelligentTieringAndOperator' {..} =
-    mconcat
-      [ "Prefix" @= _itaoPrefix,
-        "Tag" @= toXML (toXMLList "Tag" <$> _itaoTags)
+    Lude.mconcat
+      [ "Prefix" Lude.@= prefix,
+        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TeletextPageType where
+module Network.AWS.MediaConvert.Types.TeletextPageType
+  ( TeletextPageType
+      ( TeletextPageType',
+        PageTypeAddlInfo,
+        PageTypeHearingImpairedSubtitle,
+        PageTypeInitial,
+        PageTypeProgramSchedule,
+        PageTypeSubtitle
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A page type as defined in the standard ETSI EN 300 468, Table 94
-data TeletextPageType
-  = PageTypeAddlInfo
-  | PageTypeHearingImpairedSubtitle
-  | PageTypeInitial
-  | PageTypeProgramSchedule
-  | PageTypeSubtitle
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TeletextPageType = TeletextPageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TeletextPageType where
-  parser =
-    takeLowerText >>= \case
-      "page_type_addl_info" -> pure PageTypeAddlInfo
-      "page_type_hearing_impaired_subtitle" -> pure PageTypeHearingImpairedSubtitle
-      "page_type_initial" -> pure PageTypeInitial
-      "page_type_program_schedule" -> pure PageTypeProgramSchedule
-      "page_type_subtitle" -> pure PageTypeSubtitle
-      e ->
-        fromTextError $
-          "Failure parsing TeletextPageType from value: '" <> e
-            <> "'. Accepted values: page_type_addl_info, page_type_hearing_impaired_subtitle, page_type_initial, page_type_program_schedule, page_type_subtitle"
+pattern PageTypeAddlInfo :: TeletextPageType
+pattern PageTypeAddlInfo = TeletextPageType' "PAGE_TYPE_ADDL_INFO"
 
-instance ToText TeletextPageType where
-  toText = \case
-    PageTypeAddlInfo -> "PAGE_TYPE_ADDL_INFO"
-    PageTypeHearingImpairedSubtitle -> "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE"
-    PageTypeInitial -> "PAGE_TYPE_INITIAL"
-    PageTypeProgramSchedule -> "PAGE_TYPE_PROGRAM_SCHEDULE"
-    PageTypeSubtitle -> "PAGE_TYPE_SUBTITLE"
+pattern PageTypeHearingImpairedSubtitle :: TeletextPageType
+pattern PageTypeHearingImpairedSubtitle = TeletextPageType' "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE"
 
-instance Hashable TeletextPageType
+pattern PageTypeInitial :: TeletextPageType
+pattern PageTypeInitial = TeletextPageType' "PAGE_TYPE_INITIAL"
 
-instance NFData TeletextPageType
+pattern PageTypeProgramSchedule :: TeletextPageType
+pattern PageTypeProgramSchedule = TeletextPageType' "PAGE_TYPE_PROGRAM_SCHEDULE"
 
-instance ToByteString TeletextPageType
+pattern PageTypeSubtitle :: TeletextPageType
+pattern PageTypeSubtitle = TeletextPageType' "PAGE_TYPE_SUBTITLE"
 
-instance ToQuery TeletextPageType
-
-instance ToHeader TeletextPageType
-
-instance ToJSON TeletextPageType where
-  toJSON = toJSONText
-
-instance FromJSON TeletextPageType where
-  parseJSON = parseJSONText "TeletextPageType"
+{-# COMPLETE
+  PageTypeAddlInfo,
+  PageTypeHearingImpairedSubtitle,
+  PageTypeInitial,
+  PageTypeProgramSchedule,
+  PageTypeSubtitle,
+  TeletextPageType'
+  #-}

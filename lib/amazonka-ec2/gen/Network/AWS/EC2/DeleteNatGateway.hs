@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,137 @@
 --
 -- Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.
 module Network.AWS.EC2.DeleteNatGateway
-  ( -- * Creating a Request
-    deleteNatGateway,
-    DeleteNatGateway,
+  ( -- * Creating a request
+    DeleteNatGateway (..),
+    mkDeleteNatGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dngnDryRun,
     dngnNatGatewayId,
 
-    -- * Destructuring the Response
-    deleteNatGatewayResponse,
-    DeleteNatGatewayResponse,
+    -- * Destructuring the response
+    DeleteNatGatewayResponse (..),
+    mkDeleteNatGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dngnrsNatGatewayId,
     dngnrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteNatGateway' smart constructor.
+-- | /See:/ 'mkDeleteNatGateway' smart constructor.
 data DeleteNatGateway = DeleteNatGateway'
-  { _dngnDryRun ::
-      !(Maybe Bool),
-    _dngnNatGatewayId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    natGatewayId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNatGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dngnDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dngnNatGatewayId' - The ID of the NAT gateway.
-deleteNatGateway ::
-  -- | 'dngnNatGatewayId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'natGatewayId' - The ID of the NAT gateway.
+mkDeleteNatGateway ::
+  -- | 'natGatewayId'
+  Lude.Text ->
   DeleteNatGateway
-deleteNatGateway pNatGatewayId_ =
+mkDeleteNatGateway pNatGatewayId_ =
   DeleteNatGateway'
-    { _dngnDryRun = Nothing,
-      _dngnNatGatewayId = pNatGatewayId_
+    { dryRun = Lude.Nothing,
+      natGatewayId = pNatGatewayId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dngnDryRun :: Lens' DeleteNatGateway (Maybe Bool)
-dngnDryRun = lens _dngnDryRun (\s a -> s {_dngnDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngnDryRun :: Lens.Lens' DeleteNatGateway (Lude.Maybe Lude.Bool)
+dngnDryRun = Lens.lens (dryRun :: DeleteNatGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNatGateway)
+{-# DEPRECATED dngnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the NAT gateway.
-dngnNatGatewayId :: Lens' DeleteNatGateway Text
-dngnNatGatewayId = lens _dngnNatGatewayId (\s a -> s {_dngnNatGatewayId = a})
+--
+-- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngnNatGatewayId :: Lens.Lens' DeleteNatGateway Lude.Text
+dngnNatGatewayId = Lens.lens (natGatewayId :: DeleteNatGateway -> Lude.Text) (\s a -> s {natGatewayId = a} :: DeleteNatGateway)
+{-# DEPRECATED dngnNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
 
-instance AWSRequest DeleteNatGateway where
+instance Lude.AWSRequest DeleteNatGateway where
   type Rs DeleteNatGateway = DeleteNatGatewayResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteNatGatewayResponse'
-            <$> (x .@? "natGatewayId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "natGatewayId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteNatGateway
+instance Lude.ToHeaders DeleteNatGateway where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteNatGateway
+instance Lude.ToPath DeleteNatGateway where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteNatGateway where
-  toHeaders = const mempty
-
-instance ToPath DeleteNatGateway where
-  toPath = const "/"
-
-instance ToQuery DeleteNatGateway where
+instance Lude.ToQuery DeleteNatGateway where
   toQuery DeleteNatGateway' {..} =
-    mconcat
-      [ "Action" =: ("DeleteNatGateway" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dngnDryRun,
-        "NatGatewayId" =: _dngnNatGatewayId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteNatGateway" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "NatGatewayId" Lude.=: natGatewayId
       ]
 
--- | /See:/ 'deleteNatGatewayResponse' smart constructor.
+-- | /See:/ 'mkDeleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
-  { _dngnrsNatGatewayId ::
-      !(Maybe Text),
-    _dngnrsResponseStatus :: !Int
+  { natGatewayId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNatGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dngnrsNatGatewayId' - The ID of the NAT gateway.
---
--- * 'dngnrsResponseStatus' - -- | The response status code.
-deleteNatGatewayResponse ::
-  -- | 'dngnrsResponseStatus'
-  Int ->
+-- * 'natGatewayId' - The ID of the NAT gateway.
+-- * 'responseStatus' - The response status code.
+mkDeleteNatGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteNatGatewayResponse
-deleteNatGatewayResponse pResponseStatus_ =
+mkDeleteNatGatewayResponse pResponseStatus_ =
   DeleteNatGatewayResponse'
-    { _dngnrsNatGatewayId = Nothing,
-      _dngnrsResponseStatus = pResponseStatus_
+    { natGatewayId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the NAT gateway.
-dngnrsNatGatewayId :: Lens' DeleteNatGatewayResponse (Maybe Text)
-dngnrsNatGatewayId = lens _dngnrsNatGatewayId (\s a -> s {_dngnrsNatGatewayId = a})
+--
+-- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngnrsNatGatewayId :: Lens.Lens' DeleteNatGatewayResponse (Lude.Maybe Lude.Text)
+dngnrsNatGatewayId = Lens.lens (natGatewayId :: DeleteNatGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {natGatewayId = a} :: DeleteNatGatewayResponse)
+{-# DEPRECATED dngnrsNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
 
--- | -- | The response status code.
-dngnrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
-dngnrsResponseStatus = lens _dngnrsResponseStatus (\s a -> s {_dngnrsResponseStatus = a})
-
-instance NFData DeleteNatGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngnrsResponseStatus :: Lens.Lens' DeleteNatGatewayResponse Lude.Int
+dngnrsResponseStatus = Lens.lens (responseStatus :: DeleteNatGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteNatGatewayResponse)
+{-# DEPRECATED dngnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

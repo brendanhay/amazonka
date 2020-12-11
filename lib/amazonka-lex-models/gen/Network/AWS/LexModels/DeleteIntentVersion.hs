@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,103 @@
 --
 -- Deletes a specific version of an intent. To delete all versions of a intent, use the 'DeleteIntent' operation.
 --
---
 -- This operation requires permissions for the @lex:DeleteIntentVersion@ action.
 module Network.AWS.LexModels.DeleteIntentVersion
-  ( -- * Creating a Request
-    deleteIntentVersion,
-    DeleteIntentVersion,
+  ( -- * Creating a request
+    DeleteIntentVersion (..),
+    mkDeleteIntentVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     divName,
     divVersion,
 
-    -- * Destructuring the Response
-    deleteIntentVersionResponse,
-    DeleteIntentVersionResponse,
+    -- * Destructuring the response
+    DeleteIntentVersionResponse (..),
+    mkDeleteIntentVersionResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteIntentVersion' smart constructor.
+-- | /See:/ 'mkDeleteIntentVersion' smart constructor.
 data DeleteIntentVersion = DeleteIntentVersion'
-  { _divName :: !Text,
-    _divVersion :: !Text
+  { name :: Lude.Text,
+    version :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIntentVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'divName' - The name of the intent.
---
--- * 'divVersion' - The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
-deleteIntentVersion ::
-  -- | 'divName'
-  Text ->
-  -- | 'divVersion'
-  Text ->
+-- * 'name' - The name of the intent.
+-- * 'version' - The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
+mkDeleteIntentVersion ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   DeleteIntentVersion
-deleteIntentVersion pName_ pVersion_ =
-  DeleteIntentVersion' {_divName = pName_, _divVersion = pVersion_}
+mkDeleteIntentVersion pName_ pVersion_ =
+  DeleteIntentVersion' {name = pName_, version = pVersion_}
 
 -- | The name of the intent.
-divName :: Lens' DeleteIntentVersion Text
-divName = lens _divName (\s a -> s {_divName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divName :: Lens.Lens' DeleteIntentVersion Lude.Text
+divName = Lens.lens (name :: DeleteIntentVersion -> Lude.Text) (\s a -> s {name = a} :: DeleteIntentVersion)
+{-# DEPRECATED divName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
-divVersion :: Lens' DeleteIntentVersion Text
-divVersion = lens _divVersion (\s a -> s {_divVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divVersion :: Lens.Lens' DeleteIntentVersion Lude.Text
+divVersion = Lens.lens (version :: DeleteIntentVersion -> Lude.Text) (\s a -> s {version = a} :: DeleteIntentVersion)
+{-# DEPRECATED divVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance AWSRequest DeleteIntentVersion where
+instance Lude.AWSRequest DeleteIntentVersion where
   type Rs DeleteIntentVersion = DeleteIntentVersionResponse
-  request = delete lexModels
-  response = receiveNull DeleteIntentVersionResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteIntentVersionResponse'
 
-instance Hashable DeleteIntentVersion
-
-instance NFData DeleteIntentVersion
-
-instance ToHeaders DeleteIntentVersion where
+instance Lude.ToHeaders DeleteIntentVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteIntentVersion where
+instance Lude.ToPath DeleteIntentVersion where
   toPath DeleteIntentVersion' {..} =
-    mconcat
-      ["/intents/", toBS _divName, "/versions/", toBS _divVersion]
+    Lude.mconcat
+      ["/intents/", Lude.toBS name, "/versions/", Lude.toBS version]
 
-instance ToQuery DeleteIntentVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteIntentVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteIntentVersionResponse' smart constructor.
+-- | /See:/ 'mkDeleteIntentVersionResponse' smart constructor.
 data DeleteIntentVersionResponse = DeleteIntentVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIntentVersionResponse' with the minimum fields required to make a request.
-deleteIntentVersionResponse ::
+mkDeleteIntentVersionResponse ::
   DeleteIntentVersionResponse
-deleteIntentVersionResponse = DeleteIntentVersionResponse'
-
-instance NFData DeleteIntentVersionResponse
+mkDeleteIntentVersionResponse = DeleteIntentVersionResponse'

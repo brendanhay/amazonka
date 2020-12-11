@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,20 @@
 --
 -- Lists the pipeline identifiers for all active pipelines that you have permission to access.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.ListPipelines
-  ( -- * Creating a Request
-    listPipelines,
-    ListPipelines,
+  ( -- * Creating a request
+    ListPipelines (..),
+    mkListPipelines,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpMarker,
 
-    -- * Destructuring the Response
-    listPipelinesResponse,
-    ListPipelinesResponse,
+    -- * Destructuring the response
+    ListPipelinesResponse (..),
+    mkListPipelinesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsHasMoreResults,
     lprsMarker,
     lprsResponseStatus,
@@ -43,126 +36,144 @@ module Network.AWS.DataPipeline.ListPipelines
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ListPipelines.
 --
---
---
--- /See:/ 'listPipelines' smart constructor.
-newtype ListPipelines = ListPipelines' {_lpMarker :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkListPipelines' smart constructor.
+newtype ListPipelines = ListPipelines'
+  { marker ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpMarker' - The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @ListPipelines@ with the marker value from the previous call to retrieve the next set of results.
-listPipelines ::
+-- * 'marker' - The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @ListPipelines@ with the marker value from the previous call to retrieve the next set of results.
+mkListPipelines ::
   ListPipelines
-listPipelines = ListPipelines' {_lpMarker = Nothing}
+mkListPipelines = ListPipelines' {marker = Lude.Nothing}
 
 -- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @ListPipelines@ with the marker value from the previous call to retrieve the next set of results.
-lpMarker :: Lens' ListPipelines (Maybe Text)
-lpMarker = lens _lpMarker (\s a -> s {_lpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpMarker :: Lens.Lens' ListPipelines (Lude.Maybe Lude.Text)
+lpMarker = Lens.lens (marker :: ListPipelines -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPipelines)
+{-# DEPRECATED lpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance AWSPager ListPipelines where
+instance Page.AWSPager ListPipelines where
   page rq rs
-    | stop (rs ^. lprsHasMoreResults) = Nothing
-    | isNothing (rs ^. lprsMarker) = Nothing
-    | otherwise = Just $ rq & lpMarker .~ rs ^. lprsMarker
+    | Page.stop (rs Lens.^. lprsHasMoreResults) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. lprsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lpMarker Lens..~ rs Lens.^. lprsMarker
 
-instance AWSRequest ListPipelines where
+instance Lude.AWSRequest ListPipelines where
   type Rs ListPipelines = ListPipelinesResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            <$> (x .?> "hasMoreResults")
-            <*> (x .?> "marker")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "pipelineIdList" .!@ mempty)
+            Lude.<$> (x Lude..?> "hasMoreResults")
+            Lude.<*> (x Lude..?> "marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "pipelineIdList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListPipelines
-
-instance NFData ListPipelines
-
-instance ToHeaders ListPipelines where
+instance Lude.ToHeaders ListPipelines where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DataPipeline.ListPipelines" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DataPipeline.ListPipelines" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListPipelines where
+instance Lude.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
-    object (catMaybes [("marker" .=) <$> _lpMarker])
+    Lude.object (Lude.catMaybes [("marker" Lude..=) Lude.<$> marker])
 
-instance ToPath ListPipelines where
-  toPath = const "/"
+instance Lude.ToPath ListPipelines where
+  toPath = Lude.const "/"
 
-instance ToQuery ListPipelines where
-  toQuery = const mempty
+instance Lude.ToQuery ListPipelines where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of ListPipelines.
 --
---
---
--- /See:/ 'listPipelinesResponse' smart constructor.
+-- /See:/ 'mkListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { _lprsHasMoreResults ::
-      !(Maybe Bool),
-    _lprsMarker :: !(Maybe Text),
-    _lprsResponseStatus :: !Int,
-    _lprsPipelineIdList :: ![PipelineIdName]
+  { hasMoreResults ::
+      Lude.Maybe Lude.Bool,
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    pipelineIdList :: [PipelineIdName]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsHasMoreResults' - Indicates whether there are more results that can be obtained by a subsequent call.
---
--- * 'lprsMarker' - The starting point for the next page of results. To view the next page of results, call @ListPipelinesOutput@ again with this marker value. If the value is null, there are no more results.
---
--- * 'lprsResponseStatus' - -- | The response status code.
---
--- * 'lprsPipelineIdList' - The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition' .
-listPipelinesResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'hasMoreResults' - Indicates whether there are more results that can be obtained by a subsequent call.
+-- * 'marker' - The starting point for the next page of results. To view the next page of results, call @ListPipelinesOutput@ again with this marker value. If the value is null, there are no more results.
+-- * 'pipelineIdList' - The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition' .
+-- * 'responseStatus' - The response status code.
+mkListPipelinesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPipelinesResponse
-listPipelinesResponse pResponseStatus_ =
+mkListPipelinesResponse pResponseStatus_ =
   ListPipelinesResponse'
-    { _lprsHasMoreResults = Nothing,
-      _lprsMarker = Nothing,
-      _lprsResponseStatus = pResponseStatus_,
-      _lprsPipelineIdList = mempty
+    { hasMoreResults = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      pipelineIdList = Lude.mempty
     }
 
 -- | Indicates whether there are more results that can be obtained by a subsequent call.
-lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
-lprsHasMoreResults = lens _lprsHasMoreResults (\s a -> s {_lprsHasMoreResults = a})
+--
+-- /Note:/ Consider using 'hasMoreResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsHasMoreResults :: Lens.Lens' ListPipelinesResponse (Lude.Maybe Lude.Bool)
+lprsHasMoreResults = Lens.lens (hasMoreResults :: ListPipelinesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasMoreResults = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsHasMoreResults "Use generic-lens or generic-optics with 'hasMoreResults' instead." #-}
 
 -- | The starting point for the next page of results. To view the next page of results, call @ListPipelinesOutput@ again with this marker value. If the value is null, there are no more results.
-lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
-lprsMarker = lens _lprsMarker (\s a -> s {_lprsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsMarker :: Lens.Lens' ListPipelinesResponse (Lude.Maybe Lude.Text)
+lprsMarker = Lens.lens (marker :: ListPipelinesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListPipelinesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListPipelinesResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListPipelinesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition' .
-lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-lprsPipelineIdList = lens _lprsPipelineIdList (\s a -> s {_lprsPipelineIdList = a}) . _Coerce
-
-instance NFData ListPipelinesResponse
+--
+-- /Note:/ Consider using 'pipelineIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsPipelineIdList :: Lens.Lens' ListPipelinesResponse [PipelineIdName]
+lprsPipelineIdList = Lens.lens (pipelineIdList :: ListPipelinesResponse -> [PipelineIdName]) (\s a -> s {pipelineIdList = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsPipelineIdList "Use generic-lens or generic-optics with 'pipelineIdList' instead." #-}

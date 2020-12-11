@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,105 @@
 --
 -- Revokes any permissions in the queue policy that matches the specified @Label@ parameter.
 module Network.AWS.SQS.RemovePermission
-  ( -- * Creating a Request
-    removePermission,
-    RemovePermission,
+  ( -- * Creating a request
+    RemovePermission (..),
+    mkRemovePermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rpQueueURL,
     rpLabel,
 
-    -- * Destructuring the Response
-    removePermissionResponse,
-    RemovePermissionResponse,
+    -- * Destructuring the response
+    RemovePermissionResponse (..),
+    mkRemovePermissionResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
 -- |
 --
---
---
--- /See:/ 'removePermission' smart constructor.
+-- /See:/ 'mkRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpQueueURL :: !Text,
-    _rpLabel :: !Text
+  { queueURL :: Lude.Text,
+    label :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'label' - The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
+-- * 'queueURL' - The URL of the Amazon SQS queue from which permissions are removed.
 --
--- * 'rpQueueURL' - The URL of the Amazon SQS queue from which permissions are removed. Queue URLs and names are case-sensitive.
---
--- * 'rpLabel' - The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
-removePermission ::
-  -- | 'rpQueueURL'
-  Text ->
-  -- | 'rpLabel'
-  Text ->
+-- Queue URLs and names are case-sensitive.
+mkRemovePermission ::
+  -- | 'queueURL'
+  Lude.Text ->
+  -- | 'label'
+  Lude.Text ->
   RemovePermission
-removePermission pQueueURL_ pLabel_ =
-  RemovePermission' {_rpQueueURL = pQueueURL_, _rpLabel = pLabel_}
+mkRemovePermission pQueueURL_ pLabel_ =
+  RemovePermission' {queueURL = pQueueURL_, label = pLabel_}
 
--- | The URL of the Amazon SQS queue from which permissions are removed. Queue URLs and names are case-sensitive.
-rpQueueURL :: Lens' RemovePermission Text
-rpQueueURL = lens _rpQueueURL (\s a -> s {_rpQueueURL = a})
+-- | The URL of the Amazon SQS queue from which permissions are removed.
+--
+-- Queue URLs and names are case-sensitive.
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpQueueURL :: Lens.Lens' RemovePermission Lude.Text
+rpQueueURL = Lens.lens (queueURL :: RemovePermission -> Lude.Text) (\s a -> s {queueURL = a} :: RemovePermission)
+{-# DEPRECATED rpQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
 -- | The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
-rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\s a -> s {_rpLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpLabel :: Lens.Lens' RemovePermission Lude.Text
+rpLabel = Lens.lens (label :: RemovePermission -> Lude.Text) (\s a -> s {label = a} :: RemovePermission)
+{-# DEPRECATED rpLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance AWSRequest RemovePermission where
+instance Lude.AWSRequest RemovePermission where
   type Rs RemovePermission = RemovePermissionResponse
-  request = postQuery sqs
-  response = receiveNull RemovePermissionResponse'
+  request = Req.postQuery sqsService
+  response = Res.receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission
+instance Lude.ToHeaders RemovePermission where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemovePermission
+instance Lude.ToPath RemovePermission where
+  toPath = Lude.const "/"
 
-instance ToHeaders RemovePermission where
-  toHeaders = const mempty
-
-instance ToPath RemovePermission where
-  toPath = const "/"
-
-instance ToQuery RemovePermission where
+instance Lude.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
-    mconcat
-      [ "Action" =: ("RemovePermission" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _rpQueueURL,
-        "Label" =: _rpLabel
+    Lude.mconcat
+      [ "Action" Lude.=: ("RemovePermission" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL,
+        "Label" Lude.=: label
       ]
 
--- | /See:/ 'removePermissionResponse' smart constructor.
+-- | /See:/ 'mkRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
-removePermissionResponse ::
+mkRemovePermissionResponse ::
   RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse'
-
-instance NFData RemovePermissionResponse
+mkRemovePermissionResponse = RemovePermissionResponse'

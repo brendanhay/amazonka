@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,121 +17,138 @@
 --
 --     * @PROVISIONED@ : You requested the change token by calling @GetChangeToken@ , but you haven't used it yet in a call to create, update, or delete an AWS WAF object.
 --
+--
 --     * @PENDING@ : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.
+--
 --
 --     * @INSYNC@ : Propagation is complete.
 module Network.AWS.WAF.GetChangeTokenStatus
-  ( -- * Creating a Request
-    getChangeTokenStatus,
-    GetChangeTokenStatus,
+  ( -- * Creating a request
+    GetChangeTokenStatus (..),
+    mkGetChangeTokenStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gctsChangeToken,
 
-    -- * Destructuring the Response
-    getChangeTokenStatusResponse,
-    GetChangeTokenStatusResponse,
+    -- * Destructuring the response
+    GetChangeTokenStatusResponse (..),
+    mkGetChangeTokenStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gctsrsChangeTokenStatus,
     gctsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'getChangeTokenStatus' smart constructor.
+-- | /See:/ 'mkGetChangeTokenStatus' smart constructor.
 newtype GetChangeTokenStatus = GetChangeTokenStatus'
-  { _gctsChangeToken ::
-      Text
+  { changeToken ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChangeTokenStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gctsChangeToken' - The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
-getChangeTokenStatus ::
-  -- | 'gctsChangeToken'
-  Text ->
+-- * 'changeToken' - The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
+mkGetChangeTokenStatus ::
+  -- | 'changeToken'
+  Lude.Text ->
   GetChangeTokenStatus
-getChangeTokenStatus pChangeToken_ =
-  GetChangeTokenStatus' {_gctsChangeToken = pChangeToken_}
+mkGetChangeTokenStatus pChangeToken_ =
+  GetChangeTokenStatus' {changeToken = pChangeToken_}
 
 -- | The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
-gctsChangeToken :: Lens' GetChangeTokenStatus Text
-gctsChangeToken = lens _gctsChangeToken (\s a -> s {_gctsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gctsChangeToken :: Lens.Lens' GetChangeTokenStatus Lude.Text
+gctsChangeToken = Lens.lens (changeToken :: GetChangeTokenStatus -> Lude.Text) (\s a -> s {changeToken = a} :: GetChangeTokenStatus)
+{-# DEPRECATED gctsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest GetChangeTokenStatus where
+instance Lude.AWSRequest GetChangeTokenStatus where
   type Rs GetChangeTokenStatus = GetChangeTokenStatusResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetChangeTokenStatusResponse'
-            <$> (x .?> "ChangeTokenStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeTokenStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetChangeTokenStatus
-
-instance NFData GetChangeTokenStatus
-
-instance ToHeaders GetChangeTokenStatus where
+instance Lude.ToHeaders GetChangeTokenStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.GetChangeTokenStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.GetChangeTokenStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetChangeTokenStatus where
+instance Lude.ToJSON GetChangeTokenStatus where
   toJSON GetChangeTokenStatus' {..} =
-    object (catMaybes [Just ("ChangeToken" .= _gctsChangeToken)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ChangeToken" Lude..= changeToken)])
 
-instance ToPath GetChangeTokenStatus where
-  toPath = const "/"
+instance Lude.ToPath GetChangeTokenStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetChangeTokenStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetChangeTokenStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getChangeTokenStatusResponse' smart constructor.
+-- | /See:/ 'mkGetChangeTokenStatusResponse' smart constructor.
 data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
-  { _gctsrsChangeTokenStatus ::
-      !(Maybe ChangeTokenStatus),
-    _gctsrsResponseStatus :: !Int
+  { changeTokenStatus ::
+      Lude.Maybe ChangeTokenStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChangeTokenStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gctsrsChangeTokenStatus' - The status of the change token.
---
--- * 'gctsrsResponseStatus' - -- | The response status code.
-getChangeTokenStatusResponse ::
-  -- | 'gctsrsResponseStatus'
-  Int ->
+-- * 'changeTokenStatus' - The status of the change token.
+-- * 'responseStatus' - The response status code.
+mkGetChangeTokenStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetChangeTokenStatusResponse
-getChangeTokenStatusResponse pResponseStatus_ =
+mkGetChangeTokenStatusResponse pResponseStatus_ =
   GetChangeTokenStatusResponse'
-    { _gctsrsChangeTokenStatus = Nothing,
-      _gctsrsResponseStatus = pResponseStatus_
+    { changeTokenStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the change token.
-gctsrsChangeTokenStatus :: Lens' GetChangeTokenStatusResponse (Maybe ChangeTokenStatus)
-gctsrsChangeTokenStatus = lens _gctsrsChangeTokenStatus (\s a -> s {_gctsrsChangeTokenStatus = a})
+--
+-- /Note:/ Consider using 'changeTokenStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gctsrsChangeTokenStatus :: Lens.Lens' GetChangeTokenStatusResponse (Lude.Maybe ChangeTokenStatus)
+gctsrsChangeTokenStatus = Lens.lens (changeTokenStatus :: GetChangeTokenStatusResponse -> Lude.Maybe ChangeTokenStatus) (\s a -> s {changeTokenStatus = a} :: GetChangeTokenStatusResponse)
+{-# DEPRECATED gctsrsChangeTokenStatus "Use generic-lens or generic-optics with 'changeTokenStatus' instead." #-}
 
--- | -- | The response status code.
-gctsrsResponseStatus :: Lens' GetChangeTokenStatusResponse Int
-gctsrsResponseStatus = lens _gctsrsResponseStatus (\s a -> s {_gctsrsResponseStatus = a})
-
-instance NFData GetChangeTokenStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gctsrsResponseStatus :: Lens.Lens' GetChangeTokenStatusResponse Lude.Int
+gctsrsResponseStatus = Lens.lens (responseStatus :: GetChangeTokenStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetChangeTokenStatusResponse)
+{-# DEPRECATED gctsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

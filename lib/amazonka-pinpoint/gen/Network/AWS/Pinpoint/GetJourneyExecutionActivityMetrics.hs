@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,186 +14,201 @@
 --
 -- Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.
 module Network.AWS.Pinpoint.GetJourneyExecutionActivityMetrics
-  ( -- * Creating a Request
-    getJourneyExecutionActivityMetrics,
-    GetJourneyExecutionActivityMetrics,
+  ( -- * Creating a request
+    GetJourneyExecutionActivityMetrics (..),
+    mkGetJourneyExecutionActivityMetrics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gjeamNextToken,
     gjeamPageSize,
     gjeamJourneyActivityId,
     gjeamApplicationId,
     gjeamJourneyId,
 
-    -- * Destructuring the Response
-    getJourneyExecutionActivityMetricsResponse,
-    GetJourneyExecutionActivityMetricsResponse,
+    -- * Destructuring the response
+    GetJourneyExecutionActivityMetricsResponse (..),
+    mkGetJourneyExecutionActivityMetricsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjeamrsResponseStatus,
     gjeamrsJourneyExecutionActivityMetricsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getJourneyExecutionActivityMetrics' smart constructor.
+-- | /See:/ 'mkGetJourneyExecutionActivityMetrics' smart constructor.
 data GetJourneyExecutionActivityMetrics = GetJourneyExecutionActivityMetrics'
-  { _gjeamNextToken ::
-      !(Maybe Text),
-    _gjeamPageSize ::
-      !(Maybe Text),
-    _gjeamJourneyActivityId ::
-      !Text,
-    _gjeamApplicationId ::
-      !Text,
-    _gjeamJourneyId ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    pageSize ::
+      Lude.Maybe Lude.Text,
+    journeyActivityId ::
+      Lude.Text,
+    applicationId ::
+      Lude.Text,
+    journeyId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJourneyExecutionActivityMetrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjeamNextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'gjeamPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'gjeamJourneyActivityId' - The unique identifier for the journey activity.
---
--- * 'gjeamApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'gjeamJourneyId' - The unique identifier for the journey.
-getJourneyExecutionActivityMetrics ::
-  -- | 'gjeamJourneyActivityId'
-  Text ->
-  -- | 'gjeamApplicationId'
-  Text ->
-  -- | 'gjeamJourneyId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'journeyActivityId' - The unique identifier for the journey activity.
+-- * 'journeyId' - The unique identifier for the journey.
+-- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+mkGetJourneyExecutionActivityMetrics ::
+  -- | 'journeyActivityId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'journeyId'
+  Lude.Text ->
   GetJourneyExecutionActivityMetrics
-getJourneyExecutionActivityMetrics
+mkGetJourneyExecutionActivityMetrics
   pJourneyActivityId_
   pApplicationId_
   pJourneyId_ =
     GetJourneyExecutionActivityMetrics'
-      { _gjeamNextToken = Nothing,
-        _gjeamPageSize = Nothing,
-        _gjeamJourneyActivityId = pJourneyActivityId_,
-        _gjeamApplicationId = pApplicationId_,
-        _gjeamJourneyId = pJourneyId_
+      { nextToken = Lude.Nothing,
+        pageSize = Lude.Nothing,
+        journeyActivityId = pJourneyActivityId_,
+        applicationId = pApplicationId_,
+        journeyId = pJourneyId_
       }
 
 -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gjeamNextToken :: Lens' GetJourneyExecutionActivityMetrics (Maybe Text)
-gjeamNextToken = lens _gjeamNextToken (\s a -> s {_gjeamNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamNextToken :: Lens.Lens' GetJourneyExecutionActivityMetrics (Lude.Maybe Lude.Text)
+gjeamNextToken = Lens.lens (nextToken :: GetJourneyExecutionActivityMetrics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetJourneyExecutionActivityMetrics)
+{-# DEPRECATED gjeamNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gjeamPageSize :: Lens' GetJourneyExecutionActivityMetrics (Maybe Text)
-gjeamPageSize = lens _gjeamPageSize (\s a -> s {_gjeamPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamPageSize :: Lens.Lens' GetJourneyExecutionActivityMetrics (Lude.Maybe Lude.Text)
+gjeamPageSize = Lens.lens (pageSize :: GetJourneyExecutionActivityMetrics -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetJourneyExecutionActivityMetrics)
+{-# DEPRECATED gjeamPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The unique identifier for the journey activity.
-gjeamJourneyActivityId :: Lens' GetJourneyExecutionActivityMetrics Text
-gjeamJourneyActivityId = lens _gjeamJourneyActivityId (\s a -> s {_gjeamJourneyActivityId = a})
+--
+-- /Note:/ Consider using 'journeyActivityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamJourneyActivityId :: Lens.Lens' GetJourneyExecutionActivityMetrics Lude.Text
+gjeamJourneyActivityId = Lens.lens (journeyActivityId :: GetJourneyExecutionActivityMetrics -> Lude.Text) (\s a -> s {journeyActivityId = a} :: GetJourneyExecutionActivityMetrics)
+{-# DEPRECATED gjeamJourneyActivityId "Use generic-lens or generic-optics with 'journeyActivityId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gjeamApplicationId :: Lens' GetJourneyExecutionActivityMetrics Text
-gjeamApplicationId = lens _gjeamApplicationId (\s a -> s {_gjeamApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamApplicationId :: Lens.Lens' GetJourneyExecutionActivityMetrics Lude.Text
+gjeamApplicationId = Lens.lens (applicationId :: GetJourneyExecutionActivityMetrics -> Lude.Text) (\s a -> s {applicationId = a} :: GetJourneyExecutionActivityMetrics)
+{-# DEPRECATED gjeamApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the journey.
-gjeamJourneyId :: Lens' GetJourneyExecutionActivityMetrics Text
-gjeamJourneyId = lens _gjeamJourneyId (\s a -> s {_gjeamJourneyId = a})
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamJourneyId :: Lens.Lens' GetJourneyExecutionActivityMetrics Lude.Text
+gjeamJourneyId = Lens.lens (journeyId :: GetJourneyExecutionActivityMetrics -> Lude.Text) (\s a -> s {journeyId = a} :: GetJourneyExecutionActivityMetrics)
+{-# DEPRECATED gjeamJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
-instance AWSRequest GetJourneyExecutionActivityMetrics where
+instance Lude.AWSRequest GetJourneyExecutionActivityMetrics where
   type
     Rs GetJourneyExecutionActivityMetrics =
       GetJourneyExecutionActivityMetricsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetJourneyExecutionActivityMetricsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetJourneyExecutionActivityMetrics
-
-instance NFData GetJourneyExecutionActivityMetrics
-
-instance ToHeaders GetJourneyExecutionActivityMetrics where
+instance Lude.ToHeaders GetJourneyExecutionActivityMetrics where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetJourneyExecutionActivityMetrics where
+instance Lude.ToPath GetJourneyExecutionActivityMetrics where
   toPath GetJourneyExecutionActivityMetrics' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _gjeamApplicationId,
+        Lude.toBS applicationId,
         "/journeys/",
-        toBS _gjeamJourneyId,
+        Lude.toBS journeyId,
         "/activities/",
-        toBS _gjeamJourneyActivityId,
+        Lude.toBS journeyActivityId,
         "/execution-metrics"
       ]
 
-instance ToQuery GetJourneyExecutionActivityMetrics where
+instance Lude.ToQuery GetJourneyExecutionActivityMetrics where
   toQuery GetJourneyExecutionActivityMetrics' {..} =
-    mconcat
-      ["next-token" =: _gjeamNextToken, "page-size" =: _gjeamPageSize]
+    Lude.mconcat
+      ["next-token" Lude.=: nextToken, "page-size" Lude.=: pageSize]
 
--- | /See:/ 'getJourneyExecutionActivityMetricsResponse' smart constructor.
+-- | /See:/ 'mkGetJourneyExecutionActivityMetricsResponse' smart constructor.
 data GetJourneyExecutionActivityMetricsResponse = GetJourneyExecutionActivityMetricsResponse'
-  { _gjeamrsResponseStatus ::
-      !Int,
-    _gjeamrsJourneyExecutionActivityMetricsResponse ::
-      !JourneyExecutionActivityMetricsResponse
+  { responseStatus ::
+      Lude.Int,
+    journeyExecutionActivityMetricsResponse ::
+      JourneyExecutionActivityMetricsResponse
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJourneyExecutionActivityMetricsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjeamrsResponseStatus' - -- | The response status code.
---
--- * 'gjeamrsJourneyExecutionActivityMetricsResponse' - Undocumented member.
-getJourneyExecutionActivityMetricsResponse ::
-  -- | 'gjeamrsResponseStatus'
-  Int ->
-  -- | 'gjeamrsJourneyExecutionActivityMetricsResponse'
+-- * 'journeyExecutionActivityMetricsResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetJourneyExecutionActivityMetricsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'journeyExecutionActivityMetricsResponse'
   JourneyExecutionActivityMetricsResponse ->
   GetJourneyExecutionActivityMetricsResponse
-getJourneyExecutionActivityMetricsResponse
+mkGetJourneyExecutionActivityMetricsResponse
   pResponseStatus_
   pJourneyExecutionActivityMetricsResponse_ =
     GetJourneyExecutionActivityMetricsResponse'
-      { _gjeamrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gjeamrsJourneyExecutionActivityMetricsResponse =
+        journeyExecutionActivityMetricsResponse =
           pJourneyExecutionActivityMetricsResponse_
       }
 
--- | -- | The response status code.
-gjeamrsResponseStatus :: Lens' GetJourneyExecutionActivityMetricsResponse Int
-gjeamrsResponseStatus = lens _gjeamrsResponseStatus (\s a -> s {_gjeamrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamrsResponseStatus :: Lens.Lens' GetJourneyExecutionActivityMetricsResponse Lude.Int
+gjeamrsResponseStatus = Lens.lens (responseStatus :: GetJourneyExecutionActivityMetricsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED gjeamrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gjeamrsJourneyExecutionActivityMetricsResponse :: Lens' GetJourneyExecutionActivityMetricsResponse JourneyExecutionActivityMetricsResponse
-gjeamrsJourneyExecutionActivityMetricsResponse = lens _gjeamrsJourneyExecutionActivityMetricsResponse (\s a -> s {_gjeamrsJourneyExecutionActivityMetricsResponse = a})
-
-instance NFData GetJourneyExecutionActivityMetricsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'journeyExecutionActivityMetricsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjeamrsJourneyExecutionActivityMetricsResponse :: Lens.Lens' GetJourneyExecutionActivityMetricsResponse JourneyExecutionActivityMetricsResponse
+gjeamrsJourneyExecutionActivityMetricsResponse = Lens.lens (journeyExecutionActivityMetricsResponse :: GetJourneyExecutionActivityMetricsResponse -> JourneyExecutionActivityMetricsResponse) (\s a -> s {journeyExecutionActivityMetricsResponse = a} :: GetJourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED gjeamrsJourneyExecutionActivityMetricsResponse "Use generic-lens or generic-optics with 'journeyExecutionActivityMetricsResponse' instead." #-}

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Athena.Types
-  ( -- * Service Configuration
-    athena,
+  ( -- * Service configuration
+    athenaService,
 
     -- * Errors
 
@@ -34,15 +32,15 @@ module Network.AWS.Athena.Types
     WorkGroupState (..),
 
     -- * Column
-    Column,
-    column,
+    Column (..),
+    mkColumn,
     cType,
     cComment,
     cName,
 
     -- * ColumnInfo
-    ColumnInfo,
-    columnInfo,
+    ColumnInfo (..),
+    mkColumnInfo,
     ciScale,
     ciPrecision,
     ciSchemaName,
@@ -55,40 +53,40 @@ module Network.AWS.Athena.Types
     ciType,
 
     -- * DataCatalog
-    DataCatalog,
-    dataCatalog,
+    DataCatalog (..),
+    mkDataCatalog,
     dcParameters,
     dcDescription,
     dcName,
     dcType,
 
     -- * DataCatalogSummary
-    DataCatalogSummary,
-    dataCatalogSummary,
+    DataCatalogSummary (..),
+    mkDataCatalogSummary,
     dcsCatalogName,
     dcsType,
 
     -- * Database
-    Database,
-    database,
+    Database (..),
+    mkDatabase,
     dParameters,
     dDescription,
     dName,
 
     -- * Datum
-    Datum,
-    datum,
+    Datum (..),
+    mkDatum,
     dVarCharValue,
 
     -- * EncryptionConfiguration
-    EncryptionConfiguration,
-    encryptionConfiguration,
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
     ecKMSKey,
     ecEncryptionOption,
 
     -- * NamedQuery
-    NamedQuery,
-    namedQuery,
+    NamedQuery (..),
+    mkNamedQuery,
     nqNamedQueryId,
     nqDescription,
     nqWorkGroup,
@@ -97,8 +95,8 @@ module Network.AWS.Athena.Types
     nqQueryString,
 
     -- * QueryExecution
-    QueryExecution,
-    queryExecution,
+    QueryExecution (..),
+    mkQueryExecution,
     qeStatus,
     qeQueryExecutionContext,
     qeResultConfiguration,
@@ -109,14 +107,14 @@ module Network.AWS.Athena.Types
     qeWorkGroup,
 
     -- * QueryExecutionContext
-    QueryExecutionContext,
-    queryExecutionContext,
+    QueryExecutionContext (..),
+    mkQueryExecutionContext,
     qecDatabase,
     qecCatalog,
 
     -- * QueryExecutionStatistics
-    QueryExecutionStatistics,
-    queryExecutionStatistics,
+    QueryExecutionStatistics (..),
+    mkQueryExecutionStatistics,
     qesTotalExecutionTimeInMillis,
     qesEngineExecutionTimeInMillis,
     qesQueryPlanningTimeInMillis,
@@ -126,46 +124,46 @@ module Network.AWS.Athena.Types
     qesServiceProcessingTimeInMillis,
 
     -- * QueryExecutionStatus
-    QueryExecutionStatus,
-    queryExecutionStatus,
+    QueryExecutionStatus (..),
+    mkQueryExecutionStatus,
     qesState,
     qesStateChangeReason,
     qesSubmissionDateTime,
     qesCompletionDateTime,
 
     -- * ResultConfiguration
-    ResultConfiguration,
-    resultConfiguration,
+    ResultConfiguration (..),
+    mkResultConfiguration,
     rcEncryptionConfiguration,
     rcOutputLocation,
 
     -- * ResultConfigurationUpdates
-    ResultConfigurationUpdates,
-    resultConfigurationUpdates,
+    ResultConfigurationUpdates (..),
+    mkResultConfigurationUpdates,
     rcuRemoveOutputLocation,
     rcuRemoveEncryptionConfiguration,
     rcuEncryptionConfiguration,
     rcuOutputLocation,
 
     -- * ResultSet
-    ResultSet,
-    resultSet,
+    ResultSet (..),
+    mkResultSet,
     rsRows,
     rsResultSetMetadata,
 
     -- * ResultSetMetadata
-    ResultSetMetadata,
-    resultSetMetadata,
+    ResultSetMetadata (..),
+    mkResultSetMetadata,
     rsmColumnInfo,
 
     -- * Row
-    Row,
-    row,
-    rowData,
+    Row (..),
+    mkRow,
+    rData,
 
     -- * TableMetadata
-    TableMetadata,
-    tableMetadata,
+    TableMetadata (..),
+    mkTableMetadata,
     tmTableType,
     tmParameters,
     tmColumns,
@@ -175,28 +173,28 @@ module Network.AWS.Athena.Types
     tmName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * UnprocessedNamedQueryId
-    UnprocessedNamedQueryId,
-    unprocessedNamedQueryId,
+    UnprocessedNamedQueryId (..),
+    mkUnprocessedNamedQueryId,
     unqiNamedQueryId,
     unqiErrorCode,
     unqiErrorMessage,
 
     -- * UnprocessedQueryExecutionId
-    UnprocessedQueryExecutionId,
-    unprocessedQueryExecutionId,
+    UnprocessedQueryExecutionId (..),
+    mkUnprocessedQueryExecutionId,
     uqeiErrorCode,
     uqeiQueryExecutionId,
     uqeiErrorMessage,
 
     -- * WorkGroup
-    WorkGroup,
-    workGroup,
+    WorkGroup (..),
+    mkWorkGroup,
     wgCreationTime,
     wgState,
     wgConfiguration,
@@ -204,8 +202,8 @@ module Network.AWS.Athena.Types
     wgName,
 
     -- * WorkGroupConfiguration
-    WorkGroupConfiguration,
-    workGroupConfiguration,
+    WorkGroupConfiguration (..),
+    mkWorkGroupConfiguration,
     wgcRequesterPaysEnabled,
     wgcResultConfiguration,
     wgcBytesScannedCutoffPerQuery,
@@ -213,8 +211,8 @@ module Network.AWS.Athena.Types
     wgcPublishCloudWatchMetricsEnabled,
 
     -- * WorkGroupConfigurationUpdates
-    WorkGroupConfigurationUpdates,
-    workGroupConfigurationUpdates,
+    WorkGroupConfigurationUpdates (..),
+    mkWorkGroupConfigurationUpdates,
     wgcuRequesterPaysEnabled,
     wgcuResultConfigurationUpdates,
     wgcuBytesScannedCutoffPerQuery,
@@ -223,8 +221,8 @@ module Network.AWS.Athena.Types
     wgcuPublishCloudWatchMetricsEnabled,
 
     -- * WorkGroupSummary
-    WorkGroupSummary,
-    workGroupSummary,
+    WorkGroupSummary (..),
+    mkWorkGroupSummary,
     wgsCreationTime,
     wgsState,
     wgsName,
@@ -263,48 +261,60 @@ import Network.AWS.Athena.Types.WorkGroupConfiguration
 import Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
 import Network.AWS.Athena.Types.WorkGroupState
 import Network.AWS.Athena.Types.WorkGroupSummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-05-18@ of the Amazon Athena SDK configuration.
-athena :: Service
-athena =
-  Service
-    { _svcAbbrev = "Athena",
-      _svcSigner = v4,
-      _svcPrefix = "athena",
-      _svcVersion = "2017-05-18",
-      _svcEndpoint = defaultEndpoint athena,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Athena",
-      _svcRetry = retry
+athenaService :: Lude.Service
+athenaService =
+  Lude.Service
+    { Lude._svcAbbrev = "Athena",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "athena",
+      Lude._svcVersion = "2017-05-18",
+      Lude._svcEndpoint = Lude.defaultEndpoint athenaService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Athena",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

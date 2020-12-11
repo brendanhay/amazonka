@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MediaConnectFlow where
+module Network.AWS.MediaLive.Types.MediaConnectFlow
+  ( MediaConnectFlow (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMediaConnectFlow,
+
+    -- * Lenses
+    mcfFlowARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The settings for a MediaConnect Flow.
 --
--- /See:/ 'mediaConnectFlow' smart constructor.
+-- /See:/ 'mkMediaConnectFlow' smart constructor.
 newtype MediaConnectFlow = MediaConnectFlow'
-  { _mcfFlowARN ::
-      Maybe Text
+  { flowARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MediaConnectFlow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcfFlowARN' - The unique ARN of the MediaConnect Flow being used as a source.
-mediaConnectFlow ::
+-- * 'flowARN' - The unique ARN of the MediaConnect Flow being used as a source.
+mkMediaConnectFlow ::
   MediaConnectFlow
-mediaConnectFlow = MediaConnectFlow' {_mcfFlowARN = Nothing}
+mkMediaConnectFlow = MediaConnectFlow' {flowARN = Lude.Nothing}
 
 -- | The unique ARN of the MediaConnect Flow being used as a source.
-mcfFlowARN :: Lens' MediaConnectFlow (Maybe Text)
-mcfFlowARN = lens _mcfFlowARN (\s a -> s {_mcfFlowARN = a})
+--
+-- /Note:/ Consider using 'flowARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcfFlowARN :: Lens.Lens' MediaConnectFlow (Lude.Maybe Lude.Text)
+mcfFlowARN = Lens.lens (flowARN :: MediaConnectFlow -> Lude.Maybe Lude.Text) (\s a -> s {flowARN = a} :: MediaConnectFlow)
+{-# DEPRECATED mcfFlowARN "Use generic-lens or generic-optics with 'flowARN' instead." #-}
 
-instance FromJSON MediaConnectFlow where
+instance Lude.FromJSON MediaConnectFlow where
   parseJSON =
-    withObject
+    Lude.withObject
       "MediaConnectFlow"
-      (\x -> MediaConnectFlow' <$> (x .:? "flowArn"))
-
-instance Hashable MediaConnectFlow
-
-instance NFData MediaConnectFlow
+      (\x -> MediaConnectFlow' Lude.<$> (x Lude..:? "flowArn"))

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,146 @@
 --
 -- Deletes a campaign from an application.
 module Network.AWS.Pinpoint.DeleteCampaign
-  ( -- * Creating a Request
-    deleteCampaign,
-    DeleteCampaign,
+  ( -- * Creating a request
+    DeleteCampaign (..),
+    mkDeleteCampaign,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcCampaignId,
     dcApplicationId,
 
-    -- * Destructuring the Response
-    deleteCampaignResponse,
-    DeleteCampaignResponse,
+    -- * Destructuring the response
+    DeleteCampaignResponse (..),
+    mkDeleteCampaignResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsResponseStatus,
     dcrsCampaignResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCampaign' smart constructor.
+-- | /See:/ 'mkDeleteCampaign' smart constructor.
 data DeleteCampaign = DeleteCampaign'
-  { _dcCampaignId :: !Text,
-    _dcApplicationId :: !Text
+  { campaignId :: Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCampaign' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcCampaignId' - The unique identifier for the campaign.
---
--- * 'dcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deleteCampaign ::
-  -- | 'dcCampaignId'
-  Text ->
-  -- | 'dcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'campaignId' - The unique identifier for the campaign.
+mkDeleteCampaign ::
+  -- | 'campaignId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteCampaign
-deleteCampaign pCampaignId_ pApplicationId_ =
+mkDeleteCampaign pCampaignId_ pApplicationId_ =
   DeleteCampaign'
-    { _dcCampaignId = pCampaignId_,
-      _dcApplicationId = pApplicationId_
+    { campaignId = pCampaignId_,
+      applicationId = pApplicationId_
     }
 
 -- | The unique identifier for the campaign.
-dcCampaignId :: Lens' DeleteCampaign Text
-dcCampaignId = lens _dcCampaignId (\s a -> s {_dcCampaignId = a})
+--
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcCampaignId :: Lens.Lens' DeleteCampaign Lude.Text
+dcCampaignId = Lens.lens (campaignId :: DeleteCampaign -> Lude.Text) (\s a -> s {campaignId = a} :: DeleteCampaign)
+{-# DEPRECATED dcCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-dcApplicationId :: Lens' DeleteCampaign Text
-dcApplicationId = lens _dcApplicationId (\s a -> s {_dcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcApplicationId :: Lens.Lens' DeleteCampaign Lude.Text
+dcApplicationId = Lens.lens (applicationId :: DeleteCampaign -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteCampaign)
+{-# DEPRECATED dcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteCampaign where
+instance Lude.AWSRequest DeleteCampaign where
   type Rs DeleteCampaign = DeleteCampaignResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteCampaignResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteCampaign
-
-instance NFData DeleteCampaign
-
-instance ToHeaders DeleteCampaign where
+instance Lude.ToHeaders DeleteCampaign where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteCampaign where
+instance Lude.ToPath DeleteCampaign where
   toPath DeleteCampaign' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _dcApplicationId,
+        Lude.toBS applicationId,
         "/campaigns/",
-        toBS _dcCampaignId
+        Lude.toBS campaignId
       ]
 
-instance ToQuery DeleteCampaign where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCampaign where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCampaignResponse' smart constructor.
+-- | /See:/ 'mkDeleteCampaignResponse' smart constructor.
 data DeleteCampaignResponse = DeleteCampaignResponse'
-  { _dcrsResponseStatus ::
-      !Int,
-    _dcrsCampaignResponse :: !CampaignResponse
+  { responseStatus ::
+      Lude.Int,
+    campaignResponse :: CampaignResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCampaignResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsResponseStatus' - -- | The response status code.
---
--- * 'dcrsCampaignResponse' - Undocumented member.
-deleteCampaignResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
-  -- | 'dcrsCampaignResponse'
+-- * 'campaignResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteCampaignResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'campaignResponse'
   CampaignResponse ->
   DeleteCampaignResponse
-deleteCampaignResponse pResponseStatus_ pCampaignResponse_ =
+mkDeleteCampaignResponse pResponseStatus_ pCampaignResponse_ =
   DeleteCampaignResponse'
-    { _dcrsResponseStatus = pResponseStatus_,
-      _dcrsCampaignResponse = pCampaignResponse_
+    { responseStatus = pResponseStatus_,
+      campaignResponse = pCampaignResponse_
     }
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DeleteCampaignResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DeleteCampaignResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DeleteCampaignResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCampaignResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dcrsCampaignResponse :: Lens' DeleteCampaignResponse CampaignResponse
-dcrsCampaignResponse = lens _dcrsCampaignResponse (\s a -> s {_dcrsCampaignResponse = a})
-
-instance NFData DeleteCampaignResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'campaignResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCampaignResponse :: Lens.Lens' DeleteCampaignResponse CampaignResponse
+dcrsCampaignResponse = Lens.lens (campaignResponse :: DeleteCampaignResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: DeleteCampaignResponse)
+{-# DEPRECATED dcrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}

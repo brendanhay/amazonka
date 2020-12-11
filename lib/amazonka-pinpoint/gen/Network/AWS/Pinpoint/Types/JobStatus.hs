@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JobStatus where
+module Network.AWS.Pinpoint.Types.JobStatus
+  ( JobStatus
+      ( JobStatus',
+        JSCompleted,
+        JSCompleting,
+        JSCreated,
+        JSFailed,
+        JSFailing,
+        JSInitializing,
+        JSPendingJob,
+        JSPreparingForInitialization,
+        JSProcessing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobStatus
-  = JSCompleted
-  | JSCompleting
-  | JSCreated
-  | JSFailed
-  | JSFailing
-  | JSInitializing
-  | JSPendingJob
-  | JSPreparingForInitialization
-  | JSProcessing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatus = JobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure JSCompleted
-      "completing" -> pure JSCompleting
-      "created" -> pure JSCreated
-      "failed" -> pure JSFailed
-      "failing" -> pure JSFailing
-      "initializing" -> pure JSInitializing
-      "pending_job" -> pure JSPendingJob
-      "preparing_for_initialization" -> pure JSPreparingForInitialization
-      "processing" -> pure JSProcessing
-      e ->
-        fromTextError $
-          "Failure parsing JobStatus from value: '" <> e
-            <> "'. Accepted values: completed, completing, created, failed, failing, initializing, pending_job, preparing_for_initialization, processing"
+pattern JSCompleted :: JobStatus
+pattern JSCompleted = JobStatus' "COMPLETED"
 
-instance ToText JobStatus where
-  toText = \case
-    JSCompleted -> "COMPLETED"
-    JSCompleting -> "COMPLETING"
-    JSCreated -> "CREATED"
-    JSFailed -> "FAILED"
-    JSFailing -> "FAILING"
-    JSInitializing -> "INITIALIZING"
-    JSPendingJob -> "PENDING_JOB"
-    JSPreparingForInitialization -> "PREPARING_FOR_INITIALIZATION"
-    JSProcessing -> "PROCESSING"
+pattern JSCompleting :: JobStatus
+pattern JSCompleting = JobStatus' "COMPLETING"
 
-instance Hashable JobStatus
+pattern JSCreated :: JobStatus
+pattern JSCreated = JobStatus' "CREATED"
 
-instance NFData JobStatus
+pattern JSFailed :: JobStatus
+pattern JSFailed = JobStatus' "FAILED"
 
-instance ToByteString JobStatus
+pattern JSFailing :: JobStatus
+pattern JSFailing = JobStatus' "FAILING"
 
-instance ToQuery JobStatus
+pattern JSInitializing :: JobStatus
+pattern JSInitializing = JobStatus' "INITIALIZING"
 
-instance ToHeader JobStatus
+pattern JSPendingJob :: JobStatus
+pattern JSPendingJob = JobStatus' "PENDING_JOB"
 
-instance FromJSON JobStatus where
-  parseJSON = parseJSONText "JobStatus"
+pattern JSPreparingForInitialization :: JobStatus
+pattern JSPreparingForInitialization = JobStatus' "PREPARING_FOR_INITIALIZATION"
+
+pattern JSProcessing :: JobStatus
+pattern JSProcessing = JobStatus' "PROCESSING"
+
+{-# COMPLETE
+  JSCompleted,
+  JSCompleting,
+  JSCreated,
+  JSFailed,
+  JSFailing,
+  JSInitializing,
+  JSPendingJob,
+  JSPreparingForInitialization,
+  JSProcessing,
+  JobStatus'
+  #-}

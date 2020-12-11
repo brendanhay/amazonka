@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ValidationStatus where
+module Network.AWS.SMS.Types.ValidationStatus
+  ( ValidationStatus
+      ( ValidationStatus',
+        Failed,
+        InProgress,
+        Pending,
+        ReadyForValidation,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ValidationStatus
-  = Failed
-  | InProgress
-  | Pending
-  | ReadyForValidation
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ValidationStatus = ValidationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ValidationStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "pending" -> pure Pending
-      "ready_for_validation" -> pure ReadyForValidation
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing ValidationStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, pending, ready_for_validation, succeeded"
+pattern Failed :: ValidationStatus
+pattern Failed = ValidationStatus' "FAILED"
 
-instance ToText ValidationStatus where
-  toText = \case
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    Pending -> "PENDING"
-    ReadyForValidation -> "READY_FOR_VALIDATION"
-    Succeeded -> "SUCCEEDED"
+pattern InProgress :: ValidationStatus
+pattern InProgress = ValidationStatus' "IN_PROGRESS"
 
-instance Hashable ValidationStatus
+pattern Pending :: ValidationStatus
+pattern Pending = ValidationStatus' "PENDING"
 
-instance NFData ValidationStatus
+pattern ReadyForValidation :: ValidationStatus
+pattern ReadyForValidation = ValidationStatus' "READY_FOR_VALIDATION"
 
-instance ToByteString ValidationStatus
+pattern Succeeded :: ValidationStatus
+pattern Succeeded = ValidationStatus' "SUCCEEDED"
 
-instance ToQuery ValidationStatus
-
-instance ToHeader ValidationStatus
-
-instance ToJSON ValidationStatus where
-  toJSON = toJSONText
-
-instance FromJSON ValidationStatus where
-  parseJSON = parseJSONText "ValidationStatus"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  Pending,
+  ReadyForValidation,
+  Succeeded,
+  ValidationStatus'
+  #-}

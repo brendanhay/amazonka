@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType where
+module Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType
+  ( HyperParameterTuningJobStrategyType
+      ( HyperParameterTuningJobStrategyType',
+        Bayesian,
+        Random
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The strategy hyperparameter tuning uses to find the best combination of hyperparameters for your model. Currently, the only supported value is @Bayesian@ .
-data HyperParameterTuningJobStrategyType
-  = Bayesian
-  | Random
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HyperParameterTuningJobStrategyType = HyperParameterTuningJobStrategyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HyperParameterTuningJobStrategyType where
-  parser =
-    takeLowerText >>= \case
-      "bayesian" -> pure Bayesian
-      "random" -> pure Random
-      e ->
-        fromTextError $
-          "Failure parsing HyperParameterTuningJobStrategyType from value: '" <> e
-            <> "'. Accepted values: bayesian, random"
+pattern Bayesian :: HyperParameterTuningJobStrategyType
+pattern Bayesian = HyperParameterTuningJobStrategyType' "Bayesian"
 
-instance ToText HyperParameterTuningJobStrategyType where
-  toText = \case
-    Bayesian -> "Bayesian"
-    Random -> "Random"
+pattern Random :: HyperParameterTuningJobStrategyType
+pattern Random = HyperParameterTuningJobStrategyType' "Random"
 
-instance Hashable HyperParameterTuningJobStrategyType
-
-instance NFData HyperParameterTuningJobStrategyType
-
-instance ToByteString HyperParameterTuningJobStrategyType
-
-instance ToQuery HyperParameterTuningJobStrategyType
-
-instance ToHeader HyperParameterTuningJobStrategyType
-
-instance ToJSON HyperParameterTuningJobStrategyType where
-  toJSON = toJSONText
-
-instance FromJSON HyperParameterTuningJobStrategyType where
-  parseJSON = parseJSONText "HyperParameterTuningJobStrategyType"
+{-# COMPLETE
+  Bayesian,
+  Random,
+  HyperParameterTuningJobStrategyType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Types.ServerStatus where
+module Network.AWS.OpsWorksCM.Types.ServerStatus
+  ( ServerStatus
+      ( ServerStatus',
+        BackingUp,
+        ConnectionLost,
+        Creating,
+        Deleting,
+        Failed,
+        Healthy,
+        Modifying,
+        Restoring,
+        Running,
+        Setup,
+        Terminated,
+        UnderMaintenance,
+        Unhealthy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServerStatus
-  = BackingUp
-  | ConnectionLost
-  | Creating
-  | Deleting
-  | Failed
-  | Healthy
-  | Modifying
-  | Restoring
-  | Running
-  | Setup
-  | Terminated
-  | UnderMaintenance
-  | Unhealthy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServerStatus = ServerStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServerStatus where
-  parser =
-    takeLowerText >>= \case
-      "backing_up" -> pure BackingUp
-      "connection_lost" -> pure ConnectionLost
-      "creating" -> pure Creating
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "healthy" -> pure Healthy
-      "modifying" -> pure Modifying
-      "restoring" -> pure Restoring
-      "running" -> pure Running
-      "setup" -> pure Setup
-      "terminated" -> pure Terminated
-      "under_maintenance" -> pure UnderMaintenance
-      "unhealthy" -> pure Unhealthy
-      e ->
-        fromTextError $
-          "Failure parsing ServerStatus from value: '" <> e
-            <> "'. Accepted values: backing_up, connection_lost, creating, deleting, failed, healthy, modifying, restoring, running, setup, terminated, under_maintenance, unhealthy"
+pattern BackingUp :: ServerStatus
+pattern BackingUp = ServerStatus' "BACKING_UP"
 
-instance ToText ServerStatus where
-  toText = \case
-    BackingUp -> "BACKING_UP"
-    ConnectionLost -> "CONNECTION_LOST"
-    Creating -> "CREATING"
-    Deleting -> "DELETING"
-    Failed -> "FAILED"
-    Healthy -> "HEALTHY"
-    Modifying -> "MODIFYING"
-    Restoring -> "RESTORING"
-    Running -> "RUNNING"
-    Setup -> "SETUP"
-    Terminated -> "TERMINATED"
-    UnderMaintenance -> "UNDER_MAINTENANCE"
-    Unhealthy -> "UNHEALTHY"
+pattern ConnectionLost :: ServerStatus
+pattern ConnectionLost = ServerStatus' "CONNECTION_LOST"
 
-instance Hashable ServerStatus
+pattern Creating :: ServerStatus
+pattern Creating = ServerStatus' "CREATING"
 
-instance NFData ServerStatus
+pattern Deleting :: ServerStatus
+pattern Deleting = ServerStatus' "DELETING"
 
-instance ToByteString ServerStatus
+pattern Failed :: ServerStatus
+pattern Failed = ServerStatus' "FAILED"
 
-instance ToQuery ServerStatus
+pattern Healthy :: ServerStatus
+pattern Healthy = ServerStatus' "HEALTHY"
 
-instance ToHeader ServerStatus
+pattern Modifying :: ServerStatus
+pattern Modifying = ServerStatus' "MODIFYING"
 
-instance FromJSON ServerStatus where
-  parseJSON = parseJSONText "ServerStatus"
+pattern Restoring :: ServerStatus
+pattern Restoring = ServerStatus' "RESTORING"
+
+pattern Running :: ServerStatus
+pattern Running = ServerStatus' "RUNNING"
+
+pattern Setup :: ServerStatus
+pattern Setup = ServerStatus' "SETUP"
+
+pattern Terminated :: ServerStatus
+pattern Terminated = ServerStatus' "TERMINATED"
+
+pattern UnderMaintenance :: ServerStatus
+pattern UnderMaintenance = ServerStatus' "UNDER_MAINTENANCE"
+
+pattern Unhealthy :: ServerStatus
+pattern Unhealthy = ServerStatus' "UNHEALTHY"
+
+{-# COMPLETE
+  BackingUp,
+  ConnectionLost,
+  Creating,
+  Deleting,
+  Failed,
+  Healthy,
+  Modifying,
+  Restoring,
+  Running,
+  Setup,
+  Terminated,
+  UnderMaintenance,
+  Unhealthy,
+  ServerStatus'
+  #-}

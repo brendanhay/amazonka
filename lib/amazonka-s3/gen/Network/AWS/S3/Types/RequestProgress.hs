@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RequestProgress where
+module Network.AWS.S3.Types.RequestProgress
+  ( RequestProgress (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRequestProgress,
+
+    -- * Lenses
+    rpEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Container for specifying if periodic @QueryProgress@ messages should be sent.
 --
---
---
--- /See:/ 'requestProgress' smart constructor.
+-- /See:/ 'mkRequestProgress' smart constructor.
 newtype RequestProgress = RequestProgress'
-  { _rpEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestProgress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpEnabled' - Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
-requestProgress ::
+-- * 'enabled' - Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
+mkRequestProgress ::
   RequestProgress
-requestProgress = RequestProgress' {_rpEnabled = Nothing}
+mkRequestProgress = RequestProgress' {enabled = Lude.Nothing}
 
 -- | Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
-rpEnabled :: Lens' RequestProgress (Maybe Bool)
-rpEnabled = lens _rpEnabled (\s a -> s {_rpEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpEnabled :: Lens.Lens' RequestProgress (Lude.Maybe Lude.Bool)
+rpEnabled = Lens.lens (enabled :: RequestProgress -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: RequestProgress)
+{-# DEPRECATED rpEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Hashable RequestProgress
-
-instance NFData RequestProgress
-
-instance ToXML RequestProgress where
-  toXML RequestProgress' {..} = mconcat ["Enabled" @= _rpEnabled]
+instance Lude.ToXML RequestProgress where
+  toXML RequestProgress' {..} =
+    Lude.mconcat ["Enabled" Lude.@= enabled]

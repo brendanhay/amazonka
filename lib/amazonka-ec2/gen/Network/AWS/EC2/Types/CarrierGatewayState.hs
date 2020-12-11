@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CarrierGatewayState where
+module Network.AWS.EC2.Types.CarrierGatewayState
+  ( CarrierGatewayState
+      ( CarrierGatewayState',
+        Available,
+        Deleted,
+        Deleting,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CarrierGatewayState
-  = Available
-  | Deleted
-  | Deleting
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CarrierGatewayState = CarrierGatewayState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CarrierGatewayState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing CarrierGatewayState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, pending"
+pattern Available :: CarrierGatewayState
+pattern Available = CarrierGatewayState' "available"
 
-instance ToText CarrierGatewayState where
-  toText = \case
-    Available -> "available"
-    Deleted -> "deleted"
-    Deleting -> "deleting"
-    Pending -> "pending"
+pattern Deleted :: CarrierGatewayState
+pattern Deleted = CarrierGatewayState' "deleted"
 
-instance Hashable CarrierGatewayState
+pattern Deleting :: CarrierGatewayState
+pattern Deleting = CarrierGatewayState' "deleting"
 
-instance NFData CarrierGatewayState
+pattern Pending :: CarrierGatewayState
+pattern Pending = CarrierGatewayState' "pending"
 
-instance ToByteString CarrierGatewayState
-
-instance ToQuery CarrierGatewayState
-
-instance ToHeader CarrierGatewayState
-
-instance FromXML CarrierGatewayState where
-  parseXML = parseXMLText "CarrierGatewayState"
+{-# COMPLETE
+  Available,
+  Deleted,
+  Deleting,
+  Pending,
+  CarrierGatewayState'
+  #-}

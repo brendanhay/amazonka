@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,156 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.Preset where
+module Network.AWS.ElasticTranscoder.Types.Preset
+  ( Preset (..),
+
+    -- * Smart constructor
+    mkPreset,
+
+    -- * Lenses
+    preARN,
+    preVideo,
+    preThumbnails,
+    preName,
+    preContainer,
+    preId,
+    preType,
+    preDescription,
+    preAudio,
+  )
+where
 
 import Network.AWS.ElasticTranscoder.Types.AudioParameters
 import Network.AWS.ElasticTranscoder.Types.Thumbnails
 import Network.AWS.ElasticTranscoder.Types.VideoParameters
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.
 --
---
---
--- /See:/ 'preset' smart constructor.
+-- /See:/ 'mkPreset' smart constructor.
 data Preset = Preset'
-  { _preARN :: !(Maybe Text),
-    _preVideo :: !(Maybe VideoParameters),
-    _preThumbnails :: !(Maybe Thumbnails),
-    _preName :: !(Maybe Text),
-    _preContainer :: !(Maybe Text),
-    _preId :: !(Maybe Text),
-    _preType :: !(Maybe Text),
-    _preDescription :: !(Maybe Text),
-    _preAudio :: !(Maybe AudioParameters)
+  { arn :: Lude.Maybe Lude.Text,
+    video :: Lude.Maybe VideoParameters,
+    thumbnails :: Lude.Maybe Thumbnails,
+    name :: Lude.Maybe Lude.Text,
+    container :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    audio :: Lude.Maybe AudioParameters
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Preset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'preARN' - The Amazon Resource Name (ARN) for the preset.
---
--- * 'preVideo' - A section of the response body that provides information about the video preset values.
---
--- * 'preThumbnails' - A section of the response body that provides information about the thumbnail preset values, if any.
---
--- * 'preName' - The name of the preset.
---
--- * 'preContainer' - The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
---
--- * 'preId' - Identifier for the new preset. You use this value to get settings for the preset or to delete it.
---
--- * 'preType' - Whether the preset is a default preset provided by Elastic Transcoder (@System@ ) or a preset that you have defined (@Custom@ ).
---
--- * 'preDescription' - A description of the preset.
---
--- * 'preAudio' - A section of the response body that provides information about the audio preset values.
-preset ::
+-- * 'arn' - The Amazon Resource Name (ARN) for the preset.
+-- * 'audio' - A section of the response body that provides information about the audio preset values.
+-- * 'container' - The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
+-- * 'description' - A description of the preset.
+-- * 'id' - Identifier for the new preset. You use this value to get settings for the preset or to delete it.
+-- * 'name' - The name of the preset.
+-- * 'thumbnails' - A section of the response body that provides information about the thumbnail preset values, if any.
+-- * 'type'' - Whether the preset is a default preset provided by Elastic Transcoder (@System@ ) or a preset that you have defined (@Custom@ ).
+-- * 'video' - A section of the response body that provides information about the video preset values.
+mkPreset ::
   Preset
-preset =
+mkPreset =
   Preset'
-    { _preARN = Nothing,
-      _preVideo = Nothing,
-      _preThumbnails = Nothing,
-      _preName = Nothing,
-      _preContainer = Nothing,
-      _preId = Nothing,
-      _preType = Nothing,
-      _preDescription = Nothing,
-      _preAudio = Nothing
+    { arn = Lude.Nothing,
+      video = Lude.Nothing,
+      thumbnails = Lude.Nothing,
+      name = Lude.Nothing,
+      container = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing,
+      audio = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the preset.
-preARN :: Lens' Preset (Maybe Text)
-preARN = lens _preARN (\s a -> s {_preARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preARN :: Lens.Lens' Preset (Lude.Maybe Lude.Text)
+preARN = Lens.lens (arn :: Preset -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Preset)
+{-# DEPRECATED preARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A section of the response body that provides information about the video preset values.
-preVideo :: Lens' Preset (Maybe VideoParameters)
-preVideo = lens _preVideo (\s a -> s {_preVideo = a})
+--
+-- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preVideo :: Lens.Lens' Preset (Lude.Maybe VideoParameters)
+preVideo = Lens.lens (video :: Preset -> Lude.Maybe VideoParameters) (\s a -> s {video = a} :: Preset)
+{-# DEPRECATED preVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 -- | A section of the response body that provides information about the thumbnail preset values, if any.
-preThumbnails :: Lens' Preset (Maybe Thumbnails)
-preThumbnails = lens _preThumbnails (\s a -> s {_preThumbnails = a})
+--
+-- /Note:/ Consider using 'thumbnails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preThumbnails :: Lens.Lens' Preset (Lude.Maybe Thumbnails)
+preThumbnails = Lens.lens (thumbnails :: Preset -> Lude.Maybe Thumbnails) (\s a -> s {thumbnails = a} :: Preset)
+{-# DEPRECATED preThumbnails "Use generic-lens or generic-optics with 'thumbnails' instead." #-}
 
 -- | The name of the preset.
-preName :: Lens' Preset (Maybe Text)
-preName = lens _preName (\s a -> s {_preName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preName :: Lens.Lens' Preset (Lude.Maybe Lude.Text)
+preName = Lens.lens (name :: Preset -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Preset)
+{-# DEPRECATED preName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
-preContainer :: Lens' Preset (Maybe Text)
-preContainer = lens _preContainer (\s a -> s {_preContainer = a})
+--
+-- /Note:/ Consider using 'container' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preContainer :: Lens.Lens' Preset (Lude.Maybe Lude.Text)
+preContainer = Lens.lens (container :: Preset -> Lude.Maybe Lude.Text) (\s a -> s {container = a} :: Preset)
+{-# DEPRECATED preContainer "Use generic-lens or generic-optics with 'container' instead." #-}
 
 -- | Identifier for the new preset. You use this value to get settings for the preset or to delete it.
-preId :: Lens' Preset (Maybe Text)
-preId = lens _preId (\s a -> s {_preId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preId :: Lens.Lens' Preset (Lude.Maybe Lude.Text)
+preId = Lens.lens (id :: Preset -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Preset)
+{-# DEPRECATED preId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Whether the preset is a default preset provided by Elastic Transcoder (@System@ ) or a preset that you have defined (@Custom@ ).
-preType :: Lens' Preset (Maybe Text)
-preType = lens _preType (\s a -> s {_preType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preType :: Lens.Lens' Preset (Lude.Maybe Lude.Text)
+preType = Lens.lens (type' :: Preset -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Preset)
+{-# DEPRECATED preType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A description of the preset.
-preDescription :: Lens' Preset (Maybe Text)
-preDescription = lens _preDescription (\s a -> s {_preDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preDescription :: Lens.Lens' Preset (Lude.Maybe Lude.Text)
+preDescription = Lens.lens (description :: Preset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Preset)
+{-# DEPRECATED preDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A section of the response body that provides information about the audio preset values.
-preAudio :: Lens' Preset (Maybe AudioParameters)
-preAudio = lens _preAudio (\s a -> s {_preAudio = a})
+--
+-- /Note:/ Consider using 'audio' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preAudio :: Lens.Lens' Preset (Lude.Maybe AudioParameters)
+preAudio = Lens.lens (audio :: Preset -> Lude.Maybe AudioParameters) (\s a -> s {audio = a} :: Preset)
+{-# DEPRECATED preAudio "Use generic-lens or generic-optics with 'audio' instead." #-}
 
-instance FromJSON Preset where
+instance Lude.FromJSON Preset where
   parseJSON =
-    withObject
+    Lude.withObject
       "Preset"
       ( \x ->
           Preset'
-            <$> (x .:? "Arn")
-            <*> (x .:? "Video")
-            <*> (x .:? "Thumbnails")
-            <*> (x .:? "Name")
-            <*> (x .:? "Container")
-            <*> (x .:? "Id")
-            <*> (x .:? "Type")
-            <*> (x .:? "Description")
-            <*> (x .:? "Audio")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Video")
+            Lude.<*> (x Lude..:? "Thumbnails")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Container")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "Audio")
       )
-
-instance Hashable Preset
-
-instance NFData Preset

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Retrieves the cost anomaly monitor definitions for your account. You can filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).
 module Network.AWS.CostExplorer.GetAnomalyMonitors
-  ( -- * Creating a Request
-    getAnomalyMonitors,
-    GetAnomalyMonitors,
+  ( -- * Creating a request
+    GetAnomalyMonitors (..),
+    mkGetAnomalyMonitors,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gamNextPageToken,
     gamMonitorARNList,
     gamMaxResults,
 
-    -- * Destructuring the Response
-    getAnomalyMonitorsResponse,
-    GetAnomalyMonitorsResponse,
+    -- * Destructuring the response
+    GetAnomalyMonitorsResponse (..),
+    mkGetAnomalyMonitorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gamrsNextPageToken,
     gamrsResponseStatus,
     gamrsAnomalyMonitors,
@@ -40,132 +35,150 @@ module Network.AWS.CostExplorer.GetAnomalyMonitors
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAnomalyMonitors' smart constructor.
+-- | /See:/ 'mkGetAnomalyMonitors' smart constructor.
 data GetAnomalyMonitors = GetAnomalyMonitors'
-  { _gamNextPageToken ::
-      !(Maybe Text),
-    _gamMonitorARNList :: !(Maybe [Text]),
-    _gamMaxResults :: !(Maybe Int)
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    monitorARNList :: Lude.Maybe [Lude.Text],
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAnomalyMonitors' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gamNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gamMonitorARNList' - A list of cost anomaly monitor ARNs.
---
--- * 'gamMaxResults' - The number of entries a paginated response contains.
-getAnomalyMonitors ::
+-- * 'maxResults' - The number of entries a paginated response contains.
+-- * 'monitorARNList' - A list of cost anomaly monitor ARNs.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+mkGetAnomalyMonitors ::
   GetAnomalyMonitors
-getAnomalyMonitors =
+mkGetAnomalyMonitors =
   GetAnomalyMonitors'
-    { _gamNextPageToken = Nothing,
-      _gamMonitorARNList = Nothing,
-      _gamMaxResults = Nothing
+    { nextPageToken = Lude.Nothing,
+      monitorARNList = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gamNextPageToken :: Lens' GetAnomalyMonitors (Maybe Text)
-gamNextPageToken = lens _gamNextPageToken (\s a -> s {_gamNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gamNextPageToken :: Lens.Lens' GetAnomalyMonitors (Lude.Maybe Lude.Text)
+gamNextPageToken = Lens.lens (nextPageToken :: GetAnomalyMonitors -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetAnomalyMonitors)
+{-# DEPRECATED gamNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | A list of cost anomaly monitor ARNs.
-gamMonitorARNList :: Lens' GetAnomalyMonitors [Text]
-gamMonitorARNList = lens _gamMonitorARNList (\s a -> s {_gamMonitorARNList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'monitorARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gamMonitorARNList :: Lens.Lens' GetAnomalyMonitors (Lude.Maybe [Lude.Text])
+gamMonitorARNList = Lens.lens (monitorARNList :: GetAnomalyMonitors -> Lude.Maybe [Lude.Text]) (\s a -> s {monitorARNList = a} :: GetAnomalyMonitors)
+{-# DEPRECATED gamMonitorARNList "Use generic-lens or generic-optics with 'monitorARNList' instead." #-}
 
 -- | The number of entries a paginated response contains.
-gamMaxResults :: Lens' GetAnomalyMonitors (Maybe Int)
-gamMaxResults = lens _gamMaxResults (\s a -> s {_gamMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gamMaxResults :: Lens.Lens' GetAnomalyMonitors (Lude.Maybe Lude.Int)
+gamMaxResults = Lens.lens (maxResults :: GetAnomalyMonitors -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetAnomalyMonitors)
+{-# DEPRECATED gamMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest GetAnomalyMonitors where
+instance Lude.AWSRequest GetAnomalyMonitors where
   type Rs GetAnomalyMonitors = GetAnomalyMonitorsResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAnomalyMonitorsResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "AnomalyMonitors" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "AnomalyMonitors" Lude..!@ Lude.mempty)
       )
 
-instance Hashable GetAnomalyMonitors
-
-instance NFData GetAnomalyMonitors
-
-instance ToHeaders GetAnomalyMonitors where
+instance Lude.ToHeaders GetAnomalyMonitors where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.GetAnomalyMonitors" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSInsightsIndexService.GetAnomalyMonitors" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAnomalyMonitors where
+instance Lude.ToJSON GetAnomalyMonitors where
   toJSON GetAnomalyMonitors' {..} =
-    object
-      ( catMaybes
-          [ ("NextPageToken" .=) <$> _gamNextPageToken,
-            ("MonitorArnList" .=) <$> _gamMonitorARNList,
-            ("MaxResults" .=) <$> _gamMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("MonitorArnList" Lude..=) Lude.<$> monitorARNList,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetAnomalyMonitors where
-  toPath = const "/"
+instance Lude.ToPath GetAnomalyMonitors where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAnomalyMonitors where
-  toQuery = const mempty
+instance Lude.ToQuery GetAnomalyMonitors where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAnomalyMonitorsResponse' smart constructor.
+-- | /See:/ 'mkGetAnomalyMonitorsResponse' smart constructor.
 data GetAnomalyMonitorsResponse = GetAnomalyMonitorsResponse'
-  { _gamrsNextPageToken ::
-      !(Maybe Text),
-    _gamrsResponseStatus :: !Int,
-    _gamrsAnomalyMonitors ::
-      ![AnomalyMonitor]
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    anomalyMonitors :: [AnomalyMonitor]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAnomalyMonitorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gamrsNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gamrsResponseStatus' - -- | The response status code.
---
--- * 'gamrsAnomalyMonitors' - A list of cost anomaly monitors that includes the detailed metadata for each monitor.
-getAnomalyMonitorsResponse ::
-  -- | 'gamrsResponseStatus'
-  Int ->
+-- * 'anomalyMonitors' - A list of cost anomaly monitors that includes the detailed metadata for each monitor.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'responseStatus' - The response status code.
+mkGetAnomalyMonitorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAnomalyMonitorsResponse
-getAnomalyMonitorsResponse pResponseStatus_ =
+mkGetAnomalyMonitorsResponse pResponseStatus_ =
   GetAnomalyMonitorsResponse'
-    { _gamrsNextPageToken = Nothing,
-      _gamrsResponseStatus = pResponseStatus_,
-      _gamrsAnomalyMonitors = mempty
+    { nextPageToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      anomalyMonitors = Lude.mempty
     }
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gamrsNextPageToken :: Lens' GetAnomalyMonitorsResponse (Maybe Text)
-gamrsNextPageToken = lens _gamrsNextPageToken (\s a -> s {_gamrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gamrsNextPageToken :: Lens.Lens' GetAnomalyMonitorsResponse (Lude.Maybe Lude.Text)
+gamrsNextPageToken = Lens.lens (nextPageToken :: GetAnomalyMonitorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetAnomalyMonitorsResponse)
+{-# DEPRECATED gamrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | -- | The response status code.
-gamrsResponseStatus :: Lens' GetAnomalyMonitorsResponse Int
-gamrsResponseStatus = lens _gamrsResponseStatus (\s a -> s {_gamrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gamrsResponseStatus :: Lens.Lens' GetAnomalyMonitorsResponse Lude.Int
+gamrsResponseStatus = Lens.lens (responseStatus :: GetAnomalyMonitorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAnomalyMonitorsResponse)
+{-# DEPRECATED gamrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of cost anomaly monitors that includes the detailed metadata for each monitor.
-gamrsAnomalyMonitors :: Lens' GetAnomalyMonitorsResponse [AnomalyMonitor]
-gamrsAnomalyMonitors = lens _gamrsAnomalyMonitors (\s a -> s {_gamrsAnomalyMonitors = a}) . _Coerce
-
-instance NFData GetAnomalyMonitorsResponse
+--
+-- /Note:/ Consider using 'anomalyMonitors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gamrsAnomalyMonitors :: Lens.Lens' GetAnomalyMonitorsResponse [AnomalyMonitor]
+gamrsAnomalyMonitors = Lens.lens (anomalyMonitors :: GetAnomalyMonitorsResponse -> [AnomalyMonitor]) (\s a -> s {anomalyMonitors = a} :: GetAnomalyMonitorsResponse)
+{-# DEPRECATED gamrsAnomalyMonitors "Use generic-lens or generic-optics with 'anomalyMonitors' instead." #-}

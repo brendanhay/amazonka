@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AacInputType where
+module Network.AWS.MediaLive.Types.AacInputType
+  ( AacInputType
+      ( AacInputType',
+        BroadcasterMixedAd,
+        Normal
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Aac Input Type
-data AacInputType
-  = BroadcasterMixedAd
-  | Normal
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AacInputType = AacInputType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AacInputType where
-  parser =
-    takeLowerText >>= \case
-      "broadcaster_mixed_ad" -> pure BroadcasterMixedAd
-      "normal" -> pure Normal
-      e ->
-        fromTextError $
-          "Failure parsing AacInputType from value: '" <> e
-            <> "'. Accepted values: broadcaster_mixed_ad, normal"
+pattern BroadcasterMixedAd :: AacInputType
+pattern BroadcasterMixedAd = AacInputType' "BROADCASTER_MIXED_AD"
 
-instance ToText AacInputType where
-  toText = \case
-    BroadcasterMixedAd -> "BROADCASTER_MIXED_AD"
-    Normal -> "NORMAL"
+pattern Normal :: AacInputType
+pattern Normal = AacInputType' "NORMAL"
 
-instance Hashable AacInputType
-
-instance NFData AacInputType
-
-instance ToByteString AacInputType
-
-instance ToQuery AacInputType
-
-instance ToHeader AacInputType
-
-instance ToJSON AacInputType where
-  toJSON = toJSONText
-
-instance FromJSON AacInputType where
-  parseJSON = parseJSONText "AacInputType"
+{-# COMPLETE
+  BroadcasterMixedAd,
+  Normal,
+  AacInputType'
+  #-}

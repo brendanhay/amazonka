@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,173 @@
 --
 -- Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Polly.ListSpeechSynthesisTasks
-  ( -- * Creating a Request
-    listSpeechSynthesisTasks,
-    ListSpeechSynthesisTasks,
+  ( -- * Creating a request
+    ListSpeechSynthesisTasks (..),
+    mkListSpeechSynthesisTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsstStatus,
     lsstNextToken,
     lsstMaxResults,
 
-    -- * Destructuring the Response
-    listSpeechSynthesisTasksResponse,
-    ListSpeechSynthesisTasksResponse,
+    -- * Destructuring the response
+    ListSpeechSynthesisTasksResponse (..),
+    mkListSpeechSynthesisTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsstrsNextToken,
     lsstrsSynthesisTasks,
     lsstrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
 import Network.AWS.Polly.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSpeechSynthesisTasks' smart constructor.
+-- | /See:/ 'mkListSpeechSynthesisTasks' smart constructor.
 data ListSpeechSynthesisTasks = ListSpeechSynthesisTasks'
-  { _lsstStatus ::
-      !(Maybe TaskStatus),
-    _lsstNextToken :: !(Maybe Text),
-    _lsstMaxResults :: !(Maybe Nat)
+  { status ::
+      Lude.Maybe TaskStatus,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSpeechSynthesisTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsstStatus' - Status of the speech synthesis tasks returned in a List operation
---
--- * 'lsstNextToken' - The pagination token to use in the next request to continue the listing of speech synthesis tasks.
---
--- * 'lsstMaxResults' - Maximum number of speech synthesis tasks returned in a List operation.
-listSpeechSynthesisTasks ::
+-- * 'maxResults' - Maximum number of speech synthesis tasks returned in a List operation.
+-- * 'nextToken' - The pagination token to use in the next request to continue the listing of speech synthesis tasks.
+-- * 'status' - Status of the speech synthesis tasks returned in a List operation
+mkListSpeechSynthesisTasks ::
   ListSpeechSynthesisTasks
-listSpeechSynthesisTasks =
+mkListSpeechSynthesisTasks =
   ListSpeechSynthesisTasks'
-    { _lsstStatus = Nothing,
-      _lsstNextToken = Nothing,
-      _lsstMaxResults = Nothing
+    { status = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Status of the speech synthesis tasks returned in a List operation
-lsstStatus :: Lens' ListSpeechSynthesisTasks (Maybe TaskStatus)
-lsstStatus = lens _lsstStatus (\s a -> s {_lsstStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsstStatus :: Lens.Lens' ListSpeechSynthesisTasks (Lude.Maybe TaskStatus)
+lsstStatus = Lens.lens (status :: ListSpeechSynthesisTasks -> Lude.Maybe TaskStatus) (\s a -> s {status = a} :: ListSpeechSynthesisTasks)
+{-# DEPRECATED lsstStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The pagination token to use in the next request to continue the listing of speech synthesis tasks.
-lsstNextToken :: Lens' ListSpeechSynthesisTasks (Maybe Text)
-lsstNextToken = lens _lsstNextToken (\s a -> s {_lsstNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsstNextToken :: Lens.Lens' ListSpeechSynthesisTasks (Lude.Maybe Lude.Text)
+lsstNextToken = Lens.lens (nextToken :: ListSpeechSynthesisTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSpeechSynthesisTasks)
+{-# DEPRECATED lsstNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of speech synthesis tasks returned in a List operation.
-lsstMaxResults :: Lens' ListSpeechSynthesisTasks (Maybe Natural)
-lsstMaxResults = lens _lsstMaxResults (\s a -> s {_lsstMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsstMaxResults :: Lens.Lens' ListSpeechSynthesisTasks (Lude.Maybe Lude.Natural)
+lsstMaxResults = Lens.lens (maxResults :: ListSpeechSynthesisTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSpeechSynthesisTasks)
+{-# DEPRECATED lsstMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListSpeechSynthesisTasks where
+instance Page.AWSPager ListSpeechSynthesisTasks where
   page rq rs
-    | stop (rs ^. lsstrsNextToken) = Nothing
-    | stop (rs ^. lsstrsSynthesisTasks) = Nothing
-    | otherwise = Just $ rq & lsstNextToken .~ rs ^. lsstrsNextToken
+    | Page.stop (rs Lens.^. lsstrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsstrsSynthesisTasks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsstNextToken Lens..~ rs Lens.^. lsstrsNextToken
 
-instance AWSRequest ListSpeechSynthesisTasks where
+instance Lude.AWSRequest ListSpeechSynthesisTasks where
   type Rs ListSpeechSynthesisTasks = ListSpeechSynthesisTasksResponse
-  request = get polly
+  request = Req.get pollyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSpeechSynthesisTasksResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "SynthesisTasks" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "SynthesisTasks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSpeechSynthesisTasks
+instance Lude.ToHeaders ListSpeechSynthesisTasks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListSpeechSynthesisTasks
+instance Lude.ToPath ListSpeechSynthesisTasks where
+  toPath = Lude.const "/v1/synthesisTasks"
 
-instance ToHeaders ListSpeechSynthesisTasks where
-  toHeaders = const mempty
-
-instance ToPath ListSpeechSynthesisTasks where
-  toPath = const "/v1/synthesisTasks"
-
-instance ToQuery ListSpeechSynthesisTasks where
+instance Lude.ToQuery ListSpeechSynthesisTasks where
   toQuery ListSpeechSynthesisTasks' {..} =
-    mconcat
-      [ "Status" =: _lsstStatus,
-        "NextToken" =: _lsstNextToken,
-        "MaxResults" =: _lsstMaxResults
+    Lude.mconcat
+      [ "Status" Lude.=: status,
+        "NextToken" Lude.=: nextToken,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listSpeechSynthesisTasksResponse' smart constructor.
+-- | /See:/ 'mkListSpeechSynthesisTasksResponse' smart constructor.
 data ListSpeechSynthesisTasksResponse = ListSpeechSynthesisTasksResponse'
-  { _lsstrsNextToken ::
-      !(Maybe Text),
-    _lsstrsSynthesisTasks ::
-      !(Maybe [SynthesisTask]),
-    _lsstrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    synthesisTasks ::
+      Lude.Maybe
+        [SynthesisTask],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSpeechSynthesisTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsstrsNextToken' - An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.
---
--- * 'lsstrsSynthesisTasks' - List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.
---
--- * 'lsstrsResponseStatus' - -- | The response status code.
-listSpeechSynthesisTasksResponse ::
-  -- | 'lsstrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.
+-- * 'responseStatus' - The response status code.
+-- * 'synthesisTasks' - List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.
+mkListSpeechSynthesisTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSpeechSynthesisTasksResponse
-listSpeechSynthesisTasksResponse pResponseStatus_ =
+mkListSpeechSynthesisTasksResponse pResponseStatus_ =
   ListSpeechSynthesisTasksResponse'
-    { _lsstrsNextToken = Nothing,
-      _lsstrsSynthesisTasks = Nothing,
-      _lsstrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      synthesisTasks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.
-lsstrsNextToken :: Lens' ListSpeechSynthesisTasksResponse (Maybe Text)
-lsstrsNextToken = lens _lsstrsNextToken (\s a -> s {_lsstrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsstrsNextToken :: Lens.Lens' ListSpeechSynthesisTasksResponse (Lude.Maybe Lude.Text)
+lsstrsNextToken = Lens.lens (nextToken :: ListSpeechSynthesisTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSpeechSynthesisTasksResponse)
+{-# DEPRECATED lsstrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.
-lsstrsSynthesisTasks :: Lens' ListSpeechSynthesisTasksResponse [SynthesisTask]
-lsstrsSynthesisTasks = lens _lsstrsSynthesisTasks (\s a -> s {_lsstrsSynthesisTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'synthesisTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsstrsSynthesisTasks :: Lens.Lens' ListSpeechSynthesisTasksResponse (Lude.Maybe [SynthesisTask])
+lsstrsSynthesisTasks = Lens.lens (synthesisTasks :: ListSpeechSynthesisTasksResponse -> Lude.Maybe [SynthesisTask]) (\s a -> s {synthesisTasks = a} :: ListSpeechSynthesisTasksResponse)
+{-# DEPRECATED lsstrsSynthesisTasks "Use generic-lens or generic-optics with 'synthesisTasks' instead." #-}
 
--- | -- | The response status code.
-lsstrsResponseStatus :: Lens' ListSpeechSynthesisTasksResponse Int
-lsstrsResponseStatus = lens _lsstrsResponseStatus (\s a -> s {_lsstrsResponseStatus = a})
-
-instance NFData ListSpeechSynthesisTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsstrsResponseStatus :: Lens.Lens' ListSpeechSynthesisTasksResponse Lude.Int
+lsstrsResponseStatus = Lens.lens (responseStatus :: ListSpeechSynthesisTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSpeechSynthesisTasksResponse)
+{-# DEPRECATED lsstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

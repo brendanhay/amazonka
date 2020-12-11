@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode where
+module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
+  ( InboundCrossClusterSearchConnectionStatusCode
+      ( InboundCrossClusterSearchConnectionStatusCode',
+        Approved,
+        Deleted,
+        Deleting,
+        PendingAcceptance,
+        Rejected,
+        Rejecting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InboundCrossClusterSearchConnectionStatusCode
-  = Approved
-  | Deleted
-  | Deleting
-  | PendingAcceptance
-  | Rejected
-  | Rejecting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InboundCrossClusterSearchConnectionStatusCode = InboundCrossClusterSearchConnectionStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InboundCrossClusterSearchConnectionStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "approved" -> pure Approved
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "pending_acceptance" -> pure PendingAcceptance
-      "rejected" -> pure Rejected
-      "rejecting" -> pure Rejecting
-      e ->
-        fromTextError $
-          "Failure parsing InboundCrossClusterSearchConnectionStatusCode from value: '" <> e
-            <> "'. Accepted values: approved, deleted, deleting, pending_acceptance, rejected, rejecting"
+pattern Approved :: InboundCrossClusterSearchConnectionStatusCode
+pattern Approved = InboundCrossClusterSearchConnectionStatusCode' "APPROVED"
 
-instance ToText InboundCrossClusterSearchConnectionStatusCode where
-  toText = \case
-    Approved -> "APPROVED"
-    Deleted -> "DELETED"
-    Deleting -> "DELETING"
-    PendingAcceptance -> "PENDING_ACCEPTANCE"
-    Rejected -> "REJECTED"
-    Rejecting -> "REJECTING"
+pattern Deleted :: InboundCrossClusterSearchConnectionStatusCode
+pattern Deleted = InboundCrossClusterSearchConnectionStatusCode' "DELETED"
 
-instance Hashable InboundCrossClusterSearchConnectionStatusCode
+pattern Deleting :: InboundCrossClusterSearchConnectionStatusCode
+pattern Deleting = InboundCrossClusterSearchConnectionStatusCode' "DELETING"
 
-instance NFData InboundCrossClusterSearchConnectionStatusCode
+pattern PendingAcceptance :: InboundCrossClusterSearchConnectionStatusCode
+pattern PendingAcceptance = InboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
 
-instance ToByteString InboundCrossClusterSearchConnectionStatusCode
+pattern Rejected :: InboundCrossClusterSearchConnectionStatusCode
+pattern Rejected = InboundCrossClusterSearchConnectionStatusCode' "REJECTED"
 
-instance ToQuery InboundCrossClusterSearchConnectionStatusCode
+pattern Rejecting :: InboundCrossClusterSearchConnectionStatusCode
+pattern Rejecting = InboundCrossClusterSearchConnectionStatusCode' "REJECTING"
 
-instance ToHeader InboundCrossClusterSearchConnectionStatusCode
-
-instance FromJSON InboundCrossClusterSearchConnectionStatusCode where
-  parseJSON = parseJSONText "InboundCrossClusterSearchConnectionStatusCode"
+{-# COMPLETE
+  Approved,
+  Deleted,
+  Deleting,
+  PendingAcceptance,
+  Rejected,
+  Rejecting,
+  InboundCrossClusterSearchConnectionStatusCode'
+  #-}

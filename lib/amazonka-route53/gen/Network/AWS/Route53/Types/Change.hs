@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.Change where
+module Network.AWS.Route53.Types.Change
+  ( Change (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChange,
+
+    -- * Lenses
+    cAction,
+    cResourceRecordSet,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.ChangeAction
 import Network.AWS.Route53.Types.ResourceRecordSet
 
 -- | The information for each resource record set that you want to change.
 --
---
---
--- /See:/ 'change' smart constructor.
+-- /See:/ 'mkChange' smart constructor.
 data Change = Change'
-  { _cAction :: !ChangeAction,
-    _cResourceRecordSet :: !ResourceRecordSet
+  { action :: ChangeAction,
+    resourceRecordSet :: ResourceRecordSet
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Change' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - The action to perform:
 --
--- * 'cAction' - The action to perform:     * @CREATE@ : Creates a resource record set that has the specified values.     * @DELETE@ : Deletes a existing resource record set. /Important:/ To delete the resource record set that is associated with a traffic policy instance, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html DeleteTrafficPolicyInstance> . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using @ChangeResourceRecordSets@ , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use.      * @UPSERT@ : If a resource record set doesn't already exist, Route 53 creates it. If a resource record set does exist, Route 53 updates it with the values in the request.
 --
--- * 'cResourceRecordSet' - Information about the resource record set to create, delete, or update.
-change ::
-  -- | 'cAction'
+--     * @CREATE@ : Creates a resource record set that has the specified values.
+--
+--
+--     * @DELETE@ : Deletes a existing resource record set.
+-- /Important:/ To delete the resource record set that is associated with a traffic policy instance, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html DeleteTrafficPolicyInstance> . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using @ChangeResourceRecordSets@ , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use.
+--
+--
+--     * @UPSERT@ : If a resource record set doesn't already exist, Route 53 creates it. If a resource record set does exist, Route 53 updates it with the values in the request.
+--
+--
+-- * 'resourceRecordSet' - Information about the resource record set to create, delete, or update.
+mkChange ::
+  -- | 'action'
   ChangeAction ->
-  -- | 'cResourceRecordSet'
+  -- | 'resourceRecordSet'
   ResourceRecordSet ->
   Change
-change pAction_ pResourceRecordSet_ =
+mkChange pAction_ pResourceRecordSet_ =
   Change'
-    { _cAction = pAction_,
-      _cResourceRecordSet = pResourceRecordSet_
+    { action = pAction_,
+      resourceRecordSet = pResourceRecordSet_
     }
 
--- | The action to perform:     * @CREATE@ : Creates a resource record set that has the specified values.     * @DELETE@ : Deletes a existing resource record set. /Important:/ To delete the resource record set that is associated with a traffic policy instance, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html DeleteTrafficPolicyInstance> . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using @ChangeResourceRecordSets@ , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use.      * @UPSERT@ : If a resource record set doesn't already exist, Route 53 creates it. If a resource record set does exist, Route 53 updates it with the values in the request.
-cAction :: Lens' Change ChangeAction
-cAction = lens _cAction (\s a -> s {_cAction = a})
+-- | The action to perform:
+--
+--
+--     * @CREATE@ : Creates a resource record set that has the specified values.
+--
+--
+--     * @DELETE@ : Deletes a existing resource record set.
+-- /Important:/ To delete the resource record set that is associated with a traffic policy instance, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html DeleteTrafficPolicyInstance> . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using @ChangeResourceRecordSets@ , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use.
+--
+--
+--     * @UPSERT@ : If a resource record set doesn't already exist, Route 53 creates it. If a resource record set does exist, Route 53 updates it with the values in the request.
+--
+--
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAction :: Lens.Lens' Change ChangeAction
+cAction = Lens.lens (action :: Change -> ChangeAction) (\s a -> s {action = a} :: Change)
+{-# DEPRECATED cAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Information about the resource record set to create, delete, or update.
-cResourceRecordSet :: Lens' Change ResourceRecordSet
-cResourceRecordSet = lens _cResourceRecordSet (\s a -> s {_cResourceRecordSet = a})
+--
+-- /Note:/ Consider using 'resourceRecordSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cResourceRecordSet :: Lens.Lens' Change ResourceRecordSet
+cResourceRecordSet = Lens.lens (resourceRecordSet :: Change -> ResourceRecordSet) (\s a -> s {resourceRecordSet = a} :: Change)
+{-# DEPRECATED cResourceRecordSet "Use generic-lens or generic-optics with 'resourceRecordSet' instead." #-}
 
-instance Hashable Change
-
-instance NFData Change
-
-instance ToXML Change where
+instance Lude.ToXML Change where
   toXML Change' {..} =
-    mconcat
-      ["Action" @= _cAction, "ResourceRecordSet" @= _cResourceRecordSet]
+    Lude.mconcat
+      [ "Action" Lude.@= action,
+        "ResourceRecordSet" Lude.@= resourceRecordSet
+      ]

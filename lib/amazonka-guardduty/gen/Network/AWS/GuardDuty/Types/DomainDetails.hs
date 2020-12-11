@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DomainDetails where
+module Network.AWS.GuardDuty.Types.DomainDetails
+  ( DomainDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainDetails,
+
+    -- * Lenses
+    ddDomain,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the domain.
 --
---
---
--- /See:/ 'domainDetails' smart constructor.
-newtype DomainDetails = DomainDetails' {_ddDomain :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDomainDetails' smart constructor.
+newtype DomainDetails = DomainDetails'
+  { domain ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDomain' - The domain information for the AWS API call.
-domainDetails ::
+-- * 'domain' - The domain information for the AWS API call.
+mkDomainDetails ::
   DomainDetails
-domainDetails = DomainDetails' {_ddDomain = Nothing}
+mkDomainDetails = DomainDetails' {domain = Lude.Nothing}
 
 -- | The domain information for the AWS API call.
-ddDomain :: Lens' DomainDetails (Maybe Text)
-ddDomain = lens _ddDomain (\s a -> s {_ddDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomain :: Lens.Lens' DomainDetails (Lude.Maybe Lude.Text)
+ddDomain = Lens.lens (domain :: DomainDetails -> Lude.Maybe Lude.Text) (\s a -> s {domain = a} :: DomainDetails)
+{-# DEPRECATED ddDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
-instance FromJSON DomainDetails where
+instance Lude.FromJSON DomainDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainDetails"
-      (\x -> DomainDetails' <$> (x .:? "domain"))
-
-instance Hashable DomainDetails
-
-instance NFData DomainDetails
+      (\x -> DomainDetails' Lude.<$> (x Lude..:? "domain"))

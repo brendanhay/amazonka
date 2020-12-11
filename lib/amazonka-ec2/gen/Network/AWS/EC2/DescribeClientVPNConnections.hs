@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes active client connections and connections that have been terminated within the last 60 minutes for the specified Client VPN endpoint.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeClientVPNConnections
-  ( -- * Creating a Request
-    describeClientVPNConnections,
-    DescribeClientVPNConnections,
+  ( -- * Creating a request
+    DescribeClientVPNConnections (..),
+    mkDescribeClientVPNConnections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcvcFilters,
     dcvcNextToken,
     dcvcDryRun,
     dcvcMaxResults,
     dcvcClientVPNEndpointId,
 
-    -- * Destructuring the Response
-    describeClientVPNConnectionsResponse,
-    DescribeClientVPNConnectionsResponse,
+    -- * Destructuring the response
+    DescribeClientVPNConnectionsResponse (..),
+    mkDescribeClientVPNConnectionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcvcrsConnections,
     dcvcrsNextToken,
     dcvcrsResponseStatus,
@@ -46,155 +39,199 @@ module Network.AWS.EC2.DescribeClientVPNConnections
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeClientVPNConnections' smart constructor.
+-- | /See:/ 'mkDescribeClientVPNConnections' smart constructor.
 data DescribeClientVPNConnections = DescribeClientVPNConnections'
-  { _dcvcFilters ::
-      !(Maybe [Filter]),
-    _dcvcNextToken :: !(Maybe Text),
-    _dcvcDryRun :: !(Maybe Bool),
-    _dcvcMaxResults :: !(Maybe Nat),
-    _dcvcClientVPNEndpointId :: !Text
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    clientVPNEndpointId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientVPNConnections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. Filter names and values are case-sensitive.
 --
--- * 'dcvcFilters' - One or more filters. Filter names and values are case-sensitive.     * @connection-id@ - The ID of the connection.     * @username@ - For Active Directory client authentication, the user name of the client who established the client connection.
 --
--- * 'dcvcNextToken' - The token to retrieve the next page of results.
+--     * @connection-id@ - The ID of the connection.
 --
--- * 'dcvcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dcvcMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
+--     * @username@ - For Active Directory client authentication, the user name of the client who established the client connection.
 --
--- * 'dcvcClientVPNEndpointId' - The ID of the Client VPN endpoint.
-describeClientVPNConnections ::
-  -- | 'dcvcClientVPNEndpointId'
-  Text ->
+--
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
+-- * 'nextToken' - The token to retrieve the next page of results.
+mkDescribeClientVPNConnections ::
+  -- | 'clientVPNEndpointId'
+  Lude.Text ->
   DescribeClientVPNConnections
-describeClientVPNConnections pClientVPNEndpointId_ =
+mkDescribeClientVPNConnections pClientVPNEndpointId_ =
   DescribeClientVPNConnections'
-    { _dcvcFilters = Nothing,
-      _dcvcNextToken = Nothing,
-      _dcvcDryRun = Nothing,
-      _dcvcMaxResults = Nothing,
-      _dcvcClientVPNEndpointId = pClientVPNEndpointId_
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      clientVPNEndpointId = pClientVPNEndpointId_
     }
 
--- | One or more filters. Filter names and values are case-sensitive.     * @connection-id@ - The ID of the connection.     * @username@ - For Active Directory client authentication, the user name of the client who established the client connection.
-dcvcFilters :: Lens' DescribeClientVPNConnections [Filter]
-dcvcFilters = lens _dcvcFilters (\s a -> s {_dcvcFilters = a}) . _Default . _Coerce
+-- | One or more filters. Filter names and values are case-sensitive.
+--
+--
+--     * @connection-id@ - The ID of the connection.
+--
+--
+--     * @username@ - For Active Directory client authentication, the user name of the client who established the client connection.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcFilters :: Lens.Lens' DescribeClientVPNConnections (Lude.Maybe [Filter])
+dcvcFilters = Lens.lens (filters :: DescribeClientVPNConnections -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeClientVPNConnections)
+{-# DEPRECATED dcvcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to retrieve the next page of results.
-dcvcNextToken :: Lens' DescribeClientVPNConnections (Maybe Text)
-dcvcNextToken = lens _dcvcNextToken (\s a -> s {_dcvcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcNextToken :: Lens.Lens' DescribeClientVPNConnections (Lude.Maybe Lude.Text)
+dcvcNextToken = Lens.lens (nextToken :: DescribeClientVPNConnections -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNConnections)
+{-# DEPRECATED dcvcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dcvcDryRun :: Lens' DescribeClientVPNConnections (Maybe Bool)
-dcvcDryRun = lens _dcvcDryRun (\s a -> s {_dcvcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcDryRun :: Lens.Lens' DescribeClientVPNConnections (Lude.Maybe Lude.Bool)
+dcvcDryRun = Lens.lens (dryRun :: DescribeClientVPNConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeClientVPNConnections)
+{-# DEPRECATED dcvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
-dcvcMaxResults :: Lens' DescribeClientVPNConnections (Maybe Natural)
-dcvcMaxResults = lens _dcvcMaxResults (\s a -> s {_dcvcMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcMaxResults :: Lens.Lens' DescribeClientVPNConnections (Lude.Maybe Lude.Natural)
+dcvcMaxResults = Lens.lens (maxResults :: DescribeClientVPNConnections -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeClientVPNConnections)
+{-# DEPRECATED dcvcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
-dcvcClientVPNEndpointId :: Lens' DescribeClientVPNConnections Text
-dcvcClientVPNEndpointId = lens _dcvcClientVPNEndpointId (\s a -> s {_dcvcClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcClientVPNEndpointId :: Lens.Lens' DescribeClientVPNConnections Lude.Text
+dcvcClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: DescribeClientVPNConnections -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: DescribeClientVPNConnections)
+{-# DEPRECATED dcvcClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
-instance AWSPager DescribeClientVPNConnections where
+instance Page.AWSPager DescribeClientVPNConnections where
   page rq rs
-    | stop (rs ^. dcvcrsNextToken) = Nothing
-    | stop (rs ^. dcvcrsConnections) = Nothing
-    | otherwise = Just $ rq & dcvcNextToken .~ rs ^. dcvcrsNextToken
+    | Page.stop (rs Lens.^. dcvcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcvcrsConnections) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcvcNextToken Lens..~ rs Lens.^. dcvcrsNextToken
 
-instance AWSRequest DescribeClientVPNConnections where
+instance Lude.AWSRequest DescribeClientVPNConnections where
   type
     Rs DescribeClientVPNConnections =
       DescribeClientVPNConnectionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeClientVPNConnectionsResponse'
-            <$> (x .@? "connections" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "connections" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeClientVPNConnections
+instance Lude.ToHeaders DescribeClientVPNConnections where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeClientVPNConnections
+instance Lude.ToPath DescribeClientVPNConnections where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeClientVPNConnections where
-  toHeaders = const mempty
-
-instance ToPath DescribeClientVPNConnections where
-  toPath = const "/"
-
-instance ToQuery DescribeClientVPNConnections where
+instance Lude.ToQuery DescribeClientVPNConnections where
   toQuery DescribeClientVPNConnections' {..} =
-    mconcat
-      [ "Action" =: ("DescribeClientVpnConnections" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dcvcFilters),
-        "NextToken" =: _dcvcNextToken,
-        "DryRun" =: _dcvcDryRun,
-        "MaxResults" =: _dcvcMaxResults,
-        "ClientVpnEndpointId" =: _dcvcClientVPNEndpointId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeClientVpnConnections" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults,
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId
       ]
 
--- | /See:/ 'describeClientVPNConnectionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeClientVPNConnectionsResponse' smart constructor.
 data DescribeClientVPNConnectionsResponse = DescribeClientVPNConnectionsResponse'
-  { _dcvcrsConnections ::
-      !( Maybe
-           [ClientVPNConnection]
-       ),
-    _dcvcrsNextToken ::
-      !(Maybe Text),
-    _dcvcrsResponseStatus ::
-      !Int
+  { connections ::
+      Lude.Maybe
+        [ClientVPNConnection],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientVPNConnectionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcvcrsConnections' - Information about the active and terminated client connections.
---
--- * 'dcvcrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dcvcrsResponseStatus' - -- | The response status code.
-describeClientVPNConnectionsResponse ::
-  -- | 'dcvcrsResponseStatus'
-  Int ->
+-- * 'connections' - Information about the active and terminated client connections.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeClientVPNConnectionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeClientVPNConnectionsResponse
-describeClientVPNConnectionsResponse pResponseStatus_ =
+mkDescribeClientVPNConnectionsResponse pResponseStatus_ =
   DescribeClientVPNConnectionsResponse'
-    { _dcvcrsConnections =
-        Nothing,
-      _dcvcrsNextToken = Nothing,
-      _dcvcrsResponseStatus = pResponseStatus_
+    { connections = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the active and terminated client connections.
-dcvcrsConnections :: Lens' DescribeClientVPNConnectionsResponse [ClientVPNConnection]
-dcvcrsConnections = lens _dcvcrsConnections (\s a -> s {_dcvcrsConnections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcrsConnections :: Lens.Lens' DescribeClientVPNConnectionsResponse (Lude.Maybe [ClientVPNConnection])
+dcvcrsConnections = Lens.lens (connections :: DescribeClientVPNConnectionsResponse -> Lude.Maybe [ClientVPNConnection]) (\s a -> s {connections = a} :: DescribeClientVPNConnectionsResponse)
+{-# DEPRECATED dcvcrsConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dcvcrsNextToken :: Lens' DescribeClientVPNConnectionsResponse (Maybe Text)
-dcvcrsNextToken = lens _dcvcrsNextToken (\s a -> s {_dcvcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcrsNextToken :: Lens.Lens' DescribeClientVPNConnectionsResponse (Lude.Maybe Lude.Text)
+dcvcrsNextToken = Lens.lens (nextToken :: DescribeClientVPNConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNConnectionsResponse)
+{-# DEPRECATED dcvcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dcvcrsResponseStatus :: Lens' DescribeClientVPNConnectionsResponse Int
-dcvcrsResponseStatus = lens _dcvcrsResponseStatus (\s a -> s {_dcvcrsResponseStatus = a})
-
-instance NFData DescribeClientVPNConnectionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvcrsResponseStatus :: Lens.Lens' DescribeClientVPNConnectionsResponse Lude.Int
+dcvcrsResponseStatus = Lens.lens (responseStatus :: DescribeClientVPNConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClientVPNConnectionsResponse)
+{-# DEPRECATED dcvcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

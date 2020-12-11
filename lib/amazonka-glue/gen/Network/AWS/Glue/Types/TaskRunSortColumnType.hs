@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TaskRunSortColumnType where
+module Network.AWS.Glue.Types.TaskRunSortColumnType
+  ( TaskRunSortColumnType
+      ( TaskRunSortColumnType',
+        TRSCTStarted,
+        TRSCTStatus,
+        TRSCTTaskRunType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskRunSortColumnType
-  = TRSCTStarted
-  | TRSCTStatus
-  | TRSCTTaskRunType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskRunSortColumnType = TaskRunSortColumnType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskRunSortColumnType where
-  parser =
-    takeLowerText >>= \case
-      "started" -> pure TRSCTStarted
-      "status" -> pure TRSCTStatus
-      "task_run_type" -> pure TRSCTTaskRunType
-      e ->
-        fromTextError $
-          "Failure parsing TaskRunSortColumnType from value: '" <> e
-            <> "'. Accepted values: started, status, task_run_type"
+pattern TRSCTStarted :: TaskRunSortColumnType
+pattern TRSCTStarted = TaskRunSortColumnType' "STARTED"
 
-instance ToText TaskRunSortColumnType where
-  toText = \case
-    TRSCTStarted -> "STARTED"
-    TRSCTStatus -> "STATUS"
-    TRSCTTaskRunType -> "TASK_RUN_TYPE"
+pattern TRSCTStatus :: TaskRunSortColumnType
+pattern TRSCTStatus = TaskRunSortColumnType' "STATUS"
 
-instance Hashable TaskRunSortColumnType
+pattern TRSCTTaskRunType :: TaskRunSortColumnType
+pattern TRSCTTaskRunType = TaskRunSortColumnType' "TASK_RUN_TYPE"
 
-instance NFData TaskRunSortColumnType
-
-instance ToByteString TaskRunSortColumnType
-
-instance ToQuery TaskRunSortColumnType
-
-instance ToHeader TaskRunSortColumnType
-
-instance ToJSON TaskRunSortColumnType where
-  toJSON = toJSONText
+{-# COMPLETE
+  TRSCTStarted,
+  TRSCTStatus,
+  TRSCTTaskRunType,
+  TaskRunSortColumnType'
+  #-}

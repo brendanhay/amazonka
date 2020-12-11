@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,160 +17,182 @@
 --
 --     * If you specify the @nameContains@ field, returns the @> LATEST@ version of all slot types that contain the specified string.
 --
---     * If you don't specify the @nameContains@ field, returns information about the @> LATEST@ version of all slot types.
 --
+--     * If you don't specify the @nameContains@ field, returns information about the @> LATEST@ version of all slot types.
 --
 --
 -- The operation requires permission for the @lex:GetSlotTypes@ action.
 --
---
 -- This operation returns paginated results.
 module Network.AWS.LexModels.GetSlotTypes
-  ( -- * Creating a Request
-    getSlotTypes,
-    GetSlotTypes,
+  ( -- * Creating a request
+    GetSlotTypes (..),
+    mkGetSlotTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gstNameContains,
     gstNextToken,
     gstMaxResults,
 
-    -- * Destructuring the Response
-    getSlotTypesResponse,
-    GetSlotTypesResponse,
+    -- * Destructuring the response
+    GetSlotTypesResponse (..),
+    mkGetSlotTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gstrsNextToken,
     gstrsSlotTypes,
     gstrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSlotTypes' smart constructor.
+-- | /See:/ 'mkGetSlotTypes' smart constructor.
 data GetSlotTypes = GetSlotTypes'
-  { _gstNameContains ::
-      !(Maybe Text),
-    _gstNextToken :: !(Maybe Text),
-    _gstMaxResults :: !(Maybe Nat)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstNameContains' - Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
---
--- * 'gstNextToken' - A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of slot types, specify the pagination token in the next request.
---
--- * 'gstMaxResults' - The maximum number of slot types to return in the response. The default is 10.
-getSlotTypes ::
+-- * 'maxResults' - The maximum number of slot types to return in the response. The default is 10.
+-- * 'nameContains' - Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+-- * 'nextToken' - A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of slot types, specify the pagination token in the next request.
+mkGetSlotTypes ::
   GetSlotTypes
-getSlotTypes =
+mkGetSlotTypes =
   GetSlotTypes'
-    { _gstNameContains = Nothing,
-      _gstNextToken = Nothing,
-      _gstMaxResults = Nothing
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
-gstNameContains :: Lens' GetSlotTypes (Maybe Text)
-gstNameContains = lens _gstNameContains (\s a -> s {_gstNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstNameContains :: Lens.Lens' GetSlotTypes (Lude.Maybe Lude.Text)
+gstNameContains = Lens.lens (nameContains :: GetSlotTypes -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: GetSlotTypes)
+{-# DEPRECATED gstNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of slot types, specify the pagination token in the next request.
-gstNextToken :: Lens' GetSlotTypes (Maybe Text)
-gstNextToken = lens _gstNextToken (\s a -> s {_gstNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstNextToken :: Lens.Lens' GetSlotTypes (Lude.Maybe Lude.Text)
+gstNextToken = Lens.lens (nextToken :: GetSlotTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSlotTypes)
+{-# DEPRECATED gstNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of slot types to return in the response. The default is 10.
-gstMaxResults :: Lens' GetSlotTypes (Maybe Natural)
-gstMaxResults = lens _gstMaxResults (\s a -> s {_gstMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstMaxResults :: Lens.Lens' GetSlotTypes (Lude.Maybe Lude.Natural)
+gstMaxResults = Lens.lens (maxResults :: GetSlotTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetSlotTypes)
+{-# DEPRECATED gstMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetSlotTypes where
+instance Page.AWSPager GetSlotTypes where
   page rq rs
-    | stop (rs ^. gstrsNextToken) = Nothing
-    | stop (rs ^. gstrsSlotTypes) = Nothing
-    | otherwise = Just $ rq & gstNextToken .~ rs ^. gstrsNextToken
+    | Page.stop (rs Lens.^. gstrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gstrsSlotTypes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gstNextToken Lens..~ rs Lens.^. gstrsNextToken
 
-instance AWSRequest GetSlotTypes where
+instance Lude.AWSRequest GetSlotTypes where
   type Rs GetSlotTypes = GetSlotTypesResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSlotTypesResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "slotTypes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "slotTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSlotTypes
-
-instance NFData GetSlotTypes
-
-instance ToHeaders GetSlotTypes where
+instance Lude.ToHeaders GetSlotTypes where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSlotTypes where
-  toPath = const "/slottypes/"
+instance Lude.ToPath GetSlotTypes where
+  toPath = Lude.const "/slottypes/"
 
-instance ToQuery GetSlotTypes where
+instance Lude.ToQuery GetSlotTypes where
   toQuery GetSlotTypes' {..} =
-    mconcat
-      [ "nameContains" =: _gstNameContains,
-        "nextToken" =: _gstNextToken,
-        "maxResults" =: _gstMaxResults
+    Lude.mconcat
+      [ "nameContains" Lude.=: nameContains,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'getSlotTypesResponse' smart constructor.
+-- | /See:/ 'mkGetSlotTypesResponse' smart constructor.
 data GetSlotTypesResponse = GetSlotTypesResponse'
-  { _gstrsNextToken ::
-      !(Maybe Text),
-    _gstrsSlotTypes :: !(Maybe [SlotTypeMetadata]),
-    _gstrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    slotTypes :: Lude.Maybe [SlotTypeMetadata],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstrsNextToken' - If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types.
---
--- * 'gstrsSlotTypes' - An array of objects, one for each slot type, that provides information such as the name of the slot type, the version, and a description.
---
--- * 'gstrsResponseStatus' - -- | The response status code.
-getSlotTypesResponse ::
-  -- | 'gstrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types.
+-- * 'responseStatus' - The response status code.
+-- * 'slotTypes' - An array of objects, one for each slot type, that provides information such as the name of the slot type, the version, and a description.
+mkGetSlotTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSlotTypesResponse
-getSlotTypesResponse pResponseStatus_ =
+mkGetSlotTypesResponse pResponseStatus_ =
   GetSlotTypesResponse'
-    { _gstrsNextToken = Nothing,
-      _gstrsSlotTypes = Nothing,
-      _gstrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      slotTypes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types.
-gstrsNextToken :: Lens' GetSlotTypesResponse (Maybe Text)
-gstrsNextToken = lens _gstrsNextToken (\s a -> s {_gstrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsNextToken :: Lens.Lens' GetSlotTypesResponse (Lude.Maybe Lude.Text)
+gstrsNextToken = Lens.lens (nextToken :: GetSlotTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSlotTypesResponse)
+{-# DEPRECATED gstrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of objects, one for each slot type, that provides information such as the name of the slot type, the version, and a description.
-gstrsSlotTypes :: Lens' GetSlotTypesResponse [SlotTypeMetadata]
-gstrsSlotTypes = lens _gstrsSlotTypes (\s a -> s {_gstrsSlotTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slotTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsSlotTypes :: Lens.Lens' GetSlotTypesResponse (Lude.Maybe [SlotTypeMetadata])
+gstrsSlotTypes = Lens.lens (slotTypes :: GetSlotTypesResponse -> Lude.Maybe [SlotTypeMetadata]) (\s a -> s {slotTypes = a} :: GetSlotTypesResponse)
+{-# DEPRECATED gstrsSlotTypes "Use generic-lens or generic-optics with 'slotTypes' instead." #-}
 
--- | -- | The response status code.
-gstrsResponseStatus :: Lens' GetSlotTypesResponse Int
-gstrsResponseStatus = lens _gstrsResponseStatus (\s a -> s {_gstrsResponseStatus = a})
-
-instance NFData GetSlotTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsResponseStatus :: Lens.Lens' GetSlotTypesResponse Lude.Int
+gstrsResponseStatus = Lens.lens (responseStatus :: GetSlotTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSlotTypesResponse)
+{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

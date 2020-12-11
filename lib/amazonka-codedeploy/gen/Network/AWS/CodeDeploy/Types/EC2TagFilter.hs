@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.EC2TagFilter where
+module Network.AWS.CodeDeploy.Types.EC2TagFilter
+  ( EC2TagFilter (..),
+
+    -- * Smart constructor
+    mkEC2TagFilter,
+
+    -- * Lenses
+    etfValue,
+    etfKey,
+    etfType,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.EC2TagFilterType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an EC2 tag filter.
 --
---
---
--- /See:/ 'ec2TagFilter' smart constructor.
+-- /See:/ 'mkEC2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
-  { _etfValue :: !(Maybe Text),
-    _etfKey :: !(Maybe Text),
-    _etfType :: !(Maybe EC2TagFilterType)
+  { value :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe EC2TagFilterType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2TagFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The tag filter key.
+-- * 'type'' - The tag filter type:
 --
--- * 'etfValue' - The tag filter value.
 --
--- * 'etfKey' - The tag filter key.
+--     * @KEY_ONLY@ : Key only.
 --
--- * 'etfType' - The tag filter type:     * @KEY_ONLY@ : Key only.     * @VALUE_ONLY@ : Value only.     * @KEY_AND_VALUE@ : Key and value.
-ec2TagFilter ::
+--
+--     * @VALUE_ONLY@ : Value only.
+--
+--
+--     * @KEY_AND_VALUE@ : Key and value.
+--
+--
+-- * 'value' - The tag filter value.
+mkEC2TagFilter ::
   EC2TagFilter
-ec2TagFilter =
+mkEC2TagFilter =
   EC2TagFilter'
-    { _etfValue = Nothing,
-      _etfKey = Nothing,
-      _etfType = Nothing
+    { value = Lude.Nothing,
+      key = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The tag filter value.
-etfValue :: Lens' EC2TagFilter (Maybe Text)
-etfValue = lens _etfValue (\s a -> s {_etfValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etfValue :: Lens.Lens' EC2TagFilter (Lude.Maybe Lude.Text)
+etfValue = Lens.lens (value :: EC2TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: EC2TagFilter)
+{-# DEPRECATED etfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The tag filter key.
-etfKey :: Lens' EC2TagFilter (Maybe Text)
-etfKey = lens _etfKey (\s a -> s {_etfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etfKey :: Lens.Lens' EC2TagFilter (Lude.Maybe Lude.Text)
+etfKey = Lens.lens (key :: EC2TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: EC2TagFilter)
+{-# DEPRECATED etfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | The tag filter type:     * @KEY_ONLY@ : Key only.     * @VALUE_ONLY@ : Value only.     * @KEY_AND_VALUE@ : Key and value.
-etfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
-etfType = lens _etfType (\s a -> s {_etfType = a})
+-- | The tag filter type:
+--
+--
+--     * @KEY_ONLY@ : Key only.
+--
+--
+--     * @VALUE_ONLY@ : Value only.
+--
+--
+--     * @KEY_AND_VALUE@ : Key and value.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etfType :: Lens.Lens' EC2TagFilter (Lude.Maybe EC2TagFilterType)
+etfType = Lens.lens (type' :: EC2TagFilter -> Lude.Maybe EC2TagFilterType) (\s a -> s {type' = a} :: EC2TagFilter)
+{-# DEPRECATED etfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON EC2TagFilter where
+instance Lude.FromJSON EC2TagFilter where
   parseJSON =
-    withObject
+    Lude.withObject
       "EC2TagFilter"
       ( \x ->
           EC2TagFilter'
-            <$> (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "Type")
       )
 
-instance Hashable EC2TagFilter
-
-instance NFData EC2TagFilter
-
-instance ToJSON EC2TagFilter where
+instance Lude.ToJSON EC2TagFilter where
   toJSON EC2TagFilter' {..} =
-    object
-      ( catMaybes
-          [ ("Value" .=) <$> _etfValue,
-            ("Key" .=) <$> _etfKey,
-            ("Type" .=) <$> _etfType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Value" Lude..=) Lude.<$> value,
+            ("Key" Lude..=) Lude.<$> key,
+            ("Type" Lude..=) Lude.<$> type'
           ]
       )

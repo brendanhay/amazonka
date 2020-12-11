@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateError where
+module Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateError
+  ( EnableFastSnapshotRestoreStateError (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnableFastSnapshotRestoreStateError,
+
+    -- * Lenses
+    efsrseCode,
+    efsrseMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an error that occurred when enabling fast snapshot restores.
 --
---
---
--- /See:/ 'enableFastSnapshotRestoreStateError' smart constructor.
+-- /See:/ 'mkEnableFastSnapshotRestoreStateError' smart constructor.
 data EnableFastSnapshotRestoreStateError = EnableFastSnapshotRestoreStateError'
-  { _efsrseCode ::
-      !(Maybe Text),
-    _efsrseMessage ::
-      !(Maybe Text)
+  { code ::
+      Lude.Maybe
+        Lude.Text,
+    message ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableFastSnapshotRestoreStateError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efsrseCode' - The error code.
---
--- * 'efsrseMessage' - The error message.
-enableFastSnapshotRestoreStateError ::
+-- * 'code' - The error code.
+-- * 'message' - The error message.
+mkEnableFastSnapshotRestoreStateError ::
   EnableFastSnapshotRestoreStateError
-enableFastSnapshotRestoreStateError =
+mkEnableFastSnapshotRestoreStateError =
   EnableFastSnapshotRestoreStateError'
-    { _efsrseCode = Nothing,
-      _efsrseMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The error code.
-efsrseCode :: Lens' EnableFastSnapshotRestoreStateError (Maybe Text)
-efsrseCode = lens _efsrseCode (\s a -> s {_efsrseCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrseCode :: Lens.Lens' EnableFastSnapshotRestoreStateError (Lude.Maybe Lude.Text)
+efsrseCode = Lens.lens (code :: EnableFastSnapshotRestoreStateError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: EnableFastSnapshotRestoreStateError)
+{-# DEPRECATED efsrseCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message.
-efsrseMessage :: Lens' EnableFastSnapshotRestoreStateError (Maybe Text)
-efsrseMessage = lens _efsrseMessage (\s a -> s {_efsrseMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrseMessage :: Lens.Lens' EnableFastSnapshotRestoreStateError (Lude.Maybe Lude.Text)
+efsrseMessage = Lens.lens (message :: EnableFastSnapshotRestoreStateError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EnableFastSnapshotRestoreStateError)
+{-# DEPRECATED efsrseMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML EnableFastSnapshotRestoreStateError where
+instance Lude.FromXML EnableFastSnapshotRestoreStateError where
   parseXML x =
     EnableFastSnapshotRestoreStateError'
-      <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable EnableFastSnapshotRestoreStateError
-
-instance NFData EnableFastSnapshotRestoreStateError
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

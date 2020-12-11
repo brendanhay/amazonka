@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pricing.Types.FilterType where
+module Network.AWS.Pricing.Types.FilterType
+  ( FilterType
+      ( FilterType',
+        TermMatch
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FilterType = TermMatch
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FilterType = FilterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FilterType where
-  parser =
-    takeLowerText >>= \case
-      "term_match" -> pure TermMatch
-      e ->
-        fromTextError $
-          "Failure parsing FilterType from value: '" <> e
-            <> "'. Accepted values: term_match"
+pattern TermMatch :: FilterType
+pattern TermMatch = FilterType' "TERM_MATCH"
 
-instance ToText FilterType where
-  toText = \case
-    TermMatch -> "TERM_MATCH"
-
-instance Hashable FilterType
-
-instance NFData FilterType
-
-instance ToByteString FilterType
-
-instance ToQuery FilterType
-
-instance ToHeader FilterType
-
-instance ToJSON FilterType where
-  toJSON = toJSONText
+{-# COMPLETE
+  TermMatch,
+  FilterType'
+  #-}

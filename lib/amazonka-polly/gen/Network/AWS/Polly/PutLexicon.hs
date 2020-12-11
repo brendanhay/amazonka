@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,117 @@
 --
 -- Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html Managing Lexicons> .
 module Network.AWS.Polly.PutLexicon
-  ( -- * Creating a Request
-    putLexicon,
-    PutLexicon,
+  ( -- * Creating a request
+    PutLexicon (..),
+    mkPutLexicon,
 
-    -- * Request Lenses
+    -- ** Request lenses
     plName,
     plContent,
 
-    -- * Destructuring the Response
-    putLexiconResponse,
-    PutLexiconResponse,
+    -- * Destructuring the response
+    PutLexiconResponse (..),
+    mkPutLexiconResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     plrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putLexicon' smart constructor.
+-- | /See:/ 'mkPutLexicon' smart constructor.
 data PutLexicon = PutLexicon'
-  { _plName :: !Text,
-    _plContent :: !(Sensitive Text)
+  { name :: Lude.Text,
+    content :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLexicon' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plName' - Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
---
--- * 'plContent' - Content of the PLS lexicon as string data.
-putLexicon ::
-  -- | 'plName'
-  Text ->
-  -- | 'plContent'
-  Text ->
+-- * 'content' - Content of the PLS lexicon as string data.
+-- * 'name' - Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
+mkPutLexicon ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'content'
+  Lude.Sensitive Lude.Text ->
   PutLexicon
-putLexicon pName_ pContent_ =
-  PutLexicon'
-    { _plName = pName_,
-      _plContent = _Sensitive # pContent_
-    }
+mkPutLexicon pName_ pContent_ =
+  PutLexicon' {name = pName_, content = pContent_}
 
 -- | Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
-plName :: Lens' PutLexicon Text
-plName = lens _plName (\s a -> s {_plName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plName :: Lens.Lens' PutLexicon Lude.Text
+plName = Lens.lens (name :: PutLexicon -> Lude.Text) (\s a -> s {name = a} :: PutLexicon)
+{-# DEPRECATED plName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Content of the PLS lexicon as string data.
-plContent :: Lens' PutLexicon Text
-plContent = lens _plContent (\s a -> s {_plContent = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plContent :: Lens.Lens' PutLexicon (Lude.Sensitive Lude.Text)
+plContent = Lens.lens (content :: PutLexicon -> Lude.Sensitive Lude.Text) (\s a -> s {content = a} :: PutLexicon)
+{-# DEPRECATED plContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance AWSRequest PutLexicon where
+instance Lude.AWSRequest PutLexicon where
   type Rs PutLexicon = PutLexiconResponse
-  request = putJSON polly
+  request = Req.putJSON pollyService
   response =
-    receiveEmpty
-      (\s h x -> PutLexiconResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutLexiconResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutLexicon
+instance Lude.ToHeaders PutLexicon where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutLexicon
-
-instance ToHeaders PutLexicon where
-  toHeaders = const mempty
-
-instance ToJSON PutLexicon where
+instance Lude.ToJSON PutLexicon where
   toJSON PutLexicon' {..} =
-    object (catMaybes [Just ("Content" .= _plContent)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Content" Lude..= content)])
 
-instance ToPath PutLexicon where
-  toPath PutLexicon' {..} = mconcat ["/v1/lexicons/", toBS _plName]
+instance Lude.ToPath PutLexicon where
+  toPath PutLexicon' {..} =
+    Lude.mconcat ["/v1/lexicons/", Lude.toBS name]
 
-instance ToQuery PutLexicon where
-  toQuery = const mempty
+instance Lude.ToQuery PutLexicon where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putLexiconResponse' smart constructor.
+-- | /See:/ 'mkPutLexiconResponse' smart constructor.
 newtype PutLexiconResponse = PutLexiconResponse'
-  { _plrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLexiconResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plrsResponseStatus' - -- | The response status code.
-putLexiconResponse ::
-  -- | 'plrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutLexiconResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutLexiconResponse
-putLexiconResponse pResponseStatus_ =
-  PutLexiconResponse' {_plrsResponseStatus = pResponseStatus_}
+mkPutLexiconResponse pResponseStatus_ =
+  PutLexiconResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-plrsResponseStatus :: Lens' PutLexiconResponse Int
-plrsResponseStatus = lens _plrsResponseStatus (\s a -> s {_plrsResponseStatus = a})
-
-instance NFData PutLexiconResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plrsResponseStatus :: Lens.Lens' PutLexiconResponse Lude.Int
+plrsResponseStatus = Lens.lens (responseStatus :: PutLexiconResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLexiconResponse)
+{-# DEPRECATED plrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

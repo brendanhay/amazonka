@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the most recent High Availability monitoring test that was performed on the host in a cluster. If a test isn't performed, the status and start time in the response would be null.
 module Network.AWS.StorageGateway.DescribeAvailabilityMonitorTest
-  ( -- * Creating a Request
-    describeAvailabilityMonitorTest,
-    DescribeAvailabilityMonitorTest,
+  ( -- * Creating a request
+    DescribeAvailabilityMonitorTest (..),
+    mkDescribeAvailabilityMonitorTest,
 
-    -- * Request Lenses
+    -- ** Request lenses
     damtGatewayARN,
 
-    -- * Destructuring the Response
-    describeAvailabilityMonitorTestResponse,
-    DescribeAvailabilityMonitorTestResponse,
+    -- * Destructuring the response
+    DescribeAvailabilityMonitorTestResponse (..),
+    mkDescribeAvailabilityMonitorTestResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     damtrsStatus,
     damtrsStartTime,
     damtrsGatewayARN,
@@ -38,132 +33,147 @@ module Network.AWS.StorageGateway.DescribeAvailabilityMonitorTest
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeAvailabilityMonitorTest' smart constructor.
+-- | /See:/ 'mkDescribeAvailabilityMonitorTest' smart constructor.
 newtype DescribeAvailabilityMonitorTest = DescribeAvailabilityMonitorTest'
-  { _damtGatewayARN ::
-      Text
+  { gatewayARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAvailabilityMonitorTest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damtGatewayARN' - Undocumented member.
-describeAvailabilityMonitorTest ::
-  -- | 'damtGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkDescribeAvailabilityMonitorTest ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DescribeAvailabilityMonitorTest
-describeAvailabilityMonitorTest pGatewayARN_ =
-  DescribeAvailabilityMonitorTest' {_damtGatewayARN = pGatewayARN_}
+mkDescribeAvailabilityMonitorTest pGatewayARN_ =
+  DescribeAvailabilityMonitorTest' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-damtGatewayARN :: Lens' DescribeAvailabilityMonitorTest Text
-damtGatewayARN = lens _damtGatewayARN (\s a -> s {_damtGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damtGatewayARN :: Lens.Lens' DescribeAvailabilityMonitorTest Lude.Text
+damtGatewayARN = Lens.lens (gatewayARN :: DescribeAvailabilityMonitorTest -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeAvailabilityMonitorTest)
+{-# DEPRECATED damtGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest DescribeAvailabilityMonitorTest where
+instance Lude.AWSRequest DescribeAvailabilityMonitorTest where
   type
     Rs DescribeAvailabilityMonitorTest =
       DescribeAvailabilityMonitorTestResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAvailabilityMonitorTestResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "StartTime")
-            <*> (x .?> "GatewayARN")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "StartTime")
+            Lude.<*> (x Lude..?> "GatewayARN")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAvailabilityMonitorTest
-
-instance NFData DescribeAvailabilityMonitorTest
-
-instance ToHeaders DescribeAvailabilityMonitorTest where
+instance Lude.ToHeaders DescribeAvailabilityMonitorTest where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.DescribeAvailabilityMonitorTest" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeAvailabilityMonitorTest" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAvailabilityMonitorTest where
+instance Lude.ToJSON DescribeAvailabilityMonitorTest where
   toJSON DescribeAvailabilityMonitorTest' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _damtGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath DescribeAvailabilityMonitorTest where
-  toPath = const "/"
+instance Lude.ToPath DescribeAvailabilityMonitorTest where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAvailabilityMonitorTest where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAvailabilityMonitorTest where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAvailabilityMonitorTestResponse' smart constructor.
+-- | /See:/ 'mkDescribeAvailabilityMonitorTestResponse' smart constructor.
 data DescribeAvailabilityMonitorTestResponse = DescribeAvailabilityMonitorTestResponse'
-  { _damtrsStatus ::
-      !( Maybe
-           AvailabilityMonitorTestStatus
-       ),
-    _damtrsStartTime ::
-      !( Maybe
-           POSIX
-       ),
-    _damtrsGatewayARN ::
-      !( Maybe
-           Text
-       ),
-    _damtrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        AvailabilityMonitorTestStatus,
+    startTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    gatewayARN ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAvailabilityMonitorTestResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damtrsStatus' - The status of the High Availability monitoring test. If a test hasn't been performed, the value of this field is null.
---
--- * 'damtrsStartTime' - The time the High Availability monitoring test was started. If a test hasn't been performed, the value of this field is null.
---
--- * 'damtrsGatewayARN' - Undocumented member.
---
--- * 'damtrsResponseStatus' - -- | The response status code.
-describeAvailabilityMonitorTestResponse ::
-  -- | 'damtrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'startTime' - The time the High Availability monitoring test was started. If a test hasn't been performed, the value of this field is null.
+-- * 'status' - The status of the High Availability monitoring test. If a test hasn't been performed, the value of this field is null.
+mkDescribeAvailabilityMonitorTestResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAvailabilityMonitorTestResponse
-describeAvailabilityMonitorTestResponse pResponseStatus_ =
+mkDescribeAvailabilityMonitorTestResponse pResponseStatus_ =
   DescribeAvailabilityMonitorTestResponse'
-    { _damtrsStatus = Nothing,
-      _damtrsStartTime = Nothing,
-      _damtrsGatewayARN = Nothing,
-      _damtrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      startTime = Lude.Nothing,
+      gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the High Availability monitoring test. If a test hasn't been performed, the value of this field is null.
-damtrsStatus :: Lens' DescribeAvailabilityMonitorTestResponse (Maybe AvailabilityMonitorTestStatus)
-damtrsStatus = lens _damtrsStatus (\s a -> s {_damtrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damtrsStatus :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Lude.Maybe AvailabilityMonitorTestStatus)
+damtrsStatus = Lens.lens (status :: DescribeAvailabilityMonitorTestResponse -> Lude.Maybe AvailabilityMonitorTestStatus) (\s a -> s {status = a} :: DescribeAvailabilityMonitorTestResponse)
+{-# DEPRECATED damtrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The time the High Availability monitoring test was started. If a test hasn't been performed, the value of this field is null.
-damtrsStartTime :: Lens' DescribeAvailabilityMonitorTestResponse (Maybe UTCTime)
-damtrsStartTime = lens _damtrsStartTime (\s a -> s {_damtrsStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damtrsStartTime :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Lude.Maybe Lude.Timestamp)
+damtrsStartTime = Lens.lens (startTime :: DescribeAvailabilityMonitorTestResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeAvailabilityMonitorTestResponse)
+{-# DEPRECATED damtrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | Undocumented member.
-damtrsGatewayARN :: Lens' DescribeAvailabilityMonitorTestResponse (Maybe Text)
-damtrsGatewayARN = lens _damtrsGatewayARN (\s a -> s {_damtrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damtrsGatewayARN :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Lude.Maybe Lude.Text)
+damtrsGatewayARN = Lens.lens (gatewayARN :: DescribeAvailabilityMonitorTestResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeAvailabilityMonitorTestResponse)
+{-# DEPRECATED damtrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-damtrsResponseStatus :: Lens' DescribeAvailabilityMonitorTestResponse Int
-damtrsResponseStatus = lens _damtrsResponseStatus (\s a -> s {_damtrsResponseStatus = a})
-
-instance NFData DescribeAvailabilityMonitorTestResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damtrsResponseStatus :: Lens.Lens' DescribeAvailabilityMonitorTestResponse Lude.Int
+damtrsResponseStatus = Lens.lens (responseStatus :: DescribeAvailabilityMonitorTestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAvailabilityMonitorTestResponse)
+{-# DEPRECATED damtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

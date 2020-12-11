@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,121 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.StreamDescriptionSummary where
+module Network.AWS.Kinesis.Types.StreamDescriptionSummary
+  ( StreamDescriptionSummary (..),
+
+    -- * Smart constructor
+    mkStreamDescriptionSummary,
+
+    -- * Lenses
+    sdsEncryptionType,
+    sdsKeyId,
+    sdsConsumerCount,
+    sdsStreamName,
+    sdsStreamARN,
+    sdsStreamStatus,
+    sdsRetentionPeriodHours,
+    sdsStreamCreationTimestamp,
+    sdsEnhancedMonitoring,
+    sdsOpenShardCount,
+  )
+where
 
 import Network.AWS.Kinesis.Types.EncryptionType
 import Network.AWS.Kinesis.Types.EnhancedMetrics
 import Network.AWS.Kinesis.Types.StreamStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output for 'DescribeStreamSummary'
 --
---
---
--- /See:/ 'streamDescriptionSummary' smart constructor.
+-- /See:/ 'mkStreamDescriptionSummary' smart constructor.
 data StreamDescriptionSummary = StreamDescriptionSummary'
-  { _sdsEncryptionType ::
-      !(Maybe EncryptionType),
-    _sdsKeyId :: !(Maybe Text),
-    _sdsConsumerCount :: !(Maybe Nat),
-    _sdsStreamName :: !Text,
-    _sdsStreamARN :: !Text,
-    _sdsStreamStatus :: !StreamStatus,
-    _sdsRetentionPeriodHours :: !Int,
-    _sdsStreamCreationTimestamp :: !POSIX,
-    _sdsEnhancedMonitoring ::
-      ![EnhancedMetrics],
-    _sdsOpenShardCount :: !Nat
+  { encryptionType ::
+      Lude.Maybe EncryptionType,
+    keyId :: Lude.Maybe Lude.Text,
+    consumerCount :: Lude.Maybe Lude.Natural,
+    streamName :: Lude.Text,
+    streamARN :: Lude.Text,
+    streamStatus :: StreamStatus,
+    retentionPeriodHours :: Lude.Int,
+    streamCreationTimestamp :: Lude.Timestamp,
+    enhancedMonitoring :: [EnhancedMetrics],
+    openShardCount :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamDescriptionSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'consumerCount' - The number of enhanced fan-out consumers registered with the stream.
+-- * 'encryptionType' - The encryption type used. This value is one of the following:
 --
--- * 'sdsEncryptionType' - The encryption type used. This value is one of the following:     * @KMS@      * @NONE@
 --
--- * 'sdsKeyId' - The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@      * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@      * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@      * Alias name example: @alias/MyAliasName@      * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
+--     * @KMS@
 --
--- * 'sdsConsumerCount' - The number of enhanced fan-out consumers registered with the stream.
 --
--- * 'sdsStreamName' - The name of the stream being described.
+--     * @NONE@
 --
--- * 'sdsStreamARN' - The Amazon Resource Name (ARN) for the stream being described.
 --
--- * 'sdsStreamStatus' - The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Kinesis Data Streams immediately returns and sets @StreamStatus@ to @CREATING@ .     * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Kinesis Data Streams completes the deletion.     * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.     * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
+-- * 'enhancedMonitoring' - Represents the current enhanced monitoring settings of the stream.
+-- * 'keyId' - The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
 --
--- * 'sdsRetentionPeriodHours' - The current retention period, in hours.
 --
--- * 'sdsStreamCreationTimestamp' - The approximate time that the stream was created.
+--     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 --
--- * 'sdsEnhancedMonitoring' - Represents the current enhanced monitoring settings of the stream.
 --
--- * 'sdsOpenShardCount' - The number of open shards in the stream.
-streamDescriptionSummary ::
-  -- | 'sdsStreamName'
-  Text ->
-  -- | 'sdsStreamARN'
-  Text ->
-  -- | 'sdsStreamStatus'
+--     * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@
+--
+--
+--     * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@
+--
+--
+--     * Alias name example: @alias/MyAliasName@
+--
+--
+--     * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
+--
+--
+-- * 'openShardCount' - The number of open shards in the stream.
+-- * 'retentionPeriodHours' - The current retention period, in hours.
+-- * 'streamARN' - The Amazon Resource Name (ARN) for the stream being described.
+-- * 'streamCreationTimestamp' - The approximate time that the stream was created.
+-- * 'streamName' - The name of the stream being described.
+-- * 'streamStatus' - The current status of the stream being described. The stream status is one of the following states:
+--
+--
+--     * @CREATING@ - The stream is being created. Kinesis Data Streams immediately returns and sets @StreamStatus@ to @CREATING@ .
+--
+--
+--     * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Kinesis Data Streams completes the deletion.
+--
+--
+--     * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.
+--
+--
+--     * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
+mkStreamDescriptionSummary ::
+  -- | 'streamName'
+  Lude.Text ->
+  -- | 'streamARN'
+  Lude.Text ->
+  -- | 'streamStatus'
   StreamStatus ->
-  -- | 'sdsRetentionPeriodHours'
-  Int ->
-  -- | 'sdsStreamCreationTimestamp'
-  UTCTime ->
-  -- | 'sdsOpenShardCount'
-  Natural ->
+  -- | 'retentionPeriodHours'
+  Lude.Int ->
+  -- | 'streamCreationTimestamp'
+  Lude.Timestamp ->
+  -- | 'openShardCount'
+  Lude.Natural ->
   StreamDescriptionSummary
-streamDescriptionSummary
+mkStreamDescriptionSummary
   pStreamName_
   pStreamARN_
   pStreamStatus_
@@ -87,76 +129,141 @@ streamDescriptionSummary
   pStreamCreationTimestamp_
   pOpenShardCount_ =
     StreamDescriptionSummary'
-      { _sdsEncryptionType = Nothing,
-        _sdsKeyId = Nothing,
-        _sdsConsumerCount = Nothing,
-        _sdsStreamName = pStreamName_,
-        _sdsStreamARN = pStreamARN_,
-        _sdsStreamStatus = pStreamStatus_,
-        _sdsRetentionPeriodHours = pRetentionPeriodHours_,
-        _sdsStreamCreationTimestamp = _Time # pStreamCreationTimestamp_,
-        _sdsEnhancedMonitoring = mempty,
-        _sdsOpenShardCount = _Nat # pOpenShardCount_
+      { encryptionType = Lude.Nothing,
+        keyId = Lude.Nothing,
+        consumerCount = Lude.Nothing,
+        streamName = pStreamName_,
+        streamARN = pStreamARN_,
+        streamStatus = pStreamStatus_,
+        retentionPeriodHours = pRetentionPeriodHours_,
+        streamCreationTimestamp = pStreamCreationTimestamp_,
+        enhancedMonitoring = Lude.mempty,
+        openShardCount = pOpenShardCount_
       }
 
--- | The encryption type used. This value is one of the following:     * @KMS@      * @NONE@
-sdsEncryptionType :: Lens' StreamDescriptionSummary (Maybe EncryptionType)
-sdsEncryptionType = lens _sdsEncryptionType (\s a -> s {_sdsEncryptionType = a})
+-- | The encryption type used. This value is one of the following:
+--
+--
+--     * @KMS@
+--
+--
+--     * @NONE@
+--
+--
+--
+-- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsEncryptionType :: Lens.Lens' StreamDescriptionSummary (Lude.Maybe EncryptionType)
+sdsEncryptionType = Lens.lens (encryptionType :: StreamDescriptionSummary -> Lude.Maybe EncryptionType) (\s a -> s {encryptionType = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
--- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@      * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@      * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@      * Alias name example: @alias/MyAliasName@      * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
-sdsKeyId :: Lens' StreamDescriptionSummary (Maybe Text)
-sdsKeyId = lens _sdsKeyId (\s a -> s {_sdsKeyId = a})
+-- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
+--
+--
+--     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
+--
+--
+--     * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@
+--
+--
+--     * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@
+--
+--
+--     * Alias name example: @alias/MyAliasName@
+--
+--
+--     * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
+--
+--
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsKeyId :: Lens.Lens' StreamDescriptionSummary (Lude.Maybe Lude.Text)
+sdsKeyId = Lens.lens (keyId :: StreamDescriptionSummary -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The number of enhanced fan-out consumers registered with the stream.
-sdsConsumerCount :: Lens' StreamDescriptionSummary (Maybe Natural)
-sdsConsumerCount = lens _sdsConsumerCount (\s a -> s {_sdsConsumerCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'consumerCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsConsumerCount :: Lens.Lens' StreamDescriptionSummary (Lude.Maybe Lude.Natural)
+sdsConsumerCount = Lens.lens (consumerCount :: StreamDescriptionSummary -> Lude.Maybe Lude.Natural) (\s a -> s {consumerCount = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsConsumerCount "Use generic-lens or generic-optics with 'consumerCount' instead." #-}
 
 -- | The name of the stream being described.
-sdsStreamName :: Lens' StreamDescriptionSummary Text
-sdsStreamName = lens _sdsStreamName (\s a -> s {_sdsStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsStreamName :: Lens.Lens' StreamDescriptionSummary Lude.Text
+sdsStreamName = Lens.lens (streamName :: StreamDescriptionSummary -> Lude.Text) (\s a -> s {streamName = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
-sdsStreamARN :: Lens' StreamDescriptionSummary Text
-sdsStreamARN = lens _sdsStreamARN (\s a -> s {_sdsStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsStreamARN :: Lens.Lens' StreamDescriptionSummary Lude.Text
+sdsStreamARN = Lens.lens (streamARN :: StreamDescriptionSummary -> Lude.Text) (\s a -> s {streamARN = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
--- | The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Kinesis Data Streams immediately returns and sets @StreamStatus@ to @CREATING@ .     * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Kinesis Data Streams completes the deletion.     * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.     * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
-sdsStreamStatus :: Lens' StreamDescriptionSummary StreamStatus
-sdsStreamStatus = lens _sdsStreamStatus (\s a -> s {_sdsStreamStatus = a})
+-- | The current status of the stream being described. The stream status is one of the following states:
+--
+--
+--     * @CREATING@ - The stream is being created. Kinesis Data Streams immediately returns and sets @StreamStatus@ to @CREATING@ .
+--
+--
+--     * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Kinesis Data Streams completes the deletion.
+--
+--
+--     * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.
+--
+--
+--     * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
+--
+--
+--
+-- /Note:/ Consider using 'streamStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsStreamStatus :: Lens.Lens' StreamDescriptionSummary StreamStatus
+sdsStreamStatus = Lens.lens (streamStatus :: StreamDescriptionSummary -> StreamStatus) (\s a -> s {streamStatus = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsStreamStatus "Use generic-lens or generic-optics with 'streamStatus' instead." #-}
 
 -- | The current retention period, in hours.
-sdsRetentionPeriodHours :: Lens' StreamDescriptionSummary Int
-sdsRetentionPeriodHours = lens _sdsRetentionPeriodHours (\s a -> s {_sdsRetentionPeriodHours = a})
+--
+-- /Note:/ Consider using 'retentionPeriodHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsRetentionPeriodHours :: Lens.Lens' StreamDescriptionSummary Lude.Int
+sdsRetentionPeriodHours = Lens.lens (retentionPeriodHours :: StreamDescriptionSummary -> Lude.Int) (\s a -> s {retentionPeriodHours = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsRetentionPeriodHours "Use generic-lens or generic-optics with 'retentionPeriodHours' instead." #-}
 
 -- | The approximate time that the stream was created.
-sdsStreamCreationTimestamp :: Lens' StreamDescriptionSummary UTCTime
-sdsStreamCreationTimestamp = lens _sdsStreamCreationTimestamp (\s a -> s {_sdsStreamCreationTimestamp = a}) . _Time
+--
+-- /Note:/ Consider using 'streamCreationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsStreamCreationTimestamp :: Lens.Lens' StreamDescriptionSummary Lude.Timestamp
+sdsStreamCreationTimestamp = Lens.lens (streamCreationTimestamp :: StreamDescriptionSummary -> Lude.Timestamp) (\s a -> s {streamCreationTimestamp = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsStreamCreationTimestamp "Use generic-lens or generic-optics with 'streamCreationTimestamp' instead." #-}
 
 -- | Represents the current enhanced monitoring settings of the stream.
-sdsEnhancedMonitoring :: Lens' StreamDescriptionSummary [EnhancedMetrics]
-sdsEnhancedMonitoring = lens _sdsEnhancedMonitoring (\s a -> s {_sdsEnhancedMonitoring = a}) . _Coerce
+--
+-- /Note:/ Consider using 'enhancedMonitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsEnhancedMonitoring :: Lens.Lens' StreamDescriptionSummary [EnhancedMetrics]
+sdsEnhancedMonitoring = Lens.lens (enhancedMonitoring :: StreamDescriptionSummary -> [EnhancedMetrics]) (\s a -> s {enhancedMonitoring = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsEnhancedMonitoring "Use generic-lens or generic-optics with 'enhancedMonitoring' instead." #-}
 
 -- | The number of open shards in the stream.
-sdsOpenShardCount :: Lens' StreamDescriptionSummary Natural
-sdsOpenShardCount = lens _sdsOpenShardCount (\s a -> s {_sdsOpenShardCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'openShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsOpenShardCount :: Lens.Lens' StreamDescriptionSummary Lude.Natural
+sdsOpenShardCount = Lens.lens (openShardCount :: StreamDescriptionSummary -> Lude.Natural) (\s a -> s {openShardCount = a} :: StreamDescriptionSummary)
+{-# DEPRECATED sdsOpenShardCount "Use generic-lens or generic-optics with 'openShardCount' instead." #-}
 
-instance FromJSON StreamDescriptionSummary where
+instance Lude.FromJSON StreamDescriptionSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "StreamDescriptionSummary"
       ( \x ->
           StreamDescriptionSummary'
-            <$> (x .:? "EncryptionType")
-            <*> (x .:? "KeyId")
-            <*> (x .:? "ConsumerCount")
-            <*> (x .: "StreamName")
-            <*> (x .: "StreamARN")
-            <*> (x .: "StreamStatus")
-            <*> (x .: "RetentionPeriodHours")
-            <*> (x .: "StreamCreationTimestamp")
-            <*> (x .:? "EnhancedMonitoring" .!= mempty)
-            <*> (x .: "OpenShardCount")
+            Lude.<$> (x Lude..:? "EncryptionType")
+            Lude.<*> (x Lude..:? "KeyId")
+            Lude.<*> (x Lude..:? "ConsumerCount")
+            Lude.<*> (x Lude..: "StreamName")
+            Lude.<*> (x Lude..: "StreamARN")
+            Lude.<*> (x Lude..: "StreamStatus")
+            Lude.<*> (x Lude..: "RetentionPeriodHours")
+            Lude.<*> (x Lude..: "StreamCreationTimestamp")
+            Lude.<*> (x Lude..:? "EnhancedMonitoring" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "OpenShardCount")
       )
-
-instance Hashable StreamDescriptionSummary
-
-instance NFData StreamDescriptionSummary

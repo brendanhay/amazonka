@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotFleetRequestConfigData where
+module Network.AWS.EC2.Types.SpotFleetRequestConfigData
+  ( SpotFleetRequestConfigData (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSpotFleetRequestConfigData,
+
+    -- * Lenses
+    sfrcdClientToken,
+    sfrcdInstanceInterruptionBehavior,
+    sfrcdOnDemandMaxTotalPrice,
+    sfrcdSpotPrice,
+    sfrcdSpotMaintenanceStrategies,
+    sfrcdLoadBalancersConfig,
+    sfrcdExcessCapacityTerminationPolicy,
+    sfrcdOnDemandTargetCapacity,
+    sfrcdLaunchTemplateConfigs,
+    sfrcdTagSpecifications,
+    sfrcdValidUntil,
+    sfrcdTerminateInstancesWithExpiration,
+    sfrcdOnDemandAllocationStrategy,
+    sfrcdInstancePoolsToUseCount,
+    sfrcdFulfilledCapacity,
+    sfrcdType,
+    sfrcdValidFrom,
+    sfrcdReplaceUnhealthyInstances,
+    sfrcdLaunchSpecifications,
+    sfrcdOnDemandFulfilledCapacity,
+    sfrcdSpotMaxTotalPrice,
+    sfrcdAllocationStrategy,
+    sfrcdIAMFleetRole,
+    sfrcdTargetCapacity,
+  )
+where
+
 import Network.AWS.EC2.Types.AllocationStrategy
 import Network.AWS.EC2.Types.ExcessCapacityTerminationPolicy
 import Network.AWS.EC2.Types.FleetType
@@ -26,316 +51,377 @@ import Network.AWS.EC2.Types.OnDemandAllocationStrategy
 import Network.AWS.EC2.Types.SpotFleetLaunchSpecification
 import Network.AWS.EC2.Types.SpotMaintenanceStrategies
 import Network.AWS.EC2.Types.TagSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the configuration of a Spot Fleet request.
 --
---
---
--- /See:/ 'spotFleetRequestConfigData' smart constructor.
+-- /See:/ 'mkSpotFleetRequestConfigData' smart constructor.
 data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
-  { _sfrcdClientToken ::
-      !(Maybe Text),
-    _sfrcdInstanceInterruptionBehavior ::
-      !(Maybe InstanceInterruptionBehavior),
-    _sfrcdOnDemandMaxTotalPrice ::
-      !(Maybe Text),
-    _sfrcdSpotPrice :: !(Maybe Text),
-    _sfrcdSpotMaintenanceStrategies ::
-      !(Maybe SpotMaintenanceStrategies),
-    _sfrcdLoadBalancersConfig ::
-      !(Maybe LoadBalancersConfig),
-    _sfrcdExcessCapacityTerminationPolicy ::
-      !( Maybe
-           ExcessCapacityTerminationPolicy
-       ),
-    _sfrcdOnDemandTargetCapacity ::
-      !(Maybe Int),
-    _sfrcdLaunchTemplateConfigs ::
-      !(Maybe [LaunchTemplateConfig]),
-    _sfrcdTagSpecifications ::
-      !(Maybe [TagSpecification]),
-    _sfrcdValidUntil :: !(Maybe ISO8601),
-    _sfrcdTerminateInstancesWithExpiration ::
-      !(Maybe Bool),
-    _sfrcdOnDemandAllocationStrategy ::
-      !(Maybe OnDemandAllocationStrategy),
-    _sfrcdInstancePoolsToUseCount ::
-      !(Maybe Int),
-    _sfrcdFulfilledCapacity ::
-      !(Maybe Double),
-    _sfrcdType :: !(Maybe FleetType),
-    _sfrcdValidFrom :: !(Maybe ISO8601),
-    _sfrcdReplaceUnhealthyInstances ::
-      !(Maybe Bool),
-    _sfrcdLaunchSpecifications ::
-      !( Maybe
-           [SpotFleetLaunchSpecification]
-       ),
-    _sfrcdOnDemandFulfilledCapacity ::
-      !(Maybe Double),
-    _sfrcdSpotMaxTotalPrice ::
-      !(Maybe Text),
-    _sfrcdAllocationStrategy ::
-      !(Maybe AllocationStrategy),
-    _sfrcdIAMFleetRole :: !Text,
-    _sfrcdTargetCapacity :: !Int
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    instanceInterruptionBehavior ::
+      Lude.Maybe
+        InstanceInterruptionBehavior,
+    onDemandMaxTotalPrice ::
+      Lude.Maybe Lude.Text,
+    spotPrice :: Lude.Maybe Lude.Text,
+    spotMaintenanceStrategies ::
+      Lude.Maybe SpotMaintenanceStrategies,
+    loadBalancersConfig ::
+      Lude.Maybe LoadBalancersConfig,
+    excessCapacityTerminationPolicy ::
+      Lude.Maybe
+        ExcessCapacityTerminationPolicy,
+    onDemandTargetCapacity ::
+      Lude.Maybe Lude.Int,
+    launchTemplateConfigs ::
+      Lude.Maybe [LaunchTemplateConfig],
+    tagSpecifications ::
+      Lude.Maybe [TagSpecification],
+    validUntil :: Lude.Maybe Lude.ISO8601,
+    terminateInstancesWithExpiration ::
+      Lude.Maybe Lude.Bool,
+    onDemandAllocationStrategy ::
+      Lude.Maybe OnDemandAllocationStrategy,
+    instancePoolsToUseCount ::
+      Lude.Maybe Lude.Int,
+    fulfilledCapacity ::
+      Lude.Maybe Lude.Double,
+    type' :: Lude.Maybe FleetType,
+    validFrom :: Lude.Maybe Lude.ISO8601,
+    replaceUnhealthyInstances ::
+      Lude.Maybe Lude.Bool,
+    launchSpecifications ::
+      Lude.Maybe
+        [SpotFleetLaunchSpecification],
+    onDemandFulfilledCapacity ::
+      Lude.Maybe Lude.Double,
+    spotMaxTotalPrice ::
+      Lude.Maybe Lude.Text,
+    allocationStrategy ::
+      Lude.Maybe AllocationStrategy,
+    iamFleetRole :: Lude.Text,
+    targetCapacity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotFleetRequestConfigData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocationStrategy' - Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.
 --
--- * 'sfrcdClientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- If the allocation strategy is @lowestPrice@ , Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+-- If the allocation strategy is @diversified@ , Spot Fleet launches instances from all the Spot Instance pools that you specify.
+-- If the allocation strategy is @capacityOptimized@ , Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+-- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+-- * 'fulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.
+-- * 'iamFleetRole' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites Spot Fleet prerequisites> in the /Amazon EC2 User Guide for Linux Instances/ . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests> or when the Spot Fleet request expires, if you set @TerminateInstancesWithExpiration@ .
+-- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+-- * 'instancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+-- * 'launchSpecifications' - The launch specifications for the Spot Fleet request. If you specify @LaunchSpecifications@ , you can't specify @LaunchTemplateConfigs@ . If you include On-Demand capacity in your request, you must use @LaunchTemplateConfigs@ .
+-- * 'launchTemplateConfigs' - The launch template and overrides. If you specify @LaunchTemplateConfigs@ , you can't specify @LaunchSpecifications@ . If you include On-Demand capacity in your request, you must use @LaunchTemplateConfigs@ .
+-- * 'loadBalancersConfig' - One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
 --
--- * 'sfrcdInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
---
--- * 'sfrcdOnDemandMaxTotalPrice' - The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the @onDemandMaxTotalPrice@ parameter, the @spotMaxTotalPrice@ parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
---
--- * 'sfrcdSpotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
---
--- * 'sfrcdSpotMaintenanceStrategies' - The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
---
--- * 'sfrcdLoadBalancersConfig' - One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups. With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
---
--- * 'sfrcdExcessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
---
--- * 'sfrcdOnDemandTargetCapacity' - The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
---
--- * 'sfrcdLaunchTemplateConfigs' - The launch template and overrides. If you specify @LaunchTemplateConfigs@ , you can't specify @LaunchSpecifications@ . If you include On-Demand capacity in your request, you must use @LaunchTemplateConfigs@ .
---
--- * 'sfrcdTagSpecifications' - The key-value pair for tagging the Spot Fleet request on creation. The value for @ResourceType@ must be @spot-fleet-request@ , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> (valid only if you use @LaunchTemplateConfigs@ ) or in the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html @SpotFleetTagSpecification@ > (valid only if you use @LaunchSpecifications@ ). For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources> .
---
--- * 'sfrcdValidUntil' - The end date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
---
--- * 'sfrcdTerminateInstancesWithExpiration' - Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
---
--- * 'sfrcdOnDemandAllocationStrategy' - The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowestPrice@ , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to @lowestPrice@ .
---
--- * 'sfrcdInstancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
---
--- * 'sfrcdFulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.
---
--- * 'sfrcdType' - The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is @maintain@ , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ . @instant@ is listed but is not used by Spot Fleet.
---
--- * 'sfrcdValidFrom' - The start date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). By default, Amazon EC2 starts fulfilling the request immediately.
---
--- * 'sfrcdReplaceUnhealthyInstances' - Indicates whether Spot Fleet should replace unhealthy instances.
---
--- * 'sfrcdLaunchSpecifications' - The launch specifications for the Spot Fleet request. If you specify @LaunchSpecifications@ , you can't specify @LaunchTemplateConfigs@ . If you include On-Demand capacity in your request, you must use @LaunchTemplateConfigs@ .
---
--- * 'sfrcdOnDemandFulfilledCapacity' - The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.
---
--- * 'sfrcdSpotMaxTotalPrice' - The maximum amount per hour for Spot Instances that you're willing to pay. You can use the @spotdMaxTotalPrice@ parameter, the @onDemandMaxTotalPrice@ parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
---
--- * 'sfrcdAllocationStrategy' - Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request. If the allocation strategy is @lowestPrice@ , Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy. If the allocation strategy is @diversified@ , Spot Fleet launches instances from all the Spot Instance pools that you specify. If the allocation strategy is @capacityOptimized@ , Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
---
--- * 'sfrcdIAMFleetRole' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites Spot Fleet prerequisites> in the /Amazon EC2 User Guide for Linux Instances/ . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests> or when the Spot Fleet request expires, if you set @TerminateInstancesWithExpiration@ .
---
--- * 'sfrcdTargetCapacity' - The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
-spotFleetRequestConfigData ::
-  -- | 'sfrcdIAMFleetRole'
-  Text ->
-  -- | 'sfrcdTargetCapacity'
-  Int ->
+-- With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
+-- * 'onDemandAllocationStrategy' - The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowestPrice@ , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to @lowestPrice@ .
+-- * 'onDemandFulfilledCapacity' - The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.
+-- * 'onDemandMaxTotalPrice' - The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the @onDemandMaxTotalPrice@ parameter, the @spotMaxTotalPrice@ parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+-- * 'onDemandTargetCapacity' - The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+-- * 'replaceUnhealthyInstances' - Indicates whether Spot Fleet should replace unhealthy instances.
+-- * 'spotMaintenanceStrategies' - The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+-- * 'spotMaxTotalPrice' - The maximum amount per hour for Spot Instances that you're willing to pay. You can use the @spotdMaxTotalPrice@ parameter, the @onDemandMaxTotalPrice@ parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+-- * 'spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
+-- * 'tagSpecifications' - The key-value pair for tagging the Spot Fleet request on creation. The value for @ResourceType@ must be @spot-fleet-request@ , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> (valid only if you use @LaunchTemplateConfigs@ ) or in the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html @SpotFleetTagSpecification@ > (valid only if you use @LaunchSpecifications@ ). For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources> .
+-- * 'targetCapacity' - The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+-- * 'terminateInstancesWithExpiration' - Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
+-- * 'type'' - The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is @maintain@ , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ . @instant@ is listed but is not used by Spot Fleet.
+-- * 'validFrom' - The start date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). By default, Amazon EC2 starts fulfilling the request immediately.
+-- * 'validUntil' - The end date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
+mkSpotFleetRequestConfigData ::
+  -- | 'iamFleetRole'
+  Lude.Text ->
+  -- | 'targetCapacity'
+  Lude.Int ->
   SpotFleetRequestConfigData
-spotFleetRequestConfigData pIAMFleetRole_ pTargetCapacity_ =
+mkSpotFleetRequestConfigData pIAMFleetRole_ pTargetCapacity_ =
   SpotFleetRequestConfigData'
-    { _sfrcdClientToken = Nothing,
-      _sfrcdInstanceInterruptionBehavior = Nothing,
-      _sfrcdOnDemandMaxTotalPrice = Nothing,
-      _sfrcdSpotPrice = Nothing,
-      _sfrcdSpotMaintenanceStrategies = Nothing,
-      _sfrcdLoadBalancersConfig = Nothing,
-      _sfrcdExcessCapacityTerminationPolicy = Nothing,
-      _sfrcdOnDemandTargetCapacity = Nothing,
-      _sfrcdLaunchTemplateConfigs = Nothing,
-      _sfrcdTagSpecifications = Nothing,
-      _sfrcdValidUntil = Nothing,
-      _sfrcdTerminateInstancesWithExpiration = Nothing,
-      _sfrcdOnDemandAllocationStrategy = Nothing,
-      _sfrcdInstancePoolsToUseCount = Nothing,
-      _sfrcdFulfilledCapacity = Nothing,
-      _sfrcdType = Nothing,
-      _sfrcdValidFrom = Nothing,
-      _sfrcdReplaceUnhealthyInstances = Nothing,
-      _sfrcdLaunchSpecifications = Nothing,
-      _sfrcdOnDemandFulfilledCapacity = Nothing,
-      _sfrcdSpotMaxTotalPrice = Nothing,
-      _sfrcdAllocationStrategy = Nothing,
-      _sfrcdIAMFleetRole = pIAMFleetRole_,
-      _sfrcdTargetCapacity = pTargetCapacity_
+    { clientToken = Lude.Nothing,
+      instanceInterruptionBehavior = Lude.Nothing,
+      onDemandMaxTotalPrice = Lude.Nothing,
+      spotPrice = Lude.Nothing,
+      spotMaintenanceStrategies = Lude.Nothing,
+      loadBalancersConfig = Lude.Nothing,
+      excessCapacityTerminationPolicy = Lude.Nothing,
+      onDemandTargetCapacity = Lude.Nothing,
+      launchTemplateConfigs = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      validUntil = Lude.Nothing,
+      terminateInstancesWithExpiration = Lude.Nothing,
+      onDemandAllocationStrategy = Lude.Nothing,
+      instancePoolsToUseCount = Lude.Nothing,
+      fulfilledCapacity = Lude.Nothing,
+      type' = Lude.Nothing,
+      validFrom = Lude.Nothing,
+      replaceUnhealthyInstances = Lude.Nothing,
+      launchSpecifications = Lude.Nothing,
+      onDemandFulfilledCapacity = Lude.Nothing,
+      spotMaxTotalPrice = Lude.Nothing,
+      allocationStrategy = Lude.Nothing,
+      iamFleetRole = pIAMFleetRole_,
+      targetCapacity = pTargetCapacity_
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
-sfrcdClientToken = lens _sfrcdClientToken (\s a -> s {_sfrcdClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdClientToken :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Text)
+sfrcdClientToken = Lens.lens (clientToken :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
-sfrcdInstanceInterruptionBehavior :: Lens' SpotFleetRequestConfigData (Maybe InstanceInterruptionBehavior)
-sfrcdInstanceInterruptionBehavior = lens _sfrcdInstanceInterruptionBehavior (\s a -> s {_sfrcdInstanceInterruptionBehavior = a})
+--
+-- /Note:/ Consider using 'instanceInterruptionBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdInstanceInterruptionBehavior :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe InstanceInterruptionBehavior)
+sfrcdInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: SpotFleetRequestConfigData -> Lude.Maybe InstanceInterruptionBehavior) (\s a -> s {instanceInterruptionBehavior = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdInstanceInterruptionBehavior "Use generic-lens or generic-optics with 'instanceInterruptionBehavior' instead." #-}
 
 -- | The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the @onDemandMaxTotalPrice@ parameter, the @spotMaxTotalPrice@ parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-sfrcdOnDemandMaxTotalPrice :: Lens' SpotFleetRequestConfigData (Maybe Text)
-sfrcdOnDemandMaxTotalPrice = lens _sfrcdOnDemandMaxTotalPrice (\s a -> s {_sfrcdOnDemandMaxTotalPrice = a})
+--
+-- /Note:/ Consider using 'onDemandMaxTotalPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdOnDemandMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Text)
+sfrcdOnDemandMaxTotalPrice = Lens.lens (onDemandMaxTotalPrice :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Text) (\s a -> s {onDemandMaxTotalPrice = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdOnDemandMaxTotalPrice "Use generic-lens or generic-optics with 'onDemandMaxTotalPrice' instead." #-}
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
-sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData (Maybe Text)
-sfrcdSpotPrice = lens _sfrcdSpotPrice (\s a -> s {_sfrcdSpotPrice = a})
+--
+-- /Note:/ Consider using 'spotPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdSpotPrice :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Text)
+sfrcdSpotPrice = Lens.lens (spotPrice :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
 
 -- | The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
-sfrcdSpotMaintenanceStrategies :: Lens' SpotFleetRequestConfigData (Maybe SpotMaintenanceStrategies)
-sfrcdSpotMaintenanceStrategies = lens _sfrcdSpotMaintenanceStrategies (\s a -> s {_sfrcdSpotMaintenanceStrategies = a})
+--
+-- /Note:/ Consider using 'spotMaintenanceStrategies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdSpotMaintenanceStrategies :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe SpotMaintenanceStrategies)
+sfrcdSpotMaintenanceStrategies = Lens.lens (spotMaintenanceStrategies :: SpotFleetRequestConfigData -> Lude.Maybe SpotMaintenanceStrategies) (\s a -> s {spotMaintenanceStrategies = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdSpotMaintenanceStrategies "Use generic-lens or generic-optics with 'spotMaintenanceStrategies' instead." #-}
 
--- | One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups. With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
-sfrcdLoadBalancersConfig :: Lens' SpotFleetRequestConfigData (Maybe LoadBalancersConfig)
-sfrcdLoadBalancersConfig = lens _sfrcdLoadBalancersConfig (\s a -> s {_sfrcdLoadBalancersConfig = a})
+-- | One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+--
+-- With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
+--
+-- /Note:/ Consider using 'loadBalancersConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdLoadBalancersConfig :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe LoadBalancersConfig)
+sfrcdLoadBalancersConfig = Lens.lens (loadBalancersConfig :: SpotFleetRequestConfigData -> Lude.Maybe LoadBalancersConfig) (\s a -> s {loadBalancersConfig = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdLoadBalancersConfig "Use generic-lens or generic-optics with 'loadBalancersConfig' instead." #-}
 
 -- | Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
-sfrcdExcessCapacityTerminationPolicy :: Lens' SpotFleetRequestConfigData (Maybe ExcessCapacityTerminationPolicy)
-sfrcdExcessCapacityTerminationPolicy = lens _sfrcdExcessCapacityTerminationPolicy (\s a -> s {_sfrcdExcessCapacityTerminationPolicy = a})
+--
+-- /Note:/ Consider using 'excessCapacityTerminationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdExcessCapacityTerminationPolicy :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe ExcessCapacityTerminationPolicy)
+sfrcdExcessCapacityTerminationPolicy = Lens.lens (excessCapacityTerminationPolicy :: SpotFleetRequestConfigData -> Lude.Maybe ExcessCapacityTerminationPolicy) (\s a -> s {excessCapacityTerminationPolicy = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdExcessCapacityTerminationPolicy "Use generic-lens or generic-optics with 'excessCapacityTerminationPolicy' instead." #-}
 
 -- | The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
-sfrcdOnDemandTargetCapacity :: Lens' SpotFleetRequestConfigData (Maybe Int)
-sfrcdOnDemandTargetCapacity = lens _sfrcdOnDemandTargetCapacity (\s a -> s {_sfrcdOnDemandTargetCapacity = a})
+--
+-- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdOnDemandTargetCapacity :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Int)
+sfrcdOnDemandTargetCapacity = Lens.lens (onDemandTargetCapacity :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Int) (\s a -> s {onDemandTargetCapacity = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
 
 -- | The launch template and overrides. If you specify @LaunchTemplateConfigs@ , you can't specify @LaunchSpecifications@ . If you include On-Demand capacity in your request, you must use @LaunchTemplateConfigs@ .
-sfrcdLaunchTemplateConfigs :: Lens' SpotFleetRequestConfigData [LaunchTemplateConfig]
-sfrcdLaunchTemplateConfigs = lens _sfrcdLaunchTemplateConfigs (\s a -> s {_sfrcdLaunchTemplateConfigs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'launchTemplateConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdLaunchTemplateConfigs :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe [LaunchTemplateConfig])
+sfrcdLaunchTemplateConfigs = Lens.lens (launchTemplateConfigs :: SpotFleetRequestConfigData -> Lude.Maybe [LaunchTemplateConfig]) (\s a -> s {launchTemplateConfigs = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
 
 -- | The key-value pair for tagging the Spot Fleet request on creation. The value for @ResourceType@ must be @spot-fleet-request@ , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> (valid only if you use @LaunchTemplateConfigs@ ) or in the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html @SpotFleetTagSpecification@ > (valid only if you use @LaunchSpecifications@ ). For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources> .
-sfrcdTagSpecifications :: Lens' SpotFleetRequestConfigData [TagSpecification]
-sfrcdTagSpecifications = lens _sfrcdTagSpecifications (\s a -> s {_sfrcdTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdTagSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe [TagSpecification])
+sfrcdTagSpecifications = Lens.lens (tagSpecifications :: SpotFleetRequestConfigData -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The end date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
-sfrcdValidUntil :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
-sfrcdValidUntil = lens _sfrcdValidUntil (\s a -> s {_sfrcdValidUntil = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdValidUntil :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.ISO8601)
+sfrcdValidUntil = Lens.lens (validUntil :: SpotFleetRequestConfigData -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
-sfrcdTerminateInstancesWithExpiration :: Lens' SpotFleetRequestConfigData (Maybe Bool)
-sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpiration (\s a -> s {_sfrcdTerminateInstancesWithExpiration = a})
+--
+-- /Note:/ Consider using 'terminateInstancesWithExpiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdTerminateInstancesWithExpiration :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Bool)
+sfrcdTerminateInstancesWithExpiration = Lens.lens (terminateInstancesWithExpiration :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Bool) (\s a -> s {terminateInstancesWithExpiration = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdTerminateInstancesWithExpiration "Use generic-lens or generic-optics with 'terminateInstancesWithExpiration' instead." #-}
 
 -- | The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowestPrice@ , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to @lowestPrice@ .
-sfrcdOnDemandAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe OnDemandAllocationStrategy)
-sfrcdOnDemandAllocationStrategy = lens _sfrcdOnDemandAllocationStrategy (\s a -> s {_sfrcdOnDemandAllocationStrategy = a})
+--
+-- /Note:/ Consider using 'onDemandAllocationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdOnDemandAllocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe OnDemandAllocationStrategy)
+sfrcdOnDemandAllocationStrategy = Lens.lens (onDemandAllocationStrategy :: SpotFleetRequestConfigData -> Lude.Maybe OnDemandAllocationStrategy) (\s a -> s {onDemandAllocationStrategy = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdOnDemandAllocationStrategy "Use generic-lens or generic-optics with 'onDemandAllocationStrategy' instead." #-}
 
 -- | The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
-sfrcdInstancePoolsToUseCount :: Lens' SpotFleetRequestConfigData (Maybe Int)
-sfrcdInstancePoolsToUseCount = lens _sfrcdInstancePoolsToUseCount (\s a -> s {_sfrcdInstancePoolsToUseCount = a})
+--
+-- /Note:/ Consider using 'instancePoolsToUseCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdInstancePoolsToUseCount :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Int)
+sfrcdInstancePoolsToUseCount = Lens.lens (instancePoolsToUseCount :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Int) (\s a -> s {instancePoolsToUseCount = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdInstancePoolsToUseCount "Use generic-lens or generic-optics with 'instancePoolsToUseCount' instead." #-}
 
 -- | The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.
-sfrcdFulfilledCapacity :: Lens' SpotFleetRequestConfigData (Maybe Double)
-sfrcdFulfilledCapacity = lens _sfrcdFulfilledCapacity (\s a -> s {_sfrcdFulfilledCapacity = a})
+--
+-- /Note:/ Consider using 'fulfilledCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdFulfilledCapacity :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Double)
+sfrcdFulfilledCapacity = Lens.lens (fulfilledCapacity :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Double) (\s a -> s {fulfilledCapacity = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdFulfilledCapacity "Use generic-lens or generic-optics with 'fulfilledCapacity' instead." #-}
 
 -- | The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is @maintain@ , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ . @instant@ is listed but is not used by Spot Fleet.
-sfrcdType :: Lens' SpotFleetRequestConfigData (Maybe FleetType)
-sfrcdType = lens _sfrcdType (\s a -> s {_sfrcdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdType :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe FleetType)
+sfrcdType = Lens.lens (type' :: SpotFleetRequestConfigData -> Lude.Maybe FleetType) (\s a -> s {type' = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The start date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). By default, Amazon EC2 starts fulfilling the request immediately.
-sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
-sfrcdValidFrom = lens _sfrcdValidFrom (\s a -> s {_sfrcdValidFrom = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdValidFrom :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.ISO8601)
+sfrcdValidFrom = Lens.lens (validFrom :: SpotFleetRequestConfigData -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | Indicates whether Spot Fleet should replace unhealthy instances.
-sfrcdReplaceUnhealthyInstances :: Lens' SpotFleetRequestConfigData (Maybe Bool)
-sfrcdReplaceUnhealthyInstances = lens _sfrcdReplaceUnhealthyInstances (\s a -> s {_sfrcdReplaceUnhealthyInstances = a})
+--
+-- /Note:/ Consider using 'replaceUnhealthyInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdReplaceUnhealthyInstances :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Bool)
+sfrcdReplaceUnhealthyInstances = Lens.lens (replaceUnhealthyInstances :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Bool) (\s a -> s {replaceUnhealthyInstances = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdReplaceUnhealthyInstances "Use generic-lens or generic-optics with 'replaceUnhealthyInstances' instead." #-}
 
 -- | The launch specifications for the Spot Fleet request. If you specify @LaunchSpecifications@ , you can't specify @LaunchTemplateConfigs@ . If you include On-Demand capacity in your request, you must use @LaunchTemplateConfigs@ .
-sfrcdLaunchSpecifications :: Lens' SpotFleetRequestConfigData [SpotFleetLaunchSpecification]
-sfrcdLaunchSpecifications = lens _sfrcdLaunchSpecifications (\s a -> s {_sfrcdLaunchSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'launchSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdLaunchSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe [SpotFleetLaunchSpecification])
+sfrcdLaunchSpecifications = Lens.lens (launchSpecifications :: SpotFleetRequestConfigData -> Lude.Maybe [SpotFleetLaunchSpecification]) (\s a -> s {launchSpecifications = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdLaunchSpecifications "Use generic-lens or generic-optics with 'launchSpecifications' instead." #-}
 
 -- | The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.
-sfrcdOnDemandFulfilledCapacity :: Lens' SpotFleetRequestConfigData (Maybe Double)
-sfrcdOnDemandFulfilledCapacity = lens _sfrcdOnDemandFulfilledCapacity (\s a -> s {_sfrcdOnDemandFulfilledCapacity = a})
+--
+-- /Note:/ Consider using 'onDemandFulfilledCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdOnDemandFulfilledCapacity :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Double)
+sfrcdOnDemandFulfilledCapacity = Lens.lens (onDemandFulfilledCapacity :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Double) (\s a -> s {onDemandFulfilledCapacity = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdOnDemandFulfilledCapacity "Use generic-lens or generic-optics with 'onDemandFulfilledCapacity' instead." #-}
 
 -- | The maximum amount per hour for Spot Instances that you're willing to pay. You can use the @spotdMaxTotalPrice@ parameter, the @onDemandMaxTotalPrice@ parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-sfrcdSpotMaxTotalPrice :: Lens' SpotFleetRequestConfigData (Maybe Text)
-sfrcdSpotMaxTotalPrice = lens _sfrcdSpotMaxTotalPrice (\s a -> s {_sfrcdSpotMaxTotalPrice = a})
+--
+-- /Note:/ Consider using 'spotMaxTotalPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdSpotMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.Text)
+sfrcdSpotMaxTotalPrice = Lens.lens (spotMaxTotalPrice :: SpotFleetRequestConfigData -> Lude.Maybe Lude.Text) (\s a -> s {spotMaxTotalPrice = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdSpotMaxTotalPrice "Use generic-lens or generic-optics with 'spotMaxTotalPrice' instead." #-}
 
--- | Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request. If the allocation strategy is @lowestPrice@ , Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy. If the allocation strategy is @diversified@ , Spot Fleet launches instances from all the Spot Instance pools that you specify. If the allocation strategy is @capacityOptimized@ , Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
-sfrcdAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe AllocationStrategy)
-sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\s a -> s {_sfrcdAllocationStrategy = a})
+-- | Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.
+--
+-- If the allocation strategy is @lowestPrice@ , Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+-- If the allocation strategy is @diversified@ , Spot Fleet launches instances from all the Spot Instance pools that you specify.
+-- If the allocation strategy is @capacityOptimized@ , Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+--
+-- /Note:/ Consider using 'allocationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdAllocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe AllocationStrategy)
+sfrcdAllocationStrategy = Lens.lens (allocationStrategy :: SpotFleetRequestConfigData -> Lude.Maybe AllocationStrategy) (\s a -> s {allocationStrategy = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdAllocationStrategy "Use generic-lens or generic-optics with 'allocationStrategy' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites Spot Fleet prerequisites> in the /Amazon EC2 User Guide for Linux Instances/ . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests> or when the Spot Fleet request expires, if you set @TerminateInstancesWithExpiration@ .
-sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
-sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\s a -> s {_sfrcdIAMFleetRole = a})
+--
+-- /Note:/ Consider using 'iamFleetRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdIAMFleetRole :: Lens.Lens' SpotFleetRequestConfigData Lude.Text
+sfrcdIAMFleetRole = Lens.lens (iamFleetRole :: SpotFleetRequestConfigData -> Lude.Text) (\s a -> s {iamFleetRole = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdIAMFleetRole "Use generic-lens or generic-optics with 'iamFleetRole' instead." #-}
 
 -- | The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
-sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
-sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\s a -> s {_sfrcdTargetCapacity = a})
+--
+-- /Note:/ Consider using 'targetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrcdTargetCapacity :: Lens.Lens' SpotFleetRequestConfigData Lude.Int
+sfrcdTargetCapacity = Lens.lens (targetCapacity :: SpotFleetRequestConfigData -> Lude.Int) (\s a -> s {targetCapacity = a} :: SpotFleetRequestConfigData)
+{-# DEPRECATED sfrcdTargetCapacity "Use generic-lens or generic-optics with 'targetCapacity' instead." #-}
 
-instance FromXML SpotFleetRequestConfigData where
+instance Lude.FromXML SpotFleetRequestConfigData where
   parseXML x =
     SpotFleetRequestConfigData'
-      <$> (x .@? "clientToken")
-      <*> (x .@? "instanceInterruptionBehavior")
-      <*> (x .@? "onDemandMaxTotalPrice")
-      <*> (x .@? "spotPrice")
-      <*> (x .@? "spotMaintenanceStrategies")
-      <*> (x .@? "loadBalancersConfig")
-      <*> (x .@? "excessCapacityTerminationPolicy")
-      <*> (x .@? "onDemandTargetCapacity")
-      <*> ( x .@? "launchTemplateConfigs" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "TagSpecification" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "validUntil")
-      <*> (x .@? "terminateInstancesWithExpiration")
-      <*> (x .@? "onDemandAllocationStrategy")
-      <*> (x .@? "instancePoolsToUseCount")
-      <*> (x .@? "fulfilledCapacity")
-      <*> (x .@? "type")
-      <*> (x .@? "validFrom")
-      <*> (x .@? "replaceUnhealthyInstances")
-      <*> ( x .@? "launchSpecifications" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "onDemandFulfilledCapacity")
-      <*> (x .@? "spotMaxTotalPrice")
-      <*> (x .@? "allocationStrategy")
-      <*> (x .@ "iamFleetRole")
-      <*> (x .@ "targetCapacity")
+      Lude.<$> (x Lude..@? "clientToken")
+      Lude.<*> (x Lude..@? "instanceInterruptionBehavior")
+      Lude.<*> (x Lude..@? "onDemandMaxTotalPrice")
+      Lude.<*> (x Lude..@? "spotPrice")
+      Lude.<*> (x Lude..@? "spotMaintenanceStrategies")
+      Lude.<*> (x Lude..@? "loadBalancersConfig")
+      Lude.<*> (x Lude..@? "excessCapacityTerminationPolicy")
+      Lude.<*> (x Lude..@? "onDemandTargetCapacity")
+      Lude.<*> ( x Lude..@? "launchTemplateConfigs" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> ( x Lude..@? "TagSpecification" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "validUntil")
+      Lude.<*> (x Lude..@? "terminateInstancesWithExpiration")
+      Lude.<*> (x Lude..@? "onDemandAllocationStrategy")
+      Lude.<*> (x Lude..@? "instancePoolsToUseCount")
+      Lude.<*> (x Lude..@? "fulfilledCapacity")
+      Lude.<*> (x Lude..@? "type")
+      Lude.<*> (x Lude..@? "validFrom")
+      Lude.<*> (x Lude..@? "replaceUnhealthyInstances")
+      Lude.<*> ( x Lude..@? "launchSpecifications" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "onDemandFulfilledCapacity")
+      Lude.<*> (x Lude..@? "spotMaxTotalPrice")
+      Lude.<*> (x Lude..@? "allocationStrategy")
+      Lude.<*> (x Lude..@ "iamFleetRole")
+      Lude.<*> (x Lude..@ "targetCapacity")
 
-instance Hashable SpotFleetRequestConfigData
-
-instance NFData SpotFleetRequestConfigData
-
-instance ToQuery SpotFleetRequestConfigData where
+instance Lude.ToQuery SpotFleetRequestConfigData where
   toQuery SpotFleetRequestConfigData' {..} =
-    mconcat
-      [ "ClientToken" =: _sfrcdClientToken,
+    Lude.mconcat
+      [ "ClientToken" Lude.=: clientToken,
         "InstanceInterruptionBehavior"
-          =: _sfrcdInstanceInterruptionBehavior,
-        "OnDemandMaxTotalPrice" =: _sfrcdOnDemandMaxTotalPrice,
-        "SpotPrice" =: _sfrcdSpotPrice,
-        "SpotMaintenanceStrategies" =: _sfrcdSpotMaintenanceStrategies,
-        "LoadBalancersConfig" =: _sfrcdLoadBalancersConfig,
+          Lude.=: instanceInterruptionBehavior,
+        "OnDemandMaxTotalPrice" Lude.=: onDemandMaxTotalPrice,
+        "SpotPrice" Lude.=: spotPrice,
+        "SpotMaintenanceStrategies" Lude.=: spotMaintenanceStrategies,
+        "LoadBalancersConfig" Lude.=: loadBalancersConfig,
         "ExcessCapacityTerminationPolicy"
-          =: _sfrcdExcessCapacityTerminationPolicy,
-        "OnDemandTargetCapacity" =: _sfrcdOnDemandTargetCapacity,
-        toQuery
-          ( toQueryList "LaunchTemplateConfigs"
-              <$> _sfrcdLaunchTemplateConfigs
+          Lude.=: excessCapacityTerminationPolicy,
+        "OnDemandTargetCapacity" Lude.=: onDemandTargetCapacity,
+        Lude.toQuery
+          ( Lude.toQueryList "LaunchTemplateConfigs"
+              Lude.<$> launchTemplateConfigs
           ),
-        toQuery
-          (toQueryList "TagSpecification" <$> _sfrcdTagSpecifications),
-        "ValidUntil" =: _sfrcdValidUntil,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "ValidUntil" Lude.=: validUntil,
         "TerminateInstancesWithExpiration"
-          =: _sfrcdTerminateInstancesWithExpiration,
-        "OnDemandAllocationStrategy" =: _sfrcdOnDemandAllocationStrategy,
-        "InstancePoolsToUseCount" =: _sfrcdInstancePoolsToUseCount,
-        "FulfilledCapacity" =: _sfrcdFulfilledCapacity,
-        "Type" =: _sfrcdType,
-        "ValidFrom" =: _sfrcdValidFrom,
-        "ReplaceUnhealthyInstances" =: _sfrcdReplaceUnhealthyInstances,
-        toQuery
-          ( toQueryList "LaunchSpecifications"
-              <$> _sfrcdLaunchSpecifications
+          Lude.=: terminateInstancesWithExpiration,
+        "OnDemandAllocationStrategy" Lude.=: onDemandAllocationStrategy,
+        "InstancePoolsToUseCount" Lude.=: instancePoolsToUseCount,
+        "FulfilledCapacity" Lude.=: fulfilledCapacity,
+        "Type" Lude.=: type',
+        "ValidFrom" Lude.=: validFrom,
+        "ReplaceUnhealthyInstances" Lude.=: replaceUnhealthyInstances,
+        Lude.toQuery
+          ( Lude.toQueryList "LaunchSpecifications"
+              Lude.<$> launchSpecifications
           ),
-        "OnDemandFulfilledCapacity" =: _sfrcdOnDemandFulfilledCapacity,
-        "SpotMaxTotalPrice" =: _sfrcdSpotMaxTotalPrice,
-        "AllocationStrategy" =: _sfrcdAllocationStrategy,
-        "IamFleetRole" =: _sfrcdIAMFleetRole,
-        "TargetCapacity" =: _sfrcdTargetCapacity
+        "OnDemandFulfilledCapacity" Lude.=: onDemandFulfilledCapacity,
+        "SpotMaxTotalPrice" Lude.=: spotMaxTotalPrice,
+        "AllocationStrategy" Lude.=: allocationStrategy,
+        "IamFleetRole" Lude.=: iamFleetRole,
+        "TargetCapacity" Lude.=: targetCapacity
       ]

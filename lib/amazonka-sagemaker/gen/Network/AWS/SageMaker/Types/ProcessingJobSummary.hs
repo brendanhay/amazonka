@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,123 +7,155 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingJobSummary where
+module Network.AWS.SageMaker.Types.ProcessingJobSummary
+  ( ProcessingJobSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProcessingJobSummary,
+
+    -- * Lenses
+    pjsFailureReason,
+    pjsLastModifiedTime,
+    pjsExitMessage,
+    pjsProcessingEndTime,
+    pjsProcessingJobName,
+    pjsProcessingJobARN,
+    pjsCreationTime,
+    pjsProcessingJobStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingJobStatus
 
 -- | Summary of information about a processing job.
 --
---
---
--- /See:/ 'processingJobSummary' smart constructor.
+-- /See:/ 'mkProcessingJobSummary' smart constructor.
 data ProcessingJobSummary = ProcessingJobSummary'
-  { _pjsFailureReason ::
-      !(Maybe Text),
-    _pjsLastModifiedTime :: !(Maybe POSIX),
-    _pjsExitMessage :: !(Maybe Text),
-    _pjsProcessingEndTime :: !(Maybe POSIX),
-    _pjsProcessingJobName :: !Text,
-    _pjsProcessingJobARN :: !Text,
-    _pjsCreationTime :: !POSIX,
-    _pjsProcessingJobStatus :: !ProcessingJobStatus
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    exitMessage :: Lude.Maybe Lude.Text,
+    processingEndTime :: Lude.Maybe Lude.Timestamp,
+    processingJobName :: Lude.Text,
+    processingJobARN :: Lude.Text,
+    creationTime :: Lude.Timestamp,
+    processingJobStatus :: ProcessingJobStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingJobSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pjsFailureReason' - A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
---
--- * 'pjsLastModifiedTime' - A timestamp that indicates the last time the processing job was modified.
---
--- * 'pjsExitMessage' - An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
---
--- * 'pjsProcessingEndTime' - The time at which the processing job completed.
---
--- * 'pjsProcessingJobName' - The name of the processing job.
---
--- * 'pjsProcessingJobARN' - The Amazon Resource Name (ARN) of the processing job..
---
--- * 'pjsCreationTime' - The time at which the processing job was created.
---
--- * 'pjsProcessingJobStatus' - The status of the processing job.
-processingJobSummary ::
-  -- | 'pjsProcessingJobName'
-  Text ->
-  -- | 'pjsProcessingJobARN'
-  Text ->
-  -- | 'pjsCreationTime'
-  UTCTime ->
-  -- | 'pjsProcessingJobStatus'
+-- * 'creationTime' - The time at which the processing job was created.
+-- * 'exitMessage' - An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
+-- * 'failureReason' - A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
+-- * 'lastModifiedTime' - A timestamp that indicates the last time the processing job was modified.
+-- * 'processingEndTime' - The time at which the processing job completed.
+-- * 'processingJobARN' - The Amazon Resource Name (ARN) of the processing job..
+-- * 'processingJobName' - The name of the processing job.
+-- * 'processingJobStatus' - The status of the processing job.
+mkProcessingJobSummary ::
+  -- | 'processingJobName'
+  Lude.Text ->
+  -- | 'processingJobARN'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'processingJobStatus'
   ProcessingJobStatus ->
   ProcessingJobSummary
-processingJobSummary
+mkProcessingJobSummary
   pProcessingJobName_
   pProcessingJobARN_
   pCreationTime_
   pProcessingJobStatus_ =
     ProcessingJobSummary'
-      { _pjsFailureReason = Nothing,
-        _pjsLastModifiedTime = Nothing,
-        _pjsExitMessage = Nothing,
-        _pjsProcessingEndTime = Nothing,
-        _pjsProcessingJobName = pProcessingJobName_,
-        _pjsProcessingJobARN = pProcessingJobARN_,
-        _pjsCreationTime = _Time # pCreationTime_,
-        _pjsProcessingJobStatus = pProcessingJobStatus_
+      { failureReason = Lude.Nothing,
+        lastModifiedTime = Lude.Nothing,
+        exitMessage = Lude.Nothing,
+        processingEndTime = Lude.Nothing,
+        processingJobName = pProcessingJobName_,
+        processingJobARN = pProcessingJobARN_,
+        creationTime = pCreationTime_,
+        processingJobStatus = pProcessingJobStatus_
       }
 
 -- | A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
-pjsFailureReason :: Lens' ProcessingJobSummary (Maybe Text)
-pjsFailureReason = lens _pjsFailureReason (\s a -> s {_pjsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsFailureReason :: Lens.Lens' ProcessingJobSummary (Lude.Maybe Lude.Text)
+pjsFailureReason = Lens.lens (failureReason :: ProcessingJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | A timestamp that indicates the last time the processing job was modified.
-pjsLastModifiedTime :: Lens' ProcessingJobSummary (Maybe UTCTime)
-pjsLastModifiedTime = lens _pjsLastModifiedTime (\s a -> s {_pjsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsLastModifiedTime :: Lens.Lens' ProcessingJobSummary (Lude.Maybe Lude.Timestamp)
+pjsLastModifiedTime = Lens.lens (lastModifiedTime :: ProcessingJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
-pjsExitMessage :: Lens' ProcessingJobSummary (Maybe Text)
-pjsExitMessage = lens _pjsExitMessage (\s a -> s {_pjsExitMessage = a})
+--
+-- /Note:/ Consider using 'exitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsExitMessage :: Lens.Lens' ProcessingJobSummary (Lude.Maybe Lude.Text)
+pjsExitMessage = Lens.lens (exitMessage :: ProcessingJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {exitMessage = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsExitMessage "Use generic-lens or generic-optics with 'exitMessage' instead." #-}
 
 -- | The time at which the processing job completed.
-pjsProcessingEndTime :: Lens' ProcessingJobSummary (Maybe UTCTime)
-pjsProcessingEndTime = lens _pjsProcessingEndTime (\s a -> s {_pjsProcessingEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'processingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsProcessingEndTime :: Lens.Lens' ProcessingJobSummary (Lude.Maybe Lude.Timestamp)
+pjsProcessingEndTime = Lens.lens (processingEndTime :: ProcessingJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {processingEndTime = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsProcessingEndTime "Use generic-lens or generic-optics with 'processingEndTime' instead." #-}
 
 -- | The name of the processing job.
-pjsProcessingJobName :: Lens' ProcessingJobSummary Text
-pjsProcessingJobName = lens _pjsProcessingJobName (\s a -> s {_pjsProcessingJobName = a})
+--
+-- /Note:/ Consider using 'processingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsProcessingJobName :: Lens.Lens' ProcessingJobSummary Lude.Text
+pjsProcessingJobName = Lens.lens (processingJobName :: ProcessingJobSummary -> Lude.Text) (\s a -> s {processingJobName = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsProcessingJobName "Use generic-lens or generic-optics with 'processingJobName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the processing job..
-pjsProcessingJobARN :: Lens' ProcessingJobSummary Text
-pjsProcessingJobARN = lens _pjsProcessingJobARN (\s a -> s {_pjsProcessingJobARN = a})
+--
+-- /Note:/ Consider using 'processingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsProcessingJobARN :: Lens.Lens' ProcessingJobSummary Lude.Text
+pjsProcessingJobARN = Lens.lens (processingJobARN :: ProcessingJobSummary -> Lude.Text) (\s a -> s {processingJobARN = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsProcessingJobARN "Use generic-lens or generic-optics with 'processingJobARN' instead." #-}
 
 -- | The time at which the processing job was created.
-pjsCreationTime :: Lens' ProcessingJobSummary UTCTime
-pjsCreationTime = lens _pjsCreationTime (\s a -> s {_pjsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsCreationTime :: Lens.Lens' ProcessingJobSummary Lude.Timestamp
+pjsCreationTime = Lens.lens (creationTime :: ProcessingJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status of the processing job.
-pjsProcessingJobStatus :: Lens' ProcessingJobSummary ProcessingJobStatus
-pjsProcessingJobStatus = lens _pjsProcessingJobStatus (\s a -> s {_pjsProcessingJobStatus = a})
+--
+-- /Note:/ Consider using 'processingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjsProcessingJobStatus :: Lens.Lens' ProcessingJobSummary ProcessingJobStatus
+pjsProcessingJobStatus = Lens.lens (processingJobStatus :: ProcessingJobSummary -> ProcessingJobStatus) (\s a -> s {processingJobStatus = a} :: ProcessingJobSummary)
+{-# DEPRECATED pjsProcessingJobStatus "Use generic-lens or generic-optics with 'processingJobStatus' instead." #-}
 
-instance FromJSON ProcessingJobSummary where
+instance Lude.FromJSON ProcessingJobSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingJobSummary"
       ( \x ->
           ProcessingJobSummary'
-            <$> (x .:? "FailureReason")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "ExitMessage")
-            <*> (x .:? "ProcessingEndTime")
-            <*> (x .: "ProcessingJobName")
-            <*> (x .: "ProcessingJobArn")
-            <*> (x .: "CreationTime")
-            <*> (x .: "ProcessingJobStatus")
+            Lude.<$> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "ExitMessage")
+            Lude.<*> (x Lude..:? "ProcessingEndTime")
+            Lude.<*> (x Lude..: "ProcessingJobName")
+            Lude.<*> (x Lude..: "ProcessingJobArn")
+            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "ProcessingJobStatus")
       )
-
-instance Hashable ProcessingJobSummary
-
-instance NFData ProcessingJobSummary

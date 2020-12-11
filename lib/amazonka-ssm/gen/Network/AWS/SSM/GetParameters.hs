@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,158 @@
 --
 -- Get details of a parameter. Don't confuse this API action with the 'GetParameter' API action.
 module Network.AWS.SSM.GetParameters
-  ( -- * Creating a Request
-    getParameters,
-    GetParameters,
+  ( -- * Creating a request
+    GetParameters (..),
+    mkGetParameters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpWithDecryption,
     gpNames,
 
-    -- * Destructuring the Response
-    getParametersResponse,
-    GetParametersResponse,
+    -- * Destructuring the response
+    GetParametersResponse (..),
+    mkGetParametersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsParameters,
     grsInvalidParameters,
     grsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getParameters' smart constructor.
+-- | /See:/ 'mkGetParameters' smart constructor.
 data GetParameters = GetParameters'
-  { _gpWithDecryption ::
-      !(Maybe Bool),
-    _gpNames :: !(List1 Text)
+  { withDecryption ::
+      Lude.Maybe Lude.Bool,
+    names :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpWithDecryption' - Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
---
--- * 'gpNames' - Names of the parameters for which you want to query information.
-getParameters ::
-  -- | 'gpNames'
-  NonEmpty Text ->
+-- * 'names' - Names of the parameters for which you want to query information.
+-- * 'withDecryption' - Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+mkGetParameters ::
+  -- | 'names'
+  Lude.NonEmpty Lude.Text ->
   GetParameters
-getParameters pNames_ =
-  GetParameters'
-    { _gpWithDecryption = Nothing,
-      _gpNames = _List1 # pNames_
-    }
+mkGetParameters pNames_ =
+  GetParameters' {withDecryption = Lude.Nothing, names = pNames_}
 
 -- | Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
-gpWithDecryption :: Lens' GetParameters (Maybe Bool)
-gpWithDecryption = lens _gpWithDecryption (\s a -> s {_gpWithDecryption = a})
+--
+-- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpWithDecryption :: Lens.Lens' GetParameters (Lude.Maybe Lude.Bool)
+gpWithDecryption = Lens.lens (withDecryption :: GetParameters -> Lude.Maybe Lude.Bool) (\s a -> s {withDecryption = a} :: GetParameters)
+{-# DEPRECATED gpWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
 
 -- | Names of the parameters for which you want to query information.
-gpNames :: Lens' GetParameters (NonEmpty Text)
-gpNames = lens _gpNames (\s a -> s {_gpNames = a}) . _List1
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpNames :: Lens.Lens' GetParameters (Lude.NonEmpty Lude.Text)
+gpNames = Lens.lens (names :: GetParameters -> Lude.NonEmpty Lude.Text) (\s a -> s {names = a} :: GetParameters)
+{-# DEPRECATED gpNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance AWSRequest GetParameters where
+instance Lude.AWSRequest GetParameters where
   type Rs GetParameters = GetParametersResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetParametersResponse'
-            <$> (x .?> "Parameters" .!@ mempty)
-            <*> (x .?> "InvalidParameters" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Parameters" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "InvalidParameters" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetParameters
-
-instance NFData GetParameters
-
-instance ToHeaders GetParameters where
+instance Lude.ToHeaders GetParameters where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.GetParameters" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.GetParameters" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetParameters where
+instance Lude.ToJSON GetParameters where
   toJSON GetParameters' {..} =
-    object
-      ( catMaybes
-          [ ("WithDecryption" .=) <$> _gpWithDecryption,
-            Just ("Names" .= _gpNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("WithDecryption" Lude..=) Lude.<$> withDecryption,
+            Lude.Just ("Names" Lude..= names)
           ]
       )
 
-instance ToPath GetParameters where
-  toPath = const "/"
+instance Lude.ToPath GetParameters where
+  toPath = Lude.const "/"
 
-instance ToQuery GetParameters where
-  toQuery = const mempty
+instance Lude.ToQuery GetParameters where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getParametersResponse' smart constructor.
+-- | /See:/ 'mkGetParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
-  { _grsParameters ::
-      !(Maybe [Parameter]),
-    _grsInvalidParameters :: !(Maybe [Text]),
-    _grsResponseStatus :: !Int
+  { parameters ::
+      Lude.Maybe [Parameter],
+    invalidParameters :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParametersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsParameters' - A list of details for a parameter.
---
--- * 'grsInvalidParameters' - A list of parameters that are not formatted correctly or do not run during an execution.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getParametersResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'invalidParameters' - A list of parameters that are not formatted correctly or do not run during an execution.
+-- * 'parameters' - A list of details for a parameter.
+-- * 'responseStatus' - The response status code.
+mkGetParametersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetParametersResponse
-getParametersResponse pResponseStatus_ =
+mkGetParametersResponse pResponseStatus_ =
   GetParametersResponse'
-    { _grsParameters = Nothing,
-      _grsInvalidParameters = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { parameters = Lude.Nothing,
+      invalidParameters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of details for a parameter.
-grsParameters :: Lens' GetParametersResponse [Parameter]
-grsParameters = lens _grsParameters (\s a -> s {_grsParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsParameters :: Lens.Lens' GetParametersResponse (Lude.Maybe [Parameter])
+grsParameters = Lens.lens (parameters :: GetParametersResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: GetParametersResponse)
+{-# DEPRECATED grsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | A list of parameters that are not formatted correctly or do not run during an execution.
-grsInvalidParameters :: Lens' GetParametersResponse [Text]
-grsInvalidParameters = lens _grsInvalidParameters (\s a -> s {_grsInvalidParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'invalidParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsInvalidParameters :: Lens.Lens' GetParametersResponse (Lude.Maybe [Lude.Text])
+grsInvalidParameters = Lens.lens (invalidParameters :: GetParametersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {invalidParameters = a} :: GetParametersResponse)
+{-# DEPRECATED grsInvalidParameters "Use generic-lens or generic-optics with 'invalidParameters' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetParametersResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetParametersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetParametersResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParametersResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes the specified schema in detail.
 module Network.AWS.Glue.GetSchema
-  ( -- * Creating a Request
-    getSchema,
-    GetSchema,
+  ( -- * Creating a request
+    GetSchema (..),
+    mkGetSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsSchemaId,
 
-    -- * Destructuring the Response
-    getSchemaResponse,
-    GetSchemaResponse,
+    -- * Destructuring the response
+    GetSchemaResponse (..),
+    mkGetSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrsRegistryName,
     gsrsCreatedTime,
     gsrsSchemaStatus,
@@ -49,203 +44,255 @@ module Network.AWS.Glue.GetSchema
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSchema' smart constructor.
-newtype GetSchema = GetSchema' {_gsSchemaId :: SchemaId}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetSchema' smart constructor.
+newtype GetSchema = GetSchema' {schemaId :: SchemaId}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
 --
--- * 'gsSchemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
-getSchema ::
-  -- | 'gsSchemaId'
+--
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+--     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+mkGetSchema ::
+  -- | 'schemaId'
   SchemaId ->
   GetSchema
-getSchema pSchemaId_ = GetSchema' {_gsSchemaId = pSchemaId_}
+mkGetSchema pSchemaId_ = GetSchema' {schemaId = pSchemaId_}
 
--- | This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
-gsSchemaId :: Lens' GetSchema SchemaId
-gsSchemaId = lens _gsSchemaId (\s a -> s {_gsSchemaId = a})
+-- | This is a wrapper structure to contain schema identity fields. The structure contains:
+--
+--
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+--     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsSchemaId :: Lens.Lens' GetSchema SchemaId
+gsSchemaId = Lens.lens (schemaId :: GetSchema -> SchemaId) (\s a -> s {schemaId = a} :: GetSchema)
+{-# DEPRECATED gsSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
-instance AWSRequest GetSchema where
+instance Lude.AWSRequest GetSchema where
   type Rs GetSchema = GetSchemaResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSchemaResponse'
-            <$> (x .?> "RegistryName")
-            <*> (x .?> "CreatedTime")
-            <*> (x .?> "SchemaStatus")
-            <*> (x .?> "RegistryArn")
-            <*> (x .?> "LatestSchemaVersion")
-            <*> (x .?> "DataFormat")
-            <*> (x .?> "SchemaCheckpoint")
-            <*> (x .?> "SchemaName")
-            <*> (x .?> "SchemaArn")
-            <*> (x .?> "NextSchemaVersion")
-            <*> (x .?> "UpdatedTime")
-            <*> (x .?> "Description")
-            <*> (x .?> "Compatibility")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RegistryName")
+            Lude.<*> (x Lude..?> "CreatedTime")
+            Lude.<*> (x Lude..?> "SchemaStatus")
+            Lude.<*> (x Lude..?> "RegistryArn")
+            Lude.<*> (x Lude..?> "LatestSchemaVersion")
+            Lude.<*> (x Lude..?> "DataFormat")
+            Lude.<*> (x Lude..?> "SchemaCheckpoint")
+            Lude.<*> (x Lude..?> "SchemaName")
+            Lude.<*> (x Lude..?> "SchemaArn")
+            Lude.<*> (x Lude..?> "NextSchemaVersion")
+            Lude.<*> (x Lude..?> "UpdatedTime")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "Compatibility")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSchema
-
-instance NFData GetSchema
-
-instance ToHeaders GetSchema where
+instance Lude.ToHeaders GetSchema where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetSchema" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetSchema" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSchema where
+instance Lude.ToJSON GetSchema where
   toJSON GetSchema' {..} =
-    object (catMaybes [Just ("SchemaId" .= _gsSchemaId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SchemaId" Lude..= schemaId)])
 
-instance ToPath GetSchema where
-  toPath = const "/"
+instance Lude.ToPath GetSchema where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSchema where
-  toQuery = const mempty
+instance Lude.ToQuery GetSchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSchemaResponse' smart constructor.
+-- | /See:/ 'mkGetSchemaResponse' smart constructor.
 data GetSchemaResponse = GetSchemaResponse'
-  { _gsrsRegistryName ::
-      !(Maybe Text),
-    _gsrsCreatedTime :: !(Maybe Text),
-    _gsrsSchemaStatus :: !(Maybe SchemaStatus),
-    _gsrsRegistryARN :: !(Maybe Text),
-    _gsrsLatestSchemaVersion :: !(Maybe Nat),
-    _gsrsDataFormat :: !(Maybe DataFormat),
-    _gsrsSchemaCheckpoint :: !(Maybe Nat),
-    _gsrsSchemaName :: !(Maybe Text),
-    _gsrsSchemaARN :: !(Maybe Text),
-    _gsrsNextSchemaVersion :: !(Maybe Nat),
-    _gsrsUpdatedTime :: !(Maybe Text),
-    _gsrsDescription :: !(Maybe Text),
-    _gsrsCompatibility :: !(Maybe Compatibility),
-    _gsrsResponseStatus :: !Int
+  { registryName ::
+      Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Text,
+    schemaStatus :: Lude.Maybe SchemaStatus,
+    registryARN :: Lude.Maybe Lude.Text,
+    latestSchemaVersion :: Lude.Maybe Lude.Natural,
+    dataFormat :: Lude.Maybe DataFormat,
+    schemaCheckpoint :: Lude.Maybe Lude.Natural,
+    schemaName :: Lude.Maybe Lude.Text,
+    schemaARN :: Lude.Maybe Lude.Text,
+    nextSchemaVersion :: Lude.Maybe Lude.Natural,
+    updatedTime :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    compatibility :: Lude.Maybe Compatibility,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrsRegistryName' - The name of the registry.
---
--- * 'gsrsCreatedTime' - The date and time the schema was created.
---
--- * 'gsrsSchemaStatus' - The status of the schema.
---
--- * 'gsrsRegistryARN' - The Amazon Resource Name (ARN) of the registry.
---
--- * 'gsrsLatestSchemaVersion' - The latest version of the schema associated with the returned schema definition.
---
--- * 'gsrsDataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
---
--- * 'gsrsSchemaCheckpoint' - The version number of the checkpoint (the last time the compatibility mode was changed).
---
--- * 'gsrsSchemaName' - The name of the schema.
---
--- * 'gsrsSchemaARN' - The Amazon Resource Name (ARN) of the schema.
---
--- * 'gsrsNextSchemaVersion' - The next version of the schema associated with the returned schema definition.
---
--- * 'gsrsUpdatedTime' - The date and time the schema was updated.
---
--- * 'gsrsDescription' - A description of schema if specified when created
---
--- * 'gsrsCompatibility' - The compatibility mode of the schema.
---
--- * 'gsrsResponseStatus' - -- | The response status code.
-getSchemaResponse ::
-  -- | 'gsrsResponseStatus'
-  Int ->
+-- * 'compatibility' - The compatibility mode of the schema.
+-- * 'createdTime' - The date and time the schema was created.
+-- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
+-- * 'description' - A description of schema if specified when created
+-- * 'latestSchemaVersion' - The latest version of the schema associated with the returned schema definition.
+-- * 'nextSchemaVersion' - The next version of the schema associated with the returned schema definition.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
+-- * 'registryName' - The name of the registry.
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility mode was changed).
+-- * 'schemaName' - The name of the schema.
+-- * 'schemaStatus' - The status of the schema.
+-- * 'updatedTime' - The date and time the schema was updated.
+mkGetSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSchemaResponse
-getSchemaResponse pResponseStatus_ =
+mkGetSchemaResponse pResponseStatus_ =
   GetSchemaResponse'
-    { _gsrsRegistryName = Nothing,
-      _gsrsCreatedTime = Nothing,
-      _gsrsSchemaStatus = Nothing,
-      _gsrsRegistryARN = Nothing,
-      _gsrsLatestSchemaVersion = Nothing,
-      _gsrsDataFormat = Nothing,
-      _gsrsSchemaCheckpoint = Nothing,
-      _gsrsSchemaName = Nothing,
-      _gsrsSchemaARN = Nothing,
-      _gsrsNextSchemaVersion = Nothing,
-      _gsrsUpdatedTime = Nothing,
-      _gsrsDescription = Nothing,
-      _gsrsCompatibility = Nothing,
-      _gsrsResponseStatus = pResponseStatus_
+    { registryName = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      schemaStatus = Lude.Nothing,
+      registryARN = Lude.Nothing,
+      latestSchemaVersion = Lude.Nothing,
+      dataFormat = Lude.Nothing,
+      schemaCheckpoint = Lude.Nothing,
+      schemaName = Lude.Nothing,
+      schemaARN = Lude.Nothing,
+      nextSchemaVersion = Lude.Nothing,
+      updatedTime = Lude.Nothing,
+      description = Lude.Nothing,
+      compatibility = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the registry.
-gsrsRegistryName :: Lens' GetSchemaResponse (Maybe Text)
-gsrsRegistryName = lens _gsrsRegistryName (\s a -> s {_gsrsRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsRegistryName :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsRegistryName = Lens.lens (registryName :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The date and time the schema was created.
-gsrsCreatedTime :: Lens' GetSchemaResponse (Maybe Text)
-gsrsCreatedTime = lens _gsrsCreatedTime (\s a -> s {_gsrsCreatedTime = a})
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsCreatedTime :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsCreatedTime = Lens.lens (createdTime :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdTime = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The status of the schema.
-gsrsSchemaStatus :: Lens' GetSchemaResponse (Maybe SchemaStatus)
-gsrsSchemaStatus = lens _gsrsSchemaStatus (\s a -> s {_gsrsSchemaStatus = a})
+--
+-- /Note:/ Consider using 'schemaStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSchemaStatus :: Lens.Lens' GetSchemaResponse (Lude.Maybe SchemaStatus)
+gsrsSchemaStatus = Lens.lens (schemaStatus :: GetSchemaResponse -> Lude.Maybe SchemaStatus) (\s a -> s {schemaStatus = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsSchemaStatus "Use generic-lens or generic-optics with 'schemaStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the registry.
-gsrsRegistryARN :: Lens' GetSchemaResponse (Maybe Text)
-gsrsRegistryARN = lens _gsrsRegistryARN (\s a -> s {_gsrsRegistryARN = a})
+--
+-- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsRegistryARN :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsRegistryARN = Lens.lens (registryARN :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
 
 -- | The latest version of the schema associated with the returned schema definition.
-gsrsLatestSchemaVersion :: Lens' GetSchemaResponse (Maybe Natural)
-gsrsLatestSchemaVersion = lens _gsrsLatestSchemaVersion (\s a -> s {_gsrsLatestSchemaVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'latestSchemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsLatestSchemaVersion :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Natural)
+gsrsLatestSchemaVersion = Lens.lens (latestSchemaVersion :: GetSchemaResponse -> Lude.Maybe Lude.Natural) (\s a -> s {latestSchemaVersion = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsLatestSchemaVersion "Use generic-lens or generic-optics with 'latestSchemaVersion' instead." #-}
 
 -- | The data format of the schema definition. Currently only @AVRO@ is supported.
-gsrsDataFormat :: Lens' GetSchemaResponse (Maybe DataFormat)
-gsrsDataFormat = lens _gsrsDataFormat (\s a -> s {_gsrsDataFormat = a})
+--
+-- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsDataFormat :: Lens.Lens' GetSchemaResponse (Lude.Maybe DataFormat)
+gsrsDataFormat = Lens.lens (dataFormat :: GetSchemaResponse -> Lude.Maybe DataFormat) (\s a -> s {dataFormat = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
 
 -- | The version number of the checkpoint (the last time the compatibility mode was changed).
-gsrsSchemaCheckpoint :: Lens' GetSchemaResponse (Maybe Natural)
-gsrsSchemaCheckpoint = lens _gsrsSchemaCheckpoint (\s a -> s {_gsrsSchemaCheckpoint = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'schemaCheckpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSchemaCheckpoint :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Natural)
+gsrsSchemaCheckpoint = Lens.lens (schemaCheckpoint :: GetSchemaResponse -> Lude.Maybe Lude.Natural) (\s a -> s {schemaCheckpoint = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsSchemaCheckpoint "Use generic-lens or generic-optics with 'schemaCheckpoint' instead." #-}
 
 -- | The name of the schema.
-gsrsSchemaName :: Lens' GetSchemaResponse (Maybe Text)
-gsrsSchemaName = lens _gsrsSchemaName (\s a -> s {_gsrsSchemaName = a})
+--
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSchemaName :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsSchemaName = Lens.lens (schemaName :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaName = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the schema.
-gsrsSchemaARN :: Lens' GetSchemaResponse (Maybe Text)
-gsrsSchemaARN = lens _gsrsSchemaARN (\s a -> s {_gsrsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSchemaARN :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsSchemaARN = Lens.lens (schemaARN :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The next version of the schema associated with the returned schema definition.
-gsrsNextSchemaVersion :: Lens' GetSchemaResponse (Maybe Natural)
-gsrsNextSchemaVersion = lens _gsrsNextSchemaVersion (\s a -> s {_gsrsNextSchemaVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'nextSchemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsNextSchemaVersion :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Natural)
+gsrsNextSchemaVersion = Lens.lens (nextSchemaVersion :: GetSchemaResponse -> Lude.Maybe Lude.Natural) (\s a -> s {nextSchemaVersion = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsNextSchemaVersion "Use generic-lens or generic-optics with 'nextSchemaVersion' instead." #-}
 
 -- | The date and time the schema was updated.
-gsrsUpdatedTime :: Lens' GetSchemaResponse (Maybe Text)
-gsrsUpdatedTime = lens _gsrsUpdatedTime (\s a -> s {_gsrsUpdatedTime = a})
+--
+-- /Note:/ Consider using 'updatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsUpdatedTime :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsUpdatedTime = Lens.lens (updatedTime :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {updatedTime = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsUpdatedTime "Use generic-lens or generic-optics with 'updatedTime' instead." #-}
 
 -- | A description of schema if specified when created
-gsrsDescription :: Lens' GetSchemaResponse (Maybe Text)
-gsrsDescription = lens _gsrsDescription (\s a -> s {_gsrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsDescription :: Lens.Lens' GetSchemaResponse (Lude.Maybe Lude.Text)
+gsrsDescription = Lens.lens (description :: GetSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The compatibility mode of the schema.
-gsrsCompatibility :: Lens' GetSchemaResponse (Maybe Compatibility)
-gsrsCompatibility = lens _gsrsCompatibility (\s a -> s {_gsrsCompatibility = a})
+--
+-- /Note:/ Consider using 'compatibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsCompatibility :: Lens.Lens' GetSchemaResponse (Lude.Maybe Compatibility)
+gsrsCompatibility = Lens.lens (compatibility :: GetSchemaResponse -> Lude.Maybe Compatibility) (\s a -> s {compatibility = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsCompatibility "Use generic-lens or generic-optics with 'compatibility' instead." #-}
 
--- | -- | The response status code.
-gsrsResponseStatus :: Lens' GetSchemaResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\s a -> s {_gsrsResponseStatus = a})
-
-instance NFData GetSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsResponseStatus :: Lens.Lens' GetSchemaResponse Lude.Int
+gsrsResponseStatus = Lens.lens (responseStatus :: GetSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSchemaResponse)
+{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

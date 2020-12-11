@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReturnValue where
+module Network.AWS.DynamoDB.Types.ReturnValue
+  ( ReturnValue
+      ( ReturnValue',
+        RVAllNew,
+        RVAllOld,
+        RVNone,
+        RVUpdatedNew,
+        RVUpdatedOld
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReturnValue
-  = RVAllNew
-  | RVAllOld
-  | RVNone
-  | RVUpdatedNew
-  | RVUpdatedOld
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReturnValue = ReturnValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReturnValue where
-  parser =
-    takeLowerText >>= \case
-      "all_new" -> pure RVAllNew
-      "all_old" -> pure RVAllOld
-      "none" -> pure RVNone
-      "updated_new" -> pure RVUpdatedNew
-      "updated_old" -> pure RVUpdatedOld
-      e ->
-        fromTextError $
-          "Failure parsing ReturnValue from value: '" <> e
-            <> "'. Accepted values: all_new, all_old, none, updated_new, updated_old"
+pattern RVAllNew :: ReturnValue
+pattern RVAllNew = ReturnValue' "ALL_NEW"
 
-instance ToText ReturnValue where
-  toText = \case
-    RVAllNew -> "ALL_NEW"
-    RVAllOld -> "ALL_OLD"
-    RVNone -> "NONE"
-    RVUpdatedNew -> "UPDATED_NEW"
-    RVUpdatedOld -> "UPDATED_OLD"
+pattern RVAllOld :: ReturnValue
+pattern RVAllOld = ReturnValue' "ALL_OLD"
 
-instance Hashable ReturnValue
+pattern RVNone :: ReturnValue
+pattern RVNone = ReturnValue' "NONE"
 
-instance NFData ReturnValue
+pattern RVUpdatedNew :: ReturnValue
+pattern RVUpdatedNew = ReturnValue' "UPDATED_NEW"
 
-instance ToByteString ReturnValue
+pattern RVUpdatedOld :: ReturnValue
+pattern RVUpdatedOld = ReturnValue' "UPDATED_OLD"
 
-instance ToQuery ReturnValue
-
-instance ToHeader ReturnValue
-
-instance ToJSON ReturnValue where
-  toJSON = toJSONText
+{-# COMPLETE
+  RVAllNew,
+  RVAllOld,
+  RVNone,
+  RVUpdatedNew,
+  RVUpdatedOld,
+  ReturnValue'
+  #-}

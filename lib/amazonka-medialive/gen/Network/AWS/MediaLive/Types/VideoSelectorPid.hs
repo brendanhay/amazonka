@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.VideoSelectorPid where
+module Network.AWS.MediaLive.Types.VideoSelectorPid
+  ( VideoSelectorPid (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVideoSelectorPid,
+
+    -- * Lenses
+    vspPid,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video Selector Pid
 --
--- /See:/ 'videoSelectorPid' smart constructor.
-newtype VideoSelectorPid = VideoSelectorPid' {_vspPid :: Maybe Nat}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkVideoSelectorPid' smart constructor.
+newtype VideoSelectorPid = VideoSelectorPid'
+  { pid ::
+      Lude.Maybe Lude.Natural
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoSelectorPid' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vspPid' - Selects a specific PID from within a video source.
-videoSelectorPid ::
+-- * 'pid' - Selects a specific PID from within a video source.
+mkVideoSelectorPid ::
   VideoSelectorPid
-videoSelectorPid = VideoSelectorPid' {_vspPid = Nothing}
+mkVideoSelectorPid = VideoSelectorPid' {pid = Lude.Nothing}
 
 -- | Selects a specific PID from within a video source.
-vspPid :: Lens' VideoSelectorPid (Maybe Natural)
-vspPid = lens _vspPid (\s a -> s {_vspPid = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vspPid :: Lens.Lens' VideoSelectorPid (Lude.Maybe Lude.Natural)
+vspPid = Lens.lens (pid :: VideoSelectorPid -> Lude.Maybe Lude.Natural) (\s a -> s {pid = a} :: VideoSelectorPid)
+{-# DEPRECATED vspPid "Use generic-lens or generic-optics with 'pid' instead." #-}
 
-instance FromJSON VideoSelectorPid where
+instance Lude.FromJSON VideoSelectorPid where
   parseJSON =
-    withObject
+    Lude.withObject
       "VideoSelectorPid"
-      (\x -> VideoSelectorPid' <$> (x .:? "pid"))
+      (\x -> VideoSelectorPid' Lude.<$> (x Lude..:? "pid"))
 
-instance Hashable VideoSelectorPid
-
-instance NFData VideoSelectorPid
-
-instance ToJSON VideoSelectorPid where
+instance Lude.ToJSON VideoSelectorPid where
   toJSON VideoSelectorPid' {..} =
-    object (catMaybes [("pid" .=) <$> _vspPid])
+    Lude.object (Lude.catMaybes [("pid" Lude..=) Lude.<$> pid])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.KeyAlgorithm where
+module Network.AWS.CertificateManager.Types.KeyAlgorithm
+  ( KeyAlgorithm
+      ( KeyAlgorithm',
+        EcPRIME256V1,
+        EcSECP384R1,
+        EcSECP521R1,
+        Rsa1024,
+        Rsa2048,
+        Rsa4096
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data KeyAlgorithm
-  = EcPRIME256V1
-  | EcSECP384R1
-  | EcSECP521R1
-  | Rsa1024
-  | Rsa2048
-  | Rsa4096
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype KeyAlgorithm = KeyAlgorithm' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText KeyAlgorithm where
-  parser =
-    takeLowerText >>= \case
-      "ec_prime256v1" -> pure EcPRIME256V1
-      "ec_secp384r1" -> pure EcSECP384R1
-      "ec_secp521r1" -> pure EcSECP521R1
-      "rsa_1024" -> pure Rsa1024
-      "rsa_2048" -> pure Rsa2048
-      "rsa_4096" -> pure Rsa4096
-      e ->
-        fromTextError $
-          "Failure parsing KeyAlgorithm from value: '" <> e
-            <> "'. Accepted values: ec_prime256v1, ec_secp384r1, ec_secp521r1, rsa_1024, rsa_2048, rsa_4096"
+pattern EcPRIME256V1 :: KeyAlgorithm
+pattern EcPRIME256V1 = KeyAlgorithm' "EC_prime256v1"
 
-instance ToText KeyAlgorithm where
-  toText = \case
-    EcPRIME256V1 -> "EC_prime256v1"
-    EcSECP384R1 -> "EC_secp384r1"
-    EcSECP521R1 -> "EC_secp521r1"
-    Rsa1024 -> "RSA_1024"
-    Rsa2048 -> "RSA_2048"
-    Rsa4096 -> "RSA_4096"
+pattern EcSECP384R1 :: KeyAlgorithm
+pattern EcSECP384R1 = KeyAlgorithm' "EC_secp384r1"
 
-instance Hashable KeyAlgorithm
+pattern EcSECP521R1 :: KeyAlgorithm
+pattern EcSECP521R1 = KeyAlgorithm' "EC_secp521r1"
 
-instance NFData KeyAlgorithm
+pattern Rsa1024 :: KeyAlgorithm
+pattern Rsa1024 = KeyAlgorithm' "RSA_1024"
 
-instance ToByteString KeyAlgorithm
+pattern Rsa2048 :: KeyAlgorithm
+pattern Rsa2048 = KeyAlgorithm' "RSA_2048"
 
-instance ToQuery KeyAlgorithm
+pattern Rsa4096 :: KeyAlgorithm
+pattern Rsa4096 = KeyAlgorithm' "RSA_4096"
 
-instance ToHeader KeyAlgorithm
-
-instance ToJSON KeyAlgorithm where
-  toJSON = toJSONText
-
-instance FromJSON KeyAlgorithm where
-  parseJSON = parseJSONText "KeyAlgorithm"
+{-# COMPLETE
+  EcPRIME256V1,
+  EcSECP384R1,
+  EcSECP521R1,
+  Rsa1024,
+  Rsa2048,
+  Rsa4096,
+  KeyAlgorithm'
+  #-}

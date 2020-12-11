@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,147 @@
 --
 -- Updates the existing signaling channel. This is an asynchronous operation and takes time to complete.
 --
---
 -- If the @MessageTtlSeconds@ value is updated (either increased or reduced), it only applies to new messages sent via this channel after it's been updated. Existing messages are still expired as per the previous @MessageTtlSeconds@ value.
 module Network.AWS.KinesisVideo.UpdateSignalingChannel
-  ( -- * Creating a Request
-    updateSignalingChannel,
-    UpdateSignalingChannel,
+  ( -- * Creating a request
+    UpdateSignalingChannel (..),
+    mkUpdateSignalingChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uscSingleMasterConfiguration,
     uscChannelARN,
     uscCurrentVersion,
 
-    -- * Destructuring the Response
-    updateSignalingChannelResponse,
-    UpdateSignalingChannelResponse,
+    -- * Destructuring the response
+    UpdateSignalingChannelResponse (..),
+    mkUpdateSignalingChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uscrsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSignalingChannel' smart constructor.
+-- | /See:/ 'mkUpdateSignalingChannel' smart constructor.
 data UpdateSignalingChannel = UpdateSignalingChannel'
-  { _uscSingleMasterConfiguration ::
-      !(Maybe SingleMasterConfiguration),
-    _uscChannelARN :: !Text,
-    _uscCurrentVersion :: !Text
+  { singleMasterConfiguration ::
+      Lude.Maybe SingleMasterConfiguration,
+    channelARN :: Lude.Text,
+    currentVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSignalingChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uscSingleMasterConfiguration' - The structure containing the configuration for the @SINGLE_MASTER@ type of the signaling channel that you want to update.
---
--- * 'uscChannelARN' - The Amazon Resource Name (ARN) of the signaling channel that you want to update.
---
--- * 'uscCurrentVersion' - The current version of the signaling channel that you want to update.
-updateSignalingChannel ::
-  -- | 'uscChannelARN'
-  Text ->
-  -- | 'uscCurrentVersion'
-  Text ->
+-- * 'channelARN' - The Amazon Resource Name (ARN) of the signaling channel that you want to update.
+-- * 'currentVersion' - The current version of the signaling channel that you want to update.
+-- * 'singleMasterConfiguration' - The structure containing the configuration for the @SINGLE_MASTER@ type of the signaling channel that you want to update.
+mkUpdateSignalingChannel ::
+  -- | 'channelARN'
+  Lude.Text ->
+  -- | 'currentVersion'
+  Lude.Text ->
   UpdateSignalingChannel
-updateSignalingChannel pChannelARN_ pCurrentVersion_ =
+mkUpdateSignalingChannel pChannelARN_ pCurrentVersion_ =
   UpdateSignalingChannel'
-    { _uscSingleMasterConfiguration = Nothing,
-      _uscChannelARN = pChannelARN_,
-      _uscCurrentVersion = pCurrentVersion_
+    { singleMasterConfiguration = Lude.Nothing,
+      channelARN = pChannelARN_,
+      currentVersion = pCurrentVersion_
     }
 
 -- | The structure containing the configuration for the @SINGLE_MASTER@ type of the signaling channel that you want to update.
-uscSingleMasterConfiguration :: Lens' UpdateSignalingChannel (Maybe SingleMasterConfiguration)
-uscSingleMasterConfiguration = lens _uscSingleMasterConfiguration (\s a -> s {_uscSingleMasterConfiguration = a})
+--
+-- /Note:/ Consider using 'singleMasterConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscSingleMasterConfiguration :: Lens.Lens' UpdateSignalingChannel (Lude.Maybe SingleMasterConfiguration)
+uscSingleMasterConfiguration = Lens.lens (singleMasterConfiguration :: UpdateSignalingChannel -> Lude.Maybe SingleMasterConfiguration) (\s a -> s {singleMasterConfiguration = a} :: UpdateSignalingChannel)
+{-# DEPRECATED uscSingleMasterConfiguration "Use generic-lens or generic-optics with 'singleMasterConfiguration' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the signaling channel that you want to update.
-uscChannelARN :: Lens' UpdateSignalingChannel Text
-uscChannelARN = lens _uscChannelARN (\s a -> s {_uscChannelARN = a})
+--
+-- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscChannelARN :: Lens.Lens' UpdateSignalingChannel Lude.Text
+uscChannelARN = Lens.lens (channelARN :: UpdateSignalingChannel -> Lude.Text) (\s a -> s {channelARN = a} :: UpdateSignalingChannel)
+{-# DEPRECATED uscChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
 
 -- | The current version of the signaling channel that you want to update.
-uscCurrentVersion :: Lens' UpdateSignalingChannel Text
-uscCurrentVersion = lens _uscCurrentVersion (\s a -> s {_uscCurrentVersion = a})
+--
+-- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscCurrentVersion :: Lens.Lens' UpdateSignalingChannel Lude.Text
+uscCurrentVersion = Lens.lens (currentVersion :: UpdateSignalingChannel -> Lude.Text) (\s a -> s {currentVersion = a} :: UpdateSignalingChannel)
+{-# DEPRECATED uscCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
 
-instance AWSRequest UpdateSignalingChannel where
+instance Lude.AWSRequest UpdateSignalingChannel where
   type Rs UpdateSignalingChannel = UpdateSignalingChannelResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateSignalingChannelResponse' <$> (pure (fromEnum s))
+          UpdateSignalingChannelResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSignalingChannel
+instance Lude.ToHeaders UpdateSignalingChannel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateSignalingChannel
-
-instance ToHeaders UpdateSignalingChannel where
-  toHeaders = const mempty
-
-instance ToJSON UpdateSignalingChannel where
+instance Lude.ToJSON UpdateSignalingChannel where
   toJSON UpdateSignalingChannel' {..} =
-    object
-      ( catMaybes
-          [ ("SingleMasterConfiguration" .=)
-              <$> _uscSingleMasterConfiguration,
-            Just ("ChannelARN" .= _uscChannelARN),
-            Just ("CurrentVersion" .= _uscCurrentVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SingleMasterConfiguration" Lude..=)
+              Lude.<$> singleMasterConfiguration,
+            Lude.Just ("ChannelARN" Lude..= channelARN),
+            Lude.Just ("CurrentVersion" Lude..= currentVersion)
           ]
       )
 
-instance ToPath UpdateSignalingChannel where
-  toPath = const "/updateSignalingChannel"
+instance Lude.ToPath UpdateSignalingChannel where
+  toPath = Lude.const "/updateSignalingChannel"
 
-instance ToQuery UpdateSignalingChannel where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSignalingChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSignalingChannelResponse' smart constructor.
+-- | /See:/ 'mkUpdateSignalingChannelResponse' smart constructor.
 newtype UpdateSignalingChannelResponse = UpdateSignalingChannelResponse'
-  { _uscrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSignalingChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uscrsResponseStatus' - -- | The response status code.
-updateSignalingChannelResponse ::
-  -- | 'uscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateSignalingChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSignalingChannelResponse
-updateSignalingChannelResponse pResponseStatus_ =
+mkUpdateSignalingChannelResponse pResponseStatus_ =
   UpdateSignalingChannelResponse'
-    { _uscrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uscrsResponseStatus :: Lens' UpdateSignalingChannelResponse Int
-uscrsResponseStatus = lens _uscrsResponseStatus (\s a -> s {_uscrsResponseStatus = a})
-
-instance NFData UpdateSignalingChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrsResponseStatus :: Lens.Lens' UpdateSignalingChannelResponse Lude.Int
+uscrsResponseStatus = Lens.lens (responseStatus :: UpdateSignalingChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSignalingChannelResponse)
+{-# DEPRECATED uscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

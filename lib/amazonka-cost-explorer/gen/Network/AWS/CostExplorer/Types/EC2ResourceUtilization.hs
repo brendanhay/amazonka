@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.EC2ResourceUtilization where
+module Network.AWS.CostExplorer.Types.EC2ResourceUtilization
+  ( EC2ResourceUtilization (..),
+
+    -- * Smart constructor
+    mkEC2ResourceUtilization,
+
+    -- * Lenses
+    eruMaxCPUUtilizationPercentage,
+    eruEBSResourceUtilization,
+    eruMaxStorageUtilizationPercentage,
+    eruMaxMemoryUtilizationPercentage,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.EBSResourceUtilization
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Utilization metrics of the instance.
 --
---
---
--- /See:/ 'ec2ResourceUtilization' smart constructor.
+-- /See:/ 'mkEC2ResourceUtilization' smart constructor.
 data EC2ResourceUtilization = EC2ResourceUtilization'
-  { _eruMaxCPUUtilizationPercentage ::
-      !(Maybe Text),
-    _eruEBSResourceUtilization ::
-      !(Maybe EBSResourceUtilization),
-    _eruMaxStorageUtilizationPercentage ::
-      !(Maybe Text),
-    _eruMaxMemoryUtilizationPercentage ::
-      !(Maybe Text)
+  { maxCPUUtilizationPercentage ::
+      Lude.Maybe Lude.Text,
+    ebsResourceUtilization ::
+      Lude.Maybe EBSResourceUtilization,
+    maxStorageUtilizationPercentage ::
+      Lude.Maybe Lude.Text,
+    maxMemoryUtilizationPercentage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2ResourceUtilization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eruMaxCPUUtilizationPercentage' - Maximum observed or expected CPU utilization of the instance.
---
--- * 'eruEBSResourceUtilization' - The EBS field that contains a list of EBS metrics associated with the current instance.
---
--- * 'eruMaxStorageUtilizationPercentage' - Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
---
--- * 'eruMaxMemoryUtilizationPercentage' - Maximum observed or expected memory utilization of the instance.
-ec2ResourceUtilization ::
+-- * 'ebsResourceUtilization' - The EBS field that contains a list of EBS metrics associated with the current instance.
+-- * 'maxCPUUtilizationPercentage' - Maximum observed or expected CPU utilization of the instance.
+-- * 'maxMemoryUtilizationPercentage' - Maximum observed or expected memory utilization of the instance.
+-- * 'maxStorageUtilizationPercentage' - Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
+mkEC2ResourceUtilization ::
   EC2ResourceUtilization
-ec2ResourceUtilization =
+mkEC2ResourceUtilization =
   EC2ResourceUtilization'
-    { _eruMaxCPUUtilizationPercentage =
-        Nothing,
-      _eruEBSResourceUtilization = Nothing,
-      _eruMaxStorageUtilizationPercentage = Nothing,
-      _eruMaxMemoryUtilizationPercentage = Nothing
+    { maxCPUUtilizationPercentage =
+        Lude.Nothing,
+      ebsResourceUtilization = Lude.Nothing,
+      maxStorageUtilizationPercentage = Lude.Nothing,
+      maxMemoryUtilizationPercentage = Lude.Nothing
     }
 
 -- | Maximum observed or expected CPU utilization of the instance.
-eruMaxCPUUtilizationPercentage :: Lens' EC2ResourceUtilization (Maybe Text)
-eruMaxCPUUtilizationPercentage = lens _eruMaxCPUUtilizationPercentage (\s a -> s {_eruMaxCPUUtilizationPercentage = a})
+--
+-- /Note:/ Consider using 'maxCPUUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eruMaxCPUUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe Lude.Text)
+eruMaxCPUUtilizationPercentage = Lens.lens (maxCPUUtilizationPercentage :: EC2ResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {maxCPUUtilizationPercentage = a} :: EC2ResourceUtilization)
+{-# DEPRECATED eruMaxCPUUtilizationPercentage "Use generic-lens or generic-optics with 'maxCPUUtilizationPercentage' instead." #-}
 
 -- | The EBS field that contains a list of EBS metrics associated with the current instance.
-eruEBSResourceUtilization :: Lens' EC2ResourceUtilization (Maybe EBSResourceUtilization)
-eruEBSResourceUtilization = lens _eruEBSResourceUtilization (\s a -> s {_eruEBSResourceUtilization = a})
+--
+-- /Note:/ Consider using 'ebsResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eruEBSResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe EBSResourceUtilization)
+eruEBSResourceUtilization = Lens.lens (ebsResourceUtilization :: EC2ResourceUtilization -> Lude.Maybe EBSResourceUtilization) (\s a -> s {ebsResourceUtilization = a} :: EC2ResourceUtilization)
+{-# DEPRECATED eruEBSResourceUtilization "Use generic-lens or generic-optics with 'ebsResourceUtilization' instead." #-}
 
 -- | Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
-eruMaxStorageUtilizationPercentage :: Lens' EC2ResourceUtilization (Maybe Text)
-eruMaxStorageUtilizationPercentage = lens _eruMaxStorageUtilizationPercentage (\s a -> s {_eruMaxStorageUtilizationPercentage = a})
+--
+-- /Note:/ Consider using 'maxStorageUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eruMaxStorageUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe Lude.Text)
+eruMaxStorageUtilizationPercentage = Lens.lens (maxStorageUtilizationPercentage :: EC2ResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {maxStorageUtilizationPercentage = a} :: EC2ResourceUtilization)
+{-# DEPRECATED eruMaxStorageUtilizationPercentage "Use generic-lens or generic-optics with 'maxStorageUtilizationPercentage' instead." #-}
 
 -- | Maximum observed or expected memory utilization of the instance.
-eruMaxMemoryUtilizationPercentage :: Lens' EC2ResourceUtilization (Maybe Text)
-eruMaxMemoryUtilizationPercentage = lens _eruMaxMemoryUtilizationPercentage (\s a -> s {_eruMaxMemoryUtilizationPercentage = a})
+--
+-- /Note:/ Consider using 'maxMemoryUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eruMaxMemoryUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe Lude.Text)
+eruMaxMemoryUtilizationPercentage = Lens.lens (maxMemoryUtilizationPercentage :: EC2ResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {maxMemoryUtilizationPercentage = a} :: EC2ResourceUtilization)
+{-# DEPRECATED eruMaxMemoryUtilizationPercentage "Use generic-lens or generic-optics with 'maxMemoryUtilizationPercentage' instead." #-}
 
-instance FromJSON EC2ResourceUtilization where
+instance Lude.FromJSON EC2ResourceUtilization where
   parseJSON =
-    withObject
+    Lude.withObject
       "EC2ResourceUtilization"
       ( \x ->
           EC2ResourceUtilization'
-            <$> (x .:? "MaxCpuUtilizationPercentage")
-            <*> (x .:? "EBSResourceUtilization")
-            <*> (x .:? "MaxStorageUtilizationPercentage")
-            <*> (x .:? "MaxMemoryUtilizationPercentage")
+            Lude.<$> (x Lude..:? "MaxCpuUtilizationPercentage")
+            Lude.<*> (x Lude..:? "EBSResourceUtilization")
+            Lude.<*> (x Lude..:? "MaxStorageUtilizationPercentage")
+            Lude.<*> (x Lude..:? "MaxMemoryUtilizationPercentage")
       )
-
-instance Hashable EC2ResourceUtilization
-
-instance NFData EC2ResourceUtilization

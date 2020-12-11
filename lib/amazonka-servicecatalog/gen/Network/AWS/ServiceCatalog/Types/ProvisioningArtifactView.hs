@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView
+  ( ProvisioningArtifactView (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningArtifactView,
+
+    -- * Lenses
+    pavProductViewSummary,
+    pavProvisioningArtifact,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ProductViewSummary
 import Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
 
 -- | An object that contains summary information about a product view and a provisioning artifact.
 --
---
---
--- /See:/ 'provisioningArtifactView' smart constructor.
+-- /See:/ 'mkProvisioningArtifactView' smart constructor.
 data ProvisioningArtifactView = ProvisioningArtifactView'
-  { _pavProductViewSummary ::
-      !(Maybe ProductViewSummary),
-    _pavProvisioningArtifact ::
-      !(Maybe ProvisioningArtifact)
+  { productViewSummary ::
+      Lude.Maybe ProductViewSummary,
+    provisioningArtifact ::
+      Lude.Maybe ProvisioningArtifact
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactView' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pavProductViewSummary' - Summary information about a product view.
---
--- * 'pavProvisioningArtifact' - Information about a provisioning artifact. A provisioning artifact is also known as a product version.
-provisioningArtifactView ::
+-- * 'productViewSummary' - Summary information about a product view.
+-- * 'provisioningArtifact' - Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+mkProvisioningArtifactView ::
   ProvisioningArtifactView
-provisioningArtifactView =
+mkProvisioningArtifactView =
   ProvisioningArtifactView'
-    { _pavProductViewSummary = Nothing,
-      _pavProvisioningArtifact = Nothing
+    { productViewSummary = Lude.Nothing,
+      provisioningArtifact = Lude.Nothing
     }
 
 -- | Summary information about a product view.
-pavProductViewSummary :: Lens' ProvisioningArtifactView (Maybe ProductViewSummary)
-pavProductViewSummary = lens _pavProductViewSummary (\s a -> s {_pavProductViewSummary = a})
+--
+-- /Note:/ Consider using 'productViewSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pavProductViewSummary :: Lens.Lens' ProvisioningArtifactView (Lude.Maybe ProductViewSummary)
+pavProductViewSummary = Lens.lens (productViewSummary :: ProvisioningArtifactView -> Lude.Maybe ProductViewSummary) (\s a -> s {productViewSummary = a} :: ProvisioningArtifactView)
+{-# DEPRECATED pavProductViewSummary "Use generic-lens or generic-optics with 'productViewSummary' instead." #-}
 
 -- | Information about a provisioning artifact. A provisioning artifact is also known as a product version.
-pavProvisioningArtifact :: Lens' ProvisioningArtifactView (Maybe ProvisioningArtifact)
-pavProvisioningArtifact = lens _pavProvisioningArtifact (\s a -> s {_pavProvisioningArtifact = a})
+--
+-- /Note:/ Consider using 'provisioningArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pavProvisioningArtifact :: Lens.Lens' ProvisioningArtifactView (Lude.Maybe ProvisioningArtifact)
+pavProvisioningArtifact = Lens.lens (provisioningArtifact :: ProvisioningArtifactView -> Lude.Maybe ProvisioningArtifact) (\s a -> s {provisioningArtifact = a} :: ProvisioningArtifactView)
+{-# DEPRECATED pavProvisioningArtifact "Use generic-lens or generic-optics with 'provisioningArtifact' instead." #-}
 
-instance FromJSON ProvisioningArtifactView where
+instance Lude.FromJSON ProvisioningArtifactView where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisioningArtifactView"
       ( \x ->
           ProvisioningArtifactView'
-            <$> (x .:? "ProductViewSummary") <*> (x .:? "ProvisioningArtifact")
+            Lude.<$> (x Lude..:? "ProductViewSummary")
+            Lude.<*> (x Lude..:? "ProvisioningArtifact")
       )
-
-instance Hashable ProvisioningArtifactView
-
-instance NFData ProvisioningArtifactView

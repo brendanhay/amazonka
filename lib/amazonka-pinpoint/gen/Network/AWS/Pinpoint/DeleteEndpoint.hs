@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,146 @@
 --
 -- Deletes an endpoint from an application.
 module Network.AWS.Pinpoint.DeleteEndpoint
-  ( -- * Creating a Request
-    deleteEndpoint,
-    DeleteEndpoint,
+  ( -- * Creating a request
+    DeleteEndpoint (..),
+    mkDeleteEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deApplicationId,
     deEndpointId,
 
-    -- * Destructuring the Response
-    deleteEndpointResponse,
-    DeleteEndpointResponse,
+    -- * Destructuring the response
+    DeleteEndpointResponse (..),
+    mkDeleteEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersResponseStatus,
     dersEndpointResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteEndpoint' smart constructor.
+-- | /See:/ 'mkDeleteEndpoint' smart constructor.
 data DeleteEndpoint = DeleteEndpoint'
-  { _deApplicationId :: !Text,
-    _deEndpointId :: !Text
+  { applicationId :: Lude.Text,
+    endpointId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'deEndpointId' - The unique identifier for the endpoint.
-deleteEndpoint ::
-  -- | 'deApplicationId'
-  Text ->
-  -- | 'deEndpointId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'endpointId' - The unique identifier for the endpoint.
+mkDeleteEndpoint ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'endpointId'
+  Lude.Text ->
   DeleteEndpoint
-deleteEndpoint pApplicationId_ pEndpointId_ =
+mkDeleteEndpoint pApplicationId_ pEndpointId_ =
   DeleteEndpoint'
-    { _deApplicationId = pApplicationId_,
-      _deEndpointId = pEndpointId_
+    { applicationId = pApplicationId_,
+      endpointId = pEndpointId_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deApplicationId :: Lens' DeleteEndpoint Text
-deApplicationId = lens _deApplicationId (\s a -> s {_deApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deApplicationId :: Lens.Lens' DeleteEndpoint Lude.Text
+deApplicationId = Lens.lens (applicationId :: DeleteEndpoint -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteEndpoint)
+{-# DEPRECATED deApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the endpoint.
-deEndpointId :: Lens' DeleteEndpoint Text
-deEndpointId = lens _deEndpointId (\s a -> s {_deEndpointId = a})
+--
+-- /Note:/ Consider using 'endpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndpointId :: Lens.Lens' DeleteEndpoint Lude.Text
+deEndpointId = Lens.lens (endpointId :: DeleteEndpoint -> Lude.Text) (\s a -> s {endpointId = a} :: DeleteEndpoint)
+{-# DEPRECATED deEndpointId "Use generic-lens or generic-optics with 'endpointId' instead." #-}
 
-instance AWSRequest DeleteEndpoint where
+instance Lude.AWSRequest DeleteEndpoint where
   type Rs DeleteEndpoint = DeleteEndpointResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteEndpointResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteEndpoint
-
-instance NFData DeleteEndpoint
-
-instance ToHeaders DeleteEndpoint where
+instance Lude.ToHeaders DeleteEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteEndpoint where
+instance Lude.ToPath DeleteEndpoint where
   toPath DeleteEndpoint' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _deApplicationId,
+        Lude.toBS applicationId,
         "/endpoints/",
-        toBS _deEndpointId
+        Lude.toBS endpointId
       ]
 
-instance ToQuery DeleteEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteEndpointResponse' smart constructor.
+-- | /See:/ 'mkDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  { _dersResponseStatus ::
-      !Int,
-    _dersEndpointResponse :: !EndpointResponse
+  { responseStatus ::
+      Lude.Int,
+    endpointResponse :: EndpointResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dersResponseStatus' - -- | The response status code.
---
--- * 'dersEndpointResponse' - Undocumented member.
-deleteEndpointResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
-  -- | 'dersEndpointResponse'
+-- * 'endpointResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointResponse'
   EndpointResponse ->
   DeleteEndpointResponse
-deleteEndpointResponse pResponseStatus_ pEndpointResponse_ =
+mkDeleteEndpointResponse pResponseStatus_ pEndpointResponse_ =
   DeleteEndpointResponse'
-    { _dersResponseStatus = pResponseStatus_,
-      _dersEndpointResponse = pEndpointResponse_
+    { responseStatus = pResponseStatus_,
+      endpointResponse = pEndpointResponse_
     }
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DeleteEndpointResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DeleteEndpointResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DeleteEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEndpointResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dersEndpointResponse :: Lens' DeleteEndpointResponse EndpointResponse
-dersEndpointResponse = lens _dersEndpointResponse (\s a -> s {_dersEndpointResponse = a})
-
-instance NFData DeleteEndpointResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endpointResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpointResponse :: Lens.Lens' DeleteEndpointResponse EndpointResponse
+dersEndpointResponse = Lens.lens (endpointResponse :: DeleteEndpointResponse -> EndpointResponse) (\s a -> s {endpointResponse = a} :: DeleteEndpointResponse)
+{-# DEPRECATED dersEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}

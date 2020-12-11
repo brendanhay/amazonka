@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns information about the function or function version, with a link to download the deployment package that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are returned.
 module Network.AWS.Lambda.GetFunction
-  ( -- * Creating a Request
-    getFunction,
-    GetFunction,
+  ( -- * Creating a request
+    GetFunction (..),
+    mkGetFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfQualifier,
     gfFunctionName,
 
-    -- * Destructuring the Response
-    getFunctionResponse,
-    GetFunctionResponse,
+    -- * Destructuring the response
+    GetFunctionResponse (..),
+    mkGetFunctionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfrsConcurrency,
     gfrsCode,
     gfrsConfiguration,
@@ -41,127 +36,168 @@ module Network.AWS.Lambda.GetFunction
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFunction' smart constructor.
+-- | /See:/ 'mkGetFunction' smart constructor.
 data GetFunction = GetFunction'
-  { _gfQualifier :: !(Maybe Text),
-    _gfFunctionName :: !Text
+  { qualifier :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function, version, or alias.
 --
--- * 'gfQualifier' - Specify a version or alias to get details about a published version of the function.
+-- __Name formats__
 --
--- * 'gfFunctionName' - The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-getFunction ::
-  -- | 'gfFunctionName'
-  Text ->
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'qualifier' - Specify a version or alias to get details about a published version of the function.
+mkGetFunction ::
+  -- | 'functionName'
+  Lude.Text ->
   GetFunction
-getFunction pFunctionName_ =
+mkGetFunction pFunctionName_ =
   GetFunction'
-    { _gfQualifier = Nothing,
-      _gfFunctionName = pFunctionName_
+    { qualifier = Lude.Nothing,
+      functionName = pFunctionName_
     }
 
 -- | Specify a version or alias to get details about a published version of the function.
-gfQualifier :: Lens' GetFunction (Maybe Text)
-gfQualifier = lens _gfQualifier (\s a -> s {_gfQualifier = a})
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfQualifier :: Lens.Lens' GetFunction (Lude.Maybe Lude.Text)
+gfQualifier = Lens.lens (qualifier :: GetFunction -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunction)
+{-# DEPRECATED gfQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
--- | The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-gfFunctionName :: Lens' GetFunction Text
-gfFunctionName = lens _gfFunctionName (\s a -> s {_gfFunctionName = a})
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfFunctionName :: Lens.Lens' GetFunction Lude.Text
+gfFunctionName = Lens.lens (functionName :: GetFunction -> Lude.Text) (\s a -> s {functionName = a} :: GetFunction)
+{-# DEPRECATED gfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest GetFunction where
+instance Lude.AWSRequest GetFunction where
   type Rs GetFunction = GetFunctionResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFunctionResponse'
-            <$> (x .?> "Concurrency")
-            <*> (x .?> "Code")
-            <*> (x .?> "Configuration")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Concurrency")
+            Lude.<*> (x Lude..?> "Code")
+            Lude.<*> (x Lude..?> "Configuration")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFunction
+instance Lude.ToHeaders GetFunction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetFunction
-
-instance ToHeaders GetFunction where
-  toHeaders = const mempty
-
-instance ToPath GetFunction where
+instance Lude.ToPath GetFunction where
   toPath GetFunction' {..} =
-    mconcat ["/2015-03-31/functions/", toBS _gfFunctionName]
+    Lude.mconcat ["/2015-03-31/functions/", Lude.toBS functionName]
 
-instance ToQuery GetFunction where
-  toQuery GetFunction' {..} = mconcat ["Qualifier" =: _gfQualifier]
+instance Lude.ToQuery GetFunction where
+  toQuery GetFunction' {..} =
+    Lude.mconcat ["Qualifier" Lude.=: qualifier]
 
--- | /See:/ 'getFunctionResponse' smart constructor.
+-- | /See:/ 'mkGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { _gfrsConcurrency ::
-      !(Maybe Concurrency),
-    _gfrsCode :: !(Maybe FunctionCodeLocation),
-    _gfrsConfiguration ::
-      !(Maybe FunctionConfiguration),
-    _gfrsTags :: !(Maybe (Map Text (Text))),
-    _gfrsResponseStatus :: !Int
+  { concurrency ::
+      Lude.Maybe Concurrency,
+    code :: Lude.Maybe FunctionCodeLocation,
+    configuration :: Lude.Maybe FunctionConfiguration,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfrsConcurrency' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency> .
---
--- * 'gfrsCode' - The deployment package of the function or version.
---
--- * 'gfrsConfiguration' - The configuration of the function or version.
---
--- * 'gfrsTags' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> .
---
--- * 'gfrsResponseStatus' - -- | The response status code.
-getFunctionResponse ::
-  -- | 'gfrsResponseStatus'
-  Int ->
+-- * 'code' - The deployment package of the function or version.
+-- * 'concurrency' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency> .
+-- * 'configuration' - The configuration of the function or version.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> .
+mkGetFunctionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFunctionResponse
-getFunctionResponse pResponseStatus_ =
+mkGetFunctionResponse pResponseStatus_ =
   GetFunctionResponse'
-    { _gfrsConcurrency = Nothing,
-      _gfrsCode = Nothing,
-      _gfrsConfiguration = Nothing,
-      _gfrsTags = Nothing,
-      _gfrsResponseStatus = pResponseStatus_
+    { concurrency = Lude.Nothing,
+      code = Lude.Nothing,
+      configuration = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency> .
-gfrsConcurrency :: Lens' GetFunctionResponse (Maybe Concurrency)
-gfrsConcurrency = lens _gfrsConcurrency (\s a -> s {_gfrsConcurrency = a})
+--
+-- /Note:/ Consider using 'concurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsConcurrency :: Lens.Lens' GetFunctionResponse (Lude.Maybe Concurrency)
+gfrsConcurrency = Lens.lens (concurrency :: GetFunctionResponse -> Lude.Maybe Concurrency) (\s a -> s {concurrency = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsConcurrency "Use generic-lens or generic-optics with 'concurrency' instead." #-}
 
 -- | The deployment package of the function or version.
-gfrsCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
-gfrsCode = lens _gfrsCode (\s a -> s {_gfrsCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsCode :: Lens.Lens' GetFunctionResponse (Lude.Maybe FunctionCodeLocation)
+gfrsCode = Lens.lens (code :: GetFunctionResponse -> Lude.Maybe FunctionCodeLocation) (\s a -> s {code = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The configuration of the function or version.
-gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
-gfrsConfiguration = lens _gfrsConfiguration (\s a -> s {_gfrsConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsConfiguration :: Lens.Lens' GetFunctionResponse (Lude.Maybe FunctionConfiguration)
+gfrsConfiguration = Lens.lens (configuration :: GetFunctionResponse -> Lude.Maybe FunctionConfiguration) (\s a -> s {configuration = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> .
-gfrsTags :: Lens' GetFunctionResponse (HashMap Text (Text))
-gfrsTags = lens _gfrsTags (\s a -> s {_gfrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsTags :: Lens.Lens' GetFunctionResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gfrsTags = Lens.lens (tags :: GetFunctionResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-gfrsResponseStatus :: Lens' GetFunctionResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\s a -> s {_gfrsResponseStatus = a})
-
-instance NFData GetFunctionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsResponseStatus :: Lens.Lens' GetFunctionResponse Lude.Int
+gfrsResponseStatus = Lens.lens (responseStatus :: GetFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

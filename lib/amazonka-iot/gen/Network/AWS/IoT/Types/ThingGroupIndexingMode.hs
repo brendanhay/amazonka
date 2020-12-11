@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingGroupIndexingMode where
+module Network.AWS.IoT.Types.ThingGroupIndexingMode
+  ( ThingGroupIndexingMode
+      ( ThingGroupIndexingMode',
+        ON,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ThingGroupIndexingMode
-  = ON
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ThingGroupIndexingMode = ThingGroupIndexingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ThingGroupIndexingMode where
-  parser =
-    takeLowerText >>= \case
-      "on" -> pure ON
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing ThingGroupIndexingMode from value: '" <> e
-            <> "'. Accepted values: on, off"
+pattern ON :: ThingGroupIndexingMode
+pattern ON = ThingGroupIndexingMode' "ON"
 
-instance ToText ThingGroupIndexingMode where
-  toText = \case
-    ON -> "ON"
-    Off -> "OFF"
+pattern Off :: ThingGroupIndexingMode
+pattern Off = ThingGroupIndexingMode' "OFF"
 
-instance Hashable ThingGroupIndexingMode
-
-instance NFData ThingGroupIndexingMode
-
-instance ToByteString ThingGroupIndexingMode
-
-instance ToQuery ThingGroupIndexingMode
-
-instance ToHeader ThingGroupIndexingMode
-
-instance ToJSON ThingGroupIndexingMode where
-  toJSON = toJSONText
-
-instance FromJSON ThingGroupIndexingMode where
-  parseJSON = parseJSONText "ThingGroupIndexingMode"
+{-# COMPLETE
+  ON,
+  Off,
+  ThingGroupIndexingMode'
+  #-}

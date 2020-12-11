@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.IntArrayOptions where
+module Network.AWS.CloudSearch.Types.IntArrayOptions
+  ( IntArrayOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIntArrayOptions,
+
+    -- * Lenses
+    iaoSourceFields,
+    iaoReturnEnabled,
+    iaoFacetEnabled,
+    iaoSearchEnabled,
+    iaoDefaultValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options for a field that contains an array of 64-bit signed integers. Present if @IndexFieldType@ specifies the field is of type @int-array@ . All options are enabled by default.
 --
---
---
--- /See:/ 'intArrayOptions' smart constructor.
+-- /See:/ 'mkIntArrayOptions' smart constructor.
 data IntArrayOptions = IntArrayOptions'
-  { _iaoSourceFields ::
-      !(Maybe Text),
-    _iaoReturnEnabled :: !(Maybe Bool),
-    _iaoFacetEnabled :: !(Maybe Bool),
-    _iaoSearchEnabled :: !(Maybe Bool),
-    _iaoDefaultValue :: !(Maybe Integer)
+  { sourceFields ::
+      Lude.Maybe Lude.Text,
+    returnEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Lude.Maybe Lude.Bool,
+    defaultValue :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntArrayOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iaoSourceFields' - A list of source fields to map to the field.
---
--- * 'iaoReturnEnabled' - Whether the contents of the field can be returned in the search results.
---
--- * 'iaoFacetEnabled' - Whether facet information can be returned for the field.
---
--- * 'iaoSearchEnabled' - Whether the contents of the field are searchable.
---
--- * 'iaoDefaultValue' - A value to use for the field if the field isn't specified for a document.
-intArrayOptions ::
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'searchEnabled' - Whether the contents of the field are searchable.
+-- * 'sourceFields' - A list of source fields to map to the field.
+mkIntArrayOptions ::
   IntArrayOptions
-intArrayOptions =
+mkIntArrayOptions =
   IntArrayOptions'
-    { _iaoSourceFields = Nothing,
-      _iaoReturnEnabled = Nothing,
-      _iaoFacetEnabled = Nothing,
-      _iaoSearchEnabled = Nothing,
-      _iaoDefaultValue = Nothing
+    { sourceFields = Lude.Nothing,
+      returnEnabled = Lude.Nothing,
+      facetEnabled = Lude.Nothing,
+      searchEnabled = Lude.Nothing,
+      defaultValue = Lude.Nothing
     }
 
 -- | A list of source fields to map to the field.
-iaoSourceFields :: Lens' IntArrayOptions (Maybe Text)
-iaoSourceFields = lens _iaoSourceFields (\s a -> s {_iaoSourceFields = a})
+--
+-- /Note:/ Consider using 'sourceFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaoSourceFields :: Lens.Lens' IntArrayOptions (Lude.Maybe Lude.Text)
+iaoSourceFields = Lens.lens (sourceFields :: IntArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceFields = a} :: IntArrayOptions)
+{-# DEPRECATED iaoSourceFields "Use generic-lens or generic-optics with 'sourceFields' instead." #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-iaoReturnEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoReturnEnabled = lens _iaoReturnEnabled (\s a -> s {_iaoReturnEnabled = a})
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaoReturnEnabled :: Lens.Lens' IntArrayOptions (Lude.Maybe Lude.Bool)
+iaoReturnEnabled = Lens.lens (returnEnabled :: IntArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: IntArrayOptions)
+{-# DEPRECATED iaoReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether facet information can be returned for the field.
-iaoFacetEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoFacetEnabled = lens _iaoFacetEnabled (\s a -> s {_iaoFacetEnabled = a})
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaoFacetEnabled :: Lens.Lens' IntArrayOptions (Lude.Maybe Lude.Bool)
+iaoFacetEnabled = Lens.lens (facetEnabled :: IntArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: IntArrayOptions)
+{-# DEPRECATED iaoFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
-iaoSearchEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoSearchEnabled = lens _iaoSearchEnabled (\s a -> s {_iaoSearchEnabled = a})
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaoSearchEnabled :: Lens.Lens' IntArrayOptions (Lude.Maybe Lude.Bool)
+iaoSearchEnabled = Lens.lens (searchEnabled :: IntArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: IntArrayOptions)
+{-# DEPRECATED iaoSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
-iaoDefaultValue :: Lens' IntArrayOptions (Maybe Integer)
-iaoDefaultValue = lens _iaoDefaultValue (\s a -> s {_iaoDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaoDefaultValue :: Lens.Lens' IntArrayOptions (Lude.Maybe Lude.Integer)
+iaoDefaultValue = Lens.lens (defaultValue :: IntArrayOptions -> Lude.Maybe Lude.Integer) (\s a -> s {defaultValue = a} :: IntArrayOptions)
+{-# DEPRECATED iaoDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance FromXML IntArrayOptions where
+instance Lude.FromXML IntArrayOptions where
   parseXML x =
     IntArrayOptions'
-      <$> (x .@? "SourceFields")
-      <*> (x .@? "ReturnEnabled")
-      <*> (x .@? "FacetEnabled")
-      <*> (x .@? "SearchEnabled")
-      <*> (x .@? "DefaultValue")
+      Lude.<$> (x Lude..@? "SourceFields")
+      Lude.<*> (x Lude..@? "ReturnEnabled")
+      Lude.<*> (x Lude..@? "FacetEnabled")
+      Lude.<*> (x Lude..@? "SearchEnabled")
+      Lude.<*> (x Lude..@? "DefaultValue")
 
-instance Hashable IntArrayOptions
-
-instance NFData IntArrayOptions
-
-instance ToQuery IntArrayOptions where
+instance Lude.ToQuery IntArrayOptions where
   toQuery IntArrayOptions' {..} =
-    mconcat
-      [ "SourceFields" =: _iaoSourceFields,
-        "ReturnEnabled" =: _iaoReturnEnabled,
-        "FacetEnabled" =: _iaoFacetEnabled,
-        "SearchEnabled" =: _iaoSearchEnabled,
-        "DefaultValue" =: _iaoDefaultValue
+    Lude.mconcat
+      [ "SourceFields" Lude.=: sourceFields,
+        "ReturnEnabled" Lude.=: returnEnabled,
+        "FacetEnabled" Lude.=: facetEnabled,
+        "SearchEnabled" Lude.=: searchEnabled,
+        "DefaultValue" Lude.=: defaultValue
       ]

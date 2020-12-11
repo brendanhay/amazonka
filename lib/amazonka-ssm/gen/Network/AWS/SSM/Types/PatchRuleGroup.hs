@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchRuleGroup where
+module Network.AWS.SSM.Types.PatchRuleGroup
+  ( PatchRuleGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPatchRuleGroup,
+
+    -- * Lenses
+    prgPatchRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.PatchRule
 
 -- | A set of rules defining the approval rules for a patch baseline.
 --
---
---
--- /See:/ 'patchRuleGroup' smart constructor.
-newtype PatchRuleGroup = PatchRuleGroup'
-  { _prgPatchRules ::
-      [PatchRule]
-  }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkPatchRuleGroup' smart constructor.
+newtype PatchRuleGroup = PatchRuleGroup' {patchRules :: [PatchRule]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchRuleGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prgPatchRules' - The rules that make up the rule group.
-patchRuleGroup ::
+-- * 'patchRules' - The rules that make up the rule group.
+mkPatchRuleGroup ::
   PatchRuleGroup
-patchRuleGroup = PatchRuleGroup' {_prgPatchRules = mempty}
+mkPatchRuleGroup = PatchRuleGroup' {patchRules = Lude.mempty}
 
 -- | The rules that make up the rule group.
-prgPatchRules :: Lens' PatchRuleGroup [PatchRule]
-prgPatchRules = lens _prgPatchRules (\s a -> s {_prgPatchRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'patchRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prgPatchRules :: Lens.Lens' PatchRuleGroup [PatchRule]
+prgPatchRules = Lens.lens (patchRules :: PatchRuleGroup -> [PatchRule]) (\s a -> s {patchRules = a} :: PatchRuleGroup)
+{-# DEPRECATED prgPatchRules "Use generic-lens or generic-optics with 'patchRules' instead." #-}
 
-instance FromJSON PatchRuleGroup where
+instance Lude.FromJSON PatchRuleGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "PatchRuleGroup"
-      (\x -> PatchRuleGroup' <$> (x .:? "PatchRules" .!= mempty))
+      ( \x ->
+          PatchRuleGroup'
+            Lude.<$> (x Lude..:? "PatchRules" Lude..!= Lude.mempty)
+      )
 
-instance Hashable PatchRuleGroup
-
-instance NFData PatchRuleGroup
-
-instance ToJSON PatchRuleGroup where
+instance Lude.ToJSON PatchRuleGroup where
   toJSON PatchRuleGroup' {..} =
-    object (catMaybes [Just ("PatchRules" .= _prgPatchRules)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PatchRules" Lude..= patchRules)])

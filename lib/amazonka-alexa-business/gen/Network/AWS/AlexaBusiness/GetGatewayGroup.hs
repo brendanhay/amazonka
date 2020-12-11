@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,133 @@
 --
 -- Retrieves the details of a gateway group.
 module Network.AWS.AlexaBusiness.GetGatewayGroup
-  ( -- * Creating a Request
-    getGatewayGroup,
-    GetGatewayGroup,
+  ( -- * Creating a request
+    GetGatewayGroup (..),
+    mkGetGatewayGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gggGatewayGroupARN,
 
-    -- * Destructuring the Response
-    getGatewayGroupResponse,
-    GetGatewayGroupResponse,
+    -- * Destructuring the response
+    GetGatewayGroupResponse (..),
+    mkGetGatewayGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gggrsGatewayGroup,
     gggrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGatewayGroup' smart constructor.
+-- | /See:/ 'mkGetGatewayGroup' smart constructor.
 newtype GetGatewayGroup = GetGatewayGroup'
-  { _gggGatewayGroupARN ::
-      Text
+  { gatewayGroupARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gggGatewayGroupARN' - The ARN of the gateway group to get.
-getGatewayGroup ::
-  -- | 'gggGatewayGroupARN'
-  Text ->
+-- * 'gatewayGroupARN' - The ARN of the gateway group to get.
+mkGetGatewayGroup ::
+  -- | 'gatewayGroupARN'
+  Lude.Text ->
   GetGatewayGroup
-getGatewayGroup pGatewayGroupARN_ =
-  GetGatewayGroup' {_gggGatewayGroupARN = pGatewayGroupARN_}
+mkGetGatewayGroup pGatewayGroupARN_ =
+  GetGatewayGroup' {gatewayGroupARN = pGatewayGroupARN_}
 
 -- | The ARN of the gateway group to get.
-gggGatewayGroupARN :: Lens' GetGatewayGroup Text
-gggGatewayGroupARN = lens _gggGatewayGroupARN (\s a -> s {_gggGatewayGroupARN = a})
+--
+-- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gggGatewayGroupARN :: Lens.Lens' GetGatewayGroup Lude.Text
+gggGatewayGroupARN = Lens.lens (gatewayGroupARN :: GetGatewayGroup -> Lude.Text) (\s a -> s {gatewayGroupARN = a} :: GetGatewayGroup)
+{-# DEPRECATED gggGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
 
-instance AWSRequest GetGatewayGroup where
+instance Lude.AWSRequest GetGatewayGroup where
   type Rs GetGatewayGroup = GetGatewayGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGatewayGroupResponse'
-            <$> (x .?> "GatewayGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGatewayGroup
-
-instance NFData GetGatewayGroup
-
-instance ToHeaders GetGatewayGroup where
+instance Lude.ToHeaders GetGatewayGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.GetGatewayGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.GetGatewayGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetGatewayGroup where
+instance Lude.ToJSON GetGatewayGroup where
   toJSON GetGatewayGroup' {..} =
-    object
-      (catMaybes [Just ("GatewayGroupArn" .= _gggGatewayGroupARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("GatewayGroupArn" Lude..= gatewayGroupARN)]
+      )
 
-instance ToPath GetGatewayGroup where
-  toPath = const "/"
+instance Lude.ToPath GetGatewayGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery GetGatewayGroup where
-  toQuery = const mempty
+instance Lude.ToQuery GetGatewayGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGatewayGroupResponse' smart constructor.
+-- | /See:/ 'mkGetGatewayGroupResponse' smart constructor.
 data GetGatewayGroupResponse = GetGatewayGroupResponse'
-  { _gggrsGatewayGroup ::
-      !(Maybe GatewayGroup),
-    _gggrsResponseStatus :: !Int
+  { gatewayGroup ::
+      Lude.Maybe GatewayGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gggrsGatewayGroup' - Undocumented member.
---
--- * 'gggrsResponseStatus' - -- | The response status code.
-getGatewayGroupResponse ::
-  -- | 'gggrsResponseStatus'
-  Int ->
+-- * 'gatewayGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetGatewayGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGatewayGroupResponse
-getGatewayGroupResponse pResponseStatus_ =
+mkGetGatewayGroupResponse pResponseStatus_ =
   GetGatewayGroupResponse'
-    { _gggrsGatewayGroup = Nothing,
-      _gggrsResponseStatus = pResponseStatus_
+    { gatewayGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-gggrsGatewayGroup :: Lens' GetGatewayGroupResponse (Maybe GatewayGroup)
-gggrsGatewayGroup = lens _gggrsGatewayGroup (\s a -> s {_gggrsGatewayGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gggrsGatewayGroup :: Lens.Lens' GetGatewayGroupResponse (Lude.Maybe GatewayGroup)
+gggrsGatewayGroup = Lens.lens (gatewayGroup :: GetGatewayGroupResponse -> Lude.Maybe GatewayGroup) (\s a -> s {gatewayGroup = a} :: GetGatewayGroupResponse)
+{-# DEPRECATED gggrsGatewayGroup "Use generic-lens or generic-optics with 'gatewayGroup' instead." #-}
 
--- | -- | The response status code.
-gggrsResponseStatus :: Lens' GetGatewayGroupResponse Int
-gggrsResponseStatus = lens _gggrsResponseStatus (\s a -> s {_gggrsResponseStatus = a})
-
-instance NFData GetGatewayGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gggrsResponseStatus :: Lens.Lens' GetGatewayGroupResponse Lude.Int
+gggrsResponseStatus = Lens.lens (responseStatus :: GetGatewayGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGatewayGroupResponse)
+{-# DEPRECATED gggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

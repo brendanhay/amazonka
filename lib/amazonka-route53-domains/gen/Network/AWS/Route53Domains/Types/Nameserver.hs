@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.Nameserver where
+module Network.AWS.Route53Domains.Types.Nameserver
+  ( Nameserver (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNameserver,
+
+    -- * Lenses
+    nGlueIPs,
+    nName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Nameserver includes the following elements.
 --
---
---
--- /See:/ 'nameserver' smart constructor.
+-- /See:/ 'mkNameserver' smart constructor.
 data Nameserver = Nameserver'
-  { _nGlueIPs :: !(Maybe [Text]),
-    _nName :: !Text
+  { glueIPs :: Lude.Maybe [Lude.Text],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Nameserver' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'glueIPs' - Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.
 --
--- * 'nGlueIPs' - Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Constraints: The list can contain only one IPv4 and one IPv6 address.
+-- Constraints: The list can contain only one IPv4 and one IPv6 address.
+-- * 'name' - The fully qualified host name of the name server.
 --
--- * 'nName' - The fully qualified host name of the name server. Constraint: Maximum 255 characters
-nameserver ::
-  -- | 'nName'
-  Text ->
+-- Constraint: Maximum 255 characters
+mkNameserver ::
+  -- | 'name'
+  Lude.Text ->
   Nameserver
-nameserver pName_ =
-  Nameserver' {_nGlueIPs = Nothing, _nName = pName_}
+mkNameserver pName_ =
+  Nameserver' {glueIPs = Lude.Nothing, name = pName_}
 
--- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Constraints: The list can contain only one IPv4 and one IPv6 address.
-nGlueIPs :: Lens' Nameserver [Text]
-nGlueIPs = lens _nGlueIPs (\s a -> s {_nGlueIPs = a}) . _Default . _Coerce
+-- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.
+--
+-- Constraints: The list can contain only one IPv4 and one IPv6 address.
+--
+-- /Note:/ Consider using 'glueIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nGlueIPs :: Lens.Lens' Nameserver (Lude.Maybe [Lude.Text])
+nGlueIPs = Lens.lens (glueIPs :: Nameserver -> Lude.Maybe [Lude.Text]) (\s a -> s {glueIPs = a} :: Nameserver)
+{-# DEPRECATED nGlueIPs "Use generic-lens or generic-optics with 'glueIPs' instead." #-}
 
--- | The fully qualified host name of the name server. Constraint: Maximum 255 characters
-nName :: Lens' Nameserver Text
-nName = lens _nName (\s a -> s {_nName = a})
+-- | The fully qualified host name of the name server.
+--
+-- Constraint: Maximum 255 characters
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nName :: Lens.Lens' Nameserver Lude.Text
+nName = Lens.lens (name :: Nameserver -> Lude.Text) (\s a -> s {name = a} :: Nameserver)
+{-# DEPRECATED nName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Nameserver where
+instance Lude.FromJSON Nameserver where
   parseJSON =
-    withObject
+    Lude.withObject
       "Nameserver"
       ( \x ->
-          Nameserver' <$> (x .:? "GlueIps" .!= mempty) <*> (x .: "Name")
+          Nameserver'
+            Lude.<$> (x Lude..:? "GlueIps" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Name")
       )
 
-instance Hashable Nameserver
-
-instance NFData Nameserver
-
-instance ToJSON Nameserver where
+instance Lude.ToJSON Nameserver where
   toJSON Nameserver' {..} =
-    object
-      (catMaybes [("GlueIps" .=) <$> _nGlueIPs, Just ("Name" .= _nName)])
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GlueIps" Lude..=) Lude.<$> glueIPs,
+            Lude.Just ("Name" Lude..= name)
+          ]
+      )

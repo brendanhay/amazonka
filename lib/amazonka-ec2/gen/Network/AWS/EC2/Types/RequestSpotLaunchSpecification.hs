@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,207 +7,274 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RequestSpotLaunchSpecification where
+module Network.AWS.EC2.Types.RequestSpotLaunchSpecification
+  ( RequestSpotLaunchSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkRequestSpotLaunchSpecification,
+
+    -- * Lenses
+    rslsSecurityGroupIds,
+    rslsSecurityGroups,
+    rslsKeyName,
+    rslsNetworkInterfaces,
+    rslsRAMDiskId,
+    rslsSubnetId,
+    rslsKernelId,
+    rslsInstanceType,
+    rslsEBSOptimized,
+    rslsUserData,
+    rslsMonitoring,
+    rslsIAMInstanceProfile,
+    rslsImageId,
+    rslsAddressingType,
+    rslsBlockDeviceMappings,
+    rslsPlacement,
+  )
+where
+
 import Network.AWS.EC2.Types.BlockDeviceMapping
 import Network.AWS.EC2.Types.IAMInstanceProfileSpecification
 import Network.AWS.EC2.Types.InstanceNetworkInterfaceSpecification
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
 import Network.AWS.EC2.Types.SpotPlacement
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the launch specification for an instance.
 --
---
---
--- /See:/ 'requestSpotLaunchSpecification' smart constructor.
+-- /See:/ 'mkRequestSpotLaunchSpecification' smart constructor.
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
-  { _rslsSecurityGroupIds ::
-      !(Maybe [Text]),
-    _rslsSecurityGroups ::
-      !(Maybe [Text]),
-    _rslsKeyName :: !(Maybe Text),
-    _rslsNetworkInterfaces ::
-      !( Maybe
-           [InstanceNetworkInterfaceSpecification]
-       ),
-    _rslsRAMDiskId ::
-      !(Maybe Text),
-    _rslsSubnetId ::
-      !(Maybe Text),
-    _rslsKernelId ::
-      !(Maybe Text),
-    _rslsInstanceType ::
-      !(Maybe InstanceType),
-    _rslsEBSOptimized ::
-      !(Maybe Bool),
-    _rslsUserData ::
-      !(Maybe Text),
-    _rslsMonitoring ::
-      !( Maybe
-           RunInstancesMonitoringEnabled
-       ),
-    _rslsIAMInstanceProfile ::
-      !( Maybe
-           IAMInstanceProfileSpecification
-       ),
-    _rslsImageId :: !(Maybe Text),
-    _rslsAddressingType ::
-      !(Maybe Text),
-    _rslsBlockDeviceMappings ::
-      !(Maybe [BlockDeviceMapping]),
-    _rslsPlacement ::
-      !(Maybe SpotPlacement)
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    securityGroups ::
+      Lude.Maybe [Lude.Text],
+    keyName ::
+      Lude.Maybe Lude.Text,
+    networkInterfaces ::
+      Lude.Maybe
+        [InstanceNetworkInterfaceSpecification],
+    ramdiskId ::
+      Lude.Maybe Lude.Text,
+    subnetId ::
+      Lude.Maybe Lude.Text,
+    kernelId ::
+      Lude.Maybe Lude.Text,
+    instanceType ::
+      Lude.Maybe InstanceType,
+    ebsOptimized ::
+      Lude.Maybe Lude.Bool,
+    userData ::
+      Lude.Maybe Lude.Text,
+    monitoring ::
+      Lude.Maybe
+        RunInstancesMonitoringEnabled,
+    iamInstanceProfile ::
+      Lude.Maybe
+        IAMInstanceProfileSpecification,
+    imageId ::
+      Lude.Maybe Lude.Text,
+    addressingType ::
+      Lude.Maybe Lude.Text,
+    blockDeviceMappings ::
+      Lude.Maybe
+        [BlockDeviceMapping],
+    placement ::
+      Lude.Maybe SpotPlacement
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestSpotLaunchSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addressingType' - Deprecated.
+-- * 'blockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+-- * 'ebsOptimized' - Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
--- * 'rslsSecurityGroupIds' - One or more security group IDs.
+-- Default: @false@
+-- * 'iamInstanceProfile' - The IAM instance profile.
+-- * 'imageId' - The ID of the AMI.
+-- * 'instanceType' - The instance type.
+-- * 'kernelId' - The ID of the kernel.
+-- * 'keyName' - The name of the key pair.
+-- * 'monitoring' - Indicates whether basic or detailed monitoring is enabled for the instance.
 --
--- * 'rslsSecurityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
---
--- * 'rslsKeyName' - The name of the key pair.
---
--- * 'rslsNetworkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
---
--- * 'rslsRAMDiskId' - The ID of the RAM disk.
---
--- * 'rslsSubnetId' - The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
---
--- * 'rslsKernelId' - The ID of the kernel.
---
--- * 'rslsInstanceType' - The instance type.
---
--- * 'rslsEBSOptimized' - Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. Default: @false@
---
--- * 'rslsUserData' - The Base64-encoded user data for the instance. User data is limited to 16 KB.
---
--- * 'rslsMonitoring' - Indicates whether basic or detailed monitoring is enabled for the instance. Default: Disabled
---
--- * 'rslsIAMInstanceProfile' - The IAM instance profile.
---
--- * 'rslsImageId' - The ID of the AMI.
---
--- * 'rslsAddressingType' - Deprecated.
---
--- * 'rslsBlockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
---
--- * 'rslsPlacement' - The placement information for the instance.
-requestSpotLaunchSpecification ::
+-- Default: Disabled
+-- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'placement' - The placement information for the instance.
+-- * 'ramdiskId' - The ID of the RAM disk.
+-- * 'securityGroupIds' - One or more security group IDs.
+-- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+-- * 'subnetId' - The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+-- * 'userData' - The Base64-encoded user data for the instance. User data is limited to 16 KB.
+mkRequestSpotLaunchSpecification ::
   RequestSpotLaunchSpecification
-requestSpotLaunchSpecification =
+mkRequestSpotLaunchSpecification =
   RequestSpotLaunchSpecification'
-    { _rslsSecurityGroupIds = Nothing,
-      _rslsSecurityGroups = Nothing,
-      _rslsKeyName = Nothing,
-      _rslsNetworkInterfaces = Nothing,
-      _rslsRAMDiskId = Nothing,
-      _rslsSubnetId = Nothing,
-      _rslsKernelId = Nothing,
-      _rslsInstanceType = Nothing,
-      _rslsEBSOptimized = Nothing,
-      _rslsUserData = Nothing,
-      _rslsMonitoring = Nothing,
-      _rslsIAMInstanceProfile = Nothing,
-      _rslsImageId = Nothing,
-      _rslsAddressingType = Nothing,
-      _rslsBlockDeviceMappings = Nothing,
-      _rslsPlacement = Nothing
+    { securityGroupIds = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      keyName = Lude.Nothing,
+      networkInterfaces = Lude.Nothing,
+      ramdiskId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      kernelId = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      ebsOptimized = Lude.Nothing,
+      userData = Lude.Nothing,
+      monitoring = Lude.Nothing,
+      iamInstanceProfile = Lude.Nothing,
+      imageId = Lude.Nothing,
+      addressingType = Lude.Nothing,
+      blockDeviceMappings = Lude.Nothing,
+      placement = Lude.Nothing
     }
 
 -- | One or more security group IDs.
-rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
-rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\s a -> s {_rslsSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsSecurityGroupIds :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe [Lude.Text])
+rslsSecurityGroupIds = Lens.lens (securityGroupIds :: RequestSpotLaunchSpecification -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
-rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
-rslsSecurityGroups = lens _rslsSecurityGroups (\s a -> s {_rslsSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsSecurityGroups :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe [Lude.Text])
+rslsSecurityGroups = Lens.lens (securityGroups :: RequestSpotLaunchSpecification -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The name of the key pair.
-rslsKeyName :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsKeyName = lens _rslsKeyName (\s a -> s {_rslsKeyName = a})
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsKeyName :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsKeyName = Lens.lens (keyName :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
-rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
-rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\s a -> s {_rslsNetworkInterfaces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsNetworkInterfaces :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe [InstanceNetworkInterfaceSpecification])
+rslsNetworkInterfaces = Lens.lens (networkInterfaces :: RequestSpotLaunchSpecification -> Lude.Maybe [InstanceNetworkInterfaceSpecification]) (\s a -> s {networkInterfaces = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
 
 -- | The ID of the RAM disk.
-rslsRAMDiskId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsRAMDiskId = lens _rslsRAMDiskId (\s a -> s {_rslsRAMDiskId = a})
+--
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsRAMDiskId :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsRAMDiskId = Lens.lens (ramdiskId :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {ramdiskId = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
 
 -- | The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
-rslsSubnetId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsSubnetId = lens _rslsSubnetId (\s a -> s {_rslsSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsSubnetId :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsSubnetId = Lens.lens (subnetId :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The ID of the kernel.
-rslsKernelId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsKernelId = lens _rslsKernelId (\s a -> s {_rslsKernelId = a})
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsKernelId :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsKernelId = Lens.lens (kernelId :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {kernelId = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
 
 -- | The instance type.
-rslsInstanceType :: Lens' RequestSpotLaunchSpecification (Maybe InstanceType)
-rslsInstanceType = lens _rslsInstanceType (\s a -> s {_rslsInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsInstanceType :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe InstanceType)
+rslsInstanceType = Lens.lens (instanceType :: RequestSpotLaunchSpecification -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
--- | Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. Default: @false@
-rslsEBSOptimized :: Lens' RequestSpotLaunchSpecification (Maybe Bool)
-rslsEBSOptimized = lens _rslsEBSOptimized (\s a -> s {_rslsEBSOptimized = a})
+-- | Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsEBSOptimized :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Bool)
+rslsEBSOptimized = Lens.lens (ebsOptimized :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | The Base64-encoded user data for the instance. User data is limited to 16 KB.
-rslsUserData :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsUserData = lens _rslsUserData (\s a -> s {_rslsUserData = a})
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsUserData :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsUserData = Lens.lens (userData :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {userData = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
--- | Indicates whether basic or detailed monitoring is enabled for the instance. Default: Disabled
-rslsMonitoring :: Lens' RequestSpotLaunchSpecification (Maybe RunInstancesMonitoringEnabled)
-rslsMonitoring = lens _rslsMonitoring (\s a -> s {_rslsMonitoring = a})
+-- | Indicates whether basic or detailed monitoring is enabled for the instance.
+--
+-- Default: Disabled
+--
+-- /Note:/ Consider using 'monitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsMonitoring :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe RunInstancesMonitoringEnabled)
+rslsMonitoring = Lens.lens (monitoring :: RequestSpotLaunchSpecification -> Lude.Maybe RunInstancesMonitoringEnabled) (\s a -> s {monitoring = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsMonitoring "Use generic-lens or generic-optics with 'monitoring' instead." #-}
 
 -- | The IAM instance profile.
-rslsIAMInstanceProfile :: Lens' RequestSpotLaunchSpecification (Maybe IAMInstanceProfileSpecification)
-rslsIAMInstanceProfile = lens _rslsIAMInstanceProfile (\s a -> s {_rslsIAMInstanceProfile = a})
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsIAMInstanceProfile :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe IAMInstanceProfileSpecification)
+rslsIAMInstanceProfile = Lens.lens (iamInstanceProfile :: RequestSpotLaunchSpecification -> Lude.Maybe IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The ID of the AMI.
-rslsImageId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsImageId = lens _rslsImageId (\s a -> s {_rslsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsImageId :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsImageId = Lens.lens (imageId :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | Deprecated.
-rslsAddressingType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsAddressingType = lens _rslsAddressingType (\s a -> s {_rslsAddressingType = a})
+--
+-- /Note:/ Consider using 'addressingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsAddressingType :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe Lude.Text)
+rslsAddressingType = Lens.lens (addressingType :: RequestSpotLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {addressingType = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsAddressingType "Use generic-lens or generic-optics with 'addressingType' instead." #-}
 
 -- | One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
-rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
-rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\s a -> s {_rslsBlockDeviceMappings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsBlockDeviceMappings :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe [BlockDeviceMapping])
+rslsBlockDeviceMappings = Lens.lens (blockDeviceMappings :: RequestSpotLaunchSpecification -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
 
 -- | The placement information for the instance.
-rslsPlacement :: Lens' RequestSpotLaunchSpecification (Maybe SpotPlacement)
-rslsPlacement = lens _rslsPlacement (\s a -> s {_rslsPlacement = a})
+--
+-- /Note:/ Consider using 'placement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rslsPlacement :: Lens.Lens' RequestSpotLaunchSpecification (Lude.Maybe SpotPlacement)
+rslsPlacement = Lens.lens (placement :: RequestSpotLaunchSpecification -> Lude.Maybe SpotPlacement) (\s a -> s {placement = a} :: RequestSpotLaunchSpecification)
+{-# DEPRECATED rslsPlacement "Use generic-lens or generic-optics with 'placement' instead." #-}
 
-instance Hashable RequestSpotLaunchSpecification
-
-instance NFData RequestSpotLaunchSpecification
-
-instance ToQuery RequestSpotLaunchSpecification where
+instance Lude.ToQuery RequestSpotLaunchSpecification where
   toQuery RequestSpotLaunchSpecification' {..} =
-    mconcat
-      [ toQuery (toQueryList "SecurityGroupId" <$> _rslsSecurityGroupIds),
-        toQuery (toQueryList "SecurityGroup" <$> _rslsSecurityGroups),
-        "KeyName" =: _rslsKeyName,
-        toQuery
-          (toQueryList "NetworkInterface" <$> _rslsNetworkInterfaces),
-        "RamdiskId" =: _rslsRAMDiskId,
-        "SubnetId" =: _rslsSubnetId,
-        "KernelId" =: _rslsKernelId,
-        "InstanceType" =: _rslsInstanceType,
-        "EbsOptimized" =: _rslsEBSOptimized,
-        "UserData" =: _rslsUserData,
-        "Monitoring" =: _rslsMonitoring,
-        "IamInstanceProfile" =: _rslsIAMInstanceProfile,
-        "ImageId" =: _rslsImageId,
-        "AddressingType" =: _rslsAddressingType,
-        toQuery
-          (toQueryList "BlockDeviceMapping" <$> _rslsBlockDeviceMappings),
-        "Placement" =: _rslsPlacement
+    Lude.mconcat
+      [ Lude.toQuery
+          (Lude.toQueryList "SecurityGroupId" Lude.<$> securityGroupIds),
+        Lude.toQuery
+          (Lude.toQueryList "SecurityGroup" Lude.<$> securityGroups),
+        "KeyName" Lude.=: keyName,
+        Lude.toQuery
+          (Lude.toQueryList "NetworkInterface" Lude.<$> networkInterfaces),
+        "RamdiskId" Lude.=: ramdiskId,
+        "SubnetId" Lude.=: subnetId,
+        "KernelId" Lude.=: kernelId,
+        "InstanceType" Lude.=: instanceType,
+        "EbsOptimized" Lude.=: ebsOptimized,
+        "UserData" Lude.=: userData,
+        "Monitoring" Lude.=: monitoring,
+        "IamInstanceProfile" Lude.=: iamInstanceProfile,
+        "ImageId" Lude.=: imageId,
+        "AddressingType" Lude.=: addressingType,
+        Lude.toQuery
+          ( Lude.toQueryList "BlockDeviceMapping"
+              Lude.<$> blockDeviceMappings
+          ),
+        "Placement" Lude.=: placement
       ]

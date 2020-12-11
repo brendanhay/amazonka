@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DeleteBehavior where
+module Network.AWS.Glue.Types.DeleteBehavior
+  ( DeleteBehavior
+      ( DeleteBehavior',
+        DeleteFromDatabase,
+        DeprecateInDatabase,
+        Log
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeleteBehavior
-  = DeleteFromDatabase
-  | DeprecateInDatabase
-  | Log
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeleteBehavior = DeleteBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeleteBehavior where
-  parser =
-    takeLowerText >>= \case
-      "delete_from_database" -> pure DeleteFromDatabase
-      "deprecate_in_database" -> pure DeprecateInDatabase
-      "log" -> pure Log
-      e ->
-        fromTextError $
-          "Failure parsing DeleteBehavior from value: '" <> e
-            <> "'. Accepted values: delete_from_database, deprecate_in_database, log"
+pattern DeleteFromDatabase :: DeleteBehavior
+pattern DeleteFromDatabase = DeleteBehavior' "DELETE_FROM_DATABASE"
 
-instance ToText DeleteBehavior where
-  toText = \case
-    DeleteFromDatabase -> "DELETE_FROM_DATABASE"
-    DeprecateInDatabase -> "DEPRECATE_IN_DATABASE"
-    Log -> "LOG"
+pattern DeprecateInDatabase :: DeleteBehavior
+pattern DeprecateInDatabase = DeleteBehavior' "DEPRECATE_IN_DATABASE"
 
-instance Hashable DeleteBehavior
+pattern Log :: DeleteBehavior
+pattern Log = DeleteBehavior' "LOG"
 
-instance NFData DeleteBehavior
-
-instance ToByteString DeleteBehavior
-
-instance ToQuery DeleteBehavior
-
-instance ToHeader DeleteBehavior
-
-instance ToJSON DeleteBehavior where
-  toJSON = toJSONText
-
-instance FromJSON DeleteBehavior where
-  parseJSON = parseJSONText "DeleteBehavior"
+{-# COMPLETE
+  DeleteFromDatabase,
+  DeprecateInDatabase,
+  Log,
+  DeleteBehavior'
+  #-}

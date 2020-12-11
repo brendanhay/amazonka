@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SavingsPlansSavings where
+module Network.AWS.CostExplorer.Types.SavingsPlansSavings
+  ( SavingsPlansSavings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSavingsPlansSavings,
+
+    -- * Lenses
+    spsNetSavings,
+    spsOnDemandCostEquivalent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The amount of savings you're accumulating, against the public On-Demand rate of the usage accrued in an account.
 --
---
---
--- /See:/ 'savingsPlansSavings' smart constructor.
+-- /See:/ 'mkSavingsPlansSavings' smart constructor.
 data SavingsPlansSavings = SavingsPlansSavings'
-  { _spsNetSavings ::
-      !(Maybe Text),
-    _spsOnDemandCostEquivalent :: !(Maybe Text)
+  { netSavings ::
+      Lude.Maybe Lude.Text,
+    onDemandCostEquivalent :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansSavings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spsNetSavings' - The savings amount that you are accumulating for the usage that is covered by a Savings Plans, when compared to the On-Demand equivalent of the same usage.
---
--- * 'spsOnDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at the On-Demand rate.
-savingsPlansSavings ::
+-- * 'netSavings' - The savings amount that you are accumulating for the usage that is covered by a Savings Plans, when compared to the On-Demand equivalent of the same usage.
+-- * 'onDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at the On-Demand rate.
+mkSavingsPlansSavings ::
   SavingsPlansSavings
-savingsPlansSavings =
+mkSavingsPlansSavings =
   SavingsPlansSavings'
-    { _spsNetSavings = Nothing,
-      _spsOnDemandCostEquivalent = Nothing
+    { netSavings = Lude.Nothing,
+      onDemandCostEquivalent = Lude.Nothing
     }
 
 -- | The savings amount that you are accumulating for the usage that is covered by a Savings Plans, when compared to the On-Demand equivalent of the same usage.
-spsNetSavings :: Lens' SavingsPlansSavings (Maybe Text)
-spsNetSavings = lens _spsNetSavings (\s a -> s {_spsNetSavings = a})
+--
+-- /Note:/ Consider using 'netSavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsNetSavings :: Lens.Lens' SavingsPlansSavings (Lude.Maybe Lude.Text)
+spsNetSavings = Lens.lens (netSavings :: SavingsPlansSavings -> Lude.Maybe Lude.Text) (\s a -> s {netSavings = a} :: SavingsPlansSavings)
+{-# DEPRECATED spsNetSavings "Use generic-lens or generic-optics with 'netSavings' instead." #-}
 
 -- | How much the amount that the usage would have cost if it was accrued at the On-Demand rate.
-spsOnDemandCostEquivalent :: Lens' SavingsPlansSavings (Maybe Text)
-spsOnDemandCostEquivalent = lens _spsOnDemandCostEquivalent (\s a -> s {_spsOnDemandCostEquivalent = a})
+--
+-- /Note:/ Consider using 'onDemandCostEquivalent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsOnDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Lude.Maybe Lude.Text)
+spsOnDemandCostEquivalent = Lens.lens (onDemandCostEquivalent :: SavingsPlansSavings -> Lude.Maybe Lude.Text) (\s a -> s {onDemandCostEquivalent = a} :: SavingsPlansSavings)
+{-# DEPRECATED spsOnDemandCostEquivalent "Use generic-lens or generic-optics with 'onDemandCostEquivalent' instead." #-}
 
-instance FromJSON SavingsPlansSavings where
+instance Lude.FromJSON SavingsPlansSavings where
   parseJSON =
-    withObject
+    Lude.withObject
       "SavingsPlansSavings"
       ( \x ->
           SavingsPlansSavings'
-            <$> (x .:? "NetSavings") <*> (x .:? "OnDemandCostEquivalent")
+            Lude.<$> (x Lude..:? "NetSavings")
+            Lude.<*> (x Lude..:? "OnDemandCostEquivalent")
       )
-
-instance Hashable SavingsPlansSavings
-
-instance NFData SavingsPlansSavings

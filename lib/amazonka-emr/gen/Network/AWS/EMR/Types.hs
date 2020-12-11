@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types
-  ( -- * Service Configuration
-    emr,
+  ( -- * Service configuration
+    emrService,
 
     -- * Errors
 
@@ -121,66 +119,66 @@ module Network.AWS.EMR.Types
     Unit (..),
 
     -- * Application
-    Application,
-    application,
+    Application (..),
+    mkApplication,
     aArgs,
     aAdditionalInfo,
     aName,
     aVersion,
 
     -- * AutoScalingPolicy
-    AutoScalingPolicy,
-    autoScalingPolicy,
+    AutoScalingPolicy (..),
+    mkAutoScalingPolicy,
     aspConstraints,
     aspRules,
 
     -- * AutoScalingPolicyDescription
-    AutoScalingPolicyDescription,
-    autoScalingPolicyDescription,
+    AutoScalingPolicyDescription (..),
+    mkAutoScalingPolicyDescription,
     aspdStatus,
     aspdRules,
     aspdConstraints,
 
     -- * AutoScalingPolicyStateChangeReason
-    AutoScalingPolicyStateChangeReason,
-    autoScalingPolicyStateChangeReason,
+    AutoScalingPolicyStateChangeReason (..),
+    mkAutoScalingPolicyStateChangeReason,
     aspscrCode,
     aspscrMessage,
 
     -- * AutoScalingPolicyStatus
-    AutoScalingPolicyStatus,
-    autoScalingPolicyStatus,
+    AutoScalingPolicyStatus (..),
+    mkAutoScalingPolicyStatus,
     aspsState,
     aspsStateChangeReason,
 
     -- * BlockPublicAccessConfiguration
-    BlockPublicAccessConfiguration,
-    blockPublicAccessConfiguration,
+    BlockPublicAccessConfiguration (..),
+    mkBlockPublicAccessConfiguration,
     bpacPermittedPublicSecurityGroupRuleRanges,
     bpacBlockPublicSecurityGroupRules,
 
     -- * BlockPublicAccessConfigurationMetadata
-    BlockPublicAccessConfigurationMetadata,
-    blockPublicAccessConfigurationMetadata,
+    BlockPublicAccessConfigurationMetadata (..),
+    mkBlockPublicAccessConfigurationMetadata,
     bpacmCreationDateTime,
     bpacmCreatedByARN,
 
     -- * BootstrapActionConfig
-    BootstrapActionConfig,
-    bootstrapActionConfig,
+    BootstrapActionConfig (..),
+    mkBootstrapActionConfig,
     bacName,
     bacScriptBootstrapAction,
 
     -- * CancelStepsInfo
-    CancelStepsInfo,
-    cancelStepsInfo,
+    CancelStepsInfo (..),
+    mkCancelStepsInfo,
     csiStatus,
     csiStepId,
     csiReason,
 
     -- * CloudWatchAlarmDefinition
-    CloudWatchAlarmDefinition,
-    cloudWatchAlarmDefinition,
+    CloudWatchAlarmDefinition (..),
+    mkCloudWatchAlarmDefinition,
     cwadEvaluationPeriods,
     cwadNamespace,
     cwadDimensions,
@@ -192,8 +190,8 @@ module Network.AWS.EMR.Types
     cwadThreshold,
 
     -- * Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cluLogEncryptionKMSKeyId,
     cluClusterARN,
     cluRequestedAMIVersion,
@@ -226,21 +224,21 @@ module Network.AWS.EMR.Types
     cluStatus,
 
     -- * ClusterStateChangeReason
-    ClusterStateChangeReason,
-    clusterStateChangeReason,
+    ClusterStateChangeReason (..),
+    mkClusterStateChangeReason,
     cscrCode,
     cscrMessage,
 
     -- * ClusterStatus
-    ClusterStatus,
-    clusterStatus,
+    ClusterStatus (..),
+    mkClusterStatus,
     csState,
     csStateChangeReason,
     csTimeline,
 
     -- * ClusterSummary
-    ClusterSummary,
-    clusterSummary,
+    ClusterSummary (..),
+    mkClusterSummary,
     cStatus,
     cClusterARN,
     cOutpostARN,
@@ -249,22 +247,22 @@ module Network.AWS.EMR.Types
     cId,
 
     -- * ClusterTimeline
-    ClusterTimeline,
-    clusterTimeline,
+    ClusterTimeline (..),
+    mkClusterTimeline,
     ctReadyDateTime,
     ctCreationDateTime,
     ctEndDateTime,
 
     -- * Command
-    Command,
-    command,
+    Command (..),
+    mkCommand,
     comArgs,
     comScriptPath,
     comName,
 
     -- * ComputeLimits
-    ComputeLimits,
-    computeLimits,
+    ComputeLimits (..),
+    mkComputeLimits,
     clMaximumOnDemandCapacityUnits,
     clMaximumCoreCapacityUnits,
     clUnitType,
@@ -272,39 +270,39 @@ module Network.AWS.EMR.Types
     clMaximumCapacityUnits,
 
     -- * Configuration
-    Configuration,
-    configuration,
+    Configuration (..),
+    mkConfiguration,
     cConfigurations,
     cClassification,
     cProperties,
 
     -- * EBSBlockDevice
-    EBSBlockDevice,
-    ebsBlockDevice,
+    EBSBlockDevice (..),
+    mkEBSBlockDevice,
     ebdDevice,
     ebdVolumeSpecification,
 
     -- * EBSBlockDeviceConfig
-    EBSBlockDeviceConfig,
-    ebsBlockDeviceConfig,
+    EBSBlockDeviceConfig (..),
+    mkEBSBlockDeviceConfig,
     ebdcVolumesPerInstance,
     ebdcVolumeSpecification,
 
     -- * EBSConfiguration
-    EBSConfiguration,
-    ebsConfiguration,
+    EBSConfiguration (..),
+    mkEBSConfiguration,
     ecEBSOptimized,
     ecEBSBlockDeviceConfigs,
 
     -- * EBSVolume
-    EBSVolume,
-    ebsVolume,
+    EBSVolume (..),
+    mkEBSVolume,
     evDevice,
     evVolumeId,
 
     -- * EC2InstanceAttributes
-    EC2InstanceAttributes,
-    ec2InstanceAttributes,
+    EC2InstanceAttributes (..),
+    mkEC2InstanceAttributes,
     eiaEC2KeyName,
     eiaEmrManagedSlaveSecurityGroup,
     eiaAdditionalSlaveSecurityGroups,
@@ -318,38 +316,38 @@ module Network.AWS.EMR.Types
     eiaEC2AvailabilityZone,
 
     -- * ExecutionEngineConfig
-    ExecutionEngineConfig,
-    executionEngineConfig,
+    ExecutionEngineConfig (..),
+    mkExecutionEngineConfig,
     eecMasterInstanceSecurityGroupId,
     eecType,
     eecId,
 
     -- * FailureDetails
-    FailureDetails,
-    failureDetails,
+    FailureDetails (..),
+    mkFailureDetails,
     fdLogFile,
     fdReason,
     fdMessage,
 
     -- * HadoopJARStepConfig
-    HadoopJARStepConfig,
-    hadoopJARStepConfig,
+    HadoopJARStepConfig (..),
+    mkHadoopJARStepConfig,
     hjscArgs,
     hjscMainClass,
     hjscProperties,
     hjscJAR,
 
     -- * HadoopStepConfig
-    HadoopStepConfig,
-    hadoopStepConfig,
+    HadoopStepConfig (..),
+    mkHadoopStepConfig,
     hscArgs,
     hscJAR,
     hscMainClass,
     hscProperties,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iStatus,
     iPublicDNSName,
     iEBSVolumes,
@@ -364,8 +362,8 @@ module Network.AWS.EMR.Types
     iPublicIPAddress,
 
     -- * InstanceFleet
-    InstanceFleet,
-    instanceFleet,
+    InstanceFleet (..),
+    mkInstanceFleet,
     ifProvisionedSpotCapacity,
     ifStatus,
     ifTargetOnDemandCapacity,
@@ -378,8 +376,8 @@ module Network.AWS.EMR.Types
     ifLaunchSpecifications,
 
     -- * InstanceFleetConfig
-    InstanceFleetConfig,
-    instanceFleetConfig,
+    InstanceFleetConfig (..),
+    mkInstanceFleetConfig,
     ifcInstanceTypeConfigs,
     ifcTargetOnDemandCapacity,
     ifcName,
@@ -388,41 +386,41 @@ module Network.AWS.EMR.Types
     ifcInstanceFleetType,
 
     -- * InstanceFleetModifyConfig
-    InstanceFleetModifyConfig,
-    instanceFleetModifyConfig,
+    InstanceFleetModifyConfig (..),
+    mkInstanceFleetModifyConfig,
     ifmcTargetOnDemandCapacity,
     ifmcTargetSpotCapacity,
     ifmcInstanceFleetId,
 
     -- * InstanceFleetProvisioningSpecifications
-    InstanceFleetProvisioningSpecifications,
-    instanceFleetProvisioningSpecifications,
+    InstanceFleetProvisioningSpecifications (..),
+    mkInstanceFleetProvisioningSpecifications,
     ifpsSpotSpecification,
     ifpsOnDemandSpecification,
 
     -- * InstanceFleetStateChangeReason
-    InstanceFleetStateChangeReason,
-    instanceFleetStateChangeReason,
+    InstanceFleetStateChangeReason (..),
+    mkInstanceFleetStateChangeReason,
     ifscrCode,
     ifscrMessage,
 
     -- * InstanceFleetStatus
-    InstanceFleetStatus,
-    instanceFleetStatus,
+    InstanceFleetStatus (..),
+    mkInstanceFleetStatus,
     ifsState,
     ifsStateChangeReason,
     ifsTimeline,
 
     -- * InstanceFleetTimeline
-    InstanceFleetTimeline,
-    instanceFleetTimeline,
+    InstanceFleetTimeline (..),
+    mkInstanceFleetTimeline,
     iftReadyDateTime,
     iftCreationDateTime,
     iftEndDateTime,
 
     -- * InstanceGroup
-    InstanceGroup,
-    instanceGroup,
+    InstanceGroup (..),
+    mkInstanceGroup,
     igStatus,
     igLastSuccessfullyAppliedConfigurationsVersion,
     igBidPrice,
@@ -442,8 +440,8 @@ module Network.AWS.EMR.Types
     igId,
 
     -- * InstanceGroupConfig
-    InstanceGroupConfig,
-    instanceGroupConfig,
+    InstanceGroupConfig (..),
+    mkInstanceGroupConfig,
     igcEBSConfiguration,
     igcBidPrice,
     igcConfigurations,
@@ -455,8 +453,8 @@ module Network.AWS.EMR.Types
     igcInstanceCount,
 
     -- * InstanceGroupModifyConfig
-    InstanceGroupModifyConfig,
-    instanceGroupModifyConfig,
+    InstanceGroupModifyConfig (..),
+    mkInstanceGroupModifyConfig,
     igmcInstanceCount,
     igmcConfigurations,
     igmcEC2InstanceIdsToTerminate,
@@ -464,55 +462,55 @@ module Network.AWS.EMR.Types
     igmcInstanceGroupId,
 
     -- * InstanceGroupStateChangeReason
-    InstanceGroupStateChangeReason,
-    instanceGroupStateChangeReason,
+    InstanceGroupStateChangeReason (..),
+    mkInstanceGroupStateChangeReason,
     igscrCode,
     igscrMessage,
 
     -- * InstanceGroupStatus
-    InstanceGroupStatus,
-    instanceGroupStatus,
+    InstanceGroupStatus (..),
+    mkInstanceGroupStatus,
     igsState,
     igsStateChangeReason,
     igsTimeline,
 
     -- * InstanceGroupTimeline
-    InstanceGroupTimeline,
-    instanceGroupTimeline,
+    InstanceGroupTimeline (..),
+    mkInstanceGroupTimeline,
     igtReadyDateTime,
     igtCreationDateTime,
     igtEndDateTime,
 
     -- * InstanceResizePolicy
-    InstanceResizePolicy,
-    instanceResizePolicy,
+    InstanceResizePolicy (..),
+    mkInstanceResizePolicy,
     irpInstancesToProtect,
     irpInstancesToTerminate,
     irpInstanceTerminationTimeout,
 
     -- * InstanceStateChangeReason
-    InstanceStateChangeReason,
-    instanceStateChangeReason,
+    InstanceStateChangeReason (..),
+    mkInstanceStateChangeReason,
     iscrCode,
     iscrMessage,
 
     -- * InstanceStatus
-    InstanceStatus,
-    instanceStatus,
+    InstanceStatus (..),
+    mkInstanceStatus,
     isState,
     isStateChangeReason,
     isTimeline,
 
     -- * InstanceTimeline
-    InstanceTimeline,
-    instanceTimeline,
+    InstanceTimeline (..),
+    mkInstanceTimeline,
     itReadyDateTime,
     itCreationDateTime,
     itEndDateTime,
 
     -- * InstanceTypeConfig
-    InstanceTypeConfig,
-    instanceTypeConfig,
+    InstanceTypeConfig (..),
+    mkInstanceTypeConfig,
     itcEBSConfiguration,
     itcBidPrice,
     itcWeightedCapacity,
@@ -521,8 +519,8 @@ module Network.AWS.EMR.Types
     itcInstanceType,
 
     -- * InstanceTypeSpecification
-    InstanceTypeSpecification,
-    instanceTypeSpecification,
+    InstanceTypeSpecification (..),
+    mkInstanceTypeSpecification,
     itsBidPrice,
     itsWeightedCapacity,
     itsConfigurations,
@@ -532,8 +530,8 @@ module Network.AWS.EMR.Types
     itsBidPriceAsPercentageOfOnDemandPrice,
 
     -- * JobFlowInstancesConfig
-    JobFlowInstancesConfig,
-    jobFlowInstancesConfig,
+    JobFlowInstancesConfig (..),
+    mkJobFlowInstancesConfig,
     jficInstanceFleets,
     jficEC2KeyName,
     jficSlaveInstanceType,
@@ -553,8 +551,8 @@ module Network.AWS.EMR.Types
     jficPlacement,
 
     -- * KerberosAttributes
-    KerberosAttributes,
-    kerberosAttributes,
+    KerberosAttributes (..),
+    mkKerberosAttributes,
     kaKdcAdminPassword,
     kaRealm,
     kaADDomainJoinPassword,
@@ -562,25 +560,25 @@ module Network.AWS.EMR.Types
     kaADDomainJoinUser,
 
     -- * KeyValue
-    KeyValue,
-    keyValue,
+    KeyValue (..),
+    mkKeyValue,
     kvValue,
     kvKey,
 
     -- * ManagedScalingPolicy
-    ManagedScalingPolicy,
-    managedScalingPolicy,
+    ManagedScalingPolicy (..),
+    mkManagedScalingPolicy,
     mspComputeLimits,
 
     -- * MetricDimension
-    MetricDimension,
-    metricDimension,
+    MetricDimension (..),
+    mkMetricDimension,
     mdValue,
     mdKey,
 
     -- * NotebookExecution
-    NotebookExecution,
-    notebookExecution,
+    NotebookExecution (..),
+    mkNotebookExecution,
     neStatus,
     neExecutionEngine,
     neNotebookInstanceSecurityGroupId,
@@ -596,8 +594,8 @@ module Network.AWS.EMR.Types
     neTags,
 
     -- * NotebookExecutionSummary
-    NotebookExecutionSummary,
-    notebookExecutionSummary,
+    NotebookExecutionSummary (..),
+    mkNotebookExecutionSummary,
     nesStatus,
     nesEditorId,
     nesStartTime,
@@ -606,68 +604,68 @@ module Network.AWS.EMR.Types
     nesEndTime,
 
     -- * OnDemandProvisioningSpecification
-    OnDemandProvisioningSpecification,
-    onDemandProvisioningSpecification,
+    OnDemandProvisioningSpecification (..),
+    mkOnDemandProvisioningSpecification,
     odpsAllocationStrategy,
 
     -- * PlacementGroupConfig
-    PlacementGroupConfig,
-    placementGroupConfig,
+    PlacementGroupConfig (..),
+    mkPlacementGroupConfig,
     pgcPlacementStrategy,
     pgcInstanceRole,
 
     -- * PlacementType
-    PlacementType,
-    placementType,
+    PlacementType (..),
+    mkPlacementType,
     ptAvailabilityZones,
     ptAvailabilityZone,
 
     -- * PortRange
-    PortRange,
-    portRange,
+    PortRange (..),
+    mkPortRange,
     prMaxRange,
     prMinRange,
 
     -- * ScalingAction
-    ScalingAction,
-    scalingAction,
+    ScalingAction (..),
+    mkScalingAction,
     saMarket,
     saSimpleScalingPolicyConfiguration,
 
     -- * ScalingConstraints
-    ScalingConstraints,
-    scalingConstraints,
+    ScalingConstraints (..),
+    mkScalingConstraints,
     scMinCapacity,
     scMaxCapacity,
 
     -- * ScalingRule
-    ScalingRule,
-    scalingRule,
+    ScalingRule (..),
+    mkScalingRule,
     srDescription,
     srName,
     srAction,
     srTrigger,
 
     -- * ScalingTrigger
-    ScalingTrigger,
-    scalingTrigger,
+    ScalingTrigger (..),
+    mkScalingTrigger,
     stCloudWatchAlarmDefinition,
 
     -- * ScriptBootstrapActionConfig
-    ScriptBootstrapActionConfig,
-    scriptBootstrapActionConfig,
+    ScriptBootstrapActionConfig (..),
+    mkScriptBootstrapActionConfig,
     sbacArgs,
     sbacPath,
 
     -- * SecurityConfigurationSummary
-    SecurityConfigurationSummary,
-    securityConfigurationSummary,
+    SecurityConfigurationSummary (..),
+    mkSecurityConfigurationSummary,
     scsName,
     scsCreationDateTime,
 
     -- * SessionMappingDetail
-    SessionMappingDetail,
-    sessionMappingDetail,
+    SessionMappingDetail (..),
+    mkSessionMappingDetail,
     smdCreationTime,
     smdStudioId,
     smdLastModifiedTime,
@@ -677,8 +675,8 @@ module Network.AWS.EMR.Types
     smdIdentityName,
 
     -- * SessionMappingSummary
-    SessionMappingSummary,
-    sessionMappingSummary,
+    SessionMappingSummary (..),
+    mkSessionMappingSummary,
     smsCreationTime,
     smsStudioId,
     smsIdentityType,
@@ -687,29 +685,29 @@ module Network.AWS.EMR.Types
     smsIdentityName,
 
     -- * ShrinkPolicy
-    ShrinkPolicy,
-    shrinkPolicy,
+    ShrinkPolicy (..),
+    mkShrinkPolicy,
     spDecommissionTimeout,
     spInstanceResizePolicy,
 
     -- * SimpleScalingPolicyConfiguration
-    SimpleScalingPolicyConfiguration,
-    simpleScalingPolicyConfiguration,
+    SimpleScalingPolicyConfiguration (..),
+    mkSimpleScalingPolicyConfiguration,
     sspcAdjustmentType,
     sspcCoolDown,
     sspcScalingAdjustment,
 
     -- * SpotProvisioningSpecification
-    SpotProvisioningSpecification,
-    spotProvisioningSpecification,
+    SpotProvisioningSpecification (..),
+    mkSpotProvisioningSpecification,
     spsBlockDurationMinutes,
     spsAllocationStrategy,
     spsTimeoutDurationMinutes,
     spsTimeoutAction,
 
     -- * Step
-    Step,
-    step,
+    Step (..),
+    mkStep,
     sStatus,
     sActionOnFailure,
     sConfig,
@@ -717,29 +715,29 @@ module Network.AWS.EMR.Types
     sId,
 
     -- * StepConfig
-    StepConfig,
-    stepConfig,
+    StepConfig (..),
+    mkStepConfig,
     scActionOnFailure,
     scName,
     scHadoopJARStep,
 
     -- * StepStateChangeReason
-    StepStateChangeReason,
-    stepStateChangeReason,
+    StepStateChangeReason (..),
+    mkStepStateChangeReason,
     sscrCode,
     sscrMessage,
 
     -- * StepStatus
-    StepStatus,
-    stepStatus,
+    StepStatus (..),
+    mkStepStatus,
     ssState,
     ssFailureDetails,
     ssStateChangeReason,
     ssTimeline,
 
     -- * StepSummary
-    StepSummary,
-    stepSummary,
+    StepSummary (..),
+    mkStepSummary,
     steStatus,
     steActionOnFailure,
     steConfig,
@@ -747,15 +745,15 @@ module Network.AWS.EMR.Types
     steId,
 
     -- * StepTimeline
-    StepTimeline,
-    stepTimeline,
+    StepTimeline (..),
+    mkStepTimeline,
     stCreationDateTime,
     stEndDateTime,
     stStartDateTime,
 
     -- * Studio
-    Studio,
-    studio,
+    Studio (..),
+    mkStudio,
     stuCreationTime,
     stuEngineSecurityGroupId,
     stuSubnetIds,
@@ -773,8 +771,8 @@ module Network.AWS.EMR.Types
     stuServiceRole,
 
     -- * StudioSummary
-    StudioSummary,
-    studioSummary,
+    StudioSummary (..),
+    mkStudioSummary,
     ssCreationTime,
     ssStudioId,
     ssVPCId,
@@ -783,20 +781,20 @@ module Network.AWS.EMR.Types
     ssDescription,
 
     -- * SupportedProductConfig
-    SupportedProductConfig,
-    supportedProductConfig,
+    SupportedProductConfig (..),
+    mkSupportedProductConfig,
     spcArgs,
     spcName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * VolumeSpecification
-    VolumeSpecification,
-    volumeSpecification,
+    VolumeSpecification (..),
+    mkVolumeSpecification,
     vsIOPS,
     vsVolumeType,
     vsSizeInGB,
@@ -918,48 +916,60 @@ import Network.AWS.EMR.Types.SupportedProductConfig
 import Network.AWS.EMR.Types.Tag
 import Network.AWS.EMR.Types.Unit
 import Network.AWS.EMR.Types.VolumeSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2009-03-31@ of the Amazon Elastic MapReduce SDK configuration.
-emr :: Service
-emr =
-  Service
-    { _svcAbbrev = "EMR",
-      _svcSigner = v4,
-      _svcPrefix = "elasticmapreduce",
-      _svcVersion = "2009-03-31",
-      _svcEndpoint = defaultEndpoint emr,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "EMR",
-      _svcRetry = retry
+emrService :: Lude.Service
+emrService =
+  Lude.Service
+    { Lude._svcAbbrev = "EMR",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "elasticmapreduce",
+      Lude._svcVersion = "2009-03-31",
+      Lude._svcEndpoint = Lude.defaultEndpoint emrService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "EMR",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

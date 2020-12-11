@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization where
+module Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization
+  ( Mpeg2AdaptiveQuantization
+      ( Mpeg2AdaptiveQuantization',
+        MAQAuto,
+        MAQHigh,
+        MAQLow,
+        MAQMedium,
+        MAQOff
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Adaptive Quantization
-data Mpeg2AdaptiveQuantization
-  = MAQAuto
-  | MAQHigh
-  | MAQLow
-  | MAQMedium
-  | MAQOff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2AdaptiveQuantization where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure MAQAuto
-      "high" -> pure MAQHigh
-      "low" -> pure MAQLow
-      "medium" -> pure MAQMedium
-      "off" -> pure MAQOff
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2AdaptiveQuantization from value: '" <> e
-            <> "'. Accepted values: auto, high, low, medium, off"
+pattern MAQAuto :: Mpeg2AdaptiveQuantization
+pattern MAQAuto = Mpeg2AdaptiveQuantization' "AUTO"
 
-instance ToText Mpeg2AdaptiveQuantization where
-  toText = \case
-    MAQAuto -> "AUTO"
-    MAQHigh -> "HIGH"
-    MAQLow -> "LOW"
-    MAQMedium -> "MEDIUM"
-    MAQOff -> "OFF"
+pattern MAQHigh :: Mpeg2AdaptiveQuantization
+pattern MAQHigh = Mpeg2AdaptiveQuantization' "HIGH"
 
-instance Hashable Mpeg2AdaptiveQuantization
+pattern MAQLow :: Mpeg2AdaptiveQuantization
+pattern MAQLow = Mpeg2AdaptiveQuantization' "LOW"
 
-instance NFData Mpeg2AdaptiveQuantization
+pattern MAQMedium :: Mpeg2AdaptiveQuantization
+pattern MAQMedium = Mpeg2AdaptiveQuantization' "MEDIUM"
 
-instance ToByteString Mpeg2AdaptiveQuantization
+pattern MAQOff :: Mpeg2AdaptiveQuantization
+pattern MAQOff = Mpeg2AdaptiveQuantization' "OFF"
 
-instance ToQuery Mpeg2AdaptiveQuantization
-
-instance ToHeader Mpeg2AdaptiveQuantization
-
-instance ToJSON Mpeg2AdaptiveQuantization where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2AdaptiveQuantization where
-  parseJSON = parseJSONText "Mpeg2AdaptiveQuantization"
+{-# COMPLETE
+  MAQAuto,
+  MAQHigh,
+  MAQLow,
+  MAQMedium,
+  MAQOff,
+  Mpeg2AdaptiveQuantization'
+  #-}

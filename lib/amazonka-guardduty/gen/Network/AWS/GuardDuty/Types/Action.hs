@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Action where
+module Network.AWS.GuardDuty.Types.Action
+  ( Action (..),
+
+    -- * Smart constructor
+    mkAction,
+
+    -- * Lenses
+    aNetworkConnectionAction,
+    aPortProbeAction,
+    aActionType,
+    aDNSRequestAction,
+    aAWSAPICallAction,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.AWSAPICallAction
 import Network.AWS.GuardDuty.Types.DNSRequestAction
 import Network.AWS.GuardDuty.Types.NetworkConnectionAction
 import Network.AWS.GuardDuty.Types.PortProbeAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about actions.
 --
---
---
--- /See:/ 'action' smart constructor.
+-- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { _aNetworkConnectionAction ::
-      !(Maybe NetworkConnectionAction),
-    _aPortProbeAction :: !(Maybe PortProbeAction),
-    _aActionType :: !(Maybe Text),
-    _aDNSRequestAction :: !(Maybe DNSRequestAction),
-    _aAWSAPICallAction :: !(Maybe AWSAPICallAction)
+  { networkConnectionAction ::
+      Lude.Maybe NetworkConnectionAction,
+    portProbeAction :: Lude.Maybe PortProbeAction,
+    actionType :: Lude.Maybe Lude.Text,
+    dnsRequestAction :: Lude.Maybe DNSRequestAction,
+    awsAPICallAction :: Lude.Maybe AWSAPICallAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aNetworkConnectionAction' - Information about the NETWORK_CONNECTION action described in this finding.
---
--- * 'aPortProbeAction' - Information about the PORT_PROBE action described in this finding.
---
--- * 'aActionType' - The GuardDuty finding activity type.
---
--- * 'aDNSRequestAction' - Information about the DNS_REQUEST action described in this finding.
---
--- * 'aAWSAPICallAction' - Information about the AWS_API_CALL action described in this finding.
-action ::
+-- * 'actionType' - The GuardDuty finding activity type.
+-- * 'awsAPICallAction' - Information about the AWS_API_CALL action described in this finding.
+-- * 'dnsRequestAction' - Information about the DNS_REQUEST action described in this finding.
+-- * 'networkConnectionAction' - Information about the NETWORK_CONNECTION action described in this finding.
+-- * 'portProbeAction' - Information about the PORT_PROBE action described in this finding.
+mkAction ::
   Action
-action =
+mkAction =
   Action'
-    { _aNetworkConnectionAction = Nothing,
-      _aPortProbeAction = Nothing,
-      _aActionType = Nothing,
-      _aDNSRequestAction = Nothing,
-      _aAWSAPICallAction = Nothing
+    { networkConnectionAction = Lude.Nothing,
+      portProbeAction = Lude.Nothing,
+      actionType = Lude.Nothing,
+      dnsRequestAction = Lude.Nothing,
+      awsAPICallAction = Lude.Nothing
     }
 
 -- | Information about the NETWORK_CONNECTION action described in this finding.
-aNetworkConnectionAction :: Lens' Action (Maybe NetworkConnectionAction)
-aNetworkConnectionAction = lens _aNetworkConnectionAction (\s a -> s {_aNetworkConnectionAction = a})
+--
+-- /Note:/ Consider using 'networkConnectionAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNetworkConnectionAction :: Lens.Lens' Action (Lude.Maybe NetworkConnectionAction)
+aNetworkConnectionAction = Lens.lens (networkConnectionAction :: Action -> Lude.Maybe NetworkConnectionAction) (\s a -> s {networkConnectionAction = a} :: Action)
+{-# DEPRECATED aNetworkConnectionAction "Use generic-lens or generic-optics with 'networkConnectionAction' instead." #-}
 
 -- | Information about the PORT_PROBE action described in this finding.
-aPortProbeAction :: Lens' Action (Maybe PortProbeAction)
-aPortProbeAction = lens _aPortProbeAction (\s a -> s {_aPortProbeAction = a})
+--
+-- /Note:/ Consider using 'portProbeAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPortProbeAction :: Lens.Lens' Action (Lude.Maybe PortProbeAction)
+aPortProbeAction = Lens.lens (portProbeAction :: Action -> Lude.Maybe PortProbeAction) (\s a -> s {portProbeAction = a} :: Action)
+{-# DEPRECATED aPortProbeAction "Use generic-lens or generic-optics with 'portProbeAction' instead." #-}
 
 -- | The GuardDuty finding activity type.
-aActionType :: Lens' Action (Maybe Text)
-aActionType = lens _aActionType (\s a -> s {_aActionType = a})
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aActionType :: Lens.Lens' Action (Lude.Maybe Lude.Text)
+aActionType = Lens.lens (actionType :: Action -> Lude.Maybe Lude.Text) (\s a -> s {actionType = a} :: Action)
+{-# DEPRECATED aActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
 -- | Information about the DNS_REQUEST action described in this finding.
-aDNSRequestAction :: Lens' Action (Maybe DNSRequestAction)
-aDNSRequestAction = lens _aDNSRequestAction (\s a -> s {_aDNSRequestAction = a})
+--
+-- /Note:/ Consider using 'dnsRequestAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDNSRequestAction :: Lens.Lens' Action (Lude.Maybe DNSRequestAction)
+aDNSRequestAction = Lens.lens (dnsRequestAction :: Action -> Lude.Maybe DNSRequestAction) (\s a -> s {dnsRequestAction = a} :: Action)
+{-# DEPRECATED aDNSRequestAction "Use generic-lens or generic-optics with 'dnsRequestAction' instead." #-}
 
 -- | Information about the AWS_API_CALL action described in this finding.
-aAWSAPICallAction :: Lens' Action (Maybe AWSAPICallAction)
-aAWSAPICallAction = lens _aAWSAPICallAction (\s a -> s {_aAWSAPICallAction = a})
+--
+-- /Note:/ Consider using 'awsAPICallAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAWSAPICallAction :: Lens.Lens' Action (Lude.Maybe AWSAPICallAction)
+aAWSAPICallAction = Lens.lens (awsAPICallAction :: Action -> Lude.Maybe AWSAPICallAction) (\s a -> s {awsAPICallAction = a} :: Action)
+{-# DEPRECATED aAWSAPICallAction "Use generic-lens or generic-optics with 'awsAPICallAction' instead." #-}
 
-instance FromJSON Action where
+instance Lude.FromJSON Action where
   parseJSON =
-    withObject
+    Lude.withObject
       "Action"
       ( \x ->
           Action'
-            <$> (x .:? "networkConnectionAction")
-            <*> (x .:? "portProbeAction")
-            <*> (x .:? "actionType")
-            <*> (x .:? "dnsRequestAction")
-            <*> (x .:? "awsApiCallAction")
+            Lude.<$> (x Lude..:? "networkConnectionAction")
+            Lude.<*> (x Lude..:? "portProbeAction")
+            Lude.<*> (x Lude..:? "actionType")
+            Lude.<*> (x Lude..:? "dnsRequestAction")
+            Lude.<*> (x Lude..:? "awsApiCallAction")
       )
-
-instance Hashable Action
-
-instance NFData Action

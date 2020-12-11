@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a new version of a fleet provisioning template.
 module Network.AWS.IoT.CreateProvisioningTemplateVersion
-  ( -- * Creating a Request
-    createProvisioningTemplateVersion,
-    CreateProvisioningTemplateVersion,
+  ( -- * Creating a request
+    CreateProvisioningTemplateVersion (..),
+    mkCreateProvisioningTemplateVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cptvSetAsDefault,
     cptvTemplateName,
     cptvTemplateBody,
 
-    -- * Destructuring the Response
-    createProvisioningTemplateVersionResponse,
-    CreateProvisioningTemplateVersionResponse,
+    -- * Destructuring the response
+    CreateProvisioningTemplateVersionResponse (..),
+    mkCreateProvisioningTemplateVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cptvrsVersionId,
     cptvrsTemplateName,
     cptvrsTemplateARN,
@@ -42,167 +37,179 @@ module Network.AWS.IoT.CreateProvisioningTemplateVersion
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createProvisioningTemplateVersion' smart constructor.
+-- | /See:/ 'mkCreateProvisioningTemplateVersion' smart constructor.
 data CreateProvisioningTemplateVersion = CreateProvisioningTemplateVersion'
-  { _cptvSetAsDefault ::
-      !(Maybe Bool),
-    _cptvTemplateName ::
-      !Text,
-    _cptvTemplateBody ::
-      !Text
+  { setAsDefault ::
+      Lude.Maybe Lude.Bool,
+    templateName ::
+      Lude.Text,
+    templateBody ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplateVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cptvSetAsDefault' - Sets a fleet provision template version as the default version.
---
--- * 'cptvTemplateName' - The name of the fleet provisioning template.
---
--- * 'cptvTemplateBody' - The JSON formatted contents of the fleet provisioning template.
-createProvisioningTemplateVersion ::
-  -- | 'cptvTemplateName'
-  Text ->
-  -- | 'cptvTemplateBody'
-  Text ->
+-- * 'setAsDefault' - Sets a fleet provision template version as the default version.
+-- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
+-- * 'templateName' - The name of the fleet provisioning template.
+mkCreateProvisioningTemplateVersion ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'templateBody'
+  Lude.Text ->
   CreateProvisioningTemplateVersion
-createProvisioningTemplateVersion pTemplateName_ pTemplateBody_ =
+mkCreateProvisioningTemplateVersion pTemplateName_ pTemplateBody_ =
   CreateProvisioningTemplateVersion'
-    { _cptvSetAsDefault = Nothing,
-      _cptvTemplateName = pTemplateName_,
-      _cptvTemplateBody = pTemplateBody_
+    { setAsDefault = Lude.Nothing,
+      templateName = pTemplateName_,
+      templateBody = pTemplateBody_
     }
 
 -- | Sets a fleet provision template version as the default version.
-cptvSetAsDefault :: Lens' CreateProvisioningTemplateVersion (Maybe Bool)
-cptvSetAsDefault = lens _cptvSetAsDefault (\s a -> s {_cptvSetAsDefault = a})
+--
+-- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvSetAsDefault :: Lens.Lens' CreateProvisioningTemplateVersion (Lude.Maybe Lude.Bool)
+cptvSetAsDefault = Lens.lens (setAsDefault :: CreateProvisioningTemplateVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreateProvisioningTemplateVersion)
+{-# DEPRECATED cptvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
 -- | The name of the fleet provisioning template.
-cptvTemplateName :: Lens' CreateProvisioningTemplateVersion Text
-cptvTemplateName = lens _cptvTemplateName (\s a -> s {_cptvTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvTemplateName :: Lens.Lens' CreateProvisioningTemplateVersion Lude.Text
+cptvTemplateName = Lens.lens (templateName :: CreateProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplateVersion)
+{-# DEPRECATED cptvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The JSON formatted contents of the fleet provisioning template.
-cptvTemplateBody :: Lens' CreateProvisioningTemplateVersion Text
-cptvTemplateBody = lens _cptvTemplateBody (\s a -> s {_cptvTemplateBody = a})
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvTemplateBody :: Lens.Lens' CreateProvisioningTemplateVersion Lude.Text
+cptvTemplateBody = Lens.lens (templateBody :: CreateProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateBody = a} :: CreateProvisioningTemplateVersion)
+{-# DEPRECATED cptvTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
-instance AWSRequest CreateProvisioningTemplateVersion where
+instance Lude.AWSRequest CreateProvisioningTemplateVersion where
   type
     Rs CreateProvisioningTemplateVersion =
       CreateProvisioningTemplateVersionResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProvisioningTemplateVersionResponse'
-            <$> (x .?> "versionId")
-            <*> (x .?> "templateName")
-            <*> (x .?> "templateArn")
-            <*> (x .?> "isDefaultVersion")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "versionId")
+            Lude.<*> (x Lude..?> "templateName")
+            Lude.<*> (x Lude..?> "templateArn")
+            Lude.<*> (x Lude..?> "isDefaultVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProvisioningTemplateVersion
+instance Lude.ToHeaders CreateProvisioningTemplateVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateProvisioningTemplateVersion
-
-instance ToHeaders CreateProvisioningTemplateVersion where
-  toHeaders = const mempty
-
-instance ToJSON CreateProvisioningTemplateVersion where
+instance Lude.ToJSON CreateProvisioningTemplateVersion where
   toJSON CreateProvisioningTemplateVersion' {..} =
-    object (catMaybes [Just ("templateBody" .= _cptvTemplateBody)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("templateBody" Lude..= templateBody)])
 
-instance ToPath CreateProvisioningTemplateVersion where
+instance Lude.ToPath CreateProvisioningTemplateVersion where
   toPath CreateProvisioningTemplateVersion' {..} =
-    mconcat
-      ["/provisioning-templates/", toBS _cptvTemplateName, "/versions"]
+    Lude.mconcat
+      ["/provisioning-templates/", Lude.toBS templateName, "/versions"]
 
-instance ToQuery CreateProvisioningTemplateVersion where
+instance Lude.ToQuery CreateProvisioningTemplateVersion where
   toQuery CreateProvisioningTemplateVersion' {..} =
-    mconcat ["setAsDefault" =: _cptvSetAsDefault]
+    Lude.mconcat ["setAsDefault" Lude.=: setAsDefault]
 
--- | /See:/ 'createProvisioningTemplateVersionResponse' smart constructor.
+-- | /See:/ 'mkCreateProvisioningTemplateVersionResponse' smart constructor.
 data CreateProvisioningTemplateVersionResponse = CreateProvisioningTemplateVersionResponse'
-  { _cptvrsVersionId ::
-      !( Maybe
-           Int
-       ),
-    _cptvrsTemplateName ::
-      !( Maybe
-           Text
-       ),
-    _cptvrsTemplateARN ::
-      !( Maybe
-           Text
-       ),
-    _cptvrsIsDefaultVersion ::
-      !( Maybe
-           Bool
-       ),
-    _cptvrsResponseStatus ::
-      !Int
+  { versionId ::
+      Lude.Maybe
+        Lude.Int,
+    templateName ::
+      Lude.Maybe
+        Lude.Text,
+    templateARN ::
+      Lude.Maybe
+        Lude.Text,
+    isDefaultVersion ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplateVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cptvrsVersionId' - The version of the fleet provisioning template.
---
--- * 'cptvrsTemplateName' - The name of the fleet provisioning template.
---
--- * 'cptvrsTemplateARN' - The ARN that identifies the provisioning template.
---
--- * 'cptvrsIsDefaultVersion' - True if the fleet provisioning template version is the default version, otherwise false.
---
--- * 'cptvrsResponseStatus' - -- | The response status code.
-createProvisioningTemplateVersionResponse ::
-  -- | 'cptvrsResponseStatus'
-  Int ->
+-- * 'isDefaultVersion' - True if the fleet provisioning template version is the default version, otherwise false.
+-- * 'responseStatus' - The response status code.
+-- * 'templateARN' - The ARN that identifies the provisioning template.
+-- * 'templateName' - The name of the fleet provisioning template.
+-- * 'versionId' - The version of the fleet provisioning template.
+mkCreateProvisioningTemplateVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProvisioningTemplateVersionResponse
-createProvisioningTemplateVersionResponse pResponseStatus_ =
+mkCreateProvisioningTemplateVersionResponse pResponseStatus_ =
   CreateProvisioningTemplateVersionResponse'
-    { _cptvrsVersionId =
-        Nothing,
-      _cptvrsTemplateName = Nothing,
-      _cptvrsTemplateARN = Nothing,
-      _cptvrsIsDefaultVersion = Nothing,
-      _cptvrsResponseStatus = pResponseStatus_
+    { versionId =
+        Lude.Nothing,
+      templateName = Lude.Nothing,
+      templateARN = Lude.Nothing,
+      isDefaultVersion = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The version of the fleet provisioning template.
-cptvrsVersionId :: Lens' CreateProvisioningTemplateVersionResponse (Maybe Int)
-cptvrsVersionId = lens _cptvrsVersionId (\s a -> s {_cptvrsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvrsVersionId :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Lude.Maybe Lude.Int)
+cptvrsVersionId = Lens.lens (versionId :: CreateProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Int) (\s a -> s {versionId = a} :: CreateProvisioningTemplateVersionResponse)
+{-# DEPRECATED cptvrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The name of the fleet provisioning template.
-cptvrsTemplateName :: Lens' CreateProvisioningTemplateVersionResponse (Maybe Text)
-cptvrsTemplateName = lens _cptvrsTemplateName (\s a -> s {_cptvrsTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvrsTemplateName :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Lude.Maybe Lude.Text)
+cptvrsTemplateName = Lens.lens (templateName :: CreateProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplateVersionResponse)
+{-# DEPRECATED cptvrsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The ARN that identifies the provisioning template.
-cptvrsTemplateARN :: Lens' CreateProvisioningTemplateVersionResponse (Maybe Text)
-cptvrsTemplateARN = lens _cptvrsTemplateARN (\s a -> s {_cptvrsTemplateARN = a})
+--
+-- /Note:/ Consider using 'templateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvrsTemplateARN :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Lude.Maybe Lude.Text)
+cptvrsTemplateARN = Lens.lens (templateARN :: CreateProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateARN = a} :: CreateProvisioningTemplateVersionResponse)
+{-# DEPRECATED cptvrsTemplateARN "Use generic-lens or generic-optics with 'templateARN' instead." #-}
 
 -- | True if the fleet provisioning template version is the default version, otherwise false.
-cptvrsIsDefaultVersion :: Lens' CreateProvisioningTemplateVersionResponse (Maybe Bool)
-cptvrsIsDefaultVersion = lens _cptvrsIsDefaultVersion (\s a -> s {_cptvrsIsDefaultVersion = a})
+--
+-- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvrsIsDefaultVersion :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Lude.Maybe Lude.Bool)
+cptvrsIsDefaultVersion = Lens.lens (isDefaultVersion :: CreateProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: CreateProvisioningTemplateVersionResponse)
+{-# DEPRECATED cptvrsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
--- | -- | The response status code.
-cptvrsResponseStatus :: Lens' CreateProvisioningTemplateVersionResponse Int
-cptvrsResponseStatus = lens _cptvrsResponseStatus (\s a -> s {_cptvrsResponseStatus = a})
-
-instance NFData CreateProvisioningTemplateVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvrsResponseStatus :: Lens.Lens' CreateProvisioningTemplateVersionResponse Lude.Int
+cptvrsResponseStatus = Lens.lens (responseStatus :: CreateProvisioningTemplateVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProvisioningTemplateVersionResponse)
+{-# DEPRECATED cptvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

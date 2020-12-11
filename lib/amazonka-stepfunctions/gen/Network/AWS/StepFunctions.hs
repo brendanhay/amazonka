@@ -14,13 +14,11 @@
 -- __AWS Step Functions__
 --
 -- AWS Step Functions is a service that lets you coordinate the components of distributed applications and microservices using visual workflows.
---
 -- You can use Step Functions to build applications from individual components, each of which performs a discrete function, or /task/ , allowing you to scale and change applications quickly. Step Functions provides a console that helps visualize the components of your application as a series of steps. Step Functions automatically triggers and tracks each step, and retries steps when there are errors, so your application executes predictably and in the right order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any issues.
---
 -- Step Functions manages operations and underlying infrastructure to ensure your application is available at any scale. You can run tasks on AWS, your own servers, or any system that has access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API. For more information about Step Functions, see the /<https:\/\/docs.aws.amazon.com\/step-functions\/latest\/dg\/welcome.html AWS Step Functions Developer Guide> / .
 module Network.AWS.StepFunctions
-  ( -- * Service Configuration
-    stepFunctions,
+  ( -- * Service configuration
+    stepFunctionsService,
 
     -- * Errors
     -- $errors
@@ -121,27 +119,27 @@ module Network.AWS.StepFunctions
     SyncExecutionStatus (..),
 
     -- ** ActivityFailedEventDetails
-    ActivityFailedEventDetails,
-    activityFailedEventDetails,
+    ActivityFailedEventDetails (..),
+    mkActivityFailedEventDetails,
     afedError,
     afedCause,
 
     -- ** ActivityListItem
-    ActivityListItem,
-    activityListItem,
+    ActivityListItem (..),
+    mkActivityListItem,
     aliActivityARN,
     aliName,
     aliCreationDate,
 
     -- ** ActivityScheduleFailedEventDetails
-    ActivityScheduleFailedEventDetails,
-    activityScheduleFailedEventDetails,
+    ActivityScheduleFailedEventDetails (..),
+    mkActivityScheduleFailedEventDetails,
     asfedError,
     asfedCause,
 
     -- ** ActivityScheduledEventDetails
-    ActivityScheduledEventDetails,
-    activityScheduledEventDetails,
+    ActivityScheduledEventDetails (..),
+    mkActivityScheduledEventDetails,
     asedHeartbeatInSeconds,
     asedInputDetails,
     asedInput,
@@ -149,53 +147,53 @@ module Network.AWS.StepFunctions
     asedResource,
 
     -- ** ActivityStartedEventDetails
-    ActivityStartedEventDetails,
-    activityStartedEventDetails,
+    ActivityStartedEventDetails (..),
+    mkActivityStartedEventDetails,
     asedWorkerName,
 
     -- ** ActivitySucceededEventDetails
-    ActivitySucceededEventDetails,
-    activitySucceededEventDetails,
+    ActivitySucceededEventDetails (..),
+    mkActivitySucceededEventDetails,
     asedOutput,
     asedOutputDetails,
 
     -- ** ActivityTimedOutEventDetails
-    ActivityTimedOutEventDetails,
-    activityTimedOutEventDetails,
+    ActivityTimedOutEventDetails (..),
+    mkActivityTimedOutEventDetails,
     atoedError,
     atoedCause,
 
     -- ** BillingDetails
-    BillingDetails,
-    billingDetails,
+    BillingDetails (..),
+    mkBillingDetails,
     bdBilledMemoryUsedInMB,
     bdBilledDurationInMilliseconds,
 
     -- ** CloudWatchEventsExecutionDataDetails
-    CloudWatchEventsExecutionDataDetails,
-    cloudWatchEventsExecutionDataDetails,
+    CloudWatchEventsExecutionDataDetails (..),
+    mkCloudWatchEventsExecutionDataDetails,
     cweeddIncluded,
 
     -- ** CloudWatchLogsLogGroup
-    CloudWatchLogsLogGroup,
-    cloudWatchLogsLogGroup,
+    CloudWatchLogsLogGroup (..),
+    mkCloudWatchLogsLogGroup,
     cwllgLogGroupARN,
 
     -- ** ExecutionAbortedEventDetails
-    ExecutionAbortedEventDetails,
-    executionAbortedEventDetails,
+    ExecutionAbortedEventDetails (..),
+    mkExecutionAbortedEventDetails,
     eaedError,
     eaedCause,
 
     -- ** ExecutionFailedEventDetails
-    ExecutionFailedEventDetails,
-    executionFailedEventDetails,
+    ExecutionFailedEventDetails (..),
+    mkExecutionFailedEventDetails,
     efedError,
     efedCause,
 
     -- ** ExecutionListItem
-    ExecutionListItem,
-    executionListItem,
+    ExecutionListItem (..),
+    mkExecutionListItem,
     eliStopDate,
     eliExecutionARN,
     eliStateMachineARN,
@@ -204,27 +202,27 @@ module Network.AWS.StepFunctions
     eliStartDate,
 
     -- ** ExecutionStartedEventDetails
-    ExecutionStartedEventDetails,
-    executionStartedEventDetails,
+    ExecutionStartedEventDetails (..),
+    mkExecutionStartedEventDetails,
     esedInputDetails,
     esedInput,
     esedRoleARN,
 
     -- ** ExecutionSucceededEventDetails
-    ExecutionSucceededEventDetails,
-    executionSucceededEventDetails,
+    ExecutionSucceededEventDetails (..),
+    mkExecutionSucceededEventDetails,
     esedOutput,
     esedOutputDetails,
 
     -- ** ExecutionTimedOutEventDetails
-    ExecutionTimedOutEventDetails,
-    executionTimedOutEventDetails,
+    ExecutionTimedOutEventDetails (..),
+    mkExecutionTimedOutEventDetails,
     etoedError,
     etoedCause,
 
     -- ** HistoryEvent
-    HistoryEvent,
-    historyEvent,
+    HistoryEvent (..),
+    mkHistoryEvent,
     heMapStateStartedEventDetails,
     heTaskSubmitFailedEventDetails,
     heTaskStartedEventDetails,
@@ -263,110 +261,110 @@ module Network.AWS.StepFunctions
     heId,
 
     -- ** HistoryEventExecutionDataDetails
-    HistoryEventExecutionDataDetails,
-    historyEventExecutionDataDetails,
+    HistoryEventExecutionDataDetails (..),
+    mkHistoryEventExecutionDataDetails,
     heeddTruncated,
 
     -- ** LambdaFunctionFailedEventDetails
-    LambdaFunctionFailedEventDetails,
-    lambdaFunctionFailedEventDetails,
+    LambdaFunctionFailedEventDetails (..),
+    mkLambdaFunctionFailedEventDetails,
     lffedError,
     lffedCause,
 
     -- ** LambdaFunctionScheduleFailedEventDetails
-    LambdaFunctionScheduleFailedEventDetails,
-    lambdaFunctionScheduleFailedEventDetails,
+    LambdaFunctionScheduleFailedEventDetails (..),
+    mkLambdaFunctionScheduleFailedEventDetails,
     lError,
     lCause,
 
     -- ** LambdaFunctionScheduledEventDetails
-    LambdaFunctionScheduledEventDetails,
-    lambdaFunctionScheduledEventDetails,
+    LambdaFunctionScheduledEventDetails (..),
+    mkLambdaFunctionScheduledEventDetails,
     lfsedInputDetails,
     lfsedInput,
     lfsedTimeoutInSeconds,
     lfsedResource,
 
     -- ** LambdaFunctionStartFailedEventDetails
-    LambdaFunctionStartFailedEventDetails,
-    lambdaFunctionStartFailedEventDetails,
+    LambdaFunctionStartFailedEventDetails (..),
+    mkLambdaFunctionStartFailedEventDetails,
     lfsfedError,
     lfsfedCause,
 
     -- ** LambdaFunctionSucceededEventDetails
-    LambdaFunctionSucceededEventDetails,
-    lambdaFunctionSucceededEventDetails,
+    LambdaFunctionSucceededEventDetails (..),
+    mkLambdaFunctionSucceededEventDetails,
     lfsedOutput,
     lfsedOutputDetails,
 
     -- ** LambdaFunctionTimedOutEventDetails
-    LambdaFunctionTimedOutEventDetails,
-    lambdaFunctionTimedOutEventDetails,
+    LambdaFunctionTimedOutEventDetails (..),
+    mkLambdaFunctionTimedOutEventDetails,
     lftoedError,
     lftoedCause,
 
     -- ** LogDestination
-    LogDestination,
-    logDestination,
+    LogDestination (..),
+    mkLogDestination,
     ldCloudWatchLogsLogGroup,
 
     -- ** LoggingConfiguration
-    LoggingConfiguration,
-    loggingConfiguration,
+    LoggingConfiguration (..),
+    mkLoggingConfiguration,
     lcIncludeExecutionData,
     lcDestinations,
     lcLevel,
 
     -- ** MapIterationEventDetails
-    MapIterationEventDetails,
-    mapIterationEventDetails,
+    MapIterationEventDetails (..),
+    mkMapIterationEventDetails,
     miedName,
     miedIndex,
 
     -- ** MapStateStartedEventDetails
-    MapStateStartedEventDetails,
-    mapStateStartedEventDetails,
+    MapStateStartedEventDetails (..),
+    mkMapStateStartedEventDetails,
     mssedLength,
 
     -- ** StateEnteredEventDetails
-    StateEnteredEventDetails,
-    stateEnteredEventDetails,
+    StateEnteredEventDetails (..),
+    mkStateEnteredEventDetails,
     sInputDetails,
     sInput,
     sName,
 
     -- ** StateExitedEventDetails
-    StateExitedEventDetails,
-    stateExitedEventDetails,
+    StateExitedEventDetails (..),
+    mkStateExitedEventDetails,
     seedOutput,
     seedOutputDetails,
     seedName,
 
     -- ** StateMachineListItem
-    StateMachineListItem,
-    stateMachineListItem,
+    StateMachineListItem (..),
+    mkStateMachineListItem,
     smliStateMachineARN,
     smliName,
     smliType,
     smliCreationDate,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TaskFailedEventDetails
-    TaskFailedEventDetails,
-    taskFailedEventDetails,
+    TaskFailedEventDetails (..),
+    mkTaskFailedEventDetails,
     tfedError,
     tfedCause,
     tfedResourceType,
     tfedResource,
 
     -- ** TaskScheduledEventDetails
-    TaskScheduledEventDetails,
-    taskScheduledEventDetails,
+    TaskScheduledEventDetails (..),
+    mkTaskScheduledEventDetails,
     tasHeartbeatInSeconds,
     tasTimeoutInSeconds,
     tasResourceType,
@@ -375,58 +373,70 @@ module Network.AWS.StepFunctions
     tasParameters,
 
     -- ** TaskStartFailedEventDetails
-    TaskStartFailedEventDetails,
-    taskStartFailedEventDetails,
+    TaskStartFailedEventDetails (..),
+    mkTaskStartFailedEventDetails,
     tsfedsError,
     tsfedsCause,
     tsfedsResourceType,
     tsfedsResource,
 
     -- ** TaskStartedEventDetails
-    TaskStartedEventDetails,
-    taskStartedEventDetails,
+    TaskStartedEventDetails (..),
+    mkTaskStartedEventDetails,
     tsedResourceType,
     tsedResource,
 
     -- ** TaskSubmitFailedEventDetails
-    TaskSubmitFailedEventDetails,
-    taskSubmitFailedEventDetails,
+    TaskSubmitFailedEventDetails (..),
+    mkTaskSubmitFailedEventDetails,
     tsfedError,
     tsfedCause,
     tsfedResourceType,
     tsfedResource,
 
     -- ** TaskSubmittedEventDetails
-    TaskSubmittedEventDetails,
-    taskSubmittedEventDetails,
+    TaskSubmittedEventDetails (..),
+    mkTaskSubmittedEventDetails,
     tOutput,
     tOutputDetails,
     tResourceType,
     tResource,
 
     -- ** TaskSucceededEventDetails
-    TaskSucceededEventDetails,
-    taskSucceededEventDetails,
+    TaskSucceededEventDetails (..),
+    mkTaskSucceededEventDetails,
     tsedsOutput,
     tsedsOutputDetails,
     tsedsResourceType,
     tsedsResource,
 
     -- ** TaskTimedOutEventDetails
-    TaskTimedOutEventDetails,
-    taskTimedOutEventDetails,
+    TaskTimedOutEventDetails (..),
+    mkTaskTimedOutEventDetails,
     ttoedError,
     ttoedCause,
     ttoedResourceType,
     ttoedResource,
 
     -- ** TracingConfiguration
-    TracingConfiguration,
-    tracingConfiguration,
+    TracingConfiguration (..),
+    mkTracingConfiguration,
     tcEnabled,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StepFunctions.CreateActivity
 import Network.AWS.StepFunctions.CreateStateMachine
 import Network.AWS.StepFunctions.DeleteActivity

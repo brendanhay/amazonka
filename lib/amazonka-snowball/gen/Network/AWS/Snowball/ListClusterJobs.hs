@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,167 +14,187 @@
 --
 -- Returns an array of @JobListEntry@ objects of the specified length. Each @JobListEntry@ object is for a job in the specified cluster and contains a job's state, a job's ID, and other information.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Snowball.ListClusterJobs
-  ( -- * Creating a Request
-    listClusterJobs,
-    ListClusterJobs,
+  ( -- * Creating a request
+    ListClusterJobs (..),
+    mkListClusterJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcjNextToken,
     lcjMaxResults,
     lcjClusterId,
 
-    -- * Destructuring the Response
-    listClusterJobsResponse,
-    ListClusterJobsResponse,
+    -- * Destructuring the response
+    ListClusterJobsResponse (..),
+    mkListClusterJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcjrsJobListEntries,
     lcjrsNextToken,
     lcjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'listClusterJobs' smart constructor.
+-- | /See:/ 'mkListClusterJobs' smart constructor.
 data ListClusterJobs = ListClusterJobs'
-  { _lcjNextToken ::
-      !(Maybe Text),
-    _lcjMaxResults :: !(Maybe Nat),
-    _lcjClusterId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    clusterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClusterJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcjNextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
---
--- * 'lcjMaxResults' - The number of @JobListEntry@ objects to return.
---
--- * 'lcjClusterId' - The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
-listClusterJobs ::
-  -- | 'lcjClusterId'
-  Text ->
+-- * 'clusterId' - The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'maxResults' - The number of @JobListEntry@ objects to return.
+-- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+mkListClusterJobs ::
+  -- | 'clusterId'
+  Lude.Text ->
   ListClusterJobs
-listClusterJobs pClusterId_ =
+mkListClusterJobs pClusterId_ =
   ListClusterJobs'
-    { _lcjNextToken = Nothing,
-      _lcjMaxResults = Nothing,
-      _lcjClusterId = pClusterId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      clusterId = pClusterId_
     }
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
-lcjNextToken :: Lens' ListClusterJobs (Maybe Text)
-lcjNextToken = lens _lcjNextToken (\s a -> s {_lcjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjNextToken :: Lens.Lens' ListClusterJobs (Lude.Maybe Lude.Text)
+lcjNextToken = Lens.lens (nextToken :: ListClusterJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClusterJobs)
+{-# DEPRECATED lcjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of @JobListEntry@ objects to return.
-lcjMaxResults :: Lens' ListClusterJobs (Maybe Natural)
-lcjMaxResults = lens _lcjMaxResults (\s a -> s {_lcjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjMaxResults :: Lens.Lens' ListClusterJobs (Lude.Maybe Lude.Natural)
+lcjMaxResults = Lens.lens (maxResults :: ListClusterJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListClusterJobs)
+{-# DEPRECATED lcjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
-lcjClusterId :: Lens' ListClusterJobs Text
-lcjClusterId = lens _lcjClusterId (\s a -> s {_lcjClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjClusterId :: Lens.Lens' ListClusterJobs Lude.Text
+lcjClusterId = Lens.lens (clusterId :: ListClusterJobs -> Lude.Text) (\s a -> s {clusterId = a} :: ListClusterJobs)
+{-# DEPRECATED lcjClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSPager ListClusterJobs where
+instance Page.AWSPager ListClusterJobs where
   page rq rs
-    | stop (rs ^. lcjrsNextToken) = Nothing
-    | stop (rs ^. lcjrsJobListEntries) = Nothing
-    | otherwise = Just $ rq & lcjNextToken .~ rs ^. lcjrsNextToken
+    | Page.stop (rs Lens.^. lcjrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcjrsJobListEntries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcjNextToken Lens..~ rs Lens.^. lcjrsNextToken
 
-instance AWSRequest ListClusterJobs where
+instance Lude.AWSRequest ListClusterJobs where
   type Rs ListClusterJobs = ListClusterJobsResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListClusterJobsResponse'
-            <$> (x .?> "JobListEntries" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobListEntries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListClusterJobs
-
-instance NFData ListClusterJobs
-
-instance ToHeaders ListClusterJobs where
+instance Lude.ToHeaders ListClusterJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSIESnowballJobManagementService.ListClusterJobs" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.ListClusterJobs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListClusterJobs where
+instance Lude.ToJSON ListClusterJobs where
   toJSON ListClusterJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcjNextToken,
-            ("MaxResults" .=) <$> _lcjMaxResults,
-            Just ("ClusterId" .= _lcjClusterId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ClusterId" Lude..= clusterId)
           ]
       )
 
-instance ToPath ListClusterJobs where
-  toPath = const "/"
+instance Lude.ToPath ListClusterJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListClusterJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListClusterJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listClusterJobsResponse' smart constructor.
+-- | /See:/ 'mkListClusterJobsResponse' smart constructor.
 data ListClusterJobsResponse = ListClusterJobsResponse'
-  { _lcjrsJobListEntries ::
-      !(Maybe [JobListEntry]),
-    _lcjrsNextToken :: !(Maybe Text),
-    _lcjrsResponseStatus :: !Int
+  { jobListEntries ::
+      Lude.Maybe [JobListEntry],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClusterJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcjrsJobListEntries' - Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
---
--- * 'lcjrsNextToken' - HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ListClusterJobsResult@ call, your list of returned jobs will start from this point in the array.
---
--- * 'lcjrsResponseStatus' - -- | The response status code.
-listClusterJobsResponse ::
-  -- | 'lcjrsResponseStatus'
-  Int ->
+-- * 'jobListEntries' - Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
+-- * 'nextToken' - HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ListClusterJobsResult@ call, your list of returned jobs will start from this point in the array.
+-- * 'responseStatus' - The response status code.
+mkListClusterJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListClusterJobsResponse
-listClusterJobsResponse pResponseStatus_ =
+mkListClusterJobsResponse pResponseStatus_ =
   ListClusterJobsResponse'
-    { _lcjrsJobListEntries = Nothing,
-      _lcjrsNextToken = Nothing,
-      _lcjrsResponseStatus = pResponseStatus_
+    { jobListEntries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
-lcjrsJobListEntries :: Lens' ListClusterJobsResponse [JobListEntry]
-lcjrsJobListEntries = lens _lcjrsJobListEntries (\s a -> s {_lcjrsJobListEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobListEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjrsJobListEntries :: Lens.Lens' ListClusterJobsResponse (Lude.Maybe [JobListEntry])
+lcjrsJobListEntries = Lens.lens (jobListEntries :: ListClusterJobsResponse -> Lude.Maybe [JobListEntry]) (\s a -> s {jobListEntries = a} :: ListClusterJobsResponse)
+{-# DEPRECATED lcjrsJobListEntries "Use generic-lens or generic-optics with 'jobListEntries' instead." #-}
 
 -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ListClusterJobsResult@ call, your list of returned jobs will start from this point in the array.
-lcjrsNextToken :: Lens' ListClusterJobsResponse (Maybe Text)
-lcjrsNextToken = lens _lcjrsNextToken (\s a -> s {_lcjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjrsNextToken :: Lens.Lens' ListClusterJobsResponse (Lude.Maybe Lude.Text)
+lcjrsNextToken = Lens.lens (nextToken :: ListClusterJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClusterJobsResponse)
+{-# DEPRECATED lcjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcjrsResponseStatus :: Lens' ListClusterJobsResponse Int
-lcjrsResponseStatus = lens _lcjrsResponseStatus (\s a -> s {_lcjrsResponseStatus = a})
-
-instance NFData ListClusterJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjrsResponseStatus :: Lens.Lens' ListClusterJobsResponse Lude.Int
+lcjrsResponseStatus = Lens.lens (responseStatus :: ListClusterJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListClusterJobsResponse)
+{-# DEPRECATED lcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

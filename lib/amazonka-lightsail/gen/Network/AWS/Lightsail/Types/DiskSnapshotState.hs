@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.DiskSnapshotState where
+module Network.AWS.Lightsail.Types.DiskSnapshotState
+  ( DiskSnapshotState
+      ( DiskSnapshotState',
+        DSSCompleted,
+        DSSError,
+        DSSPending,
+        DSSUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DiskSnapshotState
-  = DSSCompleted
-  | DSSError'
-  | DSSPending
-  | DSSUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DiskSnapshotState = DiskSnapshotState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DiskSnapshotState where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure DSSCompleted
-      "error" -> pure DSSError'
-      "pending" -> pure DSSPending
-      "unknown" -> pure DSSUnknown
-      e ->
-        fromTextError $
-          "Failure parsing DiskSnapshotState from value: '" <> e
-            <> "'. Accepted values: completed, error, pending, unknown"
+pattern DSSCompleted :: DiskSnapshotState
+pattern DSSCompleted = DiskSnapshotState' "completed"
 
-instance ToText DiskSnapshotState where
-  toText = \case
-    DSSCompleted -> "completed"
-    DSSError' -> "error"
-    DSSPending -> "pending"
-    DSSUnknown -> "unknown"
+pattern DSSError :: DiskSnapshotState
+pattern DSSError = DiskSnapshotState' "error"
 
-instance Hashable DiskSnapshotState
+pattern DSSPending :: DiskSnapshotState
+pattern DSSPending = DiskSnapshotState' "pending"
 
-instance NFData DiskSnapshotState
+pattern DSSUnknown :: DiskSnapshotState
+pattern DSSUnknown = DiskSnapshotState' "unknown"
 
-instance ToByteString DiskSnapshotState
-
-instance ToQuery DiskSnapshotState
-
-instance ToHeader DiskSnapshotState
-
-instance FromJSON DiskSnapshotState where
-  parseJSON = parseJSONText "DiskSnapshotState"
+{-# COMPLETE
+  DSSCompleted,
+  DSSError,
+  DSSPending,
+  DSSUnknown,
+  DiskSnapshotState'
+  #-}

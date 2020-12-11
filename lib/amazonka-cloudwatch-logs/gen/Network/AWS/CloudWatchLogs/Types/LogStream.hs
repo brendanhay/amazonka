@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,146 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.LogStream where
+module Network.AWS.CloudWatchLogs.Types.LogStream
+  ( LogStream (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLogStream,
+
+    -- * Lenses
+    lsCreationTime,
+    lsUploadSequenceToken,
+    lsArn,
+    lsFirstEventTimestamp,
+    lsLogStreamName,
+    lsStoredBytes,
+    lsLastIngestionTime,
+    lsLastEventTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a log stream, which is a sequence of log events from a single emitter of logs.
 --
---
---
--- /See:/ 'logStream' smart constructor.
+-- /See:/ 'mkLogStream' smart constructor.
 data LogStream = LogStream'
-  { _lsCreationTime :: !(Maybe Nat),
-    _lsUploadSequenceToken :: !(Maybe Text),
-    _lsArn :: !(Maybe Text),
-    _lsFirstEventTimestamp :: !(Maybe Nat),
-    _lsLogStreamName :: !(Maybe Text),
-    _lsStoredBytes :: !(Maybe Nat),
-    _lsLastIngestionTime :: !(Maybe Nat),
-    _lsLastEventTimestamp :: !(Maybe Nat)
+  { creationTime ::
+      Lude.Maybe Lude.Natural,
+    uploadSequenceToken :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    firstEventTimestamp :: Lude.Maybe Lude.Natural,
+    logStreamName :: Lude.Maybe Lude.Text,
+    storedBytes :: Lude.Maybe Lude.Natural,
+    lastIngestionTime :: Lude.Maybe Lude.Natural,
+    lastEventTimestamp :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the log stream.
+-- * 'creationTime' - The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'firstEventTimestamp' - The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'lastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
+-- * 'lastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'logStreamName' - The name of the log stream.
+-- * 'storedBytes' - The number of bytes stored.
 --
--- * 'lsCreationTime' - The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'lsUploadSequenceToken' - The sequence token.
---
--- * 'lsArn' - The Amazon Resource Name (ARN) of the log stream.
---
--- * 'lsFirstEventTimestamp' - The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'lsLogStreamName' - The name of the log stream.
---
--- * 'lsStoredBytes' - The number of bytes stored. __Important:__ On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The @storedBytes@ parameter for log groups is not affected.
---
--- * 'lsLastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'lsLastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
-logStream ::
+-- __Important:__ On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The @storedBytes@ parameter for log groups is not affected.
+-- * 'uploadSequenceToken' - The sequence token.
+mkLogStream ::
   LogStream
-logStream =
+mkLogStream =
   LogStream'
-    { _lsCreationTime = Nothing,
-      _lsUploadSequenceToken = Nothing,
-      _lsArn = Nothing,
-      _lsFirstEventTimestamp = Nothing,
-      _lsLogStreamName = Nothing,
-      _lsStoredBytes = Nothing,
-      _lsLastIngestionTime = Nothing,
-      _lsLastEventTimestamp = Nothing
+    { creationTime = Lude.Nothing,
+      uploadSequenceToken = Lude.Nothing,
+      arn = Lude.Nothing,
+      firstEventTimestamp = Lude.Nothing,
+      logStreamName = Lude.Nothing,
+      storedBytes = Lude.Nothing,
+      lastIngestionTime = Lude.Nothing,
+      lastEventTimestamp = Lude.Nothing
     }
 
 -- | The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-lsCreationTime :: Lens' LogStream (Maybe Natural)
-lsCreationTime = lens _lsCreationTime (\s a -> s {_lsCreationTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsCreationTime :: Lens.Lens' LogStream (Lude.Maybe Lude.Natural)
+lsCreationTime = Lens.lens (creationTime :: LogStream -> Lude.Maybe Lude.Natural) (\s a -> s {creationTime = a} :: LogStream)
+{-# DEPRECATED lsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The sequence token.
-lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
-lsUploadSequenceToken = lens _lsUploadSequenceToken (\s a -> s {_lsUploadSequenceToken = a})
+--
+-- /Note:/ Consider using 'uploadSequenceToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsUploadSequenceToken :: Lens.Lens' LogStream (Lude.Maybe Lude.Text)
+lsUploadSequenceToken = Lens.lens (uploadSequenceToken :: LogStream -> Lude.Maybe Lude.Text) (\s a -> s {uploadSequenceToken = a} :: LogStream)
+{-# DEPRECATED lsUploadSequenceToken "Use generic-lens or generic-optics with 'uploadSequenceToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the log stream.
-lsArn :: Lens' LogStream (Maybe Text)
-lsArn = lens _lsArn (\s a -> s {_lsArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsArn :: Lens.Lens' LogStream (Lude.Maybe Lude.Text)
+lsArn = Lens.lens (arn :: LogStream -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: LogStream)
+{-# DEPRECATED lsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
-lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\s a -> s {_lsFirstEventTimestamp = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'firstEventTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsFirstEventTimestamp :: Lens.Lens' LogStream (Lude.Maybe Lude.Natural)
+lsFirstEventTimestamp = Lens.lens (firstEventTimestamp :: LogStream -> Lude.Maybe Lude.Natural) (\s a -> s {firstEventTimestamp = a} :: LogStream)
+{-# DEPRECATED lsFirstEventTimestamp "Use generic-lens or generic-optics with 'firstEventTimestamp' instead." #-}
 
 -- | The name of the log stream.
-lsLogStreamName :: Lens' LogStream (Maybe Text)
-lsLogStreamName = lens _lsLogStreamName (\s a -> s {_lsLogStreamName = a})
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsLogStreamName :: Lens.Lens' LogStream (Lude.Maybe Lude.Text)
+lsLogStreamName = Lens.lens (logStreamName :: LogStream -> Lude.Maybe Lude.Text) (\s a -> s {logStreamName = a} :: LogStream)
+{-# DEPRECATED lsLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
--- | The number of bytes stored. __Important:__ On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The @storedBytes@ parameter for log groups is not affected.
-lsStoredBytes :: Lens' LogStream (Maybe Natural)
-lsStoredBytes = lens _lsStoredBytes (\s a -> s {_lsStoredBytes = a}) . mapping _Nat
+-- | The number of bytes stored.
+--
+-- __Important:__ On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The @storedBytes@ parameter for log groups is not affected.
+--
+-- /Note:/ Consider using 'storedBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsStoredBytes :: Lens.Lens' LogStream (Lude.Maybe Lude.Natural)
+lsStoredBytes = Lens.lens (storedBytes :: LogStream -> Lude.Maybe Lude.Natural) (\s a -> s {storedBytes = a} :: LogStream)
+{-# DEPRECATED lsStoredBytes "Use generic-lens or generic-optics with 'storedBytes' instead." #-}
 
 -- | The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
-lsLastIngestionTime = lens _lsLastIngestionTime (\s a -> s {_lsLastIngestionTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'lastIngestionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsLastIngestionTime :: Lens.Lens' LogStream (Lude.Maybe Lude.Natural)
+lsLastIngestionTime = Lens.lens (lastIngestionTime :: LogStream -> Lude.Maybe Lude.Natural) (\s a -> s {lastIngestionTime = a} :: LogStream)
+{-# DEPRECATED lsLastIngestionTime "Use generic-lens or generic-optics with 'lastIngestionTime' instead." #-}
 
 -- | The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
-lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
-lsLastEventTimestamp = lens _lsLastEventTimestamp (\s a -> s {_lsLastEventTimestamp = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'lastEventTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsLastEventTimestamp :: Lens.Lens' LogStream (Lude.Maybe Lude.Natural)
+lsLastEventTimestamp = Lens.lens (lastEventTimestamp :: LogStream -> Lude.Maybe Lude.Natural) (\s a -> s {lastEventTimestamp = a} :: LogStream)
+{-# DEPRECATED lsLastEventTimestamp "Use generic-lens or generic-optics with 'lastEventTimestamp' instead." #-}
 
-instance FromJSON LogStream where
+instance Lude.FromJSON LogStream where
   parseJSON =
-    withObject
+    Lude.withObject
       "LogStream"
       ( \x ->
           LogStream'
-            <$> (x .:? "creationTime")
-            <*> (x .:? "uploadSequenceToken")
-            <*> (x .:? "arn")
-            <*> (x .:? "firstEventTimestamp")
-            <*> (x .:? "logStreamName")
-            <*> (x .:? "storedBytes")
-            <*> (x .:? "lastIngestionTime")
-            <*> (x .:? "lastEventTimestamp")
+            Lude.<$> (x Lude..:? "creationTime")
+            Lude.<*> (x Lude..:? "uploadSequenceToken")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "firstEventTimestamp")
+            Lude.<*> (x Lude..:? "logStreamName")
+            Lude.<*> (x Lude..:? "storedBytes")
+            Lude.<*> (x Lude..:? "lastIngestionTime")
+            Lude.<*> (x Lude..:? "lastEventTimestamp")
       )
-
-instance Hashable LogStream
-
-instance NFData LogStream

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringJobDefinition where
+module Network.AWS.SageMaker.Types.MonitoringJobDefinition
+  ( MonitoringJobDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringJobDefinition,
+
+    -- * Lenses
+    mjdEnvironment,
+    mjdStoppingCondition,
+    mjdNetworkConfig,
+    mjdBaselineConfig,
+    mjdMonitoringInputs,
+    mjdMonitoringOutputConfig,
+    mjdMonitoringResources,
+    mjdMonitoringAppSpecification,
+    mjdRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.MonitoringAppSpecification
 import Network.AWS.SageMaker.Types.MonitoringBaselineConfig
 import Network.AWS.SageMaker.Types.MonitoringInput
@@ -27,150 +38,169 @@ import Network.AWS.SageMaker.Types.NetworkConfig
 
 -- | Defines the monitoring job.
 --
---
---
--- /See:/ 'monitoringJobDefinition' smart constructor.
+-- /See:/ 'mkMonitoringJobDefinition' smart constructor.
 data MonitoringJobDefinition = MonitoringJobDefinition'
-  { _mjdEnvironment ::
-      !(Maybe (Map Text (Text))),
-    _mjdStoppingCondition ::
-      !(Maybe MonitoringStoppingCondition),
-    _mjdNetworkConfig :: !(Maybe NetworkConfig),
-    _mjdBaselineConfig ::
-      !(Maybe MonitoringBaselineConfig),
-    _mjdMonitoringInputs ::
-      !(List1 MonitoringInput),
-    _mjdMonitoringOutputConfig ::
-      !MonitoringOutputConfig,
-    _mjdMonitoringResources ::
-      !MonitoringResources,
-    _mjdMonitoringAppSpecification ::
-      !MonitoringAppSpecification,
-    _mjdRoleARN :: !Text
+  { environment ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    stoppingCondition ::
+      Lude.Maybe MonitoringStoppingCondition,
+    networkConfig :: Lude.Maybe NetworkConfig,
+    baselineConfig ::
+      Lude.Maybe MonitoringBaselineConfig,
+    monitoringInputs ::
+      Lude.NonEmpty MonitoringInput,
+    monitoringOutputConfig ::
+      MonitoringOutputConfig,
+    monitoringResources :: MonitoringResources,
+    monitoringAppSpecification ::
+      MonitoringAppSpecification,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringJobDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mjdEnvironment' - Sets the environment variables in the Docker container.
---
--- * 'mjdStoppingCondition' - Specifies a time limit for how long the monitoring job is allowed to run.
---
--- * 'mjdNetworkConfig' - Specifies networking options for an monitoring job.
---
--- * 'mjdBaselineConfig' - Baseline configuration used to validate that the data conforms to the specified constraints and statistics
---
--- * 'mjdMonitoringInputs' - The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
---
--- * 'mjdMonitoringOutputConfig' - The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage Service (Amazon S3).
---
--- * 'mjdMonitoringResources' - Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
---
--- * 'mjdMonitoringAppSpecification' - Configures the monitoring job to run a specified Docker container image.
---
--- * 'mjdRoleARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-monitoringJobDefinition ::
-  -- | 'mjdMonitoringInputs'
-  NonEmpty MonitoringInput ->
-  -- | 'mjdMonitoringOutputConfig'
+-- * 'baselineConfig' - Baseline configuration used to validate that the data conforms to the specified constraints and statistics
+-- * 'environment' - Sets the environment variables in the Docker container.
+-- * 'monitoringAppSpecification' - Configures the monitoring job to run a specified Docker container image.
+-- * 'monitoringInputs' - The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+-- * 'monitoringOutputConfig' - The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage Service (Amazon S3).
+-- * 'monitoringResources' - Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
+-- * 'networkConfig' - Specifies networking options for an monitoring job.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+-- * 'stoppingCondition' - Specifies a time limit for how long the monitoring job is allowed to run.
+mkMonitoringJobDefinition ::
+  -- | 'monitoringInputs'
+  Lude.NonEmpty MonitoringInput ->
+  -- | 'monitoringOutputConfig'
   MonitoringOutputConfig ->
-  -- | 'mjdMonitoringResources'
+  -- | 'monitoringResources'
   MonitoringResources ->
-  -- | 'mjdMonitoringAppSpecification'
+  -- | 'monitoringAppSpecification'
   MonitoringAppSpecification ->
-  -- | 'mjdRoleARN'
-  Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   MonitoringJobDefinition
-monitoringJobDefinition
+mkMonitoringJobDefinition
   pMonitoringInputs_
   pMonitoringOutputConfig_
   pMonitoringResources_
   pMonitoringAppSpecification_
   pRoleARN_ =
     MonitoringJobDefinition'
-      { _mjdEnvironment = Nothing,
-        _mjdStoppingCondition = Nothing,
-        _mjdNetworkConfig = Nothing,
-        _mjdBaselineConfig = Nothing,
-        _mjdMonitoringInputs = _List1 # pMonitoringInputs_,
-        _mjdMonitoringOutputConfig = pMonitoringOutputConfig_,
-        _mjdMonitoringResources = pMonitoringResources_,
-        _mjdMonitoringAppSpecification = pMonitoringAppSpecification_,
-        _mjdRoleARN = pRoleARN_
+      { environment = Lude.Nothing,
+        stoppingCondition = Lude.Nothing,
+        networkConfig = Lude.Nothing,
+        baselineConfig = Lude.Nothing,
+        monitoringInputs = pMonitoringInputs_,
+        monitoringOutputConfig = pMonitoringOutputConfig_,
+        monitoringResources = pMonitoringResources_,
+        monitoringAppSpecification = pMonitoringAppSpecification_,
+        roleARN = pRoleARN_
       }
 
 -- | Sets the environment variables in the Docker container.
-mjdEnvironment :: Lens' MonitoringJobDefinition (HashMap Text (Text))
-mjdEnvironment = lens _mjdEnvironment (\s a -> s {_mjdEnvironment = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdEnvironment :: Lens.Lens' MonitoringJobDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+mjdEnvironment = Lens.lens (environment :: MonitoringJobDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | Specifies a time limit for how long the monitoring job is allowed to run.
-mjdStoppingCondition :: Lens' MonitoringJobDefinition (Maybe MonitoringStoppingCondition)
-mjdStoppingCondition = lens _mjdStoppingCondition (\s a -> s {_mjdStoppingCondition = a})
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdStoppingCondition :: Lens.Lens' MonitoringJobDefinition (Lude.Maybe MonitoringStoppingCondition)
+mjdStoppingCondition = Lens.lens (stoppingCondition :: MonitoringJobDefinition -> Lude.Maybe MonitoringStoppingCondition) (\s a -> s {stoppingCondition = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
 -- | Specifies networking options for an monitoring job.
-mjdNetworkConfig :: Lens' MonitoringJobDefinition (Maybe NetworkConfig)
-mjdNetworkConfig = lens _mjdNetworkConfig (\s a -> s {_mjdNetworkConfig = a})
+--
+-- /Note:/ Consider using 'networkConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdNetworkConfig :: Lens.Lens' MonitoringJobDefinition (Lude.Maybe NetworkConfig)
+mjdNetworkConfig = Lens.lens (networkConfig :: MonitoringJobDefinition -> Lude.Maybe NetworkConfig) (\s a -> s {networkConfig = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdNetworkConfig "Use generic-lens or generic-optics with 'networkConfig' instead." #-}
 
 -- | Baseline configuration used to validate that the data conforms to the specified constraints and statistics
-mjdBaselineConfig :: Lens' MonitoringJobDefinition (Maybe MonitoringBaselineConfig)
-mjdBaselineConfig = lens _mjdBaselineConfig (\s a -> s {_mjdBaselineConfig = a})
+--
+-- /Note:/ Consider using 'baselineConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdBaselineConfig :: Lens.Lens' MonitoringJobDefinition (Lude.Maybe MonitoringBaselineConfig)
+mjdBaselineConfig = Lens.lens (baselineConfig :: MonitoringJobDefinition -> Lude.Maybe MonitoringBaselineConfig) (\s a -> s {baselineConfig = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdBaselineConfig "Use generic-lens or generic-optics with 'baselineConfig' instead." #-}
 
 -- | The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
-mjdMonitoringInputs :: Lens' MonitoringJobDefinition (NonEmpty MonitoringInput)
-mjdMonitoringInputs = lens _mjdMonitoringInputs (\s a -> s {_mjdMonitoringInputs = a}) . _List1
+--
+-- /Note:/ Consider using 'monitoringInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdMonitoringInputs :: Lens.Lens' MonitoringJobDefinition (Lude.NonEmpty MonitoringInput)
+mjdMonitoringInputs = Lens.lens (monitoringInputs :: MonitoringJobDefinition -> Lude.NonEmpty MonitoringInput) (\s a -> s {monitoringInputs = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdMonitoringInputs "Use generic-lens or generic-optics with 'monitoringInputs' instead." #-}
 
 -- | The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage Service (Amazon S3).
-mjdMonitoringOutputConfig :: Lens' MonitoringJobDefinition MonitoringOutputConfig
-mjdMonitoringOutputConfig = lens _mjdMonitoringOutputConfig (\s a -> s {_mjdMonitoringOutputConfig = a})
+--
+-- /Note:/ Consider using 'monitoringOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdMonitoringOutputConfig :: Lens.Lens' MonitoringJobDefinition MonitoringOutputConfig
+mjdMonitoringOutputConfig = Lens.lens (monitoringOutputConfig :: MonitoringJobDefinition -> MonitoringOutputConfig) (\s a -> s {monitoringOutputConfig = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdMonitoringOutputConfig "Use generic-lens or generic-optics with 'monitoringOutputConfig' instead." #-}
 
 -- | Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
-mjdMonitoringResources :: Lens' MonitoringJobDefinition MonitoringResources
-mjdMonitoringResources = lens _mjdMonitoringResources (\s a -> s {_mjdMonitoringResources = a})
+--
+-- /Note:/ Consider using 'monitoringResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdMonitoringResources :: Lens.Lens' MonitoringJobDefinition MonitoringResources
+mjdMonitoringResources = Lens.lens (monitoringResources :: MonitoringJobDefinition -> MonitoringResources) (\s a -> s {monitoringResources = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdMonitoringResources "Use generic-lens or generic-optics with 'monitoringResources' instead." #-}
 
 -- | Configures the monitoring job to run a specified Docker container image.
-mjdMonitoringAppSpecification :: Lens' MonitoringJobDefinition MonitoringAppSpecification
-mjdMonitoringAppSpecification = lens _mjdMonitoringAppSpecification (\s a -> s {_mjdMonitoringAppSpecification = a})
+--
+-- /Note:/ Consider using 'monitoringAppSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdMonitoringAppSpecification :: Lens.Lens' MonitoringJobDefinition MonitoringAppSpecification
+mjdMonitoringAppSpecification = Lens.lens (monitoringAppSpecification :: MonitoringJobDefinition -> MonitoringAppSpecification) (\s a -> s {monitoringAppSpecification = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdMonitoringAppSpecification "Use generic-lens or generic-optics with 'monitoringAppSpecification' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-mjdRoleARN :: Lens' MonitoringJobDefinition Text
-mjdRoleARN = lens _mjdRoleARN (\s a -> s {_mjdRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mjdRoleARN :: Lens.Lens' MonitoringJobDefinition Lude.Text
+mjdRoleARN = Lens.lens (roleARN :: MonitoringJobDefinition -> Lude.Text) (\s a -> s {roleARN = a} :: MonitoringJobDefinition)
+{-# DEPRECATED mjdRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON MonitoringJobDefinition where
+instance Lude.FromJSON MonitoringJobDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringJobDefinition"
       ( \x ->
           MonitoringJobDefinition'
-            <$> (x .:? "Environment" .!= mempty)
-            <*> (x .:? "StoppingCondition")
-            <*> (x .:? "NetworkConfig")
-            <*> (x .:? "BaselineConfig")
-            <*> (x .: "MonitoringInputs")
-            <*> (x .: "MonitoringOutputConfig")
-            <*> (x .: "MonitoringResources")
-            <*> (x .: "MonitoringAppSpecification")
-            <*> (x .: "RoleArn")
+            Lude.<$> (x Lude..:? "Environment" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StoppingCondition")
+            Lude.<*> (x Lude..:? "NetworkConfig")
+            Lude.<*> (x Lude..:? "BaselineConfig")
+            Lude.<*> (x Lude..: "MonitoringInputs")
+            Lude.<*> (x Lude..: "MonitoringOutputConfig")
+            Lude.<*> (x Lude..: "MonitoringResources")
+            Lude.<*> (x Lude..: "MonitoringAppSpecification")
+            Lude.<*> (x Lude..: "RoleArn")
       )
 
-instance Hashable MonitoringJobDefinition
-
-instance NFData MonitoringJobDefinition
-
-instance ToJSON MonitoringJobDefinition where
+instance Lude.ToJSON MonitoringJobDefinition where
   toJSON MonitoringJobDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("Environment" .=) <$> _mjdEnvironment,
-            ("StoppingCondition" .=) <$> _mjdStoppingCondition,
-            ("NetworkConfig" .=) <$> _mjdNetworkConfig,
-            ("BaselineConfig" .=) <$> _mjdBaselineConfig,
-            Just ("MonitoringInputs" .= _mjdMonitoringInputs),
-            Just ("MonitoringOutputConfig" .= _mjdMonitoringOutputConfig),
-            Just ("MonitoringResources" .= _mjdMonitoringResources),
-            Just
-              ("MonitoringAppSpecification" .= _mjdMonitoringAppSpecification),
-            Just ("RoleArn" .= _mjdRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Environment" Lude..=) Lude.<$> environment,
+            ("StoppingCondition" Lude..=) Lude.<$> stoppingCondition,
+            ("NetworkConfig" Lude..=) Lude.<$> networkConfig,
+            ("BaselineConfig" Lude..=) Lude.<$> baselineConfig,
+            Lude.Just ("MonitoringInputs" Lude..= monitoringInputs),
+            Lude.Just
+              ("MonitoringOutputConfig" Lude..= monitoringOutputConfig),
+            Lude.Just ("MonitoringResources" Lude..= monitoringResources),
+            Lude.Just
+              ("MonitoringAppSpecification" Lude..= monitoringAppSpecification),
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )

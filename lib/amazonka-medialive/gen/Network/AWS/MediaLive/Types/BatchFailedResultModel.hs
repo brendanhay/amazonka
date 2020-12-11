@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BatchFailedResultModel where
+module Network.AWS.MediaLive.Types.BatchFailedResultModel
+  ( BatchFailedResultModel (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchFailedResultModel,
+
+    -- * Lenses
+    bfrmARN,
+    bfrmId,
+    bfrmCode,
+    bfrmMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details from a failed operation
 --
--- /See:/ 'batchFailedResultModel' smart constructor.
+-- /See:/ 'mkBatchFailedResultModel' smart constructor.
 data BatchFailedResultModel = BatchFailedResultModel'
-  { _bfrmARN ::
-      !(Maybe Text),
-    _bfrmId :: !(Maybe Text),
-    _bfrmCode :: !(Maybe Text),
-    _bfrmMessage :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    code :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchFailedResultModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bfrmARN' - ARN of the resource
---
--- * 'bfrmId' - ID of the resource
---
--- * 'bfrmCode' - Error code for the failed operation
---
--- * 'bfrmMessage' - Error message for the failed operation
-batchFailedResultModel ::
+-- * 'arn' - ARN of the resource
+-- * 'code' - Error code for the failed operation
+-- * 'id' - ID of the resource
+-- * 'message' - Error message for the failed operation
+mkBatchFailedResultModel ::
   BatchFailedResultModel
-batchFailedResultModel =
+mkBatchFailedResultModel =
   BatchFailedResultModel'
-    { _bfrmARN = Nothing,
-      _bfrmId = Nothing,
-      _bfrmCode = Nothing,
-      _bfrmMessage = Nothing
+    { arn = Lude.Nothing,
+      id = Lude.Nothing,
+      code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | ARN of the resource
-bfrmARN :: Lens' BatchFailedResultModel (Maybe Text)
-bfrmARN = lens _bfrmARN (\s a -> s {_bfrmARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfrmARN :: Lens.Lens' BatchFailedResultModel (Lude.Maybe Lude.Text)
+bfrmARN = Lens.lens (arn :: BatchFailedResultModel -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: BatchFailedResultModel)
+{-# DEPRECATED bfrmARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | ID of the resource
-bfrmId :: Lens' BatchFailedResultModel (Maybe Text)
-bfrmId = lens _bfrmId (\s a -> s {_bfrmId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfrmId :: Lens.Lens' BatchFailedResultModel (Lude.Maybe Lude.Text)
+bfrmId = Lens.lens (id :: BatchFailedResultModel -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: BatchFailedResultModel)
+{-# DEPRECATED bfrmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Error code for the failed operation
-bfrmCode :: Lens' BatchFailedResultModel (Maybe Text)
-bfrmCode = lens _bfrmCode (\s a -> s {_bfrmCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfrmCode :: Lens.Lens' BatchFailedResultModel (Lude.Maybe Lude.Text)
+bfrmCode = Lens.lens (code :: BatchFailedResultModel -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: BatchFailedResultModel)
+{-# DEPRECATED bfrmCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | Error message for the failed operation
-bfrmMessage :: Lens' BatchFailedResultModel (Maybe Text)
-bfrmMessage = lens _bfrmMessage (\s a -> s {_bfrmMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfrmMessage :: Lens.Lens' BatchFailedResultModel (Lude.Maybe Lude.Text)
+bfrmMessage = Lens.lens (message :: BatchFailedResultModel -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: BatchFailedResultModel)
+{-# DEPRECATED bfrmMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON BatchFailedResultModel where
+instance Lude.FromJSON BatchFailedResultModel where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchFailedResultModel"
       ( \x ->
           BatchFailedResultModel'
-            <$> (x .:? "arn")
-            <*> (x .:? "id")
-            <*> (x .:? "code")
-            <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "code")
+            Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable BatchFailedResultModel
-
-instance NFData BatchFailedResultModel

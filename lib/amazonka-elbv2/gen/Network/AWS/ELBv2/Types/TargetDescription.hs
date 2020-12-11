@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.TargetDescription where
+module Network.AWS.ELBv2.Types.TargetDescription
+  ( TargetDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTargetDescription,
+
+    -- * Lenses
+    tdAvailabilityZone,
+    tdPort,
+    tdId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a target.
 --
---
---
--- /See:/ 'targetDescription' smart constructor.
+-- /See:/ 'mkTargetDescription' smart constructor.
 data TargetDescription = TargetDescription'
-  { _tdAvailabilityZone ::
-      !(Maybe Text),
-    _tdPort :: !(Maybe Nat),
-    _tdId :: !Text
+  { availabilityZone ::
+      Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Natural,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'availabilityZone' - An Availability Zone or @all@ . This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
 --
--- * 'tdAvailabilityZone' - An Availability Zone or @all@ . This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer. This parameter is not supported if the target type of the target group is @instance@ . If the target type is @ip@ and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required. With an Application Load Balancer, if the target type is @ip@ and the IP address is outside the VPC for the target group, the only supported value is @all@ . If the target type is @lambda@ , this parameter is optional and the only supported value is @all@ .
---
--- * 'tdPort' - The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. Not used if the target is a Lambda function.
---
--- * 'tdId' - The ID of the target. If the target type of the target group is @instance@ , specify an instance ID. If the target type is @ip@ , specify an IP address. If the target type is @lambda@ , specify the ARN of the Lambda function.
-targetDescription ::
-  -- | 'tdId'
-  Text ->
+-- This parameter is not supported if the target type of the target group is @instance@ .
+-- If the target type is @ip@ and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required.
+-- With an Application Load Balancer, if the target type is @ip@ and the IP address is outside the VPC for the target group, the only supported value is @all@ .
+-- If the target type is @lambda@ , this parameter is optional and the only supported value is @all@ .
+-- * 'id' - The ID of the target. If the target type of the target group is @instance@ , specify an instance ID. If the target type is @ip@ , specify an IP address. If the target type is @lambda@ , specify the ARN of the Lambda function.
+-- * 'port' - The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. Not used if the target is a Lambda function.
+mkTargetDescription ::
+  -- | 'id'
+  Lude.Text ->
   TargetDescription
-targetDescription pId_ =
+mkTargetDescription pId_ =
   TargetDescription'
-    { _tdAvailabilityZone = Nothing,
-      _tdPort = Nothing,
-      _tdId = pId_
+    { availabilityZone = Lude.Nothing,
+      port = Lude.Nothing,
+      id = pId_
     }
 
--- | An Availability Zone or @all@ . This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer. This parameter is not supported if the target type of the target group is @instance@ . If the target type is @ip@ and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required. With an Application Load Balancer, if the target type is @ip@ and the IP address is outside the VPC for the target group, the only supported value is @all@ . If the target type is @lambda@ , this parameter is optional and the only supported value is @all@ .
-tdAvailabilityZone :: Lens' TargetDescription (Maybe Text)
-tdAvailabilityZone = lens _tdAvailabilityZone (\s a -> s {_tdAvailabilityZone = a})
+-- | An Availability Zone or @all@ . This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
+--
+-- This parameter is not supported if the target type of the target group is @instance@ .
+-- If the target type is @ip@ and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required.
+-- With an Application Load Balancer, if the target type is @ip@ and the IP address is outside the VPC for the target group, the only supported value is @all@ .
+-- If the target type is @lambda@ , this parameter is optional and the only supported value is @all@ .
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdAvailabilityZone :: Lens.Lens' TargetDescription (Lude.Maybe Lude.Text)
+tdAvailabilityZone = Lens.lens (availabilityZone :: TargetDescription -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: TargetDescription)
+{-# DEPRECATED tdAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. Not used if the target is a Lambda function.
-tdPort :: Lens' TargetDescription (Maybe Natural)
-tdPort = lens _tdPort (\s a -> s {_tdPort = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdPort :: Lens.Lens' TargetDescription (Lude.Maybe Lude.Natural)
+tdPort = Lens.lens (port :: TargetDescription -> Lude.Maybe Lude.Natural) (\s a -> s {port = a} :: TargetDescription)
+{-# DEPRECATED tdPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
 -- | The ID of the target. If the target type of the target group is @instance@ , specify an instance ID. If the target type is @ip@ , specify an IP address. If the target type is @lambda@ , specify the ARN of the Lambda function.
-tdId :: Lens' TargetDescription Text
-tdId = lens _tdId (\s a -> s {_tdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdId :: Lens.Lens' TargetDescription Lude.Text
+tdId = Lens.lens (id :: TargetDescription -> Lude.Text) (\s a -> s {id = a} :: TargetDescription)
+{-# DEPRECATED tdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML TargetDescription where
+instance Lude.FromXML TargetDescription where
   parseXML x =
     TargetDescription'
-      <$> (x .@? "AvailabilityZone") <*> (x .@? "Port") <*> (x .@ "Id")
+      Lude.<$> (x Lude..@? "AvailabilityZone")
+      Lude.<*> (x Lude..@? "Port")
+      Lude.<*> (x Lude..@ "Id")
 
-instance Hashable TargetDescription
-
-instance NFData TargetDescription
-
-instance ToQuery TargetDescription where
+instance Lude.ToQuery TargetDescription where
   toQuery TargetDescription' {..} =
-    mconcat
-      [ "AvailabilityZone" =: _tdAvailabilityZone,
-        "Port" =: _tdPort,
-        "Id" =: _tdId
+    Lude.mconcat
+      [ "AvailabilityZone" Lude.=: availabilityZone,
+        "Port" Lude.=: port,
+        "Id" Lude.=: id
       ]

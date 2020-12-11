@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.InstanceAction where
+module Network.AWS.CodeDeploy.Types.InstanceAction
+  ( InstanceAction
+      ( InstanceAction',
+        KeepAlive,
+        Terminate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceAction
-  = KeepAlive
-  | Terminate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceAction = InstanceAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceAction where
-  parser =
-    takeLowerText >>= \case
-      "keep_alive" -> pure KeepAlive
-      "terminate" -> pure Terminate
-      e ->
-        fromTextError $
-          "Failure parsing InstanceAction from value: '" <> e
-            <> "'. Accepted values: keep_alive, terminate"
+pattern KeepAlive :: InstanceAction
+pattern KeepAlive = InstanceAction' "KEEP_ALIVE"
 
-instance ToText InstanceAction where
-  toText = \case
-    KeepAlive -> "KEEP_ALIVE"
-    Terminate -> "TERMINATE"
+pattern Terminate :: InstanceAction
+pattern Terminate = InstanceAction' "TERMINATE"
 
-instance Hashable InstanceAction
-
-instance NFData InstanceAction
-
-instance ToByteString InstanceAction
-
-instance ToQuery InstanceAction
-
-instance ToHeader InstanceAction
-
-instance ToJSON InstanceAction where
-  toJSON = toJSONText
-
-instance FromJSON InstanceAction where
-  parseJSON = parseJSONText "InstanceAction"
+{-# COMPLETE
+  KeepAlive,
+  Terminate,
+  InstanceAction'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.GeoMatchConstraint where
+module Network.AWS.WAFRegional.Types.GeoMatchConstraint
+  ( GeoMatchConstraint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGeoMatchConstraint,
+
+    -- * Lenses
+    gmcType,
+    gmcValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAFRegional.Types.GeoMatchConstraintType
 import Network.AWS.WAFRegional.Types.GeoMatchConstraintValue
 
 -- | The country from which web requests originate that you want AWS WAF to search for.
 --
---
---
--- /See:/ 'geoMatchConstraint' smart constructor.
+-- /See:/ 'mkGeoMatchConstraint' smart constructor.
 data GeoMatchConstraint = GeoMatchConstraint'
-  { _gmcType ::
-      !GeoMatchConstraintType,
-    _gmcValue :: !GeoMatchConstraintValue
+  { type' ::
+      GeoMatchConstraintType,
+    value :: GeoMatchConstraintValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GeoMatchConstraint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmcType' - The type of geographical area you want AWS WAF to search for. Currently @Country@ is the only valid value.
---
--- * 'gmcValue' - The country that you want AWS WAF to search for.
-geoMatchConstraint ::
-  -- | 'gmcType'
+-- * 'type'' - The type of geographical area you want AWS WAF to search for. Currently @Country@ is the only valid value.
+-- * 'value' - The country that you want AWS WAF to search for.
+mkGeoMatchConstraint ::
+  -- | 'type''
   GeoMatchConstraintType ->
-  -- | 'gmcValue'
+  -- | 'value'
   GeoMatchConstraintValue ->
   GeoMatchConstraint
-geoMatchConstraint pType_ pValue_ =
-  GeoMatchConstraint' {_gmcType = pType_, _gmcValue = pValue_}
+mkGeoMatchConstraint pType_ pValue_ =
+  GeoMatchConstraint' {type' = pType_, value = pValue_}
 
 -- | The type of geographical area you want AWS WAF to search for. Currently @Country@ is the only valid value.
-gmcType :: Lens' GeoMatchConstraint GeoMatchConstraintType
-gmcType = lens _gmcType (\s a -> s {_gmcType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcType :: Lens.Lens' GeoMatchConstraint GeoMatchConstraintType
+gmcType = Lens.lens (type' :: GeoMatchConstraint -> GeoMatchConstraintType) (\s a -> s {type' = a} :: GeoMatchConstraint)
+{-# DEPRECATED gmcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The country that you want AWS WAF to search for.
-gmcValue :: Lens' GeoMatchConstraint GeoMatchConstraintValue
-gmcValue = lens _gmcValue (\s a -> s {_gmcValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcValue :: Lens.Lens' GeoMatchConstraint GeoMatchConstraintValue
+gmcValue = Lens.lens (value :: GeoMatchConstraint -> GeoMatchConstraintValue) (\s a -> s {value = a} :: GeoMatchConstraint)
+{-# DEPRECATED gmcValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON GeoMatchConstraint where
+instance Lude.FromJSON GeoMatchConstraint where
   parseJSON =
-    withObject
+    Lude.withObject
       "GeoMatchConstraint"
-      (\x -> GeoMatchConstraint' <$> (x .: "Type") <*> (x .: "Value"))
+      ( \x ->
+          GeoMatchConstraint'
+            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Value")
+      )
 
-instance Hashable GeoMatchConstraint
-
-instance NFData GeoMatchConstraint
-
-instance ToJSON GeoMatchConstraint where
+instance Lude.ToJSON GeoMatchConstraint where
   toJSON GeoMatchConstraint' {..} =
-    object
-      ( catMaybes
-          [Just ("Type" .= _gmcType), Just ("Value" .= _gmcValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("Value" Lude..= value)
+          ]
       )

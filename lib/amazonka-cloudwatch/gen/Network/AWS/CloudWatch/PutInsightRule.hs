@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,160 @@
 --
 -- Creates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html Using Contributor Insights to Analyze High-Cardinality Data> .
 --
---
 -- If you create a rule, delete it, and then re-create it with the same name, historical data from the first time the rule was created might not be available.
 module Network.AWS.CloudWatch.PutInsightRule
-  ( -- * Creating a Request
-    putInsightRule,
-    PutInsightRule,
+  ( -- * Creating a request
+    PutInsightRule (..),
+    mkPutInsightRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pirTags,
     pirRuleState,
     pirRuleName,
     pirRuleDefinition,
 
-    -- * Destructuring the Response
-    putInsightRuleResponse,
-    PutInsightRuleResponse,
+    -- * Destructuring the response
+    PutInsightRuleResponse (..),
+    mkPutInsightRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pirrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putInsightRule' smart constructor.
+-- | /See:/ 'mkPutInsightRule' smart constructor.
 data PutInsightRule = PutInsightRule'
-  { _pirTags :: !(Maybe [Tag]),
-    _pirRuleState :: !(Maybe Text),
-    _pirRuleName :: !Text,
-    _pirRuleDefinition :: !Text
+  { tags :: Lude.Maybe [Tag],
+    ruleState :: Lude.Maybe Lude.Text,
+    ruleName :: Lude.Text,
+    ruleDefinition :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInsightRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'ruleDefinition' - The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
+-- * 'ruleName' - A unique name for the rule.
+-- * 'ruleState' - The state of the rule. Valid values are ENABLED and DISABLED.
+-- * 'tags' - A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.
 --
--- * 'pirTags' - A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values. To be able to associate tags with a rule, you must have the @cloudwatch:TagResource@ permission in addition to the @cloudwatch:PutInsightRule@ permission. If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource> .
---
--- * 'pirRuleState' - The state of the rule. Valid values are ENABLED and DISABLED.
---
--- * 'pirRuleName' - A unique name for the rule.
---
--- * 'pirRuleDefinition' - The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
-putInsightRule ::
-  -- | 'pirRuleName'
-  Text ->
-  -- | 'pirRuleDefinition'
-  Text ->
+-- Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.
+-- To be able to associate tags with a rule, you must have the @cloudwatch:TagResource@ permission in addition to the @cloudwatch:PutInsightRule@ permission.
+-- If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource> .
+mkPutInsightRule ::
+  -- | 'ruleName'
+  Lude.Text ->
+  -- | 'ruleDefinition'
+  Lude.Text ->
   PutInsightRule
-putInsightRule pRuleName_ pRuleDefinition_ =
+mkPutInsightRule pRuleName_ pRuleDefinition_ =
   PutInsightRule'
-    { _pirTags = Nothing,
-      _pirRuleState = Nothing,
-      _pirRuleName = pRuleName_,
-      _pirRuleDefinition = pRuleDefinition_
+    { tags = Lude.Nothing,
+      ruleState = Lude.Nothing,
+      ruleName = pRuleName_,
+      ruleDefinition = pRuleDefinition_
     }
 
--- | A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values. To be able to associate tags with a rule, you must have the @cloudwatch:TagResource@ permission in addition to the @cloudwatch:PutInsightRule@ permission. If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource> .
-pirTags :: Lens' PutInsightRule [Tag]
-pirTags = lens _pirTags (\s a -> s {_pirTags = a}) . _Default . _Coerce
+-- | A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.
+--
+-- Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.
+-- To be able to associate tags with a rule, you must have the @cloudwatch:TagResource@ permission in addition to the @cloudwatch:PutInsightRule@ permission.
+-- If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource> .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirTags :: Lens.Lens' PutInsightRule (Lude.Maybe [Tag])
+pirTags = Lens.lens (tags :: PutInsightRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutInsightRule)
+{-# DEPRECATED pirTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The state of the rule. Valid values are ENABLED and DISABLED.
-pirRuleState :: Lens' PutInsightRule (Maybe Text)
-pirRuleState = lens _pirRuleState (\s a -> s {_pirRuleState = a})
+--
+-- /Note:/ Consider using 'ruleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirRuleState :: Lens.Lens' PutInsightRule (Lude.Maybe Lude.Text)
+pirRuleState = Lens.lens (ruleState :: PutInsightRule -> Lude.Maybe Lude.Text) (\s a -> s {ruleState = a} :: PutInsightRule)
+{-# DEPRECATED pirRuleState "Use generic-lens or generic-optics with 'ruleState' instead." #-}
 
 -- | A unique name for the rule.
-pirRuleName :: Lens' PutInsightRule Text
-pirRuleName = lens _pirRuleName (\s a -> s {_pirRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirRuleName :: Lens.Lens' PutInsightRule Lude.Text
+pirRuleName = Lens.lens (ruleName :: PutInsightRule -> Lude.Text) (\s a -> s {ruleName = a} :: PutInsightRule)
+{-# DEPRECATED pirRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
-pirRuleDefinition :: Lens' PutInsightRule Text
-pirRuleDefinition = lens _pirRuleDefinition (\s a -> s {_pirRuleDefinition = a})
+--
+-- /Note:/ Consider using 'ruleDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirRuleDefinition :: Lens.Lens' PutInsightRule Lude.Text
+pirRuleDefinition = Lens.lens (ruleDefinition :: PutInsightRule -> Lude.Text) (\s a -> s {ruleDefinition = a} :: PutInsightRule)
+{-# DEPRECATED pirRuleDefinition "Use generic-lens or generic-optics with 'ruleDefinition' instead." #-}
 
-instance AWSRequest PutInsightRule where
+instance Lude.AWSRequest PutInsightRule where
   type Rs PutInsightRule = PutInsightRuleResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "PutInsightRuleResult"
-      (\s h x -> PutInsightRuleResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          PutInsightRuleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutInsightRule
+instance Lude.ToHeaders PutInsightRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutInsightRule
+instance Lude.ToPath PutInsightRule where
+  toPath = Lude.const "/"
 
-instance ToHeaders PutInsightRule where
-  toHeaders = const mempty
-
-instance ToPath PutInsightRule where
-  toPath = const "/"
-
-instance ToQuery PutInsightRule where
+instance Lude.ToQuery PutInsightRule where
   toQuery PutInsightRule' {..} =
-    mconcat
-      [ "Action" =: ("PutInsightRule" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "Tags" =: toQuery (toQueryList "member" <$> _pirTags),
-        "RuleState" =: _pirRuleState,
-        "RuleName" =: _pirRuleName,
-        "RuleDefinition" =: _pirRuleDefinition
+    Lude.mconcat
+      [ "Action" Lude.=: ("PutInsightRule" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "Tags"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
+        "RuleState" Lude.=: ruleState,
+        "RuleName" Lude.=: ruleName,
+        "RuleDefinition" Lude.=: ruleDefinition
       ]
 
--- | /See:/ 'putInsightRuleResponse' smart constructor.
+-- | /See:/ 'mkPutInsightRuleResponse' smart constructor.
 newtype PutInsightRuleResponse = PutInsightRuleResponse'
-  { _pirrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInsightRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pirrsResponseStatus' - -- | The response status code.
-putInsightRuleResponse ::
-  -- | 'pirrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutInsightRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutInsightRuleResponse
-putInsightRuleResponse pResponseStatus_ =
-  PutInsightRuleResponse' {_pirrsResponseStatus = pResponseStatus_}
+mkPutInsightRuleResponse pResponseStatus_ =
+  PutInsightRuleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-pirrsResponseStatus :: Lens' PutInsightRuleResponse Int
-pirrsResponseStatus = lens _pirrsResponseStatus (\s a -> s {_pirrsResponseStatus = a})
-
-instance NFData PutInsightRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirrsResponseStatus :: Lens.Lens' PutInsightRuleResponse Lude.Int
+pirrsResponseStatus = Lens.lens (responseStatus :: PutInsightRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutInsightRuleResponse)
+{-# DEPRECATED pirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

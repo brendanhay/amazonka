@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ResourceQuotas where
+module Network.AWS.ElasticBeanstalk.Types.ResourceQuotas
+  ( ResourceQuotas (..),
+
+    -- * Smart constructor
+    mkResourceQuotas,
+
+    -- * Lenses
+    rqApplicationQuota,
+    rqCustomPlatformQuota,
+    rqApplicationVersionQuota,
+    rqEnvironmentQuota,
+    rqConfigurationTemplateQuota,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.ResourceQuota
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect Elastic Beanstalk resource limits for this account.
 --
---
---
--- /See:/ 'resourceQuotas' smart constructor.
+-- /See:/ 'mkResourceQuotas' smart constructor.
 data ResourceQuotas = ResourceQuotas'
-  { _rqApplicationQuota ::
-      !(Maybe ResourceQuota),
-    _rqCustomPlatformQuota :: !(Maybe ResourceQuota),
-    _rqApplicationVersionQuota :: !(Maybe ResourceQuota),
-    _rqEnvironmentQuota :: !(Maybe ResourceQuota),
-    _rqConfigurationTemplateQuota :: !(Maybe ResourceQuota)
+  { applicationQuota ::
+      Lude.Maybe ResourceQuota,
+    customPlatformQuota :: Lude.Maybe ResourceQuota,
+    applicationVersionQuota :: Lude.Maybe ResourceQuota,
+    environmentQuota :: Lude.Maybe ResourceQuota,
+    configurationTemplateQuota :: Lude.Maybe ResourceQuota
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceQuotas' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rqApplicationQuota' - The quota for applications in the AWS account.
---
--- * 'rqCustomPlatformQuota' - The quota for custom platforms in the AWS account.
---
--- * 'rqApplicationVersionQuota' - The quota for application versions in the AWS account.
---
--- * 'rqEnvironmentQuota' - The quota for environments in the AWS account.
---
--- * 'rqConfigurationTemplateQuota' - The quota for configuration templates in the AWS account.
-resourceQuotas ::
+-- * 'applicationQuota' - The quota for applications in the AWS account.
+-- * 'applicationVersionQuota' - The quota for application versions in the AWS account.
+-- * 'configurationTemplateQuota' - The quota for configuration templates in the AWS account.
+-- * 'customPlatformQuota' - The quota for custom platforms in the AWS account.
+-- * 'environmentQuota' - The quota for environments in the AWS account.
+mkResourceQuotas ::
   ResourceQuotas
-resourceQuotas =
+mkResourceQuotas =
   ResourceQuotas'
-    { _rqApplicationQuota = Nothing,
-      _rqCustomPlatformQuota = Nothing,
-      _rqApplicationVersionQuota = Nothing,
-      _rqEnvironmentQuota = Nothing,
-      _rqConfigurationTemplateQuota = Nothing
+    { applicationQuota = Lude.Nothing,
+      customPlatformQuota = Lude.Nothing,
+      applicationVersionQuota = Lude.Nothing,
+      environmentQuota = Lude.Nothing,
+      configurationTemplateQuota = Lude.Nothing
     }
 
 -- | The quota for applications in the AWS account.
-rqApplicationQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
-rqApplicationQuota = lens _rqApplicationQuota (\s a -> s {_rqApplicationQuota = a})
+--
+-- /Note:/ Consider using 'applicationQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rqApplicationQuota :: Lens.Lens' ResourceQuotas (Lude.Maybe ResourceQuota)
+rqApplicationQuota = Lens.lens (applicationQuota :: ResourceQuotas -> Lude.Maybe ResourceQuota) (\s a -> s {applicationQuota = a} :: ResourceQuotas)
+{-# DEPRECATED rqApplicationQuota "Use generic-lens or generic-optics with 'applicationQuota' instead." #-}
 
 -- | The quota for custom platforms in the AWS account.
-rqCustomPlatformQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
-rqCustomPlatformQuota = lens _rqCustomPlatformQuota (\s a -> s {_rqCustomPlatformQuota = a})
+--
+-- /Note:/ Consider using 'customPlatformQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rqCustomPlatformQuota :: Lens.Lens' ResourceQuotas (Lude.Maybe ResourceQuota)
+rqCustomPlatformQuota = Lens.lens (customPlatformQuota :: ResourceQuotas -> Lude.Maybe ResourceQuota) (\s a -> s {customPlatformQuota = a} :: ResourceQuotas)
+{-# DEPRECATED rqCustomPlatformQuota "Use generic-lens or generic-optics with 'customPlatformQuota' instead." #-}
 
 -- | The quota for application versions in the AWS account.
-rqApplicationVersionQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
-rqApplicationVersionQuota = lens _rqApplicationVersionQuota (\s a -> s {_rqApplicationVersionQuota = a})
+--
+-- /Note:/ Consider using 'applicationVersionQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rqApplicationVersionQuota :: Lens.Lens' ResourceQuotas (Lude.Maybe ResourceQuota)
+rqApplicationVersionQuota = Lens.lens (applicationVersionQuota :: ResourceQuotas -> Lude.Maybe ResourceQuota) (\s a -> s {applicationVersionQuota = a} :: ResourceQuotas)
+{-# DEPRECATED rqApplicationVersionQuota "Use generic-lens or generic-optics with 'applicationVersionQuota' instead." #-}
 
 -- | The quota for environments in the AWS account.
-rqEnvironmentQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
-rqEnvironmentQuota = lens _rqEnvironmentQuota (\s a -> s {_rqEnvironmentQuota = a})
+--
+-- /Note:/ Consider using 'environmentQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rqEnvironmentQuota :: Lens.Lens' ResourceQuotas (Lude.Maybe ResourceQuota)
+rqEnvironmentQuota = Lens.lens (environmentQuota :: ResourceQuotas -> Lude.Maybe ResourceQuota) (\s a -> s {environmentQuota = a} :: ResourceQuotas)
+{-# DEPRECATED rqEnvironmentQuota "Use generic-lens or generic-optics with 'environmentQuota' instead." #-}
 
 -- | The quota for configuration templates in the AWS account.
-rqConfigurationTemplateQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
-rqConfigurationTemplateQuota = lens _rqConfigurationTemplateQuota (\s a -> s {_rqConfigurationTemplateQuota = a})
+--
+-- /Note:/ Consider using 'configurationTemplateQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rqConfigurationTemplateQuota :: Lens.Lens' ResourceQuotas (Lude.Maybe ResourceQuota)
+rqConfigurationTemplateQuota = Lens.lens (configurationTemplateQuota :: ResourceQuotas -> Lude.Maybe ResourceQuota) (\s a -> s {configurationTemplateQuota = a} :: ResourceQuotas)
+{-# DEPRECATED rqConfigurationTemplateQuota "Use generic-lens or generic-optics with 'configurationTemplateQuota' instead." #-}
 
-instance FromXML ResourceQuotas where
+instance Lude.FromXML ResourceQuotas where
   parseXML x =
     ResourceQuotas'
-      <$> (x .@? "ApplicationQuota")
-      <*> (x .@? "CustomPlatformQuota")
-      <*> (x .@? "ApplicationVersionQuota")
-      <*> (x .@? "EnvironmentQuota")
-      <*> (x .@? "ConfigurationTemplateQuota")
-
-instance Hashable ResourceQuotas
-
-instance NFData ResourceQuotas
+      Lude.<$> (x Lude..@? "ApplicationQuota")
+      Lude.<*> (x Lude..@? "CustomPlatformQuota")
+      Lude.<*> (x Lude..@? "ApplicationVersionQuota")
+      Lude.<*> (x Lude..@? "EnvironmentQuota")
+      Lude.<*> (x Lude..@? "ConfigurationTemplateQuota")

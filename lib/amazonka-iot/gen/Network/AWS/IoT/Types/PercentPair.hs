@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.PercentPair where
+module Network.AWS.IoT.Types.PercentPair
+  ( PercentPair (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPercentPair,
+
+    -- * Lenses
+    ppValue,
+    ppPercent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the percentile and percentile value.
 --
---
---
--- /See:/ 'percentPair' smart constructor.
+-- /See:/ 'mkPercentPair' smart constructor.
 data PercentPair = PercentPair'
-  { _ppValue :: !(Maybe Double),
-    _ppPercent :: !(Maybe Double)
+  { value :: Lude.Maybe Lude.Double,
+    percent :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PercentPair' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppValue' - The value of the percentile.
---
--- * 'ppPercent' - The percentile.
-percentPair ::
+-- * 'percent' - The percentile.
+-- * 'value' - The value of the percentile.
+mkPercentPair ::
   PercentPair
-percentPair =
-  PercentPair' {_ppValue = Nothing, _ppPercent = Nothing}
+mkPercentPair =
+  PercentPair' {value = Lude.Nothing, percent = Lude.Nothing}
 
 -- | The value of the percentile.
-ppValue :: Lens' PercentPair (Maybe Double)
-ppValue = lens _ppValue (\s a -> s {_ppValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValue :: Lens.Lens' PercentPair (Lude.Maybe Lude.Double)
+ppValue = Lens.lens (value :: PercentPair -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: PercentPair)
+{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The percentile.
-ppPercent :: Lens' PercentPair (Maybe Double)
-ppPercent = lens _ppPercent (\s a -> s {_ppPercent = a})
+--
+-- /Note:/ Consider using 'percent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPercent :: Lens.Lens' PercentPair (Lude.Maybe Lude.Double)
+ppPercent = Lens.lens (percent :: PercentPair -> Lude.Maybe Lude.Double) (\s a -> s {percent = a} :: PercentPair)
+{-# DEPRECATED ppPercent "Use generic-lens or generic-optics with 'percent' instead." #-}
 
-instance FromJSON PercentPair where
+instance Lude.FromJSON PercentPair where
   parseJSON =
-    withObject
+    Lude.withObject
       "PercentPair"
-      (\x -> PercentPair' <$> (x .:? "value") <*> (x .:? "percent"))
-
-instance Hashable PercentPair
-
-instance NFData PercentPair
+      ( \x ->
+          PercentPair'
+            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "percent")
+      )

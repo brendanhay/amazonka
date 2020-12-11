@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.BrokerStorageType where
+module Network.AWS.MQ.Types.BrokerStorageType
+  ( BrokerStorageType
+      ( BrokerStorageType',
+        EBS,
+        Efs
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | /Important:/ EFS is currently not Supported for RabbitMQ engine type.
-data BrokerStorageType
-  = EBS
-  | Efs
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BrokerStorageType = BrokerStorageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BrokerStorageType where
-  parser =
-    takeLowerText >>= \case
-      "ebs" -> pure EBS
-      "efs" -> pure Efs
-      e ->
-        fromTextError $
-          "Failure parsing BrokerStorageType from value: '" <> e
-            <> "'. Accepted values: ebs, efs"
+pattern EBS :: BrokerStorageType
+pattern EBS = BrokerStorageType' "EBS"
 
-instance ToText BrokerStorageType where
-  toText = \case
-    EBS -> "EBS"
-    Efs -> "EFS"
+pattern Efs :: BrokerStorageType
+pattern Efs = BrokerStorageType' "EFS"
 
-instance Hashable BrokerStorageType
-
-instance NFData BrokerStorageType
-
-instance ToByteString BrokerStorageType
-
-instance ToQuery BrokerStorageType
-
-instance ToHeader BrokerStorageType
-
-instance ToJSON BrokerStorageType where
-  toJSON = toJSONText
-
-instance FromJSON BrokerStorageType where
-  parseJSON = parseJSONText "BrokerStorageType"
+{-# COMPLETE
+  EBS,
+  Efs,
+  BrokerStorageType'
+  #-}

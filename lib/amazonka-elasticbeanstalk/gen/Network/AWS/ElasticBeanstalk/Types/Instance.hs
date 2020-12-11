@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,35 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.Instance where
+module Network.AWS.ElasticBeanstalk.Types.Instance
+  ( Instance (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstance,
+
+    -- * Lenses
+    iId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The description of an Amazon EC2 instance.
 --
---
---
--- /See:/ 'instance'' smart constructor.
-newtype Instance = Instance' {_iId :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkInstance' smart constructor.
+newtype Instance = Instance' {id :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iId' - The ID of the Amazon EC2 instance.
-instance' ::
+-- * 'id' - The ID of the Amazon EC2 instance.
+mkInstance ::
   Instance
-instance' = Instance' {_iId = Nothing}
+mkInstance = Instance' {id = Lude.Nothing}
 
 -- | The ID of the Amazon EC2 instance.
-iId :: Lens' Instance (Maybe Text)
-iId = lens _iId (\s a -> s {_iId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iId = Lens.lens (id :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Instance)
+{-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML Instance where
-  parseXML x = Instance' <$> (x .@? "Id")
-
-instance Hashable Instance
-
-instance NFData Instance
+instance Lude.FromXML Instance where
+  parseXML x = Instance' Lude.<$> (x Lude..@? "Id")

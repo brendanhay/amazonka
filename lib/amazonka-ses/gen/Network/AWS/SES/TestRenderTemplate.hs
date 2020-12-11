@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,143 @@
 --
 -- Creates a preview of the MIME content of an email when provided with a template and a set of replacement data.
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.TestRenderTemplate
-  ( -- * Creating a Request
-    testRenderTemplate,
-    TestRenderTemplate,
+  ( -- * Creating a request
+    TestRenderTemplate (..),
+    mkTestRenderTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trtTemplateName,
     trtTemplateData,
 
-    -- * Destructuring the Response
-    testRenderTemplateResponse,
-    TestRenderTemplateResponse,
+    -- * Destructuring the response
+    TestRenderTemplateResponse (..),
+    mkTestRenderTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     trtrsRenderedTemplate,
     trtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
--- | /See:/ 'testRenderTemplate' smart constructor.
+-- | /See:/ 'mkTestRenderTemplate' smart constructor.
 data TestRenderTemplate = TestRenderTemplate'
-  { _trtTemplateName ::
-      !Text,
-    _trtTemplateData :: !Text
+  { templateName ::
+      Lude.Text,
+    templateData :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestRenderTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trtTemplateName' - The name of the template that you want to render.
---
--- * 'trtTemplateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
-testRenderTemplate ::
-  -- | 'trtTemplateName'
-  Text ->
-  -- | 'trtTemplateData'
-  Text ->
+-- * 'templateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
+-- * 'templateName' - The name of the template that you want to render.
+mkTestRenderTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'templateData'
+  Lude.Text ->
   TestRenderTemplate
-testRenderTemplate pTemplateName_ pTemplateData_ =
+mkTestRenderTemplate pTemplateName_ pTemplateData_ =
   TestRenderTemplate'
-    { _trtTemplateName = pTemplateName_,
-      _trtTemplateData = pTemplateData_
+    { templateName = pTemplateName_,
+      templateData = pTemplateData_
     }
 
 -- | The name of the template that you want to render.
-trtTemplateName :: Lens' TestRenderTemplate Text
-trtTemplateName = lens _trtTemplateName (\s a -> s {_trtTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trtTemplateName :: Lens.Lens' TestRenderTemplate Lude.Text
+trtTemplateName = Lens.lens (templateName :: TestRenderTemplate -> Lude.Text) (\s a -> s {templateName = a} :: TestRenderTemplate)
+{-# DEPRECATED trtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
-trtTemplateData :: Lens' TestRenderTemplate Text
-trtTemplateData = lens _trtTemplateData (\s a -> s {_trtTemplateData = a})
+--
+-- /Note:/ Consider using 'templateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trtTemplateData :: Lens.Lens' TestRenderTemplate Lude.Text
+trtTemplateData = Lens.lens (templateData :: TestRenderTemplate -> Lude.Text) (\s a -> s {templateData = a} :: TestRenderTemplate)
+{-# DEPRECATED trtTemplateData "Use generic-lens or generic-optics with 'templateData' instead." #-}
 
-instance AWSRequest TestRenderTemplate where
+instance Lude.AWSRequest TestRenderTemplate where
   type Rs TestRenderTemplate = TestRenderTemplateResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "TestRenderTemplateResult"
       ( \s h x ->
           TestRenderTemplateResponse'
-            <$> (x .@? "RenderedTemplate") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "RenderedTemplate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TestRenderTemplate
+instance Lude.ToHeaders TestRenderTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TestRenderTemplate
+instance Lude.ToPath TestRenderTemplate where
+  toPath = Lude.const "/"
 
-instance ToHeaders TestRenderTemplate where
-  toHeaders = const mempty
-
-instance ToPath TestRenderTemplate where
-  toPath = const "/"
-
-instance ToQuery TestRenderTemplate where
+instance Lude.ToQuery TestRenderTemplate where
   toQuery TestRenderTemplate' {..} =
-    mconcat
-      [ "Action" =: ("TestRenderTemplate" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "TemplateName" =: _trtTemplateName,
-        "TemplateData" =: _trtTemplateData
+    Lude.mconcat
+      [ "Action" Lude.=: ("TestRenderTemplate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "TemplateName" Lude.=: templateName,
+        "TemplateData" Lude.=: templateData
       ]
 
--- | /See:/ 'testRenderTemplateResponse' smart constructor.
+-- | /See:/ 'mkTestRenderTemplateResponse' smart constructor.
 data TestRenderTemplateResponse = TestRenderTemplateResponse'
-  { _trtrsRenderedTemplate ::
-      !(Maybe Text),
-    _trtrsResponseStatus :: !Int
+  { renderedTemplate ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestRenderTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trtrsRenderedTemplate' - The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.
---
--- * 'trtrsResponseStatus' - -- | The response status code.
-testRenderTemplateResponse ::
-  -- | 'trtrsResponseStatus'
-  Int ->
+-- * 'renderedTemplate' - The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.
+-- * 'responseStatus' - The response status code.
+mkTestRenderTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TestRenderTemplateResponse
-testRenderTemplateResponse pResponseStatus_ =
+mkTestRenderTemplateResponse pResponseStatus_ =
   TestRenderTemplateResponse'
-    { _trtrsRenderedTemplate = Nothing,
-      _trtrsResponseStatus = pResponseStatus_
+    { renderedTemplate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.
-trtrsRenderedTemplate :: Lens' TestRenderTemplateResponse (Maybe Text)
-trtrsRenderedTemplate = lens _trtrsRenderedTemplate (\s a -> s {_trtrsRenderedTemplate = a})
+--
+-- /Note:/ Consider using 'renderedTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trtrsRenderedTemplate :: Lens.Lens' TestRenderTemplateResponse (Lude.Maybe Lude.Text)
+trtrsRenderedTemplate = Lens.lens (renderedTemplate :: TestRenderTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {renderedTemplate = a} :: TestRenderTemplateResponse)
+{-# DEPRECATED trtrsRenderedTemplate "Use generic-lens or generic-optics with 'renderedTemplate' instead." #-}
 
--- | -- | The response status code.
-trtrsResponseStatus :: Lens' TestRenderTemplateResponse Int
-trtrsResponseStatus = lens _trtrsResponseStatus (\s a -> s {_trtrsResponseStatus = a})
-
-instance NFData TestRenderTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trtrsResponseStatus :: Lens.Lens' TestRenderTemplateResponse Lude.Int
+trtrsResponseStatus = Lens.lens (responseStatus :: TestRenderTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestRenderTemplateResponse)
+{-# DEPRECATED trtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

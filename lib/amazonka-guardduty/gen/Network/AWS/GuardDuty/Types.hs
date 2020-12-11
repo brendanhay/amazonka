@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types
-  ( -- * Service Configuration
-    guardDuty,
+  ( -- * Service configuration
+    guardDutyService,
 
     -- * Errors
 
@@ -64,8 +62,8 @@ module Network.AWS.GuardDuty.Types
     UsageStatisticType (..),
 
     -- * AWSAPICallAction
-    AWSAPICallAction,
-    awsAPICallAction,
+    AWSAPICallAction (..),
+    mkAWSAPICallAction,
     aacaRemoteIPDetails,
     aacaCallerType,
     aacaDomainDetails,
@@ -74,33 +72,33 @@ module Network.AWS.GuardDuty.Types
     aacaAPI,
 
     -- * AccessControlList
-    AccessControlList,
-    accessControlList,
+    AccessControlList (..),
+    mkAccessControlList,
     aclAllowsPublicWriteAccess,
     aclAllowsPublicReadAccess,
 
     -- * AccessKeyDetails
-    AccessKeyDetails,
-    accessKeyDetails,
+    AccessKeyDetails (..),
+    mkAccessKeyDetails,
     akdPrincipalId,
     akdUserName,
     akdAccessKeyId,
     akdUserType,
 
     -- * AccountDetail
-    AccountDetail,
-    accountDetail,
+    AccountDetail (..),
+    mkAccountDetail,
     adAccountId,
     adEmail,
 
     -- * AccountLevelPermissions
-    AccountLevelPermissions,
-    accountLevelPermissions,
+    AccountLevelPermissions (..),
+    mkAccountLevelPermissions,
     alpBlockPublicAccess,
 
     -- * Action
-    Action,
-    action,
+    Action (..),
+    mkAction,
     aNetworkConnectionAction,
     aPortProbeAction,
     aActionType,
@@ -108,45 +106,45 @@ module Network.AWS.GuardDuty.Types
     aAWSAPICallAction,
 
     -- * AdminAccount
-    AdminAccount,
-    adminAccount,
+    AdminAccount (..),
+    mkAdminAccount,
     aaAdminAccountId,
     aaAdminStatus,
 
     -- * BlockPublicAccess
-    BlockPublicAccess,
-    blockPublicAccess,
+    BlockPublicAccess (..),
+    mkBlockPublicAccess,
     bpaIgnorePublicACLs,
     bpaBlockPublicACLs,
     bpaRestrictPublicBuckets,
     bpaBlockPublicPolicy,
 
     -- * BucketLevelPermissions
-    BucketLevelPermissions,
-    bucketLevelPermissions,
+    BucketLevelPermissions (..),
+    mkBucketLevelPermissions,
     blpAccessControlList,
     blpBlockPublicAccess,
     blpBucketPolicy,
 
     -- * BucketPolicy
-    BucketPolicy,
-    bucketPolicy,
+    BucketPolicy (..),
+    mkBucketPolicy,
     bpAllowsPublicWriteAccess,
     bpAllowsPublicReadAccess,
 
     -- * City
-    City,
-    city,
+    City (..),
+    mkCity,
     cCityName,
 
     -- * CloudTrailConfigurationResult
-    CloudTrailConfigurationResult,
-    cloudTrailConfigurationResult,
+    CloudTrailConfigurationResult (..),
+    mkCloudTrailConfigurationResult,
     ctcrStatus,
 
     -- * Condition
-    Condition,
-    condition,
+    Condition (..),
+    mkCondition,
     cEQ,
     cLessThan,
     cLte,
@@ -161,66 +159,66 @@ module Network.AWS.GuardDuty.Types
     cGreaterThan,
 
     -- * Country
-    Country,
-    country,
+    Country (..),
+    mkCountry,
     cCountryName,
     cCountryCode,
 
     -- * DNSLogsConfigurationResult
-    DNSLogsConfigurationResult,
-    dnsLogsConfigurationResult,
+    DNSLogsConfigurationResult (..),
+    mkDNSLogsConfigurationResult,
     dlcrStatus,
 
     -- * DNSRequestAction
-    DNSRequestAction,
-    dnsRequestAction,
+    DNSRequestAction (..),
+    mkDNSRequestAction,
     draDomain,
 
     -- * DataSourceConfigurations
-    DataSourceConfigurations,
-    dataSourceConfigurations,
+    DataSourceConfigurations (..),
+    mkDataSourceConfigurations,
     dscS3Logs,
 
     -- * DataSourceConfigurationsResult
-    DataSourceConfigurationsResult,
-    dataSourceConfigurationsResult,
+    DataSourceConfigurationsResult (..),
+    mkDataSourceConfigurationsResult,
     dscrCloudTrail,
     dscrDNSLogs,
     dscrFlowLogs,
     dscrS3Logs,
 
     -- * DefaultServerSideEncryption
-    DefaultServerSideEncryption,
-    defaultServerSideEncryption,
+    DefaultServerSideEncryption (..),
+    mkDefaultServerSideEncryption,
     dsseEncryptionType,
     dsseKMSMasterKeyARN,
 
     -- * Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dDestinationId,
     dDestinationType,
     dStatus,
 
     -- * DestinationProperties
-    DestinationProperties,
-    destinationProperties,
+    DestinationProperties (..),
+    mkDestinationProperties,
     dpKMSKeyARN,
     dpDestinationARN,
 
     -- * DomainDetails
-    DomainDetails,
-    domainDetails,
+    DomainDetails (..),
+    mkDomainDetails,
     ddDomain,
 
     -- * Evidence
-    Evidence,
-    evidence,
+    Evidence (..),
+    mkEvidence,
     eThreatIntelligenceDetails,
 
     -- * Finding
-    Finding,
-    finding,
+    Finding (..),
+    mkFinding,
     fService,
     fConfidence,
     fPartition,
@@ -238,35 +236,35 @@ module Network.AWS.GuardDuty.Types
     fUpdatedAt,
 
     -- * FindingCriteria
-    FindingCriteria,
-    findingCriteria,
+    FindingCriteria (..),
+    mkFindingCriteria,
     fcCriterion,
 
     -- * FindingStatistics
-    FindingStatistics,
-    findingStatistics,
+    FindingStatistics (..),
+    mkFindingStatistics,
     fsCountBySeverity,
 
     -- * FlowLogsConfigurationResult
-    FlowLogsConfigurationResult,
-    flowLogsConfigurationResult,
+    FlowLogsConfigurationResult (..),
+    mkFlowLogsConfigurationResult,
     flcrStatus,
 
     -- * GeoLocation
-    GeoLocation,
-    geoLocation,
+    GeoLocation (..),
+    mkGeoLocation,
     glLat,
     glLon,
 
     -- * IAMInstanceProfile
-    IAMInstanceProfile,
-    iamInstanceProfile,
+    IAMInstanceProfile (..),
+    mkIAMInstanceProfile,
     iapARN,
     iapId,
 
     -- * InstanceDetails
-    InstanceDetails,
-    instanceDetails,
+    InstanceDetails (..),
+    mkInstanceDetails,
     idInstanceId,
     idPlatform,
     idLaunchTime,
@@ -282,35 +280,35 @@ module Network.AWS.GuardDuty.Types
     idImageDescription,
 
     -- * Invitation
-    Invitation,
-    invitation,
+    Invitation (..),
+    mkInvitation,
     iInvitedAt,
     iRelationshipStatus,
     iInvitationId,
     iAccountId,
 
     -- * LocalIPDetails
-    LocalIPDetails,
-    localIPDetails,
+    LocalIPDetails (..),
+    mkLocalIPDetails,
     lidIPAddressV4,
 
     -- * LocalPortDetails
-    LocalPortDetails,
-    localPortDetails,
+    LocalPortDetails (..),
+    mkLocalPortDetails,
     lpdPortName,
     lpdPort,
 
     -- * Master
-    Master,
-    master,
+    Master (..),
+    mkMaster,
     masInvitedAt,
     masRelationshipStatus,
     masInvitationId,
     masAccountId,
 
     -- * Member
-    Member,
-    member,
+    Member (..),
+    mkMember,
     mInvitedAt,
     mDetectorId,
     mAccountId,
@@ -320,14 +318,14 @@ module Network.AWS.GuardDuty.Types
     mUpdatedAt,
 
     -- * MemberDataSourceConfiguration
-    MemberDataSourceConfiguration,
-    memberDataSourceConfiguration,
+    MemberDataSourceConfiguration (..),
+    mkMemberDataSourceConfiguration,
     mdscAccountId,
     mdscDataSources,
 
     -- * NetworkConnectionAction
-    NetworkConnectionAction,
-    networkConnectionAction,
+    NetworkConnectionAction (..),
+    mkNetworkConnectionAction,
     ncaRemoteIPDetails,
     ncaProtocol,
     ncaLocalIPDetails,
@@ -337,8 +335,8 @@ module Network.AWS.GuardDuty.Types
     ncaLocalPortDetails,
 
     -- * NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niPrivateIPAddresses,
     niPublicDNSName,
     niSecurityGroups,
@@ -351,78 +349,78 @@ module Network.AWS.GuardDuty.Types
     niIPv6Addresses,
 
     -- * Organization
-    Organization,
-    organization,
+    Organization (..),
+    mkOrganization,
     oOrg,
     oASNOrg,
     oASN,
     oIsp,
 
     -- * OrganizationDataSourceConfigurations
-    OrganizationDataSourceConfigurations,
-    organizationDataSourceConfigurations,
+    OrganizationDataSourceConfigurations (..),
+    mkOrganizationDataSourceConfigurations,
     odscS3Logs,
 
     -- * OrganizationDataSourceConfigurationsResult
-    OrganizationDataSourceConfigurationsResult,
-    organizationDataSourceConfigurationsResult,
+    OrganizationDataSourceConfigurationsResult (..),
+    mkOrganizationDataSourceConfigurationsResult,
     odscrS3Logs,
 
     -- * OrganizationS3LogsConfiguration
-    OrganizationS3LogsConfiguration,
-    organizationS3LogsConfiguration,
+    OrganizationS3LogsConfiguration (..),
+    mkOrganizationS3LogsConfiguration,
     oslcAutoEnable,
 
     -- * OrganizationS3LogsConfigurationResult
-    OrganizationS3LogsConfigurationResult,
-    organizationS3LogsConfigurationResult,
+    OrganizationS3LogsConfigurationResult (..),
+    mkOrganizationS3LogsConfigurationResult,
     oslcrAutoEnable,
 
     -- * Owner
-    Owner,
-    owner,
+    Owner (..),
+    mkOwner,
     oId,
 
     -- * PermissionConfiguration
-    PermissionConfiguration,
-    permissionConfiguration,
+    PermissionConfiguration (..),
+    mkPermissionConfiguration,
     pcBucketLevelPermissions,
     pcAccountLevelPermissions,
 
     -- * PortProbeAction
-    PortProbeAction,
-    portProbeAction,
+    PortProbeAction (..),
+    mkPortProbeAction,
     ppaPortProbeDetails,
     ppaBlocked,
 
     -- * PortProbeDetail
-    PortProbeDetail,
-    portProbeDetail,
+    PortProbeDetail (..),
+    mkPortProbeDetail,
     ppdRemoteIPDetails,
     ppdLocalIPDetails,
     ppdLocalPortDetails,
 
     -- * PrivateIPAddressDetails
-    PrivateIPAddressDetails,
-    privateIPAddressDetails,
+    PrivateIPAddressDetails (..),
+    mkPrivateIPAddressDetails,
     piadPrivateIPAddress,
     piadPrivateDNSName,
 
     -- * ProductCode
-    ProductCode,
-    productCode,
+    ProductCode (..),
+    mkProductCode,
     pcProductType,
     pcCode,
 
     -- * PublicAccess
-    PublicAccess,
-    publicAccess,
+    PublicAccess (..),
+    mkPublicAccess,
     paPermissionConfiguration,
     paEffectivePermission,
 
     -- * RemoteIPDetails
-    RemoteIPDetails,
-    remoteIPDetails,
+    RemoteIPDetails (..),
+    mkRemoteIPDetails,
     ridCountry,
     ridCity,
     ridIPAddressV4,
@@ -430,22 +428,22 @@ module Network.AWS.GuardDuty.Types
     ridOrganization,
 
     -- * RemotePortDetails
-    RemotePortDetails,
-    remotePortDetails,
+    RemotePortDetails (..),
+    mkRemotePortDetails,
     rpdPortName,
     rpdPort,
 
     -- * Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rResourceType,
     rS3BucketDetails,
     rInstanceDetails,
     rAccessKeyDetails,
 
     -- * S3BucketDetail
-    S3BucketDetail,
-    s3BucketDetail,
+    S3BucketDetail (..),
+    mkS3BucketDetail,
     sbdARN,
     sbdCreatedAt,
     sbdOwner,
@@ -456,24 +454,24 @@ module Network.AWS.GuardDuty.Types
     sbdTags,
 
     -- * S3LogsConfiguration
-    S3LogsConfiguration,
-    s3LogsConfiguration,
+    S3LogsConfiguration (..),
+    mkS3LogsConfiguration,
     slcEnable,
 
     -- * S3LogsConfigurationResult
-    S3LogsConfigurationResult,
-    s3LogsConfigurationResult,
+    S3LogsConfigurationResult (..),
+    mkS3LogsConfigurationResult,
     slcrStatus,
 
     -- * SecurityGroup
-    SecurityGroup,
-    securityGroup,
+    SecurityGroup (..),
+    mkSecurityGroup,
     sgGroupId,
     sgGroupName,
 
     -- * ServiceInfo
-    ServiceInfo,
-    serviceInfo,
+    ServiceInfo (..),
+    mkServiceInfo,
     siCount,
     siEventFirstSeen,
     siAction,
@@ -486,63 +484,63 @@ module Network.AWS.GuardDuty.Types
     siArchived,
 
     -- * SortCriteria
-    SortCriteria,
-    sortCriteria,
+    SortCriteria (..),
+    mkSortCriteria,
     scOrderBy,
     scAttributeName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * ThreatIntelligenceDetail
-    ThreatIntelligenceDetail,
-    threatIntelligenceDetail,
+    ThreatIntelligenceDetail (..),
+    mkThreatIntelligenceDetail,
     tidThreatNames,
     tidThreatListName,
 
     -- * Total
-    Total,
-    total,
+    Total (..),
+    mkTotal,
     tAmount,
     tUnit,
 
     -- * UnprocessedAccount
-    UnprocessedAccount,
-    unprocessedAccount,
+    UnprocessedAccount (..),
+    mkUnprocessedAccount,
     uaAccountId,
     uaResult,
 
     -- * UsageAccountResult
-    UsageAccountResult,
-    usageAccountResult,
+    UsageAccountResult (..),
+    mkUsageAccountResult,
     uarAccountId,
     uarTotal,
 
     -- * UsageCriteria
-    UsageCriteria,
-    usageCriteria,
+    UsageCriteria (..),
+    mkUsageCriteria,
     ucAccountIds,
     ucResources,
     ucDataSources,
 
     -- * UsageDataSourceResult
-    UsageDataSourceResult,
-    usageDataSourceResult,
+    UsageDataSourceResult (..),
+    mkUsageDataSourceResult,
     udsrTotal,
     udsrDataSource,
 
     -- * UsageResourceResult
-    UsageResourceResult,
-    usageResourceResult,
+    UsageResourceResult (..),
+    mkUsageResourceResult,
     urrTotal,
     urrResource,
 
     -- * UsageStatistics
-    UsageStatistics,
-    usageStatistics,
+    UsageStatistics (..),
+    mkUsageStatistics,
     usTopResources,
     usSumByResource,
     usSumByDataSource,
@@ -634,48 +632,60 @@ import Network.AWS.GuardDuty.Types.UsageDataSourceResult
 import Network.AWS.GuardDuty.Types.UsageResourceResult
 import Network.AWS.GuardDuty.Types.UsageStatisticType
 import Network.AWS.GuardDuty.Types.UsageStatistics
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-28@ of the Amazon GuardDuty SDK configuration.
-guardDuty :: Service
-guardDuty =
-  Service
-    { _svcAbbrev = "GuardDuty",
-      _svcSigner = v4,
-      _svcPrefix = "guardduty",
-      _svcVersion = "2017-11-28",
-      _svcEndpoint = defaultEndpoint guardDuty,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "GuardDuty",
-      _svcRetry = retry
+guardDutyService :: Lude.Service
+guardDutyService =
+  Lude.Service
+    { Lude._svcAbbrev = "GuardDuty",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "guardduty",
+      Lude._svcVersion = "2017-11-28",
+      Lude._svcEndpoint = Lude.defaultEndpoint guardDutyService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "GuardDuty",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

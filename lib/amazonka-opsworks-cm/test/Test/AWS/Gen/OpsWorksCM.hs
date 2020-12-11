@@ -28,121 +28,121 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestAssociateNode $
---             associateNode
+--             mkAssociateNode
 --
 --         , requestUpdateServer $
---             updateServer
+--             mkUpdateServer
 --
 --         , requestDeleteServer $
---             deleteServer
+--             mkDeleteServer
 --
 --         , requestDeleteBackup $
---             deleteBackup
+--             mkDeleteBackup
 --
 --         , requestDescribeEvents $
---             describeEvents
+--             mkDescribeEvents
 --
 --         , requestDisassociateNode $
---             disassociateNode
+--             mkDisassociateNode
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestCreateBackup $
---             createBackup
+--             mkCreateBackup
 --
 --         , requestUpdateServerEngineAttributes $
---             updateServerEngineAttributes
+--             mkUpdateServerEngineAttributes
 --
 --         , requestStartMaintenance $
---             startMaintenance
+--             mkStartMaintenance
 --
 --         , requestDescribeBackups $
---             describeBackups
+--             mkDescribeBackups
 --
 --         , requestCreateServer $
---             createServer
+--             mkCreateServer
 --
 --         , requestRestoreServer $
---             restoreServer
+--             mkRestoreServer
 --
 --         , requestDescribeNodeAssociationStatus $
---             describeNodeAssociationStatus
+--             mkDescribeNodeAssociationStatus
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestDescribeAccountAttributes $
---             describeAccountAttributes
+--             mkDescribeAccountAttributes
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDescribeServers $
---             describeServers
+--             mkDescribeServers
 --
 --         , requestExportServerEngineAttribute $
---             exportServerEngineAttribute
+--             mkExportServerEngineAttribute
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseAssociateNode $
---             associateNodeResponse
+--             mkAssociateNodeResponse
 --
 --         , responseUpdateServer $
---             updateServerResponse
+--             mkUpdateServerResponse
 --
 --         , responseDeleteServer $
---             deleteServerResponse
+--             mkDeleteServerResponse
 --
 --         , responseDeleteBackup $
---             deleteBackupResponse
+--             mkDeleteBackupResponse
 --
 --         , responseDescribeEvents $
---             describeEventsResponse
+--             mkDescribeEventsResponse
 --
 --         , responseDisassociateNode $
---             disassociateNodeResponse
+--             mkDisassociateNodeResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseCreateBackup $
---             createBackupResponse
+--             mkCreateBackupResponse
 --
 --         , responseUpdateServerEngineAttributes $
---             updateServerEngineAttributesResponse
+--             mkUpdateServerEngineAttributesResponse
 --
 --         , responseStartMaintenance $
---             startMaintenanceResponse
+--             mkStartMaintenanceResponse
 --
 --         , responseDescribeBackups $
---             describeBackupsResponse
+--             mkDescribeBackupsResponse
 --
 --         , responseCreateServer $
---             createServerResponse
+--             mkCreateServerResponse
 --
 --         , responseRestoreServer $
---             restoreServerResponse
+--             mkRestoreServerResponse
 --
 --         , responseDescribeNodeAssociationStatus $
---             describeNodeAssociationStatusResponse
+--             mkDescribeNodeAssociationStatusResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseDescribeAccountAttributes $
---             describeAccountAttributesResponse
+--             mkDescribeAccountAttributesResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDescribeServers $
---             describeServersResponse
+--             mkDescribeServersResponse
 --
 --         , responseExportServerEngineAttribute $
---             exportServerEngineAttributeResponse
+--             mkExportServerEngineAttributeResponse
 --
 --           ]
 --     ]
@@ -270,7 +270,7 @@ responseAssociateNode =
   res
     "AssociateNodeResponse"
     "fixture/AssociateNodeResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy AssociateNode)
 
 responseUpdateServer :: UpdateServerResponse -> TestTree
@@ -278,7 +278,7 @@ responseUpdateServer =
   res
     "UpdateServerResponse"
     "fixture/UpdateServerResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy UpdateServer)
 
 responseDeleteServer :: DeleteServerResponse -> TestTree
@@ -286,7 +286,7 @@ responseDeleteServer =
   res
     "DeleteServerResponse"
     "fixture/DeleteServerResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DeleteServer)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeleteBackup =
   res
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DeleteBackup)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -302,7 +302,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DescribeEvents)
 
 responseDisassociateNode :: DisassociateNodeResponse -> TestTree
@@ -310,7 +310,7 @@ responseDisassociateNode =
   res
     "DisassociateNodeResponse"
     "fixture/DisassociateNodeResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DisassociateNode)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy ListTagsForResource)
 
 responseCreateBackup :: CreateBackupResponse -> TestTree
@@ -326,7 +326,7 @@ responseCreateBackup =
   res
     "CreateBackupResponse"
     "fixture/CreateBackupResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy CreateBackup)
 
 responseUpdateServerEngineAttributes :: UpdateServerEngineAttributesResponse -> TestTree
@@ -334,7 +334,7 @@ responseUpdateServerEngineAttributes =
   res
     "UpdateServerEngineAttributesResponse"
     "fixture/UpdateServerEngineAttributesResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy UpdateServerEngineAttributes)
 
 responseStartMaintenance :: StartMaintenanceResponse -> TestTree
@@ -342,7 +342,7 @@ responseStartMaintenance =
   res
     "StartMaintenanceResponse"
     "fixture/StartMaintenanceResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy StartMaintenance)
 
 responseDescribeBackups :: DescribeBackupsResponse -> TestTree
@@ -350,7 +350,7 @@ responseDescribeBackups =
   res
     "DescribeBackupsResponse"
     "fixture/DescribeBackupsResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DescribeBackups)
 
 responseCreateServer :: CreateServerResponse -> TestTree
@@ -358,7 +358,7 @@ responseCreateServer =
   res
     "CreateServerResponse"
     "fixture/CreateServerResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy CreateServer)
 
 responseRestoreServer :: RestoreServerResponse -> TestTree
@@ -366,7 +366,7 @@ responseRestoreServer =
   res
     "RestoreServerResponse"
     "fixture/RestoreServerResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy RestoreServer)
 
 responseDescribeNodeAssociationStatus :: DescribeNodeAssociationStatusResponse -> TestTree
@@ -374,7 +374,7 @@ responseDescribeNodeAssociationStatus =
   res
     "DescribeNodeAssociationStatusResponse"
     "fixture/DescribeNodeAssociationStatusResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DescribeNodeAssociationStatus)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -382,7 +382,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy TagResource)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
@@ -390,7 +390,7 @@ responseDescribeAccountAttributes =
   res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -398,7 +398,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy UntagResource)
 
 responseDescribeServers :: DescribeServersResponse -> TestTree
@@ -406,7 +406,7 @@ responseDescribeServers =
   res
     "DescribeServersResponse"
     "fixture/DescribeServersResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy DescribeServers)
 
 responseExportServerEngineAttribute :: ExportServerEngineAttributeResponse -> TestTree
@@ -414,5 +414,5 @@ responseExportServerEngineAttribute =
   res
     "ExportServerEngineAttributeResponse"
     "fixture/ExportServerEngineAttributeResponse.proto"
-    opsWorksCM
+    opsWorksCMService
     (Proxy :: Proxy ExportServerEngineAttribute)

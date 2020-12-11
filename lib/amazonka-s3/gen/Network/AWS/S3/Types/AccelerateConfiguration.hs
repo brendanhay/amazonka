@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.AccelerateConfiguration where
+module Network.AWS.S3.Types.AccelerateConfiguration
+  ( AccelerateConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccelerateConfiguration,
+
+    -- * Lenses
+    acStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.BucketAccelerateStatus
 
 -- | Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Amazon S3 Transfer Acceleration> in the /Amazon Simple Storage Service Developer Guide/ .
 --
---
---
--- /See:/ 'accelerateConfiguration' smart constructor.
+-- /See:/ 'mkAccelerateConfiguration' smart constructor.
 newtype AccelerateConfiguration = AccelerateConfiguration'
-  { _acStatus ::
-      Maybe BucketAccelerateStatus
+  { status ::
+      Lude.Maybe BucketAccelerateStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccelerateConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acStatus' - Specifies the transfer acceleration status of the bucket.
-accelerateConfiguration ::
+-- * 'status' - Specifies the transfer acceleration status of the bucket.
+mkAccelerateConfiguration ::
   AccelerateConfiguration
-accelerateConfiguration =
-  AccelerateConfiguration' {_acStatus = Nothing}
+mkAccelerateConfiguration =
+  AccelerateConfiguration' {status = Lude.Nothing}
 
 -- | Specifies the transfer acceleration status of the bucket.
-acStatus :: Lens' AccelerateConfiguration (Maybe BucketAccelerateStatus)
-acStatus = lens _acStatus (\s a -> s {_acStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acStatus :: Lens.Lens' AccelerateConfiguration (Lude.Maybe BucketAccelerateStatus)
+acStatus = Lens.lens (status :: AccelerateConfiguration -> Lude.Maybe BucketAccelerateStatus) (\s a -> s {status = a} :: AccelerateConfiguration)
+{-# DEPRECATED acStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Hashable AccelerateConfiguration
-
-instance NFData AccelerateConfiguration
-
-instance ToXML AccelerateConfiguration where
+instance Lude.ToXML AccelerateConfiguration where
   toXML AccelerateConfiguration' {..} =
-    mconcat ["Status" @= _acStatus]
+    Lude.mconcat ["Status" Lude.@= status]

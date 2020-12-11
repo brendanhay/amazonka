@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns the current configuration items for resources that are present in your AWS Config aggregator. The operation also returns a list of resources that are not processed in the current request. If there are no unprocessed resources, the operation returns an empty @unprocessedResourceIdentifiers@ list.
 module Network.AWS.Config.BatchGetAggregateResourceConfig
-  ( -- * Creating a Request
-    batchGetAggregateResourceConfig,
-    BatchGetAggregateResourceConfig,
+  ( -- * Creating a request
+    BatchGetAggregateResourceConfig (..),
+    mkBatchGetAggregateResourceConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgarcConfigurationAggregatorName,
     bgarcResourceIdentifiers,
 
-    -- * Destructuring the Response
-    batchGetAggregateResourceConfigResponse,
-    BatchGetAggregateResourceConfigResponse,
+    -- * Destructuring the response
+    BatchGetAggregateResourceConfigResponse (..),
+    mkBatchGetAggregateResourceConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgarcrsBaseConfigurationItems,
     bgarcrsUnprocessedResourceIdentifiers,
     bgarcrsResponseStatus,
@@ -39,146 +34,160 @@ module Network.AWS.Config.BatchGetAggregateResourceConfig
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetAggregateResourceConfig' smart constructor.
+-- | /See:/ 'mkBatchGetAggregateResourceConfig' smart constructor.
 data BatchGetAggregateResourceConfig = BatchGetAggregateResourceConfig'
-  { _bgarcConfigurationAggregatorName ::
-      !Text,
-    _bgarcResourceIdentifiers ::
-      !( List1
-           AggregateResourceIdentifier
-       )
+  { configurationAggregatorName ::
+      Lude.Text,
+    resourceIdentifiers ::
+      Lude.NonEmpty
+        AggregateResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetAggregateResourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgarcConfigurationAggregatorName' - The name of the configuration aggregator.
---
--- * 'bgarcResourceIdentifiers' - A list of aggregate ResourceIdentifiers objects.
-batchGetAggregateResourceConfig ::
-  -- | 'bgarcConfigurationAggregatorName'
-  Text ->
-  -- | 'bgarcResourceIdentifiers'
-  NonEmpty AggregateResourceIdentifier ->
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- * 'resourceIdentifiers' - A list of aggregate ResourceIdentifiers objects.
+mkBatchGetAggregateResourceConfig ::
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
+  -- | 'resourceIdentifiers'
+  Lude.NonEmpty AggregateResourceIdentifier ->
   BatchGetAggregateResourceConfig
-batchGetAggregateResourceConfig
+mkBatchGetAggregateResourceConfig
   pConfigurationAggregatorName_
   pResourceIdentifiers_ =
     BatchGetAggregateResourceConfig'
-      { _bgarcConfigurationAggregatorName =
+      { configurationAggregatorName =
           pConfigurationAggregatorName_,
-        _bgarcResourceIdentifiers = _List1 # pResourceIdentifiers_
+        resourceIdentifiers = pResourceIdentifiers_
       }
 
 -- | The name of the configuration aggregator.
-bgarcConfigurationAggregatorName :: Lens' BatchGetAggregateResourceConfig Text
-bgarcConfigurationAggregatorName = lens _bgarcConfigurationAggregatorName (\s a -> s {_bgarcConfigurationAggregatorName = a})
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarcConfigurationAggregatorName :: Lens.Lens' BatchGetAggregateResourceConfig Lude.Text
+bgarcConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: BatchGetAggregateResourceConfig -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: BatchGetAggregateResourceConfig)
+{-# DEPRECATED bgarcConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
 -- | A list of aggregate ResourceIdentifiers objects.
-bgarcResourceIdentifiers :: Lens' BatchGetAggregateResourceConfig (NonEmpty AggregateResourceIdentifier)
-bgarcResourceIdentifiers = lens _bgarcResourceIdentifiers (\s a -> s {_bgarcResourceIdentifiers = a}) . _List1
+--
+-- /Note:/ Consider using 'resourceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarcResourceIdentifiers :: Lens.Lens' BatchGetAggregateResourceConfig (Lude.NonEmpty AggregateResourceIdentifier)
+bgarcResourceIdentifiers = Lens.lens (resourceIdentifiers :: BatchGetAggregateResourceConfig -> Lude.NonEmpty AggregateResourceIdentifier) (\s a -> s {resourceIdentifiers = a} :: BatchGetAggregateResourceConfig)
+{-# DEPRECATED bgarcResourceIdentifiers "Use generic-lens or generic-optics with 'resourceIdentifiers' instead." #-}
 
-instance AWSRequest BatchGetAggregateResourceConfig where
+instance Lude.AWSRequest BatchGetAggregateResourceConfig where
   type
     Rs BatchGetAggregateResourceConfig =
       BatchGetAggregateResourceConfigResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetAggregateResourceConfigResponse'
-            <$> (x .?> "BaseConfigurationItems" .!@ mempty)
-            <*> (x .?> "UnprocessedResourceIdentifiers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BaseConfigurationItems" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "UnprocessedResourceIdentifiers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetAggregateResourceConfig
-
-instance NFData BatchGetAggregateResourceConfig
-
-instance ToHeaders BatchGetAggregateResourceConfig where
+instance Lude.ToHeaders BatchGetAggregateResourceConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.BatchGetAggregateResourceConfig" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.BatchGetAggregateResourceConfig" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetAggregateResourceConfig where
+instance Lude.ToJSON BatchGetAggregateResourceConfig where
   toJSON BatchGetAggregateResourceConfig' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "ConfigurationAggregatorName"
-                  .= _bgarcConfigurationAggregatorName
+                  Lude..= configurationAggregatorName
               ),
-            Just ("ResourceIdentifiers" .= _bgarcResourceIdentifiers)
+            Lude.Just ("ResourceIdentifiers" Lude..= resourceIdentifiers)
           ]
       )
 
-instance ToPath BatchGetAggregateResourceConfig where
-  toPath = const "/"
+instance Lude.ToPath BatchGetAggregateResourceConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetAggregateResourceConfig where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetAggregateResourceConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetAggregateResourceConfigResponse' smart constructor.
+-- | /See:/ 'mkBatchGetAggregateResourceConfigResponse' smart constructor.
 data BatchGetAggregateResourceConfigResponse = BatchGetAggregateResourceConfigResponse'
-  { _bgarcrsBaseConfigurationItems ::
-      !( Maybe
-           [BaseConfigurationItem]
-       ),
-    _bgarcrsUnprocessedResourceIdentifiers ::
-      !( Maybe
-           [AggregateResourceIdentifier]
-       ),
-    _bgarcrsResponseStatus ::
-      !Int
+  { baseConfigurationItems ::
+      Lude.Maybe
+        [BaseConfigurationItem],
+    unprocessedResourceIdentifiers ::
+      Lude.Maybe
+        [AggregateResourceIdentifier],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetAggregateResourceConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgarcrsBaseConfigurationItems' - A list that contains the current configuration of one or more resources.
---
--- * 'bgarcrsUnprocessedResourceIdentifiers' - A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.
---
--- * 'bgarcrsResponseStatus' - -- | The response status code.
-batchGetAggregateResourceConfigResponse ::
-  -- | 'bgarcrsResponseStatus'
-  Int ->
+-- * 'baseConfigurationItems' - A list that contains the current configuration of one or more resources.
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedResourceIdentifiers' - A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.
+mkBatchGetAggregateResourceConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetAggregateResourceConfigResponse
-batchGetAggregateResourceConfigResponse pResponseStatus_ =
+mkBatchGetAggregateResourceConfigResponse pResponseStatus_ =
   BatchGetAggregateResourceConfigResponse'
-    { _bgarcrsBaseConfigurationItems =
-        Nothing,
-      _bgarcrsUnprocessedResourceIdentifiers = Nothing,
-      _bgarcrsResponseStatus = pResponseStatus_
+    { baseConfigurationItems =
+        Lude.Nothing,
+      unprocessedResourceIdentifiers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list that contains the current configuration of one or more resources.
-bgarcrsBaseConfigurationItems :: Lens' BatchGetAggregateResourceConfigResponse [BaseConfigurationItem]
-bgarcrsBaseConfigurationItems = lens _bgarcrsBaseConfigurationItems (\s a -> s {_bgarcrsBaseConfigurationItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'baseConfigurationItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarcrsBaseConfigurationItems :: Lens.Lens' BatchGetAggregateResourceConfigResponse (Lude.Maybe [BaseConfigurationItem])
+bgarcrsBaseConfigurationItems = Lens.lens (baseConfigurationItems :: BatchGetAggregateResourceConfigResponse -> Lude.Maybe [BaseConfigurationItem]) (\s a -> s {baseConfigurationItems = a} :: BatchGetAggregateResourceConfigResponse)
+{-# DEPRECATED bgarcrsBaseConfigurationItems "Use generic-lens or generic-optics with 'baseConfigurationItems' instead." #-}
 
 -- | A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.
-bgarcrsUnprocessedResourceIdentifiers :: Lens' BatchGetAggregateResourceConfigResponse [AggregateResourceIdentifier]
-bgarcrsUnprocessedResourceIdentifiers = lens _bgarcrsUnprocessedResourceIdentifiers (\s a -> s {_bgarcrsUnprocessedResourceIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedResourceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarcrsUnprocessedResourceIdentifiers :: Lens.Lens' BatchGetAggregateResourceConfigResponse (Lude.Maybe [AggregateResourceIdentifier])
+bgarcrsUnprocessedResourceIdentifiers = Lens.lens (unprocessedResourceIdentifiers :: BatchGetAggregateResourceConfigResponse -> Lude.Maybe [AggregateResourceIdentifier]) (\s a -> s {unprocessedResourceIdentifiers = a} :: BatchGetAggregateResourceConfigResponse)
+{-# DEPRECATED bgarcrsUnprocessedResourceIdentifiers "Use generic-lens or generic-optics with 'unprocessedResourceIdentifiers' instead." #-}
 
--- | -- | The response status code.
-bgarcrsResponseStatus :: Lens' BatchGetAggregateResourceConfigResponse Int
-bgarcrsResponseStatus = lens _bgarcrsResponseStatus (\s a -> s {_bgarcrsResponseStatus = a})
-
-instance NFData BatchGetAggregateResourceConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarcrsResponseStatus :: Lens.Lens' BatchGetAggregateResourceConfigResponse Lude.Int
+bgarcrsResponseStatus = Lens.lens (responseStatus :: BatchGetAggregateResourceConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetAggregateResourceConfigResponse)
+{-# DEPRECATED bgarcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

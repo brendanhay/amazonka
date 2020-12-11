@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,144 @@
 --
 -- Adds the specified SSL server certificate to the certificate list for the specified HTTPS or TLS listener.
 --
---
 -- If the certificate in already in the certificate list, the call is successful but the certificate is not added again.
---
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html HTTPS listeners> in the /Application Load Balancers Guide/ or <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html TLS listeners> in the /Network Load Balancers Guide/ .
 module Network.AWS.ELBv2.AddListenerCertificates
-  ( -- * Creating a Request
-    addListenerCertificates,
-    AddListenerCertificates,
+  ( -- * Creating a request
+    AddListenerCertificates (..),
+    mkAddListenerCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     alcListenerARN,
     alcCertificates,
 
-    -- * Destructuring the Response
-    addListenerCertificatesResponse,
-    AddListenerCertificatesResponse,
+    -- * Destructuring the response
+    AddListenerCertificatesResponse (..),
+    mkAddListenerCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     alcrsCertificates,
     alcrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addListenerCertificates' smart constructor.
+-- | /See:/ 'mkAddListenerCertificates' smart constructor.
 data AddListenerCertificates = AddListenerCertificates'
-  { _alcListenerARN ::
-      !Text,
-    _alcCertificates :: ![Certificate]
+  { listenerARN ::
+      Lude.Text,
+    certificates :: [Certificate]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddListenerCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'alcListenerARN' - The Amazon Resource Name (ARN) of the listener.
---
--- * 'alcCertificates' - The certificate to add. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
-addListenerCertificates ::
-  -- | 'alcListenerARN'
-  Text ->
+-- * 'certificates' - The certificate to add. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
+-- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
+mkAddListenerCertificates ::
+  -- | 'listenerARN'
+  Lude.Text ->
   AddListenerCertificates
-addListenerCertificates pListenerARN_ =
+mkAddListenerCertificates pListenerARN_ =
   AddListenerCertificates'
-    { _alcListenerARN = pListenerARN_,
-      _alcCertificates = mempty
+    { listenerARN = pListenerARN_,
+      certificates = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the listener.
-alcListenerARN :: Lens' AddListenerCertificates Text
-alcListenerARN = lens _alcListenerARN (\s a -> s {_alcListenerARN = a})
+--
+-- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alcListenerARN :: Lens.Lens' AddListenerCertificates Lude.Text
+alcListenerARN = Lens.lens (listenerARN :: AddListenerCertificates -> Lude.Text) (\s a -> s {listenerARN = a} :: AddListenerCertificates)
+{-# DEPRECATED alcListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
 
 -- | The certificate to add. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
-alcCertificates :: Lens' AddListenerCertificates [Certificate]
-alcCertificates = lens _alcCertificates (\s a -> s {_alcCertificates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alcCertificates :: Lens.Lens' AddListenerCertificates [Certificate]
+alcCertificates = Lens.lens (certificates :: AddListenerCertificates -> [Certificate]) (\s a -> s {certificates = a} :: AddListenerCertificates)
+{-# DEPRECATED alcCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
-instance AWSRequest AddListenerCertificates where
+instance Lude.AWSRequest AddListenerCertificates where
   type Rs AddListenerCertificates = AddListenerCertificatesResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AddListenerCertificatesResult"
       ( \s h x ->
           AddListenerCertificatesResponse'
-            <$> (x .@? "Certificates" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Certificates" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddListenerCertificates
+instance Lude.ToHeaders AddListenerCertificates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddListenerCertificates
+instance Lude.ToPath AddListenerCertificates where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddListenerCertificates where
-  toHeaders = const mempty
-
-instance ToPath AddListenerCertificates where
-  toPath = const "/"
-
-instance ToQuery AddListenerCertificates where
+instance Lude.ToQuery AddListenerCertificates where
   toQuery AddListenerCertificates' {..} =
-    mconcat
-      [ "Action" =: ("AddListenerCertificates" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "ListenerArn" =: _alcListenerARN,
-        "Certificates" =: toQueryList "member" _alcCertificates
+    Lude.mconcat
+      [ "Action" Lude.=: ("AddListenerCertificates" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "ListenerArn" Lude.=: listenerARN,
+        "Certificates" Lude.=: Lude.toQueryList "member" certificates
       ]
 
--- | /See:/ 'addListenerCertificatesResponse' smart constructor.
+-- | /See:/ 'mkAddListenerCertificatesResponse' smart constructor.
 data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
-  { _alcrsCertificates ::
-      !(Maybe [Certificate]),
-    _alcrsResponseStatus ::
-      !Int
+  { certificates ::
+      Lude.Maybe [Certificate],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddListenerCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'alcrsCertificates' - Information about the certificates in the certificate list.
---
--- * 'alcrsResponseStatus' - -- | The response status code.
-addListenerCertificatesResponse ::
-  -- | 'alcrsResponseStatus'
-  Int ->
+-- * 'certificates' - Information about the certificates in the certificate list.
+-- * 'responseStatus' - The response status code.
+mkAddListenerCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddListenerCertificatesResponse
-addListenerCertificatesResponse pResponseStatus_ =
+mkAddListenerCertificatesResponse pResponseStatus_ =
   AddListenerCertificatesResponse'
-    { _alcrsCertificates = Nothing,
-      _alcrsResponseStatus = pResponseStatus_
+    { certificates = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the certificates in the certificate list.
-alcrsCertificates :: Lens' AddListenerCertificatesResponse [Certificate]
-alcrsCertificates = lens _alcrsCertificates (\s a -> s {_alcrsCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alcrsCertificates :: Lens.Lens' AddListenerCertificatesResponse (Lude.Maybe [Certificate])
+alcrsCertificates = Lens.lens (certificates :: AddListenerCertificatesResponse -> Lude.Maybe [Certificate]) (\s a -> s {certificates = a} :: AddListenerCertificatesResponse)
+{-# DEPRECATED alcrsCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
--- | -- | The response status code.
-alcrsResponseStatus :: Lens' AddListenerCertificatesResponse Int
-alcrsResponseStatus = lens _alcrsResponseStatus (\s a -> s {_alcrsResponseStatus = a})
-
-instance NFData AddListenerCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alcrsResponseStatus :: Lens.Lens' AddListenerCertificatesResponse Lude.Int
+alcrsResponseStatus = Lens.lens (responseStatus :: AddListenerCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddListenerCertificatesResponse)
+{-# DEPRECATED alcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

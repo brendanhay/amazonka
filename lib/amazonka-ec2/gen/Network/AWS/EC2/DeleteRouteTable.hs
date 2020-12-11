@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,101 @@
 --
 -- Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.
 module Network.AWS.EC2.DeleteRouteTable
-  ( -- * Creating a Request
-    deleteRouteTable,
-    DeleteRouteTable,
+  ( -- * Creating a request
+    DeleteRouteTable (..),
+    mkDeleteRouteTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drtrDryRun,
     drtrRouteTableId,
 
-    -- * Destructuring the Response
-    deleteRouteTableResponse,
-    DeleteRouteTableResponse,
+    -- * Destructuring the response
+    DeleteRouteTableResponse (..),
+    mkDeleteRouteTableResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRouteTable' smart constructor.
+-- | /See:/ 'mkDeleteRouteTable' smart constructor.
 data DeleteRouteTable = DeleteRouteTable'
-  { _drtrDryRun ::
-      !(Maybe Bool),
-    _drtrRouteTableId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    routeTableId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRouteTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drtrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'drtrRouteTableId' - The ID of the route table.
-deleteRouteTable ::
-  -- | 'drtrRouteTableId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'routeTableId' - The ID of the route table.
+mkDeleteRouteTable ::
+  -- | 'routeTableId'
+  Lude.Text ->
   DeleteRouteTable
-deleteRouteTable pRouteTableId_ =
+mkDeleteRouteTable pRouteTableId_ =
   DeleteRouteTable'
-    { _drtrDryRun = Nothing,
-      _drtrRouteTableId = pRouteTableId_
+    { dryRun = Lude.Nothing,
+      routeTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-drtrDryRun :: Lens' DeleteRouteTable (Maybe Bool)
-drtrDryRun = lens _drtrDryRun (\s a -> s {_drtrDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtrDryRun :: Lens.Lens' DeleteRouteTable (Lude.Maybe Lude.Bool)
+drtrDryRun = Lens.lens (dryRun :: DeleteRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteRouteTable)
+{-# DEPRECATED drtrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the route table.
-drtrRouteTableId :: Lens' DeleteRouteTable Text
-drtrRouteTableId = lens _drtrRouteTableId (\s a -> s {_drtrRouteTableId = a})
+--
+-- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtrRouteTableId :: Lens.Lens' DeleteRouteTable Lude.Text
+drtrRouteTableId = Lens.lens (routeTableId :: DeleteRouteTable -> Lude.Text) (\s a -> s {routeTableId = a} :: DeleteRouteTable)
+{-# DEPRECATED drtrRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
 
-instance AWSRequest DeleteRouteTable where
+instance Lude.AWSRequest DeleteRouteTable where
   type Rs DeleteRouteTable = DeleteRouteTableResponse
-  request = postQuery ec2
-  response = receiveNull DeleteRouteTableResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteRouteTableResponse'
 
-instance Hashable DeleteRouteTable
+instance Lude.ToHeaders DeleteRouteTable where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteRouteTable
+instance Lude.ToPath DeleteRouteTable where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteRouteTable where
-  toHeaders = const mempty
-
-instance ToPath DeleteRouteTable where
-  toPath = const "/"
-
-instance ToQuery DeleteRouteTable where
+instance Lude.ToQuery DeleteRouteTable where
   toQuery DeleteRouteTable' {..} =
-    mconcat
-      [ "Action" =: ("DeleteRouteTable" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _drtrDryRun,
-        "RouteTableId" =: _drtrRouteTableId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteRouteTable" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "RouteTableId" Lude.=: routeTableId
       ]
 
--- | /See:/ 'deleteRouteTableResponse' smart constructor.
+-- | /See:/ 'mkDeleteRouteTableResponse' smart constructor.
 data DeleteRouteTableResponse = DeleteRouteTableResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRouteTableResponse' with the minimum fields required to make a request.
-deleteRouteTableResponse ::
+mkDeleteRouteTableResponse ::
   DeleteRouteTableResponse
-deleteRouteTableResponse = DeleteRouteTableResponse'
-
-instance NFData DeleteRouteTableResponse
+mkDeleteRouteTableResponse = DeleteRouteTableResponse'

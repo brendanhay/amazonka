@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.AttributeDefinition where
+module Network.AWS.DynamoDB.Types.AttributeDefinition
+  ( AttributeDefinition (..),
+
+    -- * Smart constructor
+    mkAttributeDefinition,
+
+    -- * Lenses
+    adAttributeName,
+    adAttributeType,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.ScalarAttributeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an attribute for describing the key schema for the table and indexes.
 --
---
---
--- /See:/ 'attributeDefinition' smart constructor.
+-- /See:/ 'mkAttributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
-  { _adAttributeName ::
-      !Text,
-    _adAttributeType :: !ScalarAttributeType
+  { attributeName ::
+      Lude.Text,
+    attributeType :: ScalarAttributeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributeName' - A name for the attribute.
+-- * 'attributeType' - The data type for the attribute, where:
 --
--- * 'adAttributeName' - A name for the attribute.
 --
--- * 'adAttributeType' - The data type for the attribute, where:     * @S@ - the attribute is of type String     * @N@ - the attribute is of type Number     * @B@ - the attribute is of type Binary
-attributeDefinition ::
-  -- | 'adAttributeName'
-  Text ->
-  -- | 'adAttributeType'
+--     * @S@ - the attribute is of type String
+--
+--
+--     * @N@ - the attribute is of type Number
+--
+--
+--     * @B@ - the attribute is of type Binary
+mkAttributeDefinition ::
+  -- | 'attributeName'
+  Lude.Text ->
+  -- | 'attributeType'
   ScalarAttributeType ->
   AttributeDefinition
-attributeDefinition pAttributeName_ pAttributeType_ =
+mkAttributeDefinition pAttributeName_ pAttributeType_ =
   AttributeDefinition'
-    { _adAttributeName = pAttributeName_,
-      _adAttributeType = pAttributeType_
+    { attributeName = pAttributeName_,
+      attributeType = pAttributeType_
     }
 
 -- | A name for the attribute.
-adAttributeName :: Lens' AttributeDefinition Text
-adAttributeName = lens _adAttributeName (\s a -> s {_adAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttributeName :: Lens.Lens' AttributeDefinition Lude.Text
+adAttributeName = Lens.lens (attributeName :: AttributeDefinition -> Lude.Text) (\s a -> s {attributeName = a} :: AttributeDefinition)
+{-# DEPRECATED adAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
--- | The data type for the attribute, where:     * @S@ - the attribute is of type String     * @N@ - the attribute is of type Number     * @B@ - the attribute is of type Binary
-adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
-adAttributeType = lens _adAttributeType (\s a -> s {_adAttributeType = a})
+-- | The data type for the attribute, where:
+--
+--
+--     * @S@ - the attribute is of type String
+--
+--
+--     * @N@ - the attribute is of type Number
+--
+--
+--     * @B@ - the attribute is of type Binary
+--
+--
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttributeType :: Lens.Lens' AttributeDefinition ScalarAttributeType
+adAttributeType = Lens.lens (attributeType :: AttributeDefinition -> ScalarAttributeType) (\s a -> s {attributeType = a} :: AttributeDefinition)
+{-# DEPRECATED adAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
-instance FromJSON AttributeDefinition where
+instance Lude.FromJSON AttributeDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttributeDefinition"
       ( \x ->
           AttributeDefinition'
-            <$> (x .: "AttributeName") <*> (x .: "AttributeType")
+            Lude.<$> (x Lude..: "AttributeName") Lude.<*> (x Lude..: "AttributeType")
       )
 
-instance Hashable AttributeDefinition
-
-instance NFData AttributeDefinition
-
-instance ToJSON AttributeDefinition where
+instance Lude.ToJSON AttributeDefinition where
   toJSON AttributeDefinition' {..} =
-    object
-      ( catMaybes
-          [ Just ("AttributeName" .= _adAttributeName),
-            Just ("AttributeType" .= _adAttributeType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AttributeName" Lude..= attributeName),
+            Lude.Just ("AttributeType" Lude..= attributeType)
           ]
       )

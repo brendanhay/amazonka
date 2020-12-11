@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,147 +7,191 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.NetworkProfile where
+module Network.AWS.DeviceFarm.Types.NetworkProfile
+  ( NetworkProfile (..),
+
+    -- * Smart constructor
+    mkNetworkProfile,
+
+    -- * Lenses
+    npUplinkJitterMs,
+    npArn,
+    npUplinkLossPercent,
+    npDownlinkJitterMs,
+    npName,
+    npDownlinkLossPercent,
+    npType,
+    npUplinkDelayMs,
+    npUplinkBandwidthBits,
+    npDescription,
+    npDownlinkDelayMs,
+    npDownlinkBandwidthBits,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.NetworkProfileType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An array of settings that describes characteristics of a network profile.
 --
---
---
--- /See:/ 'networkProfile' smart constructor.
+-- /See:/ 'mkNetworkProfile' smart constructor.
 data NetworkProfile = NetworkProfile'
-  { _npUplinkJitterMs ::
-      !(Maybe Integer),
-    _npArn :: !(Maybe Text),
-    _npUplinkLossPercent :: !(Maybe Nat),
-    _npDownlinkJitterMs :: !(Maybe Integer),
-    _npName :: !(Maybe Text),
-    _npDownlinkLossPercent :: !(Maybe Nat),
-    _npType :: !(Maybe NetworkProfileType),
-    _npUplinkDelayMs :: !(Maybe Integer),
-    _npUplinkBandwidthBits :: !(Maybe Integer),
-    _npDescription :: !(Maybe Text),
-    _npDownlinkDelayMs :: !(Maybe Integer),
-    _npDownlinkBandwidthBits :: !(Maybe Integer)
+  { uplinkJitterMs ::
+      Lude.Maybe Lude.Integer,
+    arn :: Lude.Maybe Lude.Text,
+    uplinkLossPercent :: Lude.Maybe Lude.Natural,
+    downlinkJitterMs :: Lude.Maybe Lude.Integer,
+    name :: Lude.Maybe Lude.Text,
+    downlinkLossPercent :: Lude.Maybe Lude.Natural,
+    type' :: Lude.Maybe NetworkProfileType,
+    uplinkDelayMs :: Lude.Maybe Lude.Integer,
+    uplinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    description :: Lude.Maybe Lude.Text,
+    downlinkDelayMs :: Lude.Maybe Lude.Integer,
+    downlinkBandwidthBits :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'npUplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
---
--- * 'npArn' - The Amazon Resource Name (ARN) of the network profile.
---
--- * 'npUplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
---
--- * 'npDownlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
---
--- * 'npName' - The name of the network profile.
---
--- * 'npDownlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
---
--- * 'npType' - The type of network profile. Valid values are listed here.
---
--- * 'npUplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
---
--- * 'npUplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
---
--- * 'npDescription' - The description of the network profile.
---
--- * 'npDownlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
---
--- * 'npDownlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
-networkProfile ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the network profile.
+-- * 'description' - The description of the network profile.
+-- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
+-- * 'name' - The name of the network profile.
+-- * 'type'' - The type of network profile. Valid values are listed here.
+-- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+mkNetworkProfile ::
   NetworkProfile
-networkProfile =
+mkNetworkProfile =
   NetworkProfile'
-    { _npUplinkJitterMs = Nothing,
-      _npArn = Nothing,
-      _npUplinkLossPercent = Nothing,
-      _npDownlinkJitterMs = Nothing,
-      _npName = Nothing,
-      _npDownlinkLossPercent = Nothing,
-      _npType = Nothing,
-      _npUplinkDelayMs = Nothing,
-      _npUplinkBandwidthBits = Nothing,
-      _npDescription = Nothing,
-      _npDownlinkDelayMs = Nothing,
-      _npDownlinkBandwidthBits = Nothing
+    { uplinkJitterMs = Lude.Nothing,
+      arn = Lude.Nothing,
+      uplinkLossPercent = Lude.Nothing,
+      downlinkJitterMs = Lude.Nothing,
+      name = Lude.Nothing,
+      downlinkLossPercent = Lude.Nothing,
+      type' = Lude.Nothing,
+      uplinkDelayMs = Lude.Nothing,
+      uplinkBandwidthBits = Lude.Nothing,
+      description = Lude.Nothing,
+      downlinkDelayMs = Lude.Nothing,
+      downlinkBandwidthBits = Lude.Nothing
     }
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
-npUplinkJitterMs :: Lens' NetworkProfile (Maybe Integer)
-npUplinkJitterMs = lens _npUplinkJitterMs (\s a -> s {_npUplinkJitterMs = a})
+--
+-- /Note:/ Consider using 'uplinkJitterMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npUplinkJitterMs :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Integer)
+npUplinkJitterMs = Lens.lens (uplinkJitterMs :: NetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkJitterMs = a} :: NetworkProfile)
+{-# DEPRECATED npUplinkJitterMs "Use generic-lens or generic-optics with 'uplinkJitterMs' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the network profile.
-npArn :: Lens' NetworkProfile (Maybe Text)
-npArn = lens _npArn (\s a -> s {_npArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npArn :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Text)
+npArn = Lens.lens (arn :: NetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: NetworkProfile)
+{-# DEPRECATED npArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
-npUplinkLossPercent :: Lens' NetworkProfile (Maybe Natural)
-npUplinkLossPercent = lens _npUplinkLossPercent (\s a -> s {_npUplinkLossPercent = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'uplinkLossPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npUplinkLossPercent :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Natural)
+npUplinkLossPercent = Lens.lens (uplinkLossPercent :: NetworkProfile -> Lude.Maybe Lude.Natural) (\s a -> s {uplinkLossPercent = a} :: NetworkProfile)
+{-# DEPRECATED npUplinkLossPercent "Use generic-lens or generic-optics with 'uplinkLossPercent' instead." #-}
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
-npDownlinkJitterMs :: Lens' NetworkProfile (Maybe Integer)
-npDownlinkJitterMs = lens _npDownlinkJitterMs (\s a -> s {_npDownlinkJitterMs = a})
+--
+-- /Note:/ Consider using 'downlinkJitterMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npDownlinkJitterMs :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Integer)
+npDownlinkJitterMs = Lens.lens (downlinkJitterMs :: NetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkJitterMs = a} :: NetworkProfile)
+{-# DEPRECATED npDownlinkJitterMs "Use generic-lens or generic-optics with 'downlinkJitterMs' instead." #-}
 
 -- | The name of the network profile.
-npName :: Lens' NetworkProfile (Maybe Text)
-npName = lens _npName (\s a -> s {_npName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npName :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Text)
+npName = Lens.lens (name :: NetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: NetworkProfile)
+{-# DEPRECATED npName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
-npDownlinkLossPercent :: Lens' NetworkProfile (Maybe Natural)
-npDownlinkLossPercent = lens _npDownlinkLossPercent (\s a -> s {_npDownlinkLossPercent = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'downlinkLossPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npDownlinkLossPercent :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Natural)
+npDownlinkLossPercent = Lens.lens (downlinkLossPercent :: NetworkProfile -> Lude.Maybe Lude.Natural) (\s a -> s {downlinkLossPercent = a} :: NetworkProfile)
+{-# DEPRECATED npDownlinkLossPercent "Use generic-lens or generic-optics with 'downlinkLossPercent' instead." #-}
 
 -- | The type of network profile. Valid values are listed here.
-npType :: Lens' NetworkProfile (Maybe NetworkProfileType)
-npType = lens _npType (\s a -> s {_npType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npType :: Lens.Lens' NetworkProfile (Lude.Maybe NetworkProfileType)
+npType = Lens.lens (type' :: NetworkProfile -> Lude.Maybe NetworkProfileType) (\s a -> s {type' = a} :: NetworkProfile)
+{-# DEPRECATED npType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
-npUplinkDelayMs :: Lens' NetworkProfile (Maybe Integer)
-npUplinkDelayMs = lens _npUplinkDelayMs (\s a -> s {_npUplinkDelayMs = a})
+--
+-- /Note:/ Consider using 'uplinkDelayMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npUplinkDelayMs :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Integer)
+npUplinkDelayMs = Lens.lens (uplinkDelayMs :: NetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkDelayMs = a} :: NetworkProfile)
+{-# DEPRECATED npUplinkDelayMs "Use generic-lens or generic-optics with 'uplinkDelayMs' instead." #-}
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
-npUplinkBandwidthBits :: Lens' NetworkProfile (Maybe Integer)
-npUplinkBandwidthBits = lens _npUplinkBandwidthBits (\s a -> s {_npUplinkBandwidthBits = a})
+--
+-- /Note:/ Consider using 'uplinkBandwidthBits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npUplinkBandwidthBits :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Integer)
+npUplinkBandwidthBits = Lens.lens (uplinkBandwidthBits :: NetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkBandwidthBits = a} :: NetworkProfile)
+{-# DEPRECATED npUplinkBandwidthBits "Use generic-lens or generic-optics with 'uplinkBandwidthBits' instead." #-}
 
 -- | The description of the network profile.
-npDescription :: Lens' NetworkProfile (Maybe Text)
-npDescription = lens _npDescription (\s a -> s {_npDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npDescription :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Text)
+npDescription = Lens.lens (description :: NetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: NetworkProfile)
+{-# DEPRECATED npDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
-npDownlinkDelayMs :: Lens' NetworkProfile (Maybe Integer)
-npDownlinkDelayMs = lens _npDownlinkDelayMs (\s a -> s {_npDownlinkDelayMs = a})
+--
+-- /Note:/ Consider using 'downlinkDelayMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npDownlinkDelayMs :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Integer)
+npDownlinkDelayMs = Lens.lens (downlinkDelayMs :: NetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkDelayMs = a} :: NetworkProfile)
+{-# DEPRECATED npDownlinkDelayMs "Use generic-lens or generic-optics with 'downlinkDelayMs' instead." #-}
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
-npDownlinkBandwidthBits :: Lens' NetworkProfile (Maybe Integer)
-npDownlinkBandwidthBits = lens _npDownlinkBandwidthBits (\s a -> s {_npDownlinkBandwidthBits = a})
+--
+-- /Note:/ Consider using 'downlinkBandwidthBits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npDownlinkBandwidthBits :: Lens.Lens' NetworkProfile (Lude.Maybe Lude.Integer)
+npDownlinkBandwidthBits = Lens.lens (downlinkBandwidthBits :: NetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkBandwidthBits = a} :: NetworkProfile)
+{-# DEPRECATED npDownlinkBandwidthBits "Use generic-lens or generic-optics with 'downlinkBandwidthBits' instead." #-}
 
-instance FromJSON NetworkProfile where
+instance Lude.FromJSON NetworkProfile where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkProfile"
       ( \x ->
           NetworkProfile'
-            <$> (x .:? "uplinkJitterMs")
-            <*> (x .:? "arn")
-            <*> (x .:? "uplinkLossPercent")
-            <*> (x .:? "downlinkJitterMs")
-            <*> (x .:? "name")
-            <*> (x .:? "downlinkLossPercent")
-            <*> (x .:? "type")
-            <*> (x .:? "uplinkDelayMs")
-            <*> (x .:? "uplinkBandwidthBits")
-            <*> (x .:? "description")
-            <*> (x .:? "downlinkDelayMs")
-            <*> (x .:? "downlinkBandwidthBits")
+            Lude.<$> (x Lude..:? "uplinkJitterMs")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "uplinkLossPercent")
+            Lude.<*> (x Lude..:? "downlinkJitterMs")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "downlinkLossPercent")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "uplinkDelayMs")
+            Lude.<*> (x Lude..:? "uplinkBandwidthBits")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "downlinkDelayMs")
+            Lude.<*> (x Lude..:? "downlinkBandwidthBits")
       )
-
-instance Hashable NetworkProfile
-
-instance NFData NetworkProfile

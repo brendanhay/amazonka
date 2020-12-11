@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetActionType where
+module Network.AWS.IoTAnalytics.Types.DatasetActionType
+  ( DatasetActionType
+      ( DatasetActionType',
+        Container,
+        Query
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DatasetActionType
-  = Container
-  | Query
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DatasetActionType = DatasetActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DatasetActionType where
-  parser =
-    takeLowerText >>= \case
-      "container" -> pure Container
-      "query" -> pure Query
-      e ->
-        fromTextError $
-          "Failure parsing DatasetActionType from value: '" <> e
-            <> "'. Accepted values: container, query"
+pattern Container :: DatasetActionType
+pattern Container = DatasetActionType' "CONTAINER"
 
-instance ToText DatasetActionType where
-  toText = \case
-    Container -> "CONTAINER"
-    Query -> "QUERY"
+pattern Query :: DatasetActionType
+pattern Query = DatasetActionType' "QUERY"
 
-instance Hashable DatasetActionType
-
-instance NFData DatasetActionType
-
-instance ToByteString DatasetActionType
-
-instance ToQuery DatasetActionType
-
-instance ToHeader DatasetActionType
-
-instance FromJSON DatasetActionType where
-  parseJSON = parseJSONText "DatasetActionType"
+{-# COMPLETE
+  Container,
+  Query,
+  DatasetActionType'
+  #-}

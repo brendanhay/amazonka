@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Resends the confirmation (for confirmation of registration) to a specific user in the user pool.
 module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
-  ( -- * Creating a Request
-    resendConfirmationCode,
-    ResendConfirmationCode,
+  ( -- * Creating a request
+    ResendConfirmationCode (..),
+    mkResendConfirmationCode,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rccClientMetadata,
     rccAnalyticsMetadata,
     rccUserContextData,
@@ -31,178 +26,199 @@ module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
     rccClientId,
     rccUsername,
 
-    -- * Destructuring the Response
-    resendConfirmationCodeResponse,
-    ResendConfirmationCodeResponse,
+    -- * Destructuring the response
+    ResendConfirmationCodeResponse (..),
+    mkResendConfirmationCodeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rccrsCodeDeliveryDetails,
     rccrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to resend the confirmation code.
 --
---
---
--- /See:/ 'resendConfirmationCode' smart constructor.
+-- /See:/ 'mkResendConfirmationCode' smart constructor.
 data ResendConfirmationCode = ResendConfirmationCode'
-  { _rccClientMetadata ::
-      !(Maybe (Map Text (Text))),
-    _rccAnalyticsMetadata ::
-      !(Maybe AnalyticsMetadataType),
-    _rccUserContextData ::
-      !(Maybe UserContextDataType),
-    _rccSecretHash :: !(Maybe (Sensitive Text)),
-    _rccClientId :: !(Sensitive Text),
-    _rccUsername :: !(Sensitive Text)
+  { clientMetadata ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    analyticsMetadata ::
+      Lude.Maybe AnalyticsMetadataType,
+    userContextData ::
+      Lude.Maybe UserContextDataType,
+    secretHash ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    clientId :: Lude.Sensitive Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResendConfirmationCode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @ResendConfirmationCode@ calls.
+-- * 'clientId' - The ID of the client associated with the user pool.
+-- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
--- * 'rccClientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
---
--- * 'rccAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @ResendConfirmationCode@ calls.
---
--- * 'rccUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
---
--- * 'rccSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
---
--- * 'rccClientId' - The ID of the client associated with the user pool.
---
--- * 'rccUsername' - The user name of the user to whom you wish to resend a confirmation code.
-resendConfirmationCode ::
-  -- | 'rccClientId'
-  Text ->
-  -- | 'rccUsername'
-  Text ->
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'secretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
+-- * 'userContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+-- * 'username' - The user name of the user to whom you wish to resend a confirmation code.
+mkResendConfirmationCode ::
+  -- | 'clientId'
+  Lude.Sensitive Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   ResendConfirmationCode
-resendConfirmationCode pClientId_ pUsername_ =
+mkResendConfirmationCode pClientId_ pUsername_ =
   ResendConfirmationCode'
-    { _rccClientMetadata = Nothing,
-      _rccAnalyticsMetadata = Nothing,
-      _rccUserContextData = Nothing,
-      _rccSecretHash = Nothing,
-      _rccClientId = _Sensitive # pClientId_,
-      _rccUsername = _Sensitive # pUsername_
+    { clientMetadata = Lude.Nothing,
+      analyticsMetadata = Lude.Nothing,
+      userContextData = Lude.Nothing,
+      secretHash = Lude.Nothing,
+      clientId = pClientId_,
+      username = pUsername_
     }
 
--- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-rccClientMetadata :: Lens' ResendConfirmationCode (HashMap Text (Text))
-rccClientMetadata = lens _rccClientMetadata (\s a -> s {_rccClientMetadata = a}) . _Default . _Map
+-- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccClientMetadata :: Lens.Lens' ResendConfirmationCode (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+rccClientMetadata = Lens.lens (clientMetadata :: ResendConfirmationCode -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: ResendConfirmationCode)
+{-# DEPRECATED rccClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for @ResendConfirmationCode@ calls.
-rccAnalyticsMetadata :: Lens' ResendConfirmationCode (Maybe AnalyticsMetadataType)
-rccAnalyticsMetadata = lens _rccAnalyticsMetadata (\s a -> s {_rccAnalyticsMetadata = a})
+--
+-- /Note:/ Consider using 'analyticsMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccAnalyticsMetadata :: Lens.Lens' ResendConfirmationCode (Lude.Maybe AnalyticsMetadataType)
+rccAnalyticsMetadata = Lens.lens (analyticsMetadata :: ResendConfirmationCode -> Lude.Maybe AnalyticsMetadataType) (\s a -> s {analyticsMetadata = a} :: ResendConfirmationCode)
+{-# DEPRECATED rccAnalyticsMetadata "Use generic-lens or generic-optics with 'analyticsMetadata' instead." #-}
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-rccUserContextData :: Lens' ResendConfirmationCode (Maybe UserContextDataType)
-rccUserContextData = lens _rccUserContextData (\s a -> s {_rccUserContextData = a})
+--
+-- /Note:/ Consider using 'userContextData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccUserContextData :: Lens.Lens' ResendConfirmationCode (Lude.Maybe UserContextDataType)
+rccUserContextData = Lens.lens (userContextData :: ResendConfirmationCode -> Lude.Maybe UserContextDataType) (\s a -> s {userContextData = a} :: ResendConfirmationCode)
+{-# DEPRECATED rccUserContextData "Use generic-lens or generic-optics with 'userContextData' instead." #-}
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
-rccSecretHash :: Lens' ResendConfirmationCode (Maybe Text)
-rccSecretHash = lens _rccSecretHash (\s a -> s {_rccSecretHash = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'secretHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccSecretHash :: Lens.Lens' ResendConfirmationCode (Lude.Maybe (Lude.Sensitive Lude.Text))
+rccSecretHash = Lens.lens (secretHash :: ResendConfirmationCode -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretHash = a} :: ResendConfirmationCode)
+{-# DEPRECATED rccSecretHash "Use generic-lens or generic-optics with 'secretHash' instead." #-}
 
 -- | The ID of the client associated with the user pool.
-rccClientId :: Lens' ResendConfirmationCode Text
-rccClientId = lens _rccClientId (\s a -> s {_rccClientId = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccClientId :: Lens.Lens' ResendConfirmationCode (Lude.Sensitive Lude.Text)
+rccClientId = Lens.lens (clientId :: ResendConfirmationCode -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: ResendConfirmationCode)
+{-# DEPRECATED rccClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The user name of the user to whom you wish to resend a confirmation code.
-rccUsername :: Lens' ResendConfirmationCode Text
-rccUsername = lens _rccUsername (\s a -> s {_rccUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccUsername :: Lens.Lens' ResendConfirmationCode (Lude.Sensitive Lude.Text)
+rccUsername = Lens.lens (username :: ResendConfirmationCode -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: ResendConfirmationCode)
+{-# DEPRECATED rccUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest ResendConfirmationCode where
+instance Lude.AWSRequest ResendConfirmationCode where
   type Rs ResendConfirmationCode = ResendConfirmationCodeResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResendConfirmationCodeResponse'
-            <$> (x .?> "CodeDeliveryDetails") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CodeDeliveryDetails")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResendConfirmationCode
-
-instance NFData ResendConfirmationCode
-
-instance ToHeaders ResendConfirmationCode where
+instance Lude.ToHeaders ResendConfirmationCode where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.ResendConfirmationCode" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.ResendConfirmationCode" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResendConfirmationCode where
+instance Lude.ToJSON ResendConfirmationCode where
   toJSON ResendConfirmationCode' {..} =
-    object
-      ( catMaybes
-          [ ("ClientMetadata" .=) <$> _rccClientMetadata,
-            ("AnalyticsMetadata" .=) <$> _rccAnalyticsMetadata,
-            ("UserContextData" .=) <$> _rccUserContextData,
-            ("SecretHash" .=) <$> _rccSecretHash,
-            Just ("ClientId" .= _rccClientId),
-            Just ("Username" .= _rccUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
+            ("AnalyticsMetadata" Lude..=) Lude.<$> analyticsMetadata,
+            ("UserContextData" Lude..=) Lude.<$> userContextData,
+            ("SecretHash" Lude..=) Lude.<$> secretHash,
+            Lude.Just ("ClientId" Lude..= clientId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath ResendConfirmationCode where
-  toPath = const "/"
+instance Lude.ToPath ResendConfirmationCode where
+  toPath = Lude.const "/"
 
-instance ToQuery ResendConfirmationCode where
-  toQuery = const mempty
+instance Lude.ToQuery ResendConfirmationCode where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.
 --
---
---
--- /See:/ 'resendConfirmationCodeResponse' smart constructor.
+-- /See:/ 'mkResendConfirmationCodeResponse' smart constructor.
 data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
-  { _rccrsCodeDeliveryDetails ::
-      !( Maybe
-           CodeDeliveryDetailsType
-       ),
-    _rccrsResponseStatus :: !Int
+  { codeDeliveryDetails ::
+      Lude.Maybe
+        CodeDeliveryDetailsType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResendConfirmationCodeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rccrsCodeDeliveryDetails' - The code delivery details returned by the server in response to the request to resend the confirmation code.
---
--- * 'rccrsResponseStatus' - -- | The response status code.
-resendConfirmationCodeResponse ::
-  -- | 'rccrsResponseStatus'
-  Int ->
+-- * 'codeDeliveryDetails' - The code delivery details returned by the server in response to the request to resend the confirmation code.
+-- * 'responseStatus' - The response status code.
+mkResendConfirmationCodeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResendConfirmationCodeResponse
-resendConfirmationCodeResponse pResponseStatus_ =
+mkResendConfirmationCodeResponse pResponseStatus_ =
   ResendConfirmationCodeResponse'
-    { _rccrsCodeDeliveryDetails =
-        Nothing,
-      _rccrsResponseStatus = pResponseStatus_
+    { codeDeliveryDetails =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The code delivery details returned by the server in response to the request to resend the confirmation code.
-rccrsCodeDeliveryDetails :: Lens' ResendConfirmationCodeResponse (Maybe CodeDeliveryDetailsType)
-rccrsCodeDeliveryDetails = lens _rccrsCodeDeliveryDetails (\s a -> s {_rccrsCodeDeliveryDetails = a})
+--
+-- /Note:/ Consider using 'codeDeliveryDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccrsCodeDeliveryDetails :: Lens.Lens' ResendConfirmationCodeResponse (Lude.Maybe CodeDeliveryDetailsType)
+rccrsCodeDeliveryDetails = Lens.lens (codeDeliveryDetails :: ResendConfirmationCodeResponse -> Lude.Maybe CodeDeliveryDetailsType) (\s a -> s {codeDeliveryDetails = a} :: ResendConfirmationCodeResponse)
+{-# DEPRECATED rccrsCodeDeliveryDetails "Use generic-lens or generic-optics with 'codeDeliveryDetails' instead." #-}
 
--- | -- | The response status code.
-rccrsResponseStatus :: Lens' ResendConfirmationCodeResponse Int
-rccrsResponseStatus = lens _rccrsResponseStatus (\s a -> s {_rccrsResponseStatus = a})
-
-instance NFData ResendConfirmationCodeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccrsResponseStatus :: Lens.Lens' ResendConfirmationCodeResponse Lude.Int
+rccrsResponseStatus = Lens.lens (responseStatus :: ResendConfirmationCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResendConfirmationCodeResponse)
+{-# DEPRECATED rccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

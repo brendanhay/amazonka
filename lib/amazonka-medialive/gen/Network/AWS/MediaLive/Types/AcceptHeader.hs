@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AcceptHeader where
+module Network.AWS.MediaLive.Types.AcceptHeader
+  ( AcceptHeader
+      ( AcceptHeader',
+        AHImageJpeg
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The HTTP Accept header. Indicates the requested type fothe thumbnail.
-data AcceptHeader = AHImageJpeg
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AcceptHeader = AcceptHeader' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AcceptHeader where
-  parser =
-    takeLowerText >>= \case
-      "image/jpeg" -> pure AHImageJpeg
-      e ->
-        fromTextError $
-          "Failure parsing AcceptHeader from value: '" <> e
-            <> "'. Accepted values: image/jpeg"
+pattern AHImageJpeg :: AcceptHeader
+pattern AHImageJpeg = AcceptHeader' "image/jpeg"
 
-instance ToText AcceptHeader where
-  toText = \case
-    AHImageJpeg -> "image/jpeg"
-
-instance Hashable AcceptHeader
-
-instance NFData AcceptHeader
-
-instance ToByteString AcceptHeader
-
-instance ToQuery AcceptHeader
-
-instance ToHeader AcceptHeader
-
-instance ToJSON AcceptHeader where
-  toJSON = toJSONText
+{-# COMPLETE
+  AHImageJpeg,
+  AcceptHeader'
+  #-}

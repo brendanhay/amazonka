@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProductViewFilterBy where
+module Network.AWS.ServiceCatalog.Types.ProductViewFilterBy
+  ( ProductViewFilterBy
+      ( ProductViewFilterBy',
+        PVFBFullTextSearch,
+        PVFBOwner,
+        PVFBProductType,
+        PVFBSourceProductId
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProductViewFilterBy
-  = PVFBFullTextSearch
-  | PVFBOwner
-  | PVFBProductType
-  | PVFBSourceProductId
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProductViewFilterBy = ProductViewFilterBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProductViewFilterBy where
-  parser =
-    takeLowerText >>= \case
-      "fulltextsearch" -> pure PVFBFullTextSearch
-      "owner" -> pure PVFBOwner
-      "producttype" -> pure PVFBProductType
-      "sourceproductid" -> pure PVFBSourceProductId
-      e ->
-        fromTextError $
-          "Failure parsing ProductViewFilterBy from value: '" <> e
-            <> "'. Accepted values: fulltextsearch, owner, producttype, sourceproductid"
+pattern PVFBFullTextSearch :: ProductViewFilterBy
+pattern PVFBFullTextSearch = ProductViewFilterBy' "FullTextSearch"
 
-instance ToText ProductViewFilterBy where
-  toText = \case
-    PVFBFullTextSearch -> "FullTextSearch"
-    PVFBOwner -> "Owner"
-    PVFBProductType -> "ProductType"
-    PVFBSourceProductId -> "SourceProductId"
+pattern PVFBOwner :: ProductViewFilterBy
+pattern PVFBOwner = ProductViewFilterBy' "Owner"
 
-instance Hashable ProductViewFilterBy
+pattern PVFBProductType :: ProductViewFilterBy
+pattern PVFBProductType = ProductViewFilterBy' "ProductType"
 
-instance NFData ProductViewFilterBy
+pattern PVFBSourceProductId :: ProductViewFilterBy
+pattern PVFBSourceProductId = ProductViewFilterBy' "SourceProductId"
 
-instance ToByteString ProductViewFilterBy
-
-instance ToQuery ProductViewFilterBy
-
-instance ToHeader ProductViewFilterBy
-
-instance ToJSON ProductViewFilterBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  PVFBFullTextSearch,
+  PVFBOwner,
+  PVFBProductType,
+  PVFBSourceProductId,
+  ProductViewFilterBy'
+  #-}

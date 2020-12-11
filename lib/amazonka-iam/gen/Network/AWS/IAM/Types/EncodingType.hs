@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.EncodingType where
+module Network.AWS.IAM.Types.EncodingType
+  ( EncodingType
+      ( EncodingType',
+        Pem,
+        SSH
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncodingType
-  = Pem
-  | SSH
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncodingType = EncodingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncodingType where
-  parser =
-    takeLowerText >>= \case
-      "pem" -> pure Pem
-      "ssh" -> pure SSH
-      e ->
-        fromTextError $
-          "Failure parsing EncodingType from value: '" <> e
-            <> "'. Accepted values: pem, ssh"
+pattern Pem :: EncodingType
+pattern Pem = EncodingType' "PEM"
 
-instance ToText EncodingType where
-  toText = \case
-    Pem -> "PEM"
-    SSH -> "SSH"
+pattern SSH :: EncodingType
+pattern SSH = EncodingType' "SSH"
 
-instance Hashable EncodingType
-
-instance NFData EncodingType
-
-instance ToByteString EncodingType
-
-instance ToQuery EncodingType
-
-instance ToHeader EncodingType
+{-# COMPLETE
+  Pem,
+  SSH,
+  EncodingType'
+  #-}

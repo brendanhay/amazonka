@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchRetryOptions where
+module Network.AWS.Firehose.Types.ElasticsearchRetryOptions
+  ( ElasticsearchRetryOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkElasticsearchRetryOptions,
+
+    -- * Lenses
+    eroDurationInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES.
 --
---
---
--- /See:/ 'elasticsearchRetryOptions' smart constructor.
+-- /See:/ 'mkElasticsearchRetryOptions' smart constructor.
 newtype ElasticsearchRetryOptions = ElasticsearchRetryOptions'
-  { _eroDurationInSeconds ::
-      Maybe Nat
+  { durationInSeconds ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchRetryOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eroDurationInSeconds' - After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
-elasticsearchRetryOptions ::
+-- * 'durationInSeconds' - After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
+mkElasticsearchRetryOptions ::
   ElasticsearchRetryOptions
-elasticsearchRetryOptions =
-  ElasticsearchRetryOptions' {_eroDurationInSeconds = Nothing}
+mkElasticsearchRetryOptions =
+  ElasticsearchRetryOptions' {durationInSeconds = Lude.Nothing}
 
 -- | After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
-eroDurationInSeconds :: Lens' ElasticsearchRetryOptions (Maybe Natural)
-eroDurationInSeconds = lens _eroDurationInSeconds (\s a -> s {_eroDurationInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eroDurationInSeconds :: Lens.Lens' ElasticsearchRetryOptions (Lude.Maybe Lude.Natural)
+eroDurationInSeconds = Lens.lens (durationInSeconds :: ElasticsearchRetryOptions -> Lude.Maybe Lude.Natural) (\s a -> s {durationInSeconds = a} :: ElasticsearchRetryOptions)
+{-# DEPRECATED eroDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
 
-instance FromJSON ElasticsearchRetryOptions where
+instance Lude.FromJSON ElasticsearchRetryOptions where
   parseJSON =
-    withObject
+    Lude.withObject
       "ElasticsearchRetryOptions"
-      (\x -> ElasticsearchRetryOptions' <$> (x .:? "DurationInSeconds"))
+      ( \x ->
+          ElasticsearchRetryOptions'
+            Lude.<$> (x Lude..:? "DurationInSeconds")
+      )
 
-instance Hashable ElasticsearchRetryOptions
-
-instance NFData ElasticsearchRetryOptions
-
-instance ToJSON ElasticsearchRetryOptions where
+instance Lude.ToJSON ElasticsearchRetryOptions where
   toJSON ElasticsearchRetryOptions' {..} =
-    object
-      (catMaybes [("DurationInSeconds" .=) <$> _eroDurationInSeconds])
+    Lude.object
+      ( Lude.catMaybes
+          [("DurationInSeconds" Lude..=) Lude.<$> durationInSeconds]
+      )

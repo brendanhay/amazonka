@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,175 @@
 --
 -- Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
 module Network.AWS.GuardDuty.UpdateThreatIntelSet
-  ( -- * Creating a Request
-    updateThreatIntelSet,
-    UpdateThreatIntelSet,
+  ( -- * Creating a request
+    UpdateThreatIntelSet (..),
+    mkUpdateThreatIntelSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utisLocation,
     utisActivate,
     utisName,
     utisDetectorId,
     utisThreatIntelSetId,
 
-    -- * Destructuring the Response
-    updateThreatIntelSetResponse,
-    UpdateThreatIntelSetResponse,
+    -- * Destructuring the response
+    UpdateThreatIntelSetResponse (..),
+    mkUpdateThreatIntelSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utisrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateThreatIntelSet' smart constructor.
+-- | /See:/ 'mkUpdateThreatIntelSet' smart constructor.
 data UpdateThreatIntelSet = UpdateThreatIntelSet'
-  { _utisLocation ::
-      !(Maybe Text),
-    _utisActivate :: !(Maybe Bool),
-    _utisName :: !(Maybe Text),
-    _utisDetectorId :: !Text,
-    _utisThreatIntelSetId :: !Text
+  { location ::
+      Lude.Maybe Lude.Text,
+    activate :: Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    detectorId :: Lude.Text,
+    threatIntelSetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThreatIntelSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utisLocation' - The updated URI of the file that contains the ThreateIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
---
--- * 'utisActivate' - The updated Boolean value that specifies whether the ThreateIntelSet is active or not.
---
--- * 'utisName' - The unique ID that specifies the ThreatIntelSet that you want to update.
---
--- * 'utisDetectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.
---
--- * 'utisThreatIntelSetId' - The unique ID that specifies the ThreatIntelSet that you want to update.
-updateThreatIntelSet ::
-  -- | 'utisDetectorId'
-  Text ->
-  -- | 'utisThreatIntelSetId'
-  Text ->
+-- * 'activate' - The updated Boolean value that specifies whether the ThreateIntelSet is active or not.
+-- * 'detectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.
+-- * 'location' - The updated URI of the file that contains the ThreateIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+-- * 'name' - The unique ID that specifies the ThreatIntelSet that you want to update.
+-- * 'threatIntelSetId' - The unique ID that specifies the ThreatIntelSet that you want to update.
+mkUpdateThreatIntelSet ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'threatIntelSetId'
+  Lude.Text ->
   UpdateThreatIntelSet
-updateThreatIntelSet pDetectorId_ pThreatIntelSetId_ =
+mkUpdateThreatIntelSet pDetectorId_ pThreatIntelSetId_ =
   UpdateThreatIntelSet'
-    { _utisLocation = Nothing,
-      _utisActivate = Nothing,
-      _utisName = Nothing,
-      _utisDetectorId = pDetectorId_,
-      _utisThreatIntelSetId = pThreatIntelSetId_
+    { location = Lude.Nothing,
+      activate = Lude.Nothing,
+      name = Lude.Nothing,
+      detectorId = pDetectorId_,
+      threatIntelSetId = pThreatIntelSetId_
     }
 
 -- | The updated URI of the file that contains the ThreateIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
-utisLocation :: Lens' UpdateThreatIntelSet (Maybe Text)
-utisLocation = lens _utisLocation (\s a -> s {_utisLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utisLocation :: Lens.Lens' UpdateThreatIntelSet (Lude.Maybe Lude.Text)
+utisLocation = Lens.lens (location :: UpdateThreatIntelSet -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: UpdateThreatIntelSet)
+{-# DEPRECATED utisLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The updated Boolean value that specifies whether the ThreateIntelSet is active or not.
-utisActivate :: Lens' UpdateThreatIntelSet (Maybe Bool)
-utisActivate = lens _utisActivate (\s a -> s {_utisActivate = a})
+--
+-- /Note:/ Consider using 'activate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utisActivate :: Lens.Lens' UpdateThreatIntelSet (Lude.Maybe Lude.Bool)
+utisActivate = Lens.lens (activate :: UpdateThreatIntelSet -> Lude.Maybe Lude.Bool) (\s a -> s {activate = a} :: UpdateThreatIntelSet)
+{-# DEPRECATED utisActivate "Use generic-lens or generic-optics with 'activate' instead." #-}
 
 -- | The unique ID that specifies the ThreatIntelSet that you want to update.
-utisName :: Lens' UpdateThreatIntelSet (Maybe Text)
-utisName = lens _utisName (\s a -> s {_utisName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utisName :: Lens.Lens' UpdateThreatIntelSet (Lude.Maybe Lude.Text)
+utisName = Lens.lens (name :: UpdateThreatIntelSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateThreatIntelSet)
+{-# DEPRECATED utisName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.
-utisDetectorId :: Lens' UpdateThreatIntelSet Text
-utisDetectorId = lens _utisDetectorId (\s a -> s {_utisDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utisDetectorId :: Lens.Lens' UpdateThreatIntelSet Lude.Text
+utisDetectorId = Lens.lens (detectorId :: UpdateThreatIntelSet -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateThreatIntelSet)
+{-# DEPRECATED utisDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The unique ID that specifies the ThreatIntelSet that you want to update.
-utisThreatIntelSetId :: Lens' UpdateThreatIntelSet Text
-utisThreatIntelSetId = lens _utisThreatIntelSetId (\s a -> s {_utisThreatIntelSetId = a})
+--
+-- /Note:/ Consider using 'threatIntelSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utisThreatIntelSetId :: Lens.Lens' UpdateThreatIntelSet Lude.Text
+utisThreatIntelSetId = Lens.lens (threatIntelSetId :: UpdateThreatIntelSet -> Lude.Text) (\s a -> s {threatIntelSetId = a} :: UpdateThreatIntelSet)
+{-# DEPRECATED utisThreatIntelSetId "Use generic-lens or generic-optics with 'threatIntelSetId' instead." #-}
 
-instance AWSRequest UpdateThreatIntelSet where
+instance Lude.AWSRequest UpdateThreatIntelSet where
   type Rs UpdateThreatIntelSet = UpdateThreatIntelSetResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
-      (\s h x -> UpdateThreatIntelSetResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UpdateThreatIntelSet
-
-instance NFData UpdateThreatIntelSet
-
-instance ToHeaders UpdateThreatIntelSet where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateThreatIntelSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON UpdateThreatIntelSet where
-  toJSON UpdateThreatIntelSet' {..} =
-    object
-      ( catMaybes
-          [ ("location" .=) <$> _utisLocation,
-            ("activate" .=) <$> _utisActivate,
-            ("name" .=) <$> _utisName
+instance Lude.ToHeaders UpdateThreatIntelSet where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateThreatIntelSet where
+instance Lude.ToJSON UpdateThreatIntelSet where
+  toJSON UpdateThreatIntelSet' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("location" Lude..=) Lude.<$> location,
+            ("activate" Lude..=) Lude.<$> activate,
+            ("name" Lude..=) Lude.<$> name
+          ]
+      )
+
+instance Lude.ToPath UpdateThreatIntelSet where
   toPath UpdateThreatIntelSet' {..} =
-    mconcat
+    Lude.mconcat
       [ "/detector/",
-        toBS _utisDetectorId,
+        Lude.toBS detectorId,
         "/threatintelset/",
-        toBS _utisThreatIntelSetId
+        Lude.toBS threatIntelSetId
       ]
 
-instance ToQuery UpdateThreatIntelSet where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateThreatIntelSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateThreatIntelSetResponse' smart constructor.
+-- | /See:/ 'mkUpdateThreatIntelSetResponse' smart constructor.
 newtype UpdateThreatIntelSetResponse = UpdateThreatIntelSetResponse'
-  { _utisrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThreatIntelSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utisrsResponseStatus' - -- | The response status code.
-updateThreatIntelSetResponse ::
-  -- | 'utisrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateThreatIntelSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateThreatIntelSetResponse
-updateThreatIntelSetResponse pResponseStatus_ =
-  UpdateThreatIntelSetResponse'
-    { _utisrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateThreatIntelSetResponse pResponseStatus_ =
+  UpdateThreatIntelSetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-utisrsResponseStatus :: Lens' UpdateThreatIntelSetResponse Int
-utisrsResponseStatus = lens _utisrsResponseStatus (\s a -> s {_utisrsResponseStatus = a})
-
-instance NFData UpdateThreatIntelSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utisrsResponseStatus :: Lens.Lens' UpdateThreatIntelSetResponse Lude.Int
+utisrsResponseStatus = Lens.lens (responseStatus :: UpdateThreatIntelSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThreatIntelSetResponse)
+{-# DEPRECATED utisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

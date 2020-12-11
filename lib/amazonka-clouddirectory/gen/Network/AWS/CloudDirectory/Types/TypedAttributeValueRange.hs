@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.TypedAttributeValueRange where
+module Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
+  ( TypedAttributeValueRange (..),
+
+    -- * Smart constructor
+    mkTypedAttributeValueRange,
+
+    -- * Lenses
+    tavrEndValue,
+    tavrStartValue,
+    tavrStartMode,
+    tavrEndMode,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.RangeMode
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A range of attribute values. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_range_filters.html Range Filters> .
 --
---
---
--- /See:/ 'typedAttributeValueRange' smart constructor.
+-- /See:/ 'mkTypedAttributeValueRange' smart constructor.
 data TypedAttributeValueRange = TypedAttributeValueRange'
-  { _tavrEndValue ::
-      !(Maybe TypedAttributeValue),
-    _tavrStartValue ::
-      !(Maybe TypedAttributeValue),
-    _tavrStartMode :: !RangeMode,
-    _tavrEndMode :: !RangeMode
+  { endValue ::
+      Lude.Maybe TypedAttributeValue,
+    startValue ::
+      Lude.Maybe TypedAttributeValue,
+    startMode :: RangeMode,
+    endMode :: RangeMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedAttributeValueRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tavrEndValue' - The attribute value to terminate the range at.
---
--- * 'tavrStartValue' - The value to start the range at.
---
--- * 'tavrStartMode' - The inclusive or exclusive range start.
---
--- * 'tavrEndMode' - The inclusive or exclusive range end.
-typedAttributeValueRange ::
-  -- | 'tavrStartMode'
+-- * 'endMode' - The inclusive or exclusive range end.
+-- * 'endValue' - The attribute value to terminate the range at.
+-- * 'startMode' - The inclusive or exclusive range start.
+-- * 'startValue' - The value to start the range at.
+mkTypedAttributeValueRange ::
+  -- | 'startMode'
   RangeMode ->
-  -- | 'tavrEndMode'
+  -- | 'endMode'
   RangeMode ->
   TypedAttributeValueRange
-typedAttributeValueRange pStartMode_ pEndMode_ =
+mkTypedAttributeValueRange pStartMode_ pEndMode_ =
   TypedAttributeValueRange'
-    { _tavrEndValue = Nothing,
-      _tavrStartValue = Nothing,
-      _tavrStartMode = pStartMode_,
-      _tavrEndMode = pEndMode_
+    { endValue = Lude.Nothing,
+      startValue = Lude.Nothing,
+      startMode = pStartMode_,
+      endMode = pEndMode_
     }
 
 -- | The attribute value to terminate the range at.
-tavrEndValue :: Lens' TypedAttributeValueRange (Maybe TypedAttributeValue)
-tavrEndValue = lens _tavrEndValue (\s a -> s {_tavrEndValue = a})
+--
+-- /Note:/ Consider using 'endValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tavrEndValue :: Lens.Lens' TypedAttributeValueRange (Lude.Maybe TypedAttributeValue)
+tavrEndValue = Lens.lens (endValue :: TypedAttributeValueRange -> Lude.Maybe TypedAttributeValue) (\s a -> s {endValue = a} :: TypedAttributeValueRange)
+{-# DEPRECATED tavrEndValue "Use generic-lens or generic-optics with 'endValue' instead." #-}
 
 -- | The value to start the range at.
-tavrStartValue :: Lens' TypedAttributeValueRange (Maybe TypedAttributeValue)
-tavrStartValue = lens _tavrStartValue (\s a -> s {_tavrStartValue = a})
+--
+-- /Note:/ Consider using 'startValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tavrStartValue :: Lens.Lens' TypedAttributeValueRange (Lude.Maybe TypedAttributeValue)
+tavrStartValue = Lens.lens (startValue :: TypedAttributeValueRange -> Lude.Maybe TypedAttributeValue) (\s a -> s {startValue = a} :: TypedAttributeValueRange)
+{-# DEPRECATED tavrStartValue "Use generic-lens or generic-optics with 'startValue' instead." #-}
 
 -- | The inclusive or exclusive range start.
-tavrStartMode :: Lens' TypedAttributeValueRange RangeMode
-tavrStartMode = lens _tavrStartMode (\s a -> s {_tavrStartMode = a})
+--
+-- /Note:/ Consider using 'startMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tavrStartMode :: Lens.Lens' TypedAttributeValueRange RangeMode
+tavrStartMode = Lens.lens (startMode :: TypedAttributeValueRange -> RangeMode) (\s a -> s {startMode = a} :: TypedAttributeValueRange)
+{-# DEPRECATED tavrStartMode "Use generic-lens or generic-optics with 'startMode' instead." #-}
 
 -- | The inclusive or exclusive range end.
-tavrEndMode :: Lens' TypedAttributeValueRange RangeMode
-tavrEndMode = lens _tavrEndMode (\s a -> s {_tavrEndMode = a})
+--
+-- /Note:/ Consider using 'endMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tavrEndMode :: Lens.Lens' TypedAttributeValueRange RangeMode
+tavrEndMode = Lens.lens (endMode :: TypedAttributeValueRange -> RangeMode) (\s a -> s {endMode = a} :: TypedAttributeValueRange)
+{-# DEPRECATED tavrEndMode "Use generic-lens or generic-optics with 'endMode' instead." #-}
 
-instance Hashable TypedAttributeValueRange
-
-instance NFData TypedAttributeValueRange
-
-instance ToJSON TypedAttributeValueRange where
+instance Lude.ToJSON TypedAttributeValueRange where
   toJSON TypedAttributeValueRange' {..} =
-    object
-      ( catMaybes
-          [ ("EndValue" .=) <$> _tavrEndValue,
-            ("StartValue" .=) <$> _tavrStartValue,
-            Just ("StartMode" .= _tavrStartMode),
-            Just ("EndMode" .= _tavrEndMode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EndValue" Lude..=) Lude.<$> endValue,
+            ("StartValue" Lude..=) Lude.<$> startValue,
+            Lude.Just ("StartMode" Lude..= startMode),
+            Lude.Just ("EndMode" Lude..= endMode)
           ]
       )

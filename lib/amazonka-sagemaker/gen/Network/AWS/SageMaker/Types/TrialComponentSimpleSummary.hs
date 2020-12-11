@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialComponentSimpleSummary where
+module Network.AWS.SageMaker.Types.TrialComponentSimpleSummary
+  ( TrialComponentSimpleSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrialComponentSimpleSummary,
+
+    -- * Lenses
+    tcssCreationTime,
+    tcssCreatedBy,
+    tcssTrialComponentName,
+    tcssTrialComponentARN,
+    tcssTrialComponentSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.TrialComponentSource
 import Network.AWS.SageMaker.Types.UserContext
 
 -- | A short summary of a trial component.
 --
---
---
--- /See:/ 'trialComponentSimpleSummary' smart constructor.
+-- /See:/ 'mkTrialComponentSimpleSummary' smart constructor.
 data TrialComponentSimpleSummary = TrialComponentSimpleSummary'
-  { _tcssCreationTime ::
-      !(Maybe POSIX),
-    _tcssCreatedBy ::
-      !(Maybe UserContext),
-    _tcssTrialComponentName ::
-      !(Maybe Text),
-    _tcssTrialComponentARN ::
-      !(Maybe Text),
-    _tcssTrialComponentSource ::
-      !(Maybe TrialComponentSource)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    createdBy :: Lude.Maybe UserContext,
+    trialComponentName ::
+      Lude.Maybe Lude.Text,
+    trialComponentARN ::
+      Lude.Maybe Lude.Text,
+    trialComponentSource ::
+      Lude.Maybe TrialComponentSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentSimpleSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcssCreationTime' - When the component was created.
---
--- * 'tcssCreatedBy' - Undocumented member.
---
--- * 'tcssTrialComponentName' - The name of the trial component.
---
--- * 'tcssTrialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
---
--- * 'tcssTrialComponentSource' - Undocumented member.
-trialComponentSimpleSummary ::
+-- * 'createdBy' - Undocumented field.
+-- * 'creationTime' - When the component was created.
+-- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'trialComponentName' - The name of the trial component.
+-- * 'trialComponentSource' - Undocumented field.
+mkTrialComponentSimpleSummary ::
   TrialComponentSimpleSummary
-trialComponentSimpleSummary =
+mkTrialComponentSimpleSummary =
   TrialComponentSimpleSummary'
-    { _tcssCreationTime = Nothing,
-      _tcssCreatedBy = Nothing,
-      _tcssTrialComponentName = Nothing,
-      _tcssTrialComponentARN = Nothing,
-      _tcssTrialComponentSource = Nothing
+    { creationTime = Lude.Nothing,
+      createdBy = Lude.Nothing,
+      trialComponentName = Lude.Nothing,
+      trialComponentARN = Lude.Nothing,
+      trialComponentSource = Lude.Nothing
     }
 
 -- | When the component was created.
-tcssCreationTime :: Lens' TrialComponentSimpleSummary (Maybe UTCTime)
-tcssCreationTime = lens _tcssCreationTime (\s a -> s {_tcssCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcssCreationTime :: Lens.Lens' TrialComponentSimpleSummary (Lude.Maybe Lude.Timestamp)
+tcssCreationTime = Lens.lens (creationTime :: TrialComponentSimpleSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: TrialComponentSimpleSummary)
+{-# DEPRECATED tcssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | Undocumented member.
-tcssCreatedBy :: Lens' TrialComponentSimpleSummary (Maybe UserContext)
-tcssCreatedBy = lens _tcssCreatedBy (\s a -> s {_tcssCreatedBy = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcssCreatedBy :: Lens.Lens' TrialComponentSimpleSummary (Lude.Maybe UserContext)
+tcssCreatedBy = Lens.lens (createdBy :: TrialComponentSimpleSummary -> Lude.Maybe UserContext) (\s a -> s {createdBy = a} :: TrialComponentSimpleSummary)
+{-# DEPRECATED tcssCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | The name of the trial component.
-tcssTrialComponentName :: Lens' TrialComponentSimpleSummary (Maybe Text)
-tcssTrialComponentName = lens _tcssTrialComponentName (\s a -> s {_tcssTrialComponentName = a})
+--
+-- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcssTrialComponentName :: Lens.Lens' TrialComponentSimpleSummary (Lude.Maybe Lude.Text)
+tcssTrialComponentName = Lens.lens (trialComponentName :: TrialComponentSimpleSummary -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentName = a} :: TrialComponentSimpleSummary)
+{-# DEPRECATED tcssTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the trial component.
-tcssTrialComponentARN :: Lens' TrialComponentSimpleSummary (Maybe Text)
-tcssTrialComponentARN = lens _tcssTrialComponentARN (\s a -> s {_tcssTrialComponentARN = a})
+--
+-- /Note:/ Consider using 'trialComponentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcssTrialComponentARN :: Lens.Lens' TrialComponentSimpleSummary (Lude.Maybe Lude.Text)
+tcssTrialComponentARN = Lens.lens (trialComponentARN :: TrialComponentSimpleSummary -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentARN = a} :: TrialComponentSimpleSummary)
+{-# DEPRECATED tcssTrialComponentARN "Use generic-lens or generic-optics with 'trialComponentARN' instead." #-}
 
--- | Undocumented member.
-tcssTrialComponentSource :: Lens' TrialComponentSimpleSummary (Maybe TrialComponentSource)
-tcssTrialComponentSource = lens _tcssTrialComponentSource (\s a -> s {_tcssTrialComponentSource = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'trialComponentSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcssTrialComponentSource :: Lens.Lens' TrialComponentSimpleSummary (Lude.Maybe TrialComponentSource)
+tcssTrialComponentSource = Lens.lens (trialComponentSource :: TrialComponentSimpleSummary -> Lude.Maybe TrialComponentSource) (\s a -> s {trialComponentSource = a} :: TrialComponentSimpleSummary)
+{-# DEPRECATED tcssTrialComponentSource "Use generic-lens or generic-optics with 'trialComponentSource' instead." #-}
 
-instance FromJSON TrialComponentSimpleSummary where
+instance Lude.FromJSON TrialComponentSimpleSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrialComponentSimpleSummary"
       ( \x ->
           TrialComponentSimpleSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "CreatedBy")
-            <*> (x .:? "TrialComponentName")
-            <*> (x .:? "TrialComponentArn")
-            <*> (x .:? "TrialComponentSource")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "CreatedBy")
+            Lude.<*> (x Lude..:? "TrialComponentName")
+            Lude.<*> (x Lude..:? "TrialComponentArn")
+            Lude.<*> (x Lude..:? "TrialComponentSource")
       )
-
-instance Hashable TrialComponentSimpleSummary
-
-instance NFData TrialComponentSimpleSummary

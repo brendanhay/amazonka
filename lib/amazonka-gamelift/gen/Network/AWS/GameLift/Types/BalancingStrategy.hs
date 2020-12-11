@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.BalancingStrategy where
+module Network.AWS.GameLift.Types.BalancingStrategy
+  ( BalancingStrategy
+      ( BalancingStrategy',
+        OnDemandOnly,
+        SpotOnly,
+        SpotPreferred
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BalancingStrategy
-  = OnDemandOnly
-  | SpotOnly
-  | SpotPreferred
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BalancingStrategy = BalancingStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BalancingStrategy where
-  parser =
-    takeLowerText >>= \case
-      "on_demand_only" -> pure OnDemandOnly
-      "spot_only" -> pure SpotOnly
-      "spot_preferred" -> pure SpotPreferred
-      e ->
-        fromTextError $
-          "Failure parsing BalancingStrategy from value: '" <> e
-            <> "'. Accepted values: on_demand_only, spot_only, spot_preferred"
+pattern OnDemandOnly :: BalancingStrategy
+pattern OnDemandOnly = BalancingStrategy' "ON_DEMAND_ONLY"
 
-instance ToText BalancingStrategy where
-  toText = \case
-    OnDemandOnly -> "ON_DEMAND_ONLY"
-    SpotOnly -> "SPOT_ONLY"
-    SpotPreferred -> "SPOT_PREFERRED"
+pattern SpotOnly :: BalancingStrategy
+pattern SpotOnly = BalancingStrategy' "SPOT_ONLY"
 
-instance Hashable BalancingStrategy
+pattern SpotPreferred :: BalancingStrategy
+pattern SpotPreferred = BalancingStrategy' "SPOT_PREFERRED"
 
-instance NFData BalancingStrategy
-
-instance ToByteString BalancingStrategy
-
-instance ToQuery BalancingStrategy
-
-instance ToHeader BalancingStrategy
-
-instance ToJSON BalancingStrategy where
-  toJSON = toJSONText
-
-instance FromJSON BalancingStrategy where
-  parseJSON = parseJSONText "BalancingStrategy"
+{-# COMPLETE
+  OnDemandOnly,
+  SpotOnly,
+  SpotPreferred,
+  BalancingStrategy'
+  #-}

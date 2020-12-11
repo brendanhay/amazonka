@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterIAMRole where
+module Network.AWS.Redshift.Types.ClusterIAMRole
+  ( ClusterIAMRole (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterIAMRole,
+
+    -- * Lenses
+    cirIAMRoleARN,
+    cirApplyStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.
 --
---
---
--- /See:/ 'clusterIAMRole' smart constructor.
+-- /See:/ 'mkClusterIAMRole' smart constructor.
 data ClusterIAMRole = ClusterIAMRole'
-  { _cirIAMRoleARN ::
-      !(Maybe Text),
-    _cirApplyStatus :: !(Maybe Text)
+  { iamRoleARN ::
+      Lude.Maybe Lude.Text,
+    applyStatus :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterIAMRole' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applyStatus' - A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
 --
--- * 'cirIAMRoleARN' - The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
+-- The following are possible statuses and descriptions.
 --
--- * 'cirApplyStatus' - A value that describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.     * @in-sync@ : The role is available for use by the cluster.     * @adding@ : The role is in the process of being associated with the cluster.     * @removing@ : The role is in the process of being disassociated with the cluster.
-clusterIAMRole ::
+--     * @in-sync@ : The role is available for use by the cluster.
+--
+--
+--     * @adding@ : The role is in the process of being associated with the cluster.
+--
+--
+--     * @removing@ : The role is in the process of being disassociated with the cluster.
+--
+--
+-- * 'iamRoleARN' - The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
+mkClusterIAMRole ::
   ClusterIAMRole
-clusterIAMRole =
+mkClusterIAMRole =
   ClusterIAMRole'
-    { _cirIAMRoleARN = Nothing,
-      _cirApplyStatus = Nothing
+    { iamRoleARN = Lude.Nothing,
+      applyStatus = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
-cirIAMRoleARN :: Lens' ClusterIAMRole (Maybe Text)
-cirIAMRoleARN = lens _cirIAMRoleARN (\s a -> s {_cirIAMRoleARN = a})
+--
+-- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirIAMRoleARN :: Lens.Lens' ClusterIAMRole (Lude.Maybe Lude.Text)
+cirIAMRoleARN = Lens.lens (iamRoleARN :: ClusterIAMRole -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleARN = a} :: ClusterIAMRole)
+{-# DEPRECATED cirIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
 
--- | A value that describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.     * @in-sync@ : The role is available for use by the cluster.     * @adding@ : The role is in the process of being associated with the cluster.     * @removing@ : The role is in the process of being disassociated with the cluster.
-cirApplyStatus :: Lens' ClusterIAMRole (Maybe Text)
-cirApplyStatus = lens _cirApplyStatus (\s a -> s {_cirApplyStatus = a})
+-- | A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+--
+-- The following are possible statuses and descriptions.
+--
+--     * @in-sync@ : The role is available for use by the cluster.
+--
+--
+--     * @adding@ : The role is in the process of being associated with the cluster.
+--
+--
+--     * @removing@ : The role is in the process of being disassociated with the cluster.
+--
+--
+--
+-- /Note:/ Consider using 'applyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirApplyStatus :: Lens.Lens' ClusterIAMRole (Lude.Maybe Lude.Text)
+cirApplyStatus = Lens.lens (applyStatus :: ClusterIAMRole -> Lude.Maybe Lude.Text) (\s a -> s {applyStatus = a} :: ClusterIAMRole)
+{-# DEPRECATED cirApplyStatus "Use generic-lens or generic-optics with 'applyStatus' instead." #-}
 
-instance FromXML ClusterIAMRole where
+instance Lude.FromXML ClusterIAMRole where
   parseXML x =
     ClusterIAMRole'
-      <$> (x .@? "IamRoleArn") <*> (x .@? "ApplyStatus")
-
-instance Hashable ClusterIAMRole
-
-instance NFData ClusterIAMRole
+      Lude.<$> (x Lude..@? "IamRoleArn") Lude.<*> (x Lude..@? "ApplyStatus")

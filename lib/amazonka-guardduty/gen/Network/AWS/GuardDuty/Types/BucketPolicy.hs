@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.BucketPolicy where
+module Network.AWS.GuardDuty.Types.BucketPolicy
+  ( BucketPolicy (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBucketPolicy,
+
+    -- * Lenses
+    bpAllowsPublicWriteAccess,
+    bpAllowsPublicReadAccess,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the current bucket policies for the S3 bucket.
 --
---
---
--- /See:/ 'bucketPolicy' smart constructor.
+-- /See:/ 'mkBucketPolicy' smart constructor.
 data BucketPolicy = BucketPolicy'
-  { _bpAllowsPublicWriteAccess ::
-      !(Maybe Bool),
-    _bpAllowsPublicReadAccess :: !(Maybe Bool)
+  { allowsPublicWriteAccess ::
+      Lude.Maybe Lude.Bool,
+    allowsPublicReadAccess :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BucketPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bpAllowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is enabled through a bucket policy.
---
--- * 'bpAllowsPublicReadAccess' - A value that indicates whether public read access for the bucket is enabled through a bucket policy.
-bucketPolicy ::
+-- * 'allowsPublicReadAccess' - A value that indicates whether public read access for the bucket is enabled through a bucket policy.
+-- * 'allowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is enabled through a bucket policy.
+mkBucketPolicy ::
   BucketPolicy
-bucketPolicy =
+mkBucketPolicy =
   BucketPolicy'
-    { _bpAllowsPublicWriteAccess = Nothing,
-      _bpAllowsPublicReadAccess = Nothing
+    { allowsPublicWriteAccess = Lude.Nothing,
+      allowsPublicReadAccess = Lude.Nothing
     }
 
 -- | A value that indicates whether public write access for the bucket is enabled through a bucket policy.
-bpAllowsPublicWriteAccess :: Lens' BucketPolicy (Maybe Bool)
-bpAllowsPublicWriteAccess = lens _bpAllowsPublicWriteAccess (\s a -> s {_bpAllowsPublicWriteAccess = a})
+--
+-- /Note:/ Consider using 'allowsPublicWriteAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpAllowsPublicWriteAccess :: Lens.Lens' BucketPolicy (Lude.Maybe Lude.Bool)
+bpAllowsPublicWriteAccess = Lens.lens (allowsPublicWriteAccess :: BucketPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {allowsPublicWriteAccess = a} :: BucketPolicy)
+{-# DEPRECATED bpAllowsPublicWriteAccess "Use generic-lens or generic-optics with 'allowsPublicWriteAccess' instead." #-}
 
 -- | A value that indicates whether public read access for the bucket is enabled through a bucket policy.
-bpAllowsPublicReadAccess :: Lens' BucketPolicy (Maybe Bool)
-bpAllowsPublicReadAccess = lens _bpAllowsPublicReadAccess (\s a -> s {_bpAllowsPublicReadAccess = a})
+--
+-- /Note:/ Consider using 'allowsPublicReadAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpAllowsPublicReadAccess :: Lens.Lens' BucketPolicy (Lude.Maybe Lude.Bool)
+bpAllowsPublicReadAccess = Lens.lens (allowsPublicReadAccess :: BucketPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {allowsPublicReadAccess = a} :: BucketPolicy)
+{-# DEPRECATED bpAllowsPublicReadAccess "Use generic-lens or generic-optics with 'allowsPublicReadAccess' instead." #-}
 
-instance FromJSON BucketPolicy where
+instance Lude.FromJSON BucketPolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "BucketPolicy"
       ( \x ->
           BucketPolicy'
-            <$> (x .:? "allowsPublicWriteAccess")
-            <*> (x .:? "allowsPublicReadAccess")
+            Lude.<$> (x Lude..:? "allowsPublicWriteAccess")
+            Lude.<*> (x Lude..:? "allowsPublicReadAccess")
       )
-
-instance Hashable BucketPolicy
-
-instance NFData BucketPolicy

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,124 @@
 --
 -- Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme caution when deleting directories.
 module Network.AWS.CloudDirectory.DeleteDirectory
-  ( -- * Creating a Request
-    deleteDirectory,
-    DeleteDirectory,
+  ( -- * Creating a request
+    DeleteDirectory (..),
+    mkDeleteDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delDirectoryARN,
 
-    -- * Destructuring the Response
-    deleteDirectoryResponse,
-    DeleteDirectoryResponse,
+    -- * Destructuring the response
+    DeleteDirectoryResponse (..),
+    mkDeleteDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsResponseStatus,
     ddrsDirectoryARN,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDirectory' smart constructor.
+-- | /See:/ 'mkDeleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
-  { _delDirectoryARN ::
-      Text
+  { directoryARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delDirectoryARN' - The ARN of the directory to delete.
-deleteDirectory ::
-  -- | 'delDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The ARN of the directory to delete.
+mkDeleteDirectory ::
+  -- | 'directoryARN'
+  Lude.Text ->
   DeleteDirectory
-deleteDirectory pDirectoryARN_ =
-  DeleteDirectory' {_delDirectoryARN = pDirectoryARN_}
+mkDeleteDirectory pDirectoryARN_ =
+  DeleteDirectory' {directoryARN = pDirectoryARN_}
 
 -- | The ARN of the directory to delete.
-delDirectoryARN :: Lens' DeleteDirectory Text
-delDirectoryARN = lens _delDirectoryARN (\s a -> s {_delDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delDirectoryARN :: Lens.Lens' DeleteDirectory Lude.Text
+delDirectoryARN = Lens.lens (directoryARN :: DeleteDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteDirectory)
+{-# DEPRECATED delDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
-instance AWSRequest DeleteDirectory where
+instance Lude.AWSRequest DeleteDirectory where
   type Rs DeleteDirectory = DeleteDirectoryResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteDirectoryResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "DirectoryArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "DirectoryArn")
       )
 
-instance Hashable DeleteDirectory
-
-instance NFData DeleteDirectory
-
-instance ToHeaders DeleteDirectory where
+instance Lude.ToHeaders DeleteDirectory where
   toHeaders DeleteDirectory' {..} =
-    mconcat ["x-amz-data-partition" =# _delDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON DeleteDirectory where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DeleteDirectory where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DeleteDirectory where
-  toPath = const "/amazonclouddirectory/2017-01-11/directory"
+instance Lude.ToPath DeleteDirectory where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/directory"
 
-instance ToQuery DeleteDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDirectoryResponse' smart constructor.
+-- | /See:/ 'mkDeleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-  { _ddrsResponseStatus ::
-      !Int,
-    _ddrsDirectoryARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    directoryARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsResponseStatus' - -- | The response status code.
---
--- * 'ddrsDirectoryARN' - The ARN of the deleted directory.
-deleteDirectoryResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
-  -- | 'ddrsDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The ARN of the deleted directory.
+-- * 'responseStatus' - The response status code.
+mkDeleteDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'directoryARN'
+  Lude.Text ->
   DeleteDirectoryResponse
-deleteDirectoryResponse pResponseStatus_ pDirectoryARN_ =
+mkDeleteDirectoryResponse pResponseStatus_ pDirectoryARN_ =
   DeleteDirectoryResponse'
-    { _ddrsResponseStatus = pResponseStatus_,
-      _ddrsDirectoryARN = pDirectoryARN_
+    { responseStatus = pResponseStatus_,
+      directoryARN = pDirectoryARN_
     }
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDirectoryResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DeleteDirectoryResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN of the deleted directory.
-ddrsDirectoryARN :: Lens' DeleteDirectoryResponse Text
-ddrsDirectoryARN = lens _ddrsDirectoryARN (\s a -> s {_ddrsDirectoryARN = a})
-
-instance NFData DeleteDirectoryResponse
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDirectoryARN :: Lens.Lens' DeleteDirectoryResponse Lude.Text
+ddrsDirectoryARN = Lens.lens (directoryARN :: DeleteDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteDirectoryResponse)
+{-# DEPRECATED ddrsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}

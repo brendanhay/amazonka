@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Deletes the lifecycle policy associated with the specified repository.
 module Network.AWS.ECR.DeleteLifecyclePolicy
-  ( -- * Creating a Request
-    deleteLifecyclePolicy,
-    DeleteLifecyclePolicy,
+  ( -- * Creating a request
+    DeleteLifecyclePolicy (..),
+    mkDeleteLifecyclePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlpRegistryId,
     dlpRepositoryName,
 
-    -- * Destructuring the Response
-    deleteLifecyclePolicyResponse,
-    DeleteLifecyclePolicyResponse,
+    -- * Destructuring the response
+    DeleteLifecyclePolicyResponse (..),
+    mkDeleteLifecyclePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlprsRegistryId,
     dlprsLastEvaluatedAt,
     dlprsLifecyclePolicyText,
@@ -41,147 +36,168 @@ module Network.AWS.ECR.DeleteLifecyclePolicy
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLifecyclePolicy' smart constructor.
+-- | /See:/ 'mkDeleteLifecyclePolicy' smart constructor.
 data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
-  { _dlpRegistryId ::
-      !(Maybe Text),
-    _dlpRepositoryName :: !Text
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLifecyclePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
---
--- * 'dlpRepositoryName' - The name of the repository.
-deleteLifecyclePolicy ::
-  -- | 'dlpRepositoryName'
-  Text ->
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The name of the repository.
+mkDeleteLifecyclePolicy ::
+  -- | 'repositoryName'
+  Lude.Text ->
   DeleteLifecyclePolicy
-deleteLifecyclePolicy pRepositoryName_ =
+mkDeleteLifecyclePolicy pRepositoryName_ =
   DeleteLifecyclePolicy'
-    { _dlpRegistryId = Nothing,
-      _dlpRepositoryName = pRepositoryName_
+    { registryId = Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-dlpRegistryId :: Lens' DeleteLifecyclePolicy (Maybe Text)
-dlpRegistryId = lens _dlpRegistryId (\s a -> s {_dlpRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlpRegistryId :: Lens.Lens' DeleteLifecyclePolicy (Lude.Maybe Lude.Text)
+dlpRegistryId = Lens.lens (registryId :: DeleteLifecyclePolicy -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: DeleteLifecyclePolicy)
+{-# DEPRECATED dlpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The name of the repository.
-dlpRepositoryName :: Lens' DeleteLifecyclePolicy Text
-dlpRepositoryName = lens _dlpRepositoryName (\s a -> s {_dlpRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlpRepositoryName :: Lens.Lens' DeleteLifecyclePolicy Lude.Text
+dlpRepositoryName = Lens.lens (repositoryName :: DeleteLifecyclePolicy -> Lude.Text) (\s a -> s {repositoryName = a} :: DeleteLifecyclePolicy)
+{-# DEPRECATED dlpRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest DeleteLifecyclePolicy where
+instance Lude.AWSRequest DeleteLifecyclePolicy where
   type Rs DeleteLifecyclePolicy = DeleteLifecyclePolicyResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteLifecyclePolicyResponse'
-            <$> (x .?> "registryId")
-            <*> (x .?> "lastEvaluatedAt")
-            <*> (x .?> "lifecyclePolicyText")
-            <*> (x .?> "repositoryName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "registryId")
+            Lude.<*> (x Lude..?> "lastEvaluatedAt")
+            Lude.<*> (x Lude..?> "lifecyclePolicyText")
+            Lude.<*> (x Lude..?> "repositoryName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteLifecyclePolicy
-
-instance NFData DeleteLifecyclePolicy
-
-instance ToHeaders DeleteLifecyclePolicy where
+instance Lude.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLifecyclePolicy where
+instance Lude.ToJSON DeleteLifecyclePolicy where
   toJSON DeleteLifecyclePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _dlpRegistryId,
-            Just ("repositoryName" .= _dlpRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath DeleteLifecyclePolicy where
-  toPath = const "/"
+instance Lude.ToPath DeleteLifecyclePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLifecyclePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLifecyclePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLifecyclePolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteLifecyclePolicyResponse' smart constructor.
 data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
-  { _dlprsRegistryId ::
-      !(Maybe Text),
-    _dlprsLastEvaluatedAt ::
-      !(Maybe POSIX),
-    _dlprsLifecyclePolicyText ::
-      !(Maybe Text),
-    _dlprsRepositoryName ::
-      !(Maybe Text),
-    _dlprsResponseStatus :: !Int
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    lastEvaluatedAt ::
+      Lude.Maybe Lude.Timestamp,
+    lifecyclePolicyText ::
+      Lude.Maybe Lude.Text,
+    repositoryName ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLifecyclePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlprsRegistryId' - The registry ID associated with the request.
---
--- * 'dlprsLastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
---
--- * 'dlprsLifecyclePolicyText' - The JSON lifecycle policy text.
---
--- * 'dlprsRepositoryName' - The repository name associated with the request.
---
--- * 'dlprsResponseStatus' - -- | The response status code.
-deleteLifecyclePolicyResponse ::
-  -- | 'dlprsResponseStatus'
-  Int ->
+-- * 'lastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
+-- * 'lifecyclePolicyText' - The JSON lifecycle policy text.
+-- * 'registryId' - The registry ID associated with the request.
+-- * 'repositoryName' - The repository name associated with the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteLifecyclePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLifecyclePolicyResponse
-deleteLifecyclePolicyResponse pResponseStatus_ =
+mkDeleteLifecyclePolicyResponse pResponseStatus_ =
   DeleteLifecyclePolicyResponse'
-    { _dlprsRegistryId = Nothing,
-      _dlprsLastEvaluatedAt = Nothing,
-      _dlprsLifecyclePolicyText = Nothing,
-      _dlprsRepositoryName = Nothing,
-      _dlprsResponseStatus = pResponseStatus_
+    { registryId = Lude.Nothing,
+      lastEvaluatedAt = Lude.Nothing,
+      lifecyclePolicyText = Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The registry ID associated with the request.
-dlprsRegistryId :: Lens' DeleteLifecyclePolicyResponse (Maybe Text)
-dlprsRegistryId = lens _dlprsRegistryId (\s a -> s {_dlprsRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlprsRegistryId :: Lens.Lens' DeleteLifecyclePolicyResponse (Lude.Maybe Lude.Text)
+dlprsRegistryId = Lens.lens (registryId :: DeleteLifecyclePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: DeleteLifecyclePolicyResponse)
+{-# DEPRECATED dlprsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The time stamp of the last time that the lifecycle policy was run.
-dlprsLastEvaluatedAt :: Lens' DeleteLifecyclePolicyResponse (Maybe UTCTime)
-dlprsLastEvaluatedAt = lens _dlprsLastEvaluatedAt (\s a -> s {_dlprsLastEvaluatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastEvaluatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlprsLastEvaluatedAt :: Lens.Lens' DeleteLifecyclePolicyResponse (Lude.Maybe Lude.Timestamp)
+dlprsLastEvaluatedAt = Lens.lens (lastEvaluatedAt :: DeleteLifecyclePolicyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastEvaluatedAt = a} :: DeleteLifecyclePolicyResponse)
+{-# DEPRECATED dlprsLastEvaluatedAt "Use generic-lens or generic-optics with 'lastEvaluatedAt' instead." #-}
 
 -- | The JSON lifecycle policy text.
-dlprsLifecyclePolicyText :: Lens' DeleteLifecyclePolicyResponse (Maybe Text)
-dlprsLifecyclePolicyText = lens _dlprsLifecyclePolicyText (\s a -> s {_dlprsLifecyclePolicyText = a})
+--
+-- /Note:/ Consider using 'lifecyclePolicyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlprsLifecyclePolicyText :: Lens.Lens' DeleteLifecyclePolicyResponse (Lude.Maybe Lude.Text)
+dlprsLifecyclePolicyText = Lens.lens (lifecyclePolicyText :: DeleteLifecyclePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {lifecyclePolicyText = a} :: DeleteLifecyclePolicyResponse)
+{-# DEPRECATED dlprsLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
 
 -- | The repository name associated with the request.
-dlprsRepositoryName :: Lens' DeleteLifecyclePolicyResponse (Maybe Text)
-dlprsRepositoryName = lens _dlprsRepositoryName (\s a -> s {_dlprsRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlprsRepositoryName :: Lens.Lens' DeleteLifecyclePolicyResponse (Lude.Maybe Lude.Text)
+dlprsRepositoryName = Lens.lens (repositoryName :: DeleteLifecyclePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: DeleteLifecyclePolicyResponse)
+{-# DEPRECATED dlprsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | -- | The response status code.
-dlprsResponseStatus :: Lens' DeleteLifecyclePolicyResponse Int
-dlprsResponseStatus = lens _dlprsResponseStatus (\s a -> s {_dlprsResponseStatus = a})
-
-instance NFData DeleteLifecyclePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlprsResponseStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Lude.Int
+dlprsResponseStatus = Lens.lens (responseStatus :: DeleteLifecyclePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLifecyclePolicyResponse)
+{-# DEPRECATED dlprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

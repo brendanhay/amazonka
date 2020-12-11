@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.ScalingStatusType where
+module Network.AWS.GameLift.Types.ScalingStatusType
+  ( ScalingStatusType
+      ( ScalingStatusType',
+        Active,
+        DeleteRequested,
+        Deleted,
+        Deleting,
+        Error,
+        UpdateRequested,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScalingStatusType
-  = Active
-  | DeleteRequested
-  | Deleted
-  | Deleting
-  | Error'
-  | UpdateRequested
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalingStatusType = ScalingStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalingStatusType where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "delete_requested" -> pure DeleteRequested
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "error" -> pure Error'
-      "update_requested" -> pure UpdateRequested
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing ScalingStatusType from value: '" <> e
-            <> "'. Accepted values: active, delete_requested, deleted, deleting, error, update_requested, updating"
+pattern Active :: ScalingStatusType
+pattern Active = ScalingStatusType' "ACTIVE"
 
-instance ToText ScalingStatusType where
-  toText = \case
-    Active -> "ACTIVE"
-    DeleteRequested -> "DELETE_REQUESTED"
-    Deleted -> "DELETED"
-    Deleting -> "DELETING"
-    Error' -> "ERROR"
-    UpdateRequested -> "UPDATE_REQUESTED"
-    Updating -> "UPDATING"
+pattern DeleteRequested :: ScalingStatusType
+pattern DeleteRequested = ScalingStatusType' "DELETE_REQUESTED"
 
-instance Hashable ScalingStatusType
+pattern Deleted :: ScalingStatusType
+pattern Deleted = ScalingStatusType' "DELETED"
 
-instance NFData ScalingStatusType
+pattern Deleting :: ScalingStatusType
+pattern Deleting = ScalingStatusType' "DELETING"
 
-instance ToByteString ScalingStatusType
+pattern Error :: ScalingStatusType
+pattern Error = ScalingStatusType' "ERROR"
 
-instance ToQuery ScalingStatusType
+pattern UpdateRequested :: ScalingStatusType
+pattern UpdateRequested = ScalingStatusType' "UPDATE_REQUESTED"
 
-instance ToHeader ScalingStatusType
+pattern Updating :: ScalingStatusType
+pattern Updating = ScalingStatusType' "UPDATING"
 
-instance ToJSON ScalingStatusType where
-  toJSON = toJSONText
-
-instance FromJSON ScalingStatusType where
-  parseJSON = parseJSONText "ScalingStatusType"
+{-# COMPLETE
+  Active,
+  DeleteRequested,
+  Deleted,
+  Deleting,
+  Error,
+  UpdateRequested,
+  Updating,
+  ScalingStatusType'
+  #-}

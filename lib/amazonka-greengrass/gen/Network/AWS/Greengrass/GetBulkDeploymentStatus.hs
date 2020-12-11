@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the status of a bulk deployment.
 module Network.AWS.Greengrass.GetBulkDeploymentStatus
-  ( -- * Creating a Request
-    getBulkDeploymentStatus,
-    GetBulkDeploymentStatus,
+  ( -- * Creating a request
+    GetBulkDeploymentStatus (..),
+    mkGetBulkDeploymentStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbdsBulkDeploymentId,
 
-    -- * Destructuring the Response
-    getBulkDeploymentStatusResponse,
-    GetBulkDeploymentStatusResponse,
+    -- * Destructuring the response
+    GetBulkDeploymentStatusResponse (..),
+    mkGetBulkDeploymentStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbdsrsCreatedAt,
     gbdsrsErrorDetails,
     gbdsrsBulkDeploymentStatus,
@@ -42,156 +37,178 @@ module Network.AWS.Greengrass.GetBulkDeploymentStatus
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBulkDeploymentStatus' smart constructor.
+-- | /See:/ 'mkGetBulkDeploymentStatus' smart constructor.
 newtype GetBulkDeploymentStatus = GetBulkDeploymentStatus'
-  { _gbdsBulkDeploymentId ::
-      Text
+  { bulkDeploymentId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBulkDeploymentStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbdsBulkDeploymentId' - The ID of the bulk deployment.
-getBulkDeploymentStatus ::
-  -- | 'gbdsBulkDeploymentId'
-  Text ->
+-- * 'bulkDeploymentId' - The ID of the bulk deployment.
+mkGetBulkDeploymentStatus ::
+  -- | 'bulkDeploymentId'
+  Lude.Text ->
   GetBulkDeploymentStatus
-getBulkDeploymentStatus pBulkDeploymentId_ =
-  GetBulkDeploymentStatus'
-    { _gbdsBulkDeploymentId =
-        pBulkDeploymentId_
-    }
+mkGetBulkDeploymentStatus pBulkDeploymentId_ =
+  GetBulkDeploymentStatus' {bulkDeploymentId = pBulkDeploymentId_}
 
 -- | The ID of the bulk deployment.
-gbdsBulkDeploymentId :: Lens' GetBulkDeploymentStatus Text
-gbdsBulkDeploymentId = lens _gbdsBulkDeploymentId (\s a -> s {_gbdsBulkDeploymentId = a})
+--
+-- /Note:/ Consider using 'bulkDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsBulkDeploymentId :: Lens.Lens' GetBulkDeploymentStatus Lude.Text
+gbdsBulkDeploymentId = Lens.lens (bulkDeploymentId :: GetBulkDeploymentStatus -> Lude.Text) (\s a -> s {bulkDeploymentId = a} :: GetBulkDeploymentStatus)
+{-# DEPRECATED gbdsBulkDeploymentId "Use generic-lens or generic-optics with 'bulkDeploymentId' instead." #-}
 
-instance AWSRequest GetBulkDeploymentStatus where
+instance Lude.AWSRequest GetBulkDeploymentStatus where
   type Rs GetBulkDeploymentStatus = GetBulkDeploymentStatusResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBulkDeploymentStatusResponse'
-            <$> (x .?> "CreatedAt")
-            <*> (x .?> "ErrorDetails" .!@ mempty)
-            <*> (x .?> "BulkDeploymentStatus")
-            <*> (x .?> "ErrorMessage")
-            <*> (x .?> "BulkDeploymentMetrics")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreatedAt")
+            Lude.<*> (x Lude..?> "ErrorDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "BulkDeploymentStatus")
+            Lude.<*> (x Lude..?> "ErrorMessage")
+            Lude.<*> (x Lude..?> "BulkDeploymentMetrics")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBulkDeploymentStatus
-
-instance NFData GetBulkDeploymentStatus
-
-instance ToHeaders GetBulkDeploymentStatus where
+instance Lude.ToHeaders GetBulkDeploymentStatus where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetBulkDeploymentStatus where
+instance Lude.ToPath GetBulkDeploymentStatus where
   toPath GetBulkDeploymentStatus' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/bulk/deployments/",
-        toBS _gbdsBulkDeploymentId,
+        Lude.toBS bulkDeploymentId,
         "/status"
       ]
 
-instance ToQuery GetBulkDeploymentStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetBulkDeploymentStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getBulkDeploymentStatusResponse' smart constructor.
+-- | /See:/ 'mkGetBulkDeploymentStatusResponse' smart constructor.
 data GetBulkDeploymentStatusResponse = GetBulkDeploymentStatusResponse'
-  { _gbdsrsCreatedAt ::
-      !(Maybe Text),
-    _gbdsrsErrorDetails ::
-      !(Maybe [ErrorDetail]),
-    _gbdsrsBulkDeploymentStatus ::
-      !( Maybe
-           BulkDeploymentStatus
-       ),
-    _gbdsrsErrorMessage ::
-      !(Maybe Text),
-    _gbdsrsBulkDeploymentMetrics ::
-      !( Maybe
-           BulkDeploymentMetrics
-       ),
-    _gbdsrsTags ::
-      !(Maybe (Map Text (Text))),
-    _gbdsrsResponseStatus ::
-      !Int
+  { createdAt ::
+      Lude.Maybe Lude.Text,
+    errorDetails ::
+      Lude.Maybe [ErrorDetail],
+    bulkDeploymentStatus ::
+      Lude.Maybe
+        BulkDeploymentStatus,
+    errorMessage ::
+      Lude.Maybe Lude.Text,
+    bulkDeploymentMetrics ::
+      Lude.Maybe
+        BulkDeploymentMetrics,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBulkDeploymentStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbdsrsCreatedAt' - The time, in ISO format, when the deployment was created.
---
--- * 'gbdsrsErrorDetails' - Error details
---
--- * 'gbdsrsBulkDeploymentStatus' - The status of the bulk deployment.
---
--- * 'gbdsrsErrorMessage' - Error message
---
--- * 'gbdsrsBulkDeploymentMetrics' - Relevant metrics on input records processed during bulk deployment.
---
--- * 'gbdsrsTags' - Tag(s) attached to the resource arn.
---
--- * 'gbdsrsResponseStatus' - -- | The response status code.
-getBulkDeploymentStatusResponse ::
-  -- | 'gbdsrsResponseStatus'
-  Int ->
+-- * 'bulkDeploymentMetrics' - Relevant metrics on input records processed during bulk deployment.
+-- * 'bulkDeploymentStatus' - The status of the bulk deployment.
+-- * 'createdAt' - The time, in ISO format, when the deployment was created.
+-- * 'errorDetails' - Error details
+-- * 'errorMessage' - Error message
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Tag(s) attached to the resource arn.
+mkGetBulkDeploymentStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBulkDeploymentStatusResponse
-getBulkDeploymentStatusResponse pResponseStatus_ =
+mkGetBulkDeploymentStatusResponse pResponseStatus_ =
   GetBulkDeploymentStatusResponse'
-    { _gbdsrsCreatedAt = Nothing,
-      _gbdsrsErrorDetails = Nothing,
-      _gbdsrsBulkDeploymentStatus = Nothing,
-      _gbdsrsErrorMessage = Nothing,
-      _gbdsrsBulkDeploymentMetrics = Nothing,
-      _gbdsrsTags = Nothing,
-      _gbdsrsResponseStatus = pResponseStatus_
+    { createdAt = Lude.Nothing,
+      errorDetails = Lude.Nothing,
+      bulkDeploymentStatus = Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      bulkDeploymentMetrics = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time, in ISO format, when the deployment was created.
-gbdsrsCreatedAt :: Lens' GetBulkDeploymentStatusResponse (Maybe Text)
-gbdsrsCreatedAt = lens _gbdsrsCreatedAt (\s a -> s {_gbdsrsCreatedAt = a})
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsCreatedAt :: Lens.Lens' GetBulkDeploymentStatusResponse (Lude.Maybe Lude.Text)
+gbdsrsCreatedAt = Lens.lens (createdAt :: GetBulkDeploymentStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | Error details
-gbdsrsErrorDetails :: Lens' GetBulkDeploymentStatusResponse [ErrorDetail]
-gbdsrsErrorDetails = lens _gbdsrsErrorDetails (\s a -> s {_gbdsrsErrorDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsErrorDetails :: Lens.Lens' GetBulkDeploymentStatusResponse (Lude.Maybe [ErrorDetail])
+gbdsrsErrorDetails = Lens.lens (errorDetails :: GetBulkDeploymentStatusResponse -> Lude.Maybe [ErrorDetail]) (\s a -> s {errorDetails = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
 
 -- | The status of the bulk deployment.
-gbdsrsBulkDeploymentStatus :: Lens' GetBulkDeploymentStatusResponse (Maybe BulkDeploymentStatus)
-gbdsrsBulkDeploymentStatus = lens _gbdsrsBulkDeploymentStatus (\s a -> s {_gbdsrsBulkDeploymentStatus = a})
+--
+-- /Note:/ Consider using 'bulkDeploymentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsBulkDeploymentStatus :: Lens.Lens' GetBulkDeploymentStatusResponse (Lude.Maybe BulkDeploymentStatus)
+gbdsrsBulkDeploymentStatus = Lens.lens (bulkDeploymentStatus :: GetBulkDeploymentStatusResponse -> Lude.Maybe BulkDeploymentStatus) (\s a -> s {bulkDeploymentStatus = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsBulkDeploymentStatus "Use generic-lens or generic-optics with 'bulkDeploymentStatus' instead." #-}
 
 -- | Error message
-gbdsrsErrorMessage :: Lens' GetBulkDeploymentStatusResponse (Maybe Text)
-gbdsrsErrorMessage = lens _gbdsrsErrorMessage (\s a -> s {_gbdsrsErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsErrorMessage :: Lens.Lens' GetBulkDeploymentStatusResponse (Lude.Maybe Lude.Text)
+gbdsrsErrorMessage = Lens.lens (errorMessage :: GetBulkDeploymentStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | Relevant metrics on input records processed during bulk deployment.
-gbdsrsBulkDeploymentMetrics :: Lens' GetBulkDeploymentStatusResponse (Maybe BulkDeploymentMetrics)
-gbdsrsBulkDeploymentMetrics = lens _gbdsrsBulkDeploymentMetrics (\s a -> s {_gbdsrsBulkDeploymentMetrics = a})
+--
+-- /Note:/ Consider using 'bulkDeploymentMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsBulkDeploymentMetrics :: Lens.Lens' GetBulkDeploymentStatusResponse (Lude.Maybe BulkDeploymentMetrics)
+gbdsrsBulkDeploymentMetrics = Lens.lens (bulkDeploymentMetrics :: GetBulkDeploymentStatusResponse -> Lude.Maybe BulkDeploymentMetrics) (\s a -> s {bulkDeploymentMetrics = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsBulkDeploymentMetrics "Use generic-lens or generic-optics with 'bulkDeploymentMetrics' instead." #-}
 
 -- | Tag(s) attached to the resource arn.
-gbdsrsTags :: Lens' GetBulkDeploymentStatusResponse (HashMap Text (Text))
-gbdsrsTags = lens _gbdsrsTags (\s a -> s {_gbdsrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsTags :: Lens.Lens' GetBulkDeploymentStatusResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gbdsrsTags = Lens.lens (tags :: GetBulkDeploymentStatusResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-gbdsrsResponseStatus :: Lens' GetBulkDeploymentStatusResponse Int
-gbdsrsResponseStatus = lens _gbdsrsResponseStatus (\s a -> s {_gbdsrsResponseStatus = a})
-
-instance NFData GetBulkDeploymentStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbdsrsResponseStatus :: Lens.Lens' GetBulkDeploymentStatusResponse Lude.Int
+gbdsrsResponseStatus = Lens.lens (responseStatus :: GetBulkDeploymentStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBulkDeploymentStatusResponse)
+{-# DEPRECATED gbdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

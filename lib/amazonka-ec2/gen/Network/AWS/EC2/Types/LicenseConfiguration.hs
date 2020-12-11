@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LicenseConfiguration where
+module Network.AWS.EC2.Types.LicenseConfiguration
+  ( LicenseConfiguration (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLicenseConfiguration,
+
+    -- * Lenses
+    lcLicenseConfigurationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a license configuration.
 --
---
---
--- /See:/ 'licenseConfiguration' smart constructor.
+-- /See:/ 'mkLicenseConfiguration' smart constructor.
 newtype LicenseConfiguration = LicenseConfiguration'
-  { _lcLicenseConfigurationARN ::
-      Maybe Text
+  { licenseConfigurationARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LicenseConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcLicenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
-licenseConfiguration ::
+-- * 'licenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+mkLicenseConfiguration ::
   LicenseConfiguration
-licenseConfiguration =
-  LicenseConfiguration' {_lcLicenseConfigurationARN = Nothing}
+mkLicenseConfiguration =
+  LicenseConfiguration' {licenseConfigurationARN = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-lcLicenseConfigurationARN :: Lens' LicenseConfiguration (Maybe Text)
-lcLicenseConfigurationARN = lens _lcLicenseConfigurationARN (\s a -> s {_lcLicenseConfigurationARN = a})
+--
+-- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLicenseConfigurationARN :: Lens.Lens' LicenseConfiguration (Lude.Maybe Lude.Text)
+lcLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: LicenseConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: LicenseConfiguration)
+{-# DEPRECATED lcLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
 
-instance FromXML LicenseConfiguration where
+instance Lude.FromXML LicenseConfiguration where
   parseXML x =
-    LicenseConfiguration' <$> (x .@? "licenseConfigurationArn")
-
-instance Hashable LicenseConfiguration
-
-instance NFData LicenseConfiguration
+    LicenseConfiguration'
+      Lude.<$> (x Lude..@? "licenseConfigurationArn")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.NotificationEvent where
+module Network.AWS.SSM.Types.NotificationEvent
+  ( NotificationEvent
+      ( NotificationEvent',
+        NEAll,
+        NECancelled,
+        NEFailed,
+        NEInProgress,
+        NESuccess,
+        NETimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotificationEvent
-  = NEAll
-  | NECancelled
-  | NEFailed
-  | NEInProgress
-  | NESuccess
-  | NETimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotificationEvent = NotificationEvent' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotificationEvent where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure NEAll
-      "cancelled" -> pure NECancelled
-      "failed" -> pure NEFailed
-      "inprogress" -> pure NEInProgress
-      "success" -> pure NESuccess
-      "timedout" -> pure NETimedOut
-      e ->
-        fromTextError $
-          "Failure parsing NotificationEvent from value: '" <> e
-            <> "'. Accepted values: all, cancelled, failed, inprogress, success, timedout"
+pattern NEAll :: NotificationEvent
+pattern NEAll = NotificationEvent' "All"
 
-instance ToText NotificationEvent where
-  toText = \case
-    NEAll -> "All"
-    NECancelled -> "Cancelled"
-    NEFailed -> "Failed"
-    NEInProgress -> "InProgress"
-    NESuccess -> "Success"
-    NETimedOut -> "TimedOut"
+pattern NECancelled :: NotificationEvent
+pattern NECancelled = NotificationEvent' "Cancelled"
 
-instance Hashable NotificationEvent
+pattern NEFailed :: NotificationEvent
+pattern NEFailed = NotificationEvent' "Failed"
 
-instance NFData NotificationEvent
+pattern NEInProgress :: NotificationEvent
+pattern NEInProgress = NotificationEvent' "InProgress"
 
-instance ToByteString NotificationEvent
+pattern NESuccess :: NotificationEvent
+pattern NESuccess = NotificationEvent' "Success"
 
-instance ToQuery NotificationEvent
+pattern NETimedOut :: NotificationEvent
+pattern NETimedOut = NotificationEvent' "TimedOut"
 
-instance ToHeader NotificationEvent
-
-instance ToJSON NotificationEvent where
-  toJSON = toJSONText
-
-instance FromJSON NotificationEvent where
-  parseJSON = parseJSONText "NotificationEvent"
+{-# COMPLETE
+  NEAll,
+  NECancelled,
+  NEFailed,
+  NEInProgress,
+  NESuccess,
+  NETimedOut,
+  NotificationEvent'
+  #-}

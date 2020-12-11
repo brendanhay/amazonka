@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.LambdaAction where
+module Network.AWS.IoT.Types.LambdaAction
+  ( LambdaAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaAction,
+
+    -- * Lenses
+    laFunctionARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an action to invoke a Lambda function.
 --
---
---
--- /See:/ 'lambdaAction' smart constructor.
-newtype LambdaAction = LambdaAction' {_laFunctionARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkLambdaAction' smart constructor.
+newtype LambdaAction = LambdaAction' {functionARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laFunctionARN' - The ARN of the Lambda function.
-lambdaAction ::
-  -- | 'laFunctionARN'
-  Text ->
+-- * 'functionARN' - The ARN of the Lambda function.
+mkLambdaAction ::
+  -- | 'functionARN'
+  Lude.Text ->
   LambdaAction
-lambdaAction pFunctionARN_ =
-  LambdaAction' {_laFunctionARN = pFunctionARN_}
+mkLambdaAction pFunctionARN_ =
+  LambdaAction' {functionARN = pFunctionARN_}
 
 -- | The ARN of the Lambda function.
-laFunctionARN :: Lens' LambdaAction Text
-laFunctionARN = lens _laFunctionARN (\s a -> s {_laFunctionARN = a})
+--
+-- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laFunctionARN :: Lens.Lens' LambdaAction Lude.Text
+laFunctionARN = Lens.lens (functionARN :: LambdaAction -> Lude.Text) (\s a -> s {functionARN = a} :: LambdaAction)
+{-# DEPRECATED laFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
 
-instance FromJSON LambdaAction where
+instance Lude.FromJSON LambdaAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "LambdaAction"
-      (\x -> LambdaAction' <$> (x .: "functionArn"))
+      (\x -> LambdaAction' Lude.<$> (x Lude..: "functionArn"))
 
-instance Hashable LambdaAction
-
-instance NFData LambdaAction
-
-instance ToJSON LambdaAction where
+instance Lude.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =
-    object (catMaybes [Just ("functionArn" .= _laFunctionARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("functionArn" Lude..= functionARN)])

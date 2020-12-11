@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.EventSubscription where
+module Network.AWS.Inspector.Types.EventSubscription
+  ( EventSubscription (..),
+
+    -- * Smart constructor
+    mkEventSubscription,
+
+    -- * Lenses
+    esEvent,
+    esSubscribedAt,
+  )
+where
 
 import Network.AWS.Inspector.Types.InspectorEvent
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used in the 'Subscription' data type.
 --
---
---
--- /See:/ 'eventSubscription' smart constructor.
+-- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { _esEvent ::
-      !InspectorEvent,
-    _esSubscribedAt :: !POSIX
+  { event ::
+      InspectorEvent,
+    subscribedAt :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esEvent' - The event for which Amazon Simple Notification Service (SNS) notifications are sent.
---
--- * 'esSubscribedAt' - The time at which 'SubscribeToEvent' is called.
-eventSubscription ::
-  -- | 'esEvent'
+-- * 'event' - The event for which Amazon Simple Notification Service (SNS) notifications are sent.
+-- * 'subscribedAt' - The time at which 'SubscribeToEvent' is called.
+mkEventSubscription ::
+  -- | 'event'
   InspectorEvent ->
-  -- | 'esSubscribedAt'
-  UTCTime ->
+  -- | 'subscribedAt'
+  Lude.Timestamp ->
   EventSubscription
-eventSubscription pEvent_ pSubscribedAt_ =
+mkEventSubscription pEvent_ pSubscribedAt_ =
   EventSubscription'
-    { _esEvent = pEvent_,
-      _esSubscribedAt = _Time # pSubscribedAt_
+    { event = pEvent_,
+      subscribedAt = pSubscribedAt_
     }
 
 -- | The event for which Amazon Simple Notification Service (SNS) notifications are sent.
-esEvent :: Lens' EventSubscription InspectorEvent
-esEvent = lens _esEvent (\s a -> s {_esEvent = a})
+--
+-- /Note:/ Consider using 'event' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEvent :: Lens.Lens' EventSubscription InspectorEvent
+esEvent = Lens.lens (event :: EventSubscription -> InspectorEvent) (\s a -> s {event = a} :: EventSubscription)
+{-# DEPRECATED esEvent "Use generic-lens or generic-optics with 'event' instead." #-}
 
 -- | The time at which 'SubscribeToEvent' is called.
-esSubscribedAt :: Lens' EventSubscription UTCTime
-esSubscribedAt = lens _esSubscribedAt (\s a -> s {_esSubscribedAt = a}) . _Time
+--
+-- /Note:/ Consider using 'subscribedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSubscribedAt :: Lens.Lens' EventSubscription Lude.Timestamp
+esSubscribedAt = Lens.lens (subscribedAt :: EventSubscription -> Lude.Timestamp) (\s a -> s {subscribedAt = a} :: EventSubscription)
+{-# DEPRECATED esSubscribedAt "Use generic-lens or generic-optics with 'subscribedAt' instead." #-}
 
-instance FromJSON EventSubscription where
+instance Lude.FromJSON EventSubscription where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventSubscription"
       ( \x ->
-          EventSubscription' <$> (x .: "event") <*> (x .: "subscribedAt")
+          EventSubscription'
+            Lude.<$> (x Lude..: "event") Lude.<*> (x Lude..: "subscribedAt")
       )
-
-instance Hashable EventSubscription
-
-instance NFData EventSubscription

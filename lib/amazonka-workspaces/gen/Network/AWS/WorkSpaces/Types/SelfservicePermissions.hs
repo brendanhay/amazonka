@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.SelfservicePermissions where
+module Network.AWS.WorkSpaces.Types.SelfservicePermissions
+  ( SelfservicePermissions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSelfservicePermissions,
+
+    -- * Lenses
+    spRestartWorkspace,
+    spChangeComputeType,
+    spSwitchRunningMode,
+    spRebuildWorkspace,
+    spIncreaseVolumeSize,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.ReconnectEnum
 
 -- | Describes the self-service permissions for a directory. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html Enable Self-Service WorkSpace Management Capabilities for Your Users> .
 --
---
---
--- /See:/ 'selfservicePermissions' smart constructor.
+-- /See:/ 'mkSelfservicePermissions' smart constructor.
 data SelfservicePermissions = SelfservicePermissions'
-  { _spRestartWorkspace ::
-      !(Maybe ReconnectEnum),
-    _spChangeComputeType ::
-      !(Maybe ReconnectEnum),
-    _spSwitchRunningMode ::
-      !(Maybe ReconnectEnum),
-    _spRebuildWorkspace :: !(Maybe ReconnectEnum),
-    _spIncreaseVolumeSize ::
-      !(Maybe ReconnectEnum)
+  { restartWorkspace ::
+      Lude.Maybe ReconnectEnum,
+    changeComputeType :: Lude.Maybe ReconnectEnum,
+    switchRunningMode :: Lude.Maybe ReconnectEnum,
+    rebuildWorkspace :: Lude.Maybe ReconnectEnum,
+    increaseVolumeSize ::
+      Lude.Maybe ReconnectEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelfservicePermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spRestartWorkspace' - Specifies whether users can restart their WorkSpace.
---
--- * 'spChangeComputeType' - Specifies whether users can change the compute type (bundle) for their WorkSpace.
---
--- * 'spSwitchRunningMode' - Specifies whether users can switch the running mode of their WorkSpace.
---
--- * 'spRebuildWorkspace' - Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
---
--- * 'spIncreaseVolumeSize' - Specifies whether users can increase the volume size of the drives on their WorkSpace.
-selfservicePermissions ::
+-- * 'changeComputeType' - Specifies whether users can change the compute type (bundle) for their WorkSpace.
+-- * 'increaseVolumeSize' - Specifies whether users can increase the volume size of the drives on their WorkSpace.
+-- * 'rebuildWorkspace' - Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+-- * 'restartWorkspace' - Specifies whether users can restart their WorkSpace.
+-- * 'switchRunningMode' - Specifies whether users can switch the running mode of their WorkSpace.
+mkSelfservicePermissions ::
   SelfservicePermissions
-selfservicePermissions =
+mkSelfservicePermissions =
   SelfservicePermissions'
-    { _spRestartWorkspace = Nothing,
-      _spChangeComputeType = Nothing,
-      _spSwitchRunningMode = Nothing,
-      _spRebuildWorkspace = Nothing,
-      _spIncreaseVolumeSize = Nothing
+    { restartWorkspace = Lude.Nothing,
+      changeComputeType = Lude.Nothing,
+      switchRunningMode = Lude.Nothing,
+      rebuildWorkspace = Lude.Nothing,
+      increaseVolumeSize = Lude.Nothing
     }
 
 -- | Specifies whether users can restart their WorkSpace.
-spRestartWorkspace :: Lens' SelfservicePermissions (Maybe ReconnectEnum)
-spRestartWorkspace = lens _spRestartWorkspace (\s a -> s {_spRestartWorkspace = a})
+--
+-- /Note:/ Consider using 'restartWorkspace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spRestartWorkspace :: Lens.Lens' SelfservicePermissions (Lude.Maybe ReconnectEnum)
+spRestartWorkspace = Lens.lens (restartWorkspace :: SelfservicePermissions -> Lude.Maybe ReconnectEnum) (\s a -> s {restartWorkspace = a} :: SelfservicePermissions)
+{-# DEPRECATED spRestartWorkspace "Use generic-lens or generic-optics with 'restartWorkspace' instead." #-}
 
 -- | Specifies whether users can change the compute type (bundle) for their WorkSpace.
-spChangeComputeType :: Lens' SelfservicePermissions (Maybe ReconnectEnum)
-spChangeComputeType = lens _spChangeComputeType (\s a -> s {_spChangeComputeType = a})
+--
+-- /Note:/ Consider using 'changeComputeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spChangeComputeType :: Lens.Lens' SelfservicePermissions (Lude.Maybe ReconnectEnum)
+spChangeComputeType = Lens.lens (changeComputeType :: SelfservicePermissions -> Lude.Maybe ReconnectEnum) (\s a -> s {changeComputeType = a} :: SelfservicePermissions)
+{-# DEPRECATED spChangeComputeType "Use generic-lens or generic-optics with 'changeComputeType' instead." #-}
 
 -- | Specifies whether users can switch the running mode of their WorkSpace.
-spSwitchRunningMode :: Lens' SelfservicePermissions (Maybe ReconnectEnum)
-spSwitchRunningMode = lens _spSwitchRunningMode (\s a -> s {_spSwitchRunningMode = a})
+--
+-- /Note:/ Consider using 'switchRunningMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spSwitchRunningMode :: Lens.Lens' SelfservicePermissions (Lude.Maybe ReconnectEnum)
+spSwitchRunningMode = Lens.lens (switchRunningMode :: SelfservicePermissions -> Lude.Maybe ReconnectEnum) (\s a -> s {switchRunningMode = a} :: SelfservicePermissions)
+{-# DEPRECATED spSwitchRunningMode "Use generic-lens or generic-optics with 'switchRunningMode' instead." #-}
 
 -- | Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
-spRebuildWorkspace :: Lens' SelfservicePermissions (Maybe ReconnectEnum)
-spRebuildWorkspace = lens _spRebuildWorkspace (\s a -> s {_spRebuildWorkspace = a})
+--
+-- /Note:/ Consider using 'rebuildWorkspace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spRebuildWorkspace :: Lens.Lens' SelfservicePermissions (Lude.Maybe ReconnectEnum)
+spRebuildWorkspace = Lens.lens (rebuildWorkspace :: SelfservicePermissions -> Lude.Maybe ReconnectEnum) (\s a -> s {rebuildWorkspace = a} :: SelfservicePermissions)
+{-# DEPRECATED spRebuildWorkspace "Use generic-lens or generic-optics with 'rebuildWorkspace' instead." #-}
 
 -- | Specifies whether users can increase the volume size of the drives on their WorkSpace.
-spIncreaseVolumeSize :: Lens' SelfservicePermissions (Maybe ReconnectEnum)
-spIncreaseVolumeSize = lens _spIncreaseVolumeSize (\s a -> s {_spIncreaseVolumeSize = a})
+--
+-- /Note:/ Consider using 'increaseVolumeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spIncreaseVolumeSize :: Lens.Lens' SelfservicePermissions (Lude.Maybe ReconnectEnum)
+spIncreaseVolumeSize = Lens.lens (increaseVolumeSize :: SelfservicePermissions -> Lude.Maybe ReconnectEnum) (\s a -> s {increaseVolumeSize = a} :: SelfservicePermissions)
+{-# DEPRECATED spIncreaseVolumeSize "Use generic-lens or generic-optics with 'increaseVolumeSize' instead." #-}
 
-instance FromJSON SelfservicePermissions where
+instance Lude.FromJSON SelfservicePermissions where
   parseJSON =
-    withObject
+    Lude.withObject
       "SelfservicePermissions"
       ( \x ->
           SelfservicePermissions'
-            <$> (x .:? "RestartWorkspace")
-            <*> (x .:? "ChangeComputeType")
-            <*> (x .:? "SwitchRunningMode")
-            <*> (x .:? "RebuildWorkspace")
-            <*> (x .:? "IncreaseVolumeSize")
+            Lude.<$> (x Lude..:? "RestartWorkspace")
+            Lude.<*> (x Lude..:? "ChangeComputeType")
+            Lude.<*> (x Lude..:? "SwitchRunningMode")
+            Lude.<*> (x Lude..:? "RebuildWorkspace")
+            Lude.<*> (x Lude..:? "IncreaseVolumeSize")
       )
 
-instance Hashable SelfservicePermissions
-
-instance NFData SelfservicePermissions
-
-instance ToJSON SelfservicePermissions where
+instance Lude.ToJSON SelfservicePermissions where
   toJSON SelfservicePermissions' {..} =
-    object
-      ( catMaybes
-          [ ("RestartWorkspace" .=) <$> _spRestartWorkspace,
-            ("ChangeComputeType" .=) <$> _spChangeComputeType,
-            ("SwitchRunningMode" .=) <$> _spSwitchRunningMode,
-            ("RebuildWorkspace" .=) <$> _spRebuildWorkspace,
-            ("IncreaseVolumeSize" .=) <$> _spIncreaseVolumeSize
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RestartWorkspace" Lude..=) Lude.<$> restartWorkspace,
+            ("ChangeComputeType" Lude..=) Lude.<$> changeComputeType,
+            ("SwitchRunningMode" Lude..=) Lude.<$> switchRunningMode,
+            ("RebuildWorkspace" Lude..=) Lude.<$> rebuildWorkspace,
+            ("IncreaseVolumeSize" Lude..=) Lude.<$> increaseVolumeSize
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,97 @@
 --
 -- Deletes the specified retention policy.
 --
---
 -- Log events do not expire if they belong to log groups without a retention policy.
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-  ( -- * Creating a Request
-    deleteRetentionPolicy,
-    DeleteRetentionPolicy,
+  ( -- * Creating a request
+    DeleteRetentionPolicy (..),
+    mkDeleteRetentionPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drpLogGroupName,
 
-    -- * Destructuring the Response
-    deleteRetentionPolicyResponse,
-    DeleteRetentionPolicyResponse,
+    -- * Destructuring the response
+    DeleteRetentionPolicyResponse (..),
+    mkDeleteRetentionPolicyResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRetentionPolicy' smart constructor.
+-- | /See:/ 'mkDeleteRetentionPolicy' smart constructor.
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
-  { _drpLogGroupName ::
-      Text
+  { logGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRetentionPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drpLogGroupName' - The name of the log group.
-deleteRetentionPolicy ::
-  -- | 'drpLogGroupName'
-  Text ->
+-- * 'logGroupName' - The name of the log group.
+mkDeleteRetentionPolicy ::
+  -- | 'logGroupName'
+  Lude.Text ->
   DeleteRetentionPolicy
-deleteRetentionPolicy pLogGroupName_ =
-  DeleteRetentionPolicy' {_drpLogGroupName = pLogGroupName_}
+mkDeleteRetentionPolicy pLogGroupName_ =
+  DeleteRetentionPolicy' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-drpLogGroupName :: Lens' DeleteRetentionPolicy Text
-drpLogGroupName = lens _drpLogGroupName (\s a -> s {_drpLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpLogGroupName :: Lens.Lens' DeleteRetentionPolicy Lude.Text
+drpLogGroupName = Lens.lens (logGroupName :: DeleteRetentionPolicy -> Lude.Text) (\s a -> s {logGroupName = a} :: DeleteRetentionPolicy)
+{-# DEPRECATED drpLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance AWSRequest DeleteRetentionPolicy where
+instance Lude.AWSRequest DeleteRetentionPolicy where
   type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull DeleteRetentionPolicyResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull DeleteRetentionPolicyResponse'
 
-instance Hashable DeleteRetentionPolicy
-
-instance NFData DeleteRetentionPolicy
-
-instance ToHeaders DeleteRetentionPolicy where
+instance Lude.ToHeaders DeleteRetentionPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DeleteRetentionPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DeleteRetentionPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRetentionPolicy where
+instance Lude.ToJSON DeleteRetentionPolicy where
   toJSON DeleteRetentionPolicy' {..} =
-    object (catMaybes [Just ("logGroupName" .= _drpLogGroupName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("logGroupName" Lude..= logGroupName)])
 
-instance ToPath DeleteRetentionPolicy where
-  toPath = const "/"
+instance Lude.ToPath DeleteRetentionPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRetentionPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRetentionPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRetentionPolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteRetentionPolicyResponse' smart constructor.
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRetentionPolicyResponse' with the minimum fields required to make a request.
-deleteRetentionPolicyResponse ::
+mkDeleteRetentionPolicyResponse ::
   DeleteRetentionPolicyResponse
-deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
-
-instance NFData DeleteRetentionPolicyResponse
+mkDeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'

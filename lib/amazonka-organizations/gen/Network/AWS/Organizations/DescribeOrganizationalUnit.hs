@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Retrieves information about an organizational unit (OU).
 --
---
 -- This operation can be called only from the organization's management account or by a member account that is a delegated administrator for an AWS service.
 module Network.AWS.Organizations.DescribeOrganizationalUnit
-  ( -- * Creating a Request
-    describeOrganizationalUnit,
-    DescribeOrganizationalUnit,
+  ( -- * Creating a request
+    DescribeOrganizationalUnit (..),
+    mkDescribeOrganizationalUnit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     douOrganizationalUnitId,
 
-    -- * Destructuring the Response
-    describeOrganizationalUnitResponse,
-    DescribeOrganizationalUnitResponse,
+    -- * Destructuring the response
+    DescribeOrganizationalUnitResponse (..),
+    mkDescribeOrganizationalUnitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     doursOrganizationalUnit,
     doursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeOrganizationalUnit' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationalUnit' smart constructor.
 newtype DescribeOrganizationalUnit = DescribeOrganizationalUnit'
-  { _douOrganizationalUnitId ::
-      Text
+  { organizationalUnitId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationalUnit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'organizationalUnitId' - The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
 --
--- * 'douOrganizationalUnitId' - The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-describeOrganizationalUnit ::
-  -- | 'douOrganizationalUnitId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+mkDescribeOrganizationalUnit ::
+  -- | 'organizationalUnitId'
+  Lude.Text ->
   DescribeOrganizationalUnit
-describeOrganizationalUnit pOrganizationalUnitId_ =
+mkDescribeOrganizationalUnit pOrganizationalUnitId_ =
   DescribeOrganizationalUnit'
-    { _douOrganizationalUnitId =
+    { organizationalUnitId =
         pOrganizationalUnitId_
     }
 
--- | The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-douOrganizationalUnitId :: Lens' DescribeOrganizationalUnit Text
-douOrganizationalUnitId = lens _douOrganizationalUnitId (\s a -> s {_douOrganizationalUnitId = a})
+-- | The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+--
+-- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+douOrganizationalUnitId :: Lens.Lens' DescribeOrganizationalUnit Lude.Text
+douOrganizationalUnitId = Lens.lens (organizationalUnitId :: DescribeOrganizationalUnit -> Lude.Text) (\s a -> s {organizationalUnitId = a} :: DescribeOrganizationalUnit)
+{-# DEPRECATED douOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
 
-instance AWSRequest DescribeOrganizationalUnit where
+instance Lude.AWSRequest DescribeOrganizationalUnit where
   type
     Rs DescribeOrganizationalUnit =
       DescribeOrganizationalUnitResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOrganizationalUnitResponse'
-            <$> (x .?> "OrganizationalUnit") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OrganizationalUnit")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOrganizationalUnit
-
-instance NFData DescribeOrganizationalUnit
-
-instance ToHeaders DescribeOrganizationalUnit where
+instance Lude.ToHeaders DescribeOrganizationalUnit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSOrganizationsV20161128.DescribeOrganizationalUnit" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.DescribeOrganizationalUnit" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeOrganizationalUnit where
+instance Lude.ToJSON DescribeOrganizationalUnit where
   toJSON DescribeOrganizationalUnit' {..} =
-    object
-      ( catMaybes
-          [Just ("OrganizationalUnitId" .= _douOrganizationalUnitId)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("OrganizationalUnitId" Lude..= organizationalUnitId)]
       )
 
-instance ToPath DescribeOrganizationalUnit where
-  toPath = const "/"
+instance Lude.ToPath DescribeOrganizationalUnit where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeOrganizationalUnit where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOrganizationalUnit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeOrganizationalUnitResponse' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationalUnitResponse' smart constructor.
 data DescribeOrganizationalUnitResponse = DescribeOrganizationalUnitResponse'
-  { _doursOrganizationalUnit ::
-      !( Maybe
-           OrganizationalUnit
-       ),
-    _doursResponseStatus ::
-      !Int
+  { organizationalUnit ::
+      Lude.Maybe
+        OrganizationalUnit,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doursOrganizationalUnit' - A structure that contains details about the specified OU.
---
--- * 'doursResponseStatus' - -- | The response status code.
-describeOrganizationalUnitResponse ::
-  -- | 'doursResponseStatus'
-  Int ->
+-- * 'organizationalUnit' - A structure that contains details about the specified OU.
+-- * 'responseStatus' - The response status code.
+mkDescribeOrganizationalUnitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOrganizationalUnitResponse
-describeOrganizationalUnitResponse pResponseStatus_ =
+mkDescribeOrganizationalUnitResponse pResponseStatus_ =
   DescribeOrganizationalUnitResponse'
-    { _doursOrganizationalUnit =
-        Nothing,
-      _doursResponseStatus = pResponseStatus_
+    { organizationalUnit =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains details about the specified OU.
-doursOrganizationalUnit :: Lens' DescribeOrganizationalUnitResponse (Maybe OrganizationalUnit)
-doursOrganizationalUnit = lens _doursOrganizationalUnit (\s a -> s {_doursOrganizationalUnit = a})
+--
+-- /Note:/ Consider using 'organizationalUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doursOrganizationalUnit :: Lens.Lens' DescribeOrganizationalUnitResponse (Lude.Maybe OrganizationalUnit)
+doursOrganizationalUnit = Lens.lens (organizationalUnit :: DescribeOrganizationalUnitResponse -> Lude.Maybe OrganizationalUnit) (\s a -> s {organizationalUnit = a} :: DescribeOrganizationalUnitResponse)
+{-# DEPRECATED doursOrganizationalUnit "Use generic-lens or generic-optics with 'organizationalUnit' instead." #-}
 
--- | -- | The response status code.
-doursResponseStatus :: Lens' DescribeOrganizationalUnitResponse Int
-doursResponseStatus = lens _doursResponseStatus (\s a -> s {_doursResponseStatus = a})
-
-instance NFData DescribeOrganizationalUnitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doursResponseStatus :: Lens.Lens' DescribeOrganizationalUnitResponse Lude.Int
+doursResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationalUnitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationalUnitResponse)
+{-# DEPRECATED doursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

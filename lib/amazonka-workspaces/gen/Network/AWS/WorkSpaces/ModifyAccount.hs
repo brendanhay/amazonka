@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,134 @@
 --
 -- Modifies the configuration of Bring Your Own License (BYOL) for the specified account.
 module Network.AWS.WorkSpaces.ModifyAccount
-  ( -- * Creating a Request
-    modifyAccount,
-    ModifyAccount,
+  ( -- * Creating a request
+    ModifyAccount (..),
+    mkModifyAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     maDedicatedTenancySupport,
     maDedicatedTenancyManagementCidrRange,
 
-    -- * Destructuring the Response
-    modifyAccountResponse,
-    ModifyAccountResponse,
+    -- * Destructuring the response
+    ModifyAccountResponse (..),
+    mkModifyAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     marsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'modifyAccount' smart constructor.
+-- | /See:/ 'mkModifyAccount' smart constructor.
 data ModifyAccount = ModifyAccount'
-  { _maDedicatedTenancySupport ::
-      !(Maybe DedicatedTenancySupportEnum),
-    _maDedicatedTenancyManagementCidrRange :: !(Maybe Text)
+  { dedicatedTenancySupport ::
+      Lude.Maybe DedicatedTenancySupportEnum,
+    dedicatedTenancyManagementCidrRange :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'maDedicatedTenancySupport' - The status of BYOL.
---
--- * 'maDedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the @ListAvailableManagementCidrRanges@ operation.
-modifyAccount ::
+-- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the @ListAvailableManagementCidrRanges@ operation.
+-- * 'dedicatedTenancySupport' - The status of BYOL.
+mkModifyAccount ::
   ModifyAccount
-modifyAccount =
+mkModifyAccount =
   ModifyAccount'
-    { _maDedicatedTenancySupport = Nothing,
-      _maDedicatedTenancyManagementCidrRange = Nothing
+    { dedicatedTenancySupport = Lude.Nothing,
+      dedicatedTenancyManagementCidrRange = Lude.Nothing
     }
 
 -- | The status of BYOL.
-maDedicatedTenancySupport :: Lens' ModifyAccount (Maybe DedicatedTenancySupportEnum)
-maDedicatedTenancySupport = lens _maDedicatedTenancySupport (\s a -> s {_maDedicatedTenancySupport = a})
+--
+-- /Note:/ Consider using 'dedicatedTenancySupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maDedicatedTenancySupport :: Lens.Lens' ModifyAccount (Lude.Maybe DedicatedTenancySupportEnum)
+maDedicatedTenancySupport = Lens.lens (dedicatedTenancySupport :: ModifyAccount -> Lude.Maybe DedicatedTenancySupportEnum) (\s a -> s {dedicatedTenancySupport = a} :: ModifyAccount)
+{-# DEPRECATED maDedicatedTenancySupport "Use generic-lens or generic-optics with 'dedicatedTenancySupport' instead." #-}
 
 -- | The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the @ListAvailableManagementCidrRanges@ operation.
-maDedicatedTenancyManagementCidrRange :: Lens' ModifyAccount (Maybe Text)
-maDedicatedTenancyManagementCidrRange = lens _maDedicatedTenancyManagementCidrRange (\s a -> s {_maDedicatedTenancyManagementCidrRange = a})
+--
+-- /Note:/ Consider using 'dedicatedTenancyManagementCidrRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maDedicatedTenancyManagementCidrRange :: Lens.Lens' ModifyAccount (Lude.Maybe Lude.Text)
+maDedicatedTenancyManagementCidrRange = Lens.lens (dedicatedTenancyManagementCidrRange :: ModifyAccount -> Lude.Maybe Lude.Text) (\s a -> s {dedicatedTenancyManagementCidrRange = a} :: ModifyAccount)
+{-# DEPRECATED maDedicatedTenancyManagementCidrRange "Use generic-lens or generic-optics with 'dedicatedTenancyManagementCidrRange' instead." #-}
 
-instance AWSRequest ModifyAccount where
+instance Lude.AWSRequest ModifyAccount where
   type Rs ModifyAccount = ModifyAccountResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> ModifyAccountResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ModifyAccountResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ModifyAccount
-
-instance NFData ModifyAccount
-
-instance ToHeaders ModifyAccount where
+instance Lude.ToHeaders ModifyAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.ModifyAccount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.ModifyAccount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyAccount where
+instance Lude.ToJSON ModifyAccount where
   toJSON ModifyAccount' {..} =
-    object
-      ( catMaybes
-          [ ("DedicatedTenancySupport" .=) <$> _maDedicatedTenancySupport,
-            ("DedicatedTenancyManagementCidrRange" .=)
-              <$> _maDedicatedTenancyManagementCidrRange
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DedicatedTenancySupport" Lude..=)
+              Lude.<$> dedicatedTenancySupport,
+            ("DedicatedTenancyManagementCidrRange" Lude..=)
+              Lude.<$> dedicatedTenancyManagementCidrRange
           ]
       )
 
-instance ToPath ModifyAccount where
-  toPath = const "/"
+instance Lude.ToPath ModifyAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyAccount where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyAccountResponse' smart constructor.
+-- | /See:/ 'mkModifyAccountResponse' smart constructor.
 newtype ModifyAccountResponse = ModifyAccountResponse'
-  { _marsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'marsResponseStatus' - -- | The response status code.
-modifyAccountResponse ::
-  -- | 'marsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkModifyAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyAccountResponse
-modifyAccountResponse pResponseStatus_ =
-  ModifyAccountResponse' {_marsResponseStatus = pResponseStatus_}
+mkModifyAccountResponse pResponseStatus_ =
+  ModifyAccountResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-marsResponseStatus :: Lens' ModifyAccountResponse Int
-marsResponseStatus = lens _marsResponseStatus (\s a -> s {_marsResponseStatus = a})
-
-instance NFData ModifyAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+marsResponseStatus :: Lens.Lens' ModifyAccountResponse Lude.Int
+marsResponseStatus = Lens.lens (responseStatus :: ModifyAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyAccountResponse)
+{-# DEPRECATED marsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

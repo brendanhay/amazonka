@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrefixList where
+module Network.AWS.EC2.Types.PrefixList
+  ( PrefixList (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrefixList,
+
+    -- * Lenses
+    plCidrs,
+    plPrefixListId,
+    plPrefixListName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes prefixes for AWS services.
 --
---
---
--- /See:/ 'prefixList' smart constructor.
+-- /See:/ 'mkPrefixList' smart constructor.
 data PrefixList = PrefixList'
-  { _plCidrs :: !(Maybe [Text]),
-    _plPrefixListId :: !(Maybe Text),
-    _plPrefixListName :: !(Maybe Text)
+  { cidrs :: Lude.Maybe [Lude.Text],
+    prefixListId :: Lude.Maybe Lude.Text,
+    prefixListName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrefixList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plCidrs' - The IP address range of the AWS service.
---
--- * 'plPrefixListId' - The ID of the prefix.
---
--- * 'plPrefixListName' - The name of the prefix.
-prefixList ::
+-- * 'cidrs' - The IP address range of the AWS service.
+-- * 'prefixListId' - The ID of the prefix.
+-- * 'prefixListName' - The name of the prefix.
+mkPrefixList ::
   PrefixList
-prefixList =
+mkPrefixList =
   PrefixList'
-    { _plCidrs = Nothing,
-      _plPrefixListId = Nothing,
-      _plPrefixListName = Nothing
+    { cidrs = Lude.Nothing,
+      prefixListId = Lude.Nothing,
+      prefixListName = Lude.Nothing
     }
 
 -- | The IP address range of the AWS service.
-plCidrs :: Lens' PrefixList [Text]
-plCidrs = lens _plCidrs (\s a -> s {_plCidrs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cidrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plCidrs :: Lens.Lens' PrefixList (Lude.Maybe [Lude.Text])
+plCidrs = Lens.lens (cidrs :: PrefixList -> Lude.Maybe [Lude.Text]) (\s a -> s {cidrs = a} :: PrefixList)
+{-# DEPRECATED plCidrs "Use generic-lens or generic-optics with 'cidrs' instead." #-}
 
 -- | The ID of the prefix.
-plPrefixListId :: Lens' PrefixList (Maybe Text)
-plPrefixListId = lens _plPrefixListId (\s a -> s {_plPrefixListId = a})
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plPrefixListId :: Lens.Lens' PrefixList (Lude.Maybe Lude.Text)
+plPrefixListId = Lens.lens (prefixListId :: PrefixList -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: PrefixList)
+{-# DEPRECATED plPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | The name of the prefix.
-plPrefixListName :: Lens' PrefixList (Maybe Text)
-plPrefixListName = lens _plPrefixListName (\s a -> s {_plPrefixListName = a})
+--
+-- /Note:/ Consider using 'prefixListName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plPrefixListName :: Lens.Lens' PrefixList (Lude.Maybe Lude.Text)
+plPrefixListName = Lens.lens (prefixListName :: PrefixList -> Lude.Maybe Lude.Text) (\s a -> s {prefixListName = a} :: PrefixList)
+{-# DEPRECATED plPrefixListName "Use generic-lens or generic-optics with 'prefixListName' instead." #-}
 
-instance FromXML PrefixList where
+instance Lude.FromXML PrefixList where
   parseXML x =
     PrefixList'
-      <$> (x .@? "cidrSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "prefixListId")
-      <*> (x .@? "prefixListName")
-
-instance Hashable PrefixList
-
-instance NFData PrefixList
+      Lude.<$> ( x Lude..@? "cidrSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "prefixListId")
+      Lude.<*> (x Lude..@? "prefixListName")

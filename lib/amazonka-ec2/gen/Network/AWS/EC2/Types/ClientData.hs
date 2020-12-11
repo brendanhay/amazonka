@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientData where
+module Network.AWS.EC2.Types.ClientData
+  ( ClientData (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClientData,
+
+    -- * Lenses
+    cdUploadStart,
+    cdUploadSize,
+    cdUploadEnd,
+    cdComment,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the client-specific data.
 --
---
---
--- /See:/ 'clientData' smart constructor.
+-- /See:/ 'mkClientData' smart constructor.
 data ClientData = ClientData'
-  { _cdUploadStart :: !(Maybe ISO8601),
-    _cdUploadSize :: !(Maybe Double),
-    _cdUploadEnd :: !(Maybe ISO8601),
-    _cdComment :: !(Maybe Text)
+  { uploadStart ::
+      Lude.Maybe Lude.ISO8601,
+    uploadSize :: Lude.Maybe Lude.Double,
+    uploadEnd :: Lude.Maybe Lude.ISO8601,
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdUploadStart' - The time that the disk upload starts.
---
--- * 'cdUploadSize' - The size of the uploaded disk image, in GiB.
---
--- * 'cdUploadEnd' - The time that the disk upload ends.
---
--- * 'cdComment' - A user-defined comment about the disk upload.
-clientData ::
+-- * 'comment' - A user-defined comment about the disk upload.
+-- * 'uploadEnd' - The time that the disk upload ends.
+-- * 'uploadSize' - The size of the uploaded disk image, in GiB.
+-- * 'uploadStart' - The time that the disk upload starts.
+mkClientData ::
   ClientData
-clientData =
+mkClientData =
   ClientData'
-    { _cdUploadStart = Nothing,
-      _cdUploadSize = Nothing,
-      _cdUploadEnd = Nothing,
-      _cdComment = Nothing
+    { uploadStart = Lude.Nothing,
+      uploadSize = Lude.Nothing,
+      uploadEnd = Lude.Nothing,
+      comment = Lude.Nothing
     }
 
 -- | The time that the disk upload starts.
-cdUploadStart :: Lens' ClientData (Maybe UTCTime)
-cdUploadStart = lens _cdUploadStart (\s a -> s {_cdUploadStart = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'uploadStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUploadStart :: Lens.Lens' ClientData (Lude.Maybe Lude.ISO8601)
+cdUploadStart = Lens.lens (uploadStart :: ClientData -> Lude.Maybe Lude.ISO8601) (\s a -> s {uploadStart = a} :: ClientData)
+{-# DEPRECATED cdUploadStart "Use generic-lens or generic-optics with 'uploadStart' instead." #-}
 
 -- | The size of the uploaded disk image, in GiB.
-cdUploadSize :: Lens' ClientData (Maybe Double)
-cdUploadSize = lens _cdUploadSize (\s a -> s {_cdUploadSize = a})
+--
+-- /Note:/ Consider using 'uploadSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUploadSize :: Lens.Lens' ClientData (Lude.Maybe Lude.Double)
+cdUploadSize = Lens.lens (uploadSize :: ClientData -> Lude.Maybe Lude.Double) (\s a -> s {uploadSize = a} :: ClientData)
+{-# DEPRECATED cdUploadSize "Use generic-lens or generic-optics with 'uploadSize' instead." #-}
 
 -- | The time that the disk upload ends.
-cdUploadEnd :: Lens' ClientData (Maybe UTCTime)
-cdUploadEnd = lens _cdUploadEnd (\s a -> s {_cdUploadEnd = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'uploadEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUploadEnd :: Lens.Lens' ClientData (Lude.Maybe Lude.ISO8601)
+cdUploadEnd = Lens.lens (uploadEnd :: ClientData -> Lude.Maybe Lude.ISO8601) (\s a -> s {uploadEnd = a} :: ClientData)
+{-# DEPRECATED cdUploadEnd "Use generic-lens or generic-optics with 'uploadEnd' instead." #-}
 
 -- | A user-defined comment about the disk upload.
-cdComment :: Lens' ClientData (Maybe Text)
-cdComment = lens _cdComment (\s a -> s {_cdComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdComment :: Lens.Lens' ClientData (Lude.Maybe Lude.Text)
+cdComment = Lens.lens (comment :: ClientData -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ClientData)
+{-# DEPRECATED cdComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Hashable ClientData
-
-instance NFData ClientData
-
-instance ToQuery ClientData where
+instance Lude.ToQuery ClientData where
   toQuery ClientData' {..} =
-    mconcat
-      [ "UploadStart" =: _cdUploadStart,
-        "UploadSize" =: _cdUploadSize,
-        "UploadEnd" =: _cdUploadEnd,
-        "Comment" =: _cdComment
+    Lude.mconcat
+      [ "UploadStart" Lude.=: uploadStart,
+        "UploadSize" Lude.=: uploadSize,
+        "UploadEnd" Lude.=: uploadEnd,
+        "Comment" Lude.=: comment
       ]

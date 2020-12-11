@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,138 @@
 --
 -- Updates a subscription definition.
 module Network.AWS.Greengrass.UpdateSubscriptionDefinition
-  ( -- * Creating a Request
-    updateSubscriptionDefinition,
-    UpdateSubscriptionDefinition,
+  ( -- * Creating a request
+    UpdateSubscriptionDefinition (..),
+    mkUpdateSubscriptionDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usdName,
     usdSubscriptionDefinitionId,
 
-    -- * Destructuring the Response
-    updateSubscriptionDefinitionResponse,
-    UpdateSubscriptionDefinitionResponse,
+    -- * Destructuring the response
+    UpdateSubscriptionDefinitionResponse (..),
+    mkUpdateSubscriptionDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usdrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSubscriptionDefinition' smart constructor.
+-- | /See:/ 'mkUpdateSubscriptionDefinition' smart constructor.
 data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
-  { _usdName ::
-      !(Maybe Text),
-    _usdSubscriptionDefinitionId ::
-      !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    subscriptionDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubscriptionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usdName' - The name of the definition.
---
--- * 'usdSubscriptionDefinitionId' - The ID of the subscription definition.
-updateSubscriptionDefinition ::
-  -- | 'usdSubscriptionDefinitionId'
-  Text ->
+-- * 'name' - The name of the definition.
+-- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+mkUpdateSubscriptionDefinition ::
+  -- | 'subscriptionDefinitionId'
+  Lude.Text ->
   UpdateSubscriptionDefinition
-updateSubscriptionDefinition pSubscriptionDefinitionId_ =
+mkUpdateSubscriptionDefinition pSubscriptionDefinitionId_ =
   UpdateSubscriptionDefinition'
-    { _usdName = Nothing,
-      _usdSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    { name = Lude.Nothing,
+      subscriptionDefinitionId = pSubscriptionDefinitionId_
     }
 
 -- | The name of the definition.
-usdName :: Lens' UpdateSubscriptionDefinition (Maybe Text)
-usdName = lens _usdName (\s a -> s {_usdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usdName :: Lens.Lens' UpdateSubscriptionDefinition (Lude.Maybe Lude.Text)
+usdName = Lens.lens (name :: UpdateSubscriptionDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateSubscriptionDefinition)
+{-# DEPRECATED usdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the subscription definition.
-usdSubscriptionDefinitionId :: Lens' UpdateSubscriptionDefinition Text
-usdSubscriptionDefinitionId = lens _usdSubscriptionDefinitionId (\s a -> s {_usdSubscriptionDefinitionId = a})
+--
+-- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usdSubscriptionDefinitionId :: Lens.Lens' UpdateSubscriptionDefinition Lude.Text
+usdSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: UpdateSubscriptionDefinition -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: UpdateSubscriptionDefinition)
+{-# DEPRECATED usdSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
-instance AWSRequest UpdateSubscriptionDefinition where
+instance Lude.AWSRequest UpdateSubscriptionDefinition where
   type
     Rs UpdateSubscriptionDefinition =
       UpdateSubscriptionDefinitionResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateSubscriptionDefinitionResponse' <$> (pure (fromEnum s))
+          UpdateSubscriptionDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSubscriptionDefinition
-
-instance NFData UpdateSubscriptionDefinition
-
-instance ToHeaders UpdateSubscriptionDefinition where
+instance Lude.ToHeaders UpdateSubscriptionDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateSubscriptionDefinition where
+instance Lude.ToJSON UpdateSubscriptionDefinition where
   toJSON UpdateSubscriptionDefinition' {..} =
-    object (catMaybes [("Name" .=) <$> _usdName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath UpdateSubscriptionDefinition where
+instance Lude.ToPath UpdateSubscriptionDefinition where
   toPath UpdateSubscriptionDefinition' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        toBS _usdSubscriptionDefinitionId
+        Lude.toBS subscriptionDefinitionId
       ]
 
-instance ToQuery UpdateSubscriptionDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSubscriptionDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSubscriptionDefinitionResponse' smart constructor.
+-- | /See:/ 'mkUpdateSubscriptionDefinitionResponse' smart constructor.
 newtype UpdateSubscriptionDefinitionResponse = UpdateSubscriptionDefinitionResponse'
-  { _usdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usdrsResponseStatus' - -- | The response status code.
-updateSubscriptionDefinitionResponse ::
-  -- | 'usdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateSubscriptionDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSubscriptionDefinitionResponse
-updateSubscriptionDefinitionResponse pResponseStatus_ =
+mkUpdateSubscriptionDefinitionResponse pResponseStatus_ =
   UpdateSubscriptionDefinitionResponse'
-    { _usdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-usdrsResponseStatus :: Lens' UpdateSubscriptionDefinitionResponse Int
-usdrsResponseStatus = lens _usdrsResponseStatus (\s a -> s {_usdrsResponseStatus = a})
-
-instance NFData UpdateSubscriptionDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usdrsResponseStatus :: Lens.Lens' UpdateSubscriptionDefinitionResponse Lude.Int
+usdrsResponseStatus = Lens.lens (responseStatus :: UpdateSubscriptionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSubscriptionDefinitionResponse)
+{-# DEPRECATED usdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

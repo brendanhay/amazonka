@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ContainerDatasetAction where
+module Network.AWS.IoTAnalytics.Types.ContainerDatasetAction
+  ( ContainerDatasetAction (..),
+
+    -- * Smart constructor
+    mkContainerDatasetAction,
+
+    -- * Lenses
+    cdaVariables,
+    cdaImage,
+    cdaExecutionRoleARN,
+    cdaResourceConfiguration,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.ResourceConfiguration
 import Network.AWS.IoTAnalytics.Types.Variable
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information required to run the @containerAction@ to produce dataset contents.
 --
---
---
--- /See:/ 'containerDatasetAction' smart constructor.
+-- /See:/ 'mkContainerDatasetAction' smart constructor.
 data ContainerDatasetAction = ContainerDatasetAction'
-  { _cdaVariables ::
-      !(Maybe [Variable]),
-    _cdaImage :: !Text,
-    _cdaExecutionRoleARN :: !Text,
-    _cdaResourceConfiguration ::
-      !ResourceConfiguration
+  { variables ::
+      Lude.Maybe [Variable],
+    image :: Lude.Text,
+    executionRoleARN :: Lude.Text,
+    resourceConfiguration ::
+      ResourceConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerDatasetAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdaVariables' - The values of variables used in the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of @stringValue@ , @datasetContentVersionValue@ , or @outputFileUriValue@ .
---
--- * 'cdaImage' - The ARN of the Docker container stored in your account. The Docker container contains an application and required support libraries and is used to generate dataset contents.
---
--- * 'cdaExecutionRoleARN' - The ARN of the role that gives permission to the system to access required resources to run the @containerAction@ . This includes, at minimum, permission to retrieve the dataset contents that are the input to the containerized application.
---
--- * 'cdaResourceConfiguration' - Configuration of the resource that executes the @containerAction@ .
-containerDatasetAction ::
-  -- | 'cdaImage'
-  Text ->
-  -- | 'cdaExecutionRoleARN'
-  Text ->
-  -- | 'cdaResourceConfiguration'
+-- * 'executionRoleARN' - The ARN of the role that gives permission to the system to access required resources to run the @containerAction@ . This includes, at minimum, permission to retrieve the dataset contents that are the input to the containerized application.
+-- * 'image' - The ARN of the Docker container stored in your account. The Docker container contains an application and required support libraries and is used to generate dataset contents.
+-- * 'resourceConfiguration' - Configuration of the resource that executes the @containerAction@ .
+-- * 'variables' - The values of variables used in the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of @stringValue@ , @datasetContentVersionValue@ , or @outputFileUriValue@ .
+mkContainerDatasetAction ::
+  -- | 'image'
+  Lude.Text ->
+  -- | 'executionRoleARN'
+  Lude.Text ->
+  -- | 'resourceConfiguration'
   ResourceConfiguration ->
   ContainerDatasetAction
-containerDatasetAction
+mkContainerDatasetAction
   pImage_
   pExecutionRoleARN_
   pResourceConfiguration_ =
     ContainerDatasetAction'
-      { _cdaVariables = Nothing,
-        _cdaImage = pImage_,
-        _cdaExecutionRoleARN = pExecutionRoleARN_,
-        _cdaResourceConfiguration = pResourceConfiguration_
+      { variables = Lude.Nothing,
+        image = pImage_,
+        executionRoleARN = pExecutionRoleARN_,
+        resourceConfiguration = pResourceConfiguration_
       }
 
 -- | The values of variables used in the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of @stringValue@ , @datasetContentVersionValue@ , or @outputFileUriValue@ .
-cdaVariables :: Lens' ContainerDatasetAction [Variable]
-cdaVariables = lens _cdaVariables (\s a -> s {_cdaVariables = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdaVariables :: Lens.Lens' ContainerDatasetAction (Lude.Maybe [Variable])
+cdaVariables = Lens.lens (variables :: ContainerDatasetAction -> Lude.Maybe [Variable]) (\s a -> s {variables = a} :: ContainerDatasetAction)
+{-# DEPRECATED cdaVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | The ARN of the Docker container stored in your account. The Docker container contains an application and required support libraries and is used to generate dataset contents.
-cdaImage :: Lens' ContainerDatasetAction Text
-cdaImage = lens _cdaImage (\s a -> s {_cdaImage = a})
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdaImage :: Lens.Lens' ContainerDatasetAction Lude.Text
+cdaImage = Lens.lens (image :: ContainerDatasetAction -> Lude.Text) (\s a -> s {image = a} :: ContainerDatasetAction)
+{-# DEPRECATED cdaImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | The ARN of the role that gives permission to the system to access required resources to run the @containerAction@ . This includes, at minimum, permission to retrieve the dataset contents that are the input to the containerized application.
-cdaExecutionRoleARN :: Lens' ContainerDatasetAction Text
-cdaExecutionRoleARN = lens _cdaExecutionRoleARN (\s a -> s {_cdaExecutionRoleARN = a})
+--
+-- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdaExecutionRoleARN :: Lens.Lens' ContainerDatasetAction Lude.Text
+cdaExecutionRoleARN = Lens.lens (executionRoleARN :: ContainerDatasetAction -> Lude.Text) (\s a -> s {executionRoleARN = a} :: ContainerDatasetAction)
+{-# DEPRECATED cdaExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
 
 -- | Configuration of the resource that executes the @containerAction@ .
-cdaResourceConfiguration :: Lens' ContainerDatasetAction ResourceConfiguration
-cdaResourceConfiguration = lens _cdaResourceConfiguration (\s a -> s {_cdaResourceConfiguration = a})
+--
+-- /Note:/ Consider using 'resourceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdaResourceConfiguration :: Lens.Lens' ContainerDatasetAction ResourceConfiguration
+cdaResourceConfiguration = Lens.lens (resourceConfiguration :: ContainerDatasetAction -> ResourceConfiguration) (\s a -> s {resourceConfiguration = a} :: ContainerDatasetAction)
+{-# DEPRECATED cdaResourceConfiguration "Use generic-lens or generic-optics with 'resourceConfiguration' instead." #-}
 
-instance FromJSON ContainerDatasetAction where
+instance Lude.FromJSON ContainerDatasetAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContainerDatasetAction"
       ( \x ->
           ContainerDatasetAction'
-            <$> (x .:? "variables" .!= mempty)
-            <*> (x .: "image")
-            <*> (x .: "executionRoleArn")
-            <*> (x .: "resourceConfiguration")
+            Lude.<$> (x Lude..:? "variables" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "image")
+            Lude.<*> (x Lude..: "executionRoleArn")
+            Lude.<*> (x Lude..: "resourceConfiguration")
       )
 
-instance Hashable ContainerDatasetAction
-
-instance NFData ContainerDatasetAction
-
-instance ToJSON ContainerDatasetAction where
+instance Lude.ToJSON ContainerDatasetAction where
   toJSON ContainerDatasetAction' {..} =
-    object
-      ( catMaybes
-          [ ("variables" .=) <$> _cdaVariables,
-            Just ("image" .= _cdaImage),
-            Just ("executionRoleArn" .= _cdaExecutionRoleARN),
-            Just ("resourceConfiguration" .= _cdaResourceConfiguration)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("variables" Lude..=) Lude.<$> variables,
+            Lude.Just ("image" Lude..= image),
+            Lude.Just ("executionRoleArn" Lude..= executionRoleARN),
+            Lude.Just ("resourceConfiguration" Lude..= resourceConfiguration)
           ]
       )

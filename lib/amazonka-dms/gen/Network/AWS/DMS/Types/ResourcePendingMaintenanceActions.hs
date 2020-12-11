@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.ResourcePendingMaintenanceActions where
+module Network.AWS.DMS.Types.ResourcePendingMaintenanceActions
+  ( ResourcePendingMaintenanceActions (..),
+
+    -- * Smart constructor
+    mkResourcePendingMaintenanceActions,
+
+    -- * Lenses
+    rpmaPendingMaintenanceActionDetails,
+    rpmaResourceIdentifier,
+  )
+where
 
 import Network.AWS.DMS.Types.PendingMaintenanceAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifies an AWS DMS resource and any pending actions for it.
 --
---
---
--- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
+-- /See:/ 'mkResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-  { _rpmaPendingMaintenanceActionDetails ::
-      !( Maybe
-           [PendingMaintenanceAction]
-       ),
-    _rpmaResourceIdentifier ::
-      !(Maybe Text)
+  { pendingMaintenanceActionDetails ::
+      Lude.Maybe
+        [PendingMaintenanceAction],
+    resourceIdentifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePendingMaintenanceActions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpmaPendingMaintenanceActionDetails' - Detailed information about the pending maintenance action.
---
--- * 'rpmaResourceIdentifier' - The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
-resourcePendingMaintenanceActions ::
+-- * 'pendingMaintenanceActionDetails' - Detailed information about the pending maintenance action.
+-- * 'resourceIdentifier' - The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
+mkResourcePendingMaintenanceActions ::
   ResourcePendingMaintenanceActions
-resourcePendingMaintenanceActions =
+mkResourcePendingMaintenanceActions =
   ResourcePendingMaintenanceActions'
-    { _rpmaPendingMaintenanceActionDetails =
-        Nothing,
-      _rpmaResourceIdentifier = Nothing
+    { pendingMaintenanceActionDetails =
+        Lude.Nothing,
+      resourceIdentifier = Lude.Nothing
     }
 
 -- | Detailed information about the pending maintenance action.
-rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
-rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\s a -> s {_rpmaPendingMaintenanceActionDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pendingMaintenanceActionDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpmaPendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Lude.Maybe [PendingMaintenanceAction])
+rpmaPendingMaintenanceActionDetails = Lens.lens (pendingMaintenanceActionDetails :: ResourcePendingMaintenanceActions -> Lude.Maybe [PendingMaintenanceAction]) (\s a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions)
+{-# DEPRECATED rpmaPendingMaintenanceActionDetails "Use generic-lens or generic-optics with 'pendingMaintenanceActionDetails' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
-rpmaResourceIdentifier :: Lens' ResourcePendingMaintenanceActions (Maybe Text)
-rpmaResourceIdentifier = lens _rpmaResourceIdentifier (\s a -> s {_rpmaResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpmaResourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Lude.Maybe Lude.Text)
+rpmaResourceIdentifier = Lens.lens (resourceIdentifier :: ResourcePendingMaintenanceActions -> Lude.Maybe Lude.Text) (\s a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
+{-# DEPRECATED rpmaResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance FromJSON ResourcePendingMaintenanceActions where
+instance Lude.FromJSON ResourcePendingMaintenanceActions where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourcePendingMaintenanceActions"
       ( \x ->
           ResourcePendingMaintenanceActions'
-            <$> (x .:? "PendingMaintenanceActionDetails" .!= mempty)
-            <*> (x .:? "ResourceIdentifier")
+            Lude.<$> (x Lude..:? "PendingMaintenanceActionDetails" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResourceIdentifier")
       )
-
-instance Hashable ResourcePendingMaintenanceActions
-
-instance NFData ResourcePendingMaintenanceActions

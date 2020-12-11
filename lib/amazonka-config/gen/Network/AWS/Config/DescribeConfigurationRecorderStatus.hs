@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,149 @@
 --
 -- Returns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorders associated with the account.
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
-  ( -- * Creating a Request
-    describeConfigurationRecorderStatus,
-    DescribeConfigurationRecorderStatus,
+  ( -- * Creating a request
+    DescribeConfigurationRecorderStatus (..),
+    mkDescribeConfigurationRecorderStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcrsConfigurationRecorderNames,
 
-    -- * Destructuring the Response
-    describeConfigurationRecorderStatusResponse,
-    DescribeConfigurationRecorderStatusResponse,
+    -- * Destructuring the response
+    DescribeConfigurationRecorderStatusResponse (..),
+    mkDescribeConfigurationRecorderStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrssrsConfigurationRecordersStatus,
     dcrssrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'DescribeConfigurationRecorderStatus' action.
 --
---
---
--- /See:/ 'describeConfigurationRecorderStatus' smart constructor.
+-- /See:/ 'mkDescribeConfigurationRecorderStatus' smart constructor.
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
-  { _dcrsConfigurationRecorderNames ::
-      Maybe [Text]
+  { configurationRecorderNames ::
+      Lude.Maybe
+        [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationRecorderStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsConfigurationRecorderNames' - The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
-describeConfigurationRecorderStatus ::
+-- * 'configurationRecorderNames' - The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
+mkDescribeConfigurationRecorderStatus ::
   DescribeConfigurationRecorderStatus
-describeConfigurationRecorderStatus =
+mkDescribeConfigurationRecorderStatus =
   DescribeConfigurationRecorderStatus'
-    { _dcrsConfigurationRecorderNames =
-        Nothing
+    { configurationRecorderNames =
+        Lude.Nothing
     }
 
 -- | The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
-dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
-dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\s a -> s {_dcrsConfigurationRecorderNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationRecorderNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsConfigurationRecorderNames :: Lens.Lens' DescribeConfigurationRecorderStatus (Lude.Maybe [Lude.Text])
+dcrsConfigurationRecorderNames = Lens.lens (configurationRecorderNames :: DescribeConfigurationRecorderStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorderStatus)
+{-# DEPRECATED dcrsConfigurationRecorderNames "Use generic-lens or generic-optics with 'configurationRecorderNames' instead." #-}
 
-instance AWSRequest DescribeConfigurationRecorderStatus where
+instance Lude.AWSRequest DescribeConfigurationRecorderStatus where
   type
     Rs DescribeConfigurationRecorderStatus =
       DescribeConfigurationRecorderStatusResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecorderStatusResponse'
-            <$> (x .?> "ConfigurationRecordersStatus" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConfigurationRecordersStatus" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfigurationRecorderStatus
-
-instance NFData DescribeConfigurationRecorderStatus
-
-instance ToHeaders DescribeConfigurationRecorderStatus where
+instance Lude.ToHeaders DescribeConfigurationRecorderStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeConfigurationRecorderStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeConfigurationRecorderStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeConfigurationRecorderStatus where
+instance Lude.ToJSON DescribeConfigurationRecorderStatus where
   toJSON DescribeConfigurationRecorderStatus' {..} =
-    object
-      ( catMaybes
-          [ ("ConfigurationRecorderNames" .=)
-              <$> _dcrsConfigurationRecorderNames
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConfigurationRecorderNames" Lude..=)
+              Lude.<$> configurationRecorderNames
           ]
       )
 
-instance ToPath DescribeConfigurationRecorderStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeConfigurationRecorderStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeConfigurationRecorderStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConfigurationRecorderStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the 'DescribeConfigurationRecorderStatus' action, in JSON format.
 --
---
---
--- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
+-- /See:/ 'mkDescribeConfigurationRecorderStatusResponse' smart constructor.
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
-  { _dcrssrsConfigurationRecordersStatus ::
-      !( Maybe
-           [ConfigurationRecorderStatus]
-       ),
-    _dcrssrsResponseStatus ::
-      !Int
+  { configurationRecordersStatus ::
+      Lude.Maybe
+        [ConfigurationRecorderStatus],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationRecorderStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrssrsConfigurationRecordersStatus' - A list that contains status of the specified recorders.
---
--- * 'dcrssrsResponseStatus' - -- | The response status code.
-describeConfigurationRecorderStatusResponse ::
-  -- | 'dcrssrsResponseStatus'
-  Int ->
+-- * 'configurationRecordersStatus' - A list that contains status of the specified recorders.
+-- * 'responseStatus' - The response status code.
+mkDescribeConfigurationRecorderStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigurationRecorderStatusResponse
-describeConfigurationRecorderStatusResponse pResponseStatus_ =
+mkDescribeConfigurationRecorderStatusResponse pResponseStatus_ =
   DescribeConfigurationRecorderStatusResponse'
-    { _dcrssrsConfigurationRecordersStatus =
-        Nothing,
-      _dcrssrsResponseStatus = pResponseStatus_
+    { configurationRecordersStatus =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list that contains status of the specified recorders.
-dcrssrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
-dcrssrsConfigurationRecordersStatus = lens _dcrssrsConfigurationRecordersStatus (\s a -> s {_dcrssrsConfigurationRecordersStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationRecordersStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrssrsConfigurationRecordersStatus :: Lens.Lens' DescribeConfigurationRecorderStatusResponse (Lude.Maybe [ConfigurationRecorderStatus])
+dcrssrsConfigurationRecordersStatus = Lens.lens (configurationRecordersStatus :: DescribeConfigurationRecorderStatusResponse -> Lude.Maybe [ConfigurationRecorderStatus]) (\s a -> s {configurationRecordersStatus = a} :: DescribeConfigurationRecorderStatusResponse)
+{-# DEPRECATED dcrssrsConfigurationRecordersStatus "Use generic-lens or generic-optics with 'configurationRecordersStatus' instead." #-}
 
--- | -- | The response status code.
-dcrssrsResponseStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
-dcrssrsResponseStatus = lens _dcrssrsResponseStatus (\s a -> s {_dcrssrsResponseStatus = a})
-
-instance NFData DescribeConfigurationRecorderStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrssrsResponseStatus :: Lens.Lens' DescribeConfigurationRecorderStatusResponse Lude.Int
+dcrssrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationRecorderStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationRecorderStatusResponse)
+{-# DEPRECATED dcrssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

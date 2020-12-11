@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,99 @@
 --
 -- Deletes a model package.
 --
---
 -- A model package is used to create Amazon SageMaker models or list on AWS Marketplace. Buyers can subscribe to model packages listed on AWS Marketplace to create models in Amazon SageMaker.
 module Network.AWS.SageMaker.DeleteModelPackage
-  ( -- * Creating a Request
-    deleteModelPackage,
-    DeleteModelPackage,
+  ( -- * Creating a request
+    DeleteModelPackage (..),
+    mkDeleteModelPackage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmpModelPackageName,
 
-    -- * Destructuring the Response
-    deleteModelPackageResponse,
-    DeleteModelPackageResponse,
+    -- * Destructuring the response
+    DeleteModelPackageResponse (..),
+    mkDeleteModelPackageResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteModelPackage' smart constructor.
+-- | /See:/ 'mkDeleteModelPackage' smart constructor.
 newtype DeleteModelPackage = DeleteModelPackage'
-  { _dmpModelPackageName ::
-      Text
+  { modelPackageName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelPackage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmpModelPackageName' - The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-deleteModelPackage ::
-  -- | 'dmpModelPackageName'
-  Text ->
+-- * 'modelPackageName' - The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+mkDeleteModelPackage ::
+  -- | 'modelPackageName'
+  Lude.Text ->
   DeleteModelPackage
-deleteModelPackage pModelPackageName_ =
-  DeleteModelPackage' {_dmpModelPackageName = pModelPackageName_}
+mkDeleteModelPackage pModelPackageName_ =
+  DeleteModelPackage' {modelPackageName = pModelPackageName_}
 
 -- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-dmpModelPackageName :: Lens' DeleteModelPackage Text
-dmpModelPackageName = lens _dmpModelPackageName (\s a -> s {_dmpModelPackageName = a})
+--
+-- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmpModelPackageName :: Lens.Lens' DeleteModelPackage Lude.Text
+dmpModelPackageName = Lens.lens (modelPackageName :: DeleteModelPackage -> Lude.Text) (\s a -> s {modelPackageName = a} :: DeleteModelPackage)
+{-# DEPRECATED dmpModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
 
-instance AWSRequest DeleteModelPackage where
+instance Lude.AWSRequest DeleteModelPackage where
   type Rs DeleteModelPackage = DeleteModelPackageResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteModelPackageResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteModelPackageResponse'
 
-instance Hashable DeleteModelPackage
-
-instance NFData DeleteModelPackage
-
-instance ToHeaders DeleteModelPackage where
+instance Lude.ToHeaders DeleteModelPackage where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DeleteModelPackage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DeleteModelPackage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteModelPackage where
+instance Lude.ToJSON DeleteModelPackage where
   toJSON DeleteModelPackage' {..} =
-    object
-      (catMaybes [Just ("ModelPackageName" .= _dmpModelPackageName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ModelPackageName" Lude..= modelPackageName)]
+      )
 
-instance ToPath DeleteModelPackage where
-  toPath = const "/"
+instance Lude.ToPath DeleteModelPackage where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteModelPackage where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteModelPackage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteModelPackageResponse' smart constructor.
+-- | /See:/ 'mkDeleteModelPackageResponse' smart constructor.
 data DeleteModelPackageResponse = DeleteModelPackageResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelPackageResponse' with the minimum fields required to make a request.
-deleteModelPackageResponse ::
+mkDeleteModelPackageResponse ::
   DeleteModelPackageResponse
-deleteModelPackageResponse = DeleteModelPackageResponse'
-
-instance NFData DeleteModelPackageResponse
+mkDeleteModelPackageResponse = DeleteModelPackageResponse'

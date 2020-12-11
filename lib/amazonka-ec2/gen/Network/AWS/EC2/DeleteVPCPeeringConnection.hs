@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,141 @@
 --
 -- Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the @active@ state. The owner of the requester VPC can delete a VPC peering connection in the @pending-acceptance@ state. You cannot delete a VPC peering connection that's in the @failed@ state.
 module Network.AWS.EC2.DeleteVPCPeeringConnection
-  ( -- * Creating a Request
-    deleteVPCPeeringConnection,
-    DeleteVPCPeeringConnection,
+  ( -- * Creating a request
+    DeleteVPCPeeringConnection (..),
+    mkDeleteVPCPeeringConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvpcDryRun,
     dvpcVPCPeeringConnectionId,
 
-    -- * Destructuring the Response
-    deleteVPCPeeringConnectionResponse,
-    DeleteVPCPeeringConnectionResponse,
+    -- * Destructuring the response
+    DeleteVPCPeeringConnectionResponse (..),
+    mkDeleteVPCPeeringConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpcrsReturn,
     dvpcrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVPCPeeringConnection' smart constructor.
+-- | /See:/ 'mkDeleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-  { _dvpcDryRun ::
-      !(Maybe Bool),
-    _dvpcVPCPeeringConnectionId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcPeeringConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
-deleteVPCPeeringConnection ::
-  -- | 'dvpcVPCPeeringConnectionId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection.
+mkDeleteVPCPeeringConnection ::
+  -- | 'vpcPeeringConnectionId'
+  Lude.Text ->
   DeleteVPCPeeringConnection
-deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
+mkDeleteVPCPeeringConnection pVPCPeeringConnectionId_ =
   DeleteVPCPeeringConnection'
-    { _dvpcDryRun = Nothing,
-      _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    { dryRun = Lude.Nothing,
+      vpcPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvpcDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
-dvpcDryRun = lens _dvpcDryRun (\s a -> s {_dvpcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcDryRun :: Lens.Lens' DeleteVPCPeeringConnection (Lude.Maybe Lude.Bool)
+dvpcDryRun = Lens.lens (dryRun :: DeleteVPCPeeringConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCPeeringConnection)
+{-# DEPRECATED dvpcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC peering connection.
-dvpcVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
-dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\s a -> s {_dvpcVPCPeeringConnectionId = a})
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcVPCPeeringConnectionId :: Lens.Lens' DeleteVPCPeeringConnection Lude.Text
+dvpcVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: DeleteVPCPeeringConnection -> Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: DeleteVPCPeeringConnection)
+{-# DEPRECATED dvpcVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
 
-instance AWSRequest DeleteVPCPeeringConnection where
+instance Lude.AWSRequest DeleteVPCPeeringConnection where
   type
     Rs DeleteVPCPeeringConnection =
       DeleteVPCPeeringConnectionResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteVPCPeeringConnectionResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteVPCPeeringConnection
+instance Lude.ToHeaders DeleteVPCPeeringConnection where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVPCPeeringConnection
+instance Lude.ToPath DeleteVPCPeeringConnection where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVPCPeeringConnection where
-  toHeaders = const mempty
-
-instance ToPath DeleteVPCPeeringConnection where
-  toPath = const "/"
-
-instance ToQuery DeleteVPCPeeringConnection where
+instance Lude.ToQuery DeleteVPCPeeringConnection where
   toQuery DeleteVPCPeeringConnection' {..} =
-    mconcat
-      [ "Action" =: ("DeleteVpcPeeringConnection" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvpcDryRun,
-        "VpcPeeringConnectionId" =: _dvpcVPCPeeringConnectionId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteVpcPeeringConnection" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VpcPeeringConnectionId" Lude.=: vpcPeeringConnectionId
       ]
 
--- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
-  { _dvpcrsReturn ::
-      !(Maybe Bool),
-    _dvpcrsResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'dvpcrsResponseStatus' - -- | The response status code.
-deleteVPCPeeringConnectionResponse ::
-  -- | 'dvpcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkDeleteVPCPeeringConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse pResponseStatus_ =
+mkDeleteVPCPeeringConnectionResponse pResponseStatus_ =
   DeleteVPCPeeringConnectionResponse'
-    { _dvpcrsReturn = Nothing,
-      _dvpcrsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-dvpcrsReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
-dvpcrsReturn = lens _dvpcrsReturn (\s a -> s {_dvpcrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcrsReturn :: Lens.Lens' DeleteVPCPeeringConnectionResponse (Lude.Maybe Lude.Bool)
+dvpcrsReturn = Lens.lens (return :: DeleteVPCPeeringConnectionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: DeleteVPCPeeringConnectionResponse)
+{-# DEPRECATED dvpcrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
-dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\s a -> s {_dvpcrsResponseStatus = a})
-
-instance NFData DeleteVPCPeeringConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcrsResponseStatus :: Lens.Lens' DeleteVPCPeeringConnectionResponse Lude.Int
+dvpcrsResponseStatus = Lens.lens (responseStatus :: DeleteVPCPeeringConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCPeeringConnectionResponse)
+{-# DEPRECATED dvpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

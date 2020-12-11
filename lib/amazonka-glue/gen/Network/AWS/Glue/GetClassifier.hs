@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,126 @@
 --
 -- Retrieve a classifier by name.
 module Network.AWS.Glue.GetClassifier
-  ( -- * Creating a Request
-    getClassifier,
-    GetClassifier,
+  ( -- * Creating a request
+    GetClassifier (..),
+    mkGetClassifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     getName,
 
-    -- * Destructuring the Response
-    getClassifierResponse,
-    GetClassifierResponse,
+    -- * Destructuring the response
+    GetClassifierResponse (..),
+    mkGetClassifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsClassifier,
     gcrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getClassifier' smart constructor.
-newtype GetClassifier = GetClassifier' {_getName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetClassifier' smart constructor.
+newtype GetClassifier = GetClassifier' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'getName' - Name of the classifier to retrieve.
-getClassifier ::
-  -- | 'getName'
-  Text ->
+-- * 'name' - Name of the classifier to retrieve.
+mkGetClassifier ::
+  -- | 'name'
+  Lude.Text ->
   GetClassifier
-getClassifier pName_ = GetClassifier' {_getName = pName_}
+mkGetClassifier pName_ = GetClassifier' {name = pName_}
 
 -- | Name of the classifier to retrieve.
-getName :: Lens' GetClassifier Text
-getName = lens _getName (\s a -> s {_getName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getName :: Lens.Lens' GetClassifier Lude.Text
+getName = Lens.lens (name :: GetClassifier -> Lude.Text) (\s a -> s {name = a} :: GetClassifier)
+{-# DEPRECATED getName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetClassifier where
+instance Lude.AWSRequest GetClassifier where
   type Rs GetClassifier = GetClassifierResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetClassifierResponse'
-            <$> (x .?> "Classifier") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Classifier") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetClassifier
-
-instance NFData GetClassifier
-
-instance ToHeaders GetClassifier where
+instance Lude.ToHeaders GetClassifier where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetClassifier" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetClassifier" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetClassifier where
+instance Lude.ToJSON GetClassifier where
   toJSON GetClassifier' {..} =
-    object (catMaybes [Just ("Name" .= _getName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath GetClassifier where
-  toPath = const "/"
+instance Lude.ToPath GetClassifier where
+  toPath = Lude.const "/"
 
-instance ToQuery GetClassifier where
-  toQuery = const mempty
+instance Lude.ToQuery GetClassifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getClassifierResponse' smart constructor.
+-- | /See:/ 'mkGetClassifierResponse' smart constructor.
 data GetClassifierResponse = GetClassifierResponse'
-  { _gcrsClassifier ::
-      !(Maybe Classifier),
-    _gcrsResponseStatus :: !Int
+  { classifier ::
+      Lude.Maybe Classifier,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsClassifier' - The requested classifier.
---
--- * 'gcrsResponseStatus' - -- | The response status code.
-getClassifierResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
+-- * 'classifier' - The requested classifier.
+-- * 'responseStatus' - The response status code.
+mkGetClassifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetClassifierResponse
-getClassifierResponse pResponseStatus_ =
+mkGetClassifierResponse pResponseStatus_ =
   GetClassifierResponse'
-    { _gcrsClassifier = Nothing,
-      _gcrsResponseStatus = pResponseStatus_
+    { classifier = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The requested classifier.
-gcrsClassifier :: Lens' GetClassifierResponse (Maybe Classifier)
-gcrsClassifier = lens _gcrsClassifier (\s a -> s {_gcrsClassifier = a})
+--
+-- /Note:/ Consider using 'classifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsClassifier :: Lens.Lens' GetClassifierResponse (Lude.Maybe Classifier)
+gcrsClassifier = Lens.lens (classifier :: GetClassifierResponse -> Lude.Maybe Classifier) (\s a -> s {classifier = a} :: GetClassifierResponse)
+{-# DEPRECATED gcrsClassifier "Use generic-lens or generic-optics with 'classifier' instead." #-}
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetClassifierResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
-
-instance NFData GetClassifierResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetClassifierResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetClassifierResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

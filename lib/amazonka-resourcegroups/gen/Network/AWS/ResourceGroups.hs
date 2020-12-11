@@ -14,25 +14,26 @@
 -- __AWS Resource Groups__
 --
 -- AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria that you define as tags. A resource group is a collection of resources that match the resource types specified in a query, and share one or more tags or portions of tags. You can create a group of resources based on their roles in your cloud infrastructure, lifecycle stages, regions, application layers, or virtually any criteria. Resource Groups enable you to automate management tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring data about member resources.
---
 -- To create a resource group, build a resource query, and specify tags that identify the criteria that members of the group have in common. Tags are key-value pairs.
---
 -- For more information about Resource Groups, see the <https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html AWS Resource Groups User Guide> .
---
 -- AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.
 --
 --     * Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities
 --
+--
 --     * Applying, editing, and removing tags from resource groups
+--
 --
 --     * Resolving resource group member ARNs so they can be returned as search results
 --
+--
 --     * Getting data about resources that are members of a group
+--
 --
 --     * Searching AWS resources based on a resource query
 module Network.AWS.ResourceGroups
-  ( -- * Service Configuration
-    resourceGroups,
+  ( -- * Service configuration
+    resourceGroupsService,
 
     -- * Errors
     -- $errors
@@ -106,83 +107,95 @@ module Network.AWS.ResourceGroups
     ResourceFilterName (..),
 
     -- ** FailedResource
-    FailedResource,
-    failedResource,
+    FailedResource (..),
+    mkFailedResource,
     frResourceARN,
     frErrorCode,
     frErrorMessage,
 
     -- ** Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gDescription,
     gGroupARN,
     gName,
 
     -- ** GroupConfiguration
-    GroupConfiguration,
-    groupConfiguration,
+    GroupConfiguration (..),
+    mkGroupConfiguration,
     gcStatus,
     gcFailureReason,
     gcProposedConfiguration,
     gcConfiguration,
 
     -- ** GroupConfigurationItem
-    GroupConfigurationItem,
-    groupConfigurationItem,
+    GroupConfigurationItem (..),
+    mkGroupConfigurationItem,
     gciParameters,
     gciType,
 
     -- ** GroupConfigurationParameter
-    GroupConfigurationParameter,
-    groupConfigurationParameter,
+    GroupConfigurationParameter (..),
+    mkGroupConfigurationParameter,
     gcpValues,
     gcpName,
 
     -- ** GroupFilter
-    GroupFilter,
-    groupFilter,
+    GroupFilter (..),
+    mkGroupFilter,
     gfName,
     gfValues,
 
     -- ** GroupIdentifier
-    GroupIdentifier,
-    groupIdentifier,
+    GroupIdentifier (..),
+    mkGroupIdentifier,
     giGroupARN,
     giGroupName,
 
     -- ** GroupQuery
-    GroupQuery,
-    groupQuery,
+    GroupQuery (..),
+    mkGroupQuery,
     gqGroupName,
     gqResourceQuery,
 
     -- ** QueryError
-    QueryError,
-    queryError,
+    QueryError (..),
+    mkQueryError,
     qeErrorCode,
     qeMessage,
 
     -- ** ResourceFilter
-    ResourceFilter,
-    resourceFilter,
+    ResourceFilter (..),
+    mkResourceFilter,
     rfName,
     rfValues,
 
     -- ** ResourceIdentifier
-    ResourceIdentifier,
-    resourceIdentifier,
+    ResourceIdentifier (..),
+    mkResourceIdentifier,
     riResourceType,
     riResourceARN,
 
     -- ** ResourceQuery
-    ResourceQuery,
-    resourceQuery,
+    ResourceQuery (..),
+    mkResourceQuery,
     rqType,
     rqSearchQuery,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ResourceGroups.CreateGroup
 import Network.AWS.ResourceGroups.DeleteGroup
 import Network.AWS.ResourceGroups.GetGroup

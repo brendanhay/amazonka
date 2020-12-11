@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ChangeTypeEnum where
+module Network.AWS.CodeCommit.Types.ChangeTypeEnum
+  ( ChangeTypeEnum
+      ( ChangeTypeEnum',
+        A,
+        D,
+        M
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeTypeEnum
-  = A
-  | D
-  | M
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeTypeEnum = ChangeTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "a" -> pure A
-      "d" -> pure D
-      "m" -> pure M
-      e ->
-        fromTextError $
-          "Failure parsing ChangeTypeEnum from value: '" <> e
-            <> "'. Accepted values: a, d, m"
+pattern A :: ChangeTypeEnum
+pattern A = ChangeTypeEnum' "A"
 
-instance ToText ChangeTypeEnum where
-  toText = \case
-    A -> "A"
-    D -> "D"
-    M -> "M"
+pattern D :: ChangeTypeEnum
+pattern D = ChangeTypeEnum' "D"
 
-instance Hashable ChangeTypeEnum
+pattern M :: ChangeTypeEnum
+pattern M = ChangeTypeEnum' "M"
 
-instance NFData ChangeTypeEnum
-
-instance ToByteString ChangeTypeEnum
-
-instance ToQuery ChangeTypeEnum
-
-instance ToHeader ChangeTypeEnum
-
-instance FromJSON ChangeTypeEnum where
-  parseJSON = parseJSONText "ChangeTypeEnum"
+{-# COMPLETE
+  A,
+  D,
+  M,
+  ChangeTypeEnum'
+  #-}

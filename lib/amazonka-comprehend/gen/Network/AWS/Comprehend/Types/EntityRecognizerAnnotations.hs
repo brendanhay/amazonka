@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityRecognizerAnnotations where
+module Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
+  ( EntityRecognizerAnnotations (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntityRecognizerAnnotations,
+
+    -- * Lenses
+    eraS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the annotations associated with a entity recognizer.
 --
---
---
--- /See:/ 'entityRecognizerAnnotations' smart constructor.
+-- /See:/ 'mkEntityRecognizerAnnotations' smart constructor.
 newtype EntityRecognizerAnnotations = EntityRecognizerAnnotations'
-  { _eraS3URI ::
-      Text
+  { s3URI ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerAnnotations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eraS3URI' - Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
-entityRecognizerAnnotations ::
-  -- | 'eraS3URI'
-  Text ->
+-- * 's3URI' - Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
+mkEntityRecognizerAnnotations ::
+  -- | 's3URI'
+  Lude.Text ->
   EntityRecognizerAnnotations
-entityRecognizerAnnotations pS3URI_ =
-  EntityRecognizerAnnotations' {_eraS3URI = pS3URI_}
+mkEntityRecognizerAnnotations pS3URI_ =
+  EntityRecognizerAnnotations' {s3URI = pS3URI_}
 
 -- | Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
-eraS3URI :: Lens' EntityRecognizerAnnotations Text
-eraS3URI = lens _eraS3URI (\s a -> s {_eraS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eraS3URI :: Lens.Lens' EntityRecognizerAnnotations Lude.Text
+eraS3URI = Lens.lens (s3URI :: EntityRecognizerAnnotations -> Lude.Text) (\s a -> s {s3URI = a} :: EntityRecognizerAnnotations)
+{-# DEPRECATED eraS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON EntityRecognizerAnnotations where
+instance Lude.FromJSON EntityRecognizerAnnotations where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityRecognizerAnnotations"
-      (\x -> EntityRecognizerAnnotations' <$> (x .: "S3Uri"))
+      (\x -> EntityRecognizerAnnotations' Lude.<$> (x Lude..: "S3Uri"))
 
-instance Hashable EntityRecognizerAnnotations
-
-instance NFData EntityRecognizerAnnotations
-
-instance ToJSON EntityRecognizerAnnotations where
+instance Lude.ToJSON EntityRecognizerAnnotations where
   toJSON EntityRecognizerAnnotations' {..} =
-    object (catMaybes [Just ("S3Uri" .= _eraS3URI)])
+    Lude.object (Lude.catMaybes [Lude.Just ("S3Uri" Lude..= s3URI)])

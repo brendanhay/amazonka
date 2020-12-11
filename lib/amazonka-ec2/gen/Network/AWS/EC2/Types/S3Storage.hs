@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.S3Storage where
+module Network.AWS.EC2.Types.S3Storage
+  ( S3Storage (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3Storage,
+
+    -- * Lenses
+    ssPrefix,
+    ssUploadPolicy,
+    ssBucket,
+    ssUploadPolicySignature,
+    ssAWSAccessKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the storage parameters for S3 and S3 buckets for an instance store-backed AMI.
 --
---
---
--- /See:/ 's3Storage' smart constructor.
+-- /See:/ 'mkS3Storage' smart constructor.
 data S3Storage = S3Storage'
-  { _ssPrefix :: !(Maybe Text),
-    _ssUploadPolicy :: !(Maybe Base64),
-    _ssBucket :: !(Maybe Text),
-    _ssUploadPolicySignature :: !(Maybe Text),
-    _ssAWSAccessKeyId :: !(Maybe Text)
+  { prefix :: Lude.Maybe Lude.Text,
+    uploadPolicy :: Lude.Maybe Lude.Base64,
+    bucket :: Lude.Maybe Lude.Text,
+    uploadPolicySignature :: Lude.Maybe Lude.Text,
+    awsAccessKeyId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Storage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssPrefix' - The beginning of the file name of the AMI.
---
--- * 'ssUploadPolicy' - An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'ssBucket' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
---
--- * 'ssUploadPolicySignature' - The signature of the JSON document.
---
--- * 'ssAWSAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
-s3Storage ::
+-- * 'awsAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
+-- * 'bucket' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+-- * 'prefix' - The beginning of the file name of the AMI.
+-- * 'uploadPolicy' - An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'uploadPolicySignature' - The signature of the JSON document.
+mkS3Storage ::
   S3Storage
-s3Storage =
+mkS3Storage =
   S3Storage'
-    { _ssPrefix = Nothing,
-      _ssUploadPolicy = Nothing,
-      _ssBucket = Nothing,
-      _ssUploadPolicySignature = Nothing,
-      _ssAWSAccessKeyId = Nothing
+    { prefix = Lude.Nothing,
+      uploadPolicy = Lude.Nothing,
+      bucket = Lude.Nothing,
+      uploadPolicySignature = Lude.Nothing,
+      awsAccessKeyId = Lude.Nothing
     }
 
 -- | The beginning of the file name of the AMI.
-ssPrefix :: Lens' S3Storage (Maybe Text)
-ssPrefix = lens _ssPrefix (\s a -> s {_ssPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssPrefix :: Lens.Lens' S3Storage (Lude.Maybe Lude.Text)
+ssPrefix = Lens.lens (prefix :: S3Storage -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: S3Storage)
+{-# DEPRECATED ssPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
--- | An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-ssUploadPolicy :: Lens' S3Storage (Maybe ByteString)
-ssUploadPolicy = lens _ssUploadPolicy (\s a -> s {_ssUploadPolicy = a}) . mapping _Base64
+-- | An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'uploadPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssUploadPolicy :: Lens.Lens' S3Storage (Lude.Maybe Lude.Base64)
+ssUploadPolicy = Lens.lens (uploadPolicy :: S3Storage -> Lude.Maybe Lude.Base64) (\s a -> s {uploadPolicy = a} :: S3Storage)
+{-# DEPRECATED ssUploadPolicy "Use generic-lens or generic-optics with 'uploadPolicy' instead." #-}
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
-ssBucket :: Lens' S3Storage (Maybe Text)
-ssBucket = lens _ssBucket (\s a -> s {_ssBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssBucket :: Lens.Lens' S3Storage (Lude.Maybe Lude.Text)
+ssBucket = Lens.lens (bucket :: S3Storage -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: S3Storage)
+{-# DEPRECATED ssBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The signature of the JSON document.
-ssUploadPolicySignature :: Lens' S3Storage (Maybe Text)
-ssUploadPolicySignature = lens _ssUploadPolicySignature (\s a -> s {_ssUploadPolicySignature = a})
+--
+-- /Note:/ Consider using 'uploadPolicySignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssUploadPolicySignature :: Lens.Lens' S3Storage (Lude.Maybe Lude.Text)
+ssUploadPolicySignature = Lens.lens (uploadPolicySignature :: S3Storage -> Lude.Maybe Lude.Text) (\s a -> s {uploadPolicySignature = a} :: S3Storage)
+{-# DEPRECATED ssUploadPolicySignature "Use generic-lens or generic-optics with 'uploadPolicySignature' instead." #-}
 
 -- | The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
-ssAWSAccessKeyId :: Lens' S3Storage (Maybe Text)
-ssAWSAccessKeyId = lens _ssAWSAccessKeyId (\s a -> s {_ssAWSAccessKeyId = a})
+--
+-- /Note:/ Consider using 'awsAccessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssAWSAccessKeyId :: Lens.Lens' S3Storage (Lude.Maybe Lude.Text)
+ssAWSAccessKeyId = Lens.lens (awsAccessKeyId :: S3Storage -> Lude.Maybe Lude.Text) (\s a -> s {awsAccessKeyId = a} :: S3Storage)
+{-# DEPRECATED ssAWSAccessKeyId "Use generic-lens or generic-optics with 'awsAccessKeyId' instead." #-}
 
-instance FromXML S3Storage where
+instance Lude.FromXML S3Storage where
   parseXML x =
     S3Storage'
-      <$> (x .@? "prefix")
-      <*> (x .@? "uploadPolicy")
-      <*> (x .@? "bucket")
-      <*> (x .@? "uploadPolicySignature")
-      <*> (x .@? "AWSAccessKeyId")
+      Lude.<$> (x Lude..@? "prefix")
+      Lude.<*> (x Lude..@? "uploadPolicy")
+      Lude.<*> (x Lude..@? "bucket")
+      Lude.<*> (x Lude..@? "uploadPolicySignature")
+      Lude.<*> (x Lude..@? "AWSAccessKeyId")
 
-instance Hashable S3Storage
-
-instance NFData S3Storage
-
-instance ToQuery S3Storage where
+instance Lude.ToQuery S3Storage where
   toQuery S3Storage' {..} =
-    mconcat
-      [ "Prefix" =: _ssPrefix,
-        "UploadPolicy" =: _ssUploadPolicy,
-        "Bucket" =: _ssBucket,
-        "UploadPolicySignature" =: _ssUploadPolicySignature,
-        "AWSAccessKeyId" =: _ssAWSAccessKeyId
+    Lude.mconcat
+      [ "Prefix" Lude.=: prefix,
+        "UploadPolicy" Lude.=: uploadPolicy,
+        "Bucket" Lude.=: bucket,
+        "UploadPolicySignature" Lude.=: uploadPolicySignature,
+        "AWSAccessKeyId" Lude.=: awsAccessKeyId
       ]

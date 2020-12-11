@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,184 @@
 --
 -- For operations that require confirmation that the email address for the registrant contact is valid, such as registering a new domain, this operation returns information about whether the registrant contact has responded.
 --
---
 -- If you want us to resend the email, use the @ResendContactReachabilityEmail@ operation.
 module Network.AWS.Route53Domains.GetContactReachabilityStatus
-  ( -- * Creating a Request
-    getContactReachabilityStatus,
-    GetContactReachabilityStatus,
+  ( -- * Creating a request
+    GetContactReachabilityStatus (..),
+    mkGetContactReachabilityStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcrsDomainName,
 
-    -- * Destructuring the Response
-    getContactReachabilityStatusResponse,
-    GetContactReachabilityStatusResponse,
+    -- * Destructuring the response
+    GetContactReachabilityStatusResponse (..),
+    mkGetContactReachabilityStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsrsStatus,
     gcrsrsDomainName,
     gcrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'getContactReachabilityStatus' smart constructor.
+-- | /See:/ 'mkGetContactReachabilityStatus' smart constructor.
 newtype GetContactReachabilityStatus = GetContactReachabilityStatus'
-  { _gcrsDomainName ::
-      Maybe Text
+  { domainName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactReachabilityStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsDomainName' - The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
-getContactReachabilityStatus ::
+-- * 'domainName' - The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
+mkGetContactReachabilityStatus ::
   GetContactReachabilityStatus
-getContactReachabilityStatus =
-  GetContactReachabilityStatus' {_gcrsDomainName = Nothing}
+mkGetContactReachabilityStatus =
+  GetContactReachabilityStatus' {domainName = Lude.Nothing}
 
 -- | The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
-gcrsDomainName :: Lens' GetContactReachabilityStatus (Maybe Text)
-gcrsDomainName = lens _gcrsDomainName (\s a -> s {_gcrsDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsDomainName :: Lens.Lens' GetContactReachabilityStatus (Lude.Maybe Lude.Text)
+gcrsDomainName = Lens.lens (domainName :: GetContactReachabilityStatus -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: GetContactReachabilityStatus)
+{-# DEPRECATED gcrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest GetContactReachabilityStatus where
+instance Lude.AWSRequest GetContactReachabilityStatus where
   type
     Rs GetContactReachabilityStatus =
       GetContactReachabilityStatusResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetContactReachabilityStatusResponse'
-            <$> (x .?> "status") <*> (x .?> "domainName") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "domainName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetContactReachabilityStatus
-
-instance NFData GetContactReachabilityStatus
-
-instance ToHeaders GetContactReachabilityStatus where
+instance Lude.ToHeaders GetContactReachabilityStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53Domains_v20140515.GetContactReachabilityStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.GetContactReachabilityStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContactReachabilityStatus where
+instance Lude.ToJSON GetContactReachabilityStatus where
   toJSON GetContactReachabilityStatus' {..} =
-    object (catMaybes [("domainName" .=) <$> _gcrsDomainName])
+    Lude.object
+      (Lude.catMaybes [("domainName" Lude..=) Lude.<$> domainName])
 
-instance ToPath GetContactReachabilityStatus where
-  toPath = const "/"
+instance Lude.ToPath GetContactReachabilityStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContactReachabilityStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetContactReachabilityStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContactReachabilityStatusResponse' smart constructor.
+-- | /See:/ 'mkGetContactReachabilityStatusResponse' smart constructor.
 data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse'
-  { _gcrsrsStatus ::
-      !( Maybe
-           ReachabilityStatus
-       ),
-    _gcrsrsDomainName ::
-      !(Maybe Text),
-    _gcrsrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        ReachabilityStatus,
+    domainName ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactReachabilityStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'domainName' - The domain name for which you requested the reachability status.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - Whether the registrant contact has responded. Values include the following:
 --
--- * 'gcrsrsStatus' - Whether the registrant contact has responded. Values include the following:     * PENDING    * We sent the confirmation email and haven't received a response yet.     * DONE    * We sent the email and got confirmation from the registrant contact.     * EXPIRED    * The time limit expired before the registrant contact responded.
 --
--- * 'gcrsrsDomainName' - The domain name for which you requested the reachability status.
+--     * PENDING
 --
--- * 'gcrsrsResponseStatus' - -- | The response status code.
-getContactReachabilityStatusResponse ::
-  -- | 'gcrsrsResponseStatus'
-  Int ->
+--     * We sent the confirmation email and haven't received a response yet.
+--
+--
+--     * DONE
+--
+--     * We sent the email and got confirmation from the registrant contact.
+--
+--
+--     * EXPIRED
+--
+--     * The time limit expired before the registrant contact responded.
+mkGetContactReachabilityStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContactReachabilityStatusResponse
-getContactReachabilityStatusResponse pResponseStatus_ =
+mkGetContactReachabilityStatusResponse pResponseStatus_ =
   GetContactReachabilityStatusResponse'
-    { _gcrsrsStatus = Nothing,
-      _gcrsrsDomainName = Nothing,
-      _gcrsrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      domainName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Whether the registrant contact has responded. Values include the following:     * PENDING    * We sent the confirmation email and haven't received a response yet.     * DONE    * We sent the email and got confirmation from the registrant contact.     * EXPIRED    * The time limit expired before the registrant contact responded.
-gcrsrsStatus :: Lens' GetContactReachabilityStatusResponse (Maybe ReachabilityStatus)
-gcrsrsStatus = lens _gcrsrsStatus (\s a -> s {_gcrsrsStatus = a})
+-- | Whether the registrant contact has responded. Values include the following:
+--
+--
+--     * PENDING
+--
+--     * We sent the confirmation email and haven't received a response yet.
+--
+--
+--     * DONE
+--
+--     * We sent the email and got confirmation from the registrant contact.
+--
+--
+--     * EXPIRED
+--
+--     * The time limit expired before the registrant contact responded.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsrsStatus :: Lens.Lens' GetContactReachabilityStatusResponse (Lude.Maybe ReachabilityStatus)
+gcrsrsStatus = Lens.lens (status :: GetContactReachabilityStatusResponse -> Lude.Maybe ReachabilityStatus) (\s a -> s {status = a} :: GetContactReachabilityStatusResponse)
+{-# DEPRECATED gcrsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The domain name for which you requested the reachability status.
-gcrsrsDomainName :: Lens' GetContactReachabilityStatusResponse (Maybe Text)
-gcrsrsDomainName = lens _gcrsrsDomainName (\s a -> s {_gcrsrsDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsrsDomainName :: Lens.Lens' GetContactReachabilityStatusResponse (Lude.Maybe Lude.Text)
+gcrsrsDomainName = Lens.lens (domainName :: GetContactReachabilityStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: GetContactReachabilityStatusResponse)
+{-# DEPRECATED gcrsrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
--- | -- | The response status code.
-gcrsrsResponseStatus :: Lens' GetContactReachabilityStatusResponse Int
-gcrsrsResponseStatus = lens _gcrsrsResponseStatus (\s a -> s {_gcrsrsResponseStatus = a})
-
-instance NFData GetContactReachabilityStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsrsResponseStatus :: Lens.Lens' GetContactReachabilityStatusResponse Lude.Int
+gcrsrsResponseStatus = Lens.lens (responseStatus :: GetContactReachabilityStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContactReachabilityStatusResponse)
+{-# DEPRECATED gcrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

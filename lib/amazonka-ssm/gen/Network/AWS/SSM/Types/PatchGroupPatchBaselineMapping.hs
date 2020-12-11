@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchGroupPatchBaselineMapping where
+module Network.AWS.SSM.Types.PatchGroupPatchBaselineMapping
+  ( PatchGroupPatchBaselineMapping (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPatchGroupPatchBaselineMapping,
+
+    -- * Lenses
+    pgpbmBaselineIdentity,
+    pgpbmPatchGroup,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.PatchBaselineIdentity
 
 -- | The mapping between a patch group and the patch baseline the patch group is registered with.
 --
---
---
--- /See:/ 'patchGroupPatchBaselineMapping' smart constructor.
+-- /See:/ 'mkPatchGroupPatchBaselineMapping' smart constructor.
 data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
-  { _pgpbmBaselineIdentity ::
-      !( Maybe
-           PatchBaselineIdentity
-       ),
-    _pgpbmPatchGroup ::
-      !(Maybe Text)
+  { baselineIdentity ::
+      Lude.Maybe
+        PatchBaselineIdentity,
+    patchGroup ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchGroupPatchBaselineMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pgpbmBaselineIdentity' - The patch baseline the patch group is registered with.
---
--- * 'pgpbmPatchGroup' - The name of the patch group registered with the patch baseline.
-patchGroupPatchBaselineMapping ::
+-- * 'baselineIdentity' - The patch baseline the patch group is registered with.
+-- * 'patchGroup' - The name of the patch group registered with the patch baseline.
+mkPatchGroupPatchBaselineMapping ::
   PatchGroupPatchBaselineMapping
-patchGroupPatchBaselineMapping =
+mkPatchGroupPatchBaselineMapping =
   PatchGroupPatchBaselineMapping'
-    { _pgpbmBaselineIdentity = Nothing,
-      _pgpbmPatchGroup = Nothing
+    { baselineIdentity = Lude.Nothing,
+      patchGroup = Lude.Nothing
     }
 
 -- | The patch baseline the patch group is registered with.
-pgpbmBaselineIdentity :: Lens' PatchGroupPatchBaselineMapping (Maybe PatchBaselineIdentity)
-pgpbmBaselineIdentity = lens _pgpbmBaselineIdentity (\s a -> s {_pgpbmBaselineIdentity = a})
+--
+-- /Note:/ Consider using 'baselineIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgpbmBaselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Lude.Maybe PatchBaselineIdentity)
+pgpbmBaselineIdentity = Lens.lens (baselineIdentity :: PatchGroupPatchBaselineMapping -> Lude.Maybe PatchBaselineIdentity) (\s a -> s {baselineIdentity = a} :: PatchGroupPatchBaselineMapping)
+{-# DEPRECATED pgpbmBaselineIdentity "Use generic-lens or generic-optics with 'baselineIdentity' instead." #-}
 
 -- | The name of the patch group registered with the patch baseline.
-pgpbmPatchGroup :: Lens' PatchGroupPatchBaselineMapping (Maybe Text)
-pgpbmPatchGroup = lens _pgpbmPatchGroup (\s a -> s {_pgpbmPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgpbmPatchGroup :: Lens.Lens' PatchGroupPatchBaselineMapping (Lude.Maybe Lude.Text)
+pgpbmPatchGroup = Lens.lens (patchGroup :: PatchGroupPatchBaselineMapping -> Lude.Maybe Lude.Text) (\s a -> s {patchGroup = a} :: PatchGroupPatchBaselineMapping)
+{-# DEPRECATED pgpbmPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
-instance FromJSON PatchGroupPatchBaselineMapping where
+instance Lude.FromJSON PatchGroupPatchBaselineMapping where
   parseJSON =
-    withObject
+    Lude.withObject
       "PatchGroupPatchBaselineMapping"
       ( \x ->
           PatchGroupPatchBaselineMapping'
-            <$> (x .:? "BaselineIdentity") <*> (x .:? "PatchGroup")
+            Lude.<$> (x Lude..:? "BaselineIdentity") Lude.<*> (x Lude..:? "PatchGroup")
       )
-
-instance Hashable PatchGroupPatchBaselineMapping
-
-instance NFData PatchGroupPatchBaselineMapping

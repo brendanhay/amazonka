@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.State where
+module Network.AWS.Pinpoint.Types.State
+  ( State
+      ( State',
+        SActive,
+        SCancelled,
+        SClosed,
+        SCompleted,
+        SDraft
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data State
-  = SActive
-  | SCancelled
-  | SClosed
-  | SCompleted
-  | SDraft
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype State = State' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText State where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure SActive
-      "cancelled" -> pure SCancelled
-      "closed" -> pure SClosed
-      "completed" -> pure SCompleted
-      "draft" -> pure SDraft
-      e ->
-        fromTextError $
-          "Failure parsing State from value: '" <> e
-            <> "'. Accepted values: active, cancelled, closed, completed, draft"
+pattern SActive :: State
+pattern SActive = State' "ACTIVE"
 
-instance ToText State where
-  toText = \case
-    SActive -> "ACTIVE"
-    SCancelled -> "CANCELLED"
-    SClosed -> "CLOSED"
-    SCompleted -> "COMPLETED"
-    SDraft -> "DRAFT"
+pattern SCancelled :: State
+pattern SCancelled = State' "CANCELLED"
 
-instance Hashable State
+pattern SClosed :: State
+pattern SClosed = State' "CLOSED"
 
-instance NFData State
+pattern SCompleted :: State
+pattern SCompleted = State' "COMPLETED"
 
-instance ToByteString State
+pattern SDraft :: State
+pattern SDraft = State' "DRAFT"
 
-instance ToQuery State
-
-instance ToHeader State
-
-instance ToJSON State where
-  toJSON = toJSONText
-
-instance FromJSON State where
-  parseJSON = parseJSONText "State"
+{-# COMPLETE
+  SActive,
+  SCancelled,
+  SClosed,
+  SCompleted,
+  SDraft,
+  State'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UnsuccessfulItem where
+module Network.AWS.EC2.Types.UnsuccessfulItem
+  ( UnsuccessfulItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkUnsuccessfulItem,
+
+    -- * Lenses
+    uiResourceId,
+    uiError,
+  )
+where
+
 import Network.AWS.EC2.Types.UnsuccessfulItemError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about items that were not successfully processed in a batch call.
 --
---
---
--- /See:/ 'unsuccessfulItem' smart constructor.
+-- /See:/ 'mkUnsuccessfulItem' smart constructor.
 data UnsuccessfulItem = UnsuccessfulItem'
-  { _uiResourceId ::
-      !(Maybe Text),
-    _uiError :: !(Maybe UnsuccessfulItemError)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    error :: Lude.Maybe UnsuccessfulItemError
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsuccessfulItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiResourceId' - The ID of the resource.
---
--- * 'uiError' - Information about the error.
-unsuccessfulItem ::
+-- * 'error' - Information about the error.
+-- * 'resourceId' - The ID of the resource.
+mkUnsuccessfulItem ::
   UnsuccessfulItem
-unsuccessfulItem =
-  UnsuccessfulItem' {_uiResourceId = Nothing, _uiError = Nothing}
+mkUnsuccessfulItem =
+  UnsuccessfulItem'
+    { resourceId = Lude.Nothing,
+      error = Lude.Nothing
+    }
 
 -- | The ID of the resource.
-uiResourceId :: Lens' UnsuccessfulItem (Maybe Text)
-uiResourceId = lens _uiResourceId (\s a -> s {_uiResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiResourceId :: Lens.Lens' UnsuccessfulItem (Lude.Maybe Lude.Text)
+uiResourceId = Lens.lens (resourceId :: UnsuccessfulItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: UnsuccessfulItem)
+{-# DEPRECATED uiResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Information about the error.
-uiError :: Lens' UnsuccessfulItem (Maybe UnsuccessfulItemError)
-uiError = lens _uiError (\s a -> s {_uiError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiError :: Lens.Lens' UnsuccessfulItem (Lude.Maybe UnsuccessfulItemError)
+uiError = Lens.lens (error :: UnsuccessfulItem -> Lude.Maybe UnsuccessfulItemError) (\s a -> s {error = a} :: UnsuccessfulItem)
+{-# DEPRECATED uiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
-instance FromXML UnsuccessfulItem where
+instance Lude.FromXML UnsuccessfulItem where
   parseXML x =
-    UnsuccessfulItem' <$> (x .@? "resourceId") <*> (x .@? "error")
-
-instance Hashable UnsuccessfulItem
-
-instance NFData UnsuccessfulItem
+    UnsuccessfulItem'
+      Lude.<$> (x Lude..@? "resourceId") Lude.<*> (x Lude..@? "error")

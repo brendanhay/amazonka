@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus where
+module Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
+  ( NodeGroupUpdateStatus (..),
+
+    -- * Smart constructor
+    mkNodeGroupUpdateStatus,
+
+    -- * Lenses
+    ngusNodeGroupMemberUpdateStatus,
+    ngusNodeGroupId,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the service update on the node group
 --
---
---
--- /See:/ 'nodeGroupUpdateStatus' smart constructor.
+-- /See:/ 'mkNodeGroupUpdateStatus' smart constructor.
 data NodeGroupUpdateStatus = NodeGroupUpdateStatus'
-  { _ngusNodeGroupMemberUpdateStatus ::
-      !(Maybe [NodeGroupMemberUpdateStatus]),
-    _ngusNodeGroupId :: !(Maybe Text)
+  { nodeGroupMemberUpdateStatus ::
+      Lude.Maybe [NodeGroupMemberUpdateStatus],
+    nodeGroupId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroupUpdateStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ngusNodeGroupMemberUpdateStatus' - The status of the service update on the node group member
---
--- * 'ngusNodeGroupId' - The ID of the node group
-nodeGroupUpdateStatus ::
+-- * 'nodeGroupId' - The ID of the node group
+-- * 'nodeGroupMemberUpdateStatus' - The status of the service update on the node group member
+mkNodeGroupUpdateStatus ::
   NodeGroupUpdateStatus
-nodeGroupUpdateStatus =
+mkNodeGroupUpdateStatus =
   NodeGroupUpdateStatus'
-    { _ngusNodeGroupMemberUpdateStatus =
-        Nothing,
-      _ngusNodeGroupId = Nothing
+    { nodeGroupMemberUpdateStatus =
+        Lude.Nothing,
+      nodeGroupId = Lude.Nothing
     }
 
 -- | The status of the service update on the node group member
-ngusNodeGroupMemberUpdateStatus :: Lens' NodeGroupUpdateStatus [NodeGroupMemberUpdateStatus]
-ngusNodeGroupMemberUpdateStatus = lens _ngusNodeGroupMemberUpdateStatus (\s a -> s {_ngusNodeGroupMemberUpdateStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeGroupMemberUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngusNodeGroupMemberUpdateStatus :: Lens.Lens' NodeGroupUpdateStatus (Lude.Maybe [NodeGroupMemberUpdateStatus])
+ngusNodeGroupMemberUpdateStatus = Lens.lens (nodeGroupMemberUpdateStatus :: NodeGroupUpdateStatus -> Lude.Maybe [NodeGroupMemberUpdateStatus]) (\s a -> s {nodeGroupMemberUpdateStatus = a} :: NodeGroupUpdateStatus)
+{-# DEPRECATED ngusNodeGroupMemberUpdateStatus "Use generic-lens or generic-optics with 'nodeGroupMemberUpdateStatus' instead." #-}
 
 -- | The ID of the node group
-ngusNodeGroupId :: Lens' NodeGroupUpdateStatus (Maybe Text)
-ngusNodeGroupId = lens _ngusNodeGroupId (\s a -> s {_ngusNodeGroupId = a})
+--
+-- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngusNodeGroupId :: Lens.Lens' NodeGroupUpdateStatus (Lude.Maybe Lude.Text)
+ngusNodeGroupId = Lens.lens (nodeGroupId :: NodeGroupUpdateStatus -> Lude.Maybe Lude.Text) (\s a -> s {nodeGroupId = a} :: NodeGroupUpdateStatus)
+{-# DEPRECATED ngusNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
 
-instance FromXML NodeGroupUpdateStatus where
+instance Lude.FromXML NodeGroupUpdateStatus where
   parseXML x =
     NodeGroupUpdateStatus'
-      <$> ( x .@? "NodeGroupMemberUpdateStatus" .!@ mempty
-              >>= may (parseXMLList "NodeGroupMemberUpdateStatus")
-          )
-      <*> (x .@? "NodeGroupId")
-
-instance Hashable NodeGroupUpdateStatus
-
-instance NFData NodeGroupUpdateStatus
+      Lude.<$> ( x Lude..@? "NodeGroupMemberUpdateStatus" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "NodeGroupMemberUpdateStatus")
+               )
+      Lude.<*> (x Lude..@? "NodeGroupId")

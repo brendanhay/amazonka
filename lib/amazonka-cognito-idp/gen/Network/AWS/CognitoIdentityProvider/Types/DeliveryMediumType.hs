@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType where
+module Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
+  ( DeliveryMediumType
+      ( DeliveryMediumType',
+        DMTEmail,
+        DMTSms
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryMediumType
-  = DMTEmail
-  | DMTSms
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryMediumType = DeliveryMediumType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryMediumType where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure DMTEmail
-      "sms" -> pure DMTSms
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryMediumType from value: '" <> e
-            <> "'. Accepted values: email, sms"
+pattern DMTEmail :: DeliveryMediumType
+pattern DMTEmail = DeliveryMediumType' "EMAIL"
 
-instance ToText DeliveryMediumType where
-  toText = \case
-    DMTEmail -> "EMAIL"
-    DMTSms -> "SMS"
+pattern DMTSms :: DeliveryMediumType
+pattern DMTSms = DeliveryMediumType' "SMS"
 
-instance Hashable DeliveryMediumType
-
-instance NFData DeliveryMediumType
-
-instance ToByteString DeliveryMediumType
-
-instance ToQuery DeliveryMediumType
-
-instance ToHeader DeliveryMediumType
-
-instance ToJSON DeliveryMediumType where
-  toJSON = toJSONText
-
-instance FromJSON DeliveryMediumType where
-  parseJSON = parseJSONText "DeliveryMediumType"
+{-# COMPLETE
+  DMTEmail,
+  DMTSms,
+  DeliveryMediumType'
+  #-}

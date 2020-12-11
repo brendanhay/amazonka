@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,146 @@
 --
 -- Returns information about a specific Amazon Kinesis Analytics application.
 --
---
 -- If you want to retrieve a list of all applications in your account, use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListApplications.html ListApplications> operation.
---
 -- This operation requires permissions to perform the @kinesisanalytics:DescribeApplication@ action. You can use @DescribeApplication@ to get the current application versionId, which you need to call other operations such as @Update@ .
 module Network.AWS.KinesisAnalytics.DescribeApplication
-  ( -- * Creating a Request
-    describeApplication,
-    DescribeApplication,
+  ( -- * Creating a request
+    DescribeApplication (..),
+    mkDescribeApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daApplicationName,
 
-    -- * Destructuring the Response
-    describeApplicationResponse,
-    DescribeApplicationResponse,
+    -- * Destructuring the response
+    DescribeApplicationResponse (..),
+    mkDescribeApplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsResponseStatus,
     darsApplicationDetail,
   )
 where
 
 import Network.AWS.KinesisAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeApplication' smart constructor.
+-- /See:/ 'mkDescribeApplication' smart constructor.
 newtype DescribeApplication = DescribeApplication'
-  { _daApplicationName ::
-      Text
+  { applicationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daApplicationName' - Name of the application.
-describeApplication ::
-  -- | 'daApplicationName'
-  Text ->
+-- * 'applicationName' - Name of the application.
+mkDescribeApplication ::
+  -- | 'applicationName'
+  Lude.Text ->
   DescribeApplication
-describeApplication pApplicationName_ =
-  DescribeApplication' {_daApplicationName = pApplicationName_}
+mkDescribeApplication pApplicationName_ =
+  DescribeApplication' {applicationName = pApplicationName_}
 
 -- | Name of the application.
-daApplicationName :: Lens' DescribeApplication Text
-daApplicationName = lens _daApplicationName (\s a -> s {_daApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daApplicationName :: Lens.Lens' DescribeApplication Lude.Text
+daApplicationName = Lens.lens (applicationName :: DescribeApplication -> Lude.Text) (\s a -> s {applicationName = a} :: DescribeApplication)
+{-# DEPRECATED daApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest DescribeApplication where
+instance Lude.AWSRequest DescribeApplication where
   type Rs DescribeApplication = DescribeApplicationResponse
-  request = postJSON kinesisAnalytics
+  request = Req.postJSON kinesisAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeApplicationResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "ApplicationDetail")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "ApplicationDetail")
       )
 
-instance Hashable DescribeApplication
-
-instance NFData DescribeApplication
-
-instance ToHeaders DescribeApplication where
+instance Lude.ToHeaders DescribeApplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("KinesisAnalytics_20150814.DescribeApplication" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "KinesisAnalytics_20150814.DescribeApplication" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeApplication where
+instance Lude.ToJSON DescribeApplication where
   toJSON DescribeApplication' {..} =
-    object
-      (catMaybes [Just ("ApplicationName" .= _daApplicationName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ApplicationName" Lude..= applicationName)]
+      )
 
-instance ToPath DescribeApplication where
-  toPath = const "/"
+instance Lude.ToPath DescribeApplication where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeApplication where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeApplication where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeApplicationResponse' smart constructor.
+-- /See:/ 'mkDescribeApplicationResponse' smart constructor.
 data DescribeApplicationResponse = DescribeApplicationResponse'
-  { _darsResponseStatus ::
-      !Int,
-    _darsApplicationDetail ::
-      !ApplicationDetail
+  { responseStatus ::
+      Lude.Int,
+    applicationDetail ::
+      ApplicationDetail
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsResponseStatus' - -- | The response status code.
---
--- * 'darsApplicationDetail' - Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
-describeApplicationResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
-  -- | 'darsApplicationDetail'
+-- * 'applicationDetail' - Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
+-- * 'responseStatus' - The response status code.
+mkDescribeApplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'applicationDetail'
   ApplicationDetail ->
   DescribeApplicationResponse
-describeApplicationResponse pResponseStatus_ pApplicationDetail_ =
+mkDescribeApplicationResponse pResponseStatus_ pApplicationDetail_ =
   DescribeApplicationResponse'
-    { _darsResponseStatus =
-        pResponseStatus_,
-      _darsApplicationDetail = pApplicationDetail_
+    { responseStatus = pResponseStatus_,
+      applicationDetail = pApplicationDetail_
     }
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeApplicationResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeApplicationResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicationResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
-darsApplicationDetail :: Lens' DescribeApplicationResponse ApplicationDetail
-darsApplicationDetail = lens _darsApplicationDetail (\s a -> s {_darsApplicationDetail = a})
-
-instance NFData DescribeApplicationResponse
+--
+-- /Note:/ Consider using 'applicationDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsApplicationDetail :: Lens.Lens' DescribeApplicationResponse ApplicationDetail
+darsApplicationDetail = Lens.lens (applicationDetail :: DescribeApplicationResponse -> ApplicationDetail) (\s a -> s {applicationDetail = a} :: DescribeApplicationResponse)
+{-# DEPRECATED darsApplicationDetail "Use generic-lens or generic-optics with 'applicationDetail' instead." #-}

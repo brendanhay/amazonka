@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.CoversBodyPart where
+module Network.AWS.Rekognition.Types.CoversBodyPart
+  ( CoversBodyPart (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCoversBodyPart,
+
+    -- * Lenses
+    cbpValue,
+    cbpConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an item of Personal Protective Equipment covering a corresponding body part. For more information, see 'DetectProtectiveEquipment' .
 --
---
---
--- /See:/ 'coversBodyPart' smart constructor.
+-- /See:/ 'mkCoversBodyPart' smart constructor.
 data CoversBodyPart = CoversBodyPart'
-  { _cbpValue :: !(Maybe Bool),
-    _cbpConfidence :: !(Maybe Double)
+  { value ::
+      Lude.Maybe Lude.Bool,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoversBodyPart' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbpValue' - True if the PPE covers the corresponding body part, otherwise false.
---
--- * 'cbpConfidence' - The confidence that Amazon Rekognition has in the value of @Value@ .
-coversBodyPart ::
+-- * 'confidence' - The confidence that Amazon Rekognition has in the value of @Value@ .
+-- * 'value' - True if the PPE covers the corresponding body part, otherwise false.
+mkCoversBodyPart ::
   CoversBodyPart
-coversBodyPart =
-  CoversBodyPart' {_cbpValue = Nothing, _cbpConfidence = Nothing}
+mkCoversBodyPart =
+  CoversBodyPart' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | True if the PPE covers the corresponding body part, otherwise false.
-cbpValue :: Lens' CoversBodyPart (Maybe Bool)
-cbpValue = lens _cbpValue (\s a -> s {_cbpValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpValue :: Lens.Lens' CoversBodyPart (Lude.Maybe Lude.Bool)
+cbpValue = Lens.lens (value :: CoversBodyPart -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: CoversBodyPart)
+{-# DEPRECATED cbpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The confidence that Amazon Rekognition has in the value of @Value@ .
-cbpConfidence :: Lens' CoversBodyPart (Maybe Double)
-cbpConfidence = lens _cbpConfidence (\s a -> s {_cbpConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpConfidence :: Lens.Lens' CoversBodyPart (Lude.Maybe Lude.Double)
+cbpConfidence = Lens.lens (confidence :: CoversBodyPart -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: CoversBodyPart)
+{-# DEPRECATED cbpConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON CoversBodyPart where
+instance Lude.FromJSON CoversBodyPart where
   parseJSON =
-    withObject
+    Lude.withObject
       "CoversBodyPart"
       ( \x ->
-          CoversBodyPart' <$> (x .:? "Value") <*> (x .:? "Confidence")
+          CoversBodyPart'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
       )
-
-instance Hashable CoversBodyPart
-
-instance NFData CoversBodyPart

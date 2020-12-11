@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,165 @@
 --
 -- Retrieves the specified SSH public key, including metadata about the key.
 --
---
 -- The SSH public key retrieved by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
 module Network.AWS.IAM.GetSSHPublicKey
-  ( -- * Creating a Request
-    getSSHPublicKey,
-    GetSSHPublicKey,
+  ( -- * Creating a request
+    GetSSHPublicKey (..),
+    mkGetSSHPublicKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gspkUserName,
     gspkSSHPublicKeyId,
     gspkEncoding,
 
-    -- * Destructuring the Response
-    getSSHPublicKeyResponse,
-    GetSSHPublicKeyResponse,
+    -- * Destructuring the response
+    GetSSHPublicKeyResponse (..),
+    mkGetSSHPublicKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gspkrsSSHPublicKey,
     gspkrsResponseStatus,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSSHPublicKey' smart constructor.
+-- | /See:/ 'mkGetSSHPublicKey' smart constructor.
 data GetSSHPublicKey = GetSSHPublicKey'
-  { _gspkUserName :: !Text,
-    _gspkSSHPublicKeyId :: !Text,
-    _gspkEncoding :: !EncodingType
+  { userName :: Lude.Text,
+    sshPublicKeyId :: Lude.Text,
+    encoding :: EncodingType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSSHPublicKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encoding' - Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
+-- * 'sshPublicKeyId' - The unique identifier for the SSH public key.
 --
--- * 'gspkUserName' - The name of the IAM user associated with the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'userName' - The name of the IAM user associated with the SSH public key.
 --
--- * 'gspkSSHPublicKeyId' - The unique identifier for the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
---
--- * 'gspkEncoding' - Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
-getSSHPublicKey ::
-  -- | 'gspkUserName'
-  Text ->
-  -- | 'gspkSSHPublicKeyId'
-  Text ->
-  -- | 'gspkEncoding'
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkGetSSHPublicKey ::
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'sshPublicKeyId'
+  Lude.Text ->
+  -- | 'encoding'
   EncodingType ->
   GetSSHPublicKey
-getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
+mkGetSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
   GetSSHPublicKey'
-    { _gspkUserName = pUserName_,
-      _gspkSSHPublicKeyId = pSSHPublicKeyId_,
-      _gspkEncoding = pEncoding_
+    { userName = pUserName_,
+      sshPublicKeyId = pSSHPublicKeyId_,
+      encoding = pEncoding_
     }
 
--- | The name of the IAM user associated with the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-gspkUserName :: Lens' GetSSHPublicKey Text
-gspkUserName = lens _gspkUserName (\s a -> s {_gspkUserName = a})
+-- | The name of the IAM user associated with the SSH public key.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspkUserName :: Lens.Lens' GetSSHPublicKey Lude.Text
+gspkUserName = Lens.lens (userName :: GetSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: GetSSHPublicKey)
+{-# DEPRECATED gspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The unique identifier for the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
-gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\s a -> s {_gspkSSHPublicKeyId = a})
+-- | The unique identifier for the SSH public key.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+--
+-- /Note:/ Consider using 'sshPublicKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspkSSHPublicKeyId :: Lens.Lens' GetSSHPublicKey Lude.Text
+gspkSSHPublicKeyId = Lens.lens (sshPublicKeyId :: GetSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyId = a} :: GetSSHPublicKey)
+{-# DEPRECATED gspkSSHPublicKeyId "Use generic-lens or generic-optics with 'sshPublicKeyId' instead." #-}
 
 -- | Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
-gspkEncoding :: Lens' GetSSHPublicKey EncodingType
-gspkEncoding = lens _gspkEncoding (\s a -> s {_gspkEncoding = a})
+--
+-- /Note:/ Consider using 'encoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspkEncoding :: Lens.Lens' GetSSHPublicKey EncodingType
+gspkEncoding = Lens.lens (encoding :: GetSSHPublicKey -> EncodingType) (\s a -> s {encoding = a} :: GetSSHPublicKey)
+{-# DEPRECATED gspkEncoding "Use generic-lens or generic-optics with 'encoding' instead." #-}
 
-instance AWSRequest GetSSHPublicKey where
+instance Lude.AWSRequest GetSSHPublicKey where
   type Rs GetSSHPublicKey = GetSSHPublicKeyResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetSSHPublicKeyResult"
       ( \s h x ->
           GetSSHPublicKeyResponse'
-            <$> (x .@? "SSHPublicKey") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "SSHPublicKey") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSSHPublicKey
+instance Lude.ToHeaders GetSSHPublicKey where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetSSHPublicKey
+instance Lude.ToPath GetSSHPublicKey where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetSSHPublicKey where
-  toHeaders = const mempty
-
-instance ToPath GetSSHPublicKey where
-  toPath = const "/"
-
-instance ToQuery GetSSHPublicKey where
+instance Lude.ToQuery GetSSHPublicKey where
   toQuery GetSSHPublicKey' {..} =
-    mconcat
-      [ "Action" =: ("GetSSHPublicKey" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _gspkUserName,
-        "SSHPublicKeyId" =: _gspkSSHPublicKeyId,
-        "Encoding" =: _gspkEncoding
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetSSHPublicKey" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "SSHPublicKeyId" Lude.=: sshPublicKeyId,
+        "Encoding" Lude.=: encoding
       ]
 
 -- | Contains the response to a successful 'GetSSHPublicKey' request.
 --
---
---
--- /See:/ 'getSSHPublicKeyResponse' smart constructor.
+-- /See:/ 'mkGetSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
-  { _gspkrsSSHPublicKey ::
-      !(Maybe SSHPublicKey),
-    _gspkrsResponseStatus :: !Int
+  { sshPublicKey ::
+      Lude.Maybe SSHPublicKey,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gspkrsSSHPublicKey' - A structure containing details about the SSH public key.
---
--- * 'gspkrsResponseStatus' - -- | The response status code.
-getSSHPublicKeyResponse ::
-  -- | 'gspkrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sshPublicKey' - A structure containing details about the SSH public key.
+mkGetSSHPublicKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSSHPublicKeyResponse
-getSSHPublicKeyResponse pResponseStatus_ =
+mkGetSSHPublicKeyResponse pResponseStatus_ =
   GetSSHPublicKeyResponse'
-    { _gspkrsSSHPublicKey = Nothing,
-      _gspkrsResponseStatus = pResponseStatus_
+    { sshPublicKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure containing details about the SSH public key.
-gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
-gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\s a -> s {_gspkrsSSHPublicKey = a})
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspkrsSSHPublicKey :: Lens.Lens' GetSSHPublicKeyResponse (Lude.Maybe SSHPublicKey)
+gspkrsSSHPublicKey = Lens.lens (sshPublicKey :: GetSSHPublicKeyResponse -> Lude.Maybe SSHPublicKey) (\s a -> s {sshPublicKey = a} :: GetSSHPublicKeyResponse)
+{-# DEPRECATED gspkrsSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
--- | -- | The response status code.
-gspkrsResponseStatus :: Lens' GetSSHPublicKeyResponse Int
-gspkrsResponseStatus = lens _gspkrsResponseStatus (\s a -> s {_gspkrsResponseStatus = a})
-
-instance NFData GetSSHPublicKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspkrsResponseStatus :: Lens.Lens' GetSSHPublicKeyResponse Lude.Int
+gspkrsResponseStatus = Lens.lens (responseStatus :: GetSSHPublicKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSSHPublicKeyResponse)
+{-# DEPRECATED gspkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

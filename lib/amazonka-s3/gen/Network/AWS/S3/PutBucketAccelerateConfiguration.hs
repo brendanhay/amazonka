@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,145 @@
 --
 -- Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a bucket-level feature that enables you to perform faster data transfers to Amazon S3.
 --
---
 -- To use this operation, you must have permission to perform the s3:PutAccelerateConfiguration action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> .
---
 -- The Transfer Acceleration state of a bucket can be set to one of the following two values:
 --
 --     * Enabled – Enables accelerated data transfers to the bucket.
 --
+--
 --     * Suspended – Disables accelerated data transfers to the bucket.
 --
 --
---
 -- The <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html GetBucketAccelerateConfiguration> operation returns the transfer acceleration state of a bucket.
---
 -- After setting the Transfer Acceleration state of a bucket to Enabled, it might take up to thirty minutes before the data transfer rates to the bucket increase.
---
 -- The name of the bucket used for Transfer Acceleration must be DNS-compliant and must not contain periods (".").
---
 -- For more information about transfer acceleration, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Transfer Acceleration> .
---
 -- The following operations are related to @PutBucketAccelerateConfiguration@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html GetBucketAccelerateConfiguration>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
 module Network.AWS.S3.PutBucketAccelerateConfiguration
-  ( -- * Creating a Request
-    putBucketAccelerateConfiguration,
-    PutBucketAccelerateConfiguration,
+  ( -- * Creating a request
+    PutBucketAccelerateConfiguration (..),
+    mkPutBucketAccelerateConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbacExpectedBucketOwner,
     pbacBucket,
     pbacAccelerateConfiguration,
 
-    -- * Destructuring the Response
-    putBucketAccelerateConfigurationResponse,
-    PutBucketAccelerateConfigurationResponse,
+    -- * Destructuring the response
+    PutBucketAccelerateConfigurationResponse (..),
+    mkPutBucketAccelerateConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'putBucketAccelerateConfiguration' smart constructor.
+-- | /See:/ 'mkPutBucketAccelerateConfiguration' smart constructor.
 data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
-  { _pbacExpectedBucketOwner ::
-      !(Maybe Text),
-    _pbacBucket ::
-      !BucketName,
-    _pbacAccelerateConfiguration ::
-      !AccelerateConfiguration
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    accelerateConfiguration ::
+      AccelerateConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketAccelerateConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbacExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'pbacBucket' - The name of the bucket for which the accelerate configuration is set.
---
--- * 'pbacAccelerateConfiguration' - Container for setting the transfer acceleration state.
-putBucketAccelerateConfiguration ::
-  -- | 'pbacBucket'
+-- * 'accelerateConfiguration' - Container for setting the transfer acceleration state.
+-- * 'bucket' - The name of the bucket for which the accelerate configuration is set.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkPutBucketAccelerateConfiguration ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'pbacAccelerateConfiguration'
+  -- | 'accelerateConfiguration'
   AccelerateConfiguration ->
   PutBucketAccelerateConfiguration
-putBucketAccelerateConfiguration pBucket_ pAccelerateConfiguration_ =
-  PutBucketAccelerateConfiguration'
-    { _pbacExpectedBucketOwner =
-        Nothing,
-      _pbacBucket = pBucket_,
-      _pbacAccelerateConfiguration = pAccelerateConfiguration_
-    }
+mkPutBucketAccelerateConfiguration
+  pBucket_
+  pAccelerateConfiguration_ =
+    PutBucketAccelerateConfiguration'
+      { expectedBucketOwner =
+          Lude.Nothing,
+        bucket = pBucket_,
+        accelerateConfiguration = pAccelerateConfiguration_
+      }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-pbacExpectedBucketOwner :: Lens' PutBucketAccelerateConfiguration (Maybe Text)
-pbacExpectedBucketOwner = lens _pbacExpectedBucketOwner (\s a -> s {_pbacExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbacExpectedBucketOwner :: Lens.Lens' PutBucketAccelerateConfiguration (Lude.Maybe Lude.Text)
+pbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketAccelerateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketAccelerateConfiguration)
+{-# DEPRECATED pbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which the accelerate configuration is set.
-pbacBucket :: Lens' PutBucketAccelerateConfiguration BucketName
-pbacBucket = lens _pbacBucket (\s a -> s {_pbacBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbacBucket :: Lens.Lens' PutBucketAccelerateConfiguration BucketName
+pbacBucket = Lens.lens (bucket :: PutBucketAccelerateConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketAccelerateConfiguration)
+{-# DEPRECATED pbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Container for setting the transfer acceleration state.
-pbacAccelerateConfiguration :: Lens' PutBucketAccelerateConfiguration AccelerateConfiguration
-pbacAccelerateConfiguration = lens _pbacAccelerateConfiguration (\s a -> s {_pbacAccelerateConfiguration = a})
+--
+-- /Note:/ Consider using 'accelerateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbacAccelerateConfiguration :: Lens.Lens' PutBucketAccelerateConfiguration AccelerateConfiguration
+pbacAccelerateConfiguration = Lens.lens (accelerateConfiguration :: PutBucketAccelerateConfiguration -> AccelerateConfiguration) (\s a -> s {accelerateConfiguration = a} :: PutBucketAccelerateConfiguration)
+{-# DEPRECATED pbacAccelerateConfiguration "Use generic-lens or generic-optics with 'accelerateConfiguration' instead." #-}
 
-instance AWSRequest PutBucketAccelerateConfiguration where
+instance Lude.AWSRequest PutBucketAccelerateConfiguration where
   type
     Rs PutBucketAccelerateConfiguration =
       PutBucketAccelerateConfigurationResponse
-  request = putXML s3
-  response = receiveNull PutBucketAccelerateConfigurationResponse'
+  request = Req.putXML s3Service
+  response =
+    Res.receiveNull PutBucketAccelerateConfigurationResponse'
 
-instance Hashable PutBucketAccelerateConfiguration
-
-instance NFData PutBucketAccelerateConfiguration
-
-instance ToElement PutBucketAccelerateConfiguration where
+instance Lude.ToElement PutBucketAccelerateConfiguration where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AccelerateConfiguration"
-      . _pbacAccelerateConfiguration
+      Lude.. accelerateConfiguration
 
-instance ToHeaders PutBucketAccelerateConfiguration where
+instance Lude.ToHeaders PutBucketAccelerateConfiguration where
   toHeaders PutBucketAccelerateConfiguration' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _pbacExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath PutBucketAccelerateConfiguration where
+instance Lude.ToPath PutBucketAccelerateConfiguration where
   toPath PutBucketAccelerateConfiguration' {..} =
-    mconcat ["/", toBS _pbacBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery PutBucketAccelerateConfiguration where
-  toQuery = const (mconcat ["accelerate"])
+instance Lude.ToQuery PutBucketAccelerateConfiguration where
+  toQuery = Lude.const (Lude.mconcat ["accelerate"])
 
--- | /See:/ 'putBucketAccelerateConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutBucketAccelerateConfigurationResponse' smart constructor.
 data PutBucketAccelerateConfigurationResponse = PutBucketAccelerateConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketAccelerateConfigurationResponse' with the minimum fields required to make a request.
-putBucketAccelerateConfigurationResponse ::
+mkPutBucketAccelerateConfigurationResponse ::
   PutBucketAccelerateConfigurationResponse
-putBucketAccelerateConfigurationResponse =
+mkPutBucketAccelerateConfigurationResponse =
   PutBucketAccelerateConfigurationResponse'
-
-instance NFData PutBucketAccelerateConfigurationResponse

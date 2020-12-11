@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse where
+module Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
+  ( BatchLookupPolicyResponse (..),
+
+    -- * Smart constructor
+    mkBatchLookupPolicyResponse,
+
+    -- * Lenses
+    blpNextToken,
+    blpPolicyToPathList,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.PolicyToPath
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'LookupPolicy' response operation.
 --
---
---
--- /See:/ 'batchLookupPolicyResponse' smart constructor.
+-- /See:/ 'mkBatchLookupPolicyResponse' smart constructor.
 data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
-  { _blpNextToken ::
-      !(Maybe Text),
-    _blpPolicyToPathList ::
-      !(Maybe [PolicyToPath])
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    policyToPathList ::
+      Lude.Maybe [PolicyToPath]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchLookupPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blpNextToken' - The pagination token.
---
--- * 'blpPolicyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
-batchLookupPolicyResponse ::
+-- * 'nextToken' - The pagination token.
+-- * 'policyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
+mkBatchLookupPolicyResponse ::
   BatchLookupPolicyResponse
-batchLookupPolicyResponse =
+mkBatchLookupPolicyResponse =
   BatchLookupPolicyResponse'
-    { _blpNextToken = Nothing,
-      _blpPolicyToPathList = Nothing
+    { nextToken = Lude.Nothing,
+      policyToPathList = Lude.Nothing
     }
 
 -- | The pagination token.
-blpNextToken :: Lens' BatchLookupPolicyResponse (Maybe Text)
-blpNextToken = lens _blpNextToken (\s a -> s {_blpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpNextToken :: Lens.Lens' BatchLookupPolicyResponse (Lude.Maybe Lude.Text)
+blpNextToken = Lens.lens (nextToken :: BatchLookupPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchLookupPolicyResponse)
+{-# DEPRECATED blpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
-blpPolicyToPathList :: Lens' BatchLookupPolicyResponse [PolicyToPath]
-blpPolicyToPathList = lens _blpPolicyToPathList (\s a -> s {_blpPolicyToPathList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyToPathList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpPolicyToPathList :: Lens.Lens' BatchLookupPolicyResponse (Lude.Maybe [PolicyToPath])
+blpPolicyToPathList = Lens.lens (policyToPathList :: BatchLookupPolicyResponse -> Lude.Maybe [PolicyToPath]) (\s a -> s {policyToPathList = a} :: BatchLookupPolicyResponse)
+{-# DEPRECATED blpPolicyToPathList "Use generic-lens or generic-optics with 'policyToPathList' instead." #-}
 
-instance FromJSON BatchLookupPolicyResponse where
+instance Lude.FromJSON BatchLookupPolicyResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchLookupPolicyResponse"
       ( \x ->
           BatchLookupPolicyResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "PolicyToPathList" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "PolicyToPathList" Lude..!= Lude.mempty)
       )
-
-instance Hashable BatchLookupPolicyResponse
-
-instance NFData BatchLookupPolicyResponse

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,128 @@
 --
 -- Gets the network profile details by the network profile ARN.
 module Network.AWS.AlexaBusiness.GetNetworkProfile
-  ( -- * Creating a Request
-    getNetworkProfile,
-    GetNetworkProfile,
+  ( -- * Creating a request
+    GetNetworkProfile (..),
+    mkGetNetworkProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gnpNetworkProfileARN,
 
-    -- * Destructuring the Response
-    getNetworkProfileResponse,
-    GetNetworkProfileResponse,
+    -- * Destructuring the response
+    GetNetworkProfileResponse (..),
+    mkGetNetworkProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gnprsNetworkProfile,
     gnprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getNetworkProfile' smart constructor.
+-- | /See:/ 'mkGetNetworkProfile' smart constructor.
 newtype GetNetworkProfile = GetNetworkProfile'
-  { _gnpNetworkProfileARN ::
-      Text
+  { networkProfileARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetNetworkProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gnpNetworkProfileARN' - The ARN of the network profile associated with a device.
-getNetworkProfile ::
-  -- | 'gnpNetworkProfileARN'
-  Text ->
+-- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+mkGetNetworkProfile ::
+  -- | 'networkProfileARN'
+  Lude.Text ->
   GetNetworkProfile
-getNetworkProfile pNetworkProfileARN_ =
-  GetNetworkProfile' {_gnpNetworkProfileARN = pNetworkProfileARN_}
+mkGetNetworkProfile pNetworkProfileARN_ =
+  GetNetworkProfile' {networkProfileARN = pNetworkProfileARN_}
 
 -- | The ARN of the network profile associated with a device.
-gnpNetworkProfileARN :: Lens' GetNetworkProfile Text
-gnpNetworkProfileARN = lens _gnpNetworkProfileARN (\s a -> s {_gnpNetworkProfileARN = a})
+--
+-- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnpNetworkProfileARN :: Lens.Lens' GetNetworkProfile Lude.Text
+gnpNetworkProfileARN = Lens.lens (networkProfileARN :: GetNetworkProfile -> Lude.Text) (\s a -> s {networkProfileARN = a} :: GetNetworkProfile)
+{-# DEPRECATED gnpNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
 
-instance AWSRequest GetNetworkProfile where
+instance Lude.AWSRequest GetNetworkProfile where
   type Rs GetNetworkProfile = GetNetworkProfileResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetNetworkProfileResponse'
-            <$> (x .?> "NetworkProfile") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NetworkProfile")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetNetworkProfile
-
-instance NFData GetNetworkProfile
-
-instance ToHeaders GetNetworkProfile where
+instance Lude.ToHeaders GetNetworkProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.GetNetworkProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.GetNetworkProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetNetworkProfile where
+instance Lude.ToJSON GetNetworkProfile where
   toJSON GetNetworkProfile' {..} =
-    object
-      (catMaybes [Just ("NetworkProfileArn" .= _gnpNetworkProfileARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("NetworkProfileArn" Lude..= networkProfileARN)]
+      )
 
-instance ToPath GetNetworkProfile where
-  toPath = const "/"
+instance Lude.ToPath GetNetworkProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery GetNetworkProfile where
-  toQuery = const mempty
+instance Lude.ToQuery GetNetworkProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getNetworkProfileResponse' smart constructor.
+-- | /See:/ 'mkGetNetworkProfileResponse' smart constructor.
 data GetNetworkProfileResponse = GetNetworkProfileResponse'
-  { _gnprsNetworkProfile ::
-      !(Maybe NetworkProfile),
-    _gnprsResponseStatus :: !Int
+  { networkProfile ::
+      Lude.Maybe NetworkProfile,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetNetworkProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gnprsNetworkProfile' - The network profile associated with a device.
---
--- * 'gnprsResponseStatus' - -- | The response status code.
-getNetworkProfileResponse ::
-  -- | 'gnprsResponseStatus'
-  Int ->
+-- * 'networkProfile' - The network profile associated with a device.
+-- * 'responseStatus' - The response status code.
+mkGetNetworkProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetNetworkProfileResponse
-getNetworkProfileResponse pResponseStatus_ =
+mkGetNetworkProfileResponse pResponseStatus_ =
   GetNetworkProfileResponse'
-    { _gnprsNetworkProfile = Nothing,
-      _gnprsResponseStatus = pResponseStatus_
+    { networkProfile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The network profile associated with a device.
-gnprsNetworkProfile :: Lens' GetNetworkProfileResponse (Maybe NetworkProfile)
-gnprsNetworkProfile = lens _gnprsNetworkProfile (\s a -> s {_gnprsNetworkProfile = a})
+--
+-- /Note:/ Consider using 'networkProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnprsNetworkProfile :: Lens.Lens' GetNetworkProfileResponse (Lude.Maybe NetworkProfile)
+gnprsNetworkProfile = Lens.lens (networkProfile :: GetNetworkProfileResponse -> Lude.Maybe NetworkProfile) (\s a -> s {networkProfile = a} :: GetNetworkProfileResponse)
+{-# DEPRECATED gnprsNetworkProfile "Use generic-lens or generic-optics with 'networkProfile' instead." #-}
 
--- | -- | The response status code.
-gnprsResponseStatus :: Lens' GetNetworkProfileResponse Int
-gnprsResponseStatus = lens _gnprsResponseStatus (\s a -> s {_gnprsResponseStatus = a})
-
-instance NFData GetNetworkProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnprsResponseStatus :: Lens.Lens' GetNetworkProfileResponse Lude.Int
+gnprsResponseStatus = Lens.lens (responseStatus :: GetNetworkProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetNetworkProfileResponse)
+{-# DEPRECATED gnprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

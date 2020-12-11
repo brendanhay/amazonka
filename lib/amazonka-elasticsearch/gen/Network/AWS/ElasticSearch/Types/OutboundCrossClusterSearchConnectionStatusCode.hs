@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode where
+module Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+  ( OutboundCrossClusterSearchConnectionStatusCode
+      ( OutboundCrossClusterSearchConnectionStatusCode',
+        OCCSCSCActive,
+        OCCSCSCDeleted,
+        OCCSCSCDeleting,
+        OCCSCSCPendingAcceptance,
+        OCCSCSCProvisioning,
+        OCCSCSCRejected,
+        OCCSCSCValidating,
+        OCCSCSCValidationFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OutboundCrossClusterSearchConnectionStatusCode
-  = OCCSCSCActive
-  | OCCSCSCDeleted
-  | OCCSCSCDeleting
-  | OCCSCSCPendingAcceptance
-  | OCCSCSCProvisioning
-  | OCCSCSCRejected
-  | OCCSCSCValidating
-  | OCCSCSCValidationFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutboundCrossClusterSearchConnectionStatusCode = OutboundCrossClusterSearchConnectionStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutboundCrossClusterSearchConnectionStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure OCCSCSCActive
-      "deleted" -> pure OCCSCSCDeleted
-      "deleting" -> pure OCCSCSCDeleting
-      "pending_acceptance" -> pure OCCSCSCPendingAcceptance
-      "provisioning" -> pure OCCSCSCProvisioning
-      "rejected" -> pure OCCSCSCRejected
-      "validating" -> pure OCCSCSCValidating
-      "validation_failed" -> pure OCCSCSCValidationFailed
-      e ->
-        fromTextError $
-          "Failure parsing OutboundCrossClusterSearchConnectionStatusCode from value: '" <> e
-            <> "'. Accepted values: active, deleted, deleting, pending_acceptance, provisioning, rejected, validating, validation_failed"
+pattern OCCSCSCActive :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCActive = OutboundCrossClusterSearchConnectionStatusCode' "ACTIVE"
 
-instance ToText OutboundCrossClusterSearchConnectionStatusCode where
-  toText = \case
-    OCCSCSCActive -> "ACTIVE"
-    OCCSCSCDeleted -> "DELETED"
-    OCCSCSCDeleting -> "DELETING"
-    OCCSCSCPendingAcceptance -> "PENDING_ACCEPTANCE"
-    OCCSCSCProvisioning -> "PROVISIONING"
-    OCCSCSCRejected -> "REJECTED"
-    OCCSCSCValidating -> "VALIDATING"
-    OCCSCSCValidationFailed -> "VALIDATION_FAILED"
+pattern OCCSCSCDeleted :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCDeleted = OutboundCrossClusterSearchConnectionStatusCode' "DELETED"
 
-instance Hashable OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCDeleting :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCDeleting = OutboundCrossClusterSearchConnectionStatusCode' "DELETING"
 
-instance NFData OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCPendingAcceptance :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCPendingAcceptance = OutboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
 
-instance ToByteString OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCProvisioning :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCProvisioning = OutboundCrossClusterSearchConnectionStatusCode' "PROVISIONING"
 
-instance ToQuery OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCRejected :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCRejected = OutboundCrossClusterSearchConnectionStatusCode' "REJECTED"
 
-instance ToHeader OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCValidating :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCValidating = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATING"
 
-instance FromJSON OutboundCrossClusterSearchConnectionStatusCode where
-  parseJSON = parseJSONText "OutboundCrossClusterSearchConnectionStatusCode"
+pattern OCCSCSCValidationFailed :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCValidationFailed = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATION_FAILED"
+
+{-# COMPLETE
+  OCCSCSCActive,
+  OCCSCSCDeleted,
+  OCCSCSCDeleting,
+  OCCSCSCPendingAcceptance,
+  OCCSCSCProvisioning,
+  OCCSCSCRejected,
+  OCCSCSCValidating,
+  OCCSCSCValidationFailed,
+  OutboundCrossClusterSearchConnectionStatusCode'
+  #-}

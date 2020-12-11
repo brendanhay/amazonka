@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.EBSVolume where
+module Network.AWS.EMR.Types.EBSVolume
+  ( EBSVolume (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEBSVolume,
+
+    -- * Lenses
+    evDevice,
+    evVolumeId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | EBS block device that's attached to an EC2 instance.
 --
---
---
--- /See:/ 'ebsVolume' smart constructor.
+-- /See:/ 'mkEBSVolume' smart constructor.
 data EBSVolume = EBSVolume'
-  { _evDevice :: !(Maybe Text),
-    _evVolumeId :: !(Maybe Text)
+  { device :: Lude.Maybe Lude.Text,
+    volumeId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evDevice' - The device name that is exposed to the instance, such as /dev/sdh.
---
--- * 'evVolumeId' - The volume identifier of the EBS volume.
-ebsVolume ::
+-- * 'device' - The device name that is exposed to the instance, such as /dev/sdh.
+-- * 'volumeId' - The volume identifier of the EBS volume.
+mkEBSVolume ::
   EBSVolume
-ebsVolume = EBSVolume' {_evDevice = Nothing, _evVolumeId = Nothing}
+mkEBSVolume =
+  EBSVolume' {device = Lude.Nothing, volumeId = Lude.Nothing}
 
 -- | The device name that is exposed to the instance, such as /dev/sdh.
-evDevice :: Lens' EBSVolume (Maybe Text)
-evDevice = lens _evDevice (\s a -> s {_evDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evDevice :: Lens.Lens' EBSVolume (Lude.Maybe Lude.Text)
+evDevice = Lens.lens (device :: EBSVolume -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: EBSVolume)
+{-# DEPRECATED evDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | The volume identifier of the EBS volume.
-evVolumeId :: Lens' EBSVolume (Maybe Text)
-evVolumeId = lens _evVolumeId (\s a -> s {_evVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evVolumeId :: Lens.Lens' EBSVolume (Lude.Maybe Lude.Text)
+evVolumeId = Lens.lens (volumeId :: EBSVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: EBSVolume)
+{-# DEPRECATED evVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance FromJSON EBSVolume where
+instance Lude.FromJSON EBSVolume where
   parseJSON =
-    withObject
+    Lude.withObject
       "EBSVolume"
-      (\x -> EBSVolume' <$> (x .:? "Device") <*> (x .:? "VolumeId"))
-
-instance Hashable EBSVolume
-
-instance NFData EBSVolume
+      ( \x ->
+          EBSVolume'
+            Lude.<$> (x Lude..:? "Device") Lude.<*> (x Lude..:? "VolumeId")
+      )

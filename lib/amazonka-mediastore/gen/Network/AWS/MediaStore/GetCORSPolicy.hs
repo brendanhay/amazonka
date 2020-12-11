@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,134 @@
 --
 -- Returns the cross-origin resource sharing (CORS) configuration information that is set for the container.
 --
---
 -- To use this operation, you must have permission to perform the @MediaStore:GetCorsPolicy@ action. By default, the container owner has this permission and can grant it to others.
 module Network.AWS.MediaStore.GetCORSPolicy
-  ( -- * Creating a Request
-    getCORSPolicy,
-    GetCORSPolicy,
+  ( -- * Creating a request
+    GetCORSPolicy (..),
+    mkGetCORSPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcpContainerName,
 
-    -- * Destructuring the Response
-    getCORSPolicyResponse,
-    GetCORSPolicyResponse,
+    -- * Destructuring the response
+    GetCORSPolicyResponse (..),
+    mkGetCORSPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcorsprsResponseStatus,
     gcorsprsCORSPolicy,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCORSPolicy' smart constructor.
-newtype GetCORSPolicy = GetCORSPolicy' {_gcpContainerName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetCORSPolicy' smart constructor.
+newtype GetCORSPolicy = GetCORSPolicy' {containerName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCORSPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcpContainerName' - The name of the container that the policy is assigned to.
-getCORSPolicy ::
-  -- | 'gcpContainerName'
-  Text ->
+-- * 'containerName' - The name of the container that the policy is assigned to.
+mkGetCORSPolicy ::
+  -- | 'containerName'
+  Lude.Text ->
   GetCORSPolicy
-getCORSPolicy pContainerName_ =
-  GetCORSPolicy' {_gcpContainerName = pContainerName_}
+mkGetCORSPolicy pContainerName_ =
+  GetCORSPolicy' {containerName = pContainerName_}
 
 -- | The name of the container that the policy is assigned to.
-gcpContainerName :: Lens' GetCORSPolicy Text
-gcpContainerName = lens _gcpContainerName (\s a -> s {_gcpContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpContainerName :: Lens.Lens' GetCORSPolicy Lude.Text
+gcpContainerName = Lens.lens (containerName :: GetCORSPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetCORSPolicy)
+{-# DEPRECATED gcpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance AWSRequest GetCORSPolicy where
+instance Lude.AWSRequest GetCORSPolicy where
   type Rs GetCORSPolicy = GetCORSPolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCORSPolicyResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "CorsPolicy")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "CorsPolicy")
       )
 
-instance Hashable GetCORSPolicy
-
-instance NFData GetCORSPolicy
-
-instance ToHeaders GetCORSPolicy where
+instance Lude.ToHeaders GetCORSPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.GetCorsPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.GetCorsPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCORSPolicy where
+instance Lude.ToJSON GetCORSPolicy where
   toJSON GetCORSPolicy' {..} =
-    object (catMaybes [Just ("ContainerName" .= _gcpContainerName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ContainerName" Lude..= containerName)]
+      )
 
-instance ToPath GetCORSPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetCORSPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCORSPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetCORSPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCORSPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetCORSPolicyResponse' smart constructor.
 data GetCORSPolicyResponse = GetCORSPolicyResponse'
-  { _gcorsprsResponseStatus ::
-      !Int,
-    _gcorsprsCORSPolicy :: !(List1 CORSRule)
+  { responseStatus ::
+      Lude.Int,
+    corsPolicy :: Lude.NonEmpty CORSRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCORSPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcorsprsResponseStatus' - -- | The response status code.
---
--- * 'gcorsprsCORSPolicy' - The CORS policy assigned to the container.
-getCORSPolicyResponse ::
-  -- | 'gcorsprsResponseStatus'
-  Int ->
-  -- | 'gcorsprsCORSPolicy'
-  NonEmpty CORSRule ->
+-- * 'corsPolicy' - The CORS policy assigned to the container.
+-- * 'responseStatus' - The response status code.
+mkGetCORSPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'corsPolicy'
+  Lude.NonEmpty CORSRule ->
   GetCORSPolicyResponse
-getCORSPolicyResponse pResponseStatus_ pCORSPolicy_ =
+mkGetCORSPolicyResponse pResponseStatus_ pCORSPolicy_ =
   GetCORSPolicyResponse'
-    { _gcorsprsResponseStatus =
-        pResponseStatus_,
-      _gcorsprsCORSPolicy = _List1 # pCORSPolicy_
+    { responseStatus = pResponseStatus_,
+      corsPolicy = pCORSPolicy_
     }
 
--- | -- | The response status code.
-gcorsprsResponseStatus :: Lens' GetCORSPolicyResponse Int
-gcorsprsResponseStatus = lens _gcorsprsResponseStatus (\s a -> s {_gcorsprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcorsprsResponseStatus :: Lens.Lens' GetCORSPolicyResponse Lude.Int
+gcorsprsResponseStatus = Lens.lens (responseStatus :: GetCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCORSPolicyResponse)
+{-# DEPRECATED gcorsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The CORS policy assigned to the container.
-gcorsprsCORSPolicy :: Lens' GetCORSPolicyResponse (NonEmpty CORSRule)
-gcorsprsCORSPolicy = lens _gcorsprsCORSPolicy (\s a -> s {_gcorsprsCORSPolicy = a}) . _List1
-
-instance NFData GetCORSPolicyResponse
+--
+-- /Note:/ Consider using 'corsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcorsprsCORSPolicy :: Lens.Lens' GetCORSPolicyResponse (Lude.NonEmpty CORSRule)
+gcorsprsCORSPolicy = Lens.lens (corsPolicy :: GetCORSPolicyResponse -> Lude.NonEmpty CORSRule) (\s a -> s {corsPolicy = a} :: GetCORSPolicyResponse)
+{-# DEPRECATED gcorsprsCORSPolicy "Use generic-lens or generic-optics with 'corsPolicy' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.BundleTaskError where
+module Network.AWS.EC2.Types.BundleTaskError
+  ( BundleTaskError (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBundleTaskError,
+
+    -- * Lenses
+    bteCode,
+    bteMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an error for 'BundleInstance' .
 --
---
---
--- /See:/ 'bundleTaskError' smart constructor.
+-- /See:/ 'mkBundleTaskError' smart constructor.
 data BundleTaskError = BundleTaskError'
-  { _bteCode :: !(Maybe Text),
-    _bteMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BundleTaskError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bteCode' - The error code.
---
--- * 'bteMessage' - The error message.
-bundleTaskError ::
+-- * 'code' - The error code.
+-- * 'message' - The error message.
+mkBundleTaskError ::
   BundleTaskError
-bundleTaskError =
-  BundleTaskError' {_bteCode = Nothing, _bteMessage = Nothing}
+mkBundleTaskError =
+  BundleTaskError' {code = Lude.Nothing, message = Lude.Nothing}
 
 -- | The error code.
-bteCode :: Lens' BundleTaskError (Maybe Text)
-bteCode = lens _bteCode (\s a -> s {_bteCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bteCode :: Lens.Lens' BundleTaskError (Lude.Maybe Lude.Text)
+bteCode = Lens.lens (code :: BundleTaskError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: BundleTaskError)
+{-# DEPRECATED bteCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message.
-bteMessage :: Lens' BundleTaskError (Maybe Text)
-bteMessage = lens _bteMessage (\s a -> s {_bteMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bteMessage :: Lens.Lens' BundleTaskError (Lude.Maybe Lude.Text)
+bteMessage = Lens.lens (message :: BundleTaskError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: BundleTaskError)
+{-# DEPRECATED bteMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML BundleTaskError where
+instance Lude.FromXML BundleTaskError where
   parseXML x =
-    BundleTaskError' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable BundleTaskError
-
-instance NFData BundleTaskError
+    BundleTaskError'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

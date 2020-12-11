@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputSettings where
+module Network.AWS.MediaConvert.Types.OutputSettings
+  ( OutputSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOutputSettings,
+
+    -- * Lenses
+    osHlsSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.HlsSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specific settings for this type of output.
 --
--- /See:/ 'outputSettings' smart constructor.
+-- /See:/ 'mkOutputSettings' smart constructor.
 newtype OutputSettings = OutputSettings'
-  { _osHlsSettings ::
-      Maybe HlsSettings
+  { hlsSettings ::
+      Lude.Maybe HlsSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osHlsSettings' - Settings for HLS output groups
-outputSettings ::
+-- * 'hlsSettings' - Settings for HLS output groups
+mkOutputSettings ::
   OutputSettings
-outputSettings = OutputSettings' {_osHlsSettings = Nothing}
+mkOutputSettings = OutputSettings' {hlsSettings = Lude.Nothing}
 
 -- | Settings for HLS output groups
-osHlsSettings :: Lens' OutputSettings (Maybe HlsSettings)
-osHlsSettings = lens _osHlsSettings (\s a -> s {_osHlsSettings = a})
+--
+-- /Note:/ Consider using 'hlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osHlsSettings :: Lens.Lens' OutputSettings (Lude.Maybe HlsSettings)
+osHlsSettings = Lens.lens (hlsSettings :: OutputSettings -> Lude.Maybe HlsSettings) (\s a -> s {hlsSettings = a} :: OutputSettings)
+{-# DEPRECATED osHlsSettings "Use generic-lens or generic-optics with 'hlsSettings' instead." #-}
 
-instance FromJSON OutputSettings where
+instance Lude.FromJSON OutputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputSettings"
-      (\x -> OutputSettings' <$> (x .:? "hlsSettings"))
+      (\x -> OutputSettings' Lude.<$> (x Lude..:? "hlsSettings"))
 
-instance Hashable OutputSettings
-
-instance NFData OutputSettings
-
-instance ToJSON OutputSettings where
+instance Lude.ToJSON OutputSettings where
   toJSON OutputSettings' {..} =
-    object (catMaybes [("hlsSettings" .=) <$> _osHlsSettings])
+    Lude.object
+      (Lude.catMaybes [("hlsSettings" Lude..=) Lude.<$> hlsSettings])

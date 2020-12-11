@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SubnetAssociation where
+module Network.AWS.EC2.Types.SubnetAssociation
+  ( SubnetAssociation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSubnetAssociation,
+
+    -- * Lenses
+    saState,
+    saSubnetId,
+  )
+where
+
 import Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the subnet association with the transit gateway multicast domain.
 --
---
---
--- /See:/ 'subnetAssociation' smart constructor.
+-- /See:/ 'mkSubnetAssociation' smart constructor.
 data SubnetAssociation = SubnetAssociation'
-  { _saState ::
-      !(Maybe TransitGatewayMulitcastDomainAssociationState),
-    _saSubnetId :: !(Maybe Text)
+  { state ::
+      Lude.Maybe
+        TransitGatewayMulitcastDomainAssociationState,
+    subnetId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saState' - The state of the subnet association.
---
--- * 'saSubnetId' - The ID of the subnet.
-subnetAssociation ::
+-- * 'state' - The state of the subnet association.
+-- * 'subnetId' - The ID of the subnet.
+mkSubnetAssociation ::
   SubnetAssociation
-subnetAssociation =
-  SubnetAssociation' {_saState = Nothing, _saSubnetId = Nothing}
+mkSubnetAssociation =
+  SubnetAssociation' {state = Lude.Nothing, subnetId = Lude.Nothing}
 
 -- | The state of the subnet association.
-saState :: Lens' SubnetAssociation (Maybe TransitGatewayMulitcastDomainAssociationState)
-saState = lens _saState (\s a -> s {_saState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saState :: Lens.Lens' SubnetAssociation (Lude.Maybe TransitGatewayMulitcastDomainAssociationState)
+saState = Lens.lens (state :: SubnetAssociation -> Lude.Maybe TransitGatewayMulitcastDomainAssociationState) (\s a -> s {state = a} :: SubnetAssociation)
+{-# DEPRECATED saState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the subnet.
-saSubnetId :: Lens' SubnetAssociation (Maybe Text)
-saSubnetId = lens _saSubnetId (\s a -> s {_saSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saSubnetId :: Lens.Lens' SubnetAssociation (Lude.Maybe Lude.Text)
+saSubnetId = Lens.lens (subnetId :: SubnetAssociation -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: SubnetAssociation)
+{-# DEPRECATED saSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
-instance FromXML SubnetAssociation where
+instance Lude.FromXML SubnetAssociation where
   parseXML x =
-    SubnetAssociation' <$> (x .@? "state") <*> (x .@? "subnetId")
-
-instance Hashable SubnetAssociation
-
-instance NFData SubnetAssociation
+    SubnetAssociation'
+      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "subnetId")

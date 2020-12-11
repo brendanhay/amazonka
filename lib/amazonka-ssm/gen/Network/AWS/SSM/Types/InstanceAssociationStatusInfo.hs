@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,157 +7,201 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstanceAssociationStatusInfo where
+module Network.AWS.SSM.Types.InstanceAssociationStatusInfo
+  ( InstanceAssociationStatusInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceAssociationStatusInfo,
+
+    -- * Lenses
+    iasiAssociationId,
+    iasiInstanceId,
+    iasiDetailedStatus,
+    iasiStatus,
+    iasiOutputURL,
+    iasiExecutionSummary,
+    iasiName,
+    iasiErrorCode,
+    iasiDocumentVersion,
+    iasiAssociationVersion,
+    iasiExecutionDate,
+    iasiAssociationName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InstanceAssociationOutputURL
 
 -- | Status information about the instance association.
 --
---
---
--- /See:/ 'instanceAssociationStatusInfo' smart constructor.
+-- /See:/ 'mkInstanceAssociationStatusInfo' smart constructor.
 data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
-  { _iasiAssociationId ::
-      !(Maybe Text),
-    _iasiInstanceId ::
-      !(Maybe Text),
-    _iasiDetailedStatus ::
-      !(Maybe Text),
-    _iasiStatus :: !(Maybe Text),
-    _iasiOutputURL ::
-      !( Maybe
-           InstanceAssociationOutputURL
-       ),
-    _iasiExecutionSummary ::
-      !(Maybe Text),
-    _iasiName :: !(Maybe Text),
-    _iasiErrorCode :: !(Maybe Text),
-    _iasiDocumentVersion ::
-      !(Maybe Text),
-    _iasiAssociationVersion ::
-      !(Maybe Text),
-    _iasiExecutionDate ::
-      !(Maybe POSIX),
-    _iasiAssociationName ::
-      !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    instanceId ::
+      Lude.Maybe Lude.Text,
+    detailedStatus ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    outputURL ::
+      Lude.Maybe
+        InstanceAssociationOutputURL,
+    executionSummary ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    errorCode ::
+      Lude.Maybe Lude.Text,
+    documentVersion ::
+      Lude.Maybe Lude.Text,
+    associationVersion ::
+      Lude.Maybe Lude.Text,
+    executionDate ::
+      Lude.Maybe Lude.Timestamp,
+    associationName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAssociationStatusInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iasiAssociationId' - The association ID.
---
--- * 'iasiInstanceId' - The instance ID where the association was created.
---
--- * 'iasiDetailedStatus' - Detailed status information about the instance association.
---
--- * 'iasiStatus' - Status information about the instance association.
---
--- * 'iasiOutputURL' - A URL for an S3 bucket where you want to store the results of this request.
---
--- * 'iasiExecutionSummary' - Summary information about association execution.
---
--- * 'iasiName' - The name of the association.
---
--- * 'iasiErrorCode' - An error code returned by the request to create the association.
---
--- * 'iasiDocumentVersion' - The association document versions.
---
--- * 'iasiAssociationVersion' - The version of the association applied to the instance.
---
--- * 'iasiExecutionDate' - The date the instance association ran.
---
--- * 'iasiAssociationName' - The name of the association applied to the instance.
-instanceAssociationStatusInfo ::
+-- * 'associationId' - The association ID.
+-- * 'associationName' - The name of the association applied to the instance.
+-- * 'associationVersion' - The version of the association applied to the instance.
+-- * 'detailedStatus' - Detailed status information about the instance association.
+-- * 'documentVersion' - The association document versions.
+-- * 'errorCode' - An error code returned by the request to create the association.
+-- * 'executionDate' - The date the instance association ran.
+-- * 'executionSummary' - Summary information about association execution.
+-- * 'instanceId' - The instance ID where the association was created.
+-- * 'name' - The name of the association.
+-- * 'outputURL' - A URL for an S3 bucket where you want to store the results of this request.
+-- * 'status' - Status information about the instance association.
+mkInstanceAssociationStatusInfo ::
   InstanceAssociationStatusInfo
-instanceAssociationStatusInfo =
+mkInstanceAssociationStatusInfo =
   InstanceAssociationStatusInfo'
-    { _iasiAssociationId = Nothing,
-      _iasiInstanceId = Nothing,
-      _iasiDetailedStatus = Nothing,
-      _iasiStatus = Nothing,
-      _iasiOutputURL = Nothing,
-      _iasiExecutionSummary = Nothing,
-      _iasiName = Nothing,
-      _iasiErrorCode = Nothing,
-      _iasiDocumentVersion = Nothing,
-      _iasiAssociationVersion = Nothing,
-      _iasiExecutionDate = Nothing,
-      _iasiAssociationName = Nothing
+    { associationId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      detailedStatus = Lude.Nothing,
+      status = Lude.Nothing,
+      outputURL = Lude.Nothing,
+      executionSummary = Lude.Nothing,
+      name = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      documentVersion = Lude.Nothing,
+      associationVersion = Lude.Nothing,
+      executionDate = Lude.Nothing,
+      associationName = Lude.Nothing
     }
 
 -- | The association ID.
-iasiAssociationId :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiAssociationId = lens _iasiAssociationId (\s a -> s {_iasiAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiAssociationId :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiAssociationId = Lens.lens (associationId :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The instance ID where the association was created.
-iasiInstanceId :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiInstanceId = lens _iasiInstanceId (\s a -> s {_iasiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiInstanceId :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiInstanceId = Lens.lens (instanceId :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Detailed status information about the instance association.
-iasiDetailedStatus :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiDetailedStatus = lens _iasiDetailedStatus (\s a -> s {_iasiDetailedStatus = a})
+--
+-- /Note:/ Consider using 'detailedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiDetailedStatus :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiDetailedStatus = Lens.lens (detailedStatus :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {detailedStatus = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiDetailedStatus "Use generic-lens or generic-optics with 'detailedStatus' instead." #-}
 
 -- | Status information about the instance association.
-iasiStatus :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiStatus = lens _iasiStatus (\s a -> s {_iasiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiStatus :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiStatus = Lens.lens (status :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A URL for an S3 bucket where you want to store the results of this request.
-iasiOutputURL :: Lens' InstanceAssociationStatusInfo (Maybe InstanceAssociationOutputURL)
-iasiOutputURL = lens _iasiOutputURL (\s a -> s {_iasiOutputURL = a})
+--
+-- /Note:/ Consider using 'outputURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiOutputURL :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe InstanceAssociationOutputURL)
+iasiOutputURL = Lens.lens (outputURL :: InstanceAssociationStatusInfo -> Lude.Maybe InstanceAssociationOutputURL) (\s a -> s {outputURL = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiOutputURL "Use generic-lens or generic-optics with 'outputURL' instead." #-}
 
 -- | Summary information about association execution.
-iasiExecutionSummary :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiExecutionSummary = lens _iasiExecutionSummary (\s a -> s {_iasiExecutionSummary = a})
+--
+-- /Note:/ Consider using 'executionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiExecutionSummary :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiExecutionSummary = Lens.lens (executionSummary :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {executionSummary = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiExecutionSummary "Use generic-lens or generic-optics with 'executionSummary' instead." #-}
 
 -- | The name of the association.
-iasiName :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiName = lens _iasiName (\s a -> s {_iasiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiName :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiName = Lens.lens (name :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An error code returned by the request to create the association.
-iasiErrorCode :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiErrorCode = lens _iasiErrorCode (\s a -> s {_iasiErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiErrorCode :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiErrorCode = Lens.lens (errorCode :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The association document versions.
-iasiDocumentVersion :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiDocumentVersion = lens _iasiDocumentVersion (\s a -> s {_iasiDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiDocumentVersion :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiDocumentVersion = Lens.lens (documentVersion :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | The version of the association applied to the instance.
-iasiAssociationVersion :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiAssociationVersion = lens _iasiAssociationVersion (\s a -> s {_iasiAssociationVersion = a})
+--
+-- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiAssociationVersion :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiAssociationVersion = Lens.lens (associationVersion :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
 
 -- | The date the instance association ran.
-iasiExecutionDate :: Lens' InstanceAssociationStatusInfo (Maybe UTCTime)
-iasiExecutionDate = lens _iasiExecutionDate (\s a -> s {_iasiExecutionDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiExecutionDate :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Timestamp)
+iasiExecutionDate = Lens.lens (executionDate :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionDate = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiExecutionDate "Use generic-lens or generic-optics with 'executionDate' instead." #-}
 
 -- | The name of the association applied to the instance.
-iasiAssociationName :: Lens' InstanceAssociationStatusInfo (Maybe Text)
-iasiAssociationName = lens _iasiAssociationName (\s a -> s {_iasiAssociationName = a})
+--
+-- /Note:/ Consider using 'associationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iasiAssociationName :: Lens.Lens' InstanceAssociationStatusInfo (Lude.Maybe Lude.Text)
+iasiAssociationName = Lens.lens (associationName :: InstanceAssociationStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {associationName = a} :: InstanceAssociationStatusInfo)
+{-# DEPRECATED iasiAssociationName "Use generic-lens or generic-optics with 'associationName' instead." #-}
 
-instance FromJSON InstanceAssociationStatusInfo where
+instance Lude.FromJSON InstanceAssociationStatusInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceAssociationStatusInfo"
       ( \x ->
           InstanceAssociationStatusInfo'
-            <$> (x .:? "AssociationId")
-            <*> (x .:? "InstanceId")
-            <*> (x .:? "DetailedStatus")
-            <*> (x .:? "Status")
-            <*> (x .:? "OutputUrl")
-            <*> (x .:? "ExecutionSummary")
-            <*> (x .:? "Name")
-            <*> (x .:? "ErrorCode")
-            <*> (x .:? "DocumentVersion")
-            <*> (x .:? "AssociationVersion")
-            <*> (x .:? "ExecutionDate")
-            <*> (x .:? "AssociationName")
+            Lude.<$> (x Lude..:? "AssociationId")
+            Lude.<*> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "DetailedStatus")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "OutputUrl")
+            Lude.<*> (x Lude..:? "ExecutionSummary")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "DocumentVersion")
+            Lude.<*> (x Lude..:? "AssociationVersion")
+            Lude.<*> (x Lude..:? "ExecutionDate")
+            Lude.<*> (x Lude..:? "AssociationName")
       )
-
-instance Hashable InstanceAssociationStatusInfo
-
-instance NFData InstanceAssociationStatusInfo

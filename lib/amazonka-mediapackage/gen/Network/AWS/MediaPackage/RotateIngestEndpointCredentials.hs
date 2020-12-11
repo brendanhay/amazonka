@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
 module Network.AWS.MediaPackage.RotateIngestEndpointCredentials
-  ( -- * Creating a Request
-    rotateIngestEndpointCredentials,
-    RotateIngestEndpointCredentials,
+  ( -- * Creating a request
+    RotateIngestEndpointCredentials (..),
+    mkRotateIngestEndpointCredentials,
 
-    -- * Request Lenses
+    -- ** Request lenses
     riecIngestEndpointId,
     riecId,
 
-    -- * Destructuring the Response
-    rotateIngestEndpointCredentialsResponse,
-    RotateIngestEndpointCredentialsResponse,
+    -- * Destructuring the response
+    RotateIngestEndpointCredentialsResponse (..),
+    mkRotateIngestEndpointCredentialsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     riecrsIngressAccessLogs,
     riecrsHlsIngest,
     riecrsARN,
@@ -43,198 +38,219 @@ module Network.AWS.MediaPackage.RotateIngestEndpointCredentials
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rotateIngestEndpointCredentials' smart constructor.
+-- | /See:/ 'mkRotateIngestEndpointCredentials' smart constructor.
 data RotateIngestEndpointCredentials = RotateIngestEndpointCredentials'
-  { _riecIngestEndpointId ::
-      !Text,
-    _riecId :: !Text
+  { ingestEndpointId ::
+      Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateIngestEndpointCredentials' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riecIngestEndpointId' - The id of the IngestEndpoint whose credentials should be rotated
---
--- * 'riecId' - The ID of the channel the IngestEndpoint is on.
-rotateIngestEndpointCredentials ::
-  -- | 'riecIngestEndpointId'
-  Text ->
-  -- | 'riecId'
-  Text ->
+-- * 'id' - The ID of the channel the IngestEndpoint is on.
+-- * 'ingestEndpointId' - The id of the IngestEndpoint whose credentials should be rotated
+mkRotateIngestEndpointCredentials ::
+  -- | 'ingestEndpointId'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   RotateIngestEndpointCredentials
-rotateIngestEndpointCredentials pIngestEndpointId_ pId_ =
+mkRotateIngestEndpointCredentials pIngestEndpointId_ pId_ =
   RotateIngestEndpointCredentials'
-    { _riecIngestEndpointId =
+    { ingestEndpointId =
         pIngestEndpointId_,
-      _riecId = pId_
+      id = pId_
     }
 
 -- | The id of the IngestEndpoint whose credentials should be rotated
-riecIngestEndpointId :: Lens' RotateIngestEndpointCredentials Text
-riecIngestEndpointId = lens _riecIngestEndpointId (\s a -> s {_riecIngestEndpointId = a})
+--
+-- /Note:/ Consider using 'ingestEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecIngestEndpointId :: Lens.Lens' RotateIngestEndpointCredentials Lude.Text
+riecIngestEndpointId = Lens.lens (ingestEndpointId :: RotateIngestEndpointCredentials -> Lude.Text) (\s a -> s {ingestEndpointId = a} :: RotateIngestEndpointCredentials)
+{-# DEPRECATED riecIngestEndpointId "Use generic-lens or generic-optics with 'ingestEndpointId' instead." #-}
 
 -- | The ID of the channel the IngestEndpoint is on.
-riecId :: Lens' RotateIngestEndpointCredentials Text
-riecId = lens _riecId (\s a -> s {_riecId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecId :: Lens.Lens' RotateIngestEndpointCredentials Lude.Text
+riecId = Lens.lens (id :: RotateIngestEndpointCredentials -> Lude.Text) (\s a -> s {id = a} :: RotateIngestEndpointCredentials)
+{-# DEPRECATED riecId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest RotateIngestEndpointCredentials where
+instance Lude.AWSRequest RotateIngestEndpointCredentials where
   type
     Rs RotateIngestEndpointCredentials =
       RotateIngestEndpointCredentialsResponse
-  request = putJSON mediaPackage
+  request = Req.putJSON mediaPackageService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RotateIngestEndpointCredentialsResponse'
-            <$> (x .?> "ingressAccessLogs")
-            <*> (x .?> "hlsIngest")
-            <*> (x .?> "arn")
-            <*> (x .?> "id")
-            <*> (x .?> "description")
-            <*> (x .?> "egressAccessLogs")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ingressAccessLogs")
+            Lude.<*> (x Lude..?> "hlsIngest")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "egressAccessLogs")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RotateIngestEndpointCredentials
-
-instance NFData RotateIngestEndpointCredentials
-
-instance ToHeaders RotateIngestEndpointCredentials where
+instance Lude.ToHeaders RotateIngestEndpointCredentials where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON RotateIngestEndpointCredentials where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON RotateIngestEndpointCredentials where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath RotateIngestEndpointCredentials where
+instance Lude.ToPath RotateIngestEndpointCredentials where
   toPath RotateIngestEndpointCredentials' {..} =
-    mconcat
+    Lude.mconcat
       [ "/channels/",
-        toBS _riecId,
+        Lude.toBS id,
         "/ingest_endpoints/",
-        toBS _riecIngestEndpointId,
+        Lude.toBS ingestEndpointId,
         "/credentials"
       ]
 
-instance ToQuery RotateIngestEndpointCredentials where
-  toQuery = const mempty
+instance Lude.ToQuery RotateIngestEndpointCredentials where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rotateIngestEndpointCredentialsResponse' smart constructor.
+-- | /See:/ 'mkRotateIngestEndpointCredentialsResponse' smart constructor.
 data RotateIngestEndpointCredentialsResponse = RotateIngestEndpointCredentialsResponse'
-  { _riecrsIngressAccessLogs ::
-      !( Maybe
-           IngressAccessLogs
-       ),
-    _riecrsHlsIngest ::
-      !( Maybe
-           HlsIngest
-       ),
-    _riecrsARN ::
-      !( Maybe
-           Text
-       ),
-    _riecrsId ::
-      !( Maybe
-           Text
-       ),
-    _riecrsDescription ::
-      !( Maybe
-           Text
-       ),
-    _riecrsEgressAccessLogs ::
-      !( Maybe
-           EgressAccessLogs
-       ),
-    _riecrsTags ::
-      !( Maybe
-           ( Map
-               Text
-               (Text)
-           )
-       ),
-    _riecrsResponseStatus ::
-      !Int
+  { ingressAccessLogs ::
+      Lude.Maybe
+        IngressAccessLogs,
+    hlsIngest ::
+      Lude.Maybe
+        HlsIngest,
+    arn ::
+      Lude.Maybe
+        Lude.Text,
+    id ::
+      Lude.Maybe
+        Lude.Text,
+    description ::
+      Lude.Maybe
+        Lude.Text,
+    egressAccessLogs ::
+      Lude.Maybe
+        EgressAccessLogs,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateIngestEndpointCredentialsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riecrsIngressAccessLogs' - Undocumented member.
---
--- * 'riecrsHlsIngest' - Undocumented member.
---
--- * 'riecrsARN' - The Amazon Resource Name (ARN) assigned to the Channel.
---
--- * 'riecrsId' - The ID of the Channel.
---
--- * 'riecrsDescription' - A short text description of the Channel.
---
--- * 'riecrsEgressAccessLogs' - Undocumented member.
---
--- * 'riecrsTags' - Undocumented member.
---
--- * 'riecrsResponseStatus' - -- | The response status code.
-rotateIngestEndpointCredentialsResponse ::
-  -- | 'riecrsResponseStatus'
-  Int ->
+-- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' - Undocumented field.
+-- * 'hlsIngest' - Undocumented field.
+-- * 'id' - The ID of the Channel.
+-- * 'ingressAccessLogs' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Undocumented field.
+mkRotateIngestEndpointCredentialsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RotateIngestEndpointCredentialsResponse
-rotateIngestEndpointCredentialsResponse pResponseStatus_ =
+mkRotateIngestEndpointCredentialsResponse pResponseStatus_ =
   RotateIngestEndpointCredentialsResponse'
-    { _riecrsIngressAccessLogs =
-        Nothing,
-      _riecrsHlsIngest = Nothing,
-      _riecrsARN = Nothing,
-      _riecrsId = Nothing,
-      _riecrsDescription = Nothing,
-      _riecrsEgressAccessLogs = Nothing,
-      _riecrsTags = Nothing,
-      _riecrsResponseStatus = pResponseStatus_
+    { ingressAccessLogs =
+        Lude.Nothing,
+      hlsIngest = Lude.Nothing,
+      arn = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing,
+      egressAccessLogs = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-riecrsIngressAccessLogs :: Lens' RotateIngestEndpointCredentialsResponse (Maybe IngressAccessLogs)
-riecrsIngressAccessLogs = lens _riecrsIngressAccessLogs (\s a -> s {_riecrsIngressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ingressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsIngressAccessLogs :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe IngressAccessLogs)
+riecrsIngressAccessLogs = Lens.lens (ingressAccessLogs :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe IngressAccessLogs) (\s a -> s {ingressAccessLogs = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsIngressAccessLogs "Use generic-lens or generic-optics with 'ingressAccessLogs' instead." #-}
 
--- | Undocumented member.
-riecrsHlsIngest :: Lens' RotateIngestEndpointCredentialsResponse (Maybe HlsIngest)
-riecrsHlsIngest = lens _riecrsHlsIngest (\s a -> s {_riecrsHlsIngest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsIngest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsHlsIngest :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe HlsIngest)
+riecrsHlsIngest = Lens.lens (hlsIngest :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe HlsIngest) (\s a -> s {hlsIngest = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsHlsIngest "Use generic-lens or generic-optics with 'hlsIngest' instead." #-}
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
-riecrsARN :: Lens' RotateIngestEndpointCredentialsResponse (Maybe Text)
-riecrsARN = lens _riecrsARN (\s a -> s {_riecrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsARN :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe Lude.Text)
+riecrsARN = Lens.lens (arn :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The ID of the Channel.
-riecrsId :: Lens' RotateIngestEndpointCredentialsResponse (Maybe Text)
-riecrsId = lens _riecrsId (\s a -> s {_riecrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsId :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe Lude.Text)
+riecrsId = Lens.lens (id :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A short text description of the Channel.
-riecrsDescription :: Lens' RotateIngestEndpointCredentialsResponse (Maybe Text)
-riecrsDescription = lens _riecrsDescription (\s a -> s {_riecrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsDescription :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe Lude.Text)
+riecrsDescription = Lens.lens (description :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-riecrsEgressAccessLogs :: Lens' RotateIngestEndpointCredentialsResponse (Maybe EgressAccessLogs)
-riecrsEgressAccessLogs = lens _riecrsEgressAccessLogs (\s a -> s {_riecrsEgressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsEgressAccessLogs :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe EgressAccessLogs)
+riecrsEgressAccessLogs = Lens.lens (egressAccessLogs :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
 
--- | Undocumented member.
-riecrsTags :: Lens' RotateIngestEndpointCredentialsResponse (HashMap Text (Text))
-riecrsTags = lens _riecrsTags (\s a -> s {_riecrsTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsTags :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+riecrsTags = Lens.lens (tags :: RotateIngestEndpointCredentialsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-riecrsResponseStatus :: Lens' RotateIngestEndpointCredentialsResponse Int
-riecrsResponseStatus = lens _riecrsResponseStatus (\s a -> s {_riecrsResponseStatus = a})
-
-instance NFData RotateIngestEndpointCredentialsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riecrsResponseStatus :: Lens.Lens' RotateIngestEndpointCredentialsResponse Lude.Int
+riecrsResponseStatus = Lens.lens (responseStatus :: RotateIngestEndpointCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RotateIngestEndpointCredentialsResponse)
+{-# DEPRECATED riecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

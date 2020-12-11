@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Retrieves information about a subscription definition version.
 module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
-  ( -- * Creating a Request
-    getSubscriptionDefinitionVersion,
-    GetSubscriptionDefinitionVersion,
+  ( -- * Creating a request
+    GetSubscriptionDefinitionVersion (..),
+    mkGetSubscriptionDefinitionVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsdvNextToken,
     gsdvSubscriptionDefinitionId,
     gsdvSubscriptionDefinitionVersionId,
 
-    -- * Destructuring the Response
-    getSubscriptionDefinitionVersionResponse,
-    GetSubscriptionDefinitionVersionResponse,
+    -- * Destructuring the response
+    GetSubscriptionDefinitionVersionResponse (..),
+    mkGetSubscriptionDefinitionVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsdvrsDefinition,
     gsdvrsARN,
     gsdvrsNextToken,
@@ -44,191 +39,213 @@ module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSubscriptionDefinitionVersion' smart constructor.
+-- | /See:/ 'mkGetSubscriptionDefinitionVersion' smart constructor.
 data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
-  { _gsdvNextToken ::
-      !(Maybe Text),
-    _gsdvSubscriptionDefinitionId ::
-      !Text,
-    _gsdvSubscriptionDefinitionVersionId ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    subscriptionDefinitionId ::
+      Lude.Text,
+    subscriptionDefinitionVersionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'gsdvSubscriptionDefinitionId' - The ID of the subscription definition.
---
--- * 'gsdvSubscriptionDefinitionVersionId' - The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
-getSubscriptionDefinitionVersion ::
-  -- | 'gsdvSubscriptionDefinitionId'
-  Text ->
-  -- | 'gsdvSubscriptionDefinitionVersionId'
-  Text ->
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+-- * 'subscriptionDefinitionVersionId' - The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+mkGetSubscriptionDefinitionVersion ::
+  -- | 'subscriptionDefinitionId'
+  Lude.Text ->
+  -- | 'subscriptionDefinitionVersionId'
+  Lude.Text ->
   GetSubscriptionDefinitionVersion
-getSubscriptionDefinitionVersion
+mkGetSubscriptionDefinitionVersion
   pSubscriptionDefinitionId_
   pSubscriptionDefinitionVersionId_ =
     GetSubscriptionDefinitionVersion'
-      { _gsdvNextToken = Nothing,
-        _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_,
-        _gsdvSubscriptionDefinitionVersionId =
+      { nextToken = Lude.Nothing,
+        subscriptionDefinitionId = pSubscriptionDefinitionId_,
+        subscriptionDefinitionVersionId =
           pSubscriptionDefinitionVersionId_
       }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-gsdvNextToken :: Lens' GetSubscriptionDefinitionVersion (Maybe Text)
-gsdvNextToken = lens _gsdvNextToken (\s a -> s {_gsdvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvNextToken :: Lens.Lens' GetSubscriptionDefinitionVersion (Lude.Maybe Lude.Text)
+gsdvNextToken = Lens.lens (nextToken :: GetSubscriptionDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSubscriptionDefinitionVersion)
+{-# DEPRECATED gsdvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the subscription definition.
-gsdvSubscriptionDefinitionId :: Lens' GetSubscriptionDefinitionVersion Text
-gsdvSubscriptionDefinitionId = lens _gsdvSubscriptionDefinitionId (\s a -> s {_gsdvSubscriptionDefinitionId = a})
+--
+-- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvSubscriptionDefinitionId :: Lens.Lens' GetSubscriptionDefinitionVersion Lude.Text
+gsdvSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: GetSubscriptionDefinitionVersion -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: GetSubscriptionDefinitionVersion)
+{-# DEPRECATED gsdvSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
 -- | The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
-gsdvSubscriptionDefinitionVersionId :: Lens' GetSubscriptionDefinitionVersion Text
-gsdvSubscriptionDefinitionVersionId = lens _gsdvSubscriptionDefinitionVersionId (\s a -> s {_gsdvSubscriptionDefinitionVersionId = a})
+--
+-- /Note:/ Consider using 'subscriptionDefinitionVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvSubscriptionDefinitionVersionId :: Lens.Lens' GetSubscriptionDefinitionVersion Lude.Text
+gsdvSubscriptionDefinitionVersionId = Lens.lens (subscriptionDefinitionVersionId :: GetSubscriptionDefinitionVersion -> Lude.Text) (\s a -> s {subscriptionDefinitionVersionId = a} :: GetSubscriptionDefinitionVersion)
+{-# DEPRECATED gsdvSubscriptionDefinitionVersionId "Use generic-lens or generic-optics with 'subscriptionDefinitionVersionId' instead." #-}
 
-instance AWSRequest GetSubscriptionDefinitionVersion where
+instance Lude.AWSRequest GetSubscriptionDefinitionVersion where
   type
     Rs GetSubscriptionDefinitionVersion =
       GetSubscriptionDefinitionVersionResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSubscriptionDefinitionVersionResponse'
-            <$> (x .?> "Definition")
-            <*> (x .?> "Arn")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Version")
-            <*> (x .?> "Id")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Definition")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Version")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSubscriptionDefinitionVersion
-
-instance NFData GetSubscriptionDefinitionVersion
-
-instance ToHeaders GetSubscriptionDefinitionVersion where
+instance Lude.ToHeaders GetSubscriptionDefinitionVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSubscriptionDefinitionVersion where
+instance Lude.ToPath GetSubscriptionDefinitionVersion where
   toPath GetSubscriptionDefinitionVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        toBS _gsdvSubscriptionDefinitionId,
+        Lude.toBS subscriptionDefinitionId,
         "/versions/",
-        toBS _gsdvSubscriptionDefinitionVersionId
+        Lude.toBS subscriptionDefinitionVersionId
       ]
 
-instance ToQuery GetSubscriptionDefinitionVersion where
+instance Lude.ToQuery GetSubscriptionDefinitionVersion where
   toQuery GetSubscriptionDefinitionVersion' {..} =
-    mconcat ["NextToken" =: _gsdvNextToken]
+    Lude.mconcat ["NextToken" Lude.=: nextToken]
 
--- | /See:/ 'getSubscriptionDefinitionVersionResponse' smart constructor.
+-- | /See:/ 'mkGetSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'
-  { _gsdvrsDefinition ::
-      !( Maybe
-           SubscriptionDefinitionVersion
-       ),
-    _gsdvrsARN ::
-      !( Maybe
-           Text
-       ),
-    _gsdvrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gsdvrsCreationTimestamp ::
-      !( Maybe
-           Text
-       ),
-    _gsdvrsVersion ::
-      !( Maybe
-           Text
-       ),
-    _gsdvrsId ::
-      !( Maybe
-           Text
-       ),
-    _gsdvrsResponseStatus ::
-      !Int
+  { definition ::
+      Lude.Maybe
+        SubscriptionDefinitionVersion,
+    arn ::
+      Lude.Maybe
+        Lude.Text,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe
+        Lude.Text,
+    version ::
+      Lude.Maybe
+        Lude.Text,
+    id ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsdvrsDefinition' - Information about the subscription definition version.
---
--- * 'gsdvrsARN' - The ARN of the subscription definition version.
---
--- * 'gsdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'gsdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the subscription definition version was created.
---
--- * 'gsdvrsVersion' - The version of the subscription definition version.
---
--- * 'gsdvrsId' - The ID of the subscription definition version.
---
--- * 'gsdvrsResponseStatus' - -- | The response status code.
-getSubscriptionDefinitionVersionResponse ::
-  -- | 'gsdvrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the subscription definition version.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the subscription definition version was created.
+-- * 'definition' - Information about the subscription definition version.
+-- * 'id' - The ID of the subscription definition version.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The version of the subscription definition version.
+mkGetSubscriptionDefinitionVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSubscriptionDefinitionVersionResponse
-getSubscriptionDefinitionVersionResponse pResponseStatus_ =
+mkGetSubscriptionDefinitionVersionResponse pResponseStatus_ =
   GetSubscriptionDefinitionVersionResponse'
-    { _gsdvrsDefinition =
-        Nothing,
-      _gsdvrsARN = Nothing,
-      _gsdvrsNextToken = Nothing,
-      _gsdvrsCreationTimestamp = Nothing,
-      _gsdvrsVersion = Nothing,
-      _gsdvrsId = Nothing,
-      _gsdvrsResponseStatus = pResponseStatus_
+    { definition =
+        Lude.Nothing,
+      arn = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the subscription definition version.
-gsdvrsDefinition :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe SubscriptionDefinitionVersion)
-gsdvrsDefinition = lens _gsdvrsDefinition (\s a -> s {_gsdvrsDefinition = a})
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsDefinition :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Lude.Maybe SubscriptionDefinitionVersion)
+gsdvrsDefinition = Lens.lens (definition :: GetSubscriptionDefinitionVersionResponse -> Lude.Maybe SubscriptionDefinitionVersion) (\s a -> s {definition = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The ARN of the subscription definition version.
-gsdvrsARN :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsARN = lens _gsdvrsARN (\s a -> s {_gsdvrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsARN :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gsdvrsARN = Lens.lens (arn :: GetSubscriptionDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-gsdvrsNextToken :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsNextToken = lens _gsdvrsNextToken (\s a -> s {_gsdvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsNextToken :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gsdvrsNextToken = Lens.lens (nextToken :: GetSubscriptionDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the subscription definition version was created.
-gsdvrsCreationTimestamp :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsCreationTimestamp = lens _gsdvrsCreationTimestamp (\s a -> s {_gsdvrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsCreationTimestamp :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gsdvrsCreationTimestamp = Lens.lens (creationTimestamp :: GetSubscriptionDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The version of the subscription definition version.
-gsdvrsVersion :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsVersion = lens _gsdvrsVersion (\s a -> s {_gsdvrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsVersion :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gsdvrsVersion = Lens.lens (version :: GetSubscriptionDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the subscription definition version.
-gsdvrsId :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsId = lens _gsdvrsId (\s a -> s {_gsdvrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsId :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Lude.Maybe Lude.Text)
+gsdvrsId = Lens.lens (id :: GetSubscriptionDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | -- | The response status code.
-gsdvrsResponseStatus :: Lens' GetSubscriptionDefinitionVersionResponse Int
-gsdvrsResponseStatus = lens _gsdvrsResponseStatus (\s a -> s {_gsdvrsResponseStatus = a})
-
-instance NFData GetSubscriptionDefinitionVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvrsResponseStatus :: Lens.Lens' GetSubscriptionDefinitionVersionResponse Lude.Int
+gsdvrsResponseStatus = Lens.lens (responseStatus :: GetSubscriptionDefinitionVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSubscriptionDefinitionVersionResponse)
+{-# DEPRECATED gsdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

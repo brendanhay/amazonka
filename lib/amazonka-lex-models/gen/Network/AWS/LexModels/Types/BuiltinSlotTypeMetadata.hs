@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata where
+module Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
+  ( BuiltinSlotTypeMetadata (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkBuiltinSlotTypeMetadata,
+
+    -- * Lenses
+    bstmSignature,
+    bstmSupportedLocales,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Locale
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about a built in slot type.
 --
---
---
--- /See:/ 'builtinSlotTypeMetadata' smart constructor.
+-- /See:/ 'mkBuiltinSlotTypeMetadata' smart constructor.
 data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
-  { _bstmSignature ::
-      !(Maybe Text),
-    _bstmSupportedLocales :: !(Maybe [Locale])
+  { signature ::
+      Lude.Maybe Lude.Text,
+    supportedLocales :: Lude.Maybe [Locale]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuiltinSlotTypeMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bstmSignature' - A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
---
--- * 'bstmSupportedLocales' - A list of target locales for the slot.
-builtinSlotTypeMetadata ::
+-- * 'signature' - A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
+-- * 'supportedLocales' - A list of target locales for the slot.
+mkBuiltinSlotTypeMetadata ::
   BuiltinSlotTypeMetadata
-builtinSlotTypeMetadata =
+mkBuiltinSlotTypeMetadata =
   BuiltinSlotTypeMetadata'
-    { _bstmSignature = Nothing,
-      _bstmSupportedLocales = Nothing
+    { signature = Lude.Nothing,
+      supportedLocales = Lude.Nothing
     }
 
 -- | A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
-bstmSignature :: Lens' BuiltinSlotTypeMetadata (Maybe Text)
-bstmSignature = lens _bstmSignature (\s a -> s {_bstmSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bstmSignature :: Lens.Lens' BuiltinSlotTypeMetadata (Lude.Maybe Lude.Text)
+bstmSignature = Lens.lens (signature :: BuiltinSlotTypeMetadata -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: BuiltinSlotTypeMetadata)
+{-# DEPRECATED bstmSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | A list of target locales for the slot.
-bstmSupportedLocales :: Lens' BuiltinSlotTypeMetadata [Locale]
-bstmSupportedLocales = lens _bstmSupportedLocales (\s a -> s {_bstmSupportedLocales = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedLocales' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bstmSupportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Lude.Maybe [Locale])
+bstmSupportedLocales = Lens.lens (supportedLocales :: BuiltinSlotTypeMetadata -> Lude.Maybe [Locale]) (\s a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata)
+{-# DEPRECATED bstmSupportedLocales "Use generic-lens or generic-optics with 'supportedLocales' instead." #-}
 
-instance FromJSON BuiltinSlotTypeMetadata where
+instance Lude.FromJSON BuiltinSlotTypeMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "BuiltinSlotTypeMetadata"
       ( \x ->
           BuiltinSlotTypeMetadata'
-            <$> (x .:? "signature") <*> (x .:? "supportedLocales" .!= mempty)
+            Lude.<$> (x Lude..:? "signature")
+            Lude.<*> (x Lude..:? "supportedLocales" Lude..!= Lude.mempty)
       )
-
-instance Hashable BuiltinSlotTypeMetadata
-
-instance NFData BuiltinSlotTypeMetadata

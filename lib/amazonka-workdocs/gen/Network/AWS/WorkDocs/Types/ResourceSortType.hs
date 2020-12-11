@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.ResourceSortType where
+module Network.AWS.WorkDocs.Types.ResourceSortType
+  ( ResourceSortType
+      ( ResourceSortType',
+        Date,
+        Name
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceSortType
-  = Date
-  | Name
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceSortType = ResourceSortType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceSortType where
-  parser =
-    takeLowerText >>= \case
-      "date" -> pure Date
-      "name" -> pure Name
-      e ->
-        fromTextError $
-          "Failure parsing ResourceSortType from value: '" <> e
-            <> "'. Accepted values: date, name"
+pattern Date :: ResourceSortType
+pattern Date = ResourceSortType' "DATE"
 
-instance ToText ResourceSortType where
-  toText = \case
-    Date -> "DATE"
-    Name -> "NAME"
+pattern Name :: ResourceSortType
+pattern Name = ResourceSortType' "NAME"
 
-instance Hashable ResourceSortType
-
-instance NFData ResourceSortType
-
-instance ToByteString ResourceSortType
-
-instance ToQuery ResourceSortType
-
-instance ToHeader ResourceSortType
-
-instance ToJSON ResourceSortType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Date,
+  Name,
+  ResourceSortType'
+  #-}

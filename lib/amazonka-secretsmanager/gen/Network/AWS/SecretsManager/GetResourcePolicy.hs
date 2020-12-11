@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,35 +14,34 @@
 --
 -- Retrieves the JSON text of the resource-based policy document attached to the specified secret. The JSON request string input and response output displays formatted code with white space and line breaks for better readability. Submit your input as a single line JSON string.
 --
---
 -- __Minimum permissions__
---
 -- To run this command, you must have the following permissions:
 --
 --     * secretsmanager:GetResourcePolicy
---
 --
 --
 -- __Related operations__
 --
 --     * To attach a resource policy to a secret, use 'PutResourcePolicy' .
 --
+--
 --     * To delete the resource-based policy attached to a secret, use 'DeleteResourcePolicy' .
+--
 --
 --     * To list all of the currently available secrets, use 'ListSecrets' .
 module Network.AWS.SecretsManager.GetResourcePolicy
-  ( -- * Creating a Request
-    getResourcePolicy,
-    GetResourcePolicy,
+  ( -- * Creating a request
+    GetResourcePolicy (..),
+    mkGetResourcePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grpSecretId,
 
-    -- * Destructuring the Response
-    getResourcePolicyResponse,
-    GetResourcePolicyResponse,
+    -- * Destructuring the response
+    GetResourcePolicyResponse (..),
+    mkGetResourcePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grprsResourcePolicy,
     grprsARN,
     grprsName,
@@ -55,119 +49,137 @@ module Network.AWS.SecretsManager.GetResourcePolicy
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'getResourcePolicy' smart constructor.
+-- | /See:/ 'mkGetResourcePolicy' smart constructor.
 newtype GetResourcePolicy = GetResourcePolicy'
-  { _grpSecretId ::
-      Text
+  { secretId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grpSecretId' - Specifies the secret that you want to retrieve the attached resource-based policy for. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-getResourcePolicy ::
-  -- | 'grpSecretId'
-  Text ->
+-- * 'secretId' - Specifies the secret that you want to retrieve the attached resource-based policy for. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+mkGetResourcePolicy ::
+  -- | 'secretId'
+  Lude.Text ->
   GetResourcePolicy
-getResourcePolicy pSecretId_ =
-  GetResourcePolicy' {_grpSecretId = pSecretId_}
+mkGetResourcePolicy pSecretId_ =
+  GetResourcePolicy' {secretId = pSecretId_}
 
 -- | Specifies the secret that you want to retrieve the attached resource-based policy for. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-grpSecretId :: Lens' GetResourcePolicy Text
-grpSecretId = lens _grpSecretId (\s a -> s {_grpSecretId = a})
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpSecretId :: Lens.Lens' GetResourcePolicy Lude.Text
+grpSecretId = Lens.lens (secretId :: GetResourcePolicy -> Lude.Text) (\s a -> s {secretId = a} :: GetResourcePolicy)
+{-# DEPRECATED grpSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
-instance AWSRequest GetResourcePolicy where
+instance Lude.AWSRequest GetResourcePolicy where
   type Rs GetResourcePolicy = GetResourcePolicyResponse
-  request = postJSON secretsManager
+  request = Req.postJSON secretsManagerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            <$> (x .?> "ResourcePolicy")
-            <*> (x .?> "ARN")
-            <*> (x .?> "Name")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourcePolicy")
+            Lude.<*> (x Lude..?> "ARN")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetResourcePolicy
-
-instance NFData GetResourcePolicy
-
-instance ToHeaders GetResourcePolicy where
+instance Lude.ToHeaders GetResourcePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("secretsmanager.GetResourcePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("secretsmanager.GetResourcePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetResourcePolicy where
+instance Lude.ToJSON GetResourcePolicy where
   toJSON GetResourcePolicy' {..} =
-    object (catMaybes [Just ("SecretId" .= _grpSecretId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SecretId" Lude..= secretId)])
 
-instance ToPath GetResourcePolicy where
-  toPath = const "/"
+instance Lude.ToPath GetResourcePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetResourcePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetResourcePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getResourcePolicyResponse' smart constructor.
+-- | /See:/ 'mkGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { _grprsResourcePolicy ::
-      !(Maybe Text),
-    _grprsARN :: !(Maybe Text),
-    _grprsName :: !(Maybe Text),
-    _grprsResponseStatus :: !Int
+  { resourcePolicy ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grprsResourcePolicy' - A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager> in the /AWS Secrets Manager User Guide/ .
---
--- * 'grprsARN' - The ARN of the secret that the resource-based policy was retrieved for.
---
--- * 'grprsName' - The friendly name of the secret that the resource-based policy was retrieved for.
---
--- * 'grprsResponseStatus' - -- | The response status code.
-getResourcePolicyResponse ::
-  -- | 'grprsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the secret that the resource-based policy was retrieved for.
+-- * 'name' - The friendly name of the secret that the resource-based policy was retrieved for.
+-- * 'resourcePolicy' - A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager> in the /AWS Secrets Manager User Guide/ .
+-- * 'responseStatus' - The response status code.
+mkGetResourcePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetResourcePolicyResponse
-getResourcePolicyResponse pResponseStatus_ =
+mkGetResourcePolicyResponse pResponseStatus_ =
   GetResourcePolicyResponse'
-    { _grprsResourcePolicy = Nothing,
-      _grprsARN = Nothing,
-      _grprsName = Nothing,
-      _grprsResponseStatus = pResponseStatus_
+    { resourcePolicy = Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager> in the /AWS Secrets Manager User Guide/ .
-grprsResourcePolicy :: Lens' GetResourcePolicyResponse (Maybe Text)
-grprsResourcePolicy = lens _grprsResourcePolicy (\s a -> s {_grprsResourcePolicy = a})
+--
+-- /Note:/ Consider using 'resourcePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsResourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Text)
+grprsResourcePolicy = Lens.lens (resourcePolicy :: GetResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourcePolicy = a} :: GetResourcePolicyResponse)
+{-# DEPRECATED grprsResourcePolicy "Use generic-lens or generic-optics with 'resourcePolicy' instead." #-}
 
 -- | The ARN of the secret that the resource-based policy was retrieved for.
-grprsARN :: Lens' GetResourcePolicyResponse (Maybe Text)
-grprsARN = lens _grprsARN (\s a -> s {_grprsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsARN :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Text)
+grprsARN = Lens.lens (arn :: GetResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetResourcePolicyResponse)
+{-# DEPRECATED grprsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The friendly name of the secret that the resource-based policy was retrieved for.
-grprsName :: Lens' GetResourcePolicyResponse (Maybe Text)
-grprsName = lens _grprsName (\s a -> s {_grprsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsName :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Text)
+grprsName = Lens.lens (name :: GetResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetResourcePolicyResponse)
+{-# DEPRECATED grprsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-grprsResponseStatus :: Lens' GetResourcePolicyResponse Int
-grprsResponseStatus = lens _grprsResponseStatus (\s a -> s {_grprsResponseStatus = a})
-
-instance NFData GetResourcePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsResponseStatus :: Lens.Lens' GetResourcePolicyResponse Lude.Int
+grprsResponseStatus = Lens.lens (responseStatus :: GetResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourcePolicyResponse)
+{-# DEPRECATED grprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

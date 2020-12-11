@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.DetailsAttributes where
+module Network.AWS.MachineLearning.Types.DetailsAttributes
+  ( DetailsAttributes
+      ( DetailsAttributes',
+        Algorithm,
+        PredictiveModelType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the key values of @DetailsMap@ : @PredictiveModelType@ - Indicates the type of the @MLModel@ . @Algorithm@ - Indicates the algorithm that was used for the @MLModel@ .
-data DetailsAttributes
-  = Algorithm
-  | PredictiveModelType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DetailsAttributes = DetailsAttributes' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DetailsAttributes where
-  parser =
-    takeLowerText >>= \case
-      "algorithm" -> pure Algorithm
-      "predictivemodeltype" -> pure PredictiveModelType
-      e ->
-        fromTextError $
-          "Failure parsing DetailsAttributes from value: '" <> e
-            <> "'. Accepted values: algorithm, predictivemodeltype"
+pattern Algorithm :: DetailsAttributes
+pattern Algorithm = DetailsAttributes' "Algorithm"
 
-instance ToText DetailsAttributes where
-  toText = \case
-    Algorithm -> "Algorithm"
-    PredictiveModelType -> "PredictiveModelType"
+pattern PredictiveModelType :: DetailsAttributes
+pattern PredictiveModelType = DetailsAttributes' "PredictiveModelType"
 
-instance Hashable DetailsAttributes
-
-instance NFData DetailsAttributes
-
-instance ToByteString DetailsAttributes
-
-instance ToQuery DetailsAttributes
-
-instance ToHeader DetailsAttributes
-
-instance FromJSON DetailsAttributes where
-  parseJSON = parseJSONText "DetailsAttributes"
+{-# COMPLETE
+  Algorithm,
+  PredictiveModelType,
+  DetailsAttributes'
+  #-}

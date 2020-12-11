@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Describes event configurations.
 module Network.AWS.IoT.DescribeEventConfigurations
-  ( -- * Creating a Request
-    describeEventConfigurations,
-    DescribeEventConfigurations,
+  ( -- * Creating a request
+    DescribeEventConfigurations (..),
+    mkDescribeEventConfigurations,
 
-    -- * Destructuring the Response
-    describeEventConfigurationsResponse,
-    DescribeEventConfigurationsResponse,
+    -- * Destructuring the response
+    DescribeEventConfigurationsResponse (..),
+    mkDescribeEventConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     decrsLastModifiedDate,
     decrsEventConfigurations,
     decrsCreationDate,
@@ -36,104 +31,120 @@ module Network.AWS.IoT.DescribeEventConfigurations
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEventConfigurations' smart constructor.
+-- | /See:/ 'mkDescribeEventConfigurations' smart constructor.
 data DescribeEventConfigurations = DescribeEventConfigurations'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventConfigurations' with the minimum fields required to make a request.
-describeEventConfigurations ::
+mkDescribeEventConfigurations ::
   DescribeEventConfigurations
-describeEventConfigurations = DescribeEventConfigurations'
+mkDescribeEventConfigurations = DescribeEventConfigurations'
 
-instance AWSRequest DescribeEventConfigurations where
+instance Lude.AWSRequest DescribeEventConfigurations where
   type
     Rs DescribeEventConfigurations =
       DescribeEventConfigurationsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventConfigurationsResponse'
-            <$> (x .?> "lastModifiedDate")
-            <*> (x .?> "eventConfigurations" .!@ mempty)
-            <*> (x .?> "creationDate")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "lastModifiedDate")
+            Lude.<*> (x Lude..?> "eventConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "creationDate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEventConfigurations
+instance Lude.ToHeaders DescribeEventConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeEventConfigurations
+instance Lude.ToPath DescribeEventConfigurations where
+  toPath = Lude.const "/event-configurations"
 
-instance ToHeaders DescribeEventConfigurations where
-  toHeaders = const mempty
+instance Lude.ToQuery DescribeEventConfigurations where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DescribeEventConfigurations where
-  toPath = const "/event-configurations"
-
-instance ToQuery DescribeEventConfigurations where
-  toQuery = const mempty
-
--- | /See:/ 'describeEventConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeEventConfigurationsResponse' smart constructor.
 data DescribeEventConfigurationsResponse = DescribeEventConfigurationsResponse'
-  { _decrsLastModifiedDate ::
-      !(Maybe POSIX),
-    _decrsEventConfigurations ::
-      !( Maybe
-           ( Map
-               EventType
-               (Configuration)
-           )
-       ),
-    _decrsCreationDate ::
-      !(Maybe POSIX),
-    _decrsResponseStatus ::
-      !Int
+  { lastModifiedDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    eventConfigurations ::
+      Lude.Maybe
+        ( Lude.HashMap
+            EventType
+            (Configuration)
+        ),
+    creationDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decrsLastModifiedDate' - The date the event configurations were last modified.
---
--- * 'decrsEventConfigurations' - The event configurations.
---
--- * 'decrsCreationDate' - The creation date of the event configuration.
---
--- * 'decrsResponseStatus' - -- | The response status code.
-describeEventConfigurationsResponse ::
-  -- | 'decrsResponseStatus'
-  Int ->
+-- * 'creationDate' - The creation date of the event configuration.
+-- * 'eventConfigurations' - The event configurations.
+-- * 'lastModifiedDate' - The date the event configurations were last modified.
+-- * 'responseStatus' - The response status code.
+mkDescribeEventConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventConfigurationsResponse
-describeEventConfigurationsResponse pResponseStatus_ =
+mkDescribeEventConfigurationsResponse pResponseStatus_ =
   DescribeEventConfigurationsResponse'
-    { _decrsLastModifiedDate =
-        Nothing,
-      _decrsEventConfigurations = Nothing,
-      _decrsCreationDate = Nothing,
-      _decrsResponseStatus = pResponseStatus_
+    { lastModifiedDate =
+        Lude.Nothing,
+      eventConfigurations = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The date the event configurations were last modified.
-decrsLastModifiedDate :: Lens' DescribeEventConfigurationsResponse (Maybe UTCTime)
-decrsLastModifiedDate = lens _decrsLastModifiedDate (\s a -> s {_decrsLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsLastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Lude.Maybe Lude.Timestamp)
+decrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeEventConfigurationsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeEventConfigurationsResponse)
+{-# DEPRECATED decrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The event configurations.
-decrsEventConfigurations :: Lens' DescribeEventConfigurationsResponse (HashMap EventType (Configuration))
-decrsEventConfigurations = lens _decrsEventConfigurations (\s a -> s {_decrsEventConfigurations = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'eventConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsEventConfigurations :: Lens.Lens' DescribeEventConfigurationsResponse (Lude.Maybe (Lude.HashMap EventType (Configuration)))
+decrsEventConfigurations = Lens.lens (eventConfigurations :: DescribeEventConfigurationsResponse -> Lude.Maybe (Lude.HashMap EventType (Configuration))) (\s a -> s {eventConfigurations = a} :: DescribeEventConfigurationsResponse)
+{-# DEPRECATED decrsEventConfigurations "Use generic-lens or generic-optics with 'eventConfigurations' instead." #-}
 
 -- | The creation date of the event configuration.
-decrsCreationDate :: Lens' DescribeEventConfigurationsResponse (Maybe UTCTime)
-decrsCreationDate = lens _decrsCreationDate (\s a -> s {_decrsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsCreationDate :: Lens.Lens' DescribeEventConfigurationsResponse (Lude.Maybe Lude.Timestamp)
+decrsCreationDate = Lens.lens (creationDate :: DescribeEventConfigurationsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeEventConfigurationsResponse)
+{-# DEPRECATED decrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | -- | The response status code.
-decrsResponseStatus :: Lens' DescribeEventConfigurationsResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\s a -> s {_decrsResponseStatus = a})
-
-instance NFData DescribeEventConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsResponseStatus :: Lens.Lens' DescribeEventConfigurationsResponse Lude.Int
+decrsResponseStatus = Lens.lens (responseStatus :: DescribeEventConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventConfigurationsResponse)
+{-# DEPRECATED decrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

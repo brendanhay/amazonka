@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,146 @@
 --
 -- Describes the specified routing profile.
 module Network.AWS.Connect.DescribeRoutingProfile
-  ( -- * Creating a Request
-    describeRoutingProfile,
-    DescribeRoutingProfile,
+  ( -- * Creating a request
+    DescribeRoutingProfile (..),
+    mkDescribeRoutingProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drpInstanceId,
     drpRoutingProfileId,
 
-    -- * Destructuring the Response
-    describeRoutingProfileResponse,
-    DescribeRoutingProfileResponse,
+    -- * Destructuring the response
+    DescribeRoutingProfileResponse (..),
+    mkDescribeRoutingProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drprsRoutingProfile,
     drprsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRoutingProfile' smart constructor.
+-- | /See:/ 'mkDescribeRoutingProfile' smart constructor.
 data DescribeRoutingProfile = DescribeRoutingProfile'
-  { _drpInstanceId ::
-      !Text,
-    _drpRoutingProfileId :: !Text
+  { instanceId ::
+      Lude.Text,
+    routingProfileId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoutingProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drpInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'drpRoutingProfileId' - The identifier of the routing profile.
-describeRoutingProfile ::
-  -- | 'drpInstanceId'
-  Text ->
-  -- | 'drpRoutingProfileId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'routingProfileId' - The identifier of the routing profile.
+mkDescribeRoutingProfile ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'routingProfileId'
+  Lude.Text ->
   DescribeRoutingProfile
-describeRoutingProfile pInstanceId_ pRoutingProfileId_ =
+mkDescribeRoutingProfile pInstanceId_ pRoutingProfileId_ =
   DescribeRoutingProfile'
-    { _drpInstanceId = pInstanceId_,
-      _drpRoutingProfileId = pRoutingProfileId_
+    { instanceId = pInstanceId_,
+      routingProfileId = pRoutingProfileId_
     }
 
 -- | The identifier of the Amazon Connect instance.
-drpInstanceId :: Lens' DescribeRoutingProfile Text
-drpInstanceId = lens _drpInstanceId (\s a -> s {_drpInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpInstanceId :: Lens.Lens' DescribeRoutingProfile Lude.Text
+drpInstanceId = Lens.lens (instanceId :: DescribeRoutingProfile -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeRoutingProfile)
+{-# DEPRECATED drpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
-drpRoutingProfileId :: Lens' DescribeRoutingProfile Text
-drpRoutingProfileId = lens _drpRoutingProfileId (\s a -> s {_drpRoutingProfileId = a})
+--
+-- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpRoutingProfileId :: Lens.Lens' DescribeRoutingProfile Lude.Text
+drpRoutingProfileId = Lens.lens (routingProfileId :: DescribeRoutingProfile -> Lude.Text) (\s a -> s {routingProfileId = a} :: DescribeRoutingProfile)
+{-# DEPRECATED drpRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
-instance AWSRequest DescribeRoutingProfile where
+instance Lude.AWSRequest DescribeRoutingProfile where
   type Rs DescribeRoutingProfile = DescribeRoutingProfileResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRoutingProfileResponse'
-            <$> (x .?> "RoutingProfile") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RoutingProfile")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRoutingProfile
-
-instance NFData DescribeRoutingProfile
-
-instance ToHeaders DescribeRoutingProfile where
+instance Lude.ToHeaders DescribeRoutingProfile where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeRoutingProfile where
+instance Lude.ToPath DescribeRoutingProfile where
   toPath DescribeRoutingProfile' {..} =
-    mconcat
+    Lude.mconcat
       [ "/routing-profiles/",
-        toBS _drpInstanceId,
+        Lude.toBS instanceId,
         "/",
-        toBS _drpRoutingProfileId
+        Lude.toBS routingProfileId
       ]
 
-instance ToQuery DescribeRoutingProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRoutingProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRoutingProfileResponse' smart constructor.
+-- | /See:/ 'mkDescribeRoutingProfileResponse' smart constructor.
 data DescribeRoutingProfileResponse = DescribeRoutingProfileResponse'
-  { _drprsRoutingProfile ::
-      !(Maybe RoutingProfile),
-    _drprsResponseStatus :: !Int
+  { routingProfile ::
+      Lude.Maybe RoutingProfile,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoutingProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drprsRoutingProfile' - The routing profile.
---
--- * 'drprsResponseStatus' - -- | The response status code.
-describeRoutingProfileResponse ::
-  -- | 'drprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'routingProfile' - The routing profile.
+mkDescribeRoutingProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRoutingProfileResponse
-describeRoutingProfileResponse pResponseStatus_ =
+mkDescribeRoutingProfileResponse pResponseStatus_ =
   DescribeRoutingProfileResponse'
-    { _drprsRoutingProfile = Nothing,
-      _drprsResponseStatus = pResponseStatus_
+    { routingProfile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The routing profile.
-drprsRoutingProfile :: Lens' DescribeRoutingProfileResponse (Maybe RoutingProfile)
-drprsRoutingProfile = lens _drprsRoutingProfile (\s a -> s {_drprsRoutingProfile = a})
+--
+-- /Note:/ Consider using 'routingProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drprsRoutingProfile :: Lens.Lens' DescribeRoutingProfileResponse (Lude.Maybe RoutingProfile)
+drprsRoutingProfile = Lens.lens (routingProfile :: DescribeRoutingProfileResponse -> Lude.Maybe RoutingProfile) (\s a -> s {routingProfile = a} :: DescribeRoutingProfileResponse)
+{-# DEPRECATED drprsRoutingProfile "Use generic-lens or generic-optics with 'routingProfile' instead." #-}
 
--- | -- | The response status code.
-drprsResponseStatus :: Lens' DescribeRoutingProfileResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\s a -> s {_drprsResponseStatus = a})
-
-instance NFData DescribeRoutingProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drprsResponseStatus :: Lens.Lens' DescribeRoutingProfileResponse Lude.Int
+drprsResponseStatus = Lens.lens (responseStatus :: DescribeRoutingProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRoutingProfileResponse)
+{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.RuleGroupSummary where
+module Network.AWS.WAFRegional.Types.RuleGroupSummary
+  ( RuleGroupSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRuleGroupSummary,
+
+    -- * Lenses
+    rgsRuleGroupId,
+    rgsName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the identifier and the friendly name or description of the @RuleGroup@ .
 --
---
---
--- /See:/ 'ruleGroupSummary' smart constructor.
+-- /See:/ 'mkRuleGroupSummary' smart constructor.
 data RuleGroupSummary = RuleGroupSummary'
-  { _rgsRuleGroupId :: !Text,
-    _rgsName :: !Text
+  { ruleGroupId :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleGroupSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - A friendly name or description of the 'RuleGroup' . You can't change the name of a @RuleGroup@ after you create it.
+-- * 'ruleGroupId' - A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ).
 --
--- * 'rgsRuleGroupId' - A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ). @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
---
--- * 'rgsName' - A friendly name or description of the 'RuleGroup' . You can't change the name of a @RuleGroup@ after you create it.
-ruleGroupSummary ::
-  -- | 'rgsRuleGroupId'
-  Text ->
-  -- | 'rgsName'
-  Text ->
+-- @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+mkRuleGroupSummary ::
+  -- | 'ruleGroupId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   RuleGroupSummary
-ruleGroupSummary pRuleGroupId_ pName_ =
-  RuleGroupSummary'
-    { _rgsRuleGroupId = pRuleGroupId_,
-      _rgsName = pName_
-    }
+mkRuleGroupSummary pRuleGroupId_ pName_ =
+  RuleGroupSummary' {ruleGroupId = pRuleGroupId_, name = pName_}
 
--- | A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ). @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-rgsRuleGroupId :: Lens' RuleGroupSummary Text
-rgsRuleGroupId = lens _rgsRuleGroupId (\s a -> s {_rgsRuleGroupId = a})
+-- | A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ).
+--
+-- @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+--
+-- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsRuleGroupId :: Lens.Lens' RuleGroupSummary Lude.Text
+rgsRuleGroupId = Lens.lens (ruleGroupId :: RuleGroupSummary -> Lude.Text) (\s a -> s {ruleGroupId = a} :: RuleGroupSummary)
+{-# DEPRECATED rgsRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
 
 -- | A friendly name or description of the 'RuleGroup' . You can't change the name of a @RuleGroup@ after you create it.
-rgsName :: Lens' RuleGroupSummary Text
-rgsName = lens _rgsName (\s a -> s {_rgsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsName :: Lens.Lens' RuleGroupSummary Lude.Text
+rgsName = Lens.lens (name :: RuleGroupSummary -> Lude.Text) (\s a -> s {name = a} :: RuleGroupSummary)
+{-# DEPRECATED rgsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON RuleGroupSummary where
+instance Lude.FromJSON RuleGroupSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "RuleGroupSummary"
       ( \x ->
-          RuleGroupSummary' <$> (x .: "RuleGroupId") <*> (x .: "Name")
+          RuleGroupSummary'
+            Lude.<$> (x Lude..: "RuleGroupId") Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable RuleGroupSummary
-
-instance NFData RuleGroupSummary

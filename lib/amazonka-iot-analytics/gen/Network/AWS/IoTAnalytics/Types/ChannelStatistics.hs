@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ChannelStatistics where
+module Network.AWS.IoTAnalytics.Types.ChannelStatistics
+  ( ChannelStatistics (..),
+
+    -- * Smart constructor
+    mkChannelStatistics,
+
+    -- * Lenses
+    csSize,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Statistics information about the channel.
 --
---
---
--- /See:/ 'channelStatistics' smart constructor.
+-- /See:/ 'mkChannelStatistics' smart constructor.
 newtype ChannelStatistics = ChannelStatistics'
-  { _csSize ::
-      Maybe EstimatedResourceSize
+  { size ::
+      Lude.Maybe EstimatedResourceSize
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csSize' - The estimated size of the channel.
-channelStatistics ::
+-- * 'size' - The estimated size of the channel.
+mkChannelStatistics ::
   ChannelStatistics
-channelStatistics = ChannelStatistics' {_csSize = Nothing}
+mkChannelStatistics = ChannelStatistics' {size = Lude.Nothing}
 
 -- | The estimated size of the channel.
-csSize :: Lens' ChannelStatistics (Maybe EstimatedResourceSize)
-csSize = lens _csSize (\s a -> s {_csSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSize :: Lens.Lens' ChannelStatistics (Lude.Maybe EstimatedResourceSize)
+csSize = Lens.lens (size :: ChannelStatistics -> Lude.Maybe EstimatedResourceSize) (\s a -> s {size = a} :: ChannelStatistics)
+{-# DEPRECATED csSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance FromJSON ChannelStatistics where
+instance Lude.FromJSON ChannelStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "ChannelStatistics"
-      (\x -> ChannelStatistics' <$> (x .:? "size"))
-
-instance Hashable ChannelStatistics
-
-instance NFData ChannelStatistics
+      (\x -> ChannelStatistics' Lude.<$> (x Lude..:? "size"))

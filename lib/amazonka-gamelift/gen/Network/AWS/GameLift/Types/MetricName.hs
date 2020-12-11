@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MetricName where
+module Network.AWS.GameLift.Types.MetricName
+  ( MetricName
+      ( MetricName',
+        ActivatingGameSessions,
+        ActiveGameSessions,
+        ActiveInstances,
+        AvailableGameSessions,
+        AvailablePlayerSessions,
+        CurrentPlayerSessions,
+        IdleInstances,
+        PercentAvailableGameSessions,
+        PercentIdleInstances,
+        QueueDepth,
+        WaitTime
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricName
-  = ActivatingGameSessions
-  | ActiveGameSessions
-  | ActiveInstances
-  | AvailableGameSessions
-  | AvailablePlayerSessions
-  | CurrentPlayerSessions
-  | IdleInstances
-  | PercentAvailableGameSessions
-  | PercentIdleInstances
-  | QueueDepth
-  | WaitTime
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricName = MetricName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricName where
-  parser =
-    takeLowerText >>= \case
-      "activatinggamesessions" -> pure ActivatingGameSessions
-      "activegamesessions" -> pure ActiveGameSessions
-      "activeinstances" -> pure ActiveInstances
-      "availablegamesessions" -> pure AvailableGameSessions
-      "availableplayersessions" -> pure AvailablePlayerSessions
-      "currentplayersessions" -> pure CurrentPlayerSessions
-      "idleinstances" -> pure IdleInstances
-      "percentavailablegamesessions" -> pure PercentAvailableGameSessions
-      "percentidleinstances" -> pure PercentIdleInstances
-      "queuedepth" -> pure QueueDepth
-      "waittime" -> pure WaitTime
-      e ->
-        fromTextError $
-          "Failure parsing MetricName from value: '" <> e
-            <> "'. Accepted values: activatinggamesessions, activegamesessions, activeinstances, availablegamesessions, availableplayersessions, currentplayersessions, idleinstances, percentavailablegamesessions, percentidleinstances, queuedepth, waittime"
+pattern ActivatingGameSessions :: MetricName
+pattern ActivatingGameSessions = MetricName' "ActivatingGameSessions"
 
-instance ToText MetricName where
-  toText = \case
-    ActivatingGameSessions -> "ActivatingGameSessions"
-    ActiveGameSessions -> "ActiveGameSessions"
-    ActiveInstances -> "ActiveInstances"
-    AvailableGameSessions -> "AvailableGameSessions"
-    AvailablePlayerSessions -> "AvailablePlayerSessions"
-    CurrentPlayerSessions -> "CurrentPlayerSessions"
-    IdleInstances -> "IdleInstances"
-    PercentAvailableGameSessions -> "PercentAvailableGameSessions"
-    PercentIdleInstances -> "PercentIdleInstances"
-    QueueDepth -> "QueueDepth"
-    WaitTime -> "WaitTime"
+pattern ActiveGameSessions :: MetricName
+pattern ActiveGameSessions = MetricName' "ActiveGameSessions"
 
-instance Hashable MetricName
+pattern ActiveInstances :: MetricName
+pattern ActiveInstances = MetricName' "ActiveInstances"
 
-instance NFData MetricName
+pattern AvailableGameSessions :: MetricName
+pattern AvailableGameSessions = MetricName' "AvailableGameSessions"
 
-instance ToByteString MetricName
+pattern AvailablePlayerSessions :: MetricName
+pattern AvailablePlayerSessions = MetricName' "AvailablePlayerSessions"
 
-instance ToQuery MetricName
+pattern CurrentPlayerSessions :: MetricName
+pattern CurrentPlayerSessions = MetricName' "CurrentPlayerSessions"
 
-instance ToHeader MetricName
+pattern IdleInstances :: MetricName
+pattern IdleInstances = MetricName' "IdleInstances"
 
-instance ToJSON MetricName where
-  toJSON = toJSONText
+pattern PercentAvailableGameSessions :: MetricName
+pattern PercentAvailableGameSessions = MetricName' "PercentAvailableGameSessions"
 
-instance FromJSON MetricName where
-  parseJSON = parseJSONText "MetricName"
+pattern PercentIdleInstances :: MetricName
+pattern PercentIdleInstances = MetricName' "PercentIdleInstances"
+
+pattern QueueDepth :: MetricName
+pattern QueueDepth = MetricName' "QueueDepth"
+
+pattern WaitTime :: MetricName
+pattern WaitTime = MetricName' "WaitTime"
+
+{-# COMPLETE
+  ActivatingGameSessions,
+  ActiveGameSessions,
+  ActiveInstances,
+  AvailableGameSessions,
+  AvailablePlayerSessions,
+  CurrentPlayerSessions,
+  IdleInstances,
+  PercentAvailableGameSessions,
+  PercentIdleInstances,
+  QueueDepth,
+  WaitTime,
+  MetricName'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.OperationType where
+module Network.AWS.EC2.Types.OperationType
+  ( OperationType
+      ( OperationType',
+        Add,
+        Remove
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationType
-  = Add
-  | Remove
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationType = OperationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationType where
-  parser =
-    takeLowerText >>= \case
-      "add" -> pure Add
-      "remove" -> pure Remove
-      e ->
-        fromTextError $
-          "Failure parsing OperationType from value: '" <> e
-            <> "'. Accepted values: add, remove"
+pattern Add :: OperationType
+pattern Add = OperationType' "add"
 
-instance ToText OperationType where
-  toText = \case
-    Add -> "add"
-    Remove -> "remove"
+pattern Remove :: OperationType
+pattern Remove = OperationType' "remove"
 
-instance Hashable OperationType
-
-instance NFData OperationType
-
-instance ToByteString OperationType
-
-instance ToQuery OperationType
-
-instance ToHeader OperationType
+{-# COMPLETE
+  Add,
+  Remove,
+  OperationType'
+  #-}

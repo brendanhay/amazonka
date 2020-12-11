@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types
-  ( -- * Service Configuration
-    shield,
+  ( -- * Service configuration
+    shieldService,
 
     -- * Errors
 
@@ -46,8 +44,8 @@ module Network.AWS.Shield.Types
     Unit (..),
 
     -- * AttackDetail
-    AttackDetail,
-    attackDetail,
+    AttackDetail (..),
+    mkAttackDetail,
     adAttackId,
     adStartTime,
     adSubResources,
@@ -58,8 +56,8 @@ module Network.AWS.Shield.Types
     adEndTime,
 
     -- * AttackProperty
-    AttackProperty,
-    attackProperty,
+    AttackProperty (..),
+    mkAttackProperty,
     apAttackLayer,
     apTopContributors,
     apAttackPropertyIdentifier,
@@ -67,14 +65,14 @@ module Network.AWS.Shield.Types
     apUnit,
 
     -- * AttackStatisticsDataItem
-    AttackStatisticsDataItem,
-    attackStatisticsDataItem,
+    AttackStatisticsDataItem (..),
+    mkAttackStatisticsDataItem,
     asdiAttackVolume,
     asdiAttackCount,
 
     -- * AttackSummary
-    AttackSummary,
-    attackSummary,
+    AttackSummary (..),
+    mkAttackSummary,
     asAttackVectors,
     asAttackId,
     asStartTime,
@@ -82,57 +80,57 @@ module Network.AWS.Shield.Types
     asEndTime,
 
     -- * AttackVectorDescription
-    AttackVectorDescription,
-    attackVectorDescription,
+    AttackVectorDescription (..),
+    mkAttackVectorDescription,
     avdVectorType,
 
     -- * AttackVolume
-    AttackVolume,
-    attackVolume,
+    AttackVolume (..),
+    mkAttackVolume,
     avPacketsPerSecond,
     avRequestsPerSecond,
     avBitsPerSecond,
 
     -- * AttackVolumeStatistics
-    AttackVolumeStatistics,
-    attackVolumeStatistics,
+    AttackVolumeStatistics (..),
+    mkAttackVolumeStatistics,
     avsMax,
 
     -- * Contributor
-    Contributor,
-    contributor,
+    Contributor (..),
+    mkContributor,
     cValue,
     cName,
 
     -- * EmergencyContact
-    EmergencyContact,
-    emergencyContact,
+    EmergencyContact (..),
+    mkEmergencyContact,
     ecPhoneNumber,
     ecContactNotes,
     ecEmailAddress,
 
     -- * Limit
-    Limit,
-    limit,
+    Limit (..),
+    mkLimit,
     lMax,
     lType,
 
     -- * Mitigation
-    Mitigation,
-    mitigation,
+    Mitigation (..),
+    mkMitigation,
     mMitigationName,
 
     -- * Protection
-    Protection,
-    protection,
+    Protection (..),
+    mkProtection,
     pHealthCheckIds,
     pResourceARN,
     pName,
     pId,
 
     -- * ProtectionGroup
-    ProtectionGroup,
-    protectionGroup,
+    ProtectionGroup (..),
+    mkProtectionGroup,
     pgResourceType,
     pgProtectionGroupId,
     pgAggregation,
@@ -140,37 +138,37 @@ module Network.AWS.Shield.Types
     pgMembers,
 
     -- * ProtectionGroupArbitraryPatternLimits
-    ProtectionGroupArbitraryPatternLimits,
-    protectionGroupArbitraryPatternLimits,
+    ProtectionGroupArbitraryPatternLimits (..),
+    mkProtectionGroupArbitraryPatternLimits,
     pgaplMaxMembers,
 
     -- * ProtectionGroupLimits
-    ProtectionGroupLimits,
-    protectionGroupLimits,
+    ProtectionGroupLimits (..),
+    mkProtectionGroupLimits,
     pglMaxProtectionGroups,
     pglPatternTypeLimits,
 
     -- * ProtectionGroupPatternTypeLimits
-    ProtectionGroupPatternTypeLimits,
-    protectionGroupPatternTypeLimits,
+    ProtectionGroupPatternTypeLimits (..),
+    mkProtectionGroupPatternTypeLimits,
     pgptlArbitraryPatternLimits,
 
     -- * ProtectionLimits
-    ProtectionLimits,
-    protectionLimits,
+    ProtectionLimits (..),
+    mkProtectionLimits,
     plProtectedResourceTypeLimits,
 
     -- * SubResourceSummary
-    SubResourceSummary,
-    subResourceSummary,
+    SubResourceSummary (..),
+    mkSubResourceSummary,
     srsCounters,
     srsAttackVectors,
     srsId,
     srsType,
 
     -- * Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sTimeCommitmentInSeconds,
     sStartTime,
     sLimits,
@@ -180,20 +178,20 @@ module Network.AWS.Shield.Types
     sSubscriptionLimits,
 
     -- * SubscriptionLimits
-    SubscriptionLimits,
-    subscriptionLimits,
+    SubscriptionLimits (..),
+    mkSubscriptionLimits,
     slProtectionLimits,
     slProtectionGroupLimits,
 
     -- * SummarizedAttackVector
-    SummarizedAttackVector,
-    summarizedAttackVector,
+    SummarizedAttackVector (..),
+    mkSummarizedAttackVector,
     savVectorCounters,
     savVectorType,
 
     -- * SummarizedCounter
-    SummarizedCounter,
-    summarizedCounter,
+    SummarizedCounter (..),
+    mkSummarizedCounter,
     scMax,
     scAverage,
     scN,
@@ -202,15 +200,15 @@ module Network.AWS.Shield.Types
     scUnit,
 
     -- * TimeRange
-    TimeRange,
-    timeRange,
+    TimeRange (..),
+    mkTimeRange,
     trFromInclusive,
     trToExclusive,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.AttackDetail
 import Network.AWS.Shield.Types.AttackLayer
 import Network.AWS.Shield.Types.AttackProperty
@@ -244,46 +242,58 @@ import Network.AWS.Shield.Types.SummarizedAttackVector
 import Network.AWS.Shield.Types.SummarizedCounter
 import Network.AWS.Shield.Types.TimeRange
 import Network.AWS.Shield.Types.Unit
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-06-02@ of the Amazon Shield SDK configuration.
-shield :: Service
-shield =
-  Service
-    { _svcAbbrev = "Shield",
-      _svcSigner = v4,
-      _svcPrefix = "shield",
-      _svcVersion = "2016-06-02",
-      _svcEndpoint = defaultEndpoint shield,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Shield",
-      _svcRetry = retry
+shieldService :: Lude.Service
+shieldService =
+  Lude.Service
+    { Lude._svcAbbrev = "Shield",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "shield",
+      Lude._svcVersion = "2016-06-02",
+      Lude._svcEndpoint = Lude.defaultEndpoint shieldService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Shield",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,181 +14,227 @@
 --
 -- Returns the detailed parameter list for a particular DB parameter group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameters
-  ( -- * Creating a Request
-    describeDBParameters,
-    DescribeDBParameters,
+  ( -- * Creating a request
+    DescribeDBParameters (..),
+    mkDescribeDBParameters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddpFilters,
     ddpMarker,
     ddpMaxRecords,
     ddpSource,
     ddpDBParameterGroupName,
 
-    -- * Destructuring the Response
-    describeDBParametersResponse,
-    DescribeDBParametersResponse,
+    -- * Destructuring the response
+    DescribeDBParametersResponse (..),
+    mkDescribeDBParametersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddprsMarker,
     ddprsParameters,
     ddprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDBParameters' smart constructor.
+-- | /See:/ 'mkDescribeDBParameters' smart constructor.
 data DescribeDBParameters = DescribeDBParameters'
-  { _ddpFilters ::
-      !(Maybe [Filter]),
-    _ddpMarker :: !(Maybe Text),
-    _ddpMaxRecords :: !(Maybe Int),
-    _ddpSource :: !(Maybe Text),
-    _ddpDBParameterGroupName :: !Text
+  { filters ::
+      Lude.Maybe [Filter],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    source :: Lude.Maybe Lude.Text,
+    dbParameterGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbParameterGroupName' - The name of a specific DB parameter group to return details for.
 --
--- * 'ddpFilters' - This parameter isn't currently supported.
+-- Constraints:
 --
--- * 'ddpMarker' - An optional pagination token provided by a previous @DescribeDBParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+--     * If supplied, must match the name of an existing DBParameterGroup.
 --
--- * 'ddpMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddpSource' - The parameter types to return. Default: All parameter types returned Valid Values: @user | system | engine-default@
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeDBParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
--- * 'ddpDBParameterGroupName' - The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
-describeDBParameters ::
-  -- | 'ddpDBParameterGroupName'
-  Text ->
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'source' - The parameter types to return.
+--
+-- Default: All parameter types returned
+-- Valid Values: @user | system | engine-default@
+mkDescribeDBParameters ::
+  -- | 'dbParameterGroupName'
+  Lude.Text ->
   DescribeDBParameters
-describeDBParameters pDBParameterGroupName_ =
+mkDescribeDBParameters pDBParameterGroupName_ =
   DescribeDBParameters'
-    { _ddpFilters = Nothing,
-      _ddpMarker = Nothing,
-      _ddpMaxRecords = Nothing,
-      _ddpSource = Nothing,
-      _ddpDBParameterGroupName = pDBParameterGroupName_
+    { filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      source = Lude.Nothing,
+      dbParameterGroupName = pDBParameterGroupName_
     }
 
 -- | This parameter isn't currently supported.
-ddpFilters :: Lens' DescribeDBParameters [Filter]
-ddpFilters = lens _ddpFilters (\s a -> s {_ddpFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpFilters :: Lens.Lens' DescribeDBParameters (Lude.Maybe [Filter])
+ddpFilters = Lens.lens (filters :: DescribeDBParameters -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBParameters)
+{-# DEPRECATED ddpFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddpMarker :: Lens' DescribeDBParameters (Maybe Text)
-ddpMarker = lens _ddpMarker (\s a -> s {_ddpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpMarker :: Lens.Lens' DescribeDBParameters (Lude.Maybe Lude.Text)
+ddpMarker = Lens.lens (marker :: DescribeDBParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBParameters)
+{-# DEPRECATED ddpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-ddpMaxRecords :: Lens' DescribeDBParameters (Maybe Int)
-ddpMaxRecords = lens _ddpMaxRecords (\s a -> s {_ddpMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpMaxRecords :: Lens.Lens' DescribeDBParameters (Lude.Maybe Lude.Int)
+ddpMaxRecords = Lens.lens (maxRecords :: DescribeDBParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBParameters)
+{-# DEPRECATED ddpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The parameter types to return. Default: All parameter types returned Valid Values: @user | system | engine-default@
-ddpSource :: Lens' DescribeDBParameters (Maybe Text)
-ddpSource = lens _ddpSource (\s a -> s {_ddpSource = a})
+-- | The parameter types to return.
+--
+-- Default: All parameter types returned
+-- Valid Values: @user | system | engine-default@
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpSource :: Lens.Lens' DescribeDBParameters (Lude.Maybe Lude.Text)
+ddpSource = Lens.lens (source :: DescribeDBParameters -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: DescribeDBParameters)
+{-# DEPRECATED ddpSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
--- | The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
-ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
-ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\s a -> s {_ddpDBParameterGroupName = a})
+-- | The name of a specific DB parameter group to return details for.
+--
+-- Constraints:
+--
+--     * If supplied, must match the name of an existing DBParameterGroup.
+--
+--
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpDBParameterGroupName :: Lens.Lens' DescribeDBParameters Lude.Text
+ddpDBParameterGroupName = Lens.lens (dbParameterGroupName :: DescribeDBParameters -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DescribeDBParameters)
+{-# DEPRECATED ddpDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
-instance AWSPager DescribeDBParameters where
+instance Page.AWSPager DescribeDBParameters where
   page rq rs
-    | stop (rs ^. ddprsMarker) = Nothing
-    | stop (rs ^. ddprsParameters) = Nothing
-    | otherwise = Just $ rq & ddpMarker .~ rs ^. ddprsMarker
+    | Page.stop (rs Lens.^. ddprsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddprsParameters) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& ddpMarker Lens..~ rs Lens.^. ddprsMarker
 
-instance AWSRequest DescribeDBParameters where
+instance Lude.AWSRequest DescribeDBParameters where
   type Rs DescribeDBParameters = DescribeDBParametersResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDBParametersResult"
       ( \s h x ->
           DescribeDBParametersResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "Parameters" .!@ mempty >>= may (parseXMLList "Parameter"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "Parameters" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "Parameter")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDBParameters
+instance Lude.ToHeaders DescribeDBParameters where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDBParameters
+instance Lude.ToPath DescribeDBParameters where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDBParameters where
-  toHeaders = const mempty
-
-instance ToPath DescribeDBParameters where
-  toPath = const "/"
-
-instance ToQuery DescribeDBParameters where
+instance Lude.ToQuery DescribeDBParameters where
   toQuery DescribeDBParameters' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDBParameters" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Filters" =: toQuery (toQueryList "Filter" <$> _ddpFilters),
-        "Marker" =: _ddpMarker,
-        "MaxRecords" =: _ddpMaxRecords,
-        "Source" =: _ddpSource,
-        "DBParameterGroupName" =: _ddpDBParameterGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeDBParameters" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "Source" Lude.=: source,
+        "DBParameterGroupName" Lude.=: dbParameterGroupName
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeDBParameters@ action.
 --
---
---
--- /See:/ 'describeDBParametersResponse' smart constructor.
+-- /See:/ 'mkDescribeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
-  { _ddprsMarker ::
-      !(Maybe Text),
-    _ddprsParameters ::
-      !(Maybe [Parameter]),
-    _ddprsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    parameters ::
+      Lude.Maybe [Parameter],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBParametersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddprsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddprsParameters' - A list of @Parameter@ values.
---
--- * 'ddprsResponseStatus' - -- | The response status code.
-describeDBParametersResponse ::
-  -- | 'ddprsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'parameters' - A list of @Parameter@ values.
+-- * 'responseStatus' - The response status code.
+mkDescribeDBParametersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDBParametersResponse
-describeDBParametersResponse pResponseStatus_ =
+mkDescribeDBParametersResponse pResponseStatus_ =
   DescribeDBParametersResponse'
-    { _ddprsMarker = Nothing,
-      _ddprsParameters = Nothing,
-      _ddprsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      parameters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
-ddprsMarker = lens _ddprsMarker (\s a -> s {_ddprsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsMarker :: Lens.Lens' DescribeDBParametersResponse (Lude.Maybe Lude.Text)
+ddprsMarker = Lens.lens (marker :: DescribeDBParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBParametersResponse)
+{-# DEPRECATED ddprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of @Parameter@ values.
-ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddprsParameters = lens _ddprsParameters (\s a -> s {_ddprsParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsParameters :: Lens.Lens' DescribeDBParametersResponse (Lude.Maybe [Parameter])
+ddprsParameters = Lens.lens (parameters :: DescribeDBParametersResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: DescribeDBParametersResponse)
+{-# DEPRECATED ddprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | -- | The response status code.
-ddprsResponseStatus :: Lens' DescribeDBParametersResponse Int
-ddprsResponseStatus = lens _ddprsResponseStatus (\s a -> s {_ddprsResponseStatus = a})
-
-instance NFData DescribeDBParametersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsResponseStatus :: Lens.Lens' DescribeDBParametersResponse Lude.Int
+ddprsResponseStatus = Lens.lens (responseStatus :: DescribeDBParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBParametersResponse)
+{-# DEPRECATED ddprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

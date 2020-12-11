@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Describes the VPC endpoint connections to your VPC endpoint services, including any endpoints that are pending your acceptance.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointConnections
-  ( -- * Creating a Request
-    describeVPCEndpointConnections,
-    DescribeVPCEndpointConnections,
+  ( -- * Creating a request
+    DescribeVPCEndpointConnections (..),
+    mkDescribeVPCEndpointConnections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvecFilters,
     dvecNextToken,
     dvecDryRun,
     dvecMaxResults,
 
-    -- * Destructuring the Response
-    describeVPCEndpointConnectionsResponse,
-    DescribeVPCEndpointConnectionsResponse,
+    -- * Destructuring the response
+    DescribeVPCEndpointConnectionsResponse (..),
+    mkDescribeVPCEndpointConnectionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvecrsVPCEndpointConnections,
     dvecrsNextToken,
     dvecrsResponseStatus,
@@ -45,148 +38,202 @@ module Network.AWS.EC2.DescribeVPCEndpointConnections
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVPCEndpointConnections' smart constructor.
+-- | /See:/ 'mkDescribeVPCEndpointConnections' smart constructor.
 data DescribeVPCEndpointConnections = DescribeVPCEndpointConnections'
-  { _dvecFilters ::
-      !(Maybe [Filter]),
-    _dvecNextToken ::
-      !(Maybe Text),
-    _dvecDryRun :: !(Maybe Bool),
-    _dvecMaxResults ::
-      !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    maxResults ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointConnections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
 --
--- * 'dvecFilters' - One or more filters.     * @service-id@ - The ID of the service.     * @vpc-endpoint-owner@ - The AWS account number of the owner of the endpoint.     * @vpc-endpoint-state@ - The state of the endpoint (@pendingAcceptance@ | @pending@ | @available@ | @deleting@ | @deleted@ | @rejected@ | @failed@ ).     * @vpc-endpoint-id@ - The ID of the endpoint.
 --
--- * 'dvecNextToken' - The token to retrieve the next page of results.
+--     * @service-id@ - The ID of the service.
 --
--- * 'dvecDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvecMaxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
-describeVPCEndpointConnections ::
+--     * @vpc-endpoint-owner@ - The AWS account number of the owner of the endpoint.
+--
+--
+--     * @vpc-endpoint-state@ - The state of the endpoint (@pendingAcceptance@ | @pending@ | @available@ | @deleting@ | @deleted@ | @rejected@ | @failed@ ).
+--
+--
+--     * @vpc-endpoint-id@ - The ID of the endpoint.
+--
+--
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
+-- * 'nextToken' - The token to retrieve the next page of results.
+mkDescribeVPCEndpointConnections ::
   DescribeVPCEndpointConnections
-describeVPCEndpointConnections =
+mkDescribeVPCEndpointConnections =
   DescribeVPCEndpointConnections'
-    { _dvecFilters = Nothing,
-      _dvecNextToken = Nothing,
-      _dvecDryRun = Nothing,
-      _dvecMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | One or more filters.     * @service-id@ - The ID of the service.     * @vpc-endpoint-owner@ - The AWS account number of the owner of the endpoint.     * @vpc-endpoint-state@ - The state of the endpoint (@pendingAcceptance@ | @pending@ | @available@ | @deleting@ | @deleted@ | @rejected@ | @failed@ ).     * @vpc-endpoint-id@ - The ID of the endpoint.
-dvecFilters :: Lens' DescribeVPCEndpointConnections [Filter]
-dvecFilters = lens _dvecFilters (\s a -> s {_dvecFilters = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @service-id@ - The ID of the service.
+--
+--
+--     * @vpc-endpoint-owner@ - The AWS account number of the owner of the endpoint.
+--
+--
+--     * @vpc-endpoint-state@ - The state of the endpoint (@pendingAcceptance@ | @pending@ | @available@ | @deleting@ | @deleted@ | @rejected@ | @failed@ ).
+--
+--
+--     * @vpc-endpoint-id@ - The ID of the endpoint.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecFilters :: Lens.Lens' DescribeVPCEndpointConnections (Lude.Maybe [Filter])
+dvecFilters = Lens.lens (filters :: DescribeVPCEndpointConnections -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPCEndpointConnections)
+{-# DEPRECATED dvecFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to retrieve the next page of results.
-dvecNextToken :: Lens' DescribeVPCEndpointConnections (Maybe Text)
-dvecNextToken = lens _dvecNextToken (\s a -> s {_dvecNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecNextToken :: Lens.Lens' DescribeVPCEndpointConnections (Lude.Maybe Lude.Text)
+dvecNextToken = Lens.lens (nextToken :: DescribeVPCEndpointConnections -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointConnections)
+{-# DEPRECATED dvecNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvecDryRun :: Lens' DescribeVPCEndpointConnections (Maybe Bool)
-dvecDryRun = lens _dvecDryRun (\s a -> s {_dvecDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecDryRun :: Lens.Lens' DescribeVPCEndpointConnections (Lude.Maybe Lude.Bool)
+dvecDryRun = Lens.lens (dryRun :: DescribeVPCEndpointConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCEndpointConnections)
+{-# DEPRECATED dvecDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
-dvecMaxResults :: Lens' DescribeVPCEndpointConnections (Maybe Int)
-dvecMaxResults = lens _dvecMaxResults (\s a -> s {_dvecMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecMaxResults :: Lens.Lens' DescribeVPCEndpointConnections (Lude.Maybe Lude.Int)
+dvecMaxResults = Lens.lens (maxResults :: DescribeVPCEndpointConnections -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeVPCEndpointConnections)
+{-# DEPRECATED dvecMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeVPCEndpointConnections where
+instance Page.AWSPager DescribeVPCEndpointConnections where
   page rq rs
-    | stop (rs ^. dvecrsNextToken) = Nothing
-    | stop (rs ^. dvecrsVPCEndpointConnections) = Nothing
-    | otherwise = Just $ rq & dvecNextToken .~ rs ^. dvecrsNextToken
+    | Page.stop (rs Lens.^. dvecrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvecrsVPCEndpointConnections) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dvecNextToken Lens..~ rs Lens.^. dvecrsNextToken
 
-instance AWSRequest DescribeVPCEndpointConnections where
+instance Lude.AWSRequest DescribeVPCEndpointConnections where
   type
     Rs DescribeVPCEndpointConnections =
       DescribeVPCEndpointConnectionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPCEndpointConnectionsResponse'
-            <$> ( x .@? "vpcEndpointConnectionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "vpcEndpointConnectionSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCEndpointConnections
+instance Lude.ToHeaders DescribeVPCEndpointConnections where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPCEndpointConnections
+instance Lude.ToPath DescribeVPCEndpointConnections where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPCEndpointConnections where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPCEndpointConnections where
-  toPath = const "/"
-
-instance ToQuery DescribeVPCEndpointConnections where
+instance Lude.ToQuery DescribeVPCEndpointConnections where
   toQuery DescribeVPCEndpointConnections' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVpcEndpointConnections" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dvecFilters),
-        "NextToken" =: _dvecNextToken,
-        "DryRun" =: _dvecDryRun,
-        "MaxResults" =: _dvecMaxResults
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeVpcEndpointConnections" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeVPCEndpointConnectionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeVPCEndpointConnectionsResponse' smart constructor.
 data DescribeVPCEndpointConnectionsResponse = DescribeVPCEndpointConnectionsResponse'
-  { _dvecrsVPCEndpointConnections ::
-      !( Maybe
-           [VPCEndpointConnection]
-       ),
-    _dvecrsNextToken ::
-      !(Maybe Text),
-    _dvecrsResponseStatus ::
-      !Int
+  { vpcEndpointConnections ::
+      Lude.Maybe
+        [VPCEndpointConnection],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointConnectionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvecrsVPCEndpointConnections' - Information about one or more VPC endpoint connections.
---
--- * 'dvecrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dvecrsResponseStatus' - -- | The response status code.
-describeVPCEndpointConnectionsResponse ::
-  -- | 'dvecrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'vpcEndpointConnections' - Information about one or more VPC endpoint connections.
+mkDescribeVPCEndpointConnectionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCEndpointConnectionsResponse
-describeVPCEndpointConnectionsResponse pResponseStatus_ =
+mkDescribeVPCEndpointConnectionsResponse pResponseStatus_ =
   DescribeVPCEndpointConnectionsResponse'
-    { _dvecrsVPCEndpointConnections =
-        Nothing,
-      _dvecrsNextToken = Nothing,
-      _dvecrsResponseStatus = pResponseStatus_
+    { vpcEndpointConnections =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about one or more VPC endpoint connections.
-dvecrsVPCEndpointConnections :: Lens' DescribeVPCEndpointConnectionsResponse [VPCEndpointConnection]
-dvecrsVPCEndpointConnections = lens _dvecrsVPCEndpointConnections (\s a -> s {_dvecrsVPCEndpointConnections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcEndpointConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecrsVPCEndpointConnections :: Lens.Lens' DescribeVPCEndpointConnectionsResponse (Lude.Maybe [VPCEndpointConnection])
+dvecrsVPCEndpointConnections = Lens.lens (vpcEndpointConnections :: DescribeVPCEndpointConnectionsResponse -> Lude.Maybe [VPCEndpointConnection]) (\s a -> s {vpcEndpointConnections = a} :: DescribeVPCEndpointConnectionsResponse)
+{-# DEPRECATED dvecrsVPCEndpointConnections "Use generic-lens or generic-optics with 'vpcEndpointConnections' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dvecrsNextToken :: Lens' DescribeVPCEndpointConnectionsResponse (Maybe Text)
-dvecrsNextToken = lens _dvecrsNextToken (\s a -> s {_dvecrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecrsNextToken :: Lens.Lens' DescribeVPCEndpointConnectionsResponse (Lude.Maybe Lude.Text)
+dvecrsNextToken = Lens.lens (nextToken :: DescribeVPCEndpointConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointConnectionsResponse)
+{-# DEPRECATED dvecrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dvecrsResponseStatus :: Lens' DescribeVPCEndpointConnectionsResponse Int
-dvecrsResponseStatus = lens _dvecrsResponseStatus (\s a -> s {_dvecrsResponseStatus = a})
-
-instance NFData DescribeVPCEndpointConnectionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvecrsResponseStatus :: Lens.Lens' DescribeVPCEndpointConnectionsResponse Lude.Int
+dvecrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCEndpointConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCEndpointConnectionsResponse)
+{-# DEPRECATED dvecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

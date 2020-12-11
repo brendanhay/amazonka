@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,18 @@
 --
 -- Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. To invoke a function asynchronously, set @InvocationType@ to @Event@ .
 --
---
 -- For <https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html synchronous invocation> , details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html execution log> and <https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html trace> .
---
 -- When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html Retry Behavior> .
---
 -- For <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html asynchronous invocation> , Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple times, even if no error occurs. To retain events that were not processed, configure your function with a <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq dead-letter queue> .
---
 -- The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <https://docs.aws.amazon.com/lambda/latest/dg/limits.html limit errors> , or issues with your function's code and configuration. For example, Lambda returns @TooManyRequestsException@ if executing the function would cause you to exceed a concurrency limit at either the account level (@ConcurrentInvocationLimitExceeded@ ) or function level (@ReservedFunctionConcurrentInvocationLimitExceeded@ ).
---
 -- For functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.
---
 -- This operation requires permission for the <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html lambda:InvokeFunction> action.
 module Network.AWS.Lambda.Invoke
-  ( -- * Creating a Request
-    invoke,
-    Invoke,
+  ( -- * Creating a request
+    Invoke (..),
+    mkInvoke,
 
-    -- * Request Lenses
+    -- ** Request lenses
     iInvocationType,
     iLogType,
     iQualifier,
@@ -44,11 +33,11 @@ module Network.AWS.Lambda.Invoke
     iFunctionName,
     iPayload,
 
-    -- * Destructuring the Response
-    invokeResponse,
-    InvokeResponse,
+    -- * Destructuring the response
+    InvokeResponse (..),
+    mkInvokeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     irsFunctionError,
     irsLogResult,
     irsPayload,
@@ -58,169 +47,233 @@ module Network.AWS.Lambda.Invoke
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'invoke' smart constructor.
+-- | /See:/ 'mkInvoke' smart constructor.
 data Invoke = Invoke'
-  { _iInvocationType :: !(Maybe InvocationType),
-    _iLogType :: !(Maybe LogType),
-    _iQualifier :: !(Maybe Text),
-    _iClientContext :: !(Maybe Text),
-    _iFunctionName :: !Text,
-    _iPayload :: !ByteString
+  { invocationType :: Lude.Maybe InvocationType,
+    logType :: Lude.Maybe LogType,
+    qualifier :: Lude.Maybe Lude.Text,
+    clientContext :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text,
+    payload :: Lude.ByteString
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Invoke' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientContext' - Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
+-- * 'functionName' - The name of the Lambda function, version, or alias.
 --
--- * 'iInvocationType' - Choose from the following options.     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
+-- __Name formats__
 --
--- * 'iLogType' - Set to @Tail@ to include the execution log in the response.
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
 --
--- * 'iQualifier' - Specify a version or alias to invoke a published version of the function.
 --
--- * 'iClientContext' - Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
 --
--- * 'iFunctionName' - The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'iPayload' - The JSON that you want to provide to your Lambda function as input.
-invoke ::
-  -- | 'iFunctionName'
-  Text ->
-  -- | 'iPayload'
-  ByteString ->
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'invocationType' - Choose from the following options.
+--
+--
+--     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.
+--
+--
+--     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.
+--
+--
+--     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
+--
+--
+-- * 'logType' - Set to @Tail@ to include the execution log in the response.
+-- * 'payload' - The JSON that you want to provide to your Lambda function as input.
+-- * 'qualifier' - Specify a version or alias to invoke a published version of the function.
+mkInvoke ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'payload'
+  Lude.ByteString ->
   Invoke
-invoke pFunctionName_ pPayload_ =
+mkInvoke pFunctionName_ pPayload_ =
   Invoke'
-    { _iInvocationType = Nothing,
-      _iLogType = Nothing,
-      _iQualifier = Nothing,
-      _iClientContext = Nothing,
-      _iFunctionName = pFunctionName_,
-      _iPayload = pPayload_
+    { invocationType = Lude.Nothing,
+      logType = Lude.Nothing,
+      qualifier = Lude.Nothing,
+      clientContext = Lude.Nothing,
+      functionName = pFunctionName_,
+      payload = pPayload_
     }
 
--- | Choose from the following options.     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
-iInvocationType :: Lens' Invoke (Maybe InvocationType)
-iInvocationType = lens _iInvocationType (\s a -> s {_iInvocationType = a})
+-- | Choose from the following options.
+--
+--
+--     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.
+--
+--
+--     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.
+--
+--
+--     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
+--
+--
+--
+-- /Note:/ Consider using 'invocationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInvocationType :: Lens.Lens' Invoke (Lude.Maybe InvocationType)
+iInvocationType = Lens.lens (invocationType :: Invoke -> Lude.Maybe InvocationType) (\s a -> s {invocationType = a} :: Invoke)
+{-# DEPRECATED iInvocationType "Use generic-lens or generic-optics with 'invocationType' instead." #-}
 
 -- | Set to @Tail@ to include the execution log in the response.
-iLogType :: Lens' Invoke (Maybe LogType)
-iLogType = lens _iLogType (\s a -> s {_iLogType = a})
+--
+-- /Note:/ Consider using 'logType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLogType :: Lens.Lens' Invoke (Lude.Maybe LogType)
+iLogType = Lens.lens (logType :: Invoke -> Lude.Maybe LogType) (\s a -> s {logType = a} :: Invoke)
+{-# DEPRECATED iLogType "Use generic-lens or generic-optics with 'logType' instead." #-}
 
 -- | Specify a version or alias to invoke a published version of the function.
-iQualifier :: Lens' Invoke (Maybe Text)
-iQualifier = lens _iQualifier (\s a -> s {_iQualifier = a})
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iQualifier :: Lens.Lens' Invoke (Lude.Maybe Lude.Text)
+iQualifier = Lens.lens (qualifier :: Invoke -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: Invoke)
+{-# DEPRECATED iQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
-iClientContext :: Lens' Invoke (Maybe Text)
-iClientContext = lens _iClientContext (\s a -> s {_iClientContext = a})
+--
+-- /Note:/ Consider using 'clientContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iClientContext :: Lens.Lens' Invoke (Lude.Maybe Lude.Text)
+iClientContext = Lens.lens (clientContext :: Invoke -> Lude.Maybe Lude.Text) (\s a -> s {clientContext = a} :: Invoke)
+{-# DEPRECATED iClientContext "Use generic-lens or generic-optics with 'clientContext' instead." #-}
 
--- | The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-iFunctionName :: Lens' Invoke Text
-iFunctionName = lens _iFunctionName (\s a -> s {_iFunctionName = a})
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iFunctionName :: Lens.Lens' Invoke Lude.Text
+iFunctionName = Lens.lens (functionName :: Invoke -> Lude.Text) (\s a -> s {functionName = a} :: Invoke)
+{-# DEPRECATED iFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The JSON that you want to provide to your Lambda function as input.
-iPayload :: Lens' Invoke ByteString
-iPayload = lens _iPayload (\s a -> s {_iPayload = a})
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPayload :: Lens.Lens' Invoke Lude.ByteString
+iPayload = Lens.lens (payload :: Invoke -> Lude.ByteString) (\s a -> s {payload = a} :: Invoke)
+{-# DEPRECATED iPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
-instance AWSRequest Invoke where
+instance Lude.AWSRequest Invoke where
   type Rs Invoke = InvokeResponse
-  request = postBody lambda
+  request = Req.postBody lambdaService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
           InvokeResponse'
-            <$> (h .#? "X-Amz-Function-Error")
-            <*> (h .#? "X-Amz-Log-Result")
-            <*> (pure (Just x))
-            <*> (h .#? "X-Amz-Executed-Version")
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "X-Amz-Function-Error")
+            Lude.<*> (h Lude..#? "X-Amz-Log-Result")
+            Lude.<*> (Lude.pure (Lude.Just x))
+            Lude.<*> (h Lude..#? "X-Amz-Executed-Version")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable Invoke
+instance Lude.ToBody Invoke where
+  toBody = Lude.toBody Lude.. payload
 
-instance NFData Invoke
-
-instance ToBody Invoke where
-  toBody = toBody . _iPayload
-
-instance ToHeaders Invoke where
+instance Lude.ToHeaders Invoke where
   toHeaders Invoke' {..} =
-    mconcat
-      [ "X-Amz-Invocation-Type" =# _iInvocationType,
-        "X-Amz-Log-Type" =# _iLogType,
-        "X-Amz-Client-Context" =# _iClientContext
+    Lude.mconcat
+      [ "X-Amz-Invocation-Type" Lude.=# invocationType,
+        "X-Amz-Log-Type" Lude.=# logType,
+        "X-Amz-Client-Context" Lude.=# clientContext
       ]
 
-instance ToPath Invoke where
+instance Lude.ToPath Invoke where
   toPath Invoke' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _iFunctionName, "/invocations"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/invocations"]
 
-instance ToQuery Invoke where
-  toQuery Invoke' {..} = mconcat ["Qualifier" =: _iQualifier]
+instance Lude.ToQuery Invoke where
+  toQuery Invoke' {..} = Lude.mconcat ["Qualifier" Lude.=: qualifier]
 
--- | /See:/ 'invokeResponse' smart constructor.
+-- | /See:/ 'mkInvokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
-  { _irsFunctionError ::
-      !(Maybe Text),
-    _irsLogResult :: !(Maybe Text),
-    _irsPayload :: !(Maybe ByteString),
-    _irsExecutedVersion :: !(Maybe Text),
-    _irsStatusCode :: !Int
+  { functionError ::
+      Lude.Maybe Lude.Text,
+    logResult :: Lude.Maybe Lude.Text,
+    payload :: Lude.Maybe Lude.ByteString,
+    executedVersion :: Lude.Maybe Lude.Text,
+    statusCode :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvokeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irsFunctionError' - If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.
---
--- * 'irsLogResult' - The last 4 KB of the execution log, which is base64 encoded.
---
--- * 'irsPayload' - The response from the function, or an error object.
---
--- * 'irsExecutedVersion' - The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
---
--- * 'irsStatusCode' - The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
-invokeResponse ::
-  -- | 'irsStatusCode'
-  Int ->
+-- * 'executedVersion' - The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
+-- * 'functionError' - If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.
+-- * 'logResult' - The last 4 KB of the execution log, which is base64 encoded.
+-- * 'payload' - The response from the function, or an error object.
+-- * 'statusCode' - The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
+mkInvokeResponse ::
+  -- | 'statusCode'
+  Lude.Int ->
   InvokeResponse
-invokeResponse pStatusCode_ =
+mkInvokeResponse pStatusCode_ =
   InvokeResponse'
-    { _irsFunctionError = Nothing,
-      _irsLogResult = Nothing,
-      _irsPayload = Nothing,
-      _irsExecutedVersion = Nothing,
-      _irsStatusCode = pStatusCode_
+    { functionError = Lude.Nothing,
+      logResult = Lude.Nothing,
+      payload = Lude.Nothing,
+      executedVersion = Lude.Nothing,
+      statusCode = pStatusCode_
     }
 
 -- | If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.
-irsFunctionError :: Lens' InvokeResponse (Maybe Text)
-irsFunctionError = lens _irsFunctionError (\s a -> s {_irsFunctionError = a})
+--
+-- /Note:/ Consider using 'functionError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irsFunctionError :: Lens.Lens' InvokeResponse (Lude.Maybe Lude.Text)
+irsFunctionError = Lens.lens (functionError :: InvokeResponse -> Lude.Maybe Lude.Text) (\s a -> s {functionError = a} :: InvokeResponse)
+{-# DEPRECATED irsFunctionError "Use generic-lens or generic-optics with 'functionError' instead." #-}
 
 -- | The last 4 KB of the execution log, which is base64 encoded.
-irsLogResult :: Lens' InvokeResponse (Maybe Text)
-irsLogResult = lens _irsLogResult (\s a -> s {_irsLogResult = a})
+--
+-- /Note:/ Consider using 'logResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irsLogResult :: Lens.Lens' InvokeResponse (Lude.Maybe Lude.Text)
+irsLogResult = Lens.lens (logResult :: InvokeResponse -> Lude.Maybe Lude.Text) (\s a -> s {logResult = a} :: InvokeResponse)
+{-# DEPRECATED irsLogResult "Use generic-lens or generic-optics with 'logResult' instead." #-}
 
 -- | The response from the function, or an error object.
-irsPayload :: Lens' InvokeResponse (Maybe ByteString)
-irsPayload = lens _irsPayload (\s a -> s {_irsPayload = a})
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irsPayload :: Lens.Lens' InvokeResponse (Lude.Maybe Lude.ByteString)
+irsPayload = Lens.lens (payload :: InvokeResponse -> Lude.Maybe Lude.ByteString) (\s a -> s {payload = a} :: InvokeResponse)
+{-# DEPRECATED irsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
-irsExecutedVersion :: Lens' InvokeResponse (Maybe Text)
-irsExecutedVersion = lens _irsExecutedVersion (\s a -> s {_irsExecutedVersion = a})
+--
+-- /Note:/ Consider using 'executedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irsExecutedVersion :: Lens.Lens' InvokeResponse (Lude.Maybe Lude.Text)
+irsExecutedVersion = Lens.lens (executedVersion :: InvokeResponse -> Lude.Maybe Lude.Text) (\s a -> s {executedVersion = a} :: InvokeResponse)
+{-# DEPRECATED irsExecutedVersion "Use generic-lens or generic-optics with 'executedVersion' instead." #-}
 
 -- | The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
-irsStatusCode :: Lens' InvokeResponse Int
-irsStatusCode = lens _irsStatusCode (\s a -> s {_irsStatusCode = a})
-
-instance NFData InvokeResponse
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irsStatusCode :: Lens.Lens' InvokeResponse Lude.Int
+irsStatusCode = Lens.lens (statusCode :: InvokeResponse -> Lude.Int) (\s a -> s {statusCode = a} :: InvokeResponse)
+{-# DEPRECATED irsStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}

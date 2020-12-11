@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,117 @@
 --
 -- Gets an OTA update.
 module Network.AWS.IoT.GetOTAUpdate
-  ( -- * Creating a Request
-    getOTAUpdate,
-    GetOTAUpdate,
+  ( -- * Creating a request
+    GetOTAUpdate (..),
+    mkGetOTAUpdate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gotauOtaUpdateId,
 
-    -- * Destructuring the Response
-    getOTAUpdateResponse,
-    GetOTAUpdateResponse,
+    -- * Destructuring the response
+    GetOTAUpdateResponse (..),
+    mkGetOTAUpdateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gotaursOtaUpdateInfo,
     gotaursResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getOTAUpdate' smart constructor.
-newtype GetOTAUpdate = GetOTAUpdate' {_gotauOtaUpdateId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetOTAUpdate' smart constructor.
+newtype GetOTAUpdate = GetOTAUpdate' {otaUpdateId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOTAUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gotauOtaUpdateId' - The OTA update ID.
-getOTAUpdate ::
-  -- | 'gotauOtaUpdateId'
-  Text ->
+-- * 'otaUpdateId' - The OTA update ID.
+mkGetOTAUpdate ::
+  -- | 'otaUpdateId'
+  Lude.Text ->
   GetOTAUpdate
-getOTAUpdate pOtaUpdateId_ =
-  GetOTAUpdate' {_gotauOtaUpdateId = pOtaUpdateId_}
+mkGetOTAUpdate pOtaUpdateId_ =
+  GetOTAUpdate' {otaUpdateId = pOtaUpdateId_}
 
 -- | The OTA update ID.
-gotauOtaUpdateId :: Lens' GetOTAUpdate Text
-gotauOtaUpdateId = lens _gotauOtaUpdateId (\s a -> s {_gotauOtaUpdateId = a})
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gotauOtaUpdateId :: Lens.Lens' GetOTAUpdate Lude.Text
+gotauOtaUpdateId = Lens.lens (otaUpdateId :: GetOTAUpdate -> Lude.Text) (\s a -> s {otaUpdateId = a} :: GetOTAUpdate)
+{-# DEPRECATED gotauOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
 
-instance AWSRequest GetOTAUpdate where
+instance Lude.AWSRequest GetOTAUpdate where
   type Rs GetOTAUpdate = GetOTAUpdateResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOTAUpdateResponse'
-            <$> (x .?> "otaUpdateInfo") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "otaUpdateInfo")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOTAUpdate
+instance Lude.ToHeaders GetOTAUpdate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetOTAUpdate
-
-instance ToHeaders GetOTAUpdate where
-  toHeaders = const mempty
-
-instance ToPath GetOTAUpdate where
+instance Lude.ToPath GetOTAUpdate where
   toPath GetOTAUpdate' {..} =
-    mconcat ["/otaUpdates/", toBS _gotauOtaUpdateId]
+    Lude.mconcat ["/otaUpdates/", Lude.toBS otaUpdateId]
 
-instance ToQuery GetOTAUpdate where
-  toQuery = const mempty
+instance Lude.ToQuery GetOTAUpdate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getOTAUpdateResponse' smart constructor.
+-- | /See:/ 'mkGetOTAUpdateResponse' smart constructor.
 data GetOTAUpdateResponse = GetOTAUpdateResponse'
-  { _gotaursOtaUpdateInfo ::
-      !(Maybe OTAUpdateInfo),
-    _gotaursResponseStatus :: !Int
+  { otaUpdateInfo ::
+      Lude.Maybe OTAUpdateInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOTAUpdateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gotaursOtaUpdateInfo' - The OTA update info.
---
--- * 'gotaursResponseStatus' - -- | The response status code.
-getOTAUpdateResponse ::
-  -- | 'gotaursResponseStatus'
-  Int ->
+-- * 'otaUpdateInfo' - The OTA update info.
+-- * 'responseStatus' - The response status code.
+mkGetOTAUpdateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOTAUpdateResponse
-getOTAUpdateResponse pResponseStatus_ =
+mkGetOTAUpdateResponse pResponseStatus_ =
   GetOTAUpdateResponse'
-    { _gotaursOtaUpdateInfo = Nothing,
-      _gotaursResponseStatus = pResponseStatus_
+    { otaUpdateInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The OTA update info.
-gotaursOtaUpdateInfo :: Lens' GetOTAUpdateResponse (Maybe OTAUpdateInfo)
-gotaursOtaUpdateInfo = lens _gotaursOtaUpdateInfo (\s a -> s {_gotaursOtaUpdateInfo = a})
+--
+-- /Note:/ Consider using 'otaUpdateInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gotaursOtaUpdateInfo :: Lens.Lens' GetOTAUpdateResponse (Lude.Maybe OTAUpdateInfo)
+gotaursOtaUpdateInfo = Lens.lens (otaUpdateInfo :: GetOTAUpdateResponse -> Lude.Maybe OTAUpdateInfo) (\s a -> s {otaUpdateInfo = a} :: GetOTAUpdateResponse)
+{-# DEPRECATED gotaursOtaUpdateInfo "Use generic-lens or generic-optics with 'otaUpdateInfo' instead." #-}
 
--- | -- | The response status code.
-gotaursResponseStatus :: Lens' GetOTAUpdateResponse Int
-gotaursResponseStatus = lens _gotaursResponseStatus (\s a -> s {_gotaursResponseStatus = a})
-
-instance NFData GetOTAUpdateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gotaursResponseStatus :: Lens.Lens' GetOTAUpdateResponse Lude.Int
+gotaursResponseStatus = Lens.lens (responseStatus :: GetOTAUpdateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOTAUpdateResponse)
+{-# DEPRECATED gotaursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

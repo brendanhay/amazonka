@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ErrorRootCause where
+module Network.AWS.XRay.Types.ErrorRootCause
+  ( ErrorRootCause (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkErrorRootCause,
+
+    -- * Lenses
+    ercClientImpacting,
+    ercServices,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ErrorRootCauseService
 
 -- | The root cause of a trace summary error.
 --
---
---
--- /See:/ 'errorRootCause' smart constructor.
+-- /See:/ 'mkErrorRootCause' smart constructor.
 data ErrorRootCause = ErrorRootCause'
-  { _ercClientImpacting ::
-      !(Maybe Bool),
-    _ercServices :: !(Maybe [ErrorRootCauseService])
+  { clientImpacting ::
+      Lude.Maybe Lude.Bool,
+    services :: Lude.Maybe [ErrorRootCauseService]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorRootCause' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ercClientImpacting' - A flag that denotes that the root cause impacts the trace client.
---
--- * 'ercServices' - A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
-errorRootCause ::
+-- * 'clientImpacting' - A flag that denotes that the root cause impacts the trace client.
+-- * 'services' - A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
+mkErrorRootCause ::
   ErrorRootCause
-errorRootCause =
+mkErrorRootCause =
   ErrorRootCause'
-    { _ercClientImpacting = Nothing,
-      _ercServices = Nothing
+    { clientImpacting = Lude.Nothing,
+      services = Lude.Nothing
     }
 
 -- | A flag that denotes that the root cause impacts the trace client.
-ercClientImpacting :: Lens' ErrorRootCause (Maybe Bool)
-ercClientImpacting = lens _ercClientImpacting (\s a -> s {_ercClientImpacting = a})
+--
+-- /Note:/ Consider using 'clientImpacting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ercClientImpacting :: Lens.Lens' ErrorRootCause (Lude.Maybe Lude.Bool)
+ercClientImpacting = Lens.lens (clientImpacting :: ErrorRootCause -> Lude.Maybe Lude.Bool) (\s a -> s {clientImpacting = a} :: ErrorRootCause)
+{-# DEPRECATED ercClientImpacting "Use generic-lens or generic-optics with 'clientImpacting' instead." #-}
 
 -- | A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
-ercServices :: Lens' ErrorRootCause [ErrorRootCauseService]
-ercServices = lens _ercServices (\s a -> s {_ercServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ercServices :: Lens.Lens' ErrorRootCause (Lude.Maybe [ErrorRootCauseService])
+ercServices = Lens.lens (services :: ErrorRootCause -> Lude.Maybe [ErrorRootCauseService]) (\s a -> s {services = a} :: ErrorRootCause)
+{-# DEPRECATED ercServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
-instance FromJSON ErrorRootCause where
+instance Lude.FromJSON ErrorRootCause where
   parseJSON =
-    withObject
+    Lude.withObject
       "ErrorRootCause"
       ( \x ->
           ErrorRootCause'
-            <$> (x .:? "ClientImpacting") <*> (x .:? "Services" .!= mempty)
+            Lude.<$> (x Lude..:? "ClientImpacting")
+            Lude.<*> (x Lude..:? "Services" Lude..!= Lude.mempty)
       )
-
-instance Hashable ErrorRootCause
-
-instance NFData ErrorRootCause

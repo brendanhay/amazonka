@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.StatusUpdateInterval where
+module Network.AWS.MediaConvert.Types.StatusUpdateInterval
+  ( StatusUpdateInterval
+      ( StatusUpdateInterval',
+        Seconds10,
+        Seconds12,
+        Seconds120,
+        Seconds15,
+        Seconds180,
+        Seconds20,
+        Seconds240,
+        Seconds30,
+        Seconds300,
+        Seconds360,
+        Seconds420,
+        Seconds480,
+        Seconds540,
+        Seconds60,
+        Seconds600
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-data StatusUpdateInterval
-  = Seconds10
-  | Seconds12
-  | Seconds120
-  | Seconds15
-  | Seconds180
-  | Seconds20
-  | Seconds240
-  | Seconds30
-  | Seconds300
-  | Seconds360
-  | Seconds420
-  | Seconds480
-  | Seconds540
-  | Seconds60
-  | Seconds600
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusUpdateInterval = StatusUpdateInterval' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusUpdateInterval where
-  parser =
-    takeLowerText >>= \case
-      "seconds_10" -> pure Seconds10
-      "seconds_12" -> pure Seconds12
-      "seconds_120" -> pure Seconds120
-      "seconds_15" -> pure Seconds15
-      "seconds_180" -> pure Seconds180
-      "seconds_20" -> pure Seconds20
-      "seconds_240" -> pure Seconds240
-      "seconds_30" -> pure Seconds30
-      "seconds_300" -> pure Seconds300
-      "seconds_360" -> pure Seconds360
-      "seconds_420" -> pure Seconds420
-      "seconds_480" -> pure Seconds480
-      "seconds_540" -> pure Seconds540
-      "seconds_60" -> pure Seconds60
-      "seconds_600" -> pure Seconds600
-      e ->
-        fromTextError $
-          "Failure parsing StatusUpdateInterval from value: '" <> e
-            <> "'. Accepted values: seconds_10, seconds_12, seconds_120, seconds_15, seconds_180, seconds_20, seconds_240, seconds_30, seconds_300, seconds_360, seconds_420, seconds_480, seconds_540, seconds_60, seconds_600"
+pattern Seconds10 :: StatusUpdateInterval
+pattern Seconds10 = StatusUpdateInterval' "SECONDS_10"
 
-instance ToText StatusUpdateInterval where
-  toText = \case
-    Seconds10 -> "SECONDS_10"
-    Seconds12 -> "SECONDS_12"
-    Seconds120 -> "SECONDS_120"
-    Seconds15 -> "SECONDS_15"
-    Seconds180 -> "SECONDS_180"
-    Seconds20 -> "SECONDS_20"
-    Seconds240 -> "SECONDS_240"
-    Seconds30 -> "SECONDS_30"
-    Seconds300 -> "SECONDS_300"
-    Seconds360 -> "SECONDS_360"
-    Seconds420 -> "SECONDS_420"
-    Seconds480 -> "SECONDS_480"
-    Seconds540 -> "SECONDS_540"
-    Seconds60 -> "SECONDS_60"
-    Seconds600 -> "SECONDS_600"
+pattern Seconds12 :: StatusUpdateInterval
+pattern Seconds12 = StatusUpdateInterval' "SECONDS_12"
 
-instance Hashable StatusUpdateInterval
+pattern Seconds120 :: StatusUpdateInterval
+pattern Seconds120 = StatusUpdateInterval' "SECONDS_120"
 
-instance NFData StatusUpdateInterval
+pattern Seconds15 :: StatusUpdateInterval
+pattern Seconds15 = StatusUpdateInterval' "SECONDS_15"
 
-instance ToByteString StatusUpdateInterval
+pattern Seconds180 :: StatusUpdateInterval
+pattern Seconds180 = StatusUpdateInterval' "SECONDS_180"
 
-instance ToQuery StatusUpdateInterval
+pattern Seconds20 :: StatusUpdateInterval
+pattern Seconds20 = StatusUpdateInterval' "SECONDS_20"
 
-instance ToHeader StatusUpdateInterval
+pattern Seconds240 :: StatusUpdateInterval
+pattern Seconds240 = StatusUpdateInterval' "SECONDS_240"
 
-instance ToJSON StatusUpdateInterval where
-  toJSON = toJSONText
+pattern Seconds30 :: StatusUpdateInterval
+pattern Seconds30 = StatusUpdateInterval' "SECONDS_30"
 
-instance FromJSON StatusUpdateInterval where
-  parseJSON = parseJSONText "StatusUpdateInterval"
+pattern Seconds300 :: StatusUpdateInterval
+pattern Seconds300 = StatusUpdateInterval' "SECONDS_300"
+
+pattern Seconds360 :: StatusUpdateInterval
+pattern Seconds360 = StatusUpdateInterval' "SECONDS_360"
+
+pattern Seconds420 :: StatusUpdateInterval
+pattern Seconds420 = StatusUpdateInterval' "SECONDS_420"
+
+pattern Seconds480 :: StatusUpdateInterval
+pattern Seconds480 = StatusUpdateInterval' "SECONDS_480"
+
+pattern Seconds540 :: StatusUpdateInterval
+pattern Seconds540 = StatusUpdateInterval' "SECONDS_540"
+
+pattern Seconds60 :: StatusUpdateInterval
+pattern Seconds60 = StatusUpdateInterval' "SECONDS_60"
+
+pattern Seconds600 :: StatusUpdateInterval
+pattern Seconds600 = StatusUpdateInterval' "SECONDS_600"
+
+{-# COMPLETE
+  Seconds10,
+  Seconds12,
+  Seconds120,
+  Seconds15,
+  Seconds180,
+  Seconds20,
+  Seconds240,
+  Seconds30,
+  Seconds300,
+  Seconds360,
+  Seconds420,
+  Seconds480,
+  Seconds540,
+  Seconds60,
+  Seconds600,
+  StatusUpdateInterval'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotFleetTagSpecification where
+module Network.AWS.EC2.Types.SpotFleetTagSpecification
+  ( SpotFleetTagSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSpotFleetTagSpecification,
+
+    -- * Lenses
+    sftsResourceType,
+    sftsTags,
+  )
+where
+
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The tags for a Spot Fleet resource.
 --
---
---
--- /See:/ 'spotFleetTagSpecification' smart constructor.
+-- /See:/ 'mkSpotFleetTagSpecification' smart constructor.
 data SpotFleetTagSpecification = SpotFleetTagSpecification'
-  { _sftsResourceType ::
-      !(Maybe ResourceType),
-    _sftsTags :: !(Maybe [Tag])
+  { resourceType ::
+      Lude.Maybe ResourceType,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotFleetTagSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sftsResourceType' - The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
---
--- * 'sftsTags' - The tags.
-spotFleetTagSpecification ::
+-- * 'resourceType' - The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
+-- * 'tags' - The tags.
+mkSpotFleetTagSpecification ::
   SpotFleetTagSpecification
-spotFleetTagSpecification =
+mkSpotFleetTagSpecification =
   SpotFleetTagSpecification'
-    { _sftsResourceType = Nothing,
-      _sftsTags = Nothing
+    { resourceType = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
-sftsResourceType :: Lens' SpotFleetTagSpecification (Maybe ResourceType)
-sftsResourceType = lens _sftsResourceType (\s a -> s {_sftsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sftsResourceType :: Lens.Lens' SpotFleetTagSpecification (Lude.Maybe ResourceType)
+sftsResourceType = Lens.lens (resourceType :: SpotFleetTagSpecification -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: SpotFleetTagSpecification)
+{-# DEPRECATED sftsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tags.
-sftsTags :: Lens' SpotFleetTagSpecification [Tag]
-sftsTags = lens _sftsTags (\s a -> s {_sftsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sftsTags :: Lens.Lens' SpotFleetTagSpecification (Lude.Maybe [Tag])
+sftsTags = Lens.lens (tags :: SpotFleetTagSpecification -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SpotFleetTagSpecification)
+{-# DEPRECATED sftsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML SpotFleetTagSpecification where
+instance Lude.FromXML SpotFleetTagSpecification where
   parseXML x =
     SpotFleetTagSpecification'
-      <$> (x .@? "resourceType")
-      <*> (x .@? "tag" .!@ mempty >>= may (parseXMLList "item"))
+      Lude.<$> (x Lude..@? "resourceType")
+      Lude.<*> ( x Lude..@? "tag" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
 
-instance Hashable SpotFleetTagSpecification
-
-instance NFData SpotFleetTagSpecification
-
-instance ToQuery SpotFleetTagSpecification where
+instance Lude.ToQuery SpotFleetTagSpecification where
   toQuery SpotFleetTagSpecification' {..} =
-    mconcat
-      [ "ResourceType" =: _sftsResourceType,
-        toQuery (toQueryList "Tag" <$> _sftsTags)
+    Lude.mconcat
+      [ "ResourceType" Lude.=: resourceType,
+        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]

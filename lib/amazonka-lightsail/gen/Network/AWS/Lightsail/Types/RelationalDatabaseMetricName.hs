@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabaseMetricName where
+module Network.AWS.Lightsail.Types.RelationalDatabaseMetricName
+  ( RelationalDatabaseMetricName
+      ( RelationalDatabaseMetricName',
+        CPUUtilization,
+        DatabaseConnections,
+        DiskQueueDepth,
+        FreeStorageSpace,
+        NetworkReceiveThroughput,
+        NetworkTransmitThroughput
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RelationalDatabaseMetricName
-  = CPUUtilization
-  | DatabaseConnections
-  | DiskQueueDepth
-  | FreeStorageSpace
-  | NetworkReceiveThroughput
-  | NetworkTransmitThroughput
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RelationalDatabaseMetricName = RelationalDatabaseMetricName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RelationalDatabaseMetricName where
-  parser =
-    takeLowerText >>= \case
-      "cpuutilization" -> pure CPUUtilization
-      "databaseconnections" -> pure DatabaseConnections
-      "diskqueuedepth" -> pure DiskQueueDepth
-      "freestoragespace" -> pure FreeStorageSpace
-      "networkreceivethroughput" -> pure NetworkReceiveThroughput
-      "networktransmitthroughput" -> pure NetworkTransmitThroughput
-      e ->
-        fromTextError $
-          "Failure parsing RelationalDatabaseMetricName from value: '" <> e
-            <> "'. Accepted values: cpuutilization, databaseconnections, diskqueuedepth, freestoragespace, networkreceivethroughput, networktransmitthroughput"
+pattern CPUUtilization :: RelationalDatabaseMetricName
+pattern CPUUtilization = RelationalDatabaseMetricName' "CPUUtilization"
 
-instance ToText RelationalDatabaseMetricName where
-  toText = \case
-    CPUUtilization -> "CPUUtilization"
-    DatabaseConnections -> "DatabaseConnections"
-    DiskQueueDepth -> "DiskQueueDepth"
-    FreeStorageSpace -> "FreeStorageSpace"
-    NetworkReceiveThroughput -> "NetworkReceiveThroughput"
-    NetworkTransmitThroughput -> "NetworkTransmitThroughput"
+pattern DatabaseConnections :: RelationalDatabaseMetricName
+pattern DatabaseConnections = RelationalDatabaseMetricName' "DatabaseConnections"
 
-instance Hashable RelationalDatabaseMetricName
+pattern DiskQueueDepth :: RelationalDatabaseMetricName
+pattern DiskQueueDepth = RelationalDatabaseMetricName' "DiskQueueDepth"
 
-instance NFData RelationalDatabaseMetricName
+pattern FreeStorageSpace :: RelationalDatabaseMetricName
+pattern FreeStorageSpace = RelationalDatabaseMetricName' "FreeStorageSpace"
 
-instance ToByteString RelationalDatabaseMetricName
+pattern NetworkReceiveThroughput :: RelationalDatabaseMetricName
+pattern NetworkReceiveThroughput = RelationalDatabaseMetricName' "NetworkReceiveThroughput"
 
-instance ToQuery RelationalDatabaseMetricName
+pattern NetworkTransmitThroughput :: RelationalDatabaseMetricName
+pattern NetworkTransmitThroughput = RelationalDatabaseMetricName' "NetworkTransmitThroughput"
 
-instance ToHeader RelationalDatabaseMetricName
-
-instance ToJSON RelationalDatabaseMetricName where
-  toJSON = toJSONText
-
-instance FromJSON RelationalDatabaseMetricName where
-  parseJSON = parseJSONText "RelationalDatabaseMetricName"
+{-# COMPLETE
+  CPUUtilization,
+  DatabaseConnections,
+  DiskQueueDepth,
+  FreeStorageSpace,
+  NetworkReceiveThroughput,
+  NetworkTransmitThroughput,
+  RelationalDatabaseMetricName'
+  #-}

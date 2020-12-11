@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionRf where
+module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionRf
+  ( Eac3DynamicRangeCompressionRf
+      ( Eac3DynamicRangeCompressionRf',
+        EDRCRFilmLight,
+        EDRCRFilmStandard,
+        EDRCRMusicLight,
+        EDRCRMusicStandard,
+        EDRCRNone,
+        EDRCRSpeech
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify how the service limits the audio dynamic range when compressing the audio.
-data Eac3DynamicRangeCompressionRf
-  = EDRCRFilmLight
-  | EDRCRFilmStandard
-  | EDRCRMusicLight
-  | EDRCRMusicStandard
-  | EDRCRNone
-  | EDRCRSpeech
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3DynamicRangeCompressionRf = Eac3DynamicRangeCompressionRf' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3DynamicRangeCompressionRf where
-  parser =
-    takeLowerText >>= \case
-      "film_light" -> pure EDRCRFilmLight
-      "film_standard" -> pure EDRCRFilmStandard
-      "music_light" -> pure EDRCRMusicLight
-      "music_standard" -> pure EDRCRMusicStandard
-      "none" -> pure EDRCRNone
-      "speech" -> pure EDRCRSpeech
-      e ->
-        fromTextError $
-          "Failure parsing Eac3DynamicRangeCompressionRf from value: '" <> e
-            <> "'. Accepted values: film_light, film_standard, music_light, music_standard, none, speech"
+pattern EDRCRFilmLight :: Eac3DynamicRangeCompressionRf
+pattern EDRCRFilmLight = Eac3DynamicRangeCompressionRf' "FILM_LIGHT"
 
-instance ToText Eac3DynamicRangeCompressionRf where
-  toText = \case
-    EDRCRFilmLight -> "FILM_LIGHT"
-    EDRCRFilmStandard -> "FILM_STANDARD"
-    EDRCRMusicLight -> "MUSIC_LIGHT"
-    EDRCRMusicStandard -> "MUSIC_STANDARD"
-    EDRCRNone -> "NONE"
-    EDRCRSpeech -> "SPEECH"
+pattern EDRCRFilmStandard :: Eac3DynamicRangeCompressionRf
+pattern EDRCRFilmStandard = Eac3DynamicRangeCompressionRf' "FILM_STANDARD"
 
-instance Hashable Eac3DynamicRangeCompressionRf
+pattern EDRCRMusicLight :: Eac3DynamicRangeCompressionRf
+pattern EDRCRMusicLight = Eac3DynamicRangeCompressionRf' "MUSIC_LIGHT"
 
-instance NFData Eac3DynamicRangeCompressionRf
+pattern EDRCRMusicStandard :: Eac3DynamicRangeCompressionRf
+pattern EDRCRMusicStandard = Eac3DynamicRangeCompressionRf' "MUSIC_STANDARD"
 
-instance ToByteString Eac3DynamicRangeCompressionRf
+pattern EDRCRNone :: Eac3DynamicRangeCompressionRf
+pattern EDRCRNone = Eac3DynamicRangeCompressionRf' "NONE"
 
-instance ToQuery Eac3DynamicRangeCompressionRf
+pattern EDRCRSpeech :: Eac3DynamicRangeCompressionRf
+pattern EDRCRSpeech = Eac3DynamicRangeCompressionRf' "SPEECH"
 
-instance ToHeader Eac3DynamicRangeCompressionRf
-
-instance ToJSON Eac3DynamicRangeCompressionRf where
-  toJSON = toJSONText
-
-instance FromJSON Eac3DynamicRangeCompressionRf where
-  parseJSON = parseJSONText "Eac3DynamicRangeCompressionRf"
+{-# COMPLETE
+  EDRCRFilmLight,
+  EDRCRFilmStandard,
+  EDRCRMusicLight,
+  EDRCRMusicStandard,
+  EDRCRNone,
+  EDRCRSpeech,
+  Eac3DynamicRangeCompressionRf'
+  #-}

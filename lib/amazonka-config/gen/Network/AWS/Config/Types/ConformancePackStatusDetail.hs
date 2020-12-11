@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConformancePackStatusDetail where
+module Network.AWS.Config.Types.ConformancePackStatusDetail
+  ( ConformancePackStatusDetail (..),
+
+    -- * Smart constructor
+    mkConformancePackStatusDetail,
+
+    -- * Lenses
+    cpsdConformancePackStatusReason,
+    cpsdLastUpdateCompletedTime,
+    cpsdConformancePackName,
+    cpsdConformancePackId,
+    cpsdConformancePackARN,
+    cpsdConformancePackState,
+    cpsdStackARN,
+    cpsdLastUpdateRequestedTime,
+  )
+where
 
 import Network.AWS.Config.Types.ConformancePackState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status details of a conformance pack.
 --
---
---
--- /See:/ 'conformancePackStatusDetail' smart constructor.
+-- /See:/ 'mkConformancePackStatusDetail' smart constructor.
 data ConformancePackStatusDetail = ConformancePackStatusDetail'
-  { _cpsdConformancePackStatusReason ::
-      !(Maybe Text),
-    _cpsdLastUpdateCompletedTime ::
-      !(Maybe POSIX),
-    _cpsdConformancePackName :: !Text,
-    _cpsdConformancePackId :: !Text,
-    _cpsdConformancePackARN :: !Text,
-    _cpsdConformancePackState ::
-      !ConformancePackState,
-    _cpsdStackARN :: !Text,
-    _cpsdLastUpdateRequestedTime ::
-      !POSIX
+  { conformancePackStatusReason ::
+      Lude.Maybe Lude.Text,
+    lastUpdateCompletedTime ::
+      Lude.Maybe Lude.Timestamp,
+    conformancePackName :: Lude.Text,
+    conformancePackId :: Lude.Text,
+    conformancePackARN :: Lude.Text,
+    conformancePackState ::
+      ConformancePackState,
+    stackARN :: Lude.Text,
+    lastUpdateRequestedTime ::
+      Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackStatusDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'conformancePackARN' - Amazon Resource Name (ARN) of comformance pack.
+-- * 'conformancePackId' - ID of the conformance pack.
+-- * 'conformancePackName' - Name of the conformance pack.
+-- * 'conformancePackState' - Indicates deployment status of conformance pack.
 --
--- * 'cpsdConformancePackStatusReason' - The reason of conformance pack creation failure.
+-- AWS Config sets the state of the conformance pack to:
 --
--- * 'cpsdLastUpdateCompletedTime' - Last time when conformation pack creation and update was successful.
+--     * CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.
 --
--- * 'cpsdConformancePackName' - Name of the conformance pack.
 --
--- * 'cpsdConformancePackId' - ID of the conformance pack.
+--     * CREATE_COMPLETE when a conformance pack has been successfully created in your account.
 --
--- * 'cpsdConformancePackARN' - Amazon Resource Name (ARN) of comformance pack.
 --
--- * 'cpsdConformancePackState' - Indicates deployment status of conformance pack. AWS Config sets the state of the conformance pack to:     * CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.     * CREATE_COMPLETE when a conformance pack has been successfully created in your account.     * CREATE_FAILED when a conformance pack creation failed in your account.     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress.      * DELETE_FAILED when a conformance pack deletion failed in your account.
+--     * CREATE_FAILED when a conformance pack creation failed in your account.
 --
--- * 'cpsdStackARN' - Amazon Resource Name (ARN) of AWS CloudFormation stack.
 --
--- * 'cpsdLastUpdateRequestedTime' - Last time when conformation pack creation and update was requested.
-conformancePackStatusDetail ::
-  -- | 'cpsdConformancePackName'
-  Text ->
-  -- | 'cpsdConformancePackId'
-  Text ->
-  -- | 'cpsdConformancePackARN'
-  Text ->
-  -- | 'cpsdConformancePackState'
+--     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress.
+--
+--
+--     * DELETE_FAILED when a conformance pack deletion failed in your account.
+--
+--
+-- * 'conformancePackStatusReason' - The reason of conformance pack creation failure.
+-- * 'lastUpdateCompletedTime' - Last time when conformation pack creation and update was successful.
+-- * 'lastUpdateRequestedTime' - Last time when conformation pack creation and update was requested.
+-- * 'stackARN' - Amazon Resource Name (ARN) of AWS CloudFormation stack.
+mkConformancePackStatusDetail ::
+  -- | 'conformancePackName'
+  Lude.Text ->
+  -- | 'conformancePackId'
+  Lude.Text ->
+  -- | 'conformancePackARN'
+  Lude.Text ->
+  -- | 'conformancePackState'
   ConformancePackState ->
-  -- | 'cpsdStackARN'
-  Text ->
-  -- | 'cpsdLastUpdateRequestedTime'
-  UTCTime ->
+  -- | 'stackARN'
+  Lude.Text ->
+  -- | 'lastUpdateRequestedTime'
+  Lude.Timestamp ->
   ConformancePackStatusDetail
-conformancePackStatusDetail
+mkConformancePackStatusDetail
   pConformancePackName_
   pConformancePackId_
   pConformancePackARN_
@@ -81,65 +105,103 @@ conformancePackStatusDetail
   pStackARN_
   pLastUpdateRequestedTime_ =
     ConformancePackStatusDetail'
-      { _cpsdConformancePackStatusReason =
-          Nothing,
-        _cpsdLastUpdateCompletedTime = Nothing,
-        _cpsdConformancePackName = pConformancePackName_,
-        _cpsdConformancePackId = pConformancePackId_,
-        _cpsdConformancePackARN = pConformancePackARN_,
-        _cpsdConformancePackState = pConformancePackState_,
-        _cpsdStackARN = pStackARN_,
-        _cpsdLastUpdateRequestedTime = _Time # pLastUpdateRequestedTime_
+      { conformancePackStatusReason =
+          Lude.Nothing,
+        lastUpdateCompletedTime = Lude.Nothing,
+        conformancePackName = pConformancePackName_,
+        conformancePackId = pConformancePackId_,
+        conformancePackARN = pConformancePackARN_,
+        conformancePackState = pConformancePackState_,
+        stackARN = pStackARN_,
+        lastUpdateRequestedTime = pLastUpdateRequestedTime_
       }
 
 -- | The reason of conformance pack creation failure.
-cpsdConformancePackStatusReason :: Lens' ConformancePackStatusDetail (Maybe Text)
-cpsdConformancePackStatusReason = lens _cpsdConformancePackStatusReason (\s a -> s {_cpsdConformancePackStatusReason = a})
+--
+-- /Note:/ Consider using 'conformancePackStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdConformancePackStatusReason :: Lens.Lens' ConformancePackStatusDetail (Lude.Maybe Lude.Text)
+cpsdConformancePackStatusReason = Lens.lens (conformancePackStatusReason :: ConformancePackStatusDetail -> Lude.Maybe Lude.Text) (\s a -> s {conformancePackStatusReason = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdConformancePackStatusReason "Use generic-lens or generic-optics with 'conformancePackStatusReason' instead." #-}
 
 -- | Last time when conformation pack creation and update was successful.
-cpsdLastUpdateCompletedTime :: Lens' ConformancePackStatusDetail (Maybe UTCTime)
-cpsdLastUpdateCompletedTime = lens _cpsdLastUpdateCompletedTime (\s a -> s {_cpsdLastUpdateCompletedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateCompletedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdLastUpdateCompletedTime :: Lens.Lens' ConformancePackStatusDetail (Lude.Maybe Lude.Timestamp)
+cpsdLastUpdateCompletedTime = Lens.lens (lastUpdateCompletedTime :: ConformancePackStatusDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateCompletedTime = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdLastUpdateCompletedTime "Use generic-lens or generic-optics with 'lastUpdateCompletedTime' instead." #-}
 
 -- | Name of the conformance pack.
-cpsdConformancePackName :: Lens' ConformancePackStatusDetail Text
-cpsdConformancePackName = lens _cpsdConformancePackName (\s a -> s {_cpsdConformancePackName = a})
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdConformancePackName :: Lens.Lens' ConformancePackStatusDetail Lude.Text
+cpsdConformancePackName = Lens.lens (conformancePackName :: ConformancePackStatusDetail -> Lude.Text) (\s a -> s {conformancePackName = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | ID of the conformance pack.
-cpsdConformancePackId :: Lens' ConformancePackStatusDetail Text
-cpsdConformancePackId = lens _cpsdConformancePackId (\s a -> s {_cpsdConformancePackId = a})
+--
+-- /Note:/ Consider using 'conformancePackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdConformancePackId :: Lens.Lens' ConformancePackStatusDetail Lude.Text
+cpsdConformancePackId = Lens.lens (conformancePackId :: ConformancePackStatusDetail -> Lude.Text) (\s a -> s {conformancePackId = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdConformancePackId "Use generic-lens or generic-optics with 'conformancePackId' instead." #-}
 
 -- | Amazon Resource Name (ARN) of comformance pack.
-cpsdConformancePackARN :: Lens' ConformancePackStatusDetail Text
-cpsdConformancePackARN = lens _cpsdConformancePackARN (\s a -> s {_cpsdConformancePackARN = a})
+--
+-- /Note:/ Consider using 'conformancePackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdConformancePackARN :: Lens.Lens' ConformancePackStatusDetail Lude.Text
+cpsdConformancePackARN = Lens.lens (conformancePackARN :: ConformancePackStatusDetail -> Lude.Text) (\s a -> s {conformancePackARN = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdConformancePackARN "Use generic-lens or generic-optics with 'conformancePackARN' instead." #-}
 
--- | Indicates deployment status of conformance pack. AWS Config sets the state of the conformance pack to:     * CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.     * CREATE_COMPLETE when a conformance pack has been successfully created in your account.     * CREATE_FAILED when a conformance pack creation failed in your account.     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress.      * DELETE_FAILED when a conformance pack deletion failed in your account.
-cpsdConformancePackState :: Lens' ConformancePackStatusDetail ConformancePackState
-cpsdConformancePackState = lens _cpsdConformancePackState (\s a -> s {_cpsdConformancePackState = a})
+-- | Indicates deployment status of conformance pack.
+--
+-- AWS Config sets the state of the conformance pack to:
+--
+--     * CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.
+--
+--
+--     * CREATE_COMPLETE when a conformance pack has been successfully created in your account.
+--
+--
+--     * CREATE_FAILED when a conformance pack creation failed in your account.
+--
+--
+--     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress.
+--
+--
+--     * DELETE_FAILED when a conformance pack deletion failed in your account.
+--
+--
+--
+-- /Note:/ Consider using 'conformancePackState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdConformancePackState :: Lens.Lens' ConformancePackStatusDetail ConformancePackState
+cpsdConformancePackState = Lens.lens (conformancePackState :: ConformancePackStatusDetail -> ConformancePackState) (\s a -> s {conformancePackState = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdConformancePackState "Use generic-lens or generic-optics with 'conformancePackState' instead." #-}
 
 -- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
-cpsdStackARN :: Lens' ConformancePackStatusDetail Text
-cpsdStackARN = lens _cpsdStackARN (\s a -> s {_cpsdStackARN = a})
+--
+-- /Note:/ Consider using 'stackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdStackARN :: Lens.Lens' ConformancePackStatusDetail Lude.Text
+cpsdStackARN = Lens.lens (stackARN :: ConformancePackStatusDetail -> Lude.Text) (\s a -> s {stackARN = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdStackARN "Use generic-lens or generic-optics with 'stackARN' instead." #-}
 
 -- | Last time when conformation pack creation and update was requested.
-cpsdLastUpdateRequestedTime :: Lens' ConformancePackStatusDetail UTCTime
-cpsdLastUpdateRequestedTime = lens _cpsdLastUpdateRequestedTime (\s a -> s {_cpsdLastUpdateRequestedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastUpdateRequestedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsdLastUpdateRequestedTime :: Lens.Lens' ConformancePackStatusDetail Lude.Timestamp
+cpsdLastUpdateRequestedTime = Lens.lens (lastUpdateRequestedTime :: ConformancePackStatusDetail -> Lude.Timestamp) (\s a -> s {lastUpdateRequestedTime = a} :: ConformancePackStatusDetail)
+{-# DEPRECATED cpsdLastUpdateRequestedTime "Use generic-lens or generic-optics with 'lastUpdateRequestedTime' instead." #-}
 
-instance FromJSON ConformancePackStatusDetail where
+instance Lude.FromJSON ConformancePackStatusDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConformancePackStatusDetail"
       ( \x ->
           ConformancePackStatusDetail'
-            <$> (x .:? "ConformancePackStatusReason")
-            <*> (x .:? "LastUpdateCompletedTime")
-            <*> (x .: "ConformancePackName")
-            <*> (x .: "ConformancePackId")
-            <*> (x .: "ConformancePackArn")
-            <*> (x .: "ConformancePackState")
-            <*> (x .: "StackArn")
-            <*> (x .: "LastUpdateRequestedTime")
+            Lude.<$> (x Lude..:? "ConformancePackStatusReason")
+            Lude.<*> (x Lude..:? "LastUpdateCompletedTime")
+            Lude.<*> (x Lude..: "ConformancePackName")
+            Lude.<*> (x Lude..: "ConformancePackId")
+            Lude.<*> (x Lude..: "ConformancePackArn")
+            Lude.<*> (x Lude..: "ConformancePackState")
+            Lude.<*> (x Lude..: "StackArn")
+            Lude.<*> (x Lude..: "LastUpdateRequestedTime")
       )
-
-instance Hashable ConformancePackStatusDetail
-
-instance NFData ConformancePackStatusDetail

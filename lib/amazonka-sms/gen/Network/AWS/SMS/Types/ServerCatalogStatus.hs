@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerCatalogStatus where
+module Network.AWS.SMS.Types.ServerCatalogStatus
+  ( ServerCatalogStatus
+      ( ServerCatalogStatus',
+        SCSAvailable,
+        SCSDeleted,
+        SCSExpired,
+        SCSImporting,
+        SCSNotImported
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServerCatalogStatus
-  = SCSAvailable
-  | SCSDeleted
-  | SCSExpired
-  | SCSImporting
-  | SCSNotImported
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServerCatalogStatus = ServerCatalogStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServerCatalogStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure SCSAvailable
-      "deleted" -> pure SCSDeleted
-      "expired" -> pure SCSExpired
-      "importing" -> pure SCSImporting
-      "not_imported" -> pure SCSNotImported
-      e ->
-        fromTextError $
-          "Failure parsing ServerCatalogStatus from value: '" <> e
-            <> "'. Accepted values: available, deleted, expired, importing, not_imported"
+pattern SCSAvailable :: ServerCatalogStatus
+pattern SCSAvailable = ServerCatalogStatus' "AVAILABLE"
 
-instance ToText ServerCatalogStatus where
-  toText = \case
-    SCSAvailable -> "AVAILABLE"
-    SCSDeleted -> "DELETED"
-    SCSExpired -> "EXPIRED"
-    SCSImporting -> "IMPORTING"
-    SCSNotImported -> "NOT_IMPORTED"
+pattern SCSDeleted :: ServerCatalogStatus
+pattern SCSDeleted = ServerCatalogStatus' "DELETED"
 
-instance Hashable ServerCatalogStatus
+pattern SCSExpired :: ServerCatalogStatus
+pattern SCSExpired = ServerCatalogStatus' "EXPIRED"
 
-instance NFData ServerCatalogStatus
+pattern SCSImporting :: ServerCatalogStatus
+pattern SCSImporting = ServerCatalogStatus' "IMPORTING"
 
-instance ToByteString ServerCatalogStatus
+pattern SCSNotImported :: ServerCatalogStatus
+pattern SCSNotImported = ServerCatalogStatus' "NOT_IMPORTED"
 
-instance ToQuery ServerCatalogStatus
-
-instance ToHeader ServerCatalogStatus
-
-instance FromJSON ServerCatalogStatus where
-  parseJSON = parseJSONText "ServerCatalogStatus"
+{-# COMPLETE
+  SCSAvailable,
+  SCSDeleted,
+  SCSExpired,
+  SCSImporting,
+  SCSNotImported,
+  ServerCatalogStatus'
+  #-}

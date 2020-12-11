@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists all available details about the instance fleets in a cluster.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstanceFleets
-  ( -- * Creating a Request
-    listInstanceFleets,
-    ListInstanceFleets,
+  ( -- * Creating a request
+    ListInstanceFleets (..),
+    mkListInstanceFleets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lifMarker,
     lifClusterId,
 
-    -- * Destructuring the Response
-    listInstanceFleetsResponse,
-    ListInstanceFleetsResponse,
+    -- * Destructuring the response
+    ListInstanceFleetsResponse (..),
+    mkListInstanceFleetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lifrsInstanceFleets,
     lifrsMarker,
     lifrsResponseStatus,
@@ -43,131 +36,149 @@ module Network.AWS.EMR.ListInstanceFleets
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listInstanceFleets' smart constructor.
+-- | /See:/ 'mkListInstanceFleets' smart constructor.
 data ListInstanceFleets = ListInstanceFleets'
-  { _lifMarker ::
-      !(Maybe Text),
-    _lifClusterId :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    clusterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceFleets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lifMarker' - The pagination token that indicates the next set of results to retrieve.
---
--- * 'lifClusterId' - The unique identifier of the cluster.
-listInstanceFleets ::
-  -- | 'lifClusterId'
-  Text ->
+-- * 'clusterId' - The unique identifier of the cluster.
+-- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+mkListInstanceFleets ::
+  -- | 'clusterId'
+  Lude.Text ->
   ListInstanceFleets
-listInstanceFleets pClusterId_ =
+mkListInstanceFleets pClusterId_ =
   ListInstanceFleets'
-    { _lifMarker = Nothing,
-      _lifClusterId = pClusterId_
+    { marker = Lude.Nothing,
+      clusterId = pClusterId_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lifMarker :: Lens' ListInstanceFleets (Maybe Text)
-lifMarker = lens _lifMarker (\s a -> s {_lifMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifMarker :: Lens.Lens' ListInstanceFleets (Lude.Maybe Lude.Text)
+lifMarker = Lens.lens (marker :: ListInstanceFleets -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceFleets)
+{-# DEPRECATED lifMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The unique identifier of the cluster.
-lifClusterId :: Lens' ListInstanceFleets Text
-lifClusterId = lens _lifClusterId (\s a -> s {_lifClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifClusterId :: Lens.Lens' ListInstanceFleets Lude.Text
+lifClusterId = Lens.lens (clusterId :: ListInstanceFleets -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstanceFleets)
+{-# DEPRECATED lifClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSPager ListInstanceFleets where
+instance Page.AWSPager ListInstanceFleets where
   page rq rs
-    | stop (rs ^. lifrsMarker) = Nothing
-    | stop (rs ^. lifrsInstanceFleets) = Nothing
-    | otherwise = Just $ rq & lifMarker .~ rs ^. lifrsMarker
+    | Page.stop (rs Lens.^. lifrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lifrsInstanceFleets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lifMarker Lens..~ rs Lens.^. lifrsMarker
 
-instance AWSRequest ListInstanceFleets where
+instance Lude.AWSRequest ListInstanceFleets where
   type Rs ListInstanceFleets = ListInstanceFleetsResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInstanceFleetsResponse'
-            <$> (x .?> "InstanceFleets" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "InstanceFleets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInstanceFleets
-
-instance NFData ListInstanceFleets
-
-instance ToHeaders ListInstanceFleets where
+instance Lude.ToHeaders ListInstanceFleets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.ListInstanceFleets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.ListInstanceFleets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListInstanceFleets where
+instance Lude.ToJSON ListInstanceFleets where
   toJSON ListInstanceFleets' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _lifMarker,
-            Just ("ClusterId" .= _lifClusterId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            Lude.Just ("ClusterId" Lude..= clusterId)
           ]
       )
 
-instance ToPath ListInstanceFleets where
-  toPath = const "/"
+instance Lude.ToPath ListInstanceFleets where
+  toPath = Lude.const "/"
 
-instance ToQuery ListInstanceFleets where
-  toQuery = const mempty
+instance Lude.ToQuery ListInstanceFleets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listInstanceFleetsResponse' smart constructor.
+-- | /See:/ 'mkListInstanceFleetsResponse' smart constructor.
 data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
-  { _lifrsInstanceFleets ::
-      !(Maybe [InstanceFleet]),
-    _lifrsMarker :: !(Maybe Text),
-    _lifrsResponseStatus :: !Int
+  { instanceFleets ::
+      Lude.Maybe [InstanceFleet],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceFleetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lifrsInstanceFleets' - The list of instance fleets for the cluster and given filters.
---
--- * 'lifrsMarker' - The pagination token that indicates the next set of results to retrieve.
---
--- * 'lifrsResponseStatus' - -- | The response status code.
-listInstanceFleetsResponse ::
-  -- | 'lifrsResponseStatus'
-  Int ->
+-- * 'instanceFleets' - The list of instance fleets for the cluster and given filters.
+-- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'responseStatus' - The response status code.
+mkListInstanceFleetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInstanceFleetsResponse
-listInstanceFleetsResponse pResponseStatus_ =
+mkListInstanceFleetsResponse pResponseStatus_ =
   ListInstanceFleetsResponse'
-    { _lifrsInstanceFleets = Nothing,
-      _lifrsMarker = Nothing,
-      _lifrsResponseStatus = pResponseStatus_
+    { instanceFleets = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of instance fleets for the cluster and given filters.
-lifrsInstanceFleets :: Lens' ListInstanceFleetsResponse [InstanceFleet]
-lifrsInstanceFleets = lens _lifrsInstanceFleets (\s a -> s {_lifrsInstanceFleets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceFleets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifrsInstanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Lude.Maybe [InstanceFleet])
+lifrsInstanceFleets = Lens.lens (instanceFleets :: ListInstanceFleetsResponse -> Lude.Maybe [InstanceFleet]) (\s a -> s {instanceFleets = a} :: ListInstanceFleetsResponse)
+{-# DEPRECATED lifrsInstanceFleets "Use generic-lens or generic-optics with 'instanceFleets' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lifrsMarker :: Lens' ListInstanceFleetsResponse (Maybe Text)
-lifrsMarker = lens _lifrsMarker (\s a -> s {_lifrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifrsMarker :: Lens.Lens' ListInstanceFleetsResponse (Lude.Maybe Lude.Text)
+lifrsMarker = Lens.lens (marker :: ListInstanceFleetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceFleetsResponse)
+{-# DEPRECATED lifrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-lifrsResponseStatus :: Lens' ListInstanceFleetsResponse Int
-lifrsResponseStatus = lens _lifrsResponseStatus (\s a -> s {_lifrsResponseStatus = a})
-
-instance NFData ListInstanceFleetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifrsResponseStatus :: Lens.Lens' ListInstanceFleetsResponse Lude.Int
+lifrsResponseStatus = Lens.lens (responseStatus :: ListInstanceFleetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceFleetsResponse)
+{-# DEPRECATED lifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

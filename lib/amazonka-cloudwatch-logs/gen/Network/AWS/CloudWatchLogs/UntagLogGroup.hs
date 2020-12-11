@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,112 @@
 --
 -- Removes the specified tags from the specified log group.
 --
---
 -- To list the tags for a log group, use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html ListTagsLogGroup> . To add tags, use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html TagLogGroup> .
 module Network.AWS.CloudWatchLogs.UntagLogGroup
-  ( -- * Creating a Request
-    untagLogGroup,
-    UntagLogGroup,
+  ( -- * Creating a request
+    UntagLogGroup (..),
+    mkUntagLogGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ulgLogGroupName,
     ulgTags,
 
-    -- * Destructuring the Response
-    untagLogGroupResponse,
-    UntagLogGroupResponse,
+    -- * Destructuring the response
+    UntagLogGroupResponse (..),
+    mkUntagLogGroupResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagLogGroup' smart constructor.
+-- | /See:/ 'mkUntagLogGroup' smart constructor.
 data UntagLogGroup = UntagLogGroup'
-  { _ulgLogGroupName :: !Text,
-    _ulgTags :: !(List1 Text)
+  { logGroupName :: Lude.Text,
+    tags :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagLogGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ulgLogGroupName' - The name of the log group.
---
--- * 'ulgTags' - The tag keys. The corresponding tags are removed from the log group.
-untagLogGroup ::
-  -- | 'ulgLogGroupName'
-  Text ->
-  -- | 'ulgTags'
-  NonEmpty Text ->
+-- * 'logGroupName' - The name of the log group.
+-- * 'tags' - The tag keys. The corresponding tags are removed from the log group.
+mkUntagLogGroup ::
+  -- | 'logGroupName'
+  Lude.Text ->
+  -- | 'tags'
+  Lude.NonEmpty Lude.Text ->
   UntagLogGroup
-untagLogGroup pLogGroupName_ pTags_ =
-  UntagLogGroup'
-    { _ulgLogGroupName = pLogGroupName_,
-      _ulgTags = _List1 # pTags_
-    }
+mkUntagLogGroup pLogGroupName_ pTags_ =
+  UntagLogGroup' {logGroupName = pLogGroupName_, tags = pTags_}
 
 -- | The name of the log group.
-ulgLogGroupName :: Lens' UntagLogGroup Text
-ulgLogGroupName = lens _ulgLogGroupName (\s a -> s {_ulgLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulgLogGroupName :: Lens.Lens' UntagLogGroup Lude.Text
+ulgLogGroupName = Lens.lens (logGroupName :: UntagLogGroup -> Lude.Text) (\s a -> s {logGroupName = a} :: UntagLogGroup)
+{-# DEPRECATED ulgLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The tag keys. The corresponding tags are removed from the log group.
-ulgTags :: Lens' UntagLogGroup (NonEmpty Text)
-ulgTags = lens _ulgTags (\s a -> s {_ulgTags = a}) . _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulgTags :: Lens.Lens' UntagLogGroup (Lude.NonEmpty Lude.Text)
+ulgTags = Lens.lens (tags :: UntagLogGroup -> Lude.NonEmpty Lude.Text) (\s a -> s {tags = a} :: UntagLogGroup)
+{-# DEPRECATED ulgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest UntagLogGroup where
+instance Lude.AWSRequest UntagLogGroup where
   type Rs UntagLogGroup = UntagLogGroupResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull UntagLogGroupResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull UntagLogGroupResponse'
 
-instance Hashable UntagLogGroup
-
-instance NFData UntagLogGroup
-
-instance ToHeaders UntagLogGroup where
+instance Lude.ToHeaders UntagLogGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.UntagLogGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.UntagLogGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UntagLogGroup where
+instance Lude.ToJSON UntagLogGroup where
   toJSON UntagLogGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("logGroupName" .= _ulgLogGroupName),
-            Just ("tags" .= _ulgTags)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("logGroupName" Lude..= logGroupName),
+            Lude.Just ("tags" Lude..= tags)
           ]
       )
 
-instance ToPath UntagLogGroup where
-  toPath = const "/"
+instance Lude.ToPath UntagLogGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UntagLogGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UntagLogGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'untagLogGroupResponse' smart constructor.
+-- | /See:/ 'mkUntagLogGroupResponse' smart constructor.
 data UntagLogGroupResponse = UntagLogGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagLogGroupResponse' with the minimum fields required to make a request.
-untagLogGroupResponse ::
+mkUntagLogGroupResponse ::
   UntagLogGroupResponse
-untagLogGroupResponse = UntagLogGroupResponse'
-
-instance NFData UntagLogGroupResponse
+mkUntagLogGroupResponse = UntagLogGroupResponse'

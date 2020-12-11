@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.FailureDetails where
+module Network.AWS.SSM.Types.FailureDetails
+  ( FailureDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFailureDetails,
+
+    -- * Lenses
+    fdFailureType,
+    fdFailureStage,
+    fdDetails,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an Automation failure.
 --
---
---
--- /See:/ 'failureDetails' smart constructor.
+-- /See:/ 'mkFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { _fdFailureType ::
-      !(Maybe Text),
-    _fdFailureStage :: !(Maybe Text),
-    _fdDetails :: !(Maybe (Map Text ([Text])))
+  { failureType ::
+      Lude.Maybe Lude.Text,
+    failureStage :: Lude.Maybe Lude.Text,
+    details :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdFailureType' - The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
---
--- * 'fdFailureStage' - The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
---
--- * 'fdDetails' - Detailed information about the Automation step failure.
-failureDetails ::
+-- * 'details' - Detailed information about the Automation step failure.
+-- * 'failureStage' - The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
+-- * 'failureType' - The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+mkFailureDetails ::
   FailureDetails
-failureDetails =
+mkFailureDetails =
   FailureDetails'
-    { _fdFailureType = Nothing,
-      _fdFailureStage = Nothing,
-      _fdDetails = Nothing
+    { failureType = Lude.Nothing,
+      failureStage = Lude.Nothing,
+      details = Lude.Nothing
     }
 
 -- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
-fdFailureType :: Lens' FailureDetails (Maybe Text)
-fdFailureType = lens _fdFailureType (\s a -> s {_fdFailureType = a})
+--
+-- /Note:/ Consider using 'failureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdFailureType :: Lens.Lens' FailureDetails (Lude.Maybe Lude.Text)
+fdFailureType = Lens.lens (failureType :: FailureDetails -> Lude.Maybe Lude.Text) (\s a -> s {failureType = a} :: FailureDetails)
+{-# DEPRECATED fdFailureType "Use generic-lens or generic-optics with 'failureType' instead." #-}
 
 -- | The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
-fdFailureStage :: Lens' FailureDetails (Maybe Text)
-fdFailureStage = lens _fdFailureStage (\s a -> s {_fdFailureStage = a})
+--
+-- /Note:/ Consider using 'failureStage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdFailureStage :: Lens.Lens' FailureDetails (Lude.Maybe Lude.Text)
+fdFailureStage = Lens.lens (failureStage :: FailureDetails -> Lude.Maybe Lude.Text) (\s a -> s {failureStage = a} :: FailureDetails)
+{-# DEPRECATED fdFailureStage "Use generic-lens or generic-optics with 'failureStage' instead." #-}
 
 -- | Detailed information about the Automation step failure.
-fdDetails :: Lens' FailureDetails (HashMap Text ([Text]))
-fdDetails = lens _fdDetails (\s a -> s {_fdDetails = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdDetails :: Lens.Lens' FailureDetails (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+fdDetails = Lens.lens (details :: FailureDetails -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {details = a} :: FailureDetails)
+{-# DEPRECATED fdDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance FromJSON FailureDetails where
+instance Lude.FromJSON FailureDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            <$> (x .:? "FailureType")
-            <*> (x .:? "FailureStage")
-            <*> (x .:? "Details" .!= mempty)
+            Lude.<$> (x Lude..:? "FailureType")
+            Lude.<*> (x Lude..:? "FailureStage")
+            Lude.<*> (x Lude..:? "Details" Lude..!= Lude.mempty)
       )
-
-instance Hashable FailureDetails
-
-instance NFData FailureDetails

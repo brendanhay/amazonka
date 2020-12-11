@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,113 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.CORSRule where
+module Network.AWS.S3.Types.CORSRule
+  ( CORSRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCORSRule,
+
+    -- * Lenses
+    crMaxAgeSeconds,
+    crAllowedHeaders,
+    crExposeHeaders,
+    crAllowedMethods,
+    crAllowedOrigins,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Specifies a cross-origin access rule for an Amazon S3 bucket.
 --
---
---
--- /See:/ 'corsRule' smart constructor.
+-- /See:/ 'mkCORSRule' smart constructor.
 data CORSRule = CORSRule'
-  { _crMaxAgeSeconds :: !(Maybe Int),
-    _crAllowedHeaders :: !(Maybe [Text]),
-    _crExposeHeaders :: !(Maybe [Text]),
-    _crAllowedMethods :: ![Text],
-    _crAllowedOrigins :: ![Text]
+  { maxAgeSeconds :: Lude.Maybe Lude.Int,
+    allowedHeaders :: Lude.Maybe [Lude.Text],
+    exposeHeaders :: Lude.Maybe [Lude.Text],
+    allowedMethods :: [Lude.Text],
+    allowedOrigins :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CORSRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crMaxAgeSeconds' - The time in seconds that your browser is to cache the preflight response for the specified resource.
---
--- * 'crAllowedHeaders' - Headers that are specified in the @Access-Control-Request-Headers@ header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
---
--- * 'crExposeHeaders' - One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript @XMLHttpRequest@ object).
---
--- * 'crAllowedMethods' - An HTTP method that you allow the origin to execute. Valid values are @GET@ , @PUT@ , @HEAD@ , @POST@ , and @DELETE@ .
---
--- * 'crAllowedOrigins' - One or more origins you want customers to be able to access the bucket from.
-corsRule ::
+-- * 'allowedHeaders' - Headers that are specified in the @Access-Control-Request-Headers@ header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
+-- * 'allowedMethods' - An HTTP method that you allow the origin to execute. Valid values are @GET@ , @PUT@ , @HEAD@ , @POST@ , and @DELETE@ .
+-- * 'allowedOrigins' - One or more origins you want customers to be able to access the bucket from.
+-- * 'exposeHeaders' - One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript @XMLHttpRequest@ object).
+-- * 'maxAgeSeconds' - The time in seconds that your browser is to cache the preflight response for the specified resource.
+mkCORSRule ::
   CORSRule
-corsRule =
+mkCORSRule =
   CORSRule'
-    { _crMaxAgeSeconds = Nothing,
-      _crAllowedHeaders = Nothing,
-      _crExposeHeaders = Nothing,
-      _crAllowedMethods = mempty,
-      _crAllowedOrigins = mempty
+    { maxAgeSeconds = Lude.Nothing,
+      allowedHeaders = Lude.Nothing,
+      exposeHeaders = Lude.Nothing,
+      allowedMethods = Lude.mempty,
+      allowedOrigins = Lude.mempty
     }
 
 -- | The time in seconds that your browser is to cache the preflight response for the specified resource.
-crMaxAgeSeconds :: Lens' CORSRule (Maybe Int)
-crMaxAgeSeconds = lens _crMaxAgeSeconds (\s a -> s {_crMaxAgeSeconds = a})
+--
+-- /Note:/ Consider using 'maxAgeSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crMaxAgeSeconds :: Lens.Lens' CORSRule (Lude.Maybe Lude.Int)
+crMaxAgeSeconds = Lens.lens (maxAgeSeconds :: CORSRule -> Lude.Maybe Lude.Int) (\s a -> s {maxAgeSeconds = a} :: CORSRule)
+{-# DEPRECATED crMaxAgeSeconds "Use generic-lens or generic-optics with 'maxAgeSeconds' instead." #-}
 
 -- | Headers that are specified in the @Access-Control-Request-Headers@ header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
-crAllowedHeaders :: Lens' CORSRule [Text]
-crAllowedHeaders = lens _crAllowedHeaders (\s a -> s {_crAllowedHeaders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'allowedHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crAllowedHeaders :: Lens.Lens' CORSRule (Lude.Maybe [Lude.Text])
+crAllowedHeaders = Lens.lens (allowedHeaders :: CORSRule -> Lude.Maybe [Lude.Text]) (\s a -> s {allowedHeaders = a} :: CORSRule)
+{-# DEPRECATED crAllowedHeaders "Use generic-lens or generic-optics with 'allowedHeaders' instead." #-}
 
 -- | One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript @XMLHttpRequest@ object).
-crExposeHeaders :: Lens' CORSRule [Text]
-crExposeHeaders = lens _crExposeHeaders (\s a -> s {_crExposeHeaders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exposeHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crExposeHeaders :: Lens.Lens' CORSRule (Lude.Maybe [Lude.Text])
+crExposeHeaders = Lens.lens (exposeHeaders :: CORSRule -> Lude.Maybe [Lude.Text]) (\s a -> s {exposeHeaders = a} :: CORSRule)
+{-# DEPRECATED crExposeHeaders "Use generic-lens or generic-optics with 'exposeHeaders' instead." #-}
 
 -- | An HTTP method that you allow the origin to execute. Valid values are @GET@ , @PUT@ , @HEAD@ , @POST@ , and @DELETE@ .
-crAllowedMethods :: Lens' CORSRule [Text]
-crAllowedMethods = lens _crAllowedMethods (\s a -> s {_crAllowedMethods = a}) . _Coerce
+--
+-- /Note:/ Consider using 'allowedMethods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crAllowedMethods :: Lens.Lens' CORSRule [Lude.Text]
+crAllowedMethods = Lens.lens (allowedMethods :: CORSRule -> [Lude.Text]) (\s a -> s {allowedMethods = a} :: CORSRule)
+{-# DEPRECATED crAllowedMethods "Use generic-lens or generic-optics with 'allowedMethods' instead." #-}
 
 -- | One or more origins you want customers to be able to access the bucket from.
-crAllowedOrigins :: Lens' CORSRule [Text]
-crAllowedOrigins = lens _crAllowedOrigins (\s a -> s {_crAllowedOrigins = a}) . _Coerce
+--
+-- /Note:/ Consider using 'allowedOrigins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crAllowedOrigins :: Lens.Lens' CORSRule [Lude.Text]
+crAllowedOrigins = Lens.lens (allowedOrigins :: CORSRule -> [Lude.Text]) (\s a -> s {allowedOrigins = a} :: CORSRule)
+{-# DEPRECATED crAllowedOrigins "Use generic-lens or generic-optics with 'allowedOrigins' instead." #-}
 
-instance FromXML CORSRule where
+instance Lude.FromXML CORSRule where
   parseXML x =
     CORSRule'
-      <$> (x .@? "MaxAgeSeconds")
-      <*> (may (parseXMLList "AllowedHeader") x)
-      <*> (may (parseXMLList "ExposeHeader") x)
-      <*> (parseXMLList "AllowedMethod" x)
-      <*> (parseXMLList "AllowedOrigin" x)
+      Lude.<$> (x Lude..@? "MaxAgeSeconds")
+      Lude.<*> (Lude.may (Lude.parseXMLList "AllowedHeader") x)
+      Lude.<*> (Lude.may (Lude.parseXMLList "ExposeHeader") x)
+      Lude.<*> (Lude.parseXMLList "AllowedMethod" x)
+      Lude.<*> (Lude.parseXMLList "AllowedOrigin" x)
 
-instance Hashable CORSRule
-
-instance NFData CORSRule
-
-instance ToXML CORSRule where
+instance Lude.ToXML CORSRule where
   toXML CORSRule' {..} =
-    mconcat
-      [ "MaxAgeSeconds" @= _crMaxAgeSeconds,
-        toXML (toXMLList "AllowedHeader" <$> _crAllowedHeaders),
-        toXML (toXMLList "ExposeHeader" <$> _crExposeHeaders),
-        toXMLList "AllowedMethod" _crAllowedMethods,
-        toXMLList "AllowedOrigin" _crAllowedOrigins
+    Lude.mconcat
+      [ "MaxAgeSeconds" Lude.@= maxAgeSeconds,
+        Lude.toXML
+          (Lude.toXMLList "AllowedHeader" Lude.<$> allowedHeaders),
+        Lude.toXML (Lude.toXMLList "ExposeHeader" Lude.<$> exposeHeaders),
+        Lude.toXMLList "AllowedMethod" allowedMethods,
+        Lude.toXMLList "AllowedOrigin" allowedOrigins
       ]

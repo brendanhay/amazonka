@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,157 @@
 --
 -- Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier @Subscribe@ action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the @AuthenticateOnUnsubscribe@ flag is set to "true".
 module Network.AWS.SNS.ConfirmSubscription
-  ( -- * Creating a Request
-    confirmSubscription,
-    ConfirmSubscription,
+  ( -- * Creating a request
+    ConfirmSubscription (..),
+    mkConfirmSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csAuthenticateOnUnsubscribe,
     csTopicARN,
     csToken,
 
-    -- * Destructuring the Response
-    confirmSubscriptionResponse,
-    ConfirmSubscriptionResponse,
+    -- * Destructuring the response
+    ConfirmSubscriptionResponse (..),
+    mkConfirmSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsSubscriptionARN,
     csrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | Input for ConfirmSubscription action.
 --
---
---
--- /See:/ 'confirmSubscription' smart constructor.
+-- /See:/ 'mkConfirmSubscription' smart constructor.
 data ConfirmSubscription = ConfirmSubscription'
-  { _csAuthenticateOnUnsubscribe ::
-      !(Maybe Text),
-    _csTopicARN :: !Text,
-    _csToken :: !Text
+  { authenticateOnUnsubscribe ::
+      Lude.Maybe Lude.Text,
+    topicARN :: Lude.Text,
+    token :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csAuthenticateOnUnsubscribe' - Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
---
--- * 'csTopicARN' - The ARN of the topic for which you wish to confirm a subscription.
---
--- * 'csToken' - Short-lived token sent to an endpoint during the @Subscribe@ action.
-confirmSubscription ::
-  -- | 'csTopicARN'
-  Text ->
-  -- | 'csToken'
-  Text ->
+-- * 'authenticateOnUnsubscribe' - Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
+-- * 'token' - Short-lived token sent to an endpoint during the @Subscribe@ action.
+-- * 'topicARN' - The ARN of the topic for which you wish to confirm a subscription.
+mkConfirmSubscription ::
+  -- | 'topicARN'
+  Lude.Text ->
+  -- | 'token'
+  Lude.Text ->
   ConfirmSubscription
-confirmSubscription pTopicARN_ pToken_ =
+mkConfirmSubscription pTopicARN_ pToken_ =
   ConfirmSubscription'
-    { _csAuthenticateOnUnsubscribe = Nothing,
-      _csTopicARN = pTopicARN_,
-      _csToken = pToken_
+    { authenticateOnUnsubscribe = Lude.Nothing,
+      topicARN = pTopicARN_,
+      token = pToken_
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
-csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\s a -> s {_csAuthenticateOnUnsubscribe = a})
+--
+-- /Note:/ Consider using 'authenticateOnUnsubscribe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csAuthenticateOnUnsubscribe :: Lens.Lens' ConfirmSubscription (Lude.Maybe Lude.Text)
+csAuthenticateOnUnsubscribe = Lens.lens (authenticateOnUnsubscribe :: ConfirmSubscription -> Lude.Maybe Lude.Text) (\s a -> s {authenticateOnUnsubscribe = a} :: ConfirmSubscription)
+{-# DEPRECATED csAuthenticateOnUnsubscribe "Use generic-lens or generic-optics with 'authenticateOnUnsubscribe' instead." #-}
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csTopicARN :: Lens' ConfirmSubscription Text
-csTopicARN = lens _csTopicARN (\s a -> s {_csTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTopicARN :: Lens.Lens' ConfirmSubscription Lude.Text
+csTopicARN = Lens.lens (topicARN :: ConfirmSubscription -> Lude.Text) (\s a -> s {topicARN = a} :: ConfirmSubscription)
+{-# DEPRECATED csTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | Short-lived token sent to an endpoint during the @Subscribe@ action.
-csToken :: Lens' ConfirmSubscription Text
-csToken = lens _csToken (\s a -> s {_csToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csToken :: Lens.Lens' ConfirmSubscription Lude.Text
+csToken = Lens.lens (token :: ConfirmSubscription -> Lude.Text) (\s a -> s {token = a} :: ConfirmSubscription)
+{-# DEPRECATED csToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
-instance AWSRequest ConfirmSubscription where
+instance Lude.AWSRequest ConfirmSubscription where
   type Rs ConfirmSubscription = ConfirmSubscriptionResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ConfirmSubscriptionResult"
       ( \s h x ->
           ConfirmSubscriptionResponse'
-            <$> (x .@? "SubscriptionArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "SubscriptionArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ConfirmSubscription
+instance Lude.ToHeaders ConfirmSubscription where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ConfirmSubscription
+instance Lude.ToPath ConfirmSubscription where
+  toPath = Lude.const "/"
 
-instance ToHeaders ConfirmSubscription where
-  toHeaders = const mempty
-
-instance ToPath ConfirmSubscription where
-  toPath = const "/"
-
-instance ToQuery ConfirmSubscription where
+instance Lude.ToQuery ConfirmSubscription where
   toQuery ConfirmSubscription' {..} =
-    mconcat
-      [ "Action" =: ("ConfirmSubscription" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "AuthenticateOnUnsubscribe" =: _csAuthenticateOnUnsubscribe,
-        "TopicArn" =: _csTopicARN,
-        "Token" =: _csToken
+    Lude.mconcat
+      [ "Action" Lude.=: ("ConfirmSubscription" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "AuthenticateOnUnsubscribe" Lude.=: authenticateOnUnsubscribe,
+        "TopicArn" Lude.=: topicARN,
+        "Token" Lude.=: token
       ]
 
 -- | Response for ConfirmSubscriptions action.
 --
---
---
--- /See:/ 'confirmSubscriptionResponse' smart constructor.
+-- /See:/ 'mkConfirmSubscriptionResponse' smart constructor.
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
-  { _csrsSubscriptionARN ::
-      !(Maybe Text),
-    _csrsResponseStatus :: !Int
+  { subscriptionARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsSubscriptionARN' - The ARN of the created subscription.
---
--- * 'csrsResponseStatus' - -- | The response status code.
-confirmSubscriptionResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'subscriptionARN' - The ARN of the created subscription.
+mkConfirmSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ConfirmSubscriptionResponse
-confirmSubscriptionResponse pResponseStatus_ =
+mkConfirmSubscriptionResponse pResponseStatus_ =
   ConfirmSubscriptionResponse'
-    { _csrsSubscriptionARN = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { subscriptionARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the created subscription.
-csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrsSubscriptionARN = lens _csrsSubscriptionARN (\s a -> s {_csrsSubscriptionARN = a})
+--
+-- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSubscriptionARN :: Lens.Lens' ConfirmSubscriptionResponse (Lude.Maybe Lude.Text)
+csrsSubscriptionARN = Lens.lens (subscriptionARN :: ConfirmSubscriptionResponse -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionARN = a} :: ConfirmSubscriptionResponse)
+{-# DEPRECATED csrsSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' ConfirmSubscriptionResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData ConfirmSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' ConfirmSubscriptionResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: ConfirmSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmSubscriptionResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

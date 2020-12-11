@@ -28,43 +28,43 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeScalingPlanResources $
---             describeScalingPlanResources
+--             mkDescribeScalingPlanResources
 --
 --         , requestCreateScalingPlan $
---             createScalingPlan
+--             mkCreateScalingPlan
 --
 --         , requestDeleteScalingPlan $
---             deleteScalingPlan
+--             mkDeleteScalingPlan
 --
 --         , requestUpdateScalingPlan $
---             updateScalingPlan
+--             mkUpdateScalingPlan
 --
 --         , requestDescribeScalingPlans $
---             describeScalingPlans
+--             mkDescribeScalingPlans
 --
 --         , requestGetScalingPlanResourceForecastData $
---             getScalingPlanResourceForecastData
+--             mkGetScalingPlanResourceForecastData
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeScalingPlanResources $
---             describeScalingPlanResourcesResponse
+--             mkDescribeScalingPlanResourcesResponse
 --
 --         , responseCreateScalingPlan $
---             createScalingPlanResponse
+--             mkCreateScalingPlanResponse
 --
 --         , responseDeleteScalingPlan $
---             deleteScalingPlanResponse
+--             mkDeleteScalingPlanResponse
 --
 --         , responseUpdateScalingPlan $
---             updateScalingPlanResponse
+--             mkUpdateScalingPlanResponse
 --
 --         , responseDescribeScalingPlans $
---             describeScalingPlansResponse
+--             mkDescribeScalingPlansResponse
 --
 --         , responseGetScalingPlanResourceForecastData $
---             getScalingPlanResourceForecastDataResponse
+--             mkGetScalingPlanResourceForecastDataResponse
 --
 --           ]
 --     ]
@@ -114,7 +114,7 @@ responseDescribeScalingPlanResources =
   res
     "DescribeScalingPlanResourcesResponse"
     "fixture/DescribeScalingPlanResourcesResponse.proto"
-    autoScalingPlans
+    autoScalingPlansService
     (Proxy :: Proxy DescribeScalingPlanResources)
 
 responseCreateScalingPlan :: CreateScalingPlanResponse -> TestTree
@@ -122,7 +122,7 @@ responseCreateScalingPlan =
   res
     "CreateScalingPlanResponse"
     "fixture/CreateScalingPlanResponse.proto"
-    autoScalingPlans
+    autoScalingPlansService
     (Proxy :: Proxy CreateScalingPlan)
 
 responseDeleteScalingPlan :: DeleteScalingPlanResponse -> TestTree
@@ -130,7 +130,7 @@ responseDeleteScalingPlan =
   res
     "DeleteScalingPlanResponse"
     "fixture/DeleteScalingPlanResponse.proto"
-    autoScalingPlans
+    autoScalingPlansService
     (Proxy :: Proxy DeleteScalingPlan)
 
 responseUpdateScalingPlan :: UpdateScalingPlanResponse -> TestTree
@@ -138,7 +138,7 @@ responseUpdateScalingPlan =
   res
     "UpdateScalingPlanResponse"
     "fixture/UpdateScalingPlanResponse.proto"
-    autoScalingPlans
+    autoScalingPlansService
     (Proxy :: Proxy UpdateScalingPlan)
 
 responseDescribeScalingPlans :: DescribeScalingPlansResponse -> TestTree
@@ -146,7 +146,7 @@ responseDescribeScalingPlans =
   res
     "DescribeScalingPlansResponse"
     "fixture/DescribeScalingPlansResponse.proto"
-    autoScalingPlans
+    autoScalingPlansService
     (Proxy :: Proxy DescribeScalingPlans)
 
 responseGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastDataResponse -> TestTree
@@ -154,5 +154,5 @@ responseGetScalingPlanResourceForecastData =
   res
     "GetScalingPlanResourceForecastDataResponse"
     "fixture/GetScalingPlanResourceForecastDataResponse.proto"
-    autoScalingPlans
+    autoScalingPlansService
     (Proxy :: Proxy GetScalingPlanResourceForecastData)

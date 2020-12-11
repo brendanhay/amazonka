@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType where
+module Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
+  ( AuthTokenUpdateStrategyType
+      ( AuthTokenUpdateStrategyType',
+        Delete,
+        Rotate,
+        Set
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthTokenUpdateStrategyType
-  = Delete
-  | Rotate
-  | Set
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthTokenUpdateStrategyType = AuthTokenUpdateStrategyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthTokenUpdateStrategyType where
-  parser =
-    takeLowerText >>= \case
-      "delete" -> pure Delete
-      "rotate" -> pure Rotate
-      "set" -> pure Set
-      e ->
-        fromTextError $
-          "Failure parsing AuthTokenUpdateStrategyType from value: '" <> e
-            <> "'. Accepted values: delete, rotate, set"
+pattern Delete :: AuthTokenUpdateStrategyType
+pattern Delete = AuthTokenUpdateStrategyType' "DELETE"
 
-instance ToText AuthTokenUpdateStrategyType where
-  toText = \case
-    Delete -> "DELETE"
-    Rotate -> "ROTATE"
-    Set -> "SET"
+pattern Rotate :: AuthTokenUpdateStrategyType
+pattern Rotate = AuthTokenUpdateStrategyType' "ROTATE"
 
-instance Hashable AuthTokenUpdateStrategyType
+pattern Set :: AuthTokenUpdateStrategyType
+pattern Set = AuthTokenUpdateStrategyType' "SET"
 
-instance NFData AuthTokenUpdateStrategyType
-
-instance ToByteString AuthTokenUpdateStrategyType
-
-instance ToQuery AuthTokenUpdateStrategyType
-
-instance ToHeader AuthTokenUpdateStrategyType
+{-# COMPLETE
+  Delete,
+  Rotate,
+  Set,
+  AuthTokenUpdateStrategyType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,136 @@
 --
 -- Deletes a saved CloudWatch Logs Insights query definition. A query definition contains details about a saved CloudWatch Logs Insights query.
 --
---
 -- Each @DeleteQueryDefinition@ operation can delete one query definition.
---
 -- You must have the @logs:DeleteQueryDefinition@ permission to be able to perform this operation.
 module Network.AWS.CloudWatchLogs.DeleteQueryDefinition
-  ( -- * Creating a Request
-    deleteQueryDefinition,
-    DeleteQueryDefinition,
+  ( -- * Creating a request
+    DeleteQueryDefinition (..),
+    mkDeleteQueryDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dqdQueryDefinitionId,
 
-    -- * Destructuring the Response
-    deleteQueryDefinitionResponse,
-    DeleteQueryDefinitionResponse,
+    -- * Destructuring the response
+    DeleteQueryDefinitionResponse (..),
+    mkDeleteQueryDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsSuccess,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteQueryDefinition' smart constructor.
+-- | /See:/ 'mkDeleteQueryDefinition' smart constructor.
 newtype DeleteQueryDefinition = DeleteQueryDefinition'
-  { _dqdQueryDefinitionId ::
-      Text
+  { queryDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueryDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqdQueryDefinitionId' - The ID of the query definition that you want to delete. You can use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> to retrieve the IDs of your saved query definitions.
-deleteQueryDefinition ::
-  -- | 'dqdQueryDefinitionId'
-  Text ->
+-- * 'queryDefinitionId' - The ID of the query definition that you want to delete. You can use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> to retrieve the IDs of your saved query definitions.
+mkDeleteQueryDefinition ::
+  -- | 'queryDefinitionId'
+  Lude.Text ->
   DeleteQueryDefinition
-deleteQueryDefinition pQueryDefinitionId_ =
-  DeleteQueryDefinition'
-    { _dqdQueryDefinitionId =
-        pQueryDefinitionId_
-    }
+mkDeleteQueryDefinition pQueryDefinitionId_ =
+  DeleteQueryDefinition' {queryDefinitionId = pQueryDefinitionId_}
 
 -- | The ID of the query definition that you want to delete. You can use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> to retrieve the IDs of your saved query definitions.
-dqdQueryDefinitionId :: Lens' DeleteQueryDefinition Text
-dqdQueryDefinitionId = lens _dqdQueryDefinitionId (\s a -> s {_dqdQueryDefinitionId = a})
+--
+-- /Note:/ Consider using 'queryDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdQueryDefinitionId :: Lens.Lens' DeleteQueryDefinition Lude.Text
+dqdQueryDefinitionId = Lens.lens (queryDefinitionId :: DeleteQueryDefinition -> Lude.Text) (\s a -> s {queryDefinitionId = a} :: DeleteQueryDefinition)
+{-# DEPRECATED dqdQueryDefinitionId "Use generic-lens or generic-optics with 'queryDefinitionId' instead." #-}
 
-instance AWSRequest DeleteQueryDefinition where
+instance Lude.AWSRequest DeleteQueryDefinition where
   type Rs DeleteQueryDefinition = DeleteQueryDefinitionResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteQueryDefinitionResponse'
-            <$> (x .?> "success") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "success") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteQueryDefinition
-
-instance NFData DeleteQueryDefinition
-
-instance ToHeaders DeleteQueryDefinition where
+instance Lude.ToHeaders DeleteQueryDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DeleteQueryDefinition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DeleteQueryDefinition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteQueryDefinition where
+instance Lude.ToJSON DeleteQueryDefinition where
   toJSON DeleteQueryDefinition' {..} =
-    object
-      (catMaybes [Just ("queryDefinitionId" .= _dqdQueryDefinitionId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("queryDefinitionId" Lude..= queryDefinitionId)]
+      )
 
-instance ToPath DeleteQueryDefinition where
-  toPath = const "/"
+instance Lude.ToPath DeleteQueryDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteQueryDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteQueryDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteQueryDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeleteQueryDefinitionResponse' smart constructor.
 data DeleteQueryDefinitionResponse = DeleteQueryDefinitionResponse'
-  { _drsSuccess ::
-      !(Maybe Bool),
-    _drsResponseStatus :: !Int
+  { success ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueryDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsSuccess' - A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation failed.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteQueryDefinitionResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'success' - A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation failed.
+mkDeleteQueryDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteQueryDefinitionResponse
-deleteQueryDefinitionResponse pResponseStatus_ =
+mkDeleteQueryDefinitionResponse pResponseStatus_ =
   DeleteQueryDefinitionResponse'
-    { _drsSuccess = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { success = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation failed.
-drsSuccess :: Lens' DeleteQueryDefinitionResponse (Maybe Bool)
-drsSuccess = lens _drsSuccess (\s a -> s {_drsSuccess = a})
+--
+-- /Note:/ Consider using 'success' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsSuccess :: Lens.Lens' DeleteQueryDefinitionResponse (Lude.Maybe Lude.Bool)
+drsSuccess = Lens.lens (success :: DeleteQueryDefinitionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {success = a} :: DeleteQueryDefinitionResponse)
+{-# DEPRECATED drsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteQueryDefinitionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteQueryDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteQueryDefinitionResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteQueryDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteQueryDefinitionResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

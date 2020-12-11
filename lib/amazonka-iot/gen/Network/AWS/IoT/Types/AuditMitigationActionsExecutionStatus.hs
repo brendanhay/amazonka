@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus where
+module Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus
+  ( AuditMitigationActionsExecutionStatus
+      ( AuditMitigationActionsExecutionStatus',
+        AMAESCanceled,
+        AMAESCompleted,
+        AMAESFailed,
+        AMAESInProgress,
+        AMAESPending,
+        AMAESSkipped
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditMitigationActionsExecutionStatus
-  = AMAESCanceled
-  | AMAESCompleted
-  | AMAESFailed
-  | AMAESInProgress
-  | AMAESPending
-  | AMAESSkipped
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditMitigationActionsExecutionStatus = AuditMitigationActionsExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditMitigationActionsExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure AMAESCanceled
-      "completed" -> pure AMAESCompleted
-      "failed" -> pure AMAESFailed
-      "in_progress" -> pure AMAESInProgress
-      "pending" -> pure AMAESPending
-      "skipped" -> pure AMAESSkipped
-      e ->
-        fromTextError $
-          "Failure parsing AuditMitigationActionsExecutionStatus from value: '" <> e
-            <> "'. Accepted values: canceled, completed, failed, in_progress, pending, skipped"
+pattern AMAESCanceled :: AuditMitigationActionsExecutionStatus
+pattern AMAESCanceled = AuditMitigationActionsExecutionStatus' "CANCELED"
 
-instance ToText AuditMitigationActionsExecutionStatus where
-  toText = \case
-    AMAESCanceled -> "CANCELED"
-    AMAESCompleted -> "COMPLETED"
-    AMAESFailed -> "FAILED"
-    AMAESInProgress -> "IN_PROGRESS"
-    AMAESPending -> "PENDING"
-    AMAESSkipped -> "SKIPPED"
+pattern AMAESCompleted :: AuditMitigationActionsExecutionStatus
+pattern AMAESCompleted = AuditMitigationActionsExecutionStatus' "COMPLETED"
 
-instance Hashable AuditMitigationActionsExecutionStatus
+pattern AMAESFailed :: AuditMitigationActionsExecutionStatus
+pattern AMAESFailed = AuditMitigationActionsExecutionStatus' "FAILED"
 
-instance NFData AuditMitigationActionsExecutionStatus
+pattern AMAESInProgress :: AuditMitigationActionsExecutionStatus
+pattern AMAESInProgress = AuditMitigationActionsExecutionStatus' "IN_PROGRESS"
 
-instance ToByteString AuditMitigationActionsExecutionStatus
+pattern AMAESPending :: AuditMitigationActionsExecutionStatus
+pattern AMAESPending = AuditMitigationActionsExecutionStatus' "PENDING"
 
-instance ToQuery AuditMitigationActionsExecutionStatus
+pattern AMAESSkipped :: AuditMitigationActionsExecutionStatus
+pattern AMAESSkipped = AuditMitigationActionsExecutionStatus' "SKIPPED"
 
-instance ToHeader AuditMitigationActionsExecutionStatus
-
-instance ToJSON AuditMitigationActionsExecutionStatus where
-  toJSON = toJSONText
-
-instance FromJSON AuditMitigationActionsExecutionStatus where
-  parseJSON = parseJSONText "AuditMitigationActionsExecutionStatus"
+{-# COMPLETE
+  AMAESCanceled,
+  AMAESCompleted,
+  AMAESFailed,
+  AMAESInProgress,
+  AMAESPending,
+  AMAESSkipped,
+  AuditMitigationActionsExecutionStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,148 +7,191 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeModification where
+module Network.AWS.EC2.Types.VolumeModification
+  ( VolumeModification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVolumeModification,
+
+    -- * Lenses
+    vmProgress,
+    vmStartTime,
+    vmModificationState,
+    vmTargetVolumeType,
+    vmOriginalVolumeType,
+    vmTargetSize,
+    vmTargetIOPS,
+    vmOriginalSize,
+    vmOriginalIOPS,
+    vmStatusMessage,
+    vmEndTime,
+    vmVolumeId,
+  )
+where
+
 import Network.AWS.EC2.Types.VolumeModificationState
 import Network.AWS.EC2.Types.VolumeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the modification status of an EBS volume.
 --
---
 -- If the volume has never been modified, some element values will be null.
 --
---
--- /See:/ 'volumeModification' smart constructor.
+-- /See:/ 'mkVolumeModification' smart constructor.
 data VolumeModification = VolumeModification'
-  { _vmProgress ::
-      !(Maybe Integer),
-    _vmStartTime :: !(Maybe ISO8601),
-    _vmModificationState ::
-      !(Maybe VolumeModificationState),
-    _vmTargetVolumeType :: !(Maybe VolumeType),
-    _vmOriginalVolumeType :: !(Maybe VolumeType),
-    _vmTargetSize :: !(Maybe Int),
-    _vmTargetIOPS :: !(Maybe Int),
-    _vmOriginalSize :: !(Maybe Int),
-    _vmOriginalIOPS :: !(Maybe Int),
-    _vmStatusMessage :: !(Maybe Text),
-    _vmEndTime :: !(Maybe ISO8601),
-    _vmVolumeId :: !(Maybe Text)
+  { progress ::
+      Lude.Maybe Lude.Integer,
+    startTime :: Lude.Maybe Lude.ISO8601,
+    modificationState ::
+      Lude.Maybe VolumeModificationState,
+    targetVolumeType :: Lude.Maybe VolumeType,
+    originalVolumeType :: Lude.Maybe VolumeType,
+    targetSize :: Lude.Maybe Lude.Int,
+    targetIOPS :: Lude.Maybe Lude.Int,
+    originalSize :: Lude.Maybe Lude.Int,
+    originalIOPS :: Lude.Maybe Lude.Int,
+    statusMessage :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.ISO8601,
+    volumeId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeModification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vmProgress' - The modification progress, from 0 to 100 percent complete.
---
--- * 'vmStartTime' - The modification start time.
---
--- * 'vmModificationState' - The current modification state. The modification state is null for unmodified volumes.
---
--- * 'vmTargetVolumeType' - The target EBS volume type of the volume.
---
--- * 'vmOriginalVolumeType' - The original EBS volume type of the volume.
---
--- * 'vmTargetSize' - The target size of the volume, in GiB.
---
--- * 'vmTargetIOPS' - The target IOPS rate of the volume.
---
--- * 'vmOriginalSize' - The original size of the volume, in GiB.
---
--- * 'vmOriginalIOPS' - The original IOPS rate of the volume.
---
--- * 'vmStatusMessage' - A status message about the modification progress or failure.
---
--- * 'vmEndTime' - The modification completion or failure time.
---
--- * 'vmVolumeId' - The ID of the volume.
-volumeModification ::
+-- * 'endTime' - The modification completion or failure time.
+-- * 'modificationState' - The current modification state. The modification state is null for unmodified volumes.
+-- * 'originalIOPS' - The original IOPS rate of the volume.
+-- * 'originalSize' - The original size of the volume, in GiB.
+-- * 'originalVolumeType' - The original EBS volume type of the volume.
+-- * 'progress' - The modification progress, from 0 to 100 percent complete.
+-- * 'startTime' - The modification start time.
+-- * 'statusMessage' - A status message about the modification progress or failure.
+-- * 'targetIOPS' - The target IOPS rate of the volume.
+-- * 'targetSize' - The target size of the volume, in GiB.
+-- * 'targetVolumeType' - The target EBS volume type of the volume.
+-- * 'volumeId' - The ID of the volume.
+mkVolumeModification ::
   VolumeModification
-volumeModification =
+mkVolumeModification =
   VolumeModification'
-    { _vmProgress = Nothing,
-      _vmStartTime = Nothing,
-      _vmModificationState = Nothing,
-      _vmTargetVolumeType = Nothing,
-      _vmOriginalVolumeType = Nothing,
-      _vmTargetSize = Nothing,
-      _vmTargetIOPS = Nothing,
-      _vmOriginalSize = Nothing,
-      _vmOriginalIOPS = Nothing,
-      _vmStatusMessage = Nothing,
-      _vmEndTime = Nothing,
-      _vmVolumeId = Nothing
+    { progress = Lude.Nothing,
+      startTime = Lude.Nothing,
+      modificationState = Lude.Nothing,
+      targetVolumeType = Lude.Nothing,
+      originalVolumeType = Lude.Nothing,
+      targetSize = Lude.Nothing,
+      targetIOPS = Lude.Nothing,
+      originalSize = Lude.Nothing,
+      originalIOPS = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      endTime = Lude.Nothing,
+      volumeId = Lude.Nothing
     }
 
 -- | The modification progress, from 0 to 100 percent complete.
-vmProgress :: Lens' VolumeModification (Maybe Integer)
-vmProgress = lens _vmProgress (\s a -> s {_vmProgress = a})
+--
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmProgress :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Integer)
+vmProgress = Lens.lens (progress :: VolumeModification -> Lude.Maybe Lude.Integer) (\s a -> s {progress = a} :: VolumeModification)
+{-# DEPRECATED vmProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | The modification start time.
-vmStartTime :: Lens' VolumeModification (Maybe UTCTime)
-vmStartTime = lens _vmStartTime (\s a -> s {_vmStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmStartTime :: Lens.Lens' VolumeModification (Lude.Maybe Lude.ISO8601)
+vmStartTime = Lens.lens (startTime :: VolumeModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: VolumeModification)
+{-# DEPRECATED vmStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The current modification state. The modification state is null for unmodified volumes.
-vmModificationState :: Lens' VolumeModification (Maybe VolumeModificationState)
-vmModificationState = lens _vmModificationState (\s a -> s {_vmModificationState = a})
+--
+-- /Note:/ Consider using 'modificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmModificationState :: Lens.Lens' VolumeModification (Lude.Maybe VolumeModificationState)
+vmModificationState = Lens.lens (modificationState :: VolumeModification -> Lude.Maybe VolumeModificationState) (\s a -> s {modificationState = a} :: VolumeModification)
+{-# DEPRECATED vmModificationState "Use generic-lens or generic-optics with 'modificationState' instead." #-}
 
 -- | The target EBS volume type of the volume.
-vmTargetVolumeType :: Lens' VolumeModification (Maybe VolumeType)
-vmTargetVolumeType = lens _vmTargetVolumeType (\s a -> s {_vmTargetVolumeType = a})
+--
+-- /Note:/ Consider using 'targetVolumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmTargetVolumeType :: Lens.Lens' VolumeModification (Lude.Maybe VolumeType)
+vmTargetVolumeType = Lens.lens (targetVolumeType :: VolumeModification -> Lude.Maybe VolumeType) (\s a -> s {targetVolumeType = a} :: VolumeModification)
+{-# DEPRECATED vmTargetVolumeType "Use generic-lens or generic-optics with 'targetVolumeType' instead." #-}
 
 -- | The original EBS volume type of the volume.
-vmOriginalVolumeType :: Lens' VolumeModification (Maybe VolumeType)
-vmOriginalVolumeType = lens _vmOriginalVolumeType (\s a -> s {_vmOriginalVolumeType = a})
+--
+-- /Note:/ Consider using 'originalVolumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmOriginalVolumeType :: Lens.Lens' VolumeModification (Lude.Maybe VolumeType)
+vmOriginalVolumeType = Lens.lens (originalVolumeType :: VolumeModification -> Lude.Maybe VolumeType) (\s a -> s {originalVolumeType = a} :: VolumeModification)
+{-# DEPRECATED vmOriginalVolumeType "Use generic-lens or generic-optics with 'originalVolumeType' instead." #-}
 
 -- | The target size of the volume, in GiB.
-vmTargetSize :: Lens' VolumeModification (Maybe Int)
-vmTargetSize = lens _vmTargetSize (\s a -> s {_vmTargetSize = a})
+--
+-- /Note:/ Consider using 'targetSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmTargetSize :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Int)
+vmTargetSize = Lens.lens (targetSize :: VolumeModification -> Lude.Maybe Lude.Int) (\s a -> s {targetSize = a} :: VolumeModification)
+{-# DEPRECATED vmTargetSize "Use generic-lens or generic-optics with 'targetSize' instead." #-}
 
 -- | The target IOPS rate of the volume.
-vmTargetIOPS :: Lens' VolumeModification (Maybe Int)
-vmTargetIOPS = lens _vmTargetIOPS (\s a -> s {_vmTargetIOPS = a})
+--
+-- /Note:/ Consider using 'targetIOPS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmTargetIOPS :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Int)
+vmTargetIOPS = Lens.lens (targetIOPS :: VolumeModification -> Lude.Maybe Lude.Int) (\s a -> s {targetIOPS = a} :: VolumeModification)
+{-# DEPRECATED vmTargetIOPS "Use generic-lens or generic-optics with 'targetIOPS' instead." #-}
 
 -- | The original size of the volume, in GiB.
-vmOriginalSize :: Lens' VolumeModification (Maybe Int)
-vmOriginalSize = lens _vmOriginalSize (\s a -> s {_vmOriginalSize = a})
+--
+-- /Note:/ Consider using 'originalSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmOriginalSize :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Int)
+vmOriginalSize = Lens.lens (originalSize :: VolumeModification -> Lude.Maybe Lude.Int) (\s a -> s {originalSize = a} :: VolumeModification)
+{-# DEPRECATED vmOriginalSize "Use generic-lens or generic-optics with 'originalSize' instead." #-}
 
 -- | The original IOPS rate of the volume.
-vmOriginalIOPS :: Lens' VolumeModification (Maybe Int)
-vmOriginalIOPS = lens _vmOriginalIOPS (\s a -> s {_vmOriginalIOPS = a})
+--
+-- /Note:/ Consider using 'originalIOPS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmOriginalIOPS :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Int)
+vmOriginalIOPS = Lens.lens (originalIOPS :: VolumeModification -> Lude.Maybe Lude.Int) (\s a -> s {originalIOPS = a} :: VolumeModification)
+{-# DEPRECATED vmOriginalIOPS "Use generic-lens or generic-optics with 'originalIOPS' instead." #-}
 
 -- | A status message about the modification progress or failure.
-vmStatusMessage :: Lens' VolumeModification (Maybe Text)
-vmStatusMessage = lens _vmStatusMessage (\s a -> s {_vmStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmStatusMessage :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Text)
+vmStatusMessage = Lens.lens (statusMessage :: VolumeModification -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: VolumeModification)
+{-# DEPRECATED vmStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The modification completion or failure time.
-vmEndTime :: Lens' VolumeModification (Maybe UTCTime)
-vmEndTime = lens _vmEndTime (\s a -> s {_vmEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmEndTime :: Lens.Lens' VolumeModification (Lude.Maybe Lude.ISO8601)
+vmEndTime = Lens.lens (endTime :: VolumeModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: VolumeModification)
+{-# DEPRECATED vmEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The ID of the volume.
-vmVolumeId :: Lens' VolumeModification (Maybe Text)
-vmVolumeId = lens _vmVolumeId (\s a -> s {_vmVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmVolumeId :: Lens.Lens' VolumeModification (Lude.Maybe Lude.Text)
+vmVolumeId = Lens.lens (volumeId :: VolumeModification -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: VolumeModification)
+{-# DEPRECATED vmVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance FromXML VolumeModification where
+instance Lude.FromXML VolumeModification where
   parseXML x =
     VolumeModification'
-      <$> (x .@? "progress")
-      <*> (x .@? "startTime")
-      <*> (x .@? "modificationState")
-      <*> (x .@? "targetVolumeType")
-      <*> (x .@? "originalVolumeType")
-      <*> (x .@? "targetSize")
-      <*> (x .@? "targetIops")
-      <*> (x .@? "originalSize")
-      <*> (x .@? "originalIops")
-      <*> (x .@? "statusMessage")
-      <*> (x .@? "endTime")
-      <*> (x .@? "volumeId")
-
-instance Hashable VolumeModification
-
-instance NFData VolumeModification
+      Lude.<$> (x Lude..@? "progress")
+      Lude.<*> (x Lude..@? "startTime")
+      Lude.<*> (x Lude..@? "modificationState")
+      Lude.<*> (x Lude..@? "targetVolumeType")
+      Lude.<*> (x Lude..@? "originalVolumeType")
+      Lude.<*> (x Lude..@? "targetSize")
+      Lude.<*> (x Lude..@? "targetIops")
+      Lude.<*> (x Lude..@? "originalSize")
+      Lude.<*> (x Lude..@? "originalIops")
+      Lude.<*> (x Lude..@? "statusMessage")
+      Lude.<*> (x Lude..@? "endTime")
+      Lude.<*> (x Lude..@? "volumeId")

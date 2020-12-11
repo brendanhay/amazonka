@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,48 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Task where
+module Network.AWS.ECS.Types.Task
+  ( Task (..),
+
+    -- * Smart constructor
+    mkTask,
+
+    -- * Lenses
+    tStoppedAt,
+    tDesiredStatus,
+    tOverrides,
+    tInferenceAccelerators,
+    tClusterARN,
+    tGroup,
+    tAttachments,
+    tCreatedAt,
+    tStopCode,
+    tPlatformVersion,
+    tTaskARN,
+    tContainerInstanceARN,
+    tExecutionStoppedAt,
+    tLastStatus,
+    tMemory,
+    tPullStoppedAt,
+    tContainers,
+    tStartedAt,
+    tAvailabilityZone,
+    tAttributes,
+    tVersion,
+    tCapacityProviderName,
+    tStartedBy,
+    tStoppedReason,
+    tConnectivity,
+    tStoppingAt,
+    tLaunchType,
+    tTaskDefinitionARN,
+    tHealthStatus,
+    tConnectivityAt,
+    tCpu,
+    tPullStartedAt,
+    tTags,
+  )
+where
 
 import Network.AWS.ECS.Types.Attachment
 import Network.AWS.ECS.Types.Attribute
@@ -25,332 +60,522 @@ import Network.AWS.ECS.Types.LaunchType
 import Network.AWS.ECS.Types.Tag
 import Network.AWS.ECS.Types.TaskOverride
 import Network.AWS.ECS.Types.TaskStopCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details on a task in a cluster.
 --
---
---
--- /See:/ 'task' smart constructor.
+-- /See:/ 'mkTask' smart constructor.
 data Task = Task'
-  { _tStoppedAt :: !(Maybe POSIX),
-    _tDesiredStatus :: !(Maybe Text),
-    _tOverrides :: !(Maybe TaskOverride),
-    _tInferenceAccelerators :: !(Maybe [InferenceAccelerator]),
-    _tClusterARN :: !(Maybe Text),
-    _tGroup :: !(Maybe Text),
-    _tAttachments :: !(Maybe [Attachment]),
-    _tCreatedAt :: !(Maybe POSIX),
-    _tStopCode :: !(Maybe TaskStopCode),
-    _tPlatformVersion :: !(Maybe Text),
-    _tTaskARN :: !(Maybe Text),
-    _tContainerInstanceARN :: !(Maybe Text),
-    _tExecutionStoppedAt :: !(Maybe POSIX),
-    _tLastStatus :: !(Maybe Text),
-    _tMemory :: !(Maybe Text),
-    _tPullStoppedAt :: !(Maybe POSIX),
-    _tContainers :: !(Maybe [Container]),
-    _tStartedAt :: !(Maybe POSIX),
-    _tAvailabilityZone :: !(Maybe Text),
-    _tAttributes :: !(Maybe [Attribute]),
-    _tVersion :: !(Maybe Integer),
-    _tCapacityProviderName :: !(Maybe Text),
-    _tStartedBy :: !(Maybe Text),
-    _tStoppedReason :: !(Maybe Text),
-    _tConnectivity :: !(Maybe Connectivity),
-    _tStoppingAt :: !(Maybe POSIX),
-    _tLaunchType :: !(Maybe LaunchType),
-    _tTaskDefinitionARN :: !(Maybe Text),
-    _tHealthStatus :: !(Maybe HealthStatus),
-    _tConnectivityAt :: !(Maybe POSIX),
-    _tCpu :: !(Maybe Text),
-    _tPullStartedAt :: !(Maybe POSIX),
-    _tTags :: !(Maybe [Tag])
+  { stoppedAt :: Lude.Maybe Lude.Timestamp,
+    desiredStatus :: Lude.Maybe Lude.Text,
+    overrides :: Lude.Maybe TaskOverride,
+    inferenceAccelerators :: Lude.Maybe [InferenceAccelerator],
+    clusterARN :: Lude.Maybe Lude.Text,
+    group :: Lude.Maybe Lude.Text,
+    attachments :: Lude.Maybe [Attachment],
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    stopCode :: Lude.Maybe TaskStopCode,
+    platformVersion :: Lude.Maybe Lude.Text,
+    taskARN :: Lude.Maybe Lude.Text,
+    containerInstanceARN :: Lude.Maybe Lude.Text,
+    executionStoppedAt :: Lude.Maybe Lude.Timestamp,
+    lastStatus :: Lude.Maybe Lude.Text,
+    memory :: Lude.Maybe Lude.Text,
+    pullStoppedAt :: Lude.Maybe Lude.Timestamp,
+    containers :: Lude.Maybe [Container],
+    startedAt :: Lude.Maybe Lude.Timestamp,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    attributes :: Lude.Maybe [Attribute],
+    version :: Lude.Maybe Lude.Integer,
+    capacityProviderName :: Lude.Maybe Lude.Text,
+    startedBy :: Lude.Maybe Lude.Text,
+    stoppedReason :: Lude.Maybe Lude.Text,
+    connectivity :: Lude.Maybe Connectivity,
+    stoppingAt :: Lude.Maybe Lude.Timestamp,
+    launchType :: Lude.Maybe LaunchType,
+    taskDefinitionARN :: Lude.Maybe Lude.Text,
+    healthStatus :: Lude.Maybe HealthStatus,
+    connectivityAt :: Lude.Maybe Lude.Timestamp,
+    cpu :: Lude.Maybe Lude.Text,
+    pullStartedAt :: Lude.Maybe Lude.Timestamp,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Task' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attachments' - The Elastic Network Adapter associated with the task if the task uses the @awsvpc@ network mode.
+-- * 'attributes' - The attributes of the task
+-- * 'availabilityZone' - The availability zone of the task.
+-- * 'capacityProviderName' - The capacity provider associated with the task.
+-- * 'clusterARN' - The ARN of the cluster that hosts the task.
+-- * 'connectivity' - The connectivity status of a task.
+-- * 'connectivityAt' - The Unix timestamp for when the task last went into @CONNECTED@ status.
+-- * 'containerInstanceARN' - The ARN of the container instances that host the task.
+-- * 'containers' - The containers associated with the task.
+-- * 'cpu' - The number of CPU units used by the task as expressed in a task definition. It can be expressed as an integer using CPU units, for example @1024@ . It can also be expressed as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ . String values are converted to an integer indicating the CPU units when the task definition is registered.
 --
--- * 'tStoppedAt' - The Unix timestamp for when the task was stopped (the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
+-- If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs).
+-- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:
 --
--- * 'tDesiredStatus' - The desired status of the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle> .
+--     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
 --
--- * 'tOverrides' - One or more container overrides.
 --
--- * 'tInferenceAccelerators' - The Elastic Inference accelerator associated with the task.
+--     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
 --
--- * 'tClusterARN' - The ARN of the cluster that hosts the task.
 --
--- * 'tGroup' - The name of the task group associated with the task.
+--     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 --
--- * 'tAttachments' - The Elastic Network Adapter associated with the task if the task uses the @awsvpc@ network mode.
 --
--- * 'tCreatedAt' - The Unix timestamp for when the task was created (the task entered the @PENDING@ state).
+--     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
 --
--- * 'tStopCode' - The stop code indicating why a task was stopped. The @stoppedReason@ may contain additional details.
 --
--- * 'tPlatformVersion' - The platform version on which your task is running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
 --
--- * 'tTaskARN' - The Amazon Resource Name (ARN) of the task.
 --
--- * 'tContainerInstanceARN' - The ARN of the container instances that host the task.
+-- * 'createdAt' - The Unix timestamp for when the task was created (the task entered the @PENDING@ state).
+-- * 'desiredStatus' - The desired status of the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle> .
+-- * 'executionStoppedAt' - The Unix timestamp for when the task execution stopped.
+-- * 'group' - The name of the task group associated with the task.
+-- * 'healthStatus' - The health status for the task, which is determined by the health of the essential containers in the task. If all essential containers in the task are reporting as @HEALTHY@ , then the task status also reports as @HEALTHY@ . If any essential containers in the task are reporting as @UNHEALTHY@ or @UNKNOWN@ , then the task status also reports as @UNHEALTHY@ or @UNKNOWN@ , accordingly.
+-- * 'inferenceAccelerators' - The Elastic Inference accelerator associated with the task.
+-- * 'lastStatus' - The last known status of the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle> .
+-- * 'launchType' - The launch type on which your task is running. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'memory' - The amount of memory (in MiB) used by the task as expressed in a task definition. It can be expressed as an integer using MiB, for example @1024@ . It can also be expressed as a string using GB, for example @1GB@ or @1 GB@ . String values are converted to an integer indicating the MiB when the task definition is registered.
 --
--- * 'tExecutionStoppedAt' - The Unix timestamp for when the task execution stopped.
+-- If you are using the EC2 launch type, this field is optional.
+-- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @cpu@ parameter:
 --
--- * 'tLastStatus' - The last known status of the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle> .
+--     * 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256 (.25 vCPU)
 --
--- * 'tMemory' - The amount of memory (in MiB) used by the task as expressed in a task definition. It can be expressed as an integer using MiB, for example @1024@ . It can also be expressed as a string using GB, for example @1GB@ or @1 GB@ . String values are converted to an integer indicating the MiB when the task definition is registered. If you are using the EC2 launch type, this field is optional. If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @cpu@ parameter:     * 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256 (.25 vCPU)     * 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available @cpu@ values: 512 (.5 vCPU)     * 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available @cpu@ values: 1024 (1 vCPU)     * Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 2048 (2 vCPU)     * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 4096 (4 vCPU)
 --
--- * 'tPullStoppedAt' - The Unix timestamp for when the container image pull completed.
+--     * 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available @cpu@ values: 512 (.5 vCPU)
 --
--- * 'tContainers' - The containers associated with the task.
 --
--- * 'tStartedAt' - The Unix timestamp for when the task started (the task transitioned from the @PENDING@ state to the @RUNNING@ state).
+--     * 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available @cpu@ values: 1024 (1 vCPU)
 --
--- * 'tAvailabilityZone' - The availability zone of the task.
 --
--- * 'tAttributes' - The attributes of the task
+--     * Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 2048 (2 vCPU)
 --
--- * 'tVersion' - The version counter for the task. Every time a task experiences a change that triggers a CloudWatch event, the version counter is incremented. If you are replicating your Amazon ECS task state with CloudWatch Events, you can compare the version of a task reported by the Amazon ECS API actions with the version reported in CloudWatch Events for the task (inside the @detail@ object) to verify that the version in your event stream is current.
 --
--- * 'tCapacityProviderName' - The capacity provider associated with the task.
+--     * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 4096 (4 vCPU)
 --
--- * 'tStartedBy' - The tag specified when a task is started. If the task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
 --
--- * 'tStoppedReason' - The reason that the task was stopped.
+-- * 'overrides' - One or more container overrides.
+-- * 'platformVersion' - The platform version on which your task is running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'pullStartedAt' - The Unix timestamp for when the container image pull began.
+-- * 'pullStoppedAt' - The Unix timestamp for when the container image pull completed.
+-- * 'startedAt' - The Unix timestamp for when the task started (the task transitioned from the @PENDING@ state to the @RUNNING@ state).
+-- * 'startedBy' - The tag specified when a task is started. If the task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+-- * 'stopCode' - The stop code indicating why a task was stopped. The @stoppedReason@ may contain additional details.
+-- * 'stoppedAt' - The Unix timestamp for when the task was stopped (the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
+-- * 'stoppedReason' - The reason that the task was stopped.
+-- * 'stoppingAt' - The Unix timestamp for when the task stops (transitions from the @RUNNING@ state to @STOPPED@ ).
+-- * 'tags' - The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- * 'tConnectivity' - The connectivity status of a task.
+-- The following basic restrictions apply to tags:
 --
--- * 'tStoppingAt' - The Unix timestamp for when the task stops (transitions from the @RUNNING@ state to @STOPPED@ ).
+--     * Maximum number of tags per resource - 50
 --
--- * 'tLaunchType' - The launch type on which your task is running. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
 --
--- * 'tTaskDefinitionARN' - The ARN of the task definition that creates the task.
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
 --
--- * 'tHealthStatus' - The health status for the task, which is determined by the health of the essential containers in the task. If all essential containers in the task are reporting as @HEALTHY@ , then the task status also reports as @HEALTHY@ . If any essential containers in the task are reporting as @UNHEALTHY@ or @UNKNOWN@ , then the task status also reports as @UNHEALTHY@ or @UNKNOWN@ , accordingly.
 --
--- * 'tConnectivityAt' - The Unix timestamp for when the task last went into @CONNECTED@ status.
+--     * Maximum key length - 128 Unicode characters in UTF-8
 --
--- * 'tCpu' - The number of CPU units used by the task as expressed in a task definition. It can be expressed as an integer using CPU units, for example @1024@ . It can also be expressed as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ . String values are converted to an integer indicating the CPU units when the task definition is registered. If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs). If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
 --
--- * 'tPullStartedAt' - The Unix timestamp for when the container image pull began.
+--     * Maximum value length - 256 Unicode characters in UTF-8
 --
--- * 'tTags' - The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-task ::
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+-- * 'taskARN' - The Amazon Resource Name (ARN) of the task.
+-- * 'taskDefinitionARN' - The ARN of the task definition that creates the task.
+-- * 'version' - The version counter for the task. Every time a task experiences a change that triggers a CloudWatch event, the version counter is incremented. If you are replicating your Amazon ECS task state with CloudWatch Events, you can compare the version of a task reported by the Amazon ECS API actions with the version reported in CloudWatch Events for the task (inside the @detail@ object) to verify that the version in your event stream is current.
+mkTask ::
   Task
-task =
+mkTask =
   Task'
-    { _tStoppedAt = Nothing,
-      _tDesiredStatus = Nothing,
-      _tOverrides = Nothing,
-      _tInferenceAccelerators = Nothing,
-      _tClusterARN = Nothing,
-      _tGroup = Nothing,
-      _tAttachments = Nothing,
-      _tCreatedAt = Nothing,
-      _tStopCode = Nothing,
-      _tPlatformVersion = Nothing,
-      _tTaskARN = Nothing,
-      _tContainerInstanceARN = Nothing,
-      _tExecutionStoppedAt = Nothing,
-      _tLastStatus = Nothing,
-      _tMemory = Nothing,
-      _tPullStoppedAt = Nothing,
-      _tContainers = Nothing,
-      _tStartedAt = Nothing,
-      _tAvailabilityZone = Nothing,
-      _tAttributes = Nothing,
-      _tVersion = Nothing,
-      _tCapacityProviderName = Nothing,
-      _tStartedBy = Nothing,
-      _tStoppedReason = Nothing,
-      _tConnectivity = Nothing,
-      _tStoppingAt = Nothing,
-      _tLaunchType = Nothing,
-      _tTaskDefinitionARN = Nothing,
-      _tHealthStatus = Nothing,
-      _tConnectivityAt = Nothing,
-      _tCpu = Nothing,
-      _tPullStartedAt = Nothing,
-      _tTags = Nothing
+    { stoppedAt = Lude.Nothing,
+      desiredStatus = Lude.Nothing,
+      overrides = Lude.Nothing,
+      inferenceAccelerators = Lude.Nothing,
+      clusterARN = Lude.Nothing,
+      group = Lude.Nothing,
+      attachments = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      stopCode = Lude.Nothing,
+      platformVersion = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      containerInstanceARN = Lude.Nothing,
+      executionStoppedAt = Lude.Nothing,
+      lastStatus = Lude.Nothing,
+      memory = Lude.Nothing,
+      pullStoppedAt = Lude.Nothing,
+      containers = Lude.Nothing,
+      startedAt = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      attributes = Lude.Nothing,
+      version = Lude.Nothing,
+      capacityProviderName = Lude.Nothing,
+      startedBy = Lude.Nothing,
+      stoppedReason = Lude.Nothing,
+      connectivity = Lude.Nothing,
+      stoppingAt = Lude.Nothing,
+      launchType = Lude.Nothing,
+      taskDefinitionARN = Lude.Nothing,
+      healthStatus = Lude.Nothing,
+      connectivityAt = Lude.Nothing,
+      cpu = Lude.Nothing,
+      pullStartedAt = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The Unix timestamp for when the task was stopped (the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
-tStoppedAt :: Lens' Task (Maybe UTCTime)
-tStoppedAt = lens _tStoppedAt (\s a -> s {_tStoppedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStoppedAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tStoppedAt = Lens.lens (stoppedAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {stoppedAt = a} :: Task)
+{-# DEPRECATED tStoppedAt "Use generic-lens or generic-optics with 'stoppedAt' instead." #-}
 
 -- | The desired status of the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle> .
-tDesiredStatus :: Lens' Task (Maybe Text)
-tDesiredStatus = lens _tDesiredStatus (\s a -> s {_tDesiredStatus = a})
+--
+-- /Note:/ Consider using 'desiredStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDesiredStatus :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tDesiredStatus = Lens.lens (desiredStatus :: Task -> Lude.Maybe Lude.Text) (\s a -> s {desiredStatus = a} :: Task)
+{-# DEPRECATED tDesiredStatus "Use generic-lens or generic-optics with 'desiredStatus' instead." #-}
 
 -- | One or more container overrides.
-tOverrides :: Lens' Task (Maybe TaskOverride)
-tOverrides = lens _tOverrides (\s a -> s {_tOverrides = a})
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tOverrides :: Lens.Lens' Task (Lude.Maybe TaskOverride)
+tOverrides = Lens.lens (overrides :: Task -> Lude.Maybe TaskOverride) (\s a -> s {overrides = a} :: Task)
+{-# DEPRECATED tOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The Elastic Inference accelerator associated with the task.
-tInferenceAccelerators :: Lens' Task [InferenceAccelerator]
-tInferenceAccelerators = lens _tInferenceAccelerators (\s a -> s {_tInferenceAccelerators = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inferenceAccelerators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tInferenceAccelerators :: Lens.Lens' Task (Lude.Maybe [InferenceAccelerator])
+tInferenceAccelerators = Lens.lens (inferenceAccelerators :: Task -> Lude.Maybe [InferenceAccelerator]) (\s a -> s {inferenceAccelerators = a} :: Task)
+{-# DEPRECATED tInferenceAccelerators "Use generic-lens or generic-optics with 'inferenceAccelerators' instead." #-}
 
 -- | The ARN of the cluster that hosts the task.
-tClusterARN :: Lens' Task (Maybe Text)
-tClusterARN = lens _tClusterARN (\s a -> s {_tClusterARN = a})
+--
+-- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tClusterARN :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tClusterARN = Lens.lens (clusterARN :: Task -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: Task)
+{-# DEPRECATED tClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
 
 -- | The name of the task group associated with the task.
-tGroup :: Lens' Task (Maybe Text)
-tGroup = lens _tGroup (\s a -> s {_tGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tGroup :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tGroup = Lens.lens (group :: Task -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: Task)
+{-# DEPRECATED tGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The Elastic Network Adapter associated with the task if the task uses the @awsvpc@ network mode.
-tAttachments :: Lens' Task [Attachment]
-tAttachments = lens _tAttachments (\s a -> s {_tAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tAttachments :: Lens.Lens' Task (Lude.Maybe [Attachment])
+tAttachments = Lens.lens (attachments :: Task -> Lude.Maybe [Attachment]) (\s a -> s {attachments = a} :: Task)
+{-# DEPRECATED tAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
 
 -- | The Unix timestamp for when the task was created (the task entered the @PENDING@ state).
-tCreatedAt :: Lens' Task (Maybe UTCTime)
-tCreatedAt = lens _tCreatedAt (\s a -> s {_tCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCreatedAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tCreatedAt = Lens.lens (createdAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Task)
+{-# DEPRECATED tCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The stop code indicating why a task was stopped. The @stoppedReason@ may contain additional details.
-tStopCode :: Lens' Task (Maybe TaskStopCode)
-tStopCode = lens _tStopCode (\s a -> s {_tStopCode = a})
+--
+-- /Note:/ Consider using 'stopCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStopCode :: Lens.Lens' Task (Lude.Maybe TaskStopCode)
+tStopCode = Lens.lens (stopCode :: Task -> Lude.Maybe TaskStopCode) (\s a -> s {stopCode = a} :: Task)
+{-# DEPRECATED tStopCode "Use generic-lens or generic-optics with 'stopCode' instead." #-}
 
 -- | The platform version on which your task is running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
-tPlatformVersion :: Lens' Task (Maybe Text)
-tPlatformVersion = lens _tPlatformVersion (\s a -> s {_tPlatformVersion = a})
+--
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tPlatformVersion :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tPlatformVersion = Lens.lens (platformVersion :: Task -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: Task)
+{-# DEPRECATED tPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the task.
-tTaskARN :: Lens' Task (Maybe Text)
-tTaskARN = lens _tTaskARN (\s a -> s {_tTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTaskARN :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tTaskARN = Lens.lens (taskARN :: Task -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: Task)
+{-# DEPRECATED tTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The ARN of the container instances that host the task.
-tContainerInstanceARN :: Lens' Task (Maybe Text)
-tContainerInstanceARN = lens _tContainerInstanceARN (\s a -> s {_tContainerInstanceARN = a})
+--
+-- /Note:/ Consider using 'containerInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tContainerInstanceARN :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tContainerInstanceARN = Lens.lens (containerInstanceARN :: Task -> Lude.Maybe Lude.Text) (\s a -> s {containerInstanceARN = a} :: Task)
+{-# DEPRECATED tContainerInstanceARN "Use generic-lens or generic-optics with 'containerInstanceARN' instead." #-}
 
 -- | The Unix timestamp for when the task execution stopped.
-tExecutionStoppedAt :: Lens' Task (Maybe UTCTime)
-tExecutionStoppedAt = lens _tExecutionStoppedAt (\s a -> s {_tExecutionStoppedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executionStoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tExecutionStoppedAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tExecutionStoppedAt = Lens.lens (executionStoppedAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionStoppedAt = a} :: Task)
+{-# DEPRECATED tExecutionStoppedAt "Use generic-lens or generic-optics with 'executionStoppedAt' instead." #-}
 
 -- | The last known status of the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle> .
-tLastStatus :: Lens' Task (Maybe Text)
-tLastStatus = lens _tLastStatus (\s a -> s {_tLastStatus = a})
+--
+-- /Note:/ Consider using 'lastStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tLastStatus :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tLastStatus = Lens.lens (lastStatus :: Task -> Lude.Maybe Lude.Text) (\s a -> s {lastStatus = a} :: Task)
+{-# DEPRECATED tLastStatus "Use generic-lens or generic-optics with 'lastStatus' instead." #-}
 
--- | The amount of memory (in MiB) used by the task as expressed in a task definition. It can be expressed as an integer using MiB, for example @1024@ . It can also be expressed as a string using GB, for example @1GB@ or @1 GB@ . String values are converted to an integer indicating the MiB when the task definition is registered. If you are using the EC2 launch type, this field is optional. If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @cpu@ parameter:     * 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256 (.25 vCPU)     * 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available @cpu@ values: 512 (.5 vCPU)     * 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available @cpu@ values: 1024 (1 vCPU)     * Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 2048 (2 vCPU)     * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 4096 (4 vCPU)
-tMemory :: Lens' Task (Maybe Text)
-tMemory = lens _tMemory (\s a -> s {_tMemory = a})
+-- | The amount of memory (in MiB) used by the task as expressed in a task definition. It can be expressed as an integer using MiB, for example @1024@ . It can also be expressed as a string using GB, for example @1GB@ or @1 GB@ . String values are converted to an integer indicating the MiB when the task definition is registered.
+--
+-- If you are using the EC2 launch type, this field is optional.
+-- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @cpu@ parameter:
+--
+--     * 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256 (.25 vCPU)
+--
+--
+--     * 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available @cpu@ values: 512 (.5 vCPU)
+--
+--
+--     * 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available @cpu@ values: 1024 (1 vCPU)
+--
+--
+--     * Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 2048 (2 vCPU)
+--
+--
+--     * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 4096 (4 vCPU)
+--
+--
+--
+-- /Note:/ Consider using 'memory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tMemory :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tMemory = Lens.lens (memory :: Task -> Lude.Maybe Lude.Text) (\s a -> s {memory = a} :: Task)
+{-# DEPRECATED tMemory "Use generic-lens or generic-optics with 'memory' instead." #-}
 
 -- | The Unix timestamp for when the container image pull completed.
-tPullStoppedAt :: Lens' Task (Maybe UTCTime)
-tPullStoppedAt = lens _tPullStoppedAt (\s a -> s {_tPullStoppedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'pullStoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tPullStoppedAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tPullStoppedAt = Lens.lens (pullStoppedAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {pullStoppedAt = a} :: Task)
+{-# DEPRECATED tPullStoppedAt "Use generic-lens or generic-optics with 'pullStoppedAt' instead." #-}
 
 -- | The containers associated with the task.
-tContainers :: Lens' Task [Container]
-tContainers = lens _tContainers (\s a -> s {_tContainers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tContainers :: Lens.Lens' Task (Lude.Maybe [Container])
+tContainers = Lens.lens (containers :: Task -> Lude.Maybe [Container]) (\s a -> s {containers = a} :: Task)
+{-# DEPRECATED tContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
 -- | The Unix timestamp for when the task started (the task transitioned from the @PENDING@ state to the @RUNNING@ state).
-tStartedAt :: Lens' Task (Maybe UTCTime)
-tStartedAt = lens _tStartedAt (\s a -> s {_tStartedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStartedAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tStartedAt = Lens.lens (startedAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: Task)
+{-# DEPRECATED tStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
 -- | The availability zone of the task.
-tAvailabilityZone :: Lens' Task (Maybe Text)
-tAvailabilityZone = lens _tAvailabilityZone (\s a -> s {_tAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tAvailabilityZone :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tAvailabilityZone = Lens.lens (availabilityZone :: Task -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: Task)
+{-# DEPRECATED tAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The attributes of the task
-tAttributes :: Lens' Task [Attribute]
-tAttributes = lens _tAttributes (\s a -> s {_tAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tAttributes :: Lens.Lens' Task (Lude.Maybe [Attribute])
+tAttributes = Lens.lens (attributes :: Task -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: Task)
+{-# DEPRECATED tAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The version counter for the task. Every time a task experiences a change that triggers a CloudWatch event, the version counter is incremented. If you are replicating your Amazon ECS task state with CloudWatch Events, you can compare the version of a task reported by the Amazon ECS API actions with the version reported in CloudWatch Events for the task (inside the @detail@ object) to verify that the version in your event stream is current.
-tVersion :: Lens' Task (Maybe Integer)
-tVersion = lens _tVersion (\s a -> s {_tVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tVersion :: Lens.Lens' Task (Lude.Maybe Lude.Integer)
+tVersion = Lens.lens (version :: Task -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: Task)
+{-# DEPRECATED tVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The capacity provider associated with the task.
-tCapacityProviderName :: Lens' Task (Maybe Text)
-tCapacityProviderName = lens _tCapacityProviderName (\s a -> s {_tCapacityProviderName = a})
+--
+-- /Note:/ Consider using 'capacityProviderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCapacityProviderName :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tCapacityProviderName = Lens.lens (capacityProviderName :: Task -> Lude.Maybe Lude.Text) (\s a -> s {capacityProviderName = a} :: Task)
+{-# DEPRECATED tCapacityProviderName "Use generic-lens or generic-optics with 'capacityProviderName' instead." #-}
 
 -- | The tag specified when a task is started. If the task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
-tStartedBy :: Lens' Task (Maybe Text)
-tStartedBy = lens _tStartedBy (\s a -> s {_tStartedBy = a})
+--
+-- /Note:/ Consider using 'startedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStartedBy :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tStartedBy = Lens.lens (startedBy :: Task -> Lude.Maybe Lude.Text) (\s a -> s {startedBy = a} :: Task)
+{-# DEPRECATED tStartedBy "Use generic-lens or generic-optics with 'startedBy' instead." #-}
 
 -- | The reason that the task was stopped.
-tStoppedReason :: Lens' Task (Maybe Text)
-tStoppedReason = lens _tStoppedReason (\s a -> s {_tStoppedReason = a})
+--
+-- /Note:/ Consider using 'stoppedReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStoppedReason :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tStoppedReason = Lens.lens (stoppedReason :: Task -> Lude.Maybe Lude.Text) (\s a -> s {stoppedReason = a} :: Task)
+{-# DEPRECATED tStoppedReason "Use generic-lens or generic-optics with 'stoppedReason' instead." #-}
 
 -- | The connectivity status of a task.
-tConnectivity :: Lens' Task (Maybe Connectivity)
-tConnectivity = lens _tConnectivity (\s a -> s {_tConnectivity = a})
+--
+-- /Note:/ Consider using 'connectivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tConnectivity :: Lens.Lens' Task (Lude.Maybe Connectivity)
+tConnectivity = Lens.lens (connectivity :: Task -> Lude.Maybe Connectivity) (\s a -> s {connectivity = a} :: Task)
+{-# DEPRECATED tConnectivity "Use generic-lens or generic-optics with 'connectivity' instead." #-}
 
 -- | The Unix timestamp for when the task stops (transitions from the @RUNNING@ state to @STOPPED@ ).
-tStoppingAt :: Lens' Task (Maybe UTCTime)
-tStoppingAt = lens _tStoppingAt (\s a -> s {_tStoppingAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stoppingAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStoppingAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tStoppingAt = Lens.lens (stoppingAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {stoppingAt = a} :: Task)
+{-# DEPRECATED tStoppingAt "Use generic-lens or generic-optics with 'stoppingAt' instead." #-}
 
 -- | The launch type on which your task is running. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
-tLaunchType :: Lens' Task (Maybe LaunchType)
-tLaunchType = lens _tLaunchType (\s a -> s {_tLaunchType = a})
+--
+-- /Note:/ Consider using 'launchType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tLaunchType :: Lens.Lens' Task (Lude.Maybe LaunchType)
+tLaunchType = Lens.lens (launchType :: Task -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: Task)
+{-# DEPRECATED tLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
 
 -- | The ARN of the task definition that creates the task.
-tTaskDefinitionARN :: Lens' Task (Maybe Text)
-tTaskDefinitionARN = lens _tTaskDefinitionARN (\s a -> s {_tTaskDefinitionARN = a})
+--
+-- /Note:/ Consider using 'taskDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTaskDefinitionARN :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tTaskDefinitionARN = Lens.lens (taskDefinitionARN :: Task -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinitionARN = a} :: Task)
+{-# DEPRECATED tTaskDefinitionARN "Use generic-lens or generic-optics with 'taskDefinitionARN' instead." #-}
 
 -- | The health status for the task, which is determined by the health of the essential containers in the task. If all essential containers in the task are reporting as @HEALTHY@ , then the task status also reports as @HEALTHY@ . If any essential containers in the task are reporting as @UNHEALTHY@ or @UNKNOWN@ , then the task status also reports as @UNHEALTHY@ or @UNKNOWN@ , accordingly.
-tHealthStatus :: Lens' Task (Maybe HealthStatus)
-tHealthStatus = lens _tHealthStatus (\s a -> s {_tHealthStatus = a})
+--
+-- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tHealthStatus :: Lens.Lens' Task (Lude.Maybe HealthStatus)
+tHealthStatus = Lens.lens (healthStatus :: Task -> Lude.Maybe HealthStatus) (\s a -> s {healthStatus = a} :: Task)
+{-# DEPRECATED tHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
 
 -- | The Unix timestamp for when the task last went into @CONNECTED@ status.
-tConnectivityAt :: Lens' Task (Maybe UTCTime)
-tConnectivityAt = lens _tConnectivityAt (\s a -> s {_tConnectivityAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'connectivityAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tConnectivityAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tConnectivityAt = Lens.lens (connectivityAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {connectivityAt = a} :: Task)
+{-# DEPRECATED tConnectivityAt "Use generic-lens or generic-optics with 'connectivityAt' instead." #-}
 
--- | The number of CPU units used by the task as expressed in a task definition. It can be expressed as an integer using CPU units, for example @1024@ . It can also be expressed as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ . String values are converted to an integer indicating the CPU units when the task definition is registered. If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs). If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
-tCpu :: Lens' Task (Maybe Text)
-tCpu = lens _tCpu (\s a -> s {_tCpu = a})
+-- | The number of CPU units used by the task as expressed in a task definition. It can be expressed as an integer using CPU units, for example @1024@ . It can also be expressed as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ . String values are converted to an integer indicating the CPU units when the task definition is registered.
+--
+-- If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs).
+-- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:
+--
+--     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+--
+--
+--     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+--
+--
+--     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+--
+--
+--     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+--
+--
+--     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+--
+--
+--
+-- /Note:/ Consider using 'cpu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCpu :: Lens.Lens' Task (Lude.Maybe Lude.Text)
+tCpu = Lens.lens (cpu :: Task -> Lude.Maybe Lude.Text) (\s a -> s {cpu = a} :: Task)
+{-# DEPRECATED tCpu "Use generic-lens or generic-optics with 'cpu' instead." #-}
 
 -- | The Unix timestamp for when the container image pull began.
-tPullStartedAt :: Lens' Task (Maybe UTCTime)
-tPullStartedAt = lens _tPullStartedAt (\s a -> s {_tPullStartedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'pullStartedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tPullStartedAt :: Lens.Lens' Task (Lude.Maybe Lude.Timestamp)
+tPullStartedAt = Lens.lens (pullStartedAt :: Task -> Lude.Maybe Lude.Timestamp) (\s a -> s {pullStartedAt = a} :: Task)
+{-# DEPRECATED tPullStartedAt "Use generic-lens or generic-optics with 'pullStartedAt' instead." #-}
 
--- | The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-tTags :: Lens' Task [Tag]
-tTags = lens _tTags (\s a -> s {_tTags = a}) . _Default . _Coerce
+-- | The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTags :: Lens.Lens' Task (Lude.Maybe [Tag])
+tTags = Lens.lens (tags :: Task -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Task)
+{-# DEPRECATED tTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON Task where
+instance Lude.FromJSON Task where
   parseJSON =
-    withObject
+    Lude.withObject
       "Task"
       ( \x ->
           Task'
-            <$> (x .:? "stoppedAt")
-            <*> (x .:? "desiredStatus")
-            <*> (x .:? "overrides")
-            <*> (x .:? "inferenceAccelerators" .!= mempty)
-            <*> (x .:? "clusterArn")
-            <*> (x .:? "group")
-            <*> (x .:? "attachments" .!= mempty)
-            <*> (x .:? "createdAt")
-            <*> (x .:? "stopCode")
-            <*> (x .:? "platformVersion")
-            <*> (x .:? "taskArn")
-            <*> (x .:? "containerInstanceArn")
-            <*> (x .:? "executionStoppedAt")
-            <*> (x .:? "lastStatus")
-            <*> (x .:? "memory")
-            <*> (x .:? "pullStoppedAt")
-            <*> (x .:? "containers" .!= mempty)
-            <*> (x .:? "startedAt")
-            <*> (x .:? "availabilityZone")
-            <*> (x .:? "attributes" .!= mempty)
-            <*> (x .:? "version")
-            <*> (x .:? "capacityProviderName")
-            <*> (x .:? "startedBy")
-            <*> (x .:? "stoppedReason")
-            <*> (x .:? "connectivity")
-            <*> (x .:? "stoppingAt")
-            <*> (x .:? "launchType")
-            <*> (x .:? "taskDefinitionArn")
-            <*> (x .:? "healthStatus")
-            <*> (x .:? "connectivityAt")
-            <*> (x .:? "cpu")
-            <*> (x .:? "pullStartedAt")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "stoppedAt")
+            Lude.<*> (x Lude..:? "desiredStatus")
+            Lude.<*> (x Lude..:? "overrides")
+            Lude.<*> (x Lude..:? "inferenceAccelerators" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "clusterArn")
+            Lude.<*> (x Lude..:? "group")
+            Lude.<*> (x Lude..:? "attachments" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "stopCode")
+            Lude.<*> (x Lude..:? "platformVersion")
+            Lude.<*> (x Lude..:? "taskArn")
+            Lude.<*> (x Lude..:? "containerInstanceArn")
+            Lude.<*> (x Lude..:? "executionStoppedAt")
+            Lude.<*> (x Lude..:? "lastStatus")
+            Lude.<*> (x Lude..:? "memory")
+            Lude.<*> (x Lude..:? "pullStoppedAt")
+            Lude.<*> (x Lude..:? "containers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "startedAt")
+            Lude.<*> (x Lude..:? "availabilityZone")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "capacityProviderName")
+            Lude.<*> (x Lude..:? "startedBy")
+            Lude.<*> (x Lude..:? "stoppedReason")
+            Lude.<*> (x Lude..:? "connectivity")
+            Lude.<*> (x Lude..:? "stoppingAt")
+            Lude.<*> (x Lude..:? "launchType")
+            Lude.<*> (x Lude..:? "taskDefinitionArn")
+            Lude.<*> (x Lude..:? "healthStatus")
+            Lude.<*> (x Lude..:? "connectivityAt")
+            Lude.<*> (x Lude..:? "cpu")
+            Lude.<*> (x Lude..:? "pullStartedAt")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable Task
-
-instance NFData Task

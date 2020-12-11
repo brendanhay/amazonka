@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,171 @@
 --
 -- Modifies an existing option group.
 module Network.AWS.RDS.ModifyOptionGroup
-  ( -- * Creating a Request
-    modifyOptionGroup,
-    ModifyOptionGroup,
+  ( -- * Creating a request
+    ModifyOptionGroup (..),
+    mkModifyOptionGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mogOptionsToInclude,
     mogOptionsToRemove,
     mogApplyImmediately,
     mogOptionGroupName,
 
-    -- * Destructuring the Response
-    modifyOptionGroupResponse,
-    ModifyOptionGroupResponse,
+    -- * Destructuring the response
+    ModifyOptionGroupResponse (..),
+    mkModifyOptionGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mogrsOptionGroup,
     mogrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyOptionGroup' smart constructor.
+-- /See:/ 'mkModifyOptionGroup' smart constructor.
 data ModifyOptionGroup = ModifyOptionGroup'
-  { _mogOptionsToInclude ::
-      !(Maybe [OptionConfiguration]),
-    _mogOptionsToRemove :: !(Maybe [Text]),
-    _mogApplyImmediately :: !(Maybe Bool),
-    _mogOptionGroupName :: !Text
+  { optionsToInclude ::
+      Lude.Maybe [OptionConfiguration],
+    optionsToRemove :: Lude.Maybe [Lude.Text],
+    applyImmediately :: Lude.Maybe Lude.Bool,
+    optionGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyOptionGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applyImmediately' - A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.
+-- * 'optionGroupName' - The name of the option group to be modified.
 --
--- * 'mogOptionsToInclude' - Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
---
--- * 'mogOptionsToRemove' - Options in this list are removed from the option group.
---
--- * 'mogApplyImmediately' - A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.
---
--- * 'mogOptionGroupName' - The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
-modifyOptionGroup ::
-  -- | 'mogOptionGroupName'
-  Text ->
+-- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+-- * 'optionsToInclude' - Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
+-- * 'optionsToRemove' - Options in this list are removed from the option group.
+mkModifyOptionGroup ::
+  -- | 'optionGroupName'
+  Lude.Text ->
   ModifyOptionGroup
-modifyOptionGroup pOptionGroupName_ =
+mkModifyOptionGroup pOptionGroupName_ =
   ModifyOptionGroup'
-    { _mogOptionsToInclude = Nothing,
-      _mogOptionsToRemove = Nothing,
-      _mogApplyImmediately = Nothing,
-      _mogOptionGroupName = pOptionGroupName_
+    { optionsToInclude = Lude.Nothing,
+      optionsToRemove = Lude.Nothing,
+      applyImmediately = Lude.Nothing,
+      optionGroupName = pOptionGroupName_
     }
 
 -- | Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
-mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionsToInclude = lens _mogOptionsToInclude (\s a -> s {_mogOptionsToInclude = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionsToInclude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mogOptionsToInclude :: Lens.Lens' ModifyOptionGroup (Lude.Maybe [OptionConfiguration])
+mogOptionsToInclude = Lens.lens (optionsToInclude :: ModifyOptionGroup -> Lude.Maybe [OptionConfiguration]) (\s a -> s {optionsToInclude = a} :: ModifyOptionGroup)
+{-# DEPRECATED mogOptionsToInclude "Use generic-lens or generic-optics with 'optionsToInclude' instead." #-}
 
 -- | Options in this list are removed from the option group.
-mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogOptionsToRemove = lens _mogOptionsToRemove (\s a -> s {_mogOptionsToRemove = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mogOptionsToRemove :: Lens.Lens' ModifyOptionGroup (Lude.Maybe [Lude.Text])
+mogOptionsToRemove = Lens.lens (optionsToRemove :: ModifyOptionGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {optionsToRemove = a} :: ModifyOptionGroup)
+{-# DEPRECATED mogOptionsToRemove "Use generic-lens or generic-optics with 'optionsToRemove' instead." #-}
 
 -- | A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.
-mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogApplyImmediately = lens _mogApplyImmediately (\s a -> s {_mogApplyImmediately = a})
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mogApplyImmediately :: Lens.Lens' ModifyOptionGroup (Lude.Maybe Lude.Bool)
+mogApplyImmediately = Lens.lens (applyImmediately :: ModifyOptionGroup -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: ModifyOptionGroup)
+{-# DEPRECATED mogApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
--- | The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
-mogOptionGroupName :: Lens' ModifyOptionGroup Text
-mogOptionGroupName = lens _mogOptionGroupName (\s a -> s {_mogOptionGroupName = a})
+-- | The name of the option group to be modified.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+--
+-- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mogOptionGroupName :: Lens.Lens' ModifyOptionGroup Lude.Text
+mogOptionGroupName = Lens.lens (optionGroupName :: ModifyOptionGroup -> Lude.Text) (\s a -> s {optionGroupName = a} :: ModifyOptionGroup)
+{-# DEPRECATED mogOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance AWSRequest ModifyOptionGroup where
+instance Lude.AWSRequest ModifyOptionGroup where
   type Rs ModifyOptionGroup = ModifyOptionGroupResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyOptionGroupResult"
       ( \s h x ->
           ModifyOptionGroupResponse'
-            <$> (x .@? "OptionGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "OptionGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyOptionGroup
+instance Lude.ToHeaders ModifyOptionGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyOptionGroup
+instance Lude.ToPath ModifyOptionGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyOptionGroup where
-  toHeaders = const mempty
-
-instance ToPath ModifyOptionGroup where
-  toPath = const "/"
-
-instance ToQuery ModifyOptionGroup where
+instance Lude.ToQuery ModifyOptionGroup where
   toQuery ModifyOptionGroup' {..} =
-    mconcat
-      [ "Action" =: ("ModifyOptionGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyOptionGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "OptionsToInclude"
-          =: toQuery
-            (toQueryList "OptionConfiguration" <$> _mogOptionsToInclude),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "OptionConfiguration" Lude.<$> optionsToInclude),
         "OptionsToRemove"
-          =: toQuery (toQueryList "member" <$> _mogOptionsToRemove),
-        "ApplyImmediately" =: _mogApplyImmediately,
-        "OptionGroupName" =: _mogOptionGroupName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionsToRemove),
+        "ApplyImmediately" Lude.=: applyImmediately,
+        "OptionGroupName" Lude.=: optionGroupName
       ]
 
--- | /See:/ 'modifyOptionGroupResponse' smart constructor.
+-- | /See:/ 'mkModifyOptionGroupResponse' smart constructor.
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-  { _mogrsOptionGroup ::
-      !(Maybe OptionGroup),
-    _mogrsResponseStatus :: !Int
+  { optionGroup ::
+      Lude.Maybe OptionGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyOptionGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mogrsOptionGroup' - Undocumented member.
---
--- * 'mogrsResponseStatus' - -- | The response status code.
-modifyOptionGroupResponse ::
-  -- | 'mogrsResponseStatus'
-  Int ->
+-- * 'optionGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyOptionGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyOptionGroupResponse
-modifyOptionGroupResponse pResponseStatus_ =
+mkModifyOptionGroupResponse pResponseStatus_ =
   ModifyOptionGroupResponse'
-    { _mogrsOptionGroup = Nothing,
-      _mogrsResponseStatus = pResponseStatus_
+    { optionGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-mogrsOptionGroup = lens _mogrsOptionGroup (\s a -> s {_mogrsOptionGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'optionGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mogrsOptionGroup :: Lens.Lens' ModifyOptionGroupResponse (Lude.Maybe OptionGroup)
+mogrsOptionGroup = Lens.lens (optionGroup :: ModifyOptionGroupResponse -> Lude.Maybe OptionGroup) (\s a -> s {optionGroup = a} :: ModifyOptionGroupResponse)
+{-# DEPRECATED mogrsOptionGroup "Use generic-lens or generic-optics with 'optionGroup' instead." #-}
 
--- | -- | The response status code.
-mogrsResponseStatus :: Lens' ModifyOptionGroupResponse Int
-mogrsResponseStatus = lens _mogrsResponseStatus (\s a -> s {_mogrsResponseStatus = a})
-
-instance NFData ModifyOptionGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mogrsResponseStatus :: Lens.Lens' ModifyOptionGroupResponse Lude.Int
+mogrsResponseStatus = Lens.lens (responseStatus :: ModifyOptionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyOptionGroupResponse)
+{-# DEPRECATED mogrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

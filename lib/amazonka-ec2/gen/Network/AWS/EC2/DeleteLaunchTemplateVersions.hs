@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Deletes one or more versions of a launch template. You cannot delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using 'DeleteLaunchTemplate' .
 module Network.AWS.EC2.DeleteLaunchTemplateVersions
-  ( -- * Creating a Request
-    deleteLaunchTemplateVersions,
-    DeleteLaunchTemplateVersions,
+  ( -- * Creating a request
+    DeleteLaunchTemplateVersions (..),
+    mkDeleteLaunchTemplateVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dltvLaunchTemplateName,
     dltvLaunchTemplateId,
     dltvDryRun,
     dltvVersions,
 
-    -- * Destructuring the Response
-    deleteLaunchTemplateVersionsResponse,
-    DeleteLaunchTemplateVersionsResponse,
+    -- * Destructuring the response
+    DeleteLaunchTemplateVersionsResponse (..),
+    mkDeleteLaunchTemplateVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dltvsrsSuccessfullyDeletedLaunchTemplateVersions,
     dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions,
     dltvsrsResponseStatus,
@@ -41,145 +36,166 @@ module Network.AWS.EC2.DeleteLaunchTemplateVersions
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLaunchTemplateVersions' smart constructor.
+-- | /See:/ 'mkDeleteLaunchTemplateVersions' smart constructor.
 data DeleteLaunchTemplateVersions = DeleteLaunchTemplateVersions'
-  { _dltvLaunchTemplateName ::
-      !(Maybe Text),
-    _dltvLaunchTemplateId ::
-      !(Maybe Text),
-    _dltvDryRun :: !(Maybe Bool),
-    _dltvVersions :: ![Text]
+  { launchTemplateName ::
+      Lude.Maybe Lude.Text,
+    launchTemplateId ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    versions :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchTemplateVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dltvLaunchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
---
--- * 'dltvLaunchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
---
--- * 'dltvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dltvVersions' - The version numbers of one or more launch template versions to delete.
-deleteLaunchTemplateVersions ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
+-- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+-- * 'versions' - The version numbers of one or more launch template versions to delete.
+mkDeleteLaunchTemplateVersions ::
   DeleteLaunchTemplateVersions
-deleteLaunchTemplateVersions =
+mkDeleteLaunchTemplateVersions =
   DeleteLaunchTemplateVersions'
-    { _dltvLaunchTemplateName = Nothing,
-      _dltvLaunchTemplateId = Nothing,
-      _dltvDryRun = Nothing,
-      _dltvVersions = mempty
+    { launchTemplateName = Lude.Nothing,
+      launchTemplateId = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      versions = Lude.mempty
     }
 
 -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
-dltvLaunchTemplateName :: Lens' DeleteLaunchTemplateVersions (Maybe Text)
-dltvLaunchTemplateName = lens _dltvLaunchTemplateName (\s a -> s {_dltvLaunchTemplateName = a})
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersions (Lude.Maybe Lude.Text)
+dltvLaunchTemplateName = Lens.lens (launchTemplateName :: DeleteLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersions)
+{-# DEPRECATED dltvLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
-dltvLaunchTemplateId :: Lens' DeleteLaunchTemplateVersions (Maybe Text)
-dltvLaunchTemplateId = lens _dltvLaunchTemplateId (\s a -> s {_dltvLaunchTemplateId = a})
+--
+-- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersions (Lude.Maybe Lude.Text)
+dltvLaunchTemplateId = Lens.lens (launchTemplateId :: DeleteLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersions)
+{-# DEPRECATED dltvLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dltvDryRun :: Lens' DeleteLaunchTemplateVersions (Maybe Bool)
-dltvDryRun = lens _dltvDryRun (\s a -> s {_dltvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvDryRun :: Lens.Lens' DeleteLaunchTemplateVersions (Lude.Maybe Lude.Bool)
+dltvDryRun = Lens.lens (dryRun :: DeleteLaunchTemplateVersions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteLaunchTemplateVersions)
+{-# DEPRECATED dltvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The version numbers of one or more launch template versions to delete.
-dltvVersions :: Lens' DeleteLaunchTemplateVersions [Text]
-dltvVersions = lens _dltvVersions (\s a -> s {_dltvVersions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvVersions :: Lens.Lens' DeleteLaunchTemplateVersions [Lude.Text]
+dltvVersions = Lens.lens (versions :: DeleteLaunchTemplateVersions -> [Lude.Text]) (\s a -> s {versions = a} :: DeleteLaunchTemplateVersions)
+{-# DEPRECATED dltvVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
-instance AWSRequest DeleteLaunchTemplateVersions where
+instance Lude.AWSRequest DeleteLaunchTemplateVersions where
   type
     Rs DeleteLaunchTemplateVersions =
       DeleteLaunchTemplateVersionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteLaunchTemplateVersionsResponse'
-            <$> ( x .@? "successfullyDeletedLaunchTemplateVersionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> ( x .@? "unsuccessfullyDeletedLaunchTemplateVersionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "successfullyDeletedLaunchTemplateVersionSet"
+                         Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> ( x Lude..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
+                         Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteLaunchTemplateVersions
+instance Lude.ToHeaders DeleteLaunchTemplateVersions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteLaunchTemplateVersions
+instance Lude.ToPath DeleteLaunchTemplateVersions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteLaunchTemplateVersions where
-  toHeaders = const mempty
-
-instance ToPath DeleteLaunchTemplateVersions where
-  toPath = const "/"
-
-instance ToQuery DeleteLaunchTemplateVersions where
+instance Lude.ToQuery DeleteLaunchTemplateVersions where
   toQuery DeleteLaunchTemplateVersions' {..} =
-    mconcat
-      [ "Action" =: ("DeleteLaunchTemplateVersions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "LaunchTemplateName" =: _dltvLaunchTemplateName,
-        "LaunchTemplateId" =: _dltvLaunchTemplateId,
-        "DryRun" =: _dltvDryRun,
-        toQueryList "LaunchTemplateVersion" _dltvVersions
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteLaunchTemplateVersions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "LaunchTemplateName" Lude.=: launchTemplateName,
+        "LaunchTemplateId" Lude.=: launchTemplateId,
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "LaunchTemplateVersion" versions
       ]
 
--- | /See:/ 'deleteLaunchTemplateVersionsResponse' smart constructor.
+-- | /See:/ 'mkDeleteLaunchTemplateVersionsResponse' smart constructor.
 data DeleteLaunchTemplateVersionsResponse = DeleteLaunchTemplateVersionsResponse'
-  { _dltvsrsSuccessfullyDeletedLaunchTemplateVersions ::
-      !( Maybe
-           [DeleteLaunchTemplateVersionsResponseSuccessItem]
-       ),
-    _dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions ::
-      !( Maybe
-           [DeleteLaunchTemplateVersionsResponseErrorItem]
-       ),
-    _dltvsrsResponseStatus ::
-      !Int
+  { successfullyDeletedLaunchTemplateVersions ::
+      Lude.Maybe
+        [DeleteLaunchTemplateVersionsResponseSuccessItem],
+    unsuccessfullyDeletedLaunchTemplateVersions ::
+      Lude.Maybe
+        [DeleteLaunchTemplateVersionsResponseErrorItem],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchTemplateVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dltvsrsSuccessfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that were successfully deleted.
---
--- * 'dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that could not be deleted.
---
--- * 'dltvsrsResponseStatus' - -- | The response status code.
-deleteLaunchTemplateVersionsResponse ::
-  -- | 'dltvsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'successfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that were successfully deleted.
+-- * 'unsuccessfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that could not be deleted.
+mkDeleteLaunchTemplateVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLaunchTemplateVersionsResponse
-deleteLaunchTemplateVersionsResponse pResponseStatus_ =
+mkDeleteLaunchTemplateVersionsResponse pResponseStatus_ =
   DeleteLaunchTemplateVersionsResponse'
-    { _dltvsrsSuccessfullyDeletedLaunchTemplateVersions =
-        Nothing,
-      _dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions =
-        Nothing,
-      _dltvsrsResponseStatus = pResponseStatus_
+    { successfullyDeletedLaunchTemplateVersions =
+        Lude.Nothing,
+      unsuccessfullyDeletedLaunchTemplateVersions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the launch template versions that were successfully deleted.
-dltvsrsSuccessfullyDeletedLaunchTemplateVersions :: Lens' DeleteLaunchTemplateVersionsResponse [DeleteLaunchTemplateVersionsResponseSuccessItem]
-dltvsrsSuccessfullyDeletedLaunchTemplateVersions = lens _dltvsrsSuccessfullyDeletedLaunchTemplateVersions (\s a -> s {_dltvsrsSuccessfullyDeletedLaunchTemplateVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successfullyDeletedLaunchTemplateVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsrsSuccessfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Lude.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem])
+dltvsrsSuccessfullyDeletedLaunchTemplateVersions = Lens.lens (successfullyDeletedLaunchTemplateVersions :: DeleteLaunchTemplateVersionsResponse -> Lude.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem]) (\s a -> s {successfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse)
+{-# DEPRECATED dltvsrsSuccessfullyDeletedLaunchTemplateVersions "Use generic-lens or generic-optics with 'successfullyDeletedLaunchTemplateVersions' instead." #-}
 
 -- | Information about the launch template versions that could not be deleted.
-dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions :: Lens' DeleteLaunchTemplateVersionsResponse [DeleteLaunchTemplateVersionsResponseErrorItem]
-dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions = lens _dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions (\s a -> s {_dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unsuccessfullyDeletedLaunchTemplateVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Lude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem])
+dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions = Lens.lens (unsuccessfullyDeletedLaunchTemplateVersions :: DeleteLaunchTemplateVersionsResponse -> Lude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem]) (\s a -> s {unsuccessfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse)
+{-# DEPRECATED dltvsrsUnsuccessfullyDeletedLaunchTemplateVersions "Use generic-lens or generic-optics with 'unsuccessfullyDeletedLaunchTemplateVersions' instead." #-}
 
--- | -- | The response status code.
-dltvsrsResponseStatus :: Lens' DeleteLaunchTemplateVersionsResponse Int
-dltvsrsResponseStatus = lens _dltvsrsResponseStatus (\s a -> s {_dltvsrsResponseStatus = a})
-
-instance NFData DeleteLaunchTemplateVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsrsResponseStatus :: Lens.Lens' DeleteLaunchTemplateVersionsResponse Lude.Int
+dltvsrsResponseStatus = Lens.lens (responseStatus :: DeleteLaunchTemplateVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLaunchTemplateVersionsResponse)
+{-# DEPRECATED dltvsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

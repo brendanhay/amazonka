@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,159 @@
 --
 -- Returns an array of 'RegexMatchSetSummary' objects.
 module Network.AWS.WAFRegional.ListRegexMatchSets
-  ( -- * Creating a Request
-    listRegexMatchSets,
-    ListRegexMatchSets,
+  ( -- * Creating a request
+    ListRegexMatchSets (..),
+    mkListRegexMatchSets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrmsNextMarker,
     lrmsLimit,
 
-    -- * Destructuring the Response
-    listRegexMatchSetsResponse,
-    ListRegexMatchSetsResponse,
+    -- * Destructuring the response
+    ListRegexMatchSetsResponse (..),
+    mkListRegexMatchSetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrmsrsRegexMatchSets,
     lrmsrsNextMarker,
     lrmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'listRegexMatchSets' smart constructor.
+-- | /See:/ 'mkListRegexMatchSets' smart constructor.
 data ListRegexMatchSets = ListRegexMatchSets'
-  { _lrmsNextMarker ::
-      !(Maybe Text),
-    _lrmsLimit :: !(Maybe Nat)
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRegexMatchSets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrmsNextMarker' - If you specify a value for @Limit@ and you have more @RegexMatchSet@ objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListRegexMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @RegexMatchSet@ objects.
---
--- * 'lrmsLimit' - Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to return for this request. If you have more @RegexMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RegexMatchSet@ objects.
-listRegexMatchSets ::
+-- * 'limit' - Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to return for this request. If you have more @RegexMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RegexMatchSet@ objects.
+-- * 'nextMarker' - If you specify a value for @Limit@ and you have more @RegexMatchSet@ objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListRegexMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @RegexMatchSet@ objects.
+mkListRegexMatchSets ::
   ListRegexMatchSets
-listRegexMatchSets =
+mkListRegexMatchSets =
   ListRegexMatchSets'
-    { _lrmsNextMarker = Nothing,
-      _lrmsLimit = Nothing
+    { nextMarker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @RegexMatchSet@ objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListRegexMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @RegexMatchSet@ objects.
-lrmsNextMarker :: Lens' ListRegexMatchSets (Maybe Text)
-lrmsNextMarker = lens _lrmsNextMarker (\s a -> s {_lrmsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrmsNextMarker :: Lens.Lens' ListRegexMatchSets (Lude.Maybe Lude.Text)
+lrmsNextMarker = Lens.lens (nextMarker :: ListRegexMatchSets -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRegexMatchSets)
+{-# DEPRECATED lrmsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to return for this request. If you have more @RegexMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RegexMatchSet@ objects.
-lrmsLimit :: Lens' ListRegexMatchSets (Maybe Natural)
-lrmsLimit = lens _lrmsLimit (\s a -> s {_lrmsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrmsLimit :: Lens.Lens' ListRegexMatchSets (Lude.Maybe Lude.Natural)
+lrmsLimit = Lens.lens (limit :: ListRegexMatchSets -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRegexMatchSets)
+{-# DEPRECATED lrmsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSRequest ListRegexMatchSets where
+instance Lude.AWSRequest ListRegexMatchSets where
   type Rs ListRegexMatchSets = ListRegexMatchSetsResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRegexMatchSetsResponse'
-            <$> (x .?> "RegexMatchSets" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RegexMatchSets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRegexMatchSets
-
-instance NFData ListRegexMatchSets
-
-instance ToHeaders ListRegexMatchSets where
+instance Lude.ToHeaders ListRegexMatchSets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.ListRegexMatchSets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.ListRegexMatchSets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRegexMatchSets where
+instance Lude.ToJSON ListRegexMatchSets where
   toJSON ListRegexMatchSets' {..} =
-    object
-      ( catMaybes
-          [ ("NextMarker" .=) <$> _lrmsNextMarker,
-            ("Limit" .=) <$> _lrmsLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListRegexMatchSets where
-  toPath = const "/"
+instance Lude.ToPath ListRegexMatchSets where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRegexMatchSets where
-  toQuery = const mempty
+instance Lude.ToQuery ListRegexMatchSets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listRegexMatchSetsResponse' smart constructor.
+-- | /See:/ 'mkListRegexMatchSetsResponse' smart constructor.
 data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
-  { _lrmsrsRegexMatchSets ::
-      !(Maybe [RegexMatchSetSummary]),
-    _lrmsrsNextMarker :: !(Maybe Text),
-    _lrmsrsResponseStatus :: !Int
+  { regexMatchSets ::
+      Lude.Maybe [RegexMatchSetSummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRegexMatchSetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrmsrsRegexMatchSets' - An array of 'RegexMatchSetSummary' objects.
---
--- * 'lrmsrsNextMarker' - If you have more @RegexMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another @ListRegexMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lrmsrsResponseStatus' - -- | The response status code.
-listRegexMatchSetsResponse ::
-  -- | 'lrmsrsResponseStatus'
-  Int ->
+-- * 'nextMarker' - If you have more @RegexMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another @ListRegexMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'regexMatchSets' - An array of 'RegexMatchSetSummary' objects.
+-- * 'responseStatus' - The response status code.
+mkListRegexMatchSetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRegexMatchSetsResponse
-listRegexMatchSetsResponse pResponseStatus_ =
+mkListRegexMatchSetsResponse pResponseStatus_ =
   ListRegexMatchSetsResponse'
-    { _lrmsrsRegexMatchSets = Nothing,
-      _lrmsrsNextMarker = Nothing,
-      _lrmsrsResponseStatus = pResponseStatus_
+    { regexMatchSets = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of 'RegexMatchSetSummary' objects.
-lrmsrsRegexMatchSets :: Lens' ListRegexMatchSetsResponse [RegexMatchSetSummary]
-lrmsrsRegexMatchSets = lens _lrmsrsRegexMatchSets (\s a -> s {_lrmsrsRegexMatchSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'regexMatchSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrmsrsRegexMatchSets :: Lens.Lens' ListRegexMatchSetsResponse (Lude.Maybe [RegexMatchSetSummary])
+lrmsrsRegexMatchSets = Lens.lens (regexMatchSets :: ListRegexMatchSetsResponse -> Lude.Maybe [RegexMatchSetSummary]) (\s a -> s {regexMatchSets = a} :: ListRegexMatchSetsResponse)
+{-# DEPRECATED lrmsrsRegexMatchSets "Use generic-lens or generic-optics with 'regexMatchSets' instead." #-}
 
 -- | If you have more @RegexMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another @ListRegexMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lrmsrsNextMarker :: Lens' ListRegexMatchSetsResponse (Maybe Text)
-lrmsrsNextMarker = lens _lrmsrsNextMarker (\s a -> s {_lrmsrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrmsrsNextMarker :: Lens.Lens' ListRegexMatchSetsResponse (Lude.Maybe Lude.Text)
+lrmsrsNextMarker = Lens.lens (nextMarker :: ListRegexMatchSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRegexMatchSetsResponse)
+{-# DEPRECATED lrmsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lrmsrsResponseStatus :: Lens' ListRegexMatchSetsResponse Int
-lrmsrsResponseStatus = lens _lrmsrsResponseStatus (\s a -> s {_lrmsrsResponseStatus = a})
-
-instance NFData ListRegexMatchSetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrmsrsResponseStatus :: Lens.Lens' ListRegexMatchSetsResponse Lude.Int
+lrmsrsResponseStatus = Lens.lens (responseStatus :: ListRegexMatchSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRegexMatchSetsResponse)
+{-# DEPRECATED lrmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

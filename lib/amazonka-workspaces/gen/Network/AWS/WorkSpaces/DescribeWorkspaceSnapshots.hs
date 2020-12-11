@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,151 @@
 --
 -- Describes the snapshots for the specified WorkSpace.
 module Network.AWS.WorkSpaces.DescribeWorkspaceSnapshots
-  ( -- * Creating a Request
-    describeWorkspaceSnapshots,
-    DescribeWorkspaceSnapshots,
+  ( -- * Creating a request
+    DescribeWorkspaceSnapshots (..),
+    mkDescribeWorkspaceSnapshots,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwsWorkspaceId,
 
-    -- * Destructuring the Response
-    describeWorkspaceSnapshotsResponse,
-    DescribeWorkspaceSnapshotsResponse,
+    -- * Destructuring the response
+    DescribeWorkspaceSnapshotsResponse (..),
+    mkDescribeWorkspaceSnapshotsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwsrsRestoreSnapshots,
     dwsrsRebuildSnapshots,
     dwsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspaceSnapshots' smart constructor.
+-- | /See:/ 'mkDescribeWorkspaceSnapshots' smart constructor.
 newtype DescribeWorkspaceSnapshots = DescribeWorkspaceSnapshots'
-  { _dwsWorkspaceId ::
-      Text
+  { workspaceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceSnapshots' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwsWorkspaceId' - The identifier of the WorkSpace.
-describeWorkspaceSnapshots ::
-  -- | 'dwsWorkspaceId'
-  Text ->
+-- * 'workspaceId' - The identifier of the WorkSpace.
+mkDescribeWorkspaceSnapshots ::
+  -- | 'workspaceId'
+  Lude.Text ->
   DescribeWorkspaceSnapshots
-describeWorkspaceSnapshots pWorkspaceId_ =
-  DescribeWorkspaceSnapshots' {_dwsWorkspaceId = pWorkspaceId_}
+mkDescribeWorkspaceSnapshots pWorkspaceId_ =
+  DescribeWorkspaceSnapshots' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-dwsWorkspaceId :: Lens' DescribeWorkspaceSnapshots Text
-dwsWorkspaceId = lens _dwsWorkspaceId (\s a -> s {_dwsWorkspaceId = a})
+--
+-- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwsWorkspaceId :: Lens.Lens' DescribeWorkspaceSnapshots Lude.Text
+dwsWorkspaceId = Lens.lens (workspaceId :: DescribeWorkspaceSnapshots -> Lude.Text) (\s a -> s {workspaceId = a} :: DescribeWorkspaceSnapshots)
+{-# DEPRECATED dwsWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
-instance AWSRequest DescribeWorkspaceSnapshots where
+instance Lude.AWSRequest DescribeWorkspaceSnapshots where
   type
     Rs DescribeWorkspaceSnapshots =
       DescribeWorkspaceSnapshotsResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeWorkspaceSnapshotsResponse'
-            <$> (x .?> "RestoreSnapshots" .!@ mempty)
-            <*> (x .?> "RebuildSnapshots" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RestoreSnapshots" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "RebuildSnapshots" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeWorkspaceSnapshots
-
-instance NFData DescribeWorkspaceSnapshots
-
-instance ToHeaders DescribeWorkspaceSnapshots where
+instance Lude.ToHeaders DescribeWorkspaceSnapshots where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DescribeWorkspaceSnapshots" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.DescribeWorkspaceSnapshots" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeWorkspaceSnapshots where
+instance Lude.ToJSON DescribeWorkspaceSnapshots where
   toJSON DescribeWorkspaceSnapshots' {..} =
-    object (catMaybes [Just ("WorkspaceId" .= _dwsWorkspaceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("WorkspaceId" Lude..= workspaceId)])
 
-instance ToPath DescribeWorkspaceSnapshots where
-  toPath = const "/"
+instance Lude.ToPath DescribeWorkspaceSnapshots where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeWorkspaceSnapshots where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeWorkspaceSnapshots where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeWorkspaceSnapshotsResponse' smart constructor.
+-- | /See:/ 'mkDescribeWorkspaceSnapshotsResponse' smart constructor.
 data DescribeWorkspaceSnapshotsResponse = DescribeWorkspaceSnapshotsResponse'
-  { _dwsrsRestoreSnapshots ::
-      !(Maybe [Snapshot]),
-    _dwsrsRebuildSnapshots ::
-      !(Maybe [Snapshot]),
-    _dwsrsResponseStatus ::
-      !Int
+  { restoreSnapshots ::
+      Lude.Maybe [Snapshot],
+    rebuildSnapshots ::
+      Lude.Maybe [Snapshot],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceSnapshotsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwsrsRestoreSnapshots' - Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.
---
--- * 'dwsrsRebuildSnapshots' - Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include the user volume.
---
--- * 'dwsrsResponseStatus' - -- | The response status code.
-describeWorkspaceSnapshotsResponse ::
-  -- | 'dwsrsResponseStatus'
-  Int ->
+-- * 'rebuildSnapshots' - Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include the user volume.
+-- * 'responseStatus' - The response status code.
+-- * 'restoreSnapshots' - Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.
+mkDescribeWorkspaceSnapshotsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkspaceSnapshotsResponse
-describeWorkspaceSnapshotsResponse pResponseStatus_ =
+mkDescribeWorkspaceSnapshotsResponse pResponseStatus_ =
   DescribeWorkspaceSnapshotsResponse'
-    { _dwsrsRestoreSnapshots =
-        Nothing,
-      _dwsrsRebuildSnapshots = Nothing,
-      _dwsrsResponseStatus = pResponseStatus_
+    { restoreSnapshots =
+        Lude.Nothing,
+      rebuildSnapshots = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.
-dwsrsRestoreSnapshots :: Lens' DescribeWorkspaceSnapshotsResponse [Snapshot]
-dwsrsRestoreSnapshots = lens _dwsrsRestoreSnapshots (\s a -> s {_dwsrsRestoreSnapshots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'restoreSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwsrsRestoreSnapshots :: Lens.Lens' DescribeWorkspaceSnapshotsResponse (Lude.Maybe [Snapshot])
+dwsrsRestoreSnapshots = Lens.lens (restoreSnapshots :: DescribeWorkspaceSnapshotsResponse -> Lude.Maybe [Snapshot]) (\s a -> s {restoreSnapshots = a} :: DescribeWorkspaceSnapshotsResponse)
+{-# DEPRECATED dwsrsRestoreSnapshots "Use generic-lens or generic-optics with 'restoreSnapshots' instead." #-}
 
 -- | Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include the user volume.
-dwsrsRebuildSnapshots :: Lens' DescribeWorkspaceSnapshotsResponse [Snapshot]
-dwsrsRebuildSnapshots = lens _dwsrsRebuildSnapshots (\s a -> s {_dwsrsRebuildSnapshots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rebuildSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwsrsRebuildSnapshots :: Lens.Lens' DescribeWorkspaceSnapshotsResponse (Lude.Maybe [Snapshot])
+dwsrsRebuildSnapshots = Lens.lens (rebuildSnapshots :: DescribeWorkspaceSnapshotsResponse -> Lude.Maybe [Snapshot]) (\s a -> s {rebuildSnapshots = a} :: DescribeWorkspaceSnapshotsResponse)
+{-# DEPRECATED dwsrsRebuildSnapshots "Use generic-lens or generic-optics with 'rebuildSnapshots' instead." #-}
 
--- | -- | The response status code.
-dwsrsResponseStatus :: Lens' DescribeWorkspaceSnapshotsResponse Int
-dwsrsResponseStatus = lens _dwsrsResponseStatus (\s a -> s {_dwsrsResponseStatus = a})
-
-instance NFData DescribeWorkspaceSnapshotsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwsrsResponseStatus :: Lens.Lens' DescribeWorkspaceSnapshotsResponse Lude.Int
+dwsrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspaceSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspaceSnapshotsResponse)
+{-# DEPRECATED dwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

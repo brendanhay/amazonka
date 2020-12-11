@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,126 @@
 --
 -- Deletes an AWS Batch compute environment.
 --
---
 -- Before you can delete a compute environment, you must set its state to @DISABLED@ with the 'UpdateComputeEnvironment' API operation and disassociate it from any job queues with the 'UpdateJobQueue' API operation.
 module Network.AWS.Batch.DeleteComputeEnvironment
-  ( -- * Creating a Request
-    deleteComputeEnvironment,
-    DeleteComputeEnvironment,
+  ( -- * Creating a request
+    DeleteComputeEnvironment (..),
+    mkDeleteComputeEnvironment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dceComputeEnvironment,
 
-    -- * Destructuring the Response
-    deleteComputeEnvironmentResponse,
-    DeleteComputeEnvironmentResponse,
+    -- * Destructuring the response
+    DeleteComputeEnvironmentResponse (..),
+    mkDeleteComputeEnvironmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcersResponseStatus,
   )
 where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteComputeEnvironment' smart constructor.
+-- | /See:/ 'mkDeleteComputeEnvironment' smart constructor.
 newtype DeleteComputeEnvironment = DeleteComputeEnvironment'
-  { _dceComputeEnvironment ::
-      Text
+  { computeEnvironment ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteComputeEnvironment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dceComputeEnvironment' - The name or Amazon Resource Name (ARN) of the compute environment to delete.
-deleteComputeEnvironment ::
-  -- | 'dceComputeEnvironment'
-  Text ->
+-- * 'computeEnvironment' - The name or Amazon Resource Name (ARN) of the compute environment to delete.
+mkDeleteComputeEnvironment ::
+  -- | 'computeEnvironment'
+  Lude.Text ->
   DeleteComputeEnvironment
-deleteComputeEnvironment pComputeEnvironment_ =
+mkDeleteComputeEnvironment pComputeEnvironment_ =
   DeleteComputeEnvironment'
-    { _dceComputeEnvironment =
+    { computeEnvironment =
         pComputeEnvironment_
     }
 
 -- | The name or Amazon Resource Name (ARN) of the compute environment to delete.
-dceComputeEnvironment :: Lens' DeleteComputeEnvironment Text
-dceComputeEnvironment = lens _dceComputeEnvironment (\s a -> s {_dceComputeEnvironment = a})
+--
+-- /Note:/ Consider using 'computeEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceComputeEnvironment :: Lens.Lens' DeleteComputeEnvironment Lude.Text
+dceComputeEnvironment = Lens.lens (computeEnvironment :: DeleteComputeEnvironment -> Lude.Text) (\s a -> s {computeEnvironment = a} :: DeleteComputeEnvironment)
+{-# DEPRECATED dceComputeEnvironment "Use generic-lens or generic-optics with 'computeEnvironment' instead." #-}
 
-instance AWSRequest DeleteComputeEnvironment where
+instance Lude.AWSRequest DeleteComputeEnvironment where
   type Rs DeleteComputeEnvironment = DeleteComputeEnvironmentResponse
-  request = postJSON batch
+  request = Req.postJSON batchService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteComputeEnvironmentResponse' <$> (pure (fromEnum s))
+          DeleteComputeEnvironmentResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteComputeEnvironment
-
-instance NFData DeleteComputeEnvironment
-
-instance ToHeaders DeleteComputeEnvironment where
+instance Lude.ToHeaders DeleteComputeEnvironment where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON DeleteComputeEnvironment where
+instance Lude.ToJSON DeleteComputeEnvironment where
   toJSON DeleteComputeEnvironment' {..} =
-    object
-      (catMaybes [Just ("computeEnvironment" .= _dceComputeEnvironment)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("computeEnvironment" Lude..= computeEnvironment)]
+      )
 
-instance ToPath DeleteComputeEnvironment where
-  toPath = const "/v1/deletecomputeenvironment"
+instance Lude.ToPath DeleteComputeEnvironment where
+  toPath = Lude.const "/v1/deletecomputeenvironment"
 
-instance ToQuery DeleteComputeEnvironment where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteComputeEnvironment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteComputeEnvironmentResponse' smart constructor.
+-- | /See:/ 'mkDeleteComputeEnvironmentResponse' smart constructor.
 newtype DeleteComputeEnvironmentResponse = DeleteComputeEnvironmentResponse'
-  { _dcersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteComputeEnvironmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcersResponseStatus' - -- | The response status code.
-deleteComputeEnvironmentResponse ::
-  -- | 'dcersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteComputeEnvironmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteComputeEnvironmentResponse
-deleteComputeEnvironmentResponse pResponseStatus_ =
+mkDeleteComputeEnvironmentResponse pResponseStatus_ =
   DeleteComputeEnvironmentResponse'
-    { _dcersResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dcersResponseStatus :: Lens' DeleteComputeEnvironmentResponse Int
-dcersResponseStatus = lens _dcersResponseStatus (\s a -> s {_dcersResponseStatus = a})
-
-instance NFData DeleteComputeEnvironmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcersResponseStatus :: Lens.Lens' DeleteComputeEnvironmentResponse Lude.Int
+dcersResponseStatus = Lens.lens (responseStatus :: DeleteComputeEnvironmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteComputeEnvironmentResponse)
+{-# DEPRECATED dcersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

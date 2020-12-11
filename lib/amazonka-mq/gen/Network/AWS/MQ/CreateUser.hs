@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,171 @@
 --
 -- Creates an ActiveMQ user.
 module Network.AWS.MQ.CreateUser
-  ( -- * Creating a Request
-    createUser,
-    CreateUser,
+  ( -- * Creating a request
+    CreateUser (..),
+    mkCreateUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cuGroups,
     cuConsoleAccess,
     cuPassword,
     cuUsername,
     cuBrokerId,
 
-    -- * Destructuring the Response
-    createUserResponse,
-    CreateUserResponse,
+    -- * Destructuring the response
+    CreateUserResponse (..),
+    mkCreateUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Creates a new ActiveMQ user.
 --
--- /See:/ 'createUser' smart constructor.
+-- /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { _cuGroups :: !(Maybe [Text]),
-    _cuConsoleAccess :: !(Maybe Bool),
-    _cuPassword :: !(Maybe Text),
-    _cuUsername :: !Text,
-    _cuBrokerId :: !Text
+  { groups :: Lude.Maybe [Lude.Text],
+    consoleAccess :: Lude.Maybe Lude.Bool,
+    password :: Lude.Maybe Lude.Text,
+    username :: Lude.Text,
+    brokerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cuGroups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'cuConsoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
---
--- * 'cuPassword' - Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
---
--- * 'cuUsername' - The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'cuBrokerId' - The unique ID that Amazon MQ generates for the broker.
-createUser ::
-  -- | 'cuUsername'
-  Text ->
-  -- | 'cuBrokerId'
-  Text ->
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+-- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'password' - Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+-- * 'username' - The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+mkCreateUser ::
+  -- | 'username'
+  Lude.Text ->
+  -- | 'brokerId'
+  Lude.Text ->
   CreateUser
-createUser pUsername_ pBrokerId_ =
+mkCreateUser pUsername_ pBrokerId_ =
   CreateUser'
-    { _cuGroups = Nothing,
-      _cuConsoleAccess = Nothing,
-      _cuPassword = Nothing,
-      _cuUsername = pUsername_,
-      _cuBrokerId = pBrokerId_
+    { groups = Lude.Nothing,
+      consoleAccess = Lude.Nothing,
+      password = Lude.Nothing,
+      username = pUsername_,
+      brokerId = pBrokerId_
     }
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-cuGroups :: Lens' CreateUser [Text]
-cuGroups = lens _cuGroups (\s a -> s {_cuGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuGroups :: Lens.Lens' CreateUser (Lude.Maybe [Lude.Text])
+cuGroups = Lens.lens (groups :: CreateUser -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: CreateUser)
+{-# DEPRECATED cuGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-cuConsoleAccess :: Lens' CreateUser (Maybe Bool)
-cuConsoleAccess = lens _cuConsoleAccess (\s a -> s {_cuConsoleAccess = a})
+--
+-- /Note:/ Consider using 'consoleAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuConsoleAccess :: Lens.Lens' CreateUser (Lude.Maybe Lude.Bool)
+cuConsoleAccess = Lens.lens (consoleAccess :: CreateUser -> Lude.Maybe Lude.Bool) (\s a -> s {consoleAccess = a} :: CreateUser)
+{-# DEPRECATED cuConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
 
 -- | Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
-cuPassword :: Lens' CreateUser (Maybe Text)
-cuPassword = lens _cuPassword (\s a -> s {_cuPassword = a})
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuPassword :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
+cuPassword = Lens.lens (password :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: CreateUser)
+{-# DEPRECATED cuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-cuUsername :: Lens' CreateUser Text
-cuUsername = lens _cuUsername (\s a -> s {_cuUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUsername :: Lens.Lens' CreateUser Lude.Text
+cuUsername = Lens.lens (username :: CreateUser -> Lude.Text) (\s a -> s {username = a} :: CreateUser)
+{-# DEPRECATED cuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-cuBrokerId :: Lens' CreateUser Text
-cuBrokerId = lens _cuBrokerId (\s a -> s {_cuBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuBrokerId :: Lens.Lens' CreateUser Lude.Text
+cuBrokerId = Lens.lens (brokerId :: CreateUser -> Lude.Text) (\s a -> s {brokerId = a} :: CreateUser)
+{-# DEPRECATED cuBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance AWSRequest CreateUser where
+instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
-  request = postJSON mq
+  request = Req.postJSON mqService
   response =
-    receiveEmpty
-      (\s h x -> CreateUserResponse' <$> (pure (fromEnum s)))
-
-instance Hashable CreateUser
-
-instance NFData CreateUser
-
-instance ToHeaders CreateUser where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON CreateUser where
-  toJSON CreateUser' {..} =
-    object
-      ( catMaybes
-          [ ("groups" .=) <$> _cuGroups,
-            ("consoleAccess" .=) <$> _cuConsoleAccess,
-            ("password" .=) <$> _cuPassword
+instance Lude.ToHeaders CreateUser where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateUser where
+instance Lude.ToJSON CreateUser where
+  toJSON CreateUser' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("groups" Lude..=) Lude.<$> groups,
+            ("consoleAccess" Lude..=) Lude.<$> consoleAccess,
+            ("password" Lude..=) Lude.<$> password
+          ]
+      )
+
+instance Lude.ToPath CreateUser where
   toPath CreateUser' {..} =
-    mconcat
-      ["/v1/brokers/", toBS _cuBrokerId, "/users/", toBS _cuUsername]
+    Lude.mconcat
+      ["/v1/brokers/", Lude.toBS brokerId, "/users/", Lude.toBS username]
 
-instance ToQuery CreateUser where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createUserResponse' smart constructor.
+-- | /See:/ 'mkCreateUserResponse' smart constructor.
 newtype CreateUserResponse = CreateUserResponse'
-  { _cursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cursResponseStatus' - -- | The response status code.
-createUserResponse ::
-  -- | 'cursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateUserResponse
-createUserResponse pResponseStatus_ =
-  CreateUserResponse' {_cursResponseStatus = pResponseStatus_}
+mkCreateUserResponse pResponseStatus_ =
+  CreateUserResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-cursResponseStatus :: Lens' CreateUserResponse Int
-cursResponseStatus = lens _cursResponseStatus (\s a -> s {_cursResponseStatus = a})
-
-instance NFData CreateUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cursResponseStatus :: Lens.Lens' CreateUserResponse Lude.Int
+cursResponseStatus = Lens.lens (responseStatus :: CreateUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserResponse)
+{-# DEPRECATED cursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

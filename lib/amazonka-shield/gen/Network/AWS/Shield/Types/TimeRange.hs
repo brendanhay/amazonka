@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.TimeRange where
+module Network.AWS.Shield.Types.TimeRange
+  ( TimeRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeRange,
+
+    -- * Lenses
+    trFromInclusive,
+    trToExclusive,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The time range.
 --
---
---
--- /See:/ 'timeRange' smart constructor.
+-- /See:/ 'mkTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { _trFromInclusive :: !(Maybe POSIX),
-    _trToExclusive :: !(Maybe POSIX)
+  { fromInclusive ::
+      Lude.Maybe Lude.Timestamp,
+    toExclusive :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trFromInclusive' - The start time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
---
--- * 'trToExclusive' - The end time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-timeRange ::
+-- * 'fromInclusive' - The start time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+-- * 'toExclusive' - The end time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+mkTimeRange ::
   TimeRange
-timeRange =
-  TimeRange' {_trFromInclusive = Nothing, _trToExclusive = Nothing}
+mkTimeRange =
+  TimeRange'
+    { fromInclusive = Lude.Nothing,
+      toExclusive = Lude.Nothing
+    }
 
 -- | The start time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-trFromInclusive :: Lens' TimeRange (Maybe UTCTime)
-trFromInclusive = lens _trFromInclusive (\s a -> s {_trFromInclusive = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'fromInclusive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trFromInclusive :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
+trFromInclusive = Lens.lens (fromInclusive :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {fromInclusive = a} :: TimeRange)
+{-# DEPRECATED trFromInclusive "Use generic-lens or generic-optics with 'fromInclusive' instead." #-}
 
 -- | The end time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-trToExclusive :: Lens' TimeRange (Maybe UTCTime)
-trToExclusive = lens _trToExclusive (\s a -> s {_trToExclusive = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'toExclusive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trToExclusive :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
+trToExclusive = Lens.lens (toExclusive :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {toExclusive = a} :: TimeRange)
+{-# DEPRECATED trToExclusive "Use generic-lens or generic-optics with 'toExclusive' instead." #-}
 
-instance FromJSON TimeRange where
+instance Lude.FromJSON TimeRange where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimeRange"
       ( \x ->
-          TimeRange' <$> (x .:? "FromInclusive") <*> (x .:? "ToExclusive")
+          TimeRange'
+            Lude.<$> (x Lude..:? "FromInclusive") Lude.<*> (x Lude..:? "ToExclusive")
       )
 
-instance Hashable TimeRange
-
-instance NFData TimeRange
-
-instance ToJSON TimeRange where
+instance Lude.ToJSON TimeRange where
   toJSON TimeRange' {..} =
-    object
-      ( catMaybes
-          [ ("FromInclusive" .=) <$> _trFromInclusive,
-            ("ToExclusive" .=) <$> _trToExclusive
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FromInclusive" Lude..=) Lude.<$> fromInclusive,
+            ("ToExclusive" Lude..=) Lude.<$> toExclusive
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Retrieves your request parameters, Savings Plan Recommendations Summary and Details.
 module Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
-  ( -- * Creating a Request
-    getSavingsPlansPurchaseRecommendation,
-    GetSavingsPlansPurchaseRecommendation,
+  ( -- * Creating a request
+    GetSavingsPlansPurchaseRecommendation (..),
+    mkGetSavingsPlansPurchaseRecommendation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gspprNextPageToken,
     gspprAccountScope,
     gspprFilter,
@@ -33,11 +28,11 @@ module Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
     gspprPaymentOption,
     gspprLookbackPeriodInDays,
 
-    -- * Destructuring the Response
-    getSavingsPlansPurchaseRecommendationResponse,
-    GetSavingsPlansPurchaseRecommendationResponse,
+    -- * Destructuring the response
+    GetSavingsPlansPurchaseRecommendationResponse (..),
+    mkGetSavingsPlansPurchaseRecommendationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gspprrsNextPageToken,
     gspprrsSavingsPlansPurchaseRecommendation,
     gspprrsMetadata,
@@ -46,231 +41,259 @@ module Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSavingsPlansPurchaseRecommendation' smart constructor.
+-- | /See:/ 'mkGetSavingsPlansPurchaseRecommendation' smart constructor.
 data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendation'
-  { _gspprNextPageToken ::
-      !(Maybe Text),
-    _gspprAccountScope ::
-      !( Maybe
-           AccountScope
-       ),
-    _gspprFilter ::
-      !( Maybe
-           Expression
-       ),
-    _gspprPageSize ::
-      !(Maybe Nat),
-    _gspprSavingsPlansType ::
-      !SupportedSavingsPlansType,
-    _gspprTermInYears ::
-      !TermInYears,
-    _gspprPaymentOption ::
-      !PaymentOption,
-    _gspprLookbackPeriodInDays ::
-      !LookbackPeriodInDays
+  { nextPageToken ::
+      Lude.Maybe
+        Lude.Text,
+    accountScope ::
+      Lude.Maybe
+        AccountScope,
+    filter ::
+      Lude.Maybe
+        Expression,
+    pageSize ::
+      Lude.Maybe
+        Lude.Natural,
+    savingsPlansType ::
+      SupportedSavingsPlansType,
+    termInYears ::
+      TermInYears,
+    paymentOption ::
+      PaymentOption,
+    lookbackPeriodInDays ::
+      LookbackPeriodInDays
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSavingsPlansPurchaseRecommendation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountScope' - The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+-- * 'filter' - You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations.
 --
--- * 'gspprNextPageToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gspprAccountScope' - The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
---
--- * 'gspprFilter' - You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations. For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include @CostCategories@ or @Tags@ . It only includes @Dimensions@ . With @Dimensions@ , @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single Account ID or multiple comma-separated Account IDs for which you want to see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are not supported.
---
--- * 'gspprPageSize' - The number of recommendations that you want returned in a single response object.
---
--- * 'gspprSavingsPlansType' - The Savings Plans recommendation type requested.
---
--- * 'gspprTermInYears' - The savings plan recommendation term used to generate these recommendations.
---
--- * 'gspprPaymentOption' - The payment option used to generate these recommendations.
---
--- * 'gspprLookbackPeriodInDays' - The lookback period used to generate the recommendation.
-getSavingsPlansPurchaseRecommendation ::
-  -- | 'gspprSavingsPlansType'
+-- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include @CostCategories@ or @Tags@ . It only includes @Dimensions@ . With @Dimensions@ , @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single Account ID or multiple comma-separated Account IDs for which you want to see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are not supported.
+-- * 'lookbackPeriodInDays' - The lookback period used to generate the recommendation.
+-- * 'nextPageToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'pageSize' - The number of recommendations that you want returned in a single response object.
+-- * 'paymentOption' - The payment option used to generate these recommendations.
+-- * 'savingsPlansType' - The Savings Plans recommendation type requested.
+-- * 'termInYears' - The savings plan recommendation term used to generate these recommendations.
+mkGetSavingsPlansPurchaseRecommendation ::
+  -- | 'savingsPlansType'
   SupportedSavingsPlansType ->
-  -- | 'gspprTermInYears'
+  -- | 'termInYears'
   TermInYears ->
-  -- | 'gspprPaymentOption'
+  -- | 'paymentOption'
   PaymentOption ->
-  -- | 'gspprLookbackPeriodInDays'
+  -- | 'lookbackPeriodInDays'
   LookbackPeriodInDays ->
   GetSavingsPlansPurchaseRecommendation
-getSavingsPlansPurchaseRecommendation
+mkGetSavingsPlansPurchaseRecommendation
   pSavingsPlansType_
   pTermInYears_
   pPaymentOption_
   pLookbackPeriodInDays_ =
     GetSavingsPlansPurchaseRecommendation'
-      { _gspprNextPageToken =
-          Nothing,
-        _gspprAccountScope = Nothing,
-        _gspprFilter = Nothing,
-        _gspprPageSize = Nothing,
-        _gspprSavingsPlansType = pSavingsPlansType_,
-        _gspprTermInYears = pTermInYears_,
-        _gspprPaymentOption = pPaymentOption_,
-        _gspprLookbackPeriodInDays = pLookbackPeriodInDays_
+      { nextPageToken =
+          Lude.Nothing,
+        accountScope = Lude.Nothing,
+        filter = Lude.Nothing,
+        pageSize = Lude.Nothing,
+        savingsPlansType = pSavingsPlansType_,
+        termInYears = pTermInYears_,
+        paymentOption = pPaymentOption_,
+        lookbackPeriodInDays = pLookbackPeriodInDays_
       }
 
 -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
-gspprNextPageToken :: Lens' GetSavingsPlansPurchaseRecommendation (Maybe Text)
-gspprNextPageToken = lens _gspprNextPageToken (\s a -> s {_gspprNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprNextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.Maybe Lude.Text)
+gspprNextPageToken = Lens.lens (nextPageToken :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
-gspprAccountScope :: Lens' GetSavingsPlansPurchaseRecommendation (Maybe AccountScope)
-gspprAccountScope = lens _gspprAccountScope (\s a -> s {_gspprAccountScope = a})
+--
+-- /Note:/ Consider using 'accountScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprAccountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.Maybe AccountScope)
+gspprAccountScope = Lens.lens (accountScope :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe AccountScope) (\s a -> s {accountScope = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprAccountScope "Use generic-lens or generic-optics with 'accountScope' instead." #-}
 
--- | You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations. For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include @CostCategories@ or @Tags@ . It only includes @Dimensions@ . With @Dimensions@ , @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single Account ID or multiple comma-separated Account IDs for which you want to see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are not supported.
-gspprFilter :: Lens' GetSavingsPlansPurchaseRecommendation (Maybe Expression)
-gspprFilter = lens _gspprFilter (\s a -> s {_gspprFilter = a})
+-- | You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations.
+--
+-- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include @CostCategories@ or @Tags@ . It only includes @Dimensions@ . With @Dimensions@ , @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single Account ID or multiple comma-separated Account IDs for which you want to see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are not supported.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprFilter :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.Maybe Expression)
+gspprFilter = Lens.lens (filter :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The number of recommendations that you want returned in a single response object.
-gspprPageSize :: Lens' GetSavingsPlansPurchaseRecommendation (Maybe Natural)
-gspprPageSize = lens _gspprPageSize (\s a -> s {_gspprPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprPageSize :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.Maybe Lude.Natural)
+gspprPageSize = Lens.lens (pageSize :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The Savings Plans recommendation type requested.
-gspprSavingsPlansType :: Lens' GetSavingsPlansPurchaseRecommendation SupportedSavingsPlansType
-gspprSavingsPlansType = lens _gspprSavingsPlansType (\s a -> s {_gspprSavingsPlansType = a})
+--
+-- /Note:/ Consider using 'savingsPlansType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprSavingsPlansType :: Lens.Lens' GetSavingsPlansPurchaseRecommendation SupportedSavingsPlansType
+gspprSavingsPlansType = Lens.lens (savingsPlansType :: GetSavingsPlansPurchaseRecommendation -> SupportedSavingsPlansType) (\s a -> s {savingsPlansType = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprSavingsPlansType "Use generic-lens or generic-optics with 'savingsPlansType' instead." #-}
 
 -- | The savings plan recommendation term used to generate these recommendations.
-gspprTermInYears :: Lens' GetSavingsPlansPurchaseRecommendation TermInYears
-gspprTermInYears = lens _gspprTermInYears (\s a -> s {_gspprTermInYears = a})
+--
+-- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprTermInYears :: Lens.Lens' GetSavingsPlansPurchaseRecommendation TermInYears
+gspprTermInYears = Lens.lens (termInYears :: GetSavingsPlansPurchaseRecommendation -> TermInYears) (\s a -> s {termInYears = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
 
 -- | The payment option used to generate these recommendations.
-gspprPaymentOption :: Lens' GetSavingsPlansPurchaseRecommendation PaymentOption
-gspprPaymentOption = lens _gspprPaymentOption (\s a -> s {_gspprPaymentOption = a})
+--
+-- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprPaymentOption :: Lens.Lens' GetSavingsPlansPurchaseRecommendation PaymentOption
+gspprPaymentOption = Lens.lens (paymentOption :: GetSavingsPlansPurchaseRecommendation -> PaymentOption) (\s a -> s {paymentOption = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
 
 -- | The lookback period used to generate the recommendation.
-gspprLookbackPeriodInDays :: Lens' GetSavingsPlansPurchaseRecommendation LookbackPeriodInDays
-gspprLookbackPeriodInDays = lens _gspprLookbackPeriodInDays (\s a -> s {_gspprLookbackPeriodInDays = a})
+--
+-- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprLookbackPeriodInDays :: Lens.Lens' GetSavingsPlansPurchaseRecommendation LookbackPeriodInDays
+gspprLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: GetSavingsPlansPurchaseRecommendation -> LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
 
-instance AWSRequest GetSavingsPlansPurchaseRecommendation where
+instance Lude.AWSRequest GetSavingsPlansPurchaseRecommendation where
   type
     Rs GetSavingsPlansPurchaseRecommendation =
       GetSavingsPlansPurchaseRecommendationResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSavingsPlansPurchaseRecommendationResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "SavingsPlansPurchaseRecommendation")
-            <*> (x .?> "Metadata")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "SavingsPlansPurchaseRecommendation")
+            Lude.<*> (x Lude..?> "Metadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSavingsPlansPurchaseRecommendation
-
-instance NFData GetSavingsPlansPurchaseRecommendation
-
-instance ToHeaders GetSavingsPlansPurchaseRecommendation where
+instance Lude.ToHeaders GetSavingsPlansPurchaseRecommendation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSavingsPlansPurchaseRecommendation where
+instance Lude.ToJSON GetSavingsPlansPurchaseRecommendation where
   toJSON GetSavingsPlansPurchaseRecommendation' {..} =
-    object
-      ( catMaybes
-          [ ("NextPageToken" .=) <$> _gspprNextPageToken,
-            ("AccountScope" .=) <$> _gspprAccountScope,
-            ("Filter" .=) <$> _gspprFilter,
-            ("PageSize" .=) <$> _gspprPageSize,
-            Just ("SavingsPlansType" .= _gspprSavingsPlansType),
-            Just ("TermInYears" .= _gspprTermInYears),
-            Just ("PaymentOption" .= _gspprPaymentOption),
-            Just ("LookbackPeriodInDays" .= _gspprLookbackPeriodInDays)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("AccountScope" Lude..=) Lude.<$> accountScope,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            Lude.Just ("SavingsPlansType" Lude..= savingsPlansType),
+            Lude.Just ("TermInYears" Lude..= termInYears),
+            Lude.Just ("PaymentOption" Lude..= paymentOption),
+            Lude.Just ("LookbackPeriodInDays" Lude..= lookbackPeriodInDays)
           ]
       )
 
-instance ToPath GetSavingsPlansPurchaseRecommendation where
-  toPath = const "/"
+instance Lude.ToPath GetSavingsPlansPurchaseRecommendation where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSavingsPlansPurchaseRecommendation where
-  toQuery = const mempty
+instance Lude.ToQuery GetSavingsPlansPurchaseRecommendation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSavingsPlansPurchaseRecommendationResponse' smart constructor.
+-- | /See:/ 'mkGetSavingsPlansPurchaseRecommendationResponse' smart constructor.
 data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseRecommendationResponse'
-  { _gspprrsNextPageToken ::
-      !( Maybe
-           Text
-       ),
-    _gspprrsSavingsPlansPurchaseRecommendation ::
-      !( Maybe
-           SavingsPlansPurchaseRecommendation
-       ),
-    _gspprrsMetadata ::
-      !( Maybe
-           SavingsPlansPurchaseRecommendationMetadata
-       ),
-    _gspprrsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe
+        Lude.Text,
+    savingsPlansPurchaseRecommendation ::
+      Lude.Maybe
+        SavingsPlansPurchaseRecommendation,
+    metadata ::
+      Lude.Maybe
+        SavingsPlansPurchaseRecommendationMetadata,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetSavingsPlansPurchaseRecommendationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gspprrsNextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gspprrsSavingsPlansPurchaseRecommendation' - Contains your request parameters, Savings Plan Recommendations Summary, and Details.
---
--- * 'gspprrsMetadata' - Information regarding this specific recommendation set.
---
--- * 'gspprrsResponseStatus' - -- | The response status code.
-getSavingsPlansPurchaseRecommendationResponse ::
-  -- | 'gspprrsResponseStatus'
-  Int ->
+-- * 'metadata' - Information regarding this specific recommendation set.
+-- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'responseStatus' - The response status code.
+-- * 'savingsPlansPurchaseRecommendation' - Contains your request parameters, Savings Plan Recommendations Summary, and Details.
+mkGetSavingsPlansPurchaseRecommendationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSavingsPlansPurchaseRecommendationResponse
-getSavingsPlansPurchaseRecommendationResponse pResponseStatus_ =
+mkGetSavingsPlansPurchaseRecommendationResponse pResponseStatus_ =
   GetSavingsPlansPurchaseRecommendationResponse'
-    { _gspprrsNextPageToken =
-        Nothing,
-      _gspprrsSavingsPlansPurchaseRecommendation =
-        Nothing,
-      _gspprrsMetadata = Nothing,
-      _gspprrsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Lude.Nothing,
+      savingsPlansPurchaseRecommendation =
+        Lude.Nothing,
+      metadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gspprrsNextPageToken :: Lens' GetSavingsPlansPurchaseRecommendationResponse (Maybe Text)
-gspprrsNextPageToken = lens _gspprrsNextPageToken (\s a -> s {_gspprrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprrsNextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Lude.Maybe Lude.Text)
+gspprrsNextPageToken = Lens.lens (nextPageToken :: GetSavingsPlansPurchaseRecommendationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendationResponse)
+{-# DEPRECATED gspprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Contains your request parameters, Savings Plan Recommendations Summary, and Details.
-gspprrsSavingsPlansPurchaseRecommendation :: Lens' GetSavingsPlansPurchaseRecommendationResponse (Maybe SavingsPlansPurchaseRecommendation)
-gspprrsSavingsPlansPurchaseRecommendation = lens _gspprrsSavingsPlansPurchaseRecommendation (\s a -> s {_gspprrsSavingsPlansPurchaseRecommendation = a})
+--
+-- /Note:/ Consider using 'savingsPlansPurchaseRecommendation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprrsSavingsPlansPurchaseRecommendation :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Lude.Maybe SavingsPlansPurchaseRecommendation)
+gspprrsSavingsPlansPurchaseRecommendation = Lens.lens (savingsPlansPurchaseRecommendation :: GetSavingsPlansPurchaseRecommendationResponse -> Lude.Maybe SavingsPlansPurchaseRecommendation) (\s a -> s {savingsPlansPurchaseRecommendation = a} :: GetSavingsPlansPurchaseRecommendationResponse)
+{-# DEPRECATED gspprrsSavingsPlansPurchaseRecommendation "Use generic-lens or generic-optics with 'savingsPlansPurchaseRecommendation' instead." #-}
 
 -- | Information regarding this specific recommendation set.
-gspprrsMetadata :: Lens' GetSavingsPlansPurchaseRecommendationResponse (Maybe SavingsPlansPurchaseRecommendationMetadata)
-gspprrsMetadata = lens _gspprrsMetadata (\s a -> s {_gspprrsMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprrsMetadata :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Lude.Maybe SavingsPlansPurchaseRecommendationMetadata)
+gspprrsMetadata = Lens.lens (metadata :: GetSavingsPlansPurchaseRecommendationResponse -> Lude.Maybe SavingsPlansPurchaseRecommendationMetadata) (\s a -> s {metadata = a} :: GetSavingsPlansPurchaseRecommendationResponse)
+{-# DEPRECATED gspprrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
--- | -- | The response status code.
-gspprrsResponseStatus :: Lens' GetSavingsPlansPurchaseRecommendationResponse Int
-gspprrsResponseStatus = lens _gspprrsResponseStatus (\s a -> s {_gspprrsResponseStatus = a})
-
-instance NFData GetSavingsPlansPurchaseRecommendationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprrsResponseStatus :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse Lude.Int
+gspprrsResponseStatus = Lens.lens (responseStatus :: GetSavingsPlansPurchaseRecommendationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSavingsPlansPurchaseRecommendationResponse)
+{-# DEPRECATED gspprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

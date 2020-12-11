@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes a job.
 module Network.AWS.IoT.DescribeJob
-  ( -- * Creating a Request
-    describeJob,
-    DescribeJob,
+  ( -- * Creating a request
+    DescribeJob (..),
+    mkDescribeJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desJobId,
 
-    -- * Destructuring the Response
-    describeJobResponse,
-    DescribeJobResponse,
+    -- * Destructuring the response
+    DescribeJobResponse (..),
+    mkDescribeJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     djrsDocumentSource,
     djrsJob,
     djrsResponseStatus,
@@ -38,92 +33,108 @@ module Network.AWS.IoT.DescribeJob
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeJob' smart constructor.
-newtype DescribeJob = DescribeJob' {_desJobId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeJob' smart constructor.
+newtype DescribeJob = DescribeJob' {jobId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desJobId' - The unique identifier you assigned to this job when it was created.
-describeJob ::
-  -- | 'desJobId'
-  Text ->
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+mkDescribeJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DescribeJob
-describeJob pJobId_ = DescribeJob' {_desJobId = pJobId_}
+mkDescribeJob pJobId_ = DescribeJob' {jobId = pJobId_}
 
 -- | The unique identifier you assigned to this job when it was created.
-desJobId :: Lens' DescribeJob Text
-desJobId = lens _desJobId (\s a -> s {_desJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desJobId :: Lens.Lens' DescribeJob Lude.Text
+desJobId = Lens.lens (jobId :: DescribeJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJob)
+{-# DEPRECATED desJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeJob where
+instance Lude.AWSRequest DescribeJob where
   type Rs DescribeJob = DescribeJobResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeJobResponse'
-            <$> (x .?> "documentSource") <*> (x .?> "job") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "documentSource")
+            Lude.<*> (x Lude..?> "job")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeJob
+instance Lude.ToHeaders DescribeJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeJob
+instance Lude.ToPath DescribeJob where
+  toPath DescribeJob' {..} = Lude.mconcat ["/jobs/", Lude.toBS jobId]
 
-instance ToHeaders DescribeJob where
-  toHeaders = const mempty
+instance Lude.ToQuery DescribeJob where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DescribeJob where
-  toPath DescribeJob' {..} = mconcat ["/jobs/", toBS _desJobId]
-
-instance ToQuery DescribeJob where
-  toQuery = const mempty
-
--- | /See:/ 'describeJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeJobResponse' smart constructor.
 data DescribeJobResponse = DescribeJobResponse'
-  { _djrsDocumentSource ::
-      !(Maybe Text),
-    _djrsJob :: !(Maybe Job),
-    _djrsResponseStatus :: !Int
+  { documentSource ::
+      Lude.Maybe Lude.Text,
+    job :: Lude.Maybe Job,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djrsDocumentSource' - An S3 link to the job document.
---
--- * 'djrsJob' - Information about the job.
---
--- * 'djrsResponseStatus' - -- | The response status code.
-describeJobResponse ::
-  -- | 'djrsResponseStatus'
-  Int ->
+-- * 'documentSource' - An S3 link to the job document.
+-- * 'job' - Information about the job.
+-- * 'responseStatus' - The response status code.
+mkDescribeJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeJobResponse
-describeJobResponse pResponseStatus_ =
+mkDescribeJobResponse pResponseStatus_ =
   DescribeJobResponse'
-    { _djrsDocumentSource = Nothing,
-      _djrsJob = Nothing,
-      _djrsResponseStatus = pResponseStatus_
+    { documentSource = Lude.Nothing,
+      job = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An S3 link to the job document.
-djrsDocumentSource :: Lens' DescribeJobResponse (Maybe Text)
-djrsDocumentSource = lens _djrsDocumentSource (\s a -> s {_djrsDocumentSource = a})
+--
+-- /Note:/ Consider using 'documentSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djrsDocumentSource :: Lens.Lens' DescribeJobResponse (Lude.Maybe Lude.Text)
+djrsDocumentSource = Lens.lens (documentSource :: DescribeJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {documentSource = a} :: DescribeJobResponse)
+{-# DEPRECATED djrsDocumentSource "Use generic-lens or generic-optics with 'documentSource' instead." #-}
 
 -- | Information about the job.
-djrsJob :: Lens' DescribeJobResponse (Maybe Job)
-djrsJob = lens _djrsJob (\s a -> s {_djrsJob = a})
+--
+-- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djrsJob :: Lens.Lens' DescribeJobResponse (Lude.Maybe Job)
+djrsJob = Lens.lens (job :: DescribeJobResponse -> Lude.Maybe Job) (\s a -> s {job = a} :: DescribeJobResponse)
+{-# DEPRECATED djrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
 
--- | -- | The response status code.
-djrsResponseStatus :: Lens' DescribeJobResponse Int
-djrsResponseStatus = lens _djrsResponseStatus (\s a -> s {_djrsResponseStatus = a})
-
-instance NFData DescribeJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djrsResponseStatus :: Lens.Lens' DescribeJobResponse Lude.Int
+djrsResponseStatus = Lens.lens (responseStatus :: DescribeJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeJobResponse)
+{-# DEPRECATED djrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

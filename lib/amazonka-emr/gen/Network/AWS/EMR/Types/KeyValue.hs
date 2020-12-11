@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.KeyValue where
+module Network.AWS.EMR.Types.KeyValue
+  ( KeyValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKeyValue,
+
+    -- * Lenses
+    kvValue,
+    kvKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A key-value pair.
 --
---
---
--- /See:/ 'keyValue' smart constructor.
+-- /See:/ 'mkKeyValue' smart constructor.
 data KeyValue = KeyValue'
-  { _kvValue :: !(Maybe Text),
-    _kvKey :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kvValue' - The value part of the identified key.
---
--- * 'kvKey' - The unique identifier of a key-value pair.
-keyValue ::
+-- * 'key' - The unique identifier of a key-value pair.
+-- * 'value' - The value part of the identified key.
+mkKeyValue ::
   KeyValue
-keyValue = KeyValue' {_kvValue = Nothing, _kvKey = Nothing}
+mkKeyValue = KeyValue' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | The value part of the identified key.
-kvValue :: Lens' KeyValue (Maybe Text)
-kvValue = lens _kvValue (\s a -> s {_kvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvValue :: Lens.Lens' KeyValue (Lude.Maybe Lude.Text)
+kvValue = Lens.lens (value :: KeyValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: KeyValue)
+{-# DEPRECATED kvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The unique identifier of a key-value pair.
-kvKey :: Lens' KeyValue (Maybe Text)
-kvKey = lens _kvKey (\s a -> s {_kvKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvKey :: Lens.Lens' KeyValue (Lude.Maybe Lude.Text)
+kvKey = Lens.lens (key :: KeyValue -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: KeyValue)
+{-# DEPRECATED kvKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable KeyValue
-
-instance NFData KeyValue
-
-instance ToJSON KeyValue where
+instance Lude.ToJSON KeyValue where
   toJSON KeyValue' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _kvValue, ("Key" .=) <$> _kvKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+      )

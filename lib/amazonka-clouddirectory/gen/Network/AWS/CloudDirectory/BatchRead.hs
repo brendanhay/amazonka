@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,152 @@
 --
 -- Performs all the read operations in a batch.
 module Network.AWS.CloudDirectory.BatchRead
-  ( -- * Creating a Request
-    batchRead,
-    BatchRead,
+  ( -- * Creating a request
+    BatchRead (..),
+    mkBatchRead,
 
-    -- * Request Lenses
+    -- ** Request lenses
     brConsistencyLevel,
     brDirectoryARN,
     brOperations,
 
-    -- * Destructuring the Response
-    batchReadResponse,
-    BatchReadResponse,
+    -- * Destructuring the response
+    BatchReadResponse (..),
+    mkBatchReadResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     brrsResponses,
     brrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchRead' smart constructor.
+-- | /See:/ 'mkBatchRead' smart constructor.
 data BatchRead = BatchRead'
-  { _brConsistencyLevel ::
-      !(Maybe ConsistencyLevel),
-    _brDirectoryARN :: !Text,
-    _brOperations :: ![BatchReadOperation]
+  { consistencyLevel ::
+      Lude.Maybe ConsistencyLevel,
+    directoryARN :: Lude.Text,
+    operations :: [BatchReadOperation]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRead' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- * 'brDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
---
--- * 'brOperations' - A list of operations that are part of the batch.
-batchRead ::
-  -- | 'brDirectoryARN'
-  Text ->
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
+-- * 'operations' - A list of operations that are part of the batch.
+mkBatchRead ::
+  -- | 'directoryARN'
+  Lude.Text ->
   BatchRead
-batchRead pDirectoryARN_ =
+mkBatchRead pDirectoryARN_ =
   BatchRead'
-    { _brConsistencyLevel = Nothing,
-      _brDirectoryARN = pDirectoryARN_,
-      _brOperations = mempty
+    { consistencyLevel = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      operations = Lude.mempty
     }
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-brConsistencyLevel :: Lens' BatchRead (Maybe ConsistencyLevel)
-brConsistencyLevel = lens _brConsistencyLevel (\s a -> s {_brConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brConsistencyLevel :: Lens.Lens' BatchRead (Lude.Maybe ConsistencyLevel)
+brConsistencyLevel = Lens.lens (consistencyLevel :: BatchRead -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: BatchRead)
+{-# DEPRECATED brConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
-brDirectoryARN :: Lens' BatchRead Text
-brDirectoryARN = lens _brDirectoryARN (\s a -> s {_brDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brDirectoryARN :: Lens.Lens' BatchRead Lude.Text
+brDirectoryARN = Lens.lens (directoryARN :: BatchRead -> Lude.Text) (\s a -> s {directoryARN = a} :: BatchRead)
+{-# DEPRECATED brDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A list of operations that are part of the batch.
-brOperations :: Lens' BatchRead [BatchReadOperation]
-brOperations = lens _brOperations (\s a -> s {_brOperations = a}) . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brOperations :: Lens.Lens' BatchRead [BatchReadOperation]
+brOperations = Lens.lens (operations :: BatchRead -> [BatchReadOperation]) (\s a -> s {operations = a} :: BatchRead)
+{-# DEPRECATED brOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
-instance AWSRequest BatchRead where
+instance Lude.AWSRequest BatchRead where
   type Rs BatchRead = BatchReadResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchReadResponse'
-            <$> (x .?> "Responses" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Responses" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchRead
-
-instance NFData BatchRead
-
-instance ToHeaders BatchRead where
+instance Lude.ToHeaders BatchRead where
   toHeaders BatchRead' {..} =
-    mconcat
-      [ "x-amz-consistency-level" =# _brConsistencyLevel,
-        "x-amz-data-partition" =# _brDirectoryARN
+    Lude.mconcat
+      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
+        "x-amz-data-partition" Lude.=# directoryARN
       ]
 
-instance ToJSON BatchRead where
+instance Lude.ToJSON BatchRead where
   toJSON BatchRead' {..} =
-    object (catMaybes [Just ("Operations" .= _brOperations)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Operations" Lude..= operations)])
 
-instance ToPath BatchRead where
-  toPath = const "/amazonclouddirectory/2017-01-11/batchread"
+instance Lude.ToPath BatchRead where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/batchread"
 
-instance ToQuery BatchRead where
-  toQuery = const mempty
+instance Lude.ToQuery BatchRead where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchReadResponse' smart constructor.
+-- | /See:/ 'mkBatchReadResponse' smart constructor.
 data BatchReadResponse = BatchReadResponse'
-  { _brrsResponses ::
-      !(Maybe [BatchReadOperationResponse]),
-    _brrsResponseStatus :: !Int
+  { responses ::
+      Lude.Maybe [BatchReadOperationResponse],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchReadResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brrsResponses' - A list of all the responses for each batch read.
---
--- * 'brrsResponseStatus' - -- | The response status code.
-batchReadResponse ::
-  -- | 'brrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'responses' - A list of all the responses for each batch read.
+mkBatchReadResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchReadResponse
-batchReadResponse pResponseStatus_ =
+mkBatchReadResponse pResponseStatus_ =
   BatchReadResponse'
-    { _brrsResponses = Nothing,
-      _brrsResponseStatus = pResponseStatus_
+    { responses = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of all the responses for each batch read.
-brrsResponses :: Lens' BatchReadResponse [BatchReadOperationResponse]
-brrsResponses = lens _brrsResponses (\s a -> s {_brrsResponses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'responses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brrsResponses :: Lens.Lens' BatchReadResponse (Lude.Maybe [BatchReadOperationResponse])
+brrsResponses = Lens.lens (responses :: BatchReadResponse -> Lude.Maybe [BatchReadOperationResponse]) (\s a -> s {responses = a} :: BatchReadResponse)
+{-# DEPRECATED brrsResponses "Use generic-lens or generic-optics with 'responses' instead." #-}
 
--- | -- | The response status code.
-brrsResponseStatus :: Lens' BatchReadResponse Int
-brrsResponseStatus = lens _brrsResponseStatus (\s a -> s {_brrsResponseStatus = a})
-
-instance NFData BatchReadResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brrsResponseStatus :: Lens.Lens' BatchReadResponse Lude.Int
+brrsResponseStatus = Lens.lens (responseStatus :: BatchReadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchReadResponse)
+{-# DEPRECATED brrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

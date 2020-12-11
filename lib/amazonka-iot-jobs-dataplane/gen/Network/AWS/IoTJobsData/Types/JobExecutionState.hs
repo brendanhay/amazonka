@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTJobsData.Types.JobExecutionState where
+module Network.AWS.IoTJobsData.Types.JobExecutionState
+  ( JobExecutionState (..),
+
+    -- * Smart constructor
+    mkJobExecutionState,
+
+    -- * Lenses
+    jesStatus,
+    jesStatusDetails,
+    jesVersionNumber,
+  )
+where
 
 import Network.AWS.IoTJobsData.Types.JobExecutionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains data about the state of a job execution.
 --
---
---
--- /See:/ 'jobExecutionState' smart constructor.
+-- /See:/ 'mkJobExecutionState' smart constructor.
 data JobExecutionState = JobExecutionState'
-  { _jesStatus ::
-      !(Maybe JobExecutionStatus),
-    _jesStatusDetails :: !(Maybe (Map Text (Text))),
-    _jesVersionNumber :: !(Maybe Integer)
+  { status ::
+      Lude.Maybe JobExecutionStatus,
+    statusDetails ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    versionNumber :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jesStatus' - The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
---
--- * 'jesStatusDetails' - A collection of name/value pairs that describe the status of the job execution.
---
--- * 'jesVersionNumber' - The version of the job execution. Job execution versions are incremented each time they are updated by a device.
-jobExecutionState ::
+-- * 'status' - The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+-- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution.
+-- * 'versionNumber' - The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+mkJobExecutionState ::
   JobExecutionState
-jobExecutionState =
+mkJobExecutionState =
   JobExecutionState'
-    { _jesStatus = Nothing,
-      _jesStatusDetails = Nothing,
-      _jesVersionNumber = Nothing
+    { status = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      versionNumber = Lude.Nothing
     }
 
 -- | The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
-jesStatus :: Lens' JobExecutionState (Maybe JobExecutionStatus)
-jesStatus = lens _jesStatus (\s a -> s {_jesStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesStatus :: Lens.Lens' JobExecutionState (Lude.Maybe JobExecutionStatus)
+jesStatus = Lens.lens (status :: JobExecutionState -> Lude.Maybe JobExecutionStatus) (\s a -> s {status = a} :: JobExecutionState)
+{-# DEPRECATED jesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A collection of name/value pairs that describe the status of the job execution.
-jesStatusDetails :: Lens' JobExecutionState (HashMap Text (Text))
-jesStatusDetails = lens _jesStatusDetails (\s a -> s {_jesStatusDetails = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesStatusDetails :: Lens.Lens' JobExecutionState (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jesStatusDetails = Lens.lens (statusDetails :: JobExecutionState -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {statusDetails = a} :: JobExecutionState)
+{-# DEPRECATED jesStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The version of the job execution. Job execution versions are incremented each time they are updated by a device.
-jesVersionNumber :: Lens' JobExecutionState (Maybe Integer)
-jesVersionNumber = lens _jesVersionNumber (\s a -> s {_jesVersionNumber = a})
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesVersionNumber :: Lens.Lens' JobExecutionState (Lude.Maybe Lude.Integer)
+jesVersionNumber = Lens.lens (versionNumber :: JobExecutionState -> Lude.Maybe Lude.Integer) (\s a -> s {versionNumber = a} :: JobExecutionState)
+{-# DEPRECATED jesVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
-instance FromJSON JobExecutionState where
+instance Lude.FromJSON JobExecutionState where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobExecutionState"
       ( \x ->
           JobExecutionState'
-            <$> (x .:? "status")
-            <*> (x .:? "statusDetails" .!= mempty)
-            <*> (x .:? "versionNumber")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "statusDetails" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "versionNumber")
       )
-
-instance Hashable JobExecutionState
-
-instance NFData JobExecutionState

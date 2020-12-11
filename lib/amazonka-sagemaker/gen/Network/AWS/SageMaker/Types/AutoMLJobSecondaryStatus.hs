@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus where
+module Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus
+  ( AutoMLJobSecondaryStatus
+      ( AutoMLJobSecondaryStatus',
+        AMLJSSAnalyzingData,
+        AMLJSSCandidateDefinitionsGenerated,
+        AMLJSSFailed,
+        AMLJSSFeatureEngineering,
+        AMLJSSMaxAutoMLJobRuntimeReached,
+        AMLJSSMaxCandidatesReached,
+        AMLJSSModelTuning,
+        AMLJSSStarting,
+        AMLJSSStopped,
+        AMLJSSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoMLJobSecondaryStatus
-  = AMLJSSAnalyzingData
-  | AMLJSSCandidateDefinitionsGenerated
-  | AMLJSSFailed
-  | AMLJSSFeatureEngineering
-  | AMLJSSMaxAutoMLJobRuntimeReached
-  | AMLJSSMaxCandidatesReached
-  | AMLJSSModelTuning
-  | AMLJSSStarting
-  | AMLJSSStopped
-  | AMLJSSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoMLJobSecondaryStatus = AutoMLJobSecondaryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoMLJobSecondaryStatus where
-  parser =
-    takeLowerText >>= \case
-      "analyzingdata" -> pure AMLJSSAnalyzingData
-      "candidatedefinitionsgenerated" -> pure AMLJSSCandidateDefinitionsGenerated
-      "failed" -> pure AMLJSSFailed
-      "featureengineering" -> pure AMLJSSFeatureEngineering
-      "maxautomljobruntimereached" -> pure AMLJSSMaxAutoMLJobRuntimeReached
-      "maxcandidatesreached" -> pure AMLJSSMaxCandidatesReached
-      "modeltuning" -> pure AMLJSSModelTuning
-      "starting" -> pure AMLJSSStarting
-      "stopped" -> pure AMLJSSStopped
-      "stopping" -> pure AMLJSSStopping
-      e ->
-        fromTextError $
-          "Failure parsing AutoMLJobSecondaryStatus from value: '" <> e
-            <> "'. Accepted values: analyzingdata, candidatedefinitionsgenerated, failed, featureengineering, maxautomljobruntimereached, maxcandidatesreached, modeltuning, starting, stopped, stopping"
+pattern AMLJSSAnalyzingData :: AutoMLJobSecondaryStatus
+pattern AMLJSSAnalyzingData = AutoMLJobSecondaryStatus' "AnalyzingData"
 
-instance ToText AutoMLJobSecondaryStatus where
-  toText = \case
-    AMLJSSAnalyzingData -> "AnalyzingData"
-    AMLJSSCandidateDefinitionsGenerated -> "CandidateDefinitionsGenerated"
-    AMLJSSFailed -> "Failed"
-    AMLJSSFeatureEngineering -> "FeatureEngineering"
-    AMLJSSMaxAutoMLJobRuntimeReached -> "MaxAutoMLJobRuntimeReached"
-    AMLJSSMaxCandidatesReached -> "MaxCandidatesReached"
-    AMLJSSModelTuning -> "ModelTuning"
-    AMLJSSStarting -> "Starting"
-    AMLJSSStopped -> "Stopped"
-    AMLJSSStopping -> "Stopping"
+pattern AMLJSSCandidateDefinitionsGenerated :: AutoMLJobSecondaryStatus
+pattern AMLJSSCandidateDefinitionsGenerated = AutoMLJobSecondaryStatus' "CandidateDefinitionsGenerated"
 
-instance Hashable AutoMLJobSecondaryStatus
+pattern AMLJSSFailed :: AutoMLJobSecondaryStatus
+pattern AMLJSSFailed = AutoMLJobSecondaryStatus' "Failed"
 
-instance NFData AutoMLJobSecondaryStatus
+pattern AMLJSSFeatureEngineering :: AutoMLJobSecondaryStatus
+pattern AMLJSSFeatureEngineering = AutoMLJobSecondaryStatus' "FeatureEngineering"
 
-instance ToByteString AutoMLJobSecondaryStatus
+pattern AMLJSSMaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
+pattern AMLJSSMaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
 
-instance ToQuery AutoMLJobSecondaryStatus
+pattern AMLJSSMaxCandidatesReached :: AutoMLJobSecondaryStatus
+pattern AMLJSSMaxCandidatesReached = AutoMLJobSecondaryStatus' "MaxCandidatesReached"
 
-instance ToHeader AutoMLJobSecondaryStatus
+pattern AMLJSSModelTuning :: AutoMLJobSecondaryStatus
+pattern AMLJSSModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
 
-instance FromJSON AutoMLJobSecondaryStatus where
-  parseJSON = parseJSONText "AutoMLJobSecondaryStatus"
+pattern AMLJSSStarting :: AutoMLJobSecondaryStatus
+pattern AMLJSSStarting = AutoMLJobSecondaryStatus' "Starting"
+
+pattern AMLJSSStopped :: AutoMLJobSecondaryStatus
+pattern AMLJSSStopped = AutoMLJobSecondaryStatus' "Stopped"
+
+pattern AMLJSSStopping :: AutoMLJobSecondaryStatus
+pattern AMLJSSStopping = AutoMLJobSecondaryStatus' "Stopping"
+
+{-# COMPLETE
+  AMLJSSAnalyzingData,
+  AMLJSSCandidateDefinitionsGenerated,
+  AMLJSSFailed,
+  AMLJSSFeatureEngineering,
+  AMLJSSMaxAutoMLJobRuntimeReached,
+  AMLJSSMaxCandidatesReached,
+  AMLJSSModelTuning,
+  AMLJSSStarting,
+  AMLJSSStopped,
+  AMLJSSStopping,
+  AutoMLJobSecondaryStatus'
+  #-}

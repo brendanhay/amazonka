@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a contact with the specified details.
 module Network.AWS.AlexaBusiness.CreateContact
-  ( -- * Creating a Request
-    createContact,
-    CreateContact,
+  ( -- * Creating a request
+    CreateContact (..),
+    mkCreateContact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccLastName,
     ccPhoneNumbers,
     ccPhoneNumber,
@@ -32,169 +27,189 @@ module Network.AWS.AlexaBusiness.CreateContact
     ccClientRequestToken,
     ccFirstName,
 
-    -- * Destructuring the Response
-    createContactResponse,
-    CreateContactResponse,
+    -- * Destructuring the response
+    CreateContactResponse (..),
+    mkCreateContactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsContactARN,
     ccrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createContact' smart constructor.
+-- | /See:/ 'mkCreateContact' smart constructor.
 data CreateContact = CreateContact'
-  { _ccLastName :: !(Maybe Text),
-    _ccPhoneNumbers :: !(Maybe [PhoneNumber]),
-    _ccPhoneNumber :: !(Maybe (Sensitive Text)),
-    _ccSipAddresses :: !(Maybe [SipAddress]),
-    _ccDisplayName :: !(Maybe Text),
-    _ccClientRequestToken :: !(Maybe Text),
-    _ccFirstName :: !Text
+  { lastName ::
+      Lude.Maybe Lude.Text,
+    phoneNumbers :: Lude.Maybe [PhoneNumber],
+    phoneNumber :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sipAddresses :: Lude.Maybe [SipAddress],
+    displayName :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    firstName :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccLastName' - The last name of the contact that is used to call the contact on the device.
---
--- * 'ccPhoneNumbers' - The list of phone numbers for the contact.
---
--- * 'ccPhoneNumber' - The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
---
--- * 'ccSipAddresses' - The list of SIP addresses for the contact.
---
--- * 'ccDisplayName' - The name of the contact to display on the console.
---
--- * 'ccClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
---
--- * 'ccFirstName' - The first name of the contact that is used to call the contact on the device.
-createContact ::
-  -- | 'ccFirstName'
-  Text ->
+-- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- * 'displayName' - The name of the contact to display on the console.
+-- * 'firstName' - The first name of the contact that is used to call the contact on the device.
+-- * 'lastName' - The last name of the contact that is used to call the contact on the device.
+-- * 'phoneNumber' - The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
+-- * 'phoneNumbers' - The list of phone numbers for the contact.
+-- * 'sipAddresses' - The list of SIP addresses for the contact.
+mkCreateContact ::
+  -- | 'firstName'
+  Lude.Text ->
   CreateContact
-createContact pFirstName_ =
+mkCreateContact pFirstName_ =
   CreateContact'
-    { _ccLastName = Nothing,
-      _ccPhoneNumbers = Nothing,
-      _ccPhoneNumber = Nothing,
-      _ccSipAddresses = Nothing,
-      _ccDisplayName = Nothing,
-      _ccClientRequestToken = Nothing,
-      _ccFirstName = pFirstName_
+    { lastName = Lude.Nothing,
+      phoneNumbers = Lude.Nothing,
+      phoneNumber = Lude.Nothing,
+      sipAddresses = Lude.Nothing,
+      displayName = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      firstName = pFirstName_
     }
 
 -- | The last name of the contact that is used to call the contact on the device.
-ccLastName :: Lens' CreateContact (Maybe Text)
-ccLastName = lens _ccLastName (\s a -> s {_ccLastName = a})
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLastName :: Lens.Lens' CreateContact (Lude.Maybe Lude.Text)
+ccLastName = Lens.lens (lastName :: CreateContact -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: CreateContact)
+{-# DEPRECATED ccLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The list of phone numbers for the contact.
-ccPhoneNumbers :: Lens' CreateContact [PhoneNumber]
-ccPhoneNumbers = lens _ccPhoneNumbers (\s a -> s {_ccPhoneNumbers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPhoneNumbers :: Lens.Lens' CreateContact (Lude.Maybe [PhoneNumber])
+ccPhoneNumbers = Lens.lens (phoneNumbers :: CreateContact -> Lude.Maybe [PhoneNumber]) (\s a -> s {phoneNumbers = a} :: CreateContact)
+{-# DEPRECATED ccPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
 
 -- | The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
-ccPhoneNumber :: Lens' CreateContact (Maybe Text)
-ccPhoneNumber = lens _ccPhoneNumber (\s a -> s {_ccPhoneNumber = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPhoneNumber :: Lens.Lens' CreateContact (Lude.Maybe (Lude.Sensitive Lude.Text))
+ccPhoneNumber = Lens.lens (phoneNumber :: CreateContact -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {phoneNumber = a} :: CreateContact)
+{-# DEPRECATED ccPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | The list of SIP addresses for the contact.
-ccSipAddresses :: Lens' CreateContact [SipAddress]
-ccSipAddresses = lens _ccSipAddresses (\s a -> s {_ccSipAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sipAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSipAddresses :: Lens.Lens' CreateContact (Lude.Maybe [SipAddress])
+ccSipAddresses = Lens.lens (sipAddresses :: CreateContact -> Lude.Maybe [SipAddress]) (\s a -> s {sipAddresses = a} :: CreateContact)
+{-# DEPRECATED ccSipAddresses "Use generic-lens or generic-optics with 'sipAddresses' instead." #-}
 
 -- | The name of the contact to display on the console.
-ccDisplayName :: Lens' CreateContact (Maybe Text)
-ccDisplayName = lens _ccDisplayName (\s a -> s {_ccDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDisplayName :: Lens.Lens' CreateContact (Lude.Maybe Lude.Text)
+ccDisplayName = Lens.lens (displayName :: CreateContact -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateContact)
+{-# DEPRECATED ccDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | A unique, user-specified identifier for this request that ensures idempotency.
-ccClientRequestToken :: Lens' CreateContact (Maybe Text)
-ccClientRequestToken = lens _ccClientRequestToken (\s a -> s {_ccClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClientRequestToken :: Lens.Lens' CreateContact (Lude.Maybe Lude.Text)
+ccClientRequestToken = Lens.lens (clientRequestToken :: CreateContact -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateContact)
+{-# DEPRECATED ccClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The first name of the contact that is used to call the contact on the device.
-ccFirstName :: Lens' CreateContact Text
-ccFirstName = lens _ccFirstName (\s a -> s {_ccFirstName = a})
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccFirstName :: Lens.Lens' CreateContact Lude.Text
+ccFirstName = Lens.lens (firstName :: CreateContact -> Lude.Text) (\s a -> s {firstName = a} :: CreateContact)
+{-# DEPRECATED ccFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
-instance AWSRequest CreateContact where
+instance Lude.AWSRequest CreateContact where
   type Rs CreateContact = CreateContactResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateContactResponse'
-            <$> (x .?> "ContactArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContactArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateContact
-
-instance NFData CreateContact
-
-instance ToHeaders CreateContact where
+instance Lude.ToHeaders CreateContact where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.CreateContact" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.CreateContact" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateContact where
+instance Lude.ToJSON CreateContact where
   toJSON CreateContact' {..} =
-    object
-      ( catMaybes
-          [ ("LastName" .=) <$> _ccLastName,
-            ("PhoneNumbers" .=) <$> _ccPhoneNumbers,
-            ("PhoneNumber" .=) <$> _ccPhoneNumber,
-            ("SipAddresses" .=) <$> _ccSipAddresses,
-            ("DisplayName" .=) <$> _ccDisplayName,
-            ("ClientRequestToken" .=) <$> _ccClientRequestToken,
-            Just ("FirstName" .= _ccFirstName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LastName" Lude..=) Lude.<$> lastName,
+            ("PhoneNumbers" Lude..=) Lude.<$> phoneNumbers,
+            ("PhoneNumber" Lude..=) Lude.<$> phoneNumber,
+            ("SipAddresses" Lude..=) Lude.<$> sipAddresses,
+            ("DisplayName" Lude..=) Lude.<$> displayName,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("FirstName" Lude..= firstName)
           ]
       )
 
-instance ToPath CreateContact where
-  toPath = const "/"
+instance Lude.ToPath CreateContact where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateContact where
-  toQuery = const mempty
+instance Lude.ToQuery CreateContact where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createContactResponse' smart constructor.
+-- | /See:/ 'mkCreateContactResponse' smart constructor.
 data CreateContactResponse = CreateContactResponse'
-  { _ccrsContactARN ::
-      !(Maybe Text),
-    _ccrsResponseStatus :: !Int
+  { contactARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsContactARN' - The ARN of the newly created address book.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createContactResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'contactARN' - The ARN of the newly created address book.
+-- * 'responseStatus' - The response status code.
+mkCreateContactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateContactResponse
-createContactResponse pResponseStatus_ =
+mkCreateContactResponse pResponseStatus_ =
   CreateContactResponse'
-    { _ccrsContactARN = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { contactARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the newly created address book.
-ccrsContactARN :: Lens' CreateContactResponse (Maybe Text)
-ccrsContactARN = lens _ccrsContactARN (\s a -> s {_ccrsContactARN = a})
+--
+-- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsContactARN :: Lens.Lens' CreateContactResponse (Lude.Maybe Lude.Text)
+ccrsContactARN = Lens.lens (contactARN :: CreateContactResponse -> Lude.Maybe Lude.Text) (\s a -> s {contactARN = a} :: CreateContactResponse)
+{-# DEPRECATED ccrsContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateContactResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateContactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateContactResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateContactResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.SlotTypeMetadata where
+module Network.AWS.LexModels.Types.SlotTypeMetadata
+  ( SlotTypeMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSlotTypeMetadata,
+
+    -- * Lenses
+    stmCreatedDate,
+    stmName,
+    stmVersion,
+    stmLastUpdatedDate,
+    stmDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about a slot type..
 --
---
---
--- /See:/ 'slotTypeMetadata' smart constructor.
+-- /See:/ 'mkSlotTypeMetadata' smart constructor.
 data SlotTypeMetadata = SlotTypeMetadata'
-  { _stmCreatedDate ::
-      !(Maybe POSIX),
-    _stmName :: !(Maybe Text),
-    _stmVersion :: !(Maybe Text),
-    _stmLastUpdatedDate :: !(Maybe POSIX),
-    _stmDescription :: !(Maybe Text)
+  { createdDate ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotTypeMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stmCreatedDate' - The date that the slot type was created.
---
--- * 'stmName' - The name of the slot type.
---
--- * 'stmVersion' - The version of the slot type.
---
--- * 'stmLastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
---
--- * 'stmDescription' - A description of the slot type.
-slotTypeMetadata ::
+-- * 'createdDate' - The date that the slot type was created.
+-- * 'description' - A description of the slot type.
+-- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
+-- * 'name' - The name of the slot type.
+-- * 'version' - The version of the slot type.
+mkSlotTypeMetadata ::
   SlotTypeMetadata
-slotTypeMetadata =
+mkSlotTypeMetadata =
   SlotTypeMetadata'
-    { _stmCreatedDate = Nothing,
-      _stmName = Nothing,
-      _stmVersion = Nothing,
-      _stmLastUpdatedDate = Nothing,
-      _stmDescription = Nothing
+    { createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The date that the slot type was created.
-stmCreatedDate :: Lens' SlotTypeMetadata (Maybe UTCTime)
-stmCreatedDate = lens _stmCreatedDate (\s a -> s {_stmCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stmCreatedDate :: Lens.Lens' SlotTypeMetadata (Lude.Maybe Lude.Timestamp)
+stmCreatedDate = Lens.lens (createdDate :: SlotTypeMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: SlotTypeMetadata)
+{-# DEPRECATED stmCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the slot type.
-stmName :: Lens' SlotTypeMetadata (Maybe Text)
-stmName = lens _stmName (\s a -> s {_stmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stmName :: Lens.Lens' SlotTypeMetadata (Lude.Maybe Lude.Text)
+stmName = Lens.lens (name :: SlotTypeMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SlotTypeMetadata)
+{-# DEPRECATED stmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the slot type.
-stmVersion :: Lens' SlotTypeMetadata (Maybe Text)
-stmVersion = lens _stmVersion (\s a -> s {_stmVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stmVersion :: Lens.Lens' SlotTypeMetadata (Lude.Maybe Lude.Text)
+stmVersion = Lens.lens (version :: SlotTypeMetadata -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: SlotTypeMetadata)
+{-# DEPRECATED stmVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
-stmLastUpdatedDate :: Lens' SlotTypeMetadata (Maybe UTCTime)
-stmLastUpdatedDate = lens _stmLastUpdatedDate (\s a -> s {_stmLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stmLastUpdatedDate :: Lens.Lens' SlotTypeMetadata (Lude.Maybe Lude.Timestamp)
+stmLastUpdatedDate = Lens.lens (lastUpdatedDate :: SlotTypeMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: SlotTypeMetadata)
+{-# DEPRECATED stmLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | A description of the slot type.
-stmDescription :: Lens' SlotTypeMetadata (Maybe Text)
-stmDescription = lens _stmDescription (\s a -> s {_stmDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stmDescription :: Lens.Lens' SlotTypeMetadata (Lude.Maybe Lude.Text)
+stmDescription = Lens.lens (description :: SlotTypeMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SlotTypeMetadata)
+{-# DEPRECATED stmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON SlotTypeMetadata where
+instance Lude.FromJSON SlotTypeMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "SlotTypeMetadata"
       ( \x ->
           SlotTypeMetadata'
-            <$> (x .:? "createdDate")
-            <*> (x .:? "name")
-            <*> (x .:? "version")
-            <*> (x .:? "lastUpdatedDate")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "lastUpdatedDate")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable SlotTypeMetadata
-
-instance NFData SlotTypeMetadata

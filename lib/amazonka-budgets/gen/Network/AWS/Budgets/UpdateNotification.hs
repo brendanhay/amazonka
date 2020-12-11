@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,172 @@
 --
 -- Updates a notification.
 module Network.AWS.Budgets.UpdateNotification
-  ( -- * Creating a Request
-    updateNotification,
-    UpdateNotification,
+  ( -- * Creating a request
+    UpdateNotification (..),
+    mkUpdateNotification,
 
-    -- * Request Lenses
+    -- ** Request lenses
     unAccountId,
     unBudgetName,
     unOldNotification,
     unNewNotification,
 
-    -- * Destructuring the Response
-    updateNotificationResponse,
-    UpdateNotificationResponse,
+    -- * Destructuring the response
+    UpdateNotificationResponse (..),
+    mkUpdateNotificationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     unrsResponseStatus,
   )
 where
 
 import Network.AWS.Budgets.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request of UpdateNotification
 --
---
---
--- /See:/ 'updateNotification' smart constructor.
+-- /See:/ 'mkUpdateNotification' smart constructor.
 data UpdateNotification = UpdateNotification'
-  { _unAccountId ::
-      !Text,
-    _unBudgetName :: !Text,
-    _unOldNotification :: !Notification,
-    _unNewNotification :: !Notification
+  { accountId ::
+      Lude.Text,
+    budgetName :: Lude.Text,
+    oldNotification :: Notification,
+    newNotification :: Notification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'unAccountId' - The @accountId@ that is associated with the budget whose notification you want to update.
---
--- * 'unBudgetName' - The name of the budget whose notification you want to update.
---
--- * 'unOldNotification' - The previous notification that is associated with a budget.
---
--- * 'unNewNotification' - The updated notification to be associated with a budget.
-updateNotification ::
-  -- | 'unAccountId'
-  Text ->
-  -- | 'unBudgetName'
-  Text ->
-  -- | 'unOldNotification'
+-- * 'accountId' - The @accountId@ that is associated with the budget whose notification you want to update.
+-- * 'budgetName' - The name of the budget whose notification you want to update.
+-- * 'newNotification' - The updated notification to be associated with a budget.
+-- * 'oldNotification' - The previous notification that is associated with a budget.
+mkUpdateNotification ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
+  -- | 'oldNotification'
   Notification ->
-  -- | 'unNewNotification'
+  -- | 'newNotification'
   Notification ->
   UpdateNotification
-updateNotification
+mkUpdateNotification
   pAccountId_
   pBudgetName_
   pOldNotification_
   pNewNotification_ =
     UpdateNotification'
-      { _unAccountId = pAccountId_,
-        _unBudgetName = pBudgetName_,
-        _unOldNotification = pOldNotification_,
-        _unNewNotification = pNewNotification_
+      { accountId = pAccountId_,
+        budgetName = pBudgetName_,
+        oldNotification = pOldNotification_,
+        newNotification = pNewNotification_
       }
 
 -- | The @accountId@ that is associated with the budget whose notification you want to update.
-unAccountId :: Lens' UpdateNotification Text
-unAccountId = lens _unAccountId (\s a -> s {_unAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unAccountId :: Lens.Lens' UpdateNotification Lude.Text
+unAccountId = Lens.lens (accountId :: UpdateNotification -> Lude.Text) (\s a -> s {accountId = a} :: UpdateNotification)
+{-# DEPRECATED unAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the budget whose notification you want to update.
-unBudgetName :: Lens' UpdateNotification Text
-unBudgetName = lens _unBudgetName (\s a -> s {_unBudgetName = a})
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unBudgetName :: Lens.Lens' UpdateNotification Lude.Text
+unBudgetName = Lens.lens (budgetName :: UpdateNotification -> Lude.Text) (\s a -> s {budgetName = a} :: UpdateNotification)
+{-# DEPRECATED unBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | The previous notification that is associated with a budget.
-unOldNotification :: Lens' UpdateNotification Notification
-unOldNotification = lens _unOldNotification (\s a -> s {_unOldNotification = a})
+--
+-- /Note:/ Consider using 'oldNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unOldNotification :: Lens.Lens' UpdateNotification Notification
+unOldNotification = Lens.lens (oldNotification :: UpdateNotification -> Notification) (\s a -> s {oldNotification = a} :: UpdateNotification)
+{-# DEPRECATED unOldNotification "Use generic-lens or generic-optics with 'oldNotification' instead." #-}
 
 -- | The updated notification to be associated with a budget.
-unNewNotification :: Lens' UpdateNotification Notification
-unNewNotification = lens _unNewNotification (\s a -> s {_unNewNotification = a})
+--
+-- /Note:/ Consider using 'newNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unNewNotification :: Lens.Lens' UpdateNotification Notification
+unNewNotification = Lens.lens (newNotification :: UpdateNotification -> Notification) (\s a -> s {newNotification = a} :: UpdateNotification)
+{-# DEPRECATED unNewNotification "Use generic-lens or generic-optics with 'newNotification' instead." #-}
 
-instance AWSRequest UpdateNotification where
+instance Lude.AWSRequest UpdateNotification where
   type Rs UpdateNotification = UpdateNotificationResponse
-  request = postJSON budgets
+  request = Req.postJSON budgetsService
   response =
-    receiveEmpty
-      (\s h x -> UpdateNotificationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateNotificationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateNotification
-
-instance NFData UpdateNotification
-
-instance ToHeaders UpdateNotification where
+instance Lude.ToHeaders UpdateNotification where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSBudgetServiceGateway.UpdateNotification" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSBudgetServiceGateway.UpdateNotification" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateNotification where
+instance Lude.ToJSON UpdateNotification where
   toJSON UpdateNotification' {..} =
-    object
-      ( catMaybes
-          [ Just ("AccountId" .= _unAccountId),
-            Just ("BudgetName" .= _unBudgetName),
-            Just ("OldNotification" .= _unOldNotification),
-            Just ("NewNotification" .= _unNewNotification)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName),
+            Lude.Just ("OldNotification" Lude..= oldNotification),
+            Lude.Just ("NewNotification" Lude..= newNotification)
           ]
       )
 
-instance ToPath UpdateNotification where
-  toPath = const "/"
+instance Lude.ToPath UpdateNotification where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateNotification where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateNotification where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response of UpdateNotification
 --
---
---
--- /See:/ 'updateNotificationResponse' smart constructor.
+-- /See:/ 'mkUpdateNotificationResponse' smart constructor.
 newtype UpdateNotificationResponse = UpdateNotificationResponse'
-  { _unrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotificationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'unrsResponseStatus' - -- | The response status code.
-updateNotificationResponse ::
-  -- | 'unrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateNotificationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateNotificationResponse
-updateNotificationResponse pResponseStatus_ =
-  UpdateNotificationResponse'
-    { _unrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateNotificationResponse pResponseStatus_ =
+  UpdateNotificationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-unrsResponseStatus :: Lens' UpdateNotificationResponse Int
-unrsResponseStatus = lens _unrsResponseStatus (\s a -> s {_unrsResponseStatus = a})
-
-instance NFData UpdateNotificationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unrsResponseStatus :: Lens.Lens' UpdateNotificationResponse Lude.Int
+unrsResponseStatus = Lens.lens (responseStatus :: UpdateNotificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateNotificationResponse)
+{-# DEPRECATED unrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

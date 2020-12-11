@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AppNetworkAccessType where
+module Network.AWS.SageMaker.Types.AppNetworkAccessType
+  ( AppNetworkAccessType
+      ( AppNetworkAccessType',
+        PublicInternetOnly,
+        VPCOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AppNetworkAccessType
-  = PublicInternetOnly
-  | VPCOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AppNetworkAccessType = AppNetworkAccessType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AppNetworkAccessType where
-  parser =
-    takeLowerText >>= \case
-      "publicinternetonly" -> pure PublicInternetOnly
-      "vpconly" -> pure VPCOnly
-      e ->
-        fromTextError $
-          "Failure parsing AppNetworkAccessType from value: '" <> e
-            <> "'. Accepted values: publicinternetonly, vpconly"
+pattern PublicInternetOnly :: AppNetworkAccessType
+pattern PublicInternetOnly = AppNetworkAccessType' "PublicInternetOnly"
 
-instance ToText AppNetworkAccessType where
-  toText = \case
-    PublicInternetOnly -> "PublicInternetOnly"
-    VPCOnly -> "VpcOnly"
+pattern VPCOnly :: AppNetworkAccessType
+pattern VPCOnly = AppNetworkAccessType' "VpcOnly"
 
-instance Hashable AppNetworkAccessType
-
-instance NFData AppNetworkAccessType
-
-instance ToByteString AppNetworkAccessType
-
-instance ToQuery AppNetworkAccessType
-
-instance ToHeader AppNetworkAccessType
-
-instance ToJSON AppNetworkAccessType where
-  toJSON = toJSONText
-
-instance FromJSON AppNetworkAccessType where
-  parseJSON = parseJSONText "AppNetworkAccessType"
+{-# COMPLETE
+  PublicInternetOnly,
+  VPCOnly,
+  AppNetworkAccessType'
+  #-}

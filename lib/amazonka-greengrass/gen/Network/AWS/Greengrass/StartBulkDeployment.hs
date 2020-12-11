@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
 module Network.AWS.Greengrass.StartBulkDeployment
-  ( -- * Creating a Request
-    startBulkDeployment,
-    StartBulkDeployment,
+  ( -- * Creating a request
+    StartBulkDeployment (..),
+    mkStartBulkDeployment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbdAmznClientToken,
     sbdTags,
     sbdExecutionRoleARN,
     sbdInputFileURI,
 
-    -- * Destructuring the Response
-    startBulkDeploymentResponse,
-    StartBulkDeploymentResponse,
+    -- * Destructuring the response
+    StartBulkDeploymentResponse (..),
+    mkStartBulkDeploymentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsBulkDeploymentARN,
     srsBulkDeploymentId,
     srsResponseStatus,
@@ -41,141 +36,163 @@ module Network.AWS.Greengrass.StartBulkDeployment
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startBulkDeployment' smart constructor.
+-- | /See:/ 'mkStartBulkDeployment' smart constructor.
 data StartBulkDeployment = StartBulkDeployment'
-  { _sbdAmznClientToken ::
-      !(Maybe Text),
-    _sbdTags :: !(Maybe (Map Text (Text))),
-    _sbdExecutionRoleARN :: !Text,
-    _sbdInputFileURI :: !Text
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    executionRoleARN :: Lude.Text,
+    inputFileURI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBulkDeployment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbdAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'sbdTags' - Tag(s) to add to the new resource.
---
--- * 'sbdExecutionRoleARN' - The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
---
--- * 'sbdInputFileURI' - The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
-startBulkDeployment ::
-  -- | 'sbdExecutionRoleARN'
-  Text ->
-  -- | 'sbdInputFileURI'
-  Text ->
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'executionRoleARN' - The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
+-- * 'inputFileURI' - The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
+-- * 'tags' - Tag(s) to add to the new resource.
+mkStartBulkDeployment ::
+  -- | 'executionRoleARN'
+  Lude.Text ->
+  -- | 'inputFileURI'
+  Lude.Text ->
   StartBulkDeployment
-startBulkDeployment pExecutionRoleARN_ pInputFileURI_ =
+mkStartBulkDeployment pExecutionRoleARN_ pInputFileURI_ =
   StartBulkDeployment'
-    { _sbdAmznClientToken = Nothing,
-      _sbdTags = Nothing,
-      _sbdExecutionRoleARN = pExecutionRoleARN_,
-      _sbdInputFileURI = pInputFileURI_
+    { amznClientToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      executionRoleARN = pExecutionRoleARN_,
+      inputFileURI = pInputFileURI_
     }
 
 -- | A client token used to correlate requests and responses.
-sbdAmznClientToken :: Lens' StartBulkDeployment (Maybe Text)
-sbdAmznClientToken = lens _sbdAmznClientToken (\s a -> s {_sbdAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdAmznClientToken :: Lens.Lens' StartBulkDeployment (Lude.Maybe Lude.Text)
+sbdAmznClientToken = Lens.lens (amznClientToken :: StartBulkDeployment -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: StartBulkDeployment)
+{-# DEPRECATED sbdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | Tag(s) to add to the new resource.
-sbdTags :: Lens' StartBulkDeployment (HashMap Text (Text))
-sbdTags = lens _sbdTags (\s a -> s {_sbdTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdTags :: Lens.Lens' StartBulkDeployment (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sbdTags = Lens.lens (tags :: StartBulkDeployment -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: StartBulkDeployment)
+{-# DEPRECATED sbdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
-sbdExecutionRoleARN :: Lens' StartBulkDeployment Text
-sbdExecutionRoleARN = lens _sbdExecutionRoleARN (\s a -> s {_sbdExecutionRoleARN = a})
+--
+-- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdExecutionRoleARN :: Lens.Lens' StartBulkDeployment Lude.Text
+sbdExecutionRoleARN = Lens.lens (executionRoleARN :: StartBulkDeployment -> Lude.Text) (\s a -> s {executionRoleARN = a} :: StartBulkDeployment)
+{-# DEPRECATED sbdExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
 
 -- | The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
-sbdInputFileURI :: Lens' StartBulkDeployment Text
-sbdInputFileURI = lens _sbdInputFileURI (\s a -> s {_sbdInputFileURI = a})
+--
+-- /Note:/ Consider using 'inputFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdInputFileURI :: Lens.Lens' StartBulkDeployment Lude.Text
+sbdInputFileURI = Lens.lens (inputFileURI :: StartBulkDeployment -> Lude.Text) (\s a -> s {inputFileURI = a} :: StartBulkDeployment)
+{-# DEPRECATED sbdInputFileURI "Use generic-lens or generic-optics with 'inputFileURI' instead." #-}
 
-instance AWSRequest StartBulkDeployment where
+instance Lude.AWSRequest StartBulkDeployment where
   type Rs StartBulkDeployment = StartBulkDeploymentResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartBulkDeploymentResponse'
-            <$> (x .?> "BulkDeploymentArn")
-            <*> (x .?> "BulkDeploymentId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BulkDeploymentArn")
+            Lude.<*> (x Lude..?> "BulkDeploymentId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartBulkDeployment
-
-instance NFData StartBulkDeployment
-
-instance ToHeaders StartBulkDeployment where
+instance Lude.ToHeaders StartBulkDeployment where
   toHeaders StartBulkDeployment' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _sbdAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON StartBulkDeployment where
+instance Lude.ToJSON StartBulkDeployment where
   toJSON StartBulkDeployment' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _sbdTags,
-            Just ("ExecutionRoleArn" .= _sbdExecutionRoleARN),
-            Just ("InputFileUri" .= _sbdInputFileURI)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
+            Lude.Just ("InputFileUri" Lude..= inputFileURI)
           ]
       )
 
-instance ToPath StartBulkDeployment where
-  toPath = const "/greengrass/bulk/deployments"
+instance Lude.ToPath StartBulkDeployment where
+  toPath = Lude.const "/greengrass/bulk/deployments"
 
-instance ToQuery StartBulkDeployment where
-  toQuery = const mempty
+instance Lude.ToQuery StartBulkDeployment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startBulkDeploymentResponse' smart constructor.
+-- | /See:/ 'mkStartBulkDeploymentResponse' smart constructor.
 data StartBulkDeploymentResponse = StartBulkDeploymentResponse'
-  { _srsBulkDeploymentARN ::
-      !(Maybe Text),
-    _srsBulkDeploymentId ::
-      !(Maybe Text),
-    _srsResponseStatus :: !Int
+  { bulkDeploymentARN ::
+      Lude.Maybe Lude.Text,
+    bulkDeploymentId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBulkDeploymentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsBulkDeploymentARN' - The ARN of the bulk deployment.
---
--- * 'srsBulkDeploymentId' - The ID of the bulk deployment.
---
--- * 'srsResponseStatus' - -- | The response status code.
-startBulkDeploymentResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'bulkDeploymentARN' - The ARN of the bulk deployment.
+-- * 'bulkDeploymentId' - The ID of the bulk deployment.
+-- * 'responseStatus' - The response status code.
+mkStartBulkDeploymentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartBulkDeploymentResponse
-startBulkDeploymentResponse pResponseStatus_ =
+mkStartBulkDeploymentResponse pResponseStatus_ =
   StartBulkDeploymentResponse'
-    { _srsBulkDeploymentARN = Nothing,
-      _srsBulkDeploymentId = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { bulkDeploymentARN = Lude.Nothing,
+      bulkDeploymentId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the bulk deployment.
-srsBulkDeploymentARN :: Lens' StartBulkDeploymentResponse (Maybe Text)
-srsBulkDeploymentARN = lens _srsBulkDeploymentARN (\s a -> s {_srsBulkDeploymentARN = a})
+--
+-- /Note:/ Consider using 'bulkDeploymentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsBulkDeploymentARN :: Lens.Lens' StartBulkDeploymentResponse (Lude.Maybe Lude.Text)
+srsBulkDeploymentARN = Lens.lens (bulkDeploymentARN :: StartBulkDeploymentResponse -> Lude.Maybe Lude.Text) (\s a -> s {bulkDeploymentARN = a} :: StartBulkDeploymentResponse)
+{-# DEPRECATED srsBulkDeploymentARN "Use generic-lens or generic-optics with 'bulkDeploymentARN' instead." #-}
 
 -- | The ID of the bulk deployment.
-srsBulkDeploymentId :: Lens' StartBulkDeploymentResponse (Maybe Text)
-srsBulkDeploymentId = lens _srsBulkDeploymentId (\s a -> s {_srsBulkDeploymentId = a})
+--
+-- /Note:/ Consider using 'bulkDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsBulkDeploymentId :: Lens.Lens' StartBulkDeploymentResponse (Lude.Maybe Lude.Text)
+srsBulkDeploymentId = Lens.lens (bulkDeploymentId :: StartBulkDeploymentResponse -> Lude.Maybe Lude.Text) (\s a -> s {bulkDeploymentId = a} :: StartBulkDeploymentResponse)
+{-# DEPRECATED srsBulkDeploymentId "Use generic-lens or generic-optics with 'bulkDeploymentId' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartBulkDeploymentResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StartBulkDeploymentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StartBulkDeploymentResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartBulkDeploymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartBulkDeploymentResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

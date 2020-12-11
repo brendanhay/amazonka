@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,110 @@
 --
 -- Deletes a registered CA certificate.
 module Network.AWS.IoT.DeleteCACertificate
-  ( -- * Creating a Request
-    deleteCACertificate,
-    DeleteCACertificate,
+  ( -- * Creating a request
+    DeleteCACertificate (..),
+    mkDeleteCACertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcacCertificateId,
 
-    -- * Destructuring the Response
-    deleteCACertificateResponse,
-    DeleteCACertificateResponse,
+    -- * Destructuring the response
+    DeleteCACertificateResponse (..),
+    mkDeleteCACertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcacrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input for the DeleteCACertificate operation.
 --
---
---
--- /See:/ 'deleteCACertificate' smart constructor.
+-- /See:/ 'mkDeleteCACertificate' smart constructor.
 newtype DeleteCACertificate = DeleteCACertificate'
-  { _dcacCertificateId ::
-      Text
+  { certificateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCACertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcacCertificateId' - The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)
-deleteCACertificate ::
-  -- | 'dcacCertificateId'
-  Text ->
+-- * 'certificateId' - The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)
+mkDeleteCACertificate ::
+  -- | 'certificateId'
+  Lude.Text ->
   DeleteCACertificate
-deleteCACertificate pCertificateId_ =
-  DeleteCACertificate' {_dcacCertificateId = pCertificateId_}
+mkDeleteCACertificate pCertificateId_ =
+  DeleteCACertificate' {certificateId = pCertificateId_}
 
 -- | The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)
-dcacCertificateId :: Lens' DeleteCACertificate Text
-dcacCertificateId = lens _dcacCertificateId (\s a -> s {_dcacCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcacCertificateId :: Lens.Lens' DeleteCACertificate Lude.Text
+dcacCertificateId = Lens.lens (certificateId :: DeleteCACertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeleteCACertificate)
+{-# DEPRECATED dcacCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest DeleteCACertificate where
+instance Lude.AWSRequest DeleteCACertificate where
   type Rs DeleteCACertificate = DeleteCACertificateResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteCACertificateResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteCACertificateResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteCACertificate
+instance Lude.ToHeaders DeleteCACertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteCACertificate
-
-instance ToHeaders DeleteCACertificate where
-  toHeaders = const mempty
-
-instance ToPath DeleteCACertificate where
+instance Lude.ToPath DeleteCACertificate where
   toPath DeleteCACertificate' {..} =
-    mconcat ["/cacertificate/", toBS _dcacCertificateId]
+    Lude.mconcat ["/cacertificate/", Lude.toBS certificateId]
 
-instance ToQuery DeleteCACertificate where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCACertificate where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the DeleteCACertificate operation.
 --
---
---
--- /See:/ 'deleteCACertificateResponse' smart constructor.
+-- /See:/ 'mkDeleteCACertificateResponse' smart constructor.
 newtype DeleteCACertificateResponse = DeleteCACertificateResponse'
-  { _dcacrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCACertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcacrsResponseStatus' - -- | The response status code.
-deleteCACertificateResponse ::
-  -- | 'dcacrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteCACertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCACertificateResponse
-deleteCACertificateResponse pResponseStatus_ =
-  DeleteCACertificateResponse'
-    { _dcacrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteCACertificateResponse pResponseStatus_ =
+  DeleteCACertificateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dcacrsResponseStatus :: Lens' DeleteCACertificateResponse Int
-dcacrsResponseStatus = lens _dcacrsResponseStatus (\s a -> s {_dcacrsResponseStatus = a})
-
-instance NFData DeleteCACertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcacrsResponseStatus :: Lens.Lens' DeleteCACertificateResponse Lude.Int
+dcacrsResponseStatus = Lens.lens (responseStatus :: DeleteCACertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCACertificateResponse)
+{-# DEPRECATED dcacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

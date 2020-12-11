@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a new Cost Category with the requested name and rules.
 module Network.AWS.CostExplorer.CreateCostCategoryDefinition
-  ( -- * Creating a Request
-    createCostCategoryDefinition,
-    CreateCostCategoryDefinition,
+  ( -- * Creating a request
+    CreateCostCategoryDefinition (..),
+    mkCreateCostCategoryDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cccdName,
     cccdRuleVersion,
     cccdRules,
 
-    -- * Destructuring the Response
-    createCostCategoryDefinitionResponse,
-    CreateCostCategoryDefinitionResponse,
+    -- * Destructuring the response
+    CreateCostCategoryDefinitionResponse (..),
+    mkCreateCostCategoryDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cccdrsEffectiveStart,
     cccdrsCostCategoryARN,
     cccdrsResponseStatus,
@@ -40,146 +35,167 @@ module Network.AWS.CostExplorer.CreateCostCategoryDefinition
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createCostCategoryDefinition' smart constructor.
+-- | /See:/ 'mkCreateCostCategoryDefinition' smart constructor.
 data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
-  { _cccdName ::
-      !Text,
-    _cccdRuleVersion ::
-      !CostCategoryRuleVersion,
-    _cccdRules ::
-      !(List1 CostCategoryRule)
+  { name ::
+      Lude.Text,
+    ruleVersion ::
+      CostCategoryRuleVersion,
+    rules ::
+      Lude.NonEmpty CostCategoryRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCostCategoryDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cccdName' - Undocumented member.
---
--- * 'cccdRuleVersion' - Undocumented member.
---
--- * 'cccdRules' - The Cost Category rules used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule> .
-createCostCategoryDefinition ::
-  -- | 'cccdName'
-  Text ->
-  -- | 'cccdRuleVersion'
+-- * 'name' - Undocumented field.
+-- * 'ruleVersion' - Undocumented field.
+-- * 'rules' - The Cost Category rules used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule> .
+mkCreateCostCategoryDefinition ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'ruleVersion'
   CostCategoryRuleVersion ->
-  -- | 'cccdRules'
-  NonEmpty CostCategoryRule ->
+  -- | 'rules'
+  Lude.NonEmpty CostCategoryRule ->
   CreateCostCategoryDefinition
-createCostCategoryDefinition pName_ pRuleVersion_ pRules_ =
+mkCreateCostCategoryDefinition pName_ pRuleVersion_ pRules_ =
   CreateCostCategoryDefinition'
-    { _cccdName = pName_,
-      _cccdRuleVersion = pRuleVersion_,
-      _cccdRules = _List1 # pRules_
+    { name = pName_,
+      ruleVersion = pRuleVersion_,
+      rules = pRules_
     }
 
--- | Undocumented member.
-cccdName :: Lens' CreateCostCategoryDefinition Text
-cccdName = lens _cccdName (\s a -> s {_cccdName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdName :: Lens.Lens' CreateCostCategoryDefinition Lude.Text
+cccdName = Lens.lens (name :: CreateCostCategoryDefinition -> Lude.Text) (\s a -> s {name = a} :: CreateCostCategoryDefinition)
+{-# DEPRECATED cccdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-cccdRuleVersion :: Lens' CreateCostCategoryDefinition CostCategoryRuleVersion
-cccdRuleVersion = lens _cccdRuleVersion (\s a -> s {_cccdRuleVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ruleVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdRuleVersion :: Lens.Lens' CreateCostCategoryDefinition CostCategoryRuleVersion
+cccdRuleVersion = Lens.lens (ruleVersion :: CreateCostCategoryDefinition -> CostCategoryRuleVersion) (\s a -> s {ruleVersion = a} :: CreateCostCategoryDefinition)
+{-# DEPRECATED cccdRuleVersion "Use generic-lens or generic-optics with 'ruleVersion' instead." #-}
 
 -- | The Cost Category rules used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule> .
-cccdRules :: Lens' CreateCostCategoryDefinition (NonEmpty CostCategoryRule)
-cccdRules = lens _cccdRules (\s a -> s {_cccdRules = a}) . _List1
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdRules :: Lens.Lens' CreateCostCategoryDefinition (Lude.NonEmpty CostCategoryRule)
+cccdRules = Lens.lens (rules :: CreateCostCategoryDefinition -> Lude.NonEmpty CostCategoryRule) (\s a -> s {rules = a} :: CreateCostCategoryDefinition)
+{-# DEPRECATED cccdRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance AWSRequest CreateCostCategoryDefinition where
+instance Lude.AWSRequest CreateCostCategoryDefinition where
   type
     Rs CreateCostCategoryDefinition =
       CreateCostCategoryDefinitionResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCostCategoryDefinitionResponse'
-            <$> (x .?> "EffectiveStart")
-            <*> (x .?> "CostCategoryArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EffectiveStart")
+            Lude.<*> (x Lude..?> "CostCategoryArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCostCategoryDefinition
-
-instance NFData CreateCostCategoryDefinition
-
-instance ToHeaders CreateCostCategoryDefinition where
+instance Lude.ToHeaders CreateCostCategoryDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSInsightsIndexService.CreateCostCategoryDefinition" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.CreateCostCategoryDefinition" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateCostCategoryDefinition where
+instance Lude.ToJSON CreateCostCategoryDefinition where
   toJSON CreateCostCategoryDefinition' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _cccdName),
-            Just ("RuleVersion" .= _cccdRuleVersion),
-            Just ("Rules" .= _cccdRules)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("RuleVersion" Lude..= ruleVersion),
+            Lude.Just ("Rules" Lude..= rules)
           ]
       )
 
-instance ToPath CreateCostCategoryDefinition where
-  toPath = const "/"
+instance Lude.ToPath CreateCostCategoryDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateCostCategoryDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCostCategoryDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createCostCategoryDefinitionResponse' smart constructor.
+-- | /See:/ 'mkCreateCostCategoryDefinitionResponse' smart constructor.
 data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse'
-  { _cccdrsEffectiveStart ::
-      !(Maybe Text),
-    _cccdrsCostCategoryARN ::
-      !(Maybe Text),
-    _cccdrsResponseStatus ::
-      !Int
+  { effectiveStart ::
+      Lude.Maybe
+        Lude.Text,
+    costCategoryARN ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCostCategoryDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cccdrsEffectiveStart' - The Cost Category's effective start date.
---
--- * 'cccdrsCostCategoryARN' - The unique identifier for your newly created Cost Category.
---
--- * 'cccdrsResponseStatus' - -- | The response status code.
-createCostCategoryDefinitionResponse ::
-  -- | 'cccdrsResponseStatus'
-  Int ->
+-- * 'costCategoryARN' - The unique identifier for your newly created Cost Category.
+-- * 'effectiveStart' - The Cost Category's effective start date.
+-- * 'responseStatus' - The response status code.
+mkCreateCostCategoryDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCostCategoryDefinitionResponse
-createCostCategoryDefinitionResponse pResponseStatus_ =
+mkCreateCostCategoryDefinitionResponse pResponseStatus_ =
   CreateCostCategoryDefinitionResponse'
-    { _cccdrsEffectiveStart =
-        Nothing,
-      _cccdrsCostCategoryARN = Nothing,
-      _cccdrsResponseStatus = pResponseStatus_
+    { effectiveStart =
+        Lude.Nothing,
+      costCategoryARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Cost Category's effective start date.
-cccdrsEffectiveStart :: Lens' CreateCostCategoryDefinitionResponse (Maybe Text)
-cccdrsEffectiveStart = lens _cccdrsEffectiveStart (\s a -> s {_cccdrsEffectiveStart = a})
+--
+-- /Note:/ Consider using 'effectiveStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdrsEffectiveStart :: Lens.Lens' CreateCostCategoryDefinitionResponse (Lude.Maybe Lude.Text)
+cccdrsEffectiveStart = Lens.lens (effectiveStart :: CreateCostCategoryDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {effectiveStart = a} :: CreateCostCategoryDefinitionResponse)
+{-# DEPRECATED cccdrsEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
 
 -- | The unique identifier for your newly created Cost Category.
-cccdrsCostCategoryARN :: Lens' CreateCostCategoryDefinitionResponse (Maybe Text)
-cccdrsCostCategoryARN = lens _cccdrsCostCategoryARN (\s a -> s {_cccdrsCostCategoryARN = a})
+--
+-- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdrsCostCategoryARN :: Lens.Lens' CreateCostCategoryDefinitionResponse (Lude.Maybe Lude.Text)
+cccdrsCostCategoryARN = Lens.lens (costCategoryARN :: CreateCostCategoryDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {costCategoryARN = a} :: CreateCostCategoryDefinitionResponse)
+{-# DEPRECATED cccdrsCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
--- | -- | The response status code.
-cccdrsResponseStatus :: Lens' CreateCostCategoryDefinitionResponse Int
-cccdrsResponseStatus = lens _cccdrsResponseStatus (\s a -> s {_cccdrsResponseStatus = a})
-
-instance NFData CreateCostCategoryDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdrsResponseStatus :: Lens.Lens' CreateCostCategoryDefinitionResponse Lude.Int
+cccdrsResponseStatus = Lens.lens (responseStatus :: CreateCostCategoryDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCostCategoryDefinitionResponse)
+{-# DEPRECATED cccdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

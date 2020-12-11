@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.ExpressionType where
+module Network.AWS.Glacier.Types.ExpressionType
+  ( ExpressionType
+      ( ExpressionType',
+        Sql
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExpressionType = Sql
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExpressionType = ExpressionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExpressionType where
-  parser =
-    takeLowerText >>= \case
-      "sql" -> pure Sql
-      e ->
-        fromTextError $
-          "Failure parsing ExpressionType from value: '" <> e
-            <> "'. Accepted values: sql"
+pattern Sql :: ExpressionType
+pattern Sql = ExpressionType' "SQL"
 
-instance ToText ExpressionType where
-  toText = \case
-    Sql -> "SQL"
-
-instance Hashable ExpressionType
-
-instance NFData ExpressionType
-
-instance ToByteString ExpressionType
-
-instance ToQuery ExpressionType
-
-instance ToHeader ExpressionType
-
-instance ToJSON ExpressionType where
-  toJSON = toJSONText
-
-instance FromJSON ExpressionType where
-  parseJSON = parseJSONText "ExpressionType"
+{-# COMPLETE
+  Sql,
+  ExpressionType'
+  #-}

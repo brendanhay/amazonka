@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.PlayerSessionStatus where
+module Network.AWS.GameLift.Types.PlayerSessionStatus
+  ( PlayerSessionStatus
+      ( PlayerSessionStatus',
+        PSSActive,
+        PSSCompleted,
+        PSSReserved,
+        PSSTimedout
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlayerSessionStatus
-  = PSSActive
-  | PSSCompleted
-  | PSSReserved
-  | PSSTimedout
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlayerSessionStatus = PlayerSessionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlayerSessionStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure PSSActive
-      "completed" -> pure PSSCompleted
-      "reserved" -> pure PSSReserved
-      "timedout" -> pure PSSTimedout
-      e ->
-        fromTextError $
-          "Failure parsing PlayerSessionStatus from value: '" <> e
-            <> "'. Accepted values: active, completed, reserved, timedout"
+pattern PSSActive :: PlayerSessionStatus
+pattern PSSActive = PlayerSessionStatus' "ACTIVE"
 
-instance ToText PlayerSessionStatus where
-  toText = \case
-    PSSActive -> "ACTIVE"
-    PSSCompleted -> "COMPLETED"
-    PSSReserved -> "RESERVED"
-    PSSTimedout -> "TIMEDOUT"
+pattern PSSCompleted :: PlayerSessionStatus
+pattern PSSCompleted = PlayerSessionStatus' "COMPLETED"
 
-instance Hashable PlayerSessionStatus
+pattern PSSReserved :: PlayerSessionStatus
+pattern PSSReserved = PlayerSessionStatus' "RESERVED"
 
-instance NFData PlayerSessionStatus
+pattern PSSTimedout :: PlayerSessionStatus
+pattern PSSTimedout = PlayerSessionStatus' "TIMEDOUT"
 
-instance ToByteString PlayerSessionStatus
-
-instance ToQuery PlayerSessionStatus
-
-instance ToHeader PlayerSessionStatus
-
-instance FromJSON PlayerSessionStatus where
-  parseJSON = parseJSONText "PlayerSessionStatus"
+{-# COMPLETE
+  PSSActive,
+  PSSCompleted,
+  PSSReserved,
+  PSSTimedout,
+  PlayerSessionStatus'
+  #-}

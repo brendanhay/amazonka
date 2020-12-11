@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,86 @@
 --
 -- Deletes the @FileSystemPolicy@ for the specified file system. The default @FileSystemPolicy@ goes into effect once the existing policy is deleted. For more information about the default file system policy, see <https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html Using Resource-based Policies with EFS> .
 --
---
 -- This operation requires permissions for the @elasticfilesystem:DeleteFileSystemPolicy@ action.
 module Network.AWS.EFS.DeleteFileSystemPolicy
-  ( -- * Creating a Request
-    deleteFileSystemPolicy,
-    DeleteFileSystemPolicy,
+  ( -- * Creating a request
+    DeleteFileSystemPolicy (..),
+    mkDeleteFileSystemPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfspFileSystemId,
 
-    -- * Destructuring the Response
-    deleteFileSystemPolicyResponse,
-    DeleteFileSystemPolicyResponse,
+    -- * Destructuring the response
+    DeleteFileSystemPolicyResponse (..),
+    mkDeleteFileSystemPolicyResponse,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteFileSystemPolicy' smart constructor.
+-- | /See:/ 'mkDeleteFileSystemPolicy' smart constructor.
 newtype DeleteFileSystemPolicy = DeleteFileSystemPolicy'
-  { _dfspFileSystemId ::
-      Text
+  { fileSystemId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileSystemPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfspFileSystemId' - Specifies the EFS file system for which to delete the @FileSystemPolicy@ .
-deleteFileSystemPolicy ::
-  -- | 'dfspFileSystemId'
-  Text ->
+-- * 'fileSystemId' - Specifies the EFS file system for which to delete the @FileSystemPolicy@ .
+mkDeleteFileSystemPolicy ::
+  -- | 'fileSystemId'
+  Lude.Text ->
   DeleteFileSystemPolicy
-deleteFileSystemPolicy pFileSystemId_ =
-  DeleteFileSystemPolicy' {_dfspFileSystemId = pFileSystemId_}
+mkDeleteFileSystemPolicy pFileSystemId_ =
+  DeleteFileSystemPolicy' {fileSystemId = pFileSystemId_}
 
 -- | Specifies the EFS file system for which to delete the @FileSystemPolicy@ .
-dfspFileSystemId :: Lens' DeleteFileSystemPolicy Text
-dfspFileSystemId = lens _dfspFileSystemId (\s a -> s {_dfspFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfspFileSystemId :: Lens.Lens' DeleteFileSystemPolicy Lude.Text
+dfspFileSystemId = Lens.lens (fileSystemId :: DeleteFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DeleteFileSystemPolicy)
+{-# DEPRECATED dfspFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance AWSRequest DeleteFileSystemPolicy where
+instance Lude.AWSRequest DeleteFileSystemPolicy where
   type Rs DeleteFileSystemPolicy = DeleteFileSystemPolicyResponse
-  request = delete efs
-  response = receiveNull DeleteFileSystemPolicyResponse'
+  request = Req.delete efsService
+  response = Res.receiveNull DeleteFileSystemPolicyResponse'
 
-instance Hashable DeleteFileSystemPolicy
+instance Lude.ToHeaders DeleteFileSystemPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteFileSystemPolicy
-
-instance ToHeaders DeleteFileSystemPolicy where
-  toHeaders = const mempty
-
-instance ToPath DeleteFileSystemPolicy where
+instance Lude.ToPath DeleteFileSystemPolicy where
   toPath DeleteFileSystemPolicy' {..} =
-    mconcat
-      ["/2015-02-01/file-systems/", toBS _dfspFileSystemId, "/policy"]
+    Lude.mconcat
+      ["/2015-02-01/file-systems/", Lude.toBS fileSystemId, "/policy"]
 
-instance ToQuery DeleteFileSystemPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFileSystemPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFileSystemPolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteFileSystemPolicyResponse' smart constructor.
 data DeleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileSystemPolicyResponse' with the minimum fields required to make a request.
-deleteFileSystemPolicyResponse ::
+mkDeleteFileSystemPolicyResponse ::
   DeleteFileSystemPolicyResponse
-deleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'
-
-instance NFData DeleteFileSystemPolicyResponse
+mkDeleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'

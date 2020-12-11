@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DeviceUpdateStatus where
+module Network.AWS.MediaLive.Types.DeviceUpdateStatus
+  ( DeviceUpdateStatus
+      ( DeviceUpdateStatus',
+        NotUpToDate,
+        UpToDate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of software on the input device.
-data DeviceUpdateStatus
-  = NotUpToDate
-  | UpToDate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceUpdateStatus = DeviceUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "not_up_to_date" -> pure NotUpToDate
-      "up_to_date" -> pure UpToDate
-      e ->
-        fromTextError $
-          "Failure parsing DeviceUpdateStatus from value: '" <> e
-            <> "'. Accepted values: not_up_to_date, up_to_date"
+pattern NotUpToDate :: DeviceUpdateStatus
+pattern NotUpToDate = DeviceUpdateStatus' "NOT_UP_TO_DATE"
 
-instance ToText DeviceUpdateStatus where
-  toText = \case
-    NotUpToDate -> "NOT_UP_TO_DATE"
-    UpToDate -> "UP_TO_DATE"
+pattern UpToDate :: DeviceUpdateStatus
+pattern UpToDate = DeviceUpdateStatus' "UP_TO_DATE"
 
-instance Hashable DeviceUpdateStatus
-
-instance NFData DeviceUpdateStatus
-
-instance ToByteString DeviceUpdateStatus
-
-instance ToQuery DeviceUpdateStatus
-
-instance ToHeader DeviceUpdateStatus
-
-instance FromJSON DeviceUpdateStatus where
-  parseJSON = parseJSONText "DeviceUpdateStatus"
+{-# COMPLETE
+  NotUpToDate,
+  UpToDate,
+  DeviceUpdateStatus'
+  #-}

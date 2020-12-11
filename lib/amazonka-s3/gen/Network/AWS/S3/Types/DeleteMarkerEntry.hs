@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.DeleteMarkerEntry where
+module Network.AWS.S3.Types.DeleteMarkerEntry
+  ( DeleteMarkerEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteMarkerEntry,
+
+    -- * Lenses
+    dmeVersionId,
+    dmeIsLatest,
+    dmeOwner,
+    dmeKey,
+    dmeLastModified,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Owner
 
 -- | Information about the delete marker.
 --
---
---
--- /See:/ 'deleteMarkerEntry' smart constructor.
+-- /See:/ 'mkDeleteMarkerEntry' smart constructor.
 data DeleteMarkerEntry = DeleteMarkerEntry'
-  { _dmeVersionId ::
-      !(Maybe ObjectVersionId),
-    _dmeIsLatest :: !(Maybe Bool),
-    _dmeOwner :: !(Maybe Owner),
-    _dmeKey :: !(Maybe ObjectKey),
-    _dmeLastModified :: !(Maybe ISO8601)
+  { versionId ::
+      Lude.Maybe ObjectVersionId,
+    isLatest :: Lude.Maybe Lude.Bool,
+    owner :: Lude.Maybe Owner,
+    key :: Lude.Maybe ObjectKey,
+    lastModified :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMarkerEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmeVersionId' - Version ID of an object.
---
--- * 'dmeIsLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
---
--- * 'dmeOwner' - The account that created the delete marker.>
---
--- * 'dmeKey' - The object key.
---
--- * 'dmeLastModified' - Date and time the object was last modified.
-deleteMarkerEntry ::
+-- * 'isLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
+-- * 'key' - The object key.
+-- * 'lastModified' - Date and time the object was last modified.
+-- * 'owner' - The account that created the delete marker.>
+-- * 'versionId' - Version ID of an object.
+mkDeleteMarkerEntry ::
   DeleteMarkerEntry
-deleteMarkerEntry =
+mkDeleteMarkerEntry =
   DeleteMarkerEntry'
-    { _dmeVersionId = Nothing,
-      _dmeIsLatest = Nothing,
-      _dmeOwner = Nothing,
-      _dmeKey = Nothing,
-      _dmeLastModified = Nothing
+    { versionId = Lude.Nothing,
+      isLatest = Lude.Nothing,
+      owner = Lude.Nothing,
+      key = Lude.Nothing,
+      lastModified = Lude.Nothing
     }
 
 -- | Version ID of an object.
-dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
-dmeVersionId = lens _dmeVersionId (\s a -> s {_dmeVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmeVersionId :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe ObjectVersionId)
+dmeVersionId = Lens.lens (versionId :: DeleteMarkerEntry -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: DeleteMarkerEntry)
+{-# DEPRECATED dmeVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version of an object.
-dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
-dmeIsLatest = lens _dmeIsLatest (\s a -> s {_dmeIsLatest = a})
+--
+-- /Note:/ Consider using 'isLatest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmeIsLatest :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe Lude.Bool)
+dmeIsLatest = Lens.lens (isLatest :: DeleteMarkerEntry -> Lude.Maybe Lude.Bool) (\s a -> s {isLatest = a} :: DeleteMarkerEntry)
+{-# DEPRECATED dmeIsLatest "Use generic-lens or generic-optics with 'isLatest' instead." #-}
 
 -- | The account that created the delete marker.>
-dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
-dmeOwner = lens _dmeOwner (\s a -> s {_dmeOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmeOwner :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe Owner)
+dmeOwner = Lens.lens (owner :: DeleteMarkerEntry -> Lude.Maybe Owner) (\s a -> s {owner = a} :: DeleteMarkerEntry)
+{-# DEPRECATED dmeOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The object key.
-dmeKey :: Lens' DeleteMarkerEntry (Maybe ObjectKey)
-dmeKey = lens _dmeKey (\s a -> s {_dmeKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmeKey :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe ObjectKey)
+dmeKey = Lens.lens (key :: DeleteMarkerEntry -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: DeleteMarkerEntry)
+{-# DEPRECATED dmeKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Date and time the object was last modified.
-dmeLastModified :: Lens' DeleteMarkerEntry (Maybe UTCTime)
-dmeLastModified = lens _dmeLastModified (\s a -> s {_dmeLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmeLastModified :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe Lude.ISO8601)
+dmeLastModified = Lens.lens (lastModified :: DeleteMarkerEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: DeleteMarkerEntry)
+{-# DEPRECATED dmeLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance FromXML DeleteMarkerEntry where
+instance Lude.FromXML DeleteMarkerEntry where
   parseXML x =
     DeleteMarkerEntry'
-      <$> (x .@? "VersionId")
-      <*> (x .@? "IsLatest")
-      <*> (x .@? "Owner")
-      <*> (x .@? "Key")
-      <*> (x .@? "LastModified")
-
-instance Hashable DeleteMarkerEntry
-
-instance NFData DeleteMarkerEntry
+      Lude.<$> (x Lude..@? "VersionId")
+      Lude.<*> (x Lude..@? "IsLatest")
+      Lude.<*> (x Lude..@? "Owner")
+      Lude.<*> (x Lude..@? "Key")
+      Lude.<*> (x Lude..@? "LastModified")

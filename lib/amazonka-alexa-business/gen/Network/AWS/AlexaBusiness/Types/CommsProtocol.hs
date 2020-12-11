@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.CommsProtocol where
+module Network.AWS.AlexaBusiness.Types.CommsProtocol
+  ( CommsProtocol
+      ( CommsProtocol',
+        H323,
+        Sip,
+        Sips
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CommsProtocol
-  = H323
-  | Sip
-  | Sips
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CommsProtocol = CommsProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CommsProtocol where
-  parser =
-    takeLowerText >>= \case
-      "h323" -> pure H323
-      "sip" -> pure Sip
-      "sips" -> pure Sips
-      e ->
-        fromTextError $
-          "Failure parsing CommsProtocol from value: '" <> e
-            <> "'. Accepted values: h323, sip, sips"
+pattern H323 :: CommsProtocol
+pattern H323 = CommsProtocol' "H323"
 
-instance ToText CommsProtocol where
-  toText = \case
-    H323 -> "H323"
-    Sip -> "SIP"
-    Sips -> "SIPS"
+pattern Sip :: CommsProtocol
+pattern Sip = CommsProtocol' "SIP"
 
-instance Hashable CommsProtocol
+pattern Sips :: CommsProtocol
+pattern Sips = CommsProtocol' "SIPS"
 
-instance NFData CommsProtocol
-
-instance ToByteString CommsProtocol
-
-instance ToQuery CommsProtocol
-
-instance ToHeader CommsProtocol
-
-instance ToJSON CommsProtocol where
-  toJSON = toJSONText
-
-instance FromJSON CommsProtocol where
-  parseJSON = parseJSONText "CommsProtocol"
+{-# COMPLETE
+  H323,
+  Sip,
+  Sips,
+  CommsProtocol'
+  #-}

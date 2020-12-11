@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepStatus where
+module Network.AWS.EMR.Types.StepStatus
+  ( StepStatus (..),
+
+    -- * Smart constructor
+    mkStepStatus,
+
+    -- * Lenses
+    ssState,
+    ssFailureDetails,
+    ssStateChangeReason,
+    ssTimeline,
+  )
+where
 
 import Network.AWS.EMR.Types.FailureDetails
 import Network.AWS.EMR.Types.StepState
 import Network.AWS.EMR.Types.StepStateChangeReason
 import Network.AWS.EMR.Types.StepTimeline
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The execution status details of the cluster step.
 --
---
---
--- /See:/ 'stepStatus' smart constructor.
+-- /See:/ 'mkStepStatus' smart constructor.
 data StepStatus = StepStatus'
-  { _ssState :: !(Maybe StepState),
-    _ssFailureDetails :: !(Maybe FailureDetails),
-    _ssStateChangeReason :: !(Maybe StepStateChangeReason),
-    _ssTimeline :: !(Maybe StepTimeline)
+  { state :: Lude.Maybe StepState,
+    failureDetails :: Lude.Maybe FailureDetails,
+    stateChangeReason :: Lude.Maybe StepStateChangeReason,
+    timeline :: Lude.Maybe StepTimeline
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssState' - The execution state of the cluster step.
---
--- * 'ssFailureDetails' - The details for the step failure including reason, message, and log file path where the root cause was identified.
---
--- * 'ssStateChangeReason' - The reason for the step execution status change.
---
--- * 'ssTimeline' - The timeline of the cluster step status over time.
-stepStatus ::
+-- * 'failureDetails' - The details for the step failure including reason, message, and log file path where the root cause was identified.
+-- * 'state' - The execution state of the cluster step.
+-- * 'stateChangeReason' - The reason for the step execution status change.
+-- * 'timeline' - The timeline of the cluster step status over time.
+mkStepStatus ::
   StepStatus
-stepStatus =
+mkStepStatus =
   StepStatus'
-    { _ssState = Nothing,
-      _ssFailureDetails = Nothing,
-      _ssStateChangeReason = Nothing,
-      _ssTimeline = Nothing
+    { state = Lude.Nothing,
+      failureDetails = Lude.Nothing,
+      stateChangeReason = Lude.Nothing,
+      timeline = Lude.Nothing
     }
 
 -- | The execution state of the cluster step.
-ssState :: Lens' StepStatus (Maybe StepState)
-ssState = lens _ssState (\s a -> s {_ssState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssState :: Lens.Lens' StepStatus (Lude.Maybe StepState)
+ssState = Lens.lens (state :: StepStatus -> Lude.Maybe StepState) (\s a -> s {state = a} :: StepStatus)
+{-# DEPRECATED ssState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The details for the step failure including reason, message, and log file path where the root cause was identified.
-ssFailureDetails :: Lens' StepStatus (Maybe FailureDetails)
-ssFailureDetails = lens _ssFailureDetails (\s a -> s {_ssFailureDetails = a})
+--
+-- /Note:/ Consider using 'failureDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssFailureDetails :: Lens.Lens' StepStatus (Lude.Maybe FailureDetails)
+ssFailureDetails = Lens.lens (failureDetails :: StepStatus -> Lude.Maybe FailureDetails) (\s a -> s {failureDetails = a} :: StepStatus)
+{-# DEPRECATED ssFailureDetails "Use generic-lens or generic-optics with 'failureDetails' instead." #-}
 
 -- | The reason for the step execution status change.
-ssStateChangeReason :: Lens' StepStatus (Maybe StepStateChangeReason)
-ssStateChangeReason = lens _ssStateChangeReason (\s a -> s {_ssStateChangeReason = a})
+--
+-- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStateChangeReason :: Lens.Lens' StepStatus (Lude.Maybe StepStateChangeReason)
+ssStateChangeReason = Lens.lens (stateChangeReason :: StepStatus -> Lude.Maybe StepStateChangeReason) (\s a -> s {stateChangeReason = a} :: StepStatus)
+{-# DEPRECATED ssStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | The timeline of the cluster step status over time.
-ssTimeline :: Lens' StepStatus (Maybe StepTimeline)
-ssTimeline = lens _ssTimeline (\s a -> s {_ssTimeline = a})
+--
+-- /Note:/ Consider using 'timeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssTimeline :: Lens.Lens' StepStatus (Lude.Maybe StepTimeline)
+ssTimeline = Lens.lens (timeline :: StepStatus -> Lude.Maybe StepTimeline) (\s a -> s {timeline = a} :: StepStatus)
+{-# DEPRECATED ssTimeline "Use generic-lens or generic-optics with 'timeline' instead." #-}
 
-instance FromJSON StepStatus where
+instance Lude.FromJSON StepStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "StepStatus"
       ( \x ->
           StepStatus'
-            <$> (x .:? "State")
-            <*> (x .:? "FailureDetails")
-            <*> (x .:? "StateChangeReason")
-            <*> (x .:? "Timeline")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "FailureDetails")
+            Lude.<*> (x Lude..:? "StateChangeReason")
+            Lude.<*> (x Lude..:? "Timeline")
       )
-
-instance Hashable StepStatus
-
-instance NFData StepStatus

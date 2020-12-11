@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,167 @@
 --
 -- Describes the current user's special folders; the @RootFolder@ and the @RecycleBin@ . @RootFolder@ is the root of user's files and folders and @RecycleBin@ is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.
 --
---
 -- This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html Authentication and Access Control for User Applications> in the /Amazon WorkDocs Developer Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.WorkDocs.DescribeRootFolders
-  ( -- * Creating a Request
-    describeRootFolders,
-    DescribeRootFolders,
+  ( -- * Creating a request
+    DescribeRootFolders (..),
+    mkDescribeRootFolders,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drfMarker,
     drfLimit,
     drfAuthenticationToken,
 
-    -- * Destructuring the Response
-    describeRootFoldersResponse,
-    DescribeRootFoldersResponse,
+    -- * Destructuring the response
+    DescribeRootFoldersResponse (..),
+    mkDescribeRootFoldersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drfrsFolders,
     drfrsMarker,
     drfrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'describeRootFolders' smart constructor.
+-- | /See:/ 'mkDescribeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
-  { _drfMarker ::
-      !(Maybe Text),
-    _drfLimit :: !(Maybe Nat),
-    _drfAuthenticationToken :: !(Sensitive Text)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    authenticationToken :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRootFolders' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drfMarker' - The marker for the next set of results. (You received this marker from a previous call.)
---
--- * 'drfLimit' - The maximum number of items to return.
---
--- * 'drfAuthenticationToken' - Amazon WorkDocs authentication token.
-describeRootFolders ::
-  -- | 'drfAuthenticationToken'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token.
+-- * 'limit' - The maximum number of items to return.
+-- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
+mkDescribeRootFolders ::
+  -- | 'authenticationToken'
+  Lude.Sensitive Lude.Text ->
   DescribeRootFolders
-describeRootFolders pAuthenticationToken_ =
+mkDescribeRootFolders pAuthenticationToken_ =
   DescribeRootFolders'
-    { _drfMarker = Nothing,
-      _drfLimit = Nothing,
-      _drfAuthenticationToken = _Sensitive # pAuthenticationToken_
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      authenticationToken = pAuthenticationToken_
     }
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
-drfMarker :: Lens' DescribeRootFolders (Maybe Text)
-drfMarker = lens _drfMarker (\s a -> s {_drfMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfMarker :: Lens.Lens' DescribeRootFolders (Lude.Maybe Lude.Text)
+drfMarker = Lens.lens (marker :: DescribeRootFolders -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeRootFolders)
+{-# DEPRECATED drfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of items to return.
-drfLimit :: Lens' DescribeRootFolders (Maybe Natural)
-drfLimit = lens _drfLimit (\s a -> s {_drfLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfLimit :: Lens.Lens' DescribeRootFolders (Lude.Maybe Lude.Natural)
+drfLimit = Lens.lens (limit :: DescribeRootFolders -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeRootFolders)
+{-# DEPRECATED drfLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Amazon WorkDocs authentication token.
-drfAuthenticationToken :: Lens' DescribeRootFolders Text
-drfAuthenticationToken = lens _drfAuthenticationToken (\s a -> s {_drfAuthenticationToken = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfAuthenticationToken :: Lens.Lens' DescribeRootFolders (Lude.Sensitive Lude.Text)
+drfAuthenticationToken = Lens.lens (authenticationToken :: DescribeRootFolders -> Lude.Sensitive Lude.Text) (\s a -> s {authenticationToken = a} :: DescribeRootFolders)
+{-# DEPRECATED drfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
-instance AWSPager DescribeRootFolders where
+instance Page.AWSPager DescribeRootFolders where
   page rq rs
-    | stop (rs ^. drfrsMarker) = Nothing
-    | stop (rs ^. drfrsFolders) = Nothing
-    | otherwise = Just $ rq & drfMarker .~ rs ^. drfrsMarker
+    | Page.stop (rs Lens.^. drfrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. drfrsFolders) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& drfMarker Lens..~ rs Lens.^. drfrsMarker
 
-instance AWSRequest DescribeRootFolders where
+instance Lude.AWSRequest DescribeRootFolders where
   type Rs DescribeRootFolders = DescribeRootFoldersResponse
-  request = get workDocs
+  request = Req.get workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRootFoldersResponse'
-            <$> (x .?> "Folders" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Folders" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRootFolders
-
-instance NFData DescribeRootFolders
-
-instance ToHeaders DescribeRootFolders where
+instance Lude.ToHeaders DescribeRootFolders where
   toHeaders DescribeRootFolders' {..} =
-    mconcat
-      [ "Authentication" =# _drfAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath DescribeRootFolders where
-  toPath = const "/api/v1/me/root"
+instance Lude.ToPath DescribeRootFolders where
+  toPath = Lude.const "/api/v1/me/root"
 
-instance ToQuery DescribeRootFolders where
+instance Lude.ToQuery DescribeRootFolders where
   toQuery DescribeRootFolders' {..} =
-    mconcat ["marker" =: _drfMarker, "limit" =: _drfLimit]
+    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
 
--- | /See:/ 'describeRootFoldersResponse' smart constructor.
+-- | /See:/ 'mkDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
-  { _drfrsFolders ::
-      !(Maybe [FolderMetadata]),
-    _drfrsMarker :: !(Maybe Text),
-    _drfrsResponseStatus :: !Int
+  { folders ::
+      Lude.Maybe [FolderMetadata],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRootFoldersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drfrsFolders' - The user's special folders.
---
--- * 'drfrsMarker' - The marker for the next set of results.
---
--- * 'drfrsResponseStatus' - -- | The response status code.
-describeRootFoldersResponse ::
-  -- | 'drfrsResponseStatus'
-  Int ->
+-- * 'folders' - The user's special folders.
+-- * 'marker' - The marker for the next set of results.
+-- * 'responseStatus' - The response status code.
+mkDescribeRootFoldersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRootFoldersResponse
-describeRootFoldersResponse pResponseStatus_ =
+mkDescribeRootFoldersResponse pResponseStatus_ =
   DescribeRootFoldersResponse'
-    { _drfrsFolders = Nothing,
-      _drfrsMarker = Nothing,
-      _drfrsResponseStatus = pResponseStatus_
+    { folders = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user's special folders.
-drfrsFolders :: Lens' DescribeRootFoldersResponse [FolderMetadata]
-drfrsFolders = lens _drfrsFolders (\s a -> s {_drfrsFolders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'folders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfrsFolders :: Lens.Lens' DescribeRootFoldersResponse (Lude.Maybe [FolderMetadata])
+drfrsFolders = Lens.lens (folders :: DescribeRootFoldersResponse -> Lude.Maybe [FolderMetadata]) (\s a -> s {folders = a} :: DescribeRootFoldersResponse)
+{-# DEPRECATED drfrsFolders "Use generic-lens or generic-optics with 'folders' instead." #-}
 
 -- | The marker for the next set of results.
-drfrsMarker :: Lens' DescribeRootFoldersResponse (Maybe Text)
-drfrsMarker = lens _drfrsMarker (\s a -> s {_drfrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfrsMarker :: Lens.Lens' DescribeRootFoldersResponse (Lude.Maybe Lude.Text)
+drfrsMarker = Lens.lens (marker :: DescribeRootFoldersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeRootFoldersResponse)
+{-# DEPRECATED drfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-drfrsResponseStatus :: Lens' DescribeRootFoldersResponse Int
-drfrsResponseStatus = lens _drfrsResponseStatus (\s a -> s {_drfrsResponseStatus = a})
-
-instance NFData DescribeRootFoldersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfrsResponseStatus :: Lens.Lens' DescribeRootFoldersResponse Lude.Int
+drfrsResponseStatus = Lens.lens (responseStatus :: DescribeRootFoldersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRootFoldersResponse)
+{-# DEPRECATED drfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,7 +13,6 @@
 --
 -- Amazon WorkMail is a secure, managed business email and calendaring service with support for existing desktop and mobile email clients. You can access your email, contacts, and calendars using Microsoft Outlook, your browser, or other native iOS and Android email applications. You can integrate WorkMail with your existing corporate directory and control both the keys that encrypt your data and the location in which your data is stored.
 --
---
 -- The WorkMail API is designed for the following scenarios:
 --
 --     * Listing and describing organizations
@@ -31,11 +30,10 @@
 --     * Managing resources
 --
 --
---
 -- All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the WorkMail site, the IAM user gains full administrative visibility into the entire WorkMail organization (or as set in the IAM policy). This includes, but is not limited to, the ability to create, update, and delete users, groups, and resources. This allows developers to perform the scenarios listed above, as well as give users the ability to grant access on a selective basis using the IAM model.
 module Network.AWS.WorkMail
-  ( -- * Service Configuration
-    workMail,
+  ( -- * Service configuration
+    workMailService,
 
     -- * Errors
     -- $errors
@@ -223,8 +221,8 @@ module Network.AWS.WorkMail
     UserRole (..),
 
     -- ** AccessControlRule
-    AccessControlRule,
-    accessControlRule,
+    AccessControlRule (..),
+    mkAccessControlRule,
     acrEffect,
     acrUserIds,
     acrActions,
@@ -238,34 +236,34 @@ module Network.AWS.WorkMail
     acrDescription,
 
     -- ** BookingOptions
-    BookingOptions,
-    bookingOptions,
+    BookingOptions (..),
+    mkBookingOptions,
     boAutoDeclineConflictingRequests,
     boAutoDeclineRecurringRequests,
     boAutoAcceptRequests,
 
     -- ** Delegate
-    Delegate,
-    delegate,
+    Delegate (..),
+    mkDelegate,
     dId,
     dType,
 
     -- ** Domain
-    Domain,
-    domain,
+    Domain (..),
+    mkDomain,
     dHostedZoneId,
     dDomainName,
 
     -- ** FolderConfiguration
-    FolderConfiguration,
-    folderConfiguration,
+    FolderConfiguration (..),
+    mkFolderConfiguration,
     fcPeriod,
     fcName,
     fcAction,
 
     -- ** Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gEmail,
     gState,
     gDisabledDate,
@@ -274,8 +272,8 @@ module Network.AWS.WorkMail
     gEnabledDate,
 
     -- ** MailboxExportJob
-    MailboxExportJob,
-    mailboxExportJob,
+    MailboxExportJob (..),
+    mkMailboxExportJob,
     mejState,
     mejJobId,
     mejStartTime,
@@ -287,8 +285,8 @@ module Network.AWS.WorkMail
     mejS3BucketName,
 
     -- ** Member
-    Member,
-    member,
+    Member (..),
+    mkMember,
     mState,
     mDisabledDate,
     mName,
@@ -297,8 +295,8 @@ module Network.AWS.WorkMail
     mEnabledDate,
 
     -- ** OrganizationSummary
-    OrganizationSummary,
-    organizationSummary,
+    OrganizationSummary (..),
+    mkOrganizationSummary,
     osState,
     osAlias,
     osDefaultMailDomain,
@@ -306,15 +304,15 @@ module Network.AWS.WorkMail
     osOrganizationId,
 
     -- ** Permission
-    Permission,
-    permission,
+    Permission (..),
+    mkPermission,
     pGranteeId,
     pGranteeType,
     pPermissionValues,
 
     -- ** Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rEmail,
     rState,
     rDisabledDate,
@@ -324,14 +322,14 @@ module Network.AWS.WorkMail
     rEnabledDate,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uEmail,
     uState,
     uDisabledDate,
@@ -340,9 +338,21 @@ module Network.AWS.WorkMail
     uDisplayName,
     uUserRole,
     uEnabledDate,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkMail.AssociateDelegateToResource
 import Network.AWS.WorkMail.AssociateMemberToGroup
 import Network.AWS.WorkMail.CancelMailboxExportJob

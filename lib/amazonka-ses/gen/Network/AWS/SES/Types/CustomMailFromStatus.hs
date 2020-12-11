@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.CustomMailFromStatus where
+module Network.AWS.SES.Types.CustomMailFromStatus
+  ( CustomMailFromStatus
+      ( CustomMailFromStatus',
+        CMFSFailed,
+        CMFSPending,
+        CMFSSuccess,
+        CMFSTemporaryFailure
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CustomMailFromStatus
-  = CMFSFailed
-  | CMFSPending
-  | CMFSSuccess
-  | CMFSTemporaryFailure
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CustomMailFromStatus = CustomMailFromStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CustomMailFromStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure CMFSFailed
-      "pending" -> pure CMFSPending
-      "success" -> pure CMFSSuccess
-      "temporaryfailure" -> pure CMFSTemporaryFailure
-      e ->
-        fromTextError $
-          "Failure parsing CustomMailFromStatus from value: '" <> e
-            <> "'. Accepted values: failed, pending, success, temporaryfailure"
+pattern CMFSFailed :: CustomMailFromStatus
+pattern CMFSFailed = CustomMailFromStatus' "Failed"
 
-instance ToText CustomMailFromStatus where
-  toText = \case
-    CMFSFailed -> "Failed"
-    CMFSPending -> "Pending"
-    CMFSSuccess -> "Success"
-    CMFSTemporaryFailure -> "TemporaryFailure"
+pattern CMFSPending :: CustomMailFromStatus
+pattern CMFSPending = CustomMailFromStatus' "Pending"
 
-instance Hashable CustomMailFromStatus
+pattern CMFSSuccess :: CustomMailFromStatus
+pattern CMFSSuccess = CustomMailFromStatus' "Success"
 
-instance NFData CustomMailFromStatus
+pattern CMFSTemporaryFailure :: CustomMailFromStatus
+pattern CMFSTemporaryFailure = CustomMailFromStatus' "TemporaryFailure"
 
-instance ToByteString CustomMailFromStatus
-
-instance ToQuery CustomMailFromStatus
-
-instance ToHeader CustomMailFromStatus
-
-instance FromXML CustomMailFromStatus where
-  parseXML = parseXMLText "CustomMailFromStatus"
+{-# COMPLETE
+  CMFSFailed,
+  CMFSPending,
+  CMFSSuccess,
+  CMFSTemporaryFailure,
+  CustomMailFromStatus'
+  #-}

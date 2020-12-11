@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceStateChangeReasonCode where
+module Network.AWS.EMR.Types.InstanceStateChangeReasonCode
+  ( InstanceStateChangeReasonCode
+      ( InstanceStateChangeReasonCode',
+        ISCRCBootstrapFailure,
+        ISCRCClusterTerminated,
+        ISCRCInstanceFailure,
+        ISCRCInternalError,
+        ISCRCValidationError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceStateChangeReasonCode
-  = ISCRCBootstrapFailure
-  | ISCRCClusterTerminated
-  | ISCRCInstanceFailure
-  | ISCRCInternalError
-  | ISCRCValidationError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceStateChangeReasonCode = InstanceStateChangeReasonCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceStateChangeReasonCode where
-  parser =
-    takeLowerText >>= \case
-      "bootstrap_failure" -> pure ISCRCBootstrapFailure
-      "cluster_terminated" -> pure ISCRCClusterTerminated
-      "instance_failure" -> pure ISCRCInstanceFailure
-      "internal_error" -> pure ISCRCInternalError
-      "validation_error" -> pure ISCRCValidationError
-      e ->
-        fromTextError $
-          "Failure parsing InstanceStateChangeReasonCode from value: '" <> e
-            <> "'. Accepted values: bootstrap_failure, cluster_terminated, instance_failure, internal_error, validation_error"
+pattern ISCRCBootstrapFailure :: InstanceStateChangeReasonCode
+pattern ISCRCBootstrapFailure = InstanceStateChangeReasonCode' "BOOTSTRAP_FAILURE"
 
-instance ToText InstanceStateChangeReasonCode where
-  toText = \case
-    ISCRCBootstrapFailure -> "BOOTSTRAP_FAILURE"
-    ISCRCClusterTerminated -> "CLUSTER_TERMINATED"
-    ISCRCInstanceFailure -> "INSTANCE_FAILURE"
-    ISCRCInternalError -> "INTERNAL_ERROR"
-    ISCRCValidationError -> "VALIDATION_ERROR"
+pattern ISCRCClusterTerminated :: InstanceStateChangeReasonCode
+pattern ISCRCClusterTerminated = InstanceStateChangeReasonCode' "CLUSTER_TERMINATED"
 
-instance Hashable InstanceStateChangeReasonCode
+pattern ISCRCInstanceFailure :: InstanceStateChangeReasonCode
+pattern ISCRCInstanceFailure = InstanceStateChangeReasonCode' "INSTANCE_FAILURE"
 
-instance NFData InstanceStateChangeReasonCode
+pattern ISCRCInternalError :: InstanceStateChangeReasonCode
+pattern ISCRCInternalError = InstanceStateChangeReasonCode' "INTERNAL_ERROR"
 
-instance ToByteString InstanceStateChangeReasonCode
+pattern ISCRCValidationError :: InstanceStateChangeReasonCode
+pattern ISCRCValidationError = InstanceStateChangeReasonCode' "VALIDATION_ERROR"
 
-instance ToQuery InstanceStateChangeReasonCode
-
-instance ToHeader InstanceStateChangeReasonCode
-
-instance FromJSON InstanceStateChangeReasonCode where
-  parseJSON = parseJSONText "InstanceStateChangeReasonCode"
+{-# COMPLETE
+  ISCRCBootstrapFailure,
+  ISCRCClusterTerminated,
+  ISCRCInstanceFailure,
+  ISCRCInternalError,
+  ISCRCValidationError,
+  InstanceStateChangeReasonCode'
+  #-}

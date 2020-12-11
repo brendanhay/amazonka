@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.
 module Network.AWS.CognitoIdentityProvider.AssociateSoftwareToken
-  ( -- * Creating a Request
-    associateSoftwareToken,
-    AssociateSoftwareToken,
+  ( -- * Creating a request
+    AssociateSoftwareToken (..),
+    mkAssociateSoftwareToken,
 
-    -- * Request Lenses
+    -- ** Request lenses
     astAccessToken,
     astSession,
 
-    -- * Destructuring the Response
-    associateSoftwareTokenResponse,
-    AssociateSoftwareTokenResponse,
+    -- * Destructuring the response
+    AssociateSoftwareTokenResponse (..),
+    mkAssociateSoftwareTokenResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     astrsSecretCode,
     astrsSession,
     astrsResponseStatus,
@@ -39,123 +34,131 @@ module Network.AWS.CognitoIdentityProvider.AssociateSoftwareToken
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateSoftwareToken' smart constructor.
+-- | /See:/ 'mkAssociateSoftwareToken' smart constructor.
 data AssociateSoftwareToken = AssociateSoftwareToken'
-  { _astAccessToken ::
-      !(Maybe (Sensitive Text)),
-    _astSession :: !(Maybe Text)
+  { accessToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    session :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSoftwareToken' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'astAccessToken' - The access token.
---
--- * 'astSession' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
-associateSoftwareToken ::
+-- * 'accessToken' - The access token.
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
+mkAssociateSoftwareToken ::
   AssociateSoftwareToken
-associateSoftwareToken =
+mkAssociateSoftwareToken =
   AssociateSoftwareToken'
-    { _astAccessToken = Nothing,
-      _astSession = Nothing
+    { accessToken = Lude.Nothing,
+      session = Lude.Nothing
     }
 
 -- | The access token.
-astAccessToken :: Lens' AssociateSoftwareToken (Maybe Text)
-astAccessToken = lens _astAccessToken (\s a -> s {_astAccessToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+astAccessToken :: Lens.Lens' AssociateSoftwareToken (Lude.Maybe (Lude.Sensitive Lude.Text))
+astAccessToken = Lens.lens (accessToken :: AssociateSoftwareToken -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessToken = a} :: AssociateSoftwareToken)
+{-# DEPRECATED astAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
-astSession :: Lens' AssociateSoftwareToken (Maybe Text)
-astSession = lens _astSession (\s a -> s {_astSession = a})
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+astSession :: Lens.Lens' AssociateSoftwareToken (Lude.Maybe Lude.Text)
+astSession = Lens.lens (session :: AssociateSoftwareToken -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: AssociateSoftwareToken)
+{-# DEPRECATED astSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
-instance AWSRequest AssociateSoftwareToken where
+instance Lude.AWSRequest AssociateSoftwareToken where
   type Rs AssociateSoftwareToken = AssociateSoftwareTokenResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AssociateSoftwareTokenResponse'
-            <$> (x .?> "SecretCode") <*> (x .?> "Session") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SecretCode")
+            Lude.<*> (x Lude..?> "Session")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateSoftwareToken
-
-instance NFData AssociateSoftwareToken
-
-instance ToHeaders AssociateSoftwareToken where
+instance Lude.ToHeaders AssociateSoftwareToken where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateSoftwareToken where
+instance Lude.ToJSON AssociateSoftwareToken where
   toJSON AssociateSoftwareToken' {..} =
-    object
-      ( catMaybes
-          [ ("AccessToken" .=) <$> _astAccessToken,
-            ("Session" .=) <$> _astSession
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccessToken" Lude..=) Lude.<$> accessToken,
+            ("Session" Lude..=) Lude.<$> session
           ]
       )
 
-instance ToPath AssociateSoftwareToken where
-  toPath = const "/"
+instance Lude.ToPath AssociateSoftwareToken where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateSoftwareToken where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateSoftwareToken where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateSoftwareTokenResponse' smart constructor.
+-- | /See:/ 'mkAssociateSoftwareTokenResponse' smart constructor.
 data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
-  { _astrsSecretCode ::
-      !(Maybe (Sensitive Text)),
-    _astrsSession ::
-      !(Maybe Text),
-    _astrsResponseStatus :: !Int
+  { secretCode ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    session ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSoftwareTokenResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'astrsSecretCode' - A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
---
--- * 'astrsSession' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
---
--- * 'astrsResponseStatus' - -- | The response status code.
-associateSoftwareTokenResponse ::
-  -- | 'astrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'secretCode' - A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
+mkAssociateSoftwareTokenResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateSoftwareTokenResponse
-associateSoftwareTokenResponse pResponseStatus_ =
+mkAssociateSoftwareTokenResponse pResponseStatus_ =
   AssociateSoftwareTokenResponse'
-    { _astrsSecretCode = Nothing,
-      _astrsSession = Nothing,
-      _astrsResponseStatus = pResponseStatus_
+    { secretCode = Lude.Nothing,
+      session = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
-astrsSecretCode :: Lens' AssociateSoftwareTokenResponse (Maybe Text)
-astrsSecretCode = lens _astrsSecretCode (\s a -> s {_astrsSecretCode = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'secretCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+astrsSecretCode :: Lens.Lens' AssociateSoftwareTokenResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+astrsSecretCode = Lens.lens (secretCode :: AssociateSoftwareTokenResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretCode = a} :: AssociateSoftwareTokenResponse)
+{-# DEPRECATED astrsSecretCode "Use generic-lens or generic-optics with 'secretCode' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
-astrsSession :: Lens' AssociateSoftwareTokenResponse (Maybe Text)
-astrsSession = lens _astrsSession (\s a -> s {_astrsSession = a})
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+astrsSession :: Lens.Lens' AssociateSoftwareTokenResponse (Lude.Maybe Lude.Text)
+astrsSession = Lens.lens (session :: AssociateSoftwareTokenResponse -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: AssociateSoftwareTokenResponse)
+{-# DEPRECATED astrsSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
--- | -- | The response status code.
-astrsResponseStatus :: Lens' AssociateSoftwareTokenResponse Int
-astrsResponseStatus = lens _astrsResponseStatus (\s a -> s {_astrsResponseStatus = a})
-
-instance NFData AssociateSoftwareTokenResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+astrsResponseStatus :: Lens.Lens' AssociateSoftwareTokenResponse Lude.Int
+astrsResponseStatus = Lens.lens (responseStatus :: AssociateSoftwareTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateSoftwareTokenResponse)
+{-# DEPRECATED astrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

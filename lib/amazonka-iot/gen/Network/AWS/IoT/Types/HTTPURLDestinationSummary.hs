@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.HTTPURLDestinationSummary where
+module Network.AWS.IoT.Types.HTTPURLDestinationSummary
+  ( HTTPURLDestinationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPURLDestinationSummary,
+
+    -- * Lenses
+    httpudsConfirmationURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an HTTP URL destination.
 --
---
---
--- /See:/ 'hTTPURLDestinationSummary' smart constructor.
+-- /See:/ 'mkHTTPURLDestinationSummary' smart constructor.
 newtype HTTPURLDestinationSummary = HTTPURLDestinationSummary'
-  { _httpudsConfirmationURL ::
-      Maybe Text
+  { confirmationURL ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPURLDestinationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpudsConfirmationURL' - The URL used to confirm ownership of or access to the HTTP topic rule destination URL.
-hTTPURLDestinationSummary ::
+-- * 'confirmationURL' - The URL used to confirm ownership of or access to the HTTP topic rule destination URL.
+mkHTTPURLDestinationSummary ::
   HTTPURLDestinationSummary
-hTTPURLDestinationSummary =
-  HTTPURLDestinationSummary' {_httpudsConfirmationURL = Nothing}
+mkHTTPURLDestinationSummary =
+  HTTPURLDestinationSummary' {confirmationURL = Lude.Nothing}
 
 -- | The URL used to confirm ownership of or access to the HTTP topic rule destination URL.
-httpudsConfirmationURL :: Lens' HTTPURLDestinationSummary (Maybe Text)
-httpudsConfirmationURL = lens _httpudsConfirmationURL (\s a -> s {_httpudsConfirmationURL = a})
+--
+-- /Note:/ Consider using 'confirmationURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpudsConfirmationURL :: Lens.Lens' HTTPURLDestinationSummary (Lude.Maybe Lude.Text)
+httpudsConfirmationURL = Lens.lens (confirmationURL :: HTTPURLDestinationSummary -> Lude.Maybe Lude.Text) (\s a -> s {confirmationURL = a} :: HTTPURLDestinationSummary)
+{-# DEPRECATED httpudsConfirmationURL "Use generic-lens or generic-optics with 'confirmationURL' instead." #-}
 
-instance FromJSON HTTPURLDestinationSummary where
+instance Lude.FromJSON HTTPURLDestinationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPURLDestinationSummary"
-      (\x -> HTTPURLDestinationSummary' <$> (x .:? "confirmationUrl"))
-
-instance Hashable HTTPURLDestinationSummary
-
-instance NFData HTTPURLDestinationSummary
+      ( \x ->
+          HTTPURLDestinationSummary' Lude.<$> (x Lude..:? "confirmationUrl")
+      )

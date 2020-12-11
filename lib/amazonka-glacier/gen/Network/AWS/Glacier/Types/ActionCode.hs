@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.ActionCode where
+module Network.AWS.Glacier.Types.ActionCode
+  ( ActionCode
+      ( ActionCode',
+        ArchiveRetrieval,
+        InventoryRetrieval,
+        Select
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionCode
-  = ArchiveRetrieval
-  | InventoryRetrieval
-  | Select
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionCode = ActionCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionCode where
-  parser =
-    takeLowerText >>= \case
-      "archiveretrieval" -> pure ArchiveRetrieval
-      "inventoryretrieval" -> pure InventoryRetrieval
-      "select" -> pure Select
-      e ->
-        fromTextError $
-          "Failure parsing ActionCode from value: '" <> e
-            <> "'. Accepted values: archiveretrieval, inventoryretrieval, select"
+pattern ArchiveRetrieval :: ActionCode
+pattern ArchiveRetrieval = ActionCode' "ArchiveRetrieval"
 
-instance ToText ActionCode where
-  toText = \case
-    ArchiveRetrieval -> "ArchiveRetrieval"
-    InventoryRetrieval -> "InventoryRetrieval"
-    Select -> "Select"
+pattern InventoryRetrieval :: ActionCode
+pattern InventoryRetrieval = ActionCode' "InventoryRetrieval"
 
-instance Hashable ActionCode
+pattern Select :: ActionCode
+pattern Select = ActionCode' "Select"
 
-instance NFData ActionCode
-
-instance ToByteString ActionCode
-
-instance ToQuery ActionCode
-
-instance ToHeader ActionCode
-
-instance FromJSON ActionCode where
-  parseJSON = parseJSONText "ActionCode"
+{-# COMPLETE
+  ArchiveRetrieval,
+  InventoryRetrieval,
+  Select,
+  ActionCode'
+  #-}

@@ -28,205 +28,205 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListPhoneNumbersOptedOut $
---             listPhoneNumbersOptedOut
+--             mkListPhoneNumbersOptedOut
 --
 --         , requestDeleteEndpoint $
---             deleteEndpoint
+--             mkDeleteEndpoint
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestRemovePermission $
---             removePermission
+--             mkRemovePermission
 --
 --         , requestDeleteTopic $
---             deleteTopic
+--             mkDeleteTopic
 --
 --         , requestSetSMSAttributes $
---             setSMSAttributes
+--             mkSetSMSAttributes
 --
 --         , requestListTopics $
---             listTopics
+--             mkListTopics
 --
 --         , requestCreatePlatformEndpoint $
---             createPlatformEndpoint
+--             mkCreatePlatformEndpoint
 --
 --         , requestSetPlatformApplicationAttributes $
---             setPlatformApplicationAttributes
+--             mkSetPlatformApplicationAttributes
 --
 --         , requestListSubscriptionsByTopic $
---             listSubscriptionsByTopic
+--             mkListSubscriptionsByTopic
 --
 --         , requestGetTopicAttributes $
---             getTopicAttributes
+--             mkGetTopicAttributes
 --
 --         , requestOptInPhoneNumber $
---             optInPhoneNumber
+--             mkOptInPhoneNumber
 --
 --         , requestCreatePlatformApplication $
---             createPlatformApplication
+--             mkCreatePlatformApplication
 --
 --         , requestGetPlatformApplicationAttributes $
---             getPlatformApplicationAttributes
+--             mkGetPlatformApplicationAttributes
 --
 --         , requestListEndpointsByPlatformApplication $
---             listEndpointsByPlatformApplication
+--             mkListEndpointsByPlatformApplication
 --
 --         , requestSetTopicAttributes $
---             setTopicAttributes
+--             mkSetTopicAttributes
 --
 --         , requestDeletePlatformApplication $
---             deletePlatformApplication
+--             mkDeletePlatformApplication
 --
 --         , requestGetSMSAttributes $
---             getSMSAttributes
+--             mkGetSMSAttributes
 --
 --         , requestListPlatformApplications $
---             listPlatformApplications
+--             mkListPlatformApplications
 --
 --         , requestAddPermission $
---             addPermission
+--             mkAddPermission
 --
 --         , requestGetEndpointAttributes $
---             getEndpointAttributes
+--             mkGetEndpointAttributes
 --
 --         , requestListSubscriptions $
---             listSubscriptions
+--             mkListSubscriptions
 --
 --         , requestGetSubscriptionAttributes $
---             getSubscriptionAttributes
+--             mkGetSubscriptionAttributes
 --
 --         , requestCreateTopic $
---             createTopic
+--             mkCreateTopic
 --
 --         , requestCheckIfPhoneNumberIsOptedOut $
---             checkIfPhoneNumberIsOptedOut
+--             mkCheckIfPhoneNumberIsOptedOut
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestSubscribe $
---             subscribe
+--             mkSubscribe
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestUnsubscribe $
---             unsubscribe
+--             mkUnsubscribe
 --
 --         , requestSetEndpointAttributes $
---             setEndpointAttributes
+--             mkSetEndpointAttributes
 --
 --         , requestSetSubscriptionAttributes $
---             setSubscriptionAttributes
+--             mkSetSubscriptionAttributes
 --
 --         , requestConfirmSubscription $
---             confirmSubscription
+--             mkConfirmSubscription
 --
 --         , requestPublish $
---             publish
+--             mkPublish
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListPhoneNumbersOptedOut $
---             listPhoneNumbersOptedOutResponse
+--             mkListPhoneNumbersOptedOutResponse
 --
 --         , responseDeleteEndpoint $
---             deleteEndpointResponse
+--             mkDeleteEndpointResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseRemovePermission $
---             removePermissionResponse
+--             mkRemovePermissionResponse
 --
 --         , responseDeleteTopic $
---             deleteTopicResponse
+--             mkDeleteTopicResponse
 --
 --         , responseSetSMSAttributes $
---             setSMSAttributesResponse
+--             mkSetSMSAttributesResponse
 --
 --         , responseListTopics $
---             listTopicsResponse
+--             mkListTopicsResponse
 --
 --         , responseCreatePlatformEndpoint $
---             createPlatformEndpointResponse
+--             mkCreatePlatformEndpointResponse
 --
 --         , responseSetPlatformApplicationAttributes $
---             setPlatformApplicationAttributesResponse
+--             mkSetPlatformApplicationAttributesResponse
 --
 --         , responseListSubscriptionsByTopic $
---             listSubscriptionsByTopicResponse
+--             mkListSubscriptionsByTopicResponse
 --
 --         , responseGetTopicAttributes $
---             getTopicAttributesResponse
+--             mkGetTopicAttributesResponse
 --
 --         , responseOptInPhoneNumber $
---             optInPhoneNumberResponse
+--             mkOptInPhoneNumberResponse
 --
 --         , responseCreatePlatformApplication $
---             createPlatformApplicationResponse
+--             mkCreatePlatformApplicationResponse
 --
 --         , responseGetPlatformApplicationAttributes $
---             getPlatformApplicationAttributesResponse
+--             mkGetPlatformApplicationAttributesResponse
 --
 --         , responseListEndpointsByPlatformApplication $
---             listEndpointsByPlatformApplicationResponse
+--             mkListEndpointsByPlatformApplicationResponse
 --
 --         , responseSetTopicAttributes $
---             setTopicAttributesResponse
+--             mkSetTopicAttributesResponse
 --
 --         , responseDeletePlatformApplication $
---             deletePlatformApplicationResponse
+--             mkDeletePlatformApplicationResponse
 --
 --         , responseGetSMSAttributes $
---             getSMSAttributesResponse
+--             mkGetSMSAttributesResponse
 --
 --         , responseListPlatformApplications $
---             listPlatformApplicationsResponse
+--             mkListPlatformApplicationsResponse
 --
 --         , responseAddPermission $
---             addPermissionResponse
+--             mkAddPermissionResponse
 --
 --         , responseGetEndpointAttributes $
---             getEndpointAttributesResponse
+--             mkGetEndpointAttributesResponse
 --
 --         , responseListSubscriptions $
---             listSubscriptionsResponse
+--             mkListSubscriptionsResponse
 --
 --         , responseGetSubscriptionAttributes $
---             getSubscriptionAttributesResponse
+--             mkGetSubscriptionAttributesResponse
 --
 --         , responseCreateTopic $
---             createTopicResponse
+--             mkCreateTopicResponse
 --
 --         , responseCheckIfPhoneNumberIsOptedOut $
---             checkIfPhoneNumberIsOptedOutResponse
+--             mkCheckIfPhoneNumberIsOptedOutResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseSubscribe $
---             subscribeResponse
+--             mkSubscribeResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseUnsubscribe $
---             unsubscribeResponse
+--             mkUnsubscribeResponse
 --
 --         , responseSetEndpointAttributes $
---             setEndpointAttributesResponse
+--             mkSetEndpointAttributesResponse
 --
 --         , responseSetSubscriptionAttributes $
---             setSubscriptionAttributesResponse
+--             mkSetSubscriptionAttributesResponse
 --
 --         , responseConfirmSubscription $
---             confirmSubscriptionResponse
+--             mkConfirmSubscriptionResponse
 --
 --         , responsePublish $
---             publishResponse
+--             mkPublishResponse
 --
 --           ]
 --     ]
@@ -438,7 +438,7 @@ responseListPhoneNumbersOptedOut =
   res
     "ListPhoneNumbersOptedOutResponse"
     "fixture/ListPhoneNumbersOptedOutResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListPhoneNumbersOptedOut)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -446,7 +446,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy DeleteEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -454,7 +454,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListTagsForResource)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
@@ -462,7 +462,7 @@ responseRemovePermission =
   res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy RemovePermission)
 
 responseDeleteTopic :: DeleteTopicResponse -> TestTree
@@ -470,7 +470,7 @@ responseDeleteTopic =
   res
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy DeleteTopic)
 
 responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
@@ -478,7 +478,7 @@ responseSetSMSAttributes =
   res
     "SetSMSAttributesResponse"
     "fixture/SetSMSAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy SetSMSAttributes)
 
 responseListTopics :: ListTopicsResponse -> TestTree
@@ -486,7 +486,7 @@ responseListTopics =
   res
     "ListTopicsResponse"
     "fixture/ListTopicsResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListTopics)
 
 responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
@@ -494,7 +494,7 @@ responseCreatePlatformEndpoint =
   res
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy CreatePlatformEndpoint)
 
 responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
@@ -502,7 +502,7 @@ responseSetPlatformApplicationAttributes =
   res
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
 responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
@@ -510,7 +510,7 @@ responseListSubscriptionsByTopic =
   res
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
 responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
@@ -518,7 +518,7 @@ responseGetTopicAttributes =
   res
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy GetTopicAttributes)
 
 responseOptInPhoneNumber :: OptInPhoneNumberResponse -> TestTree
@@ -526,7 +526,7 @@ responseOptInPhoneNumber =
   res
     "OptInPhoneNumberResponse"
     "fixture/OptInPhoneNumberResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy OptInPhoneNumber)
 
 responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
@@ -534,7 +534,7 @@ responseCreatePlatformApplication =
   res
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy CreatePlatformApplication)
 
 responseGetPlatformApplicationAttributes :: GetPlatformApplicationAttributesResponse -> TestTree
@@ -542,7 +542,7 @@ responseGetPlatformApplicationAttributes =
   res
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
 responseListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplicationResponse -> TestTree
@@ -550,7 +550,7 @@ responseListEndpointsByPlatformApplication =
   res
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
 responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
@@ -558,7 +558,7 @@ responseSetTopicAttributes =
   res
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy SetTopicAttributes)
 
 responseDeletePlatformApplication :: DeletePlatformApplicationResponse -> TestTree
@@ -566,7 +566,7 @@ responseDeletePlatformApplication =
   res
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy DeletePlatformApplication)
 
 responseGetSMSAttributes :: GetSMSAttributesResponse -> TestTree
@@ -574,7 +574,7 @@ responseGetSMSAttributes =
   res
     "GetSMSAttributesResponse"
     "fixture/GetSMSAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy GetSMSAttributes)
 
 responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
@@ -582,7 +582,7 @@ responseListPlatformApplications =
   res
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListPlatformApplications)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
@@ -590,7 +590,7 @@ responseAddPermission =
   res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy AddPermission)
 
 responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
@@ -598,7 +598,7 @@ responseGetEndpointAttributes =
   res
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy GetEndpointAttributes)
 
 responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
@@ -606,7 +606,7 @@ responseListSubscriptions =
   res
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ListSubscriptions)
 
 responseGetSubscriptionAttributes :: GetSubscriptionAttributesResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetSubscriptionAttributes =
   res
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy GetSubscriptionAttributes)
 
 responseCreateTopic :: CreateTopicResponse -> TestTree
@@ -622,7 +622,7 @@ responseCreateTopic =
   res
     "CreateTopicResponse"
     "fixture/CreateTopicResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy CreateTopic)
 
 responseCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> TestTree
@@ -630,7 +630,7 @@ responseCheckIfPhoneNumberIsOptedOut =
   res
     "CheckIfPhoneNumberIsOptedOutResponse"
     "fixture/CheckIfPhoneNumberIsOptedOutResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy CheckIfPhoneNumberIsOptedOut)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -638,7 +638,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy TagResource)
 
 responseSubscribe :: SubscribeResponse -> TestTree
@@ -646,7 +646,7 @@ responseSubscribe =
   res
     "SubscribeResponse"
     "fixture/SubscribeResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy Subscribe)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -654,7 +654,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy UntagResource)
 
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
@@ -662,7 +662,7 @@ responseUnsubscribe =
   res
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy Unsubscribe)
 
 responseSetEndpointAttributes :: SetEndpointAttributesResponse -> TestTree
@@ -670,7 +670,7 @@ responseSetEndpointAttributes =
   res
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy SetEndpointAttributes)
 
 responseSetSubscriptionAttributes :: SetSubscriptionAttributesResponse -> TestTree
@@ -678,7 +678,7 @@ responseSetSubscriptionAttributes =
   res
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy SetSubscriptionAttributes)
 
 responseConfirmSubscription :: ConfirmSubscriptionResponse -> TestTree
@@ -686,7 +686,7 @@ responseConfirmSubscription =
   res
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy ConfirmSubscription)
 
 responsePublish :: PublishResponse -> TestTree
@@ -694,5 +694,5 @@ responsePublish =
   res
     "PublishResponse"
     "fixture/PublishResponse.proto"
-    sns
+    snsService
     (Proxy :: Proxy Publish)

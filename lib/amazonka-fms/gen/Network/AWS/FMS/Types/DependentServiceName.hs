@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.DependentServiceName where
+module Network.AWS.FMS.Types.DependentServiceName
+  ( DependentServiceName
+      ( DependentServiceName',
+        AWSSHieldAdvanced,
+        AWSconfig,
+        AWSvpc,
+        AWSwaf
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DependentServiceName
-  = AWSSHieldAdvanced
-  | AWSconfig
-  | AWSvpc
-  | AWSwaf
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DependentServiceName = DependentServiceName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DependentServiceName where
-  parser =
-    takeLowerText >>= \case
-      "awsshield_advanced" -> pure AWSSHieldAdvanced
-      "awsconfig" -> pure AWSconfig
-      "awsvpc" -> pure AWSvpc
-      "awswaf" -> pure AWSwaf
-      e ->
-        fromTextError $
-          "Failure parsing DependentServiceName from value: '" <> e
-            <> "'. Accepted values: awsshield_advanced, awsconfig, awsvpc, awswaf"
+pattern AWSSHieldAdvanced :: DependentServiceName
+pattern AWSSHieldAdvanced = DependentServiceName' "AWSSHIELD_ADVANCED"
 
-instance ToText DependentServiceName where
-  toText = \case
-    AWSSHieldAdvanced -> "AWSSHIELD_ADVANCED"
-    AWSconfig -> "AWSCONFIG"
-    AWSvpc -> "AWSVPC"
-    AWSwaf -> "AWSWAF"
+pattern AWSconfig :: DependentServiceName
+pattern AWSconfig = DependentServiceName' "AWSCONFIG"
 
-instance Hashable DependentServiceName
+pattern AWSvpc :: DependentServiceName
+pattern AWSvpc = DependentServiceName' "AWSVPC"
 
-instance NFData DependentServiceName
+pattern AWSwaf :: DependentServiceName
+pattern AWSwaf = DependentServiceName' "AWSWAF"
 
-instance ToByteString DependentServiceName
-
-instance ToQuery DependentServiceName
-
-instance ToHeader DependentServiceName
-
-instance FromJSON DependentServiceName where
-  parseJSON = parseJSONText "DependentServiceName"
+{-# COMPLETE
+  AWSSHieldAdvanced,
+  AWSconfig,
+  AWSvpc,
+  AWSwaf,
+  DependentServiceName'
+  #-}

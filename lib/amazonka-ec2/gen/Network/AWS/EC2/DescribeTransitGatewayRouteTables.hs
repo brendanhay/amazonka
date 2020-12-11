@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes one or more transit gateway route tables. By default, all transit gateway route tables are described. Alternatively, you can filter the results.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeTransitGatewayRouteTables
-  ( -- * Creating a Request
-    describeTransitGatewayRouteTables,
-    DescribeTransitGatewayRouteTables,
+  ( -- * Creating a request
+    DescribeTransitGatewayRouteTables (..),
+    mkDescribeTransitGatewayRouteTables,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgrtsFilters,
     dtgrtsNextToken,
     dtgrtsDryRun,
     dtgrtsTransitGatewayRouteTableIds,
     dtgrtsMaxResults,
 
-    -- * Destructuring the Response
-    describeTransitGatewayRouteTablesResponse,
-    DescribeTransitGatewayRouteTablesResponse,
+    -- * Destructuring the response
+    DescribeTransitGatewayRouteTablesResponse (..),
+    mkDescribeTransitGatewayRouteTablesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgrtsrsTransitGatewayRouteTables,
     dtgrtsrsNextToken,
     dtgrtsrsResponseStatus,
@@ -46,172 +39,223 @@ module Network.AWS.EC2.DescribeTransitGatewayRouteTables
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTransitGatewayRouteTables' smart constructor.
+-- | /See:/ 'mkDescribeTransitGatewayRouteTables' smart constructor.
 data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
-  { _dtgrtsFilters ::
-      !(Maybe [Filter]),
-    _dtgrtsNextToken ::
-      !(Maybe Text),
-    _dtgrtsDryRun ::
-      !(Maybe Bool),
-    _dtgrtsTransitGatewayRouteTableIds ::
-      !(Maybe [Text]),
-    _dtgrtsMaxResults ::
-      !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    transitGatewayRouteTableIds ::
+      Lude.Maybe [Lude.Text],
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayRouteTables' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. The possible values are:
 --
--- * 'dtgrtsFilters' - One or more filters. The possible values are:     * @default-association-route-table@ - Indicates whether this is the default association route table for the transit gateway (@true@ | @false@ ).     * @default-propagation-route-table@ - Indicates whether this is the default propagation route table for the transit gateway (@true@ | @false@ ).     * @state@ - The state of the route table (@available@ | @deleting@ | @deleted@ | @pending@ ).     * @transit-gateway-id@ - The ID of the transit gateway.     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
 --
--- * 'dtgrtsNextToken' - The token for the next page of results.
+--     * @default-association-route-table@ - Indicates whether this is the default association route table for the transit gateway (@true@ | @false@ ).
 --
--- * 'dtgrtsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dtgrtsTransitGatewayRouteTableIds' - The IDs of the transit gateway route tables.
+--     * @default-propagation-route-table@ - Indicates whether this is the default propagation route table for the transit gateway (@true@ | @false@ ).
 --
--- * 'dtgrtsMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describeTransitGatewayRouteTables ::
+--
+--     * @state@ - The state of the route table (@available@ | @deleting@ | @deleted@ | @pending@ ).
+--
+--
+--     * @transit-gateway-id@ - The ID of the transit gateway.
+--
+--
+--     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
+--
+--
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'transitGatewayRouteTableIds' - The IDs of the transit gateway route tables.
+mkDescribeTransitGatewayRouteTables ::
   DescribeTransitGatewayRouteTables
-describeTransitGatewayRouteTables =
+mkDescribeTransitGatewayRouteTables =
   DescribeTransitGatewayRouteTables'
-    { _dtgrtsFilters = Nothing,
-      _dtgrtsNextToken = Nothing,
-      _dtgrtsDryRun = Nothing,
-      _dtgrtsTransitGatewayRouteTableIds = Nothing,
-      _dtgrtsMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      transitGatewayRouteTableIds = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | One or more filters. The possible values are:     * @default-association-route-table@ - Indicates whether this is the default association route table for the transit gateway (@true@ | @false@ ).     * @default-propagation-route-table@ - Indicates whether this is the default propagation route table for the transit gateway (@true@ | @false@ ).     * @state@ - The state of the route table (@available@ | @deleting@ | @deleted@ | @pending@ ).     * @transit-gateway-id@ - The ID of the transit gateway.     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
-dtgrtsFilters :: Lens' DescribeTransitGatewayRouteTables [Filter]
-dtgrtsFilters = lens _dtgrtsFilters (\s a -> s {_dtgrtsFilters = a}) . _Default . _Coerce
+-- | One or more filters. The possible values are:
+--
+--
+--     * @default-association-route-table@ - Indicates whether this is the default association route table for the transit gateway (@true@ | @false@ ).
+--
+--
+--     * @default-propagation-route-table@ - Indicates whether this is the default propagation route table for the transit gateway (@true@ | @false@ ).
+--
+--
+--     * @state@ - The state of the route table (@available@ | @deleting@ | @deleted@ | @pending@ ).
+--
+--
+--     * @transit-gateway-id@ - The ID of the transit gateway.
+--
+--
+--     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsFilters :: Lens.Lens' DescribeTransitGatewayRouteTables (Lude.Maybe [Filter])
+dtgrtsFilters = Lens.lens (filters :: DescribeTransitGatewayRouteTables -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTransitGatewayRouteTables)
+{-# DEPRECATED dtgrtsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next page of results.
-dtgrtsNextToken :: Lens' DescribeTransitGatewayRouteTables (Maybe Text)
-dtgrtsNextToken = lens _dtgrtsNextToken (\s a -> s {_dtgrtsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsNextToken :: Lens.Lens' DescribeTransitGatewayRouteTables (Lude.Maybe Lude.Text)
+dtgrtsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayRouteTables -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayRouteTables)
+{-# DEPRECATED dtgrtsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtgrtsDryRun :: Lens' DescribeTransitGatewayRouteTables (Maybe Bool)
-dtgrtsDryRun = lens _dtgrtsDryRun (\s a -> s {_dtgrtsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsDryRun :: Lens.Lens' DescribeTransitGatewayRouteTables (Lude.Maybe Lude.Bool)
+dtgrtsDryRun = Lens.lens (dryRun :: DescribeTransitGatewayRouteTables -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeTransitGatewayRouteTables)
+{-# DEPRECATED dtgrtsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the transit gateway route tables.
-dtgrtsTransitGatewayRouteTableIds :: Lens' DescribeTransitGatewayRouteTables [Text]
-dtgrtsTransitGatewayRouteTableIds = lens _dtgrtsTransitGatewayRouteTableIds (\s a -> s {_dtgrtsTransitGatewayRouteTableIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsTransitGatewayRouteTableIds :: Lens.Lens' DescribeTransitGatewayRouteTables (Lude.Maybe [Lude.Text])
+dtgrtsTransitGatewayRouteTableIds = Lens.lens (transitGatewayRouteTableIds :: DescribeTransitGatewayRouteTables -> Lude.Maybe [Lude.Text]) (\s a -> s {transitGatewayRouteTableIds = a} :: DescribeTransitGatewayRouteTables)
+{-# DEPRECATED dtgrtsTransitGatewayRouteTableIds "Use generic-lens or generic-optics with 'transitGatewayRouteTableIds' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dtgrtsMaxResults :: Lens' DescribeTransitGatewayRouteTables (Maybe Natural)
-dtgrtsMaxResults = lens _dtgrtsMaxResults (\s a -> s {_dtgrtsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsMaxResults :: Lens.Lens' DescribeTransitGatewayRouteTables (Lude.Maybe Lude.Natural)
+dtgrtsMaxResults = Lens.lens (maxResults :: DescribeTransitGatewayRouteTables -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTransitGatewayRouteTables)
+{-# DEPRECATED dtgrtsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeTransitGatewayRouteTables where
+instance Page.AWSPager DescribeTransitGatewayRouteTables where
   page rq rs
-    | stop (rs ^. dtgrtsrsNextToken) = Nothing
-    | stop (rs ^. dtgrtsrsTransitGatewayRouteTables) = Nothing
-    | otherwise =
-      Just $ rq & dtgrtsNextToken .~ rs ^. dtgrtsrsNextToken
+    | Page.stop (rs Lens.^. dtgrtsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtgrtsrsTransitGatewayRouteTables) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dtgrtsNextToken Lens..~ rs Lens.^. dtgrtsrsNextToken
 
-instance AWSRequest DescribeTransitGatewayRouteTables where
+instance Lude.AWSRequest DescribeTransitGatewayRouteTables where
   type
     Rs DescribeTransitGatewayRouteTables =
       DescribeTransitGatewayRouteTablesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeTransitGatewayRouteTablesResponse'
-            <$> ( x .@? "transitGatewayRouteTables" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "transitGatewayRouteTables" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTransitGatewayRouteTables
+instance Lude.ToHeaders DescribeTransitGatewayRouteTables where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeTransitGatewayRouteTables
+instance Lude.ToPath DescribeTransitGatewayRouteTables where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeTransitGatewayRouteTables where
-  toHeaders = const mempty
-
-instance ToPath DescribeTransitGatewayRouteTables where
-  toPath = const "/"
-
-instance ToQuery DescribeTransitGatewayRouteTables where
+instance Lude.ToQuery DescribeTransitGatewayRouteTables where
   toQuery DescribeTransitGatewayRouteTables' {..} =
-    mconcat
-      [ "Action" =: ("DescribeTransitGatewayRouteTables" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dtgrtsFilters),
-        "NextToken" =: _dtgrtsNextToken,
-        "DryRun" =: _dtgrtsDryRun,
-        toQuery
-          ( toQueryList "TransitGatewayRouteTableIds"
-              <$> _dtgrtsTransitGatewayRouteTableIds
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeTransitGatewayRouteTables" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        Lude.toQuery
+          ( Lude.toQueryList "TransitGatewayRouteTableIds"
+              Lude.<$> transitGatewayRouteTableIds
           ),
-        "MaxResults" =: _dtgrtsMaxResults
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeTransitGatewayRouteTablesResponse' smart constructor.
+-- | /See:/ 'mkDescribeTransitGatewayRouteTablesResponse' smart constructor.
 data DescribeTransitGatewayRouteTablesResponse = DescribeTransitGatewayRouteTablesResponse'
-  { _dtgrtsrsTransitGatewayRouteTables ::
-      !( Maybe
-           [TransitGatewayRouteTable]
-       ),
-    _dtgrtsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dtgrtsrsResponseStatus ::
-      !Int
+  { transitGatewayRouteTables ::
+      Lude.Maybe
+        [TransitGatewayRouteTable],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayRouteTablesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgrtsrsTransitGatewayRouteTables' - Information about the transit gateway route tables.
---
--- * 'dtgrtsrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dtgrtsrsResponseStatus' - -- | The response status code.
-describeTransitGatewayRouteTablesResponse ::
-  -- | 'dtgrtsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'transitGatewayRouteTables' - Information about the transit gateway route tables.
+mkDescribeTransitGatewayRouteTablesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTransitGatewayRouteTablesResponse
-describeTransitGatewayRouteTablesResponse pResponseStatus_ =
+mkDescribeTransitGatewayRouteTablesResponse pResponseStatus_ =
   DescribeTransitGatewayRouteTablesResponse'
-    { _dtgrtsrsTransitGatewayRouteTables =
-        Nothing,
-      _dtgrtsrsNextToken = Nothing,
-      _dtgrtsrsResponseStatus = pResponseStatus_
+    { transitGatewayRouteTables =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the transit gateway route tables.
-dtgrtsrsTransitGatewayRouteTables :: Lens' DescribeTransitGatewayRouteTablesResponse [TransitGatewayRouteTable]
-dtgrtsrsTransitGatewayRouteTables = lens _dtgrtsrsTransitGatewayRouteTables (\s a -> s {_dtgrtsrsTransitGatewayRouteTables = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'transitGatewayRouteTables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsrsTransitGatewayRouteTables :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Lude.Maybe [TransitGatewayRouteTable])
+dtgrtsrsTransitGatewayRouteTables = Lens.lens (transitGatewayRouteTables :: DescribeTransitGatewayRouteTablesResponse -> Lude.Maybe [TransitGatewayRouteTable]) (\s a -> s {transitGatewayRouteTables = a} :: DescribeTransitGatewayRouteTablesResponse)
+{-# DEPRECATED dtgrtsrsTransitGatewayRouteTables "Use generic-lens or generic-optics with 'transitGatewayRouteTables' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dtgrtsrsNextToken :: Lens' DescribeTransitGatewayRouteTablesResponse (Maybe Text)
-dtgrtsrsNextToken = lens _dtgrtsrsNextToken (\s a -> s {_dtgrtsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsrsNextToken :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Lude.Maybe Lude.Text)
+dtgrtsrsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayRouteTablesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayRouteTablesResponse)
+{-# DEPRECATED dtgrtsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dtgrtsrsResponseStatus :: Lens' DescribeTransitGatewayRouteTablesResponse Int
-dtgrtsrsResponseStatus = lens _dtgrtsrsResponseStatus (\s a -> s {_dtgrtsrsResponseStatus = a})
-
-instance NFData DescribeTransitGatewayRouteTablesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtsrsResponseStatus :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse Lude.Int
+dtgrtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTransitGatewayRouteTablesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTransitGatewayRouteTablesResponse)
+{-# DEPRECATED dtgrtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

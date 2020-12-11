@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.ProvisionedCapacityDescription where
+module Network.AWS.Glacier.Types.ProvisionedCapacityDescription
+  ( ProvisionedCapacityDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisionedCapacityDescription,
+
+    -- * Lenses
+    pcdCapacityId,
+    pcdStartDate,
+    pcdExpirationDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The definition for a provisioned capacity unit.
 --
---
---
--- /See:/ 'provisionedCapacityDescription' smart constructor.
+-- /See:/ 'mkProvisionedCapacityDescription' smart constructor.
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
-  { _pcdCapacityId ::
-      !(Maybe Text),
-    _pcdStartDate ::
-      !(Maybe Text),
-    _pcdExpirationDate ::
-      !(Maybe Text)
+  { capacityId ::
+      Lude.Maybe Lude.Text,
+    startDate ::
+      Lude.Maybe Lude.Text,
+    expirationDate ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedCapacityDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcdCapacityId' - The ID that identifies the provisioned capacity unit.
---
--- * 'pcdStartDate' - The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
---
--- * 'pcdExpirationDate' - The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
-provisionedCapacityDescription ::
+-- * 'capacityId' - The ID that identifies the provisioned capacity unit.
+-- * 'expirationDate' - The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
+-- * 'startDate' - The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
+mkProvisionedCapacityDescription ::
   ProvisionedCapacityDescription
-provisionedCapacityDescription =
+mkProvisionedCapacityDescription =
   ProvisionedCapacityDescription'
-    { _pcdCapacityId = Nothing,
-      _pcdStartDate = Nothing,
-      _pcdExpirationDate = Nothing
+    { capacityId = Lude.Nothing,
+      startDate = Lude.Nothing,
+      expirationDate = Lude.Nothing
     }
 
 -- | The ID that identifies the provisioned capacity unit.
-pcdCapacityId :: Lens' ProvisionedCapacityDescription (Maybe Text)
-pcdCapacityId = lens _pcdCapacityId (\s a -> s {_pcdCapacityId = a})
+--
+-- /Note:/ Consider using 'capacityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcdCapacityId :: Lens.Lens' ProvisionedCapacityDescription (Lude.Maybe Lude.Text)
+pcdCapacityId = Lens.lens (capacityId :: ProvisionedCapacityDescription -> Lude.Maybe Lude.Text) (\s a -> s {capacityId = a} :: ProvisionedCapacityDescription)
+{-# DEPRECATED pcdCapacityId "Use generic-lens or generic-optics with 'capacityId' instead." #-}
 
 -- | The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
-pcdStartDate :: Lens' ProvisionedCapacityDescription (Maybe Text)
-pcdStartDate = lens _pcdStartDate (\s a -> s {_pcdStartDate = a})
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcdStartDate :: Lens.Lens' ProvisionedCapacityDescription (Lude.Maybe Lude.Text)
+pcdStartDate = Lens.lens (startDate :: ProvisionedCapacityDescription -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: ProvisionedCapacityDescription)
+{-# DEPRECATED pcdStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
-pcdExpirationDate :: Lens' ProvisionedCapacityDescription (Maybe Text)
-pcdExpirationDate = lens _pcdExpirationDate (\s a -> s {_pcdExpirationDate = a})
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcdExpirationDate :: Lens.Lens' ProvisionedCapacityDescription (Lude.Maybe Lude.Text)
+pcdExpirationDate = Lens.lens (expirationDate :: ProvisionedCapacityDescription -> Lude.Maybe Lude.Text) (\s a -> s {expirationDate = a} :: ProvisionedCapacityDescription)
+{-# DEPRECATED pcdExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
-instance FromJSON ProvisionedCapacityDescription where
+instance Lude.FromJSON ProvisionedCapacityDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisionedCapacityDescription"
       ( \x ->
           ProvisionedCapacityDescription'
-            <$> (x .:? "CapacityId")
-            <*> (x .:? "StartDate")
-            <*> (x .:? "ExpirationDate")
+            Lude.<$> (x Lude..:? "CapacityId")
+            Lude.<*> (x Lude..:? "StartDate")
+            Lude.<*> (x Lude..:? "ExpirationDate")
       )
-
-instance Hashable ProvisionedCapacityDescription
-
-instance NFData ProvisionedCapacityDescription

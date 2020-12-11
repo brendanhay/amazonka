@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.PutTargetsResultEntry where
+module Network.AWS.CloudWatchEvents.Types.PutTargetsResultEntry
+  ( PutTargetsResultEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPutTargetsResultEntry,
+
+    -- * Lenses
+    ptreTargetId,
+    ptreErrorCode,
+    ptreErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a target that failed to be added to a rule.
 --
---
---
--- /See:/ 'putTargetsResultEntry' smart constructor.
+-- /See:/ 'mkPutTargetsResultEntry' smart constructor.
 data PutTargetsResultEntry = PutTargetsResultEntry'
-  { _ptreTargetId ::
-      !(Maybe Text),
-    _ptreErrorCode :: !(Maybe Text),
-    _ptreErrorMessage :: !(Maybe Text)
+  { targetId ::
+      Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTargetsResultEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptreTargetId' - The ID of the target.
---
--- * 'ptreErrorCode' - The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
---
--- * 'ptreErrorMessage' - The error message that explains why the target addition failed.
-putTargetsResultEntry ::
+-- * 'errorCode' - The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
+-- * 'errorMessage' - The error message that explains why the target addition failed.
+-- * 'targetId' - The ID of the target.
+mkPutTargetsResultEntry ::
   PutTargetsResultEntry
-putTargetsResultEntry =
+mkPutTargetsResultEntry =
   PutTargetsResultEntry'
-    { _ptreTargetId = Nothing,
-      _ptreErrorCode = Nothing,
-      _ptreErrorMessage = Nothing
+    { targetId = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The ID of the target.
-ptreTargetId :: Lens' PutTargetsResultEntry (Maybe Text)
-ptreTargetId = lens _ptreTargetId (\s a -> s {_ptreTargetId = a})
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptreTargetId :: Lens.Lens' PutTargetsResultEntry (Lude.Maybe Lude.Text)
+ptreTargetId = Lens.lens (targetId :: PutTargetsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: PutTargetsResultEntry)
+{-# DEPRECATED ptreTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
-ptreErrorCode :: Lens' PutTargetsResultEntry (Maybe Text)
-ptreErrorCode = lens _ptreErrorCode (\s a -> s {_ptreErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptreErrorCode :: Lens.Lens' PutTargetsResultEntry (Lude.Maybe Lude.Text)
+ptreErrorCode = Lens.lens (errorCode :: PutTargetsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: PutTargetsResultEntry)
+{-# DEPRECATED ptreErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message that explains why the target addition failed.
-ptreErrorMessage :: Lens' PutTargetsResultEntry (Maybe Text)
-ptreErrorMessage = lens _ptreErrorMessage (\s a -> s {_ptreErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptreErrorMessage :: Lens.Lens' PutTargetsResultEntry (Lude.Maybe Lude.Text)
+ptreErrorMessage = Lens.lens (errorMessage :: PutTargetsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: PutTargetsResultEntry)
+{-# DEPRECATED ptreErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON PutTargetsResultEntry where
+instance Lude.FromJSON PutTargetsResultEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "PutTargetsResultEntry"
       ( \x ->
           PutTargetsResultEntry'
-            <$> (x .:? "TargetId")
-            <*> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "TargetId")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable PutTargetsResultEntry
-
-instance NFData PutTargetsResultEntry

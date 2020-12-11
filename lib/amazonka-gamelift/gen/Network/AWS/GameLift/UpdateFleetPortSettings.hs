@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,185 +14,202 @@
 --
 -- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in @InboundPermissionAuthorizations@ , and permissions you want to remove in @InboundPermissionRevocations@ . Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
 --
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
---
 -- __Related operations__
 --
 --     * 'CreateFleet'
 --
+--
 --     * 'ListFleets'
+--
 --
 --     * 'DeleteFleet'
 --
+--
 --     * 'DescribeFleetAttributes'
+--
 --
 --     * Update fleets:
 --
 --     * 'UpdateFleetAttributes'
 --
+--
 --     * 'UpdateFleetCapacity'
 --
+--
 --     * 'UpdateFleetPortSettings'
+--
 --
 --     * 'UpdateRuntimeConfiguration'
 --
 --
 --
+--
 --     * 'StartFleetActions' or 'StopFleetActions'
 module Network.AWS.GameLift.UpdateFleetPortSettings
-  ( -- * Creating a Request
-    updateFleetPortSettings,
-    UpdateFleetPortSettings,
+  ( -- * Creating a request
+    UpdateFleetPortSettings (..),
+    mkUpdateFleetPortSettings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ufpsInboundPermissionRevocations,
     ufpsInboundPermissionAuthorizations,
     ufpsFleetId,
 
-    -- * Destructuring the Response
-    updateFleetPortSettingsResponse,
-    UpdateFleetPortSettingsResponse,
+    -- * Destructuring the response
+    UpdateFleetPortSettingsResponse (..),
+    mkUpdateFleetPortSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ufpsrsFleetId,
     ufpsrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'updateFleetPortSettings' smart constructor.
+-- /See:/ 'mkUpdateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-  { _ufpsInboundPermissionRevocations ::
-      !(Maybe [IPPermission]),
-    _ufpsInboundPermissionAuthorizations ::
-      !(Maybe [IPPermission]),
-    _ufpsFleetId :: !Text
+  { inboundPermissionRevocations ::
+      Lude.Maybe [IPPermission],
+    inboundPermissionAuthorizations ::
+      Lude.Maybe [IPPermission],
+    fleetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFleetPortSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufpsInboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
---
--- * 'ufpsInboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
---
--- * 'ufpsFleetId' - A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
-updateFleetPortSettings ::
-  -- | 'ufpsFleetId'
-  Text ->
+-- * 'fleetId' - A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
+-- * 'inboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
+-- * 'inboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
+mkUpdateFleetPortSettings ::
+  -- | 'fleetId'
+  Lude.Text ->
   UpdateFleetPortSettings
-updateFleetPortSettings pFleetId_ =
+mkUpdateFleetPortSettings pFleetId_ =
   UpdateFleetPortSettings'
-    { _ufpsInboundPermissionRevocations =
-        Nothing,
-      _ufpsInboundPermissionAuthorizations = Nothing,
-      _ufpsFleetId = pFleetId_
+    { inboundPermissionRevocations =
+        Lude.Nothing,
+      inboundPermissionAuthorizations = Lude.Nothing,
+      fleetId = pFleetId_
     }
 
 -- | A collection of port settings to be removed from the fleet resource.
-ufpsInboundPermissionRevocations :: Lens' UpdateFleetPortSettings [IPPermission]
-ufpsInboundPermissionRevocations = lens _ufpsInboundPermissionRevocations (\s a -> s {_ufpsInboundPermissionRevocations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inboundPermissionRevocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufpsInboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Lude.Maybe [IPPermission])
+ufpsInboundPermissionRevocations = Lens.lens (inboundPermissionRevocations :: UpdateFleetPortSettings -> Lude.Maybe [IPPermission]) (\s a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings)
+{-# DEPRECATED ufpsInboundPermissionRevocations "Use generic-lens or generic-optics with 'inboundPermissionRevocations' instead." #-}
 
 -- | A collection of port settings to be added to the fleet resource.
-ufpsInboundPermissionAuthorizations :: Lens' UpdateFleetPortSettings [IPPermission]
-ufpsInboundPermissionAuthorizations = lens _ufpsInboundPermissionAuthorizations (\s a -> s {_ufpsInboundPermissionAuthorizations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inboundPermissionAuthorizations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufpsInboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Lude.Maybe [IPPermission])
+ufpsInboundPermissionAuthorizations = Lens.lens (inboundPermissionAuthorizations :: UpdateFleetPortSettings -> Lude.Maybe [IPPermission]) (\s a -> s {inboundPermissionAuthorizations = a} :: UpdateFleetPortSettings)
+{-# DEPRECATED ufpsInboundPermissionAuthorizations "Use generic-lens or generic-optics with 'inboundPermissionAuthorizations' instead." #-}
 
 -- | A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
-ufpsFleetId :: Lens' UpdateFleetPortSettings Text
-ufpsFleetId = lens _ufpsFleetId (\s a -> s {_ufpsFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufpsFleetId :: Lens.Lens' UpdateFleetPortSettings Lude.Text
+ufpsFleetId = Lens.lens (fleetId :: UpdateFleetPortSettings -> Lude.Text) (\s a -> s {fleetId = a} :: UpdateFleetPortSettings)
+{-# DEPRECATED ufpsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance AWSRequest UpdateFleetPortSettings where
+instance Lude.AWSRequest UpdateFleetPortSettings where
   type Rs UpdateFleetPortSettings = UpdateFleetPortSettingsResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateFleetPortSettingsResponse'
-            <$> (x .?> "FleetId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FleetId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateFleetPortSettings
-
-instance NFData UpdateFleetPortSettings
-
-instance ToHeaders UpdateFleetPortSettings where
+instance Lude.ToHeaders UpdateFleetPortSettings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.UpdateFleetPortSettings" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.UpdateFleetPortSettings" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateFleetPortSettings where
+instance Lude.ToJSON UpdateFleetPortSettings where
   toJSON UpdateFleetPortSettings' {..} =
-    object
-      ( catMaybes
-          [ ("InboundPermissionRevocations" .=)
-              <$> _ufpsInboundPermissionRevocations,
-            ("InboundPermissionAuthorizations" .=)
-              <$> _ufpsInboundPermissionAuthorizations,
-            Just ("FleetId" .= _ufpsFleetId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InboundPermissionRevocations" Lude..=)
+              Lude.<$> inboundPermissionRevocations,
+            ("InboundPermissionAuthorizations" Lude..=)
+              Lude.<$> inboundPermissionAuthorizations,
+            Lude.Just ("FleetId" Lude..= fleetId)
           ]
       )
 
-instance ToPath UpdateFleetPortSettings where
-  toPath = const "/"
+instance Lude.ToPath UpdateFleetPortSettings where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateFleetPortSettings where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFleetPortSettings where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'updateFleetPortSettingsResponse' smart constructor.
+-- /See:/ 'mkUpdateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-  { _ufpsrsFleetId ::
-      !(Maybe Text),
-    _ufpsrsResponseStatus ::
-      !Int
+  { fleetId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFleetPortSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufpsrsFleetId' - A unique identifier for a fleet that was updated.
---
--- * 'ufpsrsResponseStatus' - -- | The response status code.
-updateFleetPortSettingsResponse ::
-  -- | 'ufpsrsResponseStatus'
-  Int ->
+-- * 'fleetId' - A unique identifier for a fleet that was updated.
+-- * 'responseStatus' - The response status code.
+mkUpdateFleetPortSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateFleetPortSettingsResponse
-updateFleetPortSettingsResponse pResponseStatus_ =
+mkUpdateFleetPortSettingsResponse pResponseStatus_ =
   UpdateFleetPortSettingsResponse'
-    { _ufpsrsFleetId = Nothing,
-      _ufpsrsResponseStatus = pResponseStatus_
+    { fleetId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique identifier for a fleet that was updated.
-ufpsrsFleetId :: Lens' UpdateFleetPortSettingsResponse (Maybe Text)
-ufpsrsFleetId = lens _ufpsrsFleetId (\s a -> s {_ufpsrsFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufpsrsFleetId :: Lens.Lens' UpdateFleetPortSettingsResponse (Lude.Maybe Lude.Text)
+ufpsrsFleetId = Lens.lens (fleetId :: UpdateFleetPortSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: UpdateFleetPortSettingsResponse)
+{-# DEPRECATED ufpsrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
--- | -- | The response status code.
-ufpsrsResponseStatus :: Lens' UpdateFleetPortSettingsResponse Int
-ufpsrsResponseStatus = lens _ufpsrsResponseStatus (\s a -> s {_ufpsrsResponseStatus = a})
-
-instance NFData UpdateFleetPortSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufpsrsResponseStatus :: Lens.Lens' UpdateFleetPortSettingsResponse Lude.Int
+ufpsrsResponseStatus = Lens.lens (responseStatus :: UpdateFleetPortSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFleetPortSettingsResponse)
+{-# DEPRECATED ufpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Provides the details of a security configuration by returning the configuration JSON.
 module Network.AWS.EMR.DescribeSecurityConfiguration
-  ( -- * Creating a Request
-    describeSecurityConfiguration,
-    DescribeSecurityConfiguration,
+  ( -- * Creating a request
+    DescribeSecurityConfiguration (..),
+    mkDescribeSecurityConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dName,
 
-    -- * Destructuring the Response
-    describeSecurityConfigurationResponse,
-    DescribeSecurityConfigurationResponse,
+    -- * Destructuring the response
+    DescribeSecurityConfigurationResponse (..),
+    mkDescribeSecurityConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsSecurityConfiguration,
     drsName,
     drsCreationDateTime,
@@ -39,124 +34,146 @@ module Network.AWS.EMR.DescribeSecurityConfiguration
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeSecurityConfiguration' smart constructor.
+-- | /See:/ 'mkDescribeSecurityConfiguration' smart constructor.
 newtype DescribeSecurityConfiguration = DescribeSecurityConfiguration'
-  { _dName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dName' - The name of the security configuration.
-describeSecurityConfiguration ::
-  -- | 'dName'
-  Text ->
+-- * 'name' - The name of the security configuration.
+mkDescribeSecurityConfiguration ::
+  -- | 'name'
+  Lude.Text ->
   DescribeSecurityConfiguration
-describeSecurityConfiguration pName_ =
-  DescribeSecurityConfiguration' {_dName = pName_}
+mkDescribeSecurityConfiguration pName_ =
+  DescribeSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration.
-dName :: Lens' DescribeSecurityConfiguration Text
-dName = lens _dName (\s a -> s {_dName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' DescribeSecurityConfiguration Lude.Text
+dName = Lens.lens (name :: DescribeSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DescribeSecurityConfiguration)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DescribeSecurityConfiguration where
+instance Lude.AWSRequest DescribeSecurityConfiguration where
   type
     Rs DescribeSecurityConfiguration =
       DescribeSecurityConfigurationResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeSecurityConfigurationResponse'
-            <$> (x .?> "SecurityConfiguration")
-            <*> (x .?> "Name")
-            <*> (x .?> "CreationDateTime")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SecurityConfiguration")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "CreationDateTime")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSecurityConfiguration
-
-instance NFData DescribeSecurityConfiguration
-
-instance ToHeaders DescribeSecurityConfiguration where
+instance Lude.ToHeaders DescribeSecurityConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.DescribeSecurityConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ElasticMapReduce.DescribeSecurityConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeSecurityConfiguration where
+instance Lude.ToJSON DescribeSecurityConfiguration where
   toJSON DescribeSecurityConfiguration' {..} =
-    object (catMaybes [Just ("Name" .= _dName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DescribeSecurityConfiguration where
-  toPath = const "/"
+instance Lude.ToPath DescribeSecurityConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeSecurityConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeSecurityConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeSecurityConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDescribeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
-  { _drsSecurityConfiguration ::
-      !(Maybe Text),
-    _drsName ::
-      !(Maybe Text),
-    _drsCreationDateTime ::
-      !(Maybe POSIX),
-    _drsResponseStatus ::
-      !Int
+  { securityConfiguration ::
+      Lude.Maybe
+        Lude.Text,
+    name ::
+      Lude.Maybe
+        Lude.Text,
+    creationDateTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsSecurityConfiguration' - The security configuration details in JSON format.
---
--- * 'drsName' - The name of the security configuration.
---
--- * 'drsCreationDateTime' - The date and time the security configuration was created
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeSecurityConfigurationResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'creationDateTime' - The date and time the security configuration was created
+-- * 'name' - The name of the security configuration.
+-- * 'responseStatus' - The response status code.
+-- * 'securityConfiguration' - The security configuration details in JSON format.
+mkDescribeSecurityConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSecurityConfigurationResponse
-describeSecurityConfigurationResponse pResponseStatus_ =
+mkDescribeSecurityConfigurationResponse pResponseStatus_ =
   DescribeSecurityConfigurationResponse'
-    { _drsSecurityConfiguration =
-        Nothing,
-      _drsName = Nothing,
-      _drsCreationDateTime = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { securityConfiguration =
+        Lude.Nothing,
+      name = Lude.Nothing,
+      creationDateTime = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The security configuration details in JSON format.
-drsSecurityConfiguration :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
-drsSecurityConfiguration = lens _drsSecurityConfiguration (\s a -> s {_drsSecurityConfiguration = a})
+--
+-- /Note:/ Consider using 'securityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsSecurityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Text)
+drsSecurityConfiguration = Lens.lens (securityConfiguration :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED drsSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
 
 -- | The name of the security configuration.
-drsName :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
-drsName = lens _drsName (\s a -> s {_drsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsName :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Text)
+drsName = Lens.lens (name :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED drsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date and time the security configuration was created
-drsCreationDateTime :: Lens' DescribeSecurityConfigurationResponse (Maybe UTCTime)
-drsCreationDateTime = lens _drsCreationDateTime (\s a -> s {_drsCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCreationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Timestamp)
+drsCreationDateTime = Lens.lens (creationDateTime :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED drsCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeSecurityConfigurationResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeSecurityConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

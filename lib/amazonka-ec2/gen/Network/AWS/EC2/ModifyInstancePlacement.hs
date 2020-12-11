@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,23 +17,24 @@
 --
 --     * Modify the affinity between an instance and a <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html Dedicated Host> . When affinity is set to @host@ and the instance is not associated with a specific Dedicated Host, the next time the instance is launched, it is automatically associated with the host on which it lands. If the instance is restarted or rebooted, this relationship persists.
 --
+--
 --     * Change the Dedicated Host with which an instance is associated.
 --
+--
 --     * Change the instance tenancy of an instance from @host@ to @dedicated@ , or from @dedicated@ to @host@ .
+--
 --
 --     * Move an instance to or from a <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html placement group> .
 --
 --
---
 -- At least one attribute for affinity, host ID, tenancy, or placement group name must be specified in the request. Affinity and tenancy can be modified in the same request.
---
 -- To modify the host ID, tenancy, placement group, or partition for an instance, the instance must be in the @stopped@ state.
 module Network.AWS.EC2.ModifyInstancePlacement
-  ( -- * Creating a Request
-    modifyInstancePlacement,
-    ModifyInstancePlacement,
+  ( -- * Creating a request
+    ModifyInstancePlacement (..),
+    mkModifyInstancePlacement,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mipAffinity,
     mipHostId,
     mipPartitionNumber,
@@ -47,161 +43,189 @@ module Network.AWS.EC2.ModifyInstancePlacement
     mipHostResourceGroupARN,
     mipInstanceId,
 
-    -- * Destructuring the Response
-    modifyInstancePlacementResponse,
-    ModifyInstancePlacementResponse,
+    -- * Destructuring the response
+    ModifyInstancePlacementResponse (..),
+    mkModifyInstancePlacementResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     miprsReturn,
     miprsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyInstancePlacement' smart constructor.
+-- | /See:/ 'mkModifyInstancePlacement' smart constructor.
 data ModifyInstancePlacement = ModifyInstancePlacement'
-  { _mipAffinity ::
-      !(Maybe Affinity),
-    _mipHostId :: !(Maybe Text),
-    _mipPartitionNumber :: !(Maybe Int),
-    _mipTenancy :: !(Maybe HostTenancy),
-    _mipGroupName :: !(Maybe Text),
-    _mipHostResourceGroupARN :: !(Maybe Text),
-    _mipInstanceId :: !Text
+  { affinity ::
+      Lude.Maybe Affinity,
+    hostId :: Lude.Maybe Lude.Text,
+    partitionNumber :: Lude.Maybe Lude.Int,
+    tenancy :: Lude.Maybe HostTenancy,
+    groupName :: Lude.Maybe Lude.Text,
+    hostResourceGroupARN ::
+      Lude.Maybe Lude.Text,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstancePlacement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'affinity' - The affinity setting for the instance.
+-- * 'groupName' - The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of @default@ . For cluster and partition placement groups, the instance must have a tenancy of @default@ or @dedicated@ .
 --
--- * 'mipAffinity' - The affinity setting for the instance.
---
--- * 'mipHostId' - The ID of the Dedicated Host with which to associate the instance.
---
--- * 'mipPartitionNumber' - Reserved for future use.
---
--- * 'mipTenancy' - The tenancy for the instance.
---
--- * 'mipGroupName' - The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of @default@ . For cluster and partition placement groups, the instance must have a tenancy of @default@ or @dedicated@ . To remove an instance from a placement group, specify an empty string ("").
---
--- * 'mipHostResourceGroupARN' - The ARN of the host resource group in which to place the instance.
---
--- * 'mipInstanceId' - The ID of the instance that you are modifying.
-modifyInstancePlacement ::
-  -- | 'mipInstanceId'
-  Text ->
+-- To remove an instance from a placement group, specify an empty string ("").
+-- * 'hostId' - The ID of the Dedicated Host with which to associate the instance.
+-- * 'hostResourceGroupARN' - The ARN of the host resource group in which to place the instance.
+-- * 'instanceId' - The ID of the instance that you are modifying.
+-- * 'partitionNumber' - Reserved for future use.
+-- * 'tenancy' - The tenancy for the instance.
+mkModifyInstancePlacement ::
+  -- | 'instanceId'
+  Lude.Text ->
   ModifyInstancePlacement
-modifyInstancePlacement pInstanceId_ =
+mkModifyInstancePlacement pInstanceId_ =
   ModifyInstancePlacement'
-    { _mipAffinity = Nothing,
-      _mipHostId = Nothing,
-      _mipPartitionNumber = Nothing,
-      _mipTenancy = Nothing,
-      _mipGroupName = Nothing,
-      _mipHostResourceGroupARN = Nothing,
-      _mipInstanceId = pInstanceId_
+    { affinity = Lude.Nothing,
+      hostId = Lude.Nothing,
+      partitionNumber = Lude.Nothing,
+      tenancy = Lude.Nothing,
+      groupName = Lude.Nothing,
+      hostResourceGroupARN = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The affinity setting for the instance.
-mipAffinity :: Lens' ModifyInstancePlacement (Maybe Affinity)
-mipAffinity = lens _mipAffinity (\s a -> s {_mipAffinity = a})
+--
+-- /Note:/ Consider using 'affinity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipAffinity :: Lens.Lens' ModifyInstancePlacement (Lude.Maybe Affinity)
+mipAffinity = Lens.lens (affinity :: ModifyInstancePlacement -> Lude.Maybe Affinity) (\s a -> s {affinity = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipAffinity "Use generic-lens or generic-optics with 'affinity' instead." #-}
 
 -- | The ID of the Dedicated Host with which to associate the instance.
-mipHostId :: Lens' ModifyInstancePlacement (Maybe Text)
-mipHostId = lens _mipHostId (\s a -> s {_mipHostId = a})
+--
+-- /Note:/ Consider using 'hostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipHostId :: Lens.Lens' ModifyInstancePlacement (Lude.Maybe Lude.Text)
+mipHostId = Lens.lens (hostId :: ModifyInstancePlacement -> Lude.Maybe Lude.Text) (\s a -> s {hostId = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipHostId "Use generic-lens or generic-optics with 'hostId' instead." #-}
 
 -- | Reserved for future use.
-mipPartitionNumber :: Lens' ModifyInstancePlacement (Maybe Int)
-mipPartitionNumber = lens _mipPartitionNumber (\s a -> s {_mipPartitionNumber = a})
+--
+-- /Note:/ Consider using 'partitionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipPartitionNumber :: Lens.Lens' ModifyInstancePlacement (Lude.Maybe Lude.Int)
+mipPartitionNumber = Lens.lens (partitionNumber :: ModifyInstancePlacement -> Lude.Maybe Lude.Int) (\s a -> s {partitionNumber = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipPartitionNumber "Use generic-lens or generic-optics with 'partitionNumber' instead." #-}
 
 -- | The tenancy for the instance.
-mipTenancy :: Lens' ModifyInstancePlacement (Maybe HostTenancy)
-mipTenancy = lens _mipTenancy (\s a -> s {_mipTenancy = a})
+--
+-- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipTenancy :: Lens.Lens' ModifyInstancePlacement (Lude.Maybe HostTenancy)
+mipTenancy = Lens.lens (tenancy :: ModifyInstancePlacement -> Lude.Maybe HostTenancy) (\s a -> s {tenancy = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
 
--- | The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of @default@ . For cluster and partition placement groups, the instance must have a tenancy of @default@ or @dedicated@ . To remove an instance from a placement group, specify an empty string ("").
-mipGroupName :: Lens' ModifyInstancePlacement (Maybe Text)
-mipGroupName = lens _mipGroupName (\s a -> s {_mipGroupName = a})
+-- | The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of @default@ . For cluster and partition placement groups, the instance must have a tenancy of @default@ or @dedicated@ .
+--
+-- To remove an instance from a placement group, specify an empty string ("").
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipGroupName :: Lens.Lens' ModifyInstancePlacement (Lude.Maybe Lude.Text)
+mipGroupName = Lens.lens (groupName :: ModifyInstancePlacement -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The ARN of the host resource group in which to place the instance.
-mipHostResourceGroupARN :: Lens' ModifyInstancePlacement (Maybe Text)
-mipHostResourceGroupARN = lens _mipHostResourceGroupARN (\s a -> s {_mipHostResourceGroupARN = a})
+--
+-- /Note:/ Consider using 'hostResourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipHostResourceGroupARN :: Lens.Lens' ModifyInstancePlacement (Lude.Maybe Lude.Text)
+mipHostResourceGroupARN = Lens.lens (hostResourceGroupARN :: ModifyInstancePlacement -> Lude.Maybe Lude.Text) (\s a -> s {hostResourceGroupARN = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipHostResourceGroupARN "Use generic-lens or generic-optics with 'hostResourceGroupARN' instead." #-}
 
 -- | The ID of the instance that you are modifying.
-mipInstanceId :: Lens' ModifyInstancePlacement Text
-mipInstanceId = lens _mipInstanceId (\s a -> s {_mipInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mipInstanceId :: Lens.Lens' ModifyInstancePlacement Lude.Text
+mipInstanceId = Lens.lens (instanceId :: ModifyInstancePlacement -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstancePlacement)
+{-# DEPRECATED mipInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest ModifyInstancePlacement where
+instance Lude.AWSRequest ModifyInstancePlacement where
   type Rs ModifyInstancePlacement = ModifyInstancePlacementResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyInstancePlacementResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyInstancePlacement
+instance Lude.ToHeaders ModifyInstancePlacement where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyInstancePlacement
+instance Lude.ToPath ModifyInstancePlacement where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyInstancePlacement where
-  toHeaders = const mempty
-
-instance ToPath ModifyInstancePlacement where
-  toPath = const "/"
-
-instance ToQuery ModifyInstancePlacement where
+instance Lude.ToQuery ModifyInstancePlacement where
   toQuery ModifyInstancePlacement' {..} =
-    mconcat
-      [ "Action" =: ("ModifyInstancePlacement" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Affinity" =: _mipAffinity,
-        "HostId" =: _mipHostId,
-        "PartitionNumber" =: _mipPartitionNumber,
-        "Tenancy" =: _mipTenancy,
-        "GroupName" =: _mipGroupName,
-        "HostResourceGroupArn" =: _mipHostResourceGroupARN,
-        "InstanceId" =: _mipInstanceId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyInstancePlacement" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Affinity" Lude.=: affinity,
+        "HostId" Lude.=: hostId,
+        "PartitionNumber" Lude.=: partitionNumber,
+        "Tenancy" Lude.=: tenancy,
+        "GroupName" Lude.=: groupName,
+        "HostResourceGroupArn" Lude.=: hostResourceGroupARN,
+        "InstanceId" Lude.=: instanceId
       ]
 
--- | /See:/ 'modifyInstancePlacementResponse' smart constructor.
+-- | /See:/ 'mkModifyInstancePlacementResponse' smart constructor.
 data ModifyInstancePlacementResponse = ModifyInstancePlacementResponse'
-  { _miprsReturn ::
-      !(Maybe Bool),
-    _miprsResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstancePlacementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miprsReturn' - Is @true@ if the request succeeds, and an error otherwise.
---
--- * 'miprsResponseStatus' - -- | The response status code.
-modifyInstancePlacementResponse ::
-  -- | 'miprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+mkModifyInstancePlacementResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyInstancePlacementResponse
-modifyInstancePlacementResponse pResponseStatus_ =
+mkModifyInstancePlacementResponse pResponseStatus_ =
   ModifyInstancePlacementResponse'
-    { _miprsReturn = Nothing,
-      _miprsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-miprsReturn :: Lens' ModifyInstancePlacementResponse (Maybe Bool)
-miprsReturn = lens _miprsReturn (\s a -> s {_miprsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miprsReturn :: Lens.Lens' ModifyInstancePlacementResponse (Lude.Maybe Lude.Bool)
+miprsReturn = Lens.lens (return :: ModifyInstancePlacementResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ModifyInstancePlacementResponse)
+{-# DEPRECATED miprsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-miprsResponseStatus :: Lens' ModifyInstancePlacementResponse Int
-miprsResponseStatus = lens _miprsResponseStatus (\s a -> s {_miprsResponseStatus = a})
-
-instance NFData ModifyInstancePlacementResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miprsResponseStatus :: Lens.Lens' ModifyInstancePlacementResponse Lude.Int
+miprsResponseStatus = Lens.lens (responseStatus :: ModifyInstancePlacementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyInstancePlacementResponse)
+{-# DEPRECATED miprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

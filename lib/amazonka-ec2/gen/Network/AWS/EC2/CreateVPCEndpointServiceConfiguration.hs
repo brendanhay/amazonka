@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect.
 --
---
 -- To create an endpoint service configuration, you must first create one of the following for your service:
 --
 --     * A <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html Network Load Balancer> . Service consumers connect to your service using an interface endpoint.
 --
+--
 --     * A <https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html Gateway Load Balancer> . Service consumers connect to your service using a Gateway Load Balancer endpoint.
 --
 --
---
 -- For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html VPC Endpoint Services> in the /Amazon Virtual Private Cloud User Guide/ .
---
 -- If you set the private DNS name, you must prove that you own the private DNS domain name. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html VPC Endpoint Service Private DNS Name Verification> in the /Amazon Virtual Private Cloud User Guide/ .
 module Network.AWS.EC2.CreateVPCEndpointServiceConfiguration
-  ( -- * Creating a Request
-    createVPCEndpointServiceConfiguration,
-    CreateVPCEndpointServiceConfiguration,
+  ( -- * Creating a request
+    CreateVPCEndpointServiceConfiguration (..),
+    mkCreateVPCEndpointServiceConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvescNetworkLoadBalancerARNs,
     cvescClientToken,
     cvescTagSpecifications,
@@ -45,11 +38,11 @@ module Network.AWS.EC2.CreateVPCEndpointServiceConfiguration
     cvescPrivateDNSName,
     cvescDryRun,
 
-    -- * Destructuring the Response
-    createVPCEndpointServiceConfigurationResponse,
-    CreateVPCEndpointServiceConfigurationResponse,
+    -- * Destructuring the response
+    CreateVPCEndpointServiceConfigurationResponse (..),
+    mkCreateVPCEndpointServiceConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvescrsClientToken,
     cvescrsServiceConfiguration,
     cvescrsResponseStatus,
@@ -57,190 +50,215 @@ module Network.AWS.EC2.CreateVPCEndpointServiceConfiguration
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createVPCEndpointServiceConfiguration' smart constructor.
+-- | /See:/ 'mkCreateVPCEndpointServiceConfiguration' smart constructor.
 data CreateVPCEndpointServiceConfiguration = CreateVPCEndpointServiceConfiguration'
-  { _cvescNetworkLoadBalancerARNs ::
-      !(Maybe [Text]),
-    _cvescClientToken ::
-      !(Maybe Text),
-    _cvescTagSpecifications ::
-      !( Maybe
-           [TagSpecification]
-       ),
-    _cvescGatewayLoadBalancerARNs ::
-      !(Maybe [Text]),
-    _cvescAcceptanceRequired ::
-      !(Maybe Bool),
-    _cvescPrivateDNSName ::
-      !(Maybe Text),
-    _cvescDryRun ::
-      !(Maybe Bool)
+  { networkLoadBalancerARNs ::
+      Lude.Maybe
+        [Lude.Text],
+    clientToken ::
+      Lude.Maybe
+        Lude.Text,
+    tagSpecifications ::
+      Lude.Maybe
+        [TagSpecification],
+    gatewayLoadBalancerARNs ::
+      Lude.Maybe
+        [Lude.Text],
+    acceptanceRequired ::
+      Lude.Maybe
+        Lude.Bool,
+    privateDNSName ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCEndpointServiceConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvescNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
---
--- * 'cvescClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'cvescTagSpecifications' - The tags to associate with the service.
---
--- * 'cvescGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
---
--- * 'cvescAcceptanceRequired' - Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
---
--- * 'cvescPrivateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.
---
--- * 'cvescDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-createVPCEndpointServiceConfiguration ::
+-- * 'acceptanceRequired' - Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'gatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+-- * 'networkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
+-- * 'privateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.
+-- * 'tagSpecifications' - The tags to associate with the service.
+mkCreateVPCEndpointServiceConfiguration ::
   CreateVPCEndpointServiceConfiguration
-createVPCEndpointServiceConfiguration =
+mkCreateVPCEndpointServiceConfiguration =
   CreateVPCEndpointServiceConfiguration'
-    { _cvescNetworkLoadBalancerARNs =
-        Nothing,
-      _cvescClientToken = Nothing,
-      _cvescTagSpecifications = Nothing,
-      _cvescGatewayLoadBalancerARNs = Nothing,
-      _cvescAcceptanceRequired = Nothing,
-      _cvescPrivateDNSName = Nothing,
-      _cvescDryRun = Nothing
+    { networkLoadBalancerARNs =
+        Lude.Nothing,
+      clientToken = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      gatewayLoadBalancerARNs = Lude.Nothing,
+      acceptanceRequired = Lude.Nothing,
+      privateDNSName = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
-cvescNetworkLoadBalancerARNs :: Lens' CreateVPCEndpointServiceConfiguration [Text]
-cvescNetworkLoadBalancerARNs = lens _cvescNetworkLoadBalancerARNs (\s a -> s {_cvescNetworkLoadBalancerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescNetworkLoadBalancerARNs :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe [Lude.Text])
+cvescNetworkLoadBalancerARNs = Lens.lens (networkLoadBalancerARNs :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {networkLoadBalancerARNs = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescNetworkLoadBalancerARNs "Use generic-lens or generic-optics with 'networkLoadBalancerARNs' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-cvescClientToken :: Lens' CreateVPCEndpointServiceConfiguration (Maybe Text)
-cvescClientToken = lens _cvescClientToken (\s a -> s {_cvescClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescClientToken :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe Lude.Text)
+cvescClientToken = Lens.lens (clientToken :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The tags to associate with the service.
-cvescTagSpecifications :: Lens' CreateVPCEndpointServiceConfiguration [TagSpecification]
-cvescTagSpecifications = lens _cvescTagSpecifications (\s a -> s {_cvescTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescTagSpecifications :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe [TagSpecification])
+cvescTagSpecifications = Lens.lens (tagSpecifications :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-cvescGatewayLoadBalancerARNs :: Lens' CreateVPCEndpointServiceConfiguration [Text]
-cvescGatewayLoadBalancerARNs = lens _cvescGatewayLoadBalancerARNs (\s a -> s {_cvescGatewayLoadBalancerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gatewayLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescGatewayLoadBalancerARNs :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe [Lude.Text])
+cvescGatewayLoadBalancerARNs = Lens.lens (gatewayLoadBalancerARNs :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {gatewayLoadBalancerARNs = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescGatewayLoadBalancerARNs "Use generic-lens or generic-optics with 'gatewayLoadBalancerARNs' instead." #-}
 
 -- | Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
-cvescAcceptanceRequired :: Lens' CreateVPCEndpointServiceConfiguration (Maybe Bool)
-cvescAcceptanceRequired = lens _cvescAcceptanceRequired (\s a -> s {_cvescAcceptanceRequired = a})
+--
+-- /Note:/ Consider using 'acceptanceRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescAcceptanceRequired :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe Lude.Bool)
+cvescAcceptanceRequired = Lens.lens (acceptanceRequired :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {acceptanceRequired = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescAcceptanceRequired "Use generic-lens or generic-optics with 'acceptanceRequired' instead." #-}
 
 -- | (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.
-cvescPrivateDNSName :: Lens' CreateVPCEndpointServiceConfiguration (Maybe Text)
-cvescPrivateDNSName = lens _cvescPrivateDNSName (\s a -> s {_cvescPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescPrivateDNSName :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe Lude.Text)
+cvescPrivateDNSName = Lens.lens (privateDNSName :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cvescDryRun :: Lens' CreateVPCEndpointServiceConfiguration (Maybe Bool)
-cvescDryRun = lens _cvescDryRun (\s a -> s {_cvescDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescDryRun :: Lens.Lens' CreateVPCEndpointServiceConfiguration (Lude.Maybe Lude.Bool)
+cvescDryRun = Lens.lens (dryRun :: CreateVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPCEndpointServiceConfiguration)
+{-# DEPRECATED cvescDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest CreateVPCEndpointServiceConfiguration where
+instance Lude.AWSRequest CreateVPCEndpointServiceConfiguration where
   type
     Rs CreateVPCEndpointServiceConfiguration =
       CreateVPCEndpointServiceConfigurationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateVPCEndpointServiceConfigurationResponse'
-            <$> (x .@? "clientToken")
-            <*> (x .@? "serviceConfiguration")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "clientToken")
+            Lude.<*> (x Lude..@? "serviceConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVPCEndpointServiceConfiguration
+instance Lude.ToHeaders CreateVPCEndpointServiceConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateVPCEndpointServiceConfiguration
+instance Lude.ToPath CreateVPCEndpointServiceConfiguration where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateVPCEndpointServiceConfiguration where
-  toHeaders = const mempty
-
-instance ToPath CreateVPCEndpointServiceConfiguration where
-  toPath = const "/"
-
-instance ToQuery CreateVPCEndpointServiceConfiguration where
+instance Lude.ToQuery CreateVPCEndpointServiceConfiguration where
   toQuery CreateVPCEndpointServiceConfiguration' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("CreateVpcEndpointServiceConfiguration" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          ( toQueryList "NetworkLoadBalancerArn"
-              <$> _cvescNetworkLoadBalancerARNs
+          Lude.=: ("CreateVpcEndpointServiceConfiguration" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          ( Lude.toQueryList "NetworkLoadBalancerArn"
+              Lude.<$> networkLoadBalancerARNs
           ),
-        "ClientToken" =: _cvescClientToken,
-        toQuery
-          (toQueryList "TagSpecification" <$> _cvescTagSpecifications),
-        toQuery
-          ( toQueryList "GatewayLoadBalancerArn"
-              <$> _cvescGatewayLoadBalancerARNs
+        "ClientToken" Lude.=: clientToken,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        Lude.toQuery
+          ( Lude.toQueryList "GatewayLoadBalancerArn"
+              Lude.<$> gatewayLoadBalancerARNs
           ),
-        "AcceptanceRequired" =: _cvescAcceptanceRequired,
-        "PrivateDnsName" =: _cvescPrivateDNSName,
-        "DryRun" =: _cvescDryRun
+        "AcceptanceRequired" Lude.=: acceptanceRequired,
+        "PrivateDnsName" Lude.=: privateDNSName,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'createVPCEndpointServiceConfigurationResponse' smart constructor.
+-- | /See:/ 'mkCreateVPCEndpointServiceConfigurationResponse' smart constructor.
 data CreateVPCEndpointServiceConfigurationResponse = CreateVPCEndpointServiceConfigurationResponse'
-  { _cvescrsClientToken ::
-      !( Maybe
-           Text
-       ),
-    _cvescrsServiceConfiguration ::
-      !( Maybe
-           ServiceConfiguration
-       ),
-    _cvescrsResponseStatus ::
-      !Int
+  { clientToken ::
+      Lude.Maybe
+        Lude.Text,
+    serviceConfiguration ::
+      Lude.Maybe
+        ServiceConfiguration,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'CreateVPCEndpointServiceConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvescrsClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
---
--- * 'cvescrsServiceConfiguration' - Information about the service configuration.
---
--- * 'cvescrsResponseStatus' - -- | The response status code.
-createVPCEndpointServiceConfigurationResponse ::
-  -- | 'cvescrsResponseStatus'
-  Int ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+-- * 'responseStatus' - The response status code.
+-- * 'serviceConfiguration' - Information about the service configuration.
+mkCreateVPCEndpointServiceConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVPCEndpointServiceConfigurationResponse
-createVPCEndpointServiceConfigurationResponse pResponseStatus_ =
+mkCreateVPCEndpointServiceConfigurationResponse pResponseStatus_ =
   CreateVPCEndpointServiceConfigurationResponse'
-    { _cvescrsClientToken =
-        Nothing,
-      _cvescrsServiceConfiguration = Nothing,
-      _cvescrsResponseStatus = pResponseStatus_
+    { clientToken =
+        Lude.Nothing,
+      serviceConfiguration = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-cvescrsClientToken :: Lens' CreateVPCEndpointServiceConfigurationResponse (Maybe Text)
-cvescrsClientToken = lens _cvescrsClientToken (\s a -> s {_cvescrsClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescrsClientToken :: Lens.Lens' CreateVPCEndpointServiceConfigurationResponse (Lude.Maybe Lude.Text)
+cvescrsClientToken = Lens.lens (clientToken :: CreateVPCEndpointServiceConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateVPCEndpointServiceConfigurationResponse)
+{-# DEPRECATED cvescrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Information about the service configuration.
-cvescrsServiceConfiguration :: Lens' CreateVPCEndpointServiceConfigurationResponse (Maybe ServiceConfiguration)
-cvescrsServiceConfiguration = lens _cvescrsServiceConfiguration (\s a -> s {_cvescrsServiceConfiguration = a})
+--
+-- /Note:/ Consider using 'serviceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescrsServiceConfiguration :: Lens.Lens' CreateVPCEndpointServiceConfigurationResponse (Lude.Maybe ServiceConfiguration)
+cvescrsServiceConfiguration = Lens.lens (serviceConfiguration :: CreateVPCEndpointServiceConfigurationResponse -> Lude.Maybe ServiceConfiguration) (\s a -> s {serviceConfiguration = a} :: CreateVPCEndpointServiceConfigurationResponse)
+{-# DEPRECATED cvescrsServiceConfiguration "Use generic-lens or generic-optics with 'serviceConfiguration' instead." #-}
 
--- | -- | The response status code.
-cvescrsResponseStatus :: Lens' CreateVPCEndpointServiceConfigurationResponse Int
-cvescrsResponseStatus = lens _cvescrsResponseStatus (\s a -> s {_cvescrsResponseStatus = a})
-
-instance NFData CreateVPCEndpointServiceConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvescrsResponseStatus :: Lens.Lens' CreateVPCEndpointServiceConfigurationResponse Lude.Int
+cvescrsResponseStatus = Lens.lens (responseStatus :: CreateVPCEndpointServiceConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVPCEndpointServiceConfigurationResponse)
+{-# DEPRECATED cvescrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

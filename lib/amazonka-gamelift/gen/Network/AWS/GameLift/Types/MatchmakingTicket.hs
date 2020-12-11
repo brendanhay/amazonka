@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,141 +7,234 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MatchmakingTicket where
+module Network.AWS.GameLift.Types.MatchmakingTicket
+  ( MatchmakingTicket (..),
+
+    -- * Smart constructor
+    mkMatchmakingTicket,
+
+    -- * Lenses
+    mtStatus,
+    mtConfigurationName,
+    mtStartTime,
+    mtGameSessionConnectionInfo,
+    mtTicketId,
+    mtEstimatedWaitTime,
+    mtStatusMessage,
+    mtEndTime,
+    mtConfigurationARN,
+    mtStatusReason,
+    mtPlayers,
+  )
+where
 
 import Network.AWS.GameLift.Types.GameSessionConnectionInfo
 import Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
 import Network.AWS.GameLift.Types.Player
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ticket generated to track the progress of a matchmaking request. Each ticket is uniquely identified by a ticket ID, supplied by the requester, when creating a matchmaking request with 'StartMatchmaking' . Tickets can be retrieved by calling 'DescribeMatchmaking' with the ticket ID.
 --
---
---
--- /See:/ 'matchmakingTicket' smart constructor.
+-- /See:/ 'mkMatchmakingTicket' smart constructor.
 data MatchmakingTicket = MatchmakingTicket'
-  { _mtStatus ::
-      !(Maybe MatchmakingConfigurationStatus),
-    _mtConfigurationName :: !(Maybe Text),
-    _mtStartTime :: !(Maybe POSIX),
-    _mtGameSessionConnectionInfo ::
-      !(Maybe GameSessionConnectionInfo),
-    _mtTicketId :: !(Maybe Text),
-    _mtEstimatedWaitTime :: !(Maybe Nat),
-    _mtStatusMessage :: !(Maybe Text),
-    _mtEndTime :: !(Maybe POSIX),
-    _mtConfigurationARN :: !(Maybe Text),
-    _mtStatusReason :: !(Maybe Text),
-    _mtPlayers :: !(Maybe [Player])
+  { status ::
+      Lude.Maybe MatchmakingConfigurationStatus,
+    configurationName :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    gameSessionConnectionInfo ::
+      Lude.Maybe GameSessionConnectionInfo,
+    ticketId :: Lude.Maybe Lude.Text,
+    estimatedWaitTime :: Lude.Maybe Lude.Natural,
+    statusMessage :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    configurationARN :: Lude.Maybe Lude.Text,
+    statusReason :: Lude.Maybe Lude.Text,
+    players :: Lude.Maybe [Player]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MatchmakingTicket' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configurationARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking configuration resource that is used with this ticket.
+-- * 'configurationName' - Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
+-- * 'endTime' - Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'estimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
+-- * 'gameSessionConnectionInfo' - Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed. This parameter is not set when FlexMatch is being used without GameLift hosting.
+-- * 'players' - A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
+-- * 'startTime' - Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'status' - Current status of the matchmaking request.
 --
--- * 'mtStatus' - Current status of the matchmaking request.     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ -- The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ -- The matchmaking request was not completed.     * __CANCELLED__ -- The matchmaking request was canceled. This may be the result of a call to 'StopMatchmaking' or a proposed match that one or more players failed to accept.     * __TIMED_OUT__ -- The matchmaking request was not successful within the duration specified in the matchmaking configuration.
 --
--- * 'mtConfigurationName' - Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
+--     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.
 --
--- * 'mtStartTime' - Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'mtGameSessionConnectionInfo' - Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed. This parameter is not set when FlexMatch is being used without GameLift hosting.
+--     * __SEARCHING__ -- The matchmaking request is currently being processed.
 --
--- * 'mtTicketId' - A unique identifier for a matchmaking ticket.
 --
--- * 'mtEstimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
+--     * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.
 --
--- * 'mtStatusMessage' - Additional information about the current status.
 --
--- * 'mtEndTime' - Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.
 --
--- * 'mtConfigurationARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking configuration resource that is used with this ticket.
 --
--- * 'mtStatusReason' - Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
+--     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.
 --
--- * 'mtPlayers' - A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
-matchmakingTicket ::
+--
+--     * __FAILED__ -- The matchmaking request was not completed.
+--
+--
+--     * __CANCELLED__ -- The matchmaking request was canceled. This may be the result of a call to 'StopMatchmaking' or a proposed match that one or more players failed to accept.
+--
+--
+--     * __TIMED_OUT__ -- The matchmaking request was not successful within the duration specified in the matchmaking configuration.
+--
+--
+-- * 'statusMessage' - Additional information about the current status.
+-- * 'statusReason' - Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
+-- * 'ticketId' - A unique identifier for a matchmaking ticket.
+mkMatchmakingTicket ::
   MatchmakingTicket
-matchmakingTicket =
+mkMatchmakingTicket =
   MatchmakingTicket'
-    { _mtStatus = Nothing,
-      _mtConfigurationName = Nothing,
-      _mtStartTime = Nothing,
-      _mtGameSessionConnectionInfo = Nothing,
-      _mtTicketId = Nothing,
-      _mtEstimatedWaitTime = Nothing,
-      _mtStatusMessage = Nothing,
-      _mtEndTime = Nothing,
-      _mtConfigurationARN = Nothing,
-      _mtStatusReason = Nothing,
-      _mtPlayers = Nothing
+    { status = Lude.Nothing,
+      configurationName = Lude.Nothing,
+      startTime = Lude.Nothing,
+      gameSessionConnectionInfo = Lude.Nothing,
+      ticketId = Lude.Nothing,
+      estimatedWaitTime = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      endTime = Lude.Nothing,
+      configurationARN = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      players = Lude.Nothing
     }
 
--- | Current status of the matchmaking request.     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ -- The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ -- The matchmaking request was not completed.     * __CANCELLED__ -- The matchmaking request was canceled. This may be the result of a call to 'StopMatchmaking' or a proposed match that one or more players failed to accept.     * __TIMED_OUT__ -- The matchmaking request was not successful within the duration specified in the matchmaking configuration.
-mtStatus :: Lens' MatchmakingTicket (Maybe MatchmakingConfigurationStatus)
-mtStatus = lens _mtStatus (\s a -> s {_mtStatus = a})
+-- | Current status of the matchmaking request.
+--
+--
+--     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.
+--
+--
+--     * __SEARCHING__ -- The matchmaking request is currently being processed.
+--
+--
+--     * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.
+--
+--
+--     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.
+--
+--
+--     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.
+--
+--
+--     * __FAILED__ -- The matchmaking request was not completed.
+--
+--
+--     * __CANCELLED__ -- The matchmaking request was canceled. This may be the result of a call to 'StopMatchmaking' or a proposed match that one or more players failed to accept.
+--
+--
+--     * __TIMED_OUT__ -- The matchmaking request was not successful within the duration specified in the matchmaking configuration.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtStatus :: Lens.Lens' MatchmakingTicket (Lude.Maybe MatchmakingConfigurationStatus)
+mtStatus = Lens.lens (status :: MatchmakingTicket -> Lude.Maybe MatchmakingConfigurationStatus) (\s a -> s {status = a} :: MatchmakingTicket)
+{-# DEPRECATED mtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
-mtConfigurationName :: Lens' MatchmakingTicket (Maybe Text)
-mtConfigurationName = lens _mtConfigurationName (\s a -> s {_mtConfigurationName = a})
+--
+-- /Note:/ Consider using 'configurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtConfigurationName :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Text)
+mtConfigurationName = Lens.lens (configurationName :: MatchmakingTicket -> Lude.Maybe Lude.Text) (\s a -> s {configurationName = a} :: MatchmakingTicket)
+{-# DEPRECATED mtConfigurationName "Use generic-lens or generic-optics with 'configurationName' instead." #-}
 
 -- | Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-mtStartTime :: Lens' MatchmakingTicket (Maybe UTCTime)
-mtStartTime = lens _mtStartTime (\s a -> s {_mtStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtStartTime :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Timestamp)
+mtStartTime = Lens.lens (startTime :: MatchmakingTicket -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: MatchmakingTicket)
+{-# DEPRECATED mtStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed. This parameter is not set when FlexMatch is being used without GameLift hosting.
-mtGameSessionConnectionInfo :: Lens' MatchmakingTicket (Maybe GameSessionConnectionInfo)
-mtGameSessionConnectionInfo = lens _mtGameSessionConnectionInfo (\s a -> s {_mtGameSessionConnectionInfo = a})
+--
+-- /Note:/ Consider using 'gameSessionConnectionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtGameSessionConnectionInfo :: Lens.Lens' MatchmakingTicket (Lude.Maybe GameSessionConnectionInfo)
+mtGameSessionConnectionInfo = Lens.lens (gameSessionConnectionInfo :: MatchmakingTicket -> Lude.Maybe GameSessionConnectionInfo) (\s a -> s {gameSessionConnectionInfo = a} :: MatchmakingTicket)
+{-# DEPRECATED mtGameSessionConnectionInfo "Use generic-lens or generic-optics with 'gameSessionConnectionInfo' instead." #-}
 
 -- | A unique identifier for a matchmaking ticket.
-mtTicketId :: Lens' MatchmakingTicket (Maybe Text)
-mtTicketId = lens _mtTicketId (\s a -> s {_mtTicketId = a})
+--
+-- /Note:/ Consider using 'ticketId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtTicketId :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Text)
+mtTicketId = Lens.lens (ticketId :: MatchmakingTicket -> Lude.Maybe Lude.Text) (\s a -> s {ticketId = a} :: MatchmakingTicket)
+{-# DEPRECATED mtTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
 
 -- | Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
-mtEstimatedWaitTime :: Lens' MatchmakingTicket (Maybe Natural)
-mtEstimatedWaitTime = lens _mtEstimatedWaitTime (\s a -> s {_mtEstimatedWaitTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'estimatedWaitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtEstimatedWaitTime :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Natural)
+mtEstimatedWaitTime = Lens.lens (estimatedWaitTime :: MatchmakingTicket -> Lude.Maybe Lude.Natural) (\s a -> s {estimatedWaitTime = a} :: MatchmakingTicket)
+{-# DEPRECATED mtEstimatedWaitTime "Use generic-lens or generic-optics with 'estimatedWaitTime' instead." #-}
 
 -- | Additional information about the current status.
-mtStatusMessage :: Lens' MatchmakingTicket (Maybe Text)
-mtStatusMessage = lens _mtStatusMessage (\s a -> s {_mtStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtStatusMessage :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Text)
+mtStatusMessage = Lens.lens (statusMessage :: MatchmakingTicket -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: MatchmakingTicket)
+{-# DEPRECATED mtStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-mtEndTime :: Lens' MatchmakingTicket (Maybe UTCTime)
-mtEndTime = lens _mtEndTime (\s a -> s {_mtEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtEndTime :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Timestamp)
+mtEndTime = Lens.lens (endTime :: MatchmakingTicket -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: MatchmakingTicket)
+{-# DEPRECATED mtEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking configuration resource that is used with this ticket.
-mtConfigurationARN :: Lens' MatchmakingTicket (Maybe Text)
-mtConfigurationARN = lens _mtConfigurationARN (\s a -> s {_mtConfigurationARN = a})
+--
+-- /Note:/ Consider using 'configurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtConfigurationARN :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Text)
+mtConfigurationARN = Lens.lens (configurationARN :: MatchmakingTicket -> Lude.Maybe Lude.Text) (\s a -> s {configurationARN = a} :: MatchmakingTicket)
+{-# DEPRECATED mtConfigurationARN "Use generic-lens or generic-optics with 'configurationARN' instead." #-}
 
 -- | Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
-mtStatusReason :: Lens' MatchmakingTicket (Maybe Text)
-mtStatusReason = lens _mtStatusReason (\s a -> s {_mtStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtStatusReason :: Lens.Lens' MatchmakingTicket (Lude.Maybe Lude.Text)
+mtStatusReason = Lens.lens (statusReason :: MatchmakingTicket -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: MatchmakingTicket)
+{-# DEPRECATED mtStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
-mtPlayers :: Lens' MatchmakingTicket [Player]
-mtPlayers = lens _mtPlayers (\s a -> s {_mtPlayers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'players' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtPlayers :: Lens.Lens' MatchmakingTicket (Lude.Maybe [Player])
+mtPlayers = Lens.lens (players :: MatchmakingTicket -> Lude.Maybe [Player]) (\s a -> s {players = a} :: MatchmakingTicket)
+{-# DEPRECATED mtPlayers "Use generic-lens or generic-optics with 'players' instead." #-}
 
-instance FromJSON MatchmakingTicket where
+instance Lude.FromJSON MatchmakingTicket where
   parseJSON =
-    withObject
+    Lude.withObject
       "MatchmakingTicket"
       ( \x ->
           MatchmakingTicket'
-            <$> (x .:? "Status")
-            <*> (x .:? "ConfigurationName")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "GameSessionConnectionInfo")
-            <*> (x .:? "TicketId")
-            <*> (x .:? "EstimatedWaitTime")
-            <*> (x .:? "StatusMessage")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "ConfigurationArn")
-            <*> (x .:? "StatusReason")
-            <*> (x .:? "Players" .!= mempty)
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ConfigurationName")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "GameSessionConnectionInfo")
+            Lude.<*> (x Lude..:? "TicketId")
+            Lude.<*> (x Lude..:? "EstimatedWaitTime")
+            Lude.<*> (x Lude..:? "StatusMessage")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "ConfigurationArn")
+            Lude.<*> (x Lude..:? "StatusReason")
+            Lude.<*> (x Lude..:? "Players" Lude..!= Lude.mempty)
       )
-
-instance Hashable MatchmakingTicket
-
-instance NFData MatchmakingTicket

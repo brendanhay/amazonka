@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default 'GatewayResponses' collection for the supported response types.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetGatewayResponses
-  ( -- * Creating a Request
-    getGatewayResponses,
-    GetGatewayResponses,
+  ( -- * Creating a request
+    GetGatewayResponses (..),
+    mkGetGatewayResponses,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggrLimit,
     ggrPosition,
     ggrRestAPIId,
 
-    -- * Destructuring the Response
-    getGatewayResponsesResponse,
-    GetGatewayResponsesResponse,
+    -- * Destructuring the response
+    GetGatewayResponsesResponse (..),
+    mkGetGatewayResponsesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggrrsItems,
     ggrrsPosition,
     ggrrsResponseStatus,
@@ -44,146 +37,164 @@ module Network.AWS.APIGateway.GetGatewayResponses
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default 'GatewayResponses' collection for the supported response types.
 --
---
---
--- /See:/ 'getGatewayResponses' smart constructor.
+-- /See:/ 'mkGetGatewayResponses' smart constructor.
 data GetGatewayResponses = GetGatewayResponses'
-  { _ggrLimit ::
-      !(Maybe Int),
-    _ggrPosition :: !(Maybe Text),
-    _ggrRestAPIId :: !Text
+  { limit ::
+      Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayResponses' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
---
--- * 'ggrPosition' - The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
---
--- * 'ggrRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getGatewayResponses ::
-  -- | 'ggrRestAPIId'
-  Text ->
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
+-- * 'position' - The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetGatewayResponses ::
+  -- | 'restAPIId'
+  Lude.Text ->
   GetGatewayResponses
-getGatewayResponses pRestAPIId_ =
+mkGetGatewayResponses pRestAPIId_ =
   GetGatewayResponses'
-    { _ggrLimit = Nothing,
-      _ggrPosition = Nothing,
-      _ggrRestAPIId = pRestAPIId_
+    { limit = Lude.Nothing,
+      position = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
-ggrLimit :: Lens' GetGatewayResponses (Maybe Int)
-ggrLimit = lens _ggrLimit (\s a -> s {_ggrLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrLimit :: Lens.Lens' GetGatewayResponses (Lude.Maybe Lude.Int)
+ggrLimit = Lens.lens (limit :: GetGatewayResponses -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetGatewayResponses)
+{-# DEPRECATED ggrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
-ggrPosition :: Lens' GetGatewayResponses (Maybe Text)
-ggrPosition = lens _ggrPosition (\s a -> s {_ggrPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrPosition :: Lens.Lens' GetGatewayResponses (Lude.Maybe Lude.Text)
+ggrPosition = Lens.lens (position :: GetGatewayResponses -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetGatewayResponses)
+{-# DEPRECATED ggrPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-ggrRestAPIId :: Lens' GetGatewayResponses Text
-ggrRestAPIId = lens _ggrRestAPIId (\s a -> s {_ggrRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrRestAPIId :: Lens.Lens' GetGatewayResponses Lude.Text
+ggrRestAPIId = Lens.lens (restAPIId :: GetGatewayResponses -> Lude.Text) (\s a -> s {restAPIId = a} :: GetGatewayResponses)
+{-# DEPRECATED ggrRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSPager GetGatewayResponses where
+instance Page.AWSPager GetGatewayResponses where
   page rq rs
-    | stop (rs ^. ggrrsPosition) = Nothing
-    | stop (rs ^. ggrrsItems) = Nothing
-    | otherwise = Just $ rq & ggrPosition .~ rs ^. ggrrsPosition
+    | Page.stop (rs Lens.^. ggrrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. ggrrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ggrPosition Lens..~ rs Lens.^. ggrrsPosition
 
-instance AWSRequest GetGatewayResponses where
+instance Lude.AWSRequest GetGatewayResponses where
   type Rs GetGatewayResponses = GetGatewayResponsesResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGatewayResponsesResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGatewayResponses
-
-instance NFData GetGatewayResponses
-
-instance ToHeaders GetGatewayResponses where
+instance Lude.ToHeaders GetGatewayResponses where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetGatewayResponses where
+instance Lude.ToPath GetGatewayResponses where
   toPath GetGatewayResponses' {..} =
-    mconcat ["/restapis/", toBS _ggrRestAPIId, "/gatewayresponses"]
+    Lude.mconcat
+      ["/restapis/", Lude.toBS restAPIId, "/gatewayresponses"]
 
-instance ToQuery GetGatewayResponses where
+instance Lude.ToQuery GetGatewayResponses where
   toQuery GetGatewayResponses' {..} =
-    mconcat ["limit" =: _ggrLimit, "position" =: _ggrPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | The collection of the 'GatewayResponse' instances of a 'RestApi' as a @responseType@ -to-'GatewayResponse' object map of key-value pairs. As such, pagination is not supported for querying this collection.
---
 --
 -- For more information about valid gateway response types, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html Gateway Response Types Supported by API Gateway> __Example: Get the collection of gateway responses of an API__
 -- __Request__
 -- This example request shows how to retrieve the 'GatewayResponses' collection from an API.
---
 -- @@GET /restapis/o81lxisefl/gatewayresponses HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T220604Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=59b42fe54a76a5de8adf2c67baa6d39206f8e9ad49a1d77ccc6a5da3103a398a Cache-Control: no-cache Postman-Token: 5637af27-dc29-fc5c-9dfe-0645d52cb515 @ @
---
 -- __Response__
 -- The successful operation returns the @200 OK@ status code and a payload similar to the following:
---
 -- @@{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "first": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "gatewayresponse:by-type": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "item": [ { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } ] }, "_embedded": { "item": [ { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_FAILURE", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "RESOURCE_NOT_FOUND", "statusCode": "404" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "REQUEST_TOO_LARGE", "statusCode": "413" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "THROTTLED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNSUPPORTED_MEDIA_TYPE", "statusCode": "415" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_5XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_4XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_PARAMETERS", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_BODY", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "EXPIRED_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "ACCESS_DENIED", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_API_KEY", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNAUTHORIZED", "statusCode": "401" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "API_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "QUOTA_EXCEEDED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_TIMEOUT", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_SIGNATURE", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_FAILURE", "statusCode": "500" } ] } }@ @
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html Customize Gateway Responses>
 --
--- /See:/ 'getGatewayResponsesResponse' smart constructor.
+-- /See:/ 'mkGetGatewayResponsesResponse' smart constructor.
 data GetGatewayResponsesResponse = GetGatewayResponsesResponse'
-  { _ggrrsItems ::
-      !(Maybe [GatewayResponse]),
-    _ggrrsPosition :: !(Maybe Text),
-    _ggrrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [GatewayResponse],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayResponsesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrrsItems' - Returns the entire collection, because of no pagination support.
---
--- * 'ggrrsPosition' - Undocumented member.
---
--- * 'ggrrsResponseStatus' - -- | The response status code.
-getGatewayResponsesResponse ::
-  -- | 'ggrrsResponseStatus'
-  Int ->
+-- * 'items' - Returns the entire collection, because of no pagination support.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetGatewayResponsesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGatewayResponsesResponse
-getGatewayResponsesResponse pResponseStatus_ =
+mkGetGatewayResponsesResponse pResponseStatus_ =
   GetGatewayResponsesResponse'
-    { _ggrrsItems = Nothing,
-      _ggrrsPosition = Nothing,
-      _ggrrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns the entire collection, because of no pagination support.
-ggrrsItems :: Lens' GetGatewayResponsesResponse [GatewayResponse]
-ggrrsItems = lens _ggrrsItems (\s a -> s {_ggrrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrrsItems :: Lens.Lens' GetGatewayResponsesResponse (Lude.Maybe [GatewayResponse])
+ggrrsItems = Lens.lens (items :: GetGatewayResponsesResponse -> Lude.Maybe [GatewayResponse]) (\s a -> s {items = a} :: GetGatewayResponsesResponse)
+{-# DEPRECATED ggrrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-ggrrsPosition :: Lens' GetGatewayResponsesResponse (Maybe Text)
-ggrrsPosition = lens _ggrrsPosition (\s a -> s {_ggrrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrrsPosition :: Lens.Lens' GetGatewayResponsesResponse (Lude.Maybe Lude.Text)
+ggrrsPosition = Lens.lens (position :: GetGatewayResponsesResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetGatewayResponsesResponse)
+{-# DEPRECATED ggrrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-ggrrsResponseStatus :: Lens' GetGatewayResponsesResponse Int
-ggrrsResponseStatus = lens _ggrrsResponseStatus (\s a -> s {_ggrrsResponseStatus = a})
-
-instance NFData GetGatewayResponsesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrrsResponseStatus :: Lens.Lens' GetGatewayResponsesResponse Lude.Int
+ggrrsResponseStatus = Lens.lens (responseStatus :: GetGatewayResponsesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGatewayResponsesResponse)
+{-# DEPRECATED ggrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

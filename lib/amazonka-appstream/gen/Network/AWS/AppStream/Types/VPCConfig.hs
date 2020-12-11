@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.VPCConfig where
+module Network.AWS.AppStream.Types.VPCConfig
+  ( VPCConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVPCConfig,
+
+    -- * Lenses
+    vcSecurityGroupIds,
+    vcSubnetIds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes VPC configuration information for fleets and image builders.
 --
---
---
--- /See:/ 'vpcConfig' smart constructor.
+-- /See:/ 'mkVPCConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { _vcSecurityGroupIds :: !(Maybe [Text]),
-    _vcSubnetIds :: !(Maybe [Text])
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    subnetIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vcSecurityGroupIds' - The identifiers of the security groups for the fleet or image builder.
---
--- * 'vcSubnetIds' - The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
-vpcConfig ::
+-- * 'securityGroupIds' - The identifiers of the security groups for the fleet or image builder.
+-- * 'subnetIds' - The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+mkVPCConfig ::
   VPCConfig
-vpcConfig =
-  VPCConfig' {_vcSecurityGroupIds = Nothing, _vcSubnetIds = Nothing}
+mkVPCConfig =
+  VPCConfig'
+    { securityGroupIds = Lude.Nothing,
+      subnetIds = Lude.Nothing
+    }
 
 -- | The identifiers of the security groups for the fleet or image builder.
-vcSecurityGroupIds :: Lens' VPCConfig [Text]
-vcSecurityGroupIds = lens _vcSecurityGroupIds (\s a -> s {_vcSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcSecurityGroupIds :: Lens.Lens' VPCConfig (Lude.Maybe [Lude.Text])
+vcSecurityGroupIds = Lens.lens (securityGroupIds :: VPCConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: VPCConfig)
+{-# DEPRECATED vcSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
-vcSubnetIds :: Lens' VPCConfig [Text]
-vcSubnetIds = lens _vcSubnetIds (\s a -> s {_vcSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcSubnetIds :: Lens.Lens' VPCConfig (Lude.Maybe [Lude.Text])
+vcSubnetIds = Lens.lens (subnetIds :: VPCConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: VPCConfig)
+{-# DEPRECATED vcSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance FromJSON VPCConfig where
+instance Lude.FromJSON VPCConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "VPCConfig"
       ( \x ->
           VPCConfig'
-            <$> (x .:? "SecurityGroupIds" .!= mempty)
-            <*> (x .:? "SubnetIds" .!= mempty)
+            Lude.<$> (x Lude..:? "SecurityGroupIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
       )
 
-instance Hashable VPCConfig
-
-instance NFData VPCConfig
-
-instance ToJSON VPCConfig where
+instance Lude.ToJSON VPCConfig where
   toJSON VPCConfig' {..} =
-    object
-      ( catMaybes
-          [ ("SecurityGroupIds" .=) <$> _vcSecurityGroupIds,
-            ("SubnetIds" .=) <$> _vcSubnetIds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
+            ("SubnetIds" Lude..=) Lude.<$> subnetIds
           ]
       )
